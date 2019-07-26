@@ -1,0 +1,7 @@
+NEEDLIBS = zero jdk0
+
+SUBDIRS = AI AI/Models AI/util
+
+LIBNAME = init2
+NUMBERENV = int
+
