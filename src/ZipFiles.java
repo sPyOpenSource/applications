@@ -1,13 +1,12 @@
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.util.zip.ZipOutputStream;
 
 public class ZipFiles {
-
 	public static void main(String[] args) {
-
+System.out.println("hello world");
+ZipFiles zip = new ZipFiles();
 		/*try {
                     try (FileOutputStream fos = new FileOutputStream("uncompressed-test.zip"); ZipOutputStream zos = new ZipOutputStream(fos)) {
                         
@@ -80,5 +79,4 @@ public class ZipFiles {
             zos.write(data, 0, data.length);
             zos.closeEntry();
 	}
-
 }

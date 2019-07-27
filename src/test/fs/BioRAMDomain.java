@@ -3,6 +3,7 @@ package test.fs;
 import jx.zero.*;
 import jx.zero.debug.*;
 import bioram.BlockIORAM;
+import jx.init.InitNaming;
 import jx.zero.debug.DebugPrintStream;
 import jx.zero.debug.DebugOutputStream;
 
@@ -27,9 +28,9 @@ public class BioRAMDomain {
 	new BioRAMDomain(naming, bioName);
     }
     BioRAMDomain(final Naming naming, String name) {
-	this.naming = naming;	    
-	final BlockIORAM bio = new BlockIORAM(20 *  1024);
-	naming.registerPortal(bio, name);
-	Debug.out.println("Block I/O device registered as "+name);
+	this.naming = naming;	
+	final BlockIORAM bio = new BlockIORAM(20 * 1024);
+	InitNaming.registerPortal(bio, name);
+	Debug.out.println("Block I/O device registered as " + name);
     }
 }

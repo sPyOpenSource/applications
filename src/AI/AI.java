@@ -50,9 +50,12 @@ public final class AI
 	//System.err = System.out;
 	 
 	Debug.out.println("Init running...");
-       
-	main(new String[] {"boot.rc"});
-
+        //PCIGod.main(new String[]{});
+        //StartTimer.main(new String[]{"TimerManager"});
+        main(new String[] {"boot.rc"});
+        bioide.Main.main(new String[]{"TimerManager", "BIOFS_RW", "0", "0"});
+        test.fs.BioRAMDomain.main(new String[]{"BIOFS"});
+	
         AI instance = new AI();
         instance.start();
      }
