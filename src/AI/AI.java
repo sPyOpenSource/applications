@@ -1,9 +1,15 @@
 package AI;
 
+import jx.devices.pci.PCIGod;
 import static jx.init.Main.main;
+import jx.netmanager.NetInit;
 import jx.zero.Debug;
+import jx.zero.InitialNaming;
 import jx.zero.Naming;
 import jx.zero.debug.DebugChannel;
+import test.fs.BioRAMDomain;
+import test.fs.FSDomain;
+import timerpc.StartTimer;
 
 /**
  * This is a class initialize an artificial intelligence service.
@@ -50,12 +56,13 @@ public final class AI
 	//System.err = System.out;
 	 
 	Debug.out.println("Init running...");
-        //PCIGod.main(new String[]{});
-        //StartTimer.main(new String[]{"TimerManager"});
+        PCIGod.main(new String[]{});
+        StartTimer.main(new String[]{"TimerManager"});
         main(new String[] {"boot.rc"});
         bioide.Main.main(new String[]{"TimerManager", "BIOFS_RW", "0", "0"});
-        test.fs.BioRAMDomain.main(new String[]{"BIOFS"});
-	
+        BioRAMDomain.main(new String[]{"BIOFS"});
+        NetInit.init(InitialNaming.getInitialNaming(), new String[]{"NIC", "eth0", "8:0:6:28:63:40"});
+	//FSDomain.main(new String[]{"BIOFS", "FS"});
         AI instance = new AI();
         instance.start();
      }

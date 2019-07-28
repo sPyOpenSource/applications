@@ -19,12 +19,12 @@ public class FSDomain {
 	cpuManager.setThreadName("FSDomain-Main");
 	BlockIO bio = (BlockIO)LookupHelper.waitUntilPortalAvailable(naming, args[0]);
 
-	if (args.length>2 && args[2].equals("-format")) {
-            new FSDomain(naming,bio,args[1], true);
-	} else if (args.length>2 && args[2].equals("-noformat")) {
-	    new FSDomain(naming,bio,args[1], false);
+	if (args.length > 2 && args[2].equals("-format")) {
+            new FSDomain(naming, bio, args[1], true);
+	} else if (args.length > 2 && args[2].equals("-noformat")) {
+	    new FSDomain(naming, bio, args[1], false);
 	} else {
-            new FSDomain(naming,bio,args[1], false);
+            new FSDomain(naming, bio, args[1], false);
 	}
     }
 
@@ -40,8 +40,9 @@ public class FSDomain {
 	    final FSImpl fs = new FSImpl();
 	    final javafs.FileSystem jfs = new javafs.FileSystem();
 	    Clock clock = new DummyClock();
+            Debug.out.println("start");
 	    jfs.init(bio, new buffercache.BufferCache(bio, clock, 800, 1000, 100, EXT2FS_BLOCKSIZE), clock);
-
+Debug.out.println("end");
 	    Debug.out.println("Capacity: " + bio.getCapacity());
 
 	    if (format) {
@@ -53,15 +54,13 @@ public class FSDomain {
 	    fs.mountRoot(jfs, false /* read-only = false*/);
 
 	    if (format) {
-		fs.mkdir("lost+found", InodeImpl.S_IWUSR|InodeImpl.S_IRUGO|InodeImpl.S_IXUGO);
+		fs.mkdir("lost+found", InodeImpl.S_IWUSR | InodeImpl.S_IRUGO | InodeImpl.S_IXUGO);
 	    }
 
 	    naming.registerPortal(fs, fsname);
 	    naming.registerPortal(jfs, "JavaFS");
-
 	} catch(FSException e) {
-	    Debug.out.println("EXCEPTION: "+e);
-	    //e.printStackTrace();
+	    Debug.out.println("EXCEPTION: " + e);
 	    throw new Error();
 	}
     }

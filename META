@@ -1,6 +1,6 @@
 NEEDLIBS = zero jdk0
 
-SUBDIRS = AI bioide test/fs vfs jx jx/devices jx/vis jx/wm
+SUBDIRS = AI bioide test/fs vfs jx jx/devices jx/vis jx/wm org/jnode/driver/net/lance jx/net/devices/lance
 
 LIBNAME = init2
 NUMBERENV = int

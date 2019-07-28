@@ -22,7 +22,7 @@ public class FSImpl implements FS, Service {
 
 
     public FSImpl() {
-	cwdPath = new String("/");
+	cwdPath = "/";
 	mountpoints = new Hashtable();
 	direntrycache = DirEntryCache.instance();
 	rootInode = null;
