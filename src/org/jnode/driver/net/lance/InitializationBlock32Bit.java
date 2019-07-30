@@ -33,36 +33,37 @@ public class InitializationBlock32Bit {
     public static final int INIT_BLOCK_SIZE = 0x1C;
 
     private Memory mem;
-    private int offset;
 
-    public InitializationBlock32Bit(Memory mem, int offset, short mode,
-            EthernetAdress physicalAddr, RxDescriptorRing rxRing, int i, 
-            TxDescriptorRing txRing, long logicalAddr1) {
+    public InitializationBlock32Bit(Memory mem, short mode,
+            EthernetAdress physicalAddr, RxDescriptorRing rxRing, 
+            TxDescriptorRing txRing, long logicalAddr) {
 
         this.mem = mem;
-        this.offset = offset;
-        Debug.out.println(i);
-        int logicalAddr = 0;
         // Populate the initial data structure
-        mem.set16(offset + 0x00, mode);
-        mem.set8(offset + 0x02, getEncodedRingLength(rxRing.getLength()));
-        mem.set8(offset + 0x03, getEncodedRingLength(txRing.getLength()));
-        mem.set8(offset + 0x04, physicalAddr.get(0));
-        mem.set8(offset + 0x05, physicalAddr.get(1));
-        mem.set8(offset + 0x06, physicalAddr.get(2));
-        mem.set8(offset + 0x07, physicalAddr.get(3));
-        mem.set8(offset + 0x08, physicalAddr.get(4));
-        mem.set8(offset + 0x09, physicalAddr.get(5));
-        mem.set32(offset + 0x0C, (int) (logicalAddr & 0xFFFFFFFF));
-        mem.set32(offset + 0x10, (int) ((logicalAddr >> 32) & 0xFFFFFFFF));
-        mem.set32(offset + 0x14, rxRing.getAddressAs32());
-        mem.set32(offset + 0x18, txRing.getAddressAs32());
+        mem.set16(0x00, (short)0);
+        mem.set8(0x02, getEncodedRingLength(rxRing.getLength()));
+        mem.set8(0x03, getEncodedRingLength(txRing.getLength()));
+        mem.set8(0x04, physicalAddr.get(0));
+        mem.set8(0x05, physicalAddr.get(1));
+        mem.set8(0x06, physicalAddr.get(2));
+        mem.set8(0x07, physicalAddr.get(3));
+        mem.set8(0x08, physicalAddr.get(4));
+        mem.set8(0x09, physicalAddr.get(5));
+        mem.set32(0x0C >> 2, 0);//(logicalAddr & 0xFFFFFFFF));
+        mem.set32(0x10 >> 2, 0);//((logicalAddr >> 32) & 0xFFFFFFFF));
+        mem.set32(0x14 >> 2, rxRing.getAddressAs32());
+        mem.set32(0x18 >> 2, txRing.getAddressAs32());
+        Debug.out.println(rxRing.getAddressAs32());
+        Debug.out.println(txRing.getAddressAs32());
+        for(int i = 0; i < INIT_BLOCK_SIZE; i++){
+            Debug.out.println(mem.get8(i));
+        }
     }
 
     private byte getEncodedRingLength(int ringLength) {
         byte encoded = 0;
         while (ringLength != 1) {
-            ringLength = ringLength >> 1;
+            ringLength >>= 1;
             encoded += 1;
         }
         return (byte) (encoded << 4);

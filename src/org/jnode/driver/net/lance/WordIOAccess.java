@@ -31,30 +31,36 @@ public class WordIOAccess extends IOAccess implements LanceConstants {
         super(io, iobase);
     }
 
+    @Override
     public String getType() {
         return "Word";
     }
 
+    @Override
     public void reset() {
         // Read triggers a reset
         io.inw(iobase + WIO_RESET);
     }
 
+    @Override
     public int getCSR(int csrnr) {
         io.outw(iobase + WIO_RAP, (short) csrnr);
         return io.inw(iobase + WIO_RDP);
     }
 
+    @Override
     public void setCSR(int csrnr, int value) {
         io.outw(iobase + WIO_RAP, (short) csrnr);
         io.outw(iobase + WIO_RDP, (short) value);
     }
 
+    @Override
     public int getBCR(int bcrnr) {
         io.outw(iobase + WIO_RAP, (short) bcrnr);
         return io.inw(iobase + WIO_BDP);
     }
 
+    @Override
     public void setBCR(int bcrnr, int value) {
         io.outw(iobase + WIO_RAP, (short) bcrnr);
         io.outw(iobase + WIO_BDP, (short) value);

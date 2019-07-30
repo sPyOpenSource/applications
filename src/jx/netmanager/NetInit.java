@@ -60,7 +60,6 @@ public class NetInit implements jx.net.NetInit, Service {
 	ip = new IP((EtherProducer1)ether); // avoid splitting
 	udp = new UDP((IPProducer1)ip); //TODO: no need for transmitter
         tcp = new TCP((jx.net.IPProducer1)ip, this, timerManager);
-
 	// connect ARP with Ether
 	if (!ether.registerConsumer1(arp, "ARP")) {
 	    Debug.out.println("ARP: couldn't register at etherLayer!!");
@@ -80,13 +79,13 @@ public class NetInit implements jx.net.NetInit, Service {
 	    BOOTP bootp = new BOOTP(this, ether.getMacAddress());
 	    localAddress = bootp.sendRequest1();
 	}
-	Debug.out.println("IP address: "+localAddress.toString());
+	/*Debug.out.println("IP address: " + localAddress.toString());
 	ip.changeSourceAddress(localAddress);
 	
 	arp.register(ip);		    
 	ip.setAddressResolution(arp);		    
 	ether.registerConsumer(ip, "IP");
-	ether.registerConsumer(arp, "ARP");
+	ether.registerConsumer(arp, "ARP");*/
     }
 
     public jx.net.protocol.tcp.TCP getTCP() {
@@ -226,10 +225,10 @@ public class NetInit implements jx.net.NetInit, Service {
 	    for(int i = 0; i < bufs.length; i++) {
 		bufs[i] = memMgr.alloc(1514);
 	    }
-	    //netinstance = new jx.netmanager.NetInit(nic, timerManager, bufs);
-	    //naming.registerPortal(netinstance, args[0]);
+	    netinstance = new jx.netmanager.NetInit(nic, timerManager, bufs);
+	    naming.registerPortal(netinstance, args[0]);
 	} catch(Exception e) {
 	    throw new Error("Could not setup");
-	}	
+        }
     }
 }

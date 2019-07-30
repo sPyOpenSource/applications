@@ -40,9 +40,7 @@ public class FSDomain {
 	    final FSImpl fs = new FSImpl();
 	    final javafs.FileSystem jfs = new javafs.FileSystem();
 	    Clock clock = new DummyClock();
-            Debug.out.println("start");
 	    jfs.init(bio, new buffercache.BufferCache(bio, clock, 800, 1000, 100, EXT2FS_BLOCKSIZE), clock);
-Debug.out.println("end");
 	    Debug.out.println("Capacity: " + bio.getCapacity());
 
 	    if (format) {

@@ -8,7 +8,7 @@ import jx.net.IPAddress;
 import jx.net.NetInit;
 
 import jx.devices.net.*;
-import jx.init.InitNaming;
+import jx.InitNaming;
 
 
 public class StartNetworkProtocols {

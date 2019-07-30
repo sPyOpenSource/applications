@@ -20,6 +20,7 @@
  
 package org.jnode.driver.net.lance;
 
+import jx.zero.Debug;
 import jx.zero.Memory;
 
 /**
@@ -34,15 +35,20 @@ public class TxDescriptor extends Descriptor {
 
     public void transmit(Memory skbuf) {
         // fill the data buffer
-        //mem.setBytes(skbuf.toByteArray(), 0, dataBufferOffset, skbuf.getSize());
-        for(int i = 0; i < skbuf.size(); i++){
-            mem.set8(dataBufferOffset + i, skbuf.get8(i));
-        }
+        mem.copyFromMemory(skbuf, 0, dataBufferOffset, skbuf.size());
         setStatus((short) (STATUS_OWN | STATUS_STP | STATUS_ENP));
         setByteCount(skbuf.size());
+        //mem.set32((offset + 0x04) >> 2, 0x8300F000 | (-skbuf.size() & 0xFFF));
+        /*Debug.out.println(mem.get32(offset >> 2));
+        Debug.out.println(mem.get32((offset+0x04) >> 2));
+        Debug.out.println(mem.get32((offset+0x08) >> 2));
+        Debug.out.println(mem.get32((offset+0x0c) >> 2));*/
+        for(int i = 0; i < 40; i++){
+            Debug.out.println(mem.get8(i + offset));
+        }
     }
 
     private void setByteCount(int bcnt) {
-        mem.set16(offset + 0x04, (short) (-bcnt));
+        mem.set16((offset + 0x04) >> 1, (short) (-bcnt));
     }
 }

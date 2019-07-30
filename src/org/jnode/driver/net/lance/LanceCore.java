@@ -24,7 +24,6 @@ import jx.devices.pci.PCIDevice;
 import jx.zero.Debug;
 import jx.zero.FirstLevelIrqHandler;
 import jx.zero.IRQ;
-import jx.zero.InitialNaming;
 import jx.zero.Memory;
 import jx.zero.MemoryManager;
 import jx.zero.Ports;
@@ -49,7 +48,7 @@ import metaxa.os.devices.net.WrongEthernetAdressFormat;
  *
  * @author Chirs Cole
  */
-public class LanceCore implements FirstLevelIrqHandler, LanceConstants {
+public class LanceCore implements LanceConstants, FirstLevelIrqHandler {
 
     // This is the number of descriptors for the receive and transmit rings
     // Note: Valid numbers are 2^x where x is 0..8 (1, 2, 4, 8, 16, .., 512)
@@ -118,7 +117,7 @@ public class LanceCore implements FirstLevelIrqHandler, LanceConstants {
         }*/
 
         // Get the start of the IO address space
-        iobase = device.getBaseAddress(0) - 1;//addrs[0].getIOBase();
+        iobase = device.getBaseAddress(0) - 1;
         //final int iolength = addrs[0].getSize();
         //log.debug("Found Lance IOBase: 0x" + NumberUtils.hex(iobase) + ", length: " + iolength);
         //MemoryManager rm;
@@ -182,28 +181,31 @@ public class LanceCore implements FirstLevelIrqHandler, LanceConstants {
      * Initialize this device.
      */
     public void initialize() {
+        io.setBCR(20, 0x102);
+        
         // reset the chip
         io.reset();
 
         // Set the Software Style to mode 2 (PCnet-PCI)
         // Note: this may not be compatable with older lance controllers (non PCnet)
-        io.setBCR(20, 2);
-
+        
         // TODO the device should be setup based on the flags for the chip version
         // Auto select port
-        io.setBCR(2, BCR2_ASEL);
+        //io.setBCR(2, BCR2_ASEL);
         // Enable full duplex
-        io.setBCR(9, BCR9_FDEN);
-        io.setCSR(4, CSR4_DMAPLUS | CSR4_APAD_XMT);
-        io.setCSR(5, CSR5_LTINTEN | CSR5_SINTE | CSR5_SLPINTE | CSR5_EXDINTE | CSR5_MPINTE);
-
+        //io.setBCR(9, BCR9_FDEN);
+        //io.setCSR(4, CSR4_DMAPLUS | CSR4_APAD_XMT);
+        //io.setCSR(5, CSR5_LTINTEN | CSR5_SINTE | CSR5_SLPINTE | CSR5_EXDINTE | CSR5_MPINTE);
+        
         // Set the address of the Initialization Block
         final int iaddr = bufferManager.getInitDataAddressAs32Bit();
         io.setCSR(1, iaddr & 0xFFFF);
         io.setCSR(2, (iaddr >> 16) & 0xFFFF);
-
+        io.setCSR(0, 0x41);
+        io.setCSR(4, io.getCSR(4) | 0xC00);
         // Initialize the device with the Initialization Block and enable interrupts
-        io.setCSR(0, CSR0_INIT | CSR0_IENA);
+        //io.setCSR(0, CSR0_INIT | CSR0_IENA);
+        io.setCSR(0, 0x42);
     }
 
     /**
@@ -258,8 +260,6 @@ public class LanceCore implements FirstLevelIrqHandler, LanceConstants {
      * Transmit the given buffer
      *
      * @param buf
-     * @param destination
-     * @param timeout
      * @throws InterruptedException
      */
     public synchronized void transmit(Memory buf)
@@ -268,20 +268,38 @@ public class LanceCore implements FirstLevelIrqHandler, LanceConstants {
         hwAddress.writeTo(buf, 6);
 
         // debug dump for investigating VWWare 3 network problems
-        // dumpDebugInfo();
+        //dumpDebugInfo();
 
         // ask buffer manager to send out the data
         bufferManager.transmit(buf);
 
         // force the device to poll current transmit descriptor for new data
-        io.setCSR(0, io.getCSR(0) | CSR0_TDMD);
+        io.setCSR(0, 0x48);
+        //Debug.out.println(io.getCSR(0) | CSR0_TDMD);
+        //io.setCSR(0, io.getCSR(0) | CSR0_TDMD);
+        //dumpDebugInfo();
     }
 
     /**
-     * @param irq
      * @see org.jnode.system.resource.IRQHandler#handleInterrupt(int)
      */
-    public void handleInterrupt(int irq) {
+    @Override
+    public void interrupt() {
+        Debug.out.println("inter");
+        int temp = io.getCSR(0);
+        if((temp & 0x8000) == 0x8000) Debug.out.println("AMD am79c973 ERROR");
+        if((temp & 0x2000) == 0x2000) Debug.out.println("AMD am79c973 COLLISION ERROR");
+        if((temp & 0x1000) == 0x1000) Debug.out.println("AMD am79c973 MISSED FRAME");
+        if((temp & 0x0800) == 0x0800) Debug.out.println("AMD am79c973 MEMORY ERROR");
+        //if((temp & 0x0400) == 0x0400) Receive();
+        if((temp & 0x0200) == 0x0200) Debug.out.println("SENT");
+Debug.out.println(temp);
+        // acknoledge
+        io.setCSR(0, temp);
+        
+        if((temp & 0x0100) == 0x0100){
+            Debug.out.println("AMD am79c973 INIT DONE");
+        }/*
         while ((io.getCSR(0) & CSR0_INTR) != 0) {
             final int csr0 = io.getCSR(0);
             final int csr4 = io.getCSR(4);
@@ -310,7 +328,7 @@ public class LanceCore implements FirstLevelIrqHandler, LanceConstants {
 
             // check if interrupt is due to Receive Interrupt
             if ((csr0 & CSR0_RINT) != 0) {
-                //log.debug("Receive Interrupt");
+                Debug.out.println("Receive Interrupt");
                 rxProcess();
             }
 
@@ -388,8 +406,7 @@ public class LanceCore implements FirstLevelIrqHandler, LanceConstants {
             if ((csr5 & CSR5_MPINT) == CSR5_MPINT) {
                 //log.debug("Magic Packet Interrupt");
             }
-
-        }
+        }*/
     }
 
     private void rxProcess() {
@@ -422,14 +439,14 @@ public class LanceCore implements FirstLevelIrqHandler, LanceConstants {
 
     }*/
 
-    /*final void dumpDebugInfo() {
+    final void dumpDebugInfo() {
         //log.debug("Debug Dump");
         //log.debug("CSR0 = " + io.getCSR(0));
 
         // stop the device so we can read all registers
         io.setCSR(0, CSR0_STOP);
 
-        bufferManager.dumpData(log);
+        //bufferManager.dumpData(log);
 
         int validVMWareLanceRegs[] = {
             0, 1, 2, 3, 4, 5, 8, 9, 10, 11, 12, 13, 14, 15, 24, 25, 30, 31, 58, 76, 77, 80,
@@ -437,15 +454,10 @@ public class LanceCore implements FirstLevelIrqHandler, LanceConstants {
 
         for (int validVMWareLanceReg : validVMWareLanceRegs) {
             int csr_val = io.getCSR(validVMWareLanceReg);
-            log.debug("CSR" + validVMWareLanceReg + " : " + NumberUtils.hex(csr_val, 4));
+            Debug.out.println("CSR" + validVMWareLanceReg + " : " + csr_val);
         }
 
         // try to start again, not sure if this works?
         io.setCSR(0, CSR0_STRT);
-    }*/
-
-    @Override
-    public void interrupt() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

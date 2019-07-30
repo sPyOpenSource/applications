@@ -21,6 +21,7 @@
 package org.jnode.driver.net.lance;
 
 //import org.apache.log4j.Logger;
+import jx.zero.Debug;
 import jx.zero.Memory;
 
 /**
@@ -43,7 +44,7 @@ public class TxDescriptorRing extends DescriptorRing {
         super(mem, offset, length);
 
         txDescriptors = new TxDescriptor[length];
-
+Debug.out.println(BufferManager.DATA_BUFFER_SIZE);
         for (int i = 0; i < length; i++) {
             txDescriptors[i] =
                 new TxDescriptor(
@@ -51,7 +52,6 @@ public class TxDescriptorRing extends DescriptorRing {
                     offset + (i * Descriptor.MESSAGE_DESCRIPTOR_SIZE),
                     dataBufferOffset + (i * BufferManager.DATA_BUFFER_SIZE));
         }
-
     }
 
     public void transmit(Memory skbuf) {
@@ -61,9 +61,9 @@ public class TxDescriptorRing extends DescriptorRing {
             currentDescriptor += 1;
             if (currentDescriptor == length)
                 currentDescriptor = 0;
-            //log.info("Setup transmit descriptor with data of size " + skbuf.getSize());
+            Debug.out.println("Setup transmit descriptor with data of size " + skbuf.size());
         } else {
-            //log.error("Not owner of descriptor index " + currentDescriptor);
+            Debug.out.println("Not owner of descriptor index " + currentDescriptor);
         }
     }
 

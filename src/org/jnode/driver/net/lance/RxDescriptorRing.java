@@ -38,6 +38,7 @@ public class RxDescriptorRing extends DescriptorRing {
 
     public RxDescriptorRing(Memory mem, int offset, int length, int dataBufferOffset) {
         super(mem, offset, length);
+        Debug.out.println(BufferManager.DATA_BUFFER_SIZE);
         rxDescriptors = new RxDescriptor[length];
         for (int i = 0; i < length; i++) {
             rxDescriptors[i] = new RxDescriptor(

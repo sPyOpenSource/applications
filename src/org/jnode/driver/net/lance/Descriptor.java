@@ -21,6 +21,7 @@
 package org.jnode.driver.net.lance;
 
 //import org.apache.log4j.Logger;
+import jx.zero.Debug;
 import jx.zero.Memory;
 //import org.jnode.util.NumberUtils;
 
@@ -43,7 +44,7 @@ public class Descriptor {
 
     protected final int dataBufferOffset;
 
-    protected byte[] data;
+    //protected byte[] data;
 
     public Descriptor(Memory mem, int offset, int dataBufferOffset) {
 
@@ -51,37 +52,41 @@ public class Descriptor {
         this.offset = offset;
         this.dataBufferOffset = dataBufferOffset;
 
-        data = new byte[BufferManager.DATA_BUFFER_SIZE];
+        //data = new byte[BufferManager.DATA_BUFFER_SIZE];
 
         // final int buffAddress =
         // Address.as32bit(Address.addressOfArrayData(data));
         // Set the address
-        final int buffAddress = mem.getStartAddress()+ dataBufferOffset;
-        mem.set32(offset + 0x00, buffAddress);
-        mem.set16(offset + 0x04, (short) (-BufferManager.DATA_BUFFER_SIZE));
-        mem.set16(offset + STATUS, (short) 0);
-        mem.set32(offset + 0x08, 0);
-        mem.set32(offset + 0x0C, 0);
+        final int buffAddress = mem.getStartAddress() + dataBufferOffset;
+        Debug.out.println(buffAddress);
+        mem.set32((offset + 0x00) >> 2, buffAddress);
+        mem.set16((offset + 0x04) >> 1, (short) (-BufferManager.DATA_BUFFER_SIZE));
+        mem.set16((offset + STATUS) >> 1, (short) 0);
+        mem.set32((offset + 0x08) >> 2, 0);
+        mem.set32((offset + 0x0C) >> 2, 0);
+        /*for(int i = 0; i < 0x0c+4; i++){
+            Debug.out.println(mem.get8(offset + i));
+        }*/
     }
 
     public boolean isOwnerSelf() {
-        return ((STATUS_OWN & mem.get16(offset + STATUS)) == 0);
+        return ((STATUS_OWN & mem.get16((offset + STATUS) >> 1)) == 0);
     }
 
     public void setOwnerSelf(boolean self) {
         if (self) {
-            mem.set16(offset + STATUS, (short) (0x7FFF & mem.get16(offset + STATUS)));
+            mem.set16((offset + STATUS) >> 1, (short) (0x7FFF & mem.get16((offset + STATUS) >> 1)));
         } else {
-            mem.set16(offset + STATUS, (short) (STATUS_OWN | mem.get16(offset + STATUS)));
+            mem.set16((offset + STATUS) >> 1, (short) (STATUS_OWN | mem.get16((offset + STATUS) >> 1)));
         }
     }
 
     public short getStatus() {
-        return mem.get16(offset + STATUS);
+        return mem.get16((offset + STATUS) >> 1);
     }
 
     public void setStatus(short status) {
-        mem.set16(offset + STATUS, status);
+        mem.set16((offset + STATUS) >> 1, status);
     }
 
     /*public void dumpData(Logger out) {

@@ -5,7 +5,8 @@ import jx.devices.Device;
 import jx.zero.*;
 
 import jx.devices.pci.*;
-import jx.init.InitNaming;
+import jx.InitNaming;
+import metaxa.os.devices.net.AdapterLimits;
 import org.jnode.driver.net.lance.LanceDriver;
 import org.jnode.driver.net.lance.LanceFlags;
 
@@ -16,6 +17,7 @@ public class LanceFinder implements DeviceFinder {
     private Ports ports;
     private IRQ irq;
     private MemoryManager rm;
+    private CPUManager cpuManager;
 
 
     //@Override
@@ -24,6 +26,7 @@ public class LanceFinder implements DeviceFinder {
         this.ports = (Ports)naming.lookup("Ports");
 	this.irq = (IRQ)naming.lookup("IRQ");
         this.rm = (MemoryManager)naming.lookup("MemoryManager");
+        this.cpuManager = (CPUManager)naming.lookup("CPUManager");
 	Debug.out.println("lookup PCI Access Point...");
 	PCIAccess bus;
 	int counter = 0;
@@ -59,7 +62,11 @@ public class LanceFinder implements DeviceFinder {
                 switch (deviceID) {
                     case NIC_PCI_DEVICE_ID_Am79C970:
                         Debug.out.println("10/100 Base-TX NIC found");
-                        return new LanceDriver[]{new LanceDriver(devInfo1, new LanceFlags("test"), irq, ports, rm)};
+                        Memory [] bufs = new Memory[10];
+                        for(int j = 0; j < bufs.length; j++) {
+                            bufs[j] = rm.alloc(AdapterLimits.ETHERNET_MAXIMUM_FRAME_SIZE);
+                        }
+                        return new LanceDriver[]{new LanceDriver(devInfo1, new LanceFlags("test"), irq, ports, rm, cpuManager, bufs)};
                     default:
                         Debug.out.println("ERROR: Unsupported NIC found");
                 }

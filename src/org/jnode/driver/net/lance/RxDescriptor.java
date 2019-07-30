@@ -43,11 +43,11 @@ public class RxDescriptor extends Descriptor {
     }
 
     public void clearStatus() {
-        mem.set16(offset + STATUS, (short) STATUS_OWN);
+        mem.set16((offset + STATUS) >> 1, (short) STATUS_OWN);
     }
 
     public short getMessageByteCount() {
-        return mem.get16(offset + BCNT);
+        return mem.get16((offset + BCNT) >> 1);
     }
 
     public byte[] getDataBuffer() {

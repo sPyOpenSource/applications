@@ -1,22 +1,13 @@
 package jx.netmanager;
 
-import jx.buffer.separator.MemoryConsumer;
 import jx.zero.*;
-import jx.zero.debug.*;
-
-import jx.net.PacketsProducer;
 import jx.net.PacketsConsumer;
-import jx.net.AddressResolution;
-import jx.net.IPAddress;
-import jx.net.UnknownAddressException;
 import jx.net.UDPData;
 import jx.net.UDPConsumer;
 import jx.net.UDPConsumer1;
 
 import jx.buffer.multithread.MultiThreadBufferList;
-import jx.buffer.multithread.MultiThreadBufferList2;
 import jx.buffer.multithread.Buffer;
-import jx.buffer.multithread.Buffer2;
 
 
 
@@ -46,6 +37,7 @@ class UDPReceiver implements jx.net.UDPReceiver, Service {
 
 	if (avoidSplitting) {
 	    consumer1 = new UDPConsumer1() {
+                    @Override
 		    public Memory processUDP1(UDPData buf) {
 			Buffer h = usableBufs.nonblockingUndockFirstElement();
 			if (h == null) {
@@ -63,6 +55,7 @@ class UDPReceiver implements jx.net.UDPReceiver, Service {
 	    net.udp.registerUDPConsumer1(consumer1, localPort);
 	} else {
 	    consumer = new UDPConsumer() {
+                    @Override
 		    public Memory processUDP(UDPData buf) {
 			Buffer h = usableBufs.nonblockingUndockFirstElement();
 			if (h == null) {
@@ -109,9 +102,10 @@ class UDPReceiver implements jx.net.UDPReceiver, Service {
     }
     */
 
+    @Override
     public UDPData receive1(Memory buf, int timeoutMillis) {
 	Clock clock = (Clock)InitialNaming.getInitialNaming().lookup("Clock");
-	Buffer h =null;
+	Buffer h = null;
 	CycleTime now = new CycleTime();
 	CycleTime start = new CycleTime();
 	CycleTime diff = new CycleTime();
@@ -120,7 +114,7 @@ class UDPReceiver implements jx.net.UDPReceiver, Service {
 	    clock.getCycles(now);
 	    clock.subtract(diff, now, start);
 	    if (clock.toMilliSec(diff) >= timeoutMillis) {
-		for (int i=0;i<(10*timeoutMillis);i++) Thread.yield();
+		for (int i = 0; i < (10 * timeoutMillis); i++) Thread.yield();
 		return null;
 	    }
 	    h = filledBufs.nonblockingUndockFirstElement();
