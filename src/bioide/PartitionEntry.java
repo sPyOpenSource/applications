@@ -42,12 +42,12 @@ public class PartitionEntry implements Partition, Service {
 
     @Override
     public void readSectors(int startSector, int numberOfSectors, Memory buf, boolean synchronous) { 
-	drive.readSectors(start+startSector,numberOfSectors,buf,synchronous);
+	drive.readSectors(start + startSector, numberOfSectors, buf, synchronous);
     }
 
     @Override
     public void writeSectors(int startSector, int numberOfSectors, Memory buf, boolean synchronous ) { 
-	drive.writeSectors(start+startSector,numberOfSectors,buf,synchronous);
+	drive.writeSectors(start + startSector, numberOfSectors, buf, synchronous);
     }
     
     

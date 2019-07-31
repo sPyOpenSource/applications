@@ -36,18 +36,18 @@ public class ReadDisk {
 	CycleTime endtimec = new CycleTime();
 	CycleTime diff = new CycleTime();
 
-	Debug.out.println("Read "+numSec+" sectors.");
+	Debug.out.println("Read " + numSec + " sectors.");
 
 	boolean readSecondTime = false;
-	for(int nsec=1; nsec<MAX_SECTORS; nsec *= 2) {
+	for(int nsec = 1; nsec < MAX_SECTORS; nsec *= 2) {
 	    if (! readSecondTime && nsec == 2) {
 		nsec = 1;
 		readSecondTime = true;
 	    }
-	    Debug.out.println("Request size "+nsec+" sectors.");
+	    Debug.out.println("Request size " + nsec + " sectors.");
 	    clock.getCycles(starttimec);
 	    int iterations = numSec/nsec; 
-	    for (int i=0; i<iterations; i += nsec) {
+	    for (int i = 0; i < iterations; i += nsec) {
 		bio.readSectors(i, nsec, buf, true);
 	    }
 	    clock.getCycles(endtimec);

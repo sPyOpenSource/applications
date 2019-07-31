@@ -7,9 +7,6 @@ import bioide.IDEDeviceImpl;
 import bioide.Drive;
 import bioide.Partition;
 import jx.bio.BlockIO;
-import timerpc.SleepManagerImpl;
-import timerpc.TimerManagerImpl;
-
 
 public class Main {
 

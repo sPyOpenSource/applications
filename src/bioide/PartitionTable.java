@@ -3,6 +3,7 @@ package bioide;
 import jx.zero.*;
 import jx.zero.debug.*;
 import java.util.Vector;
+import org.jnode.fs.fat.BootSector;
 
 /**
  * Partition table of a drive.
@@ -58,6 +59,8 @@ class PartitionTable {
 	Memory buffer = Env.memoryManager.allocAligned(512, 8);
 	drive.readSectors(0, 1, buffer, true);
 	mbr_data = new MBRData(buffer);
+        BootSector bs = new BootSector(buffer);
+        Debug.out.println(bs.toString());
 	if (mbr_data.magic() != (0xffff & PCBIOS_BOOTMAGIC)) {
 	    Debug.out.println("readPartitionTable: Bootsektor fehlerhaft");
 	    Debug.out.println("  magic: " + mbr_data.magic() + ", expected: " + PCBIOS_BOOTMAGIC);
@@ -76,7 +79,7 @@ class PartitionTable {
 	}
         
 	for (int i = 0; i < 4; i++) {
-	    PartitionData part_data = new PartitionData(buffer, 446+i*16);
+	    PartitionData part_data = new PartitionData(buffer, 446 + i * 16);
 	    if (Env.verbosePT) Debug.out.println("entry " + i + ": os = " + osName(part_data.os_indicator()) + ", length = " + part_data.length_in_sectors());
 	    if (isExtended(part_data.os_indicator()) && (part_data.length_in_sectors() > 0)) { // erweiterte Partition
 		start_ext_sector = part_data.start_sector();
@@ -220,9 +223,9 @@ class PartitionData {
     int  start_sector;
     int length_in_sectors;
     public PartitionData(Memory mem, int offset) {
-	os_indicator = mem.get8(offset+4);
-	start_sector = mem.getLittleEndian32(offset+8);
-	length_in_sectors = mem.getLittleEndian32(offset+12);
+	os_indicator = mem.get8(offset + 4);
+	start_sector = mem.getLittleEndian32(offset + 8);
+	length_in_sectors = mem.getLittleEndian32(offset + 12);
     }
     public byte os_indicator()      { return os_indicator; }
     public int  start_sector()      { return start_sector; }

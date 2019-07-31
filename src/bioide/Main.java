@@ -23,7 +23,7 @@ public class Main {
 	    Debug.out.println("*3");
 	    
 	    bio = partitions[partition];
-	}	
+	}
 	naming.registerPortal(bio, bioName);
 	Debug.out.println("Block I/O device registered as " + bioName);	
     }
