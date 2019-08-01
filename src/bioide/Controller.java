@@ -387,7 +387,7 @@ class Controller {
 
 
     public void inputData(int port, Memory m, int offset, int wcount) {
-        for(int i=0; i<wcount; i++) {
+        for(int i = 0; i < wcount; i++) {
             int data = Env.ports.inl(port);
             m.set32(i+offset, data);
         }

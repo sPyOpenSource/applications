@@ -22,7 +22,6 @@ package org.jnode.fs.fat;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.nio.ByteBuffer;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -35,8 +34,8 @@ import jx.zero.Memory;
  * @author gbin
  */
 public class FatLfnDirectory extends FatDirectory {
-    private HashMap<String, LfnEntry> shortNameIndex = new HashMap<String, LfnEntry>();
-    private HashMap<String, LfnEntry> longFileNameIndex = new HashMap<String, LfnEntry>();
+    private HashMap<String, LfnEntry> shortNameIndex = new HashMap<>();
+    private HashMap<String, LfnEntry> longFileNameIndex = new HashMap<>();
 
     /**
      * @param fs

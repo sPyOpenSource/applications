@@ -22,14 +22,10 @@ package org.jnode.fs.fat;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
-//import java.nio.ByteBuffer;
 import java.util.Iterator;
 import jx.bio.BlockIO;
-import jx.fs.FSAttribute;
-import jx.fs.FSObject;
 import jx.fs.Inode;
-import jx.fs.Permission;
-import jx.fs.RegularFile;
+import jx.zero.Debug;
 import jx.zero.InitialNaming;
 import jx.zero.Memory;
 import jx.zero.MemoryManager;
@@ -65,6 +61,7 @@ public class FatDirectory extends AbstractDirectory {
     /**
      * Read the contents of this directory from the persistent storage at the
      * given offset.
+     * @throws java.io.IOException
      */
     protected synchronized void read() throws IOException {
         entries.setSize((int) file.getLengthOnDisk() / 32);
@@ -81,6 +78,7 @@ public class FatDirectory extends AbstractDirectory {
     /**
      * Write the contents of this directory to the given persistent storage at
      * the given offset.
+     * @throws java.io.IOException
      */
     protected synchronized void write() throws IOException {
         if (label != null)
@@ -98,12 +96,19 @@ public class FatDirectory extends AbstractDirectory {
         resetDirty();
     }
 
-    public synchronized void read(BlockIO device, long offset) throws IOException {
-        Memory data = rm.alloc(entries.size() * 32);
-        device.readSectors((int)offset, data.size(), data, true);
+    public void read(BlockIO device, int offset) throws IOException {
+        Debug.out.println(offset);
+        Debug.out.println(device.getSectorSize());
+        Memory data = rm.allocAligned(entries.size() * 32, 8);
+        
+        //device.readSectors(offset / device.getSectorSize(), 1, data, true);
         // System.out.println("Directory at offset :" + offset);
         // System.out.println("Length in bytes = " + entries.size() * 32);
         //read(data);
+        for(int i = 0; i < entries.size() * 32; i++){
+            Debug.out.print(data.get8(i));
+        }
+        Debug.out.println();
         resetDirty();
     }
 

@@ -55,12 +55,14 @@ public class PartitionEntry implements Partition, Service {
     void swapWithPartition(PartitionEntry one) {
 	PartitionEntry sort_tmp = new PartitionEntry();
 	if (one.start > start) {
-	    sort_tmp.start = one.start; sort_tmp.size = one.size;
+	    sort_tmp.start = one.start; 
+            sort_tmp.size = one.size;
 	    sort_tmp.accessable = one.accessable;
 	    one.start = start; 
 	    one.size = size;
 	    one.accessable = accessable;
-	    start = sort_tmp.start; size = sort_tmp.size;
+	    start = sort_tmp.start; 
+            size = sort_tmp.size;
 	    accessable = sort_tmp.accessable;
 	}
     }

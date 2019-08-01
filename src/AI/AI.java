@@ -7,6 +7,7 @@ import jx.zero.Debug;
 import jx.zero.InitialNaming;
 import jx.zero.Naming;
 import jx.zero.debug.DebugChannel;
+import org.jnode.fs.fat.FatFileSystem;
 import test.fs.BioRAMDomain;
 import test.fs.FSDomain;
 import timerpc.StartTimer;

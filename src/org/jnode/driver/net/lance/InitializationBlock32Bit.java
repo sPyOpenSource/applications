@@ -53,11 +53,11 @@ public class InitializationBlock32Bit {
         mem.set32(0x10 >> 2, 0);//((logicalAddr >> 32) & 0xFFFFFFFF));
         mem.set32(0x14 >> 2, rxRing.getAddressAs32());
         mem.set32(0x18 >> 2, txRing.getAddressAs32());
-        Debug.out.println(rxRing.getAddressAs32());
+        /*Debug.out.println(rxRing.getAddressAs32());
         Debug.out.println(txRing.getAddressAs32());
         for(int i = 0; i < INIT_BLOCK_SIZE; i++){
             Debug.out.println(mem.get8(i));
-        }
+        }*/
     }
 
     private byte getEncodedRingLength(int ringLength) {

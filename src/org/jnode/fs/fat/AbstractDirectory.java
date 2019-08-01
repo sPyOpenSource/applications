@@ -23,11 +23,9 @@ package org.jnode.fs.fat;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.nio.ByteBuffer;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 import java.util.Vector;
-import jx.fs.Directory;
 import jx.fs.Inode;
 import jx.zero.Memory;
 //import org.jnode.fs.ReadOnlyFileSystemException;
@@ -37,7 +35,7 @@ import jx.zero.Memory;
  */
 public abstract class AbstractDirectory extends FatObject{
 
-    protected Vector<FatBasicDirEntry> entries = new Vector<FatBasicDirEntry>();
+    protected Vector<FatBasicDirEntry> entries = new Vector<>();
     private boolean _dirty;
     protected FatFile file;
 
@@ -427,5 +425,4 @@ public abstract class AbstractDirectory extends FatObject{
             }
         }
     }
-
 }

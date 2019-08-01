@@ -2,6 +2,7 @@ package bioide;
 
 import jx.zero.*;
 import jx.bio.*;
+import org.jnode.fs.fat.FatFileSystem;
 
 public class Main {
     public static void main(String [] args) {

@@ -20,7 +20,6 @@
  
 package org.jnode.fs.fat;
 
-import jx.fs.FSObject;
 import jx.fs.FileSystem;
 
 /**

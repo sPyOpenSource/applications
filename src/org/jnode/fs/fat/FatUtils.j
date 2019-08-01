@@ -40,13 +40,13 @@ public class FatUtils {
      * @param fatNr (0..)
      * @return long
      */
-    public static long getFatOffset(BootSector bs, int fatNr) {
-        long sectSize = bs.getBytesPerSector();
-        long sectsPerFat = bs.getSectorsPerFat();
-        long resSects = bs.getNrReservedSectors();
+    public static int getFatOffset(BootSector bs, int fatNr) {
+        int sectSize = bs.getBytesPerSector();
+        int sectsPerFat = bs.getSectorsPerFat();
+        int resSects = bs.getNrReservedSectors();
 
-        long offset = resSects * sectSize;
-        long fatSize = sectsPerFat * sectSize;
+        int offset = resSects;// * sectSize;
+        int fatSize = sectsPerFat;// * sectSize;
 
         offset += fatNr * fatSize;
 
@@ -59,14 +59,14 @@ public class FatUtils {
      * @param bs
      * @return long
      */
-    public static long getRootDirOffset(BootSector bs) {
-        long sectSize = bs.getBytesPerSector();
-        long sectsPerFat = bs.getSectorsPerFat();
+    public static int getRootDirOffset(BootSector bs) {
+        int sectSize = bs.getBytesPerSector();
+        int sectsPerFat = bs.getSectorsPerFat();
         int fats = bs.getNrFats();
 
-        long offset = getFatOffset(bs, 0);
+        int offset = getFatOffset(bs, 0);
 
-        offset += fats * sectsPerFat * sectSize;
+        offset += fats * sectsPerFat;
 
         return offset;
     }

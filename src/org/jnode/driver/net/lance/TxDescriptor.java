@@ -43,9 +43,9 @@ public class TxDescriptor extends Descriptor {
         Debug.out.println(mem.get32((offset+0x04) >> 2));
         Debug.out.println(mem.get32((offset+0x08) >> 2));
         Debug.out.println(mem.get32((offset+0x0c) >> 2));*/
-        for(int i = 0; i < 40; i++){
+        /*for(int i = 0; i < 40; i++){
             Debug.out.println(mem.get8(i + offset));
-        }
+        }*/
     }
 
     private void setByteCount(int bcnt) {

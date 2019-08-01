@@ -339,7 +339,7 @@ public class FatDirEntry extends FatBasicDirEntry implements Inode//, FSEntryCre
      * @param ext The ext to set
      */
     public void setExt(String ext) {
-        FatUtils.checkValidExt(ext);
+       // FatUtils.checkValidExt(ext);
         this.ext = ext;
         setDirty();
     }
@@ -399,7 +399,7 @@ public class FatDirEntry extends FatBasicDirEntry implements Inode//, FSEntryCre
      * @param name The name to set
      */
     public void setName(String name) {
-        FatUtils.checkValidName(name);
+      //  FatUtils.checkValidName(name);
         this.name = name;
         setDirty();
     }

@@ -8,7 +8,7 @@ import jx.zero.*;
  * @author Andreas Weissel
  */
 class IDEIntrHandler implements FirstLevelIrqHandler, Service {
-    private Controller controller;
+    private final Controller controller;
     CPUState irqCtx;
     private boolean missed;
 
@@ -24,6 +24,7 @@ class IDEIntrHandler implements FirstLevelIrqHandler, Service {
      * Calls the real handler (operation.handler)
      */
     
+    @Override
     public void interrupt() {
 	if( Env.verboseIRQ )
 	    Env.cpuManager.dump("ctx in irq:", irqCtx);

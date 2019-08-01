@@ -70,7 +70,7 @@ public class FatFile extends FatObject {
             int clusOfs = (int) (fileOffset % clusterSize);
             int size = Math.min(len, (int) (clusterSize - (fileOffset % clusterSize) - 1));
             //destBuf.limit(destBuf.position() + size);
-            api.readSectors((int)getDevOffset(chain[chainIdx], clusOfs), destBuf.size(), destBuf, true);
+            api.readSectors((int)getDevOffset(chain[chainIdx], clusOfs), 1, destBuf, true);
             fileOffset += size;
             len -= size;
             chainIdx++;
@@ -78,7 +78,7 @@ public class FatFile extends FatObject {
         while (len > 0) {
             int size = Math.min(clusterSize, len);
             //destBuf.limit(destBuf.position() + size);
-            api.readSectors((int)getDevOffset(chain[chainIdx], 0), destBuf.size(), destBuf, true);
+            api.readSectors((int)getDevOffset(chain[chainIdx], 0), 1, destBuf, true);
             len -= size;
             chainIdx++;
         }
@@ -141,7 +141,7 @@ public class FatFile extends FatObject {
         }
 
         final FatFileSystem fs = getFatFileSystem();
-        final Fat fat = fs.getFat();
+        final org.jnode.fs.jfat.Fat fat = fs.getFat();
         final int nrClusters = (int) ((length + clusterSize - 1) / clusterSize);
 
         if (this.length == 0) {
@@ -230,7 +230,7 @@ public class FatFile extends FatObject {
     protected long getDevOffset(long cluster, int clusterOffset) {
         final FatFileSystem fs = getFatFileSystem();
         final long filesOffset = 0;//FatUtils.getFilesOffset(fs.getBootSector());
-        return filesOffset + clusterOffset + ((cluster - FatUtils.FIRST_CLUSTER) * clusterSize);
+        return 0;//filesOffset + clusterOffset + ((cluster - FatUtils.FIRST_CLUSTER) * clusterSize);
     }
 
     /**
