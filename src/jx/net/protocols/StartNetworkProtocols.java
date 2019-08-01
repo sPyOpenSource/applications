@@ -1,14 +1,10 @@
 package jx.net.protocols;
 
 import jx.zero.*;
-
 import jx.timer.TimerManager;
-
 import jx.net.IPAddress;
 import jx.net.NetInit;
-
 import jx.devices.net.*;
-import jx.InitNaming;
 
 
 public class StartNetworkProtocols {

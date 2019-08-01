@@ -153,8 +153,6 @@ public class LanceDriver implements NetworkDevice {
     }
 
     void onReceive(Memory skbuf) {
-        for(int i = 0; i < skbuf.size(); i ++){
-            Debug.out.println(skbuf.get8(i));
-        }
+        etherConsumer.processMemory(skbuf, 0, skbuf.size());
     }
 }

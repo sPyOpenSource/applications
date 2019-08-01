@@ -4,7 +4,6 @@ import jx.zero.*;
 import jx.net.PacketsConsumer;
 import jx.net.UDPData;
 import jx.net.UDPConsumer;
-import jx.net.UDPConsumer1;
 
 import jx.buffer.multithread.MultiThreadBufferList;
 import jx.buffer.multithread.Buffer;
@@ -18,7 +17,7 @@ class UDPReceiver implements jx.net.UDPReceiver, Service {
     //Memory buf;
     CPUManager cpuManager = (CPUManager)InitialNaming.getInitialNaming().lookup("CPUManager");
     UDPConsumer consumer;
-    UDPConsumer1 consumer1;
+    //UDPConsumer1 consumer1;
     int port;
     NetInit net;
     private MultiThreadBufferList usableBufs, filledBufs;
@@ -36,7 +35,7 @@ class UDPReceiver implements jx.net.UDPReceiver, Service {
 	filledBufs.requireMoredata(true);
 
 	if (avoidSplitting) {
-	    consumer1 = new UDPConsumer1() {
+	    /*consumer1 = new UDPConsumer1() {
                     @Override
 		    public Memory processUDP1(UDPData buf) {
 			Buffer h = usableBufs.nonblockingUndockFirstElement();
@@ -52,7 +51,7 @@ class UDPReceiver implements jx.net.UDPReceiver, Service {
 			return in;
 		    }
 		};
-	    net.udp.registerUDPConsumer1(consumer1, localPort);
+	    net.udp.registerUDPConsumer1(consumer1, localPort);*/
 	} else {
 	    consumer = new UDPConsumer() {
                     @Override

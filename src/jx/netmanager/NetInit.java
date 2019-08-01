@@ -9,8 +9,8 @@ import jx.net.protocol.tcp.*;
 
 import jx.net.IPAddress;
 import jx.net.UnknownAddressException;
-import jx.net.IPProducer1;
-import jx.net.EtherProducer1;
+import jx.net.IPProducer;
+import jx.net.EtherProducer;
 
 import jx.devices.net.NetworkDevice;
 import jx.devices.DeviceFinder;
@@ -35,6 +35,7 @@ import jx.net.devices.lance.*;
 
 // emulated device
 import jx.devices.net.emulation.EmulNetFinder;
+import jx.net.protocol.icmp.ICMP;
 
 public class NetInit implements jx.net.NetInit, Service {
     TCP tcp;
@@ -42,6 +43,7 @@ public class NetInit implements jx.net.NetInit, Service {
     UDP udp;
     ARP arp;
     Ether ether;
+    ICMP icmp;
     
     IPAddress localAddress;
     MemoryManager memMgr = (MemoryManager) InitialNaming.getInitialNaming().lookup("MemoryManager");
@@ -57,11 +59,12 @@ public class NetInit implements jx.net.NetInit, Service {
 
 	arp = new ARP(ether, null, timerManager, false);
 	Debug.out.println("NetInit: init IP");
-	ip = new IP((EtherProducer1)ether); // avoid splitting
-	udp = new UDP((IPProducer1)ip); //TODO: no need for transmitter
-        tcp = new TCP((jx.net.IPProducer1)ip, this, timerManager);
+	ip = new IP((EtherProducer)ether); // avoid splitting
+        //icmp = new ICMP(null, null);
+	udp = new UDP((IPProducer)ip); //TODO: no need for transmitter
+        tcp = new TCP((jx.net.IPProducer)ip, this, timerManager);
 	// connect ARP with Ether
-	if (!ether.registerConsumer1(arp, "ARP")) {
+	if (!ether.registerConsumerEther(arp, "ARP")) {
 	    Debug.out.println("ARP: couldn't register at etherLayer!!");
 	    throw new Error();
 	}
@@ -71,21 +74,20 @@ public class NetInit implements jx.net.NetInit, Service {
 	//timerManager.unblockInMillis(cpuManager.getCPUState(), 3000);
 	/* cpuManager.block(); */ // DANGER: lost-update problem (FIXME)
 	for (int i = 0; i < 3000; i++) cpuManager.yield();
-	Debug.out.println("back.");
 
 	// boot
-	localAddress = myAddress;
+	localAddress = new IPAddress(172, 26, 10, 3);//myAddress;
 	if (localAddress == null) {
 	    BOOTP bootp = new BOOTP(this, ether.getMacAddress());
 	    localAddress = bootp.sendRequest1();
 	}
-	/*Debug.out.println("IP address: " + localAddress.toString());
+	Debug.out.println("IP address: " + localAddress.toString());
 	ip.changeSourceAddress(localAddress);
 	
 	arp.register(ip);		    
 	ip.setAddressResolution(arp);		    
 	ether.registerConsumer(ip, "IP");
-	ether.registerConsumer(arp, "ARP");*/
+	ether.registerConsumer(arp, "ARP");
     }
 
     public jx.net.protocol.tcp.TCP getTCP() {
@@ -140,7 +142,7 @@ public class NetInit implements jx.net.NetInit, Service {
 
     @Override
     public Memory getTCPBuffer() {
-        return getTCPBuffer(1514-(14+20+20));
+        return getTCPBuffer(1514 - (14 + 20 + 20));
     }
 
     public Memory getTCPBuffer(int size) {

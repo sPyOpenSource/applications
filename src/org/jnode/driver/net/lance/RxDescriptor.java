@@ -37,11 +37,6 @@ public class RxDescriptor extends Descriptor {
         setOwnerSelf(false);
     }
 
-    public Memory getPacket() {
-        // setOwnerSelf()
-        return null;//new Memory();
-    }
-
     public void clearStatus() {
         mem.set16((offset + STATUS) >> 1, (short) STATUS_OWN);
     }
