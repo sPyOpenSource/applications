@@ -1,12 +1,12 @@
-Java OS
-=======
+Java OS Application
+===================
 
-This is a Java OS project.
+This is a part of Java OS project.
 
 Build
 -----
 Run following command to get the source code:
 
-	 git clone git://s55969da3.adsl.online.nl/jx/os.git
+	 git clone https://github.com/sPyOpenSource/applications.git
 
-This is a NetBean projecct. It requires compiler and jcore.
+This is a NetBean projecct. It requires os, compiler and jcore.
