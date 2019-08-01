@@ -153,6 +153,8 @@ public class LanceDriver implements NetworkDevice {
     }
 
     void onReceive(Memory skbuf) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        for(int i = 0; i < skbuf.size(); i ++){
+            Debug.out.println(skbuf.get8(i));
+        }
     }
 }

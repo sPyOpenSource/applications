@@ -285,26 +285,24 @@ public class LanceCore implements LanceConstants, FirstLevelIrqHandler {
      */
     @Override
     public void interrupt() {
-        Debug.out.println("inter");
+        /*Debug.out.println("inter");
         int temp = io.getCSR(0);
         if((temp & 0x8000) == 0x8000) Debug.out.println("AMD am79c973 ERROR");
         if((temp & 0x2000) == 0x2000) Debug.out.println("AMD am79c973 COLLISION ERROR");
         if((temp & 0x1000) == 0x1000) Debug.out.println("AMD am79c973 MISSED FRAME");
-        if((temp & 0x0800) == 0x0800) Debug.out.println("AMD am79c973 MEMORY ERROR");
-        //if((temp & 0x0400) == 0x0400) Receive();
-        if((temp & 0x0200) == 0x0200) Debug.out.println("SENT");
-Debug.out.println(temp);
-        // acknoledge
-        io.setCSR(0, temp);
+        if((temp & 0x0800) == 0x0800) Debug.out.println("AMD am79c973 MEMORY ERROR");*/
         
-        if((temp & 0x0100) == 0x0100){
-            Debug.out.println("AMD am79c973 INIT DONE");
-        }/*
         while ((io.getCSR(0) & CSR0_INTR) != 0) {
             final int csr0 = io.getCSR(0);
             final int csr4 = io.getCSR(4);
             final int csr5 = io.getCSR(5);
-
+            
+            if((csr0 & 0x0100) == 0x0100){
+                Debug.out.println("AMD am79c973 INIT DONE");
+            }
+            
+            if((csr0 & 0x0200) == 0x0200) Debug.out.println("SENT");
+            
             io.setCSR(0, csr0);
             io.setCSR(4, csr4);
             io.setCSR(5, csr5);
@@ -406,7 +404,7 @@ Debug.out.println(temp);
             if ((csr5 & CSR5_MPINT) == CSR5_MPINT) {
                 //log.debug("Magic Packet Interrupt");
             }
-        }*/
+        }
     }
 
     private void rxProcess() {
