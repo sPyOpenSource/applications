@@ -58,7 +58,7 @@ class HistoryElement {
     String[] param;
     String line;
     HistoryElement(Command action, String[] param, String line) {
-	this.action=action; this.param = param;this.line=line;
+	this.action = action; this.param = param; this.line = line;
     }
 }
 
@@ -114,7 +114,7 @@ public class Shell {
 			uout.println(cmd+":  "+c.getInfo());
 		    }
 		} else {
-		    Debug.out.println("EXEC COMMAND "+command);
+		    Debug.out.println("EXEC COMMAND " + command);
 		    Command action = (Command)commands.get(command);
 		    if (action == null) {
 			Debug.out.println("XX ");
@@ -123,10 +123,10 @@ public class Shell {
 		    }
 		    Debug.out.println("YY ");
 		    action.command(uout, param);
-		    history.addElement(new HistoryElement(action,param,line));
+		    history.addElement(new HistoryElement(action, param, line));
 		}
 	    } catch(Throwable ex) {
-		uout.println("Command has thrown exception "+ex);
+		uout.println("Command has thrown exception " + ex);
 	    }
 	}
     }

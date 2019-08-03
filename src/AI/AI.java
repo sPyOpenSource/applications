@@ -1,5 +1,6 @@
 package AI;
 
+import jx.console.ConsoleImpl;
 import jx.devices.pci.PCIGod;
 import static jx.init.Main.main;
 import jx.netmanager.NetInit;
@@ -62,9 +63,10 @@ public final class AI
         main(new String[] {"boot.rc"});
         bioide.Main.main(new String[]{"TimerManager", "BIOFS_RW", "0", "0"});
         BioRAMDomain.main(new String[]{"BIOFS"});
-        NetInit.init(InitialNaming.getInitialNaming(), new String[]{"NIC", "eth0", "8:0:6:28:63:40"});
+        //NetInit.init(InitialNaming.getInitialNaming(), new String[]{"NIC", "eth0", "8:0:6:28:63:40"});
 	//FSDomain.main(new String[]{"BIOFS", "FS"});
-        AI instance = new AI();
-        instance.start();
+        //AI instance = new AI();
+        //instance.start();
+        ConsoleImpl.init(InitialNaming.getInitialNaming());
      }
 }
