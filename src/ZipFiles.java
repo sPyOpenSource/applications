@@ -4,9 +4,14 @@ import java.io.RandomAccessFile;
 import java.util.zip.ZipOutputStream;
 
 public class ZipFiles {
+    static short get(){return (short)0xaa55;}
 	public static void main(String[] args) {
-System.out.println("hello world");
+            short z = (short)0xaa55;
+            if(z==get())
+                System.out.println(0xffff&z);
 ZipFiles zip = new ZipFiles();
+Object [] x = new Object[]{null, null};
+Object[]y = x.clone();
 		/*try {
                     try (FileOutputStream fos = new FileOutputStream("uncompressed-test.zip"); ZipOutputStream zos = new ZipOutputStream(fos)) {
                         

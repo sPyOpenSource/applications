@@ -60,9 +60,10 @@ public class NetInit implements jx.net.NetInit, Service {
 	arp = new ARP(ether, null, timerManager, false);
 	Debug.out.println("NetInit: init IP");
 	ip = new IP((EtherProducer)ether); // avoid splitting
-        //icmp = new ICMP(null, null);
+        icmp = new ICMP(null, ether, this);
+        icmp.register(ip);
 	udp = new UDP((IPProducer)ip); //TODO: no need for transmitter
-        tcp = new TCP((jx.net.IPProducer)ip, this, timerManager);
+        tcp = new TCP((IPProducer)ip, this, timerManager);
 	// connect ARP with Ether
 	if (!ether.registerConsumerEther(arp, "ARP")) {
 	    Debug.out.println("ARP: couldn't register at etherLayer!!");
@@ -76,11 +77,12 @@ public class NetInit implements jx.net.NetInit, Service {
 	for (int i = 0; i < 3000; i++) cpuManager.yield();
 
 	// boot
-	localAddress = new IPAddress(172, 26, 10, 3);//myAddress;
-	if (localAddress == null) {
+	localAddress = new IPAddress(192, 168, 1, 90);//myAddress;
+        nic.open(null);
+	//if (localAddress == null) {
 	    BOOTP bootp = new BOOTP(this, ether.getMacAddress());
-	    localAddress = bootp.sendRequest1();
-	}
+	    /*localAddress =*/ bootp.sendRequest1();
+	//}
 	Debug.out.println("IP address: " + localAddress.toString());
 	ip.changeSourceAddress(localAddress);
 	
@@ -88,6 +90,7 @@ public class NetInit implements jx.net.NetInit, Service {
 	ip.setAddressResolution(arp);		    
 	ether.registerConsumer(ip, "IP");
 	ether.registerConsumer(arp, "ARP");
+        ip.registerConsumer(icmp, "ICMP");
     }
 
     public jx.net.protocol.tcp.TCP getTCP() {
@@ -130,31 +133,31 @@ public class NetInit implements jx.net.NetInit, Service {
 	return new IPSender(this, dst, id);
     }
 
-    @Override
-    public Memory getTCPBuffer1() {
+    //@Override
+    public Memory getTCPBuffer() {
         return memMgr.alloc(1514);
     }
 
-    @Override
-    public Memory getUDPBuffer1() {
+    //@Override
+    public Memory getUDPBuffer() {
         return memMgr.alloc(1514);
     }
 
-    @Override
+    /*@Override
     public Memory getTCPBuffer() {
         return getTCPBuffer(1514 - (14 + 20 + 20));
-    }
+    }*/
 
     public Memory getTCPBuffer(int size) {
-        Memory buf = getIPBuffer(size+20);
+        Memory buf = getIPBuffer(size + 20);
         return buf;
     }
 
     // TODO: make this independent from Ethernet
-    @Override
+    /*@Override
     public Memory getUDPBuffer() {
 	return getUDPBuffer(1514 - (14 + 20 + 8));
-    }
+    }*/
     
     @Override
     public Memory getUDPBuffer(int size) {
@@ -177,7 +180,7 @@ public class NetInit implements jx.net.NetInit, Service {
     public Memory getIPBuffer(int size) {
 	Memory buf = memMgr.alloc(1514);// ETHER FRAME SIZE   // 14+20+8 + size);
 	Memory[] arr = new Memory[3];
-	buf.split3(14+20, size, arr); /* parts size: 14+20, size, rest */
+	buf.split3(14 + 20, size, arr); /* parts size: 14+20, size, rest */
 	Memory[] arr1 = new Memory[2];
 	arr[0].split2(14, arr1); /* parts size: 14, 20 */
 	//cpuManager.dump("IPBUFFER: ", arr[1]);
@@ -214,7 +217,7 @@ public class NetInit implements jx.net.NetInit, Service {
             if (nics != null && nics.length != 0) break;
         }
 	NetworkDevice nic = nics[0];
-	nic.open(null);
+	//nic.open(null);
 
 	nic.setReceiveMode(NetworkDevice.RECEIVE_MODE_INDIVIDUAL);
 

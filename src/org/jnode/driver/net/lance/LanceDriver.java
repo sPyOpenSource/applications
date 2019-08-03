@@ -154,5 +154,6 @@ public class LanceDriver implements NetworkDevice {
 
     void onReceive(Memory skbuf) {
         etherConsumer.processMemory(skbuf, 0, skbuf.size());
+        etherConsumer.EtherQueueConsumerThread();
     }
 }

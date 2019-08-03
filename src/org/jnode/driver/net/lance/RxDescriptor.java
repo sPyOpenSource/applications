@@ -20,6 +20,7 @@
  
 package org.jnode.driver.net.lance;
 
+import jx.zero.Debug;
 import jx.zero.Memory;
 
 /**
@@ -42,11 +43,14 @@ public class RxDescriptor extends Descriptor {
     }
 
     public short getMessageByteCount() {
+        Debug.out.println("b0: "+mem.get8(offset + BCNT));
+        Debug.out.println("b1: "+mem.get8(1+ offset + BCNT));
         return mem.get16((offset + BCNT) >> 1);
     }
 
     public byte[] getDataBuffer() {
         byte[] buf = new byte[getMessageByteCount()];
+        Debug.out.println("b: "+buf.length);
         //mem.getBytes(dataBufferOffset, buf, 0, buf.length);
         for(int i = 0; i < buf.length; i++){
             buf[i] = mem.get8(dataBufferOffset + i);

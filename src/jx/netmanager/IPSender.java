@@ -1,13 +1,8 @@
 package jx.netmanager;
 
-import jx.buffer.separator.MemoryConsumer;
 import jx.zero.*;
-import jx.zero.debug.*;
-
-import jx.net.PacketsProducer;
 import jx.net.PacketsConsumer;
 import jx.net.PacketsConsumer1;
-import jx.net.AddressResolution;
 import jx.net.IPAddress;
 import jx.net.UnknownAddressException;
 

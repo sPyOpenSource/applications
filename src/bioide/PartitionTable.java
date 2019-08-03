@@ -48,7 +48,7 @@ class PartitionTable {
      * liest die Partitionstabelle des Laufwerks und ermittelt die vorhandenen Partitionen.
      */
     private void readPartitionTable() {
-	if (Env.verbosePT) Debug.out.println("READPARTIONTABLE");
+	if (Env.verbosePT) Debug.out.println("READ PARTIONTABLE");
 	Vector entries = new Vector();
 	MBRData mbr_data;
 	PartitionEntry part_entry;
@@ -60,7 +60,7 @@ class PartitionTable {
 	drive.readSectors(0, 1, buffer, true);
 	mbr_data = new MBRData(buffer);
 	if (mbr_data.magic() != (0xffff & PCBIOS_BOOTMAGIC)) {
-	    Debug.out.println("readPartitionTable: Bootsektor fehlerhaft");
+	    Debug.out.println("readPartitionTable: Bootsector faulty");
 	    Debug.out.println("  magic: " + mbr_data.magic() + ", expected: " + PCBIOS_BOOTMAGIC);
 	    Dump.xdump(buffer);
 	    throw new Error();
@@ -210,7 +210,9 @@ class MBRData {
     public MBRData(Memory mem) {
 	this.mem = mem;
     }
-    public short magic() { return mem.get16(255); }
+    public short magic() {
+        return mem.get16(255);
+    }
 }
 
 /**
