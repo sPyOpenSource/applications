@@ -1,5 +1,6 @@
 package jx.keyboard;
 
+import jx.console.ConsoleImpl;
 import jx.zero.*;
 import jx.wm.WindowManager;
 
@@ -10,20 +11,21 @@ public class Main
 	KeyboardImpl	keyboard;
 	final boolean debug = false; 
 	
-	keyboard = new KeyboardImpl ();
+	keyboard = new KeyboardImpl();
 
 	if (keyboard.keyboardHardwareAvailable()) {
 	    Debug.out.println ("    init keyboard");
 	    keyboard.init();
 	    Debug.out.println ("    keyboard initialized");
+            
 	    Naming naming = InitialNaming.getInitialNaming();
-	    WindowManager m_cWindowManager = (WindowManager)LookupHelper.waitUntilPortalAvailable(naming, wmName);
-	    new KeyboardListener (m_cWindowManager, keyboard);	
-	    new MouseListener (m_cWindowManager, keyboard);
+            final jx.screen.ScreenImpl screen = new jx.screen.ScreenImpl(naming);
+            new ConsoleImpl(naming, screen, keyboard);
+	    //WindowManager m_cWindowManager = (WindowManager)LookupHelper.waitUntilPortalAvailable(naming, wmName);
+	    //new KeyboardListener (m_cWindowManager, keyboard);	
+	    //new MouseListener (m_cWindowManager, keyboard);
 	} else {
 	    Debug.out.println ("************ NO KEYBOARD FOUND!! **************");
 	}
-	
     }
-
 }

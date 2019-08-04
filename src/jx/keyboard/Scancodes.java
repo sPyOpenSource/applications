@@ -58,6 +58,7 @@ public class Scancodes {
     /**
      * Translate scancode to character
      * Tracks the state of the special key "shift"
+     * @param scancode
      * @return character that corresponds to scancode
      */
     public int translate(int scancode) {
@@ -65,13 +66,24 @@ public class Scancodes {
 	if ((scancode & 0x80) != 0) {
 	    /* key release */
 	    scancode &= 0x7f;
-	    if (scancode == LSHIFT ||scancode == RSHIFT ) shiftDown = false;
-	    else if (scancode == CONTROL) controlDown = false;
-	    else if (scancode == ALT) altDown = false;
+            switch (scancode) {
+                case LSHIFT:
+                case RSHIFT:
+                    shiftDown = false;
+                    break;
+                case CONTROL:
+                    controlDown = false;
+                    break;
+                case ALT:
+                    altDown = false;
+                    break;
+                default:
+                    break;
+            }
 	    return -1; // no character, only release of shift key
 	} else {
 	    /* key press */
-	    if (scancode == LSHIFT ||scancode == RSHIFT ) {
+	    if (scancode == LSHIFT || scancode == RSHIFT) {
 		shiftDown = true;
 		return -1;// no character, only press of shift key
 	    }
@@ -85,6 +97,10 @@ public class Scancodes {
 		    return -1;
 		}
 	    }
+            out.println("s: " + scancode);
+            out.println("l:" + shiftTable.length);
+            if (scancode >= shiftTable.length)
+                return -1;
 	    return  shiftDown ? shiftTable[scancode] : scanTable[scancode];
 	}
     }

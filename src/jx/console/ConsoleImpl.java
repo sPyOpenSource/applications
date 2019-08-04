@@ -1,13 +1,16 @@
 package jx.console;
 
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import jx.devices.Screen;
 import jx.devices.Keyboard;
 import jx.zero.debug.*;
 import jx.zero.*;
 
 public class ConsoleImpl implements Console {
-    private Screen screen;
-    private Keyboard keyboard;
+    private final Screen screen;
+    private final Keyboard keyboard;
 
     DebugPrintStream out;
     MemoryManager memMgr;
@@ -26,6 +29,14 @@ public class ConsoleImpl implements Console {
 
 	current = createVirtualConsole();
 	current.activate();
+        try {
+            for(int i = 0; i < 20; i++){
+                int c = current.getInputStream().read();
+                //screen.putAt(0, i, (char)c);
+            }
+        } catch (IOException ex) {
+            //Logger.getLogger(ConsoleImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     public static void init(Naming naming) {

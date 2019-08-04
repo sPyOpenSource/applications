@@ -1,8 +1,6 @@
 package jx.wm;
-import jx.wm.message.*;
-import jx.wm.WindowManager;
+
 import jx.zero.*;
-import jx.devices.*;
 
 public class EventListener
 {	

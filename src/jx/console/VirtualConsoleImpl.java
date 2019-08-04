@@ -4,7 +4,6 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import jx.devices.Screen;
 import jx.devices.Keyboard;
-
 import jx.zero.*;
 
 public class VirtualConsoleImpl implements VirtualConsole {
@@ -14,9 +13,9 @@ public class VirtualConsoleImpl implements VirtualConsole {
     Screen screen;
     Keyboard keyboard;
     int x, y;
-    private OutputStream out;
-    private OutputStream err;
-    private InputStream in;
+    private final OutputStream out;
+    private final OutputStream err;
+    private final InputStream in;
     boolean active;
     ConsoleImpl cons;
     
@@ -48,7 +47,7 @@ public class VirtualConsoleImpl implements VirtualConsole {
     public void putc(int c) {
 	switch (c) {
             case '\n':
-                if (y==24) {
+                if (y == 24) {
                     buffer.copy(80 * 2, 0, 80 * 24 * 2);
                     buffer.fill16((short)0x0f00, 80 * 24, 80);
                 } else {
@@ -100,6 +99,7 @@ public class VirtualConsoleImpl implements VirtualConsole {
 	active = true;
 	buffer = video;
     }
+    
     @Override
     public void deactivate() {
 	active = false;
@@ -110,10 +110,12 @@ public class VirtualConsoleImpl implements VirtualConsole {
     public InputStream getInputStream() {
 	return in;
     }
+    
     @Override
     public OutputStream getOutputStream() {
 	return out;
     }
+    
     @Override
     public OutputStream getErrorStream() {
 	return err;

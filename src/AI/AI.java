@@ -61,12 +61,13 @@ public final class AI
         PCIGod.main(new String[]{});
         StartTimer.main(new String[]{"TimerManager"});
         main(new String[] {"boot.rc"});
-        bioide.Main.main(new String[]{"TimerManager", "BIOFS_RW", "0", "0"});
-        BioRAMDomain.main(new String[]{"BIOFS"});
+        //bioide.Main.main(new String[]{"TimerManager", "BIOFS_RW", "0", "0"});
+        //BioRAMDomain.main(new String[]{"BIOFS"});
         //NetInit.init(InitialNaming.getInitialNaming(), new String[]{"NIC", "eth0", "8:0:6:28:63:40"});
 	//FSDomain.main(new String[]{"BIOFS", "FS"});
         //AI instance = new AI();
         //instance.start();
-        ConsoleImpl.init(InitialNaming.getInitialNaming());
+        jx.keyboard.Main.main(new String[]{"WindowManager"});
+        //ConsoleImpl.init(InitialNaming.getInitialNaming());
      }
 }

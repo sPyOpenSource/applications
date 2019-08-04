@@ -16,6 +16,7 @@ import java.io.OutputStream;
 import jx.zero.Service;
 import jx.zero.Naming;
 import jx.zero.Debug;
+import jx.zero.ThreadEntry;
 
 /**
  * PC Hardware, Seite 1032
@@ -279,10 +280,10 @@ public class KeyboardImpl implements Keyboard, FirstLevelIrqHandler, Service
     private CPUManager cpuManager;
     private IRQ irq;
     private Scancodes scan;
-    private KeyQueue queue = new KeyQueue (256);
-    private KeyQueue auxQueue = new KeyQueue (256);
+    private KeyQueue queue = new KeyQueue(256);
+    private KeyQueue auxQueue = new KeyQueue(256);
 
-    private Vector keyListeners = new Vector ();
+    private Vector keyListeners = new Vector();
     private OutputStream localEcho;
 
     private Ports ports;
@@ -447,54 +448,51 @@ public class KeyboardImpl implements Keyboard, FirstLevelIrqHandler, Service
     }
 
     @Override
-    public void interrupt ()
+    public void interrupt()
     {
 	int scancode;
 	int status;
 		
 	status = (int)ports.inb_p (REG_STAT) & 0xff;
 		
-	//Debug.out.println ("KeyboardImpl::interrupt() status: " + Integer.toHexString (status));
-		
+	Debug.out.println("KeyboardImpl::interrupt() status: " + Integer.toHexString (status));
+        
 	while ((status & STAT_OBUF_FUL) != 0)
 	{
-            scancode = ports.inb_p (REG_RDWR) & 0xff;
+            scancode = ports.inb_p(REG_RDWR) & 0xff;
 
             if ((status & STAT_AUX_OBUF_FUL) != 0)
+            {
+                handleMouseEvent(scancode);
+            } else {
+                if (scan.isReset(scancode))
+                    resetPC();
+
+                if (scan.isNumLock(scancode))
                 {
-                    handleMouseEvent (scancode);
+                    switchNumLED();
+                    return;
                 }
-            else
+Debug.out.println(scancode);
+                int nCode = convertKeyCode(scancode);
+
+                if (nCode != 0)
                 {
-
-                    if (scan.isReset (scancode))
-                        resetPC ();
-
-                    if (scan.isNumLock (scancode))
-                        {
-                            switchNumLED ();
-                            return;
-                        }
-
-                    int nCode = convertKeyCode (scancode);
-
-                    if (nCode != 0)
-                        {
-                            if (!queue.append (nCode))
-                                {
-                                    //out.println("RING OVERFLOW ");
-                                }
-                            queue.notifyWaiter ();
-                            if (waitingInGetcode != null)
-                                {
-                                    cpuManager.unblock (waitingInGetcode);
-                                    waitingInGetcode = null;
-                                }
-                        }
-                }				
-                    status = (int)ports.inb_p (REG_STAT) & 0xff;
-                    //Debug.out.println ("KeyboardImpl::interrupt() status: " + Integer.toHexString (status));
-	    }			
+                    if (!queue.append(scancode))
+                    {
+                        //out.println("RING OVERFLOW ");
+                    }
+                    queue.notifyWaiter();
+                    if (waitingInGetcode != null)
+                    {
+                        cpuManager.unblock(waitingInGetcode);
+                        waitingInGetcode = null;
+                    }
+                }
+            }				
+            status = (int)ports.inb_p(REG_STAT) & 0xff;
+            //Debug.out.println ("KeyboardImpl::interrupt() status: " + Integer.toHexString (status));
+        }			
     }
     
     /*
@@ -524,13 +522,13 @@ public class KeyboardImpl implements Keyboard, FirstLevelIrqHandler, Service
      * }
      * }
      */
-    private void sleep (int msec)
+    private void sleep(int msec)
     {
-	ports.outb (0x80, (byte) 0);
+	ports.outb(0x80, (byte) 0);
 	//  try { Thread.sleep(msec,0); } catch(InterruptedException e) {}
     }
 	
-    boolean detectAuxiliaryPort ()
+    boolean detectAuxiliaryPort()
     {
 	int loops = 10;
 	boolean retval = false;
@@ -582,113 +580,114 @@ public class KeyboardImpl implements Keyboard, FirstLevelIrqHandler, Service
     public boolean keyboardHardwareAvailable ()
     {
 	if (hwAvailableUnknown) {
-	    hwAvailableUnknown=false;
+	    hwAvailableUnknown = false;
 	    for (int i = 0; i < 1000000; i++)
 		{
 		    if ((ports.inb_p (REG_STAT) & STAT_IBUF_FUL) == 0) {
-			hwAvailable=true;
+			hwAvailable = true;
 			return true;
 		    }
 		    sleep (DELAY);
 		}
-	    hwAvailable=false;
+	    hwAvailable = false;
 	    return false;
 	} else {
 	    return hwAvailable;
 	}
     }
 
-    private void waitForKeyboard ()
+    private void waitForKeyboard()
     {
 	for (int i = 0; i < 1000000; i++) {
-            if ((ports.inb_p (REG_STAT) & STAT_IBUF_FUL) == 0)
+            if ((ports.inb_p(REG_STAT) & STAT_IBUF_FUL) == 0)
                 return;
             sleep (DELAY);
         }
 	throw new Error ("No answer from keyboard.");
     }
 
-    private void kbdWrite (int addr, int b)
+    private void kbdWrite(int addr, int b)
     {
-	waitForKeyboard ();
+	waitForKeyboard();
 	ports.outb (addr, (byte)b);
     }
-    private void kbdWriteCmd (int cb)
+    
+    private void kbdWriteCmd(int cb)
     {
-	waitForKeyboard ();
-	ports.outb_p (REG_CMD, CMD_WRITE);
-	waitForKeyboard ();
-	ports.outb_p (REG_RDWR, (byte) cb);
+	waitForKeyboard();
+	ports.outb_p(REG_CMD, CMD_WRITE);
+	waitForKeyboard();
+	ports.outb_p(REG_RDWR, (byte) cb);
     }
-    private void wrCommand (int cb)
+    
+    private void wrCommand(int cb)
     {
-	Debug.out.println ("wrCommand :" + cb);
-	waitForKeyboard ();
-	ports.outb_p (REG_CMD, CMD_WRITE);
-	waitForKeyboard ();
-	ports.outb_p (REG_RDWR, (byte) cb);
+	Debug.out.println("wrCommand: " + cb);
+	waitForKeyboard();
+	ports.outb_p(REG_CMD, CMD_WRITE);
+	waitForKeyboard();
+	ports.outb_p(REG_RDWR, (byte) cb);
     }
 
-    private void clearKbdBuffer ()
+    private void clearKbdBuffer()
     {
-	while ((ports.inb_p (REG_STAT) & STAT_OBUF_FUL) != 0) {
-            sleep (DELAY);
-            ports.inb_p (REG_RDWR);
+	while ((ports.inb_p(REG_STAT) & STAT_OBUF_FUL) != 0) {
+            sleep(DELAY);
+            ports.inb_p(REG_RDWR);
         }
     }
 
-    private boolean resetKeyboard ()
+    private boolean resetKeyboard()
     {
 	for (int retires = 0; retires < 10; retires++)
-	    {
-		waitForKeyboard ();
-		ports.outb_p (REG_RDWR, CMD_PULSE);
-		int i = 10000;
-		while (!((ports.inb_p (REG_STAT) & STAT_OBUF_FUL) != 0) && (--i > 0))
-		    {
-			sleep (DELAY);
-		    }
-		if (ports.inb_p (REG_RDWR) == K_RET_ACK)
-		    return true;
-	    }
+        {
+            waitForKeyboard();
+            ports.outb_p(REG_RDWR, CMD_PULSE);
+            int i = 10000;
+            while (!((ports.inb_p(REG_STAT) & STAT_OBUF_FUL) != 0) && (--i > 0))
+            {
+                sleep(DELAY);
+            }
+            if (ports.inb_p(REG_RDWR) == (0xff & K_RET_ACK))
+                return true;
+        }
 	return false;
     }
 
-    private boolean resetKeyboardFinish ()
+    private boolean resetKeyboardFinish()
     {
 	for (int retires = 0; retires < 100; retires++)
-	    {
-		int i = 10000;
-		while (!((ports.inb_p (REG_STAT) & STAT_OBUF_FUL) != 0) && (--i > 0))
-		    {
-			sleep (DELAY * 10);
-		    }
-		if (ports.inb_p (REG_RDWR) == K_RET_RESET_DONE)
-		    return true;
-	    }
+        {
+            int i = 10000;
+            while (!((ports.inb_p(REG_STAT) & STAT_OBUF_FUL) != 0) && (--i > 0))
+            {
+                sleep(DELAY * 10);
+            }
+            if (ports.inb_p(REG_RDWR) == (0xff & K_RET_RESET_DONE))
+                return true;
+        }
 	return false;
     }
 
-    public void init ()
+    public void init()
     {
 	Debug.out.println ("KeyboardImpl.init()");
 	int c, i;
-
 
 	// Turn off irq generation
 	wrCommand (CTRL_SCAN | CTRL_INHBOVR | CTRL_SETSYSF);
 
 	Debug.out.println("ClearBuffer:");
-	clearKbdBuffer ();
+	clearKbdBuffer();
 	Debug.out.println("  OK.");
 
 	Debug.out.println("Reset:");
-	if (!resetKeyboard ())
+	if (!resetKeyboard())
 	    throw new Error();
 	Debug.out.println("  OK.");
 
 	Debug.out.println("ResetFinish: ");
-	if (!resetKeyboardFinish ())
+	if (!resetKeyboardFinish())
 	{
             Debug.out.println("unable to reset keyboard");
 	    throw new Error();
@@ -700,18 +699,29 @@ public class KeyboardImpl implements Keyboard, FirstLevelIrqHandler, Service
 	hasAuxiliaryPort = detectAuxiliaryPort ();
 	Debug.out.println("PS/2 Mouse available: " + hasAuxiliaryPort);
 
-	cpuManager.start (cpuManager.createCPUState (() -> {
-            cpuManager.setThreadName("KBD-2nd-IRQ"); 
-            for (;;){
-                try{
-                    queue.waitForCharacter ();
-                    notifyKeyListeners (queue.
-                            get ());
-                } catch (Exception e) {
-                    Debug.out.println ("EXCEPTION");
-                }
-            }
-        }));
+	cpuManager.start (cpuManager.createCPUState (new ThreadEntry ()
+	    {
+		public void run ()
+		{
+		    cpuManager.
+			setThreadName
+			("KBD-2nd-IRQ"); 
+                    for (;;)
+                    {
+                        try
+                        {
+                            queue.waitForCharacter ();
+                            notifyKeyListeners (queue.
+                                                get ());
+                        }
+                        catch (Exception e)
+                        {
+                            Debug.out.println ("EXCEPTION");
+                        }
+                    }
+		}
+	    }
+	));
 	Debug.out.println ("Started IRQ handler.");
 
 
@@ -721,39 +731,39 @@ public class KeyboardImpl implements Keyboard, FirstLevelIrqHandler, Service
 	wrCommand ((CTRL_SCAN | CTRL_INHBOVR | CTRL_SETSYSF | CTRL_ENBLIRQ));
 
 	if (hasAuxiliaryPort == true)
-	    {			
-		irq.installFirstLevelHandler (AUX_IRQ, this);
-		irq.enableIRQ (AUX_IRQ);
-		kbdWrite (REG_CMD, CMD_MOUSE_ENABLE);
-		kbdWriteCmd (AUX_INTS_ON);
-		auxWriteAck (AUX_SET_SAMPLE);			
-		auxWriteAck (100);		
-		auxWriteAck (AUX_SET_RES);
-		auxWriteAck (3);						
-		auxWriteAck (AUX_SET_SCALE21);	
-		kbdWrite (REG_CMD, CMD_MOUSE_DISABLE);	
-		kbdWriteCmd (AUX_INTS_OFF);	
-	    }
+        {			
+            irq.installFirstLevelHandler (AUX_IRQ, this);
+            irq.enableIRQ (AUX_IRQ);
+            kbdWrite (REG_CMD, CMD_MOUSE_ENABLE);
+            kbdWriteCmd (AUX_INTS_ON);
+            auxWriteAck (AUX_SET_SAMPLE);			
+            auxWriteAck (100);		
+            auxWriteAck (AUX_SET_RES);
+            auxWriteAck (3);						
+            auxWriteAck (AUX_SET_SCALE21);	
+            kbdWrite (REG_CMD, CMD_MOUSE_DISABLE);	
+            kbdWriteCmd (AUX_INTS_OFF);	
+        }
     }
 
 
-    public void readKeys ()
+    public void readKeys()
     {
 	ports.outb_p (0x21, (byte) 0x02);
 	for (;;)
-	    {
-		for (;;)
-		    {
-			int status = ports.inb_p (0x64);
-			if ((status & 0x01) == 0x01)
-			    break;
-		    }
-		int scancode = ports.inb_p (0x60);
+        {
+            for (;;)
+            {
+                int status = ports.inb_p (0x64);
+                if ((status & 0x01) == 0x01)
+                    break;
+            }
+            int scancode = ports.inb_p (0x60);
 
-		System.out.println ("KB " + scancode);
-		if (scancode == 0x01)
-		    break;									// ESC key
-	    }
+            System.out.println ("KB " + scancode);
+            if (scancode == 0x01)
+                break;									// ESC key
+        }
 	ports.outb_p (0x21, (byte) 0);
     }
 
@@ -763,45 +773,43 @@ public class KeyboardImpl implements Keyboard, FirstLevelIrqHandler, Service
      * @return 
      */
     @Override
-    public int getc ()
+    public int getc()
     {
 	for (;;)
-	    {
-		int c = -1;
-		do
-		    {
-			try
-			    {
-				int scancode = -1;
-				do
-				    {
-					while (queue.available () == 0);	//cpuManager.yield(); // should sleep here !
-					scancode = queue.get ();
-				    }
-				while (scancode == -1);
+        {
+            int c = -1;
+            do
+            {
+                try
+                {
+                    int scancode = -1;
+                    do
+                    {
+                        while (queue.available() == 0);	//cpuManager.yield(); // should sleep here !
+                        scancode = queue.get();
+                    }
+                    while (scancode == -1);
 
-				if (scan.isReset (scancode))
-				    {
-					Debug.out.println ("Reset PC on users request.");
-					resetPC ();
-				    }
-				c = scan.translate (scancode);
-			    }
-			catch (QueueEmptyException e)
-			    {
-			    }
-		    }
-		while (c == -1);
-		try
-		    {
-			if (localEcho != null)
-			    localEcho.write ((char) c);	// local echo
-		    }
-		catch (IOException e)
-		    {
-		    }
-		return c;
-	    }
+                    if (scan.isReset(scancode))
+                    {
+                        Debug.out.println("Reset PC on users request.");
+                        resetPC();
+                    }
+                    c = scan.translate(scancode);
+                }
+                catch (QueueEmptyException e)
+                {
+                }
+            }
+            while (c == -1);
+            try
+            {
+                if (localEcho != null)
+                    localEcho.write((char) c);	// local echo
+            } catch (IOException e) {
+            }
+            return c;
+        }
     }
 
     /**
@@ -810,75 +818,73 @@ public class KeyboardImpl implements Keyboard, FirstLevelIrqHandler, Service
      * @return 
      */
     @Override
-    public int getcode ()
+    public int getcode()
     {
 	for (;;)
-	    {
-		int c = -1;
-		try
-		    {
-			int scancode = -1;
-			do
-			    {
-				while (queue.available () == 0)
-				    {
-					waitingInGetcode = cpuManager.getCPUState ();
-					cpuManager.block ();
-				    }
-				scancode = queue.get ();
-			    }
-			while (scancode == -1);
-			if (scan.isReset (scancode))
-			    {
-				Debug.out.println ("Reset PC on users request.");
-				resetPC ();
-			    }
-			c = scancode;
-		    }
-		catch (QueueEmptyException e)
-		    {
-		    }
-		return c;
-	    }
+        {
+            int c = -1;
+            try
+            {
+                int scancode = -1;
+                do
+                {
+                    while (queue.available() == 0)
+                    {
+                        waitingInGetcode = cpuManager.getCPUState();
+                        cpuManager.block();
+                    }
+                    scancode = queue.get();
+                }
+                while (scancode == -1);
+                if (scan.isReset (scancode))
+                {
+                    Debug.out.println("Reset PC on users request.");
+                    resetPC();
+                }
+                c = scancode;
+            }
+            catch (QueueEmptyException e)
+            {
+            }
+            return c;
+        }
     }
 
-    public boolean getNumLock ()
+    public boolean getNumLock()
     {
 	return (leds & 2) != 0;
     }
 
-    public void switchNumLED ()
+    public void switchNumLED()
     {
-	switchNumLED (!getNumLock ());
+	switchNumLED(!getNumLock());
     }
 
-    public void switchNumLED (boolean on)
+    public void switchNumLED(boolean on)
     {
 	if (on)
-	    {
-		leds |= 2;
-	    }
-	else
-	    {
-		leds &= ~2;
-	    }
-	switchLEDs ();
+        {
+            leds |= 2;
+        } else {
+            leds &= ~2;
+        }
+	switchLEDs();
     }
 
-    private void switchLEDs ()
+    private void switchLEDs()
     {
 	int status;
-	ports.outb_p (REG_RDWR, K_CMD_LEDS);
+	ports.outb_p(REG_RDWR, K_CMD_LEDS);
 	do
-	    {
-		status = ports.inb_p (REG_STAT);
-	    }
+        {
+            status = ports.inb_p(REG_STAT);
+        }
 	while (status == STAT_IBUF_FUL);
 
-	ports.outb_p (REG_RDWR, leds);
+	ports.outb_p(REG_RDWR, leds);
     }
 
-    public void resetPC ()
+    public void resetPC()
     {
 	for (int i = 0; i < 100; i++) {
 	    wrCommand(CMD_PULSE & ~KO_SYSRESET);
@@ -888,45 +894,46 @@ public class KeyboardImpl implements Keyboard, FirstLevelIrqHandler, Service
     static int nLastKey = 0;
     static int nPauseKeyCount = 0;
 
-    static int convertKeyCode (int nCode)
+    static int convertKeyCode(int nCode)
     {
 	int nKey;
 	int nFlg;
 
 	if (nPauseKeyCount > 0)
-	    {
-		nPauseKeyCount++;
+        {
+            nPauseKeyCount++;
 
-		if (nPauseKeyCount == 6)
-		    {
-			nPauseKeyCount = 0;
-			return 0x10;
-		    }
-		else
-		    {
-			return 0;
-		    }
-	    }
+            if (nPauseKeyCount == 6)
+            {
+                nPauseKeyCount = 0;
+                return 0x10;
+            } else {
+                return 0;
+            }
+        }
 
 	if (0xe1 == nCode)
-	    {
-		nPauseKeyCount = 1;
-		return 0;
-	    }
+        {
+            nPauseKeyCount = 1;
+            return 0;
+        }
 
 	nFlg = nCode & 0x80;
 
 	if (0xe0 == nLastCode)
-	    {
-		nKey = s_anExtRawKeyTab[nCode & ~0x80];
-	    }
-	else
-	    {
-		if (0xe0 != nCode)
-		    nKey = s_anRawKeyTab[nCode & ~0x80];
-		else
-		    nKey = 0;
-	    }
+        {
+            nKey = s_anExtRawKeyTab[nCode & ~0x80];
+        } else {
+            if (0xe0 != nCode){
+                Debug.out.println("ncode: " + (nCode & ~0x80));
+                if((nCode & ~0x80) >= s_anRawKeyTab.length){
+                    nKey = 0;
+                } else
+                    nKey = s_anRawKeyTab[nCode & ~0x80];
+            }
+            else
+                nKey = 0;
+        }
 	nLastCode = nCode;
 
 	if ((int) (nKey | nFlg) == nLastKey || 0 == nKey)
@@ -936,6 +943,7 @@ public class KeyboardImpl implements Keyboard, FirstLevelIrqHandler, Service
 
 	return (nKey | nFlg);
     }
+    
     static int s_anRawKeyTab[] = {
 	0x00,												/*
 													 * * NO KEY 
@@ -2047,13 +2055,13 @@ class KeyQueue
 	return (writeIdx - readIdx - 1) % length;
     }
 
-    public int get () throws QueueEmptyException
+    public int get() throws QueueEmptyException
     {
-		int next = (readIdx + 1) % length;
-		if (next == writeIdx)
-	    	return -1;								//throw new QueueEmptyException();
-		readIdx = next;
-		return queue[readIdx];
+        int next = (readIdx + 1) % length;
+        if (next == writeIdx)
+        return -1;								//throw new QueueEmptyException();
+        readIdx = next;
+        return queue[readIdx];
     }
 
     public void waitForCharacter ()
