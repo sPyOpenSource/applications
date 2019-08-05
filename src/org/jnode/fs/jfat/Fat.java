@@ -25,7 +25,9 @@ import java.io.IOException;
 import java.util.Arrays;
 import jx.bio.BlockIO;
 import jx.zero.Debug;
+import jx.zero.InitialNaming;
 import jx.zero.Memory;
+import jx.zero.MemoryManager;
 //import org.jnode.fs.FileSystemException;
 
 
@@ -35,7 +37,7 @@ import jx.zero.Memory;
 public abstract class Fat {
 
     private final BlockIO api;
-    public static BootSector bs;
+    private final BootSector bs;
 
     //private final FatCache cache;
 
@@ -71,9 +73,11 @@ public abstract class Fat {
 
     public static Fat create(BlockIO api) throws IOException//, FileSystemException 
     {
-        //BootSector bs = new BootSector(512);
-
-        //bs.read(api);
+        MemoryManager memoryManager = (MemoryManager)InitialNaming.getInitialNaming().lookup("MemoryManager");
+        Memory buffer = memoryManager.allocAligned(512, 8);
+        api.readSectors(0, 1, buffer, true);
+        BootSector bs = new BootSector(buffer);
+        //Debug.out.println(bs.toString());
 
         /*if (bs.isFat32()) {
             return new Fat32(bs, api);
@@ -142,10 +146,8 @@ public abstract class Fat {
             throw new IllegalArgumentException("length[" + (offset + dst.remaining()) + "] " +
                 "exceed clusterSize[" + getClusterSize() + "]");
         }*/
-        for(int i = 0; i < 16; i++)
-            Debug.out.println(i + " cpos: " + getClusterPosition(i));
-        bs.toString();
-        getApi().readSectors(0x30, 1, dst, true);
+        Debug.out.println(" cpos: " + getClusterPosition(cluster));
+        getApi().readSectors(getClusterPosition(cluster) / 512, 1, dst, true);
     }
 
     /*public void writeCluster(int cluster, int offset, ByteBuffer src) throws IOException {

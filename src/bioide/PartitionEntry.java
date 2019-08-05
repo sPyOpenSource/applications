@@ -25,6 +25,7 @@ public class PartitionEntry implements Partition, Service {
     private PartitionEntry() { }
 
     public PartitionEntry(Drive drive, int start, int size, boolean accessable, int os) {
+        Debug.out.println("start: " + start);
 	this.drive = drive;
 	this.start = start;
 	this.size = size;

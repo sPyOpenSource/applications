@@ -263,7 +263,7 @@ public class BootSector {
     }
 
     protected int get16(int offset) {
-        return sector.getLittleEndian16(offset >> 1);
+        return sector.getLittleEndian16(offset);
     }
 
     protected void set16(int offset, int value) {
@@ -272,7 +272,7 @@ public class BootSector {
     }
 
     protected int get32(int offset) {
-        return sector.getLittleEndian32(offset >> 2);
+        return sector.getLittleEndian32(offset);
     }
 
     protected void set32(int offset, long value) {

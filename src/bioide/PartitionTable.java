@@ -1,8 +1,11 @@
 package bioide;
 
+import java.io.IOException;
 import jx.zero.*;
 import jx.zero.debug.*;
 import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.jnode.fs.fat.FatFileSystem;
 
 /**
@@ -68,7 +71,7 @@ class PartitionTable {
 
 	for (int i = 0; i < 4; i++) {
 	    PartitionData part_data = new PartitionData(buffer, 446 + i * 16);
-	    if ((isExtended(part_data.os_indicator()) == false) && (part_data.os_indicator() != 0) && (part_data.length_in_sectors() > 0)) {
+	    if (!isExtended(part_data.os_indicator()) && (part_data.os_indicator() != 0) && (part_data.length_in_sectors() > 0)) {
 		part_entry = new PartitionEntry(drive, part_data.start_sector(), part_data.length_in_sectors(), true, part_data.os_indicator());
 		entries.addElement(part_entry);
 		if (Env.verbosePT) Debug.out.println("found partition");
@@ -138,7 +141,12 @@ class PartitionTable {
 	*/
 	partitions = new PartitionEntry[entries.size()];
 	entries.copyInto(partitions);
-        FatFileSystem fat = new FatFileSystem(partitions[0]);
+        FatFileSystem fat = new FatFileSystem(partitions[1]);
+        try {
+            fat.getRootEntry();
+        } catch (IOException ex) {
+            //Logger.getLogger(PartitionTable.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     public void dump() {
 	Debug.out.println("Partitiontable:");
@@ -174,9 +182,9 @@ class PartitionTable {
     
     /** Ermittelt, ob es sich um eine erweiterte Partition handelt. */
     private static boolean isExtended(byte os_indicator) {
-	return (os_indicator == DOS_EXTENDED_PARTITION) ||
-                (os_indicator == LINUX_EXTENDED_PARTITION) ||
-                (os_indicator == WIN95_EXTENDED_PARTITION);
+	return (os_indicator == DOS_EXTENDED_PARTITION)   ||
+               (os_indicator == LINUX_EXTENDED_PARTITION) ||
+               (os_indicator == WIN95_EXTENDED_PARTITION);
     }
     /** Ermittelt, ob es sich um eine erweiterte Partition handelt. */
     public static String osName(byte os_indicator) {

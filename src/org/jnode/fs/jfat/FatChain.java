@@ -77,7 +77,7 @@ public class FatChain {
     private void setStartCluster(int value) {
         /*if ((value < 0) || (value > fat.size()))
             throw new IllegalArgumentException("illegal head: " + value);*/
-
+Debug.out.println("startcluster: " + value);
         head = value;
 
         iterator.reset();
@@ -350,26 +350,26 @@ public class FatChain {
             throw new IOException("attempt to seek after End Of Chain " + offset, ex);
         }
 
-        /*for (int l = dst.remaining(), sz = p.getPartial(), ofs = p.getOffset(), size; l > 0; l -=
-                size, sz = p.getSize(), ofs = 0) {
+        //for (int l = dst.remaining(), sz = p.getPartial(), ofs = p.getOffset(), size; l > 0; l -=
+         //       size, sz = p.getSize(), ofs = 0) {
 
-            int cluster = i.next();
+            int cluster = head;//i.next();
+if (cluster > 20) return;
+            int size = 0;//Math.min(sz, l);
+int ofs = 0;
+            //if (dolog)
+               Debug.out.println("read " + size + " bytes from cluster " + cluster + " at offset " + ofs);
 
-            size = Math.min(sz, l);
-
-            if (dolog)
-                mylog("read " + size + " bytes from cluster " + cluster + " at offset " + ofs);
-
-            int limit = dst.limit();
+           // int limit = dst.limit();
 
             try {
-                dst.limit(dst.position() + size);
+                //dst.limit(dst.position() + size);
                 fat.readCluster(cluster, ofs, dst);
             } finally {
-                dst.limit(limit);
+                //dst.limit(limit);
             }
-        }*/
-        fat.readCluster(0, 0, dst);
+        //}
+        //fat.readCluster(0, 0, dst);
     }
 
     /*
@@ -588,8 +588,10 @@ public class FatChain {
         }
 
         public int next() throws IOException {
-            if (!hasNext())
-                throw new NoSuchElementException();
+            if (!hasNext()){
+                return 0;
+                //throw new NoSuchElementException();
+            }
 
             address = cursor;
 

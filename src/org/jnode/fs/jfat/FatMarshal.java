@@ -109,23 +109,23 @@ public class FatMarshal {
 
     public int getUInt16(int offset) {
         checkOffset(offset, 2);
-        return array.getLittleEndian16(offset >> 1);
+        return array.getLittleEndian16(offset);
     }
 
     public void setUInt16(int offset, int value) {
         checkOffset(offset, 2);
-        array.setLittleEndian16(offset >> 1, (short)value);
+        array.setLittleEndian16(offset, (short)value);
         setDirty();
     }
 
     public long getUInt32(int offset) {
         checkOffset(offset, 4);
-        return array.getLittleEndian32(offset >> 2);
+        return array.getLittleEndian32(offset);
     }
 
     public void setUInt32(int offset, int value) {
         checkOffset(offset, 4);
-        array.setLittleEndian32(offset >> 2, value);
+        array.setLittleEndian32(offset, value);
         setDirty();
     }
 

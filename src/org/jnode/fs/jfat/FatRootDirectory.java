@@ -61,10 +61,10 @@ public class FatRootDirectory extends FatDirectory {
         if (index > bootSector.getNrRootDirEntries()) {
             throw new NoSuchElementException();
         }
-        int rootDirectoryOffset = bootSector.getFirstDataSector() * bootSector.getBytesPerSector();        
+        int rootDirectoryOffset = bootSector.getFirstDataSector();       
 
         Memory mem = rm.alloc(512);
-        getFatFileSystem().getApi().readSectors(8, 1, mem, true);
+        getFatFileSystem().getApi().readSectors(rootDirectoryOffset, 1, mem, true);
         /*for(int i = 0; i < 16; i++){
                 Debug.out.print((char)mem.get8(i*32));
                 Debug.out.print((char)mem.get8(i*32+1));
@@ -78,7 +78,6 @@ public class FatRootDirectory extends FatDirectory {
                 Debug.out.print((char)mem.get8(i*32+9));
                 Debug.out.println((char)mem.get8(i*32+10));
             }*/
-        Debug.out.println(index);
         Memory subs = rm.alloc(32);
         subs.copyFromMemory(mem, index * 32, 0, 32);
         Debug.out.print((char)subs.get8(0));

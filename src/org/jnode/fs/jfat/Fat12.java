@@ -39,6 +39,7 @@ public class Fat12 extends Fat {
         return (long) Math.floor(1.5 * index);
     }
 
+    @Override
     public int get(int index) throws IOException {
         int value = 0;//(int) getUInt16(index);
 
