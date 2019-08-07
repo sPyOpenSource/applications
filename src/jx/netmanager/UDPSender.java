@@ -36,8 +36,9 @@ class UDPSender implements jx.net.UDPSender, Service {
     public Memory send1(Memory m, int offset, int size) {
 	return udpSender1.processMemory(m, offset, size);
     }
+    
     public Memory send(Memory m) {
-	if (1==1) throw new Error("temporarily disabled. use send1");
+	//if (1 == 1) throw new Error("temporarily disabled. use send1");
 	return udpSender.processMemory(m);
     }
 

@@ -77,17 +77,18 @@ public class NetInit implements jx.net.NetInit, Service {
 	for (int i = 0; i < 3000; i++) cpuManager.yield();
 
 	// boot
-	localAddress = new IPAddress(192, 168, 1, 90);//myAddress;
+	localAddress = myAddress;
         nic.open(null);
-	//if (localAddress == null) {
+	if (localAddress == null) {
 	    BOOTP bootp = new BOOTP(this, ether.getMacAddress());
-	    /*localAddress =*/ bootp.sendRequest1();
-	//}
+            bootp.sendRequest1();
+	    localAddress = new IPAddress(192, 168, 1, 90);
+	}
 	Debug.out.println("IP address: " + localAddress.toString());
 	ip.changeSourceAddress(localAddress);
 	
-	arp.register(ip);		    
-	ip.setAddressResolution(arp);		    
+	arp.register(ip);
+	ip.setAddressResolution(arp);
 	ether.registerConsumer(ip, "IP");
 	ether.registerConsumer(arp, "ARP");
         ip.registerConsumer(icmp, "ICMP");
@@ -161,13 +162,13 @@ public class NetInit implements jx.net.NetInit, Service {
     
     @Override
     public Memory getUDPBuffer(int size) {
-	Memory buf = memMgr.alloc(1514);// ETHER FRAME SIZE   // 14+20+8 + size);
-	Memory[] arr = new Memory[3];
-	buf.split3(14 + 20 + 8, size, arr); /* parts size: 14+20+8, size, rest */
-	Memory[] arr1 = new Memory[3];
-	arr[0].split3(14, 20, arr1); /* parts size: 14, 20, 8 */
+	Memory buf = memMgr.alloc(size);// ETHER FRAME SIZE   // 14+20+8 + size);
+	//Memory[] arr = new Memory[3];
+	//buf.split3(14 + 20 + 8, size, arr); /* parts size: 14+20+8, size, rest */
+	//Memory[] arr1 = new Memory[3];
+	//arr[0].split3(14, 20, arr1); /* parts size: 14, 20, 8 */
 	//cpuManager.dump("UDPBUFFER: ", arr[1]);
-	return arr[1];
+	return buf;//arr[1];
     }
 
     // TODO: make this independent from Ethernet
