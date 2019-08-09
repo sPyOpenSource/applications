@@ -14,10 +14,8 @@ class UDPReceiver implements jx.net.UDPReceiver, Service {
     PacketsConsumer ipLayer;
     PacketsConsumer udpSender;
 
-    //Memory buf;
     CPUManager cpuManager = (CPUManager)InitialNaming.getInitialNaming().lookup("CPUManager");
     UDPConsumer consumer;
-    //UDPConsumer1 consumer1;
     int port;
     NetInit net;
     private MultiThreadBufferList usableBufs, filledBufs;
@@ -34,7 +32,7 @@ class UDPReceiver implements jx.net.UDPReceiver, Service {
 	//filledBufs.setVerbose(true);
 	filledBufs.requireMoredata(true);
 
-	if (avoidSplitting) {
+	//if (avoidSplitting) {
 	    /*consumer1 = new UDPConsumer1() {
                     @Override
 		    public Memory processUDP1(UDPData buf) {
@@ -52,7 +50,7 @@ class UDPReceiver implements jx.net.UDPReceiver, Service {
 		    }
 		};
 	    net.udp.registerUDPConsumer1(consumer1, localPort);*/
-	} else {
+	//} else {
 	    consumer = new UDPConsumer() {
                     @Override
 		    public Memory processUDP(UDPData buf) {
@@ -70,7 +68,7 @@ class UDPReceiver implements jx.net.UDPReceiver, Service {
 		    }
 		};
 	    net.udp.registerUDPConsumer(consumer, localPort);
-	}
+	//}
 	
 	port = localPort;
 		
@@ -102,7 +100,7 @@ class UDPReceiver implements jx.net.UDPReceiver, Service {
     */
 
     @Override
-    public UDPData receive1(Memory buf, int timeoutMillis) {
+    public UDPData receive(Memory buf, int timeoutMillis) {
 	Clock clock = (Clock)InitialNaming.getInitialNaming().lookup("Clock");
 	Buffer h = null;
 	CycleTime now = new CycleTime();
@@ -119,44 +117,7 @@ class UDPReceiver implements jx.net.UDPReceiver, Service {
 	    h = filledBufs.nonblockingUndockFirstElement();
 	    Thread.yield();
 	}
-	UDPData result = (UDPData) h.getMoreData();
-	if (result == null) throw new Error("received packet but UDPData result==null");
-	//result.offset = h.getOffset();
-	//result.size = h.getSize();
-	h.setData(buf);// extendfull?
-	usableBufs.appendElement(h);
-	return result;
-     }
-
-    public UDPData receive1(Memory buf) {
-	Buffer h = filledBufs.undockFirstElement();
-	UDPData result = (UDPData) h.getMoreData();
 	//buf = buf.revoke();
-	h.setData(buf);// extendfull?
-	usableBufs.appendElement(h);
-	return result;
-    }
-
-
-    public UDPData receive(Memory buf, int timeoutMillis) {
-	if (1==1) throw new Error("temporarily disabled. use receive1");
-	Clock clock = (Clock)InitialNaming.getInitialNaming().lookup("Clock");
-	Buffer h =null;
-	CycleTime now = new CycleTime();
-	CycleTime start = new CycleTime();
-	CycleTime diff = new CycleTime();
-	clock.getCycles(start);
-	while (h == null) {
-	    clock.getCycles(now);
-	    clock.subtract(diff, now, start);
-	    if (clock.toMilliSec(diff) >= timeoutMillis) {
-		for (int i=0;i<(10*timeoutMillis);i++) Thread.yield();
-		return null;
-	    }
-	    h = filledBufs.nonblockingUndockFirstElement();
-	    Thread.yield();
-	}
-	buf = buf.revoke();
 	UDPData result = (UDPData) h.getMoreData();
 	if (result == null) throw new Error("received packet but UDPData result==null");
 	h.setData(buf);// extendfull?
@@ -165,14 +126,23 @@ class UDPReceiver implements jx.net.UDPReceiver, Service {
      }
 
 
-
+    @Override
     public UDPData receive(Memory buf) {
-	if (1==1) throw new Error("temporarily disabled. use receive1");
-	Buffer h = filledBufs.undockFirstElement();
-	UDPData result = (UDPData) h.getMoreData();
-	buf = buf.revoke();
-	h.setData(buf);// extendfull?
-	usableBufs.appendElement(h);
+        Memory h = filledBufs.getLast().getData();
+        while(h == null){
+            h = filledBufs.getLast().getData();
+        }
+        Debug.out.println("size: " + h.size());
+        buf.copyFromMemory(h, 0, 0, h.size());
+        for(int i = 0; i < h.size(); i++){
+            Debug.out.println(h.get8(i));
+        }
+        Debug.out.println("copy finished");
+	//Buffer h = filledBufs.undockFirstElement();
+	UDPData result = null;//(UDPData) h.getMoreData();
+	//buf = buf.revoke();
+	//h.setData(buf);// extendfull?
+	//usableBufs.appendElement(h);
 	//UDPData u = new UDPData();
 	//u.mem = result;
 	//u.sourceAddress = net.udp.getSource(result);

@@ -81,8 +81,8 @@ public class NetInit implements jx.net.NetInit, Service {
         nic.open(null);
 	if (localAddress == null) {
 	    BOOTP bootp = new BOOTP(this, ether.getMacAddress());
-            bootp.sendRequest1();
-	    localAddress = new IPAddress(192, 168, 1, 90);
+            //bootp.sendRequest1();
+	    localAddress = new IPAddress(192, 168, 90, 90);
 	}
 	Debug.out.println("IP address: " + localAddress.toString());
 	ip.changeSourceAddress(localAddress);
@@ -105,7 +105,7 @@ public class NetInit implements jx.net.NetInit, Service {
 
     @Override
     public jx.net.UDPReceiver getUDPReceiver(int port, Memory[] bufs) { 
-	return new UDPReceiver(this, port, bufs, true); // avoidSplitting 
+	return new UDPReceiver(this, port, bufs, false); // avoidSplitting 
     }
     
     @Override

@@ -71,20 +71,20 @@ public final class AI
         //AI instance = new AI();
         //instance.start();
         //jx.keyboard.Main.main(new String[]{"WindowManager"});
-        try ( //ConsoleImpl.init(InitialNaming.getInitialNaming());
-            DatagramSocket clientSocket = new DatagramSocket()) {
-            InetAddress IPAddress = InetAddress.getByName("localhost");
-            byte[] sendData;// = new byte[1024];
-            //byte[] receiveData = new byte[1024];
+        try (
+            DatagramSocket clientSocket = new DatagramSocket(9000)) {
+            InetAddress IPAddress = InetAddress.getByName("laptop");
+            byte[] receiveData = new byte[1024];
             String sentence = "helloworld";
             Debug.out.println(sentence);
-            sendData = sentence.getBytes();
+            byte[] sendData = sentence.getBytes();
             DatagramPacket sendPacket = new DatagramPacket(sendData, sendData.length, IPAddress, 9876);
-            clientSocket.send(sendPacket);
-            //DatagramPacket receivePacket = new DatagramPacket(receiveData, receiveData.length);
-            //clientSocket.receive(receivePacket);
-            //String modifiedSentence = new String(receivePacket.getData());
-            //System.out.println("FROM SERVER:" + modifiedSentence);
+            //clientSocket.send(sendPacket);
+            DatagramPacket receivePacket = new DatagramPacket(receiveData, receiveData.length);
+            clientSocket.receive(receivePacket);
+            String modifiedSentence = new String(receivePacket.getData());
+            Debug.out.println("FROM SERVER:" + modifiedSentence);
         }
+        //ConsoleImpl.init(InitialNaming.getInitialNaming());
     }
 }
