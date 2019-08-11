@@ -33,16 +33,15 @@ import jx.net.NetInit;
 import jx.net.protocol.bootp.BOOTPFormat;
 
 //import org.apache.log4j.Logger;
-import org.jnode.driver.ApiNotFoundException;
-import org.jnode.driver.Device;
-import org.jnode.driver.net.NetDeviceAPI;
-import org.jnode.driver.net.NetworkException;
-import org.jnode.naming.InitialNaming;
-import org.jnode.net.NetPermission;
-import org.jnode.net.ipv4.config.IPv4ConfigurationService;
-import org.jnode.net.ipv4.util.ResolverImpl;
-import org.jnode.plugin.PluginManager;
-import org.jnode.plugin.URLPluginLoader;
+//import org.jnode.driver.ApiNotFoundException;
+//import org.jnode.driver.Device;
+//import org.jnode.driver.net.NetDeviceAPI;
+//import org.jnode.driver.net.NetworkException;
+//import org.jnode.net.NetPermission;
+//import org.jnode.net.ipv4.config.IPv4ConfigurationService;
+//import org.jnode.net.ipv4.util.ResolverImpl;
+//import org.jnode.plugin.PluginManager;
+//import org.jnode.plugin.URLPluginLoader;
 
 /**
  * Console DHCP client.
@@ -54,8 +53,8 @@ public class DHCPClient extends AbstractDHCPClient {
 
     //private static final Logger log = Logger.getLogger(DHCPClient.class);
 
-    private Device device;
-    private NetDeviceAPI api;
+    //private Device device;
+    //private NetDeviceAPI api;
 
     public DHCPClient(NetInit net, byte[] hwaddr) {
         super(net, hwaddr);
@@ -67,7 +66,7 @@ public class DHCPClient extends AbstractDHCPClient {
      * @param device
      * @throws java.io.IOException
      */
-    public final void configureDevice(final Device device) throws IOException {
+    /*public final void configureDevice(final Device device) throws IOException {
         this.device = device;
 
         final SecurityManager sm = System.getSecurityManager();
@@ -95,7 +94,7 @@ public class DHCPClient extends AbstractDHCPClient {
 
         this.api = null;
         this.device = null;
-    }
+    }*/
 
     /**
      * Performs the actual configuration of a network device based on the
@@ -107,31 +106,31 @@ public class DHCPClient extends AbstractDHCPClient {
     protected void doConfigure(DHCPMessage msg) throws IOException {
         super.doConfigure(msg);
 
-        final IPv4ConfigurationService cfg;
+        /*final IPv4ConfigurationService cfg;
         try {
             cfg = InitialNaming.lookup(IPv4ConfigurationService.NAME);
         } catch (NameNotFoundException ex) {
             throw new NetworkException(ex);
-        }
+        }*/
         BOOTPFormat hdr = msg.getHeader();
-        cfg.configureDeviceStatic(device, hdr
-                .getYiaddr(), null, false);
+        //cfg.configureDeviceStatic(device, hdr
+          //      .getYiaddr(), null, false);
 
         final IPAddress serverAddr = hdr.getServerIPAddress();
         final IPAddress networkAddress = serverAddr.and(serverAddr.getDefaultSubnetmask());
 
         if (hdr.getGatewayIPAddress().toInetAddress().isAnyLocalAddress()) {
-            cfg.addRoute(serverAddr, null, device, false);
-            cfg.addRoute(networkAddress, null, device, false);
+            //cfg.addRoute(serverAddr, null, device, false);
+            //cfg.addRoute(networkAddress, null, device, false);
         } else {
-            cfg.addRoute(networkAddress, hdr.getGatewayIPAddress(), device, false);
+            //cfg.addRoute(networkAddress, hdr.getGatewayIPAddress(), device, false);
         }
 
         byte[] routerValue = msg.getOption(DHCPMessage.ROUTER_OPTION);
         if (routerValue != null && routerValue.length >= 4) {
             IPAddress routerIP = new IPAddress(routerValue);
             //log.info("Got Router IP address : " + routerIP);
-            cfg.addRoute(IPAddress.ANY, routerIP, device, false);
+            //cfg.addRoute(IPAddress.ANY, routerIP, device, false);
         }
 
         // find the dns servers and add to the resolver
@@ -142,7 +141,7 @@ public class DHCPClient extends AbstractDHCPClient {
                 
                 //log.info("Got Dns IP address    : " + dnsIP);
                 try {
-                    ResolverImpl.addDnsServer(dnsIP);
+                    //ResolverImpl.addDnsServer(dnsIP);
                 } catch (Throwable ex) {
                     //log.error("Failed to configure DNS server");
                     //log.debug("Failed to configure DNS server", ex);
@@ -151,7 +150,7 @@ public class DHCPClient extends AbstractDHCPClient {
         }
         
         // Find the plugin loader option
-        final byte[] pluginLoaderValue = msg.getOption(DHCPMessage.PLUGIN_LOADER_OPTION);
+        /*final byte[] pluginLoaderValue = msg.getOption(DHCPMessage.PLUGIN_LOADER_OPTION);
         if (pluginLoaderValue != null) {
             final String pluginLoaderURL = new String(pluginLoaderValue, "UTF8");
             //log.info("Got plugin loader url : " + pluginLoaderURL);
@@ -168,6 +167,6 @@ public class DHCPClient extends AbstractDHCPClient {
                     return null;
                 }
             });
-        }
+        }*/
     }
 }

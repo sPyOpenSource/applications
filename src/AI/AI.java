@@ -52,6 +52,7 @@ public final class AI
     	logThread.start();
         inpThread.start(); 
         oupThread.start();
+        mem.ImportTxt("");
     }
     
     public static void init(Naming naming) throws Exception {
@@ -66,14 +67,15 @@ public final class AI
         main(new String[] {"boot.rc"});
         //bioide.Main.main(new String[]{"TimerManager", "BIOFS_RW", "0", "1"});
         //BioRAMDomain.main(new String[]{"BIOFS"});
+        //AI instance = new AI();
         NetInit.init(InitialNaming.getInitialNaming(), new String[]{"NIC", "eth0", "8:0:6:28:63:40"});
 	//FSDomain.main(new String[]{"BIOFS", "FS"});
-        //AI instance = new AI();
+        
         //instance.start();
         //jx.keyboard.Main.main(new String[]{"WindowManager"});
         try (
             DatagramSocket clientSocket = new DatagramSocket(9000)) {
-            InetAddress IPAddress = InetAddress.getByName("laptop");
+            InetAddress IPAddress = InetAddress.getByName("home");
             byte[] receiveData = new byte[1024];
             String sentence = "helloworld";
             Debug.out.println(sentence);

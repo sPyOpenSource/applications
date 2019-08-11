@@ -34,7 +34,7 @@ public class AIBaseMemory
 {
     // instance variables
     private double emotion = 0;
-    //private HashMap<String, List<Info>> dict = new HashMap<>();
+    private HashMap<String, List<Info>> dict = new HashMap<>();
     //private DatagramSocket socket;
     private String LOG;
     private final String[] shortterm;
@@ -70,7 +70,7 @@ public class AIBaseMemory
         return shortterm.length;
     }
     
-    /*public void addInfo(Info info, String key){
+    public void addInfo(Info info, String key){
         if(info != null && key != null)
             search(key).add(info);
     }
@@ -96,7 +96,7 @@ public class AIBaseMemory
         if (length > 0)
             return messages.get(length - 1);
         return null;
-    }*/
+    }
 
     public void addEmotion()
     {
@@ -112,7 +112,7 @@ public class AIBaseMemory
         return emotion;
     }
     
-    /*public List<Info> search(String key)
+    public List<Info> search(String key)
     {
         if (dict.containsKey(key)){
             //return dict.get(key);
@@ -122,7 +122,7 @@ public class AIBaseMemory
             dict.put(key, temp);
             return temp;
         }
-    }*/
+    }
     
     /*public void removeAll(String key){
         if (dict.containsKey(key))
@@ -204,6 +204,7 @@ public class AIBaseMemory
     }*/
     
     public void ImportTxt(String file){
+        addInfo(new Info("x"), "y");
         /*try {
             BufferedReader memory = new BufferedReader(new FileReader(file + ".TXT"));
             String line;

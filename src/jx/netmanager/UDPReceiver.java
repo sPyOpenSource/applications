@@ -134,9 +134,9 @@ class UDPReceiver implements jx.net.UDPReceiver, Service {
         }
         Debug.out.println("size: " + h.size());
         buf.copyFromMemory(h, 0, 0, h.size());
-        for(int i = 0; i < h.size(); i++){
+        /*for(int i = 0; i < h.size(); i++){
             Debug.out.println(h.get8(i));
-        }
+        }*/
         Debug.out.println("copy finished");
 	//Buffer h = filledBufs.undockFirstElement();
 	UDPData result = null;//(UDPData) h.getMoreData();

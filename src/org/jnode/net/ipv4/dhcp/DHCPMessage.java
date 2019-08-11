@@ -23,9 +23,15 @@ package org.jnode.net.ipv4.dhcp;
 import java.io.UnsupportedEncodingException;
 import java.net.DatagramPacket;
 import java.net.Inet4Address;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import jx.net.IPAddress;
 import jx.net.protocol.bootp.BOOTPFormat;
+import jx.zero.Debug;
 import jx.zero.Memory;
 
 /**
@@ -177,17 +183,18 @@ public class DHCPMessage {
 
     public DHCPMessage(Memory skbuf) {
         this(new BOOTPFormat(skbuf));
-        int i = BOOTPFormat.SIZE + 4;
+        int i = BOOTPFormat.SIZE + 4 + 14 + 20 + 8;
         int optionCode = skbuf.get8(i);
         while (optionCode != END_OPTION) {
+            Debug.out.println("opt: " + optionCode);
             if (optionCode == PAD_OPTION) {
                 i++;
             } else {
                 int optionLength = skbuf.get8(i + 1);
                 byte[] optionValue = new byte[optionLength];
-                for(int j = 0; j < optionLength; j++){
                 //skbuf.get(optionValue, 0, i + 2, optionLength);
-                optionValue[i] = skbuf.get8(j);
+                for(int j = 0; j < optionLength; j++){
+                    optionValue[j] = skbuf.get8(j+i+2);
                 }
                 setOption(optionCode, optionValue);
                 i += optionLength + 2;
@@ -196,9 +203,9 @@ public class DHCPMessage {
         }
     }
 
-    public DHCPMessage(DatagramPacket packet) {
+    /*public DHCPMessage(DatagramPacket packet) {
         this(new SocketBuffer(packet.getData(), packet.getOffset(), packet.getLength()));
-    }
+    }*/
 
     public BOOTPFormat getHeader() {
         return header;
@@ -221,7 +228,8 @@ public class DHCPMessage {
         if (code == MESSAGE_TYPE_OPTION) {
             messageType = value[0];
         } else {
-            options.put(code, value);
+            Debug.out.println("put");
+            options.put(new Integer(code), value);
         }
     }
 
@@ -266,7 +274,7 @@ public class DHCPMessage {
         if (code == MESSAGE_TYPE_OPTION)
             return new byte[] {(byte) messageType};
         else
-            return (byte[]) options.get(code);
+            return (byte[]) options.get(new Integer(code));
     }
 
     /**
@@ -274,30 +282,38 @@ public class DHCPMessage {
      * @return 
      */
     public DatagramPacket toDatagramPacket() {
-        final Memory skbuf = new SocketBuffer();
+        Debug.out.println("todata");
+        final Memory skbuf = header.getMemory();//new SocketBuffer();
         //skbuf.insert(OPTIONS_SIZE);
+        int offset = 0x116 - 34 - 8;
         // magic cookie
-        skbuf.set8(0, (byte)99);
-        skbuf.set8(1, (byte)130);
-        skbuf.set8(2, (byte)83);
-        skbuf.set8(3, (byte)99);
+        skbuf.set8(0+offset, (byte)99);
+        skbuf.set8(1+offset, (byte)130);
+        skbuf.set8(2+offset, (byte)83);
+        skbuf.set8(3+offset, (byte)99);
         // options
-        skbuf.set8(4, (byte)MESSAGE_TYPE_OPTION);
-        skbuf.set8(5, (byte)1);
-        skbuf.set8(6, (byte)messageType);
+        skbuf.set8(4+offset, (byte)MESSAGE_TYPE_OPTION);
+        skbuf.set8(5+offset, (byte)1);
+        skbuf.set8(6+offset, (byte)messageType);
         int n = 7;
         for (Map.Entry<Integer, byte[]> entry : options.entrySet()) {
             final int optionCode = entry.getKey();
             final byte optionValue[] = entry.getValue();
-            skbuf.set8(n, (byte)optionCode);
-            skbuf.set8(n + 1, (byte)optionValue.length);
-            skbuf.copyFromByteArray(n + 2, optionValue, 0, optionValue.length);
+            skbuf.set8(n+offset, (byte)optionCode);
+            skbuf.set8(n + 1+offset, (byte)optionValue.length);
+            skbuf.copyFromByteArray(optionValue, 0, n + 2+offset, optionValue.length);
             n += optionValue.length + 2;
         }
-        skbuf.set8(n, (byte)END_OPTION);
+        skbuf.set8(n + offset, (byte)END_OPTION);
 
-        header.prefixTo(skbuf);
-        final byte[] data = skbuf.toByteArray();
-        return new DatagramPacket(data, data.length);
+        //header.prefixTo(skbuf);
+        final byte[] data = new byte[skbuf.size()];
+        skbuf.copyToByteArray(data, 0, 0, data.length);
+        try {
+            return new DatagramPacket(data, data.length, InetAddress.getByName("all"), 67);
+        } catch (UnknownHostException ex) {
+            //Logger.getLogger(DHCPMessage.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
     }
 }

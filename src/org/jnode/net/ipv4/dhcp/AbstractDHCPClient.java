@@ -24,11 +24,14 @@ package org.jnode.net.ipv4.dhcp;
 
 import java.io.IOException;
 import java.net.DatagramPacket;
+import java.net.DatagramSocket;
 import java.net.InetAddress;
 import jx.net.IPAddress;
 import jx.net.NetInit;
 import jx.net.protocol.bootp.BOOTP;
 import jx.net.protocol.bootp.BOOTPFormat;
+import jx.zero.Debug;
+import jx.zero.Memory;
 
 /**
  * System independent base class.
@@ -51,22 +54,23 @@ public class AbstractDHCPClient extends BOOTP {
      * @throws java.io.IOException
      */
     //@Override
-    protected DatagramPacket createRequestPacket(BOOTPFormat hdr) throws IOException {
+    public DatagramPacket createRequestPacket(BOOTPFormat hdr) throws IOException {
         DHCPMessage msg = new DHCPMessage(hdr, DHCPMessage.DHCPDISCOVER);
         return msg.toDatagramPacket();
     }
 
     //@Override
-    protected boolean processResponse(int transactionID, DatagramPacket packet) throws IOException {
+    public IPAddress processResponse(int transactionID, Memory packet, DatagramSocket socket) throws IOException {
         DHCPMessage msg = new DHCPMessage(packet);
         BOOTPFormat hdr = msg.getHeader();
+        Debug.out.println("opcode");
         if (hdr.getOpcode() != BOOTPFormat.REPLY) {
             // Not a response
-            return false;
+            return null;//false;
         }
         if (hdr.getTransactionID() != transactionID) {
             // Not for me
-            return false;
+            return null;//false;
         }
 
         // debug the DHCP message
@@ -99,29 +103,71 @@ public class AbstractDHCPClient extends BOOTP {
 
         switch (msg.getMessageType()) {
             case DHCPMessage.DHCPOFFER:
+                Debug.out.println("serverid");
                 byte[] serverID = msg.getOption(DHCPMessage.SERVER_IDENTIFIER_OPTION);
                 byte[] requestedIP = hdr.getYiaddr().getBytes();
+                Debug.out.println("hdr");
+                IPAddress address = hdr.getYiaddr();
                 hdr = new BOOTPFormat(
                         BOOTPFormat.REQUEST, transactionID, 0, 
-                        hdr.getClientIPAddress(), hdr.getClientHwAddress());
+                        hdr.getClientIPAddress(), hdr.getClientHwAddress(),
+                        net.getUDPBuffer(500)
+                );
+                Debug.out.println("msg");
                 msg = new DHCPMessage(hdr, DHCPMessage.DHCPREQUEST);
                 msg.setOption(DHCPMessage.REQUESTED_IP_ADDRESS_OPTION, requestedIP);
                 msg.setOption(DHCPMessage.SERVER_IDENTIFIER_OPTION, serverID);
-                packet = msg.toDatagramPacket();
-                packet.setAddress(IPAddress.BROADCAST_ADDRESS);
-                packet.setPort(SERVER_PORT);
-                socket.send(packet);
-                break;
+                Debug.out.println("offer");
+                DatagramPacket packet1 = msg.toDatagramPacket();
+                packet1.setAddress(IPAddress.BROADCAST_ADDRESS);
+                packet1.setPort(SERVER_PORT);
+                socket.send(packet1);
+                return address;
             case DHCPMessage.DHCPACK:
                 doConfigure(msg);
-                return true;
+                return null;//true;
             case DHCPMessage.DHCPNAK:
                 break;
         }
-        return false;
+        return null;//false;
     }
 
     protected void doConfigure(DHCPMessage msg) throws IOException {
-        doConfigure(msg.getHeader());
+        //doConfigure(msg.getHeader());
+        BOOTPFormat hdr = msg.getHeader();
+        //net., hdr.getYiaddr();
+
+        final IPAddress serverAddr = hdr.getServerIPAddress();
+        final IPAddress networkAddress = serverAddr.and(serverAddr.getDefaultSubnetmask());
+
+        if (hdr.getGatewayIPAddress().toInetAddress().isAnyLocalAddress()) {
+            //cfg.addRoute(serverAddr, null, device, false);
+            //cfg.addRoute(networkAddress, null, device, false);
+        } else {
+            //cfg.addRoute(networkAddress, hdr.getGatewayIPAddress(), device, false);
+        }
+
+        byte[] routerValue = msg.getOption(DHCPMessage.ROUTER_OPTION);
+        if (routerValue != null && routerValue.length >= 4) {
+            IPAddress routerIP = new IPAddress(routerValue);
+            //log.info("Got Router IP address : " + routerIP);
+            //cfg.addRoute(IPAddress.ANY, routerIP, device, false);
+        }
+
+        // find the dns servers and add to the resolver
+        final byte[] dnsValue = msg.getOption(DHCPMessage.DNS_OPTION);
+        if (dnsValue != null) {
+            for (int i = 0; i < dnsValue.length; i += 4) {
+                final IPAddress dnsIP = new IPAddress(dnsValue);
+                
+                //log.info("Got Dns IP address    : " + dnsIP);
+                try {
+                    //ResolverImpl.addDnsServer(dnsIP);
+                } catch (Throwable ex) {
+                    //log.error("Failed to configure DNS server");
+                    //log.debug("Failed to configure DNS server", ex);
+                }
+            }
+        }
     }
 }

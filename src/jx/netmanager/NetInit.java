@@ -1,5 +1,7 @@
 package jx.netmanager;
 
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
 import jx.net.protocol.ether.*;
 import jx.net.protocol.ip.*;
 import jx.net.protocol.arp.*;
@@ -36,6 +38,7 @@ import jx.net.devices.lance.*;
 // emulated device
 import jx.devices.net.emulation.EmulNetFinder;
 import jx.net.protocol.icmp.ICMP;
+import org.jnode.net.ipv4.dhcp.DHCPClient;
 
 public class NetInit implements jx.net.NetInit, Service {
     TCP tcp;
@@ -52,6 +55,7 @@ public class NetInit implements jx.net.NetInit, Service {
     public NetInit(NetworkDevice nic, TimerManager timerManager, Memory[] bufs) throws Exception {
 	this(nic, timerManager, bufs, null); 
     }
+    
     public NetInit(NetworkDevice nic, TimerManager timerManager, Memory[] bufs, IPAddress myAddress) throws Exception {
 	// nic
 	ether = new Ether(nic, nic.getMACAddress());
@@ -80,9 +84,28 @@ public class NetInit implements jx.net.NetInit, Service {
 	localAddress = myAddress;
         nic.open(null);
 	if (localAddress == null) {
-	    BOOTP bootp = new BOOTP(this, ether.getMacAddress());
+	    //BOOTP bootp = new BOOTP(this, ether.getMacAddress());
             //bootp.sendRequest1();
-	    localAddress = new IPAddress(192, 168, 90, 90);
+            DHCPClient dhcp = new DHCPClient(this, ether.getMacAddress());
+            BOOTPFormat hdr = new BOOTPFormat(getUDPBuffer(300), 0);
+            hdr.insertOp(BOOTPFormat.REQUEST);
+            hdr.insertHtype((byte)1);
+            hdr.insertHlen((byte)6); // ether address size
+            hdr.insertXid(0);
+            hdr.insertHwaddr(ether.getMacAddress());
+            DatagramPacket sendPacket = dhcp.createRequestPacket(hdr);
+            InitialNaming.getInitialNaming().registerPortal(this, "NIC");
+            DatagramSocket clientSocket = new DatagramSocket(68);
+            clientSocket.send(sendPacket);
+            Debug.out.println("sended");
+            byte[] receiveData = new byte[1024];
+            DatagramPacket receivePacket = new DatagramPacket(receiveData, receiveData.length);
+            clientSocket.receive(receivePacket);
+            Debug.out.println("received");
+            Memory buf = getUDPBuffer(380);
+            buf.copyFromByteArray(receivePacket.getData(), 0, 34 + 8, buf.size() - 34 - 8);
+            Debug.out.println("finished");
+            localAddress = dhcp.processResponse(0, buf, clientSocket);
 	}
 	Debug.out.println("IP address: " + localAddress.toString());
 	ip.changeSourceAddress(localAddress);
@@ -232,7 +255,7 @@ public class NetInit implements jx.net.NetInit, Service {
 		bufs[i] = memMgr.alloc(1514);
 	    }
 	    netinstance = new jx.netmanager.NetInit(nic, timerManager, bufs);
-	    naming.registerPortal(netinstance, args[0]);
+	    //naming.registerPortal(netinstance, args[0]);
 	} catch(Exception e) {
 	    throw new Error("Could not setup");
         }
