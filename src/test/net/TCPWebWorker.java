@@ -15,8 +15,8 @@ class TCPWebWorker {
     final static int METHOD_UNDEF = 0;
     final static int METHOD_GET = 1;
     final static int METHOD_POST = 2;
-    int method=0;
-    int contentsLength=-1;
+    int method = 0;
+    int contentsLength = -1;
     MemoryManager memoryManager;
     Memory buffer;
     FS fs;
@@ -44,36 +44,50 @@ class TCPWebWorker {
 	OutputStream ostream = sock.getOutputStream();
 	DataInputStream requestStream = new DataInputStream(sock.getInputStream());
 	String file = parse(requestStream);
-	if (debug) Debug.out.println("HTTPServer: GET file "+file);
+	if (debug) Debug.out.println("HTTPServer: GET file " + file);
 
-	if (file.equals("stream.exe")) {
-	    byte[] data = new byte[1024];
-	    // stream data
-	    ostream.write(constructHeader(file, 1024*1024).getBytes());
-	    for(int i=0; i<1024; i++) {
-		ostream.write(data);		
-	    }
-	} else if (file.equals("dummy.html")) {
-	    byte[] data = new byte[1024];
-	    // stream data
-	    ostream.write(constructHeader(file, 1024).getBytes());
-	    ostream.write(data);		
-	} else if (file.equals("mini.html")) {
-	    byte[] data = new byte[1];
-	    // stream data
-	    ostream.write(constructHeader(file, 1).getBytes());
-	    ostream.write(data);		
-	} else {
-	    byte[] data = readFile(file);
-	    
-	    ostream.write(constructHeader(file, data.length).getBytes());
-	    ostream.write(data);
-	
-	    if (debug) Debug.out.println("HTTPServer: reply sent.");
-	}
+        switch (file) {
+            case "stream.exe":
+                {
+                    byte[] data = new byte[1024];
+                    // stream data
+                    ostream.write(constructHeader(file, 1024*1024).getBytes());
+                    for(int i = 0; i < 1024; i++) {
+                        ostream.write(data);
+                    }       
+                    break;
+                }
+            case "dummy.html":
+                {
+                    byte[] data = new byte[1024];
+                    // stream data
+                    ostream.write(constructHeader(file, 1024).getBytes());
+                    ostream.write(data);
+                    break;
+                }
+            case "mini.html":
+                {
+                    byte[] data = new byte[1];
+                    // stream data
+                    ostream.write(constructHeader(file, 1).getBytes());
+                    ostream.write(data);
+                    break;
+                }
+            default:
+                {
+                    String data = "<html><head><title>JX index.html Testseite (FILEXX)</title><body bgcolor=ffffff>\n\n" +
+			   "<center><h2>Herzlich willkommen auf der JX-FILE-Testseite</h2></center><br><br>\n" +
+			   "Link zur <a href=page2.html>zweiten</a> Seite</body></html>\n";//readFile(file);
+                    ostream.write(constructHeader(file, data.length()).getBytes());
+                    ostream.write(data.getBytes());
+                    if (debug) Debug.out.println("HTTPServer: reply sent.");
+                    break;
+                }
+        }
 	ostream.flush();
 	sock.close();
     }
+    
     byte[] readFile(String name)  {
 	try {
 	    Inode inode = (Inode)fs.lookup(name);

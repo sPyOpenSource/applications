@@ -22,6 +22,7 @@ package org.jnode.driver.net.lance;
 
 import jx.zero.Debug;
 import jx.zero.Memory;
+import jx.zero.MemoryManager;
 
 /**
  * @author Chris Cole
@@ -48,13 +49,12 @@ public class RxDescriptor extends Descriptor {
         return mem.get16((offset + BCNT) >> 1);
     }
 
-    public byte[] getDataBuffer() {
-        byte[] buf = new byte[getMessageByteCount()];
-        Debug.out.println("b: "+buf.length);
+    public Memory getDataBuffer(MemoryManager memMgr) {
+        //byte[] buf = new byte[getMessageByteCount()];
+        //Debug.out.println("b: "+buf.length);
         //mem.getBytes(dataBufferOffset, buf, 0, buf.length);
-        for(int i = 0; i < buf.length; i++){
-            buf[i] = mem.get8(dataBufferOffset + i);
-        }
-        return buf;
+        Memory skbuf = memMgr.alloc(getMessageByteCount());
+        skbuf.copyFromMemory(mem, dataBufferOffset, 0, skbuf.size());
+        return skbuf;
     }
 }

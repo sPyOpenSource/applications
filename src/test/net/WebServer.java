@@ -17,7 +17,7 @@ public class WebServer {
     Memory buffer;
 
     Naming naming = InitialNaming.getInitialNaming();
-    FS fs=null;
+    FS fs = null;
 
     public static void main (String[] args) throws Exception {
 	new WebServer(args);
@@ -27,38 +27,45 @@ public class WebServer {
 	Debug.out.println("[-verbose] [-port <port>] [-fs <FSName>] [-threads] [-dummyfiles]");
     }
 
-     public WebServer(String[] args) throws Exception {
-	 int port = 9080;
-	 boolean opt_threads = false;
-	 String fsname=null;
-	 boolean opt_use_fs = false;
-	 boolean opt_verbose = false;
-	 boolean opt_dummyfiles = false;
+    public WebServer(String[] args) throws Exception {
+	int port = 80;
+	boolean opt_threads = false;
+	String fsname = null;
+	boolean opt_use_fs = false;
+	boolean opt_verbose = false;
+	boolean opt_dummyfiles = false;
 
-	 int argc;
-	 for(argc = 0; argc < args.length; argc++) {
-	     if (args[argc].equals("-fs")) {
-		 argc++;
-		 opt_use_fs = true;
-		 fsname = args[argc];
-	     } else if (args[argc].equals("-verbose")) {
-		 opt_verbose = true;
-	     } else if (args[argc].equals("-threads")) {
-		 opt_threads = true;
-	     } else if (args[argc].equals("-port")) {
-		 argc++;
-		 port = Integer.parseInt(args[argc]);
-	     } else if (args[argc].equals("-dummyfiles")) {
-		 argc++;
-		 opt_dummyfiles = true;
-	    } else {
-		Debug.out.println("Unknown option ignored: "+args[argc]);
-		break;
-	    }
-	}
+	int argc;
+        OUTER:
+        for (argc = 0; argc < args.length; argc++) {
+            switch (args[argc]) {
+                case "-fs":
+                    argc++;
+                    opt_use_fs = true;
+                    fsname = args[argc];
+                    break;
+                case "-verbose":
+                    opt_verbose = true;
+                    break;
+                case "-threads":
+                    opt_threads = true;
+                    break;
+                case "-port":
+                    argc++;
+                    port = Integer.parseInt(args[argc]);
+                    break;
+                case "-dummyfiles":
+                    argc++;
+                    opt_dummyfiles = true;
+                    break;
+                default:
+                    Debug.out.println("Unknown option ignored: " + args[argc]);
+                    break OUTER;
+            }
+        }
 
 	if (opt_use_fs)	{
-	    Debug.out.println("Webserver: use filesystem with name "+fsname);
+	    Debug.out.println("Webserver: use filesystem with name " + fsname);
 	    fs = (FS)LookupHelper.waitUntilPortalAvailable(naming, fsname);
 
 	    // create buffer
@@ -87,16 +94,20 @@ public class WebServer {
 	// accept conections
 	while (true) {
 	    if (debug) Debug.out.println("Network: accept() called");
+            try{
 	    final Socket sock = ssock.accept();
-	    if (debug) Debug.out.println("Network: got new connection");
-	    if (opt_threads)
+            if (debug) Debug.out.println("Network: got new connection");
+	    //if (opt_threads)
 		startWorkerThread(sock);
-	    else
-		startWorkerDomain(sock);
+	    //else
+		//startWorkerDomain(sock);
+            } catch (Exception e){                
+                break;
+            }
 	}
     }
 
-    private final void createFile(FS fs, String name, String contents) throws Exception {
+    private void createFile(FS fs, String name, String contents) throws Exception {
 	fs.create(name, InodeImpl.S_IWUSR|InodeImpl.S_IRUGO);
 	Inode inode = (Inode)fs.lookup(name);
 	byte[] b = contents.getBytes();
@@ -105,21 +116,22 @@ public class WebServer {
 	inode.decUseCount();
     }
          
-    private final void startWorkerThread(final Socket sock)  {
-	    new Thread ("WebWorker"){
-		public void run() {
-		    try {
-			TCPWebWorker.processRequest(sock, fs);
-		    } catch(Exception e) {
-			throw new Error();
-		    }
-		}
-	    }.start();
+    private void startWorkerThread(final Socket sock)  {
+        new Thread ("WebWorker"){
+            @Override
+            public void run() {
+                try {
+                    TCPWebWorker.processRequest(sock, fs);
+                } catch(Exception e) {
+                    //throw new Error();
+                }
+            }
+        }.start();
     }
 
-    private final void startWorkerDomain(final Socket sock){
+    private void startWorkerDomain(final Socket sock){
 	String domainName = "Servlet";
-	String mainLib = "webserver.jll";
+	String mainLib = "init.jll";
 	String startClass = "test/net/TCPWebWorker";
 	String[] argv = new String[0];
 	Object[] portals = new Object [] { sock, fs };
@@ -137,11 +149,3 @@ public class WebServer {
     }
 
 }
-
-
-
-
-
-
-
-

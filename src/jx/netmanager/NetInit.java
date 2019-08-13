@@ -81,7 +81,7 @@ public class NetInit implements jx.net.NetInit, Service {
 	for (int i = 0; i < 3000; i++) cpuManager.yield();
 
 	// boot
-	localAddress = myAddress;
+	localAddress = new IPAddress(new byte[]{(byte)192,(byte)168,(byte)90,(byte)6});//myAddress;
         nic.open(null);
 	if (localAddress == null) {
 	    //BOOTP bootp = new BOOTP(this, ether.getMacAddress());
@@ -157,12 +157,12 @@ public class NetInit implements jx.net.NetInit, Service {
 	return new IPSender(this, dst, id);
     }
 
-    //@Override
+    @Override
     public Memory getTCPBuffer() {
         return memMgr.alloc(1514);
     }
 
-    //@Override
+    @Override
     public Memory getUDPBuffer() {
         return memMgr.alloc(1514);
     }
@@ -255,7 +255,7 @@ public class NetInit implements jx.net.NetInit, Service {
 		bufs[i] = memMgr.alloc(1514);
 	    }
 	    netinstance = new jx.netmanager.NetInit(nic, timerManager, bufs);
-	    //naming.registerPortal(netinstance, args[0]);
+	    jx.InitNaming.registerPortal(netinstance, args[0]);
 	} catch(Exception e) {
 	    throw new Error("Could not setup");
         }

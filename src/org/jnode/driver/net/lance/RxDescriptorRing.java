@@ -82,10 +82,10 @@ public class RxDescriptorRing extends DescriptorRing {
             return null;
         } else if ((status & RxDescriptor.STATUS_STP) != 0 &&
                 (status & RxDescriptor.STATUS_ENP) != 0) {
-            byte[] buf = des.getDataBuffer();
-            Debug.out.println(buf.length);
-            Memory skbuf = memMgr.alloc(buf.length);
-            skbuf.copyFromByteArray(buf, 0, 0, buf.length);
+            Memory skbuf = des.getDataBuffer(memMgr);
+            //Debug.out.println(buf.length);
+            //Memory skbuf = memMgr.alloc(des.getMessageByteCount());
+            //skbuf.copyFromMemory(buf, 0, 0, skbuf.size());
             des.clearStatus();
             currentDescriptor = currentDescriptor + 1;
             if (currentDescriptor == length)

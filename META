@@ -1,6 +1,6 @@
 NEEDLIBS = zero jdk0
 
-SUBDIRS = AI bioide test/fs vfs jx org/jnode
+SUBDIRS = AI bioide test/fs test/net vfs jx org/jnode
 
 LIBNAME = init2
 NUMBERENV = int
