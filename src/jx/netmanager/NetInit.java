@@ -81,7 +81,7 @@ public class NetInit implements jx.net.NetInit, Service {
 	for (int i = 0; i < 3000; i++) cpuManager.yield();
 
 	// boot
-	localAddress = new IPAddress(new byte[]{(byte)192,(byte)168,(byte)90,(byte)6});//myAddress;
+	localAddress = new IPAddress(new byte[]{(byte)192,(byte)168,(byte)1,(byte)6});//myAddress;
         nic.open(null);
 	if (localAddress == null) {
 	    //BOOTP bootp = new BOOTP(this, ether.getMacAddress());

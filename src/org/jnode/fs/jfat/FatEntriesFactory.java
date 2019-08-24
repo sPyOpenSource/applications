@@ -44,7 +44,6 @@ private Naming naming = InitialNaming.getInitialNaming();
                  * create a new entry from the chain
                  */
             try {
-                Debug.out.println(i);
                 e = directory.getFatDirEntry(i, includeDeleted);
                 i++;
             } catch (NoSuchElementException ex) {
@@ -109,8 +108,14 @@ private Naming naming = InitialNaming.getInitialNaming();
           //  this.entry = new FatDirectory(directory.getFatFileSystem(), directory, v);
         //else
         FatFile file = new FatFile(directory.getFatFileSystem(), directory, v);
+        try {
+            Debug.out.println("name: " + v.getShortEntry().getShortName());
+            file.setName(v.getShortEntry().getShortName());
+        } catch (IOException ex) {
+            //Logger.getLogger(FatEntriesFactory.class.getName()).log(Level.SEVERE, null, ex);
+        }
         this.entry = file;
-        MemoryManager memoryManager = (MemoryManager)naming.lookup("MemoryManager");
+        /*MemoryManager memoryManager = (MemoryManager)naming.lookup("MemoryManager");
         Memory buffer = memoryManager.allocAligned(512, 8);
         try {
             file.read(0, buffer);
@@ -120,9 +125,9 @@ private Naming naming = InitialNaming.getInitialNaming();
             Debug.out.println();
         } catch (IOException ex) {
            // Logger.getLogger(FatEntriesFactory.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }*/
         this.next = i;
-if(i > 3) return false;
+if(i > 11) return false;
        return true;
     }
 

@@ -24,6 +24,21 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Vector;
+import jx.fs.DirNotEmptyException;
+import jx.fs.FileExistsException;
+import jx.fs.FileSystem;
+import jx.fs.Inode;
+import jx.fs.InodeIOException;
+import jx.fs.InodeNotFoundException;
+import jx.fs.NoDirectoryInodeException;
+import jx.fs.NoFileInodeException;
+import jx.fs.NoSymlinkInodeException;
+import jx.fs.NotExistException;
+import jx.fs.NotSupportedException;
+import jx.fs.PermissionException;
+import jx.fs.StatFS;
+import jx.zero.Memory;
+import jx.zero.ReadOnlyMemory;
 //import org.apache.log4j.Logger;
 //import org.jnode.fs.FSAccessRights;
 //import org.jnode.fs.FSDirectory;
@@ -35,7 +50,7 @@ import org.jnode.fs.fat.FatFileSystem;
 //import org.jnode.util.NumberUtils;
 
 
-public class FatEntry extends FatObject// implements FSEntry, FSEntryCreated, FSEntryLastAccessed 
+public abstract class FatEntry extends FatObject implements Inode
 {
     //private static final Logger log = Logger.getLogger(FatEntry.class);
 
@@ -44,7 +59,9 @@ public class FatEntry extends FatObject// implements FSEntry, FSEntryCreated, FS
     private FatShortDirEntry entry;
     private FatDirectory parent;
     private FatChain chain;
-
+    protected Vector    overlayNames;
+    protected Vector    overlayInodes;
+    protected boolean   i_dirty, i_released;
     /*
      * internal constructor
      */
@@ -59,6 +76,9 @@ public class FatEntry extends FatObject// implements FSEntry, FSEntryCreated, FS
         this.entry = record.getShortEntry();
         this.parent = parent;
         this.chain = new FatChain(fs, entry.getStartCluster());
+        overlayNames = new Vector();
+	overlayInodes = new Vector();
+	i_dirty = false;
     }
 
     private final void setRoot() {
@@ -158,9 +178,9 @@ public class FatEntry extends FatObject// implements FSEntry, FSEntryCreated, FS
         entry.setLastAccessed(lastAccessed);
     }*/
 
-    /*public FatShortDirEntry getEntry() {
+    public FatShortDirEntry getEntry() {
         return entry;
-    }*/
+    }
 
     /*protected void setEntry(FatShortDirEntry value) {
         this.entry = value;
@@ -174,14 +194,17 @@ public class FatEntry extends FatObject// implements FSEntry, FSEntryCreated, FS
         return getChain().getStartCluster();
     }
 
+    @Override
     public FatDirectory getParent() {
         return parent;
     }
 
+    @Override
     public boolean isFile() {
         return false;
     }
 
+    @Override
     public boolean isDirectory() {
         return false;
     }
@@ -278,4 +301,233 @@ public class FatEntry extends FatObject// implements FSEntry, FSEntryCreated, FS
 
         return out.toString();
     }*/
+
+    @Override
+    public void setParent(Inode parent) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setDirty(boolean value) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void incUseCount() {
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void decUseCount() {
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int i_nlinks() throws NotExistException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void deleteInode() throws InodeIOException, NotExistException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void writeInode() throws InodeIOException, NotExistException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void putInode() throws NotExistException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void overlay(Inode newChild, String name) throws InodeIOException, InodeNotFoundException, NoDirectoryInodeException, NotExistException, PermissionException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void removeOverlay(Inode child) throws InodeNotFoundException, NoDirectoryInodeException, NotExistException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void removeAllOverlays() throws NoDirectoryInodeException, NotExistException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean isOverlayed(String name) throws NoDirectoryInodeException, NotExistException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Inode lookup(String name) throws InodeIOException, InodeNotFoundException, NoDirectoryInodeException, NotExistException, PermissionException {
+        //if (i_released)
+        //    throw new NotExistException();
+        if (!isDirectory())
+            throw new NoDirectoryInodeException();
+
+        if (name.equals(".")) {
+            incUseCount();
+            return this;
+        }
+        if (name.equals("..")) {
+            parent.incUseCount();
+            return parent;
+        }
+        /*for (int i = 0; i < overlayNames.size(); i++) {
+            if (name.equals((String)overlayNames.elementAt(i))) {
+                Inode inode = (Inode)overlayInodes.elementAt(i);
+                inode.incUseCount();
+                return inode;
+            }
+        }*/
+
+        return getInode(name);
+    }
+
+    @Override
+    public boolean isSymlink() throws NotExistException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean isWritable() throws NotExistException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean isReadable() throws NotExistException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean isExecutable() throws NotExistException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int lastModified() throws NotExistException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int lastAccessed() throws NotExistException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int lastChanged() throws NotExistException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setLastModified(int time) throws NotExistException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setLastAccessed(int time) throws NotExistException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String[] readdirNames() throws NoDirectoryInodeException, NotExistException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public abstract Inode getInode(String name) throws InodeIOException, InodeNotFoundException, NoDirectoryInodeException, NotExistException, PermissionException;
+
+    @Override
+    public Inode mkdir(String name, int mode) throws FileExistsException, InodeIOException, NoDirectoryInodeException, NotExistException, PermissionException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void rmdir(String name) throws DirNotEmptyException, InodeIOException, InodeNotFoundException, NoDirectoryInodeException, NotExistException, PermissionException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Inode create(String name, int mode) throws FileExistsException, InodeIOException, NoDirectoryInodeException, NotExistException, PermissionException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void unlink(String name) throws InodeIOException, InodeNotFoundException, NoDirectoryInodeException, NoFileInodeException, NotExistException, PermissionException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Inode symlink(String symname, String newname) throws FileExistsException, InodeIOException, NoDirectoryInodeException, NotExistException, NotSupportedException, PermissionException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String getSymlink() throws InodeIOException, NoSymlinkInodeException, NotExistException, NotSupportedException, PermissionException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void rename(String oldname, Inode new_dir, String newname) throws InodeIOException, InodeNotFoundException, NoDirectoryInodeException, NotExistException, PermissionException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int read(Memory mem, int off, int len) throws InodeIOException, NoFileInodeException, NotExistException, PermissionException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int read(int pos, Memory mem, int bufoff, int len) throws InodeIOException, NoFileInodeException, NotExistException, PermissionException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public ReadOnlyMemory readWeak(int off, int len) throws InodeIOException, NoFileInodeException, NotExistException, PermissionException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int write(Memory mem, int off, int len) throws InodeIOException, NoFileInodeException, NotExistException, PermissionException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int write(int pos, Memory mem, int bufoff, int len) throws InodeIOException, NoFileInodeException, NotExistException, PermissionException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int available() throws NotExistException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int getLength() throws NotExistException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int getIdentifier() throws NotExistException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int getVersion() throws NotExistException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public FileSystem getFileSystem() throws NotExistException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public StatFS getStatFS() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

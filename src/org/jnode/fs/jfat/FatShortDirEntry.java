@@ -23,6 +23,7 @@ package org.jnode.fs.jfat;
 import java.io.IOException;
 import java.nio.charset.CharacterCodingException;
 import java.util.Arrays;
+import jx.zero.Debug;
 import org.jnode.fs.fat.FatFileSystem;
 //import org.apache.log4j.Logger;
 //import org.jnode.util.NumberUtils;
@@ -48,7 +49,7 @@ public class FatShortDirEntry extends FatDirEntry {
     private int lWrtTime;
     private int lWrtDate;
     private int lFstClusLo;
-    private long lFileSize;
+    private int lFileSize;
 
     /*
      * decoded side
@@ -61,7 +62,7 @@ public class FatShortDirEntry extends FatDirEntry {
     private long accessed;
     private long modified;
     private int cluster;
-    private long length;
+    private int length;
 
     /*protected FatShortDirEntry(FatFileSystem fs) {
         super(fs, new FatMarshal(LENGTH), 0);
@@ -89,6 +90,7 @@ public class FatShortDirEntry extends FatDirEntry {
 
     protected void decodeName() {
         lName = entry.getBytes(0, 11);
+        
         /*
          * handle the special character 0x05 (page 23) 0xE5 is a valid KANJI
          * (japanese) character it cannot stay on persistent storage (as it was
@@ -123,7 +125,8 @@ public class FatShortDirEntry extends FatDirEntry {
 
         byte[] basebuf = new byte[8];
         System.arraycopy(lName, 0, basebuf, 0, 8);
-
+baseName = new String(basebuf);
+base = baseName.trim();
         /*try {
             baseName = getFatFileSystem().getCodePage().newDecoder().decode(basebuf);
         } catch (CharacterCodingException ex) {
@@ -143,7 +146,8 @@ public class FatShortDirEntry extends FatDirEntry {
 
         byte[] extbuf = new byte[3];
         System.arraycopy(lName, 8, extbuf, 0, 3);
-
+extName = new String(extbuf);
+ext = extName.trim();
         /*try {
             extName = getFatFileSystem().getCodePage().newDecoder().decode(extbuf);
         } catch (CharacterCodingException ex) {
@@ -489,11 +493,11 @@ public class FatShortDirEntry extends FatDirEntry {
         encodeCluster();
     }
 
-    public long getLength() {
+    public int getLength() {
         return length;
     }
 
-    public void setLength(long value) {
+    public void setLength(int value) {
         length = value;
         encodeLength();
     }

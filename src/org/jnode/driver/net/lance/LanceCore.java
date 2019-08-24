@@ -105,8 +105,7 @@ public class LanceCore implements LanceConstants, FirstLevelIrqHandler {
         this.flags = (LanceFlags) flags;
 
         //final PCIHeaderType0 config = device.getConfig().asHeaderType0();
-        //final int irqnum = config.getInterruptLine();
-        int irqnum = device.getInterruptLine();
+        final int irqnum = device.getInterruptLine();
 
         /*final PCIBaseAddress[] addrs = config.getBaseAddresses();
         if (addrs.length < 1) {
@@ -277,7 +276,6 @@ public class LanceCore implements LanceConstants, FirstLevelIrqHandler {
         io.setCSR(0, 0x48);
         //Debug.out.println(io.getCSR(0) | CSR0_TDMD);
         //io.setCSR(0, io.getCSR(0) | CSR0_TDMD);
-        //dumpDebugInfo();
     }
 
     /**
@@ -285,7 +283,7 @@ public class LanceCore implements LanceConstants, FirstLevelIrqHandler {
      */
     @Override
     public void interrupt() {
-        /*Debug.out.println("inter");
+        /*
         int temp = io.getCSR(0);
         if((temp & 0x8000) == 0x8000) Debug.out.println("AMD am79c973 ERROR");
         if((temp & 0x2000) == 0x2000) Debug.out.println("AMD am79c973 COLLISION ERROR");

@@ -6,7 +6,16 @@ import jx.zero.debug.*;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import jx.InitNaming;
+import jx.fs.Inode;
+import jx.fs.InodeIOException;
+import jx.fs.InodeNotFoundException;
+import jx.fs.NoDirectoryInodeException;
+import jx.fs.NoFileInodeException;
+import jx.fs.NotExistException;
+import jx.fs.PermissionException;
 import org.jnode.fs.fat.FatFileSystem;
+import vfs.FSImpl;
 
 /**
  * Partition table of a drive.
@@ -142,9 +151,21 @@ class PartitionTable {
 	partitions = new PartitionEntry[entries.size()];
 	entries.copyInto(partitions);
         FatFileSystem fat = new FatFileSystem(partitions[1]);
+        final FSImpl fs = new FSImpl();
+        fs.mountRoot(fat, false /* read-only = false*/);
+        InitNaming.registerPortal(fs, "FS");
         try {
-            fat.getRootEntry();
-        } catch (IOException ex) {
+            Inode inode = fs.lookup("/INDEX~1.HTM");
+            int l = inode.getLength();
+            Memory bufferx = Env.memoryManager.allocAligned(512, 8);
+            try {
+                inode.read(bufferx, 0, l);
+                for(int i = 0; i < l; i++)
+                    Debug.out.println(bufferx.get8(i));
+            } catch (NoFileInodeException ex) {
+                //Logger.getLogger(PartitionTable.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } catch (InodeIOException | InodeNotFoundException | NoDirectoryInodeException | NotExistException | PermissionException ex) {
             //Logger.getLogger(PartitionTable.class.getName()).log(Level.SEVERE, null, ex);
         }
     }

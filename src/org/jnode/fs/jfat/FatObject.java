@@ -21,20 +21,19 @@
 package org.jnode.fs.jfat;
 
 import org.jnode.fs.fat.FatFileSystem;
-//import org.jnode.fs.spi.AbstractFSObject;
-
 
 /**
  * @author gvt
  */
-public abstract class FatObject //extends AbstractFSObject 
-{   private FatFileSystem fs;
+public abstract class FatObject 
+{   
+    private final FatFileSystem fs;
+
     public FatObject(FatFileSystem fs) {
-       // super(fs);
        this.fs = fs;
     }
 
     public final FatFileSystem getFatFileSystem() {
-        return fs;//(FatFileSystem) getFileSystem();
+        return fs;
     }
 }

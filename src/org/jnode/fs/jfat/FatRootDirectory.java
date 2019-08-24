@@ -45,7 +45,7 @@ public class FatRootDirectory extends FatDirectory {
         } else {
             throw new UnsupportedOperationException("Unknown Fat Type");
         }
-        scanDirectory();
+        //scanDirectory();
     }
 
     @Override
@@ -99,6 +99,7 @@ public class FatRootDirectory extends FatDirectory {
         return getName();
     }
 
+    @Override
     public boolean isDirty() {
         return false;
     }
@@ -107,10 +108,12 @@ public class FatRootDirectory extends FatDirectory {
         throw new UnsupportedOperationException("Root has not an index");
     }
 
+    @Override
     public boolean isRoot() {
         return true;
     }
 
+    @Override
     public void setName(String newName) throws IOException {
         throw new UnsupportedOperationException("cannot change root name");
     }

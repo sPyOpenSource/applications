@@ -75,11 +75,12 @@ class TCPWebWorker {
                 }
             default:
                 {
-                    String data = "<html><head><title>JX index.html Testseite (FILEXX)</title><body bgcolor=ffffff>\n\n" +
+                    /*String data = "<html><head><title>JX index.html Testseite (FILEXX)</title><body bgcolor=ffffff>\n\n" +
 			   "<center><h2>Herzlich willkommen auf der JX-FILE-Testseite</h2></center><br><br>\n" +
-			   "Link zur <a href=page2.html>zweiten</a> Seite</body></html>\n";//readFile(file);
-                    ostream.write(constructHeader(file, data.length()).getBytes());
-                    ostream.write(data.getBytes());
+			   "Link zur <a href=page2.html>zweiten</a> Seite</body></html>\n";*/
+                    byte[] data = readFile("/INDEX~1.HTM");
+                    ostream.write(constructHeader(file, data.length).getBytes());
+                    ostream.write(data);
                     if (debug) Debug.out.println("HTTPServer: reply sent.");
                     break;
                 }
@@ -97,6 +98,7 @@ class TCPWebWorker {
 	    buffer.copyToByteArray(data, 0, 0, l);
 	    return data;
 	} catch (Exception ex) {
+	      Debug.out.println(ex.getMessage());
 	    return constructErrorHeader().getBytes();
 	}
     }
@@ -110,21 +112,26 @@ class TCPWebWorker {
                 StringTokenizer tokenizer = new StringTokenizer(line, " ");
                 if (!tokenizer.hasMoreTokens()) continue;
                 String tok = tokenizer.nextToken();
-                if (tok.equals("GET")) {
-                    method = METHOD_GET;
-                    fileName = tokenizer.nextToken();
-                    if (fileName.endsWith("/")) {
-                        fileName = fileName + getProperty_DefaultFile();
-                    } else {
+                switch (tok) {
+                    case "GET":
+                        method = METHOD_GET;
+                        fileName = tokenizer.nextToken();
+                        if (fileName.endsWith("/")) {
+                            fileName = fileName + getProperty_DefaultFile();
+                        } else {
+                            fileName = fileName.substring(1);
+                        }   break;
+                    case "POST":
+                        method = METHOD_POST;
+                        fileName = tokenizer.nextToken();
                         fileName = fileName.substring(1);
-                    }
-                } else if (tok.equals("POST")) {
-                    method = METHOD_POST;
-                    fileName = tokenizer.nextToken();
-                    fileName = fileName.substring(1);
-                    Debug.out.println("FILENAME: "+fileName);
-                } else if (tok.equals("Content-length:")) {
-                    contentsLength = Integer.parseInt(tokenizer.nextToken());
+                        Debug.out.println("FILENAME: "+fileName);
+                        break;
+                    case "Content-length:":
+                        contentsLength = Integer.parseInt(tokenizer.nextToken());
+                        break;
+                    default:
+                        break;
                 }
  
             }

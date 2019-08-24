@@ -20,15 +20,14 @@
  
 package org.jnode.fs.jfat;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
 import java.util.NoSuchElementException;
-//import org.jnode.fs.FSDirectory;
-//import org.jnode.fs.FSDirectoryId;
-//import org.jnode.fs.FSEntry;
+import jx.fs.Inode;
+import jx.fs.InodeIOException;
+import jx.fs.InodeNotFoundException;
+import jx.fs.NoDirectoryInodeException;
+import jx.fs.NotExistException;
+import jx.fs.PermissionException;
 import org.jnode.fs.fat.FatFileSystem;
 
 public class FatDirectory extends FatEntry //implements FSDirectory, FSDirectoryId 
@@ -95,6 +94,7 @@ public class FatDirectory extends FatEntry //implements FSDirectory, FSDirectory
      * @param allowDeleted {@code true} to allow deleted entries to be returned, {@code false} to only allow live
      *     entries.
      * @return the FAT directory entry.
+     * @throws java.io.IOException
      */
     public FatDirEntry createDirEntry(FatMarshal entry, int index, boolean allowDeleted)
         throws IOException {
@@ -201,6 +201,7 @@ public class FatDirectory extends FatEntry //implements FSDirectory, FSDirectory
         return Integer.toString(getStartCluster());
     }*/
 
+    @Override
     public boolean isDirectory() {
         return true;
     }
@@ -295,10 +296,10 @@ public class FatDirectory extends FatEntry //implements FSDirectory, FSDirectory
 
         while (f.hasNextEntry()) {
             FatEntry entry = f.createNextEntry();
-            /*if (FatUtils.compareIgnoreCase(entry.getName(), name)) {
+            if (FatUtils.compareIgnoreCase(entry.getName(), name)) {
                 child = entry;
                 break;
-            }*/
+            }
         }
 
         return child;
@@ -393,4 +394,20 @@ public class FatDirectory extends FatEntry //implements FSDirectory, FSDirectory
         out.print("*******************************************");
         return out.toString();
     }*/
+
+    @Override
+    public Inode getInode(String name) throws InodeIOException, InodeNotFoundException, NoDirectoryInodeException, NotExistException, PermissionException {
+	FatEntry inode;
+	
+	//if (i_released)
+	  //  throw new NotExistException();
+	
+	inode = getEntryByName(name);
+
+	if (inode != null) {
+	    return inode;
+	}
+	
+	return inode;
+    }
 }

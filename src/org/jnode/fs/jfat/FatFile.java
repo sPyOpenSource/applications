@@ -23,6 +23,14 @@ package org.jnode.fs.jfat;
 import java.io.IOException;
 //import java.nio.ByteBuffer;
 import java.util.NoSuchElementException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import jx.fs.InodeIOException;
+import jx.fs.InodeNotFoundException;
+import jx.fs.NoDirectoryInodeException;
+import jx.fs.NoFileInodeException;
+import jx.fs.NotExistException;
+import jx.fs.PermissionException;
 import jx.zero.Memory;
 //import org.apache.log4j.Logger;
 //import org.jnode.fs.FSFile;
@@ -41,6 +49,7 @@ public class FatFile extends FatEntry //implements FSFile, FSFileSlackSpace
         super(fs);
     }
 
+    @Override
     public boolean isFile() {
         return true;
     }
@@ -49,9 +58,10 @@ public class FatFile extends FatEntry //implements FSFile, FSFileSlackSpace
         return this;
     }*/
 
-    /*public long getLength() {
+    @Override
+    public int getLength() {
         return getEntry().getLength();
-    }*/
+    }
 
     private void freeClusters(long oldLength, long newLength) throws IOException {
         if (newLength >= oldLength) throw new UnsupportedOperationException("new[" + newLength + "] >= old["
@@ -82,13 +92,18 @@ public class FatFile extends FatEntry //implements FSFile, FSFileSlackSpace
         }*/
     }
 
-    public void read(int offset, Memory dst) throws IOException {
+    public int read(Memory dst, int offset, int length) throws InodeIOException, NoFileInodeException, NotExistException, PermissionException {
         //int limit = dst.limit();
-        int length = 32;//getLength();
+        //int length = 32;//getLength();
         int rem = length - offset;
 
-        if (rem <= 0) return;
-getChain().read(offset, dst);
+        if (rem <= 0) return 0;
+        try {
+            getChain().read(offset, dst);
+        } catch (IOException ex) {
+            //Logger.getLogger(FatFile.class.getName()).log(Level.SEVERE, null, ex);
+        }
+return 0;
         /*try {
             if (rem < dst.remaining()) dst.limit(dst.position() + (int) rem);
 
@@ -164,4 +179,10 @@ getChain().read(offset, dst);
 
         return out.toString();
     }*/
+    
+    @Override
+    public jx.fs.Inode getInode(String name) throws InodeIOException, InodeNotFoundException, NoDirectoryInodeException, NotExistException, PermissionException {
+	if (i_released)	throw new NotExistException();
+	throw new NoDirectoryInodeException();
+    }
 }

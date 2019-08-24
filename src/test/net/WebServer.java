@@ -97,10 +97,10 @@ public class WebServer {
             try{
 	    final Socket sock = ssock.accept();
             if (debug) Debug.out.println("Network: got new connection");
-	    //if (opt_threads)
+	    if (opt_threads)
 		startWorkerThread(sock);
-	    //else
-		//startWorkerDomain(sock);
+	    else
+		startWorkerDomain(sock);
             } catch (Exception e){                
                 break;
             }

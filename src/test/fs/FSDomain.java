@@ -33,6 +33,7 @@ public class FSDomain {
 	Debug.out = new DebugPrintStream(new DebugOutputStream(d));
 	main(args);
     }
+    
     FSDomain(final Naming naming, BlockIO bio, String fsname, boolean format) {
 	try {
 	    this.naming = naming;

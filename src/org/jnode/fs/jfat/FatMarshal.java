@@ -118,7 +118,7 @@ public class FatMarshal {
         setDirty();
     }
 
-    public long getUInt32(int offset) {
+    public int getUInt32(int offset) {
         checkOffset(offset, 4);
         return array.getLittleEndian32(offset);
     }
@@ -186,7 +186,7 @@ public class FatMarshal {
 
     public void getBytes(int offset, int length, int start, byte[] dst) {
         checkOffset(offset, length);
-        //System.arraycopy(array, offset, dst, start, length);
+        array.copyToByteArray(dst, offset, start, length);
     }
 
     public void setBytes(int offset, int length, int start, byte[] src) {

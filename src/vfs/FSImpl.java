@@ -278,7 +278,7 @@ public class FSImpl implements FS, Service {
 	    pi.decUseCount();
 	}
 	if (inode == null) throw new InodeNotFoundException();
-	if (inode.isSymlink()) {
+	/*if (inode.isSymlink()) {
 	    Debug.out.println("Symlink!");
 	    String symlink = null;
 	    try {
@@ -288,19 +288,10 @@ public class FSImpl implements FS, Service {
 	    }
 	    inode.decUseCount();
 	    return lookup(symlink);
-	}
+	}*/
 	direntrycache.addEntry(getAbsolutePath(path), inode);
 
 	return inode;
-    }
-
-    private boolean isPath(String name) {
-	return (name.lastIndexOf('/') != -1);
-    }
-    
-    private boolean isAbsolute(String name) {
-	return (name.charAt(0) == '/');/* ||
-					  (Character.isLetter(name.charAt(0)) && (name.charAt(1) == ':') && (name.charAt(2) == '\\'));*/
     }
     
     private String getAbsolutePath(String name)

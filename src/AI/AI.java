@@ -65,10 +65,11 @@ public final class AI
         PCIGod.main(new String[]{});
         StartTimer.main(new String[]{"TimerManager"});
         main(new String[] {"boot.rc"});
-        //bioide.Main.main(new String[]{"TimerManager", "BIOFS_RW", "0", "1"});
+        bioide.Main.main(new String[]{"TimerManager", "BIOFS_RW", "0", "1"});
         //BioRAMDomain.main(new String[]{"BIOFS"});
-        //AI instance = new AI();
+        
         NetInit.init(InitialNaming.getInitialNaming(), new String[]{"NET"});
+        AI instance = new AI();
 	//FSDomain.main(new String[]{"BIOFS", "FS"});
         
         //instance.start();
@@ -88,6 +89,6 @@ public final class AI
             Debug.out.println("FROM SERVER:" + modifiedSentence);
         }*/
         //ConsoleImpl.init(InitialNaming.getInitialNaming());
-        test.net.WebServer.main(new String[]{});
+        test.net.WebServer.main(new String[]{"-fs", "FS", "-threads"});
     }
 }
