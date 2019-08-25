@@ -102,7 +102,7 @@ class UDPReceiver implements jx.net.UDPReceiver, Service {
     @Override
     public UDPData receive(Memory buf, int timeoutMillis) {
 	Clock clock = (Clock)InitialNaming.getInitialNaming().lookup("Clock");
-	Buffer h = null;
+	Memory h = null;
 	CycleTime now = new CycleTime();
 	CycleTime start = new CycleTime();
 	CycleTime diff = new CycleTime();
@@ -114,15 +114,16 @@ class UDPReceiver implements jx.net.UDPReceiver, Service {
 		for (int i = 0; i < (10 * timeoutMillis); i++) Thread.yield();
 		return null;
 	    }
-	    h = filledBufs.nonblockingUndockFirstElement();
+	    h = filledBufs.getLast().getData();
 	    Thread.yield();
 	}
 	//buf = buf.revoke();
-	UDPData result = (UDPData) h.getMoreData();
-	if (result == null) throw new Error("received packet but UDPData result==null");
-	h.setData(buf);// extendfull?
-	usableBufs.appendElement(h);
-	return result;
+	//UDPData result = (UDPData) h.getMoreData();
+	//if (result == null) throw new Error("received packet but UDPData result==null");
+	//h.setData(buf);// extendfull?
+	//usableBufs.appendElement(h);
+        buf.copyFromMemory(h, 0, 0, h.size());
+	return new UDPData();
      }
 
 

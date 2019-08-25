@@ -7,6 +7,8 @@ import jx.console.ConsoleImpl;
 import jx.devices.pci.PCIGod;
 import static jx.init.Main.main;
 import jx.netmanager.NetInit;
+import jx.zero.Clock;
+import jx.zero.CycleTime;
 import jx.zero.Debug;
 import jx.zero.InitialNaming;
 import jx.zero.Naming;
@@ -60,7 +62,7 @@ public final class AI
 	Debug.out = new jx.zero.debug.DebugPrintStream(out);
 	//System.out = new java.io.PrintStream(out);
 	//System.err = System.out;
-	 
+
 	Debug.out.println("Init running...");
         PCIGod.main(new String[]{});
         StartTimer.main(new String[]{"TimerManager"});

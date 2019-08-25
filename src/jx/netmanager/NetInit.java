@@ -2,6 +2,7 @@ package jx.netmanager;
 
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
+import java.net.SocketTimeoutException;
 import jx.net.protocol.ether.*;
 import jx.net.protocol.ip.*;
 import jx.net.protocol.arp.*;
@@ -81,11 +82,9 @@ public class NetInit implements jx.net.NetInit, Service {
 	for (int i = 0; i < 3000; i++) cpuManager.yield();
 
 	// boot
-	localAddress = new IPAddress(new byte[]{(byte)192,(byte)168,(byte)1,(byte)6});//myAddress;
+	localAddress = myAddress;
         nic.open(null);
 	if (localAddress == null) {
-	    //BOOTP bootp = new BOOTP(this, ether.getMacAddress());
-            //bootp.sendRequest1();
             DHCPClient dhcp = new DHCPClient(this, ether.getMacAddress());
             BOOTPFormat hdr = new BOOTPFormat(getUDPBuffer(300), 0);
             hdr.insertOp(BOOTPFormat.REQUEST);
@@ -96,25 +95,35 @@ public class NetInit implements jx.net.NetInit, Service {
             DatagramPacket sendPacket = dhcp.createRequestPacket(hdr);
             InitialNaming.getInitialNaming().registerPortal(this, "NIC");
             DatagramSocket clientSocket = new DatagramSocket(68);
-            clientSocket.send(sendPacket);
-            Debug.out.println("sended");
-            byte[] receiveData = new byte[1024];
-            DatagramPacket receivePacket = new DatagramPacket(receiveData, receiveData.length);
-            clientSocket.receive(receivePacket);
-            Debug.out.println("received");
-            Memory buf = getUDPBuffer(380);
-            buf.copyFromByteArray(receivePacket.getData(), 0, 34 + 8, buf.size() - 34 - 8);
-            Debug.out.println("finished");
-            localAddress = dhcp.processResponse(0, buf, clientSocket);
+            for(int i = 0; i < 5; i++){
+                clientSocket.send(sendPacket);
+                Debug.out.println("sended");
+                byte[] receiveData = new byte[1024];
+                DatagramPacket receivePacket = new DatagramPacket(receiveData, receiveData.length);
+                clientSocket.setSoTimeout(200);
+                try {
+                    clientSocket.receive(receivePacket);
+                } catch (SocketTimeoutException e){
+                    continue;
+                }
+                Debug.out.println("received");
+                Memory buf = getUDPBuffer(380);
+                buf.copyFromByteArray(receivePacket.getData(), 0, 34 + 8, buf.size() - 34 - 8);
+                Debug.out.println("finished");
+                localAddress = dhcp.processResponse(0, buf, clientSocket);
+                Debug.out.println("IP address: " + localAddress.toString());
+                ip.changeSourceAddress(localAddress);
+
+                arp.register(ip);
+                ip.setAddressResolution(arp);
+                ether.registerConsumer(ip, "IP");
+                ether.registerConsumer(arp, "ARP");
+                ip.registerConsumer(icmp, "ICMP");
+                break;
+            }
 	}
-	Debug.out.println("IP address: " + localAddress.toString());
-	ip.changeSourceAddress(localAddress);
-	
-	arp.register(ip);
-	ip.setAddressResolution(arp);
-	ether.registerConsumer(ip, "IP");
+
 	ether.registerConsumer(arp, "ARP");
-        ip.registerConsumer(icmp, "ICMP");
     }
 
     public jx.net.protocol.tcp.TCP getTCP() {
