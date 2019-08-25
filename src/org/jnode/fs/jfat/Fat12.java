@@ -35,8 +35,8 @@ public class Fat12 extends Fat {
     }
 
     @Override
-    protected long offset(int index) {
-        return (long) Math.floor(1.5 * index);
+    protected int offset(int index) {
+        return (int)Math.floor(1.5 * index);
     }
 
     @Override

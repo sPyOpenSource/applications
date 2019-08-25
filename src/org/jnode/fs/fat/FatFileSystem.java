@@ -21,6 +21,8 @@
 package org.jnode.fs.fat;
 
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafs.InodeCache;
 import javafs.Tools;
 import jx.bio.BlockIO;
@@ -112,25 +114,6 @@ public class FatFileSystem implements jx.fs.FileSystem {
         //Memory data = memoryManager.allocAligned(16 * 32, 8);
         //Debug.out.println(bs.getNrRootDirEntries());
         //drive.readSectors(7, 1, data, true);
-    }
-    
-    public FatRootDirectory getRootEntry() throws IOException {
-        //if (isClosed())
-          //  throw new IOException("FileSystem is closed");
-
-        //if (rootEntry == null) {
-            FatRootDirectory rootEntry = createRootEntry();
-        //}
-        return rootEntry;
-    }
-
-    /**
-     * Gets the root entry of this filesystem. This is usually a directory, but this is not required.
-     * @return 
-     * @throws java.io.IOException 
-     */
-    protected FatRootDirectory createRootEntry() throws IOException {
-        return new FatRootDirectory(this);
     }
 
     /**
@@ -227,7 +210,7 @@ public class FatFileSystem implements jx.fs.FileSystem {
     @Override
     public Inode getRootInode() {
         try {
-            return getRootEntry();
+            return new FatRootDirectory(this);
         } catch (IOException ex) {
             //Logger.getLogger(FatFileSystem.class.getName()).log(Level.SEVERE, null, ex);
             return null;

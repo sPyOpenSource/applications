@@ -52,7 +52,7 @@ public class FatRootDirectory extends FatDirectory {
     public FatDirEntry getFatDirEntry(int index, boolean allowDeleted) throws IOException {
         if (getFatFileSystem().getFat().isFat32()) {
             // FAT32 uses the FAT to allocate space to the root directory too, so no special handling is required
-            return super.getFatDirEntry(index, allowDeleted);
+            //return super.getFatDirEntry(index, allowDeleted);
         }
 
         BootSector bootSector = getFatFileSystem().getBootSector();
@@ -65,7 +65,7 @@ public class FatRootDirectory extends FatDirectory {
 
         Memory mem = rm.alloc(512);
         getFatFileSystem().getApi().readSectors(rootDirectoryOffset, 1, mem, true);
-        /*for(int i = 0; i < 16; i++){
+        for(int i = 0; i < 16; i++){
                 Debug.out.print((char)mem.get8(i*32));
                 Debug.out.print((char)mem.get8(i*32+1));
                 Debug.out.print((char)mem.get8(i*32+2));
@@ -77,7 +77,8 @@ public class FatRootDirectory extends FatDirectory {
                 Debug.out.print((char)mem.get8(i*32+8));
                 Debug.out.print((char)mem.get8(i*32+9));
                 Debug.out.println((char)mem.get8(i*32+10));
-            }*/
+            }
+        index += 4;
         Memory subs = rm.alloc(32);
         subs.copyFromMemory(mem, index * 32, 0, 32);
         Debug.out.print((char)subs.get8(0));

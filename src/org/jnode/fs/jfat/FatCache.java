@@ -21,12 +21,12 @@
 package org.jnode.fs.jfat;
 
 import java.io.IOException;
-import java.nio.ByteBuffer;
-import java.util.LinkedHashMap;
+//import java.nio.ByteBuffer;
+//import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Stack;
-import org.jnode.driver.block.BlockDeviceAPI;
-import org.jnode.util.LittleEndian;
+import jx.bio.BlockIO;
+//import org.jnode.util.LittleEndian;
 
 
 public class FatCache {
@@ -34,7 +34,7 @@ public class FatCache {
     private final float loadFactor = 0.75f;
 
     private final Fat fat;
-    private final BlockDeviceAPI api;
+    private final BlockIO api;
     private final long fatsize;
     private final int nrfats;
 
@@ -120,20 +120,20 @@ public class FatCache {
         return c;
     }
 
-    private long getUInt16(long offset) throws IOException {
+    private int getUInt16(long offset) throws IOException {
         long addr = offset / elementSize;
         int ofs = (int) (offset % elementSize);
 
         byte[] data = get(addr).getData();
-        return LittleEndian.getUInt16(data, ofs);
+        return 0;//LittleEndian.getUInt16(data, ofs);
     }
 
-    private long getUInt32(long offset) throws IOException {
+    private int getUInt32(long offset) throws IOException {
         long addr = (long) (offset / elementSize);
         int ofs = (int) (offset % elementSize);
 
         byte[] data = get(addr).getData();
-        return LittleEndian.getUInt32(data, ofs);
+        return 0;//LittleEndian.getUInt32(data, ofs);
     }
 
     private void setInt16(long offset, int value) throws IOException {
@@ -143,7 +143,7 @@ public class FatCache {
         CacheElement c = get(addr);
         byte[] data = c.getData();
 
-        LittleEndian.setInt16(data, ofs, value);
+        //LittleEndian.setInt16(data, ofs, value);
 
         c.setDirty();
     }
@@ -155,16 +155,16 @@ public class FatCache {
         CacheElement c = get(addr);
         byte[] data = c.getData();
 
-        LittleEndian.setInt32(data, ofs, value);
+        //LittleEndian.setInt32(data, ofs, value);
 
         c.setDirty();
     }
 
-    public long getUInt16(int index) throws IOException {
+    public int getUInt16(int index) throws IOException {
         return getUInt16(fat.position(0, index));
     }
 
-    public long getUInt32(int index) throws IOException {
+    public int getUInt32(int index) throws IOException {
         return getUInt32(fat.position(0, index));
     }
 
@@ -183,9 +183,9 @@ public class FatCache {
     }
 
     public void flush() throws IOException {
-        for (CacheElement c : map.values()) {
+        /*for (CacheElement c : map.values()) {
             c.flush();
-        }
+        }*/
     }
 
     public long getHit() {
@@ -204,26 +204,27 @@ public class FatCache {
     }
 
     public String flushOrder() {
-        return map.flushOrder();
+        return "";//map.flushOrder();
     }
 
-    public String toString() {
+    /*public String toString() {
         StrWriter out = new StrWriter();
 
         out.print(map);
         out.println("size=" + getCacheSize() + " used=" + usedEntries() + " free=" + freeEntries());
 
         return out.toString();
-    }
+    }*/
 
-    private class CacheMap extends LinkedHashMap<CacheKey, CacheElement> {
+    private class CacheMap //extends LinkedHashMap<CacheKey, CacheElement> 
+    {
         private static final long serialVersionUID = 1L;
         private final int cacheSize;
         private final CacheKey key = new CacheKey();
-        private final Stack<CacheElement> free = new Stack<CacheElement>();
+        private final Stack<CacheElement> free = new Stack<>();
 
         private CacheMap(int cacheSize) {
-            super((int) Math.ceil(cacheSize / loadFactor) + 1, loadFactor, true);
+            //super((int) Math.ceil(cacheSize / loadFactor) + 1, loadFactor, true);
             this.cacheSize = cacheSize;
 
             for (int i = 0; i < cacheSize + 1; i++)
@@ -235,7 +236,7 @@ public class FatCache {
         }
 
         private int usedEntries() {
-            return size();
+            return 0;//size();
         }
 
         private int freeEntries() {
@@ -256,18 +257,19 @@ public class FatCache {
 
         private CacheElement get(long address) {
             key.set(address);
-            return get(key);
+            return null;//get(key);
         }
 
         private CacheElement put(CacheElement c) {
-            return put(c.getAddress(), c);
+            return null;//put(c.getAddress(), c);
         }
 
         /**
          * discard the eldest element when the cache is full
          */
+        //@Override
         protected boolean removeEldestEntry(Map.Entry<CacheKey, CacheElement> eldest) {
-            boolean remove = (size() > cacheSize);
+            boolean remove = false;//(size() > cacheSize);
 
             /**
              * before going to discard the eldest push it back on the stacked
@@ -279,7 +281,7 @@ public class FatCache {
             return remove;
         }
 
-        public String flushOrder() {
+        /*public String flushOrder() {
             StrWriter out = new StrWriter();
 
             for (CacheElement c : values()) {
@@ -297,7 +299,7 @@ public class FatCache {
                 out.println(c);
 
             return out.toString();
-        }
+        }*/
     }
 
     /**
@@ -356,7 +358,7 @@ public class FatCache {
          */
         private boolean dirty;
         private CacheKey address;
-        private final ByteBuffer elem;
+        //private final ByteBuffer elem;
 
         private CacheElement() {
             this.dirty = false;
@@ -364,7 +366,7 @@ public class FatCache {
 
             // FAT-12 reads in two byte chunks so add an extra element to prevent an array index out of bounds exception
             // when reading in the last element
-            this.elem = ByteBuffer.wrap(new byte[elementSize + 1]);
+            //this.elem = ByteBuffer.wrap(new byte[elementSize + 1]);
         }
 
         private boolean isFree() {
@@ -376,7 +378,7 @@ public class FatCache {
         }
 
         private byte[] getData() {
-            return elem.array();
+            return null;//elem.array();
         }
 
         /**
@@ -389,23 +391,23 @@ public class FatCache {
                 throw new IllegalArgumentException("cannot read a busy element");
 
             this.address.set(address);
-            elem.clear();
-            api.read(address * elementSize, elem);
-            elem.clear();
+            //elem.clear();
+            //api.read(address * elementSize, elem);
+            //elem.clear();
         }
 
         private void write() throws IOException {
             if (isFree())
                 throw new IllegalArgumentException("cannot write a free element");
 
-            elem.clear();
+            //elem.clear();
 
             long addr = address.get() * elementSize;
 
             for (int i = 0; i < nrfats; i++) {
-                api.write(addr, elem);
+                //api.write(addr, elem);
                 addr += fatsize;
-                elem.clear();
+                //elem.clear();
             }
         }
 
@@ -431,12 +433,12 @@ public class FatCache {
             address.free();
         }
 
-        public String toString() {
+        /*public String toString() {
             StrWriter out = new StrWriter();
 
             out.print("address=" + address.get() + " dirty=" + dirty);
 
             return out.toString();
-        }
+        }*/
     }
 }

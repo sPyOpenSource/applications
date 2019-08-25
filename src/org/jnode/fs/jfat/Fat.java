@@ -39,7 +39,7 @@ public abstract class Fat {
     private final BlockIO api;
     private final BootSector bs;
 
-    //private final FatCache cache;
+    private final FatCache cache;
 
     private int lastfree;
 
@@ -52,7 +52,7 @@ public abstract class Fat {
         /*
          * create a suitable cache
          */
-        //cache = new FatCache(this, 8192, 512);
+        cache = new FatCache(this, 8192, 512);
 
         /*
          * set lastfree
@@ -77,17 +77,16 @@ public abstract class Fat {
         Memory buffer = memoryManager.allocAligned(512, 8);
         api.readSectors(0, 1, buffer, true);
         BootSector bs = new BootSector(buffer);
-        //Debug.out.println(bs.toString());
 
-        /*if (bs.isFat32()) {
+        if (bs.isFat32()) {
             return new Fat32(bs, api);
         } else if (bs.isFat16()) {
-            return new Fat16(bs, api);
-        } else if (bs.isFat12()) {*/
+            return null;//new Fat16(bs, api);
+        } else if (bs.isFat12()) {
             return new Fat12(bs, api);
-        //}
+        }
 
-       // throw new FileSystemException("FAT not recognized");
+        return null;//throw new FileSystemException("FAT not recognized");
     }
 
     public final BootSector getBootSector() {
@@ -191,12 +190,12 @@ public abstract class Fat {
         return 2;
     }
 
-    public final long getClusterSector(int index) {
+    public final int getClusterSector(int index) {
         if (index < firstCluster() || index >= size()) {
             throw new IllegalArgumentException("illegal cluster # : " + index);
         }
 
-        return (long) (index - firstCluster()) * (long) bs.getSectorsPerCluster() +
+        return (index - firstCluster()) * bs.getSectorsPerCluster() +
             getBootSector().getFirstDataSector();
     }
 
@@ -206,7 +205,7 @@ public abstract class Fat {
         return (int) (bs.getCountOfClusters() + firstCluster());
     }
 
-    protected abstract long offset(int index);
+    protected abstract int offset(int index);
 
     public abstract boolean isEofChain(int entry);
 
@@ -230,11 +229,11 @@ public abstract class Fat {
         return (entry == freeEntry());
     }
 
-    /*public long getUInt16(int index) throws IOException {
+    public int getUInt16(int index) throws IOException {
         return cache.getUInt16(index);
     }
 
-    public long getUInt32(int index) throws IOException {
+    public int getUInt32(int index) throws IOException {
         return cache.getUInt32(index);
     }
 
@@ -244,7 +243,7 @@ public abstract class Fat {
 
     public void setInt32(int index, int element) throws IOException {
         cache.setInt32(index, element);
-    }*/
+    }
 
     public abstract int get(int index) throws IOException;
 

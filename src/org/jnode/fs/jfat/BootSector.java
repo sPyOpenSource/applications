@@ -304,7 +304,7 @@ public class BootSector {
     protected byte[] getBytes(int offset, int len) {
         byte[] v = new byte[len];
 
-        System.arraycopy(sector, offset, v, 0, len);
+        sector.copyToByteArray(v, 0, offset, len);
 
         return v;
     }
@@ -386,7 +386,7 @@ public class BootSector {
         return BPB_RootClus;
     }
 
-    public long getCountOfClusters() {
+    public int getCountOfClusters() {
         return CountOfClusters;
     }
 

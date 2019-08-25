@@ -67,7 +67,7 @@ public final class AI
         PCIGod.main(new String[]{});
         StartTimer.main(new String[]{"TimerManager"});
         main(new String[] {"boot.rc"});
-        bioide.Main.main(new String[]{"TimerManager", "BIOFS_RW", "0", "1"});
+        bioide.Main.main(new String[]{"TimerManager", "BIOFS_RW", "1", "1"});
         //BioRAMDomain.main(new String[]{"BIOFS"});
         
         NetInit.init(InitialNaming.getInitialNaming(), new String[]{"NET"});

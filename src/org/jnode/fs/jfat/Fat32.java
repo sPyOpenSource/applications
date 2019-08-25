@@ -22,29 +22,33 @@ package org.jnode.fs.jfat;
 
 import java.io.IOException;
 
-import org.jnode.driver.block.BlockDeviceAPI;
+import jx.bio.BlockIO;
 
 
 /**
  * @author gvt
  */
 public class Fat32 extends Fat {
-    protected Fat32(BootSector bs, BlockDeviceAPI api) {
+    protected Fat32(BootSector bs, BlockIO api) {
         super(bs, api);
     }
 
-    protected long offset(int index) {
-        return (long) (4 * index);
+    @Override
+    protected int offset(int index) {
+        return 4 * index;
     }
 
-    public long getClusterPosition(int index) {
-        return getClusterSector(index) * (long) getBootSector().getBytesPerSector();
+    @Override
+    public int getClusterPosition(int index) {
+        return getClusterSector(index) * getBootSector().getBytesPerSector();
     }
 
+    @Override
     public int get(int index) throws IOException {
         return (int) (getUInt32(index) & 0x0FFFFFFF);
     }
 
+    @Override
     public int set(int index, int element) throws IOException {
         long old = getUInt32(index);
 
@@ -53,10 +57,12 @@ public class Fat32 extends Fat {
         return (int) (old & 0x0FFFFFFF);
     }
 
+    @Override
     public boolean isEofChain(int entry) {
         return (entry >= 0x0FFFFFF8);
     }
 
+    @Override
     public int eofChain() {
         return 0x0FFFFFFF;
     }

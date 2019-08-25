@@ -150,24 +150,6 @@ class PartitionTable {
 	*/
 	partitions = new PartitionEntry[entries.size()];
 	entries.copyInto(partitions);
-        FatFileSystem fat = new FatFileSystem(partitions[1]);
-        final FSImpl fs = new FSImpl();
-        fs.mountRoot(fat, false /* read-only = false*/);
-        InitNaming.registerPortal(fs, "FS");
-        try {
-            Inode inode = fs.lookup("/INDEX~1.HTM");
-            int l = inode.getLength();
-            Memory bufferx = Env.memoryManager.allocAligned(512, 8);
-            try {
-                inode.read(bufferx, 0, l);
-                for(int i = 0; i < l; i++)
-                    Debug.out.println(bufferx.get8(i));
-            } catch (NoFileInodeException ex) {
-                //Logger.getLogger(PartitionTable.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        } catch (InodeIOException | InodeNotFoundException | NoDirectoryInodeException | NotExistException | PermissionException ex) {
-            //Logger.getLogger(PartitionTable.class.getName()).log(Level.SEVERE, null, ex);
-        }
     }
     public void dump() {
 	Debug.out.println("Partitiontable:");
