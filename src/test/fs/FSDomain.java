@@ -4,10 +4,12 @@ import jx.zero.*;
 import jx.zero.debug.*;
 import jx.bio.BlockIO;
 import javafs.*;
+import jx.InitNaming;
 import vfs.FSImpl;
 import jx.fs.FSException;
 import jx.zero.debug.DebugPrintStream;
 import jx.zero.debug.DebugOutputStream;
+import org.jnode.fs.fat.FatFileSystem;
 
 public class FSDomain {
     Naming naming;
@@ -39,25 +41,26 @@ public class FSDomain {
 	    this.naming = naming;
             
 	    final FSImpl fs = new FSImpl();
-	    final javafs.FileSystem jfs = new javafs.FileSystem();
+            final FatFileSystem fat = new FatFileSystem(bio);
+	    //final javafs.FileSystem jfs = new javafs.FileSystem();
 	    Clock clock = new DummyClock();
-	    jfs.init(bio, new buffercache.BufferCache(bio, clock, 800, 1000, 100, EXT2FS_BLOCKSIZE), clock);
+	    //jfs.init(bio, new buffercache.BufferCache(bio, clock, 800, 1000, 100, EXT2FS_BLOCKSIZE), clock);
 	    Debug.out.println("Capacity: " + bio.getCapacity());
 
 	    if (format) {
 		//Profiler profiler = (Profiler)naming.lookup("Profiler");
 		//profiler.startSampling();
-		jfs.build("TestFS", 1024);
+		//jfs.build("TestFS", 1024);
 		//profiler.stopSampling();
 	    }
-	    fs.mountRoot(jfs, false /* read-only = false*/);
+	    fs.mountRoot(fat, false /* read-only = false*/);
 
 	    if (format) {
 		fs.mkdir("lost+found", InodeImpl.S_IWUSR | InodeImpl.S_IRUGO | InodeImpl.S_IXUGO);
 	    }
 
-	    naming.registerPortal(fs, fsname);
-	    naming.registerPortal(jfs, "JavaFS");
+	    InitNaming.registerPortal(fs, fsname);
+	    //naming.registerPortal(jfs, "JavaFS");
 	} catch(FSException e) {
 	    Debug.out.println("EXCEPTION: " + e);
 	    throw new Error();
