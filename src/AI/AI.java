@@ -1,20 +1,12 @@
 package AI;
 
-import java.net.DatagramPacket;
-import java.net.DatagramSocket;
-import java.net.InetAddress;
-import jx.console.ConsoleImpl;
 import jx.devices.pci.PCIGod;
 import static jx.init.Main.main;
 import jx.netmanager.NetInit;
-import jx.zero.Clock;
-import jx.zero.CycleTime;
 import jx.zero.Debug;
 import jx.zero.InitialNaming;
 import jx.zero.Naming;
 import jx.zero.debug.DebugChannel;
-import org.jnode.fs.fat.FatFileSystem;
-import test.fs.BioRAMDomain;
 import test.fs.FSDomain;
 import timerpc.StartTimer;
 
@@ -70,25 +62,11 @@ public final class AI
         bioide.Main.main(new String[]{"TimerManager", "BIOFS_RW", "1", "1"});
         
         NetInit.init(InitialNaming.getInitialNaming(), new String[]{"NET"});
-        AI instance = new AI();
-	FSDomain.main(new String[]{"BIOFS_RW", "FS"});
         
+	FSDomain.main(new String[]{"BIOFS_RW", "FS"});
+        AI instance = new AI();
         //instance.start();
         //jx.keyboard.Main.main(new String[]{"WindowManager"});
-        /*try (
-            DatagramSocket clientSocket = new DatagramSocket(9000)) {
-            InetAddress IPAddress = InetAddress.getByName("home");
-            byte[] receiveData = new byte[1024];
-            String sentence = "helloworld";
-            Debug.out.println(sentence);
-            byte[] sendData = sentence.getBytes();
-            DatagramPacket sendPacket = new DatagramPacket(sendData, sendData.length, IPAddress, 9876);
-            //clientSocket.send(sendPacket);
-            DatagramPacket receivePacket = new DatagramPacket(receiveData, receiveData.length);
-            clientSocket.receive(receivePacket);
-            String modifiedSentence = new String(receivePacket.getData());
-            Debug.out.println("FROM SERVER:" + modifiedSentence);
-        }*/
         //ConsoleImpl.init(InitialNaming.getInitialNaming());
         test.net.WebServer.main(new String[]{"-fs", "FS", "-threads"});
     }

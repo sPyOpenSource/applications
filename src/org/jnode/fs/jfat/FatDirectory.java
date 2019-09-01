@@ -30,7 +30,7 @@ import jx.fs.NotExistException;
 import jx.fs.PermissionException;
 import org.jnode.fs.fat.FatFileSystem;
 
-public class FatDirectory extends FatEntry //implements FSDirectory, FSDirectoryId 
+public class FatDirectory extends FatEntry
 {
     public static final int MAXENTRIES = 65535; // 2^16-1; fatgen 1.03, page 33
 
@@ -51,9 +51,9 @@ public class FatDirectory extends FatEntry //implements FSDirectory, FSDirectory
     /*
      * from a directory record;
      */
-    /*public FatDirectory(FatFileSystem fs, FatDirectory parent, FatRecord record) {
+    public FatDirectory(FatFileSystem fs, FatDirectory parent, FatRecord record) {
         super(fs, parent, record);
-    }*/
+    }
 
     /*
      * initialize a new created directory
@@ -121,11 +121,11 @@ public class FatDirectory extends FatEntry //implements FSDirectory, FSDirectory
 
         FatDirEntry fatDirEntry;
         // 0xffffffff is the end of long file name marker
-        //if (attr.isLong() || entry.getUInt32(28) == 0xffffffff) {
-          //  fatDirEntry = createLongDirEntry(entry, index);
-        //} else {
+        if (attr.isLong() || entry.getUInt32(28) == 0xffffffff) {
+            fatDirEntry = createLongDirEntry(entry, index);
+        } else {
             fatDirEntry = createShortDirEntry(entry, index);
-        //}
+        }
 
         if (free) {
             // Still mark deleted entries as deleted.
@@ -152,10 +152,11 @@ public class FatDirectory extends FatEntry //implements FSDirectory, FSDirectory
      * @param entry the FAT entry buffer.
      * @param index the index of the entry.
      * @return the long directory entry.
+     * @throws java.io.IOException
      */
-    /*protected FatDirEntry createLongDirEntry(FatMarshal entry, int index) throws IOException {
+    protected FatDirEntry createLongDirEntry(FatMarshal entry, int index) throws IOException {
         return new FatLongDirEntry(getFatFileSystem(), entry, index);
-    }*/
+    }
 
     /*
      * this instead is a "write" method: it needs a "created" entry

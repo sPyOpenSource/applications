@@ -81,10 +81,10 @@ public abstract class FatEntry extends FatObject implements Inode
 	i_dirty = false;
     }
 
-    private final void setRoot() {
+    private void setRoot() {
         this.name = "";
-        //this.record = null;
-        //this.entry = null;
+        this.record = null;
+        this.entry = null;
         this.parent = null;
     }
 
@@ -93,8 +93,9 @@ public abstract class FatEntry extends FatObject implements Inode
         this.chain = new FatChain(getFatFileSystem(), startCluster);
     }
 
+    @Override
     public boolean isDirty() {
-        return false;//(entry.isDirty() || chain.isDirty());
+        return (entry.isDirty() || chain.isDirty());
     }
 
     public void delete() throws IOException {
@@ -122,9 +123,9 @@ public abstract class FatEntry extends FatObject implements Inode
         //chain.dump(fileName);
     }
 
-    /*public FatRecord getRecord() {
+    public FatRecord getRecord() {
         return record;
-    }*/
+    }
 
     /*@Override
     public String getId() {
@@ -139,7 +140,7 @@ public abstract class FatEntry extends FatObject implements Inode
         this.name = name;
     }
 
-    /*public String getShortName() {
+    public String getShortName() {
         return entry.getShortName();
     }
 
@@ -176,15 +177,15 @@ public abstract class FatEntry extends FatObject implements Inode
 
     public void setLastAccessed(long lastAccessed) throws IOException {
         entry.setLastAccessed(lastAccessed);
-    }*/
+    }
 
     public FatShortDirEntry getEntry() {
         return entry;
     }
 
-    /*protected void setEntry(FatShortDirEntry value) {
+    protected void setEntry(FatShortDirEntry value) {
         this.entry = value;
-    }*/
+    }
 
     public FatChain getChain() {
         return chain;
@@ -213,19 +214,18 @@ public abstract class FatEntry extends FatObject implements Inode
         return false;
     }
 
-    /*public void flush() throws IOException {
+    public void flush() throws IOException {
         if (isDirty()) {
             if (chain.isDirty()) {
                 entry.setStartCluster(chain.getStartCluster());
                 chain.flush();
             }
-            //
             if (entry.isDirty()) {
                 parent.setFatDirEntry(entry);
                 entry.flush();
             }
         }
-    }*/
+    }
 
     /*public FSDirectory getDirectory() {
         throw new UnsupportedOperationException("getDirectory");

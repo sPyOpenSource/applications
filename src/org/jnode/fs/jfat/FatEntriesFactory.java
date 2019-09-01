@@ -5,11 +5,6 @@ import java.util.NoSuchElementException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import jx.zero.Debug;
-import jx.zero.InitialNaming;
-import jx.zero.Memory;
-import jx.zero.MemoryManager;
-import jx.zero.Naming;
-//import org.apache.log4j.Logger;
 
 public class FatEntriesFactory {
 
@@ -21,7 +16,7 @@ public class FatEntriesFactory {
     private FatEntry entry;
     protected boolean includeDeleted;
     private FatDirectory directory;
-private Naming naming = InitialNaming.getInitialNaming();
+    
     public FatEntriesFactory(FatDirectory directory, boolean includeDeleted) {
         label = false;
         index = 0;
@@ -36,10 +31,11 @@ private Naming naming = InitialNaming.getInitialNaming();
         FatDirEntry e;
         FatRecord v = new FatRecord();
 
-  /*      if (index > FatDirectory.MAXENTRIES)
-            log.debug("Full Directory: invalid index " + index);
-*/
+        if (index > FatDirectory.MAXENTRIES)
+            Debug.out.println("Full Directory: invalid index " + index);
+
         for (i = index;; ) {
+            Debug.out.println("index: "+i);
                 /*
                  * create a new entry from the chain
                  */
@@ -50,13 +46,12 @@ private Naming naming = InitialNaming.getInitialNaming();
                 entry = null;
                 return false;
             } catch (IOException ex) {
-                //log.debug("cannot read entry " + i);
+                Debug.out.println("cannot read entry " + i);
                 i++;
                 continue;
             }
-            break;
-            /*if (e.isFreeDirEntry() && e.isLongDirEntry() && includeDeleted) {
-                Ignore damage on deleted long directory entries
+            if (e.isFreeDirEntry() && e.isLongDirEntry() && includeDeleted) {
+                //Ignore damage on deleted long directory entries
                 ((FatLongDirEntry) e).setDamaged(false);
             }
 
@@ -65,7 +60,7 @@ private Naming naming = InitialNaming.getInitialNaming();
             } else if (e.isLongDirEntry()) {
                 FatLongDirEntry l = (FatLongDirEntry) e;
                 if (l.isDamaged()) {
-                    //log.debug("Damaged entry at " + (i - 1));
+                    Debug.out.println("Damaged entry at " + (i - 1));
                     v.clear();
                 } else {
                     v.add(l);
@@ -76,13 +71,13 @@ private Naming naming = InitialNaming.getInitialNaming();
                     if (directory.isRoot()) {
                         FatRootDirectory r = (FatRootDirectory) directory;
                         if (label) {
-                            //log.debug("Duplicated label in root directory");
+                            Debug.out.println("Duplicated label in root directory");
                         } else {
                             r.setEntry(s);
                             label = true;
                         }
                     } else {
-                        //log.debug("Volume label in non root directory");
+                        Debug.out.println("Volume label in non root directory");
                     }
                 } else {
                     break;
@@ -92,43 +87,25 @@ private Naming naming = InitialNaming.getInitialNaming();
                 return false;
             } else
                 throw new UnsupportedOperationException(
-                    "FatDirEntry is of unknown type, shouldn't happen");*/
+                    "FatDirEntry is of unknown type, shouldn't happen");
         }
 
-  /*      if (!e.isShortDirEntry())
+        if (!e.isShortDirEntry())
             throw new UnsupportedOperationException("shouldn't happen");
-*/
+
         v.close((FatShortDirEntry)e);
 
             /*
              * here recursion is in action for the entries factory it creates
              * directory nodes and file leafs
              */
-        //if (e.isDirectory())
-          //  this.entry = new FatDirectory(directory.getFatFileSystem(), directory, v);
-        //else
-        FatFile file = new FatFile(directory.getFatFileSystem(), directory, v);
-        try {
-            Debug.out.println("name: " + v.getShortEntry().getShortName());
-            file.setName(v.getShortEntry().getShortName());
-        } catch (IOException ex) {
-            //Logger.getLogger(FatEntriesFactory.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        this.entry = file;
-        /*MemoryManager memoryManager = (MemoryManager)naming.lookup("MemoryManager");
-        Memory buffer = memoryManager.allocAligned(512, 8);
-        try {
-            file.read(0, buffer);
-            for(int j = 0; j < 30; j++){
-                Debug.out.print((char)buffer.get8(j));
-            }
-            Debug.out.println();
-        } catch (IOException ex) {
-           // Logger.getLogger(FatEntriesFactory.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
+        if (((FatShortDirEntry) e).isDirectory())
+            this.entry = new FatDirectory(directory.getFatFileSystem(), directory, v);
+        else
+            this.entry = new FatFile(directory.getFatFileSystem(), directory, v);
+
         this.next = i;
-if(i > 11) return false;
-       return true;
+        return true;
     }
 
     public FatEntry createNextEntry() {

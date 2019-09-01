@@ -186,7 +186,7 @@ public class FatMarshal {
 
     public void getBytes(int offset, int length, int start, byte[] dst) {
         checkOffset(offset, length);
-        array.copyToByteArray(dst, offset, start, length);
+        array.copyToByteArray(dst, start, offset, length);
     }
 
     public void setBytes(int offset, int length, int start, byte[] src) {

@@ -64,7 +64,7 @@ public class FatLongDirEntry extends FatDirEntry {
         decode();
     }
 
-    public FatLongDirEntry(FatFileSystem fs, String component, byte ordinal, byte chksum,
+    /*public FatLongDirEntry(FatFileSystem fs, String component, byte ordinal, byte chksum,
                            boolean last, int index) throws IOException {
         this(fs, new FatMarshal(LENGTH), index);
         setOrdinal(ordinal);
@@ -73,7 +73,7 @@ public class FatLongDirEntry extends FatDirEntry {
         setAttr();
         setChkSum(chksum);
         setDamaged(false);
-    }
+    }*/
 
     private void decodeOrdinal() {
         lOrd = entry.getUInt8(0);
@@ -242,6 +242,7 @@ public class FatLongDirEntry extends FatDirEntry {
         encodeOthers();
     }
 
+    @Override
     public boolean isLongDirEntry() {
         return true;
     }

@@ -21,7 +21,8 @@
 package org.jnode.fs.jfat;
 
 import java.io.IOException;
-//import java.util.Vector;
+import java.util.Vector;
+import jx.zero.Debug;
 import org.jnode.fs.fat.FatFileSystem;
 //import org.apache.log4j.Logger;
 //import org.jnode.util.NumberUtils;
@@ -32,12 +33,12 @@ public class FatRecord {
     private static final int MAXLONGENTRIES = 20;
 
     private FatShortDirEntry shortEntry;
-    //private final Vector<FatLongDirEntry> longEntries;
+    private final Vector<FatLongDirEntry> longEntries;
     private String longName;
 
     public FatRecord() {
         init();
-        //longEntries = new Vector<FatLongDirEntry>(MAXLONGENTRIES);
+        longEntries = new Vector<FatLongDirEntry>(MAXLONGENTRIES);
     }
 
     /*public FatRecord(FatDirectory parent, FatName name) throws IOException {
@@ -86,21 +87,21 @@ public class FatRecord {
     }
 
     private void clearLongEntries() {
-        //longEntries.clear();
+        longEntries.clear();
     }
 
     private void mustBeOpen() {
-        /*if (shortEntry != null) {
+        if (shortEntry != null) {
             // FIXME ... this is clearly the wrong exception
             throw new UnsupportedOperationException("FatRecord is closed");
-        }*/
+        }
     }
 
     private void mustBeClose() {
-        /*if (shortEntry == null) {
+        if (shortEntry == null) {
             // FIXME ... this is clearly the wrong exception
             throw new UnsupportedOperationException("FatRecord is open");
-        }*/
+        }
     }
 
     public void clear() {
@@ -108,7 +109,7 @@ public class FatRecord {
         clearLongEntries();
     }
 
-    /*public void add(FatLongDirEntry entry) {
+    public void add(FatLongDirEntry entry) {
         mustBeOpen();
         if (entry.isDamaged()) {
             // FIXME ... this is clearly the wrong exception
@@ -120,14 +121,14 @@ public class FatRecord {
     private void addSetFatDirEntry(FatDirectory parent, FatLongDirEntry entry) throws IOException {
         add(entry);
         parent.setFatDirEntry(entry);
-    }*/
+    }
 
     public void close(FatShortDirEntry entry) {
         mustBeOpen();
         shortEntry = entry;
         mustBeClose();
 
-        /*longName = getShortName();
+        longName = getShortName();
 
         if (longEntries.isEmpty())
             return;
@@ -144,13 +145,13 @@ public class FatRecord {
             int ordinal = last - i + 1;
 
             if (l.getOrdinal() != ordinal && !l.isFreeDirEntry()) {
-                //log.debug("ordinal orphaned vector discarded for " + getShortName());
+                Debug.out.println("ordinal orphaned vector discarded for " + getShortName());
                 clearLongEntries();
                 return;
             }
 
             if (l.getChkSum() != chkSum && !l.isFreeDirEntry()) {
-                //log.debug("chksum orphaned vector discarded for " + getShortName());
+                Debug.out.println("chksum orphaned vector discarded for " + getShortName());
                 clearLongEntries();
                 return;
             }
@@ -158,7 +159,7 @@ public class FatRecord {
             lname.append(l.getComponent());
         }
 
-        longName = lname.toString();*/
+        longName = lname.toString();
     }
 
     public FatShortDirEntry getShortEntry() {
@@ -166,11 +167,11 @@ public class FatRecord {
         return shortEntry;
     }
 
-    /*public String getShortName() {
+    public String getShortName() {
         return getShortEntry().getShortName();
-    }*/
+    }
 
-    /*public boolean hasLongEntries() {
+    public boolean hasLongEntries() {
         mustBeClose();
         return !longEntries.isEmpty();
     }
@@ -183,12 +184,12 @@ public class FatRecord {
     public byte getChkSum() {
         mustBeClose();
         return shortEntry.getChkSum();
-    }*/
+    }
 
-    /*public Vector<FatLongDirEntry> getLongEntries() {
+    public Vector<FatLongDirEntry> getLongEntries() {
         mustBeClose();
         return longEntries;
-    }*/
+    }
 
     public String getLongName() {
         mustBeClose();

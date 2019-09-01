@@ -109,11 +109,6 @@ public class FatFileSystem implements jx.fs.FileSystem {
         }
         inodeCache = new InodeCache();
 	deviceID = new Integer(1);
-        //int offset = FatUtils.getRootDirOffset(bs);
-        //Debug.out.println(offset);
-        //Memory data = memoryManager.allocAligned(16 * 32, 8);
-        //Debug.out.println(bs.getNrRootDirEntries());
-        //drive.readSectors(7, 1, data, true);
     }
 
     /**

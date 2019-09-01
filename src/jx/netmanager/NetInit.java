@@ -90,7 +90,8 @@ public class NetInit implements jx.net.NetInit, Service {
             hdr.insertOp(BOOTPFormat.REQUEST);
             hdr.insertHtype((byte)1);
             hdr.insertHlen((byte)6); // ether address size
-            hdr.insertXid(0);
+            int id = 2000;
+            hdr.insertXid(id);
             hdr.insertHwaddr(ether.getMacAddress());
             DatagramPacket sendPacket = dhcp.createRequestPacket(hdr);
             InitialNaming.getInitialNaming().registerPortal(this, "NIC");
@@ -110,7 +111,7 @@ public class NetInit implements jx.net.NetInit, Service {
                 Memory buf = getUDPBuffer(380);
                 buf.copyFromByteArray(receivePacket.getData(), 0, 34 + 8, buf.size() - 34 - 8);
                 Debug.out.println("finished");
-                localAddress = dhcp.processResponse(0, buf, clientSocket);
+                localAddress = dhcp.processResponse(id, buf, clientSocket);
                 Debug.out.println("IP address: " + localAddress.toString());
                 ip.changeSourceAddress(localAddress);
 
