@@ -101,12 +101,11 @@ public abstract class Fat {
         return getBootSector().getBytesPerSector() * getBootSector().getSectorsPerCluster();
     }
 
-    public final long getFirstSector(int fatnum) {
+    public final int getFirstSector(int fatnum) {
         if (fatnum < 0 || fatnum >= getBootSector().getNrFats()) {
             throw new IndexOutOfBoundsException("illegal fat: " + fatnum);
         }
-        return (long) getBootSector().getNrReservedSectors() + getBootSector().getSectorsPerFat() *
-            (long) fatnum;
+        return getBootSector().getNrReservedSectors() + getBootSector().getSectorsPerFat() * fatnum;
     }
 
     public final boolean isFirstSector(int fatnum, long sector) {
@@ -121,15 +120,15 @@ public abstract class Fat {
         return (sector == getLastSector(fatnum));
     }
 
-    public final long getFirst(int fatnum) {
-        return getFirstSector(fatnum) * (long) getBootSector().getBytesPerSector();
+    public final int getFirst(int fatnum) {
+        return getFirstSector(fatnum) * getBootSector().getBytesPerSector();
     }
 
     public final long getLast(int fatnum) {
         return 0;//getLast(fatnum) + offset(size() - 1);
     }
 
-    protected final long position(int fatnum, int index) throws IOException {
+    protected final int position(int fatnum, int index) throws IOException {
         if (index < 0 || index >= size()) {
             throw new IllegalArgumentException("illegal entry: " + index);
         }

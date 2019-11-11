@@ -75,10 +75,7 @@ class TCPWebWorker {
                 }
             default:
                 {
-                    /*String data = "<html><head><title>JX index.html Testseite (FILEXX)</title><body bgcolor=ffffff>\n\n" +
-			   "<center><h2>Herzlich willkommen auf der JX-FILE-Testseite</h2></center><br><br>\n" +
-			   "Link zur <a href=page2.html>zweiten</a> Seite</body></html>\n";*/
-                    byte[] data = readFile("/INDEX.HTMl");
+                    byte[] data = readFile("/"+file);
                     ostream.write(constructHeader(file, data.length).getBytes());
                     ostream.write(data);
                     if (debug) Debug.out.println("HTTPServer: reply sent.");
@@ -104,7 +101,7 @@ class TCPWebWorker {
     }
 
     String parse(DataInputStream fromClient) throws Exception {
-        String fileName=null;
+        String fileName = null;
         String line;
         try {
             while (! (line = fromClient.readLine()).equals("")) {

@@ -167,7 +167,7 @@ public class FatLfnDirectory extends FatDirectory {
     }
 
     private void updateLFN() throws IOException {
-        Vector<FatBasicDirEntry> destination = new Vector<FatBasicDirEntry>();
+        Vector<FatBasicDirEntry> destination = new Vector<>();
 
         for (LfnEntry currentEntry : shortNameIndex.values()) {
             FatBasicDirEntry[] encoded = currentEntry.compactForm();

@@ -358,7 +358,7 @@ public class BootSector {
         return BPB_Media;
     }
 
-    public long getSectorsPerFat() {
+    public int getSectorsPerFat() {
         return FATSz;
     }
 

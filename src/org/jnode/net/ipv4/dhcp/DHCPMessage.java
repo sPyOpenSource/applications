@@ -249,11 +249,7 @@ public class DHCPMessage {
      * @param value
      */
     public void setOption(int code, String value) {
-        try {
             setOption(code, value.getBytes("US-ASCII"));
-        } catch (UnsupportedEncodingException ex) {
-            throw new RuntimeException(ex);
-        }
     }
 
     /**

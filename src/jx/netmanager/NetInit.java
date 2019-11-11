@@ -105,6 +105,7 @@ public class NetInit implements jx.net.NetInit, Service {
                 try {
                     clientSocket.receive(receivePacket);
                 } catch (SocketTimeoutException e){
+                    localAddress = new IPAddress(new byte[]{(byte)192,(byte)168,(byte)1,(byte)90});
                     continue;
                 }
                 Debug.out.println("received");
@@ -112,18 +113,17 @@ public class NetInit implements jx.net.NetInit, Service {
                 buf.copyFromByteArray(receivePacket.getData(), 0, 34 + 8, buf.size() - 34 - 8);
                 Debug.out.println("finished");
                 localAddress = dhcp.processResponse(id, buf, clientSocket);
-                Debug.out.println("IP address: " + localAddress.toString());
-                ip.changeSourceAddress(localAddress);
-
-                arp.register(ip);
-                ip.setAddressResolution(arp);
-                ether.registerConsumer(ip, "IP");
-                ether.registerConsumer(arp, "ARP");
-                ip.registerConsumer(icmp, "ICMP");
                 break;
             }
 	}
+        Debug.out.println("IP address: " + localAddress.toString());
+        ip.changeSourceAddress(localAddress);
 
+        arp.register(ip);
+        ip.setAddressResolution(arp);
+        ether.registerConsumer(ip, "IP");
+        ether.registerConsumer(arp, "ARP");
+        ip.registerConsumer(icmp, "ICMP");
 	ether.registerConsumer(arp, "ARP");
     }
 

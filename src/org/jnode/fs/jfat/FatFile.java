@@ -92,6 +92,7 @@ public class FatFile extends FatEntry //implements FSFile, FSFileSlackSpace
         }*/
     }
 
+    @Override
     public int read(Memory dst, int offset, int length) throws InodeIOException, NoFileInodeException, NotExistException, PermissionException {
         //int limit = dst.limit();
         //int length = 32;//getLength();

@@ -63,7 +63,7 @@ public class FatChain {
     }
 
     private void mylog(String msg) {
-        //log.debug(msg);
+        Debug.out.println(msg);
     }
 
     public FatFileSystem getFatFileSystem() {
@@ -333,7 +333,6 @@ Debug.out.println("startcluster: " + value);
     }
     
     public void read(int offset, Memory dst) throws IOException {
-        Debug.out.println("off: " + offset);
         if (offset < 0)
             throw new IllegalArgumentException("offset<0");
 
@@ -353,11 +352,10 @@ Debug.out.println("startcluster: " + value);
         //for (int l = dst.remaining(), sz = p.getPartial(), ofs = p.getOffset(), size; l > 0; l -=
          //       size, sz = p.getSize(), ofs = 0) {
 
-            int cluster = head;//i.next();
-if (cluster > 20) return;
+            int cluster = i.next();
             int size = 0;//Math.min(sz, l);
 int ofs = 0;
-            //if (dolog)
+            if (dolog)
                Debug.out.println("read " + size + " bytes from cluster " + cluster + " at offset " + ofs);
 
            // int limit = dst.limit();
@@ -480,28 +478,28 @@ int ofs = 0;
             setPosition(pos);
         }
 
-        private final int getIndex() {
+        private int getIndex() {
             return index;
         }
 
-        private final int getOffset() {
+        private int getOffset() {
             return offset;
         }
 
-        private final int getSize() {
+        private int getSize() {
             return size;
         }
 
-        private final int getPartial() {
+        private int getPartial() {
             return (size - offset);
         }
 
         @SuppressWarnings("unused")
-        private final long getPosition() {
+        private long getPosition() {
             return position;
         }
 
-        private final void setPosition(int value) {
+        private void setPosition(int value) {
             /*if (value < 0L || value > 0xFFFFFFFFL)
                 throw new IllegalArgumentException();*/
             this.position = value;
@@ -589,8 +587,7 @@ int ofs = 0;
 
         public int next() throws IOException {
             if (!hasNext()){
-                return 0;
-                //throw new NoSuchElementException();
+                throw new NoSuchElementException();
             }
 
             address = cursor;
