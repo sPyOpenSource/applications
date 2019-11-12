@@ -1,8 +1,6 @@
 package jx.vis;
 
-import java.util.*;
 import java.io.*;
-import jx.formats.*;
 
 public class MemoryUsageDiagram {
     static void usage() {
@@ -73,10 +71,7 @@ public class MemoryUsageDiagram {
 	vis.drawLine(X0, Y0, X0, Y1);
 	vis.drawLine(X0, Y1, X1, Y1);
 
-
-
 	vis.finish();	
     }
     
-
 }

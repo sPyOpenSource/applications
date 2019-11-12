@@ -14,6 +14,7 @@ public class MonolithicApplicationStarter {
     }
 
     static class MyOutputStream extends java.io.OutputStream {	
+        @Override
 	public void write(int b) throws IOException {
 	    Debug.out.print(""+(char)b);
 	}	
@@ -37,7 +38,6 @@ public class MonolithicApplicationStarter {
 	    info.name = progName;
 
 	    Debug.out.println("Starting "+progName+" in lib "+libName);
-	    int l=0;
 	    int j;
 	    for(j=i+2; j<args.length; j++) {
 		if(args[j] == null) {
@@ -67,13 +67,13 @@ public class MonolithicApplicationStarter {
 
 	    String name = "main";
 	    String signature = "([Ljava/lang/String;)V";
-	    for(int k=0; k<methods.length; k++) {
-		//Debug.out.println("M: "+methods[i].getName() + ", S: "+ methods[k].getSignature());
-		if (name.equals(methods[k].getName()) && signature.equals(methods[k].getSignature())) {
-		    info.method = methods[k];
-		    break;
-		}
-	    }
+            for (VMMethod method : methods) {
+                //Debug.out.println("M: "+methods[i].getName() + ", S: "+ methods[k].getSignature());
+                if (name.equals(method.getName()) && signature.equals(method.getSignature())) {
+                    info.method = method;
+                    break;
+                }
+            }
 	    if (info.method==null) throw new Error("Method "+name + signature + " not found in class "+progName);
 	    
 	    start.addElement(info);
@@ -83,6 +83,7 @@ public class MonolithicApplicationStarter {
 	for(int i=0; i<start.size(); i++) {
 	    final StartInfo info = (StartInfo)start.elementAt(i);
 	    cpuManager.start(cpuManager.createCPUState(new ThreadEntry() {
+                    @Override
 		    public void run() {
 			cpuManager.setThreadName(info.name);
 			info.method.invoke(null, info.args);

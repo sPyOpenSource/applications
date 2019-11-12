@@ -10,6 +10,7 @@ public class ThreadActivityDiagram {
 	int threadID;
 	String name;
 	int number;
+        @Override
 	public String toString() {
 	    return domainID + "." + threadID + " "+name;
 	}
@@ -63,37 +64,49 @@ public class ThreadActivityDiagram {
 	long timeunit=-1;
 
 	int argc;
-	for(argc = 2; argc < args.length; argc++) {
-	    if (args[argc].equals("-verbose_read")) {
-		opt_verbose_read = true;
-	    } else if (args[argc].equals("-verbose_switch")) {
-		opt_verbose_switch = true;
-	    } else if (args[argc].equals("-start")) {
-		argc++;
-		starttime = Integer.parseInt(args[argc]) * 1000L;
-	    } else if (args[argc].equals("-end")) {
-		argc++;
-		endtime = Integer.parseInt(args[argc]) * 1000L;
-	    } else if (args[argc].equals("-res")) {
-		argc++;
-		opt_optimized = true;
-		timerresolution = Integer.parseInt(args[argc]);
-	    } else if (args[argc].equals("-unit")) {
-		argc++;
-		timeunit = Integer.parseInt(args[argc]) * 1000L;
-	    } else if (args[argc].equals("-text")) {
-		opt_text = true;
-	    } else if (args[argc].equals("-reltime")) {
-		opt_reltime = true;
-	    } else if (args[argc].equals("-equalized")) {
-		opt_equalized = true;
-	    } else if (args[argc].equals("-sec")) {
-		opt_sec = true;
-	    } else {
-		System.out.println("Unknown option ignored: "+args[argc]);
-		break;
-	    }
-	}
+        OUTER:
+        for (argc = 2; argc < args.length; argc++) {
+            switch (args[argc]) {
+                case "-verbose_read":
+                    opt_verbose_read = true;
+                    break;
+                case "-verbose_switch":
+                    opt_verbose_switch = true;
+                    break;
+                case "-start":
+                    argc++;
+                    starttime = Integer.parseInt(args[argc]) * 1000L;
+                    break;
+                case "-end":
+                    argc++;
+                    endtime = Integer.parseInt(args[argc]) * 1000L;
+                    break;
+                case "-res":
+                    argc++;
+                    opt_optimized = true;
+                    timerresolution = Integer.parseInt(args[argc]);
+                    break;
+                case "-unit":
+                    argc++;
+                    timeunit = Integer.parseInt(args[argc]) * 1000L;
+                    break;
+                case "-text":
+                    opt_text = true;
+                    break;
+                case "-reltime":
+                    opt_reltime = true;
+                    break;
+                case "-equalized":
+                    opt_equalized = true;
+                    break;
+                case "-sec":
+                    opt_sec = true;
+                    break;
+                default:
+                    System.out.println("Unknown option ignored: "+args[argc]);
+                    break OUTER;
+            }
+        }
 
 	// correct start and end time if relative times are used
 	if (opt_reltime) {
@@ -314,13 +327,12 @@ public class ThreadActivityDiagram {
 		    System.out.println(i+": "+time+", "+domainID+"."+threadID);
 		    if (threadID == 1) {System.out.println("GC");throw new Error();}
 		}
-		for(int j=0; j<threads.length; j++) {
-		    ThreadInfo info = threads[j];
-		    if (domainID == info.domainID && threadID == info.threadID) {
-			sw.to = info; 
-			break;
-		    }
-		}
+                for (ThreadInfo info : threads) {
+                    if (domainID == info.domainID && threadID == info.threadID) {
+                        sw.to = info;
+                        break;
+                    }
+                }
 		if (sw.to == null)  throw new Error();
 		
 		endTime += time;
@@ -408,6 +420,4 @@ public class ThreadActivityDiagram {
 	System.out.println(switches.length+" switches.");
     }    
     
-    
-
 }

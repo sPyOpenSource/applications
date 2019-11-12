@@ -52,9 +52,6 @@ public class ScalingVisualizerLong implements VisualizerLong {
     }
 
 
-
-
-
     private int convX(long x) {
 	return (int)(xoff + ((realW * x) / virtualW));
     }

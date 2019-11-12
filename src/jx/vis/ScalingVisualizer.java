@@ -66,9 +66,6 @@ public class ScalingVisualizer implements Visualizer {
     }
 
 
-
-
-
     private int convX(int x) {
 	return xoff + ((realW * x) / virtualW) ;
     }

@@ -82,95 +82,90 @@ public class IOZoneDiagram {
 	    }
 	}
 
-	if (args[0].equals("bars")) {
-	    if (args.length != 5) { usage(); return; }
-	    miffile = args[argc++];
-	    maxtp = Integer.parseInt(args[argc++]);
-	    steptp = Integer.parseInt(args[argc++]);
-	    mintp = -200000;
-	    scale_legend = 1000;
-	    DataInputStream in = new DataInputStream(new FileInputStream(args[4]));
-	    results = readIOZone(in);
-	} else if (args[0].equals("barsvar")) {
-	    scale_legend = 1000;
-	    //if (! binary) throw new Error("barsvar only supports binary input!"); 
-	    if (args.length < 5) { usage(); return; }
-
-	    miffile = args[argc++];
-	    maxtp = Integer.parseInt(args[argc++]);
-	    steptp = Integer.parseInt(args[argc++]);
-
-	    String[] names = new String[args.length-argc];
-	    System.arraycopy(args, argc, names, 0, names.length);
-	    results = readDataSet(names, binary);
-	    
-	} else if (args[0].equals("compare") || args[0].equals("compare_better")) {
-	    compare = true;
-	    if (args[0].equals("compare_better")) better = true;
-	    miffile = args[argc++];
-	    if (better) {
-		mintp = Integer.parseInt(args[argc++]);
-		maxtp_scale = 60;
-	    }
-	    maxtp = Integer.parseInt(args[argc++]);
-	    steptp = Integer.parseInt(args[argc++]);
-
-
-
-	    int first=-1;
-	    boolean first_bin = false;
-	    int second=-1;
-	    boolean second_bin = false;
-	    for(int i=argc; i<args.length; i++) {
-		if (args[i].equals("-binary") || args[i].equals("-text")) {
-		    if (first==-1) {
-			first = i;
-			if (args[i].equals("-binary")) first_bin = true;
-		    }
-		    else {
-			second = i;
-			if (args[i].equals("-binary")) second_bin = true;
-		    }
-		}
-	    }
-	    if (first==-1||second==-1||first>second) throw new Error("no first set or no second set");
-	    String[] names0 = new String[second-first-1];
-	    System.arraycopy(args, first+1, names0, 0, names0.length);
-	    Vector results0;
-	    results0 = readDataSet(names0, first_bin);
-	    String[] names1 = new String[args.length-second-1];
-	    System.arraycopy(args, second+1, names1, 0, names1.length);
-	    Vector results1 = readDataSet(names1, second_bin);
-
-	    results = new Vector();
-	    if (results0.size() != results1.size()) throw new Error("different result set sizes");
-	    for(int i=0; i<results0.size(); i++) {
-		FileSize f0 = (FileSize) results0.elementAt(i);	    
-		FileSize f1 = (FileSize) results1.elementAt(i);	    
-		if (f0.results.size() != f1.results.size()) throw new Error("different result set sizes for one file size");
-		FileSize f = new FileSize();
-		f.results = new Vector();
-		f.filesize = f0.filesize;
-		results.addElement(f);
-		for(int j=0; j<f0.results.size(); j++) {
-		    Result r0 = (Result)f0.results.elementAt(j);
-		    Result r1 = (Result)f1.results.elementAt(j);
-		    Result r = new Result();
-		    f.results.addElement(r);
-		    r.filesize = r0.filesize;
-		    r.recordsize = r0.recordsize;
-		    if (better) {
-			//r.reread_compare = (float) (100.0 - (r1.reread*100.0 /  r0.reread));
-			r.reread_compare = (float) ((r0.reread-r1.reread)*100.0 /  r1.reread);
-		    } else {
-			r.reread_compare = (float)(r1.reread*100.0 /  r0.reread);
-		    }
-		    if (opt_verbose) System.out.println(r0.reread +" & "+ r1.reread +" -> "+r.reread_compare);
-		}
-	    }
-	} else {
-	    usage(); return; 
-	}
+        switch (args[0]) {
+            case "bars":
+                if (args.length != 5) { usage(); return; }
+                miffile = args[argc++];
+                maxtp = Integer.parseInt(args[argc++]);
+                steptp = Integer.parseInt(args[argc++]);
+                mintp = -200000;
+                scale_legend = 1000;
+                DataInputStream in = new DataInputStream(new FileInputStream(args[4]));
+                results = readIOZone(in);
+                break;
+            case "barsvar":
+                scale_legend = 1000;
+                //if (! binary) throw new Error("barsvar only supports binary input!");
+                if (args.length < 5) { usage(); return; }
+                miffile = args[argc++];
+                maxtp = Integer.parseInt(args[argc++]);
+                steptp = Integer.parseInt(args[argc++]);
+                String[] names = new String[args.length-argc];
+                System.arraycopy(args, argc, names, 0, names.length);
+                results = readDataSet(names, binary);
+                break;
+            case "compare":
+            case "compare_better":
+                compare = true;
+                if (args[0].equals("compare_better")) better = true;
+                miffile = args[argc++];
+                if (better) {
+                    mintp = Integer.parseInt(args[argc++]);
+                    maxtp_scale = 60;
+                }   maxtp = Integer.parseInt(args[argc++]);
+                steptp = Integer.parseInt(args[argc++]);
+                int first=-1;
+                boolean first_bin = false;
+                int second=-1;
+                boolean second_bin = false;
+                for(int i=argc; i<args.length; i++) {
+                    if (args[i].equals("-binary") || args[i].equals("-text")) {
+                        if (first==-1) {
+                            first = i;
+                            if (args[i].equals("-binary")) first_bin = true;
+                        }
+                        else {
+                            second = i;
+                            if (args[i].equals("-binary")) second_bin = true;
+                        }
+                    }
+                }   if (first==-1||second==-1||first>second) throw new Error("no first set or no second set");
+                String[] names0 = new String[second-first-1];
+                System.arraycopy(args, first+1, names0, 0, names0.length);
+                Vector results0;
+                results0 = readDataSet(names0, first_bin);
+                String[] names1 = new String[args.length-second-1];
+                System.arraycopy(args, second+1, names1, 0, names1.length);
+                Vector results1 = readDataSet(names1, second_bin);
+                results = new Vector();
+                if (results0.size() != results1.size()) throw new Error("different result set sizes");
+                for(int i=0; i<results0.size(); i++) {
+                    FileSize f0 = (FileSize) results0.elementAt(i);
+                    FileSize f1 = (FileSize) results1.elementAt(i);
+                    if (f0.results.size() != f1.results.size()) throw new Error("different result set sizes for one file size");
+                    FileSize f = new FileSize();
+                    f.results = new Vector();
+                    f.filesize = f0.filesize;
+                    results.addElement(f);
+                    for(int j=0; j<f0.results.size(); j++) {
+                        Result r0 = (Result)f0.results.elementAt(j);
+                        Result r1 = (Result)f1.results.elementAt(j);
+                        Result r = new Result();
+                        f.results.addElement(r);
+                        r.filesize = r0.filesize;
+                        r.recordsize = r0.recordsize;
+                        if (better) {
+                            //r.reread_compare = (float) (100.0 - (r1.reread*100.0 /  r0.reread));
+                            r.reread_compare = (float) ((r0.reread-r1.reread)*100.0 /  r1.reread);
+                        } else {
+                            r.reread_compare = (float)(r1.reread*100.0 /  r0.reread);
+                        }
+                        if (opt_verbose) System.out.println(r0.reread +" & "+ r1.reread +" -> "+r.reread_compare);
+                    }
+                }   break;
+            default:
+                usage(); return;
+        }
 
 	if (! compare && ! better) {
 	}
@@ -314,7 +309,7 @@ public class IOZoneDiagram {
 	    }
 	    fs.results.addElement(r);
 	}
-	if (results.size() == 0) return null;
+	if (results.isEmpty()) return null;
 	return results;
     }    
 
@@ -326,7 +321,6 @@ public class IOZoneDiagram {
 	int RECLEN_END = in.readInt();
 
 	Vector results = new Vector();
-	int curfilesize=0;
 	FileSize fs=null;
 	int j=0;
 	for(int kilo=KILOBYTES_START; kilo<=KILOBYTES_END; kilo *= 2) {

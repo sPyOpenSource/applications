@@ -1,6 +1,5 @@
 package jx.vis;
 
-import java.util.*;
 import java.io.*;
 import jx.formats.*;
 
