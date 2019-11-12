@@ -1,16 +1,16 @@
 package jx.console;
 
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import jx.devices.Screen;
 import jx.devices.Keyboard;
+import jx.shell.Shell;
 import jx.zero.debug.*;
 import jx.zero.*;
 
 public class ConsoleImpl implements Console {
     private final Screen screen;
     private final Keyboard keyboard;
+    private Shell shell;
 
     DebugPrintStream out;
     MemoryManager memMgr;
@@ -19,16 +19,36 @@ public class ConsoleImpl implements Console {
     VirtualConsole cons[] = new VirtualConsoleImpl[10];
 
     public ConsoleImpl(Naming naming, Screen screen, Keyboard keyboard) {
-	DebugChannel d = (DebugChannel) naming.lookup("DebugChannel0");
+        DebugChannel d = (DebugChannel) naming.lookup("DebugChannel0");
         out = new DebugPrintStream(new DebugOutputStream(d));
-	memMgr = (MemoryManager) naming.lookup("MemoryManager");
+        memMgr = (MemoryManager) naming.lookup("MemoryManager");
+        
+        shell.register("ifconfig", null);
+        shell.register("netstat", null);
+        
+        shell.register("cp", null);
+        shell.register("file", null);
+        shell.register("lp", null);
+        shell.register("ls", null);
+        shell.register("more", null);
+        shell.register("mv", null);
+        shell.register("pr", null);
+        shell.register("rm", null);
+        
+        shell.register("man", null);
+        
+        shell.register("cd", null);
+        shell.register("pwd", null);
+        
+        shell.register("wc", null);
+        shell.register("grep", null);
+        
+        this.screen = screen;
+        this.keyboard = keyboard;
+        screen.clear();
 
-	this.screen = screen;
-	this.keyboard = keyboard;
-	screen.clear();
-
-	current = createVirtualConsole();
-	current.activate();
+        current = createVirtualConsole();
+        current.activate();
         try {
             for(int i = 0; i < 20; i++){
                 int c = current.getInputStream().read();
@@ -64,9 +84,11 @@ public class ConsoleImpl implements Console {
     public InputStream getInputStream() {
 	return in;
     }
+    
     public OutputStream getOutputStream() {
 	return out;
     }
+    
     public OutputStream getErrorStream() {
 	return err;
     }

@@ -2,10 +2,10 @@ package jx.console;
 
 import java.io.InputStream;
 import java.io.OutputStream;
+
 /**
  * A virtual console.
  */
-
 public interface VirtualConsole {
     public void putc(int c);
     public int getc();

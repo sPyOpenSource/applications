@@ -11,13 +11,18 @@ import java.time.temporal.ChronoUnit;
 /**
  *
  * @author spy
+ * @param <T>
  */
-public class JavaApplication4 {
-
+public class JavaApplication4 <T>{
+    public  static <T> T aMethod(T multiDimentionalArray) {
+        return null;
+    }
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        int[][] a = new int[][] {{1,2,3,4},{2}};
+        aMethod(a);
         LocalDateTime now = LocalDateTime.now();
 
         // Larger window of time

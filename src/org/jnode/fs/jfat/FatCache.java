@@ -264,7 +264,7 @@ public class FatCache {
         /**
          * discard the eldest element when the cache is full
          */
-        //@Override
+        @Override
         protected boolean removeEldestEntry(Map.Entry<CacheKey, CacheElement> eldest) {
             boolean remove = false;//(size() > cacheSize);
 

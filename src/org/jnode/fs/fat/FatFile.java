@@ -22,9 +22,6 @@ package org.jnode.fs.fat;
 
 import java.io.IOException;
 import jx.bio.BlockIO;
-import jx.fs.FSAttribute;
-import jx.fs.Permission;
-import jx.fs.RegularFile;
 import jx.zero.Memory;
 
 //import org.jnode.fs.ReadOnlyFileSystemException;
@@ -39,8 +36,8 @@ public class FatFile extends FatObject {
     private long startCluster;
     private long length;
     private FatDirectory dir;
-    private int clusterSize;
-    private boolean isDir;
+    private final int clusterSize;
+    private final boolean isDir;
     private final FatDirEntry myEntry;
 
     public FatFile(FatFileSystem fs, FatDirEntry myEntry, long startCluster, long length,
@@ -128,6 +125,8 @@ public class FatFile extends FatObject {
      * Sets the length.
      * 
      * @param length The length to set
+     * @return 
+     * @throws java.io.IOException
      */
     public synchronized int setLength(long length) throws IOException {
 
@@ -211,6 +210,7 @@ public class FatFile extends FatObject {
      * Gets the directory contained in this file.
      * 
      * @return Directory
+     * @throws java.io.IOException
      */
     public synchronized FatDirectory getDirectory() throws IOException {
         if (dir == null) {

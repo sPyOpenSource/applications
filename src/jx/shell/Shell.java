@@ -125,7 +125,7 @@ public class Shell {
 		    action.command(uout, param);
 		    history.addElement(new HistoryElement(action, param, line));
 		}
-	    } catch(Throwable ex) {
+	    } catch(Exception ex) {
 		uout.println("Command has thrown exception " + ex);
 	    }
 	}

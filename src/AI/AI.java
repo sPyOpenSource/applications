@@ -1,5 +1,6 @@
 package AI;
 
+import jx.console.ConsoleImpl;
 import jx.devices.pci.PCIGod;
 import static jx.init.Main.main;
 import jx.netmanager.NetInit;
@@ -35,7 +36,7 @@ public final class AI
         inp = new AIInput(mem);
         log = new AILogic(mem);
         oup = new AIOutput(mem);
-	logThread = new Thread(log);
+        logThread = new Thread(log);
         inpThread = new Thread(inp);
         oupThread = new Thread(oup);
     }
@@ -43,19 +44,19 @@ public final class AI
     public void start()
     {
         Debug.out.println("AI running...");
-    	logThread.start();
+        logThread.start();
         inpThread.start(); 
         oupThread.start();
         mem.ImportTxt("");
     }
     
     public static void init(Naming naming) throws Exception {
-	jx.zero.debug.DebugOutputStream out = new jx.zero.debug.DebugOutputStream((DebugChannel) naming.lookup("DebugChannel0"));
-	Debug.out = new jx.zero.debug.DebugPrintStream(out);
-	//System.out = new java.io.PrintStream(out);
-	//System.err = System.out;
+        jx.zero.debug.DebugOutputStream out = new jx.zero.debug.DebugOutputStream((DebugChannel) naming.lookup("DebugChannel0"));
+        Debug.out = new jx.zero.debug.DebugPrintStream(out);
+        //System.out = new java.io.PrintStream(out);
+        //System.err = System.out;
 
-	Debug.out.println("Init running...");
+        Debug.out.println("Init running...");
         PCIGod.main(new String[]{});
         StartTimer.main(new String[]{"TimerManager"});
         main(new String[] {"boot.rc"});
@@ -63,11 +64,11 @@ public final class AI
         
         NetInit.init(InitialNaming.getInitialNaming(), new String[]{"NET"});
         
-	FSDomain.main(new String[]{"BIOFS_RW", "FS"});
+        FSDomain.main(new String[]{"BIOFS_RW", "FS"});
         AI instance = new AI();
         //instance.start();
-        //jx.keyboard.Main.main(new String[]{"WindowManager"});
-        //ConsoleImpl.init(InitialNaming.getInitialNaming());
-        test.net.WebServer.main(new String[]{"-fs", "FS", "-threads"});
+        jx.keyboard.Main.main(new String[]{"WindowManager"});
+        ConsoleImpl.init(InitialNaming.getInitialNaming());
+        //test.net.WebServer.main(new String[]{"-fs", "FS", "-threads"});
     }
 }

@@ -27,9 +27,6 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import jx.net.IPAddress;
 import jx.net.protocol.bootp.BOOTPFormat;
 import jx.zero.Debug;
 import jx.zero.Memory;
@@ -249,7 +246,11 @@ public class DHCPMessage {
      * @param value
      */
     public void setOption(int code, String value) {
+        try {
             setOption(code, value.getBytes("US-ASCII"));
+        } catch (UnsupportedEncodingException ex) {
+            throw new RuntimeException(ex);
+        }
     }
 
     /**
