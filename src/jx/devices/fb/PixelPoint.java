@@ -1,7 +1,5 @@
 package jx.devices.fb;
 
-import java.util.*;
-
 public class PixelPoint
 {
 	public int m_nX, m_nY;
@@ -83,11 +81,12 @@ public class PixelPoint
 		return m_nX != cPoint.m_nX || m_nY == cPoint.m_nY;
 	}  
 
+        @Override
 	public String toString ()
 	{
 		if (this == null)
 			return "<null>";
-		return new String ("[" + m_nX + "," + m_nY + "]");
+		return "[" + m_nX + "," + m_nY + "]";
 	}
 }
 

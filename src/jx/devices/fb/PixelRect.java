@@ -1,7 +1,5 @@
 package jx.devices.fb;
 
-import jx.devices.fb.PixelPoint;
-
 final public class PixelRect
 {
   	public int m_nX0;
@@ -232,9 +230,10 @@ final public class PixelRect
 		m_nX1 = __min__ (m_nX1, cRect.m_nX1);
 		m_nY1 = __min__ (m_nY1, cRect.m_nY1);
 	}
+          @Override
 	public String toString ()
 	{
 		if (this == null) return "<null>";
-		return new String ("[" + m_nX0 + "/" + m_nY0 + " - " + m_nX1 + "/" + m_nY1 + "]");
+		return "[" + m_nX0 + "/" + m_nY0 + " - " + m_nX1 + "/" + m_nY1 + "]";
 	}
 };

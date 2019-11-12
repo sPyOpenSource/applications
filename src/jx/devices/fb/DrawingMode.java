@@ -1,7 +1,5 @@
 package jx.devices.fb;
 
-import jx.zero.Debug;
-
 final public class DrawingMode
 {
 	public static final int DM_UNKNOWN		= 0;
@@ -69,6 +67,7 @@ final public class DrawingMode
 		return (value & DM_DBG_MASK)==DM_DEBUG;
 	}
 
+        @Override
 	public String toString ()
 	{
 		String ret;

@@ -54,10 +54,6 @@ public class ConsoleImpl implements Console {
         current.activate();
         
         try {
-            /*for(int i = 0; i < 20; i++){
-                int c = current.getInputStream().read();
-                //screen.putAt(0, i, (char)c);
-            }*/
             shell.mainloop();
         } catch (IOException ex) {
             //Logger.getLogger(ConsoleImpl.class.getName()).log(Level.SEVERE, null, ex);
@@ -85,22 +81,4 @@ public class ConsoleImpl implements Console {
     void moveCursorTo(int x, int y) {    
 	screen.moveCursorTo(x, y);
     }
-    /*
-    public InputStream getInputStream() {
-	return in;
-    }
-    
-    public OutputStream getOutputStream() {
-	return out;
-    }
-    
-    public OutputStream getErrorStream() {
-	return err;
-    }
-
-    public void write(int c) {
-	dout.println("CONSOLE::write " + c);
-	screen.putc((char)c);
-    }
-    */
 }

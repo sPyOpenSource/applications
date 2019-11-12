@@ -1,7 +1,5 @@
 package jx.devices.fb;
 
-import jx.devices.*;
-
 public class FramebufferFinder {
 /*
     public Device[] find()

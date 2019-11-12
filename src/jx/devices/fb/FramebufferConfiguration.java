@@ -1,7 +1,6 @@
 package jx.devices.fb;
 
 import jx.devices.*;
-import jx.devices.fb.ColorSpace;
 
 public class FramebufferConfiguration extends DeviceConfiguration {
     public int xresolution;

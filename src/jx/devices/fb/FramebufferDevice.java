@@ -2,11 +2,6 @@ package jx.devices.fb;
 
 import jx.zero.*;
 import jx.devices.*;
-import jx.devices.fb.ColorSpace;
-import jx.devices.fb.DrawingMode;
-import jx.devices.fb.PixelColor;
-import jx.devices.fb.PixelPoint;
-import jx.devices.fb.PixelRect;
 
 /**
  * Each display device must implement this interface.
@@ -27,7 +22,10 @@ public interface FramebufferDevice extends Device, Portal {
 	public int drawLine(PixelRect cDraw, PixelRect cClipped, PixelColor cColor, DrawingMode nDrawingMode);
 	public int fillRect(PixelRect cRect[], int nCount, PixelColor cColor, DrawingMode nDrawingMode);
 	public int bitBlt(PixelRect acOldPos[], PixelRect acNewPos[], int nCount);
+        @Override
     	public void open(DeviceConfiguration conf);
+        @Override
 	DeviceConfigurationTemplate[] getSupportedConfigurations();
+        @Override
     	public void close();
 }

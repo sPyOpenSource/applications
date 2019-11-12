@@ -351,6 +351,7 @@ public class ColorSpace
 	return m_acCMAP[(int)nColor & 0xff];
     }
     
+    @Override
     public String toString ()
     {
 	if (this == null)
