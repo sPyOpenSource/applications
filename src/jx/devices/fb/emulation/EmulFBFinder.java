@@ -13,6 +13,7 @@ import jx.devices.fb.*;
  * @author Michael Golm
  */
 public class EmulFBFinder implements DeviceFinder {
+    @Override
     public Device[] find(String [] args) {
 	FBEmulation fb = (FBEmulation)InitialNaming.getInitialNaming().lookup("FBEmulation");
 	if (fb == null) return null;

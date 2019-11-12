@@ -16,6 +16,7 @@ public class VMWareSVGAFinder implements DeviceFinder {
     final static int    FB_PCI_DEVICE_ID   = 0x0710;
     final static int    FB_PCI_DEVICE_ID1  = 0x0405;
 
+    @Override
     public Device[] find(String[] args) {
 	Debug.out.println("lookup PCI Access Point...");
 	PCIAccess bus;
@@ -56,7 +57,6 @@ public class VMWareSVGAFinder implements DeviceFinder {
 		    return new VMWareSVGAImpl[] { new VMWareSVGAImpl(dev, false) };
 		default:				
 		    Debug.out.println("ERROR: Unsupported VMWare card found");
-		    continue;
 		}				
 	   }
        }

@@ -1,7 +1,6 @@
 package jx.devices.fb.vmware;
 
 import jx.zero.*;
-import jx.zero.debug.*;
 
 import jx.devices.pci.*;
 import jx.devices.*;
@@ -137,6 +136,7 @@ public class VMWareSVGAImpl implements VMWareDefines, FramebufferDevice
 	}
 	
 	/*public VMWareSVGAImpl ()*/
+        @Override
 	public void open(DeviceConfiguration conf) 
 	{
 		FramebufferConfiguration c = (FramebufferConfiguration)conf;
@@ -148,10 +148,12 @@ public class VMWareSVGAImpl implements VMWareDefines, FramebufferDevice
 		m_bIsOpen = true;
 		setMode (c.xresolution, c.yresolution, c.colorSpace);
 	}
+        @Override
 	public void close() 
 	{
 		m_bIsOpen = false;
 	} 
+        @Override
 	public DeviceConfigurationTemplate[] getSupportedConfigurations () 
 	{ 
 		return new DeviceConfigurationTemplate[] {
@@ -160,14 +162,17 @@ public class VMWareSVGAImpl implements VMWareDefines, FramebufferDevice
 			new FramebufferConfigurationTemplate(1024, 768, new ColorSpace (ColorSpace.CS_RGB16)),
 		};
     	}
+        @Override
 	public int getWidth()
 	{
 		return m_nWidth;
 	}
+        @Override
     	public int getHeight()
 	{
 		return m_nHeight;
 	}	
+        @Override
 	public int setMode (int nWidth, int nHeight, ColorSpace eColorSpace)
 	{
 		if (nWidth > m_nMaxWidth || nHeight > m_nMaxHeight || m_eColorSpace.getValue() != eColorSpace.getValue())
@@ -187,10 +192,12 @@ public class VMWareSVGAImpl implements VMWareDefines, FramebufferDevice
 		Debug.out.println ("Offset: " + m_nOffset);
 		return 0;
 	}
+        @Override
 	public void startFrameBufferUpdate ()
 	{
 		WaitForFB ();
 	}
+        @Override
 	public void endFrameBufferUpdate ()
 	{
 	/*
@@ -198,18 +205,22 @@ public class VMWareSVGAImpl implements VMWareDefines, FramebufferDevice
 		WaitForFB ();
 	*/		
 	}
+        @Override
 	public void startUpdate ()
 	{
 	}
+        @Override
 	public void endUpdate ()
 	{
 		UpdateFullScreen ();
 		WaitForFB ();
 	}
+        @Override
 	public DeviceMemory getFrameBuffer ()
 	{
 		return m_cFrameBuffer;
 	}
+        @Override
 	public int getFrameBufferOffset ()
 	{
 		return m_nOffset;
@@ -218,6 +229,7 @@ public class VMWareSVGAImpl implements VMWareDefines, FramebufferDevice
 	{
 		return m_nBitsPerPixel;
 	}
+        @Override
 	public int getBytesPerLine ()
 	{
 		return m_nBytesPerLine;
@@ -225,6 +237,7 @@ public class VMWareSVGAImpl implements VMWareDefines, FramebufferDevice
 
    	/**
     	 * Search a VMWare graphic board on the given PCI bus.
+     * @return 
     	 */
    	public PCIDevice FindDevice()
 	{
@@ -366,10 +379,12 @@ public class VMWareSVGAImpl implements VMWareDefines, FramebufferDevice
 	{
 		return -1;
 	}
+        @Override
 	public int drawLine (PixelRect cDraw, PixelRect cClipped, PixelColor cColor, DrawingMode nDrawingMode)
 	{
 		return -1;
 	}
+        @Override
 	public int fillRect (PixelRect cRect[], int nCount, PixelColor cColor, DrawingMode nDrawingMode)
 	{
 		if (nDrawingMode.getValue() != DrawingMode.DM_COPY)
@@ -395,10 +410,12 @@ public class VMWareSVGAImpl implements VMWareDefines, FramebufferDevice
 		
 		return 0;
 	}
+        @Override
 	public int bitBlt (PixelRect acOldPos[], PixelRect acNewPos[], int nCount)
 	{
 		return -1;
 	}
+        @Override
 	public ColorSpace getColorSpace ()
 	{
 		return m_eColorSpace;

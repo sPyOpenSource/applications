@@ -12,6 +12,7 @@ public class FSShell {
 	OutputStreamProxy(OutputStreamPortal o) {
 	    this.o = o;
 	}
+        @Override
 	public void write(int c) throws IOException {
 	    o.write(c);
 	}

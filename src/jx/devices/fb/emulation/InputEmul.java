@@ -1,18 +1,9 @@
 package jx.devices.fb.emulation;
 
 
-import jx.devices.DeviceFinder;
-import jx.devices.Device;
 import jx.zero.*;
 
-import java.util.*;
-import jx.zero.*;
-import jx.zero.debug.*;
-import jx.devices.*;
-import jx.devices.fb.*;
 import jx.wm.EventListener;
-import jx.wm.Keycode;
-import jx.wm.Qualifiers;
 import jx.wm.WindowManager;
 
 public class InputEmul {
@@ -37,6 +28,7 @@ class EmulationEventListener extends EventListener {
 	super(wm);
 	this.fb = fb;
 	new Thread("FBEmul-Eventloop") {
+                @Override
 		public void run() {
 		    eventloop();
 		}

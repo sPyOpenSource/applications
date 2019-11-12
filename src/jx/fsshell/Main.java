@@ -62,7 +62,7 @@ public class Main {
 	    
 	    new Main(streamProvider, fs);
 	    
-	} catch(Throwable e) {
+	} catch(Exception e) {
 	    Debug.out.println("FSShell: Exception "+e);
 	}
 	streamProvider.close();
@@ -79,7 +79,6 @@ public class Main {
 
     public Main(StreamProvider streamProvider, FS fs0) throws Exception {
 	this.fs = fs0;
-	Naming naming = InitialNaming.getInitialNaming();
 	Shell shell = new Shell(new OutputStreamProxy(streamProvider.getOutputStream()), new InputStreamProxy(streamProvider.getInputStream()));
 	memoryManager = (MemoryManager)InitialNaming.getInitialNaming().lookup("MemoryManager");
 	buffer = memoryManager.alloc(4096);
