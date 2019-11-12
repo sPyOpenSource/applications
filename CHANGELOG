@@ -1,5 +1,6 @@
 v1.18 XW 12-11-2019
 added: shell command (issue #19)
+fixed: shell (issue #19)
 
 v1.17 XW 11-11-2019
 fixed: caches (issue #15)

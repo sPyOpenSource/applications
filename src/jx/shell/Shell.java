@@ -48,7 +48,7 @@ class Parser {
 
     public String[] getArgumente() {
 	String[] retval = new String[argc];
-        System.arraycopy(argv, 0, retval, 0, argc);
+                     System.arraycopy(argv, 0, retval, 0, argc);
 	return retval;
     }
 }
@@ -71,10 +71,12 @@ public class Shell {
 
     public Shell(Naming naming) {
     }
+    
     public Shell(OutputStream out, InputStream in) {
 	this.in = new DataInputStream(in);
 	this.uout = new PrintStream(out);
     }
+    
     public void mainloop()  throws IOException {
 	String line;
 	uout.println("Starting shell.");

@@ -23,7 +23,15 @@ public class ConsoleImpl implements Console {
         out = new DebugPrintStream(new DebugOutputStream(d));
         memMgr = (MemoryManager) naming.lookup("MemoryManager");
         
-        shell.register("ifconfig", null);
+        this.screen = screen;
+        this.keyboard = keyboard;
+        screen.clear();
+
+        current = createVirtualConsole();
+        
+        shell = new Shell(current.getOutputStream(), current.getInputStream());
+        
+        /*shell.register("ifconfig", null);
         shell.register("netstat", null);
         
         shell.register("cp", null);
@@ -41,19 +49,16 @@ public class ConsoleImpl implements Console {
         shell.register("pwd", null);
         
         shell.register("wc", null);
-        shell.register("grep", null);
+        shell.register("grep", null);*/
         
-        this.screen = screen;
-        this.keyboard = keyboard;
-        screen.clear();
-
-        current = createVirtualConsole();
         current.activate();
+        
         try {
-            for(int i = 0; i < 20; i++){
+            /*for(int i = 0; i < 20; i++){
                 int c = current.getInputStream().read();
                 //screen.putAt(0, i, (char)c);
-            }
+            }*/
+            shell.mainloop();
         } catch (IOException ex) {
             //Logger.getLogger(ConsoleImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
