@@ -165,6 +165,7 @@ class UDPReceiver implements jx.net.UDPReceiver, Service {
     }
     */
 
+    @Override
     public void close() {
 	net.udp.unregisterUDPConsumer(consumer, port);
     }

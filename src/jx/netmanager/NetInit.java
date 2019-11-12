@@ -16,7 +16,6 @@ import jx.net.IPProducer;
 import jx.net.EtherProducer;
 
 import jx.devices.net.NetworkDevice;
-import jx.devices.DeviceFinder;
 import jx.zero.Memory;
 import jx.zero.MemoryManager;
 import jx.zero.InitialNaming;
@@ -30,14 +29,10 @@ import jx.timer.TimerManager;
 
 // --- DEVICE DRIVERS ---
 
-// 3com
-import metaxa.os.devices.net.ComInit;
-
 // lance
 import jx.net.devices.lance.*;
 
 // emulated device
-import jx.devices.net.emulation.EmulNetFinder;
 import jx.net.protocol.icmp.ICMP;
 import org.jnode.net.ipv4.dhcp.DHCPClient;
 

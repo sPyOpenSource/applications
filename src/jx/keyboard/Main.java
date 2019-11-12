@@ -2,14 +2,11 @@ package jx.keyboard;
 
 import jx.console.ConsoleImpl;
 import jx.zero.*;
-import jx.wm.WindowManager;
 
 public class Main
 {
     public static void main(String[] args) {
-	String wmName = args[0];
 	KeyboardImpl	keyboard;
-	final boolean debug = false; 
 	
 	keyboard = new KeyboardImpl();
 

@@ -55,14 +55,13 @@ public class IOZONE {
     int nreread;
 
     /**
-     * iozone filesystem performance benchmark.
-     *
-     * File size starts with minFileSizeKB and is doubled each time
-     * until it reaches maxFileSizeKB.
+     * iozone filesystem performance benchmark.File size starts with minFileSizeKB and is doubled each time
+ until it reaches maxFileSizeKB.
      *
      * Record size starts with minRecSizeB and is doubled each time
-     * until it reaches maxRecSizeB.
+ until it reaches maxRecSizeB.
      *
+     * @param fs
      * @param minFileSizeKB start file size in kilobytes
      * @param maxFileSizeKB end file size in kilobytes
      * @param minRecSizeB start record size in bytes
@@ -227,9 +226,6 @@ public class IOZONE {
     }
 
     private void readPerfTest(int kilo, int reclen) { // long, long
-	Inode inode = null;
-	int starttime;
-	int endtime;
 	int readtime[] = new int[2]; 
 	int nanoReadtime[] = new int[2]; 
 	int numrecs; // long
@@ -239,7 +235,7 @@ public class IOZONE {
 	filebytes = numrecs*reclen;
 	// ASSUME 500 MHz time stamp counter
 	try {
-	    inode = (Inode)fs.lookup("iozone.tmp");
+	    Inode inode = (Inode)fs.lookup("iozone.tmp");
 	    if (inode == null)
 		return;
 
@@ -314,9 +310,6 @@ public class IOZONE {
     }
 
     private void writePerfTest(int kilo, int reclen) { // long, long
-	Inode inode = null;
-	int starttime; //long
-	int endtime; //long
 	int writetime[] = new int[2]; //long
 	int numrecs; // long
 	int writerate[] = new int[2]; // long
@@ -326,7 +319,7 @@ public class IOZONE {
 	filebytes = numrecs*reclen;
 
 	try {
-	    inode = (Inode)fs.lookup("iozone.tmp");
+	    Inode inode = (Inode)fs.lookup("iozone.tmp");
 	    if (inode == null)
 		return;
 	    for (int j = 0; j < 2; j++) {

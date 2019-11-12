@@ -15,13 +15,12 @@ public class IOZoneBench {
 
 	Naming naming = InitialNaming.getInitialNaming();
 	String fsname = args[0];
-	jx.fs.FileSystem jfs = null;
 
 	FS fs = (FS)LookupHelper.waitUntilPortalAvailable(naming, fsname);
 
 	new IOZONE(fs, IOZONE_MIN_FILESIZE, IOZONE_MAX_FILESIZE, IOZONE_MIN_RECSIZE, IOZONE_MAX_RECSIZE);
 		
-	jfs = (jx.fs.FileSystem)naming.lookup("JavaFS");
+	jx.fs.FileSystem jfs = (jx.fs.FileSystem)naming.lookup("JavaFS");
 	if (jfs != null)
 	    jfs.release();
     }

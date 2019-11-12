@@ -1,21 +1,12 @@
 package jx.netmanager;
 
-import jx.buffer.separator.MemoryConsumer;
 import jx.zero.*;
-import jx.zero.debug.*;
-
-import jx.net.PacketsProducer;
 import jx.net.PacketsConsumer;
-import jx.net.AddressResolution;
-import jx.net.IPAddress;
-import jx.net.UnknownAddressException;
 import jx.net.IPData;
 import jx.net.IPConsumer;
 
 import jx.buffer.multithread.MultiThreadBufferList;
-import jx.buffer.multithread.MultiThreadBufferList2;
 import jx.buffer.multithread.Buffer;
-import jx.buffer.multithread.Buffer2;
 
 
 
@@ -37,6 +28,7 @@ class IPReceiver implements jx.net.IPReceiver, Service {
 	this.filledBufs.enableRecording("IP-receive-queue");
 
 	consumer = new IPConsumer() {
+                @Override
 		public Memory processIP(IPData buf) {
 		    Buffer h = usableBufs.nonblockingUndockFirstElement();
 		    if (h == null) {
@@ -60,6 +52,7 @@ class IPReceiver implements jx.net.IPReceiver, Service {
 	this.filledBufs = new MultiThreadBufferList();
 
 	consumer = new IPConsumer() {
+                @Override
 		public Memory processIP(IPData buf) {
 		    Debug.out.println("IPConsumer for proto "+proto+" called.");
 		    Buffer h = usableBufs.nonblockingUndockFirstElement();
@@ -78,6 +71,7 @@ class IPReceiver implements jx.net.IPReceiver, Service {
 	net.ip.registerConsumer(consumer, proto);
     }
 
+    @Override
     public IPData receive(Memory buf, int timeoutMillis) {
 	Clock clock = (Clock)InitialNaming.getInitialNaming().lookup("Clock");
 	Buffer h =null;
@@ -100,6 +94,7 @@ class IPReceiver implements jx.net.IPReceiver, Service {
 	return result;
      }
 
+    @Override
     public IPData receive(Memory buf) {
 	Buffer h = filledBufs.undockFirstElement();
 	IPData result = (IPData) h.getMoreData();
@@ -109,6 +104,7 @@ class IPReceiver implements jx.net.IPReceiver, Service {
 	return result;
     }
 
+    @Override
     public void close() {
 	net.ip.unregisterIPConsumer(consumer);
     }

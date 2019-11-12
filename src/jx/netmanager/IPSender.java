@@ -39,17 +39,21 @@ class IPSender implements jx.net.IPSender, Service {
     }
 
 
+    @Override
     public Memory send1(Memory m, int offset, int size) {
 	return ipSender1.processMemory(m, offset, size);
     }
 
+    @Override
     public Memory send(Memory m) {
 	return ipSender.processMemory(m/*m.revoke()*/);
     }
 
+    @Override
     public void close() {
     }
 
+    @Override
     public IPAddress getDestination() { return dst; }
 
 }

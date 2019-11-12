@@ -701,6 +701,7 @@ Debug.out.println(scancode);
 
 	cpuManager.start (cpuManager.createCPUState (new ThreadEntry ()
 	    {
+                @Override
 		public void run ()
 		{
 		    cpuManager.
@@ -714,7 +715,7 @@ Debug.out.println(scancode);
                             notifyKeyListeners (queue.
                                                 get ());
                         }
-                        catch (Exception e)
+                        catch (QueueEmptyException e)
                         {
                             Debug.out.println ("EXCEPTION");
                         }

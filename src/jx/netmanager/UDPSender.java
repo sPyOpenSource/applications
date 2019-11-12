@@ -33,20 +33,28 @@ class UDPSender implements jx.net.UDPSender, Service {
 	udpSender1 = net.udp.getTransmitter1(ipLayer1, localPort, remotePort);
     }      
 
+    @Override
     public Memory send1(Memory m, int offset, int size) {
 	return udpSender1.processMemory(m, offset, size);
     }
     
+    @Override
     public Memory send(Memory m) {
 	//if (1 == 1) throw new Error("temporarily disabled. use send1");
 	return udpSender.processMemory(m);
     }
 
+    @Override
     public void close() {
     }
 
+    @Override
     public int getLocalPort() { return localPort; }
+    
+    @Override
     public int getRemotePort() { return remotePort; }
+    
+    @Override
     public IPAddress getDestination() { return dst; }
 
 }

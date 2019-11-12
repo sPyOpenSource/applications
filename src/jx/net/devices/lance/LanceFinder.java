@@ -20,7 +20,7 @@ public class LanceFinder implements DeviceFinder {
     private CPUManager cpuManager;
 
 
-    //@Override
+    @Override
     public Device[] find(String[] args) {
         Naming naming = InitialNaming.getInitialNaming();
         this.ports = (Ports)naming.lookup("Ports");
