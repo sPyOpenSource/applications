@@ -1,6 +1,6 @@
 package AI.Models;
 
-//import java.util.Objects;
+import java.util.Objects;
 
 /**
  *
@@ -23,6 +23,6 @@ public class Vector<T> {
     }
     
     public boolean Compare(Vector<T> vector){
-        return true;//Objects.equals(vector.x, x) && Objects.equals(vector.y, y) && Objects.equals(vector.z, z);
+        return Objects.equals(vector.x, x) && Objects.equals(vector.y, y) && Objects.equals(vector.z, z);
     }
 }

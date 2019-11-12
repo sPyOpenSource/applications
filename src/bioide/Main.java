@@ -6,7 +6,6 @@ import jx.bio.*;
 
 public class Main {
     public static void main(String [] args) {
-	Naming naming = InitialNaming.getInitialNaming();
 	String bioName = args[1];
 	int drive = Integer.parseInt(args[2]);
 

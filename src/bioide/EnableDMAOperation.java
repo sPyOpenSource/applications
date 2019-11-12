@@ -8,18 +8,18 @@ import jx.zero.Debug;
  * @author Andreas Weissel
  */
 class EnableDMAOperation extends SetFeaturesOperation {
-    private boolean ultraDmaSupported;
+    private final boolean ultraDmaSupported;
 
     public EnableDMAOperation(Controller controller, Drive drive, boolean ultraDmaSupported) {
         super(controller, drive);
 	this.ultraDmaSupported = ultraDmaSupported;
     }
 
+    @Override
     public void startOperation() throws IDEException{
 	int maxmode = 0, currmode = 0, dmatype = -1;  // 0 == mword, 1 == ultra
 	DriveIdData id_data = drive.id_data;
 	int timeout;
-	int pcicmd;
 
 	if (((id_data.field_valid() & 2) > 0) && ((id_data.dma_mword() & 0x07) > 0)) { // irgendein dma_mword-Modus unterstuetzt?
 	    dmatype = 0;

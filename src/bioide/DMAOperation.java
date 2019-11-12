@@ -12,13 +12,14 @@ import jx.zero.Debug;
 class DMAOperation extends IoOperation {
     private static final byte CMD_READ_DMA  = (byte)0xc8;   // or 0xc9 (no retransmission)
     private static final byte CMD_WRITE_DMA = (byte)0xca;   // or 0xcb (no retransmission)
-    private boolean read;
+    private final boolean read;
 
     public DMAOperation(Memory buffer, int count, Controller controller, Drive drive, int sector, boolean synchronous, boolean read) {
 	super(buffer, count, controller, drive, sector, synchronous);
 	this.read = read;
     }
 
+    @Override
     public void startOperation() throws IDEException {
 	state.set(STATE_RUNNING);
 
@@ -48,11 +49,13 @@ class DMAOperation extends IoOperation {
 	Env.ports.outb(controller.dma_base, (byte)(Env.ports.inb(controller.dma_base)|(byte)1));    // start DMA operation
     }
 
+    @Override
     public void stopOperation() {
 	Env.ports.outb(controller.dma_base, (byte)(Env.ports.inb(controller.dma_base) & (byte)~1)); // abort DMA operation
 	endOperation(false); // richtig?
     }
 
+    @Override
     public void handler() {
 	byte stat, dma_stat;
 	int dma_base = controller.dma_base;

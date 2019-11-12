@@ -12,6 +12,7 @@ class EnablePIOOperation extends SetFeaturesOperation {
         super(controller, drive);
     }
 
+    @Override
     public void startOperation() throws IDEException {
 	int maxmode = 0;
 	DriveIdData id_data = drive.id_data;

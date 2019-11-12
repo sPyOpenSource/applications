@@ -14,9 +14,10 @@ class RecalibrateOperation extends Operation {
         super(controller, drive);
     }
 
+    @Override
     public void startOperation() throws IDEException {
 	int timeout;
-	boolean bad = false;
+	boolean bad;
 	int retries = 0;
 	do {
 	    retries++;

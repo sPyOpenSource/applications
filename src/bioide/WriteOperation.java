@@ -71,6 +71,7 @@ class WriteOperation extends IoOperation {
 
     }
 
+    @Override
     public void handler() {
 	byte stat = controller.getStatus();
 	if ((stat & (DRIVE_READY | BAD_W_STAT)) == DRIVE_READY) {

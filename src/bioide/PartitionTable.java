@@ -1,21 +1,8 @@
 package bioide;
 
-import java.io.IOException;
 import jx.zero.*;
 import jx.zero.debug.*;
 import java.util.Vector;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import jx.InitNaming;
-import jx.fs.Inode;
-import jx.fs.InodeIOException;
-import jx.fs.InodeNotFoundException;
-import jx.fs.NoDirectoryInodeException;
-import jx.fs.NoFileInodeException;
-import jx.fs.NotExistException;
-import jx.fs.PermissionException;
-import org.jnode.fs.fat.FatFileSystem;
-import vfs.FSImpl;
 
 /**
  * Partition table of a drive.

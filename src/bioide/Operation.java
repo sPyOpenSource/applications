@@ -1,7 +1,5 @@
 package bioide;
 
-import jx.zero.Debug;
-
 /**
  * Base class for operations.
  * - startOperation (start op),

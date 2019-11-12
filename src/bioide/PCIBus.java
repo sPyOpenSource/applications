@@ -26,7 +26,6 @@ public class PCIBus {
     private static final int REG_MASK = 0x000000fc;
 
     private static final int MAX_PCI_AGENTS = 32;
-    private static final int MAX_PCI_BUSSES = 256;
 
     public PCIBus() {
     }

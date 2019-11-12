@@ -15,6 +15,7 @@ class ResetOperation extends Operation {
 	this.poll_timeout = poll_timeout;
     }
 
+    @Override
     public void startOperation() throws IDEException {
 	/* Neben SRST (CTL_RESET) wird auch nIEN (CTL_INTDISABLE) gesetzt,
 	   um Interrupts waehrend des Resets auszumaskieren. Dadurch wird
@@ -23,13 +24,14 @@ class ResetOperation extends Operation {
 	   (das spart die ersten 50 msec).
 	*/
 	// SRST und nIEN setzen:
-	controller.setCTLReg((byte)(drive.ctl | controller.CTL_RESET | controller.CTL_INTDISABLE));
+	controller.setCTLReg((byte)(drive.ctl | Controller.CTL_RESET | Controller.CTL_INTDISABLE));
 	Env.sleepManager.mdelay(10);
 	// SRST loeschen, nIEN gesetzt lassen
-	controller.setCTLReg((byte)(drive.ctl | controller.CTL_INTDISABLE));
+	controller.setCTLReg((byte)(drive.ctl | Controller.CTL_INTDISABLE));
 	Env.sleepManager.mdelay(10);
     }
 
+    @Override
     public void handler() {
 	poll_timeout -= 50;
 	
