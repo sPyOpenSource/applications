@@ -1,9 +1,4 @@
 package AI;
-        
-import jx.zero.Debug;
-import jx.zero.FirstLevelIrqHandler;
-import jx.zero.IRQ;
-import jx.zero.InitialNaming;
 
 /**
  * This is the memory class of AI.
@@ -11,7 +6,7 @@ import jx.zero.InitialNaming;
  * @author X. Wang 
  * @version 1.0
  */
-public class AIMemory extends AIBaseMemory implements FirstLevelIrqHandler
+public class AIMemory extends AIBaseMemory
 {
     // instance variables
     //private SerialPort serialPort;
@@ -21,9 +16,6 @@ public class AIMemory extends AIBaseMemory implements FirstLevelIrqHandler
      */
     public AIMemory()
     {
-        IRQ irq = (IRQ)InitialNaming.getInitialNaming().lookup("IRQ");
-        //irq.installFirstLevelHandler(0x80, this);
-        //irq.enableAll();
         // Initialize instance variables
         /*try {
             serialPort = (SerialPort)CommPortIdentifier.getPortIdentifier("/dev/ttyACM0").open(this.getClass().getName(), 2000);
@@ -36,9 +28,4 @@ public class AIMemory extends AIBaseMemory implements FirstLevelIrqHandler
     /*public SerialPort getSerialPort(){
         return serialPort;
     }*/
-
-    @Override
-    public void interrupt() {
-        Debug.out.println("int");
-    }
 }

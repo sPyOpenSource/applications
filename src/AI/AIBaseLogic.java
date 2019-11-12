@@ -1,9 +1,6 @@
 package AI;
 
 import AI.Models.Info;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  * This is the logic class of AI.

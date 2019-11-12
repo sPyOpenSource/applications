@@ -1,11 +1,8 @@
 package test;
 
 import AI.AIBaseMemory;
-import AI.Models.Vector3D;
 import AI.Models.Info;
 import AI.util.PID;
-
-import java.net.Socket;
 
 import junit.framework.TestCase;
 import static junit.framework.TestCase.assertEquals;
@@ -18,7 +15,7 @@ import org.junit.Test;
 public class JUnitTest extends TestCase{
     private final static AIBaseMemory MEMORY = new AIBaseMemory();
 
-    /*@Test
+    @Test
     public void testIncomingMessages(){
         System.out.println("* JUnitTest: memoryTestIncomingMessages()");
         MEMORY.addInfo(new Info("configure:test"), "incomingMessages");
@@ -37,7 +34,7 @@ public class JUnitTest extends TestCase{
         System.out.println("* JUnitTest: memoryTestConfiguresGetLast()");
         MEMORY.addInfo(new Info("test2"), "configures");
         assertEquals("test2", MEMORY.dequeLast("configures").getPayload());
-    }*/
+    }
     
     @Test
     public void testEmotions(){

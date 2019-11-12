@@ -6,23 +6,11 @@ package AI;
  * @version 1.0
  */
 
-import AI.Models.Info;
-//import java.io.BufferedReader;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import jx.zero.Naming;
-
-//import org.opencv.videoio.VideoCapture;
-//import org.opencv.videoio.VideoWriter;
-//import org.opencv.videoio.Videoio;
-
 public class AIInput extends AIBaseInput
 {
     /**
      * This is the initialization of AIInput class 
      */
-    //private final VideoCapture capColorCamera = new VideoCapture(), capDepthCamera = new VideoCapture();
     //private BufferedReader in;
     
     /**

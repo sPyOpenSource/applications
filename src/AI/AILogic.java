@@ -1,8 +1,6 @@
 package AI;
 
 import AI.Models.Info;
-import AI.Models.Vector3D;
-//import AI.util.PointCloud;
 
 /**
  * This is the logic class of AI.

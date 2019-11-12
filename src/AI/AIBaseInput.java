@@ -10,14 +10,7 @@ package AI;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import jx.zero.Debug;
-import jx.zero.Naming;
-import jx.zero.debug.DebugChannel;
-
-//import org.opencv.core.Mat;
-//import org.opencv.videoio.VideoCapture;
 
 public abstract class AIBaseInput implements Runnable
 {
@@ -35,13 +28,6 @@ public abstract class AIBaseInput implements Runnable
     {
     	this.mem = mem;
     }
-    
-    /*protected void getImageFromWebcam(VideoCapture cap, String name){
-        Mat image = new Mat();
-        cap.read(image);
-        if(!image.empty())
-            mem.addInfo(new Info(image), name);
-    }*/
     
     private void ImportMemoryTxt(){
         try {

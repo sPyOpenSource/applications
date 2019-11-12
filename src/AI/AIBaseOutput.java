@@ -1,8 +1,5 @@
 package AI;
 
-import AI.Models.Info;
-import java.util.Iterator;
-
 /**
  * This is the output of AI.
  * 

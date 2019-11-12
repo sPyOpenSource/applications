@@ -1,27 +1,10 @@
 package AI;
 
-//import AI.Models.Computer;
 import AI.Models.Info;
-//import AI.util.WebsocketServer;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.net.DatagramPacket;
-//import java.net.DatagramSocket;
-//import java.net.SocketException;
 import java.util.ArrayList;
-import java.util.Enumeration;
-import java.util.Iterator;
 import java.util.List;
 import java.util.HashMap;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
         
 /**
@@ -35,10 +18,8 @@ public class AIBaseMemory
     // instance variables
     private double emotion = 0;
     private HashMap<String, List<Info>> dict = new HashMap<>();
-    //private DatagramSocket socket;
     private String LOG;
     private final String[] shortterm;
-    //private final WebsocketServer server;
     
     /**
      * Constructor for objects of class AIMemory
@@ -47,12 +28,6 @@ public class AIBaseMemory
     {
         // Initialize instance variables
         shortterm = new String[20];
-        /*try {
-            socket = new DatagramSocket(8000); //todo: safety test
-        } catch (SocketException ex) {
-            Logger.getLogger(AIBaseMemory.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
-        //server = new WebsocketServer(9090);    //todo: safety test
     }
     
     public void SaveShort(String x, int n)
@@ -115,8 +90,7 @@ public class AIBaseMemory
     public List<Info> search(String key)
     {
         if (dict.containsKey(key)){
-            //return dict.get(key);
-            return null;
+            return dict.get(key);
         } else {
             List<Info> temp = new ArrayList<>();
             dict.put(key, temp);
