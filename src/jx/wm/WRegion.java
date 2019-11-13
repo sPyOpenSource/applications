@@ -1,6 +1,5 @@
 package jx.wm;
 
-import jx.zero.*;
 import jx.devices.fb.*;
 
 public class WRegion
@@ -53,8 +52,7 @@ public class WRegion
 	{
 		PixelRect acClips[] = m_acClips;
 		m_acClips = new PixelRect[m_nNumClipRect + 1];
-		for (int i = 0; i < m_nNumClipRect; i++)
-			 m_acClips[i] = acClips[i];
+            System.arraycopy(acClips, 0, m_acClips, 0, m_nNumClipRect);
 		 m_acClips[m_nNumClipRect++] = cClip;
 	}
 	private void RemClipRect (int nPos)
@@ -63,8 +61,7 @@ public class WRegion
 			return;
 		PixelRect acClips[] = m_acClips;
 		m_acClips = new PixelRect[m_nNumClipRect - 1];
-		for (int i = 0; i < nPos; i++)
-			 m_acClips[i] = acClips[i];
+            System.arraycopy(acClips, 0, m_acClips, 0, nPos);
 		for (int i = nPos + 1; i < m_nNumClipRect; i++)
 			 m_acClips[i - 1] = acClips[i];
 		m_nNumClipRect--;
@@ -637,8 +634,8 @@ continue;
 			case 0x0101:
 				{
 					RemClipRect (i);
-					continue;
 				}
+
 			
 }
 		
@@ -676,9 +673,10 @@ continue;
 		for (int i = 0; i < cRegion.m_nNumClipRect; i++)
 			include (cRegion.m_acClips[i]);
 	}
+        @Override
 	public String toString ()
 	{
-		String cString = new String ("WRegion " + m_nNumClipRect + " [");
+		String cString = "WRegion " + m_nNumClipRect + " [";
 		for (int i = 0; i < m_nNumClipRect; i++)
 		{
 			if (i == m_nNumClipRect - 1)

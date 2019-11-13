@@ -1,8 +1,6 @@
 package jx.wm;
 
-import jx.zero.*;
 import jx.devices.fb.*;
-import jx.wm.WBitmap;
 
 class WSprite
 {
@@ -16,13 +14,13 @@ class WSprite
 	private WSprite m_cPrev = null;
 	private WSprite m_cNext	= null;
 
-	private PixelPoint m_cPosition;
-	private PixelPoint m_cHotSpot;
-	private WBitmap m_cImage;
-	private WBitmap m_cTarget;
+	private final PixelPoint m_cPosition;
+	private final PixelPoint m_cHotSpot;
+	private final WBitmap m_cImage;
+	private final WBitmap m_cTarget;
 
 	private WBitmap m_cBackground;
-	private PixelRect m_cBounds;
+	private final PixelRect m_cBounds;
 	private boolean m_bVisible;
 
 	private DrawingMode	m_nMode = new DrawingMode();

@@ -384,23 +384,19 @@ public abstract class WBitmap
 	}
 
 	public boolean isCloneMap(WBitmap clone) {
-		if (m_nWidth == clone.m_nWidth &&
-				m_nHeight == clone.m_nHeight &&
-				//	m_eColorSpace == clone.m_eColorSpace &&
-				m_nBytesPerLine == clone.m_nBytesPerLine) {
-			return true;
-		} else {
-			return false;
-		}
+            return m_nWidth == clone.m_nWidth &&
+                    m_nHeight == clone.m_nHeight &&
+                    //	m_eColorSpace == clone.m_eColorSpace &&
+                    m_nBytesPerLine == clone.m_nBytesPerLine;
 	}
 
 	public WBitmap getCloneMap() {
 		return createWBitmap(m_nWidth, m_nHeight, m_eColorSpace, m_nBytesPerLine);
 	}
 
-
+        @Override
 	public String toString ()
 	{
-		return new String ("WBitmap(" + m_nWidth + "," + m_nHeight + "," + m_nBytesPerLine + "," + m_eColorSpace + ")");
+		return "WBitmap(" + m_nWidth + "," + m_nHeight + "," + m_nBytesPerLine + "," + m_eColorSpace + ")";
 	}
 }

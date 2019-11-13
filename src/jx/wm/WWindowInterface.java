@@ -1,10 +1,5 @@
 package jx.wm;
 
-import jx.wm.WRegion;
-import jx.wm.message.*;
-import jx.wm.WBitmap;
-import jx.zero.*;
-import jx.zero.debug.*;
 import jx.devices.fb.*;
 
 public interface WWindowInterface extends jx.zero.Portal {
@@ -13,6 +8,7 @@ public interface WWindowInterface extends jx.zero.Portal {
 	public static final int MOUSE_ENTERED		= 0x03;
 	public static final int MOUSE_EXITED		= 0x04;
 
+        @Override
 	public String toString ();
 	public void show (boolean bShow);
 	public void postMessage (jx.wm.message.WMessage cMsg);

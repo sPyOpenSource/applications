@@ -12,8 +12,7 @@ public class WMessageQueue
 	public void addMessage (jx.wm.message.WMessage cMsg)
 	{
 	    WMessage acMsgs[] = new WMessage[m_nMsgCount+1];
-	    for (int i = 0; i < m_nMsgCount; i++)
-		acMsgs[i] = m_acMsgs[i];
+            System.arraycopy(m_acMsgs, 0, acMsgs, 0, m_nMsgCount);
 	    acMsgs[m_nMsgCount++] = cMsg;
 	    m_acMsgs = acMsgs;
 	}

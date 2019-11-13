@@ -2,14 +2,9 @@ package jx.wm;
 
 import jx.collections.*;
 import jx.zero.*;
-import jx.zero.debug.*;
 import jx.devices.fb.*;
 import java.util.Vector;
-import jx.wm.WRegion;
-import jx.wm.WWindowImpl;
-import jx.wm.WBitmap;
 import jx.wm.message.*;
-import jx.wm.WFont;
 
 class ClippingRect
 {
@@ -41,6 +36,7 @@ class ClippingRect
 
 class SortCmp implements Comparator
 {
+        @Override
 	public int compare (Object __a, Object __b)
 	{
 		ClippingRect cClip1 = (ClippingRect)__a;
@@ -238,7 +234,7 @@ public class WView
 		m_cBgColor		= new PixelColor (255, 255, 255);
 		m_cEraseColor		= new PixelColor (m_cBgColor);
 	
-		m_cName = new String (cName);
+		m_cName = cName;
 		m_anFontPalette		= new int[WFont.NUM_FONT_GRAYS];
 		for (int i = 0; i < WFont.NUM_FONT_GRAYS; i++)
 			m_anFontPalette[i] = 0;
@@ -252,6 +248,7 @@ public class WView
 		m_cPrevFullReg		= new WRegion ();
 		m_cUserClipReg		= new WRegion ();
 	}	
+        @Override
 	public void finalize ()
 	{
 		//Debug.out.println (m_cName + "WView::finalize ()");

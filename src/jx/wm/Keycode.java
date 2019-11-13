@@ -53,8 +53,9 @@ public class Keycode
 	{
 		this.value = value;
 	}
+        @Override
 	public String toString ()
 	{
-		return new String ("Keycode(" + Integer.toHexString (value) + ")");
+		return "Keycode(" + Integer.toHexString (value) + ")";
 	}
 }

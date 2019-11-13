@@ -3,8 +3,6 @@ package jx.wm;
 import jx.zero.*;
 import jx.devices.*;
 import jx.devices.fb.*;
-import jx.wm.WSprite;
-import jx.wm.WBitmap;
 
 class WDisplay
 {
@@ -80,13 +78,13 @@ class WDisplay
     }
 	public void startUpdate ()
 	{
-		m_cMouseSprite.hide();
+		WSprite.hide();
 		m_cDisplayDriver.startUpdate ();
 	}
 	public void endUpdate ()
 	{
 		m_cDisplayDriver.endUpdate ();
-		m_cMouseSprite.unhide();
+		WSprite.unhide();
 	}
 	public PixelPoint getMousePos ()
 	{

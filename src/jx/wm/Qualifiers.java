@@ -38,8 +38,9 @@ public class Qualifiers
 	{
 		this.value = value;
 	}
+            @Override
 	public String toString ()
 	{
-		return new String ("Qualifiers(" + Integer.toHexString (value) + ")");
+		return "Qualifiers(" + Integer.toHexString (value) + ")";
 	}
 }

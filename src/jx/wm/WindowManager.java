@@ -1,11 +1,7 @@
 package jx.wm;
 
 import jx.zero.*;
-import jx.zero.debug.*;
 import jx.devices.fb.*;
-import jx.wm.WWindow;
-import jx.wm.message.*;
-import jx.wm.WindowFlags;
 
 public interface WindowManager extends Portal
 {

@@ -1,11 +1,7 @@
 package jx.wm;
 
 import jx.zero.*;
-import jx.zero.debug.*;
-import jx.wm.*;
-import jx.wm.message.*;
 import jx.devices.fb.*;
-import java.lang.*;
 
 /**
  * Creation and management of a window.
@@ -52,6 +48,7 @@ public class WWindow implements Runnable
 			m_cThread.stop ();
 		}
 	}
+        @Override
 	public void run ()
 	{
 		boolean bRun = true;
@@ -171,21 +168,24 @@ public class WWindow implements Runnable
 		m_cWindow = null;
 	}
 	/**
-	 * Hook function called, when the window has to be redrawn. If you
-	 * want to update part of the window by yourself, don't call this 
-	 * method directly! Use "invalidate" instead.
+	 * Hook function called, when the window has to be redrawn.If you
+ want to update part of the window by yourself, don't call this 
+ method directly! Use "invalidate" instead.
+     * @param cUpdateRect
 	 */
 	public void paint (PixelRect cUpdateRect)
 	{
 	}
 	/**
 	 * Handle a message.
+     * @param cMsg
 	 */
 	public void handleMessage (jx.wm.message.WMessage cMsg)
 	{
 	}
 	/** 
 	 * Hook function called, when the window gets resized 
+     * @param cRect
 	 */
 	public void windowResized (PixelRect cRect)
 	{
@@ -225,6 +225,7 @@ public class WWindow implements Runnable
 	}
 	/**
 	 * Hook function called when window is activated
+     * @param bActivated
 	 */
 	public void windowActivated (boolean bActivated)
 	{
@@ -250,8 +251,9 @@ public class WWindow implements Runnable
 	    m_cWindow.postMessage(cMsg);
 	}
 	/**
-	 * Invalidate a certain rectangular area of the window. This call will
-	 * invoke the "paint" hook function.
+	 * Invalidate a certain rectangular area of the window.This call will
+ invoke the "paint" hook function.
+     * @param cRect
 	 */
 	public void invalidate (PixelRect cRect)
 	{

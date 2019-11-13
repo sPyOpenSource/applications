@@ -1,7 +1,5 @@
 package jx.wm;
 
-import jx.wm.Glyph;
-import jx.wm.WFontHeight;
 import jx.zero.*;
 import jx.devices.fb.*;
 
@@ -101,8 +99,9 @@ public class WFont
 			}
 		}
 	}
+        @Override
 	public String toString ()
 	{
-		return new String ("WFont(default.fon)");
+		return "WFont(default.fon)";
 	}
 };

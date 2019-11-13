@@ -1,10 +1,6 @@
 package jx.wm;
 
 import jx.devices.fb.*;
-import jx.zero.*;
-import jx.wm.WView;
-import jx.wm.WWindowImpl;
-import jx.wm.WDisplay;
 import jx.wm.decorator.WindowDecorator;
 import jx.wm.message.WWindowFrameChangedMessage;
 
@@ -87,6 +83,7 @@ class WindowBorder extends WView
 
 		m_cClient = new WView (cOwner, this, cName + "_client", new PixelRect (0, 0, 0, 0), nViewFlags);
 	}
+        @Override
 	public void finalize ()
 	{
 		m_cOwner = null;
@@ -128,12 +125,14 @@ class WindowBorder extends WView
 		m_cClient.setFrame (rectToClient (cBounds));
 		m_cDecorator.frameSized (cBounds);
 	}
+        @Override
 	public void setFrame (PixelRect cRect)
 	{
 		/*Debug.out.println ("WindowBorder::setFrame() " + cRect);*/
 		m_cRawFrame.setTo (cRect);
 		doSetFrame (cRect);
 	}
+        @Override
 	protected void paint (WRegion cRegion, boolean bUpdate)
 	{
 		PixelRect cUpdateRect = cRegion.getBounds ();
@@ -219,29 +218,29 @@ class WindowBorder extends WView
 		m_cHitOffset.sub (m_cRawFrame.m_nX0, m_cRawFrame.m_nY0);
 		m_cHitOffset.sub (cHitPos);
 /*
-		Debug.out.println ("WindowBorder::mouseDown(" + cPos + ", " + getLeftTop() + 
-			", " + m_cRawFrame + ", " + cHitPos + ") -> " + m_cHitOffset);
-*/
-		if (m_eHitItem == WindowDecorator.HIT_CLOSE)
-		{
-			m_nCloseDown = 1;
-			m_cDecorator.setCloseButtonState (true);
-		}
-		else if (m_eHitItem == WindowDecorator.HIT_ZOOM)
-		{
-			m_nZoomDown = 1;
-			m_cDecorator.setZoomButtonState (true);
-		}
-		else if (m_eHitItem == WindowDecorator.HIT_DEPTH)
-		{
-			m_nToggleDown = 1;
-			m_cDecorator.setDepthButtonState (true);
-		}
-		else if (m_eHitItem == WindowDecorator.HIT_DRAG)
-		{
-			m_cOwner.moveToFront();
-			/*SrvApplication::SetCursor (WPoint (0, 0), 0, 0, CS_NO_COLOR_SPACE, 0, NULL);*/
-		}
+            Debug.out.println ("WindowBorder::mouseDown(" + cPos + ", " + getLeftTop() +
+            ", " + m_cRawFrame + ", " + cHitPos + ") -> " + m_cHitOffset);
+             */
+            switch (m_eHitItem) {
+                case WindowDecorator.HIT_CLOSE:
+                    m_nCloseDown = 1;
+                    m_cDecorator.setCloseButtonState (true);
+                    break;
+                case WindowDecorator.HIT_ZOOM:
+                    m_nZoomDown = 1;
+                    m_cDecorator.setZoomButtonState (true);
+                    break;
+                case WindowDecorator.HIT_DEPTH:
+                    m_nToggleDown = 1;
+                    m_cDecorator.setDepthButtonState (true);
+                    break;
+                case WindowDecorator.HIT_DRAG:
+                    m_cOwner.moveToFront();
+                    /*SrvApplication::SetCursor (WPoint (0, 0), 0, 0, CS_NO_COLOR_SPACE, 0, NULL);*/
+                    break;
+                default:
+                    break;
+            }
 		if (m_eHitItem != WindowDecorator.HIT_NONE)
 			m_nMouseDown++;
 		return (m_eHitItem != WindowDecorator.HIT_NONE);

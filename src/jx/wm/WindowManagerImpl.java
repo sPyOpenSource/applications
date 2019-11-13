@@ -119,6 +119,7 @@ public class WindowManagerImpl implements WindowManager
 				m_cKeymap.m_anMap[nChar][nTable] = cKeymap.get32 (nIndex++);
 		}			
 	}
+        @Override
 	public WWindowInterface createWindow (String cName, PixelRect cFrame, WindowFlags nFlags)
 	{
 	    while (m_cDisplay == null)
@@ -127,6 +128,7 @@ public class WindowManagerImpl implements WindowManager
 		WWindowImpl cWnd = new WWindowImpl (cName, cFrame, nFlags, m_cDisplay);
 		return (WWindowInterface)cWnd;
 	}
+        @Override
 	public void postInputEvent (jx.wm.message.WMessage cEvent)
 	{
 		Debug.out.println ("WindowManager.postInputEvent(" + cEvent + ")");
@@ -140,6 +142,7 @@ public class WindowManagerImpl implements WindowManager
 				break;
 		}
 	}
+        @Override
 	public void handleKeyUp (int nKeyCode)
 	{
 		setQualifiers (nKeyCode|0x80);
@@ -148,6 +151,7 @@ public class WindowManagerImpl implements WindowManager
 	    if (m_cDisplay != null)
 			WWindowImpl.handleKeyUp (m_eKeyCode, m_eRawCode, m_eQual);
 	}
+        @Override
 	public void handleKeyDown (int nKeyCode)
 	{
 	    Debug.out.println("CODE:"+nKeyCode);
@@ -155,6 +159,7 @@ public class WindowManagerImpl implements WindowManager
 		if (nKeyCode == hotkeys[i]) {
 		    final int n = i;
 		    new Thread() {
+                            @Override
 			    public void run() {
 				plugins[n].keyPressed();
 			    }
@@ -168,35 +173,42 @@ public class WindowManagerImpl implements WindowManager
 			WWindowImpl.handleKeyDown (m_eKeyCode, m_eRawCode, m_eQual);
 	  
 	}
+        @Override
 	public void handleMouseDown (int nButton)
 	{
 		//Debug.out.println ("handleMouseDown (" + nButton + ")");
 	    if (m_cDisplay != null)
 		WWindowImpl.handleMouseDown (nButton);
 	}
+        @Override
 	public void handleMouseUp (int nButton)
 	{
 	    if (m_cDisplay != null)
 		WWindowImpl.handleMouseUp (nButton);
 	}
+        @Override
 	public void handleMouseMoved (int nDeltaX, int nDeltaY)
 	{
 	    if (m_cDisplay != null)
 		WWindowImpl.handleMouseMoved (nDeltaX, nDeltaY);
 	}
+        @Override
 	public void handleMousePosition (int nPosX, int nPosY)
 	{
 	    if (m_cDisplay != null)
 		WWindowImpl.handleMousePosition (nPosX, nPosY);
 	}
+        @Override
     public int getDisplayWidth() {
 	return m_cDisplay.getWidth();
     }
 
+        @Override
     public int getDisplayHeight() {
 	return m_cDisplay.getHeight();
     }
 
+        @Override
     public void registerHotkeyPlugin(HotkeyPlugin plugin, int keycode) throws TooManyPluginsException {
 	if (nPlugins == maxPlugins) throw new TooManyPluginsException();
 	plugins[nPlugins] = plugin;
@@ -295,7 +307,6 @@ public class WindowManagerImpl implements WindowManager
 		}
 		return m_cKeymap.m_anMap[nRawKey][nTable];
 	}	
-
 
 
 	public static void main(String [] args)
