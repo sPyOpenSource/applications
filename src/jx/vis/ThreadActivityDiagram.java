@@ -236,7 +236,7 @@ public class ThreadActivityDiagram {
 		vxtext.drawText("Time in Milliseconds", timerange/2, 1070, 30, Visualizer.ALIGN_CENTER, Visualizer.ROTATE_0, Visualizer.STYLE_BOLD);
 	    }
 
-	    int i=0;
+	    int i;
 	    long time = 0;
 	    /* skip data until starttime */
 	    for(i=0; i<nswitches; i++) {
@@ -296,7 +296,7 @@ public class ThreadActivityDiagram {
 	
 	long time;
 	endTime = 0;
-	int i=0;
+	int i;
 	int nthreads=in.readInt();
 	threads = new ThreadInfo[nthreads];
 	for(i=0;i<nthreads;i++) {
@@ -348,8 +348,6 @@ public class ThreadActivityDiagram {
     }    
 
 
-
-    
     void readSwitchesText(InputStream input) throws IOException {
 	DataInputStream in = new DataInputStream(input);
 	// read data

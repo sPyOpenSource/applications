@@ -13,7 +13,7 @@ public class Events {
 	// read data
 	LittleEndianInputStream in = new LittleEndianInputStream(new BufferedInputStream(input));
 
-	int i=0;
+	int i;
 	int neventtypes=in.readInt();
 	types = new EventType[neventtypes];
 	for(i=0;i<neventtypes;i++) {

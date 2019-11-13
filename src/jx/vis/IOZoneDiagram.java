@@ -55,7 +55,7 @@ public class IOZoneDiagram {
 	if (args.length < 1) { usage(); return; }
 
 
-	String miffile=null;
+	String miffile;
 	int maxtp;
 	int mintp=0;
 	int maxtp_scale=0;
@@ -68,19 +68,25 @@ public class IOZoneDiagram {
 	}
 
 	int argc;
-	for(argc=1;;argc++) {
-	    if (args[argc].equals("-recsizes")) {
-		opt_recordsizes = true;
-	    } else if (args[argc].equals("-deviation")) {
-		opt_deviation = true;
-	    } else if (args[argc].equals("-max_deviation")) {
-		opt_max_deviation = true;
-	    } else if (args[argc].equals("-verbose")) {
-		opt_verbose = true;
-	    } else {
-		break;
-	    }
-	}
+        OUTER:
+        for (argc=1;; argc++) {
+            switch (args[argc]) {
+                case "-recsizes":
+                    opt_recordsizes = true;
+                    break;
+                case "-deviation":
+                    opt_deviation = true;
+                    break;
+                case "-max_deviation":
+                    opt_max_deviation = true;
+                    break;
+                case "-verbose":
+                    opt_verbose = true;
+                    break;
+                default:
+                    break OUTER;
+            }
+        }
 
         switch (args[0]) {
             case "bars":
@@ -344,14 +350,16 @@ public class IOZoneDiagram {
 	Vector r;
 	int k=0;
 	if (opt_verbose) System.out.println("---- ");
-	for(int i=0;i<names.length;i++) {
-	    if (opt_verbose) System.out.println("read "+names[i]);
-	    DataInputStream in = new DataInputStream(new FileInputStream(names[i]));
-	    if (binary) r = readIOZoneBinary(in);
-	    else r = readIOZoneText(in);
-	    in.close();
-	    all.addElement(r);
-	}
+        for (String name : names) {
+            if (opt_verbose) {
+                System.out.println("read " + name);
+            }
+            DataInputStream in = new DataInputStream(new FileInputStream(name));
+            if (binary) r = readIOZoneBinary(in);
+            else r = readIOZoneText(in);
+            in.close();
+            all.addElement(r);
+        }
 	// compute median and variance
 	Vector results = new Vector();
 	for(int i=0; i<((Vector) all.elementAt(0)).size(); i++) {

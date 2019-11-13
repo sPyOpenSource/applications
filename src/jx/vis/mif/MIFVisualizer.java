@@ -12,6 +12,7 @@ public class MIFVisualizer implements Visualizer {
 	this.out = new PrintStream(new BufferedOutputStream(out));
     }
 
+    @Override
     public void init() {
 	// document
 	out.println("<MIFFile 5.50>");
@@ -37,6 +38,7 @@ public class MIFVisualizer implements Visualizer {
 	out.println(" <PageBackground `Default'>");
     }
 
+    @Override
     public void finish() {
 	out.println("> # end of Page");
 	out.println("# End of MIFFile");
@@ -44,6 +46,7 @@ public class MIFVisualizer implements Visualizer {
     }
 
 
+    @Override
     public void drawLine(int x0, int y0, int x1, int y1) {
 	out.println(" <PolyLine ");
 	common();
@@ -58,6 +61,7 @@ public class MIFVisualizer implements Visualizer {
 	out.println(" > # end of PolyLine");
     }
 
+    @Override
     public void drawThinLine(int x0, int y0, int x1, int y1) {
 	out.println(" <PolyLine ");
 	common();
@@ -75,6 +79,7 @@ public class MIFVisualizer implements Visualizer {
 	out.println(" > # end of PolyLine");
     }
 
+    @Override
     public void drawEllipse(int x, int y, int w, int h) {
 	out.println(" <Ellipse ");
 	common();
@@ -87,9 +92,11 @@ public class MIFVisualizer implements Visualizer {
 	out.println(" > # end of Ellipse\n");
     }
 
+    @Override
     public void drawText(String text, int x, int y, int fontSize, int align) {
 	drawText(text, x, y, fontSize, align, ROTATE_0, STYLE_DEFAULT);
     }
+    @Override
     public void drawText(String text, int x, int y, int fontSize, int align, int rotate, int style) {
 	out.println(" <TextLine ");
 	common();
@@ -115,6 +122,7 @@ public class MIFVisualizer implements Visualizer {
 	out.println(" > # end of TextLine");
     }
 
+    @Override
     public void drawRect(int x, int y, int w, int h, String fill) {
 	out.println(" <Rectangle ");
 	common();
@@ -134,7 +142,7 @@ public class MIFVisualizer implements Visualizer {
     }
 
     private String mifstring(String str) {
-	StringBuffer ret = new StringBuffer();
+	StringBuilder ret = new StringBuilder();
 	ret.append("   <String `");
 	char [] s = str.toCharArray();
 	for (int i=0; i<s.length; i++) {
