@@ -21,13 +21,10 @@
 package org.jnode.fs.jfat;
 
 import java.io.IOException;
-//import java.nio.ByteBuffer;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Stack;
 import jx.bio.BlockIO;
-//import org.jnode.util.LittleEndian;
-
 
 public class FatCache {
 

@@ -21,10 +21,6 @@
 package org.jnode.fs.jfat;
 
 import java.io.IOException;
-//import java.nio.ByteBuffer;
-import java.util.NoSuchElementException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import jx.fs.InodeIOException;
 import jx.fs.InodeNotFoundException;
 import jx.fs.NoDirectoryInodeException;
@@ -32,15 +28,10 @@ import jx.fs.NoFileInodeException;
 import jx.fs.NotExistException;
 import jx.fs.PermissionException;
 import jx.zero.Memory;
-//import org.apache.log4j.Logger;
-//import org.jnode.fs.FSFile;
-//import org.jnode.fs.FSFileSlackSpace;
 import org.jnode.fs.fat.FatFileSystem;
 
-public class FatFile extends FatEntry //implements FSFile, FSFileSlackSpace 
+public class FatFile extends FatEntry
 {
-    //private static final Logger log = Logger.getLogger(FatFile.class);
-
     public FatFile(FatFileSystem fs, FatDirectory parent, FatRecord record) {
         super(fs, parent, record);
     }

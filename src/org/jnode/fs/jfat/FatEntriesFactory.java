@@ -2,8 +2,6 @@ package org.jnode.fs.jfat;
 
 import java.io.IOException;
 import java.util.NoSuchElementException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import jx.zero.Debug;
 
 public class FatEntriesFactory {
@@ -15,7 +13,7 @@ public class FatEntriesFactory {
     private int next;
     private FatEntry entry;
     protected boolean includeDeleted;
-    private FatDirectory directory;
+    private final FatDirectory directory;
     
     public FatEntriesFactory(FatDirectory directory, boolean includeDeleted) {
         label = false;

@@ -22,8 +22,6 @@ package org.jnode.fs.jfat;
 
 import java.io.IOException;
 import org.jnode.fs.fat.FatFileSystem;
-//import org.jnode.util.NumberUtils;
-
 
 /**
  * @author gvt

@@ -20,7 +20,6 @@
  
 package org.jnode.fs.jfat;
 
-import java.nio.ByteBuffer;
 import org.jnode.fs.fat.FatFileSystem;
 
 

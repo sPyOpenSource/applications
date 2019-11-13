@@ -43,6 +43,7 @@ public class FatAttr {
         this.attr = 0;
     }
 
+    @Override
     public boolean equals(Object o) {
         if (o instanceof FatAttr)
             return (((FatAttr) o).getAttr() & MASK) == (attr & MASK);

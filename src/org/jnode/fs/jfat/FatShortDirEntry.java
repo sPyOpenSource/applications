@@ -20,14 +20,8 @@
  
 package org.jnode.fs.jfat;
 
-import java.io.IOException;
-import java.nio.charset.CharacterCodingException;
 import java.util.Arrays;
-import jx.zero.Debug;
 import org.jnode.fs.fat.FatFileSystem;
-//import org.apache.log4j.Logger;
-//import org.jnode.util.NumberUtils;
-
 
 /**
  * @author gvt
@@ -306,6 +300,7 @@ ext = extName.trim();
         encodeLength();
     }
 
+    @Override
     public boolean isShortDirEntry() {
         return true;
     }

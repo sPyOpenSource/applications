@@ -20,12 +20,9 @@
  
 package org.jnode.net.ipv4.dhcp;
 
-//import org.apache.log4j.Logger;
-
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
-import java.net.InetAddress;
 import jx.net.IPAddress;
 import jx.net.NetInit;
 import jx.net.protocol.bootp.BOOTP;
@@ -44,8 +41,6 @@ public class AbstractDHCPClient extends BOOTP {
     public AbstractDHCPClient(NetInit net, byte[] hwaddr) {
         super(net, hwaddr);
     }
-
-    //private static final Logger log = Logger.getLogger(AbstractDHCPClient.class);
 
     /**
      * Create a DHCP discovery packet

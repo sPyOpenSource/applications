@@ -23,12 +23,8 @@ package org.jnode.fs.jfat;
 import java.io.IOException;
 import java.util.Vector;
 import jx.zero.Debug;
-import org.jnode.fs.fat.FatFileSystem;
-//import org.apache.log4j.Logger;
-//import org.jnode.util.NumberUtils;
 
 public class FatRecord {
-   // private static final Logger log = Logger.getLogger(FatRecord.class);
 
     private static final int MAXLONGENTRIES = 20;
 
@@ -38,7 +34,7 @@ public class FatRecord {
 
     public FatRecord() {
         init();
-        longEntries = new Vector<FatLongDirEntry>(MAXLONGENTRIES);
+        longEntries = new Vector<>(MAXLONGENTRIES);
     }
 
     /*public FatRecord(FatDirectory parent, FatName name) throws IOException {

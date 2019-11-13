@@ -20,9 +20,7 @@
  
 package org.jnode.fs.jfat;
 
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
-//import org.jnode.util.TimeUtils;
 
 /**
  * @author gvt

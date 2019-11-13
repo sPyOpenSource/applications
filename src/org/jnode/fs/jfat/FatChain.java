@@ -20,16 +20,11 @@
  
 package org.jnode.fs.jfat;
 
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
-//import java.nio.ByteBuffer;
 import java.util.NoSuchElementException;
 import jx.zero.Debug;
 import jx.zero.Memory;
 
-//import org.apache.log4j.Logger;
-//import org.jnode.fs.FileSystemFullException;
 import org.jnode.fs.fat.FatFileSystem;
 
 /**
@@ -37,7 +32,6 @@ import org.jnode.fs.fat.FatFileSystem;
  * 
  */
 public class FatChain {
-    //private static final Logger log = Logger.getLogger(FatChain.class);
 
     private final FatFileSystem fs;
     private final Fat fat;

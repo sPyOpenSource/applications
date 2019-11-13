@@ -21,9 +21,6 @@
 package org.jnode.fs.jfat;
 
 import jx.zero.Memory;
-//import org.jnode.util.LittleEndian;
-//import org.jnode.util.NumberUtils;
-
 
 /**
  * @author gvt

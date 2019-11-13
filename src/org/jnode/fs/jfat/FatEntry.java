@@ -39,16 +39,7 @@ import jx.fs.PermissionException;
 import jx.fs.StatFS;
 import jx.zero.Memory;
 import jx.zero.ReadOnlyMemory;
-//import org.apache.log4j.Logger;
-//import org.jnode.fs.FSAccessRights;
-//import org.jnode.fs.FSDirectory;
-//import org.jnode.fs.FSEntry;
-//import org.jnode.fs.FSEntryCreated;
-//import org.jnode.fs.FSEntryLastAccessed;
-//import org.jnode.fs.FSFile;
 import org.jnode.fs.fat.FatFileSystem;
-//import org.jnode.util.NumberUtils;
-
 
 public abstract class FatEntry extends FatObject implements Inode
 {

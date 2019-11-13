@@ -21,27 +21,9 @@
 package org.jnode.net.ipv4.dhcp;
 
 import java.io.IOException;
-import java.net.URL;
-import java.security.AccessController;
-import java.security.PrivilegedAction;
-import java.security.PrivilegedActionException;
-import java.security.PrivilegedExceptionAction;
-
-import javax.naming.NameNotFoundException;
 import jx.net.IPAddress;
 import jx.net.NetInit;
 import jx.net.protocol.bootp.BOOTPFormat;
-
-//import org.apache.log4j.Logger;
-//import org.jnode.driver.ApiNotFoundException;
-//import org.jnode.driver.Device;
-//import org.jnode.driver.net.NetDeviceAPI;
-//import org.jnode.driver.net.NetworkException;
-//import org.jnode.net.NetPermission;
-//import org.jnode.net.ipv4.config.IPv4ConfigurationService;
-//import org.jnode.net.ipv4.util.ResolverImpl;
-//import org.jnode.plugin.PluginManager;
-//import org.jnode.plugin.URLPluginLoader;
 
 /**
  * Console DHCP client.
@@ -50,11 +32,6 @@ import jx.net.protocol.bootp.BOOTPFormat;
  * @author Martin Husted Hartvig (hagar@jnode.org)
  */
 public class DHCPClient extends AbstractDHCPClient {
-
-    //private static final Logger log = Logger.getLogger(DHCPClient.class);
-
-    //private Device device;
-    //private NetDeviceAPI api;
 
     public DHCPClient(NetInit net, byte[] hwaddr) {
         super(net, hwaddr);

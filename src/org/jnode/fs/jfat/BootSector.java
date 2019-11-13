@@ -20,14 +20,8 @@
  
 package org.jnode.fs.jfat;
 
-import java.io.IOException;
-import java.nio.ByteBuffer;
 import jx.zero.Debug;
 import jx.zero.Memory;
-
-//import org.apache.log4j.Logger;
-//import org.jnode.util.LittleEndian;
-//import org.jnode.util.NumberUtils;
 
 /**
  * @author gvt
@@ -35,7 +29,6 @@ import jx.zero.Memory;
  */
 public class BootSector {
     @SuppressWarnings("unused")
-    //private static final Logger log = Logger.getLogger(BootSector.class);
 
     private static final int IFAT12 = 12;
     private static final int IFAT16 = 16;
@@ -413,6 +406,7 @@ public class BootSector {
     /**
      * The Setting methods are writing here.
      *
+     * @param BS_jmpBoot
      */
     public void setBS_JmpBoot(byte[] BS_jmpBoot) {
         setBytes(0, 3, BS_jmpBoot);
@@ -526,6 +520,7 @@ public class BootSector {
         setBytes(510, 2, ident);
     }
 
+    @Override
     public String toString() {
         //StringBuilder out = new StringBuilder();
 

@@ -53,7 +53,7 @@ public final class AI
     public static void init(Naming naming) throws Exception {
         jx.zero.debug.DebugOutputStream out = new jx.zero.debug.DebugOutputStream((DebugChannel) naming.lookup("DebugChannel0"));
         Debug.out = new jx.zero.debug.DebugPrintStream(out);
-        //System.out = new java.io.PrintStream(out);
+        //System.setOut(new java.io.PrintStream(out));
         //System.err = System.out;
 
         Debug.out.println("Init running...");
@@ -65,10 +65,10 @@ public final class AI
         NetInit.init(InitialNaming.getInitialNaming(), new String[]{"NET"});
         
         FSDomain.main(new String[]{"BIOFS_RW", "FS"});
-        AI instance = new AI();
+        test.net.WebServer.main(new String[]{"-fs", "FS", "-threads"});
+        //AI instance = new AI();
         //instance.start();
         jx.keyboard.Main.main(new String[]{"WindowManager"});
         ConsoleImpl.init(InitialNaming.getInitialNaming());
-        //test.net.WebServer.main(new String[]{"-fs", "FS", "-threads"});
     }
 }

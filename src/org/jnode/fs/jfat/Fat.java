@@ -21,15 +21,12 @@
 package org.jnode.fs.jfat;
 
 import java.io.IOException;
-//import java.nio.ByteBuffer;
 import java.util.Arrays;
 import jx.bio.BlockIO;
 import jx.zero.Debug;
 import jx.zero.InitialNaming;
 import jx.zero.Memory;
 import jx.zero.MemoryManager;
-//import org.jnode.fs.FileSystemException;
-
 
 /**
  * @author gvt
