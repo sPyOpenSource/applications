@@ -19,9 +19,12 @@ public abstract class WBitmapMemory extends WBitmap
         public FramebufferDevice       m_cDisplayDriver;
 	protected int		       m_nOffset;
 
+        @Override
 	public boolean isMemory() { return true; }
+        @Override
 	public WBitmapMemory castMemory() { return this; }
 
+        @Override
 	public void dumpMemory() {
 		DebugSupport 
 			deb=(DebugSupport) InitialNaming.getInitialNaming().lookup("DebugSupport");
@@ -47,11 +50,13 @@ public abstract class WBitmapMemory extends WBitmap
 		return cMemory;
 	}
 
+        @Override
 	public void drawBitmap (WBitmap cBitmap, PixelRect cDst, PixelRect cSrc, PixelRect cClp)
 	{
 		drawBitmap (cBitmap, cDst, cSrc, cClp, DrawingMode.COPY);
 	}
 
+        @Override
 	public void drawBitmap (WBitmap cBitmap, PixelRect cDst, PixelRect cSrc, PixelRect cClp, DrawingMode nMode)
 	{		
 		int yscale, xscale, xstart, ystart;
@@ -102,13 +107,19 @@ public abstract class WBitmapMemory extends WBitmap
 
 		startFrameBufferUpdate ();
 		try {
-			if (cBitmap.m_eColorSpace.getValue()==ColorSpace.CS_CMAP8) {
-				drawBitmapCMAP8(cBitmap, cDraw, xscale, yscale, xstart, ystart, nMode);
-			} else if (cBitmap.m_eColorSpace.getValue()==ColorSpace.CS_RGB16) {
-				drawBitmapRGB16(cBitmap, cDraw, xscale, yscale, xstart, ystart, nMode); 
-			} else if (cBitmap.m_eColorSpace.getValue()==ColorSpace.CS_RGB32) {
-				drawBitmapRGB32(cBitmap, cDraw, xscale, yscale, xstart, ystart, nMode); 
-			}
+                    switch (cBitmap.m_eColorSpace.getValue()) {
+                        case ColorSpace.CS_CMAP8:
+                            drawBitmapCMAP8(cBitmap, cDraw, xscale, yscale, xstart, ystart, nMode);
+                            break;
+                        case ColorSpace.CS_RGB16:
+                            drawBitmapRGB16(cBitmap, cDraw, xscale, yscale, xstart, ystart, nMode);
+                            break;
+                        case ColorSpace.CS_RGB32:
+                            drawBitmapRGB32(cBitmap, cDraw, xscale, yscale, xstart, ystart, nMode);
+                            break;
+                        default:
+                            break;
+                    }
 		} catch (RuntimeException ex) {
 			Debug.out.println("exception in drawBitmap");
 			Debug.out.println("cSrc "+cSrc+cTmpSrc+" cDst "+cDst+" m_cBounds "+m_cBounds+" cDraw "+cDraw);
@@ -127,46 +138,55 @@ public abstract class WBitmapMemory extends WBitmap
 	protected void drawBitmapRGB32 (WBitmap cBitmap, PixelRect cDraw, 
   		int xscale, int yscale, int xstart, int ystart, DrawingMode nMode) { throw new Error("not impl"); }
 
+        @Override
 	public boolean IsVideoMemory ()
 	{
 		return m_bIsVideoMemory;
 	}
 
+        @Override
 	public void set8 (int nOffset, byte nValue)
 	{
 		m_cMemory.set8 (m_nOffset + nOffset, nValue);		
 	}
 
+        @Override
 	public byte get8 (int nOffset)
 	{
 		return m_cMemory.get8 (m_nOffset + nOffset);
 	}
 
+        @Override
 	public void set16 (int nOffset, short nValue)
 	{
 		m_cMemory.set16 ((m_nOffset + nOffset) >> 1, nValue);		
 	}
 
+        @Override
 	public short get16 (int nOffset)
 	{
 		return m_cMemory.get16 ((m_nOffset + nOffset) >> 1);
 	}
 
+        @Override
 	public void set32 (int nOffset, int nValue)
 	{
 		m_cMemory.set32 ((m_nOffset + nOffset) >> 2, nValue);		
 	}
 
+        @Override
 	public int get32 (int nOffset)
 	{
 		return m_cMemory.get32 ((m_nOffset + nOffset) >> 2);
 	}
 
+        @Override
 	public void fill16 (int nOffset, int nLen, short nValue)
 	{
 		m_cMemory.fill16 (nValue, (m_nOffset + nOffset) >> 1, nLen);
 	}
 
+        @Override
 	public void fill32 (int nOffset, int nLen, int nValue)
 	{
 		m_cMemory.fill32 (nValue, (m_nOffset + nOffset) >> 2, nLen);

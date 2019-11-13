@@ -1,22 +1,18 @@
 package jx.wm.decorator;
 
-import jx.zero.*;
-import jx.wm.decorator.WindowDecorator;
-import jx.wm.WFont;
 import jx.wm.WFontHeight;
-import jx.wm.WWindowImpl;
 import jx.wm.WView;
 import jx.wm.WindowFlags;
 import jx.devices.fb.*;
 
 public class AmigaDecorator2 extends WindowDecorator
 {
-	private PixelColor s_cSelWinCol = new PixelColor (102, 102, 255, 0);
-	private PixelColor s_cWinCol = new PixelColor (192, 192, 192, 0);
+	private final PixelColor s_cSelWinCol = new PixelColor (102, 102, 255, 0);
+	private final PixelColor s_cWinCol = new PixelColor (192, 192, 192, 0);
 
-	private PixelColor black = new PixelColor(0,0,0,0);
-	private PixelColor blue  = new PixelColor(0,0,255,0);
-	private PixelColor white = new PixelColor(255,255,255,255);
+	private final PixelColor black = new PixelColor(0,0,0,0);
+	private final PixelColor blue  = new PixelColor(0,0,255,0);
+	private final PixelColor white = new PixelColor(255,255,255,255);
 
 	final static private boolean winlike=true;
 
@@ -91,6 +87,7 @@ public class AmigaDecorator2 extends WindowDecorator
 		//Debug.out.println (m_cTitle + ": AmigaDecorator::calculateBorderSizes [" + m_nLeftBorder + "," + m_nTopBorder +
 		//"," + m_nRightBorder + "," + m_nBottomBorder + "]");	
 	}
+        @Override
 	public int hitTest (PixelPoint cPosition)
 	{
 		if (cPosition.m_nX < 4)
@@ -149,6 +146,7 @@ public class AmigaDecorator2 extends WindowDecorator
 		}
 		return HIT_NONE;
 	}
+        @Override
 	public void frameSized (PixelRect cFrame)
 	{
 		WView cView = getView ();
@@ -171,10 +169,12 @@ public class AmigaDecorator2 extends WindowDecorator
 			cView.invalidate (cDamage);
 		}
 	}
+        @Override
 	public PixelRect getBorderSize ()
 	{
 		return new PixelRect (m_nLeftBorder, m_nTopBorder, m_nRightBorder, m_nBottomBorder);
 	}
+        @Override
 	public PixelPoint getMinimumSize ()
 	{
 		PixelPoint cMinSize = new PixelPoint (0, m_nTopBorder + m_nBottomBorder);
@@ -197,11 +197,13 @@ public class AmigaDecorator2 extends WindowDecorator
 		}
 		return (cMinSize);
 	}
+        @Override
 	public void setTitle (String cTitle)
 	{
 		m_cTitle = cTitle;
 		render (m_cBounds);
 	}
+        @Override
 	public void setFlags (WindowFlags nFlags)
 	{
 		m_nFlags.setValue (nFlags.getValue());
@@ -210,6 +212,7 @@ public class AmigaDecorator2 extends WindowDecorator
 		layout ();
 		render (m_cBounds);
 	}
+        @Override
 	public void fontChanged ()
 	{
 		WView cView = getView ();
@@ -219,36 +222,42 @@ public class AmigaDecorator2 extends WindowDecorator
 		cView.invalidate ();
 		layout ();
 	}
+        @Override
 	public void setWindowFlags (WindowFlags nFlags)
 	{
 		m_nFlags.setValue (nFlags.getValue());
 	}
+        @Override
 	public void setFocusState (boolean bHasFocus)
 	{
 		m_bHasFocus = bHasFocus;
 		render (m_cBounds);
 	}
+        @Override
 	public void setCloseButtonState (boolean bPushed)
 	{
 		m_bCloseState = bPushed;
 		render (m_cCloseRect);
 	}	
+        @Override
 	public void setZoomButtonState (boolean bPushed)
 	{
 		m_bZoomState = bPushed;
 		render (m_cZoomRect);
 	}
+        @Override
 	public void setDepthButtonState (boolean bPushed)
 	{
 		m_bDepthState = bPushed;
 		render (m_cToggleRect);
 	}
+        @Override
 	public void render (PixelRect cUpdateRect)
 	{
 		if ((m_nFlags.getValue() & WindowFlags.WND_NO_BORDER) != 0)
 			return;
 
-		PixelColor sFillColor=null;
+		PixelColor sFillColor;
 		if (winlike) {
 			sFillColor = s_cWinCol;
 		} else {
@@ -409,7 +418,7 @@ public class AmigaDecorator2 extends WindowDecorator
 		m_cDragRect.m_nY1 = m_nTopBorder - 1;
 	}	
 
-	final private int __max__ (int a, int b)
+	private int __max__ (int a, int b)
 	{
 		return a > b ? a : b;
 	}

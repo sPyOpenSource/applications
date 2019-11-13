@@ -103,84 +103,104 @@ public class WBitmapOrg extends WBitmapMemory
 		m_bIsVideoMemory = true;
 	}
 
+        @Override
 	public void finalize ()
 	{
 		Debug.out.println ("WBitmap::finalize(" + this + ")");
 	}
 
+        @Override
 	public boolean IsVideoMemory ()
 	{
 		return m_bIsVideoMemory;
 	}
+        @Override
 	public PixelRect bounds()
 	{
 		return m_cBounds;
 	}
+        @Override
 	public PixelRect getBounds ()
 	{
 		return m_cBounds;
 	}
+        @Override
 	public int width ()
 	{
 		return m_nWidth;
 	}
+        @Override
 	public int height()
 	{
 		return m_nHeight;
 	}
+        @Override
 	public int getWidth ()
 	{
 		return m_nWidth;
 	}
+        @Override
 	public int getHeight()
 	{
 		return m_nHeight;
 	}
+        @Override
 	public ColorSpace getColorSpace()
 	{
 		return m_eColorSpace;
 	}
+        @Override
 	public int bytesPerLine()
 	{
 		return m_nBytesPerLine;
 	}
+        @Override
 	public void set8 (int nOffset, byte nValue)
 	{
 		m_cMemory.set8 (m_nOffset + nOffset, nValue);		
 	}
+        @Override
 	public byte get8 (int nOffset)
 	{
 		return m_cMemory.get8 (m_nOffset + nOffset);
 	}
+        @Override
 	public void set16 (int nOffset, short nValue)
 	{
 		m_cMemory.set16 ((m_nOffset + nOffset) >> 1, nValue);		
 	}
+        @Override
 	public short get16 (int nOffset)
 	{
 		return m_cMemory.get16 ((m_nOffset + nOffset) >> 1);
 	}
+        @Override
 	public void set32 (int nOffset, int nValue)
 	{
 		m_cMemory.set32 ((m_nOffset + nOffset) >> 2, nValue);		
 	}
+        @Override
 	public int get32 (int nOffset)
 	{
 		return m_cMemory.get32 ((m_nOffset + nOffset) >> 2);
 	}
+        @Override
 	public void fill16 (int nOffset, int nLen, short nValue)
 	{
 		m_cMemory.fill16 (nValue, (m_nOffset + nOffset) >> 1, nLen);
 	}
+        @Override
 	public void fill32 (int nOffset, int nLen, int nValue)
 	{
 		m_cMemory.fill32 (nValue, (m_nOffset + nOffset) >> 2, nLen);
 	}
+        @Override
 	void startFrameBufferUpdate()
 	{
 		if (m_cDisplayDriver != null)
 			m_cDisplayDriver.startFrameBufferUpdate ();
 	}
+        @Override
 	void endFrameBufferUpdate()
 	{
 		if (m_cDisplayDriver != null)
@@ -188,6 +208,7 @@ public class WBitmapOrg extends WBitmapMemory
 	}
 
 	private static PixelRect cClipped = new PixelRect();
+        @Override
 	public void drawLine_Unsafe(PixelRect cDraw, PixelRect cClip, PixelColor cColor, DrawingMode nDrawingMode)
 	{	
 		cClipped.setTo(cDraw);
@@ -214,6 +235,7 @@ public class WBitmapOrg extends WBitmapMemory
 		endFrameBufferUpdate ();
 	}
 
+        @Override
 	public void drawLine (PixelRect cDraw, PixelRect cTmpClip, PixelColor cColor, DrawingMode nDrawingMode)
 	{	
 		PixelRect cClipped = new PixelRect (cDraw);
@@ -259,6 +281,7 @@ public class WBitmapOrg extends WBitmapMemory
 		endFrameBufferUpdate ();
 	}
 
+        @Override
 	public void fillRect (PixelRect cRect[], int nCount, PixelColor cColor, DrawingMode nMode)
 	{
 		if (m_cDisplayDriver != null && m_cDisplayDriver.fillRect (cRect, nCount, cColor, nMode) == 0)
@@ -281,6 +304,7 @@ public class WBitmapOrg extends WBitmapMemory
 		}			
 		endFrameBufferUpdate ();
 	}
+        @Override
 	public void fillRect (PixelRect cRect, PixelColor cColor, DrawingMode nMode)
 	{
 		PixelRect cRects[] = new PixelRect[1];
@@ -579,6 +603,7 @@ public class WBitmapOrg extends WBitmapMemory
 		}
 	}
 
+        @Override
 	public void bitBlt (PixelRect acOldPos[], PixelRect acNewPos[], int nCount)
 	{
 	  	int h1,h2;
@@ -766,6 +791,7 @@ public class WBitmapOrg extends WBitmapMemory
   		}   
 	}		
 
+        @Override
 	public void drawBitmap (WBitmap cBitmap, PixelRect cDst, PixelRect cSrc, PixelRect cClp, DrawingMode nMode)
 	{		
 		int yscale, xscale, xstart, ystart;
@@ -832,6 +858,7 @@ public class WBitmapOrg extends WBitmapMemory
 		endFrameBufferUpdate ();
 	}
 
+        @Override
 	protected void drawBitmapRGB16 (WBitmap cBitmap, PixelRect cDraw, 
   		int xscale, int yscale, int xstart, int ystart, DrawingMode nMode)
 	{
@@ -945,6 +972,7 @@ public class WBitmapOrg extends WBitmapMemory
   		}    
 	}		
 
+        @Override
 	protected void drawBitmapRGB32 (WBitmap cBitmap, PixelRect cDraw, 
   		int xscale, int yscale, int xstart, int ystart, DrawingMode nMode)
 	{
@@ -1167,6 +1195,7 @@ public class WBitmapOrg extends WBitmapMemory
     			nSrc+= nSrcModulo;
   		}
 	}	
+        @Override
 	public void renderGlyph (Glyph cGlyph, int x, int y, PixelRect cTmpClip, int anPalette[]) 
 	{
 		PixelRect cClip = new PixelRect (cTmpClip);
@@ -1191,6 +1220,7 @@ public class WBitmapOrg extends WBitmapMemory
  		}
 	}  
 
+        @Override
 	public void drawCloneMap (WBitmap cBitmap, PixelRect cDst, PixelRect cClp)
 	{		
 		int scale, xstart, ystart;
@@ -1266,8 +1296,9 @@ public class WBitmapOrg extends WBitmapMemory
 		}    
 	}		
 
+        @Override
 	public String toString ()
 	{
-		return new String ("WBitmap(" + m_nWidth + "," + m_nHeight + "," + m_nBytesPerLine + "," + m_eColorSpace + ")");
+		return "WBitmap(" + m_nWidth + "," + m_nHeight + "," + m_nBytesPerLine + "," + m_eColorSpace + ")";
 	}
 }

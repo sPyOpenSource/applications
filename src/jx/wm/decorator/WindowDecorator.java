@@ -3,7 +3,6 @@ package jx.wm.decorator;
 import jx.devices.fb.*;
 import jx.wm.WView;
 import jx.wm.WindowFlags;
-import jx.wm.decorator.AmigaDecorator;
 
 public abstract class WindowDecorator
 {

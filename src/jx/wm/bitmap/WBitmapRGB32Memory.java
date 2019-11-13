@@ -72,6 +72,7 @@ public class WBitmapRGB32Memory extends WBitmapMemory
 	}
 
 	private static PixelRect cClipped = new PixelRect();
+        @Override
 	public void drawLine_Unsafe(PixelRect cDraw, PixelRect cClip, PixelColor cColor, DrawingMode nDrawingMode)
 	{	
 		cClipped.setTo(cDraw);
@@ -88,6 +89,7 @@ public class WBitmapRGB32Memory extends WBitmapMemory
 		endFrameBufferUpdate ();
 	}
 
+        @Override
 	public void drawLine (PixelRect cDraw, PixelRect cTmpClip, PixelColor cColor, DrawingMode nDrawingMode)
 	{	
 		PixelRect cClipped = new PixelRect (cDraw);
@@ -123,6 +125,7 @@ public class WBitmapRGB32Memory extends WBitmapMemory
 		endFrameBufferUpdate ();
 	}
 
+        @Override
 	public void fillRect (PixelRect cRect[], int nCount, PixelColor cColor, DrawingMode nMode)
 	{
 		if (m_cDisplayDriver != null && m_cDisplayDriver.fillRect (cRect, nCount, cColor, nMode) == 0)
@@ -132,6 +135,7 @@ public class WBitmapRGB32Memory extends WBitmapMemory
 		fillRectRGB32 (cRect, nCount, cColor.toRGB32(), nMode);
 		endFrameBufferUpdate ();
 	}
+        @Override
 	public void fillRect (PixelRect cRect, PixelColor cColor, DrawingMode nMode)
 	{
 		PixelRect cRects[] = new PixelRect[1];
@@ -430,6 +434,7 @@ public class WBitmapRGB32Memory extends WBitmapMemory
 		}
 	}
 
+        @Override
 	public void bitBlt (PixelRect acOldPos[], PixelRect acNewPos[], int nCount)
 	{
 	  	int h1,h2;
@@ -543,6 +548,7 @@ public class WBitmapRGB32Memory extends WBitmapMemory
   		}   
 	}		
 
+        @Override
 	public void drawBitmap (WBitmap cBitmap, PixelRect cDst, PixelRect cSrc, PixelRect cClp, DrawingMode nMode)
 	{		
 		int yscale, xscale, xstart, ystart;
@@ -595,6 +601,7 @@ public class WBitmapRGB32Memory extends WBitmapMemory
 		endFrameBufferUpdate ();
 	}
 
+        @Override
 	protected void drawBitmapRGB32 (WBitmap cBitmap, PixelRect cDraw, 
   		int xscale, int yscale, int xstart, int ystart, DrawingMode nMode)
 	{
@@ -708,6 +715,7 @@ public class WBitmapRGB32Memory extends WBitmapMemory
   		}    
 	}		
 
+        @Override
 	public void renderGlyph (Glyph cGlyph, int x, int y, PixelRect cTmpClip, int anPalette[]) 
 	{
 		PixelRect cClip = new PixelRect (cTmpClip);
@@ -754,6 +762,7 @@ public class WBitmapRGB32Memory extends WBitmapMemory
   		}
 	}	
 
+        @Override
 	public void drawCloneMap (WBitmap cBitmap, PixelRect cDst, PixelRect cClp)
 	{		
 		int scale, xstart, ystart;
@@ -793,8 +802,9 @@ public class WBitmapRGB32Memory extends WBitmapMemory
 		endFrameBufferUpdate ();
 	}
 
+        @Override
 	public String toString ()
 	{
-		return new String ("WBitmapRGB32Memory(" + m_nWidth + "," + m_nHeight + "," + m_nBytesPerLine + "," + m_eColorSpace + ")");
+		return "WBitmapRGB32Memory(" + m_nWidth + "," + m_nHeight + "," + m_nBytesPerLine + "," + m_eColorSpace + ")";
 	}
 }

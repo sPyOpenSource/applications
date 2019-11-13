@@ -81,6 +81,7 @@ public class WBitmapRGB16Memory extends WBitmapMemory
 	}
 
 	private static PixelRect cClipped = new PixelRect();
+        @Override
 	public void drawLine_Unsafe(PixelRect cDraw, PixelRect cClip, PixelColor cColor, DrawingMode nDrawingMode)
 	{	
 		cClipped.setTo(cDraw);
@@ -97,6 +98,7 @@ public class WBitmapRGB16Memory extends WBitmapMemory
 		endFrameBufferUpdate ();
 	}
 
+        @Override
 	public void drawRect(PixelRect cRect, PixelColor cColor, DrawingMode nMode)
 	{
 		PixelRect clip = new PixelRect(cRect);
@@ -114,6 +116,7 @@ public class WBitmapRGB16Memory extends WBitmapMemory
 		drawLine(tmp, clip, cColor, nMode);
 	}	
 
+        @Override
 	public void drawLine (PixelRect cDraw, PixelRect cTmpClip, PixelColor cColor, DrawingMode nDrawingMode)
 	{	
 		PixelRect cClipped = new PixelRect (cDraw);
@@ -149,6 +152,7 @@ public class WBitmapRGB16Memory extends WBitmapMemory
 		endFrameBufferUpdate ();
 	}
 
+        @Override
 	public void fillRect (PixelRect cRect[], int nCount, PixelColor cColor, DrawingMode nMode)
 	{
 		if (m_cDisplayDriver != null && m_cDisplayDriver.fillRect (cRect, nCount, cColor, nMode) == 0)
@@ -159,6 +163,7 @@ public class WBitmapRGB16Memory extends WBitmapMemory
 		endFrameBufferUpdate ();
 	}
 
+        @Override
 	public void fillRect (PixelRect cRect, PixelColor cColor, DrawingMode nMode)
 	{
 		PixelRect cRects[] = new PixelRect[1];
@@ -310,6 +315,7 @@ public class WBitmapRGB16Memory extends WBitmapMemory
 		}
 	}
 
+        @Override
 	public void bitBlt (PixelRect acOldPos[], PixelRect acNewPos[], int nCount)
 	{
 	  	int h1,h2;
@@ -423,6 +429,7 @@ public class WBitmapRGB16Memory extends WBitmapMemory
   		}   
 	}		
 
+        @Override
 	public void drawBitmap (WBitmap cBitmap, PixelRect cDst, PixelRect cSrc, PixelRect cClp, DrawingMode nMode)
 	{		
 		int yscale, xscale, xstart, ystart;
@@ -482,19 +489,25 @@ public class WBitmapRGB16Memory extends WBitmapMemory
 
 		startFrameBufferUpdate ();
 		try {
-			if (cBitmap.m_eColorSpace.getValue()==ColorSpace.CS_CMAP8) {
-/*
-				if (nMode.isSet(DrawingMode.DM_COPY) && (!bStretch)) {
-					drawBitmapCMAP8Fast(cBitmap, cDraw, xs, ys);
-				} else {
-*/
-					drawBitmapCMAP8(cBitmap, cDraw, xscale, yscale, xstart, ystart, nMode);
+                    switch (cBitmap.m_eColorSpace.getValue()) {
+                        case ColorSpace.CS_CMAP8:
+                            /*
+                            if (nMode.isSet(DrawingMode.DM_COPY) && (!bStretch)) {
+                            drawBitmapCMAP8Fast(cBitmap, cDraw, xs, ys);
+                            } else {
+                            */
+                            drawBitmapCMAP8(cBitmap, cDraw, xscale, yscale, xstart, ystart, nMode);
 //				} 
-			} else if (cBitmap.m_eColorSpace.getValue()==ColorSpace.CS_RGB16) {
-				drawBitmapRGB16(cBitmap, cDraw, xscale, yscale, xstart, ystart, nMode); 
-			} else if (cBitmap.m_eColorSpace.getValue()==ColorSpace.CS_RGB32) {
-				drawBitmapRGB32(cBitmap, cDraw, xscale, yscale, xstart, ystart, nMode); 
-			}
+                            break;
+                        case ColorSpace.CS_RGB16:
+                            drawBitmapRGB16(cBitmap, cDraw, xscale, yscale, xstart, ystart, nMode);
+                            break;
+                        case ColorSpace.CS_RGB32:
+                            drawBitmapRGB32(cBitmap, cDraw, xscale, yscale, xstart, ystart, nMode);
+                            break;
+                        default:
+                            break;
+                    }
 		} catch (RuntimeException ex) {
 			Debug.out.println("exception in drawBitmap");
 			Debug.out.println("cSrc "+cSrc+cTmpSrc+" cDst "+cDst+" m_cBounds "+m_cBounds+" cDraw "+cDraw);
@@ -557,6 +570,7 @@ public class WBitmapRGB16Memory extends WBitmapMemory
 		}    
 	}       
 
+        @Override
 	protected void drawBitmapCMAP8 (WBitmap cBitmap, PixelRect cDraw, 
   		int xscale, int yscale, int xstart, int ystart, DrawingMode nMode)
 	{
@@ -604,6 +618,7 @@ public class WBitmapRGB16Memory extends WBitmapMemory
 		}
 	}	
 
+        @Override
 	protected void drawBitmapRGB16 (WBitmap cBitmap, PixelRect cDraw, 
   		int xscale, int yscale, int xstart, int ystart, DrawingMode nMode)
 	{
@@ -669,6 +684,7 @@ public class WBitmapRGB16Memory extends WBitmapMemory
 		}       
 	}
 
+        @Override
 	protected void drawBitmapRGB32 (WBitmap cBitmap, PixelRect cDraw, 
   		int xscale, int yscale, int xstart, int ystart, DrawingMode nMode)
 	{
@@ -763,6 +779,7 @@ public class WBitmapRGB16Memory extends WBitmapMemory
   		}
 	}	
 
+        @Override
 	public void renderGlyph (Glyph cGlyph, int x, int y, PixelRect cTmpClip, int anPalette[]) 
 	{
 		PixelRect cClip = new PixelRect (cTmpClip);
@@ -770,6 +787,7 @@ public class WBitmapRGB16Memory extends WBitmapMemory
 		renderGlyph16 (cGlyph, x, y, cClip, anPalette);
 	}  
 
+        @Override
 	public void drawCloneMap (WBitmap cBitmap, PixelRect cDst, PixelRect cClp)
 	{		
 		int scale, xstart, ystart;
@@ -827,8 +845,9 @@ public class WBitmapRGB16Memory extends WBitmapMemory
 		}    
 	}		
 
+        @Override
 	public String toString ()
 	{
-		return new String ("WBitmapRGB16Memory(" + m_nWidth + "," + m_nHeight + "," + m_nBytesPerLine + "," + m_eColorSpace + ")");
+		return "WBitmapRGB16Memory(" + m_nWidth + "," + m_nHeight + "," + m_nBytesPerLine + "," + m_eColorSpace + ")";
 	}
 }

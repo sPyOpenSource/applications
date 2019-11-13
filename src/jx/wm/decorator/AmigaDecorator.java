@@ -1,10 +1,7 @@
 package jx.wm.decorator;
 
-import jx.zero.*;
 import jx.wm.decorator.WindowDecorator;
-import jx.wm.WFont;
 import jx.wm.WFontHeight;
-import jx.wm.WWindowImpl;
 import jx.wm.WView;
 import jx.wm.WindowFlags;
 import jx.devices.fb.*;
@@ -84,6 +81,7 @@ public class AmigaDecorator extends WindowDecorator
 		//Debug.out.println (m_cTitle + ": AmigaDecorator::calculateBorderSizes [" + m_nLeftBorder + "," + m_nTopBorder +
 		//"," + m_nRightBorder + "," + m_nBottomBorder + "]");	
 	}
+        @Override
 	public int hitTest (PixelPoint cPosition)
 	{
 		if (cPosition.m_nX < 4)
@@ -142,6 +140,7 @@ public class AmigaDecorator extends WindowDecorator
 		}
 		return HIT_NONE;
 	}
+        @Override
 	public void frameSized (PixelRect cFrame)
 	{
 		WView cView = getView ();
@@ -166,10 +165,12 @@ public class AmigaDecorator extends WindowDecorator
 			cView.invalidate (cDamage);
 		}
 	}
+        @Override
 	public PixelRect getBorderSize ()
 	{
 		return new PixelRect (m_nLeftBorder, m_nTopBorder, m_nRightBorder, m_nBottomBorder);
 	}
+        @Override
 	public PixelPoint getMinimumSize ()
 	{
 		PixelPoint cMinSize = new PixelPoint (0, m_nTopBorder + m_nBottomBorder);
@@ -192,11 +193,13 @@ public class AmigaDecorator extends WindowDecorator
 		}
 		return (cMinSize);
 	}
+        @Override
 	public void setTitle (String cTitle)
 	{
 		m_cTitle = cTitle;
 		render (m_cBounds);
 	}
+        @Override
 	public void setFlags (WindowFlags nFlags)
 	{
 		m_nFlags.setValue (nFlags.getValue());
@@ -205,6 +208,7 @@ public class AmigaDecorator extends WindowDecorator
 		layout ();
 		render (m_cBounds);
 	}
+        @Override
 	public void fontChanged ()
 	{
 		WView cView = getView ();
@@ -214,30 +218,36 @@ public class AmigaDecorator extends WindowDecorator
 		cView.invalidate ();
 		layout ();
 	}
+        @Override
 	public void setWindowFlags (WindowFlags nFlags)
 	{
 		m_nFlags.setValue (nFlags.getValue());
 	}
+        @Override
 	public void setFocusState (boolean bHasFocus)
 	{
 		m_bHasFocus = bHasFocus;
 		render (m_cBounds);
 	}
+        @Override
 	public void setCloseButtonState (boolean bPushed)
 	{
 		m_bCloseState = bPushed;
 		render (m_cCloseRect);
 	}	
+        @Override
 	public void setZoomButtonState (boolean bPushed)
 	{
 		m_bZoomState = bPushed;
 		render (m_cZoomRect);
 	}
+        @Override
 	public void setDepthButtonState (boolean bPushed)
 	{
 		m_bDepthState = bPushed;
 		render (m_cToggleRect);
 	}
+        @Override
 	public void render (PixelRect cUpdateRect)
 	{
 		/*Debug.out.println (m_cTitle + ": AmigaDecorator::render() " + cUpdateRect);*/
