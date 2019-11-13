@@ -20,9 +20,6 @@
  
 package org.jnode.fs.fat;
 
-import jx.fs.FSAttribute;
-import jx.fs.Permission;
-
 /**
  * @author gbin
  */

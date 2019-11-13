@@ -39,11 +39,11 @@ public abstract class FatObject {
     }
 
     /**
-     * Is this object still valid. 
+     * Is this object still valid.An object is not valid anymore if it has been removed from the filesystem. 
      * 
-     * An object is not valid anymore if it has been removed from the filesystem.
      * All invocations on methods (exception this method) of invalid objects 
-     * must throw an IOException.
+ must throw an IOException.
+     * @return 
      */
     public final boolean isValid() {
         return valid;
@@ -58,6 +58,7 @@ public abstract class FatObject {
 
     /**
      * Gets the filesystem I'm a part of.
+     * @return 
      */
     public final FileSystem getFileSystem() {
         return fs;
@@ -65,6 +66,7 @@ public abstract class FatObject {
 
     /**
      * Gets the filesystem I'm a part of.
+     * @return 
      */
     public final FatFileSystem getFatFileSystem() {
         return fs;

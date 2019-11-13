@@ -23,12 +23,9 @@ package org.jnode.fs.fat;
 import java.io.IOException;
 import java.util.Vector;
 import jx.fs.DirNotEmptyException;
-//import org.jnode.fs.FSAccessRights;
 import jx.fs.Directory;
 import jx.fs.FileExistsException;
 import jx.fs.Inode;
-//import org.jnode.fs.FSEntryCreated;
-//import org.jnode.fs.FSEntryLastAccessed;
 import jx.fs.FileSystem;
 import jx.fs.InodeIOException;
 import jx.fs.InodeNotFoundException;
@@ -46,7 +43,7 @@ import jx.zero.ReadOnlyMemory;
 /**
  * @author gbin
  */
-class LfnEntry implements Inode//, FSEntryCreated, FSEntryLastAccessed 
+class LfnEntry implements Inode 
 {
 
     /**
@@ -141,6 +138,7 @@ class LfnEntry implements Inode//, FSEntryCreated, FSEntryLastAccessed
         return fileName;
     }
 
+    @Override
     public Inode getParent() {
         return realEntry.getParent();
     }
@@ -157,10 +155,12 @@ class LfnEntry implements Inode//, FSEntryCreated, FSEntryLastAccessed
         return realEntry.getLastAccessed();
     }
 
+    @Override
     public boolean isFile() {
         return realEntry.isFile();
     }
 
+    @Override
     public boolean isDirectory() {
         return realEntry.isDirectory();
     }
@@ -198,6 +198,7 @@ class LfnEntry implements Inode//, FSEntryCreated, FSEntryLastAccessed
         return realEntry.isValid();
     }
 
+    @Override
     public FileSystem getFileSystem() {
         return null;//realEntry.getFileSystem();
     }
@@ -206,6 +207,7 @@ class LfnEntry implements Inode//, FSEntryCreated, FSEntryLastAccessed
         return realEntry.isDeleted();
     }
 
+    @Override
     public String toString() {
         return "LFN = " + fileName + " / SFN = " + realEntry.getName();
     }
@@ -230,6 +232,7 @@ class LfnEntry implements Inode//, FSEntryCreated, FSEntryLastAccessed
      * @return true if the entry need to be saved
      * @throws IOException
      */
+    @Override
     public boolean isDirty() {
         return true;
     }

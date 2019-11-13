@@ -45,6 +45,7 @@ public class FatDirectory extends AbstractDirectory {
      *
      * @param fs
      * @param file
+     * @throws java.io.IOException
      */
     public FatDirectory(FatFileSystem fs, FatFile file) throws IOException {
         super(fs, file);
@@ -137,7 +138,9 @@ public class FatDirectory extends AbstractDirectory {
 
     /**
      * Flush the contents of this directory to the persistent storage
+     * @throws java.io.IOException
      */
+    @Override
     public void flush() throws IOException {
         if (root) {
             final FatFileSystem fs = (FatFileSystem) getFileSystem();
@@ -151,8 +154,10 @@ public class FatDirectory extends AbstractDirectory {
     }
 
     /**
+     * @return 
      * @see org.jnode.fs.fat.AbstractDirectory#canChangeSize(int)
      */
+    @Override
     protected boolean canChangeSize(int newSize) {
         return !root;
     }
@@ -161,6 +166,7 @@ public class FatDirectory extends AbstractDirectory {
      * Set the label
      *
      * @param label
+     * @throws java.io.IOException
      */
     public void setLabel(String label) throws IOException {
         if (!root) {

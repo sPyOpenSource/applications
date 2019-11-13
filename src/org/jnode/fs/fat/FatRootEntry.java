@@ -23,7 +23,6 @@ package org.jnode.fs.fat;
 import java.io.IOException;
 import jx.fs.DirNotEmptyException;
 import jx.fs.RegularFile;
-//import org.jnode.fs.FSAccessRights;
 import jx.fs.Directory;
 import jx.fs.FileExistsException;
 import jx.fs.Inode;
@@ -61,6 +60,7 @@ public class FatRootEntry extends FatObject implements Inode {
 
     /**
      * Gets the name of this entry.
+     * @return 
      */
     public String getName() {
         return "";
@@ -69,6 +69,7 @@ public class FatRootEntry extends FatObject implements Inode {
     /**
      * Gets the directory this entry is a part of.
      */
+    @Override
     public Inode getParent() {
         return null;
     }
@@ -80,6 +81,7 @@ public class FatRootEntry extends FatObject implements Inode {
     /**
      * Is this entry referring to a file?
      */
+    @Override
     public boolean isFile() {
         return false;
     }
@@ -87,12 +89,15 @@ public class FatRootEntry extends FatObject implements Inode {
     /**
      * Is this entry referring to a (sub-)directory?
      */
+    @Override
     public boolean isDirectory() {
         return true;
     }
 
     /**
      * Sets the name of this entry.
+     * @param newName
+     * @throws java.io.IOException
      */
     public void setName(String newName) throws IOException {
         throw new IOException("Cannot change name of root directory");
@@ -101,6 +106,7 @@ public class FatRootEntry extends FatObject implements Inode {
     /**
      * Sets the last modification time of this entry.
      *
+     * @param lastModified
      * @throws IOException
      */
     public void setLastModified(long lastModified) throws IOException {
@@ -108,16 +114,19 @@ public class FatRootEntry extends FatObject implements Inode {
     }
 
     /**
-     * Gets the file this entry refers to. This method can only be called if
-     * <code>isFile</code> returns true.
+     * Gets the file this entry refers to.This method can only be called if
+    <code>isFile</code> returns true.
+     * @return 
+     * @throws java.io.IOException
      */
     public RegularFile getFile() throws IOException {
         throw new IOException("Not a file");
     }
 
     /**
-     * Gets the directory this entry refers to. This method can only be called
-     * if <code>isDirectory</code> returns true.
+     * Gets the directory this entry refers to.This method can only be called
+ if <code>isDirectory</code> returns true.
+     * @return 
      */
     public Directory getDirectory() {
         return null;//rootDir;
@@ -136,8 +145,8 @@ public class FatRootEntry extends FatObject implements Inode {
      * Indicate if the entry has been modified in memory (ie need to be saved)
      *
      * @return true if the entry need to be saved
-     * @throws IOException
      */
+    @Override
     public boolean isDirty() {
         return true;
     }

@@ -20,8 +20,6 @@
  
 package org.jnode.fs.fat;
 
-//import org.jnode.util.LittleEndian;
-
 /**
  * @author gbin
  */
@@ -107,6 +105,7 @@ public class FatLfnDirEntry extends FatBasicDirEntry {
         return new String(unicodechar).substring(0, index);
     }
 
+    @Override
     public String toString() {
         return "LFN ordinal " + getOrdinal() + " subString = " + getSubstring() + "CheckSum = " +
                 getCheckSum();

@@ -38,17 +38,12 @@ import jx.fs.RegularFile;
 import jx.fs.StatFS;
 import jx.zero.Memory;
 import jx.zero.ReadOnlyMemory;
-//import org.jnode.fs.FSAccessRights;
-//import org.jnode.fs.FSEntryCreated;
-//import org.jnode.fs.FSEntryLastAccessed;
-//import org.jnode.fs.spi.UnixFSAccessRights;
 import org.jnode.fs.util.DosUtils;
-//import org.jnode.util.NumberUtils;
 
 /**
  * @author epr
  */
-public class FatDirEntry extends FatBasicDirEntry implements Inode//, FSEntryCreated, FSEntryLastAccessed 
+public class FatDirEntry extends FatBasicDirEntry implements Inode
 {
 
     /**
@@ -267,6 +262,7 @@ public class FatDirEntry extends FatBasicDirEntry implements Inode//, FSEntryCre
      *
      * @return long
      */
+    @Override
     public int getLength() {
         return (int)length;
     }
@@ -358,10 +354,11 @@ public class FatDirEntry extends FatBasicDirEntry implements Inode//, FSEntryCre
     }
 
     /**
-     * Gets the single instance of the file connected to this entry. Returns
-     * null if the file is 0 bytes long
+     * Gets the single instance of the file connected to this entry.Returns
+ null if the file is 0 bytes long
      *
      * @return File
+     * @throws java.io.IOException
      */
     public RegularFile getFile() throws IOException {
         if (isFile()) {
@@ -372,8 +369,10 @@ public class FatDirEntry extends FatBasicDirEntry implements Inode//, FSEntryCre
     }
 
     /**
-     * Gets the directory this entry refers to. This method can only be called
-     * if <code>isDirectory</code> returns true.
+     * Gets the directory this entry refers to.This method can only be called
+ if <code>isDirectory</code> returns true.
+     * @return 
+     * @throws java.io.IOException
      */
     public Directory getDirectory() throws IOException {
         if (isDirectory()) {
@@ -461,6 +460,7 @@ public class FatDirEntry extends FatBasicDirEntry implements Inode//, FSEntryCre
      *
      * @see org.jnode.fs.FSEntry#isFile()
      */
+    @Override
     public boolean isFile() {
         return (!(isDirectory() || isLabel()));
     }
@@ -470,6 +470,7 @@ public class FatDirEntry extends FatBasicDirEntry implements Inode//, FSEntryCre
      *
      * @see org.jnode.fs.FSEntry#isDirectory()
      */
+    @Override
     public boolean isDirectory() {
         return ((flags & F_DIRECTORY) != 0);
     }
@@ -492,6 +493,7 @@ public class FatDirEntry extends FatBasicDirEntry implements Inode//, FSEntryCre
      * @param dest
      * @param offset
      */
+    @Override
     public void write(byte[] dest, int offset) {
         // System.out.println("FatDir entry write at" + offset);
         if (unused) {
@@ -534,6 +536,7 @@ public class FatDirEntry extends FatBasicDirEntry implements Inode//, FSEntryCre
         this._dirty = false;
     }
 
+    @Override
     public String toString() {
         StringBuilder b = new StringBuilder(64);
 
@@ -584,6 +587,7 @@ public class FatDirEntry extends FatBasicDirEntry implements Inode//, FSEntryCre
      *
      * @return boolean
      */
+    @Override
     public final boolean isDirty() {
         return _dirty;
     }
@@ -596,6 +600,7 @@ public class FatDirEntry extends FatBasicDirEntry implements Inode//, FSEntryCre
     /**
      * @return The directory this entry belongs to.
      */
+    @Override
     public Inode getParent() {
         return null;//parent;
     }

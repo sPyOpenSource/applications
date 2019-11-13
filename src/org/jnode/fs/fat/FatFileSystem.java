@@ -21,8 +21,6 @@
 package org.jnode.fs.fat;
 
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafs.InodeCache;
 import javafs.Tools;
 import jx.bio.BlockIO;
@@ -56,7 +54,7 @@ public class FatFileSystem implements jx.fs.FileSystem {
      * Constructor for FatFileSystem in specified readOnly mode
      * @param readOnly
      */
-    public FatFileSystem(boolean readOnly) //throws FileSystemException 
+    public FatFileSystem(boolean readOnly)  
     {
         //super(readOnly, type); // false = read/write mode
         

@@ -24,8 +24,6 @@ import java.io.IOException;
 import jx.bio.BlockIO;
 import jx.zero.Memory;
 
-//import org.jnode.fs.ReadOnlyFileSystemException;
-
 /**
  * A File instance is the in-memory representation of a single file (chain of
  * clusters).

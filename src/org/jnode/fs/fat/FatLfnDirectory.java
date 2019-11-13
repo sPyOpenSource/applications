@@ -28,7 +28,6 @@ import java.util.Iterator;
 import java.util.Vector;
 import jx.fs.Inode;
 import jx.zero.Memory;
-//import org.jnode.fs.ReadOnlyFileSystemException;
 
 /**
  * @author gbin
@@ -51,6 +50,7 @@ public class FatLfnDirectory extends FatDirectory {
         super(fs, nrEntries);
     }
 
+    @Override
     public Inode addFile(String name) throws IOException {
         /*if (getFileSystem().isReadOnly()) {
             throw new ReadOnlyFileSystemException("addFile in readonly filesystem");
@@ -67,6 +67,7 @@ public class FatLfnDirectory extends FatDirectory {
         return entry;
     }
 
+    @Override
     public Inode addDirectory(String name) throws IOException {
         /*if (getFileSystem().isReadOnly()) {
             throw new ReadOnlyFileSystemException("addDirectory in readonly filesystem");
@@ -107,6 +108,7 @@ public class FatLfnDirectory extends FatDirectory {
         return entry;
     }
 
+    @Override
     public Inode getEntry(String name) {
         // System.out.println("Search : " + name);
         name = name.trim();
@@ -120,6 +122,7 @@ public class FatLfnDirectory extends FatDirectory {
 
     }
 
+    @Override
     protected synchronized void read(byte[] src) {
         super.read(src);
         readLFN();
@@ -202,19 +205,23 @@ public class FatLfnDirectory extends FatDirectory {
 
     }
 
+    @Override
     public void flush() throws IOException {
         updateLFN();
         super.flush();
     }
 
+    @Override
     public Iterator<Inode> iterator() {
         return new Iterator<Inode>() {
             Iterator<LfnEntry> it = shortNameIndex.values().iterator();
 
+            @Override
             public boolean hasNext() {
                 return it.hasNext();
             }
 
+            @Override
             public Inode next() {
                 return it.next();
             }
@@ -222,6 +229,7 @@ public class FatLfnDirectory extends FatDirectory {
             /**
              * @see java.util.Iterator#remove()
              */
+            @Override
             public void remove() {
                 throw new UnsupportedOperationException();
             }
@@ -274,14 +282,14 @@ public class FatLfnDirectory extends FatDirectory {
                     if (toTest == ' ')
                         break valid;
                     if (toTest >= 'A' && toTest <= 'Z')
-                        continue loop;
+                        continue;
                     if (toTest >= '0' && toTest <= '9')
-                        continue loop;
+                        continue;
                     if (toTest == '_' || toTest == '^' || toTest == '$' || toTest == '~' ||
                         toTest == '!' || toTest == '#' || toTest == '%' || toTest == '&' ||
                         toTest == '-' || toTest == '{' || toTest == '}' || toTest == '(' ||
                         toTest == ')' || toTest == '@' || toTest == '\'' || toTest == '`')
-                        continue loop;
+                        continue;
 
                 }
                 shortNameChar[i] = '_';
@@ -310,6 +318,7 @@ public class FatLfnDirectory extends FatDirectory {
      * @param name
      * @throws IOException
      */
+    @Override
     public void remove(String name) throws IOException {
         name = name.trim();
         LfnEntry byLongName = longFileNameIndex.get(name);

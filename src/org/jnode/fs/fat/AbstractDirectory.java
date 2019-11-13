@@ -28,7 +28,6 @@ import java.util.NoSuchElementException;
 import java.util.Vector;
 import jx.fs.Inode;
 import jx.zero.Memory;
-//import org.jnode.fs.ReadOnlyFileSystemException;
 
 /**
  * @author epr
