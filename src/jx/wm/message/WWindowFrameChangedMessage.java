@@ -1,6 +1,5 @@
 package jx.wm.message;
 
-import jx.wm.message.WMessage;
 import jx.devices.fb.PixelRect;
 
 public class WWindowFrameChangedMessage extends WMessage
@@ -12,8 +11,9 @@ public class WWindowFrameChangedMessage extends WMessage
 		super (WMessage.WINDOW_FRAME_CHANGED);
 		m_cFrame = new PixelRect (cFrame);
 	}
+        @Override
 	public String toString ()
 	{
-		return new String ("MSG(WINDOW_FRAME_CHANGED)");
+		return "MSG(WINDOW_FRAME_CHANGED)";
 	}
 }

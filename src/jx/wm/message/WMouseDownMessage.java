@@ -1,6 +1,5 @@
 package jx.wm.message;
 
-import jx.wm.message.WMessage;
 import jx.devices.fb.PixelPoint;
 
 public class WMouseDownMessage extends WMessage
@@ -16,8 +15,9 @@ public class WMouseDownMessage extends WMessage
 		m_cPos		= new PixelPoint (cPos);
 		m_nButton	= nButton;
 	}
+        @Override
 	public String toString ()
 	{
-		return new String ("MSG(MOUSE_DOWN)");
+		return "MSG(MOUSE_DOWN)";
 	}
 }

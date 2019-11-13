@@ -1,6 +1,5 @@
 package jx.wm.message;
 
-import jx.wm.message.WMessage;
 import jx.devices.fb.PixelPoint;
 
 public class WMouseMovedMessage extends WMessage
@@ -17,8 +16,9 @@ public class WMouseMovedMessage extends WMessage
 		m_cPos		= new PixelPoint (cPos);
 		m_nTransit	= nTransit;
 	}
+        @Override
 	public String toString ()
 	{
-		return new String ("MSG(MOUSE_MOVED)");
+		return "MSG(MOUSE_MOVED)";
 	}
 }

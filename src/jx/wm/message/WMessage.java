@@ -1,7 +1,5 @@
 package jx.wm.message;
 
-import jx.zero.*;
-
 public class WMessage
 {
     //WMessage	m_cNext;
@@ -30,8 +28,9 @@ public class WMessage
 	{
 		return m_nCode;
 	}
+        @Override
 	public String toString ()
 	{
-		return new String ("MSG(" + m_nCode + ")");
+		return "MSG(" + m_nCode + ")";
 	}
 };

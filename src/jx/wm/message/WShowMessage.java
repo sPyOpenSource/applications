@@ -1,7 +1,5 @@
 package jx.wm.message;
 
-import jx.wm.message.WMessage;
-
 public class WShowMessage extends WMessage
 {
 	public boolean m_bShow;
@@ -11,8 +9,9 @@ public class WShowMessage extends WMessage
 		super (WMessage.WINDOW_SHOW);
 		m_bShow = bShow;
 	}
+        @Override
 	public String toString ()
 	{
-		return new String ("MSG(WINDOW_SHOW)");
+		return "MSG(WINDOW_SHOW)";
 	}
 }

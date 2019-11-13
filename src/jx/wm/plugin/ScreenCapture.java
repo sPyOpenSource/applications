@@ -20,6 +20,7 @@ public class ScreenCapture {
 	final WindowManager wm = (WindowManager) LookupHelper.waitUntilPortalAvailable(naming, wmName);
 	final FramebufferDevice fb = (FramebufferDevice) LookupHelper.waitUntilPortalAvailable(naming, fbName);
 	wm.registerHotkeyPlugin(new HotkeyPlugin() {
+                @Override
 		public void keyPressed() {
 		    Debug.out.println("F1 key pressed");
 		    DeviceMemory mem = fb.getFrameBuffer();
@@ -44,7 +45,7 @@ public class ScreenCapture {
 			}
 			out.flush();
 			socket.close();
-		    } catch(Exception ex) {
+		    } catch(IOException ex) {
 			Debug.out.println("Exception during data transfer : "+ex);
 			throw new Error();
 		    }

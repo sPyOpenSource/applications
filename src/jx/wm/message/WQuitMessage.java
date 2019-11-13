@@ -1,15 +1,14 @@
 package jx.wm.message;
 
-import jx.wm.message.WMessage;
-
 public class WQuitMessage extends WMessage
 {
 	public WQuitMessage ()
 	{
 		super (WMessage.QUIT);
 	}
+        @Override
 	public String toString ()
 	{
-		return new String ("MSG(QUIT)");
+		return "MSG(QUIT)";
 	}
 }

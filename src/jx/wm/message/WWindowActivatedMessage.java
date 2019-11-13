@@ -1,7 +1,5 @@
 package jx.wm.message;
 
-import jx.wm.message.WMessage;
-
 public class WWindowActivatedMessage extends WMessage
 {
 	public boolean m_bActivated;
@@ -11,8 +9,9 @@ public class WWindowActivatedMessage extends WMessage
 		super (WMessage.WINDOW_ACTIVATED);
 		m_bActivated = bActivated;
 	}
+        @Override
 	public String toString ()
 	{
-		return new String ("MSG(WINDOW_ACTIVATED)");
+		return "MSG(WINDOW_ACTIVATED)";
 	}
 }

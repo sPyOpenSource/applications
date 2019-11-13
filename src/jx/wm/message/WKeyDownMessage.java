@@ -1,6 +1,5 @@
 package jx.wm.message;
 
-import jx.wm.message.WMessage;
 import jx.wm.Keycode;
 import jx.wm.Qualifiers;
 
@@ -17,8 +16,9 @@ public class WKeyDownMessage extends WMessage
 		m_eRawCode = new Keycode (eRawCode);
 		m_eQual	   = new Qualifiers (eQual);
 	}
+        @Override
 	public String toString ()
 	{
-		return new String ("MSG(KEY_DOWN)");
+		return "MSG(KEY_DOWN)";
 	}
 }
