@@ -20,8 +20,6 @@
  
 package org.jnode.driver.net.lance;
 
-//import java.util.logging.Level;
-//import java.util.logging.Logger;
 import jx.buffer.multithread.Buffer2;
 import jx.buffer.multithread.MultiThreadBufferList;
 import jx.buffer.multithread.MultiThreadBufferList2;
@@ -45,12 +43,12 @@ public class LanceDriver implements NetworkDevice {
     /*public LanceDriver(ConfigurationElement config) {
         this(new LanceFlags(config));
     }*/
-    private LanceCore abstractDeviceCore;
+    private final LanceCore abstractDeviceCore;
     private final static boolean debugSend = false;
     NonBlockingMemoryConsumer etherConsumer;
     public static final int ETH_DATA_LEN   = 1500;  /* Max. octets in payload */
-    private MemoryManager rm;
-    private CPUManager cpuManager;
+    private final MemoryManager rm;
+    private final CPUManager cpuManager;
     int event_interrupt;
     int event_snd;
     int event_rcv;

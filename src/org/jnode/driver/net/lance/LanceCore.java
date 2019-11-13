@@ -29,8 +29,6 @@ import jx.zero.MemoryManager;
 import jx.zero.Ports;
 import metaxa.os.devices.net.EthernetAdress;
 import metaxa.os.devices.net.WrongEthernetAdressFormat;
-//import org.jnode.driver.net.NetworkException;
-//import org.jnode.util.TimeoutException;
 
 /**
  * This is the DeviceCore for LANCE and PCnet 32 compatable ethernet PCI drivers.

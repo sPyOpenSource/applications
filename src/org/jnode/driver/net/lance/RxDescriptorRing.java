@@ -20,7 +20,6 @@
  
 package org.jnode.driver.net.lance;
 
-//import org.apache.log4j.Logger;
 import jx.zero.Debug;
 import jx.zero.Memory;
 import jx.zero.MemoryManager;
@@ -34,7 +33,7 @@ public class RxDescriptorRing extends DescriptorRing {
      */
     //private static final Logger log = Logger.getLogger(RxDescriptorRing.class);
 
-    private RxDescriptor[] rxDescriptors;
+    private final RxDescriptor[] rxDescriptors;
 
     public RxDescriptorRing(Memory mem, int offset, int length, int dataBufferOffset) {
         super(mem, offset, length);

@@ -20,7 +20,6 @@
  
 package org.jnode.driver.net.lance;
 
-//import org.apache.log4j.Logger;
 import jx.zero.Debug;
 import jx.zero.Memory;
 
@@ -33,7 +32,7 @@ public class TxDescriptorRing extends DescriptorRing {
      */
     //private static final Logger log = Logger.getLogger(TxDescriptorRing.class);
 
-    private TxDescriptor[] txDescriptors;
+    private final TxDescriptor[] txDescriptors;
 
     public TxDescriptorRing(
         Memory mem,

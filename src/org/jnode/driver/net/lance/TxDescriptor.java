@@ -20,7 +20,6 @@
  
 package org.jnode.driver.net.lance;
 
-import jx.zero.Debug;
 import jx.zero.Memory;
 
 /**

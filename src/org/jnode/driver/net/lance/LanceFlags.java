@@ -20,8 +20,6 @@
  
 package org.jnode.driver.net.lance;
 
-//import org.jnode.plugin.ConfigurationElement;
-
 /**
  * @author epr
  */
@@ -30,8 +28,8 @@ public class LanceFlags {
     private final String name;
     private String chipName;
     private boolean fullDuplex;
-    private boolean autoSelectEnabled;
-    private boolean mustUnreset;
+    private final boolean autoSelectEnabled;
+    private final boolean mustUnreset;
 
     /*public LanceFlags(ConfigurationElement config) {
         this(config.getAttribute("name"));

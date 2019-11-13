@@ -20,11 +20,8 @@
  
 package org.jnode.driver.net.lance;
 
-//import org.apache.log4j.Logger;
-import jx.zero.Debug;
 import jx.zero.Memory;
 import metaxa.os.devices.net.EthernetAdress;
-//import org.jnode.util.NumberUtils;
 
 /**
  * @author Chris Cole
@@ -32,7 +29,7 @@ import metaxa.os.devices.net.EthernetAdress;
 public class InitializationBlock32Bit {
     public static final int INIT_BLOCK_SIZE = 0x1C;
 
-    private Memory mem;
+    private final Memory mem;
 
     public InitializationBlock32Bit(Memory mem, short mode,
             EthernetAdress physicalAddr, RxDescriptorRing rxRing, 

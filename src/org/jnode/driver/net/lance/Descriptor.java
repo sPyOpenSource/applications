@@ -20,10 +20,8 @@
  
 package org.jnode.driver.net.lance;
 
-//import org.apache.log4j.Logger;
 import jx.zero.Debug;
 import jx.zero.Memory;
-//import org.jnode.util.NumberUtils;
 
 /**
  * @author Chris Cole

@@ -20,14 +20,10 @@
  
 package org.jnode.driver.net.lance;
 
-//import org.apache.log4j.Logger;
 import jx.zero.Debug;
 import jx.zero.Memory;
 import jx.zero.MemoryManager;
 import metaxa.os.devices.net.EthernetAdress;
-//import org.jnode.net.ethernet.EthernetAddress;
-//import org.jnode.system.resource.ResourceNotFreeException;
-//import org.jnode.system.resource.ResourceOwner;
 
 /**
  * @author Chris Cole
