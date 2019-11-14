@@ -65,7 +65,7 @@ public final class AI
         NetInit.init(InitialNaming.getInitialNaming(), new String[]{"NET"});
         
         FSDomain.main(new String[]{"BIOFS_RW", "FS"});
-        test.net.WebServer.main(new String[]{"-fs", "FS", "-threads"});
+        //test.net.WebServer.main(new String[]{"-fs", "FS", "-threads"});
         //AI instance = new AI();
         //instance.start();
         jx.keyboard.Main.main(new String[]{"WindowManager"});
