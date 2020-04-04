@@ -94,7 +94,7 @@ class TCPWebWorker {
 	    byte data[] = new byte[l];
 	    buffer.copyToByteArray(data, 0, 0, l);
 	    return data;
-	} catch (Exception ex) {
+	} catch (InodeIOException | InodeNotFoundException | NoDirectoryInodeException | NoFileInodeException | NotExistException | PermissionException ex) {
 	      Debug.out.println(ex.getMessage());
 	    return constructErrorHeader().getBytes();
 	}

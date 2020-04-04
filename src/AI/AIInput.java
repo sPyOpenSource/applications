@@ -6,7 +6,7 @@ package AI;
  * @version 1.0
  */
 
-public class AIInput extends AIBaseInput
+public class AIInput extends AIZeroInput
 {
     /**
      * This is the initialization of AIInput class 

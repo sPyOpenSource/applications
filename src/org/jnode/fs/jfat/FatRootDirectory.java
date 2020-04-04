@@ -31,6 +31,7 @@ import org.jnode.fs.fat.FatFileSystem;
 public class FatRootDirectory extends FatDirectory {
     private final Naming naming = InitialNaming.getInitialNaming();
     private final MemoryManager rm = (MemoryManager)naming.lookup("MemoryManager");
+    private final Memory mem;
     /*
      * for root directory
      */
@@ -43,6 +44,16 @@ public class FatRootDirectory extends FatDirectory {
             throw new UnsupportedOperationException("Unknown Fat Type");
         }
         //scanDirectory();
+        BootSector bootSector = getFatFileSystem().getBootSector();
+
+        // Check if this is the end of the root entires
+        /*if (index > bootSector.getNrRootDirEntries()) {
+            throw new NoSuchElementException();
+        }*/
+        int rootDirectoryOffset = bootSector.getFirstDataSector();       
+
+        mem = rm.alloc(512);
+        getFatFileSystem().getApi().readSectors(rootDirectoryOffset, 1, mem, true);
     }
 
     @Override
@@ -53,16 +64,16 @@ public class FatRootDirectory extends FatDirectory {
             //return super.getFatDirEntry(index, allowDeleted);
         }
 
-        BootSector bootSector = getFatFileSystem().getBootSector();
+        //BootSector bootSector = getFatFileSystem().getBootSector();
 
         // Check if this is the end of the root entires
         /*if (index > bootSector.getNrRootDirEntries()) {
             throw new NoSuchElementException();
         }*/
-        int rootDirectoryOffset = bootSector.getFirstDataSector();       
+        //int rootDirectoryOffset = bootSector.getFirstDataSector();       
 
-        Memory mem = rm.alloc(512);
-        getFatFileSystem().getApi().readSectors(rootDirectoryOffset, 1, mem, true);
+        //Memory mem = rm.alloc(512);
+        //getFatFileSystem().getApi().readSectors(rootDirectoryOffset, 1, mem, true);
         for(int i = 0; i < 10; i++){
                 Debug.out.print((char)mem.get8(i*32));
                 Debug.out.print((char)mem.get8(i*32+1));

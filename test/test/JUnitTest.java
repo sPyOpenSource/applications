@@ -1,11 +1,13 @@
 package test;
 
-import AI.AIBaseMemory;
-import AI.Models.Info;
-import AI.util.PID;
+import AI.AIMemory;
+import AI.Models.InfoZero;
 
 import junit.framework.TestCase;
 import static junit.framework.TestCase.assertEquals;
+import org.jnode.fs.jfat.CacheElement;
+import org.jnode.fs.jfat.CacheKey;
+import org.jnode.fs.jfat.CacheMap;
 import org.junit.Test;
 
 /**
@@ -13,26 +15,26 @@ import org.junit.Test;
  * @author X. Wang
  */
 public class JUnitTest extends TestCase{
-    private final static AIBaseMemory MEMORY = new AIBaseMemory();
+    private final static AIMemory MEMORY = new AIMemory();
 
     @Test
     public void testIncomingMessages(){
         System.out.println("* JUnitTest: memoryTestIncomingMessages()");
-        MEMORY.addInfo(new Info("configure:test"), "incomingMessages");
+        MEMORY.addInfo(new InfoZero("configure:test"), "incomingMessages");
         assertEquals("configure:test", MEMORY.dequeFirst("incomingMessages").getPayload());
     }
     
     @Test
     public void testOutgoingMessages2ArduinoDequeLast(){
         System.out.println("* JUnitTest: memoryTestOutgoingMessages2ArduinoDequeLast()");
-        MEMORY.addInfo(new Info("test1"), "outgoingMessages2Arduino");
+        MEMORY.addInfo(new InfoZero("test1"), "outgoingMessages2Arduino");
         assertEquals("test1", MEMORY.dequeLast("outgoingMessages2Arduino").getPayload());
     }
     
     @Test
     public void testConfiguresGetLast(){
         System.out.println("* JUnitTest: memoryTestConfiguresGetLast()");
-        MEMORY.addInfo(new Info("test2"), "configures");
+        MEMORY.addInfo(new InfoZero("test2"), "configures");
         assertEquals("test2", MEMORY.dequeLast("configures").getPayload());
     }
     
@@ -52,24 +54,32 @@ public class JUnitTest extends TestCase{
     }
     
     @Test
-    public void testPID(){
-        PID pid = new PID(1, 1, 1);
-        System.out.println("* JUnitTest: testPID()");
-        double y = pid.Compute(1, 1, 1);
-        assertEquals(y, - 3.0);
-        y = pid.Compute(10, 20, 1);
-        assertEquals(y, - 31.0);
-        y = pid.Compute(20, 30, 1);
-        assertEquals(y, -71.0);
-        y = pid.Compute(50, 20, 1);
-        assertEquals(y, - 150.0);
-        y = pid.Compute(- 150, 20, 1);
-        assertEquals(y, 150.0);
-        y = pid.Compute(0, 20, 1);
-        assertEquals(y, 69.0);
-        y = pid.Compute(10, 10, 10);
-        assertEquals(y, - 51.0);
-        y = pid.Compute(10, 10, 10);
-        assertEquals(y, - 150.0);
+    public void testCacheMap(){
+        System.out.println("* JUnitTest: testCachMap()");
+        CacheMap map = new CacheMap( 11);
+        assertEquals(map.getCacheSize(),11);
+        map.get(1);
+    }
+    
+    @Test
+    public void testCacheKey(){
+        System.out.println("* JUnitTest: testCacheKey()");
+        CacheKey key = new CacheKey();
+        assertEquals(key.get(),-1);
+        assertEquals(key.isFree(), true);
+        key.set(1);
+        assertEquals(key.get(),1);
+        assertEquals(key.hashCode(),1);
+        assertEquals(key.toString(),"1");
+        assertEquals(key.isFree(), false);
+        key.set(0xff00ff);
+        assertEquals(key.hashCode(),16711680);
+    }
+    
+    @Test
+    public void testCacheElement(){
+        System.out.println("* JUnitTest: testCacheElement()");
+        CacheElement element = new CacheElement();
+        assertEquals(element.isFree(), true);
     }
 }

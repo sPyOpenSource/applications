@@ -50,7 +50,7 @@ public class FatDirectory extends AbstractDirectory {
     public FatDirectory(FatFileSystem fs, FatFile file) throws IOException {
         super(fs, file);
         this.file = file;
-        read();
+        //read();
     }
 
     // for root

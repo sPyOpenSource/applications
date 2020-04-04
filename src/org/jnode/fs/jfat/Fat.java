@@ -142,7 +142,7 @@ public abstract class Fat {
                 "exceed clusterSize[" + getClusterSize() + "]");
         }*/
         Debug.out.println(" cpos: " + getClusterPosition(cluster));
-        getApi().readSectors(getClusterPosition(cluster) / 512, 1, dst, true);
+        getApi().readSectors(getClusterPosition(cluster) / 512, getBootSector().getSectorsPerCluster(), dst, true);
     }
 
     /*public void writeCluster(int cluster, int offset, ByteBuffer src) throws IOException {

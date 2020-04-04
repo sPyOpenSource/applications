@@ -38,8 +38,7 @@ public class FatFile extends FatObject {
     private final boolean isDir;
     private final FatDirEntry myEntry;
 
-    public FatFile(FatFileSystem fs, FatDirEntry myEntry, long startCluster, long length,
-            boolean isDir) {
+    public FatFile(FatFileSystem fs, FatDirEntry myEntry, long startCluster, long length, boolean isDir) {
         super(fs);
         this.myEntry = myEntry;
         this.startCluster = startCluster;
@@ -58,7 +57,7 @@ public class FatFile extends FatObject {
 
         final FatFileSystem fs = getFatFileSystem();
         final long[] chain = fs.getFat().getChain(startCluster);
-        final BlockIO api = null;//fs.getApi();
+        final BlockIO api = fs.getApi();
 
         int chainIdx = (int) (fileOffset / clusterSize);
         if (fileOffset % clusterSize != 0) {
@@ -98,7 +97,7 @@ public class FatFile extends FatObject {
 
         final FatFileSystem fs = getFatFileSystem();
         final long[] chain = fs.getFat().getChain(getStartCluster());
-        final BlockIO api = null;//fs.getApi();
+        final BlockIO api = fs.getApi();
 
         int chainIdx = (int) (fileOffset / clusterSize);
         if (fileOffset % clusterSize != 0) {

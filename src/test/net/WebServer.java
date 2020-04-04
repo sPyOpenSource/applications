@@ -1,5 +1,6 @@
 package test.net;
 
+import java.io.IOException;
 import jx.zero.*;
 import jx.net.NetInit;
 import java.net.Socket;
@@ -101,7 +102,7 @@ public class WebServer {
 		startWorkerThread(sock);
 	    else
 		startWorkerDomain(sock);
-            } catch (Exception e){                
+            } catch (IOException e){                
                 break;
             }
 	}

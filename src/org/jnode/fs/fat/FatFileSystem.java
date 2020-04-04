@@ -58,15 +58,14 @@ public class FatFileSystem implements jx.fs.FileSystem {
     {
         //super(readOnly, type); // false = read/write mode
         
-        //try {
-            drive = (BlockIO)InitialNaming.getInitialNaming().lookup("BIOFS_RW");
+        drive = (BlockIO)InitialNaming.getInitialNaming().lookup("BIOFS_RW");
         try {
             fat = Fat.create(getApi());
         } catch (IOException ex) {
             //Logger.getLogger(FatFileSystem.class.getName()).log(Level.SEVERE, null, ex);
         }
         inodeCache = new InodeCache();
-	deviceID = new Integer(1);
+        deviceID = new Integer(1);
             
                         
 //            if (!bs.isaValidBootSector()) throw new FileSystemException(
@@ -106,7 +105,7 @@ public class FatFileSystem implements jx.fs.FileSystem {
             //Logger.getLogger(FatFileSystem.class.getName()).log(Level.SEVERE, null, ex);
         }
         inodeCache = new InodeCache();
-	deviceID = new Integer(1);
+        deviceID = new Integer(1);
     }
 
     /**

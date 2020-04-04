@@ -1,4 +1,4 @@
-NEEDLIBS = zero jdk0
+NEEDLIBS = zero jdk0 ai
 
 SUBDIRS = AI bioide test/fs test/net vfs jx org/jnode
 

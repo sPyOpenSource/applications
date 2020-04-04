@@ -6,7 +6,7 @@ package AI;
  * @author X. Wang
  * @version 1.0
  */
-public class AIOutput extends AIBaseOutput
+public class AIOutput extends AIZeroOutput
 {
     //private Writer w;
  

@@ -119,7 +119,7 @@ public class NetInit implements jx.net.NetInit, Service {
         ether.registerConsumer(ip, "IP");
         ether.registerConsumer(arp, "ARP");
         ip.registerConsumer(icmp, "ICMP");
-	ether.registerConsumer(arp, "ARP");
+        ether.registerConsumer(arp, "ARP");
     }
 
     public jx.net.protocol.tcp.TCP getTCP() {

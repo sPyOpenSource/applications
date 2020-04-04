@@ -6,7 +6,7 @@ package AI;
  * @author X. Wang 
  * @version 1.0
  */
-public class AIMemory extends AIBaseMemory
+public class AIMemory extends AIZeroMemory
 {
     // instance variables
     //private SerialPort serialPort;

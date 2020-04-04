@@ -55,7 +55,7 @@ public final class AI
         Debug.out = new jx.zero.debug.DebugPrintStream(out);
         //System.setOut(new java.io.PrintStream(out));
         //System.err = System.out;
-
+        
         Debug.out.println("Init running...");
         PCIGod.main(new String[]{});
         StartTimer.main(new String[]{"TimerManager"});
@@ -65,9 +65,9 @@ public final class AI
         NetInit.init(InitialNaming.getInitialNaming(), new String[]{"NET"});
         
         FSDomain.main(new String[]{"BIOFS_RW", "FS"});
-        //test.net.WebServer.main(new String[]{"-fs", "FS", "-threads"});
-        //AI instance = new AI();
-        //instance.start();
+        test.net.WebServer.main(new String[]{"-fs", "FS", "-threads"});
+        AI instance = new AI();
+        instance.start();
         jx.keyboard.Main.main(new String[]{"WindowManager"});
         ConsoleImpl.init(InitialNaming.getInitialNaming());
     }

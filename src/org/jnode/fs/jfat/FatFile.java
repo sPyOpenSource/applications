@@ -91,7 +91,7 @@ public class FatFile extends FatEntry
 
         if (rem <= 0) return 0;
         try {
-            getChain().read(offset, dst);
+            getChain().read(offset, dst, length);
         } catch (IOException ex) {
             //Logger.getLogger(FatFile.class.getName()).log(Level.SEVERE, null, ex);
         }

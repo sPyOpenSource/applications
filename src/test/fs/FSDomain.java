@@ -60,7 +60,6 @@ public class FSDomain {
 	    }
 
 	    InitNaming.registerPortal(fs, fsname);
-            //fs.lookup("/index.html");
 	    //naming.registerPortal(jfs, "JavaFS");
 	} catch(FSException e) {
 	    Debug.out.println("EXCEPTION: " + e);

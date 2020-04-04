@@ -39,7 +39,7 @@ public class FatChain {
     private int head;
     private boolean dirty;
 
-    private boolean dolog = false;
+    private boolean dolog = true;
 
     private ChainPosition position;
     private ChainIterator iterator;
@@ -71,7 +71,7 @@ public class FatChain {
     private void setStartCluster(int value) {
         /*if ((value < 0) || (value > fat.size()))
             throw new IllegalArgumentException("illegal head: " + value);*/
-Debug.out.println("startcluster: " + value);
+        Debug.out.println("startcluster: " + value);
         head = value;
 
         iterator.reset();
@@ -326,7 +326,7 @@ Debug.out.println("startcluster: " + value);
         setStartCluster(0);
     }
     
-    public void read(int offset, Memory dst) throws IOException {
+    public void read(int offset, Memory dst, int length) throws IOException {
         if (offset < 0)
             throw new IllegalArgumentException("offset<0");
 
@@ -343,25 +343,20 @@ Debug.out.println("startcluster: " + value);
             throw new IOException("attempt to seek after End Of Chain " + offset, ex);
         }
 
-        //for (int l = dst.remaining(), sz = p.getPartial(), ofs = p.getOffset(), size; l > 0; l -=
-         //       size, sz = p.getSize(), ofs = 0) {
-
+       // for (int sz = p.getPartial(), ofs = p.getOffset(); length < 0; length -= 512, sz = p.getSize(), ofs = 0) {
             int cluster = i.next();
-            int size = 0;//Math.min(sz, l);
-int ofs = 0;
             if (dolog)
-               Debug.out.println("read " + size + " bytes from cluster " + cluster + " at offset " + ofs);
+               Debug.out.println("cluster: " + cluster);
 
            // int limit = dst.limit();
 
             try {
                 //dst.limit(dst.position() + size);
-                fat.readCluster(cluster, ofs, dst);
+                fat.readCluster(cluster, 0, dst);
             } finally {
                 //dst.limit(limit);
             }
         //}
-        //fat.readCluster(0, 0, dst);
     }
 
     /*
@@ -585,9 +580,9 @@ int ofs = 0;
             }
 
             address = cursor;
-
+            Debug.out.println(address);
             cursor = fat.get(address);
-
+Debug.out.println(cursor);
             if (cursor == address)
                 throw new IOException("circular chain at: " + cursor);
 
@@ -595,7 +590,7 @@ int ofs = 0;
                 throw new IOException("free entry in chain at: " + address);
 
             index++;
-
+Debug.out.println("address ok");
             return address;
         }
 

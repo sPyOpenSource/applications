@@ -8,7 +8,7 @@ import AI.Models.Info;
  * @author X. Wang 
  * @version 1.0
  */
-public class AILogic extends AIBaseLogic
+public class AILogic extends AIZeroLogic
 {
     // instance variables
     private final double threshold = 1000000, filter = 0.99;
@@ -46,7 +46,6 @@ public class AILogic extends AIBaseLogic
         ProcessImages();
     }
 
-    @Override
     protected void Messages(Info info) {
         /*String[] result = info.getPayload().split(",");
         if (result.length == 9){

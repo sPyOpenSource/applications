@@ -68,8 +68,8 @@ public abstract class FatEntry extends FatObject implements Inode
         this.parent = parent;
         this.chain = new FatChain(fs, entry.getStartCluster());
         overlayNames = new Vector();
-	overlayInodes = new Vector();
-	i_dirty = false;
+        overlayInodes = new Vector();
+        i_dirty = false;
     }
 
     private void setRoot() {
