@@ -18,7 +18,8 @@ class TCPWebWorker {
     int method = 0;
     int contentsLength = -1;
     MemoryManager memoryManager;
-    Memory buffer;
+    Memory buffer1;
+    Memory buffer2;
     FS fs;
 
     public static void init(Naming naming, String[] argv, Object[] objs)  throws Exception {
@@ -39,7 +40,8 @@ class TCPWebWorker {
 	this.fs = fs;
 
 	memoryManager = (MemoryManager)InitialNaming.getInitialNaming().lookup("MemoryManager");
-	buffer = memoryManager.alloc(4096);
+	buffer1 = memoryManager.alloc(4096);
+        buffer2 = memoryManager.alloc(4096);
 
 	OutputStream ostream = sock.getOutputStream();
 	DataInputStream requestStream = new DataInputStream(sock.getInputStream());
@@ -90,9 +92,15 @@ class TCPWebWorker {
 	try {
 	    Inode inode = (Inode)fs.lookup(name);
 	    int l = inode.getLength();
-	    inode.read(buffer, 0,  l);
+            Debug.out.println("l: " + l);
+	    inode.read(buffer1, 0,  l);
+            inode.read(buffer2, 1, l);
 	    byte data[] = new byte[l];
-	    buffer.copyToByteArray(data, 0, 0, l);
+	   buffer1.copyToByteArray(data, 0, 0, 512*8);
+            buffer2.copyToByteArray(data, 512*8, 0, l-512*8);
+            for(int i = 0; i < l; i++){
+                Debug.out.print((char)data[i]);
+            }
 	    return data;
 	} catch (InodeIOException | InodeNotFoundException | NoDirectoryInodeException | NoFileInodeException | NotExistException | PermissionException ex) {
 	      Debug.out.println(ex.getMessage());

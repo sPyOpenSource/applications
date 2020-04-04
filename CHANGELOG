@@ -1,5 +1,6 @@
-v1.20 XW 0404-2020
-fixed: read more than one sector
+v1.20 XW 04-04-2020
+fixed: read more than one sector (issue #7)
+fixed: read more than one cluster (issue #7)
 
 v1.19 XW 14-11-2019
 removed: http server

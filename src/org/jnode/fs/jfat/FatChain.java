@@ -336,7 +336,7 @@ public class FatChain {
         ChainPosition p = position;
         ChainIterator i = iterator;
 
-        p.setPosition(offset);
+        p.setPosition(0);
         try {
             i.setPosition(p.getIndex());
         } catch (NoSuchElementException ex) {
@@ -345,6 +345,9 @@ public class FatChain {
 
        // for (int sz = p.getPartial(), ofs = p.getOffset(); length < 0; length -= 512, sz = p.getSize(), ofs = 0) {
             int cluster = i.next();
+            if(offset==1){
+                cluster = i.next();
+            }
             if (dolog)
                Debug.out.println("cluster: " + cluster);
 
@@ -582,7 +585,7 @@ public class FatChain {
             address = cursor;
             Debug.out.println(address);
             cursor = fat.get(address);
-Debug.out.println(cursor);
+Debug.out.println("cursor: " + cursor);
             if (cursor == address)
                 throw new IOException("circular chain at: " + cursor);
 

@@ -141,7 +141,7 @@ public abstract class Fat {
             throw new IllegalArgumentException("length[" + (offset + dst.remaining()) + "] " +
                 "exceed clusterSize[" + getClusterSize() + "]");
         }*/
-        Debug.out.println(" cpos: " + getClusterPosition(cluster));
+        Debug.out.println(" cpos: " + getClusterPosition(cluster) + " spc: " + getBootSector().getSectorsPerCluster());
         getApi().readSectors(getClusterPosition(cluster) / 512, getBootSector().getSectorsPerCluster(), dst, true);
     }
 
