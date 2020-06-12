@@ -90,7 +90,7 @@ class TCPWebWorker {
     
     byte[] readFile(String name)  {
 	try {
-	    Inode inode = (Inode)fs.lookup(name);
+	    Inode inode = fs.lookup(name);
 	    int l = inode.getLength();
             Debug.out.println("l: " + l);
 	    inode.read(buffer1, 0,  l);

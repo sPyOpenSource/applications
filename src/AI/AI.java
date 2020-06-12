@@ -47,7 +47,7 @@ public final class AI
         logThread.start();
         inpThread.start(); 
         oupThread.start();
-        mem.ImportTxt("");
+        mem.ImportTxt("/ai");
     }
     
     public static void init(Naming naming) throws Exception {
@@ -60,12 +60,12 @@ public final class AI
         PCIGod.main(new String[]{});
         StartTimer.main(new String[]{"TimerManager"});
         main(new String[] {"boot.rc"});
-        bioide.Main.main(new String[]{"TimerManager", "BIOFS_RW", "1", "1"});
+        bioide.Main.main(new String[]{"TimerManager", "BIOFS_RW", "1", "0"});
         
         NetInit.init(InitialNaming.getInitialNaming(), new String[]{"NET"});
         
-        FSDomain.main(new String[]{"BIOFS_RW", "FS"});
-        test.net.WebServer.main(new String[]{"-fs", "FS", "-threads"});
+        //FSDomain.main(new String[]{"BIOFS_RW", "FS"});
+        //test.net.WebServer.main(new String[]{"-fs", "FS", "-threads"});
         AI instance = new AI();
         instance.start();
         jx.keyboard.Main.main(new String[]{"WindowManager"});

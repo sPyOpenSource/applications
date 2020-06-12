@@ -1,5 +1,6 @@
 package test.fs;
 
+import AI.AIMemory;
 import jx.zero.*;
 import jx.zero.debug.*;
 import jx.bio.BlockIO;
@@ -41,7 +42,8 @@ public class FSDomain {
 	    this.naming = naming;
             
 	    final FSImpl fs = new FSImpl();
-            final FatFileSystem fat = new FatFileSystem(bio);
+            //final jx.fs.FileSystem fat = new FatFileSystem(bio);
+            final jx.fs.FileSystem fat = new AIMemory();
 	    //final javafs.FileSystem jfs = new javafs.FileSystem();
 	    Clock clock = new DummyClock();
 	    //jfs.init(bio, new buffercache.BufferCache(bio, clock, 800, 1000, 100, EXT2FS_BLOCKSIZE), clock);
@@ -59,7 +61,7 @@ public class FSDomain {
 		fs.mkdir("lost+found", InodeImpl.S_IWUSR | InodeImpl.S_IRUGO | InodeImpl.S_IXUGO);
 	    }
 
-	    InitNaming.registerPortal(fs, fsname);
+	    InitNaming.registerPortal(fat, fsname);
 	    //naming.registerPortal(jfs, "JavaFS");
 	} catch(FSException e) {
 	    Debug.out.println("EXCEPTION: " + e);

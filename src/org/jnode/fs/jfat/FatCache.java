@@ -68,7 +68,7 @@ public class FatCache {
          * get a CacheElement from the stack object pool
          */
         CacheElement c = new CacheElement(fat.getApi());//map.pop();
-        
+        Debug.out.println("read");
         /**
          * read the element from the device
          */
@@ -109,6 +109,7 @@ public class FatCache {
             // otherwise put a new element inside the cache
             // possibly flushing and discarding the eldest element
        // else
+       Debug.out.println("put");
             c = put(address);
 
         return c;
@@ -128,6 +129,7 @@ public class FatCache {
         int ofs = (int) (offset % elementSize);
         Debug.out.println("addr: "+addr);
         Memory data = get(addr).getData();
+        Debug.out.println("get ok");
         return data.getLittleEndian32(ofs);
     }
 

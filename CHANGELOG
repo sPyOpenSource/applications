@@ -1,3 +1,6 @@
+v1.21 XW 12-06-2020
+added: a working filesystem
+
 v1.20 XW 04-04-2020
 fixed: read more than one sector (issue #7)
 fixed: read more than one cluster (issue #7)

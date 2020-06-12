@@ -25,6 +25,6 @@ public class Main {
 	    bio = partitions[partition];
 	}
 	InitNaming.registerPortal(bio, bioName);
-	Debug.out.println("Block I/O device registered as " + bioName);	
+	Debug.out.println("Block I/O device registered as " + bioName);
     }
 }

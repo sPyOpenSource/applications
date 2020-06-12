@@ -33,7 +33,6 @@ public class WebServer {
 	boolean opt_threads = false;
 	String fsname = null;
 	boolean opt_use_fs = false;
-	boolean opt_verbose = false;
 	boolean opt_dummyfiles = false;
 
 	int argc;
@@ -44,9 +43,6 @@ public class WebServer {
                     argc++;
                     opt_use_fs = true;
                     fsname = args[argc];
-                    break;
-                case "-verbose":
-                    opt_verbose = true;
                     break;
                 case "-threads":
                     opt_threads = true;
