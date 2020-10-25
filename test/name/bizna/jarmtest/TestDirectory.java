@@ -22,8 +22,8 @@ import name.bizna.jarmtest.TestSpec.InvalidSpecException;
 public class TestDirectory {
 	public static final String CODE_FILENAME = "code.elf";
 	public static final int MAX_PROGRAM_SPACE = 1<<30;
-	private File path;
-	private String name;
+	private final File path;
+	private final String name;
 	private byte[] programBytes = null, hiBytes = null;
 	private boolean littleEndian = false, hasEntryPoint = false;
 	private int entryPoint = 0;
@@ -96,9 +96,8 @@ public class TestDirectory {
 			headerReadBuf.getInt();
 			/* e_flags */
 			int e_flags = headerReadBuf.getInt();
-			/* only accept a zero entry point if e_flags contains EF_ARM_HASENTRY (0x00000002) */
-			if((e_flags & 2) != 0 && entryPoint == 0) hasEntryPoint = false;
-			else hasEntryPoint = true;
+                    /* only accept a zero entry point if e_flags contains EF_ARM_HASENTRY (0x00000002) */
+                    hasEntryPoint = !((e_flags & 2) != 0 && entryPoint == 0);
 			/* e_ehsize */
 			int e_ehsize = headerReadBuf.getShort() & 0xFFFF;
 			if(e_ehsize < 52) throw new NonLoadableFileException("has an invalid e_ehsize field", id);
@@ -203,9 +202,7 @@ public class TestDirectory {
 			try {
 				cpu.execute(1<<30);
 			}
-			catch(BusErrorException e) { /* NOTREACHED */ }
-			catch(AlignmentException e) { /* NOTREACHED */ }
-			catch(UndefinedException e) { /* NOTREACHED */ }
+			catch(BusErrorException | AlignmentException | UndefinedException e) { /* NOTREACHED */ }
 			catch(UnimplementedInstructionException e) {
 				e.printStackTrace();
 				((CP7)cpu.getCoprocessor(7)).setQuitReason(9);
@@ -219,7 +216,7 @@ public class TestDirectory {
 	}
 	public boolean runTest(CPU cpu, List<String> failureList) {
 		boolean success = true;
-		List<File> specFiles = new ArrayList<File>();
+		List<File> specFiles = new ArrayList<>();
 		for(File file : path.listFiles()) {
 			if(file.getName().endsWith(".spec")) {
 				specFiles.add(file);
@@ -238,10 +235,12 @@ public class TestDirectory {
 					if(programBytes != null) mem.mapRegion(0, new ByteArrayRegion(programBytes));
 					if(hiBytes != null) mem.mapRegion(-65536, new ByteArrayRegion(hiBytes));
 					String specId = name+File.separator+specFiles.get(0).getName();
-					List<String> subtestFailureList = new ArrayList<String>();
+					List<String> subtestFailureList = new ArrayList<>();
 					if(!runTestWithSpec(cpu, specFiles.get(0), specId, subtestFailureList)) {
 						if(subtestFailureList.isEmpty()) failureList.add(specId+" (unknown failure)");
-						else for(String failure : subtestFailureList) failureList.add(specId+" ("+failure+")");
+						else subtestFailureList.forEach((failure) -> {
+                                                    failureList.add(specId+" ("+failure+")");
+                                                });
 						success = false;
 					}
 				}
@@ -251,10 +250,12 @@ public class TestDirectory {
 						if(programBytes != null) mem.mapRegion(0, new ByteArrayRegion(programBytes.clone()));
 						if(hiBytes != null) mem.mapRegion(-65536, new ByteArrayRegion(hiBytes.clone()));
 						String specId = name+File.separator+specFile.getName();
-						List<String> subtestFailureList = new ArrayList<String>();
+						List<String> subtestFailureList = new ArrayList<>();
 						if(!runTestWithSpec(cpu, specFile, specId, subtestFailureList)) {
 							if(subtestFailureList.isEmpty()) failureList.add(specId+" (unknown failure)");
-							else for(String failure : subtestFailureList) failureList.add(specId+" ("+failure+")");
+							else subtestFailureList.forEach((failure) -> {
+                                                            failureList.add(specId+" ("+failure+")");
+                                                        });
 							success = false;
 						}
 					}

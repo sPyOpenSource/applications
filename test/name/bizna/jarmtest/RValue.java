@@ -57,9 +57,7 @@ abstract class RValue {
 				return simpleValues.get(id).newInstance();
 			}
 		}
-		catch(NumberFormatException e) { e.printStackTrace(); }
-		catch(InstantiationException e) { e.printStackTrace(); }
-		catch(IllegalAccessException e) { e.printStackTrace(); }
+		catch(NumberFormatException | InstantiationException | IllegalAccessException e) { e.printStackTrace(); }
 		return LValue.make(id);
 	}
 	public static RValue make(String id, String index) {

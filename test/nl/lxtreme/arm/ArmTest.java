@@ -107,7 +107,7 @@ public class ArmTest
   @Test
   public void testElfExample1() throws Exception
   {
-    File elfFile = getFileResource("helloWorld_static");
+    File elfFile = getFileResource("resources/helloWorld_static");
     Elf elf = new Elf(elfFile);
 
     for (ProgramHeader ph : elf.getProgramHeaders())
@@ -138,7 +138,7 @@ public class ArmTest
   @Test
   public void testElfExample2() throws Exception
   {
-    File elfFile = getFileResource("helloWorld_loop");
+    File elfFile = getFileResource("resources/helloWorld_loop");
     Elf elf = new Elf(elfFile);
 
     for (ProgramHeader ph : elf.getProgramHeaders())

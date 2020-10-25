@@ -10,7 +10,7 @@ public class TestThread extends Thread {
 	private final List<TestDirectory> list;
 	private final AtomicInteger semaphore;
 	private int passed = 0, failed = 0;
-	private List<String> failures = new LinkedList<String>();
+	private final List<String> failures = new LinkedList<>();
 	public TestThread(String name, List<TestDirectory> list, AtomicInteger semaphore) {
 		super(name);
 		this.list = list;
@@ -24,8 +24,8 @@ public class TestThread extends Thread {
 		cpu.mapCoprocessor(7, new CP7(cpu));
 		while((dirIndex = semaphore.getAndAdd(1)) < cachedSize) {
 			TestDirectory dir = list.get(dirIndex);
-			if(dir.runTest(cpu, failures)) ++passed;
-			else {
+			if(dir.runTest(cpu, failures)){ ++passed;
+                } else {
 				++failed;
 			}
 		}

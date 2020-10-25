@@ -35,12 +35,12 @@ public class TestSpec {
 	}
 	
 	private static class LineParser {
-		private Matcher[] matchers;
+		private final Matcher[] matchers;
 		private boolean parsedOkay = true;
 		private int curPos = 0, parsedPos = 0;
 		private MatchResult lastResult = null;
 		private Token lastToken = null;
-		private String line;
+		private final String line;
 		public LineParser(String line) {
 			this.line = line;
 			matchers = new Matcher[Token.values().length];
