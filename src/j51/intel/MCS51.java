@@ -5,6 +5,7 @@ package j51.intel;
 
 import j51.util.*;
 import j51.swing.*;
+import java.util.logging.Level;
 
 /**
  * 
@@ -36,8 +37,8 @@ public class MCS51 implements MCS51Constants
 	private static Logger log = Logger.getLogger(MCS51.class);
 	
 	// Interrupt statistics
-	private FastArray<InterruptStatistic>	interruptStatistics = new FastArray<InterruptStatistic>();
-	private FastArray<InterruptSource>	interruptList = new FastArray<InterruptSource>();
+	private FastArray<InterruptStatistic>	interruptStatistics = new FastArray<>();
+	private FastArray<InterruptSource>	interruptList = new FastArray<>();
 	
 	// Sfr register pages
 	private SfrPage	sfrPages[];
@@ -94,22 +95,22 @@ public class MCS51 implements MCS51Constants
 	private long opcodesCounter[] = new long[256];
 	
 
-	private FastArray<MCS51Peripheral>	peripherals		= new FastArray<MCS51Peripheral>();
-	private FastArray<Runnable>		runQueue		= new FastArray<Runnable>();
-	private FastArray<InterruptSource>	interruptRequest	= new FastArray<InterruptSource>();
+	private FastArray<MCS51Peripheral>	peripherals		= new FastArray<>();
+	private FastArray<Runnable>		runQueue		= new FastArray<>();
+	private FastArray<InterruptSource>	interruptRequest	= new FastArray<>();
 
 	/**
 	 * Emulation listener
 	 *
 	 * @since 1.04
 	 */
-	private FastArray<EmulationListener> emulationListeners = new FastArray<EmulationListener>();
+	private FastArray<EmulationListener> emulationListeners = new FastArray<>();
 	
 	// Reset listener
-	private FastArray<ResetListener> resetListeners = new FastArray<ResetListener>();
+	private FastArray<ResetListener> resetListeners = new FastArray<>();
 	
 	// Polling list
-	private FastArray<MachineCyclesListener> machineListeners	= new FastArray<MachineCyclesListener>();
+	private FastArray<MachineCyclesListener> machineListeners	= new FastArray<>();
 	
 	// Vector with performance client
 	private FastArray performance = new FastArray();
@@ -118,7 +119,7 @@ public class MCS51 implements MCS51Constants
 	private InterruptSource currentInterrupt = null;
 
 	// Vector with the asyncronous timer
-	private FastArray<AsyncTimer> asyncTimers = new FastArray<AsyncTimer>();
+	private FastArray<AsyncTimer> asyncTimers = new FastArray<>();
 
 	
 	private Code code;
@@ -175,7 +176,7 @@ public class MCS51 implements MCS51Constants
 	
 	public MCS51(int osc,int numSfrPage)
 	{
-		log.info("Created processor with "+numSfrPage+" SFR pages, Clock "+osc);
+		log.log(Level.INFO, "Created processor with {0} SFR pages, Clock {1}", new Object[]{numSfrPage, osc});
 
 		setOscillator(osc);
 		
@@ -188,8 +189,9 @@ public class MCS51 implements MCS51Constants
 		sfrPages = new SfrPage[numSfrPage];
 		sfrPages[0] = new SfrPage(0);
 		
-		for (int i = 1 ; i < numSfrPage ; i++)
+		for (int i = 1 ; i < numSfrPage ; i++){
 			sfrPages[i] = new SfrPage(i,sfrPages[0]);
+                }
 		setSfrPage(0);
 		
 		setCode(new VolatileCode());
@@ -198,24 +200,29 @@ public class MCS51 implements MCS51Constants
 		setIdataSize(256);
 
 		// Internal memory
-		for (int i = 0 ; i < 128 ; i++)
+		for (int i = 0 ; i < 128 ; i++){
 			setSfrBitmap(i,0x20 + i / 8);
+                }
 
 		// Sfr register
-		for (int i = 128 ; i < 256 ; i++)
+		for (int i = 128 ; i < 256 ; i++){
 			setSfrBitmap(i,i & 0xf8);
+                }
 
 		// Break point
-		for (int i = 0 ; i < breakPoint.length ; i++)
+		for (int i = 0 ; i < breakPoint.length ; i++){
 			breakPoint[i] = false;
+                }
 
 		// Call listeners
-		for (int i = 0 ; i < callListeners.length ; i++)
+		for (int i = 0 ; i < callListeners.length ; i++){
 			callListeners[i] = null;
+                }
 		
 
-		for (int i = 0 ; i < 64 * 1024 ; i++)
+		for (int i = 0 ; i < 64 * 1024 ; i++){
 			setCodeName(i,"#"+Hex.bin2word(i));
+                }
 
 		/**
 		 * SFR register name
@@ -288,25 +295,16 @@ public class MCS51 implements MCS51Constants
 		/**
 		 * Track PSW for current register set
 		 */
-		addSfrWriteListener(PSW,new SfrWriteListener()
-		{
-			public void sfrWrite(int r,int v)
-			{
-				regPtr = ((v >> 3) & 3) * 8;
-				
-			}
-		});
+		addSfrWriteListener(PSW, (int r, int v) -> {
+                    regPtr = ((v >> 3) & 3) * 8;
+                });
 
 		/**
 		 * Track IE for fast interrupt processing
 		 */
-		addSfrWriteListener(IE,new SfrWriteListener()
-		{
-			public void sfrWrite(int r,int v)
-			{
-				ie = (v & IE_EA) != 0;
-			}
-		});
+		addSfrWriteListener(IE, (int r, int v) -> {
+                    ie = (v & IE_EA) != 0;
+                });
 				
 				
 	}
@@ -368,18 +366,12 @@ public class MCS51 implements MCS51Constants
 		
 		if (updateTimer == null)
 		{
-			updateTimer = new javax.swing.Timer(100,new java.awt.event.ActionListener()
-			{
-				public void actionPerformed(java.awt.event.ActionEvent e)
-				{
-					for (int i = updatableComponents.size() ; --i >= 0;)
-					{
-						updatableComponents.get(i).update();
-					}
-				}
-					
-
-			});
+			updateTimer = new javax.swing.Timer(100, (java.awt.event.ActionEvent e) -> {
+                            for (int i = updatableComponents.size() ; --i >= 0;)
+                            {
+                                updatableComponents.get(i).update();
+                            }
+                        });
 			updateTimer.start();
 		}
 		
@@ -600,7 +592,7 @@ public class MCS51 implements MCS51Constants
 	 * @param time - Time in machine cycle
 	 * @param l    - Listener to be  called when the timer expire.
 	 */
-	public void addAsyncTimerListener(int timeout,AsyncTimerListener l)
+	public void addAsyncTimerListener(int timeout, AsyncTimerListener l)
 	{
 
 		for (int i = 0 ; i < asyncTimers.size() ; i++)
@@ -920,7 +912,7 @@ public class MCS51 implements MCS51Constants
 	
 		value = getDirect(sfrBitmap[add]);
 		
-		return (value & ((1 << (add & 0x07)))) != 0 ? true : false;
+		return (value & ((1 << (add & 0x07)))) != 0;
 	}
 
 	
@@ -1070,7 +1062,7 @@ public class MCS51 implements MCS51Constants
 
 	public final boolean cy()
 	{
-		return ((psw() & PSW_CY) != 0 ? true : false);
+		return ((psw() & PSW_CY) != 0);
 	}
 
 	public final void ac(boolean value)
@@ -1084,7 +1076,7 @@ public class MCS51 implements MCS51Constants
 
 	public final boolean ac()
 	{
-		return ((psw() & PSW_AC) != 0 ? true : false);
+		return ((psw() & PSW_AC) != 0);
 	}
 
 	public final void ov(boolean value)
@@ -1098,7 +1090,7 @@ public class MCS51 implements MCS51Constants
 
 	public final boolean ov()
 	{
-		return ((psw() & PSW_OV) != 0 ? true : false);
+		return ((psw() & PSW_OV) != 0);
 	}
 
 	private final void pswSet(int value)

@@ -258,7 +258,6 @@ class JRegister extends J51Panel
                 });
 
 
-
 	}
 
 
@@ -956,7 +955,7 @@ public class J51 extends JFrame implements MCS51Performance,ActionListener
 				for (int i = 0 ; i < panels.size() ; i++)
 				{
 					J51Panel p = (J51Panel)panels.elementAt(i);
-					setProgress("Initialize  "+p.getTitle());
+					setProgress("Initialize  " + p.getTitle());
 					p.setCpu(cpu);
 				}
 
@@ -982,7 +981,7 @@ public class J51 extends JFrame implements MCS51Performance,ActionListener
 				System.gc();
 
 				}
-				catch (Exception ex)
+				catch (ClassNotFoundException | IllegalAccessException | InstantiationException ex)
 				{
 					messages(ex);
 					ex.printStackTrace(System.out);
