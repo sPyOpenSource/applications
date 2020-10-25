@@ -1,0 +1,18 @@
+/**
+ * $Id$
+ */
+
+
+package j51.intel;
+
+/**
+ * Interface to query cpu performance.
+ *
+ * @author Mario Viara
+ * @version 1.00
+ */
+public interface MCS51Performance
+{
+	public void cpuPerformance(int perc,int elapsed);
+}
+

@@ -1,0 +1,7 @@
+PACKAGE = j51.lcd
+
+SOURCE  = JLcd.java GLcd.java
+MAIN = JLcd
+
+
+include $(JAVA_DEV_ROOT)/Makefile

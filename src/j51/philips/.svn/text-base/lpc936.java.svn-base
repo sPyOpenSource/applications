@@ -1,0 +1,37 @@
+/**
+ * $Id$
+ */
+
+package j51.philips;
+
+import j51.intel.*;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+import j51.util.Hex;
+import j51.swing.*;
+
+/**
+ *
+ * NXP LPC936 like NXP LPC900 family but with 16 KB flash memory.
+ *
+ * @author Mario Viara
+ * @version 1.00
+ * @since 1.04
+ * 
+ */
+public class LPC936 extends LPC900
+{
+	public LPC936() throws Exception
+	{
+		this("LPC936");
+	}
+
+	public LPC936(String name) throws Exception
+	{
+		super(name,16*1024);
+	}
+	
+		     
+}

@@ -1,0 +1,16 @@
+/**
+ * $Id$
+ */
+package j51.intel;
+
+/**
+ *
+ * Interface to call one asyncronous timer
+ *
+ * @author Mario Viara
+ * @version 1.00
+ */
+public interface AsyncTimerListener
+{
+	public void expired(MCS51 cpu) throws Exception;
+}

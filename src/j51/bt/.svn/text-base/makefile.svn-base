@@ -1,0 +1,7 @@
+PACKAGE = j51.bt
+
+SOURCE  = S400.java
+
+MAIN = 
+
+include $(JAVA_DEV_ROOT)/Makefile

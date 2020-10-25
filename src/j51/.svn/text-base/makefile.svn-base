@@ -1,0 +1,8 @@
+PACKAGE = j51
+
+SOURCE  = J51.java J51Panel.java JInfo.java JAssembly.java
+
+MAIN = J51
+
+
+include $(JAVA_DEV_ROOT)/Makefile
