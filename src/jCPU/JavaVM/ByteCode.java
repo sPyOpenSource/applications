@@ -3,12 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package j51.JavaVM;
+package jCPU.JavaVM;
 
-import j51.JavaVM.vm.VmByteCode;
-import j51.JavaVM.vm.VmCP;
-import j51.JavaVM.vm.VmStackFrame;
-import j51.RiscV.CPU;
+import jCPU.JavaVM.vm.VmByteCode;
+import jCPU.JavaVM.vm.VmCP;
+import jCPU.JavaVM.vm.VmStackFrame;
 import java.util.function.Function;
 
 /**
@@ -22,7 +21,7 @@ int STACK_ENTRY_NONE        = 0;
 int STACK_ENTRY_INT         = 1;
 int STACK_ENTRY_REF         = 2;
 int STACK_ENTRY_LONG        = 3;
-int STACK_ENTRY_DOUBLE     = 4;
+int STACK_ENTRY_DOUBLE      = 4;
 int STACK_ENTRY_FLOAT       = 5;
 
     private  boolean is_ref_entry(VmStackFrame stack) {
@@ -640,11 +639,10 @@ public  double get_double_parameter(VmStackFrame stack, VmCP p)
 /* op_new */
  int op_new( char[][] opCode, VmStackFrame stack, VmCP p)
 {
-    int object_ref;
      char []tmp=new char[2];
     tmp[0] = opCode[0][1];
     tmp[1] = opCode[0][2];
-    object_ref = tmp[0] << 8 | tmp[1];
+    int object_ref = tmp[0] << 8 | tmp[1];
     //System.out.print("new: new object_ref %d\n", object_ref);
     return 0;
 }
@@ -656,18 +654,18 @@ public  double get_double_parameter(VmStackFrame stack, VmCP p)
     return -1;
 }
  
-Function<CPU, Integer> op_aload_0 = cpu -> op_aload_0(cpu.opCode, cpu.stack, cpu.p);
-Function<CPU, Integer> op_bipush = cpu -> op_bipush(cpu.opCode, cpu.stack, cpu.p);
-Function<CPU, Integer> op_dup, op_get, op_iadd, op_iconst_0;
-Function<CPU, Integer> op_iconst_1, op_iconst_2;
-Function<CPU, Integer> op_iconst_3, op_iconst_4, op_iconst_5;
-Function<CPU, Integer> op_dconst_1, op_idiv, op_imul, op_dadd, op_dmul, op_d2i;
-Function<CPU, Integer> op_invokespecial, op_invokevirtual;
-Function<CPU, Integer> op_invoke = cpu -> op_invoke(cpu.opCode, cpu.stack, cpu.p);
-Function<CPU, Integer> op_iload, op_iload_1, op_iload_2, op_iload_3;
-Function<CPU, Integer> op_istore, op_istore_1, op_istore_2, op_istore_3;
-Function<CPU, Integer> op_isub, op_ldc, op_ldc2_w;
-Function<CPU, Integer> op_new, op_irem, op_sipush, op_return;
+Function<VM, Integer> op_aload_0 = cpu -> op_aload_0(cpu.opCode, cpu.stack, cpu.p);
+Function<VM, Integer> op_bipush = cpu -> op_bipush(cpu.opCode, cpu.stack, cpu.p);
+Function<VM, Integer> op_dup, op_get, op_iadd, op_iconst_0;
+Function<VM, Integer> op_iconst_1, op_iconst_2;
+Function<VM, Integer> op_iconst_3, op_iconst_4, op_iconst_5;
+Function<VM, Integer> op_dconst_1, op_idiv, op_imul, op_dadd, op_dmul, op_d2i;
+Function<VM, Integer> op_invokespecial, op_invokevirtual;
+Function<VM, Integer> op_invoke = cpu -> op_invoke(cpu.opCode, cpu.stack, cpu.p);
+Function<VM, Integer> op_iload, op_iload_1, op_iload_2, op_iload_3;
+Function<VM, Integer> op_istore, op_istore_1, op_istore_2, op_istore_3;
+Function<VM, Integer> op_isub, op_ldc, op_ldc2_w;
+Function<VM, Integer> op_new, op_irem, op_sipush, op_return;
 
     private  class StackEntry {
         int type;
@@ -677,41 +675,41 @@ Function<CPU, Integer> op_new, op_irem, op_sipush, op_return;
     }
 
  VmByteCode byteCodes[] = {
-    new VmByteCode("aload_0"         , 0x2A, 1,  op_aload_0          ),
-    new VmByteCode( "bipush"          , 0x10, 2,  op_bipush           ),
-    new VmByteCode( "dup"             , 0x59, 1,  op_dup              ),
-    new VmByteCode( "get"       , 0xB2, 3,  op_get        ),
-    new VmByteCode( "iadd"            , 0x60, 1,  op_iadd             ),
-    new VmByteCode( "iconst_0"        , 0x03, 1,  op_iconst_0         ),
-    new VmByteCode( "iconst_1"        , 0x04, 1,  op_iconst_1         ),
-    new VmByteCode("iconst_2"        , 0x05, 1,  op_iconst_2         ),
-    new VmByteCode( "iconst_3"        , 0x06, 1,  op_iconst_3         ),
-    new VmByteCode( "iconst_4"        , 0x07, 1,  op_iconst_4         ),
-    new VmByteCode( "iconst_5"        , 0x08, 1,  op_iconst_5         ),
-    new VmByteCode( "dconst_1"        , 0x0F, 1,  op_dconst_1         ),
-    new VmByteCode( "idiv"            , 0x6C, 1,  op_idiv             ),
-    new VmByteCode( "imul"            , 0x68, 1,  op_imul             ),
-    new VmByteCode( "dadd"            , 0x63, 1,  op_dadd             ),
-    new VmByteCode( "dmul"            , 0x6B, 1,  op_dmul             ),
-    new VmByteCode( "d2i"             , 0x8e, 1,  op_d2i              ),
-    new VmByteCode( "invokespecial"   , 0xB7, 3,  op_invokespecial    ),
-    new VmByteCode( "invokevirtual"   , 0xB6, 3,  op_invokevirtual    ),
-    new VmByteCode( "invoke"    , 0xB8, 3,  op_invoke     ),
-    new VmByteCode( "iload"           , 0x15, 2,  op_iload            ),
-    new VmByteCode( "iload_1"         , 0x1B, 1,  op_iload_1          ),
-    new VmByteCode( "iload_2"         , 0x1C, 1,  op_iload_2          ),
-    new VmByteCode( "iload_3"         , 0x1D, 1,  op_iload_3          ),
-    new VmByteCode( "istore"          , 0x36, 2,  op_istore           ),
-    new VmByteCode( "istore_1"        , 0x3C, 1,  op_istore_1         ),
-    new VmByteCode( "istore_2"        , 0x3D, 1,  op_istore_2         ),
-    new VmByteCode( "istore_3"        , 0x3E, 1,  op_istore_3         ),
-    new VmByteCode( "isub"            , 0x64, 1,  op_isub             ),
-    new VmByteCode( "ldc"             , 0x12, 2,  op_ldc              ),
-    new VmByteCode( "ldc2_w"          , 0x14, 3,  op_ldc2_w           ),
-    new VmByteCode( "new"             , 0xBB, 3,  op_new              ),
-    new VmByteCode( "irem"            , 0x70, 1,  op_irem             ),
-    new VmByteCode( "sipush"          , 0x11, 3,  op_sipush           ),
-    new VmByteCode( "return"          , 0xB1, 1,  op_return           )
+    new VmByteCode( "aload_0"         , 0x2A, 1,  op_aload_0       ),
+    new VmByteCode( "bipush"          , 0x10, 2,  op_bipush        ),
+    new VmByteCode( "dup"             , 0x59, 1,  op_dup           ),
+    new VmByteCode( "get"             , 0xB2, 3,  op_get           ),
+    new VmByteCode( "iadd"            , 0x60, 1,  op_iadd          ),
+    new VmByteCode( "iconst_0"        , 0x03, 1,  op_iconst_0      ),
+    new VmByteCode( "iconst_1"        , 0x04, 1,  op_iconst_1      ),
+    new VmByteCode( "iconst_2"        , 0x05, 1,  op_iconst_2      ),
+    new VmByteCode( "iconst_3"        , 0x06, 1,  op_iconst_3      ),
+    new VmByteCode( "iconst_4"        , 0x07, 1,  op_iconst_4      ),
+    new VmByteCode( "iconst_5"        , 0x08, 1,  op_iconst_5      ),
+    new VmByteCode( "dconst_1"        , 0x0F, 1,  op_dconst_1      ),
+    new VmByteCode( "idiv"            , 0x6C, 1,  op_idiv          ),
+    new VmByteCode( "imul"            , 0x68, 1,  op_imul          ),
+    new VmByteCode( "dadd"            , 0x63, 1,  op_dadd          ),
+    new VmByteCode( "dmul"            , 0x6B, 1,  op_dmul          ),
+    new VmByteCode( "d2i"             , 0x8e, 1,  op_d2i           ),
+    new VmByteCode( "invokespecial"   , 0xB7, 3,  op_invokespecial ),
+    new VmByteCode( "invokevirtual"   , 0xB6, 3,  op_invokevirtual ),
+    new VmByteCode( "invoke"          , 0xB8, 3,  op_invoke        ),
+    new VmByteCode( "iload"           , 0x15, 2,  op_iload         ),
+    new VmByteCode( "iload_1"         , 0x1B, 1,  op_iload_1       ),
+    new VmByteCode( "iload_2"         , 0x1C, 1,  op_iload_2       ),
+    new VmByteCode( "iload_3"         , 0x1D, 1,  op_iload_3       ),
+    new VmByteCode( "istore"          , 0x36, 2,  op_istore        ),
+    new VmByteCode( "istore_1"        , 0x3C, 1,  op_istore_1      ),
+    new VmByteCode( "istore_2"        , 0x3D, 1,  op_istore_2      ),
+    new VmByteCode( "istore_3"        , 0x3E, 1,  op_istore_3      ),
+    new VmByteCode( "isub"            , 0x64, 1,  op_isub          ),
+    new VmByteCode( "ldc"             , 0x12, 2,  op_ldc           ),
+    new VmByteCode( "ldc2_w"          , 0x14, 3,  op_ldc2_w        ),
+    new VmByteCode( "new"             , 0xBB, 3,  op_new           ),
+    new VmByteCode( "irem"            , 0x70, 1,  op_irem          ),
+    new VmByteCode( "sipush"          , 0x11, 3,  op_sipush        ),
+    new VmByteCode( "return"          , 0xB1, 1,  op_return        )
 };
 
  Function findOpCodeFunc( char op)
@@ -775,7 +773,7 @@ int executeMethod(MethodInfo startup, VmStackFrame stack, VmCP p)
         do {
             Function func = findOpCodeFunc(pc[0][0]);
             if (func != null) {
-                i = (Integer)func.apply(new CPU(pc , stackFrame, p));
+                i = (Integer)func.apply(new VM(pc , stackFrame, p));
             }
             if (i < 0) break;
         } while (true);
@@ -801,9 +799,9 @@ int executeMethod(MethodInfo startup, VmStackFrame stack, VmCP p)
        //System.out.print("attribute name : %s\n", name);
        //System.out.print("attribute length: %d\n", ca.attribute_length);
 
-   //    System.out.print("max_stack: %d\n", ca.max_stack);
-     //  System.out.print("max_locals: %d\n", ca.max_locals);
-      // System.out.print("code_length: %d\n", ca.code_length);
+       //System.out.print("max_stack: %d\n", ca.max_stack);
+       //System.out.print("max_locals: %d\n", ca.max_locals);
+       //System.out.print("code_length: %d\n", ca.code_length);
         char[][] pc = ca.code;
        i = 0;
        do {

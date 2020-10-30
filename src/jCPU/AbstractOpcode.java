@@ -1,7 +1,7 @@
 /**
  * $Id: AbstractMCS51Opcode.java 70 2010-07-01 09:57:00Z mviara $
  */
-package j51.intel;
+package jCPU;
 
 import j51.util.FastArray;
 import j51.util.Hex;
@@ -19,7 +19,7 @@ import j51.util.Hex;
  * 
  * 1.01	Added support for FastArray.
  */
-public abstract class AbstractMCS51Opcode implements MCS51Opcode
+public abstract class AbstractOpcode implements Opcode
 {
 	// Decoded istructions for opcode without 'decoders'
 	private String decoded = null;
@@ -34,21 +34,20 @@ public abstract class AbstractMCS51Opcode implements MCS51Opcode
 	protected int opcode;
 
 	// Number of machine cyle for execution time
-	private int cycle;
+	private final int cycle;
 	
 	static private FastArray<DecodeString> decoders = null;
 
 	
-	AbstractMCS51Opcode(int opcode,int length,int cycle,String description)
+	public AbstractOpcode(int opcode, int length, int cycle, String description)
 	{
 		this.opcode = opcode;
 		this.length = length;
 		this.cycle  = cycle;
 		this.description = description;
 
-		if (decoders == null)
-		{
-			decoders = new FastArray<DecodeString>();
+		if (decoders == null){
+			decoders = new FastArray<>();
 			decoders.add(new DecodeDATA12());
 			decoders.add(new DecodeDATA16());
 			decoders.add(new DecodeCODE16());
@@ -83,7 +82,7 @@ public abstract class AbstractMCS51Opcode implements MCS51Opcode
 	}
 
 	
-	public final String decode(MCS51 cpu,int pc)
+	public final String decode(CPU cpu, int pc)
 	{
 		if (decoded != null)
 			return decoded;
@@ -91,10 +90,11 @@ public abstract class AbstractMCS51Opcode implements MCS51Opcode
 		StringBuffer sb  = new StringBuffer(Hex.bin2word(pc)+" ");
 		for (int i = 0 ; i < 3 ; i++)
 		{
-			if (i < getLength())
-				sb.append(Hex.bin2byte(cpu.code(pc+i))+" ");
-			else
+			if (i < getLength()){
+				sb.append(Hex.bin2byte(cpu.code(pc + i))).append(" ");
+                        } else {
 				sb.append("   ");
+                        }
 		}
 
 		sb.append(getDescription());
@@ -104,7 +104,7 @@ public abstract class AbstractMCS51Opcode implements MCS51Opcode
 		pc++;
 		
 		boolean haveParameter = false;
-		for (;;)
+		while (true)
 		{
 			int index = -1;
 			int pos   = sb.length();
@@ -124,16 +124,18 @@ public abstract class AbstractMCS51Opcode implements MCS51Opcode
 				}
 			}
 
-			if (index < 0)
+			if (index < 0){
 				break;
+                        }
 
 			d = (DecodeString)decoders.get(index);
-			pc += d.decode(cpu,opcode,end,pc,sb,pos);
+			pc += d.decode(cpu, opcode, end, pc, sb, pos);
 			haveParameter = true;
 		}
 
-		if (haveParameter == false)
+		if (haveParameter == false){
 			decoded = sb.toString();
+                }
 		return sb.toString();
 	}
 
@@ -151,13 +153,15 @@ public abstract class AbstractMCS51Opcode implements MCS51Opcode
 		String s = toString();
 		int n = s.indexOf('\t');
 
-		if (n < 0)
+		if (n < 0){
 			return s;
+                }
 
-		String s1 = s.substring(0,n);
-		while (s1.length() < 6)
-			s1 = s1+" ";
-		s1 += s.substring(n+1);
+		String s1 = s.substring(0, n);
+		while (s1.length() < 6){
+			s1 = s1 + " ";
+                }
+		s1 += s.substring(n + 1);
 
 		return s1;
 	}
@@ -167,7 +171,7 @@ public abstract class AbstractMCS51Opcode implements MCS51Opcode
 
 interface DecodeString
 {
-	public int		decode(MCS51 cpu,int opcode,int end,int pc,StringBuffer value,int pos);
+	public int		decode(CPU cpu, int opcode, int end, int pc, StringBuffer value, int pos);
 	public int		search(StringBuffer s);
 }
 
@@ -180,6 +184,7 @@ abstract class AbstractDecodeString implements DecodeString
 		this.name = name;
 	}
 
+        @Override
 	public int search(StringBuffer s)
 	{
 		return s.toString().indexOf(name);
@@ -195,18 +200,19 @@ class DecodeDATA12 extends AbstractDecodeString
 		super("#DATA12");
 	}
 
-	public int decode(MCS51 cpu,int opcode,int end,int pc,StringBuffer value,int pos)
+        @Override
+	public int decode(CPU cpu, int opcode, int end, int pc, StringBuffer value, int pos)
 	{
-		value.replace(pos,pos+name.length(),"#"+Hex.bin2word(getAddress(cpu,pc)));
+		value.replace(pos, pos + name.length(), "#" + Hex.bin2word(getAddress(cpu, pc)));
 
 		return 2;
 	}
 
-	protected int getAddress(MCS51 cpu,int pc)
+	protected int getAddress(CPU cpu, int pc)
 	{
 		pc -= 1;
-		int add = cpu.code(pc+1) | ((cpu.code(pc+0) << 3) & 0x700);
-		add |= (pc + 2 )	& 0xF800;
+		int add = cpu.code(pc + 1) | ((cpu.code(pc + 0) << 3) & 0x700);
+		add |= (pc + 2 ) & 0xF800;
 		return add;
 	}
 
@@ -219,13 +225,13 @@ class DecodeCODE16 extends AbstractDecodeString
 		super("#CODE16");
 	}
 
-	public int decode(MCS51 cpu,int opcode,int end,int pc,StringBuffer value,int pos)
+	public int decode(CPU cpu, int opcode, int end, int pc, StringBuffer value, int pos)
 	{
-		int hi = cpu.code(pc+0);
-		int lo = cpu.code(pc+1);
-		String s = cpu.getCodeName(hi*256+lo);
+		int hi = cpu.code(pc);
+		int lo = cpu.code(pc + 1);
+		String s = cpu.getCodeName(hi * 256 + lo);
 		
-		value.replace(pos,pos+name.length(),s);
+		value.replace(pos, pos + name.length(), s);
 
 		return 2;
 	}
@@ -239,11 +245,11 @@ class DecodeDATA16 extends AbstractDecodeString
 		super("#DATA16");
 	}
 
-	public int decode(MCS51 cpu,int opcode,int end,int pc,StringBuffer value,int pos)
+	public int decode(CPU cpu, int opcode, int end, int pc, StringBuffer value, int pos)
 	{
-		int hi = cpu.code(pc+0);
-		int lo = cpu.code(pc+1);
-		value.replace(pos,pos+name.length(),"#"+Hex.bin2byte(hi)+Hex.bin2byte(lo));
+		int hi = cpu.code(pc);
+		int lo = cpu.code(pc + 1);
+		value.replace(pos, pos + name.length(), "#" + Hex.bin2byte(hi) + Hex.bin2byte(lo));
 
 		return 2;
 	}
@@ -256,7 +262,7 @@ class DecodeDATA8 extends AbstractDecodeString
 		super("#DATA8");
 	}
 
-	public int decode(MCS51 cpu,int opcode,int end,int pc,StringBuffer value,int pos)
+	public int decode(CPU cpu,int opcode,int end,int pc,StringBuffer value,int pos)
 	{
 		value.replace(pos,pos+name.length(),"#"+Hex.bin2byte(cpu.code(pc)));
 
@@ -271,7 +277,7 @@ class DecodeBIT extends AbstractDecodeString
 		super("#BIT");
 	}
 
-	public int decode(MCS51 cpu,int opcode,int end,int pc,StringBuffer value,int pos)
+	public int decode(CPU cpu,int opcode,int end,int pc,StringBuffer value,int pos)
 	{
 		value.replace(pos,pos+name.length(),cpu.getBitName(cpu.code(pc)));
 
@@ -286,15 +292,16 @@ class DecodeOFFSET extends AbstractDecodeString
 		super("#OFFSET");
 	}
 
-	public int decode(MCS51 cpu,int opcode,int end,int pc,StringBuffer value,int pos)
+	public int decode(CPU cpu,int opcode,int end,int pc,StringBuffer value,int pos)
 	{
 		int v = end;
 		int offset = cpu.code(pc);
 
-		if (offset < 128)
+		if (offset < 128){
 			v += offset;
-		else
+                } else {
 			v -= 0x100 - offset;
+                }
 
 		value.replace(pos,pos+name.length(),"#"+Hex.bin2word(v));
 
@@ -309,7 +316,7 @@ class DecodeDIRECT extends AbstractDecodeString
 		super("DIRECT");
 	}
 
-	public int decode(MCS51 cpu,int opcode,int end,int pc,StringBuffer value,int pos)
+	public int decode(CPU cpu,int opcode,int end,int pc,StringBuffer value,int pos)
 	{
 		int r = cpu.code(pc);
 
@@ -327,7 +334,7 @@ class DecodeDIRECP extends AbstractDecodeString
 		super("DIRECP");
 	}
 
-	public int decode(MCS51 cpu,int opcode,int end,int pc,StringBuffer value,int pos)
+	public int decode(CPU cpu,int opcode,int end,int pc,StringBuffer value,int pos)
 	{
 		int r = cpu.code(pc+1);
 
@@ -345,7 +352,8 @@ class DecodeDIRECM extends AbstractDecodeString
 		super("DIRECM");
 	}
 
-	public int decode(MCS51 cpu,int opcode,int end,int pc,StringBuffer value,int pos)
+        @Override
+	public int decode(CPU cpu,int opcode,int end,int pc,StringBuffer value,int pos)
 	{
 		int r = cpu.code(pc-1);
 
@@ -354,5 +362,3 @@ class DecodeDIRECM extends AbstractDecodeString
 		return 1;
 	}
 }
-
-

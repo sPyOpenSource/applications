@@ -3,6 +3,8 @@
  */
 package j51.intel;
 
+import jCPU.iMemory;
+
 /**
  * Class to rappresent a single bit of memory.
  *
@@ -14,7 +16,7 @@ package j51.intel;
 public class MemoryBit extends MemoryBits
 {
 
-	public MemoryBit(Memory memory,int a,int b)
+	public MemoryBit(iMemory memory,int a,int b)
 	{
 		super(memory,a,b,1);
 	}
@@ -22,7 +24,7 @@ public class MemoryBit extends MemoryBits
 
 	public boolean get() 
 	{
-		return getBits() != 0 ? true : false;
+		return getBits() != 0;
 	}
 
 	public void set(boolean v) 

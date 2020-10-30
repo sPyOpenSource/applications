@@ -29,8 +29,8 @@ public final class CPU   extends j51.intel.MCS51{
 			this.privileged = privileged;
 			this.supported = supported;
 		}
-		private static final ProcessorMode getModeFromRepresentation(int rep) {
-			return modeMap.get(Integer.valueOf(rep));
+		private static ProcessorMode getModeFromRepresentation(int rep) {
+			return modeMap.get(rep);
 		}
 		static {
 			for(ProcessorMode mode : ProcessorMode.values()) {
@@ -108,8 +108,7 @@ public final class CPU   extends j51.intel.MCS51{
 			/* THUMB jump */
 			cpsr |= 1<<CPSR_BIT_T;
 			pc = new_pc & ~1;
-		}
-		else {
+		} else {
 			/* ARM jump */
 			cpsr &= ~(1<<CPSR_BIT_T);
 			pc = new_pc & ~3;
@@ -134,6 +133,31 @@ public final class CPU   extends j51.intel.MCS51{
 		default: return readGPR(r);
 		}
 	}
+        @Override
+                     public int r(int r)
+	{
+		return readRegister(r);
+	}
+        @Override
+                     public int sp()
+	{
+		return readSP();
+	}
+        @Override
+	public void sp(int value)
+	{
+		writeSP(value);
+	}
+        @Override
+	public int pc()
+	{
+		return readPC() & ~3;
+	}
+        @Override
+	public void pc(int value)
+	{
+		writePC(value);
+	}
 	public int readRegisterAlignPC(int r) {
 		switch(r) {
 		case 13: return readSP();
@@ -149,6 +173,11 @@ public final class CPU   extends j51.intel.MCS51{
 		case 15: writePC(new_value); break;
 		default: writeGPR(r, new_value); break;
 		}
+	}
+        @Override
+                     public void r(int r, int value)
+	{
+		writeRegister(r, value);
 	}
 	/*** CPSR/APSR ***/
 	private int cpsr;
@@ -366,29 +395,19 @@ public final class CPU   extends j51.intel.MCS51{
 					/* then settle and check the debt */
 					cycleBudget -= mem.settleAccessBill();
 				}
-			}
-			catch(BusErrorException e) {
+			} catch(BusErrorException | AlignmentException e) {
 				if(exceptionDebugMode) throw e;
 				generateDataAbortException();
 				budget = 0;
 				cycleBudget -= mem.settleAccessBill();
 				continue;
-			}
-			catch(AlignmentException e) {
-				if(exceptionDebugMode) throw e;
-				generateDataAbortException();
-				budget = 0;
-				cycleBudget -= mem.settleAccessBill();
-				continue;
-			}
-			catch(UndefinedException e) {
+			} catch(UndefinedException e) {
 				if(exceptionDebugMode) throw e;
 				generateUndefinedException();
 				budget = 0;
 				cycleBudget -= mem.settleAccessBill();
 				continue;
-			}
-			catch(EscapeRetryException e) {
+			} catch(EscapeRetryException e) {
 				pc = backupPC;
 			}
 			catch(EscapeCompleteException e) {}
@@ -401,20 +420,22 @@ public final class CPU   extends j51.intel.MCS51{
 	/**
 	 * Fetch and execute a single instruction
 	 */
-	public void execute() throws BusErrorException, AlignmentException, UndefinedException, EscapeRetryException, EscapeCompleteException {
+        @Override
+	public int execute() throws BusErrorException, AlignmentException, UndefinedException, EscapeRetryException, EscapeCompleteException {
 		if(!haveReset) throw new FatalException("execute() called without first calling reset()");
 		if((cpsr & CPSR_BIT_F) == 0 && haveFIQ()) generateFIQException();
 		if((cpsr & CPSR_BIT_I) == 0 && haveIRQ()) generateIRQException();
 		
-		if(debugger!=null) debugger.onInstruction(this, pc);
+		if(debugger != null) debugger.onInstruction(this, pc);
 		
 		if(isThumb()) throw new UndefinedException(); // Thumb not implemented
 		else executeARM();
+                return 1;
 	}
 	/* Fetch and execute a 32-bit ARM instruction */
 	private void executeARM() throws BusErrorException, AlignmentException, UndefinedException, EscapeRetryException, EscapeCompleteException {
 		int iword;
-		if((pc&3) != 0) pc=pc&~3;
+		if((pc & 3) != 0) pc = pc & ~3;
 		try { iword = vm.readInt(pc, true, false); }
 		catch(BusErrorException e) {
 			// TODO: ugh
@@ -428,9 +449,7 @@ public final class CPU   extends j51.intel.MCS51{
 		pc += 4;
 		try { executeARM(iword); }
 		/* if we experience an exception, restore as much state as possible to before the exception */
-		catch(BusErrorException e) { pc -= 4; throw e; }
-		catch(AlignmentException e) { pc -= 4; throw e; }
-		catch(UndefinedException e) { pc -= 4; throw e; }
+		catch(BusErrorException | AlignmentException | UndefinedException e) { pc -= 4; throw e; }
 	}
 	/* used by executeDataProcessingOperation for operations that don't provide their own carry logic */
 	private boolean shifterCarryOut;
@@ -614,8 +633,7 @@ public final class CPU   extends j51.intel.MCS51{
 			if(Rd == 15) {
 				/* when the destination register is the PC, the flag-setting versions are for PL1 and above only */
 				if(!isPrivileged()) throw new UndefinedException();
-			}
-			else {
+			} else {
 				cpsr &= CPSR_MASK_CLEAR_CONDITIONS;
 				if(result < 0) cpsr |= 1<<CPSR_BIT_N;
 				if(result == 0) cpsr |= 1<<CPSR_BIT_Z;
@@ -642,8 +660,7 @@ public final class CPU   extends j51.intel.MCS51{
 				executeDataProcessingOperation(op1, n, m, Rd);
 				/* TODO: if S is set and Rd == 15, copy SPSR to CPSR */
 				return;
-			}
-			else if((op2 & 8) == 0) {
+			} else if((op2 & 8) == 0) {
 				/* static_assert((op2 & 1) == 1) */
 				/* Data-processing (register-shifted register, A5-198) */
 				int Rn = (iword >> 16) & 15;
@@ -656,8 +673,7 @@ public final class CPU   extends j51.intel.MCS51{
 				executeDataProcessingOperation(op1, n, m, Rd);
 				return;
 			}
-		}
-		else {
+		} else {
 			if((op2 & 8) == 0) {
 				/* Miscellaneous instructions (A5-207) */
 				int op = (iword >> 21) & 3;
@@ -676,8 +692,7 @@ public final class CPU   extends j51.intel.MCS51{
 							/* We don't have Virtualization extensions */
 							throw new UndefinedException();
 						}
-					}
-					else {
+					} else {
 						switch(op) {
 						case 0: case 2: {
 							/* MRS (A8-496, B9-1990) */
@@ -791,8 +806,7 @@ public final class CPU   extends j51.intel.MCS51{
 					}
 				}
 				throw new UndefinedException();
-			}
-			else if((op2 & 1) == 0) {
+			} else if((op2 & 1) == 0) {
 				/* static_assert((op2 & 8) == 8) */
 				/* Halfword multiply and multiply accumulate (A5-203) */
 				switch(op1) {
@@ -922,8 +936,7 @@ public final class CPU   extends j51.intel.MCS51{
 				/* undefined, explicitly throw */
 				throw new UndefinedException();
 			}
-		}
-		else if(op2 > 9) {
+		} else if(op2 > 9) {
 			boolean argh = (op2 & 4) != 0;
 			if((op1 & 16) == 0) {
 				if(((op2 == 11) && (op1 & 18) == 2)
@@ -981,8 +994,7 @@ public final class CPU   extends j51.intel.MCS51{
 					if(isLoad) {
 						value = instructionReadHalfword(address, isPrivileged()) & 0xFFFF;
 						writeRegister(Rt, value);
-					}
-					else {
+					} else {
 						value = readRegister(Rt);
 						instructionWriteHalfword(address, (short)value, isPrivileged());
 					}
@@ -1023,8 +1035,7 @@ public final class CPU   extends j51.intel.MCS51{
 					if(isByte) {
 						value = instructionReadByte(address, unprivileged ? false : isPrivileged());
 						writeRegister(Rt, value);
-					}
-					else {
+					} else {
 						if((Rt&1)!=0 || Rt==14) throw new UndefinedException();
 						writeRegister(Rt, instructionReadWord(address, unprivileged ? false : isPrivileged()));
 						writeRegister(Rt+1, instructionReadWord(address+4, unprivileged ? false : isPrivileged()));
@@ -1129,8 +1140,7 @@ public final class CPU   extends j51.intel.MCS51{
 				}
 				// do nothing
 				return;
-			}
-			else {
+			} else {
 				boolean writingSPSR = (op1 & 4) != 0;
 				if(writingSPSR || ((mask & 3) == 1) || ((mask & 2) != 0))
 					/* MSR (immediate, system-level, B9-1996 */
@@ -1169,8 +1179,7 @@ public final class CPU   extends j51.intel.MCS51{
 				/* UDF (A8-758) */
 				/* ALWAYS undefined. Worth EXPLICITLY throwing. */
 				throw new UndefinedException();
-			}
-			else if(op1 >= 30) {
+			} else if(op1 >= 30) {
 				if((op2 & 3) == 2) {
 					/* UBFX (A8-756) */
 					int widthminus1 = (iword >> 16) & 31;
@@ -1179,8 +1188,7 @@ public final class CPU   extends j51.intel.MCS51{
 					writeRegister(Rd, (readRegister(Rn) >>> lsbit) & (0xFFFFFFFF >>> (31-widthminus1)));
 					return;
 				}
-			}
-			else if(op1 >= 28) {
+			} else if(op1 >= 28) {
 				if((op2 & 3) == 0) {
 					int lsb = (iword >> 7) & 31;
 					int msb = (iword >> 16) & 31;
@@ -1198,8 +1206,7 @@ public final class CPU   extends j51.intel.MCS51{
 					writeRegister(Rd, value);
 					return;
 				}
-			}
-			else if(op1 >= 26) {
+			} else if(op1 >= 26) {
 				if((op2 & 3) == 2) {
 					/* SBFX (A8-598) */
 					int widthminus1 = (iword >> 16) & 31;
@@ -1210,8 +1217,7 @@ public final class CPU   extends j51.intel.MCS51{
 					writeRegister(Rd, value);
 					return;
 				}
-			}
-			else if(op1 == 24) {
+			} else if(op1 == 24) {
 				if(op2 == 0) {
 					int Rd = (iword >> 12) & 15;
 					if(Rd == 15) {
@@ -1223,8 +1229,7 @@ public final class CPU   extends j51.intel.MCS51{
 						throw new UnimplementedInstructionException(iword, "USAD8");
 					}
 				}
-			}
-			else if(op1 < 24) {
+			} else if(op1 < 24) {
 				if((op1 & 16) != 0) {
 					if((op1 & 8) == 0) {
 						/* Signed multiply, signed and unsigned divide (A5-213) */
@@ -1315,116 +1320,116 @@ public final class CPU   extends j51.intel.MCS51{
 							throw new UnimplementedInstructionException(iword, "SMMLS");
 						}
 					}
-				}
-				else if((op1 & 8) != 0) {
+				} else if((op1 & 8) != 0) {
 					/* Packing, unpacking, saturation, and reversal (A5-212) */
 					op1 &= 7;
 					int Radd = (iword >> 16) & 15;
-					if(op1 == 0) {
-						if((op2 & 1) == 0) {
-							/* PKH (A8-522) */
-							int Rn_real = (iword >> 16) & 15;
-							int Rd = (iword >> 12) & 15;
-							int Rm = iword & 15;
-							boolean isTB = (iword&64)!=0;
-							int m = applyIRShift(readRegister(Rm), isTB ? 2 : 0, (iword>>7)&31);
-							int n = readRegister(Rn_real);
-							if(isTB)
-								writeRegister(Rd, (m&0x0000FFFF)|(n&0xFFFF0000));
-							else
-								writeRegister(Rd, (m&0xFFFF0000)|(n&0x0000FFFF));
-							return;
-						}
-						else if(op2 == 3) {
-							if(Radd != 15) {
-								/* SXTAB16 (A8-726) */
-								throw new UnimplementedInstructionException(iword, "SXTAB16");
-							}
-							else {
-								/* SXTB16 (A8-732) */
-								throw new UnimplementedInstructionException(iword, "SXTB16");
-							}
-						}
-						else if(op2 == 5) {
-							/* SEL (A8-602) */
-							throw new UnimplementedInstructionException(iword, "SEL");
-						}
-					}
-					else if(op1 == 1) {
-						/* no valid instructions */
-					}
-					else {
-						boolean unsigned = (op1 & 4) != 0;
-						/* high nibble is low bits of op1, low nibble is op2, for ease of reading
-						 * wish I were compiling against Java 7 so I could use binary literals... */
-						switch(op2 | ((op1 & 3) << 4)) {
-						case 0x21:
-							/* SSAT16 (A8-654), USAT16 (A8-798) */
-							throw new UnimplementedInstructionException(iword, "*SAT16");
-						case 0x23: {
-							/* SXTAB (A8-724), UXTAB (A8-806) */
-							/* SXTB (A8-730), UXTB (A8-812) */
-							int Rd = (iword >> 12) & 15;
-							int rotation = (iword >> 7) & 24;
-							int result = Integer.rotateRight(readRegister(Rn), rotation);
-							if(unsigned) result &= 0xFF;
-							else result = (int)(byte)result;
-							writeRegister(Rd, Radd == 15 ? result : result + readRegister(Radd));
-							return;
-						}
-						case 0x31:
-							/* the unsigned/signed symmetry breaks down here */
-							if(!unsigned) {
-								/* REV (A8-562) */
-								int Rm = iword&15;
-								int Rd = (iword>>12)&15;
-								writeRegister(Rd, Integer.reverseBytes(readRegister(Rm)));
-								return;
-							}
-							else {
-								/* RBIT (A8-560) */
-								int Rm = iword&15;
-								int Rd = (iword>>12)&15;
-								writeRegister(Rd, Integer.reverse(readRegister(Rm)));
-								return;
-							}
-						case 0x33: {
-							/* SXTAH (A8-728), UXTAH (A8-810) */
-							/* SXTH (A8-734), UXTH (A8-816) */
-							int Rd = (iword >> 12) & 15;
-							int rotation = (iword >> 7) & 24;
-							int result = Integer.rotateRight(readRegister(Rn), rotation);
-							if(unsigned) result &= 0xFFFF;
-							else result = (int)(short)result;
-							writeRegister(Rd, Radd == 15 ? result : result + readRegister(Radd));
-							return;
-						}
-						case 0x35:
-							/* breaks down here too */
-							if(!unsigned) {
-								/* REV16 (A8-564) */
-								int Rm = iword&15;
-								int Rd = (iword>>12)&15;
-								writeRegister(Rd, (Short.reverseBytes((short)readRegister(Rm))&0xFFFF)
-										|(Short.reverseBytes((short)(readRegister(Rm)>>16))<<16));
-								return;
-							}
-							else {
-								/* REVSH (A8-566) */
-								int Rm = iword&15;
-								int Rd = (iword>>12)&15;
-								writeRegister(Rd, Short.reverseBytes((short)readRegister(Rm)));
-								return;
-							}
-						default:
-							if((op1 & 6) == 2 && (op2 & 1) == 0) {
-								/* SSAT (A8-652), USAT (A8-796) */
-								throw new UnimplementedInstructionException(iword, "*SAT");
-							}
-						}
-					}
-				}
-				else {
+                                    switch (op1) {
+                                        case 0:
+                                            if((op2 & 1) == 0) {
+                                                /* PKH (A8-522) */
+                                                int Rn_real = (iword >> 16) & 15;
+                                                int Rd = (iword >> 12) & 15;
+                                                int Rm = iword & 15;
+                                                boolean isTB = (iword&64)!=0;
+                                                int m = applyIRShift(readRegister(Rm), isTB ? 2 : 0, (iword>>7)&31);
+                                                int n = readRegister(Rn_real);
+                                                if(isTB)
+                                                    writeRegister(Rd, (m&0x0000FFFF)|(n&0xFFFF0000));
+                                                else
+                                                    writeRegister(Rd, (m&0xFFFF0000)|(n&0x0000FFFF));
+                                                return;
+                                            }
+                                            else if(op2 == 3) {
+                                                if(Radd != 15) {
+                                                    /* SXTAB16 (A8-726) */
+                                                    throw new UnimplementedInstructionException(iword, "SXTAB16");
+                                                }
+                                                else {
+                                                    /* SXTB16 (A8-732) */
+                                                    throw new UnimplementedInstructionException(iword, "SXTB16");
+                                                }
+                                            }
+                                            else if(op2 == 5) {
+                                                /* SEL (A8-602) */
+                                                throw new UnimplementedInstructionException(iword, "SEL");
+                                            }
+                                            break;
+                                    /* no valid instructions */
+                                        case 1:
+                                            break;
+                                        default:
+                                            boolean unsigned = (op1 & 4) != 0;
+                                            /* high nibble is low bits of op1, low nibble is op2, for ease of reading
+                                            * wish I were compiling against Java 7 so I could use binary literals... */
+                                            switch(op2 | ((op1 & 3) << 4)) {
+                                                case 0x21:
+                                                    /* SSAT16 (A8-654), USAT16 (A8-798) */
+                                                    throw new UnimplementedInstructionException(iword, "*SAT16");
+                                                case 0x23: {
+                                                    /* SXTAB (A8-724), UXTAB (A8-806) */
+                                                    /* SXTB (A8-730), UXTB (A8-812) */
+                                                    int Rd = (iword >> 12) & 15;
+                                                    int rotation = (iword >> 7) & 24;
+                                                    int result = Integer.rotateRight(readRegister(Rn), rotation);
+                                                    if(unsigned) result &= 0xFF;
+                                                    else result = (int)(byte)result;
+                                                    writeRegister(Rd, Radd == 15 ? result : result + readRegister(Radd));
+                                                    return;
+                                                }
+                                                case 0x31:
+                                                    /* the unsigned/signed symmetry breaks down here */
+                                                    if(!unsigned) {
+                                                        /* REV (A8-562) */
+                                                        int Rm = iword&15;
+                                                        int Rd = (iword>>12)&15;
+                                                        writeRegister(Rd, Integer.reverseBytes(readRegister(Rm)));
+                                                        return;
+                                                    }
+                                                    else {
+                                                        /* RBIT (A8-560) */
+                                                        int Rm = iword&15;
+                                                        int Rd = (iword>>12)&15;
+                                                        writeRegister(Rd, Integer.reverse(readRegister(Rm)));
+                                                        return;
+                                                    }
+                                                case 0x33: {
+                                                    /* SXTAH (A8-728), UXTAH (A8-810) */
+                                                    /* SXTH (A8-734), UXTH (A8-816) */
+                                                    int Rd = (iword >> 12) & 15;
+                                                    int rotation = (iword >> 7) & 24;
+                                                    int result = Integer.rotateRight(readRegister(Rn), rotation);
+                                                    if(unsigned) result &= 0xFFFF;
+                                                    else result = (int)(short)result;
+                                                    writeRegister(Rd, Radd == 15 ? result : result + readRegister(Radd));
+                                                    return;
+                                                }
+                                                case 0x35:
+                                                    /* breaks down here too */
+                                                    if(!unsigned) {
+                                                        /* REV16 (A8-564) */
+                                                        int Rm = iword&15;
+                                                        int Rd = (iword>>12)&15;
+                                                        writeRegister(Rd, (Short.reverseBytes((short)readRegister(Rm))&0xFFFF)
+                                                                |(Short.reverseBytes((short)(readRegister(Rm)>>16))<<16));
+                                                        return;
+                                                    }
+                                                    else {
+                                                        /* REVSH (A8-566) */
+                                                        int Rm = iword&15;
+                                                        int Rd = (iword>>12)&15;
+                                                        writeRegister(Rd, Short.reverseBytes((short)readRegister(Rm)));
+                                                        return;
+                                                    }
+                                                default:
+                                                    if((op1 & 6) == 2 && (op2 & 1) == 0) {
+                                                        /* SSAT (A8-652), USAT (A8-796) */
+                                                        throw new UnimplementedInstructionException(iword, "*SAT");
+                                                    }
+                                            }
+                                            break;
+                                    }
+				} else {
 					/* Parallel addition and subtraction, signed (A5-210) */
 					/* Parallel addition and subtraction, unsigned (A5-211) */
 					boolean unsigned = (op1 & 4) != 0;
@@ -1458,8 +1463,7 @@ public final class CPU   extends j51.intel.MCS51{
 							if(unsigned) {
 								loD = clamp(loD, 0, 0xFFFF);
 								hiD = clamp(hiD, 0, 0xFFFF);
-							}
-							else {
+							} else {
 								loD = clamp(loD, -0x8000, 0x7FFF);
 								hiD = clamp(hiD, -0x8000, 0x7FFF);
 							}
@@ -1651,8 +1655,7 @@ public final class CPU   extends j51.intel.MCS51{
 					}
 				}
 			}
-		}
-		else {
+		} else {
 			/* Load/store word and unsigned byte (A5-208) */
 			/* STR (immediate, ARM, A8-674) */
 			/* STR (register, A8-676) */
@@ -1685,8 +1688,7 @@ public final class CPU   extends j51.intel.MCS51{
 				if(isByte) value = instructionReadByte(address, unprivileged ? false : isPrivileged()) & 0xFF;
 				else value = instructionReadWord(address, unprivileged ? false : isPrivileged());
 				writeRegister(Rt, value);
-			}
-			else {
+			} else {
 				value = readRegister(Rt);
 				if(isByte) instructionWriteByte(address, (byte)value, unprivileged ? false : isPrivileged());
 				else instructionWriteWord(address, value, unprivileged ? false : isPrivileged());
@@ -1739,7 +1741,6 @@ public final class CPU   extends j51.intel.MCS51{
 		}
 		if(increment) base_addr += 4 * register_count;
 		if(W) writeRegister(Rn, base_addr);
-		return;
 	}
 	private void executeARMPage67(int iword, boolean unconditional) throws BusErrorException, AlignmentException, UndefinedException, EscapeRetryException, EscapeCompleteException {
 		/* Coprocessor instructions, and Supervisor Call (A5-215) */
@@ -1784,8 +1785,7 @@ public final class CPU   extends j51.intel.MCS51{
 						}
 						return;
 					}
-				}
-				else {
+				} else {
 					if(op2 == 0) {
 						/* SETEND (A8-604) */
 						cpsr &= ~(1<<CPSR_BIT_E);
@@ -1907,8 +1907,7 @@ public final class CPU   extends j51.intel.MCS51{
 					}
 					return;
 				}
-			}
-			else {
+			} else {
 				/* BLX (A8-348) */
 				int imm32 = (iword << 8 >> 6) | (iword << 7 >> 7) | 1;
 				writeLR(readPC()-4);
@@ -2001,8 +2000,8 @@ public final class CPU   extends j51.intel.MCS51{
 	public boolean isWaitingForInterrupt() {
 		return waitingForInterrupt;
 	}
-	private TreeSet<Object> irqs = new TreeSet<Object>();
-	private TreeSet<Object> fiqs = new TreeSet<Object>();
+	private TreeSet<Object> irqs = new TreeSet<>();
+	private TreeSet<Object> fiqs = new TreeSet<>();
 	public boolean haveIRQ() { return !irqs.isEmpty(); }
 	public boolean haveFIQ() { return !fiqs.isEmpty(); }
 	/**
@@ -2073,10 +2072,11 @@ public final class CPU   extends j51.intel.MCS51{
 		out.println("Banked Registers:");
 		out.println("  <MODE> <..SP..> NZCVQitJ....<ge><.it.>EAIFT<.m.>");
 		for(ProcessorMode mode : ProcessorMode.values()) {
-			if(mode.spsrIndex >= 0)
+			if(mode.spsrIndex >= 0){
 				out.printf("  %6.6s %08X %s\n", mode.toString(), sp[mode.spIndex], toBinary32(spsr[mode.spsrIndex]));
-			else
+                        } else {
 				out.printf("  %6.6s %08X xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n", mode.toString(), sp[mode.spIndex]);
+                        }
 		}
 	}
 	public Coprocessor getCoprocessor(int id){

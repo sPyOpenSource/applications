@@ -47,7 +47,7 @@ public class Logger extends java.util.logging.Logger
 				logManager.readConfiguration(is);
 				is.close();
 			}
-			catch (Exception ex)
+			catch (IOException | SecurityException ex)
 			{
 				System.out.println(ex);
 			}
@@ -71,16 +71,14 @@ public class Logger extends java.util.logging.Logger
 	{
 		if (isLoggable(level))
 		{
-			StringBuffer sb = new StringBuffer();
+			StringBuilder sb = new StringBuilder();
 			log(level,ex.toString());
 			try
 			{
 				PrintStream ps = new PrintStream(new FileOutputStream("exception.txt"));
 				ex.printStackTrace(ps);
 				ps.close();
-			}
-			catch (Exception ignore)
-			{
+			} catch (FileNotFoundException ignore) {
 			}
 
 		}
@@ -110,8 +108,6 @@ public class Logger extends java.util.logging.Logger
 	public void fatal(Exception ex)
 	{
 		log(Level.SEVERE,ex);
-
-
 		System.exit(1);
 	}
 

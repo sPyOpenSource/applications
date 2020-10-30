@@ -1,7 +1,7 @@
 /**
  * $Id: MemoryReadListener.java 56 2010-06-24 20:06:35Z mviara $
  */
-package j51.intel;
+package jCPU;
 
 /**
  * Listener to trace read in memory.

@@ -19,8 +19,8 @@ import java.net.*;
 public class Satellite extends JComponent implements Motor
 {
 	private String sPos = "";
-	private Font font = new Font("Monospaced",Font.BOLD,20);
-	private ImageIcon sat;
+	private final Font font = new Font("Monospaced",Font.BOLD,20);
+	private final ImageIcon sat;
 	private int pos;
 	private long time = 0;
 	
@@ -37,6 +37,7 @@ public class Satellite extends JComponent implements Motor
 		setPosition(0);
 	}
 
+        @Override
 	public void setPosition(int pos)
 	{
 		this.pos = pos;
@@ -61,6 +62,7 @@ public class Satellite extends JComponent implements Motor
 		}
 	}
 
+        @Override
 	public void paint(Graphics g)
 	{
 		int x,y,w;
@@ -104,8 +106,9 @@ public class Satellite extends JComponent implements Motor
 	{
 		URL url = Satellite.class.getResource("images/" + name);
 
-		if (url == null)
+		if (url == null){
 			return null;
+                }
 
 		ImageIcon  icon =  new ImageIcon(url);
 
@@ -128,23 +131,17 @@ public class Satellite extends JComponent implements Motor
 		f.pack();
 		f.setVisible(true);
 
-		Thread t = new Thread(new Runnable()
-		{
-			public void run()
-			{
-				for (int i = 900; i >= -900 ; i -= 9)
-				{
-					s.setPosition(i);
-					try
-					{
-						Thread.sleep(100);
-					}
-					catch (Exception ignore)
-					{
-					}
-				}
-			}
-		});
+		Thread t = new Thread(() -> {
+                    for (int i = 900; i >= -900 ; i -= 9)
+                    {
+                        s.setPosition(i);
+                        try
+                        {
+                            Thread.sleep(100);
+                        } catch (InterruptedException ignore) {
+                        }
+                    }
+                });
 
 		t.start();
 			

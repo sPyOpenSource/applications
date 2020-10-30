@@ -179,10 +179,7 @@ public class CP7 extends SaneCoprocessor {
 				vm.writeInt(p+36, ((int)raf.length()+511)/512, true, cpu.isBigEndian()); // st_blocks
 				return 0;
 			}
-			catch(AlignmentException e) {
-				return -14; // EFAULT - Bad address
-			}
-			catch(BusErrorException e) {
+			catch(AlignmentException | BusErrorException e) {
 				return -14; // EFAULT - Bad address
 			}
 			catch(IOException e) {

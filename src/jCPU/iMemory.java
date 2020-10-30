@@ -1,7 +1,7 @@
 /**
  * $Id: Memory.java 62 2010-06-29 22:06:12Z mviara $
  */
-package j51.intel;
+package jCPU;
 
 
 /**
@@ -12,19 +12,19 @@ package j51.intel;
  * 
  * @since 1.04
  */
-public interface Memory
+public interface iMemory
 {
 	public boolean getWriteListener();
 	public void setWriteListener(boolean mode);
 	public boolean isPresent(int address);
-	public void setPresent(int from,int to);
+	public void setPresent(int from, int to);
 	public int getSize();
 	public String getName();
 	public void setSize(int size);
 	public int read(int addr);
 	public int readDirect(int addr);
-	public void write(int addr,int value);
-	public void writeDirect(int addr,int value);
-	public void addMemoryReadListener(int address,MemoryReadListener l);
-	public void addMemoryWriteListener(int address,MemoryWriteListener l);
+	public void write(int addr, int value);
+	public void writeDirect(int addr, int value);
+	public void addMemoryReadListener(int address, MemoryReadListener l);
+	public void addMemoryWriteListener(int address, MemoryWriteListener l);
 }

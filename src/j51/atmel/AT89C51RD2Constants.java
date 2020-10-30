@@ -15,5 +15,5 @@ public interface AT89C51RD2Constants extends j51.intel.MCS51Constants
 {
 	static public final int P4		= 0xc0;
 	static public final int P5		= 0xe8;
-	static public final int AUXR1		= 0xa2;
+	static public final int AUXR1	= 0xa2;
 }

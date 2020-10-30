@@ -1,6 +1,12 @@
 package name.bizna.jarm;
 
-public final class VirtualMemorySpace {
+import jCPU.MemoryReadListener;
+import jCPU.MemoryWriteListener;
+import jCPU.iMemory;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+public final class VirtualMemorySpace  implements iMemory {
 	private final PhysicalMemorySpace mem;
 	private final Debugger debugger;
 	private int lastAccessAddress, lastAccessWidth;
@@ -44,8 +50,7 @@ public final class VirtualMemorySpace {
 			else if(bigEndian) {
 				mem.writeByte(address&0xFFFFFFFFL, (byte)(value >> 8));
 				mem.writeByte(address+1&0xFFFFFFFFL, (byte)value);
-			}
-			else {
+			} else {
 				mem.writeByte(address&0xFFFFFFFFL, (byte)value);
 				mem.writeByte(address+1&0xFFFFFFFFL, (byte)(value >> 8));
 			}
@@ -74,8 +79,7 @@ public final class VirtualMemorySpace {
 				mem.writeByte((address+1)&0xFFFFFFFFL, (byte)(value >> 16));
 				mem.writeByte((address+2)&0xFFFFFFFFL, (byte)(value >> 8));
 				mem.writeByte((address+3)&0xFFFFFFFFL, (byte)value);
-			}
-			else {
+			} else {
 				mem.writeByte((address)&0xFFFFFFFFL, (byte)value);
 				mem.writeByte((address+1)&0xFFFFFFFFL, (byte)(value >> 8));
 				mem.writeByte((address+2)&0xFFFFFFFFL, (byte)(value >> 16));
@@ -95,10 +99,83 @@ public final class VirtualMemorySpace {
 		if(bigEndian) {
 			writeInt(address, (int)(value >> 32L), strictAlign, bigEndian);
 			writeInt(address+4, (int)value, strictAlign, bigEndian);
-		}
-		else {
+		} else {
 			writeInt(address, (int)value, strictAlign, bigEndian);
 			writeInt(address+4, (int)(value >> 32L), strictAlign, bigEndian);
 		}
 	}
+
+    @Override
+    public boolean getWriteListener() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setWriteListener(boolean mode) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean isPresent(int address) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setPresent(int from, int to) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int getSize() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String getName() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setSize(int size) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int read(int addr) {
+            try {
+                return readByte(addr);
+            } catch (BusErrorException | EscapeRetryException ex) {
+                Logger.getLogger(VirtualMemorySpace.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            return 0;
+    }
+
+    @Override
+    public int readDirect(int addr) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void write(int addr, int value) {
+            try {
+                writeByte(addr, (byte)value);
+            } catch (BusErrorException | EscapeRetryException ex) {
+                Logger.getLogger(VirtualMemorySpace.class.getName()).log(Level.SEVERE, null, ex);
+            }
+    }
+
+    @Override
+    public void writeDirect(int addr, int value) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void addMemoryReadListener(int address, MemoryReadListener l) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void addMemoryWriteListener(int address, MemoryWriteListener l) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

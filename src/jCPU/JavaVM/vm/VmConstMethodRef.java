@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package j51.JavaVM;
+package jCPU.JavaVM.vm;
 
 /**
  *
  * @author spy
  */
-public class VM extends j51.intel.MCS51{
+public class VmConstMethodRef {
     
 }

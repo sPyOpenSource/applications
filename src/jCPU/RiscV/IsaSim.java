@@ -1,4 +1,4 @@
-package j51.RiscV;
+package jCPU.RiscV;
 
 /*
  * RISC-V Instruction Set Simulator
@@ -17,7 +17,7 @@ import java.nio.ByteBuffer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class IsaSim extends j51.intel.MCS51{
+public class IsaSim{
 	// Insert path to binary file containing RISC-V instructions
 	public final static String FILEPATH = "tests/task3/loop.bin";
 
@@ -38,7 +38,7 @@ public class IsaSim extends j51.intel.MCS51{
 	// using different integer key values (pc and sp counting in bytes)
 	public static Memory ram = new Memory();
 
-	/*public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException {
 		System.out.println("Hello RISC-V World!");
 		ram.readBinary(FILEPATH, INITIAL_PC); // Read instructions into memory
 		reg[2] = INITIAL_SP; // Reset stack pointer
@@ -154,7 +154,7 @@ public class IsaSim extends j51.intel.MCS51{
 			cc++;
 		}
 		System.out.println("Program exit");
-	}*/
+	}
 
 	public static void loadUpperImmediate(int instr) {
 		// General information

@@ -3,16 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package j51.RiscV;
-
-import j51.JavaVM.vm.VmCP;
-import j51.JavaVM.vm.VmStackFrame;
+package jCPU.RiscV;
 
 /**
  *
  * @author X. Wang
  */
-public class CPU {
+public class CPU extends j51.intel.MCS51{
     /* Type of Functional Units */
  int FU_ALU = 0x0;
  int FU_MUL = 0x1;
@@ -483,9 +480,7 @@ public  void decode_compressed_q2(RVInstruction ins)
                         ins.exception = 1;
                         ins.exception_cause = SIM_COMPLEX_OPCODE;
                         ins.type = INS_TYPE_SYSTEM;
-                    }
-                    else
-                    {
+                    } else {
                         /* c.jalr */
                         ins.is_branch = 1;
                         ins.branch_type = BRANCH_UNCOND;
@@ -495,9 +490,7 @@ public  void decode_compressed_q2(RVInstruction ins)
                         rd = 1;
                         ins.is_func_call = 1;
                     }
-                }
-                else
-                {
+                } else {
                     /* c.add */
                     ins.has_dest = 1;
                     ins.has_src1 = 1;
@@ -641,22 +634,11 @@ public  int chk_op_exceptions(RVInstruction i)
     }
     return 0;
 }
-
-    public CPU(char[][] pc, VmStackFrame stackFrame, VmCP p) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
     
 public char[][] opCode;
-public VmStackFrame stack;
-public VmCP p;
-        
-    public CPU(){
-        
-    }
     
 /**
- * @param  Encoded 32-bit instruction binary
- * @return Decoded RVInstruction
+ * @param  ins 32-bit instruction binary
  */
 public void decode_riscv_binary(RVInstruction ins, int insn)
 {
@@ -737,9 +719,7 @@ public void decode_riscv_binary(RVInstruction ins, int insn)
                     {
                         //goto exception;
                     }
-                }
-                else
-                {
+                } else {
                     if (chk_op_imm_exceptions(ins, 32) != 0)
                     {
                         //goto exception;
@@ -1094,29 +1074,29 @@ public void decode_riscv_binary(RVInstruction ins, int insn)
 }
 
 /* Floating Point Instructions */
-final  int FLOAD_MASK =0x07;
-final  int FSTORE_MASK =0x27;
-final  int FMADD_MASK =0x43;
-final  int FMSUB_MASK =0x47;
-final  int FNMSUB_MASK =0x4B;
-final  int FNMADD_MASK =0x4F;
-final int F_ARITHMETIC_MASK =0x53;
+final  int FLOAD_MASK = 0x07;
+final  int FSTORE_MASK = 0x27;
+final  int FMADD_MASK = 0x43;
+final  int FMSUB_MASK = 0x47;
+final  int FNMSUB_MASK = 0x4B;
+final  int FNMADD_MASK = 0x4F;
+final int F_ARITHMETIC_MASK = 0x53;
 
 /* Major Opcodes */
-final  int OP_IMM_MASK =0x13;
-final  int OP_IMM_32_MASK =0x1b;
-final  int OP_MASK =0x33;
-final  int OP_MASK_32 =0x3b;
-final  int LUI_MASK =0x37;
-final  int AUIPC_MASK =0x17;
-final  int JAL_MASK =0x6f;
-final  int JALR_MASK =0x67;
-final  int BRANCH_MASK =0x63;
-final  int LOAD_MASK =0x3;
-final  int STORE_MASK =0x23;
-final  int FENCE_MASK =0xf;
-final  int CSR_MASK =0x73;
-final  int ATOMIC_MASK =0x2F;
+final  int OP_IMM_MASK = 0x13;
+final  int OP_IMM_32_MASK = 0x1b;
+final  int OP_MASK = 0x33;
+final  int OP_MASK_32 = 0x3b;
+final  int LUI_MASK = 0x37;
+final  int AUIPC_MASK = 0x17;
+final  int JAL_MASK = 0x6f;
+final  int JALR_MASK = 0x67;
+final  int BRANCH_MASK = 0x63;
+final  int LOAD_MASK = 0x3;
+final  int STORE_MASK = 0x23;
+final  int FENCE_MASK = 0xf;
+final  int CSR_MASK = 0x73;
+final  int ATOMIC_MASK = 0x2F;
 
     private void get_riscv_ins_str(RVInstruction ins) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

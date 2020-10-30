@@ -33,7 +33,7 @@ public class JBitField extends JPanel implements ActionListener,UpdatableCompone
 		super(new GridBagLayout());
 		GridBagConstraints g = new GridBagConstraints();
 		g.gridx = 0; g.gridy = 0;g.gridwidth = 1;g.gridheight = 1;
-		g.anchor = g.CENTER; g.fill = g.NONE; 
+		g.anchor = GridBagConstraints.CENTER; g.fill = GridBagConstraints.NONE; 
 
 		for (int i = 0  ; i < 8 ; i ++)
 		{
@@ -56,10 +56,9 @@ public class JBitField extends JPanel implements ActionListener,UpdatableCompone
 
 		JFactory.setTitle(this,title);
 		setValue(0);
-
-
 	}
 
+        @Override
 	public void actionPerformed(java.awt.event.ActionEvent e)
 	{
 		for (int i = 0  ;i < listeners.size() ; i++)
@@ -87,6 +86,7 @@ public class JBitField extends JPanel implements ActionListener,UpdatableCompone
 		
 	}
 
+        @Override
 	public boolean update()
 	{
 		if (value == oldValue)
@@ -132,6 +132,4 @@ public class JBitField extends JPanel implements ActionListener,UpdatableCompone
 	{
 		listeners.add(l);
 	}
-	
-	
 }

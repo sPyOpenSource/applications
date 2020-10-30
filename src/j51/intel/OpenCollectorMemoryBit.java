@@ -4,6 +4,8 @@
 package j51.intel;
 
 import j51.util.*;
+import jCPU.MemoryReadListener;
+import jCPU.iMemory;
 
 /**
  * 
@@ -23,11 +25,11 @@ public class OpenCollectorMemoryBit extends MemoryBit   implements MemoryReadLis
 	private boolean bit = true;
 
 	
-	public OpenCollectorMemoryBit(Memory memory,int a,int b)
+	public OpenCollectorMemoryBit(iMemory memory,int a,int b)
 	{
-		super(memory,a,b);
+		super(memory, a, b);
 
-		memory.addMemoryReadListener(a,this);
+		memory.addMemoryReadListener(a, this);
 	}
 
 

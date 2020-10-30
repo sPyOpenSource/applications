@@ -48,10 +48,10 @@ public class Diseqc extends LPC764Base
 		return value;
 	}
 	
+        @Override
 	public String toString()
 	{
 		return "Diseqc 1.2 $Id: Diseqc.java 62 2010-06-29 22:06:12Z mviara $";
 	}
 				
-
 }

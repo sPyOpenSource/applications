@@ -19,6 +19,6 @@ public class LPC764Ports extends JPort
 	public LPC764Ports() throws Exception
 	{
 		super(3);
-		setDisableMask(2,0xFC);
+		setDisableMask(2, 0xFC);
 	}
 }

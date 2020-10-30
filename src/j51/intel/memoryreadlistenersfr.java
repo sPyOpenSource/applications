@@ -3,6 +3,8 @@
  */
 package j51.intel;
 
+import jCPU.MemoryReadListener;
+
 
 /**
  * Utility class to convert old SfrReadListener in MemoryReadListener.

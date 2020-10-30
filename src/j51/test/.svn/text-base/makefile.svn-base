@@ -1,6 +1,6 @@
-PACKAGE = j51.keil.images
+PACKAGE = j51.test
 
-SOURCE  = mcb900.jpg
+SOURCE  = Test.java
 
 MAIN = 
 

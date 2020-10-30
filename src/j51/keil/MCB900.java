@@ -14,8 +14,8 @@ import java.net.*;
 class MCB900PCB extends JLabel
 {
 	private int led = 0;
-	private Color on = Color.green;
-	private Color off = Color.gray;
+	private final Color on = Color.green;
+	private final Color off = Color.gray;
 
 	MCB900PCB()
 	{
@@ -24,6 +24,7 @@ class MCB900PCB extends JLabel
 		setIcon(icon);
 	}
 
+        @Override
 	public void paint(Graphics g)
 	{
 
@@ -67,12 +68,13 @@ class MCB900Port extends JPanel implements MCS51Peripheral, SfrWriteListener,Upd
 
 		GridBagConstraints g = new GridBagConstraints();
 		g.gridx = 0; g.gridy = 0;g.gridwidth = 1;g.gridheight = 1;
-		g.anchor = g.CENTER; g.fill = g.NONE; 
+		g.anchor = GridBagConstraints.CENTER; g.fill = GridBagConstraints.NONE; 
 		g.insets = new Insets(1,1,1,1);
 
 		add(pcb,g);
 	}
 	
+        @Override
 	public void registerCpu(MCS51 cpu)
 	{
 		cpu.addSfrWriteListener(MCS51Constants.P2,this);
@@ -81,12 +83,14 @@ class MCB900Port extends JPanel implements MCS51Peripheral, SfrWriteListener,Upd
 	}
 
 
+        @Override
 	public void sfrWrite(int reg,int value)
 	{
 		newLed = value;
 		
 	}
 
+        @Override
 	public boolean update()
 	{
 		if (newLed == pcb.getLed())
@@ -119,8 +123,9 @@ public class MCB900 extends j51.philips.LPC900
 		addPeripheral(new MCB900Port());
 
 		JPort port = (JPort)getPeripheralByClass("j51.intel.JPort");
-		for (int i = 0 ; i < 8 ; i++)
-			port.setPortName(2,i,"LED"+i);
+		for (int i = 0 ; i < 8 ; i++){
+			port.setPortName(2, i, "LED" + i);
+                }
 	}
 	
 }

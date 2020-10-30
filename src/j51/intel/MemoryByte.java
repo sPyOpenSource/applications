@@ -4,6 +4,8 @@
 package j51.intel;
 
 import j51.util.FastArray;
+import jCPU.MemoryReadListener;
+import jCPU.MemoryWriteListener;
 
 /**
  * Memory byte used from VolatileMemory implementation. For performance

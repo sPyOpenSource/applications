@@ -89,7 +89,7 @@ public strictfp class FPU extends SaneCoprocessor {
 	/* 0-3: Denormalized arithmetic (1 -> no flush-to-zero? does Java guarantee this?) */
 	static private final int MVFR1 = 0x00000001;
 	
-	private int[] registerBits = new int[64];
+	private final int[] registerBits = new int[64];
 	private int FPSCR, FPEXC;
 	
 	private static int expandVFPImmediateSingleRawBits(int imm8) {

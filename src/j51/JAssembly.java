@@ -23,14 +23,15 @@ import j51.util.FastArray;
  */
 public class JAssembly extends J51Panel
 {
-	private AbstractTableModel tm;
-	private JTable jt;
+	private final AbstractTableModel tm;
+	private final JTable jt;
 	private FastArray breakPoint = new FastArray();
 	private FastArray pcs = new FastArray();
 	private boolean completed = false;
 	
 	class Renderer  extends DefaultTableCellRenderer
 	{
+                @Override
 		public Component getTableCellRendererComponent(JTable table,
 			Object value,
 			boolean isSelected,
@@ -54,12 +55,14 @@ public class JAssembly extends J51Panel
 
 		tm = new AbstractTableModel()
 		{
+                        @Override
 			public int getRowCount()
 			{
 				return completed ? pcs.size() : pcs.size() + 1;
 
 			}
 
+                        @Override
 			public int getColumnCount()
 			{
 				return 3;
@@ -115,14 +118,14 @@ public class JAssembly extends J51Panel
 
 			public boolean isCellEditable(int rowIndex, int columnIndex)
 			{
-				return columnIndex == 0 ? true : false;
+				return columnIndex == 0;
 			}
 
 			public void setValueAt(Object v,int r,int c)
 			{
 				Boolean b = (Boolean)v;
 				breakPoint.set(r,b);
-				cpu.setBreakPoint(pc(r),b.booleanValue());
+				cpu.setBreakPoint(pc(r), b);
 			}
 		};
 
@@ -135,8 +138,8 @@ public class JAssembly extends J51Panel
 
 		GridBagConstraints g = new GridBagConstraints();
 		g.gridx = 0;g.gridy = 0;g.gridwidth = 1;g.gridheight = 1;
-		g.fill  = g.BOTH;g.insets = new Insets(1,1,1,1);
-		g.anchor = g.CENTER;
+		g.fill  = GridBagConstraints.BOTH;g.insets = new Insets(1,1,1,1);
+		g.anchor = GridBagConstraints.CENTER;
 
 		add(sc,g);
 
@@ -144,7 +147,7 @@ public class JAssembly extends J51Panel
 
 	private int pc(int r)
 	{
-		return ((Integer)(pcs.get(r))).intValue();
+		return ((Integer)(pcs.get(r)));
 
 	}
 	
@@ -173,8 +176,8 @@ public class JAssembly extends J51Panel
 			if (maxPc >= 0 && pc > maxPc)
 				break;
 			count++;
-			pcs.add(new Integer(pc));
-			breakPoint.add(new Boolean(false));
+			pcs.add(pc);
+			breakPoint.add(false);
 			pc += cpu.getLengthAt(pc);
 			tm.fireTableRowsInserted(pcs.size()-1,pcs.size()-1);
 			
@@ -253,6 +256,7 @@ public class JAssembly extends J51Panel
 
 	}
 
+        @Override
 	public void setEmulation(boolean mode)
 	{
 		jt.setEnabled(!mode);

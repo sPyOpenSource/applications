@@ -1,4 +1,4 @@
-package j51.RiscV;
+package jCPU.RiscV;
 
 /*
  * Memory implementation for RISC-V Instruction Set Simulator
@@ -8,28 +8,15 @@ package j51.RiscV;
  * @author Hans Jakob Damsgaard (hansjakobdamsgaard@gmail.com)
  */
 
+import jCPU.MemoryReadListener;
+import jCPU.MemoryWriteListener;
+import jCPU.iMemory;
 import java.io.*;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-interface MemoryInterface {
-    // Checks if memory contains a value at given address
-    public boolean containsKey(int addr);
-    // Interface methods to read different data sizes
-    public int readWord(int addr) throws NullPointerException;
-    public int readHalfWord(int addr) throws NullPointerException;
-    public int readByte(int addr) throws NullPointerException;
-    // Interface methods to store different data sizes
-    public void storeWord(int addr, int value);
-    public void storeHalfWord(int addr, int value);
-    public void storeByte(int addr, int value);
-    // Methods for reading in binary files containing RISC-V instructions
-    public void readBinary(String filePath) throws IOException, EOFException;
-    public void readBinary(String filePath, int initial_pc) throws IOException, EOFException;
-}
-
-public class Memory implements MemoryInterface {
+public class Memory implements iMemory {
     // A map simulating the memory
     private final Map<Integer, Byte> memory;
 
@@ -38,12 +25,10 @@ public class Memory implements MemoryInterface {
         this.memory = new HashMap<>();
     }
 
-    @Override
     public boolean containsKey(int addr) {
         return memory.containsKey(addr);
     }
 
-    @Override
     public int readWord(int addr) throws NullPointerException {
         if (memory.containsKey(addr) && memory.containsKey(addr + 1) && 
             memory.containsKey(addr + 2) && memory.containsKey(addr + 3)) {
@@ -52,10 +37,8 @@ public class Memory implements MemoryInterface {
         } else {
             throw new NullPointerException();
         }
-        
     }
 
-    @Override
     public int readHalfWord(int addr) throws NullPointerException {
         if (memory.containsKey(addr) && memory.containsKey(addr+1)) {
             return ((memory.get(addr + 1) << 8) & 0x0000FF00) | (memory.get(addr) & 0x000000FF);
@@ -64,7 +47,6 @@ public class Memory implements MemoryInterface {
         }
     }
 
-    @Override
     public int readByte(int addr) throws NullPointerException {
         if (memory.containsKey(addr)) {
             return memory.get(addr) & 0x000000FF;
@@ -73,7 +55,6 @@ public class Memory implements MemoryInterface {
         }
     }
 
-    @Override
     public void storeWord(int addr, int value) {
         memory.put(addr, (byte) (value));
         memory.put(addr + 1, (byte) (value >> 8));
@@ -81,23 +62,19 @@ public class Memory implements MemoryInterface {
         memory.put(addr + 3, (byte) (value >> 24));
     }
 
-    @Override
     public void storeHalfWord(int addr, int value) {
         memory.put(addr, (byte) value);
         memory.put(addr + 1, (byte) (value >> 8));
     }
 
-    @Override
     public void storeByte(int addr, int value) {
         memory.put(addr, (byte) value);
     }
 
-    @Override
     public void readBinary(String filePath) throws IOException, EOFException {
             this.readBinary(filePath, 0);
     }
 
-    @Override
     public void readBinary(String filePath, int initial_pc) throws IOException, EOFException {
         FileInputStream fileStream = null;
 		DataInputStream dataStream = null;
@@ -119,5 +96,70 @@ public class Memory implements MemoryInterface {
 				dataStream.close();
 			}
 		}
+    }
+
+    @Override
+    public boolean getWriteListener() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setWriteListener(boolean mode) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean isPresent(int address) {
+        return containsKey(address);
+    }
+
+    @Override
+    public void setPresent(int from, int to) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int getSize() {
+        return memory.size();
+    }
+
+    @Override
+    public String getName() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setSize(int size) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int read(int addr) {
+        return readByte(addr);
+    }
+
+    @Override
+    public int readDirect(int addr) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void write(int addr, int value) {
+        storeByte(addr, value);
+    }
+
+    @Override
+    public void writeDirect(int addr, int value) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void addMemoryReadListener(int address, MemoryReadListener l) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void addMemoryWriteListener(int address, MemoryWriteListener l) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

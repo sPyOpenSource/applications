@@ -3,6 +3,8 @@
  */
 package j51.intel;
 
+import jCPU.MemoryWriteListener;
+
 /**
  * Utility class to convert old SfrWriteListener in MemoryWriteListener.
  *

@@ -5,6 +5,11 @@ package j51.intel;
 
 import j51.util.*;
 import j51.swing.*;
+import jCPU.AbstractOpcode;
+import jCPU.CPU;
+import jCPU.MemoryReadListener;
+import jCPU.MemoryWriteListener;
+import jCPU.Opcode;
 import java.util.logging.Level;
 
 /**
@@ -32,7 +37,7 @@ import java.util.logging.Level;
  *	Improved performance of interrupt management.
  *	
  */
-public class MCS51 implements MCS51Constants
+public class MCS51 implements MCS51Constants, jCPU.CPU
 {
 	private static Logger log = Logger.getLogger(MCS51.class);
 	
@@ -81,7 +86,6 @@ public class MCS51 implements MCS51Constants
 	// Call trap
 	private CallListener callListeners[] = new CallListener[65536];
 	
-	
 	// Xdata
 	private byte xdata[];
 
@@ -91,7 +95,7 @@ public class MCS51 implements MCS51Constants
 	// Idata name
 	private String idataNames[];
 
-	static private MCS51Opcode opcodes[] = new MCS51Opcode[256];
+	static private Opcode opcodes[] = new Opcode[256];
 	private long opcodesCounter[] = new long[256];
 	
 
@@ -130,7 +134,7 @@ public class MCS51 implements MCS51Constants
 	// Current register bank
 	private int regPtr;
 
-	private FastArray<UpdatableComponent> updatableComponents = new FastArray<UpdatableComponent>();
+	private FastArray<UpdatableComponent> updatableComponents = new FastArray<>();
 	private javax.swing.Timer updateTimer = null;
 
 	// Current IE_EA bit
@@ -147,7 +151,6 @@ public class MCS51 implements MCS51Constants
 	static
 	{
 		initOpcodes();
-		
 	}
 
 	
@@ -190,13 +193,13 @@ public class MCS51 implements MCS51Constants
 		sfrPages[0] = new SfrPage(0);
 		
 		for (int i = 1 ; i < numSfrPage ; i++){
-			sfrPages[i] = new SfrPage(i,sfrPages[0]);
+			sfrPages[i] = new SfrPage(i, sfrPages[0]);
                 }
 		setSfrPage(0);
 		
 		setCode(new VolatileCode());
-		setCodeSize(64*1024);
-		setXdataSize(64*1024);
+		setCodeSize(64 * 1024);
+		setXdataSize(64 * 1024);
 		setIdataSize(256);
 
 		// Internal memory
@@ -221,7 +224,7 @@ public class MCS51 implements MCS51Constants
 		
 
 		for (int i = 0 ; i < 64 * 1024 ; i++){
-			setCodeName(i,"#"+Hex.bin2word(i));
+			setCodeName(i, "#" + Hex.bin2word(i));
                 }
 
 		/**
@@ -289,8 +292,9 @@ public class MCS51 implements MCS51Constants
 		setBitName(PSW+0,"P");
 		
 		// Set default idata name
-		for (int reg = 0 ; reg < 8 ; reg++)
+		for (int reg = 0 ; reg < 8 ; reg++){
 			setIdataName(reg,"R"+reg);
+                }
 
 		/**
 		 * Track PSW for current register set
@@ -323,8 +327,9 @@ public class MCS51 implements MCS51Constants
 	 */
 	public final void setEmulation(boolean mode)
 	{
-		for (int i = emulationListeners.size() ; --i >= 0 ;)
+		for (int i = emulationListeners.size() ; --i >= 0 ;){
 			emulationListeners.get(i).setEmulation(mode);
+                }
 	}
 
 	/**
@@ -382,10 +387,10 @@ public class MCS51 implements MCS51Constants
 		for (int i = 0 ; i < getPeripheralsCount() ; i++)
 		{
 			Object o = getPeripheralAt(i);
-			if (c.isInstance(o))
+			if (c.isInstance(o)){
 				return o;
+                        }
 		}
-
 		return null;
 	}
 	
@@ -397,18 +402,19 @@ public class MCS51 implements MCS51Constants
 	
 	public void setCallListener(int pc,CallListener l) throws Exception
 	{
-		if (callListeners[pc] != null)
+		if (callListeners[pc] != null){
 			throw new Exception("Duplicate call trap at "+Hex.bin2word(pc));
-		
+                }
 		callListeners[pc] = l;
 	}
 	
+        @Override
 	public CallListener getCallListener(int pc)
 	{
 		return callListeners[pc];
 	}
 	
-	public MCS51Opcode getOpcode(int c)
+	public Opcode getOpcode(int c)
 	{
 		return opcodes[c];
 	}
@@ -439,8 +445,7 @@ public class MCS51 implements MCS51Constants
 		}
 		
 		// ACALL / AJMP
-		for (int i = 0 ; i < 8 ; i++)
-		{
+		for (int i = 0 ; i < 8 ; i++){
 			setOpcode(new ACALL((i << 5)|0x11));
 			setOpcode(new AJMP((i << 5)|0x01));
 		}
@@ -571,7 +576,8 @@ public class MCS51 implements MCS51Constants
 		
 	}
 
-	protected int getSfrXdataHi()
+        @Override
+	public int getSfrXdataHi()
 	{
 		return sfrXdataHi;
 	}
@@ -589,7 +595,7 @@ public class MCS51 implements MCS51Constants
 	/**
 	 * Add one new asyncronous timer listener.
 	 *
-	 * @param time - Time in machine cycle
+	 * @param timeout - Time in machine cycle
 	 * @param l    - Listener to be  called when the timer expire.
 	 */
 	public void addAsyncTimerListener(int timeout, AsyncTimerListener l)
@@ -623,7 +629,6 @@ public class MCS51 implements MCS51Constants
 		t1.timeout = timeout;
 		t1.add(l);
 		asyncTimers.add(t1);
-
 	}
 
 	/**
@@ -653,7 +658,6 @@ public class MCS51 implements MCS51Constants
 	public void addInterruptSource(int sfr,InterruptSource source)
 	{
 		addInterruptSource(sfr,source," INT");
-		
 	}
 
 	public int getInterruptCount()
@@ -670,8 +674,9 @@ public class MCS51 implements MCS51Constants
 	{
 		if (interruptList.indexOf(source) == -1)
 		{
-			while (desc.length() < 16)
+			while (desc.length() < 16){
 				desc += " ";
+                        }
 			interruptStatistics.add(new InterruptStatistic(source,desc+" AT 0x"+Hex.bin2word(source.getInterruptVector())));
 			interruptList.add(source);
 		}
@@ -725,39 +730,41 @@ public class MCS51 implements MCS51Constants
 		peripherals.add(c);
 	}
 
-
-	
 	public MCS51Peripheral getPeripheralAt(int i)
 	{
 		return peripherals.get(i);
 	}
 
-
 	static private  void arithmetic(ArithmeticOperation op,int basecode,String name)
 	{
 		// XXX A,Ri
-		for (int i = 0 ; i < 8 ; i++)
-			setOpcode(new Arithmetic(basecode|0x08|i,1,op,name)
+		for (int i = 0 ; i < 8 ; i++){
+			setOpcode(new Arithmetic(basecode|0x08|i, 1, op, name)
 			{
-				public int getValue(MCS51 cpu,int pc)
+                                @Override
+				public int getValue(CPU cpu, int pc)
 				{
 					return cpu.r((int)(opcode & 7));
 				}
 
+                                @Override
 				public String toString()
 				{
-					return description+"\tA,R"+(opcode & 7);
+					return description + "\tA,R" + (opcode & 7);
 				}
 			});
+                }
 
 		// XXX A,direct
 		setOpcode(new Arithmetic(basecode|5,2,op,name)
 		{
-			public int getValue(MCS51 cpu,int pc)
+                        @Override
+			public int getValue(CPU cpu, int pc)
 			{
 				return cpu.getDirectCODE(pc+1);
 			}
 
+                        @Override
 			public String toString()
 			{
 				return description+"\tA,DIRECT";
@@ -769,7 +776,7 @@ public class MCS51 implements MCS51Constants
 		{
 			setOpcode(new Arithmetic(basecode|6|i,1,op,name)
 			{
-				public int getValue(MCS51 cpu,int pc)
+				public int getValue(CPU cpu,int pc)
 				{
 					return cpu.idata(cpu.r((int)(opcode & 1)));
 				}
@@ -785,7 +792,7 @@ public class MCS51 implements MCS51Constants
 		// XXX A,#data
 		setOpcode(new Arithmetic(basecode|4,2,op,name)
 		{
-			public int getValue(MCS51 cpu,int pc)
+			public int getValue(CPU cpu,int pc)
 			{
 				return cpu.code(pc+1);
 			}
@@ -798,16 +805,15 @@ public class MCS51 implements MCS51Constants
 
 	}
 	
-	static private void setOpcode(MCS51Opcode o)
+	static private void setOpcode(Opcode o)
 	{
 		setOpcode(o.getOpcode(),o);
 	}
 	
-	static private void setOpcode(int i,MCS51Opcode o)
+	static private void setOpcode(int i, Opcode o)
 	{
 		if (opcodes[i] != null)
 		{
-			
 			System.out.println("Error "+Integer.toHexString(i)+" "+opcodes[i]+" e "+o);
 			System.exit(1);
 		}
@@ -821,10 +827,11 @@ public class MCS51 implements MCS51Constants
 
 	public String getDirectName(int add)
 	{
-		if (add >= 128)
+		if (add >= 128){
 			return getSfrName(add);
-		else
+                } else {
 			return getIdataName(add);
+                }
 
 	}
 
@@ -884,9 +891,7 @@ public class MCS51 implements MCS51Constants
 		if (add < 128)
 		{
 			add = 0x20 + add / 8 ;
-		}
-		else
-		{
+		} else {
 			add = add & 0xf8;
 		}
 
@@ -901,12 +906,12 @@ public class MCS51 implements MCS51Constants
 	/**
 	 * Set the internal address of one bit
 	 */
-	public final void setSfrBitmap(int i,int add)
+	public final void setSfrBitmap(int i, int add)
 	{
 		sfrBitmap[i] = add;
 	}
 	
-	public final boolean getBit(int add)
+	public boolean getBit(int add)
 	{
 		int value;
 	
@@ -934,22 +939,22 @@ public class MCS51 implements MCS51Constants
 	}
 
 	
-	public final int sp()
+	public int sp()
 	{
 		return sfr(SP);
 	}
 
-	public final void sp(int value)
+	public void sp(int value)
 	{
 		sfr(SP,value);
 	}
 	
-	public final int pc()
+	public int pc()
 	{
 		return pc;
 	}
 	
-	public final void pc(int value)
+	public void pc(int value)
 	{
 		this.pc = value & 0xffff;
 	}
@@ -993,20 +998,19 @@ public class MCS51 implements MCS51Constants
 	}
 
 
-
 	/**
 	 * Set one regiter.
 	 *
 	 * @param r - Register to set (0-7)
 	 * @param value - Value to assign to the register.
 	 */
-	public final void r(int r,int value)
+	public void r(int r,int value)
 	{
 		idata(regPtr+r,value);
 	}
 
 	
-	public final int r(int r)
+	public int r(int r)
 	{
 		return idata(regPtr+r);
 	}
@@ -1060,7 +1064,7 @@ public class MCS51 implements MCS51Constants
 					
 	}
 
-	public final boolean cy()
+	public boolean cy()
 	{
 		return ((psw() & PSW_CY) != 0);
 	}
@@ -1147,7 +1151,7 @@ public class MCS51 implements MCS51Constants
 	/**
 	 * Set Code name
 	 */
-	public void setCodeName(int i,String name)
+	public void setCodeName(int i, String name)
 	{
 		codeNames[i] = name;
 	}
@@ -1162,7 +1166,7 @@ public class MCS51 implements MCS51Constants
 	 *
 	 * @version 1.01
 	 */
-	public void setSfrName(int reg,String name)
+	public void setSfrName(int reg, String name)
 	{
 		sfrCurrent.setName(reg,name);
 	}
@@ -1238,10 +1242,9 @@ public class MCS51 implements MCS51Constants
 			sfrPage = page;
 
 			return current;
-		}
-		else
+		} else {
 			return page;
-				
+                }
 	}
 	
 	public final SfrRegister getSfr(int sfr)
@@ -1249,7 +1252,8 @@ public class MCS51 implements MCS51Constants
 		return sfrCurrent.getReg(sfr);
 	}
 
-	public final int sfr(int add)
+        @Override
+	public int sfr(int add)
 	{
 		return sfrCurrent.read(add);
 	}
@@ -1323,26 +1327,31 @@ public class MCS51 implements MCS51Constants
 		log.info("Begin Reset");
 		setSfrPage(0);
 		
-		for (int i = 0 ;i < executionCounter.length ; i++)
+		for (int i = 0 ;i < executionCounter.length ; i++){
 			executionCounter[i] = 0;
+                }
 		
 		// Reset opcode counter
-		for (int i = 0 ; i < 256 ; i++)
+		for (int i = 0 ; i < 256 ; i++){
 			opcodesCounter[i] = 0;
+                }
 		
 		// Clear Xdata area
-		for (int i = 0 ; i < xdata.length ; i++)
+		for (int i = 0 ; i < xdata.length ; i++){
 			xdata(i,0);
+                }
 
 		// Clear idata area
-		for (int i = 0 ; i < idata.length ; i++)
+		for (int i = 0 ; i < idata.length ; i++){
 			idata(i,0);
+                }
 
 		// Set default SFR
 		sfrCurrent.setWriteListener(false);
 				
-		for (int i = 0 ; i < 256 ; i++)
+		for (int i = 0 ; i < 256 ; i++){
 			sfr(i,0);
+                }
 		sfrCurrent.setWriteListener(true);
 
 
@@ -1358,16 +1367,17 @@ public class MCS51 implements MCS51Constants
 		currentDptr = 0;
 
 		// Clear all DPTR
-		for (int i = 0 ; i < dptrs.length ; i ++)
+		for (int i = 0 ; i < dptrs.length ; i ++){
 			dptrs[i] = 0;
+                }
 
 		// Call all listener
-		for (int i = 0 ; i < resetListeners.size(); i++)
+		for (int i = 0 ; i < resetListeners.size(); i++){
 			resetListeners.get(i).reset(this);
+                }
 
 		log.info("End Reset");
 
-		
 	}
 
 	/**
@@ -1375,8 +1385,9 @@ public class MCS51 implements MCS51Constants
 	 */
 	public void swapDptr(int n)
 	{
-		if (n >= dptrs.length)
+		if (n >= dptrs.length){
 			n = dptrs.length - 1;
+                }
 		
 		if (n != currentDptr)
 		{
@@ -1390,18 +1401,20 @@ public class MCS51 implements MCS51Constants
 	/**
 	 * Pop a word (16 bit from the stack
 	 */
-	public final int popw() throws Exception
+	public int popw() throws Exception
 	{
 		int sp = sfr(SP);
 		int value = idata(sp) << 8;
 		
-		if (--sp < 0)
-			throw new Exception("Stack underflow at "+Hex.bin2word(pc));
+		if (--sp < 0){
+			throw new Exception("Stack underflow at " + Hex.bin2word(pc));
+                }
 		value |= idata(sp);
 		
-		if (--sp < 0)
-			throw new Exception("Stack underflow at "+Hex.bin2word(pc));
-		sfr(SP,sp);
+		if (--sp < 0){
+			throw new Exception("Stack underflow at " + Hex.bin2word(pc));
+                }
+		sfr(SP, sp);
 
 		return value;
 		
@@ -1413,34 +1426,39 @@ public class MCS51 implements MCS51Constants
 	 *
 	 * @return the value 'popped'
 	 */
-	public final int pop() throws Exception
+	public int pop() throws Exception
 	{
 		int sp = sfr(SP);
 		int value = idata(sp);
-		if (--sp < 0)
-			throw new Exception("Stack underflow at "+Hex.bin2word(pc));
-		sfr(SP,sp);
+		if (--sp < 0){
+			throw new Exception("Stack underflow at " + Hex.bin2word(pc));
+                }
+		sfr(SP, sp);
 		
 		return value;
 	}
 
-	public final void pushw(int value) throws Exception
+        @Override
+	public void pushw(int value) throws Exception
 	{
 		int sp = sfr(SP);
-		if (++sp > 255)
+		if (++sp > 255){
 			throw new Exception("Stack overflow at "+Hex.bin2word(pc));
+                }
 		idata(sp,value);
-		if (++sp > 255)
+		if (++sp > 255){
 			throw new Exception("Stack overflow at "+Hex.bin2word(pc));
+                }
 		idata(sp,value >> 8);
 		sfr(SP,sp);
 	}
 	
-	public final void push(int value) throws Exception
+	public void push(int value) throws Exception
 	{
 		int sp = sfr(SP);
-		if (++sp > 255)
+		if (++sp > 255){
 			throw new Exception("Stack overflow at "+Hex.bin2word(pc));
+                }
 		idata(sp,value);
 		sfr(SP,sp);
 	}
@@ -1482,7 +1500,7 @@ public class MCS51 implements MCS51Constants
 		// Cycle for ms
 		int cyclems = (oscillator * running) / 1000;
 
-		for (;;)
+		while (true)
 		{
 			// Run running ms
 			int cycle = cyclems;
@@ -1490,16 +1508,17 @@ public class MCS51 implements MCS51Constants
 
 			do
 			{
-				count = _step();
+				count = execute();
 				clock += count;
 				cycle -= count;
 
 				if (breakPoint[pc])
 				{
-					if (pc == limit)
+					if (pc == limit){
 						breakPoint[limit] = false;
+                                        }
 					
-					throw new InterruptedException("Break point at "+Hex.bin2word(pc));
+					throw new InterruptedException("Break point at " + Hex.bin2word(pc));
 				}
 			} while (cycle > 0);
 
@@ -1548,7 +1567,7 @@ public class MCS51 implements MCS51Constants
 
 	public void pass() throws Exception
 	{
-		MCS51Opcode o = opcodes[code(pc)];
+		Opcode o = opcodes[code(pc)];
 		int newPc = pc + o.getLength();
 		go(newPc);
 
@@ -1564,7 +1583,7 @@ public class MCS51 implements MCS51Constants
 	 */
 	private final void checkRunQueue()
 	{
-		if (runQueue.size() > 0)
+		if (runQueue.size() > 0){
 			synchronized (runQueue)
 			{
 
@@ -1575,14 +1594,13 @@ public class MCS51 implements MCS51Constants
 				runQueue.clear();
 
 			}
-
-		
+                }
 	}
 
-	public  final int step() throws Exception
+	public int step() throws Exception
 	{
 		checkRunQueue();
-		int count = _step();
+		int count = execute();
 		clock += count;
 		return count;
 	}
@@ -1592,15 +1610,14 @@ public class MCS51 implements MCS51Constants
 	 *
 	 * @return The number of cycle machine elapsed.
 	 */
-	public  final int _step() throws Exception
+	public int execute() throws Exception
 	{
 		int i;
 
 		/**
 		 * Check interrupt request
 		 */
-		if (currentInterrupt == null && ie && interruptRequest.size() > 0)
-		{
+		if (currentInterrupt == null && ie && interruptRequest.size() > 0){
 			currentInterrupt = interruptRequest.get(0);
 			interruptRequest.remove(0);
 			
@@ -1614,20 +1631,21 @@ public class MCS51 implements MCS51Constants
 		executionCounter[pc] ++;
 		
 		int oldPc = pc;
-		int c = code.getCode(oldPc,false);
+		int c = code.getCode(oldPc, false);
 		opcodesCounter[c] ++;
-		MCS51Opcode o = opcodes[c];
+		Opcode o = opcodes[c];
 		int cycle = o.getCycle();
 		
 		pc = pc + o.getLength();
 		//log.fine("EXEC "+getDecodeAt(oldPc));
 			   
-		o.exec(this,oldPc);
+		o.exec(this, oldPc);
 
 		
 		// Check machine cycle pollers
-		for ( i = machineListeners.size()  ; --i >= 0 ;)
+		for ( i = machineListeners.size()  ; --i >= 0 ;){
 			machineListeners.get(i).cycles(cycle);
+                }
 
 		// Check async timers
 		while (asyncTimers.size() > 0)
@@ -1646,11 +1664,10 @@ public class MCS51 implements MCS51Constants
 					AsyncTimerListener l = (AsyncTimerListener)a.get(i);
 					l.expired(this);
 				}
-			}
-			else
+			} else {
 				break;
+                        }
 		}
-
 		
 		return cycle * machineCycle;
 	}
@@ -1673,20 +1690,20 @@ public class MCS51 implements MCS51Constants
 
 	public String getDecodeAt(int pc)
 	{
-		MCS51Opcode o = opcodes[code(pc)];
+		Opcode o = opcodes[code(pc)];
 		return o.decode(this,pc);
 
 	}
 	
 	public String getDescriptionAt(int pc)
 	{
-		MCS51Opcode o = opcodes[code(pc)];
+		Opcode o = opcodes[code(pc)];
 		return o.getDescription();
 	}
 
 	public int getLengthAt(int pc)
 	{
-		MCS51Opcode o = opcodes[code(pc)];
+		Opcode o = opcodes[code(pc)];
 		return o.getLength();
 	}
 	
@@ -1695,7 +1712,7 @@ public class MCS51 implements MCS51Constants
 	{
 		if (oscillator != this.oscillator)
 		{
-			log.info("Set oscillator "+oscillator);
+			log.log(Level.INFO, "Set oscillator {0}", oscillator);
 			this.oscillator = oscillator;
 		}
 	}
@@ -1735,28 +1752,28 @@ public class MCS51 implements MCS51Constants
 }
 
 
-class RESERVED extends AbstractMCS51Opcode
+class RESERVED extends AbstractOpcode
 {
 	RESERVED()
 	{
 		super(0xa5,1,1,"RESERVED");
 	}
 
-	public void exec(MCS51 cpu,int pc) throws Exception
+	public void exec(CPU cpu, int pc) throws Exception
 	{
 		throw new Exception("Invalid opcode : A5");
 	}
 
 }
 
-class ANL_DIRECT_A extends AbstractMCS51Opcode
+class ANL_DIRECT_A extends AbstractOpcode
 {
 	ANL_DIRECT_A()
 	{
 		super(0x52,2,1,"ANL");
 	}
 
-	public void exec(MCS51 cpu,int pc)
+	public void exec(CPU cpu,int pc)
 	{
 		int add = cpu.code(pc+1);
 		cpu.setDirect(add,cpu.getDirect(add) & cpu.acc());
@@ -1768,14 +1785,14 @@ class ANL_DIRECT_A extends AbstractMCS51Opcode
 	}
 }
 
-class ANL_DIRECT_DATA extends AbstractMCS51Opcode
+class ANL_DIRECT_DATA extends AbstractOpcode
 {
 	ANL_DIRECT_DATA()
 	{
 		super(0x53,3,2,"ANL");
 	}
 
-	public void exec(MCS51 cpu,int pc)
+	public void exec(CPU cpu,int pc)
 	{
 		int add = cpu.code(pc+1);
 		cpu.setDirect(add,(int)(cpu.getDirect(add) & cpu.code(pc+2)));
@@ -1788,21 +1805,21 @@ class ANL_DIRECT_DATA extends AbstractMCS51Opcode
 
 }
 
-class XRL_DIRECT_A extends AbstractMCS51Opcode
+class XRL_DIRECT_A extends AbstractOpcode
 {
 	XRL_DIRECT_A()
 	{
 		super(0x62,2,1,"XRL");
 	}
 
-	public void exec(MCS51 cpu,int pc)
+	public void exec(CPU cpu,int pc)
 	{
 		int add = cpu.code(pc+1);
 		cpu.setDirect(add,(int)(cpu.getDirect(add) ^ cpu.acc()));
 	}
 }
 
-class XRL_DIRECT_DATA extends AbstractMCS51Opcode
+class XRL_DIRECT_DATA extends AbstractOpcode
 {
 	XRL_DIRECT_DATA()
 	{
@@ -1810,49 +1827,49 @@ class XRL_DIRECT_DATA extends AbstractMCS51Opcode
 	}
 
 	
-	public void exec(MCS51 cpu,int pc)
+	public void exec(CPU cpu,int pc)
 	{
 		int add = cpu.code(pc+1);
 		cpu.setDirect(add,(int)(cpu.getDirect(add) ^ cpu.code(pc+2)));
 	}
 }
 
-class ORL_DIRECT_A extends AbstractMCS51Opcode
+class ORL_DIRECT_A extends AbstractOpcode
 {
 	ORL_DIRECT_A()
 	{
 		super(0x42,2,1,"ORL\tDIRECT,A");
 	}
 
-	public void exec(MCS51 cpu,int pc)
+	public void exec(CPU cpu,int pc)
 	{
 		int add = cpu.code(pc+1);
 		cpu.setDirect(add,(int)(cpu.getDirect(add) | cpu.acc()));
 	}
 }
 
-class ORL_DIRECT_DATA extends AbstractMCS51Opcode
+class ORL_DIRECT_DATA extends AbstractOpcode
 {
 	ORL_DIRECT_DATA()
 	{
 		super(0x43,3,2,"ORL\tDIRECT,#DATA8");
 	}
 
-	public void exec(MCS51 cpu,int pc)
+	public void exec(CPU cpu,int pc)
 	{
 		int add = cpu.code(pc+1);
 		cpu.setDirect(add,(int)(cpu.getDirect(add) | cpu.code(pc+2)));
 	}
 }
 
-class ANL_C_DIRECT extends AbstractMCS51Opcode
+class ANL_C_DIRECT extends AbstractOpcode
 {
 	ANL_C_DIRECT()
 	{
 		super(0x82,2,2,"ANL");
 	}
 
-	public void exec(MCS51 cpu,int pc)
+	public void exec(CPU cpu,int pc)
 	{
 		cpu.cy(cpu.getBit(cpu.code(pc+1)) & cpu.cy());
 		
@@ -1865,14 +1882,14 @@ class ANL_C_DIRECT extends AbstractMCS51Opcode
 }
 
 
-class ANL_C_NOT_DIRECT extends AbstractMCS51Opcode
+class ANL_C_NOT_DIRECT extends AbstractOpcode
 {
 	ANL_C_NOT_DIRECT()
 	{
 		super(0xb0,2,2,"ANL");
 	}
 
-	public void exec(MCS51 cpu,int pc)
+	public void exec(CPU cpu,int pc)
 	{
 		cpu.cy(!(cpu.getBit(cpu.code(pc+1)) & cpu.cy()));
 	}
@@ -1884,7 +1901,7 @@ class ANL_C_NOT_DIRECT extends AbstractMCS51Opcode
 
 }
 
-abstract class JR extends AbstractMCS51Opcode
+abstract class JR extends AbstractOpcode
 {
 	
 	
@@ -1893,7 +1910,7 @@ abstract class JR extends AbstractMCS51Opcode
 		super(opcode,len,cycle,desc);
 	}
 
-	protected final void jr(MCS51 cpu,int pc,int offset)
+	protected final void jr(CPU cpu,int pc,int offset)
 	{
 		pc = pc + length;
 
@@ -1914,7 +1931,7 @@ class SJMP extends JR
 		super(0x80,2,2,"SJMP\t#OFFSET");
 	}
 
-	public final void exec(MCS51 cpu,int pc)
+	public final void exec(CPU cpu,int pc)
 	{
 		jr(cpu,pc,cpu.code(pc+1));
 	}
@@ -1927,20 +1944,19 @@ abstract class CJNE extends JR
 		super(opcode,len,cycle,desc);
 	}
 
-	protected final void cjne(MCS51 cpu,int pc,int op1,int op2,int offset)
+	protected final void cjne(CPU cpu,int pc,int op1,int op2,int offset)
 	{
 		
 		if (op1 < op2)
 		{
 			cpu.cy(true);
-		}
-		else
-		{
+		} else {
 			cpu.cy(false);
 		}
 
-		if (op1 != op2)
+		if (op1 != op2){
 			jr(cpu,pc,offset);
+                }
 	}
 
 
@@ -1953,9 +1969,9 @@ class CJNE_A_DIRECT extends CJNE
 		super(0xb5,3,2,"CJNE\tA,DIRECT,#OFFSET");
 	}
 
-	public void exec(MCS51 cpu,int pc)
+	public void exec(CPU cpu, int pc)
 	{
-		cjne(cpu,pc,cpu.acc(),cpu.getDirectCODE(pc+1),cpu.code(pc+2));
+		cjne(cpu, pc, cpu.acc(), cpu.getDirectCODE(pc + 1), cpu.code(pc + 2));
 	}
 }
 
@@ -1966,7 +1982,7 @@ class CJNE_A_DATA extends CJNE
 		super(0xb4,3,2,"CJNE\tA,#DATA8,#OFFSET");
 	}
 
-	public void exec(MCS51 cpu,int pc)
+	public void exec(CPU cpu,int pc)
 	{
 		cjne(cpu,pc,cpu.acc(),cpu.code(pc+1),cpu.code(pc+2));
 	}
@@ -1979,7 +1995,7 @@ class CJNE_R_DATA extends CJNE
 		super(0xb8+r,3,2,"CJNE");
 	}
 
-	public void exec(MCS51 cpu,int pc)
+	public void exec(CPU cpu,int pc)
 	{
 		cjne(cpu,pc,cpu.r((int)(opcode & 7)),cpu.code(pc+1),cpu.code(pc+2));
 	}
@@ -1997,114 +2013,115 @@ class CJNE_RI_DATA extends CJNE
 		super(0xb6+r,3,2,"CJNE");
 	}
 
-	public void exec(MCS51 cpu,int pc)
+	public void exec(CPU cpu,int pc)
 	{
-		cjne(cpu,pc,cpu.idata(cpu.r((int)(opcode & 1))),cpu.code(pc+1),cpu.code(pc+2));
+		cjne(cpu, pc, cpu.idata(cpu.r((int)(opcode & 1))), cpu.code(pc + 1), cpu.code(pc + 2));
 	}
 
 	public String toString()
 	{
-		return description+"\t@R"+(opcode & 1)+",#DATA8,#OFFSET";
+		return description + "\t@R" + (opcode & 1) + ",#DATA8,#OFFSET";
 	}
 
 }
 
-class CLR_A extends AbstractMCS51Opcode
+class CLR_A extends AbstractOpcode
 {
 	public CLR_A()
 	{
-		super(0xe4,1,1,"CLR\tA");
+		super(0xe4, 1, 1, "CLR\tA");
 	}
 
-	public void exec(MCS51 cpu,int pc)
+	public void exec(CPU cpu, int pc)
 	{
 		cpu.acc((int)0);
 	}
 }
 
-class CLR_C extends AbstractMCS51Opcode
+class CLR_C extends AbstractOpcode
 {
 	public CLR_C()
 	{
-		super(0xc3,1,1,"CLR\tC");
+		super(0xc3, 1, 1, "CLR\tC");
 	}
 
-	public void exec(MCS51 cpu,int pc)
+	public void exec(CPU cpu, int pc)
 	{
 		cpu.cy(false);
 	}
 }
 
-class CLR_BIT extends AbstractMCS51Opcode
+class CLR_BIT extends AbstractOpcode
 {
 	public CLR_BIT()
 	{
 		super(0xc2,2,1,"CLR\t#BIT");
 	}
 
-	public void exec(MCS51 cpu,int pc)
+	public void exec(CPU cpu,int pc)
 	{
-		cpu.setBit(cpu.code(pc+1),false);
+		cpu.setBit(cpu.code(pc + 1), false);
 	}
 }
 
-class CPL_A extends AbstractMCS51Opcode
+class CPL_A extends AbstractOpcode
 {
 	public CPL_A()
 	{
 		super(0xf4,1,1,"CPL\tA");
 	}
 
-	public void exec(MCS51 cpu,int pc)
+	public void exec(CPU cpu,int pc)
 	{
 		cpu.acc((int)~cpu.acc());
 	}
 }
 
 
-class CPL_C extends AbstractMCS51Opcode
+class CPL_C extends AbstractOpcode
 {
 	public CPL_C()
 	{
 		super(0xb3,1,1,"CPL\tC");
 	}
 
-	public void exec(MCS51 cpu,int pc)
+	public void exec(CPU cpu,int pc)
 	{
 		cpu.cy(!cpu.cy());
 	}
 }
 
-class CPL_BIT extends AbstractMCS51Opcode
+class CPL_BIT extends AbstractOpcode
 {
 	public CPL_BIT()
 	{
 		super(0xb2,2,1,"CPL\t#BIT");
 	}
 
-	public void exec(MCS51 cpu,int pc)
+	public void exec(CPU cpu,int pc)
 	{
 		int bit = cpu.code(pc+1);
-		cpu.setBit(bit,!cpu.getBit(bit));
+		cpu.setBit(bit, !cpu.getBit(bit));
 	}
 }
 
-class DA_A extends AbstractMCS51Opcode
+class DA_A extends AbstractOpcode
 {
 	public DA_A()
 	{
 		super(0xd4,1,1,"DA\tA");
 	}
 
-	public void exec(MCS51 cpu,int pc)
+	public void exec(CPU cpu,int pc)
 	{
 		int a = cpu.acc();
 
 		if ((a & 0x0f)	> 9 || cpu.ac())
 		{
 			a += 6;
-			if ((a & 0xf0) != (cpu.acc() & 0xf0))
+			if ((a & 0xf0) != (cpu.acc() & 0xf0)){
 				cpu.cy(true);
+                        }
 		}
 
 		if ((a & 0xf0) > 0x90 || cpu.cy())
@@ -2119,14 +2136,14 @@ class DA_A extends AbstractMCS51Opcode
 	
 }
 
-class XCH_A_R extends AbstractMCS51Opcode
+class XCH_A_R extends AbstractOpcode
 {
 	public XCH_A_R(int r)
 	{
 		super(0xc8|r,1,1,"XCH");
 	}
 
-	public void exec(MCS51 cpu,int pc)
+	public void exec(CPU cpu,int pc)
 	{
 		int r = (int)(opcode & 7);
 		int tmp = cpu.acc();
@@ -2136,41 +2153,41 @@ class XCH_A_R extends AbstractMCS51Opcode
 
 	public String toString()
 	{
-		return description+"\tA,R"+(opcode & 7);
+		return description + "\tA,R" + (opcode & 7);
 	}
 
 }
 
-class XCH_A_RI extends AbstractMCS51Opcode
+class XCH_A_RI extends AbstractOpcode
 {
 	public XCH_A_RI(int r)
 	{
 		super(0xc6|r,1,1,"XCH");
 	}
 
-	public void exec(MCS51 cpu,int pc)
+	public void exec(CPU cpu, int pc)
 	{
 		int r = cpu.r((int)(opcode & 1));
 		int tmp = cpu.acc();
 		cpu.acc(cpu.idata(r));
-		cpu.idata(r,tmp);
+		cpu.idata(r, tmp);
 	}
 
 	public String toString()
 	{
-		return description+"\tA,@R"+(opcode & 1);
+		return description + "\tA,@R" + (opcode & 1);
 	}
 
 }
 
-class XCHD_A_RI extends AbstractMCS51Opcode
+class XCHD_A_RI extends AbstractOpcode
 {
 	public XCHD_A_RI(int r)
 	{
 		super(0xd6|r,1,1,"XCHD");
 	}
 
-	public void exec(MCS51 cpu,int pc)
+	public void exec(CPU cpu,int pc)
 	{
 		int r = cpu.r((int)(opcode & 1));
 		int tmp = cpu.acc();
@@ -2186,14 +2203,14 @@ class XCHD_A_RI extends AbstractMCS51Opcode
 }
 
 
-class XCH_A_DIRECT extends AbstractMCS51Opcode
+class XCH_A_DIRECT extends AbstractOpcode
 {
 	public XCH_A_DIRECT()
 	{
 		super(0xc5,2,1,"XCH\tA,DIRECT");
 	}
 
-	public void exec(MCS51 cpu,int pc)
+	public void exec(CPU cpu,int pc)
 	{
 		int add = cpu.code(pc+1);
 		int tmp = cpu.acc();
@@ -2203,14 +2220,14 @@ class XCH_A_DIRECT extends AbstractMCS51Opcode
 
 }
 
-class SWAP_A extends AbstractMCS51Opcode
+class SWAP_A extends AbstractOpcode
 {
 	public SWAP_A()
 	{
 		super(0xc4,1,1,"SWAP\tA");
 	}
 
-	public void exec(MCS51 cpu,int pc)
+	public void exec(CPU cpu,int pc)
 	{
 		int a = cpu.acc();
 		cpu.acc((int)((a >> 4) & 0x0f | (a << 4)));
@@ -2218,28 +2235,28 @@ class SWAP_A extends AbstractMCS51Opcode
 
 }
 
-class DEC_A extends AbstractMCS51Opcode
+class DEC_A extends AbstractOpcode
 {
 	public DEC_A()
 	{
 		super(0x14,1,1,"DEC\tA");
 	}
 	
-	public void exec(MCS51 cpu,int pc)
+	public void exec(CPU cpu,int pc)
 	{
 		cpu.acc((int)(cpu.acc() - 1));
 	}
 	
 }
 
-class DEC_R extends AbstractMCS51Opcode
+class DEC_R extends AbstractOpcode
 {
 	public DEC_R(int r)
 	{
 		super(0x18|r,1,1,"DEC");
 	}
 
-	public void exec(MCS51 cpu,int pc)
+	public void exec(CPU cpu,int pc)
 	{
 		int r = (int)(opcode & 7);
 		cpu.r(r,(int)(cpu.r(r) - 1));
@@ -2251,14 +2268,14 @@ class DEC_R extends AbstractMCS51Opcode
 	}
 }
 
-class DEC_RI extends AbstractMCS51Opcode
+class DEC_RI extends AbstractOpcode
 {
 	public DEC_RI(int r)
 	{
 		super(0x16|r,1,1,"DEC");
 	}
 
-	public void exec(MCS51 cpu,int pc)
+	public void exec(CPU cpu,int pc)
 	{
 		int address = cpu.r((int)(opcode & 1));
 		cpu.idata(address,cpu.idata(address ) -1 );
@@ -2271,14 +2288,14 @@ class DEC_RI extends AbstractMCS51Opcode
 
 }
 
-class DEC_DIRECT extends AbstractMCS51Opcode
+class DEC_DIRECT extends AbstractOpcode
 {
 	public DEC_DIRECT()
 	{
 		super(0x15,2,1,"DEC\tDIRECT");
 	}
 
-	public void exec(MCS51 cpu,int pc)
+	public void exec(CPU cpu,int pc)
 	{
 		int direct = cpu.code(pc+1);
 		cpu.setDirect(direct,(int)(cpu.getDirect(direct) - 1));
@@ -2286,14 +2303,14 @@ class DEC_DIRECT extends AbstractMCS51Opcode
 
 }
 
-class DIV_AB extends AbstractMCS51Opcode
+class DIV_AB extends AbstractOpcode
 {
 	public DIV_AB()
 	{
 		super(0x84,1,4,"DIV\tAB");
 	}
 
-	public void exec(MCS51 cpu,int pc)
+	public void exec(CPU cpu,int pc)
 	{
 		int a,b;
 
@@ -2307,21 +2324,21 @@ class DIV_AB extends AbstractMCS51Opcode
 	}
 }
 
-class MUL_AB extends AbstractMCS51Opcode
+class MUL_AB extends AbstractOpcode
 {
 	public MUL_AB()
 	{
 		super(0xa4,1,4,"MUL\tAB");
 	}
 
-	public void exec(MCS51 cpu,int pc)
+	public void exec(CPU cpu,int pc)
 	{
 		int value = cpu.acc() * cpu.b();
 
 		cpu.b((int)(value >> 8));
 		cpu.acc((int)value);
 		cpu.cy();
-		cpu.ov(value > 255 ? true : false);
+		cpu.ov((value > 255));
 	}
 }
 
@@ -2347,12 +2364,12 @@ class DJNZ_R extends DJNZ
 		super(0xd8|r,2,2,"DJNZ");
 	}
 
-	public void exec(MCS51 cpu,int pc)
+	public void exec(CPU cpu,int pc)
 	{
 		int r = (int)(opcode & 7);
 		int value = (int)(cpu.r(r) - 1);
 		cpu.r(r,value);
-		jnz(cpu,pc,value);
+		jnz((MCS51) cpu,pc,value);
 	}
 
 	public String toString()
@@ -2369,37 +2386,37 @@ class DJNZ_DIRECT extends DJNZ
 		super(0xd5,3,2,"DJNZ\tDIRECT,#OFFSET");
 	}
 
-	public void exec(MCS51 cpu,int pc)
+	public void exec(CPU cpu,int pc)
 	{
 		int address = cpu.code(pc+1);
 		int value = cpu.getDirect(address) - 1;
 		cpu.setDirect(address,value);
-		jnz(cpu,pc,value);
+		jnz((MCS51) cpu, pc, value);
 	}
 }
 
-class INC_A extends AbstractMCS51Opcode
+class INC_A extends AbstractOpcode
 {
 	INC_A()
 	{
 		super(4,1,1,"INC\tA");
 	}
 
-	public void exec(MCS51 cpu,int pc)
+	public void exec(CPU cpu,int pc)
 	{
 		cpu.acc((int)(cpu.acc()+1));
 	}
 	
 }
 
-class INC_R extends AbstractMCS51Opcode
+class INC_R extends AbstractOpcode
 {
 	INC_R(int r)
 	{
 		super(8|r,1,1,"INC");
 	}
 
-	public void exec(MCS51 cpu,int pc)
+	public void exec(CPU cpu,int pc)
 	{
 		int r = (int)(opcode & 7);
 		cpu.r(r,(int)(cpu.r(r)+1));
@@ -2412,14 +2429,14 @@ class INC_R extends AbstractMCS51Opcode
 
 }
 
-class INC_RI extends AbstractMCS51Opcode
+class INC_RI extends AbstractOpcode
 {
 	INC_RI(int r)
 	{
 		super(6|r,1,1,"INC");
 	}
 
-	public void exec(MCS51 cpu,int pc)
+	public void exec(CPU cpu,int pc)
 	{
 		int i = cpu.r((int)(opcode & 1));
 		cpu.setDirect(i,(int)(cpu.getDirect(i) + 1));
@@ -2432,14 +2449,14 @@ class INC_RI extends AbstractMCS51Opcode
 
 }
 
-class INC_DIRECT extends AbstractMCS51Opcode
+class INC_DIRECT extends AbstractOpcode
 {
 	INC_DIRECT()
 	{
 		super(5,2,1,"INC\tDIRECT");
 	}
 
-	public void exec(MCS51 cpu,int pc)
+	public void exec(CPU cpu,int pc)
 	{
 		int a = cpu.code(pc+1);
 		cpu.setDirect(a,(int)(cpu.getDirect(a)+1));
@@ -2447,14 +2464,14 @@ class INC_DIRECT extends AbstractMCS51Opcode
 
 }
 
-class INC_DPTR extends AbstractMCS51Opcode
+class INC_DPTR extends AbstractOpcode
 {
 	INC_DPTR()
 	{
 		super(0xa3,1,2,"INC\tDPTR");
 	}
 
-	public void exec(MCS51 cpu,int pc)
+	public void exec(CPU cpu,int pc)
 	{
 		cpu.dptr(cpu.dptr()+1);
 	}
@@ -2468,10 +2485,10 @@ class JB extends JR
 		super(0x20,3,2,"JB\t#BIT,#OFFSET");
 	}
 
-	public final void exec(MCS51 cpu,int pc)
+	public final void exec(CPU cpu, int pc)
 	{
-		if (cpu.getBitCODE(pc+1))
-			jr(cpu,pc,cpu.code(pc+2));
+		if (cpu.getBitCODE(pc + 1))
+			jr(cpu, pc, cpu.code(pc + 2));
 	}
 }
 
@@ -2482,7 +2499,7 @@ class JBC extends JR
 		super(0x10,3,2,"JBC\t#BIT,#OFFSET");
 	}
 
-	public final void exec(MCS51 cpu,int pc)
+	public final void exec(CPU cpu,int pc)
 	{
 		int add = cpu.code(pc+1);
 		if (cpu.getBit(add))
@@ -2500,7 +2517,7 @@ class JNB extends JR
 		super(0x30,3,2,"JNB\t#BIT,#OFFSET");
 	}
 
-	public final void exec(MCS51 cpu,int pc)
+	public final void exec(CPU cpu,int pc)
 	{
 		boolean bit = cpu.getBitCODE(pc+1);
 
@@ -2516,10 +2533,11 @@ class JNC extends JR
 		super(0x50,2,2,"JNC\t#OFFSET");
 	}
 
-	public final void exec(MCS51 cpu,int pc)
+	public final void exec(CPU cpu,int pc)
 	{
-		if (!cpu.cy())
+		if (!cpu.cy()){
 			jr(cpu,pc,cpu.code(pc+1));
+                }
 	}
 }
 
@@ -2531,11 +2549,11 @@ class JC extends JR
 		super(0x40,2,2,"JC\t#OFFSET");
 	}
 
-	public final void exec(MCS51 cpu,int pc)
+	public final void exec(CPU cpu,int pc)
 	{
-
-		if (cpu.cy())
+		if (cpu.cy()){
 			jr(cpu,pc,cpu.code(pc+1));
+                }
 	}
 }
 
@@ -2546,7 +2564,7 @@ class JNZ extends JR
 		super(0x70,2,2,"JNZ\t#OFFSET");
 	}
 
-	public final void exec(MCS51 cpu,int pc)
+	public final void exec(CPU cpu,int pc)
 	{
 		if (cpu.acc() != 0)
 			jr(cpu,pc,cpu.code(pc+1));
@@ -2561,7 +2579,7 @@ class JZ extends JR
 		super(0x60,2,2,"JZ\t#OFFSET");
 	}
 
-	public final void exec(MCS51 cpu,int pc)
+	public final void exec(CPU cpu,int pc)
 	{
 		if (cpu.acc() == 0)
 			jr(cpu,pc,cpu.code(pc+1));
@@ -2569,14 +2587,14 @@ class JZ extends JR
 }
 
 
-class JMP_A_DPTR extends AbstractMCS51Opcode
+class JMP_A_DPTR extends AbstractOpcode
 {
 	JMP_A_DPTR()
 	{
 		super(0x73,1,2,"JMP\t@A+DPTR");
 	}
 
-	public final void exec(MCS51 cpu,int pc)
+	public final void exec(CPU cpu,int pc)
 	{
 		cpu.pc(cpu.dptr()+cpu.acc());
 	}
@@ -2585,11 +2603,11 @@ class JMP_A_DPTR extends AbstractMCS51Opcode
    
 interface ArithmeticOperation
 {
-	public void calc(MCS51 cpu,int value);
+	public void calc(CPU cpu,int value);
 }
 
 
-class LCALL extends AbstractMCS51Opcode
+class LCALL extends AbstractOpcode
 {
 	
 	LCALL()
@@ -2597,17 +2615,15 @@ class LCALL extends AbstractMCS51Opcode
 		super(0x12,3,2,"LCALL\t#CODE16");
 	}
 
-	public void exec(MCS51 cpu,int pc) throws Exception
+	public void exec(CPU cpu,int pc) throws Exception
 	{
 		int address = cpu.code16(pc+1);
 		CallListener l = cpu.getCallListener(address);
 
 		if (l != null)
 		{
-			l.call(cpu,address);
-		}
-		else
-		{
+			l.call((MCS51) cpu,address);
+		} else {
 			cpu.pushw(pc+3);
 			cpu.pc(address);
 		}
@@ -2615,30 +2631,30 @@ class LCALL extends AbstractMCS51Opcode
 	
 }
 
-class LJMP extends AbstractMCS51Opcode
+class LJMP extends AbstractOpcode
 {
 	LJMP()
 	{
-		super(0x2,3,2,"LJMP\t#CODE16");
+		super(0x2, 3, 2, "LJMP\t#CODE16");
 	}
 
-	public void exec(MCS51 cpu,int pc)
+	public void exec(CPU cpu, int pc)
 	{
-		cpu.pc(cpu.code16(pc+1));
+		cpu.pc(cpu.code16(pc + 1));
 		//cpu.pc((cpu.code(pc+1) << 8) | cpu.code(pc+2));
 	}
 
 }
 
 
-class MOV_A_R extends AbstractMCS51Opcode
+class MOV_A_R extends AbstractOpcode
 {
 	public MOV_A_R(int r)
 	{
 		super(0xe8|r,1,1,"MOV");
 	}
 
-	public void exec(MCS51 cpu,int pc)
+	public void exec(CPU cpu,int pc)
 	{
 		cpu.acc(cpu.r((int)(opcode & 7)));
 	}
@@ -2650,99 +2666,100 @@ class MOV_A_R extends AbstractMCS51Opcode
 
 }
 
-class MOV_DPTR_DATA16 extends AbstractMCS51Opcode
+class MOV_DPTR_DATA16 extends AbstractOpcode
 {
 	public MOV_DPTR_DATA16()
 	{
 		super(0x90,3,2,"MOV\tDPTR,#DATA16");
 	}
 
-	public void exec(MCS51 cpu,int pc)
+	public void exec(CPU cpu,int pc)
 	{
 		cpu.dptr((cpu.code(pc+1) << 8) | cpu.code(pc+2));
 	}
 }
 
-class POP_DIRECT extends AbstractMCS51Opcode
+class POP_DIRECT extends AbstractOpcode
 {
 	public POP_DIRECT()
 	{
 		super(0xd0,2,2,"POP\tDIRECT");
 	}
 
-	public void exec(MCS51 cpu,int pc) throws Exception
+	public void exec(CPU cpu,int pc) throws Exception
 	{
 		int add = cpu.code(pc+1);
 		cpu.setDirect(add,cpu.pop());
 	}
 }
 
-class PUSH_DIRECT extends AbstractMCS51Opcode
+class PUSH_DIRECT extends AbstractOpcode
 {
 	public PUSH_DIRECT()
 	{
-		super(0xc0,2,2,"PUSH\tDIRECT");
+		super(0xc0, 2, 2, "PUSH\tDIRECT");
 	}
 
-	public void exec(MCS51 cpu,int pc) throws Exception
+	public void exec(CPU cpu, int pc) throws Exception
 	{
-		cpu.push(cpu.getDirectCODE(pc+1));
+		cpu.push(cpu.getDirectCODE(pc + 1));
 	}
 }
 
-class RET extends AbstractMCS51Opcode
+class RET extends AbstractOpcode
 {
 	public RET()
 	{
 		super(0x22,1,2,"RET");
 	}
 
-	public void exec(MCS51 cpu,int pc) throws Exception
+	public void exec(CPU cpu,int pc) throws Exception
 	{
 		cpu.pc(cpu.popw());
 	}
 }
 
-class RETI extends AbstractMCS51Opcode
+class RETI extends AbstractOpcode
 {
 	public RETI()
 	{
 		super(0x32,1,2,"RETI");
 	}
 
-	public void exec(MCS51 cpu,int pc) throws Exception
+	public void exec(CPU cpu,int pc) throws Exception
 	{
 		cpu.pc(cpu.popw());
 		cpu.eoi();
 	}
 }
 
-class RL_A extends AbstractMCS51Opcode
+class RL_A extends AbstractOpcode
 {
 	public RL_A()
 	{
 		super(0x23,1,1,"RL\tA");
 	}
 
-	public void exec(MCS51 cpu,int pc)
+	public void exec(CPU cpu,int pc)
 	{
 		int a = cpu.acc();
 
 		a = a << 1;
-		if ((cpu.acc() & 0x80) != 0)
+		if ((cpu.acc() & 0x80) != 0){
 			a |= 1;
+                }
 		cpu.acc((int)a);
 	}
 }
 
-class RR_A extends AbstractMCS51Opcode
+class RR_A extends AbstractOpcode
 {
 	public RR_A()
 	{
 		super(0x3,1,1,"RR\tA");
 	}
 
-	public void exec(MCS51 cpu,int pc)
+	public void exec(CPU cpu,int pc)
 	{
 		int a = cpu.acc();
 
@@ -2754,47 +2771,48 @@ class RR_A extends AbstractMCS51Opcode
 }
 
 
-class SETB_BIT extends AbstractMCS51Opcode
+class SETB_BIT extends AbstractOpcode
 {
 	public SETB_BIT()
 	{
 		super(0xd2,2,1,"SETB\t#BIT");
 	}
 
-	public void exec(MCS51 cpu,int pc)
+	public void exec(CPU cpu,int pc)
 	{
 		cpu.setBit(cpu.code(pc+1),true);
 	}
 }
 
-class SETB_C extends AbstractMCS51Opcode
+class SETB_C extends AbstractOpcode
 {
 	public SETB_C()
 	{
 		super(0xd3,1,1,"SETB\tC");
 	}
 
-	public void exec(MCS51 cpu,int pc)
+	public void exec(CPU cpu,int pc)
 	{
 		cpu.cy(true);
 	}
 }
 
 
-class RRC_A extends AbstractMCS51Opcode
+class RRC_A extends AbstractOpcode
 {
 	public RRC_A()
 	{
 		super(0x13,1,1,"RRC\tA");
 	}
 
-	public void exec(MCS51 cpu,int pc)
+	public void exec(CPU cpu,int pc)
 	{
 		int a = cpu.acc();
 
 		a = a >> 1;
-		if (cpu.cy())
+		if (cpu.cy()){
 			a |= 0x80;
+                }
 		
 		cpu.cy((cpu.acc() & 1) != 0);
 			
@@ -2803,14 +2821,14 @@ class RRC_A extends AbstractMCS51Opcode
 }
 
 
-class RLC_A extends AbstractMCS51Opcode
+class RLC_A extends AbstractOpcode
 {
 	public RLC_A()
 	{
 		super(0x33,1,1,"RLC\tA");
 	}
 
-	public void exec(MCS51 cpu,int pc)
+	public void exec(CPU cpu,int pc)
 	{
 		int a = cpu.acc();
 
@@ -2823,66 +2841,66 @@ class RLC_A extends AbstractMCS51Opcode
 }
 
 
-class ORL_C_BIT extends AbstractMCS51Opcode
+class ORL_C_BIT extends AbstractOpcode
 {
 	public ORL_C_BIT()
 	{
 		super(0x72,2,2,"ORL\tC,#BIT");
 	}
 
-	public void exec(MCS51 cpu,int pc)
+	public void exec(CPU cpu,int pc)
 	{
 		cpu.cy(cpu.getBitCODE(pc+1)|cpu.cy());
 	}
 }
 
-class ORL_C_NBIT extends AbstractMCS51Opcode
+class ORL_C_NBIT extends AbstractOpcode
 {
 	public ORL_C_NBIT()
 	{
 		super(0xA0,2,2,"ORL\tC,NOT #BIT");
 	}
 
-	public void exec(MCS51 cpu,int pc)
+	public void exec(CPU cpu,int pc)
 	{
 		cpu.cy(cpu.cy() | !cpu.getBitCODE(pc+1));
 	}
 }
 
-class MOV_C_BIT extends AbstractMCS51Opcode
+class MOV_C_BIT extends AbstractOpcode
 {
 	public MOV_C_BIT()
 	{
 		super(0xa2,2,1,"MOV\tC,#BIT");
 	}
 
-	public void exec(MCS51 cpu,int pc)
+	public void exec(CPU cpu,int pc)
 	{
 		cpu.cy(cpu.getBitCODE(pc+1));
 	}
 }
 
-class MOV_BIT_C extends AbstractMCS51Opcode
+class MOV_BIT_C extends AbstractOpcode
 {
 	public MOV_BIT_C()
 	{
 		super(0x92,2,2,"MOV\t#BIT,C");
 	}
 
-	public void exec(MCS51 cpu,int pc)
+	public void exec(CPU cpu,int pc)
 	{
 		cpu.setBit(cpu.code(pc+1),cpu.cy());
 	}
 }
 
-class MOV_RI_A extends AbstractMCS51Opcode
+class MOV_RI_A extends AbstractOpcode
 {
 	public MOV_RI_A(int r)
 	{
 		super(0xf6|r,1,1,"MOV");
 	}
 
-	public void exec(MCS51 cpu,int pc)
+	public void exec(CPU cpu,int pc)
 	{
 		int add = cpu.r((int)(opcode & 1));
 		cpu.idata(add,cpu.acc());
@@ -2895,14 +2913,14 @@ class MOV_RI_A extends AbstractMCS51Opcode
 
 }
 
-class MOV_RI_DIRECT extends AbstractMCS51Opcode
+class MOV_RI_DIRECT extends AbstractOpcode
 {
 	public MOV_RI_DIRECT(int r)
 	{
 		super(0xa6|r,2,2,"MOV");
 	}
 
-	public void exec(MCS51 cpu,int pc)
+	public void exec(CPU cpu,int pc)
 	{
 		int add = cpu.r((int)(opcode & 1));
 		cpu.idata(add,cpu.getDirectCODE(pc+1));
@@ -2915,14 +2933,14 @@ class MOV_RI_DIRECT extends AbstractMCS51Opcode
 
 }
 
-class MOV_RI_DATA extends AbstractMCS51Opcode
+class MOV_RI_DATA extends AbstractOpcode
 {
 	public MOV_RI_DATA(int r)
 	{
 		super(0x76|r,2,1,"MOV");
 	}
 
-	public void exec(MCS51 cpu,int pc)
+	public void exec(CPU cpu,int pc)
 	{
 		int add = cpu.r((int)(opcode & 1));
 		cpu.idata(add,(int)(cpu.code(pc+1)));
@@ -2935,14 +2953,14 @@ class MOV_RI_DATA extends AbstractMCS51Opcode
 
 }
 
-class MOV_R_A extends AbstractMCS51Opcode
+class MOV_R_A extends AbstractOpcode
 {
 	public MOV_R_A(int r)
 	{
 		super(0xf8|r,1,1,"MOV");
 	}
 
-	public void exec(MCS51 cpu,int pc)
+	public void exec(CPU cpu,int pc)
 	{
 		cpu.r((int)(opcode & 7),cpu.acc());
 	}
@@ -2954,14 +2972,14 @@ class MOV_R_A extends AbstractMCS51Opcode
 
 }
 
-class MOV_R_DIRECT extends AbstractMCS51Opcode
+class MOV_R_DIRECT extends AbstractOpcode
 {
 	public MOV_R_DIRECT(int r)
 	{
 		super(0xa8|r,2,2,"MOV");
 	}
 
-	public void exec(MCS51 cpu,int pc)
+	public void exec(CPU cpu,int pc)
 	{
 		cpu.r((int)(opcode & 7),cpu.getDirectCODE(pc+1));
 	}
@@ -2973,14 +2991,14 @@ class MOV_R_DIRECT extends AbstractMCS51Opcode
 
 }
 
-class MOV_DIRECT_R extends AbstractMCS51Opcode
+class MOV_DIRECT_R extends AbstractOpcode
 {
 	public MOV_DIRECT_R(int r)
 	{
 		super(0x88|r,2,2,"MOV");
 	}
 
-	public void exec(MCS51 cpu,int pc)
+	public void exec(CPU cpu,int pc)
 	{
 		int add = cpu.code(pc+1);
 		cpu.setDirect(add,cpu.r((int)(opcode & 7)));
@@ -2993,7 +3011,7 @@ class MOV_DIRECT_R extends AbstractMCS51Opcode
 
 }
 
-class MOV_DIRECT_DATA extends AbstractMCS51Opcode
+class MOV_DIRECT_DATA extends AbstractOpcode
 {
 	private static Logger log = Logger.getLogger(MOV_DIRECT_DATA.class);
 	public MOV_DIRECT_DATA()
@@ -3001,21 +3019,21 @@ class MOV_DIRECT_DATA extends AbstractMCS51Opcode
 		super(0x75,3,2,"MOV\tDIRECT,#DATA8");
 	}
 
-	public void exec(MCS51 cpu,int pc)
+	public void exec(CPU cpu,int pc)
 	{
 		int add = cpu.code(pc+1);
 		cpu.setDirect(add,cpu.code(pc+2));
 	}
 }
 
-class MOV_R_DATA extends AbstractMCS51Opcode
+class MOV_R_DATA extends AbstractOpcode
 {
 	public MOV_R_DATA(int r)
 	{
 		super(0x78|r,2,1,"MOV");
 	}
 
-	public void exec(MCS51 cpu,int pc)
+	public void exec(CPU cpu,int pc)
 	{
 		cpu.r((int)(opcode & 7),cpu.code(pc+1));
 	}
@@ -3027,14 +3045,14 @@ class MOV_R_DATA extends AbstractMCS51Opcode
 
 }
 
-class MOV_A_RI extends AbstractMCS51Opcode
+class MOV_A_RI extends AbstractOpcode
 {
 	public MOV_A_RI(int r)
 	{
 		super(0xe6|r,1,1,"MOV");
 	}
 
-	public void exec(MCS51 cpu,int pc)
+	public void exec(CPU cpu,int pc)
 	{
 		cpu.acc(cpu.idata(cpu.r((int)(opcode & 1))));
 	}
@@ -3046,55 +3064,55 @@ class MOV_A_RI extends AbstractMCS51Opcode
 
 }
 
-class MOV_A_DIRECT extends AbstractMCS51Opcode
+class MOV_A_DIRECT extends AbstractOpcode
 {
 	public MOV_A_DIRECT()
 	{
 		super(0xe5,2,1,"MOV\tA,DIRECT");
 	}
 
-	public final void exec(MCS51 cpu,int pc)
+	public final void exec(CPU cpu,int pc)
 	{
 		cpu.acc(cpu.getDirectCODE(pc+1));
 	}
 }
 
-class MOVC_A_DPTR_A extends AbstractMCS51Opcode
+class MOVC_A_DPTR_A extends AbstractOpcode
 {
 	public MOVC_A_DPTR_A()
 	{
 		super(0x93,1,2,"MOVC\tA,@DPTR+A");
 	}
 
-	public final void exec(MCS51 cpu,int pc)
+	public final void exec(CPU cpu,int pc)
 	{
 		cpu.acc(cpu.code(cpu.dptr()+cpu.acc()));
 	}
 }
 
 
-class MOVX_A_DPTR extends AbstractMCS51Opcode
+class MOVX_A_DPTR extends AbstractOpcode
 {
 	public MOVX_A_DPTR()
 	{
 		super(0xe0,1,2,"MOVX\tA,@DPTR");
 	}
 
-	public final void exec(MCS51 cpu,int pc)
+	public final void exec(CPU cpu,int pc)
 	{
 		cpu.acc(cpu.xdata(cpu.dptr()));
 	}
 }
 
 
-class MOVX_DPTR_A extends AbstractMCS51Opcode
+class MOVX_DPTR_A extends AbstractOpcode
 {
 	public MOVX_DPTR_A()
 	{
 		super(0xf0,1,2,"MOVX\t@DPTR,A");
 	}
 
-	public final void exec(MCS51 cpu,int pc)
+	public final void exec(CPU cpu,int pc)
 	{
 		cpu.xdata(cpu.dptr(),cpu.acc());
 
@@ -3102,32 +3120,33 @@ class MOVX_DPTR_A extends AbstractMCS51Opcode
 }
 
 
-class MOVC_A_PC_A extends AbstractMCS51Opcode
+class MOVC_A_PC_A extends AbstractOpcode
 {
 	public MOVC_A_PC_A()
 	{
 		super(0x83,1,2,"MOVC\tA,@PC+A");
 	}
 
-	public final void exec(MCS51 cpu,int pc)
+	public final void exec(CPU cpu,int pc)
 	{
 		cpu.acc(cpu.code(pc+1+cpu.acc()));
 	}
 }
 
-class MOVX_A_RI extends AbstractMCS51Opcode
+class MOVX_A_RI extends AbstractOpcode
 {
 	public MOVX_A_RI(int r)
 	{
 		super(0xe2|r,1,2,"MOVX");
 	}
 
-	public final void exec(MCS51 cpu,int pc)
+	public final void exec(CPU cpu,int pc)
 	{
 		int offset = cpu.sfr(cpu.getSfrXdataHi()) << 8;
 		offset += cpu.idata(cpu.r((int)(opcode & 1)));
 		cpu.acc(cpu.xdata(offset));
 	}
+        
 	public String toString()
 	{
 		return description+"\tA,@R"+(opcode & 1);
@@ -3135,14 +3154,14 @@ class MOVX_A_RI extends AbstractMCS51Opcode
 
 }
 
-class MOVX_RI_A extends AbstractMCS51Opcode
+class MOVX_RI_A extends AbstractOpcode
 {
 	public MOVX_RI_A(int r)
 	{
 		super(0xf2|r,1,2,"MOVX");
 	}
 
-	public final void exec(MCS51 cpu,int pc)
+	public final void exec(CPU cpu, int pc)
 	{
 		int offset = cpu.sfr(cpu.getSfrXdataHi()) << 8;
 		offset += cpu.idata(cpu.r((int)(opcode & 1)));
@@ -3156,14 +3175,14 @@ class MOVX_RI_A extends AbstractMCS51Opcode
 
 }
 
-class MOV_DIRECT_DIRECT extends AbstractMCS51Opcode
+class MOV_DIRECT_DIRECT extends AbstractOpcode
 {
 	public MOV_DIRECT_DIRECT()
 	{
 		super(0x85,3,2,"MOV\tDIRECP,DIRECM");
 	}
 
-	public final void exec(MCS51 cpu,int pc)
+	public final void exec(CPU cpu,int pc)
 	{
 		int source = cpu.code(pc+1);
 		int dest = cpu.code(pc+2);
@@ -3171,45 +3190,47 @@ class MOV_DIRECT_DIRECT extends AbstractMCS51Opcode
 	}
 }
 
-class MOV_A_DATA extends AbstractMCS51Opcode
+class MOV_A_DATA extends AbstractOpcode
 {
 	public MOV_A_DATA()
 	{
 		super(0x74,2,1,"MOV\tA,#DATA8");
 	}
 
-	public final void exec(MCS51 cpu,int pc)
+	public final void exec(CPU cpu,int pc)
 	{
 		cpu.acc(cpu.code(pc+1));
 	}
 }
 
-class MOV_DIRECT_A extends AbstractMCS51Opcode
+class MOV_DIRECT_A extends AbstractOpcode
 {
 	public MOV_DIRECT_A()
 	{
 		super(0xf5,2,1,"MOV\tDIRECT,A");
 	}
 
-	public final void exec(MCS51 cpu,int pc)
+	public final void exec(CPU cpu,int pc)
 	{
 		cpu.setDirect(cpu.code(pc+1),cpu.acc());
 	}
 }
 
-class MOV_DIRECT_RI extends AbstractMCS51Opcode
+class MOV_DIRECT_RI extends AbstractOpcode
 {
 	public MOV_DIRECT_RI(int r)
 	{
 		super(0x86|r,2,2,"MOV");
 	}
 
-	public final void exec(MCS51 cpu,int pc)
+        @Override
+	public final void exec(CPU cpu,int pc)
 	{
 		int add = cpu.code(pc+1);
 		cpu.setDirect(add,cpu.idata(cpu.r((int)(opcode & 1))));
 	}
 
+        @Override
 	public String toString()
 	{
 		return description+"\tDIRECT,@R"+(opcode & 1);
@@ -3217,14 +3238,15 @@ class MOV_DIRECT_RI extends AbstractMCS51Opcode
 
 }
 
-class NOP extends AbstractMCS51Opcode
+class NOP extends AbstractOpcode
 {
 	NOP()
 	{
 		super(0,1,1,"NOP");
 	}
 
-	public final void exec(MCS51 cpu,int pc)
+        @Override
+	public final void exec(CPU cpu,int pc)
 	{
 		
 	}
@@ -3233,7 +3255,8 @@ class NOP extends AbstractMCS51Opcode
 
 class ArithmeticANL implements ArithmeticOperation
 {
-	public final void calc(MCS51 cpu,int value)
+        @Override
+	public final void calc(CPU cpu,int value)
 	{
 		cpu.acc((int)(cpu.acc() & value));
 	}
@@ -3241,7 +3264,7 @@ class ArithmeticANL implements ArithmeticOperation
 
 class ArithmeticORL implements ArithmeticOperation
 {
-	public final void calc(MCS51 cpu,int value)
+	public final void calc(CPU cpu,int value)
 	{
 		cpu.acc((int)(cpu.acc() | value));
 	}
@@ -3249,7 +3272,7 @@ class ArithmeticORL implements ArithmeticOperation
 
 class ArithmeticXRL implements ArithmeticOperation
 {
-	public final void calc(MCS51 cpu,int value)
+	public final void calc(CPU cpu,int value)
 	{
 		cpu.acc((int)(cpu.acc() ^ value));
 	}
@@ -3263,22 +3286,23 @@ class ArithmeticADD implements ArithmeticOperation
 	protected boolean op(int acc,int value,int c,int mask)
 	{
 		result = (acc & mask) + (value & mask) + c;
-		return (result & (mask + 1)) != 0 ? true : false;
+		return (result & (mask + 1)) != 0;
 	}
 	
-	protected final void add(MCS51 cpu,int value,int c)
+	protected final void add(CPU cpu,int value,int c)
 	{
 		int acc = cpu.acc();
-		cpu.ac(op(acc,value,c,0x0f));
-		boolean cy7 = op(acc,value,c,0x7F);
-		cpu.cy(op(acc,value,c,0xff));
+		cpu.ac(op(acc, value, c, 0x0f));
+		boolean cy7 = op(acc, value, c, 0x7F);
+		cpu.cy(op(acc, value, c, 0xff));
 		cpu.ov(cpu.cy() != cy7);
 		cpu.acc(result);
 	}
 	
-	public void calc(MCS51 cpu,int value)
+        @Override
+	public void calc(CPU cpu,int value)
 	{
-		add(cpu,value,0);
+		add(cpu, value, 0);
 	}
 
 }
@@ -3287,10 +3311,10 @@ class ArithmeticADDC extends ArithmeticADD
 {
 
 	
-	public void calc(MCS51 cpu,int value)
+	public void calc(CPU cpu, int value)
 	{
 		int c = cpu.cy() ? 1 : 0;
-		add(cpu,value,c);
+		add(cpu, value, c);
 	}
 
 }
@@ -3298,37 +3322,36 @@ class ArithmeticADDC extends ArithmeticADD
 class ArithmeticSUBB extends ArithmeticADDC
 {
 	
-	protected boolean op(int acc,int value,int c,int mask)
+        @Override
+	protected boolean op(int acc, int value, int c, int mask)
 	{
 		result = (acc & mask) - (value & mask) - c;
-		return (result & (mask + 1)) != 0 ? true : false;
+		return (result & (mask + 1)) != 0;
 	}
 
 
 }
 
-
-   
-abstract class Arithmetic extends AbstractMCS51Opcode
+abstract class Arithmetic extends AbstractOpcode
 {
 	ArithmeticOperation op;
 	
-	public Arithmetic(int opcode,int length,ArithmeticOperation op,String name)
+	public Arithmetic(int opcode, int length, ArithmeticOperation op, String name)
 	{
-		super(opcode,length,1,name);
+		super(opcode, length, 1, name);
 		this.op = op;
 	}
 
-	public void exec(MCS51 cpu,int pc)
+        @Override
+	public void exec(CPU cpu, int pc)
 	{
-		op.calc(cpu,getValue(cpu,pc));
+		op.calc(cpu,getValue(cpu, pc));
 	}
 
-	abstract int getValue(MCS51 cpu,int pc);
+	abstract int getValue(CPU cpu, int pc);
 }
 
-
-class ACALL extends AbstractMCS51Opcode
+class ACALL extends AbstractOpcode
 {
 	
 	public ACALL(int opcode)
@@ -3348,18 +3371,16 @@ class ACALL extends AbstractMCS51Opcode
 		return add;
 	}
 	
-	public void exec(MCS51 cpu,int pc) throws Exception
+	public void exec(CPU cpu, int pc) throws Exception
 	{
-		int address = getAddress(cpu,pc);
+		int address = getAddress((MCS51) cpu, pc);
 		CallListener l = cpu.getCallListener(address);
 		if (l != null)
 		{
-			l.call(cpu,address);
-		}
-		else
-		{
+			l.call((MCS51) cpu,address);
+		} else {
 			cpu.pushw(pc+2);
-			cpu.pc(getAddress(cpu,pc));
+			cpu.pc(getAddress((MCS51) cpu, pc));
 		}
 	}
 
@@ -3373,10 +3394,10 @@ class AJMP extends ACALL
 	}
 
 
-	public final void exec(MCS51 cpu,int pc)
+	public final void exec(CPU cpu, int pc)
 	{
 
-		cpu.pc(getAddress(cpu,pc));
+		cpu.pc(getAddress((MCS51) cpu, pc));
 	}
 
 		
@@ -3386,4 +3407,3 @@ class AsyncTimer extends FastArray
 {
 	public int timeout = 0;
 }
-

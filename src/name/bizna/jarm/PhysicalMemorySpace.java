@@ -45,8 +45,7 @@ public final class PhysicalMemorySpace {
 	private int accessCycleBill;
 	public final byte readByte(long address) throws BusErrorException, EscapeRetryException {
 		MappedRegion mapping = getRegion(address);
-		byte ret = mapping.region.readByte(this, address - mapping.base);
-		return ret;
+		return mapping.region.readByte(this, address - mapping.base);
 	}
 	public final void writeByte(long address, byte value) throws BusErrorException, EscapeRetryException {
 		MappedRegion mapping = getRegion(address);
@@ -107,7 +106,7 @@ public final class PhysicalMemorySpace {
 	}
 	public final void unmapRegion(int _address, MemoryRegion region) {
 		long address = _address & 0xFFFFFFFFL;
-		ArrayList<MappedRegion> newMap = new ArrayList<MappedRegion>(memoryMap.length);
+		ArrayList<MappedRegion> newMap = new ArrayList<>(memoryMap.length);
 		for(MappedRegion it : memoryMap) {
 			if(it.base != address || (region == null || it.region != region)) newMap.add(it);
 		}

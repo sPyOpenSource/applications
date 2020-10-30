@@ -22,7 +22,7 @@ public class JarmTool {
 	private static int entryPoint;
 	private static class NonLoadableFileException extends Exception {
 		public static final long serialVersionUID = 1;
-		private String way;
+		private final String way;
 		public NonLoadableFileException(String way) {
 			this.way = way;
 		}
@@ -214,22 +214,11 @@ public class JarmTool {
 		catch(ProgramExit e) {
 			System.exit(e.getExitStatus());
 		}
-		catch(UndefinedException e) {
+		catch(UndefinedException | AlignmentException | BusErrorException e) {
 			e.printStackTrace();
 			cpu.dumpState(System.err);
 		}
-		catch(AlignmentException e) {
-			e.printStackTrace();
-			cpu.dumpState(System.err);
-		}
-		catch(BusErrorException e) {
-			e.printStackTrace();
-			cpu.dumpState(System.err);
-		}
-		catch(EscapeCompleteException e) {
-			// ?
-		}
-		catch(EscapeRetryException e) {
+		catch(EscapeCompleteException | EscapeRetryException e) {
 			// ?
 		}
 	}

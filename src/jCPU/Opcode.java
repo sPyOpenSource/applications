@@ -1,7 +1,7 @@
 /**
  * $Id: MCS51Opcode.java 45 2010-06-22 20:53:26Z mviara $
  */
-package j51.intel;
+package jCPU;
 
 /**
  *
@@ -10,7 +10,7 @@ package j51.intel;
  * @author Mario Viara
  * @version 1.00
  */
-public interface MCS51Opcode
+public interface Opcode
 {
 
 	/**
@@ -23,7 +23,7 @@ public interface MCS51Opcode
 	 * @param cpu - The MCS51 cpu
 	 * @param pc - The location of the first byte of the opcode.
 	 */
-	public void exec(MCS51 cpu,int pc) throws Exception;
+	public void exec(CPU cpu, int pc) throws Exception;
 
 	/**
 	 * Return the lenght in byte of the instruction.
@@ -33,7 +33,7 @@ public interface MCS51Opcode
 	/**
 	 * Decode one instruction
 	 */
-	public String decode(MCS51 cpu,int pc);
+	public String decode(CPU cpu, int pc);
 
 	/**
 	 * Return the number of cycle machine necessary foo execute the

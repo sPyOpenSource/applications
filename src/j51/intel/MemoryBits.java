@@ -3,6 +3,9 @@
  */
 package j51.intel;
 
+import jCPU.MemoryWriteListener;
+import jCPU.iMemory;
+
 /**
  * Class to rappresent a pool of bit in memory.
  *
@@ -16,10 +19,10 @@ public class MemoryBits
 	protected int mask;
 	protected int shift;
 	private int width;
-	private Memory memory;
+	private iMemory memory;
 	private int address;
 
-	public MemoryBits(Memory memory,int address,int shift,int width)
+	public MemoryBits(iMemory memory, int address, int shift, int width)
 	{
 		this.width = width;
 		this.mask = (1 << width) - 1;
@@ -58,7 +61,7 @@ public class MemoryBits
 
 	public void addMemoryWriteListener(MemoryWriteListener l)
 	{
-		memory.addMemoryWriteListener(address,l);
+		memory.addMemoryWriteListener(address, l);
 	}
 
 }

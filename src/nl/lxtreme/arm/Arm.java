@@ -252,7 +252,7 @@ public class Arm  extends j51.intel.MCS51
     while (iter.hasNext())
     {
       Integer addr = iter.next();
-      if ((addr != null) && (addr.intValue() == address))
+      if ((addr != null) && (addr == address))
       {
         iter.remove();
         break;
@@ -270,7 +270,7 @@ public class Arm  extends j51.intel.MCS51
     while (iter.hasNext())
     {
       Integer addr = iter.next();
-      if ((addr != null) && (addr.intValue() == address))
+      if ((addr != null) && (addr == address))
       {
         return true;
       }
@@ -346,6 +346,7 @@ public class Arm  extends j51.intel.MCS51
   /**
    * Resets this CPU.
    */
+  @Override
   public void reset()
   {
     Arrays.fill(this.r, 0);
@@ -374,8 +375,7 @@ public class Arm  extends j51.intel.MCS51
     boolean ret;
 
     /* Check finish flag */
-    if (this.finished)
-    {
+    if (this.finished){
       System.out.printf("FINISHED! (return: %d)", this.r[0]);
       return 0;
     }
@@ -385,15 +385,13 @@ public class Arm  extends j51.intel.MCS51
 
     /* Check breakpoint */
     ret = breakFind(pc);
-    if (ret)
-    {
+    if (ret){
       System.out.printf("BREAKPOINT! (0x%x)\n", pc);
       return 0;
     }
 
     /* Parse instruction */
-    if (this.cpsr.t)
-    {
+    if (this.cpsr.t){
       parseThumb();
     } else {
       parse();
@@ -432,7 +430,7 @@ public class Arm  extends j51.intel.MCS51
    */
   protected boolean borrowFrom(int a, int b)
   {
-    return (a < b) ? true : false; // TODO suspect!
+    return (a < b); // TODO suspect!
   }
 
   /**
@@ -444,7 +442,7 @@ public class Arm  extends j51.intel.MCS51
    */
   protected boolean carryFrom(int a, int b)
   {
-    return ((a + b) < a) ? true : false; // TODO suspect!
+    return ((a + b) < a); // TODO suspect!
   }
 
   /**
@@ -475,7 +473,6 @@ public class Arm  extends j51.intel.MCS51
    * 32-bit opcode.
    * 
    * @param opcode
-   * @return
    */
   protected void condPrint(int opcode)
   {
@@ -487,7 +484,6 @@ public class Arm  extends j51.intel.MCS51
    * 16-bit opcode.
    * 
    * @param opcode
-   * @return
    */
   protected void condPrint(short opcode)
   {
@@ -514,13 +510,8 @@ public class Arm  extends j51.intel.MCS51
   {
     int s = a + b;
 
-    if (((a & (1 << 31)) == (b & (1 << 31))) &&
-        ((s & (1 << 31)) != (a & (1 << 31))))
-    {
-      return true;
-    }
-
-    return false;
+    return ((a & (1 << 31)) == (b & (1 << 31))) &&
+            ((s & (1 << 31)) != (a & (1 << 31)));
   }
 
   /**
@@ -541,9 +532,9 @@ public class Arm  extends j51.intel.MCS51
     /* Registers */
     int Rn = ((opcode >> 16) & 0xF);
     int Rd = ((opcode >> 12) & 0xF);
-    int Rm = ((opcode >> 0) & 0xF);
+    int Rm = ((opcode) & 0xF);
     int Rs = ((opcode >> 8) & 0xF);
-    int Imm = ((opcode >> 0) & 0xFF);
+    int Imm = ((opcode) & 0xFF);
     int amt = Rs << 1;
 
     /* Flags */
@@ -612,9 +603,7 @@ public class Arm  extends j51.intel.MCS51
       if (W)
       {
         this.r[Rn] = (this.r[Rm] * this.r[Rs] + this.r[Rd]) & 0xFFFFFFFF;
-      }
-      else
-      {
+      } else {
         this.r[Rn] = (this.r[Rm] * this.r[Rs]) & 0xFFFFFFFF;
       }
 
@@ -643,9 +632,7 @@ public class Arm  extends j51.intel.MCS51
             {
               System.out.printf(" r%d, r%d, r%d", Rd, Rn, Rm);
               shiftPrint(opcode);
-            }
-            else
-            {
+            } else {
               System.out.printf(" r%d, r%d, #0x%X", Rd, Rn, ROR(Imm, amt));
             }
 
@@ -659,9 +646,7 @@ public class Arm  extends j51.intel.MCS51
             if (I)
             {
               this.r[Rd] = this.r[Rn] & ROR(Imm, amt);
-            }
-            else
-            {
+            } else {
               this.r[Rd] = this.r[Rn] & shift(opcode, this.r[Rm]);
             }
 
@@ -684,9 +669,7 @@ public class Arm  extends j51.intel.MCS51
             {
               System.out.printf(" r%d, r%d, r%d", Rd, Rn, Rm);
               shiftPrint(opcode);
-            }
-            else
-            {
+            } else {
               System.out.printf(" r%d, r%d, #0x%X", Rd, Rn, ROR(Imm, amt));
             }
 
@@ -700,9 +683,7 @@ public class Arm  extends j51.intel.MCS51
             if (I)
             {
               this.r[Rd] = this.r[Rn] ^ ROR(Imm, amt);
-            }
-            else
-            {
+            } else {
               this.r[Rd] = this.r[Rn] ^ shift(opcode, this.r[Rm]);
             }
 
@@ -725,9 +706,7 @@ public class Arm  extends j51.intel.MCS51
             {
               System.out.printf(" r%d, r%d, r%d", Rd, Rn, Rm);
               shiftPrint(opcode);
-            }
-            else
-            {
+            } else {
               System.out.printf(" r%d, r%d, #0x%X", Rd, Rn, ROR(Imm, amt));
             }
 
@@ -741,9 +720,7 @@ public class Arm  extends j51.intel.MCS51
             if (I)
             {
               this.r[Rd] = this.r[Rn] - ROR(Imm, amt);
-            }
-            else
-            {
+            } else {
               this.r[Rd] = this.r[Rn] - shift(opcode, this.r[Rm]);
             }
 
@@ -769,9 +746,7 @@ public class Arm  extends j51.intel.MCS51
             {
               System.out.printf(" r%d, r%d, r%d", Rd, Rn, Rm);
               shiftPrint(opcode);
-            }
-            else
-            {
+            } else {
               System.out.printf(" r%d, r%d, #0x%X", Rd, Rn, ROR(Imm, amt));
             }
 
@@ -785,9 +760,7 @@ public class Arm  extends j51.intel.MCS51
             if (I)
             {
               this.r[Rd] = ROR(Imm, amt) - this.r[Rn];
-            }
-            else
-            {
+            } else {
               this.r[Rd] = shift(opcode, this.r[Rm]) - this.r[Rn];
             }
 
@@ -813,9 +786,7 @@ public class Arm  extends j51.intel.MCS51
             {
               System.out.printf(" r%d, r%d, r%d", Rd, Rn, Rm);
               shiftPrint(opcode);
-            }
-            else
-            {
+            } else {
               System.out.printf(" r%d, r%d, #0x%X", Rd, Rn, ROR(Imm, amt));
             }
 
@@ -829,9 +800,7 @@ public class Arm  extends j51.intel.MCS51
             if (I)
             {
               this.r[Rd] = this.r[Rn] + ROR(Imm, amt);
-            }
-            else
-            {
+            } else {
               this.r[Rd] = this.r[Rn] + shift(opcode, this.r[Rm]);
             }
 
@@ -861,9 +830,7 @@ public class Arm  extends j51.intel.MCS51
             {
               System.out.printf(" r%d, r%d, r%d", Rd, Rn, Rm);
               shiftPrint(opcode);
-            }
-            else
-            {
+            } else {
               System.out.printf(" r%d, r%d, #0x%X", Rd, Rn, ROR(Imm, amt));
             }
 
@@ -877,9 +844,7 @@ public class Arm  extends j51.intel.MCS51
             if (I)
             {
               this.r[Rd] = this.r[Rn] + ROR(Imm, amt) + (this.cpsr.c ? 1 : 0);
-            }
-            else
-            {
+            } else {
               this.r[Rd] = this.r[Rn] + shift(opcode, this.r[Rm]) + (this.cpsr.c ? 1 : 0);
             }
 
@@ -902,9 +867,7 @@ public class Arm  extends j51.intel.MCS51
             {
               System.out.printf(" r%d, r%d, r%d", Rd, Rn, Rm);
               shiftPrint(opcode);
-            }
-            else
-            {
+            } else {
               System.out.printf(" r%d, r%d, #0x%X", Rd, Rn, ROR(Imm, amt));
             }
 
@@ -918,9 +881,7 @@ public class Arm  extends j51.intel.MCS51
             if (I)
             {
               this.r[Rd] = this.r[Rn] - ROR(Imm, amt) - (this.cpsr.c ? 0 : 1);
-            }
-            else
-            {
+            }  else {
               this.r[Rd] = this.r[Rn] - shift(opcode, this.r[Rm]) - (this.cpsr.c ? 0 : 1);
             }
 
@@ -945,9 +906,7 @@ public class Arm  extends j51.intel.MCS51
             {
               System.out.printf(" r%d, r%d, r%d", Rd, Rn, Rm);
               shiftPrint(opcode);
-            }
-            else
-            {
+            } else {
               System.out.printf(" r%d, r%d, #0x%X", Rd, Rn, ROR(Imm, amt));
             }
 
@@ -961,9 +920,7 @@ public class Arm  extends j51.intel.MCS51
             if (I)
             {
               this.r[Rd] = ROR(Imm, amt) - this.r[Rn] - (this.cpsr.c ? 0 : 1);
-            }
-            else
-            {
+            } else {
               this.r[Rd] = shift(opcode, this.r[Rm]) - this.r[Rn] - (this.cpsr.c ? 0 : 1);
             }
 
@@ -994,18 +951,14 @@ public class Arm  extends j51.intel.MCS51
                 shiftPrint(opcode);
 
                 result = this.r[Rn] & shift(opcode, this.r[Rm]);
-              }
-              else
-              {
+              } else {
                 System.out.printf(" r%d, #0x%X\n", Rn, ROR(Imm, amt));
                 result = this.r[Rn] & ROR(Imm, amt);
               }
 
               this.cpsr.z = result == 0;
               this.cpsr.n = (result >> 31) != 0;
-            }
-            else
-            {
+            } else {
               System.out.printf("mrs r%d, cpsr\n", Rd);
               this.r[Rd] = this.cpsr.getValue();
             }
@@ -1028,25 +981,19 @@ public class Arm  extends j51.intel.MCS51
                 shiftPrint(opcode);
 
                 result = this.r[Rn] ^ shift(opcode, this.r[Rm]);
-              }
-              else
-              {
+              } else {
                 System.out.printf(" r%d, #0x%X\n", Rn, ROR(Imm, amt));
                 result = this.r[Rn] ^ ROR(Imm, amt);
               }
 
               this.cpsr.z = result == 0;
               this.cpsr.n = (result >> 31) != 0;
-            }
-            else
-            {
+            } else {
               if (I)
               {
                 System.out.printf("msr cpsr, r%d\n", Rm);
                 this.cpsr.setValue(this.r[Rm]);
-              }
-              else
-              {
+              } else {
                 System.out.printf("msr cpsr, 0x%08X\n", Imm);
                 this.cpsr.setValue(Imm);
               }
@@ -1068,9 +1015,7 @@ public class Arm  extends j51.intel.MCS51
               {
                 value = ROR(Imm, amt);
                 System.out.printf(" r%d, 0x%08X\n", Rn, value);
-              }
-              else
-              {
+              } else {
                 value = this.r[Rm];
                 System.out.printf(" r%d, r%d\n", Rn, Rm);
               }
@@ -1079,9 +1024,7 @@ public class Arm  extends j51.intel.MCS51
               {
                 subtract(this.r[Rn], value);
               }
-            }
-            else
-            {
+            } else {
               System.out.printf("mrs2\n");
             }
 
@@ -1101,9 +1044,7 @@ public class Arm  extends j51.intel.MCS51
               {
                 value = ROR(Imm, amt);
                 System.out.printf(" r%d, 0x%08X\n", Rn, value);
-              }
-              else
-              {
+              } else {
                 value = this.r[Rm];
                 System.out.printf(" r%d, r%d\n", Rn, Rm);
               }
@@ -1112,9 +1053,7 @@ public class Arm  extends j51.intel.MCS51
               {
                 addition(this.r[Rn], value);
               }
-            }
-            else
-            {
+            } else {
               System.out.printf("msr2\n");
             }
 
@@ -1606,7 +1545,7 @@ public class Arm  extends j51.intel.MCS51
       int Imm = (opcode >> 6) & 0x1F;
       int Rn = (opcode >> 6) & 7;
       int Rm = (opcode >> 3) & 7;
-      int Rd = (opcode >> 0) & 7;
+      int Rd = (opcode) & 7;
 
       switch ((opcode >> 11) & 3)
       {
@@ -2080,7 +2019,7 @@ public class Arm  extends j51.intel.MCS51
 
     if ((opcode >> 12) == 5)
     {
-      int Rd = (opcode >> 0) & 7;
+      int Rd = (opcode) & 7;
       int Rn = (opcode >> 3) & 7;
       int Rm = (opcode >> 6) & 7;
 
@@ -2132,7 +2071,7 @@ public class Arm  extends j51.intel.MCS51
 
     if ((opcode >> 13) == 3)
     {
-      int Rd = (opcode >> 0) & 7;
+      int Rd = (opcode) & 7;
       int Rn = (opcode >> 3) & 7;
       int Imm = (opcode >> 6) & 7;
 
@@ -2182,7 +2121,7 @@ public class Arm  extends j51.intel.MCS51
 
     if ((opcode >> 12) == 8)
     {
-      int Rd = (opcode >> 0) & 7;
+      int Rd = (opcode) & 7;
       int Rn = (opcode >> 3) & 7;
       int Imm = (opcode >> 6) & 7;
 
@@ -2496,6 +2435,7 @@ public class Arm  extends j51.intel.MCS51
   /**
    * @return 32-bit value.
    */
+  @Override
   public int pop()
   {
     int addr = this.r[13];
@@ -2511,6 +2451,7 @@ public class Arm  extends j51.intel.MCS51
    * 
    * @param value
    */
+  @Override
   public void push(int value)
   {
     /* Update SP */

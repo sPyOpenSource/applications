@@ -21,7 +21,7 @@ import j51.swing.*;
 class Block extends JComponent
 {
 	private Color color;
-	private Dimension size;
+	private final Dimension size;
 	private int perc;
 	
 	Block(Color color,int w,int h)
@@ -31,6 +31,7 @@ class Block extends JComponent
 		setPreferredSize(size);
 	}
 
+        @Override
 	public void paintComponent(Graphics g)
 	{
 		int h = (size.height * perc ) / 100;
@@ -67,13 +68,13 @@ class CpuUsage extends JPanel
 		super(new GridBagLayout());
 		GridBagConstraints g = new GridBagConstraints();
 		g.gridx = 0;g.gridy = 0;g.gridwidth = 1;g.gridheight = 1;
-		g.fill  = g.BOTH;g.insets = new Insets(2,2,2,2);
-		g.anchor = g.CENTER;
+		g.fill  = GridBagConstraints.BOTH;g.insets = new Insets(2,2,2,2);
+		g.anchor = GridBagConstraints.CENTER;
 		Dimension dim = perc.getPreferredSize();
 		block = new Block(c,dim.width,dim.height*3);
 		label = new JLabel(name);
 		perc.setEditable(false);
-		perc.setHorizontalAlignment(perc.RIGHT);
+		perc.setHorizontalAlignment(JFixedField.RIGHT);
 
 		add(label,g);g.gridy++;
 		add(block,g);g.gridy++;
@@ -125,28 +126,18 @@ public class JInfo extends J51Panel implements MCS51Performance,ResetListener
 
 		JFactory.setBox(reset);
 
-		oscillator.addPropertyChangeListener("value",new PropertyChangeListener()
-		{
-			public void propertyChange(PropertyChangeEvent e)
-			{
-				Object o = oscillator.getValue();
-				int value = 0;
-				if (o instanceof Number)
-					value = ((Number)o).intValue();
-				//int value = (Integer)oscillator.getValue();
-				cpu.setOscillator(value);
-			}
-
-		});
+		oscillator.addPropertyChangeListener("value", (PropertyChangeEvent e) -> {
+                    Object o = oscillator.getValue();
+                    int value = 0;
+                    if (o instanceof Number)
+                        value = ((Number)o).intValue();
+                    //int value = (Integer)oscillator.getValue();
+                    cpu.setOscillator(value);
+                });
 		
-		cycle.addChangeListener(new ChangeListener()
-		{
-			public void stateChanged(ChangeEvent e)
-			{
-				cpu.machineCycle((int)(Integer)cycle.getValue());
-				
-			}
-		});
+		cycle.addChangeListener((ChangeEvent e) -> {
+                    cpu.machineCycle((int)(Integer)cycle.getValue());
+                });
 
 		oscillator.setToolTipText("Selected oscillator in Hz");
 		cycle.setToolTipText("Machina cycle in oscillator clock");
@@ -157,7 +148,7 @@ public class JInfo extends J51Panel implements MCS51Performance,ResetListener
 		clock.setHorizontalAlignment(JFixedField.RIGHT);
 
 		g.gridx = 0;g.gridy = 0;g.gridwidth = 1;g.gridheight = 1;
-		g.fill  = g.NONE;g.insets = new Insets(2,2,2,2);
+		g.fill  = GridBagConstraints.NONE;g.insets = new Insets(2,2,2,2);
 		g.gridheight = 3;
 		
 		add(cur,g);g.gridx++;
@@ -166,21 +157,21 @@ public class JInfo extends J51Panel implements MCS51Performance,ResetListener
 		add(avg,g);g.gridx++;
 		
 		g.gridx = 4; g.gridwidth = 1;g.gridheight = 1;
-		g.anchor = g.WEST;
+		g.anchor = GridBagConstraints.WEST;
 		add(new JLabel("Oscillator"),g);
-		g.gridx++;g.anchor = g.EAST;
+		g.gridx++;g.anchor = GridBagConstraints.EAST;
 		add(oscillator,g);
 		g.gridx++;
-		g.anchor = g.WEST;
+		g.anchor = GridBagConstraints.WEST;
 		add(new JLabel("Cycle"),g);
-		g.gridx++;g.anchor = g.EAST;
+		g.gridx++;g.anchor = GridBagConstraints.EAST;
 		add(cycle,g);
 		g.gridx++;g.gridy++;
 		g.gridx = 4;
 		
-		g.anchor = g.WEST;
+		g.anchor = GridBagConstraints.WEST;
 		add(new JLabel("Clock"),g);
-		g.gridx++;g.anchor = g.EAST;
+		g.gridx++;g.anchor = GridBagConstraints.EAST;
 		add(clock,g);
 		g.gridx++;
 		
@@ -189,7 +180,7 @@ public class JInfo extends J51Panel implements MCS51Performance,ResetListener
 		add(reset,g);
 
 		g.gridy++;g.gridx = 4; g.gridwidth = 1;g.gridheight = 1;
-		g.anchor=g.SOUTHWEST;
+		g.anchor=GridBagConstraints.SOUTHWEST;
 		add(new JLabel("Elapsed"),g);
 		g.gridx++;g.gridwidth = 3;
 		add(elapsed,g);
@@ -199,6 +190,7 @@ public class JInfo extends J51Panel implements MCS51Performance,ResetListener
 
 	}
 
+        @Override
 	public void reset(MCS51 cpu)
 	{
 		minCpuUsage = 100;
@@ -216,6 +208,7 @@ public class JInfo extends J51Panel implements MCS51Performance,ResetListener
 		
 	}
 	
+        @Override
 	public void setCpu(MCS51 cpu)
 	{
 		super.setCpu(cpu);
@@ -225,6 +218,7 @@ public class JInfo extends J51Panel implements MCS51Performance,ResetListener
 		
 	}
 	
+        @Override
 	public void cpuPerformance(int cpu,int elapsed)
 	{
 		avgCpuUsage = (cpu + avgCpuUsage) / 2;
@@ -236,6 +230,7 @@ public class JInfo extends J51Panel implements MCS51Performance,ResetListener
 	}
 
 	
+        @Override
 	public void setEmulation(boolean mode)
 	{
 			
@@ -250,7 +245,7 @@ public class JInfo extends J51Panel implements MCS51Performance,ResetListener
 		
 		if (n > 0)
 		{
-			sb.append(n+" "+name+" ");
+			sb.append(n).append(" ").append(name).append(" ");
 			v -= d * n;
 		}
 
@@ -279,6 +274,7 @@ public class JInfo extends J51Panel implements MCS51Performance,ResetListener
 		
 	}
 
+        @Override
 	public void update(boolean force)
 	{
 		oscillator.setValue(cpu.getOscillator());

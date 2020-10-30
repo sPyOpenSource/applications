@@ -1,7 +1,7 @@
 /**
  * $Id: MemoryWriteListener.java 56 2010-06-24 20:06:35Z mviara $
  */
-package j51.intel;
+package jCPU;
 
 /**
  * Listener to trace write in memory.
@@ -13,5 +13,5 @@ package j51.intel;
  */
 public interface MemoryWriteListener
 {
-	public void writeMemory(int address,int newValue,int oldValue);
+	public void writeMemory(int address, int newValue, int oldValue);
 }

@@ -35,9 +35,10 @@ class G128x64 extends j51.lcd.GLcd implements MCS51Peripheral,
 	
 	public G128x64()
 	{
-		super(128,64,2);
+		super(128, 64, 2);
 	}
 
+        @Override
 	public void registerCpu(MCS51 cpu)
 	{
 		this.cpu = cpu;
@@ -48,6 +49,7 @@ class G128x64 extends j51.lcd.GLcd implements MCS51Peripheral,
 		cpu.addSfrReadListener(DATA,this);
 	}
 
+        @Override
 	public void sfrWrite(int r,int v)
 	{
 		switch (r)
@@ -66,6 +68,7 @@ class G128x64 extends j51.lcd.GLcd implements MCS51Peripheral,
 		}
 	}
 
+        @Override
 	public int sfrRead(int r)
 	{
 		return getMemory(address) & 0xff;
@@ -78,7 +81,6 @@ public class Test extends j51.intel.P8051
 	{
 		setOscillator(11184000);
 		addPeripheral(new G128x64());
-
 	}
 	
 }

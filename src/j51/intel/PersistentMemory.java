@@ -7,6 +7,7 @@ import java.io.*;
 import javax.swing.Timer;
 
 import j51.util.Logger;
+import java.util.logging.Level;
 
 /**
  * Persistent implementation of memory.
@@ -28,6 +29,7 @@ public class PersistentMemory extends VolatileMemory
 		load();
 	}
 
+        @Override
 	public void write(int address,int value)
 	{
 		byte b = (byte)(value & 0xff);
@@ -37,14 +39,10 @@ public class PersistentMemory extends VolatileMemory
 		{
 			if (timer == null)
 			{
-				timer = new javax.swing.Timer(1000,new java.awt.event.ActionListener()
-				{
-					public void actionPerformed(java.awt.event.ActionEvent e)
-					{
-						timer.stop();
-						save();
-					}
-				});
+				timer = new javax.swing.Timer(1000, (java.awt.event.ActionEvent e) -> {
+                                    timer.stop();
+                                    save();
+                                });
 				timer.start();
 			}
 			else
@@ -68,10 +66,8 @@ public class PersistentMemory extends VolatileMemory
 			}
 			
 			os.close();
-			log.info(getName()+" saved "+getSize()+" bytes");
-		}
-		catch (Exception ex)
-		{
+			log.log(Level.INFO, "{0} saved {1} bytes", new Object[]{getName(), getSize()});
+		} catch (IOException ex) {
 			System.out.println(ex);
 		}
 	}

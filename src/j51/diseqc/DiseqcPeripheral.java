@@ -8,6 +8,7 @@ import javax.swing.*;
 
 import j51.intel.*;
 import j51.swing.*;
+import jCPU.MemoryReadListener;
 
 /**
  * Diseqc peripheral.

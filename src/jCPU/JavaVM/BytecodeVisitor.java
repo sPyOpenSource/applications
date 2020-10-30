@@ -18,14 +18,14 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
  
-package j51.JavaVM;
+package jCPU.JavaVM;
 
-import j51.JavaVM.vm.VmConstClass;
-import j51.JavaVM.vm.VmConstFieldRef;
-import j51.JavaVM.vm.VmConstIMethodRef;
-import j51.JavaVM.vm.VmConstMethodRef;
-import j51.JavaVM.vm.VmConstString;
-import j51.JavaVM.vm.VmMethod;
+import jCPU.JavaVM.vm.VmConstClass;
+import jCPU.JavaVM.vm.VmConstFieldRef;
+import jCPU.JavaVM.vm.VmConstIMethodRef;
+import jCPU.JavaVM.vm.VmConstMethodRef;
+import jCPU.JavaVM.vm.VmConstString;
+import jCPU.JavaVM.vm.VmMethod;
 
 
 /**

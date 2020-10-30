@@ -51,7 +51,7 @@ public class FastArray<E>
 		return currentSize;
 	}
 
-	private final void checkSize()
+	private void checkSize()
 	{
 		if (currentSize >= objects.length)
 		{

@@ -21,19 +21,11 @@ class BytePort extends JBitField implements SfrWriteListener,MCS51Peripheral,Res
 	{
 		super(name,false);
 		
-		addActionListener(new ActionListener()
-		{
-			public void actionPerformed(java.awt.event.ActionEvent e)
-			{
-				cpu.addRunQueue(new Runnable()
-				{
-					public void run()
-					{
-						cpu.sfr(sfr,getValue());
-					}
-				});
-			}
-		});
+		addActionListener((java.awt.event.ActionEvent e) -> {
+                    cpu.addRunQueue(() -> {
+                        cpu.sfr(sfr,getValue());
+                    });
+                });
 	}
 
 	public void reset(MCS51 cpu)

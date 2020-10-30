@@ -5,6 +5,8 @@
 package j51.philips;
 
 import j51.intel.*;
+import jCPU.MemoryReadListener;
+import jCPU.MemoryWriteListener;
 
 
 /**
@@ -54,7 +56,6 @@ public class LPC764Base extends MCS51 implements LPC764Constants , SfrWriteListe
 		setSfrName(AUXR1,"AUXR1");
 
 	}
-
 
 
 	public void writeMemory(int addr,int newValue,int oldValue)

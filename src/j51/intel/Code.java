@@ -3,6 +3,8 @@
  */
 package j51.intel;
 
+import jCPU.iMemory;
+
 /**
  *
  * Interface to code space
@@ -10,12 +12,11 @@ package j51.intel;
  * @author Mario Viara
  * @version 1.00
  */
-public interface Code extends Memory
+public interface Code extends iMemory
 {
 	public void setCodeSize(int size);
 	public int  getCodeSize();
 	public void setCode(int addr,int value);
 	public int  getCode(int addr,boolean move);
 	public int  getCode16(int addr,boolean move);
-	
 }

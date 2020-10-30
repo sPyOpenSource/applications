@@ -5,6 +5,9 @@ package j51.philips;
 
 import j51.intel.*;
 import j51.util.Logger;
+import jCPU.MemoryReadListener;
+import jCPU.MemoryWriteListener;
+import jCPU.iMemory;
 
 
 /**
@@ -26,12 +29,12 @@ import j51.util.Logger;
  * 
  */
 public class LPC900 extends MCS51 implements SfrWriteListener, LPC900Constants,
-			MemoryReadListener,MemoryWriteListener
+			MemoryReadListener, MemoryWriteListener
 {
 	private static Logger log = Logger.getLogger(LPC900.class);
 	private byte flashBuffer[];
 	private int  flashCounter;
-	private Memory eeprom;
+	private iMemory eeprom;
 	private FlashCode flash;
 	private boolean eepromWrite = false;
 	private PersistentMemory misc;
@@ -74,8 +77,8 @@ public class LPC900 extends MCS51 implements SfrWriteListener, LPC900Constants,
 
 		for (int i = 0 ; i < 16 ; i++)
 		{
-			flash.addMemoryReadListener(FLASH_MISC+i,this);
-			flash.addMemoryWriteListener(FLASH_MISC+i,this);
+			flash.addMemoryReadListener(FLASH_MISC + i, this);
+			flash.addMemoryWriteListener(FLASH_MISC + i, this);
 		}
 		
 		if (misc.isLoaded() == false)

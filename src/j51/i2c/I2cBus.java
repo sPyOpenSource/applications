@@ -32,7 +32,7 @@ import j51.intel.MCS51;
  *
  * @see I2cSlave
  */
-public class I2cBus implements j51.intel.MemoryWriteListener,j51.intel.MCS51Peripheral,j51.intel.ResetListener
+public class I2cBus implements jCPU.MemoryWriteListener,j51.intel.MCS51Peripheral,j51.intel.ResetListener
 {
 	private static Logger log = Logger.getLogger(I2cBus.class);
 

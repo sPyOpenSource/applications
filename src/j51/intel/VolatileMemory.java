@@ -7,6 +7,10 @@ package j51.intel;
 import j51.util.Hex;
 import j51.util.Logger;
 import j51.util.FastArray;
+import jCPU.MemoryReadListener;
+import jCPU.MemoryWriteListener;
+import jCPU.iMemory;
+import java.util.logging.Level;
 
 /**
  * Volatile implementation of memory based over one array of MemoryByte.
@@ -19,7 +23,7 @@ import j51.util.FastArray;
  * 
  * @since 1.04
  */
-public class VolatileMemory implements Memory
+public class VolatileMemory implements iMemory
 {
 	private static Logger log = Logger.getLogger(VolatileMemory.class);
 	protected String name = "";
@@ -34,12 +38,12 @@ public class VolatileMemory implements Memory
 	
 	public VolatileMemory(int size)
 	{
-		this("Memory",size);
+		this("Memory", size);
 	}
 
-	public VolatileMemory(String name,int size)
+	public VolatileMemory(String name, int size)
 	{
-		this(name,"memory",size);
+		this(name, "memory", size);
 	}
 
 	public VolatileMemory(String name,String suffix,int size)
@@ -151,10 +155,8 @@ public class VolatileMemory implements Memory
 					value = b.mr.get(i).readMemory(address,value);
 
 				b.readBusy = false;
-			}
-			else
-			{
-				log.fine("Read busy at "+Hex.bin2word(address)+ " Memory "+this);
+			} else {
+				log.log(Level.FINE, "Read busy at {0} Memory {1}", new Object[]{Hex.bin2word(address), this});
 
 			}
 		}
@@ -185,15 +187,14 @@ public class VolatileMemory implements Memory
 				b.writeBusy = true;
 
 				
-				for (int i = b.mw.size(); --i >= 0 ; )
-					b.mw.get(i).writeMemory(address,newValue,oldValue);
+				for (int i = b.mw.size(); --i >= 0 ; ){
+					b.mw.get(i).writeMemory(address, newValue, oldValue);
+                                }
 
 
 				b.writeBusy = false;
-			}
-			else
-			{
-				log.fine("Write busy at "+Hex.bin2word(address)+ " Memory "+this);
+			} else {
+				log.log(Level.FINE, "Write busy at {0} Memory {1}", new Object[]{Hex.bin2word(address), this});
 			}
 
 
@@ -201,24 +202,26 @@ public class VolatileMemory implements Memory
 
 	}
 
+        @Override
 	public void addMemoryReadListener(int address,MemoryReadListener l)
 	{
 		MemoryByte b = memory[address];
 		
 		b.present = true;
 		if (b.mr == null)
-			b.mr = new FastArray<MemoryReadListener>();
+			b.mr = new FastArray<>();
 
 		b.mr.add(l);
 	}
 	
+        @Override
 	public void addMemoryWriteListener(int address,MemoryWriteListener l)
 	{
 		MemoryByte b = memory[address];
 		b.present = true;
 		
 		if (b.mw == null)
-			b.mw = new FastArray<MemoryWriteListener>();
+			b.mw = new FastArray<>();
 
 		b.mw.add(l);
 	}
