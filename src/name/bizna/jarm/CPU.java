@@ -375,6 +375,14 @@ public final class CPU   extends j51.intel.MCS51{
 	public void zeroBudget(boolean soft) {
 		if(cycleBudget > 0 || !soft) cycleBudget = 0;
 	}
+        
+        @Override
+    public void go(int limit) throws Exception{
+        while(true){
+            execute();
+        }
+    }
+    
 	/**
 	 * Fetch and execute enough instructions to meet a given cycle budget. Will go slightly over budget, and compensate exactly for this on the next call.
 	 * Throws an exception if exception debug mode is true.
@@ -1413,8 +1421,7 @@ public final class CPU   extends j51.intel.MCS51{
                                                         writeRegister(Rd, (Short.reverseBytes((short)readRegister(Rm))&0xFFFF)
                                                                 |(Short.reverseBytes((short)(readRegister(Rm)>>16))<<16));
                                                         return;
-                                                    }
-                                                    else {
+                                                    } else {
                                                         /* REVSH (A8-566) */
                                                         int Rm = iword&15;
                                                         int Rd = (iword>>12)&15;
@@ -1552,8 +1559,7 @@ public final class CPU   extends j51.intel.MCS51{
 							if(unsigned) {
 								loD = clamp(loD, 0, 0xFFFF);
 								hiD = clamp(hiD, 0, 0xFFFF);
-							}
-							else {
+							} else {
 								loD = clamp(loD, -0x8000, 0x7FFF);
 								hiD = clamp(hiD, -0x8000, 0x7FFF);
 							}

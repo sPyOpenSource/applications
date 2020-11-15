@@ -22,14 +22,13 @@ class SortedLong extends java.util.TreeMap
 	{
 		Long l = key;
 		Object o;
-		java.util.Vector vector;
+		java.util.ArrayList vector;
 		
-		vector = (Vector)get(l);
+		vector = (java.util.ArrayList)get(l);
 		
-		if (vector == null)
-		{
-			vector = new java.util.Vector();
-			put(l,vector);
+		if (vector == null){
+			vector = new java.util.ArrayList();
+			put(l, vector);
 		}
 		
 		vector.add(value);
@@ -38,22 +37,24 @@ class SortedLong extends java.util.TreeMap
 	JTree createTree()
 	{
 		DefaultMutableTreeNode root = new DefaultMutableTreeNode();
-		java.util.Vector keys  = new java.util.Vector();
+		java.util.ArrayList keys  = new java.util.ArrayList();
 
 		Set set = keySet();
 		Iterator iter = set.iterator();
 
-		while (iter.hasNext())
+		while (iter.hasNext()){
 			keys.add(iter.next());
+                }
 		
 		for (int i = 0; i < keys.size() ; i++)
 		{
-			Long l = (Long)keys.elementAt(keys.size() - 1 -i);
+			Long l = (Long)keys.get(keys.size() - 1 -i);
 			String s = l+"";
-			while (s.length() < 16)
-				s = " "+s;
+			while (s.length() < 16){
+				s = " " + s;
+                        }
 			
-			java.util.Vector v = (java.util.Vector)get(l);
+			java.util.ArrayList v = (java.util.ArrayList)get(l);
 			if (v.size() > 1)
 			{
 				DefaultMutableTreeNode node = new DefaultMutableTreeNode(s);
@@ -61,11 +62,11 @@ class SortedLong extends java.util.TreeMap
 			
 				for (int j = 0 ; j < v.size() ; j++)
 				{
-					DefaultMutableTreeNode n1 = new DefaultMutableTreeNode(v.elementAt(j).toString());
+					DefaultMutableTreeNode n1 = new DefaultMutableTreeNode(v.get(j).toString());
 					node.add(n1);
 				}
 			} else {
-				DefaultMutableTreeNode node = new DefaultMutableTreeNode(s+" "+v.elementAt(0).toString());
+				DefaultMutableTreeNode node = new DefaultMutableTreeNode(s+" "+v.get(0).toString());
 				root.add(node);
 			}
 		}
@@ -138,11 +139,10 @@ class JRegister extends J51Panel
 					try
 					{
 						cpu.pc(pc.getValue());
-						if (listener != null)
-							listener.actionPerformed(new ActionEvent(this,0,"PC"));
-					}
-					catch (Exception ex)
-					{
+						if (listener != null){
+							listener.actionPerformed(new ActionEvent(this, 0, "PC"));
+                                                }
+					} catch (Exception ex) {
 					}
 				}
 			});
@@ -203,7 +203,6 @@ class JRegister extends J51Panel
                     }
                 });
 		
-
 		psw.addActionListener((ActionEvent e) -> {
                     try
                     {
@@ -241,35 +240,33 @@ class JRegister extends J51Panel
                     }
                 });
 
-
 	}
-
 
 	private void fireChangeSfr()
 	{
 		if (listener != null){
 			listener.actionPerformed(new ActionEvent(this, 0, "SFR"));
                 }
-
 	}
 	
 	public void setChangeListener(ActionListener l)
 	{
 		listener =l;
 	}
-
 	
 	private void addRegister(JLabel label,JHexField field,GridBagConstraints g)
 	{
 		g.fill = GridBagConstraints.HORIZONTAL;
 		label.setBorder(BorderFactory.createEtchedBorder());
 		field.setBorder(BorderFactory.createEtchedBorder());
-		g.anchor = GridBagConstraints.CENTER;g.gridx = 0;
-		add(label,g);		g.anchor = GridBagConstraints.EAST;g.gridx++;
+		g.anchor = GridBagConstraints.CENTER;
+                g.gridx = 0;
+		add(label,g);		
+                g.anchor = GridBagConstraints.EAST;
+                g.gridx++;
 		add(field,g);
 		g.gridy++;
 	}
-
 	
         @Override
 	public void update(boolean force)
@@ -302,11 +299,9 @@ class JRegister extends J51Panel
 		dptr.setEditable(!mode);
 		psw.setEditable(!mode);
 		
-		for (int i = 0 ; i < 8 ; i++)
-		{
+		for (int i = 0 ; i < 8 ; i++){
 			r[i].setEditable(!mode);
 		}
-
 	}
 	
 }
@@ -314,22 +309,21 @@ class JRegister extends J51Panel
 abstract class JData extends J51Panel
 {
 	private int top,bottom,base,row;
-	protected JHexByte	bytes[] = new JHexByte[16*16];
+	protected JHexByte	bytes[] = new JHexByte[16 * 16];
 	private final JLabel	address[] = new JLabel[16];
 	private JHexField	add;
 	private boolean scrollable = false;
 	private JHexWord jtop;
 	
 	
-	JData(String title,int _bottom,int _top)
+	JData(String title, int _bottom, int _top)
 	{
 		super(title,false);
 		
 		this.top = _top;
 		this.bottom =  _bottom;
 		
-		for (int i = 0 ; i < 256 ; i++)
-		{
+		for (int i = 0 ; i < 256 ; i++){
 			bytes[i] = new JHexByte();
 			bytes[i].setToolTipText(Hex.bin2byte(i));
 		}
@@ -418,8 +412,7 @@ abstract class JData extends J51Panel
 	void setAddress(int base)
 	{
 		this.base = base;
-		for (int i = 0 ; i < row ; i++)
-		{
+		for (int i = 0 ; i < row ; i++){
 			address[i].setText(Hex.bin2word(base+16*i));
 		}
 		
@@ -428,9 +421,11 @@ abstract class JData extends J51Panel
 
 	public void update(boolean force)
 	{
-		for (int i = 0 ; i < row ; i++)
-			for (int j = 0 ; j < 16 ; j++)
-				bytes[i*16+j].setValue(getByte(base+i*16+j));
+		for (int i = 0 ; i < row ; i++){
+			for (int j = 0 ; j < 16 ; j++){
+				bytes[i * 16 + j].setValue(getByte(base + i * 16 + j));
+                        }
+                }
 	}
 
 	public void setTop(int top)
@@ -500,10 +495,12 @@ class JIdata extends JData
 		super("Idata",0,256);
 	}
 
+        @Override
 	public int getByte(int address)
 	{
-		if (cpu == null)
+		if (cpu == null){
 			return 0;
+                }
 
 		return cpu.idata(address);
 	}
@@ -517,19 +514,21 @@ class JSfr extends J51Panel
 	
 	JSfr()
 	{
-		super("JSFR",false);
+		super("JSFR", false);
 		GridBagConstraints g = new GridBagConstraints();
 		g.gridx = 0 ; g.gridy = 0;g.gridwidth = 1;g.gridheight=1;
 		g.anchor = GridBagConstraints.CENTER; g.fill = GridBagConstraints.BOTH; g.insets = new Insets(1,1,1,1);
 
 		for (int i = 0 ; i < 128 ; i++)
 		{
-			labels[i] = new JLabel(Hex.bin2byte(i+128)+"  ");
+			labels[i] = new JLabel(Hex.bin2byte(i + 128) + "  ");
 			fields[i] = new JHexByte();
 			fields[i].setEditable(false);
 			fields[i].setToolTipText("Address " + Hex.bin2byte(i + 128));
-			add(labels[i],g);g.gridx++;
-			add(fields[i],g);g.gridx++;
+			add(labels[i],g);
+                        g.gridx++;
+			add(fields[i],g);
+                        g.gridx++;
 			if (g.gridx == 16)
 			{
 				g.gridy++;
@@ -544,19 +543,21 @@ class JSfr extends J51Panel
 		super.setCpu(cpu);
 		for (int i = 0 ; i < 128 ; i++)
 		{
-			String s= cpu.getSfrName(i+128);
+			String s= cpu.getSfrName(i + 128);
 			labels[i].setToolTipText(s);
 
-			if (s.length() > 4)
-				s= s.substring(0,4);
+			if (s.length() > 4){
+				s= s.substring(0, 4);
+                        }
 			labels[i].setText(s);
 		}
 	}
 
 	public void update(boolean force)
 	{
-		for (int i = 0 ; i < 128 ; i++)
-			fields[i].setValue(cpu.sfr(i+128));
+		for (int i = 0 ; i < 128 ; i++){
+			fields[i].setValue(cpu.sfr(i + 128));
+                }
 	}
 	
 }
@@ -569,20 +570,25 @@ class JPeripheral extends J51Panel
 	}
 
 	
+        @Override
 	public void setCpu(MCS51 cpu)
 	{
 		super.setCpu(cpu);
 		removeAll();
 		GridBagConstraints g = new GridBagConstraints();
-		g.gridx = 0 ; g.gridy = 0;g.gridwidth = 1;g.gridheight=1;
-		g.anchor = GridBagConstraints.CENTER; g.fill = GridBagConstraints.BOTH;
+		g.gridx = 0; 
+                g.gridy = 0;
+                g.gridwidth = 1;
+                g.gridheight = 1;
+		g.anchor = GridBagConstraints.CENTER; 
+                g.fill = GridBagConstraints.BOTH;
 		for (int i = 0 ; i < cpu.getPeripheralsCount() ; i++)
 		{
 			MCS51Peripheral p = cpu.getPeripheralAt(i);
 			
 			if (p instanceof Component)
 			{
-				add((Component)p,g);
+				add((Component)p, g);
 				g.gridy++;
 			}
 		}
@@ -602,6 +608,7 @@ class Rect extends JComponent
 		setPreferredSize(size);
 	}
 
+        @Override
 	public void paintComponent(Graphics g)
 	{
 		g.setColor(color);
@@ -627,20 +634,25 @@ class Worker extends JDialog implements Runnable
 	private Color paintColor = Color.blue;
 	private final JLabel progress;
 	
-	Worker(JFrame parent,String msg1,String msg2)
+	Worker(JFrame parent, String msg1, String msg2)
 	{
-		super(parent,true);
+		super(parent, true);
 
 		setTitle(msg1);
 		JPanel p = new JPanel(new GridBagLayout());
 		GridBagConstraints g = new GridBagConstraints();
-		g.gridx = 0;g.gridy = 0;g.gridwidth = 1;g.gridheight = 1;
-		g.fill  = GridBagConstraints.NONE;g.insets = new Insets(5,5,5,5);
+		g.gridx = 0;
+                g.gridy = 0;
+                g.gridwidth = 1;
+                g.gridheight = 1;
+		g.fill  = GridBagConstraints.NONE;
+                g.insets = new Insets(5, 5, 5, 5);
 		g.anchor = GridBagConstraints.CENTER;
 
 		g.gridwidth = 2;
-		p.add(new JLabel(msg1),g);
-		g.gridwidth = 1; g.gridy++;
+		p.add(new JLabel(msg1), g);
+		g.gridwidth = 1; 
+                g.gridy++;
 		//p.add(new JLabel(Utils.getIcon(Utils.ICON_PROCESS24)),g);
 		g.gridx++;
 		progress = new JLabel(msg2);
@@ -755,20 +767,21 @@ class Worker extends JDialog implements Runnable
 
 			Dimension mySize = target.getSize();
 
-			if (parentSize.width > mySize.width) 
+			if (parentSize.width > mySize.width) {
 				x = ((parentSize.width - mySize.width)/2) + topLeft.x;
-			else 
+                        } else {
 				x = topLeft.x;
+                        }
 
-			if (parentSize.height > mySize.height) 
+			if (parentSize.height > mySize.height) {
 				y = ((parentSize.height - mySize.height)/2) + topLeft.y;
-			else 
+                        } else {
 				y = topLeft.y;
+                        }
 
 			target.setLocation (x, y);
 
 		}
-
 
 	}
 
@@ -784,7 +797,7 @@ class Worker extends JDialog implements Runnable
  * 1.01	Added support for menu icon.
  * 
  */
-public class J51 extends JFrame implements MCS51Performance,ActionListener
+public class J51 extends JFrame implements MCS51Performance, ActionListener
 {
 	private static final Logger log = Logger.getLogger(J51.class);
 	
@@ -819,7 +832,7 @@ public class J51 extends JFrame implements MCS51Performance,ActionListener
 	private int cpuTime;
 	private Thread thread;
 	private JRadioButtonMenuItem first = null;
-	private final java.util.Vector panels = new java.util.Vector();
+	private final java.util.ArrayList panels = new java.util.ArrayList();
 
 
 	J51(){
@@ -841,15 +854,20 @@ public class J51 extends JFrame implements MCS51Performance,ActionListener
 		register.setChangeListener(this);
 		
 		GridBagConstraints g = new GridBagConstraints();
-		g.insets = new Insets(1,1,1,1);
-		g.gridx = 0;g.gridy = 0;g.gridwidth = 1;g.gridheight = 1;
+		g.insets = new Insets(1, 1, 1, 1);
+		g.gridx = 0;
+                g.gridy = 0;
+                g.gridwidth = 1;
+                g.gridheight = 1;
 
 		g.fill = GridBagConstraints.NONE;
 		g.anchor = GridBagConstraints.WEST;
 		g.gridwidth = 2;
 		p.add(toolBar,g);
 		
-		g.gridy++;g.fill = GridBagConstraints.BOTH;g.anchor = GridBagConstraints.CENTER;
+		g.gridy++;
+                g.fill = GridBagConstraints.BOTH;
+                g.anchor = GridBagConstraints.CENTER;
 		
 		g.gridwidth = 2;
 		p.add(info, g);
@@ -859,20 +877,23 @@ public class J51 extends JFrame implements MCS51Performance,ActionListener
 		g.gridx++;
 		
 		JTabbedPane tp = new JTabbedPane();
-		tp.add("Assembler",assembly);
-		tp.add("SFR",sfr);
-		tp.add("IDATA",idata);
-		tp.add("XDATA",xdata);
-		tp.add("CODE",code);
+		tp.add("Assembler", assembly);
+		tp.add("SFR", sfr);
+		tp.add("IDATA", idata);
+		tp.add("XDATA", xdata);
+		tp.add("CODE", code);
 		
-		p.add(tp,g)
-				;
-		g.gridx = 0;g.gridy++;g.gridwidth = 2;
-		p.add(messages,g);
+		p.add(tp, g);
+		g.gridx = 0;
+                g.gridy++;
+                g.gridwidth = 2;
+		p.add(messages, g);
 
-		g.gridx = 2;g.gridy = 0;
-		g.gridheight = 4;g.gridwidth = 1;
-		p.add(peripheral,g);
+		g.gridx = 2;
+                g.gridy = 0;
+		g.gridheight = 4;
+                g.gridwidth = 1;
+		p.add(peripheral, g);
 		
 		setContentPane(p);
 
@@ -913,13 +934,11 @@ public class J51 extends JFrame implements MCS51Performance,ActionListener
 		String source = e.getActionCommand();
 		
 		
-		if (source.equals("PC"))
-		{
+		if (source.equals("PC")){
 			assembly.update(false);
 		}
 
-		if (source.equals("SFR"))
-		{
+		if (source.equals("SFR")){
 			sfr.update(false);
 		}
 		
@@ -934,8 +953,7 @@ public class J51 extends JFrame implements MCS51Performance,ActionListener
                         @Override
 			public void process()
 			{
-				try
-				{
+				try{
 					Class c = Class.forName(name);
 					setProgress("Loading class");
 					MCS51 newCpu = (MCS51)c.newInstance();
@@ -944,25 +962,22 @@ public class J51 extends JFrame implements MCS51Performance,ActionListener
 					setProgress("Reset cpu");
 					reset();
 
-				for (int i = 0 ; i < panels.size() ; i++)
-				{
-					J51Panel p = (J51Panel)panels.elementAt(i);
+				for (int i = 0 ; i < panels.size() ; i++){
+					J51Panel p = (J51Panel)panels.get(i);
 					setProgress("Initialize  " + p.getTitle());
 					p.setCpu(cpu);
 				}
 
 				cpu.addPerformanceListener(J51.this);
 
-				if (J51.this.isVisible())
-				{
+				if (J51.this.isVisible()){
 					J51.this.invalidate();
 					J51.this.pack();
 				}
 
-				for (int i = 0 ; i < panels.size() ; i++)
-				{
-					J51Panel p = (J51Panel)panels.elementAt(i);
-					setProgress("Update  "+p.getTitle());
+				for (int i = 0 ; i < panels.size() ; i++){
+					J51Panel p = (J51Panel)panels.get(i);
+					setProgress("Update  " + p.getTitle());
 					p.update(true);
 				}
 
@@ -971,10 +986,7 @@ public class J51 extends JFrame implements MCS51Performance,ActionListener
 				messages(cpu.toString());
 				setProgress("Garbage collection");
 				System.gc();
-
-				}
-				catch (ClassNotFoundException | IllegalAccessException | InstantiationException ex)
-				{
+				} catch (ClassNotFoundException | IllegalAccessException | InstantiationException ex) {
 					messages(ex);
 					ex.printStackTrace(System.out);
 				}
@@ -988,7 +1000,7 @@ public class J51 extends JFrame implements MCS51Performance,ActionListener
 	private void erase()
 	{
 		for (int i = 0 ; i < cpu.getCodeSize() ; i++){
-			cpu.code(i,0xff);
+			cpu.code(i, 0xff);
                 }
 	}
 	
@@ -996,8 +1008,7 @@ public class J51 extends JFrame implements MCS51Performance,ActionListener
 	{
 
 		cpu.reset();
-		try
-		{
+		try{
 			cpu.pc(info.reset.getValue());
 		} catch (Exception ex) {
 		}
@@ -1017,16 +1028,14 @@ public class J51 extends JFrame implements MCS51Performance,ActionListener
 		System.out.println("Reset");
 		reset();
 		
-		for (int i = 0 ; i < panels.size() ; i++)
-		{
-			System.out.println("SetCpu"+panels.elementAt(i));
-			((J51Panel)panels.elementAt(i)).setCpu(cpu);
+		for (int i = 0 ; i < panels.size() ; i++){
+			System.out.println("SetCpu" + panels.get(i));
+			((J51Panel)panels.get(i)).setCpu(cpu);
 		}
 
 		cpu.addPerformanceListener(this);
 		
-		if (isVisible())
-		{
+		if (isVisible()){
 			invalidate();
 			pack();
 		}
@@ -1045,8 +1054,7 @@ public class J51 extends JFrame implements MCS51Performance,ActionListener
 
 	public void messages(Throwable ex)
 	{
-		if (!(ex instanceof InterruptedException))
-		{
+		if (!(ex instanceof InterruptedException)){
 			java.util.logging.Logger.getLogger(J51.class.getName()).log(Level.SEVERE, null, ex);
 		}
 		
@@ -1103,7 +1111,7 @@ public class J51 extends JFrame implements MCS51Performance,ActionListener
 		
 		for (int i = 0 ; i < panels.size() ; i++)
 		{
-			((J51Panel)panels.elementAt(i)).setEmulation(mode);
+			((J51Panel)panels.get(i)).setEmulation(mode);
 		}
 
 		updatePanel(false);
@@ -1120,8 +1128,9 @@ public class J51 extends JFrame implements MCS51Performance,ActionListener
 		g.add(item);
 		m.add(item);
 
-		if (first == null)
+		if (first == null){
 			first = item;
+                }
 	}
 
 
@@ -1135,8 +1144,7 @@ public class J51 extends JFrame implements MCS51Performance,ActionListener
 		log.log(Level.FINER, "Loading {0}", name);
 		URL url = J51.class.getResource("images/" + name);
 		
-		if (url == null)
-		{
+		if (url == null){
 			log.log(Level.INFO, "ImageFactory.getImageIcon - not found: {0}", name);
 			return null;
 		}
@@ -1144,7 +1152,6 @@ public class J51 extends JFrame implements MCS51Performance,ActionListener
 		Icon  icon =  new ImageIcon(url);
 
 		return icon;
-
 	}
 	
 	/**
@@ -1171,19 +1178,16 @@ public class J51 extends JFrame implements MCS51Performance,ActionListener
 		ButtonGroup buttonGroup = new ButtonGroup();
 
 		// Add cpu selection 
-		try
-		{
+		try{
 			BufferedReader rd = new BufferedReader(new FileReader("/home/spy/Source/8051/j51.conf"));
 			String line;
 
-			while ((line = rd.readLine()) != null)
-			{
+			while ((line = rd.readLine()) != null){
 				if (line.startsWith("#"))
 					continue;
 				if (line.length() < 3)
 					continue;
-				createMenuCpuLine(menuCpu,buttonGroup,line);
-
+				createMenuCpuLine(menuCpu, buttonGroup, line);
 			}
 			rd.close();
 		} catch (IOException ex) {
@@ -1191,9 +1195,8 @@ public class J51 extends JFrame implements MCS51Performance,ActionListener
 		}
 
 		if (menuCpu.getMenuComponentCount() == 0){
-			createMenuCpuLine(menuCpu,buttonGroup,"j51.intel.P8051");
+			createMenuCpuLine(menuCpu,buttonGroup, "j51.intel.P8051");
                 }
-
 
 		return menuCpu;
 	}
@@ -1211,12 +1214,9 @@ public class J51 extends JFrame implements MCS51Performance,ActionListener
                 JRadioButtonMenuItem item = new JRadioButtonMenuItem(info1.getName(), set);
                 final String className = info1.getClassName();
                 item.addActionListener((ActionEvent ae) -> {
-                    try
-                    {
+                    try{
                         UIManager.setLookAndFeel(className);
-                    }
-                    catch (ClassNotFoundException | IllegalAccessException | InstantiationException | UnsupportedLookAndFeelException e)
-                    {
+                    } catch (ClassNotFoundException | IllegalAccessException | InstantiationException | UnsupportedLookAndFeelException e) {
                         messages(e);
                     }
                     SwingUtilities.updateComponentTreeUI(J51.this);
@@ -1229,7 +1229,6 @@ public class J51 extends JFrame implements MCS51Performance,ActionListener
 		lnf.setMnemonic('K');
 
 		return lnf;
-		
 	}
 
 	JButton addToBar(JToolBar bar,Action action)
@@ -1290,11 +1289,10 @@ public class J51 extends JFrame implements MCS51Performance,ActionListener
 		int start = 0x10000;
 		int end = 0;
 		
-		while ((line = rd.readLine()) != null)
-		{
-			if (!line.startsWith(":"))
+		while ((line = rd.readLine()) != null){
+			if (!line.startsWith(":")){
 				throw new Exception(name + " is not a valid intel file");
-
+                        }
 			
 			int lenData = Hex.getByte(line, 1);
 			int address	= Hex.getWord(line, 3);
@@ -1302,12 +1300,14 @@ public class J51 extends JFrame implements MCS51Performance,ActionListener
 
 			int chksum = lenData + address / 256 + address + type;
 			
-			for (int i = 0 ; i < lenData + 1; i++)
+			for (int i = 0 ; i < lenData + 1; i++){
 				chksum += Hex.getByte(line, 9 + i * 2);
+                        }
 			chksum &= 0xff;
 
-			if (chksum != 0)
+			if (chksum != 0){
 				throw new Exception("Invalid chksum " + Hex.bin2byte(chksum) + " in " + line);
+                        }
 
 			if (type == 1)
 				break;
@@ -1321,34 +1321,30 @@ public class J51 extends JFrame implements MCS51Performance,ActionListener
 				start = address;
 			if (address + lenData - 1 > end)
 				end = address + lenData - 1;
-			for (int i = 0 ; i < lenData ; i++)
+			for (int i = 0 ; i < lenData ; i++){
 				cpu.code(address + i, Hex.getByte(line, 9 + i * 2));
+                        }
 		}
 		messages(" loaded at " + Hex.bin2word(start) + "-" + Hex.bin2word(end));
 		
 		rd.close();
 
 		int pos = name.indexOf('.');
-		if (pos != -1)
-		{
-			name = name.substring(0,pos)+".map";
+		if (pos != -1){
+			name = name.substring(0, pos) + ".map";
 		}
 
-		try
-		{
+		try{
 		rd = new BufferedReader(new FileReader(name));
 
-		while ((line = rd.readLine()) != null)
-		{
+		while ((line = rd.readLine()) != null){
 			line = line.trim();
-			if (line.startsWith("0C:"))
-			{
-				int address = Hex.getWord(line,3);
+			if (line.startsWith("0C:")){
+				int address = Hex.getWord(line, 3);
 				String label = line.substring(7);
 				label = label.trim();
 				cpu.setCodeName(address,label);
 			}
-			
 		}
 
 		rd.close();
@@ -1382,7 +1378,7 @@ public class J51 extends JFrame implements MCS51Performance,ActionListener
 				}
 			}
 		};
-		addIcon(actionFileLoad,"load.gif");
+		addIcon(actionFileLoad, "load.gif");
 		
 		actionFileExit = new AbstractAction("Exit")
 		{
@@ -1392,13 +1388,13 @@ public class J51 extends JFrame implements MCS51Performance,ActionListener
 				System.exit(0);
 			}
 		};
-		addIcon(actionFileExit,"exit.gif");
+		addIcon(actionFileExit, "exit.gif");
 		
 		JMenu menu = new JMenu("File");
-		addIcon(menu,"file.gif");
+		addIcon(menu, "file.gif");
 		
-		addKey(menu.add(actionFileLoad),'L');
-		addKey(menu.add(actionFileExit),'X');
+		addKey(menu.add(actionFileLoad), 'L');
+		addKey(menu.add(actionFileExit), 'X');
 
 		menu.setMnemonic('F');
 		
@@ -1418,13 +1414,13 @@ public class J51 extends JFrame implements MCS51Performance,ActionListener
 				int row,
 				boolean hasFocus)
 			{
-				super.getTreeCellRendererComponent(tree,value,selected,expanded,leaf,row,hasFocus);
+				super.getTreeCellRendererComponent(tree, value, selected, expanded, leaf, row, hasFocus);
 				
 				Font font = getFont();
 				
 				if (font != null)
 				{
-					font = new Font("Monospaced",font.getStyle(),font.getSize());
+					font = new Font("Monospaced", font.getStyle(), font.getSize());
 					setFont(font);
 				}
 
@@ -1464,7 +1460,7 @@ public class J51 extends JFrame implements MCS51Performance,ActionListener
 
 		}
 
-		performTree("Interrupt",sl.createTree());
+		performTree("Interrupt", sl.createTree());
 
 	}
 
@@ -1476,13 +1472,11 @@ public class J51 extends JFrame implements MCS51Performance,ActionListener
 			long counter = cpu.getExecutionCounter(i);
 			if (counter > 0)
 			{
-				sl.put(counter,cpu.getDecodeAt(i));
+				sl.put(counter, cpu.getDecodeAt(i));
 			}
-			
 		}
 		
-		performTree("Profiling",sl.createTree());
-		
+		performTree("Profiling", sl.createTree());
 	}
 
 	
@@ -1494,11 +1488,11 @@ public class J51 extends JFrame implements MCS51Performance,ActionListener
 			long counter = cpu.getOpcodeCounter(i);
 			if (counter > 0)
 			{
-				sl.put(counter,cpu.getOpcodeDescription(i));
+				sl.put(counter, cpu.getOpcodeDescription(i));
 			}
 		}
 
-		performTree("Statistics",sl.createTree());
+		performTree("Statistics", sl.createTree());
 	}
 	
 	JMenu createMenuTools()
@@ -1533,7 +1527,7 @@ public class J51 extends JFrame implements MCS51Performance,ActionListener
 
 
 		JMenu menu = new JMenu("Tools");
-		addIcon(menu,"tools.gif");
+		addIcon(menu, "tools.gif");
 		
 		addKey(menu.add(actionToolsProfile),'P');
 		menu.add(actionToolsInterrupt);
@@ -1577,16 +1571,14 @@ public class J51 extends JFrame implements MCS51Performance,ActionListener
 				try
 				{
 					thread.interrupt();
-				}
-				catch (Exception ex)
-				{
+				} catch (Exception ex) {
 			java.util.logging.Logger.getLogger(J51.class.getName()).log(Level.SEVERE, null, ex);
 				}
 				
 			}
 		};
 
-		addIcon(actionDebugStop,"stop.gif");
+		addIcon(actionDebugStop, "stop.gif");
 		
 		actionDebugTrace = new AbstractAction("Step into")
 		{
@@ -1597,14 +1589,12 @@ public class J51 extends JFrame implements MCS51Performance,ActionListener
 				{
 					cpu.step();
 					updatePanel(false);
-				}
-				catch (Exception ex)
-				{
+				} catch (Exception ex) {
 					messages(ex);
 				}
 			}
 		};
-		addIcon(actionDebugTrace,"stepinto.gif");
+		addIcon(actionDebugTrace, "stepinto.gif");
 		
 		actionDebugGo = new AbstractAction("Go")
 		{
@@ -1616,9 +1606,7 @@ public class J51 extends JFrame implements MCS51Performance,ActionListener
                                     try
                                     {
                                         cpu.go(-1);
-                                    }
-                                    catch (Exception ex)
-                                    {
+                                    } catch (Exception ex) {
                                         messages(ex);
                                     }
                                     
@@ -1649,9 +1637,7 @@ public class J51 extends JFrame implements MCS51Performance,ActionListener
                                     try
                                     {
                                         cpu.pass();
-                                    }
-                                    catch (Exception ex)
-                                    {
+                                    } catch (Exception ex) {
                                         messages(ex);
                                     }
                                     
@@ -1707,10 +1693,8 @@ public class J51 extends JFrame implements MCS51Performance,ActionListener
 			return;
                 }
 		
-		for (int i = 0 ; i < panels.size() ; i++)
-		{
-			((J51Panel)panels.elementAt(i)).update(force);
+		for (int i = 0 ; i < panels.size() ; i++){
+			((J51Panel)panels.get(i)).update(force);
 		}
-
 	}
 }

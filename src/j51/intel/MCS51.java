@@ -67,7 +67,7 @@ public class MCS51 implements MCS51Constants, jCPU.CPU
 
 
 	// Code name
-	private String codeNames[] = new String[64*1024];
+	private String codeNames[] = new String[64 * 1024];
 	
 
 	// Bit name
@@ -147,12 +147,10 @@ public class MCS51 implements MCS51Constants, jCPU.CPU
 	 */
 	static private MCS51 current = null;
 	
-			
 	static
 	{
 		initOpcodes();
 	}
-
 	
 	/**
 	 * Static function can be called from any class to set a break
@@ -166,18 +164,17 @@ public class MCS51 implements MCS51Constants, jCPU.CPU
 		current.setBreakAtPC();
 	}
 	
-	
 	public MCS51()
 	{
-		this(12000000,1);
+		this(12000000, 1);
 	}
 
 	public MCS51(int osc)
 	{
-		this(osc,1);
+		this(osc, 1);
 	}
 	
-	public MCS51(int osc,int numSfrPage)
+	public MCS51(int osc, int numSfrPage)
 	{
 		log.log(Level.INFO, "Created processor with {0} SFR pages, Clock {1}", new Object[]{numSfrPage, osc});
 
@@ -188,7 +185,7 @@ public class MCS51 implements MCS51Constants, jCPU.CPU
 		/**
 		 * Create SFR page system
 		 */
-		sfrPage=-1;
+		sfrPage = -1;
 		sfrPages = new SfrPage[numSfrPage];
 		sfrPages[0] = new SfrPage(0);
 		
@@ -204,12 +201,12 @@ public class MCS51 implements MCS51Constants, jCPU.CPU
 
 		// Internal memory
 		for (int i = 0 ; i < 128 ; i++){
-			setSfrBitmap(i,0x20 + i / 8);
+			setSfrBitmap(i, 0x20 + i / 8);
                 }
 
 		// Sfr register
 		for (int i = 128 ; i < 256 ; i++){
-			setSfrBitmap(i,i & 0xf8);
+			setSfrBitmap(i, i & 0xf8);
                 }
 
 		// Break point
@@ -293,7 +290,7 @@ public class MCS51 implements MCS51Constants, jCPU.CPU
 		
 		// Set default idata name
 		for (int reg = 0 ; reg < 8 ; reg++){
-			setIdataName(reg,"R"+reg);
+			setIdataName(reg, "R" + reg);
                 }
 
 		/**
@@ -367,13 +364,10 @@ public class MCS51 implements MCS51Constants, jCPU.CPU
 	public void addUpdatableComponent(UpdatableComponent c)
 	{
 		updatableComponents.add(c);
-
 		
-		if (updateTimer == null)
-		{
+		if (updateTimer == null){
 			updateTimer = new javax.swing.Timer(100, (java.awt.event.ActionEvent e) -> {
-                            for (int i = updatableComponents.size() ; --i >= 0;)
-                            {
+                            for (int i = updatableComponents.size() ; --i >= 0;){
                                 updatableComponents.get(i).update();
                             }
                         });
@@ -403,7 +397,7 @@ public class MCS51 implements MCS51Constants, jCPU.CPU
 	public void setCallListener(int pc,CallListener l) throws Exception
 	{
 		if (callListeners[pc] != null){
-			throw new Exception("Duplicate call trap at "+Hex.bin2word(pc));
+			throw new Exception("Duplicate call trap at " + Hex.bin2word(pc));
                 }
 		callListeners[pc] = l;
 	}
@@ -441,7 +435,7 @@ public class MCS51 implements MCS51Constants, jCPU.CPU
 		// Reset opcode
 		for (int i = 0 ; i < 256 ; i ++)
 		{
-			setOpcode(i,null);
+			setOpcode(i, null);
 		}
 		
 		// ACALL / AJMP
@@ -600,21 +594,17 @@ public class MCS51 implements MCS51Constants, jCPU.CPU
 	 */
 	public void addAsyncTimerListener(int timeout, AsyncTimerListener l)
 	{
-
-		for (int i = 0 ; i < asyncTimers.size() ; i++)
-		{
+		for (int i = 0 ; i < asyncTimers.size() ; i++){
 			AsyncTimer t = (AsyncTimer)asyncTimers.get(i);
 
 			// Same timeout ?
-			if (timeout == t.timeout)
-			{
+			if (timeout == t.timeout){
 				t.add(l);
 				return;
 			}
 
 			// Less timeout ?
-			if (timeout < t.timeout)
-			{
+			if (timeout < t.timeout){
 				AsyncTimer t1 = new AsyncTimer();
 				t1.timeout = timeout;
 				t1.add(l);
@@ -644,20 +634,19 @@ public class MCS51 implements MCS51Constants, jCPU.CPU
 	 */
 	public void addRunQueue(Runnable r)
 	{
-		synchronized (runQueue)
-		{
+		synchronized (runQueue){
 			runQueue.add(r);
 		}
 	}
 	
 	public void addAsyncTimerListenerMillis(int ms,AsyncTimerListener l)
 	{
-		addAsyncTimerListener(((oscillator / machineCycle) / 1000) * ms,l);
+		addAsyncTimerListener(((oscillator / machineCycle) / 1000) * ms, l);
 	}
 
-	public void addInterruptSource(int sfr,InterruptSource source)
+	public void addInterruptSource(int sfr, InterruptSource source)
 	{
-		addInterruptSource(sfr,source," INT");
+		addInterruptSource(sfr, source, " INT");
 	}
 
 	public int getInterruptCount()
@@ -670,20 +659,18 @@ public class MCS51 implements MCS51Constants, jCPU.CPU
 		return interruptStatistics.get(i);
 	}
 	
-	public void addInterruptSource(int sfr,InterruptSource source,String desc )
+	public void addInterruptSource(int sfr, InterruptSource source, String desc )
 	{
-		if (interruptList.indexOf(source) == -1)
-		{
+		if (interruptList.indexOf(source) == -1){
 			while (desc.length() < 16){
 				desc += " ";
                         }
-			interruptStatistics.add(new InterruptStatistic(source,desc+" AT 0x"+Hex.bin2word(source.getInterruptVector())));
+			interruptStatistics.add(new InterruptStatistic(source, desc + " AT 0x" + Hex.bin2word(source.getInterruptVector())));
 			interruptList.add(source);
 		}
 		
 		SfrRegister r = getSfr(sfr);
 		
-
 		r.interruptSources.add(source);
 	}
 	
@@ -699,24 +686,24 @@ public class MCS51 implements MCS51Constants, jCPU.CPU
 	}
 
 	
-	public void addSfrMemoryReadListener(int sfr,MemoryReadListener listener)
+	public void addSfrMemoryReadListener(int sfr, MemoryReadListener listener)
 	{
-		sfrCurrent.addMemoryReadListener(sfr,listener);
+		sfrCurrent.addMemoryReadListener(sfr, listener);
 	}
 	
-	public void addSfrReadListener(int sfr,SfrReadListener listener)
+	public void addSfrReadListener(int sfr, SfrReadListener listener)
 	{
-		addSfrMemoryReadListener(sfr,new MemoryReadListenerSfr(listener));
+		addSfrMemoryReadListener(sfr, new MemoryReadListenerSfr(listener));
 	}
 
-	public void addSfrMemoryWriteListener(int sfr,MemoryWriteListener listener)
+	public void addSfrMemoryWriteListener(int sfr, MemoryWriteListener listener)
 	{
-		sfrCurrent.addMemoryWriteListener(sfr,listener);
+		sfrCurrent.addMemoryWriteListener(sfr, listener);
 	}
 	
-	public void addSfrWriteListener(int sfr,SfrWriteListener listener)
+	public void addSfrWriteListener(int sfr, SfrWriteListener listener)
 	{
-		addSfrMemoryWriteListener(sfr,new MemoryWriteListenerSfr(listener));
+		addSfrMemoryWriteListener(sfr, new MemoryWriteListenerSfr(listener));
 	}
 	
 	public int getPeripheralsCount()
@@ -756,12 +743,12 @@ public class MCS51 implements MCS51Constants, jCPU.CPU
                 }
 
 		// XXX A,direct
-		setOpcode(new Arithmetic(basecode|5,2,op,name)
+		setOpcode(new Arithmetic(basecode|5, 2, op, name)
 		{
                         @Override
 			public int getValue(CPU cpu, int pc)
 			{
-				return cpu.getDirectCODE(pc+1);
+				return cpu.getDirectCODE(pc + 1);
 			}
 
                         @Override
@@ -774,32 +761,32 @@ public class MCS51 implements MCS51Constants, jCPU.CPU
 		// XXX A,@Rx0
 		for (int i = 0 ; i < 2 ; i++)
 		{
-			setOpcode(new Arithmetic(basecode|6|i,1,op,name)
+			setOpcode(new Arithmetic(basecode|6|i, 1, op, name)
 			{
-				public int getValue(CPU cpu,int pc)
+				public int getValue(CPU cpu, int pc)
 				{
 					return cpu.idata(cpu.r((int)(opcode & 1)));
 				}
 
 				public String toString()
 				{
-					return description+"\tA,R"+(opcode & 1);
+					return description + "\tA,R" + (opcode & 1);
 				}
 			});
 
 		}
 
 		// XXX A,#data
-		setOpcode(new Arithmetic(basecode|4,2,op,name)
+		setOpcode(new Arithmetic(basecode|4, 2, op, name)
 		{
-			public int getValue(CPU cpu,int pc)
+			public int getValue(CPU cpu, int pc)
 			{
-				return cpu.code(pc+1);
+				return cpu.code(pc + 1);
 			}
 
 			public String toString()
 			{
-				return description+"\tA,#DATA8";
+				return description + "\tA,#DATA8";
 			}
 		});
 
@@ -807,14 +794,14 @@ public class MCS51 implements MCS51Constants, jCPU.CPU
 	
 	static private void setOpcode(Opcode o)
 	{
-		setOpcode(o.getOpcode(),o);
+		setOpcode(o.getOpcode(), o);
 	}
 	
 	static private void setOpcode(int i, Opcode o)
 	{
 		if (opcodes[i] != null)
 		{
-			System.out.println("Error "+Integer.toHexString(i)+" "+opcodes[i]+" e "+o);
+			System.out.println("Error " + Integer.toHexString(i) + " " + opcodes[i] + " e " + o);
 			System.exit(1);
 		}
 		opcodes[i] = o;
@@ -837,10 +824,11 @@ public class MCS51 implements MCS51Constants, jCPU.CPU
 
 	public final int getDirect(int add)
 	{
-		if (add >= 128)
+		if (add >= 128){
 			return sfr(add);
-		else
+                } else {
 			return idata(add);
+                }
 	}
 
 	/**
@@ -1181,9 +1169,9 @@ public class MCS51 implements MCS51Constants, jCPU.CPU
 		return sfrCurrent.getName(reg);
 	}
 	
-	public final void code(int addr,int value)
+	public void code(int addr, int value)
 	{
-		code.setCode(addr,value);
+		code.setCode(addr, value);
 	}
 
 	public final int getCodeSize()
@@ -1191,7 +1179,7 @@ public class MCS51 implements MCS51Constants, jCPU.CPU
 		return code.getCodeSize();
 	}
 
-	public final int code(int addr,boolean move)
+	public final int code(int addr, boolean move)
 	{
 		return code.getCode(addr,move);
 	}
@@ -1235,8 +1223,7 @@ public class MCS51 implements MCS51Constants, jCPU.CPU
 
 	private int setSfrPage(int page)
 	{
-		if (page != sfrPage)
-		{
+		if (page != sfrPage){
 			int current = sfrPage;
 			sfrCurrent = sfrPages[page];
 			sfrPage = page;
@@ -1291,20 +1278,14 @@ public class MCS51 implements MCS51Constants, jCPU.CPU
 		sfrCurrent.write(add,value);
 		SfrRegister r = getSfr(add);
 
-
-		if (sfrCurrent.getWriteListener())
-		{
-			for (int i = 0 ;i < r.interruptSources.size() ; i++)
-			{
+		if (sfrCurrent.getWriteListener()){
+			for (int i = 0 ;i < r.interruptSources.size() ; i++){
 				InterruptSource is = r.interruptSources.get(i);
-				if (is.interruptCondition())
-				{
-					if (!interruptRequest.contains(is))
-					{
+				if (is.interruptCondition()){
+					if (!interruptRequest.contains(is)){
 						int ii = interruptList.indexOf(is);
 						
-						if (ii != -1)
-						{
+						if (ii != -1){
 							interruptStatistics.get(ii).incCounter();
 							
 						}
@@ -1389,8 +1370,7 @@ public class MCS51 implements MCS51Constants, jCPU.CPU
 			n = dptrs.length - 1;
                 }
 		
-		if (n != currentDptr)
-		{
+		if (n != currentDptr){
 			dptrs[currentDptr] = dptr();
 			dptr(dptrs[n]);
 			currentDptr = n;
@@ -1465,10 +1445,8 @@ public class MCS51 implements MCS51Constants, jCPU.CPU
 
 	public final void eoi()
 	{
-		if (currentInterrupt != null)
-		{
-			if (currentInterrupt.interruptCondition())
-			{
+		if (currentInterrupt != null){
+			if (currentInterrupt.interruptCondition()){
 				interruptRequest.add(currentInterrupt);
 			}
 			currentInterrupt = null;
@@ -1480,7 +1458,7 @@ public class MCS51 implements MCS51Constants, jCPU.CPU
 		go(-1);
 	}
 	
-	public final void go(int limit) throws Exception
+	public void go(int limit) throws Exception
 	{
 		int emulatedTime = 0;
 		long startTime = System.currentTimeMillis();
@@ -1492,32 +1470,27 @@ public class MCS51 implements MCS51Constants, jCPU.CPU
 		final int running = 10;
 		final int statistics = 5000;
 
-		if (limit != -1)
-		{
+		if (limit != -1){
 			breakPoint[limit] = true;
 		}
 		
 		// Cycle for ms
 		int cyclems = (oscillator * running) / 1000;
 
-		while (true)
-		{
+		while (true){
 			// Run running ms
 			int cycle = cyclems;
 			int count;
 
-			do
-			{
+			do{
 				count = execute();
 				clock += count;
 				cycle -= count;
 
-				if (breakPoint[pc])
-				{
+				if (breakPoint[pc]){
 					if (pc == limit){
 						breakPoint[limit] = false;
                                         }
-					
 					throw new InterruptedException("Break point at " + Hex.bin2word(pc));
 				}
 			} while (cycle > 0);
@@ -1529,14 +1502,12 @@ public class MCS51 implements MCS51Constants, jCPU.CPU
 			emulatedTime += running;
 			elapsed = (int)(now - statTime);
 			
-			if (elapsed >= statistics)
-			{
+			if (elapsed >= statistics){
 				int perc = ((elapsed - sleepCounter)*100)/elapsed;
 				statTime = now;
 				sleepCounter = 0;
 				
-				for (int i = 0 ; i < performance.size() ; i++)
-				{
+				for (int i = 0 ; i < performance.size() ; i++){
 					((MCS51Performance)performance.get(i)).cpuPerformance(perc,elapsed);
 				}
 
@@ -1544,8 +1515,7 @@ public class MCS51 implements MCS51Constants, jCPU.CPU
 				 * Release control to other thread like
 				 * swing ...
 				 */
-				if (perc >= 99)
-				{
+				if (perc >= 99){
 					Thread.sleep(10);
 					sleepCounter = 10;
 				}
@@ -1553,16 +1523,13 @@ public class MCS51 implements MCS51Constants, jCPU.CPU
 			}
 			
 			int delay = (int)(emulatedTime - realTime);
-			if (delay > running)
-			{
+			if (delay > running){
 				startTime = now+delay;
 				sleepCounter += delay;
 				emulatedTime = 0;
 				Thread.sleep(delay);
 			}
-
 		}
-
 	}
 
 	public void pass() throws Exception
@@ -1584,15 +1551,11 @@ public class MCS51 implements MCS51Constants, jCPU.CPU
 	private final void checkRunQueue()
 	{
 		if (runQueue.size() > 0){
-			synchronized (runQueue)
-			{
-
-
-				for (int i = runQueue.size() - 1 ; --i >= 0 ; )
+			synchronized (runQueue){
+				for (int i = runQueue.size() - 1 ; --i >= 0 ; ){
 					runQueue.get(i).run();
-
+                                }
 				runQueue.clear();
-
 			}
                 }
 	}
@@ -1640,7 +1603,6 @@ public class MCS51 implements MCS51Constants, jCPU.CPU
 		//log.fine("EXEC "+getDecodeAt(oldPc));
 			   
 		o.exec(this, oldPc);
-
 		
 		// Check machine cycle pollers
 		for ( i = machineListeners.size()  ; --i >= 0 ;){
@@ -1648,19 +1610,16 @@ public class MCS51 implements MCS51Constants, jCPU.CPU
                 }
 
 		// Check async timers
-		while (asyncTimers.size() > 0)
-		{
+		while (asyncTimers.size() > 0){
 			AsyncTimer a = asyncTimers.get(0);
 
 			a.timeout -= cycle;
-			if (a.timeout <= 0)
-			{
+			if (a.timeout <= 0){
 				// Remove the list
 				asyncTimers.remove(0);
 
 				// Call all the listeners
-				for (i = a.size()  ; --i >= 0;)
-				{
+				for (i = a.size()  ; --i >= 0;){
 					AsyncTimerListener l = (AsyncTimerListener)a.get(i);
 					l.expired(this);
 				}
@@ -1671,7 +1630,6 @@ public class MCS51 implements MCS51Constants, jCPU.CPU
 		
 		return cycle * machineCycle;
 	}
-
 	
 	public boolean getBreakPoint(int pc)
 	{
@@ -1680,10 +1638,10 @@ public class MCS51 implements MCS51Constants, jCPU.CPU
 
 	public void setBreakAtPC()
 	{
-		setBreakPoint(pc,true);
+		setBreakPoint(pc, true);
 	}
 	
-	public void setBreakPoint(int pc,boolean mode)
+	public void setBreakPoint(int pc, boolean mode)
 	{
 		breakPoint[pc] = mode;
 	}
@@ -1691,8 +1649,7 @@ public class MCS51 implements MCS51Constants, jCPU.CPU
 	public String getDecodeAt(int pc)
 	{
 		Opcode o = opcodes[code(pc)];
-		return o.decode(this,pc);
-
+		return o.decode(this, pc);
 	}
 	
 	public String getDescriptionAt(int pc)
@@ -1710,8 +1667,7 @@ public class MCS51 implements MCS51Constants, jCPU.CPU
 
 	public void setOscillator(int oscillator)
 	{
-		if (oscillator != this.oscillator)
-		{
+		if (oscillator != this.oscillator){
 			log.log(Level.INFO, "Set oscillator {0}", oscillator);
 			this.oscillator = oscillator;
 		}
@@ -1738,6 +1694,7 @@ public class MCS51 implements MCS51Constants, jCPU.CPU
 		return machineCycle;
 	}
 	
+        @Override
 	public String toString()
 	{
 		return "Intel MCS51 $Id: MCS51.java 75 2010-07-07 06:04:05Z mviara $";
@@ -1759,6 +1716,7 @@ class RESERVED extends AbstractOpcode
 		super(0xa5,1,1,"RESERVED");
 	}
 
+        @Override
 	public void exec(CPU cpu, int pc) throws Exception
 	{
 		throw new Exception("Invalid opcode : A5");
@@ -1781,7 +1739,7 @@ class ANL_DIRECT_A extends AbstractOpcode
 
 	public String toString()
 	{
-		return description+"\tA,DIRECT";
+		return description + "\tA,DIRECT";
 	}
 }
 
@@ -1789,18 +1747,18 @@ class ANL_DIRECT_DATA extends AbstractOpcode
 {
 	ANL_DIRECT_DATA()
 	{
-		super(0x53,3,2,"ANL");
+		super(0x53, 3, 2, "ANL");
 	}
 
-	public void exec(CPU cpu,int pc)
+	public void exec(CPU cpu, int pc)
 	{
-		int add = cpu.code(pc+1);
-		cpu.setDirect(add,(int)(cpu.getDirect(add) & cpu.code(pc+2)));
+		int add = cpu.code(pc + 1);
+		cpu.setDirect(add, (int)(cpu.getDirect(add) & cpu.code(pc + 2)));
 	}
 
 	public String toString()
 	{
-		return description+"\tDIRECT,#DATA8";
+		return description + "\tDIRECT,#DATA8";
 	}
 
 }
@@ -1922,7 +1880,6 @@ abstract class JR extends AbstractOpcode
 		cpu.pc(pc);
 	}
 }
-
 
 class SJMP extends JR
 {
@@ -2133,7 +2090,6 @@ class DA_A extends AbstractOpcode
 
 		cpu.acc((int)a);
 	}
-	
 }
 
 class XCH_A_R extends AbstractOpcode

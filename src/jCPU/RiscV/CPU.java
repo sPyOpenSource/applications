@@ -9,56 +9,67 @@ package jCPU.RiscV;
  *
  * @author X. Wang
  */
-public class CPU extends j51.intel.MCS51{
+public class CPU extends IsaSim{
     /* Type of Functional Units */
- int FU_ALU = 0x0;
- int FU_MUL = 0x1;
- int FU_DIV = 0x2;
- int FU_FPU_ALU = 0x3;
- int FU_FPU_FMA = 0x4;
- int NUM_MAX_FU = 0x5;
+ public static int FU_ALU = 0x0;
+ public static int FU_MUL = 0x1;
+ public static int FU_DIV = 0x2;
+ public static int FU_FPU_ALU = 0x3;
+ public static int FU_FPU_FMA = 0x4;
+ public static int NUM_MAX_FU = 0x5;
 
 /* Extension C Quadrants */
- int C_QUADRANT0 = 0;
- int C_QUADRANT1 = 1;
- int C_QUADRANT2 = 2;
+ public static int C_QUADRANT0 = 0;
+ public static int C_QUADRANT1 = 1;
+ public static int C_QUADRANT2 = 2;
 
 /* Used for updating performance counters */
 
- int NUM_MAX_INS_TYPES = 17;
- int INS_TYPE_LOAD = 0x0;
- int INS_TYPE_STORE = 0x1;
- int INS_TYPE_ATOMIC = 0x2;
- int INS_TYPE_SYSTEM = 0x3;
- int INS_TYPE_ARITMETIC = 0x4;
- int INS_TYPE_COND_BRANCH = 0x5;
- int INS_TYPE_JAL = 0x6;
- int INS_TYPE_JALR = 0x7;
- int INS_TYPE_INT_MUL = 0x8;
- int INS_TYPE_INT_DIV = 0x9;
- int INS_TYPE_FP_LOAD = 0xa;
- int INS_TYPE_FP_STORE = 0xb;
- int INS_TYPE_FP_ADD = 0xc;
- int INS_TYPE_FP_MUL = 0xd;
- int INS_TYPE_FP_FMA = 0xe;
- int INS_TYPE_FP_DIV_SQRT = 0xf;
- int INS_TYPE_FP_MISC = 0x10;
+ public static int NUM_MAX_INS_TYPES = 17;
+ public static int INS_TYPE_LOAD = 0x0;
+ public static int INS_TYPE_STORE = 0x1;
+ public static int INS_TYPE_ATOMIC = 0x2;
+ public static int INS_TYPE_SYSTEM = 0x3;
+ public static int INS_TYPE_ARITMETIC = 0x4;
+public static int INS_TYPE_COND_BRANCH = 0x5;
+public static int INS_TYPE_JAL = 0x6;
+public static int INS_TYPE_JALR = 0x7;
+public static int INS_TYPE_INT_MUL = 0x8;
+public static int INS_TYPE_INT_DIV = 0x9;
+public static int INS_TYPE_FP_LOAD = 0xa;
+public static int INS_TYPE_FP_STORE = 0xb;
+public static int INS_TYPE_FP_ADD = 0xc;
+public static int INS_TYPE_FP_MUL = 0xd;
+public static int INS_TYPE_FP_FMA = 0xe;
+public static int INS_TYPE_FP_DIV_SQRT = 0xf;
+public static int INS_TYPE_FP_MISC = 0x10;
 
- int INS_CLASS_INT= 0x11;
- int INS_CLASS_FP = 0x12;
+public static int INS_CLASS_INT= 0x11;
+public static int INS_CLASS_FP = 0x12;
 
 /* For exception handling during simulation */
- int SIM_ILLEGAL_OPCODE = 0x1;
- int SIM_COMPLEX_OPCODE = 0x2;
- int SIM_TIMEOUT_EXCEPTION = 0x3;
- int SIM_MMU_EXCEPTION = 0x4;
+public static int SIM_ILLEGAL_OPCODE = 0x1;
+public static int SIM_COMPLEX_OPCODE = 0x2;
+public static int SIM_TIMEOUT_EXCEPTION = 0x3;
+public static int SIM_MMU_EXCEPTION = 0x4;
 
 /* Type of Branch instructions */
- int BRANCH_UNCOND = 0x0;
- int BRANCH_COND = 0x1;
- int BRANCH_FUNC_CALL = 0x2;
- int BRANCH_FUNC_RET = 0x3;
+public static int BRANCH_UNCOND = 0x0;
+public static int BRANCH_COND = 0x1;
+public static int BRANCH_FUNC_CALL = 0x2;
+public static int BRANCH_FUNC_RET = 0x3;
 
+private final IsaSim sim = new IsaSim();
+
+@Override
+    public void go(int limit) throws Exception{
+        while(true){
+             RVInstruction ins = new RVInstruction(ram.readWord(pc));
+             decode_riscv_binary(ins);
+            sim.step();
+        }
+    }
+    
 /**
  * RISC-V Instruction Decoding Library
  *
@@ -91,8 +102,14 @@ public class CPU extends j51.intel.MCS51{
  * THE SOFTWARE.
  */
     
- int cget_field1(int i, int j, int k, int n){
-    return 0;
+ int cget_field1(int val, int src_pos, int dst_pos, int dst_pos_max){
+    int mask;
+    assert(dst_pos_max >= dst_pos);
+    mask = ((1 << (dst_pos_max - dst_pos + 1)) - 1) << dst_pos;
+    if (dst_pos >= src_pos)
+        return (val << (dst_pos - src_pos)) & mask;
+    else
+        return (val >> (src_pos - dst_pos)) & mask;
 }
 
 public  void decode_compressed_q0(RVInstruction ins)
@@ -114,12 +131,14 @@ public  void decode_compressed_q0(RVInstruction ins)
             imm = cget_field1(insn, 11, 4, 5) | cget_field1(insn, 7, 6, 9)
                   | cget_field1(insn, 6, 2, 2) | cget_field1(insn, 5, 3, 3);
             if (imm == 0){
+                illegal_insn(ins);
                 //goto illegal_insn;
             }
             break;
         case 1: /* c.fld */
         {
             if (ins.current_fs == 0){
+                illegal_insn(ins);
                 //goto illegal_insn;
             }
             ins.is_load = 1;
@@ -209,6 +228,7 @@ public  void decode_compressed_q0(RVInstruction ins)
             rs1 = ((insn >> 7) & 7) | 8;
             break;*/
         default:
+            illegal_insn(ins);
             //goto illegal_insn;
             return;
     }
@@ -223,8 +243,8 @@ public  void decode_compressed_q0(RVInstruction ins)
     ins.exception_cause = SIM_ILLEGAL_OPCODE;*/
 }
 
- int sextc(int i, int j){
-    return 0;
+ int sextc(int val, int n){
+    return (val << (32 - n)) >> (32 - n);
 }
 
 public  void decode_compressed_q1(RVInstruction ins)
@@ -271,6 +291,7 @@ public  void decode_compressed_q1(RVInstruction ins)
                                 | cget_field1(insn, 2, 5, 5),
                             10);
                 if (imm == 0){
+                    illegal_insn(ins);
                     //goto illegal_insn;
                 }
             }
@@ -315,6 +336,7 @@ public  void decode_compressed_q1(RVInstruction ins)
                         case 5: /* c.addw */
                             break;
                         default:
+                            illegal_insn(ins);
                             //goto illegal_insn;
                     }
                     break;
@@ -358,6 +380,7 @@ public  void decode_compressed_q1(RVInstruction ins)
                 9);
             break;
         default:
+            illegal_insn(ins);
             //goto illegal_insn;
     }
     ins.rd = rd;
@@ -462,16 +485,12 @@ public  void decode_compressed_q2(RVInstruction ins)
                     {
                         ins.is_func_ret = 1;
                     }
-                }
-                else
-                {
+                } else {
                     /* c.mv */
                     ins.has_dest = 1;
                     ins.has_src2 = 1;
                 }
-            }
-            else
-            {
+            } else {
                 if (rs2 == 0)
                 {
                     if (rd == 0)
@@ -545,7 +564,7 @@ public  void decode_compressed_q2(RVInstruction ins)
     ins.funct3 = funct3;
 }
 
-public  void decode_compressed_type(RVInstruction ins)
+public void decode_compressed_type(RVInstruction ins)
 {
     int quad = ins.binary & 3;
     switch (quad)
@@ -625,29 +644,24 @@ public  int chk_op_exceptions(RVInstruction i)
 {
     int imm = i.binary >> 25;
 
-    if (imm != 1)
-    {
-        if ((imm & ~0x20) != 0)
-        {
+    if (imm != 1){
+        if ((imm & ~0x20) != 0){
             return -1;
         }
     }
     return 0;
 }
     
-public char[][] opCode;
-    
 /**
  * @param  ins 32-bit instruction binary
  */
-public void decode_riscv_binary(RVInstruction ins, int insn)
+public void decode_riscv_binary(RVInstruction ins)
 {
-    ins.binary = insn;
+    int insn = ins.binary;
     ins.fu_type = FU_ALU;
     ins.data_class = INS_CLASS_INT;
     ins.type = INS_TYPE_ARITMETIC;
-    if ((ins.binary & 3) != 3)
-    {
+    if ((ins.binary & 3) != 3){
         /* Compressed Instruction */
         decode_compressed_type(ins);
     } else {
@@ -658,17 +672,14 @@ public void decode_riscv_binary(RVInstruction ins, int insn)
         ins.rd = (insn >> 7) & 0x1f;
         ins.rs1 = (insn >> 15) & 0x1f;
         ins.rs2 = (insn >> 20) & 0x1f;
-        switch (ins.major_opcode)
-        {
-            case LOAD_MASK:
-            {
+        switch (ins.major_opcode){
+            case LOAD_MASK:{
                 ins.is_load = 1;
                 ins.has_src1 = 1;
                 ins.has_dest = 1;
                 ins.imm = (int)insn >> 20;
                 ins.type = INS_TYPE_LOAD;
-                switch (ins.funct3)
-                {
+                switch (ins.funct3){
                     case 0x0: /* lb */
                     {
                         ins.bytes_to_rw = 1;
@@ -711,12 +722,9 @@ public void decode_riscv_binary(RVInstruction ins, int insn)
                 break;
             }
             case OP_IMM_MASK:
-            case OP_IMM_32_MASK:
-            {
-                if (ins.major_opcode == OP_IMM_MASK)
-                {
-                    if (chk_op_imm_exceptions(ins, 64/*BIT_SIZE*/)!=0)
-                    {
+            case OP_IMM_32_MASK:{
+                if (ins.major_opcode == OP_IMM_MASK) {
+                    if (chk_op_imm_exceptions(ins, 64/*BIT_SIZE*/) != 0){
                         //goto exception;
                     }
                 } else {
@@ -806,7 +814,6 @@ public void decode_riscv_binary(RVInstruction ins, int insn)
                 ins.exception_cause = SIM_COMPLEX_OPCODE;
                 break;
             }
-
             case JAL_MASK:
             {
                 ins.is_branch = 1;
@@ -1098,19 +1105,29 @@ final  int FENCE_MASK = 0xf;
 final  int CSR_MASK = 0x73;
 final  int ATOMIC_MASK = 0x2F;
 
-    private void get_riscv_ins_str(RVInstruction ins) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private String get_riscv_ins_str(RVInstruction ins) {
+        return "NOP";
     }
-
+    
+@Override
+    public String getDecodeAt(int pc)
+	{
+            RVInstruction ins = new RVInstruction(code(pc));
+            String result = get_riscv_ins_str(ins);
+            if(result != null) return "     " + result;
+            return "     NULL";
+        }
+    
     private  class RVInstruction {
-        public int binary, exception, exception_cause, has_dest, has_src1, current_fs, is_load, has_fp_dest;
-        public int bytes_to_rw, is_store, has_fp_src1, has_fp_src2, has_fp_src3, set_fs, funct3, rs3, rm, imm, rd;
-        public int f32_mask, f64_mask, has_src2, is_atomic_operate, is_atomic_load, is_atomic_store, rs2, is_atomic;
-        public int is_branch, is_func_call, is_func_ret, rs1, is_system, is_unsigned, quad, funct4, funct5, funct7;
+        public int binary, exception, exception_cause, has_dest, has_src1, has_src2, current_fs, is_load, has_fp_dest;
+        public int bytes_to_rw, is_store, has_fp_src1, has_fp_src2, has_fp_src3, set_fs, rm, imm, rd;
+        public int f32_mask, f64_mask, is_atomic_operate, is_atomic_load, is_atomic_store, is_atomic;
+        public int is_branch, is_func_call, is_func_ret, rs1, rs2, rs3, is_system, is_unsigned, quad, funct3, funct4, funct5, funct7;
         public int major_opcode, branch_type, type, fu_type, data_class;
         public boolean create_str;
 
-        public RVInstruction() {
+        public RVInstruction(int opcode) {
+            binary = opcode;
         }
     }
 }

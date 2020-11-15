@@ -33,28 +33,28 @@ public  class VmStackFrame {
                 a[++top] = x; 
                 System.out.println(x + " pushed into stack"); 
                 return true; 
-            } 
-        } 
+            }
+        }
 
-        public Object pop() 
-        { 
-            if (top < 0) { 
-                System.out.println("Stack Underflow"); 
-                return 0; 
-            } else { 
-                Object x = a[top--]; 
-                return x; 
-            } 
-        } 
+        public Object pop()
+        {
+            if (top < 0) {
+                System.out.println("Stack Underflow");
+                return 0;
+            } else {
+                Object x = a[top--];
+                return x;
+            }
+        }
 
-        Object peek() 
-        { 
-            if (top < 0) { 
-                System.out.println("Stack Underflow"); 
-                return 0; 
-            } else { 
-                Object x = a[top]; 
-                return x; 
-            } 
+        Object peek()
+        {
+            if (top < 0) {
+                System.out.println("Stack Underflow");
+                return 0;
+            } else {
+                Object x = a[top];
+                return x;
+            }
         }
     }

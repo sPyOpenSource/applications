@@ -48,7 +48,7 @@ public class JLed extends JPanel
 		if (mode != this.mode)
 		{
 			this.mode = mode;
-			led.setBackground(mode ? color : color.black);
+			led.setBackground(mode ? color : Color.black);
 		}
 	}
 

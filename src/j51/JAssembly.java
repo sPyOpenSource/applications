@@ -39,10 +39,10 @@ public class JAssembly extends J51Panel
 			int row,
 			int column)
 		{
-			super.getTableCellRendererComponent(table,value,isSelected,hasFocus,row,column);
+			super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
 			Font font = getFont();
 
-			font = new Font("Monospaced",font.getStyle(),font.getSize());
+			font = new Font("Monospaced", font.getStyle(), font.getSize());
 			setFont(font);
 
 			return this;
@@ -51,7 +51,7 @@ public class JAssembly extends J51Panel
 
 	JAssembly()
 	{
-		super("Assembler",false);
+		super("Assembler", false);
 
 		tm = new AbstractTableModel()
 		{
@@ -59,7 +59,6 @@ public class JAssembly extends J51Panel
 			public int getRowCount()
 			{
 				return completed ? pcs.size() : pcs.size() + 1;
-
 			}
 
                         @Override
@@ -68,20 +67,19 @@ public class JAssembly extends J51Panel
 				return 3;
 			}
 
-			public Object getValueAt(int r,int c)
+                        @Override
+			public Object getValueAt(int r, int c)
 			{
 				int pc;
 				
-				if (r >= pcs.size())
-				{
+				if (r >= pcs.size()){
 					decode(-1,r);
 				}
 				
 				if (r >= pcs.size())
 					return null;
 				pc = pc(r);
-				switch (c)
-				{
+				switch (c){
 					case	0:
 						return breakPoint.get(r);
 						
@@ -95,10 +93,10 @@ public class JAssembly extends J51Panel
 				}
 			}
 
+                        @Override
 			public String getColumnName(int c)
 			{
-				switch (c)
-				{
+				switch (c){
 					case	0:
 						return "";
 					case	1:
@@ -108,19 +106,21 @@ public class JAssembly extends J51Panel
 					default:
 						return null;
 				}
-
 			}
 
+                        @Override
 			public Class getColumnClass(int c)
 			{
 				return getValueAt(0, c).getClass();
 			}
 
+                        @Override
 			public boolean isCellEditable(int rowIndex, int columnIndex)
 			{
 				return columnIndex == 0;
 			}
 
+                        @Override
 			public void setValueAt(Object v,int r,int c)
 			{
 				Boolean b = (Boolean)v;
@@ -137,37 +137,36 @@ public class JAssembly extends J51Panel
 		sc.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS );
 
 		GridBagConstraints g = new GridBagConstraints();
-		g.gridx = 0;g.gridy = 0;g.gridwidth = 1;g.gridheight = 1;
-		g.fill  = GridBagConstraints.BOTH;g.insets = new Insets(1,1,1,1);
+		g.gridx = 0;
+                g.gridy = 0;
+                g.gridwidth = 1;
+                g.gridheight = 1;
+		g.fill  = GridBagConstraints.BOTH;
+                g.insets = new Insets(1, 1, 1, 1);
 		g.anchor = GridBagConstraints.CENTER;
 
 		add(sc,g);
-
 	}
 
 	private int pc(int r)
 	{
 		return ((Integer)(pcs.get(r)));
-
 	}
 	
-	private void decode(int maxPc,int maxRow)
+	private void decode(int maxPc, int maxRow)
 	{
 		int pc;
 		int count = 0;
-		if (pcs.size() == 0)
+		if (pcs.size() == 0){
 			pc = 0;
-		else
-		{
+                } else {
 			pc = pc(pcs.size() - 1);
 			pc += cpu.getLengthAt(pc);
 		}
 	
 		int from = pcs.size();
-		for (;;)
-		{
-			if (pc >= cpu.getCodeSize())
-			{
+		while (true){
+			if (pc >= cpu.getCodeSize()){
 				completed = true;
 				break;
 			}
@@ -179,13 +178,10 @@ public class JAssembly extends J51Panel
 			pcs.add(pc);
 			breakPoint.add(false);
 			pc += cpu.getLengthAt(pc);
-			tm.fireTableRowsInserted(pcs.size()-1,pcs.size()-1);
-			
+			tm.fireTableRowsInserted(pcs.size() - 1, pcs.size() - 1);
 		}
 
-
-		//System.out.println("Disassembly "+from+" count "+count+" completed "+completed+" maxpc "+maxPc+" maxrow "+maxRow);
-		
+		//System.out.println("Disassembly " + from + " count " + count + " completed " + completed + " maxpc " + maxPc + " maxrow " + maxRow);
 	}
 	
 	private void createTable()
@@ -218,42 +214,38 @@ public class JAssembly extends J51Panel
 			c.setResizable(false);
 		}
 		tm.fireTableDataChanged();
-
 	}
 
+        @Override
 	public void setCpu(MCS51 cpu)
 	{
 		super.setCpu(cpu);
 		createTable();
-
 	}
 
 
+        @Override
 	public void update(boolean force)
 	{
-		if (force)
+		if (force){
 			createTable();
+                }
 		int row = 0;
-		decode(cpu.pc(),-1);
+		decode(cpu.pc(), -1);
 		
-		for (int i = 0 ; i < pcs.size() ; i++)
-		{
+		for (int i = 0 ; i < pcs.size() ; i++){
 			//System.out.println("Row "+i+" = "+Hex.bin2word(pc(i))+" Search "+Hex.bin2word(cpu.pc()));
 
-			if (pc(i) >= cpu.pc())
-			{
-				
+			if (pc(i) >= cpu.pc()){
 				row = i;
 				break;
 			}
 		}
 
-		
 		Rectangle rect = jt.getCellRect(row, 0, true);
 		jt.scrollRectToVisible(rect);
 		jt.clearSelection();
 		jt.setRowSelectionInterval(row, row);
-
 	}
 
         @Override
@@ -261,5 +253,4 @@ public class JAssembly extends J51Panel
 	{
 		jt.setEnabled(!mode);
 	}
-
 }

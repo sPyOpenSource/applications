@@ -23,7 +23,7 @@ public class Uart extends JPanel implements MCS51Peripheral,
 	private int sbuf = '?';
 	private boolean sbufReaded;
 	protected MCS51 cpu;
-	private byte inBuffer[] = new byte[1024*1024];
+	private final byte inBuffer[] = new byte[1024*1024];
 	int inPs,inPl;
 	
 	public Uart()
@@ -96,11 +96,8 @@ public class Uart extends JPanel implements MCS51Peripheral,
 
 	public boolean interruptCondition()
 	{
-		if ((cpu.sfr(IE) & IE_ES) != 0 && (((cpu.sfr(SCON) & SCON_RI) != 0) ||
-						   ((cpu.sfr(SCON) & SCON_TI) != 0)))
-			return true;
-
-		return false;
+		return (cpu.sfr(IE) & IE_ES) != 0 && (((cpu.sfr(SCON) & SCON_RI) != 0) ||
+                        ((cpu.sfr(SCON) & SCON_TI) != 0));
 	}
 
 	protected void sendChar(int value)

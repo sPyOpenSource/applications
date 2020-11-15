@@ -19,6 +19,7 @@ class HexTextDocument extends PlainDocument
 		this.size = size;
 	}
 
+        @Override
 	public void insertString(int offset,String string,AttributeSet a)
 			throws BadLocationException
 	{
@@ -29,11 +30,11 @@ class HexTextDocument extends PlainDocument
 				//Toolkit.getDefaultToolkit().beep();
 				return;
 			}
-		}
-		else
+		} else {
 			return;
+                }
 
-		StringBuffer s = new StringBuffer(string);
+		StringBuilder s = new StringBuilder(string);
 		boolean isValid = true;
 
 		for (int i = 0 ; i < s.length() && isValid ; i++)
@@ -117,9 +118,9 @@ public class JHexField extends JFixedField  implements KeyListener
 		if (len == 4)
 		{
 			s = Hex.bin2word(value);
-		}
-		else
+		} else {
 			s = Hex.bin2byte(value);
+                }
 
 		String old = getText();
 
@@ -130,9 +131,7 @@ public class JHexField extends JFixedField  implements KeyListener
 		{
 			if (getSelected())
 				setSelected(false);
-		}
-		else
-		{
+		} else {
 			setSelected(true);
 			setText(s);
 		}
@@ -190,7 +189,7 @@ public class JHexField extends JFixedField  implements KeyListener
 
 		if (offset != 0)
 		{
-			e.setKeyCode(e.VK_ENTER);
+			e.setKeyCode(KeyEvent.VK_ENTER);
 			//e.consume();
 			//fireActionPerformed();
 		}

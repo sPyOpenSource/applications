@@ -34,7 +34,7 @@ class J51Panel extends JPanel
 			if (title == null){
 				JFactory.setBox(this);
                         } else {
-				JFactory.setTitle(this,title);
+				JFactory.setTitle(this, title);
                                         }
 		}
 	}

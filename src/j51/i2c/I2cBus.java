@@ -9,6 +9,7 @@ import j51.util.Logger;
 import j51.util.Hex;
 import j51.intel.OpenCollectorMemoryBit;
 import j51.intel.MCS51;
+import java.util.logging.Level;
 
 /**
  * I2C Bus manager. This peripheral manage all the operation between
@@ -34,7 +35,7 @@ import j51.intel.MCS51;
  */
 public class I2cBus implements jCPU.MemoryWriteListener,j51.intel.MCS51Peripheral,j51.intel.ResetListener
 {
-	private static Logger log = Logger.getLogger(I2cBus.class);
+	private static final Logger log = Logger.getLogger(I2cBus.class);
 
 	/** Memory bit connected to SCL wire */
 	protected OpenCollectorMemoryBit	SCL;
@@ -53,7 +54,7 @@ public class I2cBus implements jCPU.MemoryWriteListener,j51.intel.MCS51Periphera
 	private	boolean ignore;
 	private	int byteCount;
 	private	boolean lastByte;
-	private Vector<I2cSlave> slaves = new Vector<I2cSlave>();
+	private Vector<I2cSlave> slaves = new Vector<>();
 	
 	/**
 	 * Default constructor
@@ -178,18 +179,18 @@ public class I2cBus implements jCPU.MemoryWriteListener,j51.intel.MCS51Periphera
 	 */
 	protected void i2cRecv(int value) 
 	{
-		log.fine("I2CRECV "+Hex.bin2byte(value));
+		log.log(Level.FINE, "I2CRECV {0}", Hex.bin2byte(value));
 
 		if (ph == null)
 		{
 			address = value;
 			if (searchSlave(value))
 			{
-				log.fine("Found "+ph);
+				log.log(Level.FINE, "Found {0}", ph);
 				ack = ph.i2cWrite(byteCount++,value);
 			}
 			else
-				log.info("Not found Peripheral at "+Hex.bin2byte(value));
+				log.log(Level.INFO, "Not found Peripheral at {0}", Hex.bin2byte(value));
 		}
 		else
 			ack = ph.i2cWrite(byteCount++,value);
@@ -209,7 +210,7 @@ public class I2cBus implements jCPU.MemoryWriteListener,j51.intel.MCS51Periphera
 		{
 			case	0:
 				value = ph.i2cRead(byteCount++) & 0xff;
-				log.fine("I2CSEND "+Hex.bin2byte(value)+" count "+byteCount);
+				log.log(Level.FINE, "I2CSEND {0} count {1}", new Object[]{Hex.bin2byte(value), byteCount});
 			default:
 				if ((value & 0x80) != 0)
 				{
@@ -224,12 +225,12 @@ public class I2cBus implements jCPU.MemoryWriteListener,j51.intel.MCS51Periphera
 				break;
 			case	8:
 				lastByte = sda;
-				log.finer("Last byte "+lastByte);
+				log.log(Level.FINER, "Last byte {0}", lastByte);
 				bitCount++;
 				break;
 		}
 
-		log.finer("Send Clock "+bitCount+" Bit "+SDA.get()+" value "+Hex.bin2byte(value));
+		log.log(Level.FINER, "Send Clock {0} Bit {1} value {2}", new Object[]{bitCount, SDA.get(), Hex.bin2byte(value)});
 
 	}
 
@@ -274,7 +275,7 @@ public class I2cBus implements jCPU.MemoryWriteListener,j51.intel.MCS51Periphera
 	 */
 	protected void i2cFail(boolean bit) 
 	{
-		log.finer("I2CFail "+bit);
+		log.log(Level.FINER, "I2CFail {0}", bit);
 		if (bitCount == 8)
 		{
 			if (read)
@@ -306,7 +307,7 @@ public class I2cBus implements jCPU.MemoryWriteListener,j51.intel.MCS51Periphera
 
 			if (byteCount == 1)
 			{
-				read = (value & 1) != 0 ? true : false;
+				read = (value & 1) != 0;
 				if (read)
 					log.finer("Read operation");
 				else
@@ -337,7 +338,7 @@ public class I2cBus implements jCPU.MemoryWriteListener,j51.intel.MCS51Periphera
 
 		ignore = true;
 
-		log.finest("ENTER SCL="+scl+",SDA="+sda+" OSCL="+oldScl+",OSDA="+oldSda+" LSCL="+SCL.getLocal()+",LSDA="+SDA.getLocal());
+		log.log(Level.FINEST, "ENTER SCL={0},SDA={1} OSCL={2},OSDA={3} LSCL={4},LSDA={5}", new Object[]{scl, sda, oldScl, oldSda, SCL.getLocal(), SDA.getLocal()});
 
 
 
@@ -357,7 +358,7 @@ public class I2cBus implements jCPU.MemoryWriteListener,j51.intel.MCS51Periphera
 		oldSda = SDA.get();
 		ignore = false;
 
-		log.finest("LEAVE SCL="+scl+",SDA="+sda+" OSCL="+oldScl+",OSDA="+oldSda+" LSCL="+SCL.getLocal()+",LSDA="+SDA.getLocal());
+		log.log(Level.FINEST, "LEAVE SCL={0},SDA={1} OSCL={2},OSDA={3} LSCL={4},LSDA={5}", new Object[]{scl, sda, oldScl, oldSda, SCL.getLocal(), SDA.getLocal()});
 
 	}
 

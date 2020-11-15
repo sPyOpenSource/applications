@@ -262,16 +262,14 @@ public class JInfo extends J51Panel implements MCS51Performance,ResetListener
 		elapsed *= 1000000;
 		elapsed /= cpu.getOscillator();
 		StringBuffer s = new StringBuffer();
-		elapsed = updateClock(s,"day" ,elapsed,1000000L * 60L * 60L * 24L);
-		elapsed = updateClock(s,"hour",elapsed,1000000L * 60L * 60L);
-		elapsed = updateClock(s,"min", elapsed,1000000L * 60L);
-		elapsed = updateClock(s,"sec", elapsed,1000000L);
-		elapsed = updateClock(s,"ms",  elapsed,1000L);
-		elapsed = updateClock(s,"us",  elapsed,1L);
+		elapsed = updateClock(s,"day" , elapsed, 1000000L * 60L * 60L * 24L);
+		elapsed = updateClock(s,"hour", elapsed, 1000000L * 60L * 60L);
+		elapsed = updateClock(s,"min", elapsed, 1000000L * 60L);
+		elapsed = updateClock(s,"sec", elapsed, 1000000L);
+		elapsed = updateClock(s,"ms", elapsed, 1000L);
+		elapsed = updateClock(s,"us", elapsed, 1L);
 		
 		this.elapsed.setText(s.toString());
-			
-		
 	}
 
         @Override

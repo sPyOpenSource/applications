@@ -17,6 +17,7 @@ class NumTextDocument extends PlainDocument
 		this.size = size;
 	}
 
+        @Override
 	public void insertString(int offset,String string,AttributeSet a)
 			throws BadLocationException
 	{
@@ -31,7 +32,7 @@ class NumTextDocument extends PlainDocument
 		else
 			return;
 
-		StringBuffer s = new StringBuffer(string);
+		StringBuilder s = new StringBuilder(string);
 		boolean isValid = true;
 
 		for (int i = 0 ; i < s.length() && isValid ; i++)
@@ -90,9 +91,7 @@ public class JNumField extends JFixedField  implements KeyListener
 		try
 		{
 			value = Long.parseLong(s);
-		}
-		catch (Exception e)
-		{
+		} catch (NumberFormatException e) {
 		}
 		
 		return value;
@@ -106,16 +105,13 @@ public class JNumField extends JFixedField  implements KeyListener
 		try
 		{
 			s = Long.toString(value);
-		}
-		catch (Exception e)
-		{
+		} catch (Exception e) {
 		}
 
 		try
 		{
 			old = getValue();
-		} catch (Exception e)
-		{
+		} catch (Exception e) {
 		}
 
 
@@ -125,9 +121,7 @@ public class JNumField extends JFixedField  implements KeyListener
 		{
 			if (getSelected())
 				setSelected(false);
-		}
-		else
-		{
+		} else {
 			setSelected(true);
 		}
 
@@ -184,7 +178,7 @@ public class JNumField extends JFixedField  implements KeyListener
 
 		if (offset != 0)
 		{
-			e.setKeyCode(e.VK_ENTER);
+			e.setKeyCode(KeyEvent.VK_ENTER);
 		}
 	}
 

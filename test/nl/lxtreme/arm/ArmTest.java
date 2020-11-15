@@ -110,11 +110,9 @@ public class ArmTest
     File elfFile = getFileResource("resources/helloWorld_static");
     Elf elf = new Elf(elfFile);
 
-    for (ProgramHeader ph : elf.getProgramHeaders())
-    {
+    for (ProgramHeader ph : elf.getProgramHeaders()){
       int size = (int) ph.getMemorySize();
-      if (size <= 0)
-      {
+      if (size <= 0){
         continue;
       }
 

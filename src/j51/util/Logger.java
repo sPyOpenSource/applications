@@ -46,9 +46,7 @@ public class Logger extends java.util.logging.Logger
 				FileInputStream is = new FileInputStream("logging.properties");
 				logManager.readConfiguration(is);
 				is.close();
-			}
-			catch (IOException | SecurityException ex)
-			{
+			} catch (IOException | SecurityException ex) {
 				System.out.println(ex);
 			}
 

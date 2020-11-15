@@ -140,25 +140,20 @@ public class JarmTool {
 				/* byte arrays are zero-filled when created, so we don't have to zero-fill */
 			}
 			return programSpace;
-		}
-		catch(FileNotFoundException e) {
+		} catch(FileNotFoundException e) {
 			System.err.println(pathstring+": No such file");
 			return null;
-		}
-		catch(NonLoadableFileException e) {
+		} catch(NonLoadableFileException e) {
 			System.err.println(pathstring+": Not loadable: "+e.getWay());
 			return null;
-		}
-		catch(EOFException e) {
+		} catch(EOFException e) {
 			System.err.println(pathstring+": Unexpected end of file");
 			return null;
-		}
-		catch(IOException e) {
+		} catch(IOException e) {
 			System.err.println(pathstring+": IOException caught");
 			e.printStackTrace();
 			return null;
-		}
-		finally {
+		} finally {
 			if(f != null) try { f.close(); } catch(IOException e) { e.printStackTrace(); }
 		}
 	}
@@ -210,15 +205,12 @@ public class JarmTool {
 			while(true) {
 				cpu.execute();
 			}
-		}
-		catch(ProgramExit e) {
+		} catch(ProgramExit e) {
 			System.exit(e.getExitStatus());
-		}
-		catch(UndefinedException | AlignmentException | BusErrorException e) {
+		} catch(UndefinedException | AlignmentException | BusErrorException e) {
 			e.printStackTrace();
 			cpu.dumpState(System.err);
-		}
-		catch(EscapeCompleteException | EscapeRetryException e) {
+		} catch(EscapeCompleteException | EscapeRetryException e) {
 			// ?
 		}
 	}

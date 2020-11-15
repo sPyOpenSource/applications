@@ -179,7 +179,7 @@ private class SimpleMethodPool{
  
 public  double get_double_parameter(VmStackFrame stack, VmCP p)
 {
-    double value = 0.0f;
+    double value = 0.0d;
     if (is_ref_entry(stack)) {
         int index = popInt(stack);
         value = get_double_from_constant_pool(p, index);
@@ -475,7 +475,7 @@ public  double get_double_parameter(VmStackFrame stack, VmCP p)
  int op_invokespecial( char[][] opCode, VmStackFrame stack, VmCP p)
 {
     int method_index;
-     char []tmp=new char[2];
+    char []tmp=new char[2];
     tmp[0] = opCode[0][1];
     tmp[1] = opCode[0][2];
     method_index = tmp[0] << 8 | tmp[1];
@@ -523,9 +523,7 @@ public  double get_double_parameter(VmStackFrame stack, VmCP p)
            /* System.out.print("call class %s\n", clsName);
             System.out.print("call method %s\n", method_name);
             System.out.print("call method type %s\n", method_type);*/
-	    boolean ret =
-            invoke_java_lang_library(stack, p,
-                                     clsName, method_name, method_type);
+           boolean ret = invoke_java_lang_library(stack, p, clsName, method_name, method_type);
             if (ret) {
                 System.out.print("invoke java lang library successful\n");
             }
@@ -539,9 +537,9 @@ public  double get_double_parameter(VmStackFrame stack, VmCP p)
  int op_invokevirtual( char[][] opCode, VmStackFrame stack, VmCP p)
 {
     int object_ref;
-     char []tmp =new char[2];
-    char[] clsName=new char[255];
-    char[] utf8=new char[255];
+    char []tmp = new char[2];
+    char[] clsName = new char[255];
+    char[] utf8 = new char[255];
     int len = 0;
     tmp[0] = opCode[0][1];
     tmp[1] = opCode[0][2];
@@ -674,7 +672,7 @@ Function<VM, Integer> op_new, op_irem, op_sipush, op_return;
         }
     }
 
- VmByteCode byteCodes[] = {
+ public VmByteCode byteCodes[] = {
     new VmByteCode( "aload_0"         , 0x2A, 1,  op_aload_0       ),
     new VmByteCode( "bipush"          , 0x10, 2,  op_bipush        ),
     new VmByteCode( "dup"             , 0x59, 1,  op_dup           ),
@@ -756,8 +754,8 @@ int executeMethod(MethodInfo startup, VmStackFrame stack, VmCP p)
 {
     int i = 0;
     int j = 0;
-    char []name=new char[255];
-    CodeAttribute ca =null;
+    char []name = new char[255];
+    CodeAttribute ca = null;
     //memset(ca, 0 , sizeof(CodeAttribute));
     for (j = 0 ; j < startup.attributes_count ; j++) {
         convertToCodeAttribute(ca, startup.attributes[j]);
@@ -768,8 +766,9 @@ int executeMethod(MethodInfo startup, VmStackFrame stack, VmCP p)
         printCodeAttribute(ca, p);
         System.out.print("----------------------------------------\n");
          char[][] pc = ca.code;
-        if (run == 0)
+        if (run == 0){
             System.exit(1);
+        }
         do {
             Function func = findOpCodeFunc(pc[0][0]);
             if (func != null) {
@@ -781,12 +780,13 @@ int executeMethod(MethodInfo startup, VmStackFrame stack, VmCP p)
     return 0;
 }
 
- String findOpCode( char op)
+ public String findOpCode(char op)
 {
-    int i;
-    for (i = 0; i < byteCodes.length ; i++)
-        if (op == byteCodes[i].opCode)
-            return byteCodes[i].name;
+    for (VmByteCode byteCode : byteCodes) {
+        if (op == byteCode.opCode) {
+            return byteCode.name;
+        }
+    }
     return null;
 }
 
@@ -794,7 +794,7 @@ int executeMethod(MethodInfo startup, VmStackFrame stack, VmCP p)
    {
        int i = 0;
        int tmp = 0;
-       char []name=new char[255];
+       char []name = new char[255];
        getUTF8String(p, ca.attribute_name_index, 255, name);
        //System.out.print("attribute name : %s\n", name);
        //System.out.print("attribute length: %d\n", ca.attribute_length);

@@ -10,12 +10,13 @@ import jCPU.JavaVM.vm.VmStackFrame;
 
 /**
  *
- * @author spy
+ * @author X. Wang
  */
 public class VM extends j51.intel.MCS51{
 public VmStackFrame stack;
 public VmCP p;
 public char[][] opCode;
+private ByteCode bytecode = new ByteCode();
 
     VM(char[][] pc, VmStackFrame stackFrame, VmCP p) {
         stack = stackFrame;
@@ -25,5 +26,20 @@ public char[][] opCode;
     
     public VM(){
         
+    }
+    
+@Override
+    public String getDecodeAt(int pc)
+	{
+            String result = bytecode.findOpCode((char)code(pc));
+            if(result != null) return "     " + result;
+            return "     NULL";
+        }
+    
+@Override
+    public void go(int limit) throws Exception{
+        while(true){
+            
+        }
     }
 }

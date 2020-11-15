@@ -6,9 +6,15 @@
 package nl.lxtreme.arm;
 
 
+import java.io.File;
+import java.io.IOException;
 import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import nl.lxtreme.arm.memory.*;
+import nl.lxtreme.binutils.elf.Elf;
+import nl.lxtreme.binutils.elf.ProgramHeader;
 
 
 /**
@@ -134,10 +140,26 @@ public class Arm  extends j51.intel.MCS51
   }
   
   public Arm(){
-      this.r = new int[16];
+    this.r = new int[16];
     this.cpsr = new Cpsr();
+    this.memory = new Memory();
+File elfFile = new File("resources/helloWorld_static");
+    Elf elf;
+      try {
+          elf = new Elf(elfFile);
+          for (ProgramHeader ph : elf.getProgramHeaders()){
+      int size = (int) ph.getMemorySize();
+      if (size <= 0){
+        continue;
+      }
 
-    this.memory = null;
+      Chunk chunk = this.memory.create(ph.getVirtualAddress(), size);
+      elf.readSegment(ph, chunk);
+    }
+      } catch (IOException ex) {
+          Logger.getLogger(Arm.class.getName()).log(Level.SEVERE, null, ex);
+      }
+
     this.breakpoints = new ArrayList<>(32);
     this.entryPoint = 0;
   }
@@ -362,7 +384,14 @@ public class Arm  extends j51.intel.MCS51
   {
     this.r[15] = this.entryPoint = val;
   }
-
+  
+@Override
+    public void go(int limit) throws Exception{
+        while(true){
+            step();
+        }
+    }
+    
   /**
    * Steps through the instructions.
    * 
@@ -1070,9 +1099,7 @@ public class Arm  extends j51.intel.MCS51
             {
               System.out.printf(" r%d, r%d, r%d", Rd, Rn, Rm);
               shiftPrint(opcode);
-            }
-            else
-            {
+            } else {
               System.out.printf(" r%d, r%d, #0x%X", Rd, Rn, ROR(Imm, amt));
             }
 
@@ -1086,9 +1113,7 @@ public class Arm  extends j51.intel.MCS51
             if (I)
             {
               this.r[Rd] = this.r[Rn] | ROR(Imm, amt);
-            }
-            else
-            {
+            } else {
               this.r[Rd] = this.r[Rn] | shift(opcode, this.r[Rm]);
             }
 
@@ -1111,9 +1136,7 @@ public class Arm  extends j51.intel.MCS51
             {
               System.out.printf(" r%d, r%d", Rd, Rm);
               shiftPrint(opcode);
-            }
-            else
-            {
+            } else {
               System.out.printf(" r%d, #0x%X", Rd, ROR(Imm, amt));
             }
 
@@ -1127,9 +1150,7 @@ public class Arm  extends j51.intel.MCS51
             if (I)
             {
               this.r[Rd] = ROR(Imm, amt);
-            }
-            else
-            {
+            } else {
               this.r[Rd] = (Rm == 15) ? (this.r[15] + 4 /* 32-bit */) : shift(opcode, this.r[Rm]);
             }
 
@@ -1168,9 +1189,7 @@ public class Arm  extends j51.intel.MCS51
             if (I)
             {
               this.r[Rd] = this.r[Rn] & ~(ROR(Imm, amt));
-            }
-            else
-            {
+            } else {
               this.r[Rd] = this.r[Rd] & ~shift(opcode, this.r[Rm]);
             }
 
@@ -1193,9 +1212,7 @@ public class Arm  extends j51.intel.MCS51
             {
               System.out.printf(" r%d, r%d", Rd, Rm);
               shiftPrint(opcode);
-            }
-            else
-            {
+            } else {
               System.out.printf(" r%d, #0x%X", Rd, ROR(Imm, amt));
             }
 
@@ -1209,9 +1226,7 @@ public class Arm  extends j51.intel.MCS51
             if (I)
             {
               this.r[Rd] = ~ROR(Imm, amt);
-            }
-            else
-            {
+            } else {
               this.r[Rd] = ~shift(opcode, this.r[Rm]);
             }
 
@@ -1258,9 +1273,7 @@ public class Arm  extends j51.intel.MCS51
 
           System.out.printf(", %sr%d", (U) ? "" : "-", Rm);
           shiftPrint(opcode);
-        }
-        else
-        {
+        } else {
           value = Imm;
           System.out.printf(", #%s0x%X", (U) ? "" : "-", value);
         }
@@ -1274,9 +1287,7 @@ public class Arm  extends j51.intel.MCS51
         if (U)
         {
           wb = this.r[Rn] + value;
-        }
-        else
-        {
+        } else {
           wb = this.r[Rn] - value;
         }
 
@@ -1287,14 +1298,10 @@ public class Arm  extends j51.intel.MCS51
           if (B)
           {
             this.r[Rd] = this.memory.read8(addr);
-          }
-          else
-          {
+          } else {
             this.r[Rd] = this.memory.read32(addr);
           }
-        }
-        else
-        {
+        } else {
           value = this.r[Rd];
           if (Rd == 15)
           {
@@ -1304,9 +1311,7 @@ public class Arm  extends j51.intel.MCS51
           if (B)
           {
             this.memory.write8(addr, (byte) (value & 0xFF));
-          }
-          else
-          {
+          } else {
             this.memory.write32(addr, value);
           }
         }
@@ -1335,21 +1340,15 @@ public class Arm  extends j51.intel.MCS51
           if (Rn == 13)
           {
             System.out.printf("%c%c", (P) ? 'e' : 'f', (U) ? 'd' : 'a');
-          }
-          else
-          {
+          } else {
             System.out.printf("%c%c", (U) ? 'i' : 'd', (P) ? 'b' : 'a');
           }
-        }
-        else
-        {
+        } else {
           System.out.printf("stm");
           if (Rn == 13)
           {
             System.out.printf("%c%c", (P) ? 'f' : 'e', (U) ? 'a' : 'd');
-          }
-          else
-          {
+          } else {
             System.out.printf("%c%c", (U) ? 'i' : 'd', (P) ? 'b' : 'a');
           }
         }
@@ -1357,9 +1356,7 @@ public class Arm  extends j51.intel.MCS51
         if (Rn == 13)
         {
           System.out.printf(" sp");
-        }
-        else
-        {
+        } else {
           System.out.printf(" r%d", Rn);
         }
 
@@ -1411,9 +1408,7 @@ public class Arm  extends j51.intel.MCS51
               }
             }
           }
-        }
-        else
-        {
+        } else {
           for (int i = 15; i >= 0; i--)
           {
             if (((opcode >> i) & 1) != 0)
@@ -2146,21 +2141,17 @@ public class Arm  extends j51.intel.MCS51
       return;
     }
 
-    if ((opcode >> 12) == 9)
-    {
+    if ((opcode >> 12) == 9){
       int Rd = (opcode >> 8) & 7;
       int Imm = (opcode & 0xFF);
 
-      if ((opcode & 0x800) != 0)
-      {
+      if ((opcode & 0x800) != 0){
         int addr = this.r[13] + (Imm << 2);
 
         this.r[Rd] = this.memory.read32(addr);
 
         System.out.printf("ldr r%d, [sp, 0x%02X]\n", Rd, Imm << 2);
-      }
-      else
-      {
+      } else {
         int addr = this.r[13] + (Imm << 2);
         int value = this.r[Rd];
 
@@ -2182,9 +2173,7 @@ public class Arm  extends j51.intel.MCS51
         this.r[Rd] = this.r[13] + (Imm << 2);
 
         System.out.printf("add r%d, sp, #0x%02X\n", Rd, Imm << 2);
-      }
-      else
-      {
+      } else {
         this.r[Rd] = (this.r[15] & ~2) + (Imm << 2);
 
         System.out.printf("add r%d, pc, #0x%02X\n", Rd, Imm << 2);
@@ -2205,9 +2194,7 @@ public class Arm  extends j51.intel.MCS51
           {
             this.r[13] -= Imm << 2;
             System.out.printf("sub sp, #0x%02X\n", Imm << 2);
-          }
-          else
-          {
+          } else {
             this.r[13] += Imm << 2;
             System.out.printf("add sp, #0x%02X\n", Imm << 2);
           }
@@ -2323,9 +2310,7 @@ public class Arm  extends j51.intel.MCS51
 
         System.out.printf("}\n");
         return;
-      }
-      else
-      {
+      } else {
         System.out.printf("stmia r%d!, {", Rn);
 
         for (int i = 0; i < 8; i++)
@@ -2394,9 +2379,7 @@ public class Arm  extends j51.intel.MCS51
         int Imm = ((opcode & 0x7FF) << 12);
 
         this.r[14] = this.r[15] + Imm;
-      }
-      else
-      {
+      } else {
         // H = 1
         int temp = this.r[15];
 
@@ -2409,9 +2392,7 @@ public class Arm  extends j51.intel.MCS51
         {
           Imm = (~Imm) & 0x7FFFFE;
           this.r[15] -= Imm;
-        }
-        else
-        {
+        } else {
           this.r[15] += Imm + 2;
         }
       }
@@ -2420,9 +2401,7 @@ public class Arm  extends j51.intel.MCS51
       {
         this.cpsr.t = false;
         System.out.printf("blx 0x%08X\n", this.r[15]);
-      }
-      else
-      {
+      } else {
         System.out.printf("bl 0x%08X\n", this.r[15]);
       }
 

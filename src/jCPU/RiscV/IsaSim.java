@@ -17,7 +17,7 @@ import java.nio.ByteBuffer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class IsaSim{
+public class IsaSim extends j51.intel.MCS51{
 	// Insert path to binary file containing RISC-V instructions
 	public final static String FILEPATH = "tests/task3/loop.bin";
 
@@ -37,15 +37,22 @@ public class IsaSim{
 	// A single memory for instructions and data allowing "byte addressing"
 	// using different integer key values (pc and sp counting in bytes)
 	public static Memory ram = new Memory();
-
-	public static void main(String[] args) throws IOException {
+                     boolean offsetPC = false, breakProgram = false; // For determining next pc value
+                     int cc = 0; // Clock cycle counter
+                
+	public IsaSim() {
 		System.out.println("Hello RISC-V World!");
-		ram.readBinary(FILEPATH, INITIAL_PC); // Read instructions into memory
+            try {
+                ram.readBinary(FILEPATH, INITIAL_PC); // Read instructions into memory
+            } catch (IOException ex) {
+                Logger.getLogger(IsaSim.class.getName()).log(Level.SEVERE, null, ex);
+            }
 		reg[2] = INITIAL_SP; // Reset stack pointer
-		boolean offsetPC = false, breakProgram = false; // For determining next pc value
-		int cc = 0; // Clock cycle counter
-
-		while (true) {
+		
+        }
+        
+        @Override
+		public int step () {
 			// Combine four bytes to produce a single instruction
 			int instr = ram.readWord(pc);
 
@@ -149,12 +156,12 @@ public class IsaSim{
 				if (DEBUGGING) {
 					//printFile(FILEPATH);
 				}
-				break;
+				return 1;
 			}
 			cc++;
+                        return 1;
 		}
-		System.out.println("Program exit");
-	}
+		//System.out.println("Program exit");
 
 	public static void loadUpperImmediate(int instr) {
 		// General information
