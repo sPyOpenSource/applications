@@ -11,7 +11,6 @@ public class Main {
 	Main.naming = InitialNaming.getInitialNaming();
 	memMgr = (MemoryManager)naming.lookup("MemoryManager");
 	dm = (DomainManager)naming.lookup("DomainManager");
-	//for(int i=0;i<1000;i++) Thread.yield();
 
 	int mem_before = memMgr.getTotalFreeMemory();
 	Debug.out.println ("Free memory before domain started: "+mem_before);
@@ -24,10 +23,7 @@ public class Main {
 	
 	if (child == null) throw new Error("Unable to create child domain\n");
     
-	//for(int i=0;i<1000;i++) Thread.yield();
 	Debug.out.println ("Free memory when domain running: "+memMgr.getTotalFreeMemory());
-
-	//for(;;) Thread.yield();
 
 	dm.terminate(child);
 
@@ -35,7 +31,6 @@ public class Main {
 	Debug.out.println ("Free memory when domain terminated: "+mem_term);
 	Debug.out.println ("    Difference: "+(mem_before - mem_term));
 
-	//for(;;) Thread.yield();
 	createDomains();
 	createDomains2();
 	

@@ -3,7 +3,6 @@ package test.wm;
 import jx.zero.*;
 import jx.zero.debug.*;
 import jx.wm.*;
-import jx.wm.message.*;
 import jx.devices.fb.*;
 
 class Button
@@ -16,7 +15,7 @@ class Button
 	{
 		m_cOwner = cOwner;
 		m_cFrame.setTo (cFrame);
-		m_cTitle = new String (cTitle);
+		m_cTitle = cTitle;
 	}
 	public void paint (PixelRect cUpdateRect)
 	{
@@ -44,7 +43,6 @@ class Button
 	public boolean mouseDown (PixelPoint cMousePos, int nButton)
 	{	
 		boolean f = false;
-		//Debug.out.println ("MainWindow::MouseDown(" + cMousePos.m_nX + ", " + cMousePos.m_nY + ")");
 		if (m_cFrame.contains (cMousePos))
 		{
 			f = m_bPressed = true;
@@ -82,7 +80,7 @@ class TestWindow extends WWindow
 	PixelRect m_cCursorRect = new PixelRect();
 	StringBuffer m_cScreen[] = new StringBuffer[m_nLines];
 	
-	String m_cText = new String("");
+	String m_cText = "";
 	public TestWindow (String cTitle, PixelRect cFrame, WindowFlags eFlags)
 	{
 		super (cTitle, cFrame, eFlags);
@@ -114,17 +112,11 @@ class TestWindow extends WWindow
 	}
 	public void paint (PixelRect cUpdateRect)
 	{
-	    //Debug.out.println ("TestWindow::paint(" + m_cText + ")");
 		for (int i = 0; i < m_nLines; i++)
 			drawLine (i);
    	}
 	public void keyDown (Keycode eKeyCode, Keycode eRawCode, Qualifiers eQualifiers)
 	{
-		/*
-		char buf[] = { (char)eKeyCode.value };
-		m_cText = m_cText.concat (new String (buf));
-		//Debug.out.println ("TestWindow::KeyDown (" + eKeyCode + ", " + eRawCode + ", " + eQualifiers + ")");
-		*/
 		switch (eKeyCode.value)
 		{
 		case Keycode.VK_BACKSPACE:
@@ -186,11 +178,9 @@ class TestWindow extends WWindow
 			}
 			break;
 		}
-		//paint (new PixelRect ());
 	}
 	public void keyUp (Keycode eKeyCode, Keycode eRawCode, Qualifiers eQualifiers)
 	{
-	    //Debug.out.println ("TestWindow::KeyUp (" + eKeyCode + ", " + eRawCode + ", " + eQualifiers + ")");
 	}
 }
 
@@ -221,13 +211,7 @@ class DrawWindow extends WWindow
 	{
 		setBitmap (m_cBackBuffer);
 		setFgColor (0, 0,  0);
-/*		
-		movePenTo (10, 10);
-		drawString ("Dies ist ein ganz normaler Text");
-		movePenTo (10, 30);
-		drawLine (100, 40);
-		fillRect (new PixelRect (10, 50, 100, 80));
-*/		
+
 		m_cLiner.paint (cUpdateRect);
 		m_cRecter.paint (cUpdateRect);		 
 		m_cFillTest.paint (cUpdateRect);

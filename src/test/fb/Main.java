@@ -8,9 +8,7 @@ import jx.devices.fb.FramebufferConfiguration;
 import jx.devices.fb.ColorSpace;
 import jx.devices.DeviceFinder;
 
-
 import jx.devices.pci.PCIAccess;
-
 import jx.devices.fb.*;
 
 public class Main {
@@ -37,12 +35,10 @@ public class Main {
 	bus.dumpDevices();
 
 	Debug.out.println("scanning PCIBus for framebuffer devices...");
-	DeviceFinder[] finder = { new jx.devices.fb.vmware.VMWareSVGAFinder(),
-				  //new jx.devices.fb.mga.MGA200Finder(),
+	DeviceFinder[] finder = { new jx.devices.fb.vmware.VMWareSVGAFinder()
 	};
 	FramebufferDevice[] fbs = null;
         for (DeviceFinder finder1 : finder) {
-            //fbs = (FramebufferDevice[]) finder1.find();
             if (fbs != null && fbs.length != 0) break;
         }
 	if (fbs == null) throw new Error("No supported framebuffer hardware found.");
@@ -53,8 +49,6 @@ public class Main {
 
   	PixelRect p = new PixelRect (20, 20, 100, 200);
 	PixelColor cColor = new PixelColor (255, 0, 0);
-
-	//fb.fillRect(new PixelRect[] { p }, 1, cColor);
 
 	fb.close();
 

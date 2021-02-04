@@ -1,29 +1,21 @@
 package test.net;
 
 import jx.zero.*;
-import jx.shell.*;
-
-import jx.timer.*;
-
-import jx.devices.pci.*;
-
-import metaxa.os.devices.net.D3C905;
-import metaxa.os.devices.net.ComInit;
-
-
 import jx.zero.debug.Dump;
+import jx.shell.*;
+import jx.timer.*;
+import jx.devices.pci.*;
+import jx.devices.net.*;
 
 import jx.net.IPAddress;
 import jx.net.UnknownAddressException;
-
 import jx.net.NetInit;
 import jx.net.UDPSender;
 import jx.net.UDPReceiver;
 import jx.net.UDPData;
 
-import jx.devices.net.*;
-
-
+import metaxa.os.devices.net.D3C905;
+import metaxa.os.devices.net.ComInit;
 import java.io.PrintStream;
 
 public class Main {
@@ -46,8 +38,6 @@ public class Main {
 
     static D3C905 init3com(final Naming naming) {
 	TimerManager timerManager = (TimerManager)LookupHelper.waitUntilPortalAvailable(naming,"TimerManager");
-
-	//	SleepManager sleepManager = new SleepManagerImpl();
 
 	Debug.out.println("lookup PCI Access Point...");
 	PCIAccess bus = (PCIAccess)LookupHelper.waitUntilPortalAvailable(naming,"PCIAccess");

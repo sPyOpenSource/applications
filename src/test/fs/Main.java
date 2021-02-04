@@ -1,15 +1,16 @@
 package test.fs;
 
+import bioram.BlockIORAM;
+import javafs.*;
 import jx.zero.*;
 import jx.zero.debug.*;
-import bioram.BlockIORAM;
+import jx.zero.debug.DebugPrintStream;
+import jx.zero.debug.DebugOutputStream;
+
 import jx.bio.BlockIO;
-import javafs.*;
 import jx.fs.FS;
 import jx.fs.Inode;
 import jx.fs.FSException;
-import jx.zero.debug.DebugPrintStream;
-import jx.zero.debug.DebugOutputStream;
 
 class IOZoneRAMSingle {
     public static void init(Naming naming) throws Exception {
@@ -45,9 +46,6 @@ public class Main {
 	//fsckTest();
 	//fileTreeWalkTest();
 	iozoneTest(fs);
-	//rereadTest(fs);
-	
-	//bufferCache.printStatistics();
     }
 
     public Main(Naming naming) throws Exception {
@@ -58,16 +56,6 @@ public class Main {
 	jx.fs.FileSystem jfs = null;
 	dm = (DomainManager)naming.lookup("DomainManager");
         if (singleDomain) {
-            /*
-            this.naming = naming;
-
-            FSImpl fs = new FSImpl();
-            naming.registerPortal(fs, "FS");
-
-            jfs = initLocalIozoneTest(fs);
-
-            dotest(fs);
-            */
             throw new Error();
         } else {
             FS fs = (FS)LookupHelper.waitUntilPortalAvailable(naming, fsname);
@@ -92,17 +80,10 @@ public class Main {
 
         BlockIO bio = (BlockIO)naming.lookup("IDE");
 
-
-        //SleepManagerImpl sleepmanager = new SleepManagerImpl();
-        //IDEDeviceImpl bio = new IDEDeviceImpl(sleepmanager);
-
-
         javafs.FileSystem jfs = new javafs.FileSystem();
         Clock clock = new DummyClock();
         jfs.init(bio, new buffercache.BufferCache(bio, clock, 500, 1000, 100, EXT2FS_BLOCKSIZE), clock);
-        //jfs.init(false);
 
-        //FileSystem jfsDEP = (FileSystem) naming.promoteDEP(jfs, "jx/fs/FS");
         naming.registerPortal(jfs, "JavaFS");
 
 
@@ -115,7 +96,6 @@ public class Main {
 
 
         fs.mountRoot(filesystem, false); // 2. Parameter = read-only  //hda8
-        //mountPartitions.put("hda8", filesystem);
 
         fs.mkdir("lost+found", InodeImpl.S_IWUSR|InodeImpl.S_IRUGO|InodeImpl.S_IXUGO);
 
@@ -128,13 +108,7 @@ public class Main {
 
         InodeImpl inode = (InodeImpl)fs.lookup("iozone.tmp");
         MemoryManager memMgr = (MemoryManager)InitialNaming.getInitialNaming().lookup("MemoryManager");
-        //Memory buffer = memMgr.alloc(12 * 1024 );  // direct
-        //Memory buffer = memMgr.alloc(13 * 1024 );  // one block is 1-indirect
-        //Memory buffer = memMgr.alloc(14 * 1024 );  // two blocks are 1-indirect
-        //Memory buffer = memMgr.alloc(120 * 1024 );  // 18 blocks are 1-indirect
-        //Memory buffer = memMgr.alloc(250 * 1024 );  // 18 blocks are 1-indirect
-        //Memory buffer = memMgr.alloc(268 * 1024 ); // 1-indirect
-        //Memory buffer = memMgr.alloc(269 * 1024 ); // one block is 2-indirect
+
         Memory buffer = memMgr.alloc(368 * 1024 ); // 100 blocks are 2-indirect
 
 

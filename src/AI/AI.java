@@ -1,15 +1,9 @@
 package AI;
 
-import jx.console.ConsoleImpl;
-import jx.devices.pci.PCIGod;
 import static jx.init.Main.main;
-import jx.netmanager.NetInit;
 import jx.zero.Debug;
-import jx.zero.InitialNaming;
 import jx.zero.Naming;
 import jx.zero.debug.DebugChannel;
-import test.fs.FSDomain;
-import timerpc.StartTimer;
 
 /**
  * This is a class initialize an artificial intelligence service.
@@ -36,9 +30,9 @@ public final class AI
         inp = new AIInput(mem);
         log = new AILogic(mem);
         oup = new AIOutput(mem);
-        logThread = new Thread(log);
-        inpThread = new Thread(inp);
-        oupThread = new Thread(oup);
+        logThread = new Thread(log, "logic");
+        inpThread = new Thread(inp, "input");
+        oupThread = new Thread(oup, "output");
     }
     
     public void start()
@@ -57,18 +51,13 @@ public final class AI
         //System.err = System.out;
         
         Debug.out.println("Init running...");
-        PCIGod.main(new String[]{});
-        StartTimer.main(new String[]{"TimerManager"});
+
         main(new String[] {"boot.rc"});
-        bioide.Main.main(new String[]{"TimerManager", "BIOFS_RW", "1", "0"});
-        
-        NetInit.init(InitialNaming.getInitialNaming(), new String[]{"NET"});
-        
-        //FSDomain.main(new String[]{"BIOFS_RW", "FS"});
-        //test.net.WebServer.main(new String[]{"-fs", "FS", "-threads"});
-        AI instance = new AI();
-        instance.start();
-        jx.keyboard.Main.main(new String[]{"WindowManager"});
-        ConsoleImpl.init(InitialNaming.getInitialNaming());
+
+        test.net.WebServer.main(new String[]{"-fs", "FS", "-threads"});
+        //AI instance = new AI();
+        //instance.start();
+        //jx.keyboard.Main.main(new String[]{"WindowManager"});
+        //ConsoleImpl.init(InitialNaming.getInitialNaming());
     }
 }

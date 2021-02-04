@@ -39,7 +39,6 @@ class Main {
 	    }
 	} catch(MemoryExhaustedException e) {
 	}
-	//for(int i=0;i<ndomains*1;i++)       Thread.yield();
 	 Thread.yield();
 	Debug.out.println ("Domains created: "+ndomains);	    
 	int end = memMgr.getTotalFreeMemory();

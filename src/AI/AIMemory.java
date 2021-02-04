@@ -1,10 +1,15 @@
 package AI;
 
+import java.util.TreeMap;
+import test.fs.FSDomain;
+
 import jx.InitNaming;
 import jx.bio.BlockIO;
+import jx.devices.pci.PCIGod;
 import jx.fs.FSException;
 import jx.fs.Inode;
 import jx.fs.buffercache.BufferCache;
+
 import jx.zero.Clock;
 import jx.zero.Debug;
 import jx.zero.LookupHelper;
@@ -21,15 +26,24 @@ public class AIMemory extends AIZeroMemory implements jx.fs.FileSystem
 {
     // instance variables
     //private SerialPort serialPort;
-    private final BlockIO drive;
+    private  BlockIO drive;
     private final int length = 101;
-    private Memory buffer;
+    private  Memory buffer;
+    private TreeMap<String, TreeMap> tree = new TreeMap<>();
     
     /**
      * Constructor for objects of class AIMemory
      */
     public AIMemory()
     {
+        try{
+        PCIGod.main(new String[]{});
+        
+        bioide.Main.main(new String[]{"TimerManager", "BIOFS_RW", "1", "0"});
+        
+        //NetInit.init(InitialNaming.getInitialNaming(), new String[]{"NET"});
+        
+        FSDomain.main(new String[]{"BIOFS_RW", "FS"});
         // Initialize instance variables
         /*try {
             serialPort = (SerialPort)CommPortIdentifier.getPortIdentifier("/dev/ttyACM0").open(this.getClass().getName(), 2000);
@@ -40,6 +54,9 @@ public class AIMemory extends AIZeroMemory implements jx.fs.FileSystem
         drive = (BlockIO)LookupHelper.waitUntilPortalAvailable(null, "BIOFS_RW");
         MemoryManager memoryManager = (MemoryManager)InitNaming.lookup("MemoryManager");
         buffer =  memoryManager.alloc(512);
+                } catch (ExceptionInInitializerError | NullPointerException e){
+
+        }
     }
     
     /*public SerialPort getSerialPort(){
@@ -100,16 +117,32 @@ public class AIMemory extends AIZeroMemory implements jx.fs.FileSystem
 
     @Override
     public String read(String name) {
+        TreeMap<String, TreeMap> current = tree;
+        for( String part:name.split("/")){
+            current = current.get(part);
+        }
+        if(current != null){
         MemoryManager memoryManager = (MemoryManager)InitNaming.lookup("MemoryManager");
         Memory buffer2 =  memoryManager.alloc(512);
             drive.readSectors(getHash(name), 1, buffer2, true);
             for(int i = 0; i < 512; i++){
                 Debug.out.print(buffer2.get8(i));
             }
+        }
             return null;
     }
     
     public void write(String name){
+        TreeMap<String, TreeMap> current = tree;
+        for( String part:name.split("/")){
+            if(current.containsKey(part)){
+                current = current.get(part);
+            } else {
+                TreeMap<String, TreeMap> temp = new TreeMap<>();
+                current.put(part, temp);
+                current = temp;
+            }
+        }
         drive.writeSectors(getHash(name), 1, buffer, true);
     }
     

@@ -2,6 +2,8 @@ package test;
 
 import AI.AIMemory;
 import AI.Models.InfoZero;
+import AI.Models.CPU;
+import java.io.File;
 
 import junit.framework.TestCase;
 import static junit.framework.TestCase.assertEquals;
@@ -16,6 +18,7 @@ import org.junit.Test;
  */
 public class JUnitTest extends TestCase{
     private final static AIMemory MEMORY = new AIMemory();
+    private final static CPU cpu = new CPU();
 
     @Test
     public void testIncomingMessages(){
@@ -81,5 +84,16 @@ public class JUnitTest extends TestCase{
         System.out.println("* JUnitTest: testCacheElement()");
         CacheElement element = new CacheElement();
         assertEquals(element.isFree(), true);
+    }
+    
+    @Test
+    public void testCPU(){
+        System.out.println("* JUnitTest: testCPU()");
+        File file = new File("~/Source/Risc-V/hello");
+    }
+    
+    @Test
+    public void testByteCode(){
+        System.out.println("* JUnitTest: testByteCode()");
     }
 }

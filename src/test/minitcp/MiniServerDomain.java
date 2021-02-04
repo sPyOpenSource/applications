@@ -13,7 +13,6 @@ class MiniServerDomain {
 	OutputStream ostream = sock.getOutputStream();
 	while(true) {
 	    Thread.yield();
-	    //ostream.write(42);
 	}
     }
 }
