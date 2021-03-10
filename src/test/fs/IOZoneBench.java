@@ -2,26 +2,6 @@ package test.fs;
 
 import jx.zero.*;
 import jx.zero.debug.*;
-import bioram.BlockIORAM;
-import jx.bio.BlockIO;
-import javafs.*;
-import jx.fs.FS;
-import jx.fs.Inode;
-import vfs.FSImpl;
-import jx.fs.FSException;
-import jx.zero.debug.*;
-import java.util.*;
-import test.ide.*;
-import bioide.Drive;
-import bioide.Partition;
-import bioide.PartitionEntry;
-import jx.timer.*;
-import timerpc.SleepManagerImpl;
-import timerpc.TimerManagerImpl;
-
-import jx.scheduler.*;
-import jx.zero.scheduler.*;
-import bioide.IDEDeviceImpl;
 import jx.zero.debug.DebugPrintStream;
 import jx.zero.debug.DebugOutputStream;
 

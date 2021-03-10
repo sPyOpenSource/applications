@@ -6,6 +6,7 @@ public class TermIO {
     static MemoryManager memMgr;
     static Naming naming;
     static DomainManager dm;
+    
     public static void main(String []args) {
 	naming = InitialNaming.getInitialNaming();
 	memMgr = (MemoryManager)naming.lookup("MemoryManager");

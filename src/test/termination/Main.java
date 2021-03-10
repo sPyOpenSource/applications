@@ -7,6 +7,7 @@ public class Main {
     static MemoryManager memMgr;
     static Naming naming;
     static DomainManager dm;
+    
     public static void main(String []args) {
 	Main.naming = InitialNaming.getInitialNaming();
 	memMgr = (MemoryManager)naming.lookup("MemoryManager");

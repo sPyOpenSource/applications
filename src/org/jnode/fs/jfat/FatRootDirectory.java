@@ -130,7 +130,7 @@ public class FatRootDirectory extends FatDirectory {
         throw new UnsupportedOperationException("cannot change root name");
     }
 
-    /*public String getLabel() {
+    public String getLabel() {
         FatShortDirEntry label = getEntry();
 
         if (label != null)
@@ -152,7 +152,7 @@ public class FatRootDirectory extends FatDirectory {
     public long getLastAccessed() throws IOException {
         FatShortDirEntry label = getEntry();
         return label == null ? 0 : label.getLastAccessed();
-    }*/
+    }
 
     @Override
     public void setCreated(long created) throws IOException {

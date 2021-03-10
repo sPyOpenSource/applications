@@ -23,6 +23,7 @@ package org.jnode.fs.fat;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Iterator;
+
 import jx.bio.BlockIO;
 import jx.fs.Inode;
 import jx.zero.Debug;
@@ -85,15 +86,12 @@ public class FatDirectory extends AbstractDirectory {
         if (label != null)
             applyLabel();
         // TODO optimize it also to use ByteBuffer at lower level
-        // final byte[] data = new byte[entries.size() * 32];
-        final Memory data = null;//ByteBuffer.allocate(entries.size() * 32);
+        final Memory data = null;
 
         if (canChangeSize(entries.size())) {
             file.setLength(data.size());
         }
-        //write(data.array());
-        // file.write(0, data, 0, data.length);
-        //file.write(0, data);
+
         resetDirty();
     }
 

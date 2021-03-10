@@ -17,6 +17,7 @@ public class EmulDiskDomain {
 	naming.registerPortal(bio, bioName);
 	Debug.out.println("Block I/O device registered as " + bioName);
     }
+    
     public static void init(Naming naming, String [] args) {
 	DebugChannel d = (DebugChannel) naming.lookup("DebugChannel0");
 	CPUManager cpuManager = (CPUManager) naming.lookup("CPUManager");
@@ -33,11 +34,12 @@ public class EmulDiskDomain {
 	Debug.out.println("Block I/O device registered as "+bioName);
 	
     }
+    
     static class BioEmu implements BlockIO, Service {
 	DiskEmulation disk;
 	BioEmu(DiskEmulation disk) { 
 	    if (disk == null) throw new Error("NO DISKEMULATION AVAILABLE");
-	    this.disk=disk;
+	    this.disk = disk;
 	}
 	public int getCapacity() { return disk.getCapacity();}
 	public int getSectorSize(){ return disk.getSectorSize();}

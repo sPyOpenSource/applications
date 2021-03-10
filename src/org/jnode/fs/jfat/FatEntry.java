@@ -24,6 +24,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Vector;
+import org.jnode.fs.fat.FatFileSystem;
+
 import jx.fs.DirNotEmptyException;
 import jx.fs.FileExistsException;
 import jx.fs.FileSystem;
@@ -39,7 +41,6 @@ import jx.fs.PermissionException;
 import jx.fs.StatFS;
 import jx.zero.Memory;
 import jx.zero.ReadOnlyMemory;
-import org.jnode.fs.fat.FatFileSystem;
 
 public abstract class FatEntry extends FatObject implements Inode
 {
@@ -118,10 +119,9 @@ public abstract class FatEntry extends FatObject implements Inode
         return record;
     }
 
-    /*@Override
     public String getId() {
         return Integer.toString(entry.getIndex());
-    }*/
+    }
 
     public String getName() {
         return name;

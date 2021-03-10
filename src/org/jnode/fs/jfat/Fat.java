@@ -21,7 +21,7 @@
 package org.jnode.fs.jfat;
 
 import java.io.IOException;
-import java.util.Arrays;
+import java.nio.file.FileSystemException;
 import jx.bio.BlockIO;
 import jx.zero.Debug;
 import jx.zero.InitialNaming;
@@ -35,12 +35,9 @@ public abstract class Fat {
 
     private final BlockIO api;
     private final BootSector bs;
-
     private final FatCache cache;
 
     private int lastfree;
-
-   // private final ByteBuffer clearbuf;
 
     protected Fat(BootSector bs, BlockIO api) {
         this.bs = bs;
@@ -55,20 +52,9 @@ public abstract class Fat {
          * set lastfree
          */
         rewindFree();
-
-        /*
-         * and blank the clear buffer
-         */
-        byte[] cleardata = new byte[getClusterSize()];
-        Arrays.fill(cleardata, 0, cleardata.length, (byte) 0x00);
-
-        /*
-         * setup the clear buffer
-         */
-        //clearbuf = ByteBuffer.wrap(cleardata).asReadOnlyBuffer();
     }
 
-    public static Fat create(BlockIO api) throws IOException//, FileSystemException 
+    public static Fat create(BlockIO api) throws IOException, FileSystemException 
     {
         MemoryManager memoryManager = (MemoryManager)InitialNaming.getInitialNaming().lookup("MemoryManager");
         Memory buffer = memoryManager.allocAligned(512, 8);
@@ -83,7 +69,7 @@ public abstract class Fat {
             return new Fat12(bs, api);
         }
 
-        return null;//throw new FileSystemException("FAT not recognized");
+        throw new FileSystemException("FAT not recognized");
     }
 
     public final BootSector getBootSector() {
@@ -245,9 +231,9 @@ public abstract class Fat {
 
     public abstract int set(int index, int element) throws IOException;
 
-    /*public void flush() throws IOException {
+    public void flush() throws IOException {
         cache.flush();
-    }*/
+    }
 
     public final boolean isFreeEntry(int entry) throws IOException {
         return isFree(get(entry));

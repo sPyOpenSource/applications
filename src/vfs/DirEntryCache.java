@@ -12,10 +12,10 @@ import jx.fs.*;
  * Festplattenzugriffe beim Zugriff auf Dateien und Verzeichnisse zu verhinden. Dieser Cache bildet Pfadnamen auf Inodes ab.
  */
 public class DirEntryCache {
-    private Hashtable dentry_hashtable;
+    private final Hashtable dentry_hashtable;
     private final int max_dentries = 1024;
 
-    private static DirEntryCache instance = new DirEntryCache();
+    private static final DirEntryCache instance = new DirEntryCache();
 
     private DirEntryCache() {
 	dentry_hashtable = new Hashtable();
@@ -80,9 +80,6 @@ public class DirEntryCache {
      *
      */
     public synchronized void invalidateEntries() {
-	boolean busy;
-	Vector throw_away = new Vector();
-
 	Enumeration enumEntries = dentry_hashtable.elements();
 	Enumeration enumKeys    = dentry_hashtable.keys();
 	while (enumEntries.hasMoreElements() && enumKeys.hasMoreElements()) {
@@ -99,21 +96,17 @@ public class DirEntryCache {
      *
      */
     public synchronized void syncEntries() throws NotExistException, InodeIOException {
-	boolean busy;
-	Vector throw_away = new Vector();
-
 	Enumeration enumEntries = dentry_hashtable.elements();
 	Enumeration enumKeys    = dentry_hashtable.keys();
 	while (enumEntries.hasMoreElements() && enumKeys.hasMoreElements()) {
 	    Inode inode = (Inode)enumEntries.nextElement();
 	    String pfad = (String)enumKeys.nextElement();
 	    dentry_hashtable.remove(pfad);
-	    //try {
+	    try {
 	    if (inode.isDirty())
 		inode.writeInode();
-	    //} catch (InodeIOException e) {
-	    //} catch (NotExistException e) {
-	    //}
+	    } catch (InodeIOException | NotExistException e) {
+	    }
 	}
     }
 

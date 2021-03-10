@@ -190,17 +190,13 @@ class LfnEntry implements Inode
         return realEntry.getDirectory();
     }
 
-    /*public FSAccessRights getAccessRights() throws IOException {
-        return realEntry.getAccessRights();
-    }*/
-
     public boolean isValid() {
         return realEntry.isValid();
     }
 
     @Override
     public FileSystem getFileSystem() {
-        return null;//realEntry.getFileSystem();
+        return realEntry.getFileSystem();
     }
 
     public boolean isDeleted() {

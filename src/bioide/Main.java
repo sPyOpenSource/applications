@@ -1,6 +1,6 @@
 package bioide;
 
-import jx.InitNaming;
+import jx.InitialNaming;
 import jx.zero.*;
 import jx.bio.*;
 
@@ -24,7 +24,7 @@ public class Main {
 	    
 	    bio = partitions[partition];
 	}
-	InitNaming.registerPortal(bio, bioName);
+	InitialNaming.registerPortal(bio, bioName);
 	Debug.out.println("Block I/O device registered as " + bioName);
     }
 }

@@ -22,6 +22,8 @@ package org.jnode.fs.fat;
 
 import java.io.IOException;
 import java.util.Date;
+import org.jnode.fs.util.DosUtils;
+
 import jx.fs.DirNotEmptyException;
 import jx.fs.Directory;
 import jx.fs.FileExistsException;
@@ -38,7 +40,6 @@ import jx.fs.RegularFile;
 import jx.fs.StatFS;
 import jx.zero.Memory;
 import jx.zero.ReadOnlyMemory;
-import org.jnode.fs.util.DosUtils;
 
 /**
  * @author epr
@@ -156,7 +157,6 @@ public class FatDirEntry extends FatBasicDirEntry implements Inode
         this.flags = F_ARCHIVE;
         this.created = this.lastModified = this.lastAccessed = System.currentTimeMillis();
         this._dirty = false;
-        //this.rights = new UnixFSAccessRights(getFileSystem());
         id = name;
     }
 

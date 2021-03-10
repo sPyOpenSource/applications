@@ -132,8 +132,7 @@ public abstract class AbstractDirectory extends FatObject{
         file.setLength(clusterSize);
 
         //TODO optimize it also to use ByteBuffer at lower level        
-        //final byte[] buf = new byte[clusterSize];
-        final Memory buf = null;// = ByteBuffer.allocate(clusterSize);
+        final Memory buf = null;
 
         // Clean the contents of this cluster to avoid reading strange data
         // in the directory.
@@ -153,10 +152,6 @@ public abstract class AbstractDirectory extends FatObject{
      * @throws IOException
      */
     public Inode addDirectory(String name) throws IOException {
-        /*if (getFileSystem().isReadOnly()) {
-            throw new ReadOnlyFileSystemException("addDirectory in readonly filesystem");
-        }*/
-
         final long parentCluster;
         if (file == null) {
             parentCluster = 0;

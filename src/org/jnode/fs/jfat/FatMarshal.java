@@ -35,25 +35,6 @@ public class FatMarshal {
         this.array = array;
     }
 
-    /*public FatMarshal(int length) {
-        this.array = new byte[length];
-        Arrays.fill(this.array, 0, this.array.length, (byte) 0);
-    }
-
-    public static FatMarshal wrap(byte[] array) {
-        return new FatMarshal(array);
-    }
-
-    public byte[] getArray() {
-        return array;
-    }
-
-    public ByteBuffer getByteBuffer() {
-        ByteBuffer buf = ByteBuffer.wrap(array);
-        buf.clear();
-        return buf;
-    }*/
-
     public int length() {
         return array.size();
     }

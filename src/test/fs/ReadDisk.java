@@ -11,7 +11,6 @@ public class ReadDisk {
 	int sectorSize = bio.getSectorSize();
 
 	int MAX_SECTORS = 1000;
-	int ITERATIONS = 100;
 	int NUMBER_COMPLETE_SECTORS = 1000*512;
 
 
@@ -21,10 +20,10 @@ public class ReadDisk {
 	    Debug.out.println("Disk not large enough. Benchmark will only use "+numSec+" sectors.");
 	}
 
-	Debug.out.println("Capacity: "+capacity);
-	Debug.out.println("SectorSize: "+sectorSize);
+	Debug.out.println("Capacity: " + capacity);
+	Debug.out.println("SectorSize: " + sectorSize);
 	MemoryManager memoryManager = (MemoryManager)naming.lookup("MemoryManager");
-	Memory buf = memoryManager.alloc(sectorSize*MAX_SECTORS);
+	Memory buf = memoryManager.alloc(sectorSize * MAX_SECTORS);
 
 	// check whether read works
 	Debug.out.println("read test ....");
@@ -46,7 +45,7 @@ public class ReadDisk {
 	    }
 	    Debug.out.println("Request size " + nsec + " sectors.");
 	    clock.getCycles(starttimec);
-	    int iterations = numSec/nsec; 
+	    int iterations = numSec / nsec; 
 	    for (int i = 0; i < iterations; i += nsec) {
 		bio.readSectors(i, nsec, buf, true);
 	    }
@@ -60,27 +59,7 @@ public class ReadDisk {
 	    n0 = n0.div(1024); // bytes -> kilobytes
 	    n0 = n0.div(time);
 	    int readrate = n0.toInt();
-	    Debug.out.println("Time: "+time +" milliseconds, throughput: "+readrate+" KB/s");
+	    Debug.out.println("Time: " + time + " milliseconds, throughput: " + readrate + " KB/s");
 	}
-
-	/*
-	// 100 sector reads 
-	numSec /= 100;
-	clock.getCycles(starttimec);
-	for (int i=0; i<numSec; i++) {
-	    bio.readSectors(i, 100, buf, true);
-	}
-	clock.getCycles(endtimec);
-	clock.subtract(diff, endtimec, starttimec);
-	time =  clock.toMilliSec(diff);
-	n0 = new MyBigNumber(numSec);
-	n0 = n0.mul(100);
-	n0 = n0.mul(sectorSize);
-	n0 = n0.mul(1024);
-	n0 = n0.div(time);
-	n0 = n0.div(1000);
-	readrate = n0.toInt();
-	Debug.out.println("Time to read "+(numSec*100)+" sectors ("+(numSec*100*sectorSize)+" bytes) (100-sector-reads): "+time +" milliseconds, throughput: "+readrate+" KB/s");
-	*/
     }
 }

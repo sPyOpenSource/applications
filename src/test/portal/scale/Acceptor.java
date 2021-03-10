@@ -2,16 +2,19 @@ package test.portal.scale;
 
 import jx.zero.*;
 import jx.zero.debug.*;
-import test.portal.*;
 import java.io.*;
 
 class MyConnection implements Connection {
     char [] c = { 'H', 'A', 'L', 'L', 'O' };
     int i;
+    
+    @Override
     public int read() throws IOException {
 	if (i < c.length) return c[i++];
 	return -1;
     }
+    
+    @Override
     public void write(int c) throws IOException {
     }
 }
@@ -21,14 +24,20 @@ class MyNaming implements Naming {
     MyNaming(Naming baseNaming) {
 	this.baseNaming = baseNaming;
     }
+    
+    @Override
     public void registerPortal(Portal portal, String name) {
 	//Debug.out.println("Register: "+name);
 	baseNaming.registerPortal(portal, name);
     }
+    
+    @Override
     public Portal lookup(String name) {
 	//Debug.out.println("Lookup: "+name);
 	return baseNaming.lookup(name);
     }
+    
+    @Override
     public Portal lookupOrWait(String depName) {throw new Error();}
 }
 

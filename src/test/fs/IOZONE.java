@@ -85,7 +85,7 @@ public class IOZONE {
 	}
 
 	profiler = ((Profiler)InitialNaming.getInitialNaming().lookup("Profiler"));
-	report_array = new int[MAX_X*MAX_Y]; // new int[MAX_X][MAX_Y]
+	report_array = new int[MAX_X * MAX_Y]; // new int[MAX_X][MAX_Y]
 	MemoryManager memMgr = (MemoryManager)InitialNaming.getInitialNaming().lookup("MemoryManager");
 	buffer = memMgr.allocAligned(maxFileSizeKB * 1024, 32);
 	max_x = 0; max_y = 0;
@@ -120,11 +120,13 @@ public class IOZONE {
 	    ((CPUManager)InitialNaming.getInitialNaming().lookup("CPUManager")).yield();
 	    if (doDumpBinary) {
 		try {
-		    dumpBinary("IOZONE"+i);
-		} catch(IOException ex) {throw new Error("BINARY DUMP");}
+		    dumpBinary("IOZONE" + i);
+		} catch(IOException ex) {
+                    throw new Error("BINARY DUMP");
+                }
 	    }
 	}
-	if (output) 	Debug.out.println("# END IOZONE");
+	if (output) Debug.out.println("# END IOZONE");
 
 
 	//dumpExcel();
@@ -322,8 +324,8 @@ public class IOZONE {
 	int writerate[] = new int[2]; // long
 	int filebytes; // long
 
-	numrecs = (kilo*1024)/reclen;
-	filebytes = numrecs*reclen;
+	numrecs = (kilo * 1024) / reclen;
+	filebytes = numrecs * reclen;
 
 	try {
 	    inode = (Inode)fs.lookup("iozone.tmp");

@@ -3,9 +3,8 @@ package jx.net.devices.lance;
 import jx.devices.DeviceFinder;
 import jx.devices.Device;
 import jx.zero.*;
-
 import jx.devices.pci.*;
-import jx.InitNaming;
+
 import metaxa.os.devices.net.AdapterLimits;
 import org.jnode.driver.net.lance.LanceDriver;
 import org.jnode.driver.net.lance.LanceFlags;
@@ -31,7 +30,7 @@ public class LanceFinder implements DeviceFinder {
 	PCIAccess bus;
 	int counter = 0;
 	for(;;) {
-	    bus = (PCIAccess)InitNaming.lookup("PCIAccess");
+	    bus = (PCIAccess)jx.InitialNaming.lookup("PCIAccess");
 	    if (bus == null) {
 		if (counter % 20 == 0) { counter = 0; Debug.out.println("NetInit still waiting for PCI");}
 		counter++;

@@ -1,13 +1,14 @@
 package jx.iozone;
 
 import java.io.IOException;
-import jx.zero.Debug;
-import jx.zero.Memory;
+import jx.formats.*;
 import jx.fs.*;
 import jx.fs.FSException;
+import jx.zero.Debug;
+import jx.zero.Memory;
 import jx.zero.*;
 import jx.zero.memory.*;
-import jx.formats.*;
+
 
 /**
  * iozone filesystem benchmark
@@ -29,14 +30,14 @@ public class IOZONE {
 
     private static final int MULTIPLIER      = 2;
     /** tells when to switch to large records */
-    private static final int CROSSOVER       = 8*1024; 
+    private static final int CROSSOVER       = 8 * 1024; 
     private static final int LARGE_REC       = 65536;
 
     private static final int MINIMAL_MICROS  = 5;
 
     private int current_x, current_y, max_x, max_y;
     private int report_array[]; 
-    private boolean cancel_store=true;
+    private boolean cancel_store = true;
     private Memory buffer;
 
     Profiler profiler;
@@ -84,7 +85,7 @@ public class IOZONE {
 	}
 
 	profiler = ((Profiler)InitialNaming.getInitialNaming().lookup("Profiler"));
-	report_array = new int[MAX_X*MAX_Y]; // new int[MAX_X][MAX_Y]
+	report_array = new int[MAX_X * MAX_Y]; // new int[MAX_X][MAX_Y]
 	MemoryManager memMgr = (MemoryManager)InitialNaming.getInitialNaming().lookup("MemoryManager");
 	buffer = memMgr.allocAligned(maxFileSizeKB * 1024, 32);
 	max_x = 0; max_y = 0;

@@ -23,6 +23,7 @@ package org.jnode.fs.fat;
 import java.io.IOException;
 import javafs.InodeCache;
 import javafs.Tools;
+
 import jx.bio.BlockIO;
 import jx.fs.Directory;
 import jx.fs.FSException;
@@ -32,6 +33,7 @@ import jx.fs.buffercache.BufferCache;
 import jx.zero.Clock;
 import jx.zero.Debug;
 import jx.zero.InitialNaming;
+
 import org.jnode.fs.jfat.BootSector;
 import org.jnode.fs.jfat.Fat;
 import org.jnode.fs.jfat.FatRootDirectory;
@@ -55,9 +57,7 @@ public class FatFileSystem implements jx.fs.FileSystem {
      * @param readOnly
      */
     public FatFileSystem(boolean readOnly)  
-    {
-        //super(readOnly, type); // false = read/write mode
-        
+    {        
         drive = (BlockIO)InitialNaming.getInitialNaming().lookup("BIOFS_RW");
         try {
             fat = Fat.create(getApi());
@@ -66,35 +66,6 @@ public class FatFileSystem implements jx.fs.FileSystem {
         }
         inodeCache = new InodeCache();
         deviceID = new Integer(1);
-            
-                        
-//            if (!bs.isaValidBootSector()) throw new FileSystemException(
-//                "Can't mount this partition: Invalid BootSector");
-
-
-            /*FatType bitSize;
-
-            if (bs.getMediumDescriptor() == 0xf8) {
-                bitSize = FatType.FAT16;
-            } else {
-                bitSize = FatType.FAT12;
-            }*/
-
-            /*for (int i = 0; i < fats.length; i++) {
-                Fat fat = new Fat(bitSize, bs.getMediumDescriptor(), bs.getSectorsPerFat(), bs.getBytesPerSector());
-                fats[i] = fat;
-                fat.read((BlockIO)naming.lookup("BIOFS_RW"), FatUtils.getFatOffset(bs, i));
-            }
-
-            for (int i = 1; i < fats.length; i++) {
-                if (!fats[0].equals(fats[i])) {
-                    System.out.println("FAT " + i + " differs from FAT 0");
-                }
-            }*/
-        //} catch (Exception e) { // something bad happened in the FAT boot
-            // sector... just ignore this FS
-            //throw new FileSystemException(e);
-        //}
     }
 
     public FatFileSystem(BlockIO bio) {
@@ -115,13 +86,6 @@ public class FatFileSystem implements jx.fs.FileSystem {
      * @return 
      */
     public synchronized FatFile getFile(FatDirEntry entry) {
-
-        /*FatFile file = files.get(entry);
-        if (file == null) {
-            file = new FatFile(this, entry, entry.getStartCluster(), entry.getLength(), entry.isDirectory());
-            files.put(entry, file);
-        }
-        return file;*/
         return null;
     }
 
@@ -154,7 +118,6 @@ public class FatFileSystem implements jx.fs.FileSystem {
      * @throws java.io.IOException
      */
     protected RegularFile createFile(Inode entry) throws IOException {
-
         // TODO Auto-generated method stub
         return null;
     }
@@ -239,7 +202,7 @@ public class FatFileSystem implements jx.fs.FileSystem {
     }
 
     @Override
-    public Integer getDeviceID() {
+    public int getDeviceID() {
         return deviceID; /* FIXME */
     }
 

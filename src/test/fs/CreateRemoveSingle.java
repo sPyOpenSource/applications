@@ -1,17 +1,17 @@
 package test.fs;
 
 import jx.fs.*;
-import jx.zero.*;
+import jx.fs.InodeImpl;
 import jx.bio.*;
+import jx.zero.*;
 import jx.zero.debug.*;
+import jx.zero.debug.DebugPrintStream;
+import jx.zero.debug.DebugOutputStream;
 
 import javafs.*;
 import vfs.*;
 
-import jx.fs.InodeImpl;
 
-import jx.zero.debug.DebugPrintStream;
-import jx.zero.debug.DebugOutputStream;
 
 class CreateRemoveSingle {
     static final int BUFFERCACHE_NUMBER_FSBLOCKS = 1 * 1024; /*  kBytes */
@@ -23,15 +23,12 @@ class CreateRemoveSingle {
 
     public static void init(Naming naming, String [] args) {
 	Debug.out = new DebugPrintStream(new DebugOutputStream((DebugChannel) naming.lookup("DebugChannel0")));
-
-	
 		
 	FSImpl fs = new FSImpl();
 
 	BlockIO bio = (BlockIO)LookupHelper.waitUntilPortalAvailable(naming, args[0]);
 
-	jx.fs.FileSystem jfs=initFS(bio);
-
+	jx.fs.FileSystem jfs = initFS(bio);
 
 	/*
 	fs.mountRoot(jfs, false); // 2. Parameter = read-only  //hda8
@@ -44,13 +41,11 @@ class CreateRemoveSingle {
 	*/	
 
 	try {
-
-	    
 	    Inode ino = jfs.getRootInode();
 	    ino.mkdir("lost+found", InodeImpl.S_IWUSR|InodeImpl.S_IRUGO|InodeImpl.S_IXUGO);
 	    
-	    ino.create("blubber0",InodeImpl.S_IWUSR|InodeImpl.S_IRUGO|InodeImpl.S_IXUGO);
-	    ino.create("blubber1",InodeImpl.S_IWUSR|InodeImpl.S_IRUGO|InodeImpl.S_IXUGO);
+	    ino.create("blubber0", InodeImpl.S_IWUSR|InodeImpl.S_IRUGO|InodeImpl.S_IXUGO);
+	    ino.create("blubber1", InodeImpl.S_IWUSR|InodeImpl.S_IRUGO|InodeImpl.S_IXUGO);
 	    ino.decUseCount();
 
 	    tools.checkFS(new AnswerMachine() {
@@ -67,9 +62,6 @@ class CreateRemoveSingle {
 	
 	if (jfs != null)
 	    jfs.release();
-	
-	
-
     }
 
     
@@ -89,5 +81,4 @@ class CreateRemoveSingle {
 	return jfs;
     }
     
-
 }

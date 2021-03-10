@@ -12,26 +12,25 @@ class X {
 public class Main {
     
     public static void main(String[] args) {
-	Naming naming=InitialNaming.getInitialNaming();
+	Naming naming = InitialNaming.getInitialNaming();
 	final CPUManager cpuManager = (CPUManager) naming.lookup("CPUManager");
 	CPUState thread = cpuManager.createCPUState(new ThreadEntry() {
 		int i;
 		public void run() {
 		    cpuManager.setThreadName("Other");
 		    for(;;) {
-			for(int j=0; j<10000; j++) i++;
+			for(int j = 0; j < 10000; j++) i++;
 			cpuManager.yield();
 		    }
 		}});
 	cpuManager.start(thread);
 	
-      X root;
       X x;
       x = new X();
-      root = x;
+      X root = x;
       for(;;){
 	X y = new X();
-	for(int i=0; i<40; i++) {
+	for(int i = 0; i < 40; i++) {
 	    new X(); // garbage
 	}
 	x.x = y;
@@ -40,7 +39,7 @@ public class Main {
       }
     }
     
-    public static void init1(Naming naming) {
+    public static void init(Naming naming) {
 	int a = 0xaffe;
 	X root = new X();
 	int b = 0xaaaa;

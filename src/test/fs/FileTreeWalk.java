@@ -17,7 +17,7 @@ public class FileTreeWalk {
 		Debug.out = new DebugPrintStream(new DebugOutputStream(d));
 	    }
 	    new FileTreeWalk(naming);
-	} catch(Exception e) {
+	} catch(FSException e) {
 	    //e.printStackTrace();
 	    throw new Error();
 	}

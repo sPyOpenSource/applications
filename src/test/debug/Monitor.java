@@ -5,8 +5,11 @@ import jx.zero.debug.*;
 
 public class Monitor {
     public static void init(Naming naming, String[] args) {
-	Debug.out = new jx.zero.debug.DebugPrintStream(new jx.zero.debug.DebugOutputStream((DebugChannel) InitialNaming.getInitialNaming().lookup("DebugChannel0")));
-	final DebugSupport debugSupport = (DebugSupport) InitialNaming.getInitialNaming().lookup("DebugSupport");
+	//Debug.out = new DebugPrintStream(new DebugOutputStream((DebugChannel) naming.lookup("DebugChannel0")));
+	final DebugSupport debugSupport = (DebugSupport) naming.lookup("DebugSupport");
+        if (debugSupport == null){
+            return;
+        }
 	debugSupport.registerMonitorCommand("test", new MonitorCommand() {
                 @Override
 		public void execCommand(String[] args) {

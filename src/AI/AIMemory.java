@@ -1,14 +1,17 @@
 package AI;
 
 import java.util.TreeMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import test.fs.FSDomain;
 
-import jx.InitNaming;
+import jx.InitialNaming;
 import jx.bio.BlockIO;
 import jx.devices.pci.PCIGod;
 import jx.fs.FSException;
 import jx.fs.Inode;
 import jx.fs.buffercache.BufferCache;
+import jx.fs.FileSystem;
 
 import jx.zero.Clock;
 import jx.zero.Debug;
@@ -22,7 +25,7 @@ import jx.zero.MemoryManager;
  * @author X. Wang 
  * @version 1.0
  */
-public class AIMemory extends AIZeroMemory implements jx.fs.FileSystem
+public class AIMemory extends AIZeroMemory implements FileSystem
 {
     // instance variables
     //private SerialPort serialPort;
@@ -37,24 +40,25 @@ public class AIMemory extends AIZeroMemory implements jx.fs.FileSystem
     public AIMemory()
     {
         try{
-        PCIGod.main(new String[]{});
-        
-        bioide.Main.main(new String[]{"TimerManager", "BIOFS_RW", "1", "0"});
-        
-        //NetInit.init(InitialNaming.getInitialNaming(), new String[]{"NET"});
-        
-        FSDomain.main(new String[]{"BIOFS_RW", "FS"});
-        // Initialize instance variables
-        /*try {
-            serialPort = (SerialPort)CommPortIdentifier.getPortIdentifier("/dev/ttyACM0").open(this.getClass().getName(), 2000);
-            serialPort.setSerialPortParams(115200, SerialPort.DATABITS_8, SerialPort.STOPBITS_1, SerialPort.PARITY_NONE); 
-        } catch (NoSuchPortException | PortInUseException | UnsupportedCommOperationException ex) {
+            PCIGod.main(new String[]{});
+
+            //bioide.Main.main(new String[]{"TimerManager", "BioRAM", "full", "0"});
+
+            //NetInit.init(InitialNaming.getInitialNaming(), new String[]{"NET"});
+
+            FSDomain.main(new String[]{"BioRAM", "FS"});
+            // Initialize instance variables
+            /*try {
+                serialPort = (SerialPort)CommPortIdentifier.getPortIdentifier("/dev/ttyACM0").open(this.getClass().getName(), 2000);
+                serialPort.setSerialPortParams(115200, SerialPort.DATABITS_8, SerialPort.STOPBITS_1, SerialPort.PARITY_NONE); 
+            } catch (NoSuchPortException | PortInUseException | UnsupportedCommOperationException ex) {
+                Logger.getLogger(AIMemory.class.getName()).log(Level.SEVERE, null, ex);
+            }*/
+            drive = (BlockIO)LookupHelper.waitUntilPortalAvailable(null, "BioRAM");
+            MemoryManager memoryManager = (MemoryManager)InitialNaming.lookup("MemoryManager");
+            buffer =  memoryManager.alloc(512);
+        } catch (ExceptionInInitializerError | NullPointerException ex){
             Logger.getLogger(AIMemory.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
-        drive = (BlockIO)LookupHelper.waitUntilPortalAvailable(null, "BIOFS_RW");
-        MemoryManager memoryManager = (MemoryManager)InitNaming.lookup("MemoryManager");
-        buffer =  memoryManager.alloc(512);
-                } catch (ExceptionInInitializerError | NullPointerException e){
 
         }
     }
@@ -104,7 +108,7 @@ public class AIMemory extends AIZeroMemory implements jx.fs.FileSystem
     }
 
     @Override
-    public Integer getDeviceID() {
+    public int getDeviceID() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
@@ -122,7 +126,7 @@ public class AIMemory extends AIZeroMemory implements jx.fs.FileSystem
             current = current.get(part);
         }
         if(current != null){
-        MemoryManager memoryManager = (MemoryManager)InitNaming.lookup("MemoryManager");
+        MemoryManager memoryManager = (MemoryManager)InitialNaming.lookup("MemoryManager");
         Memory buffer2 =  memoryManager.alloc(512);
             drive.readSectors(getHash(name), 1, buffer2, true);
             for(int i = 0; i < 512; i++){

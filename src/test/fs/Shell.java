@@ -4,16 +4,19 @@ import java.io.DataInputStream;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.util.Hashtable;
+
 import jx.zero.Debug;
 import jx.zero.*;
 import jx.zero.debug.*;
+import jx.zero.debug.DebugPrintStream;
+import jx.zero.debug.DebugOutputStream;
+
 import jx.bio.BlockIO;
 import jx.fs.FS;
 import jx.fs.FileSystem;
 import jx.fs.InodeImpl;
 import jx.fs.FSException;
-import jx.zero.debug.DebugPrintStream;
-import jx.zero.debug.DebugOutputStream;
+
 
 class Parser {
     private String kommando;
@@ -86,7 +89,7 @@ public class Shell { // extends Thread {
 	//DebugPrintStream uout = System.out; // user output
 	uout.println("los gehts...");
 
-	Portal IDEdep=null;
+	Portal IDEdep = null;
 	do {
 	    Thread.yield();
 	    IDEdep = naming.lookup("IDE");
@@ -513,7 +516,6 @@ public class Shell { // extends Thread {
 	    fs.unmount(filesystem);
 	} catch (FSException e) {
 	    uout.println("Error: "+e.getMessage());
-	    return;
 	}
     }
 }

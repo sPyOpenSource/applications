@@ -262,7 +262,7 @@ public class FatChain {
                 setStartCluster(last);
             }
         } finally {
-            //fat.flush();
+            fat.flush();
         }
     }
 
@@ -297,7 +297,7 @@ public class FatChain {
                     mylog(l + ":" + fat.freeEntry());
             }
         } finally {
-            //fat.flush();
+            fat.flush();
         }
 
         if (count == n) {
@@ -320,7 +320,7 @@ public class FatChain {
                 fat.set(l, fat.freeEntry());
             }
         } finally {
-            //fat.flush();
+            fat.flush();
         }
 
         setStartCluster(0);

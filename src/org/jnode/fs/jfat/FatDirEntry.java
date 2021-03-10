@@ -80,10 +80,6 @@ public class FatDirEntry {
         return entry.length();
     }
 
-    /*public ByteBuffer getByteBuffer() {
-        return entry.getByteBuffer();
-    }*/
-
     public boolean isLastDirEntry() {
         return lastDirEntry;
     }

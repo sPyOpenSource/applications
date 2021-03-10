@@ -39,9 +39,7 @@ class MyBigNumber {
 	    r.v[i] %= 10;
 	}	
 	int ra[] = new int[v.length];
-	for(int i=0; i<v.length-e; i++) {
-	    ra[i+e] = r.v[i];
-	}
+        System.arraycopy(r.v, 0, ra, e, v.length-e);
 	r.v = ra;
 	return r;
     }

@@ -52,10 +52,6 @@ public class FatLfnDirectory extends FatDirectory {
 
     @Override
     public Inode addFile(String name) throws IOException {
-        /*if (getFileSystem().isReadOnly()) {
-            throw new ReadOnlyFileSystemException("addFile in readonly filesystem");
-        }*/
-
         name = name.trim();
         String shortName = generateShortNameFor(name);
         FatDirEntry realEntry = new FatDirEntry(this, splitName(shortName), splitExt(shortName));
@@ -69,10 +65,6 @@ public class FatLfnDirectory extends FatDirectory {
 
     @Override
     public Inode addDirectory(String name) throws IOException {
-        /*if (getFileSystem().isReadOnly()) {
-            throw new ReadOnlyFileSystemException("addDirectory in readonly filesystem");
-        }*/
-
         name = name.trim();
         String shortName = generateShortNameFor(name);
         FatDirEntry realEntry = new FatDirEntry(this, splitName(shortName), splitExt(shortName));
@@ -91,7 +83,7 @@ public class FatLfnDirectory extends FatDirectory {
 
         // TODO optimize it also to use ByteBuffer at lower level
         // final byte[] buf = new byte[clusterSize];
-        final Memory buf = null;//ByteBuffer.allocate(clusterSize);
+        final Memory buf = null;
 
         // Clean the contents of this cluster to avoid reading strange data
         // in the directory.

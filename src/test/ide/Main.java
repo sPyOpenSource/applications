@@ -76,7 +76,7 @@ public class Main {
 	
 	BlockIO bio = drives[0];
 	
-	boolean ro=true;
+	boolean ro = true;
 	commonTest(naming, bio, ro);
     }
 }

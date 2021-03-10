@@ -1,15 +1,11 @@
 package test.portal.scale;
 
 import jx.zero.*;
-import jx.zero.debug.*;
-import test.portal.*;
-import java.io.*;
 
 public class DomainExhauster {
 
     public static int N_DOMAINS;
     public static boolean verbose = false;
-
 
     public static void main(String[] args) {
 	Naming naming = InitialNaming.getInitialNaming();

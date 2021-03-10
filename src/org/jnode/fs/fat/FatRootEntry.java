@@ -125,21 +125,12 @@ public class FatRootEntry extends FatObject implements Inode {
 
     /**
      * Gets the directory this entry refers to.This method can only be called
- if <code>isDirectory</code> returns true.
+    if <code>isDirectory</code> returns true.
      * @return 
      */
     public Directory getDirectory() {
         return null;//rootDir;
     }
-
-    /**
-     * Gets the access rights for this entry.
-     *
-     * @throws IOException
-     */
-    /*public FSAccessRights getAccessRights() throws IOException {
-        throw new UnsupportedOperationException("not implemented yet");
-    }*/
 
     /**
      * Indicate if the entry has been modified in memory (ie need to be saved)

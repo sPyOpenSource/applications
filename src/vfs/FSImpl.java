@@ -16,9 +16,9 @@ public class FSImpl implements FS, Service {
     private FileSystem    rootFS;
     private Inode         cwdInode;
     private String        cwdPath;
-    private Hashtable     mountpoints;
-    private Hashtable     devices; // maps ID to FileSystem
-    private DirEntryCache direntrycache;
+    private final Hashtable     mountpoints;
+    private final Hashtable     devices; // maps ID to FileSystem
+    private final DirEntryCache direntrycache;
 
 
     public FSImpl() {
@@ -314,9 +314,8 @@ public class FSImpl implements FS, Service {
 	throw new Error();
     }
 
-
     @Override
-   public Inode getInode(Integer deviceIdentifier, int identifier) throws FSException, NotExistException, PermissionException{
+    public Inode getInode(int deviceIdentifier, int identifier) throws FSException, NotExistException, PermissionException{
        
        FileSystem filesystem = (FileSystem) devices.get(deviceIdentifier);
        
@@ -325,5 +324,15 @@ public class FSImpl implements FS, Service {
        filesystem.getInode(identifier);
 
        return filesystem.getInode(identifier);
+    }
+
+    @Override
+    public boolean isPath(String name) {
+        return FS.super.isPath(name); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean isAbsolute(String name) {
+        return FS.super.isAbsolute(name); //To change body of generated methods, choose Tools | Templates.
     }
 }

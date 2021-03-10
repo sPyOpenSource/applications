@@ -3,6 +3,7 @@ package jx.console;
 import java.io.IOException;
 import jx.devices.Screen;
 import jx.devices.Keyboard;
+import jx.screen.ScreenImpl;
 import jx.shell.Shell;
 import jx.zero.debug.*;
 import jx.zero.*;
@@ -61,7 +62,7 @@ public class ConsoleImpl implements Console {
     }
 
     public static void init(Naming naming) {
-	final jx.screen.ScreenImpl screen = new jx.screen.ScreenImpl(naming);
+	final ScreenImpl screen = new ScreenImpl(naming);
 	new ConsoleImpl(naming, screen, null);
     }
 

@@ -20,6 +20,7 @@
  
 package org.jnode.fs.jfat;
 
+import java.nio.charset.CharacterCodingException;
 import java.util.Arrays;
 import org.jnode.fs.fat.FatFileSystem;
 
@@ -412,19 +413,19 @@ ext = extName.trim();
         return ext;
     }
 
-    /*public String getLabel() {
+    public String getLabel() {
         String label;
 
         try {
             label = getFatFileSystem().getCodePage().newDecoder().decode(lName);
         } catch (CharacterCodingException ex) {
-           // log.debug("CharacterCodingException: CodePage error");
-            //log.debug("go on with standard decoding");
+            // log.debug("CharacterCodingException: CodePage error");
+            // log.debug("go on with standard decoding");
             label = new String(lName);
         }
 
         return label;
-    }*/
+    }
 
     public String getShortName() {
         String base = getBase();

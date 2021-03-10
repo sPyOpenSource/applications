@@ -20,6 +20,7 @@
  
 package org.jnode.fs.jfat;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 /**
@@ -27,9 +28,9 @@ import java.util.Calendar;
  * @author Tango
  */
 public class FatUtils {
-    //private static final SimpleDateFormat time = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.S");
+    private static final SimpleDateFormat time = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.S");
 
-    //private static final SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd");
+    private static final SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd");
 
     public static long decodeDateTime(final int dosDate, final int dosTime, final int dosTenth) {
         if (dosDate < 0 || dosDate > 0xFFFF)
@@ -58,12 +59,12 @@ public class FatUtils {
 
     public static long getMinDateTime() {
         //dos Minimum DateTime is: January 1, 1980 00:00:00
-        return 0;//TimeUtils.time2millis(1980, 1, 1, 0, 0, 0);
+        return TimeUtils.time2millis(1980, 1, 1, 0, 0, 0);
     }
 
     public static long getMaxDateTime() {
         //dos Maximum DateTime is: December 31, 2107 23:59:58
-        return 0;//TimeUtils.time2millis(2107, 12, 31, 23, 59, 58);
+        return TimeUtils.time2millis(2107, 12, 31, 23, 59, 58);
     }
 
     public static long checkDateTime(long javaDateTime) {
@@ -194,10 +195,10 @@ public class FatUtils {
         return cal.get(Calendar.SECOND);
     }
 
-    /*public static long getMilliSeconds(long time) {
+    public static long getMilliSeconds(long time) {
 
         Calendar cal = Calendar.getInstance();
         return cal.getTimeInMillis();
-    }*/
+    }
 
 }

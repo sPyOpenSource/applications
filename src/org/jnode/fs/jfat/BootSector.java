@@ -41,7 +41,7 @@ public class BootSector {
     private static final String SFAT16 = "FAT16";
     private static final String SFAT32 = "FAT32";
 
-    private Memory sector;
+    private final Memory sector;
     private int type;
     private boolean dirty;
 

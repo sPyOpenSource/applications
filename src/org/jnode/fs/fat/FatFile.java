@@ -79,19 +79,14 @@ public class FatFile extends FatObject {
     }
 
     public synchronized void write(long fileOffset, Memory srcBuf) throws IOException {
-        int len = 0;//srcBuf.remaining();
-
-        /*if (getFileSystem().isReadOnly()) {
-            throw new ReadOnlyFileSystemException("write in readonly filesystem");
-        }*/
+        int len = 0;
 
         final long max = (isDir) ? getLengthOnDisk() : getLength();
         if (fileOffset > max) {
             throw new IOException("Cannot write beyond the EOF");
         }
 
-        if (fileOffset + len > max) { // this is too short increase the size
-                                        // of the file
+        if (fileOffset + len > max) { // this is too short increase the size of the file
             setLength(fileOffset + len);
         }
 
@@ -103,7 +98,6 @@ public class FatFile extends FatObject {
         if (fileOffset % clusterSize != 0) {
             int clusOfs = (int) (fileOffset % clusterSize);
             int size = Math.min(len, (int) (clusterSize - (fileOffset % clusterSize) - 1));
-            //srcBuf.limit(srcBuf.position() + size);
             api.writeSectors((int)getDevOffset(chain[chainIdx], clusOfs), srcBuf.size(), srcBuf, true);
             fileOffset += size;
             len -= size;
@@ -111,7 +105,6 @@ public class FatFile extends FatObject {
         }
         while (len > 0) {
             int size = Math.min(clusterSize, len);
-            //srcBuf.limit(srcBuf.position() + size);
             api.writeSectors((int)getDevOffset(chain[chainIdx], 0), srcBuf.size(), srcBuf, true);
             len -= size;
             chainIdx++;
@@ -126,11 +119,6 @@ public class FatFile extends FatObject {
      * @throws java.io.IOException
      */
     public synchronized int setLength(long length) throws IOException {
-
-        /*if (getFileSystem().isReadOnly()) {
-            throw new ReadOnlyFileSystemException("setLength in readonly filesystem");
-        }*/
-
         if (this.length == length) {
             // Do nothing
             return 0;
@@ -225,9 +213,7 @@ public class FatFile extends FatObject {
      * @return long
      */
     protected long getDevOffset(long cluster, int clusterOffset) {
-        final FatFileSystem fs = getFatFileSystem();
-        final long filesOffset = 0;//FatUtils.getFilesOffset(fs.getBootSector());
-        return 0;//filesOffset + clusterOffset + ((cluster - FatUtils.FIRST_CLUSTER) * clusterSize);
+        return 0;
     }
 
     /**
