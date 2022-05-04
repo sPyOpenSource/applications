@@ -26,7 +26,6 @@ import jx.zero.InitialNaming;
 import jx.zero.Memory;
 import jx.zero.MemoryManager;
 import jx.zero.Naming;
-import org.jnode.fs.fat.FatFileSystem;
 
 public class FatRootDirectory extends FatDirectory {
     private final Naming naming = InitialNaming.getInitialNaming();

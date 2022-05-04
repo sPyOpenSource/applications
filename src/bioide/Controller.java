@@ -21,7 +21,7 @@ class Controller {
     public  int       dma_base;
 
     /** controller irq */
-    private final int       irq_nr;
+    private final int irq_nr;
 
     /** interface name "ide0" */
     public  String    name;
@@ -33,10 +33,10 @@ class Controller {
     private  boolean   present;
 
     /** base I/O port address */
-    private final int       io_base;
+    private final int  io_base;
 
     /** normally io_base + 0x206 */
-    private final int       ctl_port;
+    private final int  ctl_port;
 
     /** current command (queued) */
     private Operation operation;

@@ -30,7 +30,7 @@ import jx.zero.MemoryManager;
 public class RxDescriptor extends Descriptor {
     public static final int STATUS_FRAM = 0x2000;
     public static final int STATUS_OFLO = 0x1000;
-    public static final int STATUS_CRC = 0x0800;
+    public static final int STATUS_CRC  = 0x0800;
     public static final int STATUS_BUFF = 0x0400;
 
     public RxDescriptor(Memory mem, int offset, int dataBufferOffset) {
@@ -44,8 +44,8 @@ public class RxDescriptor extends Descriptor {
     }
 
     public short getMessageByteCount() {
-        Debug.out.println("b0: "+mem.get8(offset + BCNT));
-        Debug.out.println("b1: "+mem.get8(1+ offset + BCNT));
+        Debug.out.println("b0: " + mem.get8(offset + BCNT));
+        Debug.out.println("b1: " + mem.get8(1 + offset + BCNT));
         return mem.get16((offset + BCNT) >> 1);
     }
 

@@ -34,12 +34,12 @@ import jx.fs.NotExistException;
 import jx.fs.NotSupportedException;
 import jx.fs.PermissionException;
 import jx.fs.StatFS;
+import jx.fs.FileSystem;
 import jx.zero.Memory;
 import jx.zero.ReadOnlyMemory;
 
 import org.jnode.fs.FSDirectory;
 import org.jnode.fs.FSFile;
-import jx.fs.FileSystem;
 import org.jnode.fs.ntfs.attribute.NTFSAttribute;
 import org.jnode.fs.ntfs.index.IndexEntry;
 

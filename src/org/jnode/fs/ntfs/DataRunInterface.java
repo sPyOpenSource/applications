@@ -21,6 +21,7 @@
 package org.jnode.fs.ntfs;
 
 import java.io.IOException;
+import jx.zero.Memory;
 
 /**
  * @author Daniel Noll (daniel@noll.id.au)
@@ -46,7 +47,7 @@ public interface DataRunInterface {
      * @return the number of clusters read.
      * @throws IOException if an error occurs reading.
      */
-    public int readClusters(long vcn, byte[] dst, int dstOffset, int nrClusters, int clusterSize, NTFSVolume volume)
+    public int readClusters(long vcn, Memory dst, int dstOffset, int nrClusters, int clusterSize, NTFSVolume volume)
         throws IOException;
 
     /**

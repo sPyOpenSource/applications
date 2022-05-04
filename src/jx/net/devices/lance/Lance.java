@@ -19,8 +19,7 @@ class Lance implements NetworkDevice {
     public void setReceiveMode(int mode) {}
     public Memory transmit(Memory buf) {return null;}
     public Memory transmit1(Memory buf, int offset, int size) {return null;}
-    public byte[] getMACAddress() {return null; }
+    public byte[] getMACAddress() { return null; }
     public int getMTU() {return 0;}
     public boolean registerNonBlockingConsumer(NonBlockingMemoryConsumer consumer){throw new Error();}
-    
 }

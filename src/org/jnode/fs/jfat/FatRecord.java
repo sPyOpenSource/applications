@@ -23,6 +23,7 @@ package org.jnode.fs.jfat;
 import java.io.IOException;
 import java.util.Vector;
 import jx.zero.Debug;
+import org.jnode.util.NumberUtils;
 
 public class FatRecord {
 
@@ -37,12 +38,12 @@ public class FatRecord {
         longEntries = new Vector<>(MAXLONGENTRIES);
     }
 
-    /*public FatRecord(FatDirectory parent, FatName name) throws IOException {
+    public FatRecord(FatDirectory parent, FatName name) throws IOException {
         init();
 
         FatFileSystem fs = parent.getFatFileSystem();
         FatDirEntry[] free;
-        //FatShortDirEntry s;
+        FatShortDirEntry s;
 
         int n = name.getNumberOfComponents();
 
@@ -51,20 +52,20 @@ public class FatRecord {
 
         if (name.isMangled()) {
             free = parent.getFatFreeEntries(n + 1);
-            //longEntries = new Vector<FatLongDirEntry>(n + 1);
+            longEntries = new Vector<>(n + 1);
         } else {
             free = parent.getFatFreeEntries(1);
-            //longEntries = new Vector<FatLongDirEntry>(0);
+            longEntries = new Vector<>(0);
         }
 
-        //s = new FatShortDirEntry(fs, name, free[free.length - 1].getIndex());
+        s = new FatShortDirEntry(fs, name, free[free.length - 1].getIndex());
 
         if (name.isMangled()) {
             FatLongDirEntry l = new FatLongDirEntry(
                 fs, name.getComponent(n - 1), (byte) n, s.getChkSum(),
                 true, free[0].getIndex());
 
-            //addSetFatDirEntry(parent, l);
+            addSetFatDirEntry(parent, l);
 
             for (int i = (n - 2); i >= 0; i--) {
                 l = new FatLongDirEntry(fs, name.getComponent(i), (byte) (i + 1),
@@ -74,8 +75,8 @@ public class FatRecord {
             }
         }
 
-        //close(s);
-    }*/
+        close(s);
+    }
 
     private void init() {
         shortEntry = null;
@@ -192,7 +193,7 @@ public class FatRecord {
         return longName;
     }
 
-    /*@Override
+    @Override
     public String toString() {
         if (shortEntry == null) {
             return String.format("FatRecord (Open) %s", longEntries);
@@ -201,7 +202,7 @@ public class FatRecord {
                 "FatRecord (Closed) ['%s' %s] index:%d chksum:%s size:%d",
                 getLongName(), getShortName(), getShortEntry().getIndex(), NumberUtils.hex(getChkSum(), 2), size());
         }
-    }*/
+    }
 
     /*public String toDebugString() {
         mustBeClose();

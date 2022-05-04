@@ -89,7 +89,6 @@ public class LanceFlags {
      * Gets the name of the device
      * @return 
      */
-    //@Override
     public String getName() {
         return name;
     }

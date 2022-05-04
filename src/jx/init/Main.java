@@ -13,9 +13,9 @@ public class Main {
      public static void init(Naming naming) throws Exception {
 	jx.zero.debug.DebugOutputStream out = new jx.zero.debug.DebugOutputStream((DebugChannel) naming.lookup("DebugChannel0"));
 	Debug.out = new jx.zero.debug.DebugPrintStream(out);
-	 
+	
 	Debug.out.println("Init running...");
-       
+        
 	main(new String[] {"boot.rc"});
      }
      
@@ -48,7 +48,7 @@ public class Main {
 	    String domainName = domainSpec.getString("Name");
 	    int codeSize = domainSpec.getInt("CodeSize");
 	    try { domainSpec.getString("SchedulerClass"); } catch(NameNotFoundException e) {}
-	    try { 
+	    try {
 		String gcName = domainSpec.getString("GarbageCollector");
                 switch (gcName) {
                     case "copying":
@@ -124,7 +124,7 @@ public class Main {
 	    Debug.out.println("!!ATTENTION!!                                      !!ATTENTION!!");
 	    return;
 	}
-	try {	
+	try {
 	    Naming naming = InitialNaming.getInitialNaming();
 	    String secLib = globalSpec.getString("SecurityManagerLib");
 	    String secClass = globalSpec.getString("SecurityManagerClass");

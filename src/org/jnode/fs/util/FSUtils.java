@@ -25,16 +25,15 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import jx.jnode.fs.FSDirectory;
-import jx.jnode.fs.FSEntry;
-import jx.jnode.fs.FSFile;
+import jx.fs.FSDirectory;
+import jx.fs.Inode;
+import jx.fs.FSFile;
 
 /**
  * 
  * @author Fabien DUMINY
  */
 public class FSUtils {
-
     //private static final Logger log = Logger.getLogger(FSUtils.class);
 
     protected static DateFormat dateFormat = new SimpleDateFormat();
@@ -72,45 +71,45 @@ public class FSUtils {
      * @param deep if {@code true}, include details of the FS object that the entry refers to.
      * @return a human readable rendering of the FSEntry
      */
-    public static String toString(FSEntry entry, boolean deep) {
+    public static String toString(Inode entry, boolean deep) {
         if (entry == null)
             return "<FSEntry>NULL</FSEntry>";
 
         StringBuilder sb = new StringBuilder(2048);
         sb.append("<FSEntry>");
         sb.append(" name=" + entry.getName());
-        try {
+        //try {
             sb.append(toStringDate(" lastModified=", entry.getLastModified()));
-        } catch (IOException e) {
-            sb.append(" lastModified=###").append(e.getMessage()).append("###");
+        //} catch (IOException e) {
+            //sb.append(" lastModified=###").append(e.getMessage()).append("###");
             //log.error("error in lastModified", e);
-        }
-        try {
-            sb.append(" isDirty=" + entry.isDirty());
-        } catch (IOException e1) {
-            sb.append(" isDirty=###").append(e1.getMessage()).append("###");
+        //}
+        //try {
+        sb.append(" isDirty=").append(entry.isDirty());
+        //} catch (IOException e1) {
+            //sb.append(" isDirty=###").append(e1.getMessage()).append("###");
             //log.error("error in isDirty", e1);
-        }
+        //}
         sb.append(" isValid=" + entry.isValid());
 
-        sb.append(" isFile=" + entry.isFile());
+        sb.append(" isFile=").append(entry.isFile());
         if (deep && entry.isFile()) {
-            try {
+            //try {
                 sb.append(toString(entry.getFile()));
-            } catch (IOException e2) {
-                sb.append(" getFile=###").append(e2.getMessage()).append("###");
+            //} catch (IOException e2) {
+                //sb.append(" getFile=###").append(e2.getMessage()).append("###");
                 //log.error("error in getFile", e2);
-            }
+            //}
         }
 
-        sb.append(" isDir=" + entry.isDirectory());
+        sb.append(" isDir=").append(entry.isDirectory());
         if (deep && entry.isDirectory())
-            try {
+            //try {
                 sb.append(toString(entry.getDirectory()));
-            } catch (IOException e3) {
-                sb.append(" getDirectory=###").append(e3.getMessage()).append("###");
+            //} catch (IOException e3) {
+                //sb.append(" getDirectory=###").append(e3.getMessage()).append("###");
                 //log.error("error in getDirectory", e3);
-            }
+            //}
         sb.append("</FSEntry>");
 
         return sb.toString();

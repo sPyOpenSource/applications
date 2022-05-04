@@ -17,12 +17,12 @@ import java.util.function.Function;
 public class ByteCode {
     
 /* Stack Frame */
-int STACK_ENTRY_NONE        =0;
-int STACK_ENTRY_INT         =1;
-int STACK_ENTRY_REF         =2;
-int STACK_ENTRY_LONG        =3;
-int STACK_ENTRY_DOUBLE     = 4;
-int STACK_ENTRY_FLOAT       =5;
+int STACK_ENTRY_NONE   = 0;
+int STACK_ENTRY_INT    = 1;
+int STACK_ENTRY_REF    = 2;
+int STACK_ENTRY_LONG   = 3;
+int STACK_ENTRY_DOUBLE = 4;
+int STACK_ENTRY_FLOAT  = 5;
 
     private  boolean is_ref_entry(VmStackFrame stack) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

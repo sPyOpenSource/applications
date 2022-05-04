@@ -21,6 +21,7 @@
 package org.jnode.fs.jfat;
 
 import jx.zero.Memory;
+import org.jnode.util.NumberUtils;
 
 /**
  * @author gvt
@@ -33,6 +34,10 @@ public class FatMarshal {
         if (array == null)
             throw new NullPointerException("array cannot be null");
         this.array = array;
+    }
+    
+    public FatMarshal(int length) {
+        array = null;
     }
 
     public int length() {
@@ -152,6 +157,10 @@ public class FatMarshal {
         setDirty();
     }
 
+    public Memory getByteBuffer() {
+        return null;
+    }
+    
     public byte[] getBytes(int offset, int length) {
         byte[] value = new byte[length];
         getBytes(offset, length, 0, value);
@@ -169,16 +178,16 @@ public class FatMarshal {
 
     public void setBytes(int offset, int length, int start, byte[] src) {
         checkOffset(offset, length);
-        //System.arraycopy(src, start, array, offset, length);
+        System.arraycopy(src, start, array, offset, length);
         setDirty();
     }
 
-    /*@Override
+    @Override
     public String toString() {
         return String.format("FatMarshal %s", NumberUtils.hex(array));
     }
 
-    public String toDebugString() {
+    /*public String toDebugString() {
         StrWriter out = new StrWriter();
 
         out.println("*************************************************");

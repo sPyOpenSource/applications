@@ -17,14 +17,15 @@
  * along with this library; If not, write to the Free Software Foundation, Inc., 
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
- 
+
 package org.jnode.fs.jfat;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.NoSuchElementException;
-import org.jnode.fs.fat.FatFileSystem;
 
 import jx.fs.Inode;
 import jx.fs.InodeIOException;
@@ -37,7 +38,7 @@ public class FatDirectory extends FatEntry
 {
     public static final int MAXENTRIES = 65535; // 2^16-1; fatgen 1.03, page 33
 
-    //private final FatTable children = new FatTable();
+    private final FatTable children = new FatTable();
 
     /**
      * The map of ID -> entry.
@@ -64,19 +65,19 @@ public class FatDirectory extends FatEntry
     private void initialize() throws IOException {
         FatFileSystem fs = getFatFileSystem();
         FatDirectory parent = getParent();
-        //FatShortDirEntry entry = getEntry();
+        FatShortDirEntry entry = getEntry();
         FatChain chain = getChain();
 
         chain.allocateAndClear(1);
 
-        //int parentCluster = parent.isRoot() ? 0 : parent.getEntry().getStartCluster();
+        int parentCluster = parent.isRoot() ? 0 : parent.getEntry().getStartCluster();
         int thisCluster = chain.getStartCluster();
 
-        //FatDotDirEntry dot = new FatDotDirEntry(fs, false, entry, thisCluster);
-        //FatDotDirEntry dotDot = new FatDotDirEntry(fs, true, entry, parentCluster);
+        FatDotDirEntry dot = new FatDotDirEntry(fs, false, entry, thisCluster);
+        FatDotDirEntry dotDot = new FatDotDirEntry(fs, true, entry, parentCluster);
 
-        //setFatDirEntry(dot);
-        //setFatDirEntry(dotDot);
+        setFatDirEntry(dot);
+        setFatDirEntry(dotDot);
     }
 
     /*
@@ -84,9 +85,9 @@ public class FatDirectory extends FatEntry
      * but how would you call it?
      */
     public FatDirEntry getFatDirEntry(int index, boolean allowDeleted) throws IOException {
-        //FatMarshal entry = new FatMarshal(FatDirEntry.LENGTH);
-        //getChain().read(index * entry.length(), entry.getByteBuffer());
-        return null;//createDirEntry(entry, index, allowDeleted);
+        FatMarshal entry = new FatMarshal(FatDirEntry.LENGTH);
+        getChain().read(index * entry.length(), entry.getByteBuffer(), 0);
+        return createDirEntry(entry, index, allowDeleted);
     }
 
     /**
@@ -165,7 +166,7 @@ public class FatDirectory extends FatEntry
      * this instead is a "write" method: it needs a "created" entry
      */
     public void setFatDirEntry(FatDirEntry entry) throws IOException {
-        //getChain().write(entry.getIndex() * entry.length(), entry.getByteBuffer());
+        getChain().write(entry.getIndex() * entry.length(), entry.getByteBuffer());
     }
 
     public FatDirEntry[] getFatFreeEntries(int n) throws IOException {
@@ -200,27 +201,26 @@ public class FatDirectory extends FatEntry
         return entries;
     }
 
-    /*@Override
     public String getDirectoryId() {
         return Integer.toString(getStartCluster());
-    }*/
+    }
 
     @Override
     public boolean isDirectory() {
         return true;
     }
 
-    /*public FSDirectory getDirectory() {
+    public FSDirectory getDirectory() {
         return this;
-    }*/
+    }
 
-    /*protected FatTable getVisitedChildren() {
+    protected FatTable getVisitedChildren() {
         return children;
-    }*/
+    }
 
-    /*public Iterator<FSEntry> iterator() {
+    public Iterator<Inode> iterator() {
         return new FatEntriesIterator(children, this, false);
-    }*/
+    }
 
     /**
      * Creates a new directory entry iterator.
@@ -229,9 +229,9 @@ public class FatDirectory extends FatEntry
      *                       otherwise.
      * @return the iterator.
      */
-    /*public Iterator<FSEntry> createIterator(boolean includeDeleted) {
+    public Iterator<Inode> createIterator(boolean includeDeleted) {
         return new FatEntriesIterator(new FatTable(), this, includeDeleted);
-    }*/
+    }
 
     /*
      * used from a FatRootDirectory looking for its label
@@ -243,7 +243,7 @@ public class FatDirectory extends FatEntry
             f.createNextEntry();
     }
 
-    /*public synchronized FSEntry getEntry(String name) {
+    public synchronized Inode getEntry(String name) {
         FatEntry child = children.get(name);
 
         if (child == null) {
@@ -259,10 +259,9 @@ public class FatDirectory extends FatEntry
         }
 
         return child;
-    }*/
+    }
 
-    /*@Override
-    public FSEntry getEntryById(String id) throws IOException {
+    public Inode getEntryById(String id) throws IOException {
         FatEntry child = idMap.get(id);
 
         if (child == null) {
@@ -277,7 +276,7 @@ public class FatDirectory extends FatEntry
         }
 
         return child;
-    }*/
+    }
 
     public FatEntry getEntryByShortName(byte[] shortName) {
         FatEntry child = null;
@@ -285,10 +284,10 @@ public class FatDirectory extends FatEntry
 
         while (f.hasNextEntry()) {
             FatEntry entry = f.createNextEntry();
-            /*if (entry.isShortName(shortName)) {
+            if (entry.isShortName(shortName)) {
                 child = entry;
                 break;
-            }*/
+            }
         }
 
         return child;
@@ -317,10 +316,10 @@ public class FatDirectory extends FatEntry
         return !(getEntryByName(name) == null);
     }
 
-    /*public boolean isEmpty() {
+    public boolean isEmpty() {
         if (isRoot())
             return false;
-        Iterator<FSEntry> i = iterator();
+        Iterator<Inode> i = iterator();
         while (i.hasNext()) {
             String name = i.next().getName();
             if (!name.equals(".") && !name.equals(".."))
@@ -329,7 +328,7 @@ public class FatDirectory extends FatEntry
         return true;
     }
 
-    public synchronized FSEntry addFile(String name) throws IOException {
+    public synchronized Inode addFile(String name) throws IOException {
         FatName fatName = new FatName(this, name);
         if (collide(fatName.getLongName()))
             throw new IOException("File [" + fatName.getLongName() + "] already exists");
@@ -343,7 +342,7 @@ public class FatDirectory extends FatEntry
         return entry;
     }
 
-    public synchronized FSEntry addDirectory(String name) throws IOException {
+    public synchronized Inode addDirectory(String name) throws IOException {
         FatFileSystem fs = getFatFileSystem();
         FatName fatName = new FatName(this, name);
         if (collide(fatName.getLongName()))
@@ -387,7 +386,7 @@ public class FatDirectory extends FatEntry
         return String.format("FatDirectory [%s] index:%d", getName(), getIndex());
     }
 
-    public String toDebugString() {
+    /*public String toDebugString() {
         StrWriter out = new StrWriter();
         out.println("*******************************************");
         out.println("FatDirectory");
@@ -403,8 +402,8 @@ public class FatDirectory extends FatEntry
     public Inode getInode(String name) throws InodeIOException, InodeNotFoundException, NoDirectoryInodeException, NotExistException, PermissionException {
 	FatEntry inode;
 	
-	//if (i_released)
-	  //  throw new NotExistException();
+	if (i_released)
+	    throw new NotExistException();
 	
 	inode = getEntryByName(name);
 

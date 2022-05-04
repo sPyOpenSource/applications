@@ -1,12 +1,11 @@
 package jx.fsshell;
 
 import jx.streams.*;
-import java.io.*;
 import jx.zero.*;
 import jx.zero.debug.*;
 import jx.shell.*;
-
 import jx.fs.*;
+import java.io.*;
 
 public class Main {
     class OutputStreamProxy extends OutputStream {
@@ -142,4 +141,3 @@ public class Main {
 	shell.mainloop();
     }
 }
-

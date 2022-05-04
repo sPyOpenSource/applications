@@ -22,7 +22,6 @@ package org.jnode.fs.jfat;
 
 import java.io.IOException;
 
-
 /**
  * @author gvt
  */

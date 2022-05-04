@@ -1,6 +1,7 @@
 package test;
 
 import AI.AIMemory;
+import AI.AILogic;
 import AI.Models.InfoZero;
 import AI.Models.CPU;
 import java.io.File;
@@ -95,5 +96,11 @@ public class JUnitTest extends TestCase{
     @Test
     public void testByteCode(){
         System.out.println("* JUnitTest: testByteCode()");
+    }
+    
+    @Test
+    public void testLSFR(){
+        System.out.println("* JUnitTest: testLSFR()");
+        AILogic.main(null);
     }
 }

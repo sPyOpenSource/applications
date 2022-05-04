@@ -3,6 +3,7 @@ package AI;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import jx.emulation.Init;
+
 import jx.zero.Debug;
 import jx.zero.Naming;
 import jx.zero.debug.DebugChannel;
@@ -18,11 +19,9 @@ import jx.zero.debug.DebugPrintStream;
 public final class AI
 {
     // instance variables
-    private final AIMemory mem = new AIMemory();
-    private final AIInput  inp;
-    private final AILogic  log;
-    private final AIOutput oup;
-    private final Thread   logThread, inpThread, oupThread;
+    private final AIIO IO = new AIIO();
+    private final AILogic log;
+    private final Thread logThread;
     
     /**
      * Constructor for objects of class AI
@@ -30,22 +29,15 @@ public final class AI
     public AI()
     {
         // Initialize instance variables
-        mem.setLogPath("/AI/");
-        inp = new AIInput(mem);
-        log = new AILogic(mem);
-        oup = new AIOutput(mem);
+        log = new AILogic(IO.getMemory());
         logThread = new Thread(log, "logic");
-        inpThread = new Thread(inp, "input");
-        oupThread = new Thread(oup, "output");
     }
     
     public void start()
     {
         Debug.out.println("AI running...");
         logThread.start();
-        inpThread.start(); 
-        oupThread.start();
-        mem.ImportTxt("/ai");
+        IO.start();
     }
     
     public static void init(Naming naming) throws Exception {

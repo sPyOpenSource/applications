@@ -1,10 +1,10 @@
 package jx.fsshell;
 
 import jx.streams.*;
-import java.io.*;
 import jx.zero.*;
 import jx.zero.debug.*;
 import jx.timer.TimerManager;
+import java.io.*;
 
 public class FSShell {
     class OutputStreamProxy extends OutputStream {
@@ -22,6 +22,7 @@ public class FSShell {
     public static void main(String[] args) {
 	new FSShell(args);
     }
+    
     public FSShell(String[] args) {
 	Naming naming = InitialNaming.getInitialNaming();
 	StreamProvider streamProvider = (StreamProvider)LookupHelper.waitUntilPortalAvailable(naming, args[0]);	

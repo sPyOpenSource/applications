@@ -28,9 +28,6 @@ import jx.zero.MemoryManager;
  * @author Chris Cole
  */
 public class RxDescriptorRing extends DescriptorRing {
-    /**
-     * My logger
-     */
     //private static final Logger log = Logger.getLogger(RxDescriptorRing.class);
 
     private final RxDescriptor[] rxDescriptors;

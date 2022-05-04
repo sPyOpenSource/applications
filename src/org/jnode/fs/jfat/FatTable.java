@@ -79,7 +79,7 @@ public class FatTable {
     /**
      * Print FAT table content.
      */
-    public String toString() {
+    /*public String toString() {
         StrWriter out = null;
         try {
             out = new StrWriter();
@@ -95,7 +95,7 @@ public class FatTable {
         } finally {
             out.close();
         }
-    }
+    }*/
 
     private class FatKey {
         private final String key;

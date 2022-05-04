@@ -60,7 +60,7 @@ public class CodePage {
         }
     }
 
-    public String toString() {
+    /*public String toString() {
         StrWriter out = new StrWriter();
 
         out.println("*******************************************");
@@ -69,5 +69,5 @@ public class CodePage {
         out.print("Charset\t" + charset);
 
         return out.toString();
-    }
+    }*/
 }

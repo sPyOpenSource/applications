@@ -20,10 +20,10 @@ class Env {
 
     // debugging
     final static boolean verboseIO   = false; // io operations
-    final static boolean verbosePT   = true; // partition table
-    final static boolean verboseDR   = true; // drive
+    final static boolean verbosePT   = true;  // partition table
+    final static boolean verboseDR   = true;  // drive
     final static boolean verboseIRQ  = false; // interrupt
-    final static boolean verboseCTRL = true; // controller
+    final static boolean verboseCTRL = true;  // controller
     final static boolean verboseID   = false; // identify
     
     static void init() {
@@ -36,4 +36,3 @@ class Env {
 	sleepManager  = new SleepManagerImpl();
     }
 }
-

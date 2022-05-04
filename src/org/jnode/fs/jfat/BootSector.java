@@ -22,6 +22,10 @@ package org.jnode.fs.jfat;
 
 import jx.zero.Debug;
 import jx.zero.Memory;
+import org.jnode.util.NumberUtils;
+import jx.InitialNaming;
+import jx.zero.MemoryManager;
+
 
 /**
  * @author gvt
@@ -99,12 +103,13 @@ public class BootSector {
         decode();
     }
 
-    /*public BootSector(int size) {
-        sector = new byte[size];
+    public BootSector(int size) {
+        MemoryManager MemManager = (MemoryManager)InitialNaming.lookup("MemoryManager");
+        sector = MemManager.alloc(size);
         dirty = false;
     }
 
-    public BootSector(byte[] sector) {
+    /*public BootSector(byte[] sector) {
         this.sector = new byte[sector.length];
         System.arraycopy(sector, 0, this.sector, 0, sector.length);
         decode();
@@ -522,7 +527,7 @@ public class BootSector {
 
     @Override
     public String toString() {
-        //StringBuilder out = new StringBuilder();
+        StringBuilder out = new StringBuilder();
 
         Debug.out.println("***********************  BootSector *************************");
         Debug.out.println("fatType: " + fatType());
@@ -570,6 +575,6 @@ public class BootSector {
         Debug.out.println("CountOfClusters: " + CountOfClusters);
         Debug.out.print("*************************************************************");
 
-        return null;//out.toString();
+        return out.toString();
     }
 }

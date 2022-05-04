@@ -28,6 +28,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.NoSuchElementException;
+import jx.zero.Memory;
 
 import org.jnode.fs.ntfs.attribute.AttributeListAttribute;
 import org.jnode.fs.ntfs.attribute.AttributeListEntry;
@@ -92,7 +93,7 @@ public class FileRecord extends NTFSRecord {
      * @param buffer          data buffer.
      * @param offset          offset into the buffer.
      */
-    public FileRecord(NTFSVolume volume, long referenceNumber, byte[] buffer, int offset) throws IOException {
+    public FileRecord(NTFSVolume volume, long referenceNumber, Memory buffer, int offset) throws IOException {
         this(volume, volume.getBootRecord().getBytesPerSector(), volume.getClusterSize(), true, referenceNumber,
             buffer, offset);
     }
@@ -109,7 +110,7 @@ public class FileRecord extends NTFSRecord {
      * @param offset          offset into the buffer.
      */
     public FileRecord(NTFSVolume volume, int bytesPerSector, int clusterSize, boolean strictFixUp, long referenceNumber,
-                      byte[] buffer, int offset) throws IOException {
+                      Memory buffer, int offset) throws IOException {
 
         super(bytesPerSector, strictFixUp, buffer, offset);
 
@@ -522,7 +523,7 @@ public class FileRecord extends NTFSRecord {
      * @param len        the number of bytes of data to read.
      * @throws IOException if an error occurs reading from the filesystem.
      */
-    public void readData(long fileOffset, byte[] dest, int off, int len) throws IOException {
+    public void readData(long fileOffset, Memory dest, int off, int len) throws IOException {
         // Explicitly look for the attribute with no name, to avoid getting alternate streams.
         readData(NTFSAttribute.Types.DATA, null, fileOffset, dest, off, len, true);
     }
@@ -540,7 +541,7 @@ public class FileRecord extends NTFSRecord {
      *                    attribute.
      * @throws IOException if an error occurs reading from the filesystem.
      */
-    public void readData(int attributeType, String streamName, long fileOffset, byte[] dest, int off, int len,
+    public void readData(int attributeType, String streamName, long fileOffset, Memory dest, int off, int len,
                          boolean limitToInitialised)
         throws IOException {
 

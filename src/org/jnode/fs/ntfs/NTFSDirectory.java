@@ -25,6 +25,7 @@ import java.util.Iterator;
 import jx.fs.FileSystem;
 
 import java.nio.file.ReadOnlyFileSystemException;
+import jx.fs.Inode;
 import org.jnode.fs.ntfs.index.NTFSIndex;
 
 /**
@@ -77,16 +78,16 @@ public class NTFSDirectory extends NTFSEntry {
     /**
      * Gets an iterator to iterate over all entries of this directory.
      */
-    public Iterator<FSEntry> iterator() {
+    public Iterator<Inode> iterator() {
         return new DirectoryEntryIterator(fs, index);
     }
 
     /**
      * Gets an entry with a given name.
      */
-    public FSEntry getEntry(String name) {
+    public Inode getEntry(String name) {
         //log.debug("getEntry(" + name + ")");
-        for (Iterator<FSEntry> it = this.iterator(); it.hasNext(); ) {
+        for (Iterator<Inode> it = this.iterator(); it.hasNext(); ) {
             final NTFSEntry entry = (NTFSEntry) it.next();
             if (entry.getName().equals(name)) {
                 return entry;
@@ -95,7 +96,7 @@ public class NTFSDirectory extends NTFSEntry {
         return null;
     }
 
-    public FSEntry getEntryById(String id) throws IOException {
+    public Inode getEntryById(String id) throws IOException {
         FileRecord fileRecord = fs.getNTFSVolume().getMFT().getRecord(Long.parseLong(id));
         return new NTFSEntry(fs, fileRecord, this.fileRecord.getReferenceNumber());
     }
@@ -112,14 +113,14 @@ public class NTFSDirectory extends NTFSEntry {
     /**
      *
      */
-    public FSEntry addFile(String name) throws IOException {
+    public Inode addFile(String name) throws IOException {
         throw new ReadOnlyFileSystemException();
     }
 
     /**
      *
      */
-    public FSEntry addDirectory(String name) throws IOException {
+    public Inode addDirectory(String name) throws IOException {
         throw new ReadOnlyFileSystemException();
     }
 

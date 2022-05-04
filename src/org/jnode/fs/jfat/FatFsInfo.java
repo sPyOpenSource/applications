@@ -21,56 +21,55 @@
 package org.jnode.fs.jfat;
 
 import java.io.IOException;
-import java.nio.ByteBuffer;
-
-import org.jnode.driver.block.BlockDeviceAPI;
-import org.jnode.util.LittleEndian;
+import jx.bio.BlockIO;
+import jx.zero.Memory;
+import jx.InitialNaming;
+import jx.zero.MemoryManager;
 
 /**
  * @author tango
  */
 public class FatFsInfo {
 
-    private byte[] sector;
+    private final Memory sector;
 
     public FatFsInfo(int size) {
-        sector = new byte[size];
+        MemoryManager MemManager = (MemoryManager)InitialNaming.lookup("MemoryManager");
+        sector = MemManager.alloc(size);
     }
 
-    public void write(BlockDeviceAPI device, long offset) throws IOException {
-        device.write(offset, ByteBuffer.wrap(sector));
+    public void write(BlockIO device, long offset) throws IOException {
+        device.writeSectors(offset, sector, true);
     }
 
     protected int get8(int offset) {
-        return LittleEndian.getUInt8(sector, offset);
+        return sector.get8(offset);
     }
 
     protected void set8(int offset, int value) {
-        LittleEndian.setInt8(sector, offset, value);
+        sector.set8(offset, (byte)value);
     }
 
     protected int get16(int offset) {
-        return LittleEndian.getUInt16(sector, offset);
+        return sector.getLittleEndian16(offset);
     }
 
     protected void set16(int offset, int value) {
-        LittleEndian.setInt16(sector, offset, value);
-
+        sector.setLittleEndian16(offset, (short)value);
     }
 
     protected long get32(int offset) {
-        return LittleEndian.getUInt32(sector, offset);
+        return sector.getLittleEndian32(offset);
     }
 
     protected void set32(int offset, long value) {
-        LittleEndian.setInt32(sector, offset, (int) value);
-
+        sector.setLittleEndian32(offset, (int) value);
     }
 
     protected String getString(int offset, int len) {
         StringBuilder b = new StringBuilder(len);
         for (int i = 0; i < len; i++) {
-            int v = sector[offset + i];
+            int v = sector.get32(offset + i);
             b.append((char) v);
         }
         return b.toString();
@@ -83,7 +82,7 @@ public class FatFsInfo {
                 ch = value.charAt(i);
             else
                 ch = (char) 0;
-            LittleEndian.setInt8(sector, offset + i, ch);
+            sector.set8(offset + i, (byte)ch);
         }
 
     }

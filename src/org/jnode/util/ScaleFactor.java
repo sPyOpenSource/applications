@@ -18,21 +18,10 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
  
-package org.jnode.fs.jfat;
+package org.jnode.util;
 
+public interface ScaleFactor {
+    public long getMultiplier();
 
-/**
- * @author gvt
- */
-public abstract class FatObject 
-{   
-    private final FatFileSystem fs;
-
-    public FatObject(FatFileSystem fs) {
-       this.fs = fs;
-    }
-
-    public final FatFileSystem getFatFileSystem() {
-        return fs;
-    }
+    public String getUnit();
 }

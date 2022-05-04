@@ -18,7 +18,7 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
  
-package org.jnode.fs.fat;
+package org.jnode.fs.jfat;
 
 import java.io.IOException;
 import javafs.InodeCache;
@@ -34,9 +34,6 @@ import jx.zero.Clock;
 import jx.zero.Debug;
 import jx.zero.InitialNaming;
 
-import org.jnode.fs.jfat.BootSector;
-import org.jnode.fs.jfat.Fat;
-import org.jnode.fs.jfat.FatRootDirectory;
 
 /**
  * @author epr
@@ -46,10 +43,10 @@ public class FatFileSystem implements jx.fs.FileSystem {
     private BlockIO drive;
     private boolean     inited = false;
     private BufferCache bufferCache;
-    private final InodeCache  inodeCache;
+    private final InodeCache inodeCache;
     private Tools       tools;
     private Clock       clock;
-    private final Integer     deviceID;
+    private final int deviceID;
     
     
     /**
@@ -65,7 +62,7 @@ public class FatFileSystem implements jx.fs.FileSystem {
             //Logger.getLogger(FatFileSystem.class.getName()).log(Level.SEVERE, null, ex);
         }
         inodeCache = new InodeCache();
-        deviceID = new Integer(1);
+        deviceID = 1;
     }
 
     public FatFileSystem(BlockIO bio) {
@@ -76,7 +73,7 @@ public class FatFileSystem implements jx.fs.FileSystem {
             //Logger.getLogger(FatFileSystem.class.getName()).log(Level.SEVERE, null, ex);
         }
         inodeCache = new InodeCache();
-        deviceID = new Integer(1);
+        deviceID = 1;
     }
 
     /**
@@ -208,6 +205,10 @@ public class FatFileSystem implements jx.fs.FileSystem {
 
     @Override
     public String read(String aitxt) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public CodePage getCodePage() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

@@ -26,7 +26,6 @@ import jx.zero.Ports;
  * @author Chris
  */
 public class WordIOAccess extends IOAccess implements LanceConstants {
-
     public WordIOAccess(Ports io, int iobase) {
         super(io, iobase);
     }

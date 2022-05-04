@@ -18,20 +18,22 @@ import jx.zero.Debug;
 import jx.zero.LookupHelper;
 import jx.zero.Memory;
 import jx.zero.MemoryManager;
+import jx.zero.Ports;
 
 /**
  * This is the memory class of AI.
  * 
- * @author X. Wang 
+ * @author X. Wang
  * @version 1.0
  */
 public class AIMemory extends AIZeroMemory implements FileSystem
 {
     // instance variables
     //private SerialPort serialPort;
-    private  BlockIO drive;
+    private BlockIO drive;
     private final int length = 101;
-    private  Memory buffer;
+    private Memory buffer;
+    private Ports ports; // You can access any address with ports in the computer memory
     private TreeMap<String, TreeMap> tree = new TreeMap<>();
     
     /**
@@ -54,12 +56,12 @@ public class AIMemory extends AIZeroMemory implements FileSystem
             } catch (NoSuchPortException | PortInUseException | UnsupportedCommOperationException ex) {
                 Logger.getLogger(AIMemory.class.getName()).log(Level.SEVERE, null, ex);
             }*/
-            drive = (BlockIO)LookupHelper.waitUntilPortalAvailable(null, "BioRAM");
+            //drive = (BlockIO)LookupHelper.waitUntilPortalAvailable(null, "BioRAM");
             MemoryManager memoryManager = (MemoryManager)InitialNaming.lookup("MemoryManager");
+            ports = (Ports)InitialNaming.lookup("Ports");
             buffer =  memoryManager.alloc(512);
         } catch (ExceptionInInitializerError | NullPointerException ex){
             Logger.getLogger(AIMemory.class.getName()).log(Level.SEVERE, null, ex);
-
         }
     }
     
@@ -114,15 +116,15 @@ public class AIMemory extends AIZeroMemory implements FileSystem
     
     public int getHash(String name){
         int value = 0;
-    for (int i = 0; i < name.length(); i++ )
-        value += name.charAt(i);
-    return ( value * name.length() ) % length + 100;
+        for (int i = 0; i < name.length(); i++ )
+            value += name.charAt(i);
+        return ( value * name.length() ) % length + 100;
     }
 
     @Override
     public String read(String name) {
         TreeMap<String, TreeMap> current = tree;
-        for( String part:name.split("/")){
+        for(String part:name.split("/")){
             current = current.get(part);
         }
         if(current != null){
@@ -133,7 +135,7 @@ public class AIMemory extends AIZeroMemory implements FileSystem
                 Debug.out.print(buffer2.get8(i));
             }
         }
-            return null;
+        return null;
     }
     
     public void write(String name){

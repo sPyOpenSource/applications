@@ -20,7 +20,6 @@ public class FSImpl implements FS, Service {
     private final Hashtable     devices; // maps ID to FileSystem
     private final DirEntryCache direntrycache;
 
-
     public FSImpl() {
 	cwdPath = "/";
 	mountpoints = new Hashtable();
@@ -73,8 +72,8 @@ public class FSImpl implements FS, Service {
 	    cwdInode.overlay(mnt, getFileName(path));
 	    mountpoints.put(filesystem, igetCwdInode());
 	}
-	//	devices.put(new Integer(filesystem.getDeviceID()), filesystem);
-	devices.put(filesystem.getDeviceID(), filesystem);
+	devices.put(new Integer(filesystem.getDeviceID()), filesystem);
+	//devices.put(filesystem.getDeviceID(), filesystem);
     }
 
     @Override
@@ -105,8 +104,8 @@ public class FSImpl implements FS, Service {
 	cwdPath = "/";
 	mountpoints.put(filesystem, rootInode);
 	rootFS = filesystem;
-	//	devices.put(new Integer(filesystem.getDeviceID()), filesystem);	
-	devices.put(filesystem.getDeviceID(), filesystem);
+	devices.put(new Integer(filesystem.getDeviceID()), filesystem);	
+	//devices.put(filesystem.getDeviceID(), filesystem);
     }
 
     @Override
@@ -278,7 +277,7 @@ public class FSImpl implements FS, Service {
 	    pi.decUseCount();
 	}
 	if (inode == null) throw new InodeNotFoundException();
-	/*if (inode.isSymlink()) {
+	if (inode.isSymlink()) {
 	    Debug.out.println("Symlink!");
 	    String symlink = null;
 	    try {
@@ -288,7 +287,7 @@ public class FSImpl implements FS, Service {
 	    }
 	    inode.decUseCount();
 	    return lookup(symlink);
-	}*/
+	}
 	direntrycache.addEntry(getAbsolutePath(path), inode);
 
 	return inode;
@@ -316,9 +315,7 @@ public class FSImpl implements FS, Service {
 
     @Override
     public Inode getInode(int deviceIdentifier, int identifier) throws FSException, NotExistException, PermissionException{
-       
        FileSystem filesystem = (FileSystem) devices.get(deviceIdentifier);
-       
        
        if (filesystem == null) Debug.out.println("filesystem ist null");
        filesystem.getInode(identifier);

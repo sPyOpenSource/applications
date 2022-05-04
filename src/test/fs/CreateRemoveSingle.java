@@ -8,7 +8,7 @@ import jx.zero.debug.*;
 import jx.zero.debug.DebugPrintStream;
 import jx.zero.debug.DebugOutputStream;
 
-import javafs.*;
+import jx.fs.javafs.*;
 import vfs.*;
 
 
@@ -49,6 +49,7 @@ class CreateRemoveSingle {
 	    ino.decUseCount();
 
 	    tools.checkFS(new AnswerMachine() {
+                    @Override
 		    public boolean ask(String msg) {
 			Debug.out.println(msg);
 			throw new Error("NOT IMPLEMENTED");
@@ -66,9 +67,9 @@ class CreateRemoveSingle {
 
     
     static jx.fs.FileSystem initFS(BlockIO bio) {
-	javafs.FileSystem jfs = new javafs.FileSystem();
+	jx.fs.javafs.FileSystem jfs = new jx.fs.javafs.FileSystem();
 	Clock clock = new DummyClock();
-	buffercache.BufferCache bufferCache = new buffercache.BufferCache(bio, clock, 
+	jx.bio.buffercache.BufferCache bufferCache = new jx.bio.buffercache.BufferCache(bio, clock, 
 									  BUFFERCACHE_NUMBER_FSBLOCKS, 
 									  BUFFERCACHE_MAXNUMBER_FSBLOCKS,
 									  BUFFERCACHE_INCNUMBER_FSBLOCKS, EXT2FS_BLOCKSIZE);

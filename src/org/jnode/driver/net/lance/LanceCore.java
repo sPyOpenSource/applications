@@ -52,6 +52,7 @@ public class LanceCore implements LanceConstants, FirstLevelIrqHandler {
     // Note: Valid numbers are 2^x where x is 0..8 (1, 2, 4, 8, 16, .., 512)
     private static final int RX_DESCRIPTOR_LENGTH = 4;
     private static final int TX_DESCRIPTOR_LENGTH = 4;
+    
     /**
      * Device Driver
      */

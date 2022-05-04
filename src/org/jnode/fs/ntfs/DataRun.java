@@ -41,7 +41,7 @@ public final class DataRun implements DataRunInterface {
      * Cluster number of first cluster of this run. If this is zero, the run
      * isn't actually stored as it is all zero.
      */
-    private final long cluster;
+    private final int cluster;
 
     /**
      * Length of datarun in clusters
@@ -72,7 +72,7 @@ public final class DataRun implements DataRunInterface {
      * @param size    Size in bytes of this datarun descriptor
      * @param vcn     First VCN of this datarun.
      */
-    public DataRun(long cluster, int length, boolean sparse, int size, long vcn) {
+    public DataRun(int cluster, int length, boolean sparse, int size, long vcn) {
         this.cluster = cluster;
         this.length = length;
         this.sparse = sparse;
@@ -88,7 +88,7 @@ public final class DataRun implements DataRunInterface {
      * @param vcn         First VCN of this datarun.
      * @param previousLCN
      */
-    public DataRun(NTFSNonResidentAttribute attr, int offset, long vcn, long previousLCN) {
+    public DataRun(NTFSNonResidentAttribute attr, int offset, long vcn, int previousLCN) {
         NTFSStructure dataRunStructure = new NTFSStructure(attr, offset);
 
         // read first byte in type attribute
@@ -156,7 +156,7 @@ public final class DataRun implements DataRunInterface {
     /**
      * @return Returns the cluster.
      */
-    public long getCluster() {
+    public int getCluster() {
         return this.cluster;
     }
 
@@ -174,6 +174,7 @@ public final class DataRun implements DataRunInterface {
      *
      * @return Returns the length.
      */
+    @Override
     public int getLength() {
         return length;
     }
@@ -210,6 +211,7 @@ public final class DataRun implements DataRunInterface {
      * @return The number of clusters read.
      * @throws IOException
      */
+    @Override
     public int readClusters(long vcn, Memory dst, int dstOffset, int nrClusters, int clusterSize,
                             NTFSVolume volume) throws IOException {
 
@@ -228,7 +230,7 @@ public final class DataRun implements DataRunInterface {
             return 0;
         }
 
-        final long actCluster; // Starting cluster
+        final int actCluster; // Starting cluster
         final int count; // #clusters to read
         final int actDstOffset; // Actual dst offset
         if (vcn < myFirstVcn) {

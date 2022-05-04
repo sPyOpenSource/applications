@@ -335,7 +335,7 @@ public class FatName {
         return components[i];
     }
 
-    public String toString() {
+    /*public String toString() {
         StrWriter out = new StrWriter();
 
         out.println("*******************************************");
@@ -351,5 +351,5 @@ public class FatName {
         out.print("*******************************************");
 
         return out.toString();
-    }
+    }*/
 }

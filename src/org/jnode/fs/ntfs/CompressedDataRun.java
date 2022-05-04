@@ -23,7 +23,7 @@ package org.jnode.fs.ntfs;
 import java.io.IOException;
 import java.util.Arrays;
 import jx.zero.Memory;
-import org.jnode.util.LittleEndian;
+//import org.jnode.util.LittleEndian;
 
 /**
  * @author Daniel Noll (daniel@noll.id.au)
@@ -85,7 +85,7 @@ public final class CompressedDataRun implements DataRunInterface {
      * @throws IOException if an error occurs reading.
      */
     @Override
-    public int readClusters(long vcn, byte[] dst, int dstOffset, int nrClusters, int clusterSize, NTFSVolume volume)
+    public int readClusters(long vcn, Memory dst, int dstOffset, int nrClusters, int clusterSize, NTFSVolume volume)
         throws IOException {
 
         // Logic to determine whether we own the VCN which has been requested.

@@ -59,12 +59,12 @@ public class FatUtils {
 
     public static long getMinDateTime() {
         //dos Minimum DateTime is: January 1, 1980 00:00:00
-        return TimeUtils.time2millis(1980, 1, 1, 0, 0, 0);
+        return 31553280;//TimeUtils.time2millis(1980, 1, 1, 0, 0, 0);
     }
 
     public static long getMaxDateTime() {
         //dos Maximum DateTime is: December 31, 2107 23:59:58
-        return TimeUtils.time2millis(2107, 12, 31, 23, 59, 58);
+        return 435481590;//TimeUtils.time2millis(2107, 12, 31, 23, 59, 58);
     }
 
     public static long checkDateTime(long javaDateTime) {
@@ -79,7 +79,7 @@ public class FatUtils {
     public static int encodeTime(long javaDateTime) {
         Calendar cal = Calendar.getInstance();
 
-        //cal.setTimeInMillis(checkDateTime(javaDateTime));
+        cal.setTimeInMillis(checkDateTime(javaDateTime));
 
         return 2048 * cal.get(Calendar.HOUR_OF_DAY) + 32 * cal.get(Calendar.MINUTE) + cal.get(Calendar.SECOND) / 2;
     }
@@ -87,7 +87,7 @@ public class FatUtils {
     public static int encodeDate(long javaDateTime) {
         Calendar cal = Calendar.getInstance();
 
-        //cal.setTimeInMillis(checkDateTime(javaDateTime));
+        cal.setTimeInMillis(checkDateTime(javaDateTime));
 
         return 512 * (cal.get(Calendar.YEAR) - 1980) + 32 * (cal.get(Calendar.MONTH) + 1) + cal.get(Calendar.DATE);
     }
@@ -95,18 +95,18 @@ public class FatUtils {
     public static int encodeTenth(long javaDateTime) {
         Calendar cal = Calendar.getInstance();
 
-        //cal.setTimeInMillis(checkDateTime(javaDateTime));
+        cal.setTimeInMillis(checkDateTime(javaDateTime));
 
         return 100 * (cal.get(Calendar.SECOND) % 2) + (cal.get(Calendar.MILLISECOND) / 10);
     }
 
-    /*public static String fTime(long javaDateTime) {
+    public static String fTime(long javaDateTime) {
         return time.format(javaDateTime);
     }
 
     public static String fDate(long javaDateTime) {
         return date.format(javaDateTime);
-    }*/
+    }
 
     public static final boolean compareIgnoreCase(String s1, String s2) {
         return s1.equalsIgnoreCase(s2);
@@ -154,25 +154,25 @@ public class FatUtils {
 
     public static final String longName(String name) {
         String lname = name.trim();
-        //lname = lname.replaceAll("\\.*$", "");
+        lname = lname.replaceAll("\\.*$", "");
         return lname;
     }
 
     public static int getMonth(long time) {
         Calendar cal = Calendar.getInstance();
-        //cal.setTimeInMillis(time);
+        cal.setTimeInMillis(time);
         return cal.get(Calendar.MONTH);
     }
 
     public static int getHours(long time) {
         Calendar cal = Calendar.getInstance();
-        //cal.setTimeInMillis(time);
+        cal.setTimeInMillis(time);
         return cal.get(Calendar.HOUR_OF_DAY);
     }
 
     public static int getDay(long time) {
         Calendar cal = Calendar.getInstance();
-       // cal.setTimeInMillis(time);
+        cal.setTimeInMillis(time);
         // For Calendar, Sunday is 1. For Date, Sunday is 0.
         return cal.get(Calendar.DAY_OF_WEEK) - 1;
     }
@@ -185,18 +185,17 @@ public class FatUtils {
 
     public static int getMinutes(long time) {
         Calendar cal = Calendar.getInstance();
-      //  cal.setTimeInMillis(time);
+        cal.setTimeInMillis(time);
         return cal.get(Calendar.MINUTE);
     }
 
     public static int getSeconds(long time) {
         Calendar cal = Calendar.getInstance();
-       // cal.setTimeInMillis(time);
+        cal.setTimeInMillis(time);
         return cal.get(Calendar.SECOND);
     }
 
     public static long getMilliSeconds(long time) {
-
         Calendar cal = Calendar.getInstance();
         return cal.getTimeInMillis();
     }

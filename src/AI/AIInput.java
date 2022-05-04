@@ -1,4 +1,5 @@
 package AI;
+
 /**
  * This is the input class of AI.
  * 
@@ -42,7 +43,7 @@ public class AIInput extends AIZeroInput
     }
 
     @Override
-    protected void Thread() {
+    protected void setup() {
         /*Thread ReadMessageFromArduino = new Thread(){
             @Override
             public void run(){

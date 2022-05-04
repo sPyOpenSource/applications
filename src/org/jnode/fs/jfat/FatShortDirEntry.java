@@ -20,9 +20,10 @@
  
 package org.jnode.fs.jfat;
 
+import java.io.IOException;
 import java.nio.charset.CharacterCodingException;
 import java.util.Arrays;
-import org.jnode.fs.fat.FatFileSystem;
+import org.jnode.util.NumberUtils;
 
 /**
  * @author gvt
@@ -49,7 +50,7 @@ public class FatShortDirEntry extends FatDirEntry {
     /*
      * decoded side
      */
-   // private FatCase ncase;
+    private FatCase ncase;
     private FatAttr attr;
     private String base;
     private String ext;
@@ -59,21 +60,21 @@ public class FatShortDirEntry extends FatDirEntry {
     private int cluster;
     private int length;
 
-    /*protected FatShortDirEntry(FatFileSystem fs) {
+    protected FatShortDirEntry(FatFileSystem fs) {
         super(fs, new FatMarshal(LENGTH), 0);
-    }*/
+    }
 
     public FatShortDirEntry(FatFileSystem fs, FatMarshal entry, int index) {
         super(fs, entry, index);
         decode();
     }
 
-    /*public FatShortDirEntry(FatFileSystem fs, FatName name, int index) throws IOException {
+    public FatShortDirEntry(FatFileSystem fs, FatName name, int index) throws IOException {
         this(fs, new FatMarshal(LENGTH), index);
 
         long now = System.currentTimeMillis();
 
-        //setNameCase(name.getShortCase());
+        setNameCase(name.getShortCase());
         setAttr(new FatAttr());
         setName(name.getName());
         setCreated(now);
@@ -81,7 +82,7 @@ public class FatShortDirEntry extends FatDirEntry {
         setLastModified(now);
         setStartCluster(0);
         setLength(0);
-    }*/
+    }
 
     protected void decodeName() {
         lName = entry.getBytes(0, 11);
@@ -169,11 +170,11 @@ ext = extName.trim();
 
     protected void decodeNameCase() {
         lNTRes = entry.getUInt8(12);
-        //ncase = new FatCase(lNTRes);
+        ncase = new FatCase(lNTRes);
     }
 
     private void encodeNameCase() {
-        //lNTRes = ncase.getCase();
+        lNTRes = ncase.getCase();
         entry.setUInt8(12, lNTRes);
     }
 
@@ -182,18 +183,18 @@ ext = extName.trim();
         lCrtTime = entry.getUInt16(14);
         lCrtDate = entry.getUInt16(16);
 
-        //created = FatUtils.decodeDateTime(lCrtDate, lCrtTime, lCrtTimeTenth);
+        created = FatUtils.decodeDateTime(lCrtDate, lCrtTime, lCrtTimeTenth);
     }
 
     private void encodeCreated() {
-        //lCrtDate = FatUtils.encodeDate(created);
-        //lCrtTime = FatUtils.encodeTime(created);
+        lCrtDate = FatUtils.encodeDate(created);
+        lCrtTime = FatUtils.encodeTime(created);
         /*
          * GVT???: this have to be tested against a real M$ OS how the Tenth is
          * actually handled at entry creation? for now just avoid to store the
          * tenth as Mtools seems to do
          */
-        lCrtTimeTenth = 0; // FatUtils.encodeTenth ( created );
+        lCrtTimeTenth = FatUtils.encodeTenth ( created );
 
         entry.setUInt8(13, lCrtTimeTenth);
         entry.setUInt16(14, lCrtTime);
@@ -203,11 +204,11 @@ ext = extName.trim();
     protected void decodeAccessed() {
         lLstAccDate = entry.getUInt16(18);
 
-        //accessed = FatUtils.decodeDateTime(lLstAccDate, 0);
+        accessed = FatUtils.decodeDateTime(lLstAccDate, 0);
     }
 
     private void encodeAccessed() {
-        //lLstAccDate = FatUtils.encodeDate(accessed);
+        lLstAccDate = FatUtils.encodeDate(accessed);
         entry.setUInt16(18, lLstAccDate);
     }
 
@@ -215,12 +216,12 @@ ext = extName.trim();
         lWrtTime = entry.getUInt16(22);
         lWrtDate = entry.getUInt16(24);
 
-        //modified = FatUtils.decodeDateTime(lWrtDate, lWrtTime);
+        modified = FatUtils.decodeDateTime(lWrtDate, lWrtTime);
     }
 
     private void encodeModified() {
-        //lWrtDate = FatUtils.encodeDate(modified);
-       // lWrtTime = FatUtils.encodeTime(modified);
+        lWrtDate = FatUtils.encodeDate(modified);
+        lWrtTime = FatUtils.encodeTime(modified);
 
         entry.setUInt16(22, lWrtTime);
         entry.setUInt16(24, lWrtDate);
@@ -234,19 +235,18 @@ ext = extName.trim();
          * be sure startCluster is not larger than 28 bits FAT32 is actually a
          * FAT28 ;-) should't happen at all ... but who knows?
          */
-        /*if (lFstClusLo > 0xFFFF)
+        if (lFstClusLo > 0xFFFF)
             throw new IllegalArgumentException("FstClusLo too large: " +
                 NumberUtils.hex(lFstClusLo, 4));
 
         if (lFstClusHi > 0xFFF)
             throw new IllegalArgumentException("FstClusHi too large: " +
-                NumberUtils.hex(lFstClusHi, 4));*/
+                NumberUtils.hex(lFstClusHi, 4));
 
         /*
          * FstClusHi have to be "zero" for FAT12/FAT16 remind to add a check
          * here
          */
-
         cluster = (lFstClusHi << 16) + lFstClusLo;
     }
 
@@ -255,9 +255,9 @@ ext = extName.trim();
          * be sure startCluster is not larger than 28 bits FAT32 is actually a
          * FAT28 ;-) should't happen at all ... but who knows?
          */
-  /*      if (cluster < 0 || cluster > 0x0FFFFFFF)
+        if (cluster < 0 || cluster > 0x0FFFFFFF)
             throw new IllegalArgumentException("cluster is invalid: " + NumberUtils.hex(cluster, 8));
-*/
+
         lFstClusLo = cluster & 0x0000FFFF;
         lFstClusHi = (cluster >> 16) & 0x00000FFF;
 
@@ -275,11 +275,11 @@ ext = extName.trim();
             throw new IllegalArgumentException("length is invalid: " + length);
 
         lFileSize = length;
-        //entry.setUInt32(28, lFileSize);
+        entry.setUInt32(28, lFileSize);
     }
 
     protected void decode() {
-        //decodeNameCase();
+        decodeNameCase();
         decodeAttr();
         decodeName();
         decodeCreated();
@@ -291,7 +291,7 @@ ext = extName.trim();
 
     @SuppressWarnings("unused")
     private void encode() {
-        //encodeNameCase();
+        encodeNameCase();
         encodeAttr();
         encodeName();
         encodeCreated();
@@ -306,7 +306,7 @@ ext = extName.trim();
         return true;
     }
 
-    /*private FatCase getNameCase() {
+    private FatCase getNameCase() {
         return ncase;
     }
 
@@ -321,7 +321,7 @@ ext = extName.trim();
     public void setNameCase(FatCase value) {
         ncase = value;
         encodeNameCase();
-    }*/
+    }
 
     protected FatAttr getAttr() {
         return attr;
@@ -455,7 +455,7 @@ ext = extName.trim();
     }
 
     public void setCreated(long value) {
-        //created = FatUtils.checkDateTime(value);
+        created = FatUtils.checkDateTime(value);
         encodeCreated();
         decodeCreated();
     }
@@ -465,7 +465,7 @@ ext = extName.trim();
     }
 
     public void setLastAccessed(long value) {
-        //accessed = FatUtils.checkDateTime(value);
+        accessed = FatUtils.checkDateTime(value);
         encodeAccessed();
         decodeAccessed();
     }
@@ -475,7 +475,7 @@ ext = extName.trim();
     }
 
     public void setLastModified(long value) {
-       // modified = FatUtils.checkDateTime(value);
+        modified = FatUtils.checkDateTime(value);
         encodeModified();
         decodeModified();
     }
@@ -498,14 +498,14 @@ ext = extName.trim();
         encodeLength();
     }
 
-    /*@Override
+    @Override
     public String toString() {
         return String.format(
             "Short Entry [%s] index:%d attr:%s size:%d",
             getShortName(), getIndex(), NumberUtils.hex(lAttr, 2), lFileSize);
     }
 
-    public String toDebugString() {
+    /*public String toDebugString() {
         StrWriter out = new StrWriter();
 
         out.println("*******************************************");

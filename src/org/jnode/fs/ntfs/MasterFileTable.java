@@ -21,8 +21,11 @@
 package org.jnode.fs.ntfs;
 
 import java.io.IOException;
+import jx.zero.Memory;
 import org.jnode.fs.ntfs.attribute.NTFSAttribute;
 import org.jnode.fs.ntfs.index.IndexEntry;
+import jx.zero.MemoryManager;
+import jx.InitialNaming;
 
 /**
  * @author Ewout Prangsma (epr@users.sourceforge.net)
@@ -134,7 +137,7 @@ public class MasterFileTable extends FileRecord {
      * @param buffer
      * @throws IOException
      */
-    public MasterFileTable(NTFSVolume volume, byte[] buffer, int offset) throws IOException {
+    public MasterFileTable(NTFSVolume volume, Memory buffer, int offset) throws IOException {
         super(volume, SystemFiles.MFT, buffer, offset);
     }
 
@@ -149,7 +152,7 @@ public class MasterFileTable extends FileRecord {
      * @param offset the offset to read at.
      * @throws IOException if an error occurs creating the MFT.
      */
-    public MasterFileTable(NTFSVolume volume, int bytesPerSector, int clusterSize, boolean strictFixUp, byte[] buffer, int offset) throws IOException {
+    public MasterFileTable(NTFSVolume volume, int bytesPerSector, int clusterSize, boolean strictFixUp, Memory buffer, int offset) throws IOException {
         super(volume, bytesPerSector, clusterSize, strictFixUp, SystemFiles.MFT, buffer, offset);
     }
 
@@ -174,13 +177,13 @@ public class MasterFileTable extends FileRecord {
      * @param index the index to get.
      * @return the file record.
      */
-    public byte[] readRecord(long index) throws IOException {
+    public Memory readRecord(long index) throws IOException {
         final NTFSVolume volume = getVolume();
         final int bytesPerFileRecord = volume.getBootRecord().getFileRecordSize();
         final long offset = bytesPerFileRecord * index;
-
+MemoryManager MemManager = (MemoryManager)InitialNaming.lookup("MemoryManager");
         // read the buffer
-        final byte[] buffer = new byte[bytesPerFileRecord];
+        final Memory buffer = MemManager.alloc(bytesPerFileRecord);
         readData(offset, buffer, 0, bytesPerFileRecord);
         return buffer;
     }
@@ -197,7 +200,7 @@ public class MasterFileTable extends FileRecord {
         final NTFSVolume volume = getVolume();
 
         // read the buffer
-        final byte[] buffer = readRecord(index);
+        final Memory buffer = readRecord(index);
         return new FileRecord(volume, index, buffer, 0);
     }
 

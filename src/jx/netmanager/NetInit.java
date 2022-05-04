@@ -3,6 +3,7 @@ package jx.netmanager;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.SocketTimeoutException;
+
 import jx.net.protocol.ether.*;
 import jx.net.protocol.ip.*;
 import jx.net.protocol.arp.*;
@@ -16,14 +17,14 @@ import jx.net.IPProducer;
 import jx.net.EtherProducer;
 
 import jx.devices.net.NetworkDevice;
+import jx.devices.pci.PCIAccess;
+
 import jx.zero.Memory;
 import jx.zero.MemoryManager;
 import jx.zero.InitialNaming;
 import jx.zero.Service;
-
 import jx.zero.*;
 import jx.zero.debug.Dump;
-import jx.devices.pci.PCIAccess;
 
 import jx.timer.TimerManager;
 
@@ -37,14 +38,19 @@ import jx.net.protocol.icmp.ICMP;
 import org.jnode.net.ipv4.dhcp.DHCPClient;
 
 public class NetInit implements jx.net.NetInit, Service {
-    TCP tcp;
-    IP ip;
+    // Transport layer
+    private TCP tcp;
     UDP udp;
-    ARP arp;
-    Ether ether;
-    ICMP icmp;
     
-    IPAddress localAddress;
+    // Internet layer
+    ICMP icmp;
+    IP ip;
+    ARP arp;
+    private IPAddress localAddress;
+
+    // Data link layer
+    Ether ether;
+    
     MemoryManager memMgr = (MemoryManager) InitialNaming.getInitialNaming().lookup("MemoryManager");
     CPUManager cpuManager = (CPUManager) InitialNaming.getInitialNaming().lookup("CPUManager");
 
@@ -62,8 +68,10 @@ public class NetInit implements jx.net.NetInit, Service {
 	ip = new IP((EtherProducer)ether); // avoid splitting
         icmp = new ICMP(null, ether, this);
         icmp.register(ip);
+        
 	udp = new UDP((IPProducer)ip); //TODO: no need for transmitter
         tcp = new TCP((IPProducer)ip, this, timerManager);
+        
 	// connect ARP with Ether
 	if (!ether.registerConsumerEther(arp, "ARP")) {
 	    Debug.out.println("ARP: couldn't register at etherLayer!!");
@@ -117,7 +125,7 @@ public class NetInit implements jx.net.NetInit, Service {
         arp.register(ip);
         ip.setAddressResolution(arp);
         ether.registerConsumer(ip, "IP");
-        ether.registerConsumer(arp, "ARP");
+        //ether.registerConsumer(arp, "ARP");
         ip.registerConsumer(icmp, "ICMP");
         ether.registerConsumer(arp, "ARP");
     }

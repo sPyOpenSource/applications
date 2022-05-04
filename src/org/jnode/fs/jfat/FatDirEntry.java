@@ -20,8 +20,6 @@
  
 package org.jnode.fs.jfat;
 
-import org.jnode.fs.fat.FatFileSystem;
-
 
 /**
  * @author gvt

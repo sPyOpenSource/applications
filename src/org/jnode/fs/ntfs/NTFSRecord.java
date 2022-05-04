@@ -21,6 +21,7 @@
 package org.jnode.fs.ntfs;
 
 import java.io.IOException;
+import jx.zero.Memory;
 
 /**
  * @author Ewout Prangsma (epr@users.sourceforge.net)
@@ -75,7 +76,7 @@ public class NTFSRecord extends NTFSStructure {
      * @param buffer the buffer to read from.
      * @param offset the offset in the buffer to read from.
      */
-    public NTFSRecord(int bytesPerSector, boolean strictFixUp, byte[] buffer, int offset) throws IOException {
+    public NTFSRecord(int bytesPerSector, boolean strictFixUp, Memory buffer, int offset) throws IOException {
         super(buffer, offset);
         this.bytesPerSector = bytesPerSector;
         fixUp(strictFixUp);

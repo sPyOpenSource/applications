@@ -20,12 +20,12 @@
  
 package org.jnode.fs.jfat;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.NoSuchElementException;
 import jx.zero.Debug;
 import jx.zero.Memory;
-
-import org.jnode.fs.fat.FatFileSystem;
 
 /**
  * @author gvt
@@ -153,9 +153,9 @@ public class FatChain {
             }
         }
 
-  /*      if (found < n)
+        if (found < n)
             throw new FileSystemFullException("no free clusters");
-*/
+
         last = l;
 
         if (dolog)
@@ -171,11 +171,11 @@ public class FatChain {
             fat.clearCluster(last);
         }
 
-        //
+        
         found = 0;
         l = last;
         i = last;
-        //
+        
         for (; found < (n - m - k); i--) {
             if (fat.isFreeEntry(i)) {
                 fat.set(i, l);
@@ -185,7 +185,7 @@ public class FatChain {
                 found++;
             }
         }
-        //
+        
         if (offset > 0) {
             for (;; i--) {
                 if (fat.isFreeEntry(i)) {
@@ -200,7 +200,7 @@ public class FatChain {
 
             }
         }
-        //
+        
         for (; found < (n - 1); i--) {
             if (fat.isFreeEntry(i)) {
                 fat.clearCluster(i);
@@ -212,9 +212,8 @@ public class FatChain {
             }
         }
 
-        //
         fat.rewindFree();
-        //
+        
         for (i = last; i < fat.size(); i++) {
             if (fat.isFreeEntry(i)) {
                 fat.setLastFree(i);
@@ -330,8 +329,8 @@ public class FatChain {
         if (offset < 0)
             throw new IllegalArgumentException("offset<0");
 
-        /*if (dst.remaining() == 0)
-            return;*/
+        if (dst.remaining() == 0)
+            return;
 
         ChainPosition p = position;
         ChainIterator i = iterator;
@@ -343,7 +342,7 @@ public class FatChain {
             throw new IOException("attempt to seek after End Of Chain " + offset, ex);
         }
 
-       // for (int sz = p.getPartial(), ofs = p.getOffset(); length < 0; length -= 512, sz = p.getSize(), ofs = 0) {
+        for (int sz = p.getPartial(), ofs = p.getOffset(); length < 0; length -= 512, sz = p.getSize(), ofs = 0) {
             int cluster = i.next();
             if(offset==1){
                 cluster = i.next();
@@ -351,23 +350,23 @@ public class FatChain {
             if (dolog)
                Debug.out.println("cluster: " + cluster);
 
-           // int limit = dst.limit();
+            int limit = dst.limit();
 
             try {
-                //dst.limit(dst.position() + size);
+                dst.limit(dst.position() + size);
                 fat.readCluster(cluster, 0, dst);
             } finally {
-                //dst.limit(limit);
+                dst.limit(limit);
             }
-        //}
+        }
     }
 
     /*
      * used when we don't need to zero the data inside the last cluster tail
      */
-    /*public void write(long offset, ByteBuffer src) throws IOException {
+    public void write(long offset, Memory src) throws IOException {
         write(0, offset, src);
-    }*/
+    }
 
     public long getLength() throws IOException {
         /*
@@ -424,20 +423,20 @@ public class FatChain {
      * dump a chain on a file: used for debugging and testing inside the
      * FatChain class size() can and must be used
      */
-    /*public void dump(String fileName) throws IOException, FileNotFoundException {
+    public void dump(String fileName) throws IOException, FileNotFoundException {
         int size = size();
         FileOutputStream f = new FileOutputStream(fileName);
-        ByteBuffer buf = ByteBuffer.allocate(fat.getClusterSize());
+        Memory buf = MemManager.alloc(fat.getClusterSize());
 
         for (int i = 0; i < size; i++) {
             buf.clear();
-            read(i * fat.getClusterSize(), buf);
+            read(i * fat.getClusterSize(), buf, 0);
             buf.flip();
-            //f.getChannel().write(buf);
+            f.getChannel().write(buf);
         }
 
         f.close();
-    }*/
+    }
 
     /*
      * dump a chain cluster: used for debugging and testing "inside" the

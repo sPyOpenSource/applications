@@ -5,6 +5,7 @@ import jx.zero.debug.*;
 
 import java.io.OutputStream;
 import java.io.DataInputStream;
+import java.io.IOException;
 
 import java.net.Socket;
 import jx.fs.*;
@@ -53,7 +54,7 @@ class TCPWebWorker {
                 {
                     byte[] data = new byte[1024];
                     // stream data
-                    ostream.write(constructHeader(file, 1024*1024).getBytes());
+                    ostream.write(constructHeader(file, 1024 * 1024).getBytes());
                     for(int i = 0; i < 1024; i++) {
                         ostream.write(data);
                     }       
@@ -77,7 +78,7 @@ class TCPWebWorker {
                 }
             default:
                 {
-                    byte[] data = readFile("/"+file);
+                    byte[] data = readFile("/" + file);
                     ostream.write(constructHeader(file, data.length).getBytes());
                     ostream.write(data);
                     if (debug) Debug.out.println("HTTPServer: reply sent.");
@@ -96,14 +97,14 @@ class TCPWebWorker {
 	    inode.read(buffer1, 0,  l);
             inode.read(buffer2, 1, l);
 	    byte data[] = new byte[l];
-	   buffer1.copyToByteArray(data, 0, 0, 512*8);
-            buffer2.copyToByteArray(data, 512*8, 0, l-512*8);
+	    buffer1.copyToByteArray(data, 0, 0, 512 * 8);
+            buffer2.copyToByteArray(data, 512 * 8, 0, l - 512 * 8);
             for(int i = 0; i < l; i++){
                 Debug.out.print((char)data[i]);
             }
 	    return data;
 	} catch (InodeIOException | InodeNotFoundException | NoDirectoryInodeException | NoFileInodeException | NotExistException | PermissionException ex) {
-	      Debug.out.println(ex.getMessage());
+	    Debug.out.println(ex.getMessage());
 	    return constructErrorHeader().getBytes();
 	}
     }
@@ -130,7 +131,7 @@ class TCPWebWorker {
                         method = METHOD_POST;
                         fileName = tokenizer.nextToken();
                         fileName = fileName.substring(1);
-                        Debug.out.println("FILENAME: "+fileName);
+                        Debug.out.println("FILENAME: " + fileName);
                         break;
                     case "Content-length:":
                         contentsLength = Integer.parseInt(tokenizer.nextToken());
@@ -140,7 +141,7 @@ class TCPWebWorker {
                 }
  
             }
-        } catch(Exception e) {
+        } catch(IOException | NumberFormatException e) {
             e.printStackTrace();
         }
         return fileName;
@@ -161,6 +162,7 @@ class TCPWebWorker {
         fileType = getProperty_MimeTypes(fileType);
         return constructHeader(fileName, fileType, fileLength);
     }
+    
     static public String constructErrorHeader() {
           return  "HTTP/1.0 404 File not found\n" + "Allow: GET\n" + "MIME-Version: 1.0\n"
         + "Server : JX HTTP Server\n" +
@@ -170,10 +172,10 @@ class TCPWebWorker {
     static String getProperty_DefaultFile() {
 	return "index.html";
     }
+    
     static String getProperty_MimeTypes(String fileType) {
 	if (fileType.equals("html")) return "text/html";
 	if (fileType.equals("htm")) return "text/html";
 	return fileType; 
     }
 }
-

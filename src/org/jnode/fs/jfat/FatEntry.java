@@ -24,7 +24,6 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Vector;
-import org.jnode.fs.fat.FatFileSystem;
 
 import jx.fs.DirNotEmptyException;
 import jx.fs.FileExistsException;
@@ -54,6 +53,7 @@ public abstract class FatEntry extends FatObject implements Inode
     protected Vector    overlayNames;
     protected Vector    overlayInodes;
     protected boolean   i_dirty, i_released;
+    
     /*
      * internal constructor
      */
@@ -91,9 +91,9 @@ public abstract class FatEntry extends FatObject implements Inode
     }
 
     public void delete() throws IOException {
-        //setValid(false);
+        setValid(false);
 
-        /*entry.delete();
+        entry.delete();
         parent.setFatDirEntry(entry);
         entry.flush();
 
@@ -104,7 +104,7 @@ public abstract class FatEntry extends FatObject implements Inode
             l.delete();
             parent.setFatDirEntry(l);
             l.flush();
-        }*/
+        }
     }
 
     public void freeAllClusters() throws IOException {
@@ -112,7 +112,7 @@ public abstract class FatEntry extends FatObject implements Inode
     }
 
     public void dumpChain(String fileName) throws FileNotFoundException, IOException {
-        //chain.dump(fileName);
+        chain.dump(fileName);
     }
 
     public FatRecord getRecord() {
@@ -218,13 +218,13 @@ public abstract class FatEntry extends FatObject implements Inode
         }
     }
 
-    /*public FSDirectory getDirectory() {
+    public FSDirectory getDirectory() {
         throw new UnsupportedOperationException("getDirectory");
-    }*/
+    }
 
-    /*public FSFile getFile() {
+    public Inode getFile() {
         throw new UnsupportedOperationException("getFile");
-    }*/
+    }
 
     /**
      * Gets the accessrights for this entry.
@@ -245,7 +245,7 @@ public abstract class FatEntry extends FatObject implements Inode
             path.append("\\");
 
         while (parent != null) {
-            //path.insert(0, parent.getName() + "\\");
+            path.insert(0, parent.getName() + "\\");
             parent = (FatDirectory) parent.getParent();
         }
 
@@ -368,13 +368,13 @@ public abstract class FatEntry extends FatObject implements Inode
             parent.incUseCount();
             return parent;
         }
-        /*for (int i = 0; i < overlayNames.size(); i++) {
+        for (int i = 0; i < overlayNames.size(); i++) {
             if (name.equals((String)overlayNames.elementAt(i))) {
                 Inode inode = (Inode)overlayInodes.elementAt(i);
                 inode.incUseCount();
                 return inode;
             }
-        }*/
+        }
 
         return getInode(name);
     }

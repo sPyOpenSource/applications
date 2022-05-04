@@ -59,7 +59,7 @@ public class NTFSVolume {
         // Read the boot sector
         final Memory buffer = ByteBuffer.allocate(512);
         api.readSectors(0, 1, buffer, true);
-        this.bootRecord = new BootRecord(buffer.array());
+        this.bootRecord = new BootRecord(buffer);
         this.clusterSize = bootRecord.getClusterSize();
     }
 
@@ -75,9 +75,9 @@ public class NTFSVolume {
      *
      * @param cluster
      */
-    public void readCluster(long cluster, Memory dst, int dstOffset) throws IOException {
+    public void readCluster(int cluster, Memory dst, int dstOffset) throws IOException {
         final int clusterSize = getClusterSize();
-        final long clusterOffset = cluster * clusterSize;
+        final int clusterOffset = cluster * clusterSize;
         //log.debug("readCluster(" + cluster + ") " + (readClusterCount++));
         api.readSectors(clusterOffset, dst, dstOffset, clusterSize);
     }
@@ -94,10 +94,10 @@ public class NTFSVolume {
      * @param dstOffset
      * @throws IOException
      */
-    public void readClusters(long firstCluster, Memory dst, int dstOffset, int nrClusters) throws IOException {
+    public void readClusters(int firstCluster, Memory dst, int dstOffset, int nrClusters) throws IOException {
         //log.debug("readClusters(" + firstCluster + ", " + nrClusters + ") " + (readClustersCount++));
         final int clusterSize = getClusterSize();
-        final long clusterOffset = firstCluster * clusterSize;
+        final int clusterOffset = firstCluster * clusterSize;
         api.readSectors(clusterOffset, dst, dstOffset, nrClusters * clusterSize);
     }
 
@@ -127,8 +127,8 @@ public class NTFSVolume {
             } else {
                 nrClusters = (bytesPerFileRecord + clusterSize - 1) / clusterSize;
             }
-            final byte[] data = new byte[nrClusters * clusterSize];
-            readClusters(bootRecord.getMftLcn(), data, 0, nrClusters);
+            final Memory data = new byte[nrClusters * clusterSize];
+            readClusters((int)bootRecord.getMftLcn(), data, 0, nrClusters);
             mftFileRecord = new MasterFileTable(this, data, 0);
             mftFileRecord.checkIfValid();
         }

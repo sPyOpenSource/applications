@@ -15,52 +15,52 @@ import AI.Models.vm.VmStackFrame;
 public class CPU {
     /* Type of Functional Units */
  int FU_ALU = 0x0;
- int FU_MUL =0x1;
- int FU_DIV =0x2;
- int FU_FPU_ALU =0x3;
- int FU_FPU_FMA =0x4;
- int NUM_MAX_FU =0x5;
+ int FU_MUL = 0x1;
+ int FU_DIV = 0x2;
+ int FU_FPU_ALU = 0x3;
+ int FU_FPU_FMA = 0x4;
+ int NUM_MAX_FU = 0x5;
 
 /* Extension C Quadrants */
  int C_QUADRANT0 = 0;
- int C_QUADRANT1 =1;
- int C_QUADRANT2 =2;
+ int C_QUADRANT1 = 1;
+ int C_QUADRANT2 = 2;
 
 /* Used for updating performance counters */
 
- int NUM_MAX_INS_TYPES =17;
- int INS_TYPE_LOAD =0x0;
- int INS_TYPE_STORE =0x1;
- int INS_TYPE_ATOMIC =0x2;
- int INS_TYPE_SYSTEM =0x3;
- int INS_TYPE_ARITMETIC= 0x4;
- int INS_TYPE_COND_BRANCH= 0x5;
- int INS_TYPE_JAL =0x6;
- int INS_TYPE_JALR =0x7;
- int INS_TYPE_INT_MUL =0x8;
- int INS_TYPE_INT_DIV =0x9;
- int INS_TYPE_FP_LOAD =0xa;
- int INS_TYPE_FP_STORE =0xb;
- int INS_TYPE_FP_ADD =0xc;
- int INS_TYPE_FP_MUL =0xd;
- int INS_TYPE_FP_FMA =0xe;
- int INS_TYPE_FP_DIV_SQRT =0xf;
- int INS_TYPE_FP_MISC =0x10;
+ int NUM_MAX_INS_TYPES = 17;
+ int INS_TYPE_LOAD = 0x0;
+ int INS_TYPE_STORE = 0x1;
+ int INS_TYPE_ATOMIC = 0x2;
+ int INS_TYPE_SYSTEM = 0x3;
+ int INS_TYPE_ARITMETIC = 0x4;
+ int INS_TYPE_COND_BRANCH = 0x5;
+ int INS_TYPE_JAL = 0x6;
+ int INS_TYPE_JALR = 0x7;
+ int INS_TYPE_INT_MUL = 0x8;
+ int INS_TYPE_INT_DIV = 0x9;
+ int INS_TYPE_FP_LOAD = 0xa;
+ int INS_TYPE_FP_STORE = 0xb;
+ int INS_TYPE_FP_ADD = 0xc;
+ int INS_TYPE_FP_MUL = 0xd;
+ int INS_TYPE_FP_FMA = 0xe;
+ int INS_TYPE_FP_DIV_SQRT = 0xf;
+ int INS_TYPE_FP_MISC = 0x10;
 
- int INS_CLASS_INT= 0x11;
- int INS_CLASS_FP =0x12;
+ int INS_CLASS_INT = 0x11;
+ int INS_CLASS_FP = 0x12;
 
 /* For exception handling during simulation */
- int SIM_ILLEGAL_OPCODE= 0x1;
- int SIM_COMPLEX_OPCODE =0x2;
- int SIM_TIMEOUT_EXCEPTION =0x3;
- int SIM_MMU_EXCEPTION =0x4;
+ int SIM_ILLEGAL_OPCODE = 0x1;
+ int SIM_COMPLEX_OPCODE = 0x2;
+ int SIM_TIMEOUT_EXCEPTION = 0x3;
+ int SIM_MMU_EXCEPTION = 0x4;
 
 /* Type of Branch instructions */
- int BRANCH_UNCOND =0x0;
- int BRANCH_COND =0x1;
- int BRANCH_FUNC_CALL =0x2;
- int BRANCH_FUNC_RET =0x3;
+ int BRANCH_UNCOND = 0x0;
+ int BRANCH_COND = 0x1;
+ int BRANCH_FUNC_CALL = 0x2;
+ int BRANCH_FUNC_RET = 0x3;
 
 /**
  * RISC-V Instruction Decoding Library

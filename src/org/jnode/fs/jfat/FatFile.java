@@ -28,7 +28,6 @@ import jx.fs.NoFileInodeException;
 import jx.fs.NotExistException;
 import jx.fs.PermissionException;
 import jx.zero.Memory;
-import org.jnode.fs.fat.FatFileSystem;
 
 public class FatFile extends FatEntry
 {

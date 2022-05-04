@@ -19,6 +19,7 @@
  */
  
 package org.jnode.fs.jfat;
+
 /*
  * $Id: FatFormatter.java  2007-07-26 +0100 (s,26 JULY 2007) Tanmoy Deb $
  *
@@ -43,12 +44,11 @@ package org.jnode.fs.jfat;
 import static java.lang.Integer.toHexString;
 
 import java.io.IOException;
-import java.nio.ByteBuffer;
 import java.util.Date;
+import jx.bio.BlockIO;
+import jx.zero.Memory;
 
-import org.apache.log4j.Logger;
-import org.jnode.driver.block.BlockDeviceAPI;
-import org.jnode.util.LittleEndian;
+//import org.jnode.util.LittleEndian;
 
 /**
  * <p>
@@ -71,7 +71,7 @@ import org.jnode.util.LittleEndian;
  * 
  */
 public class FatFormatter {
-    private static final Logger log = Logger.getLogger(FatFormatter.class);
+    //private static final Logger log = Logger.getLogger(FatFormatter.class);
 
     /** The Device Identifier for Floppy Device */
     public static final int FLOPPY_DESC = 0xf0;
@@ -152,7 +152,7 @@ public class FatFormatter {
     private final int ReservedSector_2 = 0x0fffffff;
     
     /** The array for the reserved sector. */
-    private byte[] reservedSector;
+    private Memory reservedSector;
 
     /**
      * The Hard Disk's formatting logic implementation by JFAT. This Version
@@ -161,7 +161,7 @@ public class FatFormatter {
      * @throws IOException
      */
     public static FatFormatter HDDFormatter(int sectorSize, int nbTotalSectors,
-            ClusterSize clusterSize, int hiddenSectors, BlockDeviceAPI api) throws IOException {
+            ClusterSize clusterSize, int hiddenSectors, BlockIO api) throws IOException {
 
         return new FatFormatter(HD_DESC, sectorSize, nbTotalSectors, SECTOR_PER_TRACK, NB_HEADS,
                 clusterSize, hiddenSectors, api);
@@ -175,11 +175,11 @@ public class FatFormatter {
      */
     public FatFormatter(int mediumDescriptor, int sectorSize, int nbTotalSectors,
             int sectorsPerTrack, int nbHeads, ClusterSize ClusterSize, int hiddenSectors,
-            BlockDeviceAPI api) throws IOException {
+            BlockIO api) throws IOException {
 
         FatFsInfo fsInfo = new FatFsInfo(sectorSize);
         BootSector bs = new BootSector(sectorSize);
-        api.flush();
+        //api.flush();
         int DiskSize = getDiskSize(nbTotalSectors, sectorSize);
         int SectorPerCluster = get_spc(ClusterSize, sectorSize);
         int UserAreaSize =
@@ -242,8 +242,7 @@ public class FatFormatter {
          * cluster values in the FAT are reserved
          */
         if (FatNeeded > Math.pow(2, 28)) {
-            log
-                    .error("This drive has more than 2^28 clusters, try to specify a larger cluster size\n");
+            //log.error("This drive has more than 2^28 clusters, try to specify a larger cluster size\n");
         }
 
         /**
@@ -253,28 +252,28 @@ public class FatFormatter {
          * 
          */
         int SystemAreaSize = (ReservedSectorCount + (NumOfFATs * FatSize) + SectorPerCluster);
-        log.info("Clearing out " + SystemAreaSize +
-                " sectors for Reserved sectors, fats and root cluster...\n");
+        /*log.info("Clearing out " + SystemAreaSize +
+                " sectors for Reserved sectors, fats and root cluster...\n");*/
 
         /** Disk Freeing */
         try {
             setQuickSectorFree(SystemAreaSize, api);
         } catch (IOException e1) {
-            log.info("Error ocured during Disk Free.");
+            //log.info("Error ocured during Disk Free.");
         }
         /** calling the Format method */
         try {
-            log.info("Initialising reserved sectors and FATs....");
+            //log.info("Initialising reserved sectors and FATs....");
             format(api, bs, fsInfo, SectorPerCluster, nbTotalSectors);
         } catch (IOException e) {
-            log.error("Problems in Disk Formatting.");
+            //log.error("Problems in Disk Formatting.");
         }
 
         /**
          * The mkjfat informations group
          */
         int DiskSizeGB = DiskSize / (1000 * 1000 * 1000);
-        log.info("Size(Bytes): " + DiskSize + "\tSize(GB): " + DiskSizeGB + "\tSectors :" +
+        /*log.info("Size(Bytes): " + DiskSize + "\tSize(GB): " + DiskSizeGB + "\tSectors :" +
                 nbTotalSectors);
         log.info("Volume ID is :" + toHexString(VolumeID >> 16) + ":" +
                 toHexString(VolumeID & 0xffff));
@@ -282,10 +281,10 @@ public class FatFormatter {
         log.info(ReservedSectorCount + " Reserved Sectors ," + (FatSize) + " Sectors Per FAT ," +
                 NumOfFATs + " FATs.");
         log.info("Total Clusters :" + (UserAreaSize / SectorPerCluster));
-        log.info("Free Clusters: " + FSI_FreeCount);
+        log.info("Free Clusters: " + FSI_FreeCount);*/
 
         // Flushing the DeviceAPI
-        api.flush();
+        //api.flush();
     }
 
     /**
@@ -294,9 +293,9 @@ public class FatFormatter {
      * @param api
      * @throws IOException
      */
-    public void format(BlockDeviceAPI api, BootSector bs, FatFsInfo fsInfo, int sectorPerCluster,
+    public void format(BlockIO api, BootSector bs, FatFsInfo fsInfo, int sectorPerCluster,
             int nbTotalSectors) throws IOException {
-        log.info("The Formatting...\n");
+        //log.info("The Formatting...\n");
         /**
          * Now we should write the boot sector and fsinfo twice, once at 0 and
          * once at the backup boot sect position
@@ -308,12 +307,12 @@ public class FatFormatter {
         }
         /** Write the first fat sector in the right places */
         for (int i = 0; i < NumOfFATs; i++) {
-            int SectorStart = (ReservedSectorCount + (i * FatSize)) * 512;
-            this.reservedSector = new byte[12];
-            LittleEndian.setInt32(this.reservedSector, 0, ReservedSector_0);
-            LittleEndian.setInt32(this.reservedSector, 4, ReservedSector_1);
-            LittleEndian.setInt32(this.reservedSector, 8, ReservedSector_2);
-            api.write(SectorStart, ByteBuffer.wrap(this.reservedSector));
+            int SectorStart = ReservedSectorCount + (i * FatSize);
+            this.reservedSector = MemManager.alloc(12);
+            this.reservedSector.setLittleEndian32(0, ReservedSector_0);
+            this.reservedSector.setLittleEndian32(4, ReservedSector_1);
+            this.reservedSector.setLittleEndian32(8, ReservedSector_2);
+            api.writeSectors(SectorStart, 1, this.reservedSector, true);
 
         }
 
@@ -326,10 +325,10 @@ public class FatFormatter {
      * @param api
      * @throws IOException
      */
-    private void setQuickSectorFree(int systemAreaSize, BlockDeviceAPI api) throws IOException {
-        byte[] reserveArray = new byte[512];
+    private void setQuickSectorFree(int systemAreaSize, BlockIO api) throws IOException {
+        Memory reserveArray = MemManager.alloc(512);
         for (int i = 0; i < systemAreaSize; i++) {
-            api.write(i * 512, ByteBuffer.wrap(reserveArray));
+            api.writeSectors(i, 1, reserveArray, true);
         }
     }
 
@@ -341,7 +340,7 @@ public class FatFormatter {
      * @throws IOException
      */
     @SuppressWarnings("unused")
-    private void setQuickDiskFree(int TotalSectors, BlockDeviceAPI api) throws IOException {
+    private void setQuickDiskFree(int TotalSectors, BlockIO api) throws IOException {
         // TODO:For Total Disk Formatting
     }
 

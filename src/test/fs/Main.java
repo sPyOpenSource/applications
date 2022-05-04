@@ -1,7 +1,7 @@
 package test.fs;
 
-import bioram.BlockIORAM;
-import javafs.*;
+import jx.bio.ram.BlockIORAM;
+import jx.fs.javafs.*;
 import jx.zero.*;
 import jx.zero.debug.*;
 import jx.zero.debug.DebugPrintStream;
@@ -28,10 +28,10 @@ interface FinishNotify extends Portal {
 public class Main {
     static boolean useRAM = false;
     static boolean singleDomain = false;
-    public static int IOZONE_MAX_FILESIZE = 2*4096; /* in kBytes */
+    public static int IOZONE_MAX_FILESIZE = 2 * 4096; /* in kBytes */
     public static int IOZONE_MIN_FILESIZE = 4;
-    public static int IOZONE_MIN_RECSIZE = 4*1024;
-    public static int IOZONE_MAX_RECSIZE = 16*1024*1024;
+    public static int IOZONE_MIN_RECSIZE = 4 * 1024;
+    public static int IOZONE_MAX_RECSIZE = 16 * 1024 * 1024;
     final int BUFFERCACHE_NUMBER_FSBLOCKS = 1 * 1024; /*  kBytes */
     final int BUFFERCACHE_MAXNUMBER_FSBLOCKS = 1 * 1024; /* kBytes */
     final int BUFFERCACHE_INCNUMBER_FSBLOCKS = 0; /* 0 MBytes, do not enlarge buffer */
@@ -39,7 +39,7 @@ public class Main {
     static Naming naming;
     static DomainManager dm;
     static final int EXT2FS_BLOCKSIZE = 1024;
-    buffercache.BufferCache bufferCache;
+    jx.bio.buffercache.BufferCache bufferCache;
 
     public void dotest(FS fs) throws FSException {
 	// choose test
@@ -80,9 +80,9 @@ public class Main {
 
         BlockIO bio = (BlockIO)naming.lookup("IDE");
 
-        javafs.FileSystem jfs = new javafs.FileSystem();
+        jx.fs.javafs.FileSystem jfs = new jx.fs.javafs.FileSystem();
         Clock clock = new DummyClock();
-        jfs.init(bio, new buffercache.BufferCache(bio, clock, 500, 1000, 100, EXT2FS_BLOCKSIZE), clock);
+        jfs.init(bio, new jx.bio.buffercache.BufferCache(bio, clock, 500, 1000, 100, EXT2FS_BLOCKSIZE), clock);
 
         naming.registerPortal(jfs, "JavaFS");
 
@@ -160,9 +160,9 @@ public class Main {
 
 
 	BlockIORAM bio = new BlockIORAM(file);
-	javafs.FileSystem jfs = new javafs.FileSystem();
+	jx.fs.javafs.FileSystem jfs = new jx.fs.javafs.FileSystem();
 	Clock clock = new DummyClock();
-	jfs.init(bio, new buffercache.BufferCache(bio, clock, 500, 1000, 100, EXT2FS_BLOCKSIZE), clock);
+	jfs.init(bio, new jx.bio.buffercache.BufferCache(bio, clock, 500, 1000, 100, EXT2FS_BLOCKSIZE), clock);
 	jfs.init(false);
 
 	// TEST

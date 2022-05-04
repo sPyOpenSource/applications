@@ -68,7 +68,7 @@ public class IDEDeviceImpl {
 	dmaSupported = found; // found*/
 	
 
-	//	probeCmosForDrives();
+	probeCmosForDrives();
         
 	for (int i = 0; i < MAX_CONTROLLERS; i++) {
 	    Debug.out.println("Try controller " + i);

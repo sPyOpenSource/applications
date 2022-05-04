@@ -34,7 +34,7 @@ public class BufferManager {
     /**
      * MemoryResource to hold initialization block, descriptor rings, and data buffers
      */
-    private Memory mem;
+    private final Memory mem;
     private final MemoryManager rm;
 
     private final InitializationBlock32Bit initBlock;

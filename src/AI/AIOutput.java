@@ -37,7 +37,7 @@ public class AIOutput extends AIZeroOutput
     }
 
     @Override
-    protected void Thread() {
+    protected void loop() {
         Send();
     }
 }

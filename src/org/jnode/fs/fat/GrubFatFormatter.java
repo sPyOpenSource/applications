@@ -18,7 +18,7 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
  
-package org.jnode.fs.fat;
+package org.jnode.fs.jfat;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -29,7 +29,8 @@ import jx.zero.Memory;
 
 import org.jnode.driver.block.Geometry;
 import org.jnode.fs.jfat.BootSector;
-//import org.jnode.util.FileUtils;
+import org.jnode.fs.jfat.FatFormatter;
+import org.jnode.util.FileUtils;
 //import org.jnode.util.LittleEndian;
 
 /**
@@ -38,7 +39,7 @@ import org.jnode.fs.jfat.BootSector;
 public class GrubFatFormatter {
     private Memory stage1;
     private Memory stage2;
-    private int bootSectorOffset;
+    private final int bootSectorOffset;
     private String configFile;
     private int installPartition = 0xFFFFFFFF;
     private FatFormatter formatter;
@@ -54,7 +55,7 @@ public class GrubFatFormatter {
 
         GrubBootSector bs =
                 (GrubBootSector) createBootSector(stage1ResourceName, stage2ResourceName);
-        bs.setOemName("JNode1.0");
+        bs.setOemName("JavaOS1.0");
         formatter =
                 FatFormatter.HDFormatter(bps, (int) geom.getTotalSectors(), geom.getSectors(), geom
                         .getHeads(), fatSize, 0, calculateReservedSectors(512), bs);
@@ -76,7 +77,7 @@ public class GrubFatFormatter {
             String stage2ResourceName) {
         GrubBootSector bs =
                 (GrubBootSector) createBootSector(stage1ResourceName, stage2ResourceName);
-        bs.setOemName("JNode1.0");
+        bs.setOemName("JavaOS1.0");
         formatter = FatFormatter.fat144FloppyFormatter(calculateReservedSectors(512), bs);
         this.bootSectorOffset = bootSectorOffset;
     }
@@ -100,11 +101,11 @@ public class GrubFatFormatter {
         }
     }
 
-    public byte[] getStage1(String stage1ResourceName) throws IOException {
+    public Memory getStage1(String stage1ResourceName) throws IOException {
         if (stage1 == null) {
             InputStream is = getClass().getClassLoader().getResourceAsStream(stage1ResourceName);
-            byte[] buf = new byte[512];
-            //FileUtils.copy(is, buf);
+            Memory buf = new byte[512];
+            FileUtils.copy(is, buf);
             is.close();
             stage1 = buf;
         }
@@ -113,11 +114,11 @@ public class GrubFatFormatter {
 
     public Memory getStage2(String stage2ResourceName) throws IOException {
         if (stage2 == null) {
-            URL stage2URL = null;//getClass().getClassLoader().getResource(stage2ResourceName);
+            URL stage2URL = getClass().getClassLoader().getResource(stage2ResourceName);
             URLConnection conn = stage2URL.openConnection();
-            Memory buf = null;//new byte[conn.getContentLength()];
+            Memory buf = new byte[conn.getContentLength()];
             InputStream is = conn.getInputStream();
-            //FileUtils.copy(is, buf);
+            FileUtils.copy(is, buf);
             is.close();
             stage2 = buf;
         }
@@ -128,7 +129,6 @@ public class GrubFatFormatter {
      * @see org.jnode.fs.fat.FatFormatter#format(BlockDeviceAPI)
      */
     public void format(BlockIO api) throws IOException {
-
         formatter.format(api);
         GrubBootSector bs = (GrubBootSector) formatter.getBootSector();
         /* Fixup the blocklist end the end of the first sector of stage2 */

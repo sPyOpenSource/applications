@@ -1,6 +1,6 @@
 package test.fs;
 
-import bioram.BlockIORAM;
+import jx.bio.ram.BlockIORAM;
 import jx.zero.*;
 
 public class BioRAMDomain {
