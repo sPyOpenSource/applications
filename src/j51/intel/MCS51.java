@@ -2969,7 +2969,6 @@ class MOV_DIRECT_R extends AbstractOpcode
 
 class MOV_DIRECT_DATA extends AbstractOpcode
 {
-	private static Logger log = Logger.getLogger(MOV_DIRECT_DATA.class);
 	public MOV_DIRECT_DATA()
 	{
 		super(0x75,3,2,"MOV\tDIRECT,#DATA8");

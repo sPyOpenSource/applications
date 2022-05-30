@@ -41,7 +41,7 @@ public class PersistentBuffer
 			loaded  = true;
 			System.out.println(filename+" loaded");
 		}
-		catch (Exception ex)
+		catch (IOException ex)
 		{
 		}
 	}
@@ -60,7 +60,7 @@ public class PersistentBuffer
 	{
 		if (addr >= buffer.length)
 		{
-			throw new java.lang.Error(name+" 0x"+Hex.bin2word(addr)+" out of range, max 0x"+Hex.bin2word(buffer.length));
+			throw new java.lang.Error(name + " 0x" + Hex.bin2word(addr) + " out of range, max 0x" + Hex.bin2word(buffer.length));
 		}
 		
 	}
@@ -73,7 +73,7 @@ public class PersistentBuffer
 
 	public int get16(int addr)
 	{
-		return ((buffer[addr] & 0xff) << 8 ) | (buffer[addr+1] & 0xff);
+		return ((buffer[addr] & 0xff) << 8 ) | (buffer[addr + 1] & 0xff);
 		
 	}
 	
@@ -113,10 +113,9 @@ public class PersistentBuffer
 			os.close();
 			System.out.println(filename+" saved");
 		}
-		catch (Exception ex)
+		catch (IOException ex)
 		{
 			System.out.println(ex);
 		}
 	}
-
 }

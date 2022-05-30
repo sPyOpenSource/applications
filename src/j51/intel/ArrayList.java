@@ -39,7 +39,6 @@ public class ArrayList
 			System.arraycopy(objects,0,newObjects,0,objects.length);
 			objects = newObjects;
 		}
-
 	}
 
 	public void clear()
@@ -81,7 +80,6 @@ public class ArrayList
 				System.arraycopy(objects,i+1,objects,i,num);
 			currentSize--;
 		}
-
 	}
 
 	public void set(int i,Object o)
@@ -107,4 +105,3 @@ public class ArrayList
 		return indexOf(o) != -1;
 	}
 }
-

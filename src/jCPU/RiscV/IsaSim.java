@@ -17,41 +17,50 @@ import java.nio.ByteBuffer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class IsaSim extends j51.intel.MCS51{
-	// Insert path to binary file containing RISC-V instructions
-	public final static String FILEPATH = "tests/task3/loop.bin";
+public class IsaSim extends CPU{
+    // Insert path to binary file containing RISC-V instructions
+    public final static String FILEPATH = "tests/task3/loop.bin";
 
-	// Initial value of the program counter (default is zero)
-	public final static Integer INITIAL_PC = 0;
+    // Initial value of the program counter (default is zero)
+    public final static Integer INITIAL_PC = 0;
 
-	// Initial value of the stack pointer (default is 2^31 - 1)
-	public final static Integer INITIAL_SP = Integer.MAX_VALUE;
+    // Initial value of the stack pointer (default is 2^31 - 1)
+    public final static Integer INITIAL_SP = Integer.MAX_VALUE;
 
-	// Activate/deactivate debugging prints (default is true)
-	public final static Boolean DEBUGGING = true;
+    // Activate/deactivate debugging prints (default is true)
+    public final static Boolean DEBUGGING = true;
 
-	// Static variables used throughout the simulator
-	static int pc = INITIAL_PC; // Program counter (counting in bytes)
-	static int reg[] = new int[32]; // 32 registers
+    // Static variables used throughout the simulator
+    static int pc = INITIAL_PC; // Program counter (counting in bytes)
+    static int reg[] = new int[32]; // 32 registers
 
-	// A single memory for instructions and data allowing "byte addressing"
-	// using different integer key values (pc and sp counting in bytes)
-	public static Memory ram = new Memory();
-                     boolean offsetPC = false, breakProgram = false; // For determining next pc value
-                     int cc = 0; // Clock cycle counter
-                
-	public IsaSim() {
-		System.out.println("Hello RISC-V World!");
-            try {
-                ram.readBinary(FILEPATH, INITIAL_PC); // Read instructions into memory
-            } catch (IOException ex) {
-                Logger.getLogger(IsaSim.class.getName()).log(Level.SEVERE, null, ex);
-            }
-		reg[2] = INITIAL_SP; // Reset stack pointer
-		
+    // A single memory for instructions and data allowing "byte addressing"
+    // using different integer key values (pc and sp counting in bytes)
+    public static Memory ram = new Memory();
+    boolean offsetPC = false, breakProgram = false; // For determining next pc value
+    int cc = 0; // Clock cycle counter
+
+    public IsaSim() {
+            System.out.println("Hello RISC-V World!");
+        try {
+            ram.readBinary(FILEPATH, INITIAL_PC); // Read instructions into memory
+        } catch (IOException ex) {
+            Logger.getLogger(IsaSim.class.getName()).log(Level.SEVERE, null, ex);
         }
+            reg[2] = INITIAL_SP; // Reset stack pointer
+
+    }
         
-        @Override
+    @Override
+    public void go(int limit) throws Exception{
+        while(true){
+             RVInstruction ins = new RVInstruction(ram.readWord(pc));
+             decode_riscv_binary(ins);
+            step();
+        }
+    }
+    
+                @Override
 		public int step () {
 			// Combine four bytes to produce a single instruction
 			int instr = ram.readWord(pc);
@@ -62,21 +71,21 @@ public class IsaSim extends j51.intel.MCS51{
 
 			// Execute the instruction based on its type
 			switch (opcode) {
-			case 0x37: // LUI
+			case LUI_MASK:
 				if (DEBUGGING) {
 					System.out.println(cc + " LUI instruction");
 				}
 				loadUpperImmediate(instr);
 				break;
 
-			case 0x17: // AUIPC
+			case AUIPC_MASK:
 				if (DEBUGGING) {
 					System.out.println(cc + " AUIPC instruction");
 				}
 				addUpperImmediatePC(instr);
 				break;
 
-			case 0x6F: // JAL
+			case JAL_MASK:
 				if (DEBUGGING) {
 					System.out.println(cc + " JAL instruction");
 				}
@@ -84,7 +93,7 @@ public class IsaSim extends j51.intel.MCS51{
 				offsetPC = true;
 				break;
 
-			case 0x67: // JALR
+			case JALR_MASK:
 				if (DEBUGGING) {
 					System.out.println(cc + " JALR instruction");
 				}
@@ -92,45 +101,45 @@ public class IsaSim extends j51.intel.MCS51{
 				offsetPC = true;
 				break;
 
-			case 0x63: // Branch instructions
+			case BRANCH_MASK:
 				if (DEBUGGING) {
 					System.out.println(cc + " Branch instruction");
 				}
 				offsetPC = branchInstruction(instr);
 				break;
 
-			case 0x03: // Load instructions
+			case LOAD_MASK:
 				if (DEBUGGING) {
 					System.out.println(cc + " Load instruction");
 				}
 				loadInstruction(instr);
 				break;
 
-			case 0x23: // Store instructions
+			case STORE_MASK:
 				if (DEBUGGING) {
 					System.out.println(cc + " Store instruction");
 				}
 				storeInstruction(instr);
 				break;
 
-			case 0x13: // Immediate instructions
+			case OP_IMM_MASK: // Immediate instructions
 				if (DEBUGGING) {
 					System.out.println(cc + " Immediate instruction");
 				}
 				immediateInstruction(instr);
 				break;
 
-			case 0x33: // Arithmetic instructions
+			case OP_MASK: // Arithmetic
 				if (DEBUGGING) {
 					System.out.println(cc + " Arithmetic instruction");
 				}
 				arithmeticInstruction(instr);
 				break;
 
-			case 0x0F: // Fence (NOT IMPLEMENTED)
+			case FENCE_MASK: // Fence (NOT IMPLEMENTED)
 				break;
 
-			case 0x73: // Ecalls and CSR (SOME IMPLEMENTED, SOME LEFT OUT)
+			case CSR_MASK: // Ecalls and CSR (SOME IMPLEMENTED, SOME LEFT OUT)
 				breakProgram = ecallInstruction();
 				break;
 

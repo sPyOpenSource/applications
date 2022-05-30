@@ -24,9 +24,10 @@ public class TestThread extends Thread {
 		cpu.mapCoprocessor(7, new CP7(cpu));
 		while((dirIndex = semaphore.getAndAdd(1)) < cachedSize) {
 			TestDirectory dir = list.get(dirIndex);
-			if(dir.runTest(cpu, failures)){ ++passed;
-                } else {
-				++failed;
+			if(dir.runTest(cpu, failures)){ 
+                            ++passed;
+                        } else {
+                            ++failed;
 			}
 		}
 	}

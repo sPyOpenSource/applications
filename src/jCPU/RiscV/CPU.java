@@ -9,66 +9,55 @@ package jCPU.RiscV;
  *
  * @author X. Wang
  */
-public class CPU extends IsaSim{
+public class CPU extends j51.intel.MCS51{
     /* Type of Functional Units */
- public static int FU_ALU = 0x0;
- public static int FU_MUL = 0x1;
- public static int FU_DIV = 0x2;
- public static int FU_FPU_ALU = 0x3;
- public static int FU_FPU_FMA = 0x4;
- public static int NUM_MAX_FU = 0x5;
+    public static int FU_ALU = 0x0;
+    public static int FU_MUL = 0x1;
+    public static int FU_DIV = 0x2;
+    public static int FU_FPU_ALU = 0x3;
+    public static int FU_FPU_FMA = 0x4;
+    public static int NUM_MAX_FU = 0x5;
 
-/* Extension C Quadrants */
- public static int C_QUADRANT0 = 0;
- public static int C_QUADRANT1 = 1;
- public static int C_QUADRANT2 = 2;
+    /* Extension C Quadrants */
+    public static int C_QUADRANT0 = 0;
+    public static int C_QUADRANT1 = 1;
+    public static int C_QUADRANT2 = 2;
 
-/* Used for updating performance counters */
+    /* Used for updating performance counters */
 
- public static int NUM_MAX_INS_TYPES = 17;
- public static int INS_TYPE_LOAD = 0x0;
- public static int INS_TYPE_STORE = 0x1;
- public static int INS_TYPE_ATOMIC = 0x2;
- public static int INS_TYPE_SYSTEM = 0x3;
- public static int INS_TYPE_ARITMETIC = 0x4;
-public static int INS_TYPE_COND_BRANCH = 0x5;
-public static int INS_TYPE_JAL = 0x6;
-public static int INS_TYPE_JALR = 0x7;
-public static int INS_TYPE_INT_MUL = 0x8;
-public static int INS_TYPE_INT_DIV = 0x9;
-public static int INS_TYPE_FP_LOAD = 0xa;
-public static int INS_TYPE_FP_STORE = 0xb;
-public static int INS_TYPE_FP_ADD = 0xc;
-public static int INS_TYPE_FP_MUL = 0xd;
-public static int INS_TYPE_FP_FMA = 0xe;
-public static int INS_TYPE_FP_DIV_SQRT = 0xf;
-public static int INS_TYPE_FP_MISC = 0x10;
+    public static int NUM_MAX_INS_TYPES = 17;
+    public static int INS_TYPE_LOAD = 0x0;
+    public static int INS_TYPE_STORE = 0x1;
+    public static int INS_TYPE_ATOMIC = 0x2;
+    public static int INS_TYPE_SYSTEM = 0x3;
+    public static int INS_TYPE_ARITMETIC = 0x4;
+    public static int INS_TYPE_COND_BRANCH = 0x5;
+    public static int INS_TYPE_JAL = 0x6;
+    public static int INS_TYPE_JALR = 0x7;
+    public static int INS_TYPE_INT_MUL = 0x8;
+    public static int INS_TYPE_INT_DIV = 0x9;
+    public static int INS_TYPE_FP_LOAD = 0xa;
+    public static int INS_TYPE_FP_STORE = 0xb;
+    public static int INS_TYPE_FP_ADD = 0xc;
+    public static int INS_TYPE_FP_MUL = 0xd;
+    public static int INS_TYPE_FP_FMA = 0xe;
+    public static int INS_TYPE_FP_DIV_SQRT = 0xf;
+    public static int INS_TYPE_FP_MISC = 0x10;
 
-public static int INS_CLASS_INT= 0x11;
-public static int INS_CLASS_FP = 0x12;
+    public static int INS_CLASS_INT= 0x11;
+    public static int INS_CLASS_FP = 0x12;
 
-/* For exception handling during simulation */
-public static int SIM_ILLEGAL_OPCODE = 0x1;
-public static int SIM_COMPLEX_OPCODE = 0x2;
-public static int SIM_TIMEOUT_EXCEPTION = 0x3;
-public static int SIM_MMU_EXCEPTION = 0x4;
+    /* For exception handling during simulation */
+    public static int SIM_ILLEGAL_OPCODE = 0x1;
+    public static int SIM_COMPLEX_OPCODE = 0x2;
+    public static int SIM_TIMEOUT_EXCEPTION = 0x3;
+    public static int SIM_MMU_EXCEPTION = 0x4;
 
-/* Type of Branch instructions */
-public static int BRANCH_UNCOND = 0x0;
-public static int BRANCH_COND = 0x1;
-public static int BRANCH_FUNC_CALL = 0x2;
-public static int BRANCH_FUNC_RET = 0x3;
-
-private final IsaSim sim = new IsaSim();
-
-@Override
-    public void go(int limit) throws Exception{
-        while(true){
-             RVInstruction ins = new RVInstruction(ram.readWord(pc));
-             decode_riscv_binary(ins);
-            sim.step();
-        }
-    }
+    /* Type of Branch instructions */
+    public static int BRANCH_UNCOND = 0x0;
+    public static int BRANCH_COND = 0x1;
+    public static int BRANCH_FUNC_CALL = 0x2;
+    public static int BRANCH_FUNC_RET = 0x3;
     
 /**
  * RISC-V Instruction Decoding Library
@@ -102,17 +91,18 @@ private final IsaSim sim = new IsaSim();
  * THE SOFTWARE.
  */
     
- int cget_field1(int val, int src_pos, int dst_pos, int dst_pos_max){
+int cget_field1(int val, int src_pos, int dst_pos, int dst_pos_max){
     int mask;
     assert(dst_pos_max >= dst_pos);
     mask = ((1 << (dst_pos_max - dst_pos + 1)) - 1) << dst_pos;
-    if (dst_pos >= src_pos)
+    if (dst_pos >= src_pos){
         return (val << (dst_pos - src_pos)) & mask;
-    else
+    } else {
         return (val >> (src_pos - dst_pos)) & mask;
+    }
 }
 
-public  void decode_compressed_q0(RVInstruction ins)
+public void decode_compressed_q0(RVInstruction ins)
 {
     int insn, rd, rs1, rs2, funct3, quad;
     int imm;
@@ -125,8 +115,8 @@ public  void decode_compressed_q0(RVInstruction ins)
     switch (funct3)
     {
         case 0: /* c.addi4spn */
-            ins.has_dest = 1;
-            ins.has_src1 = 1;
+            ins.has_dest = true;
+            ins.has_src1 = true;
             rs1 = 2;
             imm = cget_field1(insn, 11, 4, 5) | cget_field1(insn, 7, 6, 9)
                   | cget_field1(insn, 6, 2, 2) | cget_field1(insn, 5, 3, 3);
@@ -141,9 +131,9 @@ public  void decode_compressed_q0(RVInstruction ins)
                 illegal_insn(ins);
                 //goto illegal_insn;
             }
-            ins.is_load = 1;
-            ins.has_fp_dest = 1;
-            ins.has_src1 = 1;
+            ins.is_load = true;
+            ins.has_fp_dest = true;
+            ins.has_src1 = true;
             ins.bytes_to_rw = 8;
             ins.f64_mask = 1;
             ins.set_fs = 1;
@@ -154,9 +144,9 @@ public  void decode_compressed_q0(RVInstruction ins)
         break;
         case 2: /* c.lw */
         {
-            ins.is_load = 1;
-            ins.has_dest = 1;
-            ins.has_src1 = 1;
+            ins.is_load = true;
+            ins.has_dest = true;
+            ins.has_src1 = true;
             ins.bytes_to_rw = 4;
             ins.type = INS_TYPE_LOAD;
             imm = cget_field1(insn, 10, 3, 5) | cget_field1(insn, 6, 2, 2)
@@ -166,9 +156,9 @@ public  void decode_compressed_q0(RVInstruction ins)
         break;
         case 3: /* c.ld */
         {
-            ins.is_load = 1;
-            ins.has_dest = 1;
-            ins.has_src1 = 1;
+            ins.is_load = true;
+            ins.has_dest = true;
+            ins.has_src1 = true;
             ins.bytes_to_rw = 8;
             ins.type = INS_TYPE_LOAD;
             imm = cget_field1(insn, 10, 3, 5) | cget_field1(insn, 5, 6, 7);
@@ -190,18 +180,18 @@ public  void decode_compressed_q0(RVInstruction ins)
         }
         break;*/
         case 5: /* c.fsd */
-            ins.is_store = 1;
-            ins.has_src1 = 1;
-            ins.has_fp_src2 = 1;
+            ins.is_store = true;
+            ins.has_src1 = true;
+            ins.has_fp_src2 = true;
             ins.bytes_to_rw = 8;
             ins.type = INS_TYPE_FP_STORE;
             imm = cget_field1(insn, 10, 3, 5) | cget_field1(insn, 5, 6, 7);
             rs1 = ((insn >> 7) & 7) | 8;
             break;
         case 6: /* c.sw */
-            ins.is_store = 1;
-            ins.has_src1 = 1;
-            ins.has_src2 = 1;
+            ins.is_store = true;
+            ins.has_src1 = true;
+            ins.has_src2 = true;
             ins.bytes_to_rw = 4;
             ins.type = INS_TYPE_STORE;
             imm = cget_field1(insn, 10, 3, 5) | cget_field1(insn, 6, 2, 2)
@@ -209,9 +199,9 @@ public  void decode_compressed_q0(RVInstruction ins)
             rs1 = ((insn >> 7) & 7) | 8;
             break;
         case 7: /* c.sd */
-            ins.is_store = 1;
-            ins.has_src1 = 1;
-            ins.has_src2 = 1;
+            ins.is_store = true;
+            ins.has_src1 = true;
+            ins.has_src2 = true;
             ins.bytes_to_rw = 8;
             ins.type = INS_TYPE_STORE;
             imm = cget_field1(insn, 10, 3, 5) | cget_field1(insn, 5, 6, 7);
@@ -243,11 +233,11 @@ public  void decode_compressed_q0(RVInstruction ins)
     ins.exception_cause = SIM_ILLEGAL_OPCODE;*/
 }
 
- int sextc(int val, int n){
+int sextc(int val, int n){
     return (val << (32 - n)) >> (32 - n);
 }
 
-public  void decode_compressed_q1(RVInstruction ins)
+public void decode_compressed_q1(RVInstruction ins)
 {
     int insn, rd, rs1, rs2 = 0, funct3, funct4 = 0, funct5 = 0, quad;
     int imm = 0;
@@ -260,19 +250,19 @@ public  void decode_compressed_q1(RVInstruction ins)
     switch (funct3)
     {
         case 0: /* c.addi/c.nop */
-            ins.has_dest = 1;
-            ins.has_src1 = 1;
+            ins.has_dest = true;
+            ins.has_src1 = true;
             imm = sextc(
                 cget_field1(insn, 12, 5, 5) | cget_field1(insn, 2, 0, 4), 6);
             break;
         case 1: /* c.addiw */
-            ins.has_dest = 1;
-            ins.has_src1 = 1;
+            ins.has_dest = true;
+            ins.has_src1 = true;
             imm = sextc(
                 cget_field1(insn, 12, 5, 5) | cget_field1(insn, 2, 0, 4), 6);
             break;
         case 2: /* c.li */
-            ins.has_dest = 1;
+            ins.has_dest = true;
             imm = sextc(
                 cget_field1(insn, 12, 5, 5) | cget_field1(insn, 2, 0, 4), 6);
             break;
@@ -280,8 +270,8 @@ public  void decode_compressed_q1(RVInstruction ins)
             if (rd == 2)
             {
                 /* c.addi16sp */
-                ins.has_dest = 1;
-                ins.has_src1 = 1;
+                ins.has_dest = true;
+                ins.has_src1 = true;
                 rd = 2;
                 rs1 = rd;
                 imm = sextc(cget_field1(insn, 12, 9, 9)
@@ -298,15 +288,15 @@ public  void decode_compressed_q1(RVInstruction ins)
             else if (rd != 0)
             {
                 /* c.lui */
-                ins.has_dest = 1;
+                ins.has_dest = true;
                 imm = sextc(cget_field1(insn, 12, 17, 17)
                                 | cget_field1(insn, 2, 12, 16),
                             18);
             }
             break;
         case 4:
-            ins.has_dest = 1;
-            ins.has_src1 = 1;
+            ins.has_dest = true;
+            ins.has_src1 = true;
             funct4 = (insn >> 10) & 3;
             rd = ((insn >> 7) & 7) | 8;
             rs1 = rd;
@@ -324,7 +314,7 @@ public  void decode_compressed_q1(RVInstruction ins)
                     break;
                 case 3:
                     rs2 = ((insn >> 2) & 7) | 8;
-                    ins.has_src2 = 1;
+                    ins.has_src2 = true;
                     funct5 = ((insn >> 5) & 3) | ((insn >> (12 - 2)) & 4);
                     switch (funct5)
                     {
@@ -343,7 +333,7 @@ public  void decode_compressed_q1(RVInstruction ins)
             }
             break;
         case 5: /* c.j */
-            ins.is_branch = 1;
+            ins.is_branch = true;
             ins.branch_type = BRANCH_UNCOND;
             ins.type = INS_TYPE_JAL;
             imm = sextc(
@@ -354,10 +344,10 @@ public  void decode_compressed_q1(RVInstruction ins)
                 12);
             break;
         case 6: /* c.beqz */
-            ins.is_branch = 1;
+            ins.is_branch = true;
             ins.branch_type = BRANCH_COND;
             ins.type = INS_TYPE_COND_BRANCH;
-            ins.has_src1 = 1;
+            ins.has_src1 = true;
             rs1 = ((insn >> 7) & 7) | 8;
             rs2 = 0;
             imm = sextc(
@@ -367,10 +357,10 @@ public  void decode_compressed_q1(RVInstruction ins)
                 9);
             break;
         case 7: /* c.bnez */
-            ins.is_branch = 1;
+            ins.is_branch = true;
             ins.branch_type = BRANCH_COND;
             ins.type = INS_TYPE_COND_BRANCH;
-            ins.has_src1 = 1;
+            ins.has_src1 = true;
             rs1 = ((insn >> 7) & 7) | 8;
             rs2 = 0;
             imm = sextc(
@@ -398,7 +388,7 @@ public void illegal_insn(RVInstruction ins){
     ins.exception_cause = SIM_ILLEGAL_OPCODE;
 }
 
-public  void decode_compressed_q2(RVInstruction ins)
+public void decode_compressed_q2(RVInstruction ins)
 {
     int insn, rd, rs1, rs2, funct3, quad;
     int imm = 0;
@@ -412,16 +402,16 @@ public  void decode_compressed_q2(RVInstruction ins)
     switch (funct3)
     {
         case 0: /* c.slli */
-            ins.has_dest = 1;
-            ins.has_src1 = 1;
+            ins.has_dest = true;
+            ins.has_src1 = true;
             rs1 = rd;
             imm = cget_field1(insn, 12, 5, 5) | rs2;
             break;
         case 1: /* c.fldsp */
         {
-            ins.is_load = 1;
-            ins.has_fp_dest = 1;
-            ins.has_src1 = 1;
+            ins.is_load = true;
+            ins.has_fp_dest = true;
+            ins.has_src1 = true;
             ins.bytes_to_rw = 8;
             ins.f64_mask = 1;
             ins.set_fs = 1;
@@ -433,10 +423,10 @@ public  void decode_compressed_q2(RVInstruction ins)
         break;
         case 2: /* c.lwsp */
         {
-            ins.is_load = 1;
+            ins.is_load = true;
             ins.bytes_to_rw = 4;
-            ins.has_dest = 1;
-            ins.has_src1 = 1;
+            ins.has_dest = true;
+            ins.has_src1 = true;
             ins.type = INS_TYPE_LOAD;
             rs1 = 2;
             imm = cget_field1(insn, 12, 5, 5) | (rs2 & (7 << 2))
@@ -445,10 +435,10 @@ public  void decode_compressed_q2(RVInstruction ins)
         break;
         case 3: /* c.ldsp */
         {
-            ins.is_load = 1;
+            ins.is_load = true;
             ins.bytes_to_rw = 8;
-            ins.has_dest = 1;
-            ins.has_src1 = 1;
+            ins.has_dest = true;
+            ins.has_src1 = true;
             ins.type = INS_TYPE_LOAD;
             rs1 = 2;
             imm = cget_field1(insn, 12, 5, 5) | (rs2 & (3 << 3))
@@ -475,71 +465,68 @@ public  void decode_compressed_q2(RVInstruction ins)
                 if (rs2 == 0)
                 {
                     /* c.jr */
-                    ins.is_branch = 1;
+                    ins.is_branch = true;
                     ins.branch_type = BRANCH_UNCOND;
                     ins.type = INS_TYPE_JALR;
-                    ins.has_src1 = 1;
-                    if (rd == 0)
+                    ins.has_src1 = true;
+                    if (rd == 0) illegal_insn(ins);
                         //goto illegal_insn;
-                    if (rs1 == 1)
-                    {
-                        ins.is_func_ret = 1;
+                    if (rs1 == 1) {
+                        ins.is_func_ret = true;
                     }
                 } else {
                     /* c.mv */
-                    ins.has_dest = 1;
-                    ins.has_src2 = 1;
+                    ins.has_dest = true;
+                    ins.has_src2 = true;
                 }
             } else {
-                if (rs2 == 0)
-                {
-                    if (rd == 0)
-                    {
+                if (rs2 == 0){
+                    if (rd == 0){
                         /* c.ebreak */
                         ins.exception = 1;
                         ins.exception_cause = SIM_COMPLEX_OPCODE;
                         ins.type = INS_TYPE_SYSTEM;
                     } else {
                         /* c.jalr */
-                        ins.is_branch = 1;
+                        ins.is_branch = true;
                         ins.branch_type = BRANCH_UNCOND;
                         ins.type = INS_TYPE_JALR;
-                        ins.has_dest = 1;
-                        ins.has_src1 = 1;
+                        ins.has_dest = true;
+                        ins.has_src1 = true;
                         rd = 1;
-                        ins.is_func_call = 1;
+                        ins.is_func_call = true;
                     }
                 } else {
                     /* c.add */
-                    ins.has_dest = 1;
-                    ins.has_src1 = 1;
-                    ins.has_src2 = 1;
+                    ins.has_dest = true;
+                    ins.has_src1 = true;
+                    ins.has_src2 = true;
                 }
             }
             break;
         case 5: /* c.fsdsp */
-            ins.is_store = 1;
-            ins.has_src1 = 1;
-            ins.has_fp_src2 = 1;
+            ins.is_store = true;
+            ins.has_src1 = true;
+            ins.has_fp_src2 = true;
             ins.bytes_to_rw = 8;
             ins.type = INS_TYPE_FP_STORE;
             rs1 = 2;
             imm = cget_field1(insn, 10, 3, 5) | cget_field1(insn, 7, 6, 8);
             break;
         case 6: /* c.swsp */
-            ins.is_store = 1;
+            ins.is_store = true;
             ins.bytes_to_rw = 4;
-            ins.has_src1 = 1;
-            ins.has_src2 = 1;
+            ins.has_src1 = true;
+            ins.has_src2 = true;
             ins.type = INS_TYPE_STORE;
             rs1 = 2;
             imm = cget_field1(insn, 9, 2, 5) | cget_field1(insn, 7, 6, 7);
             break;
         case 7: /* c.sdsp */
-            ins.is_store = 1;
+            ins.is_store = true;
             ins.bytes_to_rw = 8;
-            ins.has_src1 = 1;
-            ins.has_src2 = 1;
+            ins.has_src1 = true;
+            ins.has_src2 = true;
             ins.type = INS_TYPE_STORE;
             rs1 = 2;
             imm = cget_field1(insn, 10, 3, 5) | cget_field1(insn, 7, 6, 8);
@@ -554,6 +541,7 @@ public  void decode_compressed_q2(RVInstruction ins)
             imm = cget_field1(insn, 9, 2, 5) | cget_field1(insn, 7, 6, 7);
             break;*/
         default:
+            illegal_insn(ins);
             //goto illegal_insn;
     }
     ins.rd = rd;
@@ -567,10 +555,8 @@ public  void decode_compressed_q2(RVInstruction ins)
 public void decode_compressed_type(RVInstruction ins)
 {
     int quad = ins.binary & 3;
-    switch (quad)
-    {
-        case 0:
-        {
+    switch (quad){
+        case 0:{
             decode_compressed_q0(ins);
             break;
         }
@@ -584,23 +570,20 @@ public void decode_compressed_type(RVInstruction ins)
             decode_compressed_q2(ins);
             break;
         }
-        default:
-        {
+        default:{
             System.exit(1);
         }
     }
 }
 
-public  void set_op_fu(RVInstruction i)
+public void set_op_fu(RVInstruction i)
 {
     int funct3;
     int insn = i.binary;
     int imm = insn >> 25;
-    if (imm == 1)
-    {
+    if (imm == 1){
         funct3 = (insn >> 12) & 7;
-        switch (funct3)
-        {
+        switch (funct3){
             case 0: /* mul */
             case 1: /* mulh */
             case 2: /* mulhsu */
@@ -619,28 +602,25 @@ public  void set_op_fu(RVInstruction i)
     }
 }
 
-public  int chk_op_imm_exceptions(RVInstruction i, int bit_size)
+public int chk_op_imm_exceptions(RVInstruction i, int bit_size)
 {
     int funct3 = (i.binary >> 12) & 7;
 
-    switch (funct3)
-    {
+    switch (funct3){
         case 1: /* slli */
-            if ((i.imm & ~(bit_size - 1)) != 0)
-            {
+            if ((i.imm & ~(bit_size - 1)) != 0){
                 return -1;
             }
             break;
         case 5: /* srli/srai */
-            if ((i.imm & ~((bit_size - 1) | 0x400)) != 0)
-            {
+            if ((i.imm & ~((bit_size - 1) | 0x400)) != 0){
                 return -1;
             }
     }
     return 0;
 }
 
-public  int chk_op_exceptions(RVInstruction i)
+public int chk_op_exceptions(RVInstruction i)
 {
     int imm = i.binary >> 25;
 
@@ -674,9 +654,9 @@ public void decode_riscv_binary(RVInstruction ins)
         ins.rs2 = (insn >> 20) & 0x1f;
         switch (ins.major_opcode){
             case LOAD_MASK:{
-                ins.is_load = 1;
-                ins.has_src1 = 1;
-                ins.has_dest = 1;
+                ins.is_load = true;
+                ins.has_src1 = true;
+                ins.has_dest = true;
                 ins.imm = (int)insn >> 20;
                 ins.type = INS_TYPE_LOAD;
                 switch (ins.funct3){
@@ -703,19 +683,19 @@ public void decode_riscv_binary(RVInstruction ins)
                     case 0x4: /* lbu */
                     {
                         ins.bytes_to_rw = 1;
-                        ins.is_unsigned = 1;
+                        ins.is_unsigned = true;
                         break;
                     }
                     case 0x5: /* lhu */
                     {
                         ins.bytes_to_rw = 2;
-                        ins.is_unsigned = 1;
+                        ins.is_unsigned = true;
                         break;
                     }
                     case 0x6: /* lwu */
                     {
                         ins.bytes_to_rw = 4;
-                        ins.is_unsigned = 1;
+                        ins.is_unsigned = true;
                         break;
                     }
                 }
@@ -725,17 +705,18 @@ public void decode_riscv_binary(RVInstruction ins)
             case OP_IMM_32_MASK:{
                 if (ins.major_opcode == OP_IMM_MASK) {
                     if (chk_op_imm_exceptions(ins, 64/*BIT_SIZE*/) != 0){
+                        illegal_insn(ins);
                         //goto exception;
                     }
                 } else {
-                    if (chk_op_imm_exceptions(ins, 32) != 0)
-                    {
+                    if (chk_op_imm_exceptions(ins, 32) != 0){
+                        illegal_insn(ins);
                         //goto exception;
                     }
                 }
 
-                ins.has_src1 = 1;
-                ins.has_dest = 1;
+                ins.has_src1 = true;
+                ins.has_dest = true;
                 ins.imm = (int)insn >> 20;
                 break;
             }
@@ -744,12 +725,13 @@ public void decode_riscv_binary(RVInstruction ins)
             {
                 if (chk_op_exceptions(ins)!=0)
                 {
+                    illegal_insn(ins);
                     //goto exception;
                 }
 
-                ins.has_src1 = 1;
-                ins.has_src2 = 1;
-                ins.has_dest = 1;
+                ins.has_src1 = true;
+                ins.has_src2 = true;
+                ins.has_dest = true;
                 /* set the functional units for mul and div */
                 set_op_fu(ins);
                 break;
@@ -757,15 +739,15 @@ public void decode_riscv_binary(RVInstruction ins)
             case LUI_MASK:
             case AUIPC_MASK:
             {
-                ins.has_dest = 1;
+                ins.has_dest = true;
                 ins.imm = (int)(insn & 0xfffff000);
                 break;
             }
             case STORE_MASK:
             {
-                ins.is_store = 1;
-                ins.has_src1 = 1;
-                ins.has_src2 = 1;
+                ins.is_store = true;
+                ins.has_src1 = true;
+                ins.has_src2 = true;
                 ins.imm = ins.rd | ((insn >> (25 - 5)) & 0xfe0);
                 ins.imm = (ins.imm << 20) >> 20;
                 ins.type = INS_TYPE_STORE;
@@ -796,7 +778,7 @@ public void decode_riscv_binary(RVInstruction ins)
             }
             case CSR_MASK:
             {
-                ins.is_system = 1;
+                ins.is_system = true;
                 ins.exception = 1;
                 ins.type = INS_TYPE_SYSTEM;
 
@@ -806,7 +788,7 @@ public void decode_riscv_binary(RVInstruction ins)
             }
             case FENCE_MASK:
             {
-                ins.is_system = 1;
+                ins.is_system = true;
                 ins.exception = 1;
                 ins.type = INS_TYPE_SYSTEM;
 
@@ -816,9 +798,9 @@ public void decode_riscv_binary(RVInstruction ins)
             }
             case JAL_MASK:
             {
-                ins.is_branch = 1;
+                ins.is_branch = true;
                 ins.branch_type = BRANCH_UNCOND;
-                ins.has_dest = 1;
+                ins.has_dest = true;
                 ins.imm = ((insn >> (31 - 20)) & (1 << 20))
                            | ((insn >> (21 - 1)) & 0x7fe)
                            | ((insn >> (20 - 11)) & (1 << 11))
@@ -827,34 +809,34 @@ public void decode_riscv_binary(RVInstruction ins)
                 ins.type = INS_TYPE_JAL;
                 if (ins.rd == 1)
                 {
-                    ins.is_func_call = 1;
+                    ins.is_func_call = true;
                 }
                 break;
             }
             case JALR_MASK:
             {
-                ins.is_branch = 1;
+                ins.is_branch = true;
                 ins.branch_type = BRANCH_UNCOND;
-                ins.has_src1 = 1;
-                ins.has_dest = 1;
+                ins.has_src1 = true;
+                ins.has_dest = true;
                 ins.imm = (int)insn >> 20;
                 ins.type = INS_TYPE_JALR;
                 if (ins.rd == 1)
                 {
-                    ins.is_func_call = 1;
+                    ins.is_func_call = true;
                 }
                 if (ins.rs1 == 1)
                 {
-                    ins.is_func_ret = 1;
+                    ins.is_func_ret = true;
                 }
                 break;
             }
             case BRANCH_MASK:
             {
-                ins.is_branch = 1;
+                ins.is_branch = true;
                 ins.branch_type = BRANCH_COND;
-                ins.has_src1 = 1;
-                ins.has_src2 = 1;
+                ins.has_src1 = true;
+                ins.has_src2 = true;
                 ins.imm = ((insn >> (31 - 12)) & (1 << 12))
                            | ((insn >> (25 - 5)) & 0x7e0)
                            | ((insn >> (8 - 1)) & 0x1e)
@@ -867,8 +849,8 @@ public void decode_riscv_binary(RVInstruction ins)
             {
                 int funct3;
 
-                ins.is_atomic = 1;
-                ins.has_dest = 1;
+                ins.is_atomic = true;
+                ins.has_dest = true;
                 ins.type = INS_TYPE_ATOMIC;
                 funct3 = (insn >> 12) & 7;
                 switch (funct3)
@@ -882,18 +864,19 @@ public void decode_riscv_binary(RVInstruction ins)
                             case 2: /* lr.w */
                             {
                                 if (ins.rs2 != 0){
+                                    illegal_insn(ins);
                                     //goto exception;
                                 }
-                                ins.has_src1 = 1;
-                                ins.is_atomic_load = 1;
+                                ins.has_src1 = true;
+                                ins.is_atomic_load = true;
                                 ins.bytes_to_rw = 64;//sizeof(target_ulong);
                                 break;
                             }
                             case 3: /* sc.w */
                             {
-                                ins.has_src1 = 1;
-                                ins.has_src2 = 1;
-                                ins.is_atomic_store = 1;
+                                ins.has_src1 = true;
+                                ins.has_src2 = true;
+                                ins.is_atomic_store = true;
                                 ins.bytes_to_rw = 64;//sizeof(target_ulong);
                                 break;
                             }
@@ -907,20 +890,22 @@ public void decode_riscv_binary(RVInstruction ins)
                             case 0x18: /* amominu.w */
                             case 0x1c: /* amomaxu.w */
                             {
-                                ins.has_src1 = 1;
-                                ins.has_src2 = 1;
-                                ins.is_atomic_operate = 1;
-                                ins.is_atomic_load = 1;
-                                ins.is_atomic_store = 1;
+                                ins.has_src1 = true;
+                                ins.has_src2 = true;
+                                ins.is_atomic_operate = true;
+                                ins.is_atomic_load = true;
+                                ins.is_atomic_store = true;
                                 ins.bytes_to_rw = 64;//sizeof(target_ulong);
                                 break;
                             }
                             default:
+                                illegal_insn(ins);
                                 //goto exception;
                         }
                         break;
                     }
                     default:
+                        illegal_insn(ins);
                         //goto exception;
                 }
                 break;
@@ -929,11 +914,12 @@ public void decode_riscv_binary(RVInstruction ins)
             {
                 if (ins.current_fs == 0)
                 {
+                    illegal_insn(ins);
                     //goto exception;
                 }
-                ins.is_load = 1;
-                ins.has_fp_dest = 1;
-                ins.has_src1 = 1;
+                ins.is_load = true;
+                ins.has_fp_dest = true;
+                ins.has_src1 = true;
                 ins.set_fs = 1;
                 ins.imm = (int)insn >> 20;
                 ins.type = INS_TYPE_FP_LOAD;
@@ -958,11 +944,12 @@ public void decode_riscv_binary(RVInstruction ins)
             {
                 if (ins.current_fs == 0)
                 {
+                    illegal_insn(ins);
                     //goto exception;
                 }
-                ins.is_store = 1;
-                ins.has_src1 = 1;
-                ins.has_fp_src2 = 1;
+                ins.is_store = true;
+                ins.has_src1 = true;
+                ins.has_fp_src2 = true;
                 ins.imm = ins.rd | ((insn >> (25 - 5)) & 0xfe0);
                 ins.imm = (ins.imm << 20) >> 20;
                 ins.type = INS_TYPE_FP_STORE;
@@ -981,15 +968,16 @@ public void decode_riscv_binary(RVInstruction ins)
             {
                 if ((ins.current_fs == 0) || (ins.rm < 0))
                 {
+                    illegal_insn(ins);
                     //goto exception;
                 }
                 ins.data_class = INS_CLASS_FP;
                 ins.fu_type = FU_FPU_FMA;
                 ins.type = INS_TYPE_FP_FMA;
-                ins.has_fp_dest = 1;
-                ins.has_fp_src1 = 1;
-                ins.has_fp_src2 = 1;
-                ins.has_fp_src3 = 1;
+                ins.has_fp_dest = true;
+                ins.has_fp_src1 = true;
+                ins.has_fp_src2 = true;
+                ins.has_fp_src3 = true;
                 ins.set_fs = 1;
                 ins.funct3 = (ins.binary >> 25) & 3;
                 ins.rs3 = ins.binary >> 27;
@@ -999,15 +987,16 @@ public void decode_riscv_binary(RVInstruction ins)
             {
                 if ((ins.current_fs == 0) || (ins.rm < 0))
                 {
+                    illegal_insn(ins);
                     //goto exception;
                 }
                 ins.data_class = INS_CLASS_FP;
                 ins.fu_type = FU_FPU_FMA;
                 ins.type = INS_TYPE_FP_FMA;
-                ins.has_fp_dest = 1;
-                ins.has_fp_src1 = 1;
-                ins.has_fp_src2 = 1;
-                ins.has_fp_src3 = 1;
+                ins.has_fp_dest = true;
+                ins.has_fp_src1 = true;
+                ins.has_fp_src2 = true;
+                ins.has_fp_src3 = true;
                 ins.set_fs = 1;
                 ins.funct3 = (ins.binary >> 25) & 3;
                 ins.rs3 = ins.binary >> 27;
@@ -1017,15 +1006,16 @@ public void decode_riscv_binary(RVInstruction ins)
             {
                 if ((ins.current_fs == 0) || (ins.rm < 0))
                 {
+                    illegal_insn(ins);
                     //goto exception;
                 }
                 ins.data_class = INS_CLASS_FP;
                 ins.fu_type = FU_FPU_FMA;
                 ins.type = INS_TYPE_FP_FMA;
-                ins.has_fp_dest = 1;
-                ins.has_fp_src1 = 1;
-                ins.has_fp_src2 = 1;
-                ins.has_fp_src3 = 1;
+                ins.has_fp_dest = true;
+                ins.has_fp_src1 = true;
+                ins.has_fp_src2 = true;
+                ins.has_fp_src3 = true;
                 ins.set_fs = 1;
                 ins.funct3 = (ins.binary >> 25) & 3;
                 ins.rs3 = ins.binary >> 27;
@@ -1035,15 +1025,16 @@ public void decode_riscv_binary(RVInstruction ins)
             {
                 if ((ins.current_fs == 0) || (ins.rm < 0))
                 {
+                    illegal_insn(ins);
                     //goto exception;
                 }
                 ins.data_class = INS_CLASS_FP;
                 ins.fu_type = FU_FPU_FMA;
                 ins.type = INS_TYPE_FP_FMA;
-                ins.has_fp_dest = 1;
-                ins.has_fp_src1 = 1;
-                ins.has_fp_src2 = 1;
-                ins.has_fp_src3 = 1;
+                ins.has_fp_dest = true;
+                ins.has_fp_src1 = true;
+                ins.has_fp_src2 = true;
+                ins.has_fp_src3 = true;
                 ins.set_fs = 1;
                 ins.funct3 = (ins.binary >> 25) & 3;
                 ins.rs3 = ins.binary >> 27;
@@ -1053,6 +1044,7 @@ public void decode_riscv_binary(RVInstruction ins)
             {
                 if (ins.current_fs == 0)
                 {
+                    illegal_insn(ins);
                     //goto exception;
                 }
                 ins.data_class = INS_CLASS_FP;
@@ -1062,12 +1054,14 @@ public void decode_riscv_binary(RVInstruction ins)
                 switch (ins.funct7)
                 {
                     default:
+                        illegal_insn(ins);
                         //goto exception;
                 }
                 break;
             }
             default:
             {
+                illegal_insn(ins);
                 //goto exception;
             }
         }
@@ -1081,50 +1075,51 @@ public void decode_riscv_binary(RVInstruction ins)
 }
 
 /* Floating Point Instructions */
-final  int FLOAD_MASK = 0x07;
-final  int FSTORE_MASK = 0x27;
-final  int FMADD_MASK = 0x43;
-final  int FMSUB_MASK = 0x47;
-final  int FNMSUB_MASK = 0x4B;
-final  int FNMADD_MASK = 0x4F;
+final int FLOAD_MASK = 0x07;
+final int FSTORE_MASK = 0x27;
+final int FMADD_MASK = 0x43;
+final int FMSUB_MASK = 0x47;
+final int FNMSUB_MASK = 0x4B;
+final int FNMADD_MASK = 0x4F;
 final int F_ARITHMETIC_MASK = 0x53;
 
 /* Major Opcodes */
-final  int OP_IMM_MASK = 0x13;
-final  int OP_IMM_32_MASK = 0x1b;
-final  int OP_MASK = 0x33;
-final  int OP_MASK_32 = 0x3b;
-final  int LUI_MASK = 0x37;
-final  int AUIPC_MASK = 0x17;
-final  int JAL_MASK = 0x6f;
-final  int JALR_MASK = 0x67;
-final  int BRANCH_MASK = 0x63;
-final  int LOAD_MASK = 0x3;
-final  int STORE_MASK = 0x23;
-final  int FENCE_MASK = 0xf;
-final  int CSR_MASK = 0x73;
-final  int ATOMIC_MASK = 0x2F;
+public static final int OP_IMM_MASK = 0x13;
+public static final int OP_IMM_32_MASK = 0x1b;
+public static final int OP_MASK = 0x33;
+public static final int OP_MASK_32 = 0x3b;
+public static final int LUI_MASK = 0x37;
+public static final int AUIPC_MASK = 0x17;
+public static final int JAL_MASK = 0x6f;
+public static final int JALR_MASK = 0x67;
+public static final int BRANCH_MASK = 0x63;
+public static final int LOAD_MASK = 0x3;
+public static final int STORE_MASK = 0x23;
+public static final int FENCE_MASK = 0xf;
+public static final int CSR_MASK = 0x73;
+public static final int ATOMIC_MASK = 0x2F;
 
     private String get_riscv_ins_str(RVInstruction ins) {
         return "NOP";
     }
     
-@Override
-    public String getDecodeAt(int pc)
-	{
+    @Override
+    public String getDecodeAt(int pc){
             RVInstruction ins = new RVInstruction(code(pc));
             String result = get_riscv_ins_str(ins);
             if(result != null) return "     " + result;
             return "     NULL";
-        }
+    }
     
-    private  class RVInstruction {
-        public int binary, exception, exception_cause, has_dest, has_src1, has_src2, current_fs, is_load, has_fp_dest;
-        public int bytes_to_rw, is_store, has_fp_src1, has_fp_src2, has_fp_src3, set_fs, rm, imm, rd;
-        public int f32_mask, f64_mask, is_atomic_operate, is_atomic_load, is_atomic_store, is_atomic;
-        public int is_branch, is_func_call, is_func_ret, rs1, rs2, rs3, is_system, is_unsigned, quad, funct3, funct4, funct5, funct7;
+    protected  class RVInstruction {
+        public int binary, exception, exception_cause, current_fs;
+        public int bytes_to_rw, set_fs, rm, imm, rd;
+        public int f32_mask, f64_mask;
+        public int rs1, rs2, rs3, quad, funct3, funct4, funct5, funct7;
         public int major_opcode, branch_type, type, fu_type, data_class;
-        public boolean create_str;
+        public boolean create_str, is_load, is_atomic_operate, is_atomic_load, is_atomic_store, is_atomic;
+        public boolean has_fp_src1, has_fp_src2, has_fp_src3, is_store, has_fp_dest, has_dest, has_src1, has_src2;
+        public boolean is_branch, is_func_call, is_func_ret, is_system, is_unsigned;
 
         public RVInstruction(int opcode) {
             binary = opcode;

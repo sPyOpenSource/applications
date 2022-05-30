@@ -5,20 +5,21 @@ package j51;
 
 import java.awt.*;
 import java.awt.event.*;
-import javax.swing.*;
-import javax.swing.tree.*;
+import java.util.logging.Level;
 import java.util.*;
 import java.io.*;
 import java.net.*;
 
+import javax.swing.*;
+import javax.swing.tree.*;
+
 import j51.util.*;
 import j51.intel.*;
 import j51.swing.*;
-import java.util.logging.Level;
 
 class SortedLong extends java.util.TreeMap
 {
-	void put(long key,String value)
+	void put(long key, String value)
 	{
 		Long l = key;
 		Object o;
@@ -89,10 +90,10 @@ class JRegister extends J51Panel
 	{
 		super("Register");
 		// Create the jlabel
-		la		= new JLabel("A");
-		lb		= new JLabel("B");
-		lsp		= new JLabel("SP");
-		lpc		= new JLabel("PC");
+		la	= new JLabel("A");
+		lb	= new JLabel("B");
+		lsp	= new JLabel("SP");
+		lpc	= new JLabel("PC");
 		ldpl	= new JLabel("DPL");
 		ldph	= new JLabel("DPH");
 		ldptr	= new JLabel("DPTR ");
@@ -251,7 +252,7 @@ class JRegister extends J51Panel
 	
 	public void setChangeListener(ActionListener l)
 	{
-		listener =l;
+		listener = l;
 	}
 	
 	private void addRegister(JLabel label,JHexField field,GridBagConstraints g)
@@ -403,6 +404,7 @@ abstract class JData extends J51Panel
 		setAddress(bottom);
 	}
 
+        @Override
 	public void setEmulation(boolean mode)
 	{
 		if (add != null)
@@ -419,6 +421,7 @@ abstract class JData extends J51Panel
 		update(false);
 	}
 
+        @Override
 	public void update(boolean force)
 	{
 		for (int i = 0 ; i < row ; i++){
@@ -538,6 +541,7 @@ class JSfr extends J51Panel
 		
 	}
 	
+        @Override
 	public void setCpu(MCS51 cpu)
 	{
 		super.setCpu(cpu);
@@ -553,6 +557,7 @@ class JSfr extends J51Panel
 		}
 	}
 
+        @Override
 	public void update(boolean force)
 	{
 		for (int i = 0 ; i < 128 ; i++){
@@ -622,7 +627,6 @@ class Rect extends JComponent
 	}
 
 }
-
 
 
 class Worker extends JDialog implements Runnable
@@ -805,16 +809,16 @@ public class J51 extends JFrame implements MCS51Performance, ActionListener
 	private final J51Panel	peripheral;
 	private final JRegister	register;
 	private final JAssembly	assembly;
-	private final JSfr		sfr;
-	private final JIdata		idata;
-	private final JXdata		xdata;
-	private final JCode		code;
-	private final JInfo info;
+	private final JSfr	sfr;
+	private final JIdata	idata;
+	private final JXdata	xdata;
+	private final JCode	code;
+	private final JInfo     info;
 	private final JFixedField messages;
 	private JToolBar toolBar = new JToolBar();
 	private MCS51 cpu;
 	private JFileChooser   fc = null;
-	private JButton		   buttonStop;
+	private JButton        buttonStop;
 	private AbstractAction actionDebugTrace;
 	private AbstractAction actionDebugStep;
 	private AbstractAction actionDebugGo;
@@ -839,15 +843,15 @@ public class J51 extends JFrame implements MCS51Performance, ActionListener
 		setTitle("J51 1.05 $Revision: 70 $ - Created by mario@viara.eu");
 		pack();
 		setVisible(true);
-		info	 = new JInfo();
-		register = new JRegister();
-		assembly = new JAssembly();
-		sfr	 = new JSfr();
-		idata	 = new JIdata();
-		xdata	 = new JXdata();
-		code	 = new JCode();
-		peripheral= new JPeripheral();
-		messages = new JFixedField(64);
+		info	   = new JInfo();
+		register   = new JRegister();
+		assembly   = new JAssembly();
+		sfr	   = new JSfr();
+		idata	   = new JIdata();
+		xdata	   = new JXdata();
+		code	   = new JCode();
+		peripheral = new JPeripheral();
+		messages   = new JFixedField(64);
 		JFactory.setTitle(messages,"Messages");
 		JPanel p = new JPanel(new GridBagLayout());
 		createMenuBar();
@@ -1173,13 +1177,13 @@ public class J51 extends JFrame implements MCS51Performance, ActionListener
 	
 	JMenu createMenuCpu()
 	{
-		menuCpu = new JMenu("Cpu",true);
+		menuCpu = new JMenu("CPU",true);
 		addIcon(menuCpu,"cpu.gif");
 		ButtonGroup buttonGroup = new ButtonGroup();
 
 		// Add cpu selection 
 		try{
-			BufferedReader rd = new BufferedReader(new FileReader("/home/spy/Source/8051/j51.conf"));
+			BufferedReader rd = new BufferedReader(new FileReader("/home/spy/Source/Java/Simulator/j51.conf"));
 			String line;
 
 			while ((line = rd.readLine()) != null){
@@ -1427,7 +1431,7 @@ public class J51 extends JFrame implements MCS51Performance, ActionListener
 				return this;
 			}
 			
-		};
+		}
 
 		tree.setCellRenderer(new MyRenderer());
 		Dimension size = getPreferredSize();
@@ -1682,7 +1686,7 @@ public class J51 extends JFrame implements MCS51Performance, ActionListener
 			j51.setVisible(true);
 			j51.requestFocus();
 		} catch (Exception ex) {
-			 java.util.logging.Logger.getLogger(J51.class.getName()).log(Level.SEVERE, null, ex);
+			java.util.logging.Logger.getLogger(J51.class.getName()).log(Level.SEVERE, null, ex);
 			System.exit(1);
 		}
 	}

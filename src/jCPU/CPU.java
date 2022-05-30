@@ -9,7 +9,7 @@ import j51.intel.CallListener;
 
 /**
  *
- * @author spy
+ * @author X. Wang
  */
 public interface CPU {
 

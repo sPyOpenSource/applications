@@ -99,8 +99,8 @@ public abstract class AbstractOpcode implements Opcode
 
 		sb.append(getDescription());
 
-		int opcode	= cpu.code(pc);
-		int end		= pc + getLength();
+		int opcode = cpu.code(pc);
+		int end	= pc + getLength();
 		pc++;
 		
 		boolean haveParameter = false;
@@ -171,8 +171,8 @@ public abstract class AbstractOpcode implements Opcode
 
 interface DecodeString
 {
-	public int		decode(CPU cpu, int opcode, int end, int pc, StringBuffer value, int pos);
-	public int		search(StringBuffer s);
+	public int decode(CPU cpu, int opcode, int end, int pc, StringBuffer value, int pos);
+	public int search(StringBuffer s);
 }
 
 abstract class AbstractDecodeString implements DecodeString

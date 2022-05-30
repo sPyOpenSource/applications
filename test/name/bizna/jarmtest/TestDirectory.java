@@ -21,7 +21,7 @@ import name.bizna.jarmtest.TestSpec.InvalidSpecException;
 
 public class TestDirectory {
 	public static final String CODE_FILENAME = "code.elf";
-	public static final int MAX_PROGRAM_SPACE = 1<<30;
+	public static final int MAX_PROGRAM_SPACE = 1 << 30;
 	private final File path;
 	private final String name;
 	private byte[] programBytes = null, hiBytes = null;
@@ -96,8 +96,8 @@ public class TestDirectory {
 			headerReadBuf.getInt();
 			/* e_flags */
 			int e_flags = headerReadBuf.getInt();
-                    /* only accept a zero entry point if e_flags contains EF_ARM_HASENTRY (0x00000002) */
-                    hasEntryPoint = !((e_flags & 2) != 0 && entryPoint == 0);
+                        /* only accept a zero entry point if e_flags contains EF_ARM_HASENTRY (0x00000002) */
+                        hasEntryPoint = !((e_flags & 2) != 0 && entryPoint == 0);
 			/* e_ehsize */
 			int e_ehsize = headerReadBuf.getShort() & 0xFFFF;
 			if(e_ehsize < 52) throw new NonLoadableFileException("has an invalid e_ehsize field", id);
@@ -200,7 +200,7 @@ public class TestDirectory {
 			if(hasEntryPoint) cpu.loadPC(entryPoint);
 			cpu.zeroBudget(false);
 			try {
-				cpu.execute(1<<30);
+				cpu.execute(1 << 30);
 			}
 			catch(BusErrorException | AlignmentException | UndefinedException e) { /* NOTREACHED */ }
 			catch(UnimplementedInstructionException e) {
@@ -223,23 +223,23 @@ public class TestDirectory {
 			}
 		}
 		if(specFiles.isEmpty()) {
-			System.err.println(name+": Has no specs");
+			System.err.println(name + ": Has no specs");
 			success = false;
 		}
 		else {
 			try {
-				loadProgram(new File(path, CODE_FILENAME), name+File.separator+CODE_FILENAME);
+				loadProgram(new File(path, CODE_FILENAME), name + File.separator + CODE_FILENAME);
 				PhysicalMemorySpace mem = cpu.getMemorySpace();
 				if(specFiles.size() == 1) {
 					mem.unmapAllRegions();
 					if(programBytes != null) mem.mapRegion(0, new ByteArrayRegion(programBytes));
 					if(hiBytes != null) mem.mapRegion(-65536, new ByteArrayRegion(hiBytes));
-					String specId = name+File.separator+specFiles.get(0).getName();
+					String specId = name + File.separator + specFiles.get(0).getName();
 					List<String> subtestFailureList = new ArrayList<>();
 					if(!runTestWithSpec(cpu, specFiles.get(0), specId, subtestFailureList)) {
-						if(subtestFailureList.isEmpty()) failureList.add(specId+" (unknown failure)");
+						if(subtestFailureList.isEmpty()) failureList.add(specId + " (unknown failure)");
 						else subtestFailureList.forEach((failure) -> {
-                                                    failureList.add(specId+" ("+failure+")");
+                                                    failureList.add(specId + " (" + failure + ")");
                                                 });
 						success = false;
 					}
@@ -249,12 +249,12 @@ public class TestDirectory {
 						mem.unmapAllRegions();
 						if(programBytes != null) mem.mapRegion(0, new ByteArrayRegion(programBytes.clone()));
 						if(hiBytes != null) mem.mapRegion(-65536, new ByteArrayRegion(hiBytes.clone()));
-						String specId = name+File.separator+specFile.getName();
+						String specId = name + File.separator + specFile.getName();
 						List<String> subtestFailureList = new ArrayList<>();
 						if(!runTestWithSpec(cpu, specFile, specId, subtestFailureList)) {
-							if(subtestFailureList.isEmpty()) failureList.add(specId+" (unknown failure)");
+							if(subtestFailureList.isEmpty()) failureList.add(specId + " (unknown failure)");
 							else subtestFailureList.forEach((failure) -> {
-                                                            failureList.add(specId+" ("+failure+")");
+                                                            failureList.add(specId + " (" + failure + ")");
                                                         });
 							success = false;
 						}
@@ -262,7 +262,7 @@ public class TestDirectory {
 				}
 			}
 			catch(NonLoadableFileException e) {
-				failureList.add(e.getIdentifier() + " (non-loadable ELF: "+e.getWay()+")");
+				failureList.add(e.getIdentifier() + " (non-loadable ELF: " + e.getWay() + ")");
 				return false;
 			}
 		}

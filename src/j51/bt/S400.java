@@ -8,7 +8,7 @@ import j51.intel.*;
 import j51.atmel.*;
 
 
-class LCD2x16 extends j51.lcd.JLcd implements MCS51Peripheral,j51.atmel.AT89C51RD2Constants,SfrWriteListener
+class LCD2x16 extends j51.lcd.JLcd implements MCS51Peripheral, j51.atmel.AT89C51RD2Constants, SfrWriteListener
 {
 	MCS51 cpu;
 	int oldP5;
@@ -82,13 +82,9 @@ public class S400 extends j51.atmel.AT89C51RD2
 		addPeripheral(new JUart());
 		AT89Port6 port = new AT89Port6();
 		addPeripheral(port);
-		port.setPortName(2,2,"Red led");
-		port.setPortName(2,3,"Green led");
-		port.setPortName(3,4,"Buzzer");
-		port.setPortName(3,5,"RTS");
-
+		port.setPortName(2, 2, "Red led");
+		port.setPortName(2, 3, "Green led");
+		port.setPortName(3, 4, "Buzzer");
+		port.setPortName(3, 5, "RTS");
 	}
-	
 }
-
-

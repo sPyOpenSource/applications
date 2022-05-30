@@ -16,13 +16,13 @@ import java.util.function.Function;
  */
 public class ByteCode {
     
-/* Stack Frame */
-int STACK_ENTRY_NONE        = 0;
-int STACK_ENTRY_INT         = 1;
-int STACK_ENTRY_REF         = 2;
-int STACK_ENTRY_LONG        = 3;
-int STACK_ENTRY_DOUBLE      = 4;
-int STACK_ENTRY_FLOAT       = 5;
+    /* Stack Frame */
+    int STACK_ENTRY_NONE   = 0;
+    int STACK_ENTRY_INT    = 1;
+    int STACK_ENTRY_REF    = 2;
+    int STACK_ENTRY_LONG   = 3;
+    int STACK_ENTRY_DOUBLE = 4;
+    int STACK_ENTRY_FLOAT  = 5;
 
     private  boolean is_ref_entry(VmStackFrame stack) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -153,7 +153,7 @@ private  class MethodInfo{
     public MethodInfo(){
         
     }
-    }
+}
 
 private  class AttributeInfo{
     int attribute_name_index, attribute_length;
@@ -165,17 +165,17 @@ private  class AttributeInfo{
 
 private class LocalVariables{
     int[]integer;
-    
 }
+
 private class SimpleMethodPool{
     int method_used;
     MethodInfo[] method;
     
 }
 
- int run = 1;
- LocalVariables localVariables;
- SimpleMethodPool simpleMethodPool;
+int run = 1;
+LocalVariables localVariables;
+SimpleMethodPool simpleMethodPool;
  
 public  double get_double_parameter(VmStackFrame stack, VmCP p)
 {
@@ -212,11 +212,13 @@ public  double get_double_parameter(VmStackFrame stack, VmCP p)
     //opCode = opCode + 2;
     return 0;
 }
- int EntryToInt(StackEntry entry){
+ 
+int EntryToInt(StackEntry entry){
     return 0;
 }
+
 /* dup */
- int op_dup(char opCode, VmStackFrame stack, VmCP p)
+int op_dup(char opCode, VmStackFrame stack, VmCP p)
 {
     StackEntry entry = popEntry(stack);
     int value = 0;
@@ -299,7 +301,7 @@ public  double get_double_parameter(VmStackFrame stack, VmCP p)
 }
 
 /* iconst_5 */
- int op_iconst_5( char opCode, VmStackFrame stack, VmCP p)
+int op_iconst_5( char opCode, VmStackFrame stack, VmCP p)
 {
     pushInt(stack, 5);
     System.out.print("iconst_5: push 5 into stack\n");
@@ -307,7 +309,7 @@ public  double get_double_parameter(VmStackFrame stack, VmCP p)
 }
 
 /* 0x0F dconst_1 */
- int op_dconst_1( char[][] opCode, VmStackFrame stack, VmCP p)
+int op_dconst_1( char[][] opCode, VmStackFrame stack, VmCP p)
 {
     pushDouble(stack, 1.0f);
     System.out.print("iconst_5: push 1.0f into stack\n");
@@ -315,7 +317,7 @@ public  double get_double_parameter(VmStackFrame stack, VmCP p)
 }
 
 /* idiv */
- int op_idiv( char[][] opCode, VmStackFrame stack, VmCP p)
+int op_idiv( char[][] opCode, VmStackFrame stack, VmCP p)
 {
     int value2 = popInt(stack);
     int value1 = popInt(stack);
@@ -327,7 +329,7 @@ public  double get_double_parameter(VmStackFrame stack, VmCP p)
 }
 
 /* iload */
- int op_iload( char[][] opCode, VmStackFrame stack, VmCP p)
+int op_iload( char[][] opCode, VmStackFrame stack, VmCP p)
 {
     int index = opCode[0][1];
     int value = localVariables.integer[index];
@@ -337,7 +339,7 @@ public  double get_double_parameter(VmStackFrame stack, VmCP p)
 }
 
 /* iload_1 */
- int op_iload_1( char[][] opCode, VmStackFrame stack, VmCP p)
+int op_iload_1( char[][] opCode, VmStackFrame stack, VmCP p)
 {
     int value = localVariables.integer[1];
     //System.out.print("iload_1: load value from local variable 1(%d)\n", localVariables.integer[1]);
@@ -346,7 +348,7 @@ public  double get_double_parameter(VmStackFrame stack, VmCP p)
 }
 
 /* iload_2 */
- int op_iload_2( char[][] opCode, VmStackFrame stack, VmCP p)
+int op_iload_2( char[][] opCode, VmStackFrame stack, VmCP p)
 {
     int value = localVariables.integer[2];
     //System.out.print("iload_2: load value from local variable 2(%d)\n", localVariables.integer[2]);
@@ -355,7 +357,7 @@ public  double get_double_parameter(VmStackFrame stack, VmCP p)
 }
 
 /* iload_3 */
- int op_iload_3( char[][] opCode, VmStackFrame stack, VmCP p)
+int op_iload_3( char[][] opCode, VmStackFrame stack, VmCP p)
 {
     int value = localVariables.integer[3];
     //System.out.print("iload_3: load value from local variable 3(%d)\n", localVariables.integer[3]);
@@ -364,19 +366,19 @@ public  double get_double_parameter(VmStackFrame stack, VmCP p)
 }
 
 /* imul */
- int op_imul( char[][] opCode, VmStackFrame stack, VmCP p)
+int op_imul( char[][] opCode, VmStackFrame stack, VmCP p)
 {
     int value1 = popInt(stack);
     int value2 = popInt(stack);
     int result = 0;
     result = value1 * value2;
-   // System.out.print("imul: %d * %d = %d\n", value1, value2, result);
+    // System.out.print("imul: %d * %d = %d\n", value1, value2, result);
     pushInt(stack, result);
     return 0;
 }
 
 /* 0x63 dadd */
- int op_dadd( char[][] opCode, VmStackFrame stack, VmCP p)
+int op_dadd( char[][] opCode, VmStackFrame stack, VmCP p)
 {
     double value1 = get_double_parameter(stack, p);
     double value2 = get_double_parameter(stack, p);
@@ -388,98 +390,98 @@ public  double get_double_parameter(VmStackFrame stack, VmCP p)
 }
 
 /* 0x6B dmul */
- int op_dmul( char[][] opCode, VmStackFrame stack, VmCP p)
+int op_dmul( char[][] opCode, VmStackFrame stack, VmCP p)
 {
     double value1 = get_double_parameter(stack, p);
     double value2 = get_double_parameter(stack, p);
     double result = 0;
     result = value1 * value2;
- //   System.out.print("dmul: %f * %f = %f\n", value1, value2, result);
+    // System.out.print("dmul: %f * %f = %f\n", value1, value2, result);
     pushDouble(stack, result);
     return 0;
 }
 
 /* 0x8e d2i */
- int op_d2i( char[][] opCode, VmStackFrame stack, VmCP p)
+int op_d2i( char[][] opCode, VmStackFrame stack, VmCP p)
 {
     double value1 = popDouble(stack);
     int result = 0;
     result = (int)value1;
-  //  System.out.print("d2i: %d <-- %f\n", result, value1);
+    // System.out.print("d2i: %d <-- %f\n", result, value1);
     pushInt(stack, result);
     return 0;
 }
 
 /* irem */
- int op_irem( char[][] opCode, VmStackFrame stack, VmCP p)
+int op_irem( char[][] opCode, VmStackFrame stack, VmCP p)
 {
     int value1 = popInt(stack);
     int value2 = popInt(stack);
     int result = 0;
     result = value2 % value1;
- //   System.out.print("irem: %d mod %d = %d\n", value2, value1, result);
+    // System.out.print("irem: %d mod %d = %d\n", value2, value1, result);
     pushInt(stack, result);
     return 0;
 }
 
 /* istore */
- int op_istore( char[][] opCode, VmStackFrame stack, VmCP p)
+int op_istore( char[][] opCode, VmStackFrame stack, VmCP p)
 {
     int value = popInt(stack);
     int index = opCode[0][1];
-  //  System.out.print("istore: store value into local variable %d(%d)\n", index, value);
+    // System.out.print("istore: store value into local variable %d(%d)\n", index, value);
     localVariables.integer[index] = value;
     return 0;
 }
 
 /* istore_1 */
- int op_istore_1( char[][] opCode, VmStackFrame stack, VmCP p)
+int op_istore_1( char[][] opCode, VmStackFrame stack, VmCP p)
 {
     int value = popInt(stack);
-  //  System.out.print("istore_1: store value into local variable 1(%d)\n", value);
+    // System.out.print("istore_1: store value into local variable 1(%d)\n", value);
     localVariables.integer[1] = value;
     return 0;
 }
 
 /* istore_2 */
- int op_istore_2( char[][] opCode, VmStackFrame stack, VmCP p)
+int op_istore_2( char[][] opCode, VmStackFrame stack, VmCP p)
 {
     int value = popInt(stack);
-  //  System.out.print("istore_2: store value into local variable 2(%d)\n", value);
+    // System.out.print("istore_2: store value into local variable 2(%d)\n", value);
     localVariables.integer[2] = value;
     return 0;
 }
 
 /* istore_3 */
- int op_istore_3( char[][] opCode, VmStackFrame stack, VmCP p)
+int op_istore_3( char[][] opCode, VmStackFrame stack, VmCP p)
 {
     int value = popInt(stack);
-  //  System.out.print("istore_3: store value into local variable 3(%d)\n", value);
+    // System.out.print("istore_3: store value into local variable 3(%d)\n", value);
     localVariables.integer[3] = value;
     return 0;
 }
 
 /* isub */
- int op_isub( char[][] opCode, VmStackFrame stack, VmCP p)
+int op_isub( char[][] opCode, VmStackFrame stack, VmCP p)
 {
     int value2 = popInt(stack);
     int value1 = popInt(stack);
     int result = 0;
     result = value1 - value2;
-  //  System.out.print("isub : %d - %d = %d\n", value1, value2, result);
+    // System.out.print("isub : %d - %d = %d\n", value1, value2, result);
     pushInt(stack, result);
     return 0;
 }
 
 /* invokespecial */
- int op_invokespecial( char[][] opCode, VmStackFrame stack, VmCP p)
+int op_invokespecial( char[][] opCode, VmStackFrame stack, VmCP p)
 {
     int method_index;
     char []tmp=new char[2];
     tmp[0] = opCode[0][1];
     tmp[1] = opCode[0][2];
     method_index = tmp[0] << 8 | tmp[1];
-   // System.out.print("call method_index %d\n", method_index);
+    // System.out.print("call method_index %d\n", method_index);
     if (method_index < simpleMethodPool.method_used) {
         MethodInfo method = simpleMethodPool.method[method_index];
         executeMethod(method, stackFrame, simpleConstantPool);
@@ -487,24 +489,24 @@ public  double get_double_parameter(VmStackFrame stack, VmCP p)
     return 0;
 }
 
- String clzNamePrint = "java/io/PrintStream";
- String clzNameStrBuilder = "java/lang/StringBuilder";
- char[] stringBuilderBuffer = new char[1024];
- int stringBuilderUsed = 0;
+String clzNamePrint = "java/io/PrintStream";
+String clzNameStrBuilder = "java/lang/StringBuilder";
+char[] stringBuilderBuffer = new char[1024];
+int stringBuilderUsed = 0;
 
 /* 0xb8 invoke */
- int op_invoke( char[][] opCode, VmStackFrame stack, VmCP p)
+int op_invoke( char[][] opCode, VmStackFrame stack, VmCP p)
 {
     int method_index ;
-     char[] tmp=new char[2];
+    char[] tmp=new char[2];
     char[] method_name=new char[255];
     char[] clsName=new char[255];
     char[] method_type=new char[255];
     tmp[0] = opCode[0][1];
     tmp[1] = opCode[0][2];
     method_index = tmp[0] << 8 | tmp[1];
-   // System.out.print("invoke method_index %d\n", method_index);
-    //System.out.print("simpleMethodPool.method_used = %d\n", simpleMethodPool.method_used);
+    // System.out.print("invoke method_index %d\n", method_index);
+    // System.out.print("simpleMethodPool.method_used = %d\n", simpleMethodPool.method_used);
     if (method_index < simpleMethodPool.method_used) {
         MethodInfo method = simpleMethodPool.method[method_index];
         memset(method_name, 0, 255);
@@ -520,10 +522,10 @@ public  double get_double_parameter(VmStackFrame stack, VmCP p)
             getUTF8String(p, nat.nameIndex, 255, method_name);
             getUTF8String(p, nat.typeIndex, 255, method_type);
 
-           /* System.out.print("call class %s\n", clsName);
+            /* System.out.print("call class %s\n", clsName);
             System.out.print("call method %s\n", method_name);
             System.out.print("call method type %s\n", method_type);*/
-           boolean ret = invoke_java_lang_library(stack, p, clsName, method_name, method_type);
+            boolean ret = invoke_java_lang_library(stack, p, clsName, method_name, method_type);
             if (ret) {
                 System.out.print("invoke java lang library successful\n");
             }
@@ -534,7 +536,7 @@ public  double get_double_parameter(VmStackFrame stack, VmCP p)
 }
 
 /* invokevirtual */
- int op_invokevirtual( char[][] opCode, VmStackFrame stack, VmCP p)
+int op_invokevirtual( char[][] opCode, VmStackFrame stack, VmCP p)
 {
     int object_ref;
     char []tmp = new char[2];
@@ -602,7 +604,7 @@ public  double get_double_parameter(VmStackFrame stack, VmCP p)
 }
 
 /* ldc */
- int op_ldc(char [][]opCode, VmStackFrame stack, VmCP p)
+int op_ldc(char [][]opCode, VmStackFrame stack, VmCP p)
 {
     int value = opCode[0][1];
     pushRef(stack, value);
@@ -611,10 +613,10 @@ public  double get_double_parameter(VmStackFrame stack, VmCP p)
 }
 
 /* 0x14 ldc2_w */
- int op_ldc2_w( char[][] opCode, VmStackFrame stack, VmCP p)
+int op_ldc2_w( char[][] opCode, VmStackFrame stack, VmCP p)
 {
-     char index1 = opCode[0][1];
-     char index2 = opCode[0][2];
+    char index1 = opCode[0][1];
+    char index2 = opCode[0][2];
     int index = (index1 << 8) | index2;
     pushRef(stack, index);
     //System.out.print("ldc2_w: push a constant index %d onto the stack \n", index);
@@ -622,10 +624,10 @@ public  double get_double_parameter(VmStackFrame stack, VmCP p)
 }
 
 /* 0x11 op_sipush */
- int op_sipush( char[][] opCode, VmStackFrame stack, VmCP p)
+int op_sipush( char[][] opCode, VmStackFrame stack, VmCP p)
 {
     short value;
-     char[] tmp=new char[2];
+    char[] tmp=new char[2];
     tmp[0] = opCode[0][1];
     tmp[1] = opCode[0][2];
     value =(short) (tmp[0] << 8 | tmp[1]);
@@ -635,9 +637,9 @@ public  double get_double_parameter(VmStackFrame stack, VmCP p)
 }
 
 /* op_new */
- int op_new( char[][] opCode, VmStackFrame stack, VmCP p)
+int op_new( char[][] opCode, VmStackFrame stack, VmCP p)
 {
-     char []tmp=new char[2];
+    char []tmp=new char[2];
     tmp[0] = opCode[0][1];
     tmp[1] = opCode[0][2];
     int object_ref = tmp[0] << 8 | tmp[1];
@@ -646,7 +648,7 @@ public  double get_double_parameter(VmStackFrame stack, VmCP p)
 }
 
 /* return */
- int op_return( char[][] opCode, VmStackFrame stack, VmCP p)
+int op_return( char[][] opCode, VmStackFrame stack, VmCP p)
 {
     System.out.print("return: \n");
     return -1;
@@ -710,7 +712,7 @@ Function<VM, Integer> op_new, op_irem, op_sipush, op_return;
     new VmByteCode( "return"          , 0xB1, 1,  op_return        )
 };
 
- Function findOpCodeFunc( char op)
+Function findOpCodeFunc( char op)
 {
     int i;
     for (i = 0; i < byteCodes.length; i++)
@@ -719,7 +721,7 @@ Function<VM, Integer> op_new, op_irem, op_sipush, op_return;
     return null;
 }
 
- int findOpCodeOffset( char op)
+int findOpCodeOffset( char op)
 {
     int i;
     for (i = 0; i < byteCodes.length ; i++)
@@ -728,10 +730,10 @@ Function<VM, Integer> op_new, op_irem, op_sipush, op_return;
     return 0;
 }
 
- int convertToCodeAttribute(CodeAttribute ca, AttributeInfo attr)
+int convertToCodeAttribute(CodeAttribute ca, AttributeInfo attr)
 {
     int info_p = 0;
-     char []tmp=new char[4];
+    char []tmp=new char[4];
     ca.attribute_name_index = attr.attribute_name_index;
     ca.attribute_length = attr.attribute_length;
     tmp[0] = attr.info[info_p++];
@@ -780,7 +782,7 @@ int executeMethod(MethodInfo startup, VmStackFrame stack, VmCP p)
     return 0;
 }
 
- public String findOpCode(char op)
+public String findOpCode(char op)
 {
     for (VmByteCode byteCode : byteCodes) {
         if (op == byteCode.opCode) {
@@ -791,7 +793,7 @@ int executeMethod(MethodInfo startup, VmStackFrame stack, VmCP p)
 }
 
     void printCodeAttribute(CodeAttribute ca, VmCP p)
-   {
+    {
        int i = 0;
        int tmp = 0;
        char []name = new char[255];
@@ -802,7 +804,7 @@ int executeMethod(MethodInfo startup, VmStackFrame stack, VmCP p)
        //System.out.print("max_stack: %d\n", ca.max_stack);
        //System.out.print("max_locals: %d\n", ca.max_locals);
        //System.out.print("code_length: %d\n", ca.code_length);
-        char[][] pc = ca.code;
+       char[][] pc = ca.code;
        i = 0;
        do {
            String opName = findOpCode(pc[0][0]);

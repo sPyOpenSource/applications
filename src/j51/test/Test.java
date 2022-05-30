@@ -81,8 +81,5 @@ public class Test extends j51.intel.P8051
 	{
 		setOscillator(11184000);
 		addPeripheral(new G128x64());
-	}
-	
+        }
 }
-
-

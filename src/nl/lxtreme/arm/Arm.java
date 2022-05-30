@@ -1,5 +1,5 @@
 /*
- * Java ARM-emu.
+ * Java ARM9-emu.
  * 
  * (C) Copyright 2011-2012, J.W. Janssen <j.w.janssen@lxtreme.nl>
  */
@@ -20,7 +20,7 @@ import nl.lxtreme.binutils.elf.ProgramHeader;
 /**
  * Provides a simplistic version of an ARM-core.
  */
-public class Arm  extends j51.intel.MCS51
+public class Arm extends j51.intel.MCS51
 {
   // INNER TYPES
 
@@ -143,22 +143,22 @@ public class Arm  extends j51.intel.MCS51
     this.r = new int[16];
     this.cpsr = new Cpsr();
     this.memory = new Memory();
-File elfFile = new File("resources/helloWorld_static");
+    File elfFile = new File("resources/helloWorld_static");
     Elf elf;
-      try {
-          elf = new Elf(elfFile);
-          for (ProgramHeader ph : elf.getProgramHeaders()){
-      int size = (int) ph.getMemorySize();
-      if (size <= 0){
-        continue;
-      }
+    try {
+        elf = new Elf(elfFile);
+        for (ProgramHeader ph : elf.getProgramHeaders()){
+            int size = (int) ph.getMemorySize();
+            if (size <= 0){
+                continue;
+            }
 
-      Chunk chunk = this.memory.create(ph.getVirtualAddress(), size);
-      elf.readSegment(ph, chunk);
+            Chunk chunk = this.memory.create(ph.getVirtualAddress(), size);
+            elf.readSegment(ph, chunk);
+        }
+    } catch (IOException ex) {
+        Logger.getLogger(Arm.class.getName()).log(Level.SEVERE, null, ex);
     }
-      } catch (IOException ex) {
-          Logger.getLogger(Arm.class.getName()).log(Level.SEVERE, null, ex);
-      }
 
     this.breakpoints = new ArrayList<>(32);
     this.entryPoint = 0;
@@ -385,7 +385,7 @@ File elfFile = new File("resources/helloWorld_static");
     this.r[15] = this.entryPoint = val;
   }
   
-@Override
+    @Override
     public void go(int limit) throws Exception{
         while(true){
             step();

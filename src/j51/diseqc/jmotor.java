@@ -6,12 +6,7 @@ package j51.diseqc;
 import java.awt.*;
 import javax.swing.*;
 
-import j51.intel.*;
-import j51.philips.*;
 import j51.swing.*;
-import j51.util.Hex;
-import j51.atmel.Atmel24C16;
-import j51.i2c.I2cBus;
 
 /**
  * Sample text implementation of Motor.
@@ -21,7 +16,7 @@ import j51.i2c.I2cBus;
  *
  * @deprecated
  */
-class JMotor extends JPanel implements Runnable,Motor
+class JMotor extends JPanel implements Runnable, Motor
 {
 	int value = -1;
 	String stringValue;
@@ -30,7 +25,7 @@ class JMotor extends JPanel implements Runnable,Motor
 	{
 		f = new JTextField();
 		Font font = f.getFont();
-		font = new Font("Monospaced",font.BOLD,font.getSize()*4);
+		font = new Font("Monospaced",Font.BOLD,font.getSize()*4);
 		f.setFont(font);
 		f.setForeground(Color.green);
 		f.setBackground(Color.black);
@@ -38,7 +33,6 @@ class JMotor extends JPanel implements Runnable,Motor
 		setPosition(0);
 		add(f);
 		JFactory.setTitle(this,"Position");
-
 	}
 
 	public void setPosition(int value)
@@ -87,4 +81,3 @@ class JMotor extends JPanel implements Runnable,Motor
 		f.setText(stringValue);
 	}
 }
-

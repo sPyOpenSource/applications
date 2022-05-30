@@ -4,7 +4,7 @@ import java.io.PrintStream;
 import java.util.HashMap;
 import java.util.TreeSet;
 
-public final class CPU   extends j51.intel.MCS51{
+public final class CPU extends j51.intel.MCS51{
 	/*** CONSTANTS ***/
 	/* processor modes; HYP is PL2, USER is PL0, all others are PL1 (B1-1139) */
 	public static enum ProcessorMode {
@@ -17,7 +17,7 @@ public final class CPU   extends j51.intel.MCS51{
 		MONITOR(22, 5, 4, true, false), /* need Security Extensions */
 		ABORT(23, 6, 5, true, true),
 		UNDEFINED(27, 7, 6, true, true);
-		private static final HashMap<Integer, ProcessorMode> modeMap = new HashMap<Integer, ProcessorMode>();
+		private static final HashMap<Integer, ProcessorMode> modeMap = new HashMap<>();
 		public final int modeRepresentation;
 		public final int spIndex, spsrIndex, lrIndex;
 		public final boolean privileged, supported;
@@ -134,12 +134,12 @@ public final class CPU   extends j51.intel.MCS51{
 		}
 	}
         @Override
-                     public int r(int r)
+        public int r(int r)
 	{
 		return readRegister(r);
 	}
         @Override
-                     public int sp()
+        public int sp()
 	{
 		return readSP();
 	}
@@ -159,23 +159,23 @@ public final class CPU   extends j51.intel.MCS51{
 		writePC(value);
 	}
 	public int readRegisterAlignPC(int r) {
-		switch(r) {
+            switch(r) {
 		case 13: return readSP();
 		case 14: return readLR();
-		case 15: return readPC()&~3;
+		case 15: return readPC() & ~3;
 		default: return readGPR(r);
-		}
+            }
 	}
 	public void writeRegister(int r, int new_value) {
-		switch(r) {
+            switch(r) {
 		case 13: writeSP(new_value); break;
 		case 14: writeLR(new_value); break;
 		case 15: writePC(new_value); break;
 		default: writeGPR(r, new_value); break;
-		}
+            }
 	}
         @Override
-                     public void r(int r, int value)
+        public void r(int r, int value)
 	{
 		writeRegister(r, value);
 	}
@@ -211,25 +211,25 @@ public final class CPU   extends j51.intel.MCS51{
 			mode = newMode;
 		}
 	}
-	public boolean conditionN() { return (cpsr & (1<<CPSR_BIT_N)) != 0; }
-	public boolean conditionZ() { return (cpsr & (1<<CPSR_BIT_Z)) != 0; }
-	public boolean conditionC() { return (cpsr & (1<<CPSR_BIT_C)) != 0; }
-	public boolean conditionV() { return (cpsr & (1<<CPSR_BIT_V)) != 0; }
-	public boolean conditionQ() { return (cpsr & (1<<CPSR_BIT_Q)) != 0; }
-	public void setConditionN(boolean nu) { if(nu) cpsr |= (1<<CPSR_BIT_N); else cpsr &= ~(1<<CPSR_BIT_N); }
-	public void setConditionZ(boolean nu) { if(nu) cpsr |= (1<<CPSR_BIT_Z); else cpsr &= ~(1<<CPSR_BIT_Z); }
-	public void setConditionC(boolean nu) { if(nu) cpsr |= (1<<CPSR_BIT_C); else cpsr &= ~(1<<CPSR_BIT_C); }
-	public void setConditionV(boolean nu) { if(nu) cpsr |= (1<<CPSR_BIT_V); else cpsr &= ~(1<<CPSR_BIT_V); }
-	public void setConditionQ(boolean nu) { if(nu) cpsr |= (1<<CPSR_BIT_Q); else cpsr &= ~(1<<CPSR_BIT_Q); }
-	public void setConditions(int cc) { cpsr = (cpsr & 0x0FFFFFFF) | (cc<<28); }
-	public boolean isThumb() { return (cpsr & (1<<CPSR_BIT_T)) != 0; }
-	public boolean isARM() { return (cpsr & (1<<CPSR_BIT_T)) == 0; }
-	public boolean isLittleEndian() { return (cpsr & (1<<CPSR_BIT_E)) == 0; }
-	public boolean isBigEndian() { return (cpsr & (1<<CPSR_BIT_E)) != 0; }
+	public boolean conditionN() { return (cpsr & (1 << CPSR_BIT_N)) != 0; }
+	public boolean conditionZ() { return (cpsr & (1 << CPSR_BIT_Z)) != 0; }
+	public boolean conditionC() { return (cpsr & (1 << CPSR_BIT_C)) != 0; }
+	public boolean conditionV() { return (cpsr & (1 << CPSR_BIT_V)) != 0; }
+	public boolean conditionQ() { return (cpsr & (1 << CPSR_BIT_Q)) != 0; }
+	public void setConditionN(boolean nu) { if(nu) cpsr |= (1 << CPSR_BIT_N); else cpsr &= ~(1 << CPSR_BIT_N); }
+	public void setConditionZ(boolean nu) { if(nu) cpsr |= (1 << CPSR_BIT_Z); else cpsr &= ~(1 << CPSR_BIT_Z); }
+	public void setConditionC(boolean nu) { if(nu) cpsr |= (1 << CPSR_BIT_C); else cpsr &= ~(1 << CPSR_BIT_C); }
+	public void setConditionV(boolean nu) { if(nu) cpsr |= (1 << CPSR_BIT_V); else cpsr &= ~(1 << CPSR_BIT_V); }
+	public void setConditionQ(boolean nu) { if(nu) cpsr |= (1 << CPSR_BIT_Q); else cpsr &= ~(1 << CPSR_BIT_Q); }
+	public void setConditions(int cc) { cpsr = (cpsr & 0x0FFFFFFF) | (cc << 28); }
+	public boolean isThumb() { return (cpsr & (1 << CPSR_BIT_T)) != 0; }
+	public boolean isARM() { return (cpsr & (1 << CPSR_BIT_T)) == 0; }
+	public boolean isLittleEndian() { return (cpsr & (1 << CPSR_BIT_E)) == 0; }
+	public boolean isBigEndian() { return (cpsr & (1 << CPSR_BIT_E)) != 0; }
 	public boolean isPrivileged() { return mode.privileged; }
-	public boolean usingStrictAlignment() { return (cpsr & (1<<CPSR_BIT_A)) != 0; }
-	public boolean areIRQsEnabled() { return (cpsr & (1<<CPSR_BIT_I)) != 0; }
-	public boolean areFIQsEnabled() { return (cpsr & (1<<CPSR_BIT_F)) != 0; }
+	public boolean usingStrictAlignment() { return (cpsr & (1 << CPSR_BIT_A)) != 0; }
+	public boolean areIRQsEnabled() { return (cpsr & (1 << CPSR_BIT_I)) != 0; }
+	public boolean areFIQsEnabled() { return (cpsr & (1 << CPSR_BIT_F)) != 0; }
 	public int getMode() { return cpsr & 31; }
 	public void writeCPSR(int value) { cpsr = value; }
 	public int readCPSR() { return cpsr; }
@@ -377,7 +377,7 @@ public final class CPU   extends j51.intel.MCS51{
 	}
         
         @Override
-    public void go(int limit) throws Exception{
+        public void go(int limit) throws Exception{
         while(true){
             execute();
         }
@@ -1965,24 +1965,30 @@ public final class CPU   extends j51.intel.MCS51{
 		}
 		else executeARMUnconditional(iword);
 	}
-	private void performSVC() { generateException(ProcessorMode.SUPERVISOR, (1<<CPSR_BIT_I), EXCEPTION_VECTOR_SUPERVISOR_CALL, isThumb()?pc-2:pc-4); }
-	private void generateUndefinedException() { generateException(ProcessorMode.UNDEFINED, (1<<CPSR_BIT_I), EXCEPTION_VECTOR_UNDEFINED, pc); }
-	private void generatePrefetchAbortException() { generateException(ProcessorMode.ABORT, (1<<CPSR_BIT_I)|(1<<CPSR_BIT_A), EXCEPTION_VECTOR_PREFETCH_ABORT, pc); }
-	private void generateDataAbortException() { generateException(ProcessorMode.ABORT, (1<<CPSR_BIT_I)|(1<<CPSR_BIT_A), EXCEPTION_VECTOR_DATA_ABORT, pc+8); }
-	private void generateIRQException() { generateException(ProcessorMode.IRQ, (1<<CPSR_BIT_I)|(1<<CPSR_BIT_A), EXCEPTION_VECTOR_IRQ, pc+4); }
-	private void generateFIQException() { generateException(ProcessorMode.FIQ, (1<<CPSR_BIT_I)|(1<<CPSR_BIT_A)|(1<<CPSR_BIT_F), EXCEPTION_VECTOR_FIQ, pc+4); }
+	private void performSVC() { generateException(ProcessorMode.SUPERVISOR, (1 << CPSR_BIT_I), EXCEPTION_VECTOR_SUPERVISOR_CALL, isThumb() ? pc - 2 : pc - 4); }
+	private void generateUndefinedException() { generateException(ProcessorMode.UNDEFINED, (1 << CPSR_BIT_I), EXCEPTION_VECTOR_UNDEFINED, pc); }
+	private void generatePrefetchAbortException() { generateException(ProcessorMode.ABORT, (1 << CPSR_BIT_I) | (1 << CPSR_BIT_A), EXCEPTION_VECTOR_PREFETCH_ABORT, pc); }
+	private void generateDataAbortException() { generateException(ProcessorMode.ABORT, (1 << CPSR_BIT_I) | (1 << CPSR_BIT_A), EXCEPTION_VECTOR_DATA_ABORT, pc + 8); }
+	private void generateIRQException() { generateException(ProcessorMode.IRQ, (1 << CPSR_BIT_I) | (1 << CPSR_BIT_A), EXCEPTION_VECTOR_IRQ, pc + 4); }
+	private void generateFIQException() { generateException(ProcessorMode.FIQ, (1 << CPSR_BIT_I) | (1 << CPSR_BIT_A) | (1 << CPSR_BIT_F), EXCEPTION_VECTOR_FIQ, pc + 4); }
 	private void generateException(ProcessorMode targetMode, int interruptMask, int vector, int preferredReturn) {
 		enterProcessorModeByException(targetMode);
 		lr[cur_lr] = preferredReturn;
 		cpsr |= interruptMask;
 		/* zero J/E/T/IT<7:0> */
-		cpsr &= ~((1<<CPSR_BIT_J) | (1<<CPSR_BIT_E) | (1<<CPSR_BIT_T) | (CPSR_MASK_ITLO << CPSR_SHIFT_ITLO) | (CPSR_MASK_ITHI << CPSR_SHIFT_ITHI));
-		if((cp15.SCTLR & (1<<CP15.SCTLR_BIT_TE)) != 0) cpsr |= (1<<CPSR_BIT_T);
-		else cpsr &= ~(1<<CPSR_BIT_T);
-		if((cp15.SCTLR & (1<<CP15.SCTLR_BIT_EE)) != 0) cpsr |= (1<<CPSR_BIT_E);
-		else cpsr &= ~(1<<CPSR_BIT_E);
+		cpsr &= ~((1 << CPSR_BIT_J) | (1 << CPSR_BIT_E) | (1 << CPSR_BIT_T) | (CPSR_MASK_ITLO << CPSR_SHIFT_ITLO) | (CPSR_MASK_ITHI << CPSR_SHIFT_ITHI));
+		if((cp15.SCTLR & (1 << CP15.SCTLR_BIT_TE)) != 0) cpsr |= (1 << CPSR_BIT_T);
+		else cpsr &= ~(1 << CPSR_BIT_T);
+		if((cp15.SCTLR & (1 << CP15.SCTLR_BIT_EE)) != 0) cpsr |= (1 << CPSR_BIT_E);
+		else cpsr &= ~(1 << CPSR_BIT_E);
 		branch(getInterruptVector(vector));
 	}
+        
+        @Override
+        public void reset(){
+            reset(false, false, false);
+        }
+        
 	/* B1-1206 */
 	/**
 	 * Reset the CPU. This must be called at least once before any execution occurs.
@@ -1999,7 +2005,7 @@ public final class CPU   extends j51.intel.MCS51{
 		}
 		cp15.reset(thumb_exceptions, big_endian, high_vectors);
 		// TODO: for FP: FPEXC.EN = 0
-		generateException(ProcessorMode.SUPERVISOR, (1<<CPSR_BIT_I) | (1<<CPSR_BIT_A) | (1<<CPSR_BIT_F), EXCEPTION_VECTOR_RESET, 0xDEADBEEF);
+		generateException(ProcessorMode.SUPERVISOR, (1 << CPSR_BIT_I) | (1 << CPSR_BIT_A) | (1 << CPSR_BIT_F), EXCEPTION_VECTOR_RESET, 0xDEADBEEF);
 	}
 	/*** INTERRUPTS ***/
 	private boolean waitingForInterrupt = false;
@@ -2051,7 +2057,7 @@ public final class CPU   extends j51.intel.MCS51{
 	 * @param nu The new mode.
 	 */
 	public void setDebugDumpMode(boolean nu) { debugDumpMode = nu; }
-	static final String[] regnames = new String[]{"r0","r1","r2","r3","r4","r5","r6","r7","r8","r9","r10","r11","r12","sp","lr","pc"};
+	static final String[] regnames = new String[]{"r0", "r1", "r2", "r3", "r4", "r5", "r6", "r7", "r8", "r9", "r10", "r11", "r12", "sp", "lr", "pc"};
 	static final String[] banked_states = new String[]{};
 	private String toBinary32(int in) {
 		char out[] = new char[32];
@@ -2072,7 +2078,7 @@ public final class CPU   extends j51.intel.MCS51{
 		}
 		out.println("CPSR:");
 		out.println("  NZCVQitJ....<ge><.it.>EAIFT<.m.>");
-		out.println("  "+toBinary32(readCPSR()));
+		out.println("  " + toBinary32(readCPSR()));
 	}
 	public void dumpExtraState(PrintStream out) {
 		out.println("Banked Registers:");
