@@ -26,7 +26,6 @@ package jCPU.JavaVM.vm;
  * @author epr
  */
 public abstract class VmConstObject {
-
     public static final int CONST_UTF8 = 1;
     public static final int CONST_INT = 3;
     public static final int CONST_FLOAT = 4;

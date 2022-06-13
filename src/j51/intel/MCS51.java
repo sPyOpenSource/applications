@@ -42,8 +42,8 @@ public class MCS51 implements MCS51Constants, jCPU.CPU
 	private static Logger log = Logger.getLogger(MCS51.class);
 	
 	// Interrupt statistics
-	private FastArray<InterruptStatistic>	interruptStatistics = new FastArray<>();
-	private FastArray<InterruptSource>	interruptList = new FastArray<>();
+	private FastArray<InterruptStatistic> interruptStatistics = new FastArray<>();
+	private FastArray<InterruptSource> interruptList = new FastArray<>();
 	
 	// Sfr register pages
 	private SfrPage	sfrPages[];
@@ -99,9 +99,9 @@ public class MCS51 implements MCS51Constants, jCPU.CPU
 	private long opcodesCounter[] = new long[256];
 	
 
-	private FastArray<MCS51Peripheral>	peripherals		= new FastArray<>();
-	private FastArray<Runnable>		runQueue		= new FastArray<>();
-	private FastArray<InterruptSource>	interruptRequest	= new FastArray<>();
+	private FastArray<MCS51Peripheral> peripherals	    = new FastArray<>();
+	private FastArray<Runnable>	   runQueue	    = new FastArray<>();
+	private FastArray<InterruptSource> interruptRequest = new FastArray<>();
 
 	/**
 	 * Emulation listener
@@ -126,7 +126,7 @@ public class MCS51 implements MCS51Constants, jCPU.CPU
 	private FastArray<AsyncTimer> asyncTimers = new FastArray<>();
 
 	
-	private Code code;
+	protected Code code;
 
 	private int currentDptr;
 	private int dptrs[] = new int[16];
@@ -227,66 +227,66 @@ public class MCS51 implements MCS51Constants, jCPU.CPU
 		/**
 		 * SFR register name
 		 */
-		setSfrName(ACC,	"ACC");
-		setSfrName(B,	"B");
-		setSfrName(PSW,	"PSW");
-		setSfrName(SP,	"SP");
-		setSfrName(DPL,	"DPL");
-		setSfrName(DPH,	"DPH");
-		setSfrName(P0,	"P0");
-		setSfrName(P0M1,"P0M1");
-		setSfrName(P0M2,"P0M2");
-		setSfrName(P1,	"P1");
-		setSfrName(P1M1,"P1M1");
-		setSfrName(P1M2,"P1M2");
-		setSfrName(P2,	"P2");
-		setSfrName(P2M1,"P2M1");
-		setSfrName(P2M2,"P2M2");
-		setSfrName(P3,	"P3");
-		setSfrName(P3M1,"P3M1");
-		setSfrName(P3M2,"P3M2");
-		setSfrName(SCON,"SCON");
-		setSfrName(SBUF,"SBUF");
-		setSfrName(TCON,"TCON");
-		setSfrName(TMOD,"TMOD");
-		setSfrName(TH0,"TH0");
-		setSfrName(TL0,"TL0");
-		setSfrName(TH1,"TH1");
-		setSfrName(TL1,"TL1");
-		setSfrName(IE, "IE");
+		setSfrName(ACC,	 "ACC");
+		setSfrName(B,	 "B"  );
+		setSfrName(PSW,	 "PSW");
+		setSfrName(SP,	 "SP" );
+		setSfrName(DPL,	 "DPL");
+		setSfrName(DPH,	 "DPH");
+		setSfrName(P0,	 "P0" );
+		setSfrName(P0M1, "P0M1");
+		setSfrName(P0M2, "P0M2");
+		setSfrName(P1,	 "P1"  );
+		setSfrName(P1M1, "P1M1");
+		setSfrName(P1M2, "P1M2");
+		setSfrName(P2,	 "P2"  );
+		setSfrName(P2M1, "P2M1");
+		setSfrName(P2M2, "P2M2");
+		setSfrName(P3,	 "P3"  );
+		setSfrName(P3M1, "P3M1");
+		setSfrName(P3M2, "P3M2");
+		setSfrName(SCON, "SCON");
+		setSfrName(SBUF, "SBUF");
+		setSfrName(TCON, "TCON");
+		setSfrName(TMOD, "TMOD");
+		setSfrName(TH0,  "TH0");
+		setSfrName(TL0,  "TL0");
+		setSfrName(TH1,  "TH1");
+		setSfrName(TL1,  "TL1");
+		setSfrName(IE,   "IE" );
 
-		setBitName(SCON+0,"RI");
-		setBitName(SCON+1,"TI");
-		setBitName(SCON+2,"RB8");
-		setBitName(SCON+3,"TB8");
-		setBitName(SCON+4,"REN");
-		setBitName(SCON+5,"SM2");
-		setBitName(SCON+6,"SM1");
-		setBitName(SCON+7,"SM0");
+		setBitName(SCON + 0, "RI");
+		setBitName(SCON + 1, "TI");
+		setBitName(SCON + 2, "RB8");
+		setBitName(SCON + 3, "TB8");
+		setBitName(SCON + 4, "REN");
+		setBitName(SCON + 5, "SM2");
+		setBitName(SCON + 6, "SM1");
+		setBitName(SCON + 7, "SM0");
 
-		setBitName(TCON+7,"TF1");
-		setBitName(TCON+6,"TR1");
-		setBitName(TCON+5,"TF0");
-		setBitName(TCON+4,"TR0");
+		setBitName(TCON + 7, "TF1");
+		setBitName(TCON + 6, "TR1");
+		setBitName(TCON + 5, "TF0");
+		setBitName(TCON + 4, "TR0");
 
-		setBitName(IE+7,"EA");
-		setBitName(IE+6,"EC");
-		setBitName(IE+5,"ET2");
-		setBitName(IE+4,"ES");
-		setBitName(IE+3,"ET1");
-		setBitName(IE+2,"EX1");
-		setBitName(IE+1,"ET0");
-		setBitName(IE+0,"EX0");
+		setBitName(IE + 7, "EA" );
+		setBitName(IE + 6, "EC" );
+		setBitName(IE + 5, "ET2");
+		setBitName(IE + 4, "ES" );
+		setBitName(IE + 3, "ET1");
+		setBitName(IE + 2, "EX1");
+		setBitName(IE + 1, "ET0");
+		setBitName(IE + 0, "EX0");
 		
 
-		setBitName(PSW+7,"CY");
-		setBitName(PSW+6,"AC");
-		setBitName(PSW+5,"F0");
-		setBitName(PSW+4,"RS1");
-		setBitName(PSW+3,"RS0");
-		setBitName(PSW+2,"OV");
-		setBitName(PSW+1,"F1");
-		setBitName(PSW+0,"P");
+		setBitName(PSW + 7, "CY");
+		setBitName(PSW + 6, "AC");
+		setBitName(PSW + 5, "F0");
+		setBitName(PSW + 4, "RS1");
+		setBitName(PSW + 3, "RS0");
+		setBitName(PSW + 2, "OV");
+		setBitName(PSW + 1, "F1");
+		setBitName(PSW + 0, "P" );
 		
 		// Set default idata name
 		for (int reg = 0 ; reg < 8 ; reg++){
@@ -1181,12 +1181,12 @@ public class MCS51 implements MCS51Constants, jCPU.CPU
 
 	public final int code(int addr, boolean move)
 	{
-		return code.getCode(addr,move);
+		return code.getCode(addr, move);
 	}
 
 	public final int code(int addr)
 	{
-		return code(addr,false);
+		return code(addr, false);
 	}
 
 	public final int code16(int addr,boolean move)
@@ -1319,25 +1319,25 @@ public class MCS51 implements MCS51Constants, jCPU.CPU
 		
 		// Clear Xdata area
 		for (int i = 0 ; i < xdata.length ; i++){
-			xdata(i,0);
+			xdata(i, 0);
                 }
 
 		// Clear idata area
 		for (int i = 0 ; i < idata.length ; i++){
-			idata(i,0);
+			idata(i, 0);
                 }
 
 		// Set default SFR
 		sfrCurrent.setWriteListener(false);
 				
 		for (int i = 0 ; i < 256 ; i++){
-			sfr(i,0);
+			sfr(i, 0);
                 }
 		sfrCurrent.setWriteListener(true);
 
 
 		// Set stack pointer
-		sfr(SP,7);
+		sfr(SP, 7);
 		
 		// Set program counter
 		pc = 0;
@@ -1605,7 +1605,7 @@ public class MCS51 implements MCS51Constants, jCPU.CPU
 		o.exec(this, oldPc);
 		
 		// Check machine cycle pollers
-		for ( i = machineListeners.size()  ; --i >= 0 ;){
+		for (i = machineListeners.size(); --i >= 0;){
 			machineListeners.get(i).cycles(cycle);
                 }
 

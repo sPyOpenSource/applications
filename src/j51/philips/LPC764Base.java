@@ -35,36 +35,35 @@ public class LPC764Base extends MCS51 implements LPC764Constants , SfrWriteListe
 		super(6000000);
 		machineCycle = 6;
 
-		addSfrWriteListener(AUXR1,this);
+		addSfrWriteListener(AUXR1, this);
 
 
-		eeprom = new PersistentMemory(name,"eeprom",768);
+		eeprom = new PersistentMemory(name, "eeprom", 768);
 
-		Code c = new FlashCode(name,4096);
+		Code c = new FlashCode(name, 4096);
 		setCode(c);
 
 		for (int i = 0 ; i < EEPROM_SIZE ; i++)
 		{
-			c.addMemoryWriteListener(EEPROM_START+i,this);
-			c.addMemoryReadListener(EEPROM_START+i,this);
+			c.addMemoryWriteListener(EEPROM_START + i, this);
+			c.addMemoryReadListener(EEPROM_START + i, this);
 		}
 
 		
 		addPeripheral(new JUart());
 		addPeripheral(new j51.intel.Timer());
 
-		setSfrName(AUXR1,"AUXR1");
-
+		setSfrName(AUXR1, "AUXR1");
 	}
 
 
-	public void writeMemory(int addr,int newValue,int oldValue)
+	public void writeMemory(int addr, int newValue, int oldValue)
 	{
 		addr -= EEPROM_START;
-		eeprom.write(addr,newValue);
+		eeprom.write(addr, newValue);
 	}
 
-	public int readMemory(int addr,int value)
+	public int readMemory(int addr, int value)
 	{
 		addr -= EEPROM_START;
 
@@ -72,7 +71,7 @@ public class LPC764Base extends MCS51 implements LPC764Constants , SfrWriteListe
 
 	}
 
-	public void sfrWrite(int r,int v)
+	public void sfrWrite(int r, int v)
 	{
 		switch (r)
 		{
@@ -88,6 +87,7 @@ public class LPC764Base extends MCS51 implements LPC764Constants , SfrWriteListe
 				break;
 		}
 	}
+        
 	public String toString()
 	{
 		return "LPC764 $Id: LPC764Base.java 56 2010-06-24 20:06:35Z mviara $";

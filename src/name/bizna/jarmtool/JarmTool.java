@@ -1,11 +1,13 @@
 package name.bizna.jarmtool;
 
+import j51.util.Logger;
 import java.io.EOFException;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
+import java.util.logging.Level;
 
 import name.bizna.jarm.AlignmentException;
 import name.bizna.jarm.BusErrorException;
@@ -144,17 +146,19 @@ public class JarmTool {
 			System.err.println(pathstring+": No such file");
 			return null;
 		} catch(NonLoadableFileException e) {
-			System.err.println(pathstring+": Not loadable: "+e.getWay());
+			System.err.println(pathstring+": Not loadable: " + e.getWay());
 			return null;
 		} catch(EOFException e) {
 			System.err.println(pathstring+": Unexpected end of file");
 			return null;
 		} catch(IOException e) {
 			System.err.println(pathstring+": IOException caught");
-			e.printStackTrace();
+			Logger.getLogger(JarmTool.class.getName()).log(Level.SEVERE, null, e);
 			return null;
 		} finally {
-			if(f != null) try { f.close(); } catch(IOException e) { e.printStackTrace(); }
+			if(f != null) try { f.close(); } catch(IOException e) { 
+                            Logger.getLogger(JarmTool.class.getName()).log(Level.SEVERE, null, e);
+                        }
 		}
 	}
 	public static byte[] coalesceArgs(String args[]) {
@@ -208,7 +212,7 @@ public class JarmTool {
 		} catch(ProgramExit e) {
 			System.exit(e.getExitStatus());
 		} catch(UndefinedException | AlignmentException | BusErrorException e) {
-			e.printStackTrace();
+			Logger.getLogger(JarmTool.class.getName()).log(Level.SEVERE, null, e);
 			cpu.dumpState(System.err);
 		} catch(EscapeCompleteException | EscapeRetryException e) {
 			// ?

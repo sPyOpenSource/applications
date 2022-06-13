@@ -23,15 +23,15 @@ public class AT89C51RD2 extends MCS51 implements AT89C51RD2Constants,
 {
 	public AT89C51RD2() throws Exception
 	{
-		setXdataSize(2*1024);
+		setXdataSize(2 * 1024);
 		
 		
-		setCode(new FlashCode("P89C51RD2",64*1024));
+		setCode(new FlashCode("P89C51RD2", 64 * 1024));
 		addPeripheral(new Timer());
 		addPeripheral(new Timer2());
-		addSfrWriteListener(AUXR1,this);
+		addSfrWriteListener(AUXR1, this);
 
-		setCallListener(0xfff0,this);
+		setCallListener(0xfff0, this);
 
 		setSfrName(P4,		"P4");
 		setSfrName(P5,		"P5");

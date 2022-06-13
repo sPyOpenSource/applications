@@ -20,13 +20,11 @@
  
 package jCPU.JavaVM;
 
-import jCPU.JavaVM.vm.VmByteCode;
 import jCPU.JavaVM.vm.VmCP;
 import jCPU.JavaVM.vm.VmConstClass;
 import jCPU.JavaVM.vm.VmConstFieldRef;
 import jCPU.JavaVM.vm.VmConstIMethodRef;
 import jCPU.JavaVM.vm.VmMethod;
-import java.nio.ByteBuffer;
 
 /**
  * <description>
@@ -35,31 +33,20 @@ import java.nio.ByteBuffer;
  */
 public class BytecodeParser {
 
-    private final VmByteCode bc;
-
+    private final ByteCode bc;
     private final VmCP cp;
-
-    private ByteBuffer bytecode;
-
+    private char[] bytecode;
     private final BytecodeVisitor handler;
-
-    private int address;
-
     private boolean wide;
 
-    private int opcode;
-
-    private int paddedAddress;
-
-    private int continueAt;
-
-    private int endPC;
+    private int address, opcode, paddedAddress;
+    private int continueAt, endPC;
 
     /**
      * @return The padded address
      */
     public final int getPaddedAddress() {
-        return this.paddedAddress;
+        return paddedAddress;
     }
 
     /**
@@ -68,7 +55,7 @@ public class BytecodeParser {
      * @param bc
      * @param handler
      */
-    protected BytecodeParser(VmByteCode bc, BytecodeVisitor handler) {
+    protected BytecodeParser(ByteCode bc, BytecodeVisitor handler) {
         this.bc = bc;
         this.bytecode = bc.getBytecode();
         this.cp = bc.getCP();
@@ -82,7 +69,7 @@ public class BytecodeParser {
      * @param handler
      * @throws ClassFormatError
      */
-    public static void parse(VmByteCode bc, BytecodeVisitor handler)
+    public static void parse(ByteCode bc, BytecodeVisitor handler)
         throws ClassFormatError {
         new BytecodeParser(bc, handler).parse();
     }
@@ -97,7 +84,7 @@ public class BytecodeParser {
      * @param startEndMethod Should startMethod and endMethod be called.
      * @throws ClassFormatError
      */
-    public static void parse(VmByteCode bc, BytecodeVisitor handler,
+    public static void parse(ByteCode bc, BytecodeVisitor handler,
                              int startPC, int endPC, boolean startEndMethod)
         throws ClassFormatError {
         new BytecodeParser(bc, handler).parse(startPC, endPC, startEndMethod);
@@ -109,7 +96,7 @@ public class BytecodeParser {
      * @throws ClassFormatError
      */
     public void parse() throws ClassFormatError {
-        parse(0, bytecode.limit(), true);
+        parse(0, bytecode.length, true);
     }
 
     /**
@@ -124,18 +111,16 @@ public class BytecodeParser {
         throws ClassFormatError {
 
         final BytecodeVisitor handler = this.handler;
-        bytecode.position(startPC);
+        this.address = startPC;
         this.endPC = endPCArg;
         handler.setParser(this);
         if (startEndMethod) {
             fireStartMethod(bc.getMethod());
         }
 
-        while (bytecode.position() < endPC) {
-
+        while (address < endPC) {
             // The address(offset) of the current instruction
             this.continueAt = -1;
-            this.address = bytecode.position();
             this.wide = false;
             fireStartInstruction(address);
             this.opcode = getu1();
@@ -890,7 +875,7 @@ public class BytecodeParser {
             }
             fireEndInstruction();
             if (continueAt >= 0) {
-                bytecode.position(continueAt);
+                address = continueAt;
             }
         }
         if (startEndMethod) {
@@ -904,7 +889,7 @@ public class BytecodeParser {
      * @return int
      */
     private int getu1() {
-        return bytecode.get() & 0xFF;
+        return bytecode[address] & 0xFF;
     }
 
     /**
@@ -913,8 +898,8 @@ public class BytecodeParser {
      * @return int
      */
     private int getu2() {
-        int v1 = bytecode.get() & 0xFF;
-        int v2 = bytecode.get() & 0xFF;
+        int v1 = bytecode[address] & 0xFF;
+        int v2 = bytecode[address + 1] & 0xFF;
         return (v1 << 8) | v2;
     }
 
@@ -924,10 +909,10 @@ public class BytecodeParser {
      * @return int
      */
     private int getu4() {
-        int v1 = bytecode.get() & 0xFF;
-        int v2 = bytecode.get() & 0xFF;
-        int v3 = bytecode.get() & 0xFF;
-        int v4 = bytecode.get() & 0xFF;
+        int v1 = bytecode[address] & 0xFF;
+        int v2 = bytecode[address + 1] & 0xFF;
+        int v3 = bytecode[address + 2] & 0xFF;
+        int v4 = bytecode[address + 3] & 0xFF;
         return (v1 << 24) | (v2 << 16) | (v3 << 8) | v4;
     }
 
@@ -936,8 +921,8 @@ public class BytecodeParser {
      *
      * @return byte
      */
-    private byte gets1() {
-        return bytecode.get();
+    private char gets1() {
+        return bytecode[address];
     }
 
     /**
@@ -946,8 +931,8 @@ public class BytecodeParser {
      * @return short
      */
     private short gets2() {
-        int v1 = bytecode.get() & 0xFF;
-        int v2 = bytecode.get() & 0xFF;
+        int v1 = bytecode[address] & 0xFF;
+        int v2 = bytecode[address + 1] & 0xFF;
         return (short) ((v1 << 8) | v2);
     }
 
@@ -957,22 +942,22 @@ public class BytecodeParser {
      * @return int
      */
     private int gets4() {
-        int v1 = bytecode.get() & 0xFF;
-        int v2 = bytecode.get() & 0xFF;
-        int v3 = bytecode.get() & 0xFF;
-        int v4 = bytecode.get() & 0xFF;
+        int v1 = bytecode[address] & 0xFF;
+        int v2 = bytecode[address + 1] & 0xFF;
+        int v3 = bytecode[address + 2] & 0xFF;
+        int v4 = bytecode[address + 3] & 0xFF;
         return (v1 << 24) | (v2 << 16) | (v3 << 8) | v4;
     }
 
     private void skipPadding() {
-        while (bytecode.position() % 4 != 0) {
-            bytecode.get();
+        while (address % 4 != 0) {
+            address++;
         }
-        paddedAddress = bytecode.position();
+        paddedAddress = address;
     }
 
     private void skip() {
-        bytecode.get();
+        address++;
     }
 
     /**
@@ -981,7 +966,7 @@ public class BytecodeParser {
      * @return int
      */
     public final int getAddress() {
-        return this.address;
+        return address;
     }
 
     /**
@@ -990,7 +975,7 @@ public class BytecodeParser {
      * @return int
      */
     public final int getNextAddress() {
-        return bytecode.position();
+        return address++;
     }
 
     /**
@@ -999,7 +984,7 @@ public class BytecodeParser {
      * @return boolean
      */
     public final boolean isWide() {
-        return this.wide;
+        return wide;
     }
 
     /**
@@ -1008,14 +993,14 @@ public class BytecodeParser {
      * @return int
      */
     public final int getOpcode() {
-        return this.opcode;
+        return opcode;
     }
 
     public final void setContinueAt(int offset) {
         continueAt = offset;
     }
 
-    public final void setCode(ByteBuffer bytecode) {
+    public final void setCode(char[] bytecode) {
         this.bytecode = bytecode;
     }
 
@@ -1031,7 +1016,7 @@ public class BytecodeParser {
      * @return The end PC of the parsable block
      */
     public int getEndPC() {
-        return this.endPC;
+        return endPC;
     }
 
     /**

@@ -17,7 +17,7 @@ public class FlashCode extends PersistentMemory implements Code
 	
 	public FlashCode(String name,int size)
 	{
-		super(name,"flash",size);
+		super(name, "flash", size);
 	}
 
 	public void setCodeSize(int size)
@@ -37,12 +37,12 @@ public class FlashCode extends PersistentMemory implements Code
 
 	public int getCode16(int addr,boolean fetch)
 	{
-		return ((getCode(addr,fetch) & 0xff) << 8) | (getCode(addr+1,fetch) & 0xff);
+		return ((getCode(addr, fetch) & 0xff) << 8) | (getCode(addr + 1, fetch) & 0xff);
 	}
 	
-	public void setCode(int addr,int value)
+	public void setCode(int addr, int value)
 	{
-		write(addr,value);
+		write(addr, value);
 	}
 
 }

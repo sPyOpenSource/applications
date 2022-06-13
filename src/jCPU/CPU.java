@@ -12,7 +12,6 @@ import j51.intel.CallListener;
  * @author X. Wang
  */
 public interface CPU {
-
     int code(int i);
 
     public String getCodeName(int i);

@@ -5,7 +5,6 @@ package name.bizna.jarm;
  * @author Jean-Rémy Buchs <jrb0001@692b8c32.de>
  */
 public abstract class Debugger {
-
 	protected final CPU cpu;
 
 	public Debugger() {

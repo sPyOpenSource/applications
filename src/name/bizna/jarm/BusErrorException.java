@@ -1,7 +1,6 @@
 package name.bizna.jarm;
 
 public final class BusErrorException extends Exception {
-
 	private static final long serialVersionUID = 1;
 
 	private final String reason;

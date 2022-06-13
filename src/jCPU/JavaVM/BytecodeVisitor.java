@@ -20,12 +20,15 @@
  
 package jCPU.JavaVM;
 
+import jCPU.JavaVM.vm.VmCP;
 import jCPU.JavaVM.vm.VmConstClass;
 import jCPU.JavaVM.vm.VmConstFieldRef;
 import jCPU.JavaVM.vm.VmConstIMethodRef;
 import jCPU.JavaVM.vm.VmConstMethodRef;
 import jCPU.JavaVM.vm.VmConstString;
 import jCPU.JavaVM.vm.VmMethod;
+import jCPU.JavaVM.vm.VmStackEntry;
+import jCPU.JavaVM.vm.VmStackFrame;
 
 
 /**
@@ -34,6 +37,11 @@ import jCPU.JavaVM.vm.VmMethod;
  * @author epr
  */
 public abstract class BytecodeVisitor {
+
+    private VmStackFrame stack;
+    private VmCP cp;
+    private ByteCode.LocalVariables localVariables;
+    public static ByteCode.SimpleMethodPool simpleMethodPool;
 
     public abstract void setParser(BytecodeParser parser);
 
@@ -356,4 +364,321 @@ public abstract class BytecodeVisitor {
     public abstract void visit_ifnull(int address);
 
     public abstract void visit_ifnonnull(int address);
+    
+    /* ldc */
+    int op_ldc(char[] opCode)
+    {
+        int value = opCode[1];
+        ByteCode.pushRef(stack, value);
+        //System.out.print("ldc: push a constant index %d onto the stack \n", value);
+        return 0;
+    }
+
+    /* 0x14 ldc2_w */
+    int op_ldc2_w(char[] opCode)
+    {
+        char index1 = opCode[1];
+        char index2 = opCode[2];
+        int index = (index1 << 8) | index2;
+        ByteCode.pushRef(stack, index);
+        //System.out.print("ldc2_w: push a constant index %d onto the stack \n", index);
+        return 0;
+    }
+
+    /* 0x11 op_sipush */
+    int op_sipush(char[] opCode)
+    {
+        short value;
+        char[] tmp=new char[2];
+        tmp[0] = opCode[1];
+        tmp[1] = opCode[2];
+        value =(short) (tmp[0] << 8 | tmp[1]);
+        //System.out.print("sipush value %d\n", value);
+        ByteCode.pushInt(stack, value);
+        return 0;
+    }
+
+    /* op_new */
+    int op_new(char[] opCode)
+    {
+        char []tmp = new char[2];
+        tmp[0] = opCode[1];
+        tmp[1] = opCode[2];
+        int object_ref = tmp[0] << 8 | tmp[1];
+        //System.out.print("new: new object_ref %d\n", object_ref);
+        return 0;
+    }
+
+    /* return */
+    int op_return()
+    {
+        System.out.print("return: \n");
+        return -1;
+    }
+
+    /* opcode implementation */
+
+    /* aload_0 */
+    int op_aload_0()
+    {
+        ByteCode.pushInt(stack, 0);
+        System.out.print("push 0 into stack\n");
+        return 0;
+    }
+
+    /* bipush */
+    int op_bipush(char[] opCode)
+    {
+        int value = opCode[1];
+        ByteCode.pushInt(stack, value);
+        //System.out.print("push a byte %d onto the stack \n", value);
+        return 0;
+    }
+
+    /* dup */
+    int op_dup()
+    {
+        VmStackEntry entry = ByteCode.popEntry(stack);
+        int value = entry.getInt();
+        if (entry.type == VmStackFrame.STACK_ENTRY_INT) {
+            ByteCode.pushInt(stack, value);
+            ByteCode.pushInt(stack, value);
+        } else {
+            ByteCode.pushRef(stack, value);
+            ByteCode.pushRef(stack, value);
+        }
+        System.out.print("dup\n");
+        return 0;
+    }
+
+    /* get */
+    int op_get(char[] opCode)
+    {
+        int field_index;
+        char[] tmp = new char[2];
+        tmp[0] = opCode[1];
+        tmp[1] = opCode[2];
+        field_index = tmp[0] << 8 | tmp[1];
+        //System.out.print("get %d\n", field_index);
+        ByteCode.pushRef(stack, field_index);
+        return 0;
+    }
+
+    /* iadd */
+    int op_iadd()
+    {
+        int value1 = ByteCode.popInt(stack);
+        int value2 = ByteCode.popInt(stack);
+        int result = value1 + value2;
+        //System.out.print("iadd: %d + %d = %d\n", value1, value2, result);
+        ByteCode.pushInt(stack, result);
+        return 0;
+    }
+
+    /* iconst_0 */
+    int op_iconst_0()
+    {
+        ByteCode.pushInt(stack, 0);
+        System.out.print("iconst_0: push 0 into stack\n");
+        return 0;
+    }
+
+    /* iconst_1 */
+    int op_iconst_1()
+    {
+        ByteCode.pushInt(stack, 1);
+        System.out.print("iconst_1: push 1 into stack\n");
+        return 0;
+    }
+
+    /* iconst_2 */
+    int op_iconst_2()
+    {
+        ByteCode.pushInt(stack, 2);
+        System.out.print("iconst_2: push 1 into stack\n");
+        return 0;
+    }
+
+    /* iconst_3 */
+    int op_iconst_3()
+    {
+        ByteCode.pushInt(stack, 3);
+        System.out.print("iconst_3: push 1 into stack\n");
+        return 0;
+    }
+
+    /* iconst_4 */
+    int op_iconst_4()
+    {
+        ByteCode.pushInt(stack, 4);
+        System.out.print("iconst_4: push 1 into stack\n");
+        return 0;
+    }
+
+    /* iconst_5 */
+    int op_iconst_5()
+    {
+        ByteCode.pushInt(stack, 5);
+        System.out.print("iconst_5: push 5 into stack\n");
+        return 0;
+    }
+
+    /* 0x0F dconst_1 */
+    int op_dconst_1()
+    {
+        ByteCode.pushDouble(stack, 1.0f);
+        System.out.print("iconst_5: push 1.0f into stack\n");
+        return 0;
+    }
+
+    /* idiv */
+    int op_idiv()
+    {
+        int value2 = ByteCode.popInt(stack);
+        int value1 = ByteCode.popInt(stack);
+        int result = value1 / value2;
+        //System.out.print("idiv: %d / %d = %d\n", value1, value2, result);
+        ByteCode.pushInt(stack, result);
+        return 0;
+    }
+
+    /* iload */
+    int op_iload(char[] opCode)
+    {
+        int index = opCode[1];
+        int value = localVariables.integer[index];
+        //System.out.print("iload: load value from local variable %d(%d)\n", index, localVariables.integer[index]);
+        ByteCode.pushInt(stack, value);
+        return 0;
+    }
+
+    /* iload_1 */
+    int op_iload_1()
+    {
+        int value = localVariables.integer[1];
+        //System.out.print("iload_1: load value from local variable 1(%d)\n", localVariables.integer[1]);
+        ByteCode.pushInt(stack, value);
+        return 0;
+    }
+
+    /* iload_2 */
+    int op_iload_2()
+    {
+        int value = localVariables.integer[2];
+        //System.out.print("iload_2: load value from local variable 2(%d)\n", localVariables.integer[2]);
+        ByteCode.pushInt(stack, value);
+        return 0;
+    }
+
+    /* iload_3 */
+    int op_iload_3()
+    {
+        int value = localVariables.integer[3];
+        //System.out.print("iload_3: load value from local variable 3(%d)\n", localVariables.integer[3]);
+        ByteCode.pushInt(stack, value);
+        return 0;
+    }
+
+    /* imul */
+    int op_imul()
+    {
+        int value1 = ByteCode.popInt(stack);
+        int value2 = ByteCode.popInt(stack);
+        int result = value1 * value2;
+        // System.out.print("imul: %d * %d = %d\n", value1, value2, result);
+        ByteCode.pushInt(stack, result);
+        return 0;
+    }
+
+    /* 0x63 dadd */
+    int op_dadd()
+    {
+        double value1 = stack.get_double_parameter(cp);
+        double value2 = stack.get_double_parameter(cp);
+        double result = value1 + value2;
+        //System.out.print("dadd: %f + %f = %f\n", value1, value2, result);
+        ByteCode.pushDouble(stack, result);
+        return 0;
+    }
+
+    /* 0x6B dmul */
+    int op_dmul()
+    {
+        double value1 = stack.get_double_parameter(cp);
+        double value2 = stack.get_double_parameter(cp);
+        double result = value1 * value2;
+        // System.out.print("dmul: %f * %f = %f\n", value1, value2, result);
+        ByteCode.pushDouble(stack, result);
+        return 0;
+    }
+
+    /* 0x8e d2i */
+    int op_d2i()
+    {
+        double value1 = ByteCode.popDouble(stack);
+        int result = (int)value1;
+        // System.out.print("d2i: %d <-- %f\n", result, value1);
+        ByteCode.pushInt(stack, result);
+        return 0;
+    }
+
+    /* irem */
+    int op_irem()
+    {
+        int value1 = ByteCode.popInt(stack);
+        int value2 = ByteCode.popInt(stack);
+        int result = value2 % value1;
+        // System.out.print("irem: %d mod %d = %d\n", value2, value1, result);
+        ByteCode.pushInt(stack, result);
+        return 0;
+    }
+
+    /* istore */
+    int op_istore(char[] opCode)
+    {
+        int value = ByteCode.popInt(stack);
+        int index = opCode[1];
+        // System.out.print("istore: store value into local variable %d(%d)\n", index, value);
+        localVariables.integer[index] = value;
+        return 0;
+    }
+
+    /* istore_1 */
+    int op_istore_1()
+    {
+        int value = ByteCode.popInt(stack);
+        // System.out.print("istore_1: store value into local variable 1(%d)\n", value);
+        localVariables.integer[1] = value;
+        return 0;
+    }
+
+    /* istore_2 */
+    int op_istore_2()
+    {
+        int value = ByteCode.popInt(stack);
+        // System.out.print("istore_2: store value into local variable 2(%d)\n", value);
+        localVariables.integer[2] = value;
+        return 0;
+    }
+
+    /* istore_3 */
+    int op_istore_3()
+    {
+        int value = ByteCode.popInt(stack);
+        // System.out.print("istore_3: store value into local variable 3(%d)\n", value);
+        localVariables.integer[3] = value;
+        return 0;
+    }
+
+    /* isub */
+    int op_isub()
+    {
+        int value2 = ByteCode.popInt(stack);
+        int value1 = ByteCode.popInt(stack);
+        int result = value1 - value2;
+        // System.out.print("isub : %d - %d = %d\n", value1, value2, result);
+        ByteCode.pushInt(stack, result);
+        return 0;
+    }
+
 }

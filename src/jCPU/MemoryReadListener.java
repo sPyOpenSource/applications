@@ -15,4 +15,3 @@ public interface MemoryReadListener
 {
 	public int readMemory(int address,int value);
 };
-

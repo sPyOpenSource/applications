@@ -310,16 +310,16 @@ class JRegister extends J51Panel
 abstract class JData extends J51Panel
 {
 	private int top,bottom,base,row;
-	protected JHexByte	bytes[] = new JHexByte[16 * 16];
-	private final JLabel	address[] = new JLabel[16];
-	private JHexField	add;
+	protected JHexByte bytes[] = new JHexByte[16 * 16];
+	private final JLabel address[] = new JLabel[16];
+	private JHexField add;
 	private boolean scrollable = false;
 	private JHexWord jtop;
 	
 	
 	JData(String title, int _bottom, int _top)
 	{
-		super(title,false);
+		super(title, false);
 		
 		this.top = _top;
 		this.bottom =  _bottom;
@@ -389,14 +389,14 @@ abstract class JData extends J51Panel
 		
 		g.gridy++;
 		
-		for (int i = 0 ; i < row ; i++)
+		for (int i = 0; i < row; i++)
 		{
 			g.gridx = 0;
 			add(address[i],g);
-			for (int j = 0 ; j < 16 ; j ++)
+			for (int j = 0; j < 16; j ++)
 			{
 				g.gridx++;
-				add(bytes[i*16+j],g);
+				add(bytes[i * 16 + j], g);
 			}
 			g.gridy++;
 		}
@@ -414,8 +414,8 @@ abstract class JData extends J51Panel
 	void setAddress(int base)
 	{
 		this.base = base;
-		for (int i = 0 ; i < row ; i++){
-			address[i].setText(Hex.bin2word(base+16*i));
+		for (int i = 0; i < row; i++){
+			address[i].setText(Hex.bin2word(base + 16 * i));
 		}
 		
 		update(false);
@@ -1299,8 +1299,8 @@ public class J51 extends JFrame implements MCS51Performance, ActionListener
                         }
 			
 			int lenData = Hex.getByte(line, 1);
-			int address	= Hex.getWord(line, 3);
-			int type	= Hex.getByte(line, 7);
+			int address = Hex.getWord(line, 3);
+			int type    = Hex.getByte(line, 7);
 
 			int chksum = lenData + address / 256 + address + type;
 			

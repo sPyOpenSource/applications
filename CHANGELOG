@@ -1,20 +1,23 @@
-1.09    30 May      2022
-    improved: code
+1.10    13 June 2022
+        improved: code
+
+1.09    30 May 2022
+        improved: code
 
 1.08    15 November 2020
-    improved: code
+        improved: code
 
 1.07    30 October 2020
-    improved: code
+        improved: code
 
 1.06    25 October 2020
-    cleaned code
+        cleaned code
     
 1.05	15 September 2009
 	Final version of J51 new release will be integrated in JMCE.
 	For better performance now most used method are declared final.
 
-1.04	30 Jun 2010
+1.04	30 June 2010
 	New UI for diseqc motor.
 	Added icon and JFormattedField for bettter UI.
 	Fastest memory model.
@@ -31,7 +34,7 @@
 	Fixed bug in Diseqc emulator.
 	Fixed bug in step/step into.
 
-1.02	07 Maj 2008
+1.02	07 May 2008
 	Assembler panel now use JTable.
 	Better performance with new design of disassembler.
 	Improved performance of Timer and Timer2.
@@ -57,7 +60,8 @@
 	Better support for serial console.
 
 1.00	5 December 2006	
-	Added correct display of disassembly XRL DIRECT,#DATA.		Added all names for SCON bit register.
+	Added correct display of disassembly XRL DIRECT,#DATA.		
+        Added all names for SCON bit register.
 	Fixed bug in disassembly MOV DIRECT,DIRECT.
 	Added support for load symbol for SDCC compiler when a new
 	program is loaded es. file.hex and a file.map is present

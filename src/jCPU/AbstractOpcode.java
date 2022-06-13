@@ -61,33 +61,38 @@ public abstract class AbstractOpcode implements Opcode
 	}
 
 
+        @Override
 	public final int getOpcode()
 	{
 		return opcode;
 	}
 
+        @Override
 	public String toString()
 	{
 		return description;
 	}
 
+        @Override
 	public final int getLength()
 	{
 		return length;
 	}
 
+        @Override
 	public final int getCycle()
 	{
 		return cycle;
 	}
 
 	
+        @Override
 	public final String decode(CPU cpu, int pc)
 	{
 		if (decoded != null)
 			return decoded;
 		
-		StringBuffer sb  = new StringBuffer(Hex.bin2word(pc)+" ");
+		StringBuffer sb  = new StringBuffer(Hex.bin2word(pc) + " ");
 		for (int i = 0 ; i < 3 ; i++)
 		{
 			if (i < getLength()){
@@ -189,8 +194,6 @@ abstract class AbstractDecodeString implements DecodeString
 	{
 		return s.toString().indexOf(name);
 	}
-
-
 }
 
 class DecodeDATA12 extends AbstractDecodeString
@@ -225,6 +228,7 @@ class DecodeCODE16 extends AbstractDecodeString
 		super("#CODE16");
 	}
 
+        @Override
 	public int decode(CPU cpu, int opcode, int end, int pc, StringBuffer value, int pos)
 	{
 		int hi = cpu.code(pc);
@@ -245,6 +249,7 @@ class DecodeDATA16 extends AbstractDecodeString
 		super("#DATA16");
 	}
 
+        @Override
 	public int decode(CPU cpu, int opcode, int end, int pc, StringBuffer value, int pos)
 	{
 		int hi = cpu.code(pc);
@@ -262,9 +267,10 @@ class DecodeDATA8 extends AbstractDecodeString
 		super("#DATA8");
 	}
 
-	public int decode(CPU cpu,int opcode,int end,int pc,StringBuffer value,int pos)
+        @Override
+	public int decode(CPU cpu, int opcode, int end, int pc, StringBuffer value, int pos)
 	{
-		value.replace(pos,pos+name.length(),"#"+Hex.bin2byte(cpu.code(pc)));
+		value.replace(pos, pos + name.length(), "#" + Hex.bin2byte(cpu.code(pc)));
 
 		return 1;
 	}
@@ -277,9 +283,10 @@ class DecodeBIT extends AbstractDecodeString
 		super("#BIT");
 	}
 
-	public int decode(CPU cpu,int opcode,int end,int pc,StringBuffer value,int pos)
+        @Override
+	public int decode(CPU cpu, int opcode, int end, int pc, StringBuffer value, int pos)
 	{
-		value.replace(pos,pos+name.length(),cpu.getBitName(cpu.code(pc)));
+		value.replace(pos, pos + name.length(), cpu.getBitName(cpu.code(pc)));
 
 		return 1;
 	}
@@ -292,7 +299,8 @@ class DecodeOFFSET extends AbstractDecodeString
 		super("#OFFSET");
 	}
 
-	public int decode(CPU cpu,int opcode,int end,int pc,StringBuffer value,int pos)
+        @Override
+	public int decode(CPU cpu, int opcode, int end, int pc, StringBuffer value, int pos)
 	{
 		int v = end;
 		int offset = cpu.code(pc);
@@ -303,7 +311,7 @@ class DecodeOFFSET extends AbstractDecodeString
 			v -= 0x100 - offset;
                 }
 
-		value.replace(pos,pos+name.length(),"#"+Hex.bin2word(v));
+		value.replace(pos, pos + name.length(), "#" + Hex.bin2word(v));
 
 		return 1;
 	}
@@ -316,16 +324,16 @@ class DecodeDIRECT extends AbstractDecodeString
 		super("DIRECT");
 	}
 
-	public int decode(CPU cpu,int opcode,int end,int pc,StringBuffer value,int pos)
+        @Override
+	public int decode(CPU cpu, int opcode, int end, int pc, StringBuffer value, int pos)
 	{
 		int r = cpu.code(pc);
 
-		value.replace(pos,pos+name.length(),cpu.getDirectName(r));
+		value.replace(pos,pos + name.length(),cpu.getDirectName(r));
 
 		return 1;
 	}
 }
-
 
 class DecodeDIRECP extends AbstractDecodeString
 {
@@ -334,11 +342,12 @@ class DecodeDIRECP extends AbstractDecodeString
 		super("DIRECP");
 	}
 
-	public int decode(CPU cpu,int opcode,int end,int pc,StringBuffer value,int pos)
+        @Override
+	public int decode(CPU cpu, int opcode, int end, int pc, StringBuffer value, int pos)
 	{
-		int r = cpu.code(pc+1);
+		int r = cpu.code(pc + 1);
 
-		value.replace(pos,pos+name.length(),cpu.getDirectName(r));
+		value.replace(pos,pos + name.length(),cpu.getDirectName(r));
 
 		return 1;
 	}
@@ -353,11 +362,11 @@ class DecodeDIRECM extends AbstractDecodeString
 	}
 
         @Override
-	public int decode(CPU cpu,int opcode,int end,int pc,StringBuffer value,int pos)
+	public int decode(CPU cpu, int opcode, int end, int pc, StringBuffer value, int pos)
 	{
-		int r = cpu.code(pc-1);
+		int r = cpu.code(pc - 1);
 
-		value.replace(pos,pos+name.length(),cpu.getDirectName(r));
+		value.replace(pos, pos + name.length(),cpu.getDirectName(r));
 
 		return 1;
 	}

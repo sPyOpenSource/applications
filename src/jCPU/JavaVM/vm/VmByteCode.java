@@ -15,7 +15,7 @@ import java.util.function.Function;
  * @author spy
  */
 public class VmByteCode implements Opcode{
- public int opCode;
+    public int opCode;
     public Function func;
     public int offset;
     public String name;
@@ -25,18 +25,6 @@ public class VmByteCode implements Opcode{
         this.name = name;
         this.offset = offset;
         this.func = func;
-    }
-    
-    public ByteBuffer getBytecode() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public VmCP getCP() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public VmMethod getMethod() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
