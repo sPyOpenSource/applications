@@ -21,9 +21,10 @@
 package org.jnode.fs.ntfs;
 
 import java.io.IOException;
-import jx.zero.Memory;
 import org.jnode.fs.ntfs.attribute.NTFSAttribute;
 import org.jnode.fs.ntfs.index.IndexEntry;
+
+import jx.zero.Memory;
 import jx.zero.MemoryManager;
 import jx.InitialNaming;
 
@@ -135,6 +136,7 @@ public class MasterFileTable extends FileRecord {
     /**
      * @param volume
      * @param buffer
+     * @param offset
      * @throws IOException
      */
     public MasterFileTable(NTFSVolume volume, Memory buffer, int offset) throws IOException {
@@ -176,12 +178,13 @@ public class MasterFileTable extends FileRecord {
      *
      * @param index the index to get.
      * @return the file record.
+     * @throws java.io.IOException
      */
     public Memory readRecord(long index) throws IOException {
         final NTFSVolume volume = getVolume();
         final int bytesPerFileRecord = volume.getBootRecord().getFileRecordSize();
         final long offset = bytesPerFileRecord * index;
-MemoryManager MemManager = (MemoryManager)InitialNaming.lookup("MemoryManager");
+        MemoryManager MemManager = (MemoryManager)InitialNaming.lookup("MemoryManager");
         // read the buffer
         final Memory buffer = MemManager.alloc(bytesPerFileRecord);
         readData(offset, buffer, 0, bytesPerFileRecord);
@@ -193,6 +196,7 @@ MemoryManager MemManager = (MemoryManager)InitialNaming.lookup("MemoryManager");
      *
      * @param index the index to get.
      * @return the file record.
+     * @throws java.io.IOException
      */
     public FileRecord getRecordUnchecked(long index) throws IOException {
         //log.debug("getRecord(" + index + ")");

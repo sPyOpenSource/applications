@@ -153,7 +153,7 @@ public class AIMemory extends AIZeroMemory implements FileSystem
     }
     
     @Override
-    public void ImportTxt(String file){
+    public void ImportBackup(String file){
         buffer.set8(0, (byte)60);
         write("ai.txt");
         read("ai.txt");

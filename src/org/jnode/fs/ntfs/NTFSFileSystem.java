@@ -24,13 +24,14 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.nio.file.FileSystemException;
+
 import jx.bio.BlockIO;
 import jx.fs.FSException;
 import jx.fs.Inode;
 import jx.fs.buffercache.BufferCache;
 import jx.zero.Clock;
 
-import java.nio.file.FileSystemException;
 import org.jnode.fs.ntfs.attribute.NTFSAttribute;
 import org.jnode.fs.ntfs.attribute.NTFSResidentAttribute;
 

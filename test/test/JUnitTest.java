@@ -3,8 +3,14 @@ package test;
 import AI.AIMemory;
 import AI.AILogic;
 import AI.Models.InfoZero;
-import AI.Models.CPU;
-import java.io.File;
+import AI.Models.RiscV;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import junit.framework.TestCase;
 import static junit.framework.TestCase.assertEquals;
@@ -19,26 +25,26 @@ import org.junit.Test;
  */
 public class JUnitTest extends TestCase{
     private final static AIMemory MEMORY = new AIMemory();
-    private final static CPU cpu = new CPU();
+    private final static RiscV cpu = new RiscV();
 
     @Test
     public void testIncomingMessages(){
         System.out.println("* JUnitTest: memoryTestIncomingMessages()");
-        MEMORY.addInfo(new InfoZero("configure:test"), "incomingMessages");
+        MEMORY.add(new InfoZero("configure:test"), "incomingMessages");
         assertEquals("configure:test", MEMORY.dequeFirst("incomingMessages").getPayload());
     }
     
     @Test
     public void testOutgoingMessages2ArduinoDequeLast(){
         System.out.println("* JUnitTest: memoryTestOutgoingMessages2ArduinoDequeLast()");
-        MEMORY.addInfo(new InfoZero("test1"), "outgoingMessages2Arduino");
+        MEMORY.add(new InfoZero("test1"), "outgoingMessages2Arduino");
         assertEquals("test1", MEMORY.dequeLast("outgoingMessages2Arduino").getPayload());
     }
     
     @Test
     public void testConfiguresGetLast(){
         System.out.println("* JUnitTest: memoryTestConfiguresGetLast()");
-        MEMORY.addInfo(new InfoZero("test2"), "configures");
+        MEMORY.add(new InfoZero("test2"), "configures");
         assertEquals("test2", MEMORY.dequeLast("configures").getPayload());
     }
     
@@ -89,8 +95,16 @@ public class JUnitTest extends TestCase{
     
     @Test
     public void testCPU(){
-        System.out.println("* JUnitTest: testCPU()");
-        File file = new File("~/Source/Risc-V/hello");
+        try {
+            System.out.println("* JUnitTest: testCPU()");
+            Path file = Paths.get("~/Source/Risc-V/hello");
+            byte[] code = Files.readAllBytes(file);
+            for(byte a:code){
+                System.out.println(a);
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(JUnitTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     @Test

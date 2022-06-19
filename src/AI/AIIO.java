@@ -26,7 +26,7 @@ public class AIIO {
     {
         inpThread.start();
         outThread.start();
-        mem.ImportTxt("/ai");
+        mem.ImportBackup("/ai");
     }
     
     public AIMemory getMemory(){

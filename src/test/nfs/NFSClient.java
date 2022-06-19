@@ -4,7 +4,6 @@ import jx.zero.*;
 import jx.net.NetInit;
 import jx.net.IPAddress;
 
-import jx.rpcsvc.bind2.*;
 import jx.rpcsvc.mount1.*;
 
 import jx.rpc.RPC;
@@ -30,7 +29,7 @@ public class NFSClient {
 
 
 	    final RPC rpc = new RPC(netinstance, RPC_LOCALPORT); 
-	    if (rpc == null) Debug.out.println("RPCNULL!!!!");
+	    //if (rpc == null) Debug.out.println("RPCNULL!!!!");
 
 	    IPAddress rpcHost = new IPAddress(192,168,34,2);
 	    MountProc mount = new MountProc_Stub(rpc, rpcHost);
