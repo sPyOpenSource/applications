@@ -28,8 +28,6 @@ import jx.bio.BlockIO;
 import jx.zero.Memory;
 
 import org.jnode.driver.block.Geometry;
-import org.jnode.fs.jfat.BootSector;
-import org.jnode.fs.jfat.FatFormatter;
 import org.jnode.util.FileUtils;
 //import org.jnode.util.LittleEndian;
 
@@ -191,5 +189,4 @@ public class GrubFatFormatter {
     public void setInstallPartition(int installPartition) {
         this.installPartition = installPartition;
     }
-
 }
