@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.target=DataFormat
+comment0.text=\n\ Parse\ string.\n\ @author\ Michael\ Golm\n\ @author\ Andreas\ Weissel\n
+comment1.params=memory\ pos\ len
+comment1.target=java.lang.String\ readString(jx.zero.Memory,\ int,\ int)
+comment2.params=memory\ pos\ value\ len
+comment2.target=void\ writeString(jx.zero.Memory,\ int,\ java.lang.String,\ int)
+numComments=3

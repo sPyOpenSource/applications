@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.target=Operation
+comment0.text=\n\ Base\ class\ for\ operations.\n\ -\ startOperation\ (start\ op),\n\ -\ endOperation\ (end\ op),\n\ -\ stopOperation\ (terminate\ op)\n\ @author\ Michael\ Golm\n\ @author\ Andreas\ Weissel\n
+comment1.params=controller\ drive
+comment1.target=Operation(Controller,\ Drive)
+comment2.params=
+comment2.target=void\ startOperation()
+comment3.params=
+comment3.target=void\ stopOperation()
+comment4.params=uptodate
+comment4.target=void\ endOperation(boolean)
+comment5.params=
+comment5.target=void\ handler()
+comment6.params=
+comment6.target=void\ waitForCompletion()
+numComments=7

@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.target=IdentifyOperation
+comment0.text=\n\ Retrieves\ drive\ information\ by\ using\ IDENTIFY\ command\ (capacity,\ geometry,\ LBA,\ DMA\ capabilities,\ etc.)\n\ @author\ Michael\ Golm\n\ @author\ Andreas\ Weissel\n
+comment1.params=id_data\ controller\ drive
+comment1.target=IdentifyOperation(DriveIdData,\ Controller,\ Drive)
+comment2.params=
+comment2.target=void\ startOperation()
+comment3.params=cmd
+comment3.target=int\ identifyCommand(byte)
+comment3.text=\n\ Identify\ drive\ and\ mark\ ATAPI\ devices\ as\ "not\ available"\n
+comment4.params=string
+comment4.target=java.lang.String\ fixstring(java.lang.String)
+comment4.text=\n\ Convert\ drive\ strings\ from\ big\ endian\ to\ little\ endian.\n
+numComments=5
