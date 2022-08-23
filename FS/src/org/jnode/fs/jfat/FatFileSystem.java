@@ -21,7 +21,7 @@
 package org.jnode.fs.jfat;
 
 import java.io.IOException;
-import jx.bio.BlockIO;
+import jx.devices.bio.BlockIO;
 import jx.zero.Clock;
 import jx.zero.Debug;
 import jx.zero.InitialNaming;
@@ -30,7 +30,7 @@ import jx.fs.javafs.InodeCache;
 import jx.fs.javafs.Tools;
 import jx.fs.Directory;
 import jx.fs.FSException;
-import jx.fs.Inode;
+import jx.fs.Node;
 import jx.fs.RegularFile;
 import jx.fs.buffercache.BufferCache;
 
@@ -114,7 +114,7 @@ public class FatFileSystem implements jx.fs.FileSystem {
      * @return 
      * @throws java.io.IOException
      */
-    protected RegularFile createFile(Inode entry) throws IOException {
+    protected RegularFile createFile(Node entry) throws IOException {
         // TODO Auto-generated method stub
         return null;
     }
@@ -125,7 +125,7 @@ public class FatFileSystem implements jx.fs.FileSystem {
      * @return 
      * @throws java.io.IOException
      */
-    protected Directory createDirectory(Inode entry) throws IOException {
+    protected Directory createDirectory(Node entry) throws IOException {
         // TODO Auto-generated method stub
         return null;
     }
@@ -160,7 +160,7 @@ public class FatFileSystem implements jx.fs.FileSystem {
     }
 
     @Override
-    public Inode getRootInode() {
+    public Node getRootNode() {
         try {
             return new FatRootDirectory(this);
         } catch (IOException ex) {
@@ -194,7 +194,7 @@ public class FatFileSystem implements jx.fs.FileSystem {
     }
 
     @Override
-    public Inode getInode(int identifier) throws FSException {
+    public Node getNode(int identifier) throws FSException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

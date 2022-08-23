@@ -1,6 +1,6 @@
 package jx.fs;
 
-public interface Directory extends jx.fs.FSObject, jx.zero.Portal {
+public interface Directory extends FSObject, jx.zero.Portal {
     public String[]   list() throws Exception;
 
     public FSObject    openRW(String name) throws Exception;

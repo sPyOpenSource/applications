@@ -68,7 +68,7 @@ abstract public class JVMOPStackElement {
     
 
     public String addressString() {
-	String addr = null;
+	String addr;
 	switch (bcAddr) {
 	case ADDR_INIT:
 	    addr = "init";

@@ -22,7 +22,7 @@ package org.jnode.fs.ntfs;
 
 import java.util.Iterator;
 
-import jx.fs.Inode;
+import jx.fs.Node;
 import org.jnode.fs.ntfs.index.IndexEntry;
 import org.jnode.fs.ntfs.index.NTFSIndex;
 
@@ -31,7 +31,7 @@ import org.jnode.fs.ntfs.index.NTFSIndex;
  * 
  * @author Ewout Prangsma (epr@users.sourceforge.net)
  */
-final class DirectoryEntryIterator implements Iterator<Inode> {
+final class DirectoryEntryIterator implements Iterator<Node> {
 
     private final Iterator<IndexEntry> indexIterator;
 
@@ -63,7 +63,7 @@ final class DirectoryEntryIterator implements Iterator<Inode> {
      * Get the next entry.
      */
     @Override
-    public Inode next() {
+    public Node next() {
         final NTFSEntry result = nextEntry;
         readNextEntry();
         return result;

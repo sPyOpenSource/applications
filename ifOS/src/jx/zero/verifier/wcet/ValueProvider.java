@@ -1,6 +1,6 @@
 package jx.zero.verifier.wcet;
 
-import jx.zero.verifier.ByteCode;
+import jx.zero.ByteCode;
 
 /**Interface to provide values for simulation of bytecodes that cannot be simulated, like getfield.
  */

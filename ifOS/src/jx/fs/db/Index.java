@@ -1,4 +1,4 @@
-package jx.db;
+package jx.fs.db;
 
 public interface Index extends jx.zero.Portal {
 

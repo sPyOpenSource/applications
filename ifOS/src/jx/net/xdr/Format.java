@@ -15,14 +15,12 @@ public abstract class Format {
     public abstract int length();
 
     /*
-
       protected void writeInt(int o, int d) { 
       buf[offset+o+0] = (byte)( (d>>24) & 0xff);
       buf[offset+o+1] = (byte)((d>>16)  & 0xff);
       buf[offset+o+2] = (byte)((d>>8) & 0xff);
       buf[offset+o+3] = (byte)(d & 0xff);
       }
-
 
       protected void writeShort(int o, short d) { 
       buf[offset+o+0] = (byte)((d>>8) & 0xff);
@@ -62,8 +60,6 @@ public abstract class Format {
       }
       }
   
-
-
       protected int readByte(int o) { 
       return buf[offset+o] < 0 ? buf[offset+o]+256 : buf[offset+o];
       }

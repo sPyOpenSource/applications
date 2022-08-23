@@ -2,7 +2,7 @@ package test.fs;
 
 import jx.zero.*;
 import jx.zero.debug.*;
-import jx.bio.BlockIO;
+import jx.devices.bio.BlockIO;
 import jx.zero.debug.DebugPrintStream;
 import jx.zero.debug.DebugOutputStream;
 
@@ -41,11 +41,15 @@ public class EmulDiskDomain {
         if (disk == null) throw new Error("NO DISKEMULATION AVAILABLE");
         this.disk = disk;
     }
+    @Override
     public int getCapacity() { return disk.getCapacity();}
+    @Override
     public int getSectorSize(){ return disk.getSectorSize();}
+    @Override
     public void readSectors(int startSector, int numberOfSectors, Memory buf, boolean synchronous) {
         disk.readSectors(startSector, numberOfSectors, buf, synchronous);
     }
+    @Override
     public void writeSectors(int startSector, int numberOfSectors, Memory buf, boolean synchronous) {
         disk.writeSectors(startSector, numberOfSectors, buf, synchronous);
     }

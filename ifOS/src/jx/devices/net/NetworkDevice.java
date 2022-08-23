@@ -7,7 +7,7 @@ import jx.devices.Device;
 public interface NetworkDevice extends Device, Portal {
     public static final int RECEIVE_MODE_INDIVIDUAL = 1;
     public static final int RECEIVE_MODE_PROMISCOUS = 2;
-    public static final int RECEIVE_MODE_MULTICAST = 3;
+    public static final int RECEIVE_MODE_MULTICAST  = 3;
 
     public void setReceiveMode(int mode);
     public Memory transmit(Memory buf);

@@ -1,15 +1,14 @@
 package test.fs;
 
 import jx.bio.ram.BlockIORAM;
-import jx.fs.javafs.*;
 import jx.zero.*;
 import jx.zero.debug.*;
 import jx.zero.debug.DebugPrintStream;
 import jx.zero.debug.DebugOutputStream;
 
-import jx.bio.BlockIO;
+import jx.devices.bio.BlockIO;
 import jx.fs.FS;
-import jx.fs.Inode;
+import jx.fs.Node;
 import jx.fs.FSException;
 
 class IOZoneRAMSingle {
@@ -73,7 +72,6 @@ public class Main {
     IOZONE iozone = new IOZONE(fs, IOZONE_MIN_FILESIZE, IOZONE_MAX_FILESIZE, IOZONE_MIN_RECSIZE, IOZONE_MAX_RECSIZE);
     return true;
     }
-
 
     public boolean fsckTest() throws FSException {
         FS fs = (FS) naming.lookup("FS");
@@ -150,14 +148,12 @@ public class Main {
         return true;
     }
 
-
     void fileTreeWalkTest() throws FSException {
     FS fs = (FS) naming.lookup("FS");
     BootFS bootFS = (BootFS) naming.lookup("BootFS");
     Memory file = bootFS.getReadWriteFile("diskImage.ext2");
     Debug.out.println("DISKIMAGE:");
     Dump.xdump1(file, 0, 256);
-
 
     BlockIORAM bio = new BlockIORAM(file);
     jx.fs.javafs.FileSystem jfs = new jx.fs.javafs.FileSystem();
@@ -173,11 +169,11 @@ public class Main {
     //filesystem.build("TestFS", 1024);
     fs.mountRoot(filesystem, false); // 2. Parameter = read-only  //hda8
     
-    printDir(" ", fs.getCwdInode());
+    printDir(" ", fs.getCwdNode());
 
     }
-    private void printDir(String space, Inode dirInode) throws FSException {
-    Inode inode;
+    private void printDir(String space, Node dirInode) throws FSException {
+    Node inode;
     String[] names = dirInode.readdirNames();
         for (String name : names) {
             inode = dirInode.lookup(name);

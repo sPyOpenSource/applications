@@ -20,7 +20,7 @@
  
 package org.jnode.fs.ntfs;
 
-import jx.bio.BlockIO;
+import jx.devices.bio.BlockIO;
 import org.jnode.fs.FileSystemType;
 import java.nio.file.FileSystemException;
 

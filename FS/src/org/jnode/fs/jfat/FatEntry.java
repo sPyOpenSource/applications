@@ -26,9 +26,10 @@ import java.util.Arrays;
 import java.util.Vector;
 
 import jx.fs.DirNotEmptyException;
+import jx.fs.Directory;
 import jx.fs.FileExistsException;
 import jx.fs.FileSystem;
-import jx.fs.Inode;
+import jx.fs.Node;
 import jx.fs.InodeIOException;
 import jx.fs.InodeNotFoundException;
 import jx.fs.NoDirectoryInodeException;
@@ -41,7 +42,7 @@ import jx.fs.StatFS;
 import jx.zero.Memory;
 import jx.zero.ReadOnlyMemory;
 
-public abstract class FatEntry extends FatObject implements Inode
+public abstract class FatEntry extends FatObject implements Node
 {
     //private static final Logger log = Logger.getLogger(FatEntry.class);
 
@@ -218,11 +219,11 @@ public abstract class FatEntry extends FatObject implements Inode
         }
     }
 
-    public FSDirectory getDirectory() {
+    public Directory getDirectory() {
         throw new UnsupportedOperationException("getDirectory");
     }
 
-    public Inode getFile() {
+    public Node getFile() {
         throw new UnsupportedOperationException("getFile");
     }
 
@@ -294,7 +295,7 @@ public abstract class FatEntry extends FatObject implements Inode
     }*/
 
     @Override
-    public void setParent(Inode parent) {
+    public void setParent(Node parent) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -319,27 +320,27 @@ public abstract class FatEntry extends FatObject implements Inode
     }
 
     @Override
-    public void deleteInode() throws InodeIOException, NotExistException {
+    public void deleteNode() throws InodeIOException, NotExistException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void writeInode() throws InodeIOException, NotExistException {
+    public void writeNode() throws InodeIOException, NotExistException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void putInode() throws NotExistException {
+    public void putNode() throws NotExistException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void overlay(Inode newChild, String name) throws InodeIOException, InodeNotFoundException, NoDirectoryInodeException, NotExistException, PermissionException {
+    public void overlay(Node newChild, String name) throws InodeIOException, InodeNotFoundException, NoDirectoryInodeException, NotExistException, PermissionException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void removeOverlay(Inode child) throws InodeNotFoundException, NoDirectoryInodeException, NotExistException {
+    public void removeOverlay(Node child) throws InodeNotFoundException, NoDirectoryInodeException, NotExistException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -354,7 +355,7 @@ public abstract class FatEntry extends FatObject implements Inode
     }
 
     @Override
-    public Inode lookup(String name) throws InodeIOException, InodeNotFoundException, NoDirectoryInodeException, NotExistException, PermissionException {
+    public Node lookup(String name) throws InodeIOException, InodeNotFoundException, NoDirectoryInodeException, NotExistException, PermissionException {
         //if (i_released)
         //    throw new NotExistException();
         if (!isDirectory())
@@ -370,13 +371,13 @@ public abstract class FatEntry extends FatObject implements Inode
         }
         for (int i = 0; i < overlayNames.size(); i++) {
             if (name.equals((String)overlayNames.elementAt(i))) {
-                Inode inode = (Inode)overlayInodes.elementAt(i);
+                Node inode = (Node)overlayInodes.elementAt(i);
                 inode.incUseCount();
                 return inode;
             }
         }
 
-        return getInode(name);
+        return getNode(name);
     }
 
     @Override
@@ -430,10 +431,10 @@ public abstract class FatEntry extends FatObject implements Inode
     }
 
     @Override
-    public abstract Inode getInode(String name) throws InodeIOException, InodeNotFoundException, NoDirectoryInodeException, NotExistException, PermissionException;
+    public abstract Node getNode(String name) throws InodeIOException, InodeNotFoundException, NoDirectoryInodeException, NotExistException, PermissionException;
 
     @Override
-    public Inode mkdir(String name, int mode) throws FileExistsException, InodeIOException, NoDirectoryInodeException, NotExistException, PermissionException {
+    public Node mkdir(String name, int mode) throws FileExistsException, InodeIOException, NoDirectoryInodeException, NotExistException, PermissionException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -443,7 +444,7 @@ public abstract class FatEntry extends FatObject implements Inode
     }
 
     @Override
-    public Inode create(String name, int mode) throws FileExistsException, InodeIOException, NoDirectoryInodeException, NotExistException, PermissionException {
+    public Node create(String name, int mode) throws FileExistsException, InodeIOException, NoDirectoryInodeException, NotExistException, PermissionException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -453,7 +454,7 @@ public abstract class FatEntry extends FatObject implements Inode
     }
 
     @Override
-    public Inode symlink(String symname, String newname) throws FileExistsException, InodeIOException, NoDirectoryInodeException, NotExistException, NotSupportedException, PermissionException {
+    public Node symlink(String symname, String newname) throws FileExistsException, InodeIOException, NoDirectoryInodeException, NotExistException, NotSupportedException, PermissionException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -463,7 +464,7 @@ public abstract class FatEntry extends FatObject implements Inode
     }
 
     @Override
-    public void rename(String oldname, Inode new_dir, String newname) throws InodeIOException, InodeNotFoundException, NoDirectoryInodeException, NotExistException, PermissionException {
+    public void rename(String oldname, Node new_dir, String newname) throws InodeIOException, InodeNotFoundException, NoDirectoryInodeException, NotExistException, PermissionException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

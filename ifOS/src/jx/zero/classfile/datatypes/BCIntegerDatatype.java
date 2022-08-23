@@ -8,6 +8,7 @@ abstract public class BCIntegerDatatype extends BCNumericDatatype {
   abstract protected BCIntegerDatatype getObjectFor(long value);  
 
   // perform an arithmetic operation with this class 
+  @Override
   public BCNumericDatatype combined(int operator, BCNumericDatatype op2) {
     long val1 = this.longValue(); 
     long val2 = ((BCIntegerDatatype)op2).longValue(); 
@@ -28,6 +29,7 @@ abstract public class BCIntegerDatatype extends BCNumericDatatype {
     return getObjectFor(result); 
   }
 
+  @Override
   public BCNumericDatatype negated() {
     return getObjectFor(-this.longValue());
   } 

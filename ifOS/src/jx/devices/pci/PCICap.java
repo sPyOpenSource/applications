@@ -16,6 +16,6 @@ public interface PCICap {
    int CAP_ID_MASK	= 0x000000ff;
    int CAP_ID_SHIFT	= 0;
    int CAP_NEXT_MASK	= 0x0000ff00;
-   int CAP_NEXT_SHIFT	= 8;
+   int CAP_NEXT_SHIFT = 8;
    
 }

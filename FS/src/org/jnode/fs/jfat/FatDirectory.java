@@ -27,10 +27,11 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.NoSuchElementException;
 
-import jx.fs.Inode;
+import jx.fs.Directory;
 import jx.fs.InodeIOException;
 import jx.fs.InodeNotFoundException;
 import jx.fs.NoDirectoryInodeException;
+import jx.fs.Node;
 import jx.fs.NotExistException;
 import jx.fs.PermissionException;
 
@@ -210,7 +211,7 @@ public class FatDirectory extends FatEntry
         return true;
     }
 
-    public FSDirectory getDirectory() {
+    public Directory getDirectory() {
         return this;
     }
 
@@ -218,7 +219,7 @@ public class FatDirectory extends FatEntry
         return children;
     }
 
-    public Iterator<Inode> iterator() {
+    public Iterator<Node> iterator() {
         return new FatEntriesIterator(children, this, false);
     }
 
@@ -229,7 +230,7 @@ public class FatDirectory extends FatEntry
      *                       otherwise.
      * @return the iterator.
      */
-    public Iterator<Inode> createIterator(boolean includeDeleted) {
+    public Iterator<Node> createIterator(boolean includeDeleted) {
         return new FatEntriesIterator(new FatTable(), this, includeDeleted);
     }
 
@@ -243,7 +244,7 @@ public class FatDirectory extends FatEntry
             f.createNextEntry();
     }
 
-    public synchronized Inode getEntry(String name) {
+    public synchronized Node getEntry(String name) {
         FatEntry child = children.get(name);
 
         if (child == null) {
@@ -261,7 +262,7 @@ public class FatDirectory extends FatEntry
         return child;
     }
 
-    public Inode getEntryById(String id) throws IOException {
+    public Node getEntryById(String id) throws IOException {
         FatEntry child = idMap.get(id);
 
         if (child == null) {
@@ -319,7 +320,7 @@ public class FatDirectory extends FatEntry
     public boolean isEmpty() {
         if (isRoot())
             return false;
-        Iterator<Inode> i = iterator();
+        Iterator<Node> i = iterator();
         while (i.hasNext()) {
             String name = i.next().getName();
             if (!name.equals(".") && !name.equals(".."))
@@ -328,7 +329,7 @@ public class FatDirectory extends FatEntry
         return true;
     }
 
-    public synchronized Inode addFile(String name) throws IOException {
+    public synchronized Node addFile(String name) throws IOException {
         FatName fatName = new FatName(this, name);
         if (collide(fatName.getLongName()))
             throw new IOException("File [" + fatName.getLongName() + "] already exists");
@@ -342,7 +343,7 @@ public class FatDirectory extends FatEntry
         return entry;
     }
 
-    public synchronized Inode addDirectory(String name) throws IOException {
+    public synchronized Node addDirectory(String name) throws IOException {
         FatFileSystem fs = getFatFileSystem();
         FatName fatName = new FatName(this, name);
         if (collide(fatName.getLongName()))
@@ -399,7 +400,7 @@ public class FatDirectory extends FatEntry
     }*/
 
     @Override
-    public Inode getInode(String name) throws InodeIOException, InodeNotFoundException, NoDirectoryInodeException, NotExistException, PermissionException {
+    public Node getNode(String name) throws InodeIOException, InodeNotFoundException, NoDirectoryInodeException, NotExistException, PermissionException {
 	FatEntry inode;
 	
 	if (i_released)

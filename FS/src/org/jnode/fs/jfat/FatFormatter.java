@@ -45,7 +45,7 @@ import static java.lang.Integer.toHexString;
 
 import java.io.IOException;
 import java.util.Date;
-import jx.bio.BlockIO;
+import jx.devices.bio.BlockIO;
 import jx.zero.Memory;
 
 //import org.jnode.util.LittleEndian;

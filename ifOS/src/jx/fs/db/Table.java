@@ -1,4 +1,4 @@
-package jx.db;
+package jx.fs.db;
 
 public interface Table extends jx.zero.Portal  {
     /** creates a new index for a table

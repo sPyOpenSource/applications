@@ -25,7 +25,7 @@ import java.util.Iterator;
 import java.nio.file.ReadOnlyFileSystemException;
 
 import jx.fs.FileSystem;
-import jx.fs.Inode;
+import jx.fs.Node;
 import org.jnode.fs.ntfs.index.NTFSIndex;
 
 /**
@@ -78,16 +78,16 @@ public class NTFSDirectory extends NTFSEntry {
     /**
      * Gets an iterator to iterate over all entries of this directory.
      */
-    public Iterator<Inode> iterator() {
+    public Iterator<Node> iterator() {
         return new DirectoryEntryIterator(fs, index);
     }
 
     /**
      * Gets an entry with a given name.
      */
-    public Inode getEntry(String name) {
+    public Node getEntry(String name) {
         //log.debug("getEntry(" + name + ")");
-        for (Iterator<Inode> it = this.iterator(); it.hasNext(); ) {
+        for (Iterator<Node> it = this.iterator(); it.hasNext(); ) {
             final NTFSEntry entry = (NTFSEntry) it.next();
             if (entry.getName().equals(name)) {
                 return entry;
@@ -96,7 +96,7 @@ public class NTFSDirectory extends NTFSEntry {
         return null;
     }
 
-    public Inode getEntryById(String id) throws IOException {
+    public Node getEntryById(String id) throws IOException {
         FileRecord fileRecord = fs.getNTFSVolume().getMFT().getRecord(Long.parseLong(id));
         return new NTFSEntry(fs, fileRecord, this.fileRecord.getReferenceNumber());
     }
@@ -106,6 +106,7 @@ public class NTFSDirectory extends NTFSEntry {
      *
      * @return the file record.
      */
+    @Override
     public FileRecord getFileRecord() {
         return fileRecord;
     }
@@ -113,14 +114,14 @@ public class NTFSDirectory extends NTFSEntry {
     /**
      *
      */
-    public Inode addFile(String name) throws IOException {
+    public Node addFile(String name) throws IOException {
         throw new ReadOnlyFileSystemException();
     }
 
     /**
      *
      */
-    public Inode addDirectory(String name) throws IOException {
+    public Node addDirectory(String name) throws IOException {
         throw new ReadOnlyFileSystemException();
     }
 
@@ -134,6 +135,7 @@ public class NTFSDirectory extends NTFSEntry {
     /**
      * Is this entry valid.
      */
+    @Override
     public boolean isValid() {
         return true;
     }
@@ -141,6 +143,7 @@ public class NTFSDirectory extends NTFSEntry {
     /**
      *
      */
+    @Override
     public FileSystem getFileSystem() {
         return fs;
     }

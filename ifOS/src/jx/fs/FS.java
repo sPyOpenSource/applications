@@ -33,7 +33,7 @@ public interface FS extends Portal {
      *
      * @return die Inode des aktuellen Verzeichnisses
      */
-    public Node getCwdInode();
+    public Node getCwdNode();
 
     /**
      * Gibt belegte Ressourcen frei und beendet Threads des Dateisystem. Diese Methode ist f&uuml;r das "Herunterfahren" des
@@ -245,14 +245,13 @@ public interface FS extends Portal {
      */
     public int write(String path, Memory m, int off, int len);
 
-    public Node getInode(int deviceIdentifier, int fileIdentifier);
+    public Node getNode(int deviceIdentifier, int fileIdentifier);
     
     default boolean isPath(String name) {
 	return (name.lastIndexOf('/') != -1);
     }
     
     default boolean isAbsolute(String name) {
-	return (name.charAt(0) == '/');/* ||
-					  (Character.isLetter(name.charAt(0)) && (name.charAt(1) == ':') && (name.charAt(2) == '\\'));*/
+	return (name.charAt(0) == '/');// || (Character.isLetter(name.charAt(0)) && (name.charAt(1) == ':') && (name.charAt(2) == '\\'));
     }
 }

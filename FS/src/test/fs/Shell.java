@@ -11,11 +11,13 @@ import jx.zero.debug.*;
 import jx.zero.debug.DebugPrintStream;
 import jx.zero.debug.DebugOutputStream;
 
-import jx.bio.BlockIO;
+import jx.devices.bio.BlockIO;
 import jx.fs.FS;
 import jx.fs.FileSystem;
 import jx.fs.InodeImpl;
 import jx.fs.FSException;
+import jx.fs.InodeIOException;
+import jx.fs.NotExistException;
 
 
 class Parser {
@@ -72,7 +74,7 @@ public class Shell { // extends Thread {
     private FileSystem filesystem;
     private FS fs;
     private DataInputStream in;
-    private Hashtable mountPartitions= new Hashtable();
+    private Hashtable mountPartitions = new Hashtable();
     private PrintStream uout; // user output
 
 
@@ -123,8 +125,6 @@ public class Shell { // extends Thread {
     mainLoop();
     }
 
-
-
     //public void run() {
     //mainLoop();
     //}
@@ -142,7 +142,7 @@ public class Shell { // extends Thread {
         } catch (IOException e) { break; }
         Parser parser = new Parser(zeile);
         if (parser.isValid() == false)
-        continue;
+            continue;
 
         kommando = parser.getKommando();
         param = parser.getArgumente();
@@ -258,7 +258,7 @@ public class Shell { // extends Thread {
         if (param.length != 3)
             uout.println("wrong number of arguments");
         else {
-            FileSystem filesystem = null; // (FileSystem)new domain.javafs.FileSystem();
+            FileSystem filesystem = null; //(FileSystem)new domain.javafs.FileSystem();
             filesystem.build(param[0], Integer.parseInt(param[1]));
         }
         continue;
@@ -286,11 +286,11 @@ public class Shell { // extends Thread {
         }
 
         if (kommando.equals("quit") || kommando.equals("exit"))
-        break;
+            break;
 
         if (kommando.equals("flush")) {
-        //metaxa.os.fs.javafs.BufferCache.instance().flush();
-        continue;
+            //metaxa.os.fs.javafs.BufferCache.instance().flush();
+            continue;
         }
 
         if (kommando.equals("sync")) {
@@ -317,7 +317,7 @@ public class Shell { // extends Thread {
     }
     try {
         fs.cleanUp();
-    } catch(Exception e) {
+    } catch(InodeIOException | NotExistException e) {
         uout.println("Cleanup Error!"+e);
     }
     //metaxa.os.fs.javafs.BufferCache.instance().showBuffers();
@@ -341,7 +341,6 @@ public class Shell { // extends Thread {
 
     private void ll() {
     String[] names = null;
-    String name = null;
     InodeImpl inode;
     try {
         names = ((InodeImpl)fs.getCwdInode()).readdirNames();
@@ -349,25 +348,24 @@ public class Shell { // extends Thread {
         uout.println("Error: " + e.getMessage());
         return;
     }
-    for (int i = 0; i < names.length; i++) {
-        name = names[i];
-        uout.print(name);
-        try {
-        inode = (InodeImpl)(((InodeImpl)fs.getCwdInode()).lookup(name));
-        if (inode.isDirectory())
-            uout.print(" D");
-        else if (inode.isFile())
-            uout.print(" F");
-        else if (inode.isSymlink())
-            uout.print(" -> " + inode.getSymlink());
-        uout.println(" " + inode.getLength());
-
-        inode.decUseCount(); // TODO: is this necessary?
-
-        } catch (FSException e) {
-        uout.println("Error");
+        for (String name : names) {
+            uout.print(name);
+            try {
+                inode = (InodeImpl)(((InodeImpl)fs.getCwdInode()).lookup(name));
+                if (inode.isDirectory())
+                    uout.print(" D");
+                else if (inode.isFile())
+                    uout.print(" F");
+                else if (inode.isSymlink())
+                    uout.print(" -> " + inode.getSymlink());
+                uout.println(" " + inode.getLength());
+                
+                inode.decUseCount(); // TODO: is this necessary?
+                
+            } catch (FSException e) {
+                uout.println("Error");
+            }
         }
-    }
     }
 
     private void mkdir(String name, int mode) {
@@ -375,7 +373,6 @@ public class Shell { // extends Thread {
         fs.mkdir(name, mode);
     } catch (FSException e) {
         uout.println("Error: "+e.getMessage());
-        return;
     }
     }
 
@@ -384,7 +381,6 @@ public class Shell { // extends Thread {
         fs.rmdir(name);
     } catch (FSException e) {
         uout.println("Error: "+e.getMessage());
-        return;
     }
     }
 
@@ -393,7 +389,6 @@ public class Shell { // extends Thread {
         fs.create(name, mode);
     } catch (FSException e) {
         uout.println("Error: "+e.getMessage());
-        return;
     }
     }
 
@@ -402,7 +397,6 @@ public class Shell { // extends Thread {
         fs.unlink(name);
     } catch (FSException e) {
         uout.println("Error: "+e.getMessage());
-        return;
     }
     }
 
@@ -468,7 +462,6 @@ public class Shell { // extends Thread {
         fs.rename(path, pathneu);
     } catch (FSException e) {
         uout.println("Error: "+e.getMessage());
-        return;
     }
     }
 
@@ -477,7 +470,6 @@ public class Shell { // extends Thread {
         fs.symlink(path, pathneu);
     } catch (FSException e) {
         uout.println("Error: "+e.getMessage());
-        return;
     }
     }
 
@@ -502,7 +494,6 @@ public class Shell { // extends Thread {
         mountPartitions.put(dev_name, filesystem);
     } catch (FSException e) {
         uout.println("Error: "+e.getMessage());
-        return;
     }
     }
 

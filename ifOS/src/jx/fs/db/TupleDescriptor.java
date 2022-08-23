@@ -1,4 +1,4 @@
-package jx.db;
+package jx.fs.db;
 
 /**
  * Title: SA
@@ -11,7 +11,7 @@ package jx.db;
 
 
 /*fixit*/
-import jx.db.types.DbConverter;
+import jx.fs.db.types.DbConverter;
 
 public interface TupleDescriptor extends jx.zero.Portal  {
     public static final int ERR_WRONG_OFFSET = 0;

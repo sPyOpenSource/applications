@@ -1,6 +1,6 @@
 package test.fs;
 
-import jx.bio.*;
+import jx.devices.bio.BlockIO;
 import jx.zero.*;
 
 public class ReadDisk {

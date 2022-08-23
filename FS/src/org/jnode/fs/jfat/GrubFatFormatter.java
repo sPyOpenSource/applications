@@ -24,7 +24,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.net.URLConnection;
-import jx.bio.BlockIO;
+import jx.devices.bio.BlockIO;
 import jx.zero.Memory;
 
 import org.jnode.driver.block.Geometry;

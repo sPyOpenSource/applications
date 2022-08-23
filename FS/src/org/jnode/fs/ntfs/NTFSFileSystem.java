@@ -26,9 +26,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.nio.file.FileSystemException;
 
-import jx.bio.BlockIO;
+import jx.devices.bio.BlockIO;
 import jx.fs.FSException;
-import jx.fs.Inode;
+import jx.fs.Node;
 import jx.fs.buffercache.BufferCache;
 import jx.zero.Clock;
 import jx.zero.Memory;
@@ -107,7 +107,7 @@ public class NTFSFileSystem implements jx.fs.FileSystem {
      * @return the volume ID.
      * @throws IOException if an error occurs.
      */
-    public byte[] getVolumeId() throws IOException {
+    public Memory getVolumeId() throws IOException {
         NTFSEntry entry = (NTFSEntry) getRootEntry().getDirectory().getEntry("$Volume");
         if (entry == null) {
             return null;
@@ -208,7 +208,7 @@ public class NTFSFileSystem implements jx.fs.FileSystem {
     }
 
     @Override
-    public Inode getRootInode() {
+    public Node getRootNode() {
         try {
             return getRootEntry();
         } catch (IOException ex) {
@@ -238,14 +238,14 @@ public class NTFSFileSystem implements jx.fs.FileSystem {
     }
 
     @Override
-    public Inode getInode(int identifier) throws FSException {
+    public Node getNode(int identifier) throws FSException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public int getDeviceID() {
         try {
-            return getVolumeId()[0];
+            return getVolumeId().get8(0);
         } catch (IOException ex) {
             Logger.getLogger(NTFSFileSystem.class.getName()).log(Level.SEVERE, null, ex);
             return 0;

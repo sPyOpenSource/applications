@@ -4,7 +4,7 @@ package org.jnode.fs.jfat;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Stack;
-import jx.bio.BlockIO;
+import jx.devices.bio.BlockIO;
 
 public class CacheMap extends LinkedHashMap<CacheKey, CacheElement> 
     {

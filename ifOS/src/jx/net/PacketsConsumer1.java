@@ -1,9 +1,8 @@
 package jx.net;
 
-import jx.zero.*;
+import jx.zero.Memory;
 
 public interface PacketsConsumer1 {
-
     Memory processMemory(Memory data, int offset, int size);
 
     /**

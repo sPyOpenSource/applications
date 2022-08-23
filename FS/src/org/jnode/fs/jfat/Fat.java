@@ -22,7 +22,7 @@ package org.jnode.fs.jfat;
 
 import java.io.IOException;
 import java.nio.file.FileSystemException;
-import jx.bio.BlockIO;
+import jx.devices.bio.BlockIO;
 import jx.zero.Debug;
 import jx.zero.InitialNaming;
 import jx.zero.Memory;

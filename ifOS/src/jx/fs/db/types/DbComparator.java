@@ -1,4 +1,4 @@
-package jx.db.types;
+package jx.fs.db.types;
 
 
 public interface DbComparator {

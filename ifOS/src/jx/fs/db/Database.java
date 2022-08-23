@@ -1,6 +1,6 @@
-package jx.db;
+package jx.fs.db;
 
-import jx.db.types.TypeManager;
+import jx.fs.db.types.TypeManager;
 
 public interface Database extends jx.zero.Portal {
 

@@ -1,14 +1,13 @@
 package test.fs;
 
+import jx.devices.bio.BlockIO;
 import jx.fs.*;
 import jx.fs.InodeImpl;
-import jx.bio.*;
 import jx.zero.*;
 import jx.zero.debug.*;
 import jx.zero.debug.DebugPrintStream;
 import jx.zero.debug.DebugOutputStream;
 
-import jx.fs.javafs.*;
 import vfs.*;
 
 

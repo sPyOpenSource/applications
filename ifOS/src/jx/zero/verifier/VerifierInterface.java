@@ -1,5 +1,6 @@
 package jx.zero.verifier;
 
+import jx.zero.ByteCode;
 import jx.zero.classfile.MethodSource;
 
 public interface VerifierInterface {

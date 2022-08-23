@@ -1,4 +1,4 @@
-package jx.db;
+package jx.fs.db;
 
 /**
  * Title: SA
@@ -13,7 +13,7 @@ package jx.db;
 /** A simple container for temporary storage. Use it if you want to store a large amount of sets in a page buffer.
  * The sets should be of the same length
  */
-public interface BufferList  extends jx.zero.Portal {
+public interface BufferList extends jx.zero.Portal {
     /** error code, thrown if the BufferList is empty and the user tries to navigate through the sets
      */
     public static final int ERR_LIST_EMPTY = 0;

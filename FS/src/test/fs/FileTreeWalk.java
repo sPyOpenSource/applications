@@ -3,7 +3,7 @@ package test.fs;
 import jx.zero.*;
 import jx.zero.debug.*;
 import jx.fs.FS;
-import jx.fs.Inode;
+import jx.fs.Node;
 import jx.fs.FSException;
 
 public class FileTreeWalk {
@@ -33,18 +33,15 @@ public class FileTreeWalk {
         return;
     }
 
-    printDir(" ", fs.getCwdInode());
+    printDir(" ", fs.getCwdNode());
 
     }
 
-    private void printDir(String space, Inode dirInode) throws FSException {
-    String name = null;
-    Inode inode;
+    private void printDir(String space, Node dirInode) throws FSException {
+    Node inode;
     String[] names = dirInode.readdirNames();
 
-
-        for (String name1 : names) {
-            name = name1;
+        for (String name : names) {
             inode = dirInode.lookup(name);
             Debug.out.print(space);
             if (inode.isDirectory())
@@ -60,8 +57,7 @@ public class FileTreeWalk {
                 Debug.out.print(" -> " + inode.getSymlink());
             Debug.out.println();
         }
-        for (String name1 : names) {
-            name = name1;
+        for (String name : names) {
             inode = dirInode.lookup(name);
             if (! name.equals(".") && ! name.equals("..") && inode.isDirectory()) {
                 Debug.out.println(space+"-------------");

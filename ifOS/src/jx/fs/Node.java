@@ -57,19 +57,19 @@ public interface Node extends jx.zero.Portal {
     /**
      * L&ouml;scht die Inode (notwendig bei den Kommandos <code>unlink</code> und <code>rmdir</code>).
      */
-    void deleteInode();
+    void deleteNode();
 
     /**
      * Schreibt &Aauml;nderungen, die an der Inode vorgenommen wurden, auf die Partition.
      */
-    void writeInode();
+    void writeNode();
 
     /**
      * Gibt die Ressourcen, die von der Inode verwendet werden, frei (wird aufgerufen, wenn die Inode
      * aus dem Cache entfernt wird). Die Inode auf der Partition wird nicht gel&ouml;scht, nur ihr Objekt
      * im Speicher.
      */
-    void putInode();
+    void putNode();
 
     /**
      * &Uuml;berlagert die Inode des angegebenen Verzeichniseintrags mit der Inode eines anderen Dateisystems
@@ -199,7 +199,7 @@ public interface Node extends jx.zero.Portal {
      * @exception NoDirectoryInodeException falls es sich nicht um ein Verzeichnis handelt
      * @exception PermissionException       falls die Zugriffsrechte des Verzeichnisses die Operation nicht erlauben
      */
-    Node   getInode(String name);
+    Node   getNode(String name);
 
     /**
      * Erzeugt ein neues Verzeichnis mit dem angegebenen Namen innerhalb des durch diese Inode dargestellten Verzeichnisses,

@@ -21,4 +21,3 @@ public interface PackedFramebuffer {
    
    public String framebufferType();	/* argl should not be public */
 }
-

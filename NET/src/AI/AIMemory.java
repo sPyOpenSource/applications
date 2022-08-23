@@ -3,7 +3,6 @@ package AI;
 import java.util.TreeMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-//import test.fs.FSDomain;
 
 import jx.InitialNaming;
 import jx.bio.BlockIO;
@@ -15,7 +14,6 @@ import jx.fs.FileSystem;
 
 import jx.zero.Clock;
 import jx.zero.Debug;
-import jx.zero.LookupHelper;
 import jx.zero.Memory;
 import jx.zero.MemoryManager;
 import jx.zero.Ports;

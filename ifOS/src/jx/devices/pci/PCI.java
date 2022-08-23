@@ -26,15 +26,15 @@ public interface PCI {
    
    // Register 2
    int REG_CLASSREV		= 2;
-   int CLASSCODE_MASK		= 0xffffff00;
-   int CLASSCODE_SHIFT		= 8;
+   int CLASSCODE_MASK	= 0xffffff00;
+   int CLASSCODE_SHIFT	= 8;
    int REVISION_MASK		= 0x000000ff;
-   int REVISION_SHIFT		= 0;
+   int REVISION_SHIFT	= 0;
    
    // Register 3
    int REG_BHLC			= 3;
-   int BIST_MASK		= 0xff000000;
-   int BIST_SHIFT		= 24;
+   int BIST_MASK		   = 0xff000000;
+   int BIST_SHIFT		   = 24;
    int HEADERTYPE_MASK		= 0x00ff0000;
    int HEADERTYPE_SHIFT		= 16;
    int LATENCYTIMER_MASK	= 0x0000ff00;
@@ -49,7 +49,7 @@ public interface PCI {
    int REG_BASEADDRESS_3	= 7;
    int REG_BASEADDRESS_4	= 8;
    int REG_BASEADDRESS_5	= 9;
-   int BASEADDRESS_MEM_MASK	= 0xfffffff0;
+   int BASEADDRESS_MEM_MASK     = 0xfffffff0;
    
    // Register 11
    int REG_SUBDEVVEND		= 11;
@@ -63,15 +63,15 @@ public interface PCI {
    
    // Register 13
    int REG_CAP			= 13;
-   int CAP_MASK			= 0x000000ff;
+   int CAP_MASK		= 0x000000ff;
    int CAP_SHIFT		= 0;
    
    // Register 15
-   int REG_LGII			= 15;
+   int REG_LGII			   = 15;
    int MAXLATENCY_MASK		= 0xff000000;
    int MAXLATENCY_SHIFT		= 24;
-   int MINGNT_MASK		= 0x00ff0000;
-   int MINGNT_SHIFT		= 16;
+   int MINGNT_MASK		   = 0x00ff0000;
+   int MINGNT_SHIFT		   = 16;
    int INTERRUPTPIN_MASK	= 0x0000ff00;
    int INTERRUPTPIN_SHIFT	= 8;
    int INTERRUPTLINE_MASK	= 0x000000ff;
@@ -86,8 +86,8 @@ public interface PCI {
    int HEADER_MULTIFUNCTION	= 0x80;
    
    int CLASSCODE_CLASS_MASK	= 0xff0000;   /* Class */
-   int CLASSCODE_SUBCLASS_MASK	= 0x00ff00;   /* Subclass */
-   int CLASSCODE_PIF_MASK	= 0x0000ff;   /* Programming Interface */
+   int CLASSCODE_SUBCLASS_MASK = 0x00ff00;   /* Subclass */
+   int CLASSCODE_PIF_MASK	   = 0x0000ff;   /* Programming Interface */
 
 
    /********************************************************************/
@@ -129,14 +129,14 @@ public interface PCI {
    
    int CMD_STATUS_SIG_TARGET_ABORT	= 0x0800;
    int CMD_STATUS_DEVSEL_TIM_MASK	= 0x0600;
-   int CMD_STATUS_DEVSEL_TIM_OFF	= 25;
-   int CMD_STATUS_PARITY_ERROR_R	= 0x0100;
-   int CMD_STATUS_FB2B_CAP		= 0x0080;
+   int CMD_STATUS_DEVSEL_TIM_OFF	   = 25;
+   int CMD_STATUS_PARITY_ERROR_R	   = 0x0100;
+   int CMD_STATUS_FB2B_CAP		      = 0x0080;
    
    int CMD_COMMAND_SERR_ENABLE	= 0x0100;
    int CMD_COMMAND_PERR_ENABLE	= 0x0040;
-   int CMD_COMMAND_BM_ENABLE	= 0x0004;
-   int CMD_COMMAND_MEM_SPACE	= 0x0002;
+   int CMD_COMMAND_BM_ENABLE	   = 0x0004;
+   int CMD_COMMAND_MEM_SPACE	   = 0x0002;
    
    
    /********************************************************************/

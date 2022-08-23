@@ -229,7 +229,7 @@ public class UsnJournalEntry extends NTFSStructure {
         /**
          * The lookup map for reasons.
          */
-        private static final Map<Long, String> reasonMap = new HashMap<Long, String>();
+        private static final Map<Long, String> reasonMap = new HashMap<>();
 
         /**
          * Registers a value in the map.

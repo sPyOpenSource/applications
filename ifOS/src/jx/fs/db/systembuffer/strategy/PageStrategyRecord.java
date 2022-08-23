@@ -1,4 +1,4 @@
-package db.systembuffer.strategy;
+package jx.fs.db.systembuffer.strategy;
 
 /** this interface is used by the PageBuffer objects to obtain information about the paged in pages
  */

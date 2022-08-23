@@ -402,12 +402,12 @@ public class FileRecord extends NTFSRecord {
      */
     public synchronized List<NTFSAttribute> getAllAttributes() {
         if (attributeList == null) {
-            attributeList = new ArrayList<NTFSAttribute>();
+            attributeList = new ArrayList<>();
 
             try {
                 if (attributeListAttribute == null) {
                     //log.debug("All attributes stored");
-                    attributeList = new ArrayList<NTFSAttribute>(getAllStoredAttributes());
+                    attributeList = new ArrayList<>(getAllStoredAttributes());
                 } else {
                     //log.debug("Attributes in attribute list");
                     readAttributeListAttributes();

@@ -37,7 +37,6 @@ public abstract class AbstractList extends AbstractCollection implements List
 			 );
     }
 
-
     public boolean add(Object obj) {
 	ensureCapacity(elementCount + 1);
 	elementData[elementCount] = obj;
@@ -47,5 +46,4 @@ public abstract class AbstractList extends AbstractCollection implements List
     public Iterator iterator() {
 	throw new Error("ITERATOR");
     }
-
 }

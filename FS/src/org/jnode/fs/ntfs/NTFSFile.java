@@ -127,6 +127,7 @@ public class NTFSFile extends NTFSEntry {
      * (non-Javadoc)
      * @see org.jnode.fs.FSObject#isValid()
      */
+    @Override
     public boolean isValid() {
         return true;
     }
@@ -135,6 +136,7 @@ public class NTFSFile extends NTFSEntry {
      * (non-Javadoc)
      * @see org.jnode.fs.FSObject#getFileSystem()
      */
+    @Override
     public FileSystem getFileSystem() {
         return fs;
     }
@@ -142,6 +144,7 @@ public class NTFSFile extends NTFSEntry {
     /**
      * @return Returns the fileRecord.
      */
+    @Override
     public FileRecord getFileRecord() {
         if (fileRecord == null) {
             try {
@@ -160,7 +163,7 @@ public class NTFSFile extends NTFSEntry {
         this.fileRecord = fileRecord;
     }
 
-    public byte[] getSlackSpace() throws IOException {
+    public Memory getSlackSpace() throws IOException {
         Iterator<NTFSAttribute> dataAttributes = getFileRecord().findAttributesByTypeAndName(
             NTFSAttribute.Types.DATA, null);
         NTFSAttribute attribute = dataAttributes.hasNext() ? dataAttributes.next() : null;
@@ -274,17 +277,21 @@ public class NTFSFile extends NTFSEntry {
             destByteArray.refreshByteBuffer();
         }
 
+        @Override
         public void write(long fileOffset, ByteBuffer src) {
             throw new UnsupportedOperationException("Not implemented yet");
         }
 
+        @Override
         public void flush() throws IOException {
         }
 
+        @Override
         public boolean isValid() {
             return true;
         }
 
+        @Override
         public FileSystem getFileSystem() {
             return NTFSFile.this.getFileSystem();
         }

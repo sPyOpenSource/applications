@@ -22,7 +22,6 @@ package org.jnode.fs.jfat;
 
 import jx.zero.Debug;
 import jx.zero.Memory;
-import org.jnode.util.NumberUtils;
 import jx.InitialNaming;
 import jx.zero.MemoryManager;
 

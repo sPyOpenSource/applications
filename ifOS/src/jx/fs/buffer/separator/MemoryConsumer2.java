@@ -1,6 +1,6 @@
 package jx.fs.buffer.separator;
 
-import jx.zero.*;
+import jx.zero.Memory;
 
 /**
  * This interface should be implemented by a class in a domain

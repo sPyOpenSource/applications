@@ -4,7 +4,6 @@ import java.util.Vector;
 import java.util.Hashtable;
 import java.util.Enumeration;
 import jx.zero.Debug;
-import jx.fs.Inode;
 import jx.fs.*;
 
 /**
@@ -30,7 +29,7 @@ public class DirEntryCache {
      *
      * @param inode die Inode, die in den Cache aufgenommen werden soll
      */
-    public synchronized void addEntry(String pfad, Inode inode) {
+    public synchronized void addEntry(String pfad, Node inode) {
     if (dentry_hashtable.size() >= max_dentries)
         invalidateEntries();
     dentry_hashtable.put(pfad, inode);
@@ -43,8 +42,8 @@ public class DirEntryCache {
      * @param pfad der Pfad innerhalb des Dateisystems, der auf die gew&uuml;nschte Inode verweist
      * @return die gew&uuml;nschte Inode, falls im Cache vorhanden, ansonsten <code>null</code>
      */
-    public synchronized Inode getEntry(String pfad) {
-    Inode inode = (Inode)dentry_hashtable.get(pfad);
+    public synchronized Node getEntry(String pfad) {
+    Node inode = (Node)dentry_hashtable.get(pfad);
     if (inode != null)
         inode.incUseCount();
     return inode;

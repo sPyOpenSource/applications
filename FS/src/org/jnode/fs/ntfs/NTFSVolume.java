@@ -22,7 +22,7 @@ package org.jnode.fs.ntfs;
 
 import java.io.IOException;
 import java.nio.ByteBuffer;
-import jx.bio.BlockIO;
+import jx.devices.bio.BlockIO;
 import jx.zero.Memory;
 
 /**

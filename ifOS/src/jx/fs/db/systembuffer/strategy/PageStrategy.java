@@ -1,4 +1,4 @@
-package db.systembuffer.strategy;
+package jx.fs.db.systembuffer.strategy;
 
 
 /** Classes, that implement paging functionality have to implement the PageStrategy interface.

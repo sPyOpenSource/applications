@@ -2,6 +2,7 @@ package jx.fs;
 
 import jx.zero.Clock;
 import jx.devices.bio.BlockIO;
+import jx.fs.buffer.BufferCache;
 
 /**
  * This interface provides operations that affect the file system as a whole. A concrete one
@@ -26,13 +27,12 @@ public interface FileSystem extends jx.zero.Portal {
     String name();
 
 
-
     /**
      * Liefert die Root-Inode dieses Dateisystems zur&uuml;ck.
      *
      * @return die Root-Inode des Dateisystems
      */
-    Node getRootInode();
+    public Node getRootNode();
 
     /**
      * Initialisiert das Dateisystem (wird vom <code>mount</code>-Mechanismus der Klasse <code>FS</code> verwendet).
@@ -64,7 +64,7 @@ public interface FileSystem extends jx.zero.Portal {
      */
     void check();
 
-    Node getInode(int identifier);
+    public Node getNode(int identifier);
 
     int getDeviceID();
 

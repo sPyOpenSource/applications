@@ -1,7 +1,7 @@
 /***************************  Comparable.java  *******************************/
 
 
-package db.avltree;
+package jx.fs.db.avltree;
 
 
 /**   Das Interface deklariert eine Methode, anhand der sich das

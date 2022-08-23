@@ -124,6 +124,7 @@ public final class FileNameAttribute extends NTFSResidentAttribute {
     /**
      * Gets the flags.
      */
+    @Override
     public int getFlags() {
         return fileNameStructure.getFlags();
     }

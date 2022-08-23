@@ -1,4 +1,4 @@
-package jx.db.types;
+package jx.fs.db.types;
 
 
 public interface TypeManager /*extends jx.zero.Portal*/ {
@@ -13,11 +13,11 @@ public interface TypeManager /*extends jx.zero.Portal*/ {
     public static final String DATP_DNAME_STR = "str";
 
     /** returns an object that implements the DbComparator interface, used to compare byte arrays of iDID type.
-     * @param iDID datatype id
+     * @param typeID datatype id
      * @throws CodedException thrown, if an error occurs
      * @return Comparator object
      */
-   public DbComparator getComparator(int typeID);
+    public DbComparator getComparator(int typeID);
 
 
     /** returns a DbConverter objects for the datatype of the attribute on the given iPos

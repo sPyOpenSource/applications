@@ -2,7 +2,7 @@ package jx.zero.verifier.wcet;
 
 //class to record execution time of an method
 
-import jx.zero.verifier.ByteCode;
+import jx.zero.ByteCode;
 
 public interface ExecutionTime {
     //add the time of other to the time of this

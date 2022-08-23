@@ -4,7 +4,7 @@ import AI.AIMemory;
 import jx.fs.javafs.InodeImpl;
 import vfs.FSImpl;
 
-import jx.bio.BlockIO;
+import jx.devices.bio.BlockIO;
 import jx.fs.FSException;
 import jx.zero.CPUManager;
 import jx.zero.Clock;

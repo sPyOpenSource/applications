@@ -21,7 +21,7 @@
 package org.jnode.fs.jfat;
 
 import java.io.IOException;
-import jx.bio.BlockIO;
+import jx.devices.bio.BlockIO;
 
 /**
  * A FAT implementation for FAT-12.

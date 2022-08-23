@@ -1,5 +1,6 @@
 package jx.devices.ide;
 
+import jx.devices.Bus;
 import jx.zero.Portal;
 import jx.zero.Memory;
 
@@ -10,7 +11,7 @@ import jx.zero.Memory;
  * Diese Version setzt Zugriffe auf eine Festplatte in Lese- und Schreiboperationen auf eine Datei um; der Name der Datei entspricht dem
  * Partitionsnamen.
  */
-public interface IDEDevice extends Portal {
+public interface IDEDevice extends Bus, Portal {
     /**
      * Ermittelt das Vorhandensein der angegebenen Partition.
      *

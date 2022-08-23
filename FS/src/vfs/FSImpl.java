@@ -4,17 +4,17 @@ import java.util.Hashtable;
 import jx.zero.Debug;
 import jx.zero.Service;
 import jx.zero.Memory;
-import jx.fs.Inode;
+
 import jx.fs.FileSystem;
 import jx.fs.FS;
 import jx.fs.FSException;
+import jx.fs.Node;
 import jx.fs.PermissionException;
-import jx.fs.*;
 
 public class FSImpl implements FS, Service {
-    private Inode         rootInode;
+    private Node          rootInode;
     private FileSystem    rootFS;
-    private Inode         cwdInode;
+    private Node         cwdInode;
     private String        cwdPath;
     private final Hashtable     mountpoints;
     private final Hashtable     devices; // maps ID to FileSystem
@@ -34,12 +34,12 @@ public class FSImpl implements FS, Service {
     }
 
     @Override
-    public final Inode getCwdInode() {
+    public final Node getCwdNode() {
     //cwdInode.incUseCount(); // oder nicht?
     return cwdInode;
     }
 
-    private Inode igetCwdInode() {
+    private Node igetCwdNode() {
     cwdInode.incUseCount();
     return cwdInode;
     }
@@ -56,13 +56,13 @@ public class FSImpl implements FS, Service {
 
     @Override
     public final void mount(FileSystem filesystem, String path, boolean read_only) throws InodeIOException, InodeNotFoundException, NoDirectoryInodeException, NotExistException, PermissionException {
-    Inode pi = null;
+    Node pi = null;
     if (isPath(path))
         pi = lookup(getPathName(path));
     
     direntrycache.removeEntry(getAbsolutePath(path));
     filesystem.init(read_only);
-    Inode mnt = filesystem.getRootInode();
+    Node mnt = filesystem.getRootNode();
     direntrycache.addEntry(getAbsolutePath(path), mnt);
     if (isPath(path)) {
         pi.overlay(mnt, getFileName(path));
@@ -70,18 +70,18 @@ public class FSImpl implements FS, Service {
         pi.decUseCount();
     } else {
         cwdInode.overlay(mnt, getFileName(path));
-        mountpoints.put(filesystem, igetCwdInode());
+        mountpoints.put(filesystem, igetCwdNode());
     }
-    devices.put(new Integer(filesystem.getDeviceID()), filesystem);
+    devices.put(filesystem.getDeviceID(), filesystem);
     //devices.put(filesystem.getDeviceID(), filesystem);
     }
 
     @Override
     public final void unmount(FileSystem filesystem) throws InodeNotFoundException, NoDirectoryInodeException, NotExistException {
-    Inode overlayedInode = (Inode)mountpoints.get(filesystem);
+    Node overlayedInode = (Node)mountpoints.get(filesystem);
     if (overlayedInode == null)
         return;
-    Inode root = filesystem.getRootInode();
+    Node root = filesystem.getRootNode();
     //direntrycache.removeEntry(getAbsolutePath()); TODO!
     overlayedInode.removeOverlay(root);
     overlayedInode.decUseCount();
@@ -98,13 +98,13 @@ public class FSImpl implements FS, Service {
     if (cwdInode != null)
         cwdInode.decUseCount();
     filesystem.init(read_only);
-    rootInode = filesystem.getRootInode();
-    cwdInode = filesystem.getRootInode();
+    rootInode = filesystem.getRootNode();
+    cwdInode = filesystem.getRootNode();
     direntrycache.addEntry("/", rootInode);
     cwdPath = "/";
     mountpoints.put(filesystem, rootInode);
     rootFS = filesystem;
-    devices.put(new Integer(filesystem.getDeviceID()), filesystem);    
+    devices.put(filesystem.getDeviceID(), filesystem);    
     //devices.put(filesystem.getDeviceID(), filesystem);
     }
 
@@ -116,15 +116,15 @@ public class FSImpl implements FS, Service {
     @Override
     public final void cd(String path) {
     String tmpPath;
-    Inode tmpInode;
+    Node tmpInode;
 
     try {
         if (path.equals("."))
-        return;
+            return;
         if (path.equals(".."))
-        tmpPath = getPathName(cwdPath);
+            tmpPath = getPathName(cwdPath);
         else
-        tmpPath = getAbsolutePath(path);
+            tmpPath = getAbsolutePath(path);
         tmpInode = lookup(tmpPath);
     } catch (InodeIOException e) {
         Debug.out.println("cd: Fehler beim Lesen von '" + path + "'");
@@ -151,22 +151,22 @@ public class FSImpl implements FS, Service {
     @Override
     public final void rename(String path, String pathneu) throws InodeIOException, InodeNotFoundException, NoDirectoryInodeException, NotExistException, PermissionException {
     try {
-        Inode pi, pineu;
+        Node pi, pineu;
         
         if (path.equals("/")) // ein Rootverzeichnis kann nicht verschoben werden
-        throw new PermissionException();
+            throw new PermissionException();
         if (isPath(path))
-        pi = lookup(getPathName(path));
+            pi = lookup(getPathName(path));
         else
-        pi = igetCwdInode();
+            pi = igetCwdNode();
         if (pi.isOverlayed(getFileName(path))) {
-        pi.decUseCount();
-        throw new PermissionException(); // ein Mountpunkt kann nicht verschoben werden
+            pi.decUseCount();
+            throw new PermissionException(); // ein Mountpunkt kann nicht verschoben werden
         }
         if (isPath(pathneu))
-        pineu = lookup(getPathName(pathneu));
+            pineu = lookup(getPathName(pathneu));
         else
-        pineu = igetCwdInode();
+            pineu = igetCwdNode();
         pi.rename(getFileName(path), pineu, getFileName(pathneu));
         direntrycache.moveEntry(getAbsolutePath(path), getAbsolutePath(pathneu));
         
@@ -177,13 +177,13 @@ public class FSImpl implements FS, Service {
 
     @Override
     public final void symlink(String path, String pathneu) throws FileExistsException, InodeIOException, InodeNotFoundException, NoDirectoryInodeException, NotExistException,NotSupportedException, PermissionException {
-    Inode pi;
+    Node pi;
     
     if (isPath(pathneu))
         pi = lookup(getPathName(pathneu));
     else
-        pi = igetCwdInode();
-    Inode newinode = pi.symlink(getAbsolutePath(path), getFileName(pathneu));
+        pi = igetCwdNode();
+    Node newinode = pi.symlink(getAbsolutePath(path), getFileName(pathneu));
     pi.decUseCount();
     direntrycache.addEntry(getAbsolutePath(pathneu), newinode);
     newinode.decUseCount();
@@ -191,9 +191,9 @@ public class FSImpl implements FS, Service {
 
     @Override
     public final void mkdir(String path, int mode) throws FileExistsException, InodeIOException, InodeNotFoundException, NoDirectoryInodeException, NotExistException,PermissionException {
-    Inode newdir;
+    Node newdir;
     if (isPath(path)) {
-        Inode pi = lookup(getPathName(path));
+        Node pi = lookup(getPathName(path));
         newdir = pi.mkdir(getFileName(path), mode);
         pi.decUseCount();
     } else {
@@ -207,7 +207,7 @@ public class FSImpl implements FS, Service {
     public final void rmdir(String path) throws DirNotEmptyException, InodeIOException, InodeNotFoundException, NoDirectoryInodeException, NotExistException,PermissionException {
     direntrycache.removeEntry(getAbsolutePath(path)); // ruft schliesslich auch decUseCount() auf
     if (isPath(path)) {
-        Inode pi = lookup(getPathName(path));
+        Node pi = lookup(getPathName(path));
         pi.rmdir(getFileName(path));
         pi.decUseCount();
     } else {
@@ -217,9 +217,9 @@ public class FSImpl implements FS, Service {
     
     @Override
     public final void create(String path, int mode) throws FileExistsException, InodeIOException, InodeNotFoundException, NoDirectoryInodeException, NotExistException,PermissionException {
-    Inode newfile;
+    Node newfile;
     if (isPath(path)) {
-        Inode pi = lookup(getPathName(path));
+        Node pi = lookup(getPathName(path));
         newfile = pi.create(getFileName(path), mode);
         pi.decUseCount();
     } else {
@@ -233,7 +233,7 @@ public class FSImpl implements FS, Service {
     public final void unlink(String path) throws InodeIOException, InodeNotFoundException, NoDirectoryInodeException, NoFileInodeException, NotExistException,PermissionException {
     direntrycache.removeEntry(getAbsolutePath(path));
     if (isPath(path)) {
-        Inode pi = lookup(getPathName(path));
+        Node pi = lookup(getPathName(path));
         pi.unlink(getFileName(path));
         pi.decUseCount();
     } else {
@@ -258,8 +258,8 @@ public class FSImpl implements FS, Service {
     }
 
     @Override
-    public final Inode lookup(String path)throws InodeIOException, InodeNotFoundException, NoDirectoryInodeException, NotExistException, PermissionException {
-    Inode inode = direntrycache.getEntry(getAbsolutePath(path));
+    public final Node lookup(String path) throws InodeIOException, InodeNotFoundException, NoDirectoryInodeException, NotExistException, PermissionException {
+    Node inode = direntrycache.getEntry(getAbsolutePath(path));
     if (inode != null)  // Eintrag im Cache
         return inode;
     
@@ -271,7 +271,7 @@ public class FSImpl implements FS, Service {
         rootInode.incUseCount();
         return rootInode;
         }
-        Inode pi = lookup(getPathName(path));
+        Node pi = lookup(getPathName(path));
         inode = pi.lookup(getFileName(path));
         //if (pi != rootInode) TODO: CHECK!!!
         pi.decUseCount();
@@ -314,13 +314,13 @@ public class FSImpl implements FS, Service {
     }
 
     @Override
-    public Inode getInode(int deviceIdentifier, int identifier) throws FSException, NotExistException, PermissionException{
+    public Node getNode(int deviceIdentifier, int identifier) throws FSException, NotExistException, PermissionException{
        FileSystem filesystem = (FileSystem) devices.get(deviceIdentifier);
        
        if (filesystem == null) Debug.out.println("filesystem ist null");
-       filesystem.getInode(identifier);
+       filesystem.getNode(identifier);
 
-       return filesystem.getInode(identifier);
+       return filesystem.getNode(identifier);
     }
 
     @Override

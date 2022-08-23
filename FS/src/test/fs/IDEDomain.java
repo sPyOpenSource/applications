@@ -1,7 +1,7 @@
 package test.fs;
 
 import jx.zero.*;
-import jx.bio.BlockIO;
+import jx.devices.bio.BlockIO;
 import bioide.IDEDeviceImpl;
 import bioide.Drive;
 import bioide.PartitionEntry;

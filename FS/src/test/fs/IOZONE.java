@@ -229,7 +229,7 @@ public class IOZONE {
     }
 
     private void readPerfTest(int kilo, int reclen) { // long, long
-    Inode inode = null;
+    Node inode = null;
     int starttime;
     int endtime;
     int readtime[] = new int[2]; 
@@ -241,7 +241,7 @@ public class IOZONE {
     filebytes = numrecs*reclen;
     // ASSUME 500 MHz time stamp counter
     try {
-        inode = (Inode)fs.lookup("iozone.tmp");
+        inode = (Node)fs.lookup("iozone.tmp");
         if (inode == null)
         return;
 
@@ -316,7 +316,7 @@ public class IOZONE {
     }
 
     private void writePerfTest(int kilo, int reclen) { // long, long
-    Inode inode = null;
+    Node inode = null;
     int starttime; //long
     int endtime; //long
     int writetime[] = new int[2]; //long
@@ -328,7 +328,7 @@ public class IOZONE {
     filebytes = numrecs * reclen;
 
     try {
-        inode = (Inode)fs.lookup("iozone.tmp");
+        inode = (Node)fs.lookup("iozone.tmp");
         if (inode == null)
         return;
         for (int j = 0; j < 2; j++) {
@@ -376,13 +376,13 @@ public class IOZONE {
         report_array[current_y*MAX_X + current_x] = value;
         current_x++;
         if (current_x > max_x)
-        max_x = current_x;
+            max_x = current_x;
         if (current_y > max_y)
-        max_y = current_y;
+            max_y = current_y;
         if (max_x >= MAX_X)
-        Debug.out.println("MAX_X too small");
+            Debug.out.println("MAX_X too small");
         if (max_y >= MAX_Y)
-        Debug.out.println("MAX_X too small");
+            Debug.out.println("MAX_X too small");
     } catch (Exception ex) {
         Debug.out.println("\n!!! Exception in storeValue caught !!!");
         cancel_store = true;
@@ -416,8 +416,7 @@ public class IOZONE {
     /* Dumps the Excel report on standard output.            */
     /********************************************************************/
     private void dumpReport(int who) {
-    int i, j;
-        int current_file_size;
+    int i, j, current_file_size;
 
     //try {
         Debug.out.print("      ");

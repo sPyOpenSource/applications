@@ -26,7 +26,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import jx.fs.Directory;
-import jx.fs.Inode;
+import jx.fs.Node;
 import jx.fs.FSFile;
 
 /**
@@ -71,7 +71,7 @@ public class FSUtils {
      * @param deep if {@code true}, include details of the FS object that the entry refers to.
      * @return a human readable rendering of the FSEntry
      */
-    public static String toString(Inode entry, boolean deep) {
+    public static String toString(Node entry, boolean deep) {
         if (entry == null)
             return "<FSEntry>NULL</FSEntry>";
 

@@ -2,7 +2,7 @@ package jx.fs;
 
 import jx.zero.Memory;
 
-public interface ReadOnlyRegularFile extends jx.fs.FSObject, jx.zero.Portal {
+public interface ReadOnlyRegularFile extends FSObject, jx.zero.Portal {
     @Override
     public void close() throws Exception;
     public void sync() throws Exception;

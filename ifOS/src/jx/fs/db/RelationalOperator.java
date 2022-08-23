@@ -4,7 +4,7 @@
  * Created on 30. Juli 2001, 10:08
  */
 
-package jx.db;
+package jx.fs.db;
 
 /**
  *

@@ -172,7 +172,7 @@ return 0;
     }*/
     
     @Override
-    public jx.fs.Inode getInode(String name) throws InodeIOException, InodeNotFoundException, NoDirectoryInodeException, NotExistException, PermissionException {
+    public jx.fs.Node getNode(String name) throws InodeIOException, InodeNotFoundException, NoDirectoryInodeException, NotExistException, PermissionException {
 	if (i_released)	throw new NotExistException();
 	throw new NoDirectoryInodeException();
     }

@@ -1,7 +1,5 @@
 package jx.zero.verifier;
 
-import java.util.Vector;
-
 /** Class for the elements of JVMLocalVars.
  * this class only provides the interface and holds the address of the bytecode that created this element.
  * @see JVMLocalVars
@@ -24,7 +22,7 @@ abstract public class JVMLocalVarsElement {
      */
     public abstract boolean dataEquals(JVMLocalVarsElement other);
     /**address of the bytecode that created this element.*/
-    private int bcAddr;
+    private final int bcAddr;
     /** get the address of the bytecode that created this element. */
     public final int getBcAddr() { return bcAddr;}
     /**constructor.
@@ -33,6 +31,7 @@ abstract public class JVMLocalVarsElement {
     public JVMLocalVarsElement(int bcAddr) {
 	this.bcAddr = bcAddr;
     }
+    @Override
     public String toString() {
 	return "("+((bcAddr >=0)?Integer.toHexString(bcAddr):"init")+")";
     }
