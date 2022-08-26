@@ -315,17 +315,17 @@ public abstract class FatEntry extends FatObject implements Node
     }
 
     @Override
-    public int i_nlinks() throws NotExistException {
+    public int i_nlinks() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void deleteNode() throws InodeIOException, NotExistException {
+    public void deleteNode() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void writeNode() throws InodeIOException, NotExistException {
+    public void writeNode() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -381,7 +381,7 @@ public abstract class FatEntry extends FatObject implements Node
     }
 
     @Override
-    public boolean isSymlink() throws NotExistException {
+    public boolean isSymlink() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

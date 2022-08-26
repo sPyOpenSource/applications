@@ -91,7 +91,7 @@ public class IOZONE {
     max_x = 0; max_y = 0;
     try {
         this.fs = fs;
-        fs.create("iozone.tmp", InodeImpl.S_IWUSR|InodeImpl.S_IRUGO);
+        fs.create("iozone.tmp", InodeImpl.S_IWUSR | InodeImpl.S_IRUGO);
     } catch (FSException e) {
         Debug.out.println("ERROR");
         return;

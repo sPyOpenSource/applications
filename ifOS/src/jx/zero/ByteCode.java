@@ -318,7 +318,6 @@ public interface ByteCode {
     public static final int GOTO_W = 0xc8; 
     public static final int JSR_W = 0xc9; 
     
-    
 
     //for a double linked list of bytecodes
     public ByteCode prev = null;

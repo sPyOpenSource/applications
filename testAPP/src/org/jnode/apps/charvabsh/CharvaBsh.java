@@ -42,6 +42,7 @@ import charvax.swing.JPanel;
 import charvax.swing.JScrollPane;
 import charvax.swing.JTextArea;
 import charvax.swing.border.TitledBorder;
+
 import gnu.java.io.NullOutputStream;
 import java.io.IOException;
 import java.io.InputStream;

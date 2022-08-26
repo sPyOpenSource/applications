@@ -83,7 +83,8 @@ public class FatFile extends FatEntry
     }
 
     @Override
-    public int read(Memory dst, int offset, int length) throws InodeIOException, NoFileInodeException, NotExistException, PermissionException {
+    public int read(Memory dst, int offset, int length)// throws InodeIOException, NoFileInodeException, NotExistException, PermissionException 
+    {
         //int limit = dst.limit();
         //int length = 32;//getLength();
         int rem = length - offset;

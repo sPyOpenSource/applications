@@ -26,7 +26,6 @@ import java.awt.event.WindowEvent;
 import javax.naming.NameNotFoundException;
 import javax.swing.JFrame;
 
-import org.jnode.driver.console.ConsoleManager;
 import org.jnode.driver.console.TextConsole;
 import org.jnode.driver.console.swing.SwingTextScreenConsoleManager;
 import org.jnode.driver.console.textscreen.TextScreenConsoleManager;

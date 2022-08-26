@@ -32,7 +32,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.StringTokenizer;
 
-import java.util.logging.Logger;
 import org.jnode.apps.vmware.disk.ExtentDeclaration;
 import org.jnode.apps.vmware.disk.IOUtils;
 import org.jnode.apps.vmware.disk.IOUtils.KeyValue;
@@ -86,11 +85,11 @@ public abstract class DescriptorRW {
 
             Header header = readHeader(br);
 
-            List<String> extentDecls = new ArrayList<String>();
+            List<String> extentDecls = new ArrayList<>();
             String lastLine = readExtents(br, extentDecls);
             DiskDatabase diskDatabase = readDiskDatabase(br, lastLine);
 
-            List<Extent> extents = new ArrayList<Extent>(extentDecls.size());
+            List<Extent> extents = new ArrayList<>(extentDecls.size());
             ExtentDeclaration mainExtentDecl = null;
             for (String decl : extentDecls) {
                 ExtentDeclaration extentDecl = readExtentDeclaration(decl, file);

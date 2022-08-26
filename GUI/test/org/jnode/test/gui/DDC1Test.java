@@ -21,7 +21,7 @@
 package org.jnode.test.gui;
 
 import org.jnode.driver.ApiNotFoundException;
-import org.jnode.driver.Device;
+import jx.devices.Device;
 import org.jnode.driver.DeviceNotFoundException;
 import org.jnode.driver.DeviceUtils;
 
@@ -40,7 +40,6 @@ import org.testng.annotations.Test;
 public class DDC1Test {
     @Test
     public void test() {
-
         final String devId = (args.length > 0) ? args[0] : "fb0";
         try {
             final Device dev = DeviceUtils.getDevice(devId);

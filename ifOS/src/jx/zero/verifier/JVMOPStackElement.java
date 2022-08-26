@@ -23,7 +23,6 @@ abstract public class JVMOPStackElement {
      */
     public abstract boolean dataEquals(JVMOPStackElement other);
 
-
     //constants for special bcAddresses
     public static final int ADDR_INIT = -1;
     public static final int ADDR_EXCEPTION = -2; //to be used when initializing exception handling

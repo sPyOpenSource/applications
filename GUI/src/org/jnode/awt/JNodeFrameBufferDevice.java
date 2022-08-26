@@ -23,7 +23,7 @@ package org.jnode.awt;
 import java.awt.GraphicsConfiguration;
 import java.awt.GraphicsDevice;
 import org.jnode.driver.ApiNotFoundException;
-import org.jnode.driver.Device;
+import jx.devices.Device;
 import org.jnode.driver.DeviceListener;
 import org.jnode.driver.video.FrameBufferAPI;
 import jx.devices.fb.FramebufferConfiguration;
