@@ -1,0 +1,11 @@
+PACKAGE = j51.swing
+
+SOURCE  = JFactory.java JFixedField.java \
+	  JHexField.java JHexByte.java JHexWord.java \
+	  JLed.java JNumField.java JBitField.java \
+	  UpdatableComponent.java
+
+MAIN = J51
+
+
+include $(JAVA_DEV_ROOT)/Makefile

@@ -1,3 +1,5 @@
 /dist/
 /build
 private
+*.eeprom
+*.flash

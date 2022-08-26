@@ -1,0 +1,15 @@
+#
+# Philips (NXP) processor
+#
+# @author Mario Viara
+# @version 1.00
+#
+PACKAGE = j51.philips
+
+SOURCE  = LPC764Base.java LPC764.java LPC900.java  LPC764Ports.java \
+	LPC936.java LPC764Constants.java LPC900Constants.java LPC900WDT.java \
+	LPC900Ports.java LPC900Misc.java
+
+MAIN = MCS51
+
+include $(JAVA_DEV_ROOT)/Makefile

@@ -1,0 +1,7 @@
+PACKAGE = j51.cmon51
+
+SOURCE  = Mon51.java
+
+MAIN = MCS51
+
+include $(JAVA_DEV_ROOT)/Makefile

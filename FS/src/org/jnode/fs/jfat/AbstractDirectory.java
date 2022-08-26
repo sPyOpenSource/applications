@@ -27,7 +27,7 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 import java.util.Vector;
 
-import jx.fs.Inode;
+import jx.fs.Node;
 import jx.zero.Memory;
 
 /**
@@ -65,7 +65,7 @@ public abstract class AbstractDirectory extends FatObject{
      *
      * @return Iterator
      */
-    public Iterator<Inode> iterator() {
+    public Iterator<Node> iterator() {
         return new DirIterator();
     }
 

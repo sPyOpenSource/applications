@@ -1,0 +1,15 @@
+#
+# $Id$
+#
+# @author Mario Viara
+# @version 1.01
+#
+# Makefile for j51.diseqc Package
+#
+PACKAGE = j51.diseqc
+
+SOURCE  = Motor.java Diseqc.java Satellite.java JMotor.java DiseqcPeripheral.java
+
+MAIN = Satellite
+
+include $(JAVA_DEV_ROOT)/Makefile

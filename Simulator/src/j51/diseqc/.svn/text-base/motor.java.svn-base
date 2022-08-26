@@ -1,0 +1,28 @@
+/**
+ * $Id$
+ */
+package j51.diseqc;
+
+import java.awt.*;
+import javax.swing.*;
+
+import j51.intel.*;
+import j51.philips.*;
+import j51.swing.*;
+import j51.util.Hex;
+import j51.atmel.Atmel24C16;
+import j51.i2c.I2cBus;
+
+/**
+ * 
+ * Interface to rappresent a DISEQC Motor.
+ *
+ * @author Mario Viara
+ * @version 1.00
+ *
+ */
+public interface Motor
+{
+	public void setPosition( int pos);
+	public Component getComponent();
+}

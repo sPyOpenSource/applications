@@ -1,0 +1,9 @@
+K 10
+svn:ignore
+V 29
+*.bak
+.bak
+epsilon.ses
+*.tmp
+
+END

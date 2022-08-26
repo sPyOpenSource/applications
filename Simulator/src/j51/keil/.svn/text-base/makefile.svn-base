@@ -1,0 +1,7 @@
+PACKAGE = j51.keil
+
+SOURCE  = MCB900.java
+
+MAIN = 
+
+include $(JAVA_DEV_ROOT)/Makefile

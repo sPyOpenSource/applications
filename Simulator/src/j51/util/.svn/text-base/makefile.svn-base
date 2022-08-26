@@ -1,0 +1,6 @@
+PACKAGE = j51.util
+
+SOURCE  = Hex.java Logger.java FastArray.java
+
+
+include $(JAVA_DEV_ROOT)/Makefile

@@ -1,0 +1,20 @@
+PACKAGE = j51.intel
+
+SOURCE  = MCS51Constants.java MCS51Opcode.java  AbstractMCS51Opcode.java \
+	MemoryReadListenerSfr.java MemoryWriteListenerSfr.java \
+		  InterruptSource.java AbstractInterruptSource.java \
+		  MCS51.java MCS51Performance.java MachineCyclesListener.java \
+		  SfrReadListener.java SfrWriteListener.java MCS51Peripheral.java \
+		  JPort.java JUart.java Timer.java InterruptSource.java \
+		  P8051.java AsyncTimerListener.java ResetListener.java \
+		  Code.java VolatileCode.java PersistentBuffer.java \
+		  FlashCode.java CallListener.java  Timer2.java SfrRegister.java \
+		  ArrayList.java SfrPage.java InterruptStatistic.java \
+		  Uart.java JUartTA.java Memory.java MemoryReadListener.java \
+		  MemoryWriteListener.java VolatileMemory.java PersistentMemory.java \
+		  MemoryBits.java MemoryBit.java OpenCollectorMemoryBit.java \
+		  EmulationListener.java MemoryByte.java
+
+MAIN = MCS51
+
+include $(JAVA_DEV_ROOT)/Makefile

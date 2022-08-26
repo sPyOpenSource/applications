@@ -5,7 +5,7 @@
  */
 package AI;
 
-import jx.bio.BlockIO;
+import jx.devices.bio.BlockIO;
 import jx.zero.Clock;
 import jx.zero.Naming;
 import jx.fs.javafs.FileSystem;

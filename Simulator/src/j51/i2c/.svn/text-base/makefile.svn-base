@@ -1,0 +1,15 @@
+#
+# $Id$
+#
+# Make for i2c package.
+#
+# @author Mario Viara
+# @version 1.00
+#
+PACKAGE = j51.i2c
+
+SOURCE  = I2cBus.java I2cSlave.java
+
+MAIN = MCS51
+
+include $(JAVA_DEV_ROOT)/Makefile

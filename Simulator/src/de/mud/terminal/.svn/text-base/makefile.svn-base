@@ -1,0 +1,11 @@
+
+PACKAGE = de.mud.terminal
+
+SOURCE  = VDUDisplay.java VDUBuffer.java VDUInput.java vt320.java \
+	 SoftFont.java SwingTerminal.java
+
+
+MAIN = 
+
+
+include $(JAVA_DEV_ROOT)/Makefile

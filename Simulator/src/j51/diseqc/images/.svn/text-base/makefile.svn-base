@@ -1,0 +1,8 @@
+PACKAGE = j51.diseqc.images
+
+SOURCE  = satellite.gif 
+	
+
+MAIN = 
+
+include $(JAVA_DEV_ROOT)/Makefile
