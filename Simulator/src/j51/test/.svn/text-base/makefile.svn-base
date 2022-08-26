@@ -1,0 +1,7 @@
+PACKAGE = j51.test
+
+SOURCE  = Test.java
+
+MAIN = 
+
+include $(JAVA_DEV_ROOT)/Makefile

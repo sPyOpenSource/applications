@@ -1,0 +1,7 @@
+PACKAGE = j51.silabs
+
+SOURCE  = C8051F120.java
+
+MAIN = 
+
+include $(JAVA_DEV_ROOT)/Makefile

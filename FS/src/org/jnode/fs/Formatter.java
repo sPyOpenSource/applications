@@ -21,7 +21,7 @@
 package org.jnode.fs;
 
 import java.nio.file.FileSystemException;
-import jx.bio.BlockIO;
+import jx.devices.bio.BlockIO;
 import jx.fs.FileSystem;
 
 /**

@@ -1,0 +1,7 @@
+PACKAGE = j51.atmel
+
+SOURCE  = Atmel24C16.java AT89C51RD2.java AT89C51RD2Constants.java AT89Port6.java
+
+MAIN = 
+
+include $(JAVA_DEV_ROOT)/Makefile

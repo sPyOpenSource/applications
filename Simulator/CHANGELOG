@@ -1,0 +1,116 @@
+1.10    13 June 2022
+        improved: code
+
+1.09    30 May 2022
+        improved: code
+
+1.08    15 November 2020
+        improved: code
+
+1.07    30 October 2020
+        improved: code
+
+1.06    25 October 2020
+        cleaned code
+    
+1.05	15 September 2009
+	Final version of J51 new release will be integrated in JMCE.
+	For better performance now most used method are declared final.
+
+1.04	30 June 2010
+	New UI for diseqc motor.
+	Added icon and JFormattedField for bettter UI.
+	Fastest memory model.
+	Added support for I2C BUS.
+	Added log support via standard java logging.
+	Improved emulation for LPC900.
+	Added support for LPC936.
+	Migrated from CVS to SVN
+
+1.03	02 July 2008
+	Added tetris from CMON distributions.
+	Added support for shared code /xdata (j51.cmon51.Mon51)
+	Added elapsed time in Information panel.
+	Fixed bug in Diseqc emulator.
+	Fixed bug in step/step into.
+
+1.02	07 May 2008
+	Assembler panel now use JTable.
+	Better performance with new design of disassembler.
+	Improved performance of Timer and Timer2.
+	Added sample program from Keil uVision C51 form MCB900.
+	Fixed bug in error handling.
+	Improved diagnostic.
+	Better and frendly GUI.
+
+1.01	30 December 2007
+	Fixed bug in ORL C,NOT bit opcode A0.
+	Added a method in the cpu to update component.
+	Added example from Free RT operating system.
+	Improved performance of emulation now cpu statistics
+	are displayed every 5 seconds.
+	Added a field to change the reset address.
+	Added support to erase memory (Menu Tools->Erase)
+	Fixed problem with java machine 1.4.x and better.
+	Added partial support for C8051F120.
+	Added support for profiling , statistics and interrupt.
+	Added new graphics peripheral.
+	Improved performance of emulator.
+	Added support for reset in JPORT.
+	Better support for serial console.
+
+1.00	5 December 2006	
+	Added correct display of disassembly XRL DIRECT,#DATA.		
+        Added all names for SCON bit register.
+	Fixed bug in disassembly MOV DIRECT,DIRECT.
+	Added support for load symbol for SDCC compiler when a new
+	program is loaded es. file.hex and a file.map is present
+	this file is loaded as program symbol table generated from
+	SDCC compiler.
+	Now default xdata size for standard MCS51 is 64K.
+	Added support for reset on UART.
+
+0.4	16 January 2006
+	Improved Port emulation no more the 1 update / ms.
+	Fixed bug in makefile for linux.
+	Fixed bug in CJNE .... the CY was not correct.
+	Improved performance of emulated port.
+	Added support for Keil MCB900 board.
+	Added support for Atmel 89C51 family.
+	Added support for 8052 Timer2.
+	Fixed bug in MOVX A,@DPTR (was MOVX A,@DPTR+A)
+	Added support to edit Clock in the main.
+	Fixed bug in DEC @Rx
+	Fixed bug in CPL A and CPL DIRECT
+	Fixed bug in ANL C,#BIT and ANL C,NOT #BIT
+	Fixed bug in diseqc emulator the motor when the program
+	startup do not go do the saved position.
+	Fixed bug timer mode 1.
+	Fixed bug in reset cpu, some SFR was not cleared.
+	Added Watch Dog for LPC900 family.
+	Improved statistics of cpu usage.
+	Improved emulation for LPC900 family.
+	Improved performance.
+
+0.3	02 November 2005
+	Added stack check in push/pop.
+	Added menu Tools->Statistics to dump in mcs51.txt statistics
+	about opcode executed.
+	Added support to edit register in register window with
+	automatic update of SFR and assembly.
+	Added support for LPC900.
+	Added support for persistent object like eeprom or flash.
+	Added support for input in swing interface for port.
+	Fixed bug in look and feel now the default look and feel
+	is Metal.
+
+0.2	13 October 2004
+	Added support for decoding ACALL/AJMP.
+
+0.1 B	24 August 2004
+	Fixed many emulator bug.
+	Added support for the received on the emulated serial.
+	Added name for bit special function register.
+
+0.0 B	04 August 2004
+	First public beta 

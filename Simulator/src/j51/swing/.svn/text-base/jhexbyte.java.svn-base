@@ -1,0 +1,28 @@
+/**
+ * $Id$
+ */
+package j51.swing;
+
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.border.*;
+import javax.swing.text.*;
+import java.io.*;
+
+import j51.util.Hex;
+
+/**
+ * Editor for hex Byte (8 bit)
+ *
+ * @author Mario Viara
+ * @version 1.00
+ */
+public class JHexByte extends JHexField
+{
+	public JHexByte()
+	{
+		super(2);
+	}
+}

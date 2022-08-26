@@ -1,0 +1,15 @@
+/**
+ * $Id$
+ */
+package j51.intel;
+
+/**
+ * Interface to read one SFR register. 
+ *
+ * @author Mario Viara
+ * @version 1.00
+ */
+public interface SfrReadListener
+{
+	public int sfrRead(int r);
+}
