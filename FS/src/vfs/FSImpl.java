@@ -14,7 +14,7 @@ import jx.fs.PermissionException;
 public class FSImpl implements FS, Service {
     private Node          rootInode;
     private FileSystem    rootFS;
-    private Node         cwdInode;
+    private Node          cwdInode;
     private String        cwdPath;
     private final Hashtable     mountpoints;
     private final Hashtable     devices; // maps ID to FileSystem
@@ -45,7 +45,7 @@ public class FSImpl implements FS, Service {
     }
 
     @Override
-    public final void cleanUp() throws InodeIOException,NotExistException {
+    public final void cleanUp() throws InodeIOException, NotExistException {
     cwdInode.decUseCount();
     rootInode.decUseCount();
     direntrycache.syncEntries();

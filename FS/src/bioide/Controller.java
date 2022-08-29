@@ -1,7 +1,7 @@
 package bioide;
 
 import jx.zero.*;
-import jx.timer.*;
+import jx.zero.timer.*;
 
 /**
  * Represents one IDE controller.

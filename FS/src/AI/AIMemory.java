@@ -10,8 +10,8 @@ import jx.devices.bio.BlockIO;
 import jx.devices.pci.PCIGod;
 import jx.fs.FSException;
 import jx.fs.Node;
-import jx.fs.buffercache.BufferCache;
 import jx.fs.FileSystem;
+import jx.fs.buffer.BufferCache;
 
 import jx.zero.Clock;
 import jx.zero.Debug;
@@ -35,7 +35,7 @@ public class AIMemory extends AIZeroMemory implements FileSystem
     private Memory buffer;
     private Ports ports; // You can access any address with ports in the computer memory
     private TreeMap<String, TreeMap> tree = new TreeMap<>();
-    
+    private MemoryManager mManager;
     /**
      * Constructor for objects of class AIMemory
      */
@@ -57,7 +57,7 @@ public class AIMemory extends AIZeroMemory implements FileSystem
                 Logger.getLogger(AIMemory.class.getName()).log(Level.SEVERE, null, ex);
             }*/
             //drive = (BlockIO)LookupHelper.waitUntilPortalAvailable(null, "BioRAM");
-            MemoryManager memoryManager = (MemoryManager)InitialNaming.lookup("MemoryManager");
+            mManager = (MemoryManager)InitialNaming.lookup("MemoryManager");
             ports = (Ports)InitialNaming.lookup("Ports");
             buffer =  memoryManager.alloc(512);
         } catch (ExceptionInInitializerError | NullPointerException ex){
@@ -105,7 +105,7 @@ public class AIMemory extends AIZeroMemory implements FileSystem
     }
 
     @Override
-    public Node getNode(int identifier) throws FSException {
+    public Node getNode(int identifier) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -128,11 +128,10 @@ public class AIMemory extends AIZeroMemory implements FileSystem
             current = current.get(part);
         }
         if(current != null){
-        MemoryManager memoryManager = (MemoryManager)InitialNaming.lookup("MemoryManager");
-        Memory buffer2 =  memoryManager.alloc(512);
-            drive.readSectors(getHash(name), 1, buffer2, true);
+        Memory bufferRead =  mManager.alloc(512);
+            drive.readSectors(getHash(name), 1, bufferRead, true);
             for(int i = 0; i < 512; i++){
-                Debug.out.print(buffer2.get8(i));
+                Debug.out.print(bufferRead.get8(i));
             }
         }
         return null;

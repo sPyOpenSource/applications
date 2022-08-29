@@ -1,8 +1,8 @@
 package bioide;
 
 import jx.InitialNaming;
+import jx.devices.bio.BlockIO;
 import jx.zero.*;
-import jx.bio.*;
 
 public class Main {
     public static void main(String [] args) {

@@ -124,7 +124,7 @@ public class IOZONE {
         } catch(IOException ex) {throw new Error("BINARY DUMP");}
         }
     }
-    if (output)     Debug.out.println("# END IOZONE");
+    if (output) Debug.out.println("# END IOZONE");
 
 
     //dumpExcel();
@@ -236,7 +236,7 @@ public class IOZONE {
     filebytes = numrecs*reclen;
     // ASSUME 500 MHz time stamp counter
     try {
-        Inode inode = (Inode)fs.lookup("iozone.tmp");
+        Node inode = (Node)fs.lookup("iozone.tmp");
         if (inode == null)
         return;
 

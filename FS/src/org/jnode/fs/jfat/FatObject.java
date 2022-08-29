@@ -20,11 +20,13 @@
  
 package org.jnode.fs.jfat;
 
+import jx.fs.FSObject;
+
 
 /**
  * @author gvt
  */
-public abstract class FatObject 
+public abstract class FatObject implements FSObject
 {   
     private final FatFileSystem fs;
 

@@ -1,9 +1,6 @@
 /dist/
 /build
 private
-<<<<<<< HEAD
 *.class
-=======
 *.eeprom
 *.flash
->>>>>>> d3b15b070a7166ccd7537fb332640b23fe6449d7

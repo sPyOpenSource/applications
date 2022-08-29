@@ -217,7 +217,7 @@ public class Drive implements BlockIO, Service {
     @Override
     public void writeSectors(int startSector, int numberOfSectors, Memory buf, boolean synchronous ) { 
     Operation operation;
-        if( Env.verboseDR )  Debug.out.println("writeSectors - start");
+    if( Env.verboseDR ) Debug.out.println("writeSectors - start");
     
     if (using_dma && controller.buildDMATable(buf, 512 * numberOfSectors)) {
         operation = new DMAOperation(buf, numberOfSectors, controller, this, startSector, true, false /*write*/);

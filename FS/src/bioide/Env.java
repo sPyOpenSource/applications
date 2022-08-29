@@ -1,8 +1,8 @@
 package bioide;
 
 import jx.zero.*;
-import jx.timer.*;
-import timerpc.*;
+import jx.zero.timer.*;
+import jx.timerpc.*;
 
 /**
  * Driver environment.

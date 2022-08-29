@@ -32,7 +32,7 @@ import jx.fs.Directory;
 import jx.fs.FSException;
 import jx.fs.Node;
 import jx.fs.RegularFile;
-import jx.fs.buffercache.BufferCache;
+import jx.fs.buffer.BufferCache;
 
 
 /**
@@ -194,7 +194,7 @@ public class FatFileSystem implements jx.fs.FileSystem {
     }
 
     @Override
-    public Node getNode(int identifier) throws FSException {
+    public Node getNode(int identifier) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

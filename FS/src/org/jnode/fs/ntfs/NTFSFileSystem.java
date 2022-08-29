@@ -29,7 +29,7 @@ import java.nio.file.FileSystemException;
 import jx.devices.bio.BlockIO;
 import jx.fs.FSException;
 import jx.fs.Node;
-import jx.fs.buffercache.BufferCache;
+import jx.fs.buffer.BufferCache;
 import jx.zero.Clock;
 import jx.zero.Memory;
 
@@ -51,7 +51,7 @@ public class NTFSFileSystem implements jx.fs.FileSystem {
      * @see org.jnode.fs.FileSystem#getDevice()
      */
     public NTFSFileSystem(BlockIO device, boolean readOnly, NTFSFileSystemType type) throws FileSystemException {
-        super(device, readOnly, type);
+        init(device, null, null);
 
         try {
             // initialize the NTFS volume
@@ -166,12 +166,12 @@ public class NTFSFileSystem implements jx.fs.FileSystem {
 
         int usedBlocks = 0;
 
-        for (byte b : buffer) {
+        for (int j = 0; j < buffer.size(); j++) {
+            int b = buffer.get8(j);
             for (int i = 0; i < 8; i++) {
                 if ((b & 0x1) != 0) {
                     usedBlocks++;
                 }
-
                 b >>= 1;
             }
         }
@@ -238,7 +238,7 @@ public class NTFSFileSystem implements jx.fs.FileSystem {
     }
 
     @Override
-    public Node getNode(int identifier) throws FSException {
+    public Node getNode(int identifier) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

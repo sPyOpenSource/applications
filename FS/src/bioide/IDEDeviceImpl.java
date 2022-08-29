@@ -2,7 +2,7 @@ package bioide;
 
 import jx.zero.*;
 import jx.zero.Debug;
-import jx.timer.*;
+import jx.zero.timer.*;
 
 
 /**
