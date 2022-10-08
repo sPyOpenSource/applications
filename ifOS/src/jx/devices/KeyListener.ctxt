@@ -1,0 +1,5 @@
+#BlueJ class context
+comment0.target=KeyListener
+comment1.params=scancode
+comment1.target=void\ keyPressed(int)
+numComments=2

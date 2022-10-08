@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=ReadOnlyDirectory
+comment1.params=
+comment1.target=java.lang.String[]\ list()
+comment2.params=name
+comment2.target=FSObject\ openRO(java.lang.String)
+comment3.params=name
+comment3.target=FSObject\ openRW(java.lang.String)
+numComments=4

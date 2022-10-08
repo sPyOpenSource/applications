@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.target=PCIDevice
+comment0.text=\n\n\ @author\ xuyi\n
+comment1.params=
+comment1.target=int\ getDeviceID()
+comment2.params=
+comment2.target=int\ getVendorID()
+comment3.params=
+comment3.target=int\ getInterruptLine()
+comment4.params=i
+comment4.target=int\ getBaseAddress(int)
+comment5.params=
+comment5.target=int\ getCommand()
+comment6.params=s
+comment6.target=void\ setCommand(short)
+numComments=7

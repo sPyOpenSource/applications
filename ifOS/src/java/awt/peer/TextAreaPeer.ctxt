@@ -1,0 +1,19 @@
+#BlueJ class context
+comment0.target=TextAreaPeer
+comment1.params=text\ pos
+comment1.target=void\ insert(java.lang.String,\ int)
+comment2.params=text\ pos
+comment2.target=void\ insertText(java.lang.String,\ int)
+comment3.params=rows\ cols
+comment3.target=java.awt.Dimension\ minimumSize(int,\ int)
+comment4.params=rows\ cols
+comment4.target=java.awt.Dimension\ getMinimumSize(int,\ int)
+comment5.params=rows\ cols
+comment5.target=java.awt.Dimension\ preferredSize(int,\ int)
+comment6.params=rows\ cols
+comment6.target=java.awt.Dimension\ getPreferredSize(int,\ int)
+comment7.params=text\ start_pos\ end_pos
+comment7.target=void\ replaceRange(java.lang.String,\ int,\ int)
+comment8.params=text\ start_pos\ end_pos
+comment8.target=void\ replaceText(java.lang.String,\ int,\ int)
+numComments=9

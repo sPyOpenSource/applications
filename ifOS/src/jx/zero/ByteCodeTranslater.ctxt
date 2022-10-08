@@ -1,0 +1,5 @@
+#BlueJ class context
+comment0.target=ByteCodeTranslater
+comment1.params=zipname\ libname
+comment1.target=void\ translate(java.lang.String,\ java.lang.String)
+numComments=2

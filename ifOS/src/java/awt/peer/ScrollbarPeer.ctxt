@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=ScrollbarPeer
+comment1.params=inc
+comment1.target=void\ setLineIncrement(int)
+comment2.params=inc
+comment2.target=void\ setPageIncrement(int)
+comment3.params=value\ visible\ min\ max
+comment3.target=void\ setValues(int,\ int,\ int,\ int)
+numComments=4

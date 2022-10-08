@@ -1,0 +1,19 @@
+#BlueJ class context
+comment0.target=TextComponentPeer
+comment1.params=
+comment1.target=int\ getSelectionEnd()
+comment2.params=
+comment2.target=int\ getSelectionStart()
+comment3.params=
+comment3.target=java.lang.String\ getText()
+comment4.params=text
+comment4.target=void\ setText(java.lang.String)
+comment5.params=start_pos\ end_pos
+comment5.target=void\ select(int,\ int)
+comment6.params=editable
+comment6.target=void\ setEditable(boolean)
+comment7.params=
+comment7.target=int\ getCaretPosition()
+comment8.params=pos
+comment8.target=void\ setCaretPosition(int)
+numComments=9

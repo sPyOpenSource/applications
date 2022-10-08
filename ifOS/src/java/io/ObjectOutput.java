@@ -54,6 +54,7 @@ public interface ObjectOutput extends DataOutput, AutoCloseable {
      * @param b the byte
      * @exception IOException If an I/O error has occurred.
      */
+    @Override
     public void write(int b) throws IOException;
 
     /**

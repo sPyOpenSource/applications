@@ -1,0 +1,5 @@
+#BlueJ class context
+comment0.target=ClippingTransformer
+comment1.params=rects
+comment1.target=ClippingRectangle[]\ transformClippings(ClippingRectangle[])
+numComments=2

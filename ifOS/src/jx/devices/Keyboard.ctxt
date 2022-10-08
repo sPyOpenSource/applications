@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=Keyboard
+comment1.params=listener
+comment1.target=void\ addKeyListener(KeyListener)
+comment2.params=
+comment2.target=int\ getc()
+comment3.params=
+comment3.target=int\ getcode()
+numComments=4

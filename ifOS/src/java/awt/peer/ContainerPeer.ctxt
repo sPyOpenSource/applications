@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=ContainerPeer
+comment1.params=
+comment1.target=java.awt.Insets\ insets()
+comment2.params=
+comment2.target=java.awt.Insets\ getInsets()
+comment3.params=
+comment3.target=void\ beginValidate()
+comment4.params=
+comment4.target=void\ endValidate()
+numComments=5

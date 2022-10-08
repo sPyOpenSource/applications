@@ -1,0 +1,23 @@
+#BlueJ class context
+comment0.target=TimerManager
+comment1.params=expiresFromNowInMillis\ handler\ argument
+comment1.target=Timer\ addMillisTimer(int,\ TimerHandler,\ java.lang.Object)
+comment10.params=thread\ expiresFromNowInMillis\ intervalInMillis
+comment10.target=void\ unblockInMillisInterval(jx.zero.CPUState,\ int,\ int)
+comment2.params=expiresFromNowInMillis\ intervalInMillis\ handler\ argument
+comment2.target=Timer\ addMillisIntervalTimer(int,\ int,\ TimerHandler,\ java.lang.Object)
+comment3.params=expiresFromNow\ interval\ handler\ argument
+comment3.target=Timer\ addTimer(int,\ int,\ TimerHandler,\ java.lang.Object)
+comment4.params=t
+comment4.target=boolean\ deleteTimer(TimerHandler)
+comment5.params=
+comment5.target=int\ getTimeInMillis()
+comment6.params=
+comment6.target=int\ getTimeBaseInMicros()
+comment7.params=
+comment7.target=int\ getCurrentTime()
+comment8.params=milliSeconds
+comment8.target=int\ getCurrentTimePlusMillis(int)
+comment9.params=thread\ timeFromNowInMillis
+comment9.target=void\ unblockInMillis(jx.zero.CPUState,\ int)
+numComments=11

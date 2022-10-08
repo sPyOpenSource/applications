@@ -16,6 +16,8 @@
  */
 package jx.fs.buffer;
 
+import jx.zero.Memory;
+
 /**
  *
  * @author xuyi
@@ -27,5 +29,17 @@ public interface BufferHead {
     public void markUptodate();
 
     public void clear();
+
+    public int getBlock();
+
+    public int getSize();
+
+    public void endIo(boolean b, boolean b0);
+
+    public void ref();
+
+    public boolean dirty();
+
+    public Memory getData();
     
 }

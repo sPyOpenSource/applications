@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.target=MemoryConsumer
+comment0.text=\n\ This\ interface\ should\ be\ implemented\ by\ a\ class\ in\ a\ domain\n\ that\ processes\ data.\ For\ each\ Memory\ object\ that\ is\ passed\n\ an\ equivalent\ Memory\ object\ must\ be\ returned.\ If\ the\ consumer\n\ fails\ to\ return\ such\ a\ Memory\ object,\ the\ producer\ stops\n\ producing\ data.\n\n\ This\ interface\ should\ be\ used\ by\ a\ domain\ that\ generates\n\ data.\ Such\ a\ domain\ must\ also\ provide\ an\ object\ that\n\ implements\ the\ MemoryProducer\ interface.\n
+comment1.params=data
+comment1.target=jx.zero.Memory\ processMemory(jx.zero.Memory)
+numComments=2

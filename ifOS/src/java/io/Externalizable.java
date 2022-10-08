@@ -25,9 +25,6 @@
 
 package java.io;
 
-import java.io.ObjectOutput;
-import java.io.ObjectInput;
-
 /**
  * Only the identity of the class of an Externalizable instance is
  * written in the serialization stream and it is the responsibility

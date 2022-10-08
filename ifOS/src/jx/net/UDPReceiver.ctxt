@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=UDPReceiver
+comment1.params=buf\ timeoutMillis
+comment1.target=UDPData\ receive(jx.zero.Memory,\ int)
+comment2.params=buf
+comment2.target=UDPData\ receive(jx.zero.Memory)
+comment3.params=
+comment3.target=void\ close()
+numComments=4

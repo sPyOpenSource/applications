@@ -1,0 +1,5 @@
+#BlueJ class context
+comment0.target=ButtonPeer
+comment1.params=label
+comment1.target=void\ setLabel(java.lang.String)
+numComments=2

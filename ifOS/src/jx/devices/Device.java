@@ -8,7 +8,7 @@ public interface Device {
     /**
      * Return all configurations that are supported by this device.
      */
-    DeviceConfigurationTemplate[] getSupportedConfigurations ();
+    DeviceConfigurationTemplate[] getSupportedConfigurations();
 
     /**
      * Initialize the device.

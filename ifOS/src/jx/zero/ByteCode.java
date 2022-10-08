@@ -328,8 +328,6 @@ public interface ByteCode {
     public int svCheckCount = 0; //how often in checkQueue of SubroutineVerifier
 
     public int getOpCode();
-
     public ByteCode[] getTargets();
-
     public ByteCode[] getSources();
 }
