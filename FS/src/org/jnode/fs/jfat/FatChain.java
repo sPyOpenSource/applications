@@ -23,6 +23,7 @@ package org.jnode.fs.jfat;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.nio.file.FileSystemException;
 import java.util.NoSuchElementException;
 import jx.zero.Debug;
 import jx.zero.Memory;
@@ -154,7 +155,7 @@ public class FatChain {
         }
 
         if (found < n)
-            throw new FileSystemFullException("no free clusters");
+            throw new FileSystemException("no free clusters");
 
         last = l;
 

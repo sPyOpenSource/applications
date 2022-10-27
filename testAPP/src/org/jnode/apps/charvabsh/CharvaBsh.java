@@ -24,6 +24,7 @@ import bsh.ConsoleInterface;
 import bsh.EvalError;
 import bsh.Interpreter;
 import bsh.TargetError;
+
 import charva.awt.BorderLayout;
 import charva.awt.Color;
 import charva.awt.Container;
@@ -57,6 +58,7 @@ import java.net.URL;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.naming.NameNotFoundException;
+
 import org.jnode.shell.CommandShell;
 import org.jnode.shell.Shell;
 import org.jnode.shell.ShellException;

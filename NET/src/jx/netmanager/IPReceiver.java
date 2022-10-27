@@ -9,7 +9,6 @@ import jx.buffer.multithread.MultiThreadBufferList;
 import jx.buffer.multithread.Buffer;
 
 
-
 class IPReceiver implements jx.net.IPReceiver, Service {
     PacketsConsumer etherLayer;
     PacketsConsumer ipSender;

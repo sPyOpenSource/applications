@@ -3,6 +3,8 @@
  */
 package j51.intel;
 
+import j51.device.VolatileMemory;
+
 /**
  *
  * Volatile interface for code interface.

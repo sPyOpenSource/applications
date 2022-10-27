@@ -3,7 +3,10 @@
  */
 package j51.cmon51;
 
+import j51.device.Timer;
 import j51.intel.*;
+import j51.swing.JPort;
+import j51.swing.JUartTA;
 
 /**
  * 

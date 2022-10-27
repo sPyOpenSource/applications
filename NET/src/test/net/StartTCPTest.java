@@ -4,7 +4,7 @@ import jx.zero.*;
 
 import jx.net.NetInit;
 import jx.net.TCPSocket;
-import jx.net.IPAddress;
+import jx.net.IPv4Address;
 
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -30,15 +30,15 @@ class StartTCPTest {
 		for (int i = 0; i < bufs.length; i++)
 		    bufs[i] = net.getTCPBuffer(); //memoryManager.alloc(1000);
 		// send
-		TCPSocket sock = net.getTCPSocket(6666, new IPAddress("192.168.34.20"), bufs);
-		sock.open(new IPAddress("192.168.34.2"), 6666);
+		TCPSocket sock = net.getTCPSocket(6666, new IPv4Address("192.168.34.20"), bufs);
+		sock.open(new IPv4Address("192.168.34.2"), 6666);
 		byte[] sendBuf = new byte[10];
 		for (int i=0; i<sendBuf.length; i++) {
 		    sendBuf[i] = (byte)i;
 		}
 		sock.send(sendBuf);
 	    }else if (test == 2) {  /* send */
-		Socket sock = new Socket( new IPAddress("192.168.34.2").toString(), 6666);
+		Socket sock = new Socket( new IPv4Address("192.168.34.2").toString(), 6666);
 		Debug.out.println("new Socket created");
 		OutputStream ops = sock.getOutputStream();
 		for (int i=65; i < 80; i++)
@@ -53,7 +53,7 @@ class StartTCPTest {
 		for (int i = 0; i < bufs.length; i++)
 		    bufs[i] = net.getTCPBuffer(); //memoryManager.alloc(1000);
 		// send
-		TCPSocket sock = net.getTCPSocket(6666, new IPAddress("192.168.34.20"), bufs);
+		TCPSocket sock = net.getTCPSocket(6666, new IPv4Address("192.168.34.20"), bufs);
 		// accept conections
 		Memory[] newbufs = new Memory[100];
 		for (int i = 0; i < newbufs.length; i++)

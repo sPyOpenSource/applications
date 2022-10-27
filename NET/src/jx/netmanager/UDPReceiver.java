@@ -8,9 +8,8 @@ import jx.net.UDPConsumer;
 import jx.buffer.multithread.MultiThreadBufferList;
 import jx.buffer.multithread.Buffer;
 
-
-
 class UDPReceiver implements jx.net.UDPReceiver, Service {
+    
     PacketsConsumer ipLayer;
     PacketsConsumer udpSender;
 
@@ -124,8 +123,7 @@ class UDPReceiver implements jx.net.UDPReceiver, Service {
 	//usableBufs.appendElement(h);
         buf.copyFromMemory(h, 0, 0, h.size());
 	return new UDPData();
-     }
-
+    }
 
     @Override
     public UDPData receive(Memory buf) {

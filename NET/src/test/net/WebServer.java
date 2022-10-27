@@ -106,7 +106,7 @@ public class WebServer {
 
     private void createFile(FS fs, String name, String contents) throws Exception {
 	fs.create(name, InodeImpl.S_IWUSR|InodeImpl.S_IRUGO);
-	Inode inode = (Inode)fs.lookup(name);
+	Node inode = (Node)fs.lookup(name);
 	byte[] b = contents.getBytes();
 	buffer.copyFromByteArray(b, 0, 0, b.length);
 	inode.write(buffer, 0, b.length);

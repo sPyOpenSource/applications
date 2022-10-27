@@ -171,7 +171,7 @@ public final class NTFSIndex {
          * List of those IndexEntry's that have a subnode and the subnode has
          * not been visited.
          */
-        private final Queue<IndexEntry> subNodeEntries = new Queue<IndexEntry>();
+        private final Queue<IndexEntry> subNodeEntries = new Queue<>();
 
         /** Iterator of current part of the index */
         private Iterator<IndexEntry> currentIterator;

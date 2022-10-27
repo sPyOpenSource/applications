@@ -7,6 +7,7 @@ import jx.devices.pci.*;
 import jx.devices.net.*;
 
 import jx.net.IPAddress;
+import jx.net.IPv4Address;
 import jx.net.NetInit;
 import jx.net.UDPSender;
 
@@ -60,7 +61,7 @@ public class Main {
 
     static void simpletest(final NetInit net) throws Exception {
 	// send
-	UDPSender u = net.getUDPSender(6665, new IPAddress("192.168.34.2"), Integer.parseInt("9876"));
+	UDPSender u = net.getUDPSender(6665, new IPv4Address("192.168.34.2"), Integer.parseInt("9876"));
 	Memory buf = net.getUDPBuffer(50);
 	for(int i=0; i<50; i++) {
 	    buf.set8(i, (byte)i);

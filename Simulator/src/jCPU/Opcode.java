@@ -23,7 +23,7 @@ public interface Opcode
 	 * @param cpu - The MCS51 cpu
 	 * @param pc - The location of the first byte of the opcode.
 	 */
-	public void exec(CPU cpu, int pc) throws Exception;
+	public void exec(iCPU cpu, int pc) throws Exception;
 
 	/**
 	 * Return the lenght in byte of the instruction.
@@ -33,7 +33,7 @@ public interface Opcode
 	/**
 	 * Decode one instruction
 	 */
-	public String decode(CPU cpu, int pc);
+	public String decode(iCPU cpu, int pc);
 
 	/**
 	 * Return the number of cycle machine necessary foo execute the

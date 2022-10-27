@@ -13,22 +13,23 @@ import java.io.FileOutputStream;
 import java.io.DataInputStream;
 import java.io.PrintWriter;
 import java.io.IOException;
+
 import java.nio.ByteBuffer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class IsaSim extends CPU{
+public class IsaSim extends Decoder {
     // Insert path to binary file containing RISC-V instructions
     public final static String FILEPATH = "tests/task3/loop.bin";
 
     // Initial value of the program counter (default is zero)
-    public final static Integer INITIAL_PC = 0;
+    public final static int INITIAL_PC = 0;
 
     // Initial value of the stack pointer (default is 2^31 - 1)
-    public final static Integer INITIAL_SP = Integer.MAX_VALUE;
+    public final static int INITIAL_SP = Integer.MAX_VALUE;
 
     // Activate/deactivate debugging prints (default is true)
-    public final static Boolean DEBUGGING = true;
+    public final static boolean DEBUGGING = true;
 
     // Static variables used throughout the simulator
     static int pc = INITIAL_PC; // Program counter (counting in bytes)
@@ -41,136 +42,135 @@ public class IsaSim extends CPU{
     int cc = 0; // Clock cycle counter
 
     public IsaSim() {
-            System.out.println("Hello RISC-V World!");
+        System.out.println("Hello RISC-V World!");
         try {
             ram.readBinary(FILEPATH, INITIAL_PC); // Read instructions into memory
         } catch (IOException ex) {
             Logger.getLogger(IsaSim.class.getName()).log(Level.SEVERE, null, ex);
         }
-            reg[2] = INITIAL_SP; // Reset stack pointer
-
+        reg[2] = INITIAL_SP; // Reset stack pointer
     }
         
     @Override
     public void go(int limit) throws Exception{
         while(true){
-             RVInstruction ins = new RVInstruction(ram.readWord(pc));
-             decode_riscv_binary(ins);
+            RVInstruction ins = new RVInstruction(ram.readWord(pc));
+            decode_riscv_binary(ins);
             step();
         }
     }
     
-                @Override
-		public int step () {
-			// Combine four bytes to produce a single instruction
-			int instr = ram.readWord(pc);
+    @Override
+    public int step () {
+            // Combine four bytes to produce a single instruction
+            int instr = ram.readWord(pc);
 
-			// Retrieve the least significant seven bits of the instruction
-			// indicating the type of instruction
-			int opcode = instr & 0x7f;
+            // Retrieve the least significant seven bits of the instruction
+            // indicating the type of instruction
+            int opcode = instr & 0x7f;
 
-			// Execute the instruction based on its type
-			switch (opcode) {
-			case LUI_MASK:
-				if (DEBUGGING) {
-					System.out.println(cc + " LUI instruction");
-				}
-				loadUpperImmediate(instr);
-				break;
+            // Execute the instruction based on its type
+            switch (opcode) {
+            case LUI_MASK:
+                    if (DEBUGGING) {
+                            System.out.println(cc + " LUI instruction");
+                    }
+                    loadUpperImmediate(instr);
+                    break;
 
-			case AUIPC_MASK:
-				if (DEBUGGING) {
-					System.out.println(cc + " AUIPC instruction");
-				}
-				addUpperImmediatePC(instr);
-				break;
+            case AUIPC_MASK:
+                    if (DEBUGGING) {
+                            System.out.println(cc + " AUIPC instruction");
+                    }
+                    addUpperImmediatePC(instr);
+                    break;
 
-			case JAL_MASK:
-				if (DEBUGGING) {
-					System.out.println(cc + " JAL instruction");
-				}
-				jumpAndLink(instr);
-				offsetPC = true;
-				break;
+            case JAL_MASK:
+                    if (DEBUGGING) {
+                            System.out.println(cc + " JAL instruction");
+                    }
+                    jumpAndLink(instr);
+                    offsetPC = true;
+                    break;
 
-			case JALR_MASK:
-				if (DEBUGGING) {
-					System.out.println(cc + " JALR instruction");
-				}
-				jumpAndLinkRegister(instr);
-				offsetPC = true;
-				break;
+            case JALR_MASK:
+                    if (DEBUGGING) {
+                            System.out.println(cc + " JALR instruction");
+                    }
+                    jumpAndLinkRegister(instr);
+                    offsetPC = true;
+                    break;
 
-			case BRANCH_MASK:
-				if (DEBUGGING) {
-					System.out.println(cc + " Branch instruction");
-				}
-				offsetPC = branchInstruction(instr);
-				break;
+            case BRANCH_MASK:
+                    if (DEBUGGING) {
+                            System.out.println(cc + " Branch instruction");
+                    }
+                    offsetPC = branchInstruction(instr);
+                    break;
 
-			case LOAD_MASK:
-				if (DEBUGGING) {
-					System.out.println(cc + " Load instruction");
-				}
-				loadInstruction(instr);
-				break;
+            case LOAD_MASK:
+                    if (DEBUGGING) {
+                            System.out.println(cc + " Load instruction");
+                    }
+                    loadInstruction(instr);
+                    break;
 
-			case STORE_MASK:
-				if (DEBUGGING) {
-					System.out.println(cc + " Store instruction");
-				}
-				storeInstruction(instr);
-				break;
+            case STORE_MASK:
+                    if (DEBUGGING) {
+                            System.out.println(cc + " Store instruction");
+                    }
+                    storeInstruction(instr);
+                    break;
 
-			case OP_IMM_MASK: // Immediate instructions
-				if (DEBUGGING) {
-					System.out.println(cc + " Immediate instruction");
-				}
-				immediateInstruction(instr);
-				break;
+            case OP_IMM_MASK: // Immediate instructions
+                    if (DEBUGGING) {
+                            System.out.println(cc + " Immediate instruction");
+                    }
+                    immediateInstruction(instr);
+                    break;
 
-			case OP_MASK: // Arithmetic
-				if (DEBUGGING) {
-					System.out.println(cc + " Arithmetic instruction");
-				}
-				arithmeticInstruction(instr);
-				break;
+            case OP_MASK: // Arithmetic
+                    if (DEBUGGING) {
+                            System.out.println(cc + " Arithmetic instruction");
+                    }
+                    arithmeticInstruction(instr);
+                    break;
 
-			case FENCE_MASK: // Fence (NOT IMPLEMENTED)
-				break;
+            case FENCE_MASK: // Fence (NOT IMPLEMENTED)
+                    break;
 
-			case CSR_MASK: // Ecalls and CSR (SOME IMPLEMENTED, SOME LEFT OUT)
-				breakProgram = ecallInstruction();
-				break;
+            case CSR_MASK: // Ecalls and CSR (SOME IMPLEMENTED, SOME LEFT OUT)
+                    breakProgram = ecallInstruction();
+                    break;
 
-			default:
-				if (DEBUGGING) {
-					System.out.println("Opcode " + opcode + " not yet implemented");
-				}
-				break;
-			}
+            default:
+                    if (DEBUGGING) {
+                            System.out.println("Opcode " + opcode + " not yet implemented");
+                    }
+                    break;
+            }
 
-			if (!offsetPC) {
-				pc += 4; // Update program counter
-			}
-			offsetPC = false; // Reset the pc offset flag
-			reg[0] = 0; // Resetting the x0 register
+            if (!offsetPC) {
+                    pc += 4; // Update program counter
+            }
+            offsetPC = false; // Reset the pc offset flag
+            reg[0] = 0; // Resetting the x0 register
 
-			// Ecall or Ebreak has been encountered
-			if (breakProgram || !ram.containsKey(pc)) {
-				if (DEBUGGING) {
-					System.out.println("Ecall or end of program encountered");
-				}
-				//printBinary(FILEPATH);
-				if (DEBUGGING) {
-					//printFile(FILEPATH);
-				}
-				return 1;
-			}
-			cc++;
-                        return 1;
-		}
-		//System.out.println("Program exit");
+            // Ecall or Ebreak has been encountered
+            if (breakProgram || !ram.containsKey(pc)) {
+                    if (DEBUGGING) {
+                            System.out.println("Ecall or end of program encountered");
+                    }
+                    //printBinary(FILEPATH);
+                    if (DEBUGGING) {
+                            //printFile(FILEPATH);
+                    }
+                    return 1;
+            }
+            cc++;
+            return 1;
+    }
+    //System.out.println("Program exit");
 
 	public static void loadUpperImmediate(int instr) {
 		// General information
@@ -187,7 +187,7 @@ public class IsaSim extends CPU{
 		int rd = (instr >> 7) & 0x1F;
 		int imm = instr & 0xFFFFF000;
 		if (DEBUGGING) {
-			System.out.println("rd = " + rd + ", imm = " + imm);
+                    System.out.println("rd = " + rd + ", imm = " + imm);
 		}
 		reg[rd] = pc + imm;
 	}

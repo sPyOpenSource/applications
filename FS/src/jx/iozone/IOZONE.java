@@ -92,7 +92,7 @@ public class IOZONE {
     try {
         this.fs = fs;
         fs.create("iozone.tmp", InodeImpl.S_IWUSR | InodeImpl.S_IRUGO);
-    } catch (FSException e) {
+    } catch (Exception e) {
         Debug.out.println("ERROR");
         return;
     }
@@ -305,7 +305,7 @@ public class IOZONE {
         storeValue((int)readrate[0]);
         storeValue((int)readrate[1]);
     }
-    } catch(FSException e) {
+    } catch(Exception e) {
         Debug.out.println("EXCEPTION!"); throw new Error();
     }
     }
@@ -320,7 +320,7 @@ public class IOZONE {
     filebytes = numrecs*reclen;
 
     try {
-        Inode inode = (Inode)fs.lookup("iozone.tmp");
+        Node inode = (Node)fs.lookup("iozone.tmp");
         if (inode == null)
         return;
         for (int j = 0; j < 2; j++) {
@@ -357,7 +357,7 @@ public class IOZONE {
         storeValue((int)writerate[0]);
         storeValue((int)writerate[1]);
     }
-    } catch(FSException ex) {
+    } catch(Exception ex) {
         throw new Error();
     }
     }
@@ -368,13 +368,13 @@ public class IOZONE {
         report_array[current_y*MAX_X + current_x] = value;
         current_x++;
         if (current_x > max_x)
-        max_x = current_x;
+            max_x = current_x;
         if (current_y > max_y)
-        max_y = current_y;
+            max_y = current_y;
         if (max_x >= MAX_X)
-        Debug.out.println("MAX_X too small");
+            Debug.out.println("MAX_X too small");
         if (max_y >= MAX_Y)
-        Debug.out.println("MAX_X too small");
+            Debug.out.println("MAX_X too small");
     } catch (Exception ex) {
         Debug.out.println("\n!!! Exception in storeValue caught !!!");
         cancel_store = true;

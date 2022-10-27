@@ -41,11 +41,11 @@ import jx.fs.buffer.BufferCache;
 public class FatFileSystem implements jx.fs.FileSystem {
     private Fat fat;
     private BlockIO drive;
-    private boolean     inited = false;
+    private boolean inited = false;
     private BufferCache bufferCache;
     private final InodeCache inodeCache;
-    private Tools       tools;
-    private Clock       clock;
+    private Tools tools;
+    private Clock clock;
     private final int deviceID;
     
     
@@ -54,7 +54,7 @@ public class FatFileSystem implements jx.fs.FileSystem {
      * @param readOnly
      */
     public FatFileSystem(boolean readOnly)  
-    {        
+    {
         drive = (BlockIO)InitialNaming.getInitialNaming().lookup("BIOFS_RW");
         try {
             fat = Fat.create(getApi());
@@ -201,11 +201,6 @@ public class FatFileSystem implements jx.fs.FileSystem {
     @Override
     public int getDeviceID() {
         return deviceID; /* FIXME */
-    }
-
-    @Override
-    public String read(String aitxt) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public CodePage getCodePage() {

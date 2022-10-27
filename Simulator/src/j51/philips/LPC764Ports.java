@@ -4,9 +4,7 @@
 
 package j51.philips;
 
-import j51.intel.*;
-
-
+import j51.swing.JPort;
 
 /**
  * LPC764 Port

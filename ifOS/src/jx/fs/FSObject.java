@@ -7,5 +7,6 @@ public interface FSObject {
     public Permission getPermission() throws Exception;
     public FSAttribute getAttribute() throws Exception;
     public void close() throws Exception;
-    public int length() throws Exception;
+    public int getLength() throws Exception;
+    public boolean isValid();
 }

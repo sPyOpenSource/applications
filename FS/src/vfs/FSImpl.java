@@ -304,12 +304,12 @@ public class FSImpl implements FS, Service {
     }
 
     @Override
-    public final int read(String path, Memory m, int off, int len) throws InodeIOException, NoFileInodeException, NotExistException, PermissionException {
+    public final int read(String path, Memory m, int off, int len) {
     throw new Error();
     }
 
     @Override
-    public final int write(String path, Memory m, int off, int len) throws InodeIOException, NoFileInodeException, NotExistException, PermissionException {
+    public final int write(String path, Memory m, int off, int len) {
     throw new Error();
     }
 

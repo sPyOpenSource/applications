@@ -307,4 +307,3 @@ ready() throws IOException
 }
 
 } // class Decoder
-

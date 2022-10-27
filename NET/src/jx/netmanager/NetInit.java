@@ -18,6 +18,7 @@ import jx.net.EtherProducer;
 
 import jx.devices.net.NetworkDevice;
 import jx.devices.pci.PCIAccess;
+import jx.net.IPv4Address;
 
 import jx.zero.Memory;
 import jx.zero.MemoryManager;
@@ -108,7 +109,7 @@ public class NetInit implements jx.net.NetInit, Service {
                 try {
                     clientSocket.receive(receivePacket);
                 } catch (SocketTimeoutException e){
-                    localAddress = new IPAddress(new byte[]{(byte)192,(byte)168,(byte)1,(byte)90});
+                    localAddress = new IPv4Address(new byte[]{(byte)192,(byte)168,(byte)1,(byte)90});
                     continue;
                 }
                 Debug.out.println("received");

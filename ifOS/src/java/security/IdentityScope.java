@@ -26,6 +26,7 @@ executable file might be covered by the GNU General Public License. */
 
 
 package java.security;
+
 import java.util.Enumeration;
 
 /**
@@ -132,7 +133,7 @@ public abstract class IdentityScope extends Identity
 
      @param name name of Identity to get
 
-     @returns an identity representing the name or null if it 
+     @return an identity representing the name or null if it 
      cannot be found
   */
   public abstract Identity getIdentity(String name);
@@ -143,7 +144,7 @@ public abstract class IdentityScope extends Identity
 
      @param principal The Principal of the Identity to get
 
-     @returns an identity representing the principal or null if it 
+     @return an identity representing the principal or null if it 
      cannot be found
   */
   public Identity getIdentity(Principal principal)
@@ -157,7 +158,7 @@ public abstract class IdentityScope extends Identity
 
      @param key the PublicKey of the Identity to get
 
-     @returns an identity representing the public key or null if it 
+     @return an identity representing the public key or null if it 
      cannot be found
   */
   public abstract Identity getIdentity(PublicKey key);
@@ -188,7 +189,7 @@ public abstract class IdentityScope extends Identity
   /**
      Returns an Enumeration of identities.
 
-     @returns an enumeration of the identities.
+     @return an enumeration of the identities.
   */
   public abstract Enumeration identities();
 
@@ -198,6 +199,7 @@ public abstract class IdentityScope extends Identity
 
      @returns a string representing this IdentityScope.
   */
+  @Override
   public String toString()
   {
     return ( super.getName() + " " + super.getScope().getName() 

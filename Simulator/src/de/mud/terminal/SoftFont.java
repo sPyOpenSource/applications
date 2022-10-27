@@ -42,15 +42,14 @@ public class SoftFont {
 	final static private char SF_BITMAP = 0;
 	final static private char SF_FILLRECT = 1;
 
-
-	final static private char SF_CHAR	= 0;
-	final static private char SF_WIDTH= 1;
-	final static private char SF_HEIGHT= 2;
-	final static private char SF_TYPE  = 3;
-	final static private char SF_DATA  = 4;
+	final static private char SF_CHAR   = 0;
+	final static private char SF_WIDTH  = 1;
+	final static private char SF_HEIGHT = 2;
+	final static private char SF_TYPE   = 3;
+	final static private char SF_DATA   = 4;
 	java.util.Hashtable font;
 	/** softfont characterdata */
-	private static char[][] fontdata = {
+	private static final char[][] fontdata = {
 	
 	{0x01,8,8,SF_BITMAP, /* 1 0x01 '^A' */
 	0x7e, /* 01111110 */
@@ -1072,14 +1071,14 @@ public class SoftFont {
 	public SoftFont() {
 		font = new java.util.Hashtable();
 		for (int i = 0; i < fontdata.length; i++)
-			font.put(new Integer(fontdata[i][0]), i);
+			font.put(Integer.valueOf(fontdata[i][0]), i);
 
 	}
 
 	public boolean inSoftFont(char c) {
 		boolean insoftfont;
 
-		insoftfont = (null != font.get(new Integer(c)));
+		insoftfont = (null != font.get(Integer.valueOf(c)));
 		if (!insoftfont && (int)c >= 0x100) {
 			System.out.println("Character " + ((int)c) + " not in softfont");
 		}
@@ -1091,7 +1090,7 @@ public class SoftFont {
 		Object	Ientry;
 		int	w, h, entry, i, fontwidth, fontheight;
 		
-		Ientry = font.get(new Integer(c));
+		Ientry = font.get(Integer.valueOf(c));
 		if (Ientry == null)
 			return;
 		entry = ((Integer)Ientry);

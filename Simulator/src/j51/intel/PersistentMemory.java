@@ -3,6 +3,7 @@
  */
 package j51.intel;
 
+import j51.device.VolatileMemory;
 import java.io.*;
 import javax.swing.Timer;
 

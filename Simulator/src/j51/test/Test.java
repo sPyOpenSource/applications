@@ -22,7 +22,7 @@ package j51.test;
 import j51.intel.*;
 
 
-class G128x64 extends j51.lcd.GLcd implements MCS51Peripheral,
+class G128x64 extends j51.device.lcd.GLcd implements MCS51Peripheral,
 					      SfrWriteListener,
 					      SfrReadListener
 {

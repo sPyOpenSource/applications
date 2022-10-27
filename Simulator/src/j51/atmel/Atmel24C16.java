@@ -4,7 +4,7 @@
 package j51.atmel;
 
 import j51.intel.*;
-import j51.i2c.*;
+import j51.device.i2c.*;
 import j51.util.Logger;
 import j51.util.Hex;
 

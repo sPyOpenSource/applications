@@ -51,7 +51,7 @@ final class AttributeListAttributeRes extends NTFSResidentAttribute implements
      */
     public Iterator<AttributeListEntry> getAllEntries() throws IOException {
         final Memory data = new byte[getAttributeLength()];
-        getData(getAttributeOffset(), data, 0, data.length);
+        getData(getAttributeOffset(), data, 0, data.size());
         AttributeListBlock listBlock = new AttributeListBlock(data, 0, getAttributeLength());
         return listBlock.getAllEntries();
     }

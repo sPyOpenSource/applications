@@ -26,13 +26,15 @@ interface C8051F120Constants
  */
 public class C8051F120 extends MCS51 implements C8051F120Constants
 {
-	private FlashCode		flash;
-	private PersistentMemory	scratch;
+    
+	private final FlashCode		flash;
+	private final PersistentMemory	scratch;
 	
 	C8051F120()
 	{
-		flash	= new FlashCode("C8051F120",128*1024)
+		flash	= new FlashCode("C8051F120", 128 * 1024)
 		{
+                        @Override
 			public int getCode(int addr,boolean fetch)
 			{
 				return super.getCode(translate(addr,fetch),fetch);
@@ -49,13 +51,14 @@ public class C8051F120 extends MCS51 implements C8051F120Constants
 		setSfrName(PSBANK,	"PSBANK");
 	}
 
+        @Override
 	public void reset()
 	{
 		super.reset();
 		sfr(PSBANK,0x11);
 	}
 
-	int translate(int addr,boolean fetch)
+	int translate(int addr, boolean fetch)
 	{
 
 		if (addr > 0x8000)
@@ -72,7 +75,5 @@ public class C8051F120 extends MCS51 implements C8051F120Constants
 
 		return addr;
 	}
-	
-
 	
 }

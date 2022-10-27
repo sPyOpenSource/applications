@@ -31,13 +31,13 @@ public class MemoryByte
 	public boolean present = false;
 
 	
-	void setName(String name)
+	public void setName(String name)
 	{
 		this.name = name;
 	}
 
 
-	String getName()
+	public String getName()
 	{
 		return name;
 	}

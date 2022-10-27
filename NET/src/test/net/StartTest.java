@@ -4,8 +4,7 @@ import jx.zero.*;
 
 import jx.net.NetInit;
 import jx.net.UDPSender;
-import jx.net.IPAddress;
-import jx.net.UnknownAddressException;
+import jx.net.IPv4Address;
 
 class StartTest {
     
@@ -16,7 +15,7 @@ class StartTest {
 
 	try{
 	    // send
-	    UDPSender u = net.getUDPSender(6665, new IPAddress("192.168.34.2"), Integer.parseInt("9876"));
+	    UDPSender u = net.getUDPSender(6665, new IPv4Address("192.168.34.2"), Integer.parseInt("9876"));
 	    //Memory buf = net.getUDPBuffer(50);
 	    Memory buf = memoryManager.alloc(1000);
 	    for(;;) {
@@ -31,6 +30,7 @@ class StartTest {
 		}
 		for(int k=0; k<10; k++) Thread.yield();
 	    }
-	} catch(NumberFormatException | UnknownAddressException e) {throw new Error();}
+	} catch(NumberFormatException e) {throw new Error();}
     }
+    
 }

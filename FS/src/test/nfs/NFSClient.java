@@ -19,7 +19,7 @@ public class NFSClient {
     static final int RPC_LOCALPORT = 1000;
     static final int EXT2FS_BLOCKSIZE = 1024;
 
-    NFSClient() {
+    NFSClient(IPAddress rpcHost) {
 	final Naming naming = InitialNaming.getInitialNaming();
 	final MemoryManager memMgr = (MemoryManager) naming.lookup("MemoryManager");
 	final CPUManager cpuManager = (CPUManager) naming.lookup("CPUManager");
@@ -31,7 +31,6 @@ public class NFSClient {
 	    final RPC rpc = new RPC(netinstance, RPC_LOCALPORT); 
 	    //if (rpc == null) Debug.out.println("RPCNULL!!!!");
 
-	    IPAddress rpcHost = new IPAddress(192,168,34,2);
 	    MountProc mount = new MountProc_Stub(rpc, rpcHost);
 	    
 	    String path = "/megadisk/jx/golm/jx";

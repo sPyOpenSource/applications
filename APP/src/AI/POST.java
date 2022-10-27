@@ -11,7 +11,6 @@ import jx.zero.Naming;
 import jx.fs.javafs.FileSystem;
 import test.debug.Monitor;
 import test.fs.BioRAMDomain;
-import vfs.FSImpl;
 
 /**
  *

@@ -3,6 +3,8 @@
  */
 package j51.atmel;
 
+import j51.device.Timer;
+import j51.device.Timer2;
 import j51.intel.*;
 import j51.util.Hex;
 

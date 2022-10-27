@@ -4,6 +4,7 @@
 package j51.philips;
 
 import j51.intel.*;
+import j51.swing.JPort;
 
 /**
  * LPC900 standard ports.
@@ -13,6 +14,7 @@ import j51.intel.*;
  */
 public class LPC900Ports extends JPort implements ResetListener
 {
+    
 	LPC900Ports() throws Exception
 	{
 		super(4);

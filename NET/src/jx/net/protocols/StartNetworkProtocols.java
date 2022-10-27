@@ -2,9 +2,10 @@ package jx.net.protocols;
 
 import jx.zero.*;
 import jx.timer.TimerManager;
-import jx.net.IPAddress;
+import jx.net.IPv4Address;
 import jx.net.NetInit;
 import jx.devices.net.*;
+import jx.net.IPAddress;
 
 
 public class StartNetworkProtocols {
@@ -30,7 +31,7 @@ public class StartNetworkProtocols {
 	final TimerManager timerManager = (TimerManager)LookupHelper.waitUntilPortalAvailable(naming, args[1]);
 	IPAddress myAddress = null;
 	if (args.length == 4) {
-	    myAddress = new IPAddress(args[3]);
+	    myAddress = new IPv4Address(args[3]);
 	} 
 	NetInit net = new jx.netmanager.NetInit(nic, timerManager, bufs, myAddress);
 	naming.registerPortal(net, args[2]);

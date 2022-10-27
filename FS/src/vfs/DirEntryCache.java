@@ -1,6 +1,5 @@
 package vfs;
 
-import java.util.Vector;
 import java.util.Hashtable;
 import java.util.Enumeration;
 import jx.zero.Debug;
@@ -55,7 +54,7 @@ public class DirEntryCache {
      * @param pfad der Pfad des Eintrags, der aus dem Cache entfernt werden soll
      */
     public synchronized void removeEntry(String pfad) {
-    Inode inode = (Inode)dentry_hashtable.remove(pfad);
+    Node inode = (Node)dentry_hashtable.remove(pfad);
     if (inode == null)
         return;
 
@@ -69,7 +68,7 @@ public class DirEntryCache {
      * @param neuer_pfad der neue Pfad des Eintrags
      */
     public synchronized void moveEntry(String pfad, String neuer_pfad) {
-    Inode inode = (Inode)dentry_hashtable.remove(pfad);
+    Node inode = (Node)dentry_hashtable.remove(pfad);
     if (inode != null)
         dentry_hashtable.put(neuer_pfad, inode);
     }
@@ -82,7 +81,7 @@ public class DirEntryCache {
     Enumeration enumEntries = dentry_hashtable.elements();
     Enumeration enumKeys    = dentry_hashtable.keys();
     while (enumEntries.hasMoreElements() && enumKeys.hasMoreElements()) {
-        Inode inode = (Inode)enumEntries.nextElement();
+        Node inode = (Node)enumEntries.nextElement();
         String pfad = (String)enumKeys.nextElement();
         dentry_hashtable.remove(pfad);
         inode.decUseCount();  // <- DIE zentrale Methode (brelse(idata.bh), evtl. deleteInode())
@@ -98,13 +97,13 @@ public class DirEntryCache {
     Enumeration enumEntries = dentry_hashtable.elements();
     Enumeration enumKeys    = dentry_hashtable.keys();
     while (enumEntries.hasMoreElements() && enumKeys.hasMoreElements()) {
-        Inode inode = (Inode)enumEntries.nextElement();
+        Node inode = (Node)enumEntries.nextElement();
         String pfad = (String)enumKeys.nextElement();
         dentry_hashtable.remove(pfad);
         try {
         if (inode.isDirty())
-        inode.writeInode();
-        } catch (InodeIOException | NotExistException e) {
+            inode.writeNode();
+        } catch (Exception e) {
         }
     }
     }

@@ -113,5 +113,4 @@ public class Logger extends java.util.logging.Logger
 	{
 		super(name,null);
 	}
-
 }

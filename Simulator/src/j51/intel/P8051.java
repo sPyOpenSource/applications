@@ -4,6 +4,10 @@
  */
 package j51.intel;
 
+import j51.device.Timer;
+import j51.swing.JPort;
+import j51.swing.JUartTA;
+
 /**
  *
  * Standard 8051 microprocessor. With all peripheral.
@@ -20,6 +24,7 @@ public class P8051 extends MCS51
 		addPeripheral(new JUartTA());
 	}
 
+        @Override
 	public String toString()
 	{
 		return "Intel 8051  $Id: P8051.java 45 2010-06-22 20:53:26Z mviara $";

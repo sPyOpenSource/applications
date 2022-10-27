@@ -156,7 +156,7 @@ class Controller {
     timeoutMillis += Env.clock.getTicks()*10;
     while (Env.clock.getTicks()*10 < timeoutMillis) {
         if ((getStatus() & (good|bad)) == good)
-        return true;
+            return true;
         Env.sleepManager.mdelay(10); // may not be necessary
     }
     return false;
@@ -213,7 +213,7 @@ class Controller {
         } else {
             Operation last = operation;
             while (last.next != null)
-            last = last.next;
+                last = last.next;
             last.next = newOperation;
         }
         Debug.out.println("operation queued");

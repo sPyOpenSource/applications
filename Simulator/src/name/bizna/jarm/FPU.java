@@ -1,6 +1,6 @@
 package name.bizna.jarm;
 
-public strictfp class FPU extends SaneCoprocessor {
+public class FPU extends SaneCoprocessor {
 	
 	/* TODO: How to copy FPU status bits to APSR? */
 	

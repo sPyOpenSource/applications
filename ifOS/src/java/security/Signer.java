@@ -59,7 +59,7 @@ public abstract class Signer extends Identity
      IdentityScope.
 
      @param name the name of the identity.
-     @scope the IdentityScope to use
+     @param scope the IdentityScope to use
 
      @throws KeyManagementException if duplicate identity name 
      within scope
@@ -76,7 +76,7 @@ public abstract class Signer extends Identity
      This class checks the security manager with the call 
      checkSecurityAccess with "getSignerPrivateKey".
 
-     @returns the private key for the signer
+     @return the private key for the signer
 
      @throws SecurityException - if the security manager denies 
      access to "getSignerPrivateKey"
@@ -129,8 +129,9 @@ public abstract class Signer extends Identity
   /**
      Returns a string representing this Signer.
 
-     @returns a string representing this Signer.
+     @return a string representing this Signer.
   */
+  @Override
   public String toString()
   {
     return (getName() + ": " + privateKey);

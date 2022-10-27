@@ -7,13 +7,13 @@ package jCPU.JavaVM;
 
 import jCPU.JavaVM.vm.VmCP;
 import jCPU.JavaVM.vm.VmStackFrame;
-import jx.verifier.Verifier;
+//import jx.verifier.Verifier;
 
 /**
  *
  * @author X. Wang
  */
-public class JVM extends j51.intel.MCS51{
+public class JVM extends j51.intel.MCS51 {
     public VmStackFrame stack;
     public VmCP cp;
     public BytecodeVisitor handler;
@@ -27,7 +27,7 @@ public class JVM extends j51.intel.MCS51{
     }
     
     public JVM(){
-        Verifier verifier = new Verifier();
+        //Verifier verifier = new Verifier();
     }
     
     @Override

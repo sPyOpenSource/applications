@@ -63,7 +63,7 @@ public class ArmTest
   // VARIABLES
 
   private Memory m;
-  private Arm arm;
+  private CPU arm;
 
   // METHODS
 
@@ -76,7 +76,7 @@ public class ArmTest
     this.m = new Memory();
     // Initial stack of 8Kb...
     this.m.create(0xFFFFFFFFL - STACK_SIZE, STACK_SIZE);
-    this.arm = new Arm(this.m);
+    this.arm = new CPU(this.m);
   }
 
   /**
@@ -120,7 +120,7 @@ public class ArmTest
       elf.readSegment(ph, chunk);
     }
 
-    this.arm = new Arm(this.m);
+    this.arm = new CPU(this.m);
     this.arm.setPC((int) elf.getHeader().getEntryPoint());
 
     int i = 500;
@@ -151,7 +151,7 @@ public class ArmTest
       elf.readSegment(ph, chunk);
     }
 
-    this.arm = new Arm(this.m);
+    this.arm = new CPU(this.m);
     this.arm.setPC((int) elf.getHeader().getEntryPoint());
 
     int i = 500;

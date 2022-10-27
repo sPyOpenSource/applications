@@ -4,6 +4,7 @@
 package j51.philips;
 
 import j51.intel.*;
+import j51.swing.JUart;
 import j51.util.Logger;
 import jCPU.MemoryReadListener;
 import jCPU.MemoryWriteListener;
@@ -93,7 +94,7 @@ public class LPC900 extends MCS51 implements SfrWriteListener, LPC900Constants,
 		
 
 		
-		addPeripheral(new j51.intel.Timer());
+		addPeripheral(new j51.device.Timer());
 		addPeripheral(new LPC900Misc());
 		addPeripheral(new LPC900Ports());
 		addPeripheral(new JUart());

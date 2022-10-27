@@ -10,7 +10,7 @@ import jx.buffer.separator.*;
 class Lance implements NetworkDevice {
     Lance(PCIDevice dev) {}
     @Override
-    public DeviceConfigurationTemplate[] getSupportedConfigurations () {
+    public DeviceConfigurationTemplate[] getSupportedConfigurations() {
 	return null;
     }
 

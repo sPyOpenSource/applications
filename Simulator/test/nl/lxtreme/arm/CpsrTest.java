@@ -7,8 +7,6 @@ package nl.lxtreme.arm;
 
 
 import static org.junit.Assert.*;
-import nl.lxtreme.arm.Arm.Cpsr;
-
 import org.junit.*;
 
 

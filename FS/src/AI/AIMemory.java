@@ -1,21 +1,15 @@
 package AI;
 
+import static AI.AIZeroLogic.getHash;
 import java.util.TreeMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import test.fs.FSDomain;
 
 import jx.InitialNaming;
 import jx.devices.bio.BlockIO;
 import jx.devices.pci.PCIGod;
-import jx.fs.FSException;
-import jx.fs.Node;
-import jx.fs.FileSystem;
-import jx.fs.buffer.BufferCache;
 
-import jx.zero.Clock;
 import jx.zero.Debug;
-import jx.zero.LookupHelper;
 import jx.zero.Memory;
 import jx.zero.MemoryManager;
 import jx.zero.Ports;
@@ -26,21 +20,34 @@ import jx.zero.Ports;
  * @author X. Wang
  * @version 1.0
  */
-public class AIMemory extends AIZeroMemory implements FileSystem
+public class AIMemory extends AIZeroMemory
 {
     // instance variables
     //private SerialPort serialPort;
+    private final AIInput  inp;
+    private final AIOutput out;
+    private final Thread   inpThread, outThread;
     private BlockIO drive;
-    private final int length = 101;
     private Memory buffer;
+    private MemoryManager mManager;
     private Ports ports; // You can access any address with ports in the computer memory
     private TreeMap<String, TreeMap> tree = new TreeMap<>();
-    private MemoryManager mManager;
+    
+    private final int length = 101;
+
     /**
      * Constructor for objects of class AIMemory
      */
     public AIMemory()
     {
+        mManager = (MemoryManager)InitialNaming.lookup("MemoryManager");
+        ports = (Ports)InitialNaming.lookup("Ports");
+        buffer =  mManager.alloc(512);
+        inp = new AIInput(this);
+        out = new AIOutput(this);
+        inpThread = new Thread(inp, "input");
+        outThread = new Thread(out, "output");
+        
         try{
             PCIGod.main(new String[]{});
 
@@ -48,7 +55,8 @@ public class AIMemory extends AIZeroMemory implements FileSystem
 
             //NetInit.init(InitialNaming.getInitialNaming(), new String[]{"NET"});
 
-            FSDomain.main(new String[]{"BioRAM", "FS"});
+            //FSDomain.main(new String[]{"BioRAM", "FS"});
+            
             // Initialize instance variables
             /*try {
                 serialPort = (SerialPort)CommPortIdentifier.getPortIdentifier("/dev/ttyACM0").open(this.getClass().getName(), 2000);
@@ -56,10 +64,8 @@ public class AIMemory extends AIZeroMemory implements FileSystem
             } catch (NoSuchPortException | PortInUseException | UnsupportedCommOperationException ex) {
                 Logger.getLogger(AIMemory.class.getName()).log(Level.SEVERE, null, ex);
             }*/
+            
             //drive = (BlockIO)LookupHelper.waitUntilPortalAvailable(null, "BioRAM");
-            mManager = (MemoryManager)InitialNaming.lookup("MemoryManager");
-            ports = (Ports)InitialNaming.lookup("Ports");
-            buffer =  memoryManager.alloc(512);
         } catch (ExceptionInInitializerError | NullPointerException ex){
             Logger.getLogger(AIMemory.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -69,59 +75,6 @@ public class AIMemory extends AIZeroMemory implements FileSystem
         return serialPort;
     }*/
 
-    @Override
-    public void init(BlockIO blockDevice, BufferCache bufferCache, Clock clock) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public String name() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public Node getRootNode() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void init(boolean read_only) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void release() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void build(String name, int blocksize) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void check() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public Node getNode(int identifier) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public int getDeviceID() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
-    public int getHash(String name){
-        int value = 0;
-        for (int i = 0; i < name.length(); i++ )
-            value += name.charAt(i);
-        return ( value * name.length() ) % length + 100;
-    }
-
-    @Override
     public String read(String name) {
         TreeMap<String, TreeMap> current = tree;
         for(String part:name.split("/")){
@@ -129,7 +82,7 @@ public class AIMemory extends AIZeroMemory implements FileSystem
         }
         if(current != null){
         Memory bufferRead =  mManager.alloc(512);
-            drive.readSectors(getHash(name), 1, bufferRead, true);
+            drive.readSectors(getHash(name, length), 1, bufferRead, true);
             for(int i = 0; i < 512; i++){
                 Debug.out.print(bufferRead.get8(i));
             }
@@ -148,7 +101,7 @@ public class AIMemory extends AIZeroMemory implements FileSystem
                 current = temp;
             }
         }
-        drive.writeSectors(getHash(name), 1, buffer, true);
+        drive.writeSectors(getHash(name, length), 1, buffer, true);
     }
     
     @Override
@@ -156,5 +109,12 @@ public class AIMemory extends AIZeroMemory implements FileSystem
         buffer.set8(0, (byte)60);
         write("ai.txt");
         read("ai.txt");
+    }
+    
+    public void start()
+    {
+        inpThread.start();
+        outThread.start();
+        ImportBackup("/ai");
     }
 }

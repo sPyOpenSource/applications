@@ -87,11 +87,11 @@ public class Main {
 	shell.register("ls", new Command() {
                 @Override
 		public void command(PrintStream out, String[] args) throws FSException  {
-		    Inode inode;
+		    Node inode;
 		    if (args.length == 0) {
-			inode = fs.getCwdInode();
+			inode = fs.getCwdNode();
 		    } else {
-			inode = (Inode)fs.lookup(args[0]);
+			inode = (Node)fs.lookup(args[0]);
 		    }
 		    String[] names = inode.readdirNames();
                     for (String name : names) {
@@ -124,7 +124,7 @@ public class Main {
 	shell.register("cat", new Command() {
                 @Override
 		public void command(PrintStream out, String[] args) throws FSException {
-		    Inode inode = (Inode)fs.lookup(args[0]);
+		    Node inode = (Node)fs.lookup(args[0]);
 		    int l = inode.getLength();
 		    int o=0;
 		    while(l > 0) {

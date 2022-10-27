@@ -30,8 +30,8 @@ public interface RegularFile extends FSObject, jx.zero.Portal {
      * Sets the length of this file.
      */
 
-    public int setLength(long newLength) throws Exception;
+    public void setLength(long newLength) throws Exception;
 
     @Override
-    public int length() throws Exception;
+    public int getLength() throws Exception;
 }

@@ -33,7 +33,7 @@ import jx.zero.Memory;
 /**
  * @author epr
  */
-public abstract class AbstractDirectory extends FatObject{
+public abstract class AbstractDirectory extends FatObject {
     protected Vector<FatBasicDirEntry> entries = new Vector<>();
     private boolean _dirty;
     protected FatFile file;
@@ -112,7 +112,7 @@ public abstract class AbstractDirectory extends FatObject{
      * @return 
      * @throws IOException
      */
-    public Inode addFile(String name) throws IOException {
+    public Node addFile(String name) throws IOException {
         return addFatFile(name);
     }
 
@@ -151,7 +151,7 @@ public abstract class AbstractDirectory extends FatObject{
      * @return 
      * @throws IOException
      */
-    public Inode addDirectory(String name) throws IOException {
+    public Node addDirectory(String name) throws IOException {
         final long parentCluster;
         if (file == null) {
             parentCluster = 0;
@@ -200,7 +200,7 @@ public abstract class AbstractDirectory extends FatObject{
      * @return 
      * @throws IOException
      */
-    public Inode getEntry(String name) throws IOException {
+    public Node getEntry(String name) throws IOException {
         final FatDirEntry entry = getFatEntry(name);
         if (entry == null) {
             throw new FileNotFoundException(name);
@@ -250,7 +250,7 @@ public abstract class AbstractDirectory extends FatObject{
         out.println("Unused entries " + freeCount);
     }
 
-    class DirIterator implements Iterator<Inode> {
+    class DirIterator implements Iterator<Node> {
 
         private int offset = 0;
 
@@ -275,13 +275,13 @@ public abstract class AbstractDirectory extends FatObject{
          * @see java.util.Iterator#next()
          */
         @Override
-        public Inode next() {
+        public Node next() {
             int size = entries.size();
             while (offset < size) {
                 FatBasicDirEntry e = entries.get(offset);
                 if ((e != null) && (e instanceof FatDirEntry) && !((FatDirEntry) e).isDeleted()) {
                     offset++;
-                    return (Inode) e;
+                    return (Node) e;
                 } else {
                     offset++;
                 }

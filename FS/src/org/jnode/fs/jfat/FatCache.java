@@ -25,7 +25,7 @@ import jx.bio.buffercache.BufferCache;
 import jx.zero.Debug;
 import jx.zero.Memory;
 
-public class FatCache extends BufferCache{
+public class FatCache extends BufferCache {
 
     public final static float loadFactor = 0.75f;
 

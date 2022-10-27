@@ -84,10 +84,9 @@ public abstract class AbstractOpcode implements Opcode
 	{
 		return cycle;
 	}
-
 	
         @Override
-	public final String decode(CPU cpu, int pc)
+	public final String decode(iCPU cpu, int pc)
 	{
 		if (decoded != null)
 			return decoded;
@@ -153,6 +152,7 @@ public abstract class AbstractOpcode implements Opcode
 	 * will be expanded in "CPL   C", to have all the instrction
 	 * description with the same length.
 	 */
+        @Override
 	public final String getDescription()
 	{
 		String s = toString();
@@ -173,10 +173,9 @@ public abstract class AbstractOpcode implements Opcode
 
 }
 
-
 interface DecodeString
 {
-	public int decode(CPU cpu, int opcode, int end, int pc, StringBuffer value, int pos);
+	public int decode(iCPU cpu, int opcode, int end, int pc, StringBuffer value, int pos);
 	public int search(StringBuffer s);
 }
 
@@ -204,14 +203,14 @@ class DecodeDATA12 extends AbstractDecodeString
 	}
 
         @Override
-	public int decode(CPU cpu, int opcode, int end, int pc, StringBuffer value, int pos)
+	public int decode(iCPU cpu, int opcode, int end, int pc, StringBuffer value, int pos)
 	{
 		value.replace(pos, pos + name.length(), "#" + Hex.bin2word(getAddress(cpu, pc)));
 
 		return 2;
 	}
 
-	protected int getAddress(CPU cpu, int pc)
+	protected int getAddress(iCPU cpu, int pc)
 	{
 		pc -= 1;
 		int add = cpu.code(pc + 1) | ((cpu.code(pc + 0) << 3) & 0x700);
@@ -229,7 +228,7 @@ class DecodeCODE16 extends AbstractDecodeString
 	}
 
         @Override
-	public int decode(CPU cpu, int opcode, int end, int pc, StringBuffer value, int pos)
+	public int decode(iCPU cpu, int opcode, int end, int pc, StringBuffer value, int pos)
 	{
 		int hi = cpu.code(pc);
 		int lo = cpu.code(pc + 1);
@@ -250,7 +249,7 @@ class DecodeDATA16 extends AbstractDecodeString
 	}
 
         @Override
-	public int decode(CPU cpu, int opcode, int end, int pc, StringBuffer value, int pos)
+	public int decode(iCPU cpu, int opcode, int end, int pc, StringBuffer value, int pos)
 	{
 		int hi = cpu.code(pc);
 		int lo = cpu.code(pc + 1);
@@ -268,7 +267,7 @@ class DecodeDATA8 extends AbstractDecodeString
 	}
 
         @Override
-	public int decode(CPU cpu, int opcode, int end, int pc, StringBuffer value, int pos)
+	public int decode(iCPU cpu, int opcode, int end, int pc, StringBuffer value, int pos)
 	{
 		value.replace(pos, pos + name.length(), "#" + Hex.bin2byte(cpu.code(pc)));
 
@@ -284,7 +283,7 @@ class DecodeBIT extends AbstractDecodeString
 	}
 
         @Override
-	public int decode(CPU cpu, int opcode, int end, int pc, StringBuffer value, int pos)
+	public int decode(iCPU cpu, int opcode, int end, int pc, StringBuffer value, int pos)
 	{
 		value.replace(pos, pos + name.length(), cpu.getBitName(cpu.code(pc)));
 
@@ -300,7 +299,7 @@ class DecodeOFFSET extends AbstractDecodeString
 	}
 
         @Override
-	public int decode(CPU cpu, int opcode, int end, int pc, StringBuffer value, int pos)
+	public int decode(iCPU cpu, int opcode, int end, int pc, StringBuffer value, int pos)
 	{
 		int v = end;
 		int offset = cpu.code(pc);
@@ -325,7 +324,7 @@ class DecodeDIRECT extends AbstractDecodeString
 	}
 
         @Override
-	public int decode(CPU cpu, int opcode, int end, int pc, StringBuffer value, int pos)
+	public int decode(iCPU cpu, int opcode, int end, int pc, StringBuffer value, int pos)
 	{
 		int r = cpu.code(pc);
 
@@ -343,7 +342,7 @@ class DecodeDIRECP extends AbstractDecodeString
 	}
 
         @Override
-	public int decode(CPU cpu, int opcode, int end, int pc, StringBuffer value, int pos)
+	public int decode(iCPU cpu, int opcode, int end, int pc, StringBuffer value, int pos)
 	{
 		int r = cpu.code(pc + 1);
 
@@ -362,11 +361,11 @@ class DecodeDIRECM extends AbstractDecodeString
 	}
 
         @Override
-	public int decode(CPU cpu, int opcode, int end, int pc, StringBuffer value, int pos)
+	public int decode(iCPU cpu, int opcode, int end, int pc, StringBuffer value, int pos)
 	{
 		int r = cpu.code(pc - 1);
 
-		value.replace(pos, pos + name.length(),cpu.getDirectName(r));
+		value.replace(pos, pos + name.length(), cpu.getDirectName(r));
 
 		return 1;
 	}

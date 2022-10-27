@@ -7,6 +7,7 @@ import jx.net.IPData;
 import jx.net.IPSender;
 import jx.net.IPReceiver;
 import jx.net.IPAddress;
+import jx.net.IPv4Address;
 import jx.net.UnknownAddressException;
 import jx.zero.debug.Dump;
 
@@ -19,13 +20,13 @@ class StartIPTest {
 
 	try{
 	    // send
-	    IPSender u = net.getIPSender(new IPAddress("192.168.34.2"), 42);
+	    IPSender u = net.getIPSender(new IPv4Address("192.168.34.2"), 42);
 	    //Memory buf = net.getIPBuffer(50);
 	    Memory buf = memoryManager.alloc(1000);
 	    for(int i=0; i<50; i++) {
 		buf.set8(i, (byte)i);
 	    }
-	    u.send1(buf, 14+20, 50);
+	    u.send(buf, 14 + 20, 50);
 
 
 	    Memory[] bufs = new Memory[10];
@@ -42,6 +43,6 @@ class StartIPTest {
 		Dump.xdump1(recbuf, ipdata.offset, ipdata.size);
 		
 	    }
-	} catch(UnknownAddressException e) {throw new Error();}
+	} catch(Exception e) {throw new Error();}
     }
 }

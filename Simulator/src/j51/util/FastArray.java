@@ -28,7 +28,7 @@ public class FastArray<E>
 
 	public FastArray(int n)
 	{
-		this(n,10);
+		this(n, 10);
 	}
 
 	public  FastArray()

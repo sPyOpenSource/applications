@@ -226,6 +226,7 @@ public class SwingTerminal extends Component
    * Set a new terminal (VDU) buffer.
    * @param buffer new buffer
    */
+  @Override
   public void setVDUBuffer(VDUBuffer buffer) {
     this.buffer = buffer;
     buffer.setDisplay(this);
@@ -235,6 +236,7 @@ public class SwingTerminal extends Component
    * Return the currently associated VDUBuffer.
    * @return the current buffer
    */
+  @Override
   public VDUBuffer getVDUBuffer() {
     return buffer;
   }
@@ -261,6 +263,7 @@ public class SwingTerminal extends Component
    * Set the font to be used for rendering the characters on screen.
    * @param font the new font to be used.
    */
+  @Override
   public void setFont(Font font) {
     super.setFont(normalFont = font);
     fm = getFontMetrics(font);
@@ -318,6 +321,7 @@ public class SwingTerminal extends Component
   /**
    * Redraw marked lines.
    */
+  @Override
   public void redraw() {
     if (backingStore != null) {
       redraw(backingStore.getGraphics());
@@ -325,6 +329,7 @@ public class SwingTerminal extends Component
     }
   }
 
+  @Override
   public void updateScrollBar() {
     if (scrollBar == null) return;
     scrollBar.setValues(buffer.windowBase, buffer.height, 0, buffer.bufSize);
@@ -520,6 +525,7 @@ public class SwingTerminal extends Component
   /**
    * Paint the current screen using the backing store image.
    */
+  @Override
   public void paint(Graphics g) {
     if (backingStore == null) {
       Dimension size = super.getSize();
@@ -553,6 +559,7 @@ public class SwingTerminal extends Component
     colorPrinting = colorPrint;
   }
 
+  @Override
   public void print(Graphics g) {
     if (debug > 0) System.err.println("DEBUG: print()");
     for (int i = 0; i <= buffer.height; i++) buffer.update[i] = true;
@@ -630,6 +637,7 @@ public class SwingTerminal extends Component
    * Reshape character display according to resize strategy.
    * @see #setResizeStrategy
    */
+  @Override
   public void setBounds(int x, int y, int w, int h) {
     if (debug > 0)
       System.err.println("VDU: setBounds(" + x + "," + y + "," + w + "," + h + ")");
@@ -718,6 +726,7 @@ public class SwingTerminal extends Component
    * @return Dimension the dimension of the display
    * @see java.awt.Dimension
    */
+  @Override
   public Dimension getSize() {
     int xborder = 0, yborder = 0;
     if (insets != null) {
@@ -734,6 +743,7 @@ public class SwingTerminal extends Component
    * @return Dimension dimension of the display
    * @see #size
    */
+  @Override
   public Dimension getPreferredSize() {
     return getSize();
   }
@@ -760,10 +770,12 @@ public class SwingTerminal extends Component
     return (modifiers & mask) == mask;
   }
 
+  @Override
   public void mouseMoved(MouseEvent evt) {
     /* nothing yet we do here */
   }
 
+  @Override
   public void mouseDragged(MouseEvent evt) {
     if (buttonCheck(evt.getModifiers(), MouseEvent.BUTTON1_MASK) ||
       // Windows NT/95 etc: returns 0, which is a bug

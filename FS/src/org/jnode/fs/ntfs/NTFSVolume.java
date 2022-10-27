@@ -43,7 +43,7 @@ public class NTFSVolume {
     // local chache for faster access
     private final int clusterSize;
 
-    private final BootRecord bootRecord;
+    private final BootSector bootRecord;
 
     private MasterFileTable mftFileRecord;
 
@@ -59,14 +59,14 @@ public class NTFSVolume {
         // Read the boot sector
         final Memory buffer = ByteBuffer.allocate(512);
         api.readSectors(0, 1, buffer, true);
-        this.bootRecord = new BootRecord(buffer);
+        this.bootRecord = new BootSector(buffer);
         this.clusterSize = bootRecord.getClusterSize();
     }
 
     /**
      * @return Returns the bootRecord.
      */
-    public final BootRecord getBootRecord() {
+    public final BootSector getBootRecord() {
         return bootRecord;
     }
 
@@ -117,7 +117,7 @@ public class NTFSVolume {
      */
     public MasterFileTable getMFT() throws IOException {
         if (mftFileRecord == null) {
-            final BootRecord bootRecord = getBootRecord();
+            final BootSector bootRecord = getBootRecord();
             final int bytesPerFileRecord = bootRecord.getFileRecordSize();
             final int clusterSize = getClusterSize();
 

@@ -5,6 +5,7 @@
 package j51.philips;
 
 import j51.intel.*;
+import j51.swing.JUart;
 import jCPU.MemoryReadListener;
 import jCPU.MemoryWriteListener;
 
@@ -51,7 +52,7 @@ public class LPC764Base extends MCS51 implements LPC764Constants , SfrWriteListe
 
 		
 		addPeripheral(new JUart());
-		addPeripheral(new j51.intel.Timer());
+		addPeripheral(new j51.device.Timer());
 
 		setSfrName(AUXR1, "AUXR1");
 	}

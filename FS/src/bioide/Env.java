@@ -2,7 +2,7 @@ package bioide;
 
 import jx.zero.*;
 import jx.zero.timer.*;
-import jx.timerpc.*;
+import jx.timerpc.SleepManagerImpl;
 
 /**
  * Driver environment.

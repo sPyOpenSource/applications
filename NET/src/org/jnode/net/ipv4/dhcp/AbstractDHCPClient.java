@@ -23,7 +23,9 @@ package org.jnode.net.ipv4.dhcp;
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
+
 import jx.net.IPAddress;
+import jx.net.IPv4Address;
 import jx.net.NetInit;
 import jx.net.protocol.bootp.BOOTP;
 import jx.net.protocol.bootp.BOOTPFormat;
@@ -144,7 +146,7 @@ public class AbstractDHCPClient extends BOOTP {
 
         byte[] routerValue = msg.getOption(DHCPMessage.ROUTER_OPTION);
         if (routerValue != null && routerValue.length >= 4) {
-            IPAddress routerIP = new IPAddress(routerValue);
+            IPAddress routerIP = new IPv4Address(routerValue);
             //log.info("Got Router IP address : " + routerIP);
             //cfg.addRoute(IPAddress.ANY, routerIP, device, false);
         }
@@ -153,7 +155,7 @@ public class AbstractDHCPClient extends BOOTP {
         final byte[] dnsValue = msg.getOption(DHCPMessage.DNS_OPTION);
         if (dnsValue != null) {
             for (int i = 0; i < dnsValue.length; i += 4) {
-                final IPAddress dnsIP = new IPAddress(dnsValue);
+                final IPAddress dnsIP = new IPv4Address(dnsValue);
                 
                 //log.info("Got Dns IP address    : " + dnsIP);
                 try {

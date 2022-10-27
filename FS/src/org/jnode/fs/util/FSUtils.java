@@ -27,7 +27,7 @@ import java.util.Date;
 
 import jx.fs.Directory;
 import jx.fs.Node;
-import jx.fs.FSFile;
+import jx.fs.RegularFile;
 
 /**
  * 
@@ -79,7 +79,7 @@ public class FSUtils {
         sb.append("<FSEntry>");
         sb.append(" name=" + entry.getName());
         //try {
-            sb.append(toStringDate(" lastModified=", entry.getLastModified()));
+            sb.append(toStringDate(" lastModified=", entry.lastModified()));
         //} catch (IOException e) {
             //sb.append(" lastModified=###").append(e.getMessage()).append("###");
             //log.error("error in lastModified", e);
@@ -145,7 +145,7 @@ public class FSUtils {
      * @param file an FSFile
      * @return  a human readable rendering of the FSFile
      */
-    public static String toString(FSFile file) {
+    public static String toString(RegularFile file) {
         if (file == null)
             return "<FSEntry>NULL</FSEntry>";
 

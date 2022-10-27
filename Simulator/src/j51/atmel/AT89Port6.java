@@ -3,9 +3,7 @@
  */
 package j51.atmel;
 
-import j51.intel.*;
-
-
+import j51.swing.JPort;
 
 /**
  *

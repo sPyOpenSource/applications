@@ -47,6 +47,7 @@ public class BootSector {
     private final Memory sector;
     private int type;
     private boolean dirty;
+    MemoryManager MemManager;
 
     /*
      * Common fields, common offsets
@@ -103,7 +104,7 @@ public class BootSector {
     }
 
     public BootSector(int size) {
-        MemoryManager MemManager = (MemoryManager)InitialNaming.lookup("MemoryManager");
+        MemManager = (MemoryManager)InitialNaming.lookup("MemoryManager");
         sector = MemManager.alloc(size);
         dirty = false;
     }

@@ -19,8 +19,8 @@ import jx.zero.debug.DebugPrintStream;
 public final class AI
 {
     // instance variables
-    private final AIIO hci = new AIIO();
-    private final AILogic logic = new AILogic(hci.getMemory());
+    private final AIMemory hci  = new AIMemory();
+    private final AILogic logic = new AILogic(hci);
     
     public void start()
     {

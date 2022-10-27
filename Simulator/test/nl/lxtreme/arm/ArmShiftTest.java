@@ -6,7 +6,7 @@
 package nl.lxtreme.arm;
 
 
-import static nl.lxtreme.arm.Arm.*;
+import static nl.lxtreme.arm.CPU.*;
 import static org.junit.Assert.*;
 
 import org.junit.*;
@@ -20,7 +20,7 @@ public class ArmShiftTest
   // METHODS
 
   /**
-   * Test method for {@link nl.lxtreme.arm.Arm#ASR(int, int)}.
+   * Test method for {@link nl.lxtreme.arm.CPU#ASR(int, int)}.
    */
   @Test
   public void testASR()
@@ -36,7 +36,7 @@ public class ArmShiftTest
   }
 
   /**
-   * Test method for {@link nl.lxtreme.arm.Arm#LSL(int, int)}.
+   * Test method for {@link nl.lxtreme.arm.CPU#LSL(int, int)}.
    */
   @Test
   public void testLSL()
@@ -52,7 +52,7 @@ public class ArmShiftTest
   }
 
   /**
-   * Test method for {@link nl.lxtreme.arm.Arm#LSR(int, int)}.
+   * Test method for {@link nl.lxtreme.arm.CPU#LSR(int, int)}.
    */
   @Test
   public void testLSR()
@@ -68,7 +68,7 @@ public class ArmShiftTest
   }
 
   /**
-   * Test method for {@link nl.lxtreme.arm.Arm#ROR(int, int)}.
+   * Test method for {@link nl.lxtreme.arm.CPU#ROR(int, int)}.
    */
   @Test
   public void testROR()
@@ -86,7 +86,7 @@ public class ArmShiftTest
   }
 
   /**
-   * Test method for {@link nl.lxtreme.arm.Arm#RRX(int, int)}.
+   * Test method for {@link nl.lxtreme.arm.CPU#RRX(int, int)}.
    */
   @Test
   public void testRRX()

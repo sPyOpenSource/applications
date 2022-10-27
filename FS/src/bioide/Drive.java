@@ -11,20 +11,20 @@ import jx.devices.bio.BlockIO;
 public class Drive implements BlockIO, Service {
     public  boolean     present;    // drive is present
     public  boolean     using_dma;  // drive uses DMA
-    public  byte    select;        // "normal" value of select register (IDE_OFF_LDH)
-    public  byte    ctl;        // "normal" value for IDE_OFF_CTL_REG
+    public  byte        select;     // "normal" value of select register (IDE_OFF_LDH)
+    public  byte        ctl;        // "normal" value for IDE_OFF_CTL_REG
     public  short       head;       // "real" number of heads
-    public  short       sect;        // "real" number of sectors per track
+    public  short       sect;       // "real" number of sectors per track
     public  short       cyl;        // "real" number of cylinders
     public  short       bios_head, bios_sect, bios_cyl;
     public  int         capacity;   // capacity in sectors
     public  DriveIdData id_data;    // drive info
-    public  String      name;        // drive name (linux), e.g. "hda"
+    public  String      name;       // drive name (linux), e.g. "hda"
     public  Controller  controller; // controller for this drive
 
-    private final byte        select_unit = 4; // Unit-Bit in select register (0: Master, 1: Slave)
-    private final byte        select_lba  = 6; // LBA-Bit in select register (0: no LBA, 1: LBA)
-    private PartitionTable entries;
+    private final byte          select_unit = 4; // Unit-Bit in select register (0: Master, 1: Slave)
+    private final byte          select_lba  = 6; // LBA-Bit in select register (0: no LBA, 1: LBA)
+    private PartitionTable      entries;
     private final IDEDeviceImpl idedevice;
 
     public Drive(IDEDeviceImpl ide, Controller controller, int unit) {

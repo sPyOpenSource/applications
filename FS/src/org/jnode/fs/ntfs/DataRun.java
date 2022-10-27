@@ -230,8 +230,8 @@ public final class DataRun implements DataRunInterface {
             return 0;
         }
 
-        final int actCluster; // Starting cluster
-        final int count; // #clusters to read
+        final int actCluster;   // Starting cluster
+        final int count;        // #clusters to read
         final int actDstOffset; // Actual dst offset
         if (vcn < myFirstVcn) {
             final int vcnDelta = (int) (myFirstVcn - vcn);

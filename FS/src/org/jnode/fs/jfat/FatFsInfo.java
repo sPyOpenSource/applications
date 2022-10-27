@@ -21,9 +21,9 @@
 package org.jnode.fs.jfat;
 
 import java.io.IOException;
-import jx.bio.BlockIO;
 import jx.zero.Memory;
 import jx.InitialNaming;
+import jx.devices.bio.BlockIO;
 import jx.zero.MemoryManager;
 
 /**

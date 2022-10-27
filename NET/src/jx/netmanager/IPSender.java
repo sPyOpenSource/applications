@@ -40,7 +40,7 @@ class IPSender implements jx.net.IPSender, Service {
 
 
     @Override
-    public Memory send1(Memory m, int offset, int size) {
+    public Memory send(Memory m, int offset, int size) {
 	return ipSender1.processMemory(m, offset, size);
     }
 

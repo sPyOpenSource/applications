@@ -24,7 +24,6 @@ import java.io.IOException;
 import jx.fs.InodeIOException;
 import jx.fs.InodeNotFoundException;
 import jx.fs.NoDirectoryInodeException;
-import jx.fs.NoFileInodeException;
 import jx.fs.NotExistException;
 import jx.fs.PermissionException;
 import jx.zero.Memory;

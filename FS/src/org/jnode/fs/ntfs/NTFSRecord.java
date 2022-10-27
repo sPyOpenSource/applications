@@ -147,7 +147,7 @@ public class NTFSRecord extends NTFSStructure {
                     throw new IOException("Fix-up error");
                 }
             }
-        } catch (Exception e) {
+        } catch (IOException e) {
             if (strictFixUp) {
                 throw new IOException("Fix-up error", e);
             } else {

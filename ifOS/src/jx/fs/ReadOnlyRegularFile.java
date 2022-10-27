@@ -13,5 +13,5 @@ public interface ReadOnlyRegularFile extends FSObject, jx.zero.Portal {
     
     public int read(int pos, Memory mem,int off, int len) throws Exception;    
     @Override
-    public int length() throws Exception;
+    public int getLength() throws Exception;
 }

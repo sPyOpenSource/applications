@@ -6,16 +6,13 @@ import java.util.logging.Logger;
 import test.fs.FSDomain;
 
 import jx.InitialNaming;
-import jx.bio.BlockIO;
 import jx.devices.pci.PCIGod;
 import jx.fs.FSException;
-import jx.fs.Inode;
 import jx.fs.buffercache.BufferCache;
 import jx.fs.FileSystem;
 
 import jx.zero.Clock;
 import jx.zero.Debug;
-import jx.zero.LookupHelper;
 import jx.zero.Memory;
 import jx.zero.MemoryManager;
 import jx.zero.Ports;
@@ -80,7 +77,7 @@ public class AIMemory extends AIZeroMemory implements FileSystem
     }
 
     @Override
-    public Inode getRootInode() {
+    public Node getRootInode() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -105,7 +102,7 @@ public class AIMemory extends AIZeroMemory implements FileSystem
     }
 
     @Override
-    public Inode getInode(int identifier) throws FSException {
+    public Node getInode(int identifier) throws FSException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

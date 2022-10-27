@@ -12,5 +12,5 @@ package j51.intel;
  */
 public interface CallListener
 {
-	public void call(MCS51 cpu,int pc) throws Exception;
+	public void call(MCS51 cpu, int pc) throws Exception;
 }

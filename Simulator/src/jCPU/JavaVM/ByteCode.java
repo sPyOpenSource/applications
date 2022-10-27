@@ -1,12 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package jCPU.JavaVM;
 
 import j51.intel.Code;
-import jCPU.JavaVM.vm.VmByteCode;
+import jCPU.JavaVM.vm.VmOpcode;
 import jCPU.JavaVM.vm.VmCP;
 import jCPU.JavaVM.vm.VmConstMethodRef;
 import jCPU.JavaVM.vm.VmMethod;
@@ -151,7 +147,7 @@ public class SimpleMethodPool{
     MethodInfo[] method;
 }
 
-private boolean run = true;
+private final boolean run = true;
 
 /* invokespecial */
 int op_invokespecial(char[] opCode, VmStackFrame stack, VmCP cp)
@@ -291,42 +287,42 @@ Function<JVM, Integer> op_istore, op_istore_1, op_istore_2, op_istore_3;
 Function<JVM, Integer> op_isub, op_ldc, op_ldc2_w;
 Function<JVM, Integer> op_new, op_irem, op_sipush, op_return;
 
-public VmByteCode byteCodes[] = {
-    new VmByteCode( "aload_0"       , 0x2A, 1, op_aload_0       ),
-    new VmByteCode( "bipush"        , 0x10, 2, op_bipush        ),
-    new VmByteCode( "dup"           , 0x59, 1, op_dup           ),
-    new VmByteCode( "get"           , 0xB2, 3, op_get           ),
-    new VmByteCode( "iadd"          , 0x60, 1, op_iadd          ),
-    new VmByteCode( "iconst_0"      , 0x03, 1, op_iconst_0      ),
-    new VmByteCode( "iconst_1"      , 0x04, 1, op_iconst_1      ),
-    new VmByteCode( "iconst_2"      , 0x05, 1, op_iconst_2      ),
-    new VmByteCode( "iconst_3"      , 0x06, 1, op_iconst_3      ),
-    new VmByteCode( "iconst_4"      , 0x07, 1, op_iconst_4      ),
-    new VmByteCode( "iconst_5"      , 0x08, 1, op_iconst_5      ),
-    new VmByteCode( "dconst_1"      , 0x0F, 1, op_dconst_1      ),
-    new VmByteCode( "idiv"          , 0x6C, 1, op_idiv          ),
-    new VmByteCode( "imul"          , 0x68, 1, op_imul          ),
-    new VmByteCode( "dadd"          , 0x63, 1, op_dadd          ),
-    new VmByteCode( "dmul"          , 0x6B, 1, op_dmul          ),
-    new VmByteCode( "d2i"           , 0x8e, 1, op_d2i           ),
-    new VmByteCode( "invokespecial" , 0xB7, 3, op_invokespecial ),
-    new VmByteCode( "invokevirtual" , 0xB6, 3, op_invokevirtual ),
-    new VmByteCode( "invoke"        , 0xB8, 3, op_invoke        ),
-    new VmByteCode( "iload"         , 0x15, 2, op_iload         ),
-    new VmByteCode( "iload_1"       , 0x1B, 1, op_iload_1       ),
-    new VmByteCode( "iload_2"       , 0x1C, 1, op_iload_2       ),
-    new VmByteCode( "iload_3"       , 0x1D, 1, op_iload_3       ),
-    new VmByteCode( "istore"        , 0x36, 2, op_istore        ),
-    new VmByteCode( "istore_1"      , 0x3C, 1, op_istore_1      ),
-    new VmByteCode( "istore_2"      , 0x3D, 1, op_istore_2      ),
-    new VmByteCode( "istore_3"      , 0x3E, 1, op_istore_3      ),
-    new VmByteCode( "isub"          , 0x64, 1, op_isub          ),
-    new VmByteCode( "ldc"           , 0x12, 2, op_ldc           ),
-    new VmByteCode( "ldc2_w"        , 0x14, 3, op_ldc2_w        ),
-    new VmByteCode( "new"           , 0xBB, 3, op_new           ),
-    new VmByteCode( "irem"          , 0x70, 1, op_irem          ),
-    new VmByteCode( "sipush"        , 0x11, 3, op_sipush        ),
-    new VmByteCode( "return"        , 0xB1, 1, op_return        )
+public VmOpcode byteCodes[] = {
+    new VmOpcode( "bipush"        , 0x10, 2, op_bipush        ),
+    new VmOpcode( "sipush"        , 0x11, 3, op_sipush        ),
+    new VmOpcode( "get"           , 0xB2, 3, op_get           ),
+    new VmOpcode( "iconst_0"      , 0x03, 1, op_iconst_0      ),
+    new VmOpcode( "iconst_1"      , 0x04, 1, op_iconst_1      ),
+    new VmOpcode( "iconst_2"      , 0x05, 1, op_iconst_2      ),
+    new VmOpcode( "iconst_3"      , 0x06, 1, op_iconst_3      ),
+    new VmOpcode( "iconst_4"      , 0x07, 1, op_iconst_4      ),
+    new VmOpcode( "iconst_5"      , 0x08, 1, op_iconst_5      ),
+    new VmOpcode( "dconst_1"      , 0x0F, 1, op_dconst_1      ),
+    new VmOpcode( "isub"          , 0x64, 1, op_isub          ),
+    new VmOpcode( "iadd"          , 0x60, 1, op_iadd          ),
+    new VmOpcode( "idiv"          , 0x6C, 1, op_idiv          ),
+    new VmOpcode( "imul"          , 0x68, 1, op_imul          ),
+    new VmOpcode( "irem"          , 0x70, 1, op_irem          ),
+    new VmOpcode( "dadd"          , 0x63, 1, op_dadd          ),
+    new VmOpcode( "dmul"          , 0x6B, 1, op_dmul          ),
+    new VmOpcode( "d2i"           , 0x8e, 1, op_d2i           ),
+    new VmOpcode( "invokespecial" , 0xB7, 3, op_invokespecial ),
+    new VmOpcode( "invokevirtual" , 0xB6, 3, op_invokevirtual ),
+    new VmOpcode( "invoke"        , 0xB8, 3, op_invoke        ),
+    new VmOpcode( "aload_0"       , 0x2A, 1, op_aload_0       ),
+    new VmOpcode( "iload"         , 0x15, 2, op_iload         ),
+    new VmOpcode( "iload_1"       , 0x1B, 1, op_iload_1       ),
+    new VmOpcode( "iload_2"       , 0x1C, 1, op_iload_2       ),
+    new VmOpcode( "iload_3"       , 0x1D, 1, op_iload_3       ),
+    new VmOpcode( "istore"        , 0x36, 2, op_istore        ),
+    new VmOpcode( "istore_1"      , 0x3C, 1, op_istore_1      ),
+    new VmOpcode( "istore_2"      , 0x3D, 1, op_istore_2      ),
+    new VmOpcode( "istore_3"      , 0x3E, 1, op_istore_3      ),
+    new VmOpcode( "ldc"           , 0x12, 2, op_ldc           ),
+    new VmOpcode( "ldc2_w"        , 0x14, 3, op_ldc2_w        ),
+    new VmOpcode( "new"           , 0xBB, 3, op_new           ),
+    new VmOpcode( "dup"           , 0x59, 1, op_dup           ),
+    new VmOpcode( "return"        , 0xB1, 1, op_return        )
 };
 
 int convertToCodeAttribute(CodeAttribute ca, AttributeInfo attr)
@@ -368,7 +364,7 @@ int executeMethod(MethodInfo startup, VmStackFrame stack, VmCP cp)
             System.exit(1);
         }
         do {
-            VmByteCode func = findOpCode(pc[i]);
+            VmOpcode func = findOpCode(pc[i]);
             if (func != null) {
                 //if ((Integer)func.exec(new JVM(stack, cp), i) < 0) break;
             }
@@ -378,9 +374,9 @@ int executeMethod(MethodInfo startup, VmStackFrame stack, VmCP cp)
     return 0;
 }
 
-    public VmByteCode findOpCode(char op)
+    public VmOpcode findOpCode(char op)
     {
-        for (VmByteCode byteCode : byteCodes) {
+        for (VmOpcode byteCode : byteCodes) {
             if (op == byteCode.getOpcode()) {
                 return byteCode;
             }

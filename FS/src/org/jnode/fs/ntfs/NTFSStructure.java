@@ -26,7 +26,7 @@ import jx.zero.Memory;
 /**
  * @author Ewout Prangsma (epr@users.sourceforge.net)
  */
-public class NTFSStructure {
+public class NTFSStructure extends org.jnode.fs.jfat.BootSector {
 
     /**
      * My logger
@@ -43,6 +43,7 @@ public class NTFSStructure {
      * @param offset
      */
     public NTFSStructure(Memory buffer, int offset) {
+        super(buffer);
         this.buffer = buffer;
         this.offset = offset;
     }
