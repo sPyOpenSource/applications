@@ -1,6 +1,0 @@
-#BlueJ class context
-comment0.target=SetFeaturesOperation
-comment0.text=\n\ Base\ class\ for\ configuration\ operations\ (SETFEATURES)\:\ EnableDMAOperation,\ EnablePIOOperation.\n\ @author\ Michael\ Golm\n\ @author\ Andreas\ Weissel\n
-comment1.params=controller\ drive
-comment1.target=SetFeaturesOperation(Controller,\ Drive)
-numComments=2

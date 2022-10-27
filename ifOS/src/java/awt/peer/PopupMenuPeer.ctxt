@@ -1,5 +1,0 @@
-#BlueJ class context
-comment0.target=PopupMenuPeer
-comment1.params=origin\ x\ y
-comment1.target=void\ show(java.awt.Component,\ int,\ int)
-numComments=2

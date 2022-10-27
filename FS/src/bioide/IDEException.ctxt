@@ -1,7 +1,0 @@
-#BlueJ class context
-comment0.target=IDEException
-comment1.params=msg
-comment1.target=IDEException(java.lang.String)
-comment2.params=
-comment2.target=IDEException()
-numComments=3

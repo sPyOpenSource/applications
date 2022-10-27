@@ -1,8 +1,0 @@
-#BlueJ class context
-comment0.target=RecalibrateOperation
-comment0.text=\n\ Set\ head\ to\ factory\ setting.\n\ @author\ Michael\ Golm\n\ @author\ Andreas\ Weissel\n
-comment1.params=controller\ drive
-comment1.target=RecalibrateOperation(Controller,\ Drive)
-comment2.params=
-comment2.target=void\ startOperation()
-numComments=3

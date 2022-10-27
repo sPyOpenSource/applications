@@ -1,5 +1,0 @@
-#BlueJ class context
-comment0.target=PacketsProducer
-comment1.params=consumer\ name
-comment1.target=boolean\ registerConsumer(jx.fs.buffer.separator.MemoryConsumer,\ java.lang.String)
-numComments=2

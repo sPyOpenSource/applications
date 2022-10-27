@@ -1,8 +1,0 @@
-#BlueJ class context
-comment0.target=EnableDMAOperation
-comment0.text=\n\ Configure\ drive\ for\ fastest\ (Ultra)DMA\ mode\n\ @author\ Michael\ Golm\n\ @author\ Andreas\ Weissel\n
-comment1.params=controller\ drive\ ultraDmaSupported
-comment1.target=EnableDMAOperation(Controller,\ Drive,\ boolean)
-comment2.params=
-comment2.target=void\ startOperation()
-numComments=3

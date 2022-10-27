@@ -1,7 +1,0 @@
-#BlueJ class context
-comment0.target=DMAException
-comment1.params=msg
-comment1.target=DMAException(java.lang.String)
-comment2.params=
-comment2.target=DMAException()
-numComments=3

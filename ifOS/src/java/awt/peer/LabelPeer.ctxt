@@ -1,7 +1,0 @@
-#BlueJ class context
-comment0.target=LabelPeer
-comment1.params=alignment
-comment1.target=void\ setAlignment(int)
-comment2.params=text
-comment2.target=void\ setText(java.lang.String)
-numComments=3

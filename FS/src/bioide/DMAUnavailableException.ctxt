@@ -1,7 +1,0 @@
-#BlueJ class context
-comment0.target=DMAUnavailableException
-comment1.params=msg
-comment1.target=DMAUnavailableException(java.lang.String)
-comment2.params=
-comment2.target=DMAUnavailableException()
-numComments=3

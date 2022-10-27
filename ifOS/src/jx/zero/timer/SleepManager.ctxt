@@ -1,9 +1,0 @@
-#BlueJ class context
-comment0.target=SleepManager
-comment1.params=microseconds
-comment1.target=void\ udelay(int)
-comment1.text=\n\ \ \ \ \ \ \ sleep\ for\ some\ microseconds\n\ \ \ \ \ \ \ @param\ microseconds\ the\ amount\ of\ time\ to\ sleep\ (in\ microseconds)\n
-comment2.params=milliseconds
-comment2.target=void\ mdelay(int)
-comment2.text=\n\ \ \ \ \ \ \ sleep\ for\ some\ milliseconds\n\ \ \ \ \ \ \ @param\ milliseconds\ the\ amount\ of\ time\ to\ sleep\ (in\ milliseconds)\n
-numComments=3

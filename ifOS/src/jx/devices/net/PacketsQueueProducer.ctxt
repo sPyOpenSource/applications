@@ -1,9 +1,0 @@
-#BlueJ class context
-comment0.target=PacketsQueueProducer
-comment1.params=o\ length
-comment1.target=jx.zero.Memory\ add(jx.zero.Memory,\ int)
-comment2.params=
-comment2.target=boolean\ isEmpty()
-comment3.params=
-comment3.target=int\ size()
-numComments=4
