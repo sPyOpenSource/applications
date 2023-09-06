@@ -15,14 +15,13 @@ import jCPU.JavaVM.vm.VmStackFrame;
 public class JVM extends j51.intel.MCS51{
     public VmStackFrame stack;
     public VmCP cp;
-    public char[] opCode;
-    private ByteCode bytecode = new ByteCode(code);
     public BytecodeVisitor handler;
+
+    public ByteCode bytecode = new ByteCode(code);
     private BytecodeParser parser = new BytecodeParser(bytecode, handler);
     
-    JVM(char[] pc, VmStackFrame stack, VmCP cp) {
+    JVM(VmStackFrame stack, VmCP cp) {
         this.stack = stack;
-        opCode = pc;
         this.cp = cp;
     }
     
@@ -33,7 +32,7 @@ public class JVM extends j51.intel.MCS51{
     @Override
     public String getDecodeAt(int pc)
     {
-        String result = bytecode.findOpCode((char)code(pc));
+        String result = bytecode.findOpCode((char)code(pc)).getDescription();
         if (result != null) return "     " + result;
         return "     NULL";
     }

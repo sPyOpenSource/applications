@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package jCPU.JavaVM;
 
 import j51.intel.Code;
@@ -13,6 +9,8 @@ import jCPU.JavaVM.vm.VmMethod;
 import jCPU.JavaVM.vm.VmStackEntry;
 import jCPU.JavaVM.vm.VmStackFrame;
 import java.util.function.Function;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -69,7 +67,7 @@ public class ByteCode {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    private String getUTF8String(VmCP cp, int stringIndex, int i) {
+    private String getUTF8String(VmCP cp, int stringIndex) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -187,7 +185,7 @@ int op_invoke(char[] opCode, VmStackFrame stack, VmCP cp)
     // System.out.print("simpleMethodPool.method_used = %d\n", simpleMethodPool.method_used);
     if (method_index < BytecodeVisitor.simpleMethodPool.method_used) {
         MethodInfo method = BytecodeVisitor.simpleMethodPool.method[method_index];
-        method_name = getUTF8String(cp, method.name_index, 255);
+        method_name = getUTF8String(cp, method.name_index);
         //System.out.print(" method name = %s\n", method_name);
     } else {
         VmConstMethodRef mRef = findMethodRef(cp, method_index);
@@ -195,9 +193,9 @@ int op_invoke(char[] opCode, VmStackFrame stack, VmCP cp)
             ConstantClassRef clasz = findClassRef(cp, mRef.classIndex);
             ConstantNameAndType nat = findNameAndType(cp, mRef.nameAndTypeIndex);
             if (clasz == null || nat == null) return -1;
-            clsName = getUTF8String(cp, clasz.stringIndex, 255);
-            method_name = getUTF8String(cp, nat.nameIndex, 255);
-            method_type = getUTF8String(cp, nat.typeIndex, 255);
+            clsName = getUTF8String(cp, clasz.stringIndex);
+            method_name = getUTF8String(cp, nat.nameIndex);
+            method_type = getUTF8String(cp, nat.typeIndex);
 
             /* System.out.print("call class %s\n", clsName);
             System.out.print("call method %s\n", method_name);
@@ -228,7 +226,7 @@ int op_invokevirtual(char[] opCode, VmStackFrame stack, VmCP cp)
         ConstantClassRef clasz = findClassRef(cp, mRef.classIndex);
         ConstantNameAndType nat = findNameAndType(cp, mRef.nameAndTypeIndex);
         if (clasz == null || nat == null) return -1;
-        String clsName = getUTF8String(cp, clasz.stringIndex, 255);
+        String clsName = getUTF8String(cp, clasz.stringIndex);
         //System.out.print("call object ref class %s\n", clsName);
         if (clzNamePrint.equals(clsName)) {
             VmStackEntry entry = popEntry(stack);
@@ -237,7 +235,7 @@ int op_invokevirtual(char[] opCode, VmStackFrame stack, VmCP cp)
             if (entry.type == VmStackFrame.STACK_ENTRY_REF) {
                 ConstantStringRef strRef = findStringRef(cp, index);
                 if (strRef != null) {
-                    utf8 = getUTF8String(cp, strRef.stringIndex, 255);
+                    utf8 = getUTF8String(cp, strRef.stringIndex);
                     len = utf8.length();
                     //memcpy(stringBuilderBuffer + stringBuilderUsed, utf8, len);
                     stringBuilderUsed += len;
@@ -260,7 +258,7 @@ int op_invokevirtual(char[] opCode, VmStackFrame stack, VmCP cp)
             if (entry.type == VmStackFrame.STACK_ENTRY_REF) {
                 ConstantStringRef strRef = findStringRef(cp, index);
                 if (strRef != null) {
-                    utf8 = getUTF8String(cp, strRef.stringIndex, 255);
+                    utf8 = getUTF8String(cp, strRef.stringIndex);
                     len = utf8.length();
                     //memcpy(stringBuilderBuffer + stringBuilderUsed, utf8, len);
                     stringBuilderUsed += len;
@@ -279,75 +277,55 @@ int op_invokevirtual(char[] opCode, VmStackFrame stack, VmCP cp)
 }
 
 Function<JVM, Integer> op_aload_0 = cpu -> cpu.handler.op_aload_0();
-Function<JVM, Integer> op_bipush = cpu -> cpu.handler.op_bipush(cpu.opCode);
+Function<JVM, Integer> op_bipush = cpu -> cpu.handler.op_bipush(cpu.bytecode.getBytecode());
 Function<JVM, Integer> op_dup, op_get, op_iadd, op_iconst_0;
 Function<JVM, Integer> op_iconst_1, op_iconst_2;
 Function<JVM, Integer> op_iconst_3, op_iconst_4, op_iconst_5;
 Function<JVM, Integer> op_dconst_1, op_idiv, op_imul, op_dadd, op_dmul, op_d2i;
 Function<JVM, Integer> op_invokespecial, op_invokevirtual;
-Function<JVM, Integer> op_invoke = cpu -> op_invoke(cpu.opCode, cpu.stack, cpu.cp);
+Function<JVM, Integer> op_invoke = cpu -> op_invoke(cpu.bytecode.getBytecode(), cpu.stack, cpu.cp);
 Function<JVM, Integer> op_iload, op_iload_1, op_iload_2, op_iload_3;
 Function<JVM, Integer> op_istore, op_istore_1, op_istore_2, op_istore_3;
 Function<JVM, Integer> op_isub, op_ldc, op_ldc2_w;
 Function<JVM, Integer> op_new, op_irem, op_sipush, op_return;
 
 public VmByteCode byteCodes[] = {
-    new VmByteCode( "aload_0"         , 0x2A, 1,  op_aload_0       ),
-    new VmByteCode( "bipush"          , 0x10, 2,  op_bipush        ),
-    new VmByteCode( "dup"             , 0x59, 1,  op_dup           ),
-    new VmByteCode( "get"             , 0xB2, 3,  op_get           ),
-    new VmByteCode( "iadd"            , 0x60, 1,  op_iadd          ),
-    new VmByteCode( "iconst_0"        , 0x03, 1,  op_iconst_0      ),
-    new VmByteCode( "iconst_1"        , 0x04, 1,  op_iconst_1      ),
-    new VmByteCode( "iconst_2"        , 0x05, 1,  op_iconst_2      ),
-    new VmByteCode( "iconst_3"        , 0x06, 1,  op_iconst_3      ),
-    new VmByteCode( "iconst_4"        , 0x07, 1,  op_iconst_4      ),
-    new VmByteCode( "iconst_5"        , 0x08, 1,  op_iconst_5      ),
-    new VmByteCode( "dconst_1"        , 0x0F, 1,  op_dconst_1      ),
-    new VmByteCode( "idiv"            , 0x6C, 1,  op_idiv          ),
-    new VmByteCode( "imul"            , 0x68, 1,  op_imul          ),
-    new VmByteCode( "dadd"            , 0x63, 1,  op_dadd          ),
-    new VmByteCode( "dmul"            , 0x6B, 1,  op_dmul          ),
-    new VmByteCode( "d2i"             , 0x8e, 1,  op_d2i           ),
-    new VmByteCode( "invokespecial"   , 0xB7, 3,  op_invokespecial ),
-    new VmByteCode( "invokevirtual"   , 0xB6, 3,  op_invokevirtual ),
-    new VmByteCode( "invoke"          , 0xB8, 3,  op_invoke        ),
-    new VmByteCode( "iload"           , 0x15, 2,  op_iload         ),
-    new VmByteCode( "iload_1"         , 0x1B, 1,  op_iload_1       ),
-    new VmByteCode( "iload_2"         , 0x1C, 1,  op_iload_2       ),
-    new VmByteCode( "iload_3"         , 0x1D, 1,  op_iload_3       ),
-    new VmByteCode( "istore"          , 0x36, 2,  op_istore        ),
-    new VmByteCode( "istore_1"        , 0x3C, 1,  op_istore_1      ),
-    new VmByteCode( "istore_2"        , 0x3D, 1,  op_istore_2      ),
-    new VmByteCode( "istore_3"        , 0x3E, 1,  op_istore_3      ),
-    new VmByteCode( "isub"            , 0x64, 1,  op_isub          ),
-    new VmByteCode( "ldc"             , 0x12, 2,  op_ldc           ),
-    new VmByteCode( "ldc2_w"          , 0x14, 3,  op_ldc2_w        ),
-    new VmByteCode( "new"             , 0xBB, 3,  op_new           ),
-    new VmByteCode( "irem"            , 0x70, 1,  op_irem          ),
-    new VmByteCode( "sipush"          , 0x11, 3,  op_sipush        ),
-    new VmByteCode( "return"          , 0xB1, 1,  op_return        )
+    new VmByteCode( "aload_0"       , 0x2A, 1, op_aload_0       ),
+    new VmByteCode( "bipush"        , 0x10, 2, op_bipush        ),
+    new VmByteCode( "dup"           , 0x59, 1, op_dup           ),
+    new VmByteCode( "get"           , 0xB2, 3, op_get           ),
+    new VmByteCode( "iadd"          , 0x60, 1, op_iadd          ),
+    new VmByteCode( "iconst_0"      , 0x03, 1, op_iconst_0      ),
+    new VmByteCode( "iconst_1"      , 0x04, 1, op_iconst_1      ),
+    new VmByteCode( "iconst_2"      , 0x05, 1, op_iconst_2      ),
+    new VmByteCode( "iconst_3"      , 0x06, 1, op_iconst_3      ),
+    new VmByteCode( "iconst_4"      , 0x07, 1, op_iconst_4      ),
+    new VmByteCode( "iconst_5"      , 0x08, 1, op_iconst_5      ),
+    new VmByteCode( "dconst_1"      , 0x0F, 1, op_dconst_1      ),
+    new VmByteCode( "idiv"          , 0x6C, 1, op_idiv          ),
+    new VmByteCode( "imul"          , 0x68, 1, op_imul          ),
+    new VmByteCode( "dadd"          , 0x63, 1, op_dadd          ),
+    new VmByteCode( "dmul"          , 0x6B, 1, op_dmul          ),
+    new VmByteCode( "d2i"           , 0x8e, 1, op_d2i           ),
+    new VmByteCode( "invokespecial" , 0xB7, 3, op_invokespecial ),
+    new VmByteCode( "invokevirtual" , 0xB6, 3, op_invokevirtual ),
+    new VmByteCode( "invoke"        , 0xB8, 3, op_invoke        ),
+    new VmByteCode( "iload"         , 0x15, 2, op_iload         ),
+    new VmByteCode( "iload_1"       , 0x1B, 1, op_iload_1       ),
+    new VmByteCode( "iload_2"       , 0x1C, 1, op_iload_2       ),
+    new VmByteCode( "iload_3"       , 0x1D, 1, op_iload_3       ),
+    new VmByteCode( "istore"        , 0x36, 2, op_istore        ),
+    new VmByteCode( "istore_1"      , 0x3C, 1, op_istore_1      ),
+    new VmByteCode( "istore_2"      , 0x3D, 1, op_istore_2      ),
+    new VmByteCode( "istore_3"      , 0x3E, 1, op_istore_3      ),
+    new VmByteCode( "isub"          , 0x64, 1, op_isub          ),
+    new VmByteCode( "ldc"           , 0x12, 2, op_ldc           ),
+    new VmByteCode( "ldc2_w"        , 0x14, 3, op_ldc2_w        ),
+    new VmByteCode( "new"           , 0xBB, 3, op_new           ),
+    new VmByteCode( "irem"          , 0x70, 1, op_irem          ),
+    new VmByteCode( "sipush"        , 0x11, 3, op_sipush        ),
+    new VmByteCode( "return"        , 0xB1, 1, op_return        )
 };
-
-Function findOpCodeFunc(char op)
-{
-    for (VmByteCode byteCode : byteCodes) {
-        if (op == byteCode.opCode) {
-            return byteCode.func;
-        }
-    }
-    return null;
-}
-
-int findOpCodeOffset(char op)
-{
-    for (VmByteCode byteCode : byteCodes) {
-        if (op == byteCode.opCode) {
-            return byteCode.offset;
-        }
-    }
-    return 0;
-}
 
 int convertToCodeAttribute(CodeAttribute ca, AttributeInfo attr)
 {
@@ -377,7 +355,7 @@ int executeMethod(MethodInfo startup, VmStackFrame stack, VmCP cp)
     CodeAttribute ca = null;
     for (int j = 0 ; j < startup.attributes_count ; j++) {
         convertToCodeAttribute(ca, startup.attributes[j]);
-        String name = getUTF8String(cp, ca.attribute_name_index, 255);
+        String name = getUTF8String(cp, ca.attribute_name_index);
         if (!"Code".equals(name)) continue;
         System.out.print("----------------------------------------\n");
         System.out.print("code dump\n");
@@ -388,21 +366,25 @@ int executeMethod(MethodInfo startup, VmStackFrame stack, VmCP cp)
             System.exit(1);
         }
         do {
-            Function func = findOpCodeFunc(pc[i]);
+            VmByteCode func = findOpCode(pc[i]);
             if (func != null) {
-                if ((Integer)func.apply(new JVM(pc, stack, cp)) < 0) break;
+                try {
+                    if (func.exec(new JVM(stack, cp), i) < 0) break;
+                } catch (Exception ex) {
+                    Logger.getLogger(ByteCode.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
-            i += findOpCodeOffset(pc[i]);
+            i += findOpCode(pc[i]).getLength();
         } while (true);
     }
     return 0;
 }
 
-    public String findOpCode(char op)
+    public VmByteCode findOpCode(char op)
     {
         for (VmByteCode byteCode : byteCodes) {
-            if (op == byteCode.opCode) {
-                return byteCode.name;
+            if (op == byteCode.getOpcode()) {
+                return byteCode;
             }
         }
         return null;
@@ -410,7 +392,7 @@ int executeMethod(MethodInfo startup, VmStackFrame stack, VmCP cp)
 
     void printCodeAttribute(CodeAttribute ca, VmCP cp)
     {
-       String name = getUTF8String(cp, ca.attribute_name_index, 255);
+       String name = getUTF8String(cp, ca.attribute_name_index);
        System.out.println("attribute name : " + name);
        System.out.println("attribute length: " + ca.attribute_length);
 
@@ -420,15 +402,14 @@ int executeMethod(MethodInfo startup, VmStackFrame stack, VmCP cp)
        char[] pc = ca.code;
        int i = 0;
        do {
-           String opName = findOpCode(pc[0]);
+           String opName = findOpCode(pc[0]).getDescription();
            if (opName == null) {
                //System.out.print("Unknow OpCode %02X\n", pc[0]);
                System.exit(1);
            }
            //System.out.print("%s \n", opName);
-           int tmp = findOpCodeOffset(pc[0]);
+           i += findOpCode(pc[0]).getLength();
            //pc += tmp;
-           i += tmp;
        } while (i < ca.code_length);
    }
 }

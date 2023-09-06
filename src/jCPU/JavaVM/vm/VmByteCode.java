@@ -7,7 +7,6 @@ package jCPU.JavaVM.vm;
 
 import jCPU.CPU;
 import jCPU.Opcode;
-import java.nio.ByteBuffer;
 import java.util.function.Function;
 
 /**
@@ -15,10 +14,10 @@ import java.util.function.Function;
  * @author spy
  */
 public class VmByteCode implements Opcode{
-    public int opCode;
-    public Function func;
-    public int offset;
-    public String name;
+    private final int opCode;
+    private final Function func;
+    private final int offset;
+    private final String name;
     
     public VmByteCode(String name, int opCode, int offset, Function func){
         this.opCode = opCode;
@@ -28,8 +27,8 @@ public class VmByteCode implements Opcode{
     }
 
     @Override
-    public void exec(CPU cpu, int pc) throws Exception {
-        func.apply(cpu);
+    public int exec(CPU cpu, int pc) throws Exception {
+        return (Integer)func.apply(cpu);
     }
 
     @Override

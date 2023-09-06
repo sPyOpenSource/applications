@@ -889,7 +889,7 @@ public class BytecodeParser {
      * @return int
      */
     private int getu1() {
-        return bytecode[address] & 0xFF;
+        return bytecode[address++] & 0xFF;
     }
 
     /**
@@ -898,8 +898,8 @@ public class BytecodeParser {
      * @return int
      */
     private int getu2() {
-        int v1 = bytecode[address] & 0xFF;
-        int v2 = bytecode[address + 1] & 0xFF;
+        int v1 = bytecode[address++] & 0xFF;
+        int v2 = bytecode[address++] & 0xFF;
         return (v1 << 8) | v2;
     }
 
@@ -909,10 +909,10 @@ public class BytecodeParser {
      * @return int
      */
     private int getu4() {
-        int v1 = bytecode[address] & 0xFF;
-        int v2 = bytecode[address + 1] & 0xFF;
-        int v3 = bytecode[address + 2] & 0xFF;
-        int v4 = bytecode[address + 3] & 0xFF;
+        int v1 = bytecode[address++] & 0xFF;
+        int v2 = bytecode[address++] & 0xFF;
+        int v3 = bytecode[address++] & 0xFF;
+        int v4 = bytecode[address++] & 0xFF;
         return (v1 << 24) | (v2 << 16) | (v3 << 8) | v4;
     }
 
@@ -931,8 +931,8 @@ public class BytecodeParser {
      * @return short
      */
     private short gets2() {
-        int v1 = bytecode[address] & 0xFF;
-        int v2 = bytecode[address + 1] & 0xFF;
+        int v1 = bytecode[address++] & 0xFF;
+        int v2 = bytecode[address++] & 0xFF;
         return (short) ((v1 << 8) | v2);
     }
 
@@ -942,10 +942,10 @@ public class BytecodeParser {
      * @return int
      */
     private int gets4() {
-        int v1 = bytecode[address] & 0xFF;
-        int v2 = bytecode[address + 1] & 0xFF;
-        int v3 = bytecode[address + 2] & 0xFF;
-        int v4 = bytecode[address + 3] & 0xFF;
+        int v1 = bytecode[address++] & 0xFF;
+        int v2 = bytecode[address++] & 0xFF;
+        int v3 = bytecode[address++] & 0xFF;
+        int v4 = bytecode[address++] & 0xFF;
         return (v1 << 24) | (v2 << 16) | (v3 << 8) | v4;
     }
 

@@ -229,7 +229,7 @@ public final class VmCP {
      * @param index The index where to read
      * @return Object
      */
-    private final Object get(int index) {
+    private Object get(int index) {
         return cp[index];
     }
 
