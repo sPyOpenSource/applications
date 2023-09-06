@@ -23,40 +23,45 @@ public class Mon51 extends MCS51
 	{
 		CodeMon51()
 		{
-			super("CMON51",0x8000);
+			super("CMON51", 0x8000);
 		}
 		
-		public void setCode(int addr,int value)
+                @Override
+		public void setCode(int addr, int value)
 		{
 		
 			if (addr >= 0x8000)
-				xdata(addr  ,value);
-			else
-				super.setCode(addr,value);
+				xdata(addr, value);
+                        else
+				super.setCode(addr, value);
 		}
 
-		public int  getCode(int addr,boolean move)
+                @Override
+		public int getCode(int addr, boolean move)
 		{
 			if (addr >= 0x8000)
 				return xdata(addr);
 			else
-				return super.getCode(addr,move);
+				return super.getCode(addr, move);
 		}
 
+                @Override
 		public int getCodeSize()
 		{
 			return 0x10000;
 		}
 	}
 
+        @Override
 	public int xdata(int add)
 	{
 		return super.xdata(add & 0x7fff);
 	}
 
+        @Override
 	public void xdata(int add,int value)
 	{
-		super.xdata(add & 0x7fff,value);
+		super.xdata(add & 0x7fff, value);
 	}
 
 	public Mon51() throws Exception

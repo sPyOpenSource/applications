@@ -271,7 +271,7 @@ class _JLcd extends JComponent
 		0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00
 	};
 
-	static private int font8x8[] =
+	private static final int font8x8[] =
 	{
 		0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,
 		0x7e,0x81,0xa5,0x81,0xbd,0x99,0x81,0x7e,
@@ -532,19 +532,19 @@ class _JLcd extends JComponent
 	};
 
 	private int pos = 0;
-	private Image imageChar[] = new Image[256];
-	private int numRow,numCol;
-	private int hSpace,vSpace;
+	private final Image imageChar[] = new Image[256];
+	private final int numRow,numCol;
+	private final int hSpace,vSpace;
 	private int pixelSize = 2;
-	private Color colorSpace = new Color(0,0,0);
-	private Color colorBack  = new Color(000,000,255);
-	private Color colorFront = new Color(255,255,255);
-	private int fontSizeX = 8;
-	private int fontSizeY = 14;
-	private int font[] = font8x14;
+	private final Color colorSpace = new Color(0,0,0);
+	private final Color colorBack  = new Color(000,000,255);
+	private final Color colorFront = new Color(255,255,255);
+	private final int fontSizeX = 8;
+	private final int fontSizeY = 14;
+	private final int font[] = font8x14;
 	
-	private int screen[][];
-	private Dimension size;
+	private final int screen[][];
+	private final Dimension size;
 
 	
 	public _JLcd(int numRow,int numCol,int pixelSize)
@@ -556,8 +556,8 @@ class _JLcd extends JComponent
 		this.pixelSize = pixelSize;
 
 		screen = new int[numRow][numCol];
-		size = new Dimension((numCol*fontSizeX+(numCol-1)*hSpace)*pixelSize,
-					       (numRow*fontSizeY+(numRow-1)*hSpace)*pixelSize);
+		size = new Dimension((numCol * fontSizeX + (numCol - 1) * hSpace) * pixelSize,
+					       (numRow * fontSizeY + (numRow - 1) * hSpace) * pixelSize);
 		setPreferredSize(size);
 	}
 
@@ -609,9 +609,7 @@ class _JLcd extends JComponent
 		return img;
 	}
 
-	
-
-	
+        @Override
 	public void paintComponent(Graphics g)
 	{
 		Insets insets = getInsets();

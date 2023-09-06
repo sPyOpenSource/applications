@@ -27,8 +27,8 @@ public class PersistentBuffer
 	public PersistentBuffer(String name,String suffix,int size)
 	{
 		buffer = new byte[size];
-		this.name=name;
-		filename = name+"."+size+"."+suffix;
+		this.name = name;
+		filename = name + "." + size + "." + suffix;
 
 		for (int i = 0 ; i < size ; i++)
 			buffer[i] = (byte)0xff;
@@ -90,6 +90,7 @@ public class PersistentBuffer
 			{
 				timer = new javax.swing.Timer(1000,new java.awt.event.ActionListener()
 				{
+                                        @Override
 					public void actionPerformed(java.awt.event.ActionEvent e)
 					{
 						timer.stop();

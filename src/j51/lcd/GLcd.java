@@ -15,14 +15,14 @@ import javax.swing.*;
  */
 public class GLcd extends JComponent
 {
-	private int pixelSize;
-	private int width;
-	private int height;
-	private Color colorBack  = new Color(0,0,0);
-	private Color colorFront = new Color(0,255,0);
-	private Dimension size;
-	private byte memory[];
-	private java.util.HashMap patterns = new java.util.HashMap();
+	private final int pixelSize;
+	private final int width;
+	private final int height;
+	private final Color colorBack  = new Color(0,0,0);
+	private final Color colorFront = new Color(0,255,0);
+	private final Dimension size;
+	private final byte memory[];
+	private final java.util.HashMap patterns = new java.util.HashMap();
 
 	public GLcd(int width,int height,int pixelSize)
 	{
@@ -36,6 +36,7 @@ public class GLcd extends JComponent
 			memory[i ] = 0;
 	}
 
+        @Override
 	public void paintComponent(Graphics g)
 	{
 		Insets insets = getInsets();
@@ -62,10 +63,10 @@ public class GLcd extends JComponent
 		}
 	}
 	
-	public Image getImage(int x,int y)
+	public Image getImage(int x, int y)
 	{
-		int p = memory[y * width/8 + x / 8];
-		Image img = (Image)patterns.get(new Integer(p));
+		int p = memory[y * width / 8 + x / 8];
+		Image img = (Image)patterns.get(p);
 
 		if (img == null)
 		{
@@ -75,10 +76,12 @@ public class GLcd extends JComponent
 			g.fillRect(0,0,width*pixelSize,height*pixelSize);
 			g.setColor(colorFront);
 					  
-			for (int x1 = 0 ; x1 < 8 ; x1++)
-				if ((p & (1 << (7 - x1))) != 0)
-					g.fillRect(x1*pixelSize,0,pixelSize,pixelSize);
-			patterns.put(new Integer(p),img);
+			for (int x1 = 0; x1 < 8; x1++){
+				if ((p & (1 << (7 - x1))) != 0){
+					g.fillRect(x1 * pixelSize, 0, pixelSize, pixelSize);
+                                }
+                        }
+			patterns.put(p, img);
 		}
 
 		return img;

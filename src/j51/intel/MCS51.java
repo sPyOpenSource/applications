@@ -1717,7 +1717,7 @@ class RESERVED extends AbstractOpcode
 	}
 
         @Override
-	public void exec(CPU cpu, int pc) throws Exception
+	public int exec(CPU cpu, int pc) throws Exception
 	{
 		throw new Exception("Invalid opcode : A5");
 	}
@@ -1731,12 +1731,14 @@ class ANL_DIRECT_A extends AbstractOpcode
 		super(0x52,2,1,"ANL");
 	}
 
-	public void exec(CPU cpu,int pc)
+	public int exec(CPU cpu,int pc)
 	{
-		int add = cpu.code(pc+1);
+		int add = cpu.code(pc + 1);
 		cpu.setDirect(add,cpu.getDirect(add) & cpu.acc());
+                return 0;
 	}
 
+        @Override
 	public String toString()
 	{
 		return description + "\tA,DIRECT";
@@ -1750,12 +1752,15 @@ class ANL_DIRECT_DATA extends AbstractOpcode
 		super(0x53, 3, 2, "ANL");
 	}
 
-	public void exec(CPU cpu, int pc)
+        @Override
+	public int exec(CPU cpu, int pc)
 	{
 		int add = cpu.code(pc + 1);
 		cpu.setDirect(add, (int)(cpu.getDirect(add) & cpu.code(pc + 2)));
+                return 0;
 	}
 
+        @Override
 	public String toString()
 	{
 		return description + "\tDIRECT,#DATA8";
@@ -1770,10 +1775,12 @@ class XRL_DIRECT_A extends AbstractOpcode
 		super(0x62,2,1,"XRL");
 	}
 
-	public void exec(CPU cpu,int pc)
+        @Override
+	public int exec(CPU cpu,int pc)
 	{
 		int add = cpu.code(pc+1);
 		cpu.setDirect(add,(int)(cpu.getDirect(add) ^ cpu.acc()));
+                return 0;
 	}
 }
 
@@ -1785,10 +1792,11 @@ class XRL_DIRECT_DATA extends AbstractOpcode
 	}
 
 	
-	public void exec(CPU cpu,int pc)
+	public int exec(CPU cpu, int pc)
 	{
-		int add = cpu.code(pc+1);
-		cpu.setDirect(add,(int)(cpu.getDirect(add) ^ cpu.code(pc+2)));
+		int add = cpu.code(pc + 1);
+		cpu.setDirect(add, (int)(cpu.getDirect(add) ^ cpu.code(pc + 2)));
+                return 0;
 	}
 }
 
@@ -1799,10 +1807,11 @@ class ORL_DIRECT_A extends AbstractOpcode
 		super(0x42,2,1,"ORL\tDIRECT,A");
 	}
 
-	public void exec(CPU cpu,int pc)
+	public int exec(CPU cpu,int pc)
 	{
 		int add = cpu.code(pc+1);
 		cpu.setDirect(add,(int)(cpu.getDirect(add) | cpu.acc()));
+                return 0;
 	}
 }
 
@@ -1813,10 +1822,11 @@ class ORL_DIRECT_DATA extends AbstractOpcode
 		super(0x43,3,2,"ORL\tDIRECT,#DATA8");
 	}
 
-	public void exec(CPU cpu,int pc)
+	public int exec(CPU cpu,int pc)
 	{
 		int add = cpu.code(pc+1);
 		cpu.setDirect(add,(int)(cpu.getDirect(add) | cpu.code(pc+2)));
+                return 0;
 	}
 }
 
@@ -1827,9 +1837,10 @@ class ANL_C_DIRECT extends AbstractOpcode
 		super(0x82,2,2,"ANL");
 	}
 
-	public void exec(CPU cpu,int pc)
+	public int exec(CPU cpu,int pc)
 	{
 		cpu.cy(cpu.getBit(cpu.code(pc+1)) & cpu.cy());
+                return 0;
 		
 	}
 
@@ -1847,9 +1858,10 @@ class ANL_C_NOT_DIRECT extends AbstractOpcode
 		super(0xb0,2,2,"ANL");
 	}
 
-	public void exec(CPU cpu,int pc)
+	public int exec(CPU cpu,int pc)
 	{
 		cpu.cy(!(cpu.getBit(cpu.code(pc+1)) & cpu.cy()));
+                return 0;
 	}
 
 	public String toString()
@@ -1888,9 +1900,10 @@ class SJMP extends JR
 		super(0x80,2,2,"SJMP\t#OFFSET");
 	}
 
-	public final void exec(CPU cpu,int pc)
+	public final int exec(CPU cpu,int pc)
 	{
 		jr(cpu,pc,cpu.code(pc+1));
+                return 0;
 	}
 }
 
@@ -1926,9 +1939,10 @@ class CJNE_A_DIRECT extends CJNE
 		super(0xb5,3,2,"CJNE\tA,DIRECT,#OFFSET");
 	}
 
-	public void exec(CPU cpu, int pc)
+	public int exec(CPU cpu, int pc)
 	{
 		cjne(cpu, pc, cpu.acc(), cpu.getDirectCODE(pc + 1), cpu.code(pc + 2));
+                return 0;
 	}
 }
 
@@ -1939,9 +1953,10 @@ class CJNE_A_DATA extends CJNE
 		super(0xb4,3,2,"CJNE\tA,#DATA8,#OFFSET");
 	}
 
-	public void exec(CPU cpu,int pc)
+	public int exec(CPU cpu,int pc)
 	{
 		cjne(cpu,pc,cpu.acc(),cpu.code(pc+1),cpu.code(pc+2));
+                return 0;
 	}
 }
    
@@ -1952,9 +1967,10 @@ class CJNE_R_DATA extends CJNE
 		super(0xb8+r,3,2,"CJNE");
 	}
 
-	public void exec(CPU cpu,int pc)
+	public int exec(CPU cpu,int pc)
 	{
 		cjne(cpu,pc,cpu.r((int)(opcode & 7)),cpu.code(pc+1),cpu.code(pc+2));
+                return 0;
 	}
 
 	public String toString()
@@ -1970,9 +1986,10 @@ class CJNE_RI_DATA extends CJNE
 		super(0xb6+r,3,2,"CJNE");
 	}
 
-	public void exec(CPU cpu,int pc)
+	public int exec(CPU cpu,int pc)
 	{
 		cjne(cpu, pc, cpu.idata(cpu.r((int)(opcode & 1))), cpu.code(pc + 1), cpu.code(pc + 2));
+                return 0;
 	}
 
 	public String toString()
@@ -1989,9 +2006,10 @@ class CLR_A extends AbstractOpcode
 		super(0xe4, 1, 1, "CLR\tA");
 	}
 
-	public void exec(CPU cpu, int pc)
+	public int exec(CPU cpu, int pc)
 	{
 		cpu.acc((int)0);
+                return 0;
 	}
 }
 
@@ -2002,9 +2020,10 @@ class CLR_C extends AbstractOpcode
 		super(0xc3, 1, 1, "CLR\tC");
 	}
 
-	public void exec(CPU cpu, int pc)
+	public int exec(CPU cpu, int pc)
 	{
 		cpu.cy(false);
+                return 0;
 	}
 }
 
@@ -2015,9 +2034,10 @@ class CLR_BIT extends AbstractOpcode
 		super(0xc2,2,1,"CLR\t#BIT");
 	}
 
-	public void exec(CPU cpu,int pc)
+	public int exec(CPU cpu,int pc)
 	{
 		cpu.setBit(cpu.code(pc + 1), false);
+                return 0;
 	}
 }
 
@@ -2028,9 +2048,10 @@ class CPL_A extends AbstractOpcode
 		super(0xf4,1,1,"CPL\tA");
 	}
 
-	public void exec(CPU cpu,int pc)
+	public int exec(CPU cpu,int pc)
 	{
 		cpu.acc((int)~cpu.acc());
+                return 0;
 	}
 }
 
@@ -2042,9 +2063,10 @@ class CPL_C extends AbstractOpcode
 		super(0xb3,1,1,"CPL\tC");
 	}
 
-	public void exec(CPU cpu,int pc)
+	public int exec(CPU cpu,int pc)
 	{
 		cpu.cy(!cpu.cy());
+                return 0;
 	}
 }
 
@@ -2055,10 +2077,11 @@ class CPL_BIT extends AbstractOpcode
 		super(0xb2,2,1,"CPL\t#BIT");
 	}
 
-	public void exec(CPU cpu,int pc)
+	public int exec(CPU cpu,int pc)
 	{
 		int bit = cpu.code(pc+1);
 		cpu.setBit(bit, !cpu.getBit(bit));
+                return 0;
 	}
 }
 
@@ -2069,7 +2092,7 @@ class DA_A extends AbstractOpcode
 		super(0xd4,1,1,"DA\tA");
 	}
 
-	public void exec(CPU cpu,int pc)
+	public int exec(CPU cpu,int pc)
 	{
 		int a = cpu.acc();
 
@@ -2089,6 +2112,7 @@ class DA_A extends AbstractOpcode
 		}
 
 		cpu.acc((int)a);
+                return 0;
 	}
 }
 
@@ -2099,12 +2123,13 @@ class XCH_A_R extends AbstractOpcode
 		super(0xc8|r,1,1,"XCH");
 	}
 
-	public void exec(CPU cpu,int pc)
+	public int exec(CPU cpu,int pc)
 	{
 		int r = (int)(opcode & 7);
 		int tmp = cpu.acc();
 		cpu.acc(cpu.r(r));
 		cpu.r(r,tmp);
+                return 0;
 	}
 
 	public String toString()
@@ -2121,12 +2146,13 @@ class XCH_A_RI extends AbstractOpcode
 		super(0xc6|r,1,1,"XCH");
 	}
 
-	public void exec(CPU cpu, int pc)
+	public int exec(CPU cpu, int pc)
 	{
 		int r = cpu.r((int)(opcode & 1));
 		int tmp = cpu.acc();
 		cpu.acc(cpu.idata(r));
 		cpu.idata(r, tmp);
+                return 0;
 	}
 
 	public String toString()
@@ -2143,12 +2169,13 @@ class XCHD_A_RI extends AbstractOpcode
 		super(0xd6|r,1,1,"XCHD");
 	}
 
-	public void exec(CPU cpu,int pc)
+	public int exec(CPU cpu,int pc)
 	{
 		int r = cpu.r((int)(opcode & 1));
 		int tmp = cpu.acc();
 		cpu.acc((int)((cpu.acc() & 0xf0) | (cpu.idata(r) & 0x0f)));
 		cpu.idata(r,(int)((cpu.idata(r) & 0xf0) | (tmp) & 0x0f));
+                return 0;
 	}
 
 	public String toString()
@@ -2166,12 +2193,13 @@ class XCH_A_DIRECT extends AbstractOpcode
 		super(0xc5,2,1,"XCH\tA,DIRECT");
 	}
 
-	public void exec(CPU cpu,int pc)
+	public int exec(CPU cpu,int pc)
 	{
 		int add = cpu.code(pc+1);
 		int tmp = cpu.acc();
 		cpu.acc(cpu.getDirect(add));
 		cpu.setDirect(add,tmp);
+                return 0;
 	}
 
 }
@@ -2183,10 +2211,11 @@ class SWAP_A extends AbstractOpcode
 		super(0xc4,1,1,"SWAP\tA");
 	}
 
-	public void exec(CPU cpu,int pc)
+	public int exec(CPU cpu,int pc)
 	{
 		int a = cpu.acc();
 		cpu.acc((int)((a >> 4) & 0x0f | (a << 4)));
+                return 0;
 	}
 
 }
@@ -2198,9 +2227,10 @@ class DEC_A extends AbstractOpcode
 		super(0x14,1,1,"DEC\tA");
 	}
 	
-	public void exec(CPU cpu,int pc)
+	public int exec(CPU cpu,int pc)
 	{
 		cpu.acc((int)(cpu.acc() - 1));
+                return 0;
 	}
 	
 }
@@ -2212,10 +2242,11 @@ class DEC_R extends AbstractOpcode
 		super(0x18|r,1,1,"DEC");
 	}
 
-	public void exec(CPU cpu,int pc)
+	public int exec(CPU cpu,int pc)
 	{
 		int r = (int)(opcode & 7);
 		cpu.r(r,(int)(cpu.r(r) - 1));
+                return 0;
 	}
 
 	public String toString()
@@ -2231,10 +2262,11 @@ class DEC_RI extends AbstractOpcode
 		super(0x16|r,1,1,"DEC");
 	}
 
-	public void exec(CPU cpu,int pc)
+	public int exec(CPU cpu,int pc)
 	{
 		int address = cpu.r((int)(opcode & 1));
-		cpu.idata(address,cpu.idata(address ) -1 );
+		cpu.idata(address, cpu.idata(address ) - 1);
+                return 0;
 	}
 
 	public String toString()
@@ -2251,10 +2283,11 @@ class DEC_DIRECT extends AbstractOpcode
 		super(0x15,2,1,"DEC\tDIRECT");
 	}
 
-	public void exec(CPU cpu,int pc)
+	public int exec(CPU cpu,int pc)
 	{
 		int direct = cpu.code(pc+1);
 		cpu.setDirect(direct,(int)(cpu.getDirect(direct) - 1));
+                return 0;
 	}
 
 }
@@ -2266,7 +2299,7 @@ class DIV_AB extends AbstractOpcode
 		super(0x84,1,4,"DIV\tAB");
 	}
 
-	public void exec(CPU cpu,int pc)
+	public int exec(CPU cpu,int pc)
 	{
 		int a,b;
 
@@ -2277,6 +2310,7 @@ class DIV_AB extends AbstractOpcode
 		cpu.b((int)(a % b));
 		cpu.cy(false);
 		cpu.ov(false);
+                return 0;
 	}
 }
 
@@ -2287,7 +2321,7 @@ class MUL_AB extends AbstractOpcode
 		super(0xa4,1,4,"MUL\tAB");
 	}
 
-	public void exec(CPU cpu,int pc)
+	public int exec(CPU cpu,int pc)
 	{
 		int value = cpu.acc() * cpu.b();
 
@@ -2295,6 +2329,7 @@ class MUL_AB extends AbstractOpcode
 		cpu.acc((int)value);
 		cpu.cy();
 		cpu.ov((value > 255));
+                return 0;
 	}
 }
 
@@ -2320,12 +2355,13 @@ class DJNZ_R extends DJNZ
 		super(0xd8|r,2,2,"DJNZ");
 	}
 
-	public void exec(CPU cpu,int pc)
+	public int exec(CPU cpu,int pc)
 	{
 		int r = (int)(opcode & 7);
 		int value = (int)(cpu.r(r) - 1);
 		cpu.r(r,value);
 		jnz((MCS51) cpu,pc,value);
+                return 0;
 	}
 
 	public String toString()
@@ -2342,12 +2378,13 @@ class DJNZ_DIRECT extends DJNZ
 		super(0xd5,3,2,"DJNZ\tDIRECT,#OFFSET");
 	}
 
-	public void exec(CPU cpu,int pc)
+	public int exec(CPU cpu,int pc)
 	{
 		int address = cpu.code(pc+1);
 		int value = cpu.getDirect(address) - 1;
 		cpu.setDirect(address,value);
 		jnz((MCS51) cpu, pc, value);
+                return 0;
 	}
 }
 
@@ -2358,9 +2395,10 @@ class INC_A extends AbstractOpcode
 		super(4,1,1,"INC\tA");
 	}
 
-	public void exec(CPU cpu,int pc)
+	public int exec(CPU cpu,int pc)
 	{
 		cpu.acc((int)(cpu.acc()+1));
+                return 0;
 	}
 	
 }
@@ -2372,10 +2410,11 @@ class INC_R extends AbstractOpcode
 		super(8|r,1,1,"INC");
 	}
 
-	public void exec(CPU cpu,int pc)
+	public int exec(CPU cpu,int pc)
 	{
 		int r = (int)(opcode & 7);
 		cpu.r(r,(int)(cpu.r(r)+1));
+                return 0;
 	}
 
 	public String toString()
@@ -2392,10 +2431,11 @@ class INC_RI extends AbstractOpcode
 		super(6|r,1,1,"INC");
 	}
 
-	public void exec(CPU cpu,int pc)
+	public int exec(CPU cpu,int pc)
 	{
 		int i = cpu.r((int)(opcode & 1));
 		cpu.setDirect(i,(int)(cpu.getDirect(i) + 1));
+                return 0;
 	}
 
 	public String toString()
@@ -2412,10 +2452,11 @@ class INC_DIRECT extends AbstractOpcode
 		super(5,2,1,"INC\tDIRECT");
 	}
 
-	public void exec(CPU cpu,int pc)
+	public int exec(CPU cpu,int pc)
 	{
 		int a = cpu.code(pc+1);
 		cpu.setDirect(a,(int)(cpu.getDirect(a)+1));
+                return 0;
 	}
 
 }
@@ -2427,9 +2468,10 @@ class INC_DPTR extends AbstractOpcode
 		super(0xa3,1,2,"INC\tDPTR");
 	}
 
-	public void exec(CPU cpu,int pc)
+	public int exec(CPU cpu,int pc)
 	{
 		cpu.dptr(cpu.dptr()+1);
+                return 0;
 	}
 
 }
@@ -2441,10 +2483,11 @@ class JB extends JR
 		super(0x20,3,2,"JB\t#BIT,#OFFSET");
 	}
 
-	public final void exec(CPU cpu, int pc)
+	public final int exec(CPU cpu, int pc)
 	{
 		if (cpu.getBitCODE(pc + 1))
 			jr(cpu, pc, cpu.code(pc + 2));
+                return 0;
 	}
 }
 
@@ -2455,7 +2498,7 @@ class JBC extends JR
 		super(0x10,3,2,"JBC\t#BIT,#OFFSET");
 	}
 
-	public final void exec(CPU cpu,int pc)
+	public final int exec(CPU cpu,int pc)
 	{
 		int add = cpu.code(pc+1);
 		if (cpu.getBit(add))
@@ -2463,6 +2506,7 @@ class JBC extends JR
 			cpu.setBit(add,false);
 			jr(cpu,pc,cpu.code(pc+2));
 		}
+                return 0;
 	}
 }
 
@@ -2473,12 +2517,13 @@ class JNB extends JR
 		super(0x30,3,2,"JNB\t#BIT,#OFFSET");
 	}
 
-	public final void exec(CPU cpu,int pc)
+	public final int exec(CPU cpu,int pc)
 	{
 		boolean bit = cpu.getBitCODE(pc+1);
 
 		if (!bit)
 			jr(cpu,pc,cpu.code(pc+2));
+                return 0;
 	}
 }
 
@@ -2489,11 +2534,12 @@ class JNC extends JR
 		super(0x50,2,2,"JNC\t#OFFSET");
 	}
 
-	public final void exec(CPU cpu,int pc)
+	public final int exec(CPU cpu,int pc)
 	{
 		if (!cpu.cy()){
 			jr(cpu,pc,cpu.code(pc+1));
                 }
+                return 0;
 	}
 }
 
@@ -2505,11 +2551,12 @@ class JC extends JR
 		super(0x40,2,2,"JC\t#OFFSET");
 	}
 
-	public final void exec(CPU cpu,int pc)
+	public final int exec(CPU cpu,int pc)
 	{
 		if (cpu.cy()){
 			jr(cpu,pc,cpu.code(pc+1));
                 }
+                return 0;
 	}
 }
 
@@ -2520,10 +2567,11 @@ class JNZ extends JR
 		super(0x70,2,2,"JNZ\t#OFFSET");
 	}
 
-	public final void exec(CPU cpu,int pc)
+	public final int exec(CPU cpu,int pc)
 	{
 		if (cpu.acc() != 0)
 			jr(cpu,pc,cpu.code(pc+1));
+                return 0;
 	}
 }
 
@@ -2535,10 +2583,11 @@ class JZ extends JR
 		super(0x60,2,2,"JZ\t#OFFSET");
 	}
 
-	public final void exec(CPU cpu,int pc)
+	public final int exec(CPU cpu,int pc)
 	{
 		if (cpu.acc() == 0)
 			jr(cpu,pc,cpu.code(pc+1));
+                return 0;
 	}
 }
 
@@ -2550,9 +2599,11 @@ class JMP_A_DPTR extends AbstractOpcode
 		super(0x73,1,2,"JMP\t@A+DPTR");
 	}
 
-	public final void exec(CPU cpu,int pc)
+        @Override
+	public final int exec(CPU cpu,int pc)
 	{
 		cpu.pc(cpu.dptr()+cpu.acc());
+                return 0;
 	}
 }
 
@@ -2571,7 +2622,7 @@ class LCALL extends AbstractOpcode
 		super(0x12,3,2,"LCALL\t#CODE16");
 	}
 
-	public void exec(CPU cpu,int pc) throws Exception
+	public int exec(CPU cpu,int pc) throws Exception
 	{
 		int address = cpu.code16(pc+1);
 		CallListener l = cpu.getCallListener(address);
@@ -2583,6 +2634,7 @@ class LCALL extends AbstractOpcode
 			cpu.pushw(pc+3);
 			cpu.pc(address);
 		}
+                return 0;
 	}
 	
 }
@@ -2594,10 +2646,11 @@ class LJMP extends AbstractOpcode
 		super(0x2, 3, 2, "LJMP\t#CODE16");
 	}
 
-	public void exec(CPU cpu, int pc)
+	public int exec(CPU cpu, int pc)
 	{
 		cpu.pc(cpu.code16(pc + 1));
 		//cpu.pc((cpu.code(pc+1) << 8) | cpu.code(pc+2));
+                return 0;
 	}
 
 }
@@ -2610,9 +2663,10 @@ class MOV_A_R extends AbstractOpcode
 		super(0xe8|r,1,1,"MOV");
 	}
 
-	public void exec(CPU cpu,int pc)
+	public int exec(CPU cpu,int pc)
 	{
 		cpu.acc(cpu.r((int)(opcode & 7)));
+                return 0;
 	}
 
 	public String toString()
@@ -2629,9 +2683,10 @@ class MOV_DPTR_DATA16 extends AbstractOpcode
 		super(0x90,3,2,"MOV\tDPTR,#DATA16");
 	}
 
-	public void exec(CPU cpu,int pc)
+	public int exec(CPU cpu,int pc)
 	{
 		cpu.dptr((cpu.code(pc+1) << 8) | cpu.code(pc+2));
+                return 0;
 	}
 }
 
@@ -2642,10 +2697,11 @@ class POP_DIRECT extends AbstractOpcode
 		super(0xd0,2,2,"POP\tDIRECT");
 	}
 
-	public void exec(CPU cpu,int pc) throws Exception
+	public int exec(CPU cpu,int pc) throws Exception
 	{
-		int add = cpu.code(pc+1);
+		int add = cpu.code(pc + 1);
 		cpu.setDirect(add,cpu.pop());
+                return 0;
 	}
 }
 
@@ -2656,9 +2712,10 @@ class PUSH_DIRECT extends AbstractOpcode
 		super(0xc0, 2, 2, "PUSH\tDIRECT");
 	}
 
-	public void exec(CPU cpu, int pc) throws Exception
+	public int exec(CPU cpu, int pc) throws Exception
 	{
 		cpu.push(cpu.getDirectCODE(pc + 1));
+                return 0;
 	}
 }
 
@@ -2669,9 +2726,10 @@ class RET extends AbstractOpcode
 		super(0x22,1,2,"RET");
 	}
 
-	public void exec(CPU cpu,int pc) throws Exception
+	public int exec(CPU cpu,int pc) throws Exception
 	{
 		cpu.pc(cpu.popw());
+                return 0;
 	}
 }
 
@@ -2682,10 +2740,11 @@ class RETI extends AbstractOpcode
 		super(0x32,1,2,"RETI");
 	}
 
-	public void exec(CPU cpu,int pc) throws Exception
+	public int exec(CPU cpu,int pc) throws Exception
 	{
 		cpu.pc(cpu.popw());
 		cpu.eoi();
+                return 0;
 	}
 }
 
@@ -2696,7 +2755,7 @@ class RL_A extends AbstractOpcode
 		super(0x23,1,1,"RL\tA");
 	}
 
-	public void exec(CPU cpu,int pc)
+	public int exec(CPU cpu, int pc)
 	{
 		int a = cpu.acc();
 
@@ -2705,6 +2764,7 @@ class RL_A extends AbstractOpcode
 			a |= 1;
                 }
 		cpu.acc((int)a);
+                return 0;
 	}
 }
 
@@ -2715,7 +2775,7 @@ class RR_A extends AbstractOpcode
 		super(0x3,1,1,"RR\tA");
 	}
 
-	public void exec(CPU cpu,int pc)
+	public int exec(CPU cpu, int pc)
 	{
 		int a = cpu.acc();
 
@@ -2723,6 +2783,7 @@ class RR_A extends AbstractOpcode
 		if ((cpu.acc() & 0x01) != 0)
 			a |= 0x80;
 		cpu.acc((int)a);
+                return 0;
 	}
 }
 
@@ -2734,9 +2795,10 @@ class SETB_BIT extends AbstractOpcode
 		super(0xd2,2,1,"SETB\t#BIT");
 	}
 
-	public void exec(CPU cpu,int pc)
+	public int exec(CPU cpu,int pc)
 	{
 		cpu.setBit(cpu.code(pc+1),true);
+                return 0;
 	}
 }
 
@@ -2747,9 +2809,10 @@ class SETB_C extends AbstractOpcode
 		super(0xd3,1,1,"SETB\tC");
 	}
 
-	public void exec(CPU cpu,int pc)
+	public int exec(CPU cpu,int pc)
 	{
 		cpu.cy(true);
+                return 0;
 	}
 }
 
@@ -2761,7 +2824,7 @@ class RRC_A extends AbstractOpcode
 		super(0x13,1,1,"RRC\tA");
 	}
 
-	public void exec(CPU cpu,int pc)
+	public int exec(CPU cpu,int pc)
 	{
 		int a = cpu.acc();
 
@@ -2773,6 +2836,7 @@ class RRC_A extends AbstractOpcode
 		cpu.cy((cpu.acc() & 1) != 0);
 			
 		cpu.acc((int)a);
+                return 0;
 	}
 }
 
@@ -2784,7 +2848,7 @@ class RLC_A extends AbstractOpcode
 		super(0x33,1,1,"RLC\tA");
 	}
 
-	public void exec(CPU cpu,int pc)
+	public int exec(CPU cpu,int pc)
 	{
 		int a = cpu.acc();
 
@@ -2793,6 +2857,7 @@ class RLC_A extends AbstractOpcode
 			a |= 1;
 		cpu.cy((a & 0x100) != 0) ;
 		cpu.acc(a);
+                return 0;
 	}
 }
 
@@ -2804,9 +2869,10 @@ class ORL_C_BIT extends AbstractOpcode
 		super(0x72,2,2,"ORL\tC,#BIT");
 	}
 
-	public void exec(CPU cpu,int pc)
+	public int exec(CPU cpu,int pc)
 	{
 		cpu.cy(cpu.getBitCODE(pc+1)|cpu.cy());
+                return 0;
 	}
 }
 
@@ -2817,9 +2883,10 @@ class ORL_C_NBIT extends AbstractOpcode
 		super(0xA0,2,2,"ORL\tC,NOT #BIT");
 	}
 
-	public void exec(CPU cpu,int pc)
+	public int exec(CPU cpu,int pc)
 	{
 		cpu.cy(cpu.cy() | !cpu.getBitCODE(pc+1));
+                return 0;
 	}
 }
 
@@ -2830,9 +2897,10 @@ class MOV_C_BIT extends AbstractOpcode
 		super(0xa2,2,1,"MOV\tC,#BIT");
 	}
 
-	public void exec(CPU cpu,int pc)
+	public int exec(CPU cpu,int pc)
 	{
 		cpu.cy(cpu.getBitCODE(pc+1));
+                return 0;
 	}
 }
 
@@ -2843,9 +2911,10 @@ class MOV_BIT_C extends AbstractOpcode
 		super(0x92,2,2,"MOV\t#BIT,C");
 	}
 
-	public void exec(CPU cpu,int pc)
+	public int exec(CPU cpu,int pc)
 	{
 		cpu.setBit(cpu.code(pc+1),cpu.cy());
+                return 0;
 	}
 }
 
@@ -2856,10 +2925,11 @@ class MOV_RI_A extends AbstractOpcode
 		super(0xf6|r,1,1,"MOV");
 	}
 
-	public void exec(CPU cpu,int pc)
+	public int exec(CPU cpu,int pc)
 	{
 		int add = cpu.r((int)(opcode & 1));
 		cpu.idata(add,cpu.acc());
+                return 0;
 	}
 
 	public String toString()
@@ -2876,10 +2946,11 @@ class MOV_RI_DIRECT extends AbstractOpcode
 		super(0xa6|r,2,2,"MOV");
 	}
 
-	public void exec(CPU cpu,int pc)
+	public int exec(CPU cpu,int pc)
 	{
 		int add = cpu.r((int)(opcode & 1));
 		cpu.idata(add,cpu.getDirectCODE(pc+1));
+                return 0;
 	}
 
 	public String toString()
@@ -2896,10 +2967,11 @@ class MOV_RI_DATA extends AbstractOpcode
 		super(0x76|r,2,1,"MOV");
 	}
 
-	public void exec(CPU cpu,int pc)
+	public int exec(CPU cpu,int pc)
 	{
 		int add = cpu.r((int)(opcode & 1));
-		cpu.idata(add,(int)(cpu.code(pc+1)));
+		cpu.idata(add,(int)(cpu.code(pc + 1)));
+                return 0;
 	}
 
 	public String toString()
@@ -2916,9 +2988,10 @@ class MOV_R_A extends AbstractOpcode
 		super(0xf8|r,1,1,"MOV");
 	}
 
-	public void exec(CPU cpu,int pc)
+	public int exec(CPU cpu,int pc)
 	{
 		cpu.r((int)(opcode & 7),cpu.acc());
+                return 0;
 	}
 
 	public String toString()
@@ -2935,9 +3008,10 @@ class MOV_R_DIRECT extends AbstractOpcode
 		super(0xa8|r,2,2,"MOV");
 	}
 
-	public void exec(CPU cpu,int pc)
+	public int exec(CPU cpu,int pc)
 	{
-		cpu.r((int)(opcode & 7),cpu.getDirectCODE(pc+1));
+		cpu.r((int)(opcode & 7),cpu.getDirectCODE(pc + 1));
+                return 0;
 	}
 
 	public String toString()
@@ -2954,10 +3028,11 @@ class MOV_DIRECT_R extends AbstractOpcode
 		super(0x88|r,2,2,"MOV");
 	}
 
-	public void exec(CPU cpu,int pc)
+	public int exec(CPU cpu,int pc)
 	{
-		int add = cpu.code(pc+1);
+		int add = cpu.code(pc + 1);
 		cpu.setDirect(add,cpu.r((int)(opcode & 7)));
+                return 0;
 	}
 
 	public String toString()
@@ -2974,10 +3049,11 @@ class MOV_DIRECT_DATA extends AbstractOpcode
 		super(0x75,3,2,"MOV\tDIRECT,#DATA8");
 	}
 
-	public void exec(CPU cpu,int pc)
+	public int exec(CPU cpu,int pc)
 	{
-		int add = cpu.code(pc+1);
-		cpu.setDirect(add,cpu.code(pc+2));
+		int add = cpu.code(pc + 1);
+		cpu.setDirect(add,cpu.code(pc + 2));
+                return 0;
 	}
 }
 
@@ -2988,9 +3064,10 @@ class MOV_R_DATA extends AbstractOpcode
 		super(0x78|r,2,1,"MOV");
 	}
 
-	public void exec(CPU cpu,int pc)
+	public int exec(CPU cpu,int pc)
 	{
-		cpu.r((int)(opcode & 7),cpu.code(pc+1));
+		cpu.r((int)(opcode & 7),cpu.code(pc + 1));
+                return 0;
 	}
 	
 	public String toString()
@@ -3007,9 +3084,10 @@ class MOV_A_RI extends AbstractOpcode
 		super(0xe6|r,1,1,"MOV");
 	}
 
-	public void exec(CPU cpu,int pc)
+	public int exec(CPU cpu,int pc)
 	{
 		cpu.acc(cpu.idata(cpu.r((int)(opcode & 1))));
+                return 0;
 	}
 
 	public String toString()
@@ -3026,9 +3104,10 @@ class MOV_A_DIRECT extends AbstractOpcode
 		super(0xe5,2,1,"MOV\tA,DIRECT");
 	}
 
-	public final void exec(CPU cpu,int pc)
+	public final int exec(CPU cpu,int pc)
 	{
-		cpu.acc(cpu.getDirectCODE(pc+1));
+		cpu.acc(cpu.getDirectCODE(pc + 1));
+                return 0;
 	}
 }
 
@@ -3039,9 +3118,10 @@ class MOVC_A_DPTR_A extends AbstractOpcode
 		super(0x93,1,2,"MOVC\tA,@DPTR+A");
 	}
 
-	public final void exec(CPU cpu,int pc)
+	public final int exec(CPU cpu,int pc)
 	{
-		cpu.acc(cpu.code(cpu.dptr()+cpu.acc()));
+		cpu.acc(cpu.code(cpu.dptr() + cpu.acc()));
+                return 0;
 	}
 }
 
@@ -3053,9 +3133,10 @@ class MOVX_A_DPTR extends AbstractOpcode
 		super(0xe0,1,2,"MOVX\tA,@DPTR");
 	}
 
-	public final void exec(CPU cpu,int pc)
+	public final int exec(CPU cpu,int pc)
 	{
 		cpu.acc(cpu.xdata(cpu.dptr()));
+                return 0;
 	}
 }
 
@@ -3067,9 +3148,10 @@ class MOVX_DPTR_A extends AbstractOpcode
 		super(0xf0,1,2,"MOVX\t@DPTR,A");
 	}
 
-	public final void exec(CPU cpu,int pc)
+	public final int exec(CPU cpu,int pc)
 	{
 		cpu.xdata(cpu.dptr(),cpu.acc());
+                return 0;
 
 	}
 }
@@ -3082,9 +3164,10 @@ class MOVC_A_PC_A extends AbstractOpcode
 		super(0x83,1,2,"MOVC\tA,@PC+A");
 	}
 
-	public final void exec(CPU cpu,int pc)
+	public final int exec(CPU cpu,int pc)
 	{
-		cpu.acc(cpu.code(pc+1+cpu.acc()));
+		cpu.acc(cpu.code(pc + 1 + cpu.acc()));
+                return 0;
 	}
 }
 
@@ -3095,11 +3178,12 @@ class MOVX_A_RI extends AbstractOpcode
 		super(0xe2|r,1,2,"MOVX");
 	}
 
-	public final void exec(CPU cpu,int pc)
+	public final int exec(CPU cpu,int pc)
 	{
 		int offset = cpu.sfr(cpu.getSfrXdataHi()) << 8;
 		offset += cpu.idata(cpu.r((int)(opcode & 1)));
 		cpu.acc(cpu.xdata(offset));
+                return 0;
 	}
         
 	public String toString()
@@ -3116,11 +3200,12 @@ class MOVX_RI_A extends AbstractOpcode
 		super(0xf2|r,1,2,"MOVX");
 	}
 
-	public final void exec(CPU cpu, int pc)
+	public final int exec(CPU cpu, int pc)
 	{
 		int offset = cpu.sfr(cpu.getSfrXdataHi()) << 8;
 		offset += cpu.idata(cpu.r((int)(opcode & 1)));
 		cpu.xdata(offset,cpu.acc());
+                return 0;
 	}
 
 	public String toString()
@@ -3137,11 +3222,12 @@ class MOV_DIRECT_DIRECT extends AbstractOpcode
 		super(0x85,3,2,"MOV\tDIRECP,DIRECM");
 	}
 
-	public final void exec(CPU cpu,int pc)
+	public final int exec(CPU cpu,int pc)
 	{
 		int source = cpu.code(pc+1);
 		int dest = cpu.code(pc+2);
 		cpu.setDirect(dest,cpu.getDirect(source));
+                return 0;
 	}
 }
 
@@ -3152,9 +3238,10 @@ class MOV_A_DATA extends AbstractOpcode
 		super(0x74,2,1,"MOV\tA,#DATA8");
 	}
 
-	public final void exec(CPU cpu,int pc)
+	public final int exec(CPU cpu,int pc)
 	{
-		cpu.acc(cpu.code(pc+1));
+		cpu.acc(cpu.code(pc + 1));
+                return 0;
 	}
 }
 
@@ -3165,9 +3252,10 @@ class MOV_DIRECT_A extends AbstractOpcode
 		super(0xf5,2,1,"MOV\tDIRECT,A");
 	}
 
-	public final void exec(CPU cpu,int pc)
+	public final int exec(CPU cpu,int pc)
 	{
-		cpu.setDirect(cpu.code(pc+1),cpu.acc());
+		cpu.setDirect(cpu.code(pc + 1),cpu.acc());
+                return 0;
 	}
 }
 
@@ -3179,10 +3267,11 @@ class MOV_DIRECT_RI extends AbstractOpcode
 	}
 
         @Override
-	public final void exec(CPU cpu,int pc)
+	public final int exec(CPU cpu,int pc)
 	{
-		int add = cpu.code(pc+1);
-		cpu.setDirect(add,cpu.idata(cpu.r((int)(opcode & 1))));
+		int add = cpu.code(pc + 1);
+		cpu.setDirect(add, cpu.idata(cpu.r((int)(opcode & 1))));
+                return 0;
 	}
 
         @Override
@@ -3201,9 +3290,9 @@ class NOP extends AbstractOpcode
 	}
 
         @Override
-	public final void exec(CPU cpu,int pc)
+	public final int exec(CPU cpu, int pc)
 	{
-		
+		return 0;
 	}
 	
 }
@@ -3219,6 +3308,7 @@ class ArithmeticANL implements ArithmeticOperation
 
 class ArithmeticORL implements ArithmeticOperation
 {
+        @Override
 	public final void calc(CPU cpu,int value)
 	{
 		cpu.acc((int)(cpu.acc() | value));
@@ -3227,6 +3317,7 @@ class ArithmeticORL implements ArithmeticOperation
 
 class ArithmeticXRL implements ArithmeticOperation
 {
+        @Override
 	public final void calc(CPU cpu,int value)
 	{
 		cpu.acc((int)(cpu.acc() ^ value));
@@ -3298,9 +3389,10 @@ abstract class Arithmetic extends AbstractOpcode
 	}
 
         @Override
-	public void exec(CPU cpu, int pc)
+	public int exec(CPU cpu, int pc)
 	{
 		op.calc(cpu,getValue(cpu, pc));
+                return 0;
 	}
 
 	abstract int getValue(CPU cpu, int pc);
@@ -3326,7 +3418,7 @@ class ACALL extends AbstractOpcode
 		return add;
 	}
 	
-	public void exec(CPU cpu, int pc) throws Exception
+	public int exec(CPU cpu, int pc) throws Exception
 	{
 		int address = getAddress((MCS51) cpu, pc);
 		CallListener l = cpu.getCallListener(address);
@@ -3337,6 +3429,7 @@ class ACALL extends AbstractOpcode
 			cpu.pushw(pc+2);
 			cpu.pc(getAddress((MCS51) cpu, pc));
 		}
+                return 0;
 	}
 
 }
@@ -3349,10 +3442,10 @@ class AJMP extends ACALL
 	}
 
 
-	public final void exec(CPU cpu, int pc)
+	public final int exec(CPU cpu, int pc)
 	{
-
 		cpu.pc(getAddress((MCS51) cpu, pc));
+                return 0;
 	}
 
 		
