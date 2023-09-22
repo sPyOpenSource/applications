@@ -1731,12 +1731,13 @@ public abstract class vt320 extends VDUBuffer implements VDUInput {
             Sgr = gr;
             Sa = attributes;
             Sgx = new char[4];
-            for (int i = 0; i < 4; i++) Sgx[i] = gx[i];
+            System.arraycopy(gx, 0, Sgx, 0, 4);
             Stm = getTopMargin();
             Sbm = getBottomMargin();
             if (debug > 1)
               System.out.println("ESC 7");
             break;
+
           case '8': /*restore cursor, attributes, margins */
             C = Sc;
             R = Sr;
@@ -2070,12 +2071,9 @@ public abstract class vt320 extends VDUBuffer implements VDUInput {
               output8bit = false;
               break;
             }
-            if (DCEvars[1] == 1) {
-              output8bit = false;
-            } else {
-              output8bit = true; /* 0 or 2 */
-            }
+            output8bit = DCEvars[1] != 1; /* 0 or 2 */
             break;
+
           default:
             System.out.println("Unknown ESC [...  \"" + c);
             break;

@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package jCPU.JavaVM.vm;
 
 import jCPU.CPU;
@@ -13,7 +9,7 @@ import java.util.function.Function;
  *
  * @author spy
  */
-public class VmByteCode implements Opcode{
+public class VmByteCode implements Opcode {
     private final int opCode;
     private final Function func;
     private final int offset;

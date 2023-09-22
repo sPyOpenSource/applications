@@ -47,9 +47,9 @@ public class SoftFont {
 	final static private char SF_HEIGHT= 2;
 	final static private char SF_TYPE  = 3;
 	final static private char SF_DATA  = 4;
-	java.util.Hashtable font;
+	java.util.HashMap font;
 	/** softfont characterdata */
-	private static char[][] fontdata = {
+	private static final char[][] fontdata = {
 	
 	{0x01,8,8,SF_BITMAP, /* 1 0x01 '^A' */
 	0x7e, /* 01111110 */
@@ -1069,9 +1069,9 @@ public class SoftFont {
 	}};
 
 	public SoftFont() {
-		font = new java.util.Hashtable();
+		font = new java.util.HashMap();
 		for (int i = 0; i < fontdata.length; i++)
-			font.put(new Integer(fontdata[i][0]), i);
+			font.put(fontdata[i][0], i);
 
 	}
 
@@ -1090,7 +1090,7 @@ public class SoftFont {
 		Object	Ientry;
 		int	w, h, entry, i, fontwidth, fontheight;
 		
-		Ientry = font.get(new Integer(c));
+		Ientry = font.get(c);
 		if (Ientry == null)
 			return;
 		entry = ((Integer)Ientry);

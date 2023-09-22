@@ -114,7 +114,7 @@ public class MCS51 implements MCS51Constants, jCPU.CPU
 	private FastArray<ResetListener> resetListeners = new FastArray<>();
 	
 	// Polling list
-	private FastArray<MachineCyclesListener> machineListeners	= new FastArray<>();
+	private FastArray<MachineCyclesListener> machineListeners = new FastArray<>();
 	
 	// Vector with performance client
 	private FastArray performance = new FastArray();
@@ -763,11 +763,13 @@ public class MCS51 implements MCS51Constants, jCPU.CPU
 		{
 			setOpcode(new Arithmetic(basecode|6|i, 1, op, name)
 			{
+                                @Override
 				public int getValue(CPU cpu, int pc)
 				{
 					return cpu.idata(cpu.r((int)(opcode & 1)));
 				}
 
+                                @Override
 				public String toString()
 				{
 					return description + "\tA,R" + (opcode & 1);
@@ -779,11 +781,13 @@ public class MCS51 implements MCS51Constants, jCPU.CPU
 		// XXX A,#data
 		setOpcode(new Arithmetic(basecode|4, 2, op, name)
 		{
+                        @Override
 			public int getValue(CPU cpu, int pc)
 			{
 				return cpu.code(pc + 1);
 			}
 
+                        @Override
 			public String toString()
 			{
 				return description + "\tA,#DATA8";
@@ -974,15 +978,17 @@ public class MCS51 implements MCS51Constants, jCPU.CPU
 		return dptrs[n];
 	}
 	
+        @Override
 	public final int dptr()
 	{
 		return sfr(DPH) * 256 | sfr(DPL);
 	}
 
+        @Override
 	public final void dptr(int value)
 	{
-		sfr(DPH,value>>8);
-		sfr(DPL,value);
+		sfr(DPH, value >> 8);
+		sfr(DPL, value);
 	}
 
 
@@ -992,15 +998,17 @@ public class MCS51 implements MCS51Constants, jCPU.CPU
 	 * @param r - Register to set (0-7)
 	 * @param value - Value to assign to the register.
 	 */
-	public void r(int r,int value)
+        @Override
+	public void r(int r, int value)
 	{
-		idata(regPtr+r,value);
+		idata(regPtr + r, value);
 	}
 
 	
+        @Override
 	public int r(int r)
 	{
-		return idata(regPtr+r);
+		return idata(regPtr + r);
 	}
 
 	public final int b()
@@ -1013,7 +1021,6 @@ public class MCS51 implements MCS51Constants, jCPU.CPU
 		sfr(B,value);
 	}
 
-
 	public final int acc()
 	{
 		return sfr(ACC);
@@ -1024,7 +1031,7 @@ public class MCS51 implements MCS51Constants, jCPU.CPU
 	 */
 	public final void acc(int value)
 	{
-		sfr(ACC,value);
+		sfr(ACC, value);
 	}
 
 	/**
@@ -1039,7 +1046,7 @@ public class MCS51 implements MCS51Constants, jCPU.CPU
 
 	public final void psw(int value)
 	{
-		sfr(PSW,value);
+		sfr(PSW, value);
 		
 	}
 	
@@ -1048,15 +1055,16 @@ public class MCS51 implements MCS51Constants, jCPU.CPU
 		if (value)
 			pswSet(PSW_CY);
 		else
-			pswReset(PSW_CY);
-					
+			pswReset(PSW_CY);		
 	}
 
+        @Override
 	public boolean cy()
 	{
 		return ((psw() & PSW_CY) != 0);
 	}
 
+        @Override
 	public final void ac(boolean value)
 	{
 		if (value)
@@ -1189,9 +1197,9 @@ public class MCS51 implements MCS51Constants, jCPU.CPU
 		return code(addr, false);
 	}
 
-	public final int code16(int addr,boolean move)
+	public final int code16(int addr, boolean move)
 	{
-		return code.getCode16(addr,move);
+		return code.getCode16(addr, move);
 	}
 				
 	public final int code16(int addr)
@@ -1443,6 +1451,7 @@ public class MCS51 implements MCS51Constants, jCPU.CPU
 		sfr(SP,sp);
 	}
 
+        @Override
 	public final void eoi()
 	{
 		if (currentInterrupt != null){
@@ -1548,7 +1557,7 @@ public class MCS51 implements MCS51Constants, jCPU.CPU
 	/**
 	 * Check the run queue
 	 */
-	private final void checkRunQueue()
+	private void checkRunQueue()
 	{
 		if (runQueue.size() > 0){
 			synchronized (runQueue){
@@ -1792,6 +1801,7 @@ class XRL_DIRECT_DATA extends AbstractOpcode
 	}
 
 	
+        @Override
 	public int exec(CPU cpu, int pc)
 	{
 		int add = cpu.code(pc + 1);
@@ -1844,6 +1854,7 @@ class ANL_C_DIRECT extends AbstractOpcode
 		
 	}
 
+        @Override
 	public String toString()
 	{
 		return description+"\tC,#BIT";

@@ -21,10 +21,10 @@
 package jCPU.JavaVM;
 
 import jCPU.JavaVM.vm.VmCP;
-import jCPU.JavaVM.vm.VmConstClass;
-import jCPU.JavaVM.vm.VmConstFieldRef;
-import jCPU.JavaVM.vm.VmConstIMethodRef;
+import jx.classfile.constantpool.ClassCPEntry;
 import jCPU.JavaVM.vm.VmMethod;
+import jx.classfile.constantpool.FieldRefCPEntry;
+import jx.classfile.constantpool.InterfaceMethodRefCPEntry;
 
 /**
  * <description>
@@ -739,23 +739,23 @@ public class BytecodeParser {
                     handler.visit_return();
                     break;
                 case 0xb2: {
-                    VmConstFieldRef field = cp.getConstFieldRef(getu2());
+                    FieldRefCPEntry field = cp.getConstFieldRef(getu2());
                     handler.visit_getstatic(field);
                     break;
                 }
                 case 0xb3: {
-                    VmConstFieldRef field = cp.getConstFieldRef(getu2());
+                    FieldRefCPEntry field = cp.getConstFieldRef(getu2());
                     handler.visit_putstatic(field);
                     break;
                 }
                 // -- 180 --
                 case 0xb4: {
-                    VmConstFieldRef field = cp.getConstFieldRef(getu2());
+                    FieldRefCPEntry field = cp.getConstFieldRef(getu2());
                     handler.visit_getfield(field);
                     break;
                 }
                 case 0xb5: {
-                    VmConstFieldRef field = cp.getConstFieldRef(getu2());
+                    FieldRefCPEntry field = cp.getConstFieldRef(getu2());
                     handler.visit_putfield(field);
                     break;
                 }
@@ -769,7 +769,7 @@ public class BytecodeParser {
                     handler.visit_invokestatic(cp.getConstMethodRef(getu2()));
                     break;
                 case 0xb9: {
-                    VmConstIMethodRef ref = cp.getConstIMethodRef(getu2());
+                    InterfaceMethodRefCPEntry ref = cp.getConstIMethodRef(getu2());
                     int count = getu1();
                     skip();
                     handler.visit_invokeinterface(ref, count);
@@ -852,7 +852,7 @@ public class BytecodeParser {
                     break;
                 }
                 case 0xc5: {
-                    VmConstClass clazz = cp.getConstClass(getu2());
+                    ClassCPEntry clazz = cp.getConstClass(getu2());
                     int dims = getu1();
                     handler.visit_multianewarray(clazz, dims);
                     break;

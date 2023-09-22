@@ -226,6 +226,7 @@ public class SwingTerminal extends Component
    * Set a new terminal (VDU) buffer.
    * @param buffer new buffer
    */
+  @Override
   public void setVDUBuffer(VDUBuffer buffer) {
     this.buffer = buffer;
     buffer.setDisplay(this);
@@ -235,6 +236,7 @@ public class SwingTerminal extends Component
    * Return the currently associated VDUBuffer.
    * @return the current buffer
    */
+  @Override
   public VDUBuffer getVDUBuffer() {
     return buffer;
   }

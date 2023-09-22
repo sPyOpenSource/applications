@@ -1077,7 +1077,6 @@ public class J51 extends JFrame implements MCS51Performance, ActionListener
 		{
 			this.msg = msg;
 			SwingUtilities.invokeLater(this);
-
 		}
 
                 @Override
@@ -1662,12 +1661,12 @@ public class J51 extends JFrame implements MCS51Performance, ActionListener
 		JMenu menu = new JMenu("Debug");
 		addIcon(menu,"debug.gif");
 		
-		addKey(menu.add(actionDebugTrace),'I');
-		addKey(menu.add(actionDebugStep),'O');
-		addKey(menu.add(actionDebugReset),'R');
-		addKey(menu.add(actionDebugGo),'G');
-		addKey(menu.add(actionDebugStop),'S');
-		addKey(menu.add(actionDebugErase),'E');
+		addKey(menu.add(actionDebugTrace), 'I');
+		addKey(menu.add(actionDebugStep), 'O');
+		addKey(menu.add(actionDebugReset), 'R');
+		addKey(menu.add(actionDebugGo), 'G');
+		addKey(menu.add(actionDebugStop), 'S');
+		addKey(menu.add(actionDebugErase), 'E');
 		
 		menu.setMnemonic('D');
 

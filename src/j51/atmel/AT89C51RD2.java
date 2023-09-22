@@ -21,6 +21,7 @@ public class AT89C51RD2 extends MCS51 implements AT89C51RD2Constants,
 						SfrWriteListener,
 						CallListener
 {
+    
 	public AT89C51RD2() throws Exception
 	{
 		setXdataSize(2 * 1024);
@@ -36,13 +37,12 @@ public class AT89C51RD2 extends MCS51 implements AT89C51RD2Constants,
 		setSfrName(P4,		"P4");
 		setSfrName(P5,		"P5");
 		setSfrName(AUXR1,	"AUXR1");
-		
 	}
 
 	/**
 	 * EEPROM API
 	 */
-	public void call(MCS51 _cpu,int pc) throws Exception
+	public void call(MCS51 _cpu, int pc) throws Exception
 	{
 
 		switch (r(1))
@@ -52,7 +52,7 @@ public class AT89C51RD2 extends MCS51 implements AT89C51RD2Constants,
 				int source = getDptr(1);
 
 				for (int i = 0 ; i < acc() ; i++)
-					code(dest+i,xdata(source+i));
+					code(dest + i, xdata(source + i));
 				acc(0);
 				break;
 			default:
@@ -61,7 +61,7 @@ public class AT89C51RD2 extends MCS51 implements AT89C51RD2Constants,
 		}
 	}
 	
-	public void sfrWrite(int r,int v)
+	public void sfrWrite(int r, int v)
 	{
 		switch (r)
 		{
@@ -69,7 +69,7 @@ public class AT89C51RD2 extends MCS51 implements AT89C51RD2Constants,
 
 				// Bit 1 is always 0
 				v &= 0xfd;
-				sfr(AUXR1,v);
+				sfr(AUXR1, v);
 				swapDptr(v & 1);
 				break;
 		}

@@ -69,11 +69,11 @@ public interface MCS51Constants
 	/**
 	 * Timer
 	 */
-	static public final int TCON	= 0x88;
-	static public final int TCON_TF1= 0x80;
-	static public final int TCON_TR1= 0x40;
-	static public final int TCON_TF0= 0x20;
-	static public final int TCON_TR0= 0x10;
+	static public final int TCON        = 0x88;
+	static public final int TCON_TF1    = 0x80;
+	static public final int TCON_TR1    = 0x40;
+	static public final int TCON_TF0    = 0x20;
+	static public final int TCON_TR0    = 0x10;
 
 	static public final int TMOD		= 0x89;
 	static public final int TMOD_GATE1	= 0x80;

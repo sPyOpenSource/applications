@@ -4,13 +4,18 @@ package jCPU.JavaVM;
 import j51.intel.Code;
 import jCPU.JavaVM.vm.VmByteCode;
 import jCPU.JavaVM.vm.VmCP;
-import jCPU.JavaVM.vm.VmConstMethodRef;
 import jCPU.JavaVM.vm.VmMethod;
 import jCPU.JavaVM.vm.VmStackEntry;
 import jCPU.JavaVM.vm.VmStackFrame;
+
 import java.util.function.Function;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import jx.classfile.constantpool.ClassCPEntry;
+import jx.classfile.constantpool.MethodRefCPEntry;
+import jx.classfile.constantpool.NameAndTypeCPEntry;
+import jx.classfile.constantpool.StringCPEntry;
 
 /**
  *
@@ -63,27 +68,7 @@ public class ByteCode {
         return stack.pop();
     }
 
-    private VmConstMethodRef findMethodRef(VmCP cp, int method_index) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private String getUTF8String(VmCP cp, int stringIndex) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
     private boolean invokeLibrary(VmStackFrame stack, VmCP cp, String clsName, String method_name, String method_type) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private ConstantStringRef findStringRef(VmCP cp, int index) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private ConstantNameAndType findNameAndType(VmCP cp, int nameAndTypeIndex) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private ConstantClassRef findClassRef(VmCP cp, int classIndex) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
@@ -93,27 +78,6 @@ public class ByteCode {
  * Copyright (C) 2014 Jim Huang <jserv.tw@gmail.com>
  * Copyright (C) 2013 Chun-Yu Wang <wicanr2@gmail.com>
  */
- 
-private class ConstantNameAndType{
-    int nameIndex, typeIndex;
-    public ConstantNameAndType(){
-        
-    }
-}
- 
-private class ConstantStringRef{
-    private int stringIndex;
-    public ConstantStringRef(){
-        
-    }
-}
- 
-private class ConstantClassRef{
-    int stringIndex, classIndex;
-    public ConstantClassRef(){
-        
-    }
-}
 
 private class CodeAttribute{
     public char[] code;
@@ -185,17 +149,17 @@ int op_invoke(char[] opCode, VmStackFrame stack, VmCP cp)
     // System.out.print("simpleMethodPool.method_used = %d\n", simpleMethodPool.method_used);
     if (method_index < BytecodeVisitor.simpleMethodPool.method_used) {
         MethodInfo method = BytecodeVisitor.simpleMethodPool.method[method_index];
-        method_name = getUTF8String(cp, method.name_index);
+        method_name = cp.getString(method.name_index).value();
         //System.out.print(" method name = %s\n", method_name);
     } else {
-        VmConstMethodRef mRef = findMethodRef(cp, method_index);
+        MethodRefCPEntry mRef = cp.getConstMethodRef(method_index);
         if (mRef !=null) {
-            ConstantClassRef clasz = findClassRef(cp, mRef.classIndex);
-            ConstantNameAndType nat = findNameAndType(cp, mRef.nameAndTypeIndex);
+            ClassCPEntry clasz = cp.getConstClass(mRef.getClassIndex());
+            NameAndTypeCPEntry nat = (NameAndTypeCPEntry)cp.getAny(mRef.getNameAndTypeIndex());
             if (clasz == null || nat == null) return -1;
-            clsName = getUTF8String(cp, clasz.stringIndex);
-            method_name = getUTF8String(cp, nat.nameIndex);
-            method_type = getUTF8String(cp, nat.typeIndex);
+            clsName = clasz.getClassName();
+            method_name = nat.getName();
+            method_type = nat.getTypeDesc();
 
             /* System.out.print("call class %s\n", clsName);
             System.out.print("call method %s\n", method_name);
@@ -221,21 +185,21 @@ int op_invokevirtual(char[] opCode, VmStackFrame stack, VmCP cp)
     tmp[1] = opCode[2];
     object_ref = tmp[0] << 8 | tmp[1];
     //System.out.print("call object_ref %d\n", object_ref);
-    VmConstMethodRef mRef = findMethodRef(cp, object_ref);
+    MethodRefCPEntry mRef = cp.getConstMethodRef(object_ref);
     if (mRef != null) {
-        ConstantClassRef clasz = findClassRef(cp, mRef.classIndex);
-        ConstantNameAndType nat = findNameAndType(cp, mRef.nameAndTypeIndex);
+        ClassCPEntry clasz = cp.getConstClass(mRef.getClassIndex());
+        NameAndTypeCPEntry nat = (NameAndTypeCPEntry)cp.getAny(mRef.getNameAndTypeIndex());
         if (clasz == null || nat == null) return -1;
-        String clsName = getUTF8String(cp, clasz.stringIndex);
+        String clsName = clasz.getClassName();
         //System.out.print("call object ref class %s\n", clsName);
         if (clzNamePrint.equals(clsName)) {
             VmStackEntry entry = popEntry(stack);
             int index = entry.getInt();
             //System.out.print("call Println with index = %d\n", index);
             if (entry.type == VmStackFrame.STACK_ENTRY_REF) {
-                ConstantStringRef strRef = findStringRef(cp, index);
+                StringCPEntry strRef = cp.getString(index);
                 if (strRef != null) {
-                    utf8 = getUTF8String(cp, strRef.stringIndex);
+                    utf8 = strRef.value();
                     len = utf8.length();
                     //memcpy(stringBuilderBuffer + stringBuilderUsed, utf8, len);
                     stringBuilderUsed += len;
@@ -256,9 +220,9 @@ int op_invokevirtual(char[] opCode, VmStackFrame stack, VmCP cp)
             int index = entry.getInt();
             //System.out.print("call StringBuilder with index = %d\n", index);
             if (entry.type == VmStackFrame.STACK_ENTRY_REF) {
-                ConstantStringRef strRef = findStringRef(cp, index);
+                StringCPEntry strRef = cp.getString(index);
                 if (strRef != null) {
-                    utf8 = getUTF8String(cp, strRef.stringIndex);
+                    utf8 = strRef.value();
                     len = utf8.length();
                     //memcpy(stringBuilderBuffer + stringBuilderUsed, utf8, len);
                     stringBuilderUsed += len;
@@ -355,7 +319,7 @@ int executeMethod(MethodInfo startup, VmStackFrame stack, VmCP cp)
     CodeAttribute ca = null;
     for (int j = 0 ; j < startup.attributes_count ; j++) {
         convertToCodeAttribute(ca, startup.attributes[j]);
-        String name = getUTF8String(cp, ca.attribute_name_index);
+        String name = cp.getString(ca.attribute_name_index).value();
         if (!"Code".equals(name)) continue;
         System.out.print("----------------------------------------\n");
         System.out.print("code dump\n");
@@ -392,7 +356,7 @@ int executeMethod(MethodInfo startup, VmStackFrame stack, VmCP cp)
 
     void printCodeAttribute(CodeAttribute ca, VmCP cp)
     {
-       String name = getUTF8String(cp, ca.attribute_name_index);
+       String name = cp.getString(ca.attribute_name_index).value();
        System.out.println("attribute name : " + name);
        System.out.println("attribute length: " + ca.attribute_length);
 

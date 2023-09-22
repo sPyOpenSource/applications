@@ -21,14 +21,15 @@
 package jCPU.JavaVM;
 
 import jCPU.JavaVM.vm.VmCP;
-import jCPU.JavaVM.vm.VmConstClass;
-import jCPU.JavaVM.vm.VmConstFieldRef;
-import jCPU.JavaVM.vm.VmConstIMethodRef;
-import jCPU.JavaVM.vm.VmConstMethodRef;
-import jCPU.JavaVM.vm.VmConstString;
 import jCPU.JavaVM.vm.VmMethod;
 import jCPU.JavaVM.vm.VmStackEntry;
 import jCPU.JavaVM.vm.VmStackFrame;
+
+import jx.classfile.constantpool.ClassCPEntry;
+import jx.classfile.constantpool.FieldRefCPEntry;
+import jx.classfile.constantpool.InterfaceMethodRefCPEntry;
+import jx.classfile.constantpool.MethodRefCPEntry;
+import jx.classfile.constantpool.StringCPEntry;
 
 
 /**
@@ -72,9 +73,9 @@ public abstract class BytecodeVisitor {
     public final void visit_sipush(short value) {
     }
 
-    public abstract void visit_ldc(VmConstString value);
+    public abstract void visit_ldc(StringCPEntry value);
 
-    public abstract void visit_ldc(VmConstClass value);
+    public abstract void visit_ldc(ClassCPEntry value);
 
     // -- 20 --
     public abstract void visit_iload(int index);
@@ -323,43 +324,43 @@ public abstract class BytecodeVisitor {
 
     public abstract void visit_return();
 
-    public abstract void visit_getstatic(VmConstFieldRef fieldRef);
+    public abstract void visit_getstatic(FieldRefCPEntry fieldRef);
 
-    public abstract void visit_putstatic(VmConstFieldRef fieldRef);
+    public abstract void visit_putstatic(FieldRefCPEntry fieldRef);
 
     // -- 180 --
-    public abstract void visit_getfield(VmConstFieldRef fieldRef);
+    public abstract void visit_getfield(FieldRefCPEntry fieldRef);
 
-    public abstract void visit_putfield(VmConstFieldRef fieldRef);
+    public abstract void visit_putfield(FieldRefCPEntry fieldRef);
 
-    public abstract void visit_invokevirtual(VmConstMethodRef methodRef);
+    public abstract void visit_invokevirtual(MethodRefCPEntry methodRef);
 
-    public abstract void visit_invokespecial(VmConstMethodRef methodRef);
+    public abstract void visit_invokespecial(MethodRefCPEntry methodRef);
 
-    public abstract void visit_invokestatic(VmConstMethodRef methodRef);
+    public abstract void visit_invokestatic(MethodRefCPEntry methodRef);
 
-    public abstract void visit_invokeinterface(VmConstIMethodRef methodRef, int count);
+    public abstract void visit_invokeinterface(InterfaceMethodRefCPEntry methodRef, int count);
 
-    public abstract void visit_new(VmConstClass clazz);
+    public abstract void visit_new(ClassCPEntry clazz);
 
     public abstract void visit_newarray(int type);
 
-    public abstract void visit_anewarray(VmConstClass clazz);
+    public abstract void visit_anewarray(ClassCPEntry clazz);
 
     // -- 190 --
     public abstract void visit_arraylength();
 
     public abstract void visit_athrow();
 
-    public abstract void visit_checkcast(VmConstClass clazz);
+    public abstract void visit_checkcast(ClassCPEntry clazz);
 
-    public abstract void visit_instanceof(VmConstClass clazz);
+    public abstract void visit_instanceof(ClassCPEntry clazz);
 
     public abstract void visit_monitorenter();
 
     public abstract void visit_monitorexit();
 
-    public abstract void visit_multianewarray(VmConstClass clazz, int dimensions);
+    public abstract void visit_multianewarray(ClassCPEntry clazz, int dimensions);
 
     public abstract void visit_ifnull(int address);
 

@@ -1,3 +1,4 @@
+
 package jCPU.RiscV;
 
 /*
@@ -19,7 +20,7 @@ import java.util.logging.Logger;
 
 public class IsaSim extends CPU{
     // Insert path to binary file containing RISC-V instructions
-    public final static String FILEPATH = "tests/task3/loop.bin";
+    public final static String FILEPATH = "/home/spy/Source/RiscV/tests/task3/loop.bin";
 
     // Initial value of the program counter (default is zero)
     public final static Integer INITIAL_PC = 0;
@@ -39,24 +40,31 @@ public class IsaSim extends CPU{
     public static Memory ram = new Memory();
     boolean offsetPC = false, breakProgram = false; // For determining next pc value
     int cc = 0; // Clock cycle counter
+RVInstruction ins;
 
     public IsaSim() {
-            System.out.println("Hello RISC-V World!");
         try {
             ram.readBinary(FILEPATH, INITIAL_PC); // Read instructions into memory
         } catch (IOException ex) {
             Logger.getLogger(IsaSim.class.getName()).log(Level.SEVERE, null, ex);
         }
             reg[2] = INITIAL_SP; // Reset stack pointer
-
     }
-        
+    
+        @Override
+  public String getDecodeAt(int pc)
+	{
+            ins = new RVInstruction(ram.readWord(pc));
+            step();
+            return ins.line;
+	}
+  
     @Override
     public void go(int limit) throws Exception{
         while(true){
-             RVInstruction ins = new RVInstruction(ram.readWord(pc));
-             decode_riscv_binary(ins);
-            step();
+            ins = new RVInstruction(ram.readWord(pc));
+            decode_riscv_binary(ins);
+            cc += step();
         }
     }
     
@@ -165,9 +173,8 @@ public class IsaSim extends CPU{
 				if (DEBUGGING) {
 					//printFile(FILEPATH);
 				}
-				return 1;
+				return 0;
 			}
-			cc++;
                         return 1;
 		}
 		//System.out.println("Program exit");
@@ -182,17 +189,18 @@ public class IsaSim extends CPU{
 		reg[rd] = imm; // LUI stores the immediate in the top 20 bits of register rd
 	}
 
-	public static void addUpperImmediatePC(int instr) {
+	public void addUpperImmediatePC(int instr) {
 		// General information
 		int rd = (instr >> 7) & 0x1F;
 		int imm = instr & 0xFFFFF000;
 		if (DEBUGGING) {
+                    ins.line = "rd = " + rd + ", imm = " + imm;
 			System.out.println("rd = " + rd + ", imm = " + imm);
 		}
 		reg[rd] = pc + imm;
 	}
 
-	public static void jumpAndLink(int instr) {
+	public void jumpAndLink(int instr) {
 		// General information
 		int rd = (instr >> 7) & 0x1F;
 		int imm = (((instr >> 21) & 0x3FF) << 1) | (((instr >> 20) & 0x1) << 11) | 
@@ -201,6 +209,7 @@ public class IsaSim extends CPU{
 			imm |= 0xFFF00000; // Sign-extension if necessary
 		}
 		if (DEBUGGING) {
+                    ins.line = "rd = " + rd + ", imm = " + imm;
 			System.out.println("rd = " + rd + ", imm = " + imm);
 		}
 		reg[rd] = pc + 4; // Store return address
@@ -210,7 +219,7 @@ public class IsaSim extends CPU{
 		}
 	}
 
-	public static void jumpAndLinkRegister(int instr) {
+	public void jumpAndLinkRegister(int instr) {
 		// General information
 		int rd = (instr >> 7) & 0x1F;
 		int rs1 = (instr >> 15) & 0x1F;
@@ -219,6 +228,7 @@ public class IsaSim extends CPU{
 			imm |= 0xFFFFF000; // Sign-extension if necessary
 		}
 		if (DEBUGGING) {
+                    ins.line = "rd = " + rd + ", rs1 = " + rs1 + ", imm = " + imm;
 			System.out.println("rd = " + rd + ", rs1 = " + rs1 + ", imm = " + imm);
 		}
 		reg[rd] = pc + 4; // Store return address
@@ -228,7 +238,7 @@ public class IsaSim extends CPU{
 		}
 	}
 
-	public static boolean branchInstruction(int instr) {
+	public boolean branchInstruction(int instr) {
 		// General information
 		int rs1 = (instr >> 15) & 0x1F;
 		int rs2 = (instr >> 20) & 0x1F;
@@ -238,6 +248,7 @@ public class IsaSim extends CPU{
 			imm |= 0xFFFFE000; // Sign-extension if necessary
 		}
 		if (DEBUGGING) {
+                    ins.line = "rs1 = " + rs1 + ", rs2 = " + rs2 + ", imm = " + imm;
 			System.out.println("rs1 = " + rs1 + ", rs2 = " + rs2 + ", imm = " + imm);
 		}
 		// Determining the type of instruction
@@ -286,7 +297,7 @@ public class IsaSim extends CPU{
 		return false;
 	}
 
-	public static void loadInstruction(int instr) throws NullPointerException {
+	public void loadInstruction(int instr) throws NullPointerException {
 		// General information
 		int rd = (instr >> 7) & 0x1F;
 		int rs1 = (instr >> 15) & 0x1F;
@@ -296,6 +307,7 @@ public class IsaSim extends CPU{
 		}
 		int memAddr = reg[rs1] + imm;
 		if (DEBUGGING) {
+                    ins.line = "rd = " + rd + ", rs1 = " + rs1 + ", imm = " + imm + ", memAddr = " + memAddr;
 			System.out.println("rd = " + rd + ", rs1 = " + rs1 + ", imm = " + imm + ", memAddr = " + memAddr);
 		}
 		// Determining the type of instruction
@@ -327,7 +339,7 @@ public class IsaSim extends CPU{
 		reg[rd] = memValue;
 	}
 	
-	public static void storeInstruction(int instr) {
+	public void storeInstruction(int instr) {
 		// General information
 		int rs1 = (instr >> 15) & 0x1F;
 		int rs2 = (instr >> 20) & 0x1F;
@@ -337,6 +349,7 @@ public class IsaSim extends CPU{
 		}
 		int memAddr = reg[rs1] + imm;
 		if (DEBUGGING) {
+                    ins.line = "rs1 = " + rs1 + ", rs2 = " + rs2 + ", imm = " + imm + ", memAddr = " + memAddr;
 			System.out.println("rs1 = " + rs1 + ", rs2 = " + rs2 + ", imm = " + imm + ", memAddr = " + memAddr);
 		}
 		// Determining the type of instruction
@@ -358,7 +371,7 @@ public class IsaSim extends CPU{
 		}
 	}
 
-	public static void immediateInstruction(int instr) {
+	public void immediateInstruction(int instr) {
 		// General information
 		int rd = (instr >> 7) & 0x1F;
 		int rs1 = (instr >> 15) & 0x1F;
@@ -367,6 +380,7 @@ public class IsaSim extends CPU{
 			imm |= 0xFFFFF000; // Sign-extension if necessary
 		}
 		if (DEBUGGING) {
+                    ins.line = "rd = " + rd + ", rs1 = " + rs1 + ", imm = " + imm;
 			System.out.println("rd = " + rd + ", rs1 = " + rs1 + ", imm = " + imm);
 		}
 		// Determining the type of instruction
@@ -418,12 +432,13 @@ public class IsaSim extends CPU{
 		}
 	}
 
-	public static void arithmeticInstruction(int instr) {
+	public void arithmeticInstruction(int instr) {
 		// General information
 		int rd = (instr >> 7) & 0x1F;
 		int rs1 = (instr >> 15) & 0x1F;
 		int rs2 = (instr >> 20) & 0x1F;
 		if (DEBUGGING) {
+                    ins.line = "rd = " + rd + ", rs1 = " + rs1 + ", rs2 = " + rs2;
 			System.out.println("rd = " + rd + ", rs1 = " + rs1 + ", rs2 = " + rs2);
 		}
 		// Determining the type of instruction

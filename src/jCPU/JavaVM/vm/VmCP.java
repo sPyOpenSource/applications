@@ -1,14 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package jCPU.JavaVM.vm;
 
-/**
- *
- * @author spy
- */
+import jx.classfile.constantpool.ClassCPEntry;
+import jx.classfile.constantpool.ConstantPool;
+import jx.classfile.constantpool.FieldRefCPEntry;
+import jx.classfile.constantpool.InterfaceMethodRefCPEntry;
+import jx.classfile.constantpool.MethodRefCPEntry;
+import jx.classfile.constantpool.StringCPEntry;
 
 /*
  * $Id$
@@ -36,7 +34,7 @@ package jCPU.JavaVM.vm;
  * @author Ewout Prangsma (epr@users.sourceforge.net)
  */
 
-public final class VmCP {
+public final class VmCP extends ConstantPool {
     public static final int TYPE_UTF8 = 1;
     public static final int TYPE_INT = 3;
     public static final int TYPE_FLOAT = 4;
@@ -163,43 +161,43 @@ public final class VmCP {
         set(index, InternString.internString(value));
     }*/
 
-    public VmConstString getString(int index) {
-        return (VmConstString) get(index);
+    public StringCPEntry getString(int index) {
+        return (StringCPEntry) get(index);
     }
 
-    protected void setString(int index, VmConstString value) {
+    protected void setString(int index, StringCPEntry value) {
         set(index, value);
     }
 
-    public VmConstClass getConstClass(int index) {
-        return (VmConstClass) get(index);
+    public ClassCPEntry getConstClass(int index) {
+        return (ClassCPEntry) get(index);
     }
 
-    protected void setConstClass(int index, VmConstClass value) {
+    protected void setConstClass(int index, ClassCPEntry value) {
         set(index, value);
     }
 
-    public VmConstFieldRef getConstFieldRef(int index) {
-        return (VmConstFieldRef) get(index);
+    public FieldRefCPEntry getConstFieldRef(int index) {
+        return (FieldRefCPEntry) get(index);
     }
 
-    protected void setConstFieldRef(int index, VmConstFieldRef value) {
+    protected void setConstFieldRef(int index, FieldRefCPEntry value) {
         set(index, value);
     }
 
-    public VmConstMethodRef getConstMethodRef(int index) {
-        return (VmConstMethodRef) get(index);
+    public MethodRefCPEntry getConstMethodRef(int index) {
+        return (MethodRefCPEntry) get(index);
     }
 
-    protected void setConstMethodRef(int index, VmConstMethodRef value) {
+    protected void setConstMethodRef(int index, MethodRefCPEntry value) {
         set(index, value);
     }
 
-    public VmConstIMethodRef getConstIMethodRef(int index) {
-        return (VmConstIMethodRef) get(index);
+    public InterfaceMethodRefCPEntry getConstIMethodRef(int index) {
+        return (InterfaceMethodRefCPEntry) get(index);
     }
 
-    protected void setConstIMethodRef(int index, VmConstIMethodRef value) {
+    protected void setConstIMethodRef(int index, InterfaceMethodRefCPEntry value) {
         set(index, value);
     }
 

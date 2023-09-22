@@ -26,7 +26,7 @@ public interface Opcode
 	public int exec(CPU cpu, int pc) throws Exception;
 
 	/**
-	 * Return the lenght in byte of the instruction.
+	 * @return the lenght in byte of the instruction.
 	 */
 	public int getLength();
 
@@ -36,7 +36,7 @@ public interface Opcode
 	public String decode(CPU cpu, int pc);
 
 	/**
-	 * Return the number of cycle machine necessary foo execute the
+	 * @return the number of cycle machine necessary foo execute the
 	 * instruction.
 	 */
 	public int getCycle();
@@ -47,7 +47,7 @@ public interface Opcode
 	public int getOpcode();
 
 	/**
-	 * Return the description of the instruction
+	 * @return the description of the instruction
 	 */
 	public String getDescription();
 

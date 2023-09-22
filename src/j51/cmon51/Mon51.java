@@ -59,7 +59,7 @@ public class Mon51 extends MCS51
 	}
 
         @Override
-	public void xdata(int add,int value)
+	public void xdata(int add, int value)
 	{
 		super.xdata(add & 0x7fff, value);
 	}

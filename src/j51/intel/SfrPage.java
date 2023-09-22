@@ -19,20 +19,20 @@ public class SfrPage extends VolatileMemory
 	
 	public SfrPage(int page)
 	{
-		super("SFR",256);
+		super("SFR", 256);
 		this.page = page;
 		
 		for (int i = 0 ; i < 256 ; i++)
-			setMemory(i,new SfrRegister(i));
-		setPresent(0,256);
+			setMemory(i, new SfrRegister(i));
+		setPresent(0, 256);
 	}
 
-	public SfrPage(int page,SfrPage base)
+	public SfrPage(int page, SfrPage base)
 	{
-		super("SFR#"+page,256);
+		super("SFR#" + page, 256);
 		this.page = page;
 		for (int i = 0 ; i < 256 ; i++)
-			setMemory(i,base.getMemory(i));
+			setMemory(i, base.getMemory(i));
 	}
 	
 	public SfrRegister getReg(int i)
