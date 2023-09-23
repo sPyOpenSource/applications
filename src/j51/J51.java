@@ -860,9 +860,9 @@ public class J51 extends JFrame implements MCS51Performance, ActionListener
 		GridBagConstraints g = new GridBagConstraints();
 		g.insets = new Insets(1, 1, 1, 1);
 		g.gridx = 0;
-                g.gridy = 0;
-                g.gridwidth = 1;
-                g.gridheight = 1;
+                 g.gridy = 0;
+                 g.gridwidth = 1;
+                 g.gridheight = 1;
 
 		g.fill = GridBagConstraints.NONE;
 		g.anchor = GridBagConstraints.WEST;
@@ -870,8 +870,8 @@ public class J51 extends JFrame implements MCS51Performance, ActionListener
 		p.add(toolBar,g);
 		
 		g.gridy++;
-                g.fill = GridBagConstraints.BOTH;
-                g.anchor = GridBagConstraints.CENTER;
+                 g.fill = GridBagConstraints.BOTH;
+                 g.anchor = GridBagConstraints.CENTER;
 		
 		g.gridwidth = 2;
 		p.add(info, g);
@@ -889,14 +889,14 @@ public class J51 extends JFrame implements MCS51Performance, ActionListener
 		
 		p.add(tp, g);
 		g.gridx = 0;
-                g.gridy++;
-                g.gridwidth = 2;
+                 g.gridy++;
+                 g.gridwidth = 2;
 		p.add(messages, g);
 
 		g.gridx = 2;
-                g.gridy = 0;
+                 g.gridy = 0;
 		g.gridheight = 4;
-                g.gridwidth = 1;
+                 g.gridwidth = 1;
 		p.add(peripheral, g);
 		
 		setContentPane(p);

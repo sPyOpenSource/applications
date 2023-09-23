@@ -152,8 +152,9 @@ public class Arm extends j51.intel.MCS51
             if (size <= 0){
                 continue;
             }
-System.out.println(ph.getVirtualAddress());
-            Chunk chunk = this.memory.create(ph.getVirtualAddress(), size);
+            System.out.println(ph.getVirtualAddress());
+            //Chunk chunk = this.memory.create(ph.getVirtualAddress(), size);
+            Chunk chunk = this.memory.create(0, size);
             elf.readSegment(ph, chunk);
         }
     } catch (IOException ex) {
@@ -1528,7 +1529,7 @@ System.out.println(ph.getVirtualAddress());
    */
   protected String parseThumb(int pc)
   {
-      this.r[15] = pc + 32768;
+      this.r[15] = pc;
       String line = "";
       //String line = String.format("%08X [T] ", this.r[15]);
 

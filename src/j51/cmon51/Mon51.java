@@ -23,17 +23,17 @@ public class Mon51 extends MCS51
 	{
 		CodeMon51()
 		{
-			super("CMON51", 0x8000);
+                      super("CMON51", 0x8000);
 		}
 		
                 @Override
 		public void setCode(int addr, int value)
 		{
 		
-			if (addr >= 0x8000)
-				xdata(addr, value);
-                        else
-				super.setCode(addr, value);
+                     if (addr >= 0x8000)
+			xdata(addr, value);
+                      else
+			super.setCode(addr, value);
 		}
 
                 @Override

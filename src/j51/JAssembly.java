@@ -87,7 +87,7 @@ public class JAssembly extends J51Panel
 						return Hex.bin2word(pc);
 						
 					case	2:
-						return cpu.getDecodeAt(pc).substring(5);
+						return cpu.getDecodeAt(pc);
 					default:
 						return null;
 				}

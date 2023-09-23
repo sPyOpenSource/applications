@@ -319,7 +319,7 @@ public final class CPU extends j51.intel.MCS51{
 		instructionWriteByte(address, value, isPrivileged());
 	}
 	public short instructionReadHalfword(int address) throws BusErrorException, AlignmentException, EscapeRetryException, EscapeCompleteException {
-		return instructionReadHalfword(address);
+		return instructionReadHalfword(address, isPrivileged());
 	}
 	public void instructionWriteHalfword(int address, short value) throws BusErrorException, AlignmentException, EscapeRetryException, EscapeCompleteException {
 		instructionWriteHalfword(address, value, isPrivileged());
@@ -365,7 +365,7 @@ public final class CPU extends j51.intel.MCS51{
 	private boolean haveReset = false;
 	private int cycleBudget = 0;
 	/**
-	 * Returns true if the cycle budget is fully spent, false if there are some unspent cycles left.
+	 * @return true if the cycle budget is fully spent, false if there are some unspent cycles left.
 	 */
 	public boolean budgetFullySpent() { return cycleBudget <= 0; }
 	/**

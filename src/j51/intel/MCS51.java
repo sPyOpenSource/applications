@@ -46,9 +46,9 @@ public class MCS51 implements MCS51Constants, jCPU.CPU
 	private FastArray<InterruptSource> interruptList = new FastArray<>();
 	
 	// Sfr register pages
-	private SfrPage	sfrPages[];
+	private SfrPage sfrPages[];
 	private SfrPage sfrCurrent;
-	private int	sfrPage = -1;
+	private int     sfrPage = -1;
 	
 	// SFR used as HI byte in MOVX A,Rx and MOVX @Rx,A
 	private int sfrXdataHi = P0;
@@ -99,8 +99,8 @@ public class MCS51 implements MCS51Constants, jCPU.CPU
 	private long opcodesCounter[] = new long[256];
 	
 
-	private FastArray<MCS51Peripheral> peripherals	    = new FastArray<>();
-	private FastArray<Runnable>	   runQueue	    = new FastArray<>();
+	private FastArray<MCS51Peripheral> peripherals	= new FastArray<>();
+	private FastArray<Runnable>	 runQueue	= new FastArray<>();
 	private FastArray<InterruptSource> interruptRequest = new FastArray<>();
 
 	/**
@@ -202,27 +202,27 @@ public class MCS51 implements MCS51Constants, jCPU.CPU
 		// Internal memory
 		for (int i = 0 ; i < 128 ; i++){
 			setSfrBitmap(i, 0x20 + i / 8);
-                }
+                 }
 
 		// Sfr register
 		for (int i = 128 ; i < 256 ; i++){
 			setSfrBitmap(i, i & 0xf8);
-                }
+                 }
 
 		// Break point
 		for (int i = 0 ; i < breakPoint.length ; i++){
 			breakPoint[i] = false;
-                }
+                 }
 
 		// Call listeners
 		for (int i = 0 ; i < callListeners.length ; i++){
 			callListeners[i] = null;
-                }
+                 }
 		
 
 		for (int i = 0 ; i < 64 * 1024 ; i++){
 			setCodeName(i, "#" + Hex.bin2word(i));
-                }
+                 }
 
 		/**
 		 * SFR register name
@@ -291,23 +291,22 @@ public class MCS51 implements MCS51Constants, jCPU.CPU
 		// Set default idata name
 		for (int reg = 0 ; reg < 8 ; reg++){
 			setIdataName(reg, "R" + reg);
-                }
+                 }
 
 		/**
 		 * Track PSW for current register set
 		 */
 		addSfrWriteListener(PSW, (int r, int v) -> {
                     regPtr = ((v >> 3) & 3) * 8;
-                });
+                 });
 
 		/**
 		 * Track IE for fast interrupt processing
 		 */
 		addSfrWriteListener(IE, (int r, int v) -> {
                     ie = (v & IE_EA) != 0;
-                });
-				
-				
+                 });
+						
 	}
 
 	/**
@@ -326,7 +325,7 @@ public class MCS51 implements MCS51Constants, jCPU.CPU
 	{
 		for (int i = emulationListeners.size() ; --i >= 0 ;){
 			emulationListeners.get(i).setEmulation(mode);
-                }
+                 }
 	}
 
 	/**
@@ -1074,6 +1073,7 @@ public class MCS51 implements MCS51Constants, jCPU.CPU
 
 	}
 
+        @Override
 	public final boolean ac()
 	{
 		return ((psw() & PSW_AC) != 0);

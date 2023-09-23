@@ -1,6 +1,7 @@
 
 package jCPU.JavaVM;
 
+import jCPU.JavaVM.vm.VmByteCode;
 import jCPU.JavaVM.vm.VmCP;
 import jCPU.JavaVM.vm.VmStackFrame;
 
@@ -22,15 +23,18 @@ public class JVM extends j51.intel.MCS51{
     }
     
     public JVM(){
-        
     }
     
     @Override
     public String getDecodeAt(int pc)
     {
-        String result = bytecode.findOpCode((char)code(pc)).getDescription();
-        if (result != null) return "     " + result;
-        return "     NULL";
+        char ins = (char)code.getCode(pc, false);
+        VmByteCode bc = bytecode.findOpCode(ins);
+        if (bc != null){
+            String result = bc.getDescription();
+            if (result != null) return result;
+        }
+        return "NULL";
     }
     
     @Override

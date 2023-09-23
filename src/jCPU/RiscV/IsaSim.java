@@ -23,13 +23,13 @@ public class IsaSim extends CPU{
     public final static String FILEPATH = "/home/spy/Source/RiscV/tests/task3/loop.bin";
 
     // Initial value of the program counter (default is zero)
-    public final static Integer INITIAL_PC = 0;
+    public final static int INITIAL_PC = 0;
 
     // Initial value of the stack pointer (default is 2^31 - 1)
-    public final static Integer INITIAL_SP = Integer.MAX_VALUE;
+    public final static int INITIAL_SP = Integer.MAX_VALUE;
 
     // Activate/deactivate debugging prints (default is true)
-    public final static Boolean DEBUGGING = true;
+    public final static boolean DEBUGGING = true;
 
     // Static variables used throughout the simulator
     static int pc = INITIAL_PC; // Program counter (counting in bytes)
@@ -40,7 +40,7 @@ public class IsaSim extends CPU{
     public static Memory ram = new Memory();
     boolean offsetPC = false, breakProgram = false; // For determining next pc value
     int cc = 0; // Clock cycle counter
-RVInstruction ins;
+    RVInstruction ins;
 
     public IsaSim() {
         try {
@@ -48,16 +48,16 @@ RVInstruction ins;
         } catch (IOException ex) {
             Logger.getLogger(IsaSim.class.getName()).log(Level.SEVERE, null, ex);
         }
-            reg[2] = INITIAL_SP; // Reset stack pointer
+        reg[2] = INITIAL_SP; // Reset stack pointer
     }
     
-        @Override
-  public String getDecodeAt(int pc)
-	{
-            ins = new RVInstruction(ram.readWord(pc));
-            step();
-            return ins.line;
-	}
+    @Override
+    public String getDecodeAt(int pc)
+    {
+        ins = new RVInstruction(ram.readWord(pc));
+        step();
+        return ins.line;
+    }
   
     @Override
     public void go(int limit) throws Exception{
@@ -81,6 +81,7 @@ RVInstruction ins;
 			switch (opcode) {
 			case LUI_MASK:
 				if (DEBUGGING) {
+                                    ins.line = "LUI ";
 					System.out.println(cc + " LUI instruction");
 				}
 				loadUpperImmediate(instr);
@@ -88,6 +89,7 @@ RVInstruction ins;
 
 			case AUIPC_MASK:
 				if (DEBUGGING) {
+                                    ins.line = "AUIPC ";
 					System.out.println(cc + " AUIPC instruction");
 				}
 				addUpperImmediatePC(instr);
@@ -95,6 +97,7 @@ RVInstruction ins;
 
 			case JAL_MASK:
 				if (DEBUGGING) {
+                                    ins.line = "JAL ";
 					System.out.println(cc + " JAL instruction");
 				}
 				jumpAndLink(instr);
@@ -103,6 +106,7 @@ RVInstruction ins;
 
 			case JALR_MASK:
 				if (DEBUGGING) {
+                                    ins.line = "JALR ";
 					System.out.println(cc + " JALR instruction");
 				}
 				jumpAndLinkRegister(instr);
@@ -111,6 +115,7 @@ RVInstruction ins;
 
 			case BRANCH_MASK:
 				if (DEBUGGING) {
+                                    ins.line = "Branch ";
 					System.out.println(cc + " Branch instruction");
 				}
 				offsetPC = branchInstruction(instr);
@@ -118,6 +123,7 @@ RVInstruction ins;
 
 			case LOAD_MASK:
 				if (DEBUGGING) {
+                                    ins.line = "Load ";
 					System.out.println(cc + " Load instruction");
 				}
 				loadInstruction(instr);
@@ -125,6 +131,7 @@ RVInstruction ins;
 
 			case STORE_MASK:
 				if (DEBUGGING) {
+                                    ins.line = "Store ";
 					System.out.println(cc + " Store instruction");
 				}
 				storeInstruction(instr);
@@ -132,6 +139,7 @@ RVInstruction ins;
 
 			case OP_IMM_MASK: // Immediate instructions
 				if (DEBUGGING) {
+                                    ins.line = "Immediate ";
 					System.out.println(cc + " Immediate instruction");
 				}
 				immediateInstruction(instr);
@@ -139,6 +147,7 @@ RVInstruction ins;
 
 			case OP_MASK: // Arithmetic
 				if (DEBUGGING) {
+                                    ins.line = "Arithmetic ";
 					System.out.println(cc + " Arithmetic instruction");
 				}
 				arithmeticInstruction(instr);
@@ -179,11 +188,12 @@ RVInstruction ins;
 		}
 		//System.out.println("Program exit");
 
-	public static void loadUpperImmediate(int instr) {
+	public void loadUpperImmediate(int instr) {
 		// General information
 		int rd = (instr >> 7) & 0x1F;
 		int imm = instr & 0xFFFFF000;
 		if (DEBUGGING) {
+                    ins.line += "rd = " + rd + ", imm = " + imm;
 			System.out.println("rd = " + rd + ", imm = " + imm);
 		}
 		reg[rd] = imm; // LUI stores the immediate in the top 20 bits of register rd
@@ -194,7 +204,7 @@ RVInstruction ins;
 		int rd = (instr >> 7) & 0x1F;
 		int imm = instr & 0xFFFFF000;
 		if (DEBUGGING) {
-                    ins.line = "rd = " + rd + ", imm = " + imm;
+                    ins.line += "rd = " + rd + ", imm = " + imm;
 			System.out.println("rd = " + rd + ", imm = " + imm);
 		}
 		reg[rd] = pc + imm;
@@ -209,7 +219,7 @@ RVInstruction ins;
 			imm |= 0xFFF00000; // Sign-extension if necessary
 		}
 		if (DEBUGGING) {
-                    ins.line = "rd = " + rd + ", imm = " + imm;
+                    ins.line += "rd = " + rd + ", imm = " + imm;
 			System.out.println("rd = " + rd + ", imm = " + imm);
 		}
 		reg[rd] = pc + 4; // Store return address
@@ -228,7 +238,7 @@ RVInstruction ins;
 			imm |= 0xFFFFF000; // Sign-extension if necessary
 		}
 		if (DEBUGGING) {
-                    ins.line = "rd = " + rd + ", rs1 = " + rs1 + ", imm = " + imm;
+                    ins.line += "rd = " + rd + ", rs1 = " + rs1 + ", imm = " + imm;
 			System.out.println("rd = " + rd + ", rs1 = " + rs1 + ", imm = " + imm);
 		}
 		reg[rd] = pc + 4; // Store return address
@@ -248,7 +258,7 @@ RVInstruction ins;
 			imm |= 0xFFFFE000; // Sign-extension if necessary
 		}
 		if (DEBUGGING) {
-                    ins.line = "rs1 = " + rs1 + ", rs2 = " + rs2 + ", imm = " + imm;
+                    ins.line += "rs1 = " + rs1 + ", rs2 = " + rs2 + ", imm = " + imm;
 			System.out.println("rs1 = " + rs1 + ", rs2 = " + rs2 + ", imm = " + imm);
 		}
 		// Determining the type of instruction
@@ -307,8 +317,8 @@ RVInstruction ins;
 		}
 		int memAddr = reg[rs1] + imm;
 		if (DEBUGGING) {
-                    ins.line = "rd = " + rd + ", rs1 = " + rs1 + ", imm = " + imm + ", memAddr = " + memAddr;
-			System.out.println("rd = " + rd + ", rs1 = " + rs1 + ", imm = " + imm + ", memAddr = " + memAddr);
+                    ins.line += "rd = " + rd + ", rs1 = " + rs1 + ", imm = " + imm + ", addr = " + memAddr;
+			System.out.println("rd = " + rd + ", rs1 = " + rs1 + ", imm = " + imm + ", addr = " + memAddr);
 		}
 		// Determining the type of instruction
 		int funct3 = (instr >> 12) & 0x7;
@@ -349,8 +359,8 @@ RVInstruction ins;
 		}
 		int memAddr = reg[rs1] + imm;
 		if (DEBUGGING) {
-                    ins.line = "rs1 = " + rs1 + ", rs2 = " + rs2 + ", imm = " + imm + ", memAddr = " + memAddr;
-			System.out.println("rs1 = " + rs1 + ", rs2 = " + rs2 + ", imm = " + imm + ", memAddr = " + memAddr);
+                    ins.line += "rs1 = " + rs1 + ", rs2 = " + rs2 + ", imm = " + imm + ", addr = " + memAddr;
+			System.out.println("rs1 = " + rs1 + ", rs2 = " + rs2 + ", imm = " + imm + ", addr = " + memAddr);
 		}
 		// Determining the type of instruction
 		int funct3 = (instr >> 12) & 0x7;
@@ -380,7 +390,7 @@ RVInstruction ins;
 			imm |= 0xFFFFF000; // Sign-extension if necessary
 		}
 		if (DEBUGGING) {
-                    ins.line = "rd = " + rd + ", rs1 = " + rs1 + ", imm = " + imm;
+                    ins.line += "rd = " + rd + ", rs1 = " + rs1 + ", imm = " + imm;
 			System.out.println("rd = " + rd + ", rs1 = " + rs1 + ", imm = " + imm);
 		}
 		// Determining the type of instruction
@@ -438,7 +448,7 @@ RVInstruction ins;
 		int rs1 = (instr >> 15) & 0x1F;
 		int rs2 = (instr >> 20) & 0x1F;
 		if (DEBUGGING) {
-                    ins.line = "rd = " + rd + ", rs1 = " + rs1 + ", rs2 = " + rs2;
+                    ins.line += "rd = " + rd + ", rs1 = " + rs1 + ", rs2 = " + rs2;
 			System.out.println("rd = " + rd + ", rs1 = " + rs1 + ", rs2 = " + rs2);
 		}
 		// Determining the type of instruction

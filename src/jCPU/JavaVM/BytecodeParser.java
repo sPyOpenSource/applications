@@ -32,7 +32,6 @@ import jx.classfile.constantpool.InterfaceMethodRefCPEntry;
  * @author epr
  */
 public class BytecodeParser {
-
     private final ByteCode bc;
     private final VmCP cp;
     private char[] bytecode;
