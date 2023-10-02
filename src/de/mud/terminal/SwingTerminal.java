@@ -263,6 +263,7 @@ public class SwingTerminal extends Component
    * Set the font to be used for rendering the characters on screen.
    * @param font the new font to be used.
    */
+  @Override
   public void setFont(Font font) {
     super.setFont(normalFont = font);
     fm = getFontMetrics(font);
@@ -320,6 +321,7 @@ public class SwingTerminal extends Component
   /**
    * Redraw marked lines.
    */
+  @Override
   public void redraw() {
     if (backingStore != null) {
       redraw(backingStore.getGraphics());
@@ -327,6 +329,7 @@ public class SwingTerminal extends Component
     }
   }
 
+  @Override
   public void updateScrollBar() {
     if (scrollBar == null) return;
     scrollBar.setValues(buffer.windowBase, buffer.height, 0, buffer.bufSize);
@@ -555,6 +558,7 @@ public class SwingTerminal extends Component
     colorPrinting = colorPrint;
   }
 
+  @Override
   public void print(Graphics g) {
     if (debug > 0) System.err.println("DEBUG: print()");
     for (int i = 0; i <= buffer.height; i++) buffer.update[i] = true;
@@ -720,6 +724,7 @@ public class SwingTerminal extends Component
    * @return Dimension the dimension of the display
    * @see java.awt.Dimension
    */
+  @Override
   public Dimension getSize() {
     int xborder = 0, yborder = 0;
     if (insets != null) {

@@ -1078,7 +1078,7 @@ public class SoftFont {
 	public boolean inSoftFont(char c) {
 		boolean insoftfont;
 
-		insoftfont = (null != font.get(new Integer(c)));
+		insoftfont = (null != font.get(Integer.valueOf(c)));
 		if (!insoftfont && (int)c >= 0x100) {
 			System.out.println("Character " + ((int)c) + " not in softfont");
 		}

@@ -50,6 +50,7 @@ public abstract class vt320 extends VDUBuffer implements VDUInput {
    * send terminal answers requests like status and type information.
    * @param b the array of bytes to be sent
    */
+  @Override
   public abstract void write(byte[] b);
 
   /**
@@ -88,6 +89,7 @@ public abstract class vt320 extends VDUBuffer implements VDUInput {
     /* To be overridden by Terminal.java */
   }
 
+  @Override
   public void setScreenSize(int c, int r, boolean broadcast) {
     int oldrows = getRows(), oldcols = getColumns();
 
@@ -246,6 +248,7 @@ public abstract class vt320 extends VDUBuffer implements VDUInput {
    * @param y
    * @param modifiers
    */
+  @Override
   public void mousePressed(int x, int y, int modifiers) {
     if (mouserpt == 0)
       return;
@@ -281,6 +284,7 @@ public abstract class vt320 extends VDUBuffer implements VDUInput {
    * @param y
    * @param modifiers
    */
+  @Override
   public void mouseReleased(int x, int y, int modifiers) {
     if (mouserpt == 0)
       return;
@@ -344,6 +348,7 @@ public abstract class vt320 extends VDUBuffer implements VDUInput {
    * Override the standard key codes used by the terminal emulation.
    * @param codes a properties object containing key code definitions
    */
+  @Override
   public void setKeyCodes(Properties codes) {
     String res, prefixes[] = {"", "S", "C", "A"};
     int i;
@@ -696,6 +701,7 @@ public abstract class vt320 extends VDUBuffer implements VDUInput {
   /**
    * main keytyping event handler...
    */
+  @Override
   public void keyPressed(int keyCode, char keyChar, int modifiers) {
     boolean control = (modifiers & VDUInput.KEY_CONTROL) != 0;
     boolean shift = (modifiers & VDUInput.KEY_SHIFT) != 0;
@@ -788,7 +794,7 @@ public abstract class vt320 extends VDUBuffer implements VDUInput {
       case KeyEvent.VK_BACK_SPACE:
         writeSpecial(BackSpace[xind]);
 	if (localecho) {
-	  if (BackSpace[xind] == "\b") {
+	  if ("\b".equals(BackSpace[xind])) {
 	    putString("\b \b"); // make the last char 'deleted'
 	  } else {
 	    putString(BackSpace[xind]); // echo it
@@ -829,6 +835,7 @@ public abstract class vt320 extends VDUBuffer implements VDUInput {
    * Handle key Typed events for the terminal, this will get
    * all normal key types, but no shift/alt/control/numlock.
    */
+  @Override
   public void keyTyped(int keyCode, char keyChar, int modifiers) {
     boolean control = (modifiers & VDUInput.KEY_CONTROL) != 0;
     boolean shift = (modifiers & VDUInput.KEY_SHIFT) != 0;
@@ -1013,7 +1020,6 @@ public abstract class vt320 extends VDUBuffer implements VDUInput {
 
     if (!((keyChar == 8) || (keyChar == 127) || (keyChar == '\r') || (keyChar == '\n'))) {
       write("" + keyChar);
-      return;
     }
   }
 
@@ -1743,13 +1749,14 @@ public abstract class vt320 extends VDUBuffer implements VDUInput {
             R = Sr;
             gl = Sgl;
             gr = Sgr;
-            for (int i = 0; i < 4; i++) gx[i] = Sgx[i];
+            System.arraycopy(Sgx, 0, gx, 0, 4);
             setTopMargin(Stm);
             setBottomMargin(Sbm);
             attributes = Sa;
             if (debug > 1)
               System.out.println("ESC 8");
             break;
+
           case '(': /* Designate G0 Character set (ISO 2022) */
             term_state = TSTATE_SETG0;
             usedcharsets = true;

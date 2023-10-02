@@ -1,4 +1,4 @@
 /nbproject/private/
-/dist/
 *.eeprom
 *.flash
+/build/
