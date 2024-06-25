@@ -21,7 +21,7 @@ public class JRegister extends J51Panel
 	private final JHexField r[] = new JHexField[8];
 	private ActionListener listener = null;
 	
-	JRegister()
+	public JRegister()
 	{
 		super("Register");
 		// Create the jlabel

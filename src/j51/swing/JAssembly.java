@@ -50,7 +50,7 @@ public class JAssembly extends J51Panel
 		}
 	};
 
-	JAssembly()
+	public JAssembly()
 	{
 		super("Assembler", false);
 
