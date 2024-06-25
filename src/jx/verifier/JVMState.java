@@ -1,6 +1,6 @@
 package jx.verifier;
 
-import jx.zero.ByteCode;
+import jx.verifier.bytecode.ByteCode;
 import jx.zero.verifier.VerifierInterface;
 
 /** Class to hold all necessary information about the state of the JVM simulated during verification.*/

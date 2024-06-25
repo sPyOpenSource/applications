@@ -1,11 +1,10 @@
 package jx.verifier.typecheck;
 
-import jx.verifier.bytecode.*;
 import jx.verifier.VerifyException;
 import java.util.Vector;
 import java.util.Enumeration;
-import jx.zero.classstore.ClassFinder;
 import jx.classfile.ClassData;
+import jx.compiler.ClassFinder;
 
 public class TCInterfaceTypes extends TCTypes {
     private Vector interfaces = new Vector(1); //vector of all interfaces that are implemented
