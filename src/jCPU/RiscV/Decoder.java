@@ -1030,9 +1030,8 @@ public void decode_riscv_binary(RVInstruction ins)
         return "NOP";
     }
     
-    @Override
-    public String getDecodeAt(int pc){
-            RVInstruction ins = new RVInstruction(code(pc));
+    public String getDecodeAt(int opcode){
+            RVInstruction ins = new RVInstruction(opcode);
             String result = get_riscv_ins_str(ins);
             if(result != null) return "     " + result;
             return "     NULL";

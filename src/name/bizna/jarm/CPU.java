@@ -93,27 +93,22 @@ public final class CPU extends ARMConstants {
 		default: return readGPR(r);
 		}
 	}
-        @Override
         public int r(int r)
 	{
 		return readRegister(r);
 	}
-        @Override
         public int sp()
 	{
 		return readSP();
 	}
-        @Override
 	public void sp(int value)
 	{
 		writeSP(value);
 	}
-        @Override
 	public int pc()
 	{
 		return readPC() & ~3;
 	}
-        @Override
 	public void pc(int value)
 	{
 		writePC(value);
@@ -134,7 +129,6 @@ public final class CPU extends ARMConstants {
 		default: writeGPR(r, new_value); break;
             }
 	}
-        @Override
         public void r(int r, int value)
 	{
 		writeRegister(r, value);
@@ -336,7 +330,6 @@ public final class CPU extends ARMConstants {
 		if(cycleBudget > 0 || !soft) cycleBudget = 0;
 	}
         
-        @Override
         public void go(int limit) throws Exception{
         while(true){
             execute();
@@ -388,7 +381,6 @@ public final class CPU extends ARMConstants {
 	/**
 	 * Fetch and execute a single instruction
 	 */
-        @Override
 	public int execute() throws BusErrorException, AlignmentException, UndefinedException, EscapeRetryException, EscapeCompleteException {
 		if(!haveReset) throw new FatalException("execute() called without first calling reset()");
 		if((cpsr & CPSR_BIT_F) == 0 && haveFIQ()) generateFIQException();
@@ -1944,7 +1936,6 @@ public final class CPU extends ARMConstants {
 		branch(getInterruptVector(vector));
 	}
         
-        @Override
         public void reset(){
             reset(false, false, false);
         }

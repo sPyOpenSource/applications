@@ -1,6 +1,6 @@
 package jx.verifier.wcet;
 
-import jx.zero.ByteCode;
+import jx.verifier.bytecode.ByteCode;
 import jx.verifier.*;
 import jx.classfile.constantpool.*;
 import jx.verifier.bytecode.BCCPArgOp;

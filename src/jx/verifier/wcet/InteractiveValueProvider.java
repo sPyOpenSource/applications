@@ -5,10 +5,8 @@ import jx.zero.Debug;
 import jx.zero.verifier.wcet.ExecutionTime;
 import jx.zero.verifier.wcet.ValueProvider;
 
-
 /**Class to provide values for simulation of bytecodes that cannot be simulated, like getfield.
  */
-
 public class InteractiveValueProvider implements ValueProvider{
     private String ctxClassName;
     private String ctxMethodName;

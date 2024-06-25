@@ -94,7 +94,7 @@ public class JInfo extends J51Panel implements MCS51Performance,ResetListener
 	JFormattedTextField clock = new JFormattedTextField(new DecimalFormat("###,###,##0"));
 	SpinnerNumberModel cycleModel = new SpinnerNumberModel(1,1,16,1);
 	JSpinner	cycle = new JSpinner(cycleModel);
-	JHexWord	reset;
+	public JHexWord	reset;
 	JTextField	elapsed;
 	
 	CpuUsage  min,max,avg,cur;

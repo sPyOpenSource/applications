@@ -51,7 +51,6 @@ public class IsaSim extends Decoder {
         reg[2] = INITIAL_SP; // Reset stack pointer
     }
         
-    @Override
     public void go(int limit) throws Exception{
         while(true){
             RVInstruction ins = new RVInstruction(ram.readWord(pc));
@@ -60,7 +59,6 @@ public class IsaSim extends Decoder {
         }
     }
     
-    @Override
     public int step () {
             // Combine four bytes to produce a single instruction
             int instr = ram.readWord(pc);
