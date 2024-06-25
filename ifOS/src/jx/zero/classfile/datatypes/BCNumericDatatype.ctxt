@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=BCNumericDatatype
+comment1.params=operator\ op2
+comment1.target=BCNumericDatatype\ combined(int,\ BCNumericDatatype)
+comment2.params=
+comment2.target=BCNumericDatatype\ negated()
+numComments=3

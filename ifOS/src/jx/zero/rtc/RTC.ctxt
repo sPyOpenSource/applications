@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=RTC
+comment1.params=
+comment1.target=int\ getTime()
+comment2.params=atomic\ state\ msec
+comment2.target=void\ installIntervallTimer(jx.zero.AtomicVariable,\ jx.zero.CPUState,\ int)
+numComments=3

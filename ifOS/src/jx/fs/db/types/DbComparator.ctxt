@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=DbComparator
+comment1.params=baFirstKey\ baSecondKey
+comment1.target=int\ compare(byte[],\ byte[])
+comment2.params=baFirstKey\ iFirstOffset\ baSecondKey\ iSecondOffset\ iSize
+comment2.target=int\ compare(byte[],\ int,\ byte[],\ int,\ int)
+numComments=3

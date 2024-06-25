@@ -1,0 +1,5 @@
+#BlueJ class context
+comment0.target=RPCWriter
+comment1.params=buf\ offset\ data
+comment1.target=int\ write(byte[],\ int,\ java.lang.Object)
+numComments=2

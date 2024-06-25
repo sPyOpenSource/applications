@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.target=PageStrategyRecord
+comment0.text=\ this\ interface\ is\ used\ by\ the\ PageBuffer\ objects\ to\ obtain\ information\ about\ the\ paged\ in\ pages\n
+comment1.params=
+comment1.target=int\ getFixCnt()
+comment1.text=\ returns\ the\ fix\ counter\ of\ the\ requested\ page\n\ @return\ fix\ counter\ of\ the\ requested\ page\n
+comment2.params=
+comment2.target=boolean\ getDirtyFlag()
+comment2.text=\ returns\ the\ dirty\ flag\ of\ the\ requested\ page\n\ @return\ dirty\ flag\ of\ the\ requested\ page\n
+comment3.params=
+comment3.target=int\ getPageNum()
+comment3.text=\ returns\ the\ page\ number\ of\ the\ page\ described\ in\ this\ {@link\ PageStrategyRecord}\ object\n\ @return\ page\ number\ of\ the\ page\ described\ in\ this\ {@link\ PageStrategyRecord}\ object\n
+comment4.params=
+comment4.target=byte[]\ getPage()
+comment4.text=\ returns\ a\ byte\ array\ containing\ the\ page\ data\n\ @return\ byte\ array\ containing\ the\ page\ data\n
+numComments=5

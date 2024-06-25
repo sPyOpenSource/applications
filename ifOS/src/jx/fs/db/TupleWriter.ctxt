@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=TupleWriter
+comment0.text=\n\ Title\:\ \ \ \ \ \ \ \ SA\n\ Description\:\n\ Copyright\:\ \ \ \ Copyright\ (c)\ 2001\n\ Company\:\n\ @author\ Ivanich\n\ @version\ 1.0\n
+comment1.params=iPos\ cSrc\ iSrcOffset
+comment1.target=void\ setField(int,\ java.lang.Object,\ int)
+comment1.text=\ sets\ the\ contents\ of\ the\ attribute\ on\ the\ given\ iPos\n\ @param\ iPos\ position\ of\ the\ attribute\ in\ the\ tuple\n\ @param\ cSrc\ source\ object\n\ @param\ iSrcOffset\ offset\ in\ the\ source\ object\ (\ usefull\ for\ byte\ arrays\ )\n\ @throws\ CodedException\ thrown\ on\ error\n
+comment2.params=iPos\ iSrc
+comment2.target=void\ setField(int,\ int)
+comment2.text=\ the\ same\ as\ setField(\ int,\ Object,\ int\ ),\ but\ only\ for\ integers\n\ @param\ iPos\ position\ of\ the\ attribute\ in\ the\ tuple(\ not\ offset,\ but\ number\ )\n\ @param\ iSrc\ source\ number\n\ @throws\ CodedException\ thrown\ on\ error\n
+comment3.params=
+comment3.target=TupleReader\ getReader()
+comment3.text=\ closes\ the\ tuple\ and\ unfixes\ the\ page\ that\ contains\ it.Should\ be\ called\ always\ after\ using\ the\ tuple.\n\ @throws\ CodedException\ thrown\ on\ error\n
+comment4.params=
+comment4.target=void\ close()
+numComments=5

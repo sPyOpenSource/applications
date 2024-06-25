@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.target=DbConverter
+comment0.text=\n\ Title\:\ \ \ \ \ \ \ \ Studienarbeit\n\ Description\:\n\ Copyright\:\ \ \ \ Copyright\ (c)\ 2001\n\ Company\:\n\ @author\n\ @version\ 1.0\n
+comment1.params=cSrc\ iSrcOffset\ cDest\ iDestOffset\ iSize
+comment1.target=void\ convert(java.lang.Object,\ int,\ java.lang.Object,\ int,\ int)
+comment2.params=cSrc\ iSrcOffset\ cDest\ iDestOffset\ iSize
+comment2.target=void\ revert(java.lang.Object,\ int,\ java.lang.Object,\ int,\ int)
+numComments=3

@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=ClassData
+comment0.text=\n\n\ @author\ xuyi\n
+comment1.params=
+comment1.target=boolean\ isInterface()
+comment2.params=
+comment2.target=java.lang.String\ getSuperClassName()
+comment3.params=
+comment3.target=java.lang.String\ getClassName()
+numComments=4

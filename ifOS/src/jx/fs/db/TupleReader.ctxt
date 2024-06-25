@@ -1,0 +1,25 @@
+#BlueJ class context
+comment0.target=TupleReader
+comment0.text=\n\ Title\:\ \ \ \ \ \ \ \ SA\n\ Description\:\n\ Copyright\:\ \ \ \ Copyright\ (c)\ 2001\n\ Company\:\n\ @author\ Ivanich\n\ @version\ 1.0\n
+comment1.params=
+comment1.target=TupleDescriptor\ getTd()
+comment1.text=\ returns\ a\ tuple\ descriptor\ for\ the\ tuple\n\ @return\ tuple\ descriptor\ for\ the\ tuple\n
+comment2.params=
+comment2.target=SetNumberReader\ getSetNumReader()
+comment2.text=\ returns\ the\ adress\ of\ the\ tuple\n\ @return\ the\ adress\ of\ the\ tuple\n
+comment3.params=iPos\ cDest\ iDestOffset
+comment3.target=void\ getField(int,\ java.lang.Object,\ int)
+comment3.text=\ reads\ the\ attribute\ on\ the\ iPos\ into\ the\ cDest\ Object.\ This\ function\ uses\ DbConverter\ and\ its\ subclasses\ to\ convert\ the\ bytes\ of\ the\ attribute\ into\ the\ proper\ form\n\ @param\ iPos\ position\ of\ the\ attribute\ in\ the\ tuple\n\ @param\ cDest\ destination\ object\ to\ save\ the\ data\n\ @param\ iDestOffset\ offset\ in\ the\ destination\ object\ (\ usefull\ for\ byte[]\ objects\ )\n\ @throws\ CodedException\ thrown\ on\ error\ (\ wrong\ datatype\ and\ casting\ )\n
+comment4.params=iPos
+comment4.target=int\ getField(int)
+comment4.text=\ same\ as\ getField(\ int,\ Object,\ int\ ),\ but\ only\ for\ integers.\ The\ developer\ should\ add\ such\ methods\ for\ all\ used\ standard\ types.\n\ @param\ iPos\ position\ of\ the\ attribute\ in\ the\ tuple\ (\ number,\ not\ offset\!\ )\n\ @throws\ CodedException\ thrown\ on\ error\n\ @return\ integer\ value\ of\ the\ attribute\n
+comment5.params=baDest\ iOffset
+comment5.target=void\ getBytes(byte[],\ int)
+comment5.text=\ receives\ a\ byte\ array\ containing\ the\ whole\ tuple\n\ @param\ baDest\ destination\ buffer\ to\ write\ the\ bytes\n\ @param\ iOffset\ offset\ in\ the\ destination\ buffer\n\ @throws\ CodedException\ thrown\ on\ error\n
+comment6.params=
+comment6.target=void\ dump()
+comment6.text=\ dumps\ the\ contents\ of\ the\ tuple\ on\ the\ console\ (\ use\ for\ testing\ )\n\ @throws\ CodedException\ thrown\ on\ error\n
+comment7.params=
+comment7.target=void\ close()
+comment7.text=\ closes\ the\ tuple\ and\ unfixes\ all\ fixed\ pages.\ Must\ be\ called\ always\ after\ use\!\n\ @throws\ CodedException\ thrown\ on\ error\n
+numComments=8

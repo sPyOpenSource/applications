@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.target=Comparable
+comment0.text=\ \ \ Das\ Interface\ deklariert\ eine\ Methode,\ anhand\ der\ sich\ das\n\ \ \ \ aufgerufene\ Objekt\ mit\ dem\ uebergebenen\ vergleicht.\n\ \ \ \ Fuer\ jeden\ von\ Object\ abgeleiteten\ Datentyp\ muss\ eine\ solche\n\ \ \ \ Vergleichsklasse\ implementiert\ werden.\n\ \ \ \ Die\ Methode\ erzeugt\ eine\ Fehlermeldung,\ wenn\ a\ ein\ Objekt\ einer\ anderen\n\ \ \ \ Klasse\ als\ dieses\ Objekt\ ist.\n\n\ \ \ \ int\ compareTo(Comparable\ a)\n\ \ \ \ \ \ \ \ \ liefert\ \ 0,\ wenn\ this\ \=\=\ a\n\ \ \ \ \ \ \ \ \ liefert\ <0,\ wenn\ this\ <\ \ a\n\ \ \ \ \ \ \ \ \ liefert\ >0,\ wenn\ this\ >\ \ a\n
+comment1.params=a
+comment1.target=int\ compareTo(Comparable)
+numComments=2

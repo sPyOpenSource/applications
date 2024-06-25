@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.target=Index
+comment1.params=
+comment1.target=void\ dropIndex()
+comment1.text=\ deletes\ an\ index\ with\ all\ its\ structures\n\ @throws\ CodedException\ thrown\ on\ error\ (\ write\ error,\ etc.\ )\n
+comment2.params=
+comment2.target=IndexInfo\ getIndexInfo()
+comment2.text=\ returns\ an\ IndexInfo\ object\ for\ an\ index\n\ @throws\ CodedException\ thrown\ on\ error\ (\ no\ valid\ index,\ etc\ )\n\ @return\ returns\ an\ IndexInfo\ object,\ containing\ information\ about\ the\ index\ (\ attribute\ map,\ unique\ flag,\ etc\ )\n
+comment3.params=
+comment3.target=Table\ getTable()
+comment3.text=\ returns\ the\ id\ of\ the\ table,\ containing\ the\ index,\ which\ id\ is\ iIID\n\ @throws\ CodedException\ thrown\ on\ error\ (\ no\ valid\ index,\ etc\ )\n\ @return\ id\ of\ the\ table\ containing\ the\ index\n
+comment4.params=
+comment4.target=Key\ getKey()
+numComments=5

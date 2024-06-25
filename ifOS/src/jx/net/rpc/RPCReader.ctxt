@@ -1,0 +1,5 @@
+#BlueJ class context
+comment0.target=RPCReader
+comment1.params=buf\ offset
+comment1.target=java.lang.Object\ read(byte[],\ int)
+numComments=2
