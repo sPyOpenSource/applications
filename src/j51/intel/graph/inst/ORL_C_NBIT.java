@@ -8,17 +8,16 @@ import jCPU.iCPU;
  *
  * @author xuyi
  */
-public class DEC_A extends AbstractOpcode
+public class ORL_C_NBIT extends AbstractOpcode
 {
-	public DEC_A()
+	public ORL_C_NBIT()
 	{
-		super(0x14,1,1,"DEC\tA");
+		super(0xA0,2,2,"ORL\tC,NOT #BIT");
 	}
-	
+
         @Override
 	public void exec(iCPU cpu,int pc)
 	{
-		cpu.acc((int)(cpu.acc() - 1));
+		cpu.cy(cpu.cy() | !cpu.getBitCODE(pc+1));
 	}
-	
 }

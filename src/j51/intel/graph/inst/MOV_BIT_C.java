@@ -8,17 +8,16 @@ import jCPU.iCPU;
  *
  * @author xuyi
  */
-public class DEC_A extends AbstractOpcode
+public class MOV_BIT_C extends AbstractOpcode
 {
-	public DEC_A()
+	public MOV_BIT_C()
 	{
-		super(0x14,1,1,"DEC\tA");
+		super(0x92,2,2,"MOV\t#BIT,C");
 	}
-	
+
         @Override
 	public void exec(iCPU cpu,int pc)
 	{
-		cpu.acc((int)(cpu.acc() - 1));
+		cpu.setBit(cpu.code(pc+1),cpu.cy());
 	}
-	
 }

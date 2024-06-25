@@ -8,17 +8,17 @@ import jCPU.iCPU;
  *
  * @author xuyi
  */
-public class DEC_A extends AbstractOpcode
+public class CPL_BIT extends AbstractOpcode
 {
-	public DEC_A()
+	public CPL_BIT()
 	{
-		super(0x14,1,1,"DEC\tA");
+		super(0xb2,2,1,"CPL\t#BIT");
 	}
-	
+
         @Override
 	public void exec(iCPU cpu,int pc)
 	{
-		cpu.acc((int)(cpu.acc() - 1));
+		int bit = cpu.code(pc+1);
+		cpu.setBit(bit, !cpu.getBit(bit));
 	}
-	
 }

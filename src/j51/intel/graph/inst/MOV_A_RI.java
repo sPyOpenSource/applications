@@ -8,21 +8,21 @@ import jCPU.iCPU;
  *
  * @author xuyi
  */
-public class MOV_A_R extends AbstractOpcode
+public class MOV_A_RI extends AbstractOpcode
 {
-	public MOV_A_R(int r)
+	public MOV_A_RI(int r)
 	{
-		super(0xe8|r,1,1,"MOV");
+		super(0xe6|r,1,1,"MOV");
 	}
 
 	public void exec(iCPU cpu,int pc)
 	{
-		cpu.acc(cpu.r((int)(opcode & 7)));
+		cpu.acc(cpu.idata(cpu.r((int)(opcode & 1))));
 	}
 
 	public String toString()
 	{
-		return description+"\tA,R"+(opcode & 7);
+		return description+"\tA,@R"+(opcode & 1);
 	}
 
 }

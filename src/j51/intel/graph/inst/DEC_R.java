@@ -8,25 +8,23 @@ import jCPU.iCPU;
  *
  * @author xuyi
  */
-public class XCH_A_R extends AbstractOpcode
+public class DEC_R extends AbstractOpcode
 {
-	public XCH_A_R(int r)
+	public DEC_R(int r)
 	{
-		super(0xc8|r,1,1,"XCH");
+		super(0x18|r,1,1,"DEC");
 	}
 
         @Override
 	public void exec(iCPU cpu,int pc)
 	{
 		int r = (int)(opcode & 7);
-		int tmp = cpu.acc();
-		cpu.acc(cpu.r(r));
-		cpu.r(r,tmp);
+		cpu.r(r,(int)(cpu.r(r) - 1));
 	}
 
+        @Override
 	public String toString()
 	{
-		return description + "\tA,R" + (opcode & 7);
+		return description+"\tR"+(opcode & 7);
 	}
-
 }

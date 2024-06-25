@@ -21,17 +21,3 @@ public class SETB_BIT extends AbstractOpcode
 		cpu.setBit(cpu.code(pc+1),true);
 	}
 }
-
-class SETB_C extends AbstractOpcode
-{
-	public SETB_C()
-	{
-		super(0xd3,1,1,"SETB\tC");
-	}
-
-        @Override
-	public void exec(iCPU cpu,int pc)
-	{
-		cpu.cy(true);
-	}
-}

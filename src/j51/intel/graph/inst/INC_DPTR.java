@@ -8,17 +8,16 @@ import jCPU.iCPU;
  *
  * @author xuyi
  */
-public class DEC_A extends AbstractOpcode
+public class INC_DPTR extends AbstractOpcode
 {
-	public DEC_A()
+	public INC_DPTR()
 	{
-		super(0x14,1,1,"DEC\tA");
+		super(0xa3,1,2,"INC\tDPTR");
 	}
-	
+
         @Override
 	public void exec(iCPU cpu,int pc)
 	{
-		cpu.acc((int)(cpu.acc() - 1));
+		cpu.dptr(cpu.dptr()+1);
 	}
-	
 }

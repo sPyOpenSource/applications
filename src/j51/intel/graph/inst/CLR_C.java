@@ -8,16 +8,16 @@ import jCPU.iCPU;
  *
  * @author xuyi
  */
-public class CLR_A extends AbstractOpcode
+public class CLR_C extends AbstractOpcode
 {
-	public CLR_A()
+	public CLR_C()
 	{
-		super(0xe4, 1, 1, "CLR\tA");
+		super(0xc3, 1, 1, "CLR\tC");
 	}
 
         @Override
 	public void exec(iCPU cpu, int pc)
 	{
-		cpu.acc((int)0);
+		cpu.cy(false);
 	}
 }

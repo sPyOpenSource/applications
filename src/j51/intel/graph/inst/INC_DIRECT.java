@@ -8,17 +8,18 @@ import jCPU.iCPU;
  *
  * @author xuyi
  */
-public class DEC_A extends AbstractOpcode
+public class INC_DIRECT extends AbstractOpcode
 {
-	public DEC_A()
+	public INC_DIRECT()
 	{
-		super(0x14,1,1,"DEC\tA");
+		super(5,2,1,"INC\tDIRECT");
 	}
-	
+
         @Override
 	public void exec(iCPU cpu,int pc)
 	{
-		cpu.acc((int)(cpu.acc() - 1));
+		int a = cpu.code(pc+1);
+		cpu.setDirect(a,(int)(cpu.getDirect(a)+1));
 	}
-	
+
 }
