@@ -1,0 +1,25 @@
+#BlueJ class context
+comment0.target=ValueProvider
+comment0.text=Interface\ to\ provide\ values\ for\ simulation\ of\ bytecodes\ that\ cannot\ be\ simulated,\ like\ getfield.\n
+comment1.params=bc
+comment1.target=boolean\ valueAvailable(jx.zero.ByteCode)
+comment1.text=Check\ if\ information\ for\ ByteCode\ bc\ is\ available.\n\ @return\ true\ if\ available,\ else\ false\n
+comment2.params=className\ fieldName\ fieldType\ bc
+comment2.target=java.lang.Integer\ getIntField(java.lang.String,\ java.lang.String,\ java.lang.String,\ jx.zero.ByteCode)
+comment2.text=\ Get\ Field\ Value\n\ @return\ value\ if\ available,\ else\ null\n
+comment3.params=className\ methodName\ methodType\ bc
+comment3.target=java.lang.Integer\ invokeIntMethod(java.lang.String,\ java.lang.String,\ java.lang.String,\ jx.zero.ByteCode)
+comment3.text=returns\ the\ value\ that\ would\ be\ returned\ if\ the\ method\ was\ invoked.\nnote\:\ should\ only\ be\ called\ during\ Simulation,\ as\ calls\ may\ return\ different\ values,\ depending\ on\ how\ often\ they\ were\ already\ called.\n\ @return\ value\ if\ available,\ else\ null\n
+comment4.params=className\ methodName\ methodType\ bc
+comment4.target=ExecutionTime\ getMethodWCET(java.lang.String,\ java.lang.String,\ java.lang.String,\ jx.zero.ByteCode)
+comment4.text=\ Get\ ExecutionTime\ of\ Method\n
+comment5.params=className\ methodName\ methodType\ bc
+comment5.target=boolean\ providesMethodWCET(java.lang.String,\ java.lang.String,\ java.lang.String,\ jx.zero.ByteCode)
+comment5.text=returns\ true\ if\ the\ method\ should\ not\ be\ analyzed\ and\ the\ wcet\ is\ provided\ by\ this\ vp.\n\ Note\ that\ this\ method\ might\ return\ false\ though\ <code>getMethodWCET</code>\ returns\ a\ valid\ ExecutionTime.\ This\ is\ the\ case,\ if\ the\ method\ should\ be\ analyzed,\ and\ only\ if\ it\ could\ not\ be\ analyzed,\ as\ a\ last\ resort,\ the\ wcet\ provided\ by\ the\ vp.\ should\ be\ used.\n\ @return\ true\ if\ the\ wcet\ from\ the\ vp\ must\ be\ used.\n
+comment6.params=className\ methodName\ methodType
+comment6.target=void\ setContext(java.lang.String,\ java.lang.String,\ java.lang.String)
+comment6.text=Set\ class,\ name\ and\ type\ of\ the\ method\ currently\ analyzed.\n
+comment7.params=argNum\ className\ methodName\ methodType
+comment7.target=java.lang.Integer\ getMethodArgument(int,\ java.lang.String,\ java.lang.String,\ java.lang.String)
+comment7.text=returns\ the\ value\ that\ should\ be\ used\ as\ nth\ parameter.\n\ @return\ value\ if\ available,\ else\ null\n
+numComments=8
