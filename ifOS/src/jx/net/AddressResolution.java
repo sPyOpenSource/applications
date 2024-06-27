@@ -8,5 +8,5 @@ public interface AddressResolution {
      * @param fromAddress
      * @return 
      * @throws jx.net.UnknownAddressException */
-    public byte[] lookup(byte[] fromAddress);
+    public byte[] lookup(byte[] fromAddress) throws Exception;
 }
