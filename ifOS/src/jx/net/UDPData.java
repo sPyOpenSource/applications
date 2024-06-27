@@ -9,6 +9,19 @@ import jx.zero.Memory;
  */
 public interface UDPData {
 
-    public Memory mem = null;
+    public void setMemory(Memory mem);
+
+    public void setSourcePort(int srcPort);
+
+    public void setSourceAddress(IPAddress sourceAddress);
+
+    public int Size();
     
+    public int getOffset();
+
+    public Memory getMemory();
+
+    public IPAddress getSourceAddress();
+
+    public int getSourcePort();
 }
