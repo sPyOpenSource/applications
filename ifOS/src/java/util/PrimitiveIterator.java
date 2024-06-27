@@ -221,7 +221,7 @@ public interface PrimitiveIterator<T, T_CONS> extends Iterator<T> {
                 Objects.requireNonNull(action);
                 if (Tripwire.ENABLED)
                     Tripwire.trip(getClass(), "{0} calling PrimitiveIterator.OfLong.forEachRemainingLong(action::accept)");
-                forEachRemaining((LongConsumer) action::accept);
+                //forEachRemaining((LongConsumer) action::accept);
             }
         }
     }
