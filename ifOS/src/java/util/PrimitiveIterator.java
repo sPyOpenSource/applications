@@ -184,7 +184,7 @@ public interface PrimitiveIterator<T, T_CONS> extends Iterator<T> {
          * @throws NullPointerException if the specified action is null
          */
         default void forEachRemaining(LongConsumer action) {
-            Objects.requireNonNull(action);
+            //Objects.requireNonNull(action);
             while (hasNext())
                 action.accept(nextLong());
         }
