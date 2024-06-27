@@ -218,10 +218,10 @@ public interface PrimitiveIterator<T, T_CONS> extends Iterator<T> {
             }
             else {
                 // The method reference action::accept is never null
-                Objects.requireNonNull(action);
+                //Objects.requireNonNull(action);
                 if (Tripwire.ENABLED)
                     Tripwire.trip(getClass(), "{0} calling PrimitiveIterator.OfLong.forEachRemainingLong(action::accept)");
-                //forEachRemaining((LongConsumer) action::accept);
+                forEachRemaining((LongConsumer) action::accept);
             }
         }
     }
@@ -293,10 +293,10 @@ public interface PrimitiveIterator<T, T_CONS> extends Iterator<T> {
             }
             else {
                 // The method reference action::accept is never null
-                Objects.requireNonNull(action);
+                //Objects.requireNonNull(action);
                 if (Tripwire.ENABLED)
                     Tripwire.trip(getClass(), "{0} calling PrimitiveIterator.OfDouble.forEachRemainingDouble(action::accept)");
-                //forEachRemaining((DoubleConsumer) action::accept);
+                forEachRemaining((DoubleConsumer) action::accept);
             }
         }
     }
