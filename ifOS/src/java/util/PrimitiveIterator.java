@@ -184,7 +184,7 @@ public interface PrimitiveIterator<T, T_CONS> extends Iterator<T> {
          * @throws NullPointerException if the specified action is null
          */
         default void forEachRemaining(LongConsumer action) {
-            //Objects.requireNonNull(action);
+            Objects.requireNonNull(action);
             while (hasNext())
                 action.accept(nextLong());
         }
@@ -218,10 +218,10 @@ public interface PrimitiveIterator<T, T_CONS> extends Iterator<T> {
             }
             else {
                 // The method reference action::accept is never null
-                //Objects.requireNonNull(action);
+                Objects.requireNonNull(action);
                 if (Tripwire.ENABLED)
                     Tripwire.trip(getClass(), "{0} calling PrimitiveIterator.OfLong.forEachRemainingLong(action::accept)");
-                forEachRemaining((LongConsumer) action::accept);
+                //forEachRemaining((LongConsumer) action::accept);
             }
         }
     }
@@ -258,7 +258,7 @@ public interface PrimitiveIterator<T, T_CONS> extends Iterator<T> {
          */
         @Override
         default void forEachRemaining(DoubleConsumer action) {
-            //Objects.requireNonNull(action);
+            Objects.requireNonNull(action);
             while (hasNext())
                 action.accept(nextDouble());
         }
@@ -293,10 +293,10 @@ public interface PrimitiveIterator<T, T_CONS> extends Iterator<T> {
             }
             else {
                 // The method reference action::accept is never null
-                //Objects.requireNonNull(action);
+                Objects.requireNonNull(action);
                 if (Tripwire.ENABLED)
                     Tripwire.trip(getClass(), "{0} calling PrimitiveIterator.OfDouble.forEachRemainingDouble(action::accept)");
-                forEachRemaining((DoubleConsumer) action::accept);
+                //forEachRemaining((DoubleConsumer) action::accept);
             }
         }
     }
