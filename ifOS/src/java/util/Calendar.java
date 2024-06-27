@@ -29,8 +29,8 @@ package java.util;
 
 import java.lang.reflect.InvocationTargetException;
 import java.io.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+//import java.util.logging.Level;
+//import java.util.logging.Logger;
 
 /**
  * This class is an abstract base class for Calendars, which can be
@@ -446,7 +446,7 @@ public abstract class Calendar implements Serializable, Cloneable
                     InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException ex
                 )
         {
-            Logger.getLogger(Calendar.class.getName()).log(Level.SEVERE, null, ex);
+            //Logger.getLogger(Calendar.class.getName()).log(Level.SEVERE, null, ex);
         }
         // XXX should we ignore these errors or throw an exception ?
         // XXX should we ignore these errors or throw an exception ?
