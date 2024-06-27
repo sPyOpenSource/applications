@@ -114,11 +114,11 @@ import static sun.invoke.util.Wrapper.isWrapperType;*/
                                        Class<?>[] markerInterfaces,
                                        MethodType[] additionalBridges)
             throws LambdaConversionException {
-        if ((caller.lookupModes() & MethodHandles.Lookup.PRIVATE) == 0) {
+        /*if ((caller.lookupModes() & MethodHandles.Lookup.PRIVATE) == 0) {
             throw new LambdaConversionException(String.format(
                     "Invalid caller: %s",
                     caller.lookupClass()));
-        }
+        }*/
         this.targetClass = null;//caller.lookupClass();
         this.invokedType = invokedType;
 
