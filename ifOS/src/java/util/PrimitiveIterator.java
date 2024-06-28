@@ -109,11 +109,11 @@ public interface PrimitiveIterator<T, T_CONS> extends Iterator<T> {
          * @param action The action to be performed for each element
          * @throws NullPointerException if the specified action is null
          */
-        /*default void forEachRemaining(IntConsumer action) {
+        default void forEachRemaining(IntConsumer action) {
             Objects.requireNonNull(action);
             while (hasNext())
                 action.accept(nextInt());
-        }*/
+        }
 
         /**
          * {@inheritDoc}
@@ -138,7 +138,7 @@ public interface PrimitiveIterator<T, T_CONS> extends Iterator<T> {
          * {@code IntConsumer}, by boxing the argument of {@code IntConsumer},
          * and then passed to {@link #forEachRemaining}.
          */
-        /*default void forEachRemaining(Consumer<? super Integer> action) {
+        default void forEachRemaining(Consumer<? super Integer> action) {
             if (action instanceof IntConsumer) {
                 forEachRemaining((IntConsumer) action);
             }
@@ -147,9 +147,9 @@ public interface PrimitiveIterator<T, T_CONS> extends Iterator<T> {
                 Objects.requireNonNull(action);
                 if (Tripwire.ENABLED)
                     Tripwire.trip(getClass(), "{0} calling PrimitiveIterator.OfInt.forEachRemainingInt(action::accept)");
-                forEachRemaining((IntConsumer) action::accept);
+                //forEachRemaining((IntConsumer) action::accept);
             }
-        }*/
+        }
 
     }
 
