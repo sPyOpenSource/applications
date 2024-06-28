@@ -27,6 +27,8 @@ executable file might be covered by the GNU General Public License. */
 
 package java.util;
 
+import java.util.function.Consumer;
+
 /**
  * An object which iterates over a collection. An Iterator is used to return the
  * items once only, in sequence, by successive calls to the next method. It is
@@ -66,4 +68,10 @@ public interface Iterator<E>
    *   the remove operation.
    */
   void remove();
+  
+  default void forEachRemaining(Consumer<? super E> action) {
+        Objects.requireNonNull(action);
+        while (hasNext())
+            action.accept(next());
+    }
 }
