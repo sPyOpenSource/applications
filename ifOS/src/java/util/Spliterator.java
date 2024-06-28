@@ -710,8 +710,8 @@ public interface Spliterator<T> {
         @Override
         OfLong trySplit();
 
-        //@Override
-        //boolean tryAdvance(LongConsumer action);
+        @Override
+        boolean tryAdvance(LongConsumer action);
 
         @Override
         default void forEachRemaining(LongConsumer action) {
