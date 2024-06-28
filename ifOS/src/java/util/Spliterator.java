@@ -728,7 +728,7 @@ public interface Spliterator<T> {
          * boxing the argument of {@code LongConsumer}, and then passed to
          * {@link #tryAdvance(java.util.function.LongConsumer)}.
          */
-        /*@Override
+        @Override
         default boolean tryAdvance(Consumer<? super Long> action) {
             if (action instanceof LongConsumer) {
                 return tryAdvance((LongConsumer) action);
@@ -739,7 +739,7 @@ public interface Spliterator<T> {
                                   "{0} calling Spliterator.OfLong.tryAdvance((LongConsumer) action::accept)");
                 return tryAdvance((LongConsumer) action::accept);
             }
-        }*/
+        }
 
         /**
          * {@inheritDoc}
