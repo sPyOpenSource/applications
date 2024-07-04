@@ -2,7 +2,7 @@ package AI;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import jx.emulation.Init;
+//import jx.emulation.Init;
 
 import jx.zero.Debug;
 import jx.zero.Naming;
@@ -53,8 +53,8 @@ public final class AI
     public static void main(String[] args){
         try {
             jx.init.Main.main(new String[] {"boot.rc"});
-            POST post = new POST(Init.naming);
-            post.test();
+            //POST post = new POST(Init.naming);
+            //post.test();
             //test.net.WebServer.main(new String[]{"-fs", "FS", "-threads"});
             AI instance = new AI();
             //instance.start();
