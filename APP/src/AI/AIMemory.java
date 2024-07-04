@@ -60,7 +60,7 @@ public class AIMemory extends AIZeroMemory implements FileSystem
             ports = (Ports)InitialNaming.lookup("Ports");
             buffer =  memoryManager.alloc(512);
         } catch (ExceptionInInitializerError | NullPointerException ex){
-            Logger.getLogger(AIMemory.class.getName()).log(Level.SEVERE, null, ex);
+            //Logger.getLogger(AIMemory.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
