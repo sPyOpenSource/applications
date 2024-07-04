@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package AI.Models;
 
 import java.io.IOException;
@@ -1130,10 +1126,10 @@ final int ATOMIC_MASK = 0x2F;
     }
     
     public static void main(String[] args){
-        try {
+        //try {
             System.out.println("* JUnitTest: testCPU()");
-            Path file = Paths.get("/Users/xuyi/Source/C/mbed/Klep/Bootloader.bin");
-            byte[] code = Files.readAllBytes(file);
+            //Path file = Paths.get("/Users/xuyi/Source/C/mbed/Klep/Bootloader.bin");
+            byte[] code = null;// = Files.readAllBytes(file);
             RiscV cpu = new RiscV(0, code);
             ArrayList<RVInstruction> inst = new ArrayList<>();
             for(int i = 0; i < code.length; i += 2){
@@ -1142,8 +1138,8 @@ final int ATOMIC_MASK = 0x2F;
             for(RVInstruction i : inst){
                 System.out.println(i.toString());
             }
-        } catch (IOException ex) {
+        /*} catch (IOException ex) {
             Logger.getLogger(RiscV.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }*/
     }
 }
