@@ -61,7 +61,7 @@ public final class AI
             //jx.keyboard.Main.main(new String[]{"WindowManager"});
             //ConsoleImpl.init(Init.naming);
         } catch (Exception ex) {
-            Logger.getLogger(AI.class.getName()).log(Level.SEVERE, null, ex);
+            //Logger.getLogger(AI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }
