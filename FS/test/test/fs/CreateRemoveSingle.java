@@ -40,7 +40,7 @@ class CreateRemoveSingle {
     */    
 
     try {
-        Inode ino = jfs.getRootInode();
+        Node ino = jfs.getRootNode();
         ino.mkdir("lost+found", InodeImpl.S_IWUSR|InodeImpl.S_IRUGO|InodeImpl.S_IXUGO);
         
         ino.create("blubber0", InodeImpl.S_IWUSR|InodeImpl.S_IRUGO|InodeImpl.S_IXUGO);

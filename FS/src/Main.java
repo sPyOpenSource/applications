@@ -1,24 +1,24 @@
 package test.fs;
 
 import jx.bio.ram.BlockIORAM;
+import jx.devices.bio.BlockIO;
 import jx.zero.*;
 import jx.zero.debug.*;
 import jx.zero.debug.DebugPrintStream;
 import jx.zero.debug.DebugOutputStream;
 
-import jx.devices.bio.BlockIO;
 import jx.fs.FS;
-import jx.fs.Node;
 import jx.fs.FSException;
 import jx.fs.FileSystem;
 import jx.fs.InodeImpl;
+import jx.fs.Node;
 
 class IOZoneRAMSingle {
     public static void init(Naming naming) throws Exception {
-    Debug.out = new DebugPrintStream(new DebugOutputStream((DebugChannel) naming.lookup("DebugChannel0")));
-    Main.useRAM = true;
-    Main.singleDomain = true;
-    new Main(naming);
+	Debug.out = new DebugPrintStream(new DebugOutputStream((DebugChannel) naming.lookup("DebugChannel0")));
+	Main.useRAM = true;
+	Main.singleDomain = true;
+	new Main(naming);
     }
 }
 
@@ -43,19 +43,19 @@ public class Main {
     jx.bio.buffercache.BufferCache bufferCache;
 
     public void dotest(FS fs) throws FSException {
-    // choose test
-    //fsckTest();
-    //fileTreeWalkTest();
-    iozoneTest(fs);
+	// choose test
+	//fsckTest();
+	//fileTreeWalkTest();
+	iozoneTest(fs);
     }
 
     public Main(Naming naming) throws Exception {
-    this(naming, "FS");
+	this(naming, "FS");
     }
 
     public Main(Naming naming, String fsname) throws Exception {
-    jx.fs.FileSystem jfs = null;
-    dm = (DomainManager)naming.lookup("DomainManager");
+	jx.fs.FileSystem jfs = null;
+	dm = (DomainManager)naming.lookup("DomainManager");
         if (singleDomain) {
             throw new Error();
         } else {
@@ -70,17 +70,18 @@ public class Main {
     }
 
     public boolean iozoneTest(FS fs) throws FSException {
-    Debug.out.println("starting IOZONE");
-    IOZONE iozone = new IOZONE(fs, IOZONE_MIN_FILESIZE, IOZONE_MAX_FILESIZE, IOZONE_MIN_RECSIZE, IOZONE_MAX_RECSIZE);
-    return true;
+	Debug.out.println("starting IOZONE");
+	IOZONE iozone = new IOZONE(fs, IOZONE_MIN_FILESIZE, IOZONE_MAX_FILESIZE, IOZONE_MIN_RECSIZE, IOZONE_MAX_RECSIZE);
+	return true;
     }
+
 
     public boolean fsckTest() throws FSException {
         FS fs = (FS) naming.lookup("FS");
 
         BlockIO bio = (BlockIO)naming.lookup("IDE");
 
-        jx.fs.javafs.FileSystem jfs = new jx.fs.javafs.FileSystem();
+        FileSystem jfs = new jx.fs.javafs.FileSystem();
         Clock clock = new DummyClock();
         jfs.init(bio, new jx.bio.buffercache.BufferCache(bio, clock, 500, 1000, 100, EXT2FS_BLOCKSIZE), clock);
 
@@ -146,37 +147,39 @@ public class Main {
     }
 
     public boolean rereadTest(FS fs) throws FSException {
-        new ReRead(fs);
-        return true;
+	    new ReRead(fs);
+	    return true;
     }
 
+
     void fileTreeWalkTest() throws FSException {
-    FS fs = (FS) naming.lookup("FS");
-    BootFS bootFS = (BootFS) naming.lookup("BootFS");
-    Memory file = bootFS.getReadWriteFile("diskImage.ext2");
-    Debug.out.println("DISKIMAGE:");
-    Dump.xdump1(file, 0, 256);
+	FS fs = (FS) naming.lookup("FS");
+	BootFS bootFS = (BootFS) naming.lookup("BootFS");
+	Memory file = bootFS.getReadWriteFile("diskImage.ext2");
+	Debug.out.println("DISKIMAGE:");
+	Dump.xdump1(file, 0, 256);
 
-    BlockIORAM bio = new BlockIORAM(file);
-    jx.fs.javafs.FileSystem jfs = new jx.fs.javafs.FileSystem();
-    Clock clock = new DummyClock();
-    jfs.init(bio, new jx.bio.buffercache.BufferCache(bio, clock, 500, 1000, 100, EXT2FS_BLOCKSIZE), clock);
-    jfs.init(false);
 
-    // TEST
-    Debug.out.println("Kapazitaet: " + bio.getCapacity());
+	BlockIORAM bio = new BlockIORAM(file);
+	FileSystem jfs = new jx.fs.javafs.FileSystem();
+	Clock clock = new DummyClock();
+	jfs.init(bio, new jx.bio.buffercache.BufferCache(bio, clock, 500, 1000, 100, EXT2FS_BLOCKSIZE), clock);
+	jfs.init(false);
 
-    FileSystem filesystem = (FileSystem)jfs;
+	// TEST
+	Debug.out.println("Kapazitaet: " + bio.getCapacity());
 
-    //filesystem.build("TestFS", 1024);
-    fs.mountRoot(filesystem, false); // 2. Parameter = read-only  //hda8
-    
-    printDir(" ", fs.getCwdNode());
+	FileSystem filesystem = (FileSystem)jfs;
+
+	//filesystem.build("TestFS", 1024);
+	fs.mountRoot(filesystem, false); // 2. Parameter = read-only  //hda8
+	
+	printDir(" ", fs.getCwdNode());
 
     }
     private void printDir(String space, Node dirInode) throws FSException {
-    Node inode;
-    String[] names = dirInode.readdirNames();
+	Node inode;
+	String[] names = dirInode.readdirNames();
         for (String name : names) {
             inode = dirInode.lookup(name);
             Debug.out.print(space);

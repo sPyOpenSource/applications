@@ -6,6 +6,8 @@ import vfs.FSImpl;
 
 import jx.devices.bio.BlockIO;
 import jx.fs.FSException;
+import jx.fs.FileSystem;
+
 import jx.zero.CPUManager;
 import jx.zero.Clock;
 import jx.zero.Debug;
@@ -47,7 +49,7 @@ public class FSDomain {
 
             final FSImpl fs = new FSImpl();
             //final jx.fs.FileSystem fat = new FatFileSystem(bio);
-            final jx.fs.FileSystem fat = new AIMemory();
+            final FileSystem fat = new AIMemory();
             //final javafs.FileSystem jfs = new javafs.FileSystem();
             Clock clock = new DummyClock();
             //jfs.init(bio, new buffercache.BufferCache(bio, clock, 800, 1000, 100, EXT2FS_BLOCKSIZE), clock);
