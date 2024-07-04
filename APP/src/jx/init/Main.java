@@ -3,7 +3,7 @@ package jx.init;
 import jx.zero.*;
 import jx.zero.debug.*;
 import jx.bootrc.*;
-import jx.emulation.Init;
+//import jx.emulation.Init;
 
 public class Main {
      private final static boolean debug = false;
@@ -21,10 +21,10 @@ public class Main {
      
      public static void main(String args[]) throws Exception {
 	Naming naming = InitialNaming.getInitialNaming();
-        if (naming == null){
+        /*if (naming == null){
             Init.init();
             naming = Init.naming;
-        }
+        }*/
 	initNaming = naming;
 	String filename = args[0];
 	BootFS bootFS = (BootFS) naming.lookup("BootFS");
