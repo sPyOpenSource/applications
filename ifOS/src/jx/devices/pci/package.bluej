@@ -1,10 +1,13 @@
 #BlueJ package file
-dependency1.from=PCIAccess
-dependency1.to=PCIDevice
+dependency1.from=PCIDevice
+dependency1.to=PCIAddress
 dependency1.type=UsesDependency
 dependency2.from=PCIAccess
-dependency2.to=PCIAddress
+dependency2.to=PCIDevice
 dependency2.type=UsesDependency
+dependency3.from=PCIAccess
+dependency3.to=PCIAddress
+dependency3.type=UsesDependency
 objectbench.height=100
 objectbench.width=776
 package.divider.horizontal=0.6
@@ -15,7 +18,7 @@ package.editor.x=20
 package.editor.y=45
 package.frame.height=600
 package.frame.width=800
-package.numDependencies=2
+package.numDependencies=3
 package.numTargets=5
 package.showExtends=true
 package.showUses=true

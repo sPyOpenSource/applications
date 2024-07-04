@@ -41,7 +41,7 @@ public interface FS extends Portal {
      * @throws jx.fs.InodeIOException
      * @throws jx.fs.NotExistException
      */
-    public void cleanUp();
+    public void cleanUp() throws Exception;
 
     /**
      * H&auml;ngt ein Dateisystem in den Verzeichnisbaum ein, indem eine Inode durch die Wurzelinode des
@@ -58,7 +58,7 @@ public interface FS extends Portal {
      * @throws jx.fs.NotExistException
      * @throws jx.fs.PermissionException
      */
-    public void mount(FileSystem filesystem, String path, boolean read_only);
+    public void mount(FileSystem filesystem, String path, boolean read_only) throws Exception;
 
     /**
      * Entfernt ein Dateisystem aus dem Verzeichnisbaum. Die Inode, die durch die Wurzelinode des
@@ -70,7 +70,7 @@ public interface FS extends Portal {
      *                                      Verzeichnis handelt
      * @throws jx.fs.NotExistException
      */
-    public void unmount(FileSystem filesystem);
+    public void unmount(FileSystem filesystem) throws Exception;
 
     /**
      * Initialisiert das angegebene Dateisystem als Root-Dateisystem. Setzt das Wurzelverzeichnis und das aktuelle Verzeichnis
@@ -87,7 +87,7 @@ public interface FS extends Portal {
      * @return der freie Platz in Byte
      * @throws jx.fs.NotExistException
      */
-    public int available();
+    public int available() throws Exception;
 
     /**
      * Setzt das aktuelle Verzeichnis auf den angegebenen Pfad (sofern g&uuml;ltig).
@@ -107,7 +107,7 @@ public interface FS extends Portal {
      * @exception PermissionException       falls es sich um ein Rootverzeichnis oder einen Mountpunkt handelt
      * @throws jx.fs.NotExistException
      */
-    public void rename(String path, String pathneu);
+    public void rename(String path, String pathneu) throws Exception;
 
     /**
      * Legt einen symbolischen Link an, der auf den angegebenen Pfad verweist.
@@ -122,7 +122,7 @@ public interface FS extends Portal {
      * @throws jx.fs.NotSupportedException
      * @throws jx.fs.PermissionException
      */
-    public void symlink(String path, String pathneu);
+    public void symlink(String path, String pathneu) throws Exception;
 
     /**
      * Erzeugt ein neues Verzeichnis mit dem angegebenen Pfadnamen.
@@ -137,7 +137,7 @@ public interface FS extends Portal {
      * @throws jx.fs.NotExistException
      * @throws jx.fs.PermissionException
      */
-    public void mkdir(String path, int mode);
+    public void mkdir(String path, int mode) throws Exception;
 
     /**
      * Entfernt das Verzeichnis mit dem angegebenen Pfadnamen.
@@ -151,7 +151,7 @@ public interface FS extends Portal {
      * @throws jx.fs.NotExistException
      * @throws jx.fs.PermissionException
      */
-    public void rmdir(String path);
+    public void rmdir(String path) throws Exception;
     
     /**
      * Erzeugt eine neue Datei mit dem angegebenen Pfadnamen.
@@ -166,7 +166,7 @@ public interface FS extends Portal {
      * @throws jx.fs.NotExistException
      * @throws jx.fs.PermissionException
      */
-    public void create(String path, int mode);
+    public void create(String path, int mode) throws Exception;
 
     /**
      * Entfernt die Datei mit dem angegebenen Pfadnamen.
@@ -180,7 +180,7 @@ public interface FS extends Portal {
      * @throws jx.fs.NotExistException
      * @throws jx.fs.PermissionException
      */
-    public void unlink(String path);
+    public void unlink(String path) throws Exception;
 
     /**
      * Liefert das &uuml;bergeordnete Verzeichnis zum angegebenen Pfadnamen. Falls der Pfadname keine Pfadkomponenten enth&auml;lt,
@@ -213,7 +213,7 @@ public interface FS extends Portal {
      * @throws jx.fs.NotExistException
      * @throws jx.fs.PermissionException
      */
-    public Node lookup(String path);
+    public Node lookup(String path) throws Exception;
 
     /**
      * Liest den Inhalt der Datei mit dem angegebenen Pfadnamen.
@@ -245,7 +245,7 @@ public interface FS extends Portal {
      */
     public int write(String path, Memory m, int off, int len);
 
-    public Node getNode(int deviceIdentifier, int fileIdentifier);
+    public Node getNode(int deviceIdentifier, int fileIdentifier) throws Exception;
     
     default boolean isPath(String name) {
 	return (name.lastIndexOf('/') != -1);

@@ -1,4 +1,24 @@
 #BlueJ class context
 comment0.target=IPData
 comment0.text=\n\n\ @author\ xuyi\n
-numComments=1
+comment1.params=
+comment1.target=int\ Size()
+comment10.params=i
+comment10.target=void\ setSize(int)
+comment2.params=
+comment2.target=int\ getOffset()
+comment3.params=
+comment3.target=jx.zero.Memory\ getMemory()
+comment4.params=buf
+comment4.target=void\ setMemory(jx.zero.Memory)
+comment5.params=
+comment5.target=IPAddress\ getSourceAddress()
+comment6.params=i
+comment6.target=void\ setOffset(int)
+comment7.params=
+comment7.target=IPAddress\ getDestinationAddress()
+comment8.params=addr
+comment8.target=void\ setSourceAddress(IPAddress)
+comment9.params=dAddr
+comment9.target=void\ setDestinationAddress(IPAddress)
+numComments=11

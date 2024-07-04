@@ -1,4 +1,10 @@
 #BlueJ class context
 comment0.target=PCIAddress
 comment0.text=\n\n\ @author\ xuyi\n
-numComments=1
+comment1.params=
+comment1.target=int\ getBus()
+comment2.params=
+comment2.target=int\ getDevice()
+comment3.params=
+comment3.target=int\ getFunction()
+numComments=4
