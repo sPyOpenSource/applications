@@ -3,6 +3,8 @@ package jx.netmanager;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.SocketTimeoutException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import jx.net.protocol.ether.*;
 import jx.net.protocol.ip.*;
@@ -18,6 +20,7 @@ import jx.net.EtherProducer;
 
 import jx.devices.net.NetworkDevice;
 import jx.devices.pci.PCIAccess;
+import jx.net.IPv4Address;
 
 import jx.zero.Memory;
 import jx.zero.MemoryManager;
@@ -108,7 +111,7 @@ public class NetInit implements jx.net.NetInit, Service {
                 try {
                     clientSocket.receive(receivePacket);
                 } catch (SocketTimeoutException e){
-                    localAddress = new IPAddress(new byte[]{(byte)192,(byte)168,(byte)1,(byte)90});
+                    localAddress = new IPv4Address(new byte[]{(byte)192,(byte)168,(byte)1,(byte)90});
                     continue;
                 }
                 Debug.out.println("received");
@@ -145,8 +148,13 @@ public class NetInit implements jx.net.NetInit, Service {
     }
     
     @Override
-    public jx.net.UDPSender getUDPSender(int localPort, IPAddress dst, int remotePort) throws UnknownAddressException {
-	return new UDPSender(this, localPort, dst, remotePort);
+    public jx.net.UDPSender getUDPSender(int localPort, IPAddress dst, int remotePort) {
+        try {
+            return new UDPSender(this, localPort, dst, remotePort);
+        } catch (UnknownAddressException ex) {
+            //Logger.getLogger(NetInit.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
     }
 
     @Override
@@ -166,8 +174,13 @@ public class NetInit implements jx.net.NetInit, Service {
     */
 
     @Override
-    public jx.net.IPSender getIPSender(IPAddress dst, int id) throws UnknownAddressException {
-	return new IPSender(this, dst, id);
+    public jx.net.IPSender getIPSender(IPAddress dst, int id) {
+        try {
+            return new IPSender(this, dst, id);
+        } catch (UnknownAddressException ex) {
+            //Logger.getLogger(NetInit.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
     }
 
     @Override

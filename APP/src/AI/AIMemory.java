@@ -6,10 +6,12 @@ import java.util.logging.Logger;
 import test.fs.FSDomain;
 
 import jx.InitialNaming;
+import jx.devices.bio.BlockIO;
 import jx.devices.pci.PCIGod;
 import jx.fs.FSException;
-import jx.fs.buffercache.BufferCache;
+import jx.fs.buffer.BufferCache;
 import jx.fs.FileSystem;
+import jx.fs.Node;
 
 import jx.zero.Clock;
 import jx.zero.Debug;
@@ -77,7 +79,7 @@ public class AIMemory extends AIZeroMemory implements FileSystem
     }
 
     @Override
-    public Node getRootInode() {
+    public Node getRootNode() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -102,7 +104,7 @@ public class AIMemory extends AIZeroMemory implements FileSystem
     }
 
     @Override
-    public Node getInode(int identifier) throws FSException {
+    public Node getNode(int identifier) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -118,7 +120,6 @@ public class AIMemory extends AIZeroMemory implements FileSystem
         return ( value * name.length() ) % length + 100;
     }
 
-    @Override
     public String read(String name) {
         TreeMap<String, TreeMap> current = tree;
         for(String part:name.split("/")){

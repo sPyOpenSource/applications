@@ -3,6 +3,7 @@ package test.nfs;
 import jx.zero.*;
 import jx.net.NetInit;
 import jx.net.IPAddress;
+import jx.net.IPv4Address;
 
 import jx.rpcsvc.mount1.*;
 
@@ -31,7 +32,7 @@ public class NFSClient {
 	    final RPC rpc = new RPC(netinstance, RPC_LOCALPORT); 
 	    //if (rpc == null) Debug.out.println("RPCNULL!!!!");
 
-	    IPAddress rpcHost = new IPAddress(192,168,34,2);
+	    IPAddress rpcHost = new IPv4Address(192,168,34,2);
 	    MountProc mount = new MountProc_Stub(rpc, rpcHost);
 	    
 	    String path = "/megadisk/jx/golm/jx";

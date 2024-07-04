@@ -84,7 +84,7 @@ public class ReRead {
             Debug.out.println("ReRead-Rate Reclen=" + reclen + ": " + readrate + "MB/s");
 
             profiler.shell();
-	} catch(FSException ex) {
+	} catch(Exception ex) {
 	    Debug.out.println("EXCEPTION!");
 	}
     }

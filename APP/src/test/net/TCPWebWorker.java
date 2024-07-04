@@ -91,7 +91,7 @@ class TCPWebWorker {
     
     byte[] readFile(String name)  {
 	try {
-	    Inode inode = fs.lookup(name);
+	    Node inode = fs.lookup(name);
 	    int l = inode.getLength();
             Debug.out.println("l: " + l);
 	    inode.read(buffer1, 0,  l);
@@ -103,7 +103,7 @@ class TCPWebWorker {
                 Debug.out.print((char)data[i]);
             }
 	    return data;
-	} catch (InodeIOException | InodeNotFoundException | NoDirectoryInodeException | NoFileInodeException | NotExistException | PermissionException ex) {
+	} catch (Exception ex) {
 	    Debug.out.println(ex.getMessage());
 	    return constructErrorHeader().getBytes();
 	}

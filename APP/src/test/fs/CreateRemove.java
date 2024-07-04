@@ -33,7 +33,7 @@ public class CreateRemove {
     
 
     static void dotest(jx.fs.FileSystem fs) throws FSException {
-	Inode ino =  fs.getRootInode();
+	Node ino =  fs.getRootNode();
 	ino.create("bla1", InodeImpl.S_IWUSR|InodeImpl.S_IRUGO|InodeImpl.S_IXUGO);
 	ino.create("bla0", InodeImpl.S_IWUSR|InodeImpl.S_IRUGO|InodeImpl.S_IXUGO);
     }

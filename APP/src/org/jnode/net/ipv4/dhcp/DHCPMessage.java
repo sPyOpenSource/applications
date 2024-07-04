@@ -226,7 +226,7 @@ public class DHCPMessage {
             messageType = value[0];
         } else {
             Debug.out.println("put");
-            options.put(new Integer(code), value);
+            options.put(code, value);
         }
     }
 
@@ -271,7 +271,7 @@ public class DHCPMessage {
         if (code == MESSAGE_TYPE_OPTION)
             return new byte[] {(byte) messageType};
         else
-            return (byte[]) options.get(new Integer(code));
+            return (byte[]) options.get(code);
     }
 
     /**

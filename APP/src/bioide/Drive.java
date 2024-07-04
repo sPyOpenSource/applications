@@ -1,7 +1,7 @@
 package bioide;
 
 import jx.zero.*;
-import jx.bio.BlockIO;
+import jx.devices.bio.BlockIO;
 
 /**
  * Represents an IDE drive.

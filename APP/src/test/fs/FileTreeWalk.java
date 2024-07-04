@@ -3,8 +3,8 @@ package test.fs;
 import jx.zero.*;
 import jx.zero.debug.*;
 import jx.fs.FS;
-import jx.fs.Inode;
 import jx.fs.FSException;
+import jx.fs.Node;
 
 public class FileTreeWalk {
 
@@ -33,13 +33,13 @@ public class FileTreeWalk {
 	    return;
 	}
 
-	printDir(" ", fs.getCwdInode());
+	printDir(" ", fs.getCwdNode());
 
     }
 
-    private void printDir(String space, Inode dirInode) throws FSException {
+    private void printDir(String space, Node dirInode) throws FSException {
 	String name = null;
-	Inode inode;
+	Node inode;
 	String[] names = dirInode.readdirNames();
 
 

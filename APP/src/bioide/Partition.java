@@ -1,6 +1,6 @@
 package bioide;
 
-import jx.bio.BlockIO;
+import jx.devices.bio.BlockIO;
 
 /**
  * Represents a partition.

@@ -2,7 +2,7 @@ package test.timer;
 
 import jx.zero.*;
 import jx.timer.*;
-import timerpc.*;
+import jx.timerpc.TimerManagerImpl;
 
 public class StartTimer {
     public static void main(String [] args) {

@@ -4,6 +4,7 @@ import java.io.DataInputStream;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.util.Hashtable;
+import jx.devices.bio.BlockIO;
 
 import jx.zero.Debug;
 import jx.zero.*;
@@ -11,7 +12,6 @@ import jx.zero.debug.*;
 import jx.zero.debug.DebugPrintStream;
 import jx.zero.debug.DebugOutputStream;
 
-import jx.bio.BlockIO;
 import jx.fs.FS;
 import jx.fs.FileSystem;
 import jx.fs.InodeImpl;
@@ -330,11 +330,11 @@ public class Shell { // extends Thread {
 
     private void ls() {
 	String[] names = null;
-	try {
-	    names = fs.getCwdInode().readdirNames();
-	} catch (FSException e) {
+	//try {
+	    names = fs.getCwdNode().readdirNames();
+	/*} catch (FSException e) {
 	    uout.println("Error: " + e.getMessage());
-	}
+	}*/
         for (String name : names)
             uout.println((String) name);
     }
@@ -343,17 +343,17 @@ public class Shell { // extends Thread {
 	String[] names = null;
 	String name = null;
 	InodeImpl inode;
-	try {
-	    names = ((InodeImpl)fs.getCwdInode()).readdirNames();
-	} catch (FSException e) {
+	//try {
+	    names = ((InodeImpl)fs.getCwdNode()).readdirNames();
+	/*} catch (FSException e) {
 	    uout.println("Error: " + e.getMessage());
 	    return;
-	}
+	}*/
 	for (int i = 0; i < names.length; i++) {
 	    name = names[i];
 	    uout.print(name);
-	    try {
-		inode = (InodeImpl)(((InodeImpl)fs.getCwdInode()).lookup(name));
+	    //try {
+		inode = (InodeImpl)(((InodeImpl)fs.getCwdNode()).lookup(name));
 		if (inode.isDirectory())
 		    uout.print(" D");
 		else if (inode.isFile())
@@ -363,46 +363,41 @@ public class Shell { // extends Thread {
 		uout.println(" " + inode.getLength());
 
 		inode.decUseCount(); // TODO: is this necessary?
-
-	    } catch (FSException e) {
+	    /*} catch (FSException e) {
 		uout.println("Error");
-	    }
+	    }*/
 	}
     }
 
     private void mkdir(String name, int mode) {
 	try {
 	    fs.mkdir(name, mode);
-	} catch (FSException e) {
+	} catch (Exception e) {
 	    uout.println("Error: "+e.getMessage());
-	    return;
 	}
     }
 
     private void rmdir(String name) {
 	try {
 	    fs.rmdir(name);
-	} catch (FSException e) {
+	} catch (Exception e) {
 	    uout.println("Error: "+e.getMessage());
-	    return;
 	}
     }
 
     private void create(String name, int mode) {
 	try {
 	    fs.create(name, mode);
-	} catch (FSException e) {
+	} catch (Exception e) {
 	    uout.println("Error: "+e.getMessage());
-	    return;
 	}
     }
 
     private void unlink(String name) {
 	try {
 	    fs.unlink(name);
-	} catch (FSException e) {
+	} catch (Exception e) {
 	    uout.println("Error: "+e.getMessage());
-	    return;
 	}
     }
 
@@ -466,18 +461,16 @@ public class Shell { // extends Thread {
     private void rename(String path, String pathneu) {
 	try {
 	    fs.rename(path, pathneu);
-	} catch (FSException e) {
+	} catch (Exception e) {
 	    uout.println("Error: "+e.getMessage());
-	    return;
 	}
     }
 
     private void symlink(String path, String pathneu) {
 	try {
 	    fs.symlink(path, pathneu);
-	} catch (FSException e) {
+	} catch (Exception e) {
 	    uout.println("Error: "+e.getMessage());
-	    return;
 	}
     }
 
@@ -500,9 +493,8 @@ public class Shell { // extends Thread {
 	try {
 	    fs.mount(filesystem, path, false);
 	    mountPartitions.put(dev_name, filesystem);
-	} catch (FSException e) {
+	} catch (Exception e) {
 	    uout.println("Error: "+e.getMessage());
-	    return;
 	}
     }
 
@@ -514,7 +506,7 @@ public class Shell { // extends Thread {
 	}
 	try {
 	    fs.unmount(filesystem);
-	} catch (FSException e) {
+	} catch (Exception e) {
 	    uout.println("Error: "+e.getMessage());
 	}
     }

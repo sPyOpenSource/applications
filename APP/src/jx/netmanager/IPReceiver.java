@@ -33,10 +33,10 @@ class IPReceiver implements jx.net.IPReceiver, Service {
 		    Buffer h = usableBufs.nonblockingUndockFirstElement();
 		    if (h == null) {
 			Debug.out.println("jx.netmanager.IPReceiver: no buffer available, must drop packet!");
-			return buf.mem;
+			return buf.getMemory();
 		    }
 		    Memory in = h.getData();
-		    h.setData(buf.mem);
+		    h.setData(buf.getMemory());
 		    h.setMoreData(buf);
 		    filledBufs.appendElement(h);
 		    return in;
@@ -58,10 +58,10 @@ class IPReceiver implements jx.net.IPReceiver, Service {
 		    Buffer h = usableBufs.nonblockingUndockFirstElement();
 		    if (h == null) {
 			Debug.out.println("jx.netmanager.IPReceiver: no buffer available, must drop packet!");
-			return buf.mem;
+			return buf.getMemory();
 		    }
 		    Memory in = h.getData();
-		    h.setData(buf.mem);
+		    h.setData(buf.getMemory());
 		    h.setMoreData(buf);
 		    filledBufs.appendElement(h);
 		    return in;

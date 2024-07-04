@@ -44,7 +44,7 @@ public class PortalPerf {
 	Debug.out.println("test.portal.perf.PortalPerf speaking.");
 
 	    TargetDomain targetDomain = null;
-	    FilesystemInterface FStargetDomain = null;
+	    FileSystemInterface FStargetDomain = null;
 	if (fstest) {
 	    DomainStarter.createDomain("BlockIO", "test_fs.jll", "test/fs/BioRAMDomain", 2000000, new String[] {"BlockIO"});
 	    DomainStarter.createDomain("FS", "fs_user_impl.jll", "jx/fs/FSInterfaceDomain", 6000000, new String[] {"BlockIO"},naming ,"jx.secmgr.FileSystemSecurityPolicy");
@@ -54,7 +54,7 @@ public class PortalPerf {
 	    domainManager.getCurrentDomain().clearTCBflag();
 	    do {
 		Thread.yield();
-		FStargetDomain = (FilesystemInterface)naming.lookup("FSInterface");
+		FStargetDomain = (FileSystemInterface)naming.lookup("FSInterface");
 	    } while(FStargetDomain == null);
 	    Debug.out.println("Got Test portal");
 	} else {

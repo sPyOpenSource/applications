@@ -1,10 +1,10 @@
 package test.fs;
 
 import jx.zero.*;
-import jx.bio.BlockIO;
 import bioide.IDEDeviceImpl;
 import bioide.Drive;
 import bioide.PartitionEntry;
+import jx.devices.bio.BlockIO;
 
 public class IDEDomain {
     

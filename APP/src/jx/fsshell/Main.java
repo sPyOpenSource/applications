@@ -84,12 +84,12 @@ public class Main {
 
 	shell.register("ls", new Command() {
                 @Override
-		public void command(PrintStream out, String[] args) throws FSException  {
-		    Inode inode;
+		public void command(PrintStream out, String[] args) throws Exception  {
+		    Node inode;
 		    if (args.length == 0) {
-			inode = fs.getCwdInode();
+			inode = fs.getCwdNode();
 		    } else {
-			inode = (Inode)fs.lookup(args[0]);
+			inode = (Node)fs.lookup(args[0]);
 		    }
 		    String[] names = inode.readdirNames();
                     for (String name : names) {
@@ -100,10 +100,9 @@ public class Main {
 		public String getInfo() { return "list directory"; }	    
 	    });
 
-
 	shell.register("mkdir", new Command() {
                 @Override
-		public void command(PrintStream out, String[] args) throws FSException  {
+		public void command(PrintStream out, String[] args) throws Exception  {
 		    fs.mkdir(args[0], InodeImpl.S_IWUSR|InodeImpl.S_IRUGO);
 		}
                 @Override
@@ -112,7 +111,7 @@ public class Main {
 		   
 	shell.register("cd", new Command() {
                 @Override
-		public void command(PrintStream out, String[] args) throws FSException {
+		public void command(PrintStream out, String[] args) throws Exception {
 			fs.cd(args[0]);
 		}
                 @Override
@@ -121,8 +120,8 @@ public class Main {
 
 	shell.register("cat", new Command() {
                 @Override
-		public void command(PrintStream out, String[] args) throws FSException {
-		    Inode inode = (Inode)fs.lookup(args[0]);
+		public void command(PrintStream out, String[] args) throws Exception {
+		    Node inode = (Node)fs.lookup(args[0]);
 		    int l = inode.getLength();
 		    int o=0;
 		    while(l > 0) {

@@ -17,6 +17,7 @@ import jx.net.UDPData;
 import metaxa.os.devices.net.D3C905;
 import metaxa.os.devices.net.ComInit;
 import java.io.PrintStream;
+import jx.net.IPv4Address;
 
 public class Main {
     public static boolean test(final Naming naming) {
@@ -65,7 +66,7 @@ public class Main {
 
     static void simpletest(final NetInit net) throws Exception {
 	// send
-	UDPSender u = net.getUDPSender(6665, new IPAddress("192.168.34.2"), Integer.parseInt("9876"));
+	UDPSender u = net.getUDPSender(6665, new IPv4Address("192.168.34.2"), Integer.parseInt("9876"));
 	Memory buf = net.getUDPBuffer(50);
 	for(int i=0; i<50; i++) {
 	    buf.set8(i, (byte)i);
@@ -106,8 +107,8 @@ public class Main {
 		return;
 	      }
 
-	      try {
-		  UDPSender u = net.getUDPSender(6665, new IPAddress(args[0]), Integer.parseInt(args[1]));
+	      //try {
+		  UDPSender u = net.getUDPSender(6665, new IPv4Address(args[0]), Integer.parseInt(args[1]));
 		  Memory buf = net.getUDPBuffer(50);
 		  for(int i=0; i<50; i++) {
 		      buf.set8(i, (byte)i);
@@ -115,9 +116,9 @@ public class Main {
 		  for(int j=0; j<10; j++) {
 		      u.send(buf);
 		  }
-	      } catch(UnknownAddressException ex) {
+	      /*} catch(UnknownAddressException ex) {
 		  throw new Error();
-	      }
+	      }*/
 	    }
 	    public String getInfo() { return "send packets to <addr> <port>"; }	    
 	});
@@ -128,7 +129,7 @@ public class Main {
 		UDPReceiver socket = net.getUDPReceiver(6666, bufs);
 		Memory buf = net.getUDPBuffer(0);
 		UDPData udp = socket.receive(buf);
-		buf = udp.mem;
+		buf = udp.getMemory();
 		System.out.println("RECEIVED PACKET:");
 		Dump.xdump(System.out, buf, 0, 256);
 		socket.close();
@@ -145,7 +146,7 @@ public class Main {
 	      }
 		try {
 		// prepare sender
-		UDPSender u = net.getUDPSender(6665, new IPAddress(args[0]), 6666);
+		UDPSender u = net.getUDPSender(6665, new IPv4Address(args[0]), 6666);
 		Memory sbuf = net.getUDPBuffer(50);
 		
 		// prepare receiver
@@ -161,7 +162,7 @@ public class Main {
 		for(;;) {
 		    // receive request
 		    UDPData udp = socket.receive(rbuf);
-		    rbuf = udp.mem;
+		    rbuf = udp.getMemory();
 		    //System.out.println("RECEIVED PACKET:");
 		    //Dump.xdump(System.out, rbuf, 0, 256);
 		    
@@ -185,8 +186,6 @@ public class Main {
 	} catch(Exception ex) {}
     }
 }
-
-
 
 
 class StartNetworkProtocols {

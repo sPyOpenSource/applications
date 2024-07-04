@@ -92,7 +92,7 @@ public class IOZONE {
 	try {
 	    this.fs = fs;
 	    fs.create("iozone.tmp", InodeImpl.S_IWUSR|InodeImpl.S_IRUGO);
-	} catch (FSException e) {
+	} catch (Exception e) {
 	    Debug.out.println("ERROR");
 	    return;
 	}
@@ -229,7 +229,7 @@ public class IOZONE {
     }
 
     private void readPerfTest(int kilo, int reclen) { // long, long
-	Inode inode = null;
+	Node inode = null;
 	int starttime;
 	int endtime;
 	int readtime[] = new int[2]; 
@@ -241,7 +241,7 @@ public class IOZONE {
 	filebytes = numrecs*reclen;
 	// ASSUME 500 MHz time stamp counter
 	try {
-	    inode = (Inode)fs.lookup("iozone.tmp");
+	    inode = (Node)fs.lookup("iozone.tmp");
 	    if (inode == null)
 		return;
 
@@ -310,13 +310,13 @@ public class IOZONE {
 	    storeValue((int)readrate[0]);
 	    storeValue((int)readrate[1]);
 	}
-	} catch(FSException e) {
+	} catch(Exception e) {
 	    Debug.out.println("EXCEPTION!"); throw new Error();
 	}
     }
 
     private void writePerfTest(int kilo, int reclen) { // long, long
-	Inode inode = null;
+	Node inode = null;
 	int starttime; //long
 	int endtime; //long
 	int writetime[] = new int[2]; //long
@@ -328,7 +328,7 @@ public class IOZONE {
 	filebytes = numrecs * reclen;
 
 	try {
-	    inode = (Inode)fs.lookup("iozone.tmp");
+	    inode = (Node)fs.lookup("iozone.tmp");
 	    if (inode == null)
 		return;
 	    for (int j = 0; j < 2; j++) {
@@ -365,7 +365,7 @@ public class IOZONE {
 	    storeValue((int)writerate[0]);
 	    storeValue((int)writerate[1]);
 	}
-	} catch(FSException ex) {
+	} catch(Exception ex) {
 	    throw new Error();
 	}
     }

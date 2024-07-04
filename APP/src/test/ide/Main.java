@@ -6,7 +6,7 @@ import jx.zero.debug.*;
 import bioide.IDEDeviceImpl;
 import bioide.Drive;
 import bioide.Partition;
-import jx.bio.BlockIO;
+import jx.devices.bio.BlockIO;
 
 public class Main {
 

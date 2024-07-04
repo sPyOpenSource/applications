@@ -7,6 +7,7 @@ import jx.net.IPData;
 import jx.net.IPSender;
 import jx.net.IPReceiver;
 import jx.net.IPAddress;
+import jx.net.IPv4Address;
 import jx.zero.debug.Dump;
 
 class StartIPTest {
@@ -18,29 +19,29 @@ class StartIPTest {
 
 	try{
 	    // send
-	    IPSender u = net.getIPSender(new IPAddress("192.168.34.2"), 42);
+	    IPSender u = net.getIPSender(new IPv4Address("192.168.34.2"), 42);
 	    //Memory buf = net.getIPBuffer(50);
 	    Memory buf = memoryManager.alloc(1000);
 	    for(int i=0; i<50; i++) {
 		buf.set8(i, (byte)i);
 	    }
-	    u.send1(buf, 14+20, 50);
-
+	    u.send(buf, 14+20, 50);
 
 	    Memory[] bufs = new Memory[10];
-	    for(int i=0; i<bufs.length; i++) {
+	    for(int i = 0; i < bufs.length; i++) {
 		bufs[i] = net.getIPBuffer(0);
 	    }
 	    IPReceiver iprec = net.getIPReceiver(bufs, "TCP");
 	    
-	    for(;1==1;) {
+	    for(;1 == 1;) {
 		Memory buf1 = net.getIPBuffer(0);
 		IPData ipdata = iprec.receive(buf1);
-		Memory recbuf = ipdata.mem;
-		Debug.out.println("Received IP packet of size "+ipdata.size);
-		Dump.xdump1(recbuf, ipdata.offset, ipdata.size);
+		Memory recbuf = ipdata.getMemory();
+		Debug.out.println("Received IP packet of size "+ipdata.Size());
+		Dump.xdump1(recbuf, ipdata.getOffset(), ipdata.Size());
 		
 	    }
 	} catch(Exception e) {throw new Error();}
     }
+    
 }

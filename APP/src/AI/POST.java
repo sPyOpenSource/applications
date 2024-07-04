@@ -5,10 +5,10 @@
  */
 package AI;
 
-import jx.bio.BlockIO;
+import jx.devices.bio.BlockIO;
+import jx.fs.FileSystem;
 import jx.zero.Clock;
 import jx.zero.Naming;
-import jx.fs.javafs.FileSystem;
 import test.debug.Monitor;
 import test.fs.BioRAMDomain;
 
@@ -28,11 +28,11 @@ public class POST {
         Monitor.init(naming, null);
         //test.gc.Main.init(naming);
         BioRAMDomain.init(naming, new String[]{"BioRAM"});
-        FileSystem jfs = new FileSystem();
+        //FileSystem jfs = new jx.fs.javafs.FileSystem();
         BlockIO bio = (BlockIO)naming.lookup("BioRAM");
         Clock clock = (Clock)naming.lookup("");
-        jfs.init(bio, new jx.bio.buffercache.BufferCache(bio, clock, 800, 1000, 100, 512), clock);
-        naming.registerPortal(jfs, "JavaFS");
+        //jfs.init(bio, new jx.bio.buffercache.BufferCache(bio, clock, 800, 1000, 100, 512), clock);
+        //naming.registerPortal(jfs, "JavaFS");
         /*FSImpl fs = new FSImpl();
         fs.mountRoot(jfs, false);
         naming.registerPortal(fs, "FS");

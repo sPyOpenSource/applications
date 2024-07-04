@@ -3,7 +3,6 @@ package jx.iozone;
 import java.io.IOException;
 import jx.formats.*;
 import jx.fs.*;
-import jx.fs.FSException;
 import jx.zero.Debug;
 import jx.zero.Memory;
 import jx.zero.*;
@@ -92,7 +91,7 @@ public class IOZONE {
 	try {
 	    this.fs = fs;
 	    fs.create("iozone.tmp", InodeImpl.S_IWUSR|InodeImpl.S_IRUGO);
-	} catch (FSException e) {
+	} catch (Exception e) {
 	    Debug.out.println("ERROR");
 	    return;
 	}
@@ -236,7 +235,7 @@ public class IOZONE {
 	filebytes = numrecs*reclen;
 	// ASSUME 500 MHz time stamp counter
 	try {
-	    Inode inode = (Inode)fs.lookup("iozone.tmp");
+	    Node inode = (Node)fs.lookup("iozone.tmp");
 	    if (inode == null)
 		return;
 
@@ -305,9 +304,9 @@ public class IOZONE {
 	    storeValue((int)readrate[0]);
 	    storeValue((int)readrate[1]);
 	}
-	} catch(FSException e) {
+	} catch(Exception e) {
 	    Debug.out.println("EXCEPTION!"); throw new Error();
-	}
+        }
     }
 
     private void writePerfTest(int kilo, int reclen) { // long, long
@@ -320,7 +319,7 @@ public class IOZONE {
 	filebytes = numrecs*reclen;
 
 	try {
-	    Inode inode = (Inode)fs.lookup("iozone.tmp");
+	    Node inode = (Node)fs.lookup("iozone.tmp");
 	    if (inode == null)
 		return;
 	    for (int j = 0; j < 2; j++) {
@@ -357,7 +356,7 @@ public class IOZONE {
 	    storeValue((int)writerate[0]);
 	    storeValue((int)writerate[1]);
 	}
-	} catch(FSException ex) {
+	} catch(Exception ex) {
 	    throw new Error();
 	}
     }

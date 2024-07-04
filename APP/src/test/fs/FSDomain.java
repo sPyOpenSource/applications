@@ -1,11 +1,11 @@
 package test.fs;
 
 import AI.AIMemory;
-import jx.fs.javafs.InodeImpl;
+import jx.devices.bio.BlockIO;
 import vfs.FSImpl;
 
-import jx.bio.BlockIO;
 import jx.fs.FSException;
+import jx.fs.InodeImpl;
 import jx.zero.CPUManager;
 import jx.zero.Clock;
 import jx.zero.Debug;
