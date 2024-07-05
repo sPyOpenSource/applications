@@ -23,7 +23,7 @@ package org.jnode.driver.net.lance;
 import jx.buffer.multithread.Buffer2;
 import jx.buffer.multithread.MultiThreadBufferList;
 import jx.buffer.multithread.MultiThreadBufferList2;
-import jx.buffer.separator.NonBlockingMemoryConsumer;
+import jx.fs.buffer.separator.NonBlockingMemoryConsumer;
 import jx.devices.DeviceConfiguration;
 import jx.devices.DeviceConfigurationTemplate;
 import jx.devices.net.NetworkDevice;

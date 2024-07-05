@@ -7,9 +7,8 @@ import java.util.logging.Logger;
 import jx.InitialNaming;
 import jx.devices.bio.BlockIO;
 import jx.devices.pci.PCIGod;
-import jx.fs.FSException;
 import jx.fs.Node;
-import jx.fs.buffercache.BufferCache;
+import jx.fs.buffer.BufferCache;
 import jx.fs.FileSystem;
 
 import jx.zero.Clock;
@@ -103,7 +102,7 @@ public class AIMemory extends AIZeroMemory implements FileSystem
     }
 
     @Override
-    public Node getNode(int identifier) throws FSException {
+    public Node getNode(int identifier) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

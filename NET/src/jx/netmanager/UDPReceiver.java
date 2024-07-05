@@ -7,6 +7,7 @@ import jx.net.UDPConsumer;
 
 import jx.buffer.multithread.MultiThreadBufferList;
 import jx.buffer.multithread.Buffer;
+import jx.net.UDPDataImpl;
 
 class UDPReceiver implements jx.net.UDPReceiver, Service {
     
@@ -56,11 +57,11 @@ class UDPReceiver implements jx.net.UDPReceiver, Service {
 			Buffer h = usableBufs.nonblockingUndockFirstElement();
 			if (h == null) {
 			    Debug.out.println("jx.netmanager.UDPReceiver: no buffer available, must drop packet!");
-			    return buf.mem;
+			    return buf.getMemory();
 			}
 			Memory in = h.getData();
 			in = in.revoke();
-			h.setData(buf.mem);
+			h.setData(buf.getMemory());
 			h.setMoreData(buf);
 			filledBufs.appendElement(h);
 			return in;
@@ -122,7 +123,7 @@ class UDPReceiver implements jx.net.UDPReceiver, Service {
 	//h.setData(buf);// extendfull?
 	//usableBufs.appendElement(h);
         buf.copyFromMemory(h, 0, 0, h.size());
-	return new UDPData();
+	return new UDPDataImpl();
     }
 
     @Override

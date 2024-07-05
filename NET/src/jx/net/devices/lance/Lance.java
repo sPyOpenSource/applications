@@ -5,7 +5,7 @@ import jx.zero.*;
 import jx.devices.pci.*;
 import jx.devices.*;
 
-import jx.buffer.separator.*;
+import jx.fs.buffer.separator.*;
 
 class Lance implements NetworkDevice {
     Lance(PCIDevice dev) {}

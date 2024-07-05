@@ -6,9 +6,7 @@ import jx.net.NetInit;
 import jx.net.IPData;
 import jx.net.IPSender;
 import jx.net.IPReceiver;
-import jx.net.IPAddress;
 import jx.net.IPv4Address;
-import jx.net.UnknownAddressException;
 import jx.zero.debug.Dump;
 
 class StartIPTest {
@@ -38,9 +36,9 @@ class StartIPTest {
 	    for(;1==1;) {
 		Memory buf1 = net.getIPBuffer(0);
 		IPData ipdata = iprec.receive(buf1);
-		Memory recbuf = ipdata.mem;
-		Debug.out.println("Received IP packet of size "+ipdata.size);
-		Dump.xdump1(recbuf, ipdata.offset, ipdata.size);
+		Memory recbuf = ipdata.getMemory();
+		Debug.out.println("Received IP packet of size "+ipdata.Size());
+		Dump.xdump1(recbuf, ipdata.getOffset(), ipdata.Size());
 		
 	    }
 	} catch(Exception e) {throw new Error();}
