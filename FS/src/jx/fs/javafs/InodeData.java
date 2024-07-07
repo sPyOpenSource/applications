@@ -1,6 +1,6 @@
 package jx.fs.javafs;
 
-import jx.fs.buffercache.*;
+import jx.fs.buffer.*;
 
 class InodeData extends BufferHeadAccess {
     public InodeData(BufferHead bh, int offset) {

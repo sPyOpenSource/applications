@@ -2,7 +2,7 @@ package jx.fs.javafs;
 
 import jx.zero.Debug;
 import jx.zero.Memory;
-import jx.fs.buffercache.*;
+import jx.fs.buffer.*;
 
 /**
  * Die Klasse Bitmap stellt die Schnittstelle zu den Block- und Inodebitmaps dar.

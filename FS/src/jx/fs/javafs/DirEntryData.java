@@ -1,6 +1,6 @@
 package jx.fs.javafs;
 
-import jx.fs.buffercache.*;
+import jx.fs.buffer.*;
 
 class DirEntryData extends BufferHeadAccess {
     public static final int FT_REG_FILE = 1;

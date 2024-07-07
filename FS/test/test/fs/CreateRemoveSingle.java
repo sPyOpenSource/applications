@@ -3,6 +3,7 @@ package test.fs;
 import jx.devices.bio.BlockIO;
 import jx.fs.*;
 import jx.fs.InodeImpl;
+import jx.fs.javafs.Tools;
 import jx.zero.*;
 import jx.zero.debug.*;
 import jx.zero.debug.DebugPrintStream;

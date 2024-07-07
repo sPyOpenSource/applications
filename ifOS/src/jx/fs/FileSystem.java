@@ -64,7 +64,7 @@ public interface FileSystem extends jx.zero.Portal {
      */
     void check();
 
-    public Node getNode(int identifier);
+    public Node getNode(int identifier) throws Exception;
 
     int getDeviceID();
 }

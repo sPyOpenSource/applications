@@ -10,7 +10,7 @@ import jx.fs.NoDirectoryInodeException;
 import jx.fs.NoFileInodeException;
 import jx.fs.NotExistException;
 import jx.fs.PermissionException;
-import jx.fs.buffercache.*;
+import jx.fs.buffer.*;
 
 /**
  * Diese Klasse enth&auml;lt alle Methoden, die f&uuml;r einen symbolischen Link von Bedeutung sind (<code>getSymlink</code> und

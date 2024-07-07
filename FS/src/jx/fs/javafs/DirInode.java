@@ -14,7 +14,7 @@ import jx.fs.NoDirectoryInodeException;
 import jx.fs.NoSymlinkInodeException;
 import jx.fs.NotExistException;
 import jx.fs.PermissionException;
-import jx.fs.buffercache.*;
+import jx.fs.buffer.*;
 
 /**
  * This class represents a directory. There are some methods inherited from the superclass that make

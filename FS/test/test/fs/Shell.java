@@ -315,11 +315,11 @@ public class Shell { // extends Thread {
 
         uout.println("unknown command '" + kommando + "'");
     }
-    //try {
+    try {
         fs.cleanUp();
-    /*} catch(InodeIOException | NotExistException e) {
+    } catch(Exception e) {
         uout.println("Cleanup Error!"+e);
-    }*/
+    }
     //metaxa.os.fs.javafs.BufferCache.instance().showBuffers();
            //metaxa.os.fs.javafs.InodeCache.instance().showInodes();
     }
@@ -368,35 +368,35 @@ public class Shell { // extends Thread {
     }
 
     private void mkdir(String name, int mode) {
-    //try {
+    try {
         fs.mkdir(name, mode);
-    /*} catch (FSException e) {
+    } catch (Exception e) {
         uout.println("Error: "+e.getMessage());
-    }*/
+    }
     }
 
     private void rmdir(String name) {
-    //try {
+    try {
         fs.rmdir(name);
-    /*} catch (FSException e) {
+    } catch (Exception e) {
         uout.println("Error: "+e.getMessage());
-    }*/
+    }
     }
 
     private void create(String name, int mode) {
-    //try {
+    try {
         fs.create(name, mode);
-    /*} catch (FSException e) {
+    } catch (Exception e) {
         uout.println("Error: "+e.getMessage());
-    }*/
+    }
     }
 
     private void unlink(String name) {
-    //try {
+    try {
         fs.unlink(name);
-    /*} catch (FSException e) {
+    } catch (Exception e) {
         uout.println("Error: "+e.getMessage());
-    }*/
+    }
     }
 
     private void read(String name, int off, int len) {
@@ -457,19 +457,19 @@ public class Shell { // extends Thread {
     }
 
     private void rename(String path, String pathneu) {
-    //try {
+    try {
         fs.rename(path, pathneu);
-    /*} catch (FSException e) {
+    } catch (Exception e) {
         uout.println("Error: "+e.getMessage());
-    }*/
+    }
     }
 
     private void symlink(String path, String pathneu) {
-    //try {
+    try {
         fs.symlink(path, pathneu);
-    /*} catch (FSException e) {
+    } catch (Exception e) {
         uout.println("Error: "+e.getMessage());
-    }*/
+    }
     }
 
     private void mount(String fs_name, String dev_name, String path) {
@@ -488,12 +488,12 @@ public class Shell { // extends Thread {
         Debug.out.println("Interner Fehler");
         return;
     }
-    //try {
+    try {
         fs.mount(filesystem, path, false);
         mountPartitions.put(dev_name, filesystem);
-    /*} catch (FSException e) {
+    } catch (Exception e) {
         uout.println("Error: "+e.getMessage());
-    }*/
+    }
     }
 
     private void unmount(String dev_name) {
@@ -502,10 +502,10 @@ public class Shell { // extends Thread {
         Debug.out.println("Auf der Partition " + dev_name + " ist kein Dateisystem angemeldet");
         return;
     }
-    //try {
+    try {
         fs.unmount(filesystem);
-    /*} catch (FSException e) {
+    } catch (Exception e) {
         uout.println("Error: "+e.getMessage());
-    }*/
+    }
     }
 }

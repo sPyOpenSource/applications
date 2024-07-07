@@ -1,7 +1,7 @@
 package jx.fs.javafs;
 
 import jx.zero.Memory;
-import jx.fs.buffercache.*;
+import jx.fs.buffer.*;
 
 /**
  * Diese Klasse bietet Methoden zum Zugriff auf primitive Java-Datentypen, die in einem Memory-Objekt kodiert sind. Sie dient

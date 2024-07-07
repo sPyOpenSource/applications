@@ -10,7 +10,7 @@ import jx.fs.InodeIOException;
 import jx.fs.InodeNotFoundException;
 import jx.fs.FSException;
 import jx.fs.buffer.BufferCache;
-import jx.fs.buffercache.BufferHead;
+import jx.fs.buffer.BufferHead;
 
 class TooSmallException extends Exception { }
 class TooBigException extends Exception { }
@@ -801,7 +801,7 @@ public class Tools {
 
         if (bh == null)
 	    return 0;
-	bd_slot = new InodeBlockData(bh, nr*4);
+	bd_slot = new InodeBlockData(bh, nr * 4);
 	if (new_block != 0)
 	    bd_slot.bd_entry(new_block);
 	tmp = bd_slot.bd_entry();

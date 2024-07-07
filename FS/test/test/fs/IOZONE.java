@@ -92,7 +92,7 @@ public class IOZONE {
     try {
         this.fs = fs;
         fs.create("iozone.tmp", InodeImpl.S_IWUSR|InodeImpl.S_IRUGO);
-    } catch (FSException e) {
+    } catch (Exception e) {
         Debug.out.println("ERROR");
         return;
     }
@@ -310,7 +310,7 @@ public class IOZONE {
         storeValue((int)readrate[0]);
         storeValue((int)readrate[1]);
     }
-    } catch(FSException e) {
+    } catch(Exception e) {
         Debug.out.println("EXCEPTION!"); throw new Error();
     }
     }
@@ -365,7 +365,7 @@ public class IOZONE {
         storeValue((int)writerate[0]);
         storeValue((int)writerate[1]);
     }
-    } catch(FSException ex) {
+    } catch(Exception ex) {
         throw new Error();
     }
     }

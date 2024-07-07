@@ -15,7 +15,7 @@ import jx.fs.FileExistsException;
 import jx.fs.DirNotEmptyException;
 import jx.fs.NoFileInodeException;
 import jx.fs.NotSupportedException;
-import jx.fs.buffercache.*;
+import jx.fs.buffer.*;
 
 /**
  * This class contains all methods to manipulate a file.

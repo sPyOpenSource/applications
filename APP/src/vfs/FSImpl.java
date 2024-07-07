@@ -55,7 +55,7 @@ public class FSImpl implements FS, Service {
     }
 
     @Override
-    public final void mount(FileSystem filesystem, String path, boolean read_only) throws InodeIOException, InodeNotFoundException, NoDirectoryInodeException, NotExistException, PermissionException {
+    public final void mount(FileSystem filesystem, String path, boolean read_only) throws Exception {
 	Node pi = null;
 	if (isPath(path))
 	    pi = lookup(getPathName(path));
@@ -141,7 +141,9 @@ public class FSImpl implements FS, Service {
 	} catch (PermissionException e) {
 	    Debug.out.println("cd: Zugriff auf '" + path + "' nicht erlaubt");
 	    return;
-	}
+	} catch (Exception e) {
+            return;
+        }
 	cwdPath = tmpPath;
 	if (cwdInode != null) // && cwdInode != rootInode)
 	    cwdInode.decUseCount();
@@ -149,7 +151,7 @@ public class FSImpl implements FS, Service {
     }
 
     @Override
-    public final void rename(String path, String pathneu) throws InodeIOException, InodeNotFoundException, NoDirectoryInodeException, NotExistException, PermissionException {
+    public final void rename(String path, String pathneu) throws Exception {
 	try {
 	    Node pi, pineu;
 	    
@@ -176,7 +178,7 @@ public class FSImpl implements FS, Service {
     }
 
     @Override
-    public final void symlink(String path, String pathneu) throws FileExistsException, InodeIOException, InodeNotFoundException, NoDirectoryInodeException, NotExistException,NotSupportedException, PermissionException {
+    public final void symlink(String path, String pathneu) throws Exception {
 	Node pi;
 	
 	if (isPath(pathneu))
@@ -190,7 +192,7 @@ public class FSImpl implements FS, Service {
     }
 
     @Override
-    public final void mkdir(String path, int mode) throws FileExistsException, InodeIOException, InodeNotFoundException, NoDirectoryInodeException, NotExistException,PermissionException {
+    public final void mkdir(String path, int mode) throws Exception  {
 	Node newdir;
 	if (isPath(path)) {
 	    Node pi = lookup(getPathName(path));
@@ -204,7 +206,7 @@ public class FSImpl implements FS, Service {
     }
 
     @Override
-    public final void rmdir(String path) throws DirNotEmptyException, InodeIOException, InodeNotFoundException, NoDirectoryInodeException, NotExistException,PermissionException {
+    public final void rmdir(String path) throws Exception {
 	direntrycache.removeEntry(getAbsolutePath(path)); // ruft schliesslich auch decUseCount() auf
 	if (isPath(path)) {
 	    Node pi = lookup(getPathName(path));
@@ -216,7 +218,7 @@ public class FSImpl implements FS, Service {
     }
     
     @Override
-    public final void create(String path, int mode) throws FileExistsException, InodeIOException, InodeNotFoundException, NoDirectoryInodeException, NotExistException,PermissionException {
+    public final void create(String path, int mode) throws Exception {
 	Node newfile;
 	if (isPath(path)) {
 	    Node pi = lookup(getPathName(path));
@@ -230,7 +232,7 @@ public class FSImpl implements FS, Service {
     }
 
     @Override
-    public final void unlink(String path) throws InodeIOException, InodeNotFoundException, NoDirectoryInodeException, NoFileInodeException, NotExistException,PermissionException {
+    public final void unlink(String path) throws Exception {
 	direntrycache.removeEntry(getAbsolutePath(path));
 	if (isPath(path)) {
 	    Node pi = lookup(getPathName(path));
@@ -258,7 +260,7 @@ public class FSImpl implements FS, Service {
     }
 
     @Override
-    public final Node lookup(String path)throws InodeIOException, InodeNotFoundException, NoDirectoryInodeException, NotExistException, PermissionException {
+    public final Node lookup(String path) throws Exception {
 	Node inode = direntrycache.getEntry(getAbsolutePath(path));
 	if (inode != null)  // Eintrag im Cache
 	    return inode;
@@ -314,7 +316,7 @@ public class FSImpl implements FS, Service {
     }
 
     @Override
-    public Node getNode(int deviceIdentifier, int identifier) throws FSException, NotExistException, PermissionException{
+    public Node getNode(int deviceIdentifier, int identifier) throws Exception {
        FileSystem filesystem = (FileSystem) devices.get(deviceIdentifier);
        
        if (filesystem == null) Debug.out.println("filesystem ist null");

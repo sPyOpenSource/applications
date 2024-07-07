@@ -5,7 +5,7 @@ import jx.zero.Debug;
 import jx.zero.Clock;
 import jx.fs.InodeIOException;
 import jx.fs.NotExistException;
-import jx.fs.buffercache.*;
+import jx.fs.buffer.*;
 
 /**
  * This is the baseclass for all inodes.
@@ -815,10 +815,10 @@ public abstract class InodeImpl extends jx.fs.InodeImpl {
 
     @Override
     public jx.fs.StatFS getStatFS() {
-	jx.fs.StatFS sfs = new jx.fs.StatFS();
-	sfs.bsize = i_sb.s_blocksize;
-	sfs.blocks = i_sb.getNumberOfBlocks();
-	sfs.bfree = i_sb.getNumberOfFreeBlocks();
+	jx.fs.StatFS sfs = new jx.fs.StatFSImpl();
+	sfs.setBlockSize(i_sb.s_blocksize);
+	sfs.setBlocks(i_sb.getNumberOfBlocks());
+	sfs.setFreeBlocks(i_sb.getNumberOfFreeBlocks());
 	//TODO: Inhalt von sfs.bavail: the number of blocks available to non-privileged users??
 	//sfs.bavail = ??
 	  

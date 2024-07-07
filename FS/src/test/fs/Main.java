@@ -12,6 +12,7 @@ import jx.fs.FSException;
 import jx.fs.FileSystem;
 import jx.fs.InodeImpl;
 import jx.fs.Node;
+import jx.iozone.IOZONE;
 
 class IOZoneRAMSingle {
     public static void init(Naming naming) throws Exception {
@@ -76,7 +77,7 @@ public class Main {
     }
 
 
-    public boolean fsckTest() throws FSException {
+    public boolean fsckTest() throws Exception {
         FS fs = (FS) naming.lookup("FS");
 
         BlockIO bio = (BlockIO)naming.lookup("IDE");

@@ -2,7 +2,7 @@ package jx.fs.javafs;
 
 import jx.zero.*;
 
-import jx.fs.buffercache.*;
+import jx.fs.buffer.*;
 
 final class SuperBlockData extends BufferHeadAccess {
     public SuperBlockData(BufferHead bh) {

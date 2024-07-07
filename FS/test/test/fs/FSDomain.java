@@ -5,7 +5,6 @@ import jx.fs.javafs.InodeImpl;
 import vfs.FSImpl;
 
 import jx.devices.bio.BlockIO;
-import jx.fs.FSException;
 import jx.fs.FileSystem;
 
 import jx.zero.CPUManager;
@@ -69,7 +68,7 @@ public class FSDomain {
 
             //InitialNaming.registerPortal(fat, fsname);
             //naming.registerPortal(jfs, "JavaFS");
-        } catch(FSException e) {
+        } catch(Exception e) {
             Debug.out.println("EXCEPTION: " + e);
             throw new Error();
         }

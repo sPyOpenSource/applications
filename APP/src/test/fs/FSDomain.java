@@ -67,7 +67,7 @@ public class FSDomain {
 
 	    //InitialNaming.registerPortal(fat, fsname);
 	    //naming.registerPortal(jfs, "JavaFS");
-	} catch(FSException e) {
+	} catch(Exception e) {
 	    Debug.out.println("EXCEPTION: " + e);
 	    throw new Error();
 	}

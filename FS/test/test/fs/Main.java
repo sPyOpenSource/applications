@@ -75,7 +75,7 @@ public class Main {
     return true;
     }
 
-    public boolean fsckTest() throws FSException {
+    public boolean fsckTest() throws Exception {
         FS fs = (FS) naming.lookup("FS");
 
         BlockIO bio = (BlockIO)naming.lookup("IDE");

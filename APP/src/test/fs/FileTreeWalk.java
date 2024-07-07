@@ -3,7 +3,6 @@ package test.fs;
 import jx.zero.*;
 import jx.zero.debug.*;
 import jx.fs.FS;
-import jx.fs.FSException;
 import jx.fs.Node;
 
 public class FileTreeWalk {
@@ -17,13 +16,13 @@ public class FileTreeWalk {
 		Debug.out = new DebugPrintStream(new DebugOutputStream(d));
 	    }
 	    new FileTreeWalk(naming);
-	} catch(FSException e) {
+	} catch(Exception e) {
 	    //e.printStackTrace();
 	    throw new Error();
 	}
     }
 
-    public FileTreeWalk(Naming naming) throws FSException {
+    public FileTreeWalk(Naming naming) throws Exception {
 	this.naming = naming;
 
 	FS fs = (FS) naming.lookup("FS");
@@ -37,7 +36,7 @@ public class FileTreeWalk {
 
     }
 
-    private void printDir(String space, Node dirInode) throws FSException {
+    private void printDir(String space, Node dirInode) throws Exception {
 	String name = null;
 	Node inode;
 	String[] names = dirInode.readdirNames();

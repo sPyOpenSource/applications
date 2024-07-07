@@ -87,7 +87,7 @@ public interface Node extends jx.zero.Portal {
      * @exception PermissionException       falls die Zugriffsrechte des Verzeichnisses die Operation nicht erlauben
      * @see       #lookup(String name)
      */
-    void overlay(Node newChild, String name);
+    void overlay(Node newChild, String name) throws Exception;
 
     /**
      * Entfernt die &Uuml;berlagerung durch die angegebene Inode.
@@ -128,7 +128,7 @@ public interface Node extends jx.zero.Portal {
      * @exception PermissionException       falls die Zugriffsrechte einer Pfadkomponente die Operation nicht erlauben
      * @throws jx.fs.NotExistException
      */
-    Node lookup(String name);
+    Node lookup(String name) throws Exception;
 
     /**
      * Testet, ob die Inode einen symbolischen Link repr&auml;sentiert.
@@ -199,7 +199,7 @@ public interface Node extends jx.zero.Portal {
      * @exception NoDirectoryInodeException falls es sich nicht um ein Verzeichnis handelt
      * @exception PermissionException       falls die Zugriffsrechte des Verzeichnisses die Operation nicht erlauben
      */
-    Node   getNode(String name);
+    Node   getNode(String name) throws Exception;
 
     /**
      * Erzeugt ein neues Verzeichnis mit dem angegebenen Namen innerhalb des durch diese Inode dargestellten Verzeichnisses,
@@ -214,7 +214,7 @@ public interface Node extends jx.zero.Portal {
      * @exception PermissionException       falls die Zugriffsrechte des Verzeichnisses die Operation nicht erlauben oder das
      *                                      Dateisystem als nur lesbar angemeldet wurde
      */
-    Node   mkdir(String name, int mode);
+    Node   mkdir(String name, int mode) throws Exception;
 
     /**
      * Entfernt das Verzeichnis mit dem angegebenen Namen aus dem durch diese Inode dargestellten Verzeichnis. Die Inode,
@@ -228,7 +228,7 @@ public interface Node extends jx.zero.Portal {
      * @exception PermissionException       falls die Zugriffsrechte des Verzeichnisses die Operation nicht erlauben oder das
      *                                      Dateisystem als nur lesbar angemeldet wurde
      */
-    void    rmdir(String name);
+    void    rmdir(String name) throws Exception;
 
     /**
      * Erzeugt einen neuen Verzeichniseintrag (eine neue Datei) mit dem angegebenen Namen innerhalb des durch diese Inode
@@ -243,7 +243,7 @@ public interface Node extends jx.zero.Portal {
      * @exception PermissionException       falls die Zugriffsrechte des Verzeichnisses die Operation nicht erlauben oder das
      *                                      Dateisystem als nur lesbar angemeldet wurde
      */
-    Node   create(String name, int mode);
+    Node   create(String name, int mode) throws Exception;
 
     /**
      * Entfernt die Datei mit dem angegebenen Namen aus dem durch diese Inode dargestellten Verzeichnis. Die zu dem Eintrag
@@ -257,7 +257,7 @@ public interface Node extends jx.zero.Portal {
      * @exception PermissionException       falls die Zugriffsrechte des Verzeichnisses die Operation nicht erlauben oder das
      *                                      Dateisystem als nur lesbar angemeldet wurde
      */
-    void    unlink(String name);
+    void    unlink(String name) throws Exception;
 
     /**
      * Erzeugt einen "symbolischen Link", einen Verweis auf einen Verzeichniseintrag. Von au&szlig;en ist zwischen Verweis
@@ -273,7 +273,7 @@ public interface Node extends jx.zero.Portal {
      * @exception PermissionException       falls die Zugriffsrechte des Verzeichnisses die Operation nicht erlauben oder das
      *                                      Dateisystem als nur lesbar angemeldet wurde
      */
-    Node   symlink(String symname, String newname);
+    Node   symlink(String symname, String newname) throws Exception;
 
     /**
      * Liefert den Pfad der Inode, auf die der symbolische Link verweist.
@@ -283,7 +283,7 @@ public interface Node extends jx.zero.Portal {
      * @exception NotSupportedException   falls das Dateisystem diese Operation nicht unterst&uuml;tzt
      * @exception PermissionException     falls die Zugriffsrechte des symbolischen Links die Operation nicht erlauben
      */
-    String  getSymlink();
+    String  getSymlink() throws Exception;
 
     /**
      * Verschiebt die Inode des angegebenen Verzeichniseintrags bzw. &auml;ndert deren Namen.
@@ -298,7 +298,7 @@ public interface Node extends jx.zero.Portal {
      *                                      die Zugriffsrechte des Verzeichnisses die Operation nicht erlauben oder das
      *                                      Dateisystem als nur lesbar angemeldet wurde
      */
-    void    rename(String oldname, Node new_dir, String newname);
+    void    rename(String oldname, Node new_dir, String newname) throws Exception;
 
     /**
      * Liest den Inhalt der Datei.
@@ -312,7 +312,7 @@ public interface Node extends jx.zero.Portal {
      * @exception PermissionException  falls die Zugriffsrechte der Datei die Operation nicht erlauben
      * @throws jx.fs.NotExistException
      */
-    int     read(Memory mem, int off, int len);
+    int     read(Memory mem, int off, int len) throws Exception;
 
     /**
      * Liest den Inhalt der Datei.
@@ -327,10 +327,10 @@ public interface Node extends jx.zero.Portal {
      * @exception PermissionException  falls die Zugriffsrechte der Datei die Operation nicht erlauben
      * @throws jx.fs.NotExistException
      */
-    int     read(int pos, Memory mem, int bufoff, int len);
+    int     read(int pos, Memory mem, int bufoff, int len) throws Exception;
 
     /** experimental method to get rid of memory copies */
-    ReadOnlyMemory readWeak(int off, int len);
+    ReadOnlyMemory readWeak(int off, int len) throws Exception;
 
     /**
      * Schreibt Daten in die Datei. Die Datei wird u.U. vergr&ouml;&szlig;ert.
@@ -343,7 +343,7 @@ public interface Node extends jx.zero.Portal {
      * @exception PermissionException  falls die Zugriffsrechte der Datei die Operation nicht erlauben oder das Dateisystem
      *                                 als nur lesbar angemeldet wurde
      */
-    int write(Memory mem, int off, int len);
+    int write(Memory mem, int off, int len) throws Exception;
 
     /**
      * Schreibt Daten in die Datei. Die Datei wird u.U. vergr&ouml;&szlig;ert.
@@ -357,7 +357,7 @@ public interface Node extends jx.zero.Portal {
      * @exception PermissionException  falls die Zugriffsrechte der Datei die Operation nicht erlauben oder das Dateisystem
      *                                 als nur lesbar angemeldet wurde
      */
-    int write(int pos, Memory mem, int bufoff, int len);
+    int write(int pos, Memory mem, int bufoff, int len) throws Exception;
 
     /**
      * Liefert den freien Platz (in Byte) auf der Partition, die die Inode enth&auml;lt, zur&uuml;ck.

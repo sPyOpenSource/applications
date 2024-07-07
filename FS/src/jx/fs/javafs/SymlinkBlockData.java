@@ -1,6 +1,6 @@
 package jx.fs.javafs;
 
-import jx.fs.buffercache.*;
+import jx.fs.buffer.*;
 
 class SymlinkBlockData extends BufferHeadAccess {
     public SymlinkBlockData(BufferHead bh, int offset) {

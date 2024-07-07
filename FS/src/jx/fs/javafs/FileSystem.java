@@ -5,7 +5,6 @@ import jx.zero.Service;
 import jx.zero.Clock;
 import jx.devices.bio.BlockIO;
 
-import jx.fs.FSException;
 import jx.fs.InodeIOException;
 import jx.fs.Node;
 import jx.fs.NotExistException;
@@ -101,7 +100,7 @@ public class FileSystem implements jx.fs.FileSystem, Service {
     }
 
     @Override
-    public Node getNode(int inodeNumber) throws FSException  {
+    public Node getNode(int inodeNumber) throws Exception  {
 	DirEntryData de_data;
 	InodeImpl inode;
 	

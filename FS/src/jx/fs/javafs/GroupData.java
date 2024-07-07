@@ -1,6 +1,6 @@
 package jx.fs.javafs;
 
-import jx.fs.buffercache.*;
+import jx.fs.buffer.*;
 
 class GroupData extends BufferHeadAccess {
     public GroupData(BufferHead bh, int offset) {
