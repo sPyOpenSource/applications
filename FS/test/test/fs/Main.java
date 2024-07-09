@@ -150,7 +150,7 @@ public class Main {
         return true;
     }
 
-    void fileTreeWalkTest() throws FSException {
+    void fileTreeWalkTest() throws Exception {
     FS fs = (FS) naming.lookup("FS");
     BootFS bootFS = (BootFS) naming.lookup("BootFS");
     Memory file = bootFS.getReadWriteFile("diskImage.ext2");
@@ -174,7 +174,7 @@ public class Main {
     printDir(" ", fs.getCwdNode());
 
     }
-    private void printDir(String space, Node dirInode) throws FSException {
+    private void printDir(String space, Node dirInode) throws Exception {
     Node inode;
     String[] names = dirInode.readdirNames();
         for (String name : names) {

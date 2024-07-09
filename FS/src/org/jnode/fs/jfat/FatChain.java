@@ -27,13 +27,14 @@ import java.nio.file.FileSystemException;
 import java.util.NoSuchElementException;
 import jx.zero.Debug;
 import jx.zero.Memory;
+import jx.zero.MemoryManager;
 
 /**
  * @author gvt
  * 
  */
 public class FatChain {
-
+MemoryManager MemManager;
     private final FatFileSystem fs;
     private final Fat fat;
 

@@ -33,38 +33,44 @@ public class FileInode extends InodeImpl {
     }
 
     @Override
-    public boolean isSymlink() throws NotExistException {
-	if (i_released) throw new NotExistException();
+    public boolean isSymlink()// throws NotExistException 
+    {
+	//if (i_released) throw new NotExistException();
 	return false;
     }
 
     @Override
-    public boolean isFile() throws NotExistException {
-	if (i_released) throw new NotExistException();
+    public boolean isFile()// throws NotExistException 
+    {
+	//if (i_released) throw new NotExistException();
 	return true;
     }
 
     @Override
-    public boolean isDirectory() throws NotExistException {
-	if (i_released) throw new NotExistException();
+    public boolean isDirectory()// throws NotExistException 
+    {
+	//if (i_released) throw new NotExistException();
 	return false;
     }
 
     @Override
-    public boolean isWritable() throws NotExistException {
-	if (i_released) throw new NotExistException();
+    public boolean isWritable()// throws NotExistException 
+    {
+	//if (i_released) throw new NotExistException();
 	return true;
     }
 
     @Override
-    public boolean isReadable() throws NotExistException {
-	if (i_released) throw new NotExistException();
+    public boolean isReadable()// throws NotExistException 
+    {
+	//if (i_released) throw new NotExistException();
 	return true;
     }
 
     @Override
-    public boolean isExecutable() throws NotExistException {
-	if (i_released) throw new NotExistException();
+    public boolean isExecutable()// throws NotExistException 
+    {
+	//if (i_released) throw new NotExistException();
 	return true;
     }
 

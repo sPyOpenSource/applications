@@ -32,6 +32,7 @@ import jx.fs.Node;
 import jx.fs.buffer.BufferCache;
 import jx.zero.Clock;
 import jx.zero.Memory;
+import jx.zero.MemoryManager;
 
 import org.jnode.fs.ntfs.attribute.NTFSAttribute;
 import org.jnode.fs.ntfs.attribute.NTFSResidentAttribute;
@@ -43,7 +44,7 @@ import org.jnode.fs.ntfs.attribute.NTFSResidentAttribute;
  * @author Ewout Prangsma (epr@users.sourceforge.net)
  */
 public class NTFSFileSystem implements jx.fs.FileSystem {
-
+MemoryManager MemManager;
     private final NTFSVolume volume;
     private NTFSEntry root;
 
@@ -86,7 +87,7 @@ public class NTFSFileSystem implements jx.fs.FileSystem {
 
         if (attribute instanceof NTFSResidentAttribute) {
             NTFSResidentAttribute residentAttribute = (NTFSResidentAttribute) attribute;
-            Memory nameBuffer = new byte[residentAttribute.getAttributeLength()];
+            Memory nameBuffer = MemManager.alloc(residentAttribute.getAttributeLength());
 
             residentAttribute.getData(residentAttribute.getAttributeOffset(), nameBuffer, 0, nameBuffer.size());
 
@@ -117,7 +118,7 @@ public class NTFSFileSystem implements jx.fs.FileSystem {
 
         if (attribute instanceof NTFSResidentAttribute) {
             NTFSResidentAttribute residentAttribute = (NTFSResidentAttribute) attribute;
-            Memory idBuffer = new byte[residentAttribute.getAttributeLength()];
+            Memory idBuffer = MemManager.alloc(residentAttribute.getAttributeLength());
 
             residentAttribute.getData(residentAttribute.getAttributeOffset(), idBuffer, 0, idBuffer.size());
             return idBuffer;
@@ -161,7 +162,7 @@ public class NTFSFileSystem implements jx.fs.FileSystem {
         FileRecord bitmapRecord = getNTFSVolume().getMFT().getRecord(MasterFileTable.SystemFiles.BITMAP);
 
         int bitmapSize = (int) bitmapRecord.getAttributeTotalSize(NTFSAttribute.Types.DATA, null);
-        Memory buffer = new byte[bitmapSize];
+        Memory buffer = MemManager.alloc(bitmapSize);
         bitmapRecord.readData(0, buffer, 0, buffer.size());
 
         int usedBlocks = 0;

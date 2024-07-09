@@ -24,11 +24,13 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import jx.devices.bio.BlockIO;
 import jx.zero.Memory;
+import jx.zero.MemoryManager;
 
 /**
  * @author Chira
  */
 public class NTFSVolume {
+MemoryManager MemManager;
 
     //private static final Logger log = Logger.getLogger(NTFSVolume.class);
 
@@ -57,7 +59,7 @@ public class NTFSVolume {
         this.api = api;
 
         // Read the boot sector
-        final Memory buffer = ByteBuffer.allocate(512);
+        final Memory buffer = MemManager.alloc(512);
         api.readSectors(0, 1, buffer, true);
         this.bootRecord = new BootSector(buffer);
         this.clusterSize = bootRecord.getClusterSize();
@@ -127,7 +129,7 @@ public class NTFSVolume {
             } else {
                 nrClusters = (bytesPerFileRecord + clusterSize - 1) / clusterSize;
             }
-            final Memory data = new byte[nrClusters * clusterSize];
+            final Memory data = MemManager.alloc(nrClusters * clusterSize);
             readClusters((int)bootRecord.getMftLcn(), data, 0, nrClusters);
             mftFileRecord = new MasterFileTable(this, data, 0);
             mftFileRecord.checkIfValid();

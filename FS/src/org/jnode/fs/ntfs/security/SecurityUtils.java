@@ -24,7 +24,8 @@ import java.util.ArrayList;
 import java.util.List;
 import jx.zero.Memory;
 import org.jnode.fs.ntfs.NTFSStructure;
-import org.jnode.util.BigEndian;
+//import org.jnode.util.BigEndian;
+import jx.zero.MemoryManager;
 
 /**
  * Security related utilities.
@@ -32,6 +33,7 @@ import org.jnode.util.BigEndian;
  * @author Luke Quinane
  */
 public class SecurityUtils {
+    static MemoryManager MemManager;
 
     private SecurityUtils() {
         // Prevent instantiation
@@ -53,7 +55,7 @@ public class SecurityUtils {
 
         // Read in the SID
         int subAuthorityCount = structure.getInt8(offset + 1);
-        Memory authorityBuffer = new byte[6];
+        Memory authorityBuffer = MemManager.alloc(6);
         structure.getData(offset + 2, authorityBuffer, 0, authorityBuffer.size());
         long authority = BigEndian.getUInt48(authorityBuffer, 0); // Why is this big endian??
         List<Long> subAuthorities = new ArrayList<>();

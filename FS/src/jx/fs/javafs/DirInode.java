@@ -14,7 +14,8 @@ import jx.fs.NoDirectoryInodeException;
 import jx.fs.NoSymlinkInodeException;
 import jx.fs.NotExistException;
 import jx.fs.PermissionException;
-import jx.fs.buffer.*;
+import jx.fs.buffer.BufferCache;
+import jx.fs.buffer.BufferHead;
 
 /**
  * This class represents a directory. There are some methods inherited from the superclass that make
@@ -32,53 +33,53 @@ public class DirInode extends InodeImpl {
     @Override
     public boolean isSymlink()// throws NotExistException 
     {
-	if (i_released)
-	    throw new NotExistException();
+	/*if (i_released)
+	    throw new NotExistException();*/
 	return false;
     }
 
     @Override
     public boolean isFile()// throws NotExistException 
     {
-	if (i_released)
-	    throw new NotExistException();
+	/*if (i_released)
+	    throw new NotExistException();*/
 	return false;
     }
 
     @Override
     public boolean isDirectory()// throws NotExistException 
     {
-	if (i_released)
-	    throw new NotExistException();
+	/*if (i_released)
+	    throw new NotExistException();*/
 	return true;
     }
 
     @Override
     public boolean isWritable()// throws NotExistException 
     {
-	if (i_released)
-	    throw new NotExistException();
+	/*if (i_released)
+	    throw new NotExistException();*/
 	return true;
     }
 
     @Override
     public boolean isReadable()// throws NotExistException 
     {
-	if (i_released)
-	    throw new NotExistException();
+	/*if (i_released)
+	    throw new NotExistException();*/
 	return true;
     }
 
     @Override
     public boolean isExecutable()// throws NotExistException 
     {
-	if (i_released)
-	    throw new NotExistException();
+	/*if (i_released)
+	    throw new NotExistException();*/
 	return true;
     }
 
     @Override
-    public String[] readdirNames()// throws NoDirectoryInodeException, NotExistException  
+    public String[] readdirNames() throws NoDirectoryInodeException, NotExistException  
     {
 	Vector dirs = readdirNames0();
 	// copy into String array
@@ -188,7 +189,7 @@ public class DirInode extends InodeImpl {
      * @exception PermissionException       falls die Zugriffsrechte des Verzeichnisses die Operation nicht erlauben
      */
     @Override
-    public jx.fs.Node getNode(String name)// throws InodeIOException, InodeNotFoundException, NoDirectoryInodeException, NotExistException, PermissionException 
+    public jx.fs.Node getNode(String name) throws InodeIOException, InodeNotFoundException, NoDirectoryInodeException, NotExistException, PermissionException 
     {
 	DirEntryData de_data;
 	InodeImpl inode;

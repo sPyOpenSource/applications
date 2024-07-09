@@ -160,7 +160,6 @@ public class Main {
 	Debug.out.println("DISKIMAGE:");
 	Dump.xdump1(file, 0, 256);
 
-
 	BlockIORAM bio = new BlockIORAM(file);
 	FileSystem jfs = new jx.fs.javafs.FileSystem();
 	Clock clock = new DummyClock();
@@ -178,7 +177,7 @@ public class Main {
 	printDir(" ", fs.getCwdNode());
 
     }
-    private void printDir(String space, Node dirInode) throws FSException {
+    private void printDir(String space, Node dirInode) throws Exception {
 	Node inode;
 	String[] names = dirInode.readdirNames();
         for (String name : names) {

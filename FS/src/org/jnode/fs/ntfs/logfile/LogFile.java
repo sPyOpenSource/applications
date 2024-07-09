@@ -10,12 +10,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 import jx.zero.Memory;
+import jx.zero.MemoryManager;
 
 import org.jnode.fs.ntfs.FileRecord;
 import org.jnode.fs.ntfs.NTFSVolume;
 import org.jnode.fs.ntfs.attribute.NTFSAttribute;
 import org.jnode.fs.util.FSUtils;
-import org.jnode.util.LittleEndian;
+//import org.jnode.util.LittleEndian;
 
 /**
  * $LogFile
@@ -23,7 +24,7 @@ import org.jnode.util.LittleEndian;
  * @author Luke Quinane
  */
 public class LogFile {
-
+MemoryManager MemManager;
     /**
      * My logger
      */
@@ -93,7 +94,7 @@ public class LogFile {
     public LogFile(FileRecord fileRecord) throws IOException {
         // Read in the log file data
         logFileLength = fileRecord.getAttributeTotalSize(NTFSAttribute.Types.DATA, null);
-        logFileBuffer = new byte[(int) logFileLength];
+        logFileBuffer = MemManager.alloc((int)logFileLength);
         fileRecord.readData(0, logFileBuffer, 0, (int) logFileLength);
 
         // Read in the restart area info

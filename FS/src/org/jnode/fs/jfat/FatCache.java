@@ -21,11 +21,12 @@
 package org.jnode.fs.jfat;
 
 import java.io.IOException;
-import jx.bio.buffercache.BufferCache;
+import jx.fs.buffer.BufferCache;
+import jx.fs.buffer.BufferHead;
 import jx.zero.Debug;
 import jx.zero.Memory;
 
-public class FatCache extends BufferCache {
+public class FatCache implements BufferCache {
 
     public final static float loadFactor = 0.75f;
 
@@ -209,4 +210,39 @@ public class FatCache extends BufferCache {
 
         return out.toString();
     }*/
+
+    @Override
+    public void syncDevice(boolean b) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void flushCache() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void showBuffers() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public BufferHead bread(int bg_inode_table) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public BufferHead getblk(int nr) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void bdwrite(BufferHead bh) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void brelse(BufferHead bh) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

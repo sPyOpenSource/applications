@@ -17,13 +17,13 @@ public class FileTreeWalk {
         Debug.out = new DebugPrintStream(new DebugOutputStream(d));
         }
         new FileTreeWalk(naming);
-    } catch(FSException e) {
+    } catch(Exception e) {
         //e.printStackTrace();
         throw new Error();
     }
     }
 
-    public FileTreeWalk(Naming naming) throws FSException {
+    public FileTreeWalk(Naming naming) throws Exception {
     this.naming = naming;
 
     FS fs = (FS) naming.lookup("FS");
@@ -37,7 +37,7 @@ public class FileTreeWalk {
 
     }
 
-    private void printDir(String space, Node dirInode) throws FSException {
+    private void printDir(String space, Node dirInode) throws Exception {
     Node inode;
     String[] names = dirInode.readdirNames();
 

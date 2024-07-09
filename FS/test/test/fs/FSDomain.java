@@ -48,7 +48,7 @@ public class FSDomain {
 
             final FSImpl fs = new FSImpl();
             //final jx.fs.FileSystem fat = new FatFileSystem(bio);
-            final FileSystem fat = new AIMemory();
+            //final FileSystem fat = new AIMemory();
             //final javafs.FileSystem jfs = new javafs.FileSystem();
             Clock clock = new DummyClock();
             //jfs.init(bio, new buffercache.BufferCache(bio, clock, 800, 1000, 100, EXT2FS_BLOCKSIZE), clock);
@@ -60,7 +60,7 @@ public class FSDomain {
                 //jfs.build("TestFS", 1024);
                 //profiler.stopSampling();
             }
-            fs.mountRoot(fat, false /* read-only = false*/);
+            //fs.mountRoot(fat, false /* read-only = false*/);
 
             if (format) {
                 fs.mkdir("lost+found", InodeImpl.S_IWUSR | InodeImpl.S_IRUGO | InodeImpl.S_IXUGO);

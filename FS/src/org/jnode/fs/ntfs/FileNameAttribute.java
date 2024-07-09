@@ -22,6 +22,7 @@ package org.jnode.fs.ntfs;
 
 import java.io.UnsupportedEncodingException;
 import jx.zero.Memory;
+import jx.zero.MemoryManager;
 import org.jnode.fs.ntfs.attribute.NTFSResidentAttribute;
 
 /**
@@ -179,7 +180,7 @@ public final class FileNameAttribute extends NTFSResidentAttribute {
      * The $FILE_NAME attribute structure. Also used in directory index records.
      */
     public static class Structure extends NTFSStructure {
-
+MemoryManager MemManager;
         private String name;
 
         public Structure(NTFSStructure parent, int offset) {
@@ -314,7 +315,7 @@ public final class FileNameAttribute extends NTFSResidentAttribute {
          */
         private byte[] getFileNameAsByteArray() {
             final int len = getUInt8(0x40);
-            final Memory bytes = new byte[len * 2];
+            final Memory bytes = MemManager.alloc(len * 2);
             getData(0x42, bytes, 0, bytes.size());
             return bytes;
         }

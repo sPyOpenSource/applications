@@ -47,7 +47,7 @@ public class BootSector {
     private final Memory sector;
     private int type;
     private boolean dirty;
-    MemoryManager MemManager;
+    protected MemoryManager MemManager;
 
     /*
      * Common fields, common offsets

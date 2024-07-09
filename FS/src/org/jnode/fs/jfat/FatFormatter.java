@@ -47,6 +47,7 @@ import java.io.IOException;
 import java.util.Date;
 import jx.devices.bio.BlockIO;
 import jx.zero.Memory;
+import jx.zero.MemoryManager;
 
 //import org.jnode.util.LittleEndian;
 
@@ -71,6 +72,7 @@ import jx.zero.Memory;
  * 
  */
 public class FatFormatter {
+    MemoryManager MemManager;
     //private static final Logger log = Logger.getLogger(FatFormatter.class);
 
     /** The Device Identifier for Floppy Device */

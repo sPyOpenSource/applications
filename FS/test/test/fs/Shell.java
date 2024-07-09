@@ -350,7 +350,7 @@ public class Shell { // extends Thread {
     }*/
         for (String name : names) {
             uout.print(name);
-            //try {
+            try {
                 inode = (InodeImpl)(((InodeImpl)fs.getCwdNode()).lookup(name));
                 if (inode.isDirectory())
                     uout.print(" D");
@@ -361,9 +361,9 @@ public class Shell { // extends Thread {
                 uout.println(" " + inode.getLength());
                 
                 inode.decUseCount(); // TODO: is this necessary?  
-            /*} catch (FSException e) {
+            } catch (FSException e) {
                 uout.println("Error");
-            }*/
+            }
         }
     }
 

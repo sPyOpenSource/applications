@@ -23,12 +23,15 @@ package org.jnode.fs.ntfs;
 import java.io.IOException;
 import java.util.Arrays;
 import jx.zero.Memory;
+import jx.zero.MemoryManager;
 //import org.jnode.util.LittleEndian;
 
 /**
  * @author Daniel Noll (daniel@noll.id.au)
  */
 public final class CompressedDataRun implements DataRunInterface {
+    MemoryManager MemManager;
+    
     /**
      * Size of a compressed block in NTFS.  This is always the same even if the cluster size
      * is not 4k.
@@ -113,7 +116,7 @@ public final class CompressedDataRun implements DataRunInterface {
 
         // Now we know the data is compressed.  Read in the compressed block...
         final int vcnOffsetWithinUnit = (int) (actFirstVcn % compressionUnitSize);
-        final Memory tempCompressed = new byte[compressionUnitSize * clusterSize];
+        final Memory tempCompressed = MemManager.alloc(compressionUnitSize * clusterSize);
         final int read = compressedRun.readClusters(myFirstVcn, tempCompressed, 0,
             compClusters, clusterSize, volume);
         if (read != compClusters) {

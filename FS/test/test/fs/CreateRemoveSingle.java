@@ -57,7 +57,7 @@ class CreateRemoveSingle {
         });
             
         CreateRemove.dotest(jfs);
-    } catch(FSException e) {
+    } catch(Exception e) {
         Debug.out.println("ERROR while testing");
     }
     

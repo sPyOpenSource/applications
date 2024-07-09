@@ -26,15 +26,13 @@ public class SymlinkInode extends InodeImpl {
 
     @Override
     public boolean isSymlink() { // throws NotExistException {
-	//if (i_released)
-	//throw new NotExistException();
+	//if (i_released) throw new NotExistException();
 	return true;
     }
 
     @Override
     public boolean isFile() { // throws NotExistException {
-	//if (i_released)
-	//throw new NotExistException();
+	//if (i_released) throw new NotExistException();
 	return false;
     }
 
@@ -45,28 +43,24 @@ public class SymlinkInode extends InodeImpl {
 
     @Override
     public boolean isWritable() { // throws NotExistException {
-	//if (i_released)
-	//throw new NotExistException();
+	//if (i_released) throw new NotExistException();
 	return true;
     }
 
     @Override
     public boolean isReadable() { // throws NotExistException {
-	//if (i_released)
-	//throw new NotExistException();
+	//if (i_released) throw new NotExistException();
 	return true;
     }
 
     @Override
     public boolean isExecutable() { // throws NotExistException {
-	//if (i_released)
-	//throw new NotExistException();
+	//if (i_released) throw new NotExistException();
 	return true;
     }
 
     @Override
-    public String[] readdirNames() {
-    //throws NoDirectoryInodeException, NotExistException {
+    public String[] readdirNames() throws NoDirectoryInodeException, NotExistException {
 	try {
 	    if (i_released)
 		throw new NotExistException();
@@ -76,8 +70,7 @@ public class SymlinkInode extends InodeImpl {
     }
 
     @Override
-    public jx.fs.Node getNode(String name) {
-    //throws InodeIOException, InodeNotFoundException, NoDirectoryInodeException, NotExistException, PermissionException {
+    public jx.fs.Node getNode(String name) throws InodeIOException, NoDirectoryInodeException, NotExistException, PermissionException {
 	try {
 	    if (i_released)
 		throw new NotExistException();
@@ -87,8 +80,7 @@ public class SymlinkInode extends InodeImpl {
     }
 
     @Override
-    public jx.fs.Node mkdir(String name, int mode) {
-    //throws FileExistsException, InodeIOException, NoDirectoryInodeException, NotExistException, PermissionException {
+    public jx.fs.Node mkdir(String name, int mode) throws InodeIOException, NoDirectoryInodeException, NotExistException, PermissionException {
 	try {
 	    if (i_released)
 		throw new NotExistException();
@@ -98,9 +90,7 @@ public class SymlinkInode extends InodeImpl {
     }
 
     @Override
-    public void rmdir(String name) {
-    //throws DirNotEmptyException, InodeIOException, InodeNotFoundException, NoDirectoryInodeException, NotExistException,
-    //PermissionException {
+    public void rmdir(String name) throws InodeIOException, NoDirectoryInodeException, NotExistException, PermissionException {
 	try {
 	    if (i_released)
 		throw new NotExistException();
@@ -230,8 +220,7 @@ public class SymlinkInode extends InodeImpl {
     }
 	
     @Override
-    public  String getSymlink()
-    //throws InodeIOException, NoSymlinkInodeException, NotExistException, NotSupportedException, PermissionException 
+    public  String getSymlink() throws InodeIOException, NotExistException, PermissionException 
     {
 	try {
 	    SymlinkBlockData symlink_data;

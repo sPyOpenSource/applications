@@ -29,7 +29,6 @@ import jx.zero.InitialNaming;
 import jx.fs.javafs.InodeCache;
 import jx.fs.javafs.Tools;
 import jx.fs.Directory;
-import jx.fs.FSException;
 import jx.fs.Node;
 import jx.fs.RegularFile;
 import jx.fs.buffer.BufferCache;

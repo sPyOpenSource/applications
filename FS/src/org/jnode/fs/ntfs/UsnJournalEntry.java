@@ -141,7 +141,7 @@ public class UsnJournalEntry extends NTFSStructure {
      * @return the file name.
      */
     public String getFileName() {
-        Memory buffer = new byte[getFileNameSize()];
+        Memory buffer = MemManager.alloc(getFileNameSize());
         getData(0x3c, buffer, 0, buffer.size());
 
         try {

@@ -30,6 +30,7 @@ import java.util.Map;
 import java.util.NoSuchElementException;
 
 import jx.zero.Memory;
+import jx.zero.MemoryManager;
 import org.jnode.fs.ntfs.attribute.AttributeListAttribute;
 import org.jnode.fs.ntfs.attribute.AttributeListEntry;
 import org.jnode.fs.ntfs.attribute.NTFSAttribute;
@@ -44,6 +45,7 @@ import org.jnode.fs.ntfs.attribute.NTFSResidentAttribute;
  * @author Daniel Noll (daniel@noll.id.au) (new attribute iteration support)
  */
 public class FileRecord extends NTFSRecord {
+MemoryManager MemManager;
 
     /**
      * The volume this record is a part of.
@@ -594,7 +596,7 @@ public class FileRecord extends NTFSRecord {
         final long startCluster = fileOffset / clusterSize;
         final long endCluster = (fileOffset + len - 1) / clusterSize;
         final int nrClusters = (int) (endCluster - startCluster + 1);
-        final Memory tmp = new byte[nrClusters * clusterSize];
+        final Memory tmp = MemManager.alloc(nrClusters * clusterSize);
 
         long clusterOffset = 0;
         long clusterWithinNresData = startCluster;

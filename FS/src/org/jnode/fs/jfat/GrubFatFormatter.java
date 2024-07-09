@@ -26,6 +26,7 @@ import java.net.URL;
 import java.net.URLConnection;
 import jx.devices.bio.BlockIO;
 import jx.zero.Memory;
+import jx.zero.MemoryManager;
 
 import org.jnode.driver.block.Geometry;
 import org.jnode.util.FileUtils;
@@ -41,6 +42,7 @@ public class GrubFatFormatter {
     private String configFile;
     private int installPartition = 0xFFFFFFFF;
     private FatFormatter formatter;
+MemoryManager MemManager;
 
     /**
      * @param bps
@@ -102,7 +104,7 @@ public class GrubFatFormatter {
     public Memory getStage1(String stage1ResourceName) throws IOException {
         if (stage1 == null) {
             InputStream is = getClass().getClassLoader().getResourceAsStream(stage1ResourceName);
-            Memory buf = new byte[512];
+            Memory buf = MemManager.alloc(512);
             FileUtils.copy(is, buf);
             is.close();
             stage1 = buf;
@@ -114,7 +116,7 @@ public class GrubFatFormatter {
         if (stage2 == null) {
             URL stage2URL = getClass().getClassLoader().getResource(stage2ResourceName);
             URLConnection conn = stage2URL.openConnection();
-            Memory buf = new byte[conn.getContentLength()];
+            Memory buf = MemManager.alloc(conn.getContentLength());
             InputStream is = conn.getInputStream();
             FileUtils.copy(is, buf);
             is.close();

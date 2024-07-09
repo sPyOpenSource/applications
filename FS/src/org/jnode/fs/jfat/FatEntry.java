@@ -88,7 +88,7 @@ public abstract class FatEntry extends FatObject implements Node
     }
 
     public void delete() throws IOException {
-        setValid(false);
+        //setValid(false);
 
         entry.delete();
         parent.setFatDirEntry(entry);
@@ -540,7 +540,7 @@ public abstract class FatEntry extends FatObject implements Node
     }
 
     @Override
-    public FileSystem getFileSystem()// throws NotExistException
+    public FileSystem getFileSystem()// throws Exception
     {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }

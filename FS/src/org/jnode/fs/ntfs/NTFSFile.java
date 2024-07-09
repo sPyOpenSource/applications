@@ -29,6 +29,7 @@ import java.util.Map;
 import java.util.Set;
 import jx.fs.FileSystem;
 import jx.zero.Memory;
+import jx.zero.MemoryManager;
 
 import org.jnode.fs.FSFileSlackSpace;
 import org.jnode.fs.FSFileStreams;
@@ -41,6 +42,7 @@ import org.jnode.util.ByteBufferUtils;
  * @author Ewout Prangsma (epr@users.sourceforge.net)
  */
 public class NTFSFile extends NTFSEntry {
+MemoryManager MemManager;
 
     /**
      * The associated file record.
@@ -171,7 +173,7 @@ public class NTFSFile extends NTFSEntry {
         if (attribute == null || attribute.isResident()) {
             // If the data attribute is missing there is no slack space. If it is resident then another attribute might
             // immediately follow the data. So for now we'll ignore that case
-            return new byte[0];
+            return null;
         }
 
         int clusterSize = ((NTFSFileSystem) getFileSystem()).getNTFSVolume().getClusterSize();
@@ -182,7 +184,7 @@ public class NTFSFile extends NTFSEntry {
             slackSpaceSize = 0;
         }
 
-        Memory slackSpace = new byte[slackSpaceSize];
+        Memory slackSpace = MemManager.alloc(slackSpaceSize);
         getFileRecord().readData(NTFSAttribute.Types.DATA, null, getLength(), slackSpace, 0, slackSpace.size(), false);
 
         return slackSpace;
