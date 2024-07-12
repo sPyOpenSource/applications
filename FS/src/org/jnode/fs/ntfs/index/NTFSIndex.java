@@ -23,9 +23,10 @@ package org.jnode.fs.ntfs.index;
 import java.io.IOException;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
+import java.util.Queue;
 import org.jnode.fs.ntfs.FileRecord;
 import org.jnode.fs.ntfs.attribute.NTFSAttribute;
-import org.jnode.util.Queue;
+//import org.jnode.util.Queue;
 
 /**
  * @author Chira
@@ -171,7 +172,7 @@ public final class NTFSIndex {
          * List of those IndexEntry's that have a subnode and the subnode has
          * not been visited.
          */
-        private final Queue<IndexEntry> subNodeEntries = new Queue<>();
+        private final Queue<IndexEntry> subNodeEntries = null;//new Queue<>();
 
         /** Iterator of current part of the index */
         private Iterator<IndexEntry> currentIterator;
@@ -240,7 +241,7 @@ public final class NTFSIndex {
                 }
 
                 //log.debug("hasNext: read next indexblock");
-                final IndexEntry entry = subNodeEntries.get();
+                final IndexEntry entry = subNodeEntries.poll();
                 final IndexRoot indexRoot = getIndexRootAttribute().getRoot();
                 final IndexBlock indexBlock;
                 try {

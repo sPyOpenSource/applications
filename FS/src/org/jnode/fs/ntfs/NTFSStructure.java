@@ -55,6 +55,7 @@ public class NTFSStructure extends org.jnode.fs.jfat.BootSector {
      * @param offset
      */
     public NTFSStructure(NTFSStructure parent, int offset) {
+        super(parent.buffer);
         this.buffer = parent.buffer;
         this.offset = parent.offset + offset;
     }
@@ -117,7 +118,7 @@ public class NTFSStructure extends org.jnode.fs.jfat.BootSector {
      * @return
      */
     public final int getUInt24(int offset) {
-        return LittleEndian.getUInt24(buffer, this.offset + offset);
+        return 0;//LittleEndian.getUInt24(buffer, this.offset + offset);
     }
 
     /**
@@ -147,7 +148,7 @@ public class NTFSStructure extends org.jnode.fs.jfat.BootSector {
      * @return
      */
     public final long getUInt48(int offset) {
-        return LittleEndian.getUInt48(buffer, this.offset + offset);
+        return 0;//LittleEndian.getUInt48(buffer, this.offset + offset);
     }
 
     /**
@@ -177,7 +178,7 @@ public class NTFSStructure extends org.jnode.fs.jfat.BootSector {
      * @return
      */
     public final int getInt24(int offset) {
-        return LittleEndian.getInt24(buffer, this.offset + offset);
+        return 0;//LittleEndian.getInt24(buffer, this.offset + offset);
     }
 
     /**
@@ -197,7 +198,7 @@ public class NTFSStructure extends org.jnode.fs.jfat.BootSector {
      * @return
      */
     public final long getInt48(int offset) {
-        return LittleEndian.getInt48(buffer, this.offset + offset);
+        return 0;//LittleEndian.getInt48(buffer, this.offset + offset);
     }
 
     /**
@@ -207,7 +208,7 @@ public class NTFSStructure extends org.jnode.fs.jfat.BootSector {
      * @return
      */
     public final long getInt64(int offset) {
-        return LittleEndian.getInt64(buffer, this.offset + offset);
+        return 0;//LittleEndian.getInt64(buffer, this.offset + offset);
     }
 
     /**
@@ -245,12 +246,13 @@ public class NTFSStructure extends org.jnode.fs.jfat.BootSector {
         final Memory bytes = MemManager.alloc(length * 2);
         getData(offset, bytes, 0, bytes.size());
 
-        try {
+        /*try {
             //XXX: For Java 6, should use the version that accepts a Charset.
             return new String(bytes, "UTF-16LE");
         } catch (UnsupportedEncodingException e) {
             throw new IllegalStateException("UTF-16LE charset missing from JRE", e);
-        }
+        }*/
+        return null;
     }
 
     /**

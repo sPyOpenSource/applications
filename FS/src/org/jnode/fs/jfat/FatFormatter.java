@@ -72,7 +72,12 @@ import jx.zero.MemoryManager;
  * 
  */
 public class FatFormatter {
+
+    static FatFormatter HDFormatter(int bps, int i, int sectors, int heads, FatType fatSize, int i0, int calculateReservedSectors, GrubBootSector bs) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     MemoryManager MemManager;
+    BootSector bs;
     //private static final Logger log = Logger.getLogger(FatFormatter.class);
 
     /** The Device Identifier for Floppy Device */
@@ -180,7 +185,7 @@ public class FatFormatter {
             BlockIO api) throws IOException {
 
         FatFsInfo fsInfo = new FatFsInfo(sectorSize);
-        BootSector bs = new BootSector(sectorSize);
+        bs = new BootSector(sectorSize);
         //api.flush();
         int DiskSize = getDiskSize(nbTotalSectors, sectorSize);
         int SectorPerCluster = get_spc(ClusterSize, sectorSize);
@@ -304,7 +309,7 @@ public class FatFormatter {
          */
         for (int i = 0; i < 2; i++) {
             int SectorStart = (i == 0) ? 0 : (BackupBootSector * 512);
-            bs.write(api, SectorStart); // Write the BootSector
+            //bs.write(api, SectorStart); // Write the BootSector
             fsInfo.write(api, SectorStart + 512);
         }
         /** Write the first fat sector in the right places */
@@ -419,6 +424,10 @@ public class FatFormatter {
      */
     private int getDiskSize(int TotalSectors, int sectorSize) {
         return (TotalSectors * sectorSize);
+    }
+    
+    public BootSector getBootSector(){
+        return bs;
     }
 
 }

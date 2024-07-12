@@ -28,8 +28,7 @@ import jx.devices.bio.BlockIO;
 import jx.zero.Memory;
 import jx.zero.MemoryManager;
 
-import org.jnode.driver.block.Geometry;
-import org.jnode.util.FileUtils;
+//import org.jnode.util.FileUtils;
 //import org.jnode.util.LittleEndian;
 
 /**
@@ -55,7 +54,7 @@ MemoryManager MemManager;
 
         GrubBootSector bs =
                 (GrubBootSector) createBootSector(stage1ResourceName, stage2ResourceName);
-        bs.setOemName("JavaOS1.0");
+        //bs.setOemName("JavaOS1.0");
         formatter =
                 FatFormatter.HDFormatter(bps, (int) geom.getTotalSectors(), geom.getSectors(), geom
                         .getHeads(), fatSize, 0, calculateReservedSectors(512), bs);
@@ -77,8 +76,8 @@ MemoryManager MemManager;
             String stage2ResourceName) {
         GrubBootSector bs =
                 (GrubBootSector) createBootSector(stage1ResourceName, stage2ResourceName);
-        bs.setOemName("JavaOS1.0");
-        formatter = FatFormatter.fat144FloppyFormatter(calculateReservedSectors(512), bs);
+        //bs.setOemName("JavaOS1.0");
+        //formatter = FatFormatter.fat144FloppyFormatter(calculateReservedSectors(512), bs);
         this.bootSectorOffset = bootSectorOffset;
     }
 
@@ -105,7 +104,7 @@ MemoryManager MemManager;
         if (stage1 == null) {
             InputStream is = getClass().getClassLoader().getResourceAsStream(stage1ResourceName);
             Memory buf = MemManager.alloc(512);
-            FileUtils.copy(is, buf);
+            //FileUtils.copy(is, buf);
             is.close();
             stage1 = buf;
         }
@@ -118,7 +117,7 @@ MemoryManager MemManager;
             URLConnection conn = stage2URL.openConnection();
             Memory buf = MemManager.alloc(conn.getContentLength());
             InputStream is = conn.getInputStream();
-            FileUtils.copy(is, buf);
+            //FileUtils.copy(is, buf);
             is.close();
             stage2 = buf;
         }
@@ -129,7 +128,7 @@ MemoryManager MemManager;
      * @see org.jnode.fs.fat.FatFormatter#format(BlockDeviceAPI)
      */
     public void format(BlockIO api) throws IOException {
-        formatter.format(api);
+        //formatter.format(api);
         GrubBootSector bs = (GrubBootSector) formatter.getBootSector();
         /* Fixup the blocklist end the end of the first sector of stage2 */
         stage2.setLittleEndian32((512 - 8) >> 2, bootSectorOffset + 2);

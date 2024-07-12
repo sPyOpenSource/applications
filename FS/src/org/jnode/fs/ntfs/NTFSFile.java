@@ -31,11 +31,11 @@ import jx.fs.FileSystem;
 import jx.zero.Memory;
 import jx.zero.MemoryManager;
 
-import org.jnode.fs.FSFileSlackSpace;
-import org.jnode.fs.FSFileStreams;
+//import org.jnode.fs.FSFileSlackSpace;
+//import org.jnode.fs.FSFileStreams;
 import org.jnode.fs.ntfs.attribute.NTFSAttribute;
 import org.jnode.fs.ntfs.index.IndexEntry;
-import org.jnode.util.ByteBufferUtils;
+//import org.jnode.util.ByteBufferUtils;
 
 /**
  * @author vali
@@ -63,6 +63,7 @@ MemoryManager MemManager;
      * @param indexEntry the index entry.
      */
     public NTFSFile(NTFSFileSystem fs, IndexEntry indexEntry) {
+        super(fs, indexEntry);
         this.fs = fs;
         this.indexEntry = indexEntry;
     }
@@ -74,6 +75,7 @@ MemoryManager MemManager;
      * @param fileRecord the file record.
      */
     public NTFSFile(NTFSFileSystem fs, FileRecord fileRecord) {
+        super(fs, fileRecord, 0);
         this.fs = fs;
         this.fileRecord = fileRecord;
     }
@@ -87,10 +89,10 @@ MemoryManager MemManager;
             // Fall back to the size stored in the index entry if the data attribute is not present (even possible??)
             FileNameAttribute.Structure fileName = new FileNameAttribute.Structure(
                 indexEntry, IndexEntry.CONTENT_OFFSET);
-            return fileName.getRealSize();
+            return (int)fileName.getRealSize();
         }
 
-        return getFileRecord().getAttributeTotalSize(NTFSAttribute.Types.DATA, null);
+        return (int)getFileRecord().getAttributeTotalSize(NTFSAttribute.Types.DATA, null);
     }
 
     /*
@@ -109,10 +111,10 @@ MemoryManager MemManager;
     // public void read(long fileOffset, byte[] dest, int off, int len)
     public void read(long fileOffset, ByteBuffer destBuf) throws IOException {
         // TODO optimize it also to use ByteBuffer at lower level
-        final ByteBufferUtils.ByteArray destBA = ByteBufferUtils.toByteArray(destBuf);
-        final Memory dest = destBA.toArray();
+        //final ByteBufferUtils.ByteArray destBA = ByteBufferUtils.toByteArray(destBuf);
+        final Memory dest = null;// destBA.toArray();
         getFileRecord().readData(fileOffset, dest, 0, dest.size());
-        destBA.refreshByteBuffer();
+        //destBA.refreshByteBuffer();
     }
 
     /*
@@ -237,6 +239,7 @@ MemoryManager MemManager;
          * @param attributeName the name of the alternate data stream.
          */
         public StreamFile(String attributeName) {
+            super(fs, indexEntry);
             this.attributeName = attributeName;
         }
 
@@ -259,7 +262,7 @@ MemoryManager MemManager;
         }
 
         public int getLength() {
-            return NTFSFile.this.getFileRecord().getAttributeTotalSize(NTFSAttribute.Types.DATA, attributeName);
+            return (int)NTFSFile.this.getFileRecord().getAttributeTotalSize(NTFSAttribute.Types.DATA, attributeName);
         }
 
         public void setLength(long length) {
@@ -267,8 +270,8 @@ MemoryManager MemManager;
         }
 
         public void read(long fileOffset, ByteBuffer dest) throws IOException {
-            ByteBufferUtils.ByteArray destByteArray = ByteBufferUtils.toByteArray(dest);
-            Memory destBuffer = destByteArray.toArray();
+            //ByteBufferUtils.ByteArray destByteArray = ByteBufferUtils.toByteArray(dest);
+            Memory destBuffer = null;//destByteArray.toArray();
 
             if (fileOffset + destBuffer.size() > getLength()) {
                 throw new IOException("Attempt to read past the end of stream, offset: " + fileOffset);
@@ -276,7 +279,7 @@ MemoryManager MemManager;
 
             getFileRecord().readData(NTFSAttribute.Types.DATA, attributeName, fileOffset, destBuffer, 0,
                 destBuffer.size(), true);
-            destByteArray.refreshByteBuffer();
+            //destByteArray.refreshByteBuffer();
         }
 
         @Override

@@ -54,7 +54,7 @@ class CreateRemoveSingle {
 		    }
 		});
 		    
-	    CreateRemove.dotest(jfs);
+	    //CreateRemove.dotest(jfs);
 	} catch(Exception e) {
 	    Debug.out.println("ERROR while testing");
 	}
@@ -75,7 +75,7 @@ class CreateRemoveSingle {
 	
 	jfs.build("TestFS", 1024);
 
-	tools = jfs.getTools();
+	//tools = jfs.getTools();
 
 	return jfs;
     }

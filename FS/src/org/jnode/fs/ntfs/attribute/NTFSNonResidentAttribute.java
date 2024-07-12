@@ -24,6 +24,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import jx.zero.Memory;
+import jx.zero.MemoryManager;
 
 import org.jnode.fs.ntfs.CompressedDataRun;
 import org.jnode.fs.ntfs.DataRun;
@@ -41,6 +42,7 @@ import org.jnode.fs.util.FSUtils;
  * @author Daniel Noll (daniel@noll.id.au) (compression support)
  */
 public class NTFSNonResidentAttribute extends NTFSAttribute {
+MemoryManager MemManager;
 
     private int numberOfVCNs = 0;
 
@@ -311,9 +313,9 @@ public class NTFSNonResidentAttribute extends NTFSAttribute {
      */
     public String hexDump() {
         int length = getBuffer().size() - getOffset();
-        Memory data = new byte[length];
+        Memory data = MemManager.alloc(length);
         getData(0, data, 0, data.size());
-        return FSUtils.toString(data);
+        return null;//FSUtils.toString(data);
     }
 
     @Override

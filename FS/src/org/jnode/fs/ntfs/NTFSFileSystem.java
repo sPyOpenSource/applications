@@ -91,12 +91,12 @@ MemoryManager MemManager;
 
             residentAttribute.getData(residentAttribute.getAttributeOffset(), nameBuffer, 0, nameBuffer.size());
 
-            try {
+            /*try {
                 // XXX: For Java 6, should use the version that accepts a Charset.
                 return new String(nameBuffer, "UTF-16LE");
             } catch (UnsupportedEncodingException e) {
                 throw new IllegalStateException("UTF-16LE charset missing from JRE", e);
-            }
+            }*/
         }
 
         return "";

@@ -84,12 +84,12 @@ public abstract class AbstractDirectory extends FatObject {
         if (getFatEntry(nameExt) != null) {
             throw new IOException("File already exists" + nameExt);
         }
-        final FatDirEntry newEntry = new FatDirEntry(this, splitName(nameExt), splitExt(nameExt));
+        final FatDirEntry newEntry = null;//new FatDirEntry(null, splitName(nameExt), splitExt(nameExt));
         int size = entries.size();
         for (int i = 0; i < size; i++) {
             FatBasicDirEntry e = entries.get(i);
             if (e == null) {
-                entries.set(i, newEntry);
+                //entries.set(i, newEntry);
                 setDirty();
                 flush();
                 return newEntry;
@@ -127,8 +127,8 @@ public abstract class AbstractDirectory extends FatObject {
     protected synchronized FatDirEntry addFatDirectory(String nameExt, long parentCluster) throws IOException {
         final FatDirEntry entry = addFatFile(nameExt);
         final int clusterSize = getFatFileSystem().getClusterSize();
-        entry.setFlags(FatConstants.F_DIRECTORY);
-        final FatFile file = entry.getFatFile();
+        //entry.setFlags(FatConstants.F_DIRECTORY);
+        final FatFile file = null;//entry.getFatFile();
         file.setLength(clusterSize);
 
         //TODO optimize it also to use ByteBuffer at lower level        
@@ -137,9 +137,9 @@ public abstract class AbstractDirectory extends FatObject {
         // Clean the contents of this cluster to avoid reading strange data
         // in the directory.
         //file.write(0, buf, 0, buf.length);
-        file.write(0, buf);
+        //file.write(0, buf);
 
-        file.getDirectory().initialize(file.getStartCluster(), parentCluster);
+        //file.getDirectory().initialize(file.getStartCluster(), parentCluster);
         flush();
         return entry;
     }
@@ -183,12 +183,12 @@ public abstract class AbstractDirectory extends FatObject {
         int size = entries.size();
         for (int i = 0; i < size; i++) {
             final FatBasicDirEntry entry = entries.get(i);
-            if (entry != null && entry instanceof FatDirEntry) {
+            /*if (entry != null && entry instanceof FatDirEntry) {
                 FatDirEntry fde = (FatDirEntry) entry;
                 if (name.equalsIgnoreCase(fde.getNameOnly()) && ext.equalsIgnoreCase(fde.getExt())) {
                     return fde;
                 }
-            }
+            }*/
         }
         return null;
     }
@@ -221,12 +221,12 @@ public abstract class AbstractDirectory extends FatObject {
             throw new FileNotFoundException(nameExt);
         }
         for (int i = 0; i < entries.size(); i++) {
-            if (entries.get(i) == entry) {
+            /*if (entries.get(i) == entry) {
                 entries.set(i, null);
                 setDirty();
                 flush();
                 return;
-            }
+            }*/
         }
     }
 
@@ -262,11 +262,11 @@ public abstract class AbstractDirectory extends FatObject {
             int size = entries.size();
             while (offset < size) {
                 FatBasicDirEntry e = entries.get(offset);
-                if ((e != null) && e instanceof FatDirEntry && !((FatDirEntry) e).isDeleted()) {
+                //if ((e != null) && e instanceof FatDirEntry && !((FatDirEntry) e).isDeleted()) {
                     return true;
-                } else {
-                    offset++;
-                }
+                //} else {
+                    //offset++;
+                //}
             }
             return false;
         }
@@ -279,12 +279,12 @@ public abstract class AbstractDirectory extends FatObject {
             int size = entries.size();
             while (offset < size) {
                 FatBasicDirEntry e = entries.get(offset);
-                if ((e != null) && (e instanceof FatDirEntry) && !((FatDirEntry) e).isDeleted()) {
+                //if ((e != null) && (e instanceof FatDirEntry) && !((FatDirEntry) e).isDeleted()) {
                     offset++;
                     return (Node) e;
-                } else {
-                    offset++;
-                }
+                //} else {
+                    //offset++;
+                //}
             }
             throw new NoSuchElementException();
         }
@@ -310,11 +310,11 @@ public abstract class AbstractDirectory extends FatObject {
         int size = entries.size();
         for (int i = 0; i < size; i++) {
             FatBasicDirEntry entry = entries.get(i);
-            if ((entry != null) && (entry instanceof FatDirEntry)) {
+            /*if ((entry != null) && (entry instanceof FatDirEntry)) {
                 if (((FatDirEntry) entry).isDirty()) {
                     return true;
                 }
-            }
+            }*/
         }
         return false;
     }
@@ -367,14 +367,14 @@ public abstract class AbstractDirectory extends FatObject {
      * @param parentCluster
      */
     protected void initialize(long myCluster, long parentCluster) {
-        FatDirEntry e = new FatDirEntry(this, ".", "");
-        entries.set(0, e);
-        e.setFlags(FatConstants.F_DIRECTORY);
-        e.setStartCluster((int) myCluster);
-        e = new FatDirEntry(this, "..", "");
-        entries.set(1, e);
-        e.setFlags(FatConstants.F_DIRECTORY);
-        e.setStartCluster((int) parentCluster);
+        FatDirEntry e = null;//new FatDirEntry(this, ".", "");
+        //entries.set(0, e);
+        //e.setFlags(FatConstants.F_DIRECTORY);
+        //e.setStartCluster((int) myCluster);
+        //e = new FatDirEntry(this, "..", "");
+        //entries.set(1, e);
+        //e.setFlags(FatConstants.F_DIRECTORY);
+        //e.setStartCluster((int) parentCluster);
     }
 
     /**
@@ -395,7 +395,7 @@ public abstract class AbstractDirectory extends FatObject {
             if (src[index] == 0) {
                 entries.set(i, null);
             } else {
-                FatBasicDirEntry entry = FatDirEntry.fatDirEntryFactory(this, src, index);
+                FatBasicDirEntry entry = null;//FatDirEntry.fatDirEntryFactory(this, src, index);
                 entries.set(i, entry);
             }
         }

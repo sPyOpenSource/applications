@@ -57,7 +57,7 @@ public class SecurityUtils {
         int subAuthorityCount = structure.getInt8(offset + 1);
         Memory authorityBuffer = MemManager.alloc(6);
         structure.getData(offset + 2, authorityBuffer, 0, authorityBuffer.size());
-        long authority = BigEndian.getUInt48(authorityBuffer, 0); // Why is this big endian??
+        long authority = 0;//BigEndian.getUInt48(authorityBuffer, 0); // Why is this big endian??
         List<Long> subAuthorities = new ArrayList<>();
 
         for (int i = 0; i < subAuthorityCount; i++) {

@@ -331,8 +331,8 @@ MemoryManager MemManager;
         if (offset < 0)
             throw new IllegalArgumentException("offset<0");
 
-        if (dst.remaining() == 0)
-            return;
+        /*if (dst.remaining() == 0)
+            return;*/
 
         ChainPosition p = position;
         ChainIterator i = iterator;
@@ -352,13 +352,13 @@ MemoryManager MemManager;
             if (dolog)
                Debug.out.println("cluster: " + cluster);
 
-            int limit = dst.limit();
+            //int limit = dst.limit();
 
             try {
-                dst.limit(dst.position() + size);
+                //dst.limit(dst.position() + size);
                 fat.readCluster(cluster, 0, dst);
             } finally {
-                dst.limit(limit);
+                //dst.limit(limit);
             }
         }
     }
@@ -367,7 +367,7 @@ MemoryManager MemManager;
      * used when we don't need to zero the data inside the last cluster tail
      */
     public void write(int offset, Memory src) throws IOException {
-        write(0, offset, src);
+        //write(0, offset, src);
     }
 
     public long getLength() throws IOException {
@@ -433,8 +433,8 @@ MemoryManager MemManager;
         for (int i = 0; i < size; i++) {
             buf.clear();
             read(i * fat.getClusterSize(), buf, 0);
-            buf.flip();
-            f.getChannel().write(buf);
+            //buf.flip();
+            //f.getChannel().write(buf);
         }
 
         f.close();

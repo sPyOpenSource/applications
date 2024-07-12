@@ -228,7 +228,7 @@ public class FileInode extends InodeImpl {
 		break;
 	    }
 	    
-	    bufferCache.updateBuffer(bh);
+	    //bufferCache.updateBuffer(bh);
 	    
 	    bh.getData().copyToMemory(mem, offset, bufoff, c);
 	    
@@ -296,7 +296,7 @@ public class FileInode extends InodeImpl {
 		break;
 	    }
 	    
-	    bufferCache.updateBuffer(bh);
+	    //bufferCache.updateBuffer(bh);
 
 	    bh.getData().copyToMemory(mem, offset, bufoff, c);
 	    
@@ -365,7 +365,7 @@ public class FileInode extends InodeImpl {
 		break;
 	    }
 	    
-	    bufferCache.updateBuffer(bh);
+	    //bufferCache.updateBuffer(bh);
 
 	    // EXPERIMENTAL: DO NOT COPY
 	    //bh.getData().copyToMemory(mem, offset, bufoff, c);
@@ -438,15 +438,15 @@ public class FileInode extends InodeImpl {
 	    if (c > len)
 		c = len;
 		
-	    if ((! bh.isUptodate()) && (! bh.isLocked()) && (c == i_sb.s_blocksize)) {
+	    if (/*(!bh.isUptodate()) && (!bh.isLocked()) &&*/ (c == i_sb.s_blocksize)) {
 		// new buffer
-		bh.lock();
+		//bh.lock();
 		bh.getData().copyFromMemory(mem, bufoff, offset, c);
 		bh.markUptodate();
-		bh.unlock();
+		//bh.unlock();
 	    } else {
 		// buffer is not up-to-date
-		bufferCache.updateBuffer(bh);
+		//bufferCache.updateBuffer(bh);
 		bh.getData().copyFromMemory(mem, bufoff, offset, c);
 	    }
 	    if (c == 0) {
@@ -522,16 +522,16 @@ public class FileInode extends InodeImpl {
 	    if (c > len)
 		c = len;
 		
-	    if ((! bh.isUptodate()) && (! bh.isLocked()) && (c == i_sb.s_blocksize)) {
+	    if (/*(!bh.isUptodate()) && (!bh.isLocked()) && */(c == i_sb.s_blocksize)) {
 		// new buffer
-		bh.lock();
+		//bh.lock();
 		bh.getData().copyFromMemory(mem, bufoff, offset, c);
 		//bh.getData().copyFromByteArray(b, bufoff, offset, c);
 		bh.markUptodate();
-		bh.unlock();
+		//bh.unlock();
 	    } else {
 		// buffer is not up-to-date
-		bufferCache.updateBuffer(bh);
+		//bufferCache.updateBuffer(bh);
 		bh.getData().copyFromMemory(mem, bufoff, offset, c);
 		//bh.getData().copyFromByteArray(b, bufoff, offset, c);
 	    }

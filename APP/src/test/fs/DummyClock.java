@@ -3,7 +3,7 @@ package test.fs;
 import jx.zero.Clock;
 import jx.zero.CycleTime;
 
-final class DummyClock implements Clock {
+public final class DummyClock implements Clock {
     int t;
     public int getTimeInMillis() { return t++; }
     public long getTicks() {return 0;}

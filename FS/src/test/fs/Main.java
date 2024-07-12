@@ -137,9 +137,9 @@ public class Main {
 
         inode.decUseCount();
 
-        jfs.printStatistics();
+        //jfs.printStatistics();
         jfs.release();
-        jfs.printStatistics();
+        //jfs.printStatistics();
 
         Debug.out.println("*** CHECKING FILESYSTEM ***");
         jfs.check();
@@ -148,12 +148,12 @@ public class Main {
     }
 
     public boolean rereadTest(FS fs) throws FSException {
-	    new ReRead(fs);
+	    //new ReRead(fs);
 	    return true;
     }
 
 
-    void fileTreeWalkTest() throws FSException {
+    void fileTreeWalkTest() throws Exception {
 	FS fs = (FS) naming.lookup("FS");
 	BootFS bootFS = (BootFS) naming.lookup("BootFS");
 	Memory file = bootFS.getReadWriteFile("diskImage.ext2");

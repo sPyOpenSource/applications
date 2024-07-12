@@ -2,6 +2,7 @@ package org.jnode.fs.ntfs.logfile;
 
 import java.io.UnsupportedEncodingException;
 import jx.zero.Memory;
+import jx.zero.MemoryManager;
 import org.jnode.fs.ntfs.NTFSStructure;
 
 /**
@@ -10,6 +11,7 @@ import org.jnode.fs.ntfs.NTFSStructure;
  * @author Luke Quinane
  */
 public class LogClientRecord extends NTFSStructure {
+MemoryManager MemManager;
 
     /**
      * Creates a new instance.
@@ -82,13 +84,14 @@ public class LogClientRecord extends NTFSStructure {
      */
     public String getClientName() {
         int length = getClientNameLength();
-        Memory buffer = new byte[length];
+        Memory buffer = MemManager.alloc(length);
         getData(0x20, buffer, 0, length);
-        try {
+        /*try {
             return new String(buffer, "UTF-16LE");
         } catch (UnsupportedEncodingException e) {
             throw new IllegalStateException("UTF-16LE charset missing from JRE", e);
-        }
+        }*/
+        return null;
     }
 
     /**

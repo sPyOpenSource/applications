@@ -64,7 +64,9 @@ public class NTFSDirectory extends NTFSEntry {
      *
      * @param record the file record.
      */
-    public NTFSDirectory(NTFSFileSystem fs, FileRecord record) throws IOException {
+    public NTFSDirectory(NTFSFileSystem fs, FileRecord record) throws IOException 
+    {
+        super(fs, record, record.getReferenceNumber());
         this.fs = fs;
         this.fileRecord = record;
         this.index = new NTFSIndex(record, "$I30");

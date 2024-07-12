@@ -136,9 +136,9 @@ public class DirInode extends InodeImpl {
 		    for (int i = 16 >> (i_sb.s_blocksize / 1024 - 1); i > 0; i--) {
 			tmp = getBlk(++blk, false);
 			if (tmp == null) throw new Error();
-			if (! tmp.isUptodate() && ! tmp.isLocked())
+			/*if (!tmp.isUptodate() && !tmp.isLocked())
 			    bha[num++] = tmp;
-			else
+			else*/
 			    bufferCache.brelse(tmp);
 		    }
 		    if (num != 0) {
@@ -686,7 +686,7 @@ public class DirInode extends InodeImpl {
 		/*System.out*/Debug.out.println("findDirEntry: directory #" + i_ino + " contains a hole at block " + block);
 		continue;
 	    }
-	    bufferCache.updateBuffer(bh);
+	    //bufferCache.updateBuffer(bh);
 	    
 	    de_data.init(bh, 0);
 	    for (offset = 0; offset < i_sb.s_blocksize; offset += de_len) {

@@ -21,6 +21,7 @@
 package org.jnode.fs.ntfs.attribute;
 
 import jx.zero.Memory;
+import jx.zero.MemoryManager;
 import org.jnode.fs.ntfs.FileRecord;
 import org.jnode.fs.util.FSUtils;
 
@@ -31,6 +32,7 @@ import org.jnode.fs.util.FSUtils;
  * @author Ewout Prangsma (epr@users.sourceforge.net)
  */
 public class NTFSResidentAttribute extends NTFSAttribute {
+MemoryManager MemManager;
 
     /**
      * @param fileRecord
@@ -66,9 +68,9 @@ public class NTFSResidentAttribute extends NTFSAttribute {
      * @return the hex dump.
      */
     public String hexDump() {
-        Memory attributeData = new byte[getAttributeLength()];
+        Memory attributeData = MemManager.alloc(getAttributeLength());
         getData(getAttributeOffset(), attributeData, 0, attributeData.size());
-        return FSUtils.toString(attributeData);
+        return null;//FSUtils.toString(attributeData);
     }
 
     @Override

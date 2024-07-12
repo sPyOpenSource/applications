@@ -23,6 +23,7 @@ package org.jnode.fs.ntfs.attribute;
 import java.io.IOException;
 import java.util.Iterator;
 import jx.zero.Memory;
+import jx.zero.MemoryManager;
 import org.jnode.fs.ntfs.FileRecord;
 
 /**
@@ -34,6 +35,7 @@ import org.jnode.fs.ntfs.FileRecord;
  */
 final class AttributeListAttributeRes extends NTFSResidentAttribute implements
         AttributeListAttribute {
+MemoryManager MemManager;
 
     /**
      * @param fileRecord
@@ -50,7 +52,7 @@ final class AttributeListAttributeRes extends NTFSResidentAttribute implements
      * @throws IOException if there is an error reading the attribute's data.
      */
     public Iterator<AttributeListEntry> getAllEntries() throws IOException {
-        final Memory data = new byte[getAttributeLength()];
+        final Memory data = MemManager.alloc(getAttributeLength());
         getData(getAttributeOffset(), data, 0, data.size());
         AttributeListBlock listBlock = new AttributeListBlock(data, 0, getAttributeLength());
         return listBlock.getAllEntries();

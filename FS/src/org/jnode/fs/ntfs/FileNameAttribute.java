@@ -317,7 +317,7 @@ MemoryManager MemManager;
             final int len = getUInt8(0x40);
             final Memory bytes = MemManager.alloc(len * 2);
             getData(0x42, bytes, 0, bytes.size());
-            return bytes;
+            return null;//bytes;
         }
     }
 }

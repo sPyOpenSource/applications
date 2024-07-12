@@ -330,11 +330,11 @@ public class Shell { // extends Thread {
 
     private void ls() {
 	String[] names = null;
-	//try {
+	try {
 	    names = fs.getCwdNode().readdirNames();
-	/*} catch (FSException e) {
+	} catch (Exception e) {
 	    uout.println("Error: " + e.getMessage());
-	}*/
+	}
         for (String name : names)
             uout.println((String) name);
     }
@@ -343,12 +343,12 @@ public class Shell { // extends Thread {
 	String[] names = null;
 	String name = null;
 	InodeImpl inode;
-	//try {
+	try {
 	    names = ((InodeImpl)fs.getCwdNode()).readdirNames();
-	/*} catch (FSException e) {
+	} catch (FSException e) {
 	    uout.println("Error: " + e.getMessage());
 	    return;
-	}*/
+	}
 	for (int i = 0; i < names.length; i++) {
 	    name = names[i];
 	    uout.print(name);

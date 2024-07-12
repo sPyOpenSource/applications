@@ -91,7 +91,7 @@ public class SecurityDescriptorStream {
         // First read in the size of the entry
         byte[] sizeBuffer = new byte[0x4];
         sdsFile.read(offset + 0x10, ByteBuffer.wrap(sizeBuffer));
-        int size = LittleEndian.getInt32(sizeBuffer, 0);
+        int size = 0;//LittleEndian.getInt32(sizeBuffer, 0);
 
         if (size == 0) {
             return null;
@@ -100,6 +100,6 @@ public class SecurityDescriptorStream {
         // Read in the entire entry
         byte[] buffer = new byte[size];
         sdsFile.read(offset, ByteBuffer.wrap(buffer));
-        return new SecurityDescriptorStreamEntry(buffer);
+        return new SecurityDescriptorStreamEntry(null);
     }
 }

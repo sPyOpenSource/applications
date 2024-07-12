@@ -144,11 +144,12 @@ public class UsnJournalEntry extends NTFSStructure {
         Memory buffer = MemManager.alloc(getFileNameSize());
         getData(0x3c, buffer, 0, buffer.size());
 
-        try {
+        /*try {
             return new String(buffer, "UTF-16LE");
         } catch (UnsupportedEncodingException e) {
             throw new IllegalStateException("UTF-16LE charset missing from JRE", e);
-        }
+        }*/
+        return null;
     }
 
     @Override

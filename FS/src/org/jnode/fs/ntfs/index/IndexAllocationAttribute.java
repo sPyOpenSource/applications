@@ -22,6 +22,7 @@ package org.jnode.fs.ntfs.index;
 
 import java.io.IOException;
 import jx.zero.Memory;
+import jx.zero.MemoryManager;
 
 import org.jnode.fs.ntfs.FileRecord;
 import org.jnode.fs.ntfs.attribute.NTFSNonResidentAttribute;
@@ -30,6 +31,7 @@ import org.jnode.fs.ntfs.attribute.NTFSNonResidentAttribute;
  * @author Ewout Prangsma (epr@users.sourceforge.net)
  */
 public final class IndexAllocationAttribute extends NTFSNonResidentAttribute {
+MemoryManager MemManager;
 
     /**
      * Creates the index allocation attribute.
@@ -75,7 +77,7 @@ public final class IndexAllocationAttribute extends NTFSNonResidentAttribute {
         final int fsNrClusters = (indexBlockSize - 1) / fsClusterSize + 1;
         final int offsetIntoVcn = (int) ((vcn * indexClusterSize) % fsClusterSize);
 
-        final Memory data = new byte[fsNrClusters * fsClusterSize];
+        final Memory data = MemManager.alloc(fsNrClusters * fsClusterSize);
         final int readClusters = readVCN(fsVcn, data, 0, fsNrClusters);
         if (readClusters != fsNrClusters) {
             // If we don't throw an error now, it just fails more mysteriously later!

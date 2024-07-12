@@ -281,7 +281,7 @@ MemoryManager MemManager;
         // area'.
 
         for (int offset = 4 * logPageSize; offset < logFileLength; offset += logPageSize) {
-            int magic = LittleEndian.getInt32(logFileBuffer, offset);
+            int magic = 0;//LittleEndian.getInt32(logFileBuffer, offset);
 
             if (magic != RecordPageHeader.Magic.RCRD) {
                 // Bad page magic, possibly an uninitialised page

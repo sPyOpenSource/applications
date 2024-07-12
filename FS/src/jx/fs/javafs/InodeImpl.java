@@ -204,7 +204,7 @@ public abstract class InodeImpl extends jx.fs.InodeImpl {
 	if (i_released)
 	    throw new NotExistException();
 	if (do_sync) {
-	    bufferCache.bwrite(bh);
+	    //bufferCache.bwrite(bh);
 	} else {
 	    bufferCache.bdwrite(bh);
 	}
@@ -273,7 +273,7 @@ public abstract class InodeImpl extends jx.fs.InodeImpl {
         if (bh == null)
 	    return null;
 
-	bufferCache.updateBuffer(bh);
+	//bufferCache.updateBuffer(bh);
 	return bh;
     }
 
@@ -284,8 +284,8 @@ public abstract class InodeImpl extends jx.fs.InodeImpl {
         int i;
 	
         /* Make sure both buffers are unlocked */
-	bh.waitUntilUnlocked();
-	ind_bh.waitUntilUnlocked();
+	//bh.waitUntilUnlocked();
+	//ind_bh.waitUntilUnlocked();
 	
         for (i = 0; i < addr_per_block; i++) {
 	    iblockdata.init(i);
@@ -307,7 +307,7 @@ public abstract class InodeImpl extends jx.fs.InodeImpl {
 	setDirty(true);
 
 	//Wir "vergessen" den Buffer und setzen ind_bh auf dirty
-	bufferCache.bforget(bh);
+	//bufferCache.bforget(bh);
 	if (ind_bh != null)
 	    ind_bh.markDirty();
 	i_sb.freeBlocks(tmp, 1);
@@ -404,7 +404,7 @@ public abstract class InodeImpl extends jx.fs.InodeImpl {
         int limit;
 	InodeBlockData bd_slot;
 
-        bufferCache.updateBuffer(bh);
+        //bufferCache.updateBuffer(bh);
 	
 	/* remove new for speed up
 	   bd_slot = new InodeBlockData(bh, nr*4);
@@ -463,7 +463,7 @@ public abstract class InodeImpl extends jx.fs.InodeImpl {
         setDirty(true);
         i_next_alloc_block = new_block;
         i_next_alloc_goal = tmp;
-        bufferCache.bwrite(bh);
+        //bufferCache.bwrite(bh);
         return result;
     }
 
@@ -523,16 +523,16 @@ public abstract class InodeImpl extends jx.fs.InodeImpl {
         block -= 12;
         if (block < addr_per_block) {
 	    bh = inodeGetBlk(12, create, b, clear);
-	    if (! bh.isUsedOnlyByMe()) {
+	    /*if (!bh.isUsedOnlyByMe()) {
 		Debug.out.println("Buffer not excl. used??: "+bh.getBlock());
 		throw new Error();
-	    }
+	    }*/
 	    BufferHead bh_res = blockGetBlk(bh, block, create, i_sb.s_blocksize, b);
 	    //Debug.out.println("Block count (i_blocks) of inode "+i_ino+" now: "+i_data.i_blocks()); 
-	    if (bh.isUsed()) {
+	    /*if (bh.isUsed()) {
 		Debug.out.println("Buffer not released: "+bh.getBlock());
 		throw new Error();
-	    }
+	    }*/
 	    return bh_res;
         }
         block -= addr_per_block;
@@ -561,14 +561,14 @@ public abstract class InodeImpl extends jx.fs.InodeImpl {
 	    if (tmp == 0)
 		continue;
 
-	    bh = bufferCache.findBuffer(tmp);
-	    if (bh != null)
-		bh.waitUntilUnlocked();
-
+	    bh = null;//bufferCache.findBuffer(tmp);
+	    if (bh != null){
+		//bh.waitUntilUnlocked();
+            }
 	    i_data.i_block(i, 0);
 	    i_data.i_blocks(i_data.i_blocks() - blocks);
 	    setDirty(true);
-	    bufferCache.bforget(bh);
+	    //bufferCache.bforget(bh);
 
 	    // wir sammeln freizugebenden Bloecke, die hintereinander liegen
 	    if (free_count == 0) {
@@ -634,14 +634,14 @@ public abstract class InodeImpl extends jx.fs.InodeImpl {
 	    iblockdata.init(i*4);
 	    int ind;
 
-	    ind_bh.waitOn();
+	    //ind_bh.waitOn();
 	    ind = iblockdata.bd_entry();
 	    if (ind == 0)
 		continue;
 	    // Wir rufen findBuffer (nicht getblk) direkt auf, um nicht zu blockieren
-	    bh = bufferCache.findBuffer(ind);
+	    bh = null;//bufferCache.findBuffer(ind);
 	    if (bh != null) {
-		bh.waitOn();
+		//bh.waitOn();
 		//if (bh.b_count != 1 || bh.isLocked()) {
 		//    bufferCache.brelse(bh);
 		//    retry = true;
@@ -652,7 +652,7 @@ public abstract class InodeImpl extends jx.fs.InodeImpl {
 	    iblockdata.bd_entry(0);
 	    i_data.i_blocks(i_data.i_blocks() - blocks);
 	    setDirty(true);
-	    bufferCache.bforget(bh);
+	    //bufferCache.bforget(bh);
 	    ind_bh.markDirty();
 
 	    // wir sammeln freizugebenden Bloecke, die hintereinander liegen
@@ -787,8 +787,8 @@ public abstract class InodeImpl extends jx.fs.InodeImpl {
         if (offset > 0) {
 	    BufferHead bh = bread(i_data.i_size() / i_sb.s_blocksize, false);
 	    if (bh != null) {
-		bh.clear(offset, i_sb.s_blocksize - offset);
-		bh.markClean();
+		//bh.clear(offset, i_sb.s_blocksize - offset);
+		//bh.markClean();
 		bufferCache.brelse(bh);
 	    }
         }

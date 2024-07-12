@@ -81,7 +81,7 @@ MemoryManager MemManager;
         final int clusterSize = getClusterSize();
         final int clusterOffset = cluster * clusterSize;
         //log.debug("readCluster(" + cluster + ") " + (readClusterCount++));
-        api.readSectors(clusterOffset, dst, dstOffset, clusterSize);
+        //api.readSectors(clusterOffset, dst, dstOffset, clusterSize);
     }
 
     private int readClusterCount;
@@ -100,7 +100,7 @@ MemoryManager MemManager;
         //log.debug("readClusters(" + firstCluster + ", " + nrClusters + ") " + (readClustersCount++));
         final int clusterSize = getClusterSize();
         final int clusterOffset = firstCluster * clusterSize;
-        api.readSectors(clusterOffset, dst, dstOffset, nrClusters * clusterSize);
+        //api.readSectors(clusterOffset, dst, dstOffset, nrClusters * clusterSize);
     }
 
     /**

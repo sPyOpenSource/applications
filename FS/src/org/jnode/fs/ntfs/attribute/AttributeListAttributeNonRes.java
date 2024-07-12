@@ -23,6 +23,7 @@ package org.jnode.fs.ntfs.attribute;
 import java.io.IOException;
 import java.util.Iterator;
 import jx.zero.Memory;
+import jx.zero.MemoryManager;
 import org.jnode.fs.ntfs.FileRecord;
 
 /**
@@ -34,6 +35,7 @@ import org.jnode.fs.ntfs.FileRecord;
  */
 public class AttributeListAttributeNonRes extends NTFSNonResidentAttribute implements
     AttributeListAttribute {
+MemoryManager MemManager;
 
     /**
      * Creates a new attribute-list attribute.
@@ -59,7 +61,7 @@ public class AttributeListAttributeNonRes extends NTFSNonResidentAttribute imple
         //       of "glueing" them all together like this.
         final int nrClusters = getNumberOfVCNs();
         //log.debug(String.format("Allocating %d clusters for non-resident attribute", nrClusters));
-        final Memory data = new byte[nrClusters * getFileRecord().getClusterSize()];
+        final Memory data = MemManager.alloc(nrClusters * getFileRecord().getClusterSize());
         readVCN(getStartVCN(), data, 0, nrClusters);
         AttributeListBlock listBlock = new AttributeListBlock(data, 0, getAttributeActualSize());
         return listBlock.getAllEntries();

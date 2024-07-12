@@ -621,7 +621,7 @@ MemoryManager MemManager;
                     int startIndex = Math.max((int)(tmp.size() - delta), 0);
 
                     if (startIndex < tmp.size()) {
-                        Arrays.fill(tmp, startIndex, tmp.size(), (byte) 0);
+                        //Arrays.fill(tmp, startIndex, tmp.size(), (byte) 0);
                     }
                 }
             }

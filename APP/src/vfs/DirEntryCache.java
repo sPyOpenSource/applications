@@ -100,11 +100,11 @@ public class DirEntryCache {
 	    Node inode = (Node)enumEntries.nextElement();
 	    String pfad = (String)enumKeys.nextElement();
 	    dentry_hashtable.remove(pfad);
-	    //try {
+	    try {
 	    if (inode.isDirty())
 		inode.writeNode();
-	    /*} catch (InodeIOException | NotExistException e) {
-	    }*/
+	    } catch (Exception e) {
+	    }
 	}
     }
 

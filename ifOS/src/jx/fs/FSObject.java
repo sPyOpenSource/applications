@@ -1,7 +1,7 @@
 package jx.fs;
 
 public interface FSObject {
-    public FileSystemInterface getFileSystem() throws Exception;
+    public FileSystem getFileSystem() throws Exception;
     public boolean isFile() throws Exception;
     public boolean isDirectory() throws Exception;
     public Permission getPermission() throws Exception;

@@ -21,7 +21,7 @@
 package org.jnode.fs.jfat;
 
 import jx.fs.FSAttribute;
-import jx.fs.FileSystemInterface;
+import jx.fs.FileSystem;
 import jx.fs.Permission;
 
 /**
@@ -45,7 +45,7 @@ public class FatBasicDirEntry extends FatObject implements FatConstants {
     }
 
     @Override
-    public FileSystemInterface getFileSystem() throws Exception {
+    public FileSystem getFileSystem() throws Exception {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 

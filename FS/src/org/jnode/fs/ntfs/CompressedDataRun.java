@@ -163,7 +163,7 @@ public final class CompressedDataRun implements DataRunInterface {
         // This is just a convenient way to simulate the original code's pointer arithmetic.
         // I tried using buffers but positions in those are always from the beginning and
         // I had to also maintain a position from the start of the current block.
-        final OffsetByteArray compressedData = new OffsetByteArray(compressed);
+        final OffsetByteArray compressedData = null;//new OffsetByteArray(compressed);
         final OffsetByteArray uncompressedData = new OffsetByteArray(uncompressed);
 
         for (int i = 0; i * BLOCK_SIZE < uncompressed.length; i++) {
@@ -330,7 +330,7 @@ public final class CompressedDataRun implements DataRunInterface {
          * @return the short.
          */
         private int getShort(int offset) {
-            return LittleEndian.getUInt16(array, this.offset + offset);
+            return 0;//LittleEndian.getUInt16(array, this.offset + offset);
         }
 
         /**

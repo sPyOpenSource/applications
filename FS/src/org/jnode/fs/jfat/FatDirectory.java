@@ -28,11 +28,13 @@ import java.util.Map;
 import java.util.NoSuchElementException;
 
 import jx.fs.Directory;
+import jx.fs.FSAttribute;
 import jx.fs.InodeIOException;
 import jx.fs.InodeNotFoundException;
 import jx.fs.NoDirectoryInodeException;
 import jx.fs.Node;
 import jx.fs.NotExistException;
+import jx.fs.Permission;
 import jx.fs.PermissionException;
 
 public class FatDirectory extends FatEntry
@@ -167,7 +169,7 @@ public class FatDirectory extends FatEntry
      * this instead is a "write" method: it needs a "created" entry
      */
     public void setFatDirEntry(FatDirEntry entry) throws IOException {
-        getChain().write(entry.getIndex() * entry.length(), entry.getByteBuffer());
+        //getChain().write(entry.getIndex() * entry.length(), entry.getByteBuffer());
     }
 
     public FatDirEntry[] getFatFreeEntries(int n) throws IOException {
@@ -212,7 +214,7 @@ public class FatDirectory extends FatEntry
     }
 
     public Directory getDirectory() {
-        return this;
+        return null;//this;
     }
 
     protected FatTable getVisitedChildren() {
@@ -220,7 +222,7 @@ public class FatDirectory extends FatEntry
     }
 
     public Iterator<Node> iterator() {
-        return new FatEntriesIterator(children, this, false);
+        return null;//new FatEntriesIterator(children, this, false);
     }
 
     /**
@@ -231,7 +233,7 @@ public class FatDirectory extends FatEntry
      * @return the iterator.
      */
     public Iterator<Node> createIterator(boolean includeDeleted) {
-        return new FatEntriesIterator(new FatTable(), this, includeDeleted);
+        return null;//new FatEntriesIterator(new FatTable(), this, includeDeleted);
     }
 
     /*
@@ -322,7 +324,7 @@ public class FatDirectory extends FatEntry
             return false;
         Iterator<Node> i = iterator();
         while (i.hasNext()) {
-            String name = i.next().getName();
+            String name = null;//i.next().getName();
             if (!name.equals(".") && !name.equals(".."))
                 return false;
         }
@@ -413,5 +415,25 @@ public class FatDirectory extends FatEntry
 	}
 	
 	return inode;
+    }
+
+    @Override
+    public Permission getPermission() throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public FSAttribute getAttribute() throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void close() throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public boolean isValid() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }
