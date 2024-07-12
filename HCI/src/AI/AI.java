@@ -25,7 +25,7 @@ public final class AI
     public void start()
     {
         Debug.out.println("AI running...");
-        hci.start();
+        //hci.start();
         logic.start();
     }
     

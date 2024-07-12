@@ -86,7 +86,7 @@ public class Main {
 
 	shell.register("ls", new Command() {
                 @Override
-		public void command(PrintStream out, String[] args) throws FSException  {
+		public void command(PrintStream out, String[] args) throws Exception  {
 		    Node inode;
 		    if (args.length == 0) {
 			inode = fs.getCwdNode();
@@ -105,7 +105,7 @@ public class Main {
 
 	shell.register("mkdir", new Command() {
                 @Override
-		public void command(PrintStream out, String[] args) throws FSException  {
+		public void command(PrintStream out, String[] args) throws Exception  {
 		    fs.mkdir(args[0], InodeImpl.S_IWUSR|InodeImpl.S_IRUGO);
 		}
                 @Override
@@ -123,7 +123,7 @@ public class Main {
 
 	shell.register("cat", new Command() {
                 @Override
-		public void command(PrintStream out, String[] args) throws FSException {
+		public void command(PrintStream out, String[] args) throws Exception {
 		    Node inode = (Node)fs.lookup(args[0]);
 		    int l = inode.getLength();
 		    int o=0;

@@ -9,7 +9,7 @@ import jx.devices.bio.BlockIO;
 import jx.zero.Clock;
 import jx.zero.Naming;
 import jx.fs.javafs.FileSystem;
-import test.debug.Monitor;
+//import test.debug.Monitor;
 //import test.fs.BioRAMDomain;
 //import vfs.FSImpl;
 
@@ -26,7 +26,7 @@ public class POST {
     
     public void test(){
         //test.fb.Main.init(naming, null);
-        Monitor.init(naming, null);
+        //Monitor.init(naming, null);
         //test.gc.Main.init(naming);
         //BioRAMDomain.init(naming, new String[]{"BioRAM"});
         FileSystem jfs = new FileSystem();
