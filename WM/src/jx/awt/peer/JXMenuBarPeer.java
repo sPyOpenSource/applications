@@ -66,7 +66,7 @@ public class JXMenuBarPeer
     /** Starts painting of this peer. */
     public void redrawMenuBar() {
 	if (ready) {
-	    JXGraphics g = (JXGraphics) ((JXFramePeer) parentFrame.getPeer()).getMenuGraphics();
+	    JXGraphics g = null;//(JXGraphics) ((JXFramePeer) parentFrame.getPeer()).getMenuGraphics();
 	    //g.enableBackBuffer();
 	    paintMenuBar(g, currentMenu);
 	    //g.drawBackBuffer();

@@ -195,7 +195,7 @@ public class JXMenuPeer
     public boolean performKey(int code) {
 	MenuItem mi;
 	if (subMenu != null) {
-	    if ((code == KeyEvent.VK_ESCAPE || code == KeyEvent.VK_LEFT) &&
+	    /*if ((code == KeyEvent.VK_ESCAPE || code == KeyEvent.VK_LEFT) &&
 		((JXMenuPeer) subMenu.getPeer()).getChildMenu() == null) {
 		// if child is deepest open menu, then close it
 		deleteSubMenus();
@@ -203,7 +203,7 @@ public class JXMenuPeer
 	    } else {
 		// forward key to submenu
 		return ((JXMenuPeer) subMenu.getPeer()).performKey(code);
-	    }
+	    }*/
 	} else {
 	    // this part of the code is reached only when
 	    // this menu is the deepest in the menu hierarchy!
@@ -214,7 +214,7 @@ public class JXMenuPeer
 		    if (mi instanceof Menu) {
 			// open new submenu and initiate it
 			openSubMenu((Menu) mi);
-			JXMenuPeer menuPeer = (JXMenuPeer) mi.getPeer();
+			JXMenuPeer menuPeer = null;//(JXMenuPeer) mi.getPeer();
 			menuPeer.setCurrentMenuItem(menuPeer.getDefaultMenuItem(true));
 		    } else {
 			// execute associated handler
@@ -412,7 +412,7 @@ public class JXMenuPeer
 	int index = menuItems.indexOf(subMenu);
 	Point p = getLocation();
 	Dimension s = toolkit.getScreenSize();
-	Dimension d = ((JXMenuPeer) subMenu.getPeer()).getMenuSize();
+	Dimension d = null;//((JXMenuPeer) subMenu.getPeer()).getMenuSize();
 	int x = p.x + ((Rectangle) menuItemSizes.elementAt(index)).width - 1;
 	int y = p.y + ((Rectangle) menuItemSizes.elementAt(index)).y;
 	// adjust y coord if scroll buttons are visible
@@ -433,7 +433,7 @@ public class JXMenuPeer
      */
     public void deleteSubMenus() {
 	if (subMenu != null) {
-	    ((JXMenuPeer) subMenu.getPeer()).deleteSubMenus();
+	    //((JXMenuPeer) subMenu.getPeer()).deleteSubMenus();
 	    subMenu.removeNotify();
 	}
 	subMenu = null;
@@ -441,8 +441,8 @@ public class JXMenuPeer
     
     /** Shows the menu window at screen position (x, y). */
     protected void show(int x, int y) {
-	((JXMenuPeer) subMenu.getPeer()).setLocation(x, y);
-	((JXMenuPeer) subMenu.getPeer()).setVisible(true);
+	//((JXMenuPeer) subMenu.getPeer()).setLocation(x, y);
+	//((JXMenuPeer) subMenu.getPeer()).setVisible(true);
     }
     
     /**

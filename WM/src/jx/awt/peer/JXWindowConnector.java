@@ -110,7 +110,7 @@ public class JXWindowConnector
      */
     private void doRepaint(boolean relayout) {
 	if (parent != null) {
-	    parentPeer = ((JXWindowPeer) parent.getPeer());
+	    //parentPeer = ((JXWindowPeer) parent.getPeer());
 	    // do invalidation to signal Layout Manager to recalculate
 	    if (relayout) {
 		parentPeer.layoutMenu(parent.getWidth() + componentOffsetX,
@@ -191,7 +191,7 @@ public class JXWindowConnector
      */
     private boolean validTarget(Component comp) {
 	// still under construction...
-	return (comp != null && comp.getPeer() != null &&
+	return (comp != null && comp.isDisplayable() &&
 		comp.isEnabled() && comp.isVisible());
     }
 
@@ -254,10 +254,10 @@ public class JXWindowConnector
 		    lastPressedKey = eKeyCode.getValue();
 		}
 		// forward key to focused component
-		if (c != null)
+		/*if (c != null)
 		    ((JXComponentPeer) c.getPeer()).keyPressed(eKeyCode.getValue(),
 							       eRawCode.getValue(),
-							       eQualifiers.getValue());
+							       eQualifiers.getValue());*/
 	    }
 	}
     }
@@ -286,15 +286,15 @@ public class JXWindowConnector
 		Component c = toolkit.getFocusHandler().getFocusedComponent();
 		// forward key to focused component
 		if (c != null) {
-		    if (lastPressedKey == eKeyCode.getValue())
+		    /*if (lastPressedKey == eKeyCode.getValue())
 			((JXComponentPeer) c.getPeer()).keyClicked(eKeyCode.getValue(),
 								   eRawCode.getValue(),
 								   eQualifiers.getValue());
-		    if (c.getPeer() != null)
+		    if (c.isDisplayable())
 			((JXComponentPeer) c.getPeer()).keyReleased(eKeyCode.getValue(),
 								    eRawCode.getValue(),
 								    eQualifiers.getValue(),
-								    (target == c));
+								    (target == c));*/
 		}
 		lastPressedKey = 0;
 	    }
@@ -334,7 +334,7 @@ public class JXWindowConnector
 	    if (validTarget(target)) {
 		lastPressedTarget = target;
 		target.requestFocus();
-		peer = ((JXComponentPeer) target.getPeer());
+		//peer = ((JXComponentPeer) target.getPeer());
 		peer.mousePressed(cMousePos.X(), cMousePos.Y(), nButton);
 	    }
 	    Thread.yield();
@@ -369,13 +369,13 @@ public class JXWindowConnector
 	    
 	    if (target == lastPressedTarget && nButton == lastPressedButton) {
 		if (validTarget(target)) {
-		    peer = ((JXComponentPeer) target.getPeer());
+		    //peer = ((JXComponentPeer) target.getPeer());
 		    peer.mouseClicked(cMousePos.X(), cMousePos.Y(), nButton);
 		}
 	    }
 	    if (lastPressedTarget != null)
 		if (validTarget(lastPressedTarget)) {
-		    peer = ((JXComponentPeer) lastPressedTarget.getPeer());
+		    //peer = ((JXComponentPeer) lastPressedTarget.getPeer());
 		    peer.mouseReleased(cMousePos.X(), cMousePos.Y(), nButton,
 				       (lastPressedTarget == target));
 		}
@@ -427,32 +427,32 @@ public class JXWindowConnector
 		// Allow peers to react to enter & exit events
 		//System.out.println("switch from " + lastMovedTarget + " to " + target);
 		if (validTarget(lastMovedTarget)) {
-		    peer = ((JXComponentPeer) lastMovedTarget.getPeer());
+		    //peer = ((JXComponentPeer) lastMovedTarget.getPeer());
 		    peer.mouseExited(cMousePos.X(), cMousePos.Y(), lastPressedButton);
 		}
 		if (validTarget(target)) {
-		    peer = ((JXComponentPeer) target.getPeer());
+		    //peer = ((JXComponentPeer) target.getPeer());
 		    peer.mouseEntered(cMousePos.X(), cMousePos.Y(), lastPressedButton);
 		}
 	    } else {
 		// we're moving on the same component (frame is special case!)
 		if (validTarget(target) && target != parent) {
-		    peer = ((JXComponentPeer) target.getPeer());
+		    //peer = ((JXComponentPeer) target.getPeer());
 		    peer.mouseMoved(cMousePos.X(), cMousePos.Y(), lastPressedButton);
 		}
 		if (target == parent)
 		    // getTarget() returned parent frame, requires special attention
 		    switch (nTransit) {
 		    case WWindowInterface.MOUSE_ENTERED:
-			peer = ((JXComponentPeer) target.getPeer());
+			//peer = ((JXComponentPeer) target.getPeer());
 			peer.mouseEntered(cMousePos.X(), cMousePos.Y(), lastPressedButton);
 			break;
 		    case WWindowInterface.MOUSE_EXITED:
-			peer = ((JXComponentPeer) target.getPeer());
+			//peer = ((JXComponentPeer) target.getPeer());
 			peer.mouseExited(cMousePos.X(), cMousePos.Y(), lastPressedButton);
 			break;
 		    case WWindowInterface.MOUSE_INSIDE:
-			peer = ((JXComponentPeer) target.getPeer());
+			//peer = ((JXComponentPeer) target.getPeer());
 			peer.mouseMoved(cMousePos.X(), cMousePos.Y(), lastPressedButton);
 			break;
 		    case WWindowInterface.MOUSE_OUTSIDE:
@@ -462,7 +462,7 @@ public class JXWindowConnector
 	    // called if mouse button is pressed
 	    if (lastPressedButton != 0) {
 		if (validTarget(target)) {
-		    peer = ((JXComponentPeer) target.getPeer());
+		    //peer = ((JXComponentPeer) target.getPeer());
 		    peer.mouseDragged(cMousePos.X(), cMousePos.Y(), lastPressedButton);
 		}
 	    }

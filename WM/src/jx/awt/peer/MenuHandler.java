@@ -67,7 +67,7 @@ public class MenuHandler {
      * the actual size and position of the associated menu bar entry. 
      */
     private Point findMenuLocationPoint(Rectangle r) {
-	JXMenuPeer peer = (JXMenuPeer) currentMenu.getPeer();
+	JXMenuPeer peer = null;//(JXMenuPeer) currentMenu.getPeer();
 	Dimension s = toolkit.getScreenSize();
 	Dimension d = peer.getMenuSize();
 	// set initial values (lower left corner of menu bar entry coords)
@@ -101,7 +101,7 @@ public class MenuHandler {
     public void deleteOpenMenus() {
 	if (!isMenuOpen())
 	    return;
-	JXMenuPeer peer = ((JXMenuPeer) currentMenu.getPeer());
+	JXMenuPeer peer = null;//((JXMenuPeer) currentMenu.getPeer());
 	peer.deleteSubMenus();
 	currentMenu.removeNotify();
 	if (!notification)
@@ -130,7 +130,7 @@ public class MenuHandler {
 	    return;
 	if (notification)
 	    menu.addNotify();
-	JXMenuPeer peer = (JXMenuPeer) menu.getPeer();
+	JXMenuPeer peer = null;//(JXMenuPeer) menu.getPeer();
 	Point p = findMenuLocationPoint(bounds);
 	peer.setLocation(p.x, p.y);
 	peer.setVisible(true);
@@ -148,7 +148,7 @@ public class MenuHandler {
 	    return false;
 	}
 	MenuItem mi;
-	JXMenuPeer peer = (JXMenuPeer) currentMenu.getPeer();
+	JXMenuPeer peer = null;//(JXMenuPeer) currentMenu.getPeer();
 	if (peer.getChildMenu() != null) {
 	    return peer.performKey(code);
 	} else {
@@ -158,7 +158,7 @@ public class MenuHandler {
 		if (peer.isSelectable(mi)) {
 		    if (mi instanceof Menu) {
 			peer.openSubMenu((Menu) mi);
-			JXMenuPeer menuPeer = (JXMenuPeer) mi.getPeer();
+			JXMenuPeer menuPeer = null;//(JXMenuPeer) mi.getPeer();
 			menuPeer.setCurrentMenuItem(menuPeer.getDefaultMenuItem(true));
 		    } else {
 			peer.performMenuItemAction(mi);

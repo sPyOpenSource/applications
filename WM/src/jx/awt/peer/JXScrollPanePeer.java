@@ -228,12 +228,12 @@ public class JXScrollPanePeer
 
     /** Gets the vertical scroll bar peer. */
     private JXScrollbarPeer getVScrollPeer() {
-	return (JXScrollbarPeer) ((Scrollbar) ((ScrollPane) parent).getVAdjustable()).getPeer();
+	return null;//(JXScrollbarPeer) ((Scrollbar) ((ScrollPane) parent).getVAdjustable()).getPeer();
     }
 
     /** Gets the horizontal scroll bar peer. */
     private JXScrollbarPeer getHScrollPeer() {
-	return (JXScrollbarPeer) ((Scrollbar) ((ScrollPane) parent).getHAdjustable()).getPeer();
+	return null;//(JXScrollbarPeer) ((Scrollbar) ((ScrollPane) parent).getHAdjustable()).getPeer();
     }
 
     /** Gets the embedded child component. */
@@ -290,11 +290,11 @@ public class JXScrollPanePeer
 	// draw bars
 	if (viewPort.width != width) {
 	    getVScrollbar().setBounds(viewPort.width, 0, width - viewPort.width, viewPort.height);
-	    ((JXScrollbarPeer) getVScrollbar().getPeer()).redraw();
+	    //((JXScrollbarPeer) getVScrollbar().getPeer()).redraw();
 	}
 	if (viewPort.height != height) {
 	    getHScrollbar().setBounds(0, viewPort.height, viewPort.width, height - viewPort.height);
-	    ((JXScrollbarPeer) getHScrollbar().getPeer()).redraw();
+	    //((JXScrollbarPeer) getHScrollbar().getPeer()).redraw();
 	}
     }
 

@@ -30,7 +30,7 @@ public abstract class JXContainerPeer
 	    // repaint all children, if necessary
 	    Container c = (Container) parent;
 	    for (int i = 0; i < c.getComponentCount(); i++) {
-		JXComponentPeer peer = (JXComponentPeer) c.getComponent(i).getPeer();
+		JXComponentPeer peer = null;//(JXComponentPeer) c.getComponent(i).getPeer();
 		if (peer != null)
 		    peer.redrawComponent();
 	    }

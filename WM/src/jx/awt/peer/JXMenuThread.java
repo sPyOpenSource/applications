@@ -68,7 +68,7 @@ public class JXMenuThread
 	    if (!popup) {
 		// reset menubar display
 		MenuBar mb = mh.getCurrentMenuBar();
-		((JXMenuBarPeer) mb.getPeer()).resetMenuBar();
+		//((JXMenuBarPeer) mb.getPeer()).resetMenuBar();
 		mh.setCurrentMenuBar(null);
 	    }
 

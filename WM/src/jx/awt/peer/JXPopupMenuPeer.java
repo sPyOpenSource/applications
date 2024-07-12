@@ -36,7 +36,7 @@ public class JXPopupMenuPeer
 	// a menu open
 	if (mh.isMenuOpen())
 	    return;
-	Point p = ((JXComponentPeer) comp.getPeer()).getLocationOnScreen();
+	Point p = null;//((JXComponentPeer) comp.getPeer()).getLocationOnScreen();
 	// tell MenuHandler to handle this menu
 	mh.setCurrentMenuBar(null);
 	mh.openMenu((Menu) parent, new Rectangle(p.x + x, p.y + y, 0, 0), false);

@@ -47,10 +47,10 @@ public class JXMenuConnector
     @Override
     public void mouseUp (PixelPoint cMousePos, int nButton) {
 	//toolkit.message("mouse button " + nTransit + " pressed.");
-	if (parent.getPeer() != null)
+	/*if (parent.getPeer() != null)
 	    ((JXMenuPeer) parent.getPeer()).handleMenuMouseUp(cMousePos.X(),
 							      cMousePos.Y(),
-							      nButton);
+							      nButton);*/
     }
     
     /**
@@ -60,10 +60,10 @@ public class JXMenuConnector
     @Override
     public void mouseMoved (PixelPoint cMousePos, int nTransit) {
 	//toolkit.message("mouse at " + cMousePos.X() + "," + cMousePos.Y() + ", transit is " + nTransit);
-	if (parent.getPeer() != null)
+	/*if (parent.getPeer() != null)
 	    ((JXMenuPeer) parent.getPeer()).handleMenuMouseMoved(cMousePos.X(),
 								 cMousePos.Y(),
-								 (nTransit == WWindowInterface.MOUSE_INSIDE));
+								 (nTransit == WWindowInterface.MOUSE_INSIDE));*/
     }
 
     /**
@@ -72,8 +72,8 @@ public class JXMenuConnector
      */
     @Override
     public void paint(PixelRect cFrame) {
-	if (parent.getPeer() != null)
-	    ((JXMenuPeer) parent.getPeer()).redrawMenu();
+	/*if (parent.getPeer() != null)
+	    ((JXMenuPeer) parent.getPeer()).redrawMenu();*/
     }
 
 }

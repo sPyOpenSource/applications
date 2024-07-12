@@ -191,7 +191,7 @@ public abstract class JXComponentPeer {
 	if (KeyMap.altPressed(mods)) modifiers |= InputEvent.ALT_MASK;
 	if (KeyMap.ctrlPressed(mods)) modifiers |= InputEvent.CTRL_MASK;
 	queue = toolkit.getSystemEventQueue();
-	queue.postEvent(new KeyEvent(parent, what, modifiers, keycode));
+	queue.postEvent(new KeyEvent(parent, 0, what, modifiers, keycode));
     }
 
     /**
@@ -204,7 +204,7 @@ public abstract class JXComponentPeer {
 	if (button == 1) mButton |= InputEvent.BUTTON1_MASK;
 	if (button == 2) mButton |= InputEvent.BUTTON3_MASK;
 	queue = toolkit.getSystemEventQueue();
-	queue.postEvent(new MouseEvent(parent, what, mButton, p.x, p.y,
+	queue.postEvent(new MouseEvent(parent, 0, what, mButton, p.x, p.y,
 				       0, (button == 2)));
     }
 
@@ -340,14 +340,14 @@ public abstract class JXComponentPeer {
 		// NOTE: supports only one ScrollPane in container hierarchy!!!
 		viewPort = ((ScrollPane) c.getParent()).getViewportSize();
 		// adjust scroll coords
-		Point p = ((JXScrollPanePeer) c.getParent().getPeer()).getScrollPosition();
+		Point p = null;//((JXScrollPanePeer) c.getParent().getPeer()).getScrollPosition();
 		sx -= p.x;
 		sy -= p.y;
 	    }
 	    c = c.getParent();
 	}
 	// get JXGraphics object from underlying Window
-	JXGraphics g = (JXGraphics) ((JXFramePeer) c.getPeer()).getGraphics();
+	JXGraphics g = null;//(JXGraphics) ((JXFramePeer) c.getPeer()).getGraphics();
 	// set viewport clip if necessary
 	if (viewPort != null) {
 	    Point p = g.getTranslationOrigin();
@@ -394,7 +394,7 @@ public abstract class JXComponentPeer {
 	JXComponentPeer peer;
 	Component fc = toolkit.getFocusHandler().getFocusedComponent();
 	if (fc != null)
-	    peer = ((JXComponentPeer) fc.getPeer());
+	    peer = null;//((JXComponentPeer) fc.getPeer());
 	else
 	    peer = null;
 	// set new focus

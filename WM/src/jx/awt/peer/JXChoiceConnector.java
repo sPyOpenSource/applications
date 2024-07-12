@@ -44,10 +44,10 @@ public class JXChoiceConnector
     @Override
     public void mouseDown (PixelPoint cMousePos, int nButton) {
 	lastButtonPressed = nButton;
-	if (parent.getPeer() != null)
+	/*if (parent.isDisplayable())
 	    ((JXChoicePeer) parent.getPeer()).handleChoiceMouseDown(cMousePos.X(),
 								    cMousePos.Y(),
-								    nButton);
+								    nButton);*/
     }
 
     /**
@@ -58,10 +58,10 @@ public class JXChoiceConnector
     public void mouseUp (PixelPoint cMousePos, int nButton) {
 	//toolkit.message("mouse button " + nTransit + " pressed.");
 	lastButtonPressed = 0;
-	if (parent.getPeer() != null)
+	/*if (parent.isDisplayable())
 	    ((JXChoicePeer) parent.getPeer()).handleChoiceMouseUp(cMousePos.X(),
 								  cMousePos.Y(),
-								  nButton);
+								  nButton);*/
     }
     
     /**
@@ -71,11 +71,11 @@ public class JXChoiceConnector
     @Override
     public void mouseMoved (PixelPoint cMousePos, int nTransit) {
 	//toolkit.message("mouse at " + cMousePos.X() + "," + cMousePos.Y() + ", transit is " + nTransit);
-	if (parent.getPeer() != null)
+	/*if (parent.isDisplayable())
 	    ((JXChoicePeer) parent.getPeer()).handleChoiceMouseMoved(cMousePos.X(),
 								     cMousePos.Y(),
 								     lastButtonPressed,
-								     (nTransit == WWindowInterface.MOUSE_INSIDE));
+								     (nTransit == WWindowInterface.MOUSE_INSIDE));*/
     }
     
     /**
@@ -85,7 +85,7 @@ public class JXChoiceConnector
      */
     @Override
     public void paint(PixelRect cFrame) {
-	if (parent.getPeer() != null)
-	    ((JXChoicePeer) parent.getPeer()).redrawChoiceWindow(lastButtonPressed != 0);
+	/*if (parent.isDisplayable())
+	    ((JXChoicePeer) parent.getPeer()).redrawChoiceWindow(lastButtonPressed != 0);*/
     }
 }

@@ -36,36 +36,36 @@ public class JXFramePeer
     /** Does some layout on the menu bar. */
     @Override
     public void layoutMenu(int width, int height) {
-	if (menubar != null)
-	    ((JXMenuBarPeer) menubar.getPeer()).layout(width, height);
+	/*if (menubar != null)
+	    ((JXMenuBarPeer) menubar.getPeer()).layout(width, height);*/
     }
     
     /** Gets the menu bar entry that is currently selected. */
     @Override
     public Menu getCurrentMenu() {
-	if (menubar != null)
-	    return ((JXMenuBarPeer) menubar.getPeer()).getCurrentMenu();
+	/*if (menubar != null)
+	    return ((JXMenuBarPeer) menubar.getPeer()).getCurrentMenu();*/
 	return null;
     }
 
     /** Activates the menu bar. */
     @Override
     public void activateMenuBar() {
-	if (menubar != null)
-	    ((JXMenuBarPeer) menubar.getPeer()).activateMenuBar();
+	/*if (menubar != null)
+	    ((JXMenuBarPeer) menubar.getPeer()).activateMenuBar();*/
     }
     
     /** Gets the height in pixels needed by the menu bar to draw itself. */
     @Override
     public int getMenuHeight() {
-	return ((menubar != null) ? ((JXMenuBarPeer) menubar.getPeer()).getHeight() : 0);
+	return 0;//((menubar != null) ? ((JXMenuBarPeer) menubar.getPeer()).getHeight() : 0);
     }
 
     /** Resets the menu bar. */
     @Override
     public void resetMenuBar() {
-	if (menubar != null)
-	    ((JXMenuBarPeer) menubar.getPeer()).resetMenuBar();
+	/*if (menubar != null)
+	    ((JXMenuBarPeer) menubar.getPeer()).resetMenuBar();*/
     }
     
     /****************************************************
@@ -77,7 +77,7 @@ public class JXFramePeer
      * methods provided in JXMenuPeer.
      */
     private void openMenu(Menu newMenu) {
-	JXMenuBarPeer peer = (JXMenuBarPeer) menubar.getPeer();
+	JXMenuBarPeer peer = null;//(JXMenuBarPeer) menubar.getPeer();
 	MenuHandler mh = toolkit.getMenuHandler();
 	// update menu bar
 	peer.setCurrentMenu(newMenu);
@@ -97,7 +97,7 @@ public class JXFramePeer
      * Called when the current selected menu bar entry has changed.
      */
     private void switchToMenu(Menu newMenu, boolean menuOpen) {
-	JXMenuBarPeer peer = (JXMenuBarPeer) menubar.getPeer();
+	JXMenuBarPeer peer = null;//(JXMenuBarPeer) menubar.getPeer();
 	MenuHandler mh = toolkit.getMenuHandler();
 	if (menuOpen) {
 	    if (newMenu != null) {
@@ -122,7 +122,7 @@ public class JXFramePeer
 	Menu newMenu = null;
 	MenuHandler mh = toolkit.getMenuHandler();
 	// get menu bar peer if existing
-	JXMenuBarPeer peer = (mh.isPopupMenuOpen()) ? null : ((JXMenuBarPeer) menubar.getPeer());
+	JXMenuBarPeer peer = null;//(mh.isPopupMenuOpen()) ? null : ((JXMenuBarPeer) menubar.getPeer());
 	switch (code) {
 	case KeyEvent.VK_ENTER:
 	case KeyEvent.VK_UP:
@@ -134,7 +134,7 @@ public class JXFramePeer
 		// open current selected menu
 		newMenu = peer.getCurrentMenu();
 		openMenu(newMenu);
-		JXMenuPeer menuPeer = (JXMenuPeer) newMenu.getPeer();
+		JXMenuPeer menuPeer = null;//(JXMenuPeer) newMenu.getPeer();
 		// select a fitting menu item
 		if (code == KeyEvent.VK_UP)
 		    menuPeer.setCurrentMenuItem(menuPeer.getDefaultMenuItem(false));
@@ -185,7 +185,7 @@ public class JXFramePeer
      */
     @Override
     public void handleMenuMouseDown(int mx, int my, int button) {
-	JXMenuBarPeer peer = (JXMenuBarPeer) menubar.getPeer();
+	JXMenuBarPeer peer = null;//(JXMenuBarPeer) menubar.getPeer();
 	MenuHandler mh = toolkit.getMenuHandler();
 	// find out selected menu bar entry
 	Menu newMenu = peer.getMenuEntry(mx, my);
@@ -204,7 +204,7 @@ public class JXFramePeer
      */
     @Override
     public void handleMenuMouseMoved(int mx, int my) {
-	JXMenuBarPeer peer = (JXMenuBarPeer) menubar.getPeer();
+	JXMenuBarPeer peer = null;//(JXMenuBarPeer) menubar.getPeer();
 	MenuHandler mh = toolkit.getMenuHandler();
 	// find out underlying menu bar entry
 	Menu newMenu = peer.getMenuEntry(mx, my);
@@ -252,8 +252,8 @@ public class JXFramePeer
     public void dispose() {
 	if (connector != null)
 	    connector.dispose();
-	if (menubar != null)
-	    ((JXMenuBarPeer) menubar.getPeer()).dispose();
+	/*if (menubar != null)
+	    ((JXMenuBarPeer) menubar.getPeer()).dispose();*/
 	sendWindowEvent(WindowEvent.WINDOW_CLOSED);
 	super.dispose();
     }
@@ -265,8 +265,8 @@ public class JXFramePeer
     protected void redrawComponent() {
 	super.redrawComponent();
 	if (ready && menubar != null) {
-	    ((JXMenuBarPeer) menubar.getPeer()).setParentFrame((Frame) parent);
-	    ((JXMenuBarPeer) menubar.getPeer()).redrawMenuBar();
+	    //((JXMenuBarPeer) menubar.getPeer()).setParentFrame((Frame) parent);
+	    //((JXMenuBarPeer) menubar.getPeer()).redrawMenuBar();
 	}
     }
     
