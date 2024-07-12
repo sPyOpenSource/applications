@@ -1,6 +1,9 @@
 NEEDLIBS = zero jdk0 zero_misc jdk1 fb devices
 
-SUBDIRS = jx/wm jx/wm/message jx/wm/bitmap
+SUBDIRS = jx/wm jx/wm/message jx/wm/bitmap jx jx/awt jx/awt/image jx/awt/peer
+SUBDIRS += jx/devices/fb jx/devices/fb/emulation jx/devices/fb/mga jx/devices/fb/vmware
+SUBDIRS += jx/devices/mga jx/fb jx/keyboard jx/start jx/wm/decorator jx/wm/message jx/wm/plugin
+SUBDIRS += test/fb test/wm
 
 LIBNAME = wm
 #CLASSFILES = jx/wm/*.class jx/wm/message/*.class
