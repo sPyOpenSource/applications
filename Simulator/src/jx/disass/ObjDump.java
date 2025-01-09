@@ -9,6 +9,7 @@ import jx.compiler.persistent.ExtendedDataInputStream;
 
 public class ObjDump {
     public static void main(String [] args) throws Exception {
+        //args = new String[]{"/Users/xuyi/Source/OS/armOS/lib/jcore/Compiler/app/isodir/code/zero.jll"};
     	if (args.length != 1) {
 	    System.out.println("Usage: ");
 	    System.out.println("    ObjDump <codefilename> ");
