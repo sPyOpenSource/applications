@@ -7,6 +7,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import jx.zero.Debug;
@@ -51,8 +52,13 @@ public class Disassembler extends x86 {
             fis = new FileInputStream(f);
             this.len = len;
             this.ofs = ofs;
-            code = new byte[len + ofs];
-            fis.read(code, ofs, len);
+            codePosition = ofs;
+            //code = new byte[len];
+            code = fis.readAllBytes();
+            /*for(int i = ofs; i < code.length; i++){
+                System.out.print(toHexInt(i) + ":");
+                System.out.println(toHexInt(code[i]));
+            }*/
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Disassembler.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
@@ -1252,9 +1258,9 @@ public class Disassembler extends x86 {
 
 
     // Debug, Test, and Control Register stuff
-    void RdCd() {Debug.throwError("*** RdCd() unfinished ***");}
+    void RdCd() {/*Debug.throwError("*** RdCd() unfinished ***");*/fetch_word();}
     void RdDd() {Debug.throwError("*** RdDd() unfinished ***");}
-    void CdRd() {Debug.throwError("*** CdRd() unfinished ***");}
+    void CdRd() {/*Debug.throwError("*** CdRd() unfinished ***");*/fetch_word();}
     void DdRd() {Debug.throwError("*** DdRd() unfinished ***");}
     void RdTd() {Debug.throwError("*** RdTd() unfinished ***");}
     void TdRd() {Debug.throwError("*** TdRd() unfinished ***");}
@@ -1346,8 +1352,7 @@ public class Disassembler extends x86 {
 	    int imm32;
 	    imm32 = fetch_dword();
 	    addInstr("["+toHexInt(imm32)+"]");
-	}
-	else {
+	} else {
 	    int imm16;
 	    imm16 = fetch_word();
 	    addInstr("["+toHexInt(imm16)+"]");
@@ -1426,12 +1431,12 @@ public class Disassembler extends x86 {
 	    int imm32;
 	    
 	    imm32 = fetch_dword();
-	    addInstr("+#"+toHexInt(imm32) + "  (->"+toHexInt(codePosition+imm32)+")");
+	    addInstr("+#" + toHexInt(imm32) + "  (->" + toHexInt(codePosition + imm32) + ")");
 	} else {
             int imm16;
 
             imm16 = fetch_word();
-            addInstr("+#"+toHexInt(imm16));
+            addInstr("+#" + toHexInt(imm16));
         }
     }
 
@@ -1457,12 +1462,12 @@ public class Disassembler extends x86 {
 	    int imm32;
 
 	    imm32 = fetch_dword();
-	    addInstr("#"+ toHexInt(imm32));
+	    addInstr("#" + toHexInt(imm32));
 	} else {
 	    int imm16;
 
 	    imm16 = fetch_word();
-	    addInstr("#"+ toHexInt(imm16));
+	    addInstr("#" + toHexInt(imm16));
 	}
     }
 
@@ -1472,7 +1477,7 @@ public class Disassembler extends x86 {
 	int imm8;
 
 	imm8 = fetch_byte();
-	addInstr("#"+toHexInt(imm8));
+	addInstr("#" + toHexInt(imm8));
     }
 
 
@@ -1481,7 +1486,7 @@ public class Disassembler extends x86 {
 	int imm8;
 
 	imm8 = fetch_byte();
-	addInstr("+#"+toHexInt(imm8));
+	addInstr("+#" + toHexInt(imm8));
     }
 
     void EbIb()
@@ -1490,7 +1495,7 @@ public class Disassembler extends x86 {
 
 	decode_exgx(BX_GENERAL_8BIT_REG, BX_NO_REG_TYPE);
 	imm8 = fetch_byte();
-	addInstr(", #"+toHexInt(imm8));
+	addInstr(", #" + toHexInt(imm8));
     }
 
     void EvIv()
@@ -1502,12 +1507,12 @@ public class Disassembler extends x86 {
 
 	    decode_exgx(BX_GENERAL_32BIT_REG, BX_NO_REG_TYPE);
 	    imm32 = fetch_dword();
-	    addInstr(", #"+toHexInt(imm32));
+	    addInstr(", #" + toHexInt(imm32));
 	}
 	else {
 	    decode_exgx(BX_GENERAL_16BIT_REG, BX_NO_REG_TYPE);
 	    imm16 = fetch_word();
-	    addInstr(", #"+toHexInt(imm16));
+	    addInstr(", #" + toHexInt(imm16));
 	}
     }
 
@@ -1547,7 +1552,7 @@ public class Disassembler extends x86 {
 
 	    imm32 = fetch_dword();
 	    cs_selector = fetch_word();
-	    addInstr(toHexInt(cs_selector)+":"+toHexInt(imm32));
+	    addInstr(toHexInt(cs_selector) + ":" + toHexInt(imm32));
 	}
 	else
         {
@@ -1556,7 +1561,7 @@ public class Disassembler extends x86 {
 
             imm16 = fetch_word();
             cs_selector = fetch_word();
-            addInstr(toHexInt(cs_selector)+":"+toHexInt(imm16));
+            addInstr(toHexInt(cs_selector) + ":" + toHexInt(imm16));
         }
     }
 
@@ -1580,7 +1585,7 @@ public class Disassembler extends x86 {
 	else
 	    seg = "DS";
 
-	addInstr("ES:["+edi+"], "+seg+":["+esi+"]");
+	addInstr("ES:[" + edi + "], " + seg + ":[" + esi + "]");
     }
 
 
@@ -2001,7 +2006,7 @@ public class Disassembler extends x86 {
     }
 
 
-    String toHexInt(int value) {
+    public String toHexInt(int value) {
         String hex = Long.toHexString(value & 0xffffffffL);         
         return  "00000000".substring(Math.min(hex.length(), 8)) + hex + " "; 
     }
