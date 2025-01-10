@@ -35,10 +35,9 @@ public class x86 extends j51.intel.MCS51 {
     
     public static void main(String [] args){
         Disassembler dis = new Disassembler("/Users/xuyi/Source/OS/armOS/lib/jcore/Compiler/app/isodir/code/realmode", 2000, 0x1000);
-        for(int i = 0; i < 200; i++){
+        for(int i = 0; dis.isNext(); i++){
             dis.instruction = dis.toHexInt(i) + " ";
             System.out.println(dis.disasmInstr());
-            //dis.instruction = "";
         }
     }
 }

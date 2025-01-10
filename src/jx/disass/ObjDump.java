@@ -21,14 +21,20 @@ public class ObjDump {
 	for(CompiledClass compiledClass : allClasses) {
 	    System.out.println("Class: " + compiledClass.getName());
 	    CompiledMethod[] allMethods = compiledClass.getMethods();
-                for (CompiledMethod compiledMethod : allMethods) {
-                    if (compiledMethod.getCode() == null) {
-                        System.out.print("  Size:  - ");
-                    } else {
-                        System.out.print("  Size: " + compiledMethod.getCode().length);
+            for (CompiledMethod compiledMethod : allMethods) {
+                byte[] code = compiledMethod.getCode();
+                if (code == null) {
+                    System.out.print("  Size:  - ");
+                } else {
+                    System.out.println("  Size: " + compiledMethod.getCode().length);
+                    Disassembler dis = new Disassembler(code);
+                    for(int i = 0; dis.isNext(); i++){
+                        dis.instruction = dis.toHexInt(i) + " ";
+                        System.out.println(dis.disasmInstr());
                     }
-                    System.out.println(" Method: " + compiledMethod.getName());
                 }
+                System.out.println(" Method: " + compiledMethod.getName());
+            }
         }
     }
 }

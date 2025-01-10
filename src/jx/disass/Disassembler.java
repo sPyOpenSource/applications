@@ -44,8 +44,15 @@ public class Disassembler extends x86 {
 	this.dout = dout;
 	codePosition = ofs;
     }
+    
+    public Disassembler(byte[] code) {
+	this.code = code;
+	this.ofs = 0;
+	this.len = code.length;
+	codePosition = ofs;
+    }
 
-    Disassembler(String file, int len, int ofs) {
+    public Disassembler(String file, int len, int ofs) {
         FileInputStream fis = null;
         try {
             File f = new File(file);
@@ -131,7 +138,11 @@ public class Disassembler extends x86 {
 	    asmout.println(disasmInstr());
 	}
     }
-
+    
+    public boolean isNext(){
+        return codePosition < ofs +len;
+    }
+    
     public String disasmInstr() {
 	int byte_count;
 	int next_byte;
