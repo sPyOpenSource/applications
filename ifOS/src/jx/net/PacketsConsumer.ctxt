@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=PacketsConsumer
+comment1.params=
+comment1.target=int\ requiresSpace()
+comment1.text=\n\ Get\ number\ of\ bytes\ need\ for\ header\ information\n\ @return\ \n
+comment2.params=
+comment2.target=int\ getMTU()
+comment2.text=\n\ Get\ Maximum\ Transfer\ Unit\ of\ the\ underlying\ network\ \n\ @return\ \n
+numComments=3

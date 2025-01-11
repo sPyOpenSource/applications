@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=CheckboxPeer
+comment1.params=group
+comment1.target=void\ setCheckboxGroup(java.awt.CheckboxGroup)
+comment2.params=label
+comment2.target=void\ setLabel(java.lang.String)
+comment3.params=state
+comment3.target=void\ setState(boolean)
+numComments=4

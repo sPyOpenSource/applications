@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=IDEDevice
+comment0.text=\n\ Diese\ Klasse\ bietet\ Funktionen\ f&uuml;r\ die\ Daten&uuml;bertragung\ zwischen\ Hauptspeicher\ und\ Festplattencontroller\ und\ gibt\n\ Auskunft\ &uuml;ber\ vorhandene\ Partitionen\ und\ Festplatten\ und\ deren\ Kapazit&auml;t.\ Sie\ stellt\ einen\ Monitor\ f&uuml;r\ den\ Zugriff\n\ auf\ die\ IDE-Controller\ dar.\n\ Diese\ Version\ setzt\ Zugriffe\ auf\ eine\ Festplatte\ in\ Lese-\ und\ Schreiboperationen\ auf\ eine\ Datei\ um;\ der\ Name\ der\ Datei\ entspricht\ dem\n\ Partitionsnamen.\n
+comment1.params=device
+comment1.target=boolean\ isPresent(int)
+comment1.text=\n\ Ermittelt\ das\ Vorhandensein\ der\ angegebenen\ Partition.\n\n\ @param\ \ device\ die\ Kennung\ der\ Partition\n\ @return\ <code>true</code>,\ falls\ die\ Partition\ vorhanden\ ist,\ ansonsten\ <code>false</code>\n
+comment2.params=device
+comment2.target=int\ getCapacity(int)
+comment2.text=\n\ Liefert\ die\ Kapazit&auml;t\ (die\ Anzahl\ der\ Sektoren)\ der\ angegebenen\ Partition\ zur&uuml;ck\ (Partition\ 0\ umfasst\ die\n\ gesamte\ Festplatte).\n\n\ @param\ \ device\ die\ Kennung\ der\ Partition\n\ @return\ die\ Anzahl\ der\ Sektoren\ der\ Partition\ (-1\ falls\ die\ angegebene\ Partition\ nicht\ existiert)\n
+comment3.params=bh\ device\ sector\ read\ synchronous
+comment3.target=int\ memoryIO(jx.zero.Memory,\ int,\ int,\ boolean,\ boolean)
+comment3.text=\n\ Bewirkt\ das\ Lesen\ bzw.\ Schreiben\ von\ Sektoren\ einer\ Partition.\ Diese\ Methode\ setzt\ die\ Sektornummern\ innerhalb\ einer\n\ Partition\ auf\ Sektornummern\ innerhalb\ der\ Festplatte\ um\ und\ ruft\ <code>Drive.bufferheadIO</code>\ f&uuml;r\ den\ Datentransfer\n\ auf.\ Es\ wird\ au&szlig;erdem\ &uuml;berpr&uuml;ft,\ ob\ die\ Sektornummer\ im\ g&uuml;ltigen\ Bereich\ liegt.\n\n\ @param\ bh\ \ \ \ \ \ \ \ \ \ der\ <code>BufferHead</code>,\ der\ die\ Blocknummer,\ die\ Partitionskennung,\ den\ Puffer\ und\ die\ Anzahl\ zu\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ &uuml;bertragender\ Byte\ f&uuml;r\ die\ I/O-Operation\ enth&auml;lt\n\ @param\ device\n\ @param\ sector\ \ \ \ \ \ der\ Sektor,\ ab\ dem\ gelesen\ werden\ soll\ (relativ\ zum\ Partitionsanfang)\n\ @param\ read\ \ \ \ \ \ \ \ Falls\ <code>true</code>,\ wird\ von\ der\ Partition\ gelesen,\ ansonsten\ wird\ geschrieben.\n\ @param\ synchronous\ Falls\ <code>true</code>,\ wird\ auf\ das\ Ende\ der\ I/O-Operation\ gewartet\ (synchrones\ Lesen\ bzw.\ Schreiben).\n\ @return\ -1\ if\ error,\ 0\ if\ ok\n
+numComments=4

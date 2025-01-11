@@ -1,0 +1,27 @@
+#BlueJ class context
+comment0.target=NetInit
+comment1.params=port\ ip\ bufs
+comment1.target=TCPSocket\ getTCPSocket(int,\ IPAddress,\ jx.zero.Memory[])
+comment10.params=size
+comment10.target=jx.zero.Memory\ getIPBuffer(int)
+comment11.params=
+comment11.target=jx.zero.Memory\ getIPBuffer()
+comment12.params=
+comment12.target=IPAddress\ getLocalAddress()
+comment2.params=
+comment2.target=jx.zero.Memory\ getTCPBuffer()
+comment3.params=port\ bufs
+comment3.target=UDPReceiver\ getUDPReceiver(int,\ jx.zero.Memory[])
+comment4.params=localPort\ dst\ remotePort
+comment4.target=UDPSender\ getUDPSender(int,\ IPAddress,\ int)
+comment5.params=size
+comment5.target=jx.zero.Memory\ getUDPBuffer(int)
+comment6.params=
+comment6.target=jx.zero.Memory\ getUDPBuffer()
+comment7.params=bufs
+comment7.target=IPReceiver\ getIPReceiver(jx.zero.Memory[])
+comment8.params=bufs\ proto
+comment8.target=IPReceiver\ getIPReceiver(jx.zero.Memory[],\ java.lang.String)
+comment9.params=dst\ id
+comment9.target=IPSender\ getIPSender(IPAddress,\ int)
+numComments=13

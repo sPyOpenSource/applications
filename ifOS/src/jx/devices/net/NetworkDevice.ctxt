@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=NetworkDevice
+comment1.params=mode
+comment1.target=void\ setReceiveMode(int)
+comment2.params=buf
+comment2.target=jx.zero.Memory\ transmit(jx.zero.Memory)
+comment3.params=buf\ offset\ size
+comment3.target=jx.zero.Memory\ transmit1(jx.zero.Memory,\ int,\ int)
+comment4.params=
+comment4.target=byte[]\ getMACAddress()
+comment5.params=
+comment5.target=int\ getMTU()
+comment6.params=consumer
+comment6.target=boolean\ registerNonBlockingConsumer(jx.fs.buffer.separator.NonBlockingMemoryConsumer)
+numComments=7

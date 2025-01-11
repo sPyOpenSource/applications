@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=MenuPeer
+comment1.params=item
+comment1.target=void\ addItem(java.awt.MenuItem)
+comment2.params=
+comment2.target=void\ addSeparator()
+comment3.params=index
+comment3.target=void\ delItem(int)
+numComments=4

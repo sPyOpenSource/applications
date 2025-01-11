@@ -1,0 +1,4 @@
+#BlueJ class context
+comment0.target=DeviceConfigurationTemplate
+comment0.text=\n\ Allows\ each\ device\ to\ specify\ a\ range\ of\ possible\ configurations.\n\ The\ concrete\ configuration\ must\ be\ created\ using\ the\ information\n\ provided\ in\ this\ template\ and\ passed\ to\ the\ open\ method\ of\ Device\n\ as\ DeviceConfiguration.\n\ @author\ Michael\ Golm\n
+numComments=1

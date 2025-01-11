@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.target=PCIAccess
+comment1.params=
+comment1.target=int\ getNumberOfDevices()
+comment2.params=index
+comment2.target=PCIDevice\ getDeviceAt(int)
+comment3.params=vendorID\ deviceID
+comment3.target=PCIDevice[]\ getDevicesByID(short,\ short)
+comment4.params=mask\ classcode
+comment4.target=PCIDevice[]\ getDevicesByClass(int,\ int)
+comment5.params=devaddr\ reg
+comment5.target=int\ readDeviceConfig(PCIAddress,\ int)
+comment6.params=devaddr\ reg\ value
+comment6.target=void\ writeDeviceConfig(PCIAddress,\ int,\ int)
+comment7.params=
+comment7.target=void\ dumpDevices()
+numComments=8

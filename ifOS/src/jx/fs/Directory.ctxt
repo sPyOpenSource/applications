@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.target=Directory
+comment1.params=
+comment1.target=java.lang.String[]\ list()
+comment2.params=name
+comment2.target=FSObject\ openRW(java.lang.String)
+comment3.params=name
+comment3.target=FSObject\ openRO(java.lang.String)
+comment4.params=perm\ filename
+comment4.target=RegularFile\ create(Permission,\ java.lang.String)
+comment5.params=perm\ filename\ file
+comment5.target=boolean\ link(Permission,\ java.lang.String,\ FSObject)
+comment6.params=filename
+comment6.target=boolean\ unlink(java.lang.String)
+comment7.params=perm\ dirname
+comment7.target=boolean\ mkdir(Permission,\ java.lang.String)
+numComments=8

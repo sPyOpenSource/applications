@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=FramePeer
+comment1.params=mb
+comment1.target=void\ setMenuBar(java.awt.MenuBar)
+comment2.params=resizable
+comment2.target=void\ setResizable(boolean)
+comment3.params=title
+comment3.target=void\ setTitle(java.lang.String)
+numComments=4
