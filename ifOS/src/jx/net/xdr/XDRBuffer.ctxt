@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=XDRBuffer
+comment1.params=index\ value
+comment1.target=void\ setByte(int,\ byte)
+comment2.params=index
+comment2.target=byte\ getByte(int)
+comment3.params=buf\ index\ len
+comment3.target=void\ getBytes(byte[],\ int,\ int)
+comment4.params=offset
+comment4.target=void\ advance(int)
+numComments=5

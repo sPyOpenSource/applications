@@ -1,0 +1,21 @@
+#BlueJ class context
+comment0.target=TupleDescriptor
+comment1.params=
+comment1.target=int\ getCount()
+comment2.params=
+comment2.target=int\ getSegNum()
+comment3.params=
+comment3.target=int\ getRelId()
+comment4.params=iPos
+comment4.target=int\ getAttrSize(int)
+comment5.params=
+comment5.target=int\ getTupleSize()
+comment6.params=iPos
+comment6.target=int\ getType(int)
+comment7.params=iPos
+comment7.target=java.lang.String\ getName(int)
+comment8.params=iPos
+comment8.target=int\ getFieldOffset(int)
+comment9.params=iPos
+comment9.target=types.DbConverter\ getConverter(int)
+numComments=10

@@ -1,0 +1,19 @@
+#BlueJ class context
+comment0.target=RelationScan
+comment0.text=\n\ Title\:\ SA\n\ Description\:\n\ Copyright\:\ Copyright\ (c)\ 2001\n\ Company\:\n\ @author\ Ivanich\n\ @version\ 1.0\n
+comment1.params=
+comment1.target=Key\ getCurrentKey()
+comment1.text=\ returns\ a\ byte\ array\ containing\ the\ key\ of\ the\ current\ tuple\n\ @throws\ CodedException\ thrown\ on\ error\n\ @return\ byte\ array\ containing\ the\ key\ of\ the\ current\ tuple\n
+comment2.params=
+comment2.target=SetNumberReader\ getCurrentSetNum()
+comment2.text=\ returns\ the\ address\ of\ the\ current\ tuple\n\ @throws\ CodedException\ thrown\ on\ error\n\ @return\ SetNumberReader\ object\ containing\ address\ of\ the\ current\ tuple\n
+comment3.params=baKey
+comment3.target=boolean\ findKey(byte[][])
+comment3.text=\ searches\ for\ the\ given\ key\ and\ sets\ the\ current\ position\ at\ the\ nearest\ place\n\ @param\ baKey\ key\ to\ search\ for\n\ @throws\ CodedException\ thrown\ on\ error\ (\ wrong\ attribute\ count,\ etc.)\n\ @return\ true\ if\ the\ key\ was\ found,\ false\ otherwise\n
+comment4.params=
+comment4.target=IndexInfo\ getIndexInfo()
+comment4.text=\ returns\ an\ IndexInfo\ object\ describing\ an\ index\ of\ a\ table\n\ @throws\ CodedException\ thrown\ on\ error\n\ @return\ IndexInfo\ object\ describing\ an\ index\ of\ a\ table\n
+comment5.params=
+comment5.target=int[]\ getIndexKeyPos()
+comment5.text=\ returns\ an\ integer\ array\ containing\ the\ positions\ of\ the\ index\ attributes\n\ @throws\ CodedException\ thrown\ on\ error\n\ @return\ an\ integer\ array\ containing\ the\ positions\ of\ the\ index\ attributes\n
+numComments=6

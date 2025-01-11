@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=IPSender
+comment1.params=m
+comment1.target=jx.zero.Memory\ send(jx.zero.Memory)
+comment2.params=m\ offset\ size
+comment2.target=jx.zero.Memory\ send(jx.zero.Memory,\ int,\ int)
+comment3.params=
+comment3.target=void\ close()
+comment4.params=
+comment4.target=IPAddress\ getDestination()
+numComments=5

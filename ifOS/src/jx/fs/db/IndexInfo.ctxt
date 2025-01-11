@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.target=IndexInfo
+comment0.text=\n\ Title\:\ SA\n\ Description\:\n\ Copyright\:\ Copyright\ (c)\ 2001\n\ Company\:\n\ @author\ Ivanich\n\ @version\ 1.0\n
+comment1.params=
+comment1.target=int[]\ getAttributeMap()
+comment2.params=
+comment2.target=boolean\ isUnique()
+comment3.params=
+comment3.target=int\ getIID()
+comment4.params=
+comment4.target=int\ getType()
+numComments=5

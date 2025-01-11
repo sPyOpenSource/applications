@@ -1,0 +1,24 @@
+#BlueJ class context
+comment0.target=Table
+comment1.params=iType\ bUnique\ iAttrMap
+comment1.target=Index\ createIndex(int,\ boolean,\ int[])
+comment1.text=\ creates\ a\ new\ index\ for\ a\ table\n\ @param\ iType\ specifies\ the\ type\ of\ the\ index\n\ @param\ bUnique\ unique\ or\ non\ unique\ index\n\ @param\ iAttrMap\ positions\ of\ the\ attributes\ of\ the\ table\ which\ are\ indexed\n\ @param\ cTD\ tuple\ descriptor\ of\ the\ table\ which\ should\ contain\ the\ index\n\ @throws\ CodedException\ thrown\ on\ error\ (\ wrong\ TD,\ etc.)\n
+comment2.params=
+comment2.target=TupleWriter\ createTuple()
+comment2.text=\ creates\ a\ new\ tuple\ and\ returns\ a\ TupleWriter\ referencing\ it.\ The\ caller\ must\ call\ TupleWriter.close\ after\ modifying\ the\ tuple\n\ @throws\ CodedException\ thrown\ on\ error\ (\ wrong\ TD,\ write\ error,\ etc.\ )\n\ @return\ TupleWriter\ object\ allowing\ modifications\ of\ the\ new\ tuple\n
+comment3.params=cSetNumReader
+comment3.target=TupleWriter\ modifyTuple(SetNumberReader)
+comment3.text=\ returns\ a\ TupleWriter\ object\ referencing\ a\ tuple\ for\ modification\n\ @param\ cSetNumReader\ SetNumberReader\ object\ containing\ the\ address\ of\ the\ tuple\n\ @throws\ CodedException\ thrown\ on\ error\ (\ wrong\ SetNumber,\ etc.\ )\n\ @return\ returns\ a\ TupleWriter\ object,\ allowing\ modification\ of\ the\ tuple\n
+comment4.params=cSetNumReader
+comment4.target=void\ deleteTuple(SetNumberReader)
+comment4.text=\ deletes\ a\ tuple\ from\ the\ persistent\ storage\n\ @param\ cSetNumReader\ address\ of\ the\ tuple\n\ @throws\ CodedException\ thrown\ on\ error\ (\ wrong\ tuple\ address,\ etc\ )\n
+comment5.params=cSetNumReader
+comment5.target=TupleReader\ readTuple(SetNumberReader)
+comment5.text=\ returns\ a\ TupleReader\ reference\ to\ a\ tuple.\ The\ caller\ can\ use\ this\ reference\ in\ order\ to\ read\ the\ contents\ of\ the\ tuple\n\ @param\ cSetNumReader\ address\ of\ the\ tuple\n\ @throws\ CodedException\ thrown\ on\ error\ (\ wrong\ address,\ etc.\ )\n\ @return\ returns\ a\ TupleReader\ object\ pointing\ to\ the\ tuple\n
+comment6.params=
+comment6.target=TupleDescriptor\ getTupleDescriptor()
+comment7.params=
+comment7.target=java.lang.String\ getName()
+comment8.params=
+comment8.target=Index[]\ getAllTableIndexes()
+numComments=9

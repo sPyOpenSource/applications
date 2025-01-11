@@ -1,0 +1,21 @@
+#BlueJ class context
+comment0.target=Key
+comment1.params=
+comment1.target=int\ getFieldCount()
+comment2.params=cDest\ iPos
+comment2.target=void\ getField(java.lang.Object,\ int)
+comment3.params=cSrc\ iPos
+comment3.target=void\ setField(java.lang.Object,\ int)
+comment4.params=
+comment4.target=byte[][]\ getBytes()
+comment5.params=baSrc\ iOffset
+comment5.target=void\ setBytes(byte[],\ int)
+comment6.params=iSrc\ iPos
+comment6.target=void\ setField(int,\ int)
+comment7.params=iPos
+comment7.target=int\ getField(int)
+comment8.params=iPos
+comment8.target=void\ setFieldToMin(int)
+comment9.params=iPos
+comment9.target=void\ setFieldToMax(int)
+numComments=10

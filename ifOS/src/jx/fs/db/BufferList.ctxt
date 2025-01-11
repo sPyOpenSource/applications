@@ -1,0 +1,19 @@
+#BlueJ class context
+comment0.target=BufferList
+comment0.text=\ A\ simple\ container\ for\ temporary\ storage.\ Use\ it\ if\ you\ want\ to\ store\ a\ large\ amount\ of\ sets\ in\ a\ page\ buffer.\n\ The\ sets\ should\ be\ of\ the\ same\ length\n
+comment1.params=
+comment1.target=boolean\ moveToFirst()
+comment1.text=\ moves\ the\ position\ to\ the\ beginning\ of\ the\ BufferList\n\ @throws\ CodedException\ thrown\ on\ error\n\ @return\ thrue\ if\ successful,\ false\ otherwise\n
+comment2.params=
+comment2.target=boolean\ moveToNext()
+comment2.text=\ moves\ the\ position\ to\ the\ next\ element\ in\ the\ buffer\n\ @throws\ CodedException\ thrown\ on\ error\n\ @return\ true\ if\ successful,\ false\ otherwise\ (\ end\ reached\ )\n
+comment3.params=baData\ iOffset
+comment3.target=void\ addAtEnd(byte[],\ int)
+comment3.text=\ inserts\ a\ new\ set\ at\ the\ end\ of\ the\ buffer\n\ @throws\ CodedException\ thrown\ on\ error\ (\ no\ place\ left,\ etc.\ )\n\ @return\ a\ Set\ object\ allowing\ modifications\ on\ the\ added\ set\n
+comment4.params=
+comment4.target=byte[]\ getCurrent()
+comment4.text=\ returns\ a\ reference\ to\ the\ set\ at\ the\ current\ position\n\ @throws\ CodedException\ thrown\ on\ error\ (\ empty\ buffer,\ read\ error,\ etc.)\n\ @return\ a\ Set\ object\ allowing\ modifications\ on\ the\ current\ set\n
+comment5.params=
+comment5.target=void\ delete()
+comment5.text=\ deletes\ all\ buffer\ contents\n\ @throws\ CodedException\ thrown\ on\ error\ (\ read/write\ error,\ etc\ )\n
+numComments=6

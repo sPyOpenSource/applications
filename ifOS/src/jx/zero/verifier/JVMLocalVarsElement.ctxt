@@ -1,0 +1,18 @@
+#BlueJ class context
+comment0.target=JVMLocalVarsElement
+comment0.text=\ Class\ for\ the\ elements\ of\ JVMLocalVars.\n\ this\ class\ only\ provides\ the\ interface\ and\ holds\ the\ address\ of\ the\ bytecode\ that\ created\ this\ element.\n\ @see\ JVMLocalVars\n
+comment1.params=other
+comment1.target=JVMLocalVarsElement\ merge(JVMLocalVarsElement)
+comment1.text=\ merge\ two\ local\ variables\ into\ one.\n\ this\ is\ needed,\ when\ merging\ two\ states.\ Each\ local\ variable\ in\ the\ states\ is\ then\ merged\ into\ the\ corresponding\ variable\ in\ the\ other\ state.<br>\n\ if\ merging\ changes\ the\ data\ of\ the\ Element,\ a\ NEW(\!)\ JVMLocalVarsElement\ should\ be\ returned\ (i.e.\ merge\ should\ not\ change\ "this"\ or\ "other"\!).<br>\n\ If\ called\ from\ JVMState.merge()\ (through\ JVMLocalVars.merge),\ "this"\ is\ the\ local\ variable\ of\ the\ old\ state,\ "other"\ of\ the\ new\ state\ (see\ JVMState).<br>\n\ @return\ the\ merged\ lVars\ Element.\ \n\ @exception\ VerifyException\ if\ not\ mergeable.\n\ @see\ JVMLocalVars\n\ @see\ JVMState\n
+comment2.params=other
+comment2.target=boolean\ dataEquals(JVMLocalVarsElement)
+comment2.text=Comparison\ for\ the\ data\ contained\ in\ the\ local\ variable.\n\ Usually\ used\ to\ decide,\ if\ merge\ changed\ something\ or\ not.\ \n\ @return\ true,\ if\ the\ data\ of\ other\ equals\ the\ data\ of\ this.\n
+comment3.params=
+comment3.target=int\ getBcAddr()
+comment3.text=get\ the\ address\ of\ the\ bytecode\ that\ created\ this\ element.
+comment4.params=bcAddr
+comment4.target=JVMLocalVarsElement(int)
+comment4.text=constructor.\n@param\ bcAddr\ the\ address\ of\ the\ bytecode\ creating\ this\ element.\ -1\ if\ it\ is\ a\ parameter\ to\ the\ method\ that\ is\ analyzed.\n
+comment5.params=
+comment5.target=java.lang.String\ toString()
+numComments=6

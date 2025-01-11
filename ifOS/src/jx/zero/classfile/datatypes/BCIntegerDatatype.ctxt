@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=BCIntegerDatatype
+comment1.params=
+comment1.target=long\ longValue()
+comment2.params=value
+comment2.target=BCIntegerDatatype\ getObjectFor(long)
+comment3.params=operator\ op2
+comment3.target=BCNumericDatatype\ combined(int,\ BCNumericDatatype)
+comment4.params=
+comment4.target=BCNumericDatatype\ negated()
+numComments=5

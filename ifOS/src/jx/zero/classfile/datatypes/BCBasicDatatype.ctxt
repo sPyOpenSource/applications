@@ -1,0 +1,30 @@
+#BlueJ class context
+comment0.target=BCBasicDatatype
+comment0.text=\n\ \ \ The\ datatypes\ of\ the\ virtual\ machine\ are\ organized\ in\ a\n\ \ \ hierarchy.\ Their\ classes\ are\ mainly\ used\ to\ store\ numbers\n\ \ \ and\ have\ rather\ little\ functionality.\ \n\ \ \ This\ class\ hierarchy\ distinquishes\ only\ between\ basic\ datatypes,\ \n\ \ \ i.e.\ all\ references\ are\ treated\ as\ equal\ (no\ class\ types).\ \n\ \ \ The\ constants\ in\ BCBasicDatatype\ are\ used\ very\ frequently.\ \n
+comment1.params=datatype
+comment1.target=int\ sizeInWords(int)
+comment1.text=\n\ @param\ datatype\ a\ basic\ datatype\ \n\ \ \ \ \ \ @return\ size\ of\ datatype\ in\ words\n\ \ \ \ \ \ (the\ number\ of\ words\ the\ JVM\ needs\ for\ this\ datatype\ when\ used\ \n\ \ \ \ \ \ \ for\ a\ local\ variable,\ e.g.\ sizeInWords(BYTE)\=\=1)\ \n
+comment10.params=datatype
+comment10.target=java.lang.String\ toString(int)
+comment2.params=datatype
+comment2.target=char\ toChar(int)
+comment2.text=\n\ @param\ datatype\n\ \ \ \ \ \ @return\ JVM-style\ type\ descriptor\ for\ a\ datatype.\n\ \ \ \ \ \ e.g.\ toChar(BYTE)\=\='B'.\ \n\ \ \ \ \ \ if\ you\ want\ a\ complete\ type\ descriptor\ for\ a\ reference,\ \n\ \ \ \ \ \ you\ better\ take\ toTypeDesc().\n
+comment3.params=datatype
+comment3.target=java.lang.String\ toTypeDesc(int)
+comment3.text=\n\ @param\ datatype\n\ \ \ \ \ \ @return\ a\ JVM-style\ type\ descriptor\ for\ a\ datatype.\n\ \ \ \ \ \ this\ method\ is\ similar\ to\ toChar(),\ but\ returns\ \n\ \ \ \ \ \ a\ type\ descriptor\ for\ java/lang/Object\ for\ references\ \n
+comment4.params=datatype
+comment4.target=boolean\ isDouble(int)
+comment4.text=\n\ @param\ datatype\n\ \ \ \ \ \ @return\ true,\ if\ the\ datatype\ has\ two\ words\ \n
+comment5.params=datatype
+comment5.target=int\ sizeInByte(int)
+comment5.text=\n\ @param\ datatype\n\ \ \ \ \ \ @return\ number\ of\ bytes\ at\ least\ required\ for\ this\n\ \ \ \ \ \ datatype\ \n
+comment6.params=datatype
+comment6.target=int\ translateToIMType(int)
+comment6.text=\ \n\ \ \ \ \ \ translate\ a\ datatype\ of\ the\ frontend\ (defined\ in\ this\ class)\ into\ a\ \n\ \ \ \ \ \ datatype\ for\ the\ backend\ of\ the\ compiler\ (class\ nativecode.IMCode).\n\ \ \ \ \ \ Both\ modules\ use\ the\ same\ constants\ for\ some\ datatypes,\ so\ that\n\ \ \ \ \ \ this\ translation\ is\ very\ straightforward.\ \n\ @param\ datatype\n\ @return\ \n
+comment7.params=
+comment7.target=int\ type()
+comment8.params=
+comment8.target=int\ sizeInWords()
+comment9.params=datatype
+comment9.target=java.lang.String\ toSymbol(int)
+numComments=11

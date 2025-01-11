@@ -1,0 +1,18 @@
+#BlueJ class context
+comment0.target=VerifierInterface
+comment1.params=
+comment1.target=void\ runChecks()
+comment2.params=e
+comment2.target=void\ checkBC(jx.zero.ByteCode)
+comment3.params=
+comment3.target=Subroutines\ getSrs()
+comment4.params=
+comment4.target=java.lang.String\ getClassName()
+comment5.params=
+comment5.target=jx.zero.classfile.MethodSource\ getMethod()
+comment6.params=
+comment6.target=void\ endChecks()
+comment7.params=
+comment7.target=java.lang.Object\ getParameter()
+comment7.text=get\ User-defined\ parameter.\n@return\ parameter,\ might\ also\ return\ <code>null</code>.\n
+numComments=8

@@ -1,0 +1,20 @@
+#BlueJ class context
+comment0.target=UDPData
+comment0.text=\n\n\ @author\ xuyi\n
+comment1.params=mem
+comment1.target=void\ setMemory(jx.zero.Memory)
+comment2.params=srcPort
+comment2.target=void\ setSourcePort(int)
+comment3.params=sourceAddress
+comment3.target=void\ setSourceAddress(IPAddress)
+comment4.params=
+comment4.target=int\ Size()
+comment5.params=
+comment5.target=int\ getOffset()
+comment6.params=
+comment6.target=jx.zero.Memory\ getMemory()
+comment7.params=
+comment7.target=IPAddress\ getSourceAddress()
+comment8.params=
+comment8.target=int\ getSourcePort()
+numComments=9

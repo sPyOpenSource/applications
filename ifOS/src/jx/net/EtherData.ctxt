@@ -1,0 +1,20 @@
+#BlueJ class context
+comment0.target=EtherData
+comment0.text=\n\n\ @author\ xuyi\n
+comment1.params=
+comment1.target=jx.zero.Memory\ getMemory()
+comment2.params=
+comment2.target=int\ getOffset()
+comment3.params=
+comment3.target=int\ Size()
+comment4.params=newMem
+comment4.target=void\ setMemory(jx.zero.Memory)
+comment5.params=i
+comment5.target=void\ setOffset(int)
+comment6.params=i
+comment6.target=void\ setSize(int)
+comment7.params=sourceAddress
+comment7.target=void\ setSrcAddress(byte[])
+comment8.params=destAddress
+comment8.target=void\ setDstAddress(byte[])
+numComments=9

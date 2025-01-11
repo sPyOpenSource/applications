@@ -1,0 +1,21 @@
+#BlueJ class context
+comment0.target=ExecutionTime
+comment1.params=other
+comment1.target=void\ add(ExecutionTime)
+comment2.params=other
+comment2.target=void\ max(ExecutionTime)
+comment3.params=bc
+comment3.target=void\ addTimeOfBC(jx.zero.ByteCode)
+comment4.params=
+comment4.target=ExecutionTime\ copy()
+comment5.params=
+comment5.target=boolean\ limitExceeded()
+comment6.params=maxTime
+comment6.target=void\ setTimeLimit(int)
+comment7.params=
+comment7.target=int\ getTimeLimit()
+comment8.params=
+comment8.target=void\ useAllTime()
+comment9.params=
+comment9.target=int\ timeLeft()
+numComments=10

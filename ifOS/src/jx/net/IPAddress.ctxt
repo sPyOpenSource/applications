@@ -1,0 +1,18 @@
+#BlueJ class context
+comment0.target=IPAddress
+comment0.text=\n\n\ @author\ xuyi\n
+comment1.params=
+comment1.target=IPAddress\ getDefaultSubnetmask()
+comment2.params=
+comment2.target=int\ getAddress()
+comment3.params=
+comment3.target=byte[]\ getBytes()
+comment4.params=
+comment4.target=java.lang.String\ getHostName()
+comment5.params=
+comment5.target=java.net.InetAddress\ toInetAddress()
+comment6.params=
+comment6.target=boolean\ isAnyLocalAddress()
+comment7.params=defaultSubnetmask
+comment7.target=IPAddress\ and(IPAddress)
+numComments=8

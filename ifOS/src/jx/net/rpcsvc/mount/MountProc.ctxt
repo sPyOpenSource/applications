@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.target=MountProc
+comment0.text=\n\ RFC\ 1094\n
+comment1.params=
+comment1.target=void\ nullproc()
+comment2.params=d
+comment2.target=FHStatus\ mnt(jx.net.rpcsvc.nfs.DirPath)
+comment3.params=
+comment3.target=MountList\ dump()
+comment4.params=d
+comment4.target=void\ umnt(jx.net.rpcsvc.nfs.DirPath)
+comment5.params=
+comment5.target=void\ umntall()
+comment6.params=
+comment6.target=Exports\ export()
+numComments=7

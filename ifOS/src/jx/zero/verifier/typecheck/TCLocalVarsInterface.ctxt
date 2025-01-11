@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=TCLocalVarsInterface
+comment1.params=index\ type\ bcAddr
+comment1.target=void\ write(int,\ TCTypes,\ int)
+comment2.params=index\ type
+comment2.target=TCTypes\ read(int,\ TCTypes)
+numComments=3

@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=ClassFinder
+comment1.params=className
+comment1.target=ClassData\ findClass(java.lang.String)
+comment2.params=
+comment2.target=void\ dump()
+comment3.params=
+comment3.target=jx.zero.collections.Iterator\ getAllClasses()
+numComments=4

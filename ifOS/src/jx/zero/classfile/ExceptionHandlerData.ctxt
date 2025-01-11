@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.target=ExceptionHandlerData
+comment0.text=\n\n\ @author\ xuyi\n
+comment1.params=
+comment1.target=int\ getCatchTypeCPIndex()
+comment2.params=
+comment2.target=int\ getStartBCIndex()
+comment3.params=
+comment3.target=int\ getEndBCIndex()
+comment4.params=
+comment4.target=int\ getHandlerBCIndex()
+numComments=5

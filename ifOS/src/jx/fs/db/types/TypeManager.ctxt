@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=TypeManager
+comment1.params=typeID
+comment1.target=DbComparator\ getComparator(int)
+comment1.text=\ returns\ an\ object\ that\ implements\ the\ DbComparator\ interface,\ used\ to\ compare\ byte\ arrays\ of\ iDID\ type.\n\ @param\ typeID\ datatype\ id\n\ @throws\ CodedException\ thrown,\ if\ an\ error\ occurs\n\ @return\ Comparator\ object\n
+comment2.params=typeID
+comment2.target=DbConverter\ getConverter(int)
+comment2.text=\ returns\ a\ DbConverter\ objects\ for\ the\ datatype\ of\ the\ attribute\ on\ the\ given\ iPos\n\ @param\ typeID\ position\ of\ the\ attribute\ in\ the\ tuple\ (\ number,\ not\ offset\!)\n\ @throws\ CodedException\ thrown\ on\ error\ (\ wrong\ iPos\ )\n\ @return\ DbConverter\ objects\ for\ the\ datatype\ of\ the\ attribute\ on\ the\ given\ iPos\n
+comment3.params=
+comment3.target=int[][]\ getTypeInfos()
+comment4.params=typeID
+comment4.target=java.lang.String\ getTypeName(int)
+numComments=5

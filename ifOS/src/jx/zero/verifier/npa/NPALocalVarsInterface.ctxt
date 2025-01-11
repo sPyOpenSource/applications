@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=NPALocalVarsInterface
+comment1.params=index\ type\ bcAddr
+comment1.target=void\ write(int,\ NPAValue,\ int)
+comment2.params=index
+comment2.target=NPAValue\ NPAread(int)
+comment3.params=value\ newVal
+comment3.target=void\ setValue(NPAValue,\ int)
+numComments=4

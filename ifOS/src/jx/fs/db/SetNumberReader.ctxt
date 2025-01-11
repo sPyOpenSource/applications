@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=SetNumberReader
+comment0.text=\ interface\ for\ reading\ a\ tuple\ address\n
+comment1.params=
+comment1.target=int\ getPageNumber()
+comment1.text=\ returns\ page\ address\ in\ the\ systembuffer\n\ @throws\ CodedException\ thrown\ on\ error\ (\ SetNumber\ not\ initialized\ )\n\ @return\ page\ address\ in\ the\ systembuffer\n
+comment2.params=
+comment2.target=int\ getTidNumber()
+comment2.text=\ returns\ the\ logical\ tuple\ offset\ in\ the\ page\n\ @throws\ CodedException\ thrown\ on\ error\ (\ SetNumber\ object\ not\ initialized\ )\n\ @return\ logical\ tuple\ offset\ in\ the\ page\n
+comment3.params=baDest\ iOffset
+comment3.target=void\ getSetNumber(byte[],\ int)
+comment3.text=\ receives\ a\ byte\ array\ containing\ both\ page\ address\ and\ logical\ offset\ in\ the\ page\n\ @param\ baDest\ destination\ buffer,\ where\ the\ data\ should\ be\ copied\n\ @param\ iOffset\ offset\ in\ the\ destination\ buffer\n\ @throws\ CodedException\ thrown\ on\ error\ (\ SetNumber\ not\ initialized\ )\n
+numComments=4
