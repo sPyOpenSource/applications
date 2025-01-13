@@ -50,6 +50,7 @@ public abstract class vt320 extends VDUBuffer implements VDUInput {
    * send terminal answers requests like status and type information.
    * @param b the array of bytes to be sent
    */
+  @Override
   public abstract void write(byte[] b);
 
   /**
@@ -88,6 +89,7 @@ public abstract class vt320 extends VDUBuffer implements VDUInput {
     /* To be overridden by Terminal.java */
   }
 
+  @Override
   public void setScreenSize(int c, int r, boolean broadcast) {
     int oldrows = getRows(), oldcols = getColumns();
 
@@ -246,6 +248,7 @@ public abstract class vt320 extends VDUBuffer implements VDUInput {
    * @param y
    * @param modifiers
    */
+  @Override
   public void mousePressed(int x, int y, int modifiers) {
     if (mouserpt == 0)
       return;
@@ -281,6 +284,7 @@ public abstract class vt320 extends VDUBuffer implements VDUInput {
    * @param y
    * @param modifiers
    */
+  @Override
   public void mouseReleased(int x, int y, int modifiers) {
     if (mouserpt == 0)
       return;
@@ -344,6 +348,7 @@ public abstract class vt320 extends VDUBuffer implements VDUInput {
    * Override the standard key codes used by the terminal emulation.
    * @param codes a properties object containing key code definitions
    */
+  @Override
   public void setKeyCodes(Properties codes) {
     String res, prefixes[] = {"", "S", "C", "A"};
     int i;

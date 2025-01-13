@@ -37,7 +37,6 @@ import jCPU.JavaVM.vm.VmStackFrame;
  * @author epr
  */
 public abstract class BytecodeVisitor {
-
     private VmStackFrame stack;
     private VmCP cp;
     private ByteCode.LocalVariables localVariables;
@@ -680,5 +679,4 @@ public abstract class BytecodeVisitor {
         ByteCode.pushInt(stack, result);
         return 0;
     }
-
 }
