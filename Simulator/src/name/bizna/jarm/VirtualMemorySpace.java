@@ -19,13 +19,13 @@ public final class VirtualMemorySpace  implements iMemory {
 		this.debugger = debugger;
 	}
 	public final byte readByte(int address) throws BusErrorException, EscapeRetryException {
-		if(debugger!=null) debugger.onReadMemory(address, 1, false);
+		if(debugger != null) debugger.onReadMemory(address, 1, false);
 		
 		lastAccessAddress = address; lastAccessWidth = 0; lastAccessWasStore = false;
 		return mem.readByte(address & 0xFFFFFFFFL);
 	}
 	public final void writeByte(int address, byte value) throws BusErrorException, EscapeRetryException {
-		if(debugger!=null) debugger.onWriteMemory(address, 2, false, value);
+		if(debugger != null) debugger.onWriteMemory(address, 2, false, value);
 		
 		lastAccessAddress = address; lastAccessWidth = 0; lastAccessWasStore = true;
 		mem.writeByte(address & 0xFFFFFFFFL, value);
@@ -201,16 +201,6 @@ public final class VirtualMemorySpace  implements iMemory {
 
     @Override
     public boolean containsKey(int addr) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public int readHalfWord(int addr) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public void storeHalfWord(int addr, int value) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }

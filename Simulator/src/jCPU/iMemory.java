@@ -32,6 +32,4 @@ public interface iMemory
         public void write16(int aAddr, short aValue);
         public short read16(int aAddr);
         public boolean containsKey(int addr);
-        public int readHalfWord(int addr);
-        public void storeHalfWord(int addr, int value);
 }

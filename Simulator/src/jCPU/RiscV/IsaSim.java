@@ -395,7 +395,7 @@ String ins = String.format("%08x ", instr);
 			}
 			break;
 		case 0x1: // LH
-			memValue = code.readHalfWord(memAddr);
+			memValue = code.read16(memAddr);
 			if ((memValue >> 15) == 1) {
 				memValue |= 0xFFFF0000; // Sign-extension if necessary
 			}
@@ -407,7 +407,7 @@ String ins = String.format("%08x ", instr);
 			memValue = code.read(memAddr);
 			break;
 		case 0x5: // LHU
-			memValue = code.readHalfWord(memAddr);
+			memValue = code.read16(memAddr);
 		}
 		reg[rd] = memValue;
                 return "rd = " + rd + ", rs1 = " + rs1 + ", imm = " + imm + ", memAddr = " + memAddr;
@@ -436,7 +436,7 @@ String ins = String.format("%08x ", instr);
 			break;
 		case 0x1: // SH
 			memValue &= 0x0000FFFF;
-			code.storeHalfWord(memAddr, memValue);
+			code.write16(memAddr, (short)memValue);
 			break;
 		case 0x2: // SW
 			code.write16(memAddr, (short)memValue);

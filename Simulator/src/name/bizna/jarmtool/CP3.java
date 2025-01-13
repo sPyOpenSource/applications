@@ -39,7 +39,7 @@ public class CP3 extends SaneCoprocessor {
 		try {
 			int p = base;
 			int n = 0;
-			while(n < strlen) strarray[n++] = vm.readByte(p++);
+			while(n < strlen) strarray[n++] = (byte)vm.readByte(p++);
 		}
 		catch(BusErrorException e) {
 			be = true;

@@ -249,10 +249,10 @@ public final class CPU extends ARMConstants {
 		vm.writeInt(address,value, inStrictAlignMode(), isBigEndian());
 	}
 	public byte instructionReadByte(int address, boolean privileged) throws BusErrorException, AlignmentException, EscapeRetryException, EscapeCompleteException {
-		return vm.readByte(address);
+		return (byte)vm.read(address);
 	}
 	public void instructionWriteByte(int address, byte value, boolean privileged) throws BusErrorException, AlignmentException, EscapeRetryException, EscapeCompleteException {
-		vm.writeByte(address, value);
+		vm.write(address, value);
 	}
 	public short instructionReadHalfword(int address, boolean privileged) throws BusErrorException, AlignmentException, EscapeRetryException, EscapeCompleteException {
 		return vm.readShort(address, inStrictAlignMode(), isBigEndian());

@@ -30,7 +30,7 @@ public class Memory implements Code {
         return memory.containsKey(addr);
     }
 
-    public int readWord(int addr) throws NullPointerException {
+    private int readWord(int addr) throws NullPointerException {
         if (memory.containsKey(addr) && memory.containsKey(addr + 1) && 
             memory.containsKey(addr + 2) && memory.containsKey(addr + 3)) {
                 return ((memory.get(addr + 3) << 24) & 0xFF000000) | ((memory.get(addr + 2) << 16) & 0x00FF0000) |
@@ -41,9 +41,9 @@ public class Memory implements Code {
     }
 
     @Override
-    public int readHalfWord(int addr) throws NullPointerException {
+    public short read16(int addr) throws NullPointerException {
         if (memory.containsKey(addr) && memory.containsKey(addr+1)) {
-            return ((memory.get(addr + 1) << 8) & 0x0000FF00) | (memory.get(addr) & 0x000000FF);
+            return (short)(((memory.get(addr + 1) << 8) & 0x0000FF00) | (memory.get(addr) & 0x000000FF));
         } else {
             throw new NullPointerException();
         }
@@ -57,7 +57,7 @@ public class Memory implements Code {
         }
     }
 
-    public void storeWord(int addr, int value) {
+    private void storeWord(int addr, int value) {
         memory.put(addr, (byte) (value));
         memory.put(addr + 1, (byte) (value >> 8));
         memory.put(addr + 2, (byte) (value >> 16));
@@ -65,7 +65,7 @@ public class Memory implements Code {
     }
 
     @Override
-    public void storeHalfWord(int addr, int value) {
+    public void write16(int addr, short value) {
         memory.put(addr, (byte) value);
         memory.put(addr + 1, (byte) (value >> 8));
     }
@@ -173,16 +173,6 @@ public class Memory implements Code {
 
     @Override
     public void write32(int aAddr, int aValue) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public void write16(int aAddr, short aValue) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public short read16(int aAddr) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
