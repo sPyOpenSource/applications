@@ -110,7 +110,7 @@ public class ByteCode {
      * Copyright (C) 2014 Jim Huang <jserv.tw@gmail.com>
      * Copyright (C) 2013 Chun-Yu Wang <wicanr2@gmail.com>
      */
-
+    
     public class ConstantNameAndType{
         int nameIndex, typeIndex;
         public ConstantNameAndType(){
