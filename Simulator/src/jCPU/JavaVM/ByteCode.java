@@ -17,6 +17,7 @@ import j51.intel.Code;
  */
 public class ByteCode {
     private Code code;
+    private VmCP cp;
     private String clzNamePrint = "java/io/PrintStream";
     private String clzNameStrBuilder = "java/lang/StringBuilder";
     private char[] stringBuilderBuffer = new char[1024];
@@ -82,7 +83,7 @@ public class ByteCode {
     }
 
     public VmCP getCP() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return cp;
     }
 
     public VmMethod getMethod() {

@@ -2,7 +2,6 @@
 package jCPU.JavaVM;
 
 import static jCPU.JavaVM.ByteCode.findOpCode;
-import jCPU.JavaVM.vm.VmCP;
 import jCPU.JavaVM.vm.VmOpcode;
 import jCPU.JavaVM.vm.VmStackFrame;
 import jx.disass.Disassembler;
@@ -14,16 +13,14 @@ import jx.disass.Disassembler;
  */
 public class JVM extends j51.intel.MCS51 {
     public VmStackFrame stack;
-    public VmCP cp;
     public BytecodeVisitor handler;
 
     private ByteCode bytecode;// = new ByteCode(code);
     private BytecodeParser parser;// = new BytecodeParser(bytecode, handler);
     private final boolean run = true;
 
-    JVM(VmStackFrame stack, VmCP cp) {
+    JVM(VmStackFrame stack) {
         this.stack = stack;
-        this.cp = cp;
     }
     
     public JVM(){
@@ -55,11 +52,11 @@ public class JVM extends j51.intel.MCS51 {
         ByteCode.CodeAttribute ca = null;
         for (int j = 0 ; j < startup.attributes_count ; j++) {
             bytecode.convertToCodeAttribute(ca, startup.attributes[j]);
-            String name = bytecode.getUTF8String(cp, ca.attribute_name_index);
+            String name = bytecode.getUTF8String(bytecode.getCP(), ca.attribute_name_index);
             if (!"Code".equals(name)) continue;
             System.out.print("----------------------------------------\n");
             System.out.print("code dump\n");
-            bytecode.printCodeAttribute(ca, cp);
+            bytecode.printCodeAttribute(ca, bytecode.getCP());
             System.out.print("----------------------------------------\n");
             char[] pc = ca.code;
             if (!run){
