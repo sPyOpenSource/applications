@@ -334,6 +334,11 @@ this.code = memory;*/
     return 1;
   }
 
+  @Override
+  public int getLengthAt(int pc){
+      return 4;
+  }
+  
   /**
    * 32-bit values.
    * 

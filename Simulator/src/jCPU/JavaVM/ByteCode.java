@@ -104,72 +104,73 @@ public class ByteCode {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
-/*
- * Simple Java Virtual Machine Implementation
- *
- * Copyright (C) 2014 Jim Huang <jserv.tw@gmail.com>
- * Copyright (C) 2013 Chun-Yu Wang <wicanr2@gmail.com>
- */
- 
-public class ConstantNameAndType{
-    int nameIndex, typeIndex;
-    public ConstantNameAndType(){
-        
-    }
-}
- 
-public class ConstantStringRef{
-    public int stringIndex;
-    public ConstantStringRef(){
-        
-    }
-}
- 
-public class ConstantClassRef{
-    int stringIndex, classIndex;
-    public ConstantClassRef(){
-        
-    }
-}
+    /*
+     * Simple Java Virtual Machine Implementation
+     *
+     * Copyright (C) 2014 Jim Huang <jserv.tw@gmail.com>
+     * Copyright (C) 2013 Chun-Yu Wang <wicanr2@gmail.com>
+     */
 
-public class CodeAttribute{
-    public char[] code;
-    int code_length, attribute_name_index, max_stack, max_locals, attribute_length;
-    public CodeAttribute(){
-        
+    public class ConstantNameAndType{
+        int nameIndex, typeIndex;
+        public ConstantNameAndType(){
+
+        }
     }
-}
 
-public class MethodInfo{
-    int attributes_count;
-    public AttributeInfo[] attributes;
-    public int name_index;
-    public MethodInfo(){
-        
+    public class ConstantStringRef{
+        public int stringIndex;
+        public ConstantStringRef(){
+
+        }
     }
-}
 
-private class AttributeInfo{
-    int attribute_name_index, attribute_length;
-    char[] info;
-    public AttributeInfo(){
-        
+    public class ConstantClassRef{
+        int stringIndex, classIndex;
+        public ConstantClassRef(){
+
+        }
     }
-}
 
-public class LocalVariables{
-    int[] integer;
-}
+    public class CodeAttribute{
+        public char[] code;
+        int code_length, attribute_name_index, max_stack, max_locals, attribute_length;
+        public CodeAttribute(){
 
-public class SimpleMethodPool{
-    int method_used;
-    MethodInfo[] method;
-}
+        }
+    }
 
-    CodeAttribute convertToCodeAttribute(CodeAttribute ca, AttributeInfo attr)
+    public class MethodInfo{
+        int attributes_count;
+        public AttributeInfo[] attributes;
+        public int name_index;
+        public MethodInfo(){
+
+        }
+    }
+
+    private class AttributeInfo{
+        int attribute_name_index, attribute_length;
+        char[] info;
+        public AttributeInfo(){
+
+        }
+    }
+
+    public class LocalVariables{
+        int[] integer;
+    }
+
+    public class SimpleMethodPool{
+        int method_used;
+        MethodInfo[] method;
+    }
+
+    public CodeAttribute convertToCodeAttribute(AttributeInfo attr)
     {
         int info_p = 0;
         char[] tmp = new char[4];
+        CodeAttribute ca = new CodeAttribute();
         ca.attribute_name_index = attr.attribute_name_index;
         ca.attribute_length = attr.attribute_length;
         tmp[0] = attr.info[info_p++];

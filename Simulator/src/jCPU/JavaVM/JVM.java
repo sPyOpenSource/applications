@@ -26,11 +26,12 @@ public class JVM extends j51.intel.MCS51 {
     private char[] stringBuilderBuffer = new char[1024];
     private int stringBuilderUsed = 0;
     
-    JVM(VmStackFrame stack) {
+    public JVM(VmStackFrame stack) {
         this.stack = stack;
     }
     
     public JVM(){
+        stack = new VmStackFrame();
         //Verifier verifier = new Verifier();
     }
     
@@ -58,7 +59,7 @@ public class JVM extends j51.intel.MCS51 {
         int i = 0;
         ByteCode.CodeAttribute ca = null;
         for (int j = 0 ; j < startup.attributes_count ; j++) {
-            bytecode.convertToCodeAttribute(ca, startup.attributes[j]);
+            ca = bytecode.convertToCodeAttribute(startup.attributes[j]);
             String name = bytecode.getUTF8String(ca.attribute_name_index);
             if (!"Code".equals(name)) continue;
             System.out.print("----------------------------------------\n");
@@ -101,7 +102,7 @@ public class JVM extends j51.intel.MCS51 {
     }
     
     /* 0xb8 invoke */
-    int op_invoke(char[] opCode, VmStackFrame stack, VmCP cp)
+    int op_invoke(char[] opCode, VmCP cp)
     {
         int method_index ;
         char[] tmp = new char[2];
@@ -139,7 +140,7 @@ public class JVM extends j51.intel.MCS51 {
     }
 
     /* invokevirtual */
-    int op_invokevirtual(char[] opCode, VmStackFrame stack, VmCP cp)
+    int op_invokevirtual(char[] opCode, VmCP cp)
     {
         int object_ref;
         char[] tmp = new char[2];

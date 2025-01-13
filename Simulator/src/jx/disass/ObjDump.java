@@ -29,7 +29,7 @@ public class ObjDump {
                     System.out.println("  Size: " + compiledMethod.getCode().length);
                     Disassembler dis = new Disassembler(code);
                     for(int i = 0; dis.isNext(); i++){
-                        dis.instruction = dis.toHexInt(i) + " ";
+                        dis.instruction = Disassembler.toHexInt(i) + " ";
                         System.out.println(dis.disasmInstr());
                     }
                 }
