@@ -1,14 +1,15 @@
 
 package jCPU.JavaVM;
 
-import j51.intel.Code;
 import jCPU.JavaVM.vm.VmOpcode;
 import jCPU.JavaVM.vm.VmCP;
 import jCPU.JavaVM.vm.VmConstMethodRef;
 import jCPU.JavaVM.vm.VmMethod;
 import jCPU.JavaVM.vm.VmStackEntry;
 import jCPU.JavaVM.vm.VmStackFrame;
+
 import java.util.function.Function;
+import j51.intel.Code;
 
 /**
  *

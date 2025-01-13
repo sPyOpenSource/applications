@@ -15,8 +15,8 @@ public class JVM extends j51.intel.MCS51 {
     public VmCP cp;
     public BytecodeVisitor handler;
 
-    private ByteCode bytecode = new ByteCode(code);
-    private BytecodeParser parser = new BytecodeParser(bytecode, handler);
+    private ByteCode bytecode;// = new ByteCode(code);
+    private BytecodeParser parser;// = new BytecodeParser(bytecode, handler);
     
     JVM(VmStackFrame stack, VmCP cp) {
         this.stack = stack;
@@ -31,8 +31,12 @@ public class JVM extends j51.intel.MCS51 {
     public String getDecodeAt(int pc)
     {
         char c = (char)code(pc);
-        String result = bytecode.findOpCode(c).getDescription();
-        if (result != null) return Disassembler.toHexInt(c) + result;
+        bytecode = new ByteCode(code);
+        try {
+            String result = bytecode.findOpCode(c).getDescription();
+            if (result != null) return Disassembler.toHexInt(c) + result;
+        } catch (Exception e){
+        }
         return Disassembler.toHexInt(c) + "NULL";
     }
     
