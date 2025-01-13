@@ -74,7 +74,7 @@ public class JAssembly extends J51Panel
 				int pc;
 				
 				if (r >= pcs.size()){
-					decode(-1,r);
+					decode(-1, r);
 				}
 				
 				if (r >= pcs.size())

@@ -20,29 +20,69 @@ public class FlashCode extends PersistentMemory implements Code
 		super(name, "flash", size);
 	}
 
+        @Override
 	public void setCodeSize(int size)
 	{
 		setSize(size);
 	}
 
+        @Override
 	public int getCodeSize()
 	{
 		return getSize();
 	}
 
-	public int getCode(int addr,boolean fetch)
+        @Override
+	public int getCode(int addr, boolean fetch)
 	{
 		return read(addr);
 	}
 
-	public int getCode16(int addr,boolean fetch)
+        @Override
+	public int getCode16(int addr, boolean fetch)
 	{
 		return ((getCode(addr, fetch) & 0xff) << 8) | (getCode(addr + 1, fetch) & 0xff);
 	}
 	
+        @Override
 	public void setCode(int addr, int value)
 	{
 		write(addr, value);
 	}
+
+    @Override
+    public int read32(int aAddr) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void write32(int aAddr, int aValue) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void write16(int aAddr, short aValue) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public short read16(int aAddr) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public boolean containsKey(int addr) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public int readHalfWord(int addr) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void storeHalfWord(int addr, int value) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 
 }

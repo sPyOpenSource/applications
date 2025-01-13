@@ -65,10 +65,10 @@ public class LPC900 extends MCS51 implements SfrWriteListener, LPC900Constants,
 		super(7372800);
 		machineCycle = 2;
 		
-		eeprom  = new PersistentMemory(name,"eeprom",	512);
-		misc	= new PersistentMemory(name,"misc",	32);
+		eeprom  = new PersistentMemory(name, "eeprom",	512);
+		misc	= new PersistentMemory(name, "misc",	32);
 
-		flash	= new FlashCode(name,	flashSize);
+		flash	= new FlashCode(name, flashSize);
 		flashBuffer = new byte[64];
 
 		setCode(flash);
@@ -124,12 +124,12 @@ public class LPC900 extends MCS51 implements SfrWriteListener, LPC900Constants,
 	
 
 
-	public void writeMemory(int address,int newValue,int oldValue)
+	public void writeMemory(int address, int newValue, int oldValue)
 	{
-		flash.write(address - FLASH_MISC,newValue);
+		flash.write(address - FLASH_MISC, newValue);
 	}
 
-	public int readMemory(int address,int value)
+	public int readMemory(int address, int value)
 	{
 		return flash.read(address - FLASH_MISC);
 

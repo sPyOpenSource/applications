@@ -7,9 +7,9 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 import jx.zero.Debug;
 import jx.zero.debug.*;
 import jx.compiler.LineInfo;
@@ -19,7 +19,7 @@ public class Disassembler extends x86 {
     String seg_override = null;
     byte[] code;
     int ofs, len;
-    int codePosition;
+    public int codePosition;
     boolean printDecoding = false;
 
     boolean db_32bit_opsize = true;
@@ -1294,8 +1294,7 @@ public class Disassembler extends x86 {
     {
 	if (db_32bit_opsize) {
 	    addInstr("EAX, ");
-	}
-	else {
+	} else {
 	    addInstr("AX, ");
 	}
 
@@ -1304,8 +1303,7 @@ public class Disassembler extends x86 {
 
 	    imm32 = fetch_dword();
 	    addInstr("["+toHexInt(imm32)+"]");
-	}
-	else {
+	} else {
 	    int imm16;
 
 	    imm16 = fetch_word();
@@ -2017,7 +2015,7 @@ public class Disassembler extends x86 {
     }
 
 
-    public String toHexInt(int value) {
+    public static String toHexInt(int value) {
         String hex = Long.toHexString(value & 0xffffffffL);         
         return  "00000000".substring(Math.min(hex.length(), 8)) + hex + " "; 
     }

@@ -1,12 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package jCPU.JavaVM;
 
 import jCPU.JavaVM.vm.VmCP;
 import jCPU.JavaVM.vm.VmStackFrame;
+import jx.disass.Disassembler;
 //import jx.verifier.Verifier;
 
 /**
@@ -33,9 +30,10 @@ public class JVM extends j51.intel.MCS51 {
     @Override
     public String getDecodeAt(int pc)
     {
-        String result = bytecode.findOpCode((char)code(pc)).getDescription();
-        if (result != null) return "     " + result;
-        return "     NULL";
+        char c = (char)code(pc);
+        String result = bytecode.findOpCode(c).getDescription();
+        if (result != null) return Disassembler.toHexInt(c) + result;
+        return Disassembler.toHexInt(c) + "NULL";
     }
     
     @Override

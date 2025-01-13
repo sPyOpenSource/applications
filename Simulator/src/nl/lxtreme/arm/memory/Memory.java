@@ -6,19 +6,18 @@
 package nl.lxtreme.arm.memory;
 
 
+import j51.intel.Code;
 import jCPU.MemoryReadListener;
 import jCPU.MemoryWriteListener;
-import jCPU.iMemory;
 import java.util.*;
 
 
 /**
  * Denotes a memory map, containing various chunks of data.
  */
-public class Memory implements iMemory 
+public class Memory implements Code 
 {
   // VARIABLES
-
   private final List<Chunk> chunks;
 
   // CONSTRUCTORS
@@ -82,6 +81,7 @@ public class Memory implements iMemory
    *          the memory location to read.
    * @return the 16-bit value at the given memory location.
    */
+  @Override
   public short read16(int aAddr)
   {
     Chunk chunk = find(aAddr);
@@ -101,6 +101,7 @@ public class Memory implements iMemory
    *          the memory location to read.
    * @return the 32-bit value at the given memory location.
    */
+  @Override
   public int read32(int aAddr)
   {
     Chunk chunk = find(aAddr);
@@ -120,7 +121,7 @@ public class Memory implements iMemory
    *          the memory location to read.
    * @return the 8-bit value at the given memory location.
    */
-  public byte read8(int aAddr)
+  private byte read8(int aAddr)
   {
     Chunk chunk = find(aAddr);
     if (chunk != null)
@@ -140,6 +141,7 @@ public class Memory implements iMemory
    * @param aValue
    *          the 16-bit value to write.
    */
+  @Override
   public void write16(int aAddr, short aValue)
   {
     Chunk chunk = find(aAddr);
@@ -161,6 +163,7 @@ public class Memory implements iMemory
    * @param aValue
    *          the 32-bit value to write.
    */
+  @Override
   public void write32(int aAddr, int aValue)
   {
     Chunk chunk = find(aAddr);
@@ -180,7 +183,7 @@ public class Memory implements iMemory
    * @param aValue
    *          the 8-bit value to write.
    */
-  public void write8(int aAddr, byte aValue)
+  private void write8(int aAddr, byte aValue)
   {
     Chunk chunk = find(aAddr);
     if (chunk != null)
@@ -255,6 +258,46 @@ public class Memory implements iMemory
     @Override
     public void addMemoryWriteListener(int address, MemoryWriteListener l) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setCodeSize(int size) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public int getCodeSize() {
+return 0x1000;
+        }
+
+    @Override
+    public void setCode(int addr, int value) {
+        write8(addr, (byte)value);    
+    }
+
+    @Override
+    public int getCode(int addr, boolean move) {
+        return read8(addr);    
+    }
+
+    @Override
+    public int getCode16(int addr, boolean move) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public boolean containsKey(int addr) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public int readHalfWord(int addr) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void storeHalfWord(int addr, int value) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
 }

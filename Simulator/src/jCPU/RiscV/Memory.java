@@ -8,15 +8,15 @@ package jCPU.RiscV;
  * @author Hans Jakob Damsgaard (hansjakobdamsgaard@gmail.com)
  */
 
+import j51.intel.Code;
 import jCPU.MemoryReadListener;
 import jCPU.MemoryWriteListener;
-import jCPU.iMemory;
 import java.io.*;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class Memory implements iMemory {
+public class Memory implements Code {
     // A map simulating the memory
     private final Map<Integer, Byte> memory;
 
@@ -25,6 +25,7 @@ public class Memory implements iMemory {
         this.memory = new HashMap<>();
     }
 
+    @Override
     public boolean containsKey(int addr) {
         return memory.containsKey(addr);
     }
@@ -39,6 +40,7 @@ public class Memory implements iMemory {
         }
     }
 
+    @Override
     public int readHalfWord(int addr) throws NullPointerException {
         if (memory.containsKey(addr) && memory.containsKey(addr+1)) {
             return ((memory.get(addr + 1) << 8) & 0x0000FF00) | (memory.get(addr) & 0x000000FF);
@@ -47,7 +49,7 @@ public class Memory implements iMemory {
         }
     }
 
-    public int readByte(int addr) throws NullPointerException {
+    private int readByte(int addr) throws NullPointerException {
         if (memory.containsKey(addr)) {
             return memory.get(addr) & 0x000000FF;
         } else {
@@ -62,12 +64,13 @@ public class Memory implements iMemory {
         memory.put(addr + 3, (byte) (value >> 24));
     }
 
+    @Override
     public void storeHalfWord(int addr, int value) {
         memory.put(addr, (byte) value);
         memory.put(addr + 1, (byte) (value >> 8));
     }
 
-    public void storeByte(int addr, int value) {
+    private void storeByte(int addr, int value) {
         memory.put(addr, (byte) value);
     }
 
@@ -77,25 +80,25 @@ public class Memory implements iMemory {
 
     public void readBinary(String filePath, int initial_pc) throws IOException, EOFException {
         FileInputStream fileStream = null;
-		DataInputStream dataStream = null;
-		try {
-                                                                fileStream = new FileInputStream(filePath);
-			dataStream = new DataInputStream(fileStream);
-                                                                int localPc = initial_pc, instr;
-			while ((instr = dataStream.readInt()) != -1) {
-                storeWord(localPc, Integer.reverseBytes(instr));
-                localPc += 4;
-			}
-		} catch (IOException e) {
-                                                                Logger.getLogger(Memory.class.getName()).log(Level.SEVERE, null, e);
-		} finally {
-			if (fileStream != null) {
-				fileStream.close();
-			}
-			if (dataStream != null) {
-				dataStream.close();
-			}
-		}
+        DataInputStream dataStream = null;
+        try {
+                fileStream = new FileInputStream(filePath);
+                dataStream = new DataInputStream(fileStream);
+                int localPc = initial_pc, instr;
+                while ((instr = dataStream.readInt()) != -1) {
+                    storeWord(localPc, Integer.reverseBytes(instr));
+                    localPc += 4;
+                }
+        } catch (IOException e) {
+                Logger.getLogger(Memory.class.getName()).log(Level.SEVERE, null, e);
+        } finally {
+                if (fileStream != null) {
+                        fileStream.close();
+                }
+                if (dataStream != null) {
+                        dataStream.close();
+                }
+        }
     }
 
     @Override
@@ -161,5 +164,50 @@ public class Memory implements iMemory {
     @Override
     public void addMemoryWriteListener(int address, MemoryWriteListener l) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int read32(int aAddr) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void write32(int aAddr, int aValue) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void write16(int aAddr, short aValue) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public short read16(int aAddr) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void setCodeSize(int size) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public int getCodeSize() {
+        return getSize();
+    }
+
+    @Override
+    public void setCode(int addr, int value) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public int getCode(int addr, boolean move) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public int getCode16(int addr, boolean move) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }

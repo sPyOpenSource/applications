@@ -27,4 +27,11 @@ public interface iMemory
 	public void writeDirect(int addr, int value);
 	public void addMemoryReadListener(int address, MemoryReadListener l);
 	public void addMemoryWriteListener(int address, MemoryWriteListener l);
+        public int read32(int aAddr);
+        public void write32(int aAddr, int aValue);
+        public void write16(int aAddr, short aValue);
+        public short read16(int aAddr);
+        public boolean containsKey(int addr);
+        public int readHalfWord(int addr);
+        public void storeHalfWord(int addr, int value);
 }

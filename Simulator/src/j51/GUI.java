@@ -572,7 +572,7 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 				int address = Hex.getWord(line, 3);
 				String label = line.substring(7);
 				label = label.trim();
-				cpu.setCodeName(address,label);
+				cpu.setCodeName(address, label);
 			}
                     }
 
@@ -599,12 +599,19 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 					}
 					if (fc.showOpenDialog(GUI.this) == JFileChooser.APPROVE_OPTION)
 					{
-                                            if(fc.getName().endsWith("hex")){
-						load(fc.getSelectedFile().getCanonicalPath());
-                                            } else if(fc.getName().endsWith("bin")){
-                                                File file = new File(fc.getSelectedFile().getCanonicalPath());
-                                            } else if(fc.getName().endsWith("class")){
-                                                File file = new File(fc.getSelectedFile().getCanonicalPath());
+                                            String path = fc.getSelectedFile().getCanonicalPath();
+                                            if(path.endsWith("hex")){
+						load(path);
+                                            } else if(path.endsWith("bin") || !path.contains(".")){
+                                                File file = new File(path);
+                                                FileInputStream fis = new FileInputStream(file);
+                                                byte[] code = fis.readAllBytes();
+                                                for(int i = 0; i < code.length; i++){
+                                                    cpu.code(i, code[i]);
+                                                    if(i == 0x1000 - 1) break;
+                                                }
+                                            } else if(path.endsWith("class")){
+                                                File file = new File(path);
                                                 InputStream is = new FileInputStream(file);
                                                 ClassData data = new ClassData(new DataInputStream(is));
                                             }

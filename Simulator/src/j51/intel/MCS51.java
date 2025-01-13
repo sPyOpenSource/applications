@@ -116,7 +116,7 @@ public class MCS51 implements MCS51Constants, jCPU.iCPU
 	private FastArray<MachineCyclesListener> machineListeners = new FastArray<>();
 	
 	// Vector with performance client
-	private FastArray performance = new FastArray();
+	private FastArray<MCS51Performance> performance = new FastArray<>();
 
 	// Current serving interrupt
 	private InterruptSource currentInterrupt = null;
@@ -825,6 +825,7 @@ public class MCS51 implements MCS51Constants, jCPU.iCPU
 
 	}
 
+        @Override
 	public final int getDirect(int add)
 	{
 		if (add >= 128){
@@ -855,6 +856,7 @@ public class MCS51 implements MCS51Constants, jCPU.iCPU
 			return idata(add);
 	}
 	
+        @Override
 	public final void setDirect(int add,int value)
 	{
 		if (add >= 128)
@@ -890,6 +892,7 @@ public class MCS51 implements MCS51Constants, jCPU.iCPU
 		return getDirectName(add) + "^" + bit;
 	}
 	
+        @Override
 	public final boolean getBitCODE(int add)
 	{
 		return getBit(code(add));
@@ -1024,6 +1027,7 @@ public class MCS51 implements MCS51Constants, jCPU.iCPU
 	}
 
 
+        @Override
 	public final int acc()
 	{
 		return sfr(ACC);
@@ -1049,8 +1053,7 @@ public class MCS51 implements MCS51Constants, jCPU.iCPU
 
 	public final void psw(int value)
 	{
-		sfr(PSW,value);
-		
+		sfr(PSW, value);
 	}
 	
         @Override
@@ -1059,8 +1062,7 @@ public class MCS51 implements MCS51Constants, jCPU.iCPU
 		if (value)
 			pswSet(PSW_CY);
 		else
-			pswReset(PSW_CY);
-					
+			pswReset(PSW_CY);	
 	}
 
         @Override
@@ -1076,7 +1078,6 @@ public class MCS51 implements MCS51Constants, jCPU.iCPU
 			pswSet(PSW_AC);
 		else
 			pswReset(PSW_AC);
-
 	}
 
         @Override
@@ -1137,7 +1138,7 @@ public class MCS51 implements MCS51Constants, jCPU.iCPU
 		for (int i = 0 ; i < size ; i++)
 		{
 			idata[i] = 0;
-			setIdataName(i,Hex.bin2byte(i));
+			setIdataName(i, Hex.bin2byte(i));
 		}
 	}
 
@@ -1199,6 +1200,7 @@ public class MCS51 implements MCS51Constants, jCPU.iCPU
 		return code.getCode(addr, move);
 	}
 
+        @Override
 	public final int code(int addr)
 	{
 		return code(addr, false);
@@ -1209,11 +1211,13 @@ public class MCS51 implements MCS51Constants, jCPU.iCPU
 		return code.getCode16(addr,move);
 	}
 				
+        @Override
 	public final int code16(int addr)
 	{
 		return code16(addr,false);
 	}
 	
+        @Override
 	public int xdata(int add)
 	{
 		int value = xdata[add & 0xffff] & 0xff;
@@ -1221,16 +1225,19 @@ public class MCS51 implements MCS51Constants, jCPU.iCPU
 		return value;
 	}
 	
+        @Override
 	public void xdata(int add,int value)
 	{
 		xdata[add] = (byte)value;
 	}
 
+        @Override
 	public final int idata(int add)
 	{
 		return idata[add] & 0xff;
 	}
 	
+        @Override
 	public final void idata(int add,int value)
 	{
 		idata[add] = (byte)value;
@@ -1525,7 +1532,7 @@ public class MCS51 implements MCS51Constants, jCPU.iCPU
 				sleepCounter = 0;
 				
 				for (int i = 0 ; i < performance.size() ; i++){
-					((MCS51Performance)performance.get(i)).cpuPerformance(perc,elapsed);
+					performance.get(i).cpuPerformance(perc,elapsed);
 				}
 
 				/**

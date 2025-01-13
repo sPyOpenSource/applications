@@ -85,6 +85,7 @@ public class ArmTest
   @Test
   public void testB()
   {
+      System.out.println("testB");
     this.m.create(0, 4096);
 
     this.m.write32(0, 0xEA000006);
@@ -107,6 +108,7 @@ public class ArmTest
   @Test
   public void testElfExample1() throws Exception
   {
+      System.out.println("testElfExample1");
     File elfFile = getFileResource("resources/helloWorld_static");
     Elf elf = new Elf(elfFile);
 
@@ -136,6 +138,7 @@ public class ArmTest
   @Test
   public void testElfExample2() throws Exception
   {
+      System.out.println("testElfExample2");
     File elfFile = getFileResource("resources/helloWorld_loop");
     Elf elf = new Elf(elfFile);
 

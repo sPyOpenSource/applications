@@ -61,16 +61,19 @@ public class VolatileMemory implements iMemory
 		writeListener = true;
 	}
 
+        @Override
 	public boolean getWriteListener()
 	{
 		return writeListener;
 	}
 	
+        @Override
 	public void setWriteListener(boolean mode)
 	{
 		writeListener = mode;
 	}
 	
+        @Override
 	public String getName()
 	{
 		return name;
@@ -87,29 +90,32 @@ public class VolatileMemory implements iMemory
 			memory[i] = new MemoryByte();
 	}
 	
+        @Override
 	public  void setSize(int size)
 	{
 		setLimit(size);
 		if (this.size != size)
 		{
-			setPresent(0,size);
-			log.fine(name+" Resize from "+this.size+" to "+size);
+			setPresent(0, size);
+			log.fine(name + " Resize from " + this.size + " to " + size);
 			this.size = size;
 		}
 	}
 
+        @Override
 	public final int getSize()
 	{
 		return size;
 	}
 
-
+        @Override
 	public void setPresent(int from,int start)
 	{
 		for (int i = from ; i < start ; i++)
 		     memory[i].present = true;
 	}
 	
+        @Override
 	public boolean isPresent(int address)
 	{
 		return memory[address].present;
@@ -127,19 +133,21 @@ public class VolatileMemory implements iMemory
 	 * @version 1.00
 	 * @since 1.05
 	 */
-	private final void checkAddress(int address,String msg)
+	private final void checkAddress(int address, String msg)
 	{
 		if (!isPresent(address))
-			throw new java.lang.Error(name+msg+" AT 0x"+Hex.bin2word(address)+" out of range, Max 0x"+Hex.bin2word(size));
+			throw new java.lang.Error(name + msg + " AT 0x" + Hex.bin2word(address) + " out of range, Max 0x" + Hex.bin2word(size));
 	}
 
+        @Override
 	public final int readDirect(int address)
 	{
-		checkAddress(address,"Read direct");
+		checkAddress(address, "Read direct");
 
 		return memory[address].value & 0xff;
 	}
 
+        @Override
 	public final int read(int address)
 	{
 		checkAddress(address,"Read");
@@ -165,17 +173,19 @@ public class VolatileMemory implements iMemory
 		return value & 0xff;
 	}
 
-	public final void writeDirect(int address,int newValue)
+        @Override
+	public final void writeDirect(int address, int newValue)
 	{
-		checkAddress(address,"Write direct");
+		checkAddress(address, "Write direct");
 
 		memory[address].value = newValue;
 
 	}
 	
-	public void write(int address,int newValue)
+        @Override
+	public void write(int address, int newValue)
 	{
-		checkAddress(address,"Write");
+		checkAddress(address, "Write");
 		MemoryByte b = memory[address];
 		
 		int oldValue = b.value;
@@ -277,8 +287,44 @@ public class VolatileMemory implements iMemory
 		memory[a] = b;
 	}
 	
+        @Override
 	public String toString()
 	{
 		return name;
 	}
+
+    @Override
+    public int read32(int aAddr) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void write32(int aAddr, int aValue) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void write16(int aAddr, short aValue) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public short read16(int aAddr) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public boolean containsKey(int addr) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public int readHalfWord(int addr) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void storeHalfWord(int addr, int value) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

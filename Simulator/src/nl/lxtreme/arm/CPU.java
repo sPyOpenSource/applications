@@ -5,17 +5,12 @@
  */
 package nl.lxtreme.arm;
 
-
 import java.io.File;
 import java.io.IOException;
 import java.util.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 import nl.lxtreme.arm.memory.*;
 import nl.lxtreme.binutils.elf.Elf;
 import nl.lxtreme.binutils.elf.ProgramHeader;
-
 
 /**
  * Provides a simplistic version of an ARM-core.
@@ -23,7 +18,6 @@ import nl.lxtreme.binutils.elf.ProgramHeader;
 public class CPU extends j51.intel.MCS51
 {
   // VARIABLES
-
   private final int[] gpr;
   private final Cpsr cpsr;
   private int spsr;
@@ -32,22 +26,21 @@ public class CPU extends j51.intel.MCS51
   private int entryPoint; // initial PC value
 
   private final List<Integer> breakpoints;
-  private final Memory memory;
 
   // CONSTRUCTORS
 
   /**
    * Creates a new Arm instance.
    * 
-   * @param aMemory
+   * @param memory
    *          the memory to use in the processor.
    */
-  public CPU(Memory aMemory)
+  public CPU(Memory memory)
   {
     this.gpr = new int[16];
     this.cpsr = new Cpsr();
 
-    this.memory = aMemory;
+    this.code = memory;
     this.breakpoints = new ArrayList<>(32);
     this.entryPoint = 0;
   }
@@ -55,8 +48,9 @@ public class CPU extends j51.intel.MCS51
   public CPU(){
     this.gpr = new int[16];
     this.cpsr = new Cpsr();
-    this.memory = new Memory();
-    File elfFile = new File("resources/helloWorld_static");
+    /*Memory memory = new Memory();
+    //this.code = new Memory();
+    File elfFile = new File("/Users/xuyi/Source/OS/armOS/lib/jcore/test/Simulator/test/resources/helloWorld_static");
     Elf elf;
     try {
         elf = new Elf(elfFile);
@@ -66,13 +60,13 @@ public class CPU extends j51.intel.MCS51
                 continue;
             }
 
-            Chunk chunk = this.memory.create(ph.getVirtualAddress(), size);
+            Chunk chunk = memory.create(ph.getVirtualAddress(), size);
             elf.readSegment(ph, chunk);
         }
     } catch (IOException ex) {
-        Logger.getLogger(CPU.class.getName()).log(Level.SEVERE, null, ex);
+        //Logger.getLogger(CPU.class.getName()).log(Level.SEVERE, null, ex);
     }
-
+this.code = memory;*/
     this.breakpoints = new ArrayList<>(32);
     this.entryPoint = 0;
   }
@@ -250,7 +244,7 @@ public class CPU extends j51.intel.MCS51
       int value;
 
       /* Read stack */
-      value = this.memory.read32(addr);
+      value = this.code.read32(addr);
 
       /* Print value */
       System.out.printf("[%02d] 0x%08X\n", i, value);
@@ -333,7 +327,7 @@ public class CPU extends j51.intel.MCS51
     if (this.cpsr.t){
       parseThumb();
     } else {
-      parse();
+      System.out.println(getDecodeAt(pc));
     }
 
     return 1;
@@ -453,17 +447,20 @@ public class CPU extends j51.intel.MCS51
             ((s & (1 << 31)) != (a & (1 << 31)));
   }
 
-  /**
-   * Parses the next ARM (32-bit) instruction.
-   */
-  protected void parse()
+    /**
+     * Parses the next ARM (32-bit) instruction.
+     * @param pc
+     * @return 
+     */
+  @Override
+  public String getDecodeAt(int pc)
   {
-    System.out.printf("%08X [A] ", this.gpr[15]);
+    System.out.printf("%08X [A] ", pc);
 
     /* Read opcode */
-    int opcode = this.memory.read32(this.gpr[15]);
-
-    System.out.printf("(%08x) ", opcode);
+    int opcode = this.code.read32(pc);
+String ins = String.format("%08x ", opcode);
+    //System.out.printf("(%08x) ", opcode);
 
     /* Update PC */
     this.gpr[15] += 4; // 32-bit
@@ -488,14 +485,15 @@ public class CPU extends j51.intel.MCS51
     if (((opcode >> 8) & 0x0FFFFF) == 0x012FFF)
     {
       boolean link = ((opcode >> 5) & 1) != 0;
-
-      System.out.printf("b%sx", (link) ? "l" : "");
+ins += String.format("b%sx", (link) ? "l" : "");
+      //System.out.printf("b%sx", (link) ? "l" : "");
       condPrint(opcode);
-      System.out.printf(" r%d\n", Rm);
+ins += String.format(" r%d", Rm);
+//      System.out.printf(" r%d\n", Rm);
 
       if (!condCheck(opcode))
       {
-        return;
+        return ins;
       }
 
       if (link)
@@ -507,36 +505,38 @@ public class CPU extends j51.intel.MCS51
 
       this.gpr[15] = this.gpr[Rm] & ~1;
 
-      return;
+      return ins;
     }
 
     if ((opcode >>> 24) == 0xEF)
     {
       int ImmA = (opcode & 0xFFFFFF);
-
-      System.out.printf("swi 0x%X\n", ImmA);
+ins += String.format("swi 0x%X", ImmA);
+//      System.out.printf("swi 0x%X\n", ImmA);
       parseSvc(ImmA & 0xFF);
 
-      return;
+      return ins;
     }
 
     if ((((opcode >> 22) & 0x3F) == 0) &&
         (((opcode >> 4) & 0x0F) == 9))
     {
-      System.out.printf("%s", W ? "mla" : "mul");
+ins += String.format("%s", W ? "mla" : "mul");
+//      System.out.printf("%s", W ? "mla" : "mul");
       condPrint(opcode);
       suffPrint(opcode);
-
-      System.out.printf(" r%d, r%d, r%d", Rn, Rm, Rs);
+ins += String.format(" r%d, r%d, r%d", Rn, Rm, Rs);
+//      System.out.printf(" r%d, r%d, r%d", Rn, Rm, Rs);
       if (W)
       {
-        System.out.printf(", r%d", Rd);
+ins += String.format(", r%d", Rd);
+//        System.out.printf(", r%d", Rd);
       }
-      System.out.printf("\n");
+//      System.out.printf("\n");
 
       if (!condCheck(opcode))
       {
-        return;
+        return ins;
       }
 
       if (W)
@@ -552,7 +552,7 @@ public class CPU extends j51.intel.MCS51
         this.cpsr.n = (this.gpr[Rn] >> 31) != 0;
       }
 
-      return;
+      return ins;
     }
 
     switch ((opcode >> 26) & 0x3)
@@ -563,23 +563,26 @@ public class CPU extends j51.intel.MCS51
         {
           case 0:
           { // AND
-            System.out.printf("and");
+ins += "and";
+            //System.out.printf("and");
             condPrint(opcode);
             suffPrint(opcode);
 
             if (!I)
             {
-              System.out.printf(" r%d, r%d, r%d", Rd, Rn, Rm);
+ins += String.format(" r%d, r%d, r%d", Rd, Rn, Rm);
+              //System.out.printf(" r%d, r%d, r%d", Rd, Rn, Rm);
               shiftPrint(opcode);
             } else {
-              System.out.printf(" r%d, r%d, #0x%X", Rd, Rn, ROR(Imm, amt));
+ins += String.format(" r%d, r%d, #0x%X", Rd, Rn, ROR(Imm, amt));
+              //System.out.printf(" r%d, r%d, #0x%X", Rd, Rn, ROR(Imm, amt));
             }
 
-            System.out.printf("\n");
+            //System.out.printf("\n");
 
             if (!condCheck(opcode))
             {
-              return;
+              return ins;
             }
 
             if (I)
@@ -595,28 +598,31 @@ public class CPU extends j51.intel.MCS51
               this.cpsr.n = (this.gpr[Rd] >> 31) != 0;
             }
 
-            return;
+            return ins;
           }
 
           case 1:
           { // EOR
-            System.out.printf("eor");
+ins += "eor";
+            //System.out.printf("eor");
             condPrint(opcode);
             suffPrint(opcode);
 
             if (!I)
             {
-              System.out.printf(" r%d, r%d, r%d", Rd, Rn, Rm);
+ins += String.format(" r%d, r%d, r%d", Rd, Rn, Rm);
+              //System.out.printf(" r%d, r%d, r%d", Rd, Rn, Rm);
               shiftPrint(opcode);
             } else {
-              System.out.printf(" r%d, r%d, #0x%X", Rd, Rn, ROR(Imm, amt));
+ins += String.format(" r%d, r%d, #0x%X", Rd, Rn, ROR(Imm, amt));
+              //System.out.printf(" r%d, r%d, #0x%X", Rd, Rn, ROR(Imm, amt));
             }
 
-            System.out.printf("\n");
+            //System.out.printf("\n");
 
             if (!condCheck(opcode))
             {
-              return;
+              return ins;
             }
 
             if (I)
@@ -632,28 +638,31 @@ public class CPU extends j51.intel.MCS51
               this.cpsr.n = (this.gpr[Rd] >> 31) != 0;
             }
 
-            return;
+            return ins;
           }
 
           case 2:
           { // SUB
-            System.out.printf("sub");
+ins += "sub";
+            //System.out.printf("sub");
             condPrint(opcode);
             suffPrint(opcode);
 
             if (!I)
             {
-              System.out.printf(" r%d, r%d, r%d", Rd, Rn, Rm);
+                ins += String.format(" r%d, r%d, r%d", Rd, Rn, Rm);
+//              System.out.printf(" r%d, r%d, r%d", Rd, Rn, Rm);
               shiftPrint(opcode);
             } else {
-              System.out.printf(" r%d, r%d, #0x%X", Rd, Rn, ROR(Imm, amt));
+                ins += String.format(" r%d, r%d, #0x%X", Rd, Rn, ROR(Imm, amt));
+//              System.out.printf(" r%d, r%d, #0x%X", Rd, Rn, ROR(Imm, amt));
             }
 
-            System.out.printf("\n");
+            //System.out.printf("\n");
 
             if (!condCheck(opcode))
             {
-              return;
+              return ins;
             }
 
             if (I)
@@ -672,28 +681,31 @@ public class CPU extends j51.intel.MCS51
               this.cpsr.n = (this.gpr[Rd] >> 31) != 0;
             }
 
-            return;
+            return ins;
           }
 
           case 3:
           { // RSB
-            System.out.printf("rsb");
+              ins += "rsb";
+//            System.out.printf("rsb");
             condPrint(opcode);
             suffPrint(opcode);
 
             if (!I)
             {
-              System.out.printf(" r%d, r%d, r%d", Rd, Rn, Rm);
+                ins += String.format(" r%d, r%d, r%d", Rd, Rn, Rm);
+//              System.out.printf(" r%d, r%d, r%d", Rd, Rn, Rm);
               shiftPrint(opcode);
             } else {
-              System.out.printf(" r%d, r%d, #0x%X", Rd, Rn, ROR(Imm, amt));
+                ins += String.format(" r%d, r%d, #0x%X", Rd, Rn, ROR(Imm, amt));
+//              System.out.printf(" r%d, r%d, #0x%X", Rd, Rn, ROR(Imm, amt));
             }
 
-            System.out.printf("\n");
+            //System.out.printf("\n");
 
             if (!condCheck(opcode))
             {
-              return;
+              return ins;
             }
 
             if (I)
@@ -712,28 +724,31 @@ public class CPU extends j51.intel.MCS51
               this.cpsr.n = (this.gpr[Rd] >> 31) != 0;
             }
 
-            return;
+            return ins;
           }
 
           case 4:
           { // ADD
-            System.out.printf("add");
+              ins += "add";
+//            System.out.printf("add");
             condPrint(opcode);
             suffPrint(opcode);
 
             if (!I)
             {
-              System.out.printf(" r%d, r%d, r%d", Rd, Rn, Rm);
+                ins += String.format(" r%d, r%d, r%d", Rd, Rn, Rm);
+//              System.out.printf(" r%d, r%d, r%d", Rd, Rn, Rm);
               shiftPrint(opcode);
             } else {
-              System.out.printf(" r%d, r%d, #0x%X", Rd, Rn, ROR(Imm, amt));
+                ins += String.format(" r%d, r%d, #0x%X", Rd, Rn, ROR(Imm, amt));
+//              System.out.printf(" r%d, r%d, #0x%X", Rd, Rn, ROR(Imm, amt));
             }
 
-            System.out.printf("\n");
+            //System.out.printf("\n");
 
             if (!condCheck(opcode))
             {
-              return;
+              return ins;
             }
 
             if (I)
@@ -756,28 +771,31 @@ public class CPU extends j51.intel.MCS51
               this.cpsr.n = (this.gpr[Rd] >> 31) != 0;
             }
 
-            return;
+            return ins;
           }
 
           case 5:
           { // ADC
-            System.out.printf("adc");
+              ins += "adc";
+//            System.out.printf("adc");
             condPrint(opcode);
             suffPrint(opcode);
 
             if (!I)
             {
-              System.out.printf(" r%d, r%d, r%d", Rd, Rn, Rm);
+                ins += String.format(" r%d, r%d, r%d", Rd, Rn, Rm);
+//              System.out.printf(" r%d, r%d, r%d", Rd, Rn, Rm);
               shiftPrint(opcode);
             } else {
-              System.out.printf(" r%d, r%d, #0x%X", Rd, Rn, ROR(Imm, amt));
+                ins += String.format(" r%d, r%d, #0x%X", Rd, Rn, ROR(Imm, amt));
+//              System.out.printf(" r%d, r%d, #0x%X", Rd, Rn, ROR(Imm, amt));
             }
 
-            System.out.printf("\n");
+            //System.out.printf("\n");
 
             if (!condCheck(opcode))
             {
-              return;
+              return ins;
             }
 
             if (I)
@@ -793,28 +811,31 @@ public class CPU extends j51.intel.MCS51
               this.cpsr.n = (this.gpr[Rd] >> 31) != 0;
             }
 
-            return;
+            return ins;
           }
 
           case 6:
           { // SBC
-            System.out.printf("sbc");
+              ins += "sbc";
+//            System.out.printf("sbc");
             condPrint(opcode);
             suffPrint(opcode);
 
             if (!I)
             {
-              System.out.printf(" r%d, r%d, r%d", Rd, Rn, Rm);
+                ins += String.format(" r%d, r%d, r%d", Rd, Rn, Rm);
+//              System.out.printf(" r%d, r%d, r%d", Rd, Rn, Rm);
               shiftPrint(opcode);
             } else {
-              System.out.printf(" r%d, r%d, #0x%X", Rd, Rn, ROR(Imm, amt));
+                ins += String.format(" r%d, r%d, #0x%X", Rd, Rn, ROR(Imm, amt));
+//              System.out.printf(" r%d, r%d, #0x%X", Rd, Rn, ROR(Imm, amt));
             }
 
-            System.out.printf("\n");
+            //System.out.printf("\n");
 
             if (!condCheck(opcode))
             {
-              return;
+              return ins;
             }
 
             if (I)
@@ -832,28 +853,31 @@ public class CPU extends j51.intel.MCS51
               this.cpsr.n = (this.gpr[Rd] >> 31) != 0;
             }
 
-            return;
+            return ins;
           }
 
           case 7:
           { // RSC
-            System.out.printf("rsc");
+              ins += "rsc";
+//            System.out.printf("rsc");
             condPrint(opcode);
             suffPrint(opcode);
 
             if (!I)
             {
-              System.out.printf(" r%d, r%d, r%d", Rd, Rn, Rm);
+                ins += String.format(" r%d, r%d, r%d", Rd, Rn, Rm);
+//              System.out.printf(" r%d, r%d, r%d", Rd, Rn, Rm);
               shiftPrint(opcode);
             } else {
-              System.out.printf(" r%d, r%d, #0x%X", Rd, Rn, ROR(Imm, amt));
+                ins += String.format(" r%d, r%d, #0x%X", Rd, Rn, ROR(Imm, amt));
+//              System.out.printf(" r%d, r%d, #0x%X", Rd, Rn, ROR(Imm, amt));
             }
 
-            System.out.printf("\n");
+            //System.out.printf("\n");
 
             if (!condCheck(opcode))
             {
-              return;
+              return ins;
             }
 
             if (I)
@@ -872,7 +896,7 @@ public class CPU extends j51.intel.MCS51
               this.cpsr.n = (this.gpr[Rd] >> 31) != 0;
             }
 
-            return;
+            return ins;
           }
 
           case 8:
@@ -880,29 +904,32 @@ public class CPU extends j51.intel.MCS51
             if (S)
             {
               int result;
-
-              System.out.printf("tst");
+ins += "tst";
+//              System.out.printf("tst");
               condPrint(opcode);
 
               if (!I)
               {
-                System.out.printf(" r%d, r%d\n", Rn, Rm);
+                  ins += String.format(" r%d, r%d", Rn, Rm);
+//                System.out.printf(" r%d, r%d\n", Rn, Rm);
                 shiftPrint(opcode);
 
                 result = this.gpr[Rn] & shift(opcode, this.gpr[Rm]);
               } else {
-                System.out.printf(" r%d, #0x%X\n", Rn, ROR(Imm, amt));
+                  ins += String.format(" r%d, #0x%X", Rn, ROR(Imm, amt));
+//                System.out.printf(" r%d, #0x%X\n", Rn, ROR(Imm, amt));
                 result = this.gpr[Rn] & ROR(Imm, amt);
               }
 
               this.cpsr.z = result == 0;
               this.cpsr.n = (result >> 31) != 0;
             } else {
-              System.out.printf("mrs r%d, cpsr\n", Rd);
+                ins += String.format("mrs r%d, cpsr", Rd);
+//              System.out.printf("mrs r%d, cpsr\n", Rd);
               this.gpr[Rd] = this.cpsr.getValue();
             }
 
-            return;
+            return ins;
           }
 
           case 9:
@@ -910,18 +937,20 @@ public class CPU extends j51.intel.MCS51
             if (S)
             {
               int result;
-
-              System.out.printf("teq");
+ins += "teq";
+//              System.out.printf("teq");
               condPrint(opcode);
 
               if (!I)
               {
-                System.out.printf(" r%d, r%d\n", Rn, Rm);
+                  ins += String.format(" r%d, r%d", Rn, Rm);
+//                System.out.printf(" r%d, r%d\n", Rn, Rm);
                 shiftPrint(opcode);
 
                 result = this.gpr[Rn] ^ shift(opcode, this.gpr[Rm]);
               } else {
-                System.out.printf(" r%d, #0x%X\n", Rn, ROR(Imm, amt));
+                  ins += String.format(" r%d, #0x%X", Rn, ROR(Imm, amt));
+//                System.out.printf(" r%d, #0x%X\n", Rn, ROR(Imm, amt));
                 result = this.gpr[Rn] ^ ROR(Imm, amt);
               }
 
@@ -930,15 +959,17 @@ public class CPU extends j51.intel.MCS51
             } else {
               if (I)
               {
-                System.out.printf("msr cpsr, r%d\n", Rm);
+                  ins += String.format("msr cpsr, r%d", Rm);
+//                System.out.printf("msr cpsr, r%d\n", Rm);
                 this.cpsr.setValue(this.gpr[Rm]);
               } else {
-                System.out.printf("msr cpsr, 0x%08X\n", Imm);
+                  ins += String.format("msr cpsr, 0x%08X", Imm);
+//                System.out.printf("msr cpsr, 0x%08X\n", Imm);
                 this.cpsr.setValue(Imm);
               }
             }
 
-            return;
+            return ins;
           }
 
           case 10:
@@ -946,17 +977,19 @@ public class CPU extends j51.intel.MCS51
             if (S)
             {
               int value;
-
-              System.out.printf("cmp");
+ins += "cmp";
+//              System.out.printf("cmp");
               condPrint(opcode);
 
               if (I)
               {
                 value = ROR(Imm, amt);
-                System.out.printf(" r%d, 0x%08X\n", Rn, value);
+                ins += String.format(" r%d, 0x%08X", Rn, value);
+//                System.out.printf(" r%d, 0x%08X\n", Rn, value);
               } else {
                 value = this.gpr[Rm];
-                System.out.printf(" r%d, r%d\n", Rn, Rm);
+                ins += String.format(" r%d, r%d", Rn, Rm);
+//                System.out.printf(" r%d, r%d\n", Rn, Rm);
               }
 
               if (condCheck(opcode))
@@ -964,10 +997,11 @@ public class CPU extends j51.intel.MCS51
                 subtract(this.gpr[Rn], value);
               }
             } else {
-              System.out.printf("mrs2\n");
+                ins += "mrs2";
+//              System.out.printf("mrs2\n");
             }
 
-            return;
+            return ins;
           }
 
           case 11:
@@ -975,17 +1009,19 @@ public class CPU extends j51.intel.MCS51
             if (S)
             {
               int value;
-
-              System.out.printf("cmn");
+ins += "cmn";
+//              System.out.printf("cmn");
               condPrint(opcode);
 
               if (I)
               {
                 value = ROR(Imm, amt);
-                System.out.printf(" r%d, 0x%08X\n", Rn, value);
+                ins += String.format(" r%d, 0x%08X", Rn, value);
+//                System.out.printf(" r%d, 0x%08X\n", Rn, value);
               } else {
                 value = this.gpr[Rm];
-                System.out.printf(" r%d, r%d\n", Rn, Rm);
+                ins += String.format(" r%d, r%d", Rn, Rm);
+//                System.out.printf(" r%d, r%d\n", Rn, Rm);
               }
 
               if (condCheck(opcode))
@@ -993,31 +1029,35 @@ public class CPU extends j51.intel.MCS51
                 addition(this.gpr[Rn], value);
               }
             } else {
-              System.out.printf("msr2\n");
+                ins += "msr2";
+//              System.out.printf("msr2\n");
             }
 
-            return;
+            return ins;
           }
 
           case 12:
           { // ORR
-            System.out.printf("orr");
+              ins += "orr";
+//            System.out.printf("orr");
             condPrint(opcode);
             suffPrint(opcode);
 
             if (!I)
             {
-              System.out.printf(" r%d, r%d, r%d", Rd, Rn, Rm);
+                ins += String.format(" r%d, r%d, r%d", Rd, Rn, Rm);
+//              System.out.printf(" r%d, r%d, r%d", Rd, Rn, Rm);
               shiftPrint(opcode);
             } else {
-              System.out.printf(" r%d, r%d, #0x%X", Rd, Rn, ROR(Imm, amt));
+                ins += String.format(" r%d, r%d, #0x%X", Rd, Rn, ROR(Imm, amt));
+//              System.out.printf(" r%d, r%d, #0x%X", Rd, Rn, ROR(Imm, amt));
             }
 
-            System.out.printf("\n");
+            //System.out.printf("\n");
 
             if (!condCheck(opcode))
             {
-              return;
+              return ins;
             }
 
             if (I)
@@ -1033,28 +1073,31 @@ public class CPU extends j51.intel.MCS51
               this.cpsr.n = (this.gpr[Rd] >> 31) != 0;
             }
 
-            return;
+            return ins;
           }
 
           case 13:
           { // MOV
-            System.out.printf("mov");
+              ins += "mov";
+//            System.out.printf("mov");
             condPrint(opcode);
             suffPrint(opcode);
 
             if (!I)
             {
-              System.out.printf(" r%d, r%d", Rd, Rm);
+                ins += String.format(" r%d, r%d", Rn, Rm);
+//              System.out.printf(" r%d, r%d", Rd, Rm);
               shiftPrint(opcode);
             } else {
-              System.out.printf(" r%d, #0x%X", Rd, ROR(Imm, amt));
+                ins += String.format(" r%d, #0x%X", Rd, ROR(Imm, amt));
+              //System.out.printf(" r%d, #0x%X", Rd, ROR(Imm, amt));
             }
 
-            System.out.printf("\n");
+            //System.out.printf("\n");
 
             if (!condCheck(opcode))
             {
-              return;
+              return ins;
             }
 
             if (I)
@@ -1070,30 +1113,33 @@ public class CPU extends j51.intel.MCS51
               this.cpsr.n = (this.gpr[Rd] >> 31) != 0;
             }
 
-            return;
+            return ins;
           }
 
           case 14:
           { // BIC
-            System.out.printf("bic");
+              ins += "bic";
+//            System.out.printf("bic");
             condPrint(opcode);
             suffPrint(opcode);
 
             if (!I)
             {
-              System.out.printf(" r%d, r%d, r%d", Rd, Rn, Rm);
+                ins += String.format(" r%d, r%d, r%d", Rd, Rn, Rm);
+//              System.out.printf(" r%d, r%d, r%d", Rd, Rn, Rm);
               shiftPrint(opcode);
             }
             else
             {
-              System.out.printf(" r%d, r%d, #0x%X", Rd, Rn, ROR(Imm, amt));
+                ins += String.format(" r%d, r%d, #0x%X", Rd, Rn, ROR(Imm, amt));
+//              System.out.printf(" r%d, r%d, #0x%X", Rd, Rn, ROR(Imm, amt));
             }
 
-            System.out.printf("\n");
+            //System.out.printf("\n");
 
             if (!condCheck(opcode))
             {
-              return;
+              return ins;
             }
 
             if (I)
@@ -1109,28 +1155,31 @@ public class CPU extends j51.intel.MCS51
               this.cpsr.n = (this.gpr[Rd] >> 31) != 0;
             }
 
-            return;
+            return ins;
           }
 
           case 15:
           { // MVN
-            System.out.printf("mvn");
+              ins += "mvn";
+//            System.out.printf("mvn");
             condPrint(opcode);
             suffPrint(opcode);
 
             if (!I)
             {
-              System.out.printf(" r%d, r%d", Rd, Rm);
+                ins += String.format(" r%d, r%d", Rn, Rm);
+//              System.out.printf(" r%d, r%d", Rd, Rm);
               shiftPrint(opcode);
             } else {
-              System.out.printf(" r%d, #0x%X", Rd, ROR(Imm, amt));
+                ins += String.format(" r%d, #0x%X", Rd, ROR(Imm, amt));
+//              System.out.printf(" r%d, #0x%X", Rd, ROR(Imm, amt));
             }
 
-            System.out.printf("\n");
+            //System.out.printf("\n");
 
             if (!condCheck(opcode))
             {
-              return;
+              return ins;
             }
 
             if (I)
@@ -1146,7 +1195,7 @@ public class CPU extends j51.intel.MCS51
               this.cpsr.n = (this.gpr[Rd] >> 31) != 0;
             }
 
-            return;
+            return ins;
           }
         }
       }
@@ -1154,44 +1203,47 @@ public class CPU extends j51.intel.MCS51
       case 1:
       { // LDR/STR
         int addr, value, wb;
-
-        System.out.printf("%s%s", (L) ? "ldr" : "str", (B) ? "b" : "");
+ins += String.format("%s%s", (L) ? "ldr" : "str", (B) ? "b" : "");
+//        System.out.printf("%s%s", (L) ? "ldr" : "str", (B) ? "b" : "");
         condPrint(opcode);
-        System.out.printf(" r%d,", Rd);
+        ins += String.format(" r%d", Rd);
+//        System.out.printf(" r%d,", Rd);
 
         Imm = opcode & 0xFFF;
 
         if (L && (Rn == 15))
         {
           addr = this.gpr[15] + Imm + 4;
-          value = this.memory.read32(addr);
+          value = this.code.read32(addr);
 
           if (condCheck(opcode))
           {
             this.gpr[Rd] = value;
           }
-
-          System.out.printf(" =0x%X\n", value);
-          return;
+ins += String.format(" =0x%X", value);
+//          System.out.printf(" =0x%X\n", value);
+          return ins;
         }
-
-        System.out.printf(" [r%d", Rn);
+ins += String.format(" [r%d", Rn);
+//        System.out.printf(" [r%d", Rn);
 
         if (I)
         {
           value = shift(opcode, this.gpr[Rm]);
-
-          System.out.printf(", %sr%d", (U) ? "" : "-", Rm);
+ins += String.format(", %sr%d", (U) ? "" : "-", Rm);
+//          System.out.printf(", %sr%d", (U) ? "" : "-", Rm);
           shiftPrint(opcode);
         } else {
           value = Imm;
-          System.out.printf(", #%s0x%X", (U) ? "" : "-", value);
+          ins += String.format(", #%s0x%X", (U) ? "" : "-", value);
+//          System.out.printf(", #%s0x%X", (U) ? "" : "-", value);
         }
-        System.out.printf("]%s\n", (W) ? "!" : "");
+        ins += String.format("]%s", (W) ? "!" : "");
+//        System.out.printf("]%s\n", (W) ? "!" : "");
 
         if (!condCheck(opcode))
         {
-          return;
+          return ins;
         }
 
         if (U)
@@ -1207,9 +1259,9 @@ public class CPU extends j51.intel.MCS51
         {
           if (B)
           {
-            this.gpr[Rd] = this.memory.read8(addr);
+            this.gpr[Rd] = code(addr);
           } else {
-            this.gpr[Rd] = this.memory.read32(addr);
+            this.gpr[Rd] = this.code.read32(addr);
           }
         } else {
           value = this.gpr[Rd];
@@ -1220,9 +1272,9 @@ public class CPU extends j51.intel.MCS51
 
           if (B)
           {
-            this.memory.write8(addr, (byte) (value & 0xFF));
+            code(addr, (byte) (value & 0xFF));
           } else {
-            this.memory.write32(addr, value);
+            this.code.write32(addr, value);
           }
         }
 
@@ -1230,7 +1282,7 @@ public class CPU extends j51.intel.MCS51
         {
           this.gpr[Rn] = wb;
         }
-        return;
+        return ins;
       }
 
       default:
@@ -1246,35 +1298,45 @@ public class CPU extends j51.intel.MCS51
 
         if (L)
         {
-          System.out.printf("ldm");
+            ins += "ldm";
+//          System.out.printf("ldm");
           if (Rn == 13)
           {
-            System.out.printf("%c%c", (P) ? 'e' : 'f', (U) ? 'd' : 'a');
+              ins += String.format("%s%s", (P) ? "e" : "f", (U) ? "d" : "a");
+//            System.out.printf("%c%c", (P) ? 'e' : 'f', (U) ? 'd' : 'a');
           } else {
-            System.out.printf("%c%c", (U) ? 'i' : 'd', (P) ? 'b' : 'a');
+              ins += String.format("%s%s", (U) ? "i" : "d", (P) ? "b" : "a");
+//            System.out.printf("%c%c", (U) ? 'i' : 'd', (P) ? 'b' : 'a');
           }
         } else {
-          System.out.printf("stm");
+            ins += "stm";
+//          System.out.printf("stm");
           if (Rn == 13)
           {
-            System.out.printf("%c%c", (P) ? 'f' : 'e', (U) ? 'a' : 'd');
+              ins += String.format("%s%s", (P) ? "f" : "e", (U) ? "a" : "d");
+//            System.out.printf("%c%c", (P) ? 'f' : 'e', (U) ? 'a' : 'd');
           } else {
-            System.out.printf("%c%c", (U) ? 'i' : 'd', (P) ? 'b' : 'a');
+              ins += String.format("%s%s", (U) ? "i" : "d", (P) ? "b" : "a");
+//            System.out.printf("%c%c", (U) ? 'i' : 'd', (P) ? 'b' : 'a');
           }
         }
 
         if (Rn == 13)
         {
-          System.out.printf(" sp");
+            ins += " sp";
+          //System.out.printf(" sp");
         } else {
-          System.out.printf(" r%d", Rn);
+            ins += String.format(" r%d", Rn);
+//          System.out.printf(" r%d", Rn);
         }
 
         if (W)
         {
-          System.out.printf("!");
+            ins += "!";
+//          System.out.printf("!");
         }
-        System.out.printf(", {");
+        ins += ", {";
+//        System.out.printf(", {");
 
         for (int i = 0; i < 16; i++)
         {
@@ -1282,24 +1344,27 @@ public class CPU extends j51.intel.MCS51
           {
             if (pf)
             {
-              System.out.printf(", ");
+                ins += ", ";
+//              System.out.printf(", ");
             }
-            System.out.printf("r%d", i);
+            ins += String.format("r%d", i);
+//            System.out.printf("r%d", i);
 
             pf = true;
           }
         }
-
-        System.out.printf("}");
+ins += "}";
+//        System.out.printf("}");
         if (B)
         {
-          System.out.printf("^");
+            ins += "^";
+//          System.out.printf("^");
           if ((opcode & (1 << 15)) != 0)
           {
             this.cpsr.setValue(this.spsr);
           }
         }
-        System.out.printf("\n");
+        //System.out.printf("\n");
 
         if (L)
         {
@@ -1311,7 +1376,7 @@ public class CPU extends j51.intel.MCS51
               {
                 start += U ? 4 : -4; // 32-bit
               }
-              this.gpr[i] = this.memory.read32(start);
+              this.gpr[i] = this.code.read32(start);
               if (!P)
               {
                 start += U ? 4 : -4; // 32-bit
@@ -1327,7 +1392,7 @@ public class CPU extends j51.intel.MCS51
               {
                 start += U ? 4 : -4; // 32-bit
                }
-              this.memory.write32(start, this.gpr[i]);
+              this.code.write32(start, this.gpr[i]);
               if (!P)
               {
                 start += U ? 4 : -4; // 32-bit
@@ -1340,14 +1405,14 @@ public class CPU extends j51.intel.MCS51
         {
           this.gpr[Rn] = start;
         }
-        return;
+        return ins;
       }
 
       case 5:
       { // B/BL
         boolean link = (opcode & (1 << 24)) != 0;
-
-        System.out.printf("b%s", (link) ? "l" : "");
+ins += String.format("b%s", (link) ? "l" : "");
+//        System.out.printf("b%s", (link) ? "l" : "");
         condPrint(opcode);
 
         Imm = (opcode & 0xFFFFFF) << 2;
@@ -1356,12 +1421,12 @@ public class CPU extends j51.intel.MCS51
           Imm = ~(~Imm & 0xFFFFFF);
         }
         Imm += 4; // 32-bit
-
-        System.out.printf(" 0x%08X\n", this.gpr[15] + Imm);
+ins += String.format(" 0x%08X", this.gpr[15] + Imm);
+//        System.out.printf(" 0x%08X\n", this.gpr[15] + Imm);
 
         if (!condCheck(opcode))
         {
-          return;
+          return ins;
         }
 
         if (link)
@@ -1370,18 +1435,19 @@ public class CPU extends j51.intel.MCS51
         }
         this.gpr[15] += Imm;
 
-        return;
+        return ins;
       }
 
       case 7:
       { // MRC
-        System.out.printf("mrc ...\n");
-        return;
+ins += "mrc ...";
+        //System.out.printf("mrc ...\n");
+        return ins;
       }
     }
-
-    System.out.printf("Unknown opcode! (0x%08X)\n", opcode);
-
+ins += String.format("Unknown opcode! (0x%08X", opcode);
+    //System.out.printf("Unknown opcode! (0x%08X)\n", opcode);
+return ins;
   }
 
   /**
@@ -1416,7 +1482,7 @@ public class CPU extends j51.intel.MCS51
         /* Print string */
         for (int i = 0; i < len; i++)
         {
-          System.out.printf("0x%x", this.memory.read8(addr + i));
+          System.out.printf("0x%x", code(addr + i));
         }
 
         /* Return value */
@@ -1438,7 +1504,7 @@ public class CPU extends j51.intel.MCS51
     System.out.printf("%08X [T] ", this.gpr[15]);
 
     /* Read opcode */
-    int opcode = this.memory.read16(this.gpr[15]) & 0xFFFF;
+    int opcode = this.code.read16(this.gpr[15]) & 0xFFFF;
 
     System.out.printf("(%04x) ", opcode);
 
@@ -1916,7 +1982,7 @@ public class CPU extends j51.intel.MCS51
       int Imm = (opcode & 0xFF);
       int addr = this.gpr[15] + (Imm << 2) + 2; // 16-bit
 
-      this.gpr[Rd] = this.memory.read32(addr);
+      this.gpr[Rd] = this.code.read32(addr);
 
       System.out.printf("ldr r%d, =0x%08X\n", Rd, this.gpr[Rd]);
       return;
@@ -1935,7 +2001,7 @@ public class CPU extends j51.intel.MCS51
           int addr = this.gpr[Rn] + this.gpr[Rm];
           int value = this.gpr[Rd];
 
-          this.memory.write32(addr, value);
+          this.code.write32(addr, value);
 
           System.out.printf("str r%d, [r%d, r%d]\n", Rd, Rn, Rm);
           return;
@@ -1946,7 +2012,7 @@ public class CPU extends j51.intel.MCS51
           int addr = this.gpr[Rn] + this.gpr[Rm];
           byte value = (byte) (this.gpr[Rd] & 0xFF);
 
-          this.memory.write8(addr, value);
+          code(addr, value);
 
           System.out.printf("strb r%d, [r%d, r%d]\n", Rd, Rn, Rm);
           return;
@@ -1956,7 +2022,7 @@ public class CPU extends j51.intel.MCS51
         { // LDR
           int addr = this.gpr[Rn] + this.gpr[Rm];
 
-          this.gpr[Rd] = this.memory.read32(addr);
+          this.gpr[Rd] = this.code.read32(addr);
 
           System.out.printf("ldr r%d, [r%d, r%d]\n", Rd, Rn, Rm);
           return;
@@ -1966,7 +2032,7 @@ public class CPU extends j51.intel.MCS51
         { // LDRB
           int addr = this.gpr[Rn] + this.gpr[Rm];
 
-          this.gpr[Rd] = this.memory.read8(addr);
+          this.gpr[Rd] = code(addr);
 
           System.out.printf("ldrb r%d, [r%d, r%d]\n", Rd, Rn, Rm);
           return;
@@ -1986,7 +2052,7 @@ public class CPU extends j51.intel.MCS51
         {
           int addr = this.gpr[Rn] + (Imm << 2);
 
-          this.gpr[Rd] = this.memory.read8(addr);
+          this.gpr[Rd] = code(addr);
 
           System.out.printf("ldrb r%d, [r%d, 0x%02X]\n", Rd, Rn, Imm);
         }
@@ -1995,7 +2061,7 @@ public class CPU extends j51.intel.MCS51
           int addr = this.gpr[Rn] + (Imm << 2);
           byte value = (byte) (this.gpr[Rd] & 0xFF);
 
-          this.memory.write8(addr, value);
+          code(addr, value);
 
           System.out.printf("strb r%d, [r%d, 0x%02X]\n", Rd, Rn, Imm);
         }
@@ -2006,7 +2072,7 @@ public class CPU extends j51.intel.MCS51
         {
           int addr = this.gpr[Rn] + (Imm << 2);
 
-          this.gpr[Rd] = this.memory.read32(addr);
+          this.gpr[Rd] = this.code.read32(addr);
 
           System.out.printf("ldr r%d, [r%d, 0x%02X]\n", Rd, Rn, Imm << 2);
         }
@@ -2015,7 +2081,7 @@ public class CPU extends j51.intel.MCS51
           int addr = this.gpr[Rn] + (Imm << 2);
           int value = this.gpr[Rd];
 
-          this.memory.write32(addr, value);
+          this.code.write32(addr, value);
 
           System.out.printf("str r%d, [r%d, 0x%02X]\n", Rd, Rn, Imm << 2);
         }
@@ -2034,7 +2100,7 @@ public class CPU extends j51.intel.MCS51
       {
         int addr = this.gpr[Rn] + (Imm << 1);
 
-        this.gpr[Rd] = this.memory.read16(addr);
+        this.gpr[Rd] = this.code.read16(addr);
 
         System.out.printf("ldrh r%d, [r%d, 0x%02X]\n", Rd, Rn, Imm << 1);
       }
@@ -2043,7 +2109,7 @@ public class CPU extends j51.intel.MCS51
         int addr = this.gpr[Rn] + (Imm << 1);
         short value = (short) (this.gpr[Rd] & 0xFFFF);
 
-        this.memory.write16(addr, value);
+        this.code.write16(addr, value);
 
         System.out.printf("strh r%d, [r%d, 0x%02X]\n", Rd, Rn, Imm << 1);
       }
@@ -2058,14 +2124,14 @@ public class CPU extends j51.intel.MCS51
       if ((opcode & 0x800) != 0){
         int addr = this.gpr[13] + (Imm << 2);
 
-        this.gpr[Rd] = this.memory.read32(addr);
+        this.gpr[Rd] = this.code.read32(addr);
 
         System.out.printf("ldr r%d, [sp, 0x%02X]\n", Rd, Imm << 2);
       } else {
         int addr = this.gpr[13] + (Imm << 2);
         int value = this.gpr[Rd];
 
-        this.memory.write32(addr, value);
+        this.code.write32(addr, value);
 
         System.out.printf("str r%d, [sp, 0x%02X]\n", Rd, Imm << 2);
       }
@@ -2211,7 +2277,7 @@ public class CPU extends j51.intel.MCS51
         {
           if (((opcode >> i) & 1) != 0)
           {
-            this.gpr[i] = this.memory.read32(this.gpr[Rn]);
+            this.gpr[i] = this.code.read32(this.gpr[Rn]);
             this.gpr[Rn] += 4;
 
             System.out.printf("r%d,", i);
@@ -2227,7 +2293,7 @@ public class CPU extends j51.intel.MCS51
         {
           if (((opcode >> i) & 1) != 0)
           {
-            this.memory.write32(this.gpr[Rn], this.gpr[i]);
+            this.code.write32(this.gpr[Rn], this.gpr[i]);
             this.gpr[Rn] += 4;
 
             System.out.printf("r%d,", i);
@@ -2332,7 +2398,7 @@ public class CPU extends j51.intel.MCS51
     this.gpr[13] += 4; // 32-bit
 
     /* Read value */
-    return this.memory.read32(addr);
+    return this.code.read32(addr);
   }
 
   /**
@@ -2347,7 +2413,7 @@ public class CPU extends j51.intel.MCS51
     this.gpr[13] -= 4; // 32-bit
 
     /* Write value */
-    this.memory.write32(this.gpr[13], value);
+    this.code.write32(this.gpr[13], value);
   }
 
   /**

@@ -37,7 +37,7 @@ public class C8051F120 extends MCS51 implements C8051F120Constants
                         @Override
 			public int getCode(int addr,boolean fetch)
 			{
-				return super.getCode(translate(addr,fetch),fetch);
+				return super.getCode(translate(addr, fetch), fetch);
 			}
 			
 		};

@@ -29,7 +29,7 @@ public class IsaSim extends Decoder {
     public final static int INITIAL_SP = Integer.MAX_VALUE;
 
     // Activate/deactivate debugging prints (default is true)
-    public final static boolean DEBUGGING = true;
+    public final static boolean DEBUGGING = false;
 
     // Static variables used throughout the simulator
     static int pc = INITIAL_PC; // Program counter (counting in bytes)
@@ -37,31 +37,34 @@ public class IsaSim extends Decoder {
 
     // A single memory for instructions and data allowing "byte addressing"
     // using different integer key values (pc and sp counting in bytes)
-    public static Memory ram = new Memory();
+    //public static Memory ram = new Memory();
     boolean offsetPC = false, breakProgram = false; // For determining next pc value
     int cc = 0; // Clock cycle counter
 
     public IsaSim() {
-        System.out.println("Hello RISC-V World!");
-        try {
-            ram.readBinary(FILEPATH, INITIAL_PC); // Read instructions into memory
+        System.out.println("RISC-V World!");
+        //code = new Memory();
+        /*try {
+            code.readBinary(FILEPATH, INITIAL_PC); // Read instructions into memory
         } catch (IOException ex) {
             Logger.getLogger(IsaSim.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }*/
         reg[2] = INITIAL_SP; // Reset stack pointer
     }
         
+    @Override
     public void go(int limit) throws Exception{
         while(true){
-            RVInstruction ins = new RVInstruction(ram.readWord(pc));
+            RVInstruction ins = new RVInstruction(code.read16(pc));
             decode_riscv_binary(ins);
             step();
         }
     }
     
+    @Override
     public int step () {
             // Combine four bytes to produce a single instruction
-            int instr = ram.readWord(pc);
+            int instr = code.read32(pc);
 
             // Retrieve the least significant seven bits of the instruction
             // indicating the type of instruction
@@ -71,21 +74,21 @@ public class IsaSim extends Decoder {
             switch (opcode) {
             case LUI_MASK:
                     if (DEBUGGING) {
-                            System.out.println(cc + " LUI instruction");
+                            System.out.println(cc + " LUI ");
                     }
                     loadUpperImmediate(instr);
                     break;
 
             case AUIPC_MASK:
                     if (DEBUGGING) {
-                            System.out.println(cc + " AUIPC instruction");
+                            System.out.println(cc + " AUIPC ");
                     }
                     addUpperImmediatePC(instr);
                     break;
 
             case JAL_MASK:
                     if (DEBUGGING) {
-                            System.out.println(cc + " JAL instruction");
+                            System.out.println(cc + " JAL ");
                     }
                     jumpAndLink(instr);
                     offsetPC = true;
@@ -93,7 +96,7 @@ public class IsaSim extends Decoder {
 
             case JALR_MASK:
                     if (DEBUGGING) {
-                            System.out.println(cc + " JALR instruction");
+                            System.out.println(cc + " JALR ");
                     }
                     jumpAndLinkRegister(instr);
                     offsetPC = true;
@@ -101,35 +104,35 @@ public class IsaSim extends Decoder {
 
             case BRANCH_MASK:
                     if (DEBUGGING) {
-                            System.out.println(cc + " Branch instruction");
+                            System.out.println(cc + " Branch ");
                     }
                     offsetPC = branchInstruction(instr);
                     break;
 
             case LOAD_MASK:
                     if (DEBUGGING) {
-                            System.out.println(cc + " Load instruction");
+                            System.out.println(cc + " Load ");
                     }
                     loadInstruction(instr);
                     break;
 
             case STORE_MASK:
                     if (DEBUGGING) {
-                            System.out.println(cc + " Store instruction");
+                            System.out.println(cc + " Store ");
                     }
                     storeInstruction(instr);
                     break;
 
             case OP_IMM_MASK: // Immediate instructions
                     if (DEBUGGING) {
-                            System.out.println(cc + " Immediate instruction");
+                            System.out.println(cc + " Immediate ");
                     }
                     immediateInstruction(instr);
                     break;
 
             case OP_MASK: // Arithmetic
                     if (DEBUGGING) {
-                            System.out.println(cc + " Arithmetic instruction");
+                            System.out.println(cc + " Arithmetic ");
                     }
                     arithmeticInstruction(instr);
                     break;
@@ -155,7 +158,7 @@ public class IsaSim extends Decoder {
             reg[0] = 0; // Resetting the x0 register
 
             // Ecall or Ebreak has been encountered
-            if (breakProgram || !ram.containsKey(pc)) {
+            if (breakProgram || !code.containsKey(pc)) {
                     if (DEBUGGING) {
                             System.out.println("Ecall or end of program encountered");
                     }
@@ -169,8 +172,88 @@ public class IsaSim extends Decoder {
             return 1;
     }
     //System.out.println("Program exit");
+    
+    @Override
+    public String getDecodeAt(int pc) {
+            // Combine four bytes to produce a single instruction
+            int instr = code.read32(pc);
+String ins = String.format("%08x ", instr);
+            // Retrieve the least significant seven bits of the instruction
+            // indicating the type of instruction
+            int opcode = instr & 0x7f;
 
-	public static void loadUpperImmediate(int instr) {
+            // Execute the instruction based on its type
+            switch (opcode) {
+            case LUI_MASK:
+                            ins += "LUI ";
+                    ins += loadUpperImmediate(instr);
+                    break;
+
+            case AUIPC_MASK:
+                            ins += "AUIPC ";
+                    ins += addUpperImmediatePC(instr);
+                    break;
+
+            case JAL_MASK:
+                            ins += "JAL ";
+                    ins += jumpAndLink(instr);
+                    offsetPC = true;
+                    break;
+
+            case JALR_MASK:
+                            ins += "JALR ";
+                    ins += jumpAndLinkRegister(instr);
+                    offsetPC = true;
+                    break;
+
+            case BRANCH_MASK:
+                            ins += "Branch ";
+                    offsetPC = branchInstruction(instr);
+                    break;
+
+            case LOAD_MASK:
+                            ins += "Load ";
+                    ins += loadInstruction(instr);
+                    break;
+
+            case STORE_MASK:
+                            ins += "Store ";
+                    ins += storeInstruction(instr);
+                    break;
+
+            case OP_IMM_MASK: // Immediate instructions
+                            ins += "Immediate ";
+                    ins += immediateInstruction(instr);
+                    break;
+
+            case OP_MASK: // Arithmetic
+                            ins += "Arithmetic ";
+                    ins += arithmeticInstruction(instr);
+                    break;
+
+            case FENCE_MASK: // Fence (NOT IMPLEMENTED)
+                    break;
+
+            case CSR_MASK: // Ecalls and CSR (SOME IMPLEMENTED, SOME LEFT OUT)
+                    breakProgram = ecallInstruction();
+                    break;
+
+            default:
+                    if (DEBUGGING) {
+                            System.out.println("Opcode " + opcode + " not yet implemented");
+                    }
+                    break;
+            }
+
+            if (!offsetPC) {
+                    pc += 4; // Update program counter
+            }
+            offsetPC = false; // Reset the pc offset flag
+
+            return ins;
+    }
+
+	public static String loadUpperImmediate(int instr) {
 		// General information
 		int rd = (instr >> 7) & 0x1F;
 		int imm = instr & 0xFFFFF000;
@@ -178,9 +261,10 @@ public class IsaSim extends Decoder {
 			System.out.println("rd = " + rd + ", imm = " + imm);
 		}
 		reg[rd] = imm; // LUI stores the immediate in the top 20 bits of register rd
+                return "rd = " + rd + ", imm = " + imm;
 	}
 
-	public static void addUpperImmediatePC(int instr) {
+	public static String addUpperImmediatePC(int instr) {
 		// General information
 		int rd = (instr >> 7) & 0x1F;
 		int imm = instr & 0xFFFFF000;
@@ -188,9 +272,10 @@ public class IsaSim extends Decoder {
                     System.out.println("rd = " + rd + ", imm = " + imm);
 		}
 		reg[rd] = pc + imm;
+                return "rd = " + rd + ", imm = " + imm;
 	}
 
-	public static void jumpAndLink(int instr) {
+	public static String jumpAndLink(int instr) {
 		// General information
 		int rd = (instr >> 7) & 0x1F;
 		int imm = (((instr >> 21) & 0x3FF) << 1) | (((instr >> 20) & 0x1) << 11) | 
@@ -206,9 +291,10 @@ public class IsaSim extends Decoder {
 		if (pc % 4 != 0) {
 			System.out.println("Instruction fetch exception; pc not multiple of 4 bytes");
 		}
+                return "rd = " + rd + ", imm = " + imm;
 	}
 
-	public static void jumpAndLinkRegister(int instr) {
+	public static String jumpAndLinkRegister(int instr) {
 		// General information
 		int rd = (instr >> 7) & 0x1F;
 		int rs1 = (instr >> 15) & 0x1F;
@@ -224,6 +310,7 @@ public class IsaSim extends Decoder {
 		if (pc % 4 != 0) {
 			System.out.println("Instruction fetch exception; pc not multiple of 4 bytes");
 		}
+                return "rd = " + rd + ", rs1 = " + rs1 + ", imm = " + imm;
 	}
 
 	public static boolean branchInstruction(int instr) {
@@ -284,7 +371,7 @@ public class IsaSim extends Decoder {
 		return false;
 	}
 
-	public static void loadInstruction(int instr) throws NullPointerException {
+	public String loadInstruction(int instr) throws NullPointerException {
 		// General information
 		int rd = (instr >> 7) & 0x1F;
 		int rs1 = (instr >> 15) & 0x1F;
@@ -302,30 +389,31 @@ public class IsaSim extends Decoder {
 		int memValue = 0;
 		switch (funct3) {
 		case 0x0: // LB
-			memValue = ram.readByte(memAddr);
+			memValue = code.read(memAddr);
 			if ((memValue >> 7) == 1) {
 				memValue |= 0xFFFFFF00; // Sign-extension if necessary
 			}
 			break;
 		case 0x1: // LH
-			memValue = ram.readHalfWord(memAddr);
+			memValue = code.readHalfWord(memAddr);
 			if ((memValue >> 15) == 1) {
 				memValue |= 0xFFFF0000; // Sign-extension if necessary
 			}
 			break;
 		case 0x2: // LW
-			memValue = ram.readWord(memAddr);
+			memValue = code.read16(memAddr);
 			break;
 		case 0x4: // LBU
-			memValue = ram.readByte(memAddr);
+			memValue = code.read(memAddr);
 			break;
 		case 0x5: // LHU
-			memValue = ram.readHalfWord(memAddr);
+			memValue = code.readHalfWord(memAddr);
 		}
 		reg[rd] = memValue;
+                return "rd = " + rd + ", rs1 = " + rs1 + ", imm = " + imm + ", memAddr = " + memAddr;
 	}
 	
-	public static void storeInstruction(int instr) {
+	public String storeInstruction(int instr) {
 		// General information
 		int rs1 = (instr >> 15) & 0x1F;
 		int rs2 = (instr >> 20) & 0x1F;
@@ -344,19 +432,20 @@ public class IsaSim extends Decoder {
 		switch (funct3) {
 		case 0x0: // SB
 			memValue &= 0x000000FF;
-			ram.storeByte(memAddr, memValue);
+			code.write(memAddr, memValue);
 			break;
 		case 0x1: // SH
 			memValue &= 0x0000FFFF;
-			ram.storeHalfWord(memAddr, memValue);
+			code.storeHalfWord(memAddr, memValue);
 			break;
 		case 0x2: // SW
-			ram.storeWord(memAddr, memValue);
+			code.write16(memAddr, (short)memValue);
 			break;
 		}
+                return "rs1 = " + rs1 + ", rs2 = " + rs2 + ", imm = " + imm + ", memAddr = " + memAddr;
 	}
 
-	public static void immediateInstruction(int instr) {
+	public static String immediateInstruction(int instr) {
 		// General information
 		int rd = (instr >> 7) & 0x1F;
 		int rs1 = (instr >> 15) & 0x1F;
@@ -414,9 +503,10 @@ public class IsaSim extends Decoder {
 				break;
 			}
 		}
+                return "rd = " + rd + ", rs1 = " + rs1 + ", imm = " + imm;
 	}
 
-	public static void arithmeticInstruction(int instr) {
+	public static String arithmeticInstruction(int instr) {
 		// General information
 		int rd = (instr >> 7) & 0x1F;
 		int rs1 = (instr >> 15) & 0x1F;
@@ -532,6 +622,7 @@ public class IsaSim extends Decoder {
 			}
 			break;
 		}
+                return "rd = " + rd + ", rs1 = " + rs1 + ", rs2 = " + rs2;
 	}
 
 	public static boolean ecallInstruction() {

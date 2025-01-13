@@ -32,12 +32,30 @@ public class x86 extends j51.intel.MCS51 {
     public static final int EBP = 5;
     public static final int ESI = 6;
     public static final int EDI = 7;
+    private Disassembler dis;// = new Disassembler(new byte[15]);
     
-    public static void main(String [] args){
-        Disassembler dis = new Disassembler("/Users/xuyi/Source/OS/armOS/lib/jcore/Compiler/app/isodir/code/realmode", 2000, 0x1000);
-        for(int i = 0; dis.isNext(); i++){
-            dis.instruction = dis.toHexInt(i) + " ";
-            System.out.println(dis.disasmInstr());
+    public x86(){
+        //dis = new Disassembler("/Users/xuyi/Source/OS/armOS/lib/jcore/Compiler/app/isodir/code/realmode", 2000, 0x1000);
+    }
+    
+    @Override
+    public String getDecodeAt(int pc){
+        dis = new Disassembler(new byte[10]);
+        for(int i = 0; i < 10; i++){
+            //dis.instruction = dis.toHexInt(i) + " ";
+            //System.out.println(dis.disasmInstr());
+            dis.code[i] = (byte)code(pc + i);
         }
+        return Disassembler.toHexInt(code(pc)) + dis.disasmInstr();
+    }
+    
+    @Override
+    public int getLengthAt(int pc){
+        dis = new Disassembler(new byte[10]);
+        for(int i = 0; i < 10; i++){
+            dis.code[i] = (byte)code(pc + i);
+        }
+        dis.disasmInstr();
+        return dis.codePosition;
     }
 }

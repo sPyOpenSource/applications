@@ -5,7 +5,7 @@ package jCPU.RiscV;
  *
  * @author xuyi
  */
-public class RVConstants {
+public class RVConstants  extends j51.intel.MCS51{
     /* Type of Functional Units */
     public static int FU_ALU = 0x0;
     public static int FU_MUL = 0x1;
