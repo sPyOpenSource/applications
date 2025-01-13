@@ -16,7 +16,62 @@ import j51.intel.Code;
  * @author X. Wang
  */
 public class ByteCode {
-    Code code;
+    private Code code;
+    private String clzNamePrint = "java/io/PrintStream";
+    private String clzNameStrBuilder = "java/lang/StringBuilder";
+    private char[] stringBuilderBuffer = new char[1024];
+    private int stringBuilderUsed = 0;
+    
+    static Function<JVM, Integer> op_aload_0 = cpu -> cpu.handler.op_aload_0();
+    static Function<JVM, Integer> op_bipush;// = cpu -> cpu.handler.op_bipush(cpu.opCode);
+    static Function<JVM, Integer> op_dup, op_get, op_iadd, op_iconst_0;
+    static Function<JVM, Integer> op_iconst_1, op_iconst_2;
+    static Function<JVM, Integer> op_iconst_3, op_iconst_4, op_iconst_5;
+    static Function<JVM, Integer> op_dconst_1, op_idiv, op_imul, op_dadd, op_dmul, op_d2i;
+    static Function<JVM, Integer> op_invokespecial, op_invokevirtual;
+    static Function<JVM, Integer> op_invoke;// = cpu -> op_invoke(cpu.opCode, cpu.stack, cpu.cp);
+    static Function<JVM, Integer> op_iload, op_iload_1, op_iload_2, op_iload_3;
+    static Function<JVM, Integer> op_istore, op_istore_1, op_istore_2, op_istore_3;
+    static Function<JVM, Integer> op_isub, op_ldc, op_ldc2_w;
+    static Function<JVM, Integer> op_new, op_irem, op_sipush, op_return;
+
+    public static VmOpcode byteCodes[] = {
+        new VmOpcode( "bipush"        , 0x10, 2, op_bipush        ),
+        new VmOpcode( "sipush"        , 0x11, 3, op_sipush        ),
+        new VmOpcode( "get"           , 0xB2, 3, op_get           ),
+        new VmOpcode( "iconst_0"      , 0x03, 1, op_iconst_0      ),
+        new VmOpcode( "iconst_1"      , 0x04, 1, op_iconst_1      ),
+        new VmOpcode( "iconst_2"      , 0x05, 1, op_iconst_2      ),
+        new VmOpcode( "iconst_3"      , 0x06, 1, op_iconst_3      ),
+        new VmOpcode( "iconst_4"      , 0x07, 1, op_iconst_4      ),
+        new VmOpcode( "iconst_5"      , 0x08, 1, op_iconst_5      ),
+        new VmOpcode( "dconst_1"      , 0x0F, 1, op_dconst_1      ),
+        new VmOpcode( "isub"          , 0x64, 1, op_isub          ),
+        new VmOpcode( "iadd"          , 0x60, 1, op_iadd          ),
+        new VmOpcode( "idiv"          , 0x6C, 1, op_idiv          ),
+        new VmOpcode( "imul"          , 0x68, 1, op_imul          ),
+        new VmOpcode( "irem"          , 0x70, 1, op_irem          ),
+        new VmOpcode( "dadd"          , 0x63, 1, op_dadd          ),
+        new VmOpcode( "dmul"          , 0x6B, 1, op_dmul          ),
+        new VmOpcode( "d2i"           , 0x8e, 1, op_d2i           ),
+        new VmOpcode( "invokespecial" , 0xB7, 3, op_invokespecial ),
+        new VmOpcode( "invokevirtual" , 0xB6, 3, op_invokevirtual ),
+        new VmOpcode( "invokestatic"  , 0xB8, 3, op_invoke        ),
+        new VmOpcode( "aload_0"       , 0x2A, 1, op_aload_0       ),
+        new VmOpcode( "iload"         , 0x15, 2, op_iload         ),
+        new VmOpcode( "iload_1"       , 0x1B, 1, op_iload_1       ),
+        new VmOpcode( "iload_2"       , 0x1C, 1, op_iload_2       ),
+        new VmOpcode( "iload_3"       , 0x1D, 1, op_iload_3       ),
+        new VmOpcode( "istore"        , 0x36, 2, op_istore        ),
+        new VmOpcode( "istore_1"      , 0x3C, 1, op_istore_1      ),
+        new VmOpcode( "istore_2"      , 0x3D, 1, op_istore_2      ),
+        new VmOpcode( "istore_3"      , 0x3E, 1, op_istore_3      ),
+        new VmOpcode( "ldc"           , 0x12, 2, op_ldc           ),
+        new VmOpcode( "ldc2_w"        , 0x14, 3, op_ldc2_w        ),
+        new VmOpcode( "new"           , 0xBB, 3, op_new           ),
+        new VmOpcode( "dup"           , 0x59, 1, op_dup           ),
+        new VmOpcode( "return"        , 0xB1, 1, op_return        )
+    };
 
     ByteCode(Code code) {
         this.code = code;
@@ -144,11 +199,6 @@ public class SimpleMethodPool{
     MethodInfo[] method;
 }
 
-String clzNamePrint = "java/io/PrintStream";
-String clzNameStrBuilder = "java/lang/StringBuilder";
-char[] stringBuilderBuffer = new char[1024];
-int stringBuilderUsed = 0;
-
 /* 0xb8 invoke */
 int op_invoke(char[] opCode, VmStackFrame stack, VmCP cp)
 {
@@ -253,58 +303,7 @@ int op_invokevirtual(char[] opCode, VmStackFrame stack, VmCP cp)
     return 0;
 }
 
-static Function<JVM, Integer> op_aload_0 = cpu -> cpu.handler.op_aload_0();
-static Function<JVM, Integer> op_bipush;// = cpu -> cpu.handler.op_bipush(cpu.opCode);
-static Function<JVM, Integer> op_dup, op_get, op_iadd, op_iconst_0;
-static Function<JVM, Integer> op_iconst_1, op_iconst_2;
-static Function<JVM, Integer> op_iconst_3, op_iconst_4, op_iconst_5;
-static Function<JVM, Integer> op_dconst_1, op_idiv, op_imul, op_dadd, op_dmul, op_d2i;
-static Function<JVM, Integer> op_invokespecial, op_invokevirtual;
-static Function<JVM, Integer> op_invoke;// = cpu -> op_invoke(cpu.opCode, cpu.stack, cpu.cp);
-static Function<JVM, Integer> op_iload, op_iload_1, op_iload_2, op_iload_3;
-static Function<JVM, Integer> op_istore, op_istore_1, op_istore_2, op_istore_3;
-static Function<JVM, Integer> op_isub, op_ldc, op_ldc2_w;
-static Function<JVM, Integer> op_new, op_irem, op_sipush, op_return;
-
-public static VmOpcode byteCodes[] = {
-    new VmOpcode( "bipush"        , 0x10, 2, op_bipush        ),
-    new VmOpcode( "sipush"        , 0x11, 3, op_sipush        ),
-    new VmOpcode( "get"           , 0xB2, 3, op_get           ),
-    new VmOpcode( "iconst_0"      , 0x03, 1, op_iconst_0      ),
-    new VmOpcode( "iconst_1"      , 0x04, 1, op_iconst_1      ),
-    new VmOpcode( "iconst_2"      , 0x05, 1, op_iconst_2      ),
-    new VmOpcode( "iconst_3"      , 0x06, 1, op_iconst_3      ),
-    new VmOpcode( "iconst_4"      , 0x07, 1, op_iconst_4      ),
-    new VmOpcode( "iconst_5"      , 0x08, 1, op_iconst_5      ),
-    new VmOpcode( "dconst_1"      , 0x0F, 1, op_dconst_1      ),
-    new VmOpcode( "isub"          , 0x64, 1, op_isub          ),
-    new VmOpcode( "iadd"          , 0x60, 1, op_iadd          ),
-    new VmOpcode( "idiv"          , 0x6C, 1, op_idiv          ),
-    new VmOpcode( "imul"          , 0x68, 1, op_imul          ),
-    new VmOpcode( "irem"          , 0x70, 1, op_irem          ),
-    new VmOpcode( "dadd"          , 0x63, 1, op_dadd          ),
-    new VmOpcode( "dmul"          , 0x6B, 1, op_dmul          ),
-    new VmOpcode( "d2i"           , 0x8e, 1, op_d2i           ),
-    new VmOpcode( "invokespecial" , 0xB7, 3, op_invokespecial ),
-    new VmOpcode( "invokevirtual" , 0xB6, 3, op_invokevirtual ),
-    new VmOpcode( "invokestatic"  , 0xB8, 3, op_invoke        ),
-    new VmOpcode( "aload_0"       , 0x2A, 1, op_aload_0       ),
-    new VmOpcode( "iload"         , 0x15, 2, op_iload         ),
-    new VmOpcode( "iload_1"       , 0x1B, 1, op_iload_1       ),
-    new VmOpcode( "iload_2"       , 0x1C, 1, op_iload_2       ),
-    new VmOpcode( "iload_3"       , 0x1D, 1, op_iload_3       ),
-    new VmOpcode( "istore"        , 0x36, 2, op_istore        ),
-    new VmOpcode( "istore_1"      , 0x3C, 1, op_istore_1      ),
-    new VmOpcode( "istore_2"      , 0x3D, 1, op_istore_2      ),
-    new VmOpcode( "istore_3"      , 0x3E, 1, op_istore_3      ),
-    new VmOpcode( "ldc"           , 0x12, 2, op_ldc           ),
-    new VmOpcode( "ldc2_w"        , 0x14, 3, op_ldc2_w        ),
-    new VmOpcode( "new"           , 0xBB, 3, op_new           ),
-    new VmOpcode( "dup"           , 0x59, 1, op_dup           ),
-    new VmOpcode( "return"        , 0xB1, 1, op_return        )
-};
-
-    int convertToCodeAttribute(CodeAttribute ca, AttributeInfo attr)
+    CodeAttribute convertToCodeAttribute(CodeAttribute ca, AttributeInfo attr)
     {
         int info_p = 0;
         char[] tmp = new char[4];
@@ -323,7 +322,7 @@ public static VmOpcode byteCodes[] = {
         ca.code_length = tmp[0] << 24 | tmp[1] << 16 | tmp[2] << 8 | tmp[3];
         ca.code = new char[ca.code_length];
         //memcpy(ca.code, attr.info[info_p], ca.code_length);
-        return 0;
+        return ca;
     }
 
     public static VmOpcode findOpCode(char op)

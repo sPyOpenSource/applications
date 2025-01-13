@@ -46,11 +46,11 @@ public class JVM extends j51.intel.MCS51 {
     @Override
     public void go(int limit) throws Exception{
         while(true){
-            executeMethod(null, stack, cp);
+            executeMethod(null);
         }
     }
     
-    int executeMethod(ByteCode.MethodInfo startup, VmStackFrame stack, VmCP cp)
+    int executeMethod(ByteCode.MethodInfo startup)
     {
         int i = 0;
         ByteCode.CodeAttribute ca = null;
@@ -78,7 +78,7 @@ public class JVM extends j51.intel.MCS51 {
     }
     
     /* invokespecial */
-    int op_invokespecial(char[] opCode, VmStackFrame stack, VmCP cp)
+    int op_invokespecial(char[] opCode)
     {
         int method_index;
         char[] tmp = new char[2];
@@ -88,7 +88,7 @@ public class JVM extends j51.intel.MCS51 {
         // System.out.print("call method_index %d\n", method_index);
         if (method_index < BytecodeVisitor.simpleMethodPool.method_used) {
             ByteCode.MethodInfo method = BytecodeVisitor.simpleMethodPool.method[method_index];
-            executeMethod(method, stack, cp);
+            executeMethod(method);
         }
         return 0;
     }
