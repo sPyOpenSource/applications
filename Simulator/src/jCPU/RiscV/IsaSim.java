@@ -253,7 +253,7 @@ String ins = String.format("%08x ", instr);
             return ins;
     }
 
-	public static String loadUpperImmediate(int instr) {
+	private String loadUpperImmediate(int instr) {
 		// General information
 		int rd = (instr >> 7) & 0x1F;
 		int imm = instr & 0xFFFFF000;
@@ -264,7 +264,7 @@ String ins = String.format("%08x ", instr);
                 return "rd = " + rd + ", imm = " + imm;
 	}
 
-	public static String addUpperImmediatePC(int instr) {
+	private String addUpperImmediatePC(int instr) {
 		// General information
 		int rd = (instr >> 7) & 0x1F;
 		int imm = instr & 0xFFFFF000;
@@ -275,7 +275,7 @@ String ins = String.format("%08x ", instr);
                 return "rd = " + rd + ", imm = " + imm;
 	}
 
-	public static String jumpAndLink(int instr) {
+	private String jumpAndLink(int instr) {
 		// General information
 		int rd = (instr >> 7) & 0x1F;
 		int imm = (((instr >> 21) & 0x3FF) << 1) | (((instr >> 20) & 0x1) << 11) | 
@@ -294,7 +294,7 @@ String ins = String.format("%08x ", instr);
                 return "rd = " + rd + ", imm = " + imm;
 	}
 
-	public static String jumpAndLinkRegister(int instr) {
+	private String jumpAndLinkRegister(int instr) {
 		// General information
 		int rd = (instr >> 7) & 0x1F;
 		int rs1 = (instr >> 15) & 0x1F;
@@ -313,7 +313,7 @@ String ins = String.format("%08x ", instr);
                 return "rd = " + rd + ", rs1 = " + rs1 + ", imm = " + imm;
 	}
 
-	public static boolean branchInstruction(int instr) {
+	private boolean branchInstruction(int instr) {
 		// General information
 		int rs1 = (instr >> 15) & 0x1F;
 		int rs2 = (instr >> 20) & 0x1F;
@@ -371,7 +371,7 @@ String ins = String.format("%08x ", instr);
 		return false;
 	}
 
-	public String loadInstruction(int instr) throws NullPointerException {
+	private String loadInstruction(int instr) throws NullPointerException {
 		// General information
 		int rd = (instr >> 7) & 0x1F;
 		int rs1 = (instr >> 15) & 0x1F;
@@ -413,7 +413,7 @@ String ins = String.format("%08x ", instr);
                 return "rd = " + rd + ", rs1 = " + rs1 + ", imm = " + imm + ", memAddr = " + memAddr;
 	}
 	
-	public String storeInstruction(int instr) {
+	private String storeInstruction(int instr) {
 		// General information
 		int rs1 = (instr >> 15) & 0x1F;
 		int rs2 = (instr >> 20) & 0x1F;
@@ -445,7 +445,7 @@ String ins = String.format("%08x ", instr);
                 return "rs1 = " + rs1 + ", rs2 = " + rs2 + ", imm = " + imm + ", memAddr = " + memAddr;
 	}
 
-	public static String immediateInstruction(int instr) {
+	private String immediateInstruction(int instr) {
 		// General information
 		int rd = (instr >> 7) & 0x1F;
 		int rs1 = (instr >> 15) & 0x1F;
@@ -506,7 +506,7 @@ String ins = String.format("%08x ", instr);
                 return "rd = " + rd + ", rs1 = " + rs1 + ", imm = " + imm;
 	}
 
-	public static String arithmeticInstruction(int instr) {
+	private String arithmeticInstruction(int instr) {
 		// General information
 		int rd = (instr >> 7) & 0x1F;
 		int rs1 = (instr >> 15) & 0x1F;
@@ -625,7 +625,7 @@ String ins = String.format("%08x ", instr);
                 return "rd = " + rd + ", rs1 = " + rs1 + ", rs2 = " + rs2;
 	}
 
-	public static boolean ecallInstruction() {
+	private boolean ecallInstruction() {
 		switch (reg[10]) {
 		case 1: // print_int
 			System.out.println(reg[11]);

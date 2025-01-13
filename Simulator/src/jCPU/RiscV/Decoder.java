@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package jCPU.RiscV;
 
 /**
@@ -43,7 +39,7 @@ public class Decoder extends RVConstants {
  * THE SOFTWARE.
  */
     
-int cget_field1(int val, int src_pos, int dst_pos, int dst_pos_max){
+private int cget_field1(int val, int src_pos, int dst_pos, int dst_pos_max){
     int mask;
     assert(dst_pos_max >= dst_pos);
     mask = ((1 << (dst_pos_max - dst_pos + 1)) - 1) << dst_pos;
@@ -54,7 +50,7 @@ int cget_field1(int val, int src_pos, int dst_pos, int dst_pos_max){
     }
 }
 
-public void decode_compressed_q0(RVInstruction ins)
+private void decode_compressed_q0(RVInstruction ins)
 {
     int insn, rd, rs1, rs2, funct3, quad;
     int imm;
@@ -185,11 +181,11 @@ public void decode_compressed_q0(RVInstruction ins)
     ins.exception_cause = SIM_ILLEGAL_OPCODE;*/
 }
 
-int sextc(int val, int n){
+private int sextc(int val, int n){
     return (val << (32 - n)) >> (32 - n);
 }
 
-public void decode_compressed_q1(RVInstruction ins)
+private void decode_compressed_q1(RVInstruction ins)
 {
     int insn, rd, rs1, rs2 = 0, funct3, funct4 = 0, funct5 = 0, quad;
     int imm = 0;
@@ -335,12 +331,12 @@ public void decode_compressed_q1(RVInstruction ins)
     ins.funct5 = funct5;
 }
 
-public void illegal_insn(RVInstruction ins){
+private void illegal_insn(RVInstruction ins){
     ins.exception = 1;
     ins.exception_cause = SIM_ILLEGAL_OPCODE;
 }
 
-public void decode_compressed_q2(RVInstruction ins)
+private void decode_compressed_q2(RVInstruction ins)
 {
     int insn, rd, rs1, rs2, funct3, quad;
     int imm = 0;
@@ -504,7 +500,7 @@ public void decode_compressed_q2(RVInstruction ins)
     ins.funct3 = funct3;
 }
 
-public void decode_compressed_type(RVInstruction ins)
+private void decode_compressed_type(RVInstruction ins)
 {
     int quad = ins.binary & 3;
     switch (quad){
@@ -528,7 +524,7 @@ public void decode_compressed_type(RVInstruction ins)
     }
 }
 
-public void set_op_fu(RVInstruction i)
+private void set_op_fu(RVInstruction i)
 {
     int funct3;
     int insn = i.binary;
@@ -554,7 +550,7 @@ public void set_op_fu(RVInstruction i)
     }
 }
 
-public int chk_op_imm_exceptions(RVInstruction i, int bit_size)
+private int chk_op_imm_exceptions(RVInstruction i, int bit_size)
 {
     int funct3 = (i.binary >> 12) & 7;
 
@@ -572,7 +568,7 @@ public int chk_op_imm_exceptions(RVInstruction i, int bit_size)
     return 0;
 }
 
-public int chk_op_exceptions(RVInstruction i)
+private int chk_op_exceptions(RVInstruction i)
 {
     int imm = i.binary >> 25;
 
@@ -1026,14 +1022,7 @@ public void decode_riscv_binary(RVInstruction ins)
     }
 }
 
-    private String get_riscv_ins_str(RVInstruction ins) {
+    public String get_riscv_ins_str(RVInstruction ins) {
         return "NOP";
-    }
-    
-    public String getDecodeAt(int opcode){
-            RVInstruction ins = new RVInstruction(opcode);
-            String result = get_riscv_ins_str(ins);
-            if(result != null) return "     " + result;
-            return "     NULL";
     }
 }

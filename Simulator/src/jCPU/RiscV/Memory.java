@@ -11,6 +11,7 @@ package jCPU.RiscV;
 import j51.intel.Code;
 import jCPU.MemoryReadListener;
 import jCPU.MemoryWriteListener;
+
 import java.io.*;
 import java.util.*;
 import java.util.logging.Level;
@@ -30,7 +31,8 @@ public class Memory implements Code {
         return memory.containsKey(addr);
     }
 
-    private int readWord(int addr) throws NullPointerException {
+    @Override
+    public int read32(int addr) throws NullPointerException {
         if (memory.containsKey(addr) && memory.containsKey(addr + 1) && 
             memory.containsKey(addr + 2) && memory.containsKey(addr + 3)) {
                 return ((memory.get(addr + 3) << 24) & 0xFF000000) | ((memory.get(addr + 2) << 16) & 0x00FF0000) |
@@ -164,11 +166,6 @@ public class Memory implements Code {
     @Override
     public void addMemoryWriteListener(int address, MemoryWriteListener l) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public int read32(int aAddr) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override

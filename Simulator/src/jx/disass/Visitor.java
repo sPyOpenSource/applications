@@ -10,14 +10,13 @@ import jx.compiler.nativecode.Reg;
 import jx.compiler.symbols.*;
 
 /** 
-    Parallel to this class there is a class 
-    nativeCode.Binarycode. 
-    In this version of the compiler, the second class 
-    is used as a mere container, while this class 
-    is used to assemble the binary code. 
-*/ 
-public interface BinaryCodeDynamic {
-
+ *  Parallel to this class there is a class 
+ *  nativeCode.Binarycode. 
+ *  In this version of the compiler, the second class 
+ *  is used as a mere container, while this class 
+ *  is used to assemble the binary code. 
+ */ 
+public interface Visitor {
     final boolean doAlignJumpTargets = false;
 
     int ip = 0;
@@ -97,80 +96,79 @@ public interface BinaryCodeDynamic {
     void insertByte(SymbolTableEntryBase entry);
 
     /**
-       Insert ModRM and SIB byte 
-    */
+     * Insert ModRM and SIB byte 
+     */
     void insertModRM(int reg, Opr rm);
 	
     void insertModRM(Reg reg, Opr rm);
 
     /**
-       Insert call near indirect (reg/mem) (2 clks)
+     * Insert call near indirect (reg/mem) (2 clks)
      * @param opr
      */
     public void call(Opr opr);
 
     /**
-       Insert call near (Symbol) (1 clks)
+     * Insert call near (Symbol) (1 clks)
      * @param entry
      */
     public void call(SymbolTableEntryBase entry);
 
     /**
-       Convert byte to word (3 clks) + (.. clks)
-    */
+     * Convert byte to word (3 clks) + (.. clks)
+     */
     public void cbw();
 
     /**
-       Convert double to quad word (2 clks)
-
-       fill edx with sign bit of eax
-    */
+     * Convert double to quad word (2 clks)
+     * fill edx with sign bit of eax
+     */
     public void cdq();
 
     /**
-       Convert word to double word (3 clks)
-       fill dx with sign bit of ax
-    */
+     * Convert word to double word (3 clks)
+     * fill dx with sign bit of ax
+     */
     public void cwde();
 
     /**
-       Convert word to double (2 clks)
-       fill dx with sign bit of ax
-    */
+     * Convert word to double (2 clks)
+     * fill dx with sign bit of ax
+     */
     public void cwd();
 
     /**
-       Insert return
-    */
+     * Insert return
+     */
     public void ret();
 
     /**
-       clear interrupt flag (7 clks)
-    */
+     * clear interrupt flag (7 clks)
+     */
     public void cli();
 
     /**
-       decrement byte value by 1 (1/3 clks)
+     * decrement byte value by 1 (1/3 clks)
      * @param opr
      */
     public void decb(Opr opr);
     
     /**
-       decrement long value by 1 (1/3 clks)
+     * decrement long value by 1 (1/3 clks)
      * @param ref
      */
     public void decl(Ref ref);
 
     /** 
-       decrement register by 1 (1 clks)
+     * decrement register by 1 (1 clks)
      * @param reg
      */
     public void decl(Reg reg);
 
     /**
-       Insert a pushl(reg)
+     * Insert a pushl(reg)
      * @param reg
-    */
+     */
     public void pushl(Reg reg);
 
     public void pushl(Ref ref);
@@ -182,41 +180,41 @@ public interface BinaryCodeDynamic {
     public void pushfl();
 
     /**
-       push all general registers
-       (eax,ecx,edx,ebx,esp,ebp,esi,edi) 
-       (5 clks)
-    */
+     * push all general registers
+     * (eax,ecx,edx,ebx,esp,ebp,esi,edi) 
+     * (5 clks)
+     */
     public void pushal();
 
     /** 
-       Insert a popl(reg)
+     * Insert a popl(reg)
      * @param reg
-    */
+     */
     public void popl(Reg reg);
 
     /**
-       pop stack into eflags register (4 clks)
-    */
+     * pop stack into eflags register (4 clks)
+     */
     public void popfl();
 
     /**
-       pop all general register
-    */
+     * pop all general register
+     */
     public void popal();
 
     /** 
-      lock prefix
+     * lock prefix
      */
     public void lock();
 
     /**
-     rep prefix
+     * rep prefix
      */
     public void repz();
 
 
     /** 
-       spinlocks
+     * spinlocks
      * @param lock
      */
     public void spin_lock(Ref lock);
@@ -224,7 +222,7 @@ public interface BinaryCodeDynamic {
     public void spin_unlock(Ref lock);
 
     /**
-       Integer Subtraction
+     * Integer Subtraction
      * @param src
      * @param des
      */
@@ -237,7 +235,7 @@ public interface BinaryCodeDynamic {
     public void subl(SymbolTableEntryBase entry, Opr des);
 
     /**
-       Integer Subtraction with Borrow
+     * Integer Subtraction with Borrow
      * @param src
      * @param des
      */
@@ -246,13 +244,13 @@ public interface BinaryCodeDynamic {
     public void sbbl(Reg src, Ref des);
     
     /**
-       Integer Unsigned Multiplication of eax  (10 clk)
+     * Integer Unsigned Multiplication of eax  (10 clk)
      * @param src
      */
     public void mull(Opr src);
 
     /**
-       Integer Signed Multiplication (10 clk)
+     * Integer Signed Multiplication (10 clk)
      * @param src
      * @param des
      */
@@ -267,19 +265,19 @@ public interface BinaryCodeDynamic {
     public void imull(SymbolTableEntryBase entry, Reg des);
 
     /**
-       increment by 1 (1/3 clks)
+     * increment by 1 (1/3 clks)
      * @param opr
      */
     public void incb(Opr opr);
 
     /** 
-       increment by 1 (1/3 clks)
+     * increment by 1 (1/3 clks)
      * @param ref
      */
     public void incl(Ref ref);
 
     /**
-       increment register by 1 (1 clks)
+     * increment register by 1 (1 clks)
      * @param reg
      */
     public void incl(Reg reg);
@@ -287,30 +285,28 @@ public interface BinaryCodeDynamic {
 
     /** 
 	lea Load Effective Address (1 clk)
-  
-        m = index * [0,1,2,4,8] + base + disp
-
-        base.disp(disp,index,[0,1,2,4,8])
+     *  m = index * [0,1,2,4,8] + base + disp
+     *  base.disp(disp,index,[0,1,2,4,8])
      * @param opr        
      * @param reg        
      */
     public void lea(Opr opr, Reg reg);
 
     /**
-       SHL/SAL Shift left (1/3 clks)
+     * SHL/SAL Shift left (1/3 clks)
      * @param immd
      * @param des
      */
     public void shll(int immd, Opr des);
 
     /**
-       SHL/SAL Shift left by %cl (4 clks)
+     * SHL/SAL Shift left by %cl (4 clks)
      * @param des
      */
     public void shll(Opr des);
 
     /**
-       SHLD Double Precision Shift left (4 clks)
+     * SHLD Double Precision Shift left (4 clks)
      * @param immd
      * @param low
      * @param des
@@ -318,14 +314,14 @@ public interface BinaryCodeDynamic {
     public void shld(int immd, Reg low, Opr des);
 
     /**
-       SHLD Double Precision Shift left by %cl (4/5 clks)
+     * SHLD Double Precision Shift left by %cl (4/5 clks)
      * @param low
      * @param des
      */
     public void shld(Reg low, Opr des);
 
     /**
-       SHR Shift right (1/3 clks)
+     * SHR Shift right (1/3 clks)
      * @param immd
      * @param des
      */
@@ -335,47 +331,41 @@ public interface BinaryCodeDynamic {
     public void shrl(SymbolTableEntryBase entry, Opr des);
 
     /**
-       SHL/SAL Shift left by %cl (4 clks)
+     * SHL/SAL Shift left by %cl (4 clks)
      * @param des
      */
-
     public void shrl(Opr des);
 
     /**
-       SAR Shift right (signed) (1/3 clks)
+     * SAR Shift right (signed) (1/3 clks)
      * @param immd
      * @param des
      */
-
     public void sarl(int immd, Opr des);
 
     /**
-       SAR Shift right by %cl (signed) (4 clks)
+     * SAR Shift right by %cl (signed) (4 clks)
      * @param des
      */
-
     public void sarl(Opr des);
 
     /**
-       DIV Signed Divide
+     * DIV Signed Divide
      * @param src
      */
-
     public void idivl(Opr src);
 
     /**
-       DIV Unsigned Divide
+     * DIV Unsigned Divide
      * @param src
      */
-
     public void divl(Opr src);
 
     /**
-       Add
+     * Add
      * @param src
      * @param des
      */
-
     public void addl(Opr src, Reg des);
 
     public void addl(Reg src, Ref des);
@@ -385,9 +375,8 @@ public interface BinaryCodeDynamic {
     public void addl(SymbolTableEntryBase entry, Opr des);
  
     /**
-       And (1/3 clks)
+     * And (1/3 clks)
      */
-
     public void andl(Opr src, Reg des);
 
     public void andl(Reg src, Ref des);
@@ -397,9 +386,8 @@ public interface BinaryCodeDynamic {
     public void andl(SymbolTableEntryBase entry, Opr des);
 
     /**
-       Or (1/3 clks)
+     * Or (1/3 clks)
      */
-
     public void orl(Opr src, Reg des);
 
     public void orl(Reg src, Ref des);
@@ -409,9 +397,8 @@ public interface BinaryCodeDynamic {
     public void orl(SymbolTableEntryBase entry, Opr des);
     
     /**
-       Or (1/3 clks)
+     * Or (1/3 clks)
      */
-
     public void xorl(Opr src, Reg des);
 
     public void xorl(Reg src, Ref des);
@@ -421,29 +408,25 @@ public interface BinaryCodeDynamic {
     public void xorl(SymbolTableEntryBase entry, Opr des);
 
     /**
-       Not (1/3 clks)
+     * Not (1/3 clks)
      */
-
     public void notl(Opr opr);
 
     /**
-       Neg (1/3 clks)
-    */
-
+     * Neg (1/3 clks)
+     */
     public void negl(Opr opr);
 
     /**
-       Add with Carry
-    */
-
+     * Add with Carry
+     */
     public void adcl(Opr src, Reg des);
 
     public void adcl(Reg src, Ref des);
 
     /**
-       Compare Two Operands
-    */
-
+     * Compare Two Operands
+     */
     public void cmpb(int immd, Opr des);
 
     public void cmpl(Opr src, Reg des);
@@ -465,17 +448,15 @@ public interface BinaryCodeDynamic {
 
 
     /**
-       Jump short/near if equal
-    */
-
+     * Jump short/near if equal
+     */
     public void je(int rel);
 
     public void je(SymbolTableEntryBase entry);
 
     /**
-       Jump short/near if not equal
+     * Jump short/near if not equal
      */
-
     public void jne(int rel);
 
     public void jne(SymbolTableEntryBase entry);
@@ -483,51 +464,43 @@ public interface BinaryCodeDynamic {
     public void jnae(SymbolTableEntryBase entry);
 
     /**
-       Jump short/near if less
+     * Jump short/near if less
      */
-
     public void jl(SymbolTableEntryBase entry);
     
     /**
-       Jump short/near if greater or equal
+     * Jump short/near if greater or equal
      */
-
     public void jge(SymbolTableEntryBase entry);
     
     /**
-       Jump short/near if greater
+     * Jump short/near if greater
      */
-    
     public void jg(SymbolTableEntryBase entry);
 
     /**
-       Jump short/near if less or equal
+     * Jump short/near if less or equal
      */
-
     public void jle(SymbolTableEntryBase entry);
 
     /**
-       Jump short/near if unsigned greater
+     * Jump short/near if unsigned greater
      */
-
     public void ja(SymbolTableEntryBase entry);
 
     /**
-       Jump short/near if unsigned greater or equal
+     * Jump short/near if unsigned greater or equal
      */
-
     public void jae(SymbolTableEntryBase entry);
 
     /**
-       Jump short/near if sign
+     * Jump short/near if sign
      */
-
     public void js(int rel);
   
     /**
-       Jump short/near 
+     * Jump short/near 
      */
-
     public void jmp(int rel);
 
     public void jmp(Opr des);
@@ -537,9 +510,8 @@ public interface BinaryCodeDynamic {
     public void jmp(Reg index,SymbolTableEntryBase[] tables);
 
     /**
-       Move 8 Bit Data
+     * Move 8 Bit Data
      */
-
     public void movb(Opr src, Reg des);
 
     public void movb(Reg src, Ref des);
@@ -549,15 +521,13 @@ public interface BinaryCodeDynamic {
     /** 
 	Move 16 Bit Data
      */
-
     public void movw(Opr src, Reg des);
 
     public void movw(Reg src, Ref des);
 
     /**
-       Move 32 Bit Data
+     * Move 32 Bit Data
      */
-
     public void movl(Opr src, Reg des);
 
     public void movl(Reg src, Ref des);
@@ -566,11 +536,12 @@ public interface BinaryCodeDynamic {
     public void movl(SymbolTableEntryBase entry, Opr des);
 
     /**
-       Move with Zero-Extend (short) (3 clks)
+     * Move with Zero-Extend (short) (3 clks)
      */
     public void movzwl(Opr src, Reg des);
+    
     /**
-       move with Zero-Extend (byte) (3 clks)
+     * move with Zero-Extend (byte) (3 clks)
      */
     public void movzbl(Opr src, Reg des);
 
@@ -587,7 +558,6 @@ public interface BinaryCodeDynamic {
     /**
        No Operation (1 clks)
      */
-
     public void nop();
 
     /**

@@ -5,12 +5,10 @@
  */
 package nl.lxtreme.arm.memory;
 
-
 import j51.intel.Code;
 import jCPU.MemoryReadListener;
 import jCPU.MemoryWriteListener;
 import java.util.*;
-
 
 /**
  * Denotes a memory map, containing various chunks of data.

@@ -4,15 +4,10 @@ package nl.lxtreme.arm;
 /**
  *
  * @author xuyi
+ * Denotes the "Current Program Status Register" (CPSR).
  */
-public 
-  /**
-   * Denotes the "Current Program Status Register" (CPSR).
-   */
-  class Cpsr
-  {
+public class Cpsr{
     // VARIABLES
-
     boolean n; // 31
     boolean z; // 30
     boolean c; // 29

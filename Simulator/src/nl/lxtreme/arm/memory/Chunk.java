@@ -5,10 +5,8 @@
  */
 package nl.lxtreme.arm.memory;
 
-
 import java.io.*;
 import java.util.*;
-
 
 /**
  * Denotes a "chunk" of memory, located at a certain address and with a certain
