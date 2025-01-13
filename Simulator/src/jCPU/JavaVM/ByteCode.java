@@ -89,30 +89,6 @@ public class ByteCode {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public static int popInt(VmStackFrame stack) {
-        return stack.pop().getInt();
-    }
-
-    public static double popDouble(VmStackFrame stack) {
-        return stack.pop().getDouble();
-    }
-
-    public static void pushInt(VmStackFrame stack, int i) {
-        stack.push(i);
-    }
-    
-    public static void pushRef(VmStackFrame stack, int i) {
-        stack.push(i);
-    }
-    
-    public static void pushDouble(VmStackFrame stack, double i) {
-        stack.push(i);
-    }
-    
-    public static VmStackEntry popEntry(VmStackFrame stack){
-        return stack.pop();
-    }
-
     private VmConstMethodRef findMethodRef(VmCP cp, int method_index) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
@@ -256,7 +232,7 @@ int op_invokevirtual(char[] opCode, VmStackFrame stack, VmCP cp)
         String clsName = getUTF8String(cp, clasz.stringIndex);
         //System.out.print("call object ref class %s\n", clsName);
         if (clzNamePrint.equals(clsName)) {
-            VmStackEntry entry = popEntry(stack);
+            VmStackEntry entry = stack.pop();
             int index = entry.getInt();
             //System.out.print("call Println with index = %d\n", index);
             if (entry.type == VmStackFrame.STACK_ENTRY_REF) {
@@ -279,7 +255,7 @@ int op_invokevirtual(char[] opCode, VmStackFrame stack, VmCP cp)
             //System.out.print("%s\n", stringBuilderBuffer);
             stringBuilderUsed = 0;
         } else if (clzNameStrBuilder.equals(clsName)) {
-            VmStackEntry entry = popEntry(stack);
+            VmStackEntry entry = stack.pop();
             int index = entry.getInt();
             //System.out.print("call StringBuilder with index = %d\n", index);
             if (entry.type == VmStackFrame.STACK_ENTRY_REF) {

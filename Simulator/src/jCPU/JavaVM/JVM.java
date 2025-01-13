@@ -34,7 +34,6 @@ public class JVM extends j51.intel.MCS51 {
     public String getDecodeAt(int pc)
     {
         char c = (char)code(pc);
-        //bytecode = new ByteCode(code);
         try {
             String result = ByteCode.findOpCode(c).getDescription();
             if (result != null) return Disassembler.toHexInt(c) + result;
@@ -96,7 +95,6 @@ public class JVM extends j51.intel.MCS51 {
     @Override
     public int getLengthAt(int pc){
         char c = (char)code(pc);
-        //bytecode = new ByteCode(code);
         try {
             return ByteCode.findOpCode(c).getLength();
         } catch (Exception e){

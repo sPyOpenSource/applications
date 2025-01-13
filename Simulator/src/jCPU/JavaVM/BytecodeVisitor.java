@@ -368,7 +368,7 @@ public abstract class BytecodeVisitor {
     int op_ldc(char[] opCode)
     {
         int value = opCode[1];
-        ByteCode.pushRef(stack, value);
+        stack.push(value);
         //System.out.print("ldc: push a constant index %d onto the stack \n", value);
         return 0;
     }
@@ -379,7 +379,7 @@ public abstract class BytecodeVisitor {
         char index1 = opCode[1];
         char index2 = opCode[2];
         int index = (index1 << 8) | index2;
-        ByteCode.pushRef(stack, index);
+        stack.push(index);
         //System.out.print("ldc2_w: push a constant index %d onto the stack \n", index);
         return 0;
     }
@@ -393,7 +393,7 @@ public abstract class BytecodeVisitor {
         tmp[1] = opCode[2];
         value =(short) (tmp[0] << 8 | tmp[1]);
         //System.out.print("sipush value %d\n", value);
-        ByteCode.pushInt(stack, value);
+        stack.push(value);
         return 0;
     }
 
@@ -420,7 +420,7 @@ public abstract class BytecodeVisitor {
     /* aload_0 */
     int op_aload_0()
     {
-        ByteCode.pushInt(stack, 0);
+        stack.push(0);
         System.out.print("push 0 into stack\n");
         return 0;
     }
@@ -429,7 +429,7 @@ public abstract class BytecodeVisitor {
     int op_bipush(char[] opCode)
     {
         int value = opCode[1];
-        ByteCode.pushInt(stack, value);
+        stack.push(value);
         //System.out.print("push a byte %d onto the stack \n", value);
         return 0;
     }
@@ -437,14 +437,14 @@ public abstract class BytecodeVisitor {
     /* dup */
     int op_dup()
     {
-        VmStackEntry entry = ByteCode.popEntry(stack);
+        VmStackEntry entry = stack.pop();
         int value = entry.getInt();
         if (entry.type == VmStackFrame.STACK_ENTRY_INT) {
-            ByteCode.pushInt(stack, value);
-            ByteCode.pushInt(stack, value);
+            stack.push(value);
+            stack.push(value);
         } else {
-            ByteCode.pushRef(stack, value);
-            ByteCode.pushRef(stack, value);
+            stack.push(value);
+            stack.push(value);
         }
         System.out.print("dup\n");
         return 0;
@@ -459,25 +459,25 @@ public abstract class BytecodeVisitor {
         tmp[1] = opCode[2];
         field_index = tmp[0] << 8 | tmp[1];
         //System.out.print("get %d\n", field_index);
-        ByteCode.pushRef(stack, field_index);
+        stack.push(field_index);
         return 0;
     }
 
     /* iadd */
     int op_iadd()
     {
-        int value1 = ByteCode.popInt(stack);
-        int value2 = ByteCode.popInt(stack);
+        int value1 = stack.pop().getInt();
+        int value2 = stack.pop().getInt();
         int result = value1 + value2;
         //System.out.print("iadd: %d + %d = %d\n", value1, value2, result);
-        ByteCode.pushInt(stack, result);
+        stack.push(result);
         return 0;
     }
 
     /* iconst_0 */
     int op_iconst_0()
     {
-        ByteCode.pushInt(stack, 0);
+        stack.push(0);
         System.out.print("iconst_0: push 0 into stack\n");
         return 0;
     }
@@ -485,7 +485,7 @@ public abstract class BytecodeVisitor {
     /* iconst_1 */
     int op_iconst_1()
     {
-        ByteCode.pushInt(stack, 1);
+        stack.push(1);
         System.out.print("iconst_1: push 1 into stack\n");
         return 0;
     }
@@ -493,7 +493,7 @@ public abstract class BytecodeVisitor {
     /* iconst_2 */
     int op_iconst_2()
     {
-        ByteCode.pushInt(stack, 2);
+        stack.push(2);
         System.out.print("iconst_2: push 1 into stack\n");
         return 0;
     }
@@ -501,7 +501,7 @@ public abstract class BytecodeVisitor {
     /* iconst_3 */
     int op_iconst_3()
     {
-        ByteCode.pushInt(stack, 3);
+        stack.push(3);
         System.out.print("iconst_3: push 1 into stack\n");
         return 0;
     }
@@ -509,7 +509,7 @@ public abstract class BytecodeVisitor {
     /* iconst_4 */
     int op_iconst_4()
     {
-        ByteCode.pushInt(stack, 4);
+        stack.push(4);
         System.out.print("iconst_4: push 1 into stack\n");
         return 0;
     }
@@ -517,7 +517,7 @@ public abstract class BytecodeVisitor {
     /* iconst_5 */
     int op_iconst_5()
     {
-        ByteCode.pushInt(stack, 5);
+        stack.push(5);
         System.out.print("iconst_5: push 5 into stack\n");
         return 0;
     }
@@ -525,7 +525,7 @@ public abstract class BytecodeVisitor {
     /* 0x0F dconst_1 */
     int op_dconst_1()
     {
-        ByteCode.pushDouble(stack, 1.0f);
+        stack.push(1.0f);
         System.out.print("iconst_5: push 1.0f into stack\n");
         return 0;
     }
@@ -533,11 +533,11 @@ public abstract class BytecodeVisitor {
     /* idiv */
     int op_idiv()
     {
-        int value2 = ByteCode.popInt(stack);
-        int value1 = ByteCode.popInt(stack);
+        int value2 = stack.pop().getInt();
+        int value1 = stack.pop().getInt();
         int result = value1 / value2;
         //System.out.print("idiv: %d / %d = %d\n", value1, value2, result);
-        ByteCode.pushInt(stack, result);
+        stack.push(result);
         return 0;
     }
 
@@ -547,7 +547,7 @@ public abstract class BytecodeVisitor {
         int index = opCode[1];
         int value = localVariables.integer[index];
         //System.out.print("iload: load value from local variable %d(%d)\n", index, localVariables.integer[index]);
-        ByteCode.pushInt(stack, value);
+        stack.push(value);
         return 0;
     }
 
@@ -556,7 +556,7 @@ public abstract class BytecodeVisitor {
     {
         int value = localVariables.integer[1];
         //System.out.print("iload_1: load value from local variable 1(%d)\n", localVariables.integer[1]);
-        ByteCode.pushInt(stack, value);
+        stack.push(value);
         return 0;
     }
 
@@ -565,7 +565,7 @@ public abstract class BytecodeVisitor {
     {
         int value = localVariables.integer[2];
         //System.out.print("iload_2: load value from local variable 2(%d)\n", localVariables.integer[2]);
-        ByteCode.pushInt(stack, value);
+        stack.push(value);
         return 0;
     }
 
@@ -574,18 +574,18 @@ public abstract class BytecodeVisitor {
     {
         int value = localVariables.integer[3];
         //System.out.print("iload_3: load value from local variable 3(%d)\n", localVariables.integer[3]);
-        ByteCode.pushInt(stack, value);
+        stack.push(value);
         return 0;
     }
 
     /* imul */
     int op_imul()
     {
-        int value1 = ByteCode.popInt(stack);
-        int value2 = ByteCode.popInt(stack);
+        int value1 = stack.pop().getInt();
+        int value2 = stack.pop().getInt();
         int result = value1 * value2;
         // System.out.print("imul: %d * %d = %d\n", value1, value2, result);
-        ByteCode.pushInt(stack, result);
+        stack.push(result);
         return 0;
     }
 
@@ -596,7 +596,7 @@ public abstract class BytecodeVisitor {
         double value2 = stack.get_double_parameter(cp);
         double result = value1 + value2;
         //System.out.print("dadd: %f + %f = %f\n", value1, value2, result);
-        ByteCode.pushDouble(stack, result);
+        stack.push(result);
         return 0;
     }
 
@@ -607,35 +607,35 @@ public abstract class BytecodeVisitor {
         double value2 = stack.get_double_parameter(cp);
         double result = value1 * value2;
         // System.out.print("dmul: %f * %f = %f\n", value1, value2, result);
-        ByteCode.pushDouble(stack, result);
+        stack.push(result);
         return 0;
     }
 
     /* 0x8e d2i */
     int op_d2i()
     {
-        double value1 = ByteCode.popDouble(stack);
+        double value1 = stack.pop().getDouble();
         int result = (int)value1;
         // System.out.print("d2i: %d <-- %f\n", result, value1);
-        ByteCode.pushInt(stack, result);
+        stack.push(result);
         return 0;
     }
 
     /* irem */
     int op_irem()
     {
-        int value1 = ByteCode.popInt(stack);
-        int value2 = ByteCode.popInt(stack);
+        int value1 = stack.pop().getInt();
+        int value2 = stack.pop().getInt();
         int result = value2 % value1;
         // System.out.print("irem: %d mod %d = %d\n", value2, value1, result);
-        ByteCode.pushInt(stack, result);
+        stack.push(result);
         return 0;
     }
 
     /* istore */
     int op_istore(char[] opCode)
     {
-        int value = ByteCode.popInt(stack);
+        int value = stack.pop().getInt();
         int index = opCode[1];
         // System.out.print("istore: store value into local variable %d(%d)\n", index, value);
         localVariables.integer[index] = value;
@@ -645,7 +645,7 @@ public abstract class BytecodeVisitor {
     /* istore_1 */
     int op_istore_1()
     {
-        int value = ByteCode.popInt(stack);
+        int value = stack.pop().getInt();
         // System.out.print("istore_1: store value into local variable 1(%d)\n", value);
         localVariables.integer[1] = value;
         return 0;
@@ -654,7 +654,7 @@ public abstract class BytecodeVisitor {
     /* istore_2 */
     int op_istore_2()
     {
-        int value = ByteCode.popInt(stack);
+        int value = stack.pop().getInt();
         // System.out.print("istore_2: store value into local variable 2(%d)\n", value);
         localVariables.integer[2] = value;
         return 0;
@@ -663,7 +663,7 @@ public abstract class BytecodeVisitor {
     /* istore_3 */
     int op_istore_3()
     {
-        int value = ByteCode.popInt(stack);
+        int value = stack.pop().getInt();
         // System.out.print("istore_3: store value into local variable 3(%d)\n", value);
         localVariables.integer[3] = value;
         return 0;
@@ -672,11 +672,11 @@ public abstract class BytecodeVisitor {
     /* isub */
     int op_isub()
     {
-        int value2 = ByteCode.popInt(stack);
-        int value1 = ByteCode.popInt(stack);
+        int value2 = stack.pop().getInt();
+        int value1 = stack.pop().getInt();
         int result = value1 - value2;
         // System.out.print("isub : %d - %d = %d\n", value1, value2, result);
-        ByteCode.pushInt(stack, result);
+        stack.push(result);
         return 0;
     }
 }
