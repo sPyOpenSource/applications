@@ -1,5 +1,5 @@
 
-package jCPU.JavaVM.vm;
+package jCPU.JavaVM;
 
 import jCPU.Opcode;
 import java.util.function.Function;

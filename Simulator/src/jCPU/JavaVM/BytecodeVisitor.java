@@ -27,9 +27,6 @@ import jCPU.JavaVM.vm.VmConstIMethodRef;
 import jCPU.JavaVM.vm.VmConstMethodRef;
 import jCPU.JavaVM.vm.VmConstString;
 import jCPU.JavaVM.vm.VmMethod;
-import jCPU.JavaVM.vm.VmStackEntry;
-import jCPU.JavaVM.vm.VmStackFrame;
-
 
 /**
  * <description>

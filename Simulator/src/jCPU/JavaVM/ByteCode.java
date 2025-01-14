@@ -1,7 +1,6 @@
 
 package jCPU.JavaVM;
 
-import jCPU.JavaVM.vm.VmOpcode;
 import jCPU.JavaVM.vm.VmCP;
 import jCPU.JavaVM.vm.VmConstMethodRef;
 import jCPU.JavaVM.vm.VmMethod;

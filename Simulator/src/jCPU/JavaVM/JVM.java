@@ -4,9 +4,6 @@ package jCPU.JavaVM;
 import static jCPU.JavaVM.ByteCode.findOpCode;
 import jCPU.JavaVM.vm.VmCP;
 import jCPU.JavaVM.vm.VmConstMethodRef;
-import jCPU.JavaVM.vm.VmOpcode;
-import jCPU.JavaVM.vm.VmStackEntry;
-import jCPU.JavaVM.vm.VmStackFrame;
 import jx.disass.Disassembler;
 //import jx.verifier.Verifier;
 

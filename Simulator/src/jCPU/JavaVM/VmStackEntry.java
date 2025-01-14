@@ -1,5 +1,5 @@
 
-package jCPU.JavaVM.vm;
+package jCPU.JavaVM;
 
 /**
  *

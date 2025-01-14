@@ -1,5 +1,7 @@
 
-package jCPU.JavaVM.vm;
+package jCPU.JavaVM;
+
+import jCPU.JavaVM.vm.VmCP;
 
 /**
  *
