@@ -4,14 +4,15 @@ package jCPU.JavaVM;
 import jCPU.JavaVM.vm.VmCP;
 import jCPU.JavaVM.vm.VmConstMethodRef;
 import jCPU.JavaVM.vm.VmMethod;
-
-import java.util.function.Function;
-import j51.intel.Code;
 import jCPU.JavaVM.vm.AttributeInfo;
 import jCPU.JavaVM.vm.CodeAttribute;
 import jCPU.JavaVM.vm.ConstantNameAndType;
 import jCPU.JavaVM.vm.VmConstClass;
 import jCPU.JavaVM.vm.VmConstString;
+
+import java.util.function.Function;
+import j51.intel.Code;
+
 
 /**
  *

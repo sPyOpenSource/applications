@@ -2,8 +2,8 @@
 package jCPU.JavaVM;
 
 import jCPU.Opcode;
-import java.util.function.Function;
 import jCPU.iCPU;
+import java.util.function.Function;
 
 /**
  *
