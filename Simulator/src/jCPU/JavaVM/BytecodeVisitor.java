@@ -20,6 +20,8 @@
  
 package jCPU.JavaVM;
 
+import jCPU.JavaVM.vm.LocalVariables;
+import jCPU.JavaVM.vm.SimpleMethodPool;
 import jCPU.JavaVM.vm.VmCP;
 import jCPU.JavaVM.vm.VmConstClass;
 import jCPU.JavaVM.vm.VmConstFieldRef;
@@ -36,8 +38,8 @@ import jCPU.JavaVM.vm.VmMethod;
 public abstract class BytecodeVisitor {
     private VmStackFrame stack;
     private VmCP cp;
-    private ByteCode.LocalVariables localVariables;
-    public static ByteCode.SimpleMethodPool simpleMethodPool;
+    private LocalVariables localVariables;
+    public static SimpleMethodPool simpleMethodPool;
 
     public abstract void setParser(BytecodeParser parser);
 

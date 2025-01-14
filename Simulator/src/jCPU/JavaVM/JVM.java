@@ -2,8 +2,13 @@
 package jCPU.JavaVM;
 
 import static jCPU.JavaVM.ByteCode.findOpCode;
+import jCPU.JavaVM.vm.CodeAttribute;
+import jCPU.JavaVM.vm.ConstantNameAndType;
+import jCPU.JavaVM.vm.MethodInfo;
 import jCPU.JavaVM.vm.VmCP;
+import jCPU.JavaVM.vm.VmConstClass;
 import jCPU.JavaVM.vm.VmConstMethodRef;
+import jCPU.JavaVM.vm.VmConstString;
 import jx.disass.Disassembler;
 //import jx.verifier.Verifier;
 
@@ -51,10 +56,10 @@ public class JVM extends j51.intel.MCS51 {
         }
     }
     
-    int executeMethod(ByteCode.MethodInfo startup)
+    int executeMethod(MethodInfo startup)
     {
         int i = 0;
-        ByteCode.CodeAttribute ca = null;
+        CodeAttribute ca = null;
         for (int j = 0 ; j < startup.attributes_count ; j++) {
             ca = bytecode.convertToCodeAttribute(startup.attributes[j]);
             String name = bytecode.getUTF8String(ca.attribute_name_index);
@@ -92,7 +97,7 @@ public class JVM extends j51.intel.MCS51 {
         method_index = tmp[0] << 8 | tmp[1];
         // System.out.print("call method_index %d\n", method_index);
         if (method_index < BytecodeVisitor.simpleMethodPool.method_used) {
-            ByteCode.MethodInfo method = BytecodeVisitor.simpleMethodPool.method[method_index];
+            MethodInfo method = BytecodeVisitor.simpleMethodPool.method[method_index];
             executeMethod(method);
         }
         return 0;
@@ -110,14 +115,14 @@ public class JVM extends j51.intel.MCS51 {
         // System.out.print("invoke method_index %d\n", method_index);
         // System.out.print("simpleMethodPool.method_used = %d\n", simpleMethodPool.method_used);
         if (method_index < BytecodeVisitor.simpleMethodPool.method_used) {
-            ByteCode.MethodInfo method = BytecodeVisitor.simpleMethodPool.method[method_index];
+            MethodInfo method = BytecodeVisitor.simpleMethodPool.method[method_index];
             method_name = bytecode.getUTF8String(method.name_index);
             //System.out.print(" method name = %s\n", method_name);
         } else {
             VmConstMethodRef mRef = bytecode.findMethodRef(method_index);
             if (mRef !=null) {
-                ByteCode.ConstantClassRef clasz = bytecode.findClassRef(mRef.classIndex);
-                ByteCode.ConstantNameAndType nat = bytecode.findNameAndType(mRef.nameAndTypeIndex);
+                VmConstClass clasz = bytecode.findClassRef(mRef.classIndex);
+                ConstantNameAndType nat = bytecode.findNameAndType(mRef.nameAndTypeIndex);
                 if (clasz == null || nat == null) return -1;
                 clsName = bytecode.getUTF8String(clasz.stringIndex);
                 method_name = bytecode.getUTF8String(nat.nameIndex);
@@ -149,8 +154,8 @@ public class JVM extends j51.intel.MCS51 {
         //System.out.print("call object_ref %d\n", object_ref);
         VmConstMethodRef mRef = bytecode.findMethodRef(object_ref);
         if (mRef != null) {
-            ByteCode.ConstantClassRef clasz = bytecode.findClassRef(mRef.classIndex);
-            ByteCode.ConstantNameAndType nat = bytecode.findNameAndType(mRef.nameAndTypeIndex);
+            VmConstClass clasz = bytecode.findClassRef(mRef.classIndex);
+            ConstantNameAndType nat = bytecode.findNameAndType(mRef.nameAndTypeIndex);
             if (clasz == null || nat == null) return -1;
             String clsName = bytecode.getUTF8String(clasz.stringIndex);
             //System.out.print("call object ref class %s\n", clsName);
@@ -159,7 +164,7 @@ public class JVM extends j51.intel.MCS51 {
                 int index = entry.getInt();
                 //System.out.print("call Println with index = %d\n", index);
                 if (entry.type == VmStackFrame.STACK_ENTRY_REF) {
-                    ByteCode.ConstantStringRef strRef = bytecode.findStringRef(index);
+                    VmConstString strRef = bytecode.findStringRef(index);
                     if (strRef != null) {
                         utf8 = bytecode.getUTF8String(strRef.stringIndex);
                         len = utf8.length();
@@ -182,7 +187,7 @@ public class JVM extends j51.intel.MCS51 {
                 int index = entry.getInt();
                 //System.out.print("call StringBuilder with index = %d\n", index);
                 if (entry.type == VmStackFrame.STACK_ENTRY_REF) {
-                    ByteCode.ConstantStringRef strRef = bytecode.findStringRef(index);
+                    VmConstString strRef = bytecode.findStringRef(index);
                     if (strRef != null) {
                         utf8 = bytecode.getUTF8String(strRef.stringIndex);
                         len = utf8.length();

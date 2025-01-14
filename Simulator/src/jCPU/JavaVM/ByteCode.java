@@ -7,6 +7,11 @@ import jCPU.JavaVM.vm.VmMethod;
 
 import java.util.function.Function;
 import j51.intel.Code;
+import jCPU.JavaVM.vm.AttributeInfo;
+import jCPU.JavaVM.vm.CodeAttribute;
+import jCPU.JavaVM.vm.ConstantNameAndType;
+import jCPU.JavaVM.vm.VmConstClass;
+import jCPU.JavaVM.vm.VmConstString;
 
 /**
  *
@@ -91,7 +96,7 @@ public class ByteCode {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public ConstantStringRef findStringRef(int index) {
+    public VmConstString findStringRef(int index) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -99,7 +104,7 @@ public class ByteCode {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public ConstantClassRef findClassRef(int classIndex) {
+    public VmConstClass findClassRef(int classIndex) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
@@ -109,61 +114,6 @@ public class ByteCode {
      * Copyright (C) 2014 Jim Huang <jserv.tw@gmail.com>
      * Copyright (C) 2013 Chun-Yu Wang <wicanr2@gmail.com>
      */
-    
-    public class ConstantNameAndType{
-        int nameIndex, typeIndex;
-        public ConstantNameAndType(){
-
-        }
-    }
-
-    public class ConstantStringRef{
-        public int stringIndex;
-        public ConstantStringRef(){
-
-        }
-    }
-
-    public class ConstantClassRef{
-        int stringIndex, classIndex;
-        public ConstantClassRef(){
-
-        }
-    }
-
-    public class CodeAttribute{
-        public char[] code;
-        int code_length, attribute_name_index, max_stack, max_locals, attribute_length;
-        public CodeAttribute(){
-
-        }
-    }
-
-    public class MethodInfo{
-        int attributes_count;
-        public AttributeInfo[] attributes;
-        public int name_index;
-        public MethodInfo(){
-
-        }
-    }
-
-    private class AttributeInfo{
-        int attribute_name_index, attribute_length;
-        char[] info;
-        public AttributeInfo(){
-
-        }
-    }
-
-    public class LocalVariables{
-        int[] integer;
-    }
-
-    public class SimpleMethodPool{
-        int method_used;
-        MethodInfo[] method;
-    }
 
     public CodeAttribute convertToCodeAttribute(AttributeInfo attr)
     {
