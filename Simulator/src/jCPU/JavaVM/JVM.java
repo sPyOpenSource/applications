@@ -3,6 +3,8 @@ package jCPU.JavaVM;
 
 import static jCPU.JavaVM.ByteCode.findOpCode;
 import jCPU.JavaVM.vm.CodeAttribute;
+import jCPU.JavaVM.vm.SimpleMethodPool;
+
 import jx.classfile.MethodData;
 import jx.classfile.constantpool.ClassCPEntry;
 import jx.classfile.constantpool.ConstantPool;
@@ -27,7 +29,8 @@ public class JVM extends j51.intel.MCS51 {
     private String clzNameStrBuilder = "java/lang/StringBuilder";
     private char[] stringBuilderBuffer = new char[1024];
     private int stringBuilderUsed = 0;
-    
+    private SimpleMethodPool simpleMethodPool;
+
     public JVM(VmStackFrame stack) {
         this.stack = stack;
     }
@@ -96,8 +99,8 @@ public class JVM extends j51.intel.MCS51 {
         tmp[1] = opCode[2];
         method_index = tmp[0] << 8 | tmp[1];
         // System.out.print("call method_index %d\n", method_index);
-        if (method_index < BytecodeVisitor.simpleMethodPool.method_used) {
-            MethodData method = BytecodeVisitor.simpleMethodPool.method[method_index];
+        if (method_index < simpleMethodPool.method_used) {
+            MethodData method = simpleMethodPool.method[method_index];
             executeMethod(method);
         }
         return 0;
@@ -114,8 +117,8 @@ public class JVM extends j51.intel.MCS51 {
         method_index = tmp[0] << 8 | tmp[1];
         // System.out.print("invoke method_index %d\n", method_index);
         // System.out.print("simpleMethodPool.method_used = %d\n", simpleMethodPool.method_used);
-        if (method_index < BytecodeVisitor.simpleMethodPool.method_used) {
-            MethodData method = BytecodeVisitor.simpleMethodPool.method[method_index];
+        if (method_index < simpleMethodPool.method_used) {
+            MethodData method = simpleMethodPool.method[method_index];
             method_name = method.getName();
             System.out.printf(" method name = %s\n", method_name);
         } else {

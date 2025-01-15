@@ -26,7 +26,6 @@ import jx.classfile.constantpool.ClassCPEntry;
 import jx.classfile.constantpool.ConstantPool;
 import jx.classfile.constantpool.FieldRefCPEntry;
 import jx.classfile.constantpool.InterfaceMethodRefCPEntry;
-import jx.classfile.constantpool.MethodRefCPEntry;
 
 /**
  * <description>

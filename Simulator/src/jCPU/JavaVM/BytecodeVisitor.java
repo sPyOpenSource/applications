@@ -21,7 +21,6 @@
 package jCPU.JavaVM;
 
 import jCPU.JavaVM.vm.LocalVariables;
-import jCPU.JavaVM.vm.SimpleMethodPool;
 import jx.classfile.MethodData;
 import jx.classfile.constantpool.ClassCPEntry;
 import jx.classfile.constantpool.ConstantPool;
@@ -39,7 +38,6 @@ public abstract class BytecodeVisitor {
     private VmStackFrame stack;
     private ConstantPool cp;
     private LocalVariables localVariables;
-    public static SimpleMethodPool simpleMethodPool;
 
     public abstract void setParser(BytecodeParser parser);
 
