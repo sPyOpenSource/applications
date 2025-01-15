@@ -1,7 +1,9 @@
 
 package jCPU.JavaVM;
 
-import jCPU.JavaVM.vm.VmCP;
+import jx.classfile.constantpool.ConstantPool;
+import jx.classfile.constantpool.NumericCPEntry;
+import jx.classfile.datatypes.BCDouble;
 
 /**
  *
@@ -73,12 +75,12 @@ public class VmStackFrame {
             throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
         }
         
-        public double get_double_parameter(VmCP cp)
+        public double get_double_parameter(ConstantPool cp)
         {
             double value;
             if (is_ref_entry()) {
                 int index = popInt();
-                value = cp.getDouble(index);
+                value = ((BCDouble)((NumericCPEntry)cp.entryAt(index)).value()).doubleValue();
                 //System.out.print("index %d\n", index);
                 //System.out.print("get value from constant pool = %f\n", value);
             } else {

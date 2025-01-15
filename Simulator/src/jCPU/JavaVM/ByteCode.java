@@ -1,17 +1,16 @@
 
 package jCPU.JavaVM;
 
-import jCPU.JavaVM.vm.VmCP;
-import jCPU.JavaVM.vm.VmConstMethodRef;
-import jCPU.JavaVM.vm.VmMethod;
-import jCPU.JavaVM.vm.AttributeInfo;
-import jCPU.JavaVM.vm.CodeAttribute;
-import jCPU.JavaVM.vm.ConstantNameAndType;
-import jCPU.JavaVM.vm.VmConstClass;
-import jCPU.JavaVM.vm.VmConstString;
-
 import java.util.function.Function;
 import j51.intel.Code;
+import jCPU.JavaVM.vm.AttributeInfo;
+import jCPU.JavaVM.vm.CodeAttribute;
+import jx.classfile.MethodData;
+import jx.classfile.constantpool.ClassCPEntry;
+import jx.classfile.constantpool.ConstantPool;
+import jx.classfile.constantpool.MethodRefCPEntry;
+import jx.classfile.constantpool.NameAndTypeCPEntry;
+import jx.classfile.constantpool.StringCPEntry;
 
 
 /**
@@ -20,7 +19,7 @@ import j51.intel.Code;
  */
 public class ByteCode {
     private Code code;
-    private VmCP cp;
+    private ConstantPool cp;
     
     static Function<JVM, Integer> op_aload_0 = cpu -> cpu.handler.op_aload_0();
     static Function<JVM, Integer> op_bipush;// = cpu -> cpu.handler.op_bipush(cpu.opCode);
@@ -81,15 +80,15 @@ public class ByteCode {
         return code;
     }
 
-    public VmCP getCP() {
+    public ConstantPool getCP() {
         return cp;
     }
 
-    public VmMethod getMethod() {
+    public MethodData getMethod() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public VmConstMethodRef findMethodRef(int method_index) {
+    public MethodRefCPEntry findMethodRef(int method_index) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -97,15 +96,15 @@ public class ByteCode {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public VmConstString findStringRef(int index) {
+    public StringCPEntry findStringRef(int index) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public ConstantNameAndType findNameAndType(int nameAndTypeIndex) {
+    public NameAndTypeCPEntry findNameAndType(int nameAndTypeIndex) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public VmConstClass findClassRef(int classIndex) {
+    public ClassCPEntry findClassRef(int classIndex) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
@@ -149,7 +148,7 @@ public class ByteCode {
         return null;
     }
 
-    void printCodeAttribute(CodeAttribute ca, VmCP cp)
+    void printCodeAttribute(CodeAttribute ca, ConstantPool cp)
     {
        String name = getUTF8String(ca.attribute_name_index);
        System.out.println("attribute name : " + name);
