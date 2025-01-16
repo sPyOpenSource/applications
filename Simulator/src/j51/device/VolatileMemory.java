@@ -3,7 +3,6 @@
  */
 package j51.device;
 
-
 import j51.intel.MemoryByte;
 import j51.util.Hex;
 import j51.util.Logger;
@@ -47,9 +46,9 @@ public class VolatileMemory implements iMemory
 		this(name, "memory", size);
 	}
 
-	public VolatileMemory(String name,String suffix,int size)
+	public VolatileMemory(String name, String suffix, int size)
 	{
-		this.name = name+"."+size+"."+suffix;
+		this.name = name + "." + size + "." + suffix;
 
 		/**
 		 * Defaul memory limit is 64K because the memory are
@@ -133,7 +132,7 @@ public class VolatileMemory implements iMemory
 	 * @version 1.00
 	 * @since 1.05
 	 */
-	private final void checkAddress(int address, String msg)
+	private void checkAddress(int address, String msg)
 	{
 		if (!isPresent(address))
 			throw new java.lang.Error(name + msg + " AT 0x" + Hex.bin2word(address) + " out of range, Max 0x" + Hex.bin2word(size));
@@ -197,20 +196,15 @@ public class VolatileMemory implements iMemory
 			{
 				b.writeBusy = true;
 
-				
 				for (int i = b.mw.size(); --i >= 0 ; ){
 					b.mw.get(i).writeMemory(address, newValue, oldValue);
                                 }
-
 
 				b.writeBusy = false;
 			} else {
 				log.log(Level.FINE, "Write busy at {0} Memory {1}", new Object[]{Hex.bin2word(address), this});
 			}
-
-
 		}
-
 	}
 
         @Override

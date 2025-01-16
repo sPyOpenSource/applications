@@ -4,6 +4,7 @@ package jCPU.JavaVM;
 import java.util.function.Function;
 import j51.intel.Code;
 import jCPU.JavaVM.vm.AttributeInfo;
+
 import jx.classfile.CodeData;
 import jx.classfile.MethodData;
 import jx.classfile.constantpool.ClassCPEntry;
@@ -17,7 +18,7 @@ import jx.classfile.constantpool.StringCPEntry;
  *
  * @author X. Wang
  */
-public class ByteCode {
+public class ByteCode implements jx.zero.ByteCode {
     private Code code;
     private ConstantPool cp;
     
@@ -146,7 +147,7 @@ public class ByteCode {
                 return byteCode;
             }
         }
-        return null;
+        return new VmOpcode(OPNAMES[op], op, OPNUMARGS[op] + 1, null);
     }
 
     void printCodeAttribute(CodeData ca, ConstantPool cp)
@@ -171,4 +172,49 @@ public class ByteCode {
            //pc += tmp;
        } while (i < pc.length);
    }
+
+    @Override
+    public jx.zero.ByteCode getPrev() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public jx.zero.ByteCode getNext() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public boolean isTarget() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public int mvCheckCount() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public int svCheckCount() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public int getOpCode() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public jx.zero.ByteCode[] getTargets() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public jx.zero.ByteCode[] getSources() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void mvCheckCount(int i) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

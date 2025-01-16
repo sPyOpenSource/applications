@@ -55,7 +55,7 @@ public class x86 extends j51.intel.MCS51 implements Visitor {
             //System.out.println(dis.disasmInstr());
             dis.code[i] = (byte)code(pc + i);
         }
-        return Disassembler.toHexInt(code(pc)) + dis.disasmInstr();
+        return "     " + Disassembler.toHexInt(code(pc)) + dis.disasmInstr();
     }
     
     @Override

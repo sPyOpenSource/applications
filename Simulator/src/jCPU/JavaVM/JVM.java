@@ -45,10 +45,10 @@ public class JVM extends j51.intel.MCS51 {
         char c = (char)code(pc);
         try {
             String result = ByteCode.findOpCode(c).getDescription();
-            if (result != null) return Disassembler.toHexInt(c) + result;
+            if (result != null) return "     " + Disassembler.toHexInt(c) + result;
         } catch (Exception e){
         }
-        return Disassembler.toHexInt(c) + "NULL";
+        return "     " + Disassembler.toHexInt(c) + "NULL";
     }
     
     @Override

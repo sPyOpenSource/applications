@@ -250,7 +250,7 @@ String ins = String.format("%08x ", instr);
             }
             offsetPC = false; // Reset the pc offset flag
 
-            return ins;
+            return "     " + ins;
     }
 
 	private String loadUpperImmediate(int instr) {

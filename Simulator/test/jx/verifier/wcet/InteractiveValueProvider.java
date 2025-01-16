@@ -1,6 +1,6 @@
 package jx.verifier.wcet;
 
-import jx.verifier.bytecode.ByteCode;
+import jx.zero.ByteCode;
 import jx.zero.Debug;
 import jx.zero.verifier.wcet.ExecutionTime;
 import jx.zero.verifier.wcet.ValueProvider;

@@ -1,6 +1,7 @@
 package jx.verifier;
 
 import jx.verifier.bytecode.ByteCode;
+import jx.verifier.bytecode.ExceptionHandler;
 import jx.zero.verifier.VerifierInterface;
 
 /** Class to hold all necessary information about the state of the JVM simulated during verification.*/
@@ -91,11 +92,11 @@ abstract public class JVMState {
 
 	//check all ExceptionHandlers
 	if (nextBC.eHandlers != null) {
-	    for (int i = 0; i < nextBC.eHandlers.length; i++) {
-		//state for the exception is 'this', because if an exception is thrown
-		//the bytecode has not changed the state yet!
-		nextBC.eHandlers[i].simulateException(this);
-	    }
+            for (ExceptionHandler eHandler : nextBC.eHandlers) {
+                //state for the exception is 'this', because if an exception is thrown
+                //the bytecode has not changed the state yet!
+                eHandler.simulateException(this);
+            }
 	}
 
 	//normal Simulation

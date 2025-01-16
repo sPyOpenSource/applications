@@ -110,6 +110,7 @@ public class ArmTest
   {
       System.out.println("testElfExample1");
     File elfFile = getFileResource("resources/helloWorld_static");
+    //File elfFile = new File("/Users/xuyi/Source/OS/armOS/lib/jcore/realmode");
     Elf elf = new Elf(elfFile);
 
     for (ProgramHeader ph : elf.getProgramHeaders()){

@@ -3,7 +3,7 @@ package jx.verifier;
 import java.util.Vector;
 import jx.zero.classfile.*;
 import jx.verifier.bytecode.BCLinkList;
-import jx.verifier.bytecode.ByteCode;
+import jx.zero.ByteCode;
 import jx.zero.verifier.VerifierInterface;
 
 /**Class for verification of one method.
@@ -94,9 +94,9 @@ public class MethodVerifier implements VerifierInterface {
 
 	checkQueue = new Vector();
 	ByteCode actBC = code.getFirst();
-	actBC.beforeState = initialState.copy();
+	actBC.beforeState(initialState.copy());
 	//make sure the state starts at actBC
-	actBC.beforeState.setNextBC(actBC);
+	actBC.getBeforeState().setNextBC(actBC);
 
 	//Initialize subroutines
 	srs = new Subroutines();
@@ -115,7 +115,7 @@ public class MethodVerifier implements VerifierInterface {
        * @exception VerifyException if verification fails for some bytecode/state.
        */
     public void continueChecks() throws VerifyException{
-	ByteCode actBC;
+	jx.verifier.bytecode.ByteCode actBC;
 	while (!checkQueue.isEmpty()) {
 	    //Check Queue must be LIFO!!!
 	    //FEHLER stimmt das: 
@@ -144,7 +144,7 @@ public class MethodVerifier implements VerifierInterface {
      */
     @Override
     public void checkBC(ByteCode e) {
-	if (e.mvCheckCount > 0)
+	if (e.mvCheckCount() > 0)
 	    return; //e is already in checkQueue
 	e.mvCheckCount++;
 	checkQueue.addElement(e);
@@ -158,7 +158,7 @@ public class MethodVerifier implements VerifierInterface {
     public void endChecks() {
 	//empty the checkQueue
 	while (!checkQueue.isEmpty()) {
-	    ((ByteCode) checkQueue.lastElement()).mvCheckCount = 0;
+	    ((ByteCode) checkQueue.lastElement()).mvCheckCount(0);
 	    checkQueue.removeElementAt(checkQueue.size()-1);
 	}
     }

@@ -17,6 +17,10 @@ import j51.intel.*;
 import j51.swing.*;
 import jx.classfile.ClassData;
 import jx.classfile.MethodData;
+import nl.lxtreme.arm.memory.Chunk;
+import nl.lxtreme.arm.memory.Memory;
+import nl.lxtreme.binutils.elf.Elf;
+import nl.lxtreme.binutils.elf.ProgramHeader;
 
 /**
  *
@@ -605,11 +609,27 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 						load(path);
                                             } else if(path.endsWith("bin") || !path.contains(".")){
                                                 File file = new File(path);
-                                                FileInputStream fis = new FileInputStream(file);
-                                                byte[] code = fis.readAllBytes();
-                                                for(int i = 0; i < code.length; i++){
-                                                    cpu.code(i, code[i]);
-                                                    if(i == 0x1000 - 1) break;
+                                                try {
+                                                    Elf elf = new Elf(file);
+                                                    Memory m = new Memory();
+                                                    for (ProgramHeader ph : elf.getProgramHeaders()){
+                                                      int size = (int) ph.getMemorySize();
+                                                      if (size <= 0){
+                                                        continue;
+                                                      }
+                                                      Chunk chunk = m.create(ph.getVirtualAddress(), size);
+                                                      elf.readSegment(ph, chunk);
+                                                    }
+                                                    for(int i = 0; i < 0x1000; i++){
+                                                        cpu.code(i, m.read((int)(i + elf.getHeader().getEntryPoint())));
+                                                    }
+                                                } catch (Exception ex){
+                                                    FileInputStream fis = new FileInputStream(file);
+                                                    byte[] code = fis.readAllBytes();
+                                                    for(int i = 0; i < code.length; i++){
+                                                        cpu.code(i, code[i + 0x1000]);
+                                                        if(i == 0x1000 - 1) break;
+                                                    }
                                                 }
                                             } else if(path.endsWith("class")){
                                                 File file = new File(path);

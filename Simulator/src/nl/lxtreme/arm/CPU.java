@@ -465,7 +465,7 @@ this.code = memory;*/
 
     /* Read opcode */
     int opcode = this.code.read32(pc);
-String ins = String.format("%08x ", opcode);
+String ins = String.format("     %08X ", opcode);
     //System.out.printf("(%08x) ", opcode);
 
     /* Update PC */

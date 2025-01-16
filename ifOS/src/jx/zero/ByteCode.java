@@ -1,6 +1,7 @@
 
 package jx.zero;
 
+
 /**
  *
  * @author xuyi
@@ -320,14 +321,16 @@ public interface ByteCode {
     
 
     //for a double linked list of bytecodes
-    public ByteCode prev = null;
-    public ByteCode next = null;
+    public ByteCode getPrev();
+    public ByteCode getNext();
 
-    public boolean isTarget = false;
-    public int mvCheckCount = 0; //counts how often this is in checkQueue of a methodverifier
-    public int svCheckCount = 0; //how often in checkQueue of SubroutineVerifier
+    public boolean isTarget();
+    public int mvCheckCount(); //counts how often this is in checkQueue of a methodverifier
+    public int svCheckCount(); //how often in checkQueue of SubroutineVerifier
 
     public int getOpCode();
     public ByteCode[] getTargets();
     public ByteCode[] getSources();
+
+    public void mvCheckCount(int i);
 }
