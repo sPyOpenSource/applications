@@ -32,7 +32,6 @@ public class IsaSim extends Decoder {
     public final static boolean DEBUGGING = false;
 
     // Static variables used throughout the simulator
-    static int pc = INITIAL_PC; // Program counter (counting in bytes)
     static int reg[] = new int[32]; // 32 registers
 
     // A single memory for instructions and data allowing "byte addressing"
@@ -50,6 +49,7 @@ public class IsaSim extends Decoder {
             Logger.getLogger(IsaSim.class.getName()).log(Level.SEVERE, null, ex);
         }*/
         reg[2] = INITIAL_SP; // Reset stack pointer
+        pc = INITIAL_PC;
     }
         
     @Override

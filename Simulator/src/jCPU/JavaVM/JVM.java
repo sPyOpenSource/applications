@@ -3,7 +3,6 @@ package jCPU.JavaVM;
 
 import static jCPU.JavaVM.ByteCode.findOpCode;
 import jCPU.JavaVM.vm.SimpleMethodPool;
-import jx.classfile.CodeData;
 
 import jx.classfile.MethodData;
 import jx.classfile.constantpool.ClassCPEntry;
@@ -55,29 +54,27 @@ public class JVM extends j51.intel.MCS51 {
     @Override
     public void go(int limit) throws Exception{
         while(true){
-            executeMethod(null);
+            step();
         }
     }
     
-    int executeMethod(MethodData startup)
+    @Override
+    public int step()
     {
-        int i = 0;
-        CodeData ca =startup.getCode();
+        //CodeData ca =startup.getCode();
         System.out.print("----------------------------------------\n");
         System.out.print("code dump\n");
-        bytecode.printCodeAttribute(ca, bytecode.getCP());
+        //bytecode.printCodeAttribute(ca, bytecode.getCP());
         System.out.print("----------------------------------------\n");
-        byte[] pc = ca.getBytecode();
+        //byte[] pc = ca.getBytecode();
         if (!run){
             System.exit(1);
         }
-        do {
-            VmOpcode func = findOpCode((char)pc[i]);
-            if (func != null) {
-                //if ((Integer)func.exec(new JVM(stack, cp), i) < 0) break;
-            }
-            i += findOpCode((char)pc[i]).getLength();
-        } while (i < pc.length);
+        VmOpcode func = findOpCode((char)code(pc));
+        if (func != null) {
+            //if ((Integer)func.exec(new JVM(stack, cp), i) < 0) break;
+        }
+        pc += findOpCode((char)code(pc)).getLength();
         return 0;
     }
     
@@ -96,7 +93,7 @@ public class JVM extends j51.intel.MCS51 {
         // System.out.print("call method_index %d\n", method_index);
         if (method_index < simpleMethodPool.method_used) {
             MethodData method = simpleMethodPool.method[method_index];
-            executeMethod(method);
+            //executeMethod(method);
         }
         return 0;
     }

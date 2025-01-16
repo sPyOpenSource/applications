@@ -59,7 +59,7 @@ public class MCS51 implements MCS51Constants, jCPU.iCPU
 	private long clock = 0;
 	
 	// Program counter
-	private int pc = 0;
+	public int pc = 0;
 	
 	// CPU clock oscillator
 	private int oscillator = 12000000;
