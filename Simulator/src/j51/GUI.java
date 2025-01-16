@@ -16,6 +16,7 @@ import j51.util.*;
 import j51.intel.*;
 import j51.swing.*;
 import jx.classfile.ClassData;
+import jx.classfile.MethodData;
 
 /**
  *
@@ -614,6 +615,14 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
                                                 File file = new File(path);
                                                 InputStream is = new FileInputStream(file);
                                                 ClassData data = new ClassData(new DataInputStream(is));
+                                                for(MethodData method:data.getMethodData()){
+                                                    if("main".equals(method.getName())){
+                                                        byte[] code = method.getCode().getBytecode();
+                                                        for(int i = 0; i < code.length; i++){
+                                                            cpu.code(i, code[i]);
+                                                        }
+                                                    }
+                                                }
                                             }
                                             updatePanel(true);
 					}

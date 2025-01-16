@@ -2,8 +2,8 @@
 package jCPU.JavaVM;
 
 import static jCPU.JavaVM.ByteCode.findOpCode;
-import jCPU.JavaVM.vm.CodeAttribute;
 import jCPU.JavaVM.vm.SimpleMethodPool;
+import jx.classfile.CodeData;
 
 import jx.classfile.MethodData;
 import jx.classfile.constantpool.ClassCPEntry;
@@ -62,27 +62,22 @@ public class JVM extends j51.intel.MCS51 {
     int executeMethod(MethodData startup)
     {
         int i = 0;
-        CodeAttribute ca = null;
-        for (int j = 0 ; j < startup.attributes_count ; j++) {
-            ca = bytecode.convertToCodeAttribute(startup.attributes[j]);
-            String name = bytecode.getUTF8String(ca.attribute_name_index);
-            if (!"Code".equals(name)) continue;
-            System.out.print("----------------------------------------\n");
-            System.out.print("code dump\n");
-            bytecode.printCodeAttribute(ca, bytecode.getCP());
-            System.out.print("----------------------------------------\n");
-            char[] pc = ca.code;
-            if (!run){
-                System.exit(1);
-            }
-            do {
-                VmOpcode func = findOpCode(pc[i]);
-                if (func != null) {
-                    //if ((Integer)func.exec(new JVM(stack, cp), i) < 0) break;
-                }
-                i += findOpCode(pc[i]).getLength();
-            } while (true);
+        CodeData ca =startup.getCode();
+        System.out.print("----------------------------------------\n");
+        System.out.print("code dump\n");
+        bytecode.printCodeAttribute(ca, bytecode.getCP());
+        System.out.print("----------------------------------------\n");
+        byte[] pc = ca.getBytecode();
+        if (!run){
+            System.exit(1);
         }
+        do {
+            VmOpcode func = findOpCode((char)pc[i]);
+            if (func != null) {
+                //if ((Integer)func.exec(new JVM(stack, cp), i) < 0) break;
+            }
+            i += findOpCode((char)pc[i]).getLength();
+        } while (i < pc.length);
         return 0;
     }
     

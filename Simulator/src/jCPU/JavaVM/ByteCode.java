@@ -4,7 +4,7 @@ package jCPU.JavaVM;
 import java.util.function.Function;
 import j51.intel.Code;
 import jCPU.JavaVM.vm.AttributeInfo;
-import jCPU.JavaVM.vm.CodeAttribute;
+import jx.classfile.CodeData;
 import jx.classfile.MethodData;
 import jx.classfile.constantpool.ClassCPEntry;
 import jx.classfile.constantpool.ConstantPool;
@@ -115,26 +115,27 @@ public class ByteCode {
      * Copyright (C) 2013 Chun-Yu Wang <wicanr2@gmail.com>
      */
 
-    public CodeAttribute convertToCodeAttribute(AttributeInfo attr)
+    public CodeData convertToCodeAttribute(AttributeInfo attr)
     {
         int info_p = 0;
         char[] tmp = new char[4];
-        CodeAttribute ca = new CodeAttribute();
-        ca.attribute_name_index = attr.attribute_name_index;
-        ca.attribute_length = attr.attribute_length;
+        CodeData ca = new CodeData();
+        //ca.attribute_name_index = attr.attribute_name_index;
+        //ca.attribute_length = attr.attribute_length;
         tmp[0] = attr.info[info_p++];
         tmp[1] = attr.info[info_p++];
-        ca.max_stack = tmp[0] << 8 | tmp[1];
+        int max_stack = tmp[0] << 8 | tmp[1];
         tmp[0] = attr.info[info_p++];
         tmp[1] = attr.info[info_p++];
-        ca.max_locals = tmp[0] << 8 | tmp[1];
+        int max_locals = tmp[0] << 8 | tmp[1];
         tmp[0] = attr.info[info_p++];
         tmp[1] = attr.info[info_p++];
         tmp[2] = attr.info[info_p++];
         tmp[3] = attr.info[info_p++];
-        ca.code_length = tmp[0] << 24 | tmp[1] << 16 | tmp[2] << 8 | tmp[3];
-        ca.code = new char[ca.code_length];
-        //memcpy(ca.code, attr.info[info_p], ca.code_length);
+        int code_length = tmp[0] << 24 | tmp[1] << 16 | tmp[2] << 8 | tmp[3];
+        byte[] code = new byte[code_length];
+        System.arraycopy(code, 0, attr.info, info_p, code_length);
+        //return new CodeData(max_stack, max_locals, code, null, null);
         return ca;
     }
 
@@ -148,26 +149,26 @@ public class ByteCode {
         return null;
     }
 
-    void printCodeAttribute(CodeAttribute ca, ConstantPool cp)
+    void printCodeAttribute(CodeData ca, ConstantPool cp)
     {
-       String name = getUTF8String(ca.attribute_name_index);
-       System.out.println("attribute name : " + name);
-       System.out.println("attribute length: " + ca.attribute_length);
+       String name;// = getUTF8String(ca.attribute_name_index);
+       //System.out.println("attribute name : " + name);
+       //System.out.println("attribute length: " + ca.attribute_length);
 
-       System.out.println("max_stack: " + ca.max_stack);
-       System.out.println("max_locals: " + ca.max_locals);
-       System.out.println("code_length: " + ca.code_length);
-       char[] pc = ca.code;
+       //System.out.println("max_stack: " + ca.max_stack);
+       //System.out.println("max_locals: " + ca.max_locals);
+       //System.out.println("code_length: " + ca.code_length);
+       byte[] pc = ca.getBytecode();
        int i = 0;
        do {
-           String opName = findOpCode(pc[0]).getDescription();
+           String opName = findOpCode((char)pc[0]).getDescription();
            if (opName == null) {
                //System.out.print("Unknow OpCode %02X\n", pc[0]);
                System.exit(1);
            }
            //System.out.print("%s \n", opName);
-           i += findOpCode(pc[0]).getLength();
+           i += findOpCode((char)pc[0]).getLength();
            //pc += tmp;
-       } while (i < ca.code_length);
+       } while (i < pc.length);
    }
 }
