@@ -721,7 +721,7 @@ public abstract class TimeZone implements java.io.Serializable, Cloneable
     if (tzid == null)
       tzid = "GMT";
 
-    defaultZone = getTimeZone(tzid);
+    //defaultZone = getTimeZone(tzid);
   }
 
   /* This method returns us a time zone id string which is in the
