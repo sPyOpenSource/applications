@@ -712,7 +712,7 @@ public abstract class TimeZone implements java.io.Serializable, Cloneable
   {
     System.loadLibrary("javautil");
 
-    String tzid = System.getProperty("user.timezone");
+    String tzid = null;//System.getProperty("user.timezone");
 
     /*    if (tzid == null)
       tzid = getDefaultTimeZoneId();
