@@ -3,8 +3,3 @@ private
 *.class
 *.eeprom
 *.flash
-/ifOS/dist/
-/APP/dist/
-/FS/dist/
-/WM/dist/
-/Simulator/dist/
