@@ -63,12 +63,6 @@ public class JVM extends j51.intel.MCS51 {
     @Override
     public int step()
     {
-        //CodeData ca =startup.getCode();
-        System.out.print("----------------------------------------\n");
-        System.out.print("code dump\n");
-        //bytecode.printCodeAttribute(ca, bytecode.getCP());
-        System.out.print("----------------------------------------\n");
-        //byte[] pc = ca.getBytecode();
         if (!run){
             System.exit(1);
         }

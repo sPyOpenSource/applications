@@ -23,16 +23,37 @@ public class ByteCode implements jx.zero.ByteCode {
     
     static Function<JVM, Integer> op_aload_0 = cpu -> cpu.handler.op_aload_0();
     static Function<JVM, Integer> op_bipush;// = cpu -> cpu.handler.op_bipush(cpu.opCode);
-    static Function<JVM, Integer> op_dup, op_get, op_iadd, op_iconst_0;
-    static Function<JVM, Integer> op_iconst_1, op_iconst_2;
-    static Function<JVM, Integer> op_iconst_3, op_iconst_4, op_iconst_5;
-    static Function<JVM, Integer> op_dconst_1, op_idiv, op_imul, op_dadd, op_dmul, op_d2i;
+    static Function<JVM, Integer> op_dup = cpu -> cpu.handler.op_dup(), 
+            op_get, 
+            op_iadd = cpu -> cpu.handler.op_iadd(), 
+            op_iconst_0 = cpu -> cpu.handler.op_iconst_0(),
+            op_iconst_1 = cpu -> cpu.handler.op_iconst_1(), 
+            op_iconst_2 = cpu -> cpu.handler.op_iconst_2(),
+            op_iconst_3 = cpu -> cpu.handler.op_iconst_3(), 
+            op_iconst_4 = cpu -> cpu.handler.op_iconst_4(), 
+            op_iconst_5 = cpu -> cpu.handler.op_iconst_5(),
+            op_dconst_1 = cpu -> cpu.handler.op_dconst_1(), 
+            op_idiv = cpu -> cpu.handler.op_idiv(), 
+            op_imul = cpu -> cpu.handler.op_imul(), 
+            op_dadd = cpu -> cpu.handler.op_dadd(), 
+            op_dmul = cpu -> cpu.handler.op_dmul(), 
+            op_d2i = cpu -> cpu.handler.op_d2i();
     static Function<JVM, Integer> op_invokespecial, op_invokevirtual;
     static Function<JVM, Integer> op_invoke;// = cpu -> op_invoke(cpu.opCode, cp);
-    static Function<JVM, Integer> op_iload, op_iload_1, op_iload_2, op_iload_3;
-    static Function<JVM, Integer> op_istore, op_istore_1, op_istore_2, op_istore_3;
-    static Function<JVM, Integer> op_isub, op_ldc, op_ldc2_w;
-    static Function<JVM, Integer> op_new, op_irem, op_sipush, op_return;
+    static Function<JVM, Integer> op_iload, 
+            op_iload_1 = cpu -> cpu.handler.op_iload_1(), 
+            op_iload_2 = cpu -> cpu.handler.op_iload_2(), 
+            op_iload_3 = cpu -> cpu.handler.op_iload_3();
+    static Function<JVM, Integer> op_istore, 
+            op_istore_1 = cpu -> cpu.handler.op_istore_1(), 
+            op_istore_2 = cpu -> cpu.handler.op_istore_2(), 
+            op_istore_3 = cpu -> cpu.handler.op_istore_3();
+    static Function<JVM, Integer> op_isub = cpu -> cpu.handler.op_isub(), 
+            op_ldc, op_ldc2_w;
+    static Function<JVM, Integer> op_new, 
+            op_irem = cpu -> cpu.handler.op_irem(), 
+            op_sipush, 
+            op_return = cpu -> cpu.handler.op_return();
 
     public static VmOpcode byteCodes[] = {
         new VmOpcode( "bipush"        , 0x10, 2, op_bipush        ),
@@ -214,6 +235,11 @@ public class ByteCode implements jx.zero.ByteCode {
 
     @Override
     public void mvCheckCount(int i) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public int getAddress() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }
