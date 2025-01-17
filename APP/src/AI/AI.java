@@ -52,7 +52,7 @@ public final class AI
     
     public static void main(String[] args){
         try {
-            jx.init.Main.main(new String[] {"boot.rc"});
+            //jx.init.Main.main(new String[] {"boot.rc"});
             //POST post = new POST(Init.naming);
             //post.test();
             //test.net.WebServer.main(new String[]{"-fs", "FS", "-threads"});
