@@ -13,7 +13,6 @@ import jx.classfile.constantpool.MethodRefCPEntry;
 import jx.classfile.constantpool.NameAndTypeCPEntry;
 import jx.classfile.constantpool.StringCPEntry;
 
-
 /**
  *
  * @author X. Wang
@@ -29,7 +28,7 @@ public class ByteCode implements jx.zero.ByteCode {
     static Function<JVM, Integer> op_iconst_3, op_iconst_4, op_iconst_5;
     static Function<JVM, Integer> op_dconst_1, op_idiv, op_imul, op_dadd, op_dmul, op_d2i;
     static Function<JVM, Integer> op_invokespecial, op_invokevirtual;
-    static Function<JVM, Integer> op_invoke;// = cpu -> op_invoke(cpu.opCode, cpu.stack, cpu.cp);
+    static Function<JVM, Integer> op_invoke;// = cpu -> op_invoke(cpu.opCode, cp);
     static Function<JVM, Integer> op_iload, op_iload_1, op_iload_2, op_iload_3;
     static Function<JVM, Integer> op_istore, op_istore_1, op_istore_2, op_istore_3;
     static Function<JVM, Integer> op_isub, op_ldc, op_ldc2_w;

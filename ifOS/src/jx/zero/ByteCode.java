@@ -333,4 +333,6 @@ public interface ByteCode {
     public ByteCode[] getSources();
 
     public void mvCheckCount(int i);
+
+    public int getAddress();
 }

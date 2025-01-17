@@ -115,17 +115,17 @@ public class MethodVerifier implements VerifierInterface {
        * @exception VerifyException if verification fails for some bytecode/state.
        */
     public void continueChecks() throws VerifyException{
-	jx.verifier.bytecode.ByteCode actBC;
+	jx.zero.ByteCode actBC;
 	while (!checkQueue.isEmpty()) {
 	    //Check Queue must be LIFO!!!
 	    //FEHLER stimmt das: 
 	    // Else Verification of one subroutine could be startet twice!!
 	    actBC = (ByteCode) checkQueue.lastElement();
 	    checkQueue.removeElementAt(checkQueue.size()-1);
-	    actBC.mvCheckCount = 0;
+	    actBC.mvCheckCount(0);
 	    try {//FEHLER debug
 	    try {
-		actBC.beforeState.executeNextBC();
+		actBC.beforeState().executeNextBC();
 	    } catch(VerifyException e) {
 		e.methodName = method.getMethodName();
 		e.className = className;

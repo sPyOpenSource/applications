@@ -247,4 +247,9 @@ public class ByteCode implements jx.zero.ByteCode {
         return svCheckCount;    
     }
 
+    @Override
+    public void mvCheckCount(int i) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
 }

@@ -25,7 +25,7 @@ public class checkInstruction {
 	for (int i = 0; i < opCodes.length; i++) {
 	    for (ByteCode actBc = code.getFirst(); 
 		 actBc != null; 
-		 actBc = actBc.next) {
+		 actBc = actBc.getNext()) {
 		if (actBc.getOpCode() == opCodes[i]){
 		    result.addElement(opCodes[i]);
 		}

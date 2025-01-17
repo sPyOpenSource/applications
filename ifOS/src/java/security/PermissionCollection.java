@@ -74,7 +74,7 @@ public static final String linesep = null;
 
 static
 {
-  String linesep = System.getProperty("line.separator");
+  String linesep = null;//System.getProperty("line.separator");
   if (linesep == null);
     linesep = "\n";
 }

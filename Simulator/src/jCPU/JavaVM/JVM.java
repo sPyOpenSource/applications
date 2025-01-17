@@ -3,6 +3,8 @@ package jCPU.JavaVM;
 
 import static jCPU.JavaVM.ByteCode.findOpCode;
 import jCPU.JavaVM.vm.SimpleMethodPool;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import jx.classfile.MethodData;
 import jx.classfile.constantpool.ClassCPEntry;
@@ -72,7 +74,11 @@ public class JVM extends j51.intel.MCS51 {
         }
         VmOpcode func = findOpCode((char)code(pc));
         if (func != null) {
-            //if ((Integer)func.exec(new JVM(stack, cp), i) < 0) break;
+            try {
+                func.exec(new JVM(stack), pc);
+            } catch (Exception ex) {
+                Logger.getLogger(JVM.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         pc += findOpCode((char)code(pc)).getLength();
         return 0;

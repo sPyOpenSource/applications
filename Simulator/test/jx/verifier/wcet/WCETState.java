@@ -100,7 +100,7 @@ public class WCETState extends JVMState {
 	
         //propagate pass
         for (ByteCode target : targets) {
-            ((WCETState) target.beforeState).setPass(pass);
+            ((WCETState) target.beforeState()).setPass(pass);
         }
 	
 	/*	    if (getNextBC().getOpCode() == ByteCode.ATHROW) {
@@ -153,7 +153,7 @@ public class WCETState extends JVMState {
 	}
 	//propagate pass
 	for (int i=0; i < sources.length; i++) {
-	    ((WCETState)sources[i].beforeState).setPass(pass);
+	    ((WCETState)sources[i].beforeState()).setPass(pass);
 	}
 	
 	boolean stateChanged=false;
