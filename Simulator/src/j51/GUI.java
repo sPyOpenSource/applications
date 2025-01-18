@@ -15,6 +15,9 @@ import javax.swing.tree.*;
 import j51.util.*;
 import j51.intel.*;
 import j51.swing.*;
+import java.util.Enumeration;
+import java.util.jar.JarEntry;
+import java.util.jar.JarFile;
 import jx.classfile.ClassData;
 import jx.classfile.MethodData;
 import nl.lxtreme.arm.memory.Chunk;
@@ -599,8 +602,8 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 				{
 					if (fc == null)
 					{
-						fc = new JFileChooser();
-						fc.setCurrentDirectory(new File("."));
+                                            fc = new JFileChooser();
+                                            fc.setCurrentDirectory(new File("."));
 					}
 					if (fc.showOpenDialog(GUI.this) == JFileChooser.APPROVE_OPTION)
 					{
@@ -640,6 +643,38 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
                                                         byte[] code = method.getCode().getBytecode();
                                                         for(int i = 0; i < code.length; i++){
                                                             cpu.code(i, code[i]);
+                                                        }
+                                                    }
+                                                }
+                                            } else if(path.endsWith("jar")){
+                                                JarFile jar = new JarFile(path);
+                                                Enumeration<JarEntry> entries = jar.entries();
+                                                String main = null;
+                                                while (entries.hasMoreElements()) {
+                                                    JarEntry entry = entries.nextElement();
+                                                    String name = entry.getName();
+                                                    if(name.equals("META-INF/MANIFEST.MF")){
+                                                        try (InputStream is = jar.getInputStream(entry)) {
+                                                            BufferedReader reader = new BufferedReader(new InputStreamReader(is));
+                                                            while(reader.ready()){
+                                                                String line = reader.readLine();
+                                                                if(line.startsWith("Main-Class")){
+                                                                    main = line.split(":")[1].strip().replace(".", "/") + ".class";
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                    if (main != null){
+                                                        if(name.endsWith(main)){
+                                                            ClassData data = new ClassData(new DataInputStream(jar.getInputStream(entry)));
+                                                            for(MethodData method:data.getMethodData()){
+                                                                if("main".equals(method.getName())){
+                                                                    byte[] code = method.getCode().getBytecode();
+                                                                    for(int i = 0; i < code.length; i++){
+                                                                        cpu.code(i, code[i]);
+                                                                    }
+                                                                }
+                                                            }
                                                         }
                                                     }
                                                 }

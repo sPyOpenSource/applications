@@ -47,7 +47,7 @@ public class AIMemory extends AIZeroMemory implements FileSystem
 
             //NetInit.init(InitialNaming.getInitialNaming(), new String[]{"NET"});
 
-            FSDomain.main(new String[]{"BioRAM", "FS"});
+            //FSDomain.main(new String[]{"BioRAM", "FS"});
             // Initialize instance variables
             /*try {
                 serialPort = (SerialPort)CommPortIdentifier.getPortIdentifier("/dev/ttyACM0").open(this.getClass().getName(), 2000);
