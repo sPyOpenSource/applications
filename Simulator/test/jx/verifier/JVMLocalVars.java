@@ -3,6 +3,7 @@ package jx.verifier;
 import jx.verifier.bytecode.*;
 import jx.verifier.VerifyException;
 import java.util.Vector;
+import jx.zero.verifier.JVMLocalVarsElement;
 
 
 /**Class for JVM State's local variables.

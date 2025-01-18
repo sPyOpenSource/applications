@@ -2,6 +2,7 @@ package jx.verifier;
 
 import java.util.Enumeration;
 import java.util.NoSuchElementException;
+import jx.zero.verifier.JVMOPStackElement;
 
 /**Class to hold the Operand Stack for a method during verification.
  * stack consists of a linked list of JVMOPStackElement elements.

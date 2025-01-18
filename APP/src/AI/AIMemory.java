@@ -41,7 +41,7 @@ public class AIMemory extends AIZeroMemory implements FileSystem
     public AIMemory()
     {
         try{
-            PCIGod.main(new String[]{});
+            //PCIGod.main(new String[]{});
 
             //bioide.Main.main(new String[]{"TimerManager", "BioRAM", "full", "0"});
 

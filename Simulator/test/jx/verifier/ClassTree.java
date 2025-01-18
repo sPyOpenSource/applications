@@ -3,7 +3,7 @@ package jx.verifier;
 import java.util.Enumeration;
 import java.util.Vector;
 import jx.classfile.ClassData;
-import jx.compiler.ClassFinder;
+import jx.zero.classstore.ClassFinder;
 
 /**Class Tree holding all available Classes.
  * The <code>ClassTree</code> extends <code>ClassTreeElement</code> becaust it is the top element of the tree.<br>
