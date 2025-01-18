@@ -146,7 +146,7 @@ public class MethodVerifier implements VerifierInterface {
     public void checkBC(ByteCode e) {
 	if (e.mvCheckCount() > 0)
 	    return; //e is already in checkQueue
-	e.mvCheckCount++;
+	e.mvCheckCount(e.mvCheckCount() + 1);
 	checkQueue.addElement(e);
     }
    

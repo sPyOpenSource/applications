@@ -335,4 +335,6 @@ public interface ByteCode {
     public void mvCheckCount(int i);
 
     public int getAddress();
+
+    public void svCheckCount(int i);
 }

@@ -538,7 +538,7 @@ public class SimState {
 		    eTime.add(methodETime);
 		    timeExceeded = eTime.limitExceeded();
 		} else {
-		    ClassData otherClass = classFinder.findClass(className);
+		    jx.zero.classstore.ClassData otherClass = classFinder.findClass(className);
 		    if (otherClass == null) 
 			throw new Error("Internal Error: Class not found: " +
 					className );

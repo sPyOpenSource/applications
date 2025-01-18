@@ -103,7 +103,7 @@ public class SubroutineVerifier implements VerifierInterface {
     public void checkBC(ByteCode e) {
 	if (e.svCheckCount() > 0)
 	    return; //e is already in checkQueue
-	e.svCheckCount++;
+	e.svCheckCount(e.svCheckCount() + 1);
 	checkQueue.addElement(e);
 
     }

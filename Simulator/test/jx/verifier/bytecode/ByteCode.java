@@ -23,7 +23,9 @@ public class ByteCode implements jx.zero.ByteCode {
     public ExceptionHandler[] eHandlers; //all ExceptionHandlers that protect this bytecode
     public ExceptionHandler startsEH = null; //if this operation is the first op. of an exception handler, startsEH is a reference to this exception handler; normally null
 
+    @Override
     public ByteCode[] getTargets() {return targets;}
+    @Override
     public ByteCode[] getSources() {return sources;}
 
     public void addSource(ByteCode newEntry) {
@@ -249,7 +251,12 @@ public class ByteCode implements jx.zero.ByteCode {
 
     @Override
     public void mvCheckCount(int i) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        mvCheckCount = i;
+    }
+
+    @Override
+    public void svCheckCount(int i) {
+        svCheckCount = i;
     }
 
 }
