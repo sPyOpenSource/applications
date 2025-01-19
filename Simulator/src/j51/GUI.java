@@ -15,6 +15,7 @@ import javax.swing.tree.*;
 import j51.util.*;
 import j51.intel.*;
 import j51.swing.*;
+import jCPU.JavaVM.ByteCode;
 import java.util.Enumeration;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
@@ -638,6 +639,7 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
                                                 File file = new File(path);
                                                 InputStream is = new FileInputStream(file);
                                                 ClassData data = new ClassData(new DataInputStream(is));
+                                                ByteCode.cp = data.getConstantPool();
                                                 for(MethodData method:data.getMethodData()){
                                                     if("main".equals(method.getName())){
                                                         byte[] code = method.getCode().getBytecode();
@@ -667,6 +669,7 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
                                                     if (main != null){
                                                         if(name.endsWith(main)){
                                                             ClassData data = new ClassData(new DataInputStream(jar.getInputStream(entry)));
+                                                            ByteCode.cp = data.getConstantPool();
                                                             for(MethodData method:data.getMethodData()){
                                                                 if("main".equals(method.getName())){
                                                                     byte[] code = method.getCode().getBytecode();

@@ -2,7 +2,7 @@ package jx.verifier;
 
 import java.util.Vector;
 import java.util.Enumeration;
-import jx.classfile.ClassData;
+import jx.zero.classstore.ClassData;
 import jx.classfile.MethodData;
 import jx.classfile.MethodSource;
 

@@ -19,12 +19,12 @@ import jx.classfile.constantpool.StringCPEntry;
  */
 public class ByteCode implements jx.zero.ByteCode {
     private Code code;
-    private ConstantPool cp;
+    public static ConstantPool cp;
     
     static Function<JVM, Integer> op_aload_0 = cpu -> cpu.handler.op_aload_0();
-    static Function<JVM, Integer> op_bipush;// = cpu -> cpu.handler.op_bipush(cpu.opCode);
+    static Function<JVM, Integer> op_bipush = cpu -> cpu.handler.op_bipush(cpu.opCode);
     static Function<JVM, Integer> op_dup = cpu -> cpu.handler.op_dup(), 
-            op_get, 
+            op_get = cpu -> cpu.handler.op_get(cpu.opCode), 
             op_iadd = cpu -> cpu.handler.op_iadd(), 
             op_iconst_0 = cpu -> cpu.handler.op_iconst_0(),
             op_iconst_1 = cpu -> cpu.handler.op_iconst_1(), 
@@ -35,24 +35,26 @@ public class ByteCode implements jx.zero.ByteCode {
             op_dconst_1 = cpu -> cpu.handler.op_dconst_1(), 
             op_idiv = cpu -> cpu.handler.op_idiv(), 
             op_imul = cpu -> cpu.handler.op_imul(), 
-            op_dadd = cpu -> cpu.handler.op_dadd(), 
-            op_dmul = cpu -> cpu.handler.op_dmul(), 
+            op_dadd = cpu -> cpu.handler.op_dadd(cp), 
+            op_dmul = cpu -> cpu.handler.op_dmul(cp), 
             op_d2i = cpu -> cpu.handler.op_d2i();
-    static Function<JVM, Integer> op_invokespecial, op_invokevirtual;
-    static Function<JVM, Integer> op_invoke;// = cpu -> op_invoke(cpu.opCode, cp);
-    static Function<JVM, Integer> op_iload, 
+    static Function<JVM, Integer> op_invokespecial = cpu -> cpu.op_invokespecial(), 
+            op_invokevirtual = cpu -> cpu.op_invokevirtual(cp),
+            op_invoke = cpu -> cpu.op_invoke(cp);
+    static Function<JVM, Integer> op_iload = cpu -> cpu.handler.op_iload(cpu.opCode), 
             op_iload_1 = cpu -> cpu.handler.op_iload_1(), 
             op_iload_2 = cpu -> cpu.handler.op_iload_2(), 
             op_iload_3 = cpu -> cpu.handler.op_iload_3();
-    static Function<JVM, Integer> op_istore, 
+    static Function<JVM, Integer> op_istore = cpu -> cpu.handler.op_istore(cpu.opCode), 
             op_istore_1 = cpu -> cpu.handler.op_istore_1(), 
             op_istore_2 = cpu -> cpu.handler.op_istore_2(), 
             op_istore_3 = cpu -> cpu.handler.op_istore_3();
     static Function<JVM, Integer> op_isub = cpu -> cpu.handler.op_isub(), 
-            op_ldc, op_ldc2_w;
-    static Function<JVM, Integer> op_new, 
+            op_ldc = cpu -> cpu.handler.op_ldc(cpu.opCode), 
+            op_ldc2_w = cpu -> cpu.handler.op_ldc2_w(cpu.opCode),
+            op_new = cpu -> cpu.handler.op_new(cpu.opCode), 
             op_irem = cpu -> cpu.handler.op_irem(), 
-            op_sipush, 
+            op_sipush = cpu -> cpu.handler.op_sipush(cpu.opCode), 
             op_return = cpu -> cpu.handler.op_return();
 
     public static VmOpcode byteCodes[] = {
@@ -99,10 +101,6 @@ public class ByteCode implements jx.zero.ByteCode {
 
     public Code getBytecode() {
         return code;
-    }
-
-    public ConstantPool getCP() {
-        return cp;
     }
 
     public MethodData getMethod() {

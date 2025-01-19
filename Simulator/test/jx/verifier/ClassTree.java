@@ -2,7 +2,7 @@ package jx.verifier;
 
 import java.util.Enumeration;
 import java.util.Vector;
-import jx.classfile.ClassData;
+import jx.zero.classstore.ClassData;
 import jx.zero.classstore.ClassFinder;
 
 /**Class Tree holding all available Classes.

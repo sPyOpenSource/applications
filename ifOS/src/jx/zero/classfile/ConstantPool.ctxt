@@ -1,4 +1,6 @@
 #BlueJ class context
 comment0.target=ConstantPool
 comment0.text=\n\n\ @author\ xuyi\n
-numComments=1
+comment1.params=catchTypeCPIndex
+comment1.target=java.lang.Object\ classEntryAt(int)
+numComments=2

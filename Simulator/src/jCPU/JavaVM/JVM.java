@@ -22,7 +22,8 @@ import jx.disass.Disassembler;
 public class JVM extends j51.intel.MCS51 {
     public VmStackFrame stack;
     public BytecodeVisitor handler;
-
+    public char[] opCode;
+    
     private ByteCode bytecode;// = new ByteCode(code);
     private BytecodeParser parser;// = new BytecodeParser(bytecode, handler);
     private final boolean run = true;
@@ -46,8 +47,16 @@ public class JVM extends j51.intel.MCS51 {
     {
         char c = (char)code(pc);
         try {
-            String result = ByteCode.findOpCode(c).getDescription();
-            if (result != null) return "     " + Disassembler.toHexInt(c) + result;
+            VmOpcode result = ByteCode.findOpCode(c);
+            if (result != null) {
+                opCode = new char[result.getLength()];
+                int z = 0;
+                for(int i = 0; i < result.getLength(); i++){
+                    opCode[i] = (char)code(i + pc);
+                    z = z << 8 | opCode[i];
+                }
+                return "     " + Disassembler.toHexInt(z) + result.getDescription();
+            }
         } catch (Exception e){
         }
         return "     " + Disassembler.toHexInt(c) + "NULL";
@@ -69,6 +78,12 @@ public class JVM extends j51.intel.MCS51 {
         VmOpcode func = findOpCode((char)code(pc));
         if (func != null) {
             try {
+                opCode = new char[func.getLength()];
+                int z = 0;
+                for(int i = 0; i < func.getLength(); i++){
+                    opCode[i] = (char)code(i + pc);
+                    z = z << 8 | opCode[i];
+                }
                 func.exec(new JVM(stack), pc);
             } catch (Exception ex) {
                 Logger.getLogger(JVM.class.getName()).log(Level.SEVERE, null, ex);
@@ -83,7 +98,7 @@ public class JVM extends j51.intel.MCS51 {
     }
     
     /* invokespecial */
-    int op_invokespecial(char[] opCode)
+    int op_invokespecial()
     {
         int method_index;
         char[] tmp = new char[2];
@@ -99,7 +114,7 @@ public class JVM extends j51.intel.MCS51 {
     }
     
     /* 0xb8 invoke */
-    int op_invoke(char[] opCode, ConstantPool cp)
+    int op_invoke(ConstantPool cp)
     {
         int method_index ;
         char[] tmp = new char[2];
@@ -137,7 +152,7 @@ public class JVM extends j51.intel.MCS51 {
     }
 
     /* invokevirtual */
-    int op_invokevirtual(char[] opCode, ConstantPool cp)
+    int op_invokevirtual(ConstantPool cp)
     {
         int object_ref;
         char[] tmp = new char[2];

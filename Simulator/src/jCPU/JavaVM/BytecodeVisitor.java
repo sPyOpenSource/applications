@@ -36,7 +36,6 @@ import jx.classfile.constantpool.StringCPEntry;
  */
 public abstract class BytecodeVisitor {
     private VmStackFrame stack;
-    private ConstantPool cp;
     private LocalVariables localVariables;
 
     public abstract void setParser(BytecodeParser parser);
@@ -587,7 +586,7 @@ public abstract class BytecodeVisitor {
     }
 
     /* 0x63 dadd */
-    int op_dadd()
+    int op_dadd(ConstantPool cp)
     {
         double value1 = stack.get_double_parameter(cp);
         double value2 = stack.get_double_parameter(cp);
@@ -598,7 +597,7 @@ public abstract class BytecodeVisitor {
     }
 
     /* 0x6B dmul */
-    int op_dmul()
+    int op_dmul(ConstantPool cp)
     {
         double value1 = stack.get_double_parameter(cp);
         double value2 = stack.get_double_parameter(cp);

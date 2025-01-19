@@ -24,7 +24,8 @@ public class VmOpcode implements Opcode {
 
     @Override
     public void exec(iCPU cpu, int pc) throws Exception {
-        func.apply(cpu);
+        if(func != null)
+            func.apply(cpu);
     }
 
     @Override

@@ -23,7 +23,6 @@ package jCPU.JavaVM;
 import j51.intel.Code;
 import jx.classfile.MethodData;
 import jx.classfile.constantpool.ClassCPEntry;
-import jx.classfile.constantpool.ConstantPool;
 import jx.classfile.constantpool.FieldRefCPEntry;
 import jx.classfile.constantpool.InterfaceMethodRefCPEntry;
 
@@ -34,7 +33,6 @@ import jx.classfile.constantpool.InterfaceMethodRefCPEntry;
  */
 public class BytecodeParser {
     private final ByteCode bc;
-    private final ConstantPool cp;
     private Code bytecode;
     private final BytecodeVisitor handler;
     private boolean wide;
@@ -58,7 +56,6 @@ public class BytecodeParser {
     protected BytecodeParser(ByteCode bc, BytecodeVisitor handler) {
         this.bc = bc;
         this.bytecode = bc.getBytecode();
-        this.cp = bc.getCP();
         this.handler = handler;
     }
 
@@ -739,37 +736,37 @@ public class BytecodeParser {
                     handler.visit_return();
                     break;
                 case 0xb2: {
-                    FieldRefCPEntry field = cp.fieldRefEntryAt(getu2());
+                    FieldRefCPEntry field = ByteCode.cp.fieldRefEntryAt(getu2());
                     handler.visit_getstatic(field);
                     break;
                 }
                 case 0xb3: {
-                    FieldRefCPEntry field = cp.fieldRefEntryAt(getu2());
+                    FieldRefCPEntry field = ByteCode.cp.fieldRefEntryAt(getu2());
                     handler.visit_putstatic(field);
                     break;
                 }
                 // -- 180 --
                 case 0xb4: {
-                    FieldRefCPEntry field = cp.fieldRefEntryAt(getu2());
+                    FieldRefCPEntry field = ByteCode.cp.fieldRefEntryAt(getu2());
                     handler.visit_getfield(field);
                     break;
                 }
                 case 0xb5: {
-                    FieldRefCPEntry field = cp.fieldRefEntryAt(getu2());
+                    FieldRefCPEntry field = ByteCode.cp.fieldRefEntryAt(getu2());
                     handler.visit_putfield(field);
                     break;
                 }
                 case 0xb6:
-                    handler.visit_invokevirtual(cp.methodRefEntryAt(getu2()));
+                    handler.visit_invokevirtual(ByteCode.cp.methodRefEntryAt(getu2()));
                     break;
                 case 0xb7:
-                    handler.visit_invokespecial(cp.methodRefEntryAt(getu2()));
+                    handler.visit_invokespecial(ByteCode.cp.methodRefEntryAt(getu2()));
                     break;
                 case 0xb8:
-                    handler.visit_invokestatic(cp.methodRefEntryAt(getu2()));
+                    handler.visit_invokestatic(ByteCode.cp.methodRefEntryAt(getu2()));
                     break;
                 case 0xb9: {
-                    InterfaceMethodRefCPEntry ref = cp.InterfaceMethodRefEntryAt(getu2());
+                    InterfaceMethodRefCPEntry ref = ByteCode.cp.InterfaceMethodRefEntryAt(getu2());
                     int count = getu1();
                     skip();
                     handler.visit_invokeinterface(ref, count);
@@ -777,13 +774,13 @@ public class BytecodeParser {
                 }
                 //case 0xba: handler.throw_invalid_opcode ; unused
                 case 0xbb:
-                    handler.visit_new(cp.classEntryAt(getu2()));
+                    handler.visit_new(ByteCode.cp.classEntryAt(getu2()));
                     break;
                 case 0xbc:
                     handler.visit_newarray(getu1());
                     break;
                 case 0xbd:
-                    handler.visit_anewarray(cp.classEntryAt(getu2()));
+                    handler.visit_anewarray(ByteCode.cp.classEntryAt(getu2()));
                     break;
                     // -- 190 --
                 case 0xbe:
@@ -793,10 +790,10 @@ public class BytecodeParser {
                     handler.visit_athrow();
                     break;
                 case 0xc0:
-                    handler.visit_checkcast(cp.classEntryAt(getu2()));
+                    handler.visit_checkcast(ByteCode.cp.classEntryAt(getu2()));
                     break;
                 case 0xc1:
-                    handler.visit_instanceof(cp.classEntryAt(getu2()));
+                    handler.visit_instanceof(ByteCode.cp.classEntryAt(getu2()));
                     break;
                 case 0xc2:
                     handler.visit_monitorenter();
@@ -852,7 +849,7 @@ public class BytecodeParser {
                     break;
                 }
                 case 0xc5: {
-                    ClassCPEntry clazz = cp.classEntryAt(getu2());
+                    ClassCPEntry clazz = ByteCode.cp.classEntryAt(getu2());
                     int dims = getu1();
                     handler.visit_multianewarray(clazz, dims);
                     break;
