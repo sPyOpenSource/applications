@@ -6,9 +6,11 @@ import jx.zero.debug.*;
 import jx.zero.Ports;
 
 public class ScreenImpl implements Screen, Service {
+    
     final static int CGA_SCREEN  = 0xb8000;
     final static int MONO_SCREEN = 0xb0000;
-    final static int SCREEN = CGA_SCREEN;
+    final static int EFI         = 0xc0000000;
+    final static int SCREEN = EFI;
 
     final static short videoPortReg = 0x3d4;
     final static short videoPortVal = 0x3d5;
@@ -50,13 +52,13 @@ public class ScreenImpl implements Screen, Service {
 	int offset = 80 * y + x;
 
 	// high byte
-	ports.outb (videoPortReg, (byte)0xe);
-	ports.outb (videoPortVal, (byte)((offset >> 8) & 0xff)); //offset / 256
+	ports.outb(videoPortReg, (byte)0xe);
+	ports.outb(videoPortVal, (byte)((offset >> 8) & 0xff)); //offset / 256
 
 	// low byte
-	ports.outb (videoPortReg, (byte)0xf);
-	ports.outb (videoPortVal, (byte)(offset & 0xff)); // offset % 256
-    } 
+	ports.outb(videoPortReg, (byte)0xf);
+	ports.outb(videoPortVal, (byte)(offset & 0xff)); // offset % 256
+    }
     
     void enableCursor(int cursor_start, int cursor_end)
     {

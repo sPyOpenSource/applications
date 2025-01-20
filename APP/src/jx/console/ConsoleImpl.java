@@ -9,8 +9,8 @@ import jx.zero.debug.*;
 import jx.zero.*;
 
 public class ConsoleImpl implements Console {
-    private final Screen screen;
-    private final Keyboard keyboard;
+    private Screen screen;
+    private Keyboard keyboard;
     private Shell shell;
 
     DebugPrintStream out;
@@ -31,7 +31,7 @@ public class ConsoleImpl implements Console {
         current = createVirtualConsole();
         
         shell = new Shell(current.getOutputStream(), current.getInputStream());
-        
+        //shell = new Shell(System.out, System.in);
         /*shell.register("ifconfig", null);
         shell.register("netstat", null);
         
