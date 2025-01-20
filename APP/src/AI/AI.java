@@ -57,7 +57,7 @@ public final class AI
             //post.test();
             //test.net.WebServer.main(new String[]{"-fs", "FS", "-threads"});
             AI instance = new AI();
-            //instance.start();
+            instance.start();
             //jx.keyboard.Main.main(new String[]{"WindowManager"});
         } catch (Exception ex) {
             //Logger.getLogger(AI.class.getName()).log(Level.SEVERE, null, ex);

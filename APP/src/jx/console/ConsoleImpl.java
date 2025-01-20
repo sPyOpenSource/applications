@@ -27,7 +27,11 @@ public class ConsoleImpl implements Console {
         this.screen = screen;
         this.keyboard = keyboard;
         screen.clear();
-screen.putAt(0, 0, 'd');
+        for(int i = 0; i < 1000; i++){
+            for(int j = 0; i < 1000; j++){
+                screen.putAt(i, j, (char)0xff);
+            }
+        }
         current = createVirtualConsole();
         
         shell = new Shell(current.getOutputStream(), current.getInputStream());
