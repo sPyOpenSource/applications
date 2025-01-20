@@ -1,8 +1,6 @@
 package AI;
 
 import jx.console.ConsoleImpl;
-//import jx.emulation.Init;
-
 import jx.zero.Debug;
 import jx.zero.Naming;
 import jx.zero.debug.DebugChannel;
@@ -44,7 +42,6 @@ public final class AI
         Debug.out = new DebugPrintStream(out);
         //System.setOut(new java.io.PrintStream(out));
         //System.err = System.out;
-        ConsoleImpl.init(naming);
 
         Debug.out.println("Init running...");
         main(null);
@@ -59,6 +56,7 @@ public final class AI
             AI instance = new AI();
             instance.start();
             //jx.keyboard.Main.main(new String[]{"WindowManager"});
+            //ConsoleImpl.init(jx.InitialNaming.getInitialNaming());
         } catch (Exception ex) {
             //Logger.getLogger(AI.class.getName()).log(Level.SEVERE, null, ex);
         }

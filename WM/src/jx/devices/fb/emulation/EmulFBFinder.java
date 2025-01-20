@@ -30,7 +30,7 @@ class FBImpl implements FramebufferDevice {
     FBEmulation fb;
     ColorSpace m_eColorSpace;
     
-    FBImpl(FBEmulation fb)     {
+    FBImpl(FBEmulation fb){
 	this.fb = fb;
 	if (fb.getBitsPerPixel() == 32) {
 	    m_eColorSpace = new ColorSpace (ColorSpace.CS_RGB32);

@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=IDEIntrHandler
+comment0.text=\n\ Interrupt\ handler.\n\ @author\ Michael\ Golm\n\ @author\ Andreas\ Weissel\n
+comment1.params=controller
+comment1.target=IDEIntrHandler(Controller)
+comment2.params=
+comment2.target=void\ interrupt()
+comment2.text=\n\ Calls\ the\ real\ handler\ (operation.handler)\n
+comment3.params=
+comment3.target=void\ installIRQThread()
+comment4.params=
+comment4.target=void\ run()
+comment5.params=
+comment5.target=void\ interruptHandler()
+numComments=6

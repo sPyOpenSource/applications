@@ -25,7 +25,7 @@ public class StartFBDevice {
 
 	String fbName = args[0];
 
-	for(int i=1; i<args.length;) {
+	for(int i = 1; i < args.length;) {
 	    String className = args[i++];
 	    String libName = args[i++];
 	    Debug.out.println("Trying class " + className + " in component " + libName);

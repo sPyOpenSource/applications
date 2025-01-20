@@ -23,6 +23,7 @@ public class Main {
 	}
 	test(naming);
     }
+    
     public static boolean test(Naming naming) {
 	Debug.out.println("lookup PCI Access Point...");
 	PCIAccess bus;
@@ -35,8 +36,7 @@ public class Main {
 	bus.dumpDevices();
 
 	Debug.out.println("scanning PCIBus for framebuffer devices...");
-	DeviceFinder[] finder = { new jx.devices.fb.vmware.VMWareSVGAFinder()
-	};
+	DeviceFinder[] finder = { new jx.devices.fb.vmware.VMWareSVGAFinder() };
 	FramebufferDevice[] fbs = null;
         for (DeviceFinder finder1 : finder) {
             if (fbs != null && fbs.length != 0) break;

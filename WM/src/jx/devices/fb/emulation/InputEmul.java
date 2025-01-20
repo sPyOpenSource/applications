@@ -34,6 +34,7 @@ class EmulationEventListener extends EventListener {
 		}
 	    }.start();
     }
+    
     void eventloop() {
 	if (! fb.inputDevicesAvailable()) return;
 	FBEmulationEvent event = new FBEmulationEvent();
@@ -88,6 +89,7 @@ class EmulationEventListener extends EventListener {
 	    }
 	}
     }
+    
     private int translateKeyCode (int keyCode)
     {
 		return keyCode;
