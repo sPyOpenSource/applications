@@ -27,7 +27,7 @@ public class ConsoleImpl implements Console {
         this.screen = screen;
         this.keyboard = keyboard;
         screen.clear();
-
+screen.putAt(0, 0, 'd');
         current = createVirtualConsole();
         
         shell = new Shell(current.getOutputStream(), current.getInputStream());
@@ -54,11 +54,11 @@ public class ConsoleImpl implements Console {
         
         current.activate();
         
-        try {
+        /*try {
             shell.mainloop();
         } catch (IOException ex) {
             //Logger.getLogger(ConsoleImpl.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }*/
     }
 
     public static void init(Naming naming) {
