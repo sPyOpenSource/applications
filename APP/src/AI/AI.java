@@ -39,8 +39,8 @@ public final class AI
     public static void init(Naming naming) throws Exception {
         DebugOutputStream out = new DebugOutputStream((DebugChannel) naming.lookup("DebugChannel0"));
         Debug.out = new DebugPrintStream(out);
-        System.setOut(new java.io.PrintStream(out));
-        System.setErr(System.out);
+        //System.setOut(new java.io.PrintStream(out));
+        //System.setErr(System.out);
 
         Debug.out.println("Init running...");
         main(null);
