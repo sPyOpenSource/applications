@@ -46,7 +46,7 @@ public final class AI
             post.test();
             //test.net.WebServer.main(new String[]{"-fs", "FS", "-threads"});
             AI instance = new AI();
-            //instance.start();
+            instance.start();
             //jx.keyboard.Main.main(new String[]{"WindowManager"});
             //ConsoleImpl.init(Init.naming);
         } catch (Exception ex) {

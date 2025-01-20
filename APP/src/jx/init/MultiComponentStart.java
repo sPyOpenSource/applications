@@ -19,14 +19,15 @@ public class MultiComponentStart {
         @Override
 	public void write(int b) throws IOException {
 	    Debug.out.print("" + (char)b);
-	}	
+        }
     }
     
     public static void init (final Naming naming, String []args, Object[] objectArgs) throws Exception {
 	DebugOutputStream out = new DebugOutputStream((DebugChannel) naming.lookup("DebugChannel0"));
 	Debug.out = new DebugPrintStream(out);
-	//System.out = new java.io.PrintStream(out);
-	//System.err = System.out;
+	System.setOut(new java.io.PrintStream(out));
+	System.setErr(System.out);
+        
 	final CPUManager cpuManager = (CPUManager) naming.lookup("CPUManager");
 	final ComponentManager componentManager = (ComponentManager) naming.lookup("ComponentManager");
 
@@ -75,13 +76,13 @@ public class MultiComponentStart {
 	for(int i = 0; i < start.size(); i++) {
 	    final StartInfo info = (StartInfo)start.elementAt(i);
 	    cpuManager.start(cpuManager.createCPUState(new ThreadEntry() {
-                    @Override
-		    public void run() {
-			//Debug.out.println("START : " + info.name);
-			cpuManager.setThreadName(info.name);
-			info.method.invoke(null, info.args);
-		    }
-		}));
+                @Override
+                public void run() {
+                    //Debug.out.println("START : " + info.name);
+                    cpuManager.setThreadName(info.name);
+                    info.method.invoke(null, info.args);
+                }
+            }));
 	}
     }
 }
