@@ -32,7 +32,7 @@ public class Main {
 	    Debug.out.println("****************************");
 	    Debug.out.println("*  NO BootFS portal found. *");
 	    Debug.out.println("****************************");
-	    //throw new Exception();
+	    throw new Exception();
 	}
 	ReadOnlyMemory startupScript = bootFS.getFile(filename);
 	if (startupScript == null) throw new Error("no startup script " + filename);

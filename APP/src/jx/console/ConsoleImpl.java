@@ -31,7 +31,7 @@ public class ConsoleImpl implements Console {
         current = createVirtualConsole();
         
         shell = new Shell(current.getOutputStream(), current.getInputStream());
-        //shell = new Shell(System.out, System.in);
+        shell = new Shell(System.out, System.in);
         /*shell.register("ifconfig", null);
         shell.register("netstat", null);
         

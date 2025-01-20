@@ -1,6 +1,9 @@
 package AI;
 
+import jx.console.ConsoleImpl;
+import jx.emulation.Init;
 import jx.zero.Debug;
+import jx.zero.InitialNaming;
 import jx.zero.Naming;
 import jx.zero.debug.DebugChannel;
 import jx.zero.debug.DebugOutputStream;
@@ -52,10 +55,14 @@ public final class AI
             //POST post = new POST(Init.naming);
             //post.test();
             //test.net.WebServer.main(new String[]{"-fs", "FS", "-threads"});
+            /*if(InitialNaming.getInitialNaming() == null){
+                Init.init();
+                InitialNaming.naming = Init.naming;
+            }*/
             AI instance = new AI();
             instance.start();
             //jx.keyboard.Main.main(new String[]{"WindowManager"});
-            //ConsoleImpl.init(jx.InitialNaming.getInitialNaming());
+            ConsoleImpl.init(InitialNaming.getInitialNaming());
         } catch (Exception ex) {
             //Logger.getLogger(AI.class.getName()).log(Level.SEVERE, null, ex);
         }

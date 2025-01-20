@@ -123,7 +123,7 @@ public class AIMemory extends AIZeroMemory implements FileSystem
         }
         if(current != null){
         MemoryManager memoryManager = (MemoryManager)InitialNaming.getInitialNaming().lookup("MemoryManager");
-        Memory buf =  memoryManager.alloc(512);
+        Memory buf = memoryManager.alloc(512);
             drive.readSectors(getHash(name), 1, buf, true);
             for(int i = 0; i < 512; i++){
                 Debug.out.print(buf.get8(i));
