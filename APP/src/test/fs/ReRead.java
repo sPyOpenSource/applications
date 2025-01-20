@@ -13,8 +13,7 @@ public class ReRead {
     private static final int MAXBUFFERSIZE   = 1 * 1024 * 1024; // 8*1024*1024
 
     public static void main(String [] args) {
-	Naming naming = InitialNaming.getInitialNaming();
-	FS fs = (FS)jx.InitialNaming.lookup(args[0]);
+	FS fs = (FS)InitialNaming.getInitialNaming().lookup(args[0]);
 	new ReRead(fs);
     }
 
@@ -24,9 +23,9 @@ public class ReRead {
 	int reclen = 4 * 1024;
 	int filesize = 128 * 1024;
 	int starttime, endtime;
-	MemoryManager memMgr = (MemoryManager)jx.InitialNaming.lookup("MemoryManager");
-	Profiler profiler = ((Profiler)jx.InitialNaming.lookup("Profiler"));
-	Clock clock = (Clock)jx.InitialNaming.lookup("Clock");
+	MemoryManager memMgr = (MemoryManager)InitialNaming.getInitialNaming().lookup("MemoryManager");
+	Profiler profiler = ((Profiler)InitialNaming.getInitialNaming().lookup("Profiler"));
+	Clock clock = (Clock)InitialNaming.getInitialNaming().lookup("Clock");
 	Memory buffer2 = memMgr.allocAligned(MAXBUFFERSIZE, 4);
 	Memory buffer1 = memMgr.allocAligned(MAXBUFFERSIZE, 4);
 	try {

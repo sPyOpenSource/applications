@@ -10,12 +10,12 @@ class X {
 }
 
 public class Main {
-    
     public static void main(String[] args) {
 	Naming naming = InitialNaming.getInitialNaming();
 	final CPUManager cpuManager = (CPUManager) naming.lookup("CPUManager");
 	CPUState thread = cpuManager.createCPUState(new ThreadEntry() {
 		int i;
+                @Override
 		public void run() {
 		    cpuManager.setThreadName("Other");
 		    for(;;) {

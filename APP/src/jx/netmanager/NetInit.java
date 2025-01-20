@@ -3,8 +3,6 @@ package jx.netmanager;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.SocketTimeoutException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import jx.net.protocol.ether.*;
 import jx.net.protocol.ip.*;
@@ -281,7 +279,7 @@ public class NetInit implements jx.net.NetInit, Service {
 		bufs[i] = memMgr.alloc(1514);
 	    }
 	    netinstance = new jx.netmanager.NetInit(nic, timerManager, bufs);
-	    jx.InitialNaming.registerPortal(netinstance, args[0]);
+	    InitialNaming.getInitialNaming().registerPortal(netinstance, args[0]);
 	} catch(Exception e) {
 	    throw new Error("Could not setup");
         }

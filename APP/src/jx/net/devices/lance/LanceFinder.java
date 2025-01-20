@@ -30,7 +30,7 @@ public class LanceFinder implements DeviceFinder {
 	PCIAccess bus;
 	int counter = 0;
 	for(;;) {
-	    bus = (PCIAccess)jx.InitialNaming.lookup("PCIAccess");
+	    bus = (PCIAccess)InitialNaming.getInitialNaming().lookup("PCIAccess");
 	    if (bus == null) {
 		if (counter % 20 == 0) { counter = 0; Debug.out.println("NetInit still waiting for PCI"); }
 		counter++;

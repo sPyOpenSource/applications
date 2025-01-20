@@ -27,7 +27,7 @@ public class BioRAMDomain {
     BioRAMDomain(final Naming naming, String name) {
 	this.naming = naming;	
 	final BlockIORAM bio = new BlockIORAM(20 * 1024);
-	jx.InitialNaming.registerPortal(bio, name);
+	InitialNaming.getInitialNaming().registerPortal(bio, name);
 	Debug.out.println("Block I/O device registered as " + name);
     }
 }

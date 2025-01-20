@@ -9,8 +9,7 @@ public class ScreenImpl implements Screen, Service {
     
     final static int CGA_SCREEN  = 0xb8000;
     final static int MONO_SCREEN = 0xb0000;
-    final static int EFI         = 0xc0000000;
-    final static int SCREEN = EFI;
+    final static int SCREEN = CGA_SCREEN;
 
     final static short videoPortReg = 0x3d4;
     final static short videoPortVal = 0x3d5;

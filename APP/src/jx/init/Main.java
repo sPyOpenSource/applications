@@ -11,8 +11,8 @@ public class Main {
      private static Naming initNaming;
 
      public static void init(Naming naming) throws Exception {
-	jx.zero.debug.DebugOutputStream out = new jx.zero.debug.DebugOutputStream((DebugChannel) naming.lookup("DebugChannel0"));
-	Debug.out = new jx.zero.debug.DebugPrintStream(out);
+	DebugOutputStream out = new DebugOutputStream((DebugChannel) naming.lookup("DebugChannel0"));
+	Debug.out = new DebugPrintStream(out);
 	
 	Debug.out.println("Init running...");
         
@@ -33,7 +33,7 @@ public class Main {
 	    Debug.out.println("*  NO BootFS portal found. *");
 	    Debug.out.println("****************************");
 	    //throw new Exception();
-	} else {
+	}
 	ReadOnlyMemory startupScript = bootFS.getFile(filename);
 	if (startupScript == null) throw new Error("no startup script " + filename);
 	BootRC2 p = new BootRC2(startupScript);
@@ -93,29 +93,13 @@ public class Main {
 
             ComponentSpec[] componentSpec = domainSpec.getComponents();
 
-	    //if (componentSpec.length == 1) {
-	    /*
-		String initLib = componentSpec[0].getString("InitLib");
-		String startClass = componentSpec[0].getString("StartClass");
-		Debug.out.println("Start "+domainName);
-		// optional parameters
-		String[] argv = null;
-		String schedulerClass = null;
-		try { argv = componentSpec[0].getStringArray("Args"); } catch(NameNotFoundException e) {}
-		DomainStarter.createDomain(domainName, initLib, startClass, schedulerClass, gcinfo0, codeSize, argv);
-	    */
-		//} else {
-		// multi component domain
-		String initLib = "init2.jll";
-		String startClass = "jx/init/MultiComponentStart";
-                
-		//DomainStarter.createDomain(domainName, initLib, startClass, gcinfo0, gcinfo1, gcinfo2, gcinfo3, gcinfo4, codeSize, initNaming, garbageCollector, new Object[]{componentSpec});
-		//}
-	}
+            String initLib = "init2.jll";
+            String startClass = "jx/init/MultiComponentStart";
+
+            DomainStarter.createDomain(domainName, initLib, startClass, gcinfo0, gcinfo1, gcinfo2, gcinfo3, gcinfo4, codeSize, initNaming, garbageCollector, new Object[]{componentSpec});
         }
 	Debug.out.println("Init finished.");
     }
-
 
     static private void installGlobal(GlobalSpec globalSpec) {
 	if (globalSpec == null) {
@@ -146,8 +130,7 @@ public class Main {
 
 	try {
 	    String namingClass = globalSpec.getString("InstallNaming");
-	    //initNaming = 
-                    new jx.InitialNaming(initNaming);
+	    initNaming = new jx.InitialNaming(initNaming);
 	} catch(NameNotFoundException e) {
 	    Debug.out.println("!!ATTENTION!!                                      !!ATTENTION!!");
 	    Debug.out.println("!!ATTENTION!!  DomainZero's naming service is used !!ATTENTION!!");

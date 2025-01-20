@@ -22,7 +22,7 @@ public class FSDomain {
 
     public static void main(String [] args) {
 	Naming naming = InitialNaming.getInitialNaming();
-	CPUManager cpuManager = (CPUManager)jx.InitialNaming.lookup("CPUManager");
+	CPUManager cpuManager = (CPUManager)InitialNaming.getInitialNaming().lookup("CPUManager");
 	//cpuManager.setThreadName("FSDomain-Main");
 	BlockIO bio = (BlockIO)LookupHelper.waitUntilPortalAvailable(naming, args[0]);
 

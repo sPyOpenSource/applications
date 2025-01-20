@@ -15,9 +15,9 @@ public class Main {
     public static void init(Naming naming, String[] argv) {
 	Debug.out = new DebugPrintStream(new DebugOutputStream((DebugChannel) naming.lookup("DebugChannel0")));
 	if (argv != null) {
-	    for(int i=0; i<argv.length; i++) {
+	    for(int i = 0; i < argv.length; i++) {
 		if (argv[i] != null) {
-		    Debug.out.println("PARAMETER["+i+"]: "+argv[i]);
+		    Debug.out.println("PARAMETER[" + i + "]: " + argv[i]);
 		}
 	    }
 	}
@@ -32,7 +32,7 @@ public class Main {
 	    bus = (PCIAccess)naming.lookup("PCIAccess");
 	    if (bus != null) break;
 	    cpuManager.yield();
-	}	
+	}
 	bus.dumpDevices();
 
 	Debug.out.println("scanning PCIBus for framebuffer devices...");

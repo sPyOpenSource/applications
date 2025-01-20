@@ -4,9 +4,11 @@ import jx.zero.*;
 import jx.zero.debug.*;
 
 import java.io.*;
+import java.util.Vector;
+import jx.bootrc.ComponentSpec;
+import jx.bootrc.NameNotFoundException;
 
 public class MultiComponentStart {
-
     static class StartInfo {
 	VMMethod method;
 	String name;
@@ -21,11 +23,11 @@ public class MultiComponentStart {
     }
     
     public static void init (final Naming naming, String []args, Object[] objectArgs) throws Exception {
-	jx.zero.debug.DebugOutputStream out = new jx.zero.debug.DebugOutputStream((DebugChannel) naming.lookup("DebugChannel0"));
-	Debug.out = new jx.zero.debug.DebugPrintStream(out);
+	DebugOutputStream out = new DebugOutputStream((DebugChannel) naming.lookup("DebugChannel0"));
+	Debug.out = new DebugPrintStream(out);
 	//System.out = new java.io.PrintStream(out);
 	//System.err = System.out;
-	/*final CPUManager cpuManager = (CPUManager) naming.lookup("CPUManager");
+	final CPUManager cpuManager = (CPUManager) naming.lookup("CPUManager");
 	final ComponentManager componentManager = (ComponentManager) naming.lookup("ComponentManager");
 
 	ComponentSpec[] componentSpec = (ComponentSpec[]) objectArgs[0];
@@ -80,6 +82,6 @@ public class MultiComponentStart {
 			info.method.invoke(null, info.args);
 		    }
 		}));
-	}*/
+	}
     }
 }

@@ -1,12 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package AI;
 
 import jx.devices.bio.BlockIO;
-import jx.fs.FileSystem;
 import jx.zero.Clock;
 import jx.zero.Naming;
 import test.debug.Monitor;
@@ -30,7 +25,7 @@ public class POST {
         BioRAMDomain.init(naming, new String[]{"BioRAM"});
         //FileSystem jfs = new jx.fs.javafs.FileSystem();
         BlockIO bio = (BlockIO)naming.lookup("BioRAM");
-        Clock clock = (Clock)naming.lookup("");
+        Clock clock = (Clock)naming.lookup("Clock");
         //jfs.init(bio, new jx.bio.buffercache.BufferCache(bio, clock, 800, 1000, 100, 512), clock);
         //naming.registerPortal(jfs, "JavaFS");
         /*FSImpl fs = new FSImpl();

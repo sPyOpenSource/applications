@@ -1,6 +1,5 @@
 package AI;
 
-import jx.console.ConsoleImpl;
 import jx.zero.Debug;
 import jx.zero.Naming;
 import jx.zero.debug.DebugChannel;

@@ -11,16 +11,16 @@ public class Monitor {
             return;
         }
 	debugSupport.registerMonitorCommand("test", new MonitorCommand() {
-                @Override
-		public void execCommand(String[] args) {
-		    Debug.out.println("***********************************************");
-		    Debug.out.println("*             SUCCESS                         *");
-		    Debug.out.println("***********************************************");
-		}
-                @Override
-		public String getHelp() {
-		    return "";
-		}
-	    });
+            @Override
+            public void execCommand(String[] args) {
+                Debug.out.println("***********************************************");
+                Debug.out.println("*             SUCCESS                         *");
+                Debug.out.println("***********************************************");
+            }
+            @Override
+            public String getHelp() {
+                return "";
+            }
+        });
     }
 }
