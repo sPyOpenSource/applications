@@ -4,6 +4,7 @@ import java.util.TreeMap;
 
 import jx.zero.InitialNaming;
 import jx.devices.bio.BlockIO;
+import jx.devices.pci.PCIAccess;
 import jx.devices.pci.PCIGod;
 import jx.fs.buffer.BufferCache;
 import jx.fs.FileSystem;
@@ -13,6 +14,7 @@ import jx.zero.Clock;
 import jx.zero.Debug;
 import jx.zero.Memory;
 import jx.zero.MemoryManager;
+import jx.zero.Naming;
 import jx.zero.Ports;
 
 /**
@@ -30,15 +32,23 @@ public class AIMemory extends AIZeroMemory implements FileSystem
     private Memory buffer;
     private Ports ports; // You can access any address with ports in the computer memory
     private TreeMap<String, TreeMap> tree = new TreeMap<>();
+    private Naming naming;
     
     /**
      * Constructor for objects of class AIMemory
      */
-    public AIMemory()
+    public AIMemory(Naming naming)
     {
+        this.naming = new jx.InitialNaming(naming);
         try{
-            PCIGod.main(new String[]{});
-
+            //PCIGod.main(new String[]{});
+            PCIGod god = new PCIGod(naming);
+            // promote as DEP
+            final PCIAccess depHandle = god;
+      
+            // register as DEP
+            this.naming.registerPortal(depHandle, "PCIAccess");
+            Debug.out.println("PCIAccess registered");
             //bioide.Main.main(new String[]{"TimerManager", "BioRAM", "full", "0"});
 
             //NetInit.init(InitialNaming.getInitialNaming(), new String[]{"NET"});

@@ -47,7 +47,7 @@ public class FSDomain {
             
 	    final FSImpl fs = new FSImpl();
             //final jx.fs.FileSystem fat = new FatFileSystem(bio);
-            final jx.fs.FileSystem fat = new AIMemory();
+            final jx.fs.FileSystem fat = new AIMemory(naming);
 	    //final javafs.FileSystem jfs = new javafs.FileSystem();
 	    Clock clock = new DummyClock();
 	    //jfs.init(bio, new buffercache.BufferCache(bio, clock, 800, 1000, 100, EXT2FS_BLOCKSIZE), clock);

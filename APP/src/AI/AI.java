@@ -1,7 +1,6 @@
 package AI;
 
 import jx.console.ConsoleImpl;
-import jx.emulation.Init;
 import jx.zero.Debug;
 import jx.zero.InitialNaming;
 import jx.zero.Naming;
@@ -18,15 +17,16 @@ import jx.zero.debug.DebugPrintStream;
 public final class AI
 {
     // instance variables
-    private final AIIO IO = new AIIO();
+    private final AIIO IO;
     private final AILogic log;
     private final Thread logThread;
     
     /**
      * Constructor for objects of class AI
      */
-    public AI()
+    public AI(Naming naming)
     {
+        IO = new AIIO(naming);
         // Initialize instance variables
         log = new AILogic(IO.getMemory());
         logThread = new Thread(log, "logic");
@@ -46,7 +46,8 @@ public final class AI
         //System.setErr(System.out);
 
         Debug.out.println("Init running...");
-        main(null);
+        AI instance = new AI(naming);
+        instance.start();
     }
     
     public static void main(String[] args){
@@ -59,10 +60,10 @@ public final class AI
                 Init.init();
                 InitialNaming.naming = Init.naming;
             }*/
-            AI instance = new AI();
-            instance.start();
+            //AI instance = new AI();
+            //instance.start();
             //jx.keyboard.Main.main(new String[]{"WindowManager"});
-            ConsoleImpl.init(InitialNaming.getInitialNaming());
+            //ConsoleImpl.init(InitialNaming.getInitialNaming());
         } catch (Exception ex) {
             //Logger.getLogger(AI.class.getName()).log(Level.SEVERE, null, ex);
         }
