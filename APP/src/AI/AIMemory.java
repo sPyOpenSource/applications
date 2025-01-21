@@ -153,7 +153,7 @@ public class AIMemory extends AIZeroMemory implements FileSystem
                 current = temp;
             }
         }
-        drive.writeSectors(getHash(name), 1, buffer, true);
+        //drive.writeSectors(getHash(name), 1, buffer, true);
     }
     
     @Override
