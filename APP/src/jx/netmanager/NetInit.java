@@ -261,7 +261,7 @@ public class NetInit implements jx.net.NetInit, Service {
         
 	NetworkDevice[] nics = null;
         for (LanceFinder finder1 : finder) {
-            nics = (NetworkDevice[]) finder1.find(new String[] {});
+            nics = (NetworkDevice[]) finder1.find(naming);
             if (nics != null && nics.length != 0) break;
         }
 	NetworkDevice nic = nics[0];
