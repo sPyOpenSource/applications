@@ -136,11 +136,11 @@ public abstract class AbstractCollection<E> implements Collection<E> {
      * @throws NullPointerException {@inheritDoc}
      */
     @SuppressWarnings("unchecked")
-    public <T> T[] toArray(T[] a) {
+    public E[] toArray(E[] a) {
         // Estimate size of array; be prepared to see more or fewer elements
         int size = size();
-        T[] r = a.length >= size ? a :
-                  (T[])java.lang.reflect.Array
+        E[] r = a.length >= size ? a :
+                  (E[])java.lang.reflect.Array
                   .newInstance(a.getClass().getComponentType(), size);
         Iterator<E> it = iterator();
 
@@ -158,7 +158,7 @@ public abstract class AbstractCollection<E> implements Collection<E> {
                 }
                 return a;
             }
-            r[i] = (T)it.next();
+            r[i] = (E)it.next();
         }
         // more elements than expected
         return it.hasNext() ? finishToArray(r, it) : r;
