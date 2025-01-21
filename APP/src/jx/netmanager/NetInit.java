@@ -56,14 +56,14 @@ public class NetInit implements jx.net.NetInit, Service {
     CPUManager cpuManager = (CPUManager) InitialNaming.getInitialNaming().lookup("CPUManager");
 
     public NetInit(NetworkDevice nic, TimerManager timerManager, Memory[] bufs) throws Exception {
-	this(nic, timerManager, bufs, null); 
+	this(nic, timerManager, bufs, null);
     }
     
     public NetInit(NetworkDevice nic, TimerManager timerManager, Memory[] bufs, IPAddress myAddress) throws Exception {
 	// nic
 	ether = new Ether(nic, nic.getMACAddress());
 	nic.registerNonBlockingConsumer(ether.getNonBlockingReceiver(bufs)); // buffered
-
+Debug.out.println("ARP");
 	arp = new ARP(ether, null, timerManager, false);
 	Debug.out.println("NetInit: init IP");
 	ip = new IP((EtherProducer)ether); // avoid splitting
