@@ -25,6 +25,7 @@ import java.net.DatagramPacket;
 import java.net.Inet4Address;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
+import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.Map;
@@ -294,8 +295,10 @@ public class DHCPMessage {
         skbuf.set8(5+offset, (byte)1);
         skbuf.set8(6+offset, (byte)messageType);
         int n = 7;
-        for (Object entry : options.keySet()) {
-            final int optionCode = (Integer)entry;
+        Enumeration keys = options.keys();
+        while (keys.hasMoreElements()) {
+            Integer entry = (Integer)keys.nextElement();
+            final int optionCode = entry;
             final byte optionValue[] = (byte[])options.get(entry);
             skbuf.set8(n+offset, (byte)optionCode);
             skbuf.set8(n + 1+offset, (byte)optionValue.length);
