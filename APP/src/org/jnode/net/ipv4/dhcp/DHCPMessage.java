@@ -228,7 +228,7 @@ public class DHCPMessage {
             messageType = value[0];
         } else {
             Debug.out.println("put");
-            options.put(code, value);
+            options.put(Integer.valueOf(code), value);
         }
     }
 
