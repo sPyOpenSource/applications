@@ -1,6 +1,9 @@
 package AI;
 
 import AI.Models.Info;
+import jx.timer.TimerManager;
+import jx.timerpc.TimerManagerImpl;
+import jx.zero.InitialNaming;
 
 /**
  * This is the logic class of AI.
@@ -27,6 +30,8 @@ public class AILogic extends AIZeroLogic
         // Initialize instance variables        
 	super(mem);
         //StartTimer.main(new String[]{"TimerManager"});
+        final TimerManager timerManager = new TimerManagerImpl();
+	mem.getInitialNaming().registerPortal(timerManager, "TimerManager");
         //colorCamera  = new MotionDetection(filter, threshold);
         //depthCamera = new PointCloud();
         /*accFilter = new VectorFilter(10, 10, 0.0001, 0.1, 0.1 / 3);

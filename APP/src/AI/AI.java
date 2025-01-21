@@ -1,5 +1,6 @@
 package AI;
 
+import jx.netmanager.NetInit;
 import jx.zero.Debug;
 import jx.zero.Naming;
 import jx.zero.debug.DebugChannel;
@@ -27,6 +28,7 @@ public final class AI
         IO = new AIIO(naming);
         // Initialize instance variables
         log = new AILogic(IO.getMemory());
+        NetInit.init(IO.getMemory().getInitialNaming(), new String[]{"NET"});
         logThread = new Thread(log, "logic");
     }
     

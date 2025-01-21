@@ -52,7 +52,7 @@ public class AIMemory extends AIZeroMemory implements FileSystem
             Debug.out.println("PCIAccess registered");
             //bioide.Main.main(new String[]{"TimerManager", "BioRAM", "full", "0"});
 
-            NetInit.init(this.naming, new String[]{"NET"});
+            //NetInit.init(this.naming, new String[]{"NET"});
 
             //FSDomain.main(new String[]{"BioRAM", "FS"});
             // Initialize instance variables
@@ -162,5 +162,9 @@ public class AIMemory extends AIZeroMemory implements FileSystem
         buffer.set8(0, (byte)60);
         write("ai.txt");
         //read("ai.txt");
+    }
+
+    Naming getInitialNaming() {
+        return naming;
     }
 }
