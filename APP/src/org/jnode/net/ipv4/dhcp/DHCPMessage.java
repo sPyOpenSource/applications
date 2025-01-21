@@ -26,6 +26,7 @@ import java.net.Inet4Address;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.HashMap;
+import java.util.Hashtable;
 import java.util.Map;
 import jx.net.protocol.bootp.BOOTPFormat;
 import jx.zero.Debug;
@@ -164,7 +165,7 @@ public class DHCPMessage {
 
     private int messageType;
 
-    private final Map<Integer, byte[]> options = new HashMap<>();
+    private final Hashtable options = new Hashtable();
 
     /**
      * Create a new message
@@ -293,9 +294,9 @@ public class DHCPMessage {
         skbuf.set8(5+offset, (byte)1);
         skbuf.set8(6+offset, (byte)messageType);
         int n = 7;
-        for (Map.Entry<Integer, byte[]> entry : options.entrySet()) {
-            final int optionCode = entry.getKey();
-            final byte optionValue[] = entry.getValue();
+        for (Object entry : options.entrySet()) {
+            final int optionCode = ((Integer)entry).intValue();
+            final byte optionValue[] = (byte[])options.get(entry);
             skbuf.set8(n+offset, (byte)optionCode);
             skbuf.set8(n + 1+offset, (byte)optionValue.length);
             skbuf.copyFromByteArray(optionValue, 0, n + 2+offset, optionValue.length);
