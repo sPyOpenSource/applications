@@ -63,8 +63,8 @@ public class NetInit implements jx.net.NetInit, Service {
 	// nic
 	ether = new Ether(nic, nic.getMACAddress());
 	nic.registerNonBlockingConsumer(ether.getNonBlockingReceiver(bufs)); // buffered
-Debug.out.println("ARP");
-	arp = new ARP(ether, null, timerManager, false);
+
+        arp = new ARP(ether, null, timerManager, false);
 	Debug.out.println("NetInit: init IP");
 	ip = new IP((EtherProducer)ether); // avoid splitting
         icmp = new ICMP(null, ether, this);
@@ -102,7 +102,6 @@ Debug.out.println("ARP");
             DatagramSocket clientSocket = new DatagramSocket(68);
             for(int i = 0; i < 5; i++){
                 clientSocket.send(sendPacket);
-                Debug.out.println("sended");
                 byte[] receiveData = new byte[1024];
                 DatagramPacket receivePacket = new DatagramPacket(receiveData, receiveData.length);
                 clientSocket.setSoTimeout(200);
