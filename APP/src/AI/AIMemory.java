@@ -160,6 +160,6 @@ public class AIMemory extends AIZeroMemory implements FileSystem
     public void ImportBackup(String file){
         buffer.set8(0, (byte)60);
         write("ai.txt");
-        read("ai.txt");
+        //read("ai.txt");
     }
 }
