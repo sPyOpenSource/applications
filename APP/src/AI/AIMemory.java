@@ -9,6 +9,7 @@ import jx.devices.pci.PCIGod;
 import jx.fs.buffer.BufferCache;
 import jx.fs.FileSystem;
 import jx.fs.Node;
+import jx.netmanager.NetInit;
 
 import jx.zero.Clock;
 import jx.zero.Debug;
@@ -51,7 +52,7 @@ public class AIMemory extends AIZeroMemory implements FileSystem
             Debug.out.println("PCIAccess registered");
             //bioide.Main.main(new String[]{"TimerManager", "BioRAM", "full", "0"});
 
-            //NetInit.init(InitialNaming.getInitialNaming(), new String[]{"NET"});
+            NetInit.init(this.naming, new String[]{"NET"});
 
             //FSDomain.main(new String[]{"BioRAM", "FS"});
             // Initialize instance variables
