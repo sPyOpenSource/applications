@@ -294,8 +294,8 @@ public class DHCPMessage {
         skbuf.set8(5+offset, (byte)1);
         skbuf.set8(6+offset, (byte)messageType);
         int n = 7;
-        for (Object entry : options.entrySet()) {
-            final int optionCode = ((Integer)entry).intValue();
+        for (Object entry : options.keySet()) {
+            final int optionCode = (Integer)entry;
             final byte optionValue[] = (byte[])options.get(entry);
             skbuf.set8(n+offset, (byte)optionCode);
             skbuf.set8(n + 1+offset, (byte)optionValue.length);
