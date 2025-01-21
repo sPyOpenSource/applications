@@ -2,10 +2,13 @@ package java.util;
 
 public abstract class AbstractCollection<E> implements Collection<E> {
     public boolean equals(E a, E b) {throw new Error("");}
+    @Override
     public boolean add(E e) {
         throw new UnsupportedOperationException();
     }    
+    @Override
     public abstract int size();
+    @Override
     public void clear() {
         Iterator<E> it = iterator();
         while (it.hasNext()) {
@@ -13,9 +16,11 @@ public abstract class AbstractCollection<E> implements Collection<E> {
             it.remove();
         }
     }
+    @Override
     public boolean isEmpty() {
         return size() == 0;
     }
+    @Override
     public boolean addAll(Collection<? extends E> c) {
         boolean modified = false;
         for (E e : c)
@@ -23,6 +28,7 @@ public abstract class AbstractCollection<E> implements Collection<E> {
                 modified = true;
         return modified;
     }
+    @Override
     public boolean contains(Object o) {
         Iterator<E> it = iterator();
         if (o == null) {

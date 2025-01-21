@@ -2,16 +2,6 @@ package java.util;
 
 public abstract class AbstractList<E> extends AbstractCollection<E> implements List<E> 
 {
-    protected int capacityIncrement;
-    protected int elementCount;
-    
-    /**
-     * The array buffer into which the elements of the ArrayList are stored.
-     * The capacity of the ArrayList is the length of this array buffer. Any
-     * empty ArrayList with elementData == DEFAULTCAPACITY_EMPTY_ELEMENTDATA
-     * will be expanded to DEFAULT_CAPACITY when the first element is added.
-     */
-    transient Object[] elementData; // non-private to simplify nested class access
     
     @Override
     public void sort(Comparator<? super E> c) {
@@ -24,41 +14,9 @@ public abstract class AbstractList<E> extends AbstractCollection<E> implements L
         }
     }
     
-    public void ensureCapacity(int minCapacity)
-    {
-	if (minCapacity <= elementData.length) return;
-
-	Object[] newData = null;
-
-	try {
-	    int newSize =
-		capacityIncrement > 0
-		? elementData.length + capacityIncrement
-		: elementData.length * 2;
-	    
-	    if (newSize < minCapacity) newSize = minCapacity;
-	    newData = new Object[newSize];
-	} catch (Error error) {
-	    newData = new Object[minCapacity]; 
-	}
-
-	//elementData = Arrays.copyOf(newData, newData.length);;
-    }
-
-    /*public final void copyInto(E[] array)
-    {
-	System.arraycopy(
-			 elementData, 0,
-			 array, 0,
-			 elementCount
-			 );
-    }*/
-    
     @Override
     public boolean add(E e) {
-        ensureCapacity(elementCount + 1);
-	elementData[elementCount] = e;
-	elementCount++;
+        add(size(), e);
         return true;
     }
     
@@ -74,18 +32,7 @@ public abstract class AbstractList<E> extends AbstractCollection<E> implements L
     
     @Override
     public E remove(int index) {
-        /*rangeCheck(index);
-        checkForComodification();
-        E result = l.remove(index+offset);
-        this.modCount = l.modCount;
-        size--;*/
-        return null;
-    }
-    
-    @Override
-    public int size() {
-        //checkForComodification();
-        return elementCount;
+        throw new UnsupportedOperationException();
     }
     
     @Override
@@ -146,4 +93,5 @@ public abstract class AbstractList<E> extends AbstractCollection<E> implements L
                 new SubList<>(this, fromIndex, toIndex));*/
         throw new Error("Object method not implemented");
     }
+    
 }
