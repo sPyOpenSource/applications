@@ -286,14 +286,14 @@ public class DHCPMessage {
         //skbuf.insert(OPTIONS_SIZE);
         int offset = 0x116 - 34 - 8;
         // magic cookie
-        skbuf.set8(0+offset, (byte)99);
-        skbuf.set8(1+offset, (byte)130);
-        skbuf.set8(2+offset, (byte)83);
-        skbuf.set8(3+offset, (byte)99);
+        skbuf.set8(0 + offset, (byte)99);
+        skbuf.set8(1 + offset, (byte)130);
+        skbuf.set8(2 + offset, (byte)83);
+        skbuf.set8(3 + offset, (byte)99);
         // options
-        skbuf.set8(4+offset, (byte)MESSAGE_TYPE_OPTION);
-        skbuf.set8(5+offset, (byte)1);
-        skbuf.set8(6+offset, (byte)messageType);
+        skbuf.set8(4 + offset, (byte)MESSAGE_TYPE_OPTION);
+        skbuf.set8(5 + offset, (byte)1);
+        skbuf.set8(6 + offset, (byte)messageType);
         int n = 7;
         //Enumeration keys = options.keys();
         for (int i = 0; i < 60; i++) {
