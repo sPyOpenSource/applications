@@ -299,11 +299,13 @@ public class DHCPMessage {
         for (int i = 0; i < 60; i++) {
             final int optionCode = i;
             final byte optionValue[] = (byte[])options[i];
-            if(optionValue == null) continue;
-            skbuf.set8(n+offset, (byte)optionCode);
-            skbuf.set8(n + 1+offset, (byte)optionValue.length);
-            skbuf.copyFromByteArray(optionValue, 0, n + 2+offset, optionValue.length);
-            n += optionValue.length + 2;
+            if(optionValue != null){
+                Debug.out.println(i);
+                skbuf.set8(n + offset, (byte)optionCode);
+                skbuf.set8(n + 1 + offset, (byte)optionValue.length);
+                skbuf.copyFromByteArray(optionValue, 0, n + 2 + offset, optionValue.length);
+                n += optionValue.length + 2;
+            }
         }
         skbuf.set8(n + offset, (byte)END_OPTION);
 
