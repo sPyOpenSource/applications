@@ -166,7 +166,7 @@ public class DHCPMessage {
 
     private int messageType;
 
-    private final Hashtable options = new Hashtable();
+    private final byte[][] options = new byte[60][];
 
     /**
      * Create a new message
@@ -228,7 +228,7 @@ public class DHCPMessage {
             messageType = value[0];
         } else {
             Debug.out.println("put");
-            options.put(Integer.valueOf(code), value);
+            options[code] = value;
         }
     }
 
@@ -273,7 +273,7 @@ public class DHCPMessage {
         if (code == MESSAGE_TYPE_OPTION)
             return new byte[] {(byte) messageType};
         else
-            return (byte[]) options.get(code);
+            return (byte[]) options[code];
     }
 
     /**
@@ -295,11 +295,11 @@ public class DHCPMessage {
         skbuf.set8(5+offset, (byte)1);
         skbuf.set8(6+offset, (byte)messageType);
         int n = 7;
-        Enumeration keys = options.keys();
-        while (keys.hasMoreElements()) {
-            Integer entry = (Integer)keys.nextElement();
-            final int optionCode = entry;
-            final byte optionValue[] = (byte[])options.get(entry);
+        //Enumeration keys = options.keys();
+        for (int i = 0; i < 60; i++) {
+            final int optionCode = i;
+            final byte optionValue[] = (byte[])options[i];
+            if(optionValue == null) continue;
             skbuf.set8(n+offset, (byte)optionCode);
             skbuf.set8(n + 1+offset, (byte)optionValue.length);
             skbuf.copyFromByteArray(optionValue, 0, n + 2+offset, optionValue.length);
