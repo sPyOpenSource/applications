@@ -13,7 +13,7 @@ import jx.timer.*;
 public class IDEDeviceImpl {
 
     /** max. number drives per controller */
-    public  static final int MAX_DRIVES      = 1;
+    public  static final int MAX_DRIVES      = 2;
 
     /** <code>true</code>, if busmaster DMA possible */
     public  static boolean dmaSupported;

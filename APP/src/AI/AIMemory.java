@@ -50,7 +50,7 @@ public class AIMemory extends AIZeroMemory implements FileSystem
             // register as DEP
             this.naming.registerPortal(depHandle, "PCIAccess");
             Debug.out.println("PCIAccess registered");
-            bioide.Main.main(new String[]{"TimerManager", "BioRAM", "1", "0"});
+            bioide.Main.main(new String[]{"TimerManager", "BioRAM", "0", "0"});
 
             //NetInit.init(this.naming, new String[]{"NET"});
 
