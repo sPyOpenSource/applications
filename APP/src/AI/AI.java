@@ -10,6 +10,7 @@ import jx.zero.debug.DebugChannel;
 import jx.zero.debug.DebugOutputStream;
 import jx.zero.debug.DebugPrintStream;
 import org.jnode.driver.bus.usb.uhci.UHCICore;
+import org.jnode.driver.bus.usb.uhci.UHCIDriver;
 
 /**
  * This is a class initialize an artificial intelligence service.
@@ -38,7 +39,7 @@ public final class AI
             PCIDevice dev = pci.getDeviceAt(i);
             if(PCICodes.lookupClass(dev.getClassCode()).startsWith("USB")){
                 System.out.println("USB found");
-                new UHCICore(dev);
+                new UHCIDriver(dev);
             }
         }
         logThread = new Thread(log, "logic");
