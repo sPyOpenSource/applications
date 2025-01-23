@@ -67,7 +67,6 @@ public class IDEDeviceImpl {
         
 	dmaSupported = found; // found*/
 	
-
 	probeCmosForDrives();
         
 	for (int i = 0; i < MAX_CONTROLLERS; i++) {

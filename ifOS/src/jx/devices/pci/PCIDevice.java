@@ -50,5 +50,7 @@ public interface PCIDevice extends Bus {
     public byte getRevisionID();
 
     public int readIRQLine();
+
+    public void setInterruptLine(byte irqNr);
     
 }

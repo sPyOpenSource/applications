@@ -206,7 +206,6 @@ class Controller {
 		operation.startOperation();
 		*/
 		
-		
 		if (front) {
 		    newOperation.next = operation;
 		    operation = newOperation;

@@ -62,6 +62,6 @@ public class PCIBus {
     public void writeConfig(int addr, int value) {
 	Env.ports.outl(CONFIG_ADDRESS, addr);
 	Env.ports.outl(CONFIG_DATA, value);
-	Env.ports.outl (CONFIG_ADDRESS, 0);
+	Env.ports.outl(CONFIG_ADDRESS, 0);
     }
 }
