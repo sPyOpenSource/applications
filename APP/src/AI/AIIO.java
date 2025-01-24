@@ -2,6 +2,8 @@
 package AI;
 
 import jx.zero.Naming;
+import jx.zero.Ports;
+import jx.zero.debug.DebugOutputStream;
 
 /**
  *
@@ -12,8 +14,10 @@ public class AIIO {
     private final AIInput  inp;
     private final AIOutput out;
     private final Thread   inpThread, outThread;
+    private Ports ports; // You can access any address with ports in the computer memory
 
     public AIIO(Naming naming){
+        ports = (Ports)naming.lookup("Ports");
         mem = new AIMemory(naming);
         mem.setLogPath("/AI/");
         inp = new AIInput(mem);
@@ -31,5 +35,9 @@ public class AIIO {
     
     public AIMemory getMemory(){
         return mem;
+    }
+    
+    public DebugOutputStream getOut(){
+        return out.getOut();
     }
 }

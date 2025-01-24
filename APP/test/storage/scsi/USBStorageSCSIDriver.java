@@ -20,9 +20,11 @@
  
 package org.jnode.driver.block.usb.storage.scsi;
 
+import bioide.PartitionEntry;
 import java.io.IOException;
 import java.io.InterruptedIOException;
 import java.nio.ByteBuffer;
+import jx.devices.Device;
 
 import org.jnode.driver.RemovableDeviceAPI;
 
@@ -33,7 +35,7 @@ import org.jnode.driver.block.usb.storage.USBStorageSCSIHostDriver.USBStorageSCS
 
 import org.jnode.driver.bus.scsi.SCSIDevice;
 import org.jnode.driver.bus.scsi.SCSIDeviceAPI;
-import org.jnode.driver.bus.scsi.SCSIException;
+//import org.jnode.driver.bus.scsi.SCSIException;
 import org.jnode.driver.bus.scsi.SCSIHostControllerAPI;
 import org.jnode.driver.bus.scsi.cdb.mmc.CapacityData;
 import org.jnode.driver.bus.scsi.cdb.mmc.MMCUtils;
@@ -63,8 +65,7 @@ public class USBStorageSCSIDriver
         this.blockAlignment = new FSBlockAlignmentSupport(this, 2048);
     }
 
-    @Override
-    protected void startDevice() throws DriverException {
+    protected void startDevice() throws Exception {
         final Device dev = getDevice();
         // Rename the device
         try {
@@ -85,12 +86,11 @@ public class USBStorageSCSIDriver
         dev.registerAPI(FSBlockDeviceAPI.class, blockAlignment);
     }
 
-    @Override
-    protected void stopDevice() throws DriverException {
+    protected void stopDevice() throws Exception {
         try {
             unlock();
         } catch (IOException ex) {
-            throw new DriverException(ex);
+            throw new Exception(ex);
         } finally {
             final SCSIDevice dev = (SCSIDevice) getDevice();
             dev.unregisterAPI(RemovableDeviceAPI.class);
@@ -105,7 +105,7 @@ public class USBStorageSCSIDriver
         return capacity.getBlockLength();
     }
 
-    public PartitionTableEntry getPartitionTableEntry() {
+    public PartitionEntry getPartitionTableEntry() {
         // TODO Auto-generated method stub
         return null;
     }
@@ -133,13 +133,11 @@ public class USBStorageSCSIDriver
 
     }
 
-    @Override
     public void requestCompleted(USBRequest request) {
         // TODO Auto-generated method stub
 
     }
 
-    @Override
     public void requestFailed(USBRequest request) {
         // TODO Auto-generated method stub
 
@@ -155,16 +153,10 @@ public class USBStorageSCSIDriver
             final SCSIDevice dev = (SCSIDevice) getDevice();
             try {
                 MMCUtils.setMediaRemoval(dev, false, false);
-            } catch (SCSIException ex) {
+            } catch (Exception ex) {
                 final IOException ioe = new IOException();
                 ioe.initCause(ex);
                 throw ioe;
-            } catch (TimeoutException ex) {
-                final IOException ioe = new IOException();
-                ioe.initCause(ex);
-                throw ioe;
-            } catch (InterruptedException ex) {
-                throw new InterruptedIOException();
             }
             locked = false;
         }
@@ -178,16 +170,10 @@ public class USBStorageSCSIDriver
                 // Gets the capacity.
                 this.capacity = MMCUtils.readCapacity(dev);
                 this.blockAlignment.setAlignment(capacity.getBlockLength());
-            } catch (SCSIException ex) {
+            } catch (Exception ex) {
                 final IOException ioe = new IOException();
                 ioe.initCause(ex);
                 throw ioe;
-            } catch (TimeoutException ex) {
-                final IOException ioe = new IOException();
-                ioe.initCause(ex);
-                throw ioe;
-            } catch (InterruptedException ex) {
-                throw new InterruptedIOException();
             }
             changed = false;
         }
@@ -218,7 +204,6 @@ public class USBStorageSCSIDriver
 
     }
 
-    @Override
     public void load() throws IOException {
         //To change body of implemented methods use File | Settings | File Templates.
     }

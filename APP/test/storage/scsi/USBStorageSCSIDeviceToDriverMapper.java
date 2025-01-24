@@ -31,13 +31,13 @@ public class USBStorageSCSIDeviceToDriverMapper {
     /**
      * My logger
      */
-    private static final Logger log = Logger.getLogger(USBStorageSCSIDeviceToDriverMapper.class);
+    //private static final Logger log = Logger.getLogger(USBStorageSCSIDeviceToDriverMapper.class);
 
     /**
      * @see org.jnode.driver.DeviceToDriverMapper#findDriver(org.jnode.driver.Device)
      */
-    public Driver findDriver(Device device) {
-        log.debug("*** USBStorageSCSIDeviceToDriverMapper::findDriver ***");
+    public USBStorageSCSIDriver findDriver(Device device) {
+        //log.debug("*** USBStorageSCSIDeviceToDriverMapper::findDriver ***");
         if (device instanceof USBStorageSCSIDevice) {
             return new USBStorageSCSIDriver();
         }

@@ -20,12 +20,14 @@
  
 package org.jnode.driver.block.usb.storage;
 
-import org.jnode.driver.Bus;
-import org.jnode.driver.Device;
+import jx.devices.Bus;
+import jx.devices.Device;
+import jx.devices.DeviceConfiguration;
+import jx.devices.DeviceConfigurationTemplate;
 
 import org.jnode.driver.bus.scsi.CDB;
 import org.jnode.driver.bus.scsi.SCSIDevice;
-import org.jnode.driver.bus.scsi.SCSIException;
+//import org.jnode.driver.bus.scsi.SCSIException;
 import org.jnode.driver.bus.scsi.SCSIHostControllerAPI;
 import org.jnode.driver.bus.scsi.cdb.spc.CDBInquiry;
 import org.jnode.driver.bus.scsi.cdb.spc.CDBTestUnitReady;
@@ -38,7 +40,7 @@ import org.jnode.driver.bus.usb.USBException;
 import org.jnode.driver.bus.usb.USBPipeListener;
 import org.jnode.driver.bus.usb.USBRequest;
 import org.jnode.util.NumberUtils;
-import org.jnode.util.TimeoutException;
+//import org.jnode.util.TimeoutException;
 
 /**
  * @author Ewout Prangsma (epr@users.sourceforge.net)
@@ -49,7 +51,7 @@ public class USBStorageSCSIHostDriver
     /**
      * My logger
      */
-    private static final Logger log = Logger.getLogger(USBStorageSCSIHostDriver.class);
+    //private static final Logger log = Logger.getLogger(USBStorageSCSIHostDriver.class);
 
     /**
      * Storage specific device data
@@ -67,8 +69,7 @@ public class USBStorageSCSIHostDriver
     public USBStorageSCSIHostDriver() {
     }
 
-    @Override
-    protected void startDevice() throws DriverException {
+    protected void startDevice() throws Exception {
         try {
             USBDevice usbDevice = (USBDevice) getDevice();
             USBConfiguration conf = usbDevice.getConfiguration(0);
@@ -91,30 +92,25 @@ public class USBStorageSCSIHostDriver
             // Execute INQUIRY
             try {
                 scsiDevice.inquiry();
-            } catch (SCSIException ex) {
-                throw new DriverException("Cannot INQUIRY device", ex);
-            } catch (TimeoutException ex) {
-                throw new DriverException("Cannot INQUIRY device : timeout", ex);
             } catch (InterruptedException ex) {
-                throw new DriverException("Interrupted while INQUIRY device", ex);
+                throw new Exception("Interrupted while INQUIRY device", ex);
             }
             // Register the generic SCSI device.
-            try {
+            /*try {
                 final DeviceManager dm = usbDevice.getManager();
                 dm.rename(scsiDevice, "sg", true);
                 dm.register(scsiDevice);
                 dm.rename(usbDevice, SCSIHostControllerAPI.DEVICE_PREFIX, true);
             } catch (DeviceAlreadyRegisteredException ex) {
                 throw new DriverException(ex);
-            }
+            }*/
         } catch (USBException e) {
-            throw new DriverException(e);
+            throw new Exception(e);
         }
 
     }
 
-    @Override
-    protected void stopDevice() throws DriverException {
+    protected void stopDevice() throws Exception {
         final Device dev = getDevice();
 
         // Unregister the SCSI device that we host
@@ -122,23 +118,41 @@ public class USBStorageSCSIHostDriver
         dev.unregisterAPI(SCSIHostControllerAPI.class);
     }
 
-    @Override
     public void requestCompleted(USBRequest request) {
-        log.debug("USBStorageSCSIHostDriver completed with status:" + request.getStatus());
+        //log.debug("USBStorageSCSIHostDriver completed with status:" + request.getStatus());
     }
 
-    @Override
     public void requestFailed(USBRequest request) {
-        log.debug("USBStorageSCSIHostDriver failed with status:" + request.getStatus());
+        //log.debug("USBStorageSCSIHostDriver failed with status:" + request.getStatus());
     }
 
-    private final class USBStorageSCSIHostBus extends Bus {
+    private final class USBStorageSCSIHostBus implements Bus {
 
         /**
          * @param parent
          */
         public USBStorageSCSIHostBus(Device parent) {
-            super(parent);
+            //super(parent);
+        }
+
+        @Override
+        public Device getChild(int index) {
+            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        }
+
+        @Override
+        public DeviceConfigurationTemplate[] getSupportedConfigurations() {
+            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        }
+
+        @Override
+        public void open(DeviceConfiguration conf) {
+            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        }
+
+        @Override
+        public void close() {
+            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
         }
     }
 
@@ -156,16 +170,16 @@ public class USBStorageSCSIHostDriver
         @Override
         public int executeCommand(CDB cdb, byte[] data, int dataOffset, long timeout)
             throws Exception, InterruptedException {
-            log.debug("*** execute command ***");
+            //log.debug("*** execute command ***");
             ITransport t = storageDeviceData.getTransport();
             t.transport(cdb, timeout);
             return 0;
         }
 
         protected final void testUnit() throws Exception, InterruptedException {
-            log.info("*** Test unit ready ***");
+            //log.info("*** Test unit ready ***");
             int res = this.executeCommand(new CDBTestUnitReady(), null, 0, 50000);
-            log.debug("*** result : 0x" + NumberUtils.hex(res) + " ***");
+            //log.debug("*** result : 0x" + NumberUtils.hex(res) + " ***");
         }
 
         /**
@@ -177,14 +191,14 @@ public class USBStorageSCSIHostDriver
          */
         protected final void inquiry() throws Exception,
             InterruptedException {
-            log.info("*** INQUIRY ***");
+            //log.info("*** INQUIRY ***");
             final byte[] inqData = new byte[96];
 
             ITransport t = storageDeviceData.getTransport();
             t.transport(new CDBInquiry(inqData.length), 50000);
 
             inquiryResult = new InquiryData(inqData);
-            log.debug("INQUIRY Data : " + inquiryResult.toString());
+            //log.debug("INQUIRY Data : " + inquiryResult.toString());
         }
 
         /*protected final void capacity() throws SCSIException, TimeoutException, InterruptedException {
@@ -200,6 +214,5 @@ public class USBStorageSCSIHostDriver
         public final InquiryData getDescriptor() {
             return inquiryResult;
         }
-
     }
 }

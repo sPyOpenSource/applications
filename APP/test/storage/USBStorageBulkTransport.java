@@ -35,7 +35,7 @@ final class USBStorageBulkTransport implements ITransport, USBStorageConstants {
     /**
      * My logger
      */
-    private static final Logger log = Logger.getLogger(USBStorageBulkTransport.class);
+    //private static final Logger log = Logger.getLogger(USBStorageBulkTransport.class);
     /** */
     private final USBStorageDeviceData storageDeviceData;
 
@@ -62,7 +62,7 @@ final class USBStorageBulkTransport implements ITransport, USBStorageConstants {
             cbw.setLun((byte) 0);
             cbw.setLength((byte) scsiCmd.length);
             cbw.setCdb(scsiCmd);
-            log.debug(cbw.toString());
+            //log.debug(cbw.toString());
             // Sent CBW to device
             USBDataPipe outPipe = ((USBDataPipe) storageDeviceData.getBulkOutEndPoint().getPipe());
             USBRequest req = outPipe.createRequest(cbw);
@@ -89,6 +89,7 @@ final class USBStorageBulkTransport implements ITransport, USBStorageConstants {
     /**
      * Bulk-Only mass storage reset.
      */
+    @Override
     public void reset() throws USBException {
         final USBControlPipe pipe = storageDeviceData.getDevice().getDefaultControlPipe();
         final USBRequest req = pipe.createRequest(new SetupPacket(USB_DIR_OUT
@@ -103,14 +104,14 @@ final class USBStorageBulkTransport implements ITransport, USBStorageConstants {
      * @throws USBException
      */
     public void getMaxLun(USBDevice usbDev) throws USBException {
-        log.info("*** Get max lun ***");
+        //log.info("*** Get max lun ***");
         final USBControlPipe pipe = usbDev.getDefaultControlPipe();
         final USBPacket packet = new USBPacket(1);
         final USBRequest req = pipe.createRequest(new SetupPacket(USB_DIR_IN
             | USB_TYPE_CLASS | USB_RECIP_INTERFACE, 0xFE, 0, 0, 1), packet);
         pipe.syncSubmit(req, GET_TIMEOUT);
-        log.debug("*** Request data     : " + req.toString());
-        log.debug("*** Request status   : 0x" + NumberUtils.hex(req.getStatus(), 4));
+        //log.debug("*** Request data     : " + req.toString());
+        //log.debug("*** Request status   : 0x" + NumberUtils.hex(req.getStatus(), 4));
         if (req.getStatus() == USBREQ_ST_COMPLETED) {
             storageDeviceData.setMaxLun(packet.getData()[0]);
         } else if (req.getStatus() == USBREQ_ST_STALLED) {

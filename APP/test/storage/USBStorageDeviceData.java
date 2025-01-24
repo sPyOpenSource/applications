@@ -31,7 +31,7 @@ final class USBStorageDeviceData implements USBStorageConstants {
     /**
      * My logger
      */
-    private static final Logger log = Logger.getLogger(USBStorageDeviceData.class);
+    //private static final Logger log = Logger.getLogger(USBStorageDeviceData.class);
     /** */
     private USBDevice device;
     /** */
@@ -73,15 +73,15 @@ final class USBStorageDeviceData implements USBStorageConstants {
 
         switch (this.protocol) {
             case US_PR_CBI:
-                log.info("*** Set transport protocol to CONTROL/BULK/INTERRUPT");
+                //log.info("*** Set transport protocol to CONTROL/BULK/INTERRUPT");
                 break;
             case US_PR_BULK:
-                log.info("*** Set transport protocol to BULK ONLY");
+                //log.info("*** Set transport protocol to BULK ONLY");
                 this.transport = new USBStorageBulkTransport(this);
                 //((USBStorageBulkTransport)USBMassStorage.getTransport()).getMaxLun(usbDev);
                 break;
             case US_PR_SCM_ATAPI:
-                log.info("*** Set transport protocol to SCM ATAPI");
+                //log.info("*** Set transport protocol to SCM ATAPI");
             default:
                 throw new Exception("Transport protocol not implemented.");
         }
@@ -94,14 +94,14 @@ final class USBStorageDeviceData implements USBStorageConstants {
                 // In or Out ?
                 if ((ep.getDescriptor().getEndPointAddress() & USB_DIR_IN) == 0) {
                     this.bulkInEndPoint = ep;
-                    log.info("*** Set bulk in endpoint");
+                    //log.info("*** Set bulk in endpoint");
                 } else {
                     this.bulkOutEndPoint = ep;
-                    log.info("*** Set bulk out endpoint");
+                    //log.info("*** Set bulk out endpoint");
                 }
             } else if ((ep.getDescriptor().getAttributes() & USB_ENDPOINT_XFERTYPE_MASK) == USB_ENDPOINT_XFER_INT) {
                 this.intrEndPoint = ep;
-                log.info("*** Set interrupt endpoint");
+                //log.info("*** Set interrupt endpoint");
             }
         }
 

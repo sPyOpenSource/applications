@@ -7,8 +7,6 @@ import jx.netmanager.NetInit;
 
 import jx.zero.Debug;
 import jx.zero.Naming;
-import jx.zero.debug.DebugChannel;
-import jx.zero.debug.DebugOutputStream;
 import jx.zero.debug.DebugPrintStream;
 import org.jnode.driver.bus.usb.uhci.UHCIDriver;
 
@@ -47,19 +45,18 @@ public final class AI
     
     public void start()
     {
-        System.out.println("AI running...");
         logThread.start();
         IO.start();
+        System.out.println("AI running...");
+    }
+    
+    public AIIO getIO(){
+        return IO;
     }
     
     public static void init(Naming naming) throws Exception {
-        DebugOutputStream out = new DebugOutputStream((DebugChannel) naming.lookup("DebugChannel0"));
-        Debug.out = new DebugPrintStream(out);
-        //System.setOut(new java.io.PrintStream(out));
-        //System.setErr(System.out);
-
-        Debug.out.println("Init running...");
         AI instance = new AI(naming);
+        Debug.out.println("Init running...");
         instance.start();
     }
     

@@ -21,8 +21,6 @@
 package org.jnode.driver.block.usb.storage;
 
 import jx.devices.Device;
-import org.jnode.driver.DeviceToDriverMapper;
-import org.jnode.driver.Driver;
 import org.jnode.driver.bus.usb.InterfaceDescriptor;
 import org.jnode.driver.bus.usb.USBConfiguration;
 import org.jnode.driver.bus.usb.USBDevice;
@@ -35,12 +33,12 @@ public class USBStorageDeviceToDriverMapper implements USBStorageConstants {
     /**
      * My logger
      */
-    private static final Logger log = Logger.getLogger(USBStorageDeviceToDriverMapper.class);
+    //private static final Logger log = Logger.getLogger(USBStorageDeviceToDriverMapper.class);
 
     /**
      * @see org.jnode.driver.DeviceToDriverMapper#findDriver(org.jnode.driver.Device)
      */
-    public Driver findDriver(Device device) {
+    public USBStorageSCSIHostDriver findDriver(Device device) {
         if (!(device instanceof USBDevice)) {
             return null;
         }
@@ -54,33 +52,33 @@ public class USBStorageDeviceToDriverMapper implements USBStorageConstants {
         if (descr.getInterfaceClass() != USB_CLASS_MASS_STORAGE) {
             return null;
         }
-        log.debug("Found mass storage: " + descr);
+        //log.debug("Found mass storage: " + descr);
         switch (descr.getInterfaceSubClass()) {
             case US_SC_RBC:
                 //TODO Implement driver.
-                log.info("Driver for subclass" + descr.getInterfaceSubClass() + "Not yet implemented");
+                //log.info("Driver for subclass" + descr.getInterfaceSubClass() + "Not yet implemented");
                 return null;
             case US_SC_8020:
                 //TODO Implement driver.
-                log.info("Driver for subclass" + descr.getInterfaceSubClass() + "Not yet implemented");
+                //log.info("Driver for subclass" + descr.getInterfaceSubClass() + "Not yet implemented");
                 return null;
             case US_SC_QIC:
                 //TODO Implement driver.
-                log.info("Driver for subclass" + descr.getInterfaceSubClass() + "Not yet implemented");
+                //log.info("Driver for subclass" + descr.getInterfaceSubClass() + "Not yet implemented");
                 return null;
             case US_SC_UFI:
                 //TODO Implement driver.
-                log.info("Driver for subclass" + descr.getInterfaceSubClass() + "Not yet implemented");
+                //log.info("Driver for subclass" + descr.getInterfaceSubClass() + "Not yet implemented");
                 return null;
             case US_SC_8070:
                 //TODO Implement driver.
-                log.info("Driver for subclass" + descr.getInterfaceSubClass() + "Not yet implemented");
+                //log.info("Driver for subclass" + descr.getInterfaceSubClass() + "Not yet implemented");
                 return null;
             case US_SC_SCSI:
                 return new USBStorageSCSIHostDriver();
             case US_SC_ISD200:
                 //TODO Implement driver.
-                log.info("Driver for subclass" + descr.getInterfaceSubClass() + "Not yet implemented");
+                //log.info("Driver for subclass" + descr.getInterfaceSubClass() + "Not yet implemented");
                 return null;
             default:
                 return null;

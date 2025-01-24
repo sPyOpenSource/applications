@@ -31,7 +31,6 @@ public class AIMemory extends AIZeroMemory implements FileSystem
     private BlockIO drive;
     private final int length = 101;
     private Memory buffer;
-    private Ports ports; // You can access any address with ports in the computer memory
     private TreeMap<String, TreeMap> root = new TreeMap<>();
     private Naming naming;
     
@@ -64,7 +63,6 @@ public class AIMemory extends AIZeroMemory implements FileSystem
             }*/
             //drive = (BlockIO)LookupHelper.waitUntilPortalAvailable(null, "BioRAM");
             MemoryManager memoryManager = (MemoryManager)naming.lookup("MemoryManager");
-            ports = (Ports)naming.lookup("Ports");
             buffer =  memoryManager.alloc(512);
         } catch (ExceptionInInitializerError | NullPointerException ex){
             //Logger.getLogger(AIMemory.class.getName()).log(Level.SEVERE, null, ex);
