@@ -5,9 +5,7 @@ import jx.devices.pci.PCICodes;
 import jx.devices.pci.PCIDevice;
 import jx.netmanager.NetInit;
 
-import jx.zero.Debug;
 import jx.zero.Naming;
-import jx.zero.debug.DebugPrintStream;
 import org.jnode.driver.bus.usb.uhci.UHCIDriver;
 
 /**
@@ -55,7 +53,6 @@ public final class AI
     
     public static void init(Naming naming) throws Exception {
         AI instance = new AI(naming);
-        Debug.out.println("Init running...");
         instance.start();
     }
     
