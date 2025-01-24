@@ -20,6 +20,7 @@
  
 package org.jnode.driver.net.lance;
 
+import AI.AILogic;
 import jx.devices.pci.PCIDevice;
 import jx.zero.Debug;
 import jx.zero.FirstLevelIrqHandler;
@@ -125,8 +126,9 @@ public class LanceCore implements LanceConstants, FirstLevelIrqHandler {
           //  throw new DriverException("Cannot find ResourceManager");
         //}
         this.irq = irq;
-        this.irq.installFirstLevelHandler(irqnum, this);
-    	this.irq.enableIRQ(irqnum);
+        //this.irq.installFirstLevelHandler(irqnum, this);
+    	//this.irq.enableIRQ(irqnum);
+        AILogic.createIRQ(irqnum, this);
         //try {
             ioResource = ports;
         //} catch (ResourceNotFreeException ex) {

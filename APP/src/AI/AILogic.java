@@ -3,6 +3,9 @@ package AI;
 import AI.Models.Info;
 import jx.timer.TimerManager;
 import jx.timerpc.TimerManagerImpl;
+import jx.zero.FirstLevelIrqHandler;
+import jx.zero.IRQ;
+import jx.zero.InitialNaming;
 
 /**
  * This is the logic class of AI.
@@ -16,6 +19,7 @@ public class AILogic extends AIZeroLogic
     private final double threshold = 1000000, filter = 0.99;
     private static long state = System.currentTimeMillis();
     private final TimerManager timerManager;
+    private final IRQ irq;
     //private final MotionDetection colorCamera;
     //private final PointCloud depthCamera;
     //private final VectorFilter accFilter, magFilter;
@@ -28,6 +32,7 @@ public class AILogic extends AIZeroLogic
     {
         // Initialize instance variables        
 	super(mem);
+        irq = (IRQ)InitialNaming.getInitialNaming().lookup("IRQ");
         //StartTimer.main(new String[]{"TimerManager"});
         timerManager = new TimerManagerImpl();
 	mem.getInitialNaming().registerPortal(timerManager, "TimerManager");
@@ -110,6 +115,34 @@ public class AILogic extends AIZeroLogic
         }
         for(int i = 0; i < 200; i++){
             System.out.println(LSFR32());
+        }
+    }
+    
+    class IRQHandler implements FirstLevelIrqHandler {
+        
+        private final int irq;
+        
+        public IRQHandler(int irq){
+            this.irq = irq;
+        }
+        
+        @Override
+        public void interrupt() {
+            for(FirstLevelIrqHandler handler:handlers[irq]){
+                if(handler != null)
+                    handler.interrupt();
+            }
+        }
+        
+    }
+    
+    public void enableIRQ(){
+        for(int i = 0; i < handlers.length; i++){
+            if(handlers[i][0] != null){
+                IRQHandler irqhandler = new IRQHandler(i);
+                irq.installFirstLevelHandler(i, irqhandler);
+                irq.enableIRQ(i);
+            }
         }
     }
 }
