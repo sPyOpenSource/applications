@@ -29,7 +29,6 @@ public final class AI
     public AI(Naming naming)
     {
         IO = new AIIO(naming);
-        // Initialize instance variables
         log = new AILogic(IO.getMemory());
         NetInit.init(IO.getMemory().getInitialNaming(), new String[]{"NET"});
         PCIAccess pci = (PCIAccess)IO.getMemory().getInitialNaming().lookup("PCIAccess");
