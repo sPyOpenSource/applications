@@ -164,6 +164,7 @@ public interface Collection<E> extends Iterable<E>
    *
    * @returns an Iterator over the elements of this collection, in any order.
    */
+  @Override
   Iterator<E> iterator();
 
   /**

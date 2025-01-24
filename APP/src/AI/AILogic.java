@@ -3,7 +3,6 @@ package AI;
 import AI.Models.Info;
 import jx.timer.TimerManager;
 import jx.timerpc.TimerManagerImpl;
-import jx.zero.InitialNaming;
 
 /**
  * This is the logic class of AI.

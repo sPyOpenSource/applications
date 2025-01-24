@@ -4,12 +4,12 @@ import jx.devices.pci.PCIAccess;
 import jx.devices.pci.PCICodes;
 import jx.devices.pci.PCIDevice;
 import jx.netmanager.NetInit;
+
 import jx.zero.Debug;
 import jx.zero.Naming;
 import jx.zero.debug.DebugChannel;
 import jx.zero.debug.DebugOutputStream;
 import jx.zero.debug.DebugPrintStream;
-import org.jnode.driver.bus.usb.uhci.UHCICore;
 import org.jnode.driver.bus.usb.uhci.UHCIDriver;
 
 /**

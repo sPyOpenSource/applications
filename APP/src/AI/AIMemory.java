@@ -32,7 +32,7 @@ public class AIMemory extends AIZeroMemory implements FileSystem
     private final int length = 101;
     private Memory buffer;
     private Ports ports; // You can access any address with ports in the computer memory
-    private TreeMap<String, TreeMap> tree = new TreeMap<>();
+    private TreeMap<String, TreeMap> root = new TreeMap<>();
     private Naming naming;
     
     /**
@@ -63,8 +63,8 @@ public class AIMemory extends AIZeroMemory implements FileSystem
                 Logger.getLogger(AIMemory.class.getName()).log(Level.SEVERE, null, ex);
             }*/
             //drive = (BlockIO)LookupHelper.waitUntilPortalAvailable(null, "BioRAM");
-            MemoryManager memoryManager = (MemoryManager)InitialNaming.getInitialNaming().lookup("MemoryManager");
-            ports = (Ports)InitialNaming.getInitialNaming().lookup("Ports");
+            MemoryManager memoryManager = (MemoryManager)naming.lookup("MemoryManager");
+            ports = (Ports)naming.lookup("Ports");
             buffer =  memoryManager.alloc(512);
         } catch (ExceptionInInitializerError | NullPointerException ex){
             //Logger.getLogger(AIMemory.class.getName()).log(Level.SEVERE, null, ex);
@@ -127,24 +127,25 @@ public class AIMemory extends AIZeroMemory implements FileSystem
         return ( value * name.length() ) % length + 100;
     }
 
-    public String read(String name) {
-        TreeMap<String, TreeMap> current = tree;
+    public Memory read(String name) {
+        TreeMap<String, TreeMap> current = root;
         for(String part:name.split("/")){
             current = current.get(part);
         }
         if(current != null){
-        MemoryManager memoryManager = (MemoryManager)InitialNaming.getInitialNaming().lookup("MemoryManager");
-        Memory buf = memoryManager.alloc(512);
+            MemoryManager memoryManager = (MemoryManager)InitialNaming.getInitialNaming().lookup("MemoryManager");
+            Memory buf = memoryManager.alloc(512);
             drive.readSectors(getHash(name), 1, buf, true);
             for(int i = 0; i < 512; i++){
                 Debug.out.print(buf.get8(i));
             }
+            return buf;
         }
         return null;
     }
     
-    public void write(String name){
-        TreeMap<String, TreeMap> current = tree;
+    public void write(String name, Memory buffer){
+        TreeMap<String, TreeMap> current = root;
         for( String part:name.split("/")){
             if(current.containsKey(part)){
                 current = current.get(part);
@@ -154,13 +155,13 @@ public class AIMemory extends AIZeroMemory implements FileSystem
                 current = temp;
             }
         }
-        //drive.writeSectors(getHash(name), 1, buffer, true);
+        drive.writeSectors(getHash(name), 1, buffer, true);
     }
     
     @Override
     public void ImportBackup(String file){
         //buffer.set8(0, (byte)60);
-        write("ai.txt");
+        //write("ai.txt");
         //read("ai.txt");
     }
 
