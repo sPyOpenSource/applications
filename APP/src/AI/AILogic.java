@@ -136,6 +136,7 @@ public class AILogic extends AIZeroLogic
         
     }
     
+    @Override
     public void enableIRQ(){
         for(int i = 0; i < handlers.length; i++){
             if(handlers[i][0] != null){
