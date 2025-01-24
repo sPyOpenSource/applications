@@ -3,7 +3,6 @@ package AI;
 import AI.Models.Info;
 import jx.timer.TimerManager;
 import jx.timerpc.TimerManagerImpl;
-import jx.zero.FirstLevelIrqHandler;
 import jx.zero.IRQ;
 import jx.zero.InitialNaming;
 
