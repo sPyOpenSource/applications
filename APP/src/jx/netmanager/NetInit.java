@@ -249,7 +249,7 @@ public class NetInit implements jx.net.NetInit, Service {
 	
 	//final CPUManager cpuManager = (CPUManager) naming.lookup("CPUManager");
 	PCIAccess bus = (PCIAccess)LookupHelper.waitUntilPortalAvailable(naming, "PCIAccess");
-	bus.dumpDevices();
+	//bus.dumpDevices();
 	Debug.out.println("scanning PCIBus for network devices...");
 
 	LanceFinder[] finder = { 
