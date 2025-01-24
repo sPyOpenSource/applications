@@ -15,7 +15,7 @@ public class AILogic extends AIZeroLogic
     // instance variables
     private final double threshold = 1000000, filter = 0.99;
     private static long state = System.currentTimeMillis();
-
+    private final TimerManager timerManager;
     //private final MotionDetection colorCamera;
     //private final PointCloud depthCamera;
     //private final VectorFilter accFilter, magFilter;
@@ -29,7 +29,7 @@ public class AILogic extends AIZeroLogic
         // Initialize instance variables        
 	super(mem);
         //StartTimer.main(new String[]{"TimerManager"});
-        final TimerManager timerManager = new TimerManagerImpl();
+        timerManager = new TimerManagerImpl();
 	mem.getInitialNaming().registerPortal(timerManager, "TimerManager");
         //colorCamera  = new MotionDetection(filter, threshold);
         //depthCamera = new PointCloud();

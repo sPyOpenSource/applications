@@ -1,22 +1,16 @@
 package AI;
 
 import java.util.TreeMap;
-
-import jx.zero.InitialNaming;
 import jx.devices.bio.BlockIO;
-import jx.devices.pci.PCIAccess;
-import jx.devices.pci.PCIGod;
 import jx.fs.buffer.BufferCache;
 import jx.fs.FileSystem;
 import jx.fs.Node;
-import jx.netmanager.NetInit;
 
 import jx.zero.Clock;
 import jx.zero.Debug;
 import jx.zero.Memory;
 import jx.zero.MemoryManager;
 import jx.zero.Naming;
-import jx.zero.Ports;
 
 /**
  * This is the memory class of AI.
@@ -32,8 +26,8 @@ public class AIMemory extends AIZeroMemory implements FileSystem
     private final int length = 101;
     private Memory buffer;
     private TreeMap<String, TreeMap> root = new TreeMap<>();
-    private Naming naming;
-    
+    private final Naming naming;
+    private MemoryManager memoryManager;
     /**
      * Constructor for objects of class AIMemory
      */
@@ -41,14 +35,6 @@ public class AIMemory extends AIZeroMemory implements FileSystem
     {
         this.naming = new jx.InitialNaming(naming);
         try{
-            //PCIGod.main(new String[]{});
-            PCIGod god = new PCIGod(naming);
-            // promote as DEP
-            final PCIAccess depHandle = god;
-      
-            // register as DEP
-            this.naming.registerPortal(depHandle, "PCIAccess");
-            Debug.out.println("PCIAccess registered");
             bioide.Main.main(new String[]{"TimerManager", "BioRAM", "0", "0"});
 
             //NetInit.init(this.naming, new String[]{"NET"});
@@ -62,8 +48,8 @@ public class AIMemory extends AIZeroMemory implements FileSystem
                 Logger.getLogger(AIMemory.class.getName()).log(Level.SEVERE, null, ex);
             }*/
             //drive = (BlockIO)LookupHelper.waitUntilPortalAvailable(null, "BioRAM");
-            MemoryManager memoryManager = (MemoryManager)naming.lookup("MemoryManager");
-            buffer =  memoryManager.alloc(512);
+            memoryManager = (MemoryManager)naming.lookup("MemoryManager");
+            buffer = memoryManager.alloc(512);
         } catch (ExceptionInInitializerError | NullPointerException ex){
             //Logger.getLogger(AIMemory.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -117,13 +103,6 @@ public class AIMemory extends AIZeroMemory implements FileSystem
     public int getDeviceID() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
-    public int getHash(String name){
-        int value = 0;
-        for (int i = 0; i < name.length(); i++ )
-            value += name.charAt(i);
-        return ( value * name.length() ) % length + 100;
-    }
 
     public Memory read(String name) {
         TreeMap<String, TreeMap> current = root;
@@ -131,18 +110,17 @@ public class AIMemory extends AIZeroMemory implements FileSystem
             current = current.get(part);
         }
         if(current != null){
-            MemoryManager memoryManager = (MemoryManager)InitialNaming.getInitialNaming().lookup("MemoryManager");
-            Memory buf = memoryManager.alloc(512);
-            drive.readSectors(getHash(name), 1, buf, true);
+            //Memory buf = memoryManager.alloc(512);
+            drive.readSectors(AILogic.getHash(name, length), 1, buffer, true);
             for(int i = 0; i < 512; i++){
-                Debug.out.print(buf.get8(i));
+                Debug.out.print(buffer.get8(i));
             }
-            return buf;
+            return buffer;
         }
         return null;
     }
     
-    public void write(String name, Memory buffer){
+    public void write(String name){
         TreeMap<String, TreeMap> current = root;
         for( String part:name.split("/")){
             if(current.containsKey(part)){
@@ -153,12 +131,11 @@ public class AIMemory extends AIZeroMemory implements FileSystem
                 current = temp;
             }
         }
-        drive.writeSectors(getHash(name), 1, buffer, true);
+        drive.writeSectors(AILogic.getHash(name, length), 1, buffer, true);
     }
     
     @Override
     public void ImportBackup(String file){
-        //buffer.set8(0, (byte)60);
         //write("ai.txt");
         //read("ai.txt");
     }
