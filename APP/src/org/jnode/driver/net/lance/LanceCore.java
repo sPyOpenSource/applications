@@ -128,11 +128,11 @@ public class LanceCore implements LanceConstants, FirstLevelIrqHandler {
         //}
         this.irq = irq;
         AIZeroLogic.createIRQ(irqnum, this);
-        //if(!IRQHandler.isEnable(irqnum)){
+        if(IRQHandler.OK(irqnum)){
             this.irq.installFirstLevelHandler(irqnum, new IRQHandler(irqnum));
             this.irq.enableIRQ(irqnum);
             System.out.println("OK");
-        //}
+        }
         //try {
             ioResource = ports;
         //} catch (ResourceNotFreeException ex) {
