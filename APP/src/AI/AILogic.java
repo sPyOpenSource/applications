@@ -117,33 +117,4 @@ public class AILogic extends AIZeroLogic
             System.out.println(LSFR32());
         }
     }
-    
-    class IRQHandler implements FirstLevelIrqHandler {
-        
-        private final int irq;
-        
-        public IRQHandler(int irq){
-            this.irq = irq;
-        }
-        
-        @Override
-        public void interrupt() {
-            for(FirstLevelIrqHandler handler:handlers[irq]){
-                if(handler != null)
-                    handler.interrupt();
-            }
-        }
-        
-    }
-    
-    @Override
-    public void enableIRQ(){
-        for(int i = 0; i < handlers.length; i++){
-            if(handlers[i][0] != null){
-                IRQHandler irqhandler = new IRQHandler(i);
-                irq.installFirstLevelHandler(i, irqhandler);
-                irq.enableIRQ(i);
-            }
-        }
-    }
 }
