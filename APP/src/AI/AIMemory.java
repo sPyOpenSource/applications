@@ -22,12 +22,13 @@ public class AIMemory extends AIZeroMemory implements FileSystem
 {
     // instance variables
     //private SerialPort serialPort;
-    private BlockIO drive;
+    private final TreeMap<String, TreeMap> root = new TreeMap<>();
     private final int length = 101;
-    private Memory buffer;
-    private TreeMap<String, TreeMap> root = new TreeMap<>();
     private final Naming naming;
+    private BlockIO drive;
+    private Memory buffer;
     private MemoryManager memoryManager;
+    
     /**
      * Constructor for objects of class AIMemory
      */
@@ -36,8 +37,6 @@ public class AIMemory extends AIZeroMemory implements FileSystem
         this.naming = new jx.InitialNaming(naming);
         try{
             bioide.Main.main(new String[]{"TimerManager", "BioRAM", "0", "0"});
-
-            //NetInit.init(this.naming, new String[]{"NET"});
 
             //FSDomain.main(new String[]{"BioRAM", "FS"});
             // Initialize instance variables
@@ -110,14 +109,12 @@ public class AIMemory extends AIZeroMemory implements FileSystem
             current = current.get(part);
         }
         if(current != null){
-            //Memory buf = memoryManager.alloc(512);
             drive.readSectors(AILogic.getHash(name, length), 1, buffer, true);
             for(int i = 0; i < 512; i++){
                 Debug.out.print(buffer.get8(i));
             }
-            return buffer;
         }
-        return null;
+        return buffer;
     }
     
     public void write(String name){

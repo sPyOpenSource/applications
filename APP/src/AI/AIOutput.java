@@ -15,7 +15,7 @@ import jx.zero.debug.DebugPrintStream;
 public class AIOutput extends AIZeroOutput
 {
     //private Writer w;
-    private DebugOutputStream out;
+    private final DebugOutputStream out;
     
     /**
      * Constructor for objects of class AIOutput
