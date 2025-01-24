@@ -19,4 +19,6 @@ public interface Device {
      * Release all resources associated with the physical device.
      */
     public void close();
+
+    public int getId();
 }

@@ -156,4 +156,9 @@ public class LanceDriver implements NetworkDevice {
         etherConsumer.processMemory(skbuf, 0, skbuf.size());
         etherConsumer.EtherQueueConsumerThread();
     }
+
+    @Override
+    public int getId() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }
