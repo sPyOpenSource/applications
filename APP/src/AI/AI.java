@@ -28,7 +28,7 @@ public final class AI
     {
         IO = new AIIO(naming);
         log = new AILogic(IO.getMemory());
-        NetInit.init(IO.getMemory().getInitialNaming(), new String[]{"NET"});
+        //NetInit.init(IO.getMemory().getInitialNaming(), new String[]{"NET"});
         PCIAccess pci = (PCIAccess)IO.getMemory().getInitialNaming().lookup("PCIAccess");
         for(int i = 0; i < pci.getNumberOfDevices(); i++){
             PCIDevice dev = pci.getDeviceAt(i);
