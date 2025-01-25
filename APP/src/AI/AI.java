@@ -34,7 +34,7 @@ public final class AI
             PCIDevice dev = pci.getDeviceAt(i);
             if(PCICodes.lookupClass(dev.getClassCode()).startsWith("USB")){
                 System.out.println("USB found");
-                new UHCIDriver(dev, log.getSleepManager());
+                new UHCIDriver(dev, log.getSM());
             }
         }
         logThread = new Thread(log, "logic");

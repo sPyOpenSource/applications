@@ -121,7 +121,7 @@ public class AILogic extends AIZeroLogic
         }
     }
 
-    public SleepManager getSleepManager() {
+    public SleepManager getSM() {
         return sleepManager;
     }
 }
