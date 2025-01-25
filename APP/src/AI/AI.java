@@ -6,6 +6,7 @@ import jx.devices.pci.PCIDevice;
 import jx.netmanager.NetInit;
 
 import jx.zero.Naming;
+import jx.zero.timer.SleepManager;
 import org.jnode.driver.bus.usb.uhci.UHCIDriver;
 
 /**
@@ -29,12 +30,14 @@ public final class AI
         IO = new AIIO(naming);
         log = new AILogic(IO.getMemory());
         //NetInit.init(IO.getMemory().getInitialNaming(), new String[]{"NET"});
+                SleepManager sleepManager = new jx.timerpc.SleepManagerImpl();
+
         PCIAccess pci = (PCIAccess)IO.getMemory().getInitialNaming().lookup("PCIAccess");
         for(int i = 0; i < pci.getNumberOfDevices(); i++){
             PCIDevice dev = pci.getDeviceAt(i);
             if(PCICodes.lookupClass(dev.getClassCode()).startsWith("USB")){
                 System.out.println("USB found");
-                new UHCIDriver(dev, log.getSM());
+                new UHCIDriver(dev, sleepManager);
             }
         }
         logThread = new Thread(log, "logic");
