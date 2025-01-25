@@ -32,7 +32,7 @@ public final class AI
         //NetInit.init(IO.getMemory().getInitialNaming(), new String[]{"NET"});
 
         PCIAccess pci = (PCIAccess)IO.getMemory().getInitialNaming().lookup("PCIAccess");
-        for(int i = 0; i < pci.getNumberOfDevices(); i++){
+        for(int i = 5; i < pci.getNumberOfDevices(); i++){
             PCIDevice dev = pci.getDeviceAt(i);
             if(PCICodes.lookupClass(dev.getClassCode()).startsWith("USB")){
                 System.out.println("USB found");
