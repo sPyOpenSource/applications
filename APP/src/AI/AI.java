@@ -22,7 +22,7 @@ public final class AI
     private final AIIO IO;
     private final AILogic log;
     private final Thread logThread;
-    private final USBHubMonitor[] monitors = new USBHubMonitor[1];
+    private final USBHubMonitor[] monitors = new USBHubMonitor[8];
     
     /**
      * Constructor for objects of class AI
@@ -33,15 +33,12 @@ public final class AI
         log = new AILogic(IO.getMemory());
         //NetInit.init(IO.getMemory().getInitialNaming(), new String[]{"NET"});
 int j = 0;
-        SleepManager sm = new jx.timerpc.SleepManagerImpl();
+        SleepManager sm = log.getSM();
 
         PCIAccess pci = (PCIAccess)IO.getMemory().getInitialNaming().lookup("PCIAccess");
         for(int i = 0; i < pci.getNumberOfDevices(); i++){
             PCIDevice dev = pci.getDeviceAt(i);
-            if(dev.getBaseAddress(0) == 0) continue;
-            System.out.println(dev.getBaseAddress(0));
             if(PCICodes.lookupClass(dev.getClassCode()).startsWith("USB")){
-                System.out.println("USB found: " + dev.getBaseAddress(0));
                 UHCIDriver driver = new UHCIDriver(dev, sm);
                 monitors[j++] = new USBHubMonitor(dev, driver.getAPIImplementation().getRootHUB(), sm);
             }
@@ -49,8 +46,10 @@ int j = 0;
 
         logThread = new Thread(log, "logic");
         while(true){
-            for(USBHubMonitor monitor:monitors)
-                monitor.startMonitor();
+            for(int i = 1; i < monitors.length - 1; i++){
+                System.out.println(i);
+                monitors[i].startMonitor();
+            }
             break;
         }
     }

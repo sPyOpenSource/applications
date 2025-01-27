@@ -37,7 +37,7 @@ public class AILogic extends AIZeroLogic
         //StartTimer.main(new String[]{"TimerManager"});
         timerManager = new TimerManagerImpl();
 	mem.getInitialNaming().registerPortal(timerManager, "TimerManager");
-        sleepManager =null;// new jx.timerpc.SleepManagerImpl();
+        sleepManager = new jx.timerpc.SleepManagerImpl();
 
         //colorCamera  = new MotionDetection(filter, threshold);
         //depthCamera = new PointCloud();

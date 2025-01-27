@@ -49,6 +49,9 @@ public class AIMemory extends AIZeroMemory implements FileSystem
             //drive = (BlockIO)LookupHelper.waitUntilPortalAvailable(null, "BioRAM");
             memoryManager = (MemoryManager)naming.lookup("MemoryManager");
             buffer = memoryManager.alloc(512);
+            /*for(int i = 0; i < buffer.size(); i++){
+                buffer.set8(i, (byte)0xff);
+            }*/
         } catch (ExceptionInInitializerError | NullPointerException ex){
             //Logger.getLogger(AIMemory.class.getName()).log(Level.SEVERE, null, ex);
         }
