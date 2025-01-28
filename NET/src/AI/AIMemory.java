@@ -4,7 +4,7 @@ import java.util.TreeMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import jx.InitialNaming;
+import jx.zero.InitialNaming;
 import jx.devices.bio.BlockIO;
 import jx.devices.pci.PCIGod;
 import jx.fs.Node;
@@ -54,8 +54,8 @@ public class AIMemory extends AIZeroMemory implements FileSystem
                 Logger.getLogger(AIMemory.class.getName()).log(Level.SEVERE, null, ex);
             }*/
             //drive = (BlockIO)LookupHelper.waitUntilPortalAvailable(null, "BioRAM");
-            MemoryManager memoryManager = (MemoryManager)InitialNaming.lookup("MemoryManager");
-            ports = (Ports)InitialNaming.lookup("Ports");
+            MemoryManager memoryManager = (MemoryManager)InitialNaming.getInitialNaming().lookup("MemoryManager");
+            ports = (Ports)InitialNaming.getInitialNaming().lookup("Ports");
             buffer =  memoryManager.alloc(512);
         } catch (ExceptionInInitializerError | NullPointerException ex){
             Logger.getLogger(AIMemory.class.getName()).log(Level.SEVERE, null, ex);
@@ -124,7 +124,7 @@ public class AIMemory extends AIZeroMemory implements FileSystem
             current = current.get(part);
         }
         if(current != null){
-        MemoryManager memoryManager = (MemoryManager)InitialNaming.lookup("MemoryManager");
+        MemoryManager memoryManager = (MemoryManager)InitialNaming.getInitialNaming().lookup("MemoryManager");
         Memory buffer2 =  memoryManager.alloc(512);
             drive.readSectors(getHash(name), 1, buffer2, true);
             for(int i = 0; i < 512; i++){

@@ -26,7 +26,7 @@ import org.jnode.fs.ntfs.index.IndexEntry;
 
 import jx.zero.Memory;
 import jx.zero.MemoryManager;
-import jx.InitialNaming;
+import jx.zero.InitialNaming;
 
 /**
  * @author Ewout Prangsma (epr@users.sourceforge.net)
@@ -184,7 +184,7 @@ public class MasterFileTable extends FileRecord {
         final NTFSVolume volume = getVolume();
         final int bytesPerFileRecord = volume.getBootRecord().getFileRecordSize();
         final long offset = bytesPerFileRecord * index;
-        MemoryManager MemManager = (MemoryManager)InitialNaming.lookup("MemoryManager");
+        MemoryManager MemManager = (MemoryManager)InitialNaming.getInitialNaming().lookup("MemoryManager");
         // read the buffer
         final Memory buffer = MemManager.alloc(bytesPerFileRecord);
         readData(offset, buffer, 0, bytesPerFileRecord);

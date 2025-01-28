@@ -36,7 +36,7 @@ import jx.fs.RegularFile;
 public class FSUtils {
     //private static final Logger log = Logger.getLogger(FSUtils.class);
 
-    protected static DateFormat dateFormat = new SimpleDateFormat();
+    protected static DateFormat dateFormat;// = new SimpleDateFormat();
 
     /**
      * @param path

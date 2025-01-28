@@ -97,7 +97,7 @@ public abstract class AbstractDirectory extends FatObject {
         }
         int newSize = size + 512 / FatConstants.DIR_ENTRY_SIZE;
         if (canChangeSize(newSize)) {
-            entries.ensureCapacity(newSize);
+            //entries.ensureCapacity(newSize);
             setDirty();
             flush();
             return newEntry;

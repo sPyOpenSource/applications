@@ -333,11 +333,11 @@ public class FSImpl implements FS, Service {
 
     @Override
     public boolean isPath(String name) {
-        return FS.super.isPath(name); //To change body of generated methods, choose Tools | Templates.
+        return false;//FS.super.isPath(name); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public boolean isAbsolute(String name) {
-        return FS.super.isAbsolute(name); //To change body of generated methods, choose Tools | Templates.
+        return false;//FS.super.isAbsolute(name); //To change body of generated methods, choose Tools | Templates.
     }
 }

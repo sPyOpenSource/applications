@@ -21,7 +21,7 @@
 package org.jnode.fs.jfat;
 
 import java.io.IOException;
-import java.nio.file.FileSystemException;
+//import java.nio.file.FileSystemException;
 import jx.devices.bio.BlockIO;
 import jx.zero.Debug;
 import jx.zero.InitialNaming;
@@ -54,7 +54,7 @@ public abstract class Fat {
         rewindFree();
     }
 
-    public static Fat create(BlockIO api) throws IOException, FileSystemException 
+    public static Fat create(BlockIO api) throws IOException 
     {
         MemoryManager memoryManager = (MemoryManager)InitialNaming.getInitialNaming().lookup("MemoryManager");
         Memory buffer = memoryManager.allocAligned(512, 8);
@@ -69,7 +69,7 @@ public abstract class Fat {
             return new Fat12(bs, api);
         }
 
-        throw new FileSystemException("FAT not recognized");
+        return null;//throw new FileSystemException("FAT not recognized");
     }
 
     public final BootSector getBootSector() {

@@ -36,7 +36,7 @@ public class WellKnownSids {
     /**
      * A map of SID to friendly name.
      */
-    private static final Map<SecurityIdentifier, String> nameMap = new LinkedHashMap<SecurityIdentifier, String>();
+    private static final Map<SecurityIdentifier, String> nameMap = new LinkedHashMap<>();
 
     // Global SIDs
     public static final SecurityIdentifier NULL_AUTHORITY =           register("S-1-0", "Null Authority");

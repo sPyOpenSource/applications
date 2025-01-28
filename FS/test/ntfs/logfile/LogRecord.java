@@ -364,7 +364,7 @@ public class LogRecord extends NTFSStructure {
         } else {
             OperationCode undoCode = OperationCode.fromCode(getUndoOperation());
             if (undoCode != null) {
-                type += undoCode.name();
+                //type += undoCode.name();
             } else {
                 type += "unknown: " + getUndoOperation();
             }
@@ -373,7 +373,7 @@ public class LogRecord extends NTFSStructure {
 
             OperationCode redoCode = OperationCode.fromCode(getRedoOperation());
             if (redoCode != null) {
-                type += redoCode.name();
+                //type += redoCode.name();
             } else {
                 type += "unknown: " + getRedoOperation();
             }

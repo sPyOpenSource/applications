@@ -20,8 +20,8 @@
  
 package org.jnode.fs.jfat;
 
-public enum FatType {
-    FAT12(0xFFF, 1.5f), FAT16(0xFFFF, 2.0f), FAT32(0xFFFFFFFF, 4.0f);
+public class FatType {
+    //FAT12(0xFFF, 1.5f), FAT16(0xFFFF, 2.0f), FAT32(0xFFFFFFFF, 4.0f);
 
     private final int minReservedEntry;
     private final int maxReservedEntry;

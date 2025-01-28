@@ -150,9 +150,9 @@ public class StandardInformationAttribute extends NTFSResidentAttribute {
     /**
      * The file attribute flags.
      */
-    public static enum Flags {
+    public static class Flags {
 
-        READ_ONLY("Read-only", 0x1),
+        /*READ_ONLY("Read-only", 0x1),
         HIDDEN("Hidden", 0x2),
         SYSTEM("System", 0x4),
         ARCHIVE("Archive", 0x20),
@@ -164,7 +164,7 @@ public class StandardInformationAttribute extends NTFSResidentAttribute {
         COMPRESSED("Compressed", 0x800),
         OFFLINE("Offline", 0x1000),
         NOT_INDEXED("Not Indexed", 0x2000),
-        ENCRYPTED("Encrypted", 0x4000);
+        ENCRYPTED("Encrypted", 0x4000);*/
 
         /**
          * The name of the flag.
@@ -204,14 +204,14 @@ public class StandardInformationAttribute extends NTFSResidentAttribute {
          * @return the set of names.
          */
         public static Set<String> getNames(int value) {
-            Set<String> names = new LinkedHashSet<String>();
+            Set<String> names = new LinkedHashSet<>();
 
-            for (Flags flag : values()) {
+            /*for (Flags flag : values()) {
                 if (flag.isSet(value)) {
                     names.add(flag.name);
                     value -= flag.value;
                 }
-            }
+            }*/
 
             if (value != 0) {
                 names.add(String.format("Unknown 0x%x", value));

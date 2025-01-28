@@ -201,8 +201,4 @@ public class FatFileSystem implements jx.fs.FileSystem {
     public int getDeviceID() {
         return deviceID; /* FIXME */
     }
-
-    public CodePage getCodePage() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }

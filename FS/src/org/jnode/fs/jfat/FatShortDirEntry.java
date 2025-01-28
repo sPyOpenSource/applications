@@ -416,13 +416,13 @@ ext = extName.trim();
     public String getLabel() {
         String label;
 
-        try {
-            label = getFatFileSystem().getCodePage().newDecoder().decode(lName);
-        } catch (CharacterCodingException ex) {
+        //try {
+            //label = getFatFileSystem().getCodePage().newDecoder().decode(lName);
+        //} catch (CharacterCodingException ex) {
             // log.debug("CharacterCodingException: CodePage error");
             // log.debug("go on with standard decoding");
             label = new String(lName);
-        }
+        //}
 
         return label;
     }

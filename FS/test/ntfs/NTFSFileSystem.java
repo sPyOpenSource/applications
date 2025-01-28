@@ -22,9 +22,7 @@ package org.jnode.fs.ntfs;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import java.nio.file.FileSystemException;
+//import java.nio.file.FileSystemException;
 
 import jx.devices.bio.BlockIO;
 import jx.fs.FSException;
@@ -51,14 +49,14 @@ MemoryManager MemManager;
     /**
      * @see org.jnode.fs.FileSystem#getDevice()
      */
-    public NTFSFileSystem(BlockIO device, boolean readOnly, NTFSFileSystemType type) throws FileSystemException {
+    public NTFSFileSystem(BlockIO device, boolean readOnly, NTFSFileSystemType type) throws Exception {
         init(device, null, null);
 
         try {
             // initialize the NTFS volume
             volume = new NTFSVolume(device);
         } catch (IOException e) {
-            throw new FileSystemException(e.getMessage());
+            throw new Exception(e.getMessage());
         }
     }
 
@@ -203,7 +201,7 @@ MemoryManager MemManager;
         try {
             return getVolumeName();
         } catch (IOException ex) {
-            Logger.getLogger(NTFSFileSystem.class.getName()).log(Level.SEVERE, null, ex);
+            //Logger.getLogger(NTFSFileSystem.class.getName()).log(Level.SEVERE, null, ex);
             return "no name";
         }
     }
@@ -213,7 +211,7 @@ MemoryManager MemManager;
         try {
             return getRootEntry();
         } catch (IOException ex) {
-            Logger.getLogger(NTFSFileSystem.class.getName()).log(Level.SEVERE, null, ex);
+            //Logger.getLogger(NTFSFileSystem.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
     }
@@ -248,7 +246,7 @@ MemoryManager MemManager;
         try {
             return getVolumeId().get8(0);
         } catch (IOException ex) {
-            Logger.getLogger(NTFSFileSystem.class.getName()).log(Level.SEVERE, null, ex);
+            //Logger.getLogger(NTFSFileSystem.class.getName()).log(Level.SEVERE, null, ex);
             return 0;
         }
     }

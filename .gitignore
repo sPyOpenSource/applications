@@ -4,3 +4,4 @@ private
 *.eeprom
 *.flash
 /APP/dist/
+/HCI/dist/

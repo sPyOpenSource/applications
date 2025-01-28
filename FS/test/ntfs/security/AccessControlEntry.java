@@ -89,10 +89,10 @@ public class AccessControlEntry extends NTFSStructure {
     /**
      * ACE types.
      */
-    public static enum Type {
-        ALLOW(0x00, "Allow"),
+    public static class Type {
+        /*ALLOW(0x00, "Allow"),
         DENY(0x01, "Deny"),
-        AUDIT(0x02, "Audit");
+        AUDIT(0x02, "Audit");*/
 
         int type;
         String name;
@@ -103,14 +103,14 @@ public class AccessControlEntry extends NTFSStructure {
         }
         
         public static List<String> namesForType(int type) {
-            List<String> names = new ArrayList<String>();
+            List<String> names = new ArrayList<>();
 
-            for (Type aceType : values()) {
+            /*for (Type aceType : values()) {
                 if ((aceType.type & type) == aceType.type) {
                     type -= aceType.type;
                     names.add(aceType.name);
                 }
-            }
+            }*/
 
             if (type != 0) {
                 names.add(String.format("Unknown Type: 0x%x", type));
@@ -123,14 +123,14 @@ public class AccessControlEntry extends NTFSStructure {
     /**
      * ACE flags.
      */
-    public static enum Flags {
-        OBJECT_INHERITS(0x01, "Object Inherits"),
+    public static class Flags {
+        /*OBJECT_INHERITS(0x01, "Object Inherits"),
         CONTAINER_INHERITS(0x02, "Container Inherits"),
         DONT_PROPAGATE_INHERIT_ACE(0x04, "No Propagate Inherit ACE"),
         INHERIT_ONLY_ACE(0x08, "Inherit Only ACE"),
 
         AUDIT_SUCCESS(0x40, "Audit Success"),
-        AUDIT_FAILURE(0x80, "Audit Failure");
+        AUDIT_FAILURE(0x80, "Audit Failure");*/
 
         int flags;
         String name;
@@ -147,14 +147,14 @@ public class AccessControlEntry extends NTFSStructure {
          * @return the list of names.
          */
         public static List<String> namesForFlags(int flags) {
-            List<String> names = new ArrayList<String>();
+            List<String> names = new ArrayList<>();
 
-            for (Flags aceFlags : values()) {
+            /*for (Flags aceFlags : values()) {
                 if ((aceFlags.flags & flags) == aceFlags.flags) {
                     flags -= aceFlags.flags;
                     names.add(aceFlags.name);
                 }
-            }
+            }*/
 
             if (flags != 0) {
                 names.add(String.format("Unknown Flags: 0x%x", flags));
@@ -167,8 +167,8 @@ public class AccessControlEntry extends NTFSStructure {
     /**
      * ACE mask.
      */
-    public static enum Mask {
-        READ(0x01, "Read", "List Contents"),
+    public static class Mask {
+        /*READ(0x01, "Read", "List Contents"),
         WRITE(0x02, "Write", "Add File"),
         APPEND(0x04, "Write", "Add Subdirectory"),
         READ_EXTENDED_ATTRIBUTES(0x08, "Read Extended Attributes"),
@@ -181,7 +181,7 @@ public class AccessControlEntry extends NTFSStructure {
         READ_CONTROL(0x20000, "Read Security Descriptor"),
         WRITE_DAC(0x40000, "Write DACL"),
         WRITE_OWNER(0x80000, "Write Owner"),
-        SYNCHRONIZE(0x100000, "Synchronize");
+        SYNCHRONIZE(0x100000, "Synchronize");*/
 
         /**
          * The mask value.
@@ -217,14 +217,14 @@ public class AccessControlEntry extends NTFSStructure {
          * @return the list of names.
          */
         public static List<String> namesForMask(int mask, boolean isDirectory) {
-            List<String> names = new ArrayList<String>();
+            List<String> names = new ArrayList<>();
 
-            for (Mask aceMask : values()) {
+            /*for (Mask aceMask : values()) {
                 if ((aceMask.mask & mask) == aceMask.mask) {
                     mask -= aceMask.mask;
                     names.add(isDirectory ? aceMask.directoryPermission : aceMask.filePermission);
                 }
-            }
+            }*/
 
             if (mask != 0) {
                 names.add(String.format("Unknown Access Mask: 0x%x", mask));

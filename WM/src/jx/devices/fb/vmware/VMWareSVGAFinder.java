@@ -17,7 +17,7 @@ public class VMWareSVGAFinder implements DeviceFinder {
     final static int    FB_PCI_DEVICE_ID1  = 0x0405;
 
     @Override
-    public Device[] find(String[] args) {
+    public Device[] find(Naming naming) {
 	Debug.out.println("lookup PCI Access Point...");
 	PCIAccess bus;
 	int counter=0;

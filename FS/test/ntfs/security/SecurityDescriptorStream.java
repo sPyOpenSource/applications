@@ -21,7 +21,7 @@
 package org.jnode.fs.ntfs.security;
 
 import java.io.IOException;
-import java.nio.ByteBuffer;
+//import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
 import org.jnode.fs.ntfs.NTFSFile;
@@ -90,7 +90,7 @@ public class SecurityDescriptorStream {
     public SecurityDescriptorStreamEntry readOneEntry(long offset) throws IOException {
         // First read in the size of the entry
         byte[] sizeBuffer = new byte[0x4];
-        sdsFile.read(offset + 0x10, ByteBuffer.wrap(sizeBuffer));
+        //sdsFile.read(offset + 0x10, ByteBuffer.wrap(sizeBuffer));
         int size = 0;//LittleEndian.getInt32(sizeBuffer, 0);
 
         if (size == 0) {
@@ -99,7 +99,7 @@ public class SecurityDescriptorStream {
 
         // Read in the entire entry
         byte[] buffer = new byte[size];
-        sdsFile.read(offset, ByteBuffer.wrap(buffer));
+        //sdsFile.read(offset, ByteBuffer.wrap(buffer));
         return new SecurityDescriptorStreamEntry(null);
     }
 }

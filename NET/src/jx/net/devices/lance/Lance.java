@@ -30,4 +30,9 @@ class Lance implements NetworkDevice {
     public int getMTU() {return 0;}
     @Override
     public boolean registerNonBlockingConsumer(NonBlockingMemoryConsumer consumer){throw new Error();}
+
+    @Override
+    public int getId() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

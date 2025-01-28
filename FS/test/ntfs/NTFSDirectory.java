@@ -22,7 +22,7 @@ package org.jnode.fs.ntfs;
 
 import java.io.IOException;
 import java.util.Iterator;
-import java.nio.file.ReadOnlyFileSystemException;
+//import java.nio.file.ReadOnlyFileSystemException;
 
 import jx.fs.FileSystem;
 import jx.fs.Node;
@@ -117,21 +117,21 @@ public class NTFSDirectory extends NTFSEntry {
      *
      */
     public Node addFile(String name) throws IOException {
-        throw new ReadOnlyFileSystemException();
+        throw new IOException();
     }
 
     /**
      *
      */
     public Node addDirectory(String name) throws IOException {
-        throw new ReadOnlyFileSystemException();
+        throw new IOException();
     }
 
     /**
      * Remove the entry with the given name from this directory.
      */
     public void remove(String name) throws IOException {
-        throw new ReadOnlyFileSystemException();
+        throw new IOException();
     }
 
     /**

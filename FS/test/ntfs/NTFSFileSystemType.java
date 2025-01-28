@@ -22,7 +22,7 @@ package org.jnode.fs.ntfs;
 
 import jx.devices.bio.BlockIO;
 import org.jnode.fs.FileSystemType;
-import java.nio.file.FileSystemException;
+//import java.nio.file.FileSystemException;
 
 /**
  * @author Chira
@@ -53,7 +53,7 @@ public class NTFSFileSystemType implements FileSystemType<NTFSFileSystem> {
     /**
      * @see org.jnode.fs.FileSystemType#create(Device, boolean)
      */
-    public NTFSFileSystem create(BlockIO device, boolean readOnly) throws FileSystemException {
+    public NTFSFileSystem create(BlockIO device, boolean readOnly) throws Exception {
         return new NTFSFileSystem(device, readOnly, this);
     }
 }

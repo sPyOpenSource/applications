@@ -154,7 +154,7 @@ public class FatUtils {
 
     public static final String longName(String name) {
         String lname = name.trim();
-        lname = lname.replaceAll("\\.*$", "");
+        //lname = lname.replaceAll("\\.*$", "");
         return lname;
     }
 

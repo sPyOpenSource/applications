@@ -14,11 +14,11 @@ import jx.devices.fb.*;
  */
 public class EmulFBFinder implements DeviceFinder {
     @Override
-    public Device[] find(String [] args) {
+    public Device[] find(Naming naming) {
 	FBEmulation fb = (FBEmulation)InitialNaming.getInitialNaming().lookup("FBEmulation");
 	if (fb == null) return null;
 	int mode = 0x0118;
-	if (args.length == 1) mode = Integer.parseInt(args[0]);
+	//if (args.length == 1) mode = Integer.parseInt(args[0]);
 	if (fb.open(mode) == false) return null;
 
 	return new Device[] { new FBImpl(fb) };
@@ -61,4 +61,9 @@ class FBImpl implements FramebufferDevice {
 			    };
     }
     public void close(){}
+
+    @Override
+    public int getId() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

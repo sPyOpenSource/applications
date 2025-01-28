@@ -263,7 +263,7 @@ public class NetInit implements jx.net.NetInit, Service {
         
 	NetworkDevice[] nics = null;
         for (LanceFinder finder1 : finder) {
-            nics = (NetworkDevice[]) finder1.find(new String[] {});
+            nics = (NetworkDevice[]) finder1.find(naming);
             if (nics != null && nics.length != 0) break;
         }
 	NetworkDevice nic = nics[0];
@@ -281,7 +281,7 @@ public class NetInit implements jx.net.NetInit, Service {
 		bufs[i] = memMgr.alloc(1514);
 	    }
 	    netinstance = new jx.netmanager.NetInit(nic, timerManager, bufs);
-	    jx.InitialNaming.registerPortal(netinstance, args[0]);
+	    naming.registerPortal(netinstance, args[0]);
 	} catch(Exception e) {
 	    throw new Error("Could not setup");
         }

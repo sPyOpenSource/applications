@@ -21,9 +21,11 @@
 package org.jnode.fs.jfat;
 
 import java.io.IOException;
-import java.nio.ByteBuffer;
-import java.nio.charset.CharacterCodingException;
+//import java.nio.ByteBuffer;
+//import java.nio.charset.CharacterCodingException;
 import java.util.Arrays;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class FatName {
 
@@ -49,8 +51,8 @@ public class FatName {
     private final FatDirectory parent;
     @SuppressWarnings("unused")
     private final String name;
-    private final CodePageEncoder encoder;
-    private final CodePageDecoder decoder;
+    //private final CodePageEncoder encoder;
+    //private final CodePageDecoder decoder;
 
     private final int numberOfComponents;
     private final String[] components;
@@ -69,12 +71,10 @@ public class FatName {
     private FatCase shortCase;
 
     FatName(FatDirectory parent, String name) throws IOException {
-        CodePage cp = parent.getFatFileSystem().getCodePage();
-
         this.parent = parent;
         this.name = name;
-        this.encoder = cp.newEncoder();
-        this.decoder = cp.newDecoder();
+        //this.encoder = cp.newEncoder();
+        //this.decoder = cp.newDecoder();
 
         this.longName = FatUtils.longName(name);
 
@@ -86,7 +86,11 @@ public class FatName {
 
         Arrays.fill(this.basis, 0, this.basis.length, space);
 
-        basisName();
+        try {
+            basisName();
+        } catch (Exception ex) {
+            //Logger.getLogger(FatName.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
         /*
          * log.debug ( "lossy\t[" + lossy + "]" ); log.debug ( "stripped\t[" +
@@ -105,8 +109,8 @@ public class FatName {
             System.arraycopy(basis, 0, primary, 0, 8);
             System.arraycopy(basis, 8, extension, 0, 3);
 
-            shortBase = decoder.decode(primary).trim();
-            shortExt = decoder.decode(extension).trim();
+            shortBase = "";//decoder.decode(primary).trim();
+            shortExt = "";//decoder.decode(extension).trim();
             shortCase = new FatCase();
         } else {
             int p = longName.indexOf(period);
@@ -148,7 +152,7 @@ public class FatName {
      */
     private byte[] stripChar(byte[] name, byte ch, boolean strip) {
         boolean flag = !strip;
-        ByteBuffer b = ByteBuffer.allocate(name.length);
+        /*ByteBuffer b = ByteBuffer.allocate(name.length);
 
         for (int i = (name.length - 1); i >= 0; i--) {
             if (name[i] != ch)
@@ -167,9 +171,9 @@ public class FatName {
 
         byte[] n = new byte[b.remaining()];
 
-        b.get(n);
+        b.get(n);*/
 
-        return n;
+        return null;
     }
 
     /*
@@ -182,10 +186,10 @@ public class FatName {
     /*
      * Basis-Name Phase1: Step1 and Step2
      */
-    private byte[] encode() throws CharacterCodingException {
-        byte[] n = encoder.encode(FatUtils.toUpperCase(longName), underscore);
+    private byte[] encode() throws Exception {
+        byte[] n = null;//encoder.encode(FatUtils.toUpperCase(longName), underscore);
 
-        lossy = encoder.isLossy();
+        //slossy = encoder.isLossy();
 
         for (int i = 0; i < n.length; i++) {
             if (n[i] < 0x20) {
@@ -251,7 +255,7 @@ public class FatName {
         }
     }
 
-    private void basisName() throws CharacterCodingException {
+    private void basisName() throws Exception {
         primary(strip(encode()));
 
     }
@@ -271,7 +275,7 @@ public class FatName {
             btail.setLength(0);
             btail.append(i);
 
-            byte[] tail = encoder.encode(btail.toString());
+            byte[] tail = null;//encoder.encode(btail.toString());
 
             if (tail.length > 6)
                 throw new IOException("tail too long: " + tail.length);

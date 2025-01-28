@@ -5,8 +5,8 @@ package org.jnode.fs.ntfs.logfile;
  *
  * {@see http://forensicinsight.org/wp-content/uploads/2013/06/F-INSIGHT-NTFS-Log-TrackerEnglish.pdf}
  */
-public enum OperationCode {
-    NOOP(0x00, "No-op"),
+public class OperationCode {
+    /*NOOP(0x00, "No-op"),
     COMPENSATION_LOG_RECORD(0x01, "Compensation Log Record"),
     INITIALIZE_FILE_RECORD_SEGMENT(0x02, "Init File Record Segment"),
     DEALLOCATE_FILE_RECORD_SEGMENT(0x03, "Deallocate File Record Segment"),
@@ -33,7 +33,7 @@ public enum OperationCode {
     OPEN_NON_RESIDENT_ATTRIBUTE(0x1C, "Open Non-Resident Attribute"),
     DIRTY_PAGE_TABLE_DUMP(0x1F, "Dirty Page Table Dump"),
     TRANSACTION_TABLE_DUMP(0x20, "Transaction Table Dump"),
-    UPDATE_RECORD_DATA_ROOT(0x21, "Update Record Data Root");
+    UPDATE_RECORD_DATA_ROOT(0x21, "Update Record Data Root");*/
 
     private final int code;
     private final String description;
@@ -50,11 +50,11 @@ public enum OperationCode {
      * @return the operation code, or {@code null} if no matching code was found.
      */
     public static OperationCode fromCode(int code) {
-        for (OperationCode operationCode : values()) {
+        /*for (OperationCode operationCode : values()) {
             if (operationCode.code == code) {
                 return operationCode;
             }
-        }
+        }*/
 
         return null;
     }
@@ -66,11 +66,11 @@ public enum OperationCode {
      * @return the description.
      */
     public static String lookupDescription(int code) {
-        for (OperationCode operationCode : values()) {
+        /*for (OperationCode operationCode : values()) {
             if (operationCode.code == code) {
                 return operationCode.description;
             }
-        }
+        }*/
 
         return String.format("Unknown operation: 0x%x", code);
     }

@@ -46,7 +46,7 @@ public abstract class Formatter<T extends FileSystem> implements Cloneable {
      * 
      * @throws FileSystemException if error occurs during formating of the device
      */
-    public abstract T format(BlockIO device) throws FileSystemException;
+    public abstract T format(BlockIO device) throws Exception;
 
     /**
      * Gets type of the formated file system.

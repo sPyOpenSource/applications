@@ -80,7 +80,7 @@ public class SecurityIdentifier {
 
     @Override
     public int hashCode() {
-        return 9271 ^ Long.valueOf(authority).hashCode() * subAuthorities.hashCode();
+        return 0;//9271 ^ Long.valueOf(authority).hashCode() * subAuthorities.hashCode();
     }
 
     @Override
@@ -91,9 +91,9 @@ public class SecurityIdentifier {
 
         SecurityIdentifier other = (SecurityIdentifier) o;
 
-        return
-            authority == other.authority &&
-                subAuthorities.equals(other.subAuthorities);
+        return false;
+//            authority == other.authority &&
+  //              subAuthorities.equals(other.subAuthorities);
     }
 
     /**
@@ -109,11 +109,11 @@ public class SecurityIdentifier {
         text = text.substring(4);
 
         String[] parts = text.split("\\-");
-        Long authority = Long.parseLong(parts[0]);
+        Long authority = null;//Long.parseLong(parts[0]);
         List<Long> subAuthorities = new ArrayList<>();
 
         for (int i = 1; i < parts.length; i++) {
-            subAuthorities.add(Long.parseLong(parts[i]));
+            //subAuthorities.add(Long.parseLong(parts[i]));
         }
 
         return new SecurityIdentifier(authority, subAuthorities);

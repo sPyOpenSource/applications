@@ -20,8 +20,7 @@ public class LanceFinder implements DeviceFinder {
 
 
     @Override
-    public Device[] find(String[] args) {
-        Naming naming = InitialNaming.getInitialNaming();
+    public Device[] find(Naming naming) {
         this.ports = (Ports)naming.lookup("Ports");
 	this.irq = (IRQ)naming.lookup("IRQ");
         this.rm = (MemoryManager)naming.lookup("MemoryManager");
@@ -30,7 +29,7 @@ public class LanceFinder implements DeviceFinder {
 	PCIAccess bus;
 	int counter = 0;
 	for(;;) {
-	    bus = (PCIAccess)jx.InitialNaming.lookup("PCIAccess");
+	    bus = (PCIAccess)naming.lookup("PCIAccess");
 	    if (bus == null) {
 		if (counter % 20 == 0) { counter = 0; Debug.out.println("NetInit still waiting for PCI"); }
 		counter++;

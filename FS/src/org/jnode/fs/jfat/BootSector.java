@@ -22,7 +22,7 @@ package org.jnode.fs.jfat;
 
 import jx.zero.Debug;
 import jx.zero.Memory;
-import jx.InitialNaming;
+import jx.zero.InitialNaming;
 import jx.zero.MemoryManager;
 
 
@@ -104,7 +104,7 @@ public class BootSector {
     }
 
     public BootSector(int size) {
-        MemManager = (MemoryManager)InitialNaming.lookup("MemoryManager");
+        MemManager = (MemoryManager)InitialNaming.getInitialNaming().lookup("MemoryManager");
         sector = MemManager.alloc(size);
         dirty = false;
     }

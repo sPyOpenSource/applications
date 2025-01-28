@@ -112,7 +112,7 @@ MemoryManager MemManager;
     }
 
     public Memory getStage2(String stage2ResourceName) throws IOException {
-        if (stage2 == null) {
+        /*if (stage2 == null) {
             URL stage2URL = getClass().getClassLoader().getResource(stage2ResourceName);
             URLConnection conn = stage2URL.openConnection();
             Memory buf = MemManager.alloc(conn.getContentLength());
@@ -120,7 +120,7 @@ MemoryManager MemManager;
             //FileUtils.copy(is, buf);
             is.close();
             stage2 = buf;
-        }
+        }*/
         return stage2;
     }
 

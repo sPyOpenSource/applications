@@ -251,7 +251,7 @@ public class KeyboardImpl implements Keyboard, FirstLevelIrqHandler, Service
 
     public static final int KBD_MODE_KBD_INT	= (byte)0x01;	/* Keyboard data generate IRQ1 */
     public static final int KBD_MODE_MOUSE_INT	= (byte)0x02;	/* Mouse data generate IRQ12 */
-    public static final int KBD_MODE_SYS 		= (byte)0x04;	/* The system flag (?) */
+    public static final int KBD_MODE_SYS 	= (byte)0x04;	/* The system flag (?) */
     public static final int KBD_MODE_NO_KEYLOCK	= (byte)0x08;	/* The keylock doesn't affect the keyboard if set */
     public static final int KBD_MODE_DISABLE_KBD	= (byte)0x10;	/* Disable keyboard interface */
     public static final int KBD_MODE_DISABLE_MOUSE	= (byte)0x20;	/* Disable mouse interface */
@@ -263,16 +263,16 @@ public class KeyboardImpl implements Keyboard, FirstLevelIrqHandler, Service
     public static final int KBD_BUFSIZE = 64;
 	
     public static final int AUX_RECONNECT 	= (byte)170;
-    public static final int AUX_SET_RES	= (byte)0xe8;	/* Set resolution */
+    public static final int AUX_SET_RES         = (byte)0xe8;	/* Set resolution */
     public static final int AUX_SET_SCALE11	= (byte)0xe6;	/* Set 1:1 scaling */
     public static final int AUX_SET_SCALE21	= (byte)0xe7;	/* Set 2:1 scaling */
     public static final int AUX_GET_SCALE	= (byte)0xe9;	/* Get scaling factor */
     public static final int AUX_SET_STREAM	= (byte)0xea;	/* Set stream mode */
     public static final int AUX_SET_SAMPLE	= (byte)0xf3;	/* Set sample rate */
     public static final int AUX_ENABLE_DEV	= (byte)0xf4;
-    public static final int AUX_DISABLE_DEV = (byte)0xf5;
+    public static final int AUX_DISABLE_DEV     = (byte)0xf5;
     public static final int AUX_ACK		= (byte)0xfa;
-    public static final int AUX_RESET	= (byte)0xff;
+    public static final int AUX_RESET           = (byte)0xff;
 
     public static final int AUX_INTS_OFF	= (byte) (KBD_MODE_KCC | KBD_MODE_DISABLE_MOUSE | KBD_MODE_SYS | KBD_MODE_KBD_INT);
     public static final int AUX_INTS_ON  	= (byte) (KBD_MODE_KCC | KBD_MODE_SYS | KBD_MODE_MOUSE_INT | KBD_MODE_KBD_INT);
@@ -335,12 +335,12 @@ public class KeyboardImpl implements Keyboard, FirstLevelIrqHandler, Service
 	if (hasAuxiliaryPort == false)
 	    return;
 	if (aux_count++ == 0)
-	    {			
-		// Enable the auxiliary port on controller. 
-		kbdWrite (REG_CMD, CMD_MOUSE_ENABLE);
-		kbdWriteCmd (AUX_INTS_ON);
-		auxWriteAck (AUX_ENABLE_DEV);	// Enable aux device
-	    }			
+        {			
+            // Enable the auxiliary port on controller. 
+            kbdWrite (REG_CMD, CMD_MOUSE_ENABLE);
+            kbdWriteCmd (AUX_INTS_ON);
+            auxWriteAck (AUX_ENABLE_DEV);	// Enable aux device
+        }			
     }		
     public void releaseAux ()
     {
@@ -747,7 +747,6 @@ Debug.out.println(scancode);
             kbdWriteCmd (AUX_INTS_OFF);	
         }
     }
-
 
     public void readKeys()
     {
@@ -2069,10 +2068,10 @@ class KeyQueue
     public void waitForCharacter ()
     {
 	while (((readIdx + 1) % length) == writeIdx)
-	    {
-		waiting = cpuManager.getCPUState ();
-		cpuManager.block ();
-	    }
+        {
+            waiting = cpuManager.getCPUState ();
+            cpuManager.block ();
+        }
     }
 
     public void notifyWaiter ()

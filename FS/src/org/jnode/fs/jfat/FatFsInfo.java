@@ -22,7 +22,7 @@ package org.jnode.fs.jfat;
 
 import java.io.IOException;
 import jx.zero.Memory;
-import jx.InitialNaming;
+import jx.zero.InitialNaming;
 import jx.devices.bio.BlockIO;
 import jx.zero.MemoryManager;
 
@@ -34,7 +34,7 @@ public class FatFsInfo {
     private final Memory sector;
 
     public FatFsInfo(int size) {
-        MemoryManager MemManager = (MemoryManager)InitialNaming.lookup("MemoryManager");
+        MemoryManager MemManager = (MemoryManager)InitialNaming.getInitialNaming().lookup("MemoryManager");
         sector = MemManager.alloc(size);
     }
 
