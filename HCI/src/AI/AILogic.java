@@ -1,6 +1,11 @@
 package AI;
 
 import AI.Models.Info;
+import jx.timer.TimerManager;
+import jx.timerpc.TimerManagerImpl;
+import jx.zero.IRQ;
+import jx.zero.InitialNaming;
+import jx.zero.timer.SleepManager;
 
 /**
  * This is the logic class of AI.
@@ -13,6 +18,9 @@ public class AILogic extends AIZeroLogic
     // instance variables
     private final double threshold = 1000000, filter = 0.99;
     private static long state = System.currentTimeMillis();
+    private final TimerManager timerManager;
+    private final SleepManager sleepManager;
+    private final IRQ irq;
     //private final MotionDetection colorCamera;
     //private final PointCloud depthCamera;
     //private final VectorFilter accFilter, magFilter;
@@ -25,7 +33,12 @@ public class AILogic extends AIZeroLogic
     {
         // Initialize instance variables        
 	super(mem);
+        irq = (IRQ)InitialNaming.getInitialNaming().lookup("IRQ");
         //StartTimer.main(new String[]{"TimerManager"});
+        timerManager = new TimerManagerImpl();
+	mem.getInitialNaming().registerPortal(timerManager, "TimerManager");
+        sleepManager = new jx.timerpc.SleepManagerImpl();
+
         //colorCamera  = new MotionDetection(filter, threshold);
         //depthCamera = new PointCloud();
         /*accFilter = new VectorFilter(10, 10, 0.0001, 0.1, 0.1 / 3);
@@ -106,5 +119,9 @@ public class AILogic extends AIZeroLogic
         for(int i = 0; i < 200; i++){
             System.out.println(LSFR32());
         }
+    }
+
+    public SleepManager getSM() {
+        return sleepManager;
     }
 }

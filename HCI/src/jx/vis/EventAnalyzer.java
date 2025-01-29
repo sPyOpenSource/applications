@@ -25,14 +25,14 @@ public class EventAnalyzer {
     boolean opt_remove = false;
     boolean opt_include = false;
     boolean opt_tid = false;
-    int nums[]=null;
-    String[] names=null;
+    int nums[] = null;
+    String[] names = null;
 
     InputStream  in;
-    PrintStream out=null;
+    PrintStream out = null;
     String filename;
     String starteventname = null;
-    boolean verbose=false;
+    boolean verbose = false;
     int maxtime = 0;
     float timefactor = 1;
     long timecorrector = 0;
@@ -41,7 +41,6 @@ public class EventAnalyzer {
     int interval = -1;
     int timescale = -1;
     
-
     static void usage() {
 	Debug.out.println("<eventin> [-dumpAll] [-dumpTypes] [-dump <eventnames ...>] [-diff <eventnames ...>] [-graph <filename>] [-timefactor <factor>] [-timescale <number>] [-timecorrector <timetosubtract>] [-maxtime <time>] [-pattern <patternlength>] [-startAt <eventname>] [-maxevents <number>] [-remove <eventnames ...>] [-include <eventnames ...>]");
 	Debug.out.println("-graph <filename>: Create file <filename> that contains the times between events as an event graph and can be used as input for the dot program.");
@@ -72,7 +71,7 @@ public class EventAnalyzer {
     public EventAnalyzer(String[] args) throws Exception {
 	if (args.length ==  0) { usage(); return; }
 
-	    in = new FileInputStream(args[0]);
+	in = new FileInputStream(args[0]);
 
 	int argc = 1;
 	while (argc < args.length) {
@@ -216,17 +215,17 @@ public class EventAnalyzer {
 		});
 	    System.out.println("Done.");
 	    // compute variance and deviation
-	    for(int i=0; i<edges.size(); i++) {
+	    for(int i = 0; i < edges.size(); i++) {
 		Edge d = (Edge)edges.elementAt(i);
-		for(int j=0; j<d.number; j++) {
+		for(int j = 0; j < d.number; j++) {
 		    d.median += d.times[j];
 		}
 		d.median /= d.number;
 	    }
-	    for(int i=0; i<edges.size(); i++) {
+	    for(int i = 0; i < edges.size(); i++) {
 		Edge d = (Edge)edges.elementAt(i);
 		float diffFromMedian=0;
-		for(int j=0; j<d.number; j++) {
+		for(int j = 0; j < d.number; j++) {
 		    diffFromMedian = (float)d.median - (float)d.times[j];
 		    d.variance += diffFromMedian*diffFromMedian;
 		}
@@ -234,17 +233,16 @@ public class EventAnalyzer {
 		d.deviation = (float)Math.sqrt(d.variance);
 	    }
 
-
 	    // print
-	    for(int i=0; i<edges.size(); i++) {
+	    for(int i = 0; i < edges.size(); i++) {
 		Edge d = (Edge)edges.elementAt(i);
 		if (maxtime != 0 && d.median > maxtime) continue; // time different too large -> dont show
-		out.println(d.from + "->" + d.to + " [label=\""+((int)(d.median*timefactor))+" +/- "+((int)(d.deviation*timefactor))+" ("+d.number+")\"];");
+		//out.println(d.from + "->" + d.to + " [label=\""+((int)(d.median*timefactor))+" +/- "+((int)(d.deviation*timefactor))+" ("+d.number+")\"];");
 	    }
             for (EventType type : e.types) {
                 // only label nodes that are present in the graph
-                boolean found=false;
-                for (int j = 0; j<edges.size(); j++) {
+                boolean found = false;
+                for (int j = 0; j < edges.size(); j++) {
                     Edge d = (Edge)edges.elementAt(j);
                     if (d.from == type.number || d.to == type.number) {
                         found = true;
@@ -388,7 +386,6 @@ public class EventAnalyzer {
 	    usage();
 	}
     }
-
 
     private void processAll(Events e, EventAction action) {
 	int starteventnumber = -1;
