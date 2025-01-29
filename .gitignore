@@ -5,3 +5,4 @@ private
 *.flash
 /APP/dist/
 /HCI/dist/
+/NET/dist/
