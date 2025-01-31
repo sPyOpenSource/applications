@@ -51,14 +51,16 @@ int j = 0;
         }
 
         logThread = new Thread(log, "logic");
-        /*while(true){
+        while(true){
             for(int i = 0; i < monitors.length; i++){
-                if(i==1) continue;
+                if(i == 7) continue;
+                if(i == 0) continue;
+                if(monitors[i] == null) continue;
                 System.out.println(i);
                 monitors[i].startMonitor();
             }
             break;
-        }*/
+        }
     }
     
     public void start()

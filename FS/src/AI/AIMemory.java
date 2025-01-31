@@ -8,6 +8,7 @@ import jx.fs.Node;
 
 import jx.zero.Clock;
 import jx.zero.Debug;
+import jx.zero.LookupHelper;
 import jx.zero.Memory;
 import jx.zero.MemoryManager;
 import jx.zero.Naming;
@@ -47,7 +48,7 @@ public class AIMemory extends AIZeroMemory implements FileSystem
             } catch (NoSuchPortException | PortInUseException | UnsupportedCommOperationException ex) {
                 Logger.getLogger(AIMemory.class.getName()).log(Level.SEVERE, null, ex);
             }*/
-            //drive = (BlockIO)LookupHelper.waitUntilPortalAvailable(null, "BioRAM");
+            drive = (BlockIO)LookupHelper.waitUntilPortalAvailable(naming, "BioRAM");
             memoryManager = (MemoryManager)naming.lookup("MemoryManager");
             buffer = memoryManager.alloc(512);
             /*for(int i = 0; i < buffer.size(); i++){
