@@ -23,12 +23,12 @@ class PartitionTable {
     private static final short PCBIOS_BOOTMAGIC         = (short)0xaa55;
 
     PartitionTable(Drive drive) {
-    this.drive = drive;
-    readPartitionTable();
+        this.drive = drive;
+        readPartitionTable();
     }
 
     public PartitionEntry[] getPartitions() {
-    return partitions;
+        return partitions;
     }
 
     /**
@@ -40,7 +40,7 @@ class PartitionTable {
      */
     public int getPartitionSize(int part) {
     //if (isPresent(part) == false)        return -1;
-    return partitions[part].size;
+        return partitions[part].size;
     }
 
     /**
@@ -64,20 +64,20 @@ class PartitionTable {
         Dump.xdump(buffer);
         throw new Error();
     }
-
+Dump.xdump(buffer);
     for (int i = 0; i < 4; i++) {
         PartitionData part_data = new PartitionData(buffer, 446 + i * 16);
-        if (!isExtended(part_data.os_indicator()) && (part_data.os_indicator() != 0) && (part_data.length_in_sectors() > 0)) {
-        part_entry = new PartitionEntry(drive, part_data.start_sector(), part_data.length_in_sectors(), true, part_data.os_indicator());
-        entries.addElement(part_entry);
-        if (Env.verbosePT) Debug.out.println("found partition");
-        found++;
+        if (!isExtended(part_data.os_indicator()) && (part_data.os_indicator() != 0) && (part_data.length_in_sectors() != 0)) {
+            part_entry = new PartitionEntry(drive, part_data.start_sector()+127, part_data.length_in_sectors(), true, part_data.os_indicator());
+            entries.addElement(part_entry);
+            if (Env.verbosePT) Debug.out.println("found partition" + part_data.start_sector());
+            found++;
         }
     }
     for (int i = 0; i < 4; i++) {
         PartitionData part_data = new PartitionData(buffer, 446 + i * 16);
         if (Env.verbosePT) Debug.out.println("entry " + i + ": os = " + osName(part_data.os_indicator()) + ", length = " + part_data.length_in_sectors());
-        if (isExtended(part_data.os_indicator()) && (part_data.length_in_sectors() > 0)) { // erweiterte Partition
+        if (isExtended(part_data.os_indicator()) && (part_data.length_in_sectors() > 0)) { // extended Partition
         start_ext_sector = part_data.start_sector();
         ext_sector = part_data.start_sector();
         if (ext_sector > 0) {
@@ -217,13 +217,13 @@ class MBRData {
  * Access one entry in the partion table 
  */
 class PartitionData {
-    byte os_indicator;
-    int  start_sector;
-    int length_in_sectors;
+    private final byte os_indicator;
+    private final int  start_sector;
+    private final int length_in_sectors;
     public PartitionData(Memory mem, int offset) {
-    os_indicator = mem.get8(offset + 4);
-    start_sector = mem.getLittleEndian32(offset + 8);
-    length_in_sectors = mem.getLittleEndian32(offset + 12);
+        os_indicator = mem.get8(offset + 4);
+        start_sector = mem.getLittleEndian32(offset + 8);
+        length_in_sectors = mem.getLittleEndian32(offset + 12);
     }
     public byte os_indicator()      { return os_indicator; }
     public int  start_sector()      { return start_sector; }

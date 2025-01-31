@@ -27,12 +27,12 @@ class Env {
     final static boolean verboseID   = false; // identify
     
     static void init() {
-    naming        = InitialNaming.getInitialNaming();
-    clock         = (Clock)naming.lookup("Clock");
-    irq           = (IRQ)naming.lookup("IRQ");
-    ports         = (Ports)naming.lookup("Ports");
-    memoryManager = (MemoryManager)naming.lookup("MemoryManager");
-    cpuManager    = (CPUManager)naming.lookup("CPUManager");
-    sleepManager  = new SleepManagerImpl();
+        naming        = InitialNaming.getInitialNaming();
+        clock         = (Clock)naming.lookup("Clock");
+        irq           = (IRQ)naming.lookup("IRQ");
+        ports         = (Ports)naming.lookup("Ports");
+        memoryManager = (MemoryManager)naming.lookup("MemoryManager");
+        cpuManager    = (CPUManager)naming.lookup("CPUManager");
+        sleepManager  = new SleepManagerImpl();
     }
 }

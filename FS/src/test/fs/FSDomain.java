@@ -1,6 +1,9 @@
 package test.fs;
 
 import AI.AIMemory;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import jx.devices.bio.BlockIO;
 import vfs.FSImpl;
 
@@ -14,6 +17,8 @@ import jx.zero.Naming;
 import jx.zero.debug.DebugChannel;
 import jx.zero.debug.DebugPrintStream;
 import jx.zero.debug.DebugOutputStream;
+import org.jnode.fs.jfat.FatFileSystem;
+import org.jnode.fs.jfat.FatRootDirectory;
 
 public class FSDomain {
     Naming naming;
@@ -24,7 +29,6 @@ public class FSDomain {
 	CPUManager cpuManager = (CPUManager)InitialNaming.getInitialNaming().lookup("CPUManager");
 	//cpuManager.setThreadName("FSDomain-Main");
 	BlockIO bio = (BlockIO)LookupHelper.waitUntilPortalAvailable(naming, args[0]);
-
 	if (args.length > 2 && args[2].equals("-format")) {
             new FSDomain(naming, bio, args[1], true);
 	} else if (args.length > 2 && args[2].equals("-noformat")) {
@@ -41,12 +45,18 @@ public class FSDomain {
     }
     
     FSDomain(final Naming naming, BlockIO bio, String fsname, boolean format) {
-	try {
+	//try {
 	    this.naming = naming;
             
 	    final FSImpl fs = new FSImpl();
-            //final jx.fs.FileSystem fat = new FatFileSystem(bio);
-            final jx.fs.FileSystem fat = new AIMemory(naming);
+            final jx.fs.FileSystem fat = new FatFileSystem(bio);
+            FatRootDirectory root = (FatRootDirectory)fat.getRootNode();
+        /*try {
+            root.getFatDirEntry(0, false);
+        } catch (IOException ex) {
+            //Logger.getLogger(FSDomain.class.getName()).log(Level.SEVERE, null, ex);
+        }*/
+            //final jx.fs.FileSystem fat = new AIMemory(naming);
 	    //final javafs.FileSystem jfs = new javafs.FileSystem();
 	    Clock clock = new DummyClock();
 	    //jfs.init(bio, new buffercache.BufferCache(bio, clock, 800, 1000, 100, EXT2FS_BLOCKSIZE), clock);
@@ -61,14 +71,14 @@ public class FSDomain {
 	    fs.mountRoot(fat, false /* read-only = false*/);
 
 	    if (format) {
-		fs.mkdir("lost+found", InodeImpl.S_IWUSR | InodeImpl.S_IRUGO | InodeImpl.S_IXUGO);
+		//fs.mkdir("lost+found", InodeImpl.S_IWUSR | InodeImpl.S_IRUGO | InodeImpl.S_IXUGO);
 	    }
 
-	    //InitialNaming.registerPortal(fat, fsname);
-	    //naming.registerPortal(jfs, "JavaFS");
-	} catch(Exception e) {
+	    naming.registerPortal(fs, fsname);
+	    naming.registerPortal(fat, "JavaFS");
+	/*} catch(Exception e) {
 	    Debug.out.println("EXCEPTION: " + e);
 	    throw new Error();
-	}
+	}*/
     }
 }

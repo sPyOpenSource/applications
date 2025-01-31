@@ -95,6 +95,6 @@ public class USBStorageDeviceToDriverMapper implements USBStorageConstants {
      * @see #MATCH_DEVCLASS
      */
     public int getMatchLevel() {
-        return MATCH_DEVCLASS;
+        return 0;//MATCH_DEVCLASS;
     }
 }

@@ -4,8 +4,13 @@ import jx.devices.pci.PCIAccess;
 import jx.devices.pci.PCICodes;
 import jx.devices.pci.PCIDevice;
 import jx.netmanager.NetInit;
+import jx.zero.Debug;
+import jx.zero.InitialNaming;
 
 import jx.zero.Naming;
+import jx.zero.debug.DebugChannel;
+import jx.zero.debug.DebugOutputStream;
+import jx.zero.debug.DebugPrintStream;
 import jx.zero.timer.SleepManager;
 import org.jnode.driver.bus.usb.USBHubMonitor;
 import org.jnode.driver.bus.usb.uhci.UHCIDriver;
@@ -29,6 +34,7 @@ public final class AI
      */
     public AI(Naming naming)
     {
+        Debug.out = new DebugPrintStream(new DebugOutputStream((DebugChannel) InitialNaming.getInitialNaming().lookup("DebugChannel0")));
         IO = new AIIO(naming);
         log = new AILogic(IO.getMemory());
         //NetInit.init(IO.getMemory().getInitialNaming(), new String[]{"NET"});
@@ -45,13 +51,14 @@ int j = 0;
         }
 
         logThread = new Thread(log, "logic");
-        while(true){
-            for(int i = 1; i < monitors.length - 1; i++){
+        /*while(true){
+            for(int i = 0; i < monitors.length; i++){
+                if(i==1) continue;
                 System.out.println(i);
                 monitors[i].startMonitor();
             }
             break;
-        }
+        }*/
     }
     
     public void start()

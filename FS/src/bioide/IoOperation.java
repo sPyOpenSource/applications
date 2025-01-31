@@ -21,7 +21,7 @@ abstract class IoOperation extends Operation {
     protected CPUState   cpuState;    // thread that waits for completion of this operation
     protected AtomicVariable state;   // current state of this operation
 
-    private final   boolean    synchronous; // synchronous/asynchronous operation
+    private final boolean synchronous; // synchronous/asynchronous operation
 
     public IoOperation(Memory buffer, int count, Controller controller, Drive drive, int sector, boolean synchronous) {
     super(controller, drive);
@@ -73,9 +73,9 @@ abstract class IoOperation extends Operation {
         throw new Error(); // return -1;
     }
 
-    // Laufwerk selektieren
+    // Select drive
     controller.setCTLReg(drive.ctl);
-    // Anzahl zu lesender/schreibender Sektoren
+    // Number of sectors to be read/written
     if (count < 256)
         controller.setCountReg((byte)(count & 0xff));
     else
@@ -86,28 +86,27 @@ abstract class IoOperation extends Operation {
         controller.setLoCylReg((byte)((block >>= 8) & 0xff));
         controller.setHiCylReg((byte)((block >>= 8) & 0xff));
         controller.setLDHReg((byte)(((block >> 8) & 0x0f) | drive.select));
-        /* die LBA-Nummer wird folgendermassen codiert:
+        /* the LBA number is coded as follows:
            28 Bit: 0000HHHH CCCCCCCC cccccccc SSSSSSSS (Bit 0)
            |--| |---------------| |------|
-           Kopf      Zylinder      Sektor
+           Head      Cylinder      Sector
         */
     } else {
-        int sect,head,cyl,spur; // unsigned int
-              spur  = block / drive.sect;
-        sect  = block % drive.sect + 1;
-        // auf EINE Platte bezogen: pro Spur drive.sect Sektoren, Sektoren werden ab 1 gezaehlt
+        int spur = block / drive.sect;
+        int sect = block % drive.sect + 1;
+        // related to ONE disk: per track drive.sect sectors, sectors are counted from 1
 
         controller.setSectorReg((byte)(sect & 0xff));
 
-        head  = spur % drive.head;
-        cyl   = spur / drive.head;
-        // auf ALLE Platten bezogen: pro Zylinder drive.head Spuren
+        int head = spur % drive.head;
+        int cyl  = spur / drive.head;
+        // related to ALL disks: per cylinder drive.head tracks
       
         controller.setLoCylReg((byte)(cyl & 0xff));
-        controller.setHiCylReg((byte)(cyl>>8));
+        controller.setHiCylReg((byte)(cyl >> 8));
         controller.setLDHReg((byte)(head | drive.select));
-        /* select.all == 1 L 1 D x x x x, mit L == 1 fuer LBA-Modus, 0 sonst,
-           D == 1 fuer Slave, 0 fuer Master, head == xxxx (0 bis 15) */
+        /* select.all == 1 L 1 D x x x x, with L == 1 for LBA-Modus, 0 otherwise,
+           D == 1 for Slave, 0 for Master, head == xxxx (0 bis 15) */
     }
     }
 }

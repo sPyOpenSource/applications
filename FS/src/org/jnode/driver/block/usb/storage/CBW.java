@@ -20,6 +20,7 @@
  
 package org.jnode.driver.block.usb.storage;
 
+import jx.zero.Memory;
 import org.jnode.driver.bus.usb.USBPacket;
 import org.jnode.util.NumberUtils;
 
@@ -53,9 +54,9 @@ public class CBW extends USBPacket {
         setByte(14, (length & 0x07));
     }
 
-    public void setCdb(byte[] cdb) {
-        for (int offset = 0; offset < cdb.length; offset++) {
-            setByte((offset + 15), cdb[offset]);
+    public void setCdb(Memory cdb) {
+        for (int offset = 0; offset < cdb.size(); offset++) {
+            setByte((offset + 15), cdb.get8(offset));
         }
     }
 

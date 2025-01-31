@@ -78,7 +78,6 @@ public class FSImpl implements FS, Service {
         cwdInode.overlay(mnt, getFileName(path));
         mountpoints.put(filesystem, igetCwdNode());
     }
-    devices.put(filesystem.getDeviceID(), filesystem);
     //devices.put(filesystem.getDeviceID(), filesystem);
     }
 
@@ -110,7 +109,6 @@ public class FSImpl implements FS, Service {
     cwdPath = "/";
     mountpoints.put(filesystem, rootInode);
     rootFS = filesystem;
-    devices.put(filesystem.getDeviceID(), filesystem);    
     //devices.put(filesystem.getDeviceID(), filesystem);
     }
 

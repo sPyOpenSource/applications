@@ -157,41 +157,42 @@ public class Drive implements BlockIO, Service {
      * @throws bioide.IDEException
      */
     public void identify() throws IDEException {
-    Debug.out.println("DRIVE IDENTIFY: " + name);
-    IdentifyOperation operation = new IdentifyOperation(id_data, controller, this);
-    operation.startOperation();
-  
-    if (!present) {
-        present = true;
-        cyl  = bios_cyl  = id_data.cyls();
-        head = bios_head = id_data.heads();
-        sect = bios_sect = id_data.sectors();
-    }
-    Debug.out.println("DRIVE IDENTIFIED: " + name + "; cyl=" + cyl + ", head=" + head + ", sect=" + sect);
+        Debug.out.println("DRIVE IDENTIFY: " + name);
+        IdentifyOperation operation = new IdentifyOperation(id_data, controller, this);
+        operation.startOperation();
 
-    // Umsetzung der logischen Geometrie durch das Laufwerk ueberpruefen
-    if (((id_data.field_valid() & 1) > 0) && (id_data.cur_cyls() > 0) && (id_data.cur_heads() > 0)
-        && (id_data.cur_heads() <= 16) && (id_data.cur_sectors() > 0)) {
-        cyl  = id_data.cur_cyls();
-        head = id_data.cur_heads();
-        sect = id_data.cur_sectors();
-    }
+        if (!present) {
+            present = true;
+            cyl  = bios_cyl  = id_data.cyls();
+            head = bios_head = id_data.heads();
+            sect = bios_sect = id_data.sectors();
+        }
+        Debug.out.println("DRIVE IDENTIFIED: " + name + "; cyl=" + cyl + ", head=" + head + ", sect=" + sect);
 
-    // Die physikalische Geometrie uebernehmen, falls die bisherige keinen Sinn macht
-    if ((head == 0 || head > 16) && id_data.heads() > 0 && id_data.heads() <= 16) {
-        cyl  = id_data.cyls();
-        head = id_data.heads();
-        sect = id_data.sectors();
-    }
+        // Umsetzung der logischen Geometrie durch das Laufwerk ueberpruefen
+        if (((id_data.field_valid() & 1) > 0) && (id_data.cur_cyls() > 0) && (id_data.cur_heads() > 0)
+            && (id_data.cur_heads() <= 16) && (id_data.cur_sectors() > 0)) {
+            cyl  = id_data.cur_cyls();
+            head = id_data.cur_heads();
+            sect = id_data.cur_sectors();
+        }
 
-    // Die Zylinderzahl korrigieren, falls der Bios-Wert zu klein ist
-    if (sect == bios_sect && head == bios_head) {
-        if (cyl > bios_cyl)
-        bios_cyl = cyl;
-    }
+        // Die physikalische Geometrie uebernehmen, falls die bisherige keinen Sinn macht
+        if ((head == 0 || head > 16) && id_data.heads() > 0 && id_data.heads() <= 16) {
+            cyl  = id_data.cyls();
+            head = id_data.heads();
+            sect = id_data.sectors();
+        }
 
-    Debug.out.println("DRIVE OK: " + name + "; cyl=" + cyl + ", head=" + head + ", sect=" + sect);
-        entries = new PartitionTable(this);
+        // Die Zylinderzahl korrigieren, falls der Bios-Wert zu klein ist
+        if (sect == bios_sect && head == bios_head) {
+            if (cyl > bios_cyl)
+            bios_cyl = cyl;
+        }
+
+        Debug.out.println("DRIVE OK: " + name + "; cyl=" + cyl + ", head=" + head + ", sect=" + sect);
+        if(sect != 0)
+            entries = new PartitionTable(this);
     }
 
     /**
@@ -199,16 +200,16 @@ public class Drive implements BlockIO, Service {
      */
     @Override
     public void readSectors(int startSector, int numberOfSectors, Memory buf, boolean synchronous) { 
-    Operation operation;
+        Operation operation;
         if( Env.verboseDR ) Debug.out.println("readSectors - start");
     
-    if (using_dma && controller.buildDMATable(buf, 512 * numberOfSectors)) {
-        operation = new DMAOperation(buf, numberOfSectors, controller, this, startSector, true, true/*read*/);
-    } else {
-        operation = new ReadOperation(buf, numberOfSectors, controller, this, startSector, true);
-    }
-    controller.queueOperation(operation, false);
-    if (synchronous) operation.waitForCompletion();
+        if (using_dma && controller.buildDMATable(buf, 512 * numberOfSectors)) {
+            operation = new DMAOperation(buf, numberOfSectors, controller, this, startSector, true, true/*read*/);
+        } else {
+            operation = new ReadOperation(buf, numberOfSectors, controller, this, startSector, true);
+        }
+        controller.queueOperation(operation, false);
+        if (synchronous) operation.waitForCompletion();
     }
 
     /** 

@@ -26,16 +26,16 @@ public class PartitionEntry implements Partition, Service {
 
     public PartitionEntry(Drive drive, int start, int size, boolean accessable, int os) {
         Debug.out.println("start: " + start);
-    this.drive = drive;
-    this.start = start;
-    this.size = size;
-    this.accessable = accessable;
-    this.os = os;
+        this.drive = drive;
+        this.start = start;
+        this.size = size;
+        this.accessable = accessable;
+        this.os = os;
     }
     
     @Override
     public int getCapacity() {
-    return size;
+        return size;
     }
 
     @Override
@@ -43,29 +43,29 @@ public class PartitionEntry implements Partition, Service {
 
     @Override
     public void readSectors(int startSector, int numberOfSectors, Memory buf, boolean synchronous) { 
-    drive.readSectors(start + startSector, numberOfSectors, buf, synchronous);
+        drive.readSectors(start + startSector, numberOfSectors, buf, synchronous);
     }
 
     @Override
     public void writeSectors(int startSector, int numberOfSectors, Memory buf, boolean synchronous ) { 
-    drive.writeSectors(start + startSector, numberOfSectors, buf, synchronous);
+        drive.writeSectors(start + startSector, numberOfSectors, buf, synchronous);
     }
     
     
     /** Vertauscht zwei Partitionseintraege (um sie zu sortieren) */
     void swapWithPartition(PartitionEntry one) {
-    PartitionEntry sort_tmp = new PartitionEntry();
-    if (one.start > start) {
-        sort_tmp.start = one.start; 
-            sort_tmp.size = one.size;
-        sort_tmp.accessable = one.accessable;
-        one.start = start; 
-        one.size = size;
-        one.accessable = accessable;
-        start = sort_tmp.start; 
-            size = sort_tmp.size;
-        accessable = sort_tmp.accessable;
-    }
+        PartitionEntry sort_tmp = new PartitionEntry();
+        if (one.start > start) {
+            sort_tmp.start = one.start; 
+                sort_tmp.size = one.size;
+            sort_tmp.accessable = one.accessable;
+            one.start = start; 
+            one.size = size;
+            one.accessable = accessable;
+            start = sort_tmp.start; 
+                size = sort_tmp.size;
+            accessable = sort_tmp.accessable;
+        }
     }
     
 }

@@ -95,25 +95,25 @@ class Controller {
     private static final int  PRD_ENTRIES       = PAGE_SIZE / PRD_BYTES;   // number of entries in DMA table
 
     public Controller(IDEDeviceImpl ide, int index) {
-    this.index = index;
-    if (index == 0) {
-        io_base = REG_BASE0;
-        irq_nr = AT_IRQ0;
-        name = "ide0";
-    } else {
-        io_base = REG_BASE1;
-        irq_nr = AT_IRQ1;
-        name = "ide1";
-    }
-    ctl_port = io_base + IDE_OFF_CTL_REG;
-    present = false;
-    operation = null;
-    drives = new Drive[IDEDeviceImpl.MAX_DRIVES];
-    for (int unit = 0; unit < IDEDeviceImpl.MAX_DRIVES; unit++)
-        drives[unit] = new Drive(ide, this, unit);
-    handlerObj = new IDEIntrHandler(this);
-    handler = handlerObj;
-    waittimer = new WaitTimer(this);
+        this.index = index;
+        if (index == 0) {
+            io_base = REG_BASE0;
+            irq_nr = AT_IRQ0;
+            name = "ide0";
+        } else {
+            io_base = REG_BASE1;
+            irq_nr = AT_IRQ1;
+            name = "ide1";
+        }
+        ctl_port = io_base + IDE_OFF_CTL_REG;
+        present = false;
+        operation = null;
+        drives = new Drive[IDEDeviceImpl.MAX_DRIVES];
+        for (int unit = 0; unit < IDEDeviceImpl.MAX_DRIVES; unit++)
+            drives[unit] = new Drive(ide, this, unit);
+        handlerObj = new IDEIntrHandler(this);
+        handler = handlerObj;
+        waittimer = new WaitTimer(this);
     }
 
     public void    setFeatureReg(byte value)  { Env.ports.outb(io_base + IDE_OFF_FEATURE, value); }
@@ -130,11 +130,11 @@ class Controller {
 
     /** transfer data from controller to main memory using programmed I/O */
     public void    inputData(Memory buffer, int offset, int wcount) {
-    inputData(io_base + IDE_OFF_DATA, buffer, offset, wcount); // TODO Env.ports.inputData
+        inputData(io_base + IDE_OFF_DATA, buffer, offset, wcount); // TODO Env.ports.inputData
     }
     /** transfer data from main memory to controller using programmed I/O */
     public void    outputData(Memory buffer, int offset, int wcount) {
-    outputData(io_base + IDE_OFF_DATA, buffer, offset, wcount); // TODO Env.ports.outputData
+        outputData(io_base + IDE_OFF_DATA, buffer, offset, wcount); // TODO Env.ports.outputData
     }
 
     /**
@@ -153,9 +153,9 @@ class Controller {
         return false;
     }
 
-    timeoutMillis += Env.clock.getTicks()*10;
-    while (Env.clock.getTicks()*10 < timeoutMillis) {
-        if ((getStatus() & (good|bad)) == good)
+    timeoutMillis += Env.clock.getTicks() * 10;
+    while (Env.clock.getTicks() * 10 < timeoutMillis) {
+        if ((getStatus() & (good | bad)) == good)
             return true;
         Env.sleepManager.mdelay(10); // may not be necessary
     }
@@ -185,90 +185,89 @@ class Controller {
      *                      <code>false</code> append at end of queue
      */
     public void queueOperation(Operation newOperation, boolean front) {
-    try {
-        if (operation == null) {
-        operation = newOperation;
-        if (Env.verboseCTRL) {
-            Env.cpuManager.dump("Controller.queueOperation this:", this);
-            Env.cpuManager.dump("Controller.queueOperation op:", operation);
+        try {
+            if (operation == null) {
+                operation = newOperation;
+                if (Env.verboseCTRL) {
+                    Env.cpuManager.dump("Controller.queueOperation this:", this);
+                    Env.cpuManager.dump("Controller.queueOperation op:", operation);
+                }
+                operation.startOperation();
+                if (Env.verboseCTRL) Debug.out.println("queueOperation: after startOperation");
+            } else {
+                if (Env.verboseCTRL) Debug.out.println("queueOperation: operation != null");
+                /*
+                // synchronous operation
+                if (operation != null) Debug.out.println("WAITING FOR PREVIOUS OP TO COMPLETE!");
+                while (operation != null)
+                ;
+                if (Env.verboseCTRL) Debug.out.println("queueOperation: operation now == null");
+                operation = newOperation;
+                operation.startOperation();
+                */
+
+                if (front) {
+                    newOperation.next = operation;
+                    operation = newOperation;
+                } else {
+                    Operation last = operation;
+                    while (last.next != null)
+                        last = last.next;
+                    last.next = newOperation;
+                }
+                Debug.out.println("operation queued");
+            }
+        } catch (IDEException e) {
+            //e.printStackTrace();
+            throw new Error("IDEException");
         }
-        operation.startOperation();
-        if (Env.verboseCTRL) Debug.out.println("queueOperation: nach startOperation");
-        } else {
-        if (Env.verboseCTRL) Debug.out.println("queueOperation: operation != null");
-        /*
-        // synchronous operation
-        if (operation != null) Debug.out.println("WAITING FOR PREVIOUS OP TO COMPLETE!");
-        while (operation != null)
-        ;
-        if (Env.verboseCTRL) Debug.out.println("queueOperation: operation now == null");
-        operation = newOperation;
-        operation.startOperation();
-        */
-        
-        
-        if (front) {
-            newOperation.next = operation;
-            operation = newOperation;
-        } else {
-            Operation last = operation;
-            while (last.next != null)
-                last = last.next;
-            last.next = newOperation;
-        }
-        Debug.out.println("operation queued");
-        } 
-    } catch (IDEException e) {
-        //e.printStackTrace();
-        throw new Error("IDEException");
-    }
     }
 
     /**
      * Start next operation in queue. Return immediately if queue is empty.
      */
     public void nextOperation() {
-    if (operation == null)
-        return;
-    operation = operation.next;
-    if (operation != null) {
-        Debug.out.println("nextOperation(): starting nextOperation");
-        try {
-        operation.startOperation();
-        } catch(IDEException e) {
-        Debug.out.println("IDEException in Controller!");
-        throw new Error();
+        if (operation == null)
+            return;
+        operation = operation.next;
+        if (operation != null) {
+            Debug.out.println("nextOperation(): starting nextOperation");
+            try {
+                operation.startOperation();
+            } catch(IDEException e) {
+                Debug.out.println("IDEException in Controller!");
+                throw new Error();
+            }
         }
-    }
     }
 
     /**
      * Test if controller exists and what drives are connected.
      */
     public boolean identify() {
-    byte r = Env.ports.inb(io_base + IDE_OFF_LO_CYL);
-    setLoCylReg((byte)~r);
+        byte r = Env.ports.inb(io_base + IDE_OFF_LO_CYL);
+        setLoCylReg((byte)~r);
         // contents of register does not change -> controller not available
         present = Env.ports.inb(io_base + IDE_OFF_LO_CYL) != r; //Debug.out.println("Found " + name + " (" + Integer.toHexString(io_base) + "), use IRQ " + irq_nr);
 
-    for (int unit = 0; unit < IDEDeviceImpl.MAX_DRIVES; unit++) {
-        Drive drive = drives[unit];
-        Debug.out.println("DRIVE: " + unit);
-    }
-    
-    for (int unit = 0; unit < IDEDeviceImpl.MAX_DRIVES; unit++) {
-        Drive drive = drives[unit];
-        try {
-        drive.identify();
-        if (drive.present) {
-            drive.setup();
-            present = true;
+        for (int unit = 0; unit < IDEDeviceImpl.MAX_DRIVES; unit++) {
+            Drive drive = drives[unit];
+            Debug.out.println("DRIVE: " + unit);
         }
-        } catch(IDEException e) {
-        Debug.out.println("DRIVE: " + unit + " could not be identified+initialized");
+
+        for (int unit = 0; unit < IDEDeviceImpl.MAX_DRIVES; unit++) {
+            Drive drive = drives[unit];
+            try {
+                drive.identify();
+                if (drive.present) {
+                    drive.setup();
+                    present = true;
+                }
+            } catch(IDEException e) {
+                Debug.out.println("DRIVE: " + unit + " could not be identified+initialized");
+            }
         }
-    }
-    return true;
+        return true;
     }
 
     /**
@@ -320,7 +319,7 @@ class Controller {
         
         //flags = irq.clearIFlag();
 
-        ResetOperation reset_operation = new ResetOperation(this, drive, 30*1000); // 30 sec
+        ResetOperation reset_operation = new ResetOperation(this, drive, 30 * 1000); // 30 sec
         queueOperation(reset_operation, true);
         setTimeout(0, 50); // 50 msec
         
@@ -389,19 +388,18 @@ class Controller {
     public void inputData(int port, Memory m, int offset, int wcount) {
         for(int i = 0; i < wcount; i++) {
             int data = Env.ports.inl(port);
-            m.set32(i+offset, data);
+            m.set32(i + offset, data);
         }
     }
 
     public void outputData(int port, Memory m, int offset, int wcount) {
-        for(int i=0; i<wcount; i++) {
-            int data = m.get32(i+offset);
+        for(int i = 0; i < wcount; i++) {
+            int data = m.get32(i + offset);
             Env.ports.outl(port, data);
         }
     }
 
     public boolean isPresent() { return present; }
-
 
     final public Operation getCurrentOperation() {
     if (Env.verboseCTRL) {
@@ -415,9 +413,7 @@ class Controller {
     final public String getName() { return name; }
 }
 
-
 class WaitTimer implements TimerHandler {
-
     Controller controller;
 
     WaitTimer(Controller controller) {

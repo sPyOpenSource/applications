@@ -54,17 +54,17 @@ public class BootSector {
      */
     private byte[] BS_jmpBoot;
     private String BS_OEMName;
-    private int BPB_BytsPerSec;
-    private int BPB_SecPerClus;
-    private int BPB_RsvdSecCnt;
-    private int BPB_NumFATs;
-    private int BPB_RootEntCnt;
-    private int BPB_TotSec16;
+    private int BPB_BytsPerSec = 512;
+    private int BPB_SecPerClus = 1;
+    private int BPB_RsvdSecCnt = 1;
+    private int BPB_NumFATs = 2;
+    private int BPB_RootEntCnt = 224;
+    private int BPB_TotSec16 = 2880;
     private int BPB_Media;
-    private int BPB_FATSz16;
-    private int BPB_SecPerTrk;
-    private int BPB_NumHeads;
-    private int BPB_HiddSec;
+    private int BPB_FATSz16 = 9;
+    private int BPB_SecPerTrk = 18;
+    private int BPB_NumHeads = 2;
+    private int BPB_HiddSec = 0;
     private int BPB_TotSec32;
 
     /*
@@ -252,11 +252,11 @@ public class BootSector {
     }
 
     protected int get8(int offset) {
-        return sector.get8(offset);//LittleEndian.getUInt8(sector, offset);
+        return sector.get8(offset);
     }
 
     protected void set8(int offset, int value) {
-        //LittleEndian.setInt8(sector, offset, value);
+        sector.set8(offset, (byte)value);
         dirty = true;
     }
 

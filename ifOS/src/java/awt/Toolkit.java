@@ -105,20 +105,20 @@ getDefaultToolkit()
 
   String toolkit_name = "jx.awt.JXToolkit";
 
-  try
-    {
-      Class cls = Class.forName(toolkit_name);
+  //try
+    //{
+      /*Class cls = Class.forName(toolkit_name);
       Object obj = cls.newInstance();
 
       if (!(obj instanceof Toolkit))
         throw new AWTError(toolkit_name + " is not a subclass of " +
                            "java.awt.Toolkit");
 
-      toolkit = (Toolkit)obj;
+      toolkit = (Toolkit)obj;*/
       return(toolkit);
-    } catch(ClassNotFoundException | IllegalAccessException | InstantiationException e) {
-      throw new AWTError("Cannot load AWT toolkit: " + e.getMessage());
-    }
+    //} catch(ClassNotFoundException | IllegalAccessException | InstantiationException e) {
+      //throw new AWTError("Cannot load AWT toolkit: " + e.getMessage());
+    //}
 }
 
 /*************************************************************************/

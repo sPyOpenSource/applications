@@ -213,6 +213,7 @@ public class FatDirectory extends FatEntry
         return true;
     }
 
+    @Override
     public Directory getDirectory() {
         return null;//this;
     }
@@ -242,8 +243,9 @@ public class FatDirectory extends FatEntry
     protected void scanDirectory() {
         FatEntriesFactory f = new FatEntriesFactory(this, false);
 
-        while (f.hasNextEntry())
+        while (f.hasNextEntry()){
             f.createNextEntry();
+        }
     }
 
     public synchronized Node getEntry(String name) {

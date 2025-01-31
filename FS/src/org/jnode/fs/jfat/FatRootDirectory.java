@@ -21,16 +21,19 @@
 package org.jnode.fs.jfat;
 
 import java.io.IOException;
+import java.util.NoSuchElementException;
 import jx.zero.Debug;
 import jx.zero.InitialNaming;
 import jx.zero.Memory;
 import jx.zero.MemoryManager;
 import jx.zero.Naming;
+import jx.zero.debug.Dump;
 
 public class FatRootDirectory extends FatDirectory {
     private final Naming naming = InitialNaming.getInitialNaming();
     private final MemoryManager rm = (MemoryManager)naming.lookup("MemoryManager");
     private final Memory mem;
+    private final BootSector bootSector;
     /*
      * for root directory
      */
@@ -42,51 +45,40 @@ public class FatRootDirectory extends FatDirectory {
         } else {
             throw new UnsupportedOperationException("Unknown Fat Type");
         }
-        //scanDirectory();
-        BootSector bootSector = getFatFileSystem().getBootSector();
-
-        // Check if this is the end of the root entires
-        /*if (index > bootSector.getNrRootDirEntries()) {
-            throw new NoSuchElementException();
-        }*/
-        int rootDirectoryOffset = bootSector.getFirstDataSector();       
-
+        bootSector = getFatFileSystem().getBootSector();
+        int rootDirectoryOffset = bootSector.getFirstDataSector();      
         mem = rm.alloc(512);
+        System.out.println(rootDirectoryOffset);
         getFatFileSystem().getApi().readSectors(rootDirectoryOffset, 1, mem, true);
+        //for(int i = 0; i < 512; i++) System.out.print(mem.get8(i) + " ");
+        Dump.xdump(mem);
+        scanDirectory();
     }
 
     @Override
     public FatDirEntry getFatDirEntry(int index, boolean allowDeleted) throws IOException {
-        Debug.out.println("index2: "+index);
         if (getFatFileSystem().getFat().isFat32()) {
             // FAT32 uses the FAT to allocate space to the root directory too, so no special handling is required
             //return super.getFatDirEntry(index, allowDeleted);
         }
 
-        //BootSector bootSector = getFatFileSystem().getBootSector();
-
         // Check if this is the end of the root entires
-        /*if (index > bootSector.getNrRootDirEntries()) {
+        if (index > bootSector.getNrRootDirEntries()) {
             throw new NoSuchElementException();
-        }*/
-        //int rootDirectoryOffset = bootSector.getFirstDataSector();       
-
-        //Memory mem = rm.alloc(512);
-        //getFatFileSystem().getApi().readSectors(rootDirectoryOffset, 1, mem, true);
-        for(int i = 0; i < 10; i++){
-                Debug.out.print((char)mem.get8(i*32));
-                Debug.out.print((char)mem.get8(i*32+1));
-                Debug.out.print((char)mem.get8(i*32+2));
-                Debug.out.print((char)mem.get8(i*32+3));
-                Debug.out.print((char)mem.get8(i*32+4));
-                Debug.out.print((char)mem.get8(i*32+5));
-                Debug.out.print((char)mem.get8(i*32+6));
-                Debug.out.print((char)mem.get8(i*32+7));
-                Debug.out.print((char)mem.get8(i*32+8));
-                Debug.out.print((char)mem.get8(i*32+9));
-                Debug.out.println((char)mem.get8(i*32+10));
-            }
-        //index += 1;
+        }
+/*for(int i = 0; i < 40; i++){
+                Debug.out.print((char)mem.get8(i * 32));
+                Debug.out.print((char)mem.get8(i * 32 + 1));
+                Debug.out.print((char)mem.get8(i * 32 + 2));
+                Debug.out.print((char)mem.get8(i * 32 + 3));
+                Debug.out.print((char)mem.get8(i * 32 + 4));
+                Debug.out.print((char)mem.get8(i * 32 + 5));
+                Debug.out.print((char)mem.get8(i * 32 + 6));
+                Debug.out.print((char)mem.get8(i * 32 + 7));
+                Debug.out.print((char)mem.get8(i * 32 + 8));
+                Debug.out.print((char)mem.get8(i * 32 + 9));
+                Debug.out.println((char)mem.get8(i * 32 + 10));
+            }*/
         Memory subs = rm.alloc(32);
         subs.copyFromMemory(mem, index * 32, 0, 32);
         Debug.out.print((char)subs.get8(0));
@@ -138,16 +130,19 @@ public class FatRootDirectory extends FatDirectory {
             return "";
     }
 
+    @Override
     public long getCreated() throws IOException {
         FatShortDirEntry label = getEntry();
         return label == null ? 0 : label.getCreated();
     }
 
+    @Override
     public long getLastModified() throws IOException {
         FatShortDirEntry label = getEntry();
         return label == null ? 0 : label.getLastModified();
     }
 
+    @Override
     public long getLastAccessed() throws IOException {
         FatShortDirEntry label = getEntry();
         return label == null ? 0 : label.getLastAccessed();

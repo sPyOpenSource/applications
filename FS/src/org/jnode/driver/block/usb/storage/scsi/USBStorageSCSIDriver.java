@@ -26,10 +26,10 @@ import java.io.InterruptedIOException;
 import java.nio.ByteBuffer;
 import jx.devices.Device;
 
-import org.jnode.driver.RemovableDeviceAPI;
+//import org.jnode.driver.RemovableDeviceAPI;
 
-import org.jnode.driver.block.FSBlockAlignmentSupport;
-import org.jnode.driver.block.FSBlockDeviceAPI;
+//import org.jnode.driver.block.FSBlockAlignmentSupport;
+//import org.jnode.driver.block.FSBlockDeviceAPI;
 import org.jnode.driver.block.usb.storage.USBStorageConstants;
 import org.jnode.driver.block.usb.storage.USBStorageSCSIHostDriver.USBStorageSCSIDevice;
 
@@ -41,14 +41,14 @@ import org.jnode.driver.bus.scsi.cdb.mmc.CapacityData;
 import org.jnode.driver.bus.scsi.cdb.mmc.MMCUtils;
 import org.jnode.driver.bus.usb.USBPipeListener;
 import org.jnode.driver.bus.usb.USBRequest;
-import org.jnode.partitions.PartitionTableEntry;
+//import org.jnode.partitions.PartitionTableEntry;
 //import org.jnode.util.TimeoutException;
 
 public class USBStorageSCSIDriver
     implements USBStorageConstants {
 
     /** */
-    private final FSBlockAlignmentSupport blockAlignment;
+    //private final FSBlockAlignmentSupport blockAlignment;
 
     /** */
     private boolean locked;
@@ -62,28 +62,28 @@ public class USBStorageSCSIDriver
     /** */
     // private final ResourceManager rm;
     public USBStorageSCSIDriver() {
-        this.blockAlignment = new FSBlockAlignmentSupport(this, 2048);
+        //this.blockAlignment = new FSBlockAlignmentSupport(this, 2048);
     }
 
-    protected void startDevice() throws Exception {
-        final Device dev = getDevice();
+    protected void startDevice(Device dev) throws Exception {
+        //final Device dev = getDevice();
         // Rename the device
-        try {
+        /*try {
             final DeviceManager dm = dev.getManager();
             synchronized (dm) {
                 dm.rename(dev, "sg", true);
             }
         } catch (DeviceAlreadyRegisteredException ex) {
             throw new DriverException(ex);
-        }
+        }*/
 
         this.locked = false;
         this.changed = true;
         this.capacity = null;
-        this.blockAlignment.setAlignment(2048);
+        //this.blockAlignment.setAlignment(2048);
 
-        dev.registerAPI(RemovableDeviceAPI.class, this);
-        dev.registerAPI(FSBlockDeviceAPI.class, blockAlignment);
+        //dev.registerAPI(RemovableDeviceAPI.class, this);
+        //dev.registerAPI(FSBlockDeviceAPI.class, blockAlignment);
     }
 
     protected void stopDevice() throws Exception {
@@ -92,10 +92,10 @@ public class USBStorageSCSIDriver
         } catch (IOException ex) {
             throw new Exception(ex);
         } finally {
-            final SCSIDevice dev = (SCSIDevice) getDevice();
+            /*final SCSIDevice dev = (SCSIDevice) getDevice();
             dev.unregisterAPI(RemovableDeviceAPI.class);
             dev.unregisterAPI(FSBlockDeviceAPI.class);
-            dev.unregisterAPI(SCSIDeviceAPI.class);
+            dev.unregisterAPI(SCSIDeviceAPI.class);*/
         }
 
     }
@@ -149,7 +149,7 @@ public class USBStorageSCSIDriver
      * @throws IOException
      */
     public synchronized void unlock() throws IOException {
-        if (!locked) {
+        /*if (!locked) {
             final SCSIDevice dev = (SCSIDevice) getDevice();
             try {
                 MMCUtils.setMediaRemoval(dev, false, false);
@@ -159,11 +159,11 @@ public class USBStorageSCSIDriver
                 throw ioe;
             }
             locked = false;
-        }
+        }*/
     }
 
     private void processChanged() throws IOException {
-        if (changed) {
+        /*if (changed) {
             this.capacity = null;
             final USBStorageSCSIDevice dev = (USBStorageSCSIDevice) getDevice();
             try {
@@ -176,7 +176,7 @@ public class USBStorageSCSIDriver
                 throw ioe;
             }
             changed = false;
-        }
+        }*/
     }
 
     public boolean canLock() {

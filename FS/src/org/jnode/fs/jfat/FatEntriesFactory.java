@@ -33,7 +33,7 @@ public class FatEntriesFactory {
             Debug.out.println("Full Directory: invalid index " + index);
 
         for (i = index;; ) {
-            Debug.out.println("index: "+i);
+            Debug.out.println("index: " + i);
                 /*
                  * create a new entry from the chain
                  */
@@ -84,13 +84,14 @@ public class FatEntriesFactory {
                 entry = null;
                 return false;
             } else
-                throw new UnsupportedOperationException(
-                    "FatDirEntry is of unknown type, shouldn't happen");
+                throw new UnsupportedOperationException
+                ("FatDirEntry is of unknown type, shouldn't happen");
         }
 
-        if (!e.isShortDirEntry())
-            throw new UnsupportedOperationException("shouldn't happen");
-
+        if (!e.isShortDirEntry()){
+            throw new UnsupportedOperationException
+            ("shouldn't happen");
+        }
         v.close((FatShortDirEntry)e);
 
             /*

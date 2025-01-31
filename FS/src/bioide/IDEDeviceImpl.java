@@ -11,16 +11,14 @@ import jx.zero.timer.*;
  * @author Andreas Weissel
  */
 public class IDEDeviceImpl {
-
     /** max. number drives per controller */
-    public  static final int MAX_DRIVES      = 1;
+    public  static final int MAX_DRIVES      = 2;
 
     /** <code>true</code>, if busmaster DMA possible */
     public  static boolean dmaSupported;
 
     /** <code>true</code>, if UltraDMA possible */
     public  static boolean ultraDmaSupported;
-
 
     private static final int MAX_CONTROLLERS = 2;
     private static final int PAGE_SIZE       = 4096;
@@ -67,7 +65,6 @@ public class IDEDeviceImpl {
         
     dmaSupported = found; // found*/
     
-
     probeCmosForDrives();
         
     for (int i = 0; i < MAX_CONTROLLERS; i++) {
@@ -76,16 +73,16 @@ public class IDEDeviceImpl {
         continue;
         Debug.out.println("Check controller " + i);
         if (controllers[i].isPresent()) {
-        Debug.out.println("Setup controller " + i);
-        controllers[i].setup();
-                System.arraycopy(controllers[i].drives, 0, drives, i * MAX_DRIVES, MAX_DRIVES);
+            Debug.out.println("Setup controller " + i);
+            controllers[i].setup();
+            System.arraycopy(controllers[i].drives, 0, drives, i * MAX_DRIVES, MAX_DRIVES);
         }
     }
     Debug.out.println("IDEDeviceImpl done");
     }
 
     public Drive[] getDrives() {
-    return drives;
+        return drives;
     }
 
     /**
@@ -240,7 +237,6 @@ public class IDEDeviceImpl {
  * Access to "Fixed Disk Parameter Tables".
  */
 class CmosData  {
-    
     private final Memory  b_data;
 
     public CmosData() {
@@ -252,7 +248,6 @@ class CmosData  {
     public byte  ctl()   { return b_data.get8(8); }
     public byte  sect()  { return b_data.get8(14); }
 }
-
 
 class MyTimerArg {
     AtomicVariable v;

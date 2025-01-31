@@ -20,6 +20,7 @@
  
 package org.jnode.driver.block.usb.storage;
 
+import jx.zero.Memory;
 import org.jnode.driver.bus.scsi.CDB;
 import org.jnode.driver.bus.usb.SetupPacket;
 import org.jnode.driver.bus.usb.USBControlPipe;
@@ -52,7 +53,7 @@ final class USBStorageBulkTransport implements ITransport, USBStorageConstants {
      */
     public void transport(CDB cdb, long timeout) {
         try {
-            byte[] scsiCmd = cdb.toByteArray();
+            Memory scsiCmd = cdb.toByteArray();
             // Setup command wrapper 
             CBW cbw = new CBW();
             cbw.setSignature(US_BULK_CB_SIGN);
@@ -60,7 +61,7 @@ final class USBStorageBulkTransport implements ITransport, USBStorageConstants {
             cbw.setDataTransferLength((byte) cdb.getDataTransfertCount());
             cbw.setFlags((byte) 0);
             cbw.setLun((byte) 0);
-            cbw.setLength((byte) scsiCmd.length);
+            cbw.setLength((byte) scsiCmd.size());
             cbw.setCdb(scsiCmd);
             //log.debug(cbw.toString());
             // Sent CBW to device
@@ -113,7 +114,7 @@ final class USBStorageBulkTransport implements ITransport, USBStorageConstants {
         //log.debug("*** Request data     : " + req.toString());
         //log.debug("*** Request status   : 0x" + NumberUtils.hex(req.getStatus(), 4));
         if (req.getStatus() == USBREQ_ST_COMPLETED) {
-            storageDeviceData.setMaxLun(packet.getData()[0]);
+            storageDeviceData.setMaxLun(packet.getData().get8(0));
         } else if (req.getStatus() == USBREQ_ST_STALLED) {
             storageDeviceData.setMaxLun((byte) 0);
         } else {

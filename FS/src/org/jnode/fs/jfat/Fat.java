@@ -59,8 +59,9 @@ public abstract class Fat {
         MemoryManager memoryManager = (MemoryManager)InitialNaming.getInitialNaming().lookup("MemoryManager");
         Memory buffer = memoryManager.allocAligned(512, 8);
         api.readSectors(0, 1, buffer, true);
+        //for(int i = 0; i < 512; i++) System.out.print(buffer.get8(i) + " ");
         BootSector bs = new BootSector(buffer);
-
+bs.toString();
         if (bs.isFat32()) {
             return new Fat32(bs, api);
         } else if (bs.isFat16()) {

@@ -54,6 +54,6 @@ public class USBStorageSCSIDeviceToDriverMapper {
      * @see #MATCH_DEVCLASS
      */
     public int getMatchLevel() {
-        return MATCH_DEVCLASS;
+        return 0;//MATCH_DEVCLASS;
     }
 }

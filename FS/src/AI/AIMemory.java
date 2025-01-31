@@ -11,6 +11,7 @@ import jx.zero.Debug;
 import jx.zero.Memory;
 import jx.zero.MemoryManager;
 import jx.zero.Naming;
+import test.fs.FSDomain;
 
 /**
  * This is the memory class of AI.
@@ -36,9 +37,9 @@ public class AIMemory extends AIZeroMemory implements FileSystem
     {
         this.naming = new jx.InitialNaming(naming);
         try{
-            bioide.Main.main(new String[]{"TimerManager", "BioRAM", "0", "0"});
+            bioide.Main.main(new String[]{"TimerManager", "BioRAM", "1", "1"});
 
-            //FSDomain.main(new String[]{"BioRAM", "FS"});
+            FSDomain.main(new String[]{"BioRAM", "FS"});
             // Initialize instance variables
             /*try {
                 serialPort = (SerialPort)CommPortIdentifier.getPortIdentifier("/dev/ttyACM0").open(this.getClass().getName(), 2000);

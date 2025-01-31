@@ -24,6 +24,9 @@ import jx.devices.Bus;
 import jx.devices.Device;
 import jx.devices.DeviceConfiguration;
 import jx.devices.DeviceConfigurationTemplate;
+import jx.zero.InitialNaming;
+import jx.zero.Memory;
+import jx.zero.MemoryManager;
 
 import org.jnode.driver.bus.scsi.CDB;
 import org.jnode.driver.bus.scsi.SCSIDevice;
@@ -69,24 +72,24 @@ public class USBStorageSCSIHostDriver
     public USBStorageSCSIHostDriver() {
     }
 
-    protected void startDevice() throws Exception {
+    protected void startDevice(USBDevice usbDevice) throws Exception {
         try {
-            USBDevice usbDevice = (USBDevice) getDevice();
+            //USBDevice usbDevice = (USBDevice) getDevice();
             USBConfiguration conf = usbDevice.getConfiguration(0);
             usbDevice.setConfiguration(conf);
             // Set usb mass storage informations.
             this.storageDeviceData = new USBStorageDeviceData(usbDevice);
             USBDataPipe pipe;
             pipe = (USBDataPipe) this.storageDeviceData.getBulkOutEndPoint().getPipe();
-            pipe.addListener(this);
+            //pipe.addListener(this);
             pipe.open();
 
             pipe = (USBDataPipe) this.storageDeviceData.getBulkInEndPoint().getPipe();
-            pipe.addListener(this);
+            //pipe.addListener(this);
             pipe.open();
 
-            usbDevice.registerAPI(SCSIHostControllerAPI.class, this);
-            final Bus hostBus = new USBStorageSCSIHostBus(getDevice());
+            //usbDevice.registerAPI(SCSIHostControllerAPI.class, this);
+            final Bus hostBus = new USBStorageSCSIHostBus(usbDevice);
             scsiDevice = new USBStorageSCSIDevice(hostBus, "_sg");
 
             // Execute INQUIRY
@@ -111,11 +114,11 @@ public class USBStorageSCSIHostDriver
     }
 
     protected void stopDevice() throws Exception {
-        final Device dev = getDevice();
+        //final Device dev = getDevice();
 
         // Unregister the SCSI device that we host
-        dev.getManager().unregister(scsiDevice);
-        dev.unregisterAPI(SCSIHostControllerAPI.class);
+        //dev.getManager().unregister(scsiDevice);
+        //dev.unregisterAPI(SCSIHostControllerAPI.class);
     }
 
     public void requestCompleted(USBRequest request) {
@@ -154,6 +157,11 @@ public class USBStorageSCSIHostDriver
         public void close() {
             throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
         }
+
+        @Override
+        public int getId() {
+            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        }
     }
 
     /**
@@ -168,7 +176,7 @@ public class USBStorageSCSIHostDriver
         }
 
         @Override
-        public int executeCommand(CDB cdb, byte[] data, int dataOffset, long timeout)
+        public int executeCommand(CDB cdb, Memory data, int dataOffset, long timeout)
             throws Exception, InterruptedException {
             //log.debug("*** execute command ***");
             ITransport t = storageDeviceData.getTransport();
@@ -192,10 +200,11 @@ public class USBStorageSCSIHostDriver
         protected final void inquiry() throws Exception,
             InterruptedException {
             //log.info("*** INQUIRY ***");
-            final byte[] inqData = new byte[96];
+            MemoryManager rm = (MemoryManager)InitialNaming.getInitialNaming().lookup("MemoryManager");
+            final Memory inqData = rm.alloc(96);
 
             ITransport t = storageDeviceData.getTransport();
-            t.transport(new CDBInquiry(inqData.length), 50000);
+            t.transport(new CDBInquiry(inqData.size()), 50000);
 
             inquiryResult = new InquiryData(inqData);
             //log.debug("INQUIRY Data : " + inquiryResult.toString());
@@ -213,6 +222,26 @@ public class USBStorageSCSIHostDriver
          */
         public final InquiryData getDescriptor() {
             return inquiryResult;
+        }
+
+        @Override
+        public DeviceConfigurationTemplate[] getSupportedConfigurations() {
+            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        }
+
+        @Override
+        public void open(DeviceConfiguration conf) {
+            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        }
+
+        @Override
+        public void close() {
+            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        }
+
+        @Override
+        public int getId() {
+            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
         }
     }
 }
