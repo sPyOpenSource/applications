@@ -55,8 +55,8 @@ class PartitionTable {
 
     part_entry = new PartitionEntry(drive, 0, drive.getCapacity(), false, -1);
     entries.addElement(part_entry);
-    Memory buffer = Env.memoryManager.allocAligned(512, 8);
-    drive.readSectors(0, 1, buffer, true);
+    Memory buffer = Env.memoryManager.allocAligned(512 * 2, 8);
+    drive.readSectors(0, 2, buffer, true);
     mbr_data = new MBRData(buffer);
     if (mbr_data.magic() != (0xffff & PCBIOS_BOOTMAGIC)) {
         Debug.out.println("readPartitionTable: Bootsector faulty");
@@ -64,11 +64,25 @@ class PartitionTable {
         Dump.xdump(buffer);
         throw new Error();
     }
-Dump.xdump(buffer);
+    if(mbr_data.isGPT()){
+        drive.readSectors(2, 2, buffer, true);
+        PEs pes = new PEs(buffer);
+        for(int i = 0; i < 4; i++){
+            if(pes.getStart(i) != 0 && pes.getEnd(i) != 0){
+                part_entry = new PartitionEntry(drive, pes.getStart(i), pes.getEnd(i) - pes.getStart(i), true, 0);
+                entries.addElement(part_entry);
+                if (Env.verbosePT) Debug.out.println("found partition: " + pes.getStart(i));
+            }
+        }
+        partitions = new PartitionEntry[entries.size()];
+        entries.copyInto(partitions);
+        return;
+    }
+//Dump.xdump(buffer);
     for (int i = 0; i < 4; i++) {
         PartitionData part_data = new PartitionData(buffer, 446 + i * 16);
         if (!isExtended(part_data.os_indicator()) && (part_data.os_indicator() != 0) && (part_data.length_in_sectors() != 0)) {
-            part_entry = new PartitionEntry(drive, part_data.start_sector()+127, part_data.length_in_sectors(), true, part_data.os_indicator());
+            part_entry = new PartitionEntry(drive, part_data.start_sector(), part_data.length_in_sectors(), true, part_data.os_indicator());
             entries.addElement(part_entry);
             if (Env.verbosePT) Debug.out.println("found partition" + part_data.start_sector());
             found++;
@@ -204,12 +218,36 @@ Dump.xdump(buffer);
  * Access to Master Boot Record (MBR)
  */
 class MBRData {
-    Memory mem;
+    private Memory mem;
     public MBRData(Memory mem) {
     this.mem = mem;
     }
     public short magic() {
         return mem.get16(255);
+    }
+    public boolean isGPT() {
+        if(mem.get8(512 + 0) != 'E') return false;
+        if(mem.get8(512 + 1) != 'F') return false;
+        if(mem.get8(512 + 2) != 'I') return false;
+        if(mem.get8(512 + 3) != ' ') return false;
+        if(mem.get8(512 + 4) != 'P') return false;
+        if(mem.get8(512 + 5) != 'A') return false;
+        if(mem.get8(512 + 6) != 'R') return false;
+        if(mem.get8(512 + 7) != 'T') return false;
+        return true;
+    }
+}
+
+class PEs {
+    private Memory mem;
+    public PEs(Memory mem) {
+        this.mem = mem;
+    }
+    public int getStart(int index){
+        return mem.getLittleEndian32(index * 128 + 32);
+    }
+    public int getEnd(int index){
+        return mem.getLittleEndian32(index * 128 + 40);
     }
 }
 

@@ -33,7 +33,7 @@ public class FatEntriesFactory {
             Debug.out.println("Full Directory: invalid index " + index);
 
         for (i = index;; ) {
-            Debug.out.println("index: " + i);
+            //Debug.out.println("index: " + i);
                 /*
                  * create a new entry from the chain
                  */

@@ -51,7 +51,7 @@ public class FatRootDirectory extends FatDirectory {
         System.out.println(rootDirectoryOffset);
         getFatFileSystem().getApi().readSectors(rootDirectoryOffset, 1, mem, true);
         //for(int i = 0; i < 512; i++) System.out.print(mem.get8(i) + " ");
-        Dump.xdump(mem);
+        //Dump.xdump(mem);
         scanDirectory();
     }
 
