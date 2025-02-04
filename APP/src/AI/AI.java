@@ -46,17 +46,15 @@ int j = 0;
             PCIDevice dev = pci.getDeviceAt(i);
             if(PCICodes.lookupClass(dev.getClassCode()).startsWith("USB")){
                 UHCIDriver driver = new UHCIDriver(dev, sm);
-                monitors[j++] = new USBHubMonitor(dev, driver.getAPIImplementation().getRootHUB(), sm);
+                monitors[j++] = new USBHubMonitor(dev, driver.getAPI(), sm);
             }
         }
 
         logThread = new Thread(log, "logic");
         while(true){
             for(int i = 0; i < monitors.length; i++){
-                if(i == 7) continue;
-                if(i == 0) continue;
                 if(monitors[i] == null) continue;
-                System.out.println(i);
+                //System.out.println(i);
                 monitors[i].startMonitor();
             }
             break;
