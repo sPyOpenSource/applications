@@ -296,8 +296,9 @@ public class LanceCore implements LanceConstants, FirstLevelIrqHandler {
         if((temp & 0x2000) == 0x2000) Debug.out.println("AMD am79c973 COLLISION ERROR");
         if((temp & 0x1000) == 0x1000) Debug.out.println("AMD am79c973 MISSED FRAME");
         if((temp & 0x0800) == 0x0800) Debug.out.println("AMD am79c973 MEMORY ERROR");*/
-        
+        int i = 0;
         while ((io.getCSR(0) & CSR0_INTR) != 0) {
+            if(i>10) break;
             final int csr0 = io.getCSR(0);
             final int csr4 = io.getCSR(4);
             final int csr5 = io.getCSR(5);
@@ -409,6 +410,7 @@ public class LanceCore implements LanceConstants, FirstLevelIrqHandler {
             if ((csr5 & CSR5_MPINT) == CSR5_MPINT) {
                 //log.debug("Magic Packet Interrupt");
             }
+            i++;
         }
     }
 

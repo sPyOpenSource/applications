@@ -37,7 +37,7 @@ public final class AI
         Debug.out = new DebugPrintStream(new DebugOutputStream((DebugChannel) InitialNaming.getInitialNaming().lookup("DebugChannel0")));
         IO = new AIIO(naming);
         log = new AILogic(IO.getMemory());
-        //NetInit.init(IO.getMemory().getInitialNaming(), new String[]{"NET"});
+        NetInit.init(IO.getMemory().getInitialNaming(), new String[]{"NET"});
 int j = 0;
         SleepManager sm = log.getSM();
 
