@@ -128,7 +128,6 @@ public class NetInit implements jx.net.NetInit, Service {
         arp.register(ip);
         ip.setAddressResolution(arp);
         ether.registerConsumer(ip, "IP");
-        //ether.registerConsumer(arp, "ARP");
         ip.registerConsumer(icmp, "ICMP");
         ether.registerConsumer(arp, "ARP");
     }
@@ -255,15 +254,15 @@ public class NetInit implements jx.net.NetInit, Service {
 	bus.dumpDevices();
 	Debug.out.println("scanning PCIBus for network devices...");
 
-	LanceFinder[] finder = { 
+	LanceFinder[] finders = { 
 	    //new EmulNetFinder(args[1], args[2]),
 	    //new ComInit(timerManager, /*sleepManager*/null, null),
 	    new LanceFinder(),
 	};
         
 	NetworkDevice[] nics = null;
-        for (LanceFinder finder1 : finder) {
-            nics = (NetworkDevice[]) finder1.find(naming);
+        for (LanceFinder finder : finders) {
+            nics = (NetworkDevice[]) finder.find(naming);
             if (nics != null && nics.length != 0) break;
         }
 	NetworkDevice nic = nics[0];

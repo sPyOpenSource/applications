@@ -25,7 +25,9 @@ import java.net.DatagramPacket;
 import java.net.Inet4Address;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
+import java.util.Enumeration;
 import java.util.HashMap;
+import java.util.Hashtable;
 import java.util.Map;
 import jx.net.protocol.bootp.BOOTPFormat;
 import jx.zero.Debug;
@@ -164,7 +166,7 @@ public class DHCPMessage {
 
     private int messageType;
 
-    private final Map<Integer, byte[]> options = new HashMap<>();
+    private final byte[][] options = new byte[60][];
 
     /**
      * Create a new message
@@ -226,7 +228,7 @@ public class DHCPMessage {
             messageType = value[0];
         } else {
             Debug.out.println("put");
-            options.put(new Integer(code), value);
+            options[code] = value;
         }
     }
 
@@ -271,7 +273,7 @@ public class DHCPMessage {
         if (code == MESSAGE_TYPE_OPTION)
             return new byte[] {(byte) messageType};
         else
-            return (byte[]) options.get(new Integer(code));
+            return (byte[]) options[code];
     }
 
     /**
@@ -284,22 +286,26 @@ public class DHCPMessage {
         //skbuf.insert(OPTIONS_SIZE);
         int offset = 0x116 - 34 - 8;
         // magic cookie
-        skbuf.set8(0+offset, (byte)99);
-        skbuf.set8(1+offset, (byte)130);
-        skbuf.set8(2+offset, (byte)83);
-        skbuf.set8(3+offset, (byte)99);
+        skbuf.set8(0 + offset, (byte)99);
+        skbuf.set8(1 + offset, (byte)130);
+        skbuf.set8(2 + offset, (byte)83);
+        skbuf.set8(3 + offset, (byte)99);
         // options
-        skbuf.set8(4+offset, (byte)MESSAGE_TYPE_OPTION);
-        skbuf.set8(5+offset, (byte)1);
-        skbuf.set8(6+offset, (byte)messageType);
+        skbuf.set8(4 + offset, (byte)MESSAGE_TYPE_OPTION);
+        skbuf.set8(5 + offset, (byte)1);
+        skbuf.set8(6 + offset, (byte)messageType);
         int n = 7;
-        for (Map.Entry<Integer, byte[]> entry : options.entrySet()) {
-            final int optionCode = entry.getKey();
-            final byte optionValue[] = entry.getValue();
-            skbuf.set8(n+offset, (byte)optionCode);
-            skbuf.set8(n + 1+offset, (byte)optionValue.length);
-            skbuf.copyFromByteArray(optionValue, 0, n + 2+offset, optionValue.length);
-            n += optionValue.length + 2;
+        //Enumeration keys = options.keys();
+        for (int i = 0; i < 60; i++) {
+            final int optionCode = i;
+            final byte optionValue[] = (byte[])options[i];
+            if(optionValue != null){
+                Debug.out.println(i);
+                skbuf.set8(n + offset, (byte)optionCode);
+                skbuf.set8(n + 1 + offset, (byte)optionValue.length);
+                skbuf.copyFromByteArray(optionValue, 0, n + 2 + offset, optionValue.length);
+                n += optionValue.length + 2;
+            }
         }
         skbuf.set8(n + offset, (byte)END_OPTION);
 
