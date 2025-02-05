@@ -34,21 +34,21 @@ public class MultiComponentStart {
 	ComponentSpec[] componentSpec = (ComponentSpec[]) objectArgs[0];
 	Vector start = new Vector();
 
-        for (ComponentSpec componentSpec1 : componentSpec) {
-            String initLib = componentSpec1.getString("InitLib");
-            String startClass = componentSpec1.getString("StartClass");
+        for (ComponentSpec component : componentSpec) {
+            String initLib = component.getString("InitLib");
+            String startClass = component.getString("StartClass");
             // optional parameters
             String[] argv = new String[]{};
             String schedulerClass = null;
             try {
-                argv = componentSpec1.getStringArray("Args");
+                argv = component.getStringArray("Args");
             } catch(NameNotFoundException e) {}
             StartInfo info = new StartInfo();
             info.name = startClass;
             info.args = new Object[]{argv};
             //int componentID = componentManager.load(initLib);
             try {
-                String[] cname = componentSpec1.getStringArray("InheritThread");
+                String[] cname = component.getStringArray("InheritThread");
                 for (String cname1 : cname) {
                     componentManager.setInheritThread(cname1);
                 }
