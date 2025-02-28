@@ -24,6 +24,7 @@ public class CPU extends j51.intel.MCS51
   private int spsr;
 
   private boolean finished;
+  private boolean running = false;
   private int entryPoint; // initial PC value
 
   private final List<Integer> breakpoints;
@@ -159,6 +160,16 @@ this.code = memory;*/
   {
     return ((x >>> 1) | ((c & 0x01) << 31));
   }
+  
+  @Override
+    public void setBreakPoint(int pc, boolean mode)
+    {
+	if (mode){
+            breakAdd(pc);
+        } else {
+            breakDel(pc);
+        }
+    }
 
   /**
    * Add breakpoint
@@ -326,7 +337,7 @@ this.code = memory;*/
 
     /* Parse instruction */
     if (this.cpsr.t){
-      parseThumb();
+      parseThumb(pc);
     } else {
       System.out.println(getDecodeAt(pc));
     }
@@ -336,7 +347,8 @@ this.code = memory;*/
 
   @Override
   public int getLengthAt(int pc){
-      return 4;
+      if(this.cpsr.t) return 2;
+      else return 4;
   }
   
   /**
@@ -393,7 +405,11 @@ this.code = memory;*/
   protected boolean condCheck(int opcode)
   {
     int condCheck = (opcode >> 28) & 0x0f;
+    try{
     return conditionCheck(ConditionCode.values()[condCheck]);
+    } catch (Exception e) {
+        return false;
+    }
   }
 
   /**
@@ -416,7 +432,7 @@ this.code = memory;*/
   protected void condPrint(int opcode)
   {
     int condCheck = (opcode >> 28) & 0x0f;
-    System.out.print(ConditionCode.values()[condCheck]);
+    //System.out.print(ConditionCode.values()[condCheck]);
   }
 
   /**
@@ -461,6 +477,8 @@ this.code = memory;*/
   @Override
   public String getDecodeAt(int pc)
   {
+      if(this.cpsr.t)
+        return parseThumb(pc);
     System.out.printf("%08X [A] ", pc);
 
     /* Read opcode */
@@ -472,11 +490,11 @@ String ins = String.format("     %08X ", opcode);
     this.gpr[15] += 4; // 32-bit
 
     /* Registers */
-    int Rn = ((opcode >> 16) & 0xF);
-    int Rd = ((opcode >> 12) & 0xF);
-    int Rm = ((opcode) & 0xF);
-    int Rs = ((opcode >> 8) & 0xF);
-    int Imm = ((opcode) & 0xFF);
+    int Rm  = ((opcode)       & 0xF);
+    int Rs  = ((opcode >>  8) & 0xF);
+    int Rd  = ((opcode >> 12) & 0xF);
+    int Rn  = ((opcode >> 16) & 0xF);
+    int Imm = ((opcode)       & 0xFF);
     int amt = Rs << 1;
 
     /* Flags */
@@ -525,7 +543,7 @@ ins += String.format("swi 0x%X", ImmA);
     }
 
     if ((((opcode >> 22) & 0x3F) == 0) &&
-        (((opcode >> 4) & 0x0F) == 9))
+        (((opcode >>  4) & 0x0F) == 9))
     {
 ins += String.format("%s", W ? "mla" : "mul");
 //      System.out.printf("%s", W ? "mla" : "mul");
@@ -1265,9 +1283,11 @@ ins += String.format(", %sr%d", (U) ? "" : "-", Rm);
         {
           if (B)
           {
-            this.gpr[Rd] = code(addr);
+              if(running)
+                this.gpr[Rd] = code(addr);
           } else {
-            this.gpr[Rd] = this.code.read32(addr);
+              if(running)
+                this.gpr[Rd] = this.code.read32(addr);
           }
         } else {
           value = this.gpr[Rd];
@@ -1278,9 +1298,11 @@ ins += String.format(", %sr%d", (U) ? "" : "-", Rm);
 
           if (B)
           {
-            code(addr, (byte) (value & 0xFF));
+              if(running)
+                code(addr, (byte) (value & 0xFF));
           } else {
-            this.code.write32(addr, value);
+              if(running)
+                this.code.write32(addr, value);
           }
         }
 
@@ -1382,7 +1404,8 @@ ins += "}";
               {
                 start += U ? 4 : -4; // 32-bit
               }
-              this.gpr[i] = this.code.read32(start);
+              if (running)
+                this.gpr[i] = this.code.read32(start);
               if (!P)
               {
                 start += U ? 4 : -4; // 32-bit
@@ -1398,7 +1421,8 @@ ins += "}";
               {
                 start += U ? 4 : -4; // 32-bit
                }
-              this.code.write32(start, this.gpr[i]);
+              if(running)
+                this.code.write32(start, this.gpr[i]);
               if (!P)
               {
                 start += U ? 4 : -4; // 32-bit
@@ -1505,13 +1529,14 @@ return ins;
   /**
    * Parses a THUMB (16-bit) instruction.
    */
-  protected void parseThumb()
+  protected String parseThumb(int pc)
   {
-    System.out.printf("%08X [T] ", this.gpr[15]);
+    //System.out.printf("%08X [T] ", this.gpr[15]);
 
     /* Read opcode */
-    int opcode = this.code.read16(this.gpr[15]) & 0xFFFF;
-
+    int opcode = this.code.read16(pc) & 0xFFFF;
+    
+String ins = String.format("     %04x ", opcode);
     System.out.printf("(%04x) ", opcode);
 
     /* Update PC */
@@ -1543,8 +1568,8 @@ return ins;
           this.cpsr.z = this.gpr[Rd] == 0;
           this.cpsr.n = (this.gpr[Rd] >> 31) != 0;
 
-          System.out.printf("lsl r%d, r%d, #0x%02X\n", Rd, Rm, Imm);
-          return;
+          ins += String.format("lsl r%d, r%d, #0x%02X\n", Rd, Rm, Imm);
+          return ins;
         }
 
         case 1:
@@ -1564,8 +1589,8 @@ return ins;
           this.cpsr.z = this.gpr[Rd] == 0;
           this.cpsr.n = (this.gpr[Rd] >> 31) != 0;
 
-          System.out.printf("lsr r%d, r%d, #0x%02X\n", Rd, Rm, Imm);
-          return;
+          ins += String.format("lsr r%d, r%d, #0x%02X\n", Rd, Rm, Imm);
+          return ins;
         }
 
         case 2:
@@ -1585,8 +1610,8 @@ return ins;
           this.cpsr.z = this.gpr[Rd] == 0;
           this.cpsr.n = (this.gpr[Rd] >> 31) != 0;
 
-          System.out.printf("asr r%d, r%d, #0x%02X\n", Rd, Rm, Imm);
-          return;
+          ins += String.format("asr r%d, r%d, #0x%02X\n", Rd, Rm, Imm);
+          return ins;
         }
 
         case 3:
@@ -1599,35 +1624,29 @@ return ins;
             {
               this.gpr[Rd] = subtract(this.gpr[Rm], Imm);
 
-              System.out.printf("sub r%d, r%d, #0x%02X\n", Rd, Rm, Imm);
-              return;
-            }
-            else
-            {
+              ins += String.format("sub r%d, r%d, #0x%02X\n", Rd, Rm, Imm);
+              return ins;
+            } else {
               this.gpr[Rd] = addition(this.gpr[Rm], Imm);
 
-              System.out.printf("add r%d, r%d, #0x%02X\n", Rd, Rm, Imm);
+              ins += String.format("add r%d, r%d, #0x%02X\n", Rd, Rm, Imm);
             }
-          }
-          else
-          {
+          } else {
             if ((opcode & 0x200) != 0)
             {
               this.gpr[Rd] = subtract(this.gpr[Rm], this.gpr[Rn]);
 
-              System.out.printf("sub r%d, r%d, r%d\n", Rd, Rm, Rn);
-              return;
-            }
-            else
-            {
+              ins += String.format("sub r%d, r%d, r%d\n", Rd, Rm, Rn);
+              return ins;
+            } else {
               this.gpr[Rd] = addition(this.gpr[Rm], this.gpr[Rn]);
 
-              System.out.printf("add r%d, r%d, r%d\n", Rd, Rm, Rn);
-              return;
+              ins += String.format("add r%d, r%d, r%d\n", Rd, Rm, Rn);
+              return ins;
             }
           }
 
-          return;
+          return ins;
         }
       }
     }
@@ -1646,32 +1665,32 @@ return ins;
           this.cpsr.z = this.gpr[Rn] == 0;
           this.cpsr.n = (this.gpr[Rn] >> 31) != 0;
 
-          System.out.printf("mov r%d, #0x%02X\n", Rn, Imm);
-          return;
+          ins += String.format("mov r%d, #0x%02X\n", Rn, Imm);
+          return ins;
         }
 
         case 1:
         { // CMP
           subtract(this.gpr[Rn], Imm);
 
-          System.out.printf("cmp r%d, #0x%02X\n", Rn, Imm);
-          return;
+          ins += String.format("cmp r%d, #0x%02X\n", Rn, Imm);
+          return ins;
         }
 
         case 2:
         { // ADD
           this.gpr[Rn] = addition(this.gpr[Rn], Imm);
 
-          System.out.printf("add r%d, #0x%02X\n", Rn, Imm);
-          return;
+          ins += String.format("add r%d, #0x%02X\n", Rn, Imm);
+          return ins;
         }
 
         case 3:
         { // SUB
           this.gpr[Rn] = subtract(this.gpr[Rn], Imm);
 
-          System.out.printf("sub r%d, #0x%02X\n", Rn, Imm);
-          return;
+          ins += String.format("sub r%d, #0x%02X\n", Rn, Imm);
+          return ins;
         }
       }
     }
@@ -1690,8 +1709,8 @@ return ins;
           this.cpsr.z = this.gpr[Rd] == 0;
           this.cpsr.n = (this.gpr[Rd] >> 31) != 0;
 
-          System.out.printf("and r%d, r%d\n", Rd, Rm);
-          return;
+          ins += String.format("and r%d, r%d\n", Rd, Rm);
+          return ins;
         }
 
         case 1:
@@ -1701,8 +1720,8 @@ return ins;
           this.cpsr.z = this.gpr[Rd] == 0;
           this.cpsr.n = (this.gpr[Rd] >> 31) != 0;
 
-          System.out.printf("eor r%d, r%d\n", Rd, Rm);
-          return;
+          ins += String.format("eor r%d, r%d\n", Rd, Rm);
+          return ins;
         }
 
         case 2:
@@ -1724,8 +1743,8 @@ return ins;
           this.cpsr.z = this.gpr[Rd] == 0;
           this.cpsr.n = (this.gpr[Rd] >> 31) != 0;
 
-          System.out.printf("lsl r%d, r%d\n", Rd, Rm);
-          return;
+          ins += String.format("lsl r%d, r%d\n", Rd, Rm);
+          return ins;
         }
 
         case 3:
@@ -1747,8 +1766,8 @@ return ins;
           this.cpsr.z = this.gpr[Rd] == 0;
           this.cpsr.n = (this.gpr[Rd] >> 31) != 0;
 
-          System.out.printf("lsr r%d, r%d\n", Rd, Rm);
-          return;
+          ins += String.format("lsr r%d, r%d\n", Rd, Rm);
+          return ins;
         }
 
         case 4:
@@ -1776,8 +1795,8 @@ return ins;
           this.cpsr.z = this.gpr[Rd] == 0;
           this.cpsr.n = (this.gpr[Rd] >> 31) != 0;
 
-          System.out.printf("asr r%d, r%d\n", Rd, Rm);
-          return;
+          ins += String.format("asr r%d, r%d\n", Rd, Rm);
+          return ins;
         }
 
         case 5:
@@ -1788,8 +1807,8 @@ return ins;
           this.cpsr.z = this.gpr[Rd] == 0;
           this.cpsr.n = (this.gpr[Rd] >> 31) != 0;
 
-          System.out.printf("adc r%d, r%d\n", Rd, Rm);
-          return;
+          ins += String.format("adc r%d, r%d\n", Rd, Rm);
+          return ins;
         }
 
         case 6:
@@ -1800,8 +1819,8 @@ return ins;
           this.cpsr.z = this.gpr[Rd] == 0;
           this.cpsr.n = (this.gpr[Rd] >> 31) != 0;
 
-          System.out.printf("sbc r%d, r%d\n", Rd, Rm);
-          return;
+          ins += String.format("sbc r%d, r%d\n", Rd, Rm);
+          return ins;
         }
 
         case 7:
@@ -1822,8 +1841,8 @@ return ins;
           this.cpsr.z = this.gpr[Rd] == 0;
           this.cpsr.n = (this.gpr[Rd] >> 31) != 0;
 
-          System.out.printf("ror r%d, r%d\n", Rd, Rm);
-          return;
+          ins += String.format("ror r%d, r%d\n", Rd, Rm);
+          return ins;
         }
 
         case 8:
@@ -1833,8 +1852,8 @@ return ins;
           this.cpsr.z = result == 0;
           this.cpsr.n = (result >> 31) != 0;
 
-          System.out.printf("tst r%d, r%d\n", Rd, Rm);
-          return;
+          ins += String.format("tst r%d, r%d\n", Rd, Rm);
+          return ins;
         }
 
         case 9:
@@ -1844,16 +1863,16 @@ return ins;
           this.cpsr.z = this.gpr[Rd] == 0;
           this.cpsr.n = (this.gpr[Rd] >> 31) != 0;
 
-          System.out.printf("neg r%d, r%d\n", Rd, Rm);
-          return;
+          ins += String.format("neg r%d, r%d\n", Rd, Rm);
+          return ins;
         }
 
         case 10:
         { // CMP
           subtract(this.gpr[Rd], this.gpr[Rm]);
 
-          System.out.printf("cmp r%d, r%d\n", Rd, Rm);
-          return;
+          ins += String.format("cmp r%d, r%d\n", Rd, Rm);
+          return ins;
         }
 
         case 11:
@@ -1865,16 +1884,16 @@ return ins;
             this.cpsr.z = this.gpr[Rd] == 0;
             this.cpsr.n = (this.gpr[Rd] >> 31) != 0;
 
-            System.out.printf("mvn r%d, r%d\n", Rd, Rm);
+            ins += String.format("mvn r%d, r%d\n", Rd, Rm);
           }
           else
           {
             addition(this.gpr[Rd], this.gpr[Rm]);
 
-            System.out.printf("cmn r%d, r%d\n", Rd, Rm);
+            ins += String.format("cmn r%d, r%d\n", Rd, Rm);
           }
 
-          return;
+          return ins;
         }
 
         case 12:
@@ -1884,8 +1903,8 @@ return ins;
           this.cpsr.z = this.gpr[Rd] == 0;
           this.cpsr.n = (this.gpr[Rd] >> 31) != 0;
 
-          System.out.printf("orr r%d, r%d\n", Rd, Rm);
-          return;
+          ins += String.format("orr r%d, r%d\n", Rd, Rm);
+          return ins;
         }
 
         case 13:
@@ -1895,8 +1914,8 @@ return ins;
           this.cpsr.z = this.gpr[Rd] == 0;
           this.cpsr.n = (this.gpr[Rd] >> 31) != 0;
 
-          System.out.printf("mul r%d, r%d\n", Rd, Rm);
-          return;
+          ins += String.format("mul r%d, r%d\n", Rd, Rm);
+          return ins;
         }
 
         case 14:
@@ -1906,8 +1925,8 @@ return ins;
           this.cpsr.z = this.gpr[Rd] == 0;
           this.cpsr.n = (this.gpr[Rd] >> 31) != 0;
 
-          System.out.printf("bic r%d, r%d\n", Rd, Rm);
-          return;
+          ins += String.format("bic r%d, r%d\n", Rd, Rm);
+          return ins;
         }
       }
     }
@@ -1922,8 +1941,8 @@ return ins;
 
       this.gpr[15] = this.gpr[Rm] & ~1;
 
-      System.out.printf("blx r%d\n", Rm);
-      return;
+      ins += String.format("blx r%d\n", Rm);
+      return ins;
     }
 
     if ((opcode >> 10) == 0x11)
@@ -1937,30 +1956,30 @@ return ins;
         { // ADD
           this.gpr[Rd] = addition(this.gpr[Rd], this.gpr[Rm]);
 
-          System.out.printf("add r%d, r%d\n", Rd, Rm);
-          return;
+          ins += String.format("add r%d, r%d\n", Rd, Rm);
+          return ins;
         }
 
         case 1:
         { // CMP
           subtract(this.gpr[Rd], this.gpr[Rm]);
 
-          System.out.printf("cmp r%d, r%d\n", Rd, Rm);
-          return;
+          ins += String.format("cmp r%d, r%d\n", Rd, Rm);
+          return ins;
         }
 
         case 2:
         { // MOV (NOP)
           if ((Rd == 8) && (Rm == 8))
           {
-            System.out.printf("nop\n");
-            return;
+            ins += String.format("nop\n");
+            return ins;
           }
 
           this.gpr[Rd] = this.gpr[Rm];
 
-          System.out.printf("mov r%d, r%d\n", Rd, Rm);
-          return;
+          ins += String.format("mov r%d, r%d\n", Rd, Rm);
+          return ins;
         }
 
         case 3:
@@ -1976,8 +1995,8 @@ return ins;
             this.gpr[15] = this.gpr[Rm] & ~1;
           }
 
-          System.out.printf("bx r%d\n", Rm);
-          return;
+          ins += String.format("bx r%d\n", Rm);
+          return ins;
         }
       }
     }
@@ -1987,11 +2006,11 @@ return ins;
       int Rd = (opcode >> 8) & 7;
       int Imm = (opcode & 0xFF);
       int addr = this.gpr[15] + (Imm << 2) + 2; // 16-bit
-
+if(running)
       this.gpr[Rd] = this.code.read32(addr);
 
-      System.out.printf("ldr r%d, =0x%08X\n", Rd, this.gpr[Rd]);
-      return;
+      ins += String.format("ldr r%d, =0x%08X\n", Rd, this.gpr[Rd]);
+      return ins;
     }
 
     if ((opcode >> 12) == 5)
@@ -2006,22 +2025,22 @@ return ins;
         { // STR
           int addr = this.gpr[Rn] + this.gpr[Rm];
           int value = this.gpr[Rd];
-
+if(running)
           this.code.write32(addr, value);
 
-          System.out.printf("str r%d, [r%d, r%d]\n", Rd, Rn, Rm);
-          return;
+          ins += String.format("str r%d, [r%d, r%d]\n", Rd, Rn, Rm);
+          return ins;
         }
 
         case 2:
         { // STRB
           int addr = this.gpr[Rn] + this.gpr[Rm];
           byte value = (byte) (this.gpr[Rd] & 0xFF);
-
+if(running)
           code(addr, value);
 
-          System.out.printf("strb r%d, [r%d, r%d]\n", Rd, Rn, Rm);
-          return;
+          ins += String.format("strb r%d, [r%d, r%d]\n", Rd, Rn, Rm);
+          return ins;
         }
 
         case 4:
@@ -2030,18 +2049,18 @@ return ins;
 
           this.gpr[Rd] = this.code.read32(addr);
 
-          System.out.printf("ldr r%d, [r%d, r%d]\n", Rd, Rn, Rm);
-          return;
+          ins += String.format("ldr r%d, [r%d, r%d]\n", Rd, Rn, Rm);
+          return ins;
         }
 
         case 6:
         { // LDRB
           int addr = this.gpr[Rn] + this.gpr[Rm];
-
+if(running)
           this.gpr[Rd] = code(addr);
 
-          System.out.printf("ldrb r%d, [r%d, r%d]\n", Rd, Rn, Rm);
-          return;
+          ins += String.format("ldrb r%d, [r%d, r%d]\n", Rd, Rn, Rm);
+          return ins;
         }
       }
     }
@@ -2057,43 +2076,37 @@ return ins;
         if ((opcode & 0x800) != 0)
         {
           int addr = this.gpr[Rn] + (Imm << 2);
-
+if(running)
           this.gpr[Rd] = code(addr);
 
-          System.out.printf("ldrb r%d, [r%d, 0x%02X]\n", Rd, Rn, Imm);
-        }
-        else
-        {
+          ins += String.format("ldrb r%d, [r%d, 0x%02X]\n", Rd, Rn, Imm);
+        } else {
           int addr = this.gpr[Rn] + (Imm << 2);
           byte value = (byte) (this.gpr[Rd] & 0xFF);
-
+if(running)
           code(addr, value);
 
-          System.out.printf("strb r%d, [r%d, 0x%02X]\n", Rd, Rn, Imm);
+          ins += String.format("strb r%d, [r%d, 0x%02X]\n", Rd, Rn, Imm);
         }
-      }
-      else
-      {
+      } else {
         if ((opcode & 0x800) != 0)
         {
           int addr = this.gpr[Rn] + (Imm << 2);
-
+if(running)
           this.gpr[Rd] = this.code.read32(addr);
 
-          System.out.printf("ldr r%d, [r%d, 0x%02X]\n", Rd, Rn, Imm << 2);
-        }
-        else
-        {
+          ins += String.format("ldr r%d, [r%d, 0x%02X]\n", Rd, Rn, Imm << 2);
+        } else {
           int addr = this.gpr[Rn] + (Imm << 2);
           int value = this.gpr[Rd];
-
+if(running)
           this.code.write32(addr, value);
 
-          System.out.printf("str r%d, [r%d, 0x%02X]\n", Rd, Rn, Imm << 2);
+          ins += String.format("str r%d, [r%d, 0x%02X]\n", Rd, Rn, Imm << 2);
         }
       }
 
-      return;
+      return ins;
     }
 
     if ((opcode >> 12) == 8)
@@ -2105,22 +2118,20 @@ return ins;
       if ((opcode & 0x800) != 0)
       {
         int addr = this.gpr[Rn] + (Imm << 1);
-
+if(running)
         this.gpr[Rd] = this.code.read16(addr);
 
-        System.out.printf("ldrh r%d, [r%d, 0x%02X]\n", Rd, Rn, Imm << 1);
-      }
-      else
-      {
+        ins += String.format("ldrh r%d, [r%d, 0x%02X]\n", Rd, Rn, Imm << 1);
+      } else {
         int addr = this.gpr[Rn] + (Imm << 1);
         short value = (short) (this.gpr[Rd] & 0xFFFF);
-
+if(running)
         this.code.write16(addr, value);
 
-        System.out.printf("strh r%d, [r%d, 0x%02X]\n", Rd, Rn, Imm << 1);
+        ins += String.format("strh r%d, [r%d, 0x%02X]\n", Rd, Rn, Imm << 1);
       }
 
-      return;
+      return ins;
     }
 
     if ((opcode >> 12) == 9){
@@ -2132,17 +2143,17 @@ return ins;
 
         this.gpr[Rd] = this.code.read32(addr);
 
-        System.out.printf("ldr r%d, [sp, 0x%02X]\n", Rd, Imm << 2);
+        ins += String.format("ldr r%d, [sp, 0x%02X]\n", Rd, Imm << 2);
       } else {
         int addr = this.gpr[13] + (Imm << 2);
         int value = this.gpr[Rd];
 
         this.code.write32(addr, value);
 
-        System.out.printf("str r%d, [sp, 0x%02X]\n", Rd, Imm << 2);
+        ins += String.format("str r%d, [sp, 0x%02X]\n", Rd, Imm << 2);
       }
 
-      return;
+      return ins;
     }
 
     if ((opcode >> 12) == 10)
@@ -2154,14 +2165,14 @@ return ins;
       {
         this.gpr[Rd] = this.gpr[13] + (Imm << 2);
 
-        System.out.printf("add r%d, sp, #0x%02X\n", Rd, Imm << 2);
+        ins += String.format("add r%d, sp, #0x%02X\n", Rd, Imm << 2);
       } else {
         this.gpr[Rd] = (this.gpr[15] & ~2) + (Imm << 2);
 
-        System.out.printf("add r%d, pc, #0x%02X\n", Rd, Imm << 2);
+        ins += String.format("add r%d, pc, #0x%02X\n", Rd, Imm << 2);
       }
 
-      return;
+      return ins;
     }
 
     if ((opcode >> 12) == 11)
@@ -2175,13 +2186,13 @@ return ins;
           if ((opcode & 0x80) != 0)
           {
             this.gpr[13] -= Imm << 2;
-            System.out.printf("sub sp, #0x%02X\n", Imm << 2);
+            ins += String.format("sub sp, #0x%02X\n", Imm << 2);
           } else {
             this.gpr[13] += Imm << 2;
-            System.out.printf("add sp, #0x%02X\n", Imm << 2);
+            ins += String.format("add sp, #0x%02X\n", Imm << 2);
           }
 
-          return;
+          return ins;
         }
 
         case 2:
@@ -2202,7 +2213,7 @@ return ins;
             }
           }
 
-          System.out.printf("push {");
+          ins += String.format("push {");
 
           for (int i = 0; i < 8; i++)
           {
@@ -2210,9 +2221,9 @@ return ins;
             {
               if (pf)
               {
-                System.out.printf(",");
+                ins += String.format(",");
               }
-              System.out.printf("r%d", i);
+              ins += String.format("r%d", i);
 
               pf = true;
             }
@@ -2222,13 +2233,13 @@ return ins;
           {
             if (pf)
             {
-              System.out.printf(",");
+              ins += String.format(",");
             }
-            System.out.printf("lr");
+            ins += String.format("lr");
           }
 
-          System.out.printf("}\n");
-          return;
+          ins += String.format("}\n");
+          return ins;
         }
 
         case 6:
@@ -2236,7 +2247,7 @@ return ins;
           boolean pcf = (opcode & 0x100) != 0;
           boolean pf = false;
 
-          System.out.printf("pop {");
+          ins += String.format("pop {");
 
           for (int i = 0; i < 8; i++)
           {
@@ -2244,9 +2255,9 @@ return ins;
             {
               if (pf)
               {
-                System.out.printf(",");
+                ins += String.format(",");
               }
-              System.out.printf("r%d", i);
+              ins += String.format("r%d", i);
 
               this.gpr[i] = pop();
               pf = true;
@@ -2257,16 +2268,16 @@ return ins;
           {
             if (pf)
             {
-              System.out.printf(",");
+              ins += String.format(",");
             }
-            System.out.printf("pc");
+            ins += String.format("pc");
 
             this.gpr[15] = pop();
             this.cpsr.t = (this.gpr[15] & 1) != 0;
           }
 
-          System.out.printf("}\n");
-          return;
+          ins += String.format("}\n");
+          return ins;
         }
       }
     }
@@ -2277,7 +2288,7 @@ return ins;
 
       if ((opcode & 0x800) != 0)
       {
-        System.out.printf("ldmia r%d!, {", Rn);
+        ins += String.format("ldmia r%d!, {", Rn);
 
         for (int i = 0; i < 8; i++)
         {
@@ -2286,14 +2297,14 @@ return ins;
             this.gpr[i] = this.code.read32(this.gpr[Rn]);
             this.gpr[Rn] += 4;
 
-            System.out.printf("r%d,", i);
+            ins += String.format("r%d,", i);
           }
         }
 
-        System.out.printf("}\n");
-        return;
+        ins += String.format("}\n");
+        return ins;
       } else {
-        System.out.printf("stmia r%d!, {", Rn);
+        ins += String.format("stmia r%d!, {", Rn);
 
         for (int i = 0; i < 8; i++)
         {
@@ -2302,12 +2313,12 @@ return ins;
             this.code.write32(this.gpr[Rn], this.gpr[i]);
             this.gpr[Rn] += 4;
 
-            System.out.printf("r%d,", i);
+            ins += String.format("r%d,", i);
           }
         }
 
-        System.out.printf("}\n");
-        return;
+        ins += String.format("}\n");
+        return ins;
       }
     }
 
@@ -2322,16 +2333,16 @@ return ins;
 
       Imm += 2;
 
-      System.out.printf("b");
+      ins += String.format("b");
       condPrint(opcode);
-      System.out.printf(" 0x%08X\n", (this.gpr[15] + Imm));
+      ins += String.format(" 0x%08X\n", (this.gpr[15] + Imm));
 
       if (condCheck(opcode))
       {
         this.gpr[15] += Imm;
       }
 
-      return;
+      return ins;
     }
 
     if ((opcode >> 11) == 28)
@@ -2342,14 +2353,12 @@ return ins;
       {
         Imm = (~Imm) & 0xFFE;
         this.gpr[15] -= Imm;
-      }
-      else
-      {
+      } else {
         this.gpr[15] += Imm + 2; // 16-bit
       }
 
-      System.out.printf("b 0x%08X, 0x%X\n", this.gpr[15], Imm);
-      return;
+      ins += String.format("b 0x%08X, 0x%X\n", this.gpr[15], Imm);
+      return ins;
     }
 
     if ((opcode >> 11) == 0x1E)
@@ -2382,15 +2391,16 @@ return ins;
       if (blx)
       {
         this.cpsr.t = false;
-        System.out.printf("blx 0x%08X\n", this.gpr[15]);
+        ins += String.format("blx 0x%08X\n", this.gpr[15]);
       } else {
-        System.out.printf("bl 0x%08X\n", this.gpr[15]);
+        ins += String.format("bl 0x%08X\n", this.gpr[15]);
       }
 
-      return;
+      return ins;
     }
 
-    System.out.printf("Unknown opcode! (0x%04X)\n", opcode);
+    ins += String.format("Unknown opcode! (0x%04X)\n", opcode);
+    return ins;
   }
 
   /**

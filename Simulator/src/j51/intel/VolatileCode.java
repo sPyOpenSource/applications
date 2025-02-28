@@ -53,7 +53,8 @@ public class VolatileCode extends VolatileMemory implements Code
       int b2 = read(addr + 1) & 0xff;
       int b3 = read(addr + 2) & 0xff;
       int b4 = read(addr + 3) & 0xff;
-      return ( b1 << 24 ) | ( b2 << 16 ) | ( b3 << 8 ) | b4;    }
+      return ( b4 << 24 ) | ( b3 << 16 ) | ( b2 << 8 ) | b1;
+    }
 
     @Override
     public void write32(int addr, int aValue) {

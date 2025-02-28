@@ -51,7 +51,7 @@ public class WindowManagerImpl implements WindowManager
 		Debug.out.println ("testBitBlt() copied " + nSize + " Bytes, " + time + " milliseconds, " + nThroughput + " MB/s"); 
 	}
 	
-	public WindowManagerImpl (String [] args)
+	public WindowManagerImpl(String [] args)
 	{
 	    String wmName = args[0];
 	    String fbName = args[1];
@@ -72,32 +72,32 @@ public class WindowManagerImpl implements WindowManager
 			Debug.out.println ("unable to load standard keymap");
 			return;
 		}
-		setKeymap (cStdKeymap);
+		setKeymap(cStdKeymap);
 
 		FramebufferDevice fb = (FramebufferDevice)LookupHelper.waitUntilPortalAvailable(InitialNaming.getInitialNaming(), fbName);
-		cDisplay = new WDisplay (fb);
+		cDisplay = new WDisplay(fb);
 		
-		WWindowImpl.setDisplay (cDisplay);
+		WWindowImpl.setDisplay(cDisplay);
 	
-		WFont.scanFonts ();
+		WFont.scanFonts();
 
-		cDisplay.startUpdate ();
-		PixelRect cFrame = new PixelRect (cDisplay.getScreenBitmap().getBounds());
-		WView cTopView = new WView (cDisplay.getScreenBitmap(), "desktop", cFrame);
-		WView.setTopView (cTopView);
-		cTopView.setEraseColor (64, 64, 64);
-		cTopView.setBgColor (64, 64, 64);
-		cTopView.invalidate ();	
-		cTopView.updateRegions (true);				
-		cDisplay.initMouseSprite ();
+		cDisplay.startUpdate();
+		PixelRect cFrame = new PixelRect(cDisplay.getScreenBitmap().getBounds());
+		WView cTopView = new WView(cDisplay.getScreenBitmap(), "desktop", cFrame);
+		WView.setTopView(cTopView);
+		cTopView.setEraseColor(64, 64, 64);
+		cTopView.setBgColor(64, 64, 64);
+		cTopView.invalidate();	
+		cTopView.updateRegions(true);				
+		cDisplay.initMouseSprite();
 		cDisplay.endUpdate ();
 
-		Debug.out.println ("Window manager is now ready to accept requests.");
+		Debug.out.println("Window manager is now ready to accept requests.");
 		m_cDisplay = cDisplay;
 
 	      	cNaming.registerPortal(this, wmName);
 	}
-	public void setKeymap (ReadOnlyMemory cKeymap)
+	public void setKeymap(ReadOnlyMemory cKeymap)
 	{
 		m_cKeymap.m_nCapsLock 		= cKeymap.get32 (0);
 		m_cKeymap.m_nScrollLock		= cKeymap.get32 (1);
@@ -311,6 +311,6 @@ public class WindowManagerImpl implements WindowManager
 
 	public static void main(String [] args)
 	{
-		new WindowManagerImpl (args);
+		new WindowManagerImpl(args);
 	}
 }

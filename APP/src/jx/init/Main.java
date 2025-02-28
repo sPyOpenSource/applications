@@ -95,7 +95,9 @@ public class Main {
 
             String initLib = "init2.jll";
             String startClass = "jx/init/MultiComponentStart";
-
+            //String initLib = "wm_impl.jll";
+            //String startClass = "jx/wm/WindowManagerImpl";
+            
             DomainStarter.createDomain(domainName, initLib, startClass, gcinfo0, gcinfo1, gcinfo2, gcinfo3, gcinfo4, codeSize, initNaming, garbageCollector, new Object[]{componentSpec});
         }
 	Debug.out.println("Init finished.");

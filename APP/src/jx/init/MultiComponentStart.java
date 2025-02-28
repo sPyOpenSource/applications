@@ -9,10 +9,10 @@ import jx.bootrc.ComponentSpec;
 import jx.bootrc.NameNotFoundException;
 
 public class MultiComponentStart {
-    static class StartInfo {
-	VMMethod method;
-	String name;
-	Object [] args;
+    public static class StartInfo {
+	public VMMethod method;
+	public String name;
+	public Object [] args;
     }
 
     static class MyOutputStream extends java.io.OutputStream {	
@@ -25,8 +25,8 @@ public class MultiComponentStart {
     public static void init (final Naming naming, String []args, Object[] objectArgs) throws Exception {
 	DebugOutputStream out = new DebugOutputStream((DebugChannel) naming.lookup("DebugChannel0"));
 	Debug.out = new DebugPrintStream(out);
-	System.setOut(new java.io.PrintStream(out));
-	System.setErr(System.out);
+	//System.setOut(new java.io.PrintStream(out));
+	//System.setErr(System.out);
         
 	final CPUManager cpuManager = (CPUManager) naming.lookup("CPUManager");
 	final ComponentManager componentManager = (ComponentManager) naming.lookup("ComponentManager");
@@ -49,8 +49,8 @@ public class MultiComponentStart {
             //int componentID = componentManager.load(initLib);
             try {
                 String[] cname = component.getStringArray("InheritThread");
-                for (String cname1 : cname) {
-                    componentManager.setInheritThread(cname1);
+                for (String name : cname) {
+                    componentManager.setInheritThread(name);
                 }
             } catch(NameNotFoundException e) {}
             //cpuManager.executeClassConstructors(componentID);

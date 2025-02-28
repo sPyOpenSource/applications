@@ -19,8 +19,14 @@ import jCPU.JavaVM.ByteCode;
 import java.util.Enumeration;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
+
 import jx.classfile.ClassData;
 import jx.classfile.MethodData;
+import jx.compiler.persistent.CodeFile;
+import jx.compiler.persistent.CompiledClass;
+import jx.compiler.persistent.CompiledMethod;
+import jx.compiler.persistent.ExtendedDataInputStream;
+
 import nl.lxtreme.arm.memory.Chunk;
 import nl.lxtreme.arm.memory.Memory;
 import nl.lxtreme.binutils.elf.Elf;
@@ -87,7 +93,7 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 		code	   = new JCode();
 		peripheral = new JPeripheral();
 		messages   = new JFixedField(64);
-		JFactory.setTitle(messages,"Messages");
+		JFactory.setTitle(messages, "Messages");
 		JPanel p = new JPanel(new GridBagLayout());
 		createMenuBar();
 		register.setChangeListener(this);
@@ -187,7 +193,7 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 	{
 		final String name = _name;
 		
-		Worker w = new Worker(this,"Setup simulator","Loading")
+		Worker w = new Worker(this, "Setup simulator", "Loading")
 		{
                         @Override
 			public void process()
@@ -285,7 +291,7 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 		messages(cpu.toString());
 	}
 	
-	void addKey(JMenuItem item,char m)
+	void addKey(JMenuItem item, char m)
 	{
 		item.setMnemonic(m);
 		item.setAccelerator(KeyStroke.getKeyStroke(m, KeyEvent.ALT_MASK));
@@ -294,7 +300,7 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 	public void messages(Throwable ex)
 	{
 		if (!(ex instanceof InterruptedException)){
-			java.util.logging.Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
+			Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
 		}
 		
 		String msg = ex.getMessage();
@@ -412,8 +418,8 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 	
 	JMenu createMenuCpu()
 	{
-		menuCpu = new JMenu("CPU",true);
-		addIcon(menuCpu,"cpu.gif");
+		menuCpu = new JMenu("CPU", true);
+		addIcon(menuCpu, "cpu.gif");
 		ButtonGroup buttonGroup = new ButtonGroup();
 
 		// Add cpu selection 
@@ -430,7 +436,7 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 			}
 			rd.close();
 		} catch (IOException ex) {
-                    java.util.logging.Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
 		}
 
 		if (menuCpu.getMenuComponentCount() == 0){
@@ -443,7 +449,7 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 	JMenu createMenuLaf()
 	{
 		JMenu lnf = new JMenu("Look & Feel", true);
-		addIcon(lnf,"laf.gif");
+		addIcon(lnf, "laf.gif");
 		
 		ButtonGroup buttonGroup = new ButtonGroup();
 		final UIManager.LookAndFeelInfo[] info = UIManager.getInstalledLookAndFeels();
@@ -492,18 +498,18 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 		emulation(false);
 
 		toolBar = new JToolBar();
-		addToBar(toolBar,actionDebugGo);
-		addToBar(toolBar,actionDebugTrace);
-		addToBar(toolBar,actionDebugStep);
-		buttonStop = addToBar(toolBar,actionDebugStop);
-		addToBar(toolBar,actionDebugReset);
-		addToBar(toolBar,actionDebugErase);
-		addToBar(toolBar,actionFileLoad);
+		addToBar(toolBar, actionDebugGo);
+		addToBar(toolBar, actionDebugTrace);
+		addToBar(toolBar, actionDebugStep);
+		buttonStop = addToBar(toolBar, actionDebugStop);
+		addToBar(toolBar, actionDebugReset);
+		addToBar(toolBar, actionDebugErase);
+		addToBar(toolBar, actionFileLoad);
 
 	}
 
         @Override
-	public void cpuPerformance(int cpu,int elapsed)
+	public void cpuPerformance(int cpu, int elapsed)
 	{
 		avgCpuUsage = (cpu + avgCpuUsage) / 2;
 		cpuTime += elapsed;
@@ -587,7 +593,7 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 
                     rd.close();
 		} catch (Exception ex) {
-                    java.util.logging.Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
 		}
 		
 	}
@@ -631,7 +637,7 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
                                                     FileInputStream fis = new FileInputStream(file);
                                                     byte[] code = fis.readAllBytes();
                                                     for(int i = 0; i < code.length; i++){
-                                                        cpu.code(i, code[i + 0x1000]);
+                                                        cpu.code(i, code[i + 0x1000 * 0]);
                                                         if(i == 0x1000 - 1) break;
                                                     }
                                                 }
@@ -678,7 +684,23 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
                                                                     }
                                                                 }
                                                             }
+                                                            break;
                                                         }
+                                                    }
+                                                }
+                                            } else if(path.endsWith("jll")){
+                                                ExtendedDataInputStream stream = new ExtendedDataInputStream(new FileInputStream(path));
+                                                CodeFile file = new CodeFile(null, null);
+                                                java.util.ArrayList<CompiledClass> allClasses = file.read(stream);
+                                                file.size();
+                                                mainloop: for(CompiledClass clazz:allClasses){
+                                                    for(CompiledMethod method:clazz.getMethods()){
+                                                        byte[] code = method.getCode();
+                                                        if(code == null) continue;
+                                                        for(int i = 0; i < code.length; i++){
+                                                            cpu.code(i, code[i]);
+                                                        }
+                                                        break mainloop;
                                                     }
                                                 }
                                             }
@@ -712,7 +734,7 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 		return menu;
 	}
 
-	void performTree(String title,JTree tree)
+	void performTree(String title, JTree tree)
 	{
 		class MyRenderer extends  DefaultTreeCellRenderer
 		{
@@ -748,7 +770,7 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 		JScrollPane sc = new JScrollPane(tree);
 		
 		sc.setPreferredSize(size);
-		JDialog d = new JDialog(this,title,true);
+		JDialog d = new JDialog(this, title, true);
 		Point p = getLocation();
 		p.x += size.width / 10;
 		p.y += size.height / 10;
@@ -861,7 +883,7 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 				updatePanel(true);
 			}
 		};
-		addIcon(actionDebugErase,"erase.gif");
+		addIcon(actionDebugErase, "erase.gif");
 		
 		actionDebugReset = new AbstractAction("Reset")
 		{
@@ -872,7 +894,7 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 				updatePanel(false);
 			}
 		};
-		addIcon(actionDebugReset,"reset.gif");
+		addIcon(actionDebugReset, "reset.gif");
 		
 		actionDebugStop = new AbstractAction("Stop")
 		{
@@ -881,9 +903,9 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 			{
 				try
 				{
-					thread.interrupt();
+                                    thread.interrupt();
 				} catch (Exception ex) {
-			java.util.logging.Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
+                                    Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
 				}
 				
 			}
@@ -929,14 +951,12 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 
 				emulation(true);
 
-				
-				
 				thread.start();
 			}
 
 			
 		};
-		addIcon(actionDebugGo,"play.gif");
+		addIcon(actionDebugGo, "play.gif");
 		
 		actionDebugStep = new AbstractAction("Step over")
 		{
@@ -964,20 +984,19 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 
 
 		};
-		addIcon(actionDebugStep,"step.gif");
+		addIcon(actionDebugStep, "step.gif");
 		
 		JMenu menu = new JMenu("Debug");
-		addIcon(menu,"debug.gif");
+		addIcon(menu, "debug.gif");
 		
-		addKey(menu.add(actionDebugTrace),'I');
-		addKey(menu.add(actionDebugStep),'O');
-		addKey(menu.add(actionDebugReset),'R');
-		addKey(menu.add(actionDebugGo),'G');
-		addKey(menu.add(actionDebugStop),'S');
-		addKey(menu.add(actionDebugErase),'E');
+		addKey(menu.add(actionDebugTrace), 'I');
+		addKey(menu.add(actionDebugStep), 'O');
+		addKey(menu.add(actionDebugReset), 'R');
+		addKey(menu.add(actionDebugGo), 'G');
+		addKey(menu.add(actionDebugStop), 'S');
+		addKey(menu.add(actionDebugErase), 'E');
 		
 		menu.setMnemonic('D');
-
 
 		return menu;
 	}
@@ -991,7 +1010,7 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 			j51.setVisible(true);
 			j51.requestFocus();
 		} catch (Exception ex) {
-			java.util.logging.Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
+			Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
 			System.exit(1);
 		}
 	}

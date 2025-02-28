@@ -298,7 +298,6 @@ public class JXMenuBarPeer
 	g.drawJXString(m.getLabel(), r.x + BORDER, r.y + BORDER);
     }
 
-    @Override
     public void setFont(Font f) {
         throw new java.lang.UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }

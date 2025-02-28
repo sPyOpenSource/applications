@@ -17,7 +17,7 @@ public class AIIO {
     private final AIInput  inp;
     private final AIOutput out;
     private final Thread   inpThread, outThread;
-    private final Ports ports; // You can access any address with ports in the computer memory
+    private final Ports ports; // You can access any ports in the computer
     private final PCIAccess depHandle;
 
     public AIIO(Naming naming){

@@ -42,7 +42,6 @@ public class JXPopupMenuPeer
 	mh.openMenu((Menu) parent, new Rectangle(p.x + x, p.y + y, 0, 0), false);
     }
 
-    @Override
     public void show(Event e) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }

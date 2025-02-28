@@ -149,7 +149,7 @@ public class VolatileMemory implements iMemory
         @Override
 	public final int read(int address)
 	{
-		checkAddress(address,"Read");
+		checkAddress(address, "Read");
 		MemoryByte b = memory[address];
 		int value = b.value;
 
@@ -304,7 +304,9 @@ public class VolatileMemory implements iMemory
 
     @Override
     public short read16(int aAddr) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        int b1 = read(aAddr + 0) & 0xff;
+        int b2 = read(aAddr + 1) & 0xff;
+        return (short)(b1  | b2 << 8);    
     }
 
     @Override

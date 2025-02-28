@@ -11,7 +11,7 @@ import jx.zero.Naming;
 import jx.zero.debug.DebugChannel;
 import jx.zero.debug.DebugOutputStream;
 import jx.zero.debug.DebugPrintStream;
-import jx.zero.timer.SleepManager;
+
 import org.jnode.driver.bus.usb.USBHubMonitor;
 import org.jnode.driver.bus.usb.uhci.UHCIDriver;
 
@@ -39,23 +39,23 @@ public final class AI
         log = new AILogic(IO.getMemory());
         NetInit.init(IO.getMemory().getInitialNaming(), new String[]{"NET"});
 int j = 0;
-        SleepManager sm = log.getSM();
-
         PCIAccess pci = (PCIAccess)IO.getMemory().getInitialNaming().lookup("PCIAccess");
         for(int i = 0; i < pci.getNumberOfDevices(); i++){
             PCIDevice dev = pci.getDeviceAt(i);
             if(PCICodes.lookupClass(dev.getClassCode()).startsWith("USB")){
-                UHCIDriver driver = new UHCIDriver(dev, sm);
-                monitors[j++] = new USBHubMonitor(dev, driver.getAPI(), sm);
+                UHCIDriver driver = new UHCIDriver(dev, log.getSM());
+                monitors[j++] = new USBHubMonitor(dev, driver.getAPI(), log.getSM());
             }
         }
 
         logThread = new Thread(log, "logic");
         while(true){
-            for(int i = 0; i < monitors.length; i++){
-                if(monitors[i] == null) continue;
+            for (USBHubMonitor monitor : monitors) {
+                if (monitor == null) {
+                    continue;
+                }
                 //System.out.println(i);
-                monitors[i].startMonitor();
+                monitor.startMonitor();
             }
             break;
         }
@@ -75,6 +75,7 @@ int j = 0;
     public static void init(Naming naming) throws Exception {
         AI instance = new AI(naming);
         instance.start();
+        jx.init.Main.main(new String[] {"boot.rc"});
     }
     
     public static void main(String[] args){

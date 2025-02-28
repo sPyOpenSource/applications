@@ -1142,7 +1142,7 @@ public class MCS51 implements MCS51Constants, jCPU.iCPU
 		}
 	}
 
-	private void setIdataName(int reg,String name)
+	private void setIdataName(int reg, String name)
 	{
 		idataNames[reg] = name;
 	}

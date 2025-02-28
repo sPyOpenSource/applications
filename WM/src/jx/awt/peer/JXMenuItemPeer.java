@@ -32,7 +32,6 @@ public class JXMenuItemPeer
     public void setEnabled(boolean enabled) {}
     public void setLabel(String label) {}
 
-    @Override
     public void setFont(Font f) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
