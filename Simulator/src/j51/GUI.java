@@ -630,7 +630,7 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
                                                       Chunk chunk = m.create(ph.getVirtualAddress(), size);
                                                       elf.readSegment(ph, chunk);
                                                     }
-                                                    for(int i = 0; i < 0x1000; i++){
+                                                    for(int i = 0; i < 0x10000; i++){
                                                         cpu.code(i, m.read((int)(i + elf.getHeader().getEntryPoint())));
                                                     }
                                                 } catch (Exception ex){
@@ -638,7 +638,7 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
                                                     byte[] code = fis.readAllBytes();
                                                     for(int i = 0; i < code.length; i++){
                                                         cpu.code(i, code[i + 0x1000 * 0]);
-                                                        if(i == 0x1000 - 1) break;
+                                                        if(i == 0x10000 - 1) break;
                                                     }
                                                 }
                                             } else if(path.endsWith("class")){

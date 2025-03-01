@@ -315,13 +315,16 @@ public final class CPU  extends nl.lxtreme.arm.CPU implements ARMConstants {
 		coprocessors[14] = cp14 = new CP14(this);
 		coprocessors[15] = cp15 = new CP15(this);
 	}
+        
 	/*** EXECUTION ***/
 	private boolean haveReset = false;
 	private int cycleBudget = 0;
+        
 	/**
-	 * Returns true if the cycle budget is fully spent, false if there are some unspent cycles left.
+	 * @return true if the cycle budget is fully spent, false if there are some unspent cycles left.
 	 */
 	public boolean budgetFullySpent() { return cycleBudget <= 0; }
+        
 	/**
 	 * Spends any cycles that still remain in the budget.
 	 * @param soft If true, only zero the budget if there are unspent cycles. If false, also forgive debt.
@@ -330,6 +333,7 @@ public final class CPU  extends nl.lxtreme.arm.CPU implements ARMConstants {
 		if(cycleBudget > 0 || !soft) cycleBudget = 0;
 	}
         
+        @Override
         public void go(int limit) throws Exception{
         while(true){
             execute();
@@ -378,9 +382,11 @@ public final class CPU  extends nl.lxtreme.arm.CPU implements ARMConstants {
 			return cycleBudget <= 0;
 		}
 	}
+        
 	/**
 	 * Fetch and execute a single instruction
 	 */
+        @Override
 	public int execute() throws BusErrorException, AlignmentException, UndefinedException, EscapeRetryException, EscapeCompleteException {
 		if(!haveReset) throw new FatalException("execute() called without first calling reset()");
 		if((cpsr & CPSR_BIT_F) == 0 && haveFIQ()) generateFIQException();
@@ -411,12 +417,15 @@ public final class CPU  extends nl.lxtreme.arm.CPU implements ARMConstants {
 		/* if we experience an exception, restore as much state as possible to before the exception */
 		catch(BusErrorException | AlignmentException | UndefinedException e) { pc -= 4; throw e; }
 	}
+        
 	/* used by executeDataProcessingOperation for operations that don't provide their own carry logic */
 	private boolean shifterCarryOut;
+        
 	private int expandARMImmediate(int imm12) {
 		int unrotated = imm12 & 255;
 		return applyOpShift(unrotated, 3, 2*((imm12>>>8)&15));
 	}
+        
 	private int applyOpShift(int value, int type, int amount) {
 		if(amount == 0) {
 			shifterCarryOut = conditionC();
@@ -452,6 +461,7 @@ public final class CPU  extends nl.lxtreme.arm.CPU implements ARMConstants {
 			throw new InternalError(); /* we technically shouldn't throw these */
 		}
 	}
+        
 	private int applyOpRRX(int value) {
 		shifterCarryOut = (value & 1) != 0;
 		if(conditionC())
@@ -459,6 +469,7 @@ public final class CPU  extends nl.lxtreme.arm.CPU implements ARMConstants {
 		else
 			return (value >>> 1);
 	}
+        
 	private int applyIRShift(int src, int type, int imm5) {
 		/* A8-291 */
 		switch(type) {
@@ -478,9 +489,11 @@ public final class CPU  extends nl.lxtreme.arm.CPU implements ARMConstants {
 			throw new InternalError(); /* we technically shouldn't throw these */
 		}
 	}
+        
 	private int applyRRShift(int src, int type, int Rs) {
 		return applyOpShift(src, type, readRegister(Rs) & 255);
 	}
+        
 	private void executeDataProcessingOperation(int opcode, int n, int m, int Rd) throws UndefinedException {
 		/* TODO: possibly speed this up by separating WriteFlags version out */
 		/* TODO: ensure that all the data processing operation variants are correct */
@@ -602,6 +615,7 @@ public final class CPU  extends nl.lxtreme.arm.CPU implements ARMConstants {
 			}
 		}
 	}
+        
 	private void executeARMPage0(int iword) throws BusErrorException, AlignmentException, UndefinedException, EscapeRetryException, EscapeCompleteException {
 		/* (op=0) Data-processing and miscellaneous instructions (A5-196) */
 		/* TODO: page 0 decoding is wrong */
@@ -793,7 +807,7 @@ public final class CPU  extends nl.lxtreme.arm.CPU implements ARMConstants {
 					if((op2 & 4) != 0) vb = readRegister(Rm)>>16;
 					else vb = (short)readRegister(Rm);
 					writeRegister(Rd, va*vb);
-				}
+                                    }
 				}
 				throw new UndefinedException();
 			}
@@ -1053,6 +1067,7 @@ public final class CPU  extends nl.lxtreme.arm.CPU implements ARMConstants {
 		}
 		throw new UndefinedException();
 	}
+        
 	private void executeARMPage1(int iword) throws BusErrorException, AlignmentException, UndefinedException {
 		/* (op=1) Data-processing and miscellaneous instructions (A5-196) */
 		int op1 = (iword >> 20) & 31;
@@ -1128,6 +1143,7 @@ public final class CPU  extends nl.lxtreme.arm.CPU implements ARMConstants {
 			else throw new UndefinedException();
 		}
 	}
+        
 	private void executeARMPage23(int iword) throws BusErrorException, AlignmentException, UndefinedException, EscapeRetryException, EscapeCompleteException {
 		if((iword & (1<<25)) != 0 && (iword & 16) != 0) {
 			int op1 = (iword >> 20) & 31;
@@ -1157,8 +1173,7 @@ public final class CPU  extends nl.lxtreme.arm.CPU implements ARMConstants {
 					if(Rn == 15) {
 						/* BFC (A8-336) */
 						value = (value & ~mask);
-					}
-					else {
+					} else {
 						/* BFI (A8-338) */
 						value = (value & ~mask) | ((readRegister(Rn) << lsb) & mask);
 					}
@@ -1182,8 +1197,7 @@ public final class CPU  extends nl.lxtreme.arm.CPU implements ARMConstants {
 					if(Rd == 15) {
 						/* USADA8 (A8-794) */
 						throw new UnimplementedInstructionException(iword, "USADA8");
-					}
-					else {
+					} else {
 						/* USAD8 (A8-792) */
 						throw new UnimplementedInstructionException(iword, "USAD8");
 					}
@@ -1200,8 +1214,7 @@ public final class CPU  extends nl.lxtreme.arm.CPU implements ARMConstants {
 							if(A != 15) {
 								/* SMLAD (A8-622) */
 								throw new UnimplementedInstructionException(iword, "SMLAD");
-							}
-							else {
+							} else {
 								/* SMUAD (A8-642) */
 								throw new UnimplementedInstructionException(iword, "SMUAD");
 							}
@@ -1209,8 +1222,7 @@ public final class CPU  extends nl.lxtreme.arm.CPU implements ARMConstants {
 							if(A != 15) {
 								/* SMLSD (A8-632) */
 								throw new UnimplementedInstructionException(iword, "SMLSD");
-							}
-							else {
+							} else {
 								/* SMUSD (A8-650) */
 								throw new UnimplementedInstructionException(iword, "SMUSD");
 							}
@@ -1262,8 +1274,7 @@ public final class CPU  extends nl.lxtreme.arm.CPU implements ARMConstants {
 							if(A != 15) {
 								/* SMMLA (A8-636) */
 								throw new UnimplementedInstructionException(iword, "SMMLA");
-							}
-							else {
+							} else {
 								/* SMMUL (A8-640) */
 								boolean round = ((iword >> 5) & 1) != 0;
 								int Rd = (iword >> 16) & 15;
@@ -1303,8 +1314,7 @@ public final class CPU  extends nl.lxtreme.arm.CPU implements ARMConstants {
                                                 if(Radd != 15) {
                                                     /* SXTAB16 (A8-726) */
                                                     throw new UnimplementedInstructionException(iword, "SXTAB16");
-                                                }
-                                                else {
+                                                } else {
                                                     /* SXTB16 (A8-732) */
                                                     throw new UnimplementedInstructionException(iword, "SXTB16");
                                                 }
@@ -1344,8 +1354,7 @@ public final class CPU  extends nl.lxtreme.arm.CPU implements ARMConstants {
                                                         int Rd = (iword>>12)&15;
                                                         writeRegister(Rd, Integer.reverseBytes(readRegister(Rm)));
                                                         return;
-                                                    }
-                                                    else {
+                                                    } else {
                                                         /* RBIT (A8-560) */
                                                         int Rm = iword&15;
                                                         int Rd = (iword>>12)&15;
@@ -1450,8 +1459,7 @@ public final class CPU  extends nl.lxtreme.arm.CPU implements ARMConstants {
 							if(unsigned) {
 								loD = clamp(loD, 0, 0xFFFF);
 								hiD = clamp(hiD, 0, 0xFFFF);
-							}
-							else {
+							} else {
 								loD = clamp(loD, -0x8000, 0x7FFF);
 								hiD = clamp(hiD, -0x8000, 0x7FFF);
 							}
@@ -1480,8 +1488,7 @@ public final class CPU  extends nl.lxtreme.arm.CPU implements ARMConstants {
 							if(unsigned) {
 								loD = clamp(loD, 0, 0xFFFF);
 								hiD = clamp(hiD, 0, 0xFFFF);
-							}
-							else {
+							} else {
 								loD = clamp(loD, -0x8000, 0x7FFF);
 								hiD = clamp(hiD, -0x8000, 0x7FFF);
 							}
@@ -1553,8 +1560,7 @@ public final class CPU  extends nl.lxtreme.arm.CPU implements ARMConstants {
 								d1 = clamp(d1, 0, 0xFF);
 								d2 = clamp(d2, 0, 0xFF);
 								d3 = clamp(d3, 0, 0xFF);
-							}
-							else {
+							} else {
 								d0 = clamp(d0, -0x80, 0x7F);
 								d1 = clamp(d1, -0x80, 0x7F);
 								d2 = clamp(d2, -0x80, 0x7F);
@@ -1599,8 +1605,7 @@ public final class CPU  extends nl.lxtreme.arm.CPU implements ARMConstants {
 								d1 = clamp(d1, 0, 0xFF);
 								d2 = clamp(d2, 0, 0xFF);
 								d3 = clamp(d3, 0, 0xFF);
-							}
-							else {
+							} else {
 								d0 = clamp(d0, -0x80, 0x7F);
 								d1 = clamp(d1, -0x80, 0x7F);
 								d2 = clamp(d2, -0x80, 0x7F);
@@ -1655,6 +1660,7 @@ public final class CPU  extends nl.lxtreme.arm.CPU implements ARMConstants {
 		}
 		throw new UndefinedException();
 	}
+        
 	private void executeARMPage45(int iword) throws BusErrorException, AlignmentException, UndefinedException, EscapeRetryException, EscapeCompleteException {
 		/* Branch, branch with link, and block data transfer (A5-214) */
 		int op = (iword >> 20) & 63;
@@ -1699,6 +1705,7 @@ public final class CPU  extends nl.lxtreme.arm.CPU implements ARMConstants {
 		if(increment) base_addr += 4 * register_count;
 		if(W) writeRegister(Rn, base_addr);
 	}
+        
 	private void executeARMPage67(int iword, boolean unconditional) throws BusErrorException, AlignmentException, UndefinedException, EscapeRetryException, EscapeCompleteException {
 		/* Coprocessor instructions, and Supervisor Call (A5-215) */
 		int op1 = (iword >> 20) & 63;
@@ -1715,6 +1722,7 @@ public final class CPU  extends nl.lxtreme.arm.CPU implements ARMConstants {
 		if(cop == null) throw new UndefinedException();
 		else cop.executeInstruction(unconditional, iword);
 	}
+        
 	private void executeARMUnconditional(int iword) throws BusErrorException, AlignmentException, UndefinedException, EscapeRetryException, EscapeCompleteException {
 		/* Unconditional instructions (A5-216) */
 		switch((iword >> 26) & 3) {
@@ -1879,6 +1887,7 @@ public final class CPU  extends nl.lxtreme.arm.CPU implements ARMConstants {
 		}
 		throw new UndefinedException();
 	}
+        
 	private void executeARM(int iword) throws BusErrorException, AlignmentException, UndefinedException, EscapeRetryException, EscapeCompleteException {
 		int condition = (iword >> 28) & 15;
 		if(condition != 15) {
@@ -1916,6 +1925,7 @@ public final class CPU  extends nl.lxtreme.arm.CPU implements ARMConstants {
 		}
 		else executeARMUnconditional(iword);
 	}
+        
 	private void performSVC() { generateException(ProcessorMode.SUPERVISOR, (1 << CPSR_BIT_I), EXCEPTION_VECTOR_SUPERVISOR_CALL, isThumb() ? pc - 2 : pc - 4); }
 	private void generateUndefinedException() { generateException(ProcessorMode.UNDEFINED, (1 << CPSR_BIT_I), EXCEPTION_VECTOR_UNDEFINED, pc); }
 	private void generatePrefetchAbortException() { generateException(ProcessorMode.ABORT, (1 << CPSR_BIT_I) | (1 << CPSR_BIT_A), EXCEPTION_VECTOR_PREFETCH_ABORT, pc); }
@@ -1935,6 +1945,7 @@ public final class CPU  extends nl.lxtreme.arm.CPU implements ARMConstants {
 		branch(getInterruptVector(vector));
 	}
         
+        @Override
         public void reset(){
             reset(false, false, false);
         }

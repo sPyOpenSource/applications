@@ -107,8 +107,7 @@ public abstract class SaneCoprocessor extends Coprocessor {
 				/* MRRC/MRRC2 (A8-494) */
 				moveCoprocessorRegisterToCoreRegisters(unconditional, coproc, opc1, CRm, Rt, Rt2);
 			return;
-		}
-		else {
+		} else {
 			switch(op1 & 49) {
 			case 0:	case 16:
 				/* STC/STC2 (A8-662) */

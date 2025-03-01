@@ -357,7 +357,7 @@ this.code = memory;*/
   @Override
   public int getLengthAt(int pc){
       if(this.cpsr.t) return 2;
-      else return 4;
+      else return 2;
   }
   
   /**
@@ -486,6 +486,7 @@ this.code = memory;*/
   @Override
   public String getDecodeAt(int pc)
   {
+      if(cpsr.t || true) return parseThumb(pc);
     System.out.printf("%08X [A] ", pc);
 
     /* Read opcode */
@@ -1545,8 +1546,13 @@ ins += "mrc ...";
 
     /* Read opcode */
     int opcode = this.code.read16(pc) & 0xFFFF;
-    
-String ins = String.format("     %04x ", opcode);
+    int test = (opcode >> 11) & 0b11111;
+    String ins = "     ";
+    if(test == 0b11101 || test == 0b11110 || test == 0b11111){
+        ins += String.format("%08x ", opcode << 16);
+    } else {
+        ins += String.format("%04x ", opcode);
+    }
     System.out.printf("(%04x) ", opcode);
 
     /* Update PC */
@@ -2056,7 +2062,7 @@ if(running)
         case 4:
         { // LDR
           int addr = this.gpr[Rn] + this.gpr[Rm];
-
+if(running)
           this.gpr[Rd] = this.code.read32(addr);
 
           ins += String.format("ldr r%d, [r%d, r%d]\n", Rd, Rn, Rm);
@@ -2150,14 +2156,14 @@ if(running)
 
       if ((opcode & 0x800) != 0){
         int addr = this.gpr[13] + (Imm << 2);
-
+if(running)
         this.gpr[Rd] = this.code.read32(addr);
 
         ins += String.format("ldr r%d, [sp, 0x%02X]\n", Rd, Imm << 2);
       } else {
         int addr = this.gpr[13] + (Imm << 2);
         int value = this.gpr[Rd];
-
+if(running)
         this.code.write32(addr, value);
 
         ins += String.format("str r%d, [sp, 0x%02X]\n", Rd, Imm << 2);
@@ -2304,7 +2310,8 @@ if(running)
         {
           if (((opcode >> i) & 1) != 0)
           {
-            this.gpr[i] = this.code.read32(this.gpr[Rn]);
+              if(running)
+                this.gpr[i] = this.code.read32(this.gpr[Rn]);
             this.gpr[Rn] += 4;
 
             ins += String.format("r%d,", i);
@@ -2320,7 +2327,8 @@ if(running)
         {
           if (((opcode >> i) & 1) != 0)
           {
-            this.code.write32(this.gpr[Rn], this.gpr[i]);
+              if(running)
+                this.code.write32(this.gpr[Rn], this.gpr[i]);
             this.gpr[Rn] += 4;
 
             ins += String.format("r%d,", i);
@@ -2424,7 +2432,8 @@ if(running)
     this.gpr[13] += 4; // 32-bit
 
     /* Read value */
-    return this.code.read32(addr);
+    if(running) return this.code.read32(addr);
+    else return 0;
   }
 
   /**
@@ -2439,7 +2448,8 @@ if(running)
     this.gpr[13] -= 4; // 32-bit
 
     /* Write value */
-    this.code.write32(this.gpr[13], value);
+    if(running)
+        this.code.write32(this.gpr[13], value);
   }
 
   /**
