@@ -5,7 +5,7 @@ package name.bizna.jarm;
  *
  * @author xuyi
  */
-public class ARMConstants {
+public interface ARMConstants {
     public static final int EXCEPTION_VECTOR_RESET = 0;
     public static final int EXCEPTION_VECTOR_UNDEFINED = 1;
     public static final int EXCEPTION_VECTOR_SUPERVISOR_CALL = 2;

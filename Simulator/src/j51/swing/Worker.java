@@ -176,9 +176,6 @@ public class Worker extends JDialog implements Runnable
                         }
 
 			target.setLocation (x, y);
-
 		}
-
 	}
-
 }

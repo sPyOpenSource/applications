@@ -161,7 +161,12 @@ this.code = memory;*/
     return ((x >>> 1) | ((c & 0x01) << 31));
   }
   
-  @Override
+    @Override
+    public int r(int r){
+        return gpr[r];
+    }
+        
+    @Override
     public void setBreakPoint(int pc, boolean mode)
     {
 	if (mode){
@@ -181,6 +186,7 @@ this.code = memory;*/
     if (!breakFind(address))
     {
       this.breakpoints.add(address);
+      super.setBreakPoint(address, true);
     }
   }
 
@@ -303,6 +309,7 @@ this.code = memory;*/
   
     @Override
     public void go(int limit) throws Exception{
+        gpr[15] = 0;
         while(true){
             step();
         }
@@ -326,7 +333,7 @@ this.code = memory;*/
     }
 
     /* Remove thumb bit */
-    int pc = this.gpr[15] & ~1;
+    //int pc = this.gpr[15] & ~1;
 
     /* Check breakpoint */
     ret = breakFind(pc);
@@ -338,8 +345,10 @@ this.code = memory;*/
     /* Parse instruction */
     if (this.cpsr.t){
       parseThumb(pc);
+      pc += 2;
     } else {
       System.out.println(getDecodeAt(pc));
+      pc += 4;
     }
 
     return 1;
@@ -477,8 +486,6 @@ this.code = memory;*/
   @Override
   public String getDecodeAt(int pc)
   {
-      if(this.cpsr.t)
-        return parseThumb(pc);
     System.out.printf("%08X [A] ", pc);
 
     /* Read opcode */
@@ -1238,7 +1245,8 @@ ins += String.format("%s%s", (L) ? "ldr" : "str", (B) ? "b" : "");
         if (L && (Rn == 15))
         {
           addr = this.gpr[15] + Imm + 4;
-          value = this.code.read32(addr);
+          if(running) value = this.code.read32(addr);
+          else value = 0;
 
           if (condCheck(opcode))
           {
@@ -1475,9 +1483,11 @@ ins += "mrc ...";
         return ins;
       }
     }
-ins += String.format("Unknown opcode! (0x%08X", opcode);
+    //if(this.cpsr.t)
+        return parseThumb(pc);
+//ins += String.format("Unknown opcode! (0x%08X", opcode);
     //System.out.printf("Unknown opcode! (0x%08X)\n", opcode);
-return ins;
+//return ins;
   }
 
   /**

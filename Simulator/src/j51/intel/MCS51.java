@@ -1011,7 +1011,7 @@ public class MCS51 implements MCS51Constants, jCPU.iCPU
         @Override
 	public int r(int r)
 	{
-		return idata(regPtr+r);
+		return idata(regPtr + r);
 	}
 
         @Override
@@ -1238,7 +1238,7 @@ public class MCS51 implements MCS51Constants, jCPU.iCPU
 	}
 	
         @Override
-	public final void idata(int add,int value)
+	public final void idata(int add, int value)
 	{
 		idata[add] = (byte)value;
 	}

@@ -66,7 +66,7 @@ public class JRegister extends J51Panel
 
 		for (int i = 0 ; i < 8 ; i++)
 		{
-			addRegister(lr[i],r[i],g);
+			addRegister(lr[i], r[i], g);
 			r[i].addActionListener(new ActionListener()
 			{
                                 @Override
@@ -190,17 +190,17 @@ public class JRegister extends J51Panel
 		listener = l;
 	}
 	
-	private void addRegister(JLabel label,JHexField field,GridBagConstraints g)
+	private void addRegister(JLabel label, JHexField field, GridBagConstraints g)
 	{
 		g.fill = GridBagConstraints.HORIZONTAL;
 		label.setBorder(BorderFactory.createEtchedBorder());
 		field.setBorder(BorderFactory.createEtchedBorder());
 		g.anchor = GridBagConstraints.CENTER;
                 g.gridx = 0;
-		add(label,g);		
+		add(label, g);		
                 g.anchor = GridBagConstraints.EAST;
                 g.gridx++;
-		add(field,g);
+		add(field, g);
 		g.gridy++;
 	}
 	

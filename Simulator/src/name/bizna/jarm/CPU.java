@@ -4,7 +4,7 @@ import java.io.PrintStream;
 import java.util.HashMap;
 import java.util.TreeSet;
 
-public final class CPU extends ARMConstants {
+public final class CPU  extends nl.lxtreme.arm.CPU implements ARMConstants {
 	/*** CONSTANTS ***/
 	/* processor modes; HYP is PL2, USER is PL0, all others are PL1 (B1-1139) */
 	public static enum ProcessorMode {
@@ -388,7 +388,7 @@ public final class CPU extends ARMConstants {
 		
 		if(debugger != null) debugger.onInstruction(this, pc);
 		
-		if(isThumb()) throw new UndefinedException(); // Thumb not implemented
+		if(isThumb()) parseThumb(pc);//throw new UndefinedException(); // Thumb not implemented
 		else executeARM();
                 return 1;
 	}
@@ -646,8 +646,7 @@ public final class CPU extends ARMConstants {
 							/* MRS (banked register, B9-1992) */
 							/* We don't have Virtualization extensions */
 							throw new UndefinedException();
-						}
-						else {
+						} else {
 							/* MSR (banked register, B9-1994) */
 							/* We don't have Virtualization extensions */
 							throw new UndefinedException();

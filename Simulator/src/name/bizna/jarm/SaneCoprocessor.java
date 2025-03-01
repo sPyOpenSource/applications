@@ -162,8 +162,7 @@ public abstract class SaneCoprocessor extends Coprocessor {
 					int opc2 = (iword>>5)&7;
 					int CRm = iword&15;
 					coprocessorDataOperation(unconditional, coproc, opc1, opc2, CRn, CRm, CRd);
-				}
-				else {
+				} else {
 					/* MCR/MCR2 (A8-476), MRC/MRC2 (A8-492) */
 					int opc1 = (iword>>21)&7;
 					int CRn = (iword>>16)&15;
