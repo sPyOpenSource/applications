@@ -356,7 +356,10 @@ this.code = memory;*/
 
   @Override
   public int getLengthAt(int pc){
-      if(this.cpsr.t) return 2;
+      if(isThumb2(pc)) return 4;
+      if(this.cpsr.t) {
+          return 2;
+      }
       else return 2;
   }
   
@@ -1537,6 +1540,12 @@ ins += "mrc ...";
     }
   }
 
+    public boolean isThumb2(int pc){
+        int opcode = this.code.read16(pc) & 0xFFFF;
+        int test = (opcode >> 11) & 0b11111;
+        return (test == 0b11101 || test == 0b11110 || test == 0b11111);
+    }
+  
   /**
    * Parses a THUMB (16-bit) instruction.
    */
@@ -1548,8 +1557,8 @@ ins += "mrc ...";
     int opcode = this.code.read16(pc) & 0xFFFF;
     int test = (opcode >> 11) & 0b11111;
     String ins = "     ";
-    if(test == 0b11101 || test == 0b11110 || test == 0b11111){
-        ins += String.format("%08x ", opcode << 16);
+    if(isThumb2(pc)){
+        ins += String.format("%08x ", this.code.read32(pc));
     } else {
         ins += String.format("%04x ", opcode);
     }
