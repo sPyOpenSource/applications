@@ -2,6 +2,7 @@
 package jCPU.JavaVM;
 
 import static jCPU.JavaVM.ByteCode.findOpCode;
+import jCPU.JavaVM.vm.LocalVariables;
 import jCPU.JavaVM.vm.SimpleMethodPool;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -20,7 +21,6 @@ import jx.disass.Disassembler;
  * @author X. Wang
  */
 public class JVM extends j51.intel.MCS51 {
-    public VmStackFrame stack;
     public BytecodeVisitor handler;
     public char[] opCode;
     
@@ -32,13 +32,19 @@ public class JVM extends j51.intel.MCS51 {
     private char[] stringBuilderBuffer = new char[1024];
     private int stringBuilderUsed = 0;
     private SimpleMethodPool simpleMethodPool;
+    private VmStackFrame stack;
+    private LocalVariables localVariables;
 
-    public JVM(VmStackFrame stack) {
+    public JVM(VmStackFrame stack, LocalVariables localVariables, SimpleMethodPool simpleMethodPool) {
         this.stack = stack;
+        this.localVariables = localVariables;
+        this.simpleMethodPool = simpleMethodPool;
     }
     
     public JVM(){
         stack = new VmStackFrame();
+        localVariables = new LocalVariables();
+        simpleMethodPool = new SimpleMethodPool();
         //Verifier verifier = new Verifier();
     }
     
@@ -84,7 +90,7 @@ public class JVM extends j51.intel.MCS51 {
                     opCode[i] = (char)code(i + pc);
                     z = z << 8 | opCode[i];
                 }
-                func.exec(new JVM(stack), pc);
+                func.exec(this, pc);
             } catch (Exception ex) {
                 Logger.getLogger(JVM.class.getName()).log(Level.SEVERE, null, ex);
             }

@@ -5,7 +5,6 @@ package j51;
 
 import java.awt.*;
 import java.awt.event.*;
-import java.util.logging.Level;
 import java.io.*;
 import java.net.*;
 
@@ -16,9 +15,14 @@ import j51.util.*;
 import j51.intel.*;
 import j51.swing.*;
 import jCPU.JavaVM.ByteCode;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 import java.util.Enumeration;
+import java.util.Iterator;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
+import java.util.logging.Level;
 
 import jx.classfile.ClassData;
 import jx.classfile.MethodData;
@@ -31,6 +35,9 @@ import nl.lxtreme.arm.memory.Chunk;
 import nl.lxtreme.arm.memory.Memory;
 import nl.lxtreme.binutils.elf.Elf;
 import nl.lxtreme.binutils.elf.ProgramHeader;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 /**
  *
@@ -525,15 +532,37 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
                         });
 		}
 	}
+    
+        public static JSONObject parseJSONFile(String filename) throws JSONException, IOException {
+            String content = new String(Files.readAllBytes(Paths.get(filename)));
+            return new JSONObject(content);
+        }
 
 	private void load(String name) throws Exception
 	{
-		BufferedReader rd = new BufferedReader(new FileReader(name));
-		String line;
+            BufferedReader rd;
+            java.util.List<String> lines = new java.util.ArrayList<>();
+
+            if(name.endsWith("json")) {
+                JSONObject object = parseJSONFile(name);
+                Iterator<String> it = object.keys();
+                java.util.List array = ((JSONArray)object.get(it.next())).toList();
+                for(Object o : array){
+                    lines.add(":" + (String)o);
+                }
+            } else {
+		rd = new BufferedReader(new FileReader(name));
+                String line;
+                while((line = rd.readLine()) != null){
+                    lines.add(line);
+                }
+                rd.close();
+            }
+                
 		int start = 0x10000;
 		int end = 0;
 		
-		while ((line = rd.readLine()) != null){
+		for (String line : lines){
 			if (!line.startsWith(":")){
 				throw new Exception(name + " is not a valid intel file");
                         }
@@ -571,8 +600,6 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 		}
 		messages(" loaded at " + Hex.bin2word(start) + "-" + Hex.bin2word(end));
 		
-		rd.close();
-
 		int pos = name.indexOf('.');
 		if (pos != -1){
 			name = name.substring(0, pos) + ".map";
@@ -580,7 +607,7 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 
 		try{
                     rd = new BufferedReader(new FileReader(name));
-
+String line;
                     while ((line = rd.readLine()) != null){
 			line = line.trim();
 			if (line.startsWith("0C:")){
@@ -615,7 +642,7 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 					if (fc.showOpenDialog(GUI.this) == JFileChooser.APPROVE_OPTION)
 					{
                                             String path = fc.getSelectedFile().getCanonicalPath();
-                                            if(path.endsWith("hex")){
+                                            if(path.endsWith("hex") || path.endsWith("json")){
 						load(path);
                                             } else if(path.endsWith("bin") || !path.contains(".")){
                                                 File file = new File(path);
