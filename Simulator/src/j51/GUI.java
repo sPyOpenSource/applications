@@ -546,7 +546,7 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
             if(name.endsWith("json")) {
                 JSONObject object = parseJSONFile(name);
                 Iterator<String> it = object.keys();
-                java.util.List array = ((JSONArray)object.get(it.next())).toList();
+                java.util.List array = ((JSONArray)object.get("demo.main")).toList();
                 for(Object o : array){
                     lines.add(":" + (String)o);
                 }

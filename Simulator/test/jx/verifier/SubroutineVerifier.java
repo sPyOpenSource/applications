@@ -57,10 +57,10 @@ public class SubroutineVerifier implements VerifierInterface {
 	this.vParameter = vParameter;
     }
 
-
     public JVMState getFinalState() {
 	return srData.finalState;
     }
+    
     @Override
     public void runChecks() throws VerifyException {
 	Verifier.stdPrintln(1,"Now Verifying subroutine starting at " + Integer.toHexString(srBegin.getAddress()));

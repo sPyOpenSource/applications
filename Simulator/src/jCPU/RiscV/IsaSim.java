@@ -39,6 +39,7 @@ public class IsaSim extends Decoder {
     //public static Memory ram = new Memory();
     boolean offsetPC = false, breakProgram = false; // For determining next pc value
     int cc = 0; // Clock cycle counter
+    private boolean running = false;
 
     public IsaSim() {
         System.out.println("RISC-V World!");
@@ -389,21 +390,25 @@ String ins = String.format("%08x ", instr);
 		int memValue = 0;
 		switch (funct3) {
 		case 0x0: // LB
+                    if(running)
 			memValue = code.read(memAddr);
 			if ((memValue >> 7) == 1) {
 				memValue |= 0xFFFFFF00; // Sign-extension if necessary
 			}
 			break;
 		case 0x1: // LH
+                    if(running)
 			memValue = code.read16(memAddr);
 			if ((memValue >> 15) == 1) {
 				memValue |= 0xFFFF0000; // Sign-extension if necessary
 			}
 			break;
 		case 0x2: // LW
+                    if(running)
 			memValue = code.read16(memAddr);
 			break;
 		case 0x4: // LBU
+                    if(running)
 			memValue = code.read(memAddr);
 			break;
 		case 0x5: // LHU
@@ -432,6 +437,7 @@ String ins = String.format("%08x ", instr);
 		switch (funct3) {
 		case 0x0: // SB
 			memValue &= 0x000000FF;
+                        if(running)
 			code.write(memAddr, memValue);
 			break;
 		case 0x1: // SH
@@ -439,6 +445,7 @@ String ins = String.format("%08x ", instr);
 			code.write16(memAddr, (short)memValue);
 			break;
 		case 0x2: // SW
+                    if(running)
 			code.write16(memAddr, (short)memValue);
 			break;
 		}

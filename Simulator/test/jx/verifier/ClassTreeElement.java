@@ -117,7 +117,7 @@ public class ClassTreeElement {
 	return classData;
     }
 
-    /**search class with name className in subtree beginning at this element.
+    /** search class with name className in subtree beginning at this element.
      * @param className Name of the requested class.
      * @return the ClassTreeElement for class with name <code>className</code>, or <code>null</code> if no such class was found.
      */
@@ -132,6 +132,7 @@ public class ClassTreeElement {
 	
     }
     
+    @Override
     public String toString() {
 	return toString(0);
     }
@@ -168,7 +169,7 @@ public class ClassTreeElement {
 	return height;
     }
     
-    /**check if this very ClassTreeElement implements the specified method.
+    /** check if this very ClassTreeElement implements the specified method.
      * @param methodName name of the method.
      * @param typeDesc typedescriptor for the method.
      * @return true if this very ClassTreeElement implements the specified method, else false - even if a superclass implements the method.
@@ -180,7 +181,7 @@ public class ClassTreeElement {
 	    return false;
     }
 
-    /**check if this class or any superClasses implement the specified method.
+    /** check if this class or any superClasses implement the specified method.
      * @param methodName name of the method.
      * @param typeDesc typedescriptor for the method.
      * @return true if this class or any superClasses implement the specified method.
@@ -195,7 +196,7 @@ public class ClassTreeElement {
 		
     }
 
-    /**search the methodData for a  method 
+    /** search the methodData for a  method 
      * @param methodName name of the method.
      * @param typeDesc typedescriptor for the method.
      *return the methodData Object for specified method or null if method not found or one of java/lang/Object's methods.

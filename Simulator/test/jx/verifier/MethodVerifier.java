@@ -126,10 +126,10 @@ public class MethodVerifier implements VerifierInterface {
 	    try {//FEHLER debug
 	    try {
 		actBC.beforeState().executeNextBC();
-	    } catch(VerifyException e) {
-		e.methodName = method.getMethodName();
+	    } catch(Exception e) {
+		/*e.methodName = method.getMethodName();
 		e.className = className;
-		e.code = code;
+		e.code = code;*/
 		throw e;
 	    }
 	    } catch(Error e) {

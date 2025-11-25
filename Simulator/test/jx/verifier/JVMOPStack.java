@@ -4,7 +4,7 @@ import java.util.Enumeration;
 import java.util.NoSuchElementException;
 import jx.zero.verifier.JVMOPStackElement;
 
-/**Class to hold the Operand Stack for a method during verification.
+/** Class to hold the Operand Stack for a method during verification.
  * stack consists of a linked list of JVMOPStackElement elements.
  *@see JVMOPStackElement
  */
@@ -17,9 +17,9 @@ abstract public class JVMOPStack {
     protected JVMOPStackElement stackPointer;
     /** actual size of the stack.*/
     protected int count;
-    /**maximum size of the stack.*/
+    /** maximum size of the stack.*/
     private int maxSize;
-    /**get the maximal size of the stack.*/
+    /** get the maximal size of the stack.*/
     public final int getMaxSize() { return maxSize;}
     /** get the actual size of the stack.*/
     public int getCount() { return count;}
@@ -86,7 +86,7 @@ abstract public class JVMOPStack {
      */
     public JVMOPStackElement getStackPointer() {return stackPointer;}
 
-    /**Constructor
+    /** Constructor
      * @param maxSize gives the maximum size of the stack
      */
     public JVMOPStack(int maxSize) { 
@@ -94,7 +94,7 @@ abstract public class JVMOPStack {
 	this.maxSize = maxSize;
     }
 
-    /**constructor for copy.
+    /** constructor for copy.
      * creates a new stack, identical to copyStack
      */
     public JVMOPStack(JVMOPStack copyStack) {
@@ -170,10 +170,10 @@ abstract public class JVMOPStack {
 		//if changes occured --> check again
  		if (!mergedElm.dataEquals(sp1)) 
 		    retval = true;
-	    } catch (VerifyException e) {
-		e.append(" while comparing Stacks:\n" +
+	    } catch (Exception e) {
+		/*e.append(" while comparing Stacks:\n" +
 			 "  this :" + this.toString() + 
-			 "\n  other:" + otherStack.toString());
+			 "\n  other:" + otherStack.toString());*/
 	    }
 	    //copy Stack
 	    actStackBottom.setPrev(mergedElm);
@@ -196,13 +196,13 @@ abstract public class JVMOPStack {
 	    "(Empty Stack)";
     }
 
-    /**returns an Enumeration of all stack Elements, starting at the TOP.*/
+    /** returns an Enumeration of all stack Elements, starting at the TOP. */
     public Enumeration elements() {
 	return new StackEnum(stackPointer);
     }
 }
 
-/**Class for Enumeration of stackelements.*/
+/** Class for Enumeration of stackelements. */
 class StackEnum implements Enumeration {
     JVMOPStackElement current;
     public StackEnum(JVMOPStackElement stackPointer) {
