@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=ModInvInteger
+comment0.text=\n\n\ @author\ X.\ Wang\n
+comment1.params=val
+comment1.target=ModInvInteger(java.lang.String)
+comment2.params=a\ inv\ b\ NumberLength
+comment2.target=void\ ModInvBigNbr(int[],\ int[],\ int[],\ int)
+comment2.text=\n\ @param\ a\n\ @param\ inv\n\ @param\ b\n\ @param\ NumberLength\n
+numComments=3

@@ -1,0 +1,21 @@
+#BlueJ class context
+comment0.target=Timer
+comment0.text=\n\ @author\ Adrian\n\n\ I\ bet\ there's\ a\ system\ utility\ somewhere\ to\ do\ this...\n\ \n
+comment1.params=
+comment1.target=void\ newTime()
+comment1.text=\n\ What\ o'clock\ have\ you?\n\n
+comment2.params=
+comment2.target=void\ initialiseIfNeedBe()
+comment2.text=\n\ Check\ if\ we've\ been\ initialised\ and\ initialise\ if\ needed\n\ @param\ e\n
+comment3.params=v
+comment3.target=java.lang.String\ d3dp(double)
+comment3.text=\n\ Get\ a\ double\ as\ a\ 3\ d.p.\ string\n\ @param\ v\n\ @return\n
+comment4.params=
+comment4.target=java.lang.String\ stamp()
+comment4.text=\n\ Generate\ a\ timestamp\n\ @return\n
+comment5.params=
+comment5.target=double\ elapsed()
+comment5.text=\n\ Get\ the\ time\ from\ the\ start\ in\ seconds\n\ @return\n
+comment6.params=
+comment6.target=void\ run()
+numComments=7

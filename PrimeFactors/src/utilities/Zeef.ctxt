@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=Zeef
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+comment2.params=
+comment2.target=int\ getSize()
+comment3.params=MAX
+comment3.target=Zeef(int)
+comment4.params=
+comment4.target=int[]\ get()
+numComments=5

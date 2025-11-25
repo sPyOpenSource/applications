@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=Siqs
+comment1.params=ecm
+comment1.target=Siqs(ecm.BigIntegers.GCDBigInteger)
+comment2.params=args
+comment2.target=void\ main(java.lang.String[])
+comment3.params=seed\ aindex
+comment3.target=long\ getFactorsOfA(long,\ int[])
+comment4.params=
+comment4.target=java.math.BigInteger\ factor()
+comment4.text=\n\ Multithread\ procedure\:\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \n\ 1)\ Main\ thread\ generates\ factor\ base\ and\ other\ parameters.\ \ \ \ \ \ \ \ \ \ \ \n\ 2)\ Start\ M\ threads\ where\ the\ number\ M\ is\ specified\ by\ the\ user\ in\ a\ \n\ \ \ \ box\ beneath\ the\ applet.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \n\ 3)\ For\ each\ polynomial\:\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \n\ \ \ \ 3a)\ Main\ thread\ generates\ the\ data\ for\ the\ set\ of\ 2^n\ polynomials.\n\ \ \ \ 3b)\ Each\ child\ thread\ computes\ a\ range\ of\ polynomials\ \ \ \ \ \ \ \ \ \ \ \ \ \n\ \ \ \ \ \ \ \ (u*2^n/M\ to\ (u+1)*2^n/M\ exclusive).\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \n\ Partial\ and\ full\ relation\ routines\ must\ be\ synchronized.\ \ \ \ \ \ \ \ \ \ \ \ \ \n\n@return\ *************************************************************
+comment5.params=
+comment5.target=void\ Setup()
+comment5.text=\n\ Compute\ startup\ data\ *\n
+numComments=6

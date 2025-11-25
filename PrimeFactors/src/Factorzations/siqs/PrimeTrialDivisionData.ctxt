@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.target=PrimeTrialDivisionData
+comment0.text=\n\ primes\ called\ the\ factor\ base\n\ @author\ spy\n
+comment1.params=currentPrime
+comment1.target=void\ set(int)
+comment2.params=biR\ NumberLength\ Divisor
+comment2.target=int\ Divid(int[],\ int,\ int)
+comment3.params=NumberLength\ Dividend
+comment3.target=long\ getRem(int,\ int[])
+comment4.params=primeSieveData\ rowMatrixBbeforeMerge\ index2\ aindex\ biDividend\ rowSquares\ NumberLength\ oddPolynomial
+comment4.target=long\ PerformTrialDivision(PrimeSieveData[],\ int[],\ int,\ int[],\ int[],\ int[],\ int,\ boolean)
+numComments=5

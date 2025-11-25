@@ -1,0 +1,138 @@
+Selectable: True
+
+MapFormat: 6
+
+RequiresMod: ra
+
+Title: Map 2
+
+Description: 1v1
+
+Author: RAGEQUIT
+
+Tileset: TEMPERAT
+
+MapSize: 128,128
+
+Bounds: 16,16,48,48
+
+UseAsShellmap: False
+
+Type: Conquest
+
+Options:
+
+Players:
+    PlayerReference@Neutral:
+        Name: Neutral
+        OwnsWorld: True
+        NonCombatant: True
+        Race: allies
+    PlayerReference@Multi0:
+        Name: Multi0
+        Playable: True
+        Race: Random
+        Enemies: Creeps
+    PlayerReference@Multi1:
+        Name: Multi1
+        Playable: True
+        Race: Random
+        Enemies: Creeps
+    PlayerReference@Creeps:
+        Name: Creeps
+        NonCombatant: True
+        Race: allies
+        Enemies: Multi0,Multi1
+
+Actors:
+    Actor2:
+        Name: mine
+        LocationX: 25
+        LocationY: 28
+        Owner: Neutral
+    Actor3:
+        Name: elixirCollector
+        LocationX: 510
+        LocationY: 220
+    Actor4:
+        Name: goldMine
+        LocationX: 440
+        LocationY: 221
+    Actor5:
+        Name: archerTower
+        LocationX: 457
+        LocationY: 160
+    Actor6:
+        Name: archerTower
+        LocationX: 460
+        LocationY: 256
+    Actor7:
+        Name: archerTower
+        LocationX: 360
+        LocationY: 256
+    Actor8:
+        Name: archerTower
+        LocationX: 560
+        LocationY: 256
+    Actor9:
+        Name: townHall
+        LocationX: 450
+        LocationY: 316
+    Actor10:
+        Name: archerTower
+        LocationX: 460
+        LocationY: 416
+    Actor11:
+        Name: tesla
+        LocationX: 550
+        LocationY: 340
+    Actor12:
+        Name: infernoTower
+        LocationX: 400
+        LocationY: 340
+    Actor13:
+        Name: elixirCollector
+        LocationX: 555
+        LocationY: 405
+    Actor14:
+        Name: goldMine
+        LocationX: 400
+        LocationY: 410
+    Actor15:
+        Name: barrack
+        LocationX: 473
+        LocationY: 490
+    Actor16:
+        Name: tesla
+        LocationX: 400
+        LocationY: 460
+    Actor17:
+        Name: infernoTower
+        LocationX: 550
+        LocationY: 460
+
+Spawns:
+    spawn0:
+        LocationX: 24        
+        LocationY: 22
+        Owner: Neutral
+    spawn1:
+        LocationX: 55        
+        LocationY: 57
+        Owner: Neutral
+        
+Smudges:
+
+Rules:
+
+Sequences:
+
+VoxelSequences:
+
+Weapons:
+
+Voices:
+
+Notifications:
+
+Translations:

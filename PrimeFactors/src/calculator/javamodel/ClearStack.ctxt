@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=ClearStack
+comment0.text=\n\ The\ clear\ stack\ operation.\ \ Objects\ of\ this\ class\ are\ used\ to\n\ encapsulate\ a\ clear\ stack\ request.\n\n\ @author\ Rod\ Howell\n\ \ \ \ \ \ \ \ \ (<a\ href\="mailto\:howell@cis.ksu.edu">howell@cis.ksu.edu</a>)\n
+comment1.params=
+comment1.target=int\ numOperands()
+comment1.text=\n\ @return\ 0.\n
+numComments=2

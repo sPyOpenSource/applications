@@ -1,0 +1,4 @@
+#BlueJ class context
+comment0.target=EmptyDequeException
+comment0.text=\n\ An\ Exception\ thrown\ when\ an\ attempt\ is\ made\ to\ access\ an\ element\n\ in\ an\ empty\ Deque.\n\n\ @author\ Rod\ Howell\n\ \ \ \ \ \ \ \ \ (<a\ href\="mailto\:howell@cis.ksu.edu">howell@cis.ksu.edu</a>)\n
+numComments=1

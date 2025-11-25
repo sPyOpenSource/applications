@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.target=Divide
+comment0.text=\n\ The\ divide\ operation.\n\n\ @author\ Rod\ Howell\n\ \ \ \ \ \ \ \ \ (<a\ href\="mailto\:howell@cis.ksu.edu">howell@cis.ksu.edu</a>)\n
+comment1.params=
+comment1.target=int\ numOperands()
+comment1.text=\n\ @return\ 2.\n
+comment2.params=operands
+comment2.target=java.lang.Object\ doOperation(java.lang.Object[])
+comment2.text=\n\ Returns\ the\ result\ of\ dividing\ operand[0]\ by\ operand[1].\n\ @throws\ ArrayIndexOutOfBoundsException\ \ If\ <tt>operands</tt>\ is\ not\ of\ \n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ length\ at\ least\ 2.\n\ @throws\ ClassCastException\ \ If\ the\ elements\ of\ <tt>operands</tt>\ are\ not\ \n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ both\ <tt>LargeInteger</tt>s.\n\ @throws\ ArithmeticException\ If\ operand[1]\ is\ zero.\n
+comment3.params=Dividend\ Divisor\ Quotient\ NumberLength
+comment3.target=void\ DivBigNbrByLong(int[],\ long,\ int[],\ int)
+numComments=4

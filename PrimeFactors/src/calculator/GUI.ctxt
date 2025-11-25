@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=GUI
+comment0.text=\n\ This\ is\ the\ driver\ class\ for\ the\ arbitrary-precision\ integer\ calculator.\n\ It\ may\ be\ run\ either\ as\ an\ application\ or\ an\ applet.\ \ When\ run\ as\n\ an\ application,\ it\ accepts\ two\ optional\ command-line\ arguments.\ \ The\n\ first\ is\ the\ name\ of\ the\ package\ containing\ the\ classes\ implementing\n\ the\ calculator\ model.\ \ The\ name\ must\ be\ terminated\ by\ a\ period.\ \ If\n\ omitted,\ <tt>EDU.ksu.cis.calculator.defaultmodel.</tt>\ is\ used.\ \ The\n\ second\ command-line\ argument\ gives\ the\ name\ of\ a\ class\ implementing\n\ the\ user\ interface\ to\ be\ used.\ \ This\ class\ must\ implement\ the\n\ interface\ {@link\ CalculatorUI}.\ \ If\ omitted,\ the\ class\ \n\ {@link\ DefaultUI}\ is\ used.\ \ If\ packages\ other\ than\:\n\ <ul>\n\ <li>\ {@link\ EDU.ksu.cis.calculator.defaultmodel}\ or\n\ <li>\ {@link\ EDU.ksu.cis.calculator.javamodel}\n\ </ul>\n\ are\ used\ for\ the\ calculator\ model,\ or\ if\ classes\ other\ than\ \n\ {@link\ DefaultUI}\ are\ used\ for\ the\ user\ interface,\ care\ must\ be\ taken\n\ that\ the\ model\ package\ provides\ all\ of\ the\ classes\ required\ by\ the\n\ user\ interface\ class.\ \ See\ {@link\ DefaultUI}\ for\ more\ details.\n\n\ When\ run\ as\ an\ applet,\ these\ values\ can\ be\ passed\ using\ the\ following\n\ <tt>param</tt>\ tags\:\n\ <ul>\n\ <li>\ <tt>ModelLocation</tt>\:\ Package\ containing\ the\ model\n\ <li>\ <tt>UIName</tt>\:\ Class\ name\ of\ the\ user\ interface\n\ </ul>\n\n\ @author\ Rod\ Howell\n\ \ \ \ \ \ \ \ \ (<a\ href\="mailto\:howell@cis.ksu.edu">howell@cis.ksu.edu</a>)\n
+comment1.params=frame
+comment1.target=void\ setup(javax.swing.JFrame)
+comment1.text=\n\ Does\ initialization\ common\ to\ applets\ and\ applications.\n
+comment2.params=
+comment2.target=java.lang.String[][]\ getParameterInfo()
+comment2.text=\n\ @return\ information\ for\ applet\ parameters.\n\ @see\ javax.swing.JApplet\#getParameterInfo()\n
+comment3.params=args
+comment3.target=void\ main(java.lang.String[])
+comment3.text=\n\ Initializes\ the\ application.\n\ @param\ args\ \ An\ array\ of\ optional\ String\ arguments.\ \ If\ present,\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ the\ first\ argument\ gives\ the\ name\ of\ the\ package\ containing\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ the\ calculator\ model.\ \ This\ name\ must\ be\ terminated\ with\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ a\ period.\ \ If\ a\ second\ argument\ is\ present,\ it\ gives\ the\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ name\ of\ the\ user\ interface\ class.\n
+numComments=4

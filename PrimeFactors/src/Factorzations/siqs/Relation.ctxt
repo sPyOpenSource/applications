@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=Relation
+comment0.text=\n\ congruence\ relation\:\ x^2\ \=\ y^2\ (mod\ n),\ x\ \!\=\ +-y\ (mod\ n)\n\ @author\ xuyi\n
+comment1.params=positive\ rowMatrixB\ rowMatrixBbeforeMerge\ index2\ aindex\ biQuadrCoeff\ rowSquares\ biLinearCoeff\ biLinearDelta\ NumberLength\ biT\ biU\ biR\ oddPolynomial
+comment1.target=void\ SmoothRelationFound(boolean,\ int[],\ int[],\ int,\ int[],\ int[],\ int[],\ int[],\ int[][],\ int,\ int[],\ int[],\ int[],\ boolean)
+comment2.params=positive\ rowMatrixB\ rowMatrixBbeforeMerge\ index2\ aindex\ Divid\ oldSeed\ rowPartials\ biQuadrCoeff\ rowSquares\ biLinearCoeff\ biLinearDelta\ NumberLength\ biT\ biR\ biU\ biV\ indexFactorsA\ oddPolynomial
+comment2.target=void\ PartialRelationFound(boolean,\ int[],\ int[],\ int,\ int[],\ long,\ long,\ int[],\ int[],\ int[],\ int[],\ int[][],\ int,\ int[],\ int[],\ int[],\ int[],\ int[],\ boolean)
+comment2.text=prime(s)\ outside\ the\ factor\ base
+comment3.params=biQuadrCoeff\ biLinearCoeff\ biLinearDelta\ index2\ oddPolynomial\ biT\ NumberLength
+comment3.target=void\ CalculateX(int[],\ int[],\ int[][],\ int,\ boolean,\ int[],\ int)
+comment4.params=rowMatrixB\ rowSquares\ biT\ biU\ biR\ NumberLength
+comment4.target=boolean\ InsertNewRelation(int[],\ int[],\ int[],\ int[],\ int[],\ int)
+numComments=5

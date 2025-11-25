@@ -1,0 +1,35 @@
+.button {
+  -fx-font-family: 'Bell MT';
+  -fx-font-size: 18;
+  -fx-background-color: #88d139;
+  -fx-color: #000000;
+  -fx-border: 0;
+  -fx-background-radius: 10px;
+  -fx-transition: 0.3s;
+}
+.button:hover {
+  -fx-background-color: #393E46;
+  -fx-shadow: 20 20 20 20;
+}
+
+.text-field {
+  -fx-background-radius: 10px;
+    -fx-background-color: #FBFFDC;
+    -fx-background-capacity : 0.1;
+    -fx-font-size: 22px;
+    -fx-font-family: 'Bell MT';
+    -fx-max-width: 350px;
+    -fx-padding: 5px;
+    -fx-text-alignment: justify;
+    -fx-line-spacing: 1em;
+    -fx-wrap-text: true;
+}
+#text {
+    -fx-font-size: 22px;
+    -fx-font-family: 'Bell MT';
+}
+
+#textInfo {
+    -fx-font-size: 16px;
+    -fx-font-family: 'Bell MT';
+}

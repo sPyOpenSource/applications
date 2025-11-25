@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.target=LucasCheck
+comment0.text=\n\n\ @author\ X.\ Wang\n
+comment1.params=NumberToFactor
+comment1.target=LucasCheck(BigIntegers.AprtCleInteger)
+comment2.params=
+comment2.target=int\ Check()
+comment3.params=Index\ BigOriginal
+comment3.target=void\ Factor(int,\ java.math.BigInteger)
+comment4.params=Index\ BigOriginal
+comment4.target=void\ InsertLucasFactor(int,\ java.math.BigInteger)
+comment5.params=Index\ prev\ act
+comment5.target=java.math.BigInteger\ get(int,\ java.math.BigInteger,\ java.math.BigInteger)
+numComments=6

@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.target=Multiply
+comment0.text=\n\ The\ multiply\ operation.\n\n\ @author\ Rod\ Howell\n\ \ \ \ \ \ \ \ \ (<a\ href\="mailto\:howell@cis.ksu.edu">howell@cis.ksu.edu</a>)\n
+comment1.params=
+comment1.target=int\ numOperands()
+comment1.text=\n\ @return\ 2.\n
+comment2.params=operands
+comment2.target=java.lang.Object\ doOperation(java.lang.Object[])
+comment2.text=\n\ Returns\ the\ result\ of\ multiplyinging\ the\ given\ operands.\n\ @throws\ ArrayIndexOutOfBoundsException\ \ If\ <tt>operands</tt>\ is\ not\ of\ \n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ length\ at\ least\ 2.\n\ @throws\ ClassCastException\ \ If\ the\ elements\ of\ <tt>operands</tt>\ are\ not\ \n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ both\ <tt>LargeInteger</tt>s.\n
+comment3.params=Nbr1\ Nbr2\ Prod\ NumberLength
+comment3.target=void\ MultBigNbrByLong(int[],\ long,\ int[],\ int)
+comment4.params=Nbr1\ Nbr2\ Prod\ NumberLength
+comment4.target=void\ MultBigNbr(int[],\ int[],\ int[],\ int)
+numComments=5

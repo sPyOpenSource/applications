@@ -1,0 +1,22 @@
+#BlueJ class context
+comment0.target=StaticFunctions
+comment0.text=\n\n\ @author\ xuyi\n
+comment1.params=N\ TestNbr
+comment1.target=int\ BigNbrToBigInt(java.math.BigInteger,\ int[])
+comment2.params=nbr32bits\ TestNbr\ NumberLength
+comment2.target=void\ Convert32To31Bits(long[],\ int[],\ int)
+comment3.params=TestNbr\ NumberLength
+comment3.target=java.math.BigInteger\ BigIntToBigNbr(int[],\ int)
+comment4.params=nbr32bits\ TestNbr\ NumberLength
+comment4.target=void\ Convert31To32Bits(long[],\ int[],\ int)
+comment5.params=Nbr\ TestNbr\ NumberLength
+comment5.target=void\ AdjustModN(int[],\ int[],\ int)
+comment6.params=Nbr1\ Nbr2\ Prod\ TestNbr\ NumberLength
+comment6.target=void\ MultBigNbrModN(int[],\ int[],\ int[],\ int[],\ int)
+comment7.params=Nbr1\ Nbr2\ Sum\ TestNbr\ NumberLength
+comment7.target=void\ AddBigNbrModN(int[],\ int[],\ int[],\ int[],\ int)
+comment8.params=Nbr1\ Nbr2\ NumberLength
+comment8.target=boolean\ BigNbrAreEqual(int[],\ int[],\ int)
+comment9.params=Nbr\ NumberLength
+comment9.target=boolean\ BigNbrIsZero(int[],\ int)
+numComments=10

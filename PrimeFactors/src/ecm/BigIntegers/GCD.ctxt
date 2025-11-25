@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.target=GCD
+comment0.text=\n\n\ @author\ X.\ Wang\n
+comment1.params=Nbr1\ Nbr2\ Gcd\ NumberLength
+comment1.target=void\ GcdBigNbr(int[],\ int[],\ int[],\ int)
+numComments=2

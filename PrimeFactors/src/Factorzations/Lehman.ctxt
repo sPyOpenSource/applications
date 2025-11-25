@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=Lehman
+comment0.text=\n\n\ @author\ spy\n
+comment1.params=nbr\ k
+comment1.target=Lehman(java.math.BigInteger,\ int)
+comment2.params=
+comment2.target=void\ run()
+comment3.params=
+comment3.target=java.math.BigInteger\ factor()
+numComments=4

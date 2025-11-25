@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.target=PowerCheck
+comment0.text=\n\n\ @author\ X.\ Wang\n
+comment1.params=NumberToFactor
+comment1.target=PowerCheck(BigIntegers.ECMBigInteger)
+comment2.params=i
+comment2.target=int\ Check(int)
+numComments=3

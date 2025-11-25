@@ -1,0 +1,18 @@
+#BlueJ class context
+comment0.target=ecmStep1
+comment0.text=\n\ neutral\ element\n\ @author\ X.\ Wang\n
+comment1.params=val
+comment1.target=ecmStep1(ecm.BigIntegers.GCDBigInteger)
+comment2.params=
+comment2.target=int\ step1()
+comment2.text=
+comment3.params=x2\ z2\ x1\ z1
+comment3.target=void\ duplicate(int[],\ int[],\ int[],\ int[])
+comment3.text=\ computes\ 2P\=(x2\:z2)\ from\ P\=(x1\:z1),\ with\ 5\ mul,\ 4\ add/sub,\ 5\ mod.\n\ \ \ \ \ \ \ Uses\ the\ following\ global\ variables\:\n\ \ \ \ \ \ \ -\ n\ \:\ number\ to\ factor\n\ \ \ \ \ \ \ -\ b\ \:\ (a+2)/4\ mod\ n\n\ \ \ \ \ \ \ -\ u,\ v,\ w\ \:\ auxiliary\ variables\n\ \ Modifies\:\ x2,\ z2,\ u,\ v,\ w\n
+comment4.params=x3\ z3\ x2\ z2\ x1\ z1\ x\ z
+comment4.target=void\ add3(int[],\ int[],\ int[],\ int[],\ int[],\ int[],\ int[],\ int[])
+comment4.text=\ adds\ Q\=(x2\:z2)\ and\ R\=(x1\:z1)\ and\ puts\ the\ result\ in\ (x3\:z3),\n\ \ \ \ \ \ \ \ \ using\ 5/6\ mul,\ 6\ add/sub\ and\ 6\ mod.\ One\ assumes\ that\ Q-R\=P\ or\ R-Q\=P\ where\ P\=(x\:z).\n\ \ \ \ \ \ \ \ \ Uses\ the\ following\ global\ variables\:\n\ \ \ \ \ \ \ \ \ -\ n\ \:\ number\ to\ factor\n\ \ \ \ \ \ \ \ \ -\ x,\ z\ \:\ coordinates\ of\ P\n\ \ \ \ \ \ \ \ \ -\ u,\ v,\ w\ \:\ auxiliary\ variables\n\ \ \ \ Modifies\:\ x3,\ z3,\ u,\ v,\ w.\n\ \ \ \ (x3,z3)\ may\ be\ identical\ to\ (x2,z2)\ and\ to\ (x,z)\n
+comment5.params=n\ x\ z\ xT\ zT\ xT2\ zT2
+comment5.target=void\ prac(int,\ int[],\ int[],\ int[],\ int[],\ int[],\ int[])
+comment5.text=computes\ nP\ from\ P\=(x\:z)\ and\ puts\ the\ result\ in\ (x\:z).\ Assumes\ n>2.
+numComments=6

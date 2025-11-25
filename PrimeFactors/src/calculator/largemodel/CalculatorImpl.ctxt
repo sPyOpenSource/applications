@@ -1,0 +1,31 @@
+#BlueJ class context
+comment0.target=CalculatorImpl
+comment0.text=\n\ A\ model\ for\ an\ RPN\ calculator\ using\ the\n\ {@link\ EDU.ksu.cis.calculator.LargeInteger}\ class.\n\n\ @author\ Rod\ Howell\n\ \ \ \ \ \ \ \ \ (<a\ href\="mailto\:howell@cis.ksu.edu">howell@cis.ksu.edu</a>)\n
+comment1.params=v
+comment1.target=CalculatorImpl(calculator.CalculatorUI)
+comment1.text=\n\ Constructs\ a\ new\ CalculatorImpl\ using\ the\ given\ user\ interface,\ base\ 10,\n\ and\ sticky\ bases.\n
+comment2.params=v\ b
+comment2.target=CalculatorImpl(calculator.CalculatorUI,\ int)
+comment2.text=\n\ Constructs\ a\ new\ CalculatorImpl\ using\ the\ given\ user\ interface\ and\ base,\n\ with\ sticky\ bases.\n
+comment3.params=v\ s
+comment3.target=CalculatorImpl(calculator.CalculatorUI,\ boolean)
+comment3.text=\n\ Constructs\ a\ new\ CalculatorImpl\ using\ the\ given\ user\ interface\ and\n\ the\ given\ setting\ for\ sticky\ bases,\ in\ base\ 10.\n
+comment4.params=v\ b\ s
+comment4.target=CalculatorImpl(calculator.CalculatorUI,\ int,\ boolean)
+comment4.text=\n\ Constructs\ a\ new\ CalculatorImpl\ using\ the\ given\ user\ interface,\ base,\ and\n\ setting\ for\ sticky\ bases.\n
+comment5.params=op\ input
+comment5.target=void\ doOperation(calculator.Operation,\ java.lang.String)
+comment5.text=\n\ Performs\ the\ given\ operation.\ \ If\ <var>input</var>\ is\ non-null,\ it\n\ is\ treated\ as\ the\ top\ of\ the\ stack.\ \ If\ <var>input</var>\ is\ ""\ or\ "-",\ it\ is\n\ interpreted\ as\ "0".\ \ Operands\ are\ taken\ from\ the\ top\n\ of\ the\ stack\ so\ that\ the\ top\ element\ is\ the\ last\ operand.\ \ The\ result\n\ (if\ any)\ is\ pushed\ onto\ the\ stack.\ \ When\ the\ operation\ is\ complete,\n\ the\ element\ that\ then\ resides\ at\ the\ top\ of\ the\ stack\ (if\ any)\ is\n\ reported\ to\ the\ user\ interface.\ \ If\ an\ exception\ or\ error\ is\ thrown,\n\ the\ stack\ will\ be\ restored\ to\ its\ original\ contents,\ if\ possible.\n\ <p>\n\ The\ following\ classes\ of\ operations\ are\ supported\:\n\ <ul>\n\ <li>\ {@link\ Push}\ -\ If\ <var>input</var>\ is\ null,\ a\ copy\ of\ the\ top\ of\ the\ \n\ \ \ \ \ \ stack\ is\ pushed.\ \ Otherwise,\ <var>input</var>\ is\ simply\ accepted\ as\n\ \ \ \ \ \ the\ new\ top\ of\ the\ stack.\ \ Unrecognized\ subclasses\ of\n\ \ \ \ \ \ {@link\ EDU.ksu.cis.calculator.Operation}\ are\ treated\ as\ Push.\n\ <li>\ {@link\ Pop}\ -\ Removes\ the\ top\ from\ the\ stack.\n\ <li>\ {@link\ ClearStack}\ -\ Empties\ the\ stack.\n\ <li>\ {@link\ RotateUp}\ -\ Moves\ the\ element\ at\ the\ bottom\ of\ the\ stack\ to\ \n\ \ \ \ \ \ the\ top.\n\ <li>\ {@link\ RotateDown}\ -\ Moves\ the\ element\ at\ the\ top\ of\ the\ stack\ to\ the\n\ \ \ \ \ \ bottom.\n\ <li>\ {@link\ EDU.ksu.cis.calculator.ConvertBase}\ -\ Converts\ the\ top\ of\ \n\ \ \ \ \ \ the\ stack\ to\ the\ base\ specified\ by\ \n\ \ \ \ \ \ {@link\ EDU.ksu.cis.calculator.ConvertBase\#getBase()\ op.getBase()}.\n\ \ \ \ \ \ If\ the\ stack\ is\ empty,\ simply\ reports\ the\ new\ base\ to\ the\ user\n\ \ \ \ \ \ interface.\n\ <li>\ {@link\ EDU.ksu.cis.calculator.EncodedOperation}\ -\ Performs\ the\ \n\ \ \ \ \ \ operation\ specified\ by\ the\ given\ subclass\ of\ EncodedOperation.\n\ </ul>\n\ @throws\ EmptyDequeException\ \ If\ the\ operation\ requires\ more\ operands\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ than\ are\ present\ on\ the\ stack.\n\ @throws\ NumberFormatException\ \ If\ <var>input</var>\ contains\ an\ invalid\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ character\ for\ the\ current\ base.\n\ @throws\ Exception\ \ \ \ \ \ \ \ \ \ \ \ If\ the\ given\ operation\ throws\ an\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ exception.\n
+comment6.params=b
+comment6.target=void\ changeBase(int)
+comment6.text=\n\ Changes\ the\ current\ base\ to\ b,\ performs\ any\ base\ conversion\ necessary\ to\n\ reflect\ this\ change,\ and\ reports\ the\ result\ to\ the\ user\ interface.\n
+comment7.params=op
+comment7.target=void\ doEncodedOperation(calculator.EncodedOperation)
+comment7.text=\n\ Performs\ the\ given\ EncodedOperation\ using\ the\ value(s)\ at\ the\ top\n\ of\ the\ stack\ for\ operand(s),\ and\ reports\ the\ results\ to\ the\ user\n\ interface.\ \ Assumes\ sufficiently\ many\ values\n\ exist\ on\ the\ stack.\ \ If\ an\ Exception\ or\ Error\ is\ thrown,\ an\n\ attempt\ will\ be\ made\ to\ restore\ the\ stack\ to\ its\ original\ contents.\n\ @throws\ Exception\ \ If\ the\ given\ operation\ throws\ an\ Exception.\n
+comment8.params=op\ noNewInput
+comment8.target=void\ doStackOperation(calculator.Operation,\ boolean)
+comment8.text=\n\ Performs\ the\ given\ stack\ operation\ ({@link\ Push},\ {@link\ Pop},\n\ {@link\ RotateUp},\ or\ {@link\ RotateDown})\ and\ reports\ the\ results\ to\n\ user\ interface.\ \ Other\ subclasses\ of\ {@link\ Operation}\ are\ treated\n\ as\ Push.\n\ @param\ \ op\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ The\ operation\ to\ perform.\n\ @param\ \ noNewInput\ \ true\ iff\ no\ new\ input\ has\ been\ received.\n\ @throws\ EmptyDequeException\ \ If\ the\ stack\ is\ empty.\n
+comment9.params=change\ input
+comment9.target=void\ changeSettings(java.lang.Object,\ java.lang.String)
+comment9.text=\n\ Changes\ the\ settings\ of\ the\ calculator.\ \ The\ only\ setting\ that\ can\n\ be\ changed\ in\ this\ model\ is\ sticky\ bases.\ \ If\ <var>change</var>\ is\ of\n\ type\ {@link\ java.lang.Boolean},\ then\ bases\ are\ set\ to\ sticky\ iff\ the\n\ value\ of\ <var>change</var>\ is\ true.\ \ If\ <var>change</var>\ is\ of\ a\ different\ \n\ type,\ this\ method\ has\ no\ effect.\ \ The\ second\ parameter\ is\ ignored.\n
+numComments=10

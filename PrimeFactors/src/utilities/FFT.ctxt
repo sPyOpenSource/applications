@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.target=FFT
+comment0.text=\n\n\ @author\ xuyi\n
+comment1.params=a\ ws
+comment1.target=void\ transform(long[],\ long[])
+comment1.text=\ This\ method\ may\ be\ used\ to\ compute\ an\ FFT\ or\ an\ inverse\ FFT.\n\ \ It\ uses\ modmult\ to\ compute\ products\ in\ the\ underlying\ ring.\n\ \ The\ first\ parameter\ must\ contain\ n\ elements,\ where\ n\ is\ a\ power\n\ \ of\ two.\ \ \n\ \ <p>\n\ \ Computing\ an\ FFT\:\n\ \ <p>\n\ \ The\ first\ parameter\ gives\ the\ coefficients\ of\ a\ polynomial\n\ \ in\ bit-reverse\ order.\ \ The\ second\ parameter\ must\ be\ an\ array\ \n\ \ of\ at\ least\ <tt>lg\ n</tt>\ elements\ such\ that\ element\ i\ is\ a\ \n\ \ principal\ 2**i-th\ root\ of\ unity.\ The\ second\ parameter\ will\ be\n\ \ modified\ to\ contain\ the\ values\ of\ the\ polynomial\ at\ successive\n\ \ powers\ of\ the\ principal\ n-th\ root\ of\ unity.\n\ \ <p>\n\ \ Computing\ an\ inverse\ FFT\:\n\ \ <p>\n\ \ The\ first\ parameter\ gives\ the\ values\ of\ the\ polynomial\ at\ successive\n\ \ powers\ of\ a\ principal\ n-th\ root\ of\ unity,\ given\ in\ bit-reverse\ order.\n\ \ The\ second\ parameter\ must\ contain\ the\ multiplicative\ inverses\ of\ the\ \n\ \ roots\ used\ in\ the\ FFT\ computation.\ The\ second\ parameter\ will\ be\n\ \ modified\ to\ contain\ values\ which,\ when\ multiplied\ by\ the\ inverse\n\ \ of\ n,\ are\ the\ coefficients\ of\ the\ polynomial\ from\ low-order\ term\ to\n\ \ high-order\ term.\n\ \ <p>\n\ \ The\ code\ is\ based\ on\ the\ algorithm\ ITERATIVE-FFT\ given\ on\ p.\ 794\ of\n\ \ "Introduction\ to\ Algorithm",\ by\ Cormen,\ Leiserson,\ and\ Rivest\n\ \ (McGraw\ Hill,\ 1990).\n
+comment2.params=a\ lgn
+comment2.target=void\ inverseTransform(long[],\ int)
+comment3.params=a\ b\ mod
+comment3.target=long\ modmult(long,\ long,\ long)
+comment3.text=\ Computes\ the\ product\ of\ its\ parameters\ mod\ 70383776563201.\n\ \ The\ parameters\ must\ each\ be\ nonnegative\ and\ contain\ at\ most\n\ \ 47\ significant\ bits.\n
+numComments=4

@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.target=Classical
+comment0.text=\n\n\ @author\ spy\n
+comment1.params=N
+comment1.target=Classical(java.math.BigInteger)
+comment2.params=i
+comment2.target=boolean\ odd(java.math.BigInteger)
+comment3.params=x
+comment3.target=java.math.BigInteger\ SqrtFloor(java.math.BigInteger)
+comment4.params=x
+comment4.target=java.math.BigInteger\ SqrtCeil(java.math.BigInteger)
+comment5.params=
+comment5.target=java.math.BigInteger\ factor()
+numComments=6

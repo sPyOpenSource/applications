@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=BitReverseCounter
+comment0.text=\ This\ class\ implements\ a\ counter\ in\ which\ the\ bits\ are\ reversed.\n\ \ It\ is\ constructed\ with\ a\ mask,\ which\ should\ contain\ a\ single\n\ \ 1\ bit.\ \ This\ bit\ marks\ the\ position\ at\ which\ the\ value\ should\ be\n\ \ "incremented",\ with\ carries\ propogating\ to\ the\ right.\ \ For\ example,\n\ \ <pre>\n\ \ new\ BitReverseCounter(4);\n\ \ </pre>\n\ \ constructs\ a\ counter\ which\ produces\ the\ sequence\ (shown\ in\ binary)\:\n\ \ <pre>\n\ \ 000\n\ \ 100\n\ \ 010\n\ \ 110\n\ \ 001\n\ \ 101\n\ \ 011\n\ \ 111\n\ \ </pre>\n\ \ The\ next\ value\ is\ returned\ in\ constant\ amortized\ time.\n
+comment1.params=m
+comment1.target=BitReverseCounter(int)
+comment1.text=\ Constructs\ a\ new\ BitReverseCounter\ with\ the\ given\ mask.\n
+comment2.params=
+comment2.target=int\ next()
+comment2.text=\ Returns\ the\ next\ value.\n
+comment3.params=
+comment3.target=void\ reset()
+comment3.text=\ Resets\ the\ counter\ to\ 0.\n
+numComments=4

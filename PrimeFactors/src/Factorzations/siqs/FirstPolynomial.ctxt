@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=FirstPolynomial
+comment0.text=\n\n\ @author\ xuyi\n
+comment1.params=NumberLength\ biDividend\ primeSieveData
+comment1.target=void\ init(int,\ int[],\ PrimeSieveData[])
+comment1.text=
+numComments=2

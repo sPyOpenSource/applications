@@ -1,0 +1,45 @@
+v2.2 XW 24-09-2022
+fixed: NTT
+
+v2.1 XW 17-09-2022
+seperated: siqs
+
+v2.0 XW 16-09-2022
+improved: code
+
+v1.12 XW 03-11-2020
+fixed: unittest
+added: fft and ntt
+improved: code
+
+v1.11 XW 01-11-2020
+added: zeef
+fixed: number of active thread
+added: gui
+
+v1.10 XW 31-10-2020
+added: Lucas Lehmer Test
+
+v1.9 XW 07-05-2020
+improved: code
+
+v1.8 XW 06-05-2020
+improved: code
+
+v1.7 XW 22-04-2020
+added: GUI
+
+v1.6 XW 15-04-2020
+reorganized: code
+
+v1.5 XW 12-04-2020
+reorganized: code
+
+v1.4 XW 05-04-2020
+reorganized: code
+
+v1.3 XW 30-03-2020
+improved: code
+
+v1.2 XW 11-06-2019
+moved: other factorzations out of ecm

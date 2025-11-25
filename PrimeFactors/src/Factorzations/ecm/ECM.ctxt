@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=ECM
+comment0.text=\n\n\ @author\ X.\ Wang\n
+comment1.params=
+comment1.target=java.math.BigInteger\ factor()
+comment2.params=NumberToFactor
+comment2.target=ECM(BigIntegers.AprtCleInteger)
+comment3.params=args
+comment3.target=void\ main(java.lang.String[])
+numComments=4

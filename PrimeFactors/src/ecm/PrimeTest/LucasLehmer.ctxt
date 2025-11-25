@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.target=LucasLehmer
+comment0.text=\n\n\ @author\ X.\ Wang\n
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+comment2.params=prime
+comment2.target=LucasLehmer(int)
+comment3.params=
+comment3.target=void\ run()
+comment4.params=
+comment4.target=boolean\ isPrime()
+numComments=5

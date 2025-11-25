@@ -1,0 +1,19 @@
+#BlueJ class context
+comment0.target=CalculatorUI
+comment0.text=\n\ An\ interface\ abstracting\ user\ interface\ for\ a\ calculator.\n\n\ @author\ Rod\ Howell\n\ \ \ \ \ \ \ \ \ (<a\ href\="mailto\:howell@cis.ksu.edu">howell@cis.ksu.edu</a>)\n
+comment1.params=
+comment1.target=java.lang.String\ getInput()
+comment1.text=\n\ Returns\ the\ current\ contents\ of\ the\ input\ buffer.\n
+comment2.params=s
+comment2.target=void\ insert(java.lang.String)
+comment2.text=\n\ Inserts\ the\ given\ String\ into\ the\ input\ buffer\ at\ a\ location\n\ determined\ by\ the\ implementation.\n
+comment3.params=s\ b
+comment3.target=void\ setOutput(java.lang.String,\ int)
+comment3.text=\n\ Displays\ the\ given\ String\ and\ radix.\n
+comment4.params=b
+comment4.target=void\ setBusy(boolean)
+comment4.text=\n\ Notifies\ the\ user\ interface\ whether\ work\ is\ being\ done.\n
+comment5.params=e
+comment5.target=void\ showError(java.lang.Throwable)
+comment5.text=\n\ Displays\ an\ error\ message\ describing\ the\ given\ Throwable.\n
+numComments=6

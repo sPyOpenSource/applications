@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=Matrix
+comment0.text=\n\n\ @author\ xuyi\n
+comment1.params=matrixBlength\ seed
+comment1.target=int[]\ BlockLanczos(int,\ long)
+comment1.text=finding\ the\ nullspace\ of\ a\ matrix\ over\ a\ finite\ field
+numComments=2

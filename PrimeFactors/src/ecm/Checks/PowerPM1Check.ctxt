@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.target=PowerPM1Check
+comment0.text=\n\n\ @author\ X.\ Wang\n
+comment1.params=NumberToFactor
+comment1.target=PowerPM1Check(BigIntegers.ECMBigInteger)
+comment2.params=
+comment2.target=boolean\ Check()
+comment3.params=Exponent
+comment3.target=boolean\ ProcessExponent(int)
+comment4.params=BigBase\ Expon\ BigIncre\ BigOriginal
+comment4.target=void\ Cunningham(java.math.BigInteger,\ int,\ java.math.BigInteger,\ java.math.BigInteger)
+numComments=5

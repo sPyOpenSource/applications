@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.target=PrimeSieveData
+comment0.text=\n\n\ @author\ spy\n
+comment1.params=primeSieveData\ SieveArray\ nbrPrimes\ nbrPrimes2\ firstLimit\ secondLimit\ thirdLimit\ smallPrimeUpperLimit\ threshold\ multiplier\ SieveLimit\ amodq\ PolynomialIndex\ aindex\ nbrFactorsA\ log2\ biLinearCoeff\ NumberLength
+comment1.target=void\ PerformSiqsSieveStage(PrimeSieveData[],\ short[],\ int,\ int,\ int,\ int,\ int,\ int,\ byte,\ int,\ int,\ int[],\ int,\ int[],\ int,\ byte,\ int[],\ int)
+numComments=2

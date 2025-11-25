@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.target=StaticFunctions
+comment0.text=\n\n\ @author\ spy\n
+comment1.params=Divid\ nbrPrimes
+comment1.target=int\ getIndexFromDivisor(long,\ int)
+comment2.params=NbrMod\ currentPrime
+comment2.target=int\ modInv(int,\ int)
+comment3.params=N\ queue
+comment3.target=int\ SQUFOF(long,\ int[])
+comment3.text=The\ variables\ with\ suffix\ 3\ correspond\ to\ multiplier\ \=\ 3
+comment4.params=value
+comment4.target=boolean\ isProbablePrime(long)
+comment4.text=If\ 2^value\ mod\ value\ \=\ 2,\ then\ the\ value\ is\ a\ probable\ prime\ (value\ odd)
+numComments=5

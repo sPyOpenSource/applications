@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.target=NumericDocument
+comment0.text=\n\ A\ Document\ for\ storing\ an\ arbitrarily\ large\ number\ in\ an\ arbitrary\ base,\n\ 2-36.\n\n\ @author\ Rod\ Howell\n\ \ \ \ \ \ \ \ \ (<a\ href\="mailto\:howell@cis.ksu.edu">howell@cis.ksu.edu</a>)\n
+comment1.params=b\ s
+comment1.target=NumericDocument(int,\ java.lang.String)
+comment1.text=\n\ Constructs\ a\ new\ NumericDocument.\n\ @param\ b\ \ The\ radix\ in\ which\ the\ numeric\ content\ is\ represented.\n\ @param\ s\ \ The\ initial\ content\ of\ the\ document.\n
+comment2.params=offs\ str\ a
+comment2.target=void\ insertString(int,\ java.lang.String,\ javax.swing.text.AttributeSet)
+comment2.text=\n\ Inserts\ the\ given\ String\ into\ the\ document,\ removing\ any\ illegal\n\ characters.\n\ @param\ offs\ \ The\ offset\ at\ which\ the\ String\ is\ inserted.\n\ @param\ str\ \ \ The\ String\ to\ be\ inserted.\n\ @param\ a\ \ \ \ \ The\ attributes\ for\ the\ inserted\ content.\n\ @throws\ \ \ BadLocationException\ \ If\ offs\ does\ not\ represent\ a\ valid\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ insertion\ location.\n
+comment3.params=
+comment3.target=boolean\ isModified()
+comment3.text=\n\ Returns\ true\ iff\ this\ NumericDocument\ has\ been\ modified\ since\ its\n\ creation.\n
+comment4.params=offs\ len
+comment4.target=void\ remove(int,\ int)
+comment4.text=\n\ Removes\ the\ specified\ substring\ from\ this\ NumericDocument.\ \ If\ the\n\ content\ has\ not\ been\ modified\ since\ its\ creation,\ the\ removal\ is\n\ suppressed.\ \ This\ forces\ the\ first\ modification\ to\ be\ an\ insertion,\n\ which\ in\ fact\ replaces\ any\ content\ entirely.\n\ @throws\ BadLocationException\ \ If\ the\ given\ remove\ position\ is\ not\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ a\ valid\ position\ within\ the\ document.\n
+numComments=5

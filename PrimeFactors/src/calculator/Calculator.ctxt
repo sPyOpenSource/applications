@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=Calculator
+comment0.text=\n\ An\ interface\ abstracting\ a\ calculator.\n\n\ @author\ Rod\ Howell\n\ \ \ \ \ \ \ \ \ (<a\ href\="mailto\:howell@cis.ksu.edu">howell@cis.ksu.edu</a>)\n
+comment1.params=op\ input
+comment1.target=void\ doOperation(Operation,\ java.lang.String)
+comment1.text=\n\ Performs\ operation\ <var>op</var>,\ using\ <var>input</var>\ as\ a\ possible\n\ source\ of\ operand(s).\n\ @throws\ \ \ Exception\ \ May\ throw\ any\ Exception.\n
+comment2.params=change\ input
+comment2.target=void\ changeSettings(java.lang.Object,\ java.lang.String)
+comment2.text=\n\ This\ method\ may\ be\ implemented\ to\ change\ any\ settings\ of\ the\ calculator.\n\ @param\ change\ \ \ Encodes\ the\ change\ to\ the\ settings.\n\ @param\ input\ \ \ \ May\ contain\ input\ affected\ by\ the\ change.\n\ @throws\ \ \ \ Exception\ \ May\ throw\ any\ Exception.\n
+numComments=3

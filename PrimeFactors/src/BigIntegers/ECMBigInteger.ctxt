@@ -1,0 +1,24 @@
+#BlueJ class context
+comment0.target=ECMBigInteger
+comment0.text=\n\n\ @author\ X.\ Wang\n
+comment1.params=val
+comment1.target=ECMBigInteger(java.lang.String)
+comment10.params=Mult\ M\ K
+comment10.target=java.math.BigInteger[]\ Calculate(java.math.BigInteger[],\ java.math.BigInteger[],\ java.math.BigInteger)
+comment2.params=
+comment2.target=java.math.BigInteger\ Sum()
+comment3.params=
+comment3.target=java.math.BigInteger\ Totient()
+comment4.params=N
+comment4.target=int\ Totient(int)
+comment5.params=
+comment5.target=int\ Moebius()
+comment6.params=N
+comment6.target=int\ Moebius(int)
+comment7.params=BigBase\ Expon\ Incre
+comment7.target=void\ InsertAurifFactors(java.math.BigInteger,\ int,\ int)
+comment8.params=L\ BigBase
+comment8.target=void\ GetAurifeuilleFactor(int,\ java.math.BigInteger)
+comment9.params=
+comment9.target=boolean\ ComputeFourSquares()
+numComments=11

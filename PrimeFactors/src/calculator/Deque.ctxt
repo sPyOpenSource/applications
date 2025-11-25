@@ -1,0 +1,31 @@
+#BlueJ class context
+comment0.target=Deque
+comment0.text=\n\ A\ double-ended\ queue\ which\ grows\ as\ needed.\n\n\ @author\ Rod\ Howell\n\ \ \ \ \ \ \ \ \ (<a\ href\="mailto\:howell@cis.ksu.edu">howell@cis.ksu.edu</a>)\n
+comment1.params=
+comment1.target=boolean\ isEmpty()
+comment1.text=\n\ Returns\ <tt>true</tt>\ iff\ the\ Deque\ is\ empty.\n
+comment2.params=
+comment2.target=int\ getSize()
+comment2.text=\n\ Returns\ the\ number\ of\ elements\ in\ the\ Deque.\n
+comment3.params=o
+comment3.target=void\ addToBack(java.lang.Object)
+comment3.text=\n\ Inserts\ the\ given\ Object\ at\ the\ back\ of\ the\ Deque.\n
+comment4.params=o
+comment4.target=void\ addToFront(java.lang.Object)
+comment4.text=\n\ Inserts\ the\ given\ Object\ at\ the\ front\ of\ the\ Deque.\n
+comment5.params=
+comment5.target=java.lang.Object\ getFront()
+comment5.text=\n\ Returns\ the\ Object\ at\ the\ front\ of\ the\ Deque.\n\ @throws\ \ EmptyDequeException\ \ If\ the\ Deque\ is\ empty.\n
+comment6.params=
+comment6.target=java.lang.Object\ getBack()
+comment6.text=\n\ Returns\ the\ Object\ at\ the\ back\ of\ the\ Deque.\n\ @throws\ \ EmptyDequeException\ \ If\ the\ Deque\ is\ empty.\n
+comment7.params=
+comment7.target=java.lang.Object\ removeFromFront()
+comment7.text=\ Removes\ the\ Object\ at\ the\ front\ of\ the\ Deque\ and\ returns\ it.\n\ @throws\ \ EmptyDequeException\ \ If\ the\ Deque\ is\ empty.\n
+comment8.params=
+comment8.target=java.lang.Object\ removeFromBack()
+comment8.text=\ Removes\ the\ Object\ at\ the\ back\ of\ the\ Deque\ and\ returns\ it.\n\ @throws\ \ EmptyDequeException\ \ If\ the\ Deque\ is\ empty.\n
+comment9.params=
+comment9.target=void\ expand()
+comment9.text=\n\ Allocates\ additional\ space\ for\ the\ Deque.\ \ The\ size\ of\ the\ array\n\ is\ doubled.\n
+numComments=10

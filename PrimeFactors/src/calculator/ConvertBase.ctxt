@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=ConvertBase
+comment0.text=\n\ The\ convert\ base\ operation.\ \ Objects\ of\ this\ class\ are\ used\ to\n\ encapsulate\ a\ base\ change\ request.\n\n\ @author\ Rod\ Howell\n\ \ \ \ \ \ \ \ \ (<a\ href\="mailto\:howell@cis.ksu.edu">howell@cis.ksu.edu</a>)\n
+comment1.params=b
+comment1.target=ConvertBase(int)
+comment1.text=\n\ Constructs\ a\ new\ ConvertBase.\n\ @param\ \ b\ \ The\ new\ base.\n\ @throws\ IllegalArgumentException\ \ If\ b\ &lt;\ 2\ or\ b\ &gt;\ 36.\n
+comment2.params=
+comment2.target=int\ numOperands()
+comment2.text=\n\ Returns\ 0.\n
+comment3.params=
+comment3.target=int\ getBase()
+comment3.text=\n\ Returns\ the\ new\ base.\n
+numComments=4

@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=TwoToPower
+comment0.text=\n\ The\ operation\ of\ raising\ 2\ to\ an\ arbitrary\ power.\n\n\ @author\ Rod\ Howell\n\ \ \ \ \ \ \ \ \ (<a\ href\="mailto\:howell@cis.ksu.edu">howell@cis.ksu.edu</a>)\n
+comment1.params=
+comment1.target=int\ numOperands()
+comment1.text=\n\ Returns\ 1.\n
+comment2.params=operands
+comment2.target=java.lang.Object\ doOperation(java.lang.Object[])
+comment2.text=\n\ Returns\ the\ result\ of\ raising\ 2\ to\ the\ power\ of\ <tt>operands[0]</tt>.\n\ @throws\ ArrayIndexOutOfBoundsException\ \ If\ <tt>operands</tt>\ is\ not\ of\ \n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ length\ at\ least\ 1.\n\ @throws\ ClassCastException\ \ If\ <tt>operands[0]</tt>\ is\ not\ \n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ a\ <tt>BigInteger</tt>.\n\ @throws\ ArithmeticException\ If\ <tt>operands[0]</tt>\ is\ negative.\n
+numComments=3

@@ -1,0 +1,40 @@
+package model.building;
+
+import cr0s.javara.entity.building.EntityBuilding;
+import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+
+public class Barrack extends EntityBuilding {
+    public Barrack(double x, double y) {
+        //super(BuildingType.NORMAL, 980, "assets/png/barrack.png", 70, 70, x, y);
+        super(x,y,70,70,"");
+        setHp(980);
+        ImageView view = new ImageView(new Image("assets/png/barrack.png", true));
+        view.setX(x);
+        view.setY(y);
+        view.setFitWidth(70);
+        view.setFitHeight(70);
+        getImageViews().add(view);
+    }
+
+    @Override
+    public void renderEntity(Scene g) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public boolean shouldRenderedInPass(int passNum) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public float getHeightInTiles() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public float getWidthInTiles() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+}

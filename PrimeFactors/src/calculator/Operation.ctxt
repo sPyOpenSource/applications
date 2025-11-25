@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=Operation
+comment0.text=\n\ An\ interface\ abstracting\ any\ operation.\ \ The\ operation\ may\ be\n\ explicitly\ encoded\ in\ an\ implementing\ subclass,\ or\ may\ defer\ the\n\ operation\ to\ some\ method\ receiving\ the\ Operation\ as\ a\ parameter.\n\ Arithmetic\ operations\ should\ be\ encoded\ explicitly;\ in\ this\ case,\n\ subclasses\ should\ implement\ {@link\ EncodedOperation}.\ \ In\ this\ way,\n\ the\ encoding\ of\ an\ arithmetic\ operation\ can\ be\ decoupled\ from\ the\n\ control\ of\ evaluation\ order.\n\n\ @author\ Rod\ Howell\n\ \ \ \ \ \ \ \ \ (<a\ href\="mailto\:howell@cis.ksu.edu">howell@cis.ksu.edu</a>)\n
+comment1.params=
+comment1.target=int\ numOperands()
+comment1.text=\n\ @return\ the\ number\ of\ operands\ required\ by\ this\ Operation.\n
+numComments=2

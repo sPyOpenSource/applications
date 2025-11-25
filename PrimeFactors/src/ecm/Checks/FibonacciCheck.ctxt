@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.target=FibonacciCheck
+comment0.text=\n\n\ @author\ X.\ Wang\n
+comment1.params=NumberToFactor
+comment1.target=FibonacciCheck(BigIntegers.AprtCleInteger)
+comment2.params=Index\ BigOriginal
+comment2.target=void\ Factor(int,\ java.math.BigInteger)
+numComments=3

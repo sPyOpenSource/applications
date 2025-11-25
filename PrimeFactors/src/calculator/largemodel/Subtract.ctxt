@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.target=Subtract
+comment0.text=\n\ The\ subtract\ operation.\n\n\ @author\ Rod\ Howell\n\ \ \ \ \ \ \ \ \ (<a\ href\="mailto\:howell@cis.ksu.edu">howell@cis.ksu.edu</a>)\n
+comment1.params=
+comment1.target=int\ numOperands()
+comment1.text=\n\ @return\ 2.\n
+comment2.params=operands
+comment2.target=java.lang.Object\ doOperation(java.lang.Object[])
+comment2.text=\n\ Returns\ the\ result\ of\ subtracting\ operand[1]\ from\ operand[0].\n\ @throws\ ArrayIndexOutOfBoundsException\ \ If\ <tt>operands</tt>\ is\ not\ of\ \n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ length\ at\ least\ 2.\n\ @throws\ ClassCastException\ \ If\ the\ elements\ of\ <tt>operands</tt>\ are\ not\ \n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ both\ <tt>LargeInteger</tt>s.\n
+comment3.params=Nbr1\ Nbr2\ Diff\ NumberLength
+comment3.target=void\ SubtractBigNbr(int[],\ int[],\ int[],\ int)
+comment4.params=Nbr1\ Nbr2\ Diff\ NumberLength
+comment4.target=void\ SubtractBigNbr32(long[],\ long[],\ long[],\ int)
+numComments=5

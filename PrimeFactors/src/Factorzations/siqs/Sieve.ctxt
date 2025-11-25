@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=Sieve
+comment0.text=\n\n\ @author\ xuyi\n
+comment1.params=threadNumber
+comment1.target=Sieve(int)
+comment2.params=rowMatrixB\ rowMatrixBbeforeMerge\ index2\ primeSieveData\ rowPartials\ rowSquares\ biDividend\ NumberLength\ biT\ biR\ biU\ biV\ indexFactorsA\ oddPolynomial
+comment2.target=void\ SieveLocationHit(int[],\ int[],\ int,\ PrimeSieveData[],\ int[],\ int[],\ int[],\ int,\ int[],\ int[],\ int[],\ int[],\ int[],\ boolean)
+comment3.params=
+comment3.target=void\ run()
+comment3.text=
+numComments=4

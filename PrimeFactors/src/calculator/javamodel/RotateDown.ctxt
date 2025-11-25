@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=RotateDown
+comment0.text=\n\ The\ rotate\ down\ operation.\ \ Objects\ of\ this\ class\ are\ used\ to\n\ encapsulate\ a\ rotate\ down\ request.\n\n\ @author\ Rod\ Howell\n\ \ \ \ \ \ \ \ \ (<a\ href\="mailto\:howell@cis.ksu.edu">howell@cis.ksu.edu</a>)\n
+comment1.params=
+comment1.target=int\ numOperands()
+comment1.text=\n\ Returns\ 1.\n
+numComments=2

@@ -1,0 +1,26 @@
+#BlueJ class context
+comment0.target=AprtCleInteger
+comment0.text=\n\n\ @author\ spy\n
+comment1.params=val
+comment1.target=AprtCleInteger(java.lang.String)
+comment10.params=biS\ biTmp
+comment10.target=int\ CompareSquare(int[],\ int[])
+comment11.params=
+comment11.target=boolean\ isProbablePrimeRobin()
+comment2.params=Nbr2
+comment2.target=long\ BigNbrModLong(long)
+comment3.params=A\ B\ P\ PK\ PL\ PM\ Q
+comment3.target=void\ JacobiSum(int,\ int,\ int,\ int,\ int,\ int,\ int)
+comment4.params=PK\ PL\ PM\ P
+comment4.target=void\ JS_JW(int,\ int,\ int,\ int)
+comment5.params=PK\ PL\ PM\ P
+comment5.target=void\ NormalizeJS(int,\ int,\ int,\ int)
+comment6.params=PK\ PL\ PM\ P
+comment6.target=void\ JS_2(int,\ int,\ int,\ int)
+comment7.params=PK\ PL\ PM\ P
+comment7.target=void\ JS_E(int,\ int,\ int,\ int)
+comment8.params=PK\ PL\ PM\ P
+comment8.target=void\ NormalizeJW(int,\ int,\ int,\ int)
+comment9.params=Nbr\ Length\ Mod
+comment9.target=void\ BigNbrModN(int[],\ int,\ int[])
+numComments=12

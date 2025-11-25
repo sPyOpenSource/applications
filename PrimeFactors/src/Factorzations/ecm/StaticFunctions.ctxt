@@ -1,0 +1,20 @@
+#BlueJ class context
+comment0.target=StaticFunctions
+comment0.text=\n\n\ @author\ xuyi\n
+comment1.params=NbrMod\ Expon\ currentPrime
+comment1.target=long\ modPow(long,\ long,\ long)
+comment2.params=initial\ sieve\ sieve2310\ SmallPrime
+comment2.target=void\ GenerateSieve(int,\ byte[],\ byte[],\ int[])
+comment2.text=number\ of\ multiplications\ in\ a\ duplicate
+comment3.params=n\ v
+comment3.target=int\ lucas_cost(int,\ double)
+comment3.text=returns\ the\ number\ of\ modular\ multiplications
+comment4.params=N
+comment4.target=int\ Cos(int)
+comment5.params=Nbr1\ Nbr2\ Prod\ TestNbr\ NumberLength
+comment5.target=void\ MultBigNbrByLongModN(int[],\ long,\ int[],\ int[],\ int)
+comment6.params=Nbr1\ Nbr2\ Diff\ TestNbr\ NumberLength
+comment6.target=void\ SubtractBigNbrModN(int[],\ int[],\ int[],\ int[],\ int)
+comment7.params=Nbr\ Out\ NumberLength
+comment7.target=void\ LongToBigNbr(long,\ int[],\ int)
+numComments=8

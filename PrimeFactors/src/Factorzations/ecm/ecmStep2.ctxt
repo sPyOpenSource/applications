@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=ecmStep2
+comment0.text=\n\ small\ prime\ order\n\ @author\ X.\ Wang\n
+comment1.params=val
+comment1.target=ecmStep2(ecm.BigIntegers.GCDBigInteger)
+comment2.params=
+comment2.target=int\ step2()
+comment2.text=\n\ Second\ step\ (using\ improved\ standard\ continuation)\ \n
+numComments=3

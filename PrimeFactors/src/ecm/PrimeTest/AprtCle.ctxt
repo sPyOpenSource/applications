@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.target=AprtCle
+comment0.text=\n\n\ @author\ X.\ Wang\n
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+comment2.params=N
+comment2.target=boolean\ isProbablePrime(BigIntegers.AprtCleInteger)
+numComments=3

@@ -1,0 +1,22 @@
+#BlueJ class context
+comment0.target=MontgomeryInteger
+comment0.text=\n\ Example\:\ Curve25519\n\ @author\ X.\ Wang\n
+comment1.params=val
+comment1.target=MontgomeryInteger(java.lang.String)
+comment2.params=Nbr1\ Nbr2\ Prod
+comment2.target=void\ MontgomeryMult(int[],\ int[],\ int[])
+comment3.params=Nbr1\ Nbr2\ Prod
+comment3.target=void\ KaratsubaMontgomeryMult(int[],\ int[],\ int[])
+comment4.params=idxFactor1\ length\ endIndex
+comment4.target=void\ KaratsubaMultiply(int,\ int,\ int)
+comment5.params=idxMinuend\ idxSubtrahend\ idxResult\ length
+comment5.target=boolean\ absSubtract(int,\ int,\ int,\ int)
+comment6.params=idxAddend1\ idxAddend2\ idxSum\ length
+comment6.target=int\ KaratsubaAdd(int,\ int,\ int,\ int)
+comment7.params=
+comment7.target=long\ GetYieldFrequency()
+comment8.params=
+comment8.target=void\ ComputeMontgomeryParms()
+comment9.params=idxFactor1\ length
+comment9.target=void\ NormalMultiply(int,\ int)
+numComments=10

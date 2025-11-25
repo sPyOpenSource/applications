@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.target=ecmStep0
+comment0.text=\n\n\ @author\ X.\ Wang\n
+comment1.params=N
+comment1.target=ecmStep0(ecm.BigIntegers.GCDBigInteger)
+comment2.params=EC
+comment2.target=java.math.BigInteger\ step0(int)
+numComments=3

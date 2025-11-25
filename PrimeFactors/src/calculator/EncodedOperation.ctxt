@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=EncodedOperation
+comment0.text=\n\ An\ interface\ abstracting\ any\ operation\ explicitly\ encoded\ within\ the\n\ implementing\ class.\ \ Arithmetic\ operations\ should\ be\ encoded\ in\ this\n\ fashion\ so\ as\ to\ decouple\ the\ encoding\ of\ the\ operation\ from\ the\ control\n\ of\ evaluation\ order.\n
+comment1.params=operands
+comment1.target=java.lang.Object\ doOperation(java.lang.Object[])
+comment1.text=\n\ Performs\ the\ operation.\n\ @param\ \ operands\ \ \ The\ operands\ for\ the\ operation.\ \ The\ length\ of\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this\ array\ should\ match\ the\ value\ returned\ by\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ {@link\ Operation\#numOperands()}.\n\ @return\ The\ result\ of\ the\ operation.\n\ @throws\ ArrayIndexOutOfBoundsException\ \ If\ <var>operands</var>\ has\ an\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ incorrect\ length.\n\ @throws\ ClassCastException\ \ \ \ \ \ \ \ If\ <var>operands</var>\ contains\ an\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ element\ of\ an\ unexptected\ type.\n\ @throws\ Exception\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ The\ operation\ may\ throw\ any\ Exception.\n
+numComments=2
