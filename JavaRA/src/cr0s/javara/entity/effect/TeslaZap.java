@@ -69,7 +69,7 @@ public class TeslaZap extends Projectile implements IEffect {
     }
 
     @Override
-    public ImageView renderEntity(Scene g) {
+    public ImageView renderEntity() {
         return null;
     }
     

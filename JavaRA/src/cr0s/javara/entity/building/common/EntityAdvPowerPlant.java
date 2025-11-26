@@ -56,7 +56,7 @@ public class EntityAdvPowerPlant extends EntityBuilding implements ISelectable, 
     }
 
     @Override
-    public ImageView renderEntity(Scene g) {
+    public ImageView renderEntity() {
 	//double nx = posX;
 	//double ny = posY;
 

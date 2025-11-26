@@ -62,7 +62,7 @@ public class EntityRadarDome extends EntityBuilding implements ISelectable, IPow
     }
 
     @Override
-    public ImageView renderEntity(Scene g) {
+    public ImageView renderEntity() {
 	//double nx = posX;
 	//double ny = posY;
 

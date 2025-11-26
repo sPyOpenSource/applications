@@ -111,7 +111,7 @@ public class EntityWarFactory extends EntityBuilding implements ISelectable, ISh
     }
 
     @Override
-    public ImageView renderEntity(Scene g) {
+    public ImageView renderEntity() {
 	//double nx = posX;
 	//double ny = posY;
 

@@ -75,7 +75,7 @@ public class EntityHelipad extends EntityBuilding implements ISelectable, IPower
     }
 
     @Override
-    public ImageView renderEntity(Scene g) {
+    public ImageView renderEntity() {
 	//double nx = posX;
 	//double ny = posY;
 

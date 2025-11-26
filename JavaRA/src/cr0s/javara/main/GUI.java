@@ -20,12 +20,20 @@ import javafx.scene.Camera;
 import javafx.scene.PerspectiveCamera;
 import javafx.scene.paint.Color;
 import javafx.scene.Scene;
-import javafx.scene.layout.BorderPane;
+import javafx.scene.input.KeyCode;
+import static javafx.scene.input.KeyCode.DOWN;
+import static javafx.scene.input.KeyCode.HOME;
+import static javafx.scene.input.KeyCode.LEFT;
+import static javafx.scene.input.KeyCode.RIGHT;
+import static javafx.scene.input.KeyCode.UP;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.input.ScrollEvent;
 
 public class GUI extends Application {
     public ResourceManager rm;
     public static boolean DEBUG_MODE = false;
-
+    
+    private Stage stage;
     private StateMainMenu menu;
     private StateGameMap gameMap;
     private static GUI instance;
@@ -40,6 +48,7 @@ public class GUI extends Application {
 
     private GameSideBar gsb;
     private ShroudRenderer observerShroudRenderer;
+    private int zTrans = -800;
 
     public GUI() {
 	//SoundStore.get().init();
@@ -83,6 +92,7 @@ public class GUI extends Application {
 
     @Override
     public void start(Stage stage) throws InterruptedException {
+        this.stage = stage;
         startNewGame("haos-ridges");
 	//this.addState(new StateMainMenu());		
 	//this.addState(new StateGameMap(arg0));
@@ -120,7 +130,7 @@ public class GUI extends Application {
 	rm = ResourceManager.getInstance();
 	rm.loadBibs();
 
-	camera = new PerspectiveCamera();
+	camera = new PerspectiveCamera(true);
 	/*try {
 	    camera.init(this.getContainer());
 	} catch (SlickException e1) {
@@ -147,9 +157,7 @@ public class GUI extends Application {
 	bo = new BuildingOverlay(player, w);
 
 	w.addPlayer(player);
-
-	Pos playerSpawn = player.getPlayerSpawnPoint();	
-
+        
 	//this.getCamera().setOffset(-Math.max(w.getMap().getBounds().getMinX(), (playerSpawn.getX() * 24) - this.getContainer().getWidth() / 2), -Math.max(w.getMap().getBounds().getMinY(), (playerSpawn.getY() * 24)));
 
 	//this.getCamera().scrollCenterToCell(playerSpawn);
@@ -161,7 +169,55 @@ public class GUI extends Application {
 	Player otherPlayer = new AIPlayer(w, "NormalAI", Alignment.SOVIET, Color.rgb(128, 0, 0));
 	player.setTeam(team2);
 	w.addPlayer(otherPlayer);
-        w.render(new Scene(new BorderPane(), 800, 600));
+        
+        Scene scene = new Scene(w.render(), 800, 600);
+	Pos playerSpawn = player.getPlayerSpawnPoint();	
+        System.out.println(playerSpawn);
+        camera.setFarClip(Integer.MAX_VALUE);
+        camera.setNearClip(0.1);
+        scene.setCamera(camera);
+        scene.getCamera().setTranslateX(playerSpawn.getX()*24);
+        scene.getCamera().setTranslateY(playerSpawn.getY()*24);
+        scene.setOnScroll((ScrollEvent event) -> {
+            zTrans += event.getDeltaY() * (zTrans / -50);
+            if(zTrans < -1000) zTrans = -1000;
+            if(zTrans > -400) zTrans = -400;
+        });
+        scene.setOnKeyPressed((KeyEvent e) -> {
+            KeyCode code = e.getCode();
+            switch (code) {
+                case LEFT:
+                    scene.getCamera().setTranslateX(scene.getCamera().getTranslateX() - 100);
+                    break;
+                case RIGHT:
+                    scene.getCamera().setTranslateX(scene.getCamera().getTranslateX() + 100);
+                    break;
+                case UP:
+                    scene.getCamera().setTranslateY(scene.getCamera().getTranslateY() - 100);
+                    break;
+                case DOWN:
+                    scene.getCamera().setTranslateY(scene.getCamera().getTranslateY() + 100);
+                    break;
+                case HOME:
+                    //g.xRotate.setAngle(-90);
+                    //g.yRotate.setAngle(0);
+                    //g.zRotate.setAngle(0);
+                    scene.getCamera().setTranslateX(800);
+                    scene.getCamera().setTranslateY(800);
+                    scene.getCamera().setTranslateZ(-800);
+                    break;
+                default:
+                    break;
+            }
+        });
+        new javafx.animation.AnimationTimer() {
+            @Override
+            public void handle(long now) {
+                scene.getCamera().setTranslateZ(zTrans);
+            }
+        }.start();
+        stage.setScene(scene);
+        stage.show();
     }
 
     public Player getPlayer() {

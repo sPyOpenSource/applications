@@ -142,8 +142,8 @@ public class EntityHarvester extends EntityVehicle implements ISelectable, IShro
     }
 
     @Override
-    public ImageView renderEntity(Scene g) {
-	super.renderEntity(g);
+    public ImageView renderEntity() {
+	//super.renderEntity(g);
 
 	if (GUI.DEBUG_MODE) {
 	    //g.setLineWidth(1);
@@ -170,7 +170,7 @@ public class EntityHarvester extends EntityVehicle implements ISelectable, IShro
 
 	texture.endUse();
 
-	drawPath(g);
+	//drawPath(g);
         return null;
     }
 

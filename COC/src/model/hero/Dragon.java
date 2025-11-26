@@ -38,5 +38,5 @@ public class Dragon extends EntityAircraft{
     @Override
     protected Activity moveToRange(Pos cellPos, int range){ return null; }
     @Override
-    public ImageView renderEntity(Scene g){ return null; }
+    public ImageView renderEntity(){ return null; }
 }

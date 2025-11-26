@@ -43,7 +43,7 @@ public class SequencePlayer extends Entity implements IEffect {
     }
 
     @Override
-    public ImageView renderEntity(Scene g) {
+    public ImageView renderEntity() {
 	if (!this.seq.isFinished()) {
 	    //this.seq.render(this.getTranslateX(), this.getTranslateY());
 	}

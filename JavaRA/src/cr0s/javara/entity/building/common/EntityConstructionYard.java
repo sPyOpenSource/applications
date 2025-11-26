@@ -63,7 +63,7 @@ public class EntityConstructionYard extends EntityBuilding implements ISelectabl
     }
 
     @Override
-    public ImageView renderEntity(Scene g) {
+    public ImageView renderEntity() {
 	//double nx = posX;
 	//double ny = posY;
 
@@ -87,7 +87,7 @@ public class EntityConstructionYard extends EntityBuilding implements ISelectabl
 		Production p = this.owner.getBase().getProductionQueue().getProductionForBuilding(currentlyBuilding);
 
 		if (p.isBuilding()) {
-		    p.drawProductionButton(g, this.boundingBox.getX(), this.boundingBox.getY(), Color.rgb(255, 255, 255, 1), true);
+		    //p.drawProductionButton(g, this.boundingBox.getX(), this.boundingBox.getY(), Color.rgb(255, 255, 255, 1), true);
 		}
 	    }
 	}

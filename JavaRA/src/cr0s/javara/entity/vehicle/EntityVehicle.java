@@ -68,7 +68,7 @@ public abstract class EntityVehicle extends MobileEntity implements IShroudRevea
 
 
     @Override
-    public ImageView renderEntity(Scene g) {
+    public ImageView renderEntity() {
 	//super.renderEntity(g);
         return null;
     }

@@ -36,5 +36,5 @@ public class Panda extends EntityInfantry{
     @Override
     public int getRevealingRange(){ return 0; }
     @Override
-    public ImageView renderEntity(Scene g){ return null; }
+    public ImageView renderEntity(){ return null; }
 }

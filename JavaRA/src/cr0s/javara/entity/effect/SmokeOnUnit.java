@@ -61,7 +61,7 @@ public class SmokeOnUnit extends Entity implements IEffect {
     }
 
     @Override
-    public ImageView renderEntity(Scene g) {
+    public ImageView renderEntity() {
 	return this.tex.getSubImage(0, 49 + this.frameIndex);//.draw(this.parentUnit.getPosition().getX() - this.width / 2, this.parentUnit.getPosition().getY() - this.height / 2);
     }
 

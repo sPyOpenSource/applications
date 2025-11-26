@@ -66,7 +66,7 @@ public class TeslaZapRenderer extends Projectile implements IEffect {
     }
 
     @Override
-    public ImageView renderEntity(Scene g) {
+    public ImageView renderEntity() {
 	this.tex.startUse();
 
 	this.p = this.guided.isValidFor(this.sourceActor) ? this.guidedTarget.getPosition() : this.passiveTargetPos;	

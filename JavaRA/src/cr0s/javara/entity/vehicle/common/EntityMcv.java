@@ -82,8 +82,8 @@ public class EntityMcv extends EntityVehicle implements ISelectable, IDeployable
     }
 
     @Override
-    public ImageView renderEntity(Scene g) {
-	super.renderEntity(g);
+    public ImageView renderEntity() {
+	//super.renderEntity(g);
 	
 	if (GUI.DEBUG_MODE) {
 	    //g.setLineWidth(1);

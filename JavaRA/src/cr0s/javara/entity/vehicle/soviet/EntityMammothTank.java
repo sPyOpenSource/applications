@@ -130,8 +130,8 @@ public class EntityMammothTank extends EntityVehicle implements ISelectable, IHa
     }
 
     @Override
-    public ImageView renderEntity(Scene g) {
-	super.renderEntity(g);
+    public ImageView renderEntity() {
+	//super.renderEntity(g);
 
 	if (GUI.DEBUG_MODE) {
 	    //g.setLineWidth(1);
@@ -144,7 +144,7 @@ public class EntityMammothTank extends EntityVehicle implements ISelectable, IHa
 
 	texture.startUse();
 	//texture.getSubImage(0, currentFacing).drawEmbedded(this.getTextureX(), this.getTextureY(), TEXTURE_WIDTH, TEXTURE_HEIGHT);
-	this.turret.render(g);
+	//this.turret.render(g);
 	texture.endUse();
 
 	/*for (Armament arma : this.attack.armaments) {
@@ -181,7 +181,7 @@ public class EntityMammothTank extends EntityVehicle implements ISelectable, IHa
 
 	}*/
 	
-	drawPath(g);
+	//drawPath(g);
 
 	//g.getFont().drawString(this.posX, this.posY + this.boundingBox.getHeight() + 5, (this.isIdle()) ? "idle" : this.currentActivity.getClass().getSimpleName());
         return null;

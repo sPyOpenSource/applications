@@ -49,7 +49,7 @@ public class MuzzleFlash extends Entity implements IEffect {
     }
 
     @Override
-    public ImageView renderEntity(Scene g) {
+    public ImageView renderEntity() {
 	return null;//this.seq.render(this.getTranslateX() - this.width / 2, this.getTranslateY() - this.height / 2);
     }
 

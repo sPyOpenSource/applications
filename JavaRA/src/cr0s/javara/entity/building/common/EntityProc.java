@@ -118,7 +118,7 @@ public class EntityProc extends EntityBuilding implements ISelectable, IPowerCon
     }
 
     @Override
-    public ImageView renderEntity(Scene g) {
+    public ImageView renderEntity() {
 	//double nx = posX;
 	//double ny = posY;
 

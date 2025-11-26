@@ -166,7 +166,7 @@ public abstract class EntityBuilding extends EntityActor {
     }
 
     @Override
-    public abstract ImageView renderEntity(Scene g);
+    public abstract ImageView renderEntity();
 
     @Override
     public abstract boolean shouldRenderedInPass(int passNum);

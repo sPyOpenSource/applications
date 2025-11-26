@@ -91,7 +91,7 @@ public class EntityFireTurret extends Defensive implements ISelectable, IPowerCo
     }
 
     @Override
-    public ImageView renderEntity(Scene g) {
+    public ImageView renderEntity() {
 	//double nx = posX;
 	//double ny = posY;
 

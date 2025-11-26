@@ -43,7 +43,7 @@ public class MoveFlash extends Entity implements IEffect {
     }
 
     @Override
-    public ImageView renderEntity(Scene g) {
+    public ImageView renderEntity() {
 	return tex.getSubImage(0, frameIndex);//.draw(this.posX - 12, this.posY - 12);
     }
 

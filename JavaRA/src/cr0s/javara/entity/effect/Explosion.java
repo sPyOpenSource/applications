@@ -55,7 +55,7 @@ public class Explosion extends Entity implements IEffect {
     }
 
     @Override
-    public ImageView renderEntity(Scene g) {
+    public ImageView renderEntity() {
 	return tex.getSubImage(0, frameIndex);//.draw(this.posX - this.width / 2, this.posY - this.height / 2);
     }
 

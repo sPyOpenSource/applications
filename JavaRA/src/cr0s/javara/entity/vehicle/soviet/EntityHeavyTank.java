@@ -113,8 +113,8 @@ public class EntityHeavyTank extends EntityVehicle implements ISelectable, IHave
     }
 
     @Override
-    public ImageView renderEntity(Scene g) {
-	super.renderEntity(g);
+    public ImageView renderEntity() {
+	//super.renderEntity(g);
 
 	if (GUI.DEBUG_MODE) {
 	    //g.setLineWidth(1);
@@ -127,7 +127,7 @@ public class EntityHeavyTank extends EntityVehicle implements ISelectable, IHave
 
 	texture.startUse();
 	//texture.getSubImage(0, currentFacing).drawEmbedded(this.getTextureX(), this.getTextureY(), TEXTURE_WIDTH, TEXTURE_HEIGHT);
-	this.turret.render(g);
+	//this.turret.render(g);
 	texture.endUse();
 
 	/*
@@ -157,7 +157,7 @@ public class EntityHeavyTank extends EntityVehicle implements ISelectable, IHave
 		    g.fillRect(muzzlePos.getX() - 2, muzzlePos.getY() - 2, 4, 4);
 		}*/
 
-	drawPath(g);
+	//drawPath(g);
         return null;
     }
 

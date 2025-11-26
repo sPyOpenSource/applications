@@ -75,7 +75,7 @@ public class EntityBarracks extends EntityBuilding implements ISelectable, IPowe
     }
 
     @Override
-    public ImageView renderEntity(Scene g) {
+    public ImageView renderEntity() {
 	//double nx = posX;
 	//double ny = posY;
 

@@ -98,8 +98,8 @@ public class EntityV2Launcher extends EntityVehicle implements ISelectable, IHav
     }
 
     @Override
-    public ImageView renderEntity(Scene g) {
-	super.renderEntity(g);
+    public ImageView renderEntity() {
+	//super.renderEntity(g);
 
 	if (GUI.DEBUG_MODE) {
 	    /*g.setLineWidth(1);
@@ -120,7 +120,7 @@ public class EntityV2Launcher extends EntityVehicle implements ISelectable, IHav
 	
 	texture.endUse();
 
-	drawPath(g);
+	//drawPath(g);
         return null;
     }
 

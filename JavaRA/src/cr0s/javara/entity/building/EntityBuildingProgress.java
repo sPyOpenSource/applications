@@ -72,7 +72,7 @@ public class EntityBuildingProgress extends EntityBuilding implements IShroudRev
     }
 
     @Override
-    public ImageView renderEntity(Scene g) {
+    public ImageView renderEntity() {
 	if (this.makeTexture == null) {
 	    return null;
 	}

@@ -218,8 +218,8 @@ public abstract class EntityInfantry extends MobileEntity implements IShroudReve
     }
 
     @Override
-    public ImageView renderEntity(Scene g) {
-	drawPath(g);
+    public ImageView renderEntity() {
+	//drawPath(g);
 
 	//if (this.sheet != null) {
 	//this.currentSequence.render(this.getTranslateX(), this.getTranslateY());

@@ -36,6 +36,7 @@ import cr0s.javara.util.Pos;
 import cr0s.javara.util.SpriteSheet;
 
 import javafx.scene.Scene;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
@@ -178,8 +179,8 @@ public class World {
      * Renders all world's graphics.
      * @param g graphic output object
      */
-    public void render(Scene g) {
-	Rectangle mapBounds = null;//camera.getMapTilesBounds();
+    public BorderPane render() {
+	BorderPane mapBounds;
 	//int mapX = (int) mapBounds.getX();
 	//int mapY = (int) mapBounds.getY();
 
@@ -189,13 +190,9 @@ public class World {
 	    e1.printStackTrace();
 	}		
 
-        try {
             //Profiler.getInstance().startForSection("r: Map");
-            map.start(new Stage());
+            mapBounds = map.start();
             //Profiler.getInstance().stopForSection("r: Map");
-        } catch (InterruptedException ex) {
-            System.getLogger(World.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
-        }
 	
 	//Color pColor = g.getColor();
 
@@ -205,7 +202,7 @@ public class World {
 	    if (!e.isDead() && e.isVisible) { 
 		//if (e instanceof EntityBuilding) {
 		    //renderEntityBib((EntityBuilding) e);
-                    map.root.getChildren().add(e.renderEntity(g));
+                    mapBounds.getChildren().add(e.renderEntity());
 		//}
 	    }
 	}
@@ -215,10 +212,10 @@ public class World {
 	    for (Entity e : this.entities) {		    
 		if (!e.isDead() && e.isVisible && e.shouldRenderedInPass(i)) { 
 		    //e.renderEntity(g);
-                    map.root.getChildren().add(e.renderEntity(g));
+                    mapBounds.getChildren().add(e.renderEntity());
 		    if (e instanceof ITargetLines && e.isSelected) {
 			for (TargetLine tl : ((ITargetLines) e).getTargetLines()) {
-			    tl.render(g);
+			    //tl.render(g);
 			}
 		    }
 		}
@@ -242,7 +239,7 @@ public class World {
 	    }
 	}	
 
-	renderSelectionBoxes(g);
+	//renderSelectionBoxes(g);
 	
 	//Profiler.getInstance().stopForSection("r: Entity");
 
@@ -255,6 +252,7 @@ public class World {
 	//Profiler.getInstance().stopForSection("r: Shroud");
 	
 	GUI.getInstance().getBuildingOverlay().render(g);*/
+        return mapBounds;
     }
 
     /**

@@ -25,21 +25,15 @@ import cr0s.javara.resources.ResourceManager;
 import cr0s.javara.resources.ShpTexture;
 import cr0s.javara.util.Pos;
 
-import javafx.application.Application;
-import javafx.scene.PerspectiveCamera;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.ScrollEvent;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
 
-public class TileMap extends Application {
+public class TileMap {
     private short width, height;
-    private int zTrans = -800;
     private TheaterCache theater;
     private TileSet tileSet;
 
@@ -62,7 +56,8 @@ public class TileMap extends Application {
     private Assets assets = new Assets();
     public SmudgeLayer smudges;
     public BorderPane root = new BorderPane();
-
+    public Scene scene;
+    
     public TileMap(){
         this("haos-ridges");
         //this("forest-path");
@@ -125,11 +120,6 @@ public class TileMap extends Application {
 	} catch (FileNotFoundException e) {
 	    e.printStackTrace();
 	}
-    }
-
-    public static void main(String[] args){
-        //TileMap map = new TileMap(null, "forest-path");
-        launch();
     }
     
     private void loadBinaryMap(String mapName) {
@@ -283,9 +273,8 @@ public class TileMap extends Application {
 	return this.bounds;
     }
 
-    @Override
-    public void start(Stage c) throws InterruptedException {
-        //BorderPane root = new BorderPane();
+    public BorderPane start() {
+        BorderPane root = new BorderPane();
         //RotateCamera g = new RotateCamera();
 	//this.theater.getSpriteSheet().startUse();
 	// Draw map entities
@@ -313,51 +302,16 @@ public class TileMap extends Application {
         //ScrollPane scrollPane = new ScrollPane(root);
         //scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
         //scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
-        Scene scene = new Scene(root, 800, 600);
+        /*Scene scene = new Scene(root, 800, 600);
         javafx.scene.Camera camera = new PerspectiveCamera(true);
         camera.setFarClip(Integer.MAX_VALUE);
         camera.setNearClip(0.1);
         scene.setCamera(camera);
         scene.getCamera().setTranslateX(800);
-        scene.getCamera().setTranslateY(800);
-        c.setScene(scene);
-        c.show();
-        scene.setOnScroll((ScrollEvent event) -> {
-            zTrans += event.getDeltaY() * (zTrans / -50);
-        });
-        scene.setOnKeyPressed((KeyEvent e) -> {
-            KeyCode code = e.getCode();
-            switch (code) {
-                case LEFT:
-                    scene.getCamera().setTranslateX(scene.getCamera().getTranslateX() - 100);
-                    break;
-                case RIGHT:
-                    scene.getCamera().setTranslateX(scene.getCamera().getTranslateX() + 100);
-                    break;
-                case UP:
-                    scene.getCamera().setTranslateY(scene.getCamera().getTranslateY() - 100);
-                    break;
-                case DOWN:
-                    scene.getCamera().setTranslateY(scene.getCamera().getTranslateY() + 100);
-                    break;
-                case HOME:
-                    //g.xRotate.setAngle(-90);
-                    //g.yRotate.setAngle(0);
-                    //g.zRotate.setAngle(0);
-                    scene.getCamera().setTranslateX(800);
-                    scene.getCamera().setTranslateY(800);
-                    scene.getCamera().setTranslateZ(-800);
-                    break;
-                default:
-                    break;
-            }
-        });
-        new javafx.animation.AnimationTimer() {
-            @Override
-            public void handle(long now) {
-                scene.getCamera().setTranslateZ(zTrans);
-            }
-        }.start();
+        scene.getCamera().setTranslateY(800);*/
+        //c.setScene(scene);
+        //c.show();
+        return root;
     }
 
     public boolean isInMap(double x, double y) {

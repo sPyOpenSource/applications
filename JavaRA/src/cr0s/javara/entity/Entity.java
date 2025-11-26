@@ -84,7 +84,7 @@ public abstract class Entity extends Node {
     }
 
     public abstract void updateEntity(int delta);
-    public abstract ImageView renderEntity(Scene g);
+    public abstract ImageView renderEntity();
     public abstract boolean shouldRenderedInPass(int passNum);
 
     public void drawSelectionBox(Scene g) {

@@ -99,7 +99,7 @@ public class EntityTeslaCoil extends Defensive implements ISelectable, IPowerCon
     }
 
     @Override
-    public ImageView renderEntity(Scene g) {
+    public ImageView renderEntity() {
 	//double nx = posX;
 	//double ny = posY;
 
