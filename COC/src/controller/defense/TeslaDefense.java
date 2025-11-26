@@ -19,7 +19,6 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class TeslaDefense extends Thread {
     public TeslaDefense(AnchorPane root, Map map, Tesla tesla, AtomicInteger capacityInt) {
-        this.isDestroyed = false;
         this.root = root;
         this.map = map;
         this.tesla = tesla;
@@ -29,7 +28,6 @@ public class TeslaDefense extends Thread {
         circleImpact.setFitWidth(42.5);
     }
 
-    private boolean isDestroyed;
     private final AnchorPane root;
     private final Map map;
     private final Tesla tesla;
@@ -38,9 +36,9 @@ public class TeslaDefense extends Thread {
      
     @Override
     public synchronized void run() {
-        while (!isDestroyed) {
+        while (!tesla.isDead()) {
             MobileEntity hero = selectHero();
-            if (isDestroyed)
+            if (tesla.isDead())
                 break;
             if (hero != null)
                 attack(hero);
@@ -60,9 +58,9 @@ public class TeslaDefense extends Thread {
             }
         }
         if (map.getBuildingsMap().isEmpty() || tesla.getHp() <= 0 || (map.getAttackingHeroes().isEmpty() && capacityInt.get() == 0)) {
-            isDestroyed = true;
+            tesla.setDead();
         }
-        if (!isDestroyed && hero == null){
+        if (!tesla.isDead() && hero == null){
             try {
                 wait(1000);
             } catch (InterruptedException e) {
@@ -77,7 +75,7 @@ public class TeslaDefense extends Thread {
         LineTo lineTo = new LineTo(hero.getViewHero().localToScene(hero.getViewHero().getLayoutBounds()).getCenterX(),hero.getViewHero().localToScene(hero.getViewHero().getLayoutBounds()).getCenterY());
         while (hero.getHp() >= 0 && Math.sqrt(Math.pow(moveTo.getX()-lineTo.getX(), 2)+ Math.pow(moveTo.getY()-lineTo.getY(), 2)) < tesla.getRange()){
             if (tesla.getHp() <= 0 || (map.getAttackingHeroes().isEmpty() && capacityInt.get() == 0)) {
-                isDestroyed = true;
+                tesla.setDead();
                 break;
             }
             ImageView finalCircleImpact = circleImpact;

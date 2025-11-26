@@ -74,7 +74,7 @@ public abstract class Weapon {
     public boolean isValidAgainst(Pos cellPos, World w) {
 	TargetType tt = w.getCellTargetType(cellPos);
 
-	boolean anyValidTarget = false;
+	boolean anyValidTarget;
 
 	for (TargetType weaponTargetType : this.validTargets) {
 	    anyValidTarget = (weaponTargetType == tt) && !this.invalidTargets.contains(tt);

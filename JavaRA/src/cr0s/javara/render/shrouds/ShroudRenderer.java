@@ -4,6 +4,7 @@ import cr0s.javara.main.GUI;
 import cr0s.javara.render.World;
 import cr0s.javara.resources.ResourceManager;
 import cr0s.javara.util.SpriteSheet;
+
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 

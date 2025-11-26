@@ -78,7 +78,7 @@ public class Battle extends Application {
     private final AtomicInteger capacityInt;
 
     private AnchorPane attack(Stage stage){
-        AnchorPane map = defensivePlayer.getMap().getMapView();
+        AnchorPane root = defensivePlayer.getMap().getMapView();
 
         ImageView imageViewDragon = new ImageView("assets/png/dragon_drag.png");
         imageViewDragon.setX(20);
@@ -170,61 +170,61 @@ public class Battle extends Application {
 //            new GoblinBalloonAttack(mouseEvent.getX(), mouseEvent.getY(), map, defensivePlayer.getMap()).start();
 //        });
 
-        map.setOnMouseClicked(mouseEvent -> {
+        root.setOnMouseClicked(mouseEvent -> {
                 if (imageViewBalloon.getEffect() != null && mouseEvent.getY() < 575 && capacityInt.get() >= 10){
                     capacityInt.addAndGet(-10);
                     capacity.setText("Capacity : " + capacityInt);
-                    new DefBalloonAttack(mouseEvent.getX(), mouseEvent.getY(), map, defensivePlayer.getMap()).start();
+                    new DefBalloonAttack(mouseEvent.getX(), mouseEvent.getY(), root, defensivePlayer.getMap()).start();
                 } else if (imageViewArcher.getEffect() != null  && mouseEvent.getY() < 575 && capacityInt.get() >= 30){
-                    capacityInt.addAndGet(-30);
+                    capacityInt.addAndGet(-3);
                     capacity.setText("Capacity : " + capacityInt);
-                    new ArcherBalloonAttack(mouseEvent.getX(), mouseEvent.getY(), map, defensivePlayer.getMap()).start();
+                    new ArcherBalloonAttack(mouseEvent.getX(), mouseEvent.getY(), root, defensivePlayer.getMap()).start();
                 } else if (imageViewGoblin.getEffect() != null && mouseEvent.getY() < 575 && capacityInt.get() >= 2){
                     capacityInt.addAndGet(-2);
                     capacity.setText("Capacity : " + capacityInt);
-                    new GoblinBalloonAttack(mouseEvent.getX(), mouseEvent.getY(), map, defensivePlayer.getMap()).start();
+                    new GoblinBalloonAttack(mouseEvent.getX(), mouseEvent.getY(), root, defensivePlayer.getMap()).start();
                 } else if (imageViewDragon.getEffect() != null && mouseEvent.getY() < 575 && capacityInt.get() >= 20){
                     capacityInt.addAndGet(-20);
                     capacity.setText("Capacity : " + capacityInt);
-                    new DragonAttack(mouseEvent.getX(), mouseEvent.getY(), map, defensivePlayer.getMap()).start();
+                    new DragonAttack(mouseEvent.getX(), mouseEvent.getY(), root, defensivePlayer.getMap()).start();
                 } else if (imageViewPanda.getEffect() != null && mouseEvent.getY() < 575 && capacityInt.get() >= 10){
                     capacityInt.addAndGet(-10);
                     capacity.setText("Capacity : " + capacityInt);
-                    new PandaAttack(mouseEvent.getX(), mouseEvent.getY(), map, defensivePlayer.getMap()).start();
+                    new PandaAttack(mouseEvent.getX(), mouseEvent.getY(), root, defensivePlayer.getMap()).start();
                 }
             if (capacityInt.get() < 30){
-                map.getChildren().remove(imageViewArcher);
+                root.getChildren().remove(imageViewArcher);
             }
             if (capacityInt.get() < 20){
-                map.getChildren().remove(imageViewDragon);
+                root.getChildren().remove(imageViewDragon);
             }
             if (capacityInt.get() < 10){
-                map.getChildren().remove(imageViewBalloon);
-                map.getChildren().remove(imageViewPanda);
+                root.getChildren().remove(imageViewBalloon);
+                root.getChildren().remove(imageViewPanda);
             }
             if (capacityInt.get() < 2){
-                map.getChildren().remove(imageViewGoblin);
+                root.getChildren().remove(imageViewGoblin);
             }
         });
 
-        map.getChildren().addAll(rectangle, imageViewCapacity, capacity);
+        root.getChildren().addAll(rectangle, imageViewCapacity, capacity);
 
         switch (attackingPlayer.getLevel()) {
             case 1:
-                map.getChildren().addAll(imageViewDragon, imageViewPanda);
+                root.getChildren().addAll(imageViewDragon, imageViewPanda);
                 break;
             case 2:
-                map.getChildren().addAll(imageViewDragon,imageViewPanda, imageViewBalloon);
+                root.getChildren().addAll(imageViewDragon,imageViewPanda, imageViewBalloon);
                 break;
             case 3:
-                map.getChildren().addAll(imageViewDragon, imageViewPanda, imageViewBalloon, imageViewGoblin);
+                root.getChildren().addAll(imageViewDragon, imageViewPanda, imageViewBalloon, imageViewGoblin);
                 break;
             case 4:
-                map.getChildren().addAll(imageViewBalloon, imageViewPanda, imageViewGoblin, imageViewArcher, imageViewDragon);
+                root.getChildren().addAll(imageViewBalloon, imageViewPanda, imageViewGoblin, imageViewArcher, imageViewDragon);
                 break;
             default:
                 break;
         }
-        return map;
+        return root;
     }
 }

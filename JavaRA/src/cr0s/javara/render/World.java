@@ -113,7 +113,6 @@ public class World {
 	    this.removeDeadTicks = 0;
 	}
 
-
 	for (Entity e : this.entitiesToAdd) {
 	    this.entities.add(e);
 	}
@@ -362,7 +361,6 @@ public class World {
     public Entity getEntityInPoint(double x, double y) {
 	return getEntityInPoint(x, y, false);
     }
-
 
     /**
      * Returns only non-building entity, located in point.

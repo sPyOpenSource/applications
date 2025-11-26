@@ -1,5 +1,7 @@
 package model.building;
 
+import cr0s.javara.entity.building.BuildingType;
+import cr0s.javara.entity.building.Defensive;
 import javafx.scene.Scene;
 
 public class ArcherTower extends Defensive {

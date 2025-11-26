@@ -19,12 +19,12 @@ import javafx.scene.shape.Rectangle;
  * @author Cr0s
  *
  */
-public class Theater {
+public class TheaterCache {
     /**
      * Set of tiles and templates to use in this theater.
      */
     private final TileSet tileSet;
-    private Random r = new Random();
+    private Random random = new Random();
     private SpriteSheet spriteSheet;
     private TileMap map;
 
@@ -41,9 +41,10 @@ public class Theater {
 
     /**
      * Creates new theater from specified TileSet.
-     * @param tileSet
+     * @param aMap
+     * @param aTileSet
      */
-    public Theater(final TileMap aMap, final TileSet aTileSet) {
+    public TheaterCache(final TileMap aMap, final TileSet aTileSet) {
 	this.tileSet = aTileSet;
 	this.map = aMap;
 
@@ -141,7 +142,7 @@ public class Theater {
 	BufferedImage img = texture.getAsImage(0, null); // Without remapping (team) color
 
 	// Determine texture bounds
-	Rectangle rect = new Rectangle(0, 0, img.getWidth(), img.getHeight());
+	Rectangle rect;
 
 	// Search free place for texture
 	boolean isSuccess = false;
@@ -286,7 +287,6 @@ public class Theater {
 	    return t.getSpriteSheetCoords();
 	} else return new Pos(-1, -1);
     }
-
 
     public TmpTexture getTileTmp(TileReference<Integer, Byte> tile) {
 	String tileName = this.tileSet.getTiles().get(tile.getTile());

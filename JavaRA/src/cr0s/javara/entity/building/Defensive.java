@@ -1,6 +1,5 @@
-package model.building;
+package cr0s.javara.entity.building;
 
-import cr0s.javara.entity.building.EntityBuilding;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 

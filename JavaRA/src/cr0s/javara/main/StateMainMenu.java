@@ -19,13 +19,13 @@ public class StateMainMenu extends Application {
 	public static final int STATE_ID = 0;
 	
 	private final ArrayList<MainMenuItem> menuItems = new ArrayList<>();
-	private Assets assets = new Assets();
+	private final Assets assets = new Assets();
         
 	private SpriteSheet ss;
 	private ImageView menuBackground;
 	private final int menuWidth = 480;
 	private final float menuX = 155f;
-	private float menuY = 25f;
+	private final float menuY = 25f;
 	
 	private ImageView menuFrameVert;
 	private final int MENU_FRAME_VERT_HEIGHT = 192, MENU_FRAME_VERT_WIDTH = 18;
@@ -35,7 +35,6 @@ public class StateMainMenu extends Application {
 	
 	private ImageView menuFrameTick;
 	private final int MENU_FRAME_TICK_HEIGHT = 20, MENU_FRAME_TICK_WIDTH = 18;
-	
 	private final int MENU_BUTTONS_SPACE = 25;
 	
 	private ImageView menuButton, menuButtonMouseover, menuButtonPressed;
@@ -44,7 +43,6 @@ public class StateMainMenu extends Application {
 	private final int MENU_BUTTON_WIDTH = menuWidth - MENU_BUTTONS_SPACE * 2;
 	
 	private int MENU_HEIGHT;
-	
 	private boolean leftMousePressed = false;
 	
 	Stage c;
@@ -69,7 +67,6 @@ public class StateMainMenu extends Application {
 						case 0:
 							//Main.getInstance().enterState(3);
 							break;
-							
 						case 2:
 							//c.exit();
 							break;
@@ -90,11 +87,10 @@ public class StateMainMenu extends Application {
 	    
 	    // Place menu on middle of screen
 	    //this.menuX = (c.getWidth() / 2) - this.menuWidth / 2;
-	    
 	}
 
 	public int getID() {
-		return this.STATE_ID;
+		return StateMainMenu.STATE_ID;
 	}
 
         @Override

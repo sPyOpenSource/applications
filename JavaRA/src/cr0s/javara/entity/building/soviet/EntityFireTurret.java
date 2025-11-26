@@ -13,13 +13,11 @@ import cr0s.javara.entity.IHaveCost;
 import cr0s.javara.entity.ISelectable;
 import cr0s.javara.entity.IShroudRevealer;
 import cr0s.javara.entity.building.BibType;
-import cr0s.javara.entity.building.EntityBuilding;
+import cr0s.javara.entity.building.Defensive;
 import cr0s.javara.entity.building.IPowerConsumer;
 import cr0s.javara.entity.turreted.IHaveTurret;
 import cr0s.javara.entity.turreted.Turret;
 
-import cr0s.javara.gameplay.Player;
-import cr0s.javara.gameplay.Team;
 import cr0s.javara.gameplay.Team.Alignment;
 import cr0s.javara.main.GUI;
 import cr0s.javara.order.InputAttributes;
@@ -35,10 +33,9 @@ import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 import javafx.scene.shape.Circle;
 
-public class EntityFireTurret extends EntityBuilding implements ISelectable, IPowerConsumer, IShroudRevealer, IHaveCost, IDefense, IHaveTurret {
+public class EntityFireTurret extends Defensive implements ISelectable, IPowerConsumer, IShroudRevealer, IHaveCost, IDefense, IHaveTurret {
 
     private SpriteSheet sheet;
-    
     private final String TEXTURE_NAME = "ftur.shp";
     private final String MAKE_TEXTURE_NAME = "fturmake.shp";
 
@@ -46,20 +43,17 @@ public class EntityFireTurret extends EntityBuilding implements ISelectable, IPo
     public static final int HEIGHT_TILES = 1;
 
     private static final int POWER_CONSUMPTION_LEVEL = 20;
-
     private static final int SHROUD_REVEALING_RANGE = 3;
-    
     private static final int BUILDING_COST = 600;
     
-    private AttackTurreted attack;
-    private Armament arma;
+    private final AttackTurreted attack;
+    private final Armament arma;
     
-    private AutoTarget autoTarget;
-
-    private Turret turret;
+    private final AutoTarget autoTarget;
+    private final Turret turret;
     
-    public EntityFireTurret(Float tileX, Float tileY) {
-	super(tileX, tileY, WIDTH_TILES * 24, HEIGHT_TILES * 24, "x");
+    public EntityFireTurret(double tileX, double tileY) {
+	super(null, 400, null, 0, 0, WIDTH_TILES * 24, HEIGHT_TILES * 24/*, "x"*/, tileX, tileY);
 
 	setBibType(BibType.NONE);
 	setProgressValue(-1);

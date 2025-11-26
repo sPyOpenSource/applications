@@ -10,7 +10,7 @@ import javafx.scene.shape.Path;
  * @author Cr0s
  */
 public class InfantryPathfinder {
-    private AStarPathFinder pathfinder;
+    private final AStarPathFinder pathfinder;
     private static final int MAX_SEARCH_DISTANCE = 512;
     
     public InfantryPathfinder(World world) {

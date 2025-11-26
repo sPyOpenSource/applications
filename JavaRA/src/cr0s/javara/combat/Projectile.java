@@ -3,8 +3,6 @@ package cr0s.javara.combat;
 import cr0s.javara.entity.Entity;
 import cr0s.javara.entity.IEffect;
 import cr0s.javara.entity.actor.EntityActor;
-import cr0s.javara.gameplay.Player;
-import cr0s.javara.gameplay.Team;
 import cr0s.javara.render.Sequence;
 import cr0s.javara.resources.ResourceManager;
 import cr0s.javara.resources.ShpTexture;
@@ -49,7 +47,6 @@ public abstract class Projectile extends Entity implements IEffect {
     }
 
     public void initTexture(String textureName, int facings, int len) {
-
 	this.tex = ResourceManager.getInstance().getConquerTexture(textureName);
 
 	if (this.tex != null) {

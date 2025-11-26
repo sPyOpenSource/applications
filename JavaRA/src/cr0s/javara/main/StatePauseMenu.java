@@ -18,7 +18,7 @@ public class StatePauseMenu extends Application {
 
 	public static final int STATE_ID = 2;
 	
-	private ArrayList<MainMenuItem> menuItems = new ArrayList<>();
+	private final ArrayList<MainMenuItem> menuItems = new ArrayList<>();
 	
 	private SpriteSheet ss;
 	private ImageView menuBackground;
@@ -35,7 +35,7 @@ public class StatePauseMenu extends Application {
 	private final int MENU_FRAME_TICK_HEIGHT = 20, MENU_FRAME_TICK_WIDTH = 18;
 	
 	private final int MENU_BUTTONS_SPACE = 25;
-	private Assets assets = new Assets();
+	private final Assets assets = new Assets();
         
 	private ImageView menuButton, menuButtonMouseover, menuButtonPressed;
 	private final int MENU_BUTTON_SIZE_SHEET = 128; // In sprites sheet
@@ -70,8 +70,7 @@ public class StatePauseMenu extends Application {
 					switch (m.id) {
 						case 0:
 							//Main.getInstance().enterState(1);
-							break;
-							
+							break;			
 						case 2:
 							//Main.getInstance().enterState(0);
 							break;
@@ -82,7 +81,6 @@ public class StatePauseMenu extends Application {
 	}
 
 	public boolean isAcceptingInput() {
-		// TODO Auto-generated method stub
 		return true;
 	}
 
@@ -98,7 +96,7 @@ public class StatePauseMenu extends Application {
 	}
 
 	public int getID() {
-		return this.STATE_ID;
+		return StatePauseMenu.STATE_ID;
 	}
 
         @Override
@@ -181,7 +179,6 @@ public class StatePauseMenu extends Application {
 			}
 			
 			//c.getDefaultFont().drawString(itemX + (MENU_BUTTON_WIDTH / 2) - (c.getDefaultFont().getWidth(m.text) / 2), itemY + MENU_BUTTON_HEIGHT / 2 - (c.getDefaultFont().getLineHeight() / 2), m.text);
-			
 		}
 		
 		//CursorManager.getInstance().drawCursor(g);
@@ -192,7 +189,6 @@ public class StatePauseMenu extends Application {
 	public void update(Stage arg0, int arg2)
 			throws Exception {
 	    CursorManager.getInstance().update();
-		
 	}
 	
 	private class MainMenuItem {

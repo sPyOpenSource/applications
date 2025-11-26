@@ -11,7 +11,7 @@ import cr0s.javara.entity.IHaveCost;
 import cr0s.javara.entity.ISelectable;
 import cr0s.javara.entity.IShroudRevealer;
 import cr0s.javara.entity.building.BibType;
-import cr0s.javara.entity.building.EntityBuilding;
+import cr0s.javara.entity.building.Defensive;
 import cr0s.javara.entity.building.IPowerConsumer;
 import cr0s.javara.entity.building.common.EntityWarFactory;
 import cr0s.javara.entity.turreted.Turret;
@@ -32,10 +32,8 @@ import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 import javafx.scene.shape.Circle;
 
-public class EntityTeslaCoil extends EntityBuilding implements ISelectable, IPowerConsumer, IShroudRevealer, IHaveCost, IDefense {
-
+public class EntityTeslaCoil extends Defensive implements ISelectable, IPowerConsumer, IShroudRevealer, IHaveCost, IDefense {
     private SpriteSheet sheet;
-
     private final String TEXTURE_NAME = "tsla.shp";
     private final String MAKE_TEXTURE_NAME = "tslamake.shp";
 
@@ -43,9 +41,7 @@ public class EntityTeslaCoil extends EntityBuilding implements ISelectable, IPow
     public static final int HEIGHT_TILES = 2;
 
     private static final int POWER_CONSUMPTION_LEVEL = 150;
-
     private static final int SHROUD_REVEALING_RANGE = 3;
-
     private final int CORRUPTED_OFFSET = 10;
 
     private int currentFrame = 0;
@@ -61,13 +57,11 @@ public class EntityTeslaCoil extends EntityBuilding implements ISelectable, IPow
     private final Armament arma;
 
     private final AutoTarget autoTarget;
-
     private Turret turret;
-
     private boolean wasIdle;    
 
-    public EntityTeslaCoil(Float tileX, Float tileY) {
-	super(tileX, tileY, WIDTH_TILES * 24, HEIGHT_TILES * 24, "_ x");
+    public EntityTeslaCoil(double tileX, double tileY) {
+	super(null, 400, null, 0, 0, WIDTH_TILES * 24, HEIGHT_TILES * 24/*, "_ x"*/, tileX, tileY);
 
 	setBibType(BibType.NONE);
 	setProgressValue(-1);
@@ -162,7 +156,6 @@ public class EntityTeslaCoil extends EntityBuilding implements ISelectable, IPow
 		this.wasIdle = false;
 	    }
 	}
-
 
 	if (this.currentActivity instanceof Charge && this.chargeFrame != this.MAX_CHARGE_FRAMES) {
 	    this.currentFrame = this.CHARGE_OFFSET + this.chargeFrame;

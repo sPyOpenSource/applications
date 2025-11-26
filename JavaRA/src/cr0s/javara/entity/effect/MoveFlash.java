@@ -2,8 +2,6 @@ package cr0s.javara.entity.effect;
 
 import cr0s.javara.entity.Entity;
 import cr0s.javara.entity.IEffect;
-import cr0s.javara.gameplay.Player;
-import cr0s.javara.gameplay.Team;
 import cr0s.javara.main.GUI;
 import cr0s.javara.resources.ResourceManager;
 import cr0s.javara.resources.ShpTexture;
@@ -13,11 +11,10 @@ import javafx.scene.paint.Color;
 
 public class MoveFlash extends Entity implements IEffect {
 
-    private SpriteSheet tex;
+    private final SpriteSheet tex;
     private int frameIndex = 0;
     private final int TICKS_PER_FRAME = 2;
     private final int MAX_FRAMES = 5;
-    
     private int ticks = TICKS_PER_FRAME;
     
     public MoveFlash(double posX, double posY,

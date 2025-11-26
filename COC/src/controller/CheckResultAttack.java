@@ -78,13 +78,13 @@ public class CheckResultAttack extends Thread {
         }
         while (true){
             if (defensivePlayer.getMap().getBuildingsMap().isEmpty()){
-                defensivePlayer.setNumberLose(defensivePlayer.getNumberLose()+1);
-                attackingPlayer.setNumberWin(attackingPlayer.getNumberWin()+1);
+                defensivePlayer.setNumberLose(defensivePlayer.getNumberLose() + 1);
+                attackingPlayer.setNumberWin(attackingPlayer.getNumberWin() + 1);
                 if (defensivePlayer.getLevel() > 1){
-                    defensivePlayer.setLevel(defensivePlayer.getLevel()-1);
+                    defensivePlayer.setLevel(defensivePlayer.getLevel() - 1);
                 }
                 if (attackingPlayer.getLevel() < 4){
-                    attackingPlayer.setLevel(attackingPlayer.getLevel()+1);
+                    attackingPlayer.setLevel(attackingPlayer.getLevel() + 1);
                 }
                 new UpdatePlayerData(attackingPlayer).start();
                 new UpdatePlayerData(defensivePlayer).start();

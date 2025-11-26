@@ -5,9 +5,7 @@ import cr0s.javara.entity.ISelectable;
 import cr0s.javara.entity.IShroudRevealer;
 import cr0s.javara.entity.building.BibType;
 import cr0s.javara.entity.building.EntityBuilding;
-import cr0s.javara.gameplay.Player;
 import cr0s.javara.gameplay.Production;
-import cr0s.javara.gameplay.Team;
 import cr0s.javara.gameplay.Team.Alignment;
 import cr0s.javara.main.GUI;
 import cr0s.javara.resources.ResourceManager;
@@ -18,6 +16,7 @@ import java.awt.image.BufferedImage;
 import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
+import javafx.embed.swing.SwingFXUtils;
 
 public class EntityConstructionYard extends EntityBuilding implements ISelectable, IShroudRevealer {
 
@@ -33,7 +32,7 @@ public class EntityConstructionYard extends EntityBuilding implements ISelectabl
 
     private static final String FOOTPRINT = "xxx xxx xxx ~~~";
 
-    private Alignment yardAlignment = Alignment.SOVIET;
+    private final Alignment yardAlignment = Alignment.SOVIET;
 
     public EntityConstructionYard(double tileX, double tileY) {
 	super(tileX, tileY, WIDTH_TILES * 24, HEIGHT_TILES * 24, FOOTPRINT);
@@ -152,15 +151,22 @@ public class EntityConstructionYard extends EntityBuilding implements ISelectabl
 
     @Override
     public int getRevealingRange() {
-	return this.SHROUD_REVEALING_RANGE;
+	return EntityConstructionYard.SHROUD_REVEALING_RANGE;
     }
 
     @Override
     public ImageView getTexture() {
-	if (sheet == null) {
+	/*if (sheet == null) {
 	    return null;
-	}
-
-	return sheet.getSubImage(0, 0);
+	}*/
+        if(getImageViews().isEmpty()){
+            //ImageView view = sheet.getSubImage(0, 0);
+            ImageView view = new ImageView(SwingFXUtils.toFXImage(normal, null));
+            view.setX(getTileX());
+            view.setY(getTileY());
+            getImageViews().add(view);
+        }
+        return getImageViews().get(0);
     }    
+    
 }

@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import cr0s.javara.ai.AIPlayer.BuildingType;
+import cr0s.javara.entity.building.BuildingType;
 import cr0s.javara.entity.IDefense;
 import cr0s.javara.entity.actor.EntityActor;
 import cr0s.javara.entity.building.EntityBuilding;
@@ -14,7 +14,7 @@ import cr0s.javara.entity.building.common.EntityProc;
 import cr0s.javara.util.Pos;
 
 public class BaseBuilder {
-    private AIPlayer ai;
+    private final AIPlayer ai;
 
     private int waitTicks;
     private boolean isActive = false;
@@ -46,12 +46,12 @@ public class BaseBuilder {
 	    this.ai.getBase().getProductionQueue().getProductionForBuilding(item).startBuildingActor(item, null);
 	} else if (this.ai.getBase().getProductionQueue().getProductionForBuilding(currentBuilding).isReady())  {
 	    // We can place ready building somewhere
-	    BuildingType type = BuildingType.BUILDING;
+	    BuildingType type = BuildingType.NORMAL;
 
 	    if (currentBuilding instanceof IDefense) {
-		type = BuildingType.DEFENSE;
+		type = BuildingType.DEFENSIVE;
 	    } else if (currentBuilding instanceof EntityProc) {
-		type = BuildingType.REFINERY;
+		type = BuildingType.REFERENCES;
 	    }
 
 	    Pos location = this.ai.chooseBuildLocation(currentBuilding.getName(), true, type);
@@ -76,7 +76,7 @@ public class BaseBuilder {
 	}
 
 	List<String> actors = Arrays.asList(actorNames); 
-	ArrayList<EntityBuilding> available = new ArrayList<EntityBuilding>();
+	ArrayList<EntityBuilding> available = new ArrayList<>();
 
 	for (EntityActor a : this.ai.getBase().getProductionQueue().getBuildables().values()) {
 	    if (!(a instanceof EntityBuilding)) {
@@ -109,11 +109,7 @@ public class BaseBuilder {
 
 	    System.out.println("[AI] Checking building limit for " + building + ": " + this.ai.countBuildings(building, this.ai) + " / " + limit);
 	    
-	    if (this.ai.countBuildings(building, this.ai) < limit) {
-		return true;
-	    } else {
-		return false;
-	    }
+            return this.ai.countBuildings(building, this.ai) < limit;
 	}	
 	
 	return true;

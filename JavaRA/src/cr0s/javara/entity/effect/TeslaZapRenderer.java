@@ -34,7 +34,6 @@ public class TeslaZapRenderer extends Projectile implements IEffect {
     private boolean initialized = false;
 
     private Target guided;
-
     private Pos p;
     private boolean isBright;
 
@@ -58,8 +57,6 @@ public class TeslaZapRenderer extends Projectile implements IEffect {
     public void updateEntity(int delta) {
 	if (--timeUntilRemove <= 0) {
 	    this.setDead();
-
-	    return;
 	}
     }
 
@@ -157,7 +154,7 @@ public class TeslaZapRenderer extends Projectile implements IEffect {
 	int[] minStep = null;
 	float minValue = 0;
 
-	for (int[] step : this.steps) {
+	for (int[] step : TeslaZapRenderer.steps) {
 	    float currentValue = to.distanceToSq(z.add(new Pos(step[0], step[1])));
 	    if (minValue == 0 || currentValue < minValue) {
 		minStep = step;

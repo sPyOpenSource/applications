@@ -3,8 +3,6 @@ package cr0s.javara.entity.building.common;
 import cr0s.javara.entity.IDefense;
 import cr0s.javara.entity.IHaveCost;
 import cr0s.javara.entity.building.EntityBuilding;
-import cr0s.javara.gameplay.Player;
-import cr0s.javara.gameplay.Team;
 import cr0s.javara.resources.ResourceManager;
 import cr0s.javara.resources.ShpTexture;
 import cr0s.javara.util.Pos;
@@ -24,7 +22,7 @@ public abstract class EntityWall extends EntityBuilding implements IHaveCost, ID
     protected int damageModifier = 0; // 0...4, damage level
 
     private final int UPDATE_INTERVAL_TICKS = 20;
-    private int updateNeighboursTicks = 0;
+    private final int updateNeighboursTicks = 0;
     
     public int lineBuildMaxLength = 8;
     
@@ -131,6 +129,5 @@ public abstract class EntityWall extends EntityBuilding implements IHaveCost, ID
     
     @Override
     public void setRepairing(boolean b) {
-	return;
     }
 }

@@ -22,7 +22,6 @@ public class StateTestScreen extends Application {
     }
     
     public boolean isAcceptingInput() {
-	// TODO Auto-generated method stub
 	return true;
     }
 

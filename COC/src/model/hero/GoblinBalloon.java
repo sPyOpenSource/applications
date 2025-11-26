@@ -5,7 +5,6 @@ import cr0s.javara.entity.aircraft.EntityAircraft;
 import cr0s.javara.util.Pos;
 import javafx.scene.Scene;
 import javafx.scene.shape.Path;
-import model.building.BuildingType;
 
 public class GoblinBalloon extends EntityAircraft{
     public GoblinBalloon(double x, double y) {

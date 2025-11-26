@@ -11,11 +11,9 @@ import javafx.scene.Scene;
 public class Turret {
     private double offestX;
     private double offsetY;
-
     private double turretX, turretY;
 
     private EntityActor parentEntity;
-
     private SpriteSheet turretTexture;
     private int numFacings;
     private int startFrame;
@@ -33,7 +31,6 @@ public class Turret {
     private final static int RECOIL_INTERVAL_TICKS = 3;
     private int recoilTicks = 0;
     private int recoilOffsetX, recoilOffsetY;
-
 
     public int width, height;
 
@@ -61,7 +58,7 @@ public class Turret {
 
 	// Do a recoil
 	if (this.maxRecoil != 0 && this.currentRecoil >= 0) {
-	    if (++this.recoilTicks > this.RECOIL_INTERVAL_TICKS) {
+	    if (++this.recoilTicks > Turret.RECOIL_INTERVAL_TICKS) {
 		this.recoilTicks = 0;
 	    }
 
@@ -93,12 +90,9 @@ public class Turret {
     }
 
     private Pos getRecoilOffset() {
-	double recoilX = 0;
-	double recoilY = 0;
-
 	Pos recoilVector = RotationUtil.facingToRecoilVector(this.turretRotation);
-	recoilX = this.currentRecoil * recoilVector.getX();
-	recoilY = this.currentRecoil * recoilVector.getY();
+	double recoilX = this.currentRecoil * recoilVector.getX();
+	double recoilY = this.currentRecoil * recoilVector.getY();
 
 	return new Pos(recoilX, recoilY);
     }
@@ -129,7 +123,7 @@ public class Turret {
 	    return false;
 	} else {
 	    if (this.isTargeting) {
-		int rot = 0;
+		int rot;
 
 		if (parentEntity instanceof MobileEntity) {
 		    rot = RotationUtil.getRotationFromXY(((MobileEntity) parentEntity).getTranslateX() + this.offestX, ((MobileEntity) parentEntity).getTranslateY() + this.offsetY, this.targetX, this.targetY) % this.numFacings;

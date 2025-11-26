@@ -7,7 +7,6 @@ import cr0s.javara.entity.building.common.EntityWarFactory;
 import cr0s.javara.entity.building.soviet.EntityBarracks;
 import cr0s.javara.entity.infantry.EntityInfantry;
 import cr0s.javara.gameplay.Player;
-import cr0s.javara.gameplay.Team;
 import cr0s.javara.render.EntityBlockingMap.FillsSpace;
 import cr0s.javara.render.World;
 import java.util.ArrayList;

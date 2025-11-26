@@ -18,10 +18,10 @@ import javafx.scene.PerspectiveCamera;
 
 public class GUI extends Application {
     public ResourceManager rm;
+    public static boolean DEBUG_MODE = false;
 
     private StateMainMenu menu;
     private StateGameMap gameMap;
-
     private static GUI instance;
 
     private World w;
@@ -30,10 +30,7 @@ public class GUI extends Application {
 
     private Team team;
     private Player player;
-
     private BuildingOverlay bo;
-
-    public static boolean DEBUG_MODE = false;
 
     private GameSideBar gsb;
     private ShroudRenderer observerShroudRenderer;
@@ -161,7 +158,6 @@ public class GUI extends Application {
 	w.addPlayer(otherPlayer);*/
     }
 
-
     public Player getPlayer() {
 	return this.player;
     }
@@ -169,7 +165,6 @@ public class GUI extends Application {
     public Team getTeam() {
 	return this.player.getTeam();
     }
-
 
     public GameSideBar getSideBar() {
 	return this.gsb;

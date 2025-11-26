@@ -11,8 +11,8 @@ import cr0s.javara.gameplay.Team.Alignment;
 import cr0s.javara.main.GUI;
 import cr0s.javara.resources.ResourceManager;
 import cr0s.javara.resources.ShpTexture;
-import java.awt.image.BufferedImage;
 
+import java.awt.image.BufferedImage;
 import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 import javafx.embed.swing.SwingFXUtils;
@@ -26,7 +26,6 @@ public class EntityAdvPowerPlant extends EntityBuilding implements ISelectable, 
     public static final int HEIGHT_TILES = 4;
 
     private static final int POWER_PRODUCTION_LEVEL = 200;
-
     private static final int SHROUD_REVEALING_RANGE = 7;
     private static final int BUILDING_COST = 500;
 
@@ -123,12 +122,12 @@ public class EntityAdvPowerPlant extends EntityBuilding implements ISelectable, 
 
     @Override
     public int getRevealingRange() {
-	return this.SHROUD_REVEALING_RANGE;
+	return EntityAdvPowerPlant.SHROUD_REVEALING_RANGE;
     }
     
     @Override
     public ImageView getTexture() {
-	return new ImageView(SwingFXUtils.toFXImage(normal,null));
+	return new ImageView(SwingFXUtils.toFXImage(normal, null));
     }
 
     @Override

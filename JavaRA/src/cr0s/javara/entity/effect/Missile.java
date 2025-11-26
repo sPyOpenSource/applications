@@ -152,4 +152,5 @@ public class Missile extends Projectile {
 
 	Combat.doImpacts(this.pos, this.weapon, this.sourceActor, this.firepowerModifier);
     } 
+    
 }

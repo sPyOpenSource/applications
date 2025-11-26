@@ -36,4 +36,5 @@ public class StateMachine {
 	void tick(Squad bot);
 	void deactivate(Squad bot);
     }
+    
 }

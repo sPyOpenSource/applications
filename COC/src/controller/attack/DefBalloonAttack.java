@@ -33,7 +33,6 @@ public class DefBalloonAttack extends Thread {
         this.map = map;
         defBalloon.setViewHero(viewBalloon);
         this.map.getAttackingHeroes().add(defBalloon);
-        this.isDied = false;
     }
     
     private final AnchorPane root;
@@ -42,7 +41,6 @@ public class DefBalloonAttack extends Thread {
     private final ImageView viewBalloon;
     private final DefBalloon defBalloon;
     private final Map map;
-    private boolean isDied;
 
     @Override
     public void run() {
@@ -55,9 +53,9 @@ public class DefBalloonAttack extends Thread {
                 root.getChildren().add(new MediaView(mediaPlayer));
                 root.getChildren().add(viewBalloon);
             });
-            while (!isDied){
+            while (!defBalloon.isDead()){
                 EntityBuilding building = moveToward();
-                if (isDied)
+                if (defBalloon.isDead())
                     break;
                 attack(building);
             }
@@ -119,7 +117,6 @@ public class DefBalloonAttack extends Thread {
                 e.printStackTrace();
             }
 
-
             MoveTo moveTo = new MoveTo(viewBalloon.getX(), viewBalloon.getY());
             LineTo lineTo = new LineTo(building.getImageViews().get(0).getX()+(building.getImageViews().get(0).getFitWidth()/2),building.getImageViews().get(0).getY());
             Path path = new Path();
@@ -135,7 +132,7 @@ public class DefBalloonAttack extends Thread {
             long elapsedTime = 0;
             while (elapsedTime < (long) ((widthLowe / defBalloon.getMoveSpeed()) * 300)) {
                 if (defBalloon.getHp() <= 0){
-                    isDied = true;
+                    defBalloon.setDead();
                     Platform.runLater(() -> root.getChildren().remove(viewBalloon));
                     break;
                 }
@@ -147,7 +144,7 @@ public class DefBalloonAttack extends Thread {
                 elapsedTime = System.currentTimeMillis() - startTime;
             }
         } else {
-            isDied = true;
+            defBalloon.setDead();
         }
         return building;
     }
@@ -166,7 +163,7 @@ public class DefBalloonAttack extends Thread {
         }
         while (building.getHp() >= 0){
             if (defBalloon.getHp() <= 0){
-                isDied = true;
+                defBalloon.setDead();
                 Platform.runLater(() -> root.getChildren().remove(viewBalloon));
                 break;
             }
@@ -177,7 +174,7 @@ public class DefBalloonAttack extends Thread {
                 e.printStackTrace();
             }
         }
-        if (!isDied){
+        if (!defBalloon.isDead()){
             map.getBuildingsMap().remove(building);
             Platform.runLater(() -> {
                 root.getChildren().remove(building.getImageViews().get(0));

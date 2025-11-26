@@ -105,4 +105,5 @@ public class MinimapRenderer {
 	    e1.printStackTrace();
 	}
     }
+    
 }

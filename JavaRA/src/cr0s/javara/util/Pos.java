@@ -158,4 +158,5 @@ public class Pos {
     public void setLocation(double x, double y) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+    
 }

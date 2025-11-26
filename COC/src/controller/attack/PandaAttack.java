@@ -37,7 +37,6 @@ public class PandaAttack extends Thread {
         panda.setViewHero(viewPanda);
         this.map.getAttackingHeroes().add(panda);
         root.getChildren().add(new MediaView(mediaPlayerMove));
-        this.isDied = false;
         mediaPlayerMove.setVolume(0.2);
     }
     
@@ -52,7 +51,6 @@ public class PandaAttack extends Thread {
     String audioFilePathMove = assets.get("/assets/audio/not_path.mp3");
     MediaPlayer mediaPlayerMove = new MediaPlayer(new Media(audioFilePathMove));
     private final AtomicInteger count = new AtomicInteger(0);
-    private boolean isDied;
     
     @Override
     public void run() {
@@ -70,9 +68,9 @@ public class PandaAttack extends Thread {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            while (!isDied){
+            while (!panda.isDead()){
                 EntityBuilding building = moveToward();
-                if (isDied)
+                if (panda.isDead())
                     break;
                 attack(building);
             }
@@ -123,7 +121,6 @@ public class PandaAttack extends Thread {
                 e.printStackTrace();
             }
 
-
             MoveTo moveTo = new MoveTo(viewPanda.getX(), viewPanda.getY());
             LineTo lineTo;
             if (viewPanda.getImage().equals(viewPandaL.getImage())){
@@ -133,7 +130,7 @@ public class PandaAttack extends Thread {
             }
             Platform.runLater(mediaPlayerMove::stop);
             Path path = new Path();
-            if (count.getAndAdd(1)%3 == 1){
+            if (count.getAndAdd(1) % 3 == 1){
                 Platform.runLater(mediaPlayerMove::play);
             }
             path.getElements().addAll(moveTo, lineTo);
@@ -148,7 +145,7 @@ public class PandaAttack extends Thread {
             long elapsedTime = 0;
             while (elapsedTime < (long) ((widthLowe / panda.getMoveSpeed()) * 300)) {
                 if (panda.getHp() <= 0){
-                    isDied = true;
+                    panda.setDead();
                     break;
                 }
                 try {
@@ -158,9 +155,8 @@ public class PandaAttack extends Thread {
                 }
                 elapsedTime = System.currentTimeMillis() - startTime;
             }
-        }
-        else {
-            isDied = true;
+        } else {
+            panda.setDead();
         }
         return building;
     }
@@ -185,7 +181,7 @@ public class PandaAttack extends Thread {
         }
         while (building.getHp() >= 0){
             if (panda.getHp() <= 0){
-                isDied = true;
+                panda.setDead();
                 break;
             }
 //            Platform.runLater(mediaPlayer::play);
@@ -197,10 +193,10 @@ public class PandaAttack extends Thread {
             }
 //            Platform.runLater(mediaPlayer::stop);
         }
-        if (!isDied){
+        if (!panda.isDead()){
             map.getBuildingsMap().remove(building);
             Platform.runLater(() -> {
-                root.getChildren().remove(building.getImageViews());
+                root.getChildren().remove(building.getTexture());
                 myNotify();
             });
             try {

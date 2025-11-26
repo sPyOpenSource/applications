@@ -33,7 +33,6 @@ public class GoblinBalloonAttack extends Thread {
         this.map = map;
         goblinBalloon.setViewHero(viewBalloon);
         this.map.getAttackingHeroes().add(goblinBalloon);
-        this.isDied = false;
     }
     
     private final AnchorPane root;
@@ -42,7 +41,6 @@ public class GoblinBalloonAttack extends Thread {
     private final ImageView viewBalloon;
     private final GoblinBalloon goblinBalloon;
     private final Map map;
-    private boolean isDied;
 
     @Override
     public void run() {
@@ -61,9 +59,9 @@ public class GoblinBalloonAttack extends Thread {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            while (!isDied){
+            while (!goblinBalloon.isDead()){
                 EntityBuilding building = moveToward();
-                if (isDied)
+                if (goblinBalloon.isDead())
                     break;
                 attack(building);
             }
@@ -125,7 +123,6 @@ public class GoblinBalloonAttack extends Thread {
                 e.printStackTrace();
             }
 
-
             MoveTo moveTo = new MoveTo(viewBalloon.getX(), viewBalloon.getY());
             LineTo lineTo = new LineTo(building.getImageViews().get(0).getX()+(building.getImageViews().get(0).getFitWidth()/2),building.getImageViews().get(0).getY());
             Path path = new Path();
@@ -141,7 +138,7 @@ public class GoblinBalloonAttack extends Thread {
             long elapsedTime = 0;
             while (elapsedTime < (long) ((widthLowe / goblinBalloon.getMoveSpeed()) * 300)) {
                 if (goblinBalloon.getHp() <= 0){
-                    isDied = true;
+                    goblinBalloon.setDead();
                     break;
                 }
                 try {
@@ -151,9 +148,8 @@ public class GoblinBalloonAttack extends Thread {
                 }
                 elapsedTime = System.currentTimeMillis() - startTime;
             }
-        }
-        else {
-            isDied = true;
+        } else {
+            goblinBalloon.setDead();
         }
         return building;
     }
@@ -172,7 +168,7 @@ public class GoblinBalloonAttack extends Thread {
         }
         while (building.getHp() >= 0){
             if (goblinBalloon.getHp() <= 0){
-                isDied = true;
+                goblinBalloon.setDead();
                 break;
             }
             //if (building.getBuildingType().equals(goblinBalloon.getFavoriteTarget())){
@@ -186,7 +182,7 @@ public class GoblinBalloonAttack extends Thread {
                 e.printStackTrace();
             }
         }
-        if (!isDied){
+        if (!goblinBalloon.isDead()){
             map.getBuildingsMap().remove(building);
             Platform.runLater(() -> {
                 root.getChildren().remove(building.getImageViews());

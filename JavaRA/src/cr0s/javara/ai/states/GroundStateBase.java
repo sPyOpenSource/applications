@@ -3,7 +3,6 @@ package cr0s.javara.ai.states;
 import cr0s.javara.ai.Squad;
 import cr0s.javara.ai.StateMachine.IState;
 import cr0s.javara.entity.actor.EntityActor;
-import cr0s.javara.util.Pos;
 
 public abstract class GroundStateBase extends StateBase {
 
@@ -14,7 +13,6 @@ class GroundUnitsIdleState extends GroundStateBase implements IState {
     @Override
     public void activate(Squad bot) {
 	// TODO Auto-generated method stub
-
     }
 
     @Override

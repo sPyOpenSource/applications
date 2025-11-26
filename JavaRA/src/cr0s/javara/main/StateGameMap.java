@@ -216,7 +216,7 @@ public class StateGameMap extends Application {
     }
 
     public final int getID() {
-	return this.STATE_ID;
+	return StateGameMap.STATE_ID;
     }
 
     @Override
@@ -247,7 +247,6 @@ public class StateGameMap extends Application {
 
     public final void update(final Stage arg0, final int delta)
 	    throws Exception {
-
 	Profiler.getInstance().startForSection("Tick");
 	
 	GUI.getInstance().getController().update(container, delta);

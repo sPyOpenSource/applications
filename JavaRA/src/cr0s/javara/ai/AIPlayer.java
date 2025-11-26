@@ -12,8 +12,6 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Random;
 
-import org.yaml.snakeyaml.Yaml;
-
 import cr0s.javara.ai.Squad.SquadType;
 import cr0s.javara.combat.Warhead;
 import cr0s.javara.combat.attack.ICanAttack;
@@ -22,6 +20,7 @@ import cr0s.javara.entity.actor.EntityActor;
 import cr0s.javara.entity.actor.activity.Activity;
 import cr0s.javara.entity.actor.activity.activities.Wait;
 import cr0s.javara.entity.actor.activity.activities.harvester.FindResources;
+import cr0s.javara.entity.building.BuildingType;
 import cr0s.javara.entity.building.EntityBuilding;
 import cr0s.javara.entity.building.EntityBuildingProgress;
 import cr0s.javara.entity.building.common.EntityConstructionYard;
@@ -37,10 +36,11 @@ import cr0s.javara.render.World;
 import cr0s.javara.resources.ResourceManager;
 import cr0s.javara.util.CellChooser;
 import cr0s.javara.util.Pos;
+
+import org.yaml.snakeyaml.Yaml;
 import javafx.scene.paint.Color;
 
 public class AIPlayer extends Player {
-    private int squadSize = 8;
 
     private class Enemy {
 	public float aggro;
@@ -50,18 +50,18 @@ public class AIPlayer extends Player {
 	}
     }
 
-    public enum BuildingType { BUILDING, DEFENSE, REFINERY };
-
     private boolean enabled;
     private int ticks;
+    private final int feedbackTime = 30;
+    private int squadSize = 8;
 
     private ArrayList<Squad> squads = new ArrayList<>();
     private ArrayList<EntityActor> unitsHangingAroundTheBase = new ArrayList<>();
     private ArrayList<EntityActor> activeUnits = new ArrayList<>();
 
-    private int assignRolesInterval = 20;
-    private int rushInterval = 600;
-    private int attackForceInterval = 30;
+    private final int assignRolesInterval = 20;
+    private final int rushInterval = 600;
+    private final int attackForceInterval = 30;
 
     public int structureProductionInactiveDelay = 125;
     public int structureProductionActiveDelay = 10;
@@ -70,16 +70,12 @@ public class AIPlayer extends Player {
     public int maximumDefenseRadius = 20;
 
     public int newProductionCashThreshold = 5000;
-
     public int idleBaseUnitsMaximum = 12;
 
     public int rushAttackScanRadius = 15;
     public int protectUnitScanRadius = 15;
 
     public int maxBaseRadius = 20;
-
-    private int feedbackTime = 30;
-
     public boolean shoudlRepairBuildings = true;
 
     // Tables
@@ -93,9 +89,9 @@ public class AIPlayer extends Player {
 
     private Pos defenseCenter;
 
-    private BaseBuilder bb;
+    private final BaseBuilder bb;
 
-    private HashMap<Player, Enemy> aggro = new HashMap<>();
+    private final HashMap<Player, Enemy> aggro = new HashMap<>();
 
     int assignRolesTicks = 0;
     int rushTicks = 0;
@@ -226,7 +222,7 @@ public class AIPlayer extends Player {
 	    // It's our, deploy
 	    if (mcv.owner == this) {
 		if (!mcv.canDeploy()) { // cant deploy in current location, choose another
-		    Pos desiredLocation = this.chooseBuildLocation("fact", false, BuildingType.BUILDING);
+		    Pos desiredLocation = this.chooseBuildLocation("fact", false, BuildingType.NORMAL);
 		    mcv.resolveOrder(new Order("Move", mcv, desiredLocation, true));
 		}
 
@@ -318,7 +314,7 @@ public class AIPlayer extends Player {
 	ArrayList<Pos> cells = GUI.getInstance().getWorld().chooseTilesInAnnulus(center, minRange, maxRange);
 
 	if (!center.equals(target)) {
-	    Collections.sort(cells, new Comparator<Pos>() {
+	    Collections.sort(cells, new Comparator<>() {
 
 		@Override
 		public int compare(Pos p1, Pos p2) {
@@ -335,7 +331,6 @@ public class AIPlayer extends Player {
 	if (b == null || !(b instanceof EntityBuilding)) {
 	    return null;
 	}
-
 
 	for (Pos cell : cells) {
 	    if (!this.getBase().isPossibleToBuildHere((int) cell.getX(), (int) cell.getY(), (EntityBuilding) b)) {
@@ -382,7 +377,7 @@ public class AIPlayer extends Player {
 
     public Pos chooseBuildLocation(String actorType, boolean distanceToBaseIsImportant, BuildingType type) {
 	switch (type) {
-	case DEFENSE:
+	case DEFENSIVE:
 	    if (this.rnd.nextInt(100) >= 30) { // In ~70% of cases we build defensive structures as close as possible to the enemy
 		EntityActor closestEnemy = this.findClosestEnemy(this.defenseCenter);
 		Pos targetCell = (closestEnemy != null) ? closestEnemy.getCellPosition() : this.getPlayerSpawnPoint();
@@ -395,10 +390,10 @@ public class AIPlayer extends Player {
 		return this.findPosForBuilding(actorType, this.getPlayerSpawnPoint(), this.getPlayerSpawnPoint(), 0, this.maxBaseRadius, false);
 	    }
 
-	case BUILDING:
+	case NORMAL:
 	    return this.findPosForBuilding(actorType, this.getPlayerSpawnPoint(), this.getPlayerSpawnPoint(), 0, distanceToBaseIsImportant ? this.maxBaseRadius : GUI.getInstance().getWorld().MAX_RANGE, distanceToBaseIsImportant);
 
-	case REFINERY:
+	case REFERENCES:
 	    // Choose set of cells with resources nearby the base inside buildable area
 	    ArrayList<Pos> resourceTiles = GUI.getInstance().getWorld().chooseTilesInCircle(this.getPlayerSpawnPoint(), this.maxBaseRadius, new CellChooser() {
 

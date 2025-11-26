@@ -12,15 +12,13 @@ public class TeslaZap extends Projectile implements IEffect {
 
     private int timeUntilRemove = 10; // in ticks
     private boolean doneDamage = false;
-    private boolean initialized = false;
+    private final boolean initialized = false;
 
-    private Target guided;
-
+    private final Target guided;
     private Pos p;
 
     private final int BRIGHT_ZAPS = 1;
     private final int DIM_ZAPS = 3;
-
     private boolean isInit = false;
 
     public TeslaZap(EntityActor srcActor, Pos srcPos, Pos passivePos,
@@ -57,7 +55,6 @@ public class TeslaZap extends Projectile implements IEffect {
 	    this.isInit = true;
 	}
 
-
 	if (--timeUntilRemove <= 0) {
 	    this.setDead();
 
@@ -74,4 +71,5 @@ public class TeslaZap extends Projectile implements IEffect {
     public void renderEntity(Scene g) {
 
     }
+    
 }

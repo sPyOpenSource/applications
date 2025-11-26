@@ -10,7 +10,7 @@ import javafx.scene.shape.Path;
  * @author Cr0s
  */
 public class VehiclePathfinder {
-    private AStarPathFinder pathfinder;
+    private final AStarPathFinder pathfinder;
     private static final int MAX_SEARCH_DISTANCE = 512;
     
     public VehiclePathfinder(World world) {
@@ -25,9 +25,9 @@ public class VehiclePathfinder {
 }
 
 class VehicleHeuristic {
+    
     public static final float ADJACENT_COST = 1f;
     public static final float DIAGONAL_COST = (float)Math.sqrt(2);
-    
     
     public float getCost(TileMap ctx, Mover mover, int x, int y,
 	    int goalX, int goalY) {
@@ -40,5 +40,4 @@ class VehicleHeuristic {
 	      return h;*/
     }
     
-
 }

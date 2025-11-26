@@ -83,7 +83,6 @@ public class Controller {
 			}
 		}
 
-		
 		camera.setOffset(newOffsetX, newOffsetY);
 	}
 
@@ -93,7 +92,6 @@ public class Controller {
 			break;
 		case 1:
 			break;
-
 		case 2:
 			break;
 		}
@@ -109,7 +107,6 @@ public class Controller {
 			break;
 		case 2:
 			break;
-
 		}
 
 	}

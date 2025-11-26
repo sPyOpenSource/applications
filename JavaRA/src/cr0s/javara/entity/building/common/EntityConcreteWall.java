@@ -1,8 +1,6 @@
 package cr0s.javara.entity.building.common;
 
 import cr0s.javara.entity.building.BibType;
-import cr0s.javara.gameplay.Player;
-import cr0s.javara.gameplay.Team;
 import cr0s.javara.gameplay.Team.Alignment;
 
 public class EntityConcreteWall extends EntityWall {
@@ -35,6 +33,6 @@ public class EntityConcreteWall extends EntityWall {
 
     @Override
     public int getBuildingCost() {
-	return this.BUILDING_COST;
+	return EntityConcreteWall.BUILDING_COST;
     }
 }

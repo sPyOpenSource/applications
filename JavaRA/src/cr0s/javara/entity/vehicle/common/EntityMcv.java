@@ -43,7 +43,6 @@ public class EntityMcv extends EntityVehicle implements ISelectable, IDeployable
     private static final int WAIT_FOR_BLOCKER_TIME_SPREAD_TICKS = 15;
 
     private final int updateTicks = 0;
-
     private final int rotationDirection = 1;
     private boolean isDeploying = false;
 

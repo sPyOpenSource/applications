@@ -2,8 +2,6 @@ package cr0s.javara.entity.effect;
 
 import cr0s.javara.entity.Entity;
 import cr0s.javara.entity.IEffect;
-import cr0s.javara.gameplay.Player;
-import cr0s.javara.gameplay.Team;
 import cr0s.javara.resources.ResourceManager;
 import cr0s.javara.resources.ShpTexture;
 import cr0s.javara.util.Pos;

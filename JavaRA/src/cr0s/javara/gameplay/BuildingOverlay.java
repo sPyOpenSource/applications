@@ -17,17 +17,16 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 
 public class BuildingOverlay {
-    private Player player;
-    private World world;
-
+    private final Player player;
+    private final World world;
     private EntityBuilding targetBuilding;
 
     private int cellX, cellY;
-    private Color filterColor = Color.rgb(255, 255, 255, 128f/255);
-    private Color blockedCellColor = Color.rgb(255, 0, 0, 64f/255);
-    private Color freeCellColor = Color.rgb(128, 128, 128, 64f/255);
+    private final Color filterColor = Color.rgb(255, 255, 255, 128f/255);
+    private final Color blockedCellColor = Color.rgb(255, 0, 0, 64f/255);
+    private final Color freeCellColor = Color.rgb(128, 128, 128, 64f/255);
 
-    private LinkedList<Pos> currentWallsList = new LinkedList<>();
+    private final LinkedList<Pos> currentWallsList = new LinkedList<>();
     private final int MAX_WALLS = 10;
 
     public BuildingOverlay(Player p, World w) {
@@ -66,7 +65,6 @@ public class BuildingOverlay {
 		if (this.targetBuilding instanceof EntityWarFactory) { 
 		    //((EntityWarFactory) this.targetBuilding).getBottomTexture().draw(cellX * 24, cellY * 24, filterColor);
 		}
-
 	    } else {
 		boolean isPossibleToBuild = this.player.getBase().checkBuildingDistance(cellX, cellY, this.isBuildingWalls())
 			&& this.player.getBase().isPossibleToBuildHere(cellX, cellY, targetBuilding);
@@ -124,7 +122,7 @@ public class BuildingOverlay {
 
     public void mouseClick(int button) {
 	if (button == 0 && isInBuildingMode()) {
-	    boolean result = false;
+	    boolean result;
 
 	    if (!isBuildingWalls()) {
 		result = player.getBase().tryToBuild(cellX, cellY, targetBuilding);

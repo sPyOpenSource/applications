@@ -19,14 +19,12 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class ArcherTowerDefense extends Thread {
     public ArcherTowerDefense(AnchorPane root, Map map, ArcherTower archerTower, AtomicInteger capacityInt) {
-        this.isDestroyed = false;
         this.root = root;
         this.map = map;
         this.archerTower = archerTower;
         this.capacityInt = capacityInt;
     }
 
-    private boolean isDestroyed;
     private final AnchorPane root;
     private final Map map;
     private final ArcherTower archerTower;
@@ -34,9 +32,9 @@ public class ArcherTowerDefense extends Thread {
     
     @Override
     public synchronized void run() {
-        while (!isDestroyed) {
+        while (!archerTower.isDead()) {
             MobileEntity hero = selectHero();
-            if (isDestroyed)
+            if (archerTower.isDead())
                 break;
             if (hero != null)
                 attack(hero);
@@ -56,9 +54,9 @@ public class ArcherTowerDefense extends Thread {
             }
         }
         if (map.getBuildingsMap().isEmpty() || archerTower.getHp() <= 0 || (map.getAttackingHeroes().isEmpty() && capacityInt.get() == 0)) {
-            isDestroyed = true;
+            archerTower.setDead();
         }
-        if (!isDestroyed && hero == null){
+        if (!archerTower.isDead() && hero == null){
             try {
                 wait(1000);
             } catch (InterruptedException e) {
@@ -74,7 +72,7 @@ public class ArcherTowerDefense extends Thread {
         Circle circle = new Circle(archerTower.getImageViews().get(0).getX()+48, archerTower.getImageViews().get(0).getY()+20, 3);
         while (hero.getHp() >= 0 && Math.sqrt(Math.pow(moveTo.getX()-lineTo.getX(), 2)+ Math.pow(moveTo.getY()-lineTo.getY(), 2)) < archerTower.getRange()) {
             if (archerTower.getHp() <= 0 || (map.getAttackingHeroes().isEmpty() && capacityInt.get() == 0)) {
-                isDestroyed = true;
+                archerTower.setDead();
                 break;
             }
             circle = new Circle(circle.getCenterX(), circle.getCenterY(), circle.getRadius());

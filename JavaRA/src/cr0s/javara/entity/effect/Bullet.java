@@ -14,25 +14,24 @@ public class Bullet extends Projectile {
 
     public float speed = 1;
     public float speedMax;
+    public float inaccuracy = 0f;
 
     public int angle;
     public int angleMax;
+    public int contrailDelay = 1;
 
     public String trail;
-
-    public float inaccuracy = 0f;
     public String image;
 
     public boolean high = false;
     public boolean shadow = false;
+    public boolean contrailUsePlayerColor = false;
 
     public int trailInterval = 2;
     public int trailDelay = 1;
     public int contrailLength = 0;
 
     public Color contrailColor = Color.white;
-    public boolean contrailUsePlayerColor = false;
-    public int contrailDelay = 1;
 
     private Pos target;
     private int length;
@@ -138,4 +137,5 @@ public class Bullet extends Projectile {
 
 	Combat.doImpacts(this.pos, this.weapon, this.sourceActor, this.firepowerModifier);
     } 
+    
 }

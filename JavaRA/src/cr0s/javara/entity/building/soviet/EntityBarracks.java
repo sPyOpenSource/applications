@@ -9,10 +9,8 @@ import cr0s.javara.entity.actor.EntityActor;
 import cr0s.javara.entity.building.BibType;
 import cr0s.javara.entity.building.EntityBuilding;
 import cr0s.javara.entity.building.IPowerConsumer;
-import cr0s.javara.entity.building.common.EntityPowerPlant
-        ;
-import cr0s.javara.gameplay.Player;
-import cr0s.javara.gameplay.Team;
+import cr0s.javara.entity.building.common.EntityPowerPlant;
+
 import cr0s.javara.gameplay.Team.Alignment;
 import cr0s.javara.main.GUI;
 import cr0s.javara.render.EntityBlockingMap.SubCell;

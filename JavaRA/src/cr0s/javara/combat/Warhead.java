@@ -6,7 +6,7 @@ import cr0s.javara.entity.actor.EntityActor;
 
 public class Warhead {
 
-    public TreeMap<ArmorType, Integer> effectiveness = new TreeMap<ArmorType, Integer>();
+    public TreeMap<ArmorType, Integer> effectiveness = new TreeMap<>();
 
     public float spread = 0.5f;
     public boolean canAttackOre = false;

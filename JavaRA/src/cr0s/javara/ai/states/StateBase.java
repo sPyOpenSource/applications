@@ -50,11 +50,7 @@ public abstract class StateBase {
 	    return false;
 	}
 	
-	if (next instanceof Attack) {
-	    return true;
-	}
-	
-	return false;
+	return next instanceof Attack;
     }
     
     protected static boolean canAttackTarget(EntityActor a, EntityActor target) {

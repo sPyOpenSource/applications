@@ -5,7 +5,7 @@ import cr0s.javara.entity.aircraft.EntityAircraft;
 import cr0s.javara.util.Pos;
 import javafx.scene.Scene;
 import javafx.scene.shape.Path;
-import model.building.BuildingType;
+import cr0s.javara.entity.building.BuildingType;
 
 public class DefBalloon extends EntityAircraft{
     public DefBalloon(double x, double y) {

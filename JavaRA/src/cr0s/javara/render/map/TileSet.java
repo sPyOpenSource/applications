@@ -74,7 +74,7 @@ public class TileSet {
 	    for (Object v : terrainMap.values()) {
 		Map<String, Object> tt = (Map) v;
 		
-		Integer typeId = this.renameMap.get((String) tt.get("Type"));
+		Integer typeId = TileSet.renameMap.get((String) tt.get("Type"));
 		int r = (int) tt.get("ColorR");
 		int g = (int) tt.get("ColorG");
 		int b = (int) tt.get("ColorB");

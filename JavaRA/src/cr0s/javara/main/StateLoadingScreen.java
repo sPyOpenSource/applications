@@ -13,9 +13,7 @@ public class StateLoadingScreen extends Application {
 
     public static final int STATE_ID = 3;
 
-
     private static final Color BACKGROUND_COLOR = Color.rgb(32, 0, 0, 1);
-
 
     Stage c;
 
@@ -23,8 +21,7 @@ public class StateLoadingScreen extends Application {
     private int ticksBeforeLoading = 10;
     private int ticks, i;
 
-
-    private String[] strings = {
+    private final String[] strings = {
 	    "Filling Crates...", 
 	    "Charging Capacitors...", 
 	    "Reticulating Splines...", 
@@ -42,7 +39,7 @@ public class StateLoadingScreen extends Application {
     }
     
     public int getID() {
-	return this.STATE_ID;
+	return StateLoadingScreen.STATE_ID;
     }
 
     public void init(Stage c)
@@ -93,4 +90,5 @@ public class StateLoadingScreen extends Application {
 	    }
 	}
     }
+    
 }

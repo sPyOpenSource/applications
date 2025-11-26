@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import assets.Assets;
 
 import cr0s.javara.entity.building.EntityBuilding;
-import cr0s.javara.entity.building.soviet.EntityAirField;
+import cr0s.javara.entity.building.common.EntityConstructionYard;
 import cr0s.javara.render.map.Map;
 import org.yaml.snakeyaml.Yaml;
 
@@ -58,7 +58,7 @@ public class MapLoader extends Map {
                     break;
                 case "townHall":
                     //TownHall townHall = new TownHall(x, y);
-                    EntityAirField townHall = new EntityAirField(x, y);
+                    EntityConstructionYard townHall = new EntityConstructionYard(x, y);
                     buildingsMap.add(townHall);
                     break;
                 case "tesla":

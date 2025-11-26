@@ -10,8 +10,6 @@ import cr0s.javara.entity.building.EntityBuilding;
 import cr0s.javara.entity.building.IOreCapacitor;
 import cr0s.javara.entity.building.IPowerConsumer;
 
-import cr0s.javara.gameplay.Player;
-import cr0s.javara.gameplay.Team;
 import cr0s.javara.gameplay.Team.Alignment;
 import cr0s.javara.main.GUI;
 import cr0s.javara.resources.ResourceManager;
@@ -25,7 +23,6 @@ import javafx.scene.paint.Color;
 public class EntityOreSilo extends EntityBuilding implements ISelectable, IPowerConsumer, IShroudRevealer, IPips, IOreCapacitor, IHaveCost {
 
     private SpriteSheet sheet;
-    
     private final String TEXTURE_NAME = "silo.shp";
     private final String MAKE_TEXTURE_NAME = "silomake.shp";
 
@@ -33,7 +30,6 @@ public class EntityOreSilo extends EntityBuilding implements ISelectable, IPower
     public static final int HEIGHT_TILES = 1;
 
     private static final int POWER_CONSUMPTION_LEVEL = 10;
-
     private static final int SHROUD_REVEALING_RANGE = 3;
     
     // Ore capacity
@@ -42,7 +38,6 @@ public class EntityOreSilo extends EntityBuilding implements ISelectable, IPower
     
     private int oreLevel = 0;
     private final int CORRUPTED_OFFSET = 5;
-    
     private static final int BUILDING_COST = 150;
     
     public EntityOreSilo(Float tileX, Float tileY) {

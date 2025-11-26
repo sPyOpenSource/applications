@@ -1,6 +1,5 @@
 package controller.defense;
 
-import cr0s.javara.entity.MobileEntity;
 import javafx.application.Platform;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
@@ -8,23 +7,21 @@ import javafx.scene.shape.LineTo;
 import javafx.scene.shape.MoveTo;
 import javafx.scene.shape.Path;
 
+import cr0s.javara.entity.MobileEntity;
 import cr0s.javara.render.map.Map;
 import model.building.InfernoTower;
 
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
 
-
 public class InfernoTowerDefense extends Thread {
     public InfernoTowerDefense(AnchorPane root, Map map, InfernoTower infernoTower, AtomicInteger capacityInt) {
-        this.isDestroyed = false;
         this.root = root;
         this.map = map;
         this.infernoTower = infernoTower;
         this.capacityInt = capacityInt;
     }
 
-    private boolean isDestroyed;
     private final AnchorPane root;
     private final Map map;
     private final InfernoTower infernoTower;
@@ -32,9 +29,9 @@ public class InfernoTowerDefense extends Thread {
     
     @Override
     public synchronized void run() {
-        while (!isDestroyed) {
+        while (!infernoTower.isDead()) {
             MobileEntity hero = selectHero();
-            if (isDestroyed)
+            if (infernoTower.isDead())
                 break;
             if (hero != null)
                 attack(hero);
@@ -53,9 +50,9 @@ public class InfernoTowerDefense extends Thread {
             }
         }
         if (map.getBuildingsMap().isEmpty() || infernoTower.getHp() <= 0 || (map.getAttackingHeroes().isEmpty() && capacityInt.get() == 0)) {
-            isDestroyed = true;
+            infernoTower.setDead();
         }
-        if (!isDestroyed && hero == null){
+        if (!infernoTower.isDead() && hero == null){
             try {
                 wait(1000);
             } catch (InterruptedException e) {
@@ -82,7 +79,7 @@ public class InfernoTowerDefense extends Thread {
             }
             while (hero.getHp() >= 0 && Math.sqrt(Math.pow(moveTo.getX() - lineTo.getX(), 2) + Math.pow(moveTo.getY() - lineTo.getY(), 2)) < infernoTower.getRange()) {
                 if (infernoTower.getHp() <= 0 || (map.getAttackingHeroes().isEmpty() && capacityInt.get() == 0)) {
-                    isDestroyed = true;
+                    infernoTower.setDead();
                     break;
                 }
                 if (root.getChildren().contains(hero.getViewHero())) {

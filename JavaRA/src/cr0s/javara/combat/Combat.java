@@ -1,10 +1,10 @@
 package cr0s.javara.combat;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 
 import cr0s.javara.entity.actor.EntityActor;
 import cr0s.javara.render.World;
+import cr0s.javara.render.map.TileSet;
 import cr0s.javara.resources.SoundManager;
 import cr0s.javara.util.Pos;
 
@@ -29,7 +29,7 @@ public class Combat {
 	    return;
 	}
 
-	boolean isInWater = pos.getZ() == 0 && world.getMap().getSurfaceIdAt(targetTile) == world.getMap().getTileSet().SURFACE_WATER_ID;
+	boolean isInWater = pos.getZ() == 0 && world.getMap().getSurfaceIdAt(targetTile) == TileSet.SURFACE_WATER_ID;
 	String explosionType = isInWater ? warhead.waterExplosion : warhead.explosion;
 
 	if (explosionType != null && !explosionType.isEmpty()) {
@@ -109,7 +109,7 @@ public class Combat {
 	}
     }
 
-    private static float[] falloff =
+    private static final float[] falloff =
 	{
 	1f, 0.3678795f, 0.1353353f, 0.04978707f,
 	0.01831564f, 0.006737947f, 0.002478752f, 0.000911882f,

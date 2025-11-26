@@ -16,7 +16,6 @@ public class Attack extends Activity {
     
     private static final int REPATH_DELAY_TICKS = 1;
     private static final int REPATH_SPREAD = 5;
-    
     private int repathDelay;
     
     public Attack(AttackBase attack, EntityActor self, Target tgt, float range, boolean allowMove) {
@@ -77,4 +76,5 @@ public class Attack extends Activity {
 	this.attack.doAttack(this.target);
 	return this;
     }
+    
 }

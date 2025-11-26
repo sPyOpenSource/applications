@@ -10,9 +10,8 @@ public class ScreenShaker {
     private LinkedList<ShakeEffect> effects;
     private static ScreenShaker instance;
 
-    private Pos minMultiplier = new Pos(-5f, -5f);
-    private Pos maxMultiplier = new Pos(5f, 5f);
-
+    private final Pos minMultiplier = new Pos(-5f, -5f);
+    private final Pos maxMultiplier = new Pos(5f, 5f);
     private int ticks = 0;
 
     private ScreenShaker() {
@@ -118,4 +117,5 @@ public class ScreenShaker {
 	    this.multiplier = multiplier;
 	}
     }
+    
 }

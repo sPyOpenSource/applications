@@ -24,16 +24,15 @@ public class Armament {
     }
 
     public String name = "primary";
-    private EntityActor self;
-    private Weapon weapon;
+    
+    private final EntityActor self;
+    private final Weapon weapon;
     private Sequence muzzleSequence;
 
-    private ArrayList<Barrel> barrels;
-
+    private final ArrayList<Barrel> barrels;
     private int fireDelay;
 
     private int burst;
-
     private LinkedList<Action> delayedActions;
 
     public Armament(EntityActor s, Weapon weap) {
@@ -60,7 +59,7 @@ public class Armament {
 	    }
 	}
 
-	if (this.delayedActions.size() > 0) {
+	if (!this.delayedActions.isEmpty()) {
 	    LinkedList<Action> list = new LinkedList<>();
 	    for (Action a : this.delayedActions) {
 		if (a.delay > 0) {
@@ -157,7 +156,6 @@ public class Armament {
 			Armament.this.weapon.playReportSound(Armament.this.self.getPosition());
 		    }
 		});
-
 
 		if (this.self instanceof IHaveTurret) {
 		    for (Turret t : ((IHaveTurret) this.self).getTurrets()) {

@@ -34,11 +34,13 @@ import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.ScrollEvent;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 
 public class TileMap extends Application {
     private short width, height;
     private int zTrans = -800;
-    private Theater theater;
+    private TheaterCache theater;
     private TileSet tileSet;
 
     private TileReference[][] mapTiles;
@@ -61,8 +63,8 @@ public class TileMap extends Application {
     public SmudgeLayer smudges;
 
     public TileMap(){
-        //this(null, "haos-ridges");
-        this("forest-path");
+        this("haos-ridges");
+        //this("forest-path");
     }
     
     public TileMap(String mapName) {
@@ -115,7 +117,7 @@ public class TileMap extends Application {
 		}
 	    }
 
-	    this.theater = new Theater(this, this.tileSet);
+	    this.theater = new TheaterCache(this, this.tileSet);
 
 	    // Read binary map
 	    loadBinaryMap(mapName);
@@ -322,34 +324,33 @@ public class TileMap extends Application {
         scene.setOnScroll((ScrollEvent event) -> {
             zTrans += event.getDeltaY() * (zTrans / -50);
         });
-        /*scene.setOnKeyPressed((KeyEvent e) -> {
-            System.out.println(g.getTranslateY());
+        scene.setOnKeyPressed((KeyEvent e) -> {
             KeyCode code = e.getCode();
             switch (code) {
                 case LEFT:
-                    g.zRotate.setAngle(g.zRotate.getAngle() + 10);
+                    scene.getCamera().setTranslateX(scene.getCamera().getTranslateX() - 100);
                     break;
                 case RIGHT:
-                    g.zRotate.setAngle(g.zRotate.getAngle() - 10);
+                    scene.getCamera().setTranslateX(scene.getCamera().getTranslateX() + 100);
                     break;
                 case UP:
-                    g.setTranslateY(g.getTranslateY() - 100);
+                    scene.getCamera().setTranslateY(scene.getCamera().getTranslateY() - 100);
                     break;
                 case DOWN:
-                    g.setTranslateY(g.getTranslateY() + 100);
+                    scene.getCamera().setTranslateY(scene.getCamera().getTranslateY() + 100);
                     break;
                 case HOME:
-                    g.xRotate.setAngle(-90);
-                    g.yRotate.setAngle(0);
-                    g.zRotate.setAngle(0);
-                    g.setTranslateX(0);
-                    g.setTranslateY(0);
-                    g.setTranslateZ(0);
+                    //g.xRotate.setAngle(-90);
+                    //g.yRotate.setAngle(0);
+                    //g.zRotate.setAngle(0);
+                    scene.getCamera().setTranslateX(800);
+                    scene.getCamera().setTranslateY(800);
+                    scene.getCamera().setTranslateZ(-800);
                     break;
                 default:
                     break;
             }
-        });*/
+        });
         new javafx.animation.AnimationTimer() {
             @Override
             public void handle(long now) {
@@ -366,7 +367,7 @@ public class TileMap extends Application {
 	return this.spawns;
     }
 
-    public Theater getTheater() {
+    public TheaterCache getTheater() {
 	return this.theater;
     }
     
