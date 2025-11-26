@@ -9,6 +9,7 @@ import cr0s.javara.resources.SoundManager;
 
 import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
+import javafx.embed.swing.SwingFXUtils;
 
 public class EntityBuildingProgress extends EntityBuilding implements IShroudRevealer {
 
@@ -71,12 +72,12 @@ public class EntityBuildingProgress extends EntityBuilding implements IShroudRev
     }
 
     @Override
-    public void renderEntity(Scene g) {
+    public ImageView renderEntity(Scene g) {
 	if (this.makeTexture == null) {
-	    return;
+	    return null;
 	}
 	
-	//this.makeTexture.getAsImage(this.currentFrame, this.owner.playerColor).draw(this.posX, this.posY);
+	return new ImageView(SwingFXUtils.toFXImage(this.makeTexture.getAsImage(this.currentFrame, this.owner.playerColor), null));//.draw(this.posX, this.posY);
     }
 
     @Override

@@ -34,7 +34,6 @@ import java.nio.channels.ReadableByteChannel;
  */
 @FileExtensions("mix")
 public class MixFile extends AbstractFile implements ArchiveFile<MixRecord> {
-
 	private static final int FLAG_CHECKSUM  = 0x00010000;
 	private static final int FLAG_ENCRYPTED = 0x00020000;
 	private static final int FLAG_SIZE      = 4;
@@ -44,7 +43,6 @@ public class MixFile extends AbstractFile implements ArchiveFile<MixRecord> {
 
 	private static final int   ENCRYPT_BLOCK_SIZEI = 8;
 	private static final float ENCRYPT_BLOCK_SIZEF = 8f;
-
 	private final FileChannel filechannel;
 
 	private boolean checksum;
@@ -55,11 +53,10 @@ public class MixFile extends AbstractFile implements ArchiveFile<MixRecord> {
 	/**
 	 * Constructor, creates a mix file from a proper file on the file system.
 	 * 
-	 * @param filename	  Name of the mix file.
+	 * @param filename    Name of the mix file.
 	 * @param filechannel The mix file proper.
 	 */
 	public MixFile(String filename, FileChannel filechannel) {
-
 		super(filename);
 		this.filechannel = filechannel;
 
@@ -149,7 +146,6 @@ public class MixFile extends AbstractFile implements ArchiveFile<MixRecord> {
 	 * @return The ID of the entry from the filename.
 	 */
 	private static int calculateID(String filename) {
-
 		String name = filename.toUpperCase();
 		int id = 0;
 
@@ -185,7 +181,6 @@ public class MixFile extends AbstractFile implements ArchiveFile<MixRecord> {
 	 */
 	@Override
 	public ReadableByteChannel getEntryData(MixRecord record) {
-
 		return new MixRecordByteChannel(filechannel, (int)record.offset + offsetAdjustSize(), (int)record.length);
 	}
 
@@ -198,7 +193,6 @@ public class MixFile extends AbstractFile implements ArchiveFile<MixRecord> {
 	 */
 	@Override
 	public MixRecord getEntry(String name) {
-
 		int itemid = calculateID(name);
 
 		// Binary search for the record with the calculated value
@@ -235,7 +229,6 @@ public class MixFile extends AbstractFile implements ArchiveFile<MixRecord> {
 	 * @return Number of files within.
 	 */
 	private int numFiles() {
-
 		return mixheader.numfiles & 0xffff;
 	}
 
@@ -247,7 +240,6 @@ public class MixFile extends AbstractFile implements ArchiveFile<MixRecord> {
 	 * @return Size, in bytes, of all the data before the first internal file.
 	 */
 	private int offsetAdjustSize() {
-
 		int flag = checksum || encrypted ? FLAG_SIZE : 0;
 		int encryption = encrypted ? KEY_SIZE_SOURCE : 0;
 		int header = encrypted ? MixFileHeader.HEADER_SIZE + 2 : MixFileHeader.HEADER_SIZE;

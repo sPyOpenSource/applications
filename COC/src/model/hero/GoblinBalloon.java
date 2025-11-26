@@ -5,6 +5,7 @@ import cr0s.javara.entity.aircraft.EntityAircraft;
 import cr0s.javara.util.Pos;
 import javafx.scene.Scene;
 import javafx.scene.shape.Path;
+import javafx.scene.image.ImageView;
 
 public class GoblinBalloon extends EntityAircraft{
     public GoblinBalloon(double x, double y) {
@@ -33,5 +34,5 @@ public class GoblinBalloon extends EntityAircraft{
     @Override
     protected Activity moveToRange(Pos cellPos, int range){ return null; }
     @Override
-    public void renderEntity(Scene g){}
+    public ImageView renderEntity(Scene g){ return null; }
 }

@@ -17,8 +17,6 @@ import cr0s.javara.entity.actor.activity.activities.Attack;
 import cr0s.javara.entity.actor.activity.activities.MoveInfantry;
 import cr0s.javara.entity.building.EntityBuilding;
 
-import cr0s.javara.gameplay.Player;
-import cr0s.javara.gameplay.Team;
 import cr0s.javara.order.InputAttributes;
 import cr0s.javara.order.Order;
 import cr0s.javara.order.OrderTargeter;
@@ -33,6 +31,7 @@ import cr0s.javara.util.Pos;
 
 import javafx.scene.Scene;
 import javafx.scene.shape.Path;
+import javafx.scene.image.ImageView;
 
 public abstract class EntityInfantry extends MobileEntity implements IShroudRevealer {
 
@@ -219,12 +218,13 @@ public abstract class EntityInfantry extends MobileEntity implements IShroudReve
     }
 
     @Override
-    public void renderEntity(Scene g) {
+    public ImageView renderEntity(Scene g) {
 	drawPath(g);
 
 	//if (this.sheet != null) {
 	//this.currentSequence.render(this.getTranslateX(), this.getTranslateY());
 	//}
+        return null;
     }
 
     @Override

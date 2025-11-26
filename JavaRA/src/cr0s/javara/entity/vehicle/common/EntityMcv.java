@@ -25,6 +25,7 @@ import cr0s.javara.util.SpriteSheet;
 
 import javafx.scene.Scene;
 import javafx.scene.shape.Path;
+import javafx.scene.image.ImageView;
 
 public class EntityMcv extends EntityVehicle implements ISelectable, IDeployable, IHaveCost {
 
@@ -81,7 +82,7 @@ public class EntityMcv extends EntityVehicle implements ISelectable, IDeployable
     }
 
     @Override
-    public void renderEntity(Scene g) {
+    public ImageView renderEntity(Scene g) {
 	super.renderEntity(g);
 	
 	if (GUI.DEBUG_MODE) {
@@ -96,15 +97,18 @@ public class EntityMcv extends EntityVehicle implements ISelectable, IDeployable
 
 	//g.drawRect(tx, ty, TEXTURE_WIDTH, TEXTURE_HEIGHT);
 
-	texture.startUse();
-	//texture.getSubImage(0, currentFacing).drawEmbedded(tx, ty, TEXTURE_WIDTH, TEXTURE_HEIGHT);
-	texture.endUse();
+	//texture.startUse();
+	ImageView view = texture.getSubImage(0, currentFacing);//.drawEmbedded(tx, ty, TEXTURE_WIDTH, TEXTURE_HEIGHT);
+        view.setX(tx);
+        view.setY(ty);
+        return view;
+	//texture.endUse();
 	
 	//g.setColor(Color.white);
 	//g.fillOval(this.getCenterPosX(), this.getCenterPosY(), 5, 5);
 	//g.setColor(owner.playerColor);		
 
-	drawPath(g);
+	//drawPath(g);
     }
 
     @Override
@@ -169,11 +173,11 @@ public class EntityMcv extends EntityVehicle implements ISelectable, IDeployable
     }
 
     public double getTextureX() {
-	return getTranslateX() - (TEXTURE_WIDTH / 2) + 18;
+	return boundingBox.getX() - (TEXTURE_WIDTH / 2) + 18;
     }
 
     public double getTextureY() {
-	return getTranslateY() - (TEXTURE_HEIGHT / 2) + 12; 
+	return boundingBox.getY() - (TEXTURE_HEIGHT / 2) + 12; 
     }
     
     @Override

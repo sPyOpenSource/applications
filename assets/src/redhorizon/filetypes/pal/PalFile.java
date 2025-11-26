@@ -25,7 +25,6 @@ import static redhorizon.filetypes.ColourFormat.FORMAT_RGB;
 
 import java.io.IOException;
 import java.nio.ByteBuffer;
-import java.nio.ByteOrder;
 import java.nio.channels.ReadableByteChannel;
 
 /**
@@ -44,7 +43,7 @@ public class PalFile extends AbstractFile implements PaletteFile {
 	/**
 	 * Constructor, creates a new palette file using the given name and data.
 	 * 
-	 * @param name		  The name of the palette.
+	 * @param name        The name of the palette.
 	 * @param bytechannel The data of the palette.
 	 */
 	public PalFile(String name, ReadableByteChannel bytechannel) {
@@ -68,6 +67,7 @@ public class PalFile extends AbstractFile implements PaletteFile {
 			byte b = (byte)(palettedata.get(i) << 2);
 			palettedata.put(i, b);
 		}
+                
 	}
 
 	/**
@@ -90,7 +90,6 @@ public class PalFile extends AbstractFile implements PaletteFile {
 	 */
 	@Override
 	public ReadableByteChannel getPaletteData() {
-
 		return new ReadableByteChannelAdapter(palettedata);
 	}
 
@@ -103,7 +102,7 @@ public class PalFile extends AbstractFile implements PaletteFile {
 	 */
 	@Override
 	public int size() {
-
 		return PALETTE_SIZE;
 	}
+        
 }

@@ -97,29 +97,29 @@ public class StateMainMenu extends Application {
 	public void start(Stage c) throws InterruptedException {
             BorderPane root = new BorderPane();
             Scene scene = new Scene(root, 800, 400);
-		this.c = c;
-		
-		menuItems.add(new MainMenuItem(0, "Start test game"));
-		menuItems.add(new MainMenuItem(1, "Options"));
-		menuItems.add(new MainMenuItem(2, "Quit"));
-		
-		this.MENU_HEIGHT = MENU_FRAME_HORIZ_HEIGHT + menuItems.size() * (this.MENU_BUTTON_HEIGHT + MENU_BUTTONS_SPACE);
-		
-		try {
-			this.ss = new SpriteSheet(assets.get("/assets/png/dialog.png"), 1024, 512);
-			
-			this.menuBackground = ss.getSubImage(0, 0, menuWidth, MENU_HEIGHT);
-			this.menuFrameVert = ss.getSubImage(480, 0, MENU_FRAME_VERT_WIDTH, MENU_FRAME_VERT_HEIGHT);
-			this.menuFrameHoriz = ss.getSubImage(0, 480, MENU_FRAME_HORIZ_WIDTH, MENU_FRAME_HORIZ_HEIGHT);
-			
-			this.menuFrameTick = ss.getSubImage(191, 480, MENU_FRAME_TICK_WIDTH, MENU_FRAME_TICK_HEIGHT);
-			
-			this.menuButton = ss.getSubImage(512, -1, MENU_BUTTON_SIZE_SHEET, MENU_BUTTON_SIZE_SHEET + 2);
-			this.menuButtonMouseover = ss.getSubImage(512, 127, MENU_BUTTON_SIZE_SHEET, MENU_BUTTON_SIZE_SHEET);
-			this.menuButtonPressed = ss.getSubImage(512 + 128, 127, MENU_BUTTON_SIZE_SHEET, MENU_BUTTON_SIZE_SHEET);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+            this.c = c;
+
+            menuItems.add(new MainMenuItem(0, "Start test game"));
+            menuItems.add(new MainMenuItem(1, "Options"));
+            menuItems.add(new MainMenuItem(2, "Quit"));
+
+            this.MENU_HEIGHT = MENU_FRAME_HORIZ_HEIGHT + menuItems.size() * (this.MENU_BUTTON_HEIGHT + MENU_BUTTONS_SPACE);
+
+            try {
+                this.ss = new SpriteSheet(assets.get("/assets/png/dialog.png"), 1024, 512);
+
+                this.menuBackground = ss.getSubImage(0, 0, menuWidth, MENU_HEIGHT);
+                this.menuFrameVert = ss.getSubImage(480, 0, MENU_FRAME_VERT_WIDTH, MENU_FRAME_VERT_HEIGHT);
+                this.menuFrameHoriz = ss.getSubImage(0, 480, MENU_FRAME_HORIZ_WIDTH, MENU_FRAME_HORIZ_HEIGHT);
+
+                this.menuFrameTick = ss.getSubImage(191, 480, MENU_FRAME_TICK_WIDTH, MENU_FRAME_TICK_HEIGHT);
+
+                this.menuButton = ss.getSubImage(512, -1, MENU_BUTTON_SIZE_SHEET, MENU_BUTTON_SIZE_SHEET + 2);
+                this.menuButtonMouseover = ss.getSubImage(512, 127, MENU_BUTTON_SIZE_SHEET, MENU_BUTTON_SIZE_SHEET);
+                this.menuButtonPressed = ss.getSubImage(512 + 128, 127, MENU_BUTTON_SIZE_SHEET, MENU_BUTTON_SIZE_SHEET);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
 
 		//g.clear();
 		

@@ -19,7 +19,7 @@ public class TownHall extends EntityBuilding {
     }
 
     @Override
-    public void renderEntity(Scene g) {
+    public ImageView renderEntity(Scene g) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 

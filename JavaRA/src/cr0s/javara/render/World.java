@@ -38,11 +38,12 @@ import cr0s.javara.util.SpriteSheet;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import javafx.stage.Stage;
 
 public class World {
     private final TileMap map;
-    private final VehiclePathfinder vp;
-    private final InfantryPathfinder ip;
+    private VehiclePathfinder vp;
+    private InfantryPathfinder ip;
     private final ArrayList<Player> players = new ArrayList<>();
 
     private LinkedList<Entity> entities = new LinkedList<>();
@@ -69,8 +70,8 @@ public class World {
 
 	map.fillBlockingMap(this.blockingMap);
 
-	this.vp = new VehiclePathfinder(this);
-	this.ip = new InfantryPathfinder(this);
+	//this.vp = new VehiclePathfinder(this);
+	//this.ip = new InfantryPathfinder(this);
 
 	this.random = new Random(System.currentTimeMillis());
 	generateRangePoints();
@@ -179,8 +180,8 @@ public class World {
      */
     public void render(Scene g) {
 	Rectangle mapBounds = null;//camera.getMapTilesBounds();
-	int mapX = (int) mapBounds.getX();
-	int mapY = (int) mapBounds.getY();
+	//int mapX = (int) mapBounds.getX();
+	//int mapY = (int) mapBounds.getY();
 
 	try {
 	    //camera.render(container, g);
@@ -188,9 +189,13 @@ public class World {
 	    e1.printStackTrace();
 	}		
 
-	//Profiler.getInstance().startForSection("r: Map");
-	//map.render(container, g, camera);
-	//Profiler.getInstance().stopForSection("r: Map");
+        try {
+            //Profiler.getInstance().startForSection("r: Map");
+            map.start(new Stage());
+            //Profiler.getInstance().stopForSection("r: Map");
+        } catch (InterruptedException ex) {
+            System.getLogger(World.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
+        }
 	
 	//Color pColor = g.getColor();
 
@@ -198,9 +203,10 @@ public class World {
 	// Render bibs
 	for (Entity e : this.entities) {		    
 	    if (!e.isDead() && e.isVisible) { 
-		if (e instanceof EntityBuilding) {
-		    renderEntityBib((EntityBuilding) e);
-		}
+		//if (e instanceof EntityBuilding) {
+		    //renderEntityBib((EntityBuilding) e);
+                    map.root.getChildren().add(e.renderEntity(g));
+		//}
 	    }
 	}
 
@@ -208,8 +214,8 @@ public class World {
 	for (int i = -2; i < PASSES_COUNT; i++) {
 	    for (Entity e : this.entities) {		    
 		if (!e.isDead() && e.isVisible && e.shouldRenderedInPass(i)) { 
-		    e.renderEntity(g);
-
+		    //e.renderEntity(g);
+                    map.root.getChildren().add(e.renderEntity(g));
 		    if (e instanceof ITargetLines && e.isSelected) {
 			for (TargetLine tl : ((ITargetLines) e).getTargetLines()) {
 			    tl.render(g);
@@ -241,14 +247,14 @@ public class World {
 	//Profiler.getInstance().stopForSection("r: Entity");
 
 	//Profiler.getInstance().startForSection("r: Shroud");
-	if (GUI.getInstance().getPlayer().getShroud() != null) {
+	/*if (GUI.getInstance().getPlayer().getShroud() != null) {
 	    GUI.getInstance().getPlayer().getShroud().getRenderer().renderShrouds(g);
 	} else {
 	    GUI.getInstance().getObserverShroudRenderer().renderShrouds(g);
 	}
 	//Profiler.getInstance().stopForSection("r: Shroud");
 	
-	GUI.getInstance().getBuildingOverlay().render(g);
+	GUI.getInstance().getBuildingOverlay().render(g);*/
     }
 
     /**
@@ -316,7 +322,7 @@ public class World {
 
     public void spawnEntityInWorld(Entity e) {
 	e.setWorld(this);
-	this.entitiesToAdd.add(e);
+	this.entities.add(e);
     }
 
     /**
@@ -759,7 +765,6 @@ public class World {
 	    int maxRange) {
 	// Choose any tiles in annulus
 	return this.chooseTilesInAnnulus(center, minRange, maxRange, new CellChooser() {
-
 	    @Override
 	    public boolean isCellChoosable(Pos cellPos) {
 		return true;

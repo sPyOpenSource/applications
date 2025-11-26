@@ -101,10 +101,9 @@ public abstract class EntityBuilding extends EntityActor {
      * Creates new building.
      * @param aTileX tiled map grid-aligned location of building by X-axis 
      * @param aTileY tiled map grid-aligned location of building by Y-axis 
-     * @param aTeam building team alignment.
-     * @param aPlayer building owner player object.
      * @param aSizeWidth width of building boundaries in pixels.
      * @param aSizeHeight height of building boundaries in pixels.
+     * @param aFootprint
      */
     public EntityBuilding(final double aTileX, final double aTileY, 
 	    final double aSizeWidth, 
@@ -167,7 +166,7 @@ public abstract class EntityBuilding extends EntityActor {
     }
 
     @Override
-    public abstract void renderEntity(Scene g);
+    public abstract ImageView renderEntity(Scene g);
 
     @Override
     public abstract boolean shouldRenderedInPass(int passNum);

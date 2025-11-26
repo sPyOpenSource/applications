@@ -88,9 +88,7 @@ public class AIPlayer extends Player {
     Random rnd;
 
     private Pos defenseCenter;
-
     private final BaseBuilder bb;
-
     private final HashMap<Player, Enemy> aggro = new HashMap<>();
 
     int assignRolesTicks = 0;

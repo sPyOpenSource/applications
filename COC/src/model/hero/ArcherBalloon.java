@@ -5,6 +5,7 @@ import cr0s.javara.util.Pos;
 import javafx.scene.shape.Path;
 import cr0s.javara.entity.actor.activity.Activity;
 import javafx.scene.Scene;
+import javafx.scene.image.ImageView;
 
 public class ArcherBalloon extends EntityAircraft {
     
@@ -34,5 +35,5 @@ public class ArcherBalloon extends EntityAircraft {
     @Override
     protected Activity moveToRange(Pos cellPos, int range){ return null; }
     @Override
-    public void renderEntity(Scene g){}
+    public ImageView renderEntity(Scene g){ return null; }
 }

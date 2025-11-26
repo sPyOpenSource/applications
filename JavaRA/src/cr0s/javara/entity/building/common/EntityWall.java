@@ -97,8 +97,8 @@ public abstract class EntityWall extends EntityBuilding implements IHaveCost, ID
     }
 
     @Override
-    public void renderEntity(Scene g) {
-	//sheet.getSubImage(0, 16 * this.damageModifier + this.adjacent).draw(this.posX, this.posY);
+    public ImageView renderEntity(Scene g) {
+	return sheet.getSubImage(0, 16 * this.damageModifier + this.adjacent);//.draw(this.posX, this.posY);
     }
 
     @Override

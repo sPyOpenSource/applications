@@ -3,15 +3,11 @@ package model.building;
 import cr0s.javara.entity.building.BuildingType;
 import cr0s.javara.entity.building.Defensive;
 import javafx.scene.Scene;
+import javafx.scene.image.ImageView;
 
 public class ArcherTower extends Defensive {
     public ArcherTower(double x, double y) {
         super(BuildingType.DEFENSIVE, 1230, "assets/png/archerTower.png", 100, 100, 100, 52, x, y);
-    }
-
-    @Override
-    public void renderEntity(Scene g) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
@@ -26,6 +22,11 @@ public class ArcherTower extends Defensive {
 
     @Override
     public float getWidthInTiles() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public ImageView renderEntity(Scene g) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }

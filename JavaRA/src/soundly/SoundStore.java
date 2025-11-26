@@ -16,7 +16,6 @@
  */
 package soundly;
 
-import java.io.InputStream;
 import javafx.scene.media.Media;
 
 /**

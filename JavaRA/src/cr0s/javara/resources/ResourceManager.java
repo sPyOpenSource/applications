@@ -93,10 +93,11 @@ public class ResourceManager {
      
     public static RandomAccessFile toRandomAccessFile(InputStream is) throws IOException 
     {
-        RandomAccessFile raf = new RandomAccessFile(File.createTempFile("isc", "tmp"), "rwd");
-  
+        File tmpFile = File.createTempFile("isc", "tmp");
+        tmpFile.deleteOnExit();
+        RandomAccessFile raf = new RandomAccessFile(tmpFile, "rwd");
         byte[] buffer = new byte[2048];
-        int    tmp    = 0;
+        int    tmp;
   
         while ((tmp = is.read(buffer)) != -1) 
         {
@@ -156,12 +157,12 @@ public class ResourceManager {
     }    
 
     public ShpTexture getConquerTexture(String name) {
-	MixFile mix = loadMixes(assets.getInputStream("/assets/mix/conquer.mix"));
-
-	// Check texture sources cache
+        // Check texture sources cache
 	if (commonTextureSources.containsKey(name)) {
 	    return commonTextureSources.get(name);
 	}
+        
+	MixFile mix = loadMixes(assets.getInputStream("/assets/mix/conquer.mix"));
 
 	if (mix != null) {
 	    MixRecord rec = mix.getEntry(name);
@@ -223,12 +224,12 @@ public class ResourceManager {
     }
 
     public ShpTexture getTemplateShpTexture(String tileSetName, String name) {
-	MixFile mix = loadMixes(assets.getInputStream("/assets/mix/"+tileSetName.toLowerCase() + ".mix"));
-
-	// Check texture sources cache
+        // Check texture sources cache
 	if (shpTextureSources.containsKey(name)) {
 	    return shpTextureSources.get(name);
 	}
+        
+	MixFile mix = loadMixes(assets.getInputStream("/assets/mix/"+tileSetName.toLowerCase() + ".mix"));
 
 	if (mix != null) {
 	    MixRecord rec = mix.getEntry(name);
@@ -254,13 +255,13 @@ public class ResourceManager {
     }    
 
     public TmpTexture getTemplateTexture(String type, String name) {
-	type = type.toLowerCase();
-	MixFile mix = loadMixes(assets.getInputStream("/assets/mix/" + type + ".mix"));
-
-	// Check texture sources cache
+        // Check texture sources cache
 	if (templatesTexureSources.containsKey(name)) {
 	    return templatesTexureSources.get(name);
 	}
+        
+	type = type.toLowerCase();
+	MixFile mix = loadMixes(assets.getInputStream("/assets/mix/" + type + ".mix"));
 
 	if (mix != null) {
 	    MixRecord rec = mix.getEntry(name);
@@ -326,12 +327,12 @@ public class ResourceManager {
     }
 
     public ShpTexture getInfantryTexture(String name) {
-	MixFile mix = loadMixes(assets.getInputStream("/assets/mix/hires.mix"));
-
-	// Check texture sources cache
+        // Check texture sources cache
 	if (commonTextureSources.containsKey(name)) {
 	    return commonTextureSources.get(name);
 	}
+        
+	MixFile mix = loadMixes(assets.getInputStream("/assets/mix/hires.mix"));
 
 	if (mix != null) {
 	    MixRecord rec = mix.getEntry(name);

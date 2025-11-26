@@ -7,6 +7,7 @@ import cr0s.javara.resources.ResourceManager;
 import cr0s.javara.resources.ShpTexture;
 import cr0s.javara.util.SpriteSheet;
 import javafx.scene.Scene;
+import javafx.scene.image.ImageView;
 
 public class SmokeOnUnit extends Entity implements IEffect {
 
@@ -60,8 +61,8 @@ public class SmokeOnUnit extends Entity implements IEffect {
     }
 
     @Override
-    public void renderEntity(Scene g) {
-	//this.tex.getSubImage(0, 49 + this.frameIndex).draw(this.parentUnit.getPosition().getX() - this.width / 2, this.parentUnit.getPosition().getY() - this.height / 2);
+    public ImageView renderEntity(Scene g) {
+	return this.tex.getSubImage(0, 49 + this.frameIndex);//.draw(this.parentUnit.getPosition().getX() - this.width / 2, this.parentUnit.getPosition().getY() - this.height / 2);
     }
 
     @Override

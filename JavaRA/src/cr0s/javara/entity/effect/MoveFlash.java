@@ -6,8 +6,10 @@ import cr0s.javara.main.GUI;
 import cr0s.javara.resources.ResourceManager;
 import cr0s.javara.resources.ShpTexture;
 import cr0s.javara.util.SpriteSheet;
+
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
+import javafx.scene.image.ImageView;
 
 public class MoveFlash extends Entity implements IEffect {
 
@@ -41,8 +43,8 @@ public class MoveFlash extends Entity implements IEffect {
     }
 
     @Override
-    public void renderEntity(Scene g) {
-	//tex.getSubImage(0, frameIndex).draw(this.posX - 12, this.posY - 12);
+    public ImageView renderEntity(Scene g) {
+	return tex.getSubImage(0, frameIndex);//.draw(this.posX - 12, this.posY - 12);
     }
 
     @Override

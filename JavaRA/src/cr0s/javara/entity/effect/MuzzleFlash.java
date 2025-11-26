@@ -8,6 +8,7 @@ import cr0s.javara.resources.ShpTexture;
 import cr0s.javara.util.Pos;
 import cr0s.javara.util.SpriteSheet;
 import javafx.scene.Scene;
+import javafx.scene.image.ImageView;
 
 public class MuzzleFlash extends Entity implements IEffect {
 
@@ -48,8 +49,8 @@ public class MuzzleFlash extends Entity implements IEffect {
     }
 
     @Override
-    public void renderEntity(Scene g) {
-	//this.seq.render(this.getTranslateX() - this.width / 2, this.getTranslateY() - this.height / 2);
+    public ImageView renderEntity(Scene g) {
+	return null;//this.seq.render(this.getTranslateX() - this.width / 2, this.getTranslateY() - this.height / 2);
     }
 
     @Override

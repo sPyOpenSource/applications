@@ -22,8 +22,6 @@ import cr0s.javara.entity.building.common.EntityWarFactory;
 import cr0s.javara.entity.turreted.IHaveTurret;
 import cr0s.javara.entity.turreted.Turret;
 import cr0s.javara.entity.vehicle.EntityVehicle;
-import cr0s.javara.gameplay.Player;
-import cr0s.javara.gameplay.Team;
 import cr0s.javara.main.GUI;
 import cr0s.javara.order.InputAttributes;
 import cr0s.javara.order.Order;
@@ -35,6 +33,7 @@ import cr0s.javara.util.SpriteSheet;
 
 import javafx.scene.Scene;
 import javafx.scene.shape.Path;
+import javafx.scene.image.ImageView;
 
 public class EntityMammothTank extends EntityVehicle implements ISelectable, IHaveCost, IHaveTurret, ICanAttack {
 
@@ -131,7 +130,7 @@ public class EntityMammothTank extends EntityVehicle implements ISelectable, IHa
     }
 
     @Override
-    public void renderEntity(Scene g) {
+    public ImageView renderEntity(Scene g) {
 	super.renderEntity(g);
 
 	if (GUI.DEBUG_MODE) {
@@ -185,6 +184,7 @@ public class EntityMammothTank extends EntityVehicle implements ISelectable, IHa
 	drawPath(g);
 
 	//g.getFont().drawString(this.posX, this.posY + this.boundingBox.getHeight() + 5, (this.isIdle()) ? "idle" : this.currentActivity.getClass().getSimpleName());
+        return null;
     }
 
     @Override

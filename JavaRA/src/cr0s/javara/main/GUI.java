@@ -5,16 +5,22 @@ import java.util.Random;
 import cr0s.javara.gameplay.BuildingOverlay;
 import cr0s.javara.gameplay.Player;
 import cr0s.javara.gameplay.Team;
+import cr0s.javara.gameplay.Team.Alignment;
 import cr0s.javara.render.Controller;
 import cr0s.javara.render.World;
 import cr0s.javara.render.shrouds.ShroudRenderer;
 import cr0s.javara.resources.ResourceManager;
 import cr0s.javara.ui.GameSideBar;
+import cr0s.javara.util.Pos;
+import cr0s.javara.ai.AIPlayer;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.scene.Camera;
 import javafx.scene.PerspectiveCamera;
+import javafx.scene.paint.Color;
+import javafx.scene.Scene;
+import javafx.scene.layout.BorderPane;
 
 public class GUI extends Application {
     public ResourceManager rm;
@@ -81,7 +87,7 @@ public class GUI extends Application {
 	//this.addState(new StateMainMenu());		
 	//this.addState(new StateGameMap(arg0));
 	//this.addState(new StatePauseMenu());
-	new StateLoadingScreen().start(stage);
+	//new StateLoadingScreen().start(stage);
 	//this.addState(new StateTestScreen());
 
 	// Disable native cursor
@@ -121,9 +127,8 @@ public class GUI extends Application {
 	    e1.printStackTrace();
 	}
 
-	controller = new Controller(null, camera, this.getContainer().getInput());	
-	w = new World("haos-ridges",
-		this.getContainer(), camera);*/
+	controller = new Controller(null, camera, this.getContainer().getInput());*/	
+	w = new World("haos-ridges");
 
 	initGame();
     }
@@ -134,7 +139,7 @@ public class GUI extends Application {
 	//this.observerShroudRenderer = new ShroudRenderer(w);
 
 	team = new Team();
-	/*player = new Player(w, "Player", Alignment.SOVIET, new Color(r.nextInt(256), r.nextInt(256), r.nextInt(256)));
+	player = new Player(w, "Player", Alignment.SOVIET, Color.rgb(r.nextInt(256), r.nextInt(256), r.nextInt(256)));
 	player.setTeam(team);
 
 	//player.setShroud(null);
@@ -147,15 +152,16 @@ public class GUI extends Application {
 
 	//this.getCamera().setOffset(-Math.max(w.getMap().getBounds().getMinX(), (playerSpawn.getX() * 24) - this.getContainer().getWidth() / 2), -Math.max(w.getMap().getBounds().getMinY(), (playerSpawn.getY() * 24)));
 
-	this.getCamera().scrollCenterToCell(playerSpawn);
+	//this.getCamera().scrollCenterToCell(playerSpawn);
 	
-	this.gsb = new GameSideBar(Main.getInstance().getTeam(), Main.getInstance().getPlayer());
-	this.gsb.initSidebarPages();
+	//this.gsb = new GameSideBar(Main.getInstance().getTeam(), Main.getInstance().getPlayer());
+	//this.gsb.initSidebarPages();
 	
 	Team team2 = new Team();
-	Player otherPlayer = new AIPlayer(w, "NormalAI", Alignment.SOVIET, new Color(128, 0, 0));
+	Player otherPlayer = new AIPlayer(w, "NormalAI", Alignment.SOVIET, Color.rgb(128, 0, 0));
 	player.setTeam(team2);
-	w.addPlayer(otherPlayer);*/
+	w.addPlayer(otherPlayer);
+        w.render(new Scene(new BorderPane(), 800, 600));
     }
 
     public Player getPlayer() {

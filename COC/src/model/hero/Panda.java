@@ -3,6 +3,7 @@ package model.hero;
 import cr0s.javara.entity.infantry.EntityInfantry;
 import javafx.scene.Scene;
 import javafx.scene.shape.Path;
+import javafx.scene.image.ImageView;
 
 public class Panda extends EntityInfantry{
     public Panda(double x, double y) {
@@ -35,5 +36,5 @@ public class Panda extends EntityInfantry{
     @Override
     public int getRevealingRange(){ return 0; }
     @Override
-    public void renderEntity(Scene g){}
+    public ImageView renderEntity(Scene g){ return null; }
 }

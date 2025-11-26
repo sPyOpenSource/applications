@@ -19,8 +19,7 @@ import cr0s.javara.entity.actor.activity.activities.harvester.HarvestResource;
 import cr0s.javara.entity.building.common.EntityProc;
 import cr0s.javara.entity.building.common.EntityWarFactory;
 import cr0s.javara.entity.vehicle.EntityVehicle;
-import cr0s.javara.gameplay.Player;
-import cr0s.javara.gameplay.Team;
+
 import cr0s.javara.main.GUI;
 import cr0s.javara.order.InputAttributes;
 import cr0s.javara.order.Order;
@@ -29,12 +28,12 @@ import cr0s.javara.order.Target;
 import cr0s.javara.resources.ResourceManager;
 import cr0s.javara.ui.cursor.CursorType;
 import cr0s.javara.util.Pos;
-import cr0s.javara.util.RotationUtil;
 import cr0s.javara.util.SpriteSheet;
 
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Path;
+import javafx.scene.image.ImageView;
 
 public class EntityHarvester extends EntityVehicle implements ISelectable, IShroudRevealer, IPips, IHaveCost {
 
@@ -143,7 +142,7 @@ public class EntityHarvester extends EntityVehicle implements ISelectable, IShro
     }
 
     @Override
-    public void renderEntity(Scene g) {
+    public ImageView renderEntity(Scene g) {
 	super.renderEntity(g);
 
 	if (GUI.DEBUG_MODE) {
@@ -172,6 +171,7 @@ public class EntityHarvester extends EntityVehicle implements ISelectable, IShro
 	texture.endUse();
 
 	drawPath(g);
+        return null;
     }
 
     @Override

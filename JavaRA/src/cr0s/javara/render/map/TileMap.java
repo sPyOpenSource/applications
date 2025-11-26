@@ -61,6 +61,7 @@ public class TileMap extends Application {
     private Color blockedColor = Color.rgb(255, 0, 0, 32f/255);
     private Assets assets = new Assets();
     public SmudgeLayer smudges;
+    public BorderPane root = new BorderPane();
 
     public TileMap(){
         this("haos-ridges");
@@ -284,7 +285,7 @@ public class TileMap extends Application {
 
     @Override
     public void start(Stage c) throws InterruptedException {
-        BorderPane root = new BorderPane();
+        //BorderPane root = new BorderPane();
         //RotateCamera g = new RotateCamera();
 	//this.theater.getSpriteSheet().startUse();
 	// Draw map entities

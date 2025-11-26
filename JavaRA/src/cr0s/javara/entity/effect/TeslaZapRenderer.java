@@ -8,6 +8,7 @@ import cr0s.javara.resources.ResourceManager;
 import cr0s.javara.util.Pos;
 import cr0s.javara.util.SpriteSheet;
 import javafx.scene.Scene;
+import javafx.scene.image.ImageView;
 
 public class TeslaZapRenderer extends Projectile implements IEffect {
     private static SpriteSheet tex;
@@ -65,13 +66,14 @@ public class TeslaZapRenderer extends Projectile implements IEffect {
     }
 
     @Override
-    public void renderEntity(Scene g) {
+    public ImageView renderEntity(Scene g) {
 	this.tex.startUse();
 
 	this.p = this.guided.isValidFor(this.sourceActor) ? this.guidedTarget.getPosition() : this.passiveTargetPos;	
 	this.drawZapWandering(this.sourcePos, this.p, this.world.getRandomInt(25, 50), 5.0f);
 
 	this.tex.endUse();
+        return null;
     }      
 
     private void drawZapWandering(Pos from, Pos to, float displace, float detail) {

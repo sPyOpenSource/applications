@@ -7,6 +7,7 @@ import cr0s.javara.entity.actor.EntityActor;
 import cr0s.javara.order.Target;
 import cr0s.javara.util.Pos;
 import javafx.scene.Scene;
+import javafx.scene.image.ImageView;
 
 public class TeslaZap extends Projectile implements IEffect {
 
@@ -68,8 +69,8 @@ public class TeslaZap extends Projectile implements IEffect {
     }
 
     @Override
-    public void renderEntity(Scene g) {
-
+    public ImageView renderEntity(Scene g) {
+        return null;
     }
     
 }

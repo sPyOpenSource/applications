@@ -3,6 +3,7 @@ package model.building;
 import cr0s.javara.entity.building.BuildingType;
 import cr0s.javara.entity.building.Defensive;
 import javafx.scene.Scene;
+import javafx.scene.image.ImageView;
 
 public class InfernoTower extends Defensive {
     public InfernoTower(double x, double y) {
@@ -10,7 +11,7 @@ public class InfernoTower extends Defensive {
     }
 
     @Override
-    public void renderEntity(Scene g) {
+    public ImageView renderEntity(Scene g) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 

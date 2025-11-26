@@ -12,8 +12,6 @@ import cr0s.javara.entity.actor.EntityActor;
 import cr0s.javara.entity.actor.activity.Activity;
 import cr0s.javara.entity.actor.activity.activities.Move;
 import cr0s.javara.entity.effect.SmokeOnUnit;
-import cr0s.javara.gameplay.Player;
-import cr0s.javara.gameplay.Team;
 import cr0s.javara.order.Order;
 import cr0s.javara.render.EntityBlockingMap.FillsSpace;
 import cr0s.javara.resources.SoundManager;
@@ -21,23 +19,24 @@ import cr0s.javara.util.Pos;
 
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
+import javafx.scene.image.ImageView;
 
 public abstract class EntityVehicle extends MobileEntity implements IShroudRevealer {
     public int tileX, tileY;
 
     public boolean isPrimary = false, isRepairing = false, isInvuln = false, isDestroyed = false;
 
-    private int moveWaitTicks = 0;
+    private final int moveWaitTicks = 0;
 
     protected int buildingSpeed;
     Color nextColor = Color.rgb(0, 255, 0, 64f/255);
 
     private final String SELECTED_SOUND = "vehic1";
-    private HashMap<String, Integer[]> orderSounds;
+    private final HashMap<String, Integer[]> orderSounds;
     private final int MAX_VERSIONS = 4;
 
-    private String explosionType = "veh-hit3.shp";
-    private String explosionSound = "kaboom30";
+    private final String explosionType = "veh-hit3.shp";
+    private final String explosionSound = "kaboom30";
     
     public EntityVehicle(double posX, double posY, int sizeWidth, int sizeHeight) {
 	super(posX, posY, sizeWidth, sizeHeight);
@@ -55,7 +54,7 @@ public abstract class EntityVehicle extends MobileEntity implements IShroudRevea
 	this.orderSounds.put("roger", new Integer[] { 1, 3 });
 	this.orderSounds.put("ugotit", new Integer[] { 1, 3 });
 
-	this.unitVersion = SoundManager.getInstance().r.nextInt(4); // from 0 to 3
+	//this.unitVersion = SoundManager.getInstance().r.nextInt(4); // from 0 to 3
 
 	this.fillsSpace = FillsSpace.ONE_CELL;
 
@@ -69,8 +68,9 @@ public abstract class EntityVehicle extends MobileEntity implements IShroudRevea
 
 
     @Override
-    public void renderEntity(Scene g) {
+    public ImageView renderEntity(Scene g) {
 	//super.renderEntity(g);
+        return null;
     }
 
     public static EntityVehicle newInstance(EntityVehicle b) {

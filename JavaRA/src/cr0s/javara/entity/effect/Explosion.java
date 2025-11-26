@@ -7,6 +7,7 @@ import cr0s.javara.resources.ShpTexture;
 import cr0s.javara.util.Pos;
 import cr0s.javara.util.SpriteSheet;
 import javafx.scene.Scene;
+import javafx.scene.image.ImageView;
 
 public class Explosion extends Entity implements IEffect {
 
@@ -54,8 +55,8 @@ public class Explosion extends Entity implements IEffect {
     }
 
     @Override
-    public void renderEntity(Scene g) {
-	//tex.getSubImage(0, frameIndex).draw(this.posX - this.width / 2, this.posY - this.height / 2);
+    public ImageView renderEntity(Scene g) {
+	return tex.getSubImage(0, frameIndex);//.draw(this.posX - this.width / 2, this.posY - this.height / 2);
     }
 
     @Override
