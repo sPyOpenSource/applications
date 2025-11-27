@@ -127,7 +127,7 @@ public class GameSideBar extends Application {
     @Override
     public void start(Stage stage) throws InterruptedException {
         BorderPane root = new BorderPane();
-        Scene scene = new Scene(root, BAR_WIDTH + BAR_SPACING_W * 2, BAR_HEIGHT + BAR_SPACING_H * 2);
+        Scene scene = new Scene(root, BAR_WIDTH, BAR_HEIGHT);
 	if (this.sideBarPages.isEmpty()) {
 	    this.sideBarPages.put(PAGE_BUILDING_SOVIET, new PageBuildingSoviet(new Pos(BAR_SPACING_W + 1, BAR_SPACING_H + 1)));
 	    this.sideBarPages.put(PAGE_VEHICLE, new PageVehicle(new Pos(BAR_SPACING_W + 1, BAR_SPACING_H + 1)));
@@ -185,7 +185,7 @@ public class GameSideBar extends Application {
 
     private void drawStartPage(BorderPane g, Color filterColor) {
 	drawRadar(g);
-	int x = BAR_SPACING_W + 1;
+	int x = 1;
 	int y = MENU_START_Y;
 
 	drawBuildingButtons(g, x, y, filterColor);
@@ -231,7 +231,7 @@ public class GameSideBar extends Application {
     }
 
     private void drawBuildingButtons(BorderPane g, int sX, int sY, Color filterColor) {
-	boolean isSovietLeft = true;//this.player.getAlignment() == Alignment.SOVIET;
+	boolean isSovietLeft = this.player.getAlignment() == Alignment.SOVIET;
 
 	EntityActor currentActor = null;//this.getPlayer().getBase().getProductionQueue().getCurrentProducingBuilding();
 	if (currentActor != null) {
