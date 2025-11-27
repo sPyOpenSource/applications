@@ -7,16 +7,13 @@ import cr0s.javara.entity.IShroudRevealer;
 import cr0s.javara.entity.building.BibType;
 import cr0s.javara.entity.building.EntityBuilding;
 import cr0s.javara.entity.building.IPowerConsumer;
-import cr0s.javara.gameplay.Player;
-import cr0s.javara.gameplay.Team;
 import cr0s.javara.gameplay.Team.Alignment;
 import cr0s.javara.main.GUI;
 import cr0s.javara.resources.ResourceManager;
 import cr0s.javara.resources.ShpTexture;
 import cr0s.javara.resources.SoundManager;
-import java.awt.image.BufferedImage;
 
-import javafx.scene.Scene;
+import java.awt.image.BufferedImage;
 import javafx.scene.image.ImageView;
 import javafx.embed.swing.SwingFXUtils;
 
@@ -129,7 +126,7 @@ public class EntityRadarDome extends EntityBuilding implements ISelectable, IPow
 
     @Override
     public int getConsumptionLevel() {
-	return this.POWER_CONSUMPTION_LEVEL;
+	return EntityRadarDome.POWER_CONSUMPTION_LEVEL;
     }      
     
     @Override

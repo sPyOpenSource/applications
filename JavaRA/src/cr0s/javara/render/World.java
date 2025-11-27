@@ -218,19 +218,19 @@ public class World {
 	//map.renderMapEntities(container, g, camera);
 
 	// Debug: render blocked cells
-	if (GUI.DEBUG_MODE) {
+	/*if (GUI.DEBUG_MODE) {
 	    Color blockedColor = Color.rgb(64, 0, 0, 64f/255);
 		
 	    for (int y = (int) (-GUI.getInstance().getCamera().getTranslateY()) / 24; y < map.getHeight(); y++) {
 		for (int x = (int) (-GUI.getInstance().getCamera().getTranslateX()) / 24; x < map.getWidth(); x++) {
 		    if (!this.isCellPassable(new Pos(x, y))) {
-			/*g.setColor(blockedColor);
+			g.setColor(blockedColor);
 			g.fillRect(x * 24, y * 24, 24, 24);
-			g.setColor(pColor);*/
+			g.setColor(pColor);
 		    }		
 		}
 	    }
-	}	
+	}*/	
 
 	//renderSelectionBoxes(g);
 	
@@ -340,7 +340,7 @@ public class World {
     }
 
     public void cancelAllSelection() {
-	GUI.getInstance().getPlayer().selectedEntities.clear();
+	//GUI.getInstance().getPlayer().selectedEntities.clear();
 
 	for (Entity e : this.entities) {
 	    if (e instanceof ISelectable) {

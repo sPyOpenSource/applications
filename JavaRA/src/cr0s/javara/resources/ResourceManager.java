@@ -30,7 +30,7 @@ import assets.Assets;
 
 public class ResourceManager {
     private static ResourceManager instance;
-    private Assets assets = new Assets();
+    private final Assets assets = new Assets();
     
     public static final String ROOT_FOLDER = System.getProperty("user.dir")
 	    + System.getProperty("file.separator");

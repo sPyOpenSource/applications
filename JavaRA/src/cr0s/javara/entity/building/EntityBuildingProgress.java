@@ -7,7 +7,6 @@ import cr0s.javara.resources.ResourceManager;
 import cr0s.javara.resources.ShpTexture;
 import cr0s.javara.resources.SoundManager;
 
-import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 import javafx.embed.swing.SwingFXUtils;
 

@@ -20,7 +20,6 @@ import assets.Assets;
 
 import cr0s.javara.main.GUI;
 import cr0s.javara.render.map.ResourcesLayer.ResourceCell;
-import cr0s.javara.render.viewport.Camera;
 import cr0s.javara.resources.ResourceManager;
 import cr0s.javara.resources.ShpTexture;
 import cr0s.javara.util.Pos;
@@ -31,6 +30,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.scene.image.ImageView;
+import javafx.scene.Camera;
 
 public class TileMap {
     private short width, height;
@@ -196,8 +196,8 @@ public class TileMap {
 	this.theater.getSpriteSheet().startUse();
 
 	// Draw tiles layer
-	for (int y = (int) (-GUI.getInstance().getCamera().getTranslateY()) / 24; y < this.getHeight(); y++) {
-	    for (int x = (int) (-GUI.getInstance().getCamera().getTranslateX()) / 24; x < this.getWidth(); x++) {
+	for (int y = (int) (-camera.getTranslateY()) / 24; y < this.getHeight(); y++) {
+	    for (int x = (int) (-camera.getTranslateX()) / 24; x < this.getWidth(); x++) {
 		// Don't render tile, if it shrouded and surrounding tiles shrouded too
 		if (GUI.getInstance().getPlayer().getShroud() != null && GUI.getInstance().getPlayer().getShroud().isAreaShrouded(x, y, 2, 2)) {
 		    continue;

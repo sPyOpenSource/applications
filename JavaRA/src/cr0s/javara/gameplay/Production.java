@@ -13,14 +13,13 @@ import cr0s.javara.ui.sbpages.SideBarItemsButton;
 import java.awt.image.BufferedImage;
 
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 
 public class Production {
     private EntityActor targetActor;
     private String targetActorTexture;
 
-    private Player player;
+    private final Player player;
 
     private final int DEPLOY_WAIT_TIME_TICKS = 5;
     private int ticksBeforeDeploy;

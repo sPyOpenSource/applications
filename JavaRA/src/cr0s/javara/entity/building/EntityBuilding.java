@@ -19,7 +19,6 @@ import cr0s.javara.resources.SoundManager;
 import cr0s.javara.util.Pos;
 import java.awt.image.BufferedImage;
 
-import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 
 /**

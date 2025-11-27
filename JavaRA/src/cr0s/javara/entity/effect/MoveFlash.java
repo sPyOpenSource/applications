@@ -7,7 +7,6 @@ import cr0s.javara.resources.ResourceManager;
 import cr0s.javara.resources.ShpTexture;
 import cr0s.javara.util.SpriteSheet;
 
-import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import javafx.scene.image.ImageView;
 
