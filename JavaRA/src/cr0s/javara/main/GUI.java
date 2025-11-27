@@ -144,7 +144,7 @@ public class GUI extends Application {
 
 	//this.getCamera().scrollCenterToCell(playerSpawn);
 	
-	this.gsb = new GameSideBar(team, player);
+	this.gsb = new GameSideBar(player);
 	//this.gsb.initSidebarPages();
 	Platform.runLater(new Runnable() {
             @Override

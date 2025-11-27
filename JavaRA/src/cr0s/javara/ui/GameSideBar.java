@@ -35,7 +35,6 @@ import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 
 public class GameSideBar extends Application {
-    private final Team team;
     private Player player;
     private Rectangle sidebarBounds;
 
@@ -85,7 +84,6 @@ public class GameSideBar extends Application {
     private Assets assets = new Assets();
     
     public GameSideBar(){
-        team = new Team();
         //player = new Player();
         this.sideBarCategoriesOpened = new boolean[6][2];
 	this.sideBarCategoriesOpened[0][1] = true;
@@ -93,7 +91,7 @@ public class GameSideBar extends Application {
         this.menuCategoriesSheet = new SpriteSheet(assets.get("/assets/png/sidebar_buttons.png"), 64, 48);
     }
 
-    public GameSideBar(Team aTeam, Player aPlayer) {
+    public GameSideBar(Player aPlayer) {
 	try {
 	    this.menuCategoriesSheet = new SpriteSheet(assets.get("/assets/png/sidebar_buttons.png"), 64, 48);
 
@@ -103,7 +101,6 @@ public class GameSideBar extends Application {
 	    e.printStackTrace();
 	}
 
-	this.team = aTeam;
 	this.player = aPlayer;
 
 	//this.sidebarBounds = new Rectangle(GUI.getInstance().getContainer().getWidth() - BAR_WIDTH - BAR_SPACING_W, BAR_SPACING_H, BAR_WIDTH, BAR_HEIGHT);
