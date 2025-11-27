@@ -11,7 +11,6 @@ import cr0s.javara.render.World;
 import cr0s.javara.render.shrouds.ShroudRenderer;
 import cr0s.javara.resources.ResourceManager;
 import cr0s.javara.ui.GameSideBar;
-import cr0s.javara.util.Pos;
 import cr0s.javara.ai.AIPlayer;
 
 import javafx.application.Application;
@@ -122,13 +121,7 @@ public class GUI extends Application {
 	rm.loadBibs();
 
 	camera = new PerspectiveCamera(true);
-	/*try {
-	    camera.init(this.getContainer());
-	} catch (SlickException e1) {
-	    e1.printStackTrace();
-	}
 
-	controller = new Controller(null, camera, this.getContainer().getInput());*/	
 	w = new World("haos-ridges");
 
 	Random r = new Random();
@@ -157,7 +150,7 @@ public class GUI extends Application {
 	player.setTeam(team2);
 	w.addPlayer(otherPlayer);
         
-        Scene scene = new Scene(w.render(), 800, 600);
+        Scene scene = new Scene(w.render(), 1200, 700);
         controller = new Controller(player, camera, scene);
         stage.setScene(scene);
         stage.show();

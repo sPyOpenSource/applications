@@ -18,7 +18,8 @@ public class Controller {
     private final Player player;
     private final Camera camera;
     private double offsetX, offsetY;
-
+    private int boarder = 550;
+    
     // Controls
     private boolean mouseDownRight = false;
     private boolean mouseDownLeft = false;
@@ -34,8 +35,10 @@ public class Controller {
         camera.setFarClip(Integer.MAX_VALUE);
         camera.setNearClip(0.1);
         scene.setCamera(camera);
-        scene.getCamera().setTranslateX(player.getPlayerSpawnPoint().getX() * 24);
-        scene.getCamera().setTranslateY(player.getPlayerSpawnPoint().getY() * 24);
+        offsetX = player.getPlayerSpawnPoint().getX() * 24;
+        offsetY = player.getPlayerSpawnPoint().getY() * 24;
+        scene.getCamera().setTranslateX(offsetX);
+        scene.getCamera().setTranslateY(offsetY);
         scene.setOnScroll((ScrollEvent event) -> {
             zTrans += event.getDeltaY() * (zTrans / -50);
             if(zTrans < -2000) zTrans = -2000;
@@ -45,16 +48,16 @@ public class Controller {
             KeyCode code = e.getCode();
             switch (code) {
                 case LEFT:
-                    offsetX = scene.getCamera().getTranslateX() - 100;
+                    offsetX = scene.getCamera().getTranslateX() - 40;
                     break;
                 case RIGHT:
-                    offsetX = scene.getCamera().getTranslateX() + 100;
+                    offsetX = scene.getCamera().getTranslateX() + 40;
                     break;
                 case UP:
-                    offsetY = scene.getCamera().getTranslateY() - 100;
+                    offsetY = scene.getCamera().getTranslateY() - 40;
                     break;
                 case DOWN:
-                    offsetY = scene.getCamera().getTranslateY() + 100;
+                    offsetY = scene.getCamera().getTranslateY() + 40;
                     break;
                 case HOME:
                     //g.xRotate.setAngle(-90);
@@ -67,10 +70,10 @@ public class Controller {
                 default:
                     break;
             }
-            if(offsetX < 0) offsetX = 0;
-            if(offsetX > 128 * 24) offsetX = 128 * 24;
-            if(offsetY < 0) offsetY = 0;
-            if(offsetY > 128 * 24) offsetY = 128 * 24;
+            if(offsetX < boarder) offsetX = boarder;
+            if(offsetX > 128 * 24 - boarder) offsetX = 128 * 24 - boarder;
+            if(offsetY < boarder) offsetY = boarder;
+            if(offsetY > 128 * 24 - boarder) offsetY = 128 * 24 - boarder;
             scene.getCamera().setTranslateX(offsetX);
             scene.getCamera().setTranslateY(offsetY);
         });
