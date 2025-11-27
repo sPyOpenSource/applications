@@ -9,13 +9,11 @@ import cr0s.javara.entity.infantry.EntityInfantry;
 import cr0s.javara.gameplay.Base;
 import cr0s.javara.gameplay.Player;
 import cr0s.javara.gameplay.Production;
-import cr0s.javara.gameplay.Team;
 import cr0s.javara.gameplay.Team.Alignment;
 import cr0s.javara.main.GUI;
 import cr0s.javara.perfomance.Profiler;
 
 import cr0s.javara.render.map.MinimapRenderer;
-import cr0s.javara.resources.ResourceManager;
 import cr0s.javara.resources.SoundManager;
 import cr0s.javara.ui.sbpages.building.PageBuildingSoviet;
 import cr0s.javara.ui.sbpages.infantry.PageInfantry;

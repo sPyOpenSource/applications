@@ -37,7 +37,6 @@ import cr0s.javara.util.SpriteSheet;
 
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
 public class World {
