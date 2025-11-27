@@ -19,6 +19,7 @@ import javafx.scene.Camera;
 import javafx.scene.PerspectiveCamera;
 import javafx.scene.paint.Color;
 import javafx.scene.Scene;
+import javafx.application.Platform;
 
 public class GUI extends Application {
     public ResourceManager rm;
@@ -77,6 +78,7 @@ public class GUI extends Application {
 	} catch (Exception e) {
 	    e.printStackTrace();
 	}*/
+        
         launch();
     }
 
@@ -142,9 +144,18 @@ public class GUI extends Application {
 
 	//this.getCamera().scrollCenterToCell(playerSpawn);
 	
-	//this.gsb = new GameSideBar(Main.getInstance().getTeam(), Main.getInstance().getPlayer());
+	this.gsb = new GameSideBar(team, player);
 	//this.gsb.initSidebarPages();
-	
+	Platform.runLater(new Runnable() {
+            @Override
+            public void run() {             
+                try {
+                    gsb.start(new Stage());
+                } catch (InterruptedException ex) {
+                    System.getLogger(GUI.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
+                }
+            }
+        });
 	Team team2 = new Team();
 	Player otherPlayer = new AIPlayer(w, "NormalAI", Alignment.SOVIET, Color.rgb(128, 0, 0));
 	player.setTeam(team2);

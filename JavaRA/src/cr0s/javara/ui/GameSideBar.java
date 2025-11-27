@@ -95,9 +95,9 @@ public class GameSideBar extends Application {
 
     public GameSideBar(Team aTeam, Player aPlayer) {
 	try {
-	    this.menuCategoriesSheet = new SpriteSheet(ResourceManager.SIDEBAR_CATEGORIES_SHEET, 64, 48);
+	    this.menuCategoriesSheet = new SpriteSheet(assets.get("/assets/png/sidebar_buttons.png"), 64, 48);
 
-	    System.out.println("Button sheet: " + this.menuCategoriesSheet.getHorizontalCount() + " x " + this.menuCategoriesSheet.getVerticalCount());
+	    //System.out.println("Button sheet: " + this.menuCategoriesSheet.getHorizontalCount() + " x " + this.menuCategoriesSheet.getVerticalCount());
 	} catch (Exception e) {
 	    // TODO Auto-generated catch block
 	    e.printStackTrace();
@@ -106,16 +106,16 @@ public class GameSideBar extends Application {
 	this.team = aTeam;
 	this.player = aPlayer;
 
-	this.sidebarBounds = new Rectangle(GUI.getInstance().getContainer().getWidth() - BAR_WIDTH - BAR_SPACING_W, BAR_SPACING_H, BAR_WIDTH, BAR_HEIGHT);
+	//this.sidebarBounds = new Rectangle(GUI.getInstance().getContainer().getWidth() - BAR_WIDTH - BAR_SPACING_W, BAR_SPACING_H, BAR_WIDTH, BAR_HEIGHT);
 
 	this.sideBarCategoriesOpened = new boolean[6][2];
 	this.sideBarCategoriesOpened[0][1] = true;
 	this.sideBarCategoriesOpened[1][1] = true;
 
 	//this.radarRect.setBounds(Main.getInstance().getContainer().getWidth() - BAR_WIDTH - BAR_SPACING_W + 2, BAR_SPACING_H + 2, BAR_WIDTH - 4, RADAR_HEIGHT);
-	this.minimap = new MinimapRenderer(GUI.getInstance().getWorld(), (int) GUI.getInstance().getWorld().getMap().getBounds().getWidth() / 24, (int) (int) GUI.getInstance().getWorld().getMap().getBounds().getHeight() / 24);
+	//this.minimap = new MinimapRenderer(GUI.getInstance().getWorld(), (int) GUI.getInstance().getWorld().getMap().getBounds().getWidth() / 24, (int) (int) GUI.getInstance().getWorld().getMap().getBounds().getHeight() / 24);
 
-	this.powerBar = new PowerBarRenderer(new Pos(sidebarBounds.getX() - POWERBAR_WIDTH, sidebarBounds.getY() + sidebarBounds.getHeight()), POWERBAR_WIDTH, (int) sidebarBounds.getHeight());
+	//this.powerBar = new PowerBarRenderer(new Pos(sidebarBounds.getX() - POWERBAR_WIDTH, sidebarBounds.getY() + sidebarBounds.getHeight()), POWERBAR_WIDTH, (int) sidebarBounds.getHeight());
 
 	switchPage(START_PAGE_NAME);
     }
