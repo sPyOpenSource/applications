@@ -11,15 +11,13 @@ import cr0s.javara.order.Order;
 import cr0s.javara.order.OrderTargeter;
 import cr0s.javara.order.Target;
 
-import cr0s.javara.perfomance.PerfomanceGraphRenderer;
 import cr0s.javara.perfomance.Profiler;
 import cr0s.javara.resources.SoundManager;
 import cr0s.javara.ui.cursor.CursorManager;
 import cr0s.javara.ui.cursor.CursorType;
 import cr0s.javara.util.Pos;
-import javafx.application.Application;
 
-import javafx.scene.Scene;
+import javafx.application.Application;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;

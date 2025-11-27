@@ -61,4 +61,5 @@ public class PageBuildingSoviet extends SideBarPage {
 	super.buttonClicked(button);
 	SoundManager.getInstance().playSpeechSoundGlobal("abldgin1"); // "Building"
     }
+    
 }

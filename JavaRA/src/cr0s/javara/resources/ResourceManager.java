@@ -131,12 +131,12 @@ public class ResourceManager {
     }
 
     public ShpTexture getSidebarTexture(String name) {
-	MixFile mix = mixes.get("interface.mix");
-
-	// Check texture sources cache
+        // Check texture sources cache
 	if (commonTextureSources.containsKey(name)) {
 	    return commonTextureSources.get(name);
 	}
+        
+	MixFile mix = loadMixes(assets.getInputStream("/assets/mix/interface.mix"));
 
 	if (mix != null) {
 	    MixRecord rec = mix.getEntry(name);

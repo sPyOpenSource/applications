@@ -2,11 +2,12 @@ package cr0s.javara.main;
 
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
-import javafx.stage.Stage;
-import javafx.application.Application;
 import javafx.scene.text.Text;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
+
+import javafx.stage.Stage;
+import javafx.application.Application;
 import javafx.geometry.Insets;
 
 public class StateLoadingScreen extends Application {

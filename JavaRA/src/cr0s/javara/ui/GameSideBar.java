@@ -75,7 +75,6 @@ public class GameSideBar extends Application {
     private PowerBarRenderer powerBar;
 
     private static final int POWERBAR_WIDTH = 11;
-
     private final int MINIMAP_UPDATE_INTERVAL_TICKS = 10;
     private int minimapUpdateTicks = MINIMAP_UPDATE_INTERVAL_TICKS;
 
@@ -128,11 +127,11 @@ public class GameSideBar extends Application {
     @Override
     public void start(Stage stage) throws InterruptedException {
         BorderPane root = new BorderPane();
-        Scene scene = new Scene(root, 800, 600);
+        Scene scene = new Scene(root, BAR_WIDTH + BAR_SPACING_W * 2, BAR_HEIGHT + BAR_SPACING_H * 2);
 	if (this.sideBarPages.isEmpty()) {
-	    this.sideBarPages.put(PAGE_BUILDING_SOVIET, new PageBuildingSoviet(new Pos(800 - BAR_WIDTH - BAR_SPACING_W + 1, BAR_SPACING_H + 1)));
-	    this.sideBarPages.put(PAGE_VEHICLE, new PageVehicle(new Pos(800 - BAR_WIDTH - BAR_SPACING_W + 1, BAR_SPACING_H + 1)));
-	    this.sideBarPages.put(PAGE_INFANTRY, new PageInfantry(new Pos(800 - BAR_WIDTH - BAR_SPACING_W + 1, BAR_SPACING_H + 1)));
+	    this.sideBarPages.put(PAGE_BUILDING_SOVIET, new PageBuildingSoviet(new Pos(BAR_SPACING_W + 1, BAR_SPACING_H + 1)));
+	    this.sideBarPages.put(PAGE_VEHICLE, new PageVehicle(new Pos(BAR_SPACING_W + 1, BAR_SPACING_H + 1)));
+	    this.sideBarPages.put(PAGE_INFANTRY, new PageInfantry(new Pos(BAR_SPACING_W + 1, BAR_SPACING_H + 1)));
 	}
  
 	//Color pColor = g.getColor();
@@ -169,33 +168,29 @@ public class GameSideBar extends Application {
     }
 
     public void drawSideBarButtons(BorderPane g) {
-	int sX = (int)800 - BAR_WIDTH - BAR_SPACING_W + 1;
-	int sY = MENU_START_Y;
-
 	Color filterColor = getBackgroundColor();
 
 	if (currentPage == null) {
-	    drawStartPage(g, sX, sY, filterColor);
+	    drawStartPage(g, filterColor);
 	} else {
-	    drawCurrentPage(g, sX, sY, filterColor);
+	    drawCurrentPage(g, filterColor);
 	}
     }
 
-    private void drawCurrentPage(BorderPane g, int sX, int sY, Color filterColor) {
+    private void drawCurrentPage(BorderPane g, Color filterColor) {
 	if (this.currentPage != null) {
 	    //this.currentPage.render(g, filterColor);
 	}
     }
 
-    private void drawStartPage(BorderPane g, int sX, int sY, Color filterColor) {
+    private void drawStartPage(BorderPane g, Color filterColor) {
 	drawRadar(g);
-	int x = (int)800 - BAR_WIDTH - BAR_SPACING_W + 1;
+	int x = BAR_SPACING_W + 1;
 	int y = MENU_START_Y;
 
 	drawBuildingButtons(g, x, y, filterColor);
 	drawWarFactoryButton(g, x, y, filterColor);
 	drawBarracksButton(g, x, y, filterColor);
-
 
 	for (int i = 2; i < 4; i++) {
 	    //this.menuCategoriesSheet.getSubImage(this.sideBarCategoriesOpened[i][0] ? 1 : 0, 2 * i).draw(x, y + (i * 48), filterColor);
@@ -269,10 +264,6 @@ public class GameSideBar extends Application {
 
     public void update(int delta) {
 	Profiler.getInstance().startForSection("Sidebar tick");
-
-	// Check mouse clicked inside radar
-	int mouseX = 0;//Main.getInstance().getContainer().getInput().getMouseX();
-	int mouseY = 0;//Main.getInstance().getContainer().getInput().getMouseY();
 
 	// Update current viewport rect
 	int size = (int)Math.max(GUI.getInstance().getContainer().getWidth(), GUI.getInstance().getContainer().getHeight());
@@ -558,7 +549,6 @@ public class GameSideBar extends Application {
 	this.currentPage = this.sideBarPages.get(pageName);
 	this.currentPageName = pageName;
     }
-
 
     public Pos cellToMinimapPixel(Pos p)
     {
