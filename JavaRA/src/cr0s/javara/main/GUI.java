@@ -20,14 +20,6 @@ import javafx.scene.Camera;
 import javafx.scene.PerspectiveCamera;
 import javafx.scene.paint.Color;
 import javafx.scene.Scene;
-import javafx.scene.input.KeyCode;
-import static javafx.scene.input.KeyCode.DOWN;
-import static javafx.scene.input.KeyCode.HOME;
-import static javafx.scene.input.KeyCode.LEFT;
-import static javafx.scene.input.KeyCode.RIGHT;
-import static javafx.scene.input.KeyCode.UP;
-import javafx.scene.input.KeyEvent;
-import javafx.scene.input.ScrollEvent;
 
 public class GUI extends Application {
     public ResourceManager rm;
@@ -48,7 +40,6 @@ public class GUI extends Application {
 
     private GameSideBar gsb;
     private ShroudRenderer observerShroudRenderer;
-    private int zTrans = -800;
 
     public GUI() {
 	//SoundStore.get().init();
@@ -140,10 +131,6 @@ public class GUI extends Application {
 	controller = new Controller(null, camera, this.getContainer().getInput());*/	
 	w = new World("haos-ridges");
 
-	initGame();
-    }
-
-    public void initGame() {
 	Random r = new Random();
 
 	//this.observerShroudRenderer = new ShroudRenderer(w);
@@ -171,51 +158,7 @@ public class GUI extends Application {
 	w.addPlayer(otherPlayer);
         
         Scene scene = new Scene(w.render(), 800, 600);
-	Pos playerSpawn = player.getPlayerSpawnPoint();	
-        System.out.println(playerSpawn);
-        camera.setFarClip(Integer.MAX_VALUE);
-        camera.setNearClip(0.1);
-        scene.setCamera(camera);
-        scene.getCamera().setTranslateX(playerSpawn.getX()*24);
-        scene.getCamera().setTranslateY(playerSpawn.getY()*24);
-        scene.setOnScroll((ScrollEvent event) -> {
-            zTrans += event.getDeltaY() * (zTrans / -50);
-            if(zTrans < -1000) zTrans = -1000;
-            if(zTrans > -400) zTrans = -400;
-        });
-        scene.setOnKeyPressed((KeyEvent e) -> {
-            KeyCode code = e.getCode();
-            switch (code) {
-                case LEFT:
-                    scene.getCamera().setTranslateX(scene.getCamera().getTranslateX() - 100);
-                    break;
-                case RIGHT:
-                    scene.getCamera().setTranslateX(scene.getCamera().getTranslateX() + 100);
-                    break;
-                case UP:
-                    scene.getCamera().setTranslateY(scene.getCamera().getTranslateY() - 100);
-                    break;
-                case DOWN:
-                    scene.getCamera().setTranslateY(scene.getCamera().getTranslateY() + 100);
-                    break;
-                case HOME:
-                    //g.xRotate.setAngle(-90);
-                    //g.yRotate.setAngle(0);
-                    //g.zRotate.setAngle(0);
-                    scene.getCamera().setTranslateX(800);
-                    scene.getCamera().setTranslateY(800);
-                    scene.getCamera().setTranslateZ(-800);
-                    break;
-                default:
-                    break;
-            }
-        });
-        new javafx.animation.AnimationTimer() {
-            @Override
-            public void handle(long now) {
-                scene.getCamera().setTranslateZ(zTrans);
-            }
-        }.start();
+        controller = new Controller(player, camera, scene);
         stage.setScene(scene);
         stage.show();
     }

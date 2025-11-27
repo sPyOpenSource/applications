@@ -54,9 +54,8 @@ public class TileMap {
 
     private Color blockedColor = Color.rgb(255, 0, 0, 32f/255);
     private Assets assets = new Assets();
+    
     public SmudgeLayer smudges;
-    public BorderPane root = new BorderPane();
-    public Scene scene;
     
     public TileMap(){
         this("haos-ridges");

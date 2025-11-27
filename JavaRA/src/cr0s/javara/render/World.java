@@ -39,7 +39,6 @@ import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
-import javafx.stage.Stage;
 
 public class World {
     private final TileMap map;
@@ -182,17 +181,11 @@ public class World {
     public BorderPane render() {
 	BorderPane mapBounds;
 	//int mapX = (int) mapBounds.getX();
-	//int mapY = (int) mapBounds.getY();
+	//int mapY = (int) mapBounds.getY();		
 
-	try {
-	    //camera.render(container, g);
-	} catch (Exception e1) {
-	    e1.printStackTrace();
-	}		
-
-            //Profiler.getInstance().startForSection("r: Map");
-            mapBounds = map.start();
-            //Profiler.getInstance().stopForSection("r: Map");
+        //Profiler.getInstance().startForSection("r: Map");
+        mapBounds = map.start();
+        //Profiler.getInstance().stopForSection("r: Map");
 	
 	//Color pColor = g.getColor();
 
