@@ -272,7 +272,7 @@ public class TileMap {
 	return this.bounds;
     }
 
-    public BorderPane start() {
+    public BorderPane getPane() {
         BorderPane root = new BorderPane();
         //RotateCamera g = new RotateCamera();
 	//this.theater.getSpriteSheet().startUse();

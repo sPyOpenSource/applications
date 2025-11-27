@@ -184,7 +184,7 @@ public class World {
 	//int mapY = (int) mapBounds.getY();		
 
         //Profiler.getInstance().startForSection("r: Map");
-        mapBounds = map.start();
+        mapBounds = map.getPane();
         //Profiler.getInstance().stopForSection("r: Map");
 	
 	//Color pColor = g.getColor();
