@@ -112,7 +112,7 @@ public class EntityMammothTank extends EntityVehicle implements ISelectable, IHa
     }
 
     @Override
-    public void updateEntity(int delta) {
+    public void updateEntity(long delta) {
 	super.updateEntity(delta);
 
 	if (!this.attack.isAttacking) {
@@ -242,7 +242,7 @@ public class EntityMammothTank extends EntityVehicle implements ISelectable, IHa
 
     @Override
     public int getWaitSpreadTime() {
-	return this.WAIT_FOR_BLOCKER_TIME_SPREAD_TICKS;
+	return EntityMammothTank.WAIT_FOR_BLOCKER_TIME_SPREAD_TICKS;
     }
 
     @Override
@@ -255,7 +255,7 @@ public class EntityMammothTank extends EntityVehicle implements ISelectable, IHa
     }
 
     @Override
-    public void updateTurrets(int delta) {
+    public void updateTurrets(long delta) {
 	this.turret.update(delta);
     }
 

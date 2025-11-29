@@ -253,7 +253,7 @@ public class StateGameMap extends Application {
 	//GUI.getInstance().getCamera().update(container, delta);
 	updateCursor();
 
-	GUI.getInstance().getWorld().update(delta);
+	//GUI.getInstance().getWorld().update(delta);
 	GUI.getInstance().getBuildingOverlay().update(delta);
 	GUI.getInstance().getSideBar().update(delta);
 

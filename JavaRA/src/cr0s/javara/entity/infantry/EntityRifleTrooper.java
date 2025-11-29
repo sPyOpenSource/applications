@@ -62,7 +62,7 @@ public class EntityRifleTrooper extends EntityInfantry implements ISelectable, I
     }
 
     @Override 
-    public void updateEntity(int delta) {	
+    public void updateEntity(long delta) {	
 	super.updateEntity(delta);
     }
 

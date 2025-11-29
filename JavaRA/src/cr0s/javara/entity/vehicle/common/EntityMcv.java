@@ -23,7 +23,6 @@ import cr0s.javara.resources.ResourceManager;
 import cr0s.javara.ui.cursor.CursorType;
 import cr0s.javara.util.SpriteSheet;
 
-import javafx.scene.Scene;
 import javafx.scene.shape.Path;
 import javafx.scene.image.ImageView;
 
@@ -74,7 +73,7 @@ public class EntityMcv extends EntityVehicle implements ISelectable, IDeployable
     }
 
     @Override
-    public void updateEntity(int delta) {
+    public void updateEntity(long delta) {
 	super.updateEntity(delta);
 	//boundingBox.setBounds(posX, posY - 6, (TEXTURE_WIDTH / 2), (TEXTURE_HEIGHT / 2));
 	//boundingBox.setCenterX(this.getCenterPosX());
@@ -230,7 +229,7 @@ public class EntityMcv extends EntityVehicle implements ISelectable, IDeployable
     
     @Override
     public void resolveOrder(Order order) {
-	super.resolveOrder(order);
+	//super.resolveOrder(order);
 	
 	if (order.orderString.equals("Deploy")) {
 	    this.deploy();

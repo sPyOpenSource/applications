@@ -2,23 +2,24 @@ package cr0s.javara.gameplay;
 
 import java.util.LinkedList;
 
-import cr0s.javara.combat.Warhead;
 import cr0s.javara.entity.Entity;
 import cr0s.javara.entity.INotifySelected;
 import cr0s.javara.entity.actor.EntityActor;
-import cr0s.javara.render.EntityBlockingMap.SubCell;
 import cr0s.javara.entity.infantry.EntityInfantry;
 import cr0s.javara.entity.infantry.EntityRifleTrooper;
 import cr0s.javara.entity.infantry.EntityRocketTrooper;
 import cr0s.javara.entity.infantry.EntityGrenadeTrooper;
 import cr0s.javara.entity.vehicle.common.EntityMcv;
 import cr0s.javara.entity.vehicle.soviet.EntityHeavyTank;
+
 import cr0s.javara.gameplay.Team.Alignment;
 import cr0s.javara.order.OrderTargeter;
 import cr0s.javara.order.Target;
 import cr0s.javara.render.World;
 import cr0s.javara.render.shrouds.Shroud;
+import cr0s.javara.render.EntityBlockingMap.SubCell;
 import cr0s.javara.util.Pos;
+import cr0s.javara.combat.Warhead;
 import javafx.scene.paint.Color;
 
 public class Player {
@@ -30,6 +31,7 @@ public class Player {
     public boolean canBuild, canTrainInfantry, canBuildVehicles, canBuildAirUnits, canBuildNavalUnits;
 
     public LinkedList<Entity> selectedEntities = new LinkedList<>();
+    public LinkedList<Entity> entities = new LinkedList<>();
 
     private int spawnX, spawnY;
 
@@ -37,7 +39,7 @@ public class Player {
     private Team team;
 
     private Shroud playerShroud;
-    private final World world;
+    public final World world;
 
     public Player(World w, String name, Alignment side, Color color) {
 	this.name = name;
@@ -82,7 +84,7 @@ public class Player {
     public void spawn() {
 	EntityMcv mcv = new EntityMcv(24.0f * this.spawnX, 24.0f * this.spawnY);
 	mcv.isVisible = true;
-
+        entities.add(mcv);
 	this.world.spawnEntityInWorld(mcv);
 
 	EntityHeavyTank eht = new EntityHeavyTank(24.0f * this.spawnX + 3 * 24, 24.0f * this.spawnY + 3 * 24);
@@ -217,7 +219,7 @@ public class Player {
     }
     
     public void update(int delta) {
-	this.base.update();
+	//this.base.update();
     }
 
     public void notifyDamaged(Entity entity, EntityActor firedBy, int amount,

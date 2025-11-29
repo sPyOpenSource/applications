@@ -200,7 +200,7 @@ public abstract class AttackBase implements IOrderResolver, IOrderIssuer {
     
     public abstract Activity getAttackActivity(Target tgt, boolean allowMove);
     
-    public void update(int delta) {
+    public void update(long delta) {
 	for (Armament arma : this.armaments) {
 	    arma.update(delta);
 	}

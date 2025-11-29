@@ -7,7 +7,6 @@ import cr0s.javara.order.Target;
 import cr0s.javara.resources.ResourceManager;
 import cr0s.javara.util.Pos;
 import cr0s.javara.util.SpriteSheet;
-import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 
 public class TeslaZapRenderer extends Projectile implements IEffect {
@@ -55,7 +54,7 @@ public class TeslaZapRenderer extends Projectile implements IEffect {
     }
 
     @Override
-    public void updateEntity(int delta) {
+    public void updateEntity(long delta) {
 	if (--timeUntilRemove <= 0) {
 	    this.setDead();
 	}

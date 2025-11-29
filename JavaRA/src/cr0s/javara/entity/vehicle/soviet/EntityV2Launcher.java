@@ -27,7 +27,6 @@ import cr0s.javara.util.Pos;
 import cr0s.javara.util.RotationUtil;
 import cr0s.javara.util.SpriteSheet;
 
-import javafx.scene.Scene;
 import javafx.scene.shape.Path;
 import javafx.scene.image.ImageView;
 
@@ -88,7 +87,7 @@ public class EntityV2Launcher extends EntityVehicle implements ISelectable, IHav
     }
 
     @Override
-    public void updateEntity(int delta) {
+    public void updateEntity(long delta) {
 	super.updateEntity(delta);
 
 	//boundingBox.setBounds(posX + (TEXTURE_WIDTH / 4) - 7, posY + (TEXTURE_WIDTH / 4) - 12, (TEXTURE_WIDTH / 2), (TEXTURE_HEIGHT / 2));	

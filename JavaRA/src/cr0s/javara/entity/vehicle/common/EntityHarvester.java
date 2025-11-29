@@ -107,35 +107,35 @@ public class EntityHarvester extends EntityVehicle implements ISelectable, IShro
     }
 
     @Override
-    public void updateEntity(int delta) {
+    public void updateEntity(long delta) {
 	super.updateEntity(delta);
 	//boundingBox.setBounds(posX + 6, posY - 6, (TEXTURE_WIDTH / 2), (TEXTURE_HEIGHT / 2));
 
 	if ((this.currentActivity instanceof Wait && (this.currentActivity.nextActivity instanceof HarvestResource)) 
 		|| (this.currentActivity instanceof HarvestResource)) {
 	    if (--this.harvestingTicks <= 0) {
-		this.harvestingTicks = this.HARVESTING_FRAMES_DELAY_TICKS;
-		this.harvestingFrame = (this.harvestingFrame + 1) % this.HARVESTING_FRAMES;
+		this.harvestingTicks = EntityHarvester.HARVESTING_FRAMES_DELAY_TICKS;
+		this.harvestingFrame = (this.harvestingFrame + 1) % EntityHarvester.HARVESTING_FRAMES;
 	    }
 	} else if (this.currentActivity instanceof DropResources) {
 	    if (--this.droppingTicks <= 0) {
-		this.droppingTicks = this.DROPPING_FRAMES_DELAY_TICKS;
+		this.droppingTicks = EntityHarvester.DROPPING_FRAMES_DELAY_TICKS;
 
 		this.droppingFrame++;
 
 		// Repeat dropping sequence
-		if (this.droppingFrame == this.DROPPING_FRAMES) {
-		    this.droppingFrame = this.DROPPING_FRAMES - 5;
+		if (this.droppingFrame == EntityHarvester.DROPPING_FRAMES) {
+		    this.droppingFrame = EntityHarvester.DROPPING_FRAMES - 5;
 		}
 	    }
 	} else if (this.currentActivity instanceof FinishDrop) {
 	    if (--this.droppingTicks <= 0) {
-		this.droppingTicks = this.DROPPING_FRAMES_DELAY_TICKS;
+		this.droppingTicks = EntityHarvester.DROPPING_FRAMES_DELAY_TICKS;
 
 		this.droppingFrame++;
 
-		if (this.droppingFrame >= this.DROPPING_FRAMES) {
-		    this.droppingFrame = this.DROPPING_FRAMES - 1;
+		if (this.droppingFrame >= EntityHarvester.DROPPING_FRAMES) {
+		    this.droppingFrame = EntityHarvester.DROPPING_FRAMES - 1;
 		}
 	    }
 	}

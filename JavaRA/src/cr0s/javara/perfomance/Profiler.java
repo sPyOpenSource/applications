@@ -6,10 +6,10 @@ import javafx.scene.paint.Color;
 public class Profiler {
     HashMap<String, ProfilingSection> profilers;
     
-    private Color[] colors = { Color.RED, Color.GREEN, Color.BLUE, Color.CYAN, Color.MAGENTA, Color.ORANGE, Color.YELLOW, Color.LIGHTGRAY, Color.WHITE };
+    private final Color[] colors = { Color.RED, Color.GREEN, Color.BLUE, Color.CYAN, Color.MAGENTA, Color.ORANGE, Color.YELLOW, Color.LIGHTGRAY, Color.WHITE };
     private int nextColor;
-    
     private static Profiler instance;
+    
     private Profiler() {
 	this.profilers = new HashMap<>();
     }

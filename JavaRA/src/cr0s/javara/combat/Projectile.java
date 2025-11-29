@@ -7,7 +7,6 @@ import cr0s.javara.render.Sequence;
 import cr0s.javara.resources.ResourceManager;
 import cr0s.javara.resources.ShpTexture;
 import cr0s.javara.util.Pos;
-import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 
 public abstract class Projectile extends Entity implements IEffect {    
@@ -64,7 +63,7 @@ public abstract class Projectile extends Entity implements IEffect {
 
 
     @Override
-    public void updateEntity(int delta) {
+    public void updateEntity(long delta) {
 	if (this.projectileSq != null) {
 	    this.projectileSq.update(this.currentFacing);
 	}

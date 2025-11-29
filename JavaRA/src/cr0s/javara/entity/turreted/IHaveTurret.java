@@ -5,7 +5,7 @@ import javafx.scene.Scene;
 
 public interface IHaveTurret {
     public void drawTurrets(Scene g);
-    public void updateTurrets(int delta);
+    public void updateTurrets(long delta);
     
     public List<Turret> getTurrets();
 }

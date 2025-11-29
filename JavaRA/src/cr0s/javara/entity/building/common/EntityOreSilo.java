@@ -102,7 +102,7 @@ public class EntityOreSilo extends EntityBuilding implements ISelectable, IPower
     }
 
     @Override
-    public void updateEntity(int delta) {
+    public void updateEntity(long delta) {
 	super.updateEntity(delta);
 	
 	// Update ore level

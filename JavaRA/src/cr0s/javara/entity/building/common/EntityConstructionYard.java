@@ -13,9 +13,7 @@ import cr0s.javara.resources.ShpTexture;
 import cr0s.javara.util.SpriteSheet;
 import java.awt.image.BufferedImage;
 
-import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
-import javafx.scene.paint.Color;
 import javafx.embed.swing.SwingFXUtils;
 
 public class EntityConstructionYard extends EntityBuilding implements ISelectable, IShroudRevealer {
@@ -105,7 +103,7 @@ public class EntityConstructionYard extends EntityBuilding implements ISelectabl
     }
 
     @Override
-    public void updateEntity(int delta) {
+    public void updateEntity(long delta) {
 	super.updateEntity(delta);
 
 	EntityBuilding currentlyBuilding = (EntityBuilding) this.owner.getBase().getProductionQueue().getCurrentProducingBuilding();

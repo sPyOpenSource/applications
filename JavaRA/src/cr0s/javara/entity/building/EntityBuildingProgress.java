@@ -54,7 +54,7 @@ public class EntityBuildingProgress extends EntityBuilding implements IShroudRev
     }
 
     @Override
-    public void updateEntity(int delta) {
+    public void updateEntity(long delta) {
 	this.currentFrame++;
 	
 	if (--this.ticksRemaining <= 0) {

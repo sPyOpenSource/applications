@@ -19,7 +19,6 @@ import cr0s.javara.util.Pos;
 import cr0s.javara.util.SpriteSheet;
 import java.awt.image.BufferedImage;
 
-import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 import javafx.scene.shape.Path;
 import javafx.scene.shape.Rectangle;
@@ -153,7 +152,7 @@ public class EntityWarFactory extends EntityBuilding implements ISelectable, ISh
     }
 
     @Override
-    public void updateEntity(int delta) {
+    public void updateEntity(long delta) {
 	super.updateEntity(delta);
 	
 	this.isCorrupted = this.getHp() <= this.getMaxHp() / 2;

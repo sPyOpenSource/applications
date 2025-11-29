@@ -134,7 +134,7 @@ public abstract class EntityBuilding extends EntityActor {
     }
 
     @Override
-    public void updateEntity(int delta) {
+    public void updateEntity(long delta) {
 	super.updateEntity(delta);
 
 	if (this.isRepairing) {

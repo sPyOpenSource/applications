@@ -4,7 +4,6 @@ import cr0s.javara.entity.Entity;
 import cr0s.javara.entity.IEffect;
 import cr0s.javara.render.Sequence;
 import cr0s.javara.util.Pos;
-import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 
 public class SequencePlayer extends Entity implements IEffect {
@@ -34,7 +33,7 @@ public class SequencePlayer extends Entity implements IEffect {
     }
 
     @Override
-    public void updateEntity(int delta) {
+    public void updateEntity(long delta) {
 	if (this.seq.isFinished()) {
 	    this.setDead();
 	}

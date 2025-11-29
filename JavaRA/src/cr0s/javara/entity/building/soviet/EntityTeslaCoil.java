@@ -28,7 +28,6 @@ import cr0s.javara.resources.SoundManager;
 import cr0s.javara.util.Pos;
 import cr0s.javara.util.SpriteSheet;
 
-import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 import javafx.scene.shape.Circle;
 
@@ -135,7 +134,7 @@ public class EntityTeslaCoil extends Defensive implements ISelectable, IPowerCon
     }
 
     @Override
-    public void updateEntity(int delta) {
+    public void updateEntity(long delta) {
 	super.updateEntity(delta);
 
 	this.attack.update(delta);

@@ -153,7 +153,7 @@ public abstract class EntityInfantry extends MobileEntity implements IShroudReve
     }
 
     @Override
-    public void updateEntity(int delta) {
+    public void updateEntity(long delta) {
 	super.updateEntity(delta);
 
 	if (this.attack != null) {

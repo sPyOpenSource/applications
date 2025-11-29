@@ -111,7 +111,7 @@ public class EntityAirField extends EntityBuilding implements ISelectable, IPowe
     }
 
     @Override
-    public void updateEntity(int delta) {
+    public void updateEntity(long delta) {
 	super.updateEntity(delta);
 	
 	if (animDelayTicks++ > ANIM_DELAY_TICKS) {

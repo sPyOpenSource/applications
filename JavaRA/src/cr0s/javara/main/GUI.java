@@ -165,6 +165,7 @@ public class GUI extends Application {
         controller = new Controller(player, camera, scene);
         stage.setScene(scene);
         stage.show();
+        w.start();
     }
 
     public Player getPlayer() {

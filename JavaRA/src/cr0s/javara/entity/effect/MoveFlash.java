@@ -28,7 +28,7 @@ public class MoveFlash extends Entity implements IEffect {
     }
 
     @Override
-    public void updateEntity(int delta) {
+    public void updateEntity(long delta) {
 	if (--ticks <= 0) {
 	    this.ticks = TICKS_PER_FRAME;
 	    

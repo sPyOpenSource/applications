@@ -36,6 +36,7 @@ import cr0s.javara.render.World;
 import cr0s.javara.resources.ResourceManager;
 import cr0s.javara.util.CellChooser;
 import cr0s.javara.util.Pos;
+import java.util.LinkedList;
 
 import org.yaml.snakeyaml.Yaml;
 import javafx.scene.paint.Color;
@@ -202,15 +203,15 @@ public class AIPlayer extends Player {
 	}
 
 	if (this.ticks % this.feedbackTime == 0) {
-	    this.productUnits();
+	    //this.productUnits();
 	}
 
-	this.bb.update();
+	//this.bb.update();
 	Profiler.getInstance().stopForSection("AI");
     }
 
     public void findAndDeployAllMcv() {
-	for (Entity e : GUI.getInstance().getWorld().getEntitiesList()) {
+	for (Entity e : entities) {
 	    if (e.isDead() || !(e instanceof EntityMcv)) {
 		continue;
 	    }
@@ -218,14 +219,14 @@ public class AIPlayer extends Player {
 	    EntityMcv mcv = (EntityMcv) e;
 
 	    // It's our, deploy
-	    if (mcv.owner == this) {
+	    //if (mcv.owner == this) {
 		if (!mcv.canDeploy()) { // cant deploy in current location, choose another
 		    Pos desiredLocation = this.chooseBuildLocation("fact", false, BuildingType.NORMAL);
 		    mcv.resolveOrder(new Order("Move", mcv, desiredLocation, true));
 		}
 
 		mcv.resolveOrder(new Order("Deploy", mcv, null, true));
-	    }
+	    //}
 	}	
     }
 
@@ -309,7 +310,7 @@ public class AIPlayer extends Player {
     }
 
     private Pos findPosForBuilding(String actorType, final Pos center, final Pos target, final int minRange, final int maxRange, final boolean distanceToBaseIsImportant) {
-	ArrayList<Pos> cells = GUI.getInstance().getWorld().chooseTilesInAnnulus(center, minRange, maxRange);
+	ArrayList<Pos> cells = world.chooseTilesInAnnulus(center, minRange, maxRange);
 
 	if (!center.equals(target)) {
 	    Collections.sort(cells, new Comparator<>() {
@@ -389,7 +390,7 @@ public class AIPlayer extends Player {
 	    }
 
 	case NORMAL:
-	    return this.findPosForBuilding(actorType, this.getPlayerSpawnPoint(), this.getPlayerSpawnPoint(), 0, distanceToBaseIsImportant ? this.maxBaseRadius : GUI.getInstance().getWorld().MAX_RANGE, distanceToBaseIsImportant);
+	    return getPlayerSpawnPoint();//this.findPosForBuilding(actorType, this.getPlayerSpawnPoint(), this.getPlayerSpawnPoint(), 0, distanceToBaseIsImportant ? this.maxBaseRadius : world.MAX_RANGE, distanceToBaseIsImportant);
 
 	case REFERENCES:
 	    // Choose set of cells with resources nearby the base inside buildable area

@@ -94,7 +94,7 @@ public class EntityHeavyTank extends EntityVehicle implements ISelectable, IHave
     }
 
     @Override
-    public void updateEntity(int delta) {
+    public void updateEntity(long delta) {
 	super.updateEntity(delta);
 
 	if (!this.attack.isAttacking) {
@@ -213,12 +213,12 @@ public class EntityHeavyTank extends EntityVehicle implements ISelectable, IHave
 
     @Override
     public int getWaitAverageTime() {
-	return this.WAIT_FOR_BLOCKER_AVERAGE_TIME_TICKS;
+	return EntityHeavyTank.WAIT_FOR_BLOCKER_AVERAGE_TIME_TICKS;
     }
 
     @Override
     public int getWaitSpreadTime() {
-	return this.WAIT_FOR_BLOCKER_TIME_SPREAD_TICKS;
+	return EntityHeavyTank.WAIT_FOR_BLOCKER_TIME_SPREAD_TICKS;
     }
 
     @Override
@@ -231,13 +231,13 @@ public class EntityHeavyTank extends EntityVehicle implements ISelectable, IHave
     }
 
     @Override
-    public void updateTurrets(int delta) {
+    public void updateTurrets(long delta) {
 	this.turret.update(delta);
     }
 
     @Override
     public List<Turret> getTurrets() {
-	LinkedList<Turret> res = new LinkedList<Turret>();
+	LinkedList<Turret> res = new LinkedList<>();
 
 	res.add(this.turret);
 

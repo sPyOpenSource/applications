@@ -13,7 +13,6 @@ import cr0s.javara.resources.ResourceManager;
 import cr0s.javara.resources.ShpTexture;
 
 import java.awt.image.BufferedImage;
-import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 import javafx.embed.swing.SwingFXUtils;
 
@@ -87,7 +86,7 @@ public class EntityAdvPowerPlant extends EntityBuilding implements ISelectable, 
     }
 
     @Override
-    public void updateEntity(int delta) {
+    public void updateEntity(long delta) {
 	super.updateEntity(delta);
     }
 

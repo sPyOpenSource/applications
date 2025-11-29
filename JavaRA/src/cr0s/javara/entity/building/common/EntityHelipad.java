@@ -10,8 +10,6 @@ import cr0s.javara.entity.building.BibType;
 import cr0s.javara.entity.building.EntityBuilding;
 import cr0s.javara.entity.building.IPowerConsumer;
 
-import cr0s.javara.gameplay.Player;
-import cr0s.javara.gameplay.Team;
 import cr0s.javara.gameplay.Team.Alignment;
 import cr0s.javara.main.GUI;
 import cr0s.javara.resources.ResourceManager;
@@ -19,7 +17,6 @@ import cr0s.javara.resources.ShpTexture;
 import cr0s.javara.util.Pos;
 import cr0s.javara.util.SpriteSheet;
 
-import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 
 public class EntityHelipad extends EntityBuilding implements ISelectable, IPowerConsumer, IShroudRevealer, IHaveCost {
@@ -112,7 +109,7 @@ public class EntityHelipad extends EntityBuilding implements ISelectable, IPower
     }
 
     @Override
-    public void updateEntity(int delta) {
+    public void updateEntity(long delta) {
 	super.updateEntity(delta);
 	
 	if (animDelayTicks++ > ANIM_DELAY_TICKS) {

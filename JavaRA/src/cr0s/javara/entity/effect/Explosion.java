@@ -6,7 +6,6 @@ import cr0s.javara.resources.ResourceManager;
 import cr0s.javara.resources.ShpTexture;
 import cr0s.javara.util.Pos;
 import cr0s.javara.util.SpriteSheet;
-import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 
 public class Explosion extends Entity implements IEffect {
@@ -41,7 +40,7 @@ public class Explosion extends Entity implements IEffect {
     }
 
     @Override
-    public void updateEntity(int delta) {
+    public void updateEntity(long delta) {
 	if (--ticks <= 0) {
 	    this.ticks = TICKS_PER_FRAME;
 	    

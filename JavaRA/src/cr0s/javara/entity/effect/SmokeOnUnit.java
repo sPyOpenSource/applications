@@ -6,7 +6,6 @@ import cr0s.javara.entity.actor.EntityActor;
 import cr0s.javara.resources.ResourceManager;
 import cr0s.javara.resources.ShpTexture;
 import cr0s.javara.util.SpriteSheet;
-import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 
 public class SmokeOnUnit extends Entity implements IEffect {
@@ -44,7 +43,7 @@ public class SmokeOnUnit extends Entity implements IEffect {
     }
 
     @Override
-    public void updateEntity(int delta) {
+    public void updateEntity(long delta) {
 	if (this.parentUnit.isDead()) {
 	    this.setDead();
 	}

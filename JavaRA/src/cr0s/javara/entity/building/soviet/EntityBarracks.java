@@ -19,7 +19,6 @@ import cr0s.javara.resources.ShpTexture;
 import cr0s.javara.util.Pos;
 import cr0s.javara.util.SpriteSheet;
 
-import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 import javafx.scene.shape.Path;
 import javafx.scene.shape.MoveTo;
@@ -112,7 +111,7 @@ public class EntityBarracks extends EntityBuilding implements ISelectable, IPowe
     }
 
     @Override
-    public void updateEntity(int delta) {
+    public void updateEntity(long delta) {
 	super.updateEntity(delta);
 	
 	if (animDelayTicks++ > ANIM_DELAY_TICKS) {

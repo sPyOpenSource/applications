@@ -8,7 +8,6 @@ import cr0s.javara.resources.ShpTexture;
 import cr0s.javara.util.Pos;
 import cr0s.javara.util.SpriteSheet;
 
-import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 
 public abstract class EntityWall extends EntityBuilding implements IHaveCost, IDefense {
@@ -43,7 +42,7 @@ public abstract class EntityWall extends EntityBuilding implements IHaveCost, ID
     }
 
     @Override
-    public void updateEntity(int delta) {
+    public void updateEntity(long delta) {
 	if (!this.dirty) {
 	    return;
 	}

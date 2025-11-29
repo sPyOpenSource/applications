@@ -91,7 +91,7 @@ public class Missile extends Projectile {
     }
 
     @Override
-    public void updateEntity(int delta) {
+    public void updateEntity(long delta) {
 	super.updateEntity(delta);
 	this.ticks++;
 	

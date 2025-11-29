@@ -51,7 +51,7 @@ public class Turret {
 	this.maxRecoil = aMaxRecoil;
     }
 
-    public void update(int delta) {	
+    public void update(long delta) {	
 	updateTurretPos();
 
 	doTurretRotationTick();

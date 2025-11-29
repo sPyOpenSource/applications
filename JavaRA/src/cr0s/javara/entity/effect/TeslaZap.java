@@ -32,7 +32,7 @@ public class TeslaZap extends Projectile implements IEffect {
     }
 
     @Override
-    public void updateEntity(int delta) {
+    public void updateEntity(long delta) {
 	//super.updateEntity(delta);
 
 	this.p = this.guided.isValidFor(this.sourceActor) ? this.guidedTarget.getPosition() : this.passiveTargetPos;

@@ -110,7 +110,7 @@ public abstract class Weapon {
 
     public void playReportSound(Pos pos) {
 	if (this.firingSound != null && !this.firingSound.isEmpty()) {
-	    SoundManager.getInstance().playSfxAt(this.firingSound, pos);
+	    //SoundManager.getInstance().playSfxAt(this.firingSound, pos);
 	}
     }
 }

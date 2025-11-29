@@ -68,7 +68,7 @@ public class EntityGrenadeTrooper extends EntityInfantry implements ISelectable,
     }
 
     @Override 
-    public void updateEntity(int delta) {	
+    public void updateEntity(long delta) {	
 	super.updateEntity(delta);	
     }
     

@@ -127,7 +127,7 @@ public class EntityFireTurret extends Defensive implements ISelectable, IPowerCo
     }
 
     @Override
-    public void updateEntity(int delta) {
+    public void updateEntity(long delta) {
 	super.updateEntity(delta);
 	
 	this.attack.update(delta);
@@ -205,13 +205,13 @@ public class EntityFireTurret extends Defensive implements ISelectable, IPowerCo
     }
 
     @Override
-    public void updateTurrets(int delta) {
+    public void updateTurrets(long delta) {
 	this.turret.update(delta);
     }
 
     @Override
     public List<Turret> getTurrets() {
-	ArrayList<Turret> a = new ArrayList<Turret>();
+	ArrayList<Turret> a = new ArrayList<>();
 	a.add(this.turret);
 	
 	return a;

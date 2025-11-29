@@ -46,7 +46,7 @@ public class AutoTarget {
 	//
     //}
     
-    public void update(int delta) {
+    public void update(long delta) {
 	if (this.self.isIdle()) {
 	    this.tickIdle();
 	} else {

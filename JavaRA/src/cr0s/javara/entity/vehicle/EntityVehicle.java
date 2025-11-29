@@ -17,7 +17,6 @@ import cr0s.javara.render.EntityBlockingMap.FillsSpace;
 import cr0s.javara.resources.SoundManager;
 import cr0s.javara.util.Pos;
 
-import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import javafx.scene.image.ImageView;
 
@@ -62,7 +61,7 @@ public abstract class EntityVehicle extends MobileEntity implements IShroudRevea
     }
 
     @Override
-    public void updateEntity(int delta) {
+    public void updateEntity(long delta) {
 	super.updateEntity(delta);
     }
 

@@ -85,7 +85,7 @@ public class Bullet extends Projectile {
     }
 
     @Override
-    public void updateEntity(int delta) {
+    public void updateEntity(long delta) {
 	super.updateEntity(delta);
 
 	this.pos = PointsUtil.lerpQuadratic(this.sourcePos, this.target, (float) Math.toRadians(this.angle), this.ticks, this.length);

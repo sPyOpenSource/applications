@@ -48,7 +48,7 @@ public class Armament {
 	this.barrels.add(new Barrel(offset, yaw));
     }
 
-    public void update(int delta) {
+    public void update(long delta) {
 	if (fireDelay > 0) {
 	    fireDelay--;
 	}

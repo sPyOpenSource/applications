@@ -83,7 +83,7 @@ public abstract class Entity extends Node {
 	this.world = w;
     }
 
-    public abstract void updateEntity(int delta);
+    public abstract void updateEntity(long delta);
     public abstract ImageView renderEntity();
     public abstract boolean shouldRenderedInPass(int passNum);
 

@@ -19,7 +19,6 @@ import cr0s.javara.entity.effect.Smoke;
 import cr0s.javara.entity.turreted.IHaveTurret;
 
 import cr0s.javara.gameplay.Player;
-import cr0s.javara.main.GUI;
 import cr0s.javara.order.ITargetLines;
 import cr0s.javara.order.TargetLine;
 import cr0s.javara.perfomance.Profiler;
@@ -38,8 +37,9 @@ import cr0s.javara.util.SpriteSheet;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.shape.Rectangle;
+import javafx.animation.AnimationTimer;
 
-public class World {
+public class World extends AnimationTimer {
     private final TileMap map;
     private VehiclePathfinder vp;
     private InfantryPathfinder ip;
@@ -90,15 +90,16 @@ public class World {
 	}
     }
 
-    public void update(int delta) {
+    @Override
+    public void handle(long delta) {
 	Profiler.getInstance().startForSection("World tick");
 	
 	Profiler.getInstance().startForSection("World: shroud tick");
-	if (GUI.getInstance().getPlayer().getShroud() != null) {
+	/*if (GUI.getInstance().getPlayer().getShroud() != null) {
 	    GUI.getInstance().getPlayer().getShroud().getRenderer().update(GUI.getInstance().getPlayer().getShroud());
 	} else {
 	    GUI.getInstance().getObserverShroudRenderer().update(null);
-	}
+	}*/
 	Profiler.getInstance().stopForSection("World: shroud tick");
 
 	if (removeDeadTicks++ > REMOVE_DEAD_INTERVAL_TICKS) {

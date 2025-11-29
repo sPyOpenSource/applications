@@ -1,7 +1,6 @@
 package cr0s.javara.combat.attack;
 
 import cr0s.javara.combat.Armament;
-import cr0s.javara.combat.Weapon;
 import cr0s.javara.entity.MobileEntity;
 import cr0s.javara.entity.actor.EntityActor;
 import cr0s.javara.entity.actor.activity.Activity;
@@ -15,7 +14,7 @@ public class AttackFollow extends AttackBase {
     }
     
     @Override
-    public void update(int delta) {
+    public void update(long delta) {
 	super.update(delta);
 	
 	if (this.isAttacking) {

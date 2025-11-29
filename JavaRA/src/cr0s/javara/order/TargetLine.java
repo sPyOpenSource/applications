@@ -28,7 +28,7 @@ public class TargetLine {
 	this.color = c;	
     }
     
-    public void update(int delta) {
+    public void update(long delta) {
 	/*this.lifeTime--;
 	
 	if (this.lifeTime <= 0) {
