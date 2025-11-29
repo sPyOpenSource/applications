@@ -6,7 +6,13 @@ import cr0s.javara.combat.Warhead;
 import cr0s.javara.entity.Entity;
 import cr0s.javara.entity.INotifySelected;
 import cr0s.javara.entity.actor.EntityActor;
+import cr0s.javara.render.EntityBlockingMap.SubCell;
+import cr0s.javara.entity.infantry.EntityInfantry;
+import cr0s.javara.entity.infantry.EntityRifleTrooper;
+import cr0s.javara.entity.infantry.EntityRocketTrooper;
+import cr0s.javara.entity.infantry.EntityGrenadeTrooper;
 import cr0s.javara.entity.vehicle.common.EntityMcv;
+import cr0s.javara.entity.vehicle.soviet.EntityHeavyTank;
 import cr0s.javara.gameplay.Team.Alignment;
 import cr0s.javara.order.OrderTargeter;
 import cr0s.javara.order.Target;
@@ -79,7 +85,7 @@ public class Player {
 
 	this.world.spawnEntityInWorld(mcv);
 
-	/*EntityHeavyTank eht = new EntityHeavyTank(24.0f * this.spawnX + 3 * 24, 24.0f * this.spawnY + 3 * 24, team, this);
+	EntityHeavyTank eht = new EntityHeavyTank(24.0f * this.spawnX + 3 * 24, 24.0f * this.spawnY + 3 * 24);
 	eht.isVisible = true;
 	this.world.spawnEntityInWorld(eht);
 
@@ -98,21 +104,21 @@ public class Player {
 	    EntityInfantry e = null;
 	    switch (this.world.getRandomInt(0, 3)) {
 	    case 0:
-		e = new EntityRifleTrooper(randomPoint.getX() * 24, randomPoint.getY() * 24, team, this, world.blockingEntityMap.getFreeSubCell(randomPoint, SubCell.CENTER));
+		e = new EntityRifleTrooper(randomPoint.getX() * 24, randomPoint.getY() * 24, world.blockingEntityMap.getFreeSubCell(randomPoint, SubCell.CENTER));
 		break;
 		
 	    case 1:
-		e = new EntityRocketTrooper(randomPoint.getX() * 24, randomPoint.getY() * 24, team, this, world.blockingEntityMap.getFreeSubCell(randomPoint, SubCell.CENTER));
+		e = new EntityRocketTrooper(randomPoint.getX() * 24, randomPoint.getY() * 24, world.blockingEntityMap.getFreeSubCell(randomPoint, SubCell.CENTER));
 		break;
 		
 	    case 2:
-		e = new EntityGrenadeTrooper(randomPoint.getX() * 24, randomPoint.getY() * 24, team, this, world.blockingEntityMap.getFreeSubCell(randomPoint, SubCell.CENTER));
+		e = new EntityGrenadeTrooper(randomPoint.getX() * 24, randomPoint.getY() * 24, world.blockingEntityMap.getFreeSubCell(randomPoint, SubCell.CENTER));
 		break;
 	    }
 	    
 	    e.currentFacing = this.world.getRandomInt(0, EntityInfantry.MAX_FACING);
 	    e.isVisible = true; this.world.spawnEntityInWorld(e);
-	}*/
+	}
 
 	//Player other = new Player(world, "", Alignment.SOVIET, new Color(0, 200, 0));
 	/*EntityMammothTank eht = new EntityMammothTank(24.0f * this.spawnX + 12 * 24, 24.0f * this.spawnY + 7 * 24, team, this);

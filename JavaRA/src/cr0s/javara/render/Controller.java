@@ -18,15 +18,11 @@ public class Controller {
     private final Player player;
     private final Camera camera;
     private double offsetX, offsetY;
-    private int boarder = 550;
-    
-    // Controls
-    private boolean mouseDownRight = false;
-    private boolean mouseDownLeft = false;
+    private int boarderX = 700, boarderY = 560;
 
     private final int VIEWPORT_SCROLL_TRESHOLD = 35; // TODO: config this
-    private final float SCROLL_SPEED = 0.5f; // TODO: config this
     private final int ALLOWED_BORDER_TILES = 0;
+    private final float SCROLL_SPEED = 0.5f; // TODO: config this
     private int zTrans = -800;
 
     public Controller(Player player, Camera camera, Scene scene) {
@@ -40,9 +36,9 @@ public class Controller {
         scene.getCamera().setTranslateX(offsetX);
         scene.getCamera().setTranslateY(offsetY);
         scene.setOnScroll((ScrollEvent event) -> {
-            zTrans += event.getDeltaY() * (zTrans / -50);
-            if(zTrans < -2000) zTrans = -2000;
-            if(zTrans > -400) zTrans = -400;
+            //zTrans += event.getDeltaY() * (zTrans / -50);
+            offsetX -= event.getDeltaX() * SCROLL_SPEED;
+            offsetY -= event.getDeltaY() * SCROLL_SPEED;
         });
         scene.setOnKeyPressed((KeyEvent e) -> {
             KeyCode code = e.getCode();
@@ -70,16 +66,18 @@ public class Controller {
                 default:
                     break;
             }
-            if(offsetX < boarder) offsetX = boarder;
-            if(offsetX > 128 * 24 - boarder) offsetX = 128 * 24 - boarder;
-            if(offsetY < boarder) offsetY = boarder;
-            if(offsetY > 128 * 24 - boarder) offsetY = 128 * 24 - boarder;
-            scene.getCamera().setTranslateX(offsetX);
-            scene.getCamera().setTranslateY(offsetY);
         });
         new javafx.animation.AnimationTimer() {
             @Override
             public void handle(long now) {
+                if(zTrans < -2000) zTrans = -2000;
+                if(zTrans > -400) zTrans = -400;
+                if(offsetX < boarderX) offsetX = boarderX;
+                if(offsetX > 128 * 24 - boarderX) offsetX = 128 * 24 - boarderX;
+                if(offsetY < boarderY) offsetY = boarderY;
+                if(offsetY > 128 * 24 - boarderY) offsetY = 128 * 24 - boarderY;
+                scene.getCamera().setTranslateX(offsetX);
+                scene.getCamera().setTranslateY(offsetY);
                 scene.getCamera().setTranslateZ(zTrans);
             }
         }.start();
@@ -137,39 +135,4 @@ public class Controller {
 		//camera.setOffset(newOffsetX, newOffsetY);*/
 	}
 
-	public void mouseClicked(int button, int x, int y, int clickCount) {
-		switch (button) {
-		case 0:
-			break;
-		case 1:
-			break;
-		case 2:
-			break;
-		}
-	}
-
-	public void mousePressed(int button, int x, int y) {
-		switch (button) {
-		case 0:
-			mouseDownLeft = true;
-			break;
-		case 1:
-			mouseDownRight = true;
-			break;
-		case 2:
-			break;
-		}
-
-	}
-
-	public void mouseReleased(int button, int x, int y) {
-		switch (button) {
-		case 0:
-			mouseDownLeft = false;
-			break;
-		case 1:
-			mouseDownRight = false;
-			break;
-		}
-	}
 }

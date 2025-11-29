@@ -125,10 +125,13 @@ public class EntityHeavyTank extends EntityVehicle implements ISelectable, IHave
 
 	//g.drawRect(this.getTextureX(), this.getTextureY(), TEXTURE_WIDTH, TEXTURE_HEIGHT);
 
-	texture.startUse();
-	//texture.getSubImage(0, currentFacing).drawEmbedded(this.getTextureX(), this.getTextureY(), TEXTURE_WIDTH, TEXTURE_HEIGHT);
+	//texture.startUse();
+	ImageView view =  texture.getSubImage(0, currentFacing);//.drawEmbedded(this.getTextureX(), this.getTextureY(), TEXTURE_WIDTH, TEXTURE_HEIGHT);
+        view.setX(this.getTextureX());
+        view.setY(this.getTextureY());
+        return view;
 	//this.turret.render(g);
-	texture.endUse();
+	//texture.endUse();
 
 	/*
 	Pos actorCenter = (this instanceof IHaveTurret)
@@ -158,7 +161,6 @@ public class EntityHeavyTank extends EntityVehicle implements ISelectable, IHave
 		}*/
 
 	//drawPath(g);
-        return null;
     }
 
     @Override
@@ -187,16 +189,16 @@ public class EntityHeavyTank extends EntityVehicle implements ISelectable, IHave
     }
 
     public double getTextureX() {
-	return getTranslateX() - (TEXTURE_WIDTH / 2) + 12;
+	return boundingBox.getX() - (TEXTURE_WIDTH / 2) + 12;
     }
 
     public double getTextureY() {
-	return getTranslateY() - (TEXTURE_HEIGHT / 2) + 6; 
+	return boundingBox.getY() - (TEXTURE_HEIGHT / 2) + 6; 
     }
 
     @Override
     public int getRevealingRange() {
-	return this.SHROUD_REVEALING_RANGE;
+	return EntityHeavyTank.SHROUD_REVEALING_RANGE;
     }
 
     @Override

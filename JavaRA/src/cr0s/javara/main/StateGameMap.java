@@ -86,7 +86,7 @@ public class StateGameMap extends Application {
     }
 
     public final void mouseClicked(final int button, final int x, final int y, final int clickCount) {
-	GUI.getInstance().getController().mouseClicked(button, x, y, clickCount);
+	//GUI.getInstance().getController().mouseClicked(button, x, y, clickCount);
 
 	if (GUI.getInstance().getSideBar().isMouseInsideBar()) {
 	    GUI.getInstance().getSideBar().mouseClicked(button, x, y);
@@ -180,11 +180,11 @@ public class StateGameMap extends Application {
 	    this.pressStart.setLocation(-GUI.getInstance().getCamera().getTranslateX() + x, -GUI.getInstance().getCamera().getTranslateY() + y);
 	}
 
-	GUI.getInstance().getController().mousePressed(button, x, y);
+	//GUI.getInstance().getController().mousePressed(button, x, y);
     }
 
     public final void mouseReleased(final int button, final int x, final int y) {
-	GUI.getInstance().getController().mouseReleased(button, x, y);
+	//GUI.getInstance().getController().mouseReleased(button, x, y);
 
 	if (button == 0 && this.selectionRectVisible) {
 	    this.selectionRectVisible = false;

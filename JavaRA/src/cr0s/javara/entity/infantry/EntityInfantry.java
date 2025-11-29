@@ -29,7 +29,6 @@ import cr0s.javara.resources.ShpTexture;
 import cr0s.javara.resources.SoundManager;
 import cr0s.javara.util.Pos;
 
-import javafx.scene.Scene;
 import javafx.scene.shape.Path;
 import javafx.scene.image.ImageView;
 
@@ -219,12 +218,15 @@ public abstract class EntityInfantry extends MobileEntity implements IShroudReve
 
     @Override
     public ImageView renderEntity() {
+        updateEntity(0);
 	//drawPath(g);
 
 	//if (this.sheet != null) {
-	//this.currentSequence.render(this.getTranslateX(), this.getTranslateY());
+            ImageView view = this.currentSequence.render();//this.getTranslateX(), this.getTranslateY());
+            view.setX(boundingBox.getX());
+            view.setY(boundingBox.getY());
 	//}
-        return null;
+        return view;
     }
 
     @Override

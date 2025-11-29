@@ -9,8 +9,6 @@ import cr0s.javara.combat.weapon.WeaponM1Carabine;
 
 import cr0s.javara.entity.IHaveCost;
 import cr0s.javara.entity.ISelectable;
-import cr0s.javara.gameplay.Player;
-import cr0s.javara.gameplay.Team;
 import cr0s.javara.render.EntityBlockingMap.SubCell;
 import cr0s.javara.render.Sequence;
 import cr0s.javara.resources.ResourceManager;
@@ -24,7 +22,7 @@ public class EntityRifleTrooper extends EntityInfantry implements ISelectable, I
 	this(posX, posY, SubCell.CENTER);
     }    
     
-    public EntityRifleTrooper(Float posX, Float posY,
+    public EntityRifleTrooper(double posX, double posY,
 	    SubCell sub) {
 	super(posX, posY, sub);
 
