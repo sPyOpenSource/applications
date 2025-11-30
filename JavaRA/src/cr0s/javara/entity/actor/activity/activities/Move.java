@@ -20,6 +20,7 @@ public class Move extends Activity {
 
     public Path currentPath;
     public int currentPathIndex;
+    public boolean forceRange = false;
 
     private boolean hasNotifiedBlocker, hasWaited;
     private int waitTicksRemaining;
@@ -29,8 +30,6 @@ public class Move extends Activity {
 
     private boolean isNewPath;
     private int randomWaitTicks;
-
-    public boolean forceRange = false;
 
     public Move(MobileEntity me, Pos destinationCell) {
 	this.destCell = destinationCell;
@@ -132,7 +131,7 @@ public class Move extends Activity {
 	}
 
 	if (--this.ticksBeforeRepath <= 0) {
-	    this.ticksBeforeRepath = this.REPATHING_INTERVAL_TICKS;
+	    this.ticksBeforeRepath = Move.REPATHING_INTERVAL_TICKS;
 
 	    chooseNewPath(me);
 	}
@@ -173,8 +172,6 @@ public class Move extends Activity {
 
     @Override
     public Activity tick(EntityActor a) {
-	Pos nextCell = null;
-
 	if (isCancelled || !(a instanceof MobileEntity)) {
 	    return nextActivity;
 	}
@@ -190,7 +187,7 @@ public class Move extends Activity {
 	    return this;
 	}	
 
-	nextCell = popPath(me);
+	Pos nextCell = popPath(me);
 
 	if (nextCell == null) {
 	    return this;
@@ -233,18 +230,17 @@ public class Move extends Activity {
     }
 
     public class MovePart extends Activity {
-
 	public Move parentMove;
-	private MobileEntity me;
-	private Pos start;
-	private Pos end;
+        
+	private final MobileEntity me;
+	private final Pos start;
+	private final Pos end;
 
-	private int lengthInTicks;
+	private final int lengthInTicks;
 	private int ticks;
 
-	private int desiredFacing, startFacing;
+	private final int desiredFacing, startFacing;
 	private RotationDirection rotationDirection;
-
 	private boolean isNewPath;
 
 	public MovePart(Move aParentMove, MobileEntity aMe, Pos aStart, Pos aDestCell) {

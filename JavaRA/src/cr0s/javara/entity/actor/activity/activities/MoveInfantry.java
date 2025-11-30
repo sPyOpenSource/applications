@@ -253,18 +253,18 @@ public class MoveInfantry extends Activity {
     }
 
     public class MovePart extends Activity {
-
 	public MoveInfantry parentMove;
-	private MobileEntity me;
-	private Pos start;
-	private Pos end;
+        
+	private final MobileEntity me;
+	private final Pos start;
+	private final Pos end;
 
-	private int lengthInTicks;
+	private final int lengthInTicks;
 	private int ticks;
 
-	private int desiredFacing, startFacing;
+	private final int desiredFacing;
+        private int startFacing;
 	private RotationDirection rotationDirection;
-
 	private boolean isNewPath;
 
 	public MovePart(MoveInfantry aParentMove, MobileEntity aMe, Pos aStart, Pos aDestCell) {

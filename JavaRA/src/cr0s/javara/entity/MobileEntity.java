@@ -23,14 +23,14 @@ import javafx.scene.shape.Path;
 
 public abstract class MobileEntity extends EntityActor implements INotifyBlockingMove {
     protected float moveSpeed = 0.1f;
-   
+    private int damagePerSecond;
+
     public int targetCellX, targetCellY;
     public boolean isMovingToCell;   
     
     public int goalX, goalY;
     public SubCell currentSubcell;
     public SubCell desiredSubcell;
-    private int damagePerSecond;
     
     public MobileEntity(double posX, double posY,
 	    float aSizeWidth, float aSizeHeight) {
@@ -59,8 +59,8 @@ public abstract class MobileEntity extends EntityActor implements INotifyBlockin
     }
 
     public void setPos(Pos pos) {
-	//this.posX = pos.getX();
-	//this.posY = pos.getY();
+	getImageView().setX(pos.getX());
+	getImageView().setY(pos.getY());
     }
     
     public int getDamagePerSecond() {
@@ -318,22 +318,18 @@ public abstract class MobileEntity extends EntityActor implements INotifyBlockin
 	}
     }
 
-
     public void setCellPos(Pos exitPoint) {
 	//this.posX = exitPoint.getX() * 24;
 	//this.posY = exitPoint.getY() * 24;
     }
 
-
     public Activity moveFollow(EntityActor self, Target target, int range) {
 	return new Follow(self, target, range);
     }
 
-
     public Activity moveWithinRange(Target target, int range) {
 	return this.moveToRange(target.centerPosition().getCellPos(), range);
     }
-
 
     protected abstract Activity moveToRange(Pos cellPos, int range);
 }
