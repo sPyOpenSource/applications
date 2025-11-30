@@ -55,7 +55,7 @@ public class World extends AnimationTimer {
 
     boolean canRender = true;
 
-    private int removeDeadTicks = 0;
+    private final int removeDeadTicks = 0;
     private final int REMOVE_DEAD_INTERVAL_TICKS = 20;
     private final Random random;
     private final ArrayList<Pos> pointsInRange[] = new ArrayList[MAX_RANGE + 1];
@@ -181,17 +181,16 @@ public class World extends AnimationTimer {
      * @param g graphic output object
      */
     public BorderPane render() {
-	//BorderPane mapBounds;
 	//int mapX = (int) mapBounds.getX();
 	//int mapY = (int) mapBounds.getY();		
 
-        //Profiler.getInstance().startForSection("r: Map");
+        Profiler.getInstance().startForSection("r: Map");
         root = map.getPane();
-        //Profiler.getInstance().stopForSection("r: Map");
+        Profiler.getInstance().stopForSection("r: Map");
 	
 	//Color pColor = g.getColor();
 
-	//Profiler.getInstance().startForSection("r: Entity");
+	Profiler.getInstance().startForSection("r: Entity");
 	// Render bibs
 	/*for (Entity e : this.entities) {		    
 	    if (!e.isDead() && e.isVisible) { 
@@ -236,15 +235,15 @@ public class World extends AnimationTimer {
 
 	//renderSelectionBoxes(g);
 	
-	//Profiler.getInstance().stopForSection("r: Entity");
+	Profiler.getInstance().stopForSection("r: Entity");
 
-	//Profiler.getInstance().startForSection("r: Shroud");
+	Profiler.getInstance().startForSection("r: Shroud");
 	/*if (GUI.getInstance().getPlayer().getShroud() != null) {
 	    GUI.getInstance().getPlayer().getShroud().getRenderer().renderShrouds(g);
 	} else {
 	    GUI.getInstance().getObserverShroudRenderer().renderShrouds(g);
 	}
-	//Profiler.getInstance().stopForSection("r: Shroud");
+	Profiler.getInstance().stopForSection("r: Shroud");
 	
 	GUI.getInstance().getBuildingOverlay().render(g);*/
         return root;
