@@ -46,8 +46,8 @@ public class ArcherTowerDefense extends Thread {
         MobileEntity hero = null;
         for (MobileEntity attackingHero : new ArrayList<>(map.getAttackingHeroes())) {
             if (root.getChildren().contains(attackingHero.getViewHero())){
-                width = Math.sqrt((Math.pow(archerTower.getImageViews().get(0).getX()+48 - attackingHero.getViewHero().localToScene(attackingHero.getViewHero().getLayoutBounds()).getCenterX(), 2))
-                        + Math.pow(archerTower.getImageViews().get(0).getY()+20 - attackingHero.getViewHero().localToScene(attackingHero.getViewHero().getLayoutBounds()).getCenterY(), 2));
+                width = Math.sqrt((Math.pow(archerTower.getImageViews().get(0).getX() + 48 - attackingHero.getViewHero().localToScene(attackingHero.getViewHero().getLayoutBounds()).getCenterX(), 2))
+                        + Math.pow(archerTower.getImageViews().get(0).getY() + 20 - attackingHero.getViewHero().localToScene(attackingHero.getViewHero().getLayoutBounds()).getCenterY(), 2));
                 if (width < archerTower.getRange()) {
                     hero = attackingHero;
                 }

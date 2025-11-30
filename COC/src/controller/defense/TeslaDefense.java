@@ -1,7 +1,6 @@
 package controller.defense;
 
 
-import cr0s.javara.entity.MobileEntity;
 import javafx.animation.PathTransition;
 import javafx.application.Platform;
 import javafx.util.Duration;
@@ -13,6 +12,7 @@ import javafx.scene.shape.MoveTo;
 import javafx.scene.shape.Path;
 
 import cr0s.javara.render.map.Map;
+import cr0s.javara.entity.MobileEntity;
 import model.building.Tesla;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -50,8 +50,8 @@ public class TeslaDefense extends Thread {
         MobileEntity hero = null;
         for (MobileEntity attackingHero : new ArrayList<>(map.getAttackingHeroes())) {
             if (root.getChildren().contains(attackingHero.getViewHero())){
-                width = Math.sqrt((Math.pow(tesla.getImageViews().get(0).getX()+37 - attackingHero.getViewHero().localToScene(attackingHero.getViewHero().getLayoutBounds()).getCenterX(), 2))
-                        + Math.pow(tesla.getImageViews().get(0).getY()+18 - attackingHero.getViewHero().localToScene(attackingHero.getViewHero().getLayoutBounds()).getCenterY(), 2));
+                width = Math.sqrt((Math.pow(tesla.getImageViews().get(0).getX() + 37 - attackingHero.getViewHero().localToScene(attackingHero.getViewHero().getLayoutBounds()).getCenterX(), 2))
+                        + Math.pow(tesla.getImageViews().get(0).getY() + 18 - attackingHero.getViewHero().localToScene(attackingHero.getViewHero().getLayoutBounds()).getCenterY(), 2));
                 if (width < tesla.getRange()) {
                     hero = attackingHero;
                 }

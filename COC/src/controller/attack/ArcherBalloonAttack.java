@@ -166,10 +166,10 @@ public class ArcherBalloonAttack extends Thread {
             }
         }
         Path path = new Path();
-        MoveTo moveTo = new MoveTo(viewBalloon.getX(), viewBalloon.getY()+20);
-        LineTo lineTo = new LineTo(building.getImageViews().get(0).getX()+(building.getImageViews().get(0).getFitWidth()/2),
-                building.getImageViews().get(0).getY()+20);
-        Circle circle = new Circle(viewBalloon.getX()+28.8, viewBalloon.getY()+60,3);
+        MoveTo moveTo = new MoveTo(viewBalloon.getX(), viewBalloon.getY() + 20);
+        LineTo lineTo = new LineTo(building.getImageViews().get(0).getX() + (building.getImageViews().get(0).getFitWidth() / 2),
+                building.getImageViews().get(0).getY() + 20);
+        Circle circle = new Circle(viewBalloon.getX() + 28.8, viewBalloon.getY() + 60,3);
         circle.setFill(Color.web("#B442F7"));
         path.getElements().addAll(moveTo, lineTo);
         Platform.runLater(() -> {

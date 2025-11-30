@@ -38,23 +38,21 @@ public class Player implements Serializable {
         return level;
     }
 
-    public void setLevel(int level) {
-        this.level = level;
-    }
-
     public int getNumberWin() {
         return numberWin;
     }
 
-    public void setNumberWin(int numberWin) {
-        this.numberWin = numberWin;
+    public void Win() {
+        this.numberWin++;
+        if(level < 4) level++;
     }
 
     public int getNumberLose() {
         return numberLose;
     }
 
-    public void setNumberLose(int numberLose) {
-        this.numberLose = numberLose;
+    public void Lose() {
+        this.numberLose++;
+        if(level > 1) level--;
     }
 }

@@ -1,6 +1,5 @@
 package view;
 
-import assets.Assets;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -29,6 +28,7 @@ import model.data.SavePlayerData;
 import cr0s.javara.render.map.Map;
 import java.util.ArrayList;
 import controller.SignUpController;
+import assets.Assets;
 
 public class SignUp extends Application {
     public SignUp(ArrayList<Player> players) {

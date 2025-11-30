@@ -1,6 +1,5 @@
 package view;
 
-import assets.Assets;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -21,8 +20,8 @@ import javafx.scene.text.Text;
 
 import model.Player;
 import controller.LogInController;
-
 import java.util.ArrayList;
+import assets.Assets;
 
 public class LogIn extends Application {
     private final ArrayList<Player> players;

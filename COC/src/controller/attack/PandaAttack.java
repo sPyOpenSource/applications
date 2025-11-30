@@ -1,6 +1,7 @@
 package controller.attack;
 
 import javafx.animation.PathTransition;
+import javafx.animation.AnimationTimer;
 import javafx.application.Platform;
 import javafx.util.Duration;
 
@@ -15,20 +16,20 @@ import javafx.scene.shape.MoveTo;
 import javafx.scene.shape.Path;
 
 import cr0s.javara.render.map.Map;
-import view.ImageViewClone;
-import model.hero.Panda;
-
-import java.util.concurrent.atomic.AtomicInteger;
-import assets.Assets;
 import cr0s.javara.entity.building.EntityBuilding;
 
-public class PandaAttack extends Thread {
+import view.ImageViewClone;
+import model.hero.Panda;
+import java.util.concurrent.atomic.AtomicInteger;
+import assets.Assets;
+
+public class PandaAttack extends AnimationTimer {
     private final Assets assets = new Assets();
     
     public PandaAttack(double x, double y, AnchorPane root, Map map) {
         this.root = root;
         this.panda = new Panda(x, y);
-        this.viewPandaL = new ImageViewClone(panda.getImageViews().get(0));
+        this.viewPandaL = new ImageViewClone(panda.getImageViews().get(6));
         this.viewPandaAttackL = new ImageViewClone(panda.getImageViews().get(1));
         this.viewPandaR = new ImageViewClone(panda.getImageViews().get(2));
         this.viewPandaAttackR = new ImageViewClone(panda.getImageViews().get(3));
@@ -53,7 +54,7 @@ public class PandaAttack extends Thread {
     private final AtomicInteger count = new AtomicInteger(0);
     
     @Override
-    public void run() {
+    public void handle(long now) {
         synchronized (this){
             String audioFilePath = assets.get("/assets/audio/enter_panda.mp3");
             MediaPlayer mediaPlayer = new MediaPlayer(new Media(audioFilePath));
@@ -94,7 +95,7 @@ public class PandaAttack extends Thread {
         EntityBuilding building = null;
         for (Node node : map.getBuildingsMap()){
             if (node instanceof EntityBuilding building1){
-                width = Math.sqrt((Math.pow(viewPanda.getX()-building1.getImageViews().get(0).getX(),2))+Math.pow(viewPanda.getY()-building1.getImageViews().get(0).getY(),2));
+                width = Math.sqrt((Math.pow(viewPanda.getX() - building1.getImageViews().get(0).getX(), 2)) + Math.pow(viewPanda.getY() - building1.getImageViews().get(0).getY(), 2));
                 if(width < widthLowe){
                     widthLowe = width;
                     building = building1;

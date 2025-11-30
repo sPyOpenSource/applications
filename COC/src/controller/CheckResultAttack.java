@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class CheckResultAttack extends Thread {
-    private Assets assets = new Assets();
+    private final Assets assets = new Assets();
     
     public CheckResultAttack(Stage stage, AnchorPane root, Player attackingPlayer, Player defensivePlayer, AtomicInteger capacityInt, ArrayList<Player> players, MediaPlayer mediaPlayer) {
         this.map = defensivePlayer.getMap();
@@ -78,16 +78,10 @@ public class CheckResultAttack extends Thread {
         }
         while (true){
             if (defensivePlayer.getMap().getBuildingsMap().isEmpty()){
-                defensivePlayer.setNumberLose(defensivePlayer.getNumberLose() + 1);
-                attackingPlayer.setNumberWin(attackingPlayer.getNumberWin() + 1);
-                if (defensivePlayer.getLevel() > 1){
-                    defensivePlayer.setLevel(defensivePlayer.getLevel() - 1);
-                }
-                if (attackingPlayer.getLevel() < 4){
-                    attackingPlayer.setLevel(attackingPlayer.getLevel() + 1);
-                }
-                new UpdatePlayerData(attackingPlayer).start();
-                new UpdatePlayerData(defensivePlayer).start();
+                defensivePlayer.Lose();
+                attackingPlayer.Win();
+                //new UpdatePlayerData(attackingPlayer).start();
+                //new UpdatePlayerData(defensivePlayer).start();
                 Platform.runLater(() -> {
                     starView.setImage(new Image("assets/png/star3.png"));
                     viewBack.setImage(new Image("assets/png/back_home.png"));
@@ -101,16 +95,10 @@ public class CheckResultAttack extends Thread {
                 break;
             } else if (capacityInt.get() == 0 && map.getAttackingHeroes().isEmpty()){
                 if ((map.getBuildingsMap().size() / firstSize) < 0.15){
-                    defensivePlayer.setNumberWin(defensivePlayer.getNumberWin() + 1);
-                    attackingPlayer.setNumberLose(attackingPlayer.getNumberLose() + 1);
-                    if (defensivePlayer.getLevel() < 4){
-                        defensivePlayer.setLevel(defensivePlayer.getLevel() + 1);
-                    }
-                    if (attackingPlayer.getLevel() > 1){
-                        attackingPlayer.setLevel(attackingPlayer.getLevel() - 1);
-                    }
-                    new UpdatePlayerData(attackingPlayer).start();
-                    new UpdatePlayerData(defensivePlayer).start();
+                    defensivePlayer.Win();
+                    attackingPlayer.Lose();
+                    //new UpdatePlayerData(attackingPlayer).start();
+                    //new UpdatePlayerData(defensivePlayer).start();
                     Platform.runLater(() -> {
                         starView.setImage(new Image("assets/png/star2.png"));
                         viewBack.setImage(new Image("assets/png/back_home.png"));
@@ -124,16 +112,10 @@ public class CheckResultAttack extends Thread {
                     }
                     break;
                 } else if ((map.getBuildingsMap().size() / firstSize) < 0.5){
-                    defensivePlayer.setNumberWin(defensivePlayer.getNumberWin() + 1);
-                    attackingPlayer.setNumberLose(attackingPlayer.getNumberLose() + 1);
-                    if (defensivePlayer.getLevel() < 4){
-                        defensivePlayer.setLevel(defensivePlayer.getLevel() + 1);
-                    }
-                    if (attackingPlayer.getLevel() > 1){
-                        attackingPlayer.setLevel(attackingPlayer.getLevel() - 1);
-                    }
-                    new UpdatePlayerData(attackingPlayer).start();
-                    new UpdatePlayerData(defensivePlayer).start();
+                    defensivePlayer.Win();
+                    attackingPlayer.Lose();
+                    //new UpdatePlayerData(attackingPlayer).start();
+                    //new UpdatePlayerData(defensivePlayer).start();
                     Platform.runLater(() -> {
                         starView.setImage(new Image("assets/png/star1.png"));
                         viewBack.setImage(new Image("assets/png/back_home.png"));
@@ -147,16 +129,10 @@ public class CheckResultAttack extends Thread {
                     }
                     break;
                 }
-                defensivePlayer.setNumberWin(defensivePlayer.getNumberWin() + 1);
-                attackingPlayer.setNumberLose(attackingPlayer.getNumberLose() + 1);
-                if (defensivePlayer.getLevel() < 4){
-                    defensivePlayer.setLevel(defensivePlayer.getLevel() + 1);
-                }
-                if (attackingPlayer.getLevel() > 1){
-                    attackingPlayer.setLevel(attackingPlayer.getLevel() - 1);
-                }
-                new UpdatePlayerData(attackingPlayer).start();
-                new UpdatePlayerData(defensivePlayer).start();
+                defensivePlayer.Win();
+                attackingPlayer.Lose();
+                //new UpdatePlayerData(attackingPlayer).start();
+                //new UpdatePlayerData(defensivePlayer).start();
                 Platform.runLater(() -> {
                     starView.setImage(new Image("assets/png/star0.png"));
                     viewBack.setImage(new Image("assets/png/back_home.png"));
