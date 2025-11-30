@@ -12,6 +12,7 @@ import cr0s.javara.entity.actor.activity.activities.Deploy;
 import cr0s.javara.entity.actor.activity.activities.Turn;
 import cr0s.javara.entity.building.common.EntityConstructionYard;
 import cr0s.javara.entity.building.common.EntityWarFactory;
+import cr0s.javara.entity.building.EntityBuilding;
 import cr0s.javara.entity.vehicle.EntityVehicle;
 
 import cr0s.javara.main.GUI;
@@ -56,7 +57,7 @@ public class EntityMcv extends EntityVehicle implements ISelectable, IDeployable
 	//boundingBox.setCenterX(this.getCenterPosX());
 	//boundingBox.setCenterY(this.getCenterPosY());
 	
-	texture = new SpriteSheet(ResourceManager.getInstance().getConquerTexture(TEXTURE_NAME).getAsCombinedImage(owner.playerColor), TEXTURE_WIDTH, TEXTURE_HEIGHT);
+	texture = new SpriteSheet(ResourceManager.getInstance().getConquerTexture(TEXTURE_NAME).getAsCombinedImage(null), TEXTURE_WIDTH, TEXTURE_HEIGHT);
 	Random r = new Random();
 
 	this.setHp(600);
@@ -198,7 +199,11 @@ public class EntityMcv extends EntityVehicle implements ISelectable, IDeployable
 	EntityConstructionYard cy = new EntityConstructionYard(boundingBox.getX() - (EntityConstructionYard.WIDTH_TILES / 2 * 24), boundingBox.getY() - (EntityConstructionYard.HEIGHT_TILES / 2 * 24));
 	cy.isVisible = true;
 	cy.isSelected = true;
-	world.addBuildingTo(cy);
+        //owner.entities.add(cy);
+        //cy.owner = owner;
+        EntityBuilding ebp = world.addBuildingTo(cy);
+        ebp.owner = owner;
+	owner.entities.add(ebp);
 
 	setDead();
     }

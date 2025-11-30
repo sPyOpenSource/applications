@@ -20,6 +20,7 @@ import cr0s.javara.render.shrouds.Shroud;
 import cr0s.javara.render.EntityBlockingMap.SubCell;
 import cr0s.javara.util.Pos;
 import cr0s.javara.combat.Warhead;
+import java.util.concurrent.ConcurrentLinkedQueue;
 import javafx.scene.paint.Color;
 
 public class Player {
@@ -31,7 +32,7 @@ public class Player {
     public boolean canBuild, canTrainInfantry, canBuildVehicles, canBuildAirUnits, canBuildNavalUnits;
 
     public LinkedList<Entity> selectedEntities = new LinkedList<>();
-    public LinkedList<Entity> entities = new LinkedList<>();
+    public ConcurrentLinkedQueue<Entity> entities = new ConcurrentLinkedQueue<>();
 
     private int spawnX, spawnY;
 
@@ -84,11 +85,13 @@ public class Player {
     public void spawn() {
 	EntityMcv mcv = new EntityMcv(24.0f * this.spawnX, 24.0f * this.spawnY);
 	mcv.isVisible = true;
+        mcv.owner = this;
         entities.add(mcv);
 	this.world.spawnEntityInWorld(mcv);
 
 	EntityHeavyTank eht = new EntityHeavyTank(24.0f * this.spawnX + 3 * 24, 24.0f * this.spawnY + 3 * 24);
 	eht.isVisible = true;
+        entities.add(eht);
 	this.world.spawnEntityInWorld(eht);
 
 	int n = this.world.getRandomInt(15, 50);
@@ -119,6 +122,7 @@ public class Player {
 	    }
 	    
 	    e.currentFacing = this.world.getRandomInt(0, EntityInfantry.MAX_FACING);
+            entities.add(e);
 	    e.isVisible = true; this.world.spawnEntityInWorld(e);
 	}
 

@@ -35,25 +35,25 @@ public class EntityGrenadeTrooper extends EntityInfantry implements ISelectable,
 	
 	this.currentFrame = 0;
 	
-	this.standSequence = new Sequence(texture, 0, 8, 0, 0, owner.playerColor);
+	this.standSequence = new Sequence(texture, 0, 8, 0, 0, null);
         ImageView image = standSequence.render();
         image.setX(posX);
         image.setY(posY);
         getImageViews().add(image);
-	this.runSequence = new Sequence(texture, 16, 8, 6, 2, owner.playerColor);
+	this.runSequence = new Sequence(texture, 16, 8, 6, 2, null);
 	this.runSequence.setIsLoop(true);
 
-	this.attackingSequence = new Sequence(texture, 64, 8, 20, 2, owner.playerColor);
+	this.attackingSequence = new Sequence(texture, 64, 8, 20, 2, null);
 	
-	this.idleSequences.add(new Sequence(texture, 384, 0, 14, 2, owner.playerColor));
-	this.idleSequences.add(new Sequence(texture, 399, 0, 16, 2, owner.playerColor));
+	this.idleSequences.add(new Sequence(texture, 384, 0, 14, 2, null));
+	this.idleSequences.add(new Sequence(texture, 399, 0, 16, 2, null));
 	
-	this.deathSequences.add(new Sequence(texture, 416, 0, 8, 2, owner.playerColor));
-	this.deathSequences.add(new Sequence(texture, 424, 0, 8, 2, owner.playerColor));
-	this.deathSequences.add(new Sequence(texture, 432, 0, 8, 2, owner.playerColor));
-	this.deathSequences.add(new Sequence(texture, 440, 0, 12, 2, owner.playerColor));
-	this.deathSequences.add(new Sequence(texture, 452, 0, 18, 2, owner.playerColor));
-	this.deathSequences.add(new Sequence(electro, 0, 14, 0, 1, owner.playerColor));
+	this.deathSequences.add(new Sequence(texture, 416, 0, 8, 2, null));
+	this.deathSequences.add(new Sequence(texture, 424, 0, 8, 2, null));
+	this.deathSequences.add(new Sequence(texture, 432, 0, 8, 2, null));
+	this.deathSequences.add(new Sequence(texture, 440, 0, 12, 2, null));
+	this.deathSequences.add(new Sequence(texture, 452, 0, 18, 2, null));
+	this.deathSequences.add(new Sequence(electro, 0, 14, 0, 1, null));
 	
 	this.attack = new AttackFrontal(this);
 	Armament arma = new Armament(this, new WeaponGrenade());

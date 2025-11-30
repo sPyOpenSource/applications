@@ -54,8 +54,8 @@ public class EntityConstructionYard extends EntityBuilding implements ISelectabl
 
     private void initTextures() {
 	ShpTexture tex = ResourceManager.getInstance().getConquerTexture(TEXTURE_NAME);
-	corrupted = tex.getAsImage(51, owner.playerColor);
-	normal = tex.getAsImage(0, owner.playerColor);	
+	corrupted = tex.getAsImage(51, null);
+	normal = tex.getAsImage(0, null);	
     }
 
     @Override

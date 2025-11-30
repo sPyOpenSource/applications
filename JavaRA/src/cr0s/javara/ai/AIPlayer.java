@@ -218,14 +218,12 @@ public class AIPlayer extends Player {
 	    EntityMcv mcv = (EntityMcv) e;
 
 	    // It's our, deploy
-	    //if (mcv.owner == this) {
-		if (!mcv.canDeploy()) { // cant deploy in current location, choose another
-		    Pos desiredLocation = this.chooseBuildLocation("fact", false, BuildingType.NORMAL);
-		    mcv.resolveOrder(new Order("Move", mcv, desiredLocation, true));
-		}
+            if (!mcv.canDeploy()) { // cant deploy in current location, choose another
+                Pos desiredLocation = this.chooseBuildLocation("fact", false, BuildingType.NORMAL);
+                mcv.resolveOrder(new Order("Move", mcv, desiredLocation, true));
+            }
 
-		mcv.resolveOrder(new Order("Deploy", mcv, null, true));
-	    //}
+            mcv.resolveOrder(new Order("Deploy", mcv, null, true));
 	}	
     }
 
@@ -351,24 +349,25 @@ public class AIPlayer extends Player {
 
     private EntityActor findClosestEnemy(final Pos center, Player p) {
 	EntityActor closest = null;
-
-	for (Entity e : GUI.getInstance().getWorld().getEntitiesList()) { 
-	    if (e.isDead() || !(e instanceof EntityActor) || (!e.owner.isEnemyFor(this))) {
+        for(Player player:GUI.getInstance().getWorld().getPlayers()){
+            // If we looking for specified owner
+	    if (player == p) {
 		continue;
 	    }
+            
+            for (Entity e : player.entities) { 
+                if (e.isDead() || !(e instanceof EntityActor) /*|| (!e.owner.isEnemyFor(this))*/) {
+                    continue;
+                }
 
-	    // If we looking for specified owner
-	    if (p != null && (e.owner != p)) {
-		continue;
-	    }
+                EntityActor a = (EntityActor) e;
 
-	    EntityActor a = (EntityActor) e;
-
-	    if (closest == null 
-		    || a.getPosition().getCellPos().distanceToSq(center) < closest.getPosition().getCellPos().distanceToSq(center)) {
-		closest = a;
-	    }
-	}
+                if (closest == null 
+                        || a.getPosition().getCellPos().distanceToSq(center) < closest.getPosition().getCellPos().distanceToSq(center)) {
+                    closest = a;
+                }
+            }
+        }
 
 	return closest;
     }

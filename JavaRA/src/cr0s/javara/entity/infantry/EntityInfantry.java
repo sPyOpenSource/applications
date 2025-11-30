@@ -196,9 +196,9 @@ public abstract class EntityInfantry extends MobileEntity implements IShroudReve
 		this.currentSequence = this.standSequence;
 	    } else if (this.getCurrentAnimationState() == AnimationState.IDLE) {
 		if (--this.randomTicksBeforeIdleSeq <= 0) {
-		    this.randomTicksBeforeIdleSeq = world.getRandomInt(this.MIN_IDLE_DELAY_TICKS, this.MAX_IDLE_DELAY_TICKS);
+		    this.randomTicksBeforeIdleSeq = world.getRandomInt(EntityInfantry.MIN_IDLE_DELAY_TICKS, EntityInfantry.MAX_IDLE_DELAY_TICKS);
 
-		    if (this.idleSequences.size() > 0) {
+		    if (!this.idleSequences.isEmpty()) {
 			this.currentSequence = this.idleSequences.get(world.getRandomInt(0, this.idleSequences.size()));
 			this.setCurrentAnimationState(AnimationState.IDLE_ANIMATING);
 		    }

@@ -43,10 +43,10 @@ public class EntityBuildingProgress extends EntityBuilding implements IShroudRev
 	
 	// Play "building" sound
 	if (this.owner == GUI.getInstance().getPlayer()) {
-	    SoundManager.getInstance().playSfxGlobal("placbldg", 0.7f);
+	    //SoundManager.getInstance().playSfxGlobal("placbldg", 0.7f);
 	    
 	    if (!(this.targetBuilding instanceof EntityWall)) {
-		SoundManager.getInstance().playSfxGlobal("build5", 0.7f);
+		//SoundManager.getInstance().playSfxGlobal("build5", 0.7f);
 	    }
 	}
 	
@@ -64,6 +64,7 @@ public class EntityBuildingProgress extends EntityBuilding implements IShroudRev
 	    //this.owner.getBase().getCurrentlyBuilding().remove(this);
 	    
 	    this.targetBuilding.isVisible = true;
+            owner.entities.add(this.targetBuilding);
 	    world.spawnEntityInWorld(this.targetBuilding);
 
 	    this.targetBuilding.onBuildFinished();
@@ -76,7 +77,7 @@ public class EntityBuildingProgress extends EntityBuilding implements IShroudRev
 	    return null;
 	}
 	
-	return new ImageView(SwingFXUtils.toFXImage(this.makeTexture.getAsImage(this.currentFrame, this.owner.playerColor), null));//.draw(this.posX, this.posY);
+	return new ImageView(SwingFXUtils.toFXImage(this.makeTexture.getAsImage(this.currentFrame, null), null));//.draw(this.posX, this.posY);
     }
 
     @Override

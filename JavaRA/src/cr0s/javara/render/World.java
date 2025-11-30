@@ -45,7 +45,6 @@ public class World extends AnimationTimer {
     private final InfantryPathfinder ip;
     private final ArrayList<Player> players = new ArrayList<>();
 
-    private ConcurrentLinkedQueue<Entity> entities = new ConcurrentLinkedQueue<>();
     private final ConcurrentLinkedQueue<Entity> entitiesToAdd = new ConcurrentLinkedQueue<>();
     private final int PASSES_COUNT = 3;
 
@@ -103,7 +102,7 @@ public class World extends AnimationTimer {
 	}*/
 	Profiler.getInstance().stopForSection("World: shroud tick");
 
-	if (removeDeadTicks++ > REMOVE_DEAD_INTERVAL_TICKS) {
+	/*if (removeDeadTicks++ > REMOVE_DEAD_INTERVAL_TICKS) {
 	    ConcurrentLinkedQueue<Entity> list = new ConcurrentLinkedQueue<>();
 	    for (Entity e : this.entities) {
 		if (!e.isDead()) {
@@ -117,7 +116,7 @@ public class World extends AnimationTimer {
 
 	for (Entity e : this.entitiesToAdd) {
 	    this.entities.add(e);
-	}
+	}*/
 	
 	this.entitiesToAdd.clear();          
 
@@ -125,7 +124,7 @@ public class World extends AnimationTimer {
 	
 	// Update all entities
 	Profiler.getInstance().startForSection("World: entity tick");
-	for (Entity e : this.entities) {
+	/*for (Entity e : this.entities) {
 	    if (!e.isDead()) { 
 		// Set up blocking map parameters
 		if (e instanceof MobileEntity) {
@@ -135,39 +134,41 @@ public class World extends AnimationTimer {
 		}
 	    }
 	}
-//System.out.println(delta);
-	for (Entity e : this.entities) {
-	    if (!e.isDead()) { 
-		// Reveal shroud
-		if (e instanceof IShroudRevealer) {
-		    if (e.owner.getShroud() != null) {
-			//e.owner.getShroud().exploreRange((int) e.boundingBox.getCenterX() / 24, (int) e.boundingBox.getCenterY() / 24, ((IShroudRevealer) e).getRevealingRange());
-		    }
-		}
+//System.out.println(delta);*/
+        for(Player player : players) {
+            for (Entity e : player.entities) {
+                if (!e.isDead()) { 
+                    // Reveal shroud
+                    if (e instanceof IShroudRevealer) {
+                        /*if (e.owner.getShroud() != null) {
+                            e.owner.getShroud().exploreRange((int) e.boundingBox.getCenterX() / 24, (int) e.boundingBox.getCenterY() / 24, ((IShroudRevealer) e).getRevealingRange());
+                        }*/
+                    }
 
-		if (e instanceof IHaveTurret) {
-		    ((IHaveTurret) e).updateTurrets(delta);
-		}
-		
-		// For mobile entities, after entity updated, update it's blocking map state to avoid entity movement collisions
-		if (e instanceof MobileEntity) {
-		    this.blockingEntityMap.freeForMobileEntity((MobileEntity) e);
+                    if (e instanceof IHaveTurret) {
+                        ((IHaveTurret) e).updateTurrets(delta);
+                    }
 
-		    e.updateEntity(delta);	
+                    // For mobile entities, after entity updated, update it's blocking map state to avoid entity movement collisions
+                    if (e instanceof MobileEntity) {
+                        this.blockingEntityMap.freeForMobileEntity((MobileEntity) e);
 
-		    // Lock next entity position. Or re-lock current, if position is not changed
-		    this.blockingEntityMap.occupyForMobileEntity((MobileEntity) e);
-		} else {
-		    e.updateEntity(delta);		    
-		}
+                        e.updateEntity(delta);	
 
-		if (e instanceof ITargetLines && e.isSelected) {
-		    for (TargetLine tl : ((ITargetLines) e).getTargetLines()) {
-			tl.update(delta);
-		    }
-		}
-	    }
-	}  	
+                        // Lock next entity position. Or re-lock current, if position is not changed
+                        this.blockingEntityMap.occupyForMobileEntity((MobileEntity) e);
+                    } else {
+                        e.updateEntity(delta);		    
+                    }
+
+                    if (e instanceof ITargetLines && e.isSelected) {
+                        for (TargetLine tl : ((ITargetLines) e).getTargetLines()) {
+                            tl.update(delta);
+                        }
+                    }
+                }
+            }
+        }
 	Profiler.getInstance().stopForSection("World: entity tick");
 	
 	updatePlayers();
@@ -192,7 +193,7 @@ public class World extends AnimationTimer {
 
 	//Profiler.getInstance().startForSection("r: Entity");
 	// Render bibs
-	for (Entity e : this.entities) {		    
+	/*for (Entity e : this.entities) {		    
 	    if (!e.isDead() && e.isVisible) { 
 		//if (e instanceof EntityBuilding) {
 		    //renderEntityBib((EntityBuilding) e);
@@ -219,7 +220,7 @@ public class World extends AnimationTimer {
 	//map.renderMapEntities(container, g, camera);
 
 	// Debug: render blocked cells
-	/*if (GUI.DEBUG_MODE) {
+	if (GUI.DEBUG_MODE) {
 	    Color blockedColor = Color.rgb(64, 0, 0, 64f/255);
 		
 	    for (int y = (int) (-GUI.getInstance().getCamera().getTranslateY()) / 24; y < map.getHeight(); y++) {
@@ -297,7 +298,7 @@ public class World extends AnimationTimer {
     }
 
     private void renderSelectionBoxes(Scene g) {
-	for (Entity e : this.entities) {
+	/*for (Entity e : this.entities) {
 	    if (!e.isDead() && e.isVisible) {
 		if ((e instanceof ISelectable) && (e.isSelected)) { 
 		    e.drawSelectionBox(g);
@@ -305,7 +306,7 @@ public class World extends AnimationTimer {
 		    e.drawHpBar(g);
 		}
 	    }
-	}		    
+	}*/		    
     }
 
     public TileMap getMap() {
@@ -314,7 +315,6 @@ public class World extends AnimationTimer {
 
     public void spawnEntityInWorld(Entity e) {
 	e.setWorld(this);
-	this.entities.add(e);
         mapBounds.getChildren().add(e.renderEntity());
     }
 
@@ -326,7 +326,7 @@ public class World extends AnimationTimer {
     public ConcurrentLinkedQueue<Entity> selectMovableEntitiesInsideBox(Rectangle boundingBox) {
 	ConcurrentLinkedQueue<Entity> selectedEntities = new ConcurrentLinkedQueue<>();
 
-	for (Entity e : this.entities) {
+	/*for (Entity e : this.entities) {
 	    if (!e.isDead() && (e instanceof ISelectable) && (e instanceof MobileEntity)) {
 		if (boundingBox.intersects(e.boundingBox.getBoundsInLocal())) { 
 		    ((ISelectable) e).select();
@@ -336,7 +336,7 @@ public class World extends AnimationTimer {
 		    ((ISelectable) e).cancelSelect();
 		}
 	    }
-	}
+	}*/
 
 	return selectedEntities;
     }
@@ -344,11 +344,11 @@ public class World extends AnimationTimer {
     public void cancelAllSelection() {
 	//GUI.getInstance().getPlayer().selectedEntities.clear();
 
-	for (Entity e : this.entities) {
+	/*for (Entity e : this.entities) {
 	    if (e instanceof ISelectable) {
 		((ISelectable) e).cancelSelect();
 	    }
-	}	    
+	}*/	    
     }
 
     /**
@@ -373,7 +373,7 @@ public class World extends AnimationTimer {
 
     private Entity getEntityInPoint(double x, double y, boolean onlyNonBuildings) {
 	// First check non-buildings entities
-	for (Entity e : this.entities) {
+	/*for (Entity e : this.entities) {
 	    if (!e.isDead() && e instanceof ISelectable && !(e instanceof EntityBuilding)) {
 		if (e.boundingBox.contains(x, y)) {
 		    return e;
@@ -390,7 +390,7 @@ public class World extends AnimationTimer {
 		    }
 		}
 	    }
-	}
+	}*/
 
 	return null;
     }
@@ -401,12 +401,13 @@ public class World extends AnimationTimer {
 	}
     }
 
-    public void addBuildingTo(EntityBuilding b) {
+    public EntityBuilding addBuildingTo(EntityBuilding b) {
 	EntityBuildingProgress ebp = new EntityBuildingProgress(b);
 
 	ebp.isVisible = true;
 
 	this.spawnEntityInWorld(ebp);
+        return ebp;
     }
 
     public boolean isCellPassable(int x, int y) {
@@ -518,7 +519,7 @@ public class World extends AnimationTimer {
     }
 
     public ConcurrentLinkedQueue<Entity> getEntitiesList() {
-	return this.entities;
+	return null;//this.entities;
     }
 
     public EntityBuilding getBuildingInCell(Pos cellPos) {

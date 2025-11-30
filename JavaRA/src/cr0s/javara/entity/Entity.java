@@ -25,7 +25,7 @@ public abstract class Entity extends Node {
 
     private boolean isDead = false;
     private int hp, maxHp;
-    public Player owner = new Player(null,null,null,null);
+    public Player owner;
     public boolean isSelected = false;
     public boolean isVisible = false;
 

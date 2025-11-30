@@ -65,7 +65,7 @@ public class EntityHeavyTank extends EntityVehicle implements ISelectable, IHave
     public EntityHeavyTank(Float posX, Float posY) {
 	super(posX, posY, TEXTURE_WIDTH, TEXTURE_HEIGHT);
 
-	texture = new SpriteSheet(ResourceManager.getInstance().getConquerTexture(TEXTURE_NAME).getAsCombinedImage(owner.playerColor), TEXTURE_WIDTH, TEXTURE_HEIGHT);
+	texture = new SpriteSheet(ResourceManager.getInstance().getConquerTexture(TEXTURE_NAME).getAsCombinedImage(null), TEXTURE_WIDTH, TEXTURE_HEIGHT);
 	Random r = new Random();
 
 	this.isVisible = true;
@@ -101,7 +101,6 @@ public class EntityHeavyTank extends EntityVehicle implements ISelectable, IHave
 	    if (!this.isIdle()) { 
 		this.turret.setTarget(new Pos(goalX * 24, goalY * 24));
 	    } else {
-
 		this.turret.rotateTurretTo(this.currentFacing);
 	    }
 	}
