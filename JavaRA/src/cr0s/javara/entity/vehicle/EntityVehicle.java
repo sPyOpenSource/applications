@@ -22,10 +22,7 @@ import javafx.scene.image.ImageView;
 
 public abstract class EntityVehicle extends MobileEntity implements IShroudRevealer {
     public int tileX, tileY;
-
     public boolean isPrimary = false, isRepairing = false, isInvuln = false, isDestroyed = false;
-
-    private final int moveWaitTicks = 0;
 
     protected int buildingSpeed;
     Color nextColor = Color.rgb(0, 255, 0, 64f/255);
@@ -36,7 +33,8 @@ public abstract class EntityVehicle extends MobileEntity implements IShroudRevea
 
     private final String explosionType = "veh-hit3.shp";
     private final String explosionSound = "kaboom30";
-    
+    private final int moveWaitTicks = 0;
+
     public EntityVehicle(double posX, double posY, int sizeWidth, int sizeHeight) {
 	super(posX, posY, sizeWidth, sizeHeight);
 

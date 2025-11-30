@@ -41,7 +41,6 @@ import org.yaml.snakeyaml.Yaml;
 import javafx.scene.paint.Color;
 
 public class AIPlayer extends Player {
-
     private class Enemy {
 	public float aggro;
 
@@ -65,13 +64,11 @@ public class AIPlayer extends Player {
 
     public int structureProductionInactiveDelay = 125;
     public int structureProductionActiveDelay = 10;
-
     public int minimumDefenseRadius = 5;
     public int maximumDefenseRadius = 20;
 
     public int newProductionCashThreshold = 5000;
     public int idleBaseUnitsMaximum = 12;
-
     public int rushAttackScanRadius = 15;
     public int protectUnitScanRadius = 15;
 
@@ -166,15 +163,13 @@ public class AIPlayer extends Player {
 	} catch (IOException e) {
 	    e.printStackTrace();
 	} finally {
-	    if (input == null) {
-		return;
-	    }
-
-	    try {
-		input.close();
-	    } catch (IOException e) {
-		e.printStackTrace();
-	    }
+	    if (input != null) {
+                try {
+                    input.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
 	}
     }
 
@@ -804,5 +799,4 @@ public class AIPlayer extends Player {
     public Random getRandom() {
 	return this.rnd;
     }
-
 }

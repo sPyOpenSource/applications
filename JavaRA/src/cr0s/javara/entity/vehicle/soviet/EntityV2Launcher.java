@@ -32,8 +32,8 @@ import javafx.scene.image.ImageView;
 
 public class EntityV2Launcher extends EntityVehicle implements ISelectable, IHaveCost, ICanAttack {
 
-    private String TEXTURE_NAME = "v2rl.shp";
-    private SpriteSheet texture;
+    private final String TEXTURE_NAME = "v2rl.shp";
+    private final SpriteSheet texture;
 
     private static final int TEXTURE_WIDTH = 40;
     private static final int TEXTURE_HEIGHT = 40;
@@ -44,18 +44,15 @@ public class EntityV2Launcher extends EntityVehicle implements ISelectable, IHav
     private static final int WAIT_FOR_BLOCKER_AVERAGE_TIME_TICKS = 15;
     private static final int WAIT_FOR_BLOCKER_TIME_SPREAD_TICKS = 5;
 
-    private int updateTicks = 0;
-
-    private Entity targetEntity = null;
+    private final int updateTicks = 0;
+    private final Entity targetEntity = null;
 
     private final float MOVE_SPEED = 0.3f;
-
     private final float SHIFT = 12;
-
     private final int BUILDING_COST = 1150;
 
-    private AttackFrontal attack;
-    private AutoTarget autoTarget;
+    private final AttackFrontal attack;
+    private final AutoTarget autoTarget;
     
     public EntityV2Launcher(Float posX, Float posY) {
 	super(posX, posY, TEXTURE_WIDTH, TEXTURE_HEIGHT);

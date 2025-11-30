@@ -33,13 +33,11 @@ import javafx.scene.shape.Path;
 import javafx.scene.image.ImageView;
 
 public class EntityHeavyTank extends EntityVehicle implements ISelectable, IHaveCost, IHaveTurret, ICanAttack {
-
-    private String TEXTURE_NAME = "3tnk.shp";
-    private SpriteSheet texture;
+    private final String TEXTURE_NAME = "3tnk.shp";
+    private final SpriteSheet texture;
 
     private final int ROTATION_START_TEXTURE_INDEX = 0;
     private final int ROTATION_END_TEXTURE_INDEX = 31;
-
     private final int MAX_ROTATION = 32;	
 
     private static final int TEXTURE_WIDTH = 36;
@@ -48,19 +46,17 @@ public class EntityHeavyTank extends EntityVehicle implements ISelectable, IHave
     private static final int WAIT_FOR_BLOCKER_AVERAGE_TIME_TICKS = 15;
     private static final int WAIT_FOR_BLOCKER_TIME_SPREAD_TICKS = 5;
 
-    private int updateTicks = 0;
-
-    private Entity targetEntity = null;
+    private final int updateTicks = 0;
+    private final Entity targetEntity = null;
 
     private final float MOVE_SPEED = 0.3f;
-
     private final float SHIFT = 12;
 
     private final int BUILDING_COST = 1150;
-    private Turret turret;
+    private final Turret turret;
 
-    private AttackTurreted attack;
-    private AutoTarget autoTarget;
+    private final AttackTurreted attack;
+    private final AutoTarget autoTarget;
 
     public EntityHeavyTank(Float posX, Float posY) {
 	super(posX, posY, TEXTURE_WIDTH, TEXTURE_HEIGHT);
@@ -106,6 +102,7 @@ public class EntityHeavyTank extends EntityVehicle implements ISelectable, IHave
 	}
 
 	//boundingBox.setBounds(posX + (TEXTURE_WIDTH / 4) - 6, posY + (TEXTURE_WIDTH / 4) - 12, TEXTURE_WIDTH / 2, TEXTURE_HEIGHT / 2);
+        getImageView().setViewport(texture.getSubImage(0, currentFacing).getViewport());
 
 	this.attack.update(delta);
 	this.autoTarget.update(delta);
@@ -125,10 +122,10 @@ public class EntityHeavyTank extends EntityVehicle implements ISelectable, IHave
 	//g.drawRect(this.getTextureX(), this.getTextureY(), TEXTURE_WIDTH, TEXTURE_HEIGHT);
 
 	//texture.startUse();
-	ImageView view =  texture.getSubImage(0, currentFacing);//.drawEmbedded(this.getTextureX(), this.getTextureY(), TEXTURE_WIDTH, TEXTURE_HEIGHT);
-        view.setX(this.getTextureX());
-        view.setY(this.getTextureY());
-        return view;
+	setImageView(texture.getSubImage(0, currentFacing));//.drawEmbedded(this.getTextureX(), this.getTextureY(), TEXTURE_WIDTH, TEXTURE_HEIGHT);
+        getImageView().setX(this.getTextureX());
+        getImageView().setY(this.getTextureY());
+        return getImageView();
 	//this.turret.render(g);
 	//texture.endUse();
 

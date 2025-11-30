@@ -51,9 +51,9 @@ public class World extends AnimationTimer {
     public int blockingMap[][];
     public EntityBlockingMap blockingEntityMap;
     public final int MAX_RANGE = 50;
+    public BorderPane root;
 
     boolean canRender = true;
-    BorderPane mapBounds;
 
     private int removeDeadTicks = 0;
     private final int REMOVE_DEAD_INTERVAL_TICKS = 20;
@@ -186,7 +186,7 @@ public class World extends AnimationTimer {
 	//int mapY = (int) mapBounds.getY();		
 
         //Profiler.getInstance().startForSection("r: Map");
-        mapBounds = map.getPane();
+        root = map.getPane();
         //Profiler.getInstance().stopForSection("r: Map");
 	
 	//Color pColor = g.getColor();
@@ -247,7 +247,7 @@ public class World extends AnimationTimer {
 	//Profiler.getInstance().stopForSection("r: Shroud");
 	
 	GUI.getInstance().getBuildingOverlay().render(g);*/
-        return mapBounds;
+        return root;
     }
 
     /**
@@ -315,7 +315,7 @@ public class World extends AnimationTimer {
 
     public void spawnEntityInWorld(Entity e) {
 	e.setWorld(this);
-        mapBounds.getChildren().add(e.renderEntity());
+        root.getChildren().add(e.renderEntity());
     }
 
     /**

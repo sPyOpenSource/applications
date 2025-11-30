@@ -35,12 +35,10 @@ import javafx.scene.image.ImageView;
 public abstract class EntityInfantry extends MobileEntity implements IShroudRevealer {
 
     private static final float DEFAULT_MOVE_SPEED = 1.5f;
-
     private static final int WIDTH = 50;
     private static final int HEIGHT = 39;
 
     public static final int MAX_FACING = 8;
-
     public static Pos subcellOffsets[] = new Pos[6];
 
     static {
@@ -166,6 +164,7 @@ public abstract class EntityInfantry extends MobileEntity implements IShroudReve
 
 	if (this.currentSequence != null) { 
 	    this.currentSequence.update(this.currentFacing);
+            getImageView().setImage(currentSequence.render().getImage());
 	}
 
 	// TODO: refactor this crap
@@ -222,11 +221,11 @@ public abstract class EntityInfantry extends MobileEntity implements IShroudReve
 	//drawPath(g);
 
 	//if (this.sheet != null) {
-            ImageView view = this.currentSequence.render();//this.getTranslateX(), this.getTranslateY());
-            view.setX(boundingBox.getX());
-            view.setY(boundingBox.getY());
+            setImageView(this.currentSequence.render());//this.getTranslateX(), this.getTranslateY());
+            getImageView().setX(boundingBox.getX());
+            getImageView().setY(boundingBox.getY());
 	//}
-        return view;
+        return getImageView();
     }
 
     @Override

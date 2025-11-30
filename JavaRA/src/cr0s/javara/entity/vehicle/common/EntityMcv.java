@@ -79,6 +79,7 @@ public class EntityMcv extends EntityVehicle implements ISelectable, IDeployable
 	//boundingBox.setBounds(posX, posY - 6, (TEXTURE_WIDTH / 2), (TEXTURE_HEIGHT / 2));
 	//boundingBox.setCenterX(this.getCenterPosX());
 	//boundingBox.setCenterY(this.getCenterPosY());
+        getImageView().setViewport(texture.getSubImage(0, currentFacing).getViewport());
     }
 
     @Override
@@ -98,10 +99,10 @@ public class EntityMcv extends EntityVehicle implements ISelectable, IDeployable
 	//g.drawRect(tx, ty, TEXTURE_WIDTH, TEXTURE_HEIGHT);
 
 	//texture.startUse();
-	ImageView view = texture.getSubImage(0, currentFacing);//.drawEmbedded(tx, ty, TEXTURE_WIDTH, TEXTURE_HEIGHT);
-        view.setX(tx);
-        view.setY(ty);
-        return view;
+	setImageView(texture.getSubImage(0, currentFacing));//.drawEmbedded(tx, ty, TEXTURE_WIDTH, TEXTURE_HEIGHT);
+        getImageView().setX(tx);
+        getImageView().setY(ty);
+        return getImageView();
 	//texture.endUse();
 	
 	//g.setColor(Color.white);
@@ -158,7 +159,7 @@ public class EntityMcv extends EntityVehicle implements ISelectable, IDeployable
     private void deployConstructionYard() {
 	this.isDeploying = true;
 
-	//queueActivity(new Turn(this, this.BUILD_ROTATION, 3));
+	queueActivity(new Turn(this, this.BUILD_ROTATION, 3));
 	queueActivity(new Deploy());
     }
 

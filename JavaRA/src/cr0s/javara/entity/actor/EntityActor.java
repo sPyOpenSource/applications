@@ -22,20 +22,18 @@ import cr0s.javara.order.Target;
 import cr0s.javara.util.Pos;
 
 public abstract class EntityActor extends Entity implements IOrderIssuer, IOrderResolver, INotifySelected {
-    public Activity currentActivity;
     protected ArrayList<OrderTargeter> ordersList;
     protected HashMap<String, Integer[]> selectedSounds;
-    
     protected int unitVersion = 0; // for same voice per unit
+    
     public Alignment unitProductionAlingment = Alignment.NEUTRAL;
-    
     public LinkedList<Class> requiredToBuild;
-    
+    public Activity currentActivity;
+
     public ArmorType armorType = ArmorType.NONE;
     public TreeSet<TargetType> targetTypes = new TreeSet<>();
     
     public int maxFacings = 32;
-    
     public String name;
     
     public EntityActor(double posX, double posY,
@@ -75,12 +73,8 @@ public abstract class EntityActor extends Entity implements IOrderIssuer, IOrder
     }
 
     public boolean isFrendlyTo(EntityActor other) {
-	// TODO: add ally logic
-	if (this.owner == other.owner) {
-	    return true;
-	}
-	
-	return false;
+        // TODO: add ally logic
+	return this.owner == other.owner;
     }
     
     public boolean isIdle() {
@@ -133,7 +127,7 @@ public abstract class EntityActor extends Entity implements IOrderIssuer, IOrder
     }
 
     public Pos getPosition() {
-	return new Pos(this.boundingBox.getX()+this.boundingBox.getWidth()/2, this.boundingBox.getY()+this.boundingBox.getArcHeight()/2, this.getTranslateZ());
+	return new Pos(this.boundingBox.getX() + this.boundingBox.getWidth() / 2, this.boundingBox.getY() + this.boundingBox.getArcHeight() / 2, this.getTranslateZ());
     }
     
     public Pos getCellPosition() {

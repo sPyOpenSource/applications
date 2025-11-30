@@ -5,15 +5,15 @@ import cr0s.javara.entity.actor.activity.Activity;
 
 public class Turn extends Activity {
 
-    private int desiredFacing;
-    public enum RotationDirection { LEFT, RIGHT } // +1 or -1 to facing value
+    private final int desiredFacing;
     private RotationDirection rotationDirection;
     
     private int ticks;
-    private int ticksBetweenTurn;
+    private final int ticksBetweenTurn;
     
     public static final int MAX_FACING = 32;
-    
+    public enum RotationDirection { LEFT, RIGHT } // +1 or -1 to facing value
+
     public Turn(EntityActor a, int aDesiredFacing, int aTicksBetweenTurn) {
 	this.desiredFacing = aDesiredFacing % 32;
 

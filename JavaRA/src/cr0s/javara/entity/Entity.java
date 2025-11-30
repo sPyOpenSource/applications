@@ -20,39 +20,36 @@ import javafx.scene.image.ImageView;
 
 public abstract class Entity extends Node {
     public World world;
-
     public double moveX, moveY;
 
     private boolean isDead = false;
     private int hp, maxHp;
+    private int SELECTION_BOX_ADD = 1;
+
     public Player owner;
     public boolean isSelected = false;
     public boolean isVisible = false;
 
     public Rectangle boundingBox;
-
     public boolean isMouseOver = false;
 
     protected boolean isInvuln = false;
 
-    private int SELECTION_BOX_ADD = 1;
-
     public double sizeWidth, sizeHeight;
-
     public int currentFacing;
 
     public float updateDelta;
-
     public FillsSpace fillsSpace;
-    private ImageView viewHero;
+    
+    private ImageView view;
     private final ArrayList<ImageView> imageViews = new ArrayList<>();
     
-    public ImageView getViewHero() {
-        return viewHero;
+    public ImageView getImageView() {
+        return view;
     }
 
-    public void setViewHero(ImageView viewHero) {
-        this.viewHero = viewHero;
+    public void setImageView(ImageView view) {
+        this.view = view;
     }
     
     public ArrayList<ImageView> getImageViews() {
@@ -249,6 +246,7 @@ public abstract class Entity extends Node {
     public void setDead() {
 	this.isVisible = false;
 	this.isDead = true;
+        world.root.getChildren().remove(view);
     }
 
     public int getHp() {
