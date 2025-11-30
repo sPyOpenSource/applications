@@ -77,7 +77,7 @@ public class Armament {
 
 	    this.delayedActions.add(a);
 	} else {
-	    a.execute();
+	    //a.execute();
 	}
     }
 

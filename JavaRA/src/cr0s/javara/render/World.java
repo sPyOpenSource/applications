@@ -54,6 +54,7 @@ public class World extends AnimationTimer {
     public final int MAX_RANGE = 50;
 
     boolean canRender = true;
+    BorderPane mapBounds;
 
     private int removeDeadTicks = 0;
     private final int REMOVE_DEAD_INTERVAL_TICKS = 20;
@@ -130,7 +131,7 @@ public class World extends AnimationTimer {
 		if (e instanceof MobileEntity) {
 		    this.blockingEntityMap.occupyForMobileEntity((MobileEntity) e);
 		} else if (e instanceof EntityBuilding) {
-		    this.blockingEntityMap.occupyForBuilding((EntityBuilding) e);
+		    //this.blockingEntityMap.occupyForBuilding((EntityBuilding) e);
 		}
 	    }
 	}
@@ -179,7 +180,7 @@ public class World extends AnimationTimer {
      * @param g graphic output object
      */
     public BorderPane render() {
-	BorderPane mapBounds;
+	//BorderPane mapBounds;
 	//int mapX = (int) mapBounds.getX();
 	//int mapY = (int) mapBounds.getY();		
 
@@ -195,7 +196,7 @@ public class World extends AnimationTimer {
 	    if (!e.isDead() && e.isVisible) { 
 		//if (e instanceof EntityBuilding) {
 		    //renderEntityBib((EntityBuilding) e);
-                    mapBounds.getChildren().add(e.renderEntity());
+                    //mapBounds.getChildren().add(e.renderEntity());
 		//}
 	    }
 	}
@@ -205,7 +206,7 @@ public class World extends AnimationTimer {
 	    for (Entity e : this.entities) {		    
 		if (!e.isDead() && e.isVisible && e.shouldRenderedInPass(i)) { 
 		    //e.renderEntity(g);
-                    mapBounds.getChildren().add(e.renderEntity());
+                    //mapBounds.getChildren().add(e.renderEntity());
 		    if (e instanceof ITargetLines && e.isSelected) {
 			for (TargetLine tl : ((ITargetLines) e).getTargetLines()) {
 			    //tl.render(g);
@@ -314,6 +315,7 @@ public class World extends AnimationTimer {
     public void spawnEntityInWorld(Entity e) {
 	e.setWorld(this);
 	this.entities.add(e);
+        mapBounds.getChildren().add(e.renderEntity());
     }
 
     /**

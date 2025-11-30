@@ -50,7 +50,7 @@ public class EntityBuildingProgress extends EntityBuilding implements IShroudRev
 	    }
 	}
 	
-	this.owner.getBase().addToCurrentlyBuilding(this);
+	//this.owner.getBase().addToCurrentlyBuilding(this);
     }
 
     @Override
@@ -60,8 +60,8 @@ public class EntityBuildingProgress extends EntityBuilding implements IShroudRev
 	if (--this.ticksRemaining <= 0) {
 	    setDead();
 
-	    this.owner.getBase().addBuilding(this.targetBuilding);
-	    this.owner.getBase().getCurrentlyBuilding().remove(this);
+	    //this.owner.getBase().addBuilding(this.targetBuilding);
+	    //this.owner.getBase().getCurrentlyBuilding().remove(this);
 	    
 	    this.targetBuilding.isVisible = true;
 	    world.spawnEntityInWorld(this.targetBuilding);

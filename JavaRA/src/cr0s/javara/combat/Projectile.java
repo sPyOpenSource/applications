@@ -75,7 +75,10 @@ public abstract class Projectile extends Entity implements IEffect {
     @Override
     public ImageView renderEntity() {
 	if (this.projectileSq != null) {
-	    //this.projectileSq.render(this.pos.getX() - this.sizeWidth / 2, this.pos.getY() - this.pos.getZ() - this.sizeHeight / 2);
+	    ImageView view = this.projectileSq.render();
+            view.setX(this.pos.getX() - this.sizeWidth / 2);
+            view.setY(this.pos.getY() - this.pos.getZ() - this.sizeHeight / 2);
+            return view;
 	}
         return null;
     }    

@@ -14,12 +14,10 @@ import javafx.scene.paint.Color;
 public class Missile extends Projectile {
 
     public int rot = 5;
-    
     public float speed = 1;
     public int maximumPitch = 60;
 
     public String trail;
-
     public boolean jammable = false;
     
     public float inaccuracy = 0f;
@@ -42,17 +40,16 @@ public class Missile extends Projectile {
     private int ticks, smokeTicks;
 
     public boolean turboBoost = false;
+    public int rangeLimit;
 
     private int enoughRange = 10;
-
     private TargetType boundToTerrainType;
-
-    public int rangeLimit;
     
     public Missile(EntityActor srcActor, Pos srcPos, Pos passivePos,
 	    EntityActor targetActor, int width, int height, int ang, String img, Weapon weap, float spd) {
 	this(srcActor, srcPos, passivePos, targetActor, width, height, ang, img, weap, spd, 1, 5, 0);
     }
+    
     public Missile(EntityActor srcActor, Pos srcPos, Pos passivePos,
 	    EntityActor targetActor, int width, int height, int ang, String img, Weapon weap, float spd, int numFacings, int rot, float inaccuracy) {
 	super(srcActor, srcPos, passivePos, targetActor, width, height);

@@ -128,10 +128,10 @@ public class EntityMcv extends EntityVehicle implements ISelectable, IDeployable
     @Override
     public boolean canDeploy() {
 	// Check deploy possibility via World blockingMap
-	int bx = (int) (getTranslateX() / 24) - (EntityConstructionYard.WIDTH_TILES / 2);
-	int by = (int) (getTranslateY() / 24) - (EntityConstructionYard.HEIGHT_TILES / 2);
+	int bx = (int) (boundingBox.getX() / 24) - (EntityConstructionYard.WIDTH_TILES / 2);
+	int by = (int) (boundingBox.getY() / 24) - (EntityConstructionYard.HEIGHT_TILES / 2);
 	
-	for (int x = 0; x < EntityConstructionYard.WIDTH_TILES; x++) {
+	/*for (int x = 0; x < EntityConstructionYard.WIDTH_TILES; x++) {
 	    for (int y = 0; y < EntityConstructionYard.HEIGHT_TILES; y++) {
 		if (!world.isCellBuildable(bx + x, by + y, true)) {
 		    return false;
@@ -142,22 +142,22 @@ public class EntityMcv extends EntityVehicle implements ISelectable, IDeployable
 		    return false;
 		}
 	    }
-	}
+	}*/
 	
 	return true;
     }
 
     @Override
     public void deploy() {
-	if (canDeploy()) { 
+	//if (canDeploy()) { 
 	    deployConstructionYard();
-	}
+	//}
     }
 
     private void deployConstructionYard() {
 	this.isDeploying = true;
 
-	queueActivity(new Turn(this, this.BUILD_ROTATION, 3));
+	//queueActivity(new Turn(this, this.BUILD_ROTATION, 3));
 	queueActivity(new Deploy());
     }
 
@@ -195,7 +195,7 @@ public class EntityMcv extends EntityVehicle implements ISelectable, IDeployable
 	    return;
 	}
 	
-	EntityConstructionYard cy = new EntityConstructionYard(getTranslateX() - (EntityConstructionYard.WIDTH_TILES / 2 * 24), getTranslateY() - (EntityConstructionYard.HEIGHT_TILES / 2 * 24));
+	EntityConstructionYard cy = new EntityConstructionYard(boundingBox.getX() - (EntityConstructionYard.WIDTH_TILES / 2 * 24), boundingBox.getY() - (EntityConstructionYard.HEIGHT_TILES / 2 * 24));
 	cy.isVisible = true;
 	cy.isSelected = true;
 	world.addBuildingTo(cy);

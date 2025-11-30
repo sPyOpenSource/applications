@@ -5,9 +5,7 @@ import cr0s.javara.entity.ISelectable;
 import cr0s.javara.entity.IShroudRevealer;
 import cr0s.javara.entity.building.BibType;
 import cr0s.javara.entity.building.EntityBuilding;
-import cr0s.javara.gameplay.Production;
 import cr0s.javara.gameplay.Team.Alignment;
-import cr0s.javara.main.GUI;
 import cr0s.javara.resources.ResourceManager;
 import cr0s.javara.resources.ShpTexture;
 import cr0s.javara.util.SpriteSheet;
@@ -64,19 +62,21 @@ public class EntityConstructionYard extends EntityBuilding implements ISelectabl
     public ImageView renderEntity() {
 	//double nx = posX;
 	//double ny = posY;
-
+ImageView view;
 	if (this.getHp() > this.getMaxHp() / 2) {
-	    //normal.draw(nx, ny);
+	    view = new ImageView(SwingFXUtils.toFXImage(normal, null));//.draw(nx, ny);
 	} else {
-	    //corrupted.draw(nx, ny);
+	    view = new ImageView(SwingFXUtils.toFXImage(corrupted, null));//.draw(nx, ny);
 	}
-
+        view.setX(boundingBox.getX());
+        view.setY(boundingBox.getY());
+return view;
 	// Draw bounding box if debug mode is on
-	if (GUI.DEBUG_MODE) {
-	    /*g.setLineWidth(2);
+	/*if (GUI.DEBUG_MODE) {
+	    g.setLineWidth(2);
 	    g.setColor(owner.playerColor);
 	    g.draw(boundingBox);
-	    g.setLineWidth(1);*/
+	    g.setLineWidth(1);
 	}
 
 	if (this.isSelected) {
@@ -94,7 +94,7 @@ public class EntityConstructionYard extends EntityBuilding implements ISelectabl
 	if (this.repairIconBlink) {
 	    //repairImage.draw(this.boundingBox.getX() + this.boundingBox.getWidth() / 2 - repairImage.getWidth() / 2, this.boundingBox.getY() + this.boundingBox.getHeight() / 2 - repairImage.getHeight() / 2);
 	}
-        return null;
+        return null;*/
     }
 
     @Override
@@ -106,7 +106,7 @@ public class EntityConstructionYard extends EntityBuilding implements ISelectabl
     public void updateEntity(long delta) {
 	super.updateEntity(delta);
 
-	EntityBuilding currentlyBuilding = (EntityBuilding) this.owner.getBase().getProductionQueue().getCurrentProducingBuilding();
+	/*EntityBuilding currentlyBuilding = (EntityBuilding) this.owner.getBase().getProductionQueue().getCurrentProducingBuilding();
 	if (currentlyBuilding != null) {
 	    Production p = this.owner.getBase().getProductionQueue().getProductionForBuilding(currentlyBuilding);
 
@@ -116,7 +116,7 @@ public class EntityConstructionYard extends EntityBuilding implements ISelectabl
 	    }
 	} else {
 	    this.setProgressValue(-1);
-	}
+	}*/
     }
 
     @Override

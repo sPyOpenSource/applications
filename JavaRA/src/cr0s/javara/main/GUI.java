@@ -137,7 +137,7 @@ public class GUI extends Application {
 	//player.setShroud(null);
 	
 	bo = new BuildingOverlay(player, w);
-
+Scene scene = new Scene(w.render(), 1200, 700);
 	w.addPlayer(player);
         
 	//this.getCamera().setOffset(-Math.max(w.getMap().getBounds().getMinX(), (playerSpawn.getX() * 24) - this.getContainer().getWidth() / 2), -Math.max(w.getMap().getBounds().getMinY(), (playerSpawn.getY() * 24)));
@@ -161,7 +161,6 @@ public class GUI extends Application {
 	player.setTeam(team2);
 	w.addPlayer(otherPlayer);
         
-        Scene scene = new Scene(w.render(), 1200, 700);
         controller = new Controller(player, camera, scene);
         stage.setScene(scene);
         stage.show();

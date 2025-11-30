@@ -43,7 +43,7 @@ public class EntityWarFactory extends EntityBuilding implements ISelectable, ISh
     
     private static final String FOOTPRINT = "xxx xxx ~~~ ~~~";
 
-    private Alignment weapAlignment = Alignment.SOVIET;
+    private final Alignment weapAlignment = Alignment.SOVIET;
     private boolean isCorrupted = false;
     
     private int currentPass;
@@ -161,13 +161,13 @@ public class EntityWarFactory extends EntityBuilding implements ISelectable, ISh
 	    return;
 	}
 	
-	if (this.animationFrameTicks++ > this.ANIMATION_FRAME_DELAY) {
+	if (this.animationFrameTicks++ > EntityWarFactory.ANIMATION_FRAME_DELAY) {
 	    this.animationFrameTicks = 0;
 	    
 	    if (this.isDoorsOpenAnimation && !this.isDoorsCloseAnimation) {
 		this.animationFrame++;
 		
-		if (this.animationFrame == this.ANIMATION_LENGTH) {
+		if (this.animationFrame == EntityWarFactory.ANIMATION_LENGTH) {
 		    this.isDoorsOpenAnimation = false;
 		    this.animationFrame = 0;
 		    this.isDoorsOpen = true;
@@ -277,7 +277,7 @@ public class EntityWarFactory extends EntityBuilding implements ISelectable, ISh
     private void animateCloseDoors() {
 	this.isDoorsCloseAnimation = true;
 	this.animationFrameTicks = 0;
-	this.animationFrame = this.ANIMATION_LENGTH;
+	this.animationFrame = EntityWarFactory.ANIMATION_LENGTH;
 	
 	this.isDoorsOpenAnimation = false;
 	
@@ -315,7 +315,7 @@ public class EntityWarFactory extends EntityBuilding implements ISelectable, ISh
 
     @Override
     public int getRevealingRange() {
-	return this.SHROUD_REVEALING_RANGE;
+	return EntityWarFactory.SHROUD_REVEALING_RANGE;
     }
     
     @Override
@@ -348,11 +348,11 @@ public class EntityWarFactory extends EntityBuilding implements ISelectable, ISh
 
     @Override
     public int getBuildingCost() {
-	return this.BUILDING_COST;
+	return EntityWarFactory.BUILDING_COST;
     }
 
     @Override
     public int getConsumptionLevel() {
-	return this.CONSUME_POWER_VALUE;
+	return EntityWarFactory.CONSUME_POWER_VALUE;
     }    
 }
