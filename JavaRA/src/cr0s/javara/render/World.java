@@ -42,7 +42,7 @@ import javafx.animation.AnimationTimer;
 public class World extends AnimationTimer {
     private final TileMap map;
     private VehiclePathfinder vp;
-    private InfantryPathfinder ip;
+    private final InfantryPathfinder ip;
     private final ArrayList<Player> players = new ArrayList<>();
 
     private ConcurrentLinkedQueue<Entity> entities = new ConcurrentLinkedQueue<>();

@@ -131,13 +131,13 @@ public class GUI extends Application {
 	//this.observerShroudRenderer = new ShroudRenderer(w);
 
 	team = new Team();
-	player = new Player(w, "Player", Alignment.SOVIET, Color.rgb(r.nextInt(256), r.nextInt(256), r.nextInt(256)));
+	player = new AIPlayer(w, "NormalAI", Alignment.SOVIET, Color.rgb(r.nextInt(256), r.nextInt(256), r.nextInt(256)));
 	player.setTeam(team);
 
 	//player.setShroud(null);
 	
 	bo = new BuildingOverlay(player, w);
-Scene scene = new Scene(w.render(), 1200, 700);
+        Scene scene = new Scene(w.render(), 1200, 700);
 	w.addPlayer(player);
         
 	//this.getCamera().setOffset(-Math.max(w.getMap().getBounds().getMinX(), (playerSpawn.getX() * 24) - this.getContainer().getWidth() / 2), -Math.max(w.getMap().getBounds().getMinY(), (playerSpawn.getY() * 24)));
@@ -149,11 +149,11 @@ Scene scene = new Scene(w.render(), 1200, 700);
 	Platform.runLater(new Runnable() {
             @Override
             public void run() {             
-                try {
+                /*try {
                     gsb.start(new Stage());
                 } catch (InterruptedException ex) {
                     System.getLogger(GUI.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
-                }
+                }*/
             }
         });
 	Team team2 = new Team();
