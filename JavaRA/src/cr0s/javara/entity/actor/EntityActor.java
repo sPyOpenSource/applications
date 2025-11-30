@@ -51,7 +51,7 @@ public abstract class EntityActor extends Entity implements IOrderIssuer, IOrder
     @Override
     public void updateEntity(long delta) {
 	if (this.currentActivity != null) {
-	    //this.currentActivity = this.currentActivity.tick(this);
+	    this.currentActivity = this.currentActivity.tick(this);
 	}
     }
 

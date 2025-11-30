@@ -191,7 +191,7 @@ public class StateGameMap extends Application {
 
 	    if (this.selectionRect.getWidth() * this.selectionRect.getHeight() > 4) {
 		GUI.getInstance().getWorld().cancelAllSelection();
-		LinkedList<Entity> entities = GUI.getInstance().getWorld().selectMovableEntitiesInsideBox(this.selectionRect);
+		LinkedList<Entity> entities = null;//GUI.getInstance().getWorld().selectMovableEntitiesInsideBox(this.selectionRect);
 
 		GUI.getInstance().getPlayer().selectedEntities.addAll(entities);
 

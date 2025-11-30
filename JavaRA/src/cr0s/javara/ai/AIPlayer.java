@@ -36,7 +36,6 @@ import cr0s.javara.render.World;
 import cr0s.javara.resources.ResourceManager;
 import cr0s.javara.util.CellChooser;
 import cr0s.javara.util.Pos;
-import java.util.LinkedList;
 
 import org.yaml.snakeyaml.Yaml;
 import javafx.scene.paint.Color;

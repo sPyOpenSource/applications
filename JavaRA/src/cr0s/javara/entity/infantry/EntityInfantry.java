@@ -384,7 +384,7 @@ public abstract class EntityInfantry extends MobileEntity implements IShroudReve
 	    }
 	    
 	    // Play random death sound
-	    SoundManager.getInstance().playSfxAt(getRandomDeathSound(warhead), this.getPosition());
+	    //SoundManager.getInstance().playSfxAt(getRandomDeathSound(warhead), this.getPosition());
 	    
 	    this.setHp(0);
 	    this.setDead();

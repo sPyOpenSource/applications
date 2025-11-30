@@ -36,7 +36,7 @@ public class Combat {
 	    world.spawnExplosionAt(pos, explosionType);
 	}
 
-	SoundManager.getInstance().playSfxAt(getImpactSound(warhead, isInWater), pos);
+	//SoundManager.getInstance().playSfxAt(getImpactSound(warhead, isInWater), pos);
 
 	// Warhead can attack in radius
 	if (warhead.explosionSize[0] > 0) {

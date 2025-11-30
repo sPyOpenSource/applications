@@ -1,7 +1,7 @@
 package cr0s.javara.render;
 
 import java.util.Arrays;
-import java.util.LinkedList;
+import java.util.concurrent.ConcurrentLinkedQueue;
 
 import cr0s.javara.entity.Entity;
 import cr0s.javara.entity.MobileEntity;
@@ -13,7 +13,7 @@ import cr0s.javara.util.Pos;
 
 public class EntityBlockingMap {
     private final World world;
-    private final LinkedList<Influence> blockingMap[][];
+    private final ConcurrentLinkedQueue<Influence> blockingMap[][];
     
     public enum SubCell { FULL_CELL, TOP_LEFT, TOP_RIGHT, CENTER, BOTTOM_LEFT, BOTTOM_RIGHT, FULL_CELL_PASSABLE };
     public enum FillsSpace { ONE_OR_MORE_CELLS, ONE_CELL, ONE_SUBCELL, DONT_FILLS }
@@ -21,7 +21,7 @@ public class EntityBlockingMap {
     public EntityBlockingMap(World w) {
 	this.world = w;
 	
-	this.blockingMap = new LinkedList[w.getMap().getWidth()][w.getMap().getHeight()];
+	this.blockingMap = new ConcurrentLinkedQueue[w.getMap().getWidth()][w.getMap().getHeight()];
     }
     
     private void clearMap() {
@@ -90,7 +90,7 @@ public class EntityBlockingMap {
     }
     
     public void freeSubCell(Pos cellPos, SubCell sc) {
-	LinkedList<Influence> infList = this.blockingMap[(int) cellPos.getX()][(int) cellPos.getY()];
+	ConcurrentLinkedQueue<Influence> infList = this.blockingMap[(int) cellPos.getX()][(int) cellPos.getY()];
 	
 	if (sc == SubCell.FULL_CELL) {
 	    this.blockingMap[(int) cellPos.getX()][(int) cellPos.getY()] = null;
@@ -117,10 +117,10 @@ public class EntityBlockingMap {
 	    return;
 	}
 	
-	LinkedList<Influence> infList = this.blockingMap[(int) cellPos.getX()][(int) cellPos.getY()];
+	ConcurrentLinkedQueue<Influence> infList = this.blockingMap[(int) cellPos.getX()][(int) cellPos.getY()];
 	
 	if (infList == null) {
-	    infList = new LinkedList<>();
+	    infList = new ConcurrentLinkedQueue<>();
 	    this.blockingMap[(int) cellPos.getX()][(int) cellPos.getY()] = infList;
 	}
 	
@@ -128,7 +128,7 @@ public class EntityBlockingMap {
     }    
     
     public void occupyCell(Pos cellPos, Entity e) {
-	LinkedList<Influence> infList = new LinkedList<>();
+	ConcurrentLinkedQueue<Influence> infList = new ConcurrentLinkedQueue<>();
 	infList.add(new Influence(SubCell.FULL_CELL, e));
 	
 	this.blockingMap[(int) cellPos.getX()][(int) cellPos.getY()] = infList;
@@ -223,7 +223,7 @@ public class EntityBlockingMap {
 	return null;
     }
 
-    public LinkedList<Influence> getCellInfluences(Pos pos) {
+    public ConcurrentLinkedQueue<Influence> getCellInfluences(Pos pos) {
 	return this.blockingMap[(int) pos.getX()][(int) pos.getY()];
     }
 

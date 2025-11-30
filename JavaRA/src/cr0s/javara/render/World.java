@@ -1,7 +1,7 @@
 package cr0s.javara.render;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
+import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.Random;
 
 import cr0s.javara.combat.TargetType;
@@ -45,8 +45,8 @@ public class World extends AnimationTimer {
     private InfantryPathfinder ip;
     private final ArrayList<Player> players = new ArrayList<>();
 
-    private LinkedList<Entity> entities = new LinkedList<>();
-    private final LinkedList<Entity> entitiesToAdd = new LinkedList<>();
+    private ConcurrentLinkedQueue<Entity> entities = new ConcurrentLinkedQueue<>();
+    private final ConcurrentLinkedQueue<Entity> entitiesToAdd = new ConcurrentLinkedQueue<>();
     private final int PASSES_COUNT = 3;
 
     public int blockingMap[][];
@@ -70,7 +70,7 @@ public class World extends AnimationTimer {
 	map.fillBlockingMap(this.blockingMap);
 
 	//this.vp = new VehiclePathfinder(this);
-	//this.ip = new InfantryPathfinder(this);
+	this.ip = new InfantryPathfinder(this);
 
 	this.random = new Random(System.currentTimeMillis());
 	generateRangePoints();
@@ -103,7 +103,7 @@ public class World extends AnimationTimer {
 	Profiler.getInstance().stopForSection("World: shroud tick");
 
 	if (removeDeadTicks++ > REMOVE_DEAD_INTERVAL_TICKS) {
-	    LinkedList<Entity> list = new LinkedList<>();
+	    ConcurrentLinkedQueue<Entity> list = new ConcurrentLinkedQueue<>();
 	    for (Entity e : this.entities) {
 		if (!e.isDead()) {
 		    list.add(e);
@@ -134,7 +134,7 @@ public class World extends AnimationTimer {
 		}
 	    }
 	}
-
+//System.out.println(delta);
 	for (Entity e : this.entities) {
 	    if (!e.isDead()) { 
 		// Reveal shroud
@@ -321,8 +321,8 @@ public class World extends AnimationTimer {
      * @param boundingBox
      * @return list of entities selected
      */
-    public LinkedList<Entity> selectMovableEntitiesInsideBox(Rectangle boundingBox) {
-	LinkedList<Entity> selectedEntities = new LinkedList<>();
+    public ConcurrentLinkedQueue<Entity> selectMovableEntitiesInsideBox(Rectangle boundingBox) {
+	ConcurrentLinkedQueue<Entity> selectedEntities = new ConcurrentLinkedQueue<>();
 
 	for (Entity e : this.entities) {
 	    if (!e.isDead() && (e instanceof ISelectable) && (e instanceof MobileEntity)) {
@@ -515,12 +515,12 @@ public class World extends AnimationTimer {
 	return true;
     }
 
-    public LinkedList<Entity> getEntitiesList() {
+    public ConcurrentLinkedQueue<Entity> getEntitiesList() {
 	return this.entities;
     }
 
     public EntityBuilding getBuildingInCell(Pos cellPos) {
-	LinkedList<Influence> cellInf = this.blockingEntityMap.getCellInfluences(cellPos);
+	ConcurrentLinkedQueue<Influence> cellInf = this.blockingEntityMap.getCellInfluences(cellPos);
 
 	if (cellInf == null) {
 	    return null;
@@ -536,7 +536,7 @@ public class World extends AnimationTimer {
     }
 
     public MobileEntity getMobileEntityInCell(Pos cellPos) {
-	LinkedList<Influence> cellInf = this.blockingEntityMap.getCellInfluences(cellPos);
+	ConcurrentLinkedQueue<Influence> cellInf = this.blockingEntityMap.getCellInfluences(cellPos);
 	
 	if (cellInf == null) {
 	    return null;
@@ -696,7 +696,7 @@ public class World extends AnimationTimer {
 	ArrayList<Pos> tiles = this.chooseTilesInCircle(pos.getCellPos(), (int) Math.floor(range / 24.0f));
 	
 	for (Pos tile : tiles) {
-	    LinkedList<Influence> influences = this.blockingEntityMap.getCellInfluences(tile);
+	    ConcurrentLinkedQueue<Influence> influences = this.blockingEntityMap.getCellInfluences(tile);
 	    
 	    if (influences == null) {
 		continue;

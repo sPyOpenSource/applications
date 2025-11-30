@@ -19,6 +19,8 @@ package cr0s.javara.render.map;
 import cr0s.javara.entity.MobileEntity;
 import cr0s.javara.render.World;
 import javafx.scene.shape.Path;
+import javafx.scene.shape.MoveTo;
+import javafx.scene.shape.LineTo;
 
 /**
  *
@@ -27,11 +29,14 @@ import javafx.scene.shape.Path;
 class AStarPathFinder {
 
     AStarPathFinder(World world, int MAX_SEARCH_DISTANCE, boolean b, ClosestHeuristic closestHeuristic) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     Path findPath(MobileEntity me, int i, int i0, int goalX, int goalY) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        MoveTo moveTo = new MoveTo(me.boundingBox.getX(), me.boundingBox.getY());
+        LineTo lineTo = new LineTo(goalX, goalY);
+        Path path = new Path();
+        path.getElements().addAll(moveTo, lineTo);
+        return path;
     }
     
 }

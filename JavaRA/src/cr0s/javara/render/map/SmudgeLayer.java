@@ -80,9 +80,9 @@ public class SmudgeLayer {
     }
     
     public void addSmudge(Pos pos, boolean crater) {
-	if (GUI.getInstance().getWorld().getRandomInt(0, 100) < SMOKE_PERCENTAGE) {
+	/*if (GUI.getInstance().getWorld().getRandomInt(0, 100) < SMOKE_PERCENTAGE) {
 	    GUI.getInstance().getWorld().spawnSmokeAt(new Pos(pos.getX() * 24 + 12, pos.getY() * 24 + 12), SMOKE_SPRITE);
-	}
+	}*/
 	
 	Smudge s = crater ? this.craters.get(pos) : this.scorches.get(pos);
 	
@@ -99,7 +99,7 @@ public class SmudgeLayer {
 	    }
 	} else { // Create new smudge
 	    String type = crater ? "cr" : "sc";
-	    type += GUI.getInstance().getWorld().getRandomInt(1, this.MAX_TYPE + 1);
+	    //type += GUI.getInstance().getWorld().getRandomInt(1, this.MAX_TYPE + 1);
 	    
 	    s = new Smudge(type, 0);
 	    
