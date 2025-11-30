@@ -142,10 +142,10 @@ public class EntityMammothTank extends EntityVehicle implements ISelectable, IHa
 
 	//g.drawRect(this.getTextureX(), this.getTextureY(), TEXTURE_WIDTH, TEXTURE_HEIGHT);
 
-	texture.startUse();
+	//texture.startUse();
 	//texture.getSubImage(0, currentFacing).drawEmbedded(this.getTextureX(), this.getTextureY(), TEXTURE_WIDTH, TEXTURE_HEIGHT);
 	//this.turret.render(g);
-	texture.endUse();
+	//texture.endUse();
 
 	/*for (Armament arma : this.attack.armaments) {
 	Pos actorCenter = (this instanceof IHaveTurret)

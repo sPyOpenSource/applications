@@ -260,7 +260,7 @@ public class World extends AnimationTimer {
 	    return;
 	}
 
-	bibSheet.startUse();
+	//bibSheet.startUse();
 	int x = (int) b.getTranslateX(), y = (int) b.getTranslateY();
 	int bibCount;
 
@@ -278,7 +278,7 @@ public class World extends AnimationTimer {
 	    break;
 
 	default:
-	    bibSheet.endUse();
+	    //bibSheet.endUse();
 	    return;
 	}
 
@@ -292,7 +292,7 @@ public class World extends AnimationTimer {
 	    }
 	}
 
-	bibSheet.endUse();
+	//bibSheet.endUse();
     }
 
     private void renderSelectionBoxes(Scene g) {

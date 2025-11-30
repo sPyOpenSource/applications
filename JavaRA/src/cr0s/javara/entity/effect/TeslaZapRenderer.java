@@ -66,12 +66,12 @@ public class TeslaZapRenderer extends Projectile implements IEffect {
 
     @Override
     public ImageView renderEntity() {
-	this.tex.startUse();
+	//this.tex.startUse();
 
 	this.p = this.guided.isValidFor(this.sourceActor) ? this.guidedTarget.getPosition() : this.passiveTargetPos;	
 	this.drawZapWandering(this.sourcePos, this.p, this.world.getRandomInt(25, 50), 5.0f);
 
-	this.tex.endUse();
+	//this.tex.endUse();
         return null;
     }      
 

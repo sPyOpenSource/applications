@@ -84,9 +84,9 @@ public class EntityHelipad extends EntityBuilding implements ISelectable, IPower
 	    corruptionShift = 7;
 	}
 
-	sheet.startUse();
+	//sheet.startUse();
 	//sheet.getSubImage(0, corruptionShift + ((this.isCharging) ? animIndex : 0)).drawEmbedded(posX, posY, this.getTextureWidth(), this.getTextureHeight());
-	sheet.endUse();
+	//sheet.endUse();
 
 	// Draw bounding box if debug mode is on
 	if (GUI.DEBUG_MODE) {

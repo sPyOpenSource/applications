@@ -88,14 +88,6 @@ public class SpriteSheet {
     public ImageView getSubImage(int i, int index) {
         return getSubImage(i * frameWidth, index * frameHeight, frameWidth, frameHeight);
     }
-
-    public void endUse() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    public void startUse() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
     
     public ImageView getImage(){
         return imageView;

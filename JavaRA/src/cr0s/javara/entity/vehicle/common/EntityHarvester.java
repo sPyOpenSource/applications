@@ -155,7 +155,7 @@ public class EntityHarvester extends EntityVehicle implements ISelectable, IShro
 	double tx = this.getTextureX();
 	double ty = this.getTextureY();
 
-	texture.startUse();
+	//texture.startUse();
 
 	if ((this.currentActivity instanceof Wait) || (this.currentActivity instanceof HarvestResource)) {
 	    //texture.getSubImage(0, 32 + (HARVESTING_FRAMES * RotationUtil.quantizeFacings(this.currentFacing, this.MAX_FACINGS) + harvestingFrame)).drawEmbedded(tx, ty, TEXTURE_WIDTH, TEXTURE_HEIGHT); 	    
@@ -168,7 +168,7 @@ public class EntityHarvester extends EntityVehicle implements ISelectable, IShro
 	    //texture.getSubImage(0, this.currentFacing).drawEmbedded(tx, ty, TEXTURE_WIDTH, TEXTURE_HEIGHT);
 	}
 
-	texture.endUse();
+	//texture.endUse();
 
 	//drawPath(g);
         return null;

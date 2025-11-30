@@ -18,7 +18,6 @@ import cr0s.javara.resources.ResourceManager;
 import cr0s.javara.resources.ShpTexture;
 import cr0s.javara.util.Pos;
 import cr0s.javara.util.SpriteSheet;
-import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 
 public class EntityAirField extends EntityBuilding implements ISelectable, IPowerConsumer, IShroudRevealer, IHaveCost {
@@ -86,9 +85,9 @@ public class EntityAirField extends EntityBuilding implements ISelectable, IPowe
 	    corruptionShift = 8;
 	}
 
-	sheet.startUse();
+	//sheet.startUse();
 	//sheet.getSubImage(0, corruptionShift + ((this.isCharging) ? animIndex : 4 + animIndex)).drawEmbedded(posX, posY, this.getTextureWidth(), this.getTextureHeight());
-	sheet.endUse();
+	//sheet.endUse();
 
 	// Draw bounding box if debug mode is on
 	if (GUI.DEBUG_MODE) {

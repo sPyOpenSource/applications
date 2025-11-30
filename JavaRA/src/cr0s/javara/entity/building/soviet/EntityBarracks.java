@@ -86,9 +86,9 @@ public class EntityBarracks extends EntityBuilding implements ISelectable, IPowe
 	    corruptionShift = 10;
 	}
 
-	sheet.startUse();
+	//sheet.startUse();
 	//sheet.getSubImage(0, corruptionShift + animIndex).drawEmbedded(posX, posY, this.getTextureWidth(), this.getTextureHeight());
-	sheet.endUse();
+	//sheet.endUse();
 
 	// Draw bounding box if debug mode is on
 	if (GUI.DEBUG_MODE) {

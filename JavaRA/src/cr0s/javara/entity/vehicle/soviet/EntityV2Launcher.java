@@ -107,17 +107,17 @@ public class EntityV2Launcher extends EntityVehicle implements ISelectable, IHav
 	}
 
 
-	texture.startUse();
+	//texture.startUse();
 	
 	int textureIndex = (this.attack.armaments.get(0).isReloading() ? 32 : 0) + currentFacing;
 	if (this.attack.isAttacking) {
-	    int attackingFacing = RotationUtil.quantizeFacings(this.currentFacing, this.ATTACKING_FACINGS) % this.ATTACKING_FACINGS;
-	    textureIndex = this.ATTACK_OFFSET + (this.attack.armaments.get(0).isReloading() ? this.ATTACKING_FACINGS : 0) + attackingFacing;
+	    int attackingFacing = RotationUtil.quantizeFacings(this.currentFacing, EntityV2Launcher.ATTACKING_FACINGS) % EntityV2Launcher.ATTACKING_FACINGS;
+	    textureIndex = EntityV2Launcher.ATTACK_OFFSET + (this.attack.armaments.get(0).isReloading() ? EntityV2Launcher.ATTACKING_FACINGS : 0) + attackingFacing;
 	}
 	
 	//texture.getSubImage(0, textureIndex).drawEmbedded(this.getTextureX(), this.getTextureY(), TEXTURE_WIDTH, TEXTURE_HEIGHT);
 	
-	texture.endUse();
+	//texture.endUse();
 
 	//drawPath(g);
         return null;

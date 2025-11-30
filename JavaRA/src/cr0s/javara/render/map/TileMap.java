@@ -193,7 +193,7 @@ public class TileMap {
 
     public void render(Stage c, Scene g, Camera camera) {
 	//Color pColor = g.getColor();	
-	this.theater.getSpriteSheet().startUse();
+	//this.theater.getSpriteSheet().startUse();
 
 	// Draw tiles layer
 	for (int y = (int) (-camera.getTranslateY()) / 24; y < this.getHeight(); y++) {
@@ -223,7 +223,7 @@ public class TileMap {
 
 	this.smudges.render(g);
 	
-	this.theater.getSpriteSheet().endUse();	
+	//this.theater.getSpriteSheet().endUse();	
 	//this.theater.getSpriteSheet().draw(24 * 20, 24 * 20);
     }
 
