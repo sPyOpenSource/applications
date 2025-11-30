@@ -4,13 +4,8 @@ import cr0s.javara.combat.Armament;
 import cr0s.javara.entity.MobileEntity;
 import cr0s.javara.entity.actor.EntityActor;
 import cr0s.javara.entity.actor.activity.Activity;
-import cr0s.javara.entity.actor.activity.activities.Attack;
-import cr0s.javara.entity.actor.activity.activities.Follow;
 import cr0s.javara.entity.actor.activity.activities.Wait;
-import cr0s.javara.entity.turreted.IHaveTurret;
-import cr0s.javara.entity.turreted.Turret;
 import cr0s.javara.order.Target;
-import cr0s.javara.util.RotationUtil;
 
 public class AttackCharge extends AttackBase {
     private boolean isCharged = false;
@@ -58,11 +53,11 @@ public class AttackCharge extends AttackBase {
     
     public class Charge extends Activity {
 
-	private AttackCharge attack;
+	private final AttackCharge attack;
 	private MobileEntity me;
-	private EntityActor self;
-	private Target target;
-	private int maxChargeTicks;
+	private final EntityActor self;
+	private final Target target;
+	private final int maxChargeTicks;
 	
 	public Charge(AttackCharge a, EntityActor self, Target tgt, int maxChargeTicks) {
 	    this.attack = a;

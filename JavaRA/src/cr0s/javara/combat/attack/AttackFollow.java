@@ -43,10 +43,10 @@ public class AttackFollow extends AttackBase {
     
     private class AttackActivity extends Activity {
 
-	private AttackFollow attack;
+	private final AttackFollow attack;
 	private MobileEntity me;
-	private EntityActor self;
-	private Target target;
+	private final EntityActor self;
+	private final Target target;
 	
 	public AttackActivity(AttackFollow a, EntityActor self, Target tgt, boolean allowMove) {
 	    this.attack = a;

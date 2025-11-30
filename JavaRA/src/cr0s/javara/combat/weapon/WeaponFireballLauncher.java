@@ -18,7 +18,6 @@ public class WeaponFireballLauncher extends Weapon {
     
     private final static int TEXTURE_WIDTH = 24;
     private final static int TEXTURE_HEIGHT = 24;
-    
     private final static String BULLET_TEXTURE = "fb1.shp";
     
     private final static String MUZZLE_FLASH = null;
@@ -67,8 +66,6 @@ public class WeaponFireballLauncher extends Weapon {
 	
 	this.burst = BURST;
 	this.burstDelay = BURST_DELAY;
-	
-	
     }
     
     protected WeaponFireballLauncher(int rof, float weaponRange) {

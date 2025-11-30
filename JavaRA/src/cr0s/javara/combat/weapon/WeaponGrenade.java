@@ -17,7 +17,6 @@ public class WeaponGrenade extends Weapon {
     
     private final static int TEXTURE_WIDTH = 8;
     private final static int TEXTURE_HEIGHT = 8;
-    
     private final static String BULLET_TEXTURE = "bomb.shp";
     
     private final static String MUZZLE_FLASH = null;
@@ -68,7 +67,6 @@ public class WeaponGrenade extends Weapon {
 	
 	this.burst = BURST;
 	this.burstDelay = BURST_DELAY;
-	
     }
     
     protected WeaponGrenade(int rof, float weaponRange) {

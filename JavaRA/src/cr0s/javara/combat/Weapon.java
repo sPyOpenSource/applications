@@ -20,12 +20,10 @@ public abstract class Weapon {
 
     public float range = 5;
     public float minRange = 0;
-
     public int burstDelay = 5;
 
     public Projectile projectile;
     public LinkedList<Warhead> warheads;
-
     public String firingSound;
 
     public Weapon(int rof, float weaponRange) {

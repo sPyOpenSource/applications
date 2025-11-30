@@ -18,7 +18,7 @@ public class AutoTarget {
     public boolean targetWhenDamaged = true;
     public boolean enableStances = true;
     
-    private AttackBase attack;
+    private final AttackBase attack;
     private AttackTurreted at;
     
     private int nextScanTime = 0;
@@ -27,7 +27,7 @@ public class AutoTarget {
     public EntityActor agressor;
     public EntityActor targetedActor;
     
-    private EntityActor self;
+    private final EntityActor self;
 
     public float RANGE_TOLERANCE = 0.5f;
     

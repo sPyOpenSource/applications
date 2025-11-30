@@ -20,7 +20,7 @@ package cr0s.javara.render;
  *
  * @author xuyi
  */
-class PathFindingContext {
+public class PathFindingContext {
     Object getMover(){
         return null;
     }

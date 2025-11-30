@@ -17,14 +17,11 @@ import cr0s.javara.ui.cursor.CursorType;
 
 public abstract class AttackBase implements IOrderResolver, IOrderIssuer {
     public boolean isAttacking;
-
     public ArrayList<Armament> armaments;
     protected EntityActor self;
 
     private int facing;
-
     private final ArrayList<OrderTargeter> orders = new ArrayList<>();
-
     protected Target target;
     
     public AttackBase(EntityActor s) {

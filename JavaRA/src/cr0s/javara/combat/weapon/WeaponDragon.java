@@ -21,7 +21,6 @@ public class WeaponDragon extends Weapon {
     
     private final static int TEXTURE_WIDTH = 15;
     private final static int TEXTURE_HEIGHT = 15;
-    
     private final static String MISSILE_TEXTURE = "dragon.shp";
     
     private final static String MUZZLE_FLASH = "";
@@ -37,7 +36,6 @@ public class WeaponDragon extends Weapon {
     
     private static final int MISSILE_ANGLE = 0;
     public static final int NUM_FACINGS = 32;
-    
     private static final float INACCURACY = 0.2f;
     
     public WeaponDragon() {

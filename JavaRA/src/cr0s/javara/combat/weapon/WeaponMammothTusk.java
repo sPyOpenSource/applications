@@ -20,7 +20,6 @@ public class WeaponMammothTusk extends Weapon {
     
     private final static int TEXTURE_WIDTH = 15;
     private final static int TEXTURE_HEIGHT = 15;
-    
     private final static String MISSILE_TEXTURE = "missile.shp";
     
     private final static String MUZZLE_FLASH = "flak.shp";
@@ -76,7 +75,6 @@ public class WeaponMammothTusk extends Weapon {
 	
 	this.burst = BURST;
 	this.burstDelay = BURST_DELAY;
-	
     }
     
     protected WeaponMammothTusk(int rof, float weaponRange) {

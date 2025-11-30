@@ -28,11 +28,7 @@ public class AttackFrontal extends AttackBase {
 	}
 	float angle = RotationUtil.facingToAngle(facingToTarget, this.self.getMaxFacings());
 	
-	if (Math.abs(RotationUtil.facingToAngle(this.self.currentFacing, this.self.getMaxFacings()) - angle) % 360 > ANGLE_TOLERANCE) {
-	    return false;
-	}
-	
-	return true;
+	return Math.abs(RotationUtil.facingToAngle(this.self.currentFacing, this.self.getMaxFacings()) - angle) % 360 <= ANGLE_TOLERANCE;
     }
 
     @Override
@@ -42,7 +38,7 @@ public class AttackFrontal extends AttackBase {
 	    return null;
 	}
 	
-	return new Attack(this, this.self, tgt, arma.getWeapon().range - this.RANGE_TOLERANCE, allowMove);
+	return new Attack(this, this.self, tgt, arma.getWeapon().range - AttackFrontal.RANGE_TOLERANCE, allowMove);
     }
     
 }

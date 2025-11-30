@@ -18,7 +18,6 @@ public class Weapon120mm extends Weapon {
     
     private final static int TEXTURE_WIDTH = 24;
     private final static int TEXTURE_HEIGHT = 24;
-    
     private final static String BULLET_TEXTURE = "120mm.shp";
     
     private final static String MUZZLE_FLASH = "flak.shp"; // TODO: fix white color in "gunfire.shp";
@@ -67,8 +66,6 @@ public class Weapon120mm extends Weapon {
 	
 	this.burst = BURST;
 	this.burstDelay = BURST_DELAY;
-	
-	
     }
     
     protected Weapon120mm(int rof, float weaponRange) {

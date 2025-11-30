@@ -1,7 +1,6 @@
 package cr0s.javara.combat.attack;
 
 import cr0s.javara.entity.actor.EntityActor;
-import cr0s.javara.entity.actor.activity.Activity;
 import cr0s.javara.entity.turreted.IHaveTurret;
 import cr0s.javara.entity.turreted.Turret;
 import cr0s.javara.order.Target;

@@ -14,7 +14,6 @@ public class Warhead {
     public String waterExplosion;
 
     public int explosionSize[] = { 0, 0 }; // inner and outer ranges
-
     public int infDeath;
     public DamageModel model = DamageModel.NORMAL;
 
@@ -25,7 +24,6 @@ public class Warhead {
     public int delay = 0;    
 
     public boolean preventProne = false;
-    
     public boolean leavesSmudge = true;
     public boolean isCraterSmudge = false;
     

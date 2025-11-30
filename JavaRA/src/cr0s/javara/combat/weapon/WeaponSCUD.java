@@ -18,7 +18,6 @@ public class WeaponSCUD extends Weapon {
     
     private final static int TEXTURE_WIDTH = 41;
     private final static int TEXTURE_HEIGHT = 41;
-    
     private final static String BULLET_TEXTURE = "v2.shp";
     
     private final static String MUZZLE_FLASH = "";
@@ -70,7 +69,6 @@ public class WeaponSCUD extends Weapon {
 	
 	this.burst = BURST;
 	this.burstDelay = BURST_DELAY;
-	
     }
     
     protected WeaponSCUD(int rof, float weaponRange) {
