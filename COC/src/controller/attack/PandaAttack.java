@@ -35,7 +35,7 @@ public class PandaAttack extends AnimationTimer {
         this.viewPandaAttackR = new ImageViewClone(panda.getImageViews().get(3));
         this.viewPanda = new ImageViewClone(viewPandaL);
         this.map = map;
-        panda.setViewHero(viewPanda);
+        panda.setImageView(viewPanda);
         this.map.getAttackingHeroes().add(panda);
         root.getChildren().add(new MediaView(mediaPlayerMove));
         mediaPlayerMove.setVolume(0.2);

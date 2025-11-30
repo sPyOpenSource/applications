@@ -31,7 +31,7 @@ public class DefBalloonAttack extends Thread {
         this.viewBalloonAttack = new ImageViewClone(defBalloon.getImageViews().get(1));
         this.viewBalloon = new ImageViewClone(viewBalloonMove);
         this.map = map;
-        defBalloon.setViewHero(viewBalloon);
+        defBalloon.setImageView(viewBalloon);
         this.map.getAttackingHeroes().add(defBalloon);
     }
     

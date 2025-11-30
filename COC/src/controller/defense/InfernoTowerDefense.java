@@ -41,9 +41,9 @@ public class InfernoTowerDefense extends Thread {
         double width;
         MobileEntity hero = null;
         for (MobileEntity attackingHero : new ArrayList<>(map.getAttackingHeroes())) {
-            if (root.getChildren().contains(attackingHero.getViewHero())){
-                width = Math.sqrt((Math.pow(infernoTower.getImageViews().get(0).getX()+26.4 - attackingHero.getViewHero().localToScene(attackingHero.getViewHero().getLayoutBounds()).getCenterX(), 2))
-                        + Math.pow(infernoTower.getImageViews().get(0).getY()+13.6 - attackingHero.getViewHero().localToScene(attackingHero.getViewHero().getLayoutBounds()).getCenterY(), 2));
+            if (root.getChildren().contains(attackingHero.getImageView())){
+                width = Math.sqrt((Math.pow(infernoTower.getImageViews().get(0).getX()+26.4 - attackingHero.getImageView().localToScene(attackingHero.getImageView().getLayoutBounds()).getCenterX(), 2))
+                        + Math.pow(infernoTower.getImageViews().get(0).getY()+13.6 - attackingHero.getImageView().localToScene(attackingHero.getImageView().getLayoutBounds()).getCenterY(), 2));
                 if (width < infernoTower.getRange()) {
                     hero = attackingHero;
                 }
@@ -62,12 +62,12 @@ public class InfernoTowerDefense extends Thread {
         return hero;
     }
     private synchronized void attack(MobileEntity hero){
-        if (root.getChildren().contains(hero.getViewHero())) {
+        if (root.getChildren().contains(hero.getImageView())) {
             Path path = new Path();
             path.setStroke(Color.web("#FF6F00"));
             path.setStrokeWidth(3);
             MoveTo moveTo = new MoveTo(infernoTower.getImageViews().get(0).getX() + 26.4, infernoTower.getImageViews().get(0).getY() + 13.6);
-            LineTo lineTo = new LineTo(hero.getViewHero().localToScene(hero.getViewHero().getLayoutBounds()).getCenterX(), hero.getViewHero().localToScene(hero.getViewHero().getLayoutBounds()).getCenterY());
+            LineTo lineTo = new LineTo(hero.getImageView().localToScene(hero.getImageView().getLayoutBounds()).getCenterX(), hero.getImageView().localToScene(hero.getImageView().getLayoutBounds()).getCenterY());
             Platform.runLater(() -> {
                 root.getChildren().add(path);
                 myNotify();
@@ -82,8 +82,8 @@ public class InfernoTowerDefense extends Thread {
                     infernoTower.setDead();
                     break;
                 }
-                if (root.getChildren().contains(hero.getViewHero())) {
-                    lineTo = new LineTo(hero.getViewHero().localToScene(hero.getViewHero().getLayoutBounds()).getCenterX(), hero.getViewHero().localToScene(hero.getViewHero().getLayoutBounds()).getCenterY());
+                if (root.getChildren().contains(hero.getImageView())) {
+                    lineTo = new LineTo(hero.getImageView().localToScene(hero.getImageView().getLayoutBounds()).getCenterX(), hero.getImageView().localToScene(hero.getImageView().getLayoutBounds()).getCenterY());
                     path.getElements().clear();
                     path.getElements().addAll(moveTo, lineTo);
                     Platform.runLater(() -> {

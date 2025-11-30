@@ -33,7 +33,7 @@ public class ArcherBalloonAttack extends Thread {
         this.archerBalloon = new EntityGrenadeTrooper(x, y);
         this.viewBalloon = new ImageViewClone(archerBalloon.getImageViews().get(0));
         this.map = map;
-        archerBalloon.setViewHero(viewBalloon);
+        archerBalloon.setImageView(viewBalloon);
         this.map.getAttackingHeroes().add(archerBalloon);
         this.nearestPointLineTo = new double[2];
     }

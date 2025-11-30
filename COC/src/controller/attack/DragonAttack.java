@@ -33,7 +33,7 @@ public class DragonAttack extends Thread {
         this.viewDragonAttackR = new ImageViewClone(dragon.getImageViews().get(3));
         this.viewDragon = new ImageViewClone(viewDragonL);
         this.map = map;
-        dragon.setViewHero(viewDragon);
+        dragon.setImageView(viewDragon);
         this.map.getAttackingHeroes().add(dragon);
         mediaPlayerAttack.setVolume(0.2);
     }

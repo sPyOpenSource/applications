@@ -30,7 +30,7 @@ public class GoblinBalloonAttack extends Thread {
         this.viewBalloonAttack = new ImageViewClone(goblinBalloon.getImageViews().get(1));
         this.viewBalloon = new ImageViewClone(viewBalloonMove);
         this.map = map;
-        goblinBalloon.setViewHero(viewBalloon);
+        goblinBalloon.setImageView(viewBalloon);
         this.map.getAttackingHeroes().add(goblinBalloon);
     }
     

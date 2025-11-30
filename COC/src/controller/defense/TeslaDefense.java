@@ -49,9 +49,9 @@ public class TeslaDefense extends Thread {
         double width;
         MobileEntity hero = null;
         for (MobileEntity attackingHero : new ArrayList<>(map.getAttackingHeroes())) {
-            if (root.getChildren().contains(attackingHero.getViewHero())){
-                width = Math.sqrt((Math.pow(tesla.getImageViews().get(0).getX() + 37 - attackingHero.getViewHero().localToScene(attackingHero.getViewHero().getLayoutBounds()).getCenterX(), 2))
-                        + Math.pow(tesla.getImageViews().get(0).getY() + 18 - attackingHero.getViewHero().localToScene(attackingHero.getViewHero().getLayoutBounds()).getCenterY(), 2));
+            if (root.getChildren().contains(attackingHero.getImageView())){
+                width = Math.sqrt((Math.pow(tesla.getImageViews().get(0).getX() + 37 - attackingHero.getImageView().localToScene(attackingHero.getImageView().getLayoutBounds()).getCenterX(), 2))
+                        + Math.pow(tesla.getImageViews().get(0).getY() + 18 - attackingHero.getImageView().localToScene(attackingHero.getImageView().getLayoutBounds()).getCenterY(), 2));
                 if (width < tesla.getRange()) {
                     hero = attackingHero;
                 }
@@ -72,7 +72,7 @@ public class TeslaDefense extends Thread {
     
     private synchronized void attack(MobileEntity hero){
         MoveTo moveTo = new MoveTo(tesla.getImageViews().get(0).getX() + 37, tesla.getImageViews().get(0).getY() + 18);
-        LineTo lineTo = new LineTo(hero.getViewHero().localToScene(hero.getViewHero().getLayoutBounds()).getCenterX(),hero.getViewHero().localToScene(hero.getViewHero().getLayoutBounds()).getCenterY());
+        LineTo lineTo = new LineTo(hero.getImageView().localToScene(hero.getImageView().getLayoutBounds()).getCenterX(),hero.getImageView().localToScene(hero.getImageView().getLayoutBounds()).getCenterY());
         while (hero.getHp() >= 0 && Math.sqrt(Math.pow(moveTo.getX()-lineTo.getX(), 2)+ Math.pow(moveTo.getY()-lineTo.getY(), 2)) < tesla.getRange()){
             if (tesla.getHp() <= 0 || (map.getAttackingHeroes().isEmpty() && capacityInt.get() == 0)) {
                 tesla.setDead();
@@ -88,8 +88,8 @@ public class TeslaDefense extends Thread {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            if (root.getChildren().contains(hero.getViewHero())) {
-                lineTo = new LineTo(hero.getViewHero().localToScene(hero.getViewHero().getLayoutBounds()).getCenterX(), hero.getViewHero().localToScene(hero.getViewHero().getLayoutBounds()).getCenterY());
+            if (root.getChildren().contains(hero.getImageView())) {
+                lineTo = new LineTo(hero.getImageView().localToScene(hero.getImageView().getLayoutBounds()).getCenterX(), hero.getImageView().localToScene(hero.getImageView().getLayoutBounds()).getCenterY());
                 Path path = new Path();
                 path.getElements().addAll(new MoveTo(moveTo.getX(), moveTo.getY()), lineTo);
                 PathTransition pathTransition = new PathTransition();
