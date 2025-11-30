@@ -346,7 +346,7 @@ public class AIPlayer extends Player {
 	EntityActor closest = null;
         for(Player player:GUI.getInstance().getWorld().getPlayers()){
             // If we looking for specified owner
-	    if (player == p) {
+	    if (player != p) {
 		continue;
 	    }
             
