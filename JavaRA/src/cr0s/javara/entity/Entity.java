@@ -246,7 +246,8 @@ public abstract class Entity extends Node {
     public void setDead() {
 	this.isVisible = false;
 	this.isDead = true;
-        world.root.getChildren().remove(view);
+        if(world != null)
+            world.root.getChildren().remove(view);
     }
 
     public int getHp() {
