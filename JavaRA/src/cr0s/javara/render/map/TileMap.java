@@ -63,66 +63,61 @@ public class TileMap {
     }
     
     public TileMap(String mapName) {
-	InputStream input;
-	try {
-	    input = assets.getInputStream("/assets/maps/" + (mapName + ".yaml").toLowerCase());
+	InputStream input = assets.getInputStream("/assets/maps/" + (mapName + ".yaml").toLowerCase());
 
-	    Yaml mapYaml = new Yaml();
-	    Map<String, Object> mapYamlMap = (Map) mapYaml.load(input);	    
+        Yaml mapYaml = new Yaml();
+        Map<String, Object> mapYamlMap = (Map) mapYaml.load(input);	    
 
-	    this.spawns = new ArrayList<>();
-	    Map<String, Object> spawnsMap = (Map) mapYamlMap.get("Spawns");
-	    for (Object v : spawnsMap.values()) {
-		Map<String, Object> actor = (Map) v;
+        this.spawns = new ArrayList<>();
+        Map<String, Object> spawnsMap = (Map) mapYamlMap.get("Spawns");
+        for (Object v : spawnsMap.values()) {
+            Map<String, Object> actor = (Map) v;
 
-		int x = (Integer) actor.get("LocationX");
-		int y = (Integer) actor.get("LocationY");
+            int x = (Integer) actor.get("LocationX");
+            int y = (Integer) actor.get("LocationY");
 
-		System.out.println("[MAP] Added spawn: (" + x + "; " + y + ")");
+            System.out.println("[MAP] Added spawn: (" + x + "; " + y + ")");
 
-		this.spawns.add(new Pos(x, y));
-	    }
+            this.spawns.add(new Pos(x, y));
+        }
 
-	    TileSet tileYamlSet = new TileSet((String) mapYamlMap.get("Tileset"));
-	    this.tileSet = tileYamlSet;
+        TileSet tileYamlSet = new TileSet((String) mapYamlMap.get("Tileset"));
+        this.tileSet = tileYamlSet;
 
-	    input = new FileInputStream(new File(ResourceManager.RESOURCE_FOLDER + (System.getProperty("file.separator") + "trees.yaml").toLowerCase()));
+        input = assets.getInputStream("/assets/tilesets/trees.yaml");
 
-	    Map<String, Object> treesYamlMap = (Map) mapYaml.load(input);	    
+        Map<String, Object> treesYamlMap = (Map) mapYaml.load(input);	    
 
-	    this.mapEntities = new LinkedList<>();
-	    Map<String, Object> entitiesMap = (Map) mapYamlMap.get("Actors");
-	    for (Object v : entitiesMap.values()) {
-		Map<String, Object> actor = (Map) v;
+        this.mapEntities = new LinkedList<>();
+        Map<String, Object> entitiesMap = (Map) mapYamlMap.get("Actors");
+        for (Object v : entitiesMap.values()) {
+            Map<String, Object> actor = (Map) v;
 
-		String id = (String) actor.get("Name");
+            String id = (String) actor.get("Name");
 
-		String footprint = ((Map<String, String>) (((Map<String, Object>) treesYamlMap.get(id.toUpperCase())).get("Building"))).get("Footprint");
-		String dimensions = ((Map<String, String>) (((Map<String, Object>) treesYamlMap.get(id.toUpperCase())).get("Building"))).get("Dimensions");
-		System.out.println("[MAP] Loaded Actor. ID: " + id + "(" + dimensions + "): " + footprint);
-		int x = (Integer) actor.get("LocationX");
-		int y = (Integer) actor.get("LocationY");
+            String footprint = ((Map<String, String>) (((Map<String, Object>) treesYamlMap.get(id.toUpperCase())).get("Building"))).get("Footprint");
+            String dimensions = ((Map<String, String>) (((Map<String, Object>) treesYamlMap.get(id.toUpperCase())).get("Building"))).get("Dimensions");
+            System.out.println("[MAP] Loaded Actor. ID: " + id + "(" + dimensions + "): " + footprint);
+            int x = (Integer) actor.get("LocationX");
+            int y = (Integer) actor.get("LocationY");
 
-		ShpTexture st = ResourceManager.getInstance()
-			.getTemplateShpTexture(this.tileSet.getSetName(), id + ".tem");
+            ShpTexture st = ResourceManager.getInstance()
+                    .getTemplateShpTexture(this.tileSet.getSetName(), id + ".tem");
 
-		if (st != null) {
-		    MapEntity me = new MapEntity(x, y, st, footprint, dimensions);
-		    this.mapEntities.add(me);
-		}
-	    }
+            if (st != null) {
+                MapEntity me = new MapEntity(x, y, st, footprint, dimensions);
+                this.mapEntities.add(me);
+            }
+        }
 
-	    this.theater = new TheaterCache(this, this.tileSet);
+        this.theater = new TheaterCache(this, this.tileSet);
 
-	    // Read binary map
-	    loadBinaryMap(mapName);
-	} catch (FileNotFoundException e) {
-	    e.printStackTrace();
-	}
+        // Read binary map
+        loadBinaryMap(mapName);
     }
     
     private void loadBinaryMap(String mapName) {
-	try (RandomAccessFile randomAccessFile = new RandomAccessFile(ResourceManager.MAPS_FOLDER + (mapName + System.getProperty("file.separator") + "map.bin").toLowerCase(), "r")) {
+	try (RandomAccessFile randomAccessFile = assets.getRandomAccessFile("/assets/maps/" + mapName.toLowerCase() + ".bin")) {
 	    FileChannel inChannel = randomAccessFile.getChannel();
 
 	    // Read one byte and pair of two shorts: map height and width

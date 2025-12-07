@@ -6,7 +6,6 @@ import java.util.Random;
 
 import cr0s.javara.combat.TargetType;
 import cr0s.javara.entity.Entity;
-import cr0s.javara.entity.ISelectable;
 import cr0s.javara.entity.IShroudRevealer;
 import cr0s.javara.entity.MobileEntity;
 import cr0s.javara.entity.actor.EntityActor;

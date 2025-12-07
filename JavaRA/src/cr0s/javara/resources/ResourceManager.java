@@ -90,36 +90,16 @@ public class ResourceManager {
 	    return null;
 	}
     }
-     
-    public static RandomAccessFile toRandomAccessFile(InputStream is) throws IOException 
-    {
-        File tmpFile = File.createTempFile("isc", "tmp");
-        tmpFile.deleteOnExit();
-        RandomAccessFile raf = new RandomAccessFile(tmpFile, "rwd");
-        byte[] buffer = new byte[2048];
-        int    tmp;
-  
-        while ((tmp = is.read(buffer)) != -1) 
-        {
-          raf.write(buffer, 0, tmp);
-        }
-         
-        raf.seek(0);
-         
-        return raf;
-    }
 
-    private MixFile loadMixes(InputStream path) {
-	RandomAccessFile randomAccessFile;
-
+    private MixFile loadMixes(String path) {
 	try {
 	    //List<Path> mixFiles = listDirectoryMixes(Paths.get(RESOURCE_FOLDER));
 
 	    //for (Path f : mixFiles) {
-		randomAccessFile = toRandomAccessFile(path);
+		RandomAccessFile randomAccessFile = assets.getRandomAccessFile(path);
 		FileChannel inChannel = randomAccessFile.getChannel();
 
-		MixFile mix = new MixFile(path.toString(), inChannel);
+		MixFile mix = new MixFile(path, inChannel);
 
 		mixes.put(mix.getFileName(), mix);
                 return mix;
@@ -136,7 +116,7 @@ public class ResourceManager {
 	    return commonTextureSources.get(name);
 	}
         
-	MixFile mix = loadMixes(assets.getInputStream("/assets/mix/interface.mix"));
+	MixFile mix = loadMixes("/assets/mix/interface.mix");
 
 	if (mix != null) {
 	    MixRecord rec = mix.getEntry(name);
@@ -162,7 +142,7 @@ public class ResourceManager {
 	    return commonTextureSources.get(name);
 	}
         
-	MixFile mix = loadMixes(assets.getInputStream("/assets/mix/conquer.mix"));
+	MixFile mix = loadMixes("/assets/mix/conquer.mix");
 
 	if (mix != null) {
 	    MixRecord rec = mix.getEntry(name);
@@ -229,7 +209,7 @@ public class ResourceManager {
 	    return shpTextureSources.get(name);
 	}
         
-	MixFile mix = loadMixes(assets.getInputStream("/assets/mix/"+tileSetName.toLowerCase() + ".mix"));
+	MixFile mix = loadMixes("/assets/mix/" + tileSetName.toLowerCase() + ".mix");
 
 	if (mix != null) {
 	    MixRecord rec = mix.getEntry(name);
@@ -261,7 +241,7 @@ public class ResourceManager {
 	}
         
 	type = type.toLowerCase();
-	MixFile mix = loadMixes(assets.getInputStream("/assets/mix/" + type + ".mix"));
+	MixFile mix = loadMixes("/assets/mix/" + type + ".mix");
 
 	if (mix != null) {
 	    MixRecord rec = mix.getEntry(name);
@@ -289,7 +269,7 @@ public class ResourceManager {
 	    return palettes.get(name);
 	}
 
-	try (RandomAccessFile randomAccessFile = toRandomAccessFile(assets.getInputStream("/assets/pal/" + name.toLowerCase()))) {
+	try (RandomAccessFile randomAccessFile = assets.getRandomAccessFile("/assets/pal/" + name.toLowerCase())) {
 	    FileChannel inChannel = randomAccessFile.getChannel();
 	    PalFile palfile = new PalFile(name, inChannel);
 
@@ -332,7 +312,7 @@ public class ResourceManager {
 	    return commonTextureSources.get(name);
 	}
         
-	MixFile mix = loadMixes(assets.getInputStream("/assets/mix/hires.mix"));
+	MixFile mix = loadMixes("/assets/mix/hires.mix");
 
 	if (mix != null) {
 	    MixRecord rec = mix.getEntry(name);
