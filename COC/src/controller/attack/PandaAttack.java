@@ -23,13 +23,13 @@ import model.hero.Panda;
 import java.util.concurrent.atomic.AtomicInteger;
 import assets.Assets;
 
-public class PandaAttack extends AnimationTimer {
+public class PandaAttack extends Thread {
     private final Assets assets = new Assets();
     
     public PandaAttack(double x, double y, AnchorPane root, Map map) {
         this.root = root;
         this.panda = new Panda(x, y);
-        this.viewPandaL = new ImageViewClone(panda.getImageViews().get(6));
+        this.viewPandaL = new ImageViewClone(panda.getImageViews().get(7));
         this.viewPandaAttackL = new ImageViewClone(panda.getImageViews().get(1));
         this.viewPandaR = new ImageViewClone(panda.getImageViews().get(2));
         this.viewPandaAttackR = new ImageViewClone(panda.getImageViews().get(3));
@@ -54,7 +54,7 @@ public class PandaAttack extends AnimationTimer {
     private final AtomicInteger count = new AtomicInteger(0);
     
     @Override
-    public void handle(long now) {
+    public void run() {
         synchronized (this){
             String audioFilePath = assets.get("/assets/audio/enter_panda.mp3");
             MediaPlayer mediaPlayer = new MediaPlayer(new Media(audioFilePath));
