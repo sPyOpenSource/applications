@@ -11,7 +11,16 @@ public class Panda extends EntityInfantry{
         //super(1500, 10, 150, 0, 24, null, 50, 50, 1, x, y, 
         setHp(1500);
         setDamagePerSecond(150);
-        setImageViews("assets/gif/pandaL.gif", "assets/gif/panda_attackL.gif", "assets/gif/pandaR.gif", "assets/gif/panda_attackR.gif", "assets/png/horse2.png", "assets/png/test.png", "assets/png/olifant.png", "assets/png/rubuska.png");
+        setImageViews(
+                "assets/gif/pandaL.gif", 
+                "assets/gif/panda_attackL.gif", 
+                "assets/gif/pandaR.gif", 
+                "assets/gif/panda_attackR.gif", 
+                "assets/png/horse2.png", 
+                "assets/png/test.png", 
+                "assets/png/olifant.png", 
+                "assets/png/rubuska.png"
+        );
         getImageViews().get(1).setFitWidth(55);
         getImageViews().get(1).setFitHeight(45);
         getImageViews().get(3).setFitWidth(55);

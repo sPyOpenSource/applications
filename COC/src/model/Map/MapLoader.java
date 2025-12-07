@@ -32,7 +32,7 @@ public class MapLoader extends Map {
     @Override
     public AnchorPane getMapView() {
         AnchorPane root = new AnchorPane();
-        root.setBackground(new Background(new BackgroundImage(new Image("assets/png/classic12.png"), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT)));
+        //root.setBackground(new Background(new BackgroundImage(new Image("assets/png/classic12.png"), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT)));
         for (Node node : buildingsMap) {
             if (node instanceof EntityBuilding building){
                 root.getChildren().add(building.getTexture());

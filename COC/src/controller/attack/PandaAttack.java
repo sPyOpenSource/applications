@@ -1,7 +1,6 @@
 package controller.attack;
 
 import javafx.animation.PathTransition;
-import javafx.animation.AnimationTimer;
 import javafx.application.Platform;
 import javafx.util.Duration;
 
@@ -21,15 +20,17 @@ import cr0s.javara.entity.building.EntityBuilding;
 import view.ImageViewClone;
 import model.hero.Panda;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.Random;
 import assets.Assets;
 
 public class PandaAttack extends Thread {
     private final Assets assets = new Assets();
+    private final Random random = new Random();
     
     public PandaAttack(double x, double y, AnchorPane root, Map map) {
         this.root = root;
         this.panda = new Panda(x, y);
-        this.viewPandaL = new ImageViewClone(panda.getImageViews().get(7));
+        this.viewPandaL = new ImageViewClone(panda.getImageViews().get(random.nextInt(panda.getImageViews().size())));
         this.viewPandaAttackL = new ImageViewClone(panda.getImageViews().get(1));
         this.viewPandaR = new ImageViewClone(panda.getImageViews().get(2));
         this.viewPandaAttackR = new ImageViewClone(panda.getImageViews().get(3));

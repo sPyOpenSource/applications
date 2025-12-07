@@ -37,6 +37,7 @@ public class SearchOpponents extends Application {
     private final MediaPlayer mediaPlayer;
     private final String audioFilePath = assets.get("/assets/audio/click_button.mp3");
     private final MediaPlayer mediaPlayerClick = new MediaPlayer(new Media(audioFilePath));
+    private Thread thread;
     
     @Override
     public void start(Stage stage) {
@@ -53,6 +54,25 @@ public class SearchOpponents extends Application {
         stage.getIcons().add(new Image("assets/jpg/icon.jpg"));
         stage.show();
         stage.setResizable(false);
+        thread = new Thread() {
+            @Override
+            public void run() {  
+                try {
+                    Thread.sleep(3000);
+                } catch (InterruptedException ex) {
+                    System.getLogger(SearchOpponents.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
+                }
+                Platform.runLater(new Runnable() {
+                    @Override
+                    public void run() {  
+                        new Battle(player, players.get(count.get()), players).start(new Stage());
+                        Platform.runLater(mediaPlayer::stop);
+                        stage.close();
+                    }
+                });
+            }
+        };
+        thread.start();
     }
     
     private AnchorPane getMap(Stage stage, AnchorPane map){
@@ -129,6 +149,7 @@ public class SearchOpponents extends Application {
                 scene = new Scene(getMap(stage, players.get(count.addAndGet(1)).getMap().getMapView()), 1000, 737);
                 scene.getStylesheets().add("style.css");
                 stage.setScene(scene);
+                thread.stop();
             } else {
                 map.getChildren().remove(imageViewNext);
             }
@@ -150,6 +171,7 @@ public class SearchOpponents extends Application {
             new Battle(player, players.get(count.get()), players).start(new Stage());
             Platform.runLater(mediaPlayer::stop);
             stage.close();
+            thread.stop();
         });
 
         bottomHero(map);

@@ -27,6 +27,7 @@ import model.building.InfernoTower;
 import model.building.Tesla;
 
 import assets.Assets;
+import cr0s.javara.render.map.TileMap;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -123,7 +124,7 @@ public class Battle extends Application {
         imageViewCapacity.setY(20);
         imageViewCapacity.setFitWidth(150);
         imageViewCapacity.setFitHeight(50);
-
+imageViewPanda.setEffect(shadow);
         imageViewBalloon.setOnMouseClicked(mouseEvent -> {
             imageViewBalloon.setEffect(shadow);
             imageViewArcher.setEffect(null);
@@ -208,7 +209,7 @@ public class Battle extends Application {
         });
 
         root.getChildren().addAll(rectangle, imageViewCapacity, capacity);
-
+root.getChildren().addAll(new TileMap().getPane().getChildren());
         switch (attackingPlayer.getLevel()) {
             case 1:
                 root.getChildren().addAll(imageViewDragon, imageViewPanda);
