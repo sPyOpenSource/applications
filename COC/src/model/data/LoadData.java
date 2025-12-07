@@ -6,19 +6,11 @@ import model.Player;
 import java.sql.*;
 import java.util.ArrayList;
 
-public class LoadPlayerData extends Thread {
-    public LoadPlayerData() {
-        this.players = new ArrayList<>();
-    }
+public class LoadData {
 
-    public ArrayList<Player> getPlayers() {
-        return players;
-    }
-
-    private final ArrayList<Player> players;
+    private final ArrayList<Player> players = new ArrayList<>();
     
-    @Override
-    public void run() {
+    public ArrayList<Player> getPlayers() {
         /*try {
             String Url = "jdbc:mysql://localhost/game";
             String name = "root";
@@ -53,5 +45,7 @@ public class LoadPlayerData extends Thread {
         catch (ClassNotFoundException | NumberFormatException | SQLException e) {
             e.printStackTrace();
         }*/
+        return players;
     }
+    
 }

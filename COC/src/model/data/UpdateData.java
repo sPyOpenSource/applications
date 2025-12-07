@@ -6,8 +6,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class UpdatePlayerData extends Thread {
-    public UpdatePlayerData(Player player) {
+public class UpdateData extends Thread {
+    public UpdateData(Player player) {
         this.player = player;
     }
 

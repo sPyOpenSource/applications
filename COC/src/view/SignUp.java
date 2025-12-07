@@ -23,7 +23,7 @@ import javafx.scene.text.Text;
 import model.Map.*;
 import model.Player;
 import model.IdPlayerException;
-import model.data.SavePlayerData;
+import model.data.SaveData;
 
 import cr0s.javara.render.map.Map;
 import java.util.ArrayList;
@@ -102,7 +102,7 @@ public class SignUp extends Application {
                     e.printStackTrace();
                 }
                 Player player = new Player(textFieldID.getText(), textFieldPassword.getText(), map);
-                new SavePlayerData(player).start();
+                new SaveData(player).start();
                 new PlayerPanel(player,players).start(new Stage());
                 stage.close();
                 mediaPlayer.stop();

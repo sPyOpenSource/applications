@@ -30,6 +30,8 @@ import assets.Assets;
 import cr0s.javara.render.map.TileMap;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
+import javafx.application.Platform;
+import javafx.scene.layout.BorderPane;
 
 public class Battle extends Application {
     private final Assets assets = new Assets();
@@ -209,7 +211,16 @@ imageViewPanda.setEffect(shadow);
         });
 
         root.getChildren().addAll(rectangle, imageViewCapacity, capacity);
-root.getChildren().addAll(new TileMap().getPane().getChildren());
+        new Thread(){
+            BorderPane rbp = new TileMap().getPane();
+            @Override
+            public void run(){
+                Platform.runLater(() -> {
+                    root.getChildren().addAll(rbp.getChildren());
+                });
+            }
+        };
+        
         switch (attackingPlayer.getLevel()) {
             case 1:
                 root.getChildren().addAll(imageViewDragon, imageViewPanda);

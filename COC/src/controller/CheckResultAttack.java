@@ -11,7 +11,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import model.Player;
-import model.data.UpdatePlayerData;
+import model.data.UpdateData;
 import view.PlayerPanel;
 import cr0s.javara.render.map.Map;
 

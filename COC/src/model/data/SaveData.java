@@ -6,10 +6,10 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class SavePlayerData extends Thread {
+public class SaveData extends Thread {
     private final Player player;
     
-    public SavePlayerData(Player player)
+    public SaveData(Player player)
     {
         this.player = player;
     }
