@@ -40,7 +40,6 @@ public class JSfr extends J51Panel
 				g.gridx = 0;
 			}
 		}
-		
 	}
 	
         @Override

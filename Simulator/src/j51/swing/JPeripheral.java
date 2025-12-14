@@ -18,7 +18,6 @@ public class JPeripheral extends J51Panel
 		super("Peripheral");
 	}
 
-	
         @Override
 	public void setCpu(MCS51 cpu)
 	{

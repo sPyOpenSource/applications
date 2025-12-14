@@ -5,7 +5,6 @@ package j51.swing;
 
 import java.awt.*;
 import java.io.*;
-
 import java.awt.event.*;
 import javax.swing.*;
 
@@ -22,8 +21,8 @@ import j51.device.Uart;
  */
 public class JUartTA extends Uart
 {
-	private vt320 emulator;
-	private SwingTerminal terminal;
+	private final vt320 emulator;
+	private final SwingTerminal terminal;
 	private AbstractAction actionFileSend;
 	private JFileChooser   fc = null;
 
@@ -32,6 +31,7 @@ public class JUartTA extends Uart
 		emulator = new vt320()
 		{
 
+                        @Override
 			public void write(byte[] b)
 			{
 				for (int i = 0 ; i < b.length ; i++)
@@ -60,6 +60,7 @@ public class JUartTA extends Uart
 				this.r = r;
 			}
 
+                        @Override
 			public void run()
 			{
 				try
@@ -80,17 +81,12 @@ public class JUartTA extends Uart
 						if (count >= 100)
 							break;
 					}
-				}
-				catch (Exception ignore)
-				{
+				} catch (IOException | InterruptedException ignore) {
 				}
 
-				try
-				{
+				try{
 					r.close();
-				}
-				catch (Exception ignore)
-				{
+				} catch (IOException ignore) {
 				}
 			}
 		}
@@ -103,6 +99,7 @@ public class JUartTA extends Uart
 	{
 		actionFileSend = new AbstractAction("Send")
 		{
+                        @Override
 			public void actionPerformed(ActionEvent e)
 			{
 				try
@@ -112,13 +109,11 @@ public class JUartTA extends Uart
 						fc = new JFileChooser();
 						fc.setCurrentDirectory(new File("."));
 					}
-					if (fc.showOpenDialog(GUI.getInstance()) == fc.APPROVE_OPTION)
+					if (fc.showOpenDialog(GUI.getInstance()) == JFileChooser.APPROVE_OPTION)
 					{
 						load(fc.getSelectedFile().getCanonicalPath());
 					}
-				}
-				catch (java.lang.Throwable ex)
-				{
+				} catch (Exception ex) {
 					GUI.getInstance().messages(ex);
 				}
 			}
@@ -130,11 +125,11 @@ public class JUartTA extends Uart
 		return menu;
 	}
 	
+        @Override
 	protected void sendChar(int v)
 	{
 		byte b[] = new byte[1];
 		b[0] = (byte)v;
 		emulator.putString(new String(b));
-
 	}
 }

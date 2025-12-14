@@ -183,4 +183,3 @@ public class JNumField extends JFixedField  implements KeyListener
 	}
 
 }
-

@@ -18,7 +18,7 @@ import jx.classfile.constantpool.StringCPEntry;
  * @author X. Wang
  */
 public class ByteCode implements jx.zero.ByteCode {
-    private Code code;
+    private final Code code;
     public static ConstantPool cp;
     
     static Function<JVM, Integer> op_aload_0 = cpu -> cpu.handler.op_aload_0();

@@ -9,7 +9,6 @@ import javax.swing.text.*;
 
 import j51.util.Hex;
 
-
 class HexTextDocument extends PlainDocument
 {
 	private int size;
@@ -48,7 +47,7 @@ class HexTextDocument extends PlainDocument
 				c = Character.toUpperCase(c);
 
 
-			if	(!Character.isDigit(c))
+			if (!Character.isDigit(c))
 			{
 				if (c < 'A' || c > 'F')
 					isValid = false;
@@ -196,4 +195,3 @@ public class JHexField extends JFixedField  implements KeyListener
 	}
 
 }
-

@@ -15,10 +15,10 @@ public class JHexWord extends JHexField
 	{
 		super(4,bold);
 	}
+        
 	public JHexWord()
 	{
 		super(4,false);
-
 	}
 
 	public JHexWord(int value,boolean bold)

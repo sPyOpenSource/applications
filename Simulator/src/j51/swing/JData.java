@@ -22,7 +22,6 @@ public abstract class JData extends J51Panel
 	private boolean scrollable = false;
 	private JHexWord jtop;
 	
-	
 	JData(String title, int _bottom, int _top)
 	{
 		super(title, false);

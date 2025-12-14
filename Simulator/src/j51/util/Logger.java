@@ -39,16 +39,15 @@ public class Logger extends java.util.logging.Logger
 	{
 		if (logManager == null)
 		{
-			try
-			{
+			//try{
 				logManager = LogManager.getLogManager();
 				logManager.reset();
-				FileInputStream is = new FileInputStream("logging.properties");
-				logManager.readConfiguration(is);
-				is.close();
-			} catch (IOException | SecurityException ex) {
-				System.out.println(ex);
-			}
+				//FileInputStream is = new FileInputStream("logging.properties");
+				//logManager.readConfiguration(is);
+				//is.close();
+			//} catch (IOException | SecurityException ex) {
+			//	System.out.println(ex);
+			//}
 
 		}
 
@@ -78,7 +77,6 @@ public class Logger extends java.util.logging.Logger
 				ps.close();
 			} catch (FileNotFoundException ignore) {
 			}
-
 		}
 	}
 

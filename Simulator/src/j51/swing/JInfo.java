@@ -185,9 +185,6 @@ public class JInfo extends J51Panel implements MCS51Performance,ResetListener
 		g.gridx++;g.gridwidth = 3;
 		add(elapsed,g);
 
-
-
-
 	}
 
         @Override
@@ -205,7 +202,6 @@ public class JInfo extends J51Panel implements MCS51Performance,ResetListener
 		max.setUsage(maxCpuUsage);
 		avg.setUsage(avgCpuUsage);
 		cur.setUsage(cpu);
-		
 	}
 	
         @Override
@@ -215,7 +211,6 @@ public class JInfo extends J51Panel implements MCS51Performance,ResetListener
 		reset(cpu);
 		cpu.addPerformanceListener(this);
 		cpu.addResetListener(this);
-		
 	}
 	
         @Override
@@ -233,7 +228,6 @@ public class JInfo extends J51Panel implements MCS51Performance,ResetListener
         @Override
 	public void setEmulation(boolean mode)
 	{
-			
 		oscillator.setEditable(!mode);
 		cycle.setEnabled(!mode);
 		reset.setEditable(!mode);
@@ -250,7 +244,6 @@ public class JInfo extends J51Panel implements MCS51Performance,ResetListener
 		}
 
 		return v;
-		
 	}
 	
 	public void updateClock()

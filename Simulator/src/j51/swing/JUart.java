@@ -44,7 +44,6 @@ public class JUart extends Uart implements KeyListener
 		textArea.addKeyListener(this);
 	}
 
-
 	public void keyTyped(KeyEvent e)
 	{
 		e.consume();
@@ -82,7 +81,6 @@ public class JUart extends Uart implements KeyListener
 		super.reset(cpu);
 		textArea.setText("");
 	}
-	
 
         @Override
 	protected void sendChar(int v)
@@ -108,4 +106,3 @@ public class JUart extends Uart implements KeyListener
 	}
 
 }
-

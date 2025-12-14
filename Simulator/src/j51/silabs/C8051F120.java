@@ -10,7 +10,6 @@ interface C8051F120Constants
 {
 	public final int EMIOCN	= 0xa2;
 	public final int PSBANK = 0xb1;
-	
 }
 
 /**

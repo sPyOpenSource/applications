@@ -35,12 +35,10 @@ class BytePort extends JBitField implements SfrWriteListener,MCS51Peripheral,Res
 		this.sfr = sfr;
 	}
 
-
 	public int getSfr()
 	{
 		return sfr;
 	}
-
 
 	public void setDisableMask(int mask)
 	{
@@ -163,8 +161,6 @@ class MCS51Port extends JPanel implements MCS51Peripheral,SfrWriteListener
 		p.setDisableMask(mask);
 	}
 	
-
-	
 }
 
 /**
@@ -204,8 +200,6 @@ public class JPort extends JPanel implements MCS51Peripheral,MCS51Constants
 			add(ports[i],g);
 			g.gridy++;
 		}
-
-		
 	}
 
 	public void setPortName(int port,int bit,String name)
@@ -223,8 +217,7 @@ public class JPort extends JPanel implements MCS51Peripheral,MCS51Constants
 	{
             for (MCS51Port port : ports) {
                 port.registerCpu(cpu);
-            }
-			
+            }	
 	}
 
 	public void setSfrM1(int i,int sfr)

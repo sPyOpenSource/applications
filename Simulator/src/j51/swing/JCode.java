@@ -2,13 +2,11 @@
 package j51.swing;
 
 import j51.intel.MCS51;
+import javax.swing.JComponent;
 
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
-
-import javax.swing.JComponent;
-
 
 /**
  *
@@ -43,7 +41,6 @@ class Rect extends JComponent
 {
 	private Color color;
 	private final Dimension size;
-
 
 	Rect(Color color,int w,int h)
 	{

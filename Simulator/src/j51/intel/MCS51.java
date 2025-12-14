@@ -217,7 +217,6 @@ public class MCS51 implements MCS51Constants, jCPU.iCPU
 			callListeners[i] = null;
                 }
 		
-
 		for (int i = 0 ; i < 64 * 1024 ; i++){
 			setCodeName(i, "#" + Hex.bin2word(i));
                 }
@@ -304,8 +303,7 @@ public class MCS51 implements MCS51Constants, jCPU.iCPU
 		addSfrWriteListener(IE, (int r, int v) -> {
                     ie = (v & IE_EA) != 0;
                 });
-				
-				
+						
 	}
 
 	/**
@@ -906,6 +904,7 @@ public class MCS51 implements MCS51Constants, jCPU.iCPU
 		sfrBitmap[i] = add;
 	}
 	
+        @Override
 	public boolean getBit(int add)
 	{
 		int value;
@@ -931,10 +930,8 @@ public class MCS51 implements MCS51Constants, jCPU.iCPU
 			v &= ~bit;
 		
 		setDirect(add,(int)v);
-		
 	}
 
-	
 	public int sp()
 	{
 		return sfr(SP);
@@ -993,7 +990,6 @@ public class MCS51 implements MCS51Constants, jCPU.iCPU
 		sfr(DPH,value>>8);
 		sfr(DPL,value);
 	}
-
 
 	/**
 	 * Set one regiter.
@@ -1267,7 +1263,6 @@ public class MCS51 implements MCS51Constants, jCPU.iCPU
 		return sfrCurrent.read(add);
 	}
 
-
 	public final boolean sfrIsSet(int add, int mask)
 	{
 		return ((sfr(add) & mask) == mask);
@@ -1277,7 +1272,6 @@ public class MCS51 implements MCS51Constants, jCPU.iCPU
 	{
 		sfr(add, sfr(add)|mask);
 	}
-
 	
 	public final void sfrReset(int add, int mask)
 	{
@@ -1380,7 +1374,6 @@ public class MCS51 implements MCS51Constants, jCPU.iCPU
                 }
 
 		log.info("End Reset");
-
 	}
 
 	/**
@@ -1688,7 +1681,6 @@ public class MCS51 implements MCS51Constants, jCPU.iCPU
 		return o.getLength();
 	}
 	
-
 	public void setOscillator(int oscillator)
 	{
 		if (oscillator != this.oscillator){

@@ -4,11 +4,9 @@
 
 package j51.swing;
 
-
 import java.awt.*;
 import javax.swing.*;
 import javax.swing.border.*;
-
 
 /**
  *
@@ -21,6 +19,7 @@ import javax.swing.border.*;
  */
 public class JFactory
 {
+    
 	public static void setBox(JComponent j)
 	{
 		j.setBorder(BorderFactory.createEtchedBorder());

@@ -33,9 +33,9 @@ import jx.classfile.constantpool.InterfaceMethodRefCPEntry;
  */
 public class BytecodeParser {
     private final ByteCode bc;
-    private Code bytecode;
     private final BytecodeVisitor handler;
     private boolean wide;
+    private Code bytecode;
 
     private int address, opcode, paddedAddress;
     private int continueAt, endPC;

@@ -6,10 +6,10 @@ package j51;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
-import java.net.*;
 
 import javax.swing.*;
 import javax.swing.tree.*;
+import assets.Assets;
 
 import j51.util.*;
 import j51.intel.*;
@@ -52,8 +52,7 @@ import org.json.JSONObject;
 public class GUI extends JFrame implements MCS51Performance, ActionListener
 {
 	private static final Logger log = Logger.getLogger(GUI.class);
-	
-	static  private GUI	instance = null;
+	private static GUI	instance = null;
 	private final J51Panel	peripheral;
 	private final JRegister	register;
 	private final JAssembly	assembly;
@@ -63,6 +62,7 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 	private final JCode	code;
 	private final JInfo     info;
 	private final JFixedField messages;
+        
 	private JToolBar toolBar = new JToolBar();
 	private MCS51 cpu;
 	private JFileChooser   fc = null;
@@ -85,7 +85,7 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 	private Thread thread;
 	private JRadioButtonMenuItem first = null;
 	private final java.util.ArrayList panels = new java.util.ArrayList();
-
+        private final Assets assets = new Assets();
 
 	GUI(){
 		setTitle("J51 1.05 $Revision: 70 $ - Created by mario@viara.eu");
@@ -179,12 +179,10 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 		return instance;
 	}
 	
-
         @Override
 	public void actionPerformed(ActionEvent e)
 	{
 		String source = e.getActionCommand();
-		
 		
 		if (source.equals("PC")){
 			assembly.update(false);
@@ -193,7 +191,6 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 		if (source.equals("SFR")){
 			sfr.update(false);
 		}
-		
 	}
 	
 	public void setCpu(String _name)
@@ -205,14 +202,14 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
                         @Override
 			public void process()
 			{
-				try{
-					Class c = Class.forName(name);
-					setProgress("Loading class");
-					MCS51 newCpu = (MCS51)c.newInstance();
-					info.reset.setValue(0);
-					GUI.this.cpu = newCpu;
-					setProgress("Reset cpu");
-					reset();
+                            try{
+                                Class c = Class.forName(name);
+                                setProgress("Loading class");
+                                MCS51 newCpu = (MCS51)c.newInstance();
+                                info.reset.setValue(0);
+                                GUI.this.cpu = newCpu;
+                                setProgress("Reset cpu");
+                                reset();
 
 				for (int i = 0 ; i < panels.size() ; i++){
 					J51Panel p = (J51Panel)panels.get(i);
@@ -238,10 +235,10 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 				messages(cpu.toString());
 				setProgress("Garbage collection");
 				System.gc();
-				} catch (ClassNotFoundException | IllegalAccessException | InstantiationException ex) {
-					messages(ex);
-					ex.printStackTrace(System.out);
-				}
+                            } catch (ClassNotFoundException | IllegalAccessException | InstantiationException ex) {
+                                messages(ex);
+                                ex.printStackTrace(System.out);
+                            }
 				
 			}
 				
@@ -325,7 +322,6 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 		{
 			this.msg = msg;
 			SwingUtilities.invokeLater(this);
-
 		}
 
                 @Override
@@ -393,17 +389,15 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 	 */
 	public Icon getIcon(String name)
 	{
-		log.log(Level.FINER, "Loading {0}", name);
-		URL url = GUI.class.getResource("images/" + name);
-		
-		if (url == null){
-			log.log(Level.INFO, "ImageFactory.getImageIcon - not found: {0}", name);
-			return null;
-		}
-		
-		Icon  icon =  new ImageIcon(url);
+            log.log(Level.FINER, "Loading {0}", name);
+            Icon icon = assets.getIcon("/assets/images/" + name);
 
-		return icon;
+            if (icon == null){
+                log.log(Level.INFO, "ImageFactory.getImageIcon - not found: {0}", name);
+                return null;
+            }
+
+            return icon;
 	}
 	
 	/**
@@ -430,24 +424,24 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 		ButtonGroup buttonGroup = new ButtonGroup();
 
 		// Add cpu selection 
-		try{
-			BufferedReader rd = new BufferedReader(new FileReader("./j51.conf"));
-			String line;
+		try {
+                    BufferedReader rd = new BufferedReader(new FileReader("j51.conf"));
+                    String line;
 
-			while ((line = rd.readLine()) != null){
-				if (line.startsWith("#"))
-					continue;
-				if (line.length() < 3)
-					continue;
-				createMenuCpuLine(menuCpu, buttonGroup, line);
-			}
-			rd.close();
+                    while ((line = rd.readLine()) != null){
+                            if (line.startsWith("#"))
+                                    continue;
+                            if (line.length() < 3)
+                                    continue;
+                            createMenuCpuLine(menuCpu, buttonGroup, line);
+                    }
+                    rd.close();
 		} catch (IOException ex) {
                     Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
 		}
 
 		if (menuCpu.getMenuComponentCount() == 0){
-			createMenuCpuLine(menuCpu,buttonGroup, "j51.intel.P8051");
+                    createMenuCpuLine(menuCpu, buttonGroup, "j51.intel.P8051");
                 }
 
 		return menuCpu;
@@ -455,11 +449,11 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 	
 	JMenu createMenuLaf()
 	{
-		JMenu lnf = new JMenu("Look & Feel", true);
-		addIcon(lnf, "laf.gif");
-		
-		ButtonGroup buttonGroup = new ButtonGroup();
-		final UIManager.LookAndFeelInfo[] info = UIManager.getInstalledLookAndFeels();
+            JMenu lnf = new JMenu("Look & Feel", true);
+            addIcon(lnf, "laf.gif");
+
+            ButtonGroup buttonGroup = new ButtonGroup();
+            final UIManager.LookAndFeelInfo[] info = UIManager.getInstalledLookAndFeels();
 		
             for (UIManager.LookAndFeelInfo info1 : info) {
                 boolean set = false;
@@ -478,9 +472,9 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
                 lnf.add(item);
             }
 
-		lnf.setMnemonic('K');
+            lnf.setMnemonic('K');
 
-		return lnf;
+            return lnf;
 	}
 
 	JButton addToBar(JToolBar bar,Action action)
@@ -512,7 +506,6 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 		addToBar(toolBar, actionDebugReset);
 		addToBar(toolBar, actionDebugErase);
 		addToBar(toolBar, actionFileLoad);
-
 	}
 
         @Override
@@ -607,7 +600,7 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 
 		try{
                     rd = new BufferedReader(new FileReader(name));
-String line;
+                    String line;
                     while ((line = rd.readLine()) != null){
 			line = line.trim();
 			if (line.startsWith("0C:")){
@@ -632,8 +625,7 @@ String line;
                         @Override
 			public void actionPerformed(ActionEvent e)
 			{
-				try
-				{
+				try{
 					if (fc == null)
 					{
                                             fc = new JFileChooser();
@@ -660,7 +652,7 @@ String line;
                                                     for(int i = 0; i < 0x10000; i++){
                                                         cpu.code(i, m.read((int)(i + elf.getHeader().getEntryPoint())));
                                                     }
-                                                } catch (Exception ex){
+                                                } catch (IOException ex){
                                                     FileInputStream fis = new FileInputStream(file);
                                                     byte[] code = fis.readAllBytes();
                                                     for(int i = 0; i < code.length; i++){
@@ -817,11 +809,9 @@ String line;
 			InterruptStatistic is = cpu.getInterruptAt(i);
 			long counter = is.getCounter();
 			sl.put(counter,is.toString());
-
 		}
 
 		performTree("Interrupt", sl.createTree());
-
 	}
 
 	void performProfile()

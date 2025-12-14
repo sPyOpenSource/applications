@@ -16,7 +16,6 @@ public class SortedLong extends java.util.TreeMap
 	public void put(long key, String value)
 	{
 		Long l = key;
-		Object o;
 		java.util.ArrayList vector;
 		
 		vector = (java.util.ArrayList)get(l);

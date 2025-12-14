@@ -18,7 +18,7 @@ import j51.util.Hex;
  */
 public  class Atmel24C16 extends PersistentMemory implements I2cSlave
 {
-	private static Logger log = Logger.getLogger(Atmel24C16.class);
+	private static final Logger log = Logger.getLogger(Atmel24C16.class);
 	private int address;
 
 	public Atmel24C16()
@@ -39,12 +39,13 @@ public  class Atmel24C16 extends PersistentMemory implements I2cSlave
 		return (address & 0xF0) == 0xA0;
 	}
 
+        @Override
 	public boolean i2cWrite(int count,int value) 
 	{
 		switch (count)
 		{
 			default:
-				log.fine("Write "+Hex.bin2byte(value)+" at "+Hex.bin2word(address));
+				log.fine("Write " + Hex.bin2byte(value) + " at " + Hex.bin2word(address));
 				write(address++,value);
 				break;
 			case	0:
@@ -59,17 +60,14 @@ public  class Atmel24C16 extends PersistentMemory implements I2cSlave
 		return true;
 	}
 
-
+        @Override
 	public int i2cRead(int count) 
 	{
 
 		int value = read(address);
-		log.fine("Read "+Hex.bin2byte(value)+" at "+Hex.bin2word(address));
+		log.fine("Read " + Hex.bin2byte(value) + " at " + Hex.bin2word(address));
 		address++;
 		return value;
 	}
 
-	
 }
-
-
