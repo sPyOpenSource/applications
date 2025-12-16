@@ -406,6 +406,7 @@ public abstract class Emulator {
   /**
    * Method to perform a single step in the emulator
    * @param into true for step into, false for step over
+   * @return 
    */
   public abstract boolean step(boolean into);
   

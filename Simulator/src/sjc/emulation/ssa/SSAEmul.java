@@ -2439,53 +2439,54 @@ public class SSAEmul extends Emulator {
     Mnemonic mn = null;
     Mnemonic lastIns = null;
     MethodDisassembly result = null;
-    int param=0, opcode=0, reg0=0, reg1=0, reg2=0, iPar1=0, iPar2=0;
+    int param = 0, opcode = 0, reg0 = 0, reg1 = 0, reg2 = 0, iPar1 = 0, iPar2 = 0;
     int tempIP, saveIP;
-    boolean success=true, isJumpDest;
-    long lPar=0l;
+    boolean success = true, isJumpDest;
+    long lPar = 0l;
     String pars;
-    saveIP=currentIP;
-    currentIP=startIP;
+    saveIP = currentIP;
+    currentIP = startIP;
     do {
-      isJumpDest=false;
+      isJumpDest = false;
       //get type and parameter
-      tempIP=currentIP;
-      param=readByte();
-      opcode=readByte();
+      tempIP = currentIP;
+      param = readByte();
+      opcode = readByte();
+      if(opcode == 0) continue;
       //check for jump-destination
-      if ((param&SSADef.IPJMPDEST)!=0) {
-        param&=~SSADef.IPJMPDEST;
-        isJumpDest=true;
+      if ((param&SSADef.IPJMPDEST) != 0) {
+        param &= ~SSADef.IPJMPDEST;
+        isJumpDest = true;
       }
-      if (opcode==(0xFF&SSADef.I_INLINE)) { //MAGIC.inline
-        pars="";
-        while (param-->0) {
-          pars=pars.concat(toDecString(readByte()&0xFF)).concat(" ");
+      if (opcode == (0xFF & SSADef.I_INLINE)) { //MAGIC.inline
+        pars = "";
+        while (param-- > 0) {
+          pars = pars.concat(toDecString(readByte() & 0xFF)).concat(" ");
         }
-        mn=new Mnemonic(tempIP, "inline ", pars, isJumpDest);
+        mn = new Mnemonic(tempIP, "inline ", pars, isJumpDest);
       } else {
-        if (opcode==(0xFF&SSADef.I_JUMP)) {
-          iPar1=readByte();
-          iPar2=readInt();
-          pars=toHexString(iPar2+currentIP); //destination is relative to tempIP+jumpLen==currentIP
-          mn=new Mnemonic(tempIP, getJump(iPar1), pars, isJumpDest);
+        if (opcode == (0xFF & SSADef.I_JUMP)) {
+          iPar1 = readByte();
+          iPar2 = readInt();
+          pars = toHexString(iPar2 + currentIP); //destination is relative to tempIP+jumpLen==currentIP
+          mn = new Mnemonic(tempIP, getJump(iPar1), pars, isJumpDest);
         } else {
-          param=param<<SSADef.IPOPTSHFT;
+          param = param << SSADef.IPOPTSHFT;
           // fetch parameters
-          if ((param&SSADef.IP_reg0)!=0) 
-            reg0=readInt();
-          if ((param&SSADef.IP_reg1)!=0) 
-            reg1=readInt();
-          if ((param&SSADef.IP_reg2)!=0) 
-            reg2=readInt();
-          if ((param&SSADef.IP_size)!=0) 
-            iPar1=(int)((byte)readByte()); //do sign extension
-          else if ((param&SSADef.IP_im_i)!=0) 
-            iPar1=readInt();
-          if ((param&SSADef.IP_para)!=0) 
-            iPar2=readInt();
-          if ((param&SSADef.IP_im_l)!=0) 
-            lPar=readLong();
+          if ((param & SSADef.IP_reg0) != 0) 
+            reg0 = readInt();
+          if ((param & SSADef.IP_reg1) != 0) 
+            reg1 = readInt();
+          if ((param & SSADef.IP_reg2) != 0) 
+            reg2 = readInt();
+          if ((param & SSADef.IP_size) != 0) 
+            iPar1 = (int)((byte)readByte()); //do sign extension
+          else if ((param&SSADef.IP_im_i) != 0) 
+            iPar1 = readInt();
+          if ((param & SSADef.IP_para) != 0) 
+            iPar2 = readInt();
+          if ((param & SSADef.IP_im_l) != 0) 
+            lPar = readLong();
           // process instruction
           switch (opcode) {
             case 0xFF&SSADef.I_MARKER:
@@ -2801,8 +2802,7 @@ public class SSAEmul extends Emulator {
         // update the lastIP of this method
         result.lastIP = mn.startIP;
       }
-    }
-    while (opcode != (0xFF & SSADef.I_LEAVE));
+    } while (opcode != (0xFF & SSADef.I_LEAVE));
     currentIP = saveIP;
     return result;
   }
