@@ -34,7 +34,7 @@ public class StackCond extends Condition {
   /**
    * The position of the stack pointer to look after
    */
-  private int stackPtr;
+  private final int stackPtr;
   
   /**
    * Standard constructor
@@ -47,6 +47,7 @@ public class StackCond extends Condition {
   /**
    * @see Condition#hit(Emulator)
    */
+  @Override
   public boolean hit(Emulator emul) {
     return stackPtr<=emul.getCurrentSP();
   }
@@ -54,6 +55,7 @@ public class StackCond extends Condition {
   /**
    * @see Condition#hit(int, int, boolean, boolean)
    */
+  @Override
   public boolean hit(int address, int size, boolean type, boolean read) {
     return false;
   }
@@ -61,6 +63,7 @@ public class StackCond extends Condition {
   /**
    * @see Condition#addToEmulator(Emulator)
    */
+  @Override
   public void addToEmulator(Emulator emul) {
     this.next=emul.stepOverC;
     emul.stepOverC=this;

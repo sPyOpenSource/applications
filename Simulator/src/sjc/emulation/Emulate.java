@@ -42,6 +42,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -430,7 +431,6 @@ public class Emulate extends JFrame implements ActionListener,
       
     }
     
-    
     public static final long serialVersionUID = 16047801001l;
     
     /**
@@ -494,21 +494,21 @@ public class Emulate extends JFrame implements ActionListener,
       setLayout(new BorderLayout());
 
       // create JTable with scrollpane and add it to the frame
-      dataModel=new StatisticsTableData();
-      data=new JTable(dataModel);
+      dataModel = new StatisticsTableData();
+      data = new JTable(dataModel);
       data.setDefaultRenderer(dataModel.getColumnClass(0), 
           new Renderer());
       add(new JScrollPane(data), BorderLayout.CENTER);
       
       // Radiogroup for sorting
-      JPanel radio=new JPanel(new FlowLayout(FlowLayout.CENTER, 5, 5));
+      JPanel radio = new JPanel(new FlowLayout(FlowLayout.CENTER, 5, 5));
       radio.setBorder(new TitledBorder("Sort by"));
       // Radiobuttons
-      methodSort=new JRadioButton("Method pointer", true);
+      methodSort = new JRadioButton("Method pointer", true);
       methodSort.addMouseListener(this);
-      callSort=new JRadioButton("#calls");
+      callSort = new JRadioButton("#calls");
       callSort.addMouseListener(this);
-      insSort=new JRadioButton("#instructions");
+      insSort = new JRadioButton("#instructions");
       insSort.addMouseListener(this);
       // add to the Panel
       radio.add(methodSort);
@@ -521,18 +521,18 @@ public class Emulate extends JFrame implements ActionListener,
       group.add(insSort);
       
       // panel containing the buttons in the south section
-      JPanel temp=new JPanel(new FlowLayout(FlowLayout.RIGHT));
+      JPanel temp = new JPanel(new FlowLayout(FlowLayout.RIGHT));
       temp.add(createButton(EXPORT_B, this, BUTTONS));
       temp.add(createButton(RESET_B, this, BUTTONS));
       temp.add(createButton(CLOSE_B, this, BUTTONS));
       
       // south section containing the radiogroup and the buttons
-      JPanel south=new JPanel(new BorderLayout());
+      JPanel south = new JPanel(new BorderLayout());
       south.add(radio, BorderLayout.CENTER);
       south.add(temp, BorderLayout.SOUTH);
       add(south, BorderLayout.SOUTH);
       
-      nrOfIns=new JLabel();
+      nrOfIns = new JLabel();
       add(nrOfIns, BorderLayout.NORTH);
       
       setSize(325, 450);
@@ -543,32 +543,36 @@ public class Emulate extends JFrame implements ActionListener,
      */
     @Override
     protected void processButton(String actionCommand) {
-      if (actionCommand.equals(CLOSE_B))
-        setVisible(false);
-      else if (actionCommand.equals(EXPORT_B)) {
-        // create String containing the text to transfer
-        String result="";
-        Iterator<MethodStatistics> it=dataModel.mths.iterator();
-        MethodStatistics ms;
-        while (it.hasNext()) {
-          ms=it.next();
-          result+="0x" + Integer.toHexString(ms.mthPtr) + "\t" +
-            ms.numberOfCalls + "\t" + ms.numberOfExecIns + "\n";
+        switch (actionCommand) {
+            case CLOSE_B:
+                setVisible(false);
+                break;
+            case EXPORT_B:
+                // create String containing the text to transfer
+                String result="";
+                Iterator<MethodStatistics> it=dataModel.mths.iterator();
+                MethodStatistics ms;
+                while (it.hasNext()) {
+                    ms=it.next();
+                    result+="0x" + Integer.toHexString(ms.mthPtr) + "\t" +
+                            ms.numberOfCalls + "\t" + ms.numberOfExecIns + "\n";
+                }       // get the clipboard from the Toolkit, create a 
+                // StringSelection and set the clipboard
+                Toolkit.getDefaultToolkit().getSystemClipboard().
+                        setContents(new StringSelection(result), null);
+                JOptionPane.showMessageDialog(this, "Data was copied to the " +
+                        "clipboard", "Information",
+                        JOptionPane.INFORMATION_MESSAGE);
+                break;
+            case RESET_B:
+                methStatMain.reset();
+                numberOfExecIns=0;
+                nrOfIns.setText("");
+                data.tableChanged(null);
+                break;
+            default:
+                break;
         }
-        // get the clipboard from the Toolkit, create a 
-        // StringSelection and set the clipboard
-        Toolkit.getDefaultToolkit().getSystemClipboard().
-          setContents(new StringSelection(result), null);
-        JOptionPane.showMessageDialog(this, "Data was copied to the " +
-            "clipboard", "Information", 
-            JOptionPane.INFORMATION_MESSAGE);
-      }
-      else if (actionCommand.equals(RESET_B)) {
-        methStatMain.reset();
-        numberOfExecIns=0;
-        nrOfIns.setText("");
-        data.tableChanged(null);
-      }
     }
 
     /**
@@ -1306,6 +1310,7 @@ public class Emulate extends JFrame implements ActionListener,
       /**
        * @see Dialogues#setVisible()
        */
+      @Override
       protected void setVisible() {
         address.setText("");
         address.requestFocus();
@@ -2300,19 +2305,19 @@ public class Emulate extends JFrame implements ActionListener,
     setLayout(layout);
     
     // create and add buttons to JFrame
-    toolbar=new JToolBar();
-    startB=createButton(B_START, this, null);
+    toolbar = new JToolBar();
+    startB = createButton(B_START, this, null);
     startB.setEnabled(false);
-    singleOverB=createButton(B_SINGLE_OVER, this, null);
+    singleOverB = createButton(B_SINGLE_OVER, this, null);
     singleOverB.setEnabled(false);
-    singleIntoB=createButton(B_SINGLE_INTO, this, null);
+    singleIntoB = createButton(B_SINGLE_INTO, this, null);
     singleIntoB.setEnabled(false);
-    stopB=createButton(B_STOP, this, null);
+    stopB = createButton(B_STOP, this, null);
     stopB.setEnabled(false);
-    optionsB=createButton(B_OPTIONS, this, null);
-    statisticB=createButton(B_STATISTIC, this, null);
+    optionsB = createButton(B_OPTIONS, this, null);
+    statisticB = createButton(B_STATISTIC, this, null);
     statisticB.setEnabled(false);
-    breakpointB=createButton(B_BREAKPOINTS, this, null);
+    breakpointB = createButton(B_BREAKPOINTS, this, null);
     breakpointB.setEnabled(false);
     toolbar.add(createButton(B_QUIT, this, null));
     toolbar.add(createButton(B_LOAD, this, null));
@@ -2342,7 +2347,7 @@ public class Emulate extends JFrame implements ActionListener,
     JScrollPane scrollLog = new JScrollPane(log);
     scrollLog.setBorder(new TitledBorder("Log"));
     // add widgets to consolePanel
-    consolePanel.add(out=new GUIConsole(80, 25), BorderLayout.NORTH);
+    consolePanel.add(out = new GUIConsole(80, 25), BorderLayout.NORTH);
     consolePanel.add(scrollLog, BorderLayout.CENTER);
     
     // init panel for disassembling information and additional information
@@ -2363,7 +2368,7 @@ public class Emulate extends JFrame implements ActionListener,
     // add panels to JFrame and set size
     add(consolePanel, BorderLayout.WEST);
     add(centerPanel, BorderLayout.CENTER);
-    setSize(width*8 + 350, height*16 + 175);
+    setSize(width * 8 + 350, height * 16 + 175);
     
     // init file filters and file chooser
     fileFilters = new Filter[2];
@@ -2485,7 +2490,7 @@ public class Emulate extends JFrame implements ActionListener,
       // if the emulator signalized to continue and we are in a step over,
       // start the runner in the given mode
       if (!choice && proceed) {
-        runner=new Runner(runNormal);
+        runner = new Runner(runNormal);
         runner.start();
       }
     }
@@ -2510,7 +2515,7 @@ public class Emulate extends JFrame implements ActionListener,
     }
     else if (cmd.equals(B_EXPORT)) {
       try {
-        PrintWriter writer=new PrintWriter(new FileOutputStream("disass.txt"));
+        PrintWriter writer = new PrintWriter(new FileOutputStream("disass.txt"));
         writer.write(disassWindow.getText());
         writer.flush();
         writer.close();
@@ -2641,18 +2646,18 @@ public class Emulate extends JFrame implements ActionListener,
     String jmpText;
     // clear disassembly window and load with data
     disassWindow.setText("");
-    disassWindow.showSelection=true;
-    disassWindow.curLine=0;
-    Mnemonic mn=method.firstMnemo;
-    while (mn!=null) {
-      if (mn.compString==null) {
-        if (mn.isJumpDest) jmpText="+ ";
-        else jmpText="  ";
-        mn.compString=Integer.toHexString(mn.startIP) + jmpText + mn.mnemo + 
+    disassWindow.showSelection = true;
+    disassWindow.curLine = 0;
+    Mnemonic mn = method.firstMnemo;
+    while (mn != null) {
+      if (mn.compString == null) {
+        if (mn.isJumpDest) jmpText = "+ ";
+        else jmpText = "  ";
+        mn.compString = Integer.toHexString(mn.startIP) + jmpText + mn.mnemo + 
           " " + mn.parameters + "\n";
       }
       disassWindow.append(mn.compString);
-      mn=mn.next;
+      mn = mn.next;
     }
     disassWindow.append("method end, pointer to code points to "
         + Integer.toHexString(method.firstIP-emulator.codeStart) + "\n");
@@ -2671,7 +2676,7 @@ public class Emulate extends JFrame implements ActionListener,
       emulator = EmulFactory.getEmulator("ssa");
       emulator.setBreakPointListener(this);
       // and init the given emulator with the data
-      emulator.initFromRawOut(data, 32*1024*1024, tp);
+      emulator.initFromRawOut(data, 32 * 1024 * 1024, tp);
       // register a BasicVGA for output 
       BasicVGA vga = new BasicVGA(out);
       emulator.registerBlock(vga);
@@ -2682,16 +2687,16 @@ public class Emulate extends JFrame implements ActionListener,
         return;
       }
       loadMethod(main);
-      currMethod=main;
+      currMethod = main;
       // set instruction and current instruction pointer
-      nextIns=main.firstMnemo;
-      currIP=emulator.getCurrentIP();
+      nextIns = main.firstMnemo;
+      currIP = emulator.getCurrentIP();
       // create method statistics for the main method
-      methStatMain=new MethodStatistics(currIP-emulator.codeStart, 
+      methStatMain = new MethodStatistics(currIP - emulator.codeStart, 
           currIP, emulator.getEndOfMethod(currIP));
-      methStatCur=methStatMain;
+      methStatCur = methStatMain;
       // reset number of executed instructions
-      numberOfExecIns=0;
+      numberOfExecIns = 0;
       // needed if startup with method load
       updateButtons(MODE_STOP);
       tp.println("File loaded");

@@ -34,17 +34,17 @@ public class MemoryBreak extends Condition {
   /**
    * The memory address to which to listen
    */
-  private int memAddr;
+  private final int memAddr;
   
   /**
    * The type of the memory watched
    */
-  private boolean type;
+  private final boolean type;
   
   /**
    * Flag to determine whether to observe a read or write to the memory
    */
-  private boolean read;
+  private final boolean read;
   
   /**
    * Standard construction 
@@ -61,6 +61,7 @@ public class MemoryBreak extends Condition {
   /**
    * @see Condition#addToEmulator(Emulator)
    */
+  @Override
   public void addToEmulator(Emulator emul) {
     this.next=emul.firstMemC;
     emul.firstMemC=this;
@@ -69,15 +70,15 @@ public class MemoryBreak extends Condition {
   /**
    * @see Condition#hit(int, int, boolean, boolean)
    */
+  @Override
   public boolean hit(int address, int size, boolean t, boolean r) {
-    if (read==r && type==t && memAddr>=address && memAddr<address+size)
-      return true;
-    return false;
+    return read==r && type==t && memAddr>=address && memAddr<address+size;
   }
 
   /**
    * @see Condition#hit(Emulator)
    */
+  @Override
   public boolean hit(Emulator emul) {
     return false;
   }

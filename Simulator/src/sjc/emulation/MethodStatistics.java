@@ -64,6 +64,7 @@ public class MethodStatistics {
   
   /**
    * Standard construction initializing 
+   * @param mp
    * @param fi the first IP of this method
    * @param li the last IP of this method
    */

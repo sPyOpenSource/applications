@@ -31,17 +31,17 @@ public class BasicVGA extends AddressRange {
   private final static int BASE = 0xB8000;
   private final static int width = 80, height = 25;
   
-  private TextScreen outDrv;
-  private byte[] buffer;
+  private final TextScreen outDrv;
+  private final byte[] buffer;
   
   public BasicVGA(TextScreen out) {
-    super(AddressRange.RAM, BASE, width*height*2);
-    outDrv=out;
-    buffer=new byte[width*height*2];
+    super(AddressRange.RAM, BASE, width * height * 2);
+    outDrv = out;
+    buffer = new byte[width * height * 2];
   }
   
   public byte read8(int address) {
-    return buffer[address-BASE];
+    return buffer[address - BASE];
   }
   
   public short read16(int address) {
@@ -57,13 +57,13 @@ public class BasicVGA extends AddressRange {
   }
   
   public void write8(int address, byte v) {
-    int off=address-BASE, x, y;
+    int off = address - BASE, x, y;
     
-    buffer[off]=v;
-    off/=2;
-    x=off%width;
-    y=off/width;
-    if ((address&1)==0) outDrv.setChar(x, y, (char)((int)v&0xFF));
+    buffer[off] = v;
+    off /= 2;
+    x = off % width;
+    y = off / width;
+    if ((address & 1) == 0) outDrv.setChar(x, y, (char)((int)v & 0xFF));
     else outDrv.setColor(x, y, v);
     outDrv.redraw(x, y);
   }

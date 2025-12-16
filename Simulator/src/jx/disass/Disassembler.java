@@ -16,12 +16,13 @@ import jx.compiler.LineInfo;
 
 public class Disassembler extends x86 {
     public String instruction = "";
+    public int codePosition;
+
     String seg_override = null;
     byte[] code;
     int ofs, len;
-    public int codePosition;
+    
     boolean printDecoding = false;
-
     boolean db_32bit_opsize = true;
     boolean db_32bit_addrsize = true;
   

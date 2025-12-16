@@ -39,12 +39,12 @@ public abstract class Emulator {
    */
   public static String toHexString(int val) {
     int i, t;
-    buf[0]='0';
-    buf[1]='x';
-    for (i=0; i<8; i++) {
-      t=(val>>>(i<<2))&0xF;
-      if (t>=0 && t<=9) buf[9-i]=(char)(t+48);
-      else buf[9-i]=(char)(t+55);
+    buf[0] = '0';
+    buf[1] = 'x';
+    for (i = 0; i < 8; i++) {
+      t = (val >>> (i << 2)) & 0xF;
+      if (t >= 0 && t <= 9) buf[9 - i] = (char)(t + 48);
+      else buf[9 - i] = (char)(t + 55);
     }
     return new String(buf, 0, 10);
   }
@@ -181,12 +181,11 @@ public abstract class Emulator {
    * @param block an instance of this block
    */
   public void registerBlock(AddressRange block) {
-    if (firstBlock==null) {
-      firstBlock=block;
-    }
-    else {
-      block.nextBlock=firstBlock;
-      firstBlock=block;
+    if (firstBlock == null) {
+      firstBlock = block;
+    } else {
+      block.nextBlock = firstBlock;
+      firstBlock = block;
     }
   }
   
@@ -361,37 +360,38 @@ public abstract class Emulator {
     BasicRAM ram;
     int startAddr;
     // determine byte order
-    if (raw[28]==(byte)0xAA && raw[31]==(byte)0x55) {
-      relocBytes=(int)raw[29]&0xFF;
-      stackClearBits=(int)raw[30]&0xFF;
+    if (raw[28] == (byte)0xAA && raw[31] == (byte)0x55) {
+      relocBytes = (int)raw[29] & 0xFF;
+      stackClearBits = (int)raw[30] & 0xFF;
       ram = new BasicRAM(memSize, true);
     }
-    else if (raw[28]==(byte)0x55 && raw[31]==(byte)0xAA) {
-      relocBytes=(int)raw[30]&0xFF;
-      stackClearBits=(int)raw[29]&0xFF;
+    else if (raw[28] == (byte)0x55 && raw[31] == (byte)0xAA) {
+      relocBytes = (int)raw[30] & 0xFF;
+      stackClearBits = (int)raw[29] & 0xFF;
       ram = new BasicRAM(memSize, false);      
-    }
-    else {
+    } else {
       debugOut.println("Invalid image");
-      return false;
+      ram = new BasicRAM(memSize, true);
+      //return false;
     }
-    buf=new char[19];
+    buf = new char[19];
     // set first memory block
-    firstBlock=ram;
+    firstBlock = ram;
     // read the address where to write the image
     ram.write8(0, raw[0]);
     ram.write8(1, raw[1]);
     ram.write8(2, raw[2]);
     ram.write8(3, raw[3]);
-    startAddr=ram.read32(0);
+    startAddr = ram.read32(0);
+    //startAddr = 0x7c00;
     ram.write32(0, 0);
     // init the ram
     ram.initRAM(startAddr, raw);
     // set viewer output
-    out=debugOut;
+    out = debugOut;
     // init registers
-    codeStart=ram.read32(startAddr+24);
-    return initArchitecture(ram.read32(startAddr+8), ram.read32(startAddr+12));
+    codeStart = ram.read32(startAddr + 24);
+    return initArchitecture(ram.read32(startAddr + 8), ram.read32(startAddr + 12));
   }
   
   /**
@@ -451,6 +451,6 @@ public abstract class Emulator {
    * @param l the breakpoint listener
    */
   public void setBreakPointListener(BreakPointListener l) {
-    listener=l;
+    listener = l;
   }
 }

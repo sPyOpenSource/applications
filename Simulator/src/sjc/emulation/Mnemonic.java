@@ -63,13 +63,14 @@ public class Mnemonic {
    * Standard constructor initializing the values
    * @param insP the instruction pointer
    * @param m the mnemonic of this instruction
+   * @param p
    * @param isJD true if this instruction is destination of a jump
    */
   public Mnemonic(int insP, String m, String p, boolean isJD) {
-    startIP=insP;
-    parameters=p;
-    mnemo=m;
-    isJumpDest=isJD;
+    startIP = insP;
+    parameters = p;
+    mnemo = m;
+    isJumpDest = isJD;
   }
   
   /**
@@ -77,9 +78,9 @@ public class Mnemonic {
    * @param mn the mnemonic to add
    */
   public void add(Mnemonic mn) {
-    Mnemonic temp=this;
-    while (temp.next!=null)
-      temp=temp.next;
-    temp.next=mn;
+    Mnemonic temp = this;
+    while (temp.next != null)
+      temp = temp.next;
+    temp.next = mn;
   }
 }

@@ -59,15 +59,14 @@ import sjc.emulation.cond.StackCond;
 public class SSAEmul extends Emulator {
   
   private final static int INIT_STACK_VALUE = 0x9BFF8;
-  
-  private Real real;
+  private final Real real;
   
   /**
    * Constructor for SSAEmul
    * @param ir Real interface implementation for floating point support
    */
   public SSAEmul(Real ir) {
-    real=ir;
+    real = ir;
   }
   
   /**
@@ -1622,9 +1621,9 @@ public class SSAEmul extends Emulator {
       out.println("in insCall");
       return false;
     }
-    stck.ptr=(stck.ptr-relocBytes) & ~stackClearBits;
+    stck.ptr = (stck.ptr - relocBytes) & ~stackClearBits;
     write32(false, stck.ptr, currentIP);
-    currentIP = read32(false, cReg.ptr+rela)+codeStart;
+    currentIP = read32(false, cReg.ptr + rela) + codeStart;
     resetRegisters();
     return true;
   }
@@ -1657,9 +1656,9 @@ public class SSAEmul extends Emulator {
       out.println("in insCallInd");
       return false;
     }
-    stck.ptr=(stck.ptr-relocBytes) & ~stackClearBits;
+    stck.ptr = (stck.ptr - relocBytes) & ~stackClearBits;
     write32(false, stck.ptr, currentIP);
-    currentIP=read32(false, sreg1.ptr + read32(false, r0.upperPtr+rela))+codeStart;
+    currentIP = read32(false, sreg1.ptr + read32(false, r0.upperPtr + rela)) + codeStart;
     resetRegisters();
     return true;
   }
@@ -2181,16 +2180,14 @@ public class SSAEmul extends Emulator {
       }
       out.println();
       endlessLoopHint=currentIP;
-    }
-    else {
+    } else {
       if (opcode==(0xFF&SSADef.I_JUMP)) {
         iPar1=readByte();
         iPar2=readInt();
         param=currentIP; //remember currentIP for endlessLoopHint
         success=insJump(iPar1, iPar2);
         endlessLoopHint=param; //assignment has to be done after insJump, but currentIP might have changed
-      }
-      else {
+      } else {
         param=param<<SSADef.IPOPTSHFT;
         // fetch parameters
         if ((param&SSADef.IP_reg0)!=0) 
@@ -2212,8 +2209,7 @@ public class SSAEmul extends Emulator {
           //special handling for flow hint: don't set realInstructionHint
           if (iPar2==SSADef.F_DOTHROW) success=insDoThrow(); //emulate doThrow-method
           else success=true; //nothing to do
-        }
-        else {
+        } else {
           switch (opcode) {
             case 0xFF&SSADef.I_MARKER:
               success=insMarker(iPar1);
@@ -2440,9 +2436,9 @@ public class SSAEmul extends Emulator {
    */
   @Override
   public MethodDisassembly getMnemonicList(int startIP) {
-    Mnemonic mn=null;
-    Mnemonic lastIns=null;
-    MethodDisassembly result=null;
+    Mnemonic mn = null;
+    Mnemonic lastIns = null;
+    MethodDisassembly result = null;
     int param=0, opcode=0, reg0=0, reg1=0, reg2=0, iPar1=0, iPar2=0;
     int tempIP, saveIP;
     boolean success=true, isJumpDest;
@@ -2467,15 +2463,13 @@ public class SSAEmul extends Emulator {
           pars=pars.concat(toDecString(readByte()&0xFF)).concat(" ");
         }
         mn=new Mnemonic(tempIP, "inline ", pars, isJumpDest);
-      }
-      else {
+      } else {
         if (opcode==(0xFF&SSADef.I_JUMP)) {
           iPar1=readByte();
           iPar2=readInt();
           pars=toHexString(iPar2+currentIP); //destination is relative to tempIP+jumpLen==currentIP
           mn=new Mnemonic(tempIP, getJump(iPar1), pars, isJumpDest);
-        }
-        else {
+        } else {
           param=param<<SSADef.IPOPTSHFT;
           // fetch parameters
           if ((param&SSADef.IP_reg0)!=0) 
@@ -2787,7 +2781,7 @@ public class SSAEmul extends Emulator {
               out.print(opcode);
               out.print(", next instruction would be at ");
               out.println(toHexString(currentIP));
-              success=false;
+              //success = false;
           }
         }
         if (!success) {
@@ -2798,19 +2792,18 @@ public class SSAEmul extends Emulator {
           return null;
         }
       }
-      if (result==null) {
-        result=new MethodDisassembly(mn, null);
-        lastIns=mn;
-      }
-      else {
-        lastIns.next=mn;
-        lastIns=mn;
+      if (result == null) {
+        result = new MethodDisassembly(mn, null);
+        lastIns = mn;
+      } else {
+        lastIns.next = mn;
+        lastIns = mn;
         // update the lastIP of this method
-        result.lastIP=mn.startIP;
+        result.lastIP = mn.startIP;
       }
     }
-    while (opcode!=(0xFF&SSADef.I_LEAVE));
-    currentIP=saveIP;
+    while (opcode != (0xFF & SSADef.I_LEAVE));
+    currentIP = saveIP;
     return result;
   }
 
@@ -2827,11 +2820,11 @@ public class SSAEmul extends Emulator {
    */
   @Override
   public int getStartOfMethod(int currIP) {
-    int saveIP, param, opcode, iPar1=0, res=0;
-    boolean leaveFound=false, goOn=true;
+    int saveIP, param, opcode, iPar1 = 0, res = 0;
+    boolean leaveFound = false, goOn = true;
     
-    saveIP=currentIP;
-    currentIP=currIP;
+    saveIP = currentIP;
+    currentIP = currIP;
     do {
       //get type and parameter
       param=readByte();
@@ -2881,14 +2874,13 @@ public class SSAEmul extends Emulator {
       //get type and parameter
       param=readByte();
       opcode=readByte();
-      if (opcode==(0xFF&SSADef.I_INLINE)) { //MAGIC.inline
+      if (opcode == (0xFF & SSADef.I_INLINE)) { //MAGIC.inline
         while (param-->0) readByte();
       }
       else if (opcode==(0xFF&SSADef.I_JUMP)) { //jump
         readByte();
         readInt();
-      }
-      else { //normal instruction
+      } else { //normal instruction
         param=(param&~SSADef.IPJMPDEST)<<SSADef.IPOPTSHFT;
         // fetch parameters
         if ((param&SSADef.IP_reg0)!=0) currentIP+=4;

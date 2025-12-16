@@ -67,13 +67,13 @@ public class MethodDisassembly {
    */
   public MethodDisassembly(Mnemonic first, String mn) {
     Mnemonic temp;
-    temp=first;
-    methodName=mn;
-    firstIP=first.startIP;
-    firstMnemo=first;
-    while (temp.next!=null)
-      temp=temp.next;
-    lastIP=temp.startIP;
+    temp = first;
+    methodName = mn;
+    firstIP = first.startIP;
+    firstMnemo = first;
+    while (temp.next != null)
+      temp = temp.next;
+    lastIP = temp.startIP;
   }
   
   /**

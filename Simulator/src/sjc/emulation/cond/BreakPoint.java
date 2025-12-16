@@ -33,7 +33,7 @@ public class BreakPoint extends Condition {
   /**
    * The instruction pointer at which this breakpoint is set
    */
-  private int insPtr;
+  private final int insPtr;
   
   /**
    * Standard constructor for this breakpoint
@@ -46,15 +46,15 @@ public class BreakPoint extends Condition {
   /**
    * @see Condition#hit(Emulator)
    */
+  @Override
   public boolean hit(Emulator emul) {
-    if (emul.getCurrentIP()==insPtr)
-      return true;
-    return false;
+    return emul.getCurrentIP()==insPtr;
   }
 
   /**
    * @see Condition#hit(int, int, boolean, boolean)
    */
+  @Override
   public boolean hit(int address, int size, boolean type, boolean read) {
     return false;
   }
@@ -62,6 +62,7 @@ public class BreakPoint extends Condition {
   /**
    * @see Condition#addToEmulator(Emulator)
    */
+  @Override
   public void addToEmulator(Emulator emul) {
     this.next=emul.firstBreakPointC;
     emul.firstBreakPointC=this;

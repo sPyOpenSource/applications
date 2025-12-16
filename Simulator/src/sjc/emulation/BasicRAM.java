@@ -40,7 +40,6 @@ public class BasicRAM extends AddressRange {
   /**
    * Standard constructor
    * 
-   * @param startAddr the starting address of this block
    * @param size the size of this memory block
    * @param order the byte order for this block, true for little endian, false
    * for big endian

@@ -59,7 +59,7 @@ public abstract class AddressRange {
   /**
    * Standard constructor
    * 
-   * @param type the type of this memory block
+   * @param it the type of this memory block
    * @param start the starting address
    * @param size the size of this block
    */
@@ -73,7 +73,7 @@ public abstract class AddressRange {
    * Method to write a 8 bit value to this block
    * 
    * @param address the address where to write this value
-   * @param s the value to write
+   * @param b the value to write
    */
   public abstract void write8(int address, byte b);
 
@@ -89,7 +89,7 @@ public abstract class AddressRange {
    * Method to write a 32 bit value to this block
    * 
    * @param address the address where to write this value
-   * @param s the value to write
+   * @param i the value to write
    */
   public abstract void write32(int address, int i);
 
@@ -97,7 +97,7 @@ public abstract class AddressRange {
    * Method to write a 16 bit value to this block
    * 
    * @param address the address where to write this value
-   * @param s the value to write
+   * @param l the value to write
    */
   public abstract void write64(int address, long l);
 
