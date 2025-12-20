@@ -9,10 +9,10 @@ import jx.devices.fb.*;
  */
 public class WWindow implements Runnable
 {
-	static WindowManager s_cWindowManager = null;
-	WWindowInterface m_cWindow;
-	Thread m_cThread;
-	PixelRect m_cFrame = new PixelRect ();
+    static WindowManager s_cWindowManager = null;
+    WWindowInterface m_cWindow;
+    Thread m_cThread;
+    PixelRect m_cFrame = new PixelRect ();
 
     /**
      * Create a window of specified size and attributes.
@@ -21,20 +21,20 @@ public class WWindow implements Runnable
      * @param cFrame   Frame rectangle of the window
      * @param nFlags   Flags for the window (currently unused)
      */
-	public WWindow (String cTitle, PixelRect cFrame, WindowFlags nFlags)
-	{
-		if (s_cWindowManager == null)
-		{
-			Naming naming = InitialNaming.getInitialNaming();
-			s_cWindowManager = (WindowManager) LookupHelper.waitUntilPortalAvailable(naming, "WindowManager");
-		}
-		DomainManager domainManager = (DomainManager) InitialNaming.getInitialNaming().lookup("DomainManager");
-		int domainID = domainManager.getCurrentDomain().getID();
+    public WWindow (String cTitle, PixelRect cFrame, WindowFlags nFlags)
+    {
+            if (s_cWindowManager == null)
+            {
+                    Naming naming = InitialNaming.getInitialNaming();
+                    s_cWindowManager = (WindowManager) LookupHelper.waitUntilPortalAvailable(naming, "WindowManager");
+            }
+            DomainManager domainManager = (DomainManager) InitialNaming.getInitialNaming().lookup("DomainManager");
+            int domainID = domainManager.getCurrentDomain().getID();
 
-		m_cWindow = s_cWindowManager.createWindow (cTitle+" (Domain "+domainID+")", cFrame, nFlags);
-		m_cFrame.setTo (cFrame);
-		m_cThread = new Thread (this, cTitle);
-	}
+            m_cWindow = s_cWindowManager.createWindow (cTitle+" (Domain "+domainID+")", cFrame, nFlags);
+            m_cFrame.setTo (cFrame);
+            m_cThread = new Thread (this, cTitle);
+    }
         
 	public void show (boolean bState)
 	{
@@ -42,9 +42,7 @@ public class WWindow implements Runnable
 		{
 			m_cThread.start ();
 			m_cWindow.show (true);
-		}
-		else
-		{
+		} else {
 			m_cWindow.show (false);
 			m_cThread.stop ();
 		}
@@ -56,8 +54,7 @@ public class WWindow implements Runnable
 		boolean bRun = true;
 
 		/* crash?
-			Debug.out.println ("WWindow::run(" + m_cWindow + ") " +
-												 m_cThread.getName ());
+			Debug.out.println ("WWindow::run(" + m_cWindow + ") " + m_cThread.getName ());
 		*/
 
 		while (bRun == true)
@@ -172,9 +169,9 @@ public class WWindow implements Runnable
         
 	/**
 	 * Hook function called, when the window has to be redrawn.If you
- want to update part of the window by yourself, don't call this 
- method directly! Use "invalidate" instead.
-     * @param cUpdateRect
+         * want to update part of the window by yourself, don't call this 
+         * method directly! Use "invalidate" instead.
+         * @param cUpdateRect
 	 */
 	public void paint (PixelRect cUpdateRect)
 	{
@@ -182,7 +179,7 @@ public class WWindow implements Runnable
         
 	/**
 	 * Handle a message.
-     * @param cMsg
+         * @param cMsg
 	 */
 	public void handleMessage (jx.wm.message.WMessage cMsg)
 	{
@@ -190,7 +187,7 @@ public class WWindow implements Runnable
         
 	/** 
 	 * Hook function called, when the window gets resized 
-     * @param cRect
+         * @param cRect
 	 */
 	public void windowResized (PixelRect cRect)
 	{
@@ -239,7 +236,7 @@ public class WWindow implements Runnable
         
 	/**
 	 * Hook function called when window is activated
-     * @param bActivated
+         * @param bActivated
 	 */
 	public void windowActivated (boolean bActivated)
 	{
@@ -259,7 +256,7 @@ public class WWindow implements Runnable
 	 */
 	public void quit ()
 	{
-		m_cWindow.quit ();
+            m_cWindow.quit ();
 	}
         
         // @ Marco Winter
@@ -270,14 +267,14 @@ public class WWindow implements Runnable
         
 	/**
 	 * Invalidate a certain rectangular area of the window.This call will
- invoke the "paint" hook function.
-     * @param cRect
+         * invoke the "paint" hook function.
+         * @param cRect
 	 */
 	public void invalidate (PixelRect cRect)
 	{
-		m_cWindow.startUpdate ();
-		paint (new PixelRect (cRect));
-		m_cWindow.endUpdate ();
+            m_cWindow.startUpdate ();
+            paint (new PixelRect (cRect));
+            m_cWindow.endUpdate ();
 	}
         
         public  void startUpdate()
@@ -427,55 +424,57 @@ public class WWindow implements Runnable
         
     public void makeFocus (boolean bFocus)
     {
-		m_cWindow.makeFocus (bFocus);
+        m_cWindow.makeFocus (bFocus);
     }
     
-	/**
-	 * Move the window in front of all other windows.
-	 */
-	public void moveToFront ()
-	{
-		m_cWindow.moveToFront ();
-	}
+    /**
+     * Move the window in front of all other windows.
+     */
+    public void moveToFront ()
+    {
+        m_cWindow.moveToFront ();
+    }
 
     public int getDisplayWidth() {
 	return s_cWindowManager.getDisplayWidth();
     }
+    
     public int getDisplayHeight() {
 	return s_cWindowManager.getDisplayHeight();
     }
 
-	public void invertRect (int x, int y, int w, int h)
-	{
-		m_cWindow.invertRect (x, y, w, h);
-	}
-	/**
-	 * Sets the bitmap, where all drawing commands will go to.
-	 * if pcBitmap == null the screen will used for drawing.
-	 * Example usage for a backbuffer:
-	 * 
-	 * void paint (PixelRect cUpdateRect)
-	 * {
-	 *   setBitmap (myBackBuffer); // set the back buffer
-	 *   do drawing stuff...       // all drawings will go to the back buffer
-	 *   setBitmap (null);         // set screen
-	 *   drawBitmap (myBackBuffer, 0, 0); // draw back buffer
-	 * }
-	 */
-	public void setBitmap (WBitmap pcBitmap)
-	{
-		m_cWindow.setBitmap (pcBitmap);
-	}
+    public void invertRect (int x, int y, int w, int h)
+    {
+        m_cWindow.invertRect (x, y, w, h);
+    }
+    
+    /**
+     * Sets the bitmap, where all drawing commands will go to.
+     * if pcBitmap == null the screen will used for drawing.
+     * Example usage for a backbuffer:
+     * 
+     * void paint (PixelRect cUpdateRect)
+     * {
+     *   setBitmap (myBackBuffer); // set the back buffer
+     *   do drawing stuff...       // all drawings will go to the back buffer
+     *   setBitmap (null);         // set screen
+     *   drawBitmap (myBackBuffer, 0, 0); // draw back buffer
+     * }
+     */
+    public void setBitmap (WBitmap pcBitmap)
+    {
+        m_cWindow.setBitmap (pcBitmap);
+    }
 
-	final public void enableBackBuffer(boolean enable) {
-		m_cWindow.enableBackBuffer(enable);
-	}
+    final public void enableBackBuffer(boolean enable) {
+        m_cWindow.enableBackBuffer(enable);
+    }
 
-	final public void resetBackBuffer() {
-		m_cWindow.resetBackBuffer();
-	}
+    final public void resetBackBuffer() {
+        m_cWindow.resetBackBuffer();
+    }
 
-	public void drawBackBuffer() {
-		m_cWindow.drawBackBuffer();
-	}
+    public void drawBackBuffer() {
+        m_cWindow.drawBackBuffer();
+    }
 }

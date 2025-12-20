@@ -145,24 +145,22 @@ public final class Buffers
   {
     Object from;
     if (src instanceof DataBufferByte)
-      {
+    {
 	from = ((DataBufferByte) src).getData();
 	if (dest == null) dest = new byte[length+destOffset];
-      }
+    }
     else if (src instanceof DataBufferUShort)
-      {
+    {
 	from = ((DataBufferUShort) src).getData();
 	if (dest == null) dest = new short[length+destOffset];
-      }
+    }
     else if (src instanceof DataBufferInt)
-      {
+    {
 	from = ((DataBufferInt) src).getData();
 	if (dest == null) dest = new int[length+destOffset];
-      }
-    else
-      {
+    } else {
 	throw new ClassCastException("Unknown data buffer type");
-      }
+    }
     
     System.arraycopy(from, srcOffset, dest, destOffset, length);
     return dest;
@@ -177,20 +175,18 @@ public final class Buffers
   public static int smallestAppropriateTransferType(int bits)
   {
     if (bits <= 8)
-      {
+    {
 	return DataBuffer.TYPE_BYTE;
-      }
+    }
     else if (bits <= 16)
-      {
+    {
 	return DataBuffer.TYPE_USHORT;
-      } 
+    } 
     else if (bits <= 32)
-      {
+    {
 	return DataBuffer.TYPE_INT;
-      }
-    else
-      {
+    } else {
 	return DataBuffer.TYPE_UNDEFINED;
-      }
+    }
   }
 }

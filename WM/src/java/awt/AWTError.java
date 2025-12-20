@@ -46,17 +46,15 @@ package java.awt;
 public class AWTError extends Error
 {
 
-/**
-  * Initializes a new instance of <code>AWTError</code> with the specified
-  * descriptive error message.
-  *
-  * @param message The descriptive error message.
-  */
-public
-AWTError(String message)
-{
-  super(message);
-}
+    /**
+      * Initializes a new instance of <code>AWTError</code> with the specified
+      * descriptive error message.
+      *
+      * @param message The descriptive error message.
+      */
+    public AWTError(String message)
+    {
+      super(message);
+    }
 
 } // class AWTError 
-

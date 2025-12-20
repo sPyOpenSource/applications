@@ -513,27 +513,26 @@ public class WView
 			//Debug.out.println ("palette: [" + Integer.toHexString(m_anFontPalette[0]) + ", " +
 			//	Integer.toHexString (m_anFontPalette[WFont.NUM_FONT_GRAYS-1]) + "]");
   		}
-		for (i = 0; i < nLength; ++i)
-    	{
+		for (i = 0; i < nLength; ++i){
    			char	nChar = cString.charAt(i);
    			Glyph cGlyph = m_cFont.getGlyph(((int)nChar) & 0xffff);
 			PixelRect cClip = new PixelRect ();
 
   			if (cGlyph == null) 
    	 		{
- 				Debug.out.println ("Error: WView::drawString() failed to load glyph");
-  	    		continue;
-	    	}      
+                            Debug.out.println ("Error: WView::drawString() failed to load glyph");
+                            continue;
+                        }      
       
 			for (int j = 0; j < cReg.countRects(); j++)
   			{
-				cClip.setTo (cReg.rectAt(j));
-				cClip.add (cTopLeft);
-	    		m_cBitmap.renderGlyph (cGlyph, cPos.m_nX, cPos.m_nY, cClip, m_anFontPalette);
-	    	}
+                            cClip.setTo (cReg.rectAt(j));
+                            cClip.add (cTopLeft);
+                            m_cBitmap.renderGlyph (cGlyph, cPos.m_nX, cPos.m_nY, cClip, m_anFontPalette);
+                        }
    			cPos.m_nX += cGlyph.m_nAdvance;
    			m_cPenPos.m_nX += cGlyph.m_nAdvance;
-    	}
+                }
 /*TODO
   		if (m_pcOwner == NULL || m_pcOwner->IsOffScreen() == false) 
   			SrvSprite::Unhide();
@@ -567,9 +566,7 @@ public class WView
 			drawLine (cRect.m_nX1, cRect.m_nY1);
 			drawLine (cRect.m_nX0, cRect.m_nY1);
 
-		}	
-		else
-		{
+		} else {
 			PixelColor sShinePen  = getDefaultColor (COL_SHINE);
 			PixelColor sShadowPen = getDefaultColor (COL_SHADOW);
 
@@ -607,9 +604,7 @@ public class WView
 
 					drawLine (cRect.m_nX1 - 1, cRect.m_nY1 - 1);
 					drawLine (cRect.m_nX0 + 1, cRect.m_nY1 - 1);
-				}
-				else
-				{
+				} else {
 					PixelColor sBrightPen = getDefaultColor (COL_SHINE);
 					PixelColor sDarkPen   = getDefaultColor (COL_SHADOW);
 
@@ -625,9 +620,7 @@ public class WView
 					drawLine (cRect.m_nX1 - 1, cRect.m_nY1 - 1);
 					drawLine (cRect.m_nX0 + 1, cRect.m_nY1 - 1);
 				}
-			}
-			else
-			{
+			} else {
 				if ((nStyle & FRAME_TRANSPARENT) == 0)
 				{
 					fillRect (new PixelRect (cRect.m_nX0 + 1, cRect.m_nY0 + 1, cRect.m_nX1 - 1,
@@ -637,6 +630,7 @@ public class WView
 			}
 		}
 	}
+        
 	public void getFontHeight (WFontHeight cFontHeight)
 	{
 		m_cFont.getFontHeight (cFontHeight);
@@ -854,6 +848,7 @@ public class WView
 	{
 		fillRect (cRect, m_cFgColor);
 	}
+        
 	public void fillRect (PixelRect cRect, DrawingMode nMode)
 	{
 		fillRect (cRect, m_cFgColor, nMode);
@@ -1017,6 +1012,7 @@ public class WView
 	{
 		addChild (cChild, true);
 	}
+        
 	public void addChild (WView cChild, boolean bTopmost)
 	{
 		//Debug.out.println (m_cName + ": WView::addChild(" + cChild.m_cName + ", " + bTopmost + ", " + m_nHideCount + ")");
@@ -1032,9 +1028,7 @@ public class WView
 			m_cTopChild = cChild;
 			cChild.m_cLowerSibling = null;
 			cChild.m_cHigherSibling = null;
-		}
-		else
-		{
+		} else {
 			if (bTopmost)
 			{
 				if (cChild.m_bBackdrop == false)
@@ -1044,9 +1038,7 @@ public class WView
 					cChild.m_cLowerSibling = m_cTopChild;
 					m_cTopChild = cChild;
 					cChild.m_cHigherSibling = null;
-				}
-				else
-				{
+				} else {
 					WView cTmp;
 	
 					for (cTmp = m_cBottomChild; cTmp != null;
@@ -1064,18 +1056,14 @@ public class WView
 							cChild.m_cLowerSibling.m_cHigherSibling = cChild;
 						else
 							m_cBottomChild = cChild;
-					}
-					else
-					{
+					} else {
 						m_cTopChild.m_cHigherSibling = cChild;
 						cChild.m_cLowerSibling = m_cTopChild;
 						m_cTopChild = cChild;
 						cChild.m_cHigherSibling = null;
 					}
 				}
-			}	
-			else
-			{
+                        } else {
 				if (cChild.m_bBackdrop)
 				{
 					if (null != m_cBottomChild)
@@ -1085,9 +1073,7 @@ public class WView
 					cChild.m_cHigherSibling = m_cBottomChild;
 					m_cBottomChild = cChild;
 					cChild.m_cLowerSibling = null;
-				}
-				else
-				{
+				} else {
 					WView cTmp;
 	
 					for (cTmp = m_cBottomChild; cTmp != null; cTmp = cTmp.m_cHigherSibling)
@@ -1104,9 +1090,7 @@ public class WView
 							cChild.m_cLowerSibling.m_cHigherSibling = cChild;
 						else
 							m_cBottomChild = cChild;
-					}
-					else
-					{
+					} else {
 						m_cTopChild.m_cHigherSibling = cChild;
 						cChild.m_cLowerSibling = m_cTopChild;
 						m_cTopChild = cChild;
@@ -1286,9 +1270,7 @@ public class WView
 			if (null == m_cParent)
 			{
 				m_cFullReg.include (m_cFrame);
-			}
-			else
-			{
+			} else {
 				if (m_cParent.m_cFullReg.isEmpty() == false)
 				{
 					m_cFullReg.includeIntersection (m_cParent.m_cFullReg, m_cFrame, true);
@@ -1390,9 +1372,7 @@ public class WView
 				invalidate (false);
 				if ((m_nFlags & WID_CLEAR_BACKGROUND) != 0)
 					clearRegion (m_cDamageReg);
-			}
-			else
-			{
+			} else {
 				if (m_cVisibleReg.isEmpty() == false)
 				{
 					cRegion.include (m_cVisibleReg);
@@ -1410,9 +1390,7 @@ public class WView
 							cRegion.makeEmpty ();
 						if ((m_nFlags & WID_CLEAR_BACKGROUND) != 0)
 							clearRegion (m_cDamageReg);
-					}
-					else
-					{
+					} else {
 						for (int i = 0; i < cRegion.countRects(); i++)
 						{
 							invalidate (cRegion.rectAt (i));
@@ -1548,8 +1526,7 @@ public class WView
 	    if (m_bIsUpdating && m_cActiveDamageReg.isEmpty()) 
 			return null;
 
-    	if (!m_bIsUpdating) 
-		{
+            if (!m_bIsUpdating) {
 			if (m_cUserClipReg.isEmpty()) 
 			{
 	    		return m_cVisibleReg;
@@ -1564,15 +1541,15 @@ public class WView
 					m_cDrawReg.exclude (cTmp);
 	    		}
 			}
-    	} 
+            } 
 		else if (m_cDrawReg.isEmpty() && !m_cVisibleReg.isEmpty()) 
 		{
 			m_cDrawReg.include (m_cVisibleReg);
 			m_cDrawReg.intersect (m_cActiveDamageReg);
 			if (!m_cUserClipReg.isEmpty())
 				m_cDrawReg.intersect (m_cUserClipReg);
-    	}
-    	return m_cDrawReg;
+                }
+            return m_cDrawReg;
 	}
 	void moveChilds ()
 	{
@@ -1764,9 +1741,7 @@ public class WView
 			{
 				cParent.removeChild (this);
 				cParent.addChild (this, false);
-			}
-			else
-			{
+			} else {
 				cParent.removeChild (this);
 				cParent.addChild (this, true);
 			}
@@ -1789,5 +1764,4 @@ public class WView
 		}
 		return (false);
 	}
-
 }

@@ -39,7 +39,6 @@ exception statement from your version. */
 package java.awt;
 
 import java.awt.peer.LabelPeer;
-import java.awt.peer.ComponentPeer;
 
 /**
   * This component is used for displaying simple text strings that cannot
@@ -100,8 +99,7 @@ private String text;
 /**
   * Initializes a new instance of <code>Label</code> with no text.
   */
-public
-Label()
+public Label()
 {
   this("", LEFT);
 }
@@ -114,8 +112,7 @@ Label()
   *
   * @param text The text of the label.
   */
-public
-Label(String text)
+public Label(String text)
 {
   this(text, LEFT);
 }
@@ -131,8 +128,7 @@ Label(String text)
   * which must be one of <code>LEFT</code>, <code>CENTER</code>, or
   * <code>RIGHT</code>.
   */
-public
-Label(String text, int alignment)
+public Label(String text, int alignment)
 {
   setAlignment (alignment);
   setText (text);
@@ -151,8 +147,7 @@ Label(String text, int alignment)
   *
   * @return The alignment of the text in the label.
   */
-public int
-getAlignment()
+public int getAlignment()
 {
   return(alignment);
 }
@@ -166,8 +161,7 @@ getAlignment()
   * which must be one of <code>LEFT</code>, <code>CENTER</code>, or
   * <code>RIGHT</code>.
   */
-public synchronized void
-setAlignment(int alignment)
+public synchronized void setAlignment(int alignment)
 {
   if (alignment != CENTER && alignment != LEFT && alignment != RIGHT)
     throw new IllegalArgumentException ("invalid alignment: " + alignment);
@@ -186,8 +180,7 @@ setAlignment(int alignment)
   *
   * @return The text for this label.
   */
-public String
-getText()
+public String getText()
 {
   return(text);
 }
@@ -199,8 +192,7 @@ getText()
   *
   * @param text The new text for this label.
   */
-public synchronized void
-setText(String text)
+public synchronized void setText(String text)
 {
   this.text = text;
 
@@ -218,8 +210,7 @@ setText(String text)
   * the peer to be created.  This method is called internally by the AWT
   * system.
   */
-public void
-addNotify()
+public void addNotify()
 {
   /*if (peer == null)
     peer = getToolkit ().createLabel (this);*/
@@ -231,10 +222,8 @@ addNotify()
 /**
   * Returns a parameter string useful for debugging.
   *
-  * @param A debugging string.
   */
-protected String
-paramString()
+protected String paramString()
 {
   return ("text=" + getText() + ",alignment=" +
 	  getAlignment() + "," + super.paramString());
@@ -245,4 +234,3 @@ paramString()
     }
 
 } // class Label
-

@@ -39,9 +39,7 @@ exception statement from your version. */
 package java.awt;
 
 import java.awt.peer.PopupMenuPeer;
-import java.awt.peer.MenuPeer;
-import java.awt.peer.MenuItemPeer;
-import java.awt.peer.MenuComponentPeer;
+
 /**
   * This class implement an AWT popup menu widget
   *

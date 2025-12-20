@@ -38,9 +38,6 @@ exception statement from your version. */
 
 package java.awt;
 
-import java.awt.peer.PanelPeer;
-import java.awt.peer.ContainerPeer;
-import java.awt.peer.ComponentPeer;
 import java.util.Locale;
 
 /**
