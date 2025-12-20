@@ -55,29 +55,29 @@ public abstract class Emulator {
    * @return the String representation of the given value
    */
   public static String toDecString(int val) {
-    boolean negative = (val<0);
+    boolean negative = (val < 0);
     int digit, temp, count, j, div, count2;
     if (val == -2147483648) return "-2147483648";
     if (val == 0) return "0";
-    if (negative) val=-val;
-    temp=val;
-    count=0;
-    while (temp>0) {
-      temp=temp/10;
+    if (negative) val = -val;
+    temp = val;
+    count = 0;
+    while (temp > 0) {
+      temp = temp / 10;
       count++;
     }
-    temp=val;
-    count2=0;
+    temp = val;
+    count2 = 0;
     if (negative) {
-      buf[count2]='-';
+      buf[count2] = '-';
       count2++;
     }
-    while (count>0) {
-      div=1;
-      for (j=1; j<count; j++) div=div*10;
-      digit=temp/div;
-      buf[count2]=(char)(digit+48);
-      temp=temp-(digit*div);
+    while (count > 0) {
+      div = 1;
+      for (j = 1; j < count; j++) div = div * 10;
+      digit = temp / div;
+      buf[count2] = (char)(digit + 48);
+      temp = temp - (digit * div);
       count--;
       count2++;
     }
@@ -91,12 +91,12 @@ public abstract class Emulator {
    */
   public static String toLongHexString(long val) {
     int i, t;
-    buf[0]='0';
-    buf[1]='x';
-    for (i=0; i<16; i++) {
-      t=(int)(val>>>(i<<2))&0xF;
-      if (t>=0 && t<=9) buf[17-i]=(char)(t+48);
-      else buf[17-i]=(char)(t+55);
+    buf[0] = '0';
+    buf[1] = 'x';
+    for (i = 0; i < 16; i++) {
+      t = (int)(val >>> (i << 2)) & 0xF;
+      if (t >= 0 && t <= 9) buf[17 - i] = (char)(t + 48);
+      else buf[17 - i] = (char)(t + 55);
     }
     return new String(buf, 0, 18);
   }
@@ -154,11 +154,11 @@ public abstract class Emulator {
    * @param read true if this is a read, false otherwise
    */
   private void memCondCheck(int address, int size, boolean type, boolean read) {
-    Condition temp=firstMemC;
-    while (temp!=null) {
+    Condition temp = firstMemC;
+    while (temp != null) {
       if (temp.hit(address, size, type, read))
         listener.breakPointOccurred(temp);
-      temp=temp.next;
+      temp = temp.next;
     }
   }
   
@@ -167,11 +167,11 @@ public abstract class Emulator {
    *
    */
   protected void breakCondCheck() {
-    Condition temp=firstBreakPointC;
-    while (temp!=null) {
+    Condition temp = firstBreakPointC;
+    while (temp != null) {
       if (temp.hit(this))
         listener.breakPointOccurred(temp);
-      temp=temp.next;
+      temp = temp.next;
     }
   }
   
@@ -196,16 +196,16 @@ public abstract class Emulator {
    * @param b the byte to write
    */
   public void write8(boolean type, int address, byte b) {
-    AddressRange tempBlock=firstBlock;
-    if (firstMemC!=null)
+    AddressRange tempBlock = firstBlock;
+    if (firstMemC != null)
       memCondCheck(address, 1, type, false);
-    while(tempBlock!=null) {
-      if ((tempBlock.type==type)&&(tempBlock.startAddr<=address)
-          &&(tempBlock.startAddr+tempBlock.length>address)) {
+    while(tempBlock != null) {
+      if ((tempBlock.type == type) && (tempBlock.startAddr <= address)
+          && (tempBlock.startAddr + tempBlock.length > address)) {
         tempBlock.write8(address, b);
         return;
       }
-      tempBlock=tempBlock.nextBlock;
+      tempBlock = tempBlock.nextBlock;
     }
   }
   
@@ -216,16 +216,16 @@ public abstract class Emulator {
    * @param s the short to write
    */
   public void write16(boolean type, int address, short s) {
-    AddressRange tempBlock=firstBlock;
-    if (firstMemC!=null)
+    AddressRange tempBlock = firstBlock;
+    if (firstMemC != null)
       memCondCheck(address, 2, type, false);
-    while(tempBlock!=null) {
-      if ((tempBlock.type==type)&&(tempBlock.startAddr<=address)
-          &&(tempBlock.startAddr+tempBlock.length>address)) {
+    while(tempBlock != null) {
+      if ((tempBlock.type == type) && (tempBlock.startAddr <= address)
+          && (tempBlock.startAddr + tempBlock.length > address)) {
         tempBlock.write16(address, s);
         return;
       }
-      tempBlock=tempBlock.nextBlock;
+      tempBlock = tempBlock.nextBlock;
     }
   }
   
@@ -236,16 +236,16 @@ public abstract class Emulator {
    * @param i the int to write
    */
   public void write32(boolean type, int address, int i) {
-    AddressRange tempBlock=firstBlock;
-    if (firstMemC!=null)
+    AddressRange tempBlock = firstBlock;
+    if (firstMemC != null)
       memCondCheck(address, 4, type, false);
-    while(tempBlock!=null) {
-      if ((tempBlock.type==type)&&(tempBlock.startAddr<=address)
-          &&(tempBlock.startAddr+tempBlock.length>address)) {
+    while(tempBlock != null) {
+      if ((tempBlock.type == type) && (tempBlock.startAddr <= address)
+          && (tempBlock.startAddr + tempBlock.length > address)) {
         tempBlock.write32(address, i);
         return;
       }
-      tempBlock=tempBlock.nextBlock;
+      tempBlock = tempBlock.nextBlock;
     }    
   }
   
@@ -383,7 +383,7 @@ public abstract class Emulator {
     ram.write8(2, raw[2]);
     ram.write8(3, raw[3]);
     startAddr = ram.read32(0);
-    //startAddr = 0x7c00;
+    startAddr = 0x7c00;
     ram.write32(0, 0);
     // init the ram
     ram.initRAM(startAddr, raw);

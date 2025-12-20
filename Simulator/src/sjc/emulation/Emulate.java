@@ -2711,9 +2711,9 @@ public class Emulate extends JFrame implements ActionListener,
     byte[] data;
     
     try {
-      is=new FileInputStream(fname);
-      cnt=is.available();
-      data=new byte[cnt];
+      is = new FileInputStream(fname);
+      cnt = is.available();
+      data = new byte[cnt];
       if (is.read(data, 0, cnt)!=cnt) {
         is.close();
         return null;

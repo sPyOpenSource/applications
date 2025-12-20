@@ -26,6 +26,7 @@
 package de.mud.terminal;
 
 import java.awt.Graphics;
+import java.util.HashMap;
 
 /**
  * Any characters that are not available in standard java fonts may be
@@ -47,7 +48,7 @@ public class SoftFont {
 	final static private char SF_HEIGHT = 2;
 	final static private char SF_TYPE   = 3;
 	final static private char SF_DATA   = 4;
-	java.util.Hashtable font;
+	HashMap font;
 	/** softfont characterdata */
 	private static final char[][] fontdata = {
 	
@@ -1069,7 +1070,7 @@ public class SoftFont {
 	}};
 
 	public SoftFont() {
-		font = new java.util.Hashtable();
+		font = new HashMap();
 		for (int i = 0; i < fontdata.length; i++)
 			font.put(Integer.valueOf(fontdata[i][0]), i);
 

@@ -13,20 +13,19 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.io.InputStream;
-import java.io.File;
 
 import cr0s.javara.entity.building.BibType;
 import cr0s.javara.gameplay.Team.Alignment;
 import cr0s.javara.util.SpriteSheet;
+import soundly.XSound;
+import assets.Assets;
+
 import redhorizon.filetypes.aud.AudFile;
 import redhorizon.filetypes.mix.MixFile;
 import redhorizon.filetypes.mix.MixRecord;
 import redhorizon.filetypes.pal.PalFile;
 import redhorizon.filetypes.shp.ShpFileCnc;
 import redhorizon.filetypes.tmp.TmpFileRA;
-import soundly.XSound;
-import assets.Assets;
 
 public class ResourceManager {
     private static ResourceManager instance;
@@ -34,17 +33,14 @@ public class ResourceManager {
     
     public static final String ROOT_FOLDER = System.getProperty("user.dir")
 	    + System.getProperty("file.separator");
-
     public static final String RESOURCE_FOLDER = ROOT_FOLDER + "assets"
 	    + System.getProperty("file.separator");
     public static final String PAL_FOLDER = RESOURCE_FOLDER + "pal"
 	    + System.getProperty("file.separator");
     public static final String TILESETS_FOLDER = ROOT_FOLDER + "tilesets"
 	    + System.getProperty("file.separator");
-
     public static final String MAPS_FOLDER = ROOT_FOLDER + "maps"
 	    + System.getProperty("file.separator");
-
     public static final String AI_FOLDER = ROOT_FOLDER + "ai" 
 	    + System.getProperty("file.separator");
     

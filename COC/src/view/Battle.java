@@ -7,19 +7,21 @@ import controller.defense.InfernoTowerDefense;
 import controller.defense.TeslaDefense;
 
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.stage.Stage;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.AnchorPane;
 
 import model.Player;
 import model.building.ArcherTower;
@@ -30,11 +32,14 @@ import assets.Assets;
 import cr0s.javara.render.map.TileMap;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
-import javafx.application.Platform;
-import javafx.scene.layout.BorderPane;
 
 public class Battle extends Application {
     private final Assets assets = new Assets();
+    private final static DropShadow shadow = new DropShadow(10, Color.GOLD);
+    private final Player attackingPlayer;
+    private final Player defensivePlayer;
+    private final ArrayList<Player> players;
+    private final AtomicInteger capacityInt;
     
     public Battle(Player attackingPlayer, Player defensivePlayer, ArrayList<Player> players) {
         this.attackingPlayer = attackingPlayer;
@@ -46,7 +51,7 @@ public class Battle extends Application {
     
     @Override
     public void start(Stage stage) {
-        AnchorPane root = attack(stage);
+        AnchorPane root = attack();
         Scene scene = new Scene(root, 1000, 737);
         stage.setScene(scene);
         scene.getStylesheets().add("style.css");
@@ -72,15 +77,8 @@ public class Battle extends Application {
             }
         }
     }
-    
-    private final static DropShadow shadow = new DropShadow(10, Color.GOLD);
 
-    private final Player attackingPlayer;
-    private final Player defensivePlayer;
-    private final ArrayList<Player> players;
-    private final AtomicInteger capacityInt;
-
-    private AnchorPane attack(Stage stage){
+    private AnchorPane attack(){
         AnchorPane root = defensivePlayer.getMap().getMapView();
 
         ImageView imageViewDragon = new ImageView("assets/png/dragon_drag.png");
@@ -212,9 +210,9 @@ imageViewPanda.setEffect(shadow);
 
         root.getChildren().addAll(rectangle, imageViewCapacity, capacity);
         new Thread(){
-            BorderPane rbp = new TileMap().getPane();
             @Override
             public void run(){
+                BorderPane rbp = new TileMap().getPane();
                 Platform.runLater(() -> {
                     root.getChildren().addAll(rbp.getChildren());
                 });

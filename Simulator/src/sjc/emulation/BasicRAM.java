@@ -30,12 +30,12 @@ public class BasicRAM extends AddressRange {
   /**
    * Image of this memory block
    */
-  private byte[] mem;
+  private final byte[] mem;
   
   /**
    * The byte order of this block true for little endian false for big endian
    */
-  private boolean byteOrder;
+  private final boolean byteOrder;
 
   /**
    * Standard constructor
@@ -53,6 +53,7 @@ public class BasicRAM extends AddressRange {
   /**
    * @see AddressRange#write8(int, byte)
    */
+  @Override
   public void write8(int address, byte b) {
     mem[address] = b;
   }
@@ -60,6 +61,7 @@ public class BasicRAM extends AddressRange {
   /**
    * @see AddressRange#write16(int, short)
    */
+  @Override
   public void write16(int address, short s) {
     if (byteOrder) {
       mem[address] = (byte) s;
@@ -74,14 +76,14 @@ public class BasicRAM extends AddressRange {
   /**
    * @see AddressRange#write32(int, int)
    */
+  @Override
   public void write32(int address, int i) {
     if (byteOrder) {
       mem[address] = (byte)i;
       mem[address+1] = (byte)(i >>> 8);
       mem[address+2] = (byte)(i >>> 16);
       mem[address+3] = (byte)(i >>> 24);
-    }
-    else {
+    } else {
       mem[address] = (byte)(i >>> 24);
       mem[address+1] = (byte)(i >>> 16);
       mem[address+2] = (byte)(i >>> 8);
@@ -92,6 +94,7 @@ public class BasicRAM extends AddressRange {
   /**
    * @see AddressRange#write64(int, long)
    */
+  @Override
   public void write64(int address, long l) {
     if (byteOrder) {
       write32(address, (int)l);
@@ -106,6 +109,7 @@ public class BasicRAM extends AddressRange {
   /**
    * @see AddressRange#read8(int)
    */
+  @Override
   public byte read8(int address) {
     return mem[address];
   }
@@ -113,6 +117,7 @@ public class BasicRAM extends AddressRange {
   /**
    * @see AddressRange#read16(int)
    */
+  @Override
   public short read16(int address) {
     if (byteOrder)
       return (short)(((int)mem[address]&0xFF)+(((int)mem[address+1]&0xFF)<<8));
@@ -122,6 +127,7 @@ public class BasicRAM extends AddressRange {
   /**
    * @see AddressRange#read32(int)
    */
+  @Override
   public int read32(int address) {
     if (byteOrder)
       return ((int)mem[address]&0xFF)+(((int)mem[address+1]&0xFF)<<8)
@@ -133,6 +139,7 @@ public class BasicRAM extends AddressRange {
   /**
    * @see AddressRange#read64(int)
    */
+  @Override
   public long read64(int address) {
     if (byteOrder) {
       return ((long)read32(address)&0xFFFFFFFFl)

@@ -2452,9 +2452,9 @@ public class SSAEmul extends Emulator {
       tempIP = currentIP;
       param = readByte();
       opcode = readByte();
-      if(opcode == 0) continue;
+      if(opcode == 0) mn = new Mnemonic(tempIP, "nop ", "", false);
       //check for jump-destination
-      if ((param&SSADef.IPJMPDEST) != 0) {
+      if ((param & SSADef.IPJMPDEST) != 0) {
         param &= ~SSADef.IPJMPDEST;
         isJumpDest = true;
       }
@@ -2489,147 +2489,147 @@ public class SSAEmul extends Emulator {
             lPar = readLong();
           // process instruction
           switch (opcode) {
-            case 0xFF&SSADef.I_MARKER:
-              pars=toDecString(iPar1);
-              mn=new Mnemonic(tempIP, "marker   ", pars, isJumpDest);
+            case 0xFF & SSADef.I_MARKER:
+              pars = toDecString(iPar1);
+              mn = new Mnemonic(tempIP, "marker   ", pars, isJumpDest);
               break;
-            case 0xFF&SSADef.I_ENTER:
-              pars=toDecString(iPar1).concat(" ").
+            case 0xFF & SSADef.I_ENTER:
+              pars = toDecString(iPar1).concat(" ").
                 concat(toDecString(iPar2));
-              mn=new Mnemonic(tempIP, "enter    ", pars, isJumpDest);
+              mn = new Mnemonic(tempIP, "enter    ", pars, isJumpDest);
               break;
-            case 0xFF&SSADef.I_ENTERINL:
-              pars=toDecString(iPar1).concat(" ").
+            case 0xFF & SSADef.I_ENTERINL:
+              pars = toDecString(iPar1).concat(" ").
                 concat(toDecString(iPar2));
-              mn=new Mnemonic(tempIP, "enterinl ", pars, isJumpDest);
+              mn = new Mnemonic(tempIP, "enterinl ", pars, isJumpDest);
               break;
-            case 0xFF&SSADef.I_NFREG:
-             pars=toDecString(iPar1);
-             mn=new Mnemonic(tempIP, "nfreg    ", pars, isJumpDest);
+            case 0xFF & SSADef.I_NFREG:
+             pars = toDecString(iPar1);
+             mn = new Mnemonic(tempIP, "nfreg    ", pars, isJumpDest);
               break;
-            case 0xFF&SSADef.I_LEAVE:
-              pars=toDecString(iPar1).concat(" ").concat(toDecString(iPar2));
-              mn=new Mnemonic(tempIP, "leave    ", pars, isJumpDest);
+            case 0xFF & SSADef.I_LEAVE:
+              pars = toDecString(iPar1).concat(" ").concat(toDecString(iPar2));
+              mn = new Mnemonic(tempIP, "leave    ", pars, isJumpDest);
               break;
-            case 0xFF&SSADef.I_LEAVEINL:
-              pars=toDecString(iPar1).concat(" ").concat(toDecString(iPar2));
-              mn=new Mnemonic(tempIP, "leaveinl ", pars, isJumpDest);
+            case 0xFF & SSADef.I_LEAVEINL:
+              pars = toDecString(iPar1).concat(" ").concat(toDecString(iPar2));
+              mn = new Mnemonic(tempIP, "leaveinl ", pars, isJumpDest);
               break;
-            case 0xFF&SSADef.I_LOADim_i:
-              pars=getType(iPar1).concat("r").concat(toDecString(reg0)).
+            case 0xFF & SSADef.I_LOADim_i:
+              pars = getType(iPar1).concat("r").concat(toDecString(reg0)).
                 concat(",").concat(toDecString(iPar2));
-              mn=new Mnemonic(tempIP, "loadi    ", pars, isJumpDest);
+              mn = new Mnemonic(tempIP, "loadi    ", pars, isJumpDest);
               break;
-            case 0xFF&SSADef.I_LOADim_l:
-              pars=getType(iPar1).concat("r").concat(toDecString(reg0)).concat(
-                  ",").concat(toLongHexString(lPar));
-              mn=new Mnemonic(tempIP, "loadl    ", pars, isJumpDest);
+            case 0xFF & SSADef.I_LOADim_l:
+              pars = getType(iPar1).concat("r").concat(toDecString(reg0)).
+                      concat(",").concat(toLongHexString(lPar));
+              mn = new Mnemonic(tempIP, "loadl    ", pars, isJumpDest);
               break;
-            case 0xFF&SSADef.I_LOADim_p:
-              pars=toHexString(iPar1);
-              mn=new Mnemonic(tempIP, "loadimp  ", pars, isJumpDest);
+            case 0xFF & SSADef.I_LOADim_p:
+              pars = toHexString(iPar1);
+              mn = new Mnemonic(tempIP, "loadimp  ", pars, isJumpDest);
               break;
-            case 0xFF&SSADef.I_LOADnp:
-              pars=getType(iPar1).concat("r").concat(toDecString(reg0));
-              mn=new Mnemonic(tempIP, "loadn    ", pars, isJumpDest);
+            case 0xFF & SSADef.I_LOADnp:
+              pars = getType(iPar1).concat("r").concat(toDecString(reg0));
+              mn = new Mnemonic(tempIP, "loadn    ", pars, isJumpDest);
               break;
-            case 0xFF&SSADef.I_LOADaddr:
-              pars="r".concat(toDecString(reg0)).concat(",[r").concat(
-                  toDecString(reg1)).concat("+".concat(toHexString(iPar1)).
+            case 0xFF & SSADef.I_LOADaddr:
+              pars = "r".concat(toDecString(reg0)).concat(",[r").
+                      concat(toDecString(reg1)).concat("+".concat(toHexString(iPar1)).
                       concat("]"));
-              mn=new Mnemonic(tempIP, "loada    ", pars, isJumpDest);
+              mn = new Mnemonic(tempIP, "loada    ", pars, isJumpDest);
               break;
-            case 0xFF&SSADef.I_LOADval:
-              pars=getType(iPar1).concat("r").concat(toDecString(reg0)).
+            case 0xFF & SSADef.I_LOADval:
+              pars = getType(iPar1).concat("r").concat(toDecString(reg0)).
                 concat(",[r").concat(toDecString(reg1)).concat("]");
-              mn=new Mnemonic(tempIP, "loadv    ", pars, isJumpDest);
+              mn = new Mnemonic(tempIP, "loadv    ", pars, isJumpDest);
               break;
-            case 0xFF&SSADef.I_CONV:
-              pars=getType(iPar1).concat("r").concat(toDecString(reg0)).
+            case 0xFF & SSADef.I_CONV:
+              pars = getType(iPar1).concat("r").concat(toDecString(reg0)).
                 concat(" from ").concat(getType(iPar2)).concat("r").
                 concat(toDecString(reg1));
-              mn=new Mnemonic(tempIP, "conv     ", pars, isJumpDest);
+              mn = new Mnemonic(tempIP, "conv     ", pars, isJumpDest);
               break;
-            case 0xFF&SSADef.I_COPY:
-              pars=getType(iPar1).concat("r").concat(toDecString(reg0)).
+            case 0xFF & SSADef.I_COPY:
+              pars = getType(iPar1).concat("r").concat(toDecString(reg0)).
                 concat(",r").concat(toDecString(reg1));
-              mn=new Mnemonic(tempIP, "copy     ", pars, isJumpDest);
+              mn = new Mnemonic(tempIP, "copy     ", pars, isJumpDest);
               break;
-            case 0xFF&SSADef.I_PUSHim_i:
-              pars=getType(iPar1).concat(" ").concat(toDecString(iPar2));
-              mn=new Mnemonic(tempIP, "pushi    ", pars, isJumpDest);
+            case 0xFF & SSADef.I_PUSHim_i:
+              pars = getType(iPar1).concat(" ").concat(toDecString(iPar2));
+              mn = new Mnemonic(tempIP, "pushi    ", pars, isJumpDest);
               break;
-            case 0xFF&SSADef.I_PUSHim_l:
-              pars=toLongHexString(lPar);
-              mn=new Mnemonic(tempIP, "pushl    ", pars, isJumpDest);
+            case 0xFF & SSADef.I_PUSHim_l:
+              pars = toLongHexString(lPar);
+              mn = new Mnemonic(tempIP, "pushl    ", pars, isJumpDest);
               break;
-            case 0xFF&SSADef.I_PUSHnp:
-              mn=new Mnemonic(tempIP, "pushn    ", "", isJumpDest);
+            case 0xFF & SSADef.I_PUSHnp:
+              mn = new Mnemonic(tempIP, "pushn    ", "", isJumpDest);
               break;
-            case 0xFF&SSADef.I_PUSH:
-              pars=getType(iPar1).concat("r").concat(toDecString(reg0));
-              mn=new Mnemonic(tempIP, "push     ", pars, isJumpDest);
+            case 0xFF & SSADef.I_PUSH:
+              pars = getType(iPar1).concat("r").concat(toDecString(reg0));
+              mn = new Mnemonic(tempIP, "push     ", pars, isJumpDest);
               break;
-            case 0xFF&SSADef.I_POP:
-              pars=getType(iPar1).concat("r").concat(toDecString(reg0));
-              mn=new Mnemonic(tempIP, "pop      ", pars, isJumpDest);
+            case 0xFF & SSADef.I_POP:
+              pars = getType(iPar1).concat("r").concat(toDecString(reg0));
+              mn = new Mnemonic(tempIP, "pop      ", pars, isJumpDest);
               break;
-            case 0xFF&SSADef.I_SAVE:
-              pars=getType(iPar1).concat("r").concat(toDecString(reg0)).
+            case 0xFF & SSADef.I_SAVE:
+              pars = getType(iPar1).concat("r").concat(toDecString(reg0)).
                 concat(",").concat(toDecString(iPar2));
-              mn=new Mnemonic(tempIP, "save     ", pars, isJumpDest);
+              mn = new Mnemonic(tempIP, "save     ", pars, isJumpDest);
               break;
-            case 0xFF&SSADef.I_REST:
-              pars=getType(iPar1).concat("r").concat(toDecString(reg0)).
+            case 0xFF & SSADef.I_REST:
+              pars = getType(iPar1).concat("r").concat(toDecString(reg0)).
                 concat(",").concat(toDecString(iPar2));
-              mn=new Mnemonic(tempIP, "rest     ", pars, isJumpDest);
+              mn = new Mnemonic(tempIP, "rest     ", pars, isJumpDest);
               break;
-            case 0xFF&SSADef.I_ASSIGN:
-              pars=getType(iPar1).concat("[r").concat(toDecString(reg0)).
+            case 0xFF & SSADef.I_ASSIGN:
+              pars = getType(iPar1).concat("[r").concat(toDecString(reg0)).
                 concat("],r").concat(toDecString(reg1));
-              mn=new Mnemonic(tempIP, "assign   ", pars, isJumpDest);
+              mn = new Mnemonic(tempIP, "assign   ", pars, isJumpDest);
               break;
-            case 0xFF&SSADef.I_AND:
-              pars=getType(iPar1).concat("r").concat(toDecString(reg0)).
+            case 0xFF & SSADef.I_AND:
+              pars = getType(iPar1).concat("r").concat(toDecString(reg0)).
                 concat(",r").concat(toDecString(reg1)).concat(",r").
                 concat(toDecString(reg2));
-              mn=new Mnemonic(tempIP, "and      ", pars, isJumpDest);
+              mn = new Mnemonic(tempIP, "and      ", pars, isJumpDest);
               break;
-            case 0xFF&SSADef.I_XOR:
-              pars=getType(iPar1).concat("r").concat(toDecString(reg0)).
-              concat(",r").concat(toDecString(reg1)).concat(",r").
-              concat(toDecString(reg2));
-              mn=new Mnemonic(tempIP, "xor      ", pars, isJumpDest);
+            case 0xFF & SSADef.I_XOR:
+              pars = getType(iPar1).concat("r").concat(toDecString(reg0)).
+                concat(",r").concat(toDecString(reg1)).concat(",r").
+                concat(toDecString(reg2));
+              mn = new Mnemonic(tempIP, "xor      ", pars, isJumpDest);
               break;
-            case 0xFF&SSADef.I_OR:
-              pars=getType(iPar1).concat("r").concat(toDecString(reg0)).
-              concat(",r").concat(toDecString(reg1)).concat(",r").
-              concat(toDecString(reg2));
-              mn=new Mnemonic(tempIP, "or       ", pars, isJumpDest);
+            case 0xFF & SSADef.I_OR:
+              pars = getType(iPar1).concat("r").concat(toDecString(reg0)).
+                concat(",r").concat(toDecString(reg1)).concat(",r").
+                concat(toDecString(reg2));
+              mn = new Mnemonic(tempIP, "or       ", pars, isJumpDest);
               break;
-            case 0xFF&SSADef.I_ADD:
-              pars=getType(iPar1).concat("r").concat(toDecString(reg0)).
-              concat(",r").concat(toDecString(reg1)).concat(",r").
-              concat(toDecString(reg2));
-              mn=new Mnemonic(tempIP, "add      ", pars, isJumpDest);
+            case 0xFF & SSADef.I_ADD:
+              pars = getType(iPar1).concat("r").concat(toDecString(reg0)).
+                concat(",r").concat(toDecString(reg1)).concat(",r").
+                concat(toDecString(reg2));
+              mn = new Mnemonic(tempIP, "add      ", pars, isJumpDest);
               break;
-            case 0xFF&SSADef.I_SUB:
-              pars=getType(iPar1).concat("r").concat(toDecString(reg0)).
-              concat(",r").concat(toDecString(reg1)).concat(",r").
-              concat(toDecString(reg2));
-              mn=new Mnemonic(tempIP, "sub      ", pars, isJumpDest);
+            case 0xFF & SSADef.I_SUB:
+              pars = getType(iPar1).concat("r").concat(toDecString(reg0)).
+                concat(",r").concat(toDecString(reg1)).concat(",r").
+                concat(toDecString(reg2));
+              mn = new Mnemonic(tempIP, "sub      ", pars, isJumpDest);
               break;
-            case 0xFF&SSADef.I_MUL:
-              pars=getType(iPar1).concat("r").concat(toDecString(reg0)).
-              concat(",r").concat(toDecString(reg1)).concat(",r").
-              concat(toDecString(reg2));
-              mn=new Mnemonic(tempIP, "mul      ", pars, isJumpDest);
+            case 0xFF & SSADef.I_MUL:
+              pars = getType(iPar1).concat("r").concat(toDecString(reg0)).
+                concat(",r").concat(toDecString(reg1)).concat(",r").
+                concat(toDecString(reg2));
+              mn = new Mnemonic(tempIP, "mul      ", pars, isJumpDest);
               break;
-            case 0xFF&SSADef.I_DIV:
-              pars=getType(iPar1).concat("r").concat(toDecString(reg0)).
-              concat(",r").concat(toDecString(reg1)).concat(",r").
-              concat(toDecString(reg2));
-              mn=new Mnemonic(tempIP, "div      ", pars, isJumpDest);
+            case 0xFF & SSADef.I_DIV:
+              pars = getType(iPar1).concat("r").concat(toDecString(reg0)).
+                concat(",r").concat(toDecString(reg1)).concat(",r").
+                concat(toDecString(reg2));
+              mn = new Mnemonic(tempIP, "div      ", pars, isJumpDest);
               break;
             case 0xFF&SSADef.I_MOD:      
               pars=getType(iPar1).concat("r").concat(toDecString(reg0)).

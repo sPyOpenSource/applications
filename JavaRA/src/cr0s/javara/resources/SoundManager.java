@@ -1,12 +1,12 @@
 package cr0s.javara.resources;
 
-import java.util.Random;
-
 import cr0s.javara.entity.actor.EntityActor;
 import cr0s.javara.gameplay.Team.Alignment;
 import cr0s.javara.main.GUI;
 import cr0s.javara.util.Pos;
+
 import javafx.scene.shape.Rectangle;
+import java.util.Random;
 import soundly.Soundly;
 import soundly.XSound;
 

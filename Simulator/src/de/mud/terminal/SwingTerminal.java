@@ -97,7 +97,6 @@ public class SwingTerminal extends Component
   private SoftFont sf = new SoftFont();
 
   private boolean colorPrinting = false;	/* print display in color */
-
   private Image backingStore = null;
 
   /**
@@ -312,6 +311,7 @@ public class SwingTerminal extends Component
     this.scrollBar = scrollBar;
     this.scrollBar.setValues(buffer.windowBase, buffer.height, 0, buffer.bufSize - buffer.height);
     this.scrollBar.addAdjustmentListener(new AdjustmentListener() {
+      @Override
       public void adjustmentValueChanged(AdjustmentEvent evt) {
         buffer.setWindowBase(evt.getValue());
       }

@@ -39,7 +39,6 @@ public interface VDUInput {
   public final static int KEY_ALT = 0x04;
   public final static int KEY_ACTION = 0x08;
 
-
   /**
    * Direct access to writing data ...
    * @param b
@@ -86,4 +85,5 @@ public interface VDUInput {
    * @param modifiers shift/alt/control modifiers
    */
   void keyTyped(int keyCode, char keyChar, int modifiers);
+  
 }

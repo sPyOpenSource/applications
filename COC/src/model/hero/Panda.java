@@ -19,7 +19,8 @@ public class Panda extends EntityInfantry{
                 "assets/png/horse2.png", 
                 "assets/png/test.png", 
                 "assets/png/olifant.png", 
-                "assets/png/rubuska.png"
+                "assets/png/rubuska.png",
+                "assets/png/rubuska1.png"
         );
         getImageViews().get(1).setFitWidth(55);
         getImageViews().get(1).setFitHeight(45);
