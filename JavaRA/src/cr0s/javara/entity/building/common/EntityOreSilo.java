@@ -65,7 +65,7 @@ public class EntityOreSilo extends EntityBuilding implements ISelectable, IPower
     private void initTextures() {
 	ShpTexture tex = ResourceManager.getInstance().getConquerTexture(TEXTURE_NAME);
 	
-	this.sheet = new SpriteSheet(tex.getAsCombinedImage(owner.playerColor), 24, 24);
+	this.sheet = new SpriteSheet(tex.getAsCombinedImage(null), 24, 24);
     }
 
     @Override

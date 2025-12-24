@@ -69,7 +69,7 @@ public class EntityAirField extends EntityBuilding implements ISelectable, IPowe
 
     private void initTextures() {
 	ShpTexture tex = ResourceManager.getInstance().getConquerTexture(TEXTURE_NAME);
-	sheet = new SpriteSheet(tex.getAsCombinedImage(owner.playerColor), tex.getAsImage(0, owner.playerColor).getWidth(), tex.getAsImage(0, owner.playerColor).getHeight());
+	sheet = new SpriteSheet(tex.getAsCombinedImage(null), tex.getAsImage(0, null).getWidth(), tex.getAsImage(0, null).getHeight());
     }
 
     @Override

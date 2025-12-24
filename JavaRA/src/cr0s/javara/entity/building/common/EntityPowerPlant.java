@@ -7,15 +7,12 @@ import cr0s.javara.entity.IShroudRevealer;
 import cr0s.javara.entity.building.BibType;
 import cr0s.javara.entity.building.EntityBuilding;
 import cr0s.javara.entity.building.IPowerProducer;
-import cr0s.javara.gameplay.Player;
-import cr0s.javara.gameplay.Team;
 import cr0s.javara.gameplay.Team.Alignment;
 import cr0s.javara.main.GUI;
 import cr0s.javara.resources.ResourceManager;
 import cr0s.javara.resources.ShpTexture;
-import java.awt.image.BufferedImage;
 
-import javafx.scene.Scene;
+import java.awt.image.BufferedImage;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.scene.image.ImageView;
 
@@ -32,7 +29,7 @@ public class EntityPowerPlant extends EntityBuilding implements ISelectable, IPo
     private static final int SHROUD_REVEALING_RANGE = 7;
     private static final int BUILDING_COST = 300;
 
-    public EntityPowerPlant(Float tileX, Float tileY) {
+    public EntityPowerPlant(Double tileX, Double tileY) {
 	super(tileX, tileY, WIDTH_TILES * 24, HEIGHT_TILES * 24, "xx xx ~~");
 
 	setBibType(BibType.SMALL);
@@ -52,17 +49,17 @@ public class EntityPowerPlant extends EntityBuilding implements ISelectable, IPo
 
     private void initTextures() {
 	ShpTexture tex = ResourceManager.getInstance().getConquerTexture(TEXTURE_NAME);
-	normal = tex.getAsImage(0, owner.playerColor);	
-	corrupted = tex.getAsImage(1, owner.playerColor);
+	normal = tex.getAsImage(0, null);	
+	corrupted = tex.getAsImage(1, null);
     }
 
     @Override
     public ImageView renderEntity() {
 	//double nx = posX;
 	//double ny = posY;
-
+ImageView view = null;
 	if (this.getHp() > this.getMaxHp() / 2) {
-	    //normal.draw(nx, ny);
+	    view = new ImageView(SwingFXUtils.toFXImage(normal, null));//.draw(nx, ny);
 	} else {
 	    //corrupted.draw(nx, ny);
 	}
@@ -79,7 +76,9 @@ public class EntityPowerPlant extends EntityBuilding implements ISelectable, IPo
 	if (this.repairIconBlink) {
 	    //repairImage.draw(this.boundingBox.getX() + this.boundingBox.getWidth() / 2 - repairImage.getWidth() / 2, this.boundingBox.getY() + this.boundingBox.getHeight() / 2 - repairImage.getHeight() / 2);
         }
-        return null;
+        view.setX(tileX);
+        view.setY(tileY);
+return view;
     }
 
     @Override

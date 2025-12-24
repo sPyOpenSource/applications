@@ -48,7 +48,7 @@ public class EntityBarracks extends EntityBuilding implements ISelectable, IPowe
     private Pos rallyPos;
     private Pos exitPos;
     
-    public EntityBarracks(Float tileX, Float tileY) {
+    public EntityBarracks(Double tileX, Double tileY) {
 	super(tileX, tileY, WIDTH_TILES * 24, HEIGHT_TILES * 24, "xx xx ~~");
 
 	setBibType(BibType.SMALL);
@@ -70,14 +70,14 @@ public class EntityBarracks extends EntityBuilding implements ISelectable, IPowe
 
     private void initTextures() {
 	ShpTexture tex = ResourceManager.getInstance().getConquerTexture(TEXTURE_NAME);
-	sheet = new SpriteSheet(tex.getAsCombinedImage(owner.playerColor), tex.getAsImage(0, owner.playerColor).getWidth(), tex.getAsImage(0, owner.playerColor).getHeight());
+	sheet = new SpriteSheet(tex.getAsCombinedImage(null), tex.getAsImage(0, null).getWidth(), tex.getAsImage(0, null).getHeight());
     }
 
     @Override
     public ImageView renderEntity() {
 	//double nx = posX;
 	//double ny = posY;
-
+ImageView view = null;
 	int corruptionShift = 0;
 
 	if (this.getHp() > this.getMaxHp() / 2) {
@@ -87,7 +87,7 @@ public class EntityBarracks extends EntityBuilding implements ISelectable, IPowe
 	}
 
 	//sheet.startUse();
-	//sheet.getSubImage(0, corruptionShift + animIndex).drawEmbedded(posX, posY, this.getTextureWidth(), this.getTextureHeight());
+	view = sheet.getSubImage(0, corruptionShift + animIndex);//.drawEmbedded(tileX, tileY, this.getTextureWidth(), this.getTextureHeight());
 	//sheet.endUse();
 
 	// Draw bounding box if debug mode is on
@@ -102,7 +102,9 @@ public class EntityBarracks extends EntityBuilding implements ISelectable, IPowe
 	if (this.repairIconBlink) {
 	    //repairImage.draw(this.boundingBox.getX() + this.boundingBox.getWidth() / 2 - repairImage.getWidth() / 2, this.boundingBox.getY() + this.boundingBox.getHeight() / 2 - repairImage.getHeight() / 2);
 	}
-        return null;
+        view.setX(tileX);
+        view.setY(tileY);
+        return view;
     }
 
     @Override

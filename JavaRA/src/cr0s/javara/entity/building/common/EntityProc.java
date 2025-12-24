@@ -15,8 +15,6 @@ import cr0s.javara.entity.building.IOreCapacitor;
 import cr0s.javara.entity.building.IPowerConsumer;
 import cr0s.javara.entity.vehicle.common.EntityHarvester;
 
-import cr0s.javara.gameplay.Player;
-import cr0s.javara.gameplay.Team;
 import cr0s.javara.gameplay.Team.Alignment;
 import cr0s.javara.main.GUI;
 import cr0s.javara.order.ITargetLines;
@@ -25,9 +23,8 @@ import cr0s.javara.resources.ResourceManager;
 import cr0s.javara.resources.ShpTexture;
 import cr0s.javara.util.Pos;
 import cr0s.javara.util.SpriteSheet;
-import java.awt.image.BufferedImage;
 
-import javafx.scene.Scene;
+import java.awt.image.BufferedImage;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.embed.swing.SwingFXUtils;
@@ -61,7 +58,7 @@ public class EntityProc extends EntityBuilding implements ISelectable, IPowerCon
 
     private static final int BUILDING_COST = 1400;
 
-    public EntityProc(Float tileX, Float tileY) {
+    public EntityProc(Double tileX, Double tileY) {
 	super(tileX, tileY, WIDTH_TILES * 24, HEIGHT_TILES * 24, "_x_ xxx x~~ ~~~");
 
 	setBibType(BibType.MIDDLE);
@@ -113,17 +110,17 @@ public class EntityProc extends EntityBuilding implements ISelectable, IPowerCon
 
     private void initTextures() {
 	ShpTexture tex = ResourceManager.getInstance().getConquerTexture(TEXTURE_NAME);
-	corrupted = tex.getAsImage(1, owner.playerColor);
-	normal = tex.getAsImage(0, owner.playerColor);	
+	corrupted = tex.getAsImage(1, null);
+	normal = tex.getAsImage(0, null);	
     }
 
     @Override
     public ImageView renderEntity() {
 	//double nx = posX;
 	//double ny = posY;
-
+ImageView view = null;
 	if (this.getHp() > this.getMaxHp() / 2) {
-	    //normal.draw(nx, ny);
+	    view = new ImageView(SwingFXUtils.toFXImage(normal, null));//.draw(nx, ny);
 	} else {
 	    //corrupted.draw(nx, ny);
 	}
@@ -140,7 +137,9 @@ public class EntityProc extends EntityBuilding implements ISelectable, IPowerCon
 	if (this.repairIconBlink) {
 	    //repairImage.draw(this.boundingBox.getX() + this.boundingBox.getWidth() / 2 - repairImage.getWidth() / 2, this.boundingBox.getY() + this.boundingBox.getHeight() / 2 - repairImage.getHeight() / 2);
 	}
-        return null;
+        view.setX(tileX);
+        view.setY(tileY);
+        return view;
     }
 
     @Override

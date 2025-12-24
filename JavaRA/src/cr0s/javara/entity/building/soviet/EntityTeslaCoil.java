@@ -94,7 +94,7 @@ public class EntityTeslaCoil extends Defensive implements ISelectable, IPowerCon
     private void initTextures() {
 	ShpTexture tex = ResourceManager.getInstance().getConquerTexture(TEXTURE_NAME);
 
-	this.sheet = new SpriteSheet(tex.getAsCombinedImage(owner.playerColor), 24, 48);
+	this.sheet = new SpriteSheet(tex.getAsCombinedImage(null), 24, 48);
     }
 
     @Override

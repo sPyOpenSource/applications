@@ -17,6 +17,7 @@ import cr0s.javara.entity.building.soviet.EntityBarracks;
 import cr0s.javara.entity.building.soviet.EntityBarredWireWall;
 import cr0s.javara.entity.building.soviet.EntityFireTurret;
 import cr0s.javara.entity.building.soviet.EntityTeslaCoil;
+
 import cr0s.javara.entity.infantry.EntityGrenadeTrooper;
 import cr0s.javara.entity.infantry.EntityInfantry;
 import cr0s.javara.entity.infantry.EntityRifleTrooper;
@@ -46,7 +47,6 @@ public class ProductionQueue {
     public HashMap<String, EntityActor> alliedInfantry = new HashMap<>();
 
     private final HashMap<String, EntityActor> buildables = new HashMap<>();
-
     private final Production currentSovietBuilding, currentAlliedBuilding, currentNeutralBuilding, currentVehicle, currentInfantry;
 
     public ProductionQueue(Player p) {
@@ -93,9 +93,9 @@ public class ProductionQueue {
 	this.sovietBuildings.put("fencicon.shp", new EntityBarredWireWall(0f, 0f));
 	this.sovietBuildings.put("brikicon.shp", new EntityConcreteWall(0f, 0f));
 
-	this.sovietBuildings.put("powricon.shp", new EntityPowerPlant(0f, 0f));
-	this.sovietBuildings.put("barricon.shp", new EntityBarracks(0f, 0f));
-	this.sovietBuildings.put("procicon.shp", new EntityProc(0f, 0f));
+	this.sovietBuildings.put("powricon.shp", new EntityPowerPlant(0d, 0d));
+	this.sovietBuildings.put("barricon.shp", new EntityBarracks(0d, 0d));
+	this.sovietBuildings.put("procicon.shp", new EntityProc(0d, 0d));
 	this.sovietBuildings.put("apwricon.shp", new EntityAdvPowerPlant(0f, 0f));
 	this.sovietBuildings.put("siloicon.shp", new EntityOreSilo(0f, 0f));
 	this.sovietBuildings.put("weapicon.shp", new EntityWarFactory(0f, 0f));
@@ -103,12 +103,12 @@ public class ProductionQueue {
 	this.sovietBuildings.put("afldicon.shp", new EntityAirField(0f, 0f));
 	this.sovietBuildings.put("hpadicon.shp", new EntityHelipad(0f, 0f));
 	
-	this.sovietBuildings.put("fturicon.shp", new EntityFireTurret(0f, 0f));
+	this.sovietBuildings.put("fturicon.shp", new EntityFireTurret(0d, 0d));
 	this.sovietBuildings.put("tslaicon.shp", new EntityTeslaCoil(0f, 0f));	
 	
-	this.alliedBuildings.put("powricon.shp", new EntityPowerPlant(0f, 0f));
+	this.alliedBuildings.put("powricon.shp", new EntityPowerPlant(0d, 0d));
 	//this.sovietBuildings.put("tenticon.shp", new EntityTent(0f, 0f, this.player.getTeam(), this.player));
-	this.alliedBuildings.put("procicon.shp", new EntityProc(0f, 0f));
+	this.alliedBuildings.put("procicon.shp", new EntityProc(0d, 0d));
 	this.alliedBuildings.put("apwricon.shp", new EntityAdvPowerPlant(0f, 0f));
 	this.alliedBuildings.put("siloicon.shp", new EntityOreSilo(0f, 0f));
 	this.alliedBuildings.put("weapicon.shp", new EntityWarFactory(0f, 0f));
@@ -204,14 +204,14 @@ public class ProductionQueue {
     
     public Production getProductionForBuilding(EntityActor target) {
 	switch (target.unitProductionAlingment) {
-	case NEUTRAL:
-	    return this.currentNeutralBuilding;
+            case NEUTRAL:
+                return this.currentNeutralBuilding;
 
-	case SOVIET:
-	    return this.currentSovietBuilding;
+            case SOVIET:
+                return this.currentSovietBuilding;
 
-	case ALLIED:
-	    return this.currentAlliedBuilding;
+            case ALLIED:
+                return this.currentAlliedBuilding;
 	}	
 
 	return null;

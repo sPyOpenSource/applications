@@ -102,11 +102,11 @@ public class EntityWarFactory extends EntityBuilding implements ISelectable, ISh
 
     private void initTextures() {
 	ShpTexture texTop = ResourceManager.getInstance().getConquerTexture(TEXTURE_NAME_TOP);
-	this.sheetTop = new SpriteSheet(texTop.getAsCombinedImage(owner.playerColor, false, 0, 0), 72, 48);
+	this.sheetTop = new SpriteSheet(texTop.getAsCombinedImage(null, false, 0, 0), 72, 48);
 	
 	ShpTexture texDown = ResourceManager.getInstance().getConquerTexture(TEXTURE_NAME_DOWN);
-	weapDownNormal = texDown.getAsImage(0, owner.playerColor);
-	weapDownCorrupted = texDown.getAsImage(1, owner.playerColor);	
+	weapDownNormal = texDown.getAsImage(0, null);
+	weapDownCorrupted = texDown.getAsImage(1, null);	
     }
 
     @Override

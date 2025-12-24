@@ -50,8 +50,8 @@ public class EntityAdvPowerPlant extends EntityBuilding implements ISelectable, 
 
     private void initTextures() {
 	ShpTexture tex = ResourceManager.getInstance().getConquerTexture(TEXTURE_NAME);
-	normal = tex.getAsImage(0, owner.playerColor);	
-	corrupted = tex.getAsImage(1, owner.playerColor);
+	normal = tex.getAsImage(0, null);	
+	corrupted = tex.getAsImage(1, null);
     }
 
     @Override

@@ -114,7 +114,7 @@ public abstract class EntityActor extends Entity implements IOrderIssuer, IOrder
 	Constructor ctor;
 	
 	try {
-	    ctor = (this.getClass()).getDeclaredConstructor(Float.class, Float.class);
+	    ctor = (this.getClass()).getDeclaredConstructor(Double.class, Double.class);
 	    ctor.setAccessible(true);
 	    EntityActor newEntity = (EntityActor) ctor.newInstance(this.getTranslateX(), this.getTranslateY());
 

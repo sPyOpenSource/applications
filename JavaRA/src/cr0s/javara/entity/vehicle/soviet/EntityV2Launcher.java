@@ -57,7 +57,7 @@ public class EntityV2Launcher extends EntityVehicle implements ISelectable, IHav
     public EntityV2Launcher(Float posX, Float posY) {
 	super(posX, posY, TEXTURE_WIDTH, TEXTURE_HEIGHT);
 
-	texture = new SpriteSheet(ResourceManager.getInstance().getConquerTexture(TEXTURE_NAME).getAsCombinedImage(owner.playerColor), TEXTURE_WIDTH, TEXTURE_HEIGHT);
+	texture = new SpriteSheet(ResourceManager.getInstance().getConquerTexture(TEXTURE_NAME).getAsCombinedImage(null), TEXTURE_WIDTH, TEXTURE_HEIGHT);
 	Random r = new Random();
 
 	this.isVisible = true;

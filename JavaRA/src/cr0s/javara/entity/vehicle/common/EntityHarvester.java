@@ -28,6 +28,7 @@ import cr0s.javara.order.Target;
 import cr0s.javara.resources.ResourceManager;
 import cr0s.javara.ui.cursor.CursorType;
 import cr0s.javara.util.Pos;
+import cr0s.javara.util.RotationUtil;
 import cr0s.javara.util.SpriteSheet;
 
 import javafx.scene.Scene;
@@ -89,7 +90,7 @@ public class EntityHarvester extends EntityVehicle implements ISelectable, IShro
 	super(posX, posY, TEXTURE_WIDTH, TEXTURE_HEIGHT);
 
 	//boundingBox.setBounds(posX + 6, posY - 6, (TEXTURE_WIDTH / 2), (TEXTURE_HEIGHT / 2));
-	texture = new SpriteSheet(ResourceManager.getInstance().getConquerTexture(TEXTURE_NAME).getAsCombinedImage(owner.playerColor), TEXTURE_WIDTH, TEXTURE_HEIGHT);
+	texture = new SpriteSheet(ResourceManager.getInstance().getConquerTexture(TEXTURE_NAME).getAsCombinedImage(null), TEXTURE_WIDTH, TEXTURE_HEIGHT);
 	Random r = new Random();
 
 	this.setHp(600);
@@ -144,7 +145,7 @@ public class EntityHarvester extends EntityVehicle implements ISelectable, IShro
     @Override
     public ImageView renderEntity() {
 	//super.renderEntity(g);
-
+ImageView view;
 	if (GUI.DEBUG_MODE) {
 	    //g.setLineWidth(1);
 	    //g.setColor(owner.playerColor);
@@ -158,20 +159,22 @@ public class EntityHarvester extends EntityVehicle implements ISelectable, IShro
 	//texture.startUse();
 
 	if ((this.currentActivity instanceof Wait) || (this.currentActivity instanceof HarvestResource)) {
-	    //texture.getSubImage(0, 32 + (HARVESTING_FRAMES * RotationUtil.quantizeFacings(this.currentFacing, this.MAX_FACINGS) + harvestingFrame)).drawEmbedded(tx, ty, TEXTURE_WIDTH, TEXTURE_HEIGHT); 	    
+	    view = texture.getSubImage(0, 32 + (HARVESTING_FRAMES * RotationUtil.quantizeFacings(this.currentFacing, this.MAX_FACINGS) + harvestingFrame));//.drawEmbedded(tx, ty, TEXTURE_WIDTH, TEXTURE_HEIGHT); 	    
 	} else if ((this.currentFacing == EntityProc.HARV_FACING) 
 		&& ((this.currentActivity instanceof DropResources) || (this.currentActivity instanceof FinishDrop))) {
 	    boolean isFinishing = (this.currentActivity instanceof FinishDrop);
 
-	    //texture.getSubImage(0, 32 + (HARVESTING_FRAMES * 8) + ((isFinishing) ? DROPPING_FRAMES - this.droppingFrame :this.droppingFrame)).drawEmbedded(tx, ty, TEXTURE_WIDTH, TEXTURE_HEIGHT);
+	    view = texture.getSubImage(0, 32 + (HARVESTING_FRAMES * 8) + ((isFinishing) ? DROPPING_FRAMES - this.droppingFrame :this.droppingFrame));//.drawEmbedded(tx, ty, TEXTURE_WIDTH, TEXTURE_HEIGHT);
 	} else {
-	    //texture.getSubImage(0, this.currentFacing).drawEmbedded(tx, ty, TEXTURE_WIDTH, TEXTURE_HEIGHT);
+	    view = texture.getSubImage(0, this.currentFacing);//.drawEmbedded(tx, ty, TEXTURE_WIDTH, TEXTURE_HEIGHT);
 	}
 
 	//texture.endUse();
 
 	//drawPath(g);
-        return null;
+        view.setX(tx);
+        view.setY(ty);
+        return view;
     }
 
     @Override

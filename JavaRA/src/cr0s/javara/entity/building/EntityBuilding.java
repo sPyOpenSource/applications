@@ -30,7 +30,7 @@ public abstract class EntityBuilding extends EntityActor {
     /**
      * Building coordinates aligned to tiled map grid.
      */
-    private int tileX, tileY;
+    public int tileX, tileY;
 
     /**
      * Size of building in tiles.

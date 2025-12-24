@@ -20,7 +20,7 @@ public class EntityGrenadeTrooper extends EntityInfantry implements ISelectable,
     
     private final int BUILD_COST = 160;
     
-    public EntityGrenadeTrooper(double posX, double posY) {
+    public EntityGrenadeTrooper(Double posX, Double posY) {
 	this(posX, posY, SubCell.CENTER);
     }
     

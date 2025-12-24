@@ -48,7 +48,7 @@ public class Player {
 	this.playerColor = color;
 
 	this.world = w;
-	//this.base = new Base(team, this);
+	this.base = new Base(team, this);
 	//this.playerShroud = new Shroud(w, this);
     }
 
@@ -152,7 +152,7 @@ public class Player {
 /*
 	this.world.spawnEntityInWorld(m);	
 	*/
-	//this.base.gainCash(10000);
+	this.base.gainCash(10000);
     }
 
     public OrderTargeter getBestOrderTargeterForTarget(Target target) {
@@ -223,7 +223,7 @@ public class Player {
     }
     
     public void update(int delta) {
-	//this.base.update();
+	this.base.update();
     }
 
     public void notifyDamaged(Entity entity, EntityActor firedBy, int amount,

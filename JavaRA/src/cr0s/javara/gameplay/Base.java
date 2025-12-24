@@ -21,16 +21,15 @@ import cr0s.javara.entity.vehicle.EntityVehicle;
 
 import cr0s.javara.gameplay.Team.Alignment;
 import cr0s.javara.main.GUI;
-import cr0s.javara.render.map.TileSet;
 import cr0s.javara.resources.SoundManager;
 import cr0s.javara.ui.sbpages.SideBarItemsButton;
 import cr0s.javara.util.Pos;
+
 /**
  * Describes player's base.
  * @author Cr0s
  */
 public class Base {
-    private final ArrayList<EntityBuilding> buildings = new ArrayList<>();
 
     public static final int BUILDING_CY_RANGE = 20;
     public static final int BUILDING_NEAREST_BUILDING_DISTANCE = 5;
@@ -61,18 +60,14 @@ public class Base {
     public boolean isFlameTowerPresent = false;
 
     public boolean isProcPresent = false;
-
     public boolean isAnySuperPowerPresent;    
+    public int oreCapacity, ore, displayOre;
 
     private boolean isLowPower = false;
-
     private int powerLevel = 0;
     private int powerConsumptionLevel = 0;
 
-    public int oreCapacity, ore, displayOre;
-
     private final ProductionQueue queue;
-
     private int cash;
     private int displayCash;
 
@@ -81,15 +76,14 @@ public class Base {
 
     private final int TICKS_WAIT_ORE = 2;
     private int ticksWaitOre = 0;    
-
     private final Player owner;
 
     private final float DISPLAY_FRAC_CASH_PER_TICK = 0.07f;
     private final int DISPLAY_CASH_DELTA_PER_TICK = 37;
 
     private final HashSet<Class> buildingClasses = new HashSet<>();
-
     private final ArrayList<EntityBuildingProgress> currentlyBuilding = new ArrayList<>();
+    private final ArrayList<EntityBuilding> buildings = new ArrayList<>();
 
     public Base(Team team, Player aOwner) {
 	this.owner = aOwner;
@@ -245,7 +239,7 @@ public class Base {
     }
 
     public boolean isPossibleToBuildHere(int cellX, int cellY, EntityBuilding targetBuilding) {
-	for (int bX = 0; bX < targetBuilding.getWidthInTiles(); bX++) {
+	/*for (int bX = 0; bX < targetBuilding.getWidthInTiles(); bX++) {
 	    for (int bY = 0; bY < targetBuilding.getHeightInTiles(); bY++) {
 		if (targetBuilding.getBlockingCells()[bX][bY] != TileSet.SURFACE_CLEAR_ID) {
 		    if (!GUI.getInstance().getWorld().isCellBuildable(cellX + bX , cellY + bY)) {
@@ -253,7 +247,7 @@ public class Base {
 		    }
 		}
 	    }
-	}
+	}*/
 
 	return true;
     }
@@ -269,12 +263,12 @@ public class Base {
 	}
 
 	if (checkBuildingDistance(cellX, cellY, targetBuilding instanceof EntityWall)) {
-
 	    EntityBuilding b = (EntityBuilding) targetBuilding.newInstance();
 	    b.changeCellPos(cellX, cellY);
 
-	    GUI.getInstance().getWorld().addBuildingTo(b);
-
+	    EntityBuilding ebp = owner.world.addBuildingTo(b);
+            ebp.owner = owner;
+	owner.entities.add(ebp);
 	    queue.getProductionForBuilding(targetBuilding).deployCurrentActor();
 
 	    return true;

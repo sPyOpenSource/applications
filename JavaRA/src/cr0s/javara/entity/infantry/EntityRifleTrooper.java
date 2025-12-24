@@ -18,7 +18,7 @@ public class EntityRifleTrooper extends EntityInfantry implements ISelectable, I
 
     private final int BUILD_COST = 100;
     
-    public EntityRifleTrooper(Float posX, Float posY) {
+    public EntityRifleTrooper(Double posX, Double posY) {
 	this(posX, posY, SubCell.CENTER);
     }    
     

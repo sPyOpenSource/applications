@@ -35,7 +35,7 @@ public abstract class EntityWall extends EntityBuilding implements IHaveCost, ID
 	ShpTexture tex = ResourceManager.getInstance().getConquerTexture(this.textureName);
 
 	if (tex != null) {
-	    this.sheet = new SpriteSheet(tex.getAsCombinedImage(owner.playerColor), 24, 24);
+	    this.sheet = new SpriteSheet(tex.getAsCombinedImage(null), 24, 24);
 	} else {
 	    System.err.println("Wall texture not found: " + this.textureName);
 	}

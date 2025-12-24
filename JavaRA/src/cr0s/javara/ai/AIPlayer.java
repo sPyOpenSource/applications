@@ -197,10 +197,10 @@ public class AIPlayer extends Player {
 	}
 
 	if (this.ticks % this.feedbackTime == 0) {
-	    //this.productUnits();
+	    this.productUnits();
 	}
 
-	//this.bb.update();
+	this.bb.update();
 	Profiler.getInstance().stopForSection("AI");
     }
 
@@ -344,7 +344,7 @@ public class AIPlayer extends Player {
 
     private EntityActor findClosestEnemy(final Pos center, Player p) {
 	EntityActor closest = null;
-        for(Player player:GUI.getInstance().getWorld().getPlayers()){
+        for(Player player:world.getPlayers()){
             // If we looking for specified owner
 	    if (player != p) {
 		continue;
@@ -387,11 +387,11 @@ public class AIPlayer extends Player {
 
 	case REFERENCES:
 	    // Choose set of cells with resources nearby the base inside buildable area
-	    ArrayList<Pos> resourceTiles = GUI.getInstance().getWorld().chooseTilesInCircle(this.getPlayerSpawnPoint(), this.maxBaseRadius, new CellChooser() {
+	    ArrayList<Pos> resourceTiles = world.chooseTilesInCircle(this.getPlayerSpawnPoint(), this.maxBaseRadius, new CellChooser() {
 
 		@Override
 		public boolean isCellChoosable(Pos cellPos) {
-		    return !GUI.getInstance().getWorld().getMap().getResourcesLayer().isCellEmpty(cellPos);
+		    return !world.getMap().getResourcesLayer().isCellEmpty(cellPos);
 		}
 
 	    });
@@ -755,7 +755,7 @@ public class AIPlayer extends Player {
 	if (!buildables.isEmpty()) {
 	    String randomName = buildables.get(this.rnd.nextInt(buildables.size()));
 	    
-	    //System.out.println("[AI] Building unit: " + randomName);
+	    System.out.println("[AI] Building unit: " + randomName);
 	    this.getBase().getProductionQueue().startBuildingActor(this.getBase().getProductionQueue().getBuildables().get(randomName), null);
 	}
     }

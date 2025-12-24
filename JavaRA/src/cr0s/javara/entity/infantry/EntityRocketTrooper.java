@@ -18,7 +18,7 @@ public class EntityRocketTrooper extends EntityInfantry implements ISelectable, 
     
     private int BUILD_COST = 300;
     
-    public EntityRocketTrooper(Float posX, Float posY) {
+    public EntityRocketTrooper(Double posX, Double posY) {
 	this(posX, posY, SubCell.CENTER);
     }    
     

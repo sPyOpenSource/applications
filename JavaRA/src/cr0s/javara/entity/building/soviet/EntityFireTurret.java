@@ -52,7 +52,7 @@ public class EntityFireTurret extends Defensive implements ISelectable, IPowerCo
     private final AutoTarget autoTarget;
     private final Turret turret;
     
-    public EntityFireTurret(double tileX, double tileY) {
+    public EntityFireTurret(Double tileX, Double tileY) {
 	super(null, 400, null, 0, 0, WIDTH_TILES * 24, HEIGHT_TILES * 24/*, "x"*/, tileX, tileY);
 
 	setBibType(BibType.NONE);
@@ -87,17 +87,17 @@ public class EntityFireTurret extends Defensive implements ISelectable, IPowerCo
     private void initTextures() {
 	ShpTexture tex = ResourceManager.getInstance().getConquerTexture(TEXTURE_NAME);
 	
-	this.sheet = new SpriteSheet(tex.getAsCombinedImage(owner.playerColor), 24, 24);
+	this.sheet = new SpriteSheet(tex.getAsCombinedImage(null), 24, 24);
     }
 
     @Override
     public ImageView renderEntity() {
 	//double nx = posX;
 	//double ny = posY;
-
+ImageView view;
 	int textureIndex = (this.getHp() < this.getMaxHp() / 2) ? 1 : 0;
 
-	//this.sheet.getSubImage(0, textureIndex).draw(nx, ny);
+	view = this.sheet.getSubImage(0, textureIndex);//.draw(nx, ny);
 	
 	// Draw bounding box if debug mode is on
 	if (GUI.DEBUG_MODE) {
@@ -118,7 +118,9 @@ public class EntityFireTurret extends Defensive implements ISelectable, IPowerCo
 	if (this.repairIconBlink) {
 	    //repairImage.draw(this.boundingBox.getX() + this.boundingBox.getWidth() / 2 - repairImage.getWidth() / 2, this.boundingBox.getY() + this.boundingBox.getHeight() / 2 - repairImage.getHeight() / 2);
 	}
-        return null;
+        view.setX(tileX);
+        view.setY(tileY);
+        return view;
     }
 
     @Override
