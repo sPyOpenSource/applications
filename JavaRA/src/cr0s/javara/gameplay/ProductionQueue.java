@@ -99,7 +99,7 @@ public class ProductionQueue {
 	this.sovietBuildings.put("apwricon.shp", new EntityAdvPowerPlant(0f, 0f));
 	this.sovietBuildings.put("siloicon.shp", new EntityOreSilo(0f, 0f));
 	this.sovietBuildings.put("weapicon.shp", new EntityWarFactory(0f, 0f));
-	this.sovietBuildings.put("domeicon.shp", new EntityRadarDome(0f, 0f));
+	this.sovietBuildings.put("domeicon.shp", new EntityRadarDome(0d, 0d));
 	this.sovietBuildings.put("afldicon.shp", new EntityAirField(0f, 0f));
 	this.sovietBuildings.put("hpadicon.shp", new EntityHelipad(0f, 0f));
 	
@@ -112,7 +112,7 @@ public class ProductionQueue {
 	this.alliedBuildings.put("apwricon.shp", new EntityAdvPowerPlant(0f, 0f));
 	this.alliedBuildings.put("siloicon.shp", new EntityOreSilo(0f, 0f));
 	this.alliedBuildings.put("weapicon.shp", new EntityWarFactory(0f, 0f));
-	this.alliedBuildings.put("domeicon.shp", new EntityRadarDome(0f, 0f));
+	this.alliedBuildings.put("domeicon.shp", new EntityRadarDome(0d, 0d));
 	this.alliedBuildings.put("hpadicon.shp", new EntityHelipad(0f, 0f));
 	
 	/*

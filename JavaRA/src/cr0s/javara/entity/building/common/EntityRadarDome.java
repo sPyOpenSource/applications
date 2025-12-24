@@ -29,7 +29,7 @@ public class EntityRadarDome extends EntityBuilding implements ISelectable, IPow
     private static final int BUILDING_COST = 1600;
     private static final int SHROUD_REVEALING_RANGE = 15;
     
-    public EntityRadarDome(Float tileX, Float tileY) {
+    public EntityRadarDome(Double tileX, Double tileY) {
 	super(tileX, tileY, WIDTH_TILES * 24, HEIGHT_TILES * 24, "xx xx ~~");
 
 	setBibType(BibType.SMALL);
@@ -62,9 +62,9 @@ public class EntityRadarDome extends EntityBuilding implements ISelectable, IPow
     public ImageView renderEntity() {
 	//double nx = posX;
 	//double ny = posY;
-
+ImageView view = null;
 	if (this.getHp() > this.getMaxHp() / 2) {
-	    //normal.draw(nx, ny);
+	    view = new ImageView(SwingFXUtils.toFXImage(normal, null));//.draw(nx, ny);
 	} else {
 	    //corrupted.draw(nx, ny);
 	}
@@ -81,7 +81,9 @@ public class EntityRadarDome extends EntityBuilding implements ISelectable, IPow
 	if (this.repairIconBlink) {
 	    //repairImage.draw(this.boundingBox.getX() + this.boundingBox.getWidth() / 2 - repairImage.getWidth() / 2, this.boundingBox.getY() + this.boundingBox.getHeight() / 2 - repairImage.getHeight() / 2);
 	}
-        return null;
+        view.setX(tileX);
+        view.setY(tileY);
+        return view;
     }
 
     @Override
@@ -116,7 +118,7 @@ public class EntityRadarDome extends EntityBuilding implements ISelectable, IPow
 
     @Override
     public int getRevealingRange() {
-	return this.SHROUD_REVEALING_RANGE;
+	return EntityRadarDome.SHROUD_REVEALING_RANGE;
     }
     
     @Override
@@ -133,9 +135,9 @@ public class EntityRadarDome extends EntityBuilding implements ISelectable, IPow
     public void onBuildFinished() {
 	super.onBuildFinished();
 	
-	if (this.owner == GUI.getInstance().getPlayer() && !GUI.getInstance().getPlayer().getBase().isLowPower()) {
+	/*if (this.owner == GUI.getInstance().getPlayer() && !GUI.getInstance().getPlayer().getBase().isLowPower()) {
 	    SoundManager.getInstance().playSfxGlobal("radaron2", 0.9f);
-	}
+	}*/
     }
 
     @Override

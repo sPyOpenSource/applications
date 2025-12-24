@@ -172,8 +172,8 @@ ImageView view;
 	//texture.endUse();
 
 	//drawPath(g);
-        view.setX(tx);
-        view.setY(ty);
+        view.setX(tileX);
+        view.setY(tileY);
         return view;
     }
 
@@ -212,7 +212,7 @@ ImageView view;
 
     @Override
     public int getRevealingRange() {
-	return this.SHROUD_REVEALING_RANGE;
+	return EntityHarvester.SHROUD_REVEALING_RANGE;
     }
 
     @Override
