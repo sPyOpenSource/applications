@@ -28,6 +28,7 @@ import cr0s.javara.resources.ResourceManager;
 import cr0s.javara.resources.ShpTexture;
 import cr0s.javara.resources.SoundManager;
 import cr0s.javara.util.Pos;
+import java.util.Random;
 
 import javafx.scene.shape.Path;
 import javafx.scene.image.ImageView;
@@ -153,7 +154,10 @@ public abstract class EntityInfantry extends MobileEntity implements IShroudReve
     @Override
     public void updateEntity(long delta) {
 	super.updateEntity(delta);
-
+        if(getImageView()!=null){
+getImageView().setX(getImageView().getX()+new Random().nextInt(5)-2);
+getImageView().setY(getImageView().getY()+new Random().nextInt(5)-2);
+        }
 	if (this.attack != null) {
 	    this.attack.update(delta);
 	    
