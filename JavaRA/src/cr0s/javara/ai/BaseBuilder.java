@@ -15,7 +15,6 @@ import cr0s.javara.util.Pos;
 
 public class BaseBuilder {
     private final AIPlayer ai;
-
     private int waitTicks;
     private boolean isActive = false;
 

@@ -18,6 +18,7 @@ import cr0s.javara.resources.ShpTexture;
 import cr0s.javara.util.Pos;
 import cr0s.javara.util.SpriteSheet;
 import java.awt.image.BufferedImage;
+import javafx.embed.swing.SwingFXUtils;
 
 import javafx.scene.image.ImageView;
 import javafx.scene.shape.Path;
@@ -113,19 +114,19 @@ public class EntityWarFactory extends EntityBuilding implements ISelectable, ISh
     public ImageView renderEntity() {
 	//double nx = posX;
 	//double ny = posY;
-
+ImageView view = null;
 	// Draw downTexture
 	if (this.currentPass == 0) {
 	    if (!this.isCorrupted) {
-		//weapDownNormal.draw(nx, ny);
+		view = new ImageView(SwingFXUtils.toFXImage(weapDownNormal,null));//.draw(nx, ny);
 	    } else {
 		//weapDownCorrupted.draw(nx, ny);
 	    }
 	} else {
 	    if (isDoorsOpenAnimation || isDoorsCloseAnimation) { 
-		//sheetTop.getSubImage(0, ((this.isCorrupted) ? this.CORRUPTION_INDEX : 0) + this.animationFrame).draw(nx, ny);;
+		view = sheetTop.getSubImage(0, ((this.isCorrupted) ? this.CORRUPTION_INDEX : 0) + this.animationFrame);//.draw(nx, ny);;
 	    } else {
-		//sheetTop.getSubImage(0, ((this.isCorrupted) ? this.CORRUPTION_INDEX : 0) + ((isDoorsOpen) ? 3 : 0)).draw(nx, ny);;
+		view = sheetTop.getSubImage(0, ((this.isCorrupted) ? this.CORRUPTION_INDEX : 0) + ((isDoorsOpen) ? 3 : 0));//.draw(nx, ny);;
 	    }
 	}
 	
@@ -141,7 +142,9 @@ public class EntityWarFactory extends EntityBuilding implements ISelectable, ISh
 	if (this.repairIconBlink) {
 	    //repairImage.draw(this.boundingBox.getX() + this.boundingBox.getWidth() / 2 - repairImage.getWidth() / 2, this.boundingBox.getY() + this.boundingBox.getHeight() / 2 - repairImage.getHeight() / 2);
 	}
-        return null;
+        view.setX(tileX);
+        view.setY(tileY);
+        return view;
     }
 
     @Override

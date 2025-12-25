@@ -313,6 +313,7 @@ public class World extends AnimationTimer {
 
     public void spawnEntityInWorld(Entity e) {
 	e.setWorld(this);
+        System.out.println(e.getName());
         root.getChildren().add(e.renderEntity());
     }
 

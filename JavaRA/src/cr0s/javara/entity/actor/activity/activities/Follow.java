@@ -9,9 +9,9 @@ import cr0s.javara.util.WaitAction;
 
 public class Follow extends Activity {
 
-    private EntityActor self;
-    private Target target;
-    private int range;
+    private final EntityActor self;
+    private final Target target;
+    private final int range;
     
     public Follow (EntityActor self, Target tgt, int range) {
 	this.self = self;

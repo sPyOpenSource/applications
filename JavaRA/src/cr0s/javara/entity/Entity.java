@@ -286,4 +286,6 @@ public abstract class Entity extends Node {
     public boolean getInvuln() {
 	return this.isInvuln;
     }
+    
+    public String getName(){return "don't know";}
 }

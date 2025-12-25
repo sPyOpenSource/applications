@@ -116,7 +116,7 @@ public class ProductionQueue {
 	this.alliedBuildings.put("hpadicon.shp", new EntityHelipad(0d, 0d));
 	
 	/*
-	 	addButton(new InfantrySidebarButton("", "shokicon.shp", this.getPosition(), 0, 4, false, null));
+	 addButton(new InfantrySidebarButton("", "shokicon.shp", this.getPosition(), 0, 4, false, null));
 	
 	//addButton(new InfantrySidebarButton("", "icon.shp", this.getPosition(), 1, 5, false, null));
 	//addButton(new InfantrySidebarButton("", "icon.shp", this.getPosition(), 1, 5, false, null));

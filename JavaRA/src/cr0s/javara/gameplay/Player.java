@@ -36,7 +36,7 @@ public class Player {
 
     private int spawnX, spawnY;
 
-    private Base base;
+    public Base base;
     private Team team;
 
     private Shroud playerShroud;
@@ -152,7 +152,7 @@ public class Player {
 /*
 	this.world.spawnEntityInWorld(m);	
 	*/
-	this.base.gainCash(10000);
+	this.base.gainCash(20000);
     }
 
     public OrderTargeter getBestOrderTargeterForTarget(Target target) {

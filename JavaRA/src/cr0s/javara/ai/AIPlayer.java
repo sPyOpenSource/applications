@@ -754,7 +754,7 @@ public class AIPlayer extends Player {
 	// TODO: add non-random build
 	if (!buildables.isEmpty()) {
 	    String randomName = buildables.get(this.rnd.nextInt(buildables.size()));
-	    
+	    System.out.println(base.getCash());
 	    System.out.println("[AI] Building unit: " + randomName);
 	    this.getBase().getProductionQueue().startBuildingActor(this.getBase().getProductionQueue().getBuildables().get(randomName), null);
 	}
