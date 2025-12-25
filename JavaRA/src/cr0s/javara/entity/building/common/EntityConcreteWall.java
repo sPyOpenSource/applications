@@ -7,11 +7,11 @@ public class EntityConcreteWall extends EntityWall {
 
     private static final int BUILDING_COST = 350;
 
-    public EntityConcreteWall(Float aTileX, Float aTileY) {
+    public EntityConcreteWall(Double aTileX, Double aTileY) {
 	this(aTileX, aTileY, 24, 24, "x");
     }    
     
-    public EntityConcreteWall(Float aTileX, Float aTileY,
+    public EntityConcreteWall(Double aTileX, Double aTileY,
 	    float aSizeWidth, float aSizeHeight,
 	    String aFootprint) {
 	super(aTileX, aTileY, aSizeWidth, aSizeHeight, "x");

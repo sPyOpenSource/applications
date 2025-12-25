@@ -25,7 +25,7 @@ public abstract class EntityWall extends EntityBuilding implements IHaveCost, ID
     
     public int lineBuildMaxLength = 8;
     
-    public EntityWall(Float aTileX, Float aTileY,
+    public EntityWall(Double aTileX, Double aTileY,
 	    float aSizeWidth, float aSizeHeight, String aFootprint) {
 	super(aTileX, aTileY, aSizeWidth, aSizeHeight, "x");
 	// TODO Auto-generated constructor stub

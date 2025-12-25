@@ -28,7 +28,7 @@ public class EntityAdvPowerPlant extends EntityBuilding implements ISelectable, 
     private static final int SHROUD_REVEALING_RANGE = 7;
     private static final int BUILDING_COST = 500;
 
-    public EntityAdvPowerPlant(Float tileX, Float tileY) {
+    public EntityAdvPowerPlant(Double tileX, Double tileY) {
 	super(tileX, tileY, WIDTH_TILES * 24, HEIGHT_TILES * 24, "xxx xxx xxx ~~~");
 
 	setBibType(BibType.MIDDLE);

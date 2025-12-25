@@ -46,7 +46,7 @@ public class EntityHelipad extends EntityBuilding implements ISelectable, IPower
     
     private boolean isCharging = false;
     
-    public EntityHelipad(Float tileX, Float tileY) {
+    public EntityHelipad(Double tileX, Double tileY) {
 	super(tileX, tileY, WIDTH_TILES * 24, HEIGHT_TILES * 24, "xx xx ~~");
 
 	setBibType(BibType.SMALL);

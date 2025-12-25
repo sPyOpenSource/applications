@@ -16,7 +16,6 @@ import cr0s.javara.resources.ResourceManager;
 import cr0s.javara.resources.ShpTexture;
 import cr0s.javara.util.SpriteSheet;
 
-import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 
@@ -40,7 +39,7 @@ public class EntityOreSilo extends EntityBuilding implements ISelectable, IPower
     private final int CORRUPTED_OFFSET = 5;
     private static final int BUILDING_COST = 150;
     
-    public EntityOreSilo(Float tileX, Float tileY) {
+    public EntityOreSilo(Double tileX, Double tileY) {
 	super(tileX, tileY, WIDTH_TILES * 24, HEIGHT_TILES * 24, "x");
 
 	setBibType(BibType.NONE);

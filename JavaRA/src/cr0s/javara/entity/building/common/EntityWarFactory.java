@@ -72,7 +72,7 @@ public class EntityWarFactory extends EntityBuilding implements ISelectable, ISh
     private int ticksBeforeClose = 0;
     private final int TICKS_BEFORE_CLOSE = 30;
     
-    public EntityWarFactory(Float tileX, Float tileY) {
+    public EntityWarFactory(Double tileX, Double tileY) {
 	super(tileX, tileY, WIDTH_TILES * 24, HEIGHT_TILES * 24, FOOTPRINT);
 
 	//this.weapAlignment = player.getAlignment();

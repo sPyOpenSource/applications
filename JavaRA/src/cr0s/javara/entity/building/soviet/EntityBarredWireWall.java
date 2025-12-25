@@ -8,7 +8,7 @@ public class EntityBarredWireWall extends EntityWall {
 
     private static final int BUILDING_COST = 30;
 
-    public EntityBarredWireWall(Float aTileX, Float aTileY,
+    public EntityBarredWireWall(Double aTileX, Double aTileY,
 	    float aSizeWidth, float aSizeHeight,
 	    String aFootprint) {
 	super(aTileX, aTileY, aSizeWidth, aSizeHeight, "x");
@@ -28,7 +28,7 @@ public class EntityBarredWireWall extends EntityWall {
 	this.setName("fenc");
     }
 
-    public EntityBarredWireWall(Float aTileX, Float aTileY) {
+    public EntityBarredWireWall(Double aTileX, Double aTileY) {
 	this(aTileX, aTileY, 24, 24, "x");
     }
 
