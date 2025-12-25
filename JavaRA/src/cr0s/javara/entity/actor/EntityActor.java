@@ -116,7 +116,7 @@ public abstract class EntityActor extends Entity implements IOrderIssuer, IOrder
 	try {
 	    ctor = (this.getClass()).getDeclaredConstructor(Double.class, Double.class);
 	    ctor.setAccessible(true);
-	    EntityActor newEntity = (EntityActor) ctor.newInstance(this.getTranslateX(), this.getTranslateY());
+	    EntityActor newEntity = (EntityActor) ctor.newInstance(this.boundingBox.getX(), this.boundingBox.getY());
 
 	    return newEntity;
 	} catch (NoSuchMethodException | SecurityException | IllegalArgumentException | InstantiationException | IllegalAccessException | InvocationTargetException ex) {

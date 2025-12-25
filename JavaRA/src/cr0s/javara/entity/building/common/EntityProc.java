@@ -54,7 +54,7 @@ public class EntityProc extends EntityBuilding implements ISelectable, IPowerCon
     public static final int MAX_CAPACITY = 2000;
     public static final int PIPS_COUNT = 17;
 
-    private LinkedList<TargetLine> targetLines = new LinkedList<>();
+    private final LinkedList<TargetLine> targetLines = new LinkedList<>();
 
     private static final int BUILDING_COST = 1400;
 
@@ -174,12 +174,12 @@ ImageView view = null;
 
     @Override
     public int getConsumptionLevel() {
-	return this.POWER_CONSUMPTION_LEVEL;
+	return EntityProc.POWER_CONSUMPTION_LEVEL;
     }
 
     @Override
     public int getRevealingRange() {
-	return this.SHROUD_REVEALING_RANGE;
+	return EntityProc.SHROUD_REVEALING_RANGE;
     }
 
     @Override
@@ -193,17 +193,17 @@ ImageView view = null;
 
     @Override
     public int getPipCount() {
-	return this.PIPS_COUNT;
+	return EntityProc.PIPS_COUNT;
     }
 
     @Override
     public Color getPipColorAt(int i) {
-	return (owner.getBase().ore * this.PIPS_COUNT > i * owner.getBase().oreCapacity) ? Color.YELLOW : null;
+	return (owner.getBase().ore * EntityProc.PIPS_COUNT > i * owner.getBase().oreCapacity) ? Color.YELLOW : null;
     }
 
     @Override
     public int getOreCapacityValue() {
-	return this.MAX_CAPACITY;
+	return EntityProc.MAX_CAPACITY;
     }
 
     @Override

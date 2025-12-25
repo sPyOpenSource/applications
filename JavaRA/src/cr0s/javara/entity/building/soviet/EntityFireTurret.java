@@ -133,7 +133,7 @@ ImageView view;
 	super.updateEntity(delta);
 	
 	this.attack.update(delta);
-	this.autoTarget.update(delta);
+	//this.autoTarget.update(delta);
     }
 
     @Override

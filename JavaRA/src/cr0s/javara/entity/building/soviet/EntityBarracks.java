@@ -150,12 +150,12 @@ ImageView view = null;
 
     @Override
     public int getConsumptionLevel() {
-	return this.POWER_CONSUMPTION_LEVEL;
+	return EntityBarracks.POWER_CONSUMPTION_LEVEL;
     }
 
     @Override
     public int getRevealingRange() {
-	return this.SHROUD_REVEALING_RANGE;
+	return EntityBarracks.SHROUD_REVEALING_RANGE;
     }
 
     @Override
@@ -169,14 +169,13 @@ ImageView view = null;
     }
 
     public void deployEntity(EntityActor newInstance) {
-	if (newInstance instanceof MobileEntity) {
-	    final MobileEntity me = (MobileEntity) newInstance;
-	    
+	if (newInstance instanceof MobileEntity me) {	    
 	    me.isVisible = true;	    
 	    newInstance.setWorld(this.world);
 	  
 	    world.spawnEntityInWorld(newInstance);
-	    
+	    me.setPos(new Pos(tileX, tileY));
+            
 	    Path p = new Path();
 	    p.getElements().add(new MoveTo((int) exitPos.getX(), (int) exitPos.getY()));
 	    p.getElements().add(new MoveTo((int) rallyPos.getX(), (int) rallyPos.getY()));

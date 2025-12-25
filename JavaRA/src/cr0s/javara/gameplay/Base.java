@@ -358,7 +358,9 @@ public class Base {
 	EntityBuilding b = getPrimaryBarrackOrTent();
 	if (b != null) {
 	    if (b instanceof EntityBarracks) {
-		((EntityBarracks) b).deployEntity(i.newInstance());
+                EntityActor x = i.newInstance();
+		((EntityBarracks) b).deployEntity(x);
+                owner.entities.add(x);
 	    }/* else if (b instanceof EntityTent) {
 		((EntityTent) b).deployEntity(i.newInstance());
 	    }*/

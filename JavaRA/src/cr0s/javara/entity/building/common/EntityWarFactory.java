@@ -17,9 +17,9 @@ import cr0s.javara.resources.ResourceManager;
 import cr0s.javara.resources.ShpTexture;
 import cr0s.javara.util.Pos;
 import cr0s.javara.util.SpriteSheet;
+
 import java.awt.image.BufferedImage;
 import javafx.embed.swing.SwingFXUtils;
-
 import javafx.scene.image.ImageView;
 import javafx.scene.shape.Path;
 import javafx.scene.shape.Rectangle;

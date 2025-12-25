@@ -162,7 +162,9 @@ public class ProductionQueue {
 	EntityActor a = this.buildables.get(name + "icon.shp");
 	
 	if (a != null) {
-	    return a.newInstance();
+	    EntityActor b = a.newInstance();
+            player.entities.add(b);
+            return b;
 	}
 	
 	return null;

@@ -31,7 +31,6 @@ import cr0s.javara.util.Pos;
 import cr0s.javara.util.RotationUtil;
 import cr0s.javara.util.SpriteSheet;
 
-import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Path;
 import javafx.scene.image.ImageView;
