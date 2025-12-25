@@ -152,7 +152,7 @@ public class Player {
 /*
 	this.world.spawnEntityInWorld(m);	
 	*/
-	this.base.gainCash(20000);
+	this.base.gainCash(10000);
     }
 
     public OrderTargeter getBestOrderTargeterForTarget(Target target) {
