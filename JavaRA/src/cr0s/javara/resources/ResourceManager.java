@@ -92,8 +92,7 @@ public class ResourceManager {
 	    //List<Path> mixFiles = listDirectoryMixes(Paths.get(RESOURCE_FOLDER));
 
 	    //for (Path f : mixFiles) {
-		RandomAccessFile randomAccessFile = assets.getRandomAccessFile(path);
-		FileChannel inChannel = randomAccessFile.getChannel();
+		FileChannel inChannel = assets.getFileChannel(path);
 
 		MixFile mix = new MixFile(path, inChannel);
 
@@ -265,8 +264,7 @@ public class ResourceManager {
 	    return palettes.get(name);
 	}
 
-	try (RandomAccessFile randomAccessFile = assets.getRandomAccessFile("/assets/pal/" + name.toLowerCase())) {
-	    FileChannel inChannel = randomAccessFile.getChannel();
+	try (FileChannel inChannel = assets.getFileChannel("/assets/pal/" + name.toLowerCase())) {
 	    PalFile palfile = new PalFile(name, inChannel);
 
 	    palettes.put(name, palfile);

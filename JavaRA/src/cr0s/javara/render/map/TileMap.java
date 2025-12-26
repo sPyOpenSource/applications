@@ -117,9 +117,7 @@ public class TileMap {
     }
     
     private void loadBinaryMap(String mapName) {
-	try (RandomAccessFile randomAccessFile = assets.getRandomAccessFile("/assets/maps/" + mapName.toLowerCase() + ".bin")) {
-	    FileChannel inChannel = randomAccessFile.getChannel();
-
+	try (FileChannel inChannel = assets.getFileChannel("/assets/maps/" + mapName.toLowerCase() + ".bin")) {
 	    // Read one byte and pair of two shorts: map height and width
 	    ByteBuffer mapHeader = ByteBuffer.allocate(5);
 	    mapHeader.order(ByteOrder.LITTLE_ENDIAN);
