@@ -8,13 +8,12 @@ import javafx.stage.Stage;
 /**
  * Handles the interaction between the different classes.
  */
-public class Director {
+public class Director implements Runnable {
     private final Maze maze;
     private final SubRoute[][] subRouteMatrix;
     private final Route routeFinder;
     
     public final Stage stage;
-    public volatile boolean interrupted;
     
     /**
      * Creates new Director for Maze maze.
@@ -62,9 +61,9 @@ public class Director {
     
     /**
      * Run a single iteration.
-     * @param id 
      */
-    public void oneIteration(int id) {
+    @Override
+    public void run() {
         // Store start time
         long startTime = System.currentTimeMillis();
         
@@ -101,7 +100,7 @@ public class Director {
         }
         
         // Wait for threads to finish
-        while (!interrupted) {
+        while (Settings.Main.multiThreading) {
             // Check if threads are alive
             boolean atleastOneRunning = false;
             for (Thread thread : threads) {
@@ -128,7 +127,7 @@ public class Director {
                 routeFinder.getRouteLength(bestorder) + " steps");
 
         // Announce finish of iteration and print runtime
-        Helper.log("Iteration " + id + " finished after " +
+        Helper.log("Iteration finished after " +
                 (System.currentTimeMillis() - startTime) + "ms");
     }
     

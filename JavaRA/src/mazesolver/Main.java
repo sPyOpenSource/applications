@@ -8,10 +8,6 @@ import javafx.stage.Stage;
  */
 public class Main extends Application {
     
-    public Main(){
-        
-    }
-    
     /**
      * Creates the new maze, and starts the director.
      * @param args 

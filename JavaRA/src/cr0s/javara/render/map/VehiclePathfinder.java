@@ -14,8 +14,7 @@ public class VehiclePathfinder {
     private static final int MAX_SEARCH_DISTANCE = 512;
     
     public VehiclePathfinder(World world) {
-	this.pathfinder = new AStarPathFinder(world, MAX_SEARCH_DISTANCE,
-		true, new ClosestHeuristic());
+	this.pathfinder = new AStarPathFinder(world, MAX_SEARCH_DISTANCE, true);
     }
     
     public Path findPathFromTo(EntityVehicle me, int goalX, int goalY) {

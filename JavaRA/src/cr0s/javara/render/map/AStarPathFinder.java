@@ -28,10 +28,10 @@ import javafx.scene.shape.LineTo;
  */
 class AStarPathFinder {
 
-    AStarPathFinder(World world, int MAX_SEARCH_DISTANCE, boolean b, ClosestHeuristic closestHeuristic) {
+    AStarPathFinder(World world, int MAX_SEARCH_DISTANCE, boolean b) {
     }
 
-    Path findPath(MobileEntity me, int i, int i0, int goalX, int goalY) {
+    Path findPath(MobileEntity me, int startX, int startY, int goalX, int goalY) {
         MoveTo moveTo = new MoveTo(me.boundingBox.getX(), me.boundingBox.getY());
         LineTo lineTo = new LineTo(goalX, goalY);
         Path path = new Path();

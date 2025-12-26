@@ -26,7 +26,6 @@ import javafx.scene.shape.Polygon;
 public class Graphics extends AnimationTimer {
     private final Director director;
     private final Maze maze;
-    private long drawTime;
     
     private final BorderPane root;
     private double offsetX = 50, offsetY = 50;
@@ -72,7 +71,7 @@ public class Graphics extends AnimationTimer {
                     offsetY = scene.getCamera().getTranslateY() + 40;
                     break;
                 case H:
-                    director.oneIteration(zTrans);
+                    director.run();
                     //g.xRotate.setAngle(-90);
                     //g.yRotate.setAngle(0);
                     //g.zRotate.setAngle(0);
@@ -108,8 +107,6 @@ public class Graphics extends AnimationTimer {
         
         // Draw the maze
         drawMaze();
-        // Initialize drawTime with offset for instant first draw
-        drawTime = -Settings.Graphics.drawWaitTime + System.currentTimeMillis();
     }
 
     /**
@@ -119,7 +116,7 @@ public class Graphics extends AnimationTimer {
     @Override
     public void handle(long delta) {
             // Only draw at certain delta time
-            if((System.currentTimeMillis() - drawTime) > Settings.Graphics.drawWaitTime) {
+            if(delta % Settings.Graphics.drawWaitTime == 0) {
                 // Draw to screen
                 //GL11.glClear(GL11.GL_COLOR_BUFFER_BIT);
 
@@ -144,13 +141,9 @@ public class Graphics extends AnimationTimer {
                 for (Venue ptv : maze.getVenues()) {
                     drawPoint(ptv.getLocation(), 0.7f, venue);
                 }
-                // Process input
-                //handleInput();
-
-                // Update screen
-                //Display.update(false);
                 
-                drawTime += Settings.Graphics.drawWaitTime;
+                // Process input
+                //handleInput();                
             }
             
             // Process messages and sync
@@ -235,7 +228,7 @@ public class Graphics extends AnimationTimer {
      * @param y
      * @param size 
      */
-    private Polygon drawQuad(int x, int y, float size, Color color) {
+    private void drawQuad(int x, int y, float size, Color color) {
         float half = (1 - size) / 2;
         Polygon body = new Polygon(
                 x + half, 
@@ -251,7 +244,6 @@ public class Graphics extends AnimationTimer {
         //body.setStroke(Color.AQUA);
         //body.setStrokeWidth(0.001);
         root.getChildren().add(body);
-        return body;
     }
     
     /**
@@ -264,10 +256,8 @@ public class Graphics extends AnimationTimer {
         MoveTo start = new MoveTo(path.get(0).getX() + 0.5f, path.get(0).getY() + 0.5f);
         p.getElements().add(start);
         for (int i = 1; i < path.size(); i++){
-            //Line line = new Line(path.get(i - 1).getX(), path.get(i - 1).getY(), path.get(i).getX(), path.get(i).getY());
             p.getElements().add(new LineTo(path.get(i).getX() + 0.5f, path.get(i).getY() + 0.5f));
         }
-        //return p;
         p.setStroke(Color.AQUA);
         p.setStrokeWidth(0.5);
         root.getChildren().add(p);
