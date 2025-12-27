@@ -9,6 +9,7 @@ import java.net.URL;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import com.formdev.flatlaf.extras.FlatSVGIcon;
+import java.nio.channels.FileChannel;
 
 public class Assets{
     public String get(String assets){
@@ -35,7 +36,7 @@ public class Assets{
         return getIcon(resourceName, 24, 24);
     }
     
-    public RandomAccessFile getRandomAccessFile(String path) throws IOException 
+    public FileChannel getFileChannel(String path) throws IOException 
     {
         File tmpFile = File.createTempFile("isc", "tmp");
         tmpFile.deleteOnExit();
@@ -45,11 +46,11 @@ public class Assets{
         InputStream in = getInputStream(path);
         while ((tmp = in.read(buffer)) != -1) 
         {
-          raf.write(buffer, 0, tmp);
+            raf.write(buffer, 0, tmp);
         }
-         
+        
         raf.seek(0);
-         
-        return raf;
+        
+        return raf.getChannel();
     }
 }
