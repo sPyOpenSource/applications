@@ -182,8 +182,8 @@ public class AIPlayer extends Player {
     }
 
     @Override
-    public void update(int delta) {
-	super.update(delta);
+    public void update() {
+	super.update();
 
 	Profiler.getInstance().startForSection("AI");
 	if (!this.enabled) {

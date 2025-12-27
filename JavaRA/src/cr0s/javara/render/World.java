@@ -68,7 +68,7 @@ public class World extends AnimationTimer {
 
 	map.fillBlockingMap(this.blockingMap);
 
-	//this.vp = new VehiclePathfinder(this);
+	this.vp = new VehiclePathfinder(this);
 	this.ip = new InfantryPathfinder(this);
 
 	this.random = new Random(System.currentTimeMillis());
@@ -132,8 +132,7 @@ public class World extends AnimationTimer {
 		    //this.blockingEntityMap.occupyForBuilding((EntityBuilding) e);
 		}
 	    }
-	}
-//System.out.println(delta);*/
+	}*/
         for(Player player : players) {
             for (Entity e : player.entities) {
                 if (!e.isDead()) { 
@@ -149,13 +148,13 @@ public class World extends AnimationTimer {
                     }
 
                     // For mobile entities, after entity updated, update it's blocking map state to avoid entity movement collisions
-                    if (e instanceof MobileEntity) {
-                        this.blockingEntityMap.freeForMobileEntity((MobileEntity) e);
+                    if (e instanceof MobileEntity mobileEntity) {
+                        this.blockingEntityMap.freeForMobileEntity(mobileEntity);
 
                         e.updateEntity(delta);	
 
                         // Lock next entity position. Or re-lock current, if position is not changed
-                        this.blockingEntityMap.occupyForMobileEntity((MobileEntity) e);
+                        this.blockingEntityMap.occupyForMobileEntity(mobileEntity);
                     } else {
                         e.updateEntity(delta);		    
                     }
@@ -396,7 +395,7 @@ public class World extends AnimationTimer {
 
     private void updatePlayers() {
 	for (Player p : this.players) {
-	    p.update(0);
+	    p.update();
 	}
     }
 

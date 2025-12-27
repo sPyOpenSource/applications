@@ -222,7 +222,7 @@ public class Player {
 	return this.team;
     }
     
-    public void update(int delta) {
+    public void update() {
 	this.base.update();
     }
 
