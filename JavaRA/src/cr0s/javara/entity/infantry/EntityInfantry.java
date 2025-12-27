@@ -34,13 +34,13 @@ import javafx.scene.shape.Path;
 import javafx.scene.image.ImageView;
 
 public abstract class EntityInfantry extends MobileEntity implements IShroudRevealer {
-
     private static final float DEFAULT_MOVE_SPEED = 1.5f;
     private static final int WIDTH = 50;
     private static final int HEIGHT = 39;
 
     public static final int MAX_FACING = 8;
     public static Pos subcellOffsets[] = new Pos[6];
+    public enum AnimationState { IDLE, ATTACKING, MOVING, IDLE_ANIMATING, WAITING, DEATH };
 
     static {
 	subcellOffsets[SubCell.TOP_LEFT.ordinal()] = new Pos(-21, -12);
@@ -63,8 +63,6 @@ public abstract class EntityInfantry extends MobileEntity implements IShroudReve
     protected ArrayList<Sequence> deathSequences = new ArrayList<>();
 
     private int randomTicksBeforeIdleSeq = 0;
-
-    public enum AnimationState { IDLE, ATTACKING, MOVING, IDLE_ANIMATING, WAITING, DEATH };
     private AnimationState currentAnimationState;
 
     protected static ShpTexture electro;
@@ -74,6 +72,7 @@ public abstract class EntityInfantry extends MobileEntity implements IShroudReve
     
     private final static int MIN_IDLE_DELAY_TICKS = 350;
     private final static int MAX_IDLE_DELAY_TICKS = 900;
+    private Sequence currentDeathSequence;
 
     private final String SELECTED_SOUND = "ready";
     private HashMap<String, Integer[]> orderSounds;
@@ -81,9 +80,6 @@ public abstract class EntityInfantry extends MobileEntity implements IShroudReve
 
     protected AttackBase attack;
     protected AutoTarget autoTarget;
-    
-    private Sequence currentDeathSequence;
-    
     protected ArrayList<String> deathSounds = new ArrayList<>();
 
     public EntityInfantry(double posX, double posY) {

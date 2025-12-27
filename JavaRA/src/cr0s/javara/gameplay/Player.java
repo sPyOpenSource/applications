@@ -91,8 +91,8 @@ public class Player {
 
 	EntityHeavyTank eht = new EntityHeavyTank(24.0f * this.spawnX + 3 * 24, 24.0f * this.spawnY + 3 * 24);
 	eht.isVisible = true;
-        entities.add(eht);
-	this.world.spawnEntityInWorld(eht);
+        //entities.add(eht);
+	//this.world.spawnEntityInWorld(eht);
 
 	int n = this.world.getRandomInt(15, 50);
 
@@ -122,8 +122,9 @@ public class Player {
 	    }
 	    
 	    e.currentFacing = this.world.getRandomInt(0, EntityInfantry.MAX_FACING);
-            entities.add(e);
-	    e.isVisible = true; this.world.spawnEntityInWorld(e);
+            //entities.add(e);
+	    e.isVisible = true; 
+            //this.world.spawnEntityInWorld(e);
 	}
 
 	//Player other = new Player(world, "", Alignment.SOVIET, new Color(0, 200, 0));
