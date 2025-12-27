@@ -50,7 +50,6 @@ public class Maze {
 
         this.venues = venues;
     }
-    
         
     /**
      * Check if a point is a node.
@@ -68,8 +67,8 @@ public class Maze {
      * @return boolean
      */
     public boolean isNode(int x, int y) { 
-        if(x < 0 || x > nodes[0].length-1) return false;
-        if(y < 0 || y > nodes.length-1) return false;
+        if(x < 0 || x > nodes[0].length - 1) return false;
+        if(y < 0 || y > nodes.length - 1) return false;
         return nodes[y][x];    
     }
     

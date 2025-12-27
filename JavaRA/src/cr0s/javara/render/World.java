@@ -529,8 +529,8 @@ public class World extends AnimationTimer {
 	}
 	
 	for (Influence i : cellInf) {
-	    if (i.entity instanceof EntityBuilding) {
-		return ((EntityBuilding) i.entity);
+	    if (i.entity instanceof EntityBuilding entityBuilding) {
+		return entityBuilding;
 	    }
 	}
 
@@ -545,8 +545,8 @@ public class World extends AnimationTimer {
 	}
 	
 	for (Influence i : cellInf) {
-	    if (i.entity instanceof MobileEntity) {
-		return ((MobileEntity) i.entity);
+	    if (i.entity instanceof MobileEntity mobileEntity) {
+		return mobileEntity;
 	    }
 	}
 

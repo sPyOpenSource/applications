@@ -32,11 +32,11 @@ class VehicleHeuristic {
 	    int goalX, int goalY) {
 	return Math.max(Math.abs(x - goalX), Math.abs(y - goalY));
 	/*
-	      float diagonal = Math.min(Math.abs(x - goalX), Math.abs(y - goalY));
-	      float straight = (Math.abs(x - goalX) + Math.abs(y - goalY));
-	      float h = (DIAGONAL_COST * diagonal) + (ADJACENT_COST * (straight - (2f * diagonal)));
+          float diagonal = Math.min(Math.abs(x - goalX), Math.abs(y - goalY));
+          float straight = (Math.abs(x - goalX) + Math.abs(y - goalY));
+          float h = (DIAGONAL_COST * diagonal) + (ADJACENT_COST * (straight - (2f * diagonal)));
 
-	      return h;*/
+          return h;*/
     }
     
 }
