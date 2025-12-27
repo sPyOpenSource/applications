@@ -124,8 +124,7 @@ public class GUI extends Application {
 
 	camera = new PerspectiveCamera(true);
 
-	//w = new World("haos-ridges");
-        w = new World("forest-path");
+        w = new World(mapName);
         
 	Random r = new Random();
 

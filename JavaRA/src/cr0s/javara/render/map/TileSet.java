@@ -19,10 +19,10 @@ public class TileSet {
     
     public static final int SURFACE_CLEAR_ID = 3;
     public static final int SURFACE_BEACH_ID = 6;
-    public static final int SURFACE_ROCK_ID = 8;
+    public static final int SURFACE_ROCK_ID = 0;
     public static final int SURFACE_ROAD_ID = 9;
-    public static final int SURFACE_WATER_ID = 10;
-    public static final int SURFACE_RIVER_ID = 11;
+    public static final int SURFACE_WATER_ID = -10;
+    public static final int SURFACE_RIVER_ID = -11;
     public static final int SURFACE_ROUGH_ID = 14;
     public static final int SURFACE_BUILDING_CLEAR_ID = 15;
     public static final int SURFACE_BUILDING = 2;

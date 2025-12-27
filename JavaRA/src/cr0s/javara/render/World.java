@@ -40,7 +40,7 @@ import javafx.animation.AnimationTimer;
 
 public class World extends AnimationTimer {
     private final TileMap map;
-    private VehiclePathfinder vp;
+    private final VehiclePathfinder vp;
     private final InfantryPathfinder ip;
     private final ArrayList<Player> players = new ArrayList<>();
 
@@ -264,21 +264,21 @@ public class World extends AnimationTimer {
 	int bibCount;
 
 	switch (bt) { 
-	case SMALL:
-	    bibCount = 2;
-	    break;
+            case SMALL:
+                bibCount = 2;
+                break;
 
-	case MIDDLE:
-	    bibCount = 3;
-	    break;
+            case MIDDLE:
+                bibCount = 3;
+                break;
 
-	case BIG:
-	    bibCount = 4;
-	    break;
+            case BIG:
+                bibCount = 4;
+                break;
 
-	default:
-	    //bibSheet.endUse();
-	    return;
+            default:
+                //bibSheet.endUse();
+                return;
 	}
 
 	if (bibCount > 1) {
