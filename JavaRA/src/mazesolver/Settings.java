@@ -69,7 +69,7 @@ public class Settings {
      */
     public static class SubRoute {
         // Size of the ant flock released every iteration
-        public static int flockSize = 10;
+        public static int flockSize = 1;
     }
     
     /**
@@ -83,7 +83,7 @@ public class Settings {
         public static int factorNew = 100000;
         
         // Maximum number of steps per ant
-        public static int maxSteps = 40000;        
+        public static int maxSteps = 20000;        
     }
     
 }

@@ -225,6 +225,6 @@ public class Maze {
             }
         }
         
-        return new Maze(nodes, startPoint, endPoint, venues);
+        return new Maze(nodes, startPoint, endPoint, null);
     }
 }

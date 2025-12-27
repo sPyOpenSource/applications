@@ -66,7 +66,7 @@ public class Director implements Runnable {
     public void run() {
         // Store start time
         long startTime = System.currentTimeMillis();
-        
+        while(true){
         // Create a list of threads from this iteration
         ArrayList<Thread> threads = new ArrayList<>();
         
@@ -122,10 +122,13 @@ public class Director implements Runnable {
         
         // Show best route
         int[] bestorder = routeFinder.getBestOrder();
+        if(bestorder.length != 0){
         Helper.log("Best route order: " + orderString(bestorder));
         Helper.log("Best route length: " +
                 routeFinder.getRouteLength(bestorder) + " steps");
-
+        break;
+        }
+        }
         // Announce finish of iteration and print runtime
         Helper.log("Iteration finished after " +
                 (System.currentTimeMillis() - startTime) + "ms");

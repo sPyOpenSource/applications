@@ -255,7 +255,7 @@ public class Graphics extends AnimationTimer {
         for (int i = 1; i < path.size(); i++){
             p.getElements().add(new LineTo(path.get(i).getX() + 0.5f, path.get(i).getY() + 0.5f));
         }
-        p.setStroke(Color.AQUA);
+        p.setStroke(Color.BISQUE);
         p.setStrokeWidth(0.5);
         root.getChildren().add(p);
     }
