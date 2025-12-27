@@ -22,7 +22,6 @@ import cr0s.javara.util.Pos;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
-import javafx.stage.Stage;
 import javafx.scene.image.ImageView;
 
 public class TileMap {
