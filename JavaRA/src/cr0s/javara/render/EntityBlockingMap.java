@@ -235,14 +235,14 @@ public class EntityBlockingMap {
 		int blockType = eb.getBlockingCells()[bx][by];
 		
 		switch (blockType) {
-		case TileSet.SURFACE_BUILDING:
-		    occupySubCell(new Pos(x, y), SubCell.FULL_CELL, eb);
-		    break;
-		    
-		case TileSet.SURFACE_BUILDING_CLEAR_ID:
-		//case TileSet.SURFACE_CLEAR_ID:
-		    occupySubCell(new Pos(x, y), SubCell.FULL_CELL_PASSABLE, eb);
-		    break;
+                    case TileSet.SURFACE_BUILDING:
+                        occupySubCell(new Pos(x, y), SubCell.FULL_CELL, eb);
+                        break;
+
+                    case TileSet.SURFACE_BUILDING_CLEAR_ID:
+                    //case TileSet.SURFACE_CLEAR_ID:
+                        occupySubCell(new Pos(x, y), SubCell.FULL_CELL_PASSABLE, eb);
+                        break;
 		}
 	    }
 	}
