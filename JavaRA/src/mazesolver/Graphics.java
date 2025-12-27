@@ -6,7 +6,6 @@ import javafx.scene.PerspectiveCamera;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
 import static javafx.scene.input.KeyCode.DOWN;
-import static javafx.scene.input.KeyCode.H;
 import static javafx.scene.input.KeyCode.LEFT;
 import static javafx.scene.input.KeyCode.RIGHT;
 import static javafx.scene.input.KeyCode.UP;
@@ -28,9 +27,9 @@ public class Graphics extends AnimationTimer {
     private final Maze maze;
     
     private final BorderPane root;
-    private double offsetX = 50, offsetY = 50;
+    private double offsetX = 60, offsetY = 60;
     private final float SCROLL_SPEED = 0.5f; // TODO: config this
-    private int zTrans = -200;
+    private int zTrans = -350;
 
     /**
      * Constructs new graphics handler.
@@ -48,8 +47,6 @@ public class Graphics extends AnimationTimer {
         camera.setFarClip(Integer.MAX_VALUE);
         camera.setNearClip(0.1);
         scene.setCamera(camera);
-        scene.getCamera().setTranslateX(offsetX);
-        scene.getCamera().setTranslateY(offsetY);
         scene.setOnScroll((ScrollEvent event) -> {
             zTrans += event.getDeltaY() * (zTrans / -50);
             //offsetX -= event.getDeltaX() * SCROLL_SPEED;
@@ -70,14 +67,14 @@ public class Graphics extends AnimationTimer {
                 case DOWN:
                     offsetY = scene.getCamera().getTranslateY() + 40;
                     break;
-                case H:
+                case F:
                     director.run();
                     //g.xRotate.setAngle(-90);
                     //g.yRotate.setAngle(0);
                     //g.zRotate.setAngle(0);
                     //offsetX = player.getPlayerSpawnPoint().getX();
                     //offsetY = player.getPlayerSpawnPoint().getY();
-                    zTrans = -200;
+                    //zTrans = -200;
                     break;
                 default:
                     break;

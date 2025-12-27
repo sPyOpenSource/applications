@@ -153,6 +153,7 @@ public class SubRoute {
 
                         // Remove ant from flock
                         flock.remove(ant);
+                        return;
                     } else j++;
                 }
             }

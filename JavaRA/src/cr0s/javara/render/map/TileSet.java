@@ -1,6 +1,5 @@
 package cr0s.javara.render.map;
 
-import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
@@ -42,9 +41,9 @@ public class TileSet {
 	renameMap.put("Gems", SURFACE_ORE_GEM);
     }
 
-    private HashMap<Integer, String> tiles;
-    private String setName;
-    private Assets assets = new Assets();
+    private final HashMap<Integer, String> tiles;
+    private final String setName;
+    private final Assets assets = new Assets();
 
     public HashMap<Integer, HashMap<Integer, String>> tilesSurfaces;
     public HashMap<Integer, Color> terrainColors;

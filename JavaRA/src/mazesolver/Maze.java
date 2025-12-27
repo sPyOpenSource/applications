@@ -7,7 +7,7 @@ import java.util.*;
  * Implementation of the Maze.
  */
 public class Maze {
-    private final boolean[][] nodes;    
+    private final int[][] nodes;    
     private final Point startPoint;
     private final Point endPoint;
     
@@ -20,7 +20,7 @@ public class Maze {
      * @param endPoint
      * @param venues Points to visit
      */
-    public Maze(boolean[][] nodes, Point startPoint, Point endPoint, Venue[] venues) {
+    public Maze(int[][] nodes, Point startPoint, Point endPoint, Venue[] venues) {
         // Check if nodes are valid
         if (nodes == null || nodes.length == 0 || nodes[0].length == 0)
             Helper.error("Invalid maze nodes!");
@@ -69,7 +69,7 @@ public class Maze {
     public boolean isNode(int x, int y) { 
         if(x < 0 || x > nodes[0].length - 1) return false;
         if(y < 0 || y > nodes.length - 1) return false;
-        return nodes[y][x];    
+        return nodes[y][x] == 1;    
     }
     
     /**
@@ -124,7 +124,7 @@ public class Maze {
     public static Maze readMaze(String fileNodes, String fileCoords, String fileVenues, String fileVisits) {
         if(fileNodes == null || fileCoords == null) return null;
         
-        boolean[][] nodes; int width, height; 
+        int[][] nodes; int width, height; 
         Point startPoint = null, endPoint = null;
         Venue[] venues = null;
         
@@ -136,11 +136,15 @@ public class Maze {
             height = sc.nextInt();
             sc.nextLine();
             
-            nodes = new boolean[height][width];
+            nodes = new int[height][width];
             
             for(int y = 0; y < height; y++) {
-                for(int x = 0; x < width; x++)
-                    nodes[y][x] = (sc.nextByte() == 1);
+                for(int x = 0; x < width; x++){
+                    nodes[y][x] = sc.nextByte();
+                    //nodes[y * 2 + 1][x * 2 + 1] = nodes[y * 2][x * 2];
+                    //nodes[y * 2][x * 2 + 1] = nodes[y * 2][x * 2];
+                    //nodes[y * 2 + 1][x * 2] = nodes[y * 2][x * 2];
+                }
                 sc.nextLine();
             }
             
@@ -195,7 +199,6 @@ public class Maze {
                     venues = new Venue[v.size()]; i = 0;
                     for(Venue venue : v)
                         venues[i++] = venue;
-                    
                 } else {
                     venues = new Venue[num];
                     

@@ -41,7 +41,6 @@ public class Settings {
         
         // Time between draws and window update rate
         public static int drawWaitTime = 1000;
-        public static int framesPerSecond = 10;
         
         // Drawing settings
         public static int lineWidth = 3;
@@ -84,7 +83,7 @@ public class Settings {
         public static float factorNew = 1;
         
         // Maximum number of steps per ant
-        public static int maxSteps = 10000;        
+        public static int maxSteps = 40000;        
     }
     
 }
