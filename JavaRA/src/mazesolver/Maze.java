@@ -149,14 +149,14 @@ public class Maze {
             height = sc.nextInt();
             sc.nextLine();
             
-            nodes = new int[height][width];
+            nodes = new int[height * 2][width * 2];
             
             for(int y = 0; y < height; y++) {
                 for(int x = 0; x < width; x++){
-                    nodes[y][x] = sc.nextByte() * Settings.Ant.factorNew;
-                    //nodes[y * 2 + 1][x * 2 + 1] = nodes[y * 2][x * 2];
-                    //nodes[y * 2][x * 2 + 1] = nodes[y * 2][x * 2];
-                    //nodes[y * 2 + 1][x * 2] = nodes[y * 2][x * 2];
+                    nodes[y * 2][x * 2] = sc.nextByte() * Settings.Ant.factorNew;
+                    nodes[y * 2 + 1][x * 2 + 1] = nodes[y * 2][x * 2];
+                    nodes[y * 2][x * 2 + 1] = nodes[y * 2][x * 2];
+                    nodes[y * 2 + 1][x * 2] = nodes[y * 2][x * 2];
                 }
                 sc.nextLine();
             }
@@ -171,8 +171,8 @@ public class Maze {
             Scanner sc = new Scanner(new FileReader(new File(fileCoords)));
             sc.useDelimiter("[,;\\s]+");
 
-            startPoint = new Point(sc.nextInt(), sc.nextInt());
-            endPoint = new Point(sc.nextInt(), sc.nextInt());
+            startPoint = new Point(sc.nextInt() * 2, sc.nextInt() * 2);
+            endPoint = new Point(sc.nextInt() * 2, sc.nextInt() * 2);
             
             Helper.debug("startPoint is " + startPoint);
             Helper.debug("endPoint is " + endPoint);
