@@ -14,19 +14,16 @@ import org.yaml.snakeyaml.Yaml;
 import redhorizon.utilities.BufferUtility;
 import assets.Assets;
 
-import cr0s.javara.main.GUI;
 import cr0s.javara.render.map.ResourcesLayer.ResourceCell;
 import cr0s.javara.resources.ResourceManager;
 import cr0s.javara.resources.ShpTexture;
 import cr0s.javara.util.Pos;
 
-import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.scene.image.ImageView;
-import javafx.scene.Camera;
 
 public class TileMap {
     private short width, height;
@@ -54,8 +51,8 @@ public class TileMap {
     public SmudgeLayer smudges;
     
     public TileMap(){
-        this("haos-ridges");
-        //this("forest-path");
+        //this("haos-ridges");
+        this("forest-path");
     }
     
     public TileMap(String mapName) {
@@ -128,7 +125,12 @@ public class TileMap {
 	    this.width = mapHeader.getShort();
 	    this.height = mapHeader.getShort();
 
-	    this.bounds = new Rectangle(TileMap.MAP_OFFSET_TILES * 24, TileMap.MAP_OFFSET_TILES * 24, (this.width - 2*TileMap.MAP_OFFSET_TILES) * 24, (this.height - 2*TileMap.MAP_OFFSET_TILES) * 24);
+	    this.bounds = new Rectangle(
+                    TileMap.MAP_OFFSET_TILES * 24, 
+                    TileMap.MAP_OFFSET_TILES * 24, 
+                    (this.width  - 2 * TileMap.MAP_OFFSET_TILES) * 24, 
+                    (this.height - 2 * TileMap.MAP_OFFSET_TILES) * 24
+            );
 
 	    this.mapTiles = new TileReference[width][height];
 
@@ -180,17 +182,17 @@ public class TileMap {
 	return height;
     }
 
-    public void render(Stage c, Scene g, Camera camera) {
+    public void render(BorderPane root) {
 	//Color pColor = g.getColor();	
 	//this.theater.getSpriteSheet().startUse();
 
 	// Draw tiles layer
-	for (int y = (int) (-camera.getTranslateY()) / 24; y < this.getHeight(); y++) {
-	    for (int x = (int) (-camera.getTranslateX()) / 24; x < this.getWidth(); x++) {
+	for (int y = 0; y < this.getHeight(); y++) {
+	    for (int x = 0; x < this.getWidth(); x++) {
 		// Don't render tile, if it shrouded and surrounding tiles shrouded too
-		if (GUI.getInstance().getPlayer().getShroud() != null && GUI.getInstance().getPlayer().getShroud().isAreaShrouded(x, y, 2, 2)) {
+		/*if (GUI.getInstance().getPlayer().getShroud() != null && GUI.getInstance().getPlayer().getShroud().isAreaShrouded(x, y, 2, 2)) {
 		    continue;
-		}
+		}*/
 
 		if ((int) this.mapTiles[x][y].getTile() != 0) {
 		    Pos sheetPoint = this.theater
@@ -202,15 +204,15 @@ public class TileMap {
 		    int sY = (int) sheetPoint.getY();
 
 		    if (sX != -1 && sY != -1) {
-			this.theater.getSpriteSheet().renderInUse(x * 24, y * 24, sX / 24, (sY / 24) + index);
+			root.getChildren().add(this.theater.getSpriteSheet().renderInUse(x * 24, y * 24, sX, sY + index * 24));
 		    }
 		    
-		    this.resourcesLayer.renderCell(x, y);
+		    this.resourcesLayer.renderCell(x, y, root);
 		}
 	    }
 	}
 
-	this.smudges.render(g);
+	//this.smudges.render(g);
 	
 	//this.theater.getSpriteSheet().endUse();	
 	//this.theater.getSpriteSheet().draw(24 * 20, 24 * 20);
@@ -266,6 +268,7 @@ public class TileMap {
         //RotateCamera g = new RotateCamera();
 	//this.theater.getSpriteSheet().startUse();
 	// Draw map entities
+        render(root);
 	for (MapEntity me : this.mapEntities) {
 	    int x = me.getX();
 	    int y = me.getY();

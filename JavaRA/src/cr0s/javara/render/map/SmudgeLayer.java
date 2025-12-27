@@ -74,7 +74,7 @@ public class SmudgeLayer {
 	    int sY = (int) sheetPoint.getY();
 
 	    if (sX != -1 && sY != -1) {
-		this.map.getTheater().getSpriteSheet().renderInUse(x * 24, y * 24, sX / 24, (sY / 24) + smudge.depth);
+		this.map.getTheater().getSpriteSheet().renderInUse(x * 24, y * 24, sX, sY + smudge.depth * 24);
 	    }		    
 	}	
     }

@@ -72,12 +72,12 @@ public class Ant implements Runnable {
         for(byte i = 0; i < 4; i++) {
             w[i] = subRoute.getMaze().getValue(points[i].getX(), points[i].getY());
             if(w[i] != 0){
-                /*if(points[i].equals(previousPoint()))
+                if(points[i].equals(previousPoint()))
                     w[i] = Settings.Ant.factorReverse;
-                else if(pathmap[points[i].getY()][points[i].getX()] == 1000)
+                /*else if(pathmap[points[i].getY()][points[i].getX()] == 1000)
                     w[i] = Settings.Ant.factorOld;*/
-                if(pathmap[points[i].getY()][points[i].getX()] == 1)
-                    w[i] = pathmap[points[i].getY()][points[i].getX()] * 50;
+                else if(pathmap[points[i].getY()][points[i].getX()] == 1)
+                    w[i] = pathmap[points[i].getY()][points[i].getX()] * 100;
             }
         }
         

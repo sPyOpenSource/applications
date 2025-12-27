@@ -100,7 +100,7 @@ public class Turret {
     public void render(Scene g) {
 	updateTurretPos();
 
-	this.turretTexture.renderInUse((int) turretX, (int) turretY, 0, this.startFrame + RotationUtil.quantizeFacings(this.turretRotation, this.numFacings));
+	this.turretTexture.renderInUse((int) turretX, (int) turretY, 0, (this.startFrame + RotationUtil.quantizeFacings(this.turretRotation, this.numFacings)) * 24);
     }
 
     /**

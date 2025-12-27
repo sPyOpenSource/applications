@@ -143,8 +143,8 @@ public class World extends AnimationTimer {
                         }*/
                     }
 
-                    if (e instanceof IHaveTurret) {
-                        ((IHaveTurret) e).updateTurrets(delta);
+                    if (e instanceof IHaveTurret iHaveTurret) {
+                        iHaveTurret.updateTurrets(delta);
                     }
 
                     // For mobile entities, after entity updated, update it's blocking map state to avoid entity movement collisions

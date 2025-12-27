@@ -124,8 +124,9 @@ public class GUI extends Application {
 
 	camera = new PerspectiveCamera(true);
 
-	w = new World("haos-ridges");
-
+	//w = new World("haos-ridges");
+        w = new World("forest-path");
+        
 	Random r = new Random();
 
 	//this.observerShroudRenderer = new ShroudRenderer(w);
@@ -138,6 +139,7 @@ public class GUI extends Application {
 	
 	bo = new BuildingOverlay(player, w);
         Scene scene = new Scene(w.render(), 1200, 700);
+        scene.setFill(Color.GREEN);
 	w.addPlayer(player);
         
 	//this.getCamera().setOffset(-Math.max(w.getMap().getBounds().getMinX(), (playerSpawn.getX() * 24) - this.getContainer().getWidth() / 2), -Math.max(w.getMap().getBounds().getMinY(), (playerSpawn.getY() * 24)));

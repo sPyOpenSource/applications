@@ -3,6 +3,7 @@ package cr0s.javara.render.map;
 import cr0s.javara.main.GUI;
 import cr0s.javara.util.Pos;
 import javafx.scene.Scene;
+import javafx.scene.layout.BorderPane;
 
 public class ResourcesLayer {
     ResourceCell[][] resources;
@@ -113,7 +114,7 @@ public class ResourcesLayer {
 	}	
     }
     
-    public void renderCell(int x, int y) {
+    public void renderCell(int x, int y, BorderPane root) {
 	if (this.resources[x][y] != null) {
 	    byte index = (byte) (this.resources[x][y].getFrameIndex() & 0xFF);
 	    
@@ -123,7 +124,7 @@ public class ResourcesLayer {
 	    int sY = (int) sheetPoint.getY();
 
 	    if (sX != -1 && sY != -1) {
-		this.map.getTheater().getSpriteSheet().renderInUse(x * 24, y * 24, sX / 24, (sY / 24) + index);
+		root.getChildren().add(this.map.getTheater().getSpriteSheet().renderInUse(x * 24, y * 24, sX, sY + index * 24));
 	    }		    
 	}	
     }

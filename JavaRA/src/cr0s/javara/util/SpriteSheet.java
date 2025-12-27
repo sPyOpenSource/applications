@@ -100,8 +100,11 @@ public class SpriteSheet {
         return clone;
     }
 
-    public void renderInUse(int i, int i0, int i1, int i2) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public ImageView renderInUse(int x, int y, int i1, int i2) {
+        ImageView view = getSubImage(i1, i2, 24, 24);
+        view.setX(x);
+        view.setY(y);
+        return view;
     }
 
     public int getHorizontalCount() {
