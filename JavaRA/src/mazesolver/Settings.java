@@ -77,10 +77,10 @@ public class Settings {
      */
     public static class Ant {
         // Factor of interest for specific node types
-        public static float factorWall = 0;
-        public static float factorReverse = 0.00001f;
-        public static float factorOld = 0.01f;
-        public static float factorNew = 1;
+        public static int factorWall = 0;
+        public static int factorReverse = 2;
+        public static int factorOld = 1000;
+        public static int factorNew = 100000;
         
         // Maximum number of steps per ant
         public static int maxSteps = 40000;        

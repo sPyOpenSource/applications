@@ -69,7 +69,20 @@ public class Maze {
     public boolean isNode(int x, int y) { 
         if(x < 0 || x > nodes[0].length - 1) return false;
         if(y < 0 || y > nodes.length - 1) return false;
-        return nodes[y][x] == 1;    
+        return nodes[y][x] != 0;    
+    }
+    
+    public int getValue(int x, int y){
+        if(x < 0 || x > nodes[0].length - 1) return 0;
+        if(y < 0 || y > nodes.length - 1) return 0;
+        return nodes[y][x];
+    }
+    
+    public void setValue(int x, int y, int value){
+        if(x < 0 || x > nodes[0].length - 1) return;
+        if(y < 0 || y > nodes.length - 1) return;
+        if(value <= 0) value = 1;
+        nodes[y][x] = value;
     }
     
     /**
@@ -140,7 +153,7 @@ public class Maze {
             
             for(int y = 0; y < height; y++) {
                 for(int x = 0; x < width; x++){
-                    nodes[y][x] = sc.nextByte();
+                    nodes[y][x] = sc.nextByte() * Settings.Ant.factorNew;
                     //nodes[y * 2 + 1][x * 2 + 1] = nodes[y * 2][x * 2];
                     //nodes[y * 2][x * 2 + 1] = nodes[y * 2][x * 2];
                     //nodes[y * 2 + 1][x * 2] = nodes[y * 2][x * 2];

@@ -225,10 +225,10 @@ public class Helper {
             int y = oldPath.get(step).getY();
             
             // Look around for shortcuts
-            if(maze.isNode(x+1, y) && map[y][x+1] > step) step = map[y][x+1];
-            if(maze.isNode(x-1, y) && map[y][x-1] > step) step = map[y][x-1];
-            if(maze.isNode(x, y+1) && map[y+1][x] > step) step = map[y+1][x];
-            if(maze.isNode(x, y-1) && map[y-1][x] > step) step = map[y-1][x];
+            if(maze.isNode(x + 1, y) && map[y][x + 1] > step) step = map[y][x + 1];
+            if(maze.isNode(x - 1, y) && map[y][x - 1] > step) step = map[y][x - 1];
+            if(maze.isNode(x, y + 1) && map[y + 1][x] > step) step = map[y + 1][x];
+            if(maze.isNode(x, y - 1) && map[y - 1][x] > step) step = map[y - 1][x];
             
             // Add new step to path
             path.add(oldPath.get(step));

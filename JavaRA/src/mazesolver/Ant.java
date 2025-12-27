@@ -46,7 +46,8 @@ public class Ant implements Runnable {
 
         // Update stepMap
         pathmap[next.getY()][next.getX()] = true;
-        
+        int value = subRoute.getMaze().getValue(next.getX(), next.getY()) - 10000;
+        //subRoute.getMaze().setValue(next.getX(), next.getY(), value);
         return false;
     }
     
@@ -69,14 +70,13 @@ public class Ant implements Runnable {
         // Check each location with maze/path
         float[] w = new float[4];
         for(byte i = 0; i < 4; i++) {
-            if(!subRoute.getMaze().isNode(points[i]))
-                w[i] = Settings.Ant.factorWall;
-            else if(points[i].equals(previousPoint()))
+            w[i] = subRoute.getMaze().getValue(points[i].getX(), points[i].getY());
+            if(w[i]!=0){
+            if(points[i].equals(previousPoint()))
                 w[i] = Settings.Ant.factorReverse;
             else if(pathmap[points[i].getY()][points[i].getX()])
                 w[i] = Settings.Ant.factorOld;
-            else
-                w[i] = Settings.Ant.factorNew;
+            }
         }
         
         // Calculate total
