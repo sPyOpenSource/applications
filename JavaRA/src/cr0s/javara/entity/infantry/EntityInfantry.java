@@ -93,6 +93,7 @@ public abstract class EntityInfantry extends MobileEntity implements IShroudReve
     Maze maze;
     ArrayList<Point> router;
     Director director;
+    Random random = new Random();
     
     public EntityInfantry(double posX, double posY) {
 	this(posX, posY, SubCell.CENTER);
@@ -178,13 +179,13 @@ director = new Director(maze, null);
                 if(!router.isEmpty()){
                     Path path = new Path();
                     MoveTo mv = new MoveTo(
-                            router.getFirst().getX() * 24, 
-                            router.getFirst().getY() * 24);
+                            router.getFirst().getX() * 24 + random.nextInt(24), 
+                            router.getFirst().getY() * 24 + random.nextInt(24));
                     path.getElements().add(mv);
                     for(int i = 1; i < router.size(); i++){
                         LineTo line = new LineTo(
-                                router.get(i).getX() * 24, 
-                                router.get(i).getY() * 24);
+                                router.get(i).getX() * 24 + random.nextInt(24), 
+                                router.get(i).getY() * 24 + random.nextInt(24));
                         path.getElements().add(line);
                     }
                     PathTransition transition = new PathTransition();
