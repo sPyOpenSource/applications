@@ -18,18 +18,19 @@ public class Example {
 		Swarm swarm = new Swarm(Swarm.DEFAULT_NUMBER_OF_PARTICLES, new MyParticle(), new MyFitnessFunction());
 
 		// Tune swarm's update parameters (if needed)
-		swarm.setInertia(0.95);
+		swarm.setInertia(0.8);
 		// swarm.setParticleIncrement(0.9);
 		// swarm.setGlobalIncrement(0.9);
 
 		// Set position (and velocity) constraints. I.e.: where to look for solutions
 		swarm.setMaxPosition(100);
 		swarm.setMinPosition(-100);
+                swarm.setMaxMinVelocity(60);
 
 		// Show a 2D graph
 		int numberOfIterations = 1000000;
 		int displayEvery = 1;// + numberOfIterations / 10000;
-		SwarmShow2D ss2d = new SwarmShow2D(swarm, numberOfIterations, displayEvery, false);
+		SwarmShow2D ss2d = new SwarmShow2D(swarm, numberOfIterations, displayEvery, true);
 		ss2d.run();
 
 		// Show best position

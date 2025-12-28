@@ -10,7 +10,7 @@ import java.awt.Graphics;
 public class Swarm {
 
 	public static double DEFAULT_GLOBAL_INCREMENT = 0.9;
-	public static double DEFAULT_INERTIA = 1.0;
+	public static double DEFAULT_INERTIA = 0.5;
 	public static int DEFAULT_NUMBER_OF_PARTICLES = 5;
 	public static double DEFAULT_OTHER_PARTICLE_INCREMENT = 0.9;
 	public static double DEFAULT_PARTICLE_INCREMENT = 0.9;
