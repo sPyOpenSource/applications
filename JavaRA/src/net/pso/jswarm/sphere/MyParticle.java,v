@@ -1,0 +1,37 @@
+head	1.1;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.1
+date	2006.10.20.03.25.59;	author pcingola;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@Included examples by Alvaro Jaramillo Duque (and some code corrections)
+@
+text
+@package net.sourceforge.jswarm_pso.sphere;
+
+import net.sourceforge.jswarm_pso.Particle;
+
+/**
+ * Simple particle 
+ * @@author Álvaro Jaramillo Duque <aduque@@inescporto.pt>
+ */
+public class MyParticle extends Particle {
+
+	/** Default constructor */
+	public MyParticle() {
+		super(30); // Create a 30-dimentional particle
+	}
+}@

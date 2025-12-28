@@ -39,8 +39,12 @@ public class Maze {
         this.startPoint = startPoint;
         
         // Check if endPoint is valid
-        if (endPoint == null || !isNode(endPoint))
-            Helper.error("Invalid end point!");
+        while (endPoint == null || !isNode(endPoint)){
+            endPoint = new Point(
+                    endPoint.getX() + random.nextInt(5) - 2, 
+                    endPoint.getY() + random.nextInt(5) - 2);
+            //Helper.error("Invalid end point!");
+        }
         
         this.endPoint = endPoint;
         

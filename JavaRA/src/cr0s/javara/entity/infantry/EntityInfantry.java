@@ -171,7 +171,9 @@ public abstract class EntityInfantry extends MobileEntity implements IShroudReve
                             (int)getImageView().getX() / 24, 
                             (int)getImageView().getY() / 24
                     ),
-                    new Point(50, 50),
+                    new Point(
+                            (int)getImageView().getX() / 24 + random.nextInt(10) - 5, 
+                            (int)getImageView().getY() / 24 + random.nextInt(10) - 5),
                     null
                 );
                 director = new Director(maze, null);

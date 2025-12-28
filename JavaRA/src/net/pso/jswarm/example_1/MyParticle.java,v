@@ -1,0 +1,55 @@
+head	1.2;
+access;
+symbols
+	v1_1:1.1;
+locks; strict;
+comment	@# @;
+
+
+1.2
+date	2005.08.13.14.02.43;	author pcingola;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2005.07.20.03.37.42;	author pcingola;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.2
+log
+@*** empty log message ***
+@
+text
+@package net.sourceforge.jswarm_pso.example_1;
+
+import net.sourceforge.jswarm_pso.Particle;
+
+/**
+ * Simple particle example
+ * @@author Pablo Cingolani <pcingola@@users.sourceforge.net>
+ */
+public class MyParticle extends Particle {
+
+	/** Default constructor */
+	public MyParticle() {
+		super(2); // Create a 2-dimentional particle
+	}
+}@
+
+
+1.1
+log
+@*** empty log message ***
+@
+text
+@d7 1
+a7 1
+ * @@author Pablo Cingolani <pcingola@@sinectis.com>
+@
+
