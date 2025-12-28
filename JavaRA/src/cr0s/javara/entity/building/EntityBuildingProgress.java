@@ -67,6 +67,7 @@ public class EntityBuildingProgress extends EntityBuilding implements IShroudRev
             owner.entities.add(this.targetBuilding);
 	    world.spawnEntityInWorld(this.targetBuilding);
 owner.getBase().addBuilding(targetBuilding);
+targetBuilding.owner = owner;
 	    this.targetBuilding.onBuildFinished();
 	}
     }

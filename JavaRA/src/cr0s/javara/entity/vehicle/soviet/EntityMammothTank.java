@@ -74,7 +74,7 @@ public class EntityMammothTank extends EntityVehicle implements ISelectable, IHa
     private AutoTarget autoTarget;
     
     
-    public EntityMammothTank(Float posX, Float posY) {
+    public EntityMammothTank(Double posX, Double posY) {
 	super(posX, posY, TEXTURE_WIDTH, TEXTURE_HEIGHT);
 
 	texture = new SpriteSheet(ResourceManager.getInstance().getConquerTexture(TEXTURE_NAME).getAsCombinedImage(null), TEXTURE_WIDTH, TEXTURE_HEIGHT);
@@ -143,7 +143,7 @@ public class EntityMammothTank extends EntityVehicle implements ISelectable, IHa
 	//g.drawRect(this.getTextureX(), this.getTextureY(), TEXTURE_WIDTH, TEXTURE_HEIGHT);
 
 	//texture.startUse();
-	//texture.getSubImage(0, currentFacing).drawEmbedded(this.getTextureX(), this.getTextureY(), TEXTURE_WIDTH, TEXTURE_HEIGHT);
+	ImageView view = texture.getSubImage(0, currentFacing);//.drawEmbedded(this.getTextureX(), this.getTextureY(), TEXTURE_WIDTH, TEXTURE_HEIGHT);
 	//this.turret.render(g);
 	//texture.endUse();
 
@@ -184,7 +184,9 @@ public class EntityMammothTank extends EntityVehicle implements ISelectable, IHa
 	//drawPath(g);
 
 	//g.getFont().drawString(this.posX, this.posY + this.boundingBox.getHeight() + 5, (this.isIdle()) ? "idle" : this.currentActivity.getClass().getSimpleName());
-        return null;
+        view.setX(tileX);
+        view.setY(tileY);
+        return view;
     }
 
     @Override

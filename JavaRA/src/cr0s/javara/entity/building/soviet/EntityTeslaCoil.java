@@ -59,7 +59,7 @@ public class EntityTeslaCoil extends Defensive implements ISelectable, IPowerCon
     private Turret turret;
     private boolean wasIdle;    
 
-    public EntityTeslaCoil(double tileX, double tileY) {
+    public EntityTeslaCoil(Double tileX, Double tileY) {
 	super(null, 400, null, 0, 0, WIDTH_TILES * 24, HEIGHT_TILES * 24/*, "_ x"*/, tileX, tileY);
 
 	setBibType(BibType.NONE);
@@ -104,7 +104,7 @@ public class EntityTeslaCoil extends Defensive implements ISelectable, IPowerCon
 
 	int textureIndex = (this.getHp() < this.getMaxHp() / 2) ? this.CORRUPTED_OFFSET + this.currentFrame  : this.currentFrame;
 
-	//this.sheet.getSubImage(0, textureIndex).draw(nx, ny);
+	ImageView view = this.sheet.getSubImage(0, textureIndex);//.draw(nx, ny);
 
 	// Draw bounding box if debug mode is on
 	if (GUI.DEBUG_MODE) {
@@ -125,7 +125,9 @@ public class EntityTeslaCoil extends Defensive implements ISelectable, IPowerCon
 	if (this.repairIconBlink) {
 	    //repairImage.draw(this.boundingBox.getX() + this.boundingBox.getWidth() / 2 - repairImage.getWidth() / 2, this.boundingBox.getY() + this.boundingBox.getHeight() / 2 - repairImage.getHeight() / 2);
 	}
-        return null;
+        view.setX(boundingBox.getX());
+        view.setY(boundingBox.getY());
+        return view;
     }
 
     @Override
@@ -138,7 +140,7 @@ public class EntityTeslaCoil extends Defensive implements ISelectable, IPowerCon
 	super.updateEntity(delta);
 
 	this.attack.update(delta);
-	this.autoTarget.update(delta);	
+	//this.autoTarget.update(delta);	
 
 	//this.boundingBox.setBounds(this.posX, this.posY + 12, this.WIDTH_TILES * 24, HEIGHT_TILES * 24 - 12);
 

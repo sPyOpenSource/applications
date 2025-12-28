@@ -191,6 +191,6 @@ public class EntityAirField extends EntityBuilding implements ISelectable, IPowe
     
     @Override
     public void onBuildFinished() {
-	this.deployEntity(new EntityMammothTank(0f, 0f));
+	this.deployEntity(new EntityMammothTank(0d, 0d));
     }
 }

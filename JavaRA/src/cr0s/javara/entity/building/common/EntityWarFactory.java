@@ -208,7 +208,7 @@ ImageView view = null;
     private boolean tryToMoveOutEntityToUnlockedCells(EntityVehicle v) {
 	boolean isSuccess = false;
 
-	int exitX = getTileX() / 24 + 1;
+	int exitX = (int)getTileX() / 24 + 1;
 	int exitY = getTileY() / 24 + HEIGHT_TILES - 2;
 	
 	boolean isExitBlocked = isCellBlocked(exitX, exitY);
@@ -260,7 +260,7 @@ ImageView view = null;
 	world.spawnEntityInWorld(target);
 	target.setWorld(world);
 	this.targetEntity = target;
-	targetEntity.setPositionByCenter(this.getTileX() + 24 + 12, getTileY() + 24 * 1);
+	targetEntity.setPositionByCenter((int)this.getTileX() + 24 + 12, getTileY() + 24 * 1);
 	targetEntity.currentFacing = 16;
 	targetEntity.isVisible = false;
 	

@@ -100,7 +100,7 @@ public class EntityProc extends EntityBuilding implements ISelectable, IPowerCon
 	harv.queueActivity(new FindResources());
 
 	world.spawnEntityInWorld(harv);
-
+owner.entities.add(harv);
 	this.setName("proc");
     }
 
@@ -139,6 +139,7 @@ ImageView view = null;
 	}
         view.setX(tileX);
         view.setY(tileY);
+        setImageView(view);
         return view;
     }
 

@@ -56,9 +56,9 @@ public class EntityHarvester extends EntityVehicle implements ISelectable, IShro
 
     private static final int PIP_COUNT = 7;
 
-    private int updateTicks = 0;
+    private final int updateTicks = 0;
 
-    private boolean isHarvesting = false;
+    private final boolean isHarvesting = false;
 
     public EntityProc linkedProc;
     public Pos lastOrderPoint;
@@ -70,7 +70,7 @@ public class EntityHarvester extends EntityVehicle implements ISelectable, IShro
     private static final int CAPACITY = 20;
     public static final int LOAD_TICKS_PER_BALE = 7;
 
-    private HashMap<Integer, Integer> contents;
+    private final HashMap<Integer, Integer> contents;
     private int harvestingFrame;
 
     private final static int HARVESTING_FRAMES = 8;
@@ -108,9 +108,10 @@ public class EntityHarvester extends EntityVehicle implements ISelectable, IShro
 
     @Override
     public void updateEntity(long delta) {
-	super.updateEntity(delta);
+	//super.updateEntity(delta);
 	//boundingBox.setBounds(posX + 6, posY - 6, (TEXTURE_WIDTH / 2), (TEXTURE_HEIGHT / 2));
-
+getImageView().setX(getImageView().getX()+new Random().nextDouble(10)-5);
+getImageView().setY(getImageView().getY()+new Random().nextDouble(10)-5);
 	if ((this.currentActivity instanceof Wait && (this.currentActivity.nextActivity instanceof HarvestResource)) 
 		|| (this.currentActivity instanceof HarvestResource)) {
 	    if (--this.harvestingTicks <= 0) {
@@ -171,8 +172,9 @@ ImageView view;
 	//texture.endUse();
 
 	//drawPath(g);
-        view.setX(tileX);
-        view.setY(tileY);
+        view.setX(boundingBox.getX());
+        view.setY(boundingBox.getY());
+        setImageView(view);
         return view;
     }
 

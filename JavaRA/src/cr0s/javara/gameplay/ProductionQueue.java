@@ -104,7 +104,7 @@ public class ProductionQueue {
 	this.sovietBuildings.put("hpadicon.shp", new EntityHelipad(0d, 0d));
 	
 	this.sovietBuildings.put("fturicon.shp", new EntityFireTurret(0d, 0d));
-	this.sovietBuildings.put("tslaicon.shp", new EntityTeslaCoil(0f, 0f));	
+	this.sovietBuildings.put("tslaicon.shp", new EntityTeslaCoil(0d, 0d));	
 	
 	this.alliedBuildings.put("powricon.shp", new EntityPowerPlant(0d, 0d));
 	//this.sovietBuildings.put("tenticon.shp", new EntityTent(0f, 0f, this.player.getTeam(), this.player));
@@ -143,8 +143,8 @@ public class ProductionQueue {
 	this.neutralVehicles.put("harvicon.shp", new EntityHarvester(0.0f, 0.0f));
 	
 	// Put soviet vehicles
-	this.sovietVehicles.put("4tnkicon.shp", new EntityMammothTank(0.0f, 0.0f));
-	this.sovietVehicles.put("3tnkicon.shp", new EntityHeavyTank(0.0f, 0.0f));
+	this.sovietVehicles.put("4tnkicon.shp", new EntityMammothTank(0.0d, 0.0d));
+	this.sovietVehicles.put("3tnkicon.shp", new EntityHeavyTank(0.0d, 0.0d));
 	this.sovietVehicles.put("v2rlicon.shp", new EntityV2Launcher(0.0f, 0.0f));
 
     }

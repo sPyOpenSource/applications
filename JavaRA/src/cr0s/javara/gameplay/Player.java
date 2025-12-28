@@ -89,7 +89,7 @@ public class Player {
         entities.add(mcv);
 	this.world.spawnEntityInWorld(mcv);
 
-	EntityHeavyTank eht = new EntityHeavyTank(24.0f * this.spawnX + 3 * 24, 24.0f * this.spawnY + 3 * 24);
+	EntityHeavyTank eht = new EntityHeavyTank(24.0d * this.spawnX + 3 * 24, 24.0d * this.spawnY + 3 * 24);
 	eht.isVisible = true;
         //entities.add(eht);
 	//this.world.spawnEntityInWorld(eht);

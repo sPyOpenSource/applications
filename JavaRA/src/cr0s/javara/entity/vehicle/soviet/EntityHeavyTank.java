@@ -58,7 +58,7 @@ public class EntityHeavyTank extends EntityVehicle implements ISelectable, IHave
     private final AttackTurreted attack;
     private final AutoTarget autoTarget;
 
-    public EntityHeavyTank(Float posX, Float posY) {
+    public EntityHeavyTank(Double posX, Double posY) {
 	super(posX, posY, TEXTURE_WIDTH, TEXTURE_HEIGHT);
 
 	texture = new SpriteSheet(ResourceManager.getInstance().getConquerTexture(TEXTURE_NAME).getAsCombinedImage(null), TEXTURE_WIDTH, TEXTURE_HEIGHT);
