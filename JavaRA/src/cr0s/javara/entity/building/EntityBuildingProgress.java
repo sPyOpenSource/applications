@@ -20,7 +20,7 @@ public class EntityBuildingProgress extends EntityBuilding implements IShroudRev
     private int currentFrame;
 
     public EntityBuildingProgress(EntityBuilding aTargetBuilding) {
-	super((float) aTargetBuilding.getTileX(), (float) aTargetBuilding.getTileY(), aTargetBuilding.getWidth(), aTargetBuilding.getHeight(), aTargetBuilding.getFootprint());
+	super(aTargetBuilding.boundingBox.getX(), aTargetBuilding.boundingBox.getY(), aTargetBuilding.getWidth(), aTargetBuilding.getHeight(), aTargetBuilding.getFootprint());
 
 	this.targetBuilding = aTargetBuilding;
 	//this.targetBuilding.posX = this.posX;

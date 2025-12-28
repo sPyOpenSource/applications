@@ -178,34 +178,34 @@ public class Base {
 	    }
 
 	    // Update power levels
-	    if (b instanceof IPowerConsumer) {
-		this.powerConsumptionLevel += ((IPowerConsumer) b).getConsumptionLevel();
-	    } else if (b instanceof IPowerProducer) {
-		this.powerLevel += ((IPowerProducer) b).getPowerProductionLevel();
+	    if (b instanceof IPowerConsumer iPowerConsumer) {
+		this.powerConsumptionLevel += iPowerConsumer.getConsumptionLevel();
+	    } else if (b instanceof IPowerProducer iPowerProducer) {
+		this.powerLevel += iPowerProducer.getPowerProductionLevel();
 	    }	    
 
-	    if (b instanceof EntityConstructionYard) {
-		if (((EntityConstructionYard) b).getAlignment() == Alignment.ALLIED) {
+	    if (b instanceof EntityConstructionYard entityConstructionYard) {
+		if (entityConstructionYard.getAlignment() == Alignment.ALLIED) {
 		    this.isAlliedCYPresent = true;
-		} else if (((EntityConstructionYard) b).getAlignment() == Alignment.SOVIET) {
+		} else if (entityConstructionYard.getAlignment() == Alignment.SOVIET) {
 		    this.isSovietCYPresent = true;
 		}
 	    } else if (b instanceof EntityBarracks) {
 		this.isBarracksPresent = true;
 		//} else if (b instanceof EntityTent) {
 		//this.isTentPresent = true;
-	    } else if (b instanceof EntityWarFactory) {
-		if (((EntityWarFactory) b).getAlignment() == Alignment.ALLIED) {
+	    } else if (b instanceof EntityWarFactory entityWarFactory) {
+		if (entityWarFactory.getAlignment() == Alignment.ALLIED) {
 		    this.isAlliedWarFactoryPresent = true;
-		} else if (((EntityWarFactory) b).getAlignment() == Alignment.SOVIET) {
+		} else if (entityWarFactory.getAlignment() == Alignment.SOVIET) {
 		    this.isSovietWarFactoryPresent = true;
 		}
 	    } else if (b instanceof EntityRadarDome) {
 		this.isRadarDomePresent = true;
 	    }
 
-	    if (b instanceof IOreCapacitor) {
-		this.oreCapacity += ((IOreCapacitor) b).getOreCapacityValue();
+	    if (b instanceof IOreCapacitor iOreCapacitor) {
+		this.oreCapacity += iOreCapacitor.getOreCapacityValue();
 	    }
 	}
 
@@ -279,8 +279,8 @@ public class Base {
 
     public boolean checkBuildingDistance(int cellX, int cellY, boolean isWall) {
 	// Find minimal distance to all construction yards
-	int minDistanceToCYSq = 0;
-	int minDistanceToOtherBuildingsSq = 0;
+	double minDistanceToCYSq = 0;
+	double minDistanceToOtherBuildingsSq = 0;
 
 	for (EntityBuilding eb : this.buildings) {
 	    // Defense structures don't gives buildable area, so skip it
@@ -288,9 +288,9 @@ public class Base {
 		continue;
 	    }
 
-	    int dx = eb.getTileX() / 24 - cellX;
-	    int dy = eb.getTileY() / 24 - cellY;
-	    int distanceSq = dx * dx + dy * dy;
+	    double dx = eb.boundingBox.getX() / 24 - cellX;
+	    double dy = eb.boundingBox.getY() / 24 - cellY;
+	    double distanceSq = dx * dx + dy * dy;
 
 	    if (eb instanceof EntityConstructionYard) {
 		if (minDistanceToCYSq == 0 || distanceSq < minDistanceToCYSq) {
@@ -357,9 +357,9 @@ public class Base {
     public void deployTrainedInfantry(EntityInfantry i) {
 	EntityBuilding b = getPrimaryBarrackOrTent();
 	if (b != null) {
-	    if (b instanceof EntityBarracks) {
+	    if (b instanceof EntityBarracks entityBarracks) {
                 EntityActor x = i.newInstance();
-		((EntityBarracks) b).deployEntity(x);
+		entityBarracks.deployEntity(x);
                 owner.entities.add(x);
 	    }/* else if (b instanceof EntityTent) {
 		((EntityTent) b).deployEntity(i.newInstance());
@@ -369,9 +369,9 @@ public class Base {
 
     public EntityWarFactory getPrimaryWarFactory() {
 	for (EntityBuilding b : this.buildings) {
-	    if (b instanceof EntityWarFactory) {
+	    if (b instanceof EntityWarFactory entityWarFactory) {
 		if (b.isPrimary()) {
-		    return (EntityWarFactory) b;
+		    return entityWarFactory;
 		}
 	    }
 	}	

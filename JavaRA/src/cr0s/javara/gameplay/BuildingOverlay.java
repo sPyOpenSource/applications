@@ -91,7 +91,7 @@ public class BuildingOverlay {
 	//g.setLineWidth(2);
 	for (EntityBuilding eb : this.player.getBase().getBuildings()) {
 	    if (eb instanceof EntityConstructionYard) {		
-		Circle c = new Circle(eb.getTileX() + (eb.sizeWidth / 2), eb.getTileY() + (eb.sizeHeight / 2), Base.BUILDING_CY_RANGE * 24);
+		Circle c = new Circle(eb.boundingBox.getX() + (eb.sizeWidth / 2), eb.boundingBox.getY() + (eb.sizeHeight / 2), Base.BUILDING_CY_RANGE * 24);
 		//g.draw(c);
 	    }
 	}

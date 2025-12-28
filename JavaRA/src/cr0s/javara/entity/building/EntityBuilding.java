@@ -28,11 +28,6 @@ import javafx.scene.image.ImageView;
  */
 public abstract class EntityBuilding extends EntityActor {
     /**
-     * Building coordinates aligned to tiled map grid.
-     */
-    public int tileX, tileY;
-
-    /**
      * Size of building in tiles.
      */
     protected int tileWidth, tileHeight;
@@ -111,9 +106,6 @@ public abstract class EntityBuilding extends EntityActor {
 
 	super(aTileX, aTileY, aSizeWidth, aSizeHeight);
 
-	this.tileX = (int)aTileX;
-	this.tileY = (int)aTileY;
-
 	this.width = aSizeWidth;
 	this.height = aSizeHeight;
 
@@ -169,39 +161,6 @@ public abstract class EntityBuilding extends EntityActor {
 
     @Override
     public abstract boolean shouldRenderedInPass(int passNum);
-
-    /**
-     * Gets tile X-axis building coordinate at tiled map grid.
-     * @return X coordinate
-     */
-    public int getTileX() {
-	return tileX;
-    }
-
-    /**
-     * Sets tile X-axis building coordinate at tiled map grid.
-     * @param aTileX new X coordinate
-     */
-    public void setTileX(final int aTileX) {
-	this.tileX = aTileX;
-    }
-
-    /**
-     * Gets tile Y-axis building coordinate at tiled map grid.
-     * @return Y coordinate
-     */
-    public int getTileY() {
-	return tileY;
-    }
-
-    /**
-     * Sets tile Y-axis building coordinate at tiled map grid.
-     * @param aTileY new Y coordinate
-     */
-    public void setTileY(final int aTileY) {
-	this.tileY = aTileY;
-    }
-
 
     public boolean isPrimary() {
 	return isPrimary;
@@ -325,19 +284,13 @@ public abstract class EntityBuilding extends EntityActor {
     }
 
     public void changeCellPos(int newCellX, int newCellY) {
-	this.tileX = newCellX * 24;
-	this.tileY = newCellY * 24;
-
-	//this.posX = this.tileX;
-	//this.posY = this.tileY;
-
 	// Refresh bounding box
 	//this.boundingBox.setBounds(posX, posY, sizeWidth, sizeHeight);
     }
 
     @Override
     public String toString() {
-	return String.format("Building [%s, (%s, %s), (%s, %s), visible: %s, dead: %s]", this.getClass().getName(), this.getTileX(), this.getTileY(), this.getTranslateX(), this.getTranslateY(), this.isVisible, this.isDead());
+	return null;//String.format("Building [%s, (%s, %s), (%s, %s), visible: %s, dead: %s]", this.getClass().getName(), this.getTileX(), this.getTileY(), this.getTranslateX(), this.getTranslateY(), this.isVisible, this.isDead());
     }
 
     public int getTextureWidth() {

@@ -105,7 +105,7 @@ owner.entities.add(harv);
     }
 
     public Pos getHarvesterCell() {
-	return new Pos((this.getTileX() / 24) + HARV_OFFSET_X, (this.getTileY() / 24) + HARV_OFFSET_Y);	
+	return new Pos((this.boundingBox.getX() / 24) + HARV_OFFSET_X, (this.boundingBox.getY() / 24) + HARV_OFFSET_Y);	
     }
 
     private void initTextures() {
@@ -137,8 +137,8 @@ ImageView view = null;
 	if (this.repairIconBlink) {
 	    //repairImage.draw(this.boundingBox.getX() + this.boundingBox.getWidth() / 2 - repairImage.getWidth() / 2, this.boundingBox.getY() + this.boundingBox.getHeight() / 2 - repairImage.getHeight() / 2);
 	}
-        view.setX(tileX);
-        view.setY(tileY);
+        view.setX(boundingBox.getX());
+        view.setY(boundingBox.getY());
         setImageView(view);
         return view;
     }

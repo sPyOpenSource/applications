@@ -73,9 +73,6 @@ public class EntityHelipad extends EntityBuilding implements ISelectable, IPower
 
     @Override
     public ImageView renderEntity() {
-	//double nx = posX;
-	//double ny = posY;
-
 	int corruptionShift = 0;
 
 	if (this.getHp() > this.getMaxHp() / 2) {
@@ -85,7 +82,7 @@ public class EntityHelipad extends EntityBuilding implements ISelectable, IPower
 	}
 
 	//sheet.startUse();
-	//sheet.getSubImage(0, corruptionShift + ((this.isCharging) ? animIndex : 0)).drawEmbedded(posX, posY, this.getTextureWidth(), this.getTextureHeight());
+	ImageView view = sheet.getSubImage(0, corruptionShift + ((this.isCharging) ? animIndex : 0));//.drawEmbedded(posX, posY, this.getTextureWidth(), this.getTextureHeight());
 	//sheet.endUse();
 
 	// Draw bounding box if debug mode is on
@@ -100,7 +97,11 @@ public class EntityHelipad extends EntityBuilding implements ISelectable, IPower
 	if (this.repairIconBlink) {
 	    //repairImage.draw(this.boundingBox.getX() + this.boundingBox.getWidth() / 2 - repairImage.getWidth() / 2, this.boundingBox.getY() + this.boundingBox.getHeight() / 2 - repairImage.getHeight() / 2);
 	}
-        return null;
+        
+        view.setX(boundingBox.getX());
+        view.setY(boundingBox.getY());
+        setImageView(view);
+        return view;
     }
 
     @Override

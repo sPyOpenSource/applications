@@ -102,8 +102,8 @@ ImageView view = null;
 	if (this.repairIconBlink) {
 	    //repairImage.draw(this.boundingBox.getX() + this.boundingBox.getWidth() / 2 - repairImage.getWidth() / 2, this.boundingBox.getY() + this.boundingBox.getHeight() / 2 - repairImage.getHeight() / 2);
 	}
-        view.setX(tileX);
-        view.setY(tileY);
+        view.setX(boundingBox.getX());
+        view.setY(boundingBox.getY());
         return view;
     }
 
@@ -174,7 +174,7 @@ ImageView view = null;
 	    newInstance.setWorld(this.world);
 	  
 	    world.spawnEntityInWorld(newInstance);
-	    me.setPos(new Pos(tileX, tileY));
+	    me.setPos(new Pos(boundingBox.getX(), boundingBox.getY()));
             
 	    Path p = new Path();
 	    p.getElements().add(new MoveTo((int) exitPos.getX(), (int) exitPos.getY()));

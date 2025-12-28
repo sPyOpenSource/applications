@@ -142,8 +142,9 @@ ImageView view = null;
 	if (this.repairIconBlink) {
 	    //repairImage.draw(this.boundingBox.getX() + this.boundingBox.getWidth() / 2 - repairImage.getWidth() / 2, this.boundingBox.getY() + this.boundingBox.getHeight() / 2 - repairImage.getHeight() / 2);
 	}
-        view.setX(tileX);
-        view.setY(tileY);
+        view.setX(boundingBox.getX());
+        view.setY(boundingBox.getY());
+        setImageView(view);
         return view;
     }
 
@@ -208,8 +209,8 @@ ImageView view = null;
     private boolean tryToMoveOutEntityToUnlockedCells(EntityVehicle v) {
 	boolean isSuccess = false;
 
-	int exitX = (int)getTileX() / 24 + 1;
-	int exitY = getTileY() / 24 + HEIGHT_TILES - 2;
+	int exitX = (int)boundingBox.getX() / 24 + 1;
+	int exitY = (int)boundingBox.getY() / 24 + HEIGHT_TILES - 2;
 	
 	boolean isExitBlocked = isCellBlocked(exitX, exitY);
 	
@@ -260,7 +261,7 @@ ImageView view = null;
 	world.spawnEntityInWorld(target);
 	target.setWorld(world);
 	this.targetEntity = target;
-	targetEntity.setPositionByCenter((int)this.getTileX() + 24 + 12, getTileY() + 24 * 1);
+	targetEntity.setPositionByCenter(boundingBox.getX() + 24 + 12, boundingBox.getY() + 24 * 1);
 	targetEntity.currentFacing = 16;
 	targetEntity.isVisible = false;
 	

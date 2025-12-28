@@ -161,8 +161,8 @@ return view;
         if(getImageViews().isEmpty()){
             //ImageView view = sheet.getSubImage(0, 0);
             ImageView view = new ImageView(SwingFXUtils.toFXImage(normal, null));
-            view.setX(getTileX());
-            view.setY(getTileY());
+            view.setX(boundingBox.getX());
+            view.setY(boundingBox.getY());
             getImageViews().add(view);
         }
         return getImageViews().get(0);

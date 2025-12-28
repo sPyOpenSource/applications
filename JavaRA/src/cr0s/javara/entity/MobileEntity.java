@@ -162,7 +162,7 @@ public abstract class MobileEntity extends EntityActor implements INotifyBlockin
 	return this.getTranslateY() + (this.sizeHeight / 2);
     }	
 
-    public void setPositionByCenter(float x, float y) {
+    public void setPositionByCenter(double x, double y) {
 	setCenterX(x);
 	setCenterY(y);
     }

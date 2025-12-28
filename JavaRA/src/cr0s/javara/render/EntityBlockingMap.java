@@ -230,8 +230,8 @@ public class EntityBlockingMap {
     public void occupyForBuilding(EntityBuilding eb) {
 	for (int by = 0; by < eb.getHeightInTiles(); by++) {
 	    for (int bx = 0; bx < eb.getWidthInTiles(); bx++) {
-		int x = ((eb.getTileX() + 12) / 24) + bx;
-		int y = ((eb.getTileY() + 12) / 24) + by;
+		int x = (((int)eb.boundingBox.getX() + 12) / 24) + bx;
+		int y = (((int)eb.boundingBox.getY() + 12) / 24) + by;
 		int blockType = eb.getBlockingCells()[bx][by];
 		
 		switch (blockType) {

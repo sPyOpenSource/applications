@@ -118,8 +118,8 @@ ImageView view;
 	if (this.repairIconBlink) {
 	    //repairImage.draw(this.boundingBox.getX() + this.boundingBox.getWidth() / 2 - repairImage.getWidth() / 2, this.boundingBox.getY() + this.boundingBox.getHeight() / 2 - repairImage.getHeight() / 2);
 	}
-        view.setX(tileX);
-        view.setY(tileY);
+        view.setX(boundingBox.getX());
+        view.setY(boundingBox.getY());
         return view;
     }
 
