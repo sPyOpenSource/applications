@@ -69,12 +69,12 @@ public class Maze {
     public boolean isNode(int x, int y) { 
         if(x < 0 || x > nodes[0].length - 1) return false;
         if(y < 0 || y > nodes.length - 1) return false;
-        return nodes[y][x] != 0;    
+        return nodes[y][x] >= 0;    
     }
     
     public int getValue(int x, int y){
-        if(x < 0 || x > nodes[0].length - 1) return 0;
-        if(y < 0 || y > nodes.length - 1) return 0;
+        if(x < 0 || x > nodes[0].length - 1) return -1;
+        if(y < 0 || y > nodes.length - 1) return -1;
         return nodes[y][x];
     }
     

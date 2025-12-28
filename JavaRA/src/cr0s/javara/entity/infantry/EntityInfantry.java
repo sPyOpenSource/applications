@@ -24,14 +24,23 @@ import cr0s.javara.order.Target;
 import cr0s.javara.render.EntityBlockingMap.FillsSpace;
 import cr0s.javara.render.EntityBlockingMap.SubCell;
 import cr0s.javara.render.Sequence;
+import cr0s.javara.render.World;
 import cr0s.javara.resources.ResourceManager;
 import cr0s.javara.resources.ShpTexture;
 import cr0s.javara.resources.SoundManager;
 import cr0s.javara.util.Pos;
 import java.util.Random;
+import javafx.animation.PathTransition;
+import javafx.application.Platform;
 
 import javafx.scene.shape.Path;
 import javafx.scene.image.ImageView;
+import javafx.scene.shape.LineTo;
+import javafx.scene.shape.MoveTo;
+import javafx.util.Duration;
+import mazesolver.Director;
+import mazesolver.Maze;
+import mazesolver.Point;
 
 public abstract class EntityInfantry extends MobileEntity implements IShroudRevealer {
     private static final float DEFAULT_MOVE_SPEED = 1.5f;
@@ -81,13 +90,23 @@ public abstract class EntityInfantry extends MobileEntity implements IShroudReve
     protected AttackBase attack;
     protected AutoTarget autoTarget;
     protected ArrayList<String> deathSounds = new ArrayList<>();
-
+    Maze maze;
+    ArrayList<Point> router;
+    Director director;
+    
     public EntityInfantry(double posX, double posY) {
 	this(posX, posY, SubCell.CENTER);
     }
 
     public EntityInfantry(double posX, double posY, SubCell sub) {
 	super(posX, posY, WIDTH, HEIGHT);
+ maze = new Maze(
+                    World.blockingMap, 
+                    new Point(24, 24),
+                    new Point(50, 50),
+                    null
+            );
+director = new Director(maze, null);
 
 	this.currentSubcell = sub;
 
@@ -151,8 +170,34 @@ public abstract class EntityInfantry extends MobileEntity implements IShroudReve
     public void updateEntity(long delta) {
 	super.updateEntity(delta);
         if(getImageView()!=null){
-getImageView().setX(getImageView().getX()+new Random().nextInt(5)-2);
-getImageView().setY(getImageView().getY()+new Random().nextInt(5)-2);
+            if(router == null) director.run();
+            if(!director.getBestRoute().isEmpty() && router == null){
+                router = director.getBestRoute();
+            }
+            if(router != null){
+                if(!router.isEmpty()){
+                    Path path = new Path();
+                    MoveTo mv = new MoveTo(
+                            router.getFirst().getX() * 24, 
+                            router.getFirst().getY() * 24);
+                    path.getElements().add(mv);
+                    for(int i = 1; i < router.size(); i++){
+                        LineTo line = new LineTo(
+                                router.get(i).getX() * 24, 
+                                router.get(i).getY() * 24);
+                        path.getElements().add(line);
+                    }
+                    PathTransition transition = new PathTransition();
+            transition.setDuration(Duration.millis(500 * router.size()));
+                                router.removeAll(router);
+
+            transition.setCycleCount(1);
+            transition.setNode(getImageView());
+            transition.setAutoReverse(false);
+            transition.setPath(path);
+            Platform.runLater(transition::play);
+                }
+            }
         }
 	if (this.attack != null) {
 	    this.attack.update(delta);

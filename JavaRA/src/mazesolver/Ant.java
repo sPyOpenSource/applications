@@ -71,6 +71,8 @@ public class Ant implements Runnable {
         float[] w = new float[4];
         for(byte i = 0; i < 4; i++) {
             w[i] = subRoute.getMaze().getValue(points[i].getX(), points[i].getY());
+            if(w[i] < 0) w[i] = 0;
+            else w[i] = 100000;
             if(w[i] != 0){
                 if(points[i].equals(previousPoint()))
                     w[i] = Settings.Ant.factorReverse;

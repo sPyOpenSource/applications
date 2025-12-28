@@ -47,7 +47,7 @@ public class World extends AnimationTimer {
     private final ConcurrentLinkedQueue<Entity> entitiesToAdd = new ConcurrentLinkedQueue<>();
     private final int PASSES_COUNT = 3;
 
-    public int blockingMap[][];
+    public static int blockingMap[][];
     public EntityBlockingMap blockingEntityMap;
     public final int MAX_RANGE = 50;
     public BorderPane root;
