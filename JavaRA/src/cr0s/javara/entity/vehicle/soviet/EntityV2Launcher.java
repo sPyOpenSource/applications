@@ -146,11 +146,11 @@ public class EntityV2Launcher extends EntityVehicle implements ISelectable, IHav
     }
 
     public double getTextureX() {
-	return getTranslateX() - (TEXTURE_WIDTH / 2) + 12;
+	return boundingBox.getX() - (TEXTURE_WIDTH / 2) + 12;
     }
 
     public double getTextureY() {
-	return getTranslateY() - (TEXTURE_HEIGHT / 2) + 6; 
+	return boundingBox.getY() - (TEXTURE_HEIGHT / 2) + 6; 
     }
 
     @Override

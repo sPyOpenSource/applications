@@ -260,7 +260,7 @@ public class World extends AnimationTimer {
 	}
 
 	//bibSheet.startUse();
-	int x = (int) b.getTranslateX(), y = (int) b.getTranslateY();
+	int x = (int) b.boundingBox.getX(), y = (int) b.boundingBox.getY();
 	int bibCount;
 
 	switch (bt) { 

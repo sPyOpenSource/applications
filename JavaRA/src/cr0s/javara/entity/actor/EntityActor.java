@@ -127,7 +127,7 @@ public abstract class EntityActor extends Entity implements IOrderIssuer, IOrder
     }
 
     public Pos getPosition() {
-	return new Pos(this.boundingBox.getX() + this.boundingBox.getWidth() / 2, this.boundingBox.getY() + this.boundingBox.getArcHeight() / 2, this.getTranslateZ());
+	return new Pos(this.boundingBox.getX() + this.boundingBox.getWidth() / 2, this.boundingBox.getY() + this.boundingBox.getArcHeight() / 2);
     }
     
     public Pos getCellPosition() {
@@ -138,6 +138,7 @@ public abstract class EntityActor extends Entity implements IOrderIssuer, IOrder
 	return this.maxFacings;
     }
     
+    @Override
     public String getName() {
 	return this.name;
     }

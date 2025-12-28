@@ -215,11 +215,11 @@ public class EntityMammothTank extends EntityVehicle implements ISelectable, IHa
     }
 
     public double getTextureX() {
-	return getTranslateX() - (TEXTURE_WIDTH / 2) + (TEXTURE_WIDTH / 6) + 4;
+	return boundingBox.getX() - (TEXTURE_WIDTH / 2) + (TEXTURE_WIDTH / 6) + 4;
     }
 
     public double getTextureY() {
-	return getTranslateY() - (TEXTURE_HEIGHT / 2) + (TEXTURE_HEIGHT / 8) + 9; 
+	return boundingBox.getY() - (TEXTURE_HEIGHT / 2) + (TEXTURE_HEIGHT / 8) + 9; 
     }
 
     @Override

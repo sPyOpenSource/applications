@@ -47,7 +47,7 @@ public abstract class MobileEntity extends EntityActor implements INotifyBlockin
     }
     
     public Pos getPos() {
-	return new Pos(this.getTranslateX(), this.getTranslateY());
+	return new Pos(this.boundingBox.getX(), this.boundingBox.getY());
     }
     
     public Pos getCellPos() {
@@ -55,7 +55,7 @@ public abstract class MobileEntity extends EntityActor implements INotifyBlockin
     }    
     
     public Pos getTexturePos() {
-	return new Pos(this.getTranslateX(), this.getTranslateY());
+	return new Pos(this.boundingBox.getX(), this.boundingBox.getY());
     }
 
     public void setPos(Pos pos) {
@@ -155,11 +155,11 @@ public abstract class MobileEntity extends EntityActor implements INotifyBlockin
     }
 
     public double getCenterPosX() {
-	return this.getTranslateX() + (this.sizeWidth / 2);
+	return this.boundingBox.getX() + (this.sizeWidth / 2);
     }
 
     public double getCenterPosY() {
-	return this.getTranslateY() + (this.sizeHeight / 2);
+	return this.boundingBox.getY() + (this.sizeHeight / 2);
     }	
 
     public void setPositionByCenter(double x, double y) {

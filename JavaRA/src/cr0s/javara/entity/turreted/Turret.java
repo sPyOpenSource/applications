@@ -78,11 +78,11 @@ public class Turret {
 
     private void updateTurretPos() {
 	if (this.parentEntity instanceof MobileEntity) {
-	    this.turretX = ((MobileEntity) this.parentEntity).getTranslateX() + this.offestX;
-	    this.turretY = ((MobileEntity) this.parentEntity).getTranslateY() + this.offsetY;
+	    this.turretX = ((MobileEntity) this.parentEntity).boundingBox.getX() + this.offestX;
+	    this.turretY = ((MobileEntity) this.parentEntity).boundingBox.getY() + this.offsetY;
 	} else {
-	    this.turretX = this.parentEntity.getTranslateX() + this.offestX;
-	    this.turretY = this.parentEntity.getTranslateY() + this.offsetY;
+	    this.turretX = this.parentEntity.boundingBox.getX() + this.offestX;
+	    this.turretY = this.parentEntity.boundingBox.getY() + this.offsetY;
 	}
 	
 	this.turretX += this.recoilOffsetX;
@@ -125,10 +125,10 @@ public class Turret {
 	    if (this.isTargeting) {
 		int rot;
 
-		if (parentEntity instanceof MobileEntity) {
-		    rot = RotationUtil.getRotationFromXY(((MobileEntity) parentEntity).getTranslateX() + this.offestX, ((MobileEntity) parentEntity).getTranslateY() + this.offsetY, this.targetX, this.targetY) % this.numFacings;
+		if (parentEntity instanceof MobileEntity mobileEntity) {
+		    rot = RotationUtil.getRotationFromXY(mobileEntity.boundingBox.getX() + this.offestX, mobileEntity.boundingBox.getY() + this.offsetY, this.targetX, this.targetY) % this.numFacings;
 		} else {
-		    rot = RotationUtil.getRotationFromXY(this.parentEntity.getTranslateX() + this.offestX, this.parentEntity.getTranslateY() + this.offsetY, this.targetX, this.targetY) % this.numFacings;		    
+		    rot = RotationUtil.getRotationFromXY(this.parentEntity.boundingBox.getX() + this.offestX, this.parentEntity.boundingBox.getY() + this.offsetY, this.targetX, this.targetY) % this.numFacings;		    
 		}
 
 		this.rotateTurretTo(rot);	

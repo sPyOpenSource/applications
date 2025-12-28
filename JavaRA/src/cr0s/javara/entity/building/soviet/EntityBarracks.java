@@ -210,7 +210,7 @@ ImageView view = null;
     
     @Override
     public void onBuildFinished() {
-	this.exitPos = new Pos((getTranslateX()) / 24, (getTranslateY() + 1 * 24) / 24);
-	this.rallyPos = new Pos((getTranslateX()) / 24, (getTranslateY() + 2 * 24) / 24);	
+	this.exitPos = new Pos((boundingBox.getX()) / 24, (boundingBox.getY() + 1 * 24) / 24);
+	this.rallyPos = new Pos((boundingBox.getX()) / 24, (boundingBox.getY() + 2 * 24) / 24);	
     }
 }

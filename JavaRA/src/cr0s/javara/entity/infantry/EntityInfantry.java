@@ -432,7 +432,7 @@ public abstract class EntityInfantry extends MobileEntity implements IShroudReve
 	if (this.getHp() > 0 && this.getHp() - amount <= 0) { // prevent overkill and spawn unit explosion
 	    Sequence deathSeq = this.getDeathSequence(warhead);
 	    if (deathSeq != null) {
-		this.world.playSequenceAt(deathSeq, new Pos(this.getTranslateX(), this.getTranslateY()));
+		this.world.playSequenceAt(deathSeq, new Pos(this.boundingBox.getX(), this.boundingBox.getY()));
 	    }
 	    
 	    // Play random death sound

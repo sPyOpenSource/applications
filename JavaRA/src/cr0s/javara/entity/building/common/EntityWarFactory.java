@@ -92,7 +92,7 @@ public class EntityWarFactory extends EntityBuilding implements ISelectable, ISh
 	this.makeTextureName = MAKE_TEXTURE_NAME;
 	initTextures();
 	
-	this.exitBoundingBox = new Rectangle(getTranslateX(), getTranslateY(), sizeWidth, sizeHeight - 24);
+	this.exitBoundingBox = new Rectangle(boundingBox.getX(), boundingBox.getY(), sizeWidth, sizeHeight - 24);
 	this.unitProductionAlingment = Alignment.NEUTRAL;
 	
 	this.requiredToBuild.add(EntityPowerPlant.class);

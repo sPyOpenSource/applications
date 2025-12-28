@@ -14,11 +14,10 @@ import java.util.ArrayList;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.Node;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-public abstract class Entity extends Node {
+public abstract class Entity {
     public World world;
     public double moveX, moveY;
 

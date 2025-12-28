@@ -204,11 +204,11 @@ ImageView view;
     }
 
     public double getTextureX() {
-	return getTranslateX() - (TEXTURE_WIDTH / 2) + 18;
+	return boundingBox.getX() - (TEXTURE_WIDTH / 2) + 18;
     }
 
     public double getTextureY() {
-	return getTranslateY() - (TEXTURE_HEIGHT / 2) + 12; 
+	return boundingBox.getY() - (TEXTURE_HEIGHT / 2) + 12; 
     }
 
     @Override
@@ -228,7 +228,7 @@ ImageView view;
 
     @Override
     public int getWaitAverageTime() {
-	return this.WAIT_FOR_BLOCKER_AVERAGE_TIME_TICKS;
+	return EntityHarvester.WAIT_FOR_BLOCKER_AVERAGE_TIME_TICKS;
     }
 
     @Override

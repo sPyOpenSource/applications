@@ -17,8 +17,8 @@ import cr0s.javara.render.map.TileSet;
 import cr0s.javara.resources.ResourceManager;
 import cr0s.javara.resources.SoundManager;
 import cr0s.javara.util.Pos;
-import java.awt.image.BufferedImage;
 
+import java.awt.image.BufferedImage;
 import javafx.scene.image.ImageView;
 
 /**
@@ -321,7 +321,7 @@ public abstract class EntityBuilding extends EntityActor {
 
 	for (int bX = 0; bX < this.getWidthInTiles(); bX++) {
 	    for (int bY = 0; bY < this.getHeightInTiles(); bY++) {
-		world.spawnExplosionAt(new Pos(this.getTranslateX() + bX * 24, this.getTranslateY() + bY * 24), "fball1.shp");
+		world.spawnExplosionAt(new Pos(this.boundingBox.getX() + bX * 24, this.boundingBox.getY() + bY * 24), "fball1.shp");
 	    }
 	}
 
@@ -350,7 +350,7 @@ public abstract class EntityBuilding extends EntityActor {
 		    }
 
 		    if (world.getRandomInt(0, 10) >= 8) { 
-			world.spawnExplosionAt(new Pos(this.getTranslateX() + bX * 24 + 12, this.getTranslateY() + bY * 24 + 12), "fire1.shp");
+			world.spawnExplosionAt(new Pos(this.boundingBox.getX() + bX * 24 + 12, this.boundingBox.getY() + bY * 24 + 12), "fire1.shp");
 		    }
 		}
 	    }	    
