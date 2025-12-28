@@ -12,6 +12,7 @@ public class Maze {
     private final Point endPoint;
     
     private final Venue[] venues;
+    private final Random random = new Random();
     
     /**
      * Creates new Maze based on given arguments.
@@ -28,8 +29,12 @@ public class Maze {
         this.nodes = nodes;
         
         // Check if startPoint is valid
-        if (startPoint == null/* || !isNode(startPoint)*/)
-            Helper.error("Invalid start point!");
+        while (startPoint == null || !isNode(startPoint)){
+            startPoint = new Point(
+                    startPoint.getX() + random.nextInt(5) - 2, 
+                    startPoint.getY() + random.nextInt(5) - 2);
+            //Helper.error("Invalid start point!");
+        }
         
         this.startPoint = startPoint;
         

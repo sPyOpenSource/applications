@@ -168,14 +168,15 @@ public abstract class EntityInfantry extends MobileEntity implements IShroudReve
                 maze = new Maze(
                     World.blockingMap, 
                     new Point(
-                            (int)getImageView().getX() / 24,// + random.nextInt(3), 
-                            (int)getImageView().getY() / 24// + random.nextInt(3)
+                            (int)getImageView().getX() / 24, 
+                            (int)getImageView().getY() / 24
                     ),
                     new Point(50, 50),
                     null
-            );
-director = new Director(maze, null);
-                director.run();}
+                );
+                director = new Director(maze, null);
+                director.run();
+            }
             if(!director.getBestRoute().isEmpty() && router == null){
                 router = director.getBestRoute();
             }
@@ -193,14 +194,14 @@ director = new Director(maze, null);
                         path.getElements().add(line);
                     }
                     PathTransition transition = new PathTransition();
-            transition.setDuration(Duration.millis(500 * router.size()));
-                                router.removeAll(router);
+                    transition.setDuration(Duration.millis(500 * router.size()));
+                    router.removeAll(router);
 
-            transition.setCycleCount(1);
-            transition.setNode(getImageView());
-            transition.setAutoReverse(false);
-            transition.setPath(path);
-            Platform.runLater(transition::play);
+                    transition.setCycleCount(1);
+                    transition.setNode(getImageView());
+                    transition.setAutoReverse(false);
+                    transition.setPath(path);
+                    Platform.runLater(transition::play);
                 }
             }
         }
