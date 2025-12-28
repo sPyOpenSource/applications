@@ -101,13 +101,6 @@ public abstract class EntityInfantry extends MobileEntity implements IShroudReve
 
     public EntityInfantry(double posX, double posY, SubCell sub) {
 	super(posX, posY, WIDTH, HEIGHT);
- maze = new Maze(
-                    World.blockingMap, 
-                    new Point(24, 24),
-                    new Point(50, 50),
-                    null
-            );
-director = new Director(maze, null);
 
 	this.currentSubcell = sub;
 
@@ -171,7 +164,18 @@ director = new Director(maze, null);
     public void updateEntity(long delta) {
 	super.updateEntity(delta);
         if(getImageView()!=null){
-            if(router == null) director.run();
+            if(router == null) {
+                maze = new Maze(
+                    World.blockingMap, 
+                    new Point(
+                            (int)getImageView().getX() / 24,// + random.nextInt(3), 
+                            (int)getImageView().getY() / 24// + random.nextInt(3)
+                    ),
+                    new Point(50, 50),
+                    null
+            );
+director = new Director(maze, null);
+                director.run();}
             if(!director.getBestRoute().isEmpty() && router == null){
                 router = director.getBestRoute();
             }

@@ -28,7 +28,7 @@ public class Maze {
         this.nodes = nodes;
         
         // Check if startPoint is valid
-        if (startPoint == null || !isNode(startPoint))
+        if (startPoint == null/* || !isNode(startPoint)*/)
             Helper.error("Invalid start point!");
         
         this.startPoint = startPoint;
