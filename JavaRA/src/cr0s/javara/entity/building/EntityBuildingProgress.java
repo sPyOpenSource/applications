@@ -23,8 +23,6 @@ public class EntityBuildingProgress extends EntityBuilding implements IShroudRev
 	super(aTargetBuilding.boundingBox.getX(), aTargetBuilding.boundingBox.getY(), aTargetBuilding.getWidth(), aTargetBuilding.getHeight(), aTargetBuilding.getFootprint());
 
 	this.targetBuilding = aTargetBuilding;
-	//this.targetBuilding.posX = this.posX;
-	//this.targetBuilding.posY = this.posY;
 
 	if (!targetBuilding.makeTextureName.isEmpty()) {
 	    makeTexture = ResourceManager.getInstance().getConquerTexture(targetBuilding.makeTextureName);
@@ -98,8 +96,8 @@ targetBuilding.owner = owner;
 
     @Override
     public int getRevealingRange() {
-	if (this.targetBuilding instanceof IShroudRevealer) {
-	    return ((IShroudRevealer) targetBuilding).getRevealingRange() / 2;
+	if (this.targetBuilding instanceof IShroudRevealer iShroudRevealer) {
+	    return iShroudRevealer.getRevealingRange() / 2;
 	} else {
 	    return 0;
 	}

@@ -285,7 +285,9 @@ public abstract class EntityBuilding extends EntityActor {
 
     public void changeCellPos(int newCellX, int newCellY) {
 	// Refresh bounding box
-	//this.boundingBox.setBounds(posX, posY, sizeWidth, sizeHeight);
+	this.boundingBox.setX(newCellX * 24);
+        this.boundingBox.setY(newCellY * 24);
+// sizeWidth, sizeHeight);
     }
 
     @Override
