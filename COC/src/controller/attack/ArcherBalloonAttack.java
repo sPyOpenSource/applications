@@ -92,29 +92,29 @@ public class ArcherBalloonAttack extends Thread {
         double width;
         EntityBuilding building = null;
         for (Node node : map.getBuildingsMap()){
-            if (node instanceof EntityBuilding){
+            if (node instanceof EntityBuilding entityBuilding){
                 width = distance(viewBalloon.getX() + (viewBalloon.getFitWidth() / 2), viewBalloon.getY() + (viewBalloon.getFitHeight() / 2),
-                        ((EntityBuilding) node).getImageViews().get(0).getX() + (((EntityBuilding) node).getImageViews().get(0).getFitWidth() / 2),
-                        ((EntityBuilding) node).getImageViews().get(0).getY() + (((EntityBuilding) node).getImageViews().get(0).getFitHeight() / 2));
+                        entityBuilding.getImageViews().get(0).getX() + (entityBuilding.getImageViews().get(0).getFitWidth() / 2),
+                        entityBuilding.getImageViews().get(0).getY() + (entityBuilding.getImageViews().get(0).getFitHeight() / 2));
                 if(width < widthLowe){
                     widthLowe = width;
-                    building = (EntityBuilding) node;
+                    building = entityBuilding;
                     insideRadius = true;
                 }
             }
         }
         if (archerBalloon.getRang() < widthLowe && building != null){
             for (Node node : map.getBuildingsMap()){
-                if (node instanceof EntityBuilding){
-                    double[] nearestPoint = nearestPointOnCircle(((EntityBuilding) node).getImageViews().get(0).getX() + (((EntityBuilding) node).getImageViews().get(0).getFitWidth() / 2),
-                            ((EntityBuilding) node).getImageViews().get(0).getY() + (((EntityBuilding) node).getImageViews().get(0).getFitHeight() / 2),
+                if (node instanceof EntityBuilding entityBuilding){
+                    double[] nearestPoint = nearestPointOnCircle(entityBuilding.getImageViews().get(0).getX() + (entityBuilding.getImageViews().get(0).getFitWidth() / 2),
+                            entityBuilding.getImageViews().get(0).getY() + (entityBuilding.getImageViews().get(0).getFitHeight() / 2),
                             archerBalloon.getRang(), viewBalloon.getX() + (viewBalloon.getFitWidth() / 2),
                             viewBalloon.getY() + (viewBalloon.getFitHeight() / 2));
                     width = distance(viewBalloon.getX() + (viewBalloon.getFitWidth() / 2), viewBalloon.getY() + (viewBalloon.getFitHeight() / 2),
                             nearestPoint[0], nearestPoint[1]);
                     if (width < widthLowe) {
                         widthLowe = width;
-                        building = (EntityBuilding) node;
+                        building = entityBuilding;
                         nearestPointLineTo = nearestPoint;
                         insideRadius = false;
                     }
