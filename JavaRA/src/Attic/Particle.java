@@ -19,6 +19,7 @@ public abstract class Particle {
 	double position[];
 	/** Velocity */
 	double velocity[];
+        public int colorR, colorB, colorG;
 
 	//-------------------------------------------------------------------------
 	// Constructors

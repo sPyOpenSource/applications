@@ -11,7 +11,7 @@ public class Swarm {
 
 	public static double DEFAULT_GLOBAL_INCREMENT = 0.9;
 	public static double DEFAULT_INERTIA = 1.0;
-	public static int DEFAULT_NUMBER_OF_PARTICLES = 50;
+	public static int DEFAULT_NUMBER_OF_PARTICLES = 5;
 	public static double DEFAULT_OTHER_PARTICLE_INCREMENT = 0.9;
 	public static double DEFAULT_PARTICLE_INCREMENT = 0.9;
 	public static double DEFAULT_RANDOM_INCREMENT = 0.1;
@@ -380,7 +380,7 @@ public class Swarm {
                         double[] vel = particle.getVelocity();
                         x = (int) (scalePosW * (pos[dim0] - minPosW));
                         y = height - (int) (scalePosH * (pos[dim1] - minPosH));
-                        graphics.setColor(Color.BLACK);
+                        graphics.setColor(new Color(particle.colorR, particle.colorB, particle.colorG));
                         graphics.fillRect(x - 1, y - 1, 3, 3);
                         if( showVelocity ) {
                             vx = (int) (scaleVelW * (vel[dim0] - minVelW));
@@ -391,6 +391,7 @@ public class Swarm {
 		}
 	}
 
+        @Override
 	public String toString() {
 		String str = "";
 

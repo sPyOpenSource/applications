@@ -27,9 +27,9 @@ public class Example {
 		swarm.setMinPosition(-100);
 
 		// Show a 2D graph
-		int numberOfIterations = 10000000;
-		int displayEvery = numberOfIterations / 100 + 1;
-		SwarmShow2D ss2d = new SwarmShow2D(swarm, numberOfIterations, displayEvery, true);
+		int numberOfIterations = 1000000;
+		int displayEvery = 1;// + numberOfIterations / 10000;
+		SwarmShow2D ss2d = new SwarmShow2D(swarm, numberOfIterations, displayEvery, false);
 		ss2d.run();
 
 		// Show best position

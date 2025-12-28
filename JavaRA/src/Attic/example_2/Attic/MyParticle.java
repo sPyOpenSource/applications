@@ -1,6 +1,7 @@
 package Attic.example_2.Attic;
 
 import Attic.Particle;
+import java.util.Random;
 
 /**
  * Simple particle example
@@ -12,7 +13,6 @@ public class MyParticle extends Particle {
 	public static int NUMBER_OF_DIMENTIONS = 2;
 	
 	/** Totally useless, just to see how an example with local data works */
-	double particleData;
 
 	//-------------------------------------------------------------------------
 	// Constructor/s
@@ -23,7 +23,9 @@ public class MyParticle extends Particle {
 	 */
 	public MyParticle() {
 		super(NUMBER_OF_DIMENTIONS); // Create a 2-dimentional particle
-		particleData = Math.random(); // Add some custom 'local' data
+		colorR = new Random().nextInt(256); // Add some custom 'local' data
+                colorB = new Random().nextInt(256);
+                colorG = new Random().nextInt(256);
 	}
 
 	//-------------------------------------------------------------------------
@@ -34,7 +36,7 @@ public class MyParticle extends Particle {
         @Override
 	public String toString() {
 		String str = super.toString();
-		return str + "\tParticle's data: " + particleData + "\n";
+		return str + "\tParticle's data: " + colorR + "\n";
 	}
         
 }

@@ -30,7 +30,7 @@ public class SwarmThread extends Thread {
 			// Show something every displayStep iterations
 			if( (i % controller.getDisplayRefresh()) == 0 ) {
 				controller.setMessage("Iteration: " + i + "  Best fitness: " + controller.getSwarm().getBestFitness() + "          ");
-				controller.clear();
+				//controller.clear();
 				controller.showSwarm();
 			}
 			
