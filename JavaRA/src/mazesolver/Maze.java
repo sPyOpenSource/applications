@@ -78,20 +78,20 @@ public class Maze {
     public boolean isNode(int x, int y) { 
         if(x < 0 || x > nodes[0].length - 1) return false;
         if(y < 0 || y > nodes.length - 1) return false;
-        return nodes[y][x] >= 0;    
+        return nodes[x][y] >= 0;    
     }
     
     public int getValue(int x, int y){
         if(x < 0 || x > nodes[0].length - 1) return -1;
         if(y < 0 || y > nodes.length - 1) return -1;
-        return nodes[y][x];
+        return nodes[x][y];
     }
     
     public void setValue(int x, int y, int value){
         if(x < 0 || x > nodes[0].length - 1) return;
         if(y < 0 || y > nodes.length - 1) return;
         if(value <= 0) value = 1;
-        nodes[y][x] = value;
+        nodes[x][y] = value;
     }
     
     /**
@@ -162,10 +162,10 @@ public class Maze {
             
             for(int y = 0; y < height; y++) {
                 for(int x = 0; x < width; x++){
-                    nodes[y * 2][x * 2] = sc.nextByte() * Settings.Ant.factorNew;
-                    nodes[y * 2 + 1][x * 2 + 1] = nodes[y * 2][x * 2];
-                    nodes[y * 2][x * 2 + 1] = nodes[y * 2][x * 2];
-                    nodes[y * 2 + 1][x * 2] = nodes[y * 2][x * 2];
+                    nodes[x * 2][y * 2] = sc.nextByte() * Settings.Ant.factorNew;
+                    nodes[x * 2 + 1][y * 2 + 1] = nodes[x * 2][y * 2];
+                    nodes[x * 2][y * 2 + 1] = nodes[x * 2][y * 2];
+                    nodes[x * 2 + 1][y * 2] = nodes[x * 2][y * 2];
                 }
                 sc.nextLine();
             }

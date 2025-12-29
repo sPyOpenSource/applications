@@ -13,6 +13,7 @@ import java.util.Random;
 import org.yaml.snakeyaml.Yaml;
 import redhorizon.utilities.BufferUtility;
 import assets.Assets;
+import cr0s.javara.render.World;
 
 import cr0s.javara.render.map.ResourcesLayer.ResourceCell;
 import cr0s.javara.resources.ResourceManager;
@@ -208,6 +209,7 @@ public class TileMap {
 		    
 		    this.resourcesLayer.renderCell(x, y, root);
 		}
+                int i = World.blockingMap[x][y];
 	    }
 	}
 

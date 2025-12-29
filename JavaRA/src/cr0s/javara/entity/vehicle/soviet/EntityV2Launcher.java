@@ -54,7 +54,7 @@ public class EntityV2Launcher extends EntityVehicle implements ISelectable, IHav
     private final AttackFrontal attack;
     private final AutoTarget autoTarget;
     
-    public EntityV2Launcher(Float posX, Float posY) {
+    public EntityV2Launcher(Double posX, Double posY) {
 	super(posX, posY, TEXTURE_WIDTH, TEXTURE_HEIGHT);
 
 	texture = new SpriteSheet(ResourceManager.getInstance().getConquerTexture(TEXTURE_NAME).getAsCombinedImage(null), TEXTURE_WIDTH, TEXTURE_HEIGHT);
@@ -112,12 +112,14 @@ public class EntityV2Launcher extends EntityVehicle implements ISelectable, IHav
 	    textureIndex = EntityV2Launcher.ATTACK_OFFSET + (this.attack.armaments.get(0).isReloading() ? EntityV2Launcher.ATTACKING_FACINGS : 0) + attackingFacing;
 	}
 	
-	//texture.getSubImage(0, textureIndex).drawEmbedded(this.getTextureX(), this.getTextureY(), TEXTURE_WIDTH, TEXTURE_HEIGHT);
+	ImageView view = texture.getSubImage(0, textureIndex);//.drawEmbedded(this.getTextureX(), this.getTextureY(), TEXTURE_WIDTH, TEXTURE_HEIGHT);
 	
 	//texture.endUse();
 
 	//drawPath(g);
-        return null;
+        view.setX(boundingBox.getX());
+        view.setY(boundingBox.getY());
+        return view;
     }
 
     @Override

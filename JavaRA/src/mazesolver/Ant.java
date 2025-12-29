@@ -22,8 +22,8 @@ public class Ant implements Runnable {
         path.add(subRoute.getStartPoint());
         
         pathmap = new int
-                [subRoute.getMaze().getHeight()]
-                [subRoute.getMaze().getWidth()];
+                [subRoute.getMaze().getWidth()]
+                [subRoute.getMaze().getHeight()];
     }
     
     /**
@@ -45,7 +45,7 @@ public class Ant implements Runnable {
         path.add(next);
 
         // Update stepMap
-        pathmap[next.getY()][next.getX()] = 1;
+        pathmap[next.getX()][next.getY()] = 1;
         int value = /*subRoute.getMaze().getValue(next.getX(), next.getY()) -*/ 50;
         //subRoute.getMaze().setValue(next.getX(), next.getY(), value);
         return false;
@@ -78,8 +78,8 @@ public class Ant implements Runnable {
                     w[i] = Settings.Ant.factorReverse;
                 /*else if(pathmap[points[i].getY()][points[i].getX()] == 1000)
                     w[i] = Settings.Ant.factorOld;*/
-                else if(pathmap[points[i].getY()][points[i].getX()] == 1)
-                    w[i] = pathmap[points[i].getY()][points[i].getX()] * 100;
+                else if(pathmap[points[i].getX()][points[i].getY()] == 1)
+                    w[i] = pathmap[points[i].getX()][points[i].getY()] * 100;
             }
         }
         

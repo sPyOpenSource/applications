@@ -145,7 +145,7 @@ public class ProductionQueue {
 	// Put soviet vehicles
 	this.sovietVehicles.put("4tnkicon.shp", new EntityMammothTank(0.0d, 0.0d));
 	this.sovietVehicles.put("3tnkicon.shp", new EntityHeavyTank(0.0d, 0.0d));
-	this.sovietVehicles.put("v2rlicon.shp", new EntityV2Launcher(0.0f, 0.0f));
+	this.sovietVehicles.put("v2rlicon.shp", new EntityV2Launcher(0.0d, 0.0d));
 
     }
 
