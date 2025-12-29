@@ -1,4 +1,4 @@
-package Attic.example_2.Attic;
+package net.pso.jswarm.Attic.example_2.Attic;
 
 import net.pso.jswarm.FitnessFunction;
 
