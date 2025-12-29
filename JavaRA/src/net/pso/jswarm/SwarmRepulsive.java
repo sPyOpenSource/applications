@@ -1,5 +1,7 @@
 package net.pso.jswarm;
 
+import Attic.Particle;
+
 /**
  * A swarm of repulsive particles
  * @@author Pablo Cingolani <pcingola@@users.sourceforge.net>

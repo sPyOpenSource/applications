@@ -1,28 +1,6 @@
-head	1.1;
-access;
-symbols;
-locks; strict;
-comment	@# @;
+package net.pso.jswarm.sphere;
 
-
-1.1
-date	2006.10.20.03.25.59;	author pcingola;	state Exp;
-branches;
-next	;
-
-
-desc
-@@
-
-
-1.1
-log
-@Included examples by Alvaro Jaramillo Duque (and some code corrections)
-@
-text
-@package net.sourceforge.jswarm_pso.sphere;
-
-import net.sourceforge.jswarm_pso.FitnessFunction;
+import net.pso.jswarm.FitnessFunction;
 
 /**
  * Minimize  sphere function
@@ -47,6 +25,7 @@ public class MyFitnessFunction extends FitnessFunction {
 	 * @@param position : Particle's position
 	 * @@return Fitness function for a particle
 	 */
+        @Override
 	public double evaluate(double position[]) {
 		double f = 0;
 		for( int i = 0; i < (position.length - 1); i++ )
@@ -55,4 +34,3 @@ public class MyFitnessFunction extends FitnessFunction {
 	}
 
 }
-@

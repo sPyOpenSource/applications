@@ -1,37 +1,4 @@
-head	1.3;
-access;
-symbols
-	v1_1:1.2;
-locks; strict;
-comment	@# @;
-
-
-1.3
-date	2005.08.13.14.02.41;	author pcingola;	state Exp;
-branches;
-next	1.2;
-
-1.2
-date	2005.07.20.18.14.11;	author pcingola;	state Exp;
-branches;
-next	1.1;
-
-1.1
-date	2005.07.20.03.37.42;	author pcingola;	state Exp;
-branches;
-next	;
-
-
-desc
-@@
-
-
-1.3
-log
-@*** empty log message ***
-@
-text
-@package net.sourceforge.jswarm_pso.example_2;
+package net.pso.jswarm.example_2;
 
 import java.awt.Container;
 import java.awt.Dimension;
@@ -43,8 +10,8 @@ import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-import net.sourceforge.jswarm_pso.Gpr;
-import net.sourceforge.jswarm_pso.Swarm;
+import net.pso.jswarm.Gpr;
+import net.pso.jswarm.Swarm;
 
 /**
  * An extremely simple swarm optimization example
@@ -236,28 +203,3 @@ public class SwarmShow2D implements ActionListener, Runnable {
 		drawingArea.showSwarm();
 	}
 }
-@
-
-
-1.2
-log
-@*** empty log message ***
-@
-text
-@d23 1
-a23 1
- * @@author Pablo Cingolani <pcingola@@sinectis.com>
-@
-
-
-1.1
-log
-@*** empty log message ***
-@
-text
-@a15 1
-
-d205 1
-a205 1
-}@
-

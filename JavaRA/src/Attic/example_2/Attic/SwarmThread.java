@@ -36,6 +36,13 @@ public class SwarmThread extends Thread {
 			
 			// Evolve swarm
 			controller.getSwarm().evolve();
+                        try {
+    // Pauses execution of the current thread for 2 seconds (2000 ms)
+    Thread.sleep(100); 
+} catch (InterruptedException e) {
+    // Re-interrupt the thread or handle the interruption
+    Thread.currentThread().interrupt();
+}
 		}
 		controller.setMessage("Finished: Best fitness: " + controller.getSwarm().getBestFitness() + "          ");
 	}

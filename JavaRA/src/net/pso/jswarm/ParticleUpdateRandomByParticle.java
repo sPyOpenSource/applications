@@ -1,5 +1,7 @@
 package net.pso.jswarm;
 
+import Attic.Particle;
+
 /**
  * Particle update: Each particle selects an rlocal and rother 
  * independently from other particles' values

@@ -1,5 +1,7 @@
 package net.pso.jswarm;
 
+import Attic.Particle;
+
 /**
  * Particle update: Fully random approach
  * Note that rlocal and rother are randomly choosen for each particle and for each dimention

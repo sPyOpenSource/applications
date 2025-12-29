@@ -1,5 +1,6 @@
 package net.pso.jswarm;
 
+import Attic.Particle;
 import java.util.Collection;
 import java.util.HashMap;
 

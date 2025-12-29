@@ -1,6 +1,6 @@
 package Attic.example_2.Attic;
 
-import Attic.FitnessFunction;
+import net.pso.jswarm.FitnessFunction;
 
 /**
  * Sample Fitness function (Rastrigin's function)

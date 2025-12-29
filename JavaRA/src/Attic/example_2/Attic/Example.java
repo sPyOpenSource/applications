@@ -15,22 +15,22 @@ public class Example {
 	public static void main(String[] args) {
 		System.out.println("Example of Particle Swarm Optimization: Optimizing Rastrijin's funtion");
 		// Create a swarm (using 'MyParticle' as sample particle and 'MyFitnessFunction' as finess function)
-		Swarm swarm = new Swarm(Swarm.DEFAULT_NUMBER_OF_PARTICLES, new MyParticle(), new MyFitnessFunction());
+		Swarm swarm = new Swarm(Swarm.DEFAULT_NUMBER_OF_PARTICLES, new MyParticle(), new net.pso.jswarm.zzz.MyFitnessFunction());
 
 		// Tune swarm's update parameters (if needed)
-		swarm.setInertia(0.8);
+		swarm.setInertia(0.5);
 		// swarm.setParticleIncrement(0.9);
 		// swarm.setGlobalIncrement(0.9);
 
 		// Set position (and velocity) constraints. I.e.: where to look for solutions
 		swarm.setMaxPosition(100);
 		swarm.setMinPosition(-100);
-                swarm.setMaxMinVelocity(60);
+                swarm.setMaxMinVelocity(30);
 
 		// Show a 2D graph
-		int numberOfIterations = 1000000;
+		int numberOfIterations = 1000;
 		int displayEvery = 1;// + numberOfIterations / 10000;
-		SwarmShow2D ss2d = new SwarmShow2D(swarm, numberOfIterations, displayEvery, true);
+		SwarmShow2D ss2d = new SwarmShow2D(swarm, numberOfIterations, displayEvery, false);
 		ss2d.run();
 
 		// Show best position

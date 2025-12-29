@@ -1,5 +1,7 @@
 package net.pso.jswarm;
 
+import Attic.Particle;
+
 /**
  * Particle update strategy 
  * Warning: It's designed to be used with SwarmRepulsive swarms

@@ -1,6 +1,6 @@
 package net.pso.jswarm.alpine;
 
-import net.pso.jswarm.Particle;
+import Attic.Particle;
 
 /**
  * Simple particle 

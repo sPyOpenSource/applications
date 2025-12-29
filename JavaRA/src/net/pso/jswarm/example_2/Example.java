@@ -1,56 +1,10 @@
-head	1.6;
-access;
-symbols
-	v1_1:1.3;
-locks; strict;
-comment	@# @;
+package net.pso.jswarm.example_2;
 
-
-1.6
-date	2009.08.18.19.14.39;	author pcingola;	state Exp;
-branches;
-next	1.5;
-
-1.5
-date	2009.08.18.18.48.54;	author pcingola;	state Exp;
-branches;
-next	1.4;
-
-1.4
-date	2005.08.13.14.02.41;	author pcingola;	state Exp;
-branches;
-next	1.3;
-
-1.3
-date	2005.07.20.18.14.11;	author pcingola;	state Exp;
-branches;
-next	1.2;
-
-1.2
-date	2005.07.20.14.50.56;	author pcingola;	state Exp;
-branches;
-next	1.1;
-
-1.1
-date	2005.07.20.03.37.42;	author pcingola;	state Exp;
-branches;
-next	;
-
-
-desc
-@@
-
-
-1.6
-log
-@*** empty log message ***
-@
-text
-@package net.sourceforge.jswarm_pso.example_2;
-
-import net.sourceforge.jswarm_pso.Neighborhood;
-import net.sourceforge.jswarm_pso.Neighborhood1D;
-import net.sourceforge.jswarm_pso.Swarm;
+import Attic.example_2.Attic.MyParticle;
+import net.pso.jswarm.Neighborhood;
+import net.pso.jswarm.Neighborhood1D;
+import net.pso.jswarm.Swarm;
+import net.pso.jswarm.alpine.MyFitnessFunction;
 
 /**
  * An extremely simple swarm optimization example
@@ -93,81 +47,3 @@ public class Example {
 		System.out.println("Best position: [" + bestPosition[0] + ", " + bestPosition[1] + " ]\nBest fitness: " + ss2d.getSwarm().getBestFitness() + "\nKnown Solution: [0.0, 0.0]");
 	}
 }
-@
-
-
-1.5
-log
-@Neighborhood added
-@
-text
-@d26 1
-a26 4
-		double inc = 0.1;
-		swarm.setNeighborhoodIncrement(inc);
-		swarm.setGlobalIncrement(inc);
-		swarm.setParticleIncrement(inc);
-@
-
-
-1.4
-log
-@*** empty log message ***
-@
-text
-@d3 2
-d23 8
-d42 1
-a42 1
-		int displayEvery = numberOfIterations / 100 + 1;
-a49 1
-
-@
-
-
-1.3
-log
-@*** empty log message ***
-@
-text
-@d11 1
-a11 1
- * @@author Pablo Cingolani <pcingola@@sinectis.com>
-@
-
-
-1.2
-log
-@*** empty log message ***
-@
-text
-@d17 1
-a17 1
-		
-d22 3
-a24 3
-		swarm.setInertia(0.999);
-		// swarm.setParticleIncrement(0.9);
-		// swarm.setGlobalIncrement(0.9);
-d31 1
-a31 1
-		int numberOfIterations = 500;
-d41 1
-a41 1
-}@
-
-
-1.1
-log
-@*** empty log message ***
-@
-text
-@d17 1
-d22 1
-a22 1
-		swarm.setInertia(0.95);
-d31 1
-a31 1
-		int numberOfIterations = 10000;
-@
-

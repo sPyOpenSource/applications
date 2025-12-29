@@ -1,36 +1,12 @@
-head	1.1;
-access;
-symbols;
-locks; strict;
-comment	@# @;
+package net.pso.jswarm.schaffer;
 
-
-1.1
-date	2006.10.20.03.25.59;	author pcingola;	state Exp;
-branches;
-next	;
-
-
-desc
-@@
-
-
-1.1
-log
-@Included examples by Alvaro Jaramillo Duque (and some code corrections)
-@
-text
-@package net.sourceforge.jswarm_pso.rosenbrock;
-
-import net.sourceforge.jswarm_pso.FitnessFunction;
+import net.pso.jswarm.FitnessFunction;
 
 /**
- * Minize Rosenbrock function. http://mathworld.wolfram.com/RosenbrockFunction.html
+ * Minimize schaffer function
  * 
- * 	General form
- * 
- * 		f( x1 , x2 ) = Sum i=1 to n ; 100*(x(i+1) - xi^2)^2 + (1 - xi)^2
- * 		
+ * 		f( x1 , x2 ) = 0.5 + ( sin( Sqrt( x1^2 + x2^2 ))^2 - 0.5 ) / (1 + 0.001 * ( x1^2 * x2^2 ))^2
+ *
  * @@author Alvaro Jaramillo Duque <aduque@@inescporto.pt>
  */
 public class MyFitnessFunction extends FitnessFunction {
@@ -49,11 +25,12 @@ public class MyFitnessFunction extends FitnessFunction {
 	 * @@param position : Particle's position
 	 * @@return Fitness function for a particle
 	 */
+        @Override
 	public double evaluate(double position[]) {
 		double x1 = position[0];
 		double x2 = position[1];
-		return (100 * Math.pow((x2 - Math.pow(x1, 2)), 2) + Math.pow((1 - x1), 2));
-	}
+		double sum = x1 * x1 + x2 * x2;
 
+		return 0.5 + (Math.pow(Math.sin(Math.sqrt(sum)), 2) - 0.5) / Math.pow(1 + 0.001 * sum, 2);
+	}
 }
-@

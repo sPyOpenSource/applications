@@ -1,38 +1,16 @@
-head	1.1;
-access;
-symbols;
-locks; strict;
-comment	@# @;
+package net.pso.jswarm.zzz;
 
-
-1.1
-date	2009.03.30.17.18.20;	author pcingola;	state Exp;
-branches;
-next	;
-
-
-desc
-@@
-
-
-1.1
-log
-@Added example
-@
-text
-@package net.sourceforge.jswarm_pso.zzz;
-
-import net.sourceforge.jswarm_pso.FitnessFunction;
+import net.pso.jswarm.FitnessFunction;
 
 /**
  * Sample Fitness function
  * 		f( x1 , x2 ) =  20.0 +(x1 * x1) + (x2 * x2) - 10.0
  */
-class MyFitnessFunction extends FitnessFunction {
+public class MyFitnessFunction extends FitnessFunction {
 
 	public double penaltyFactor = 1e6;
 
-	@@Override
+	@Override
 	public double evaluate(double position[]) {
 		double x1 = position[0];
 		double x2 = position[1];
@@ -46,4 +24,3 @@ class MyFitnessFunction extends FitnessFunction {
 		return y;
 	}
 }
-@

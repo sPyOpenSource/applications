@@ -45,7 +45,7 @@ public abstract class Particle {
 	 * @@param sampleParticle : A sample particles to copy
 	 */
 	public Particle(Particle sampleParticle) {
-		int dimention = sampleParticle.getDimention();
+		int dimention = sampleParticle.getDimension();
 		allocate(dimention);
 	}
 
@@ -151,7 +151,7 @@ public abstract class Particle {
 		return bestPosition;
 	}
 
-	public int getDimention() {
+	public int getDimension() {
 		return position.length;
 	}
 

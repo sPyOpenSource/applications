@@ -1,37 +1,4 @@
-head	1.3;
-access;
-symbols
-	v1_1:1.2;
-locks; strict;
-comment	@# @;
-
-
-1.3
-date	2005.08.13.14.02.41;	author pcingola;	state Exp;
-branches;
-next	1.2;
-
-1.2
-date	2005.07.20.18.14.11;	author pcingola;	state Exp;
-branches;
-next	1.1;
-
-1.1
-date	2005.07.20.03.37.42;	author pcingola;	state Exp;
-branches;
-next	;
-
-
-desc
-@@
-
-
-1.3
-log
-@*** empty log message ***
-@
-text
-@package net.sourceforge.jswarm_pso.example_2;
+package net.pso.jswarm.example_2;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -98,29 +65,3 @@ public class DrawingArea extends JComponent {
 	}
 
 }
-@
-
-
-1.2
-log
-@*** empty log message ***
-@
-text
-@d12 1
-a12 1
- * @@author pcingola@@sinectis.com
-@
-
-
-1.1
-log
-@*** empty log message ***
-@
-text
-@d57 3
-a59 1
-		} catch(InterruptedException e) {;} // It's OK to interrupt this process
-a67 1
-
-@
-

@@ -1,5 +1,7 @@
 package Attic;
 
+import net.pso.jswarm.FitnessFunction;
+
 /**
  * Sample Fitness function
  * 		f( x1 , x2 ) = 1 - Sqrt( ( x1 - 1/2 )^2 + ( x2 - 1/2 )^2 )

@@ -2,6 +2,7 @@ package Attic;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import net.pso.jswarm.FitnessFunction;
 
 /**
  * A swarm of particles
@@ -9,11 +10,11 @@ import java.awt.Graphics;
  */
 public class Swarm {
 
-	public static double DEFAULT_GLOBAL_INCREMENT = 0.9;
+	public static double DEFAULT_GLOBAL_INCREMENT = 0.1;
 	public static double DEFAULT_INERTIA = 0.5;
-	public static int DEFAULT_NUMBER_OF_PARTICLES = 5;
-	public static double DEFAULT_OTHER_PARTICLE_INCREMENT = 0.9;
-	public static double DEFAULT_PARTICLE_INCREMENT = 0.9;
+	public static int DEFAULT_NUMBER_OF_PARTICLES = 8;
+	public static double DEFAULT_OTHER_PARTICLE_INCREMENT = 0.1;
+	public static double DEFAULT_PARTICLE_INCREMENT = 0.1;
 	public static double DEFAULT_RANDOM_INCREMENT = 0.1;
 
 	/** Best fitness so far (global best) */
@@ -116,7 +117,8 @@ public class Swarm {
 		//---
 		this.bestParticleIndex = bestFitNum;
 		this.bestFitness = bestFit;
-		if( bestPosition == null ) bestPosition = new double[sampleParticle.getDimention()];
+		if( bestPosition == null ) bestPosition = new double[sampleParticle.getDimension()];
+                if(bestFitNum == -1) return;
 		particles[bestFitNum].copyPosition(bestPosition);
 	}
 
@@ -219,14 +221,14 @@ public class Swarm {
 		if( minPosition == null ) throw new RuntimeException("maxPosition array is null!");
 		if( maxVelocity == null ) {
 			// Default maxVelocity[]
-			int dim = sampleParticle.getDimention();
+			int dim = sampleParticle.getDimension();
 			maxVelocity = new double[dim];
 			for( int i = 0; i < dim; i++ )
 				maxVelocity[i] = (maxPosition[i] - minPosition[i]) / 2.0;
 		}
 		if( minVelocity == null ) {
 			// Default minVelocity[]
-			int dim = sampleParticle.getDimention();
+			int dim = sampleParticle.getDimension();
 			minVelocity = new double[dim];
 			for( int i = 0; i < dim; i++ )
 				minVelocity[i] = -maxVelocity[i];
@@ -269,7 +271,7 @@ public class Swarm {
 	 */
 	public void setMaxMinVelocity(double maxVelocity) {
 		if( sampleParticle == null ) throw new RuntimeException("Need to set sample particle before calling this method (use Swarm.setSampleParticle() method)");
-		int dim = sampleParticle.getDimention();
+		int dim = sampleParticle.getDimension();
 		this.maxVelocity = new double[dim];
 		this.minVelocity = new double[dim];
 		for( int i = 0; i < dim; i++ ) {
@@ -284,7 +286,7 @@ public class Swarm {
 	 */
 	public void setMaxPosition(double maxPosition) {
 		if( sampleParticle == null ) throw new RuntimeException("Need to set sample particle before calling this method (use Swarm.setSampleParticle() method)");
-		int dim = sampleParticle.getDimention();
+		int dim = sampleParticle.getDimension();
 		this.maxPosition = new double[dim];
 		for( int i = 0; i < dim; i++ )
 			this.maxPosition[i] = maxPosition;
@@ -304,7 +306,7 @@ public class Swarm {
 	 */
 	public void setMinPosition(double minPosition) {
 		if( sampleParticle == null ) throw new RuntimeException("Need to set sample particle before calling this method (use Swarm.setSampleParticle() method)");
-		int dim = sampleParticle.getDimention();
+		int dim = sampleParticle.getDimension();
 		this.minPosition = new double[dim];
 		for( int i = 0; i < dim; i++ )
 			this.minPosition[i] = minPosition;
@@ -445,7 +447,6 @@ public class Swarm {
 	public void update() {
 		// For each particle...
 		for( int i = 0; i < particles.length; i++ ) {
-
 			// Update according to algorithm type
 			if( useRepulsiveAlgorithm ) {
 				// Randomly select other particle
@@ -454,6 +455,14 @@ public class Swarm {
 				particles[i].updateRepulsive(inertia, particleIncrement, otherParticleIncrement, randomIncrement, particles[randOtherParticle].getPosition(), minVelocity, maxVelocity);
 			} else {
 				particles[i].update(inertia, particleIncrement, globalIncrement, bestPosition);
+                                for(Particle particle : particles){
+                                    for(Particle other : particles){
+                                        if(other == particle) continue;
+                                        for(int j = 0; j < particle.position.length; j++){
+                                            particle.velocity[j] += 0.1/(particle.position[j] - other.position[j]);
+                                        }
+                                    }
+                                }
 			}
 
 			// Apply position and velocity constraints
