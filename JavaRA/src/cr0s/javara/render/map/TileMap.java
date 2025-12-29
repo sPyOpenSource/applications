@@ -209,7 +209,7 @@ public class TileMap {
 		    
 		    this.resourcesLayer.renderCell(x, y, root);
 		}
-                int i = World.blockingMap[x][y];
+                //int i = World.blockingMap[x][y];
 	    }
 	}
 

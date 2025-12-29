@@ -9,6 +9,7 @@ import cr0s.javara.entity.MobileEntity;
 import cr0s.javara.entity.building.BibType;
 import cr0s.javara.entity.building.EntityBuilding;
 import cr0s.javara.entity.building.IPowerConsumer;
+import cr0s.javara.entity.building.soviet.EntityBarracks;
 import cr0s.javara.entity.vehicle.EntityVehicle;
 
 import cr0s.javara.gameplay.Team.Alignment;
@@ -37,13 +38,13 @@ public class EntityWarFactory extends EntityBuilding implements ISelectable, ISh
 
     public static final int WIDTH_TILES = 3;
     public static final int HEIGHT_TILES = 4;
+    
     private static final int SHROUD_REVEALING_RANGE = 10;
     private static final int ANIMATION_FRAME_DELAY = 1; // in ticks
     private static final int ANIMATION_LENGTH = 3;
     private static final int DEPLOY_TRY_INTERVAL = 5;
     
     private static final String FOOTPRINT = "xxx xxx ~~~ ~~~";
-
     private final Alignment weapAlignment = Alignment.SOVIET;
     private boolean isCorrupted = false;
     
@@ -52,20 +53,16 @@ public class EntityWarFactory extends EntityBuilding implements ISelectable, ISh
     private int animationFrameTicks;
     private int deployTryTicks;
     
-    private int tx, ty;
-    
     private boolean isDoorsOpenAnimation;
     private boolean isDoorsCloseAnimation;
-    
     private boolean isDoorsOpen;
     
     private EntityVehicle targetEntity;
-    
+    private final Rectangle exitBoundingBox;
+
     // 6 directions to exit from war factory
     private final int[] exitDirectionsX = { 0, -1, -1, 1, 1, 0 };
     private final int[] exitDirectionsY = { 1,  0,  1, 1, 0, 0 };
-    
-    private final Rectangle exitBoundingBox;
     
     private static final int CONSUME_POWER_VALUE = 30;
     private static final int BUILDING_COST = 2000;
@@ -97,6 +94,7 @@ public class EntityWarFactory extends EntityBuilding implements ISelectable, ISh
 	
 	this.requiredToBuild.add(EntityPowerPlant.class);
 	this.requiredToBuild.add(EntityProc.class);
+        this.requiredToBuild.add(EntityBarracks.class);
 	
 	this.setName("weap");
     }
@@ -234,9 +232,6 @@ ImageView view = null;
 
 	    if (!isCellBlocked(cellX, cellY)) {
 		isSuccess = true;
-
-		tx = cellX;
-		ty = cellY;
 
 		p.getElements().add(new MoveTo(cellX, cellY));
 

@@ -56,11 +56,10 @@ public class EntityAdvPowerPlant extends EntityBuilding implements ISelectable, 
 
     @Override
     public ImageView renderEntity() {
-	//double nx = posX;
-	//double ny = posY;
+	ImageView view = null;
 
 	if (this.getHp() > this.getMaxHp() / 2) {
-	    //normal.draw(nx, ny);
+	    view = new ImageView(SwingFXUtils.toFXImage(normal, null));//.draw(nx, ny);
 	} else {
 	    //corrupted.draw(nx, ny);
 	}
@@ -77,7 +76,9 @@ public class EntityAdvPowerPlant extends EntityBuilding implements ISelectable, 
 	if (this.repairIconBlink) {
 	    //repairImage.draw(this.boundingBox.getX() + this.boundingBox.getWidth() / 2 - repairImage.getWidth() / 2, this.boundingBox.getY() + this.boundingBox.getHeight() / 2 - repairImage.getHeight() / 2);
 	}
-        return null;
+        view.setX(boundingBox.getX());
+        view.setY(boundingBox.getY());
+        return view;
     }
 
     @Override

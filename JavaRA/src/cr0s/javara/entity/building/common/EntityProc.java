@@ -32,30 +32,26 @@ import javafx.embed.swing.SwingFXUtils;
 public class EntityProc extends EntityBuilding implements ISelectable, IPowerConsumer, IShroudRevealer, IPips, IOreCapacitor, ITargetLines, IHaveCost {
 
     private SpriteSheet sheet;
-
     private BufferedImage normal, corrupted;
     private final String TEXTURE_NAME = "proc.shp";
     private final String MAKE_TEXTURE_NAME = "procmake.shp";
 
     public static final int WIDTH_TILES = 3;
     public static final int HEIGHT_TILES = 4;
+    public static final int HARV_FACING = 8;
 
     private static final int POWER_CONSUMPTION_LEVEL = 30;
-
     private static final int SHROUD_REVEALING_RANGE = 9;
 
     // Harverster offset position
     private static final int HARV_OFFSET_X = 1;
     private static final int HARV_OFFSET_Y = 2;
 
-    public static final int HARV_FACING = 8;
-
     // Ore capacity
     public static final int MAX_CAPACITY = 2000;
     public static final int PIPS_COUNT = 17;
 
     private final LinkedList<TargetLine> targetLines = new LinkedList<>();
-
     private static final int BUILDING_COST = 1400;
 
     public EntityProc(Double tileX, Double tileY) {
