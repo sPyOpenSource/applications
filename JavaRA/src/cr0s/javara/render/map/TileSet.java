@@ -22,12 +22,12 @@ public class TileSet {
     public static final int SURFACE_ROCK_ID = -3;
     public static final int SURFACE_BUILDING = -1;
     public static final int SURFACE_BUILDING_CLEAR_ID = -2;
-    public static final int SURFACE_CLEAR_ID = 3;
-    public static final int SURFACE_BEACH_ID = 6;
-    public static final int SURFACE_ROAD_ID = 9;
-    public static final int SURFACE_ROUGH_ID = 14;
-    public static final int SURFACE_ORE_GOLD = 16;
-    public static final int SURFACE_ORE_GEM = 17;
+    public static final int SURFACE_BEACH_ID = 3;
+    public static final int SURFACE_ROUGH_ID = 4;
+    public static final int SURFACE_ORE_GOLD = 5;
+    public static final int SURFACE_ORE_GEM = 6;
+    public static final int SURFACE_CLEAR_ID = 10;
+    public static final int SURFACE_ROAD_ID = 19;
     
     static {
 	renameMap.put("Clear", SURFACE_CLEAR_ID);
