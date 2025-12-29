@@ -4,7 +4,7 @@ import net.pso.jswarm.Attic.MyParticle;
 import net.pso.jswarm.Neighborhood;
 import net.pso.jswarm.Neighborhood1D;
 import net.pso.jswarm.Swarm;
-import net.pso.jswarm.sphere.MyFitnessFunction;
+import net.pso.jswarm.rosenbrock.MyFitnessFunction;
 
 /**
  * An extremely simple swarm optimization example
@@ -35,6 +35,7 @@ public class Example {
 		// Set position (and velocity) constraints. I.e.: where to look for solutions
 		swarm.setMaxPosition(100);
 		swarm.setMinPosition(-100);
+                swarm.setMaxMinVelocity(10);
 
 		// Show a 2D graph
 		int numberOfIterations = 5000;

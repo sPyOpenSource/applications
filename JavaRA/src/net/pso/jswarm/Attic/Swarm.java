@@ -10,7 +10,6 @@ import net.pso.jswarm.Particle;
  * @@author Pablo Cingolani <pcingola@@sinectis.com>
  */
 public class Swarm {
-
 	public static double DEFAULT_GLOBAL_INCREMENT = 0.1;
 	public static double DEFAULT_INERTIA = 0.5;
 	public static int DEFAULT_NUMBER_OF_PARTICLES = 8;
