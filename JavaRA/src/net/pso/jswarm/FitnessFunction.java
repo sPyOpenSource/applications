@@ -1,7 +1,5 @@
 package net.pso.jswarm;
 
-import Attic.Particle;
-
 /**
  * Base Fitness Function
  * @@author Pablo Cingolani <pcingola@@users.sourceforge.net>

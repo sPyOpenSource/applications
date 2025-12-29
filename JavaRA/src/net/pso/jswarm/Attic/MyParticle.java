@@ -1,4 +1,6 @@
-package Attic;
+package net.pso.jswarm.Attic;
+
+import net.pso.jswarm.Particle;
 
 /**
  * Simple particle example

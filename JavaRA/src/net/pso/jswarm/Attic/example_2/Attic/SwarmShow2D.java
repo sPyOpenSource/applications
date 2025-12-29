@@ -1,4 +1,4 @@
-package Attic.example_2.Attic;
+package net.pso.jswarm.Attic.example_2.Attic;
 
 import java.awt.Container;
 import java.awt.Dimension;
@@ -9,8 +9,8 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import net.pso.jswarm.Attic.Swarm;
 import net.pso.jswarm.Gpr;
-import Attic.Swarm;
 
 /**
  * An extremely simple swarm optimization example

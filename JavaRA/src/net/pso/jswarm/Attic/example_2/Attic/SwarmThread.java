@@ -1,5 +1,5 @@
 
-package Attic.example_2.Attic;
+package net.pso.jswarm.Attic.example_2.Attic;
 
 /**
  * A thread that runs in background while calculating kohonen's learning algorithm

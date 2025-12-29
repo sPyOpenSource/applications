@@ -1,7 +1,7 @@
-package Attic.example_2.Attic;
+package net.pso.jswarm.Attic.example_2.Attic;
 
-import Attic.Particle;
 import java.util.Random;
+import net.pso.jswarm.Particle;
 
 /**
  * Simple particle example

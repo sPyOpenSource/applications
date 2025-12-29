@@ -1,6 +1,5 @@
 package net.pso.jswarm;
 
-import Attic.Particle;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.util.ArrayList;
@@ -15,7 +14,7 @@ public class Swarm implements Iterable<Particle> {
 
 	public static double DEFAULT_GLOBAL_INCREMENT = 0.9;
 	public static double DEFAULT_INERTIA = 0.95;
-	public static int DEFAULT_NUMBER_OF_PARTICLES = 10;
+	public static int DEFAULT_NUMBER_OF_PARTICLES = 8;
 	public static double DEFAULT_PARTICLE_INCREMENT = 0.9;
 	public static double VELOCITY_GRAPH_FACTOR = 10.0;
 

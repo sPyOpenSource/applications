@@ -1,6 +1,5 @@
 package net.pso.jswarm;
 
-import Attic.Particle;
 import java.util.ArrayList;
 import java.util.Collection;
 

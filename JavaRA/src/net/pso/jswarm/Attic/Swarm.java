@@ -1,8 +1,9 @@
-package Attic;
+package net.pso.jswarm.Attic;
 
 import java.awt.Color;
 import java.awt.Graphics;
 import net.pso.jswarm.FitnessFunction;
+import net.pso.jswarm.Particle;
 
 /**
  * A swarm of particles

@@ -1,7 +1,5 @@
 package net.pso.jswarm;
 
-import Attic.Particle;
-
 /**
  * Particle update strategy
  * 

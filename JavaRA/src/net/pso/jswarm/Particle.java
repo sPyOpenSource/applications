@@ -1,4 +1,4 @@
-package Attic;
+package net.pso.jswarm;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
@@ -16,9 +16,9 @@ public abstract class Particle {
 	/** current fitness */
 	double fitness;
 	/** Position */
-	double position[];
+	public double position[];
 	/** Velocity */
-	double velocity[];
+	public double velocity[];
         public int colorR, colorB, colorG;
 
 	//-------------------------------------------------------------------------

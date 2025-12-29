@@ -1,6 +1,6 @@
 package net.pso.jswarm.example_2;
 
-import Attic.example_2.Attic.MyParticle;
+import net.pso.jswarm.Attic.MyParticle;
 import net.pso.jswarm.Neighborhood;
 import net.pso.jswarm.Neighborhood1D;
 import net.pso.jswarm.Swarm;

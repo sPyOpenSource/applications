@@ -1,4 +1,4 @@
-package Attic;
+package net.pso.jswarm.Attic;
 
 /**
  * An extremely simple swarm optimization example
