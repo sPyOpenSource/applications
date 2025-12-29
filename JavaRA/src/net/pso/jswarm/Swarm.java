@@ -15,7 +15,7 @@ public class Swarm implements Iterable<Particle> {
 
 	public static double DEFAULT_GLOBAL_INCREMENT = 0.9;
 	public static double DEFAULT_INERTIA = 0.95;
-	public static int DEFAULT_NUMBER_OF_PARTICLES = 25;
+	public static int DEFAULT_NUMBER_OF_PARTICLES = 10;
 	public static double DEFAULT_PARTICLE_INCREMENT = 0.9;
 	public static double VELOCITY_GRAPH_FACTOR = 10.0;
 

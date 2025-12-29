@@ -1,6 +1,8 @@
 package Attic.example_2.Attic;
 
 import Attic.Swarm;
+import net.pso.jswarm.Neighborhood;
+import net.pso.jswarm.Neighborhood1D;
 
 /**
  * An extremely simple swarm optimization example
@@ -16,7 +18,10 @@ public class Example {
 		System.out.println("Example of Particle Swarm Optimization: Optimizing Rastrijin's funtion");
 		// Create a swarm (using 'MyParticle' as sample particle and 'MyFitnessFunction' as finess function)
 		Swarm swarm = new Swarm(Swarm.DEFAULT_NUMBER_OF_PARTICLES, new MyParticle(), new net.pso.jswarm.zzz.MyFitnessFunction());
-
+// Use neighborhood
+		//Neighborhood neigh = new Neighborhood1D(net.pso.jswarm.Swarm.DEFAULT_NUMBER_OF_PARTICLES / 5, true);
+		//swarm.setNeighborhood(neigh);
+		//swarm.setNeighborhoodIncrement(0.9);
 		// Tune swarm's update parameters (if needed)
 		swarm.setInertia(0.5);
 		// swarm.setParticleIncrement(0.9);

@@ -9,9 +9,8 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-
-import Attic.Swarm;
 import net.pso.jswarm.Gpr;
+import Attic.Swarm;
 
 /**
  * An extremely simple swarm optimization example

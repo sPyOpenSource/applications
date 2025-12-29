@@ -4,7 +4,7 @@ import Attic.example_2.Attic.MyParticle;
 import net.pso.jswarm.Neighborhood;
 import net.pso.jswarm.Neighborhood1D;
 import net.pso.jswarm.Swarm;
-import net.pso.jswarm.alpine.MyFitnessFunction;
+import net.pso.jswarm.sphere.MyFitnessFunction;
 
 /**
  * An extremely simple swarm optimization example
