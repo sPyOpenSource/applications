@@ -47,4 +47,5 @@ public class Example {
 		double bestPosition[] = ss2d.getSwarm().getBestPosition();
 		System.out.println("Best position: [" + bestPosition[0] + ", " + bestPosition[1] + " ]\nBest fitness: " + ss2d.getSwarm().getBestFitness() + "\nKnown Solution: [0.0, 0.0]");
 	}
+        
 }

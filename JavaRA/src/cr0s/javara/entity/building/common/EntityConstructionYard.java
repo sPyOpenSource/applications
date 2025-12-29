@@ -9,8 +9,8 @@ import cr0s.javara.gameplay.Team.Alignment;
 import cr0s.javara.resources.ResourceManager;
 import cr0s.javara.resources.ShpTexture;
 import cr0s.javara.util.SpriteSheet;
-import java.awt.image.BufferedImage;
 
+import java.awt.image.BufferedImage;
 import javafx.scene.image.ImageView;
 import javafx.embed.swing.SwingFXUtils;
 
@@ -60,9 +60,7 @@ public class EntityConstructionYard extends EntityBuilding implements ISelectabl
 
     @Override
     public ImageView renderEntity() {
-	//double nx = posX;
-	//double ny = posY;
-ImageView view;
+        ImageView view;
 	if (this.getHp() > this.getMaxHp() / 2) {
 	    view = new ImageView(SwingFXUtils.toFXImage(normal, null));//.draw(nx, ny);
 	} else {
@@ -70,7 +68,8 @@ ImageView view;
 	}
         view.setX(boundingBox.getX());
         view.setY(boundingBox.getY());
-return view;
+        setImageView(view);
+        return view;
 	// Draw bounding box if debug mode is on
 	/*if (GUI.DEBUG_MODE) {
 	    g.setLineWidth(2);
