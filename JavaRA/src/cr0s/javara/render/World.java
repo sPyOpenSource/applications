@@ -21,7 +21,6 @@ import cr0s.javara.gameplay.Player;
 import cr0s.javara.order.ITargetLines;
 import cr0s.javara.order.TargetLine;
 import cr0s.javara.perfomance.Profiler;
-import cr0s.javara.render.EntityBlockingMap.Influence;
 import cr0s.javara.render.EntityBlockingMap.SubCell;
 import cr0s.javara.render.map.InfantryPathfinder;
 import cr0s.javara.render.map.SmudgeLayer;

@@ -369,46 +369,44 @@ public class AIPlayer extends Player {
 
     public Pos chooseBuildLocation(String actorType, boolean distanceToBaseIsImportant, BuildingType type) {
 	switch (type) {
-	case DEFENSIVE:
-	    if (this.rnd.nextInt(100) >= 30) { // In ~70% of cases we build defensive structures as close as possible to the enemy
-		EntityActor closestEnemy = this.findClosestEnemy(this.defenseCenter);
-		Pos targetCell = (closestEnemy != null) ? closestEnemy.getCellPosition() : this.getPlayerSpawnPoint();
+            case DEFENSIVE:
+                if (this.rnd.nextInt(100) >= 30) { // In ~70% of cases we build defensive structures as close as possible to the enemy
+                    EntityActor closestEnemy = this.findClosestEnemy(this.defenseCenter);
+                    Pos targetCell = (closestEnemy != null) ? closestEnemy.getCellPosition() : this.getPlayerSpawnPoint();
 
-		if (closestEnemy != null) {
-		    System.out.println("[AI] Closest enemy: " + closestEnemy.getClass().getSimpleName() + " | owner: " + closestEnemy.owner.name);
-		}
-		return this.findPosForBuilding(actorType, this.defenseCenter, targetCell, this.minimumDefenseRadius, this.maximumDefenseRadius, distanceToBaseIsImportant);
-	    } else { // In other cases place build somewhere in base
-		return this.findPosForBuilding(actorType, this.getPlayerSpawnPoint(), this.getPlayerSpawnPoint(), 0, this.maxBaseRadius, false);
-	    }
+                    if (closestEnemy != null) {
+                        System.out.println("[AI] Closest enemy: " + closestEnemy.getClass().getSimpleName() + " | owner: " + closestEnemy.owner.name);
+                    }
+                    return this.findPosForBuilding(actorType, this.defenseCenter, targetCell, this.minimumDefenseRadius, this.maximumDefenseRadius, distanceToBaseIsImportant);
+                } else { // In other cases place build somewhere in base
+                    return this.findPosForBuilding(actorType, this.getPlayerSpawnPoint(), this.getPlayerSpawnPoint(), 0, this.maxBaseRadius, false);
+                }
 
-	case NORMAL:
-	    return getPlayerSpawnPoint();//this.findPosForBuilding(actorType, this.getPlayerSpawnPoint(), this.getPlayerSpawnPoint(), 0, distanceToBaseIsImportant ? this.maxBaseRadius : world.MAX_RANGE, distanceToBaseIsImportant);
+            case NORMAL:
+                return this.findPosForBuilding(actorType, this.getPlayerSpawnPoint(), this.getPlayerSpawnPoint(), 0, distanceToBaseIsImportant ? this.maxBaseRadius : world.MAX_RANGE, distanceToBaseIsImportant);
 
-	case REFERENCES:
-	    // Choose set of cells with resources nearby the base inside buildable area
-	    ArrayList<Pos> resourceTiles = world.chooseTilesInCircle(this.getPlayerSpawnPoint(), this.maxBaseRadius, new CellChooser() {
+            case REFERENCES:
+                // Choose set of cells with resources nearby the base inside buildable area
+                ArrayList<Pos> resourceTiles = world.chooseTilesInCircle(this.getPlayerSpawnPoint(), this.maxBaseRadius, new CellChooser() {
+                    @Override
+                    public boolean isCellChoosable(Pos cellPos) {
+                        return !world.getMap().getResourcesLayer().isCellEmpty(cellPos);
+                    }
+                });
 
-		@Override
-		public boolean isCellChoosable(Pos cellPos) {
-		    return !world.getMap().getResourcesLayer().isCellEmpty(cellPos);
-		}
+                for (Pos c : resourceTiles) {
+                    Pos found = this.findPosForBuilding(actorType, c, this.getPlayerSpawnPoint(), 0, this.maxBaseRadius, false);
 
-	    });
+                    if (found != null) {
+                        return found;
+                    }
+                }
 
-	    for (Pos c : resourceTiles) {
-		Pos found = this.findPosForBuilding(actorType, c, this.getPlayerSpawnPoint(), 0, this.maxBaseRadius, false);
+                // Try to find a free spot somewhere else in the base
+                return this.findPosForBuilding(actorType, this.getPlayerSpawnPoint(), this.getPlayerSpawnPoint(), 0, this.maxBaseRadius, false);
 
-		if (found != null) {
-		    return found;
-		}
-	    }
-
-	    // Try to find a free spot somewhere else in the base
-	    return this.findPosForBuilding(actorType, this.getPlayerSpawnPoint(), this.getPlayerSpawnPoint(), 0, this.maxBaseRadius, false);
-
-	default:
-	    break;
+            default:
+                break;
 	}
 
 	return null;

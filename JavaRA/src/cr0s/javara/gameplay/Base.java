@@ -268,7 +268,7 @@ public class Base {
 
 	    EntityBuilding ebp = owner.world.addBuildingTo(b);
             ebp.owner = owner;
-	owner.entities.add(ebp);
+            owner.entities.add(ebp);
 	    queue.getProductionForBuilding(targetBuilding).deployCurrentActor();
 
 	    return true;
