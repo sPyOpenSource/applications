@@ -224,7 +224,7 @@ public class EntityMammothTank extends EntityVehicle implements ISelectable, IHa
 
     @Override
     public int getRevealingRange() {
-	return this.SHROUD_REVEALING_RANGE;
+	return EntityMammothTank.SHROUD_REVEALING_RANGE;
     }
 
     @Override
@@ -239,7 +239,7 @@ public class EntityMammothTank extends EntityVehicle implements ISelectable, IHa
 
     @Override
     public int getWaitAverageTime() {
-	return this.WAIT_FOR_BLOCKER_AVERAGE_TIME_TICKS;
+	return EntityMammothTank.WAIT_FOR_BLOCKER_AVERAGE_TIME_TICKS;
     }
 
     @Override

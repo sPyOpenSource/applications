@@ -163,7 +163,7 @@ public abstract class EntityInfantry extends MobileEntity implements IShroudReve
     @Override
     public void updateEntity(long delta) {
 	super.updateEntity(delta);
-        if(getImageView()!=null){
+        /*if(getImageView()!=null){
             if(router == null) {
                 maze = new Maze(
                     EntityBlockingMap.blockingMap, 
@@ -172,8 +172,8 @@ public abstract class EntityInfantry extends MobileEntity implements IShroudReve
                             (int)getImageView().getY() / 24
                     ),
                     new Point(
-                            (int)getImageView().getX() / 24 + random.nextInt(20) - 10, 
-                            (int)getImageView().getY() / 24 + random.nextInt(20) - 10),
+                            (int)getImageView().getX() / 24 + random.nextInt(10) - 5, 
+                            (int)getImageView().getY() / 24 + random.nextInt(10) - 5),
                     null
                 );
                 director = new Director(maze, null);
@@ -206,7 +206,7 @@ public abstract class EntityInfantry extends MobileEntity implements IShroudReve
                     Platform.runLater(transition::play);
                 }
             }
-        }
+        }*/
 	if (this.attack != null) {
 	    this.attack.update(delta);
 	    

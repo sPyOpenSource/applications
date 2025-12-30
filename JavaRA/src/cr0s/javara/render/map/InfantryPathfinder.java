@@ -14,7 +14,7 @@ public class InfantryPathfinder {
     private static final int MAX_SEARCH_DISTANCE = 512;
     
     public InfantryPathfinder(World world) {
-	this.pathfinder = new AStarPathFinder(world, MAX_SEARCH_DISTANCE, true);
+	this.pathfinder = new AStarPathFinder(world, MAX_SEARCH_DISTANCE);
     }
     
     public Path findPathFromTo(EntityInfantry me, int goalX, int goalY) {

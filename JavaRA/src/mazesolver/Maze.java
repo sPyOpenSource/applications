@@ -8,8 +8,7 @@ import java.util.*;
  */
 public class Maze {
     private final int[][] nodes;    
-    private final Point startPoint;
-    private final Point endPoint;
+    private Point startPoint, endPoint;
     
     private final Venue[] venues;
     private final Random random = new Random();
@@ -17,37 +16,15 @@ public class Maze {
     /**
      * Creates new Maze based on given arguments.
      * @param nodes
-     * @param startPoint
-     * @param endPoint
      * @param venues Points to visit
      */
-    public Maze(int[][] nodes, Point startPoint, Point endPoint, Venue[] venues) {
+    public Maze(int[][] nodes, Venue[] venues) {
         // Check if nodes are valid
         if (nodes == null || nodes.length == 0 || nodes[0].length == 0)
             Helper.error("Invalid maze nodes!");
         
         this.nodes = nodes;
-        
-        // Check if startPoint is valid
-        while (startPoint == null || !isNode(startPoint)){
-            startPoint = new Point(
-                    startPoint.getX() + random.nextInt(5) - 2, 
-                    startPoint.getY() + random.nextInt(5) - 2);
-            //Helper.error("Invalid start point!");
-        }
-        
-        this.startPoint = startPoint;
-        
-        // Check if endPoint is valid
-        while (endPoint == null || !isNode(endPoint)){
-            endPoint = new Point(
-                    endPoint.getX() + random.nextInt(5) - 2, 
-                    endPoint.getY() + random.nextInt(5) - 2);
-            //Helper.error("Invalid end point!");
-        }
-        
-        this.endPoint = endPoint;
-        
+                
         // If no venues are given, create empty venue list
         if (venues == null)
             venues = new Venue[0];
@@ -118,12 +95,34 @@ public class Maze {
         return startPoint; 
     }
     
+    public void setStart(Point start){
+        startPoint = start;
+        // Check if startPoint is valid
+        while (startPoint == null || !isNode(startPoint)){
+            startPoint = new Point(
+                    startPoint.getX() + random.nextInt(5) - 2, 
+                    startPoint.getY() + random.nextInt(5) - 2);
+            //Helper.error("Invalid start point!");
+        }
+    }
+    
     /**
      * Returns end point of Maze.
      * @return endPoint
      */
     public Point getEndPoint() { 
         return endPoint; 
+    }
+    
+    public void setEnd(Point end){
+        endPoint = end;
+        // Check if endPoint is valid
+        while (endPoint == null || !isNode(endPoint)){
+            endPoint = new Point(
+                    endPoint.getX() + random.nextInt(5) - 2, 
+                    endPoint.getY() + random.nextInt(5) - 2);
+            //Helper.error("Invalid end point!");
+        }
     }
 
     /**
@@ -234,6 +233,6 @@ public class Maze {
             }
         }
         
-        return new Maze(nodes, startPoint, endPoint, null);
+        return new Maze(nodes, null);
     }
 }
