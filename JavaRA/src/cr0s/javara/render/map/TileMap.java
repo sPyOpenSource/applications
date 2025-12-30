@@ -199,8 +199,8 @@ public class TileMap {
 
 		    int index = (int) ((byte) this.mapTiles[x][y].getIndex() & 0xFF);
 
-		    int sX = (int) sheetPoint.getX();
-		    int sY = (int) sheetPoint.getY();
+		    int sX = sheetPoint.getCellX();
+		    int sY = sheetPoint.getCellY();
 
 		    if (sX != -1 && sY != -1) {
 			root.getChildren().add(this.theater.getSpriteSheet().renderInUse(x * 24, y * 24, sX, sY + index * 24));
