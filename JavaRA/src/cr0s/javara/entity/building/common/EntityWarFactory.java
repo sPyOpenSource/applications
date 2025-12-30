@@ -223,8 +223,8 @@ ImageView view = null;
 	}
 	
 	Path p = new Path();
-	p.getElements().add(new MoveTo((int) targetEntity.getCenterPosX(), (int) targetEntity.getCenterPosY()));
-	p.getElements().add(new MoveTo(exitX, exitY));	
+	p.getElements().add(new MoveTo(targetEntity.getCenterPosX(), targetEntity.getCenterPosY()));
+	p.getElements().add(new MoveTo(exitX * 24, exitY * 24));	
 	
 	for (int i = 0; i < 6; i++) {
 	    int cellX = exitX + this.exitDirectionsX[i];
@@ -233,7 +233,7 @@ ImageView view = null;
 	    if (!isCellBlocked(cellX, cellY)) {
 		isSuccess = true;
 
-		p.getElements().add(new MoveTo(cellX, cellY));
+		p.getElements().add(new MoveTo(cellX * 24, cellY * 24));
 
 		v.startMovingByPath(p, this);		
 
@@ -245,7 +245,7 @@ ImageView view = null;
     }
     
     public boolean isCellBlocked(int cellX, int cellY) {
-	return !world.isCellPassable(cellX, cellY) || (world.getEntityNonBuildingInPoint((cellX * 24) + 12, (cellY * 24) + 12) != null);
+	return !world.isCellPassable(new Pos(cellX, cellY)) || (world.getEntityNonBuildingInPoint((cellX * 24) + 12, (cellY * 24) + 12) != null);
     }
     
     public boolean deployEntity(EntityVehicle target) {

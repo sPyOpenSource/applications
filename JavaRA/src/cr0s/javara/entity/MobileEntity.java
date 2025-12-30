@@ -208,7 +208,7 @@ public abstract class MobileEntity extends EntityActor implements INotifyBlockin
 		continue;
 	    }
 	    
-	    if (world.isCellPassable(newCellX, newCellY)) {
+	    if (world.isCellPassable(new Pos(newCellX, newCellY))) {
 		availCells.add(new Pos(newCellX, newCellY));
 	    } else {
 		smartCells.add(new Pos(newCellX, newCellY));

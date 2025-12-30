@@ -175,8 +175,8 @@ public class EntityBarracks extends EntityBuilding implements ISelectable, IPowe
 	    me.setPos(new Pos(boundingBox.getX(), boundingBox.getY()));
             
 	    Path p = new Path();
-	    p.getElements().add(new MoveTo((int) exitPos.getX(), (int) exitPos.getY()));
-	    p.getElements().add(new MoveTo((int) rallyPos.getX(), (int) rallyPos.getY()));
+	    p.getElements().add(new MoveTo(exitPos.getX(), exitPos.getY()));
+	    p.getElements().add(new MoveTo(rallyPos.getX(), rallyPos.getY()));
 	    
 	    SubCell freeSubCell = world.blockingEntityMap.getFreeSubCell(rallyPos, SubCell.CENTER);
 	    if (freeSubCell != null) {

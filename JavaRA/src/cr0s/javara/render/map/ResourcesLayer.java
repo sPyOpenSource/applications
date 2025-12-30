@@ -152,16 +152,16 @@ public class ResourcesLayer {
     }
 
     public boolean isCellEmpty(Pos targetCell) {
-	return isCellEmpty((int) targetCell.getX(), (int) targetCell.getY());
+	return isCellEmpty(targetCell.getCellX(), targetCell.getCellY());
     }
 
     public int harvestCell(Pos currentCell) {
-	return harvestCell((int) currentCell.getX(), (int) currentCell.getY());
+	return harvestCell(currentCell.getCellX(), currentCell.getCellY());
     }
 
     public void destroy(Pos tile) {
-	int x = (int) tile.getX();
-	int y = (int) tile.getY();
+	int x = tile.getCellX();
+	int y = tile.getCellY();
 	
 	this.resources[x][y] = null;
     }

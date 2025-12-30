@@ -401,49 +401,50 @@ public class World extends AnimationTimer {
         return ebp;
     }
 
-    public boolean isCellPassable(int x, int y) {
-	return isCellPassable(x, y, SubCell.FULL_CELL);
+    public boolean isCellPassable(Pos x) {
+	return isCellPassable(x, SubCell.FULL_CELL);
     }
     
-    public boolean isCellPassable(int x, int y, SubCell sub) {
-	if (x >= this.map.getWidth() || y >= this.map.getHeight()) {
+    public boolean isCellPassable(Pos x, SubCell sub) {
+	if (x.getCellX() >= this.map.getWidth() || x.getCellY() >= this.map.getHeight()) {
 	    return false;
 	}
 
-	if (x < 0 || y < 0) {
+	if (x.getCellX() < 0 || x.getCellY() < 0) {
 	    return false;
 	}
 
-	if (!this.map.isInMap(x * 24, y * 24)) {
+	if (!this.map.isInMap(x.getX(), x.getY())) {
 	    return false;
 	}
 
-	return (this.blockingEntityMap.isSubcellFree(new Pos(x, y), sub)) && (blockingEntityMap.blockingMap[x][y] == 0 
-		|| blockingEntityMap.blockingMap[x][y] == TileSet.SURFACE_CLEAR_ID
-		|| blockingEntityMap.blockingMap[x][y] == TileSet.SURFACE_BUILDING_CLEAR_ID
-		|| blockingEntityMap.blockingMap[x][y] == TileSet.SURFACE_BEACH_ID
-		|| blockingEntityMap.blockingMap[x][y] == TileSet.SURFACE_ROAD_ID
-		|| blockingEntityMap.blockingMap[x][y] == TileSet.SURFACE_ROUGH_ID);
+	return (this.blockingEntityMap.isSubcellFree(x, sub)) && (
+                   blockingEntityMap.blockingMap[x.getCellX()][x.getCellY()] == 0 
+		|| blockingEntityMap.blockingMap[x.getCellX()][x.getCellY()] == TileSet.SURFACE_CLEAR_ID
+		|| blockingEntityMap.blockingMap[x.getCellX()][x.getCellY()] == TileSet.SURFACE_BUILDING_CLEAR_ID
+		|| blockingEntityMap.blockingMap[x.getCellX()][x.getCellY()] == TileSet.SURFACE_BEACH_ID
+		|| blockingEntityMap.blockingMap[x.getCellX()][x.getCellY()] == TileSet.SURFACE_ROAD_ID
+		|| blockingEntityMap.blockingMap[x.getCellX()][x.getCellY()] == TileSet.SURFACE_ROUGH_ID);
     }
 
-    public boolean isCellBuildable(int x, int y) {
-	return isCellBuildable(x, y, false);
+    public boolean isCellBuildable(Pos x) {
+	return isCellBuildable(x, false);
     }
 
-    public boolean isCellBuildable(int x, int y, boolean isMcvDeploy) {
-	if (x >= this.map.getWidth() || y >= this.map.getHeight()) {
+    public boolean isCellBuildable(Pos x, boolean isMcvDeploy) {
+	if (x.getCellX() >= this.map.getWidth() || x.getCellY() >= this.map.getHeight()) {
 	    return false;
 	}
 
-	if (x < 0 || y < 0) {
+	if (x.getCellX() < 0 || x.getCellY() < 0) {
 	    return false;
 	}
 
-	if (!this.map.isInMap(x * 24, y * 24)) {
+	if (!this.map.isInMap(x.getX(), x.getY())) {
 	    return false;
 	}
 
-	return (isMcvDeploy || !this.blockingEntityMap.isAnyInfluenceInCell(new Pos(x, y))) && (this.map.getResourcesLayer().isCellEmpty(x, y));	
+	return (isMcvDeploy || !this.blockingEntityMap.isAnyInfluenceInCell(x)) && (this.map.getResourcesLayer().isCellEmpty(x));	
     }
 
     public boolean blocked(PathFindingContext arg0, int x, int y) {
@@ -497,7 +498,7 @@ public class World extends AnimationTimer {
 
 	for (int bX = 0; bX < eb.getWidthInTiles(); bX++) {
 	    for (int bY = 0; bY < eb.getHeight(); bY++) {
-		if (blockingCells[bX][bY] != TileSet.SURFACE_BUILDING_CLEAR_ID && !isCellBuildable(x + bX, y + bY)) {
+		if (blockingCells[bX][bY] != TileSet.SURFACE_BUILDING_CLEAR_ID && !isCellBuildable(new Pos(x + bX, y + bY))) {
 		    return false;
 		}
 	    }
@@ -543,17 +544,11 @@ public class World extends AnimationTimer {
     }
 
     public boolean isCellBlockedByEntity(Pos cellPos) {
-	int x = (int) cellPos.getX();
-	int y = (int) cellPos.getY();
-
-	return !this.blockingEntityMap.isSubcellFree(new Pos(x, y), SubCell.FULL_CELL);
+	return !this.blockingEntityMap.isSubcellFree(cellPos, SubCell.FULL_CELL);
     }
     
     public boolean isCellBlockedByEntity(Pos cellPos, SubCell sub) {
-	int x = (int) cellPos.getX();
-	int y = (int) cellPos.getY();
-
-	return !this.blockingEntityMap.isSubcellFree(new Pos(x, y), sub);
+	return !this.blockingEntityMap.isSubcellFree(cellPos, sub);
     }    
 
     public int getRandomInt(int from, int to) {
@@ -592,12 +587,12 @@ public class World extends AnimationTimer {
 
 	for (int i = 0; i <= range; i++) {
 	    for (Pos p : this.pointsInRange[i]) {
-		int cellPosX = (int) (centerPos.getX() + p.getX());
-		int cellPosY = (int) (centerPos.getY() + p.getY());
+		double cellPosX = centerPos.getX() + p.getX();
+		double cellPosY = centerPos.getY() + p.getY();
 
 		Pos cellPoint = new Pos(cellPosX, cellPosY);
 
-		if (map.isInMap(cellPosX * 24, cellPosY * 24) && chooser.isCellChoosable(cellPoint)) {
+		if (map.isInMap(cellPosX, cellPosY) && chooser.isCellChoosable(cellPoint)) {
 		    res.add(cellPoint);
 		}
 	    }
@@ -611,18 +606,10 @@ public class World extends AnimationTimer {
 
 	    @Override
 	    public boolean isCellChoosable(Pos cellPos) {
-		return isCellPassable((int) cellPos.getX(), (int) cellPos.getY());
+		return isCellPassable(cellPos);
 	    }
 
 	});
-    }
-
-    public boolean isCellPassable(Pos cellPos) {
-	return isCellPassable((int) cellPos.getX(), (int) cellPos.getY());
-    }
-
-    public boolean isCellPassable(Pos cellPos, SubCell subCell) {
-	return isCellPassable((int) cellPos.getX(), (int) cellPos.getY(), subCell);
     }
 
     public TargetType getCellTargetType(Pos cellPos) {

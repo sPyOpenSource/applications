@@ -54,8 +54,8 @@ public abstract class EntityWall extends EntityBuilding implements IHaveCost, ID
 	int[] dy = { -1, 0, 1, 0 };
 
 	for (int i = 0; i < 4; i++) {
-	    int checkX = 0;//(int) (this.boundingBox.getCenterX() / 24) + dx[i];
-	    int checkY = 0;//(int) (this.boundingBox.getCenterY() / 24) + dy[i];
+	    int checkX = (int) (this.boundingBox.getX() / 24) + dx[i];
+	    int checkY = (int) (this.boundingBox.getY() / 24) + dy[i];
 
 	    // TODO: use actor/blocking map for this to get O(1) instead O(n) complexity
 	    EntityBuilding b = world.getBuildingInCell(new Pos(checkX, checkY));
@@ -78,8 +78,8 @@ public abstract class EntityWall extends EntityBuilding implements IHaveCost, ID
 	int updated = 0;
 	
 	for (int i = 0; i < 4; i++) {
-	    int checkX = 0;//(int) (this.boundingBox.getCenterX() / 24) + dx[i];
-	    int checkY = 0;//(int) (this.boundingBox.getCenterY() / 24) + dy[i];
+	    int checkX = (int) (this.boundingBox.getX() / 24) + dx[i];
+	    int checkY = (int) (this.boundingBox.getY() / 24) + dy[i];
 
 	    // TODO: use actor/blocking map for this to get O(1) instead O(n) complexity
 	    EntityBuilding b = world.getBuildingInCell(new Pos(checkX, checkY));

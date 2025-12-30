@@ -64,8 +64,8 @@ public class FindResources extends Activity {
 	int dy[] = { 0, 0, +1, -1, +1, +1, -1, -1 };
 
 	for (int i = 0; i < 8; i++) {
-	    int newCellX = (int) currentNode.getX() + dx[i];
-	    int newCellY = (int) currentNode.getY() + dy[i];
+	    int newCellX = currentNode.getCellX() + dx[i];
+	    int newCellY = currentNode.getCellY() + dy[i];
 
 	    Pos cell = new Pos(newCellX, newCellY);
 

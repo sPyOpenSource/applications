@@ -73,9 +73,9 @@ public abstract class EntityVehicle extends MobileEntity implements IShroudRevea
     public static EntityVehicle newInstance(EntityVehicle b) {
 	Constructor ctor;
 	try {
-	    ctor = (b.getClass()).getDeclaredConstructor(Double.class, Double.class);
+	    ctor = (b.getClass()).getDeclaredConstructor(Pos.class);
 	    ctor.setAccessible(true);
-	    EntityVehicle newEntityVehicle = (EntityVehicle) ctor.newInstance(b.boundingBox.getX(), b.boundingBox.getY());
+	    EntityVehicle newEntityVehicle = (EntityVehicle) ctor.newInstance(new Pos(b.boundingBox.getX(), b.boundingBox.getY()));
 
 	    return newEntityVehicle;
 	} catch (NoSuchMethodException | SecurityException | InstantiationException | IllegalAccessException

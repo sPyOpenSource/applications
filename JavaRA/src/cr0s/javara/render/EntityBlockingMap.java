@@ -118,7 +118,7 @@ public class EntityBlockingMap {
 	
 	//if (infList == null) {
 	    //infList = new ConcurrentLinkedQueue<>();
-	    this.blockingMap[(int) cellPos.getX() / 24][(int) cellPos.getY() / 24] = -1;
+	    this.blockingMap[cellPos.getCellX()][cellPos.getCellY()] = -1;
 	//}
 	
 	//infList.add(new Influence(sc, e));
@@ -128,7 +128,7 @@ public class EntityBlockingMap {
 	//ConcurrentLinkedQueue<Influence> infList = new ConcurrentLinkedQueue<>();
 	//infList.add(new Influence(SubCell.FULL_CELL, e));
 	
-	this.blockingMap[(int) cellPos.getX() / 24][(int) cellPos.getY() / 24] = -1;
+	this.blockingMap[cellPos.getCellX()][cellPos.getCellY()] = -1;
     }
     
     public boolean isSubcellFree(Pos pos, SubCell sub) {
@@ -141,7 +141,7 @@ public class EntityBlockingMap {
 	    return false;
 	}
 	
-	if (this.blockingMap[(int) pos.getX() / 24][(int) pos.getY() / 24] >= 1) {
+	if (this.blockingMap[pos.getCellX()][pos.getCellY()] >= 1) {
 	    return true;
 	}
 	
@@ -171,7 +171,7 @@ public class EntityBlockingMap {
     
     public boolean isFullCellOccupied(Pos pos) {
 	// Whole cell is free
-	if (this.blockingMap[(int) pos.getX() / 24][(int) pos.getY() / 24] >= 0) {
+	if (this.blockingMap[pos.getCellX()][pos.getCellY()] >= 0) {
 	    return false;
 	}
 	
@@ -185,9 +185,9 @@ public class EntityBlockingMap {
     }    
     
     public boolean isAnyInfluenceInCell(Pos pos) {
-	return this.blockingMap[(int) pos.getX() / 24][(int) pos.getY() / 24] < 0
-		|| blockingMap[(int)pos.getX() / 24][(int)pos.getY() / 24] == TileSet.SURFACE_ORE_GOLD
-		|| blockingMap[(int)pos.getX() / 24][(int)pos.getY() / 24] == TileSet.SURFACE_ORE_GEM;
+	return this.blockingMap[pos.getCellX()][pos.getCellY()] < 0
+		|| blockingMap[pos.getCellX()][pos.getCellY()] == TileSet.SURFACE_ORE_GOLD
+		|| blockingMap[pos.getCellX()][pos.getCellY()] == TileSet.SURFACE_ORE_GEM;
     }
     
     public class Influence {

@@ -49,7 +49,7 @@ public class BuildingOverlay {
 				//g.fillRect((cellX + bX) * 24 , (cellY + bY) * 24, 24, 24);			
 			    }
 			} else if (this.targetBuilding.getBlockingCells()[bX][bY] != TileSet.SURFACE_CLEAR_ID) {
-			    if (!world.isCellBuildable(cell.getCellX() + bX , cell.getCellY() + bY)) {
+			    if (!world.isCellBuildable(new Pos(cell.getCellX() + bX , cell.getCellY() + bY))) {
 				//g.setColor(blockedCellColor);
 				//g.fillRect((cellX + bX) * 24 , (cellY + bY) * 24, 24, 24);
 			    } else if (this.targetBuilding.getBlockingCells()[bX][bY] != TileSet.SURFACE_CLEAR_ID){

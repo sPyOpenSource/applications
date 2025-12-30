@@ -243,7 +243,7 @@ public class Base {
 	for (int bX = 0; bX < targetBuilding.getWidthInTiles(); bX++) {
 	    for (int bY = 0; bY < targetBuilding.getHeightInTiles(); bY++) {
 		if (targetBuilding.getBlockingCells()[bX][bY] != TileSet.SURFACE_CLEAR_ID) {
-		    if (!owner.world.isCellBuildable(cell.getCellX() + bX , cell.getCellY() + bY)) {
+		    if (!owner.world.isCellBuildable(new Pos(cell.getCellX() + bX , cell.getCellY() + bY))) {
 			return false;
 		    }
 		}
