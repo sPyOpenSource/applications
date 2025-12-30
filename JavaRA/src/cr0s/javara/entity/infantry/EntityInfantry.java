@@ -141,8 +141,8 @@ public abstract class EntityInfantry extends MobileEntity implements IShroudReve
     }
 
     @Override
-    public Path findPathFromTo(MobileEntity e, int aGoalX, int aGoalY) {
-	return world.getInfantryPathfinder().findPathFromTo((EntityInfantry) e, aGoalX, aGoalY);
+    public Path findPathFromTo(MobileEntity e, Pos aGoal) {
+	return world.getInfantryPathfinder().findPathFromTo((EntityInfantry) e, aGoal);
     }
 
     @Override

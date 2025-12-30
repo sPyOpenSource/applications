@@ -1,5 +1,6 @@
 package mazesolver;
 
+import cr0s.javara.util.Pos;
 import java.util.*;
 
 /**
@@ -7,10 +8,10 @@ import java.util.*;
  */
 public class SubRoute {
     private final Maze maze;
-    private final Point startPoint;
-    private final Point endPoint;
+    private final Pos startPoint;
+    private final Pos endPoint;
     
-    private ArrayList<Point> shortestPath;
+    private ArrayList<Pos> shortestPath;
     
     /**
      * Constructs a new subRoute, based on start- and endpoint.
@@ -18,7 +19,7 @@ public class SubRoute {
      * @param startPoint
      * @param endPoint 
      */
-    public SubRoute(Maze maze, Point startPoint, Point endPoint) {
+    public SubRoute(Maze maze, Pos startPoint, Pos endPoint) {
         this.maze = maze;
         
         // Check if start/end-points are valid
@@ -39,7 +40,7 @@ public class SubRoute {
      * Returns startPoint of subRoute.
      * @return 
      */
-    public Point getStartPoint() { 
+    public Pos getStartPoint() { 
         return startPoint; 
     }
     
@@ -47,7 +48,7 @@ public class SubRoute {
      * Returns endPoint of subRoute.
      * @return 
      */
-    public Point getEndPoint() { 
+    public Pos getEndPoint() { 
         return endPoint; 
     }
 
@@ -56,9 +57,9 @@ public class SubRoute {
      * @param reversed
      * @return null if no path available
      */
-    public ArrayList<Point> getPath(boolean reversed) {
+    public ArrayList<Pos> getPath(boolean reversed) {
         // Create a temp arraylist
-        ArrayList<Point> tmp;
+        ArrayList<Pos> tmp;
         
         synchronized(this) {
             if(shortestPath == null) return null;
@@ -77,7 +78,7 @@ public class SubRoute {
      * Updates subRoute.
      * @param path 
      */
-    public void updatePath(ArrayList<Point> path) {
+    public void updatePath(ArrayList<Pos> path) {
         // Optimize given path
         Helper.optimizePath(path, maze);
         
@@ -91,7 +92,7 @@ public class SubRoute {
         }
         
         // Create a a temp arraylist and get path
-        ArrayList<Point> tmp = getPath(false);
+        ArrayList<Pos> tmp = getPath(false);
         
         // Merge old and new path
         tmp = Helper.mergePaths(tmp, path, maze);

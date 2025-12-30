@@ -136,8 +136,7 @@ public class FindResources extends Activity {
     private Path findPathToClosestResourceCell(final EntityHarvester harv) {
 	Pos resourcePos = getClosestResourceCellBfs(harv);
 	if (resourcePos != null) {
-	    Path pathToResource = harv.findPathFromTo(harv,
-		    (int) resourcePos.getX(), (int) resourcePos.getY());
+	    Path pathToResource = harv.findPathFromTo(harv, resourcePos);
 
 	    return pathToResource;
 	}

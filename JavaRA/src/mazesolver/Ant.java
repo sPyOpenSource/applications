@@ -1,5 +1,6 @@
 package mazesolver;
 
+import cr0s.javara.util.Pos;
 import java.util.ArrayList;
 
 /**
@@ -7,7 +8,7 @@ import java.util.ArrayList;
  */
 public class Ant implements Runnable {    
     
-    private final ArrayList<Point> path;
+    private final ArrayList<Pos> path;
     private final int[][] pathmap;
     private final SubRoute subRoute;
     
@@ -36,7 +37,7 @@ public class Ant implements Runnable {
             return true;
         
         // Choose next point to move
-        Point next = nextPoint();
+        Pos next = nextPoint();
         
         // Check if point is valid
         if(next == null) return false;
@@ -45,7 +46,7 @@ public class Ant implements Runnable {
         path.add(next);
 
         // Update stepMap
-        pathmap[next.getX()][next.getY()] = 1;
+        pathmap[next.getCellX()][next.getCellY()] = 1;
         int value = /*subRoute.getMaze().getValue(next.getX(), next.getY()) -*/ 50;
         //subRoute.getMaze().setValue(next.getX(), next.getY(), value);
         return false;
@@ -55,22 +56,22 @@ public class Ant implements Runnable {
      * Determines which of the 4 surrounding nodes the Ant should take.
      * @return 
      */
-    public Point nextPoint() {
+    public Pos nextPoint() {
         // Store current x and y coordinates
-        int x = currentPoint().getX();
-        int y = currentPoint().getY();
+        int x = currentPoint().getCellX();
+        int y = currentPoint().getCellY();
         
         // Create 4 surrounding locations
-        Point[] points = new Point[4];
-        points[0] = new Point(x, y - 1);
-        points[1] = new Point(x - 1, y);
-        points[2] = new Point(x + 1, y);
-        points[3] = new Point(x, y + 1);
+        Pos[] points = new Pos[4];
+        points[0] = new Pos(x, y - 1);
+        points[1] = new Pos(x - 1, y);
+        points[2] = new Pos(x + 1, y);
+        points[3] = new Pos(x, y + 1);
         
         // Check each location with maze/path
         float[] w = new float[4];
         for(byte i = 0; i < 4; i++) {
-            w[i] = subRoute.getMaze().getValue(points[i].getX(), points[i].getY());
+            w[i] = subRoute.getMaze().getValue(points[i].getCellX(), points[i].getCellY());
             if(w[i] < 0) w[i] = 0;
             else w[i] = 100000;
             if(w[i] != 0){
@@ -78,8 +79,8 @@ public class Ant implements Runnable {
                     w[i] = Settings.Ant.factorReverse;
                 /*else if(pathmap[points[i].getY()][points[i].getX()] == 1000)
                     w[i] = Settings.Ant.factorOld;*/
-                else if(pathmap[points[i].getX()][points[i].getY()] == 1)
-                    w[i] = pathmap[points[i].getX()][points[i].getY()] * 100;
+                else if(pathmap[points[i].getCellX()][points[i].getCellY()] == 1)
+                    w[i] = pathmap[points[i].getCellX()][points[i].getCellY()] * 100;
             }
         }
         
@@ -103,7 +104,7 @@ public class Ant implements Runnable {
      * Returns the route taken by Ant.
      * @return path
      */
-    public ArrayList<Point> getPath() { 
+    public ArrayList<Pos> getPath() { 
         return path; 
     }
     
@@ -111,7 +112,7 @@ public class Ant implements Runnable {
      * Returns current position of Ant.
      * @return Point
      */
-    private Point currentPoint() { 
+    private Pos currentPoint() { 
         return path.get(path.size() - 1); 
     }
     
@@ -119,7 +120,7 @@ public class Ant implements Runnable {
      * Returns previous position of Ant.
      * @return previous Point
      */
-    private Point previousPoint() {
+    private Pos previousPoint() {
         return (path.size() < 2) ? null : path.get(path.size() - 2);
     }
 

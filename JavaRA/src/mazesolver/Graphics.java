@@ -124,14 +124,14 @@ public class Graphics extends AnimationTimer {
                         Settings.Graphics.lineColor[1],
                         Settings.Graphics.lineColor[2]
                 );
-                drawPath(director.getBestRoute(), line);
+                //drawPath(director.getBestRoute(), line);
                 // Draw the startPoint
                 Color start = Color.color(0.275f, 0.537f, 0.4f);
-                drawPoint(maze.getStartPoint(), 0.8f, start);
+                //drawPoint(maze.getStartPoint(), 0.8f, start);
 
                 // Draw the endPoint
                 Color end = Color.color(0.557f, 0.157f, 0);
-                drawPoint(maze.getEndPoint(), 0.8f, end);
+                //drawPoint(maze.getEndPoint(), 0.8f, end);
 
                 // Draw the venues
                 Color venue = Color.color(1, 0.69f, 0.231f);
@@ -196,7 +196,7 @@ public class Graphics extends AnimationTimer {
         Color node = Color.color(1, 1, 1);
         for(int x = 0; x < maze.getWidth(); x++) {
             for(int y = 0; y < maze.getHeight(); y++) {
-                if(maze.isNode(x, y)) drawNode(x, y, node);
+                //if(maze.isNode(x, y)) drawNode(x, y, node);
             }
         }
     }

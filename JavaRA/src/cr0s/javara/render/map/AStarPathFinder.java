@@ -18,6 +18,7 @@ package cr0s.javara.render.map;
 
 import cr0s.javara.entity.MobileEntity;
 import cr0s.javara.render.World;
+import cr0s.javara.util.Pos;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -38,7 +39,7 @@ class AStarPathFinder {
     private final Random random = new Random();
     private final int max;
 
-    private ArrayList<Point> router;
+    private ArrayList<Pos> router;
     private Director director;
     
     AStarPathFinder(World world, int MAX_SEARCH_DISTANCE) {
@@ -46,17 +47,17 @@ class AStarPathFinder {
         max = MAX_SEARCH_DISTANCE;
     }
 
-    Path findPath(MobileEntity me, int startX, int startY, int goalX, int goalY) {
-        maze.setEnd(new Point(goalX, goalY));
-        maze.setStart(new Point(startX, startY), max);
+    Path findPath(MobileEntity me, Pos start, Pos goal) {
+        maze.setEnd(goal);
+        maze.setStart(start, max);
         director = new Director(maze, null);
         director.run();
         router = director.getBestRoute();
         Path path = new Path();
-        for(Point point:router){
+        for(Pos point:router){
             MoveTo line = new MoveTo(
-                    point.getX() * 24 + random.nextInt(24), 
-                    point.getY() * 24 + random.nextInt(24));
+                    point.getX() + random.nextInt(24), 
+                    point.getY() + random.nextInt(24));
             path.getElements().add(line);
         }
                     /*PathTransition transition = new PathTransition();

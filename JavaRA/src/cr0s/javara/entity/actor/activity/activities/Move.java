@@ -142,7 +142,7 @@ public class Move extends Activity {
     }
 
     private void chooseNewPath(MobileEntity me) {
-	this.currentPath = me.findPathFromTo(me, (int) (this.destCell.getX()), (int) (this.destCell.getY()));
+	this.currentPath = me.findPathFromTo(me, this.destCell);
 	this.currentPathIndex = 1;
 
 	this.isNewPath = true;
@@ -158,7 +158,7 @@ public class Move extends Activity {
 	    }
 
 	    this.destCell = newDestCell;
-	    this.currentPath = me.findPathFromTo(me, (int) (this.destCell.getX()), (int) (this.destCell.getY()));
+	    this.currentPath = me.findPathFromTo(me, destCell);
 	    this.currentPathIndex = 1;
 	    this.isNewPath = true;
 	}

@@ -188,8 +188,8 @@ public class EntityMcv extends EntityVehicle implements ISelectable, IDeployable
     }
 
     @Override
-    public Path findPathFromTo(MobileEntity e, int aGoalX, int aGoalY) {
-	return world.getVehiclePathfinder().findPathFromTo(this, aGoalX, aGoalY);
+    public Path findPathFromTo(MobileEntity e, Pos aGoal) {
+	return world.getVehiclePathfinder().findPathFromTo(this, aGoal);
     }
 
     @Override

@@ -14,7 +14,7 @@ public abstract class EntityAircraft extends MobileEntity {
     }
 
     @Override
-    public Path findPathFromTo(MobileEntity e, int aGoalX, int aGoalY) {
+    public Path findPathFromTo(MobileEntity e, Pos aGoalX) {
 	return null;
     }
 

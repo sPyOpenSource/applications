@@ -1,5 +1,6 @@
 package mazesolver;
 
+import cr0s.javara.util.Pos;
 import java.io.*;
 import java.util.*;
 
@@ -8,7 +9,7 @@ import java.util.*;
  */
 public class Maze {
     private final int[][] nodes;    
-    private Point startPoint, endPoint;
+    private Pos startPoint, endPoint;
     private int max;
     
     private final Venue[] venues;
@@ -31,9 +32,9 @@ public class Maze {
             venues = new Venue[0];
         
         // Check if venues are valid
-        for (Venue venue : venues)
+        /*for (Venue venue : venues)
             if (venue == null || !isNode(venue.getLocation()))
-                Helper.error("Invalid venues!");
+                Helper.error("Invalid venues!");*/
 
         this.venues = venues;
     }
@@ -43,20 +44,10 @@ public class Maze {
      * @param p
      * @return boolean
      */
-    public boolean isNode(Point p) { 
-        return isNode(p.getX(), p.getY()); 
-    }
-    
-    /**
-     * Checks if a position is a node.
-     * @param x coordinate
-     * @param y coordinate
-     * @return boolean
-     */
-    public boolean isNode(int x, int y) { 
-        if(x < 0 || x > nodes[0].length - 1) return false;
-        if(y < 0 || y > nodes.length - 1) return false;
-        return nodes[x][y] >= 0;    
+    public boolean isNode(Pos p) { 
+        if(p.getCellX() < 0 || p.getCellX() > nodes[0].length - 1) return false;
+        if(p.getCellY() < 0 || p.getCellY() > nodes.length - 1) return false;
+        return nodes[p.getCellX()][p.getCellY()] >= 0;    
     }
     
     public int getValue(int x, int y){
@@ -92,18 +83,18 @@ public class Maze {
      * Returns start point of Maze.
      * @return startPoint
      */
-    public Point getStartPoint() { 
+    public Pos getStartPoint() { 
         return startPoint; 
     }
     
-    public void setStart(Point start, int max){
+    public void setStart(Pos start, int max){
         this.max = max;
         startPoint = start;
         // Check if startPoint is valid
         while (startPoint == null || !isNode(startPoint)){
-            startPoint = new Point(
-                    startPoint.getX() + random.nextInt(5) - 2, 
-                    startPoint.getY() + random.nextInt(5) - 2);
+            startPoint = new Pos(
+                    startPoint.getCellX() + random.nextInt(5) - 2, 
+                    startPoint.getCellY() + random.nextInt(5) - 2);
             //Helper.error("Invalid start point!");
         }
     }
@@ -112,17 +103,17 @@ public class Maze {
      * Returns end point of Maze.
      * @return endPoint
      */
-    public Point getEndPoint() { 
+    public Pos getEndPoint() { 
         return endPoint; 
     }
     
-    public void setEnd(Point end){
+    public void setEnd(Pos end){
         endPoint = end;
         // Check if endPoint is valid
         while (endPoint == null || !isNode(endPoint)){
-            endPoint = new Point(
-                    endPoint.getX() + random.nextInt(5) - 2, 
-                    endPoint.getY() + random.nextInt(5) - 2);
+            endPoint = new Pos(
+                    endPoint.getCellX() + random.nextInt(5) - 2, 
+                    endPoint.getCellY() + random.nextInt(5) - 2);
             //Helper.error("Invalid end point!");
         }
     }

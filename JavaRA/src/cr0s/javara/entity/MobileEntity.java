@@ -41,7 +41,7 @@ public abstract class MobileEntity extends EntityActor implements INotifyBlockin
 	ordersList.add(new MoveOrderTargeter(this));
     }
 
-    public abstract Path findPathFromTo(MobileEntity e, int aGoalX, int aGoalY);
+    public abstract Path findPathFromTo(MobileEntity e, Pos aGoal);
 
     public Pos getCenterPos() {
 	return new Pos(this.getCenterPosX(), this.getCenterPosY());
@@ -200,11 +200,11 @@ public abstract class MobileEntity extends EntityActor implements INotifyBlockin
 	ArrayList<Pos> smartCells = new ArrayList<>(); // smart cells is cells which blocked, but we can try to nudge actor inside it
 	
 	for (int i = 0; i < 8; i++) {
-	    int newCellX = (int) this.getCellPos().getX() + dx[i];
-	    int newCellY = (int) this.getCellPos().getY() + dy[i];
+	    int newCellX = this.getCellPos().getCellX() + dx[i];
+	    int newCellY = this.getCellPos().getCellY() + dy[i];
 	    
 	    // Skip cell with nudger position
-	    if (nudger != null && (nudgerPos.getX() == newCellX && nudgerPos.getY() == newCellY)) {
+	    if (nudger != null && (nudgerPos.getCellX() == newCellX && nudgerPos.getCellY() == newCellY)) {
 		continue;
 	    }
 	    

@@ -1,5 +1,6 @@
 package mazesolver;
 
+import cr0s.javara.util.Pos;
 import java.util.*;
 
 /**
@@ -139,13 +140,13 @@ public class Helper {
      * @param height
      * @return map
      */
-    public static int[][] mapPath(ArrayList<Point> path, int width, int height) {
+    public static int[][] mapPath(ArrayList<Pos> path, int width, int height) {
         // Initialize a step map
         int[][] map = new int[height][width];
         
         // Walk along path and fill map
         for (int i = 1; i < path.size(); i++) 
-            map[path.get(i).getY()][path.get(i).getX()] = i;
+            map[path.get(i).getCellY()][path.get(i).getCellX()] = i;
         
         return map;
     }
@@ -159,10 +160,10 @@ public class Helper {
      * @param maze
      * @return newPath
      */
-    public static ArrayList<Point> mergePaths(
-            ArrayList<Point> pathA, ArrayList<Point> pathB, Maze maze) {
+    public static ArrayList<Pos> mergePaths(
+            ArrayList<Pos> pathA, ArrayList<Pos> pathB, Maze maze) {
         // Initialize new arraylist with expected capacity
-        ArrayList<Point> newPath = new ArrayList<>(pathA.size());
+        ArrayList<Pos> newPath = new ArrayList<>(pathA.size());
 
         // Create step map of B
         int[][] map = mapPath(pathB, maze.getWidth(), maze.getHeight());
@@ -174,7 +175,7 @@ public class Helper {
         for(int endA = 0; endA < pathA.size(); endA++) {
             
             // Find intersection in step map
-            int endB = map[pathA.get(endA).getY()][pathA.get(endA).getX()];
+            int endB = map[pathA.get(endA).getCellY()][pathA.get(endA).getCellX()];
             
             // If intersection is old, continue to next step
             if (endB <= beginB) continue;
@@ -201,7 +202,7 @@ public class Helper {
      * @param path
      * @param maze
      */
-    public static void optimizePath(ArrayList<Point> path, Maze maze) {
+    public static void optimizePath(ArrayList<Pos> path, Maze maze) {
         // Nothing to do here if no path!
         if(path == null || path.size() < 2) return;
         
@@ -209,7 +210,7 @@ public class Helper {
         int[][] map = mapPath(path, maze.getWidth(), maze.getHeight());
         
         // Copy the path into oldPath
-        ArrayList<Point> oldPath = new ArrayList<>(path);
+        ArrayList<Pos> oldPath = new ArrayList<>(path);
         
         // Clear path and add startpoint
         path.clear(); path.add(oldPath.get(0));
@@ -221,14 +222,14 @@ public class Helper {
         while(step < oldPath.size() - 1) {
             
             // Get coordinates of current step
-            int x = oldPath.get(step).getX();
-            int y = oldPath.get(step).getY();
+            int x = oldPath.get(step).getCellX();
+            int y = oldPath.get(step).getCellY();
             
             // Look around for shortcuts
-            if(maze.isNode(x + 1, y) && map[y][x + 1] > step) step = map[y][x + 1];
-            if(maze.isNode(x - 1, y) && map[y][x - 1] > step) step = map[y][x - 1];
-            if(maze.isNode(x, y + 1) && map[y + 1][x] > step) step = map[y + 1][x];
-            if(maze.isNode(x, y - 1) && map[y - 1][x] > step) step = map[y - 1][x];
+            if(maze.isNode(new Pos(x + 1, y)) && map[y][x + 1] > step) step = map[y][x + 1];
+            if(maze.isNode(new Pos(x - 1, y)) && map[y][x - 1] > step) step = map[y][x - 1];
+            if(maze.isNode(new Pos(x, y + 1)) && map[y + 1][x] > step) step = map[y + 1][x];
+            if(maze.isNode(new Pos(x, y - 1)) && map[y - 1][x] > step) step = map[y - 1][x];
             
             // Add new step to path
             path.add(oldPath.get(step));

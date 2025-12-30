@@ -3,6 +3,7 @@ package cr0s.javara.render.map;
 import cr0s.javara.entity.MobileEntity;
 import cr0s.javara.entity.vehicle.EntityVehicle;
 import cr0s.javara.render.World;
+import cr0s.javara.util.Pos;
 import javafx.scene.shape.Path;
 
 /**
@@ -17,9 +18,9 @@ public class VehiclePathfinder {
 	this.pathfinder = new AStarPathFinder(world, MAX_SEARCH_DISTANCE);
     }
     
-    public Path findPathFromTo(EntityVehicle me, int goalX, int goalY) {
+    public Path findPathFromTo(EntityVehicle me, Pos goal) {
 	MobileEntity m = (MobileEntity) me;
-	return this.pathfinder.findPath(me, (int) m.getCellPos().getX(), (int) m.getCellPos().getY(), goalX, goalY);
+	return this.pathfinder.findPath(me, m.getCellPos(), goal);
     }
 }
 

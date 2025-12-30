@@ -1,5 +1,6 @@
 package mazesolver;
 
+import cr0s.javara.util.Pos;
 import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -35,13 +36,13 @@ public class Director implements Runnable {
         for (int y = 0; y < subRouteMatrix.length - 1; y++) {
             for (int x = y + 1; x < subRouteMatrix.length; x++) {
                 // Define start and end point of subroute                
-                Point tmpStart = maze.getStartPoint();
-                Point tmpEnd = maze.getEndPoint();
+                Pos tmpStart = maze.getStartPoint();
+                Pos tmpEnd = maze.getEndPoint();
                 
-                if (y != 0)
+                /*if (y != 0)
                     tmpStart = maze.getVenues()[y - 1].getLocation();
                 if (x != subRouteMatrix.length - 1)
-                    tmpEnd = maze.getVenues()[x - 1].getLocation();
+                    tmpEnd = maze.getVenues()[x - 1].getLocation();*/
                 
                 // Create SubRoute
                 SubRoute tmp = new SubRoute(maze, tmpStart, tmpEnd);
@@ -156,10 +157,10 @@ public class Director implements Runnable {
      * Returns ArrayList of Points created from best found order.
      * @return Route
      */
-    public ArrayList<Point> getBestRoute() {
+    public ArrayList<Pos> getBestRoute() {
         int[] order = routeFinder.getBestOrder();
         
-        ArrayList<Point> route = new ArrayList<>();
+        ArrayList<Pos> route = new ArrayList<>();
         
         for(int i = 0; i < order.length - 1; i++) {
             int from = order[i];
@@ -169,7 +170,7 @@ public class Director implements Runnable {
             SubRoute sb = subRouteMatrix[from][to];
             
             // Get shortest path as copy
-            ArrayList<Point> tmp = sb.getPath(from > to);
+            ArrayList<Pos> tmp = sb.getPath(from > to);
             
             // Copy to route
             route.addAll(tmp);
@@ -268,8 +269,7 @@ public class Director implements Runnable {
                     writer.newLine();
                 }
                 
-                writeSubRoute(writer,
-                        subRouteMatrix[from][to].getPath(from > to));
+                //writeSubRoute(writer, subRouteMatrix[from][to].getPath(from > to));
             }
             
             Helper.log("Route saved to " + outFile);
@@ -277,9 +277,9 @@ public class Director implements Runnable {
             writer.close();
         } catch (IOException e) {
             Helper.error("Not able to write to file");
-        } catch (InvalidRouteException e) {
+        } /*catch (InvalidRouteException e) {
             Helper.error("Route invalid!");
-        }
+        }*/
     }
     
     /**
