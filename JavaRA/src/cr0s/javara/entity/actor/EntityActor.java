@@ -32,7 +32,6 @@ public abstract class EntityActor extends Entity implements IOrderIssuer, IOrder
 
     public ArmorType armorType = ArmorType.NONE;
     public TreeSet<TargetType> targetTypes = new TreeSet<>();
-    
     public int maxFacings = 32;
     public String name;
     

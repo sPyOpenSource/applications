@@ -11,6 +11,7 @@ import cr0s.javara.entity.infantry.EntityInfantry.AnimationState;
 import cr0s.javara.util.PointsUtil;
 import cr0s.javara.util.Pos;
 import cr0s.javara.util.RotationUtil;
+import javafx.scene.shape.MoveTo;
 import javafx.scene.shape.Path;
 
 public class MoveInfantry extends Activity {
@@ -62,17 +63,15 @@ public class MoveInfantry extends Activity {
 	this.ignoreBuilding = aIgnoreBuilding;
     }
 
-    private Pos popPath(MobileEntity me) {
-	int px = 0, py = 0;		
-	
+    private Pos popPath(MobileEntity me) {	
 	if (this.currentPath == null || currentPathIndex >= this.currentPath.getElements().size() || this.currentPath.getElements().size() < 1) {
 	    this.currentPath = null;
 	    return null;
 	}
 
-	/*Step s = currentPath.getStep(currentPathIndex);
-	px = s.getX();
-	py = s.getY();*/
+	MoveTo s = (MoveTo)currentPath.getElements().get(currentPathIndex);
+	double px = s.getX();
+	double py = s.getY();
 
 	Pos nextCell = new Pos(px, py);
 
