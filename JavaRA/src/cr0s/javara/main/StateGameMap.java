@@ -138,7 +138,7 @@ public class StateGameMap extends Application {
 			if (order.orderString.equals("Move") && !moveFlashSpawned) {
 			    moveFlashSpawned = true;
 
-			    MoveFlash flash = new MoveFlash(order.targetPosition.getX() * 24, order.targetPosition.getY() * 24, 24, 24);
+			    MoveFlash flash = new MoveFlash(order.targetPosition, 24, 24);
 			    flash.setWorld(ea.world);
 			    flash.isVisible = true;
 

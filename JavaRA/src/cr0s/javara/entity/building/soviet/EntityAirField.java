@@ -47,8 +47,8 @@ public class EntityAirField extends EntityBuilding implements ISelectable, IPowe
     
     private final boolean isCharging = false;
     
-    public EntityAirField(double tileX, double tileY) {
-	super(tileX, tileY, WIDTH_TILES * 24, HEIGHT_TILES * 24, "xxx xxx");
+    public EntityAirField(Pos tile) {
+	super(tile, WIDTH_TILES * 24, HEIGHT_TILES * 24, "xxx xxx");
 
 	setBibType(BibType.NONE);
 	setProgressValue(-1);
@@ -189,6 +189,6 @@ public class EntityAirField extends EntityBuilding implements ISelectable, IPowe
     
     @Override
     public void onBuildFinished() {
-	this.deployEntity(new EntityMammothTank(0d, 0d));
+	this.deployEntity(new EntityMammothTank(new Pos(0d, 0d)));
     }
 }

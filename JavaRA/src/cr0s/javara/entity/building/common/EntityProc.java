@@ -54,8 +54,8 @@ public class EntityProc extends EntityBuilding implements ISelectable, IPowerCon
     private final LinkedList<TargetLine> targetLines = new LinkedList<>();
     private static final int BUILDING_COST = 1400;
 
-    public EntityProc(Double tileX, Double tileY) {
-	super(tileX, tileY, WIDTH_TILES * 24, HEIGHT_TILES * 24, "_x_ xxx x~~ ~~~");
+    public EntityProc(Pos tile) {
+	super(tile, WIDTH_TILES * 24, HEIGHT_TILES * 24, "_x_ xxx x~~ ~~~");
 
 	setBibType(BibType.MIDDLE);
 	setProgressValue(-1);
@@ -86,7 +86,7 @@ public class EntityProc extends EntityBuilding implements ISelectable, IPowerCon
 	}
 
 	Pos harvCell = getHarvesterCell();
-	EntityHarvester harv = new EntityHarvester(harvCell.getX() * 24f, harvCell.getY() * 24f);
+	EntityHarvester harv = new EntityHarvester(harvCell);
 
 	harv.currentFacing = HARV_FACING;
 	harv.isVisible = true;
@@ -96,12 +96,12 @@ public class EntityProc extends EntityBuilding implements ISelectable, IPowerCon
 	harv.queueActivity(new FindResources());
 
 	world.spawnEntityInWorld(harv);
-owner.entities.add(harv);
+        owner.entities.add(harv);
 	this.setName("proc");
     }
 
     public Pos getHarvesterCell() {
-	return new Pos((this.boundingBox.getX() / 24) + HARV_OFFSET_X, (this.boundingBox.getY() / 24) + HARV_OFFSET_Y);	
+	return new Pos((this.boundingBox.getX()) + HARV_OFFSET_X * 24, this.boundingBox.getY() + HARV_OFFSET_Y * 24);	
     }
 
     private void initTextures() {
@@ -112,9 +112,7 @@ owner.entities.add(harv);
 
     @Override
     public ImageView renderEntity() {
-	//double nx = posX;
-	//double ny = posY;
-ImageView view = null;
+        ImageView view = null;
 	if (this.getHp() > this.getMaxHp() / 2) {
 	    view = new ImageView(SwingFXUtils.toFXImage(normal, null));//.draw(nx, ny);
 	} else {

@@ -20,7 +20,7 @@ public class Explosion extends Entity implements IEffect {
     private int width, height;
     
     public Explosion(Pos pos, String texture) {
-	this(pos.getX(), pos.getY(), 24, 24);
+	this(pos, 24, 24);
 	
 	if (texture != null && !texture.isEmpty()) {
 	    ShpTexture t = ResourceManager.getInstance().getConquerTexture(texture);
@@ -34,9 +34,9 @@ public class Explosion extends Entity implements IEffect {
 	}
     }
     
-    public Explosion(double posX, double posY,
+    public Explosion(Pos pos,
 	    float aSizeWidth, float aSizeHeight) {
-	super(posX, posY, aSizeWidth, aSizeHeight);
+	super(pos, aSizeWidth, aSizeHeight);
     }
 
     @Override

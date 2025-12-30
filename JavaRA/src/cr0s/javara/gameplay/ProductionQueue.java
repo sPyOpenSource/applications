@@ -31,6 +31,7 @@ import cr0s.javara.entity.vehicle.soviet.EntityV2Launcher;
 
 import cr0s.javara.render.EntityBlockingMap.SubCell;
 import cr0s.javara.ui.sbpages.SideBarItemsButton;
+import cr0s.javara.util.Pos;
 
 public class ProductionQueue {
     private final Base base;
@@ -90,30 +91,31 @@ public class ProductionQueue {
 	addButton(new BuildingSidebarButton("Wired Fence", "fencicon.shp", this.getPosition(), 0, 9, false));
 	addButton(new BuildingSidebarButton("Concrete Wall", "brikicon.shp", this.getPosition(), 1, 9, false));	
 	 */
-	this.sovietBuildings.put("fencicon.shp", new EntityBarredWireWall(0d, 0d));
-	this.sovietBuildings.put("brikicon.shp", new EntityConcreteWall(0d, 0d));
+        Pos NULL = new Pos(0, 0);
+	this.sovietBuildings.put("fencicon.shp", new EntityBarredWireWall(NULL));
+	this.sovietBuildings.put("brikicon.shp", new EntityConcreteWall(NULL));
 
-	this.sovietBuildings.put("powricon.shp", new EntityPowerPlant(0d, 0d));
-	this.sovietBuildings.put("barricon.shp", new EntityBarracks(0d, 0d));
-	this.sovietBuildings.put("procicon.shp", new EntityProc(0d, 0d));
-	this.sovietBuildings.put("apwricon.shp", new EntityAdvPowerPlant(0d, 0d));
-	this.sovietBuildings.put("siloicon.shp", new EntityOreSilo(0d, 0d));
-	this.sovietBuildings.put("weapicon.shp", new EntityWarFactory(0d, 0d));
-	this.sovietBuildings.put("domeicon.shp", new EntityRadarDome(0d, 0d));
-	this.sovietBuildings.put("afldicon.shp", new EntityAirField(0f, 0f));
-	this.sovietBuildings.put("hpadicon.shp", new EntityHelipad(0d, 0d));
+	this.sovietBuildings.put("powricon.shp", new EntityPowerPlant(NULL));
+	this.sovietBuildings.put("barricon.shp", new EntityBarracks(NULL));
+	this.sovietBuildings.put("procicon.shp", new EntityProc(NULL));
+	this.sovietBuildings.put("apwricon.shp", new EntityAdvPowerPlant(NULL));
+	this.sovietBuildings.put("siloicon.shp", new EntityOreSilo(NULL));
+	this.sovietBuildings.put("weapicon.shp", new EntityWarFactory(NULL));
+	this.sovietBuildings.put("domeicon.shp", new EntityRadarDome(NULL));
+	this.sovietBuildings.put("afldicon.shp", new EntityAirField(NULL));
+	this.sovietBuildings.put("hpadicon.shp", new EntityHelipad(NULL));
 	
-	this.sovietBuildings.put("fturicon.shp", new EntityFireTurret(0d, 0d));
-	this.sovietBuildings.put("tslaicon.shp", new EntityTeslaCoil(0d, 0d));	
+	this.sovietBuildings.put("fturicon.shp", new EntityFireTurret(NULL));
+	this.sovietBuildings.put("tslaicon.shp", new EntityTeslaCoil(NULL));	
 	
-	this.alliedBuildings.put("powricon.shp", new EntityPowerPlant(0d, 0d));
+	this.alliedBuildings.put("powricon.shp", new EntityPowerPlant(NULL));
 	//this.sovietBuildings.put("tenticon.shp", new EntityTent(0f, 0f, this.player.getTeam(), this.player));
-	this.alliedBuildings.put("procicon.shp", new EntityProc(0d, 0d));
-	this.alliedBuildings.put("apwricon.shp", new EntityAdvPowerPlant(0d, 0d));
-	this.alliedBuildings.put("siloicon.shp", new EntityOreSilo(0d, 0d));
-	this.alliedBuildings.put("weapicon.shp", new EntityWarFactory(0d, 0d));
-	this.alliedBuildings.put("domeicon.shp", new EntityRadarDome(0d, 0d));
-	this.alliedBuildings.put("hpadicon.shp", new EntityHelipad(0d, 0d));
+	this.alliedBuildings.put("procicon.shp", new EntityProc(NULL));
+	this.alliedBuildings.put("apwricon.shp", new EntityAdvPowerPlant(NULL));
+	this.alliedBuildings.put("siloicon.shp", new EntityOreSilo(NULL));
+	this.alliedBuildings.put("weapicon.shp", new EntityWarFactory(NULL));
+	this.alliedBuildings.put("domeicon.shp", new EntityRadarDome(NULL));
+	this.alliedBuildings.put("hpadicon.shp", new EntityHelipad(NULL));
 	
 	/*
 	 addButton(new InfantrySidebarButton("", "shokicon.shp", this.getPosition(), 0, 4, false, null));
@@ -133,19 +135,19 @@ public class ProductionQueue {
 	addButton(new InfantrySidebarButton("", "e1icon.shp", this.getPosition(), 0, 9, false, null));
 	addButton(new InfantrySidebarButton("", "e6icon.shp", this.getPosition(), 1, 9, false, null));
 	 */
-	this.sovietInfantry.put("e1icon.shp", new EntityRifleTrooper(0.0f, 0.0f, SubCell.CENTER));
+	this.sovietInfantry.put("e1icon.shp", new EntityRifleTrooper(NULL, SubCell.CENTER));
 	//this.sovietInfantry.put("e6icon.shp", new EntityEngineer(0.0f, 0.0f, this.player.getTeam(), this.player, SubCell.CENTER));
-	this.sovietInfantry.put("e2icon.shp", new EntityGrenadeTrooper(0.0f, 0.0f, SubCell.CENTER));
-	this.sovietInfantry.put("e3icon.shp", new EntityRocketTrooper(0.0f, 0.0f, SubCell.CENTER));
+	this.sovietInfantry.put("e2icon.shp", new EntityGrenadeTrooper(NULL, SubCell.CENTER));
+	this.sovietInfantry.put("e3icon.shp", new EntityRocketTrooper(NULL, SubCell.CENTER));
 		
 	// Put neutral common vehicles
-	this.neutralVehicles.put("mcvicon.shp", new EntityMcv(0.0f, 0.0f));
-	this.neutralVehicles.put("harvicon.shp", new EntityHarvester(0.0f, 0.0f));
+	this.neutralVehicles.put("mcvicon.shp", new EntityMcv(NULL));
+	this.neutralVehicles.put("harvicon.shp", new EntityHarvester(NULL));
 	
 	// Put soviet vehicles
-	this.sovietVehicles.put("4tnkicon.shp", new EntityMammothTank(0.0d, 0.0d));
-	this.sovietVehicles.put("3tnkicon.shp", new EntityHeavyTank(0.0d, 0.0d));
-	this.sovietVehicles.put("v2rlicon.shp", new EntityV2Launcher(0.0d, 0.0d));
+	this.sovietVehicles.put("4tnkicon.shp", new EntityMammothTank(NULL));
+	this.sovietVehicles.put("3tnkicon.shp", new EntityHeavyTank(NULL));
+	this.sovietVehicles.put("v2rlicon.shp", new EntityV2Launcher(NULL));
 
     }
 

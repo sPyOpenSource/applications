@@ -12,6 +12,7 @@ import cr0s.javara.main.GUI;
 import cr0s.javara.resources.ResourceManager;
 import cr0s.javara.resources.ShpTexture;
 import cr0s.javara.resources.SoundManager;
+import cr0s.javara.util.Pos;
 
 import java.awt.image.BufferedImage;
 import javafx.scene.image.ImageView;
@@ -29,8 +30,8 @@ public class EntityRadarDome extends EntityBuilding implements ISelectable, IPow
     private static final int BUILDING_COST = 1600;
     private static final int SHROUD_REVEALING_RANGE = 15;
     
-    public EntityRadarDome(Double tileX, Double tileY) {
-	super(tileX, tileY, WIDTH_TILES * 24, HEIGHT_TILES * 24, "xx xx ~~");
+    public EntityRadarDome(Pos tile) {
+	super(tile, WIDTH_TILES * 24, HEIGHT_TILES * 24, "xx xx ~~");
 
 	setBibType(BibType.SMALL);
 	setProgressValue(-1);

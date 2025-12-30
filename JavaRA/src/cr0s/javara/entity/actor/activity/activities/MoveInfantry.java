@@ -212,8 +212,8 @@ public class MoveInfantry extends Activity {
 	}
 
 	me.isMovingToCell = true;
-	me.targetCellX = (int) nextCell.getX();
-	me.targetCellY = (int) nextCell.getY();
+	me.targetCell.setX(nextCell.getX());
+	me.targetCell.setY(nextCell.getY());
 
 	/*
 	 * 1. Turn to required facing
@@ -265,8 +265,8 @@ public class MoveInfantry extends Activity {
 	    this.parentMove = aParentMove;
 
 	    this.me = aMe;
-	    this.me.targetCellX = (int) aDestCell.getX();
-	    this.me.targetCellY = (int) aDestCell.getY();
+	    this.me.targetCell.setX(aDestCell.getX());
+	    this.me.targetCell.setY(aDestCell.getY());
 
 	    int subOffsetXnext = (int) EntityInfantry.subcellOffsets[this.me.desiredSubcell.ordinal()].getX();
 	    int subOffsetYnext = (int) EntityInfantry.subcellOffsets[this.me.desiredSubcell.ordinal()].getY();
@@ -274,7 +274,7 @@ public class MoveInfantry extends Activity {
 	    int subOffsetXcurr = (int) EntityInfantry.subcellOffsets[this.me.currentSubcell.ordinal()].getX();
 	    int subOffsetYcurr = (int) EntityInfantry.subcellOffsets[this.me.currentSubcell.ordinal()].getY();
 	    
-	    this.end = new Pos((aDestCell.getX() * 24) + subOffsetXnext, (aDestCell.getY() * 24) + subOffsetYnext);
+	    this.end = new Pos(aDestCell.getX() + subOffsetXnext, aDestCell.getY() + subOffsetYnext);
 	    this.start = aStart;
 
 	    this.lengthInTicks = (int) (40 - (10 * me.getMoveSpeed()));

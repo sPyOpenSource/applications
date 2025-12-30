@@ -18,13 +18,13 @@ public class EntityRocketTrooper extends EntityInfantry implements ISelectable, 
     
     private int BUILD_COST = 300;
     
-    public EntityRocketTrooper(Double posX, Double posY) {
-	this(posX, posY, SubCell.CENTER);
+    public EntityRocketTrooper(Pos pos) {
+	this(pos, SubCell.CENTER);
     }    
     
-    public EntityRocketTrooper(double posX, double posY,
+    public EntityRocketTrooper(Pos pos,
 	    SubCell sub) {
-	super(posX, posY, sub);
+	super(pos, sub);
 	
 	this.texture = ResourceManager.getInstance().getInfantryTexture("e3.shp");
 

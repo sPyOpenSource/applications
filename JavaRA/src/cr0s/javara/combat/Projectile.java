@@ -25,13 +25,13 @@ public abstract class Projectile extends Entity implements IEffect {
     public int numFacings = 32;
     protected int seqLength = 0;
 
-    private Projectile(float posX, float posY,
+    private Projectile(Pos pos,
 	    float aSizeWidth, float aSizeHeight) {
-	super(posX, posY, aSizeWidth, aSizeHeight);
+	super(pos, aSizeWidth, aSizeHeight);
     }
 
     public Projectile(Pos srcPos, Pos passivePos, EntityActor targetActor, int width, int height) {
-	super(srcPos.getX(), srcPos.getY(), width, height);
+	super(srcPos, width, height);
 
 	this.sourcePos = srcPos;
 	this.passiveTargetPos = passivePos;
@@ -39,7 +39,7 @@ public abstract class Projectile extends Entity implements IEffect {
     }
 
     public Projectile(EntityActor srcActor, Pos srcPos, Pos passivePos, EntityActor targetActor, int width, int height) {
-	super(srcPos.getX(), srcPos.getY(), width, height);
+	super(srcPos, width, height);
 
 	this.sourceActor = srcActor;
 	this.sourcePos = srcPos;

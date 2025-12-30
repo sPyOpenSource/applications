@@ -58,8 +58,8 @@ public class EntityHeavyTank extends EntityVehicle implements ISelectable, IHave
     private final AttackTurreted attack;
     private final AutoTarget autoTarget;
 
-    public EntityHeavyTank(Double posX, Double posY) {
-	super(posX, posY, TEXTURE_WIDTH, TEXTURE_HEIGHT);
+    public EntityHeavyTank(Pos pos) {
+	super(pos, TEXTURE_WIDTH, TEXTURE_HEIGHT);
 
 	texture = new SpriteSheet(ResourceManager.getInstance().getConquerTexture(TEXTURE_NAME).getAsCombinedImage(null), TEXTURE_WIDTH, TEXTURE_HEIGHT);
 	Random r = new Random();
@@ -95,7 +95,7 @@ public class EntityHeavyTank extends EntityVehicle implements ISelectable, IHave
 
 	if (!this.attack.isAttacking) {
 	    if (!this.isIdle()) { 
-		this.turret.setTarget(new Pos(goalX * 24, goalY * 24));
+		this.turret.setTarget(goal);
 	    } else {
 		this.turret.rotateTurretTo(this.currentFacing);
 	    }

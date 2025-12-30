@@ -5,6 +5,7 @@ import cr0s.javara.entity.IEffect;
 import cr0s.javara.entity.actor.EntityActor;
 import cr0s.javara.resources.ResourceManager;
 import cr0s.javara.resources.ShpTexture;
+import cr0s.javara.util.Pos;
 import cr0s.javara.util.SpriteSheet;
 import javafx.scene.image.ImageView;
 
@@ -23,7 +24,7 @@ public class SmokeOnUnit extends Entity implements IEffect {
     private EntityActor parentUnit;
     
     public SmokeOnUnit(EntityActor parentUnit, String texture) {
-	this(parentUnit.getPosition().getX(), parentUnit.getPosition().getY(), 24, 24);
+	this(parentUnit.getPosition(), 24, 24);
 	
 	this.parentUnit = parentUnit;
 	
@@ -37,9 +38,9 @@ public class SmokeOnUnit extends Entity implements IEffect {
 	this.tex = new SpriteSheet(t.getAsCombinedImage(null), t.width, t.height);
     }
     
-    public SmokeOnUnit(double posX, double posY,
+    public SmokeOnUnit(Pos pos,
 	    float aSizeWidth, float aSizeHeight) {
-	super(posX, posY, aSizeWidth, aSizeHeight);
+	super(pos, aSizeWidth, aSizeHeight);
     }
 
     @Override

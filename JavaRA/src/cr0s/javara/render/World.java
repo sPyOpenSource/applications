@@ -481,7 +481,7 @@ public class World extends AnimationTimer {
 
 	    spawns.remove(randomSpawnIndex);
 
-	    p.setSpawn((int) spawnPoint.getX(), (int) spawnPoint.getY());
+	    p.setSpawn(spawnPoint);
 	}
     }
 
@@ -573,8 +573,8 @@ public class World extends AnimationTimer {
 	
 	for (int i = minRange; i <= maxRange; i++) {
 	    for (Pos p : this.pointsInRange[i]) {
-		int cellPosX = (int) (centerPos.getX() + p.getX());
-		int cellPosY = (int) (centerPos.getY() + p.getY());
+		int cellPosX = centerPos.getCellX() + p.getCellX();
+		int cellPosY = centerPos.getCellY() + p.getCellY();
 
 		Pos cellPoint = new Pos(cellPosX, cellPosY);
 

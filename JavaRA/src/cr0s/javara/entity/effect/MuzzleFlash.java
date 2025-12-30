@@ -23,7 +23,7 @@ public class MuzzleFlash extends Entity implements IEffect {
     private Sequence seq;
     
     public MuzzleFlash(Pos pos, String texture, int fac, int numFacings, int length) {
-	this(pos.getX(), pos.getY(), 24, 24);
+	this(pos, 24, 24);
 	
 	ShpTexture t = ResourceManager.getInstance().getConquerTexture(texture);
 	this.width = t.width;
@@ -33,9 +33,9 @@ public class MuzzleFlash extends Entity implements IEffect {
 	this.facing = fac;
     }
     
-    public MuzzleFlash(double posX, double posY,
+    public MuzzleFlash(Pos pos,
 	    float aSizeWidth, float aSizeHeight) {
-	super(posX, posY, aSizeWidth, aSizeHeight);
+	super(pos, aSizeWidth, aSizeHeight);
     }
 
     @Override

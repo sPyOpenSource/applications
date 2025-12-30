@@ -49,7 +49,7 @@ public class MinimapRenderer {
 	    return null;
 	}
 
-	int surfaceId = this.w.getMap().getSurfaceIdAt(cellX, cellY);
+	int surfaceId = this.w.getMap().getSurfaceIdAt(new Pos(cellX, cellY));
 	Color c = this.w.getMap().getTileSet().terrainColors.get(surfaceId);
 
 	if (c != null) {

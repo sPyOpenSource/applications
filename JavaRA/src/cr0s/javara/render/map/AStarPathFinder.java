@@ -53,14 +53,10 @@ class AStarPathFinder {
         director.run();
         router = director.getBestRoute();
         Path path = new Path();
-        MoveTo mv = new MoveTo(
-                router.getFirst().getX() * 24 + random.nextInt(24), 
-                router.getFirst().getY() * 24 + random.nextInt(24));
-        path.getElements().add(mv);
-        for(int i = 1; i < router.size(); i++){
-            LineTo line = new LineTo(
-                    router.get(i).getX() * 24 + random.nextInt(24), 
-                    router.get(i).getY() * 24 + random.nextInt(24));
+        for(Point point:router){
+            MoveTo line = new MoveTo(
+                    point.getX() * 24 + random.nextInt(24), 
+                    point.getY() * 24 + random.nextInt(24));
             path.getElements().add(line);
         }
                     /*PathTransition transition = new PathTransition();

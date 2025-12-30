@@ -20,13 +20,12 @@ public class EntityGrenadeTrooper extends EntityInfantry implements ISelectable,
     
     private final int BUILD_COST = 160;
     
-    public EntityGrenadeTrooper(Double posX, Double posY) {
-	this(posX, posY, SubCell.CENTER);
+    public EntityGrenadeTrooper(Pos pos) {
+	this(pos, SubCell.CENTER);
     }
     
-    public EntityGrenadeTrooper(double posX, double posY,
-	    SubCell sub) {
-	super(posX, posY, sub);
+    public EntityGrenadeTrooper(Pos pos, SubCell sub) {
+	super(pos, sub);
 	
 	this.texture = ResourceManager.getInstance().getInfantryTexture("e2.shp");
 
@@ -37,8 +36,8 @@ public class EntityGrenadeTrooper extends EntityInfantry implements ISelectable,
 	
 	this.standSequence = new Sequence(texture, 0, 8, 0, 0, null);
         ImageView image = standSequence.render();
-        image.setX(posX);
-        image.setY(posY);
+        image.setX(pos.getX());
+        image.setY(pos.getY());
         getImageViews().add(image);
 	this.runSequence = new Sequence(texture, 16, 8, 6, 2, null);
 	this.runSequence.setIsLoop(true);

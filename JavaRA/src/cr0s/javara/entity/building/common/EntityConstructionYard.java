@@ -8,6 +8,7 @@ import cr0s.javara.entity.building.EntityBuilding;
 import cr0s.javara.gameplay.Team.Alignment;
 import cr0s.javara.resources.ResourceManager;
 import cr0s.javara.resources.ShpTexture;
+import cr0s.javara.util.Pos;
 import cr0s.javara.util.SpriteSheet;
 
 import java.awt.image.BufferedImage;
@@ -30,8 +31,8 @@ public class EntityConstructionYard extends EntityBuilding implements ISelectabl
 
     private final Alignment yardAlignment = Alignment.SOVIET;
 
-    public EntityConstructionYard(double tileX, double tileY) {
-	super(tileX, tileY, WIDTH_TILES * 24, HEIGHT_TILES * 24, FOOTPRINT);
+    public EntityConstructionYard(Pos tile) {
+	super(tile, WIDTH_TILES * 24, HEIGHT_TILES * 24, FOOTPRINT);
 
 	//this.yardAlignment = player.getAlignment();
 

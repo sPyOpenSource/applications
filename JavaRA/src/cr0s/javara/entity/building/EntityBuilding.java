@@ -93,18 +93,18 @@ public abstract class EntityBuilding extends EntityActor {
 
     /**
      * Creates new building.
-     * @param aTileX tiled map grid-aligned location of building by X-axis 
-     * @param aTileY tiled map grid-aligned location of building by Y-axis 
+     * @param aTile tiled map grid-aligned location of building by X-axis 
+     *              tiled map grid-aligned location of building by Y-axis 
      * @param aSizeWidth width of building boundaries in pixels.
      * @param aSizeHeight height of building boundaries in pixels.
      * @param aFootprint
      */
-    public EntityBuilding(final double aTileX, final double aTileY, 
+    public EntityBuilding(final Pos aTile, 
 	    final double aSizeWidth, 
 	    final double aSizeHeight, 
 	    String aFootprint) {
 
-	super(aTileX, aTileY, aSizeWidth, aSizeHeight);
+	super(aTile, aSizeWidth, aSizeHeight);
 
 	this.width = aSizeWidth;
 	this.height = aSizeHeight;
@@ -283,10 +283,10 @@ public abstract class EntityBuilding extends EntityActor {
         return getImageViews().get(0);
     }
 
-    public void changeCellPos(int newCellX, int newCellY) {
+    public void changeCellPos(Pos newCell) {
 	// Refresh bounding box
-	this.boundingBox.setX(newCellX * 24);
-        this.boundingBox.setY(newCellY * 24);
+	this.boundingBox.setX(newCell.getX());
+        this.boundingBox.setY(newCell.getY());
 // sizeWidth, sizeHeight);
     }
 

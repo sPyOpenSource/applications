@@ -35,9 +35,9 @@ public abstract class EntityActor extends Entity implements IOrderIssuer, IOrder
     public int maxFacings = 32;
     public String name;
     
-    public EntityActor(double posX, double posY,
+    public EntityActor(Pos pos,
 	    final double aSizeWidth, final double aSizeHeight) {
-	super(posX, posY, aSizeWidth, aSizeHeight);
+	super(pos, aSizeWidth, aSizeHeight);
 	
 	this.ordersList = new ArrayList<>();
 	this.selectedSounds = new HashMap<>();
@@ -113,9 +113,9 @@ public abstract class EntityActor extends Entity implements IOrderIssuer, IOrder
 	Constructor ctor;
 	
 	try {
-	    ctor = (this.getClass()).getDeclaredConstructor(Double.class, Double.class);
+	    ctor = (this.getClass()).getDeclaredConstructor(Pos.class);
 	    ctor.setAccessible(true);
-	    EntityActor newEntity = (EntityActor) ctor.newInstance(this.boundingBox.getX(), this.boundingBox.getY());
+	    EntityActor newEntity = (EntityActor) ctor.newInstance(new Pos(this.boundingBox.getX(), this.boundingBox.getY()));
 
 	    return newEntity;
 	} catch (NoSuchMethodException | SecurityException | IllegalArgumentException | InstantiationException | IllegalAccessException | InvocationTargetException ex) {

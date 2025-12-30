@@ -20,7 +20,7 @@ public class Smoke extends Entity implements IEffect {
     private int width, height;
     
     public Smoke(Pos pos, String texture) {
-	this(pos.getX(), pos.getY(), 24, 24);
+	this(pos, 24, 24);
 	
 	ShpTexture t = ResourceManager.getInstance().getConquerTexture(texture);
 	this.width = t.width;
@@ -30,9 +30,9 @@ public class Smoke extends Entity implements IEffect {
 	this.tex = new SpriteSheet(t.getAsCombinedImage(null), t.width, t.height);
     }
     
-    public Smoke(double posX, double posY,
+    public Smoke(Pos pos,
 	    float aSizeWidth, float aSizeHeight) {
-	super(posX, posY, aSizeWidth, aSizeHeight);
+	super(pos, aSizeWidth, aSizeHeight);
     }
 
     @Override

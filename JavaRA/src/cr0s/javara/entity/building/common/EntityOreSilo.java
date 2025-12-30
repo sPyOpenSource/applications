@@ -14,6 +14,7 @@ import cr0s.javara.gameplay.Team.Alignment;
 import cr0s.javara.main.GUI;
 import cr0s.javara.resources.ResourceManager;
 import cr0s.javara.resources.ShpTexture;
+import cr0s.javara.util.Pos;
 import cr0s.javara.util.SpriteSheet;
 
 import javafx.scene.image.ImageView;
@@ -39,8 +40,8 @@ public class EntityOreSilo extends EntityBuilding implements ISelectable, IPower
     private final int CORRUPTED_OFFSET = 5;
     private static final int BUILDING_COST = 150;
     
-    public EntityOreSilo(Double tileX, Double tileY) {
-	super(tileX, tileY, WIDTH_TILES * 24, HEIGHT_TILES * 24, "x");
+    public EntityOreSilo(Pos tile) {
+	super(tile, WIDTH_TILES * 24, HEIGHT_TILES * 24, "x");
 
 	setBibType(BibType.NONE);
 	setProgressValue(-1);

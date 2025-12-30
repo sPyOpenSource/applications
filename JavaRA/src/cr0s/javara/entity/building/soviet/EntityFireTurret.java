@@ -52,8 +52,8 @@ public class EntityFireTurret extends Defensive implements ISelectable, IPowerCo
     private final AutoTarget autoTarget;
     private final Turret turret;
     
-    public EntityFireTurret(Double tileX, Double tileY) {
-	super(null, 400, null, 0, 0, WIDTH_TILES * 24, HEIGHT_TILES * 24/*, "x"*/, tileX, tileY);
+    public EntityFireTurret(Pos tile) {
+	super(null, 400, null, 0, 0, WIDTH_TILES * 24, HEIGHT_TILES * 24/*, "x"*/, tile.getX(), tile.getY());
 
 	setBibType(BibType.NONE);
 	setProgressValue(-1);

@@ -22,6 +22,7 @@ import cr0s.javara.order.OrderTargeter;
 import cr0s.javara.order.Target;
 import cr0s.javara.resources.ResourceManager;
 import cr0s.javara.ui.cursor.CursorType;
+import cr0s.javara.util.Pos;
 import cr0s.javara.util.SpriteSheet;
 
 import javafx.scene.shape.Path;
@@ -50,8 +51,8 @@ public class EntityMcv extends EntityVehicle implements ISelectable, IDeployable
     private final float MOVE_SPEED = 0.1f;
     private final int BUILDING_COST = 2000;
 
-    public EntityMcv(Float posX, Float posY) {
-	super(posX, posY, TEXTURE_WIDTH, TEXTURE_HEIGHT);
+    public EntityMcv(Pos pos) {
+	super(pos, TEXTURE_WIDTH, TEXTURE_HEIGHT);
 
 	//boundingBox.setBounds(posX, posY, (TEXTURE_WIDTH / 2), (TEXTURE_HEIGHT / 2));
 	//boundingBox.setCenterX(this.getCenterPosX());
@@ -197,7 +198,7 @@ public class EntityMcv extends EntityVehicle implements ISelectable, IDeployable
 	    return;
 	}
 	
-	EntityConstructionYard cy = new EntityConstructionYard(boundingBox.getX() - (EntityConstructionYard.WIDTH_TILES / 2 * 24), boundingBox.getY() - (EntityConstructionYard.HEIGHT_TILES / 2 * 24));
+	EntityConstructionYard cy = new EntityConstructionYard(new Pos(boundingBox.getX() - (EntityConstructionYard.WIDTH_TILES / 2 * 24), boundingBox.getY() - (EntityConstructionYard.HEIGHT_TILES / 2 * 24)));
 	cy.isVisible = true;
 	cy.isSelected = true;
         //owner.entities.add(cy);

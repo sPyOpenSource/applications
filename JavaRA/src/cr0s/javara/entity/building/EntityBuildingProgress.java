@@ -6,6 +6,7 @@ import cr0s.javara.main.GUI;
 import cr0s.javara.resources.ResourceManager;
 import cr0s.javara.resources.ShpTexture;
 import cr0s.javara.resources.SoundManager;
+import cr0s.javara.util.Pos;
 
 import javafx.scene.image.ImageView;
 import javafx.embed.swing.SwingFXUtils;
@@ -19,7 +20,7 @@ public class EntityBuildingProgress extends EntityBuilding implements IShroudRev
     private int currentFrame;
 
     public EntityBuildingProgress(EntityBuilding aTargetBuilding) {
-	super(aTargetBuilding.boundingBox.getX(), aTargetBuilding.boundingBox.getY(), aTargetBuilding.getWidth(), aTargetBuilding.getHeight(), aTargetBuilding.getFootprint());
+	super(new Pos(aTargetBuilding.boundingBox.getX(), aTargetBuilding.boundingBox.getY()), aTargetBuilding.getWidth(), aTargetBuilding.getHeight(), aTargetBuilding.getFootprint());
 
 	this.targetBuilding = aTargetBuilding;
 

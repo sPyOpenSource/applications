@@ -5,6 +5,7 @@ import cr0s.javara.entity.IEffect;
 import cr0s.javara.main.GUI;
 import cr0s.javara.resources.ResourceManager;
 import cr0s.javara.resources.ShpTexture;
+import cr0s.javara.util.Pos;
 import cr0s.javara.util.SpriteSheet;
 
 import javafx.scene.paint.Color;
@@ -18,9 +19,9 @@ public class MoveFlash extends Entity implements IEffect {
     private final int MAX_FRAMES = 5;
     private int ticks = TICKS_PER_FRAME;
     
-    public MoveFlash(double posX, double posY,
+    public MoveFlash(Pos pos,
 	    float aSizeWidth, float aSizeHeight) {
-	super(posX, posY, aSizeWidth, aSizeHeight);
+	super(pos, aSizeWidth, aSizeHeight);
 	ShpTexture t = ResourceManager.getInstance().getTemplateShpTexture(GUI.getInstance().getWorld().getMap().getTileSet().getSetName(), "moveflsh.tem");
 	t.forcedColor = Color.rgb(255, 255, 255, 128f/255);
 	

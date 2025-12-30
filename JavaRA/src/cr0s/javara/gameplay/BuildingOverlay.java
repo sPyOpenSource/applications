@@ -20,7 +20,7 @@ public class BuildingOverlay {
     private final World world;
     private EntityBuilding targetBuilding;
 
-    private int cellX, cellY;
+    private Pos cell;
     private final Color filterColor = Color.rgb(255, 255, 255, 128f/255);
     private final Color blockedCellColor = Color.rgb(255, 0, 0, 64f/255);
     private final Color freeCellColor = Color.rgb(128, 128, 128, 64f/255);
@@ -43,13 +43,13 @@ public class BuildingOverlay {
 	    if (!this.isBuildingWalls()) {
 		for (int bX = 0; bX < this.targetBuilding.getWidthInTiles(); bX++) {
 		    for (int bY = 0; bY < this.targetBuilding.getHeightInTiles(); bY++) {
-			if (!this.player.getBase().checkBuildingDistance(cellX, cellY, this.isBuildingWalls())) {
+			if (!this.player.getBase().checkBuildingDistance(cell, this.isBuildingWalls())) {
 			    //g.setColor(blockedCellColor);
 			    if (this.targetBuilding.getBlockingCells()[bX][bY] != TileSet.SURFACE_CLEAR_ID) { 
 				//g.fillRect((cellX + bX) * 24 , (cellY + bY) * 24, 24, 24);			
 			    }
 			} else if (this.targetBuilding.getBlockingCells()[bX][bY] != TileSet.SURFACE_CLEAR_ID) {
-			    if (!world.isCellBuildable(cellX + bX , cellY + bY)) {
+			    if (!world.isCellBuildable(cell.getCellX() + bX , cell.getCellY() + bY)) {
 				//g.setColor(blockedCellColor);
 				//g.fillRect((cellX + bX) * 24 , (cellY + bY) * 24, 24, 24);
 			    } else if (this.targetBuilding.getBlockingCells()[bX][bY] != TileSet.SURFACE_CLEAR_ID){
@@ -65,8 +65,8 @@ public class BuildingOverlay {
 		    //((EntityWarFactory) this.targetBuilding).getBottomTexture().draw(cellX * 24, cellY * 24, filterColor);
 		}
 	    } else {
-		boolean isPossibleToBuild = this.player.getBase().checkBuildingDistance(cellX, cellY, this.isBuildingWalls())
-			&& this.player.getBase().isPossibleToBuildHere(cellX, cellY, targetBuilding);
+		boolean isPossibleToBuild = this.player.getBase().checkBuildingDistance(cell, this.isBuildingWalls())
+			&& this.player.getBase().isPossibleToBuildHere(cell, targetBuilding);
 
 		//g.setColor(isPossibleToBuild ? freeCellColor : blockedCellColor);
 		//g.fillRect(cellX * 24, cellY * 24, 24, 24);	
@@ -124,10 +124,10 @@ public class BuildingOverlay {
 	    boolean result;
 
 	    if (!isBuildingWalls()) {
-		result = player.getBase().tryToBuild(cellX, cellY, targetBuilding);
+		result = player.getBase().tryToBuild(cell, targetBuilding);
 	    } else {
 		if (this.currentWallsList.isEmpty()) {
-		    this.currentWallsList.add(new Pos(cellX, cellY));
+		    this.currentWallsList.add(cell);
 		}
 
 		result = player.getBase().tryToBuildWalls(this.currentWallsList, this.targetBuilding);
@@ -157,9 +157,9 @@ public class BuildingOverlay {
 
 	if (this.currentWallsList.size() != this.MAX_WALLS) {
 	    if (!this.currentWallsList.contains(newCell)) {
-		if (this.player.getBase().checkBuildingDistance(cX, cY, true) && this.player.getBase().isPossibleToBuildHere(cX, cY, this.targetBuilding)) {
+		/*if (this.player.getBase().checkBuildingDistance(cX, cY, true) && this.player.getBase().isPossibleToBuildHere(cX, cY, this.targetBuilding)) {
 		    this.currentWallsList.add(newCell);
-		}
+		}*/
 	    }
 	}
     }

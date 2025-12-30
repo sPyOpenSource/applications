@@ -23,7 +23,7 @@ public class Combat {
 
     public static void doImpact(Pos pos, Warhead warhead, Weapon weapon, EntityActor firedBy, float firepowerModifier) {
 	World world = firedBy.world;
-	Pos targetTile = new Pos(pos.getCellX(), pos.getCellY());
+	Pos targetTile = new Pos(pos.getX(), pos.getY());
 
 	if (!world.getMap().isInMap(pos)) {
 	    return;

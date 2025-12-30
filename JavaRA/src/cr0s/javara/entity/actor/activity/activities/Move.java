@@ -24,12 +24,11 @@ public class Move extends Activity {
     public boolean forceRange = false;
 
     private boolean hasNotifiedBlocker, hasWaited;
-    private int waitTicksRemaining;
-
-    private final static int REPATHING_INTERVAL_TICKS = 35;
-    private int ticksBeforeRepath = REPATHING_INTERVAL_TICKS;
-
     private boolean isNewPath;
+    private final static int REPATHING_INTERVAL_TICKS = 35;
+
+    private int waitTicksRemaining;
+    private int ticksBeforeRepath = REPATHING_INTERVAL_TICKS;
     private int randomWaitTicks;
 
     public Move(MobileEntity me, Pos destinationCell) {
@@ -62,16 +61,14 @@ public class Move extends Activity {
     }
 
     private Pos popPath(MobileEntity me) {
-	double px = 0, py = 0;
-
 	if (this.currentPath == null || currentPathIndex >= this.currentPath.getElements().size() || this.currentPath.getElements().size() < 1) {
 	    this.currentPath = null;
 	    return null;
 	}
 
 	MoveTo s = (MoveTo)currentPath.getElements().get(currentPathIndex);
-	px = s.getX();
-	py = s.getY();
+	double px = s.getX();
+	double py = s.getY();
 
 	Pos nextCell = new Pos(px, py);
 
@@ -195,8 +192,8 @@ public class Move extends Activity {
 	}
 
 	me.isMovingToCell = true;
-	me.targetCellX = (int) nextCell.getX();
-	me.targetCellY = (int) nextCell.getY();
+	me.targetCell.setX(nextCell.getX());
+	me.targetCell.setY(nextCell.getY());
 
 	/*
 	 * 1. Turn to required facing
@@ -248,8 +245,8 @@ public class Move extends Activity {
 	    this.parentMove = aParentMove;
 
 	    this.me = aMe;
-	    this.me.targetCellX = (int) aDestCell.getX();
-	    this.me.targetCellY = (int) aDestCell.getY();
+	    this.me.targetCell.setX(aDestCell.getX());
+	    this.me.targetCell.setY(aDestCell.getY());
 
 	    this.end = new Pos(aDestCell.getX() * 24, aDestCell.getY() * 24);
 	    this.start = aStart;

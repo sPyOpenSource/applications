@@ -59,8 +59,8 @@ public class EntityTeslaCoil extends Defensive implements ISelectable, IPowerCon
     private Turret turret;
     private boolean wasIdle;    
 
-    public EntityTeslaCoil(Double tileX, Double tileY) {
-	super(null, 400, null, 0, 0, WIDTH_TILES * 24, HEIGHT_TILES * 24/*, "_ x"*/, tileX, tileY);
+    public EntityTeslaCoil(Pos tile) {
+	super(null, 400, null, 0, 0, WIDTH_TILES * 24, HEIGHT_TILES * 24/*, "_ x"*/, tile.getX(), tile.getY());
 
 	setBibType(BibType.NONE);
 	setProgressValue(-1);

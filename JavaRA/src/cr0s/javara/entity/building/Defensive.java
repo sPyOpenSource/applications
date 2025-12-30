@@ -1,12 +1,13 @@
 package cr0s.javara.entity.building;
 
+import cr0s.javara.util.Pos;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 public abstract class Defensive extends EntityBuilding{
     public Defensive(BuildingType buildingType, int hitPoints, String path, double width, double height, int rang, int damagePerSecond, double x, double y) {
         //super(buildingType, hitPoints, path, width, height, x, y);
-        super(x, y, width, height, "");
+        super(new Pos(x, y), width, height, "");
         this.range = rang;
         this.damagePerSecond = damagePerSecond;
         setHp(hitPoints);

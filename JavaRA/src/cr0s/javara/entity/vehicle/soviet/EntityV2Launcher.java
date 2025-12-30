@@ -54,8 +54,8 @@ public class EntityV2Launcher extends EntityVehicle implements ISelectable, IHav
     private final AttackFrontal attack;
     private final AutoTarget autoTarget;
     
-    public EntityV2Launcher(Double posX, Double posY) {
-	super(posX, posY, TEXTURE_WIDTH, TEXTURE_HEIGHT);
+    public EntityV2Launcher(Pos pos) {
+	super(pos, TEXTURE_WIDTH, TEXTURE_HEIGHT);
 
 	texture = new SpriteSheet(ResourceManager.getInstance().getConquerTexture(TEXTURE_NAME).getAsCombinedImage(null), TEXTURE_WIDTH, TEXTURE_HEIGHT);
 	Random r = new Random();

@@ -239,11 +239,11 @@ public class Base {
 	this.buildings.remove(building);
     }
 
-    public boolean isPossibleToBuildHere(int cellX, int cellY, EntityBuilding targetBuilding) {
+    public boolean isPossibleToBuildHere(Pos cell, EntityBuilding targetBuilding) {
 	for (int bX = 0; bX < targetBuilding.getWidthInTiles(); bX++) {
 	    for (int bY = 0; bY < targetBuilding.getHeightInTiles(); bY++) {
 		if (targetBuilding.getBlockingCells()[bX][bY] != TileSet.SURFACE_CLEAR_ID) {
-		    if (!owner.world.isCellBuildable(cellX + bX , cellY + bY)) {
+		    if (!owner.world.isCellBuildable(cell.getCellX() + bX , cell.getCellY() + bY)) {
 			return false;
 		    }
 		}
@@ -253,9 +253,9 @@ public class Base {
 	return true;
     }
 
-    public boolean tryToBuild(int cellX, int cellY,
+    public boolean tryToBuild(Pos cell,
 	    EntityBuilding targetBuilding) {
-	if (!isPossibleToBuildHere(cellX, cellY, targetBuilding)) {
+	if (!isPossibleToBuildHere(cell, targetBuilding)) {
 	    return false;
 	}
 
@@ -263,9 +263,9 @@ public class Base {
 	    return false;
 	}
 
-	if (checkBuildingDistance(cellX, cellY, targetBuilding instanceof EntityWall)) {
+	if (checkBuildingDistance(cell, targetBuilding instanceof EntityWall)) {
 	    EntityBuilding b = (EntityBuilding) targetBuilding.newInstance();
-	    b.changeCellPos(cellX, cellY);
+	    b.changeCellPos(cell);
 
 	    EntityBuilding ebp = owner.world.addBuildingTo(b);
             ebp.owner = owner;
@@ -278,7 +278,7 @@ public class Base {
 	}
     }
 
-    public boolean checkBuildingDistance(int cellX, int cellY, boolean isWall) {
+    public boolean checkBuildingDistance(Pos cell, boolean isWall) {
 	// Find minimal distance to all construction yards
 	double minDistanceToCYSq = 0;
 	double minDistanceToOtherBuildingsSq = 0;
@@ -289,8 +289,8 @@ public class Base {
 		continue;
 	    }
 
-	    double dx = eb.boundingBox.getX() / 24 - cellX;
-	    double dy = eb.boundingBox.getY() / 24 - cellY;
+	    double dx = eb.boundingBox.getX() / 24 - cell.getCellX();
+	    double dy = eb.boundingBox.getY() / 24 - cell.getCellY();
 	    double distanceSq = dx * dx + dy * dy;
 
 	    if (eb instanceof EntityConstructionYard) {
@@ -477,11 +477,8 @@ public class Base {
     }
 
     public boolean tryToBuildWalls(LinkedList<Pos> currentWallsList, EntityBuilding targetBuilding) {
-	for (Pos wallPos : currentWallsList) {
-	    int cellX = (int) wallPos.getX();
-	    int cellY = (int) wallPos.getY();
-
-	    if (!isPossibleToBuildHere(cellX, cellY, targetBuilding)) {
+	for (Pos cell : currentWallsList) {
+	    if (!isPossibleToBuildHere(cell, targetBuilding)) {
 		return false;
 	    }
 
@@ -489,9 +486,9 @@ public class Base {
 		return false;
 	    }
 
-	    if (checkBuildingDistance(cellX, cellY, true)) {
+	    if (checkBuildingDistance(cell, true)) {
 		EntityBuilding b = (EntityBuilding) targetBuilding.newInstance();
-		b.changeCellPos(cellX, cellY);
+		b.changeCellPos(cell);
 
 		GUI.getInstance().getWorld().addBuildingTo(b);
 
@@ -502,10 +499,6 @@ public class Base {
 	}
 
 	return true;
-    }
-
-    public boolean tryToBuild(Pos location, EntityBuilding building) {
-	return this.tryToBuild((int) location.getX(), (int) location.getY(), building);
     }
 
     public boolean isSilosNeeded() {

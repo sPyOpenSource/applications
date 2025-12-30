@@ -11,6 +11,7 @@ import cr0s.javara.gameplay.Team.Alignment;
 import cr0s.javara.main.GUI;
 import cr0s.javara.resources.ResourceManager;
 import cr0s.javara.resources.ShpTexture;
+import cr0s.javara.util.Pos;
 
 import java.awt.image.BufferedImage;
 import javafx.scene.image.ImageView;
@@ -28,8 +29,8 @@ public class EntityAdvPowerPlant extends EntityBuilding implements ISelectable, 
     private static final int SHROUD_REVEALING_RANGE = 7;
     private static final int BUILDING_COST = 500;
 
-    public EntityAdvPowerPlant(Double tileX, Double tileY) {
-	super(tileX, tileY, WIDTH_TILES * 24, HEIGHT_TILES * 24, "xxx xxx xxx ~~~");
+    public EntityAdvPowerPlant(Pos tile) {
+	super(tile, WIDTH_TILES * 24, HEIGHT_TILES * 24, "xxx xxx xxx ~~~");
 
 	setBibType(BibType.MIDDLE);
 	setProgressValue(-1);

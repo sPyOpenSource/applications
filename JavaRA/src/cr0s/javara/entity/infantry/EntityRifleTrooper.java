@@ -18,13 +18,13 @@ public class EntityRifleTrooper extends EntityInfantry implements ISelectable, I
 
     private final int BUILD_COST = 100;
     
-    public EntityRifleTrooper(Double posX, Double posY) {
-	this(posX, posY, SubCell.CENTER);
+    public EntityRifleTrooper(Pos pos) {
+	this(pos, SubCell.CENTER);
     }    
     
-    public EntityRifleTrooper(double posX, double posY,
+    public EntityRifleTrooper(Pos pos,
 	    SubCell sub) {
-	super(posX, posY, sub);
+	super(pos, sub);
 
 	this.texture = ResourceManager.getInstance().getInfantryTexture("e1.shp");
 

@@ -18,7 +18,7 @@ public class SequencePlayer extends Entity implements IEffect {
     private int width, height;
     
     public SequencePlayer(Pos pos, Sequence seq) {
-	this(pos.getX(), pos.getY(), seq.getTexture().width, seq.getTexture().height);
+	this(pos, seq.getTexture().width, seq.getTexture().height);
 
 	this.seq = seq;
 	
@@ -27,9 +27,9 @@ public class SequencePlayer extends Entity implements IEffect {
 	}
     }
     
-    public SequencePlayer(double posX, double posY,
+    public SequencePlayer(Pos pos,
 	    float aSizeWidth, float aSizeHeight) {
-	super(posX, posY, aSizeWidth, aSizeHeight);
+	super(pos, aSizeWidth, aSizeHeight);
     }
 
     @Override

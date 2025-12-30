@@ -31,8 +31,8 @@ public class Controller {
         camera.setFarClip(Integer.MAX_VALUE);
         camera.setNearClip(0.1);
         scene.setCamera(camera);
-        offsetX = player.getPlayerSpawnPoint().getX() * 24;
-        offsetY = player.getPlayerSpawnPoint().getY() * 24;
+        offsetX = player.getPlayerSpawnPoint().getX();
+        offsetY = player.getPlayerSpawnPoint().getY();
         scene.getCamera().setTranslateX(offsetX);
         scene.getCamera().setTranslateY(offsetY);
         scene.setOnScroll((ScrollEvent event) -> {

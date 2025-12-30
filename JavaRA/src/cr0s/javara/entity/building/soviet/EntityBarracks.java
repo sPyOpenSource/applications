@@ -25,8 +25,6 @@ import javafx.scene.shape.MoveTo;
 
 public class EntityBarracks extends EntityBuilding implements ISelectable, IPowerConsumer, IShroudRevealer, IHaveCost {
 
-    private SpriteSheet sheet;
-
     private int animIndex = 0;
     private int animDelayTicks = 0;
     private static final int ANIM_DELAY_TICKS = 2;
@@ -44,12 +42,13 @@ public class EntityBarracks extends EntityBuilding implements ISelectable, IPowe
     private static final int SHROUD_REVEALING_RANGE = 10;
 
     private static final int BUILDING_COST = 400;
-    
+    private SpriteSheet sheet;
+
     private Pos rallyPos;
     private Pos exitPos;
     
-    public EntityBarracks(Double tileX, Double tileY) {
-	super(tileX, tileY, WIDTH_TILES * 24, HEIGHT_TILES * 24, "xx xx ~~");
+    public EntityBarracks(Pos tile) {
+	super(tile, WIDTH_TILES * 24, HEIGHT_TILES * 24, "xx xx ~~");
 
 	setBibType(BibType.SMALL);
 	setProgressValue(-1);
@@ -209,7 +208,7 @@ public class EntityBarracks extends EntityBuilding implements ISelectable, IPowe
     
     @Override
     public void onBuildFinished() {
-	this.exitPos = new Pos((boundingBox.getX()) / 24, (boundingBox.getY() + 1 * 24) / 24);
-	this.rallyPos = new Pos((boundingBox.getX()) / 24, (boundingBox.getY() + 2 * 24) / 24);	
+	this.exitPos = new Pos(boundingBox.getX(), boundingBox.getY() + 1 * 24);
+	this.rallyPos = new Pos(boundingBox.getX(), boundingBox.getY() + 2 * 24);	
     }
 }

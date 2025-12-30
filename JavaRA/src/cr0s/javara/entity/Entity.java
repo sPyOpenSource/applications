@@ -9,6 +9,7 @@ import cr0s.javara.entity.infantry.EntityInfantry;
 import cr0s.javara.gameplay.Player;
 import cr0s.javara.render.EntityBlockingMap.FillsSpace;
 import cr0s.javara.render.World;
+import cr0s.javara.util.Pos;
 import java.util.ArrayList;
 
 import javafx.scene.Scene;
@@ -19,7 +20,7 @@ import javafx.scene.image.ImageView;
 
 public abstract class Entity {
     public World world;
-    public double moveX, moveY;
+    public Pos move;
 
     private boolean isDead = false;
     private int hp, maxHp;
@@ -66,11 +67,11 @@ public abstract class Entity {
         }
     }
     
-    public Entity (double posX, double posY, double aSizeWidth, double aSizeHeight) {
+    public Entity (Pos pos, double aSizeWidth, double aSizeHeight) {
 	this.sizeWidth = aSizeWidth;
 	this.sizeHeight = aSizeWidth;
 
-	this.boundingBox = new Rectangle(posX, posY, sizeWidth, sizeHeight);
+	this.boundingBox = new Rectangle(pos.getX(), pos.getY(), sizeWidth, sizeHeight);
 
 	this.fillsSpace = FillsSpace.DONT_FILLS;
     }

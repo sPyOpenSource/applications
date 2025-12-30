@@ -143,14 +143,14 @@ public class Production {
 	    this.isDeployed = true;
 	    this.isReady = false;
 	}
-	if (this.targetActor instanceof EntityVehicle) {
+	if (this.targetActor instanceof EntityVehicle entityVehicle) {
 	    this.isReady = false;
 	    this.isDeployed = true;
-	    this.player.getBase().deployBuildedVehicle((EntityVehicle) targetActor);
-	} else if (this.targetActor instanceof EntityInfantry) {
+	    this.player.getBase().deployBuildedVehicle(entityVehicle);
+	} else if (this.targetActor instanceof EntityInfantry entityInfantry) {
 	    this.isReady = false;
 	    this.isDeployed = true;
-	    this.player.getBase().deployTrainedInfantry((EntityInfantry) targetActor);
+	    this.player.getBase().deployTrainedInfantry(entityInfantry);
 	}
     }
 

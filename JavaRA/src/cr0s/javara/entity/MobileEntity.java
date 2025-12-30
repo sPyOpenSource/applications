@@ -26,17 +26,17 @@ public abstract class MobileEntity extends EntityActor implements INotifyBlockin
     protected float moveSpeed = 0.1f;
     private int damagePerSecond;
 
-    public int targetCellX, targetCellY;
     public boolean isMovingToCell;   
     
-    public int goalX, goalY;
+    public Pos goal;
     public SubCell currentSubcell;
     public SubCell desiredSubcell;
+    public Pos targetCell;
     
-    public MobileEntity(double posX, double posY,
+    public MobileEntity(Pos pos,
 	    float aSizeWidth, float aSizeHeight) {
-	super(posX, posY, aSizeWidth, aSizeHeight);
-	
+	super(pos, aSizeWidth, aSizeHeight);
+	targetCell = pos;
 	ordersList = new ArrayList<>();
 	ordersList.add(new MoveOrderTargeter(this));
     }
@@ -52,7 +52,7 @@ public abstract class MobileEntity extends EntityActor implements INotifyBlockin
     }
     
     public Pos getCellPos() {
-	return new Pos((int) getCenterPosX() / 24, (int) getCenterPosY() / 24);
+	return new Pos(getCenterPosX(), getCenterPosY());
     }    
     
     public Pos getTexturePos() {
@@ -151,8 +151,7 @@ public abstract class MobileEntity extends EntityActor implements INotifyBlockin
     }
 
     public void finishMoving() {
-	this.moveX = 0;
-	this.moveY = 0;
+	this.move = new Pos(0, 0);
 
 	this.isMovingToCell = false;
     }
@@ -255,8 +254,8 @@ public abstract class MobileEntity extends EntityActor implements INotifyBlockin
     }
     
     public void moveTo(Pos destCell, EntityBuilding ignoreBuilding) {
-	this.goalX = (int) destCell.getX();
-	this.goalY = (int) destCell.getY();
+	this.goal.setX(destCell.getX());
+	this.goal.setY(destCell.getY());
 
 	Move move = new Move(this, destCell, getMinimumEnoughRange(), ignoreBuilding);
 	
@@ -272,10 +271,10 @@ public abstract class MobileEntity extends EntityActor implements INotifyBlockin
     }
     
     public void startMovingByPath(Path p, EntityBuilding ignoreBuilding) {
-	this.goalX = (int) ((MoveTo)p.getElements().get(p.getElements().size() - 1)).getX();
-	this.goalY = (int) ((MoveTo)p.getElements().get(p.getElements().size() - 1)).getY();
+	this.goal.setX(((MoveTo)p.getElements().get(p.getElements().size() - 1)).getX());
+	this.goal.setY(((MoveTo)p.getElements().get(p.getElements().size() - 1)).getY());
 	
-	queueActivity(new Move(this, p, new Pos(goalX, goalY), ignoreBuilding));
+	queueActivity(new Move(this, p, goal, ignoreBuilding));
     }    
     
     @Override

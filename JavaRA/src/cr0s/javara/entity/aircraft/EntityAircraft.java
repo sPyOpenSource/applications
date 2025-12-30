@@ -2,17 +2,15 @@ package cr0s.javara.entity.aircraft;
 
 import cr0s.javara.entity.MobileEntity;
 import cr0s.javara.entity.actor.activity.Activity;
-import cr0s.javara.gameplay.Player;
-import cr0s.javara.gameplay.Team;
 import cr0s.javara.util.Pos;
 import cr0s.javara.util.RotationUtil;
 import javafx.scene.shape.Path;
 
 public abstract class EntityAircraft extends MobileEntity {
 
-    public EntityAircraft(double posX, double posY,
+    public EntityAircraft(Pos pos,
 	    float aSizeWidth, float aSizeHeight) {
-	super(posX, posY, aSizeWidth, aSizeHeight);
+	super(pos, aSizeWidth, aSizeHeight);
     }
 
     @Override

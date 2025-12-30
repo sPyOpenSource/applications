@@ -74,8 +74,8 @@ public class EntityMammothTank extends EntityVehicle implements ISelectable, IHa
     private AutoTarget autoTarget;
     
     
-    public EntityMammothTank(Double posX, Double posY) {
-	super(posX, posY, TEXTURE_WIDTH, TEXTURE_HEIGHT);
+    public EntityMammothTank(Pos pos) {
+	super(pos, TEXTURE_WIDTH, TEXTURE_HEIGHT);
 
 	texture = new SpriteSheet(ResourceManager.getInstance().getConquerTexture(TEXTURE_NAME).getAsCombinedImage(null), TEXTURE_WIDTH, TEXTURE_HEIGHT);
 	Random r = new Random();
@@ -117,7 +117,7 @@ public class EntityMammothTank extends EntityVehicle implements ISelectable, IHa
 
 	if (!this.attack.isAttacking) {
 	    if (!this.isIdle() && (this.currentActivity instanceof Move || this.currentActivity instanceof Move.MovePart)) { 
-		this.turret.setTarget(new Pos(goalX * 24, goalY * 24));
+		this.turret.setTarget(goal);
 	    } else {
 		this.turret.rotateTurretTo(this.currentFacing);
 	    }

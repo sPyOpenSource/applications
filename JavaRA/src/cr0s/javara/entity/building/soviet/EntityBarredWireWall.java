@@ -3,15 +3,16 @@ package cr0s.javara.entity.building.soviet;
 import cr0s.javara.entity.building.BibType;
 import cr0s.javara.entity.building.common.EntityWall;
 import cr0s.javara.gameplay.Team.Alignment;
+import cr0s.javara.util.Pos;
 
 public class EntityBarredWireWall extends EntityWall {
 
     private static final int BUILDING_COST = 30;
 
-    public EntityBarredWireWall(Double aTileX, Double aTileY,
+    public EntityBarredWireWall(Pos aTile,
 	    float aSizeWidth, float aSizeHeight,
 	    String aFootprint) {
-	super(aTileX, aTileY, aSizeWidth, aSizeHeight, "x");
+	super(aTile, aSizeWidth, aSizeHeight, "x");
 	
 	this.textureName = "fenc.shp";
 	loadTextures();
@@ -28,8 +29,8 @@ public class EntityBarredWireWall extends EntityWall {
 	this.setName("fenc");
     }
 
-    public EntityBarredWireWall(Double aTileX, Double aTileY) {
-	this(aTileX, aTileY, 24, 24, "x");
+    public EntityBarredWireWall(Pos aTile) {
+	this(aTile, 24, 24, "x");
     }
 
     @Override

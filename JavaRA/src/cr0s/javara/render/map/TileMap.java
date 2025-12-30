@@ -13,7 +13,6 @@ import java.util.Random;
 import org.yaml.snakeyaml.Yaml;
 import redhorizon.utilities.BufferUtility;
 import assets.Assets;
-import cr0s.javara.render.World;
 
 import cr0s.javara.render.map.ResourcesLayer.ResourceCell;
 import cr0s.javara.resources.ResourceManager;
@@ -318,25 +317,21 @@ public class TileMap {
 	return this.theater;
     }
     
-    public int getSurfaceIdAt(Pos pos) {
-	return getSurfaceIdAt((int) pos.getX(), (int) pos.getY());
-    }
-    
-    public int getSurfaceIdAt(int cellX, int cellY) {
-	if (!this.isInMap(cellX * 24, cellY * 24)) {
+    public int getSurfaceIdAt(Pos  cell) {
+	if (!this.isInMap(cell.getX(), cell.getY())) {
 	    return 0;
 	}
 	
-	if (this.resourcesLayer.resources[cellX][cellY] != null) {
-	    if (this.resourcesLayer.resources[cellX][cellY].type == 1) {
+	if (this.resourcesLayer.resources[cell.getCellX()][cell.getCellY()] != null) {
+	    if (this.resourcesLayer.resources[cell.getCellX()][cell.getCellY()].type == 1) {
 		return TileSet.SURFACE_ORE_GOLD;
 	    } else {
 		return TileSet.SURFACE_ORE_GEM;
 	    }
 	}
 	
-	Integer id = (Integer) this.mapTiles[cellX][cellY].getTile();
-	Byte index = (Byte) this.mapTiles[cellX][cellY].getIndex();
+	Integer id = (Integer) this.mapTiles[cell.getCellX()][cell.getCellY()].getTile();
+	Byte index = (Byte) this.mapTiles[cell.getCellX()][cell.getCellY()].getIndex();
 	Integer[] surfaces = this.theater.tilesSurfaces.get(id);
 
 	if (surfaces != null && index >= surfaces.length) {

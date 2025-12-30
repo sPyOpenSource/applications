@@ -2,19 +2,20 @@ package cr0s.javara.entity.building.common;
 
 import cr0s.javara.entity.building.BibType;
 import cr0s.javara.gameplay.Team.Alignment;
+import cr0s.javara.util.Pos;
 
 public class EntityConcreteWall extends EntityWall {
 
     private static final int BUILDING_COST = 350;
 
-    public EntityConcreteWall(Double aTileX, Double aTileY) {
-	this(aTileX, aTileY, 24, 24, "x");
+    public EntityConcreteWall(Pos aTile) {
+	this(aTile, 24, 24, "x");
     }    
     
-    public EntityConcreteWall(Double aTileX, Double aTileY,
+    public EntityConcreteWall(Pos aTile,
 	    float aSizeWidth, float aSizeHeight,
 	    String aFootprint) {
-	super(aTileX, aTileY, aSizeWidth, aSizeHeight, "x");
+	super(aTile, aSizeWidth, aSizeHeight, "x");
 	
 	this.textureName = "brik.shp";
 	loadTextures();

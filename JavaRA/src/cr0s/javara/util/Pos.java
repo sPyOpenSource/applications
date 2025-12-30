@@ -4,6 +4,11 @@ public class Pos {
 
     private double x, y, z;
     
+    public Pos(int x, int y){
+        this.x = x * 24;
+        this.y = y * 24;
+    }
+    
     public Pos(double x, double y) {
 	this.x = x;
         this.y = y;
@@ -16,20 +21,8 @@ public class Pos {
 	this.z = z;
     }
     
-    public int getCellX() {
-	return (int) this.x / 24;
-    }
-    
-    public int getCellY() {
-	return (int) this.y / 24;
-    }
-    
-    public int getCellZ() {
-	return (int) this.z / 24;
-    }    
-    
     public Pos getCellPos() {
-	return new Pos(getCellX(), getCellY(), getCellZ());
+	return new Pos(getX(), getY(), getZ());
     }
     
     public double getZ() {
@@ -141,6 +134,14 @@ public class Pos {
 
     public double getX() {
         return x;
+    }
+    
+    public int getCellX(){
+        return (int)x / 24;
+    }
+    
+    public int getCellY(){
+        return (int)y / 24;
     }
 
     public void setX(double x) {

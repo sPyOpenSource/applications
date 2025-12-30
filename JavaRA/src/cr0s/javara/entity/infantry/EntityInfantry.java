@@ -25,7 +25,6 @@ import cr0s.javara.order.InputAttributes;
 import cr0s.javara.order.Order;
 import cr0s.javara.order.OrderTargeter;
 import cr0s.javara.order.Target;
-import cr0s.javara.render.EntityBlockingMap;
 import cr0s.javara.render.EntityBlockingMap.FillsSpace;
 import cr0s.javara.render.EntityBlockingMap.SubCell;
 import cr0s.javara.render.Sequence;
@@ -34,13 +33,9 @@ import cr0s.javara.resources.ShpTexture;
 import cr0s.javara.resources.SoundManager;
 import cr0s.javara.util.Pos;
 
-import javafx.animation.PathTransition;
-import javafx.application.Platform;
 import javafx.scene.shape.Path;
 import javafx.scene.image.ImageView;
-import javafx.scene.shape.LineTo;
 import javafx.scene.shape.MoveTo;
-import javafx.util.Duration;
 
 public abstract class EntityInfantry extends MobileEntity implements IShroudRevealer {
     private static final float DEFAULT_MOVE_SPEED = 1.5f;
@@ -95,12 +90,12 @@ public abstract class EntityInfantry extends MobileEntity implements IShroudReve
     Director director;
     Random random = new Random();
     
-    public EntityInfantry(double posX, double posY) {
-	this(posX, posY, SubCell.CENTER);
+    public EntityInfantry(Pos pos) {
+	this(pos, SubCell.CENTER);
     }
 
-    public EntityInfantry(double posX, double posY, SubCell sub) {
-	super(posX, posY, WIDTH, HEIGHT);
+    public EntityInfantry(Pos pos, SubCell sub) {
+	super(pos, WIDTH, HEIGHT);
 
 	this.currentSubcell = sub;
 
@@ -283,8 +278,8 @@ public abstract class EntityInfantry extends MobileEntity implements IShroudReve
 
     @Override
     public void moveTo(Pos destCell, EntityBuilding ignoreBuilding) {
-	this.goalX = (int) destCell.getX();
-	this.goalY = (int) destCell.getY();
+	this.goal.setX(destCell.getX());
+	this.goal.setY(destCell.getY());
 
 	MoveInfantry move = new MoveInfantry(this, destCell, getMinimumEnoughRange(), ignoreBuilding);
 
@@ -301,10 +296,12 @@ public abstract class EntityInfantry extends MobileEntity implements IShroudReve
 
     @Override
     public void startMovingByPath(Path p, EntityBuilding ignoreBuilding) {
-	this.goalX = (int)((MoveTo) p.getElements().get(p.getElements().size() - 1)).getX();
-	this.goalY = (int)((MoveTo) p.getElements().get(p.getElements().size() - 1)).getY();
+	this.goal = new Pos(
+                ((MoveTo) p.getElements().get(p.getElements().size() - 1)).getX(),
+                ((MoveTo) p.getElements().get(p.getElements().size() - 1)).getY()
+        );
 
-	queueActivity(new MoveInfantry(this, p, new Pos(goalX, goalY), ignoreBuilding));
+	queueActivity(new MoveInfantry(this, p, goal, ignoreBuilding));
     }     
 
     @Override
@@ -314,12 +311,12 @@ public abstract class EntityInfantry extends MobileEntity implements IShroudReve
 
     @Override
     public double getCenterPosX() {
-	return this.boundingBox.getX() + this.boundingBox.getWidth()/2;
+	return this.boundingBox.getX() + this.boundingBox.getWidth() / 2;
     }
 
     @Override
     public double getCenterPosY() {
-	return this.boundingBox.getY() + this.boundingBox.getHeight()/2;
+	return this.boundingBox.getY() + this.boundingBox.getHeight() / 2;
     }	
 
     @Override

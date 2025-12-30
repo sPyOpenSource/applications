@@ -324,11 +324,11 @@ public class AIPlayer extends Player {
 	}
 
 	for (Pos cell : cells) {
-	    if (!this.getBase().isPossibleToBuildHere((int) cell.getX(), (int) cell.getY(), (EntityBuilding) b)) {
+	    if (!this.getBase().isPossibleToBuildHere(cell, (EntityBuilding) b)) {
 		continue;
 	    }
 
-	    if (distanceToBaseIsImportant && !this.getBase().checkBuildingDistance((int) cell.getX(), (int) cell.getY(), false)) {
+	    if (distanceToBaseIsImportant && !this.getBase().checkBuildingDistance(cell, false)) {
 		continue;
 	    }
 
@@ -415,16 +415,16 @@ public class AIPlayer extends Player {
     @Override
     public void notifyDamaged(Entity who, EntityActor by, int amount, Warhead warhead) {
 	if (!who.isDead() && who.owner == this && by != null && amount > 0 && warhead != null) {
-	    if (who instanceof EntityBuilding) { // Defense our buildings
-		if (who instanceof EntityBuildingProgress) {
-		    who = ((EntityBuildingProgress) who).getTargetBuilding();
+	    if (who instanceof EntityBuilding entityBuilding) { // Defense our buildings
+		if (who instanceof EntityBuildingProgress entityBuildingProgress) {
+		    who = entityBuildingProgress.getTargetBuilding();
 		}
 
-		this.defenseCenter = ((EntityBuilding) who).getCellPosition();
+		this.defenseCenter = entityBuilding.getCellPosition();
 
 		// Try to repair building
 		if (this.shoudlRepairBuildings) {
-		    this.getBase().repairBuilding((EntityBuilding) who);
+		    this.getBase().repairBuilding(entityBuilding);
 		}
 	    }
 

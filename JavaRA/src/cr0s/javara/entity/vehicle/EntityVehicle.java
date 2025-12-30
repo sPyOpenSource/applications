@@ -35,8 +35,8 @@ public abstract class EntityVehicle extends MobileEntity implements IShroudRevea
     private final String explosionSound = "kaboom30";
     private final int moveWaitTicks = 0;
 
-    public EntityVehicle(double posX, double posY, int sizeWidth, int sizeHeight) {
-	super(posX, posY, sizeWidth, sizeHeight);
+    public EntityVehicle(Pos pos, int sizeWidth, int sizeHeight) {
+	super(pos, sizeWidth, sizeHeight);
 
 	this.selectedSounds.put(this.SELECTED_SOUND, new Integer[] { 0, 2 });
 	this.selectedSounds.put("await1", new Integer[] { 0, 1, 2, 3 });
