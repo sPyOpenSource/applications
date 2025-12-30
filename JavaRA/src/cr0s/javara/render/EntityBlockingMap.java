@@ -258,7 +258,7 @@ public class EntityBlockingMap {
 	    }
 	}*/
 	
-	return false;
+	return true;
     }
 
     /**

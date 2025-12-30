@@ -145,7 +145,7 @@ public class MoveInfantry extends Activity {
 	((EntityInfantry) me).setCurrentAnimationState(AnimationState.MOVING);
 
 	if (--this.ticksBeforeRepath <= 0) {
-	    this.ticksBeforeRepath = this.REPATHING_INTERVAL_TICKS;
+	    this.ticksBeforeRepath = MoveInfantry.REPATHING_INTERVAL_TICKS;
 
 	    chooseNewPath(me);
 	}
@@ -253,7 +253,6 @@ public class MoveInfantry extends Activity {
 	private final MobileEntity me;
 	private final Pos start;
 	private final Pos end;
-
 	private final int lengthInTicks;
 	private int ticks;
 
