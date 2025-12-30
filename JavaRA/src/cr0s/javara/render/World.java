@@ -42,8 +42,6 @@ public class World extends AnimationTimer {
     private final VehiclePathfinder vp;
     private final InfantryPathfinder ip;
     private final ArrayList<Player> players = new ArrayList<>();
-
-    private final ConcurrentLinkedQueue<Entity> entitiesToAdd = new ConcurrentLinkedQueue<>();
     private final int PASSES_COUNT = 3;
 
     public EntityBlockingMap blockingEntityMap;
@@ -115,8 +113,6 @@ public class World extends AnimationTimer {
 	    this.entities.add(e);
 	}*/
 	
-	this.entitiesToAdd.clear();          
-
 	this.blockingEntityMap.update();
 	
 	// Update all entities
@@ -154,7 +150,9 @@ public class World extends AnimationTimer {
                         // Lock next entity position. Or re-lock current, if position is not changed
                         this.blockingEntityMap.occupyForMobileEntity(mobileEntity);
                     } else {
-                        e.updateEntity(delta);		    
+                        e.updateEntity(delta);	
+                        if(e instanceof EntityBuilding eb)
+                            this.blockingEntityMap.occupyForBuilding(eb);
                     }
 
                     if (e instanceof ITargetLines && e.isSelected) {
