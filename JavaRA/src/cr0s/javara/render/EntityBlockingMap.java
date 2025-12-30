@@ -185,11 +185,9 @@ public class EntityBlockingMap {
     }    
     
     public boolean isAnyInfluenceInCell(Pos pos) {
-	return this.blockingMap[(int) pos.getX()][(int) pos.getY()] < 0;/*
-                && (blockingMap[(int)pos.getX()][(int)pos.getY()] == 0 
-		|| blockingMap[(int)pos.getX()][(int)pos.getY()] == TileSet.SURFACE_CLEAR_ID
-		|| blockingMap[(int)pos.getX()][(int)pos.getY()] == TileSet.SURFACE_BEACH_ID
-		|| blockingMap[(int)pos.getX()][(int)pos.getY()] == TileSet.SURFACE_ROAD_ID);*/
+	return this.blockingMap[(int) pos.getX()][(int) pos.getY()] < 0
+		|| blockingMap[(int)pos.getX()][(int)pos.getY()] == TileSet.SURFACE_ORE_GOLD
+		|| blockingMap[(int)pos.getX()][(int)pos.getY()] == TileSet.SURFACE_ORE_GEM;
     }
     
     public class Influence {

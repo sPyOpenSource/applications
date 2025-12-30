@@ -177,9 +177,6 @@ public class World extends AnimationTimer {
      * @param g graphic output object
      */
     public BorderPane render() {
-	//int mapX = (int) mapBounds.getX();
-	//int mapY = (int) mapBounds.getY();		
-
         Profiler.getInstance().startForSection("r: Map");
         root = map.getPane();
         Profiler.getInstance().stopForSection("r: Map");
