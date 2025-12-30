@@ -191,8 +191,6 @@ public class MoveInfantry extends Activity {
 
     @Override
     public Activity tick(EntityActor a) {
-	Pos nextCell = null;
-
 	if (isCancelled || !(a instanceof MobileEntity)) {
 	    return nextActivity;
 	}
@@ -208,7 +206,7 @@ public class MoveInfantry extends Activity {
 	    return this;
 	}	
 
-	nextCell = popPath(me);
+	Pos nextCell = popPath(me);
 
 	if (nextCell == null) {
 	    return this;

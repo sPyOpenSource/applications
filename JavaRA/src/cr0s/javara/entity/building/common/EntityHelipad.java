@@ -166,16 +166,14 @@ public class EntityHelipad extends EntityBuilding implements ISelectable, IPower
     }
 
     public void deployEntity(EntityActor newInstance) {
-	if (newInstance instanceof MobileEntity) {
-	    final MobileEntity me = (MobileEntity) newInstance;
-	    
+	if (newInstance instanceof MobileEntity me) {	    
 	    me.isVisible = true;	    
 	    newInstance.setWorld(this.world);
 	  
 	    world.spawnEntityInWorld(newInstance);
 	    
-	    me.setPos(this.getPosition().add(this.spawnOffset));
-	    me.currentFacing = this.initialFacing;
+	    me.setPos(this.getPosition().add(EntityHelipad.spawnOffset));
+	    me.currentFacing = EntityHelipad.initialFacing;
 	}
     }
     

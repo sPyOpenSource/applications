@@ -176,9 +176,7 @@ public class EntityAirField extends EntityBuilding implements ISelectable, IPowe
     }
 
     public void deployEntity(EntityActor newInstance) {
-	if (newInstance instanceof MobileEntity) {
-	    final MobileEntity me = (MobileEntity) newInstance;
-	    
+	if (newInstance instanceof MobileEntity me) {	    
 	    me.isVisible = true;	    
 	    newInstance.setWorld(this.world);
 	  

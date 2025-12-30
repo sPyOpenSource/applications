@@ -8,8 +8,8 @@ import cr0s.javara.util.Pos;
 
 public class Drag extends Activity {
     
-    private Pos start, end;
-    private int lengthInTicks;
+    private final Pos start, end;
+    private final int lengthInTicks;
 
     private int ticks;
     

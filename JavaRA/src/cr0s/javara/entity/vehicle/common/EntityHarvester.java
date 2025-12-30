@@ -37,8 +37,8 @@ import javafx.scene.image.ImageView;
 
 public class EntityHarvester extends EntityVehicle implements ISelectable, IShroudRevealer, IPips, IHaveCost {
 
-    private String TEXTURE_NAME = "harv.shp";
-    private SpriteSheet texture;
+    private final String TEXTURE_NAME = "harv.shp";
+    private final SpriteSheet texture;
 
     private final int ROTATION_START_TEXTURE_INDEX = 0;
     private final int ROTATION_END_TEXTURE_INDEX = 31;
@@ -46,7 +46,6 @@ public class EntityHarvester extends EntityVehicle implements ISelectable, IShro
     private final int BUILD_ROTATION = 12;
 
     private final float MOVE_SPEED = 0.3f;
-
     private static final int TEXTURE_WIDTH = 48;
     private static final int TEXTURE_HEIGHT = 48;
     private static final int SHROUD_REVEALING_RANGE = 5;
