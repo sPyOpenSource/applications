@@ -1,7 +1,5 @@
 package cr0s.javara.gameplay;
 
-import java.util.LinkedList;
-
 import cr0s.javara.entity.building.EntityBuilding;
 import cr0s.javara.entity.building.common.EntityConstructionYard;
 import cr0s.javara.entity.building.common.EntityWall;
@@ -15,6 +13,7 @@ import cr0s.javara.util.Pos;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
+import java.util.LinkedList;
 
 public class BuildingOverlay {
     private final Player player;

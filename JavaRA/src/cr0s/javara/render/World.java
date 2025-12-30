@@ -47,7 +47,6 @@ public class World extends AnimationTimer {
     private final ConcurrentLinkedQueue<Entity> entitiesToAdd = new ConcurrentLinkedQueue<>();
     private final int PASSES_COUNT = 3;
 
-    public static int blockingMap[][];
     public EntityBlockingMap blockingEntityMap;
     public final int MAX_RANGE = 50;
     public BorderPane root;
@@ -63,10 +62,10 @@ public class World extends AnimationTimer {
 	map = new TileMap(mapName);
 
 	map.smudges = new SmudgeLayer(map);
-	this.blockingMap = new int[map.getWidth()][map.getHeight()];
+	//this.blockingMap = new int[map.getWidth()][map.getHeight()];
 	this.blockingEntityMap = new EntityBlockingMap(this);
 
-	map.fillBlockingMap(this.blockingMap);
+	map.fillBlockingMap(blockingEntityMap.blockingMap);
 
 	this.vp = new VehiclePathfinder(this);
 	this.ip = new InfantryPathfinder(this);
@@ -425,12 +424,12 @@ public class World extends AnimationTimer {
 	    return false;
 	}
 
-	return (this.blockingEntityMap.isSubcellFree(new Pos(x, y), sub)) && (blockingMap[x][y] == 0 
-		|| this.blockingMap[x][y] == TileSet.SURFACE_CLEAR_ID
-		|| this.blockingMap[x][y] == TileSet.SURFACE_BUILDING_CLEAR_ID
-		|| this.blockingMap[x][y] == TileSet.SURFACE_BEACH_ID
-		|| this.blockingMap[x][y] == TileSet.SURFACE_ROAD_ID
-		|| this.blockingMap[x][y] == TileSet.SURFACE_ROUGH_ID);
+	return (this.blockingEntityMap.isSubcellFree(new Pos(x, y), sub)) && (blockingEntityMap.blockingMap[x][y] == 0 
+		|| blockingEntityMap.blockingMap[x][y] == TileSet.SURFACE_CLEAR_ID
+		|| blockingEntityMap.blockingMap[x][y] == TileSet.SURFACE_BUILDING_CLEAR_ID
+		|| blockingEntityMap.blockingMap[x][y] == TileSet.SURFACE_BEACH_ID
+		|| blockingEntityMap.blockingMap[x][y] == TileSet.SURFACE_ROAD_ID
+		|| blockingEntityMap.blockingMap[x][y] == TileSet.SURFACE_ROUGH_ID);
     }
 
     public boolean isCellBuildable(int x, int y) {
@@ -450,10 +449,10 @@ public class World extends AnimationTimer {
 	    return false;
 	}
 
-	return (isMcvDeploy || !this.blockingEntityMap.isAnyInfluenceInCell(new Pos(x, y))) && (this.map.getResourcesLayer().isCellEmpty(x, y)) && (blockingMap[x][y] == 0 
-		|| this.blockingMap[x][y] == TileSet.SURFACE_CLEAR_ID
-		|| this.blockingMap[x][y] == TileSet.SURFACE_BEACH_ID
-		|| this.blockingMap[x][y] == TileSet.SURFACE_ROAD_ID);	
+	return (isMcvDeploy || !this.blockingEntityMap.isAnyInfluenceInCell(new Pos(x, y))) && (this.map.getResourcesLayer().isCellEmpty(x, y)) && (blockingEntityMap.blockingMap[x][y] == 0 
+		|| blockingEntityMap.blockingMap[x][y] == TileSet.SURFACE_CLEAR_ID
+		|| blockingEntityMap.blockingMap[x][y] == TileSet.SURFACE_BEACH_ID
+		|| blockingEntityMap.blockingMap[x][y] == TileSet.SURFACE_ROAD_ID);	
     }
 
     public boolean blocked(PathFindingContext arg0, int x, int y) {
@@ -521,7 +520,7 @@ public class World extends AnimationTimer {
     }
 
     public EntityBuilding getBuildingInCell(Pos cellPos) {
-	ConcurrentLinkedQueue<Influence> cellInf = this.blockingEntityMap.getCellInfluences(cellPos);
+	/*ConcurrentLinkedQueue<Influence> cellInf = this.blockingEntityMap.getCellInfluences(cellPos);
 
 	if (cellInf == null) {
 	    return null;
@@ -531,13 +530,13 @@ public class World extends AnimationTimer {
 	    if (i.entity instanceof EntityBuilding entityBuilding) {
 		return entityBuilding;
 	    }
-	}
+	}*/
 
 	return null;
     }
 
     public MobileEntity getMobileEntityInCell(Pos cellPos) {
-	ConcurrentLinkedQueue<Influence> cellInf = this.blockingEntityMap.getCellInfluences(cellPos);
+	/*ConcurrentLinkedQueue<Influence> cellInf = this.blockingEntityMap.getCellInfluences(cellPos);
 	
 	if (cellInf == null) {
 	    return null;
@@ -547,7 +546,7 @@ public class World extends AnimationTimer {
 	    if (i.entity instanceof MobileEntity mobileEntity) {
 		return mobileEntity;
 	    }
-	}
+	}*/
 
 	return null;
     }
@@ -643,19 +642,19 @@ public class World extends AnimationTimer {
 	    return null;
 	}
 	
-	if (this.blockingMap[x][y] == TileSet.SURFACE_BEACH_ID 
-		|| this.blockingMap[x][y] == TileSet.SURFACE_BUILDING 
-		|| this.blockingMap[x][y] == TileSet.SURFACE_BUILDING_CLEAR_ID 
-		|| this.blockingMap[x][y] == TileSet.SURFACE_CLEAR_ID
-		|| this.blockingMap[x][y] == TileSet.SURFACE_ORE_GEM
-		|| this.blockingMap[x][y] == TileSet.SURFACE_ORE_GOLD
-		|| this.blockingMap[x][y] == TileSet.SURFACE_ROAD_ID
-		|| this.blockingMap[x][y] == TileSet.SURFACE_ROCK_ID
-		|| this.blockingMap[x][y] == TileSet.SURFACE_ROUGH_ID) {
+	if (blockingEntityMap.blockingMap[x][y] == TileSet.SURFACE_BEACH_ID 
+		|| blockingEntityMap.blockingMap[x][y] == TileSet.SURFACE_BUILDING 
+		|| blockingEntityMap.blockingMap[x][y] == TileSet.SURFACE_BUILDING_CLEAR_ID 
+		|| blockingEntityMap.blockingMap[x][y] == TileSet.SURFACE_CLEAR_ID
+		|| blockingEntityMap.blockingMap[x][y] == TileSet.SURFACE_ORE_GEM
+		|| blockingEntityMap.blockingMap[x][y] == TileSet.SURFACE_ORE_GOLD
+		|| blockingEntityMap.blockingMap[x][y] == TileSet.SURFACE_ROAD_ID
+		|| blockingEntityMap.blockingMap[x][y] == TileSet.SURFACE_ROCK_ID
+		|| blockingEntityMap.blockingMap[x][y] == TileSet.SURFACE_ROUGH_ID) {
 	    return TargetType.GROUND;
 	} else {
-	    if (this.blockingMap[x][y] == TileSet.SURFACE_RIVER_ID
-		    || this.blockingMap[x][y] == TileSet.SURFACE_WATER_ID) {
+	    if (blockingEntityMap.blockingMap[x][y] == TileSet.SURFACE_RIVER_ID
+		    || blockingEntityMap.blockingMap[x][y] == TileSet.SURFACE_WATER_ID) {
 		return TargetType.WATER;
 	    }
 	}
@@ -696,7 +695,7 @@ public class World extends AnimationTimer {
 	ArrayList<EntityActor> result = new ArrayList<>();
 	ArrayList<Pos> tiles = this.chooseTilesInCircle(pos.getCellPos(), (int) Math.floor(range / 24.0f));
 	
-	for (Pos tile : tiles) {
+	/*for (Pos tile : tiles) {
 	    ConcurrentLinkedQueue<Influence> influences = this.blockingEntityMap.getCellInfluences(tile);
 	    
 	    if (influences == null) {
@@ -712,7 +711,7 @@ public class World extends AnimationTimer {
 		    }
 		}
 	    }
-	}
+	}*/
 	
 	return result;
     }

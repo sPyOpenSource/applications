@@ -112,7 +112,7 @@ public class MoveInfantry extends Activity {
 
 	    // Notify all friendly blockers inside cell
 	    if (!this.hasNotifiedBlocker) {
-		for (Influence i : me.world.blockingEntityMap.getCellInfluences(nextCell)) {
+		/*for (Influence i : me.world.blockingEntityMap.getCellInfluences(nextCell)) {
 		    Entity blocker = i.entity;
 
 		    if (blocker instanceof MobileEntity) {
@@ -121,7 +121,7 @@ public class MoveInfantry extends Activity {
 			    ((MobileEntity) blocker).notifyBlocking(me);
 			}
 		    }
-		}
+		}*/
 
 		this.hasNotifiedBlocker = true;
 	    }

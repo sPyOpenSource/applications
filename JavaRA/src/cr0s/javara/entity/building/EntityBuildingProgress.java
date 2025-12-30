@@ -16,7 +16,6 @@ public class EntityBuildingProgress extends EntityBuilding implements IShroudRev
     private ShpTexture makeTexture;
 
     private int ticksRemaining;
-
     private int currentFrame;
 
     public EntityBuildingProgress(EntityBuilding aTargetBuilding) {
@@ -76,7 +75,10 @@ public class EntityBuildingProgress extends EntityBuilding implements IShroudRev
 	    return null;
 	}
 	
-	return new ImageView(SwingFXUtils.toFXImage(this.makeTexture.getAsImage(this.currentFrame, null), null));//.draw(this.posX, this.posY);
+	ImageView view = new ImageView(SwingFXUtils.toFXImage(this.makeTexture.getAsImage(this.currentFrame, null), null));//.draw(this.posX, this.posY);
+        view.setX(boundingBox.getX());
+        view.setY(boundingBox.getY());
+        return view;
     }
 
     @Override
@@ -111,4 +113,5 @@ public class EntityBuildingProgress extends EntityBuilding implements IShroudRev
     public EntityBuilding getTargetBuilding() {
 	return this.targetBuilding;
     }  
+    
 }

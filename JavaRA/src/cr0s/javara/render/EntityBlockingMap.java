@@ -1,8 +1,5 @@
 package cr0s.javara.render;
 
-import java.util.Arrays;
-import java.util.concurrent.ConcurrentLinkedQueue;
-
 import cr0s.javara.entity.Entity;
 import cr0s.javara.entity.MobileEntity;
 import cr0s.javara.entity.building.EntityBuilding;
@@ -13,21 +10,21 @@ import cr0s.javara.util.Pos;
 
 public class EntityBlockingMap {
     private final World world;
-    private final ConcurrentLinkedQueue<Influence> blockingMap[][];
     
     public enum SubCell { FULL_CELL, TOP_LEFT, TOP_RIGHT, CENTER, BOTTOM_LEFT, BOTTOM_RIGHT, FULL_CELL_PASSABLE };
     public enum FillsSpace { ONE_OR_MORE_CELLS, ONE_CELL, ONE_SUBCELL, DONT_FILLS }
-    
+    public static int blockingMap[][];
+
     public EntityBlockingMap(World w) {
 	this.world = w;
 	
-	this.blockingMap = new ConcurrentLinkedQueue[w.getMap().getWidth()][w.getMap().getHeight()];
+	this.blockingMap = new int[w.getMap().getWidth()][w.getMap().getHeight()];
     }
     
     private void clearMap() {
-	for (int i = 0; i < this.world.getMap().getWidth(); i++) {
+	/*for (int i = 0; i < this.world.getMap().getWidth(); i++) {
 	    Arrays.fill(this.blockingMap[i], null);
-	}
+	}*/
     }
     
     public void update() {
@@ -90,25 +87,25 @@ public class EntityBlockingMap {
     }
     
     public void freeSubCell(Pos cellPos, SubCell sc) {
-	ConcurrentLinkedQueue<Influence> infList = this.blockingMap[(int) cellPos.getX()][(int) cellPos.getY()];
+	//ConcurrentLinkedQueue<Influence> infList = this.blockingMap[(int) cellPos.getX()][(int) cellPos.getY()];
 	
 	if (sc == SubCell.FULL_CELL) {
-	    this.blockingMap[(int) cellPos.getX()][(int) cellPos.getY()] = null;
+	    this.blockingMap[(int) cellPos.getX()][(int) cellPos.getY()] = 0;
 	}
 	
-	if (infList != null && !infList.isEmpty()) {
+	/*if (infList != null && !infList.isEmpty()) {
 	    for (Influence inf : infList) {
 		if (inf.subcell == sc) {
 		    infList.remove(sc);
 		    
 		    if (infList.isEmpty()) {
-			this.blockingMap[(int) cellPos.getX()][(int) cellPos.getY()] = null;
+			this.blockingMap[(int) cellPos.getX()][(int) cellPos.getY()] = 0;
 		    }
 		    
 		    return;
 		}
 	    }
-	}
+	}*/
     }
     
     public void occupySubCell(Pos cellPos, SubCell sc, Entity e) {
@@ -117,21 +114,21 @@ public class EntityBlockingMap {
 	    return;
 	}
 	
-	ConcurrentLinkedQueue<Influence> infList = this.blockingMap[(int) cellPos.getX()][(int) cellPos.getY()];
+	//ConcurrentLinkedQueue<Influence> infList = this.blockingMap[(int) cellPos.getX()][(int) cellPos.getY()];
 	
-	if (infList == null) {
-	    infList = new ConcurrentLinkedQueue<>();
-	    this.blockingMap[(int) cellPos.getX()][(int) cellPos.getY()] = infList;
-	}
+	//if (infList == null) {
+	    //infList = new ConcurrentLinkedQueue<>();
+	    this.blockingMap[(int) cellPos.getX()][(int) cellPos.getY()] = -1;
+	//}
 	
-	infList.add(new Influence(sc, e));
+	//infList.add(new Influence(sc, e));
     }    
     
     public void occupyCell(Pos cellPos, Entity e) {
-	ConcurrentLinkedQueue<Influence> infList = new ConcurrentLinkedQueue<>();
-	infList.add(new Influence(SubCell.FULL_CELL, e));
+	//ConcurrentLinkedQueue<Influence> infList = new ConcurrentLinkedQueue<>();
+	//infList.add(new Influence(SubCell.FULL_CELL, e));
 	
-	this.blockingMap[(int) cellPos.getX()][(int) cellPos.getY()] = infList;
+	this.blockingMap[(int) cellPos.getX()][(int) cellPos.getY()] = -1;
     }
     
     public boolean isSubcellFree(Pos pos, SubCell sub) {
@@ -144,51 +141,51 @@ public class EntityBlockingMap {
 	    return false;
 	}
 	
-	if (this.blockingMap[(int) pos.getX()][(int) pos.getY()] == null || this.blockingMap[(int) pos.getX()][(int) pos.getY()].isEmpty()) {
+	if (this.blockingMap[(int) pos.getX()][(int) pos.getY()] >= 1) {
 	    return true;
 	}
 	
 	if (sub == SubCell.FULL_CELL) {
 	    boolean isFree = false;
 	    
-	    for (Influence cellInf : this.blockingMap[(int) pos.getX()][(int) pos.getY()]) {
+	    /*for (Influence cellInf : this.blockingMap[(int) pos.getX()][(int) pos.getY()]) {
 		if (cellInf.subcell != SubCell.FULL_CELL_PASSABLE) {
 		     isFree = false;
 		     break;
 		} else {
 		    isFree = true;
 		}
-	    }
+	    }*/
 	    
 	    return isFree;
 	}
 	
-	for (Influence cellInf : this.blockingMap[(int) pos.getX()][(int) pos.getY()]) {
+	/*for (Influence cellInf : this.blockingMap[(int) pos.getX()][(int) pos.getY()]) {
 	    if (cellInf.subcell == sub || cellInf.subcell == SubCell.FULL_CELL) {
 		return false;
 	    }
-	}
+	}*/
 	
 	return true;
     }
     
     public boolean isFullCellOccupied(Pos pos) {
 	// Whole cell is free
-	if (this.blockingMap[(int) pos.getX()][(int) pos.getY()] == null || this.blockingMap[(int) pos.getX()][(int) pos.getY()].isEmpty()) {
+	if (this.blockingMap[(int) pos.getX()][(int) pos.getY()] >= 0) {
 	    return false;
 	}
 	
-	for (Influence cellInf : this.blockingMap[(int) pos.getX()][(int) pos.getY()]) {
+	/*for (Influence cellInf : this.blockingMap[(int) pos.getX()][(int) pos.getY()]) {
 	    if (cellInf.subcell == SubCell.FULL_CELL) {
 		return true;
 	    } 
-	}
+	}*/
 	
 	return false;
     }    
     
     public boolean isAnyInfluenceInCell(Pos pos) {
-	return this.blockingMap[(int) pos.getX()][(int) pos.getY()] != null;
+	return this.blockingMap[(int) pos.getX()][(int) pos.getY()] < 0;
     }
     
     public class Influence {
@@ -223,8 +220,8 @@ public class EntityBlockingMap {
 	return null;
     }
 
-    public ConcurrentLinkedQueue<Influence> getCellInfluences(Pos pos) {
-	return this.blockingMap[(int) pos.getX()][(int) pos.getY()];
+    public int[][] getCellInfluences(Pos pos) {
+	return this.blockingMap;//[(int) pos.getX()][(int) pos.getY()];
     }
 
     public void occupyForBuilding(EntityBuilding eb) {
@@ -253,11 +250,11 @@ public class EntityBlockingMap {
 	    return false;
 	}
 	
-	for (Influence cellInf : this.blockingMap[(int) pos.getX()][(int) pos.getY()]) {
+	/*for (Influence cellInf : this.blockingMap[(int) pos.getX()][(int) pos.getY()]) {
 	    if (cellInf.entity == e) {
 		return true;
 	    }
-	}
+	}*/
 	
 	return false;
     }
@@ -272,11 +269,11 @@ public class EntityBlockingMap {
 	    return false;
 	}
 	
-	for (Influence e : this.getCellInfluences(cellPos)) {
+	/*for (Influence e : this.getCellInfluences(cellPos)) {
 	    if (e.entity != null && !(e.entity instanceof EntityBuilding)) {
 		return true;
 	    }
-	}
+	}*/
 	
 	return false;
     }

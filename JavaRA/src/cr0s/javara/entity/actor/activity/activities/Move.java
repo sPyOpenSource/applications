@@ -97,16 +97,16 @@ public class Move extends Activity {
 
 	    // Notify all friendly blockers inside cell
 	    if (!this.hasNotifiedBlocker) {
-		for (Influence i : me.world.blockingEntityMap.getCellInfluences(nextCell)) {
+		/*for (Influence i : me.world.blockingEntityMap.getCellInfluences(nextCell)) {
 		    Entity blocker = i.entity;
 
-		    if (blocker instanceof MobileEntity) {
+		    if (blocker instanceof MobileEntity mobileEntity) {
 			// Notify blocker 
-			if (blocker != null && ((MobileEntity) blocker).isFrendlyTo(me)) {
-			    ((MobileEntity) blocker).notifyBlocking(me);
+			if (blocker != null && mobileEntity.isFrendlyTo(me)) {
+			    mobileEntity.notifyBlocking(me);
 			}
 		    }
-		}
+		}*/
 
 		this.hasNotifiedBlocker = true;
 	    }

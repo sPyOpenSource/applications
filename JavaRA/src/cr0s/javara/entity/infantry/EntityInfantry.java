@@ -2,6 +2,10 @@ package cr0s.javara.entity.infantry;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Random;
+import mazesolver.Director;
+import mazesolver.Maze;
+import mazesolver.Point;
 
 import cr0s.javara.combat.ArmorType;
 import cr0s.javara.combat.TargetType;
@@ -21,26 +25,22 @@ import cr0s.javara.order.InputAttributes;
 import cr0s.javara.order.Order;
 import cr0s.javara.order.OrderTargeter;
 import cr0s.javara.order.Target;
+import cr0s.javara.render.EntityBlockingMap;
 import cr0s.javara.render.EntityBlockingMap.FillsSpace;
 import cr0s.javara.render.EntityBlockingMap.SubCell;
 import cr0s.javara.render.Sequence;
-import cr0s.javara.render.World;
 import cr0s.javara.resources.ResourceManager;
 import cr0s.javara.resources.ShpTexture;
 import cr0s.javara.resources.SoundManager;
 import cr0s.javara.util.Pos;
-import java.util.Random;
+
 import javafx.animation.PathTransition;
 import javafx.application.Platform;
-
 import javafx.scene.shape.Path;
 import javafx.scene.image.ImageView;
 import javafx.scene.shape.LineTo;
 import javafx.scene.shape.MoveTo;
 import javafx.util.Duration;
-import mazesolver.Director;
-import mazesolver.Maze;
-import mazesolver.Point;
 
 public abstract class EntityInfantry extends MobileEntity implements IShroudRevealer {
     private static final float DEFAULT_MOVE_SPEED = 1.5f;
@@ -166,7 +166,7 @@ public abstract class EntityInfantry extends MobileEntity implements IShroudReve
         if(getImageView()!=null){
             if(router == null) {
                 maze = new Maze(
-                    World.blockingMap, 
+                    EntityBlockingMap.blockingMap, 
                     new Point(
                             (int)getImageView().getX() / 24, 
                             (int)getImageView().getY() / 24
