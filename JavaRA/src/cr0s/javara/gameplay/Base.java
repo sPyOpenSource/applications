@@ -21,6 +21,7 @@ import cr0s.javara.entity.vehicle.EntityVehicle;
 
 import cr0s.javara.gameplay.Team.Alignment;
 import cr0s.javara.main.GUI;
+import cr0s.javara.render.map.TileSet;
 import cr0s.javara.resources.SoundManager;
 import cr0s.javara.ui.sbpages.SideBarItemsButton;
 import cr0s.javara.util.Pos;
@@ -239,15 +240,15 @@ public class Base {
     }
 
     public boolean isPossibleToBuildHere(int cellX, int cellY, EntityBuilding targetBuilding) {
-	/*for (int bX = 0; bX < targetBuilding.getWidthInTiles(); bX++) {
+	for (int bX = 0; bX < targetBuilding.getWidthInTiles(); bX++) {
 	    for (int bY = 0; bY < targetBuilding.getHeightInTiles(); bY++) {
 		if (targetBuilding.getBlockingCells()[bX][bY] != TileSet.SURFACE_CLEAR_ID) {
-		    if (!GUI.getInstance().getWorld().isCellBuildable(cellX + bX , cellY + bY)) {
+		    if (!owner.world.isCellBuildable(cellX + bX , cellY + bY)) {
 			return false;
 		    }
 		}
 	    }
-	}*/
+	}
 
 	return true;
     }

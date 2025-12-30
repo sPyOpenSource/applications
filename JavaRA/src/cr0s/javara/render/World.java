@@ -448,10 +448,7 @@ public class World extends AnimationTimer {
 	    return false;
 	}
 
-	return (isMcvDeploy || !this.blockingEntityMap.isAnyInfluenceInCell(new Pos(x, y))) && (this.map.getResourcesLayer().isCellEmpty(x, y)) && (blockingEntityMap.blockingMap[x][y] == 0 
-		|| blockingEntityMap.blockingMap[x][y] == TileSet.SURFACE_CLEAR_ID
-		|| blockingEntityMap.blockingMap[x][y] == TileSet.SURFACE_BEACH_ID
-		|| blockingEntityMap.blockingMap[x][y] == TileSet.SURFACE_ROAD_ID);	
+	return (isMcvDeploy || !this.blockingEntityMap.isAnyInfluenceInCell(new Pos(x, y))) && (this.map.getResourcesLayer().isCellEmpty(x, y));	
     }
 
     public boolean blocked(PathFindingContext arg0, int x, int y) {
