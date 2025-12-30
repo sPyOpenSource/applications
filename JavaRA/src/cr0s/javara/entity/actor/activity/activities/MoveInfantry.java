@@ -1,6 +1,5 @@
 package cr0s.javara.entity.actor.activity.activities;
 
-import cr0s.javara.entity.Entity;
 import cr0s.javara.entity.MobileEntity;
 import cr0s.javara.entity.actor.EntityActor;
 import cr0s.javara.entity.actor.activity.Activity;
@@ -9,7 +8,6 @@ import cr0s.javara.entity.building.EntityBuilding;
 import cr0s.javara.entity.infantry.EntityInfantry;
 import cr0s.javara.entity.infantry.EntityInfantry.AnimationState;
 
-import cr0s.javara.render.EntityBlockingMap.Influence;
 import cr0s.javara.util.PointsUtil;
 import cr0s.javara.util.Pos;
 import cr0s.javara.util.RotationUtil;

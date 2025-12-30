@@ -55,9 +55,7 @@ public class EntityPowerPlant extends EntityBuilding implements ISelectable, IPo
 
     @Override
     public ImageView renderEntity() {
-	//double nx = posX;
-	//double ny = posY;
-ImageView view = null;
+        ImageView view = null;
 	if (this.getHp() > this.getMaxHp() / 2) {
 	    view = new ImageView(SwingFXUtils.toFXImage(normal, null));//.draw(nx, ny);
 	} else {
@@ -79,7 +77,7 @@ ImageView view = null;
         view.setX(boundingBox.getX());
         view.setY(boundingBox.getY());
         setImageView(view);
-return view;
+        return view;
     }
 
     @Override

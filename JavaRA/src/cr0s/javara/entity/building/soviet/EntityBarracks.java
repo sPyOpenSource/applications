@@ -75,9 +75,7 @@ public class EntityBarracks extends EntityBuilding implements ISelectable, IPowe
 
     @Override
     public ImageView renderEntity() {
-	//double nx = posX;
-	//double ny = posY;
-ImageView view = null;
+        ImageView view = null;
 	int corruptionShift = 0;
 
 	if (this.getHp() > this.getMaxHp() / 2) {
@@ -104,6 +102,7 @@ ImageView view = null;
 	}
         view.setX(boundingBox.getX());
         view.setY(boundingBox.getY());
+        setImageView(view);
         return view;
     }
 

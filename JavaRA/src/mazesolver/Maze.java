@@ -9,6 +9,7 @@ import java.util.*;
 public class Maze {
     private final int[][] nodes;    
     private Point startPoint, endPoint;
+    private int max;
     
     private final Venue[] venues;
     private final Random random = new Random();
@@ -95,7 +96,8 @@ public class Maze {
         return startPoint; 
     }
     
-    public void setStart(Point start){
+    public void setStart(Point start, int max){
+        this.max = max;
         startPoint = start;
         // Check if startPoint is valid
         while (startPoint == null || !isNode(startPoint)){

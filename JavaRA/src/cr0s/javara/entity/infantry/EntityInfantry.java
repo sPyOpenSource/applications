@@ -301,8 +301,8 @@ public abstract class EntityInfantry extends MobileEntity implements IShroudReve
 
     @Override
     public void startMovingByPath(Path p, EntityBuilding ignoreBuilding) {
-	this.goalX = 0;//(int) p.getX(p.getElements().size() - 1);
-	this.goalY = 0;//(int) p.getY(p.getElements().size() - 1);
+	this.goalX = (int)((MoveTo) p.getElements().get(p.getElements().size() - 1)).getX();
+	this.goalY = (int)((MoveTo) p.getElements().get(p.getElements().size() - 1)).getY();
 
 	queueActivity(new MoveInfantry(this, p, new Pos(goalX, goalY), ignoreBuilding));
     }     

@@ -48,7 +48,7 @@ class AStarPathFinder {
 
     Path findPath(MobileEntity me, int startX, int startY, int goalX, int goalY) {
         maze.setEnd(new Point(goalX, goalY));
-        maze.setStart(new Point(startX, startY));
+        maze.setStart(new Point(startX, startY), max);
         director = new Director(maze, null);
         director.run();
         router = director.getBestRoute();

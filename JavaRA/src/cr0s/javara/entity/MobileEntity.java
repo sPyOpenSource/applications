@@ -19,6 +19,7 @@ import cr0s.javara.util.Pos;
 import cr0s.javara.main.GUI;
 
 import javafx.scene.Scene;
+import javafx.scene.shape.MoveTo;
 import javafx.scene.shape.Path;
 
 public abstract class MobileEntity extends EntityActor implements INotifyBlockingMove {
@@ -59,6 +60,8 @@ public abstract class MobileEntity extends EntityActor implements INotifyBlockin
     }
 
     public void setPos(Pos pos) {
+        this.boundingBox.setX(pos.getX());
+        this.boundingBox.setY(pos.getY());
 	getImageView().setX(pos.getX());
 	getImageView().setY(pos.getY());
     }
@@ -269,8 +272,8 @@ public abstract class MobileEntity extends EntityActor implements INotifyBlockin
     }
     
     public void startMovingByPath(Path p, EntityBuilding ignoreBuilding) {
-	this.goalX = 0;//(int) p.getX(p.getElements().size() - 1);
-	this.goalY = 0;//(int) p.getY(p.getElements().size() - 1);
+	this.goalX = (int) ((MoveTo)p.getElements().get(p.getElements().size() - 1)).getX();
+	this.goalY = (int) ((MoveTo)p.getElements().get(p.getElements().size() - 1)).getY();
 	
 	queueActivity(new Move(this, p, new Pos(goalX, goalY), ignoreBuilding));
     }    

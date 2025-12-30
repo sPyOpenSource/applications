@@ -145,7 +145,7 @@ getImageView().setY(getImageView().getY()+new Random().nextDouble(10)-5);
     @Override
     public ImageView renderEntity() {
 	//super.renderEntity(g);
-ImageView view;
+        ImageView view;
 	if (GUI.DEBUG_MODE) {
 	    //g.setLineWidth(1);
 	    //g.setColor(owner.playerColor);
