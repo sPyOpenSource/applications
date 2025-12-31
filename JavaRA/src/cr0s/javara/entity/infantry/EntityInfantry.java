@@ -84,6 +84,7 @@ public abstract class EntityInfantry extends MobileEntity implements IShroudReve
     protected AttackBase attack;
     protected AutoTarget autoTarget;
     protected ArrayList<String> deathSounds = new ArrayList<>();
+    
     Maze maze;
     ArrayList<Pos> router;
     Director director;

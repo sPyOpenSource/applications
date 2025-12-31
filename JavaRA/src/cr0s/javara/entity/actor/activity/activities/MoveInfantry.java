@@ -267,11 +267,11 @@ public class MoveInfantry extends Activity {
 	    this.me.targetCell.setX(aDestCell.getX());
 	    this.me.targetCell.setY(aDestCell.getY());
 
-	    int subOffsetXnext = (int) EntityInfantry.subcellOffsets[this.me.desiredSubcell.ordinal()].getX();
-	    int subOffsetYnext = (int) EntityInfantry.subcellOffsets[this.me.desiredSubcell.ordinal()].getY();
+	    double subOffsetXnext = EntityInfantry.subcellOffsets[this.me.desiredSubcell.ordinal()].getX();
+	    double subOffsetYnext = EntityInfantry.subcellOffsets[this.me.desiredSubcell.ordinal()].getY();
 	    
-	    int subOffsetXcurr = (int) EntityInfantry.subcellOffsets[this.me.currentSubcell.ordinal()].getX();
-	    int subOffsetYcurr = (int) EntityInfantry.subcellOffsets[this.me.currentSubcell.ordinal()].getY();
+	    double subOffsetXcurr = EntityInfantry.subcellOffsets[this.me.currentSubcell.ordinal()].getX();
+	    double subOffsetYcurr = EntityInfantry.subcellOffsets[this.me.currentSubcell.ordinal()].getY();
 	    
 	    this.end = new Pos(aDestCell.getX() + subOffsetXnext, aDestCell.getY() + subOffsetYnext);
 	    this.start = aStart;

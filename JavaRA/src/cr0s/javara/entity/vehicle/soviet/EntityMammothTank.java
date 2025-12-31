@@ -186,6 +186,7 @@ public class EntityMammothTank extends EntityVehicle implements ISelectable, IHa
 	//g.getFont().drawString(this.posX, this.posY + this.boundingBox.getHeight() + 5, (this.isIdle()) ? "idle" : this.currentActivity.getClass().getSimpleName());
         view.setX(tileX);
         view.setY(tileY);
+        setImageView(view);
         return view;
     }
 

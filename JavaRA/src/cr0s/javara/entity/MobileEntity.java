@@ -170,11 +170,11 @@ public abstract class MobileEntity extends EntityActor implements INotifyBlockin
     }
 
     private void setCenterX(double x) {
-	//this.posX = x - (this.sizeWidth / 2) + 6;
+	getImageView().setX(x - (this.sizeWidth / 2) + 6);
     }
 
     private void setCenterY(double y) {
-	//this.posY = y - (this.sizeHeight / 2) + 12;	    
+	getImageView().setY(y - (this.sizeHeight / 2) + 12);	    
     }    
     
     public void nudge(MobileEntity nudger, boolean force) {
