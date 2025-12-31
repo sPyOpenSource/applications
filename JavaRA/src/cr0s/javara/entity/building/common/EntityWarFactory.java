@@ -110,7 +110,7 @@ public class EntityWarFactory extends EntityBuilding implements ISelectable, ISh
 
     @Override
     public ImageView renderEntity() {
-ImageView view = null;
+        ImageView view = null;
 	// Draw downTexture
 	if (this.currentPass == 0) {
 	    if (!this.isCorrupted) {

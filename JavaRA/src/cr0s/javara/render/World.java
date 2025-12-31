@@ -419,12 +419,12 @@ public class World extends AnimationTimer {
 	}
 
 	return (this.blockingEntityMap.isSubcellFree(x, sub)) && (
-                   blockingEntityMap.blockingMap[x.getCellX()][x.getCellY()] == 0 
-		|| blockingEntityMap.blockingMap[x.getCellX()][x.getCellY()] == TileSet.SURFACE_CLEAR_ID
-		|| blockingEntityMap.blockingMap[x.getCellX()][x.getCellY()] == TileSet.SURFACE_BUILDING_CLEAR_ID
-		|| blockingEntityMap.blockingMap[x.getCellX()][x.getCellY()] == TileSet.SURFACE_BEACH_ID
-		|| blockingEntityMap.blockingMap[x.getCellX()][x.getCellY()] == TileSet.SURFACE_ROAD_ID
-		|| blockingEntityMap.blockingMap[x.getCellX()][x.getCellY()] == TileSet.SURFACE_ROUGH_ID);
+                   blockingEntityMap.getCellInfluences(x) == 0 
+		|| blockingEntityMap.getCellInfluences(x) == TileSet.SURFACE_CLEAR_ID
+		|| blockingEntityMap.getCellInfluences(x) == TileSet.SURFACE_BUILDING_CLEAR_ID
+		|| blockingEntityMap.getCellInfluences(x) == TileSet.SURFACE_BEACH_ID
+		|| blockingEntityMap.getCellInfluences(x) == TileSet.SURFACE_ROAD_ID
+		|| blockingEntityMap.getCellInfluences(x) == TileSet.SURFACE_ROUGH_ID);
     }
 
     public boolean isCellBuildable(Pos x) {

@@ -37,12 +37,11 @@ import javafx.scene.image.ImageView;
 
 public class EntityMammothTank extends EntityVehicle implements ISelectable, IHaveCost, IHaveTurret, ICanAttack {
 
-    private String TEXTURE_NAME = "4tnk.shp";
-    private SpriteSheet texture;
+    private final String TEXTURE_NAME = "4tnk.shp";
+    private final SpriteSheet texture;
 
     private final int ROTATION_START_TEXTURE_INDEX = 0;
     private final int ROTATION_END_TEXTURE_INDEX = 31;
-
     private final int MAX_ROTATION = 32;	
 
     private static final int TEXTURE_WIDTH = 48;
@@ -51,27 +50,25 @@ public class EntityMammothTank extends EntityVehicle implements ISelectable, IHa
     private static final int WAIT_FOR_BLOCKER_AVERAGE_TIME_TICKS = 15;
     private static final int WAIT_FOR_BLOCKER_TIME_SPREAD_TICKS = 5;
 
-    private int updateTicks = 0;
+    private final int updateTicks = 0;
+    private final int turretRotation = 0;
+    private final boolean isTurretRotatingNow = false;
+    private final int newTurretRotation = 0;
 
-    private int turretRotation = 0;
-    private RotationDirection turretRotationDirection;
-    private boolean isTurretRotatingNow = false;
-    private int newTurretRotation = 0;
-
-    private Entity targetEntity = null;
-
+    private final Entity targetEntity = null;
     private final float MOVE_SPEED = 0.07f;
-
     private final float SHIFT = 12;
 
     private final int BUILDING_COST = 900;
-    private Turret turret;
+    private final Turret turret;
 
-    private AttackTurreted attack;
+    private final AttackTurreted attack;
+    private RotationDirection turretRotationDirection;
+
     Pos choosen;
 
-    private ArrayList<Pos> cells = new ArrayList<>();
-    private AutoTarget autoTarget;
+    private final ArrayList<Pos> cells = new ArrayList<>();
+    private final AutoTarget autoTarget;
     
     
     public EntityMammothTank(Pos pos) {

@@ -132,11 +132,9 @@ public abstract class EntityInfantry extends MobileEntity implements IShroudReve
 	this.deathSounds.add("dedman10"); // last sound is for fire and shock death
 	
 	this.randomTicksBeforeIdleSeq = (int) (EntityInfantry.MIN_IDLE_DELAY_TICKS + Math.random() * (EntityInfantry.MAX_IDLE_DELAY_TICKS - EntityInfantry.MIN_IDLE_DELAY_TICKS));
-
 	this.armorType = ArmorType.NONE;
 
 	this.maxFacings = EntityInfantry.MAX_FACING;
-	
 	this.targetTypes.add(TargetType.GROUND);
     }
 

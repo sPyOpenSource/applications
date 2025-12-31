@@ -52,11 +52,9 @@ public class EntityHarvester extends EntityVehicle implements ISelectable, IShro
 
     private static final int WAIT_FOR_BLOCKER_AVERAGE_TIME_TICKS = 30;
     private static final int WAIT_FOR_BLOCKER_TIME_SPREAD_TICKS = 10;
-
     private static final int PIP_COUNT = 7;
 
     private final int updateTicks = 0;
-
     private final boolean isHarvesting = false;
 
     public EntityProc linkedProc;
@@ -78,10 +76,10 @@ public class EntityHarvester extends EntityVehicle implements ISelectable, IShro
 
     public final static int DROPPING_FRAMES = 15;
     public final static int DROPPING_FRAMES_DELAY_TICKS = 2;
+    
     private static final int MAX_FACINGS = 8;
     private int droppingTicks = DROPPING_FRAMES_DELAY_TICKS;
     private int droppingFrame;
-    
     private final int BUILDING_COST = 1100;
 
     public EntityHarvester(Pos pos) {
@@ -232,7 +230,7 @@ public class EntityHarvester extends EntityVehicle implements ISelectable, IShro
 
     @Override
     public int getWaitSpreadTime() {
-	return this.WAIT_FOR_BLOCKER_TIME_SPREAD_TICKS;
+	return EntityHarvester.WAIT_FOR_BLOCKER_TIME_SPREAD_TICKS;
     }
 
     public void acceptResource(int resourceType) {
@@ -246,7 +244,7 @@ public class EntityHarvester extends EntityVehicle implements ISelectable, IShro
     }
 
     public boolean isFull() {
-	return getCapacity() >= this.CAPACITY;
+	return getCapacity() >= EntityHarvester.CAPACITY;
     }
 
     public boolean isEmpty() {
@@ -275,12 +273,12 @@ public class EntityHarvester extends EntityVehicle implements ISelectable, IShro
 
     @Override
     public int getPipCount() {
-	return this.PIP_COUNT;
+	return EntityHarvester.PIP_COUNT;
     }
 
     @Override
     public Color getPipColorAt(int i) {
-	int n = i * this.CAPACITY / this.PIP_COUNT;
+	int n = i * EntityHarvester.CAPACITY / EntityHarvester.PIP_COUNT;
 
 	for (Integer x : this.contents.keySet()) {
 	    int value = this.contents.get(x);
@@ -374,11 +372,7 @@ public class EntityHarvester extends EntityVehicle implements ISelectable, IShro
 	public boolean canTarget(Entity self, Target target) {
 	    Entity e = target.getTargetEntity();
 
-	    if (e == null || !(e instanceof EntityProc) || !canEnterProc(self, target.getTargetEntity())) {
-		return false;
-	    }
-	    
-	    return true;
+	    return !(e == null || !(e instanceof EntityProc) || !canEnterProc(self, target.getTargetEntity()));
 	}
 
 	private boolean canEnterProc(Entity self, Entity p) {

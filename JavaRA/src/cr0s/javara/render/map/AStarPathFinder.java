@@ -24,7 +24,6 @@ import java.util.Random;
 
 import javafx.scene.shape.Path;
 import javafx.scene.shape.MoveTo;
-import javafx.scene.shape.LineTo;
 
 import mazesolver.Director;
 import mazesolver.Maze;
@@ -34,6 +33,7 @@ import mazesolver.Maze;
  * @author xuyi
  */
 class AStarPathFinder {
+    
     private final Maze maze;
     private final Random random = new Random();
     private final int max;
@@ -67,11 +67,7 @@ class AStarPathFinder {
                     transition.setNode(getImageView());
                     transition.setAutoReverse(false);
                     transition.setPath(path);
-                    Platform.runLater(transition::play);
-        MoveTo moveTo = new MoveTo(me.boundingBox.getX(), me.boundingBox.getY());
-        LineTo lineTo = new LineTo(goalX, goalY);
-        Path path = new Path();
-        path.getElements().addAll(moveTo, lineTo);*/
+                    Platform.runLater(transition::play);*/
         return path;
     }
     

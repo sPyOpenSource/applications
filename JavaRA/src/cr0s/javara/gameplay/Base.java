@@ -178,12 +178,13 @@ public class Base {
 		this.buildingClasses.add(b.getClass());
 	    }
 
-	    // Update power levels
-	    if (b instanceof IPowerConsumer iPowerConsumer) {
-		this.powerConsumptionLevel += iPowerConsumer.getConsumptionLevel();
-	    } else if (b instanceof IPowerProducer iPowerProducer) {
-		this.powerLevel += iPowerProducer.getPowerProductionLevel();
-	    }	    
+            // Update power levels
+            switch (b) {
+                case IPowerConsumer iPowerConsumer -> this.powerConsumptionLevel += iPowerConsumer.getConsumptionLevel();
+                case IPowerProducer iPowerProducer -> this.powerLevel += iPowerProducer.getPowerProductionLevel();
+                default -> {
+                }	    
+            }
 
 	    if (b instanceof EntityConstructionYard entityConstructionYard) {
 		if (entityConstructionYard.getAlignment() == Alignment.ALLIED) {
