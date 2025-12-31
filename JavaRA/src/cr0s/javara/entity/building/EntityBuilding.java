@@ -157,9 +157,6 @@ public abstract class EntityBuilding extends EntityActor {
     }
 
     @Override
-    public abstract ImageView renderEntity();
-
-    @Override
     public abstract boolean shouldRenderedInPass(int passNum);
 
     public boolean isPrimary() {

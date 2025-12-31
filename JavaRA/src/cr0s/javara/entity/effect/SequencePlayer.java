@@ -5,6 +5,7 @@ import cr0s.javara.entity.IEffect;
 import cr0s.javara.render.Sequence;
 import cr0s.javara.util.Pos;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.StackPane;
 
 public class SequencePlayer extends Entity implements IEffect {
 
@@ -42,7 +43,7 @@ public class SequencePlayer extends Entity implements IEffect {
     }
 
     @Override
-    public ImageView renderEntity() {
+    public StackPane renderEntity() {
 	if (!this.seq.isFinished()) {
 	    //this.seq.render(this.getTranslateX(), this.getTranslateY());
 	}

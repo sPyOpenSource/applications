@@ -18,6 +18,7 @@ import cr0s.javara.util.Pos;
 import cr0s.javara.util.SpriteSheet;
 
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.StackPane;
 
 public class EntityHelipad extends EntityBuilding implements ISelectable, IPowerConsumer, IShroudRevealer, IHaveCost {
 
@@ -72,7 +73,7 @@ public class EntityHelipad extends EntityBuilding implements ISelectable, IPower
     }
 
     @Override
-    public ImageView renderEntity() {
+    public StackPane renderEntity() {
 	int corruptionShift = 0;
 
 	if (this.getHp() > this.getMaxHp() / 2) {
@@ -101,7 +102,9 @@ public class EntityHelipad extends EntityBuilding implements ISelectable, IPower
         view.setX(boundingBox.getX());
         view.setY(boundingBox.getY());
         setImageView(view);
-        return view;
+        StackPane combined = new StackPane();
+combined.getChildren().add(view);
+        return combined;
     }
 
     @Override

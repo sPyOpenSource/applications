@@ -28,6 +28,7 @@ import java.awt.image.BufferedImage;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.embed.swing.SwingFXUtils;
+import javafx.scene.layout.StackPane;
 
 public class EntityProc extends EntityBuilding implements ISelectable, IPowerConsumer, IShroudRevealer, IPips, IOreCapacitor, ITargetLines, IHaveCost {
 
@@ -111,7 +112,7 @@ public class EntityProc extends EntityBuilding implements ISelectable, IPowerCon
     }
 
     @Override
-    public ImageView renderEntity() {
+    public StackPane renderEntity() {
         ImageView view = null;
 	if (this.getHp() > this.getMaxHp() / 2) {
 	    view = new ImageView(SwingFXUtils.toFXImage(normal, null));//.draw(nx, ny);
@@ -134,7 +135,9 @@ public class EntityProc extends EntityBuilding implements ISelectable, IPowerCon
         view.setX(boundingBox.getX());
         view.setY(boundingBox.getY());
         setImageView(view);
-        return view;
+        StackPane combined = new StackPane();
+combined.getChildren().add(view);
+        return combined;
     }
 
     @Override

@@ -21,8 +21,8 @@ public class Pos {
 	this.z = z;
     }
     
-    public Pos getCellPos() {
-	return new Pos(getX(), getY(), getZ());
+    public Pos Clone() {
+	return new Pos(x, y, z);
     }
     
     public double getZ() {

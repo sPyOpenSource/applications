@@ -132,7 +132,7 @@ public class Missile extends Projectile {
 	    this.smokeTicks = this.trailInterval;
 	}
 
-	Pos cell = this.pos.getCellPos();
+	Pos cell = this.pos.Clone();
 	// TODO: check for walls
 	boolean shouldExplode = (this.pos.getZ() < 0)
 		|| (dist.distanceToSq(this.pos) < this.enoughRange * this.enoughRange)

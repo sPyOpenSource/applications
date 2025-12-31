@@ -8,6 +8,7 @@ import cr0s.javara.resources.ShpTexture;
 import cr0s.javara.util.Pos;
 import cr0s.javara.util.SpriteSheet;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.StackPane;
 
 public class SmokeOnUnit extends Entity implements IEffect {
 
@@ -61,8 +62,11 @@ public class SmokeOnUnit extends Entity implements IEffect {
     }
 
     @Override
-    public ImageView renderEntity() {
-	return this.tex.getSubImage(0, 49 + this.frameIndex);//.draw(this.parentUnit.getPosition().getX() - this.width / 2, this.parentUnit.getPosition().getY() - this.height / 2);
+    public StackPane renderEntity() {
+	ImageView view = this.tex.getSubImage(0, 49 + this.frameIndex);//.draw(this.parentUnit.getPosition().getX() - this.width / 2, this.parentUnit.getPosition().getY() - this.height / 2);
+        StackPane combined = new StackPane();
+combined.getChildren().add(view);
+return combined;
     }
 
     @Override

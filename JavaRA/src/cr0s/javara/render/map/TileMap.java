@@ -273,7 +273,7 @@ public class TileMap {
 	    int y = me.getY();
 
 	    ShpTexture t = me.getTexture();
-
+System.out.println(t.getTextureName());
 	    Pos sheetPoint = this.theater.getShpTexturePoint(t.getTextureName());
 
 	    int sX = (int) sheetPoint.getX();

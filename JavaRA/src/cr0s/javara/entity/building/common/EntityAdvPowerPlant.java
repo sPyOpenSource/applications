@@ -16,6 +16,7 @@ import cr0s.javara.util.Pos;
 import java.awt.image.BufferedImage;
 import javafx.scene.image.ImageView;
 import javafx.embed.swing.SwingFXUtils;
+import javafx.scene.layout.StackPane;
 
 public class EntityAdvPowerPlant extends EntityBuilding implements ISelectable, IPowerProducer, IShroudRevealer, IHaveCost {
     private BufferedImage normal, corrupted;
@@ -56,7 +57,7 @@ public class EntityAdvPowerPlant extends EntityBuilding implements ISelectable, 
     }
 
     @Override
-    public ImageView renderEntity() {
+    public StackPane renderEntity() {
 	ImageView view = null;
 
 	if (this.getHp() > this.getMaxHp() / 2) {
@@ -77,9 +78,11 @@ public class EntityAdvPowerPlant extends EntityBuilding implements ISelectable, 
 	if (this.repairIconBlink) {
 	    //repairImage.draw(this.boundingBox.getX() + this.boundingBox.getWidth() / 2 - repairImage.getWidth() / 2, this.boundingBox.getY() + this.boundingBox.getHeight() / 2 - repairImage.getHeight() / 2);
 	}
+        StackPane combined = new StackPane();
+combined.getChildren().add(view);
         view.setX(boundingBox.getX());
         view.setY(boundingBox.getY());
-        return view;
+        return combined;
     }
 
     @Override

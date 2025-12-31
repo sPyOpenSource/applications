@@ -49,7 +49,7 @@ public class Target {
 	Pos targetPos = null;
 	
 	if (this.isCellTarget()) {
-	    targetPos = this.targetCell.getCellPos();
+	    targetPos = this.targetCell.Clone();
 	    
 	    return new Pos(targetPos.getX() * 24 + 12, targetPos.getY() * 24 + 12);
 	} else {

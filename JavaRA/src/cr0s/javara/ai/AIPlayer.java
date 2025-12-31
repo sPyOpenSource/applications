@@ -358,7 +358,7 @@ public class AIPlayer extends Player {
                 EntityActor a = (EntityActor) e;
 
                 if (closest == null 
-                        || a.getPosition().getCellPos().distanceToSq(center) < closest.getPosition().getCellPos().distanceToSq(center)) {
+                        || a.getPosition().Clone().distanceToSq(center) < closest.getPosition().Clone().distanceToSq(center)) {
                     closest = a;
                 }
             }

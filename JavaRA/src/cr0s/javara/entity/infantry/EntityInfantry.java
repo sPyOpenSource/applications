@@ -34,6 +34,7 @@ import cr0s.javara.util.Pos;
 
 import javafx.scene.shape.Path;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.StackPane;
 import javafx.scene.shape.MoveTo;
 
 public abstract class EntityInfantry extends MobileEntity implements IShroudRevealer {
@@ -262,7 +263,7 @@ public abstract class EntityInfantry extends MobileEntity implements IShroudReve
     }
 
     @Override
-    public ImageView renderEntity() {
+    public StackPane renderEntity() {
         updateEntity(0);
 	//drawPath(g);
 
@@ -271,7 +272,9 @@ public abstract class EntityInfantry extends MobileEntity implements IShroudReve
             getImageView().setX(boundingBox.getX());
             getImageView().setY(boundingBox.getY());
 	//}
-        return getImageView();
+        StackPane combined = new StackPane();
+combined.getChildren().add(getImageView());
+        return combined;
     }
 
     @Override

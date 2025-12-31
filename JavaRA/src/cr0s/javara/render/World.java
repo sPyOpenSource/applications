@@ -306,7 +306,7 @@ public class World extends AnimationTimer {
     public void spawnEntityInWorld(Entity e) {
 	e.setWorld(this);
         System.out.println(e.getName());
-        root.getChildren().add(e.renderEntity());
+        root.getChildren().addAll(e.renderEntity().getChildren());
     }
 
     /**
@@ -671,7 +671,7 @@ public class World extends AnimationTimer {
 
     public ArrayList<EntityActor> getActorsInCircle(final Pos pos, float range) {
 	ArrayList<EntityActor> result = new ArrayList<>();
-	ArrayList<Pos> tiles = this.chooseTilesInCircle(pos.getCellPos(), (int) Math.floor(range / 24.0f));
+	ArrayList<Pos> tiles = this.chooseTilesInCircle(pos.Clone(), (int) Math.floor(range / 24.0f));
 	
 	/*for (Pos tile : tiles) {
 	    ConcurrentLinkedQueue<Influence> influences = this.blockingEntityMap.getCellInfluences(tile);

@@ -21,7 +21,13 @@ import cr0s.javara.util.SpriteSheet;
 
 import java.awt.image.BufferedImage;
 import javafx.embed.swing.SwingFXUtils;
+import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.image.PixelWriter;
+import javafx.scene.image.WritableImage;
+import javafx.scene.layout.StackPane;
 import javafx.scene.shape.Path;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.MoveTo;
@@ -109,23 +115,36 @@ public class EntityWarFactory extends EntityBuilding implements ISelectable, ISh
     }
 
     @Override
-    public ImageView renderEntity() {
-        ImageView view = null;
+    public StackPane renderEntity() {
+        ImageView top = null;
+        //WritableImage combinedImage = new WritableImage((int)width, (int)height);
+        //PixelWriter writer = combinedImage.getPixelWriter();
+        Image image = null;
 	// Draw downTexture
-	if (this.currentPass == 0) {
+	//if (this.currentPass == 0) {
 	    if (!this.isCorrupted) {
-		view = new ImageView(SwingFXUtils.toFXImage(weapDownNormal,null));//.draw(nx, ny);
+		image = SwingFXUtils.toFXImage(weapDownNormal, null);//.draw(nx, ny);
+                //writer.setPixels(0, 0, (int)weapDownNormal.getWidth(), (int)weapDownNormal.getHeight(), 
+                //image.getPixelReader(), 0, 0);
 	    } else {
 		//weapDownCorrupted.draw(nx, ny);
 	    }
-	} else {
+	//} else {
 	    if (isDoorsOpenAnimation || isDoorsCloseAnimation) { 
-		view = sheetTop.getSubImage(0, ((this.isCorrupted) ? this.CORRUPTION_INDEX : 0) + this.animationFrame);//.draw(nx, ny);;
+		top = sheetTop.getSubImage(0, ((this.isCorrupted) ? this.CORRUPTION_INDEX : 0) + this.animationFrame);//.draw(nx, ny);;
 	    } else {
-		view = sheetTop.getSubImage(0, ((this.isCorrupted) ? this.CORRUPTION_INDEX : 0) + ((isDoorsOpen) ? 3 : 0));//.draw(nx, ny);;
+		top = sheetTop.getSubImage(0, ((this.isCorrupted) ? this.CORRUPTION_INDEX : 0) + ((isDoorsOpen) ? 3 : 0));//.draw(nx, ny);;
 	    }
-	}
-	
+	//}
+//Canvas canvas = new Canvas(width, height);
+//GraphicsContext gc = canvas.getGraphicsContext2D();
+
+//gc.drawImage(image, 0, 0);
+//gc.setGlobalAlpha(1); // Optional: transparency for the top layer
+//gc.drawImage(view.getImage(), 0, 0); // Offset the second image
+	//writer.setPixels(0, 0, (int)view.getImage().getWidth(), (int)view.getImage().getHeight(), 
+        //view.getImage().getPixelReader(), 0, 0);
+        //view.setImage(canvas.snapshot(null, null));
 	// Draw bounding box if debug mode is on
 	if (GUI.DEBUG_MODE) {
 	    /*g.setLineWidth(2);
@@ -138,10 +157,15 @@ public class EntityWarFactory extends EntityBuilding implements ISelectable, ISh
 	if (this.repairIconBlink) {
 	    //repairImage.draw(this.boundingBox.getX() + this.boundingBox.getWidth() / 2 - repairImage.getWidth() / 2, this.boundingBox.getY() + this.boundingBox.getHeight() / 2 - repairImage.getHeight() / 2);
 	}
-        view.setX(boundingBox.getX());
-        view.setY(boundingBox.getY());
-        setImageView(view);
-        return view;
+        top.setX(boundingBox.getX());
+        top.setY(boundingBox.getY());
+        StackPane combined = new StackPane();
+        ImageView bottom = new ImageView(image);
+        bottom.setX(boundingBox.getX());
+        bottom.setY(boundingBox.getY());
+combined.getChildren().addAll(bottom, top);
+        setImageView(top);
+        return combined;
     }
 
     @Override

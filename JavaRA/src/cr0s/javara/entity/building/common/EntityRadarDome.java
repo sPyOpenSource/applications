@@ -17,6 +17,7 @@ import cr0s.javara.util.Pos;
 import java.awt.image.BufferedImage;
 import javafx.scene.image.ImageView;
 import javafx.embed.swing.SwingFXUtils;
+import javafx.scene.layout.StackPane;
 
 public class EntityRadarDome extends EntityBuilding implements ISelectable, IPowerConsumer, IShroudRevealer, IHaveCost {
     private BufferedImage normal, corrupted;
@@ -60,7 +61,7 @@ public class EntityRadarDome extends EntityBuilding implements ISelectable, IPow
     }
 
     @Override
-    public ImageView renderEntity() {
+    public StackPane renderEntity() {
 	//double nx = posX;
 	//double ny = posY;
 ImageView view = null;
@@ -84,7 +85,9 @@ ImageView view = null;
 	}
         view.setX(boundingBox.getX());
         view.setY(boundingBox.getY());
-        return view;
+        StackPane combined = new StackPane();
+combined.getChildren().add(view);
+        return combined;
     }
 
     @Override

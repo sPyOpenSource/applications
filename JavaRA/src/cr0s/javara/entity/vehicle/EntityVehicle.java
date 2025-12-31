@@ -19,6 +19,7 @@ import cr0s.javara.util.Pos;
 
 import javafx.scene.paint.Color;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.StackPane;
 
 public abstract class EntityVehicle extends MobileEntity implements IShroudRevealer {
     public int tileX, tileY;
@@ -65,7 +66,7 @@ public abstract class EntityVehicle extends MobileEntity implements IShroudRevea
 
 
     @Override
-    public ImageView renderEntity() {
+    public StackPane renderEntity() {
 	//super.renderEntity(g);
         return null;
     }

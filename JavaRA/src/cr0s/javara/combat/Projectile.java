@@ -8,6 +8,7 @@ import cr0s.javara.resources.ResourceManager;
 import cr0s.javara.resources.ShpTexture;
 import cr0s.javara.util.Pos;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.StackPane;
 
 public abstract class Projectile extends Entity implements IEffect {    
     public Weapon weapon;
@@ -73,12 +74,14 @@ public abstract class Projectile extends Entity implements IEffect {
     }
 
     @Override
-    public ImageView renderEntity() {
+    public StackPane renderEntity() {
 	if (this.projectileSq != null) {
 	    ImageView view = this.projectileSq.render();
             view.setX(this.pos.getX() - this.sizeWidth / 2);
             view.setY(this.pos.getY() - this.pos.getZ() - this.sizeHeight / 2);
-            return view;
+            StackPane combined = new StackPane();
+combined.getChildren().add(view);
+            return combined;
 	}
         return null;
     }    

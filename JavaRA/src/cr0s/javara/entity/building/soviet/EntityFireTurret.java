@@ -31,6 +31,7 @@ import cr0s.javara.util.SpriteSheet;
 
 import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.StackPane;
 import javafx.scene.shape.Circle;
 
 public class EntityFireTurret extends Defensive implements ISelectable, IPowerConsumer, IShroudRevealer, IHaveCost, IDefense, IHaveTurret {
@@ -91,7 +92,7 @@ public class EntityFireTurret extends Defensive implements ISelectable, IPowerCo
     }
 
     @Override
-    public ImageView renderEntity() {
+    public StackPane renderEntity() {
 	//double nx = posX;
 	//double ny = posY;
 ImageView view;
@@ -120,7 +121,9 @@ ImageView view;
 	}
         view.setX(boundingBox.getX());
         view.setY(boundingBox.getY());
-        return view;
+        StackPane combined = new StackPane();
+combined.getChildren().add(view);
+        return combined;
     }
 
     @Override

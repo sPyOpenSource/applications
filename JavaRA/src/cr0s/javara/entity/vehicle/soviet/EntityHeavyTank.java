@@ -31,6 +31,7 @@ import cr0s.javara.util.SpriteSheet;
 import javafx.scene.Scene;
 import javafx.scene.shape.Path;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.StackPane;
 
 public class EntityHeavyTank extends EntityVehicle implements ISelectable, IHaveCost, IHaveTurret, ICanAttack {
     private final String TEXTURE_NAME = "3tnk.shp";
@@ -109,7 +110,7 @@ public class EntityHeavyTank extends EntityVehicle implements ISelectable, IHave
     }
 
     @Override
-    public ImageView renderEntity() {
+    public StackPane renderEntity() {
 	//super.renderEntity(g);
 
 	if (GUI.DEBUG_MODE) {
@@ -125,7 +126,9 @@ public class EntityHeavyTank extends EntityVehicle implements ISelectable, IHave
 	setImageView(texture.getSubImage(0, currentFacing));//.drawEmbedded(this.getTextureX(), this.getTextureY(), TEXTURE_WIDTH, TEXTURE_HEIGHT);
         getImageView().setX(this.getTextureX());
         getImageView().setY(this.getTextureY());
-        return getImageView();
+        StackPane combined = new StackPane();
+combined.getChildren().add(getImageView());
+        return combined;
 	//this.turret.render(g);
 	//texture.endUse();
 

@@ -329,7 +329,7 @@ public abstract class MobileEntity extends EntityActor implements INotifyBlockin
     }
 
     public Activity moveWithinRange(Target target, int range) {
-	return this.moveToRange(target.centerPosition().getCellPos(), range);
+	return this.moveToRange(target.centerPosition().Clone(), range);
     }
 
     protected abstract Activity moveToRange(Pos cellPos, int range);

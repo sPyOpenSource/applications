@@ -34,6 +34,7 @@ import cr0s.javara.util.SpriteSheet;
 import javafx.scene.Scene;
 import javafx.scene.shape.Path;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.StackPane;
 
 public class EntityMammothTank extends EntityVehicle implements ISelectable, IHaveCost, IHaveTurret, ICanAttack {
 
@@ -127,7 +128,7 @@ public class EntityMammothTank extends EntityVehicle implements ISelectable, IHa
     }
 
     @Override
-    public ImageView renderEntity() {
+    public StackPane renderEntity() {
 	//super.renderEntity(g);
 
 	if (GUI.DEBUG_MODE) {
@@ -184,7 +185,9 @@ public class EntityMammothTank extends EntityVehicle implements ISelectable, IHa
         view.setX(tileX);
         view.setY(tileY);
         setImageView(view);
-        return view;
+        StackPane combined = new StackPane();
+combined.getChildren().add(view);
+        return combined;
     }
 
     @Override

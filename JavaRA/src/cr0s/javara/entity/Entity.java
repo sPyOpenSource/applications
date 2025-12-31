@@ -17,6 +17,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.StackPane;
 
 public abstract class Entity {
     public World world;
@@ -81,7 +82,7 @@ public abstract class Entity {
     }
 
     public abstract void updateEntity(long delta);
-    public abstract ImageView renderEntity();
+    public abstract StackPane renderEntity();
     public abstract boolean shouldRenderedInPass(int passNum);
 
     public void drawSelectionBox(Scene g) {

@@ -9,6 +9,7 @@ import cr0s.javara.util.Pos;
 import cr0s.javara.util.SpriteSheet;
 
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.StackPane;
 
 public abstract class EntityWall extends EntityBuilding implements IHaveCost, IDefense {
 
@@ -96,8 +97,11 @@ public abstract class EntityWall extends EntityBuilding implements IHaveCost, ID
     }
 
     @Override
-    public ImageView renderEntity() {
-	return sheet.getSubImage(0, 16 * this.damageModifier + this.adjacent);//.draw(this.posX, this.posY);
+    public StackPane renderEntity() {
+	ImageView view = sheet.getSubImage(0, 16 * this.damageModifier + this.adjacent);//.draw(this.posX, this.posY);
+        StackPane combined = new StackPane();
+combined.getChildren().add(view);
+return combined;
     }
 
     @Override

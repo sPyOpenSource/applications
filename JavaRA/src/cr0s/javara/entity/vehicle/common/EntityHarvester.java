@@ -34,6 +34,7 @@ import cr0s.javara.util.SpriteSheet;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Path;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.StackPane;
 
 public class EntityHarvester extends EntityVehicle implements ISelectable, IShroudRevealer, IPips, IHaveCost {
 
@@ -140,7 +141,7 @@ public class EntityHarvester extends EntityVehicle implements ISelectable, IShro
     }
 
     @Override
-    public ImageView renderEntity() {
+    public StackPane renderEntity() {
 	//super.renderEntity(g);
         ImageView view;
 	if (GUI.DEBUG_MODE) {
@@ -172,7 +173,9 @@ public class EntityHarvester extends EntityVehicle implements ISelectable, IShro
         view.setX(boundingBox.getX());
         view.setY(boundingBox.getY());
         setImageView(view);
-        return view;
+        StackPane combined = new StackPane();
+combined.getChildren().add(view);
+        return combined;
     }
 
     @Override

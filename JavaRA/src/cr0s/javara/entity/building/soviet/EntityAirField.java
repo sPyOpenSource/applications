@@ -19,6 +19,7 @@ import cr0s.javara.resources.ShpTexture;
 import cr0s.javara.util.Pos;
 import cr0s.javara.util.SpriteSheet;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.StackPane;
 
 public class EntityAirField extends EntityBuilding implements ISelectable, IPowerConsumer, IShroudRevealer, IHaveCost {
 
@@ -73,7 +74,7 @@ public class EntityAirField extends EntityBuilding implements ISelectable, IPowe
     }
 
     @Override
-    public ImageView renderEntity() {
+    public StackPane renderEntity() {
 	//double nx = posX;
 	//double ny = posY;
 

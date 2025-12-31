@@ -10,6 +10,7 @@ import cr0s.javara.util.Pos;
 
 import javafx.scene.image.ImageView;
 import javafx.embed.swing.SwingFXUtils;
+import javafx.scene.layout.StackPane;
 
 public class EntityBuildingProgress extends EntityBuilding implements IShroudRevealer {
 
@@ -71,7 +72,7 @@ public class EntityBuildingProgress extends EntityBuilding implements IShroudRev
     }
 
     @Override
-    public ImageView renderEntity() {
+    public StackPane renderEntity() {
 	if (this.makeTexture == null) {
 	    return null;
 	}
@@ -79,7 +80,9 @@ public class EntityBuildingProgress extends EntityBuilding implements IShroudRev
 	ImageView view = new ImageView(SwingFXUtils.toFXImage(this.makeTexture.getAsImage(this.currentFrame, null), null));//.draw(this.posX, this.posY);
         view.setX(boundingBox.getX());
         view.setY(boundingBox.getY());
-        return view;
+        StackPane combined = new StackPane();
+combined.getChildren().add(view);
+        return combined;
     }
 
     @Override

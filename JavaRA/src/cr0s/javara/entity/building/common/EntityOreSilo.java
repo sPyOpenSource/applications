@@ -18,6 +18,7 @@ import cr0s.javara.util.Pos;
 import cr0s.javara.util.SpriteSheet;
 
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 
 public class EntityOreSilo extends EntityBuilding implements ISelectable, IPowerConsumer, IShroudRevealer, IPips, IOreCapacitor, IHaveCost {
@@ -69,7 +70,7 @@ public class EntityOreSilo extends EntityBuilding implements ISelectable, IPower
     }
 
     @Override
-    public ImageView renderEntity() {
+    public StackPane renderEntity() {
 	//double nx = posX;
 	//double ny = posY;
 

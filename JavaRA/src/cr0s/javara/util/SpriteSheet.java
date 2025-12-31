@@ -7,6 +7,9 @@ import javafx.embed.swing.SwingFXUtils;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.image.PixelReader;
+import javafx.scene.image.PixelWriter;
+import javafx.scene.image.WritableImage;
 
 /**
  *
@@ -94,6 +97,16 @@ public class SpriteSheet {
     }
 
     public ImageView getSubImage(int x, int y, int width, int height) {
+        /*WritableImage combinedImage = new WritableImage(width, height);
+        PixelWriter writer = combinedImage.getPixelWriter();
+        PixelReader reader = imageView.getImage().getPixelReader();
+        for(int i = 0; i < width; i++){
+            for(int j = 0; j < height; j++){
+                try {
+                    writer.setColor(i, j, reader.getColor(x + i, y + j));
+                } catch (Exception e){}
+            }
+        }*/
         ImageView clone = new ImageView(imageView.getImage());
         Rectangle2D viewportRect = new Rectangle2D(x, y, width, height);
         clone.setViewport(viewportRect);

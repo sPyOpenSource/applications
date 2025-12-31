@@ -10,6 +10,7 @@ import cr0s.javara.util.SpriteSheet;
 
 import javafx.scene.paint.Color;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.StackPane;
 
 public class MoveFlash extends Entity implements IEffect {
 
@@ -43,8 +44,11 @@ public class MoveFlash extends Entity implements IEffect {
     }
 
     @Override
-    public ImageView renderEntity() {
-	return tex.getSubImage(0, frameIndex);//.draw(this.posX - 12, this.posY - 12);
+    public StackPane renderEntity() {
+	ImageView view = tex.getSubImage(0, frameIndex);//.draw(this.posX - 12, this.posY - 12);
+        StackPane combined = new StackPane();
+combined.getChildren().add(view);
+return combined;
     }
 
     @Override

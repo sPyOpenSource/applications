@@ -14,6 +14,7 @@ import cr0s.javara.util.SpriteSheet;
 import java.awt.image.BufferedImage;
 import javafx.scene.image.ImageView;
 import javafx.embed.swing.SwingFXUtils;
+import javafx.scene.layout.StackPane;
 
 public class EntityConstructionYard extends EntityBuilding implements ISelectable, IShroudRevealer {
 
@@ -60,7 +61,7 @@ public class EntityConstructionYard extends EntityBuilding implements ISelectabl
     }
 
     @Override
-    public ImageView renderEntity() {
+    public StackPane renderEntity() {
         ImageView view;
 	if (this.getHp() > this.getMaxHp() / 2) {
 	    view = new ImageView(SwingFXUtils.toFXImage(normal, null));//.draw(nx, ny);
@@ -70,7 +71,9 @@ public class EntityConstructionYard extends EntityBuilding implements ISelectabl
         view.setX(boundingBox.getX());
         view.setY(boundingBox.getY());
         setImageView(view);
-        return view;
+        StackPane combined = new StackPane();
+combined.getChildren().add(view);
+        return combined;
 	// Draw bounding box if debug mode is on
 	/*if (GUI.DEBUG_MODE) {
 	    g.setLineWidth(2);

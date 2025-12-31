@@ -29,6 +29,7 @@ import cr0s.javara.util.Pos;
 import cr0s.javara.util.SpriteSheet;
 
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.StackPane;
 import javafx.scene.shape.Circle;
 
 public class EntityTeslaCoil extends Defensive implements ISelectable, IPowerConsumer, IShroudRevealer, IHaveCost, IDefense {
@@ -98,7 +99,7 @@ public class EntityTeslaCoil extends Defensive implements ISelectable, IPowerCon
     }
 
     @Override
-    public ImageView renderEntity() {
+    public StackPane renderEntity() {
 	//double nx = posX;
 	//double ny = posY;
 
@@ -127,7 +128,9 @@ public class EntityTeslaCoil extends Defensive implements ISelectable, IPowerCon
 	}
         view.setX(boundingBox.getX());
         view.setY(boundingBox.getY());
-        return view;
+        StackPane combined = new StackPane();
+combined.getChildren().add(view);
+        return combined;
     }
 
     @Override

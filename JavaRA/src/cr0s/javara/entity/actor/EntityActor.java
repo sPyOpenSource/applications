@@ -130,7 +130,7 @@ public abstract class EntityActor extends Entity implements IOrderIssuer, IOrder
     }
     
     public Pos getCellPosition() {
-	return getPosition().getCellPos();
+	return getPosition().Clone();
     }   
     
     public int getMaxFacings() {

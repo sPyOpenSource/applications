@@ -8,6 +8,7 @@ import cr0s.javara.order.Target;
 import cr0s.javara.util.Pos;
 import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.StackPane;
 
 public class TeslaZap extends Projectile implements IEffect {
 
@@ -69,7 +70,7 @@ public class TeslaZap extends Projectile implements IEffect {
     }
 
     @Override
-    public ImageView renderEntity() {
+    public StackPane renderEntity() {
         return null;
     }
     

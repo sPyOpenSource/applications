@@ -27,6 +27,7 @@ import cr0s.javara.util.SpriteSheet;
 
 import javafx.scene.shape.Path;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.StackPane;
 
 public class EntityMcv extends EntityVehicle implements ISelectable, IDeployable, IHaveCost {
 
@@ -84,7 +85,7 @@ public class EntityMcv extends EntityVehicle implements ISelectable, IDeployable
     }
 
     @Override
-    public ImageView renderEntity() {
+    public StackPane renderEntity() {
 	//super.renderEntity(g);
 	
 	if (GUI.DEBUG_MODE) {
@@ -103,7 +104,10 @@ public class EntityMcv extends EntityVehicle implements ISelectable, IDeployable
 	setImageView(texture.getSubImage(0, currentFacing));//.drawEmbedded(tx, ty, TEXTURE_WIDTH, TEXTURE_HEIGHT);
         getImageView().setX(tx);
         getImageView().setY(ty);
-        return getImageView();
+        StackPane combined = new StackPane();
+combined.getChildren().add(getImageView());
+//combined.relocate(ty, ty);
+        return combined;
 	//texture.endUse();
 	
 	//g.setColor(Color.white);

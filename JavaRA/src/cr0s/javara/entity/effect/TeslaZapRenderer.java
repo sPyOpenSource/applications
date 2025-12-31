@@ -8,6 +8,7 @@ import cr0s.javara.resources.ResourceManager;
 import cr0s.javara.util.Pos;
 import cr0s.javara.util.SpriteSheet;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.StackPane;
 
 public class TeslaZapRenderer extends Projectile implements IEffect {
     private static SpriteSheet tex;
@@ -65,7 +66,7 @@ public class TeslaZapRenderer extends Projectile implements IEffect {
     }
 
     @Override
-    public ImageView renderEntity() {
+    public StackPane renderEntity() {
 	//this.tex.startUse();
 
 	this.p = this.guided.isValidFor(this.sourceActor) ? this.guidedTarget.getPosition() : this.passiveTargetPos;	

@@ -20,6 +20,7 @@ import cr0s.javara.util.Pos;
 import cr0s.javara.util.SpriteSheet;
 
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.StackPane;
 import javafx.scene.shape.Path;
 import javafx.scene.shape.MoveTo;
 
@@ -73,7 +74,7 @@ public class EntityBarracks extends EntityBuilding implements ISelectable, IPowe
     }
 
     @Override
-    public ImageView renderEntity() {
+    public StackPane renderEntity() {
         ImageView view = null;
 	int corruptionShift = 0;
 
@@ -102,7 +103,9 @@ public class EntityBarracks extends EntityBuilding implements ISelectable, IPowe
         view.setX(boundingBox.getX());
         view.setY(boundingBox.getY());
         setImageView(view);
-        return view;
+        StackPane combined = new StackPane();
+combined.getChildren().add(view);
+        return combined;
     }
 
     @Override
@@ -184,7 +187,7 @@ public class EntityBarracks extends EntityBuilding implements ISelectable, IPowe
 		me.desiredSubcell = freeSubCell;
 		me.setCellPos(exitPos);
 		
-		me.startMovingByPath(p, this);
+		//me.startMovingByPath(p, this);
 	    } else {
 		SubCell sc = SubCell.CENTER;
 

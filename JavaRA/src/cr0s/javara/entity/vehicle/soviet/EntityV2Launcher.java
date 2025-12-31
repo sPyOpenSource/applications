@@ -29,6 +29,7 @@ import cr0s.javara.util.SpriteSheet;
 
 import javafx.scene.shape.Path;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.StackPane;
 
 public class EntityV2Launcher extends EntityVehicle implements ISelectable, IHaveCost, ICanAttack {
 
@@ -94,7 +95,7 @@ public class EntityV2Launcher extends EntityVehicle implements ISelectable, IHav
     }
 
     @Override
-    public ImageView renderEntity() {
+    public StackPane renderEntity() {
 	//super.renderEntity(g);
 
 	if (GUI.DEBUG_MODE) {
@@ -119,7 +120,9 @@ public class EntityV2Launcher extends EntityVehicle implements ISelectable, IHav
 	//drawPath(g);
         view.setX(boundingBox.getX());
         view.setY(boundingBox.getY());
-        return view;
+        StackPane combined = new StackPane();
+combined.getChildren().add(view);
+        return combined;
     }
 
     @Override
