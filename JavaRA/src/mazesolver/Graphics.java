@@ -1,5 +1,6 @@
 package mazesolver;
 
+import cr0s.javara.util.Pos;
 import java.util.ArrayList;
 import javafx.animation.AnimationTimer;
 import javafx.scene.PerspectiveCamera;
@@ -136,7 +137,7 @@ public class Graphics extends AnimationTimer {
                 // Draw the venues
                 Color venue = Color.color(1, 0.69f, 0.231f);
                 for (Venue ptv : maze.getVenues()) {
-                    drawPoint(ptv.getLocation(), 0.7f, venue);
+                    //drawPoint(ptv.getLocation(), 0.7f, venue);
                 }
                 
                 // Process input
@@ -206,8 +207,8 @@ public class Graphics extends AnimationTimer {
      * @param p
      * @param size 
      */
-    private void drawPoint(Point p, float size, Color color) {
-        drawQuad(p.getX(), p.getY(), size, color);
+    private void drawPoint(Pos p, float size, Color color) {
+        drawQuad(p.getCellX(), p.getCellY(), size, color);
     }
     
     /**
@@ -247,7 +248,7 @@ public class Graphics extends AnimationTimer {
      * Draws path on screen.
      * @param path 
      */
-    private void drawPath(ArrayList<Point> path, Color color) {
+    private void drawPath(ArrayList<Pos> path, Color color) {
         if(path.isEmpty()) return;
         Path p = new Path();
         MoveTo start = new MoveTo(path.get(0).getX() + 0.5f, path.get(0).getY() + 0.5f);

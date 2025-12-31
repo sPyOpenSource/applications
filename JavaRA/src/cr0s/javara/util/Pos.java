@@ -62,9 +62,7 @@ public class Pos {
 	if (getClass() != obj.getClass())
 	    return false;
 	Pos other = (Pos) obj;
-	if ((int) x != (int) other.x || (int)y != (int) other.y || (int) z != (int) other.z)
-	    return false;
-	return true;
+	return !((int) x != (int) other.x || (int)y != (int) other.y || (int) z != (int) other.z);
     }
 
     public Pos add(Pos other) {

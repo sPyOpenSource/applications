@@ -5,7 +5,6 @@ import java.util.HashMap;
 import java.util.Random;
 import mazesolver.Director;
 import mazesolver.Maze;
-import mazesolver.Point;
 
 import cr0s.javara.combat.ArmorType;
 import cr0s.javara.combat.TargetType;
@@ -86,7 +85,7 @@ public abstract class EntityInfantry extends MobileEntity implements IShroudReve
     protected AutoTarget autoTarget;
     protected ArrayList<String> deathSounds = new ArrayList<>();
     Maze maze;
-    ArrayList<Point> router;
+    ArrayList<Pos> router;
     Director director;
     Random random = new Random();
     

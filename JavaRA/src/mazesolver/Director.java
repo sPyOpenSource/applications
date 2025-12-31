@@ -289,14 +289,14 @@ public class Director implements Runnable {
      * @throws IOException
      * @throws InvalidRouteException 
      */
-    private void writeSubRoute(BufferedWriter writer, ArrayList<Point> subRoute)
+    private void writeSubRoute(BufferedWriter writer, ArrayList<Pos> subRoute)
             throws IOException, InvalidRouteException {
-        Point prev = null;
+        Pos prev = null;
 
-        for (Point point : subRoute) {
+        for (Pos point : subRoute) {
             if (prev != null) {
-                int dx = point.getX() - prev.getX();
-                int dy = prev.getY() - point.getY();
+                int dx = point.getCellX() - prev.getCellX();
+                int dy = prev.getCellY() - point.getCellY();
                 
                 if (dx == 1 && dy == 0) writer.write(0 + ";");
                 else if(dx == 0 && dy == 1) writer.write(1 + ";");

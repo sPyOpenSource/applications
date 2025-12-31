@@ -28,7 +28,6 @@ import javafx.scene.shape.LineTo;
 
 import mazesolver.Director;
 import mazesolver.Maze;
-import mazesolver.Point;
 
 /**
  *

@@ -139,7 +139,7 @@ public class Maze {
         if(fileNodes == null || fileCoords == null) return null;
         
         int[][] nodes; int width, height; 
-        Point startPoint = null, endPoint = null;
+        Pos startPoint = null, endPoint = null;
         Venue[] venues = null;
         
         // Read the nodes file
@@ -172,8 +172,8 @@ public class Maze {
             Scanner sc = new Scanner(new FileReader(new File(fileCoords)));
             sc.useDelimiter("[,;\\s]+");
 
-            startPoint = new Point(sc.nextInt() * 2, sc.nextInt() * 2);
-            endPoint = new Point(sc.nextInt() * 2, sc.nextInt() * 2);
+            startPoint = new Pos(sc.nextInt() * 2, sc.nextInt() * 2);
+            endPoint = new Pos(sc.nextInt() * 2, sc.nextInt() * 2);
             
             Helper.debug("startPoint is " + startPoint);
             Helper.debug("endPoint is " + endPoint);
@@ -191,10 +191,10 @@ public class Maze {
                 
                 int num = sc.nextInt();
                 
-                HashMap<String, Point> locations = new HashMap<>(num);
+                HashMap<String, Pos> locations = new HashMap<>(num);
 
                 for(int i = 0; i < num; i++)
-                    locations.put(sc.next(), new Point(sc.nextInt(), sc.nextInt()));
+                    locations.put(sc.next(), new Pos(sc.nextInt(), sc.nextInt()));
                 
                 sc.close();
                 
@@ -206,7 +206,7 @@ public class Maze {
                     
                     while(sc2.hasNext()) {
                         String id = Integer.toString(i++);
-                        Point loc = locations.get(sc2.next());
+                        Pos loc = locations.get(sc2.next());
                         v.add(new Venue(id, loc));
                     }
                     

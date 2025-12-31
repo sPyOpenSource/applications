@@ -120,8 +120,8 @@ public class ResourcesLayer {
 	    
 	    Pos sheetPoint = map.getTheater().getShpTexturePoint(this.resources[x][y].getSpriteName());
 	    
-	    int sX = (int) sheetPoint.getX();
-	    int sY = (int) sheetPoint.getY();
+	    int sX = sheetPoint.getCellX();
+	    int sY = sheetPoint.getCellY();
 
 	    if (sX != -1 && sY != -1) {
 		root.getChildren().add(this.map.getTheater().getSpriteSheet().renderInUse(x * 24, y * 24, sX, sY + index * 24));

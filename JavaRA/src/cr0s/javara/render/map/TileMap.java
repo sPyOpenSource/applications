@@ -43,11 +43,10 @@ public class TileMap {
     public static final int MAP_OFFSET_TILES = 16;
     public static final int ALLOWED_DARKNESS_SHIFT = 3;
     public static final int ALLOWED_DARKNESS_SHIFT_XMAX = 7; // this needed to be able put sidebar inside darkness if viewport is on right edge of map
+    public SmudgeLayer smudges;
 
     private Color blockedColor = Color.rgb(255, 0, 0, 32f/255);
     private Assets assets = new Assets();
-    
-    public SmudgeLayer smudges;
     
     public TileMap(){
         //this("haos-ridges");

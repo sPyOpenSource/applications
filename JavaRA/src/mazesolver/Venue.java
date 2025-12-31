@@ -1,10 +1,12 @@
 package mazesolver;
 
+import cr0s.javara.util.Pos;
+
 /**
  * Venue to visit.
  */
 public class Venue {
-    private final Point location;
+    private final Pos location;
     private final String id;
     
     /**
@@ -12,7 +14,7 @@ public class Venue {
      * @param id
      * @param location 
      */
-    public Venue(String id, Point location) {
+    public Venue(String id, Pos location) {
         this.id = id;
         this.location = location;
     }
@@ -21,7 +23,7 @@ public class Venue {
      * Returns location of Venue
      * @return Point
      */
-    public Point getLocation() { 
+    public Pos getLocation() { 
         return location; 
     }
     
