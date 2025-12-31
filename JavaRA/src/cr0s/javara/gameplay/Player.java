@@ -96,8 +96,8 @@ public class Player {
 	int n = this.world.getRandomInt(15, 50);
 
 	for (int i = 0; i < n; i++) {
-	    int rx = this.spawn.getCellX() + (this.world.getRandomInt(-10, 10));
-	    int ry = this.spawn.getCellY() + (this.world.getRandomInt(-10, 10));
+	    int rx = this.spawn.getCellX() + this.world.getRandomInt(-10, 10);
+	    int ry = this.spawn.getCellY() + this.world.getRandomInt(-10, 10);
 
 	    Pos randomPoint = new Pos(rx, ry);
 
@@ -107,17 +107,17 @@ public class Player {
 	    
 	    EntityInfantry e = null;
 	    switch (this.world.getRandomInt(0, 3)) {
-	    case 0:
-		e = new EntityRifleTrooper(randomPoint, world.blockingEntityMap.getFreeSubCell(randomPoint, SubCell.CENTER));
-		break;
-		
-	    case 1:
-		e = new EntityRocketTrooper(randomPoint, world.blockingEntityMap.getFreeSubCell(randomPoint, SubCell.CENTER));
-		break;
-		
-	    case 2:
-		e = new EntityGrenadeTrooper(randomPoint, world.blockingEntityMap.getFreeSubCell(randomPoint, SubCell.CENTER));
-		break;
+                case 0:
+                    e = new EntityRifleTrooper(randomPoint, world.blockingEntityMap.getFreeSubCell(randomPoint, SubCell.CENTER));
+                    break;
+
+                case 1:
+                    e = new EntityRocketTrooper(randomPoint, world.blockingEntityMap.getFreeSubCell(randomPoint, SubCell.CENTER));
+                    break;
+
+                case 2:
+                    e = new EntityGrenadeTrooper(randomPoint, world.blockingEntityMap.getFreeSubCell(randomPoint, SubCell.CENTER));
+                    break;
 	    }
 	    
 	    e.currentFacing = this.world.getRandomInt(0, EntityInfantry.MAX_FACING);

@@ -22,6 +22,7 @@ public class MoveInfantry extends Activity {
 
     public Path currentPath;
     public int currentPathIndex;
+    public boolean forceRange = false;
 
     private boolean hasNotifiedBlocker, hasWaited;
     private int waitTicksRemaining;
@@ -31,8 +32,6 @@ public class MoveInfantry extends Activity {
 
     private boolean isNewPath;
     private int randomWaitTicks;
-
-    public boolean forceRange = false;
     
     public MoveInfantry(MobileEntity me, Pos destinationCell) {
 	this.destCell = destinationCell;

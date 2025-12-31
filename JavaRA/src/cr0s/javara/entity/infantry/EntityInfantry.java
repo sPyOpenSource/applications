@@ -46,13 +46,13 @@ public abstract class EntityInfantry extends MobileEntity implements IShroudReve
     public enum AnimationState { IDLE, ATTACKING, MOVING, IDLE_ANIMATING, WAITING, DEATH };
 
     static {
-	subcellOffsets[SubCell.TOP_LEFT.ordinal()] = new Pos(-21, -12);
-	subcellOffsets[SubCell.TOP_RIGHT.ordinal()] = new Pos(-5, -12);
+	subcellOffsets[SubCell.TOP_LEFT.ordinal()] = new Pos(-21d, -12d);
+	subcellOffsets[SubCell.TOP_RIGHT.ordinal()] = new Pos(-5d, -12d);
 
-	subcellOffsets[SubCell.CENTER.ordinal()] = new Pos(-13, -6);
+	subcellOffsets[SubCell.CENTER.ordinal()] = new Pos(-13d, -6d);
 
-	subcellOffsets[SubCell.BOTTOM_LEFT.ordinal()] = new Pos(-21, 2);
-	subcellOffsets[SubCell.BOTTOM_RIGHT.ordinal()] = new Pos(-5, 2);
+	subcellOffsets[SubCell.BOTTOM_LEFT.ordinal()] = new Pos(-21d, 2d);
+	subcellOffsets[SubCell.BOTTOM_RIGHT.ordinal()] = new Pos(-5d, 2d);
     }
 
     protected ShpTexture texture;
