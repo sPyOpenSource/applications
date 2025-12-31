@@ -143,15 +143,20 @@ public class Production {
 	    this.isDeployed = true;
 	    this.isReady = false;
 	}
-	if (this.targetActor instanceof EntityVehicle entityVehicle) {
-	    this.isReady = false;
-	    this.isDeployed = true;
-	    this.player.getBase().deployBuildedVehicle(entityVehicle);
-	} else if (this.targetActor instanceof EntityInfantry entityInfantry) {
-	    this.isReady = false;
-	    this.isDeployed = true;
-	    this.player.getBase().deployTrainedInfantry(entityInfantry);
-	}
+        switch (this.targetActor) {
+            case EntityVehicle entityVehicle -> {
+                this.isReady = false;
+                this.isDeployed = true;
+                this.player.getBase().deployBuildedVehicle(entityVehicle);
+            }
+            case EntityInfantry entityInfantry -> {
+                this.isReady = false;
+                this.isDeployed = true;
+                this.player.getBase().deployTrainedInfantry(entityInfantry);
+            }
+            default -> {
+            }
+        }
     }
 
     public String getBuildingTime() {

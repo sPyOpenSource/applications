@@ -187,7 +187,7 @@ combined.getChildren().add(view);
 		me.desiredSubcell = freeSubCell;
 		me.setCellPos(exitPos);
 		
-		//me.startMovingByPath(p, this);
+		me.startMovingByPath(p, this);
 	    } else {
 		SubCell sc = SubCell.CENTER;
 

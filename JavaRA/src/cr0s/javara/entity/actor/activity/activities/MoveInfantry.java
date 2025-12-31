@@ -250,8 +250,7 @@ public class MoveInfantry extends Activity {
 	public MoveInfantry parentMove;
         
 	private final MobileEntity me;
-	private final Pos start;
-	private final Pos end;
+	private final Pos start, end;
 	private final int lengthInTicks;
 	private int ticks;
 

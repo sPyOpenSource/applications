@@ -292,7 +292,7 @@ public class Move extends Activity {
 
 	    ticks++;
 	    // If move is finished, return control to parent activity
-	    if ((me.getPos().getX() == end.getX() && me.getPos().getY() == end.getY()) || ticks >= lengthInTicks) {
+	    if (me.getPos() == end || ticks >= lengthInTicks) {
 		me.currentFacing = this.desiredFacing % Turn.MAX_FACING; // how rough!
 		me.finishMoving();
 
