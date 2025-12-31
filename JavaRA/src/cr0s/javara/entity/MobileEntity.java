@@ -33,8 +33,7 @@ public abstract class MobileEntity extends EntityActor implements INotifyBlockin
     public SubCell desiredSubcell;
     public Pos targetCell;
     
-    public MobileEntity(Pos pos,
-	    float aSizeWidth, float aSizeHeight) {
+    public MobileEntity(Pos pos, float aSizeWidth, float aSizeHeight) {
 	super(pos, aSizeWidth, aSizeHeight);
 	targetCell = pos;
 	ordersList = new ArrayList<>();
@@ -127,8 +126,8 @@ public abstract class MobileEntity extends EntityActor implements INotifyBlockin
 	    //g.fillOval(this.goalX * 24 + 12 - 2, this.goalY * 24 + 12 - 2, 5, 5);
 
 	    for (int i = pathIndex - 1; i < currentPath.getElements().size() - 1; i++) {
-		//Step from = currentPath.getStep(i);
-		//Step to = currentPath.getStep(i + 1);
+		MoveTo from = (MoveTo)currentPath.getElements().get(i);
+		MoveTo to = (MoveTo)currentPath.getElements().get(i + 1);
 
 		//g.fillOval(from.getX() * 24 + 12 - 2, from.getY() * 24 + 12 - 2, 5, 5);
 		//g.fillOval(to.getX() * 24 + 12 - 2, to.getY() * 24 + 12 - 2, 5, 5);
@@ -321,8 +320,8 @@ public abstract class MobileEntity extends EntityActor implements INotifyBlockin
     }
 
     public void setCellPos(Pos exitPoint) {
-	//this.posX = exitPoint.getX() * 24;
-	//this.posY = exitPoint.getY() * 24;
+	getImageView().setX(exitPoint.getX());
+	getImageView().setY(exitPoint.getY());
     }
 
     public Activity moveFollow(EntityActor self, Target target, int range) {

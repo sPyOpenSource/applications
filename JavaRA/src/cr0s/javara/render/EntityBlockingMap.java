@@ -222,8 +222,8 @@ public class EntityBlockingMap {
 	return null;
     }
 
-    public int[][] getCellInfluences(Pos pos) {
-	return this.blockingMap;//[(int) pos.getX()][(int) pos.getY()];
+    public int getCellInfluences(Pos pos) {
+	return this.blockingMap[pos.getCellX()][pos.getCellY()];
     }
 
     public void occupyForBuilding(EntityBuilding eb) {
