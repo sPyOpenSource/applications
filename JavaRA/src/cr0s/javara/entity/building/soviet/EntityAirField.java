@@ -14,6 +14,7 @@ import cr0s.javara.entity.vehicle.soviet.EntityMammothTank;
 
 import cr0s.javara.gameplay.Team.Alignment;
 import cr0s.javara.main.GUI;
+import cr0s.javara.render.World;
 import cr0s.javara.resources.ResourceManager;
 import cr0s.javara.resources.ShpTexture;
 import cr0s.javara.util.Pos;
@@ -120,7 +121,7 @@ public class EntityAirField extends EntityBuilding implements ISelectable, IPowe
 	    if (this.isCharging) {
 		this.animIndex = (this.animIndex + 1) % 4;
 	    } else {
-		this.animIndex = this.world.getRandomInt(0, 4); // Do random wind flag fluctiations
+		this.animIndex = World.getRandomInt(0, 4); // Do random wind flag fluctiations
 	    }
 	}
     }

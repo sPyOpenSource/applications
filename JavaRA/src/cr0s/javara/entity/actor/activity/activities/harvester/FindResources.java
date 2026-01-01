@@ -11,6 +11,7 @@ import cr0s.javara.entity.actor.activity.Activity;
 import cr0s.javara.entity.actor.activity.activities.Move;
 import cr0s.javara.entity.vehicle.common.EntityHarvester;
 import cr0s.javara.util.Pos;
+import javafx.scene.shape.MoveTo;
 import javafx.scene.shape.Path;
 
 public class FindResources extends Activity {
@@ -28,7 +29,7 @@ public class FindResources extends Activity {
 	EntityHarvester harv = (EntityHarvester) a;
 
 	Path pathToResource = findPathToClosestResourceCell(harv);
-	Move moveActivity = null;
+	Move moveActivity;
 
 	if (pathToResource != null) {
 	    if (harv.isFull()) {
@@ -37,10 +38,8 @@ public class FindResources extends Activity {
 
 		return deliverActivity;
 	    }
-
-	    /*moveActivity = new Move(me, pathToResource, new Pos(
-		    pathToResource.getX(pathToResource.getElements().size() - 1),
-		    pathToResource.getY(pathToResource.getElements().size() - 1)), null);*/
+            MoveTo goal = (MoveTo)pathToResource.getElements().get(pathToResource.getElements().size() - 1);
+	    moveActivity = new Move(me, pathToResource, new Pos(goal.getX(), goal.getY()), null);
 	} else {
 	    if (!harv.isEmpty()) {
 		DeliverResources deliverActivity = new DeliverResources();
@@ -105,7 +104,7 @@ public class FindResources extends Activity {
 
 	while (!queue.isEmpty()) {
 	    Pos node = (Pos) queue.remove();
-	    Pos child = null;
+	    Pos child;
 	    while ((child = getUnvisitedChildNode(visited, node, harv)) != null) {
 		visited.add(child);
 
@@ -121,14 +120,14 @@ public class FindResources extends Activity {
     }
 
     private boolean isCellChoosable(EntityHarvester harv, Pos cellPos) {
-	boolean shroudObscures = harv.owner.getShroud() != null
-		&& !harv.owner.getShroud().isExplored(cellPos);
+	/*boolean shroudObscures = harv.owner.getShroud() != null
+		&& !harv.owner.getShroud().isExplored(cellPos);*/
 	boolean isHarvesterPoint = (int) cellPos.getX() == (int) harv
 		.getCellPos().getX()
 		&& (int) cellPos.getY() == (int) harv.getCellPos().getY();
 
-	return !shroudObscures
-		&& (isHarvesterPoint || harv.world.isCellPassable(cellPos))
+	return //!shroudObscures && 
+                (isHarvesterPoint || harv.world.isCellPassable(cellPos))
 		&& !harv.world.getMap().getResourcesLayer()
 			.isCellEmpty(cellPos);
     }

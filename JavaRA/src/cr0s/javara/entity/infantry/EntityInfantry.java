@@ -151,7 +151,7 @@ public abstract class EntityInfantry extends MobileEntity implements IShroudReve
 
     @Override
     public float getMoveSpeed() {
-	return EntityInfantry.DEFAULT_MOVE_SPEED * 10;
+	return EntityInfantry.DEFAULT_MOVE_SPEED;// * 10;
     }
 
     @Override

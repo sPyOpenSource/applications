@@ -30,7 +30,6 @@ import cr0s.javara.util.SpriteSheet;
 
 import javafx.scene.Scene;
 import javafx.scene.shape.Path;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 
 public class EntityHeavyTank extends EntityVehicle implements ISelectable, IHaveCost, IHaveTurret, ICanAttack {

@@ -21,12 +21,8 @@ import cr0s.javara.util.SpriteSheet;
 
 import java.awt.image.BufferedImage;
 import javafx.embed.swing.SwingFXUtils;
-import javafx.scene.canvas.Canvas;
-import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.image.PixelWriter;
-import javafx.scene.image.WritableImage;
 import javafx.scene.layout.StackPane;
 import javafx.scene.shape.Path;
 import javafx.scene.shape.Rectangle;

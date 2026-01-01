@@ -106,10 +106,8 @@ public class EntityHarvester extends EntityVehicle implements ISelectable, IShro
 
     @Override
     public void updateEntity(long delta) {
-	//super.updateEntity(delta);
+	super.updateEntity(delta);
 	//boundingBox.setBounds(posX + 6, posY - 6, (TEXTURE_WIDTH / 2), (TEXTURE_HEIGHT / 2));
-    //getImageView().setX(getImageView().getX()+new Random().nextDouble(10)-5);
-    //getImageView().setY(getImageView().getY()+new Random().nextDouble(10)-5);
 	if ((this.currentActivity instanceof Wait && (this.currentActivity.nextActivity instanceof HarvestResource)) 
 		|| (this.currentActivity instanceof HarvestResource)) {
 	    if (--this.harvestingTicks <= 0) {
@@ -151,8 +149,8 @@ public class EntityHarvester extends EntityVehicle implements ISelectable, IShro
 	    //g.drawOval(posX - 1, posY - 1, this.boundingBox.getWidth() + 1, this.boundingBox.getHeight() + 1);
 	}
 
-	double tx = this.getTextureX();
-	double ty = this.getTextureY();
+	//double tx = this.getTextureX();
+	//double ty = this.getTextureY();
 
 	//texture.startUse();
 
@@ -174,7 +172,7 @@ public class EntityHarvester extends EntityVehicle implements ISelectable, IShro
         view.setY(boundingBox.getY());
         setImageView(view);
         StackPane combined = new StackPane();
-combined.getChildren().add(view);
+        combined.getChildren().add(view);
         return combined;
     }
 

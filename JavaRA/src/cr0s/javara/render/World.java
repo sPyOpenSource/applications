@@ -52,7 +52,7 @@ public class World extends AnimationTimer {
 
     private final int removeDeadTicks = 0;
     private final int REMOVE_DEAD_INTERVAL_TICKS = 20;
-    private final Random random;
+    private static Random random;
     private final ArrayList<Pos> pointsInRange[] = new ArrayList[MAX_RANGE + 1];
 
     public World(String mapName) {
@@ -551,7 +551,7 @@ public class World extends AnimationTimer {
 	return !this.blockingEntityMap.isSubcellFree(cellPos, sub);
     }    
 
-    public int getRandomInt(int from, int to) {
+    public static int getRandomInt(int from, int to) {
 	return from + random.nextInt(to - from);
     }
 
