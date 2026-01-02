@@ -109,6 +109,7 @@ public interface PrimitiveIterator<T, T_CONS> extends Iterator<T> {
          * @param action The action to be performed for each element
          * @throws NullPointerException if the specified action is null
          */
+        @Override
         default void forEachRemaining(IntConsumer action) {
             Objects.requireNonNull(action);
             while (hasNext())
@@ -138,11 +139,11 @@ public interface PrimitiveIterator<T, T_CONS> extends Iterator<T> {
          * {@code IntConsumer}, by boxing the argument of {@code IntConsumer},
          * and then passed to {@link #forEachRemaining}.
          */
+        @Override
         default void forEachRemaining(Consumer<? super Integer> action) {
             if (action instanceof IntConsumer) {
                 forEachRemaining((IntConsumer) action);
-            }
-            else {
+            } else {
                 // The method reference action::accept is never null
                 Objects.requireNonNull(action);
                 if (Tripwire.ENABLED)
@@ -183,6 +184,7 @@ public interface PrimitiveIterator<T, T_CONS> extends Iterator<T> {
          * @param action The action to be performed for each element
          * @throws NullPointerException if the specified action is null
          */
+        @Override
         default void forEachRemaining(LongConsumer action) {
             Objects.requireNonNull(action);
             while (hasNext())
@@ -212,11 +214,11 @@ public interface PrimitiveIterator<T, T_CONS> extends Iterator<T> {
          * {@code LongConsumer}, by boxing the argument of {@code LongConsumer},
          * and then passed to {@link #forEachRemaining}.
          */
+        @Override
         default void forEachRemaining(Consumer<? super Long> action) {
             if (action instanceof LongConsumer) {
                 forEachRemaining((LongConsumer) action);
-            }
-            else {
+            } else {
                 // The method reference action::accept is never null
                 Objects.requireNonNull(action);
                 if (Tripwire.ENABLED)
@@ -287,11 +289,11 @@ public interface PrimitiveIterator<T, T_CONS> extends Iterator<T> {
          * {@code DoubleConsumer}, and then passed to
          * {@link #forEachRemaining}.
          */
+        @Override
         default void forEachRemaining(Consumer<? super Double> action) {
             if (action instanceof DoubleConsumer) {
                 forEachRemaining((DoubleConsumer) action);
-            }
-            else {
+            } else {
                 // The method reference action::accept is never null
                 Objects.requireNonNull(action);
                 if (Tripwire.ENABLED)

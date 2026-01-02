@@ -7,7 +7,6 @@ public class ColorSpace
     private PixelColor m_acCMAP[] = null;
     /*private static color_table[32][32][];*/
 
-    
     public static final int CS_NO_COLOR_SPACE   = 0;
     public static final int CS_RGB32 		= 1;
     public static final int CS_RGBA32		= 2;
@@ -19,7 +18,8 @@ public class ColorSpace
     public static final int CS_GRAY8		= 8;
     public static final int CS_CMAP4		= 9;
     public static final int CS_GRAY4		= 10;
-    public static final int CS_GRAY1		= 11;	
+    public static final int CS_GRAY1		= 11;
+    
  private static PixelColor s_acCMAP[] = new PixelColor[] 
     {
 		new PixelColor (0x00,0x00,0x00,0x00),
@@ -293,8 +293,6 @@ public class ColorSpace
     public static final ColorSpace GRAY1	=  new ColorSpace(CS_GRAY1);	
     
     private int value;
-
-   
 
     public ColorSpace()
     {

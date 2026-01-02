@@ -155,7 +155,7 @@ getNumberInstance()
 public static NumberFormat
 getNumberInstance(Locale locale)
 {
-  ; //*** Implement me
+  //*** Implement me
   return(null);
 }
 
@@ -184,7 +184,7 @@ getCurrencyInstance()
 public static NumberFormat
 getCurrencyInstance(Locale locale)
 {
-  ; //*******Implement me
+  //*******Implement me
   return(null);
 }
 
@@ -215,7 +215,7 @@ getPercentInstance()
 public static NumberFormat
 getPercentInstance(Locale locale)
 {
-  ; //*******Implement me
+  //*******Implement me
   return(null);
 }
 
@@ -245,10 +245,8 @@ getAvailableLocales()
 /**
   * This is a default constructor for use by subclasses.
   */
-public
-NumberFormat()
+public NumberFormat()
 {
-  ;
 }
   
 /*************************************************************************/
@@ -520,7 +518,7 @@ format(long number, StringBuffer sb, FieldPosition pos);
 public abstract StringBuffer
 format(double number, StringBuffer sb, FieldPosition pos);
 
-
+@Override
 public final StringBuffer format(Object number,
                                  StringBuffer toAppendTo,
                                  FieldPosition pos) {
@@ -619,8 +617,8 @@ hashCode()
   * 
   * @return <code>true</code> if the specified object is equal to this object, <code>false</code> otherwise.
   */
-public boolean
-equals(Object obj)
+@Override
+public boolean equals(Object obj)
 {
   if (obj == null)
     return(false);
