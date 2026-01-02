@@ -5,6 +5,7 @@ import cr0s.javara.entity.actor.EntityActor;
 import cr0s.javara.entity.actor.activity.Activity;
 import cr0s.javara.entity.actor.activity.activities.Turn.RotationDirection;
 import cr0s.javara.entity.building.EntityBuilding;
+import cr0s.javara.render.World;
 import cr0s.javara.util.PointsUtil;
 import cr0s.javara.util.Pos;
 import cr0s.javara.util.RotationUtil;
@@ -70,7 +71,7 @@ public class Move extends Activity {
 
 	Pos nextCell = new Pos(px, py);
 
-	if (!me.canEnterCell(nextCell) && me.world.isCellBlockedByEntity(nextCell)) {
+	/*if (!me.canEnterCell(nextCell) && me.world.isCellBlockedByEntity(nextCell)) {
 	    // This building we ignore
 	    if (this.ignoreBuilding != null && me.world.getBuildingInCell(nextCell) == this.ignoreBuilding) {
 		this.hasNotifiedBlocker = false;
@@ -102,14 +103,14 @@ public class Move extends Activity {
 			    mobileEntity.notifyBlocking(me);
 			}
 		    }
-		}*/
+		}
 
 		this.hasNotifiedBlocker = true;
 	    }
 
 	    // Wait a bit
 	    if (!this.hasWaited) {
-		this.waitTicksRemaining = me.getWaitAverageTime() + me.world.getRandomInt(-me.getWaitSpreadTime(), me.getWaitSpreadTime());
+		this.waitTicksRemaining = me.getWaitAverageTime() + World.getRandomInt(-me.getWaitSpreadTime(), me.getWaitSpreadTime());
 
 		//System.out.println("Waiting time: " + this.waitTicksRemaining);
 		this.hasWaited = true;
@@ -130,7 +131,7 @@ public class Move extends Activity {
 	    this.ticksBeforeRepath = Move.REPATHING_INTERVAL_TICKS;
 
 	    chooseNewPath(me);
-	}
+	}*/
 
 	this.currentPathIndex++;
 	this.hasNotifiedBlocker = false;
@@ -140,7 +141,7 @@ public class Move extends Activity {
     }
 
     private void chooseNewPath(MobileEntity me) {
-	this.currentPath = me.findPathFromTo(me, this.destCell);
+	/*this.currentPath = me.findPathFromTo(me, this.destCell);
 	this.currentPathIndex = 1;
 
 	this.isNewPath = true;
@@ -159,7 +160,7 @@ public class Move extends Activity {
 	    this.currentPath = me.findPathFromTo(me, destCell);
 	    this.currentPathIndex = 1;
 	    this.isNewPath = true;
-	}
+	}*/
     }
 
     public Pos chooseClosestToDestCell(MobileEntity me) {
@@ -246,7 +247,7 @@ public class Move extends Activity {
 	    this.me.targetCell.setX(aDestCell.getX());
 	    this.me.targetCell.setY(aDestCell.getY());
 
-	    this.end = new Pos(aDestCell.getX() * 24, aDestCell.getY() * 24);
+	    this.end = new Pos(aDestCell.getX(), aDestCell.getY());
 	    this.start = aStart;
 
 	    this.lengthInTicks = (int) (20 - (10 * me.getMoveSpeed()));

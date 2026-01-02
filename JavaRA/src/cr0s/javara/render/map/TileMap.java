@@ -164,7 +164,7 @@ public class TileMap {
 			this.resourcesLayer.resources[x][y] = this.resourcesLayer.new ResourceCell(tile, index);
 		    }
 		}
-	    }	   
+            }
 
 	    this.resourcesLayer.setInitialDensity();
 	} catch (IOException e) {

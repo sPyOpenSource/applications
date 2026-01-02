@@ -59,18 +59,18 @@ public class FindResources extends Activity {
     private Pos getUnvisitedChildNode(Set<Pos> visited, Pos currentNode,
 	    EntityHarvester harv) {
 	// All possible adjacent cells directions
-	int dx[] = { +1, -1, 0, 0, +1, -1, +1, -1 };
-	int dy[] = { 0, 0, +1, -1, +1, +1, -1, -1 };
+	int dx[] = { +1, -1,  0,  0, +1, -1, +1, -1 };
+	int dy[] = {  0,  0, +1, -1, +1, +1, -1, -1 };
 
 	for (int i = 0; i < 8; i++) {
 	    int newCellX = currentNode.getCellX() + dx[i];
 	    int newCellY = currentNode.getCellY() + dy[i];
 
 	    Pos cell = new Pos(newCellX, newCellY);
-
-	    if (!harv.world.isCellPassable(cell)) {
+if(!harv.world.getMap().isInMap(cell)) continue;
+	    /*if (!harv.world.isCellPassable(cell)) {
 		continue;
-	    }
+	    }*/
 
 	    if (!visited.contains(cell)) {
 		return cell;
@@ -107,7 +107,12 @@ public class FindResources extends Activity {
 	    Pos child;
 	    while ((child = getUnvisitedChildNode(visited, node, harv)) != null) {
 		visited.add(child);
-
+//harv.setPos(child);
+                /*try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException ex) {
+                    System.getLogger(FindResources.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
+                }*/
 		if (isCellChoosable(harv, child)) {
 		    return child;
 		}
@@ -122,13 +127,11 @@ public class FindResources extends Activity {
     private boolean isCellChoosable(EntityHarvester harv, Pos cellPos) {
 	/*boolean shroudObscures = harv.owner.getShroud() != null
 		&& !harv.owner.getShroud().isExplored(cellPos);*/
-	boolean isHarvesterPoint = (int) cellPos.getX() == (int) harv
-		.getCellPos().getX()
-		&& (int) cellPos.getY() == (int) harv.getCellPos().getY();
+	boolean isHarvesterPoint = cellPos == harv.getCellPos();
 
 	return //!shroudObscures && 
-                (isHarvesterPoint || harv.world.isCellPassable(cellPos))
-		&& !harv.world.getMap().getResourcesLayer()
+                //(isHarvesterPoint || harv.world.isCellPassable(cellPos)) && 
+                !harv.world.getMap().getResourcesLayer()
 			.isCellEmpty(cellPos);
     }
 

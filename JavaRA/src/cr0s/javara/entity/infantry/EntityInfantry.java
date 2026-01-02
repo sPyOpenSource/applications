@@ -27,13 +27,13 @@ import cr0s.javara.order.Target;
 import cr0s.javara.render.EntityBlockingMap.FillsSpace;
 import cr0s.javara.render.EntityBlockingMap.SubCell;
 import cr0s.javara.render.Sequence;
+import cr0s.javara.render.World;
 import cr0s.javara.resources.ResourceManager;
 import cr0s.javara.resources.ShpTexture;
 import cr0s.javara.resources.SoundManager;
 import cr0s.javara.util.Pos;
 
 import javafx.scene.shape.Path;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 import javafx.scene.shape.MoveTo;
 
@@ -242,10 +242,10 @@ public abstract class EntityInfantry extends MobileEntity implements IShroudReve
 		this.currentSequence = this.standSequence;
 	    } else if (this.getCurrentAnimationState() == AnimationState.IDLE) {
 		if (--this.randomTicksBeforeIdleSeq <= 0) {
-		    this.randomTicksBeforeIdleSeq = world.getRandomInt(EntityInfantry.MIN_IDLE_DELAY_TICKS, EntityInfantry.MAX_IDLE_DELAY_TICKS);
+		    this.randomTicksBeforeIdleSeq = World.getRandomInt(EntityInfantry.MIN_IDLE_DELAY_TICKS, EntityInfantry.MAX_IDLE_DELAY_TICKS);
 
 		    if (!this.idleSequences.isEmpty()) {
-			this.currentSequence = this.idleSequences.get(world.getRandomInt(0, this.idleSequences.size()));
+			this.currentSequence = this.idleSequences.get(World.getRandomInt(0, this.idleSequences.size()));
 			this.setCurrentAnimationState(AnimationState.IDLE_ANIMATING);
 		    }
 		} else { // Waiting for idle animation in stand state

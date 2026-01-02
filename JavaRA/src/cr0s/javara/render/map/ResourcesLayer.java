@@ -6,7 +6,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 
 public class ResourcesLayer {
-    ResourceCell[][] resources;
+    public static ResourceCell[][] resources;
     private final TileMap map;
     
     public ResourcesLayer(TileMap aMap) {
@@ -115,7 +115,7 @@ public class ResourcesLayer {
     }
     
     public void renderCell(int x, int y, BorderPane root) {
-	if (this.resources[x][y] != null) {
+	if (!isCellEmpty(x, y)) {
 	    byte index = (byte) (this.resources[x][y].getFrameIndex() & 0xFF);
 	    
 	    Pos sheetPoint = map.getTheater().getShpTexturePoint(this.resources[x][y].getSpriteName());
@@ -130,7 +130,7 @@ public class ResourcesLayer {
     }
 
     public boolean isCellEmpty(int x, int y) {
-	return map.isInMap(x * 24, y * 24) || this.resources[x][y] == null;
+	return /*map.isInMap(x * 24, y * 24) ||*/ this.resources[x][y] == null;
     }
     
     public int harvestCell(int x, int y) {

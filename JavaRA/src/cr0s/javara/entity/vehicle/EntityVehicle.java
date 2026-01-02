@@ -11,14 +11,15 @@ import cr0s.javara.entity.MobileEntity;
 import cr0s.javara.entity.actor.EntityActor;
 import cr0s.javara.entity.actor.activity.Activity;
 import cr0s.javara.entity.actor.activity.activities.Move;
+import cr0s.javara.entity.actor.activity.activities.MoveInfantry;
 import cr0s.javara.entity.effect.SmokeOnUnit;
+import cr0s.javara.entity.infantry.EntityInfantry.AnimationState;
 import cr0s.javara.order.Order;
 import cr0s.javara.render.EntityBlockingMap.FillsSpace;
 import cr0s.javara.resources.SoundManager;
 import cr0s.javara.util.Pos;
 
 import javafx.scene.paint.Color;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 
 public abstract class EntityVehicle extends MobileEntity implements IShroudRevealer {
@@ -62,6 +63,10 @@ public abstract class EntityVehicle extends MobileEntity implements IShroudRevea
     @Override
     public void updateEntity(long delta) {
 	super.updateEntity(delta);
+        /*if ((this.currentActivity instanceof MoveInfantry || this.currentActivity instanceof MoveInfantry.MovePart) && this.getCurrentAnimationState() != AnimationState.WAITING) {
+	    this.setCurrentAnimationState(AnimationState.MOVING);
+	    this.currentSequence = this.runSequence;
+	}*/
     }
 
 

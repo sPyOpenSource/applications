@@ -59,27 +59,26 @@ public class EntityBlockingMap {
     
     public void freeForMobileEntity(MobileEntity me) {
 	switch (me.fillsSpace) {
-	case ONE_CELL:
-		freeCell(me.getCellPos());
-		
-		if (me.isMovingToCell) {
-		    freeCell(me.targetCell);
-		}
-	case DONT_FILLS:
-	    break;
-	case ONE_OR_MORE_CELLS:
-	    // TODO:
-	    break;
-	case ONE_SUBCELL:
-		freeSubCell(me.getCellPos(), me.currentSubcell);
-		if (me.isMovingToCell) {
-		    freeSubCell(me.targetCell, me.desiredSubcell);
-		}
-	    break;
-	default:
-	    break;
+            case ONE_CELL:
+                freeCell(me.getCellPos());
+
+                if (me.isMovingToCell) {
+                    freeCell(me.targetCell);
+                }
+            case DONT_FILLS:
+                break;
+            case ONE_OR_MORE_CELLS:
+                // TODO:
+                break;
+            case ONE_SUBCELL:
+                freeSubCell(me.getCellPos(), me.currentSubcell);
+                if (me.isMovingToCell) {
+                    freeSubCell(me.targetCell, me.desiredSubcell);
+                }
+                break;
+            default:
+                break;
 	}
-	
     }    
     
     public void freeCell(Pos cellPos) {

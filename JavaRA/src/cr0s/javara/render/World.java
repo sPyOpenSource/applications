@@ -143,12 +143,12 @@ public class World extends AnimationTimer {
 
                     // For mobile entities, after entity updated, update it's blocking map state to avoid entity movement collisions
                     if (e instanceof MobileEntity mobileEntity) {
-                        this.blockingEntityMap.freeForMobileEntity(mobileEntity);
+                        //this.blockingEntityMap.freeForMobileEntity(mobileEntity);
 
                         e.updateEntity(delta);	
 
                         // Lock next entity position. Or re-lock current, if position is not changed
-                        this.blockingEntityMap.occupyForMobileEntity(mobileEntity);
+                        //this.blockingEntityMap.occupyForMobileEntity(mobileEntity);
                     } else {
                         e.updateEntity(delta);	
                         if(e instanceof EntityBuilding eb)
@@ -406,13 +406,13 @@ public class World extends AnimationTimer {
     }
     
     public boolean isCellPassable(Pos x, SubCell sub) {
-	if (x.getCellX() >= this.map.getWidth() || x.getCellY() >= this.map.getHeight()) {
+	/*if (x.getCellX() >= this.map.getWidth() || x.getCellY() >= this.map.getHeight()) {
 	    return false;
 	}
 
 	if (x.getCellX() < 0 || x.getCellY() < 0) {
 	    return false;
-	}
+	}*/
 
 	if (!this.map.isInMap(x.getX(), x.getY())) {
 	    return false;
