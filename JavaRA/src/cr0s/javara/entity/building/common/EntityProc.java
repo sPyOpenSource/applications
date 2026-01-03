@@ -95,7 +95,7 @@ public class EntityProc extends EntityBuilding implements ISelectable, IPowerCon
 
 	harv.linkedProc = this;
 	harv.queueActivity(new FindResources());
-
+        harv.owner = owner;
 	world.spawnEntityInWorld(harv);
         owner.entities.add(harv);
 	this.setName("proc");
@@ -136,7 +136,7 @@ public class EntityProc extends EntityBuilding implements ISelectable, IPowerCon
         view.setY(boundingBox.getY());
         setImageView(view);
         StackPane combined = new StackPane();
-combined.getChildren().add(view);
+        combined.getChildren().add(view);
         return combined;
     }
 

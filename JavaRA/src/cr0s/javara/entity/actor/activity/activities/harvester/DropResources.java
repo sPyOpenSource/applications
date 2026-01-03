@@ -30,9 +30,7 @@ public class DropResources extends Activity {
 	}	
 	
 	// If we're trying to drop resources not inside the refiner
-	if (harv.getCellPos().getX() != harv.linkedProc.getHarvesterCell().getX() && 
-		harv.getCellPos().getY() != harv.linkedProc.getHarvesterCell().getY()) {
-	    
+	if (harv.getPos() == harv.linkedProc.getHarvesterCell()) {
 	    // Try to advance to refiner
 	    DeliverResources deliverActivity = new DeliverResources();
 	    deliverActivity.queueActivity(this.nextActivity);

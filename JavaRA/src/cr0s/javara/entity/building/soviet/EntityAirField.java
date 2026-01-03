@@ -76,9 +76,6 @@ public class EntityAirField extends EntityBuilding implements ISelectable, IPowe
 
     @Override
     public StackPane renderEntity() {
-	//double nx = posX;
-	//double ny = posY;
-
 	int corruptionShift = 0;
 
 	if (this.getHp() > this.getMaxHp() / 2) {
@@ -88,7 +85,7 @@ public class EntityAirField extends EntityBuilding implements ISelectable, IPowe
 	}
 
 	//sheet.startUse();
-	//sheet.getSubImage(0, corruptionShift + ((this.isCharging) ? animIndex : 4 + animIndex)).drawEmbedded(posX, posY, this.getTextureWidth(), this.getTextureHeight());
+	ImageView view = sheet.getSubImage(0, corruptionShift + ((this.isCharging) ? animIndex : 4 + animIndex));//.drawEmbedded(posX, posY, this.getTextureWidth(), this.getTextureHeight());
 	//sheet.endUse();
 
 	// Draw bounding box if debug mode is on
@@ -103,7 +100,11 @@ public class EntityAirField extends EntityBuilding implements ISelectable, IPowe
 	if (this.repairIconBlink) {
 	    //repairImage.draw(this.boundingBox.getX() + this.boundingBox.getWidth() / 2 - repairImage.getWidth() / 2, this.boundingBox.getY() + this.boundingBox.getHeight() / 2 - repairImage.getHeight() / 2);
 	}
-        return null;
+        view.setX(boundingBox.getX());
+        view.setY(boundingBox.getY());
+        StackPane combined = new StackPane();
+        combined.getChildren().add(view);
+        return combined;
     }
 
     @Override

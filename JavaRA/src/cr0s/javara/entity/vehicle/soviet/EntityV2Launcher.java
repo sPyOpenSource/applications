@@ -121,7 +121,8 @@ public class EntityV2Launcher extends EntityVehicle implements ISelectable, IHav
         view.setX(boundingBox.getX());
         view.setY(boundingBox.getY());
         StackPane combined = new StackPane();
-combined.getChildren().add(view);
+        combined.getChildren().add(view);
+        setImageView(view);
         return combined;
     }
 
