@@ -20,7 +20,6 @@ import cr0s.javara.entity.MobileEntity;
 import cr0s.javara.render.World;
 import cr0s.javara.util.Pos;
 import java.util.ArrayList;
-import java.util.Random;
 
 import javafx.scene.shape.Path;
 import javafx.scene.shape.MoveTo;
@@ -36,7 +35,6 @@ import mazesolver.Maze;
 class AStarPathFinder {
     
     private final Maze maze;
-    private final Random random = new Random();
     private final int max;
 
     private ArrayList<Pos> router;
@@ -62,7 +60,7 @@ class AStarPathFinder {
             );
             path.getElements().add(line);
         }
-        path.getElements().add(new MoveTo(goal.getX(),goal.getY()));
+        path.getElements().add(new MoveTo(goal.getX(), goal.getY()));
                     /*PathTransition transition = new PathTransition();
                     transition.setDuration(Duration.millis(500 * router.size()));
                     router.removeAll(router);

@@ -432,13 +432,13 @@ public class World extends AnimationTimer {
     }
 
     public boolean isCellBuildable(Pos x, boolean isMcvDeploy) {
-	if (x.getCellX() >= this.map.getWidth() || x.getCellY() >= this.map.getHeight()) {
+	/*if (x.getCellX() >= this.map.getWidth() || x.getCellY() >= this.map.getHeight()) {
 	    return false;
 	}
 
 	if (x.getCellX() < 0 || x.getCellY() < 0) {
 	    return false;
-	}
+	}*/
 
 	if (!this.map.isInMap(x.getX(), x.getY())) {
 	    return false;

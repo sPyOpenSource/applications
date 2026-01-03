@@ -62,15 +62,16 @@ public class Ant implements Runnable {
         int y = currentPoint().getCellY();
         
         // Create 4 surrounding locations
-        Pos[] points = new Pos[8];
-        points[0] = new Pos(x, y - 1);
-        points[1] = new Pos(x - 1, y);
-        points[2] = new Pos(x + 1, y);
-        points[3] = new Pos(x, y + 1);
-        points[4] = new Pos(x - 1, y + 1);
-        points[5] = new Pos(x - 1, y - 1);
-        points[6] = new Pos(x + 1, y + 1);
-        points[7] = new Pos(x + 1, y - 1);
+        Pos[] points = new Pos[]{
+            new Pos(x, y - 1),
+            new Pos(x - 1, y),
+            new Pos(x + 1, y),
+            new Pos(x, y + 1),
+            new Pos(x - 1, y + 1),
+            new Pos(x - 1, y - 1),
+            new Pos(x + 1, y + 1),
+            new Pos(x + 1, y - 1)
+        };
         
         // Check each location with maze/path
         float[] w = new float[8];
