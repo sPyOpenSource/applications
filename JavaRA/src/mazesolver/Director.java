@@ -68,67 +68,68 @@ public class Director implements Runnable {
         // Store start time
         long startTime = System.currentTimeMillis();
         while(true){
-        // Create a list of threads from this iteration
-        ArrayList<Thread> threads = new ArrayList<>();
-        
-        // Loop through the possible subRoutes and create new threads
-        for (int y = 0; y < subRouteMatrix.length - 1; y++) {
-            for (int x = y + 1; x < subRouteMatrix.length; x++) {
-                Thread thread = subRouteMatrix[y][x].findSubRoute();
-                thread.setName("subRoute(" + y + " -> " + x + ")");
-                threads.add(thread);
-            }
-        }
-        
-        // Get lengthmatrix to be passed on
-        int[][] lengthMatrix = Helper.createLengthMatrix(subRouteMatrix);
+            // Create a list of threads from this iteration
+            ArrayList<Thread> threads = new ArrayList<>();
 
-        // Create new routeFinder thread
-        if(lengthMatrix != null) {
-            routeFinder.setLengthMatrix(lengthMatrix);
-            
-            Thread thread = routeFinder.findRoute();
-            thread.setName("routeFinder");
-            threads.add(thread);
-        }
-        
-        // Start or run threads
-        for(Thread thread : threads) {
-            if (Settings.Main.multiThreading)
-                thread.start();
-            else
-                thread.run();
-        }
-        
-        // Wait for threads to finish
-        while (Settings.Main.multiThreading) {
-            // Check if threads are alive
-            boolean atleastOneRunning = false;
-            for (Thread thread : threads) {
-                if (thread.isAlive()) {
-                    atleastOneRunning = true;
-                    break;
+            // Loop through the possible subRoutes and create new threads
+            for (int y = 0; y < subRouteMatrix.length - 1; y++) {
+                for (int x = y + 1; x < subRouteMatrix.length; x++) {
+                    Thread thread = subRouteMatrix[y][x].findSubRoute();
+                    thread.setName("subRoute(" + y + " -> " + x + ")");
+                    threads.add(thread);
                 }
             }
-            
-            // Break out of loop if all threads are done
-            if (!atleastOneRunning) break;
-            
-            // Wait for 20ms
-            try { Thread.sleep(20); } catch (InterruptedException ex) {}
-        }
-        
-        // Show route matrix
-        Helper.debug(subRouteMatrixString(subRouteMatrix));
-        
-        // Show best route
-        int[] bestorder = routeFinder.getBestOrder();
-        if(bestorder.length != 0){
-        Helper.log("Best route order: " + orderString(bestorder));
-        Helper.log("Best route length: " +
-                routeFinder.getRouteLength(bestorder) + " steps");
-        break;
-        }
+
+            // Get lengthmatrix to be passed on
+            int[][] lengthMatrix = Helper.createLengthMatrix(subRouteMatrix);
+
+            // Create new routeFinder thread
+            if(lengthMatrix != null) {
+                routeFinder.setLengthMatrix(lengthMatrix);
+
+                Thread thread = routeFinder.findRoute();
+                thread.setName("routeFinder");
+                threads.add(thread);
+            }
+
+            // Start or run threads
+            for(Thread thread : threads) {
+                if (Settings.Main.multiThreading)
+                    thread.start();
+                else
+                    thread.run();
+            }
+
+            // Wait for threads to finish
+            while (Settings.Main.multiThreading) {
+                // Check if threads are alive
+                boolean atleastOneRunning = false;
+                for (Thread thread : threads) {
+                    if (thread.isAlive()) {
+                        atleastOneRunning = true;
+                        break;
+                    }
+                }
+
+                // Break out of loop if all threads are done
+                if (!atleastOneRunning) break;
+
+                // Wait for 20ms
+                try { Thread.sleep(20); } catch (InterruptedException ex) {}
+            }
+
+            // Show route matrix
+            Helper.debug(subRouteMatrixString(subRouteMatrix));
+
+            // Show best route
+            int[] bestorder = routeFinder.getBestOrder();
+            if(System.currentTimeMillis() - startTime > 1000) break;
+            if(bestorder.length != 0){
+                Helper.log("Best route order: " + orderString(bestorder));
+                Helper.log("Best route length: " +
+                        routeFinder.getRouteLength(bestorder) + " steps");
+                break;
+            }
         }
         // Announce finish of iteration and print runtime
         Helper.log("Iteration finished after " +
