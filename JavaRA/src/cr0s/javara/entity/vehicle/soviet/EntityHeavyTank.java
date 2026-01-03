@@ -126,7 +126,7 @@ public class EntityHeavyTank extends EntityVehicle implements ISelectable, IHave
         getImageView().setX(this.getTextureX());
         getImageView().setY(this.getTextureY());
         StackPane combined = new StackPane();
-combined.getChildren().add(getImageView());
+        combined.getChildren().add(getImageView());
         return combined;
 	//this.turret.render(g);
 	//texture.endUse();

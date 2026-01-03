@@ -186,7 +186,7 @@ public class EntityMammothTank extends EntityVehicle implements ISelectable, IHa
         view.setY(tileY);
         setImageView(view);
         StackPane combined = new StackPane();
-combined.getChildren().add(view);
+        combined.getChildren().add(view);
         return combined;
     }
 

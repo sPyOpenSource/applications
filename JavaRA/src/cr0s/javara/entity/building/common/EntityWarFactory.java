@@ -159,7 +159,7 @@ public class EntityWarFactory extends EntityBuilding implements ISelectable, ISh
         ImageView bottom = new ImageView(image);
         bottom.setX(boundingBox.getX());
         bottom.setY(boundingBox.getY());
-combined.getChildren().addAll(bottom, top);
+        combined.getChildren().addAll(bottom, top);
         setImageView(top);
         return combined;
     }
@@ -215,7 +215,10 @@ combined.getChildren().addAll(bottom, top);
 	if (tryToMoveOutEntityToUnlockedCells(this.targetEntity)) {
 	    targetEntity.isVisible = true;
 	    
-	    if (targetEntity == null || !targetEntity.boundingBox.intersects(this.exitBoundingBox.getBoundsInLocal())) { // if entity is still inside factory, don't close the doors
+	    if (
+                    targetEntity == null 
+                    || !targetEntity.boundingBox.intersects(this.exitBoundingBox.getBoundsInLocal())
+                    ) { // if entity is still inside factory, don't close the doors
 		animateCloseDoors();
 		this.targetEntity = null;
 	    }	    
@@ -230,7 +233,7 @@ combined.getChildren().addAll(bottom, top);
 	
 	boolean isExitBlocked = isCellBlocked(exitX, exitY);
 	
-	if (isExitBlocked) {
+	/*if (isExitBlocked) {
 	    // Try to nudge blocker
 	    MobileEntity blocker = world.getMobileEntityInCell(new Pos(exitX, exitY));
 	    if (blocker != null) {
@@ -238,7 +241,7 @@ combined.getChildren().addAll(bottom, top);
 	    }
 	    
 	    return false;
-	}
+	}*/
 	
 	Path p = new Path();
 	p.getElements().add(new MoveTo(targetEntity.getCenterPosX(), targetEntity.getCenterPosY()));
@@ -248,7 +251,7 @@ combined.getChildren().addAll(bottom, top);
 	    int cellX = exitX + this.exitDirectionsX[i];
 	    int cellY = exitY + this.exitDirectionsY[i];
 
-	    if (!isCellBlocked(cellX, cellY)) {
+	    //if (!isCellBlocked(cellX, cellY)) {
 		isSuccess = true;
 
 		p.getElements().add(new MoveTo(cellX * 24, cellY * 24));
@@ -256,7 +259,7 @@ combined.getChildren().addAll(bottom, top);
 		v.startMovingByPath(p, this);		
 
 		return true;
-	    }	    
+	    //}	    
 	}
 
 	return false;
@@ -272,9 +275,10 @@ combined.getChildren().addAll(bottom, top);
 	}
 	
 	world.spawnEntityInWorld(target);
+        owner.entities.add(target);
 	target.setWorld(world);
 	this.targetEntity = target;
-	targetEntity.setPositionByCenter(boundingBox.getX() + 24 + 12, boundingBox.getY() + 24 * 1);
+	targetEntity.setPositionByCenter(boundingBox.getX() + 24 + 12, boundingBox.getY() + 24);
 	targetEntity.currentFacing = 16;
 	targetEntity.isVisible = false;
 	

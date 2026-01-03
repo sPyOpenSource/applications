@@ -164,6 +164,8 @@ public abstract class MobileEntity extends EntityActor implements INotifyBlockin
     }	
 
     public void setPositionByCenter(double x, double y) {
+        boundingBox.setX(x);
+        boundingBox.setY(y);
 	setCenterX(x);
 	setCenterY(y);
     }
@@ -270,8 +272,9 @@ public abstract class MobileEntity extends EntityActor implements INotifyBlockin
     }
     
     public void startMovingByPath(Path p, EntityBuilding ignoreBuilding) {
-	this.goal.setX(((MoveTo)p.getElements().get(p.getElements().size() - 1)).getX());
-	this.goal.setY(((MoveTo)p.getElements().get(p.getElements().size() - 1)).getY());
+	this.goal = new Pos(
+                ((MoveTo)p.getElements().get(p.getElements().size() - 1)).getX(), 
+                ((MoveTo)p.getElements().get(p.getElements().size() - 1)).getY());
 	
 	queueActivity(new Move(this, p, goal, ignoreBuilding));
     }    
