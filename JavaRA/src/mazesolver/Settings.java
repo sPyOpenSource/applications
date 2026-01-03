@@ -83,7 +83,7 @@ public class Settings {
         public static int factorNew = 100000;
         
         // Maximum number of steps per ant
-        public static int maxSteps = 10000;        
+        public static int maxSteps = 8000;        
     }
     
 }
