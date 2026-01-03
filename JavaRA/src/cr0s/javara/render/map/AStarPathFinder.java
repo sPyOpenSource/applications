@@ -26,6 +26,7 @@ import javafx.scene.shape.Path;
 import javafx.scene.shape.MoveTo;
 
 import mazesolver.Director;
+import mazesolver.Helper;
 import mazesolver.Maze;
 
 /**
@@ -52,6 +53,7 @@ class AStarPathFinder {
         director = new Director(maze, null);
         director.run();
         router = director.getBestRoute();
+        Helper.optimizePath(router, maze);
         Path path = new Path();
         for(Pos point:router){
             MoveTo line = new MoveTo(
