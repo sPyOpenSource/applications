@@ -102,7 +102,7 @@ public class EntityProc extends EntityBuilding implements ISelectable, IPowerCon
     }
 
     public Pos getHarvesterCell() {
-	return new Pos((this.boundingBox.getX()) + HARV_OFFSET_X * 24, this.boundingBox.getY() + HARV_OFFSET_Y * 24);	
+	return new Pos(this.boundingBox.getX() + HARV_OFFSET_X * 24, this.boundingBox.getY() + HARV_OFFSET_Y * 24);	
     }
 
     private void initTextures() {

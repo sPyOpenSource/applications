@@ -25,7 +25,7 @@ public class HarvestResource extends Activity {
 	    return deliverResources();
 	}
 	
-	Pos currentCell = harv.getCellPos();
+	Pos currentCell = harv.getPos();
 	
 	// Try to find resources if there is no resources in current cell
 	if (harv.world.getMap().getResourcesLayer().isCellEmpty(currentCell)) {
@@ -41,7 +41,7 @@ public class HarvestResource extends Activity {
 	    return findResources(currentCell);
 	}
 	
-	Wait waitActivity = new Wait(harv.LOAD_TICKS_PER_BALE);
+	Wait waitActivity = new Wait(EntityHarvester.LOAD_TICKS_PER_BALE);
 	waitActivity.queueActivity(this);
 	
 	return waitActivity;

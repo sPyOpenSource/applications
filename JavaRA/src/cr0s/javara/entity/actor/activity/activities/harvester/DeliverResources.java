@@ -16,7 +16,6 @@ public class DeliverResources extends Activity {
 	
 	EntityHarvester harv = (EntityHarvester) a;
 	
-	Pos procDestPoint = null;
 	if (harv.linkedProc == null || harv.linkedProc.isDead() || harv.linkedProc.isDestroyed()) {
 	    harv.linkedProc = harv.findClosestProc();
 	}
@@ -25,7 +24,7 @@ public class DeliverResources extends Activity {
 	    return nextActivity;
 	}
 	
-	procDestPoint = harv.linkedProc.getHarvesterCell();
+	Pos procDestPoint = harv.linkedProc.getHarvesterCell();
 	
 	Move moveActivity = new Move(harv, procDestPoint, 0, null);
 	moveActivity.queueActivity(new DropResources(harv));

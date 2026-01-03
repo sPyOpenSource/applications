@@ -141,7 +141,7 @@ public class Move extends Activity {
     }
 
     private void chooseNewPath(MobileEntity me) {
-	/*this.currentPath = me.findPathFromTo(me, this.destCell);
+	this.currentPath = me.findPathFromTo(me, this.destCell);
 	this.currentPathIndex = 1;
 
 	this.isNewPath = true;
@@ -160,7 +160,7 @@ public class Move extends Activity {
 	    this.currentPath = me.findPathFromTo(me, destCell);
 	    this.currentPathIndex = 1;
 	    this.isNewPath = true;
-	}*/
+	}
     }
 
     public Pos chooseClosestToDestCell(MobileEntity me) {
@@ -244,11 +244,10 @@ public class Move extends Activity {
 	    this.parentMove = aParentMove;
 
 	    this.me = aMe;
-	    this.me.targetCell.setX(aDestCell.getX());
-	    this.me.targetCell.setY(aDestCell.getY());
+	    this.me.targetCell = aDestCell.Clone();
 
-	    this.end = new Pos(aDestCell.getX(), aDestCell.getY());
-	    this.start = aStart;
+	    this.end = aDestCell.Clone();
+	    this.start = aStart.Clone();
 
 	    this.lengthInTicks = (int) (20 - (10 * me.getMoveSpeed()));
 
