@@ -123,7 +123,7 @@ public class Director implements Runnable {
 
             // Show best route
             int[] bestorder = routeFinder.getBestOrder();
-            if(System.currentTimeMillis() - startTime > 1000) break;
+            if(System.currentTimeMillis() - startTime > 800) break;
             if(bestorder.length != 0){
                 Helper.log("Best route order: " + orderString(bestorder));
                 Helper.log("Best route length: " +

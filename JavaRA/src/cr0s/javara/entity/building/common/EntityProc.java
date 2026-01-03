@@ -97,7 +97,7 @@ public class EntityProc extends EntityBuilding implements ISelectable, IPowerCon
 	harv.queueActivity(new FindResources());
 
 	world.spawnEntityInWorld(harv);
-        //owner.entities.add(harv);
+        owner.entities.add(harv);
 	this.setName("proc");
     }
 

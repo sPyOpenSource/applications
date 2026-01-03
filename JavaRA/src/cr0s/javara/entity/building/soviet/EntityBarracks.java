@@ -75,7 +75,6 @@ public class EntityBarracks extends EntityBuilding implements ISelectable, IPowe
 
     @Override
     public StackPane renderEntity() {
-        ImageView view = null;
 	int corruptionShift = 0;
 
 	if (this.getHp() > this.getMaxHp() / 2) {
@@ -85,7 +84,7 @@ public class EntityBarracks extends EntityBuilding implements ISelectable, IPowe
 	}
 
 	//sheet.startUse();
-	view = sheet.getSubImage(0, corruptionShift + animIndex);//.drawEmbedded(tileX, tileY, this.getTextureWidth(), this.getTextureHeight());
+	ImageView view = sheet.getSubImage(0, corruptionShift + animIndex);//.drawEmbedded(tileX, tileY, this.getTextureWidth(), this.getTextureHeight());
 	//sheet.endUse();
 
 	// Draw bounding box if debug mode is on
@@ -104,7 +103,7 @@ public class EntityBarracks extends EntityBuilding implements ISelectable, IPowe
         view.setY(boundingBox.getY());
         setImageView(view);
         StackPane combined = new StackPane();
-combined.getChildren().add(view);
+        combined.getChildren().add(view);
         return combined;
     }
 

@@ -362,7 +362,7 @@ public class Base {
 	    if (b instanceof EntityBarracks entityBarracks) {
                 EntityActor x = i.newInstance();
 		entityBarracks.deployEntity(x);
-                //owner.entities.add(x);
+                owner.entities.add(x);
 	    }/* else if (b instanceof EntityTent) {
 		((EntityTent) b).deployEntity(i.newInstance());
 	    }*/
