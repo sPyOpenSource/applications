@@ -62,15 +62,19 @@ public class Ant implements Runnable {
         int y = currentPoint().getCellY();
         
         // Create 4 surrounding locations
-        Pos[] points = new Pos[4];
+        Pos[] points = new Pos[8];
         points[0] = new Pos(x, y - 1);
         points[1] = new Pos(x - 1, y);
         points[2] = new Pos(x + 1, y);
         points[3] = new Pos(x, y + 1);
+        points[4] = new Pos(x - 1, y + 1);
+        points[5] = new Pos(x - 1, y - 1);
+        points[6] = new Pos(x + 1, y + 1);
+        points[7] = new Pos(x + 1, y - 1);
         
         // Check each location with maze/path
-        float[] w = new float[4];
-        for(byte i = 0; i < 4; i++) {
+        float[] w = new float[8];
+        for(byte i = 0; i < 8; i++) {
             w[i] = subRoute.getMaze().getValue(points[i].getCellX(), points[i].getCellY());
             if(w[i] < 0) w[i] = 0;
             else w[i] = 100000;
@@ -86,6 +90,7 @@ public class Ant implements Runnable {
         
         // Calculate total
         float total = w[0] + w[1] + w[2] + w[3];
+        total += w[4] + w[5] + w[6] + w[7];
         
         // Spin the roulette wheel
         float rand = (float) (Math.random() * total);
@@ -94,10 +99,13 @@ public class Ant implements Runnable {
         if(w[0] != 0 && rand < w[0]) return points[0];
         if(w[1] != 0 && rand < w[0] + w[1]) return points[1];
         if(w[2] != 0 && rand < w[0] + w[1] + w[2]) return points[2];
-        if(w[3] != 0) return points[3];
-        
+        if(w[3] != 0 && rand < w[0] + w[1] + w[2] + w[3]) return points[3];
+        if(w[4] != 0 && rand < w[0] + w[1] + w[2] + w[3] + w[4]) return points[4];
+        if(w[5] != 0 && rand < w[0] + w[1] + w[2] + w[3] + w[4] + w[5]) return points[5];
+        if(w[6] != 0 && rand < w[0] + w[1] + w[2] + w[3] + w[4] + w[5] + w[6]) return points[6];
+
         // Return null if no step is possible
-        return null;
+        return points[7];
     }
           
     /**

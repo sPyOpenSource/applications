@@ -220,7 +220,6 @@ public class Helper {
         
         // Walk along the old path
         while(step < oldPath.size() - 1) {
-            
             // Get coordinates of current step
             int x = oldPath.get(step).getCellX();
             int y = oldPath.get(step).getCellY();
@@ -230,6 +229,10 @@ public class Helper {
             if(maze.isNode(new Pos(x - 1, y)) && map[y][x - 1] > step) step = map[y][x - 1];
             if(maze.isNode(new Pos(x, y + 1)) && map[y + 1][x] > step) step = map[y + 1][x];
             if(maze.isNode(new Pos(x, y - 1)) && map[y - 1][x] > step) step = map[y - 1][x];
+            if(maze.isNode(new Pos(x + 1, y - 1)) && map[y - 1][x + 1] > step) step = map[y - 1][x + 1];
+            if(maze.isNode(new Pos(x - 1, y + 1)) && map[y + 1][x - 1] > step) step = map[y + 1][x - 1];
+            if(maze.isNode(new Pos(x + 1, y + 1)) && map[y + 1][x + 1] > step) step = map[y + 1][x + 1];
+            if(maze.isNode(new Pos(x - 1, y - 1)) && map[y - 1][x - 1] > step) step = map[y - 1][x - 1];
             
             // Add new step to path
             path.add(oldPath.get(step));

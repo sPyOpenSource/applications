@@ -80,7 +80,7 @@ public class SubRoute {
      */
     public void updatePath(ArrayList<Pos> path) {
         // Optimize given path
-        Helper.optimizePath(path, maze);
+        //Helper.optimizePath(path, maze);
         
         synchronized(this) {
             // If there is no shortestPath, set it to current path
@@ -98,7 +98,7 @@ public class SubRoute {
         tmp = Helper.mergePaths(tmp, path, maze);
         
         // Optimize result
-        Helper.optimizePath(tmp, maze);
+        //Helper.optimizePath(tmp, maze);
         
         synchronized(this) {
             // Update shortestPath
