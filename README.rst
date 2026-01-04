@@ -1,7 +1,7 @@
-Java OS Application
-===================
+Java OS Applications
+====================
 
-This is a part of Java OS project.
+Those are demos of the Java OS project.
 
 Build
 -----
