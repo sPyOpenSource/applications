@@ -3,7 +3,7 @@ package jCPU.JavaVM;
 
 import java.util.function.Function;
 import j51.intel.Code;
-import jCPU.JavaVM.vm.AttributeInfo;
+import jCPU.JavaVM.vm.Attribute;
 
 import jx.classfile.CodeData;
 import jx.classfile.MethodData;
@@ -134,10 +134,10 @@ public class ByteCode implements jx.zero.ByteCode {
      * Copyright (C) 2013 Chun-Yu Wang <wicanr2@gmail.com>
      */
 
-    public CodeData convertToCodeAttribute(AttributeInfo attr)
+    public CodeData convertToCodeAttribute(Attribute attr)
     {
         int info_p = 0;
-        char[] tmp = new char[4];
+        byte[] tmp = new byte[4];
         CodeData ca = new CodeData();
         //ca.attribute_name_index = attr.attribute_name_index;
         //ca.attribute_length = attr.attribute_length;

@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.io.PrintStream;
 import java.sql.Ref;
 
-import jx.compiler.nativecode.NCExceptionHandler;
-import jx.compiler.nativecode.Opr;
-import jx.compiler.nativecode.Reg;
+import jx.compiler.backend.NCExceptionHandler;
+import jx.compiler.backend.Opr;
+import jx.compiler.backend.Reg;
 import jx.compiler.symbols.*;
 
 /** 
