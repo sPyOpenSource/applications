@@ -19,8 +19,8 @@ package cr0s.javara.render.map;
 import cr0s.javara.entity.MobileEntity;
 import cr0s.javara.render.World;
 import cr0s.javara.util.Pos;
-import java.util.ArrayList;
 
+import java.util.ArrayList;
 import javafx.scene.shape.Path;
 import javafx.scene.shape.MoveTo;
 

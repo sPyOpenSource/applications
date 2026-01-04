@@ -97,7 +97,7 @@ public class Ant implements Runnable {
         float rand = (float) (Math.random() * total);
         
         // Select point from possibilities
-        if(w[0] != 0 && rand < w[0]) return points[0];
+        if(rand < w[0]) return points[0];
         if(w[1] != 0 && rand < w[0] + w[1]) return points[1];
         if(w[2] != 0 && rand < w[0] + w[1] + w[2]) return points[2];
         if(w[3] != 0 && rand < w[0] + w[1] + w[2] + w[3]) return points[3];
