@@ -25,3 +25,4 @@ module cr0s.javara.main {
     exports cr0s.javara.entity.building.common;
     exports mazesolver;
 }
+    
