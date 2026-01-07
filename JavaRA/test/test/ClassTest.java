@@ -3,7 +3,6 @@ package test;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import org.json.JSONArray;
 import org.junit.Test;
 import org.json.JSONObject;
 
@@ -43,8 +42,8 @@ public class ClassTest {
             code = code.replace("{,", "{");
             code = code.replaceFirst(",]},", "],");
             code = code.replace(",]", "]");
-            code = "{"+code;
-            //code = code.replace("],}", "]}");
+            code = "{" + code + "}";
+            code = code.replace("},}", "}");
             System.out.println(code);
             JSONObject object = new JSONObject(code);
             System.out.println(object.toString(4));
