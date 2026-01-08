@@ -5,6 +5,7 @@ import cr0s.javara.entity.actor.EntityActor;
 import cr0s.javara.entity.actor.activity.Activity;
 import cr0s.javara.entity.actor.activity.activities.Turn.RotationDirection;
 import cr0s.javara.entity.building.EntityBuilding;
+import cr0s.javara.render.World;
 
 import cr0s.javara.util.PointsUtil;
 import cr0s.javara.util.Pos;
@@ -33,13 +34,13 @@ public class Move extends Activity {
     public Move(MobileEntity me, Pos destinationCell) {
 	this.destCell = destinationCell;
 
-	this.randomWaitTicks = me.world.getRandomInt(1, 3);
+	this.randomWaitTicks = World.getRandomInt(1, 3);
 
 	chooseNewPath(me);
     }
 
     public Move(MobileEntity me, Pos destinationCell, int enoughRange) {
-	this.randomWaitTicks = me.world.getRandomInt(1, 3);
+	this.randomWaitTicks = World.getRandomInt(1, 3);
 	this.destRange = enoughRange;
 	this.destCell = destinationCell;
 

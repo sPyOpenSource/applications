@@ -667,7 +667,8 @@ ArrayList<Player> enemies;
         EntityActor a = findClosestEnemy(defenseCenter);
         if (squads.isEmpty()) return;
         Squad s = squads.get(0);
-        for(EntityActor b:s.getUnits()) b.queueActivity(new Move((MobileEntity)b, a.getCellPosition()));
+        s.setTarget(a);
+        //for(EntityActor b:s.getUnits()) b.queueActivity(new Move((MobileEntity)b, a.getCellPosition()));
     }
 
     void protectOwn(EntityActor attacker) {
