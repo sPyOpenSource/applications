@@ -161,8 +161,7 @@ public abstract class AttackBase implements IOrderResolver, IOrderIssuer {
 	    if (target.isCellTarget()) {
 		return new Order("Attack", null, target.getTargetCell());
 	    } else {
-		if (target.getTargetEntity() instanceof EntityActor) {
-		    EntityActor a = (EntityActor) target.getTargetEntity();
+		if (target.getTargetEntity() instanceof EntityActor a) {
 		    Order attack = new Order("Attack", null, null, target.getTargetEntity());
 		    attack.isQueued = false;
 		    

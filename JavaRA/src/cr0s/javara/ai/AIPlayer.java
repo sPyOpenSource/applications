@@ -15,8 +15,10 @@ import cr0s.javara.ai.Squad.SquadType;
 import cr0s.javara.combat.Warhead;
 import cr0s.javara.combat.attack.ICanAttack;
 import cr0s.javara.entity.Entity;
+import cr0s.javara.entity.MobileEntity;
 import cr0s.javara.entity.actor.EntityActor;
 import cr0s.javara.entity.actor.activity.Activity;
+import cr0s.javara.entity.actor.activity.activities.Move;
 import cr0s.javara.entity.actor.activity.activities.Wait;
 import cr0s.javara.entity.actor.activity.activities.harvester.FindResources;
 import cr0s.javara.entity.building.BuildingType;
@@ -56,6 +58,7 @@ public class AIPlayer extends Player {
     private ArrayList<Squad> squads = new ArrayList<>();
     private ArrayList<EntityActor> unitsHangingAroundTheBase = new ArrayList<>();
     private ArrayList<EntityActor> activeUnits = new ArrayList<>();
+ArrayList<Player> enemies;
 
     private final int assignRolesInterval = 20;
     private final int rushInterval = 600;
@@ -196,6 +199,7 @@ public class AIPlayer extends Player {
 	}
 
 	this.bb.update();
+        assignRolesToIdleUnits();
 	Profiler.getInstance().stopForSection("AI");
     }
 
@@ -334,7 +338,13 @@ public class AIPlayer extends Player {
     }
 
     public EntityActor findClosestEnemy(final Pos center) {
-	return this.findClosestEnemy(center, null);
+        enemies = new ArrayList<>();
+	for (Player p : world.getPlayers()) {
+	    if (p.isEnemyFor(this)) {
+		enemies.add(p);
+	    }
+	}
+	return this.findClosestEnemy(center, enemies.get(0));
     }
 
     private EntityActor findClosestEnemy(final Pos center, Player p) {
@@ -369,9 +379,9 @@ public class AIPlayer extends Player {
                     EntityActor closestEnemy = this.findClosestEnemy(this.defenseCenter);
                     Pos targetCell = (closestEnemy != null) ? closestEnemy.getCellPosition() : this.getPlayerSpawnPoint();
 
-                    if (closestEnemy != null) {
+                    /*if (closestEnemy != null) {
                         System.out.println("[AI] Closest enemy: " + closestEnemy.getClass().getSimpleName() + " | owner: " + closestEnemy.owner.name);
-                    }
+                    }*/
                     return this.findPosForBuilding(actorType, this.defenseCenter, targetCell, this.minimumDefenseRadius, this.maximumDefenseRadius, distanceToBaseIsImportant);
                 } else { // In other cases place build somewhere in base
                     return this.findPosForBuilding(actorType, this.getPlayerSpawnPoint(), this.getPlayerSpawnPoint(), 0, this.maxBaseRadius, false);
@@ -448,7 +458,7 @@ public class AIPlayer extends Player {
 	//}
 
 	ArrayList<Player> players = GUI.getInstance().getWorld().getPlayers();
-	ArrayList<Player> enemies = new ArrayList<>();
+	enemies = new ArrayList<>();
 	for (Player p : players) {
 	    if (p.isEnemyFor(this)) {
 		enemies.add(p);
@@ -554,7 +564,7 @@ public class AIPlayer extends Player {
     }
 
     void assignRolesToIdleUnits() {
-	this.cleanSquads();
+	//this.cleanSquads();
 	this.activeUnits = cleanFromDeadAndNotOwn(this.activeUnits);
 	this.unitsHangingAroundTheBase = cleanFromDeadAndNotOwn(this.unitsHangingAroundTheBase);
 
@@ -603,8 +613,8 @@ public class AIPlayer extends Player {
     private void findNewUnits() {
 	ArrayList<EntityActor> newUnits = new ArrayList<>();
 
-	for (Entity e : GUI.getInstance().getWorld().getEntitiesList()) {
-	    if (e.isDead() || e.owner != this || !(e instanceof EntityActor)) {
+	for (Entity e : entities) {
+	    if (e.isDead() || !(e instanceof MobileEntity)) {
 		continue;
 	    }
 
@@ -654,7 +664,10 @@ public class AIPlayer extends Player {
     }
 
     private void tryToRushAttack() {
-	// TODO Auto-generated method stub
+        EntityActor a = findClosestEnemy(defenseCenter);
+        if (squads.isEmpty()) return;
+        Squad s = squads.get(0);
+        for(EntityActor b:s.getUnits()) b.queueActivity(new Move((MobileEntity)b, a.getCellPosition()));
     }
 
     void protectOwn(EntityActor attacker) {

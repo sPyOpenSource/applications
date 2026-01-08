@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import cr0s.javara.entity.actor.EntityActor;
 import cr0s.javara.order.Target;
+import cr0s.javara.render.World;
 
 public class AutoTarget {
     public boolean allowMovement = true;
@@ -35,8 +36,8 @@ public class AutoTarget {
 	this.self = self;
 	
 	this.attack = attack;
-	if (attack instanceof AttackTurreted) {
-	    this.at = (AttackTurreted) attack;
+	if (attack instanceof AttackTurreted attackTurreted) {
+	    this.at = attackTurreted;
 	}
 	
 	this.stance = this.initialStance;
@@ -101,7 +102,7 @@ public class AutoTarget {
     }
     
     private EntityActor chooseTarget(float rangeInCells) {
-	this.nextScanTime = this.self.world.getRandomInt(this.minimumScanInterval, this.maximumScanInterval);
+	this.nextScanTime = World.getRandomInt(this.minimumScanInterval, this.maximumScanInterval);
 	ArrayList<EntityActor> actorsInRange = this.self.world.getActorsInCircle(this.self.getPosition(), rangeInCells * 24.0f - this.RANGE_TOLERANCE * 24.0f);
 	
 	// Choose closest hostile actor that we can use our weapons against it

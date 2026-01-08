@@ -62,8 +62,8 @@ public class AttackCharge extends AttackBase {
 	public Charge(AttackCharge a, EntityActor self, Target tgt, int maxChargeTicks) {
 	    this.attack = a;
 	    
-	    if (self instanceof MobileEntity) {
-		this.me = (MobileEntity) self;
+	    if (self instanceof MobileEntity mobileEntity) {
+		this.me = mobileEntity;
 	    }
 	    
 	    this.target = tgt;

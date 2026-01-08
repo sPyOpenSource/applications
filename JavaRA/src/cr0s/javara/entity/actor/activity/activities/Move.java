@@ -5,7 +5,7 @@ import cr0s.javara.entity.actor.EntityActor;
 import cr0s.javara.entity.actor.activity.Activity;
 import cr0s.javara.entity.actor.activity.activities.Turn.RotationDirection;
 import cr0s.javara.entity.building.EntityBuilding;
-import cr0s.javara.render.World;
+
 import cr0s.javara.util.PointsUtil;
 import cr0s.javara.util.Pos;
 import cr0s.javara.util.RotationUtil;

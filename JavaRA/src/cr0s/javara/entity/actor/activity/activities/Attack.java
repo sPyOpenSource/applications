@@ -5,6 +5,7 @@ import cr0s.javara.entity.MobileEntity;
 import cr0s.javara.entity.actor.EntityActor;
 import cr0s.javara.entity.actor.activity.Activity;
 import cr0s.javara.order.Target;
+import cr0s.javara.render.World;
 import cr0s.javara.util.RotationUtil;
 
 public class Attack extends Activity {
@@ -47,7 +48,7 @@ public class Attack extends Activity {
 		return this;
 	    }
 	    
-	    this.repathDelay = self.world.getRandomInt(Attack.REPATH_DELAY_TICKS - Attack.REPATH_SPREAD,  Attack.REPATH_DELAY_TICKS + Attack.REPATH_SPREAD);
+	    this.repathDelay = World.getRandomInt(Attack.REPATH_DELAY_TICKS - Attack.REPATH_SPREAD,  Attack.REPATH_DELAY_TICKS + Attack.REPATH_SPREAD);
 	    
 	    if (this.allowMove && (self instanceof MobileEntity)) {
 		Activity move = ((MobileEntity) self).moveWithinRange(this.target, (int) this.range);
