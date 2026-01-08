@@ -3,7 +3,6 @@ package cr0s.javara.render.map;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
-import java.util.Random;
 import java.awt.image.BufferedImage;
 
 import cr0s.javara.resources.ResourceManager;
@@ -24,7 +23,6 @@ public class TheaterCache {
      * Set of tiles and templates to use in this theater.
      */
     private final TileSet tileSet;
-    private Random random = new Random();
     private SpriteSheet spriteSheet;
     private TileMap map;
 

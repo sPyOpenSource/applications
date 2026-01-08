@@ -2,7 +2,6 @@ package cr0s.javara.entity.vehicle.soviet;
 
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Random;
 
 import cr0s.javara.combat.Armament;
 import cr0s.javara.combat.attack.AttackBase;
@@ -62,7 +61,6 @@ public class EntityHeavyTank extends EntityVehicle implements ISelectable, IHave
 	super(pos, TEXTURE_WIDTH, TEXTURE_HEIGHT);
 
 	texture = new SpriteSheet(ResourceManager.getInstance().getConquerTexture(TEXTURE_NAME).getAsCombinedImage(null), TEXTURE_WIDTH, TEXTURE_HEIGHT);
-	Random r = new Random();
 
 	this.isVisible = true;
 

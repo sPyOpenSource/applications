@@ -6,7 +6,6 @@ import cr0s.javara.main.GUI;
 import cr0s.javara.util.Pos;
 
 import javafx.scene.shape.Rectangle;
-import java.util.Random;
 import soundly.Soundly;
 import soundly.XSound;
 
@@ -16,8 +15,6 @@ public class SoundManager {
     private final int LAYER_SPEECH = 3;
     private final int LAYER_UNIT = 2;
     private final int LAYER_SFX = 1;
-
-    public Random r;
 
     private double listenerX, listenerY;
     
@@ -35,8 +32,6 @@ public class SoundManager {
 	
 	sound.setDistanceCheckingEnabled(true);
 	sound.setProximityEnabled(true); 
-
-	this.r = new Random(System.currentTimeMillis());
     }
 
     public static SoundManager getInstance() {

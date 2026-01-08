@@ -3,6 +3,7 @@ package cr0s.javara.ai.states;
 import cr0s.javara.ai.Squad;
 import cr0s.javara.ai.StateMachine.IState;
 import cr0s.javara.entity.actor.EntityActor;
+import cr0s.javara.render.World;
 
 public abstract class GroundStateBase extends StateBase {
 
@@ -57,7 +58,7 @@ class GroundUnitsAttackMoveState extends GroundStateBase implements IState {
 	}
 
 	if (!owner.targetIsValid()) {
-	    EntityActor randomUnit = owner.getUnits().get(owner.getBot().getRandom().nextInt(owner.getUnits().size()));
+	    EntityActor randomUnit = owner.getUnits().get(World.getRandom().nextInt(owner.getUnits().size()));
 	    EntityActor closestEnemy = owner.getBot().findClosestEnemy(randomUnit.getCellPosition());
 
 	    if (closestEnemy != null) {

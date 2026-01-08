@@ -1,5 +1,6 @@
 package mazesolver;
 
+import cr0s.javara.render.World;
 import cr0s.javara.util.Pos;
 import java.io.*;
 import java.util.*;
@@ -11,9 +12,7 @@ public class Maze {
     private final int[][] nodes;    
     private Pos startPoint, endPoint;
     private int max;
-    
     private final Venue[] venues;
-    private final Random random = new Random();
     
     /**
      * Creates new Maze based on given arguments.
@@ -93,8 +92,8 @@ public class Maze {
         // Check if startPoint is valid
         while (startPoint == null || !isNode(startPoint)){
             startPoint = new Pos(
-                    startPoint.getCellX() + random.nextInt(5) - 2, 
-                    startPoint.getCellY() + random.nextInt(5) - 2);
+                    startPoint.getCellX() + World.getRandom().nextInt(5) - 2, 
+                    startPoint.getCellY() + World.getRandom().nextInt(5) - 2);
             //Helper.error("Invalid start point!");
         }
     }
@@ -112,8 +111,8 @@ public class Maze {
         // Check if endPoint is valid
         while (endPoint == null || !isNode(endPoint)){
             endPoint = new Pos(
-                    endPoint.getCellX() + random.nextInt(5) - 2, 
-                    endPoint.getCellY() + random.nextInt(5) - 2);
+                    endPoint.getCellX() + World.getRandom().nextInt(5) - 2, 
+                    endPoint.getCellY() + World.getRandom().nextInt(5) - 2);
             //Helper.error("Invalid end point!");
         }
     }

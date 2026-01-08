@@ -1,7 +1,5 @@
 package cr0s.javara.entity.vehicle.common;
 
-import java.util.Random;
-
 import cr0s.javara.entity.Entity;
 import cr0s.javara.entity.actor.EntityActor;
 import cr0s.javara.entity.IDeployable;
@@ -60,7 +58,6 @@ public class EntityMcv extends EntityVehicle implements ISelectable, IDeployable
 	//boundingBox.setCenterY(this.getCenterPosY());
 	
 	texture = new SpriteSheet(ResourceManager.getInstance().getConquerTexture(TEXTURE_NAME).getAsCombinedImage(null), TEXTURE_WIDTH, TEXTURE_HEIGHT);
-	Random r = new Random();
 
 	this.setHp(600);
 	this.setMaxHp(600);

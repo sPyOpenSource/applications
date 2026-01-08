@@ -1,7 +1,5 @@
 package cr0s.javara.main;
 
-import java.util.Random;
-
 import cr0s.javara.gameplay.BuildingOverlay;
 import cr0s.javara.gameplay.Player;
 import cr0s.javara.gameplay.Team;
@@ -126,12 +124,10 @@ public class GUI extends Application {
 
         w = new World(mapName);
         
-	Random r = new Random();
-
 	//this.observerShroudRenderer = new ShroudRenderer(w);
 
 	team = new Team();
-	player = new AIPlayer(w, "NormalAI", Alignment.SOVIET, Color.rgb(r.nextInt(256), r.nextInt(256), r.nextInt(256)));
+	player = new AIPlayer(w, "NormalAI", Alignment.SOVIET, Color.rgb(World.getRandom().nextInt(256), World.getRandom().nextInt(256), World.getRandom().nextInt(256)));
 	player.setTeam(team);
 
 	//player.setShroud(null);

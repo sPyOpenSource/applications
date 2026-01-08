@@ -31,7 +31,6 @@ import cr0s.javara.util.Pos;
  * @author Cr0s
  */
 public class Base {
-
     public static final int BUILDING_CY_RANGE = 20;
     public static final int BUILDING_NEAREST_BUILDING_DISTANCE = 5;
 

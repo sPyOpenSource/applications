@@ -8,11 +8,11 @@ import java.nio.channels.FileChannel;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Map;
-import java.util.Random;
 
 import org.yaml.snakeyaml.Yaml;
 import redhorizon.utilities.BufferUtility;
 import assets.Assets;
+import cr0s.javara.render.World;
 
 import cr0s.javara.render.map.ResourcesLayer.ResourceCell;
 import cr0s.javara.resources.ResourceManager;
@@ -138,7 +138,6 @@ public class TileMap {
 	    ByteBuffer mapBytes = BufferUtility.readRemaining(inChannel);
 	    mapBytes.order(ByteOrder.LITTLE_ENDIAN);
 
-	    Random r = new Random();
 	    for (int x = 0; x < this.width; x++) {
 		for (int y = 0; y < this.height; y++) {
 		    int tile = (int) (mapBytes.getShort() & 0xFFFF);
@@ -147,7 +146,7 @@ public class TileMap {
 
 		    // Randomize clear grass
 		    if (tile == GRASS_ID || tile == GRASS_ID_BIG) {
-			index = (short) r.nextInt(16);
+			index = (short) World.getRandom().nextInt(16);
 		    }
 
 		    this.mapTiles[x][y] = new TileReference<>(tile, (byte) index);

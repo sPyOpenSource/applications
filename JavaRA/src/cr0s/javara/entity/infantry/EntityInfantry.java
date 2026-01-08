@@ -2,7 +2,6 @@ package cr0s.javara.entity.infantry;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Random;
 import mazesolver.Director;
 import mazesolver.Maze;
 
@@ -89,7 +88,6 @@ public abstract class EntityInfantry extends MobileEntity implements IShroudReve
     Maze maze;
     ArrayList<Pos> router;
     Director director;
-    Random random = new Random();
     
     public EntityInfantry(Pos pos) {
 	this(pos, SubCell.CENTER);
@@ -338,7 +336,7 @@ combined.getChildren().add(getImageView());
 		}
 	    }
 
-	    if (SoundManager.getInstance().r.nextBoolean() && canPlay) {
+	    if (World.getRandom().nextBoolean() && canPlay) {
 		SoundManager.getInstance().playUnitSoundGlobal(this, s, this.unitVersion);
 		return;
 	    }
@@ -365,13 +363,13 @@ combined.getChildren().add(getImageView());
 		}
 	    }
 
-	    if (SoundManager.getInstance().r.nextBoolean() && canPlay) {
+	    if (World.getRandom().nextBoolean() && canPlay) {
 		SoundManager.getInstance().playUnitSoundGlobal(this, s, this.unitVersion);
 		return;
 	    }
 	}
 
-	if (SoundManager.getInstance().r.nextBoolean()) {
+	if (World.getRandom().nextBoolean()) {
 	    SoundManager.getInstance().playUnitSoundGlobal(this, "ackno", this.unitVersion);
 	} else {
 	    SoundManager.getInstance().playUnitSoundGlobal(this, "affirm1", this.unitVersion);

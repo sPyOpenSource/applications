@@ -52,7 +52,7 @@ public class World extends AnimationTimer {
 
     private final int removeDeadTicks = 0;
     private final int REMOVE_DEAD_INTERVAL_TICKS = 20;
-    private static Random random;
+    static Random random = new Random(System.currentTimeMillis());
     private final ArrayList<Pos> pointsInRange[] = new ArrayList[MAX_RANGE + 1];
 
     public World(String mapName) {
@@ -67,7 +67,6 @@ public class World extends AnimationTimer {
 	this.vp = new VehiclePathfinder(this);
 	this.ip = new InfantryPathfinder(this);
 
-	this.random = new Random(System.currentTimeMillis());
 	generateRangePoints();
     }
 
@@ -474,10 +473,9 @@ public class World extends AnimationTimer {
 
     public void occupyRandomSpawnForPlayer(Player p) {
 	ArrayList<Pos> spawns = this.map.getSpawnPoints();
-	Random r = new Random(System.currentTimeMillis());
 
 	if (!spawns.isEmpty()) {
-	    int randomSpawnIndex = r.nextInt(spawns.size());
+	    int randomSpawnIndex = random.nextInt(spawns.size());
 	    Pos spawnPoint = spawns.get(randomSpawnIndex);
 
 	    spawns.remove(randomSpawnIndex);
@@ -640,8 +638,8 @@ public class World extends AnimationTimer {
 	return TargetType.AIR;
     }
 
-    public Random getRandom() {
-	return this.random;
+    public static Random getRandom() {
+	return random;
     }
 
     public void spawnExplosionAt(Pos pos, String explosionType) {

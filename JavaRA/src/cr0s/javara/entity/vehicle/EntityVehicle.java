@@ -11,11 +11,10 @@ import cr0s.javara.entity.MobileEntity;
 import cr0s.javara.entity.actor.EntityActor;
 import cr0s.javara.entity.actor.activity.Activity;
 import cr0s.javara.entity.actor.activity.activities.Move;
-import cr0s.javara.entity.actor.activity.activities.MoveInfantry;
 import cr0s.javara.entity.effect.SmokeOnUnit;
-import cr0s.javara.entity.infantry.EntityInfantry.AnimationState;
 import cr0s.javara.order.Order;
 import cr0s.javara.render.EntityBlockingMap.FillsSpace;
+import cr0s.javara.render.World;
 import cr0s.javara.resources.SoundManager;
 import cr0s.javara.util.Pos;
 
@@ -118,7 +117,7 @@ public abstract class EntityVehicle extends MobileEntity implements IShroudRevea
 		}
 	    }
 
-	    if (SoundManager.getInstance().r.nextBoolean() && canPlay) {
+	    if (World.getRandom().nextBoolean() && canPlay) {
 		SoundManager.getInstance().playUnitSoundGlobal(this, s, this.unitVersion);
 		return;
 	    }
@@ -150,13 +149,13 @@ public abstract class EntityVehicle extends MobileEntity implements IShroudRevea
 		}
 	    }
 
-	    if (SoundManager.getInstance().r.nextBoolean() && canPlay) {
+	    if (World.getRandom().nextBoolean() && canPlay) {
 		SoundManager.getInstance().playUnitSoundGlobal(this, s, this.unitVersion);
 		return;
 	    }
 	}
 
-	if (SoundManager.getInstance().r.nextBoolean()) {
+	if (World.getRandom().nextBoolean()) {
 	    SoundManager.getInstance().playUnitSoundGlobal(this, "ackno", this.unitVersion);
 	} else {
 	    SoundManager.getInstance().playUnitSoundGlobal(this, "affirm1", this.unitVersion);

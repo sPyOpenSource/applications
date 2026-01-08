@@ -10,7 +10,6 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Random;
 
 import cr0s.javara.ai.Squad.SquadType;
 import cr0s.javara.combat.Warhead;
@@ -82,8 +81,6 @@ public class AIPlayer extends Player {
     HashMap<String, String[]> buildingCommonNames;
     HashMap<String, Integer> buildingLimits;
 
-    Random rnd;
-
     private Pos defenseCenter;
     private final BaseBuilder bb;
     private final HashMap<Player, Enemy> aggro = new HashMap<>();
@@ -94,8 +91,6 @@ public class AIPlayer extends Player {
 
     public AIPlayer(World w, String name, Alignment side, Color color) {
 	super(w, name, side, color);
-
-	this.rnd = new Random();
 
 	loadAIRules(name);
 
@@ -315,7 +310,7 @@ public class AIPlayer extends Player {
 	    });
 	} else {
 	    // Shuffling is needed to make sure bot place building in random location at the base
-	    Collections.shuffle(cells, this.rnd);
+	    Collections.shuffle(cells, World.getRandom());
 	}
 
 	EntityActor b = this.getBase().getProductionQueue().getBuildableActorByName(actorType);
@@ -370,7 +365,7 @@ public class AIPlayer extends Player {
     public Pos chooseBuildLocation(String actorType, boolean distanceToBaseIsImportant, BuildingType type) {
 	switch (type) {
             case DEFENSIVE:
-                if (this.rnd.nextInt(100) >= 30) { // In ~70% of cases we build defensive structures as close as possible to the enemy
+                if (World.getRandom().nextInt(100) >= 30) { // In ~70% of cases we build defensive structures as close as possible to the enemy
                     EntityActor closestEnemy = this.findClosestEnemy(this.defenseCenter);
                     Pos targetCell = (closestEnemy != null) ? closestEnemy.getCellPosition() : this.getPlayerSpawnPoint();
 
@@ -590,7 +585,7 @@ public class AIPlayer extends Player {
     }
 
     private void createAttackForce() {
-	int randomSquadSize = this.squadSize + this.rnd.nextInt(30);
+	int randomSquadSize = this.squadSize + World.getRandom().nextInt(30);
 
 	if (this.unitsHangingAroundTheBase.size() >= randomSquadSize) {
 	    Squad attackForce = this.registerNewSquad(SquadType.ASSAULT);
@@ -704,7 +699,7 @@ public class AIPlayer extends Player {
 
     private void buidUnits(boolean buildRandom) {
 	// Randomly choose units category
-	int i = this.rnd.nextInt(2);
+	int i = World.getRandom().nextInt(2);
 	
 	ArrayList<String> buildables = new ArrayList<>();
 
@@ -751,7 +746,7 @@ public class AIPlayer extends Player {
 
 	// TODO: add non-random build
 	if (!buildables.isEmpty()) {
-	    String randomName = buildables.get(this.rnd.nextInt(buildables.size()));
+	    String randomName = buildables.get(World.getRandom().nextInt(buildables.size()));
 	    System.out.println(base.getCash());
 	    System.out.println("[AI] Building unit: " + randomName);
 	    this.getBase().getProductionQueue().startBuildingActor(this.getBase().getProductionQueue().getBuildables().get(randomName), null);
@@ -792,9 +787,5 @@ public class AIPlayer extends Player {
 
 	// No any our MCV is found
 	return true;
-    }
-
-    public Random getRandom() {
-	return this.rnd;
     }
 }

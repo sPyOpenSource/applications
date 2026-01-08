@@ -1,8 +1,5 @@
 package cr0s.javara.entity.vehicle.common;
 
-import java.util.HashMap;
-import java.util.Random;
-
 import cr0s.javara.entity.Entity;
 import cr0s.javara.entity.IHaveCost;
 import cr0s.javara.entity.IPips;
@@ -35,6 +32,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Path;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
+import java.util.HashMap;
 
 public class EntityHarvester extends EntityVehicle implements ISelectable, IShroudRevealer, IPips, IHaveCost {
 
@@ -88,7 +86,6 @@ public class EntityHarvester extends EntityVehicle implements ISelectable, IShro
 
 	//boundingBox.setBounds(posX + 6, posY - 6, (TEXTURE_WIDTH / 2), (TEXTURE_HEIGHT / 2));
 	texture = new SpriteSheet(ResourceManager.getInstance().getConquerTexture(TEXTURE_NAME).getAsCombinedImage(null), TEXTURE_WIDTH, TEXTURE_HEIGHT);
-	Random r = new Random();
 
 	this.setHp(600);
 	this.setMaxHp(600);

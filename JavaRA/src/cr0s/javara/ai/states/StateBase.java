@@ -11,6 +11,7 @@ import cr0s.javara.entity.actor.activity.activities.Attack;
 import cr0s.javara.entity.building.EntityBuilding;
 import cr0s.javara.main.GUI;
 import cr0s.javara.order.Order;
+import cr0s.javara.render.World;
 import cr0s.javara.util.Pos;
 
 public abstract class StateBase {
@@ -29,7 +30,7 @@ public abstract class StateBase {
 	
 	ArrayList<EntityBuilding> buildings = s.getBot().getBase().getBuildings();
 	if (!buildings.isEmpty()) {
-	    location = buildings.get(s.getBot().getRandom().nextInt(buildings.size())).getCellPosition();
+	    location = buildings.get(World.getRandom().nextInt(buildings.size())).getCellPosition();
 	}
 	
 	return location;
@@ -73,7 +74,7 @@ public abstract class StateBase {
 	    return false;
 	}
 	
-	EntityActor u = squad.getUnits().get(squad.getBot().getRandom().nextInt(squad.getUnits().size()));
+	EntityActor u = squad.getUnits().get(World.getRandom().nextInt(squad.getUnits().size()));
 	ArrayList<EntityActor> units = GUI.getInstance().getWorld().getActorsInCircle(u.getPosition(), DANGER_RADIUS);
 	for (EntityActor a : units) {
 	    if (!a.isDead() && (a instanceof EntityBuilding) && a.owner == squad.getBot()) {

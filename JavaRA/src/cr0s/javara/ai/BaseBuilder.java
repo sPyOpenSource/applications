@@ -11,6 +11,7 @@ import cr0s.javara.entity.actor.EntityActor;
 import cr0s.javara.entity.building.EntityBuilding;
 import cr0s.javara.entity.building.IPowerConsumer;
 import cr0s.javara.entity.building.common.EntityProc;
+import cr0s.javara.render.World;
 import cr0s.javara.util.Pos;
 
 public class BaseBuilder {
@@ -89,7 +90,7 @@ public class BaseBuilder {
 
 	// Get random building from availables
 	if (!available.isEmpty()) {
-	    return available.get(this.ai.rnd.nextInt(available.size()));
+	    return available.get(World.getRandom().nextInt(available.size()));
 	} else {
 	    return null;
 	}
@@ -156,7 +157,7 @@ public class BaseBuilder {
 
 	// Build everything else
 	ArrayList<String> keys = new ArrayList(this.ai.buildingFractions.keySet());
-	Collections.shuffle(keys, this.ai.rnd);
+	Collections.shuffle(keys, World.getRandom());
 	for (String key : keys) {
 	    // Can we build this structure?
 	    if (!this.ai.getBase().getProductionQueue().isBuildable(key + "icon.shp")) {
