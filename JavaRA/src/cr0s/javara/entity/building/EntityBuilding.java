@@ -36,7 +36,7 @@ public abstract class EntityBuilding extends EntityActor {
     /**
      * Size of building in pixels
      */
-    protected double width, height;
+    protected int width, height;
 
     /**
      * Speed of building.
@@ -101,8 +101,8 @@ public abstract class EntityBuilding extends EntityActor {
      * @param aFootprint
      */
     public EntityBuilding(final Pos aTile, 
-	    final double aSizeWidth, 
-	    final double aSizeHeight, 
+	    final int aSizeWidth, 
+	    final int aSizeHeight, 
 	    String aFootprint) {
 
 	super(aTile, aSizeWidth, aSizeHeight);
@@ -110,8 +110,8 @@ public abstract class EntityBuilding extends EntityActor {
 	this.width = aSizeWidth;
 	this.height = aSizeHeight;
 
-	this.tileWidth = (int) aSizeWidth / 24;
-	this.tileHeight = (int) aSizeHeight / 24;
+	this.tileWidth = aSizeWidth / 24;
+	this.tileHeight = aSizeHeight / 24;
 
 	this.footprint = aFootprint;
 

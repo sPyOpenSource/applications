@@ -13,7 +13,7 @@ public class EntityConcreteWall extends EntityWall {
     }    
     
     public EntityConcreteWall(Pos aTile,
-	    float aSizeWidth, float aSizeHeight,
+	    int aSizeWidth, int aSizeHeight,
 	    String aFootprint) {
 	super(aTile, aSizeWidth, aSizeHeight, "x");
 	

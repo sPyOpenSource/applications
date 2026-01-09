@@ -10,7 +10,7 @@ public class EntityBarredWireWall extends EntityWall {
     private static final int BUILDING_COST = 30;
 
     public EntityBarredWireWall(Pos aTile,
-	    float aSizeWidth, float aSizeHeight,
+	    int aSizeWidth, int aSizeHeight,
 	    String aFootprint) {
 	super(aTile, aSizeWidth, aSizeHeight, "x");
 	

@@ -51,7 +51,7 @@ class AStarPathFinder {
         director = new Director(maze, null);
         director.run();
         router = director.getBestRoute();
-        Helper.optimizePath(router, maze);
+        //Helper.optimizePath(router, maze);
         Path path = new Path();
         for(Pos point:router){
             MoveTo line = new MoveTo(

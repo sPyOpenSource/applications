@@ -11,6 +11,7 @@ import cr0s.javara.entity.IHaveCost;
 import cr0s.javara.entity.ISelectable;
 import cr0s.javara.entity.IShroudRevealer;
 import cr0s.javara.entity.building.BibType;
+import static cr0s.javara.entity.building.BuildingType.DEFENSIVE;
 import cr0s.javara.entity.building.Defensive;
 import cr0s.javara.entity.building.IPowerConsumer;
 import cr0s.javara.entity.building.common.EntityWarFactory;
@@ -61,7 +62,7 @@ public class EntityTeslaCoil extends Defensive implements ISelectable, IPowerCon
     private boolean wasIdle;    
 
     public EntityTeslaCoil(Pos tile) {
-	super(null, 400, null, 0, 0, WIDTH_TILES * 24, HEIGHT_TILES * 24/*, "_ x"*/, tile.getX(), tile.getY());
+	super(DEFENSIVE, 400, null, 0, 0, WIDTH_TILES * 24, HEIGHT_TILES * 24, "_ x", tile.getX(), tile.getY());
 
 	setBibType(BibType.NONE);
 	setProgressValue(-1);

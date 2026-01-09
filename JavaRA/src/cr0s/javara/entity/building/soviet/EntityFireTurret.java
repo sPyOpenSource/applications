@@ -13,6 +13,7 @@ import cr0s.javara.entity.IHaveCost;
 import cr0s.javara.entity.ISelectable;
 import cr0s.javara.entity.IShroudRevealer;
 import cr0s.javara.entity.building.BibType;
+import static cr0s.javara.entity.building.BuildingType.DEFENSIVE;
 import cr0s.javara.entity.building.Defensive;
 import cr0s.javara.entity.building.IPowerConsumer;
 import cr0s.javara.entity.turreted.IHaveTurret;
@@ -54,7 +55,7 @@ public class EntityFireTurret extends Defensive implements ISelectable, IPowerCo
     private final Turret turret;
     
     public EntityFireTurret(Pos tile) {
-	super(null, 400, null, 0, 0, WIDTH_TILES * 24, HEIGHT_TILES * 24/*, "x"*/, tile.getX(), tile.getY());
+	super(DEFENSIVE, 400, null, 0, 0, WIDTH_TILES * 24, HEIGHT_TILES * 24, "x", tile.getX(), tile.getY());
 
 	setBibType(BibType.NONE);
 	setProgressValue(-1);

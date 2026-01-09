@@ -8,9 +8,9 @@ public abstract class Defensive extends EntityBuilding{
     private final int range;
     private final int damagePerSecond;
     
-    public Defensive(BuildingType buildingType, int hitPoints, String path, double width, double height, int rang, int damagePerSecond, double x, double y) {
+    public Defensive(BuildingType buildingType, int hitPoints, String path, int rang, int damagePerSecond, int width, int height, String footprint, double x, double y) {
         //super(buildingType, hitPoints, path, width, height, x, y);
-        super(new Pos(x, y), width, height, "");
+        super(new Pos(x, y), width, height, footprint);
         this.range = rang;
         this.damagePerSecond = damagePerSecond;
         setHp(hitPoints);

@@ -37,7 +37,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.shape.MoveTo;
 
 public abstract class EntityInfantry extends MobileEntity implements IShroudRevealer {
-    private static final float DEFAULT_MOVE_SPEED = 1.5f;
+    private static final float DEFAULT_MOVE_SPEED = 1f;
     private static final int WIDTH = 50;
     private static final int HEIGHT = 39;
 
