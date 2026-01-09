@@ -5,6 +5,9 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 public abstract class Defensive extends EntityBuilding{
+    private final int range;
+    private final int damagePerSecond;
+    
     public Defensive(BuildingType buildingType, int hitPoints, String path, double width, double height, int rang, int damagePerSecond, double x, double y) {
         //super(buildingType, hitPoints, path, width, height, x, y);
         super(new Pos(x, y), width, height, "");
@@ -19,11 +22,11 @@ public abstract class Defensive extends EntityBuilding{
         view.setFitHeight(height);
         getImageViews().add(view);
     }
-    private final int range;
-    private final int damagePerSecond;
+    
     public int getRange() {
         return range;
     }
+    
     public int getDamagePerSecond() {
         return damagePerSecond;
     }

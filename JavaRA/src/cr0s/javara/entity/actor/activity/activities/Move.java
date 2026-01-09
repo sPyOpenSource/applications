@@ -165,7 +165,7 @@ public class Move extends Activity {
     }
 
     public Pos chooseClosestToDestCell(MobileEntity me) {
-	return me.world.chooseClosestPassableCellInRangeAroundOtherCell(me.getCellPos(), this.destCell, this.destRange);
+	return me.owner.world.chooseClosestPassableCellInRangeAroundOtherCell(me.getCellPos(), this.destCell, this.destRange);
     }    
 
     @Override

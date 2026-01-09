@@ -82,7 +82,7 @@ public class EntityProc extends EntityBuilding implements ISelectable, IPowerCon
     }
 
     private void spawnHarvester() {
-	if (world == null) {
+	if (owner.world == null) {
 	    return;
 	}
 
@@ -91,12 +91,11 @@ public class EntityProc extends EntityBuilding implements ISelectable, IPowerCon
 
 	harv.currentFacing = HARV_FACING;
 	harv.isVisible = true;
-	harv.setWorld(world);
 
 	harv.linkedProc = this;
 	harv.queueActivity(new FindResources());
         harv.owner = owner;
-	world.spawnEntityInWorld(harv);
+	owner.world.spawnEntityInWorld(harv);
         owner.entities.add(harv);
 	this.setName("proc");
     }
@@ -212,7 +211,7 @@ public class EntityProc extends EntityBuilding implements ISelectable, IPowerCon
     private LinkedList<TargetLine> linkedHarvestersLines() {
 	this.targetLines.clear();
 
-	for (Entity e : world.getEntitiesList()) {
+	for (Entity e : owner.world.getEntitiesList()) {
 	    if (e instanceof EntityHarvester) {
 		if (((EntityHarvester)e).linkedProc == this) {
 		    //this.targetLines.add(new TargetLine(new Pos(this.boundingBox.getCenterX(), this.boundingBox.getCenterY()), ((EntityHarvester) e).getCenterPos(), Color.yellow));

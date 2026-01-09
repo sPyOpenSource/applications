@@ -127,7 +127,16 @@ public class GUI extends Application {
 	//this.observerShroudRenderer = new ShroudRenderer(w);
 
 	team = new Team();
-	player = new AIPlayer(w, "NormalAI", Alignment.SOVIET, Color.rgb(World.random.nextInt(256), World.random.nextInt(256), World.random.nextInt(256)));
+	player = new AIPlayer(
+                w, 
+                "NormalAI", 
+                Alignment.SOVIET, 
+                Color.rgb(
+                        World.random.nextInt(256), 
+                        World.random.nextInt(256), 
+                        World.random.nextInt(256)
+                )
+        );
 	player.setTeam(team);
 
 	//player.setShroud(null);

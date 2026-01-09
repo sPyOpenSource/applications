@@ -6,8 +6,6 @@ import cr0s.javara.entity.IEffect;
 import cr0s.javara.entity.actor.EntityActor;
 import cr0s.javara.order.Target;
 import cr0s.javara.util.Pos;
-import javafx.scene.Scene;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 
 public class TeslaZap extends Projectile implements IEffect {
@@ -44,14 +42,14 @@ public class TeslaZap extends Projectile implements IEffect {
 		TeslaZapRenderer tzr = new TeslaZapRenderer(this.sourceActor, this.sourcePos, this.passiveTargetPos, this.guidedTarget, 24, 24, true);
 		tzr.isVisible = true;
 
-		this.world.spawnEntityInWorld(tzr);
+		owner.world.spawnEntityInWorld(tzr);
 	    }
 
 	    for (int n = 0; n < this.DIM_ZAPS; n++) {
 		TeslaZapRenderer tzr = new TeslaZapRenderer(this.sourceActor, this.sourcePos, this.passiveTargetPos, this.guidedTarget, 24, 24, false);
 		tzr.isVisible = true;
 		
-		this.world.spawnEntityInWorld(tzr);
+		owner.world.spawnEntityInWorld(tzr);
 	    }
 
 	    this.isInit = true;

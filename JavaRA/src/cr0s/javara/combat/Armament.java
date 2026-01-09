@@ -150,15 +150,14 @@ public class Armament {
 		    public void execute() {
 			Projectile prj = Armament.this.weapon.createProjectile(fcng, muzzlePosition, Armament.this.self, tgt.centerPosition(), tgt);
 			prj.isVisible = true;
-			prj.setWorld(Armament.this.self.world);
 
-			Armament.this.self.world.spawnEntityInWorld(prj);
+			Armament.this.self.owner.world.spawnEntityInWorld(prj);
 			Armament.this.weapon.playReportSound(Armament.this.self.getPosition());
 		    }
 		});
 
-		if (this.self instanceof IHaveTurret) {
-		    for (Turret t : ((IHaveTurret) this.self).getTurrets()) {
+		if (this.self instanceof IHaveTurret iHaveTurret) {
+		    for (Turret t : iHaveTurret.getTurrets()) {
 			t.recoil();
 		    }
 		}

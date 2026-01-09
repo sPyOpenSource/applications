@@ -55,11 +55,11 @@ public class Bullet extends Projectile {
 	this.speed = spd;
 
 	if (this.speedMax > 1) {
-	    this.speed = srcActor.world.getRandomFloat(speed, speedMax);
+	    this.speed = World.getRandomFloat(speed, speedMax);
 	}
 
 	if (this.angleMax > 1) {
-	    this.angle = srcActor.world.getRandomInt(angle, angleMax);
+	    this.angle = World.getRandomInt(angle, angleMax);
 	}
 
 	this.pos = srcPos;
@@ -96,7 +96,7 @@ public class Bullet extends Projectile {
 	    Pos delayedPos = PointsUtil.lerpQuadratic(this.sourcePos, this.target, (float) Math.toRadians(this.angle), this.ticks - this.trailDelay, this.length);
 	    delayedPos.setY(delayedPos.getY() - delayedPos.getZ()); // don't forget about height above ground
 	    
-	    world.spawnSmokeAt(delayedPos, this.trail);
+	    owner.world.spawnSmokeAt(delayedPos, this.trail);
 
 	    this.smokeTicks = this.trailInterval;
 	}

@@ -158,12 +158,12 @@ public class EntityV2Launcher extends EntityVehicle implements ISelectable, IHav
 
     @Override
     public int getRevealingRange() {
-	return this.SHROUD_REVEALING_RANGE;
+	return EntityV2Launcher.SHROUD_REVEALING_RANGE;
     }
 
     @Override
     public Path findPathFromTo(MobileEntity e, Pos aGoal) {
-	return world.getVehiclePathfinder().findPathFromTo(this, aGoal);
+	return owner.world.getVehiclePathfinder().findPathFromTo(this, aGoal);
     }
 
     @Override
@@ -173,12 +173,12 @@ public class EntityV2Launcher extends EntityVehicle implements ISelectable, IHav
 
     @Override
     public int getWaitAverageTime() {
-	return this.WAIT_FOR_BLOCKER_AVERAGE_TIME_TICKS;
+	return EntityV2Launcher.WAIT_FOR_BLOCKER_AVERAGE_TIME_TICKS;
     }
 
     @Override
     public int getWaitSpreadTime() {
-	return this.WAIT_FOR_BLOCKER_TIME_SPREAD_TICKS;
+	return EntityV2Launcher.WAIT_FOR_BLOCKER_TIME_SPREAD_TICKS;
     }
 
     @Override

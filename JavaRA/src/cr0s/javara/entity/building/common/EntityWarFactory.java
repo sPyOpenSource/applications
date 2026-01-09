@@ -5,7 +5,6 @@ import cr0s.javara.entity.IDeployable;
 import cr0s.javara.entity.IHaveCost;
 import cr0s.javara.entity.ISelectable;
 import cr0s.javara.entity.IShroudRevealer;
-import cr0s.javara.entity.MobileEntity;
 import cr0s.javara.entity.building.BibType;
 import cr0s.javara.entity.building.EntityBuilding;
 import cr0s.javara.entity.building.IPowerConsumer;
@@ -266,17 +265,16 @@ public class EntityWarFactory extends EntityBuilding implements ISelectable, ISh
     }
     
     public boolean isCellBlocked(int cellX, int cellY) {
-	return !world.isCellPassable(new Pos(cellX, cellY)) || (world.getEntityNonBuildingInPoint((cellX * 24) + 12, (cellY * 24) + 12) != null);
+	return !owner.world.isCellPassable(new Pos(cellX, cellY)) || (owner.world.getEntityNonBuildingInPoint((cellX * 24) + 12, (cellY * 24) + 12) != null);
     }
     
     public boolean deployEntity(EntityVehicle target) {
 	if (this.targetEntity != null) {
 	    return false;
 	}
-	
-	world.spawnEntityInWorld(target);
+	target.owner = owner;
+	owner.world.spawnEntityInWorld(target);
         owner.entities.add(target);
-	target.setWorld(world);
 	this.targetEntity = target;
 	targetEntity.setPositionByCenter(boundingBox.getX() + 24 + 12, boundingBox.getY() + 24);
 	targetEntity.currentFacing = 16;

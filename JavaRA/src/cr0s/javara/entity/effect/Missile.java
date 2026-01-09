@@ -129,7 +129,7 @@ public class Missile extends Projectile {
 	if (this.trail != null && --this.smokeTicks <= 0) {
 	    Pos delayedPos = this.pos.sub(move.mul(1.5f));
 	    
-	    world.spawnSmokeAt(delayedPos, this.trail);
+	    owner.world.spawnSmokeAt(delayedPos, this.trail);
 	    this.smokeTicks = this.trailInterval;
 	}
 
@@ -138,7 +138,7 @@ public class Missile extends Projectile {
 	boolean shouldExplode = (this.pos.getZ() < 0)
 		|| (dist.distanceToSq(this.pos) < this.enoughRange * this.enoughRange)
 		|| (this.rangeLimit > 0 && this.ticks > this.rangeLimit) 
-		|| (this.boundToTerrainType != null && this.world.getCellTargetType(cell) != this.boundToTerrainType);
+		|| (this.boundToTerrainType != null && owner.world.getCellTargetType(cell) != this.boundToTerrainType);
 	
 	if (shouldExplode) {
 	    explode();

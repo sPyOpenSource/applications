@@ -77,8 +77,8 @@ public class MoveInfantry extends Activity {
 
 
 	me.desiredSubcell = me.currentSubcell;
-	if (!me.world.blockingEntityMap.isSubcellFree(nextCell, me.desiredSubcell)) {
-	    me.desiredSubcell = me.world.blockingEntityMap.getFreeSubCell(nextCell, me.currentSubcell);
+	if (!me.owner.world.blockingEntityMap.isSubcellFree(nextCell, me.desiredSubcell)) {
+	    me.desiredSubcell = me.owner.world.blockingEntityMap.getFreeSubCell(nextCell, me.currentSubcell);
 
 	    if (me.desiredSubcell == null) {
 		me.desiredSubcell = me.currentSubcell;
@@ -87,7 +87,7 @@ public class MoveInfantry extends Activity {
 
 	if (!me.canEnterCell(nextCell)) {
 	    // This building we ignore
-	    if (this.ignoreBuilding != null && me.world.getBuildingInCell(nextCell) == this.ignoreBuilding) {
+	    if (this.ignoreBuilding != null && me.owner.world.getBuildingInCell(nextCell) == this.ignoreBuilding) {
 		this.hasNotifiedBlocker = false;
 		this.hasWaited = false;
 
@@ -125,7 +125,7 @@ public class MoveInfantry extends Activity {
 	    
 	    // Wait a bit
 	    if (!this.hasWaited) {
-		this.waitTicksRemaining = me.getWaitAverageTime() + me.world.getRandomInt(-me.getWaitSpreadTime(), me.getWaitSpreadTime());
+		this.waitTicksRemaining = me.getWaitAverageTime() + World.getRandomInt(-me.getWaitSpreadTime(), me.getWaitSpreadTime());
 
 		//System.out.println("Waiting time: " + this.waitTicksRemaining);
 		this.hasWaited = true;
@@ -185,7 +185,7 @@ public class MoveInfantry extends Activity {
     }
 
     public Pos chooseClosestToDestCell(MobileEntity me) {
-	return me.world.chooseClosestPassableCellInRangeAroundOtherCell(me.getCellPos(), this.destCell, this.destRange);
+	return me.owner.world.chooseClosestPassableCellInRangeAroundOtherCell(me.getCellPos(), this.destCell, this.destRange);
     }    
 
     @Override

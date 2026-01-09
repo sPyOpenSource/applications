@@ -360,6 +360,7 @@ public class Base {
 	if (b != null) {
 	    if (b instanceof EntityBarracks entityBarracks) {
                 EntityActor x = i.newInstance();
+                x.owner = owner;
 		entityBarracks.deployEntity(x);
                 owner.entities.add(x);
 	    }/* else if (b instanceof EntityTent) {

@@ -85,9 +85,8 @@ public class Weapon120mm extends Weapon {
 	if (Weapon120mm.MUZZLE_FLASH != null) {
 	    MuzzleFlash mz = new MuzzleFlash(muzzlePosition, Weapon120mm.MUZZLE_FLASH, fcng, MUZZLE_FLASH_FACINGS, MUZZLE_FLASH_LENGTH);
 	    mz.isVisible = true;
-	    mz.setWorld(srcActor.world);
 	    
-	    srcActor.world.spawnEntityInWorld(mz);
+	    srcActor.owner.world.spawnEntityInWorld(mz);
 	}
 	
 	return blt;

@@ -20,7 +20,7 @@ public abstract class EntityAircraft extends MobileEntity {
 
     @Override
     public boolean canEnterCell(Pos cellPos) {
-	return this.world.getMap().isInMap(cellPos);
+	return owner.world.getMap().isInMap(cellPos);
     }
 
     @Override
@@ -33,11 +33,11 @@ public abstract class EntityAircraft extends MobileEntity {
     }
     
     public boolean canLand(Pos cellPos) {
-	if (!this.world.getMap().isInMap(cellPos)) {
+	if (!owner.world.getMap().isInMap(cellPos)) {
 	    return false;
 	}
 	
-	return this.world.blockingEntityMap.isAnyUnitInCell(cellPos);
+	return owner.world.blockingEntityMap.isAnyUnitInCell(cellPos);
     }
     
 }

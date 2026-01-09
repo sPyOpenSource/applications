@@ -103,7 +103,7 @@ public class AutoTarget {
     
     private EntityActor chooseTarget(float rangeInCells) {
 	this.nextScanTime = World.getRandomInt(this.minimumScanInterval, this.maximumScanInterval);
-	ArrayList<EntityActor> actorsInRange = this.self.world.getActorsInCircle(this.self.getPosition(), rangeInCells * 24.0f - this.RANGE_TOLERANCE * 24.0f);
+	ArrayList<EntityActor> actorsInRange = this.self.owner.world.getActorsInCircle(this.self.getPosition(), rangeInCells * 24.0f - this.RANGE_TOLERANCE * 24.0f);
 	
 	// Choose closest hostile actor that we can use our weapons against it
 	EntityActor bestTarget = null;

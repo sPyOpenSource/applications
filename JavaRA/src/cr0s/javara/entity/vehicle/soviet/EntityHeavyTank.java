@@ -199,7 +199,7 @@ public class EntityHeavyTank extends EntityVehicle implements ISelectable, IHave
 
     @Override
     public Path findPathFromTo(MobileEntity e, Pos aGoal) {
-	return world.getVehiclePathfinder().findPathFromTo(this, aGoal);
+	return owner.world.getVehiclePathfinder().findPathFromTo(this, aGoal);
     }
 
     @Override

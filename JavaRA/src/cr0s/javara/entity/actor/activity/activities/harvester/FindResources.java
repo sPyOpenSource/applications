@@ -67,7 +67,7 @@ public class FindResources extends Activity {
 	    int newCellY = currentNode.getCellY() + dy[i];
 
 	    Pos cell = new Pos(newCellX, newCellY);
-if(!harv.world.getMap().isInMap(cell)) continue;
+if(!harv.owner.world.getMap().isInMap(cell)) continue;
 	    /*if (!harv.world.isCellPassable(cell)) {
 		continue;
 	    }*/
@@ -131,7 +131,7 @@ if(!harv.world.getMap().isInMap(cell)) continue;
 
 	return //!shroudObscures && 
                 //(isHarvesterPoint || harv.world.isCellPassable(cellPos)) && 
-                !harv.world.getMap().getResourcesLayer()
+                !harv.owner.world.getMap().getResourcesLayer()
 			.isCellEmpty(cellPos);
     }
 

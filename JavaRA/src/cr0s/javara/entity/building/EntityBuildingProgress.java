@@ -64,7 +64,7 @@ public class EntityBuildingProgress extends EntityBuilding implements IShroudRev
 	    
 	    this.targetBuilding.isVisible = true;
             owner.entities.add(this.targetBuilding);
-	    world.spawnEntityInWorld(this.targetBuilding);
+	    owner.world.spawnEntityInWorld(this.targetBuilding);
             owner.getBase().addBuilding(targetBuilding);
             targetBuilding.owner = owner;
 	    this.targetBuilding.onBuildFinished();
@@ -81,7 +81,7 @@ public class EntityBuildingProgress extends EntityBuilding implements IShroudRev
         view.setX(boundingBox.getX());
         view.setY(boundingBox.getY());
         StackPane combined = new StackPane();
-combined.getChildren().add(view);
+        combined.getChildren().add(view);
         return combined;
     }
 

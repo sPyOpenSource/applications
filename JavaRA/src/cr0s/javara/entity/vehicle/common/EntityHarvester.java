@@ -213,7 +213,7 @@ public class EntityHarvester extends EntityVehicle implements ISelectable, IShro
 
     @Override
     public Path findPathFromTo(MobileEntity e, Pos aGoal) {
-	return world.getVehiclePathfinder().findPathFromTo(this, aGoal);
+	return owner.world.getVehiclePathfinder().findPathFromTo(this, aGoal);
     }
 
     @Override
@@ -333,7 +333,7 @@ public class EntityHarvester extends EntityVehicle implements ISelectable, IShro
     public EntityProc findClosestProc() {
 	EntityProc closestProc = null;
 	
-	for (Entity e : world.getEntitiesList()) {
+	for (Entity e : owner.world.getEntitiesList()) {
 	    if (e instanceof EntityProc && e.owner == this.owner) { // Check that is our ore refinery
 		int distance = this.getCenterPos().distanceToSq(new Pos(e.boundingBox.getX() + e.boundingBox.getWidth()/2, e.boundingBox.getY() + e.boundingBox.getHeight()/2));
 		if (closestProc == null || distance < this.getCenterPos().distanceToSq(new Pos(closestProc.boundingBox.getX() + closestProc.boundingBox.getWidth()/2, closestProc.boundingBox.getY() + closestProc.boundingBox.getHeight()/2))) {
@@ -352,7 +352,7 @@ public class EntityHarvester extends EntityVehicle implements ISelectable, IShro
 
 	@Override
 	public boolean canTarget(Entity self, Target target) {
-	    return target.isCellTarget() && (self instanceof EntityHarvester) && (self.owner.getShroud() != null && self.owner.getShroud().isExplored(target.getTargetCell())) && !self.world.getMap().getResourcesLayer().isCellEmpty(target.getTargetCell());
+	    return target.isCellTarget() && (self instanceof EntityHarvester) && (self.owner.getShroud() != null && self.owner.getShroud().isExplored(target.getTargetCell())) && !owner.world.getMap().getResourcesLayer().isCellEmpty(target.getTargetCell());
 	}
 
 	@Override

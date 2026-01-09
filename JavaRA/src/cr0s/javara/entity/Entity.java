@@ -20,7 +20,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 
 public abstract class Entity {
-    public World world;
     public Pos move;
 
     private boolean isDead = false;
@@ -75,10 +74,6 @@ public abstract class Entity {
 	this.boundingBox = new Rectangle(pos.getX(), pos.getY(), sizeWidth, sizeHeight);
 
 	this.fillsSpace = FillsSpace.DONT_FILLS;
-    }
-
-    public void setWorld(World w) {
-	this.world = w;
     }
 
     public abstract void updateEntity(long delta);
@@ -247,8 +242,8 @@ public abstract class Entity {
     public void setDead() {
 	this.isVisible = false;
 	this.isDead = true;
-        if(world != null)
-            world.root.getChildren().remove(view);
+        if(owner.world != null)
+            owner.world.root.getChildren().remove(view);
     }
 
     public int getHp() {

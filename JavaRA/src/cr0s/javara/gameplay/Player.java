@@ -93,11 +93,11 @@ public class Player {
         //entities.add(eht);
 	//this.world.spawnEntityInWorld(eht);
 
-	int n = this.world.getRandomInt(15, 50);
+	int n = World.getRandomInt(15, 50);
 
 	for (int i = 0; i < n; i++) {
-	    int rx = this.spawn.getCellX() + this.world.getRandomInt(-10, 10);
-	    int ry = this.spawn.getCellY() + this.world.getRandomInt(-10, 10);
+	    int rx = this.spawn.getCellX() + World.getRandomInt(-10, 10);
+	    int ry = this.spawn.getCellY() + World.getRandomInt(-10, 10);
 
 	    Pos randomPoint = new Pos(rx, ry);
 
@@ -106,7 +106,7 @@ public class Player {
 	    }
 	    
 	    EntityInfantry e = null;
-	    switch (this.world.getRandomInt(0, 3)) {
+	    switch (World.getRandomInt(0, 3)) {
                 case 0:
                     e = new EntityRifleTrooper(randomPoint, world.blockingEntityMap.getFreeSubCell(randomPoint, SubCell.CENTER));
                     break;
@@ -120,7 +120,7 @@ public class Player {
                     break;
 	    }
 	    
-	    e.currentFacing = this.world.getRandomInt(0, EntityInfantry.MAX_FACING);
+	    e.currentFacing = World.getRandomInt(0, EntityInfantry.MAX_FACING);
             //entities.add(e);
 	    e.isVisible = true; 
             //this.world.spawnEntityInWorld(e);

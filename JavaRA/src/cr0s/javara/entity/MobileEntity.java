@@ -17,6 +17,7 @@ import cr0s.javara.order.Target;
 import cr0s.javara.render.EntityBlockingMap.SubCell;
 import cr0s.javara.util.Pos;
 import cr0s.javara.main.GUI;
+import cr0s.javara.render.World;
 
 import javafx.scene.Scene;
 import javafx.scene.shape.MoveTo;
@@ -209,7 +210,7 @@ public abstract class MobileEntity extends EntityActor implements INotifyBlockin
 		continue;
 	    }
 	    
-	    if (world.isCellPassable(new Pos(newCellX, newCellY))) {
+	    if (owner.world.isCellPassable(new Pos(newCellX, newCellY))) {
 		availCells.add(new Pos(newCellX, newCellY));
 	    } else {
 		smartCells.add(new Pos(newCellX, newCellY));
@@ -220,10 +221,10 @@ public abstract class MobileEntity extends EntityActor implements INotifyBlockin
 	
 	// Choose random cell, first from of available, if not, then, select from smart cells
 	if (!availCells.isEmpty()) {
-	    pointToGetOut = availCells.get(world.getRandomInt(0, availCells.size()));
+	    pointToGetOut = availCells.get(World.getRandomInt(0, availCells.size()));
 	} else {
 	    if (!smartCells.isEmpty()) {
-		pointToGetOut = smartCells.get(world.getRandomInt(0, smartCells.size()));
+		pointToGetOut = smartCells.get(World.getRandomInt(0, smartCells.size()));
 	    }
 	}
 	
@@ -241,7 +242,7 @@ public abstract class MobileEntity extends EntityActor implements INotifyBlockin
 	    Collections.shuffle(smartCells);
 	    
 	    for (Pos cell : smartCells) {
-		MobileEntity blocker = world.getMobileEntityInCell(cell);
+		MobileEntity blocker = owner.world.getMobileEntityInCell(cell);
 		
 		if (blocker != this && blocker != null && blocker.isFrendlyTo(this)) {
 		    blocker.nudge(this, force, nudgingDepth + 1);

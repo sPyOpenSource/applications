@@ -303,7 +303,6 @@ public class World extends AnimationTimer {
     }
 
     public void spawnEntityInWorld(Entity e) {
-	e.setWorld(this);
         System.out.println(e.getName());
         root.getChildren().addAll(e.renderEntity().getChildren());
     }
@@ -640,7 +639,6 @@ public class World extends AnimationTimer {
 
     public void spawnExplosionAt(Pos pos, String explosionType) {
 	Explosion e = new Explosion(pos, explosionType);
-	e.setWorld(this);
 	e.isVisible = true;
 	
 	this.spawnEntityInWorld(e);
@@ -648,7 +646,6 @@ public class World extends AnimationTimer {
 
     public void spawnSmokeAt(Pos pos, String smokeSprite) {
 	Smoke s = new Smoke(pos, smokeSprite);
-	s.setWorld(this);
 	s.isVisible = true;
 	
 	this.spawnEntityInWorld(s);	
@@ -688,7 +685,7 @@ public class World extends AnimationTimer {
 	return result;
     }
 
-    public float getRandomFloat(float from, float to) {
+    public static float getRandomFloat(float from, float to) {
 	return from + (random.nextFloat() % (to - from));
     }
     

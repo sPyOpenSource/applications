@@ -99,9 +99,8 @@ public class WeaponMammothTusk extends Weapon {
 	if (WeaponMammothTusk.MUZZLE_FLASH != null && !WeaponMammothTusk.MUZZLE_FLASH.isEmpty()) {
 	    MuzzleFlash mz = new MuzzleFlash(muzzlePosition, WeaponMammothTusk.MUZZLE_FLASH, fcng, MUZZLE_FLASH_FACINGS, MUZZLE_FLASH_LENGTH);
 	    mz.isVisible = true;
-	    mz.setWorld(srcActor.world);
 	    
-	    srcActor.world.spawnEntityInWorld(mz);
+	    srcActor.owner.world.spawnEntityInWorld(mz);
 	}
 	
 	return msl;

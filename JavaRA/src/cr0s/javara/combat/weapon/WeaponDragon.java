@@ -100,9 +100,8 @@ public class WeaponDragon extends Weapon {
 	if (WeaponDragon.MUZZLE_FLASH != null && !WeaponDragon.MUZZLE_FLASH.isEmpty()) {
 	    MuzzleFlash mz = new MuzzleFlash(muzzlePosition, WeaponDragon.MUZZLE_FLASH, fcng, MUZZLE_FLASH_FACINGS, MUZZLE_FLASH_LENGTH);
 	    mz.isVisible = true;
-	    mz.setWorld(srcActor.world);
 	    
-	    srcActor.world.spawnEntityInWorld(mz);
+	    srcActor.owner.world.spawnEntityInWorld(mz);
 	}
 	
 	return msl;

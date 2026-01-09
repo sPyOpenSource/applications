@@ -13,6 +13,7 @@ import cr0s.javara.order.Order;
 import cr0s.javara.order.OrderTargeter;
 import cr0s.javara.order.Target;
 import cr0s.javara.render.EntityBlockingMap.FillsSpace;
+import cr0s.javara.render.World;
 import cr0s.javara.render.map.TileSet;
 import cr0s.javara.resources.ResourceManager;
 import cr0s.javara.resources.SoundManager;
@@ -318,7 +319,7 @@ public abstract class EntityBuilding extends EntityActor {
 
 	for (int bX = 0; bX < this.getWidthInTiles(); bX++) {
 	    for (int bY = 0; bY < this.getHeightInTiles(); bY++) {
-		world.spawnExplosionAt(new Pos(this.boundingBox.getX() + bX * 24, this.boundingBox.getY() + bY * 24), "fball1.shp");
+		owner.world.spawnExplosionAt(new Pos(this.boundingBox.getX() + bX * 24, this.boundingBox.getY() + bY * 24), "fball1.shp");
 	    }
 	}
 
@@ -346,8 +347,8 @@ public abstract class EntityBuilding extends EntityActor {
 			continue;
 		    }
 
-		    if (world.getRandomInt(0, 10) >= 8) { 
-			world.spawnExplosionAt(new Pos(this.boundingBox.getX() + bX * 24 + 12, this.boundingBox.getY() + bY * 24 + 12), "fire1.shp");
+		    if (World.getRandomInt(0, 10) >= 8) { 
+			owner.world.spawnExplosionAt(new Pos(this.boundingBox.getX() + bX * 24 + 12, this.boundingBox.getY() + bY * 24 + 12), "fire1.shp");
 		    }
 		}
 	    }	    

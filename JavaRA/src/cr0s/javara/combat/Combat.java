@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import cr0s.javara.entity.actor.EntityActor;
 import cr0s.javara.render.World;
 import cr0s.javara.render.map.TileSet;
-import cr0s.javara.resources.SoundManager;
 import cr0s.javara.util.Pos;
 
 public class Combat {
@@ -22,7 +21,7 @@ public class Combat {
     }
 
     public static void doImpact(Pos pos, Warhead warhead, Weapon weapon, EntityActor firedBy, float firepowerModifier) {
-	World world = firedBy.world;
+	World world = firedBy.owner.world;
 	Pos targetTile = new Pos(pos.getX(), pos.getY());
 
 	if (!world.getMap().isInMap(pos)) {

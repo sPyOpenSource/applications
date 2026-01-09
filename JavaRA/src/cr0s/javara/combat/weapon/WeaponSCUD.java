@@ -91,9 +91,8 @@ public class WeaponSCUD extends Weapon {
 	if (WeaponSCUD.MUZZLE_FLASH != null && !WeaponSCUD.MUZZLE_FLASH.isEmpty()) {
 	    MuzzleFlash mz = new MuzzleFlash(muzzlePosition, WeaponSCUD.MUZZLE_FLASH, fcng, MUZZLE_FLASH_FACINGS, MUZZLE_FLASH_LENGTH);
 	    mz.isVisible = true;
-	    mz.setWorld(srcActor.world);
 	    
-	    srcActor.world.spawnEntityInWorld(mz);
+	    srcActor.owner.world.spawnEntityInWorld(mz);
 	}
 	
 	return blt;

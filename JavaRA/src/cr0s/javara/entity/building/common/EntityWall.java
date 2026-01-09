@@ -59,7 +59,7 @@ public abstract class EntityWall extends EntityBuilding implements IHaveCost, ID
 	    int checkY = (int) (this.boundingBox.getY() / 24) + dy[i];
 
 	    // TODO: use actor/blocking map for this to get O(1) instead O(n) complexity
-	    EntityBuilding b = world.getBuildingInCell(new Pos(checkX, checkY));
+	    EntityBuilding b = owner.world.getBuildingInCell(new Pos(checkX, checkY));
 
 	    if (b != null && b instanceof EntityWall) {
 		if (((EntityWall) b).textureName.equals(this.textureName)) {
@@ -83,7 +83,7 @@ public abstract class EntityWall extends EntityBuilding implements IHaveCost, ID
 	    int checkY = (int) (this.boundingBox.getY() / 24) + dy[i];
 
 	    // TODO: use actor/blocking map for this to get O(1) instead O(n) complexity
-	    EntityBuilding b = world.getBuildingInCell(new Pos(checkX, checkY));
+	    EntityBuilding b = owner.world.getBuildingInCell(new Pos(checkX, checkY));
 
 	    if (b != null && b instanceof EntityWall) {
 		((EntityWall) b).setDirty();

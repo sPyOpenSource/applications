@@ -4,10 +4,10 @@ import cr0s.javara.combat.Projectile;
 import cr0s.javara.entity.IEffect;
 import cr0s.javara.entity.actor.EntityActor;
 import cr0s.javara.order.Target;
+import cr0s.javara.render.World;
 import cr0s.javara.resources.ResourceManager;
 import cr0s.javara.util.Pos;
 import cr0s.javara.util.SpriteSheet;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 
 public class TeslaZapRenderer extends Projectile implements IEffect {
@@ -70,7 +70,7 @@ public class TeslaZapRenderer extends Projectile implements IEffect {
 	//this.tex.startUse();
 
 	this.p = this.guided.isValidFor(this.sourceActor) ? this.guidedTarget.getPosition() : this.passiveTargetPos;	
-	this.drawZapWandering(this.sourcePos, this.p, this.world.getRandomInt(25, 50), 5.0f);
+	this.drawZapWandering(this.sourcePos, this.p, World.getRandomInt(25, 50), 5.0f);
 
 	//this.tex.endUse();
         return null;

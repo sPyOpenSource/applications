@@ -129,7 +129,7 @@ public class EntityTeslaCoil extends Defensive implements ISelectable, IPowerCon
         view.setX(boundingBox.getX());
         view.setY(boundingBox.getY());
         StackPane combined = new StackPane();
-combined.getChildren().add(view);
+        combined.getChildren().add(view);
         return combined;
     }
 

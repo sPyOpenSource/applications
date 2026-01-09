@@ -171,16 +171,16 @@ public class EntityBarracks extends EntityBuilding implements ISelectable, IPowe
     public void deployEntity(EntityActor newInstance) {
 	if (newInstance instanceof MobileEntity me) {	    
 	    me.isVisible = true;	    
-	    newInstance.setWorld(this.world);
 	  
-	    world.spawnEntityInWorld(newInstance);
+	    owner.world.spawnEntityInWorld(newInstance);
+            me.owner = owner;
 	    me.setPos(new Pos(boundingBox.getX(), boundingBox.getY()));
             
 	    Path p = new Path();
 	    p.getElements().add(new MoveTo(exitPos.getX(), exitPos.getY()));
 	    p.getElements().add(new MoveTo(rallyPos.getX(), rallyPos.getY()));
 	    
-	    SubCell freeSubCell = world.blockingEntityMap.getFreeSubCell(rallyPos, SubCell.CENTER);
+	    SubCell freeSubCell = owner.world.blockingEntityMap.getFreeSubCell(rallyPos, SubCell.CENTER);
 	    if (freeSubCell != null) {
 		me.currentSubcell = freeSubCell;
 		me.desiredSubcell = freeSubCell;
@@ -190,12 +190,12 @@ public class EntityBarracks extends EntityBuilding implements ISelectable, IPowe
 	    } else {
 		SubCell sc = SubCell.CENTER;
 
-		MobileEntity blocker = world.getMobileEntityInCell(exitPos);
+		MobileEntity blocker = owner.world.getMobileEntityInCell(exitPos);
 		if (blocker != null) {
 		    blocker.nudge(me, true);
 		}
 		
-		blocker = world.getMobileEntityInCell(rallyPos);
+		blocker = owner.world.getMobileEntityInCell(rallyPos);
 		if (blocker != null) {
 		    blocker.nudge(me, true);
 		}

@@ -228,7 +228,7 @@ public class EntityMammothTank extends EntityVehicle implements ISelectable, IHa
 
     @Override
     public Path findPathFromTo(MobileEntity e, Pos aGoal) {
-	return world.getVehiclePathfinder().findPathFromTo(this, aGoal);
+	return owner.world.getVehiclePathfinder().findPathFromTo(this, aGoal);
     }
 
     @Override

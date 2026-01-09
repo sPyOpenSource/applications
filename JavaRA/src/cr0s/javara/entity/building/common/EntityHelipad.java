@@ -171,9 +171,8 @@ combined.getChildren().add(view);
     public void deployEntity(EntityActor newInstance) {
 	if (newInstance instanceof MobileEntity me) {	    
 	    me.isVisible = true;	    
-	    newInstance.setWorld(this.world);
 	  
-	    world.spawnEntityInWorld(newInstance);
+	    owner.world.spawnEntityInWorld(newInstance);
 	    
 	    me.setPos(this.getPosition().add(EntityHelipad.spawnOffset));
 	    me.currentFacing = EntityHelipad.initialFacing;

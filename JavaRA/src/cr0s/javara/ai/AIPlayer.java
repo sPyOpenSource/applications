@@ -58,7 +58,7 @@ public class AIPlayer extends Player {
     private ArrayList<Squad> squads = new ArrayList<>();
     private ArrayList<EntityActor> unitsHangingAroundTheBase = new ArrayList<>();
     private ArrayList<EntityActor> activeUnits = new ArrayList<>();
-ArrayList<Player> enemies;
+    ArrayList<Player> enemies;
 
     private final int assignRolesInterval = 20;
     private final int rushInterval = 600;
@@ -349,7 +349,7 @@ ArrayList<Player> enemies;
 
     private EntityActor findClosestEnemy(final Pos center, Player p) {
 	EntityActor closest = null;
-        for(Player player:world.getPlayers()){
+        for(Player player : world.getPlayers()){
             // If we looking for specified owner
 	    if (player != p) {
 		continue;

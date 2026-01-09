@@ -35,7 +35,7 @@ public abstract class AttackBase implements IOrderResolver, IOrderIssuer {
     }
 
     protected boolean canAttack(Target tgt) {
-	if (this.self.world == null || this.self.isDead() || tgt == null || !tgt.isValidFor(this.self)) {
+	if (this.self.owner.world == null || this.self.isDead() || tgt == null || !tgt.isValidFor(this.self)) {
 	    return false;
 	}
 
@@ -108,7 +108,7 @@ public abstract class AttackBase implements IOrderResolver, IOrderIssuer {
 	}
 
 	public boolean canTargetCell(Target tgt) {
-	    if (!this.entity.world.getMap().isInMap(tgt.getTargetCell())) {
+	    if (!this.entity.owner.world.getMap().isInMap(tgt.getTargetCell())) {
 		return false;
 	    }
 

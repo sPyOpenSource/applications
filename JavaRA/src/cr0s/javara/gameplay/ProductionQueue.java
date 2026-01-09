@@ -165,6 +165,7 @@ public class ProductionQueue {
 	
 	if (a != null) {
 	    EntityActor b = a.newInstance();
+            b.owner = player;
             player.entities.add(b);
             return b;
 	}

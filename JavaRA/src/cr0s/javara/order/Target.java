@@ -62,6 +62,6 @@ public class Target {
     }
     
     public boolean isValidFor(EntityActor self) {
-	return (this.isEntityTarget() && !this.targetEntity.isDead()) || (this.isCellTarget() && self.world.getMap().isCellInMap(targetCell));
+	return (this.isEntityTarget() && !this.targetEntity.isDead()) || (this.isCellTarget() && self.owner.world.getMap().isCellInMap(targetCell));
     }
 }

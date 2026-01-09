@@ -139,10 +139,9 @@ public class StateGameMap extends Application {
 			    moveFlashSpawned = true;
 
 			    MoveFlash flash = new MoveFlash(order.targetPosition, 24, 24);
-			    flash.setWorld(ea.world);
 			    flash.isVisible = true;
 
-			    ea.world.spawnEntityInWorld(flash);
+			    ea.owner.world.spawnEntityInWorld(flash);
 			}
 		    } else {
 			// Current entity can't resolve this order, so de-select this entity

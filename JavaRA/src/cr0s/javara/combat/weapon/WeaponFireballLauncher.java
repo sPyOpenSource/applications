@@ -85,9 +85,8 @@ public class WeaponFireballLauncher extends Weapon {
 	if (WeaponFireballLauncher.MUZZLE_FLASH != null) {
 	    MuzzleFlash mz = new MuzzleFlash(muzzlePosition, WeaponFireballLauncher.MUZZLE_FLASH, fcng, MUZZLE_FLASH_FACINGS, MUZZLE_FLASH_LENGTH);
 	    mz.isVisible = true;
-	    mz.setWorld(srcActor.world);
 	    
-	    srcActor.world.spawnEntityInWorld(mz);
+	    srcActor.owner.world.spawnEntityInWorld(mz);
 	}
 	
 	return blt;

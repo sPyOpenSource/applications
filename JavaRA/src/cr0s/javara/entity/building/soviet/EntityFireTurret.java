@@ -164,12 +164,12 @@ public class EntityFireTurret extends Defensive implements ISelectable, IPowerCo
 
     @Override
     public int getConsumptionLevel() {
-	return this.POWER_CONSUMPTION_LEVEL;
+	return EntityFireTurret.POWER_CONSUMPTION_LEVEL;
     }
 
     @Override
     public int getRevealingRange() {
-	return this.SHROUD_REVEALING_RANGE;
+	return EntityFireTurret.SHROUD_REVEALING_RANGE;
     }
     
     @Override

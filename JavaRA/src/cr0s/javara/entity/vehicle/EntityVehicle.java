@@ -3,6 +3,7 @@ package cr0s.javara.entity.vehicle;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
+import javafx.scene.paint.Color;
 
 import cr0s.javara.combat.TargetType;
 import cr0s.javara.combat.Warhead;
@@ -17,9 +18,6 @@ import cr0s.javara.render.EntityBlockingMap.FillsSpace;
 import cr0s.javara.render.World;
 import cr0s.javara.resources.SoundManager;
 import cr0s.javara.util.Pos;
-
-import javafx.scene.paint.Color;
-import javafx.scene.layout.StackPane;
 
 public abstract class EntityVehicle extends MobileEntity implements IShroudRevealer {
     public int tileX, tileY;
@@ -69,11 +67,11 @@ public abstract class EntityVehicle extends MobileEntity implements IShroudRevea
     }
 
 
-    @Override
+    /*@Override
     public StackPane renderEntity() {
-	//super.renderEntity(g);
+	super.renderEntity();
         return null;
-    }
+    }*/
 
     public static EntityVehicle newInstance(EntityVehicle b) {
 	Constructor ctor;
@@ -164,7 +162,7 @@ public abstract class EntityVehicle extends MobileEntity implements IShroudRevea
 
     @Override
     public boolean canEnterCell(Pos cellPos) {
-	return world.blockingEntityMap.isEntityInCell(cellPos, this) || world.isCellPassable(cellPos);
+	return owner.world.blockingEntityMap.isEntityInCell(cellPos, this) || owner.world.isCellPassable(cellPos);
     }
 
     @Override
@@ -186,7 +184,7 @@ public abstract class EntityVehicle extends MobileEntity implements IShroudRevea
 	}
 	
 	if (this.getHp() > 0 && this.getHp() - amount <= 0) { // prevent overkill and spawn unit explosion
-	    this.world.spawnExplosionAt(this.getPosition(), this.explosionType);
+	    owner.world.spawnExplosionAt(this.getPosition(), this.explosionType);
 	    SoundManager.getInstance().playSfxAt(this.explosionSound, this.getPosition());
 	    
 	    this.setHp(0);
@@ -199,7 +197,7 @@ public abstract class EntityVehicle extends MobileEntity implements IShroudRevea
 	if (this.getHp() >= this.getMaxHp() / 2 && this.getHp() - amount < this.getMaxHp() / 2) {
 	    SmokeOnUnit sou = new SmokeOnUnit(this, "smoke_m.shp");
 	    sou.isVisible = true;
-	    this.world.spawnEntityInWorld(sou);
+	    owner.world.spawnEntityInWorld(sou);
 	}
 	
 	this.setHp(this.getHp() - amount);	

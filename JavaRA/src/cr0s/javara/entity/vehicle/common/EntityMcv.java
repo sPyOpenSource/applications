@@ -24,7 +24,6 @@ import cr0s.javara.util.Pos;
 import cr0s.javara.util.SpriteSheet;
 
 import javafx.scene.shape.Path;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 
 public class EntityMcv extends EntityVehicle implements ISelectable, IDeployable, IHaveCost {
@@ -190,7 +189,7 @@ combined.getChildren().add(getImageView());
 
     @Override
     public Path findPathFromTo(MobileEntity e, Pos aGoal) {
-	return world.getVehiclePathfinder().findPathFromTo(this, aGoal);
+	return owner.world.getVehiclePathfinder().findPathFromTo(this, aGoal);
     }
 
     @Override
@@ -204,7 +203,7 @@ combined.getChildren().add(getImageView());
 	cy.isSelected = true;
         //owner.entities.add(cy);
         //cy.owner = owner;
-        EntityBuilding ebp = world.addBuildingTo(cy);
+        EntityBuilding ebp = owner.world.addBuildingTo(cy);
         ebp.owner = owner;
 	owner.entities.add(ebp);
 
