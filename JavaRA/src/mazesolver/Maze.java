@@ -92,8 +92,8 @@ public class Maze {
         // Check if startPoint is valid
         while (startPoint == null || !isNode(startPoint)){
             startPoint = new Pos(
-                    startPoint.getCellX() + World.getRandom().nextInt(5) - 2, 
-                    startPoint.getCellY() + World.getRandom().nextInt(5) - 2);
+                    startPoint.getCellX() + World.random.nextInt(5) - 2, 
+                    startPoint.getCellY() + World.random.nextInt(5) - 2);
             //Helper.error("Invalid start point!");
         }
     }
@@ -111,8 +111,8 @@ public class Maze {
         // Check if endPoint is valid
         while (endPoint == null || !isNode(endPoint)){
             endPoint = new Pos(
-                    endPoint.getCellX() + World.getRandom().nextInt(5) - 2, 
-                    endPoint.getCellY() + World.getRandom().nextInt(5) - 2);
+                    endPoint.getCellX() + World.random.nextInt(5) - 2, 
+                    endPoint.getCellY() + World.random.nextInt(5) - 2);
             //Helper.error("Invalid end point!");
         }
     }

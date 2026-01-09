@@ -6,6 +6,7 @@ import cr0s.javara.combat.Combat;
 import cr0s.javara.combat.Projectile;
 import cr0s.javara.combat.Weapon;
 import cr0s.javara.entity.actor.EntityActor;
+import cr0s.javara.render.World;
 import cr0s.javara.util.PointsUtil;
 import cr0s.javara.util.Pos;
 import cr0s.javara.util.RotationUtil;
@@ -68,8 +69,8 @@ public class Bullet extends Projectile {
 	if (this.inaccuracy > 0) {
 	    float maxOffset = this.inaccuracy * distanceToTarget / this.weapon.range;
 
-	    float newTargetX = PointsUtil.rangeFromPdf(srcActor.world.getRandom(), 2) * maxOffset;
-	    float newTargetY = PointsUtil.rangeFromPdf(srcActor.world.getRandom(), 2) * maxOffset;
+	    float newTargetX = PointsUtil.rangeFromPdf(World.random, 2) * maxOffset;
+	    float newTargetY = PointsUtil.rangeFromPdf(World.random, 2) * maxOffset;
 
 	    this.target = new Pos(newTargetX, newTargetY);
 	}

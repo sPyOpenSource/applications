@@ -90,7 +90,7 @@ public class BaseBuilder {
 
 	// Get random building from availables
 	if (!available.isEmpty()) {
-	    return available.get(World.getRandom().nextInt(available.size()));
+	    return available.get(World.random.nextInt(available.size()));
 	} else {
 	    return null;
 	}
@@ -157,7 +157,7 @@ public class BaseBuilder {
 
 	// Build everything else
 	ArrayList<String> keys = new ArrayList(this.ai.buildingFractions.keySet());
-	Collections.shuffle(keys, World.getRandom());
+	Collections.shuffle(keys, World.random);
 	for (String key : keys) {
 	    // Can we build this structure?
 	    if (!this.ai.getBase().getProductionQueue().isBuildable(key + "icon.shp")) {

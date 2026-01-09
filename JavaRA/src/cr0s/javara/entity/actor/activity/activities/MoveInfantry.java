@@ -7,6 +7,7 @@ import cr0s.javara.entity.actor.activity.activities.Turn.RotationDirection;
 import cr0s.javara.entity.building.EntityBuilding;
 import cr0s.javara.entity.infantry.EntityInfantry;
 import cr0s.javara.entity.infantry.EntityInfantry.AnimationState;
+import cr0s.javara.render.World;
 
 import cr0s.javara.util.PointsUtil;
 import cr0s.javara.util.Pos;
@@ -36,14 +37,14 @@ public class MoveInfantry extends Activity {
     public MoveInfantry(MobileEntity me, Pos destinationCell) {
 	this.destCell = destinationCell;
 
-	this.randomWaitTicks = me.world.getRandomInt(1, 3);
+	this.randomWaitTicks = World.getRandomInt(1, 3);
 
 	chooseNewPath(me);
     }
 
     public MoveInfantry(MobileEntity me, Pos destinationCell, int enoughRange) {
 	this.destCell = destinationCell;
-	this.randomWaitTicks = me.world.getRandomInt(1, 3);
+	this.randomWaitTicks = World.getRandomInt(1, 3);
 	this.destRange = enoughRange;
 
 	chooseNewPath(me);

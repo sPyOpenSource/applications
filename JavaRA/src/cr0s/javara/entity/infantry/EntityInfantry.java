@@ -155,50 +155,7 @@ public abstract class EntityInfantry extends MobileEntity implements IShroudReve
     @Override
     public void updateEntity(long delta) {
 	super.updateEntity(delta);
-        /*if(getImageView()!=null){
-            if(router == null) {
-                maze = new Maze(
-                    EntityBlockingMap.blockingMap, 
-                    new Point(
-                            (int)getImageView().getX() / 24, 
-                            (int)getImageView().getY() / 24
-                    ),
-                    new Point(
-                            (int)getImageView().getX() / 24 + random.nextInt(10) - 5, 
-                            (int)getImageView().getY() / 24 + random.nextInt(10) - 5),
-                    null
-                );
-                director = new Director(maze, null);
-                director.run();
-            }
-            if(!director.getBestRoute().isEmpty() && router == null){
-                router = director.getBestRoute();
-            }
-            if(router != null){
-                if(!router.isEmpty()){
-                    Path path = new Path();
-                    MoveTo mv = new MoveTo(
-                            router.getFirst().getX() * 24 + random.nextInt(24), 
-                            router.getFirst().getY() * 24 + random.nextInt(24));
-                    path.getElements().add(mv);
-                    for(int i = 1; i < router.size(); i++){
-                        LineTo line = new LineTo(
-                                router.get(i).getX() * 24 + random.nextInt(24), 
-                                router.get(i).getY() * 24 + random.nextInt(24));
-                        path.getElements().add(line);
-                    }
-                    PathTransition transition = new PathTransition();
-                    transition.setDuration(Duration.millis(500 * router.size()));
-                    router.removeAll(router);
-
-                    transition.setCycleCount(1);
-                    transition.setNode(getImageView());
-                    transition.setAutoReverse(false);
-                    transition.setPath(path);
-                    Platform.runLater(transition::play);
-                }
-            }
-        }*/
+        
 	if (this.attack != null) {
 	    this.attack.update(delta);
 	    
@@ -336,7 +293,7 @@ combined.getChildren().add(getImageView());
 		}
 	    }
 
-	    if (World.getRandom().nextBoolean() && canPlay) {
+	    if (World.random.nextBoolean() && canPlay) {
 		SoundManager.getInstance().playUnitSoundGlobal(this, s, this.unitVersion);
 		return;
 	    }
@@ -363,13 +320,13 @@ combined.getChildren().add(getImageView());
 		}
 	    }
 
-	    if (World.getRandom().nextBoolean() && canPlay) {
+	    if (World.random.nextBoolean() && canPlay) {
 		SoundManager.getInstance().playUnitSoundGlobal(this, s, this.unitVersion);
 		return;
 	    }
 	}
 
-	if (World.getRandom().nextBoolean()) {
+	if (World.random.nextBoolean()) {
 	    SoundManager.getInstance().playUnitSoundGlobal(this, "ackno", this.unitVersion);
 	} else {
 	    SoundManager.getInstance().playUnitSoundGlobal(this, "affirm1", this.unitVersion);
@@ -448,7 +405,7 @@ combined.getChildren().add(getImageView());
     private String getRandomDeathSound(Warhead wh) {
 	if (wh.infDeath != 5) {
 	    // Get random sound from list excluding last one
-	    return this.deathSounds.get(this.world.getRandomInt(0, this.deathSounds.size() - 1));
+	    return this.deathSounds.get(World.getRandomInt(0, this.deathSounds.size() - 1));
 	} else { // death by fire/electro shock
 	    return this.deathSounds.get(this.deathSounds.size() - 1);
 	}

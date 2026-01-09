@@ -6,6 +6,7 @@ import cr0s.javara.combat.TargetType;
 import cr0s.javara.combat.Weapon;
 import cr0s.javara.entity.actor.EntityActor;
 import cr0s.javara.order.Target;
+import cr0s.javara.render.World;
 import cr0s.javara.util.PointsUtil;
 import cr0s.javara.util.Pos;
 import cr0s.javara.util.RotationUtil;
@@ -71,9 +72,9 @@ public class Missile extends Projectile {
 	if (this.inaccuracy > 0) {
 	    float maxOffset = this.inaccuracy;
 
-	    float newTargetX = PointsUtil.rangeFromPdf(srcActor.world.getRandom(), 2) * maxOffset;
-	    float newTargetY = PointsUtil.rangeFromPdf(srcActor.world.getRandom(), 2) * maxOffset;
-	    float newTargetZ = PointsUtil.rangeFromPdf(srcActor.world.getRandom(), 2) * maxOffset;
+	    float newTargetX = PointsUtil.rangeFromPdf(World.random, 2) * maxOffset;
+	    float newTargetY = PointsUtil.rangeFromPdf(World.random, 2) * maxOffset;
+	    float newTargetZ = PointsUtil.rangeFromPdf(World.random, 2) * maxOffset;
 
 	    this.offset = new Pos(newTargetX, newTargetY, newTargetZ);
 	} else {

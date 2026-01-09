@@ -30,7 +30,7 @@ public abstract class StateBase {
 	
 	ArrayList<EntityBuilding> buildings = s.getBot().getBase().getBuildings();
 	if (!buildings.isEmpty()) {
-	    location = buildings.get(World.getRandom().nextInt(buildings.size())).getCellPosition();
+	    location = buildings.get(World.random.nextInt(buildings.size())).getCellPosition();
 	}
 	
 	return location;
@@ -74,7 +74,7 @@ public abstract class StateBase {
 	    return false;
 	}
 	
-	EntityActor u = squad.getUnits().get(World.getRandom().nextInt(squad.getUnits().size()));
+	EntityActor u = squad.getUnits().get(World.random.nextInt(squad.getUnits().size()));
 	ArrayList<EntityActor> units = GUI.getInstance().getWorld().getActorsInCircle(u.getPosition(), DANGER_RADIUS);
 	for (EntityActor a : units) {
 	    if (!a.isDead() && (a instanceof EntityBuilding) && a.owner == squad.getBot()) {

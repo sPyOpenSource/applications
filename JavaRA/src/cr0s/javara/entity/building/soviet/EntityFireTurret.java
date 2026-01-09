@@ -93,9 +93,7 @@ public class EntityFireTurret extends Defensive implements ISelectable, IPowerCo
 
     @Override
     public StackPane renderEntity() {
-	//double nx = posX;
-	//double ny = posY;
-ImageView view;
+        ImageView view;
 	int textureIndex = (this.getHp() < this.getMaxHp() / 2) ? 1 : 0;
 
 	view = this.sheet.getSubImage(0, textureIndex);//.draw(nx, ny);
@@ -122,7 +120,7 @@ ImageView view;
         view.setX(boundingBox.getX());
         view.setY(boundingBox.getY());
         StackPane combined = new StackPane();
-combined.getChildren().add(view);
+        combined.getChildren().add(view);
         return combined;
     }
 
@@ -136,7 +134,7 @@ combined.getChildren().add(view);
 	super.updateEntity(delta);
 	
 	this.attack.update(delta);
-	//this.autoTarget.update(delta);
+	this.autoTarget.update(delta);
     }
 
     @Override

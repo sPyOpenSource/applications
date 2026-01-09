@@ -146,7 +146,7 @@ public class TileMap {
 
 		    // Randomize clear grass
 		    if (tile == GRASS_ID || tile == GRASS_ID_BIG) {
-			index = (short) World.getRandom().nextInt(16);
+			index = (short) World.random.nextInt(16);
 		    }
 
 		    this.mapTiles[x][y] = new TileReference<>(tile, (byte) index);

@@ -314,7 +314,7 @@ ArrayList<Player> enemies;
 	    });
 	} else {
 	    // Shuffling is needed to make sure bot place building in random location at the base
-	    Collections.shuffle(cells, World.getRandom());
+	    Collections.shuffle(cells, World.random);
 	}
 
 	EntityActor b = this.getBase().getProductionQueue().getBuildableActorByName(actorType);
@@ -375,7 +375,7 @@ ArrayList<Player> enemies;
     public Pos chooseBuildLocation(String actorType, boolean distanceToBaseIsImportant, BuildingType type) {
 	switch (type) {
             case DEFENSIVE:
-                if (World.getRandom().nextInt(100) >= 30) { // In ~70% of cases we build defensive structures as close as possible to the enemy
+                if (World.random.nextInt(100) >= 30) { // In ~70% of cases we build defensive structures as close as possible to the enemy
                     EntityActor closestEnemy = this.findClosestEnemy(this.defenseCenter);
                     Pos targetCell = (closestEnemy != null) ? closestEnemy.getCellPosition() : this.getPlayerSpawnPoint();
 
@@ -457,7 +457,7 @@ ArrayList<Player> enemies;
 	//	return null;
 	//}
 
-	ArrayList<Player> players = GUI.getInstance().getWorld().getPlayers();
+	ArrayList<Player> players = world.getPlayers();
 	enemies = new ArrayList<>();
 	for (Player p : players) {
 	    if (p.isEnemyFor(this)) {
@@ -595,7 +595,7 @@ ArrayList<Player> enemies;
     }
 
     private void createAttackForce() {
-	int randomSquadSize = this.squadSize + World.getRandom().nextInt(30);
+	int randomSquadSize = this.squadSize + World.random.nextInt(30);
 
 	if (this.unitsHangingAroundTheBase.size() >= randomSquadSize) {
 	    Squad attackForce = this.registerNewSquad(SquadType.ASSAULT);
@@ -664,11 +664,14 @@ ArrayList<Player> enemies;
     }
 
     private void tryToRushAttack() {
-        EntityActor a = findClosestEnemy(defenseCenter);
+        EntityActor a = chooseEnemyTarget();
         if (squads.isEmpty()) return;
         Squad s = squads.get(0);
         s.setTarget(a);
-        //for(EntityActor b:s.getUnits()) b.queueActivity(new Move((MobileEntity)b, a.getCellPosition()));
+        for(EntityActor b:s.getUnits()) {
+            if(World.random.nextBoolean()) continue;
+            b.queueActivity(new Move((MobileEntity)b, a.getCellPosition()));
+        }
     }
 
     void protectOwn(EntityActor attacker) {
@@ -713,7 +716,7 @@ ArrayList<Player> enemies;
 
     private void buidUnits(boolean buildRandom) {
 	// Randomly choose units category
-	int i = World.getRandom().nextInt(2);
+	int i = World.random.nextInt(2);
 	
 	ArrayList<String> buildables = new ArrayList<>();
 
@@ -760,7 +763,7 @@ ArrayList<Player> enemies;
 
 	// TODO: add non-random build
 	if (!buildables.isEmpty()) {
-	    String randomName = buildables.get(World.getRandom().nextInt(buildables.size()));
+	    String randomName = buildables.get(World.random.nextInt(buildables.size()));
 	    System.out.println(base.getCash());
 	    System.out.println("[AI] Building unit: " + randomName);
 	    this.getBase().getProductionQueue().startBuildingActor(this.getBase().getProductionQueue().getBuildables().get(randomName), null);

@@ -52,7 +52,7 @@ public class World extends AnimationTimer {
 
     private final int removeDeadTicks = 0;
     private final int REMOVE_DEAD_INTERVAL_TICKS = 20;
-    static Random random = new Random(System.currentTimeMillis());
+    public static Random random = new Random(System.currentTimeMillis());
     private final ArrayList<Pos> pointsInRange[] = new ArrayList[MAX_RANGE + 1];
 
     public World(String mapName) {
@@ -636,10 +636,6 @@ public class World extends AnimationTimer {
 	}
 	
 	return TargetType.AIR;
-    }
-
-    public static Random getRandom() {
-	return random;
     }
 
     public void spawnExplosionAt(Pos pos, String explosionType) {

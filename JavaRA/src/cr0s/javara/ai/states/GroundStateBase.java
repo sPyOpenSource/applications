@@ -58,7 +58,7 @@ class GroundUnitsAttackMoveState extends GroundStateBase implements IState {
 	}
 
 	if (!owner.targetIsValid()) {
-	    EntityActor randomUnit = owner.getUnits().get(World.getRandom().nextInt(owner.getUnits().size()));
+	    EntityActor randomUnit = owner.getUnits().get(World.random.nextInt(owner.getUnits().size()));
 	    EntityActor closestEnemy = owner.getBot().findClosestEnemy(randomUnit.getCellPosition());
 
 	    if (closestEnemy != null) {

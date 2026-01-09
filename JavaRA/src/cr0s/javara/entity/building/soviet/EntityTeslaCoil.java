@@ -143,7 +143,7 @@ combined.getChildren().add(view);
 	super.updateEntity(delta);
 
 	this.attack.update(delta);
-	//this.autoTarget.update(delta);	
+	this.autoTarget.update(delta);	
 
 	//this.boundingBox.setBounds(this.posX, this.posY + 12, this.WIDTH_TILES * 24, HEIGHT_TILES * 24 - 12);
 
