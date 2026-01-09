@@ -766,7 +766,7 @@ public class AIPlayer extends Player {
 	if (!buildables.isEmpty()) {
 	    String randomName = buildables.get(World.random.nextInt(buildables.size()));
 	    System.out.println(base.getCash());
-	    System.out.println("[AI] Building unit: " + randomName);
+	    //System.out.println("[AI] Building unit: " + randomName);
 	    this.getBase().getProductionQueue().startBuildingActor(this.getBase().getProductionQueue().getBuildables().get(randomName), null);
 	}
     }
