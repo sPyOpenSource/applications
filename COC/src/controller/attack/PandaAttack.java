@@ -187,7 +187,7 @@ public class PandaAttack extends Thread {
         if (!panda.isDead()){
             map.getBuildingsMap().remove(building);
             Platform.runLater(() -> {
-                root.getChildren().remove(building.getTexture());
+                root.getChildren().remove(building.getImageView());
                 myNotify();
             });
             try {

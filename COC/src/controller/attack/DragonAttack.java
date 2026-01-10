@@ -89,7 +89,7 @@ public class DragonAttack extends Thread {
         EntityBuilding building = null;
         for (Entity node : map.getBuildingsMap()){
             if (node instanceof EntityBuilding entityBuilding){
-                width = Math.sqrt((Math.pow(dragon.getImageView().getX() - entityBuilding.getTexture().getX(), 2)) + Math.pow(dragon.getImageView().getY() - entityBuilding.getTexture().getY(), 2));
+                width = Math.sqrt((Math.pow(dragon.getImageView().getX() - entityBuilding.getImageView().getX(), 2)) + Math.pow(dragon.getImageView().getY() - entityBuilding.getImageView().getY(), 2));
                 if(width < widthLowe){
                     widthLowe = width;
                     building = entityBuilding;
@@ -99,7 +99,7 @@ public class DragonAttack extends Thread {
         if (building != null){
             EntityBuilding finalBuilding = building;
             Platform.runLater(() -> {
-                if (dragon.getImageView().getX() < finalBuilding.getTexture().getX()){
+                if (dragon.getImageView().getX() < finalBuilding.getImageView().getX()){
                     dragon.getImageView().setImage(viewDragonL.getImage());
                 } else {
                     dragon.getImageView().setImage(viewDragonR.getImage());
@@ -116,9 +116,9 @@ public class DragonAttack extends Thread {
             MoveTo moveTo = new MoveTo(dragon.getImageView().getX(), dragon.getImageView().getY());
             LineTo lineTo;
             if (dragon.getImageView().getImage().equals(viewDragonL.getImage())){
-                lineTo = new LineTo(building.getTexture().getX(), building.getTexture().getY());
+                lineTo = new LineTo(building.getImageView().getX(), building.getImageView().getY());
             } else {
-                lineTo = new LineTo(building.getTexture().getX() + building.getTexture().getFitWidth(), building.getTexture().getY());
+                lineTo = new LineTo(building.getImageView().getX() + building.getImageView().getFitWidth(), building.getImageView().getY());
             }
             Path path = new Path();
             path.getElements().addAll(moveTo, lineTo);
@@ -180,7 +180,7 @@ public class DragonAttack extends Thread {
         if (!dragon.isDead()){
             map.getBuildingsMap().remove(building);
             Platform.runLater(() -> {
-                root.getChildren().remove(building.getTexture());
+                root.getChildren().remove(building.getImageView());
                 myNotify();
             });
             try {
