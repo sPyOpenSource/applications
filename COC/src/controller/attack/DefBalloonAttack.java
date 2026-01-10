@@ -26,8 +26,8 @@ public class DefBalloonAttack extends Thread {
     public DefBalloonAttack(double x, double y, AnchorPane root, Map map) {
         this.root = root;
         this.defBalloon = new DefBalloon(x,y);
-        this.viewBalloonMove = new ImageView(defBalloon.getImageViews().get(0));
-        this.viewBalloonAttack = new ImageView(defBalloon.getImageViews().get(1));
+        this.viewBalloonMove = new ImageView(defBalloon.getImages().get(0));
+        this.viewBalloonAttack = new ImageView(defBalloon.getImages().get(1));
         this.map = map;
         defBalloon.setImageView(new ImageView(viewBalloonMove.getImage()));
         this.map.getAttackingHeroes().add(defBalloon);
@@ -170,7 +170,7 @@ public class DefBalloonAttack extends Thread {
         if (!defBalloon.isDead()){
             map.getBuildingsMap().remove(building);
             Platform.runLater(() -> {
-                root.getChildren().remove(building.getImageViews().get(0));
+                root.getChildren().remove(building.getImages().get(0));
                 myNotify();
             });
             try {

@@ -15,7 +15,7 @@ public class GoldMine extends EntityBuilding {
         setImageView(new ImageView(view));
         getImageView().setX(x);
         getImageView().setY(y);
-        getImageViews().add(view);
+        getImages().add(view);
     }
 
     @Override

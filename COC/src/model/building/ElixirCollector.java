@@ -17,7 +17,7 @@ public class ElixirCollector extends EntityBuilding {
         getImageView().setY(y);
         getImageView().setFitWidth(50);
         getImageView().setFitHeight(60);
-        getImageViews().add(view);
+        getImages().add(view);
     }
 
     @Override

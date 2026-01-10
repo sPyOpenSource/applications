@@ -29,7 +29,7 @@ public class ArcherBalloonAttack extends Thread {
     public ArcherBalloonAttack(double x, double y, AnchorPane root, Map map) {
         this.root = root;
         this.archerBalloon = new EntityGrenadeTrooper(new Pos(x, y));
-        this.viewBalloon = new ImageView(archerBalloon.getImageViews().get(0));
+        this.viewBalloon = new ImageView(archerBalloon.getImages().get(0));
         this.map = map;
         archerBalloon.setImageView(viewBalloon);
         this.map.getAttackingHeroes().add(archerBalloon);
@@ -210,7 +210,7 @@ public class ArcherBalloonAttack extends Thread {
         if (!archerBalloon.isDead()){
             map.getBuildingsMap().remove(building);
             Platform.runLater(() -> {
-                root.getChildren().remove(building.getImageViews().get(0));
+                root.getChildren().remove(building.getImages().get(0));
                 myNotify();
             });
             try {

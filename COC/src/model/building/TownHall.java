@@ -17,7 +17,7 @@ public class TownHall extends EntityBuilding {
         getImageView().setY(y);
         getImageView().setFitWidth(120);
         getImageView().setFitHeight(120);
-        getImageViews().add(view);
+        getImages().add(view);
     }
 
     @Override

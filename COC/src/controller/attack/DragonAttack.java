@@ -25,10 +25,10 @@ public class DragonAttack extends Thread {
     public DragonAttack(double x, double y, AnchorPane root, Map map) {
         this.root = root;
         this.dragon = new Dragon(x, y);
-        this.viewDragonL = new ImageView(dragon.getImageViews().get(0));
-        this.viewDragonAttackL = new ImageView(dragon.getImageViews().get(1));
-        this.viewDragonR = new ImageView(dragon.getImageViews().get(2));
-        this.viewDragonAttackR = new ImageView(dragon.getImageViews().get(3));
+        this.viewDragonL = new ImageView(dragon.getImages().get(0));
+        this.viewDragonAttackL = new ImageView(dragon.getImages().get(1));
+        this.viewDragonR = new ImageView(dragon.getImages().get(2));
+        this.viewDragonAttackR = new ImageView(dragon.getImages().get(3));
         this.map = map;
         dragon.setImageView(new ImageView(viewDragonL.getImage()));
         this.map.getAttackingHeroes().add(dragon);

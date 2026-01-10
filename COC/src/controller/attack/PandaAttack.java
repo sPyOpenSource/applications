@@ -29,10 +29,10 @@ public class PandaAttack extends Thread {
     public PandaAttack(double x, double y, AnchorPane root, Map map) {
         this.root = root;
         this.panda = new Panda(x, y);
-        this.viewPandaL = new ImageView(panda.getImageViews().get(random.nextInt(panda.getImageViews().size())));
-        this.viewPandaAttackL = new ImageView(panda.getImageViews().get(1));
-        this.viewPandaR = new ImageView(panda.getImageViews().get(2));
-        this.viewPandaAttackR = new ImageView(panda.getImageViews().get(3));
+        this.viewPandaL = new ImageView(panda.getImages().get(random.nextInt(panda.getImages().size())));
+        this.viewPandaAttackL = new ImageView(panda.getImages().get(1));
+        this.viewPandaR = new ImageView(panda.getImages().get(2));
+        this.viewPandaAttackR = new ImageView(panda.getImages().get(3));
         this.map = map;
         panda.setImageView(new ImageView(viewPandaL.getImage()));
         this.map.getAttackingHeroes().add(panda);

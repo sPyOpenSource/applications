@@ -25,8 +25,8 @@ public class GoblinBalloonAttack extends Thread {
     public GoblinBalloonAttack(double x, double y, AnchorPane root, Map map) {
         this.root = root;
         this.goblinBalloon = new GoblinBalloon(x,y);
-        this.viewBalloonMove = new ImageView(goblinBalloon.getImageViews().get(0));
-        this.viewBalloonAttack = new ImageView(goblinBalloon.getImageViews().get(1));
+        this.viewBalloonMove = new ImageView(goblinBalloon.getImages().get(0));
+        this.viewBalloonAttack = new ImageView(goblinBalloon.getImages().get(1));
         this.map = map;
         goblinBalloon.setImageView(new ImageView(viewBalloonMove.getImage()));
         this.map.getAttackingHeroes().add(goblinBalloon);
@@ -177,7 +177,7 @@ public class GoblinBalloonAttack extends Thread {
         if (!goblinBalloon.isDead()){
             map.getBuildingsMap().remove(building);
             Platform.runLater(() -> {
-                root.getChildren().remove(building.getImageViews());
+                root.getChildren().remove(building.getImages());
                 myNotify();
             });
             try {

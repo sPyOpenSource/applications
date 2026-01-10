@@ -17,7 +17,7 @@ public class Barrack extends EntityBuilding {
         getImageView().setY(y);
         getImageView().setFitWidth(70);
         getImageView().setFitHeight(70);
-        getImageViews().add(view);
+        getImages().add(view);
     }
 
     @Override
