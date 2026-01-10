@@ -7,31 +7,26 @@ import cr0s.javara.gameplay.Player;
 import cr0s.javara.order.Target;
 import cr0s.javara.render.World;
 
-public class AutoTarget {
-    public boolean allowMovement = true;
-    
-    public int scanRadius = -1;
-    public UnitStance initialStance = UnitStance.ATTACK_ANYTHING;
-    
+public class AutoTarget {    
     public int minimumScanInterval = 3;
     public int maximumScanInterval = 8;
-    
+    public int scanRadius = -1;
+
     public boolean targetWhenIdle = true;
     public boolean targetWhenDamaged = true;
     public boolean enableStances = true;
+    public boolean allowMovement = true;
     
-    private final AttackBase attack;
-    private AttackTurreted at;
-    
-    private int nextScanTime = 0;
-    
+    public UnitStance initialStance = UnitStance.ATTACK_ANYTHING;
     public UnitStance stance;
     public EntityActor agressor;
     public EntityActor targetedActor;
-    
-    private final EntityActor self;
-
     public float RANGE_TOLERANCE = 0.5f;
+    
+    private final AttackBase attack;
+    private final EntityActor self;
+    private AttackTurreted at;
+    private int nextScanTime = 0;
     
     public AutoTarget(EntityActor self, AttackBase attack) {
 	this.self = self;

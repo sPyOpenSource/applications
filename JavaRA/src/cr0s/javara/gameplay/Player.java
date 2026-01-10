@@ -1,7 +1,5 @@
 package cr0s.javara.gameplay;
 
-import java.util.LinkedList;
-
 import cr0s.javara.entity.Entity;
 import cr0s.javara.entity.INotifySelected;
 import cr0s.javara.entity.actor.EntityActor;
@@ -20,8 +18,10 @@ import cr0s.javara.render.shrouds.Shroud;
 import cr0s.javara.render.EntityBlockingMap.SubCell;
 import cr0s.javara.util.Pos;
 import cr0s.javara.combat.Warhead;
+
 import java.util.ArrayList;
 import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.LinkedList;
 import javafx.scene.paint.Color;
 
 public class Player {
