@@ -105,12 +105,8 @@ public class PandaAttack extends Thread {
             Platform.runLater(() -> {
                 if (panda.getImageView().getX() < finalBuilding.getImageView().getX()){
                     panda.getImageView().setImage(viewPandaL.getImage());
-                    //viewPanda.setFitWidth(viewPandaL.getFitWidth());
-                    //viewPanda.setFitHeight(viewPandaL.getFitHeight());
                 } else {
                     panda.getImageView().setImage(viewPandaR.getImage());
-                    //viewPanda.setFitWidth(viewPandaR.getFitWidth());
-                    //viewPanda.setFitHeight(viewPandaR.getFitHeight());
                 }
                 myNotify();
             });
@@ -164,12 +160,8 @@ public class PandaAttack extends Thread {
         Platform.runLater(() -> {
             if (panda.getImageView().getImage().equals(viewPandaR.getImage())){
                 panda.getImageView().setImage(viewPandaAttackR.getImage());
-                //viewPanda.setFitWidth(viewPandaAttackR.getFitWidth());
-                //viewPanda.setFitHeight(viewPandaAttackR.getFitHeight());
             } else {
                 panda.getImageView().setImage(viewPandaAttackL.getImage());
-                //viewPanda.setFitWidth(viewPandaAttackL.getFitWidth());
-                //viewPanda.setFitHeight(viewPandaAttackL.getFitHeight());
             }
             myNotify();
         });

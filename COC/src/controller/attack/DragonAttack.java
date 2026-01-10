@@ -101,12 +101,8 @@ public class DragonAttack extends Thread {
             Platform.runLater(() -> {
                 if (dragon.getImageView().getX() < finalBuilding.getTexture().getX()){
                     dragon.getImageView().setImage(viewDragonL.getImage());
-                    //dragon.getImageView().setFitWidth(viewDragonL.getFitWidth());
-                    //dragon.getImageView().setFitHeight(viewDragonL.getFitHeight());
                 } else {
                     dragon.getImageView().setImage(viewDragonR.getImage());
-                    //dragon.getImageView().setFitWidth(viewDragonR.getFitWidth());
-                    //dragon.getImageView().setFitHeight(viewDragonR.getFitHeight());
                 }
                 myNotify();
             });
@@ -157,12 +153,8 @@ public class DragonAttack extends Thread {
         Platform.runLater(() -> {
             if (dragon.getImageView().getImage().equals(viewDragonR.getImage())){
                 dragon.getImageView().setImage(viewDragonAttackR.getImage());
-                //viewDragon.setFitWidth(viewDragonAttackR.getFitWidth());
-                //viewDragon.setFitHeight(viewDragonAttackR.getFitHeight());
             } else {
                 dragon.getImageView().setImage(viewDragonAttackL.getImage());
-                //viewDragon.setFitWidth(viewDragonAttackL.getFitWidth());
-                //viewDragon.setFitHeight(viewDragonAttackL.getFitHeight());
             }
             myNotify();
         });

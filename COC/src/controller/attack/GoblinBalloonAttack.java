@@ -109,8 +109,6 @@ public class GoblinBalloonAttack extends Thread {
         if (building != null){
             Platform.runLater(() -> {
                 goblinBalloon.getImageView().setImage(viewBalloonMove.getImage());
-                //viewBalloon.setFitWidth(viewBalloonMove.getFitWidth());
-                //viewBalloon.setFitHeight(viewBalloonMove.getFitHeight());
                 myNotify();
             });
             try {
@@ -153,8 +151,6 @@ public class GoblinBalloonAttack extends Thread {
     private synchronized void attack(EntityBuilding building){
         Platform.runLater(() -> {
             goblinBalloon.getImageView().setImage(viewBalloonAttack.getImage());
-            //viewBalloon.setFitWidth(viewBalloonAttack.getFitWidth());
-            //viewBalloon.setFitHeight(viewBalloonAttack.getFitHeight());
             myNotify();
         });
         try {

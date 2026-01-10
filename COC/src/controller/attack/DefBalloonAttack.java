@@ -104,8 +104,6 @@ public class DefBalloonAttack extends Thread {
         if (building != null){
             Platform.runLater(() -> {
                 defBalloon.getImageView().setImage(viewBalloonMove.getImage());
-                defBalloon.getImageView().setFitWidth(viewBalloonMove.getFitWidth());
-                defBalloon.getImageView().setFitHeight(viewBalloonMove.getFitHeight());
                 myNotify();
             });
             try {
@@ -149,8 +147,6 @@ public class DefBalloonAttack extends Thread {
     private synchronized void attack(EntityBuilding building){
         Platform.runLater(() -> {
             defBalloon.getImageView().setImage(viewBalloonAttack.getImage());
-            //defBalloon.getImageView().setFitWidth(viewBalloonAttack.getFitWidth());
-            //defBalloon.getImageView().setFitHeight(viewBalloonAttack.getFitHeight());
             myNotify();
         });
         try {
