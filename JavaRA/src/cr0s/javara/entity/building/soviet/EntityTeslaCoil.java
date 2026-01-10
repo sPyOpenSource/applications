@@ -157,7 +157,7 @@ public class EntityTeslaCoil extends Defensive implements ISelectable, IPowerCon
 	} else {
 	    if (!this.isIdle() && this.currentActivity instanceof Charge && wasIdle) {
 		this.isCharging = true;
-		SoundManager.getInstance().playSfxAt("tslachg2", this.getPosition());
+		//SoundManager.getInstance().playSfxAt("tslachg2", this.getPosition());
 
 		this.wasIdle = false;
 	    }

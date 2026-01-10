@@ -3,6 +3,7 @@ package cr0s.javara.combat.attack;
 import java.util.ArrayList;
 
 import cr0s.javara.entity.actor.EntityActor;
+import cr0s.javara.gameplay.Player;
 import cr0s.javara.order.Target;
 import cr0s.javara.render.World;
 
@@ -103,6 +104,12 @@ public class AutoTarget {
     
     private EntityActor chooseTarget(float rangeInCells) {
 	this.nextScanTime = World.getRandomInt(this.minimumScanInterval, this.maximumScanInterval);
+        self.owner.enemies = new ArrayList<>();
+	for (Player p : self.owner.world.getPlayers()) {
+	    if (p.isEnemyFor(self.owner)) {
+		self.owner.enemies.add(p);
+	    }
+	}
 	ArrayList<EntityActor> actorsInRange = this.self.owner.findClosestEnemy(this.self.getPosition(), this.self.owner.enemies.get(0), rangeInCells * 24.0f - this.RANGE_TOLERANCE * 24.0f);
 	
 	// Choose closest hostile actor that we can use our weapons against it
