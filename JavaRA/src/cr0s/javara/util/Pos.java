@@ -33,12 +33,12 @@ public class Pos {
 	this.z = z;
     }
     
-    public int distanceToSq(Pos other) {
+    public double distanceToSq(Pos other) {
 	double dx = this.x - other.getX();
 	double dy = this.y - other.getY();
 	double dz = this.z - other.getZ();
 
-	return (int) Math.ceil(dx * dx + dy * dy + dz * dz);	
+	return Math.ceil(dx * dx + dy * dy + dz * dz);	
     }
     
     public double distanceTo(Pos other) {

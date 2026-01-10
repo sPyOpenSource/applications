@@ -20,12 +20,14 @@ import cr0s.javara.render.shrouds.Shroud;
 import cr0s.javara.render.EntityBlockingMap.SubCell;
 import cr0s.javara.util.Pos;
 import cr0s.javara.combat.Warhead;
+import java.util.ArrayList;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import javafx.scene.paint.Color;
 
 public class Player {
     public String name;
     private final Alignment side;
+    public ArrayList<Player> enemies;
 
     public Color playerColor;
 
@@ -79,6 +81,30 @@ public class Player {
 
     public Pos getPlayerSpawnPoint() {
 	return spawn;
+    }
+    
+    public ArrayList<EntityActor> findClosestEnemy(final Pos center, Player p, double r) {
+	ArrayList<EntityActor> closest = new ArrayList<>();
+        for(Player player : world.getPlayers()){
+            // If we looking for specified owner
+	    if (player != p) {
+		continue;
+	    }
+            
+            for (Entity e : player.entities) { 
+                if (e.isDead() || !(e instanceof EntityActor) /*|| (!e.owner.isEnemyFor(this))*/) {
+                    continue;
+                }
+
+                EntityActor a = (EntityActor) e;
+
+                if (a.getPosition().distanceToSq(center) < r) {
+                    closest.add(a);
+                }
+            }
+        }
+
+	return closest;
     }
 
     public void spawn() {

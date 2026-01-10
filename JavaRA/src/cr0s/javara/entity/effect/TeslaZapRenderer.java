@@ -154,10 +154,10 @@ public class TeslaZapRenderer extends Projectile implements IEffect {
 
     private int[] chooseStep(Pos to, Pos z, double c, Pos q) {
 	int[] minStep = null;
-	float minValue = 0;
+	double minValue = 0;
 
 	for (int[] step : TeslaZapRenderer.steps) {
-	    float currentValue = to.distanceToSq(z.add(new Pos(step[0], step[1])));
+	    double currentValue = to.distanceToSq(z.add(new Pos(step[0], step[1])));
 	    if (minValue == 0 || currentValue < minValue) {
 		minStep = step;
 		minValue = currentValue;

@@ -58,7 +58,6 @@ public class AIPlayer extends Player {
     private ArrayList<Squad> squads = new ArrayList<>();
     private ArrayList<EntityActor> unitsHangingAroundTheBase = new ArrayList<>();
     private ArrayList<EntityActor> activeUnits = new ArrayList<>();
-    ArrayList<Player> enemies;
 
     private final int assignRolesInterval = 20;
     private final int rushInterval = 600;
@@ -308,7 +307,7 @@ public class AIPlayer extends Player {
 
 		@Override
 		public int compare(Pos p1, Pos p2) {
-		    return p1.distanceToSq(target) - p2.distanceToSq(target);
+		    return (int)(p1.distanceToSq(target) - p2.distanceToSq(target));
 		}
 
 	    });
@@ -337,47 +336,22 @@ public class AIPlayer extends Player {
 	return null;
     }
 
-    public EntityActor findClosestEnemy(final Pos center) {
+    public ArrayList<EntityActor> findClosestEnemy(final Pos center) {
         enemies = new ArrayList<>();
 	for (Player p : world.getPlayers()) {
 	    if (p.isEnemyFor(this)) {
 		enemies.add(p);
 	    }
 	}
-	return this.findClosestEnemy(center, enemies.get(0));
-    }
-
-    private EntityActor findClosestEnemy(final Pos center, Player p) {
-	EntityActor closest = null;
-        for(Player player : world.getPlayers()){
-            // If we looking for specified owner
-	    if (player != p) {
-		continue;
-	    }
-            
-            for (Entity e : player.entities) { 
-                if (e.isDead() || !(e instanceof EntityActor) /*|| (!e.owner.isEnemyFor(this))*/) {
-                    continue;
-                }
-
-                EntityActor a = (EntityActor) e;
-
-                if (closest == null 
-                        || a.getPosition().Clone().distanceToSq(center) < closest.getPosition().Clone().distanceToSq(center)) {
-                    closest = a;
-                }
-            }
-        }
-
-	return closest;
+	return this.findClosestEnemy(center, enemies.get(0), 2000);
     }
 
     public Pos chooseBuildLocation(String actorType, boolean distanceToBaseIsImportant, BuildingType type) {
 	switch (type) {
             case DEFENSIVE:
                 if (World.random.nextInt(100) >= 30) { // In ~70% of cases we build defensive structures as close as possible to the enemy
-                    EntityActor closestEnemy = this.findClosestEnemy(this.defenseCenter);
-                    Pos targetCell = (closestEnemy != null) ? closestEnemy.getCellPosition() : this.getPlayerSpawnPoint();
+                    ArrayList<EntityActor> closestEnemy = this.findClosestEnemy(this.defenseCenter);
+                    Pos targetCell = (closestEnemy.isEmpty()) ? this.getPlayerSpawnPoint() : closestEnemy.get(0).getCellPosition();
 
                     /*if (closestEnemy != null) {
                         System.out.println("[AI] Closest enemy: " + closestEnemy.getClass().getSimpleName() + " | owner: " + closestEnemy.owner.name);
@@ -452,7 +426,7 @@ public class AIPlayer extends Player {
 	}
     }
 
-    private EntityActor chooseEnemyTarget() {
+    private ArrayList<EntityActor> chooseEnemyTarget() {
 	//if (this.winState != WinState.UNDEFINED) {
 	//	return null;
 	//}
@@ -478,9 +452,9 @@ public class AIPlayer extends Player {
 
 	// Pick someting to attack owned by that player
 	Player enemy = enemies.get(0);
-	EntityActor target = this.findClosestEnemy(this.getPlayerSpawnPoint(), enemy);
+	ArrayList<EntityActor> target = this.findClosestEnemy(this.getPlayerSpawnPoint(), enemy, 2000);
 
-	if (target == null) {
+	if (target.isEmpty()) {
 	    // Assume that enemy has nothing, cool off on attacks
 	    if (this.aggro.containsKey(enemy)) {
 		float aggroVal = this.aggro.get(enemy).aggro;
@@ -664,14 +638,15 @@ public class AIPlayer extends Player {
     }
 
     private void tryToRushAttack() {
-        EntityActor a = chooseEnemyTarget();
+        ArrayList<EntityActor> a = chooseEnemyTarget();
+        if(a.isEmpty()) return;
         if (squads.isEmpty()) return;
         Squad s = squads.get(0);
-        s.setTarget(a);
+        s.setTarget(a.get(0));
         for(EntityActor b:s.getUnits()) {
             if(World.random.nextBoolean()) continue;
             if(World.random.nextBoolean()) continue;
-            b.queueActivity(new Move((MobileEntity)b, a.getCellPosition()));
+            b.queueActivity(new Move((MobileEntity)b, a.get(0).getCellPosition()));
         }
     }
 

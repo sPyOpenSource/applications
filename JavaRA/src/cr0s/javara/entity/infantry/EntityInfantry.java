@@ -189,7 +189,8 @@ public abstract class EntityInfantry extends MobileEntity implements IShroudReve
 		    this.setCurrentAnimationState(AnimationState.WAITING);
 		    this.currentSequence = this.standSequence;
 		    this.attackingSequence.reset();
-		}
+		} else
+                    this.currentSequence = this.runSequence;
 	    }
 	} else if (this.isIdle()) {
 	    if (this.getCurrentAnimationState() != AnimationState.IDLE && this.getCurrentAnimationState() != AnimationState.IDLE_ANIMATING) {
