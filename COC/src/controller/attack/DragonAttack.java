@@ -29,9 +29,8 @@ public class DragonAttack extends Thread {
         this.viewDragonAttackL = new ImageView(dragon.getImageViews().get(1));
         this.viewDragonR = new ImageView(dragon.getImageViews().get(2));
         this.viewDragonAttackR = new ImageView(dragon.getImageViews().get(3));
-        this.viewDragon = new ImageView(viewDragonL.getImage());
         this.map = map;
-        dragon.setImageView(viewDragon);
+        dragon.setImageView(new ImageView(viewDragonL.getImage()));
         this.map.getAttackingHeroes().add(dragon);
         mediaPlayerAttack.setVolume(0.2);
     }
@@ -41,7 +40,6 @@ public class DragonAttack extends Thread {
     private final ImageView viewDragonR;
     private final ImageView viewDragonAttackL;
     private final ImageView viewDragonAttackR;
-    private final ImageView viewDragon ;
     private final Dragon dragon;
     private final Map map;
     private final String audioFilePathAttack = assets.get("/assets/audio/fire.mp3");
@@ -57,7 +55,7 @@ public class DragonAttack extends Thread {
             mediaPlayer.setVolume(0.3);
             Platform.runLater(() -> {
                 root.getChildren().addAll(new MediaView(mediaPlayer), new MediaView(mediaPlayerAttack));
-                root.getChildren().add(viewDragon);
+                root.getChildren().add(dragon.getImageView());
                 myNotify();
             });
             try {
@@ -72,7 +70,7 @@ public class DragonAttack extends Thread {
                 attack(building);
             }
             Platform.runLater(() -> {
-                root.getChildren().remove(viewDragon);
+                root.getChildren().remove(dragon.getImageView());
                 mediaPlayer.stop();
                 myNotify();
             });
@@ -91,7 +89,7 @@ public class DragonAttack extends Thread {
         EntityBuilding building = null;
         for (Entity node : map.getBuildingsMap()){
             if (node instanceof EntityBuilding entityBuilding){
-                width = Math.sqrt((Math.pow(viewDragon.getX() - entityBuilding.getTexture().getX(), 2)) + Math.pow(viewDragon.getY() - entityBuilding.getTexture().getY(), 2));
+                width = Math.sqrt((Math.pow(dragon.getImageView().getX() - entityBuilding.getTexture().getX(), 2)) + Math.pow(dragon.getImageView().getY() - entityBuilding.getTexture().getY(), 2));
                 if(width < widthLowe){
                     widthLowe = width;
                     building = entityBuilding;
@@ -101,14 +99,14 @@ public class DragonAttack extends Thread {
         if (building != null){
             EntityBuilding finalBuilding = building;
             Platform.runLater(() -> {
-                if (viewDragon.getX() < finalBuilding.getTexture().getX()){
-                    viewDragon.setImage(viewDragonL.getImage());
-                    viewDragon.setFitWidth(viewDragonL.getFitWidth());
-                    viewDragon.setFitHeight(viewDragonL.getFitHeight());
+                if (dragon.getImageView().getX() < finalBuilding.getTexture().getX()){
+                    dragon.getImageView().setImage(viewDragonL.getImage());
+                    //dragon.getImageView().setFitWidth(viewDragonL.getFitWidth());
+                    //dragon.getImageView().setFitHeight(viewDragonL.getFitHeight());
                 } else {
-                    viewDragon.setImage(viewDragonR.getImage());
-                    viewDragon.setFitWidth(viewDragonR.getFitWidth());
-                    viewDragon.setFitHeight(viewDragonR.getFitHeight());
+                    dragon.getImageView().setImage(viewDragonR.getImage());
+                    //dragon.getImageView().setFitWidth(viewDragonR.getFitWidth());
+                    //dragon.getImageView().setFitHeight(viewDragonR.getFitHeight());
                 }
                 myNotify();
             });
@@ -119,9 +117,9 @@ public class DragonAttack extends Thread {
             }
 
 
-            MoveTo moveTo = new MoveTo(viewDragon.getX(), viewDragon.getY());
+            MoveTo moveTo = new MoveTo(dragon.getImageView().getX(), dragon.getImageView().getY());
             LineTo lineTo;
-            if (viewDragon.getImage().equals(viewDragonL.getImage())){
+            if (dragon.getImageView().getImage().equals(viewDragonL.getImage())){
                 lineTo = new LineTo(building.getTexture().getX(), building.getTexture().getY());
             } else {
                 lineTo = new LineTo(building.getTexture().getX() + building.getTexture().getFitWidth(), building.getTexture().getY());
@@ -131,7 +129,7 @@ public class DragonAttack extends Thread {
             PathTransition transition = new PathTransition();
             transition.setDuration(Duration.millis((widthLowe / dragon.getMoveSpeed()) * 400));
             transition.setCycleCount(1);
-            transition.setNode(viewDragon);
+            transition.setNode(dragon.getImageView());
             transition.setAutoReverse(false);
             transition.setPath(path);
             Platform.runLater(transition::play);
@@ -157,14 +155,14 @@ public class DragonAttack extends Thread {
     
     private synchronized void attack(EntityBuilding building){
         Platform.runLater(() -> {
-            if (viewDragon.getImage().equals(viewDragonR.getImage())){
-                viewDragon.setImage(viewDragonAttackR.getImage());
-                viewDragon.setFitWidth(viewDragonAttackR.getFitWidth());
-                viewDragon.setFitHeight(viewDragonAttackR.getFitHeight());
+            if (dragon.getImageView().getImage().equals(viewDragonR.getImage())){
+                dragon.getImageView().setImage(viewDragonAttackR.getImage());
+                //viewDragon.setFitWidth(viewDragonAttackR.getFitWidth());
+                //viewDragon.setFitHeight(viewDragonAttackR.getFitHeight());
             } else {
-                viewDragon.setImage(viewDragonAttackL.getImage());
-                viewDragon.setFitWidth(viewDragonAttackL.getFitWidth());
-                viewDragon.setFitHeight(viewDragonAttackL.getFitHeight());
+                dragon.getImageView().setImage(viewDragonAttackL.getImage());
+                //viewDragon.setFitWidth(viewDragonAttackL.getFitWidth());
+                //viewDragon.setFitHeight(viewDragonAttackL.getFitHeight());
             }
             myNotify();
         });
@@ -200,12 +198,12 @@ public class DragonAttack extends Thread {
             }
 
             Platform.runLater(() -> {
-                if (viewDragon.getImage().equals(viewDragonAttackR.getImage())) {
-                    viewDragon.setX(building.getImageView().getX() + building.getImageView().getFitWidth());
-                    viewDragon.setY(building.getImageView().getY());
+                if (dragon.getImageView().getImage().equals(viewDragonAttackR.getImage())) {
+                    dragon.getImageView().setX(building.getImageView().getX() + building.getImageView().getFitWidth());
+                    dragon.getImageView().setY(building.getImageView().getY());
                 } else {
-                    viewDragon.setX(building.getImageView().getX());
-                    viewDragon.setY(building.getImageView().getY());
+                    dragon.getImageView().setX(building.getImageView().getX());
+                    dragon.getImageView().setY(building.getImageView().getY());
                 }
                 myNotify();
             });

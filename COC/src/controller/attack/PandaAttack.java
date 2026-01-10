@@ -33,9 +33,8 @@ public class PandaAttack extends Thread {
         this.viewPandaAttackL = new ImageView(panda.getImageViews().get(1));
         this.viewPandaR = new ImageView(panda.getImageViews().get(2));
         this.viewPandaAttackR = new ImageView(panda.getImageViews().get(3));
-        this.viewPanda = new ImageView(viewPandaL.getImage());
         this.map = map;
-        panda.setImageView(viewPanda);
+        panda.setImageView(new ImageView(viewPandaL.getImage()));
         this.map.getAttackingHeroes().add(panda);
         root.getChildren().add(new MediaView(mediaPlayerMove));
         mediaPlayerMove.setVolume(0.2);
@@ -46,7 +45,6 @@ public class PandaAttack extends Thread {
     private final ImageView viewPandaR;
     private final ImageView viewPandaAttackL;
     private final ImageView viewPandaAttackR;
-    private final ImageView viewPanda ;
     private final Panda panda;
     private final Map map;
     String audioFilePathMove = assets.get("/assets/audio/not_path.mp3");
@@ -61,7 +59,7 @@ public class PandaAttack extends Thread {
             mediaPlayer.setAutoPlay(true);
             Platform.runLater(() -> {
                 root.getChildren().add(new MediaView(mediaPlayer));
-                root.getChildren().add(viewPanda);
+                root.getChildren().add(panda.getImageView());
                 myNotify();
             });
             try {
@@ -76,7 +74,7 @@ public class PandaAttack extends Thread {
                 attack(building);
             }
             Platform.runLater(() -> {
-                root.getChildren().remove(viewPanda);
+                root.getChildren().remove(panda.getImageView());
                 mediaPlayer.stop();
                 myNotify();
             });
@@ -95,7 +93,7 @@ public class PandaAttack extends Thread {
         EntityBuilding building = null;
         for (Entity node : map.getBuildingsMap()){
             if (node instanceof EntityBuilding building1){
-                width = Math.sqrt((Math.pow(viewPanda.getX() - building1.getImageView().getX(), 2)) + Math.pow(viewPanda.getY() - building1.getImageView().getY(), 2));
+                width = Math.sqrt((Math.pow(panda.getImageView().getX() - building1.getImageView().getX(), 2)) + Math.pow(panda.getImageView().getY() - building1.getImageView().getY(), 2));
                 if(width < widthLowe){
                     widthLowe = width;
                     building = building1;
@@ -105,14 +103,14 @@ public class PandaAttack extends Thread {
         if (building != null){
             EntityBuilding finalBuilding = building;
             Platform.runLater(() -> {
-                if (viewPanda.getX() < finalBuilding.getImageView().getX()){
-                    viewPanda.setImage(viewPandaL.getImage());
-                    viewPanda.setFitWidth(viewPandaL.getFitWidth());
-                    viewPanda.setFitHeight(viewPandaL.getFitHeight());
+                if (panda.getImageView().getX() < finalBuilding.getImageView().getX()){
+                    panda.getImageView().setImage(viewPandaL.getImage());
+                    //viewPanda.setFitWidth(viewPandaL.getFitWidth());
+                    //viewPanda.setFitHeight(viewPandaL.getFitHeight());
                 } else {
-                    viewPanda.setImage(viewPandaR.getImage());
-                    viewPanda.setFitWidth(viewPandaR.getFitWidth());
-                    viewPanda.setFitHeight(viewPandaR.getFitHeight());
+                    panda.getImageView().setImage(viewPandaR.getImage());
+                    //viewPanda.setFitWidth(viewPandaR.getFitWidth());
+                    //viewPanda.setFitHeight(viewPandaR.getFitHeight());
                 }
                 myNotify();
             });
@@ -122,9 +120,9 @@ public class PandaAttack extends Thread {
                 e.printStackTrace();
             }
 
-            MoveTo moveTo = new MoveTo(viewPanda.getX(), viewPanda.getY());
+            MoveTo moveTo = new MoveTo(panda.getImageView().getX(), panda.getImageView().getY());
             LineTo lineTo;
-            if (viewPanda.getImage().equals(viewPandaL.getImage())){
+            if (panda.getImageView().getImage().equals(viewPandaL.getImage())){
                 lineTo = new LineTo(building.getImageView().getX(), building.getImageView().getY()+(building.getImageView().getFitHeight()/3));
             } else {
                 lineTo = new LineTo(building.getImageView().getX()+building.getImageView().getFitWidth(), building.getImageView().getY()+(building.getImageView().getFitHeight()/3));
@@ -138,7 +136,7 @@ public class PandaAttack extends Thread {
             PathTransition transition = new PathTransition();
             transition.setDuration(Duration.millis((widthLowe / panda.getMoveSpeed()) * 400));
             transition.setCycleCount(1);
-            transition.setNode(viewPanda);
+            transition.setNode(panda.getImageView());
             transition.setAutoReverse(false);
             transition.setPath(path);
             Platform.runLater(transition::play);
@@ -164,14 +162,14 @@ public class PandaAttack extends Thread {
     
     private synchronized void attack(EntityBuilding building){
         Platform.runLater(() -> {
-            if (viewPanda.getImage().equals(viewPandaR.getImage())){
-                viewPanda.setImage(viewPandaAttackR.getImage());
-                viewPanda.setFitWidth(viewPandaAttackR.getFitWidth());
-                viewPanda.setFitHeight(viewPandaAttackR.getFitHeight());
+            if (panda.getImageView().getImage().equals(viewPandaR.getImage())){
+                panda.getImageView().setImage(viewPandaAttackR.getImage());
+                //viewPanda.setFitWidth(viewPandaAttackR.getFitWidth());
+                //viewPanda.setFitHeight(viewPandaAttackR.getFitHeight());
             } else {
-                viewPanda.setImage(viewPandaAttackL.getImage());
-                viewPanda.setFitWidth(viewPandaAttackL.getFitWidth());
-                viewPanda.setFitHeight(viewPandaAttackL.getFitHeight());
+                panda.getImageView().setImage(viewPandaAttackL.getImage());
+                //viewPanda.setFitWidth(viewPandaAttackL.getFitWidth());
+                //viewPanda.setFitHeight(viewPandaAttackL.getFitHeight());
             }
             myNotify();
         });
@@ -207,12 +205,12 @@ public class PandaAttack extends Thread {
             }
 
             Platform.runLater(() -> {
-                if (viewPanda.getImage().equals(viewPandaAttackR.getImage())) {
-                    viewPanda.setX(building.getImageView().getX() + building.getImageView().getFitWidth());
-                    viewPanda.setY(building.getImageView().getY());
+                if (panda.getImageView().getImage().equals(viewPandaAttackR.getImage())) {
+                    panda.getImageView().setX(building.getImageView().getX() + building.getImageView().getFitWidth());
+                    panda.getImageView().setY(building.getImageView().getY());
                 } else {
-                    viewPanda.setX(building.getImageView().getX());
-                    viewPanda.setY(building.getImageView().getY());
+                    panda.getImageView().setX(building.getImageView().getX());
+                    panda.getImageView().setY(building.getImageView().getY());
                 }
                 myNotify();
             });

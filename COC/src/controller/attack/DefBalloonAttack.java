@@ -28,16 +28,14 @@ public class DefBalloonAttack extends Thread {
         this.defBalloon = new DefBalloon(x,y);
         this.viewBalloonMove = new ImageView(defBalloon.getImageViews().get(0));
         this.viewBalloonAttack = new ImageView(defBalloon.getImageViews().get(1));
-        this.viewBalloon = new ImageView(viewBalloonMove.getImage());
         this.map = map;
-        defBalloon.setImageView(viewBalloon);
+        defBalloon.setImageView(new ImageView(viewBalloonMove.getImage()));
         this.map.getAttackingHeroes().add(defBalloon);
     }
     
     private final AnchorPane root;
     private final ImageView viewBalloonAttack;
     private final ImageView viewBalloonMove;
-    private final ImageView viewBalloon;
     private final DefBalloon defBalloon;
     private final Map map;
 
@@ -50,7 +48,7 @@ public class DefBalloonAttack extends Thread {
             mediaPlayer.setVolume(0.5);
             Platform.runLater(() -> {
                 root.getChildren().add(new MediaView(mediaPlayer));
-                root.getChildren().add(viewBalloon);
+                root.getChildren().add(defBalloon.getImageView());
             });
             while (!defBalloon.isDead()){
                 EntityBuilding building = moveToward();
@@ -63,7 +61,7 @@ public class DefBalloonAttack extends Thread {
             mediaPlayerDie.setAutoPlay(true);
             mediaPlayerDie.setVolume(0.5);
             Platform.runLater(() -> {
-                root.getChildren().remove(viewBalloon);
+                root.getChildren().remove(defBalloon.getImageView());
                 root.getChildren().add(new MediaView(mediaPlayerDie));
                 myNotify();
             });
@@ -94,7 +92,7 @@ public class DefBalloonAttack extends Thread {
         if (building == null) {
             for (Entity node : map.getBuildingsMap()){
                 if (node instanceof EntityBuilding entityBuilding){
-                    width = Math.sqrt((Math.pow(viewBalloon.getX()-entityBuilding.getImageView().getX(),2))+Math.pow(viewBalloon.getY()-entityBuilding.getImageView().getY(),2));
+                    width = Math.sqrt((Math.pow(defBalloon.getImageView().getX()-entityBuilding.getImageView().getX(),2))+Math.pow(defBalloon.getImageView().getY()-entityBuilding.getImageView().getY(),2));
                     if(width < widthLowe){
                         widthLowe = width;
                         building = entityBuilding;
@@ -105,9 +103,9 @@ public class DefBalloonAttack extends Thread {
 
         if (building != null){
             Platform.runLater(() -> {
-                viewBalloon.setImage(viewBalloonMove.getImage());
-                viewBalloon.setFitWidth(viewBalloonMove.getFitWidth());
-                viewBalloon.setFitHeight(viewBalloonMove.getFitHeight());
+                defBalloon.getImageView().setImage(viewBalloonMove.getImage());
+                defBalloon.getImageView().setFitWidth(viewBalloonMove.getFitWidth());
+                defBalloon.getImageView().setFitHeight(viewBalloonMove.getFitHeight());
                 myNotify();
             });
             try {
@@ -116,14 +114,14 @@ public class DefBalloonAttack extends Thread {
                 e.printStackTrace();
             }
 
-            MoveTo moveTo = new MoveTo(viewBalloon.getX(), viewBalloon.getY());
+            MoveTo moveTo = new MoveTo(defBalloon.getImageView().getX(), defBalloon.getImageView().getY());
             LineTo lineTo = new LineTo(building.getImageView().getX()+(building.getImageView().getFitWidth()/2),building.getImageView().getY());
             Path path = new Path();
             path.getElements().addAll(moveTo, lineTo);
             PathTransition transition = new PathTransition();
             transition.setDuration(Duration.millis((widthLowe / defBalloon.getMoveSpeed()) * 400));
             transition.setCycleCount(1);
-            transition.setNode(viewBalloon);
+            transition.setNode(defBalloon.getImageView());
             transition.setAutoReverse(false);
             transition.setPath(path);
             Platform.runLater(transition::play);
@@ -132,7 +130,7 @@ public class DefBalloonAttack extends Thread {
             while (elapsedTime < (long) ((widthLowe / defBalloon.getMoveSpeed()) * 300)) {
                 if (defBalloon.getHp() <= 0){
                     defBalloon.setDead();
-                    Platform.runLater(() -> root.getChildren().remove(viewBalloon));
+                    Platform.runLater(() -> root.getChildren().remove(defBalloon.getImageView()));
                     break;
                 }
                 try {
@@ -150,9 +148,9 @@ public class DefBalloonAttack extends Thread {
     
     private synchronized void attack(EntityBuilding building){
         Platform.runLater(() -> {
-            viewBalloon.setImage(viewBalloonAttack.getImage());
-            viewBalloon.setFitWidth(viewBalloonAttack.getFitWidth());
-            viewBalloon.setFitHeight(viewBalloonAttack.getFitHeight());
+            defBalloon.getImageView().setImage(viewBalloonAttack.getImage());
+            //defBalloon.getImageView().setFitWidth(viewBalloonAttack.getFitWidth());
+            //defBalloon.getImageView().setFitHeight(viewBalloonAttack.getFitHeight());
             myNotify();
         });
         try {
@@ -163,7 +161,7 @@ public class DefBalloonAttack extends Thread {
         while (building.getHp() >= 0){
             if (defBalloon.getHp() <= 0){
                 defBalloon.setDead();
-                Platform.runLater(() -> root.getChildren().remove(viewBalloon));
+                Platform.runLater(() -> root.getChildren().remove(defBalloon.getImageView()));
                 break;
             }
             building.setHp(building.getHp() - defBalloon.getDamagePerSecond());
@@ -186,8 +184,8 @@ public class DefBalloonAttack extends Thread {
             }
 
             Platform.runLater(() -> {
-                viewBalloon.setX(building.getImageView().getX()+(building.getImageView().getFitWidth()/2));
-                viewBalloon.setY(building.getImageView().getY());
+                defBalloon.getImageView().setX(building.getImageView().getX()+(building.getImageView().getFitWidth()/2));
+                defBalloon.getImageView().setY(building.getImageView().getY());
                 myNotify();
             });
             try {

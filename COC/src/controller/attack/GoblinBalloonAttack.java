@@ -27,16 +27,14 @@ public class GoblinBalloonAttack extends Thread {
         this.goblinBalloon = new GoblinBalloon(x,y);
         this.viewBalloonMove = new ImageView(goblinBalloon.getImageViews().get(0));
         this.viewBalloonAttack = new ImageView(goblinBalloon.getImageViews().get(1));
-        this.viewBalloon = new ImageView(viewBalloonMove.getImage());
         this.map = map;
-        goblinBalloon.setImageView(viewBalloon);
+        goblinBalloon.setImageView(new ImageView(viewBalloonMove.getImage()));
         this.map.getAttackingHeroes().add(goblinBalloon);
     }
     
     private final AnchorPane root;
     private final ImageView viewBalloonAttack;
     private final ImageView viewBalloonMove;
-    private final ImageView viewBalloon;
     private final GoblinBalloon goblinBalloon;
     private final Map map;
 
@@ -49,7 +47,7 @@ public class GoblinBalloonAttack extends Thread {
             mediaPlayer.setVolume(0.5);
             Platform.runLater(() -> {
                 root.getChildren().add(new MediaView(mediaPlayer));
-                root.getChildren().add(viewBalloon);
+                root.getChildren().add(goblinBalloon.getImageView());
                 myNotify();
             });
             try {
@@ -68,7 +66,7 @@ public class GoblinBalloonAttack extends Thread {
             mediaPlayerDie.setAutoPlay(true);
             mediaPlayerDie.setVolume(0.5);
             Platform.runLater(() -> {
-                root.getChildren().remove(viewBalloon);
+                root.getChildren().remove(goblinBalloon.getImageView());
                 root.getChildren().add(new MediaView(mediaPlayerDie));
                 myNotify();
             });
@@ -99,7 +97,7 @@ public class GoblinBalloonAttack extends Thread {
         if (building == null) {
             for (Entity node : map.getBuildingsMap()){
                 if (node instanceof EntityBuilding building1){
-                    width = Math.sqrt((Math.pow(viewBalloon.getX()-building1.getImageView().getX(),2))+Math.pow(viewBalloon.getY()-building1.getImageView().getY(),2));
+                    width = Math.sqrt((Math.pow(goblinBalloon.getImageView().getX()-building1.getImageView().getX(),2))+Math.pow(goblinBalloon.getImageView().getY()-building1.getImageView().getY(),2));
                     if(width < widthLowe){
                         widthLowe = width;
                         building = building1;
@@ -110,9 +108,9 @@ public class GoblinBalloonAttack extends Thread {
 
         if (building != null){
             Platform.runLater(() -> {
-                viewBalloon.setImage(viewBalloonMove.getImage());
-                viewBalloon.setFitWidth(viewBalloonMove.getFitWidth());
-                viewBalloon.setFitHeight(viewBalloonMove.getFitHeight());
+                goblinBalloon.getImageView().setImage(viewBalloonMove.getImage());
+                //viewBalloon.setFitWidth(viewBalloonMove.getFitWidth());
+                //viewBalloon.setFitHeight(viewBalloonMove.getFitHeight());
                 myNotify();
             });
             try {
@@ -121,14 +119,14 @@ public class GoblinBalloonAttack extends Thread {
                 e.printStackTrace();
             }
 
-            MoveTo moveTo = new MoveTo(viewBalloon.getX(), viewBalloon.getY());
+            MoveTo moveTo = new MoveTo(goblinBalloon.getImageView().getX(), goblinBalloon.getImageView().getY());
             LineTo lineTo = new LineTo(building.getImageView().getX()+(building.getImageView().getFitWidth()/2),building.getImageView().getY());
             Path path = new Path();
             path.getElements().addAll(moveTo, lineTo);
             PathTransition transition = new PathTransition();
             transition.setDuration(Duration.millis((widthLowe / goblinBalloon.getMoveSpeed()) * 400));
             transition.setCycleCount(1);
-            transition.setNode(viewBalloon);
+            transition.setNode(goblinBalloon.getImageView());
             transition.setAutoReverse(false);
             transition.setPath(path);
             Platform.runLater(transition::play);
@@ -154,9 +152,9 @@ public class GoblinBalloonAttack extends Thread {
     
     private synchronized void attack(EntityBuilding building){
         Platform.runLater(() -> {
-            viewBalloon.setImage(viewBalloonAttack.getImage());
-            viewBalloon.setFitWidth(viewBalloonAttack.getFitWidth());
-            viewBalloon.setFitHeight(viewBalloonAttack.getFitHeight());
+            goblinBalloon.getImageView().setImage(viewBalloonAttack.getImage());
+            //viewBalloon.setFitWidth(viewBalloonAttack.getFitWidth());
+            //viewBalloon.setFitHeight(viewBalloonAttack.getFitHeight());
             myNotify();
         });
         try {
@@ -193,8 +191,8 @@ public class GoblinBalloonAttack extends Thread {
             }
 
             Platform.runLater(() -> {
-                viewBalloon.setX(building.getImageView().getX()+(building.getImageView().getFitWidth()/2));
-                viewBalloon.setY(building.getImageView().getY());
+                goblinBalloon.getImageView().setX(building.getImageView().getX()+(building.getImageView().getFitWidth()/2));
+                goblinBalloon.getImageView().setY(building.getImageView().getY());
                 myNotify();
             });
             try {
