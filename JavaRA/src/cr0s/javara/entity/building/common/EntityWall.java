@@ -120,7 +120,7 @@ return combined;
     }
 
     @Override
-    public ImageView getTexture() {
+    public ImageView getImageView() {
 	return sheet.getSubImage(0, 16 * this.damageModifier + this.adjacent);
     }
 

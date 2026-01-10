@@ -338,7 +338,7 @@ public class EntityWarFactory extends EntityBuilding implements ISelectable, ISh
     }
     
     @Override
-    public ImageView getTexture() {
+    public ImageView getImageView() {
 	if (this.sheetTop == null) {
 	    return null;
 	}

@@ -110,8 +110,8 @@ public class EntityBuildingProgress extends EntityBuilding implements IShroudRev
     }
 
     @Override
-    public ImageView getTexture() {
-	return this.targetBuilding.getTexture();
+    public ImageView getImageView() {
+	return this.targetBuilding.getImageView();
     }
 
     public EntityBuilding getTargetBuilding() {

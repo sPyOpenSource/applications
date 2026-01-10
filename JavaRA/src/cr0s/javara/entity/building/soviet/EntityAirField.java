@@ -19,6 +19,7 @@ import cr0s.javara.resources.ResourceManager;
 import cr0s.javara.resources.ShpTexture;
 import cr0s.javara.util.Pos;
 import cr0s.javara.util.SpriteSheet;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 
@@ -163,14 +164,14 @@ public class EntityAirField extends EntityBuilding implements ISelectable, IPowe
     }
 
     @Override
-    public ImageView getTexture() {
-        if(getImageViews().isEmpty()){
-            ImageView view = sheet.getSubImage(0, 0);
-            view.setX(boundingBox.getX());
-            view.setY(boundingBox.getY());
+    public ImageView getImageView() {
+        if(super.getImageView() == null){
+            Image view = sheet.getSubImage(0, 0).getImage();
+            super.getImageView().setX(boundingBox.getX());
+            super.getImageView().setY(boundingBox.getY());
             getImageViews().add(view);
         }
-        return getImageViews().get(0);
+        return super.getImageView();
     }
 
     @Override

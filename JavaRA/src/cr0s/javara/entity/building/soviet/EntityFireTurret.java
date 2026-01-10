@@ -174,7 +174,7 @@ public class EntityFireTurret extends Defensive implements ISelectable, IPowerCo
     }
     
     @Override
-    public ImageView getTexture() {
+    public ImageView getImageView() {
 	return this.sheet.getSubImage(0, 0);
     }
 

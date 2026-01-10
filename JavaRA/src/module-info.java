@@ -23,6 +23,7 @@ module cr0s.javara.main {
     exports cr0s.javara.entity.infantry;
     exports cr0s.javara.entity.building;
     exports cr0s.javara.entity.building.common;
+    exports cr0s.javara.entity.building.soviet;
     exports mazesolver;
 }
     

@@ -20,7 +20,6 @@ import cr0s.javara.resources.SoundManager;
 import cr0s.javara.util.Pos;
 
 import java.awt.image.BufferedImage;
-import javafx.scene.image.ImageView;
 
 /**
  * Abstract class for any buildings in game.
@@ -277,10 +276,6 @@ public abstract class EntityBuilding extends EntityActor {
 	return this.blockingCells;
     }
 
-    public ImageView getTexture(){
-        return getImageViews().get(0);
-    }
-
     public void changeCellPos(Pos newCell) {
 	// Refresh bounding box
 	this.boundingBox.setX(newCell.getX());
@@ -294,11 +289,11 @@ public abstract class EntityBuilding extends EntityActor {
     }
 
     public int getTextureWidth() {
-	return (int)this.getTexture().getViewport().getWidth();
+	return (int)this.getImageView().getViewport().getWidth();
     }
     
     public int getTextureHeight() {
-	return (int)this.getTexture().getViewport().getHeight();
+	return (int)this.getImageView().getViewport().getHeight();
     }
 
     public void onBuildFinished() {

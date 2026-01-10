@@ -8,10 +8,9 @@ import cr0s.javara.entity.building.soviet.EntityBarracks;
 import cr0s.javara.entity.infantry.EntityInfantry;
 import cr0s.javara.gameplay.Player;
 import cr0s.javara.render.EntityBlockingMap.FillsSpace;
-import cr0s.javara.render.World;
 import cr0s.javara.util.Pos;
-import java.util.ArrayList;
 
+import java.util.ArrayList;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
@@ -20,8 +19,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 
 public abstract class Entity {
-    public Pos move;
-
     private boolean isDead = false;
     private int hp, maxHp;
     private int SELECTION_BOX_ADD = 1;
@@ -32,6 +29,7 @@ public abstract class Entity {
 
     public Rectangle boundingBox;
     public boolean isMouseOver = false;
+    public Pos move;
 
     protected boolean isInvuln = false;
 
@@ -42,7 +40,7 @@ public abstract class Entity {
     public FillsSpace fillsSpace;
     
     private ImageView view;
-    private final ArrayList<ImageView> imageViews = new ArrayList<>();
+    private final ArrayList<Image> images = new ArrayList<>();
     
     public ImageView getImageView() {
         return view;
@@ -50,20 +48,20 @@ public abstract class Entity {
 
     public void setImageView(ImageView view) {
         this.view = view;
+        this.view.setFitWidth(sizeWidth);
+        this.view.setFitHeight(sizeHeight);
+        this.view.setX(boundingBox.getX());
+        this.view.setY(boundingBox.getY());
     }
     
-    public ArrayList<ImageView> getImageViews() {
-        return imageViews;
+    public ArrayList<Image> getImageViews() {
+        return images;
     }
     
     public void setImageViews(String... paths){
         for (String path : paths){
-            ImageView imageView = new ImageView(new Image(path, true));
-            imageView.setFitWidth(sizeWidth);
-            imageView.setFitHeight(sizeHeight);
-            imageView.setX(boundingBox.getX());
-            imageView.setY(boundingBox.getY());
-            imageViews.add(imageView);
+            Image image = new Image(path, true);
+            images.add(image);
         }
     }
     
@@ -194,7 +192,6 @@ public abstract class Entity {
 	int pipY = (int) cornerYDownLeft - PIPS_OFFSET_Y; 
 	int startPipX = (int) cornerXDownLeft + PIPS_SPACING_X;
 
-
 	IPips pipedEntity = (IPips) this;
 
 	for (int pip = 0; pip < pipedEntity.getPipCount(); pip++) {
@@ -242,7 +239,7 @@ public abstract class Entity {
     public void setDead() {
 	this.isVisible = false;
 	this.isDead = true;
-        if(owner.world != null)
+        if(owner != null)
             owner.world.root.getChildren().remove(view);
     }
 

@@ -152,7 +152,7 @@ public class EntityOreSilo extends EntityBuilding implements ISelectable, IPower
     }
     
     @Override
-    public ImageView getTexture() {
+    public ImageView getImageView() {
 	return this.sheet.getSubImage(0, 0);
     }
     

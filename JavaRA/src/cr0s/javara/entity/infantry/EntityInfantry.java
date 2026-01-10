@@ -31,6 +31,7 @@ import cr0s.javara.resources.ResourceManager;
 import cr0s.javara.resources.ShpTexture;
 import cr0s.javara.resources.SoundManager;
 import cr0s.javara.util.Pos;
+import javafx.scene.image.ImageView;
 
 import javafx.scene.shape.Path;
 import javafx.scene.layout.StackPane;
@@ -166,7 +167,7 @@ public abstract class EntityInfantry extends MobileEntity implements IShroudReve
 
 	if (this.currentSequence != null) { 
 	    this.currentSequence.update(this.currentFacing);
-            getImageView().setImage(currentSequence.render().getImage());
+            getImageView().setImage(currentSequence.render());
 	}
 
 	// TODO: refactor this crap
@@ -224,7 +225,7 @@ public abstract class EntityInfantry extends MobileEntity implements IShroudReve
 	//drawPath(g);
 
 	//if (this.sheet != null) {
-            setImageView(this.currentSequence.render());//this.getTranslateX(), this.getTranslateY());
+            setImageView(new ImageView(this.currentSequence.render()));//this.getTranslateX(), this.getTranslateY());
             getImageView().setX(boundingBox.getX());
             getImageView().setY(boundingBox.getY());
 	//}

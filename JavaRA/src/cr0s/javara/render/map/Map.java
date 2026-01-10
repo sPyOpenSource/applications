@@ -1,9 +1,9 @@
 package cr0s.javara.render.map;
 
+import cr0s.javara.entity.Entity;
 import cr0s.javara.entity.MobileEntity;
-import javafx.scene.Node;
-import javafx.scene.layout.*;
 
+import javafx.scene.layout.*;
 import java.util.ArrayList;
 
 public abstract class Map {
@@ -22,5 +22,5 @@ public abstract class Map {
         return attackingHeroes;
     }
     public abstract AnchorPane getMapView();
-    public abstract ArrayList<Node> getBuildingsMap();
+    public abstract ArrayList<Entity> getBuildingsMap();
 }

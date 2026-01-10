@@ -15,11 +15,12 @@ public abstract class Defensive extends EntityBuilding{
         this.damagePerSecond = damagePerSecond;
         setHp(hitPoints);
         if(path == null) return;
-        ImageView view = new ImageView(new Image(path, true));
-        view.setX(x);
-        view.setY(y);
-        view.setFitWidth(width);
-        view.setFitHeight(height);
+        Image view = new Image(path, true);
+        setImageView(new ImageView(view));
+        getImageView().setX(x);
+        getImageView().setY(y);
+        getImageView().setFitWidth(width);
+        getImageView().setFitHeight(height);
         getImageViews().add(view);
     }
     

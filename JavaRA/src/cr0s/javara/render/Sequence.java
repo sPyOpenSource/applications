@@ -3,9 +3,9 @@ package cr0s.javara.render;
 import cr0s.javara.resources.ShpTexture;
 import cr0s.javara.util.RotationUtil;
 
-import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.embed.swing.SwingFXUtils;
+import javafx.scene.image.Image;
 
 public class Sequence {
     private final ShpTexture tex;
@@ -63,7 +63,7 @@ public class Sequence {
 	}
     }
     
-    public ImageView render() {
+    public Image render() {
 	int f;
 	if (this.facings < 8) { 
 	    f = RotationUtil.quantizeFacings(this.currentFacing, this.facings);
@@ -82,7 +82,7 @@ public class Sequence {
 	    i = this.tex.numImages - 1;
 	}
 	
-	return new ImageView(SwingFXUtils.toFXImage(this.tex.getAsImage(i, this.remapColor), null));
+	return SwingFXUtils.toFXImage(this.tex.getAsImage(i, this.remapColor), null);
     }
 
     public boolean isFinished() {

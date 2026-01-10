@@ -76,11 +76,11 @@ public abstract class Projectile extends Entity implements IEffect {
     @Override
     public StackPane renderEntity() {
 	if (this.projectileSq != null) {
-	    ImageView view = this.projectileSq.render();
+	    ImageView view = new ImageView(this.projectileSq.render());
             view.setX(this.pos.getX() - this.sizeWidth / 2);
             view.setY(this.pos.getY() - this.pos.getZ() - this.sizeHeight / 2);
             StackPane combined = new StackPane();
-combined.getChildren().add(view);
+            combined.getChildren().add(view);
             return combined;
 	}
         return null;

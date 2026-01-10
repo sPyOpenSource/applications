@@ -44,7 +44,6 @@ public class EntityTeslaCoil extends Defensive implements ISelectable, IPowerCon
     private static final int POWER_CONSUMPTION_LEVEL = 150;
     private static final int SHROUD_REVEALING_RANGE = 3;
     private final int CORRUPTED_OFFSET = 10;
-
     private int currentFrame = 0;
     private static final int BUILDING_COST = 1200;
 
@@ -56,7 +55,6 @@ public class EntityTeslaCoil extends Defensive implements ISelectable, IPowerCon
 
     private final AttackCharge attack;
     private final Armament arma;
-
     private final AutoTarget autoTarget;
     private Turret turret;
     private boolean wasIdle;    
@@ -208,8 +206,14 @@ public class EntityTeslaCoil extends Defensive implements ISelectable, IPowerCon
     }
 
     @Override
-    public ImageView getTexture() {
-	return this.sheet.getSubImage(0, 0);
+    public ImageView getImageView() {
+        if(super.getImageView() == null){
+            setImageView(this.sheet.getSubImage(0, 0));
+            super.getImageView().setX(boundingBox.getX());
+            super.getImageView().setY(boundingBox.getY());
+            getImageViews().add(getImageView().getImage());
+        }
+        return super.getImageView();
     }
 
     @Override

@@ -13,6 +13,7 @@ import cr0s.javara.render.Sequence;
 import cr0s.javara.render.EntityBlockingMap.SubCell;
 import cr0s.javara.resources.ResourceManager;
 import cr0s.javara.util.Pos;
+import javafx.scene.image.Image;
 
 import javafx.scene.image.ImageView;
 
@@ -35,9 +36,10 @@ public class EntityGrenadeTrooper extends EntityInfantry implements ISelectable,
 	this.currentFrame = 0;
 	
 	this.standSequence = new Sequence(texture, 0, 8, 0, 0, null);
-        ImageView image = standSequence.render();
-        image.setX(pos.getX());
-        image.setY(pos.getY());
+        Image image = standSequence.render();
+        setImageView(new ImageView(image));
+        getImageView().setX(pos.getX());
+        getImageView().setY(pos.getY());
         getImageViews().add(image);
 	this.runSequence = new Sequence(texture, 16, 8, 6, 2, null);
 	this.runSequence.setIsLoop(true);

@@ -14,22 +14,21 @@ import cr0s.javara.util.SpriteSheet;
 import java.awt.image.BufferedImage;
 import javafx.scene.image.ImageView;
 import javafx.embed.swing.SwingFXUtils;
+import javafx.scene.image.Image;
 import javafx.scene.layout.StackPane;
 
 public class EntityConstructionYard extends EntityBuilding implements ISelectable, IShroudRevealer {
 
     private SpriteSheet sheet;
-
     private BufferedImage normal, corrupted;
     private final String TEXTURE_NAME = "fact.shp";
     private final String MAKE_TEXTURE_NAME = "factmake.shp";
 
     public static final int WIDTH_TILES = 3;
     public static final int HEIGHT_TILES = 4;
+    
     private static final int SHROUD_REVEALING_RANGE = 10;
-
     private static final String FOOTPRINT = "xxx xxx xxx ~~~";
-
     private final Alignment yardAlignment = Alignment.SOVIET;
 
     public EntityConstructionYard(Pos tile) {
@@ -72,7 +71,7 @@ public class EntityConstructionYard extends EntityBuilding implements ISelectabl
         view.setY(boundingBox.getY());
         setImageView(view);
         StackPane combined = new StackPane();
-combined.getChildren().add(view);
+        combined.getChildren().add(view);
         return combined;
 	// Draw bounding box if debug mode is on
 	/*if (GUI.DEBUG_MODE) {
@@ -157,18 +156,19 @@ combined.getChildren().add(view);
     }
 
     @Override
-    public ImageView getTexture() {
+    public ImageView getImageView() {
 	/*if (sheet == null) {
 	    return null;
 	}*/
-        if(getImageViews().isEmpty()){
+        if(super.getImageView() == null){
             //ImageView view = sheet.getSubImage(0, 0);
-            ImageView view = new ImageView(SwingFXUtils.toFXImage(normal, null));
-            view.setX(boundingBox.getX());
-            view.setY(boundingBox.getY());
+            Image view = SwingFXUtils.toFXImage(normal, null);
+            setImageView(new ImageView(view));
+            super.getImageView().setX(boundingBox.getX());
+            super.getImageView().setY(boundingBox.getY());
             getImageViews().add(view);
         }
-        return getImageViews().get(0);
+        return super.getImageView();
     }    
     
 }

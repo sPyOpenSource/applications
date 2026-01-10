@@ -159,7 +159,7 @@ public class EntityBarracks extends EntityBuilding implements ISelectable, IPowe
     }
 
     @Override
-    public ImageView getTexture() {
+    public ImageView getImageView() {
 	return sheet.getSubImage(0, 0);
     }
 

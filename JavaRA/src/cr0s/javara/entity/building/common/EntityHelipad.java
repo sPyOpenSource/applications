@@ -159,7 +159,7 @@ combined.getChildren().add(view);
     }
 
     @Override
-    public ImageView getTexture() {
+    public ImageView getImageView() {
 	return sheet.getSubImage(0, 0);
     }
 
