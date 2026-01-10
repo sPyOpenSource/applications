@@ -4,18 +4,15 @@ import cr0s.javara.entity.Entity;
 import cr0s.javara.entity.IEffect;
 import cr0s.javara.render.Sequence;
 import cr0s.javara.util.Pos;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 
 public class SequencePlayer extends Entity implements IEffect {
 
     private Sequence seq;
-    private int frameIndex = 0;
     private final int TICKS_PER_FRAME = 1;
+    private int frameIndex = 0;
     private int maxFrames;
-    
     private int ticks = TICKS_PER_FRAME;
-    
     private int width, height;
     
     public SequencePlayer(Pos pos, Sequence seq) {

@@ -10,8 +10,8 @@ import javafx.scene.layout.StackPane;
 
 public class TeslaZap extends Projectile implements IEffect {
 
-    private int timeUntilRemove = 10; // in ticks
     private boolean doneDamage = false;
+    private boolean isInit = false;
     private final boolean initialized = false;
 
     private final Target guided;
@@ -19,7 +19,7 @@ public class TeslaZap extends Projectile implements IEffect {
 
     private final int BRIGHT_ZAPS = 1;
     private final int DIM_ZAPS = 3;
-    private boolean isInit = false;
+    private int timeUntilRemove = 10; // in ticks
 
     public TeslaZap(EntityActor srcActor, Pos srcPos, Pos passivePos,
 	    EntityActor targetActor, int width, int height) {
@@ -32,7 +32,7 @@ public class TeslaZap extends Projectile implements IEffect {
 
     @Override
     public void updateEntity(long delta) {
-	//super.updateEntity(delta);
+	super.updateEntity(delta);
 
 	this.p = this.guided.isValidFor(this.sourceActor) ? this.guidedTarget.getPosition() : this.passiveTargetPos;
 

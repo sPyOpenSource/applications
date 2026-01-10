@@ -23,6 +23,7 @@ public class Bullet extends Projectile {
 
     public String trail;
     public String image;
+    public Color contrailColor = Color.white;
 
     public boolean high = false;
     public boolean shadow = false;
@@ -31,8 +32,6 @@ public class Bullet extends Projectile {
     public int trailInterval = 2;
     public int trailDelay = 1;
     public int contrailLength = 0;
-
-    public Color contrailColor = Color.white;
 
     private Pos target;
     private int length;

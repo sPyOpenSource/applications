@@ -12,12 +12,10 @@ import javafx.scene.layout.StackPane;
 public class Smoke extends Entity implements IEffect {
 
     private SpriteSheet tex;
-    private int frameIndex = 0;
     private final int TICKS_PER_FRAME = 1;
+    private int frameIndex = 0;
     private int maxFrames;
-    
     private int ticks = TICKS_PER_FRAME;
-    
     private int width, height;
     
     public Smoke(Pos pos, String texture) {
@@ -54,8 +52,8 @@ public class Smoke extends Entity implements IEffect {
     public StackPane renderEntity() {
 	ImageView view = tex.getSubImage(0, frameIndex);//.draw(this.posX - this.width / 2, this.posY - this.height / 2);
         StackPane combined = new StackPane();
-combined.getChildren().add(view);
-return combined;
+        combined.getChildren().add(view);
+        return combined;
     }
 
     @Override

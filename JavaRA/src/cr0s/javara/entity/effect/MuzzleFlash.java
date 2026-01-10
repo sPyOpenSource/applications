@@ -7,21 +7,20 @@ import cr0s.javara.resources.ResourceManager;
 import cr0s.javara.resources.ShpTexture;
 import cr0s.javara.util.Pos;
 import cr0s.javara.util.SpriteSheet;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 
 public class MuzzleFlash extends Entity implements IEffect {
 
     private SpriteSheet tex;
-    private int frameIndex = 0;
+    private Sequence seq;
     private final int TICKS_PER_FRAME = 1;
+
+    private int frameIndex = 0;
     private int maxFrames;
     private int numFacings;
     private int facing;
-    
     private int ticks = TICKS_PER_FRAME;
     private int width, height;
-    private Sequence seq;
     
     public MuzzleFlash(Pos pos, String texture, int fac, int numFacings, int length) {
 	this(pos, 24, 24);

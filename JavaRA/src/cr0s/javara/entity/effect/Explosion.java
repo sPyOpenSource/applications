@@ -17,7 +17,6 @@ public class Explosion extends Entity implements IEffect {
     private int maxFrames;
     
     private int ticks = TICKS_PER_FRAME;
-    
     private int width, height;
     
     public Explosion(Pos pos, String texture) {
@@ -58,8 +57,8 @@ public class Explosion extends Entity implements IEffect {
     public StackPane renderEntity() {
 	ImageView view = tex.getSubImage(0, frameIndex);//.draw(this.posX - this.width / 2, this.posY - this.height / 2);
         StackPane combined = new StackPane();
-combined.getChildren().add(view);
-return combined;
+        combined.getChildren().add(view);
+        return combined;
     }
 
     @Override

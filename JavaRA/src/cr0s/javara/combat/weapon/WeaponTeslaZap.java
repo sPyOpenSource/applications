@@ -13,22 +13,21 @@ import cr0s.javara.util.Pos;
 public class WeaponTeslaZap extends Weapon {
 
     private final static int ROF = 1;
-    private final static float WEAPON_RANGE = 8f;
-    
     private final static int TEXTURE_WIDTH = 24;
     private final static int TEXTURE_HEIGHT = 24;
 
     private final static String MUZZLE_FLASH = null;
     private final static int MUZZLE_FLASH_FACINGS = 0;
     private final static int MUZZLE_FLASH_LENGTH = 3;
-    
+    private static final int BULLET_ANGLE = 0;
+
     private final static int BURST = 1;
     private final static int BURST_DELAY = 20;
-    
     private final static int DAMAGE = 400;
+    
     private final static float SPREAD = 1f;
-    private static final float PROJECTILE_SPEED = 2.0f;
-    private static final int BULLET_ANGLE = 0;
+    private final static float PROJECTILE_SPEED = 2.0f;
+    private final static float WEAPON_RANGE = 8f;
     
     public WeaponTeslaZap() {
 	super(ROF, WEAPON_RANGE);

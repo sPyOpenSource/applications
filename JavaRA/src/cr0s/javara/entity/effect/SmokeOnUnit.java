@@ -12,17 +12,16 @@ import javafx.scene.layout.StackPane;
 
 public class SmokeOnUnit extends Entity implements IEffect {
 
-    private static final int DEFAULT_LIFETIME_TICKS = 250;
     private SpriteSheet tex;
-    private int frameIndex = 0;
+    private EntityActor parentUnit;
+    private static final int DEFAULT_LIFETIME_TICKS = 250;
     private final int TICKS_PER_FRAME = 1;
+
+    private int frameIndex = 0;
     private int maxFrames;
-    
     private int ticks = TICKS_PER_FRAME;
     private int width, height;
-    
     private int lifeTicks = DEFAULT_LIFETIME_TICKS;
-    private EntityActor parentUnit;
     
     public SmokeOnUnit(EntityActor parentUnit, String texture) {
 	this(parentUnit.getPosition(), 24, 24);
@@ -65,8 +64,8 @@ public class SmokeOnUnit extends Entity implements IEffect {
     public StackPane renderEntity() {
 	ImageView view = this.tex.getSubImage(0, 49 + this.frameIndex);//.draw(this.parentUnit.getPosition().getX() - this.width / 2, this.parentUnit.getPosition().getY() - this.height / 2);
         StackPane combined = new StackPane();
-combined.getChildren().add(view);
-return combined;
+        combined.getChildren().add(view);
+        return combined;
     }
 
     @Override

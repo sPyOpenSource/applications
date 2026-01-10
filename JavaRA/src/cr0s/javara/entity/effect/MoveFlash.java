@@ -15,11 +15,11 @@ import javafx.scene.layout.StackPane;
 public class MoveFlash extends Entity implements IEffect {
 
     private final SpriteSheet tex;
-    private int frameIndex = 0;
     private final int TICKS_PER_FRAME = 2;
     private final int MAX_FRAMES = 5;
     private int ticks = TICKS_PER_FRAME;
-    
+    private int frameIndex = 0;
+
     public MoveFlash(Pos pos,
 	    float aSizeWidth, float aSizeHeight) {
 	super(pos, aSizeWidth, aSizeHeight);
@@ -47,8 +47,8 @@ public class MoveFlash extends Entity implements IEffect {
     public StackPane renderEntity() {
 	ImageView view = tex.getSubImage(0, frameIndex);//.draw(this.posX - 12, this.posY - 12);
         StackPane combined = new StackPane();
-combined.getChildren().add(view);
-return combined;
+        combined.getChildren().add(view);
+        return combined;
     }
 
     @Override

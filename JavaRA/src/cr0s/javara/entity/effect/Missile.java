@@ -15,34 +15,31 @@ import javafx.scene.paint.Color;
 public class Missile extends Projectile {
 
     public int rot = 5;
-    public float speed = 1;
     public int maximumPitch = 60;
+    public int rangeLimit;
+
+    public float speed = 1;
+    public float inaccuracy = 0f;
 
     public String trail;
-    public boolean jammable = false;
-    
-    public float inaccuracy = 0f;
     public String image;
+    public Color contrailColor = Color.WHITE;
 
+    public boolean jammable = false;
     public boolean high = false;
     public boolean shadow = false;
+    public boolean contrailUsePlayerColor = false;
+    public boolean turboBoost = false;
 
     public int trailInterval = 2;
     public int trailDelay = 1;
     public int contrailLength = 0;
-
-    public Color contrailColor = Color.WHITE;
-    public boolean contrailUsePlayerColor = false;
     public int contrailDelay = 1;
 
     private Pos targetPosition, offset;
     private Target guidedTarget;
     private int length;
     private int ticks, smokeTicks;
-
-    public boolean turboBoost = false;
-    public int rangeLimit;
-
     private int enoughRange = 10;
     private TargetType boundToTerrainType;
     
