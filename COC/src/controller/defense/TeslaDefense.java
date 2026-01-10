@@ -1,6 +1,5 @@
 package controller.defense;
 
-
 import javafx.animation.PathTransition;
 import javafx.application.Platform;
 import javafx.util.Duration;
