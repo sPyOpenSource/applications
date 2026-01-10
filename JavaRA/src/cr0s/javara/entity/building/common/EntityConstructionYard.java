@@ -166,7 +166,7 @@ public class EntityConstructionYard extends EntityBuilding implements ISelectabl
             setImageView(new ImageView(view));
             super.getImageView().setX(boundingBox.getX());
             super.getImageView().setY(boundingBox.getY());
-            getImageViews().add(view);
+            getImages().add(view);
         }
         return super.getImageView();
     }    

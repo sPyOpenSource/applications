@@ -211,7 +211,7 @@ public class EntityTeslaCoil extends Defensive implements ISelectable, IPowerCon
             setImageView(this.sheet.getSubImage(0, 0));
             super.getImageView().setX(boundingBox.getX());
             super.getImageView().setY(boundingBox.getY());
-            getImageViews().add(getImageView().getImage());
+            getImages().add(getImageView().getImage());
         }
         return super.getImageView();
     }

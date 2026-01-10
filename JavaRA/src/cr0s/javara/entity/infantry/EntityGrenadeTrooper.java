@@ -40,7 +40,7 @@ public class EntityGrenadeTrooper extends EntityInfantry implements ISelectable,
         setImageView(new ImageView(image));
         getImageView().setX(pos.getX());
         getImageView().setY(pos.getY());
-        getImageViews().add(image);
+        getImages().add(image);
 	this.runSequence = new Sequence(texture, 16, 8, 6, 2, null);
 	this.runSequence.setIsLoop(true);
 

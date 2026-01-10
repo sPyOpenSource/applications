@@ -23,13 +23,13 @@ public abstract class Entity {
     private int hp, maxHp;
     private int SELECTION_BOX_ADD = 1;
 
-    public Player owner;
     public boolean isSelected = false;
     public boolean isVisible = false;
+    public boolean isMouseOver = false;
 
     public Rectangle boundingBox;
-    public boolean isMouseOver = false;
     public Pos move;
+    public Player owner;
 
     protected boolean isInvuln = false;
 
@@ -54,7 +54,7 @@ public abstract class Entity {
         this.view.setY(boundingBox.getY());
     }
     
-    public ArrayList<Image> getImageViews() {
+    public ArrayList<Image> getImages() {
         return images;
     }
     

@@ -21,7 +21,7 @@ public abstract class Defensive extends EntityBuilding{
         getImageView().setY(y);
         getImageView().setFitWidth(width);
         getImageView().setFitHeight(height);
-        getImageViews().add(view);
+        getImages().add(view);
     }
     
     public int getRange() {

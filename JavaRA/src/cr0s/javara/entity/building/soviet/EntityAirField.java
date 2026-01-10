@@ -169,7 +169,7 @@ public class EntityAirField extends EntityBuilding implements ISelectable, IPowe
             Image view = sheet.getSubImage(0, 0).getImage();
             super.getImageView().setX(boundingBox.getX());
             super.getImageView().setY(boundingBox.getY());
-            getImageViews().add(view);
+            getImages().add(view);
         }
         return super.getImageView();
     }
