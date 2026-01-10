@@ -3,25 +3,24 @@ package model.hero;
 import cr0s.javara.entity.actor.activity.Activity;
 import cr0s.javara.entity.aircraft.EntityAircraft;
 import cr0s.javara.util.Pos;
-import javafx.scene.Scene;
 import javafx.scene.shape.Path;
-import javafx.scene.image.ImageView;
+import javafx.scene.layout.StackPane;
 
 public class Dragon extends EntityAircraft{
     public Dragon(double x, double y) {
-        super(x, y, 120, 120);
+        super(new Pos(x, y), 120, 120);
         //super(3000, 20, 300, 10, 16, null, 120, 120, 1, x, y, )
         setHp(3000);
         setDamagePerSecond(300);
         setImageViews("assets/gif/dragonL.gif", "assets/gif/dragon_attackL.gif", "assets/gif/dragonR.gif", "assets/gif/dragon_attackR.gif");
-        getImageViews().get(1).setFitWidth(170);
-        getImageViews().get(1).setFitHeight(120);
-        getImageViews().get(3).setFitWidth(170);
-        getImageViews().get(3).setFitHeight(120);
+        //getImageViews().get(1).setFitWidth(170);
+        //getImageViews().get(1).setFitHeight(120);
+        //getImageViews().get(3).setFitWidth(170);
+        //getImageViews().get(3).setFitHeight(120);
     }
     
     @Override
-    public Path findPathFromTo(cr0s.javara.entity.MobileEntity e, int aGoalX, int aGoalY){
+    public Path findPathFromTo(cr0s.javara.entity.MobileEntity e, Pos aGoal){
         return null;
     }
 
@@ -38,5 +37,5 @@ public class Dragon extends EntityAircraft{
     @Override
     protected Activity moveToRange(Pos cellPos, int range){ return null; }
     @Override
-    public ImageView renderEntity(){ return null; }
+    public StackPane renderEntity(){ return null; }
 }

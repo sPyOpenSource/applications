@@ -4,7 +4,6 @@ import javafx.animation.PathTransition;
 import javafx.application.Platform;
 import javafx.util.Duration;
 
-import javafx.scene.Node;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.media.Media;
@@ -15,10 +14,10 @@ import javafx.scene.shape.MoveTo;
 import javafx.scene.shape.Path;
 
 import cr0s.javara.render.map.Map;
-import view.ImageViewClone;
 import model.hero.DefBalloon;
 
 import assets.Assets;
+import cr0s.javara.entity.Entity;
 import cr0s.javara.entity.building.EntityBuilding;
 
 public class DefBalloonAttack extends Thread {
@@ -27,9 +26,9 @@ public class DefBalloonAttack extends Thread {
     public DefBalloonAttack(double x, double y, AnchorPane root, Map map) {
         this.root = root;
         this.defBalloon = new DefBalloon(x,y);
-        this.viewBalloonMove = new ImageViewClone(defBalloon.getImageViews().get(0));
-        this.viewBalloonAttack = new ImageViewClone(defBalloon.getImageViews().get(1));
-        this.viewBalloon = new ImageViewClone(viewBalloonMove);
+        this.viewBalloonMove = new ImageView(defBalloon.getImageViews().get(0));
+        this.viewBalloonAttack = new ImageView(defBalloon.getImageViews().get(1));
+        this.viewBalloon = new ImageView(viewBalloonMove.getImage());
         this.map = map;
         defBalloon.setImageView(viewBalloon);
         this.map.getAttackingHeroes().add(defBalloon);
@@ -81,7 +80,7 @@ public class DefBalloonAttack extends Thread {
         double widthLowe = 10000;
         double width;
         EntityBuilding building = null;
-        for (Node node : map.getBuildingsMap()){
+        for (Entity node : map.getBuildingsMap()){
             if (node instanceof EntityBuilding){
                 /*if (((Building) node).getBuildingType().equals(defBalloon.getFavoriteTarget())){
                     width = Math.sqrt((Math.pow(viewBalloon.getX()-((Building) node).getImageView().getX(),2))+Math.pow(viewBalloon.getY()-((Building) node).getImageView().getY(),2));
@@ -93,12 +92,12 @@ public class DefBalloonAttack extends Thread {
             }
         }
         if (building == null) {
-            for (Node node : map.getBuildingsMap()){
-                if (node instanceof EntityBuilding){
-                    width = Math.sqrt((Math.pow(viewBalloon.getX()-((EntityBuilding) node).getImageViews().get(0).getX(),2))+Math.pow(viewBalloon.getY()-((EntityBuilding) node).getImageViews().get(0).getY(),2));
+            for (Entity node : map.getBuildingsMap()){
+                if (node instanceof EntityBuilding entityBuilding){
+                    width = Math.sqrt((Math.pow(viewBalloon.getX()-entityBuilding.getImageView().getX(),2))+Math.pow(viewBalloon.getY()-entityBuilding.getImageView().getY(),2));
                     if(width < widthLowe){
                         widthLowe = width;
-                        building = (EntityBuilding) node;
+                        building = entityBuilding;
                     }
                 }
             }
@@ -118,7 +117,7 @@ public class DefBalloonAttack extends Thread {
             }
 
             MoveTo moveTo = new MoveTo(viewBalloon.getX(), viewBalloon.getY());
-            LineTo lineTo = new LineTo(building.getImageViews().get(0).getX()+(building.getImageViews().get(0).getFitWidth()/2),building.getImageViews().get(0).getY());
+            LineTo lineTo = new LineTo(building.getImageView().getX()+(building.getImageView().getFitWidth()/2),building.getImageView().getY());
             Path path = new Path();
             path.getElements().addAll(moveTo, lineTo);
             PathTransition transition = new PathTransition();
@@ -187,8 +186,8 @@ public class DefBalloonAttack extends Thread {
             }
 
             Platform.runLater(() -> {
-                viewBalloon.setX(building.getImageViews().get(0).getX()+(building.getImageViews().get(0).getFitWidth()/2));
-                viewBalloon.setY(building.getImageViews().get(0).getY());
+                viewBalloon.setX(building.getImageView().getX()+(building.getImageView().getFitWidth()/2));
+                viewBalloon.setY(building.getImageView().getY());
                 myNotify();
             });
             try {

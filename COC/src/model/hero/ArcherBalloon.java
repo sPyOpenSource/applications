@@ -4,13 +4,12 @@ import cr0s.javara.entity.aircraft.EntityAircraft;
 import cr0s.javara.util.Pos;
 import javafx.scene.shape.Path;
 import cr0s.javara.entity.actor.activity.Activity;
-import javafx.scene.Scene;
-import javafx.scene.image.ImageView;
+import javafx.scene.layout.StackPane;
 
 public class ArcherBalloon extends EntityAircraft {
     
     public ArcherBalloon(double x, double y) {
-        super(x, y, 60, 80);
+        super(new Pos(x, y), 60, 80);
         //super(500, 30, 800, 70, 13, null, 60, 80, 4, x, y, "assets/png/archer_balloon.png");
         setHp(500);
         setDamagePerSecond(800);
@@ -18,7 +17,7 @@ public class ArcherBalloon extends EntityAircraft {
     }
     
     @Override
-    public Path findPathFromTo(cr0s.javara.entity.MobileEntity e, int aGoalX, int aGoalY){
+    public Path findPathFromTo(cr0s.javara.entity.MobileEntity e, Pos aGoal){
         return null;
     }
 
@@ -35,5 +34,5 @@ public class ArcherBalloon extends EntityAircraft {
     @Override
     protected Activity moveToRange(Pos cellPos, int range){ return null; }
     @Override
-    public ImageView renderEntity(){ return null; }
+    public StackPane renderEntity(){ return null; }
 }

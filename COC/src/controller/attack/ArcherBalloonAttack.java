@@ -3,8 +3,8 @@ package controller.attack;
 import javafx.animation.PathTransition;
 import javafx.application.Platform;
 import javafx.util.Duration;
+import assets.Assets;
 
-import javafx.scene.Node;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.media.Media;
@@ -17,21 +17,19 @@ import javafx.scene.shape.MoveTo;
 import javafx.scene.shape.Path;
 
 import cr0s.javara.render.map.Map;
-import view.ImageViewClone;
-import model.hero.ArcherBalloon;
-
-import assets.Assets;
+import cr0s.javara.entity.Entity;
 import cr0s.javara.entity.MobileEntity;
 import cr0s.javara.entity.building.EntityBuilding;
 import cr0s.javara.entity.infantry.EntityGrenadeTrooper;
+import cr0s.javara.util.Pos;
 
 public class ArcherBalloonAttack extends Thread {
     private final Assets assets = new Assets();
     
     public ArcherBalloonAttack(double x, double y, AnchorPane root, Map map) {
         this.root = root;
-        this.archerBalloon = new EntityGrenadeTrooper(x, y);
-        this.viewBalloon = new ImageViewClone(archerBalloon.getImageViews().get(0));
+        this.archerBalloon = new EntityGrenadeTrooper(new Pos(x, y));
+        this.viewBalloon = new ImageView(archerBalloon.getImageViews().get(0));
         this.map = map;
         archerBalloon.setImageView(viewBalloon);
         this.map.getAttackingHeroes().add(archerBalloon);
@@ -91,11 +89,11 @@ public class ArcherBalloonAttack extends Thread {
         widthLowe = 10000;
         double width;
         EntityBuilding building = null;
-        for (Node node : map.getBuildingsMap()){
+        for (Entity node : map.getBuildingsMap()){
             if (node instanceof EntityBuilding entityBuilding){
                 width = distance(viewBalloon.getX() + (viewBalloon.getFitWidth() / 2), viewBalloon.getY() + (viewBalloon.getFitHeight() / 2),
-                        entityBuilding.getImageViews().get(0).getX() + (entityBuilding.getImageViews().get(0).getFitWidth() / 2),
-                        entityBuilding.getImageViews().get(0).getY() + (entityBuilding.getImageViews().get(0).getFitHeight() / 2));
+                        entityBuilding.getImageView().getX() + (entityBuilding.getImageView().getFitWidth() / 2),
+                        entityBuilding.getImageView().getY() + (entityBuilding.getImageView().getFitHeight() / 2));
                 if(width < widthLowe){
                     widthLowe = width;
                     building = entityBuilding;
@@ -104,10 +102,10 @@ public class ArcherBalloonAttack extends Thread {
             }
         }
         if (archerBalloon.getRang() < widthLowe && building != null){
-            for (Node node : map.getBuildingsMap()){
+            for (Entity node : map.getBuildingsMap()){
                 if (node instanceof EntityBuilding entityBuilding){
-                    double[] nearestPoint = nearestPointOnCircle(entityBuilding.getImageViews().get(0).getX() + (entityBuilding.getImageViews().get(0).getFitWidth() / 2),
-                            entityBuilding.getImageViews().get(0).getY() + (entityBuilding.getImageViews().get(0).getFitHeight() / 2),
+                    double[] nearestPoint = nearestPointOnCircle(entityBuilding.getImageView().getX() + (entityBuilding.getImageView().getFitWidth() / 2),
+                            entityBuilding.getImageView().getY() + (entityBuilding.getImageView().getFitHeight() / 2),
                             archerBalloon.getRang(), viewBalloon.getX() + (viewBalloon.getFitWidth() / 2),
                             viewBalloon.getY() + (viewBalloon.getFitHeight() / 2));
                     width = distance(viewBalloon.getX() + (viewBalloon.getFitWidth() / 2), viewBalloon.getY() + (viewBalloon.getFitHeight() / 2),
@@ -167,8 +165,8 @@ public class ArcherBalloonAttack extends Thread {
         }
         Path path = new Path();
         MoveTo moveTo = new MoveTo(viewBalloon.getX(), viewBalloon.getY() + 20);
-        LineTo lineTo = new LineTo(building.getImageViews().get(0).getX() + (building.getImageViews().get(0).getFitWidth() / 2),
-                building.getImageViews().get(0).getY() + 20);
+        LineTo lineTo = new LineTo(building.getImageView().getX() + (building.getImageView().getFitWidth() / 2),
+                building.getImageView().getY() + 20);
         Circle circle = new Circle(viewBalloon.getX() + 28.8, viewBalloon.getY() + 60,3);
         circle.setFill(Color.web("#B442F7"));
         path.getElements().addAll(moveTo, lineTo);

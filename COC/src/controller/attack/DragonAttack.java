@@ -4,7 +4,6 @@ import javafx.animation.PathTransition;
 import javafx.application.Platform;
 import javafx.util.Duration;
 
-import javafx.scene.Node;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.media.Media;
@@ -15,11 +14,10 @@ import javafx.scene.shape.MoveTo;
 import javafx.scene.shape.Path;
 
 import cr0s.javara.render.map.Map;
-import view.ImageViewClone;
-import model.hero.Dragon;
-
-import assets.Assets;
+import cr0s.javara.entity.Entity;
 import cr0s.javara.entity.building.EntityBuilding;
+import model.hero.Dragon;
+import assets.Assets;
 
 public class DragonAttack extends Thread {
     private final Assets assets = new Assets();
@@ -27,11 +25,11 @@ public class DragonAttack extends Thread {
     public DragonAttack(double x, double y, AnchorPane root, Map map) {
         this.root = root;
         this.dragon = new Dragon(x, y);
-        this.viewDragonL = new ImageViewClone(dragon.getImageViews().get(0));
-        this.viewDragonAttackL = new ImageViewClone(dragon.getImageViews().get(1));
-        this.viewDragonR = new ImageViewClone(dragon.getImageViews().get(2));
-        this.viewDragonAttackR = new ImageViewClone(dragon.getImageViews().get(3));
-        this.viewDragon = new ImageViewClone(viewDragonL);
+        this.viewDragonL = new ImageView(dragon.getImageViews().get(0));
+        this.viewDragonAttackL = new ImageView(dragon.getImageViews().get(1));
+        this.viewDragonR = new ImageView(dragon.getImageViews().get(2));
+        this.viewDragonAttackR = new ImageView(dragon.getImageViews().get(3));
+        this.viewDragon = new ImageView(viewDragonL.getImage());
         this.map = map;
         dragon.setImageView(viewDragon);
         this.map.getAttackingHeroes().add(dragon);
@@ -91,12 +89,12 @@ public class DragonAttack extends Thread {
         double widthLowe = 10000;
         double width;
         EntityBuilding building = null;
-        for (Node node : map.getBuildingsMap()){
-            if (node instanceof EntityBuilding){
-                width = Math.sqrt((Math.pow(viewDragon.getX() - ((EntityBuilding) node).getTexture().getX(), 2)) + Math.pow(viewDragon.getY() - ((EntityBuilding) node).getTexture().getY(), 2));
+        for (Entity node : map.getBuildingsMap()){
+            if (node instanceof EntityBuilding entityBuilding){
+                width = Math.sqrt((Math.pow(viewDragon.getX() - entityBuilding.getTexture().getX(), 2)) + Math.pow(viewDragon.getY() - entityBuilding.getTexture().getY(), 2));
                 if(width < widthLowe){
                     widthLowe = width;
-                    building = (EntityBuilding) node;
+                    building = entityBuilding;
                 }
             }
         }
@@ -203,11 +201,11 @@ public class DragonAttack extends Thread {
 
             Platform.runLater(() -> {
                 if (viewDragon.getImage().equals(viewDragonAttackR.getImage())) {
-                    viewDragon.setX(building.getImageViews().get(0).getX() + building.getImageViews().get(0).getFitWidth());
-                    viewDragon.setY(building.getImageViews().get(0).getY());
+                    viewDragon.setX(building.getImageView().getX() + building.getImageView().getFitWidth());
+                    viewDragon.setY(building.getImageView().getY());
                 } else {
-                    viewDragon.setX(building.getImageViews().get(0).getX());
-                    viewDragon.setY(building.getImageViews().get(0).getY());
+                    viewDragon.setX(building.getImageView().getX());
+                    viewDragon.setY(building.getImageView().getY());
                 }
                 myNotify();
             });

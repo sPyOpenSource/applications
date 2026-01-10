@@ -2,12 +2,11 @@ package model.building;
 
 import cr0s.javara.entity.building.BuildingType;
 import cr0s.javara.entity.building.Defensive;
-import javafx.scene.Scene;
-import javafx.scene.image.ImageView;
+import javafx.scene.layout.StackPane;
 
 public class ArcherTower extends Defensive {
     public ArcherTower(double x, double y) {
-        super(BuildingType.DEFENSIVE, 1230, "assets/png/archerTower.png", 100, 100, 100, 52, x, y);
+        super(BuildingType.DEFENSIVE, 1230, "assets/png/archerTower.png", 100, 52, 100, 100, "", x, y);
     }
 
     @Override
@@ -26,7 +25,7 @@ public class ArcherTower extends Defensive {
     }
 
     @Override
-    public ImageView renderEntity() {
+    public StackPane renderEntity() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }

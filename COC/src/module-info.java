@@ -12,7 +12,7 @@ module com.coc {
     requires assets;
     requires snakeyaml;
     requires cr0s.javara.main;
-
+    
     opens com.coc to javafx.fxml;
     exports com.coc;
 }

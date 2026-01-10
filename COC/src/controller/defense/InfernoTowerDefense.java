@@ -42,8 +42,8 @@ public class InfernoTowerDefense extends Thread {
         MobileEntity hero = null;
         for (MobileEntity attackingHero : new ArrayList<>(map.getAttackingHeroes())) {
             if (root.getChildren().contains(attackingHero.getImageView())){
-                width = Math.sqrt((Math.pow(infernoTower.getImageViews().get(0).getX()+26.4 - attackingHero.getImageView().localToScene(attackingHero.getImageView().getLayoutBounds()).getCenterX(), 2))
-                        + Math.pow(infernoTower.getImageViews().get(0).getY()+13.6 - attackingHero.getImageView().localToScene(attackingHero.getImageView().getLayoutBounds()).getCenterY(), 2));
+                width = Math.sqrt((Math.pow(infernoTower.getImageView().getX()+26.4 - attackingHero.getImageView().localToScene(attackingHero.getImageView().getLayoutBounds()).getCenterX(), 2))
+                        + Math.pow(infernoTower.getImageView().getY()+13.6 - attackingHero.getImageView().localToScene(attackingHero.getImageView().getLayoutBounds()).getCenterY(), 2));
                 if (width < infernoTower.getRange()) {
                     hero = attackingHero;
                 }
@@ -66,7 +66,7 @@ public class InfernoTowerDefense extends Thread {
             Path path = new Path();
             path.setStroke(Color.web("#FF6F00"));
             path.setStrokeWidth(3);
-            MoveTo moveTo = new MoveTo(infernoTower.getImageViews().get(0).getX() + 26.4, infernoTower.getImageViews().get(0).getY() + 13.6);
+            MoveTo moveTo = new MoveTo(infernoTower.getImageView().getX() + 26.4, infernoTower.getImageView().getY() + 13.6);
             LineTo lineTo = new LineTo(hero.getImageView().localToScene(hero.getImageView().getLayoutBounds()).getCenterX(), hero.getImageView().localToScene(hero.getImageView().getLayoutBounds()).getCenterY());
             Platform.runLater(() -> {
                 root.getChildren().add(path);

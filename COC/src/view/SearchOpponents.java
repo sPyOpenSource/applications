@@ -149,7 +149,7 @@ public class SearchOpponents extends Application {
                 scene = new Scene(getMap(stage, players.get(count.addAndGet(1)).getMap().getMapView()), 1000, 737);
                 scene.getStylesheets().add("style.css");
                 stage.setScene(scene);
-                thread.stop();
+                //thread.stop();
             } else {
                 map.getChildren().remove(imageViewNext);
             }
@@ -171,7 +171,7 @@ public class SearchOpponents extends Application {
             new Battle(player, players.get(count.get()), players).start(new Stage());
             Platform.runLater(mediaPlayer::stop);
             stage.close();
-            thread.stop();
+            //thread.stop();
         });
 
         bottomHero(map);

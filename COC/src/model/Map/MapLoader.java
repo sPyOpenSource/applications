@@ -1,6 +1,5 @@
 package model.Map;
 
-import javafx.scene.Node;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 
@@ -8,14 +7,17 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import assets.Assets;
 import model.building.*;
+import org.yaml.snakeyaml.Yaml;
 
 import cr0s.javara.entity.building.EntityBuilding;
 import cr0s.javara.entity.building.common.EntityConstructionYard;
 import cr0s.javara.render.map.Map;
-import org.yaml.snakeyaml.Yaml;
+import cr0s.javara.util.Pos;
+import cr0s.javara.entity.Entity;
+import cr0s.javara.entity.building.soviet.EntityTeslaCoil;
 
 public class MapLoader extends Map {
-    private final ArrayList<Node> buildingsMap;
+    private final ArrayList<Entity> buildingsMap;
     private final Assets assets = new Assets();
     
     public MapLoader(int id, String map) {
@@ -25,7 +27,7 @@ public class MapLoader extends Map {
     }
     
     @Override
-    public ArrayList<Node> getBuildingsMap() {
+    public ArrayList<Entity> getBuildingsMap() {
         return buildingsMap;
     }
     
@@ -33,7 +35,7 @@ public class MapLoader extends Map {
     public AnchorPane getMapView() {
         AnchorPane root = new AnchorPane();
         root.setBackground(new Background(new BackgroundImage(new Image("assets/png/classic12.png"), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT)));
-        for (Node node : buildingsMap) {
+        for (Entity node : buildingsMap) {
             if (node instanceof EntityBuilding building){
                 root.getChildren().add(building.getTexture());
             }
@@ -58,11 +60,11 @@ public class MapLoader extends Map {
                     break;
                 case "townHall":
                     //TownHall townHall = new TownHall(x, y);
-                    EntityConstructionYard townHall = new EntityConstructionYard(x, y);
+                    EntityConstructionYard townHall = new EntityConstructionYard(new Pos((double)x, (double)y));
                     buildingsMap.add(townHall);
                     break;
                 case "tesla":
-                    Tesla tesla = new Tesla(x, y);
+                    EntityTeslaCoil tesla = new EntityTeslaCoil(new Pos((double)x, (double)y));
                     buildingsMap.add(tesla);
                     break;
                 case "infernoTower":

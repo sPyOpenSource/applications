@@ -46,8 +46,8 @@ public class ArcherTowerDefense extends Thread {
         MobileEntity hero = null;
         for (MobileEntity attackingHero : new ArrayList<>(map.getAttackingHeroes())) {
             if (root.getChildren().contains(attackingHero.getImageView())){
-                width = Math.sqrt((Math.pow(archerTower.getImageViews().get(0).getX() + 48 - attackingHero.getImageView().localToScene(attackingHero.getImageView().getLayoutBounds()).getCenterX(), 2))
-                        + Math.pow(archerTower.getImageViews().get(0).getY() + 20 - attackingHero.getImageView().localToScene(attackingHero.getImageView().getLayoutBounds()).getCenterY(), 2));
+                width = Math.sqrt((Math.pow(archerTower.getImageView().getX() + 48 - attackingHero.getImageView().localToScene(attackingHero.getImageView().getLayoutBounds()).getCenterX(), 2))
+                        + Math.pow(archerTower.getImageView().getY() + 20 - attackingHero.getImageView().localToScene(attackingHero.getImageView().getLayoutBounds()).getCenterY(), 2));
                 if (width < archerTower.getRange()) {
                     hero = attackingHero;
                 }
@@ -67,9 +67,9 @@ public class ArcherTowerDefense extends Thread {
     }
     
     private synchronized void attack(MobileEntity hero){
-        MoveTo moveTo = new MoveTo(archerTower.getImageViews().get(0).getX()+48, archerTower.getImageViews().get(0).getY()+20);
+        MoveTo moveTo = new MoveTo(archerTower.getImageView().getX()+48, archerTower.getImageView().getY()+20);
         LineTo lineTo = new LineTo(hero.getImageView().localToScene(hero.getImageView().getLayoutBounds()).getCenterX(), hero.getImageView().localToScene(hero.getImageView().getLayoutBounds()).getCenterY());
-        Circle circle = new Circle(archerTower.getImageViews().get(0).getX()+48, archerTower.getImageViews().get(0).getY()+20, 3);
+        Circle circle = new Circle(archerTower.getImageView().getX()+48, archerTower.getImageView().getY()+20, 3);
         while (hero.getHp() >= 0 && Math.sqrt(Math.pow(moveTo.getX()-lineTo.getX(), 2)+ Math.pow(moveTo.getY()-lineTo.getY(), 2)) < archerTower.getRange()) {
             if (archerTower.getHp() <= 0 || (map.getAttackingHeroes().isEmpty() && capacityInt.get() == 0)) {
                 archerTower.setDead();

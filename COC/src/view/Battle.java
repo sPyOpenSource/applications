@@ -9,7 +9,6 @@ import controller.defense.TeslaDefense;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.stage.Stage;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
@@ -29,6 +28,7 @@ import model.building.InfernoTower;
 import model.building.Tesla;
 
 import assets.Assets;
+import cr0s.javara.entity.Entity;
 import cr0s.javara.render.map.TileMap;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -66,7 +66,7 @@ public class Battle extends Application {
         root.getChildren().add(new MediaView(mediaPlayer));
         new CheckResultAttack(stage, root, attackingPlayer, defensivePlayer, capacityInt, players, mediaPlayer).start();
         synchronized (this){
-            for (Node building : defensivePlayer.getMap().getBuildingsMap()){
+            for (Entity building : defensivePlayer.getMap().getBuildingsMap()){
                 if (building instanceof InfernoTower infernoTower){
                     new InfernoTowerDefense(root, defensivePlayer.getMap(), infernoTower, capacityInt).start();
                 } else if (building instanceof ArcherTower archerTower){

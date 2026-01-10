@@ -3,11 +3,11 @@ package model.hero;
 import cr0s.javara.entity.infantry.EntityInfantry;
 import cr0s.javara.util.Pos;
 import javafx.scene.shape.Path;
-import javafx.scene.image.ImageView;
+import javafx.scene.layout.StackPane;
 
 public class Panda extends EntityInfantry{
     public Panda(double x, double y) {
-        super(x, y);
+        super(new Pos(x, y));
         //super(1500, 10, 150, 0, 24, null, 50, 50, 1, x, y, 
         setHp(1500);
         setDamagePerSecond(150);
@@ -22,14 +22,14 @@ public class Panda extends EntityInfantry{
                 "assets/png/rubuska.png",
                 "assets/png/rubuska1.png"
         );
-        getImageViews().get(1).setFitWidth(55);
-        getImageViews().get(1).setFitHeight(45);
-        getImageViews().get(3).setFitWidth(55);
-        getImageViews().get(3).setFitHeight(45);
+        //getImageViews().get(1).setFitWidth(55);
+        //getImageViews().get(1).setFitHeight(45);
+        //getImageViews().get(3).setFitWidth(55);
+        //getImageViews().get(3).setFitHeight(45);
     }
     
     @Override
-    public Path findPathFromTo(cr0s.javara.entity.MobileEntity e, int aGoalX, int aGoalY){
+    public Path findPathFromTo(cr0s.javara.entity.MobileEntity e, Pos aGoal){
         return null;
     }
 
@@ -46,5 +46,5 @@ public class Panda extends EntityInfantry{
     @Override
     public int getRevealingRange(){ return 0; }
     @Override
-    public ImageView renderEntity(){ return null; }
+    public StackPane renderEntity(){ return null; }
 }
