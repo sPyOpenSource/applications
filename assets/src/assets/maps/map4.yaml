@@ -52,72 +52,72 @@ Actors:
         Owner: Neutral
     Actor3:
         Name: elixirCollector
-        LocationX: 510
-        LocationY: 220
+        LocationX: 21
+        LocationY: 9
     Actor4:
         Name: elixirCollector
-        LocationX: 555
-        LocationY: 405
+        LocationX: 23
+        LocationY: 16
     Actor5:
         Name: goldMine
-        LocationX: 440
-        LocationY: 221
+        LocationX: 18
+        LocationY: 9
     Actor6:
         Name: goldMine
-        LocationX: 400
-        LocationY: 410
+        LocationX: 16
+        LocationY: 17
     Actor7:
         Name: archerTower
-        LocationX: 460
-        LocationY: 416
+        LocationX: 19
+        LocationY: 17
     Actor8:
         Name: archerTower
-        LocationX: 360
-        LocationY: 256
+        LocationX: 15
+        LocationY: 10
     Actor9:
         Name: archerTower
-        LocationX: 560
-        LocationY: 256
+        LocationX: 23
+        LocationY: 10
     Actor10:
         Name: archerTower
-        LocationX: 457
-        LocationY: 160
+        LocationX: 19
+        LocationY: 6
     Actor11:
         Name: archerTower
-        LocationX: 460
-        LocationY: 256
+        LocationX: 19
+        LocationY: 10
     Actor12:
         Name: tesla
-        LocationX: 400
-        LocationY: 460
+        LocationX: 16
+        LocationY: 19
     Actor13:
         Name: tesla
-        LocationX: 420
-        LocationY: 280
+        LocationX: 17
+        LocationY: 11
     Actor14:
         Name: tesla
-        LocationX: 525
-        LocationY: 280
+        LocationX: 21
+        LocationY: 11
     Actor15:
         Name: infernoTower
-        LocationX: 550
-        LocationY: 460
+        LocationX: 22
+        LocationY: 19
     Actor16:
         Name: infernoTower
-        LocationX: 570
-        LocationY: 340
+        LocationX: 23
+        LocationY: 14
     Actor17:
         Name: infernoTower
-        LocationX: 400
-        LocationY: 340
+        LocationX: 16
+        LocationY: 14
     Actor18:
         Name: townHall
-        LocationX: 450
-        LocationY: 316
+        LocationX: 18
+        LocationY: 13
     Actor19:
         Name: barrack
-        LocationX: 473
-        LocationY: 490
+        LocationX: 19
+        LocationY: 20
 
 Spawns:
     spawn0:
