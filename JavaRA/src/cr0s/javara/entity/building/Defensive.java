@@ -8,17 +8,17 @@ public abstract class Defensive extends EntityBuilding{
     private final int range;
     private final int damagePerSecond;
     
-    public Defensive(BuildingType buildingType, int hitPoints, String path, int rang, int damagePerSecond, int width, int height, String footprint, double x, double y) {
+    public Defensive(BuildingType buildingType, int hitPoints, String path, int rang, int damagePerSecond, int width, int height, String footprint, Pos x) {
         //super(buildingType, hitPoints, path, width, height, x, y);
-        super(new Pos(x, y), width, height, footprint);
+        super(x, width, height, footprint);
         this.range = rang;
         this.damagePerSecond = damagePerSecond;
         setHp(hitPoints);
         if(path == null) return;
         Image view = new Image(path, true);
         setImageView(new ImageView(view));
-        getImageView().setX(x);
-        getImageView().setY(y);
+        getImageView().setX(x.getX());
+        getImageView().setY(x.getY());
         getImageView().setFitWidth(width);
         getImageView().setFitHeight(height);
         getImages().add(view);
