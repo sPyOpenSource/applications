@@ -149,7 +149,8 @@ public class Disassembler extends x86 {
 	int next_byte;
 	int mod_rm_byte;
 
-	/* On the 386 and above, instructions must be a maximum of 15 bytes long.
+	/**
+         * On the 386 and above, instructions must be a maximum of 15 bytes long.
 	 * this means redundant prefix codes can put the byte count over 15 and
 	 * cause an illegal instruction.
 	 */
@@ -1741,8 +1742,6 @@ public class Disassembler extends x86 {
 	}
     }
     
-
-
     void decode_gxex(int reg_type, int modrm_reg_type) {
 	int modrm = fetch_byte();
 	int ttt = (modrm >> 3) & 0x07;

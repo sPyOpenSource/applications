@@ -31,20 +31,20 @@ public interface Visitor {
     static final int CHUNKSIZE = 200;
 
     /** 
-	After compiling a method, symbolTable contains _all_ 
-	unresolved constants of the code. 
-	These include
-	- jump offsets of jumps inside the code
-	- invocations of functions 
-	- constant pool entries that should be stored to 
-        allow the storing of compiled code between JVM invocations 
-	- actually all subclasses of nativecode.SymbolTableEntryBase
-    */ 
+     * After compiling a method, symbolTable contains _all_ 
+     * unresolved constants of the code. 
+     * These include
+     *  - jump offsets of jumps inside the code
+     *  - invocations of functions 
+     *  - constant pool entries that should be stored to 
+     *    allow the storing of compiled code between JVM invocations 
+     *  - actually all subclasses of nativecode.SymbolTableEntryBase
+     */ 
     ArrayList symbolTable = new ArrayList(); 
   
     /** 
-	contains the native exception handlers
-    */ 
+     * contains the native exception handlers
+     */ 
     final ArrayList exceptionHandlers = new ArrayList();
 
     /** 
