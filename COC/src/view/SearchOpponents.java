@@ -42,8 +42,8 @@ public class SearchOpponents extends Application {
     @Override
     public void start(Stage stage) {
         players.add(player);
-        players.add(new Player("", "", new MapLoader(1, "map1")));
-        players.add(new Player("", "", new MapLoader(2, "map2")));
+        players.add(new Player(new MapLoader(1, "map1"), "", ""));
+        players.add(new Player(new MapLoader(2, "map2"), "", ""));
         if (players.get(count.get()).equals(player)) {
             count.addAndGet(1);
         }

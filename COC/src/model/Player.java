@@ -5,7 +5,7 @@ import cr0s.javara.render.map.Map;
 import java.io.Serializable;
 
 public class Player implements Serializable {
-    public Player(String idPlayer, String password, Map map) {
+    public Player(Map map, String idPlayer, String password) {
         this.idPlayer = idPlayer;
         this.password = password;
         this.level = 4;

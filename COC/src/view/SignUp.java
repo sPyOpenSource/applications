@@ -101,7 +101,7 @@ public class SignUp extends Application {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                Player player = new Player(textFieldID.getText(), textFieldPassword.getText(), map);
+                Player player = new Player(map, textFieldID.getText(), textFieldPassword.getText());
                 new SaveData(player).start();
                 new PlayerPanel(player,players).start(new Stage());
                 stage.close();

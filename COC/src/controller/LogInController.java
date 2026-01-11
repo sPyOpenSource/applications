@@ -18,7 +18,7 @@ public class LogInController {
                 return player;
             }
         }
-        return new Player("", "", new MapLoader(4, "map4"));
+        return new Player(new MapLoader(4, "map4"), "", "");
         //throw new Exception("username or password is wrong!");
     }
 }
