@@ -7,14 +7,14 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 
 public class Barrack extends EntityBuilding {
-    public Barrack(double x, double y) {
+    public Barrack(Pos x) {
         //super(BuildingType.NORMAL, 980, "assets/png/barrack.png", 70, 70, x, y);
-        super(new Pos(x,y),70,70,"");
+        super(x,70,70,"");
         setHp(980);
         Image view = new Image("assets/png/barrack.png", true);
         setImageView(new ImageView(view));
-        getImageView().setX(x);
-        getImageView().setY(y);
+        getImageView().setX(x.getX());
+        getImageView().setY(x.getY());
         getImageView().setFitWidth(70);
         getImageView().setFitHeight(70);
         getImages().add(view);

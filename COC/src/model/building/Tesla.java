@@ -2,11 +2,12 @@ package model.building;
 
 import cr0s.javara.entity.building.BuildingType;
 import cr0s.javara.entity.building.Defensive;
+import cr0s.javara.util.Pos;
 import javafx.scene.layout.StackPane;
 
 public class Tesla extends Defensive {
-    public Tesla(double x, double y) {
-        super(BuildingType.DEFENSIVE, 900, "assets/png/tesla.png", 70, 55, 70, 70, "", x, y);
+    public Tesla(Pos x) {
+        super(BuildingType.DEFENSIVE, 900, "assets/png/tesla.png", 70, 55, 70, 70, "", x);
     }
 
     @Override

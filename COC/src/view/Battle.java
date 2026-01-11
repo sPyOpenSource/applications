@@ -124,7 +124,7 @@ public class Battle extends Application {
         imageViewCapacity.setY(20);
         imageViewCapacity.setFitWidth(150);
         imageViewCapacity.setFitHeight(50);
-imageViewPanda.setEffect(shadow);
+        imageViewPanda.setEffect(shadow);
         imageViewBalloon.setOnMouseClicked(mouseEvent -> {
             imageViewBalloon.setEffect(shadow);
             imageViewArcher.setEffect(null);

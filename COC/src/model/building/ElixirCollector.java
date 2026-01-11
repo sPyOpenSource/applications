@@ -7,14 +7,14 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 
 public class ElixirCollector extends EntityBuilding {
-    public ElixirCollector(double x, double y) {
+    public ElixirCollector(Pos x) {
         //super(BuildingType.REFERENCES, 1180, "assets/png/elixir_collector.png", 50, 60, x, y);
-        super(new Pos(x,y),50,60,"");
+        super(x,50,60,"");
         setHp(1180);
         Image view = new Image("assets/png/elixir_collector.png", true);
         setImageView(new ImageView(view));
-        getImageView().setX(x);
-        getImageView().setY(y);
+        getImageView().setX(x.getX());
+        getImageView().setY(x.getY());
         getImageView().setFitWidth(50);
         getImageView().setFitHeight(60);
         getImages().add(view);

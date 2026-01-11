@@ -2,11 +2,12 @@ package model.building;
 
 import cr0s.javara.entity.building.BuildingType;
 import cr0s.javara.entity.building.Defensive;
+import cr0s.javara.util.Pos;
 import javafx.scene.layout.StackPane;
 
 public class InfernoTower extends Defensive {
-    public InfernoTower(double x, double y) {
-        super(BuildingType.DEFENSIVE, 2700, "assets/png/inferno_tower.png", 90, 200, 50, 75, "", x, y);
+    public InfernoTower(Pos x) {
+        super(BuildingType.DEFENSIVE, 2700, "assets/png/inferno_tower.png", 90, 200, 50, 75, "", x);
     }
 
     @Override

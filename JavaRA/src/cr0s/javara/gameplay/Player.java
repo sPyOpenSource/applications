@@ -26,23 +26,21 @@ import javafx.scene.paint.Color;
 
 public class Player {
     public String name;
-    private final Alignment side;
     public ArrayList<Player> enemies;
+    public Base base;
 
     public Color playerColor;
-
     public boolean canBuild, canTrainInfantry, canBuildVehicles, canBuildAirUnits, canBuildNavalUnits;
+    public final World world;
 
     public LinkedList<Entity> selectedEntities = new LinkedList<>();
     public ConcurrentLinkedQueue<Entity> entities = new ConcurrentLinkedQueue<>();
 
     private Pos spawn;
+    private final Alignment side;
 
-    public Base base;
     private Team team;
-
     private Shroud playerShroud;
-    public final World world;
 
     public Player(World w, String name, Alignment side, Color color) {
 	this.name = name;

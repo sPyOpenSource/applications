@@ -55,32 +55,32 @@ public class MapLoader extends Map {
             int y = (Integer) actor.get("LocationY");
             switch(id){
                 case "archerTower":
-                    ArcherTower archerTower = new ArcherTower(x, y);
+                    ArcherTower archerTower = new ArcherTower(new Pos(x, y));
                     buildingsMap.add(archerTower);
                     break;
                 case "townHall":
                     //TownHall townHall = new TownHall(x, y);
-                    EntityConstructionYard townHall = new EntityConstructionYard(new Pos((double)x, (double)y));
+                    EntityConstructionYard townHall = new EntityConstructionYard(new Pos(x, y));
                     buildingsMap.add(townHall);
                     break;
                 case "tesla":
-                    EntityTeslaCoil tesla = new EntityTeslaCoil(new Pos((double)x, (double)y));
+                    EntityTeslaCoil tesla = new EntityTeslaCoil(new Pos(x, y));
                     buildingsMap.add(tesla);
                     break;
                 case "infernoTower":
-                    InfernoTower infernoTower = new InfernoTower(x, y);
+                    InfernoTower infernoTower = new InfernoTower(new Pos(x, y));
                     buildingsMap.add(infernoTower);
                     break;
                 case "elixirCollector":
-                    ElixirCollector elixirCollector = new ElixirCollector(x, y);
+                    ElixirCollector elixirCollector = new ElixirCollector(new Pos(x, y));
                     buildingsMap.add(elixirCollector);
                     break;
                 case "goldMine":
-                    GoldMine goldMine = new GoldMine(x, y);
+                    GoldMine goldMine = new GoldMine(new Pos(x, y));
                     buildingsMap.add(goldMine);
                     break;
                 case "barrack":
-                    Barrack barrack = new Barrack(x, y);
+                    Barrack barrack = new Barrack(new Pos(x, y));
                     buildingsMap.add(barrack);
                     break;
                 default:
