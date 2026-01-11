@@ -9,7 +9,6 @@ import jx.compiler.backend.Reg;
 import jx.compiler.symbols.SymbolTableEntryBase;
 import jx.compiler.symbols.UnresolvedJump;
 
-
 public class x86 extends j51.intel.MCS51 implements Visitor {
     static String[] sreg_mod01_rm32   = {"DS", "DS", "DS", "DS", "??", "SS", "DS", "DS"};
     static String[] sreg_mod10_rm32   = {"DS", "DS", "DS", "DS", "??", "SS", "DS", "DS"};
