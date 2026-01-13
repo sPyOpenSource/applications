@@ -61,7 +61,7 @@ public class NasmEval implements NasmVisitor<Integer>{
        	memory = new Memory(dataSize, stackSize);
 	
         /*while(!stop && eip < code.sectionText.size()){
-	    step();
+	    execute();
         }*/
 	//	displayOutput();
     }

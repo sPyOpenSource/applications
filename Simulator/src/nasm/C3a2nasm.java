@@ -7,12 +7,12 @@ import nasm.expr.NasmRegister;
 public class C3a2nasm implements C3aVisitor <Operand> {
     private final C3a c3a;
     private final Nasm nasm;
-    private final Ts tableGlobale;
+    private final Tables tableGlobale;
     private final TsItemFct currentFct;
     private final NasmRegister esp;
     private final NasmRegister ebp;
 
-    public C3a2nasm(C3a c3a, Ts tableGlobale){
+    public C3a2nasm(C3a c3a, Tables tableGlobale){
 		this.c3a = c3a;
 		nasm = new Nasm(tableGlobale);
 		nasm.setTempCounter(c3a.getTempCounter());

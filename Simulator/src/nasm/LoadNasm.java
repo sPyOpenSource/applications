@@ -70,7 +70,6 @@ public class LoadNasm extends DepthFirstAdapter {
 
     public Nasm getNasm(){return nasm;}
 
-
     // prog = linclude secdata secbss sectext
     @Override
     public void caseAProg(AProg node)

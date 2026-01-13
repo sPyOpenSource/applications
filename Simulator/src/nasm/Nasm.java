@@ -11,7 +11,8 @@ public class Nasm{
     public List<NasmInst> sectionText;
     public List<PseudoInst> sectionBss;
     protected int tempCounter = 0;
-    Ts tableGlobale;
+    Tables tableGlobale;
+    
     public static int REG_EAX = 0;
     public static int REG_EBX = 1;
     public static int REG_ECX = 2;
@@ -21,7 +22,7 @@ public class Nasm{
     public static int REG_UNK = 6;
     //    public static int NB_PREDEFINED_REG = 7;
 
-    public Nasm(Ts tableGlobale){
+    public Nasm(Tables tableGlobale){
 	this.tableGlobale = tableGlobale;
 	this.sectionBss = new ArrayList<>();
 	this.sectionText = new ArrayList<>();
@@ -83,7 +84,7 @@ public class Nasm{
 	return new NasmRegister(tempCounter++);
     }
 
-    public void populateSectionBss(Ts tableGlobale){
+    public void populateSectionBss(Tables tableGlobale){
 	ajoutePseudoInst(new Resb(new Label("sinput"), 255, "reserve a 255 byte space in memory for the users input string"));
 	Set< Map.Entry< String, TsItemVar> > st = tableGlobale.variables.entrySet();    
 	for (Map.Entry< String, TsItemVar> me:st){
