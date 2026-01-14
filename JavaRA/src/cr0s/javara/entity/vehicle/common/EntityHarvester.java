@@ -44,7 +44,7 @@ public class EntityHarvester extends EntityVehicle implements ISelectable, IShro
     private final int MAX_ROTATION = 32;	
     private final int BUILD_ROTATION = 12;
 
-    private final float MOVE_SPEED = 0.3f;
+    private final float MOVE_SPEED = 0.5f;
     private static final int TEXTURE_WIDTH = 48;
     private static final int TEXTURE_HEIGHT = 48;
     private static final int SHROUD_REVEALING_RANGE = 5;

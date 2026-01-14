@@ -11,7 +11,12 @@ public class Dragon extends EntityAircraft{
         //super(3000, 20, 300, 10, 16, null, 120, 120, 1, x, y, )
         setHp(3000);
         setDamagePerSecond(300);
-        setImageViews("assets/gif/dragonL.gif", "assets/gif/dragon_attackL.gif", "assets/gif/dragonR.gif", "assets/gif/dragon_attackR.gif");
+        setImageViews(
+                "assets/gif/dragonL.gif", 
+                "assets/gif/dragon_attackL.gif", 
+                "assets/gif/dragonR.gif", 
+                "assets/gif/dragon_attackR.gif"
+        );
         //getImageViews().get(1).setFitWidth(170);
         //getImageViews().get(1).setFitHeight(120);
         //getImageViews().get(3).setFitWidth(170);
