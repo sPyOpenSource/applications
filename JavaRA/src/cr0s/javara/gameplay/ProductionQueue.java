@@ -156,7 +156,6 @@ public class ProductionQueue {
 	this.sovietVehicles.put("v2rlicon.shp", new EntityV2Launcher(NULL));
         
         this.air.put("dragon", new Dragon(NULL));
-
     }
 
     public EntityActor getBuildableActor(SideBarItemsButton texture) {
@@ -253,6 +252,8 @@ public class ProductionQueue {
 	
 	addToBuildablesFrom(this.sovietInfantry);
 	addToBuildablesFrom(this.sovietInfantry);
+        
+        addToBuildablesFrom(this.air);
     }
 
     private void addToBuildablesFrom(HashMap<String, EntityActor> map) {
