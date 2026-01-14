@@ -4,6 +4,7 @@ import java.util.HashMap;
 
 import cr0s.javara.entity.actor.EntityActor;
 import cr0s.javara.entity.building.EntityBuilding;
+import cr0s.javara.entity.building.china.InfernoTower;
 import cr0s.javara.entity.building.common.EntityAdvPowerPlant;
 import cr0s.javara.entity.building.common.EntityConcreteWall;
 import cr0s.javara.entity.building.common.EntityHelipad;
@@ -106,7 +107,8 @@ public class ProductionQueue {
 	this.sovietBuildings.put("hpadicon.shp", new EntityHelipad(NULL));
 	
 	this.sovietBuildings.put("fturicon.shp", new EntityFireTurret(NULL));
-	this.sovietBuildings.put("tslaicon.shp", new EntityTeslaCoil(NULL));	
+	this.sovietBuildings.put("tslaicon.shp", new EntityTeslaCoil(NULL));
+        this.sovietBuildings.put("infernoTower", new InfernoTower(NULL));
 	
 	this.alliedBuildings.put("powricon.shp", new EntityPowerPlant(NULL));
 	//this.sovietBuildings.put("tenticon.shp", new EntityTent(0f, 0f, this.player.getTeam(), this.player));

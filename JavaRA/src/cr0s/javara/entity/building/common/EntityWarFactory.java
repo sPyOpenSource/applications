@@ -307,12 +307,12 @@ public class EntityWarFactory extends EntityBuilding implements ISelectable, ISh
     }
 
     @Override
-    public float getHeightInTiles() {
+    public int getHeightInTiles() {
 	return this.tileHeight;
     }
 
     @Override
-    public float getWidthInTiles() {
+    public int getWidthInTiles() {
 	return this.tileWidth;
     }
 

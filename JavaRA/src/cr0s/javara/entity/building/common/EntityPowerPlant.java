@@ -80,7 +80,7 @@ public class EntityPowerPlant extends EntityBuilding implements ISelectable, IPo
         view.setY(boundingBox.getY());
         setImageView(view);
         StackPane combined = new StackPane();
-combined.getChildren().add(view);
+        combined.getChildren().add(view);
         return combined;
     }
 
@@ -105,12 +105,12 @@ combined.getChildren().add(view);
     }
 
     @Override
-    public float getHeightInTiles() {
+    public int getHeightInTiles() {
 	return this.tileHeight;
     }
 
     @Override
-    public float getWidthInTiles() {
+    public int getWidthInTiles() {
 	return this.tileWidth;
     }
 
@@ -121,7 +121,7 @@ combined.getChildren().add(view);
 
     @Override
     public int getRevealingRange() {
-	return this.SHROUD_REVEALING_RANGE;
+	return EntityPowerPlant.SHROUD_REVEALING_RANGE;
     }
     
     @Override

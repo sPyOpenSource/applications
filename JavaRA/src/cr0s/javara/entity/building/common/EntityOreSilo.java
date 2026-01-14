@@ -132,23 +132,23 @@ public class EntityOreSilo extends EntityBuilding implements ISelectable, IPower
     }
 
     @Override
-    public float getHeightInTiles() {
+    public int getHeightInTiles() {
 	return this.tileHeight;
     }
 
     @Override
-    public float getWidthInTiles() {
+    public int getWidthInTiles() {
 	return this.tileWidth;
     }
 
     @Override
     public int getConsumptionLevel() {
-	return this.POWER_CONSUMPTION_LEVEL;
+	return EntityOreSilo.POWER_CONSUMPTION_LEVEL;
     }
 
     @Override
     public int getRevealingRange() {
-	return this.SHROUD_REVEALING_RANGE;
+	return EntityOreSilo.SHROUD_REVEALING_RANGE;
     }
     
     @Override
@@ -158,17 +158,17 @@ public class EntityOreSilo extends EntityBuilding implements ISelectable, IPower
     
     @Override
     public int getPipCount() {
-	return this.PIPS_COUNT;
+	return EntityOreSilo.PIPS_COUNT;
     }
 
     @Override
     public Color getPipColorAt(int i) {
-	return (owner.getBase().ore * this.PIPS_COUNT > i * owner.getBase().oreCapacity) ? Color.YELLOW : null;
+	return (owner.getBase().ore * EntityOreSilo.PIPS_COUNT > i * owner.getBase().oreCapacity) ? Color.YELLOW : null;
     }
 
     @Override
     public int getOreCapacityValue() {
-	return this.MAX_CAPACITY;
+	return EntityOreSilo.MAX_CAPACITY;
     }
 
     @Override

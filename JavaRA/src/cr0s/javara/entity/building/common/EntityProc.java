@@ -160,12 +160,12 @@ public class EntityProc extends EntityBuilding implements ISelectable, IPowerCon
     }
 
     @Override
-    public float getHeightInTiles() {
+    public int getHeightInTiles() {
 	return this.tileHeight;
     }
 
     @Override
-    public float getWidthInTiles() {
+    public int getWidthInTiles() {
 	return this.tileWidth;
     }
 

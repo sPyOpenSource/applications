@@ -139,23 +139,23 @@ combined.getChildren().add(view);
     }
 
     @Override
-    public float getHeightInTiles() {
+    public int getHeightInTiles() {
 	return this.tileHeight;
     }
 
     @Override
-    public float getWidthInTiles() {
+    public int getWidthInTiles() {
 	return this.tileWidth;
     }
 
     @Override
     public int getConsumptionLevel() {
-	return this.POWER_CONSUMPTION_LEVEL;
+	return EntityHelipad.POWER_CONSUMPTION_LEVEL;
     }
 
     @Override
     public int getRevealingRange() {
-	return this.SHROUD_REVEALING_RANGE;
+	return EntityHelipad.SHROUD_REVEALING_RANGE;
     }
 
     @Override

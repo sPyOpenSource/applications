@@ -18,7 +18,6 @@ import javafx.scene.paint.Color;
 public class Production {
     private EntityActor targetActor;
     private String targetActorTexture;
-
     private final Player player;
 
     private final int DEPLOY_WAIT_TIME_TICKS = 5;
@@ -35,18 +34,15 @@ public class Production {
 
     private int buildingCost;
     private int cashSpent;
-
     private final float COST_TO_TICKS = 0.4f;
 
-    private Color progressHideColor = Color.rgb(0, 0, 0, 128f/255);
-
+    private final Color progressHideColor = Color.rgb(0, 0, 0, 128f/255);
     private SideBarItemsButton button;
     private BufferedImage overrideTexutre;
 
     private boolean notifiedNoFunds = false;
     private final int NO_FUNDS_INTERVAL = 300;
-    private int ticksBeforeNotifyNoFunds = NO_FUNDS_INTERVAL;
-
+    private final int ticksBeforeNotifyNoFunds = NO_FUNDS_INTERVAL;
     private final boolean INSTANT_BUILD = false;
 
     public Production(Player p) {
@@ -57,8 +53,8 @@ public class Production {
 	this.targetActor = target;
 	this.button = btn;
 
-	if (this.targetActor instanceof IHaveCost) {
-	    this.buildingCost = ((IHaveCost) this.targetActor).getBuildingCost();
+	if (this.targetActor instanceof IHaveCost iHaveCost) {
+	    this.buildingCost = iHaveCost.getBuildingCost();
 	} else {
 	    this.buildingCost = 0;
 	}

@@ -110,12 +110,12 @@ return combined;
     }
 
     @Override
-    public float getHeightInTiles() {
+    public int getHeightInTiles() {
 	return 1;
     }
 
     @Override
-    public float getWidthInTiles() {
+    public int getWidthInTiles() {
 	return 1;
     }
 

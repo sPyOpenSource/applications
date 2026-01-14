@@ -186,12 +186,12 @@ public class EntityTeslaCoil extends Defensive implements ISelectable, IPowerCon
     }
 
     @Override
-    public float getHeightInTiles() {
+    public int getHeightInTiles() {
 	return this.tileHeight;
     }
 
     @Override
-    public float getWidthInTiles() {
+    public int getWidthInTiles() {
 	return this.tileWidth;
     }
 

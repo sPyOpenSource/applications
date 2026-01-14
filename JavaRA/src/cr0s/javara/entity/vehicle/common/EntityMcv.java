@@ -11,6 +11,7 @@ import cr0s.javara.entity.actor.activity.activities.Turn;
 import cr0s.javara.entity.building.common.EntityConstructionYard;
 import cr0s.javara.entity.building.common.EntityWarFactory;
 import cr0s.javara.entity.building.EntityBuilding;
+import cr0s.javara.entity.building.china.TownHall;
 import cr0s.javara.entity.vehicle.EntityVehicle;
 
 import cr0s.javara.main.GUI;
@@ -101,8 +102,7 @@ public class EntityMcv extends EntityVehicle implements ISelectable, IDeployable
         getImageView().setX(tx);
         getImageView().setY(ty);
         StackPane combined = new StackPane();
-combined.getChildren().add(getImageView());
-//combined.relocate(ty, ty);
+        combined.getChildren().add(getImageView());
         return combined;
 	//texture.endUse();
 	
@@ -198,7 +198,8 @@ combined.getChildren().add(getImageView());
 	    return;
 	}
 	
-	EntityConstructionYard cy = new EntityConstructionYard(new Pos(boundingBox.getX() - (EntityConstructionYard.WIDTH_TILES / 2 * 24), boundingBox.getY() - (EntityConstructionYard.HEIGHT_TILES / 2 * 24)));
+	//EntityConstructionYard cy = new EntityConstructionYard(new Pos(boundingBox.getX() - (EntityConstructionYard.WIDTH_TILES / 2 * 24), boundingBox.getY() - (EntityConstructionYard.HEIGHT_TILES / 2 * 24)));
+        TownHall cy = new TownHall(new Pos(boundingBox.getX(), boundingBox.getY()));
 	cy.isVisible = true;
 	cy.isSelected = true;
         //owner.entities.add(cy);

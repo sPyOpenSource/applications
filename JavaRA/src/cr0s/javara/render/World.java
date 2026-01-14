@@ -304,7 +304,9 @@ public class World extends AnimationTimer {
 
     public void spawnEntityInWorld(Entity e) {
         System.out.println(e.getName());
+        try{
         root.getChildren().addAll(e.renderEntity().getChildren());
+        } catch (Exception ex){}
     }
 
     /**

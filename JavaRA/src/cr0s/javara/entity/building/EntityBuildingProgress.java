@@ -25,12 +25,12 @@ public class EntityBuildingProgress extends EntityBuilding implements IShroudRev
 
 	this.targetBuilding = aTargetBuilding;
 
-	if (!targetBuilding.makeTextureName.isEmpty()) {
+	/*if (!targetBuilding.makeTextureName.isEmpty()) {
 	    makeTexture = ResourceManager.getInstance().getConquerTexture(targetBuilding.makeTextureName);
 	    this.ticksRemaining = makeTexture.numImages - 1;
 	} else {
 	    this.ticksRemaining = 1;
-	}
+	}*/
 	
 	setBibType(this.targetBuilding.getBibType());
 
@@ -91,12 +91,12 @@ public class EntityBuildingProgress extends EntityBuilding implements IShroudRev
     }
 
     @Override
-    public float getHeightInTiles() {
+    public int getHeightInTiles() {
 	return this.tileHeight;
     }
 
     @Override
-    public float getWidthInTiles() {
+    public int getWidthInTiles() {
 	return this.tileWidth;
     }
 

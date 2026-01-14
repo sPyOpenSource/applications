@@ -119,7 +119,7 @@ public abstract class EntityBuilding extends EntityActor {
 
 	this.fillsSpace = FillsSpace.ONE_OR_MORE_CELLS;
 
-	requiredToBuild.add(EntityConstructionYard.class);
+	//requiredToBuild.add(EntityConstructionYard.class);
 
 	this.armorType = ArmorType.CONCRETE;
 	this.targetTypes.add(TargetType.GROUND);
@@ -216,8 +216,8 @@ public abstract class EntityBuilding extends EntityActor {
 	return this.height;
     }
 
-    public abstract float getHeightInTiles();
-    public abstract float getWidthInTiles();	
+    public abstract int getHeightInTiles();
+    public abstract int getWidthInTiles();	
 
     public void setBibType(BibType bt) {
 	this.bibType = bt;
