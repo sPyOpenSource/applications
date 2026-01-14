@@ -24,15 +24,13 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 
 public class EntityAirField extends EntityBuilding implements ISelectable, IPowerConsumer, IShroudRevealer, IHaveCost {
-
-    private SpriteSheet sheet;
-
     private int animIndex = 0;
     private int animDelayTicks = 0;
     private static final int ANIM_DELAY_TICKS = 2;
 
     private final String TEXTURE_NAME = "afld.shp";
     private final String MAKE_TEXTURE_NAME = "afldmake.shp";
+    private SpriteSheet sheet;
 
     public static final int WIDTH_TILES = 3;
     public static final int HEIGHT_TILES = 2;
@@ -42,12 +40,10 @@ public class EntityAirField extends EntityBuilding implements ISelectable, IPowe
 
     private static final int POWER_CONSUMPTION_LEVEL = 20;
     private static final int SHROUD_REVEALING_RANGE = 7;
-
     private static final int BUILDING_COST = 500;
     
     private final static Pos spawnOffset = new Pos(0, 12);
     private final static int initialFacing = 12;
-    
     private final boolean isCharging = false;
     
     public EntityAirField(Pos tile) {

@@ -3,6 +3,7 @@ package cr0s.javara.gameplay;
 import java.util.HashMap;
 
 import cr0s.javara.entity.actor.EntityActor;
+import cr0s.javara.entity.aircraft.Dragon;
 import cr0s.javara.entity.building.EntityBuilding;
 import cr0s.javara.entity.building.china.InfernoTower;
 import cr0s.javara.entity.building.common.EntityAdvPowerPlant;
@@ -23,6 +24,7 @@ import cr0s.javara.entity.infantry.EntityGrenadeTrooper;
 import cr0s.javara.entity.infantry.EntityInfantry;
 import cr0s.javara.entity.infantry.EntityRifleTrooper;
 import cr0s.javara.entity.infantry.EntityRocketTrooper;
+import cr0s.javara.entity.infantry.Panda;
 import cr0s.javara.entity.vehicle.EntityVehicle;
 import cr0s.javara.entity.vehicle.common.EntityHarvester;
 import cr0s.javara.entity.vehicle.common.EntityMcv;
@@ -47,7 +49,8 @@ public class ProductionQueue {
 
     public HashMap<String, EntityActor> sovietInfantry = new HashMap<>();
     public HashMap<String, EntityActor> alliedInfantry = new HashMap<>();
-
+    public HashMap<String, EntityActor> air = new HashMap<>();
+    
     private final HashMap<String, EntityActor> buildables = new HashMap<>();
     private final Production currentSovietBuilding, currentAlliedBuilding, currentNeutralBuilding, currentVehicle, currentInfantry;
 
@@ -141,6 +144,7 @@ public class ProductionQueue {
 	//this.sovietInfantry.put("e6icon.shp", new EntityEngineer(0.0f, 0.0f, this.player.getTeam(), this.player, SubCell.CENTER));
 	this.sovietInfantry.put("e2icon.shp", new EntityGrenadeTrooper(NULL, SubCell.CENTER));
 	this.sovietInfantry.put("e3icon.shp", new EntityRocketTrooper(NULL, SubCell.CENTER));
+        this.sovietInfantry.put("panda", new Panda(NULL));
 		
 	// Put neutral common vehicles
 	this.neutralVehicles.put("mcvicon.shp", new EntityMcv(NULL));
@@ -150,6 +154,8 @@ public class ProductionQueue {
 	this.sovietVehicles.put("4tnkicon.shp", new EntityMammothTank(NULL));
 	this.sovietVehicles.put("3tnkicon.shp", new EntityHeavyTank(NULL));
 	this.sovietVehicles.put("v2rlicon.shp", new EntityV2Launcher(NULL));
+        
+        this.air.put("dragon", new Dragon(NULL));
 
     }
 

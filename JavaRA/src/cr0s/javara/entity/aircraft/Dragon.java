@@ -6,8 +6,8 @@ import javafx.scene.shape.Path;
 import javafx.scene.layout.StackPane;
 
 public class Dragon extends EntityAircraft{
-    public Dragon(double x, double y) {
-        super(new Pos(x, y), 120, 120);
+    public Dragon(Pos x) {
+        super(x, 120, 120);
         //super(3000, 20, 300, 10, 16, null, 120, 120, 1, x, y, )
         setHp(3000);
         setDamagePerSecond(300);

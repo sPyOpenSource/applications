@@ -692,7 +692,7 @@ public class AIPlayer extends Player {
 
     private void buidUnits(boolean buildRandom) {
 	// Randomly choose units category
-	int i = World.random.nextInt(2);
+	int i = World.random.nextInt(4);
 	
 	ArrayList<String> buildables = new ArrayList<>();
 
@@ -734,6 +734,8 @@ public class AIPlayer extends Player {
 	    break;
 
 	case 3: // TODO: Air units
+            for(String name:this.getBase().getProductionQueue().air.keySet())
+                buildables.add(name);
 	    break;
 	}
 

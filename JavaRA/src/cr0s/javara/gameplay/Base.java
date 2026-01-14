@@ -6,6 +6,7 @@ import java.util.LinkedList;
 
 import cr0s.javara.entity.IDefense;
 import cr0s.javara.entity.actor.EntityActor;
+import cr0s.javara.entity.aircraft.EntityAircraft;
 import cr0s.javara.entity.building.EntityBuilding;
 import cr0s.javara.entity.building.EntityBuildingProgress;
 import cr0s.javara.entity.building.IOreCapacitor;
@@ -15,6 +16,7 @@ import cr0s.javara.entity.building.common.EntityConstructionYard;
 import cr0s.javara.entity.building.common.EntityRadarDome;
 import cr0s.javara.entity.building.common.EntityWall;
 import cr0s.javara.entity.building.common.EntityWarFactory;
+import cr0s.javara.entity.building.soviet.EntityAirField;
 import cr0s.javara.entity.building.soviet.EntityBarracks;
 import cr0s.javara.entity.infantry.EntityInfantry;
 import cr0s.javara.entity.vehicle.EntityVehicle;
@@ -517,5 +519,25 @@ public class Base {
 
     public void repairBuilding(EntityBuilding entityBuilding) {
 	entityBuilding.setRepairing(true);
+    }
+
+    void deployBuildedAircraft(EntityAircraft entityAircraft) {
+        EntityAirField ewf = getPrimaryAirField();
+	
+	if (ewf != null) {
+	    ewf.deployEntity(entityAircraft.newInstance());
+	}    
+    }
+
+    private EntityAirField getPrimaryAirField() {
+        for (EntityBuilding b : this.buildings) {
+	    if (b instanceof EntityAirField entity) {
+		if (b.isPrimary()) {
+		    return entity;
+		}
+	    }
+	}	
+
+	return null;
     }
 }

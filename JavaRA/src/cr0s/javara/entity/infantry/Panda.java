@@ -1,12 +1,13 @@
 package cr0s.javara.entity.infantry;
 
 import cr0s.javara.util.Pos;
+import javafx.scene.image.ImageView;
 import javafx.scene.shape.Path;
 import javafx.scene.layout.StackPane;
 
 public class Panda extends EntityInfantry{
-    public Panda(double x, double y) {
-        super(new Pos(x, y));
+    public Panda(Pos x) {
+        super(x);
         //super(1500, 10, 150, 0, 24, null, 50, 50, 1, x, y, 
         setHp(1500);
         setDamagePerSecond(150);
@@ -45,5 +46,12 @@ public class Panda extends EntityInfantry{
     @Override
     public int getRevealingRange(){ return 0; }
     @Override
-    public StackPane renderEntity(){ return null; }
+    public StackPane renderEntity(){
+        if(getImageView() == null){
+            setImageView(new ImageView(getImages().get(0)));
+        }
+        StackPane combined = new StackPane();
+        combined.getChildren().add(getImageView());
+        return combined; 
+    }
 }

@@ -2,6 +2,7 @@ package cr0s.javara.gameplay;
 
 import cr0s.javara.entity.IHaveCost;
 import cr0s.javara.entity.actor.EntityActor;
+import cr0s.javara.entity.aircraft.EntityAircraft;
 import cr0s.javara.entity.building.EntityBuilding;
 import cr0s.javara.entity.infantry.EntityInfantry;
 import cr0s.javara.entity.vehicle.EntityVehicle;
@@ -149,6 +150,11 @@ public class Production {
                 this.isReady = false;
                 this.isDeployed = true;
                 this.player.getBase().deployTrainedInfantry(entityInfantry);
+            }
+            case EntityAircraft entityAircraft -> {
+                this.isReady = false;
+                this.isDeployed = true;
+                this.player.getBase().deployBuildedAircraft(entityAircraft);
             }
             default -> {
             }
