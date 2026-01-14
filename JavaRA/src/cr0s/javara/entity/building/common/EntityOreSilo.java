@@ -39,7 +39,7 @@ public class EntityOreSilo extends EntityBuilding implements ISelectable, IPower
     
     private int oreLevel = 0;
     private final int CORRUPTED_OFFSET = 5;
-    private static final int BUILDING_COST = 150;
+    private static final int BUILDING_COST = 15;
     
     public EntityOreSilo(Pos tile) {
 	super(tile, WIDTH_TILES * 24, HEIGHT_TILES * 24, "x");

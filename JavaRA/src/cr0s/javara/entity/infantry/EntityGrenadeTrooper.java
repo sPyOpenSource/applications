@@ -19,7 +19,7 @@ import javafx.scene.image.ImageView;
 
 public class EntityGrenadeTrooper extends EntityInfantry implements ISelectable, IHaveCost, ICanAttack {
     
-    private final int BUILD_COST = 160;
+    private final int BUILD_COST = 16;
     
     public EntityGrenadeTrooper(Pos pos) {
 	this(pos, SubCell.CENTER);

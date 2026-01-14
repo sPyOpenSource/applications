@@ -11,8 +11,8 @@ import cr0s.javara.resources.ResourceManager;
 import cr0s.javara.resources.ShpTexture;
 import cr0s.javara.resources.SoundManager;
 import cr0s.javara.ui.sbpages.SideBarItemsButton;
-import java.awt.image.BufferedImage;
 
+import java.awt.image.BufferedImage;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 
@@ -67,7 +67,7 @@ public class Production {
 	if (this.INSTANT_BUILD && this.player == GUI.getInstance().getPlayer()) { 
 	    this.maxBuildedTicks = 1;
 	    this.buildingCost = 0;
-	}	
+	}
 
 	this.isBuilding = true;
 	this.isReady = false;

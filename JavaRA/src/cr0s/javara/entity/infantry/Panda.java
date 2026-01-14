@@ -1,11 +1,12 @@
 package cr0s.javara.entity.infantry;
 
+import cr0s.javara.entity.IHaveCost;
 import cr0s.javara.util.Pos;
 import javafx.scene.image.ImageView;
 import javafx.scene.shape.Path;
 import javafx.scene.layout.StackPane;
 
-public class Panda extends EntityInfantry{
+public class Panda extends EntityInfantry implements IHaveCost {
     public Panda(Pos x) {
         super(x);
         //super(1500, 10, 150, 0, 24, null, 50, 50, 1, x, y, 
@@ -53,5 +54,10 @@ public class Panda extends EntityInfantry{
         StackPane combined = new StackPane();
         combined.getChildren().add(getImageView());
         return combined; 
+    }
+
+    @Override
+    public int getBuildingCost() {
+        return 10;
     }
 }

@@ -16,7 +16,7 @@ import cr0s.javara.util.Pos;
 
 public class EntityRocketTrooper extends EntityInfantry implements ISelectable, IHaveCost, ICanAttack {
     
-    private int BUILD_COST = 300;
+    private int BUILD_COST = 30;
     
     public EntityRocketTrooper(Pos pos) {
 	this(pos, SubCell.CENTER);

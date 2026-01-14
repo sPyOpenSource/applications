@@ -28,7 +28,7 @@ public class EntityRadarDome extends EntityBuilding implements ISelectable, IPow
     public static final int HEIGHT_TILES = 3;
 
     private static final int POWER_CONSUMPTION_LEVEL = 40;
-    private static final int BUILDING_COST = 1600;
+    private static final int BUILDING_COST = 160;
     private static final int SHROUD_REVEALING_RANGE = 15;
     
     public EntityRadarDome(Pos tile) {

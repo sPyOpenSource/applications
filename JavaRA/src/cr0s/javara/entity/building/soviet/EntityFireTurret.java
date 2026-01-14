@@ -46,7 +46,7 @@ public class EntityFireTurret extends Defensive implements ISelectable, IPowerCo
 
     private static final int POWER_CONSUMPTION_LEVEL = 20;
     private static final int SHROUD_REVEALING_RANGE = 3;
-    private static final int BUILDING_COST = 600;
+    private static final int BUILDING_COST = 60;
     
     private final AttackTurreted attack;
     private final Armament arma;

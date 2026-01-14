@@ -1,11 +1,13 @@
 package cr0s.javara.entity.aircraft;
 
+import cr0s.javara.entity.IHaveCost;
 import cr0s.javara.entity.actor.activity.Activity;
 import cr0s.javara.util.Pos;
+import javafx.scene.image.ImageView;
 import javafx.scene.shape.Path;
 import javafx.scene.layout.StackPane;
 
-public class Dragon extends EntityAircraft{
+public class Dragon extends EntityAircraft implements IHaveCost{
     public Dragon(Pos x) {
         super(x, 120, 120);
         //super(3000, 20, 300, 10, 16, null, 120, 120, 1, x, y, )
@@ -41,5 +43,17 @@ public class Dragon extends EntityAircraft{
     @Override
     protected Activity moveToRange(Pos cellPos, int range){ return null; }
     @Override
-    public StackPane renderEntity(){ return null; }
+    public StackPane renderEntity(){ 
+        if(getImageView() == null){
+            setImageView(new ImageView(getImages().get(0)));
+        }
+        StackPane combined = new StackPane();
+        combined.getChildren().add(getImageView());
+        return combined; 
+    }
+
+    @Override
+    public int getBuildingCost() {
+        return 20;
+    }
 }

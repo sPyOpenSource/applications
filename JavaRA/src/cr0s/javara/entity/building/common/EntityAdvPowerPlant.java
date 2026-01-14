@@ -28,7 +28,7 @@ public class EntityAdvPowerPlant extends EntityBuilding implements ISelectable, 
 
     private static final int POWER_PRODUCTION_LEVEL = 200;
     private static final int SHROUD_REVEALING_RANGE = 7;
-    private static final int BUILDING_COST = 500;
+    private static final int BUILDING_COST = 50;
 
     public EntityAdvPowerPlant(Pos tile) {
 	super(tile, WIDTH_TILES * 24, HEIGHT_TILES * 24, "xxx xxx xxx ~~~");
@@ -79,7 +79,7 @@ public class EntityAdvPowerPlant extends EntityBuilding implements ISelectable, 
 	    //repairImage.draw(this.boundingBox.getX() + this.boundingBox.getWidth() / 2 - repairImage.getWidth() / 2, this.boundingBox.getY() + this.boundingBox.getHeight() / 2 - repairImage.getHeight() / 2);
 	}
         StackPane combined = new StackPane();
-combined.getChildren().add(view);
+        combined.getChildren().add(view);
         view.setX(boundingBox.getX());
         view.setY(boundingBox.getY());
         return combined;

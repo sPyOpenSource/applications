@@ -7,7 +7,7 @@ import cr0s.javara.util.Pos;
 
 public class EntityBarredWireWall extends EntityWall {
 
-    private static final int BUILDING_COST = 30;
+    private static final int BUILDING_COST = 3;
 
     public EntityBarredWireWall(Pos aTile,
 	    int aSizeWidth, int aSizeHeight,

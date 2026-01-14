@@ -16,7 +16,7 @@ import cr0s.javara.util.Pos;
 
 public class EntityRifleTrooper extends EntityInfantry implements ISelectable, IHaveCost, ICanAttack {
 
-    private final int BUILD_COST = 100;
+    private final int BUILD_COST = 10;
     
     public EntityRifleTrooper(Pos pos) {
 	this(pos, SubCell.CENTER);

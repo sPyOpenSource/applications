@@ -40,7 +40,7 @@ public class EntityHelipad extends EntityBuilding implements ISelectable, IPower
     private static final int POWER_CONSUMPTION_LEVEL = 10;
     private static final int SHROUD_REVEALING_RANGE = 5;
 
-    private static final int BUILDING_COST = 500;
+    private static final int BUILDING_COST = 50;
     
     private final static Pos spawnOffset = new Pos(0, 12);
     private final static int initialFacing = 12;

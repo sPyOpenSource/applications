@@ -53,7 +53,7 @@ public class EntityProc extends EntityBuilding implements ISelectable, IPowerCon
     public static final int PIPS_COUNT = 17;
 
     private final LinkedList<TargetLine> targetLines = new LinkedList<>();
-    private static final int BUILDING_COST = 1400;
+    private static final int BUILDING_COST = 140;
 
     public EntityProc(Pos tile) {
 	super(tile, WIDTH_TILES * 24, HEIGHT_TILES * 24, "_x_ xxx x~~ ~~~");

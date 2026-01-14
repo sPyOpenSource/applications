@@ -66,7 +66,7 @@ public class EntityWarFactory extends EntityBuilding implements ISelectable, ISh
     private final int[] exitDirectionsY = { 1,  0,  1, 1, 0, 0 };
     
     private static final int CONSUME_POWER_VALUE = 30;
-    private static final int BUILDING_COST = 2000;
+    private static final int BUILDING_COST = 200;
     private int ticksBeforeClose = 0;
     private final int TICKS_BEFORE_CLOSE = 30;
     

@@ -6,7 +6,7 @@ import cr0s.javara.util.Pos;
 
 public class EntityConcreteWall extends EntityWall {
 
-    private static final int BUILDING_COST = 350;
+    private static final int BUILDING_COST = 35;
 
     public EntityConcreteWall(Pos aTile) {
 	this(aTile, 24, 24, "x");

@@ -45,7 +45,7 @@ public class EntityTeslaCoil extends Defensive implements ISelectable, IPowerCon
     private static final int SHROUD_REVEALING_RANGE = 3;
     private final int CORRUPTED_OFFSET = 10;
     private int currentFrame = 0;
-    private static final int BUILDING_COST = 1200;
+    private static final int BUILDING_COST = 120;
 
     private boolean isCharging;
     private final int chargeTicks = 0;

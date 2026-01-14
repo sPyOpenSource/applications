@@ -29,7 +29,7 @@ public class EntityPowerPlant extends EntityBuilding implements ISelectable, IPo
     private static final int POWER_PRODUCTION_LEVEL = 100;
 
     private static final int SHROUD_REVEALING_RANGE = 7;
-    private static final int BUILDING_COST = 300;
+    private static final int BUILDING_COST = 30;
 
     public EntityPowerPlant(Pos tile) {
 	super(tile, WIDTH_TILES * 24, HEIGHT_TILES * 24, "xx xx ~~");

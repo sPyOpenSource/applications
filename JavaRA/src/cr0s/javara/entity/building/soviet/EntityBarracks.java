@@ -42,7 +42,7 @@ public class EntityBarracks extends EntityBuilding implements ISelectable, IPowe
     private static final int POWER_CONSUMPTION_LEVEL = 10;
     private static final int SHROUD_REVEALING_RANGE = 10;
 
-    private static final int BUILDING_COST = 400;
+    private static final int BUILDING_COST = 40;
     private SpriteSheet sheet;
 
     private Pos rallyPos;
