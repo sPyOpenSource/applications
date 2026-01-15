@@ -534,9 +534,9 @@ public class Base {
     private EntityAirField getPrimaryAirField() {
         for (EntityBuilding b : this.buildings) {
 	    if (b instanceof EntityAirField entity) {
-		if (b.isPrimary()) {
+		//if (b.isPrimary()) {
 		    return entity;
-		}
+		//}
 	    }
 	}	
 

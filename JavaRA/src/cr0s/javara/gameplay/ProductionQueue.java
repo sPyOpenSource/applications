@@ -243,6 +243,7 @@ public class ProductionQueue {
 
 	this.currentVehicle.update();
 	this.currentInfantry.update();
+        this.currentAir.update();
     }
 
     private void updateBuildables() {

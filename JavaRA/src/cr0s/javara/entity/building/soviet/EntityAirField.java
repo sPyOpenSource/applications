@@ -19,6 +19,7 @@ import cr0s.javara.resources.ResourceManager;
 import cr0s.javara.resources.ShpTexture;
 import cr0s.javara.util.Pos;
 import cr0s.javara.util.SpriteSheet;
+
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
@@ -42,7 +43,7 @@ public class EntityAirField extends EntityBuilding implements ISelectable, IPowe
     private static final int SHROUD_REVEALING_RANGE = 7;
     private static final int BUILDING_COST = 50;
     
-    private final static Pos spawnOffset = new Pos(0, 12);
+    private final static Pos spawnOffset = new Pos(0, 0);
     private final static int initialFacing = 12;
     private final boolean isCharging = false;
     
