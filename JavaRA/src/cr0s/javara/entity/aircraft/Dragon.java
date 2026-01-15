@@ -19,6 +19,7 @@ public class Dragon extends EntityAircraft implements IHaveCost{
                 "assets/gif/dragonR.gif", 
                 "assets/gif/dragon_attackR.gif"
         );
+        name = "dragon";
         //getImageViews().get(1).setFitWidth(170);
         //getImageViews().get(1).setFitHeight(120);
         //getImageViews().get(3).setFitWidth(170);

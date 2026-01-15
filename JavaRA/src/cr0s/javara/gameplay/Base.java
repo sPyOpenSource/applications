@@ -205,7 +205,9 @@ public class Base {
 		}
 	    } else if (b instanceof EntityRadarDome) {
 		this.isRadarDomePresent = true;
-	    }
+	    } else if (b instanceof EntityAirField) {
+                this.isAirLinePresent = true;
+            }
 
 	    if (b instanceof IOreCapacitor iOreCapacitor) {
 		this.oreCapacity += iOreCapacitor.getOreCapacityValue();

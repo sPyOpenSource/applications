@@ -4,6 +4,7 @@ import java.util.HashMap;
 
 import cr0s.javara.entity.actor.EntityActor;
 import cr0s.javara.entity.aircraft.Dragon;
+import cr0s.javara.entity.aircraft.EntityAircraft;
 import cr0s.javara.entity.building.EntityBuilding;
 import cr0s.javara.entity.building.china.InfernoTower;
 import cr0s.javara.entity.building.common.EntityAdvPowerPlant;
@@ -52,7 +53,8 @@ public class ProductionQueue {
     public HashMap<String, EntityActor> air = new HashMap<>();
     
     private final HashMap<String, EntityActor> buildables = new HashMap<>();
-    private final Production currentSovietBuilding, currentAlliedBuilding, currentNeutralBuilding, currentVehicle, currentInfantry;
+    private final Production currentSovietBuilding, currentAlliedBuilding, 
+            currentNeutralBuilding, currentVehicle, currentInfantry, currentAir;
 
     public ProductionQueue(Player p) {
 	this.player = p;
@@ -63,6 +65,7 @@ public class ProductionQueue {
 	this.currentAlliedBuilding = new Production(this.player);
 	this.currentVehicle = new Production(this.player);
 	this.currentInfantry = new Production(this.player);
+        this.currentAir = new Production(this.player);
 
 	/*
  	addButton(new BuildingSidebarButton("SAM Site", "samicon.shp", this.getPosition(), 0, 0, false));
@@ -111,7 +114,7 @@ public class ProductionQueue {
 	
 	this.sovietBuildings.put("fturicon.shp", new EntityFireTurret(NULL));
 	this.sovietBuildings.put("tslaicon.shp", new EntityTeslaCoil(NULL));
-        this.sovietBuildings.put("infernoTower", new InfernoTower(NULL));
+        this.sovietBuildings.put("infernoTowericon.shp", new InfernoTower(NULL));
 	
 	this.alliedBuildings.put("powricon.shp", new EntityPowerPlant(NULL));
 	//this.sovietBuildings.put("tenticon.shp", new EntityTent(0f, 0f, this.player.getTeam(), this.player));
@@ -144,7 +147,7 @@ public class ProductionQueue {
 	//this.sovietInfantry.put("e6icon.shp", new EntityEngineer(0.0f, 0.0f, this.player.getTeam(), this.player, SubCell.CENTER));
 	this.sovietInfantry.put("e2icon.shp", new EntityGrenadeTrooper(NULL, SubCell.CENTER));
 	this.sovietInfantry.put("e3icon.shp", new EntityRocketTrooper(NULL, SubCell.CENTER));
-        this.sovietInfantry.put("panda", new Panda(NULL));
+        this.sovietInfantry.put("pandaicon.shp", new Panda(NULL));
 		
 	// Put neutral common vehicles
 	this.neutralVehicles.put("mcvicon.shp", new EntityMcv(NULL));
@@ -155,7 +158,7 @@ public class ProductionQueue {
 	this.sovietVehicles.put("3tnkicon.shp", new EntityHeavyTank(NULL));
 	this.sovietVehicles.put("v2rlicon.shp", new EntityV2Launcher(NULL));
         
-        this.air.put("dragon", new Dragon(NULL));
+        this.air.put("dragonicon.shp", new Dragon(NULL));
     }
 
     public EntityActor getBuildableActor(SideBarItemsButton texture) {
@@ -199,7 +202,9 @@ public class ProductionQueue {
 	    this.currentVehicle.startBuildingActor(target, texture);
 	} else if (target instanceof EntityInfantry) {
 	    this.currentInfantry.startBuildingActor(target, texture);
-	}
+	} else if (target instanceof EntityAircraft) {
+            this.currentAir.startBuildingActor(target, texture);
+        }
     }
     
     public EntityActor getCurrentProducingBuilding() {

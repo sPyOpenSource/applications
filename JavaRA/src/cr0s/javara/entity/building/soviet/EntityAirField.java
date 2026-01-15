@@ -180,7 +180,7 @@ public class EntityAirField extends EntityBuilding implements ISelectable, IPowe
 	    me.isVisible = true;	    
 	  
 	    owner.world.spawnEntityInWorld(newInstance);
-	    
+	    owner.entities.add(newInstance);
 	    me.setPos(this.getPosition().add(EntityAirField.spawnOffset));
 	    me.currentFacing = EntityAirField.initialFacing;
 	}
@@ -188,6 +188,6 @@ public class EntityAirField extends EntityBuilding implements ISelectable, IPowe
     
     @Override
     public void onBuildFinished() {
-	this.deployEntity(new EntityMammothTank(new Pos(0d, 0d)));
+	//this.deployEntity(new EntityMammothTank(new Pos(0d, 0d)));
     }
 }

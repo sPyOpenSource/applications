@@ -734,8 +734,10 @@ public class AIPlayer extends Player {
 	    break;
 
 	case 3: // TODO: Air units
-            for(String name:this.getBase().getProductionQueue().air.keySet())
-                buildables.add(name);
+            if(this.getBase().isAirLinePresent){
+                for(String name:this.getBase().getProductionQueue().air.keySet())
+                    buildables.add(name);
+            }
 	    break;
 	}
 
