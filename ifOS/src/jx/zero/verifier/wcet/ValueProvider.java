@@ -12,12 +12,20 @@ public interface ValueProvider {
     public boolean valueAvailable(ByteCode bc);
 
     /** Get Field Value
+     * @param className
+     * @param fieldName
+     * @param fieldType
+     * @param bc
      * @return value if available, else null
      */
     public Integer getIntField(String className, String fieldName, String fieldType, ByteCode bc);
 
     /** returns the value that would be returned if the method was invoked.
-     *note: should only be called during Simulation, as calls may return different values, depending on how often they were already called.
+     * note: should only be called during Simulation, as calls may return different values, depending on how often they were already called.
+     * @param className
+     * @param methodName
+     * @param methodType
+     * @param bc
      * @return value if available, else null
      */
     public Integer invokeIntMethod(String className,
@@ -25,6 +33,11 @@ public interface ValueProvider {
                                    String methodType,
 				   ByteCode bc);
     /** Get ExecutionTime of Method
+     * @param className
+     * @param methodName
+     * @param methodType
+     * @param bc
+     * @return 
      */
     public ExecutionTime getMethodWCET(String className, 
 				       String methodName, 

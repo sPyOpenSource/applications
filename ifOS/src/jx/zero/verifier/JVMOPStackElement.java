@@ -65,7 +65,6 @@ abstract public class JVMOPStackElement {
 	this.bcAddr = bcAddr;
     }
     
-
     public String addressString() {
 	String addr;
 	switch (bcAddr) {
