@@ -51,6 +51,8 @@ public class NPAValue {
 	"Null",
 	"NonNull",
 	"Unknown Ref"};
+    
+    @Override
     public String toString() { 
 	return ((value >= 0 && value < valueNames.length)? valueNames[value] : 
 		"InvalidValue") + 
@@ -139,13 +141,14 @@ public class NPAValue {
 	    //{NPAValue[] ret = {newOTHERREF()}; return ret;}
 	    {NPAValue[] ret = {newOTHER()}; return ret;}
 	    case 'L':
-	    StringBuffer className = new StringBuffer();
+	    StringBuilder className = new StringBuilder();
 	    while (typeDesc.next() != ';') {
 		className.append(typeDesc.current());
 	    }
 	    // return new NPAObjectValue(className.toString());
 	    //{NPAValue[] ret = {newOTHERREF()}; return ret;}
 	    {NPAValue[] ret = {newOTHER()}; return ret;}
+
 	default:
 	    throw new VerifyException("Unknown type : " + typeDesc.current());
 	}

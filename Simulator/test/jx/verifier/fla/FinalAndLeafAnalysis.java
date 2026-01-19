@@ -7,7 +7,6 @@ import jx.classfile.constantpool.*;
 
 public class FinalAndLeafAnalysis {
 
-
     static public void  verifyMethod(MethodSource method, 
 				      String className, 
 				      ConstantPool cPool,

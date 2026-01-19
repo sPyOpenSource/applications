@@ -60,7 +60,6 @@ public class ClassTree extends ClassTreeElement{
 	return thisElm;
     }
 
-
     /** get all Classes for which the tree was build (<code>vClasses</code> in the constructor)
      *@return Enumeration of all Classes for which the tree was build (see constructor, <code>vClasses</code>).
      *@see ClassTree#ClassTree
@@ -69,7 +68,6 @@ public class ClassTree extends ClassTreeElement{
     public Enumeration getDomClasses() {
 	return domClasses.elements();
     }
-
 
     ///////////////////// from ClassTreeElement /////////////
     // top Element is java/lang/Object

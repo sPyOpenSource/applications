@@ -147,9 +147,7 @@ public class NullPointerAnalysis {
 	}
     }
     
-    
     public void test(ByteCode te) {
-	
 	System.out.println(te.next);
 	System.out.println(te.prev);
     }

@@ -24,7 +24,6 @@ public class Verifier {
      * @exception VerifyException if the class fails verification.
      * @exception java.lang.Error if there is an Error verifying the class
      * @see jx.classstore.ClassFinder
-
      */
     public Verifier(ClassFinder classFinder, Enumeration vClasses) throws VerifyException {
 	this(classFinder, vClasses, new VerifierOptions());
@@ -177,5 +176,13 @@ public class Verifier {
     static public void stdPrint(int mode, String out) {
 	if (debugMode >= mode)
 	    System.out.print(out);
+    }
+    
+    public static void main(String[] arg){
+        try {
+            new Verifier(null, null);
+        } catch (VerifyException ex) {
+            System.getLogger(Verifier.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
+        }
     }
 }

@@ -1,10 +1,7 @@
 package jx.verifier.wcet;
 
 import jx.verifier.bytecode.*;
-import jx.verifier.*;
-import java.util.Vector;
 import jx.classfile.constantpool.*;
-import jx.classfile.ClassData;
 
 public final class BCEffectPass2 {
 
@@ -316,5 +313,3 @@ public final class BCEffectPass2 {
     }
 
 }
-
-

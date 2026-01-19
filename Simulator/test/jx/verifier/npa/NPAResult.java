@@ -5,7 +5,7 @@ import jx.classfile.VerifyResult;
 
 public class NPAResult extends VerifyResult {
     private int count;
-    private int initSize;
+    private final int initSize;
     private int[] addresses;
     
     public int getCount() {
@@ -48,14 +48,13 @@ public class NPAResult extends VerifyResult {
 
     public int[] getNonNullAdresses() {
 	int[] ret = new int[count];
-	for (int i =0; i < count; i++) {
-	    ret[i] = addresses[i];
-	}
+        System.arraycopy(addresses, 0, ret, 0, count);
 	return ret;
     }
     
+    @Override
     public String toString(){
-	StringBuffer ret = new StringBuffer(count*4);
+	StringBuilder ret = new StringBuilder(count*4);
 	for(int i =0; i< count; i++) {
 	    ret.append(Integer.toHexString(addresses[i]) +", ");
 	}

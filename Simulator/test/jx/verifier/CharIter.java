@@ -2,7 +2,7 @@ package jx.verifier;
 
 /** Class to iterate through a String.*/
 public class CharIter {
-    private String string;
+    private final String string;
     private int actChar;
     /** indicates the end of the String*/
     //FEHLER: oh weh ist das haesslich!

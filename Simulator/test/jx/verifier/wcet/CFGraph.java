@@ -14,7 +14,6 @@ public class CFGraph {
 	buildGraph(code);
     }
 
-
     //build the control flow graph for the method
     //at first builds a graph with no restrictions, when the graph is complete, all nodes with
     //more than two edges are split, so that every node has at most outdgree 2
@@ -153,7 +152,7 @@ public class CFGraph {
 
     }
 
-    /**Simplify the CFG. After simplification only one node should be left.
+    /** Simplify the CFG. After simplification only one node should be left.
      * @return true if graph could be reduced to one node, else false.
      */
     public boolean simplify() {
