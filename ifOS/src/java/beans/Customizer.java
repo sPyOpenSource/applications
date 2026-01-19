@@ -56,20 +56,20 @@ package java.beans;
  **/
 
 public interface Customizer {
-	/** Set the object to Customize.  This will always be a
-	 ** Bean that had a BeanDescriptor indicating this
-	 ** Customizer.
-	 ** @param bean the Bean to customize.
-	 **/
-	public abstract void setObject(Object bean);
+    /** Set the object to Customize.  This will always be a
+     ** Bean that had a BeanDescriptor indicating this
+     ** Customizer.
+     ** @param bean the Bean to customize.
+     **/
+    public abstract void setObject(Object bean);
 
-	/** Add a PropertyChangeListener.
-	 ** @param l the PropertyChangeListener to add.
-	 **/
-	public abstract void addPropertyChangeListener(PropertyChangeListener l);
+    /** Add a PropertyChangeListener.
+     ** @param l the PropertyChangeListener to add.
+     **/
+    public abstract void addPropertyChangeListener(PropertyChangeListener l);
 
-	/** Remove a PropertyChangeListener.
-	 ** @param l the PropertyChangeListener to remove.
-	 **/
-	public abstract void removePropertyChangeListener(PropertyChangeListener l);
+    /** Remove a PropertyChangeListener.
+     ** @param l the PropertyChangeListener to remove.
+     **/
+    public abstract void removePropertyChangeListener(PropertyChangeListener l);
 }

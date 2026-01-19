@@ -24,7 +24,6 @@ resulting executable to be covered by the GNU General Public License.
 This exception does not however invalidate any other reasons why the
 executable file might be covered by the GNU General Public License. */
 
-
 package java.beans;
 
 import java.util.EventListener;
@@ -41,7 +40,6 @@ import java.util.EventListener;
  ** @version 1.1.0, 29 Jul 1998
  ** @see java.beans.PropertyChangeSupport
  **/
-
 public interface PropertyChangeListener extends EventListener
 {
   /** Fired after a Bean's property has changed.

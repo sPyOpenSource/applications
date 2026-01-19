@@ -53,12 +53,11 @@ import java.util.EventListener;
  ** @see java.beans.PropertyChangeListener
  ** @see java.beans.VetoableChangeSupport
  **/
-
 public interface VetoableChangeListener extends EventListener
 {
   /** Fired before a Bean's property changes.
    ** @param e the change (containing the old and new values)
-   ** @exception PropertyChangeException if the listener
+   ** @exception PropertyVetoException if the listener
    **            does not desire the change to be made.
    **/
   public abstract void vetoableChange(PropertyChangeEvent e)

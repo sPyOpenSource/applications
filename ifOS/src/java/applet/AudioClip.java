@@ -28,10 +28,10 @@ executable file might be covered by the GNU General Public License. */
 package java.applet;
 
 /**
-  * This interface provides a simple mechanism for playing audio clips.
-  *
-  * @author Aaron M. Renn (arenn@urbanophile.com)
-  */
+ * This interface provides a simple mechanism for playing audio clips.
+ *
+ * @author Aaron M. Renn (arenn@urbanophile.com)
+ */
 public interface AudioClip
 {
     

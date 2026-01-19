@@ -40,14 +40,14 @@ import java.util.Enumeration;
   */
 public interface AppletContext
 {
-  /**
-    * Returns an audio clip from the specified URL.
-    *
-    * @param url The URL of the audio clip.
-    *
-    * @return The retrieved audio clip // FIXME: What happens on error?
-    */
-  AudioClip getAudioClip(URL url);
+    /**
+     * Returns an audio clip from the specified URL.
+     *
+     * @param url The URL of the audio clip.
+     *
+     * @return The retrieved audio clip // FIXME: What happens on error?
+     */
+    AudioClip getAudioClip(URL url);
 
   /**
     * Returns an image from the specified URL.  Note that the image is not

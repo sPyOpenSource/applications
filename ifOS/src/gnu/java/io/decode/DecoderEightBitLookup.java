@@ -121,24 +121,25 @@ convertToChars(byte[] buf, int buf_offset, int len, char[] cbuf,
 
 /*************************************************************************/
 
-/**
-  * Read the requested number of chars from the underlying stream
+    /**
+     * Read the requested number of chars from the underlying stream
      * @param cbuf
+     * @param len
      * @return 
      * @throws java.io.IOException
-  */
-@Override
-public int
-read(char[] cbuf, int offset, int len) throws IOException
-{
-  byte[] buf = new byte[len];
-  
-  int bytes_read = in.read(buf);
-  if (bytes_read == -1)
-    return(-1);
+     */
+    @Override
+    public int
+    read(char[] cbuf, int offset, int len) throws IOException
+    {
+      byte[] buf = new byte[len];
 
-  convertToChars(buf, 0, bytes_read, cbuf, offset);
-  return(bytes_read); 
-}
+      int bytes_read = in.read(buf);
+      if (bytes_read == -1)
+        return(-1);
+
+      convertToChars(buf, 0, bytes_read, cbuf, offset);
+      return(bytes_read); 
+    }
 
 } // class DecoderEightBitLookup

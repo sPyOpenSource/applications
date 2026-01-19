@@ -96,7 +96,6 @@ package java.beans;
  ** @see java.beans.PropertyEditorManager
  ** @see java.beans.PropertyEditorSupport
  **/
-
 public interface PropertyEditor {
 	/** Called by the RAD tool to set the value of this property for the PropertyEditor.
 	 ** If the property type is native, it should be wrapped in the appropriate

@@ -170,17 +170,18 @@ convertToBytes(char[] buf, int buf_offset, int len, byte[] bbuf,
 
 /*************************************************************************/
 
-/**
-  * Write the requested number of chars to the underlying stream
-  */
-@Override
-public void
-write(char[] buf, int offset, int len) throws IOException
-{
-  byte[] bbuf = new byte[len];
-  
-  convertToBytes(buf, offset, len, bbuf, 0);
-  out.write(bbuf);
-}
+    /**
+     * Write the requested number of chars to the underlying stream
+     * @throws java.io.IOException
+     */
+    @Override
+    public void
+    write(char[] buf, int offset, int len) throws IOException
+    {
+      byte[] bbuf = new byte[len];
+
+      convertToBytes(buf, offset, len, bbuf, 0);
+      out.write(bbuf);
+    }
 
 } // class DecoderEightBitLookup

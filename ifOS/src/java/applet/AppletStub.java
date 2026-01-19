@@ -29,11 +29,11 @@ package java.applet;
 import java.net.URL;
 
 /**
-  * This interface is the low level interface between the applet and the
-  * browser.
-  *
-  * @author Aaron M. Renn (arenn@urbanophile.com)
-  */
+ * This interface is the low level interface between the applet and the
+ * browser.
+ *
+ * @author Aaron M. Renn (arenn@urbanophile.com)
+ */
 public interface AppletStub
 {
     
