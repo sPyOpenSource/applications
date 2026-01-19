@@ -43,32 +43,32 @@ package java.beans;
  */
 
 public interface Visibility {
-	/**
-	 * Tells whether the Bean can run without a GUI or not.
-	 * @return false if Bean can run without a GUI, else true.
-	 */
-	public abstract boolean needsGui();
+    /**
+     * Tells whether the Bean can run without a GUI or not.
+     * @return false if Bean can run without a GUI, else true.
+     */
+    public abstract boolean needsGui();
 
-	/**
-	 * Tells whether Bean is trying not to use the GUI.
-	 * If needsGui() is true, this method should always return false.
-	 * @return true if definitely not using GUI, otherwise false.
-	 */
-	public abstract boolean avoidingGui();
+    /**
+     * Tells whether Bean is trying not to use the GUI.
+     * If needsGui() is true, this method should always return false.
+     * @return true if definitely not using GUI, otherwise false.
+     */
+    public abstract boolean avoidingGui();
 
-	/**
-	 * Tells the Bean not to use GUI methods.
-	 * If needsGUI() is false, then after this method is called,
-	 * avoidingGui() should return true.
-	 */
-	public abstract void dontUseGui();
+    /**
+     * Tells the Bean not to use GUI methods.
+     * If needsGUI() is false, then after this method is called,
+     * avoidingGui() should return true.
+     */
+    public abstract void dontUseGui();
 
-	/**
-	 * Tells the Bean it may use the GUI.
-	 * The Bean is not required to use the GUI in this case, it is
-	 * merely being <EM>permitted</EM> to use it.  If needsGui() is
-	 * false, avoidingGui() may return true or false after this method
-	 * is called.
-	 */
-	public abstract void okToUseGui();
+    /**
+     * Tells the Bean it may use the GUI.
+     * The Bean is not required to use the GUI in this case, it is
+     * merely being <EM>permitted</EM> to use it.  If needsGui() is
+     * false, avoidingGui() may return true or false after this method
+     * is called.
+     */
+    public abstract void okToUseGui();
 }

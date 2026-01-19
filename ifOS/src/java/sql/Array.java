@@ -41,7 +41,7 @@ public interface Array
   * This method returns the name of the SQL type of the elements in this
   * array.  This name is database specific.
   *
-  * @param The name of the SQL type of the elements in this array.
+  * @return The name of the SQL type of the elements in this array.
   *
   * @exception SQLException If an error occurs.
   */
@@ -124,7 +124,7 @@ getArray(long offset, int count) throws SQLException;
   * <code>Map</code> will be used for overriding selected SQL type to
   * Java class mappings.
   *
-  * @param offset The offset into this array to start returning elements from.
+  * @param index The offset into this array to start returning elements from.
   * @param count The requested number of elements to return.
   * @param map A mapping of SQL types to Java classes.
   *
@@ -184,8 +184,8 @@ getResultSet(Map map) throws SQLException;
   * the index into the array of that row's contents.  The second will be
   * the actual value of that array element.
   *
-  * @param offset The index into the array to start returning elements from.
-  * @param length The requested number of elements to return.
+  * @param index The index into the array to start returning elements from.
+  * @param count The requested number of elements to return.
   *
   * @return The requested elements of this array as a <code>ResultSet</code>.
   *
@@ -209,8 +209,8 @@ getResultSet(long index, int count) throws SQLException;
   * will be used to override selected default mappings of SQL types to
   * Java classes.
   *
-  * @param offset The index into the array to start returning elements from.
-  * @param length The requested number of elements to return.
+  * @param index The index into the array to start returning elements from.
+  * @param count The requested number of elements to return.
   * @param map A mapping of SQL types to Java classes.
   *
   * @return The requested elements of this array as a <code>ResultSet</code>.

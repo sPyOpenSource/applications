@@ -12,5 +12,7 @@ public interface ClassData {
     public String getSuperClassName();
 
     public String getClassName();
+
+    public Object getMethodDataNE(String methodName, String typeDesc);
     
 }
