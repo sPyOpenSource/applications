@@ -10,8 +10,8 @@ public interface VerifierInterface {
     public String getClassName();
     public MethodSource getMethod();
     public void endChecks();
-    /**get User-defined parameter.
-     *@return parameter, might also return <code>null</code>.
+    /** get User-defined parameter.
+     * @return parameter, might also return <code>null</code>.
      */
     public Object getParameter();
 }
