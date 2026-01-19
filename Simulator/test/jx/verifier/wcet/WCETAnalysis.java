@@ -390,7 +390,7 @@ public class WCETAnalysis {
 	BCLinkList newCode;
 	try {
 	   newCode  = new BCLinkList(codeBytes, cPool);
-	} catch (VerifyException e) {
+	} catch (Exception e) {
 	    System.err.println("Internal Error: Exception caught:");
 	    e.printStackTrace();
 	    throw new Error("Internal Error");
@@ -425,7 +425,7 @@ public class WCETAnalysis {
 	BCLinkList newCode;
 	try {
 	   newCode  = new BCLinkList(codeBytes, cPool);
-	} catch (VerifyException e) {
+	} catch (Exception e) {
 	    throw new Error("Internal Error");
 	}
 
@@ -481,7 +481,7 @@ public class WCETAnalysis {
 	BCLinkList newCode;
 	try {
 	   newCode  = new BCLinkList(codeBytes, cPool);
-	} catch (VerifyException e) {
+	} catch (Exception e) {
 	    System.out.println("Internal Error - Exception caught: ");
 	    e.printStackTrace();
 	    throw new Error("Internal Error");

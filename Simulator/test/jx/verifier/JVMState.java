@@ -7,19 +7,19 @@ import jx.zero.verifier.VerifierInterface;
 /** Class to hold all necessary information about the state of the JVM simulated during verification.*/
 abstract public class JVMState {
 
-    /**Simulate execution of nextBc on this state.
+    /** Simulate execution of nextBc on this state.
      * called by executeNextBC.
      * @return the resulting states, with nextBC correctly set to the next target.<br> NOTE: the returning states are directly used and NOT copied. Return JVMState[0] (i.e. empty array) to end this verification path. If result is null, all in nextBC.getTargets() will be verified with this as beforeState (resp. a copy of this)
      * @exception VerifyException if verification fails (e.g. because arguments to nextBC are of incorrect type).
      * @see JVMState#executeNextBC
      */
     abstract protected JVMState[] doExecuteNextBC() throws VerifyException;
-    /**copy this state.
+    /** copy this state.
      * should return something created with<br>
      * <code>new JVMState(nextBC, stack.copy(), lVars.copy(), mv);</code><br>
      */
     abstract public JVMState copy();
-    /**transform state as if an Exception of type eName had been thrown.
+    /** transform state as if an Exception of type eName had been thrown.
      * i.e. usually clear stack, push an object of type eName onto stack and change nextBC.
      * @param eName name of the exception thrown.
      * @param handler start of the exceptionhandler for this exception.
@@ -61,7 +61,7 @@ abstract public class JVMState {
 	this.setNextBC(srBegin);
     }
 
-    /**simulates the effect of the next ByteCode on this state and set the resulting states.
+    /** simulates the effect of the next ByteCode on this state and set the resulting states.
      * First, the state is copied. If the nextBC is a subroutinecall, the subroutine is verified. Else, if the code is protected by an exception handler, the handler is verified.<br>
      * Then doExecuteNextBC() is called and the results returned are merged into the corresponding states. If doExecuteNextBC() returns null, the state is merged with all targets of nextBC. <br>
      * All bytecodes whose beforeState changed during this process are marked for verification (by calling mv.checkBC()).

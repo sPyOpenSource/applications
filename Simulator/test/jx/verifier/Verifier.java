@@ -125,9 +125,8 @@ public class Verifier {
 				}
 			    }
 			    
-			} catch (VerifyException e) {
-			    //System.err.println(e);
-			    e.printStackTrace();
+			} catch (VerifyException ex) {
+			    System.getLogger(Verifier.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
 			    System.exit(1);
 			}
 			

@@ -230,11 +230,11 @@ public class ClassTreeElement {
 	}
 	return true;
     }
+    
     /** check if the specified Method is implemented by any subclasses.
      * @see ClassTreeElement#isSystemFinalMethod(java.lang.String, java.lang.String)
      */
     public boolean isSystemFinalMethod(MethodSource method) {
 	return isSystemFinalMethod(method.getMethodName(), method.getMethodType());
-
     }
 }

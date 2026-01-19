@@ -3,10 +3,11 @@ package jx.verifier;
 import java.util.Vector;
 import jx.verifier.bytecode.*;
 
-
 public class Subroutines implements jx.zero.verifier.Subroutines {
+    
     private SubroutineData srs[];
     private BCLinkList code;
+    
     public void registerSrs(BCLinkList code) {
 	this.code = code;
 	Vector subs = new Vector(4);
