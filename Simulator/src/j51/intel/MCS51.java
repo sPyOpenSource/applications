@@ -980,11 +980,13 @@ public class MCS51 implements MCS51Constants, jCPU.iCPU
 		return dptrs[n];
 	}
 	
+        @Override
 	public final int dptr()
 	{
 		return sfr(DPH) * 256 | sfr(DPL);
 	}
 
+        @Override
 	public final void dptr(int value)
 	{
 		sfr(DPH,value>>8);
@@ -1031,7 +1033,9 @@ public class MCS51 implements MCS51Constants, jCPU.iCPU
 
 	/**
 	 * Return the accumulator
+         * @param value
 	 */
+        @Override
 	public final void acc(int value)
 	{
 		sfr(ACC, value);
@@ -1041,6 +1045,7 @@ public class MCS51 implements MCS51Constants, jCPU.iCPU
 	 * Return the current Program Status Word
 	 *
 	 * @version 1.00
+         * @return 
 	 */
 	public final int psw()
 	{

@@ -1,6 +1,7 @@
 package jx.verifier.wcet;
 
 public class TestClass {
+    
     public int testMethod(int k) {
 	int res = 0;
 	for (int i = 0; i < 100; i++) {

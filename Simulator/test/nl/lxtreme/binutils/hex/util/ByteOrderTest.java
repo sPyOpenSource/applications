@@ -7,13 +7,9 @@
  */
 package nl.lxtreme.binutils.hex.util;
 
-
 import static org.junit.Assert.*;
-
 import java.nio.*;
-
 import org.junit.*;
-
 
 /**
  *

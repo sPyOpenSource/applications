@@ -49,12 +49,12 @@ public abstract class NasmInst{
     void realloc(){
         realloc(CHUNKSIZE);
     }
-    void realloc(int i){
-        newCode = new byte[i];
+    void realloc(int size){
+        newCode = new byte[size];
     }
     
-    void insertByte(int i){
-        newCode[ip++] = (byte)i;
+    void insertByte(int value){
+        newCode[ip++] = (byte)value;
     }
     
     void insertModRM(Reg reg, Operand opr){}

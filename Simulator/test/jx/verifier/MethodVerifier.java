@@ -6,9 +6,10 @@ import jx.verifier.bytecode.BCLinkList;
 import jx.zero.ByteCode;
 import jx.zero.verifier.VerifierInterface;
 
-/**Class for verification of one method.
+/** Class for verification of one method.
  * The class has a checkqueue which contains all bytecodes that should be checked.
- * Method verification is initiated by a call to runChecks().*/
+ * Method verification is initiated by a call to runChecks().
+ */
 public class MethodVerifier implements VerifierInterface {
     private Vector checkQueue;
     private BCLinkList code;
@@ -44,7 +45,7 @@ public class MethodVerifier implements VerifierInterface {
     @Override
     public Object getParameter(){return vParameter;}
 
-    /**Constructor.
+    /** Constructor.
      * creates new constructor and reads the bytecode into a BCLinkList. While creating the BCLinkList, some inconsitencies may be detected (e.g. branch to an invalid address) so an Exception may be thrown.
      * @param method the method that should be verified.
      * @param className the name of the class or interface to which the method belongs.
@@ -65,7 +66,7 @@ public class MethodVerifier implements VerifierInterface {
 	this.className = className;
     }
 
-    /**Constructor.
+    /** Constructor.
      * the same as above, but receives one more argument: a VerifierParamter.
      */
     public MethodVerifier(MethodSource method, String className, ConstantPool cPool, 
@@ -80,7 +81,7 @@ public class MethodVerifier implements VerifierInterface {
 	try{runChecks();}catch (VerifyException e) {}
     }*/
     
-    /**Start verifying.
+    /** Start verifying.
      * First all subroutines are searched and registered  and the checkQueue is initialized. Then the first bytecode receives "initialState" as "beforeState" and is added to the checkQueue. Finally continueChecks() is called.
      * @exception VerifyException if the method fails verification.
      * @exception java.lang.Error if initialState is null.
@@ -110,10 +111,10 @@ public class MethodVerifier implements VerifierInterface {
 	Verifier.stdPrintln(1,"checkQueue empty --> done");
     }
 
-    /**checks all bytecodes in the check-queue.
-       Goes through all bytecodes in the checkQueue and calls beforeState.executeNextBC(). Note: The CheckQueue is LIFO so the verification always finishes one branch before starting verification of another one. Else Verification of one subroutine could be startet twice.
-       * @exception VerifyException if verification fails for some bytecode/state.
-       */
+    /** checks all bytecodes in the check-queue.
+     * Goes through all bytecodes in the checkQueue and calls beforeState.executeNextBC(). Note: The CheckQueue is LIFO so the verification always finishes one branch before starting verification of another one. Else Verification of one subroutine could be startet twice.
+     * @exception VerifyException if verification fails for some bytecode/state.
+     */
     public void continueChecks() throws VerifyException{
 	jx.zero.ByteCode actBC;
 	while (!checkQueue.isEmpty()) {
@@ -139,7 +140,7 @@ public class MethodVerifier implements VerifierInterface {
 	}
     }
     
-    /**Add Bytecode to the checkQueue.
+    /** Add Bytecode to the checkQueue.
      * Every bytecode has a counter so it can only be added to the checkQueue once. checkBC calls with bytecodes that are already in the queue do nothing.
      */
     @Override
@@ -150,7 +151,7 @@ public class MethodVerifier implements VerifierInterface {
 	checkQueue.addElement(e);
     }
    
-    /**Stop verification and empty runQueue.
+    /** Stop verification and empty runQueue.
      * Check is stopped, and runChecks / continueCheck will return.
      * CheckQueue is emptied (and the checkQueue counters of all bytecodes are reset to 0).
      */

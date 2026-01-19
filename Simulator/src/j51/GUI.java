@@ -641,16 +641,16 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
                                                 try {
                                                     Elf elf = new Elf(file);
                                                     Memory m = new Memory();
-                                                    for (ProgramHeader ph : elf.getProgramHeaders()){
-                                                      int size = (int) ph.getMemorySize();
+                                                    for (ProgramHeader ph : elf.programHeaders){
+                                                      int size = (int) ph.segmentMemorySize;
                                                       if (size <= 0){
                                                         continue;
                                                       }
-                                                      Chunk chunk = m.create(ph.getVirtualAddress(), size);
-                                                      elf.readSegment(ph, chunk);
+                                                      Chunk chunk = m.create(ph.virtualAddress, size);
+                                                      chunk.data = elf.getSegment(ph);
                                                     }
                                                     for(int i = 0; i < 0x10000; i++){
-                                                        cpu.code(i, m.read((int)(i + elf.getHeader().getEntryPoint())));
+                                                        cpu.code(i, m.read((int)(i + elf.header.entryPoint)));
                                                     }
                                                 } catch (IOException ex){
                                                     FileInputStream fis = new FileInputStream(file);

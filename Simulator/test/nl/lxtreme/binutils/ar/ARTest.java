@@ -11,15 +11,11 @@
  *******************************************************************************/
 package nl.lxtreme.binutils.ar;
 
-
 import static org.junit.Assert.*;
-
 import java.io.*;
 import java.net.*;
 import java.util.*;
-
 import org.junit.*;
-
 
 /**
  * Test cases for AR.

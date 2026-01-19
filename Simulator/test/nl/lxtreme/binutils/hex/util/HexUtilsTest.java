@@ -24,12 +24,12 @@ public class HexUtilsTest
    * Test method for {@link HexUtils#parseHexByte(java.lang.CharSequence, int)}.
    */
   @Test
-  public void testParseHexByte() throws Exception
+  public void testParseHexByte()
   {
     assertEquals( ( byte )0x01, HexUtils.parseHexByte( new char[] { '0', '1' } ) );
     assertEquals( ( byte )0x12, HexUtils.parseHexByte( new char[] { '1', '2' } ) );
     assertEquals( ( byte )0x23, HexUtils.parseHexByte( new char[] { '2', '3' } ) );
-    assertEquals( ( byte )0xFF, HexUtils.parseHexByte( new char[] { 'F', 'f' } ) );
+    assertEquals( ( byte )0xFF, (byte)HexUtils.parseHexByte( new char[] { 'F', 'f' } ) );
   }
 
 } /* HexUtilsTest */

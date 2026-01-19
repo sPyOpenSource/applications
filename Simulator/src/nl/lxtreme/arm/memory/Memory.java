@@ -265,8 +265,8 @@ public class Memory implements Code
 
     @Override
     public int getCodeSize() {
-return 0x1000;
-        }
+        return 0x1000;
+    }
 
     @Override
     public void setCode(int addr, int value) {

@@ -6,7 +6,7 @@
 package nl.lxtreme.arm.memory;
 
 import java.io.*;
-import java.util.*;
+import java.nio.ByteBuffer;
 
 /**
  * Denotes a "chunk" of memory, located at a certain address and with a certain
@@ -17,7 +17,7 @@ public class Chunk extends OutputStream
   // VARIABLES
 
   private final long address;
-  private final byte[] data;
+  public ByteBuffer data;
 
   private long writePtr = 0L;
 
@@ -37,9 +37,9 @@ public class Chunk extends OutputStream
     }
 
     this.address = aAddress;
-    this.data = new byte[aSize];
+    this.data = ByteBuffer.allocate(aSize);
 
-    Arrays.fill( this.data, ( byte )0xff );
+    //Arrays.fill( this.data, ( byte )0xff );
   }
 
   // METHODS
@@ -80,7 +80,7 @@ public class Chunk extends OutputStream
    */
   public int getSize()
   {
-    return this.data.length;
+    return this.data.capacity();
   }
 
   /**
@@ -109,8 +109,8 @@ public class Chunk extends OutputStream
     int addr = mapAddress( aAddr );
     if ( validAddress( addr ) )
     {
-      int msb = ( this.data[addr + 0] & 0xFF );
-      int lsb = ( this.data[addr + 1] & 0xFF );
+      int msb = ( this.data.get(addr + 0) & 0xFF );
+      int lsb = ( this.data.get(addr + 1) & 0xFF );
       return ( short )( ( msb << 8 ) | lsb );
     }
     else
@@ -131,10 +131,10 @@ public class Chunk extends OutputStream
     int addr = mapAddress( aAddr );
     if ( validAddress( addr ) )
     {
-      int b1 = this.data[addr + 0] & 0xff;
-      int b2 = this.data[addr + 1] & 0xff;
-      int b3 = this.data[addr + 2] & 0xff;
-      int b4 = this.data[addr + 3] & 0xff;
+      int b1 = this.data.get(addr + 0) & 0xff;
+      int b2 = this.data.get(addr + 1) & 0xff;
+      int b3 = this.data.get(addr + 2) & 0xff;
+      int b4 = this.data.get(addr + 3) & 0xff;
       return ( b1 << 24 ) | ( b2 << 16 ) | ( b3 << 8 ) | b4;
     }
     else
@@ -155,7 +155,7 @@ public class Chunk extends OutputStream
     int addr = mapAddress( aAddr );
     if ( validAddress( addr ) )
     {
-      return this.data[addr];
+      return this.data.get(addr);
     }
     else
     {
@@ -169,7 +169,7 @@ public class Chunk extends OutputStream
   @Override
   public String toString()
   {
-    return String.format( "Chunk @ 0x%08x: %d bytes", this.address, this.data.length );
+    return String.format( "Chunk @ 0x%08x: %d bytes", this.address, this.data.capacity() );
   }
 
   @Override
@@ -180,7 +180,7 @@ public class Chunk extends OutputStream
       throw new IOException( "Writer is closed!" );
     }
 
-    this.data[( int )this.writePtr++] = ( byte )aByte;
+    this.data.put((int )this.writePtr++,( byte )aByte);
   }
 
   /**
@@ -196,8 +196,8 @@ public class Chunk extends OutputStream
     int addr = mapAddress( aAddr );
     if ( validAddress( addr ) )
     {
-      this.data[addr + 0] = ( byte )( ( aValue >> 8 ) & 0xff );
-      this.data[addr + 1] = ( byte )( aValue & 0xff );
+      this.data.put(addr + 0, ( byte )( ( aValue >> 8 ) & 0xff ));
+      this.data.put(addr + 1, ( byte )( aValue & 0xff ));
     }
     else
     {
@@ -218,10 +218,10 @@ public class Chunk extends OutputStream
     int addr = mapAddress( aAddr );
     if ( validAddress( addr ) )
     {
-      this.data[addr + 0] = ( byte )( ( aValue >> 24 ) & 0xff );
-      this.data[addr + 1] = ( byte )( ( aValue >> 16 ) & 0xff );
-      this.data[addr + 2] = ( byte )( ( aValue >> 8 ) & 0xff );
-      this.data[addr + 3] = ( byte )( aValue & 0xff );
+      this.data.put(addr + 0, ( byte )( ( aValue >> 24 ) & 0xff ));
+      this.data.put(addr + 1, ( byte )( ( aValue >> 16 ) & 0xff ));
+      this.data.put(addr + 2, ( byte )( ( aValue >> 8 ) & 0xff ));
+      this.data.put(addr + 3, ( byte )( aValue & 0xff ));
     }
     else
     {
@@ -242,7 +242,7 @@ public class Chunk extends OutputStream
     int addr = mapAddress( aAddr );
     if ( validAddress( addr ) )
     {
-      this.data[addr] = aValue;
+      this.data.put(addr, aValue);
     }
     else
     {
@@ -271,6 +271,6 @@ public class Chunk extends OutputStream
   private boolean validAddress( int aAddr )
   {
     long addr = aAddr & 0xFFFFFFFF;
-    return ( addr >= 0 ) && ( addr < this.data.length );
+    return ( addr >= 0 ) && ( addr < this.data.capacity() );
   }
 }

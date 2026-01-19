@@ -2,7 +2,6 @@ package jx.verifier.fla;
 
 import jx.classfile.VerifyResult;
 
-
 public class FLAResult extends VerifyResult {
     boolean systemFinal;
     boolean leaf;

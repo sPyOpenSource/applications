@@ -113,18 +113,18 @@ public class ArmTest
     //File elfFile = new File("/Users/xuyi/Source/OS/armOS/lib/jcore/realmode");
     Elf elf = new Elf(elfFile);
 
-    for (ProgramHeader ph : elf.getProgramHeaders()){
-      int size = (int) ph.getMemorySize();
+    for (ProgramHeader ph : elf.programHeaders){
+      int size = (int) ph.segmentMemorySize;
       if (size <= 0){
         continue;
       }
 
-      Chunk chunk = this.m.create(ph.getVirtualAddress(), size);
-      elf.readSegment(ph, chunk);
+      Chunk chunk = this.m.create(ph.virtualAddress, size);
+      chunk.data = elf.getSegment(ph);
     }
 
     this.arm = new CPU(this.m);
-    this.arm.setPC((int) elf.getHeader().getEntryPoint());
+    this.arm.setPC((int) elf.header.entryPoint);
 
     int i = 500;
     while (i-- >= 0)
@@ -133,37 +133,37 @@ public class ArmTest
     }
   }
 
-  /**
-   * @throws Exception
-   */
-  @Test
-  public void testElfExample2() throws Exception
-  {
-      System.out.println("testElfExample2");
-    File elfFile = getFileResource("resources/helloWorld_loop");
-    Elf elf = new Elf(elfFile);
-
-    for (ProgramHeader ph : elf.getProgramHeaders())
+    /**
+     * @throws Exception
+     */
+    @Test
+    public void testElfExample2() throws Exception
     {
-      int size = (int) ph.getMemorySize();
-      if (size <= 0)
-      {
-        continue;
-      }
+        System.out.println("testElfExample2");
+        File elfFile = getFileResource("resources/helloWorld_loop");
+        Elf elf = new Elf(elfFile);
 
-      Chunk chunk = this.m.create(ph.getVirtualAddress(), size);
-      elf.readSegment(ph, chunk);
+        for (ProgramHeader ph : elf.programHeaders)
+        {
+            int size = (int) ph.segmentMemorySize;
+            if (size <= 0)
+            {
+                continue;
+            }
+
+        Chunk chunk = this.m.create(ph.virtualAddress, size);
+        chunk.data = elf.getSegment(ph);
+        }
+
+        this.arm = new CPU(this.m);
+        this.arm.setPC((int) elf.header.entryPoint);
+
+        int i = 500;
+        while (i-- >= 0)
+        {
+            this.arm.step();
+        }
     }
-
-    this.arm = new CPU(this.m);
-    this.arm.setPC((int) elf.getHeader().getEntryPoint());
-
-    int i = 500;
-    while (i-- >= 0)
-    {
-      this.arm.step();
-    }
-  }
 
   /**
    * 
