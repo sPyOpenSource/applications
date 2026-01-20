@@ -115,8 +115,8 @@ public abstract class X509Certificate extends Certificate implements X509Extensi
 {
 
   /**
-     Constructs a new certificate of the specified type.
-  */
+   * Constructs a new certificate of the specified type.
+   */
   protected X509Certificate()
   {
     super( "X.509" );

@@ -35,16 +35,17 @@ package java.net;
   */
 public abstract interface URLStreamHandlerFactory
 {
-/**
-  * This method maps the protocol portion of a URL to a URLStreamHandler
-  * object.
-  *
-  * @param protocol The protocol name to map ("http", "ftp", etc).
-  *
-  * @return The URLStreamHandler for the specified protocol
-  */
-public abstract URLStreamHandler
-createURLStreamHandler(String protocol);
+    
+    /**
+     * This method maps the protocol portion of a URL to a URLStreamHandler
+     * object.
+     *
+     * @param protocol The protocol name to map ("http", "ftp", etc).
+     *
+     * @return The URLStreamHandler for the specified protocol
+     */
+    public abstract URLStreamHandler
+    createURLStreamHandler(String protocol);
 
 } // interface URLStreamHandlerFactory
 

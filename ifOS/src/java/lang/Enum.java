@@ -1,26 +1,6 @@
 /*
  * Copyright (c) 2003, 2011, Oracle and/or its affiliates. All rights reserved.
  * ORACLE PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
  */
 
 package java.lang;
@@ -148,6 +128,7 @@ public abstract class Enum<E extends Enum<E>>
      *
      * @return a hash code for this enum constant.
      */
+    @Override
     public final int hashCode() {
         return super.hashCode();
     }
@@ -159,6 +140,7 @@ public abstract class Enum<E extends Enum<E>>
      *
      * @return (never returns)
      */
+    @Override
     protected final Object clone() throws CloneNotSupportedException {
         throw new CloneNotSupportedException();
     }
@@ -172,6 +154,7 @@ public abstract class Enum<E extends Enum<E>>
      * same enum type.  The natural order implemented by this
      * method is the order in which the constants are declared.
      */
+    @Override
     public final int compareTo(E o) {
         Enum<?> other = (Enum<?>)o;
         Enum<E> self = this;

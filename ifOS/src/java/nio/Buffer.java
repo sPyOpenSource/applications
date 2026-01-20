@@ -1,26 +1,6 @@
 /*
  * Copyright (c) 2000, 2013, Oracle and/or its affiliates. All rights reserved.
  * ORACLE PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
  */
 
 package java.nio;
@@ -173,7 +153,6 @@ import java.util.Spliterator;
  */
 
 public abstract class Buffer {
-
     /**
      * The characteristics of Spliterators that traverse and split elements
      * maintained in Buffers.
@@ -566,5 +545,4 @@ public abstract class Buffer {
         if ((off | len | (off + len) | (size - (off + len))) < 0)
             throw new IndexOutOfBoundsException();
     }
-
 }

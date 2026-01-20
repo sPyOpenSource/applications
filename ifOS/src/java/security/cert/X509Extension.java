@@ -65,11 +65,10 @@ public interface X509Extension
 {
 
   /**
-     Returns true if the certificate contains a critical extension
-     that is not supported.
-
-     @return true if has unsupported extension, false otherwise	
-  */
+   * Returns true if the certificate contains a critical extension
+   * that is not supported.
+   * @return true if has unsupported extension, false otherwise	
+   */
   public boolean hasUnsupportedCriticalExtension();
 
   /**
@@ -92,11 +91,12 @@ public interface X509Extension
   */
   public Set getNonCriticalExtensionOIDs();
 
-  /**
-     Returns the DER encoded OCTET string for the specified
-     extension value identified by a OID. The OID is a string
-     of number seperated by periods. Ex: 12.23.45.67
-  */
-  public byte[] getExtensionValue(String oid);
+    /**
+     * @param oid
+     * @return the DER encoded OCTET string for the specified
+     * extension value identified by a OID. The OID is a string
+     * of number seperated by periods. Ex: 12.23.45.67
+     */
+    public byte[] getExtensionValue(String oid);
 
 }

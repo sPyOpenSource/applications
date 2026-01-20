@@ -35,16 +35,17 @@ package java.net;
   */
 public abstract interface FileNameMap
 {
-/**
-  * This method is passed a filename and is responsible for determining
-  * the appropriate MIME type for that file.
-  *
-  * @param filename The name of the file to generate a MIME type for.
-  *
-  * @return The MIME type for the filename passed in.
-  */
-public abstract String
-getContentTypeFor(String filename);
+    
+    /**
+     * This method is passed a filename and is responsible for determining
+     * the appropriate MIME type for that file.
+     *
+     * @param filename The name of the file to generate a MIME type for.
+     *
+     * @return The MIME type for the filename passed in.
+     */
+    public abstract String
+    getContentTypeFor(String filename);
 
 } // interface FileNameMap
 

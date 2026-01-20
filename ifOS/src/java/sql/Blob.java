@@ -117,4 +117,3 @@ public abstract long
 position(Blob pattern, long offset) throws SQLException;
 
 } // interface Blob
-

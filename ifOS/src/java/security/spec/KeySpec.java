@@ -28,14 +28,12 @@ executable file might be covered by the GNU General Public License. */
 package java.security.spec;
 
 /**
-	A transparent interface for Key Specifications.
-	It contains no member functions. It is used to group
-	key classes.
-
-	@since JDK 1.2
-
-	@author Mark Benvenuto
-*/
+ * A transparent interface for Key Specifications.
+ * It contains no member functions. It is used to group
+ * key classes.
+ * @since JDK 1.2
+ * @author Mark Benvenuto
+ */
 public abstract interface KeySpec 
 {
 }

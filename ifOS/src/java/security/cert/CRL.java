@@ -66,10 +66,10 @@ public abstract class CRL
   }
 
   /**
-     Returns a string representing the CRL.
-
-     @return a string representing the CRL.
-  */
+   * Returns a string representing the CRL.
+   * @return a string representing the CRL.
+   */
+  @Override
   public abstract String toString();
 
   /**
@@ -82,6 +82,5 @@ public abstract class CRL
      false otherwise.	
   */
   public abstract boolean isRevoked(Certificate cert);
-
 
 }

@@ -153,6 +153,7 @@ getPermissions(Principal user);
   *
   * @return A <code>String</code> representation of this ACL
   */
+@Override
 public abstract String
 toString();
 

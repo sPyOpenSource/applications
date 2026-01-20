@@ -330,4 +330,3 @@ public abstract int
 getRunLimit(AttributedCharacterIterator.Attribute attrib);
 
 } // interface AttributedCharacterIterator
-
