@@ -1,11 +1,10 @@
 package jx.zero.classfile; 
 
 /** 
-    Adapter for sources of the data of 
-    bytecode methods. 
-    See subclasses 
-*/ 
-
+ * Adapter for sources of the data of 
+ * bytecode methods. 
+ * See subclasses 
+ */ 
 abstract public class MethodSource {
   abstract public ClassSource getDeclaringClassSource();
   abstract public String getMethodName(); 
