@@ -6,12 +6,13 @@ package jx.devices;
  */
 public interface Device {
     /**
-     * Return all configurations that are supported by this device.
+     * @return all configurations that are supported by this device.
      */
     DeviceConfigurationTemplate[] getSupportedConfigurations();
 
     /**
      * Initialize the device.
+     * @param conf
      */
     public void open(DeviceConfiguration conf);
 

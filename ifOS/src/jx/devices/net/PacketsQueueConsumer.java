@@ -6,6 +6,8 @@ public interface PacketsQueueConsumer extends Portal {
     /**
      * get next packet
      * blocks until packet is available
+     * @param o
+     * @return 
      */
     public Memory get(Memory o);
     public boolean isEmpty();
