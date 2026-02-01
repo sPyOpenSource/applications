@@ -9,7 +9,7 @@ import javafx.scene.layout.StackPane;
 public class TownHall extends EntityBuilding {
     public TownHall(Pos x) {
         //super(BuildingType.REFERENCES, 6800, "assets/png/town.png", 120, 120, x, y);
-        super(x, 120, 120, "");
+        super(x, 120, 120, "-xxx- xxxxx xxxxx xxxxx -xxx-");
         setHp(6800);
         Image view = new Image("assets/png/town.png", true);
         setImageView(new ImageView(view));
