@@ -13,6 +13,7 @@ module cr0s.javara.main {
     requires snakeyaml;
     requires hamcrest.core;
     requires org.json;
+    requires junit;
 
     exports test;
 }
