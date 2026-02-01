@@ -156,7 +156,7 @@ public class AIPlayer extends Player {
 	    }		    
 
 	    // Load squad size
-	    this.squadSize = (Integer) map.get("SquadSize");
+	    //this.squadSize = (Integer) map.get("SquadSize");
 	} catch (IOException e) {
 	    e.printStackTrace();
 	} finally {
@@ -343,7 +343,7 @@ public class AIPlayer extends Player {
 		enemies.add(p);
 	    }
 	}
-	return this.findClosestEnemy(center, enemies.get(0), 2000);
+	return this.findClosestEnemy(center, enemies.get(0), 20000000);
     }
 
     public Pos chooseBuildLocation(String actorType, boolean distanceToBaseIsImportant, BuildingType type) {
@@ -452,7 +452,7 @@ public class AIPlayer extends Player {
 
 	// Pick someting to attack owned by that player
 	Player enemy = enemies.get(0);
-	ArrayList<EntityActor> target = this.findClosestEnemy(this.getPlayerSpawnPoint(), enemy, 2000);
+	ArrayList<EntityActor> target = this.findClosestEnemy(this.getPlayerSpawnPoint(), enemy, 20000000);
 
 	if (target.isEmpty()) {
 	    // Assume that enemy has nothing, cool off on attacks
