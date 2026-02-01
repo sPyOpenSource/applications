@@ -6,7 +6,6 @@ import javafx.scene.layout.*;
 import java.io.InputStream;
 import java.util.ArrayList;
 import assets.Assets;
-import model.building.*;
 import org.yaml.snakeyaml.Yaml;
 
 import cr0s.javara.entity.building.EntityBuilding;
@@ -14,6 +13,7 @@ import cr0s.javara.entity.building.common.EntityConstructionYard;
 import cr0s.javara.render.map.Map;
 import cr0s.javara.util.Pos;
 import cr0s.javara.entity.Entity;
+import cr0s.javara.entity.building.china.*;
 import cr0s.javara.entity.building.soviet.EntityTeslaCoil;
 
 public class MapLoader extends Map {

@@ -1,7 +1,6 @@
 package model;
 
 import cr0s.javara.render.map.Map;
-
 import java.io.Serializable;
 
 public class Player implements Serializable {

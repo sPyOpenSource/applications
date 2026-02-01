@@ -1,6 +1,5 @@
 package controller.defense;
 
-import cr0s.javara.entity.MobileEntity;
 import javafx.animation.PathTransition;
 import javafx.application.Platform;
 import javafx.util.Duration;
@@ -12,7 +11,8 @@ import javafx.scene.shape.MoveTo;
 import javafx.scene.shape.Path;
 
 import cr0s.javara.render.map.Map;
-import model.building.ArcherTower;
+import cr0s.javara.entity.MobileEntity;
+import cr0s.javara.entity.building.china.ArcherTower;
 
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicInteger;

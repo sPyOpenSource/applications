@@ -16,15 +16,16 @@ import javafx.scene.shape.Path;
 import cr0s.javara.render.map.Map;
 import cr0s.javara.entity.Entity;
 import cr0s.javara.entity.building.EntityBuilding;
-import model.hero.Dragon;
 import assets.Assets;
+import cr0s.javara.entity.aircraft.Dragon;
+import cr0s.javara.util.Pos;
 
 public class DragonAttack extends Thread {
     private final Assets assets = new Assets();
     
     public DragonAttack(double x, double y, AnchorPane root, Map map) {
         this.root = root;
-        this.dragon = new Dragon(x, y);
+        this.dragon = new Dragon(new Pos(x, y));
         this.viewDragonL = new ImageView(dragon.getImages().get(0));
         this.viewDragonAttackL = new ImageView(dragon.getImages().get(1));
         this.viewDragonR = new ImageView(dragon.getImages().get(2));

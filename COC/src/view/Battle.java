@@ -23,12 +23,9 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.AnchorPane;
 
 import model.Player;
-import model.building.ArcherTower;
-import model.building.InfernoTower;
-import model.building.Tesla;
-
 import assets.Assets;
 import cr0s.javara.entity.Entity;
+import cr0s.javara.entity.building.china.*;
 import cr0s.javara.render.map.TileMap;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicInteger;

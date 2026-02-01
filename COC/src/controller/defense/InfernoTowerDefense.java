@@ -8,8 +8,8 @@ import javafx.scene.shape.MoveTo;
 import javafx.scene.shape.Path;
 
 import cr0s.javara.entity.MobileEntity;
+import cr0s.javara.entity.building.china.InfernoTower;
 import cr0s.javara.render.map.Map;
-import model.building.InfernoTower;
 
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicInteger;

@@ -17,10 +17,11 @@ import cr0s.javara.render.map.Map;
 import cr0s.javara.entity.building.EntityBuilding;
 import cr0s.javara.entity.Entity;
 
-import model.hero.Panda;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.Random;
 import assets.Assets;
+import cr0s.javara.entity.infantry.Panda;
+import cr0s.javara.util.Pos;
 
 public class PandaAttack extends Thread {
     private final Assets assets = new Assets();
@@ -28,7 +29,7 @@ public class PandaAttack extends Thread {
     
     public PandaAttack(double x, double y, AnchorPane root, Map map) {
         this.root = root;
-        this.panda = new Panda(x, y);
+        this.panda = new Panda(new Pos(x, y));
         this.viewPandaL = new ImageView(panda.getImages().get(random.nextInt(panda.getImages().size())));
         this.viewPandaAttackL = new ImageView(panda.getImages().get(1));
         this.viewPandaR = new ImageView(panda.getImages().get(2));

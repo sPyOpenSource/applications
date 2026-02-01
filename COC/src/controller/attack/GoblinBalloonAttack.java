@@ -13,9 +13,9 @@ import javafx.scene.shape.LineTo;
 import javafx.scene.shape.MoveTo;
 import javafx.scene.shape.Path;
 
-import model.hero.GoblinBalloon;
 import assets.Assets;
 import cr0s.javara.entity.Entity;
+import cr0s.javara.entity.aircraft.GoblinBalloon;
 import cr0s.javara.entity.building.EntityBuilding;
 import cr0s.javara.render.map.Map;
 

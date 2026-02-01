@@ -12,7 +12,7 @@ import javafx.scene.shape.Path;
 
 import cr0s.javara.render.map.Map;
 import cr0s.javara.entity.MobileEntity;
-import model.building.Tesla;
+import cr0s.javara.entity.building.china.Tesla;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
 

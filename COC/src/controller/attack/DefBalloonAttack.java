@@ -14,10 +14,9 @@ import javafx.scene.shape.MoveTo;
 import javafx.scene.shape.Path;
 
 import cr0s.javara.render.map.Map;
-import model.hero.DefBalloon;
-
 import assets.Assets;
 import cr0s.javara.entity.Entity;
+import cr0s.javara.entity.aircraft.DefBalloon;
 import cr0s.javara.entity.building.EntityBuilding;
 
 public class DefBalloonAttack extends Thread {

@@ -13,13 +13,10 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import model.Player;
-import model.hero.ArcherBalloon;
-import model.hero.DefBalloon;
-import model.hero.Dragon;
-import model.hero.GoblinBalloon;
-
 import java.util.ArrayList;
 import assets.Assets;
+import cr0s.javara.entity.aircraft.*;
+import cr0s.javara.util.Pos;
 
 public class PlayerPanel extends Application {
     private final Assets assets = new Assets();
@@ -181,7 +178,7 @@ public class PlayerPanel extends Application {
             }
             mediaPlayerClick.stop();
             infoPage.setImage(new Image("assets/png/dragon_info.png"));
-            infoText.setText(new Dragon(0, 0).toString());
+            infoText.setText(new Dragon(new Pos(0, 0)).toString());
             exitInfo.setImage(new Image("assets/png/exit_info.png"));
         });
         infoBalloon.setOnMouseClicked(mouseEvent -> {
