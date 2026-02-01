@@ -95,7 +95,7 @@ public class Player {
                 }
 
                 EntityActor a = (EntityActor) e;
-
+if(a.boundingBox.getX() == 0) continue;
                 if (a.getPosition().distanceToSq(center) < r) {
                     closest.add(a);
                 }
