@@ -569,7 +569,7 @@ public class AIPlayer extends Player {
     }
 
     private void createAttackForce() {
-	int randomSquadSize = this.squadSize + World.random.nextInt(30);
+	int randomSquadSize = this.squadSize + World.random.nextInt(4);
 
 	if (this.unitsHangingAroundTheBase.size() >= randomSquadSize) {
 	    Squad attackForce = this.registerNewSquad(SquadType.ASSAULT);

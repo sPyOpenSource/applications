@@ -7,8 +7,14 @@ import cr0s.javara.render.Sequence;
 import cr0s.javara.resources.ResourceManager;
 import cr0s.javara.resources.ShpTexture;
 import cr0s.javara.util.Pos;
+import javafx.animation.PathTransition;
+import javafx.application.Platform;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
+import javafx.scene.shape.LineTo;
+import javafx.scene.shape.MoveTo;
+import javafx.scene.shape.Path;
+import javafx.util.Duration;
 
 public abstract class Projectile extends Entity implements IEffect {    
     public Weapon weapon;
@@ -81,6 +87,16 @@ public abstract class Projectile extends Entity implements IEffect {
             view.setY(this.pos.getY() - this.pos.getZ() - this.sizeHeight / 2);
             StackPane combined = new StackPane();
             combined.getChildren().add(view);
+            Path path = new Path();
+            MoveTo moveTo = new MoveTo(sourcePos.getX(), sourcePos.getY());
+            LineTo lineTo = new LineTo(passiveTargetPos.getX(), passiveTargetPos.getY());
+            path.getElements().addAll(moveTo, lineTo);
+            PathTransition pathTransition = new PathTransition();
+            pathTransition.setDuration(Duration.millis(1000));
+            pathTransition.setPath(path);
+            pathTransition.setCycleCount(1);
+            pathTransition.setNode(view);
+            Platform.runLater(pathTransition::play);
             return combined;
 	}
         return null;

@@ -181,7 +181,7 @@ public abstract class EntityInfantry extends MobileEntity implements IShroudReve
 	    }
 	    
 	    if (this.attack.isAttacking && !this.attack.isReloading()) {
-		//System.out.println("Attacking");
+		System.out.println("Attacking");
 		this.setCurrentAnimationState(AnimationState.ATTACKING);
 		this.currentSequence = this.attackingSequence;
 	    } else {
