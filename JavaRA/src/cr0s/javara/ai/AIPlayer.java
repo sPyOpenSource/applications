@@ -645,7 +645,7 @@ public class AIPlayer extends Player {
         s.setTarget(a.get(0));
         for(EntityActor b:s.getUnits()) {
             if(World.random.nextBoolean()) continue;
-            if(World.random.nextBoolean()) continue;
+            //if(World.random.nextBoolean()) continue;
             b.queueActivity(new Move((MobileEntity)b, a.get(0).getCellPosition()));
         }
     }
