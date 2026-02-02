@@ -12,7 +12,7 @@ public class FinishDrop extends Activity {
     public Activity tick(EntityActor a) {
 	
 	if (--this.waitTicks <= 0) {
-            a.owner.base.gainCash(500);
+            a.owner.base.gainCash(200);
 	    return nextActivity;
 	}
 	

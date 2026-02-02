@@ -75,7 +75,6 @@ public abstract class Projectile extends Entity implements IEffect {
 	    this.projectileSq.update(this.currentFacing);
 	}
 
-	//this.posX = this.pos.getX();
 	//this.posY = this.pos.getY() - this.pos.getZ(); // Z is height above ground
     }
 

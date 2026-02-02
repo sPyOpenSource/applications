@@ -86,26 +86,25 @@ public class Armament {
 		? ((IHaveTurret) this.self).getTurrets().get(0).getCenterPos()
 		: this.self.getPosition();
 
-		actorCenter.setY(actorCenter.getY() - b.offset.getZ());
+        actorCenter.setY(actorCenter.getY() - b.offset.getZ());
 		
-		int sourceFacing = (this.self instanceof IHaveTurret) 
-			? ((IHaveTurret) this.self).getTurrets().get(0).getCurrentFacing() 
-			: this.self.currentFacing;
+        int sourceFacing = (this.self instanceof IHaveTurret) 
+                ? ((IHaveTurret) this.self).getTurrets().get(0).getCurrentFacing() 
+                : this.self.currentFacing;
 
-			float angle = RotationUtil.facingToAngle(sourceFacing, this.self.getMaxFacings());
+        float angle = RotationUtil.facingToAngle(sourceFacing, this.self.getMaxFacings());
 
-			// Offset muzzle to required length from center
-			double offsetFromCenter = b.offset.getX();
-			float muzzleX = (float) (actorCenter.getX() - (offsetFromCenter * Math.sin(angle)));
-			float muzzleY = (float) (actorCenter.getY() - (offsetFromCenter * Math.cos(angle)));
+        // Offset muzzle to required length from center
+        double offsetFromCenter = b.offset.getX();
+        float muzzleX = (float) (actorCenter.getX() - (offsetFromCenter * Math.sin(angle)));
+        float muzzleY = (float) (actorCenter.getY() - (offsetFromCenter * Math.cos(angle)));
 
-			// Offset muzzle left or right from center axis
-			double offsetSide = b.offset.getY();
-			muzzleX -= offsetSide * Math.cos(angle);
-			muzzleY -= offsetSide * -Math.sin(angle);
+        // Offset muzzle left or right from center axis
+        double offsetSide = b.offset.getY();
+        muzzleX -= offsetSide * Math.cos(angle);
+        muzzleY -= offsetSide * -Math.sin(angle);
 
-			
-			return new Pos(muzzleX, muzzleY);
+        return new Pos(muzzleX, muzzleY);
     }
 
     public ArrayList<Barrel> getBarrels() {
@@ -129,47 +128,47 @@ public class Armament {
 		? ((IHaveTurret) this.self).getTurrets().get(0).getCenterPos()
 			: this.self.getPosition();
 
-		if (!tgt.isInRange(actorCenter, this.weapon.range)) {
-		    return null;
-		}
+        if (!tgt.isInRange(actorCenter, this.weapon.range)) {
+            return null;
+        }
 
-		if (this.weapon.minRange != 0 && tgt.isInRange(actorCenter, this.weapon.minRange)) {
-		    return null;
-		}
+        if (this.weapon.minRange != 0 && tgt.isInRange(actorCenter, this.weapon.minRange)) {
+            return null;
+        }
 
-		if (!this.weapon.isValidAgainst(tgt)) {
-		    return null;
-		}
-		
-		Barrel brl = this.barrels.get(this.burst % this.barrels.size());
-		final Pos muzzlePosition = this.getMuzzlePos(brl);
-		final int fcng = this.getMuzzleFacing(brl);
+        if (!this.weapon.isValidAgainst(tgt)) {
+            return null;
+        }
 
-		this.scheduleDelayedAction(this.fireDelay, new Action() {
-		    @Override
-		    public void execute() {
-			Projectile prj = Armament.this.weapon.createProjectile(fcng, muzzlePosition, Armament.this.self, tgt.centerPosition(), tgt);
-			prj.isVisible = true;
+        Barrel brl = this.barrels.get(this.burst % this.barrels.size());
+        final Pos muzzlePosition = this.getMuzzlePos(brl);
+        final int fcng = this.getMuzzleFacing(brl);
 
-			Armament.this.self.owner.world.spawnEntityInWorld(prj);
-			Armament.this.weapon.playReportSound(Armament.this.self.getPosition());
-		    }
-		});
+        this.scheduleDelayedAction(this.fireDelay, new Action() {
+            @Override
+            public void execute() {
+                Projectile prj = Armament.this.weapon.createProjectile(fcng, muzzlePosition, Armament.this.self, tgt.centerPosition(), tgt);
+                prj.isVisible = true;
 
-		if (this.self instanceof IHaveTurret iHaveTurret) {
-		    for (Turret t : iHaveTurret.getTurrets()) {
-			t.recoil();
-		    }
-		}
+                Armament.this.self.owner.world.spawnEntityInWorld(prj);
+                Armament.this.weapon.playReportSound(Armament.this.self.getPosition());
+            }
+        });
 
-		if (--this.burst > 0) {
-		    this.fireDelay = this.weapon.burstDelay;
-		} else {
-		    this.fireDelay = this.weapon.rateOfFire;
-		    this.burst = this.weapon.burst;
-		}
+        if (this.self instanceof IHaveTurret iHaveTurret) {
+            for (Turret t : iHaveTurret.getTurrets()) {
+                t.recoil();
+            }
+        }
 
-		return brl;
+        if (--this.burst > 0) {
+            this.fireDelay = this.weapon.burstDelay;
+        } else {
+            this.fireDelay = this.weapon.rateOfFire;
+            this.burst = this.weapon.burst;
+        }
+
+        return brl;
     }
 
     public int getMuzzleFacing(Barrel brl) {
@@ -177,15 +176,15 @@ public class Armament {
 		? ((IHaveTurret) this.self).getTurrets().get(0).getCenterPos()
 			: this.self.getPosition();
 
-		int sourceFacing = (this.self instanceof IHaveTurret) 
-			? ((IHaveTurret) this.self).getTurrets().get(0).getCurrentFacing() 
-				: this.self.currentFacing;
+        int sourceFacing = (this.self instanceof IHaveTurret) 
+                ? ((IHaveTurret) this.self).getTurrets().get(0).getCurrentFacing() 
+                        : this.self.currentFacing;
 
-			float angle = (float) Math.toDegrees(RotationUtil.facingToAngle(sourceFacing, this.self.getMaxFacings()));
-			angle += brl.yaw;
-			angle = RotationUtil.cycle(angle, 360);
+        float angle = (float) Math.toDegrees(RotationUtil.facingToAngle(sourceFacing, this.self.getMaxFacings()));
+        angle += brl.yaw;
+        angle = RotationUtil.cycle(angle, 360);
 
-			return (int) RotationUtil.cycle(RotationUtil.angleToFacing((float) Math.toRadians(angle)), this.self.getMaxFacings());
+        return (int) RotationUtil.cycle(RotationUtil.angleToFacing((float) Math.toRadians(angle)), this.self.getMaxFacings());
     }
 
     public Weapon getWeapon() {
