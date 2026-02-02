@@ -176,7 +176,7 @@ if(a.boundingBox.getX() == 0) continue;
 /*
 	this.world.spawnEntityInWorld(m);	
 	*/
-	this.base.gainCash(2000);
+	this.base.gainCash(1000);
     }
 
     public OrderTargeter getBestOrderTargeterForTarget(Target target) {
