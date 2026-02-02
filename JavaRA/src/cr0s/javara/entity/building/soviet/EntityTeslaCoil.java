@@ -11,11 +11,11 @@ import cr0s.javara.entity.IHaveCost;
 import cr0s.javara.entity.ISelectable;
 import cr0s.javara.entity.IShroudRevealer;
 import cr0s.javara.entity.building.BibType;
-import static cr0s.javara.entity.building.BuildingType.DEFENSIVE;
 import cr0s.javara.entity.building.Defensive;
 import cr0s.javara.entity.building.IPowerConsumer;
 import cr0s.javara.entity.building.common.EntityWarFactory;
 import cr0s.javara.entity.turreted.Turret;
+import static cr0s.javara.entity.building.BuildingType.DEFENSIVE;
 
 import cr0s.javara.gameplay.Team.Alignment;
 import cr0s.javara.main.GUI;
@@ -99,9 +99,6 @@ public class EntityTeslaCoil extends Defensive implements ISelectable, IPowerCon
 
     @Override
     public StackPane renderEntity() {
-	//double nx = posX;
-	//double ny = posY;
-
 	int textureIndex = (this.getHp() < this.getMaxHp() / 2) ? this.CORRUPTED_OFFSET + this.currentFrame  : this.currentFrame;
 
 	ImageView view = this.sheet.getSubImage(0, textureIndex);//.draw(nx, ny);
