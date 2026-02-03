@@ -7,6 +7,7 @@ import cr0s.javara.render.Sequence;
 import cr0s.javara.resources.ResourceManager;
 import cr0s.javara.resources.ShpTexture;
 import cr0s.javara.util.Pos;
+
 import javafx.animation.PathTransition;
 import javafx.application.Platform;
 import javafx.scene.image.ImageView;
