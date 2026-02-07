@@ -643,11 +643,10 @@ public class AIPlayer extends Player {
         if (squads.isEmpty()) return;
         Squad s = squads.get(0);
         s.setTarget(a.get(0));
-        for(EntityActor b:s.getUnits()) {
+        /*for(EntityActor b:s.getUnits()) {
             if(World.random.nextBoolean()) continue;
-            //if(World.random.nextBoolean()) continue;
             b.queueActivity(new Move((MobileEntity)b, a.get(0).getCellPosition()));
-        }
+        }*/
     }
 
     void protectOwn(EntityActor attacker) {
