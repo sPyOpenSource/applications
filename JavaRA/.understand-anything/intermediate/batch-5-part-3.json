@@ -1,0 +1,2192 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/cr0s/javara/entity/effect/SmokeOnUnit.java",
+      "type": "file",
+      "name": "SmokeOnUnit.java",
+      "filePath": "src/cr0s/javara/entity/effect/SmokeOnUnit.java",
+      "summary": "Smoke effect attached to a parent unit that follows it until expiration.",
+      "tags": [
+        "entity",
+        "effect",
+        "smoke",
+        "unit",
+        "visual"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/entity/effect/TeslaZapRenderer.java",
+      "type": "file",
+      "name": "TeslaZapRenderer.java",
+      "filePath": "src/cr0s/javara/entity/effect/TeslaZapRenderer.java",
+      "summary": "Renders wandering Tesla lightning zap visual between source and target positions.",
+      "tags": [
+        "entity",
+        "effect",
+        "tesla",
+        "lightning",
+        "renderer"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/cr0s/javara/entity/infantry/Panda.java",
+      "type": "file",
+      "name": "Panda.java",
+      "filePath": "src/cr0s/javara/entity/infantry/Panda.java",
+      "summary": "Panda infantry unit with movement pathfinding, combat stats, and rendering.",
+      "tags": [
+        "entity",
+        "infantry",
+        "unit",
+        "panda",
+        "combat"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/gameplay/Base.java",
+      "type": "file",
+      "name": "Base.java",
+      "filePath": "src/cr0s/javara/gameplay/Base.java",
+      "summary": "Player base manager handling building construction, resource management, and unit deployment.",
+      "tags": [
+        "gameplay",
+        "base",
+        "economy",
+        "construction",
+        "management"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:src/cr0s/javara/entity/effect/SmokeOnUnit.java:SmokeOnUnit",
+      "type": "class",
+      "name": "SmokeOnUnit",
+      "filePath": "src/cr0s/javara/entity/effect/SmokeOnUnit.java",
+      "lineRange": [
+        13,
+        76
+      ],
+      "summary": "SmokeOnUnit class with 5 methods managing 10 properties for visual effects.",
+      "tags": [
+        "class",
+        "exported",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/effect/SmokeOnUnit.java:SmokeOnUnit",
+      "type": "function",
+      "name": "SmokeOnUnit",
+      "filePath": "src/cr0s/javara/entity/effect/SmokeOnUnit.java",
+      "lineRange": [
+        26,
+        39
+      ],
+      "summary": "SmokeOnUnit (parentUnit, texture) — 14 lines , exported.",
+      "tags": [
+        "function",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/effect/SmokeOnUnit.java:updateEntity",
+      "type": "function",
+      "name": "updateEntity",
+      "filePath": "src/cr0s/javara/entity/effect/SmokeOnUnit.java",
+      "lineRange": [
+        46,
+        61
+      ],
+      "summary": "updateEntity (delta) — 16 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "update"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/effect/SmokeOnUnit.java:renderEntity",
+      "type": "function",
+      "name": "renderEntity",
+      "filePath": "src/cr0s/javara/entity/effect/SmokeOnUnit.java",
+      "lineRange": [
+        63,
+        69
+      ],
+      "summary": "renderEntity (no params) — 7 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "render"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/effect/SmokeOnUnit.java:shouldRenderedInPass",
+      "type": "function",
+      "name": "shouldRenderedInPass",
+      "filePath": "src/cr0s/javara/entity/effect/SmokeOnUnit.java",
+      "lineRange": [
+        71,
+        74
+      ],
+      "summary": "shouldRenderedInPass (passNum) — 4 lines , exported.",
+      "tags": [
+        "function",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/cr0s/javara/entity/effect/TeslaZapRenderer.java:TeslaZapRenderer",
+      "type": "class",
+      "name": "TeslaZapRenderer",
+      "filePath": "src/cr0s/javara/entity/effect/TeslaZapRenderer.java",
+      "lineRange": [
+        13,
+        169
+      ],
+      "summary": "TeslaZapRenderer class with 8 methods managing 9 properties for visual effects.",
+      "tags": [
+        "class",
+        "exported",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/effect/TeslaZapRenderer.java:TeslaZapRenderer",
+      "type": "function",
+      "name": "TeslaZapRenderer",
+      "filePath": "src/cr0s/javara/entity/effect/TeslaZapRenderer.java",
+      "lineRange": [
+        41,
+        46
+      ],
+      "summary": "TeslaZapRenderer (srcActor, srcPos, passivePos, targetActor, width, height, isBright) — 6 lines , exported.",
+      "tags": [
+        "function",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/effect/TeslaZapRenderer.java:updateEntity",
+      "type": "function",
+      "name": "updateEntity",
+      "filePath": "src/cr0s/javara/entity/effect/TeslaZapRenderer.java",
+      "lineRange": [
+        57,
+        62
+      ],
+      "summary": "updateEntity (delta) — 6 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "update"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/effect/TeslaZapRenderer.java:getRandom",
+      "type": "function",
+      "name": "getRandom",
+      "filePath": "src/cr0s/javara/entity/effect/TeslaZapRenderer.java",
+      "lineRange": [
+        64,
+        66
+      ],
+      "summary": "getRandom (from, to) — 3 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/effect/TeslaZapRenderer.java:renderEntity",
+      "type": "function",
+      "name": "renderEntity",
+      "filePath": "src/cr0s/javara/entity/effect/TeslaZapRenderer.java",
+      "lineRange": [
+        68,
+        77
+      ],
+      "summary": "renderEntity (no params) — 10 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "render"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/effect/TeslaZapRenderer.java:drawZapWandering",
+      "type": "function",
+      "name": "drawZapWandering",
+      "filePath": "src/cr0s/javara/entity/effect/TeslaZapRenderer.java",
+      "lineRange": [
+        79,
+        114
+      ],
+      "summary": "drawZapWandering (from, to, displace, detail) — 36 lines .",
+      "tags": [
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/effect/TeslaZapRenderer.java:drawZap",
+      "type": "function",
+      "name": "drawZap",
+      "filePath": "src/cr0s/javara/entity/effect/TeslaZapRenderer.java",
+      "lineRange": [
+        123,
+        153
+      ],
+      "summary": "drawZap (from, to) — 31 lines .",
+      "tags": [
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/effect/TeslaZapRenderer.java:chooseStep",
+      "type": "function",
+      "name": "chooseStep",
+      "filePath": "src/cr0s/javara/entity/effect/TeslaZapRenderer.java",
+      "lineRange": [
+        155,
+        168
+      ],
+      "summary": "chooseStep (to, z, c, q) — 14 lines .",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/cr0s/javara/entity/infantry/Panda.java:Panda",
+      "type": "class",
+      "name": "Panda",
+      "filePath": "src/cr0s/javara/entity/infantry/Panda.java",
+      "lineRange": [
+        9,
+        63
+      ],
+      "summary": "Panda class with 10 methods managing 0 properties for gameplay logic.",
+      "tags": [
+        "class",
+        "exported",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/infantry/Panda.java:Panda",
+      "type": "function",
+      "name": "Panda",
+      "filePath": "src/cr0s/javara/entity/infantry/Panda.java",
+      "lineRange": [
+        10,
+        30
+      ],
+      "summary": "Panda (x) — 21 lines , exported.",
+      "tags": [
+        "function",
+        "exported"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/infantry/Panda.java:findPathFromTo",
+      "type": "function",
+      "name": "findPathFromTo",
+      "filePath": "src/cr0s/javara/entity/infantry/Panda.java",
+      "lineRange": [
+        32,
+        35
+      ],
+      "summary": "findPathFromTo (e, aGoal) — 4 lines , exported.",
+      "tags": [
+        "function",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/infantry/Panda.java:getMoveSpeed",
+      "type": "function",
+      "name": "getMoveSpeed",
+      "filePath": "src/cr0s/javara/entity/infantry/Panda.java",
+      "lineRange": [
+        37,
+        38
+      ],
+      "summary": "getMoveSpeed (no params) — 2 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/infantry/Panda.java:getMinimumEnoughRange",
+      "type": "function",
+      "name": "getMinimumEnoughRange",
+      "filePath": "src/cr0s/javara/entity/infantry/Panda.java",
+      "lineRange": [
+        39,
+        40
+      ],
+      "summary": "getMinimumEnoughRange (no params) — 2 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/infantry/Panda.java:canEnterCell",
+      "type": "function",
+      "name": "canEnterCell",
+      "filePath": "src/cr0s/javara/entity/infantry/Panda.java",
+      "lineRange": [
+        41,
+        42
+      ],
+      "summary": "canEnterCell (cellPos) — 2 lines , exported.",
+      "tags": [
+        "function",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/infantry/Panda.java:getWaitAverageTime",
+      "type": "function",
+      "name": "getWaitAverageTime",
+      "filePath": "src/cr0s/javara/entity/infantry/Panda.java",
+      "lineRange": [
+        43,
+        44
+      ],
+      "summary": "getWaitAverageTime (no params) — 2 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/infantry/Panda.java:getWaitSpreadTime",
+      "type": "function",
+      "name": "getWaitSpreadTime",
+      "filePath": "src/cr0s/javara/entity/infantry/Panda.java",
+      "lineRange": [
+        45,
+        46
+      ],
+      "summary": "getWaitSpreadTime (no params) — 2 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/infantry/Panda.java:getRevealingRange",
+      "type": "function",
+      "name": "getRevealingRange",
+      "filePath": "src/cr0s/javara/entity/infantry/Panda.java",
+      "lineRange": [
+        47,
+        48
+      ],
+      "summary": "getRevealingRange (no params) — 2 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/infantry/Panda.java:renderEntity",
+      "type": "function",
+      "name": "renderEntity",
+      "filePath": "src/cr0s/javara/entity/infantry/Panda.java",
+      "lineRange": [
+        49,
+        57
+      ],
+      "summary": "renderEntity (no params) — 9 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "render"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/infantry/Panda.java:getBuildingCost",
+      "type": "function",
+      "name": "getBuildingCost",
+      "filePath": "src/cr0s/javara/entity/infantry/Panda.java",
+      "lineRange": [
+        59,
+        62
+      ],
+      "summary": "getBuildingCost (no params) — 4 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/cr0s/javara/gameplay/Base.java:Base",
+      "type": "class",
+      "name": "Base",
+      "filePath": "src/cr0s/javara/gameplay/Base.java",
+      "lineRange": [
+        35,
+        545
+      ],
+      "summary": "Base class with 38 methods managing 41 properties for gameplay logic.",
+      "tags": [
+        "class",
+        "exported",
+        "class"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/cr0s/javara/gameplay/Base.java:Base",
+      "type": "function",
+      "name": "Base",
+      "filePath": "src/cr0s/javara/gameplay/Base.java",
+      "lineRange": [
+        90,
+        94
+      ],
+      "summary": "Base (team, aOwner) — 5 lines , exported.",
+      "tags": [
+        "function",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/gameplay/Base.java:update",
+      "type": "function",
+      "name": "update",
+      "filePath": "src/cr0s/javara/gameplay/Base.java",
+      "lineRange": [
+        96,
+        101
+      ],
+      "summary": "update (no params) — 6 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "update"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/gameplay/Base.java:updateDisplayedCash",
+      "type": "function",
+      "name": "updateDisplayedCash",
+      "filePath": "src/cr0s/javara/gameplay/Base.java",
+      "lineRange": [
+        103,
+        165
+      ],
+      "summary": "updateDisplayedCash (no params) — 63 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "update"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/cr0s/javara/gameplay/Base.java:updateBuildings",
+      "type": "function",
+      "name": "updateBuildings",
+      "filePath": "src/cr0s/javara/gameplay/Base.java",
+      "lineRange": [
+        167,
+        218
+      ],
+      "summary": "updateBuildings (no params) — 52 lines .",
+      "tags": [
+        "function",
+        "update"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/cr0s/javara/gameplay/Base.java:isLowPower",
+      "type": "function",
+      "name": "isLowPower",
+      "filePath": "src/cr0s/javara/gameplay/Base.java",
+      "lineRange": [
+        220,
+        222
+      ],
+      "summary": "isLowPower (no params) — 3 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/gameplay/Base.java:getPowerLevel",
+      "type": "function",
+      "name": "getPowerLevel",
+      "filePath": "src/cr0s/javara/gameplay/Base.java",
+      "lineRange": [
+        224,
+        226
+      ],
+      "summary": "getPowerLevel (no params) — 3 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/gameplay/Base.java:getConsumptionLevel",
+      "type": "function",
+      "name": "getConsumptionLevel",
+      "filePath": "src/cr0s/javara/gameplay/Base.java",
+      "lineRange": [
+        228,
+        230
+      ],
+      "summary": "getConsumptionLevel (no params) — 3 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/gameplay/Base.java:addBuilding",
+      "type": "function",
+      "name": "addBuilding",
+      "filePath": "src/cr0s/javara/gameplay/Base.java",
+      "lineRange": [
+        232,
+        240
+      ],
+      "summary": "addBuilding (building) — 9 lines , exported.",
+      "tags": [
+        "function",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/gameplay/Base.java:removeBuilding",
+      "type": "function",
+      "name": "removeBuilding",
+      "filePath": "src/cr0s/javara/gameplay/Base.java",
+      "lineRange": [
+        242,
+        244
+      ],
+      "summary": "removeBuilding (building) — 3 lines , exported.",
+      "tags": [
+        "function",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/gameplay/Base.java:isPossibleToBuildHere",
+      "type": "function",
+      "name": "isPossibleToBuildHere",
+      "filePath": "src/cr0s/javara/gameplay/Base.java",
+      "lineRange": [
+        246,
+        258
+      ],
+      "summary": "isPossibleToBuildHere (cell, targetBuilding) — 13 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/gameplay/Base.java:tryToBuild",
+      "type": "function",
+      "name": "tryToBuild",
+      "filePath": "src/cr0s/javara/gameplay/Base.java",
+      "lineRange": [
+        260,
+        283
+      ],
+      "summary": "tryToBuild (cell, targetBuilding) — 24 lines , exported.",
+      "tags": [
+        "function",
+        "exported"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/gameplay/Base.java:checkBuildingDistance",
+      "type": "function",
+      "name": "checkBuildingDistance",
+      "filePath": "src/cr0s/javara/gameplay/Base.java",
+      "lineRange": [
+        285,
+        313
+      ],
+      "summary": "checkBuildingDistance (cell, isWall) — 29 lines , exported.",
+      "tags": [
+        "function",
+        "exported"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/gameplay/Base.java:getBuildings",
+      "type": "function",
+      "name": "getBuildings",
+      "filePath": "src/cr0s/javara/gameplay/Base.java",
+      "lineRange": [
+        315,
+        317
+      ],
+      "summary": "getBuildings (no params) — 3 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/gameplay/Base.java:deployBuildedVehicle",
+      "type": "function",
+      "name": "deployBuildedVehicle",
+      "filePath": "src/cr0s/javara/gameplay/Base.java",
+      "lineRange": [
+        319,
+        325
+      ],
+      "summary": "deployBuildedVehicle (v) — 7 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "deploy"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/gameplay/Base.java:getPrimaryBarrackOrTent",
+      "type": "function",
+      "name": "getPrimaryBarrackOrTent",
+      "filePath": "src/cr0s/javara/gameplay/Base.java",
+      "lineRange": [
+        327,
+        337
+      ],
+      "summary": "getPrimaryBarrackOrTent (no params) — 11 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/gameplay/Base.java:setPrimaryTentOrBarrack",
+      "type": "function",
+      "name": "setPrimaryTentOrBarrack",
+      "filePath": "src/cr0s/javara/gameplay/Base.java",
+      "lineRange": [
+        339,
+        345
+      ],
+      "summary": "setPrimaryTentOrBarrack (b) — 7 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "setter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/gameplay/Base.java:isMoreThanOneTentOrBarrack",
+      "type": "function",
+      "name": "isMoreThanOneTentOrBarrack",
+      "filePath": "src/cr0s/javara/gameplay/Base.java",
+      "lineRange": [
+        347,
+        360
+      ],
+      "summary": "isMoreThanOneTentOrBarrack (no params) — 14 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/gameplay/Base.java:deployTrainedInfantry",
+      "type": "function",
+      "name": "deployTrainedInfantry",
+      "filePath": "src/cr0s/javara/gameplay/Base.java",
+      "lineRange": [
+        362,
+        374
+      ],
+      "summary": "deployTrainedInfantry (i) — 13 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "deploy"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/gameplay/Base.java:getPrimaryWarFactory",
+      "type": "function",
+      "name": "getPrimaryWarFactory",
+      "filePath": "src/cr0s/javara/gameplay/Base.java",
+      "lineRange": [
+        376,
+        386
+      ],
+      "summary": "getPrimaryWarFactory (no params) — 11 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/gameplay/Base.java:setPrimaryWarFactory",
+      "type": "function",
+      "name": "setPrimaryWarFactory",
+      "filePath": "src/cr0s/javara/gameplay/Base.java",
+      "lineRange": [
+        388,
+        394
+      ],
+      "summary": "setPrimaryWarFactory (entityWarFactory) — 7 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "setter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/gameplay/Base.java:isMoreThanOneWarFactory",
+      "type": "function",
+      "name": "isMoreThanOneWarFactory",
+      "filePath": "src/cr0s/javara/gameplay/Base.java",
+      "lineRange": [
+        396,
+        409
+      ],
+      "summary": "isMoreThanOneWarFactory (no params) — 14 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/gameplay/Base.java:giveOre",
+      "type": "function",
+      "name": "giveOre",
+      "filePath": "src/cr0s/javara/gameplay/Base.java",
+      "lineRange": [
+        412,
+        430
+      ],
+      "summary": "giveOre (aCapacity) — 19 lines , exported.",
+      "tags": [
+        "function",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/gameplay/Base.java:takeOre",
+      "type": "function",
+      "name": "takeOre",
+      "filePath": "src/cr0s/javara/gameplay/Base.java",
+      "lineRange": [
+        432,
+        438
+      ],
+      "summary": "takeOre (value) — 7 lines , exported.",
+      "tags": [
+        "function",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/gameplay/Base.java:gainCash",
+      "type": "function",
+      "name": "gainCash",
+      "filePath": "src/cr0s/javara/gameplay/Base.java",
+      "lineRange": [
+        440,
+        442
+      ],
+      "summary": "gainCash (amount) — 3 lines , exported.",
+      "tags": [
+        "function",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/gameplay/Base.java:takeCash",
+      "type": "function",
+      "name": "takeCash",
+      "filePath": "src/cr0s/javara/gameplay/Base.java",
+      "lineRange": [
+        444,
+        457
+      ],
+      "summary": "takeCash (amount) — 14 lines , exported.",
+      "tags": [
+        "function",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/gameplay/Base.java:getProductionQueue",
+      "type": "function",
+      "name": "getProductionQueue",
+      "filePath": "src/cr0s/javara/gameplay/Base.java",
+      "lineRange": [
+        459,
+        461
+      ],
+      "summary": "getProductionQueue (no params) — 3 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/gameplay/Base.java:productButtonItem",
+      "type": "function",
+      "name": "productButtonItem",
+      "filePath": "src/cr0s/javara/gameplay/Base.java",
+      "lineRange": [
+        463,
+        466
+      ],
+      "summary": "productButtonItem (texture) — 4 lines , exported.",
+      "tags": [
+        "function",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/gameplay/Base.java:getCash",
+      "type": "function",
+      "name": "getCash",
+      "filePath": "src/cr0s/javara/gameplay/Base.java",
+      "lineRange": [
+        468,
+        470
+      ],
+      "summary": "getCash (no params) — 3 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/gameplay/Base.java:getDisplayCash",
+      "type": "function",
+      "name": "getDisplayCash",
+      "filePath": "src/cr0s/javara/gameplay/Base.java",
+      "lineRange": [
+        472,
+        474
+      ],
+      "summary": "getDisplayCash (no params) — 3 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/gameplay/Base.java:getDisplayOre",
+      "type": "function",
+      "name": "getDisplayOre",
+      "filePath": "src/cr0s/javara/gameplay/Base.java",
+      "lineRange": [
+        476,
+        478
+      ],
+      "summary": "getDisplayOre (no params) — 3 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/gameplay/Base.java:getBuildingClasses",
+      "type": "function",
+      "name": "getBuildingClasses",
+      "filePath": "src/cr0s/javara/gameplay/Base.java",
+      "lineRange": [
+        480,
+        482
+      ],
+      "summary": "getBuildingClasses (no params) — 3 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/gameplay/Base.java:tryToBuildWalls",
+      "type": "function",
+      "name": "tryToBuildWalls",
+      "filePath": "src/cr0s/javara/gameplay/Base.java",
+      "lineRange": [
+        484,
+        507
+      ],
+      "summary": "tryToBuildWalls (currentWallsList, targetBuilding) — 24 lines , exported.",
+      "tags": [
+        "function",
+        "exported"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/gameplay/Base.java:isSilosNeeded",
+      "type": "function",
+      "name": "isSilosNeeded",
+      "filePath": "src/cr0s/javara/gameplay/Base.java",
+      "lineRange": [
+        509,
+        511
+      ],
+      "summary": "isSilosNeeded (no params) — 3 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/gameplay/Base.java:addToCurrentlyBuilding",
+      "type": "function",
+      "name": "addToCurrentlyBuilding",
+      "filePath": "src/cr0s/javara/gameplay/Base.java",
+      "lineRange": [
+        513,
+        516
+      ],
+      "summary": "addToCurrentlyBuilding (entityBuildingProgress) — 4 lines , exported.",
+      "tags": [
+        "function",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/gameplay/Base.java:getCurrentlyBuilding",
+      "type": "function",
+      "name": "getCurrentlyBuilding",
+      "filePath": "src/cr0s/javara/gameplay/Base.java",
+      "lineRange": [
+        518,
+        520
+      ],
+      "summary": "getCurrentlyBuilding (no params) — 3 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/gameplay/Base.java:repairBuilding",
+      "type": "function",
+      "name": "repairBuilding",
+      "filePath": "src/cr0s/javara/gameplay/Base.java",
+      "lineRange": [
+        522,
+        524
+      ],
+      "summary": "repairBuilding (entityBuilding) — 3 lines , exported.",
+      "tags": [
+        "function",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/gameplay/Base.java:getPrimaryAirField",
+      "type": "function",
+      "name": "getPrimaryAirField",
+      "filePath": "src/cr0s/javara/gameplay/Base.java",
+      "lineRange": [
+        534,
+        544
+      ],
+      "summary": "getPrimaryAirField (no params) — 11 lines .",
+      "tags": [
+        "function",
+        "getter"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/cr0s/javara/entity/effect/SmokeOnUnit.java",
+      "target": "class:src/cr0s/javara/entity/effect/SmokeOnUnit.java:SmokeOnUnit",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/SmokeOnUnit.java",
+      "target": "class:src/cr0s/javara/entity/effect/SmokeOnUnit.java:SmokeOnUnit",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/SmokeOnUnit.java",
+      "target": "function:src/cr0s/javara/entity/effect/SmokeOnUnit.java:SmokeOnUnit",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/SmokeOnUnit.java",
+      "target": "function:src/cr0s/javara/entity/effect/SmokeOnUnit.java:SmokeOnUnit",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/SmokeOnUnit.java",
+      "target": "function:src/cr0s/javara/entity/effect/SmokeOnUnit.java:updateEntity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/SmokeOnUnit.java",
+      "target": "function:src/cr0s/javara/entity/effect/SmokeOnUnit.java:updateEntity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/SmokeOnUnit.java",
+      "target": "function:src/cr0s/javara/entity/effect/SmokeOnUnit.java:renderEntity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/SmokeOnUnit.java",
+      "target": "function:src/cr0s/javara/entity/effect/SmokeOnUnit.java:renderEntity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/SmokeOnUnit.java",
+      "target": "function:src/cr0s/javara/entity/effect/SmokeOnUnit.java:shouldRenderedInPass",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/SmokeOnUnit.java",
+      "target": "function:src/cr0s/javara/entity/effect/SmokeOnUnit.java:shouldRenderedInPass",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/SmokeOnUnit.java",
+      "target": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/SmokeOnUnit.java",
+      "target": "file:src/cr0s/javara/entity/Entity.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/SmokeOnUnit.java",
+      "target": "file:src/cr0s/javara/entity/IEffect.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/SmokeOnUnit.java",
+      "target": "file:src/cr0s/javara/resources/ResourceManager.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/SmokeOnUnit.java",
+      "target": "file:src/cr0s/javara/resources/ShpTexture.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/SmokeOnUnit.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/SmokeOnUnit.java",
+      "target": "file:src/cr0s/javara/util/SpriteSheet.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/TeslaZapRenderer.java",
+      "target": "class:src/cr0s/javara/entity/effect/TeslaZapRenderer.java:TeslaZapRenderer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/TeslaZapRenderer.java",
+      "target": "class:src/cr0s/javara/entity/effect/TeslaZapRenderer.java:TeslaZapRenderer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/TeslaZapRenderer.java",
+      "target": "function:src/cr0s/javara/entity/effect/TeslaZapRenderer.java:TeslaZapRenderer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/TeslaZapRenderer.java",
+      "target": "function:src/cr0s/javara/entity/effect/TeslaZapRenderer.java:TeslaZapRenderer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/TeslaZapRenderer.java",
+      "target": "function:src/cr0s/javara/entity/effect/TeslaZapRenderer.java:updateEntity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/TeslaZapRenderer.java",
+      "target": "function:src/cr0s/javara/entity/effect/TeslaZapRenderer.java:updateEntity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/TeslaZapRenderer.java",
+      "target": "function:src/cr0s/javara/entity/effect/TeslaZapRenderer.java:getRandom",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/TeslaZapRenderer.java",
+      "target": "function:src/cr0s/javara/entity/effect/TeslaZapRenderer.java:getRandom",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/TeslaZapRenderer.java",
+      "target": "function:src/cr0s/javara/entity/effect/TeslaZapRenderer.java:renderEntity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/TeslaZapRenderer.java",
+      "target": "function:src/cr0s/javara/entity/effect/TeslaZapRenderer.java:renderEntity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/TeslaZapRenderer.java",
+      "target": "function:src/cr0s/javara/entity/effect/TeslaZapRenderer.java:drawZapWandering",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/TeslaZapRenderer.java",
+      "target": "function:src/cr0s/javara/entity/effect/TeslaZapRenderer.java:drawZap",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/TeslaZapRenderer.java",
+      "target": "function:src/cr0s/javara/entity/effect/TeslaZapRenderer.java:chooseStep",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/TeslaZapRenderer.java",
+      "target": "file:src/cr0s/javara/combat/Projectile.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/TeslaZapRenderer.java",
+      "target": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/TeslaZapRenderer.java",
+      "target": "file:src/cr0s/javara/entity/IEffect.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/TeslaZapRenderer.java",
+      "target": "file:src/cr0s/javara/order/Target.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/TeslaZapRenderer.java",
+      "target": "file:src/cr0s/javara/render/World.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/TeslaZapRenderer.java",
+      "target": "file:src/cr0s/javara/resources/ResourceManager.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/TeslaZapRenderer.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/TeslaZapRenderer.java",
+      "target": "file:src/cr0s/javara/util/SpriteSheet.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/Panda.java",
+      "target": "class:src/cr0s/javara/entity/infantry/Panda.java:Panda",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/Panda.java",
+      "target": "class:src/cr0s/javara/entity/infantry/Panda.java:Panda",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/Panda.java",
+      "target": "function:src/cr0s/javara/entity/infantry/Panda.java:Panda",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/Panda.java",
+      "target": "function:src/cr0s/javara/entity/infantry/Panda.java:Panda",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/Panda.java",
+      "target": "function:src/cr0s/javara/entity/infantry/Panda.java:findPathFromTo",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/Panda.java",
+      "target": "function:src/cr0s/javara/entity/infantry/Panda.java:findPathFromTo",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/Panda.java",
+      "target": "function:src/cr0s/javara/entity/infantry/Panda.java:getMoveSpeed",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/Panda.java",
+      "target": "function:src/cr0s/javara/entity/infantry/Panda.java:getMoveSpeed",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/Panda.java",
+      "target": "function:src/cr0s/javara/entity/infantry/Panda.java:getMinimumEnoughRange",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/Panda.java",
+      "target": "function:src/cr0s/javara/entity/infantry/Panda.java:getMinimumEnoughRange",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/Panda.java",
+      "target": "function:src/cr0s/javara/entity/infantry/Panda.java:canEnterCell",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/Panda.java",
+      "target": "function:src/cr0s/javara/entity/infantry/Panda.java:canEnterCell",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/Panda.java",
+      "target": "function:src/cr0s/javara/entity/infantry/Panda.java:getWaitAverageTime",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/Panda.java",
+      "target": "function:src/cr0s/javara/entity/infantry/Panda.java:getWaitAverageTime",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/Panda.java",
+      "target": "function:src/cr0s/javara/entity/infantry/Panda.java:getWaitSpreadTime",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/Panda.java",
+      "target": "function:src/cr0s/javara/entity/infantry/Panda.java:getWaitSpreadTime",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/Panda.java",
+      "target": "function:src/cr0s/javara/entity/infantry/Panda.java:getRevealingRange",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/Panda.java",
+      "target": "function:src/cr0s/javara/entity/infantry/Panda.java:getRevealingRange",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/Panda.java",
+      "target": "function:src/cr0s/javara/entity/infantry/Panda.java:renderEntity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/Panda.java",
+      "target": "function:src/cr0s/javara/entity/infantry/Panda.java:renderEntity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/Panda.java",
+      "target": "function:src/cr0s/javara/entity/infantry/Panda.java:getBuildingCost",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/Panda.java",
+      "target": "function:src/cr0s/javara/entity/infantry/Panda.java:getBuildingCost",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/Panda.java",
+      "target": "file:src/cr0s/javara/entity/IHaveCost.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/Panda.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Base.java",
+      "target": "class:src/cr0s/javara/gameplay/Base.java:Base",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Base.java",
+      "target": "class:src/cr0s/javara/gameplay/Base.java:Base",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Base.java",
+      "target": "function:src/cr0s/javara/gameplay/Base.java:Base",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Base.java",
+      "target": "function:src/cr0s/javara/gameplay/Base.java:Base",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Base.java",
+      "target": "function:src/cr0s/javara/gameplay/Base.java:update",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Base.java",
+      "target": "function:src/cr0s/javara/gameplay/Base.java:update",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Base.java",
+      "target": "function:src/cr0s/javara/gameplay/Base.java:updateDisplayedCash",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Base.java",
+      "target": "function:src/cr0s/javara/gameplay/Base.java:updateDisplayedCash",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Base.java",
+      "target": "function:src/cr0s/javara/gameplay/Base.java:updateBuildings",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Base.java",
+      "target": "function:src/cr0s/javara/gameplay/Base.java:isLowPower",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Base.java",
+      "target": "function:src/cr0s/javara/gameplay/Base.java:isLowPower",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Base.java",
+      "target": "function:src/cr0s/javara/gameplay/Base.java:getPowerLevel",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Base.java",
+      "target": "function:src/cr0s/javara/gameplay/Base.java:getPowerLevel",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Base.java",
+      "target": "function:src/cr0s/javara/gameplay/Base.java:getConsumptionLevel",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Base.java",
+      "target": "function:src/cr0s/javara/gameplay/Base.java:getConsumptionLevel",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Base.java",
+      "target": "function:src/cr0s/javara/gameplay/Base.java:addBuilding",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Base.java",
+      "target": "function:src/cr0s/javara/gameplay/Base.java:addBuilding",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Base.java",
+      "target": "function:src/cr0s/javara/gameplay/Base.java:removeBuilding",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Base.java",
+      "target": "function:src/cr0s/javara/gameplay/Base.java:removeBuilding",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Base.java",
+      "target": "function:src/cr0s/javara/gameplay/Base.java:isPossibleToBuildHere",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Base.java",
+      "target": "function:src/cr0s/javara/gameplay/Base.java:isPossibleToBuildHere",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Base.java",
+      "target": "function:src/cr0s/javara/gameplay/Base.java:tryToBuild",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Base.java",
+      "target": "function:src/cr0s/javara/gameplay/Base.java:tryToBuild",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Base.java",
+      "target": "function:src/cr0s/javara/gameplay/Base.java:checkBuildingDistance",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Base.java",
+      "target": "function:src/cr0s/javara/gameplay/Base.java:checkBuildingDistance",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Base.java",
+      "target": "function:src/cr0s/javara/gameplay/Base.java:getBuildings",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Base.java",
+      "target": "function:src/cr0s/javara/gameplay/Base.java:getBuildings",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Base.java",
+      "target": "function:src/cr0s/javara/gameplay/Base.java:deployBuildedVehicle",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Base.java",
+      "target": "function:src/cr0s/javara/gameplay/Base.java:deployBuildedVehicle",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Base.java",
+      "target": "function:src/cr0s/javara/gameplay/Base.java:getPrimaryBarrackOrTent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Base.java",
+      "target": "function:src/cr0s/javara/gameplay/Base.java:getPrimaryBarrackOrTent",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Base.java",
+      "target": "function:src/cr0s/javara/gameplay/Base.java:setPrimaryTentOrBarrack",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Base.java",
+      "target": "function:src/cr0s/javara/gameplay/Base.java:setPrimaryTentOrBarrack",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Base.java",
+      "target": "function:src/cr0s/javara/gameplay/Base.java:isMoreThanOneTentOrBarrack",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Base.java",
+      "target": "function:src/cr0s/javara/gameplay/Base.java:isMoreThanOneTentOrBarrack",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Base.java",
+      "target": "function:src/cr0s/javara/gameplay/Base.java:deployTrainedInfantry",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Base.java",
+      "target": "function:src/cr0s/javara/gameplay/Base.java:deployTrainedInfantry",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Base.java",
+      "target": "function:src/cr0s/javara/gameplay/Base.java:getPrimaryWarFactory",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Base.java",
+      "target": "function:src/cr0s/javara/gameplay/Base.java:getPrimaryWarFactory",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Base.java",
+      "target": "function:src/cr0s/javara/gameplay/Base.java:setPrimaryWarFactory",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Base.java",
+      "target": "function:src/cr0s/javara/gameplay/Base.java:setPrimaryWarFactory",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Base.java",
+      "target": "function:src/cr0s/javara/gameplay/Base.java:isMoreThanOneWarFactory",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Base.java",
+      "target": "function:src/cr0s/javara/gameplay/Base.java:isMoreThanOneWarFactory",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Base.java",
+      "target": "function:src/cr0s/javara/gameplay/Base.java:giveOre",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Base.java",
+      "target": "function:src/cr0s/javara/gameplay/Base.java:giveOre",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Base.java",
+      "target": "function:src/cr0s/javara/gameplay/Base.java:takeOre",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Base.java",
+      "target": "function:src/cr0s/javara/gameplay/Base.java:takeOre",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Base.java",
+      "target": "function:src/cr0s/javara/gameplay/Base.java:gainCash",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Base.java",
+      "target": "function:src/cr0s/javara/gameplay/Base.java:gainCash",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Base.java",
+      "target": "function:src/cr0s/javara/gameplay/Base.java:takeCash",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Base.java",
+      "target": "function:src/cr0s/javara/gameplay/Base.java:takeCash",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Base.java",
+      "target": "function:src/cr0s/javara/gameplay/Base.java:getProductionQueue",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Base.java",
+      "target": "function:src/cr0s/javara/gameplay/Base.java:getProductionQueue",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Base.java",
+      "target": "function:src/cr0s/javara/gameplay/Base.java:productButtonItem",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Base.java",
+      "target": "function:src/cr0s/javara/gameplay/Base.java:productButtonItem",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Base.java",
+      "target": "function:src/cr0s/javara/gameplay/Base.java:getCash",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Base.java",
+      "target": "function:src/cr0s/javara/gameplay/Base.java:getCash",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Base.java",
+      "target": "function:src/cr0s/javara/gameplay/Base.java:getDisplayCash",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Base.java",
+      "target": "function:src/cr0s/javara/gameplay/Base.java:getDisplayCash",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Base.java",
+      "target": "function:src/cr0s/javara/gameplay/Base.java:getDisplayOre",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Base.java",
+      "target": "function:src/cr0s/javara/gameplay/Base.java:getDisplayOre",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Base.java",
+      "target": "function:src/cr0s/javara/gameplay/Base.java:getBuildingClasses",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Base.java",
+      "target": "function:src/cr0s/javara/gameplay/Base.java:getBuildingClasses",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Base.java",
+      "target": "function:src/cr0s/javara/gameplay/Base.java:tryToBuildWalls",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Base.java",
+      "target": "function:src/cr0s/javara/gameplay/Base.java:tryToBuildWalls",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Base.java",
+      "target": "function:src/cr0s/javara/gameplay/Base.java:isSilosNeeded",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Base.java",
+      "target": "function:src/cr0s/javara/gameplay/Base.java:isSilosNeeded",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Base.java",
+      "target": "function:src/cr0s/javara/gameplay/Base.java:addToCurrentlyBuilding",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Base.java",
+      "target": "function:src/cr0s/javara/gameplay/Base.java:addToCurrentlyBuilding",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Base.java",
+      "target": "function:src/cr0s/javara/gameplay/Base.java:getCurrentlyBuilding",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Base.java",
+      "target": "function:src/cr0s/javara/gameplay/Base.java:getCurrentlyBuilding",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Base.java",
+      "target": "function:src/cr0s/javara/gameplay/Base.java:repairBuilding",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Base.java",
+      "target": "function:src/cr0s/javara/gameplay/Base.java:repairBuilding",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Base.java",
+      "target": "function:src/cr0s/javara/gameplay/Base.java:getPrimaryAirField",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Base.java",
+      "target": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Base.java",
+      "target": "file:src/cr0s/javara/entity/aircraft/EntityAircraft.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Base.java",
+      "target": "file:src/cr0s/javara/entity/building/common/EntityConstructionYard.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Base.java",
+      "target": "file:src/cr0s/javara/entity/building/common/EntityRadarDome.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Base.java",
+      "target": "file:src/cr0s/javara/entity/building/common/EntityWall.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Base.java",
+      "target": "file:src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Base.java",
+      "target": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Base.java",
+      "target": "file:src/cr0s/javara/entity/building/EntityBuildingProgress.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Base.java",
+      "target": "file:src/cr0s/javara/entity/building/IOreCapacitor.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Base.java",
+      "target": "file:src/cr0s/javara/entity/building/IPowerConsumer.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Base.java",
+      "target": "file:src/cr0s/javara/entity/building/IPowerProducer.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Base.java",
+      "target": "file:src/cr0s/javara/entity/building/soviet/EntityAirField.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Base.java",
+      "target": "file:src/cr0s/javara/entity/building/soviet/EntityBarracks.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Base.java",
+      "target": "file:src/cr0s/javara/entity/IDefense.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Base.java",
+      "target": "file:src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Base.java",
+      "target": "file:src/cr0s/javara/entity/vehicle/EntityVehicle.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Base.java",
+      "target": "file:src/cr0s/javara/main/GUI.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Base.java",
+      "target": "file:src/cr0s/javara/render/map/TileSet.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Base.java",
+      "target": "file:src/cr0s/javara/resources/SoundManager.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Base.java",
+      "target": "file:src/cr0s/javara/ui/sbpages/SideBarItemsButton.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Base.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

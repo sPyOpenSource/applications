@@ -1,0 +1,36 @@
+{
+  "batchIndex": 14,
+  "files": [
+    {
+      "path": "tilesets/desert.yaml",
+      "language": "yaml",
+      "sizeLines": 3101,
+      "fileCategory": "config"
+    },
+    {
+      "path": "tilesets/interior.yaml",
+      "language": "yaml",
+      "sizeLines": 864,
+      "fileCategory": "config"
+    },
+    {
+      "path": "tilesets/snow.yaml",
+      "language": "yaml",
+      "sizeLines": 3139,
+      "fileCategory": "config"
+    },
+    {
+      "path": "tilesets/temperat.yaml",
+      "language": "yaml",
+      "sizeLines": 3621,
+      "fileCategory": "config"
+    }
+  ],
+  "batchImportData": {
+    "tilesets/desert.yaml": [],
+    "tilesets/interior.yaml": [],
+    "tilesets/snow.yaml": [],
+    "tilesets/temperat.yaml": []
+  },
+  "neighborMap": {}
+}

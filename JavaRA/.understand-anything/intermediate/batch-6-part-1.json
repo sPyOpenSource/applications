@@ -1,0 +1,1270 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/net/pso/jswarm/Attic/MyFitnessFunction.java",
+      "type": "file",
+      "name": "MyFitnessFunction.java",
+      "filePath": "src/net/pso/jswarm/Attic/MyFitnessFunction.java",
+      "summary": "Archived fitness function subclass evaluating a simple mathematical expression (sqrt of sum of squared position components).",
+      "tags": [
+        "archive",
+        "fitness-function",
+        "test-benchmark"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/net/pso/jswarm/Attic/MyFitnessFunction.java:MyFitnessFunction",
+      "type": "class",
+      "name": "MyFitnessFunction",
+      "filePath": "src/net/pso/jswarm/Attic/MyFitnessFunction.java",
+      "lineRange": [
+        11,
+        30
+      ],
+      "summary": "Class MyFitnessFunction with 1 methods.",
+      "tags": [
+        "class",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/Attic/MyFitnessFunction.java:evaluate_L21",
+      "type": "function",
+      "name": "evaluate",
+      "filePath": "src/net/pso/jswarm/Attic/MyFitnessFunction.java",
+      "lineRange": [
+        21,
+        28
+      ],
+      "summary": "Method evaluate with parameters [position].",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/net/pso/jswarm/Attic/MyParticle.java",
+      "type": "file",
+      "name": "MyParticle.java",
+      "filePath": "src/net/pso/jswarm/Attic/MyParticle.java",
+      "summary": "Archived particle subclass with a minimal no-argument constructor used as a sample particle template.",
+      "tags": [
+        "archive",
+        "particle",
+        "template"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/net/pso/jswarm/Attic/MyParticle.java:MyParticle",
+      "type": "class",
+      "name": "MyParticle",
+      "filePath": "src/net/pso/jswarm/Attic/MyParticle.java",
+      "lineRange": [
+        9,
+        15
+      ],
+      "summary": "Class MyParticle with 1 methods.",
+      "tags": [
+        "class",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/Attic/MyParticle.java:MyParticle_L12",
+      "type": "function",
+      "name": "MyParticle",
+      "filePath": "src/net/pso/jswarm/Attic/MyParticle.java",
+      "lineRange": [
+        12,
+        14
+      ],
+      "summary": "Method MyParticle.",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/net/pso/jswarm/Attic/Swarm.java",
+      "type": "file",
+      "name": "Swarm.java",
+      "filePath": "src/net/pso/jswarm/Attic/Swarm.java",
+      "summary": "Archived PSO swarm implementation providing core optimization loop, particle management, and 2D visualization support for the Attic package.",
+      "tags": [
+        "archive",
+        "swarm",
+        "optimization",
+        "pso"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:src/net/pso/jswarm/Attic/Swarm.java:Swarm",
+      "type": "class",
+      "name": "Swarm",
+      "filePath": "src/net/pso/jswarm/Attic/Swarm.java",
+      "lineRange": [
+        12,
+        472
+      ],
+      "summary": "Class Swarm with 47 methods.",
+      "tags": [
+        "class",
+        "java"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/Attic/Swarm.java:Swarm_L68",
+      "type": "function",
+      "name": "Swarm",
+      "filePath": "src/net/pso/jswarm/Attic/Swarm.java",
+      "lineRange": [
+        68,
+        83
+      ],
+      "summary": "Method Swarm with parameters [numberOfParticles, sampleParticle, fitnessFunction].",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/Attic/Swarm.java:evaluate_L93",
+      "type": "function",
+      "name": "evaluate",
+      "filePath": "src/net/pso/jswarm/Attic/Swarm.java",
+      "lineRange": [
+        93,
+        123
+      ],
+      "summary": "Method evaluate.",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/Attic/Swarm.java:evolve_L131",
+      "type": "function",
+      "name": "evolve",
+      "filePath": "src/net/pso/jswarm/Attic/Swarm.java",
+      "lineRange": [
+        131,
+        137
+      ],
+      "summary": "Method evolve.",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/Attic/Swarm.java:init_L215",
+      "type": "function",
+      "name": "init",
+      "filePath": "src/net/pso/jswarm/Attic/Swarm.java",
+      "lineRange": [
+        215,
+        242
+      ],
+      "summary": "Method init.",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/Attic/Swarm.java:setMaxMinVelocity_L272",
+      "type": "function",
+      "name": "setMaxMinVelocity",
+      "filePath": "src/net/pso/jswarm/Attic/Swarm.java",
+      "lineRange": [
+        272,
+        281
+      ],
+      "summary": "Method setMaxMinVelocity with parameters [maxVelocity].",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/Attic/Swarm.java:setMaxPosition_L287",
+      "type": "function",
+      "name": "setMaxPosition",
+      "filePath": "src/net/pso/jswarm/Attic/Swarm.java",
+      "lineRange": [
+        287,
+        293
+      ],
+      "summary": "Method setMaxPosition with parameters [maxPosition].",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/Attic/Swarm.java:setMinPosition_L307",
+      "type": "function",
+      "name": "setMinPosition",
+      "filePath": "src/net/pso/jswarm/Attic/Swarm.java",
+      "lineRange": [
+        307,
+        313
+      ],
+      "summary": "Method setMinPosition with parameters [minPosition].",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/Attic/Swarm.java:show_L365",
+      "type": "function",
+      "name": "show",
+      "filePath": "src/net/pso/jswarm/Attic/Swarm.java",
+      "lineRange": [
+        365,
+        394
+      ],
+      "summary": "Method show with parameters [graphics, foreground, width, height, dim0, dim1, showVelocity].",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/Attic/Swarm.java:toString_L396",
+      "type": "function",
+      "name": "toString",
+      "filePath": "src/net/pso/jswarm/Attic/Swarm.java",
+      "lineRange": [
+        396,
+        426
+      ],
+      "summary": "Method toString.",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/Attic/Swarm.java:toStringStats_L432",
+      "type": "function",
+      "name": "toStringStats",
+      "filePath": "src/net/pso/jswarm/Attic/Swarm.java",
+      "lineRange": [
+        432,
+        441
+      ],
+      "summary": "Method toStringStats.",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/Attic/Swarm.java:update_L447",
+      "type": "function",
+      "name": "update",
+      "filePath": "src/net/pso/jswarm/Attic/Swarm.java",
+      "lineRange": [
+        447,
+        471
+      ],
+      "summary": "Method update.",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/net/pso/jswarm/Attic/example_2/Attic/Example.java",
+      "type": "file",
+      "name": "Example.java",
+      "filePath": "src/net/pso/jswarm/Attic/example_2/Attic/Example.java",
+      "summary": "Archived demonstration entry point configuring and running a 2D swarm optimization with Swing-based visualization.",
+      "tags": [
+        "archive",
+        "entry-point",
+        "example",
+        "visualization"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/net/pso/jswarm/Attic/example_2/Attic/Example.java:Example",
+      "type": "class",
+      "name": "Example",
+      "filePath": "src/net/pso/jswarm/Attic/example_2/Attic/Example.java",
+      "lineRange": [
+        15,
+        48
+      ],
+      "summary": "Class Example with 1 methods.",
+      "tags": [
+        "class",
+        "java"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/Attic/example_2/Attic/Example.java:main_L17",
+      "type": "function",
+      "name": "main",
+      "filePath": "src/net/pso/jswarm/Attic/example_2/Attic/Example.java",
+      "lineRange": [
+        17,
+        46
+      ],
+      "summary": "Method main with parameters [args].",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/net/pso/jswarm/Attic/example_2/Attic/MyFitnessFunction.java",
+      "type": "file",
+      "name": "MyFitnessFunction.java",
+      "filePath": "src/net/pso/jswarm/Attic/example_2/Attic/MyFitnessFunction.java",
+      "summary": "Archived fitness function implementation using cosine-based evaluation for 2D swarm demonstration.",
+      "tags": [
+        "archive",
+        "fitness-function",
+        "test-benchmark"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/net/pso/jswarm/Attic/example_2/Attic/MyFitnessFunction.java:MyFitnessFunction",
+      "type": "class",
+      "name": "MyFitnessFunction",
+      "filePath": "src/net/pso/jswarm/Attic/example_2/Attic/MyFitnessFunction.java",
+      "lineRange": [
+        11,
+        38
+      ],
+      "summary": "Class MyFitnessFunction with 2 methods.",
+      "tags": [
+        "class",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/Attic/example_2/Attic/MyFitnessFunction.java:MyFitnessFunction_L18",
+      "type": "function",
+      "name": "MyFitnessFunction",
+      "filePath": "src/net/pso/jswarm/Attic/example_2/Attic/MyFitnessFunction.java",
+      "lineRange": [
+        18,
+        20
+      ],
+      "summary": "Method MyFitnessFunction.",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/Attic/example_2/Attic/MyFitnessFunction.java:evaluate_L31",
+      "type": "function",
+      "name": "evaluate",
+      "filePath": "src/net/pso/jswarm/Attic/example_2/Attic/MyFitnessFunction.java",
+      "lineRange": [
+        31,
+        36
+      ],
+      "summary": "Method evaluate with parameters [position].",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/net/pso/jswarm/Attic/example_2/Attic/MyParticle.java",
+      "type": "file",
+      "name": "MyParticle.java",
+      "filePath": "src/net/pso/jswarm/Attic/example_2/Attic/MyParticle.java",
+      "summary": "Archived particle subclass with fixed 2-dimension configuration and custom toString for debugging.",
+      "tags": [
+        "archive",
+        "particle",
+        "example"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/net/pso/jswarm/Attic/example_2/Attic/MyParticle.java:MyParticle",
+      "type": "class",
+      "name": "MyParticle",
+      "filePath": "src/net/pso/jswarm/Attic/example_2/Attic/MyParticle.java",
+      "lineRange": [
+        10,
+        42
+      ],
+      "summary": "Class MyParticle with 2 methods.",
+      "tags": [
+        "class",
+        "java"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/Attic/example_2/Attic/MyParticle.java:MyParticle_L24",
+      "type": "function",
+      "name": "MyParticle",
+      "filePath": "src/net/pso/jswarm/Attic/example_2/Attic/MyParticle.java",
+      "lineRange": [
+        24,
+        29
+      ],
+      "summary": "Method MyParticle.",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/Attic/example_2/Attic/MyParticle.java:toString_L36",
+      "type": "function",
+      "name": "toString",
+      "filePath": "src/net/pso/jswarm/Attic/example_2/Attic/MyParticle.java",
+      "lineRange": [
+        36,
+        40
+      ],
+      "summary": "Method toString.",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/net/pso/jswarm/Attic/example_2/Attic/SwarmShow2D.java",
+      "type": "file",
+      "name": "SwarmShow2D.java",
+      "filePath": "src/net/pso/jswarm/Attic/example_2/Attic/SwarmShow2D.java",
+      "summary": "Archived Swing-based 2D swarm visualization panel providing real-time particle position and velocity rendering with interactive controls.",
+      "tags": [
+        "archive",
+        "visualization",
+        "swing",
+        "swarm"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/net/pso/jswarm/Attic/example_2/Attic/SwarmShow2D.java:SwarmShow2D",
+      "type": "class",
+      "name": "SwarmShow2D",
+      "filePath": "src/net/pso/jswarm/Attic/example_2/Attic/SwarmShow2D.java",
+      "lineRange": [
+        24,
+        205
+      ],
+      "summary": "Class SwarmShow2D with 21 methods.",
+      "tags": [
+        "class",
+        "java"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/Attic/example_2/Attic/SwarmShow2D.java:SwarmShow2D_L55",
+      "type": "function",
+      "name": "SwarmShow2D",
+      "filePath": "src/net/pso/jswarm/Attic/example_2/Attic/SwarmShow2D.java",
+      "lineRange": [
+        55,
+        63
+      ],
+      "summary": "Method SwarmShow2D with parameters [swarm, numberOfIterations, displayRefresh, showVelocity].",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/Attic/example_2/Attic/SwarmShow2D.java:actionPerformed_L72",
+      "type": "function",
+      "name": "actionPerformed",
+      "filePath": "src/net/pso/jswarm/Attic/example_2/Attic/SwarmShow2D.java",
+      "lineRange": [
+        72,
+        75
+      ],
+      "summary": "Method actionPerformed with parameters [e].",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/Attic/example_2/Attic/SwarmShow2D.java:clear_L116",
+      "type": "function",
+      "name": "clear",
+      "filePath": "src/net/pso/jswarm/Attic/example_2/Attic/SwarmShow2D.java",
+      "lineRange": [
+        116,
+        118
+      ],
+      "summary": "Method clear.",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/Attic/example_2/Attic/SwarmShow2D.java:run_L149",
+      "type": "function",
+      "name": "run",
+      "filePath": "src/net/pso/jswarm/Attic/example_2/Attic/SwarmShow2D.java",
+      "lineRange": [
+        149,
+        168
+      ],
+      "summary": "Method run.",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/Attic/example_2/Attic/SwarmShow2D.java:showSwarm_L202",
+      "type": "function",
+      "name": "showSwarm",
+      "filePath": "src/net/pso/jswarm/Attic/example_2/Attic/SwarmShow2D.java",
+      "lineRange": [
+        202,
+        204
+      ],
+      "summary": "Method showSwarm.",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/net/pso/jswarm/FitnessFunction.java",
+      "type": "file",
+      "name": "FitnessFunction.java",
+      "filePath": "src/net/pso/jswarm/FitnessFunction.java",
+      "summary": "Abstract base class for fitness evaluation defining the evaluate contract and maximization/minimization comparison logic.",
+      "tags": [
+        "fitness-function",
+        "abstract-class",
+        "comparison"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/net/pso/jswarm/FitnessFunction.java:FitnessFunction",
+      "type": "class",
+      "name": "FitnessFunction",
+      "filePath": "src/net/pso/jswarm/FitnessFunction.java",
+      "lineRange": [
+        7,
+        78
+      ],
+      "summary": "Class FitnessFunction with 7 methods.",
+      "tags": [
+        "class",
+        "java"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/FitnessFunction.java:FitnessFunction_L17",
+      "type": "function",
+      "name": "FitnessFunction",
+      "filePath": "src/net/pso/jswarm/FitnessFunction.java",
+      "lineRange": [
+        17,
+        19
+      ],
+      "summary": "Method FitnessFunction.",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/FitnessFunction.java:FitnessFunction_L25",
+      "type": "function",
+      "name": "FitnessFunction",
+      "filePath": "src/net/pso/jswarm/FitnessFunction.java",
+      "lineRange": [
+        25,
+        27
+      ],
+      "summary": "Method FitnessFunction with parameters [maximize].",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/FitnessFunction.java:evaluate_L40",
+      "type": "function",
+      "name": "evaluate",
+      "filePath": "src/net/pso/jswarm/FitnessFunction.java",
+      "lineRange": [
+        40,
+        40
+      ],
+      "summary": "Method evaluate with parameters [position].",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/FitnessFunction.java:evaluate_L47",
+      "type": "function",
+      "name": "evaluate",
+      "filePath": "src/net/pso/jswarm/FitnessFunction.java",
+      "lineRange": [
+        47,
+        52
+      ],
+      "summary": "Method evaluate with parameters [particle].",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/FitnessFunction.java:isBetterThan_L60",
+      "type": "function",
+      "name": "isBetterThan",
+      "filePath": "src/net/pso/jswarm/FitnessFunction.java",
+      "lineRange": [
+        60,
+        67
+      ],
+      "summary": "Method isBetterThan with parameters [fitness, otherValue].",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/net/pso/jswarm/Attic/MyFitnessFunction.java",
+      "target": "class:src/net/pso/jswarm/Attic/MyFitnessFunction.java:MyFitnessFunction",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Attic/MyFitnessFunction.java",
+      "target": "class:src/net/pso/jswarm/Attic/MyFitnessFunction.java:MyFitnessFunction",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Attic/MyFitnessFunction.java",
+      "target": "function:src/net/pso/jswarm/Attic/MyFitnessFunction.java:evaluate_L21",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Attic/MyFitnessFunction.java",
+      "target": "function:src/net/pso/jswarm/Attic/MyFitnessFunction.java:evaluate_L21",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Attic/MyFitnessFunction.java",
+      "target": "file:src/net/pso/jswarm/FitnessFunction.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Attic/MyParticle.java",
+      "target": "class:src/net/pso/jswarm/Attic/MyParticle.java:MyParticle",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Attic/MyParticle.java",
+      "target": "class:src/net/pso/jswarm/Attic/MyParticle.java:MyParticle",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Attic/MyParticle.java",
+      "target": "function:src/net/pso/jswarm/Attic/MyParticle.java:MyParticle_L12",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Attic/MyParticle.java",
+      "target": "function:src/net/pso/jswarm/Attic/MyParticle.java:MyParticle_L12",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Attic/MyParticle.java",
+      "target": "file:src/net/pso/jswarm/Particle.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Attic/Swarm.java",
+      "target": "class:src/net/pso/jswarm/Attic/Swarm.java:Swarm",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Attic/Swarm.java",
+      "target": "class:src/net/pso/jswarm/Attic/Swarm.java:Swarm",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Attic/Swarm.java",
+      "target": "function:src/net/pso/jswarm/Attic/Swarm.java:Swarm_L68",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Attic/Swarm.java",
+      "target": "function:src/net/pso/jswarm/Attic/Swarm.java:Swarm_L68",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Attic/Swarm.java",
+      "target": "function:src/net/pso/jswarm/Attic/Swarm.java:evaluate_L93",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Attic/Swarm.java",
+      "target": "function:src/net/pso/jswarm/Attic/Swarm.java:evaluate_L93",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Attic/Swarm.java",
+      "target": "function:src/net/pso/jswarm/Attic/Swarm.java:evolve_L131",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Attic/Swarm.java",
+      "target": "function:src/net/pso/jswarm/Attic/Swarm.java:evolve_L131",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Attic/Swarm.java",
+      "target": "function:src/net/pso/jswarm/Attic/Swarm.java:init_L215",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Attic/Swarm.java",
+      "target": "function:src/net/pso/jswarm/Attic/Swarm.java:init_L215",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Attic/Swarm.java",
+      "target": "function:src/net/pso/jswarm/Attic/Swarm.java:setMaxMinVelocity_L272",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Attic/Swarm.java",
+      "target": "function:src/net/pso/jswarm/Attic/Swarm.java:setMaxMinVelocity_L272",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Attic/Swarm.java",
+      "target": "function:src/net/pso/jswarm/Attic/Swarm.java:setMaxPosition_L287",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Attic/Swarm.java",
+      "target": "function:src/net/pso/jswarm/Attic/Swarm.java:setMaxPosition_L287",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Attic/Swarm.java",
+      "target": "function:src/net/pso/jswarm/Attic/Swarm.java:setMinPosition_L307",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Attic/Swarm.java",
+      "target": "function:src/net/pso/jswarm/Attic/Swarm.java:setMinPosition_L307",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Attic/Swarm.java",
+      "target": "function:src/net/pso/jswarm/Attic/Swarm.java:show_L365",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Attic/Swarm.java",
+      "target": "function:src/net/pso/jswarm/Attic/Swarm.java:show_L365",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Attic/Swarm.java",
+      "target": "function:src/net/pso/jswarm/Attic/Swarm.java:toString_L396",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Attic/Swarm.java",
+      "target": "function:src/net/pso/jswarm/Attic/Swarm.java:toString_L396",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Attic/Swarm.java",
+      "target": "function:src/net/pso/jswarm/Attic/Swarm.java:toStringStats_L432",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Attic/Swarm.java",
+      "target": "function:src/net/pso/jswarm/Attic/Swarm.java:toStringStats_L432",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Attic/Swarm.java",
+      "target": "function:src/net/pso/jswarm/Attic/Swarm.java:update_L447",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Attic/Swarm.java",
+      "target": "function:src/net/pso/jswarm/Attic/Swarm.java:update_L447",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Attic/Swarm.java",
+      "target": "file:src/net/pso/jswarm/FitnessFunction.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Attic/Swarm.java",
+      "target": "file:src/net/pso/jswarm/Particle.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Attic/example_2/Attic/Example.java",
+      "target": "class:src/net/pso/jswarm/Attic/example_2/Attic/Example.java:Example",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Attic/example_2/Attic/Example.java",
+      "target": "class:src/net/pso/jswarm/Attic/example_2/Attic/Example.java:Example",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Attic/example_2/Attic/Example.java",
+      "target": "function:src/net/pso/jswarm/Attic/example_2/Attic/Example.java:main_L17",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Attic/example_2/Attic/Example.java",
+      "target": "function:src/net/pso/jswarm/Attic/example_2/Attic/Example.java:main_L17",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Attic/example_2/Attic/Example.java",
+      "target": "file:src/net/pso/jswarm/Attic/Swarm.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Attic/example_2/Attic/Example.java",
+      "target": "file:src/net/pso/jswarm/Neighborhood.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Attic/example_2/Attic/Example.java",
+      "target": "file:src/net/pso/jswarm/Neighborhood1D.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Attic/example_2/Attic/MyFitnessFunction.java",
+      "target": "class:src/net/pso/jswarm/Attic/example_2/Attic/MyFitnessFunction.java:MyFitnessFunction",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Attic/example_2/Attic/MyFitnessFunction.java",
+      "target": "class:src/net/pso/jswarm/Attic/example_2/Attic/MyFitnessFunction.java:MyFitnessFunction",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Attic/example_2/Attic/MyFitnessFunction.java",
+      "target": "function:src/net/pso/jswarm/Attic/example_2/Attic/MyFitnessFunction.java:MyFitnessFunction_L18",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Attic/example_2/Attic/MyFitnessFunction.java",
+      "target": "function:src/net/pso/jswarm/Attic/example_2/Attic/MyFitnessFunction.java:MyFitnessFunction_L18",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Attic/example_2/Attic/MyFitnessFunction.java",
+      "target": "function:src/net/pso/jswarm/Attic/example_2/Attic/MyFitnessFunction.java:evaluate_L31",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Attic/example_2/Attic/MyFitnessFunction.java",
+      "target": "function:src/net/pso/jswarm/Attic/example_2/Attic/MyFitnessFunction.java:evaluate_L31",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Attic/example_2/Attic/MyFitnessFunction.java",
+      "target": "file:src/net/pso/jswarm/FitnessFunction.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Attic/example_2/Attic/MyParticle.java",
+      "target": "class:src/net/pso/jswarm/Attic/example_2/Attic/MyParticle.java:MyParticle",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Attic/example_2/Attic/MyParticle.java",
+      "target": "class:src/net/pso/jswarm/Attic/example_2/Attic/MyParticle.java:MyParticle",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Attic/example_2/Attic/MyParticle.java",
+      "target": "function:src/net/pso/jswarm/Attic/example_2/Attic/MyParticle.java:MyParticle_L24",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Attic/example_2/Attic/MyParticle.java",
+      "target": "function:src/net/pso/jswarm/Attic/example_2/Attic/MyParticle.java:MyParticle_L24",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Attic/example_2/Attic/MyParticle.java",
+      "target": "function:src/net/pso/jswarm/Attic/example_2/Attic/MyParticle.java:toString_L36",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Attic/example_2/Attic/MyParticle.java",
+      "target": "function:src/net/pso/jswarm/Attic/example_2/Attic/MyParticle.java:toString_L36",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Attic/example_2/Attic/MyParticle.java",
+      "target": "file:src/net/pso/jswarm/Particle.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Attic/example_2/Attic/SwarmShow2D.java",
+      "target": "class:src/net/pso/jswarm/Attic/example_2/Attic/SwarmShow2D.java:SwarmShow2D",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Attic/example_2/Attic/SwarmShow2D.java",
+      "target": "class:src/net/pso/jswarm/Attic/example_2/Attic/SwarmShow2D.java:SwarmShow2D",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Attic/example_2/Attic/SwarmShow2D.java",
+      "target": "function:src/net/pso/jswarm/Attic/example_2/Attic/SwarmShow2D.java:SwarmShow2D_L55",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Attic/example_2/Attic/SwarmShow2D.java",
+      "target": "function:src/net/pso/jswarm/Attic/example_2/Attic/SwarmShow2D.java:SwarmShow2D_L55",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Attic/example_2/Attic/SwarmShow2D.java",
+      "target": "function:src/net/pso/jswarm/Attic/example_2/Attic/SwarmShow2D.java:actionPerformed_L72",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Attic/example_2/Attic/SwarmShow2D.java",
+      "target": "function:src/net/pso/jswarm/Attic/example_2/Attic/SwarmShow2D.java:actionPerformed_L72",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Attic/example_2/Attic/SwarmShow2D.java",
+      "target": "function:src/net/pso/jswarm/Attic/example_2/Attic/SwarmShow2D.java:clear_L116",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Attic/example_2/Attic/SwarmShow2D.java",
+      "target": "function:src/net/pso/jswarm/Attic/example_2/Attic/SwarmShow2D.java:clear_L116",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Attic/example_2/Attic/SwarmShow2D.java",
+      "target": "function:src/net/pso/jswarm/Attic/example_2/Attic/SwarmShow2D.java:run_L149",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Attic/example_2/Attic/SwarmShow2D.java",
+      "target": "function:src/net/pso/jswarm/Attic/example_2/Attic/SwarmShow2D.java:run_L149",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Attic/example_2/Attic/SwarmShow2D.java",
+      "target": "function:src/net/pso/jswarm/Attic/example_2/Attic/SwarmShow2D.java:showSwarm_L202",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Attic/example_2/Attic/SwarmShow2D.java",
+      "target": "function:src/net/pso/jswarm/Attic/example_2/Attic/SwarmShow2D.java:showSwarm_L202",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Attic/example_2/Attic/SwarmShow2D.java",
+      "target": "file:src/net/pso/jswarm/Attic/Swarm.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Attic/example_2/Attic/SwarmShow2D.java",
+      "target": "file:src/net/pso/jswarm/Gpr.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/net/pso/jswarm/FitnessFunction.java",
+      "target": "class:src/net/pso/jswarm/FitnessFunction.java:FitnessFunction",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/FitnessFunction.java",
+      "target": "class:src/net/pso/jswarm/FitnessFunction.java:FitnessFunction",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/FitnessFunction.java",
+      "target": "function:src/net/pso/jswarm/FitnessFunction.java:FitnessFunction_L17",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/FitnessFunction.java",
+      "target": "function:src/net/pso/jswarm/FitnessFunction.java:FitnessFunction_L17",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/FitnessFunction.java",
+      "target": "function:src/net/pso/jswarm/FitnessFunction.java:FitnessFunction_L25",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/FitnessFunction.java",
+      "target": "function:src/net/pso/jswarm/FitnessFunction.java:FitnessFunction_L25",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/FitnessFunction.java",
+      "target": "function:src/net/pso/jswarm/FitnessFunction.java:evaluate_L40",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/FitnessFunction.java",
+      "target": "function:src/net/pso/jswarm/FitnessFunction.java:evaluate_L40",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/FitnessFunction.java",
+      "target": "function:src/net/pso/jswarm/FitnessFunction.java:evaluate_L47",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/FitnessFunction.java",
+      "target": "function:src/net/pso/jswarm/FitnessFunction.java:evaluate_L47",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/FitnessFunction.java",
+      "target": "function:src/net/pso/jswarm/FitnessFunction.java:isBetterThan_L60",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/FitnessFunction.java",
+      "target": "function:src/net/pso/jswarm/FitnessFunction.java:isBetterThan_L60",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}

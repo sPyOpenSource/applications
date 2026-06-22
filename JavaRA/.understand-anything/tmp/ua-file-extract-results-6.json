@@ -1,0 +1,5283 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 22,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "src/net/pso/jswarm/Attic/MyFitnessFunction.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 30,
+      "nonEmptyLines": 26,
+      "functions": [
+        {
+          "name": "evaluate",
+          "startLine": 21,
+          "endLine": 28,
+          "params": [
+            "position"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "MyFitnessFunction",
+          "startLine": 11,
+          "endLine": 30,
+          "methods": [
+            "evaluate"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "evaluate",
+          "line": 21,
+          "isDefault": false
+        },
+        {
+          "name": "MyFitnessFunction",
+          "line": 11,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "evaluate",
+          "callee": "Math.sqrt",
+          "lineNumber": 27
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/net/pso/jswarm/Attic/MyParticle.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 15,
+      "nonEmptyLines": 12,
+      "functions": [
+        {
+          "name": "MyParticle",
+          "startLine": 12,
+          "endLine": 14,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "MyParticle",
+          "startLine": 9,
+          "endLine": 15,
+          "methods": [
+            "MyParticle"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "MyParticle",
+          "line": 12,
+          "isDefault": false
+        },
+        {
+          "name": "MyParticle",
+          "line": 9,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/net/pso/jswarm/Attic/Swarm.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 472,
+      "nonEmptyLines": 403,
+      "functions": [
+        {
+          "name": "Swarm",
+          "startLine": 68,
+          "endLine": 83,
+          "params": [
+            "numberOfParticles",
+            "sampleParticle",
+            "fitnessFunction"
+          ]
+        },
+        {
+          "name": "evaluate",
+          "startLine": 93,
+          "endLine": 123,
+          "params": []
+        },
+        {
+          "name": "evolve",
+          "startLine": 131,
+          "endLine": 137,
+          "params": []
+        },
+        {
+          "name": "getBestFitness",
+          "startLine": 139,
+          "endLine": 141,
+          "params": []
+        },
+        {
+          "name": "getBestParticle",
+          "startLine": 143,
+          "endLine": 145,
+          "params": []
+        },
+        {
+          "name": "getBestParticleIndex",
+          "startLine": 147,
+          "endLine": 149,
+          "params": []
+        },
+        {
+          "name": "getBestPosition",
+          "startLine": 151,
+          "endLine": 153,
+          "params": []
+        },
+        {
+          "name": "getFitnessFunction",
+          "startLine": 155,
+          "endLine": 157,
+          "params": []
+        },
+        {
+          "name": "getGlobalIncrement",
+          "startLine": 159,
+          "endLine": 161,
+          "params": []
+        },
+        {
+          "name": "getInertia",
+          "startLine": 163,
+          "endLine": 165,
+          "params": []
+        },
+        {
+          "name": "getMaxPosition",
+          "startLine": 167,
+          "endLine": 169,
+          "params": []
+        },
+        {
+          "name": "getMaxVelocity",
+          "startLine": 171,
+          "endLine": 173,
+          "params": []
+        },
+        {
+          "name": "getMinPosition",
+          "startLine": 175,
+          "endLine": 177,
+          "params": []
+        },
+        {
+          "name": "getMinVelocity",
+          "startLine": 179,
+          "endLine": 181,
+          "params": []
+        },
+        {
+          "name": "getNumberOfEvaliations",
+          "startLine": 183,
+          "endLine": 185,
+          "params": []
+        },
+        {
+          "name": "getNumberOfParticles",
+          "startLine": 187,
+          "endLine": 189,
+          "params": []
+        },
+        {
+          "name": "getOtherParticleIncrement",
+          "startLine": 191,
+          "endLine": 193,
+          "params": []
+        },
+        {
+          "name": "getParticleIncrement",
+          "startLine": 195,
+          "endLine": 197,
+          "params": []
+        },
+        {
+          "name": "getParticles",
+          "startLine": 199,
+          "endLine": 201,
+          "params": []
+        },
+        {
+          "name": "getRandomIncrement",
+          "startLine": 203,
+          "endLine": 205,
+          "params": []
+        },
+        {
+          "name": "getSampleParticle",
+          "startLine": 207,
+          "endLine": 209,
+          "params": []
+        },
+        {
+          "name": "init",
+          "startLine": 215,
+          "endLine": 242,
+          "params": []
+        },
+        {
+          "name": "isUseRepulsiveAlgorithm",
+          "startLine": 244,
+          "endLine": 246,
+          "params": []
+        },
+        {
+          "name": "setBestParticleIndex",
+          "startLine": 248,
+          "endLine": 250,
+          "params": [
+            "bestParticle"
+          ]
+        },
+        {
+          "name": "setBestPosition",
+          "startLine": 252,
+          "endLine": 254,
+          "params": [
+            "bestPosition"
+          ]
+        },
+        {
+          "name": "setFitnessFunction",
+          "startLine": 256,
+          "endLine": 258,
+          "params": [
+            "fitnessFunction"
+          ]
+        },
+        {
+          "name": "setGlobalIncrement",
+          "startLine": 260,
+          "endLine": 262,
+          "params": [
+            "globalIncrement"
+          ]
+        },
+        {
+          "name": "setInertia",
+          "startLine": 264,
+          "endLine": 266,
+          "params": [
+            "inertia"
+          ]
+        },
+        {
+          "name": "setMaxMinVelocity",
+          "startLine": 272,
+          "endLine": 281,
+          "params": [
+            "maxVelocity"
+          ]
+        },
+        {
+          "name": "setMaxPosition",
+          "startLine": 287,
+          "endLine": 293,
+          "params": [
+            "maxPosition"
+          ]
+        },
+        {
+          "name": "setMaxPosition",
+          "startLine": 295,
+          "endLine": 297,
+          "params": [
+            "maxPosition"
+          ]
+        },
+        {
+          "name": "setMaxVelocity",
+          "startLine": 299,
+          "endLine": 301,
+          "params": [
+            "maxVelocity"
+          ]
+        },
+        {
+          "name": "setMinPosition",
+          "startLine": 307,
+          "endLine": 313,
+          "params": [
+            "minPosition"
+          ]
+        },
+        {
+          "name": "setMinPosition",
+          "startLine": 315,
+          "endLine": 317,
+          "params": [
+            "minPosition"
+          ]
+        },
+        {
+          "name": "setMinVelocity",
+          "startLine": 319,
+          "endLine": 321,
+          "params": [
+            "minVelocity"
+          ]
+        },
+        {
+          "name": "setNumberOfEvaliations",
+          "startLine": 323,
+          "endLine": 325,
+          "params": [
+            "numberOfEvaliations"
+          ]
+        },
+        {
+          "name": "setNumberOfParticles",
+          "startLine": 327,
+          "endLine": 329,
+          "params": [
+            "numberOfParticles"
+          ]
+        },
+        {
+          "name": "setOtherParticleIncrement",
+          "startLine": 331,
+          "endLine": 333,
+          "params": [
+            "otherParticleIncrement"
+          ]
+        },
+        {
+          "name": "setParticleIncrement",
+          "startLine": 335,
+          "endLine": 337,
+          "params": [
+            "particleIncrement"
+          ]
+        },
+        {
+          "name": "setParticles",
+          "startLine": 339,
+          "endLine": 341,
+          "params": [
+            "particle"
+          ]
+        },
+        {
+          "name": "setRandomIncrement",
+          "startLine": 343,
+          "endLine": 345,
+          "params": [
+            "randomIncrement"
+          ]
+        },
+        {
+          "name": "setSampleParticle",
+          "startLine": 347,
+          "endLine": 349,
+          "params": [
+            "sampleParticle"
+          ]
+        },
+        {
+          "name": "setUseRepulsiveAlgorithm",
+          "startLine": 351,
+          "endLine": 353,
+          "params": [
+            "useRepulsiveAlgorithm"
+          ]
+        },
+        {
+          "name": "show",
+          "startLine": 365,
+          "endLine": 394,
+          "params": [
+            "graphics",
+            "foreground",
+            "width",
+            "height",
+            "dim0",
+            "dim1",
+            "showVelocity"
+          ]
+        },
+        {
+          "name": "toString",
+          "startLine": 396,
+          "endLine": 426,
+          "params": []
+        },
+        {
+          "name": "toStringStats",
+          "startLine": 432,
+          "endLine": 441,
+          "params": []
+        },
+        {
+          "name": "update",
+          "startLine": 447,
+          "endLine": 471,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "Swarm",
+          "startLine": 12,
+          "endLine": 472,
+          "methods": [
+            "Swarm",
+            "evaluate",
+            "evolve",
+            "getBestFitness",
+            "getBestParticle",
+            "getBestParticleIndex",
+            "getBestPosition",
+            "getFitnessFunction",
+            "getGlobalIncrement",
+            "getInertia",
+            "getMaxPosition",
+            "getMaxVelocity",
+            "getMinPosition",
+            "getMinVelocity",
+            "getNumberOfEvaliations",
+            "getNumberOfParticles",
+            "getOtherParticleIncrement",
+            "getParticleIncrement",
+            "getParticles",
+            "getRandomIncrement",
+            "getSampleParticle",
+            "init",
+            "isUseRepulsiveAlgorithm",
+            "setBestParticleIndex",
+            "setBestPosition",
+            "setFitnessFunction",
+            "setGlobalIncrement",
+            "setInertia",
+            "setMaxMinVelocity",
+            "setMaxPosition",
+            "setMaxPosition",
+            "setMaxVelocity",
+            "setMinPosition",
+            "setMinPosition",
+            "setMinVelocity",
+            "setNumberOfEvaliations",
+            "setNumberOfParticles",
+            "setOtherParticleIncrement",
+            "setParticleIncrement",
+            "setParticles",
+            "setRandomIncrement",
+            "setSampleParticle",
+            "setUseRepulsiveAlgorithm",
+            "show",
+            "toString",
+            "toStringStats",
+            "update"
+          ],
+          "properties": [
+            "DEFAULT_GLOBAL_INCREMENT",
+            "DEFAULT_INERTIA",
+            "DEFAULT_NUMBER_OF_PARTICLES",
+            "DEFAULT_OTHER_PARTICLE_INCREMENT",
+            "DEFAULT_PARTICLE_INCREMENT",
+            "DEFAULT_RANDOM_INCREMENT",
+            "bestFitness",
+            "bestParticleIndex",
+            "bestPosition",
+            "fitnessFunction",
+            "globalIncrement",
+            "inertia",
+            "maxPosition",
+            "maxVelocity",
+            "minPosition",
+            "minVelocity",
+            "numberOfEvaliations",
+            "numberOfParticles",
+            "otherParticleIncrement",
+            "particleIncrement",
+            "particles",
+            "randomIncrement",
+            "sampleParticle",
+            "useRepulsiveAlgorithm"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "DEFAULT_GLOBAL_INCREMENT",
+          "line": 13,
+          "isDefault": false
+        },
+        {
+          "name": "DEFAULT_INERTIA",
+          "line": 14,
+          "isDefault": false
+        },
+        {
+          "name": "DEFAULT_NUMBER_OF_PARTICLES",
+          "line": 15,
+          "isDefault": false
+        },
+        {
+          "name": "DEFAULT_OTHER_PARTICLE_INCREMENT",
+          "line": 16,
+          "isDefault": false
+        },
+        {
+          "name": "DEFAULT_PARTICLE_INCREMENT",
+          "line": 17,
+          "isDefault": false
+        },
+        {
+          "name": "DEFAULT_RANDOM_INCREMENT",
+          "line": 18,
+          "isDefault": false
+        },
+        {
+          "name": "Swarm",
+          "line": 68,
+          "isDefault": false
+        },
+        {
+          "name": "evaluate",
+          "line": 93,
+          "isDefault": false
+        },
+        {
+          "name": "evolve",
+          "line": 131,
+          "isDefault": false
+        },
+        {
+          "name": "getBestFitness",
+          "line": 139,
+          "isDefault": false
+        },
+        {
+          "name": "getBestParticle",
+          "line": 143,
+          "isDefault": false
+        },
+        {
+          "name": "getBestParticleIndex",
+          "line": 147,
+          "isDefault": false
+        },
+        {
+          "name": "getBestPosition",
+          "line": 151,
+          "isDefault": false
+        },
+        {
+          "name": "getFitnessFunction",
+          "line": 155,
+          "isDefault": false
+        },
+        {
+          "name": "getGlobalIncrement",
+          "line": 159,
+          "isDefault": false
+        },
+        {
+          "name": "getInertia",
+          "line": 163,
+          "isDefault": false
+        },
+        {
+          "name": "getMaxPosition",
+          "line": 167,
+          "isDefault": false
+        },
+        {
+          "name": "getMaxVelocity",
+          "line": 171,
+          "isDefault": false
+        },
+        {
+          "name": "getMinPosition",
+          "line": 175,
+          "isDefault": false
+        },
+        {
+          "name": "getMinVelocity",
+          "line": 179,
+          "isDefault": false
+        },
+        {
+          "name": "getNumberOfEvaliations",
+          "line": 183,
+          "isDefault": false
+        },
+        {
+          "name": "getNumberOfParticles",
+          "line": 187,
+          "isDefault": false
+        },
+        {
+          "name": "getOtherParticleIncrement",
+          "line": 191,
+          "isDefault": false
+        },
+        {
+          "name": "getParticleIncrement",
+          "line": 195,
+          "isDefault": false
+        },
+        {
+          "name": "getParticles",
+          "line": 199,
+          "isDefault": false
+        },
+        {
+          "name": "getRandomIncrement",
+          "line": 203,
+          "isDefault": false
+        },
+        {
+          "name": "getSampleParticle",
+          "line": 207,
+          "isDefault": false
+        },
+        {
+          "name": "init",
+          "line": 215,
+          "isDefault": false
+        },
+        {
+          "name": "isUseRepulsiveAlgorithm",
+          "line": 244,
+          "isDefault": false
+        },
+        {
+          "name": "setBestParticleIndex",
+          "line": 248,
+          "isDefault": false
+        },
+        {
+          "name": "setBestPosition",
+          "line": 252,
+          "isDefault": false
+        },
+        {
+          "name": "setFitnessFunction",
+          "line": 256,
+          "isDefault": false
+        },
+        {
+          "name": "setGlobalIncrement",
+          "line": 260,
+          "isDefault": false
+        },
+        {
+          "name": "setInertia",
+          "line": 264,
+          "isDefault": false
+        },
+        {
+          "name": "setMaxMinVelocity",
+          "line": 272,
+          "isDefault": false
+        },
+        {
+          "name": "setMaxPosition",
+          "line": 287,
+          "isDefault": false
+        },
+        {
+          "name": "setMaxPosition",
+          "line": 295,
+          "isDefault": false
+        },
+        {
+          "name": "setMaxVelocity",
+          "line": 299,
+          "isDefault": false
+        },
+        {
+          "name": "setMinPosition",
+          "line": 307,
+          "isDefault": false
+        },
+        {
+          "name": "setMinPosition",
+          "line": 315,
+          "isDefault": false
+        },
+        {
+          "name": "setMinVelocity",
+          "line": 319,
+          "isDefault": false
+        },
+        {
+          "name": "setNumberOfEvaliations",
+          "line": 323,
+          "isDefault": false
+        },
+        {
+          "name": "setNumberOfParticles",
+          "line": 327,
+          "isDefault": false
+        },
+        {
+          "name": "setOtherParticleIncrement",
+          "line": 331,
+          "isDefault": false
+        },
+        {
+          "name": "setParticleIncrement",
+          "line": 335,
+          "isDefault": false
+        },
+        {
+          "name": "setParticles",
+          "line": 339,
+          "isDefault": false
+        },
+        {
+          "name": "setRandomIncrement",
+          "line": 343,
+          "isDefault": false
+        },
+        {
+          "name": "setSampleParticle",
+          "line": 347,
+          "isDefault": false
+        },
+        {
+          "name": "setUseRepulsiveAlgorithm",
+          "line": 351,
+          "isDefault": false
+        },
+        {
+          "name": "show",
+          "line": 365,
+          "isDefault": false
+        },
+        {
+          "name": "toString",
+          "line": 396,
+          "isDefault": false
+        },
+        {
+          "name": "toStringStats",
+          "line": 432,
+          "isDefault": false
+        },
+        {
+          "name": "update",
+          "line": 447,
+          "isDefault": false
+        },
+        {
+          "name": "Swarm",
+          "line": 12,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "Swarm",
+          "callee": "new RuntimeException",
+          "lineNumber": 69
+        },
+        {
+          "caller": "Swarm",
+          "callee": "new RuntimeException",
+          "lineNumber": 70
+        },
+        {
+          "caller": "evaluate",
+          "callee": "new RuntimeException",
+          "lineNumber": 94
+        },
+        {
+          "caller": "evaluate",
+          "callee": "new RuntimeException",
+          "lineNumber": 95
+        },
+        {
+          "caller": "evaluate",
+          "callee": "fitnessFunction.isMaximize",
+          "lineNumber": 100
+        },
+        {
+          "caller": "evaluate",
+          "callee": "fitnessFunction.evaluate",
+          "lineNumber": 106
+        },
+        {
+          "caller": "evaluate",
+          "callee": "fitnessFunction.isMaximize",
+          "lineNumber": 108
+        },
+        {
+          "caller": "evaluate",
+          "callee": "fitnessFunction.isMaximize",
+          "lineNumber": 109
+        },
+        {
+          "caller": "evaluate",
+          "callee": "sampleParticle.getDimension",
+          "lineNumber": 120
+        },
+        {
+          "caller": "evaluate",
+          "callee": "particles[bestFitNum].copyPosition",
+          "lineNumber": 122
+        },
+        {
+          "caller": "evolve",
+          "callee": "init",
+          "lineNumber": 133
+        },
+        {
+          "caller": "evolve",
+          "callee": "evaluate",
+          "lineNumber": 135
+        },
+        {
+          "caller": "evolve",
+          "callee": "update",
+          "lineNumber": 136
+        },
+        {
+          "caller": "init",
+          "callee": "new RuntimeException",
+          "lineNumber": 220
+        },
+        {
+          "caller": "init",
+          "callee": "new RuntimeException",
+          "lineNumber": 221
+        },
+        {
+          "caller": "init",
+          "callee": "sampleParticle.getDimension",
+          "lineNumber": 224
+        },
+        {
+          "caller": "init",
+          "callee": "sampleParticle.getDimension",
+          "lineNumber": 231
+        },
+        {
+          "caller": "init",
+          "callee": "sampleParticle.selfFactory",
+          "lineNumber": 239
+        },
+        {
+          "caller": "init",
+          "callee": "particles[i].init",
+          "lineNumber": 240
+        },
+        {
+          "caller": "setMaxMinVelocity",
+          "callee": "new RuntimeException",
+          "lineNumber": 273
+        },
+        {
+          "caller": "setMaxMinVelocity",
+          "callee": "sampleParticle.getDimension",
+          "lineNumber": 274
+        },
+        {
+          "caller": "setMaxPosition",
+          "callee": "new RuntimeException",
+          "lineNumber": 288
+        },
+        {
+          "caller": "setMaxPosition",
+          "callee": "sampleParticle.getDimension",
+          "lineNumber": 289
+        },
+        {
+          "caller": "setMinPosition",
+          "callee": "new RuntimeException",
+          "lineNumber": 308
+        },
+        {
+          "caller": "setMinPosition",
+          "callee": "sampleParticle.getDimension",
+          "lineNumber": 309
+        },
+        {
+          "caller": "show",
+          "callee": "graphics.setColor",
+          "lineNumber": 366
+        },
+        {
+          "caller": "show",
+          "callee": "particle.getPosition",
+          "lineNumber": 381
+        },
+        {
+          "caller": "show",
+          "callee": "particle.getVelocity",
+          "lineNumber": 382
+        },
+        {
+          "caller": "show",
+          "callee": "graphics.setColor",
+          "lineNumber": 385
+        },
+        {
+          "caller": "show",
+          "callee": "new Color",
+          "lineNumber": 385
+        },
+        {
+          "caller": "show",
+          "callee": "graphics.fillRect",
+          "lineNumber": 386
+        },
+        {
+          "caller": "show",
+          "callee": "graphics.drawLine",
+          "lineNumber": 390
+        },
+        {
+          "caller": "toString",
+          "callee": "particles[i].toString",
+          "lineNumber": 420
+        },
+        {
+          "caller": "toStringStats",
+          "callee": "Double.isNaN",
+          "lineNumber": 434
+        },
+        {
+          "caller": "update",
+          "callee": "Math.random",
+          "lineNumber": 453
+        },
+        {
+          "caller": "update",
+          "callee": "particles[i].updateRepulsive",
+          "lineNumber": 455
+        },
+        {
+          "caller": "update",
+          "callee": "particles[randOtherParticle].getPosition",
+          "lineNumber": 455
+        },
+        {
+          "caller": "update",
+          "callee": "particles[i].update",
+          "lineNumber": 457
+        },
+        {
+          "caller": "update",
+          "callee": "particles[i].applyConstraints",
+          "lineNumber": 469
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 54,
+        "functionCount": 47,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/net/pso/jswarm/Attic/example_2/Attic/Example.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 48,
+      "nonEmptyLines": 39,
+      "functions": [
+        {
+          "name": "main",
+          "startLine": 17,
+          "endLine": 46,
+          "params": [
+            "args"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Example",
+          "startLine": 15,
+          "endLine": 48,
+          "methods": [
+            "main"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "main",
+          "line": 17,
+          "isDefault": false
+        },
+        {
+          "name": "Example",
+          "line": 15,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "main",
+          "callee": "System.out.println",
+          "lineNumber": 18
+        },
+        {
+          "caller": "main",
+          "callee": "new Swarm",
+          "lineNumber": 20
+        },
+        {
+          "caller": "main",
+          "callee": "new MyParticle",
+          "lineNumber": 20
+        },
+        {
+          "caller": "main",
+          "callee": "new MyFitnessFunction",
+          "lineNumber": 20
+        },
+        {
+          "caller": "main",
+          "callee": "swarm.setInertia",
+          "lineNumber": 28
+        },
+        {
+          "caller": "main",
+          "callee": "swarm.setMaxPosition",
+          "lineNumber": 33
+        },
+        {
+          "caller": "main",
+          "callee": "swarm.setMinPosition",
+          "lineNumber": 34
+        },
+        {
+          "caller": "main",
+          "callee": "swarm.setMaxMinVelocity",
+          "lineNumber": 35
+        },
+        {
+          "caller": "main",
+          "callee": "new SwarmShow2D",
+          "lineNumber": 40
+        },
+        {
+          "caller": "main",
+          "callee": "ss2d.run",
+          "lineNumber": 41
+        },
+        {
+          "caller": "main",
+          "callee": "ss2d.getSwarm().getBestPosition",
+          "lineNumber": 44
+        },
+        {
+          "caller": "main",
+          "callee": "ss2d.getSwarm",
+          "lineNumber": 44
+        },
+        {
+          "caller": "main",
+          "callee": "System.out.println",
+          "lineNumber": 45
+        },
+        {
+          "caller": "main",
+          "callee": "ss2d.getSwarm().getBestFitness",
+          "lineNumber": 45
+        },
+        {
+          "caller": "main",
+          "callee": "ss2d.getSwarm",
+          "lineNumber": 45
+        }
+      ],
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/net/pso/jswarm/Attic/example_2/Attic/MyFitnessFunction.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 38,
+      "nonEmptyLines": 31,
+      "functions": [
+        {
+          "name": "MyFitnessFunction",
+          "startLine": 18,
+          "endLine": 20,
+          "params": []
+        },
+        {
+          "name": "evaluate",
+          "startLine": 31,
+          "endLine": 36,
+          "params": [
+            "position"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "MyFitnessFunction",
+          "startLine": 11,
+          "endLine": 38,
+          "methods": [
+            "MyFitnessFunction",
+            "evaluate"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "MyFitnessFunction",
+          "line": 18,
+          "isDefault": false
+        },
+        {
+          "name": "evaluate",
+          "line": 31,
+          "isDefault": false
+        },
+        {
+          "name": "MyFitnessFunction",
+          "line": 11,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "evaluate",
+          "callee": "Math.cos",
+          "lineNumber": 35
+        },
+        {
+          "caller": "evaluate",
+          "callee": "Math.cos",
+          "lineNumber": 35
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 3,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/net/pso/jswarm/Attic/example_2/Attic/MyParticle.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 42,
+      "nonEmptyLines": 33,
+      "functions": [
+        {
+          "name": "MyParticle",
+          "startLine": 24,
+          "endLine": 29,
+          "params": []
+        },
+        {
+          "name": "toString",
+          "startLine": 36,
+          "endLine": 40,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "MyParticle",
+          "startLine": 10,
+          "endLine": 42,
+          "methods": [
+            "MyParticle",
+            "toString"
+          ],
+          "properties": [
+            "NUMBER_OF_DIMENTIONS"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "NUMBER_OF_DIMENTIONS",
+          "line": 13,
+          "isDefault": false
+        },
+        {
+          "name": "MyParticle",
+          "line": 24,
+          "isDefault": false
+        },
+        {
+          "name": "toString",
+          "line": 36,
+          "isDefault": false
+        },
+        {
+          "name": "MyParticle",
+          "line": 10,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "MyParticle",
+          "callee": "new Random().nextInt",
+          "lineNumber": 26
+        },
+        {
+          "caller": "MyParticle",
+          "callee": "new Random",
+          "lineNumber": 26
+        },
+        {
+          "caller": "MyParticle",
+          "callee": "new Random().nextInt",
+          "lineNumber": 27
+        },
+        {
+          "caller": "MyParticle",
+          "callee": "new Random",
+          "lineNumber": 27
+        },
+        {
+          "caller": "MyParticle",
+          "callee": "new Random().nextInt",
+          "lineNumber": 28
+        },
+        {
+          "caller": "MyParticle",
+          "callee": "new Random",
+          "lineNumber": 28
+        },
+        {
+          "caller": "toString",
+          "callee": "super.toString",
+          "lineNumber": 38
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 4,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/net/pso/jswarm/Attic/example_2/Attic/SwarmShow2D.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 205,
+      "nonEmptyLines": 169,
+      "functions": [
+        {
+          "name": "SwarmShow2D",
+          "startLine": 55,
+          "endLine": 63,
+          "params": [
+            "swarm",
+            "numberOfIterations",
+            "displayRefresh",
+            "showVelocity"
+          ]
+        },
+        {
+          "name": "actionPerformed",
+          "startLine": 72,
+          "endLine": 75,
+          "params": [
+            "e"
+          ]
+        },
+        {
+          "name": "buildUserInterface",
+          "startLine": 81,
+          "endLine": 114,
+          "params": [
+            "container"
+          ]
+        },
+        {
+          "name": "clear",
+          "startLine": 116,
+          "endLine": 118,
+          "params": []
+        },
+        {
+          "name": "getDisplayRefresh",
+          "startLine": 120,
+          "endLine": 122,
+          "params": []
+        },
+        {
+          "name": "getNumberOfIterations",
+          "startLine": 124,
+          "endLine": 126,
+          "params": []
+        },
+        {
+          "name": "getPreferredSize",
+          "startLine": 128,
+          "endLine": 130,
+          "params": []
+        },
+        {
+          "name": "getShowDimention0",
+          "startLine": 132,
+          "endLine": 134,
+          "params": []
+        },
+        {
+          "name": "getShowDimention1",
+          "startLine": 136,
+          "endLine": 138,
+          "params": []
+        },
+        {
+          "name": "getSwarm",
+          "startLine": 140,
+          "endLine": 142,
+          "params": []
+        },
+        {
+          "name": "isShowVelocity",
+          "startLine": 144,
+          "endLine": 146,
+          "params": []
+        },
+        {
+          "name": "run",
+          "startLine": 149,
+          "endLine": 168,
+          "params": []
+        },
+        {
+          "name": "setDisplayRefresh",
+          "startLine": 170,
+          "endLine": 172,
+          "params": [
+            "displayRefresh"
+          ]
+        },
+        {
+          "name": "setMessage",
+          "startLine": 174,
+          "endLine": 176,
+          "params": [
+            "text"
+          ]
+        },
+        {
+          "name": "setNumberOfIterations",
+          "startLine": 178,
+          "endLine": 180,
+          "params": [
+            "numberOfIterations"
+          ]
+        },
+        {
+          "name": "setPreferredSize",
+          "startLine": 182,
+          "endLine": 184,
+          "params": [
+            "preferredSize"
+          ]
+        },
+        {
+          "name": "setShowDimention0",
+          "startLine": 186,
+          "endLine": 188,
+          "params": [
+            "showDimention0"
+          ]
+        },
+        {
+          "name": "setShowDimention1",
+          "startLine": 190,
+          "endLine": 192,
+          "params": [
+            "showDimention1"
+          ]
+        },
+        {
+          "name": "setShowVelocity",
+          "startLine": 194,
+          "endLine": 196,
+          "params": [
+            "showVelocity"
+          ]
+        },
+        {
+          "name": "setSwarm",
+          "startLine": 198,
+          "endLine": 200,
+          "params": [
+            "swarm"
+          ]
+        },
+        {
+          "name": "showSwarm",
+          "startLine": 202,
+          "endLine": 204,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "SwarmShow2D",
+          "startLine": 24,
+          "endLine": 205,
+          "methods": [
+            "SwarmShow2D",
+            "actionPerformed",
+            "buildUserInterface",
+            "clear",
+            "getDisplayRefresh",
+            "getNumberOfIterations",
+            "getPreferredSize",
+            "getShowDimention0",
+            "getShowDimention1",
+            "getSwarm",
+            "isShowVelocity",
+            "run",
+            "setDisplayRefresh",
+            "setMessage",
+            "setNumberOfIterations",
+            "setPreferredSize",
+            "setShowDimention0",
+            "setShowDimention1",
+            "setShowVelocity",
+            "setSwarm",
+            "showSwarm"
+          ],
+          "properties": [
+            "displayRefresh",
+            "drawingArea",
+            "frame",
+            "message",
+            "numberOfIterations",
+            "preferredSize",
+            "showDimention0",
+            "showDimention1",
+            "showVelocity",
+            "swarm"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "SwarmShow2D",
+          "line": 55,
+          "isDefault": false
+        },
+        {
+          "name": "actionPerformed",
+          "line": 72,
+          "isDefault": false
+        },
+        {
+          "name": "clear",
+          "line": 116,
+          "isDefault": false
+        },
+        {
+          "name": "getDisplayRefresh",
+          "line": 120,
+          "isDefault": false
+        },
+        {
+          "name": "getNumberOfIterations",
+          "line": 124,
+          "isDefault": false
+        },
+        {
+          "name": "getPreferredSize",
+          "line": 128,
+          "isDefault": false
+        },
+        {
+          "name": "getShowDimention0",
+          "line": 132,
+          "isDefault": false
+        },
+        {
+          "name": "getShowDimention1",
+          "line": 136,
+          "isDefault": false
+        },
+        {
+          "name": "getSwarm",
+          "line": 140,
+          "isDefault": false
+        },
+        {
+          "name": "isShowVelocity",
+          "line": 144,
+          "isDefault": false
+        },
+        {
+          "name": "run",
+          "line": 149,
+          "isDefault": false
+        },
+        {
+          "name": "setDisplayRefresh",
+          "line": 170,
+          "isDefault": false
+        },
+        {
+          "name": "setMessage",
+          "line": 174,
+          "isDefault": false
+        },
+        {
+          "name": "setNumberOfIterations",
+          "line": 178,
+          "isDefault": false
+        },
+        {
+          "name": "setPreferredSize",
+          "line": 182,
+          "isDefault": false
+        },
+        {
+          "name": "setShowDimention0",
+          "line": 186,
+          "isDefault": false
+        },
+        {
+          "name": "setShowDimention1",
+          "line": 190,
+          "isDefault": false
+        },
+        {
+          "name": "setShowVelocity",
+          "line": 194,
+          "isDefault": false
+        },
+        {
+          "name": "setSwarm",
+          "line": 198,
+          "isDefault": false
+        },
+        {
+          "name": "showSwarm",
+          "line": 202,
+          "isDefault": false
+        },
+        {
+          "name": "SwarmShow2D",
+          "line": 24,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "actionPerformed",
+          "callee": "Gpr.debug",
+          "lineNumber": 74
+        },
+        {
+          "caller": "actionPerformed",
+          "callee": "e.getActionCommand",
+          "lineNumber": 74
+        },
+        {
+          "caller": "buildUserInterface",
+          "callee": "new Dimension",
+          "lineNumber": 84
+        },
+        {
+          "caller": "buildUserInterface",
+          "callee": "container.setLayout",
+          "lineNumber": 86
+        },
+        {
+          "caller": "buildUserInterface",
+          "callee": "new GridBagLayout",
+          "lineNumber": 86
+        },
+        {
+          "caller": "buildUserInterface",
+          "callee": "new GridBagConstraints",
+          "lineNumber": 87
+        },
+        {
+          "caller": "buildUserInterface",
+          "callee": "new DrawingArea",
+          "lineNumber": 94
+        },
+        {
+          "caller": "buildUserInterface",
+          "callee": "container.add",
+          "lineNumber": 99
+        },
+        {
+          "caller": "buildUserInterface",
+          "callee": "new JLabel",
+          "lineNumber": 107
+        },
+        {
+          "caller": "buildUserInterface",
+          "callee": "message.setText",
+          "lineNumber": 108
+        },
+        {
+          "caller": "buildUserInterface",
+          "callee": "container.add",
+          "lineNumber": 113
+        },
+        {
+          "caller": "clear",
+          "callee": "drawingArea.clear",
+          "lineNumber": 117
+        },
+        {
+          "caller": "run",
+          "callee": "JFrame.setDefaultLookAndFeelDecorated",
+          "lineNumber": 154
+        },
+        {
+          "caller": "run",
+          "callee": "new JFrame",
+          "lineNumber": 157
+        },
+        {
+          "caller": "run",
+          "callee": "frame.setDefaultCloseOperation",
+          "lineNumber": 158
+        },
+        {
+          "caller": "run",
+          "callee": "this.buildUserInterface",
+          "lineNumber": 161
+        },
+        {
+          "caller": "run",
+          "callee": "frame.getContentPane",
+          "lineNumber": 161
+        },
+        {
+          "caller": "run",
+          "callee": "frame.pack",
+          "lineNumber": 164
+        },
+        {
+          "caller": "run",
+          "callee": "frame.setVisible",
+          "lineNumber": 165
+        },
+        {
+          "caller": "run",
+          "callee": "this.drawingArea.runSwarm",
+          "lineNumber": 167
+        },
+        {
+          "caller": "setMessage",
+          "callee": "message.setText",
+          "lineNumber": 175
+        },
+        {
+          "caller": "showSwarm",
+          "callee": "drawingArea.showSwarm",
+          "lineNumber": 203
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 21,
+        "functionCount": 21,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/net/pso/jswarm/FitnessFunction.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 78,
+      "nonEmptyLines": 66,
+      "functions": [
+        {
+          "name": "FitnessFunction",
+          "startLine": 17,
+          "endLine": 19,
+          "params": []
+        },
+        {
+          "name": "FitnessFunction",
+          "startLine": 25,
+          "endLine": 27,
+          "params": [
+            "maximize"
+          ]
+        },
+        {
+          "name": "evaluate",
+          "startLine": 40,
+          "endLine": 40,
+          "params": [
+            "position"
+          ]
+        },
+        {
+          "name": "evaluate",
+          "startLine": 47,
+          "endLine": 52,
+          "params": [
+            "particle"
+          ]
+        },
+        {
+          "name": "isBetterThan",
+          "startLine": 60,
+          "endLine": 67,
+          "params": [
+            "fitness",
+            "otherValue"
+          ]
+        },
+        {
+          "name": "isMaximize",
+          "startLine": 70,
+          "endLine": 72,
+          "params": []
+        },
+        {
+          "name": "setMaximize",
+          "startLine": 74,
+          "endLine": 76,
+          "params": [
+            "maximize"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "FitnessFunction",
+          "startLine": 7,
+          "endLine": 78,
+          "methods": [
+            "FitnessFunction",
+            "FitnessFunction",
+            "evaluate",
+            "evaluate",
+            "isBetterThan",
+            "isMaximize",
+            "setMaximize"
+          ],
+          "properties": [
+            "maximize"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "FitnessFunction",
+          "line": 17,
+          "isDefault": false
+        },
+        {
+          "name": "FitnessFunction",
+          "line": 25,
+          "isDefault": false
+        },
+        {
+          "name": "evaluate",
+          "line": 40,
+          "isDefault": false
+        },
+        {
+          "name": "evaluate",
+          "line": 47,
+          "isDefault": false
+        },
+        {
+          "name": "isBetterThan",
+          "line": 60,
+          "isDefault": false
+        },
+        {
+          "name": "isMaximize",
+          "line": 70,
+          "isDefault": false
+        },
+        {
+          "name": "setMaximize",
+          "line": 74,
+          "isDefault": false
+        },
+        {
+          "name": "FitnessFunction",
+          "line": 7,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "evaluate",
+          "callee": "particle.getPosition",
+          "lineNumber": 48
+        },
+        {
+          "caller": "evaluate",
+          "callee": "evaluate",
+          "lineNumber": 49
+        },
+        {
+          "caller": "evaluate",
+          "callee": "particle.setFitness",
+          "lineNumber": 50
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 8,
+        "functionCount": 7,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/net/pso/jswarm/Gpr.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 110,
+      "nonEmptyLines": 97,
+      "functions": [
+        {
+          "name": "debug",
+          "startLine": 19,
+          "endLine": 21,
+          "params": [
+            "b"
+          ]
+        },
+        {
+          "name": "debug",
+          "startLine": 28,
+          "endLine": 30,
+          "params": [
+            "debug",
+            "i"
+          ]
+        },
+        {
+          "name": "debug",
+          "startLine": 37,
+          "endLine": 39,
+          "params": [
+            "debug",
+            "obj"
+          ]
+        },
+        {
+          "name": "debug",
+          "startLine": 45,
+          "endLine": 47,
+          "params": [
+            "d"
+          ]
+        },
+        {
+          "name": "debug",
+          "startLine": 53,
+          "endLine": 55,
+          "params": [
+            "i"
+          ]
+        },
+        {
+          "name": "debug",
+          "startLine": 63,
+          "endLine": 65,
+          "params": [
+            "currentDebugLevel",
+            "thisMessageLevel",
+            "obj"
+          ]
+        },
+        {
+          "name": "debug",
+          "startLine": 71,
+          "endLine": 73,
+          "params": [
+            "obj"
+          ]
+        },
+        {
+          "name": "debug",
+          "startLine": 80,
+          "endLine": 82,
+          "params": [
+            "obj",
+            "offset"
+          ]
+        },
+        {
+          "name": "debug",
+          "startLine": 90,
+          "endLine": 98,
+          "params": [
+            "obj",
+            "offset",
+            "newLine"
+          ]
+        },
+        {
+          "name": "warn",
+          "startLine": 104,
+          "endLine": 109,
+          "params": [
+            "warning"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Gpr",
+          "startLine": 7,
+          "endLine": 110,
+          "methods": [
+            "debug",
+            "debug",
+            "debug",
+            "debug",
+            "debug",
+            "debug",
+            "debug",
+            "debug",
+            "debug",
+            "warn"
+          ],
+          "properties": [
+            "MAX_NUMBER_OF_WARNINGS",
+            "warnCount"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "MAX_NUMBER_OF_WARNINGS",
+          "line": 10,
+          "isDefault": false
+        },
+        {
+          "name": "warnCount",
+          "line": 13,
+          "isDefault": false
+        },
+        {
+          "name": "debug",
+          "line": 19,
+          "isDefault": false
+        },
+        {
+          "name": "debug",
+          "line": 28,
+          "isDefault": false
+        },
+        {
+          "name": "debug",
+          "line": 37,
+          "isDefault": false
+        },
+        {
+          "name": "debug",
+          "line": 45,
+          "isDefault": false
+        },
+        {
+          "name": "debug",
+          "line": 53,
+          "isDefault": false
+        },
+        {
+          "name": "debug",
+          "line": 63,
+          "isDefault": false
+        },
+        {
+          "name": "debug",
+          "line": 71,
+          "isDefault": false
+        },
+        {
+          "name": "debug",
+          "line": 80,
+          "isDefault": false
+        },
+        {
+          "name": "debug",
+          "line": 90,
+          "isDefault": false
+        },
+        {
+          "name": "warn",
+          "line": 104,
+          "isDefault": false
+        },
+        {
+          "name": "Gpr",
+          "line": 7,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "debug",
+          "callee": "debug",
+          "lineNumber": 20
+        },
+        {
+          "caller": "debug",
+          "callee": "debug",
+          "lineNumber": 29
+        },
+        {
+          "caller": "debug",
+          "callee": "debug",
+          "lineNumber": 38
+        },
+        {
+          "caller": "debug",
+          "callee": "debug",
+          "lineNumber": 46
+        },
+        {
+          "caller": "debug",
+          "callee": "Double.toString",
+          "lineNumber": 46
+        },
+        {
+          "caller": "debug",
+          "callee": "debug",
+          "lineNumber": 54
+        },
+        {
+          "caller": "debug",
+          "callee": "debug",
+          "lineNumber": 64
+        },
+        {
+          "caller": "debug",
+          "callee": "debug",
+          "lineNumber": 72
+        },
+        {
+          "caller": "debug",
+          "callee": "debug",
+          "lineNumber": 81
+        },
+        {
+          "caller": "debug",
+          "callee": "new Exception().getStackTrace",
+          "lineNumber": 91
+        },
+        {
+          "caller": "debug",
+          "callee": "new Exception",
+          "lineNumber": 91
+        },
+        {
+          "caller": "debug",
+          "callee": "ste.getClassName",
+          "lineNumber": 92
+        },
+        {
+          "caller": "debug",
+          "callee": "steStr.lastIndexOf",
+          "lineNumber": 93
+        },
+        {
+          "caller": "debug",
+          "callee": "steStr.substring",
+          "lineNumber": 94
+        },
+        {
+          "caller": "debug",
+          "callee": "ste.getMethodName",
+          "lineNumber": 95
+        },
+        {
+          "caller": "debug",
+          "callee": "ste.getLineNumber",
+          "lineNumber": 95
+        },
+        {
+          "caller": "debug",
+          "callee": "obj.toString",
+          "lineNumber": 95
+        },
+        {
+          "caller": "debug",
+          "callee": "System.err.println",
+          "lineNumber": 96
+        },
+        {
+          "caller": "debug",
+          "callee": "System.err.print",
+          "lineNumber": 97
+        },
+        {
+          "caller": "warn",
+          "callee": "Gpr.debug",
+          "lineNumber": 107
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 13,
+        "functionCount": 10,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/net/pso/jswarm/Neighborhood.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 93,
+      "nonEmptyLines": 83,
+      "functions": [
+        {
+          "name": "Neighborhood",
+          "startLine": 18,
+          "endLine": 21,
+          "params": []
+        },
+        {
+          "name": "calcNeighbours",
+          "startLine": 31,
+          "endLine": 31,
+          "params": [
+            "p"
+          ]
+        },
+        {
+          "name": "getBestParticle",
+          "startLine": 38,
+          "endLine": 40,
+          "params": [
+            "p"
+          ]
+        },
+        {
+          "name": "getBestPosition",
+          "startLine": 47,
+          "endLine": 51,
+          "params": [
+            "p"
+          ]
+        },
+        {
+          "name": "getNeighbours",
+          "startLine": 58,
+          "endLine": 62,
+          "params": [
+            "p"
+          ]
+        },
+        {
+          "name": "init",
+          "startLine": 69,
+          "endLine": 75,
+          "params": [
+            "swarm"
+          ]
+        },
+        {
+          "name": "update",
+          "startLine": 82,
+          "endLine": 92,
+          "params": [
+            "swarm",
+            "p"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Neighborhood",
+          "startLine": 11,
+          "endLine": 93,
+          "methods": [
+            "Neighborhood",
+            "calcNeighbours",
+            "getBestParticle",
+            "getBestPosition",
+            "getNeighbours",
+            "init",
+            "update"
+          ],
+          "properties": [
+            "neighborhoods",
+            "bestInNeighborhood"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Neighborhood",
+          "line": 18,
+          "isDefault": false
+        },
+        {
+          "name": "calcNeighbours",
+          "line": 31,
+          "isDefault": false
+        },
+        {
+          "name": "getBestParticle",
+          "line": 38,
+          "isDefault": false
+        },
+        {
+          "name": "getBestPosition",
+          "line": 47,
+          "isDefault": false
+        },
+        {
+          "name": "getNeighbours",
+          "line": 58,
+          "isDefault": false
+        },
+        {
+          "name": "init",
+          "line": 69,
+          "isDefault": false
+        },
+        {
+          "name": "update",
+          "line": 82,
+          "isDefault": false
+        },
+        {
+          "name": "Neighborhood",
+          "line": 11,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "Neighborhood",
+          "callee": "new HashMap<>",
+          "lineNumber": 19
+        },
+        {
+          "caller": "Neighborhood",
+          "callee": "new HashMap<>",
+          "lineNumber": 20
+        },
+        {
+          "caller": "getBestParticle",
+          "callee": "bestInNeighborhood.get",
+          "lineNumber": 39
+        },
+        {
+          "caller": "getBestPosition",
+          "callee": "getBestParticle",
+          "lineNumber": 48
+        },
+        {
+          "caller": "getBestPosition",
+          "callee": "bestp.getBestPosition",
+          "lineNumber": 50
+        },
+        {
+          "caller": "getNeighbours",
+          "callee": "neighborhoods.get",
+          "lineNumber": 59
+        },
+        {
+          "caller": "getNeighbours",
+          "callee": "calcNeighbours",
+          "lineNumber": 60
+        },
+        {
+          "caller": "init",
+          "callee": "getNeighbours",
+          "lineNumber": 72
+        },
+        {
+          "caller": "init",
+          "callee": "neighborhoods.put",
+          "lineNumber": 73
+        },
+        {
+          "caller": "update",
+          "callee": "getBestParticle",
+          "lineNumber": 84
+        },
+        {
+          "caller": "update",
+          "callee": "swarm.getFitnessFunction().isBetterThan",
+          "lineNumber": 85
+        },
+        {
+          "caller": "update",
+          "callee": "swarm.getFitnessFunction",
+          "lineNumber": 85
+        },
+        {
+          "caller": "update",
+          "callee": "pbest.getBestFitness",
+          "lineNumber": 85
+        },
+        {
+          "caller": "update",
+          "callee": "p.getBestFitness",
+          "lineNumber": 85
+        },
+        {
+          "caller": "update",
+          "callee": "getNeighbours",
+          "lineNumber": 87
+        },
+        {
+          "caller": "update",
+          "callee": "bestInNeighborhood.put",
+          "lineNumber": 89
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 8,
+        "functionCount": 7,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/net/pso/jswarm/Neighborhood1D.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 79,
+      "nonEmptyLines": 66,
+      "functions": [
+        {
+          "name": "Neighborhood1D",
+          "startLine": 22,
+          "endLine": 27,
+          "params": [
+            "size",
+            "circular"
+          ]
+        },
+        {
+          "name": "calcNeighbours",
+          "startLine": 29,
+          "endLine": 41,
+          "params": [
+            "p"
+          ]
+        },
+        {
+          "name": "findIndex",
+          "startLine": 48,
+          "endLine": 53,
+          "params": [
+            "p"
+          ]
+        },
+        {
+          "name": "getParticle",
+          "startLine": 60,
+          "endLine": 69,
+          "params": [
+            "idx"
+          ]
+        },
+        {
+          "name": "init",
+          "startLine": 71,
+          "endLine": 78,
+          "params": [
+            "swarm"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Neighborhood1D",
+          "startLine": 11,
+          "endLine": 79,
+          "methods": [
+            "Neighborhood1D",
+            "calcNeighbours",
+            "findIndex",
+            "getParticle",
+            "init"
+          ],
+          "properties": [
+            "size",
+            "circular",
+            "array1d"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Neighborhood1D",
+          "line": 22,
+          "isDefault": false
+        },
+        {
+          "name": "calcNeighbours",
+          "line": 29,
+          "isDefault": false
+        },
+        {
+          "name": "init",
+          "line": 71,
+          "isDefault": false
+        },
+        {
+          "name": "Neighborhood1D",
+          "line": 11,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "Neighborhood1D",
+          "callee": "new ArrayList<>",
+          "lineNumber": 26
+        },
+        {
+          "caller": "calcNeighbours",
+          "callee": "new ArrayList<>",
+          "lineNumber": 31
+        },
+        {
+          "caller": "calcNeighbours",
+          "callee": "findIndex",
+          "lineNumber": 32
+        },
+        {
+          "caller": "calcNeighbours",
+          "callee": "getParticle",
+          "lineNumber": 36
+        },
+        {
+          "caller": "calcNeighbours",
+          "callee": "neigh.add",
+          "lineNumber": 37
+        },
+        {
+          "caller": "findIndex",
+          "callee": "array1d.size",
+          "lineNumber": 49
+        },
+        {
+          "caller": "findIndex",
+          "callee": "array1d.get",
+          "lineNumber": 50
+        },
+        {
+          "caller": "findIndex",
+          "callee": "new RuntimeException",
+          "lineNumber": 52
+        },
+        {
+          "caller": "getParticle",
+          "callee": "array1d.size",
+          "lineNumber": 61
+        },
+        {
+          "caller": "getParticle",
+          "callee": "array1d.size",
+          "lineNumber": 62
+        },
+        {
+          "caller": "getParticle",
+          "callee": "array1d.get",
+          "lineNumber": 62
+        },
+        {
+          "caller": "getParticle",
+          "callee": "array1d.get",
+          "lineNumber": 68
+        },
+        {
+          "caller": "init",
+          "callee": "array1d.add",
+          "lineNumber": 75
+        },
+        {
+          "caller": "init",
+          "callee": "super.init",
+          "lineNumber": 77
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 4,
+        "functionCount": 5,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/net/pso/jswarm/Particle.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 331,
+      "nonEmptyLines": 286,
+      "functions": [
+        {
+          "name": "Particle",
+          "startLine": 31,
+          "endLine": 33,
+          "params": []
+        },
+        {
+          "name": "Particle",
+          "startLine": 39,
+          "endLine": 41,
+          "params": [
+            "dimention"
+          ]
+        },
+        {
+          "name": "Particle",
+          "startLine": 47,
+          "endLine": 50,
+          "params": [
+            "sampleParticle"
+          ]
+        },
+        {
+          "name": "allocate",
+          "startLine": 57,
+          "endLine": 65,
+          "params": [
+            "dimention"
+          ]
+        },
+        {
+          "name": "applyConstraints",
+          "startLine": 74,
+          "endLine": 134,
+          "params": [
+            "minPosition",
+            "maxPosition",
+            "minVelocity",
+            "maxVelocity"
+          ]
+        },
+        {
+          "name": "copyPosition",
+          "startLine": 137,
+          "endLine": 139,
+          "params": [
+            "positionCopy"
+          ]
+        },
+        {
+          "name": "copyPosition2Best",
+          "startLine": 142,
+          "endLine": 144,
+          "params": []
+        },
+        {
+          "name": "getBestFitness",
+          "startLine": 146,
+          "endLine": 148,
+          "params": []
+        },
+        {
+          "name": "getBestPosition",
+          "startLine": 150,
+          "endLine": 152,
+          "params": []
+        },
+        {
+          "name": "getDimension",
+          "startLine": 154,
+          "endLine": 156,
+          "params": []
+        },
+        {
+          "name": "getFitness",
+          "startLine": 158,
+          "endLine": 160,
+          "params": []
+        },
+        {
+          "name": "getPosition",
+          "startLine": 162,
+          "endLine": 164,
+          "params": []
+        },
+        {
+          "name": "getVelocity",
+          "startLine": 166,
+          "endLine": 168,
+          "params": []
+        },
+        {
+          "name": "init",
+          "startLine": 177,
+          "endLine": 197,
+          "params": [
+            "maxPosition",
+            "minPosition",
+            "maxVelocity",
+            "minVelocity"
+          ]
+        },
+        {
+          "name": "selfFactory",
+          "startLine": 203,
+          "endLine": 218,
+          "params": []
+        },
+        {
+          "name": "setBestFitness",
+          "startLine": 220,
+          "endLine": 222,
+          "params": [
+            "bestFitness"
+          ]
+        },
+        {
+          "name": "setBestPosition",
+          "startLine": 224,
+          "endLine": 226,
+          "params": [
+            "bestPosition"
+          ]
+        },
+        {
+          "name": "setFitness",
+          "startLine": 234,
+          "endLine": 242,
+          "params": [
+            "fitness",
+            "maximize"
+          ]
+        },
+        {
+          "name": "setPosition",
+          "startLine": 244,
+          "endLine": 246,
+          "params": [
+            "position"
+          ]
+        },
+        {
+          "name": "setVelocity",
+          "startLine": 248,
+          "endLine": 250,
+          "params": [
+            "velocity"
+          ]
+        },
+        {
+          "name": "toString",
+          "startLine": 252,
+          "endLine": 276,
+          "params": []
+        },
+        {
+          "name": "update",
+          "startLine": 285,
+          "endLine": 299,
+          "params": [
+            "inertia",
+            "particleIncrement",
+            "globalIncrement",
+            "globalBestPosition"
+          ]
+        },
+        {
+          "name": "updateRepulsive",
+          "startLine": 311,
+          "endLine": 330,
+          "params": [
+            "inertia",
+            "particleIncrement",
+            "otherParticleIncrement",
+            "randomIncrement",
+            "otherParticleBestPosition",
+            "minVelocity",
+            "maxVelocity"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Particle",
+          "startLine": 10,
+          "endLine": 331,
+          "methods": [
+            "Particle",
+            "Particle",
+            "Particle",
+            "allocate",
+            "applyConstraints",
+            "copyPosition",
+            "copyPosition2Best",
+            "getBestFitness",
+            "getBestPosition",
+            "getDimension",
+            "getFitness",
+            "getPosition",
+            "getVelocity",
+            "init",
+            "selfFactory",
+            "setBestFitness",
+            "setBestPosition",
+            "setFitness",
+            "setPosition",
+            "setVelocity",
+            "toString",
+            "update",
+            "updateRepulsive"
+          ],
+          "properties": [
+            "bestFitness",
+            "bestPosition",
+            "fitness",
+            "position",
+            "velocity",
+            "colorR",
+            "colorB",
+            "colorG"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "position",
+          "line": 19,
+          "isDefault": false
+        },
+        {
+          "name": "velocity",
+          "line": 21,
+          "isDefault": false
+        },
+        {
+          "name": "colorR",
+          "line": 22,
+          "isDefault": false
+        },
+        {
+          "name": "colorB",
+          "line": 22,
+          "isDefault": false
+        },
+        {
+          "name": "colorG",
+          "line": 22,
+          "isDefault": false
+        },
+        {
+          "name": "Particle",
+          "line": 31,
+          "isDefault": false
+        },
+        {
+          "name": "Particle",
+          "line": 39,
+          "isDefault": false
+        },
+        {
+          "name": "Particle",
+          "line": 47,
+          "isDefault": false
+        },
+        {
+          "name": "allocate",
+          "line": 57,
+          "isDefault": false
+        },
+        {
+          "name": "applyConstraints",
+          "line": 74,
+          "isDefault": false
+        },
+        {
+          "name": "copyPosition",
+          "line": 137,
+          "isDefault": false
+        },
+        {
+          "name": "copyPosition2Best",
+          "line": 142,
+          "isDefault": false
+        },
+        {
+          "name": "getBestFitness",
+          "line": 146,
+          "isDefault": false
+        },
+        {
+          "name": "getBestPosition",
+          "line": 150,
+          "isDefault": false
+        },
+        {
+          "name": "getDimension",
+          "line": 154,
+          "isDefault": false
+        },
+        {
+          "name": "getFitness",
+          "line": 158,
+          "isDefault": false
+        },
+        {
+          "name": "getPosition",
+          "line": 162,
+          "isDefault": false
+        },
+        {
+          "name": "getVelocity",
+          "line": 166,
+          "isDefault": false
+        },
+        {
+          "name": "init",
+          "line": 177,
+          "isDefault": false
+        },
+        {
+          "name": "selfFactory",
+          "line": 203,
+          "isDefault": false
+        },
+        {
+          "name": "setBestFitness",
+          "line": 220,
+          "isDefault": false
+        },
+        {
+          "name": "setBestPosition",
+          "line": 224,
+          "isDefault": false
+        },
+        {
+          "name": "setFitness",
+          "line": 234,
+          "isDefault": false
+        },
+        {
+          "name": "setPosition",
+          "line": 244,
+          "isDefault": false
+        },
+        {
+          "name": "setVelocity",
+          "line": 248,
+          "isDefault": false
+        },
+        {
+          "name": "toString",
+          "line": 252,
+          "isDefault": false
+        },
+        {
+          "name": "update",
+          "line": 285,
+          "isDefault": false
+        },
+        {
+          "name": "updateRepulsive",
+          "line": 311,
+          "isDefault": false
+        },
+        {
+          "name": "Particle",
+          "line": 10,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "Particle",
+          "callee": "new RuntimeException",
+          "lineNumber": 32
+        },
+        {
+          "caller": "Particle",
+          "callee": "allocate",
+          "lineNumber": 40
+        },
+        {
+          "caller": "Particle",
+          "callee": "sampleParticle.getDimension",
+          "lineNumber": 48
+        },
+        {
+          "caller": "Particle",
+          "callee": "allocate",
+          "lineNumber": 49
+        },
+        {
+          "caller": "applyConstraints",
+          "callee": "Double.isNaN",
+          "lineNumber": 80
+        },
+        {
+          "caller": "applyConstraints",
+          "callee": "Double.isNaN",
+          "lineNumber": 81
+        },
+        {
+          "caller": "applyConstraints",
+          "callee": "Double.isNaN",
+          "lineNumber": 82
+        },
+        {
+          "caller": "applyConstraints",
+          "callee": "Double.isNaN",
+          "lineNumber": 83
+        },
+        {
+          "caller": "applyConstraints",
+          "callee": "Double.isNaN",
+          "lineNumber": 91
+        },
+        {
+          "caller": "applyConstraints",
+          "callee": "Double.isNaN",
+          "lineNumber": 92
+        },
+        {
+          "caller": "applyConstraints",
+          "callee": "Double.isNaN",
+          "lineNumber": 100
+        },
+        {
+          "caller": "applyConstraints",
+          "callee": "Double.isNaN",
+          "lineNumber": 105
+        },
+        {
+          "caller": "applyConstraints",
+          "callee": "Double.isNaN",
+          "lineNumber": 115
+        },
+        {
+          "caller": "applyConstraints",
+          "callee": "Double.isNaN",
+          "lineNumber": 116
+        },
+        {
+          "caller": "applyConstraints",
+          "callee": "Double.isNaN",
+          "lineNumber": 124
+        },
+        {
+          "caller": "applyConstraints",
+          "callee": "Double.isNaN",
+          "lineNumber": 129
+        },
+        {
+          "caller": "copyPosition",
+          "callee": "System.arraycopy",
+          "lineNumber": 138
+        },
+        {
+          "caller": "copyPosition2Best",
+          "callee": "System.arraycopy",
+          "lineNumber": 143
+        },
+        {
+          "caller": "init",
+          "callee": "Double.isNaN",
+          "lineNumber": 179
+        },
+        {
+          "caller": "init",
+          "callee": "new RuntimeException",
+          "lineNumber": 179
+        },
+        {
+          "caller": "init",
+          "callee": "Double.isInfinite",
+          "lineNumber": 180
+        },
+        {
+          "caller": "init",
+          "callee": "new RuntimeException",
+          "lineNumber": 180
+        },
+        {
+          "caller": "init",
+          "callee": "Double.isNaN",
+          "lineNumber": 182
+        },
+        {
+          "caller": "init",
+          "callee": "new RuntimeException",
+          "lineNumber": 182
+        },
+        {
+          "caller": "init",
+          "callee": "Double.isInfinite",
+          "lineNumber": 183
+        },
+        {
+          "caller": "init",
+          "callee": "new RuntimeException",
+          "lineNumber": 183
+        },
+        {
+          "caller": "init",
+          "callee": "Double.isNaN",
+          "lineNumber": 185
+        },
+        {
+          "caller": "init",
+          "callee": "new RuntimeException",
+          "lineNumber": 185
+        },
+        {
+          "caller": "init",
+          "callee": "Double.isInfinite",
+          "lineNumber": 186
+        },
+        {
+          "caller": "init",
+          "callee": "new RuntimeException",
+          "lineNumber": 186
+        },
+        {
+          "caller": "init",
+          "callee": "Double.isNaN",
+          "lineNumber": 188
+        },
+        {
+          "caller": "init",
+          "callee": "new RuntimeException",
+          "lineNumber": 188
+        },
+        {
+          "caller": "init",
+          "callee": "Double.isInfinite",
+          "lineNumber": 189
+        },
+        {
+          "caller": "init",
+          "callee": "new RuntimeException",
+          "lineNumber": 189
+        },
+        {
+          "caller": "init",
+          "callee": "Math.random",
+          "lineNumber": 192
+        },
+        {
+          "caller": "init",
+          "callee": "Math.random",
+          "lineNumber": 193
+        },
+        {
+          "caller": "selfFactory",
+          "callee": "this.getClass",
+          "lineNumber": 204
+        },
+        {
+          "caller": "selfFactory",
+          "callee": "cl.getConstructor",
+          "lineNumber": 208
+        },
+        {
+          "caller": "selfFactory",
+          "callee": "new RuntimeException",
+          "lineNumber": 210
+        },
+        {
+          "caller": "selfFactory",
+          "callee": "cons.newInstance",
+          "lineNumber": 214
+        },
+        {
+          "caller": "selfFactory",
+          "callee": "new RuntimeException",
+          "lineNumber": 216
+        },
+        {
+          "caller": "setFitness",
+          "callee": "Double.isNaN",
+          "lineNumber": 238
+        },
+        {
+          "caller": "setFitness",
+          "callee": "copyPosition2Best",
+          "lineNumber": 239
+        },
+        {
+          "caller": "update",
+          "callee": "Math.random",
+          "lineNumber": 286
+        },
+        {
+          "caller": "update",
+          "callee": "Math.random",
+          "lineNumber": 287
+        },
+        {
+          "caller": "updateRepulsive",
+          "callee": "Math.random",
+          "lineNumber": 312
+        },
+        {
+          "caller": "updateRepulsive",
+          "callee": "Math.random",
+          "lineNumber": 313
+        },
+        {
+          "caller": "updateRepulsive",
+          "callee": "Math.random",
+          "lineNumber": 314
+        },
+        {
+          "caller": "updateRepulsive",
+          "callee": "Math.random",
+          "lineNumber": 322
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 29,
+        "functionCount": 23,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/net/pso/jswarm/Swarm.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 533,
+      "nonEmptyLines": 447,
+      "functions": [
+        {
+          "name": "Swarm",
+          "startLine": 74,
+          "endLine": 97,
+          "params": [
+            "numberOfParticles",
+            "sampleParticle",
+            "fitnessFunction"
+          ]
+        },
+        {
+          "name": "evaluate",
+          "startLine": 107,
+          "endLine": 140,
+          "params": []
+        },
+        {
+          "name": "evolve",
+          "startLine": 148,
+          "endLine": 156,
+          "params": []
+        },
+        {
+          "name": "getBestFitness",
+          "startLine": 158,
+          "endLine": 160,
+          "params": []
+        },
+        {
+          "name": "getBestParticle",
+          "startLine": 162,
+          "endLine": 164,
+          "params": []
+        },
+        {
+          "name": "getBestParticleIndex",
+          "startLine": 166,
+          "endLine": 168,
+          "params": []
+        },
+        {
+          "name": "getBestPosition",
+          "startLine": 170,
+          "endLine": 172,
+          "params": []
+        },
+        {
+          "name": "getFitnessFunction",
+          "startLine": 174,
+          "endLine": 176,
+          "params": []
+        },
+        {
+          "name": "getGlobalIncrement",
+          "startLine": 178,
+          "endLine": 180,
+          "params": []
+        },
+        {
+          "name": "getInertia",
+          "startLine": 182,
+          "endLine": 184,
+          "params": []
+        },
+        {
+          "name": "getMaxPosition",
+          "startLine": 186,
+          "endLine": 188,
+          "params": []
+        },
+        {
+          "name": "getMaxVelocity",
+          "startLine": 190,
+          "endLine": 192,
+          "params": []
+        },
+        {
+          "name": "getMinPosition",
+          "startLine": 194,
+          "endLine": 196,
+          "params": []
+        },
+        {
+          "name": "getMinVelocity",
+          "startLine": 198,
+          "endLine": 200,
+          "params": []
+        },
+        {
+          "name": "getNeighborhood",
+          "startLine": 202,
+          "endLine": 205,
+          "params": []
+        },
+        {
+          "name": "getNeighborhoodBestPosition",
+          "startLine": 215,
+          "endLine": 221,
+          "params": [
+            "particle"
+          ]
+        },
+        {
+          "name": "getNeighborhoodIncrement",
+          "startLine": 223,
+          "endLine": 225,
+          "params": []
+        },
+        {
+          "name": "getNumberOfEvaliations",
+          "startLine": 227,
+          "endLine": 229,
+          "params": []
+        },
+        {
+          "name": "getNumberOfParticles",
+          "startLine": 231,
+          "endLine": 233,
+          "params": []
+        },
+        {
+          "name": "getParticle",
+          "startLine": 235,
+          "endLine": 237,
+          "params": [
+            "i"
+          ]
+        },
+        {
+          "name": "getParticleIncrement",
+          "startLine": 239,
+          "endLine": 241,
+          "params": []
+        },
+        {
+          "name": "getParticles",
+          "startLine": 243,
+          "endLine": 245,
+          "params": []
+        },
+        {
+          "name": "getParticleUpdate",
+          "startLine": 247,
+          "endLine": 249,
+          "params": []
+        },
+        {
+          "name": "getSampleParticle",
+          "startLine": 251,
+          "endLine": 253,
+          "params": []
+        },
+        {
+          "name": "getVariablesUpdate",
+          "startLine": 255,
+          "endLine": 257,
+          "params": []
+        },
+        {
+          "name": "init",
+          "startLine": 263,
+          "endLine": 293,
+          "params": []
+        },
+        {
+          "name": "iterator",
+          "startLine": 298,
+          "endLine": 306,
+          "params": []
+        },
+        {
+          "name": "setBestParticleIndex",
+          "startLine": 308,
+          "endLine": 310,
+          "params": [
+            "bestParticle"
+          ]
+        },
+        {
+          "name": "setBestPosition",
+          "startLine": 312,
+          "endLine": 314,
+          "params": [
+            "bestPosition"
+          ]
+        },
+        {
+          "name": "setFitnessFunction",
+          "startLine": 316,
+          "endLine": 318,
+          "params": [
+            "fitnessFunction"
+          ]
+        },
+        {
+          "name": "setGlobalIncrement",
+          "startLine": 320,
+          "endLine": 322,
+          "params": [
+            "globalIncrement"
+          ]
+        },
+        {
+          "name": "setInertia",
+          "startLine": 324,
+          "endLine": 326,
+          "params": [
+            "inertia"
+          ]
+        },
+        {
+          "name": "setMaxMinVelocity",
+          "startLine": 332,
+          "endLine": 341,
+          "params": [
+            "maxVelocity"
+          ]
+        },
+        {
+          "name": "setMaxPosition",
+          "startLine": 347,
+          "endLine": 353,
+          "params": [
+            "maxPosition"
+          ]
+        },
+        {
+          "name": "setMaxPosition",
+          "startLine": 355,
+          "endLine": 357,
+          "params": [
+            "maxPosition"
+          ]
+        },
+        {
+          "name": "setMaxVelocity",
+          "startLine": 359,
+          "endLine": 361,
+          "params": [
+            "maxVelocity"
+          ]
+        },
+        {
+          "name": "setMinPosition",
+          "startLine": 367,
+          "endLine": 373,
+          "params": [
+            "minPosition"
+          ]
+        },
+        {
+          "name": "setMinPosition",
+          "startLine": 375,
+          "endLine": 377,
+          "params": [
+            "minPosition"
+          ]
+        },
+        {
+          "name": "setMinVelocity",
+          "startLine": 379,
+          "endLine": 381,
+          "params": [
+            "minVelocity"
+          ]
+        },
+        {
+          "name": "setNeighborhood",
+          "startLine": 383,
+          "endLine": 386,
+          "params": [
+            "neighborhood"
+          ]
+        },
+        {
+          "name": "setNeighborhoodIncrement",
+          "startLine": 388,
+          "endLine": 390,
+          "params": [
+            "neighborhoodIncrement"
+          ]
+        },
+        {
+          "name": "setNumberOfEvaliations",
+          "startLine": 392,
+          "endLine": 394,
+          "params": [
+            "numberOfEvaliations"
+          ]
+        },
+        {
+          "name": "setNumberOfParticles",
+          "startLine": 396,
+          "endLine": 398,
+          "params": [
+            "numberOfParticles"
+          ]
+        },
+        {
+          "name": "setParticleIncrement",
+          "startLine": 400,
+          "endLine": 402,
+          "params": [
+            "particleIncrement"
+          ]
+        },
+        {
+          "name": "setParticles",
+          "startLine": 404,
+          "endLine": 407,
+          "params": [
+            "particle"
+          ]
+        },
+        {
+          "name": "setParticleUpdate",
+          "startLine": 409,
+          "endLine": 411,
+          "params": [
+            "particleUpdate"
+          ]
+        },
+        {
+          "name": "setSampleParticle",
+          "startLine": 413,
+          "endLine": 415,
+          "params": [
+            "sampleParticle"
+          ]
+        },
+        {
+          "name": "setVariablesUpdate",
+          "startLine": 417,
+          "endLine": 419,
+          "params": [
+            "variablesUpdate"
+          ]
+        },
+        {
+          "name": "show",
+          "startLine": 431,
+          "endLine": 459,
+          "params": [
+            "graphics",
+            "foreground",
+            "width",
+            "height",
+            "dim0",
+            "dim1",
+            "showVelocity"
+          ]
+        },
+        {
+          "name": "size",
+          "startLine": 462,
+          "endLine": 464,
+          "params": []
+        },
+        {
+          "name": "toString",
+          "startLine": 467,
+          "endLine": 497,
+          "params": []
+        },
+        {
+          "name": "toStringStats",
+          "startLine": 503,
+          "endLine": 512,
+          "params": []
+        },
+        {
+          "name": "update",
+          "startLine": 518,
+          "endLine": 532,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "Swarm",
+          "startLine": 13,
+          "endLine": 533,
+          "methods": [
+            "Swarm",
+            "evaluate",
+            "evolve",
+            "getBestFitness",
+            "getBestParticle",
+            "getBestParticleIndex",
+            "getBestPosition",
+            "getFitnessFunction",
+            "getGlobalIncrement",
+            "getInertia",
+            "getMaxPosition",
+            "getMaxVelocity",
+            "getMinPosition",
+            "getMinVelocity",
+            "getNeighborhood",
+            "getNeighborhoodBestPosition",
+            "getNeighborhoodIncrement",
+            "getNumberOfEvaliations",
+            "getNumberOfParticles",
+            "getParticle",
+            "getParticleIncrement",
+            "getParticles",
+            "getParticleUpdate",
+            "getSampleParticle",
+            "getVariablesUpdate",
+            "init",
+            "iterator",
+            "setBestParticleIndex",
+            "setBestPosition",
+            "setFitnessFunction",
+            "setGlobalIncrement",
+            "setInertia",
+            "setMaxMinVelocity",
+            "setMaxPosition",
+            "setMaxPosition",
+            "setMaxVelocity",
+            "setMinPosition",
+            "setMinPosition",
+            "setMinVelocity",
+            "setNeighborhood",
+            "setNeighborhoodIncrement",
+            "setNumberOfEvaliations",
+            "setNumberOfParticles",
+            "setParticleIncrement",
+            "setParticles",
+            "setParticleUpdate",
+            "setSampleParticle",
+            "setVariablesUpdate",
+            "show",
+            "size",
+            "toString",
+            "toStringStats",
+            "update"
+          ],
+          "properties": [
+            "DEFAULT_GLOBAL_INCREMENT",
+            "DEFAULT_INERTIA",
+            "DEFAULT_NUMBER_OF_PARTICLES",
+            "DEFAULT_PARTICLE_INCREMENT",
+            "VELOCITY_GRAPH_FACTOR",
+            "bestFitness",
+            "bestParticleIndex",
+            "bestPosition",
+            "fitnessFunction",
+            "globalIncrement",
+            "inertia",
+            "maxPosition",
+            "maxVelocity",
+            "minPosition",
+            "minVelocity",
+            "numberOfEvaliations",
+            "numberOfParticles",
+            "particleIncrement",
+            "particles",
+            "particleUpdate",
+            "sampleParticle",
+            "variablesUpdate",
+            "neighborhood",
+            "neighborhoodIncrement",
+            "particlesList"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "DEFAULT_GLOBAL_INCREMENT",
+          "line": 15,
+          "isDefault": false
+        },
+        {
+          "name": "DEFAULT_INERTIA",
+          "line": 16,
+          "isDefault": false
+        },
+        {
+          "name": "DEFAULT_NUMBER_OF_PARTICLES",
+          "line": 17,
+          "isDefault": false
+        },
+        {
+          "name": "DEFAULT_PARTICLE_INCREMENT",
+          "line": 18,
+          "isDefault": false
+        },
+        {
+          "name": "VELOCITY_GRAPH_FACTOR",
+          "line": 19,
+          "isDefault": false
+        },
+        {
+          "name": "Swarm",
+          "line": 74,
+          "isDefault": false
+        },
+        {
+          "name": "evaluate",
+          "line": 107,
+          "isDefault": false
+        },
+        {
+          "name": "evolve",
+          "line": 148,
+          "isDefault": false
+        },
+        {
+          "name": "getBestFitness",
+          "line": 158,
+          "isDefault": false
+        },
+        {
+          "name": "getBestParticle",
+          "line": 162,
+          "isDefault": false
+        },
+        {
+          "name": "getBestParticleIndex",
+          "line": 166,
+          "isDefault": false
+        },
+        {
+          "name": "getBestPosition",
+          "line": 170,
+          "isDefault": false
+        },
+        {
+          "name": "getFitnessFunction",
+          "line": 174,
+          "isDefault": false
+        },
+        {
+          "name": "getGlobalIncrement",
+          "line": 178,
+          "isDefault": false
+        },
+        {
+          "name": "getInertia",
+          "line": 182,
+          "isDefault": false
+        },
+        {
+          "name": "getMaxPosition",
+          "line": 186,
+          "isDefault": false
+        },
+        {
+          "name": "getMaxVelocity",
+          "line": 190,
+          "isDefault": false
+        },
+        {
+          "name": "getMinPosition",
+          "line": 194,
+          "isDefault": false
+        },
+        {
+          "name": "getMinVelocity",
+          "line": 198,
+          "isDefault": false
+        },
+        {
+          "name": "getNeighborhood",
+          "line": 202,
+          "isDefault": false
+        },
+        {
+          "name": "getNeighborhoodBestPosition",
+          "line": 215,
+          "isDefault": false
+        },
+        {
+          "name": "getNeighborhoodIncrement",
+          "line": 223,
+          "isDefault": false
+        },
+        {
+          "name": "getNumberOfEvaliations",
+          "line": 227,
+          "isDefault": false
+        },
+        {
+          "name": "getNumberOfParticles",
+          "line": 231,
+          "isDefault": false
+        },
+        {
+          "name": "getParticle",
+          "line": 235,
+          "isDefault": false
+        },
+        {
+          "name": "getParticleIncrement",
+          "line": 239,
+          "isDefault": false
+        },
+        {
+          "name": "getParticles",
+          "line": 243,
+          "isDefault": false
+        },
+        {
+          "name": "getParticleUpdate",
+          "line": 247,
+          "isDefault": false
+        },
+        {
+          "name": "getSampleParticle",
+          "line": 251,
+          "isDefault": false
+        },
+        {
+          "name": "getVariablesUpdate",
+          "line": 255,
+          "isDefault": false
+        },
+        {
+          "name": "init",
+          "line": 263,
+          "isDefault": false
+        },
+        {
+          "name": "iterator",
+          "line": 298,
+          "isDefault": false
+        },
+        {
+          "name": "setBestParticleIndex",
+          "line": 308,
+          "isDefault": false
+        },
+        {
+          "name": "setBestPosition",
+          "line": 312,
+          "isDefault": false
+        },
+        {
+          "name": "setFitnessFunction",
+          "line": 316,
+          "isDefault": false
+        },
+        {
+          "name": "setGlobalIncrement",
+          "line": 320,
+          "isDefault": false
+        },
+        {
+          "name": "setInertia",
+          "line": 324,
+          "isDefault": false
+        },
+        {
+          "name": "setMaxMinVelocity",
+          "line": 332,
+          "isDefault": false
+        },
+        {
+          "name": "setMaxPosition",
+          "line": 347,
+          "isDefault": false
+        },
+        {
+          "name": "setMaxPosition",
+          "line": 355,
+          "isDefault": false
+        },
+        {
+          "name": "setMaxVelocity",
+          "line": 359,
+          "isDefault": false
+        },
+        {
+          "name": "setMinPosition",
+          "line": 367,
+          "isDefault": false
+        },
+        {
+          "name": "setMinPosition",
+          "line": 375,
+          "isDefault": false
+        },
+        {
+          "name": "setMinVelocity",
+          "line": 379,
+          "isDefault": false
+        },
+        {
+          "name": "setNeighborhood",
+          "line": 383,
+          "isDefault": false
+        },
+        {
+          "name": "setNeighborhoodIncrement",
+          "line": 388,
+          "isDefault": false
+        },
+        {
+          "name": "setNumberOfEvaliations",
+          "line": 392,
+          "isDefault": false
+        },
+        {
+          "name": "setNumberOfParticles",
+          "line": 396,
+          "isDefault": false
+        },
+        {
+          "name": "setParticleIncrement",
+          "line": 400,
+          "isDefault": false
+        },
+        {
+          "name": "setParticles",
+          "line": 404,
+          "isDefault": false
+        },
+        {
+          "name": "setParticleUpdate",
+          "line": 409,
+          "isDefault": false
+        },
+        {
+          "name": "setSampleParticle",
+          "line": 413,
+          "isDefault": false
+        },
+        {
+          "name": "setVariablesUpdate",
+          "line": 417,
+          "isDefault": false
+        },
+        {
+          "name": "show",
+          "line": 431,
+          "isDefault": false
+        },
+        {
+          "name": "size",
+          "line": 462,
+          "isDefault": false
+        },
+        {
+          "name": "toString",
+          "line": 467,
+          "isDefault": false
+        },
+        {
+          "name": "toStringStats",
+          "line": 503,
+          "isDefault": false
+        },
+        {
+          "name": "update",
+          "line": 518,
+          "isDefault": false
+        },
+        {
+          "name": "Swarm",
+          "line": 13,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "Swarm",
+          "callee": "new RuntimeException",
+          "lineNumber": 75
+        },
+        {
+          "caller": "Swarm",
+          "callee": "new RuntimeException",
+          "lineNumber": 76
+        },
+        {
+          "caller": "Swarm",
+          "callee": "new ParticleUpdateSimple",
+          "lineNumber": 89
+        },
+        {
+          "caller": "Swarm",
+          "callee": "new VariablesUpdate",
+          "lineNumber": 92
+        },
+        {
+          "caller": "evaluate",
+          "callee": "new RuntimeException",
+          "lineNumber": 108
+        },
+        {
+          "caller": "evaluate",
+          "callee": "new RuntimeException",
+          "lineNumber": 109
+        },
+        {
+          "caller": "evaluate",
+          "callee": "Double.isNaN",
+          "lineNumber": 112
+        },
+        {
+          "caller": "evaluate",
+          "callee": "fitnessFunction.isMaximize",
+          "lineNumber": 113
+        },
+        {
+          "caller": "evaluate",
+          "callee": "fitnessFunction.evaluate",
+          "lineNumber": 122
+        },
+        {
+          "caller": "evaluate",
+          "callee": "fitnessFunction.isBetterThan",
+          "lineNumber": 127
+        },
+        {
+          "caller": "evaluate",
+          "callee": "sampleParticle.getDimension",
+          "lineNumber": 130
+        },
+        {
+          "caller": "evaluate",
+          "callee": "particles[bestParticleIndex].copyPosition",
+          "lineNumber": 131
+        },
+        {
+          "caller": "evaluate",
+          "callee": "neighborhood.update",
+          "lineNumber": 136
+        },
+        {
+          "caller": "evolve",
+          "callee": "init",
+          "lineNumber": 150
+        },
+        {
+          "caller": "evolve",
+          "callee": "evaluate",
+          "lineNumber": 152
+        },
+        {
+          "caller": "evolve",
+          "callee": "update",
+          "lineNumber": 153
+        },
+        {
+          "caller": "evolve",
+          "callee": "variablesUpdate.update",
+          "lineNumber": 155
+        },
+        {
+          "caller": "getNeighborhoodBestPosition",
+          "callee": "particle.getPosition",
+          "lineNumber": 217
+        },
+        {
+          "caller": "getNeighborhoodBestPosition",
+          "callee": "neighborhood.getBestPosition",
+          "lineNumber": 218
+        },
+        {
+          "caller": "getNeighborhoodBestPosition",
+          "callee": "particle.getPosition",
+          "lineNumber": 219
+        },
+        {
+          "caller": "init",
+          "callee": "new RuntimeException",
+          "lineNumber": 268
+        },
+        {
+          "caller": "init",
+          "callee": "new RuntimeException",
+          "lineNumber": 269
+        },
+        {
+          "caller": "init",
+          "callee": "sampleParticle.getDimension",
+          "lineNumber": 272
+        },
+        {
+          "caller": "init",
+          "callee": "sampleParticle.getDimension",
+          "lineNumber": 279
+        },
+        {
+          "caller": "init",
+          "callee": "sampleParticle.selfFactory",
+          "lineNumber": 287
+        },
+        {
+          "caller": "init",
+          "callee": "particles[i].init",
+          "lineNumber": 288
+        },
+        {
+          "caller": "init",
+          "callee": "neighborhood.init",
+          "lineNumber": 292
+        },
+        {
+          "caller": "iterator",
+          "callee": "new ArrayList<>",
+          "lineNumber": 301
+        },
+        {
+          "caller": "iterator",
+          "callee": "particlesList.addAll",
+          "lineNumber": 302
+        },
+        {
+          "caller": "iterator",
+          "callee": "Arrays.asList",
+          "lineNumber": 302
+        },
+        {
+          "caller": "iterator",
+          "callee": "particlesList.iterator",
+          "lineNumber": 305
+        },
+        {
+          "caller": "setMaxMinVelocity",
+          "callee": "new RuntimeException",
+          "lineNumber": 333
+        },
+        {
+          "caller": "setMaxMinVelocity",
+          "callee": "sampleParticle.getDimension",
+          "lineNumber": 334
+        },
+        {
+          "caller": "setMaxPosition",
+          "callee": "new RuntimeException",
+          "lineNumber": 348
+        },
+        {
+          "caller": "setMaxPosition",
+          "callee": "sampleParticle.getDimension",
+          "lineNumber": 349
+        },
+        {
+          "caller": "setMinPosition",
+          "callee": "new RuntimeException",
+          "lineNumber": 368
+        },
+        {
+          "caller": "setMinPosition",
+          "callee": "sampleParticle.getDimension",
+          "lineNumber": 369
+        },
+        {
+          "caller": "show",
+          "callee": "graphics.setColor",
+          "lineNumber": 432
+        },
+        {
+          "caller": "show",
+          "callee": "particle.getPosition",
+          "lineNumber": 447
+        },
+        {
+          "caller": "show",
+          "callee": "particle.getVelocity",
+          "lineNumber": 448
+        },
+        {
+          "caller": "show",
+          "callee": "graphics.drawRect",
+          "lineNumber": 451
+        },
+        {
+          "caller": "show",
+          "callee": "graphics.drawLine",
+          "lineNumber": 455
+        },
+        {
+          "caller": "toString",
+          "callee": "particles[i].toString",
+          "lineNumber": 491
+        },
+        {
+          "caller": "toStringStats",
+          "callee": "Double.isNaN",
+          "lineNumber": 505
+        },
+        {
+          "caller": "update",
+          "callee": "particleUpdate.begin",
+          "lineNumber": 520
+        },
+        {
+          "caller": "update",
+          "callee": "particleUpdate.update",
+          "lineNumber": 525
+        },
+        {
+          "caller": "update",
+          "callee": "particle.applyConstraints",
+          "lineNumber": 527
+        },
+        {
+          "caller": "update",
+          "callee": "particleUpdate.end",
+          "lineNumber": 531
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 59,
+        "functionCount": 53,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/net/pso/jswarm/alpine/Example.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 44,
+      "nonEmptyLines": 35,
+      "functions": [
+        {
+          "name": "main",
+          "startLine": 19,
+          "endLine": 42,
+          "params": [
+            "args"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Example",
+          "startLine": 14,
+          "endLine": 44,
+          "methods": [
+            "main"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "main",
+          "line": 19,
+          "isDefault": false
+        },
+        {
+          "name": "Example",
+          "line": 14,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "main",
+          "callee": "System.out.println",
+          "lineNumber": 20
+        },
+        {
+          "caller": "main",
+          "callee": "new Swarm",
+          "lineNumber": 23
+        },
+        {
+          "caller": "main",
+          "callee": "new MyParticle",
+          "lineNumber": 23
+        },
+        {
+          "caller": "main",
+          "callee": "new MyFitnessFunction",
+          "lineNumber": 23
+        },
+        {
+          "caller": "main",
+          "callee": "swarm.setInertia",
+          "lineNumber": 26
+        },
+        {
+          "caller": "main",
+          "callee": "swarm.setMaxPosition",
+          "lineNumber": 27
+        },
+        {
+          "caller": "main",
+          "callee": "swarm.setMinPosition",
+          "lineNumber": 28
+        },
+        {
+          "caller": "main",
+          "callee": "swarm.setMaxMinVelocity",
+          "lineNumber": 29
+        },
+        {
+          "caller": "main",
+          "callee": "swarm.evolve",
+          "lineNumber": 35
+        },
+        {
+          "caller": "main",
+          "callee": "System.out.println",
+          "lineNumber": 38
+        },
+        {
+          "caller": "main",
+          "callee": "swarm.toStringStats",
+          "lineNumber": 38
+        },
+        {
+          "caller": "main",
+          "callee": "System.out.println",
+          "lineNumber": 39
+        },
+        {
+          "caller": "main",
+          "callee": "swarm.getBestParticleIndex",
+          "lineNumber": 39
+        },
+        {
+          "caller": "main",
+          "callee": "System.out.println",
+          "lineNumber": 40
+        },
+        {
+          "caller": "main",
+          "callee": "swarm.getParticle(swarm.getBestParticleIndex()).toString",
+          "lineNumber": 40
+        },
+        {
+          "caller": "main",
+          "callee": "swarm.getParticle",
+          "lineNumber": 40
+        },
+        {
+          "caller": "main",
+          "callee": "swarm.getBestParticleIndex",
+          "lineNumber": 40
+        },
+        {
+          "caller": "main",
+          "callee": "System.out.println",
+          "lineNumber": 41
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/net/pso/jswarm/alpine/MyFitnessFunction.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 30,
+      "nonEmptyLines": 25,
+      "functions": [
+        {
+          "name": "evaluate",
+          "startLine": 23,
+          "endLine": 28,
+          "params": [
+            "position"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "MyFitnessFunction",
+          "startLine": 12,
+          "endLine": 30,
+          "methods": [
+            "evaluate"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "evaluate",
+          "line": 23,
+          "isDefault": false
+        },
+        {
+          "name": "MyFitnessFunction",
+          "line": 12,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "evaluate",
+          "callee": "Math.sin",
+          "lineNumber": 27
+        },
+        {
+          "caller": "evaluate",
+          "callee": "Math.sin",
+          "lineNumber": 27
+        },
+        {
+          "caller": "evaluate",
+          "callee": "Math.sqrt",
+          "lineNumber": 27
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/net/pso/jswarm/alpine/MyParticle.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 16,
+      "nonEmptyLines": 12,
+      "functions": [
+        {
+          "name": "MyParticle",
+          "startLine": 12,
+          "endLine": 14,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "MyParticle",
+          "startLine": 9,
+          "endLine": 16,
+          "methods": [
+            "MyParticle"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "MyParticle",
+          "line": 12,
+          "isDefault": false
+        },
+        {
+          "name": "MyParticle",
+          "line": 9,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/net/pso/jswarm/example_2/Example.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 51,
+      "nonEmptyLines": 41,
+      "functions": [
+        {
+          "name": "main",
+          "startLine": 19,
+          "endLine": 49,
+          "params": [
+            "args"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Example",
+          "startLine": 17,
+          "endLine": 51,
+          "methods": [
+            "main"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "main",
+          "line": 19,
+          "isDefault": false
+        },
+        {
+          "name": "Example",
+          "line": 17,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "main",
+          "callee": "System.out.println",
+          "lineNumber": 20
+        },
+        {
+          "caller": "main",
+          "callee": "new Swarm",
+          "lineNumber": 23
+        },
+        {
+          "caller": "main",
+          "callee": "new MyParticle",
+          "lineNumber": 23
+        },
+        {
+          "caller": "main",
+          "callee": "new MyFitnessFunction",
+          "lineNumber": 23
+        },
+        {
+          "caller": "main",
+          "callee": "new Neighborhood1D",
+          "lineNumber": 26
+        },
+        {
+          "caller": "main",
+          "callee": "swarm.setNeighborhood",
+          "lineNumber": 27
+        },
+        {
+          "caller": "main",
+          "callee": "swarm.setNeighborhoodIncrement",
+          "lineNumber": 28
+        },
+        {
+          "caller": "main",
+          "callee": "swarm.setInertia",
+          "lineNumber": 31
+        },
+        {
+          "caller": "main",
+          "callee": "swarm.setParticleIncrement",
+          "lineNumber": 32
+        },
+        {
+          "caller": "main",
+          "callee": "swarm.setGlobalIncrement",
+          "lineNumber": 33
+        },
+        {
+          "caller": "main",
+          "callee": "swarm.setMaxPosition",
+          "lineNumber": 36
+        },
+        {
+          "caller": "main",
+          "callee": "swarm.setMinPosition",
+          "lineNumber": 37
+        },
+        {
+          "caller": "main",
+          "callee": "swarm.setMaxMinVelocity",
+          "lineNumber": 38
+        },
+        {
+          "caller": "main",
+          "callee": "new SwarmShow2D",
+          "lineNumber": 43
+        },
+        {
+          "caller": "main",
+          "callee": "ss2d.run",
+          "lineNumber": 44
+        },
+        {
+          "caller": "main",
+          "callee": "ss2d.getSwarm().getBestPosition",
+          "lineNumber": 47
+        },
+        {
+          "caller": "main",
+          "callee": "ss2d.getSwarm",
+          "lineNumber": 47
+        },
+        {
+          "caller": "main",
+          "callee": "System.out.println",
+          "lineNumber": 48
+        },
+        {
+          "caller": "main",
+          "callee": "ss2d.getSwarm().getBestFitness",
+          "lineNumber": 48
+        },
+        {
+          "caller": "main",
+          "callee": "ss2d.getSwarm",
+          "lineNumber": 48
+        }
+      ],
+      "metrics": {
+        "importCount": 5,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/net/pso/jswarm/example_2/SwarmShow2D.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 207,
+      "nonEmptyLines": 169,
+      "functions": [
+        {
+          "name": "SwarmShow2D",
+          "startLine": 57,
+          "endLine": 65,
+          "params": [
+            "swarm",
+            "numberOfIterations",
+            "displayRefresh",
+            "showVelocity"
+          ]
+        },
+        {
+          "name": "actionPerformed",
+          "startLine": 74,
+          "endLine": 77,
+          "params": [
+            "e"
+          ]
+        },
+        {
+          "name": "buildUserInterface",
+          "startLine": 83,
+          "endLine": 116,
+          "params": [
+            "container"
+          ]
+        },
+        {
+          "name": "clear",
+          "startLine": 118,
+          "endLine": 120,
+          "params": []
+        },
+        {
+          "name": "getDisplayRefresh",
+          "startLine": 122,
+          "endLine": 124,
+          "params": []
+        },
+        {
+          "name": "getNumberOfIterations",
+          "startLine": 126,
+          "endLine": 128,
+          "params": []
+        },
+        {
+          "name": "getPreferredSize",
+          "startLine": 130,
+          "endLine": 132,
+          "params": []
+        },
+        {
+          "name": "getShowDimention0",
+          "startLine": 134,
+          "endLine": 136,
+          "params": []
+        },
+        {
+          "name": "getShowDimention1",
+          "startLine": 138,
+          "endLine": 140,
+          "params": []
+        },
+        {
+          "name": "getSwarm",
+          "startLine": 142,
+          "endLine": 144,
+          "params": []
+        },
+        {
+          "name": "isShowVelocity",
+          "startLine": 146,
+          "endLine": 148,
+          "params": []
+        },
+        {
+          "name": "run",
+          "startLine": 151,
+          "endLine": 170,
+          "params": []
+        },
+        {
+          "name": "setDisplayRefresh",
+          "startLine": 172,
+          "endLine": 174,
+          "params": [
+            "displayRefresh"
+          ]
+        },
+        {
+          "name": "setMessage",
+          "startLine": 176,
+          "endLine": 178,
+          "params": [
+            "text"
+          ]
+        },
+        {
+          "name": "setNumberOfIterations",
+          "startLine": 180,
+          "endLine": 182,
+          "params": [
+            "numberOfIterations"
+          ]
+        },
+        {
+          "name": "setPreferredSize",
+          "startLine": 184,
+          "endLine": 186,
+          "params": [
+            "preferredSize"
+          ]
+        },
+        {
+          "name": "setShowDimention0",
+          "startLine": 188,
+          "endLine": 190,
+          "params": [
+            "showDimention0"
+          ]
+        },
+        {
+          "name": "setShowDimention1",
+          "startLine": 192,
+          "endLine": 194,
+          "params": [
+            "showDimention1"
+          ]
+        },
+        {
+          "name": "setShowVelocity",
+          "startLine": 196,
+          "endLine": 198,
+          "params": [
+            "showVelocity"
+          ]
+        },
+        {
+          "name": "setSwarm",
+          "startLine": 200,
+          "endLine": 202,
+          "params": [
+            "swarm"
+          ]
+        },
+        {
+          "name": "showSwarm",
+          "startLine": 204,
+          "endLine": 206,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "SwarmShow2D",
+          "startLine": 25,
+          "endLine": 207,
+          "methods": [
+            "SwarmShow2D",
+            "actionPerformed",
+            "buildUserInterface",
+            "clear",
+            "getDisplayRefresh",
+            "getNumberOfIterations",
+            "getPreferredSize",
+            "getShowDimention0",
+            "getShowDimention1",
+            "getSwarm",
+            "isShowVelocity",
+            "run",
+            "setDisplayRefresh",
+            "setMessage",
+            "setNumberOfIterations",
+            "setPreferredSize",
+            "setShowDimention0",
+            "setShowDimention1",
+            "setShowVelocity",
+            "setSwarm",
+            "showSwarm"
+          ],
+          "properties": [
+            "displayRefresh",
+            "drawingArea",
+            "frame",
+            "message",
+            "numberOfIterations",
+            "preferredSize",
+            "showDimention0",
+            "showDimention1",
+            "showVelocity",
+            "swarm"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "SwarmShow2D",
+          "line": 57,
+          "isDefault": false
+        },
+        {
+          "name": "actionPerformed",
+          "line": 74,
+          "isDefault": false
+        },
+        {
+          "name": "clear",
+          "line": 118,
+          "isDefault": false
+        },
+        {
+          "name": "getDisplayRefresh",
+          "line": 122,
+          "isDefault": false
+        },
+        {
+          "name": "getNumberOfIterations",
+          "line": 126,
+          "isDefault": false
+        },
+        {
+          "name": "getPreferredSize",
+          "line": 130,
+          "isDefault": false
+        },
+        {
+          "name": "getShowDimention0",
+          "line": 134,
+          "isDefault": false
+        },
+        {
+          "name": "getShowDimention1",
+          "line": 138,
+          "isDefault": false
+        },
+        {
+          "name": "getSwarm",
+          "line": 142,
+          "isDefault": false
+        },
+        {
+          "name": "isShowVelocity",
+          "line": 146,
+          "isDefault": false
+        },
+        {
+          "name": "run",
+          "line": 151,
+          "isDefault": false
+        },
+        {
+          "name": "setDisplayRefresh",
+          "line": 172,
+          "isDefault": false
+        },
+        {
+          "name": "setMessage",
+          "line": 176,
+          "isDefault": false
+        },
+        {
+          "name": "setNumberOfIterations",
+          "line": 180,
+          "isDefault": false
+        },
+        {
+          "name": "setPreferredSize",
+          "line": 184,
+          "isDefault": false
+        },
+        {
+          "name": "setShowDimention0",
+          "line": 188,
+          "isDefault": false
+        },
+        {
+          "name": "setShowDimention1",
+          "line": 192,
+          "isDefault": false
+        },
+        {
+          "name": "setShowVelocity",
+          "line": 196,
+          "isDefault": false
+        },
+        {
+          "name": "setSwarm",
+          "line": 200,
+          "isDefault": false
+        },
+        {
+          "name": "showSwarm",
+          "line": 204,
+          "isDefault": false
+        },
+        {
+          "name": "SwarmShow2D",
+          "line": 25,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "actionPerformed",
+          "callee": "Gpr.debug",
+          "lineNumber": 76
+        },
+        {
+          "caller": "actionPerformed",
+          "callee": "e.getActionCommand",
+          "lineNumber": 76
+        },
+        {
+          "caller": "buildUserInterface",
+          "callee": "new Dimension",
+          "lineNumber": 86
+        },
+        {
+          "caller": "buildUserInterface",
+          "callee": "container.setLayout",
+          "lineNumber": 88
+        },
+        {
+          "caller": "buildUserInterface",
+          "callee": "new GridBagLayout",
+          "lineNumber": 88
+        },
+        {
+          "caller": "buildUserInterface",
+          "callee": "new GridBagConstraints",
+          "lineNumber": 89
+        },
+        {
+          "caller": "buildUserInterface",
+          "callee": "new DrawingArea",
+          "lineNumber": 96
+        },
+        {
+          "caller": "buildUserInterface",
+          "callee": "container.add",
+          "lineNumber": 101
+        },
+        {
+          "caller": "buildUserInterface",
+          "callee": "new JLabel",
+          "lineNumber": 109
+        },
+        {
+          "caller": "buildUserInterface",
+          "callee": "message.setText",
+          "lineNumber": 110
+        },
+        {
+          "caller": "buildUserInterface",
+          "callee": "container.add",
+          "lineNumber": 115
+        },
+        {
+          "caller": "clear",
+          "callee": "drawingArea.clear",
+          "lineNumber": 119
+        },
+        {
+          "caller": "run",
+          "callee": "JFrame.setDefaultLookAndFeelDecorated",
+          "lineNumber": 156
+        },
+        {
+          "caller": "run",
+          "callee": "new JFrame",
+          "lineNumber": 159
+        },
+        {
+          "caller": "run",
+          "callee": "frame.setDefaultCloseOperation",
+          "lineNumber": 160
+        },
+        {
+          "caller": "run",
+          "callee": "this.buildUserInterface",
+          "lineNumber": 163
+        },
+        {
+          "caller": "run",
+          "callee": "frame.getContentPane",
+          "lineNumber": 163
+        },
+        {
+          "caller": "run",
+          "callee": "frame.pack",
+          "lineNumber": 166
+        },
+        {
+          "caller": "run",
+          "callee": "frame.setVisible",
+          "lineNumber": 167
+        },
+        {
+          "caller": "run",
+          "callee": "this.drawingArea.runSwarm",
+          "lineNumber": 169
+        },
+        {
+          "caller": "setMessage",
+          "callee": "message.setText",
+          "lineNumber": 177
+        },
+        {
+          "caller": "showSwarm",
+          "callee": "drawingArea.showSwarm",
+          "lineNumber": 205
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 21,
+        "functionCount": 21,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/net/pso/jswarm/rosenbrock/MyFitnessFunction.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 37,
+      "nonEmptyLines": 31,
+      "functions": [
+        {
+          "name": "MyFitnessFunction",
+          "startLine": 17,
+          "endLine": 19,
+          "params": []
+        },
+        {
+          "name": "evaluate",
+          "startLine": 30,
+          "endLine": 35,
+          "params": [
+            "position"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "MyFitnessFunction",
+          "startLine": 14,
+          "endLine": 37,
+          "methods": [
+            "MyFitnessFunction",
+            "evaluate"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "MyFitnessFunction",
+          "line": 17,
+          "isDefault": false
+        },
+        {
+          "name": "evaluate",
+          "line": 30,
+          "isDefault": false
+        },
+        {
+          "name": "MyFitnessFunction",
+          "line": 14,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "evaluate",
+          "callee": "Math.pow",
+          "lineNumber": 34
+        },
+        {
+          "caller": "evaluate",
+          "callee": "Math.pow",
+          "lineNumber": 34
+        },
+        {
+          "caller": "evaluate",
+          "callee": "Math.pow",
+          "lineNumber": 34
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 3,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/net/pso/jswarm/schaffer/MyFitnessFunction.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 36,
+      "nonEmptyLines": 30,
+      "functions": [
+        {
+          "name": "MyFitnessFunction",
+          "startLine": 15,
+          "endLine": 17,
+          "params": []
+        },
+        {
+          "name": "evaluate",
+          "startLine": 28,
+          "endLine": 35,
+          "params": [
+            "position"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "MyFitnessFunction",
+          "startLine": 12,
+          "endLine": 36,
+          "methods": [
+            "MyFitnessFunction",
+            "evaluate"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "MyFitnessFunction",
+          "line": 15,
+          "isDefault": false
+        },
+        {
+          "name": "evaluate",
+          "line": 28,
+          "isDefault": false
+        },
+        {
+          "name": "MyFitnessFunction",
+          "line": 12,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "evaluate",
+          "callee": "Math.pow",
+          "lineNumber": 34
+        },
+        {
+          "caller": "evaluate",
+          "callee": "Math.sin",
+          "lineNumber": 34
+        },
+        {
+          "caller": "evaluate",
+          "callee": "Math.sqrt",
+          "lineNumber": 34
+        },
+        {
+          "caller": "evaluate",
+          "callee": "Math.pow",
+          "lineNumber": 34
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 3,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/net/pso/jswarm/sphere/MyFitnessFunction.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 36,
+      "nonEmptyLines": 30,
+      "functions": [
+        {
+          "name": "MyFitnessFunction",
+          "startLine": 15,
+          "endLine": 17,
+          "params": []
+        },
+        {
+          "name": "evaluate",
+          "startLine": 28,
+          "endLine": 34,
+          "params": [
+            "position"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "MyFitnessFunction",
+          "startLine": 12,
+          "endLine": 36,
+          "methods": [
+            "MyFitnessFunction",
+            "evaluate"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "MyFitnessFunction",
+          "line": 15,
+          "isDefault": false
+        },
+        {
+          "name": "evaluate",
+          "line": 28,
+          "isDefault": false
+        },
+        {
+          "name": "MyFitnessFunction",
+          "line": 12,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 3,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/net/pso/jswarm/zzz/MyFitnessFunction.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 26,
+      "nonEmptyLines": 20,
+      "functions": [
+        {
+          "name": "evaluate",
+          "startLine": 13,
+          "endLine": 25,
+          "params": [
+            "position"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "MyFitnessFunction",
+          "startLine": 9,
+          "endLine": 26,
+          "methods": [
+            "evaluate"
+          ],
+          "properties": [
+            "penaltyFactor"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "penaltyFactor",
+          "line": 11,
+          "isDefault": false
+        },
+        {
+          "name": "evaluate",
+          "line": 13,
+          "isDefault": false
+        },
+        {
+          "name": "MyFitnessFunction",
+          "line": 9,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 3,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    }
+  ]
+}

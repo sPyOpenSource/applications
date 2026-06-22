@@ -1,0 +1,1343 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/cr0s/javara/render/map/MinimapRenderer.java",
+      "type": "file",
+      "name": "MinimapRenderer.java",
+      "filePath": "src/cr0s/javara/render/map/MinimapRenderer.java",
+      "summary": "Minimap renderer drawing scaled entity positions and terrain overview.",
+      "tags": [
+        "java",
+        "game",
+        "rendering"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/cr0s/javara/render/map/MinimapRenderer.java:MinimapRenderer",
+      "type": "class",
+      "name": "MinimapRenderer",
+      "filePath": "src/cr0s/javara/render/map/MinimapRenderer.java",
+      "lineRange": [
+        13,
+        109
+      ],
+      "summary": "Minimap overlay rendering entities and terrain scaled down.",
+      "tags": [
+        "java",
+        "game",
+        "minimaprenderer"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/map/MinimapRenderer.java:MinimapRenderer",
+      "type": "function",
+      "name": "MinimapRenderer",
+      "filePath": "src/cr0s/javara/render/map/MinimapRenderer.java",
+      "lineRange": [
+        23,
+        38
+      ],
+      "summary": "MinimapRenderer method (16 lines) in MinimapRenderer.java.",
+      "tags": [
+        "java",
+        "minimaprenderer"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/map/MinimapRenderer.java:renderMinimap",
+      "type": "function",
+      "name": "renderMinimap",
+      "filePath": "src/cr0s/javara/render/map/MinimapRenderer.java",
+      "lineRange": [
+        40,
+        45
+      ],
+      "summary": "renderMinimap method (6 lines) in MinimapRenderer.java.",
+      "tags": [
+        "java",
+        "renderminimap"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/map/MinimapRenderer.java:getMapCellColor",
+      "type": "function",
+      "name": "getMapCellColor",
+      "filePath": "src/cr0s/javara/render/map/MinimapRenderer.java",
+      "lineRange": [
+        47,
+        60
+      ],
+      "summary": "getMapCellColor method (14 lines) in MinimapRenderer.java.",
+      "tags": [
+        "java",
+        "getmapcellcolor"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/map/MinimapRenderer.java:update",
+      "type": "function",
+      "name": "update",
+      "filePath": "src/cr0s/javara/render/map/MinimapRenderer.java",
+      "lineRange": [
+        62,
+        107
+      ],
+      "summary": "update method (46 lines) in MinimapRenderer.java.",
+      "tags": [
+        "java",
+        "update"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/cr0s/javara/render/map/ResourcesLayer.java",
+      "type": "file",
+      "name": "ResourcesLayer.java",
+      "filePath": "src/cr0s/javara/render/map/ResourcesLayer.java",
+      "summary": "Map resource layer managing ore/gem resource cells with density-based rendering.",
+      "tags": [
+        "java",
+        "game",
+        "rendering"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/cr0s/javara/render/map/ResourcesLayer.java:ResourcesLayer",
+      "type": "class",
+      "name": "ResourcesLayer",
+      "filePath": "src/cr0s/javara/render/map/ResourcesLayer.java",
+      "lineRange": [
+        8,
+        168
+      ],
+      "summary": "Map layer managing ore and gem resource distribution and density.",
+      "tags": [
+        "java",
+        "game",
+        "resourceslayer"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/map/ResourcesLayer.java:ResourcesLayer",
+      "type": "function",
+      "name": "ResourcesLayer",
+      "filePath": "src/cr0s/javara/render/map/ResourcesLayer.java",
+      "lineRange": [
+        12,
+        15
+      ],
+      "summary": "ResourcesLayer method (4 lines) in ResourcesLayer.java.",
+      "tags": [
+        "java",
+        "resourceslayer"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/map/ResourcesLayer.java:getAdjacentCellsWith",
+      "type": "function",
+      "name": "getAdjacentCellsWith",
+      "filePath": "src/cr0s/javara/render/map/ResourcesLayer.java",
+      "lineRange": [
+        17,
+        29
+      ],
+      "summary": "getAdjacentCellsWith method (13 lines) in ResourcesLayer.java.",
+      "tags": [
+        "java",
+        "getadjacentcellswith"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/map/ResourcesLayer.java:setInitialDensity",
+      "type": "function",
+      "name": "setInitialDensity",
+      "filePath": "src/cr0s/javara/render/map/ResourcesLayer.java",
+      "lineRange": [
+        31,
+        44
+      ],
+      "summary": "setInitialDensity method (14 lines) in ResourcesLayer.java.",
+      "tags": [
+        "java",
+        "setinitialdensity"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/map/ResourcesLayer.java:lerp",
+      "type": "function",
+      "name": "lerp",
+      "filePath": "src/cr0s/javara/render/map/ResourcesLayer.java",
+      "lineRange": [
+        46,
+        49
+      ],
+      "summary": "lerp method (4 lines) in ResourcesLayer.java.",
+      "tags": [
+        "java",
+        "lerp"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/map/ResourcesLayer.java:renderAll",
+      "type": "function",
+      "name": "renderAll",
+      "filePath": "src/cr0s/javara/render/map/ResourcesLayer.java",
+      "lineRange": [
+        81,
+        115
+      ],
+      "summary": "renderAll method (35 lines) in ResourcesLayer.java.",
+      "tags": [
+        "java",
+        "renderall"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/map/ResourcesLayer.java:renderCell",
+      "type": "function",
+      "name": "renderCell",
+      "filePath": "src/cr0s/javara/render/map/ResourcesLayer.java",
+      "lineRange": [
+        117,
+        130
+      ],
+      "summary": "renderCell method (14 lines) in ResourcesLayer.java.",
+      "tags": [
+        "java",
+        "rendercell"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/map/ResourcesLayer.java:harvestCell",
+      "type": "function",
+      "name": "harvestCell",
+      "filePath": "src/cr0s/javara/render/map/ResourcesLayer.java",
+      "lineRange": [
+        136,
+        152
+      ],
+      "summary": "harvestCell method (17 lines) in ResourcesLayer.java.",
+      "tags": [
+        "java",
+        "harvestcell"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/map/ResourcesLayer.java:destroy",
+      "type": "function",
+      "name": "destroy",
+      "filePath": "src/cr0s/javara/render/map/ResourcesLayer.java",
+      "lineRange": [
+        162,
+        167
+      ],
+      "summary": "destroy method (6 lines) in ResourcesLayer.java.",
+      "tags": [
+        "java",
+        "destroy"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/render/map/SmudgeLayer.java",
+      "type": "file",
+      "name": "SmudgeLayer.java",
+      "filePath": "src/cr0s/javara/render/map/SmudgeLayer.java",
+      "summary": "Map smudge layer for rendering crater and scorch marks on terrain.",
+      "tags": [
+        "java",
+        "game",
+        "rendering"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/cr0s/javara/render/map/SmudgeLayer.java:SmudgeLayer",
+      "type": "class",
+      "name": "SmudgeLayer",
+      "filePath": "src/cr0s/javara/render/map/SmudgeLayer.java",
+      "lineRange": [
+        10,
+        109
+      ],
+      "summary": "Map layer for crater and scorch decals on terrain.",
+      "tags": [
+        "java",
+        "game",
+        "smudgelayer"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/map/SmudgeLayer.java:render",
+      "type": "function",
+      "name": "render",
+      "filePath": "src/cr0s/javara/render/map/SmudgeLayer.java",
+      "lineRange": [
+        39,
+        42
+      ],
+      "summary": "render method (4 lines) in SmudgeLayer.java.",
+      "tags": [
+        "java",
+        "render"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/map/SmudgeLayer.java:renderLayer",
+      "type": "function",
+      "name": "renderLayer",
+      "filePath": "src/cr0s/javara/render/map/SmudgeLayer.java",
+      "lineRange": [
+        44,
+        80
+      ],
+      "summary": "renderLayer method (37 lines) in SmudgeLayer.java.",
+      "tags": [
+        "java",
+        "renderlayer"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/map/SmudgeLayer.java:addSmudge",
+      "type": "function",
+      "name": "addSmudge",
+      "filePath": "src/cr0s/javara/render/map/SmudgeLayer.java",
+      "lineRange": [
+        82,
+        108
+      ],
+      "summary": "addSmudge method (27 lines) in SmudgeLayer.java.",
+      "tags": [
+        "java",
+        "addsmudge"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/render/map/TheaterCache.java",
+      "type": "file",
+      "name": "TheaterCache.java",
+      "filePath": "src/cr0s/javara/render/map/TheaterCache.java",
+      "summary": "Theater texture cache managing sprite sheet generation and tile texture lookups per tileset.",
+      "tags": [
+        "java",
+        "game",
+        "rendering"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:src/cr0s/javara/render/map/TheaterCache.java:TheaterCache",
+      "type": "class",
+      "name": "TheaterCache",
+      "filePath": "src/cr0s/javara/render/map/TheaterCache.java",
+      "lineRange": [
+        21,
+        302
+      ],
+      "summary": "Texture atlas generator and tile coordinate cache per tileset.",
+      "tags": [
+        "java",
+        "game",
+        "theatercache"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/map/TheaterCache.java:TheaterCache",
+      "type": "function",
+      "name": "TheaterCache",
+      "filePath": "src/cr0s/javara/render/map/TheaterCache.java",
+      "lineRange": [
+        45,
+        67
+      ],
+      "summary": "TheaterCache method (23 lines) in TheaterCache.java.",
+      "tags": [
+        "java",
+        "theatercache"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/map/TheaterCache.java:generateSpriteSheet",
+      "type": "function",
+      "name": "generateSpriteSheet",
+      "filePath": "src/cr0s/javara/render/map/TheaterCache.java",
+      "lineRange": [
+        69,
+        122
+      ],
+      "summary": "generateSpriteSheet method (54 lines) in TheaterCache.java.",
+      "tags": [
+        "java",
+        "generatespritesheet"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/map/TheaterCache.java:putTextureInSheet",
+      "type": "function",
+      "name": "putTextureInSheet",
+      "filePath": "src/cr0s/javara/render/map/TheaterCache.java",
+      "lineRange": [
+        124,
+        197
+      ],
+      "summary": "putTextureInSheet method (74 lines) in TheaterCache.java.",
+      "tags": [
+        "java",
+        "puttextureinsheet"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/map/TheaterCache.java:putShpTextureInSheetDissected",
+      "type": "function",
+      "name": "putShpTextureInSheetDissected",
+      "filePath": "src/cr0s/javara/render/map/TheaterCache.java",
+      "lineRange": [
+        236,
+        271
+      ],
+      "summary": "putShpTextureInSheetDissected method (36 lines) in TheaterCache.java.",
+      "tags": [
+        "java",
+        "putshptextureinsheetdissected"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/map/TheaterCache.java:getTileTextureSheetCoord",
+      "type": "function",
+      "name": "getTileTextureSheetCoord",
+      "filePath": "src/cr0s/javara/render/map/TheaterCache.java",
+      "lineRange": [
+        277,
+        287
+      ],
+      "summary": "getTileTextureSheetCoord method (11 lines) in TheaterCache.java.",
+      "tags": [
+        "java",
+        "gettiletexturesheetcoord"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/map/TheaterCache.java:getTileTmp",
+      "type": "function",
+      "name": "getTileTmp",
+      "filePath": "src/cr0s/javara/render/map/TheaterCache.java",
+      "lineRange": [
+        289,
+        297
+      ],
+      "summary": "getTileTmp method (9 lines) in TheaterCache.java.",
+      "tags": [
+        "java",
+        "gettiletmp"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/render/map/TileMap.java",
+      "type": "file",
+      "name": "TileMap.java",
+      "filePath": "src/cr0s/javara/render/map/TileMap.java",
+      "summary": "Tile map loader and renderer supporting binary map format, YAML metadata, and multi-layer rendering.",
+      "tags": [
+        "java",
+        "game",
+        "rendering"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:src/cr0s/javara/render/map/TileMap.java:TileMap",
+      "type": "class",
+      "name": "TileMap",
+      "filePath": "src/cr0s/javara/render/map/TileMap.java",
+      "lineRange": [
+        27,
+        357
+      ],
+      "summary": "Tile map loader for binary map format with YAML metadata and multi-layer rendering.",
+      "tags": [
+        "java",
+        "game",
+        "tilemap"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/map/TileMap.java:TileMap",
+      "type": "function",
+      "name": "TileMap",
+      "filePath": "src/cr0s/javara/render/map/TileMap.java",
+      "lineRange": [
+        51,
+        54
+      ],
+      "summary": "TileMap method (4 lines) in TileMap.java.",
+      "tags": [
+        "java",
+        "tilemap"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/map/TileMap.java:loadBinaryMap",
+      "type": "function",
+      "name": "loadBinaryMap",
+      "filePath": "src/cr0s/javara/render/map/TileMap.java",
+      "lineRange": [
+        110,
+        172
+      ],
+      "summary": "loadBinaryMap method (63 lines) in TileMap.java.",
+      "tags": [
+        "java",
+        "loadbinarymap"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/map/TileMap.java:render",
+      "type": "function",
+      "name": "render",
+      "filePath": "src/cr0s/javara/render/map/TileMap.java",
+      "lineRange": [
+        182,
+        217
+      ],
+      "summary": "render method (36 lines) in TileMap.java.",
+      "tags": [
+        "java",
+        "render"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/map/TileMap.java:fillBlockingMap",
+      "type": "function",
+      "name": "fillBlockingMap",
+      "filePath": "src/cr0s/javara/render/map/TileMap.java",
+      "lineRange": [
+        223,
+        242
+      ],
+      "summary": "fillBlockingMap method (20 lines) in TileMap.java.",
+      "tags": [
+        "java",
+        "fillblockingmap"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/map/TileMap.java:fillWithMapEntities",
+      "type": "function",
+      "name": "fillWithMapEntities",
+      "filePath": "src/cr0s/javara/render/map/TileMap.java",
+      "lineRange": [
+        244,
+        254
+      ],
+      "summary": "fillWithMapEntities method (11 lines) in TileMap.java.",
+      "tags": [
+        "java",
+        "fillwithmapentities"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/map/TileMap.java:getPane",
+      "type": "function",
+      "name": "getPane",
+      "filePath": "src/cr0s/javara/render/map/TileMap.java",
+      "lineRange": [
+        264,
+        304
+      ],
+      "summary": "getPane method (41 lines) in TileMap.java.",
+      "tags": [
+        "java",
+        "getpane"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/map/TileMap.java:getSurfaceIdAt",
+      "type": "function",
+      "name": "getSurfaceIdAt",
+      "filePath": "src/cr0s/javara/render/map/TileMap.java",
+      "lineRange": [
+        318,
+        344
+      ],
+      "summary": "getSurfaceIdAt method (27 lines) in TileMap.java.",
+      "tags": [
+        "java",
+        "getsurfaceidat"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/render/shrouds/Shroud.java",
+      "type": "file",
+      "name": "Shroud.java",
+      "filePath": "src/cr0s/javara/render/shrouds/Shroud.java",
+      "summary": "Fog of war manager tracking explored areas and revealing map cells within range.",
+      "tags": [
+        "java",
+        "game",
+        "rendering",
+        "visibility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/cr0s/javara/render/shrouds/Shroud.java:Shroud",
+      "type": "class",
+      "name": "Shroud",
+      "filePath": "src/cr0s/javara/render/shrouds/Shroud.java",
+      "lineRange": [
+        7,
+        68
+      ],
+      "summary": "Fog-of-war state tracker with exploration range queries.",
+      "tags": [
+        "java",
+        "game",
+        "shroud"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/shrouds/Shroud.java:Shroud",
+      "type": "function",
+      "name": "Shroud",
+      "filePath": "src/cr0s/javara/render/shrouds/Shroud.java",
+      "lineRange": [
+        15,
+        22
+      ],
+      "summary": "Shroud method (8 lines) in Shroud.java.",
+      "tags": [
+        "java",
+        "shroud"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/shrouds/Shroud.java:isExplored",
+      "type": "function",
+      "name": "isExplored",
+      "filePath": "src/cr0s/javara/render/shrouds/Shroud.java",
+      "lineRange": [
+        24,
+        30
+      ],
+      "summary": "isExplored method (7 lines) in Shroud.java.",
+      "tags": [
+        "java",
+        "isexplored"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/shrouds/Shroud.java:exploreRange",
+      "type": "function",
+      "name": "exploreRange",
+      "filePath": "src/cr0s/javara/render/shrouds/Shroud.java",
+      "lineRange": [
+        32,
+        46
+      ],
+      "summary": "exploreRange method (15 lines) in Shroud.java.",
+      "tags": [
+        "java",
+        "explorerange"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/shrouds/Shroud.java:isAreaShrouded",
+      "type": "function",
+      "name": "isAreaShrouded",
+      "filePath": "src/cr0s/javara/render/shrouds/Shroud.java",
+      "lineRange": [
+        49,
+        59
+      ],
+      "summary": "isAreaShrouded method (11 lines) in Shroud.java.",
+      "tags": [
+        "java",
+        "isareashrouded"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/cr0s/javara/render/map/MinimapRenderer.java",
+      "target": "class:src/cr0s/javara/render/map/MinimapRenderer.java:MinimapRenderer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/MinimapRenderer.java",
+      "target": "class:src/cr0s/javara/render/map/MinimapRenderer.java:MinimapRenderer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/MinimapRenderer.java",
+      "target": "function:src/cr0s/javara/render/map/MinimapRenderer.java:MinimapRenderer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/MinimapRenderer.java",
+      "target": "function:src/cr0s/javara/render/map/MinimapRenderer.java:MinimapRenderer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/MinimapRenderer.java",
+      "target": "function:src/cr0s/javara/render/map/MinimapRenderer.java:renderMinimap",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/MinimapRenderer.java",
+      "target": "function:src/cr0s/javara/render/map/MinimapRenderer.java:renderMinimap",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/MinimapRenderer.java",
+      "target": "function:src/cr0s/javara/render/map/MinimapRenderer.java:getMapCellColor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/MinimapRenderer.java",
+      "target": "function:src/cr0s/javara/render/map/MinimapRenderer.java:update",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/MinimapRenderer.java",
+      "target": "function:src/cr0s/javara/render/map/MinimapRenderer.java:update",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/MinimapRenderer.java",
+      "target": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/MinimapRenderer.java",
+      "target": "file:src/cr0s/javara/entity/Entity.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/MinimapRenderer.java",
+      "target": "file:src/cr0s/javara/main/GUI.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/MinimapRenderer.java",
+      "target": "file:src/cr0s/javara/render/World.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/MinimapRenderer.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/ResourcesLayer.java",
+      "target": "class:src/cr0s/javara/render/map/ResourcesLayer.java:ResourcesLayer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/ResourcesLayer.java",
+      "target": "class:src/cr0s/javara/render/map/ResourcesLayer.java:ResourcesLayer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/ResourcesLayer.java",
+      "target": "function:src/cr0s/javara/render/map/ResourcesLayer.java:ResourcesLayer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/ResourcesLayer.java",
+      "target": "function:src/cr0s/javara/render/map/ResourcesLayer.java:ResourcesLayer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/ResourcesLayer.java",
+      "target": "function:src/cr0s/javara/render/map/ResourcesLayer.java:getAdjacentCellsWith",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/ResourcesLayer.java",
+      "target": "function:src/cr0s/javara/render/map/ResourcesLayer.java:setInitialDensity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/ResourcesLayer.java",
+      "target": "function:src/cr0s/javara/render/map/ResourcesLayer.java:setInitialDensity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/ResourcesLayer.java",
+      "target": "function:src/cr0s/javara/render/map/ResourcesLayer.java:lerp",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/ResourcesLayer.java",
+      "target": "function:src/cr0s/javara/render/map/ResourcesLayer.java:lerp",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/ResourcesLayer.java",
+      "target": "function:src/cr0s/javara/render/map/ResourcesLayer.java:renderAll",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/ResourcesLayer.java",
+      "target": "function:src/cr0s/javara/render/map/ResourcesLayer.java:renderAll",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/ResourcesLayer.java",
+      "target": "function:src/cr0s/javara/render/map/ResourcesLayer.java:renderCell",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/ResourcesLayer.java",
+      "target": "function:src/cr0s/javara/render/map/ResourcesLayer.java:renderCell",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/ResourcesLayer.java",
+      "target": "function:src/cr0s/javara/render/map/ResourcesLayer.java:harvestCell",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/ResourcesLayer.java",
+      "target": "function:src/cr0s/javara/render/map/ResourcesLayer.java:harvestCell",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/ResourcesLayer.java",
+      "target": "function:src/cr0s/javara/render/map/ResourcesLayer.java:destroy",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/ResourcesLayer.java",
+      "target": "function:src/cr0s/javara/render/map/ResourcesLayer.java:destroy",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/ResourcesLayer.java",
+      "target": "file:src/cr0s/javara/main/GUI.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/ResourcesLayer.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/SmudgeLayer.java",
+      "target": "class:src/cr0s/javara/render/map/SmudgeLayer.java:SmudgeLayer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/SmudgeLayer.java",
+      "target": "class:src/cr0s/javara/render/map/SmudgeLayer.java:SmudgeLayer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/SmudgeLayer.java",
+      "target": "function:src/cr0s/javara/render/map/SmudgeLayer.java:render",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/SmudgeLayer.java",
+      "target": "function:src/cr0s/javara/render/map/SmudgeLayer.java:render",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/SmudgeLayer.java",
+      "target": "function:src/cr0s/javara/render/map/SmudgeLayer.java:renderLayer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/SmudgeLayer.java",
+      "target": "function:src/cr0s/javara/render/map/SmudgeLayer.java:addSmudge",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/SmudgeLayer.java",
+      "target": "function:src/cr0s/javara/render/map/SmudgeLayer.java:addSmudge",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/SmudgeLayer.java",
+      "target": "file:src/cr0s/javara/main/GUI.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/SmudgeLayer.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/TheaterCache.java",
+      "target": "class:src/cr0s/javara/render/map/TheaterCache.java:TheaterCache",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/TheaterCache.java",
+      "target": "class:src/cr0s/javara/render/map/TheaterCache.java:TheaterCache",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/TheaterCache.java",
+      "target": "function:src/cr0s/javara/render/map/TheaterCache.java:TheaterCache",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/TheaterCache.java",
+      "target": "function:src/cr0s/javara/render/map/TheaterCache.java:TheaterCache",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/TheaterCache.java",
+      "target": "function:src/cr0s/javara/render/map/TheaterCache.java:generateSpriteSheet",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/TheaterCache.java",
+      "target": "function:src/cr0s/javara/render/map/TheaterCache.java:putTextureInSheet",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/TheaterCache.java",
+      "target": "function:src/cr0s/javara/render/map/TheaterCache.java:putTextureInSheet",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/TheaterCache.java",
+      "target": "function:src/cr0s/javara/render/map/TheaterCache.java:putShpTextureInSheetDissected",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/TheaterCache.java",
+      "target": "function:src/cr0s/javara/render/map/TheaterCache.java:getTileTextureSheetCoord",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/TheaterCache.java",
+      "target": "function:src/cr0s/javara/render/map/TheaterCache.java:getTileTextureSheetCoord",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/TheaterCache.java",
+      "target": "function:src/cr0s/javara/render/map/TheaterCache.java:getTileTmp",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/TheaterCache.java",
+      "target": "function:src/cr0s/javara/render/map/TheaterCache.java:getTileTmp",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/TheaterCache.java",
+      "target": "file:src/cr0s/javara/resources/ResourceManager.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/TheaterCache.java",
+      "target": "file:src/cr0s/javara/resources/ShpTexture.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/TheaterCache.java",
+      "target": "file:src/cr0s/javara/resources/TmpTexture.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/TheaterCache.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/TheaterCache.java",
+      "target": "file:src/cr0s/javara/util/SpriteSheet.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/TileMap.java",
+      "target": "class:src/cr0s/javara/render/map/TileMap.java:TileMap",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/TileMap.java",
+      "target": "class:src/cr0s/javara/render/map/TileMap.java:TileMap",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/TileMap.java",
+      "target": "function:src/cr0s/javara/render/map/TileMap.java:TileMap",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/TileMap.java",
+      "target": "function:src/cr0s/javara/render/map/TileMap.java:TileMap",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/TileMap.java",
+      "target": "function:src/cr0s/javara/render/map/TileMap.java:TileMap",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/TileMap.java",
+      "target": "function:src/cr0s/javara/render/map/TileMap.java:TileMap",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/TileMap.java",
+      "target": "function:src/cr0s/javara/render/map/TileMap.java:loadBinaryMap",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/TileMap.java",
+      "target": "function:src/cr0s/javara/render/map/TileMap.java:render",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/TileMap.java",
+      "target": "function:src/cr0s/javara/render/map/TileMap.java:render",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/TileMap.java",
+      "target": "function:src/cr0s/javara/render/map/TileMap.java:fillBlockingMap",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/TileMap.java",
+      "target": "function:src/cr0s/javara/render/map/TileMap.java:fillBlockingMap",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/TileMap.java",
+      "target": "function:src/cr0s/javara/render/map/TileMap.java:fillWithMapEntities",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/TileMap.java",
+      "target": "function:src/cr0s/javara/render/map/TileMap.java:getPane",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/TileMap.java",
+      "target": "function:src/cr0s/javara/render/map/TileMap.java:getPane",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/TileMap.java",
+      "target": "function:src/cr0s/javara/render/map/TileMap.java:getSurfaceIdAt",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/TileMap.java",
+      "target": "function:src/cr0s/javara/render/map/TileMap.java:getSurfaceIdAt",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/TileMap.java",
+      "target": "file:src/cr0s/javara/render/World.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/TileMap.java",
+      "target": "file:src/cr0s/javara/resources/ResourceManager.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/TileMap.java",
+      "target": "file:src/cr0s/javara/resources/ShpTexture.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/TileMap.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/render/shrouds/Shroud.java",
+      "target": "class:src/cr0s/javara/render/shrouds/Shroud.java:Shroud",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/shrouds/Shroud.java",
+      "target": "class:src/cr0s/javara/render/shrouds/Shroud.java:Shroud",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/shrouds/Shroud.java",
+      "target": "function:src/cr0s/javara/render/shrouds/Shroud.java:Shroud",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/shrouds/Shroud.java",
+      "target": "function:src/cr0s/javara/render/shrouds/Shroud.java:Shroud",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/shrouds/Shroud.java",
+      "target": "function:src/cr0s/javara/render/shrouds/Shroud.java:isExplored",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/shrouds/Shroud.java",
+      "target": "function:src/cr0s/javara/render/shrouds/Shroud.java:isExplored",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/shrouds/Shroud.java",
+      "target": "function:src/cr0s/javara/render/shrouds/Shroud.java:exploreRange",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/shrouds/Shroud.java",
+      "target": "function:src/cr0s/javara/render/shrouds/Shroud.java:exploreRange",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/shrouds/Shroud.java",
+      "target": "function:src/cr0s/javara/render/shrouds/Shroud.java:isAreaShrouded",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/shrouds/Shroud.java",
+      "target": "function:src/cr0s/javara/render/shrouds/Shroud.java:isAreaShrouded",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/shrouds/Shroud.java",
+      "target": "file:src/cr0s/javara/gameplay/Player.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/render/shrouds/Shroud.java",
+      "target": "file:src/cr0s/javara/render/World.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/render/shrouds/Shroud.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

@@ -1,0 +1,1895 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/cr0s/javara/gameplay/BuildingOverlay.java",
+      "type": "file",
+      "name": "BuildingOverlay.java",
+      "filePath": "src/cr0s/javara/gameplay/BuildingOverlay.java",
+      "summary": "Overlay renderer for building placement mode with validation feedback and wall building.",
+      "tags": [
+        "gameplay",
+        "building",
+        "overlay",
+        "placement",
+        "ui"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/cr0s/javara/gameplay/ProductionQueue.java",
+      "type": "file",
+      "name": "ProductionQueue.java",
+      "filePath": "src/cr0s/javara/gameplay/ProductionQueue.java",
+      "summary": "Production queue managing all buildable units, buildings, and infantry with prerequisite checking.",
+      "tags": [
+        "gameplay",
+        "production",
+        "queue",
+        "building",
+        "units"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/cr0s/javara/main/StateMainMenu.java",
+      "type": "file",
+      "name": "StateMainMenu.java",
+      "filePath": "src/cr0s/javara/main/StateMainMenu.java",
+      "summary": "Main menu game state with navigation buttons and cursor management.",
+      "tags": [
+        "main",
+        "menu",
+        "state",
+        "ui",
+        "entry-point"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/cr0s/javara/main/StatePauseMenu.java",
+      "type": "file",
+      "name": "StatePauseMenu.java",
+      "filePath": "src/cr0s/javara/main/StatePauseMenu.java",
+      "summary": "Pause menu game state with resume, restart, and quit options.",
+      "tags": [
+        "main",
+        "menu",
+        "pause",
+        "state",
+        "ui"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/cr0s/javara/gameplay/BuildingOverlay.java:BuildingOverlay",
+      "type": "class",
+      "name": "BuildingOverlay",
+      "filePath": "src/cr0s/javara/gameplay/BuildingOverlay.java",
+      "lineRange": [
+        18,
+        174
+      ],
+      "summary": "BuildingOverlay class with 10 methods managing 9 properties for gameplay logic.",
+      "tags": [
+        "class",
+        "exported",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/gameplay/BuildingOverlay.java:BuildingOverlay",
+      "type": "function",
+      "name": "BuildingOverlay",
+      "filePath": "src/cr0s/javara/gameplay/BuildingOverlay.java",
+      "lineRange": [
+        31,
+        34
+      ],
+      "summary": "BuildingOverlay (p, w) — 4 lines , exported.",
+      "tags": [
+        "function",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/gameplay/BuildingOverlay.java:render",
+      "type": "function",
+      "name": "render",
+      "filePath": "src/cr0s/javara/gameplay/BuildingOverlay.java",
+      "lineRange": [
+        36,
+        86
+      ],
+      "summary": "render (g) — 51 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "render"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/cr0s/javara/gameplay/BuildingOverlay.java:drawCYCircles",
+      "type": "function",
+      "name": "drawCYCircles",
+      "filePath": "src/cr0s/javara/gameplay/BuildingOverlay.java",
+      "lineRange": [
+        88,
+        99
+      ],
+      "summary": "drawCYCircles (g) — 12 lines , exported.",
+      "tags": [
+        "function",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/gameplay/BuildingOverlay.java:update",
+      "type": "function",
+      "name": "update",
+      "filePath": "src/cr0s/javara/gameplay/BuildingOverlay.java",
+      "lineRange": [
+        101,
+        112
+      ],
+      "summary": "update (delta) — 12 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "update"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/gameplay/BuildingOverlay.java:setBuildingMode",
+      "type": "function",
+      "name": "setBuildingMode",
+      "filePath": "src/cr0s/javara/gameplay/BuildingOverlay.java",
+      "lineRange": [
+        114,
+        116
+      ],
+      "summary": "setBuildingMode (eb) — 3 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "setter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/gameplay/BuildingOverlay.java:resetBuildingMode",
+      "type": "function",
+      "name": "resetBuildingMode",
+      "filePath": "src/cr0s/javara/gameplay/BuildingOverlay.java",
+      "lineRange": [
+        118,
+        120
+      ],
+      "summary": "resetBuildingMode (no params) — 3 lines , exported.",
+      "tags": [
+        "function",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/gameplay/BuildingOverlay.java:mouseClick",
+      "type": "function",
+      "name": "mouseClick",
+      "filePath": "src/cr0s/javara/gameplay/BuildingOverlay.java",
+      "lineRange": [
+        122,
+        147
+      ],
+      "summary": "mouseClick (button) — 26 lines , exported.",
+      "tags": [
+        "function",
+        "exported"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/gameplay/BuildingOverlay.java:mouseDragged",
+      "type": "function",
+      "name": "mouseDragged",
+      "filePath": "src/cr0s/javara/gameplay/BuildingOverlay.java",
+      "lineRange": [
+        149,
+        165
+      ],
+      "summary": "mouseDragged (oldx, oldy, newx, newy) — 17 lines , exported.",
+      "tags": [
+        "function",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/gameplay/BuildingOverlay.java:isBuildingWalls",
+      "type": "function",
+      "name": "isBuildingWalls",
+      "filePath": "src/cr0s/javara/gameplay/BuildingOverlay.java",
+      "lineRange": [
+        167,
+        169
+      ],
+      "summary": "isBuildingWalls (no params) — 3 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/gameplay/BuildingOverlay.java:isInBuildingMode",
+      "type": "function",
+      "name": "isInBuildingMode",
+      "filePath": "src/cr0s/javara/gameplay/BuildingOverlay.java",
+      "lineRange": [
+        171,
+        173
+      ],
+      "summary": "isInBuildingMode (no params) — 3 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/cr0s/javara/gameplay/ProductionQueue.java:ProductionQueue",
+      "type": "class",
+      "name": "ProductionQueue",
+      "filePath": "src/cr0s/javara/gameplay/ProductionQueue.java",
+      "lineRange": [
+        40,
+        333
+      ],
+      "summary": "ProductionQueue class with 20 methods managing 17 properties for gameplay logic.",
+      "tags": [
+        "class",
+        "exported",
+        "class"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/cr0s/javara/gameplay/ProductionQueue.java:ProductionQueue",
+      "type": "function",
+      "name": "ProductionQueue",
+      "filePath": "src/cr0s/javara/gameplay/ProductionQueue.java",
+      "lineRange": [
+        59,
+        162
+      ],
+      "summary": "ProductionQueue (p) — 104 lines , exported.",
+      "tags": [
+        "function",
+        "exported"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/cr0s/javara/gameplay/ProductionQueue.java:getBuildableActor",
+      "type": "function",
+      "name": "getBuildableActor",
+      "filePath": "src/cr0s/javara/gameplay/ProductionQueue.java",
+      "lineRange": [
+        164,
+        166
+      ],
+      "summary": "getBuildableActor (texture) — 3 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/gameplay/ProductionQueue.java:getBuildableActorByName",
+      "type": "function",
+      "name": "getBuildableActorByName",
+      "filePath": "src/cr0s/javara/gameplay/ProductionQueue.java",
+      "lineRange": [
+        173,
+        184
+      ],
+      "summary": "getBuildableActorByName (name) — 12 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/gameplay/ProductionQueue.java:startBuildingActor",
+      "type": "function",
+      "name": "startBuildingActor",
+      "filePath": "src/cr0s/javara/gameplay/ProductionQueue.java",
+      "lineRange": [
+        186,
+        196
+      ],
+      "summary": "startBuildingActor (name, texture) — 11 lines , exported.",
+      "tags": [
+        "function",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/gameplay/ProductionQueue.java:getCurrentProducingBuilding",
+      "type": "function",
+      "name": "getCurrentProducingBuilding",
+      "filePath": "src/cr0s/javara/gameplay/ProductionQueue.java",
+      "lineRange": [
+        210,
+        220
+      ],
+      "summary": "getCurrentProducingBuilding (no params) — 11 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/gameplay/ProductionQueue.java:getProductionForBuilding",
+      "type": "function",
+      "name": "getProductionForBuilding",
+      "filePath": "src/cr0s/javara/gameplay/ProductionQueue.java",
+      "lineRange": [
+        222,
+        235
+      ],
+      "summary": "getProductionForBuilding (target) — 14 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/gameplay/ProductionQueue.java:update",
+      "type": "function",
+      "name": "update",
+      "filePath": "src/cr0s/javara/gameplay/ProductionQueue.java",
+      "lineRange": [
+        237,
+        247
+      ],
+      "summary": "update (no params) — 11 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "update"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/gameplay/ProductionQueue.java:updateBuildables",
+      "type": "function",
+      "name": "updateBuildables",
+      "filePath": "src/cr0s/javara/gameplay/ProductionQueue.java",
+      "lineRange": [
+        249,
+        263
+      ],
+      "summary": "updateBuildables (no params) — 15 lines .",
+      "tags": [
+        "function",
+        "update"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/gameplay/ProductionQueue.java:addToBuildablesFrom",
+      "type": "function",
+      "name": "addToBuildablesFrom",
+      "filePath": "src/cr0s/javara/gameplay/ProductionQueue.java",
+      "lineRange": [
+        265,
+        277
+      ],
+      "summary": "addToBuildablesFrom (map) — 13 lines .",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/gameplay/ProductionQueue.java:getCurrentSovietBuildingProduction",
+      "type": "function",
+      "name": "getCurrentSovietBuildingProduction",
+      "filePath": "src/cr0s/javara/gameplay/ProductionQueue.java",
+      "lineRange": [
+        279,
+        281
+      ],
+      "summary": "getCurrentSovietBuildingProduction (no params) — 3 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/gameplay/ProductionQueue.java:getCurrentAlliedBuildingProduction",
+      "type": "function",
+      "name": "getCurrentAlliedBuildingProduction",
+      "filePath": "src/cr0s/javara/gameplay/ProductionQueue.java",
+      "lineRange": [
+        283,
+        285
+      ],
+      "summary": "getCurrentAlliedBuildingProduction (no params) — 3 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/gameplay/ProductionQueue.java:getCurrentVehicleProduction",
+      "type": "function",
+      "name": "getCurrentVehicleProduction",
+      "filePath": "src/cr0s/javara/gameplay/ProductionQueue.java",
+      "lineRange": [
+        287,
+        289
+      ],
+      "summary": "getCurrentVehicleProduction (no params) — 3 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/gameplay/ProductionQueue.java:getCurrentInfantryProduction",
+      "type": "function",
+      "name": "getCurrentInfantryProduction",
+      "filePath": "src/cr0s/javara/gameplay/ProductionQueue.java",
+      "lineRange": [
+        291,
+        293
+      ],
+      "summary": "getCurrentInfantryProduction (no params) — 3 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/gameplay/ProductionQueue.java:getCurrentNeutralBuildingProduction",
+      "type": "function",
+      "name": "getCurrentNeutralBuildingProduction",
+      "filePath": "src/cr0s/javara/gameplay/ProductionQueue.java",
+      "lineRange": [
+        295,
+        297
+      ],
+      "summary": "getCurrentNeutralBuildingProduction (no params) — 3 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/gameplay/ProductionQueue.java:isPrerequisitesSatisfiedFor",
+      "type": "function",
+      "name": "isPrerequisitesSatisfiedFor",
+      "filePath": "src/cr0s/javara/gameplay/ProductionQueue.java",
+      "lineRange": [
+        299,
+        308
+      ],
+      "summary": "isPrerequisitesSatisfiedFor (e) — 10 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/gameplay/ProductionQueue.java:canBuild",
+      "type": "function",
+      "name": "canBuild",
+      "filePath": "src/cr0s/javara/gameplay/ProductionQueue.java",
+      "lineRange": [
+        310,
+        316
+      ],
+      "summary": "canBuild (targetBuilding) — 7 lines , exported.",
+      "tags": [
+        "function",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/gameplay/ProductionQueue.java:isBuildable",
+      "type": "function",
+      "name": "isBuildable",
+      "filePath": "src/cr0s/javara/gameplay/ProductionQueue.java",
+      "lineRange": [
+        318,
+        324
+      ],
+      "summary": "isBuildable (name) — 7 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/gameplay/ProductionQueue.java:getBuildables",
+      "type": "function",
+      "name": "getBuildables",
+      "filePath": "src/cr0s/javara/gameplay/ProductionQueue.java",
+      "lineRange": [
+        326,
+        328
+      ],
+      "summary": "getBuildables (no params) — 3 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/gameplay/ProductionQueue.java:getCurrentProducingVehicle",
+      "type": "function",
+      "name": "getCurrentProducingVehicle",
+      "filePath": "src/cr0s/javara/gameplay/ProductionQueue.java",
+      "lineRange": [
+        330,
+        332
+      ],
+      "summary": "getCurrentProducingVehicle (no params) — 3 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/cr0s/javara/main/StateMainMenu.java:StateMainMenu",
+      "type": "class",
+      "name": "StateMainMenu",
+      "filePath": "src/cr0s/javara/main/StateMainMenu.java",
+      "lineRange": [
+        17,
+        212
+      ],
+      "summary": "StateMainMenu class with 8 methods managing 27 properties for gameplay logic.",
+      "tags": [
+        "class",
+        "exported",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/main/StateMainMenu.java:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "src/cr0s/javara/main/StateMainMenu.java",
+      "lineRange": [
+        50,
+        52
+      ],
+      "summary": "main (args) — 3 lines , exported.",
+      "tags": [
+        "function",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/main/StateMainMenu.java:mousePressed",
+      "type": "function",
+      "name": "mousePressed",
+      "filePath": "src/cr0s/javara/main/StateMainMenu.java",
+      "lineRange": [
+        54,
+        58
+      ],
+      "summary": "mousePressed (button, x, y) — 5 lines , exported.",
+      "tags": [
+        "function",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/main/StateMainMenu.java:mouseReleased",
+      "type": "function",
+      "name": "mouseReleased",
+      "filePath": "src/cr0s/javara/main/StateMainMenu.java",
+      "lineRange": [
+        60,
+        77
+      ],
+      "summary": "mouseReleased (button, arg1, arg2) — 18 lines , exported.",
+      "tags": [
+        "function",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/main/StateMainMenu.java:isAcceptingInput",
+      "type": "function",
+      "name": "isAcceptingInput",
+      "filePath": "src/cr0s/javara/main/StateMainMenu.java",
+      "lineRange": [
+        79,
+        81
+      ],
+      "summary": "isAcceptingInput (no params) — 3 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/main/StateMainMenu.java:enter",
+      "type": "function",
+      "name": "enter",
+      "filePath": "src/cr0s/javara/main/StateMainMenu.java",
+      "lineRange": [
+        83,
+        89
+      ],
+      "summary": "enter (c) — 7 lines , exported.",
+      "tags": [
+        "function",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/main/StateMainMenu.java:getID",
+      "type": "function",
+      "name": "getID",
+      "filePath": "src/cr0s/javara/main/StateMainMenu.java",
+      "lineRange": [
+        91,
+        93
+      ],
+      "summary": "getID (no params) — 3 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/main/StateMainMenu.java:start",
+      "type": "function",
+      "name": "start",
+      "filePath": "src/cr0s/javara/main/StateMainMenu.java",
+      "lineRange": [
+        95,
+        191
+      ],
+      "summary": "start (c) — 97 lines , exported.",
+      "tags": [
+        "function",
+        "exported"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/cr0s/javara/main/StateMainMenu.java:update",
+      "type": "function",
+      "name": "update",
+      "filePath": "src/cr0s/javara/main/StateMainMenu.java",
+      "lineRange": [
+        193,
+        196
+      ],
+      "summary": "update (arg0, arg2) — 4 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "update"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/cr0s/javara/main/StatePauseMenu.java:StatePauseMenu",
+      "type": "class",
+      "name": "StatePauseMenu",
+      "filePath": "src/cr0s/javara/main/StatePauseMenu.java",
+      "lineRange": [
+        17,
+        208
+      ],
+      "summary": "StatePauseMenu class with 9 methods managing 31 properties for gameplay logic.",
+      "tags": [
+        "class",
+        "exported",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/main/StatePauseMenu.java:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "src/cr0s/javara/main/StatePauseMenu.java",
+      "lineRange": [
+        54,
+        56
+      ],
+      "summary": "main (args) — 3 lines , exported.",
+      "tags": [
+        "function",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/main/StatePauseMenu.java:mousePressed",
+      "type": "function",
+      "name": "mousePressed",
+      "filePath": "src/cr0s/javara/main/StatePauseMenu.java",
+      "lineRange": [
+        58,
+        62
+      ],
+      "summary": "mousePressed (button, x, y) — 5 lines , exported.",
+      "tags": [
+        "function",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/main/StatePauseMenu.java:mouseReleased",
+      "type": "function",
+      "name": "mouseReleased",
+      "filePath": "src/cr0s/javara/main/StatePauseMenu.java",
+      "lineRange": [
+        64,
+        81
+      ],
+      "summary": "mouseReleased (button, arg1, arg2) — 18 lines , exported.",
+      "tags": [
+        "function",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/main/StatePauseMenu.java:isAcceptingInput",
+      "type": "function",
+      "name": "isAcceptingInput",
+      "filePath": "src/cr0s/javara/main/StatePauseMenu.java",
+      "lineRange": [
+        83,
+        85
+      ],
+      "summary": "isAcceptingInput (no params) — 3 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/main/StatePauseMenu.java:keyPressed",
+      "type": "function",
+      "name": "keyPressed",
+      "filePath": "src/cr0s/javara/main/StatePauseMenu.java",
+      "lineRange": [
+        87,
+        91
+      ],
+      "summary": "keyPressed (arg0, arg1) — 5 lines , exported.",
+      "tags": [
+        "function",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/main/StatePauseMenu.java:enter",
+      "type": "function",
+      "name": "enter",
+      "filePath": "src/cr0s/javara/main/StatePauseMenu.java",
+      "lineRange": [
+        93,
+        96
+      ],
+      "summary": "enter (c) — 4 lines , exported.",
+      "tags": [
+        "function",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/main/StatePauseMenu.java:getID",
+      "type": "function",
+      "name": "getID",
+      "filePath": "src/cr0s/javara/main/StatePauseMenu.java",
+      "lineRange": [
+        98,
+        100
+      ],
+      "summary": "getID (no params) — 3 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/main/StatePauseMenu.java:start",
+      "type": "function",
+      "name": "start",
+      "filePath": "src/cr0s/javara/main/StatePauseMenu.java",
+      "lineRange": [
+        102,
+        187
+      ],
+      "summary": "start (c) — 86 lines , exported.",
+      "tags": [
+        "function",
+        "exported"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/cr0s/javara/main/StatePauseMenu.java:update",
+      "type": "function",
+      "name": "update",
+      "filePath": "src/cr0s/javara/main/StatePauseMenu.java",
+      "lineRange": [
+        189,
+        192
+      ],
+      "summary": "update (arg0, arg2) — 4 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "update"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/cr0s/javara/gameplay/BuildingOverlay.java",
+      "target": "class:src/cr0s/javara/gameplay/BuildingOverlay.java:BuildingOverlay",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/BuildingOverlay.java",
+      "target": "class:src/cr0s/javara/gameplay/BuildingOverlay.java:BuildingOverlay",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/BuildingOverlay.java",
+      "target": "function:src/cr0s/javara/gameplay/BuildingOverlay.java:BuildingOverlay",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/BuildingOverlay.java",
+      "target": "function:src/cr0s/javara/gameplay/BuildingOverlay.java:BuildingOverlay",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/BuildingOverlay.java",
+      "target": "function:src/cr0s/javara/gameplay/BuildingOverlay.java:render",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/BuildingOverlay.java",
+      "target": "function:src/cr0s/javara/gameplay/BuildingOverlay.java:render",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/BuildingOverlay.java",
+      "target": "function:src/cr0s/javara/gameplay/BuildingOverlay.java:drawCYCircles",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/BuildingOverlay.java",
+      "target": "function:src/cr0s/javara/gameplay/BuildingOverlay.java:drawCYCircles",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/BuildingOverlay.java",
+      "target": "function:src/cr0s/javara/gameplay/BuildingOverlay.java:update",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/BuildingOverlay.java",
+      "target": "function:src/cr0s/javara/gameplay/BuildingOverlay.java:update",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/BuildingOverlay.java",
+      "target": "function:src/cr0s/javara/gameplay/BuildingOverlay.java:setBuildingMode",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/BuildingOverlay.java",
+      "target": "function:src/cr0s/javara/gameplay/BuildingOverlay.java:setBuildingMode",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/BuildingOverlay.java",
+      "target": "function:src/cr0s/javara/gameplay/BuildingOverlay.java:resetBuildingMode",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/BuildingOverlay.java",
+      "target": "function:src/cr0s/javara/gameplay/BuildingOverlay.java:resetBuildingMode",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/BuildingOverlay.java",
+      "target": "function:src/cr0s/javara/gameplay/BuildingOverlay.java:mouseClick",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/BuildingOverlay.java",
+      "target": "function:src/cr0s/javara/gameplay/BuildingOverlay.java:mouseClick",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/BuildingOverlay.java",
+      "target": "function:src/cr0s/javara/gameplay/BuildingOverlay.java:mouseDragged",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/BuildingOverlay.java",
+      "target": "function:src/cr0s/javara/gameplay/BuildingOverlay.java:mouseDragged",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/BuildingOverlay.java",
+      "target": "function:src/cr0s/javara/gameplay/BuildingOverlay.java:isBuildingWalls",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/BuildingOverlay.java",
+      "target": "function:src/cr0s/javara/gameplay/BuildingOverlay.java:isBuildingWalls",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/BuildingOverlay.java",
+      "target": "function:src/cr0s/javara/gameplay/BuildingOverlay.java:isInBuildingMode",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/BuildingOverlay.java",
+      "target": "function:src/cr0s/javara/gameplay/BuildingOverlay.java:isInBuildingMode",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/BuildingOverlay.java",
+      "target": "file:src/cr0s/javara/entity/building/common/EntityConstructionYard.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/BuildingOverlay.java",
+      "target": "file:src/cr0s/javara/entity/building/common/EntityWall.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/BuildingOverlay.java",
+      "target": "file:src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/BuildingOverlay.java",
+      "target": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/BuildingOverlay.java",
+      "target": "file:src/cr0s/javara/main/GUI.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/BuildingOverlay.java",
+      "target": "file:src/cr0s/javara/render/map/TileSet.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/BuildingOverlay.java",
+      "target": "file:src/cr0s/javara/render/World.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/BuildingOverlay.java",
+      "target": "file:src/cr0s/javara/resources/SoundManager.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/BuildingOverlay.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/ProductionQueue.java",
+      "target": "class:src/cr0s/javara/gameplay/ProductionQueue.java:ProductionQueue",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/ProductionQueue.java",
+      "target": "class:src/cr0s/javara/gameplay/ProductionQueue.java:ProductionQueue",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/ProductionQueue.java",
+      "target": "function:src/cr0s/javara/gameplay/ProductionQueue.java:ProductionQueue",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/ProductionQueue.java",
+      "target": "function:src/cr0s/javara/gameplay/ProductionQueue.java:ProductionQueue",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/ProductionQueue.java",
+      "target": "function:src/cr0s/javara/gameplay/ProductionQueue.java:getBuildableActor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/ProductionQueue.java",
+      "target": "function:src/cr0s/javara/gameplay/ProductionQueue.java:getBuildableActor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/ProductionQueue.java",
+      "target": "function:src/cr0s/javara/gameplay/ProductionQueue.java:getBuildableActorByName",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/ProductionQueue.java",
+      "target": "function:src/cr0s/javara/gameplay/ProductionQueue.java:getBuildableActorByName",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/ProductionQueue.java",
+      "target": "function:src/cr0s/javara/gameplay/ProductionQueue.java:startBuildingActor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/ProductionQueue.java",
+      "target": "function:src/cr0s/javara/gameplay/ProductionQueue.java:startBuildingActor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/ProductionQueue.java",
+      "target": "function:src/cr0s/javara/gameplay/ProductionQueue.java:getCurrentProducingBuilding",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/ProductionQueue.java",
+      "target": "function:src/cr0s/javara/gameplay/ProductionQueue.java:getCurrentProducingBuilding",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/ProductionQueue.java",
+      "target": "function:src/cr0s/javara/gameplay/ProductionQueue.java:getProductionForBuilding",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/ProductionQueue.java",
+      "target": "function:src/cr0s/javara/gameplay/ProductionQueue.java:getProductionForBuilding",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/ProductionQueue.java",
+      "target": "function:src/cr0s/javara/gameplay/ProductionQueue.java:update",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/ProductionQueue.java",
+      "target": "function:src/cr0s/javara/gameplay/ProductionQueue.java:update",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/ProductionQueue.java",
+      "target": "function:src/cr0s/javara/gameplay/ProductionQueue.java:updateBuildables",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/ProductionQueue.java",
+      "target": "function:src/cr0s/javara/gameplay/ProductionQueue.java:addToBuildablesFrom",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/ProductionQueue.java",
+      "target": "function:src/cr0s/javara/gameplay/ProductionQueue.java:getCurrentSovietBuildingProduction",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/ProductionQueue.java",
+      "target": "function:src/cr0s/javara/gameplay/ProductionQueue.java:getCurrentSovietBuildingProduction",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/ProductionQueue.java",
+      "target": "function:src/cr0s/javara/gameplay/ProductionQueue.java:getCurrentAlliedBuildingProduction",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/ProductionQueue.java",
+      "target": "function:src/cr0s/javara/gameplay/ProductionQueue.java:getCurrentAlliedBuildingProduction",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/ProductionQueue.java",
+      "target": "function:src/cr0s/javara/gameplay/ProductionQueue.java:getCurrentVehicleProduction",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/ProductionQueue.java",
+      "target": "function:src/cr0s/javara/gameplay/ProductionQueue.java:getCurrentVehicleProduction",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/ProductionQueue.java",
+      "target": "function:src/cr0s/javara/gameplay/ProductionQueue.java:getCurrentInfantryProduction",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/ProductionQueue.java",
+      "target": "function:src/cr0s/javara/gameplay/ProductionQueue.java:getCurrentInfantryProduction",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/ProductionQueue.java",
+      "target": "function:src/cr0s/javara/gameplay/ProductionQueue.java:getCurrentNeutralBuildingProduction",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/ProductionQueue.java",
+      "target": "function:src/cr0s/javara/gameplay/ProductionQueue.java:getCurrentNeutralBuildingProduction",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/ProductionQueue.java",
+      "target": "function:src/cr0s/javara/gameplay/ProductionQueue.java:isPrerequisitesSatisfiedFor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/ProductionQueue.java",
+      "target": "function:src/cr0s/javara/gameplay/ProductionQueue.java:isPrerequisitesSatisfiedFor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/ProductionQueue.java",
+      "target": "function:src/cr0s/javara/gameplay/ProductionQueue.java:canBuild",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/ProductionQueue.java",
+      "target": "function:src/cr0s/javara/gameplay/ProductionQueue.java:canBuild",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/ProductionQueue.java",
+      "target": "function:src/cr0s/javara/gameplay/ProductionQueue.java:isBuildable",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/ProductionQueue.java",
+      "target": "function:src/cr0s/javara/gameplay/ProductionQueue.java:isBuildable",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/ProductionQueue.java",
+      "target": "function:src/cr0s/javara/gameplay/ProductionQueue.java:getBuildables",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/ProductionQueue.java",
+      "target": "function:src/cr0s/javara/gameplay/ProductionQueue.java:getBuildables",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/ProductionQueue.java",
+      "target": "function:src/cr0s/javara/gameplay/ProductionQueue.java:getCurrentProducingVehicle",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/ProductionQueue.java",
+      "target": "function:src/cr0s/javara/gameplay/ProductionQueue.java:getCurrentProducingVehicle",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/ProductionQueue.java",
+      "target": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/ProductionQueue.java",
+      "target": "file:src/cr0s/javara/entity/aircraft/Dragon.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/ProductionQueue.java",
+      "target": "file:src/cr0s/javara/entity/aircraft/EntityAircraft.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/ProductionQueue.java",
+      "target": "file:src/cr0s/javara/entity/building/china/InfernoTower.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/ProductionQueue.java",
+      "target": "file:src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/ProductionQueue.java",
+      "target": "file:src/cr0s/javara/entity/building/common/EntityConcreteWall.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/ProductionQueue.java",
+      "target": "file:src/cr0s/javara/entity/building/common/EntityHelipad.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/ProductionQueue.java",
+      "target": "file:src/cr0s/javara/entity/building/common/EntityOreSilo.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/ProductionQueue.java",
+      "target": "file:src/cr0s/javara/entity/building/common/EntityPowerPlant.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/ProductionQueue.java",
+      "target": "file:src/cr0s/javara/entity/building/common/EntityProc.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/ProductionQueue.java",
+      "target": "file:src/cr0s/javara/entity/building/common/EntityRadarDome.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/ProductionQueue.java",
+      "target": "file:src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/ProductionQueue.java",
+      "target": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/ProductionQueue.java",
+      "target": "file:src/cr0s/javara/entity/building/soviet/EntityAirField.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/ProductionQueue.java",
+      "target": "file:src/cr0s/javara/entity/building/soviet/EntityBarracks.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/ProductionQueue.java",
+      "target": "file:src/cr0s/javara/entity/building/soviet/EntityBarredWireWall.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/ProductionQueue.java",
+      "target": "file:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/ProductionQueue.java",
+      "target": "file:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/ProductionQueue.java",
+      "target": "file:src/cr0s/javara/entity/infantry/EntityGrenadeTrooper.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/ProductionQueue.java",
+      "target": "file:src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/ProductionQueue.java",
+      "target": "file:src/cr0s/javara/entity/infantry/EntityRifleTrooper.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/ProductionQueue.java",
+      "target": "file:src/cr0s/javara/entity/infantry/EntityRocketTrooper.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/ProductionQueue.java",
+      "target": "file:src/cr0s/javara/entity/infantry/Panda.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/ProductionQueue.java",
+      "target": "file:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/ProductionQueue.java",
+      "target": "file:src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/ProductionQueue.java",
+      "target": "file:src/cr0s/javara/entity/vehicle/EntityVehicle.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/ProductionQueue.java",
+      "target": "file:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/ProductionQueue.java",
+      "target": "file:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/ProductionQueue.java",
+      "target": "file:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/ProductionQueue.java",
+      "target": "file:src/cr0s/javara/ui/sbpages/SideBarItemsButton.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/ProductionQueue.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StateMainMenu.java",
+      "target": "class:src/cr0s/javara/main/StateMainMenu.java:StateMainMenu",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StateMainMenu.java",
+      "target": "class:src/cr0s/javara/main/StateMainMenu.java:StateMainMenu",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StateMainMenu.java",
+      "target": "function:src/cr0s/javara/main/StateMainMenu.java:main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StateMainMenu.java",
+      "target": "function:src/cr0s/javara/main/StateMainMenu.java:main",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StateMainMenu.java",
+      "target": "function:src/cr0s/javara/main/StateMainMenu.java:mousePressed",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StateMainMenu.java",
+      "target": "function:src/cr0s/javara/main/StateMainMenu.java:mousePressed",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StateMainMenu.java",
+      "target": "function:src/cr0s/javara/main/StateMainMenu.java:mouseReleased",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StateMainMenu.java",
+      "target": "function:src/cr0s/javara/main/StateMainMenu.java:mouseReleased",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StateMainMenu.java",
+      "target": "function:src/cr0s/javara/main/StateMainMenu.java:isAcceptingInput",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StateMainMenu.java",
+      "target": "function:src/cr0s/javara/main/StateMainMenu.java:isAcceptingInput",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StateMainMenu.java",
+      "target": "function:src/cr0s/javara/main/StateMainMenu.java:enter",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StateMainMenu.java",
+      "target": "function:src/cr0s/javara/main/StateMainMenu.java:enter",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StateMainMenu.java",
+      "target": "function:src/cr0s/javara/main/StateMainMenu.java:getID",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StateMainMenu.java",
+      "target": "function:src/cr0s/javara/main/StateMainMenu.java:getID",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StateMainMenu.java",
+      "target": "function:src/cr0s/javara/main/StateMainMenu.java:start",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StateMainMenu.java",
+      "target": "function:src/cr0s/javara/main/StateMainMenu.java:start",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StateMainMenu.java",
+      "target": "function:src/cr0s/javara/main/StateMainMenu.java:update",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StateMainMenu.java",
+      "target": "function:src/cr0s/javara/main/StateMainMenu.java:update",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StateMainMenu.java",
+      "target": "file:src/cr0s/javara/ui/cursor/CursorManager.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StateMainMenu.java",
+      "target": "file:src/cr0s/javara/ui/cursor/CursorType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StateMainMenu.java",
+      "target": "file:src/cr0s/javara/util/SpriteSheet.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StatePauseMenu.java",
+      "target": "class:src/cr0s/javara/main/StatePauseMenu.java:StatePauseMenu",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StatePauseMenu.java",
+      "target": "class:src/cr0s/javara/main/StatePauseMenu.java:StatePauseMenu",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StatePauseMenu.java",
+      "target": "function:src/cr0s/javara/main/StatePauseMenu.java:main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StatePauseMenu.java",
+      "target": "function:src/cr0s/javara/main/StatePauseMenu.java:main",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StatePauseMenu.java",
+      "target": "function:src/cr0s/javara/main/StatePauseMenu.java:mousePressed",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StatePauseMenu.java",
+      "target": "function:src/cr0s/javara/main/StatePauseMenu.java:mousePressed",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StatePauseMenu.java",
+      "target": "function:src/cr0s/javara/main/StatePauseMenu.java:mouseReleased",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StatePauseMenu.java",
+      "target": "function:src/cr0s/javara/main/StatePauseMenu.java:mouseReleased",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StatePauseMenu.java",
+      "target": "function:src/cr0s/javara/main/StatePauseMenu.java:isAcceptingInput",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StatePauseMenu.java",
+      "target": "function:src/cr0s/javara/main/StatePauseMenu.java:isAcceptingInput",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StatePauseMenu.java",
+      "target": "function:src/cr0s/javara/main/StatePauseMenu.java:keyPressed",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StatePauseMenu.java",
+      "target": "function:src/cr0s/javara/main/StatePauseMenu.java:keyPressed",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StatePauseMenu.java",
+      "target": "function:src/cr0s/javara/main/StatePauseMenu.java:enter",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StatePauseMenu.java",
+      "target": "function:src/cr0s/javara/main/StatePauseMenu.java:enter",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StatePauseMenu.java",
+      "target": "function:src/cr0s/javara/main/StatePauseMenu.java:getID",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StatePauseMenu.java",
+      "target": "function:src/cr0s/javara/main/StatePauseMenu.java:getID",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StatePauseMenu.java",
+      "target": "function:src/cr0s/javara/main/StatePauseMenu.java:start",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StatePauseMenu.java",
+      "target": "function:src/cr0s/javara/main/StatePauseMenu.java:start",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StatePauseMenu.java",
+      "target": "function:src/cr0s/javara/main/StatePauseMenu.java:update",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StatePauseMenu.java",
+      "target": "function:src/cr0s/javara/main/StatePauseMenu.java:update",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StatePauseMenu.java",
+      "target": "file:src/cr0s/javara/ui/cursor/CursorManager.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StatePauseMenu.java",
+      "target": "file:src/cr0s/javara/util/SpriteSheet.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

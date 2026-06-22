@@ -1,0 +1,1599 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/cr0s/javara/resources/TmpTexture.java",
+      "type": "file",
+      "name": "TmpTexture.java",
+      "filePath": "src/cr0s/javara/resources/TmpTexture.java",
+      "summary": "Provides tile texture management with palette application and sprite sheet coordination for theater rendering.",
+      "tags": [
+        "rendering",
+        "texture",
+        "sprite-sheet",
+        "palette"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/cr0s/javara/ui/GameSideBar.java",
+      "type": "file",
+      "name": "GameSideBar.java",
+      "filePath": "src/cr0s/javara/ui/GameSideBar.java",
+      "summary": "Main sidebar UI managing minimap, radar, power bar, and production category buttons with page switching.",
+      "tags": [
+        "ui",
+        "sidebar",
+        "minimap",
+        "production"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/cr0s/javara/ui/PowerBarRenderer.java",
+      "type": "file",
+      "name": "PowerBarRenderer.java",
+      "filePath": "src/cr0s/javara/ui/PowerBarRenderer.java",
+      "summary": "Renders the power level bar showing provided vs used power with smooth color interpolation.",
+      "tags": [
+        "ui",
+        "power-bar",
+        "renderer"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/ui/SideBarToolTip.java",
+      "type": "file",
+      "name": "SideBarToolTip.java",
+      "filePath": "src/cr0s/javara/ui/SideBarToolTip.java",
+      "summary": "Renders tooltip popups for sidebar items at specified positions with semi-transparent background.",
+      "tags": [
+        "ui",
+        "tooltip",
+        "renderer"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/ui/sbpages/SideBarItemsButton.java",
+      "type": "file",
+      "name": "SideBarItemsButton.java",
+      "filePath": "src/cr0s/javara/ui/sbpages/SideBarItemsButton.java",
+      "summary": "Base sidebar button component managing texture, visibility, and position for production items.",
+      "tags": [
+        "ui",
+        "sidebar",
+        "button",
+        "component"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/cr0s/javara/ui/sbpages/SideBarPage.java",
+      "type": "file",
+      "name": "SideBarPage.java",
+      "filePath": "src/cr0s/javara/ui/sbpages/SideBarPage.java",
+      "summary": "Abstract sidebar page managing a collection of item buttons with rendering and click handling.",
+      "tags": [
+        "ui",
+        "sidebar",
+        "page",
+        "abstract"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/cr0s/javara/ui/sbpages/building/BuildingSidebarButton.java",
+      "type": "file",
+      "name": "BuildingSidebarButton.java",
+      "filePath": "src/cr0s/javara/ui/sbpages/building/BuildingSidebarButton.java",
+      "summary": "Sidebar button for building production items, extending the base SideBarItemsButton.",
+      "tags": [
+        "ui",
+        "sidebar",
+        "building-button"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/ui/sbpages/building/PageBuildingSoviet.java",
+      "type": "file",
+      "name": "PageBuildingSoviet.java",
+      "filePath": "src/cr0s/javara/ui/sbpages/building/PageBuildingSoviet.java",
+      "summary": "Soviet building production page listing all buildable structures with visibility filtering.",
+      "tags": [
+        "ui",
+        "sidebar",
+        "building-page",
+        "production"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/ui/sbpages/infantry/InfantrySidebarButton.java",
+      "type": "file",
+      "name": "InfantrySidebarButton.java",
+      "filePath": "src/cr0s/javara/ui/sbpages/infantry/InfantrySidebarButton.java",
+      "summary": "Sidebar button for infantry production with target infantry type reference.",
+      "tags": [
+        "ui",
+        "sidebar",
+        "infantry-button"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/ui/sbpages/infantry/PageInfantry.java",
+      "type": "file",
+      "name": "PageInfantry.java",
+      "filePath": "src/cr0s/javara/ui/sbpages/infantry/PageInfantry.java",
+      "summary": "Infantry production page listing buildable infantry units with availability checks.",
+      "tags": [
+        "ui",
+        "sidebar",
+        "infantry-page",
+        "production"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/ui/sbpages/vehicle/PageVehicle.java",
+      "type": "file",
+      "name": "PageVehicle.java",
+      "filePath": "src/cr0s/javara/ui/sbpages/vehicle/PageVehicle.java",
+      "summary": "Vehicle production page listing buildable vehicles with availability checks.",
+      "tags": [
+        "ui",
+        "sidebar",
+        "vehicle-page",
+        "production"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/ui/sbpages/vehicle/VehicleSidebarButton.java",
+      "type": "file",
+      "name": "VehicleSidebarButton.java",
+      "filePath": "src/cr0s/javara/ui/sbpages/vehicle/VehicleSidebarButton.java",
+      "summary": "Sidebar button for vehicle production items.",
+      "tags": [
+        "ui",
+        "sidebar",
+        "vehicle-button"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/util/CellChooser.java",
+      "type": "file",
+      "name": "CellChooser.java",
+      "filePath": "src/cr0s/javara/util/CellChooser.java",
+      "summary": "Interface defining a method to check if a cell position is choosable for AI targeting.",
+      "tags": [
+        "interface",
+        "ai",
+        "cell-selection"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/cr0s/javara/resources/TmpTexture.java:TmpTexture",
+      "type": "class",
+      "name": "TmpTexture",
+      "filePath": "src/cr0s/javara/resources/TmpTexture.java",
+      "lineRange": [
+        16,
+        188
+      ],
+      "summary": "Class TmpTexture with 9 methods and 18 properties.",
+      "tags": [
+        "class",
+        "rendering",
+        "texture",
+        "sprite-sheet"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/resources/TmpTexture.java:TmpTexture",
+      "type": "function",
+      "name": "TmpTexture",
+      "filePath": "src/cr0s/javara/resources/TmpTexture.java",
+      "lineRange": [
+        40,
+        49
+      ],
+      "summary": "Function TmpTexture with 2 parameters.",
+      "tags": [
+        "function",
+        "rendering",
+        "texture",
+        "sprite-sheet"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/resources/TmpTexture.java:applyPalette",
+      "type": "function",
+      "name": "applyPalette",
+      "filePath": "src/cr0s/javara/resources/TmpTexture.java",
+      "lineRange": [
+        51,
+        96
+      ],
+      "summary": "Function applyPalette with 1 parameters.",
+      "tags": [
+        "function",
+        "rendering",
+        "texture",
+        "sprite-sheet"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/resources/TmpTexture.java:getAsCombinedImage",
+      "type": "function",
+      "name": "getAsCombinedImage",
+      "filePath": "src/cr0s/javara/resources/TmpTexture.java",
+      "lineRange": [
+        104,
+        154
+      ],
+      "summary": "Function getAsCombinedImage.",
+      "tags": [
+        "function",
+        "rendering",
+        "texture",
+        "sprite-sheet"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/resources/TmpTexture.java:getByIndex",
+      "type": "function",
+      "name": "getByIndex",
+      "filePath": "src/cr0s/javara/resources/TmpTexture.java",
+      "lineRange": [
+        156,
+        166
+      ],
+      "summary": "Function getByIndex with 1 parameters.",
+      "tags": [
+        "function",
+        "rendering",
+        "texture",
+        "sprite-sheet"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/cr0s/javara/ui/GameSideBar.java:GameSideBar",
+      "type": "class",
+      "name": "GameSideBar",
+      "filePath": "src/cr0s/javara/ui/GameSideBar.java",
+      "lineRange": [
+        35,
+        560
+      ],
+      "summary": "Class GameSideBar with 24 methods and 33 properties.",
+      "tags": [
+        "class",
+        "ui",
+        "sidebar",
+        "minimap"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/cr0s/javara/ui/GameSideBar.java:GameSideBar",
+      "type": "function",
+      "name": "GameSideBar",
+      "filePath": "src/cr0s/javara/ui/GameSideBar.java",
+      "lineRange": [
+        92,
+        116
+      ],
+      "summary": "Function GameSideBar with 1 parameters.",
+      "tags": [
+        "function",
+        "ui",
+        "sidebar",
+        "minimap"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/ui/GameSideBar.java:start",
+      "type": "function",
+      "name": "start",
+      "filePath": "src/cr0s/javara/ui/GameSideBar.java",
+      "lineRange": [
+        122,
+        141
+      ],
+      "summary": "Function start with 1 parameters.",
+      "tags": [
+        "function",
+        "ui",
+        "sidebar",
+        "minimap"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/ui/GameSideBar.java:drawRadar",
+      "type": "function",
+      "name": "drawRadar",
+      "filePath": "src/cr0s/javara/ui/GameSideBar.java",
+      "lineRange": [
+        147,
+        156
+      ],
+      "summary": "Function drawRadar with 1 parameters.",
+      "tags": [
+        "function",
+        "ui",
+        "sidebar",
+        "minimap"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/ui/GameSideBar.java:drawStartPage",
+      "type": "function",
+      "name": "drawStartPage",
+      "filePath": "src/cr0s/javara/ui/GameSideBar.java",
+      "lineRange": [
+        181,
+        194
+      ],
+      "summary": "Function drawStartPage with 2 parameters.",
+      "tags": [
+        "function",
+        "ui",
+        "sidebar",
+        "minimap"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/ui/GameSideBar.java:drawBarracksButton",
+      "type": "function",
+      "name": "drawBarracksButton",
+      "filePath": "src/cr0s/javara/ui/GameSideBar.java",
+      "lineRange": [
+        196,
+        207
+      ],
+      "summary": "Function drawBarracksButton with 4 parameters.",
+      "tags": [
+        "function",
+        "ui",
+        "sidebar",
+        "minimap"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/ui/GameSideBar.java:drawWarFactoryButton",
+      "type": "function",
+      "name": "drawWarFactoryButton",
+      "filePath": "src/cr0s/javara/ui/GameSideBar.java",
+      "lineRange": [
+        209,
+        226
+      ],
+      "summary": "Function drawWarFactoryButton with 4 parameters.",
+      "tags": [
+        "function",
+        "ui",
+        "sidebar",
+        "minimap"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/ui/GameSideBar.java:drawBuildingButtons",
+      "type": "function",
+      "name": "drawBuildingButtons",
+      "filePath": "src/cr0s/javara/ui/GameSideBar.java",
+      "lineRange": [
+        228,
+        258
+      ],
+      "summary": "Function drawBuildingButtons with 4 parameters.",
+      "tags": [
+        "function",
+        "ui",
+        "sidebar",
+        "minimap"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/ui/GameSideBar.java:update",
+      "type": "function",
+      "name": "update",
+      "filePath": "src/cr0s/javara/ui/GameSideBar.java",
+      "lineRange": [
+        260,
+        352
+      ],
+      "summary": "Function update with 1 parameters.",
+      "tags": [
+        "function",
+        "ui",
+        "sidebar",
+        "minimap"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/ui/GameSideBar.java:productionButtonClick",
+      "type": "function",
+      "name": "productionButtonClick",
+      "filePath": "src/cr0s/javara/ui/GameSideBar.java",
+      "lineRange": [
+        373,
+        429
+      ],
+      "summary": "Function productionButtonClick with 4 parameters.",
+      "tags": [
+        "function",
+        "ui",
+        "sidebar",
+        "minimap"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/ui/GameSideBar.java:openPageByClick",
+      "type": "function",
+      "name": "openPageByClick",
+      "filePath": "src/cr0s/javara/ui/GameSideBar.java",
+      "lineRange": [
+        431,
+        457
+      ],
+      "summary": "Function openPageByClick with 2 parameters.",
+      "tags": [
+        "function",
+        "ui",
+        "sidebar",
+        "minimap"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/ui/GameSideBar.java:startPageClick",
+      "type": "function",
+      "name": "startPageClick",
+      "filePath": "src/cr0s/javara/ui/GameSideBar.java",
+      "lineRange": [
+        459,
+        507
+      ],
+      "summary": "Function startPageClick with 3 parameters.",
+      "tags": [
+        "function",
+        "ui",
+        "sidebar",
+        "minimap"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/ui/GameSideBar.java:mouseClicked",
+      "type": "function",
+      "name": "mouseClicked",
+      "filePath": "src/cr0s/javara/ui/GameSideBar.java",
+      "lineRange": [
+        509,
+        541
+      ],
+      "summary": "Function mouseClicked with 3 parameters.",
+      "tags": [
+        "function",
+        "ui",
+        "sidebar",
+        "minimap"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/cr0s/javara/ui/PowerBarRenderer.java:PowerBarRenderer",
+      "type": "class",
+      "name": "PowerBarRenderer",
+      "filePath": "src/cr0s/javara/ui/PowerBarRenderer.java",
+      "lineRange": [
+        8,
+        66
+      ],
+      "summary": "Class PowerBarRenderer with 3 methods and 8 properties.",
+      "tags": [
+        "class",
+        "ui",
+        "power-bar",
+        "renderer"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/ui/PowerBarRenderer.java:render",
+      "type": "function",
+      "name": "render",
+      "filePath": "src/cr0s/javara/ui/PowerBarRenderer.java",
+      "lineRange": [
+        26,
+        49
+      ],
+      "summary": "Function render with 2 parameters.",
+      "tags": [
+        "function",
+        "ui",
+        "power-bar",
+        "renderer"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/cr0s/javara/ui/SideBarToolTip.java:SideBarToolTip",
+      "type": "class",
+      "name": "SideBarToolTip",
+      "filePath": "src/cr0s/javara/ui/SideBarToolTip.java",
+      "lineRange": [
+        7,
+        32
+      ],
+      "summary": "Class SideBarToolTip with 1 methods and 4 properties.",
+      "tags": [
+        "class",
+        "ui",
+        "tooltip",
+        "renderer"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/ui/SideBarToolTip.java:renderTooltipAt",
+      "type": "function",
+      "name": "renderTooltipAt",
+      "filePath": "src/cr0s/javara/ui/SideBarToolTip.java",
+      "lineRange": [
+        16,
+        31
+      ],
+      "summary": "Function renderTooltipAt with 3 parameters.",
+      "tags": [
+        "function",
+        "ui",
+        "tooltip",
+        "renderer"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/cr0s/javara/ui/sbpages/SideBarItemsButton.java:SideBarItemsButton",
+      "type": "class",
+      "name": "SideBarItemsButton",
+      "filePath": "src/cr0s/javara/ui/sbpages/SideBarItemsButton.java",
+      "lineRange": [
+        13,
+        77
+      ],
+      "summary": "Class SideBarItemsButton with 8 methods and 9 properties.",
+      "tags": [
+        "class",
+        "ui",
+        "sidebar",
+        "button"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/ui/sbpages/SideBarItemsButton.java:SideBarItemsButton",
+      "type": "function",
+      "name": "SideBarItemsButton",
+      "filePath": "src/cr0s/javara/ui/sbpages/SideBarItemsButton.java",
+      "lineRange": [
+        26,
+        39
+      ],
+      "summary": "Function SideBarItemsButton with 6 parameters.",
+      "tags": [
+        "function",
+        "ui",
+        "sidebar",
+        "button"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/cr0s/javara/ui/sbpages/SideBarPage.java:SideBarPage",
+      "type": "class",
+      "name": "SideBarPage",
+      "filePath": "src/cr0s/javara/ui/sbpages/SideBarPage.java",
+      "lineRange": [
+        15,
+        106
+      ],
+      "summary": "Class SideBarPage with 10 methods and 5 properties.",
+      "tags": [
+        "class",
+        "ui",
+        "sidebar",
+        "page"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/ui/sbpages/SideBarPage.java:render",
+      "type": "function",
+      "name": "render",
+      "filePath": "src/cr0s/javara/ui/sbpages/SideBarPage.java",
+      "lineRange": [
+        30,
+        63
+      ],
+      "summary": "Function render with 2 parameters.",
+      "tags": [
+        "function",
+        "ui",
+        "sidebar",
+        "page"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/ui/sbpages/SideBarPage.java:mouseClick",
+      "type": "function",
+      "name": "mouseClick",
+      "filePath": "src/cr0s/javara/ui/sbpages/SideBarPage.java",
+      "lineRange": [
+        66,
+        78
+      ],
+      "summary": "Function mouseClick with 2 parameters.",
+      "tags": [
+        "function",
+        "ui",
+        "sidebar",
+        "page"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/cr0s/javara/ui/sbpages/building/PageBuildingSoviet.java:PageBuildingSoviet",
+      "type": "class",
+      "name": "PageBuildingSoviet",
+      "filePath": "src/cr0s/javara/ui/sbpages/building/PageBuildingSoviet.java",
+      "lineRange": [
+        11,
+        65
+      ],
+      "summary": "Class PageBuildingSoviet with 4 methods and 0 properties.",
+      "tags": [
+        "class",
+        "ui",
+        "sidebar",
+        "building-page"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/ui/sbpages/building/PageBuildingSoviet.java:PageBuildingSoviet",
+      "type": "function",
+      "name": "PageBuildingSoviet",
+      "filePath": "src/cr0s/javara/ui/sbpages/building/PageBuildingSoviet.java",
+      "lineRange": [
+        13,
+        45
+      ],
+      "summary": "Function PageBuildingSoviet with 1 parameters.",
+      "tags": [
+        "function",
+        "ui",
+        "sidebar",
+        "building-page"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/cr0s/javara/ui/sbpages/infantry/InfantrySidebarButton.java:InfantrySidebarButton",
+      "type": "class",
+      "name": "InfantrySidebarButton",
+      "filePath": "src/cr0s/javara/ui/sbpages/infantry/InfantrySidebarButton.java",
+      "lineRange": [
+        7,
+        21
+      ],
+      "summary": "Class InfantrySidebarButton with 2 methods and 1 properties.",
+      "tags": [
+        "class",
+        "ui",
+        "sidebar",
+        "infantry-button"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/cr0s/javara/ui/sbpages/infantry/PageInfantry.java:PageInfantry",
+      "type": "class",
+      "name": "PageInfantry",
+      "filePath": "src/cr0s/javara/ui/sbpages/infantry/PageInfantry.java",
+      "lineRange": [
+        9,
+        45
+      ],
+      "summary": "Class PageInfantry with 3 methods and 0 properties.",
+      "tags": [
+        "class",
+        "ui",
+        "sidebar",
+        "infantry-page"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/ui/sbpages/infantry/PageInfantry.java:PageInfantry",
+      "type": "function",
+      "name": "PageInfantry",
+      "filePath": "src/cr0s/javara/ui/sbpages/infantry/PageInfantry.java",
+      "lineRange": [
+        11,
+        30
+      ],
+      "summary": "Function PageInfantry with 1 parameters.",
+      "tags": [
+        "function",
+        "ui",
+        "sidebar",
+        "infantry-page"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/cr0s/javara/ui/sbpages/vehicle/PageVehicle.java:PageVehicle",
+      "type": "class",
+      "name": "PageVehicle",
+      "filePath": "src/cr0s/javara/ui/sbpages/vehicle/PageVehicle.java",
+      "lineRange": [
+        11,
+        65
+      ],
+      "summary": "Class PageVehicle with 4 methods and 0 properties.",
+      "tags": [
+        "class",
+        "ui",
+        "sidebar",
+        "vehicle-page"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/ui/sbpages/vehicle/PageVehicle.java:PageVehicle",
+      "type": "function",
+      "name": "PageVehicle",
+      "filePath": "src/cr0s/javara/ui/sbpages/vehicle/PageVehicle.java",
+      "lineRange": [
+        13,
+        45
+      ],
+      "summary": "Function PageVehicle with 1 parameters.",
+      "tags": [
+        "function",
+        "ui",
+        "sidebar",
+        "vehicle-page"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/cr0s/javara/resources/TmpTexture.java",
+      "target": "class:src/cr0s/javara/resources/TmpTexture.java:TmpTexture",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/resources/TmpTexture.java",
+      "target": "class:src/cr0s/javara/resources/TmpTexture.java:TmpTexture",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/resources/TmpTexture.java",
+      "target": "function:src/cr0s/javara/resources/TmpTexture.java:TmpTexture",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/resources/TmpTexture.java",
+      "target": "function:src/cr0s/javara/resources/TmpTexture.java:TmpTexture",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/resources/TmpTexture.java",
+      "target": "function:src/cr0s/javara/resources/TmpTexture.java:applyPalette",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/resources/TmpTexture.java",
+      "target": "function:src/cr0s/javara/resources/TmpTexture.java:getAsCombinedImage",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/resources/TmpTexture.java",
+      "target": "function:src/cr0s/javara/resources/TmpTexture.java:getAsCombinedImage",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/resources/TmpTexture.java",
+      "target": "function:src/cr0s/javara/resources/TmpTexture.java:getByIndex",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/resources/TmpTexture.java",
+      "target": "function:src/cr0s/javara/resources/TmpTexture.java:getByIndex",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/resources/TmpTexture.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/GameSideBar.java",
+      "target": "class:src/cr0s/javara/ui/GameSideBar.java:GameSideBar",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/GameSideBar.java",
+      "target": "class:src/cr0s/javara/ui/GameSideBar.java:GameSideBar",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/GameSideBar.java",
+      "target": "function:src/cr0s/javara/ui/GameSideBar.java:GameSideBar",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/GameSideBar.java",
+      "target": "function:src/cr0s/javara/ui/GameSideBar.java:GameSideBar",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/GameSideBar.java",
+      "target": "function:src/cr0s/javara/ui/GameSideBar.java:start",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/GameSideBar.java",
+      "target": "function:src/cr0s/javara/ui/GameSideBar.java:start",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/GameSideBar.java",
+      "target": "function:src/cr0s/javara/ui/GameSideBar.java:drawRadar",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/GameSideBar.java",
+      "target": "function:src/cr0s/javara/ui/GameSideBar.java:drawRadar",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/GameSideBar.java",
+      "target": "function:src/cr0s/javara/ui/GameSideBar.java:drawStartPage",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/GameSideBar.java",
+      "target": "function:src/cr0s/javara/ui/GameSideBar.java:drawBarracksButton",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/GameSideBar.java",
+      "target": "function:src/cr0s/javara/ui/GameSideBar.java:drawWarFactoryButton",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/GameSideBar.java",
+      "target": "function:src/cr0s/javara/ui/GameSideBar.java:drawBuildingButtons",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/GameSideBar.java",
+      "target": "function:src/cr0s/javara/ui/GameSideBar.java:update",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/GameSideBar.java",
+      "target": "function:src/cr0s/javara/ui/GameSideBar.java:update",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/GameSideBar.java",
+      "target": "function:src/cr0s/javara/ui/GameSideBar.java:productionButtonClick",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/GameSideBar.java",
+      "target": "function:src/cr0s/javara/ui/GameSideBar.java:productionButtonClick",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/GameSideBar.java",
+      "target": "function:src/cr0s/javara/ui/GameSideBar.java:openPageByClick",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/GameSideBar.java",
+      "target": "function:src/cr0s/javara/ui/GameSideBar.java:openPageByClick",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/GameSideBar.java",
+      "target": "function:src/cr0s/javara/ui/GameSideBar.java:startPageClick",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/GameSideBar.java",
+      "target": "function:src/cr0s/javara/ui/GameSideBar.java:startPageClick",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/GameSideBar.java",
+      "target": "function:src/cr0s/javara/ui/GameSideBar.java:mouseClicked",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/GameSideBar.java",
+      "target": "function:src/cr0s/javara/ui/GameSideBar.java:mouseClicked",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/GameSideBar.java",
+      "target": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/GameSideBar.java",
+      "target": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/GameSideBar.java",
+      "target": "file:src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/GameSideBar.java",
+      "target": "file:src/cr0s/javara/gameplay/Base.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/GameSideBar.java",
+      "target": "file:src/cr0s/javara/gameplay/Player.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/GameSideBar.java",
+      "target": "file:src/cr0s/javara/gameplay/Production.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/GameSideBar.java",
+      "target": "file:src/cr0s/javara/main/GUI.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/GameSideBar.java",
+      "target": "file:src/cr0s/javara/perfomance/Profiler.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/GameSideBar.java",
+      "target": "file:src/cr0s/javara/render/map/MinimapRenderer.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/GameSideBar.java",
+      "target": "file:src/cr0s/javara/resources/SoundManager.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/GameSideBar.java",
+      "target": "file:src/cr0s/javara/ui/sbpages/building/PageBuildingSoviet.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/GameSideBar.java",
+      "target": "file:src/cr0s/javara/ui/sbpages/infantry/PageInfantry.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/GameSideBar.java",
+      "target": "file:src/cr0s/javara/ui/sbpages/SideBarPage.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/GameSideBar.java",
+      "target": "file:src/cr0s/javara/ui/sbpages/vehicle/PageVehicle.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/GameSideBar.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/GameSideBar.java",
+      "target": "file:src/cr0s/javara/util/SpriteSheet.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/PowerBarRenderer.java",
+      "target": "class:src/cr0s/javara/ui/PowerBarRenderer.java:PowerBarRenderer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/PowerBarRenderer.java",
+      "target": "class:src/cr0s/javara/ui/PowerBarRenderer.java:PowerBarRenderer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/PowerBarRenderer.java",
+      "target": "function:src/cr0s/javara/ui/PowerBarRenderer.java:render",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/PowerBarRenderer.java",
+      "target": "function:src/cr0s/javara/ui/PowerBarRenderer.java:render",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/PowerBarRenderer.java",
+      "target": "file:src/cr0s/javara/main/GUI.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/PowerBarRenderer.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/SideBarToolTip.java",
+      "target": "class:src/cr0s/javara/ui/SideBarToolTip.java:SideBarToolTip",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/SideBarToolTip.java",
+      "target": "class:src/cr0s/javara/ui/SideBarToolTip.java:SideBarToolTip",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/SideBarToolTip.java",
+      "target": "function:src/cr0s/javara/ui/SideBarToolTip.java:renderTooltipAt",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/SideBarToolTip.java",
+      "target": "function:src/cr0s/javara/ui/SideBarToolTip.java:renderTooltipAt",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/SideBarToolTip.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/sbpages/SideBarItemsButton.java",
+      "target": "class:src/cr0s/javara/ui/sbpages/SideBarItemsButton.java:SideBarItemsButton",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/sbpages/SideBarItemsButton.java",
+      "target": "class:src/cr0s/javara/ui/sbpages/SideBarItemsButton.java:SideBarItemsButton",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/sbpages/SideBarItemsButton.java",
+      "target": "function:src/cr0s/javara/ui/sbpages/SideBarItemsButton.java:SideBarItemsButton",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/sbpages/SideBarItemsButton.java",
+      "target": "function:src/cr0s/javara/ui/sbpages/SideBarItemsButton.java:SideBarItemsButton",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/sbpages/SideBarItemsButton.java",
+      "target": "file:src/cr0s/javara/main/GUI.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/sbpages/SideBarItemsButton.java",
+      "target": "file:src/cr0s/javara/resources/ResourceManager.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/sbpages/SideBarItemsButton.java",
+      "target": "file:src/cr0s/javara/resources/ShpTexture.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/sbpages/SideBarItemsButton.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/sbpages/SideBarPage.java",
+      "target": "class:src/cr0s/javara/ui/sbpages/SideBarPage.java:SideBarPage",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/sbpages/SideBarPage.java",
+      "target": "class:src/cr0s/javara/ui/sbpages/SideBarPage.java:SideBarPage",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/sbpages/SideBarPage.java",
+      "target": "function:src/cr0s/javara/ui/sbpages/SideBarPage.java:render",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/sbpages/SideBarPage.java",
+      "target": "function:src/cr0s/javara/ui/sbpages/SideBarPage.java:render",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/sbpages/SideBarPage.java",
+      "target": "function:src/cr0s/javara/ui/sbpages/SideBarPage.java:mouseClick",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/sbpages/SideBarPage.java",
+      "target": "function:src/cr0s/javara/ui/sbpages/SideBarPage.java:mouseClick",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/sbpages/SideBarPage.java",
+      "target": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/sbpages/SideBarPage.java",
+      "target": "file:src/cr0s/javara/entity/IHaveCost.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/sbpages/SideBarPage.java",
+      "target": "file:src/cr0s/javara/main/GUI.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/sbpages/SideBarPage.java",
+      "target": "file:src/cr0s/javara/ui/GameSideBar.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/sbpages/SideBarPage.java",
+      "target": "file:src/cr0s/javara/ui/SideBarToolTip.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/sbpages/SideBarPage.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/sbpages/building/BuildingSidebarButton.java",
+      "target": "file:src/cr0s/javara/ui/sbpages/SideBarItemsButton.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/sbpages/building/BuildingSidebarButton.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/sbpages/building/PageBuildingSoviet.java",
+      "target": "class:src/cr0s/javara/ui/sbpages/building/PageBuildingSoviet.java:PageBuildingSoviet",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/sbpages/building/PageBuildingSoviet.java",
+      "target": "class:src/cr0s/javara/ui/sbpages/building/PageBuildingSoviet.java:PageBuildingSoviet",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/sbpages/building/PageBuildingSoviet.java",
+      "target": "function:src/cr0s/javara/ui/sbpages/building/PageBuildingSoviet.java:PageBuildingSoviet",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/sbpages/building/PageBuildingSoviet.java",
+      "target": "function:src/cr0s/javara/ui/sbpages/building/PageBuildingSoviet.java:PageBuildingSoviet",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/sbpages/building/PageBuildingSoviet.java",
+      "target": "file:src/cr0s/javara/main/GUI.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/sbpages/building/PageBuildingSoviet.java",
+      "target": "file:src/cr0s/javara/resources/SoundManager.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/sbpages/building/PageBuildingSoviet.java",
+      "target": "file:src/cr0s/javara/ui/sbpages/SideBarItemsButton.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/sbpages/building/PageBuildingSoviet.java",
+      "target": "file:src/cr0s/javara/ui/sbpages/SideBarPage.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/sbpages/building/PageBuildingSoviet.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/sbpages/infantry/InfantrySidebarButton.java",
+      "target": "class:src/cr0s/javara/ui/sbpages/infantry/InfantrySidebarButton.java:InfantrySidebarButton",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/sbpages/infantry/InfantrySidebarButton.java",
+      "target": "class:src/cr0s/javara/ui/sbpages/infantry/InfantrySidebarButton.java:InfantrySidebarButton",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/sbpages/infantry/InfantrySidebarButton.java",
+      "target": "file:src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/sbpages/infantry/InfantrySidebarButton.java",
+      "target": "file:src/cr0s/javara/ui/sbpages/SideBarItemsButton.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/sbpages/infantry/InfantrySidebarButton.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/sbpages/infantry/PageInfantry.java",
+      "target": "class:src/cr0s/javara/ui/sbpages/infantry/PageInfantry.java:PageInfantry",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/sbpages/infantry/PageInfantry.java",
+      "target": "class:src/cr0s/javara/ui/sbpages/infantry/PageInfantry.java:PageInfantry",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/sbpages/infantry/PageInfantry.java",
+      "target": "function:src/cr0s/javara/ui/sbpages/infantry/PageInfantry.java:PageInfantry",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/sbpages/infantry/PageInfantry.java",
+      "target": "function:src/cr0s/javara/ui/sbpages/infantry/PageInfantry.java:PageInfantry",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/sbpages/infantry/PageInfantry.java",
+      "target": "file:src/cr0s/javara/main/GUI.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/sbpages/infantry/PageInfantry.java",
+      "target": "file:src/cr0s/javara/resources/SoundManager.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/sbpages/infantry/PageInfantry.java",
+      "target": "file:src/cr0s/javara/ui/sbpages/SideBarItemsButton.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/sbpages/infantry/PageInfantry.java",
+      "target": "file:src/cr0s/javara/ui/sbpages/SideBarPage.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/sbpages/infantry/PageInfantry.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/sbpages/vehicle/PageVehicle.java",
+      "target": "class:src/cr0s/javara/ui/sbpages/vehicle/PageVehicle.java:PageVehicle",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/sbpages/vehicle/PageVehicle.java",
+      "target": "class:src/cr0s/javara/ui/sbpages/vehicle/PageVehicle.java:PageVehicle",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/sbpages/vehicle/PageVehicle.java",
+      "target": "function:src/cr0s/javara/ui/sbpages/vehicle/PageVehicle.java:PageVehicle",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/sbpages/vehicle/PageVehicle.java",
+      "target": "function:src/cr0s/javara/ui/sbpages/vehicle/PageVehicle.java:PageVehicle",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/sbpages/vehicle/PageVehicle.java",
+      "target": "file:src/cr0s/javara/main/GUI.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/sbpages/vehicle/PageVehicle.java",
+      "target": "file:src/cr0s/javara/resources/SoundManager.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/sbpages/vehicle/PageVehicle.java",
+      "target": "file:src/cr0s/javara/ui/sbpages/SideBarItemsButton.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/sbpages/vehicle/PageVehicle.java",
+      "target": "file:src/cr0s/javara/ui/sbpages/SideBarPage.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/sbpages/vehicle/PageVehicle.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/sbpages/vehicle/VehicleSidebarButton.java",
+      "target": "file:src/cr0s/javara/ui/sbpages/SideBarItemsButton.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/sbpages/vehicle/VehicleSidebarButton.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

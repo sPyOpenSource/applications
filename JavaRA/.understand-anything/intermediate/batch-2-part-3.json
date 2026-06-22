@@ -1,0 +1,1990 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/cr0s/javara/perfomance/Profiler.java",
+      "type": "file",
+      "name": "Profiler.java",
+      "filePath": "src/cr0s/javara/perfomance/Profiler.java",
+      "summary": "Performance profiler tracking timing metrics across game systems with labeled sections.",
+      "tags": [
+        "java",
+        "game",
+        "performance"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/cr0s/javara/perfomance/Profiler.java:Profiler",
+      "type": "class",
+      "name": "Profiler",
+      "filePath": "src/cr0s/javara/perfomance/Profiler.java",
+      "lineRange": [
+        6,
+        54
+      ],
+      "summary": "Timing profiler for performance measurement of game subsystems.",
+      "tags": [
+        "java",
+        "game",
+        "profiler"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/perfomance/Profiler.java:getInstance",
+      "type": "function",
+      "name": "getInstance",
+      "filePath": "src/cr0s/javara/perfomance/Profiler.java",
+      "lineRange": [
+        17,
+        23
+      ],
+      "summary": "getInstance method (7 lines) in Profiler.java.",
+      "tags": [
+        "java",
+        "getinstance"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/perfomance/Profiler.java:getSection",
+      "type": "function",
+      "name": "getSection",
+      "filePath": "src/cr0s/javara/perfomance/Profiler.java",
+      "lineRange": [
+        25,
+        34
+      ],
+      "summary": "getSection method (10 lines) in Profiler.java.",
+      "tags": [
+        "java",
+        "getsection"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/render/Controller.java",
+      "type": "file",
+      "name": "Controller.java",
+      "filePath": "src/cr0s/javara/render/Controller.java",
+      "summary": "Input controller translating keyboard and mouse events into game camera movement commands.",
+      "tags": [
+        "java",
+        "game",
+        "rendering"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/cr0s/javara/render/Controller.java:Controller",
+      "type": "class",
+      "name": "Controller",
+      "filePath": "src/cr0s/javara/render/Controller.java",
+      "lineRange": [
+        16,
+        138
+      ],
+      "summary": "Input controller handling camera movement via keyboard and mouse events.",
+      "tags": [
+        "java",
+        "game",
+        "controller"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/Controller.java:Controller",
+      "type": "function",
+      "name": "Controller",
+      "filePath": "src/cr0s/javara/render/Controller.java",
+      "lineRange": [
+        28,
+        84
+      ],
+      "summary": "Controller method (57 lines) in Controller.java.",
+      "tags": [
+        "java",
+        "controller"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/Controller.java:update",
+      "type": "function",
+      "name": "update",
+      "filePath": "src/cr0s/javara/render/Controller.java",
+      "lineRange": [
+        86,
+        136
+      ],
+      "summary": "update method (51 lines) in Controller.java.",
+      "tags": [
+        "java",
+        "update"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/cr0s/javara/render/EntityBlockingMap.java",
+      "type": "file",
+      "name": "EntityBlockingMap.java",
+      "filePath": "src/cr0s/javara/render/EntityBlockingMap.java",
+      "summary": "Spatial grid for collision detection and entity blocking lookups in the game world.",
+      "tags": [
+        "java",
+        "game",
+        "rendering"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:src/cr0s/javara/render/EntityBlockingMap.java:EntityBlockingMap",
+      "type": "class",
+      "name": "EntityBlockingMap",
+      "filePath": "src/cr0s/javara/render/EntityBlockingMap.java",
+      "lineRange": [
+        11,
+        281
+      ],
+      "summary": "Spatial blocking grid for entity collision detection.",
+      "tags": [
+        "java",
+        "game",
+        "entityblockingmap"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/EntityBlockingMap.java:EntityBlockingMap",
+      "type": "function",
+      "name": "EntityBlockingMap",
+      "filePath": "src/cr0s/javara/render/EntityBlockingMap.java",
+      "lineRange": [
+        18,
+        22
+      ],
+      "summary": "EntityBlockingMap method (5 lines) in EntityBlockingMap.java.",
+      "tags": [
+        "java",
+        "entityblockingmap"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/EntityBlockingMap.java:update",
+      "type": "function",
+      "name": "update",
+      "filePath": "src/cr0s/javara/render/EntityBlockingMap.java",
+      "lineRange": [
+        30,
+        34
+      ],
+      "summary": "update method (5 lines) in EntityBlockingMap.java.",
+      "tags": [
+        "java",
+        "update"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/EntityBlockingMap.java:occupyForMobileEntity",
+      "type": "function",
+      "name": "occupyForMobileEntity",
+      "filePath": "src/cr0s/javara/render/EntityBlockingMap.java",
+      "lineRange": [
+        36,
+        58
+      ],
+      "summary": "occupyForMobileEntity method (23 lines) in EntityBlockingMap.java.",
+      "tags": [
+        "java",
+        "occupyformobileentity"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/EntityBlockingMap.java:freeForMobileEntity",
+      "type": "function",
+      "name": "freeForMobileEntity",
+      "filePath": "src/cr0s/javara/render/EntityBlockingMap.java",
+      "lineRange": [
+        60,
+        82
+      ],
+      "summary": "freeForMobileEntity method (23 lines) in EntityBlockingMap.java.",
+      "tags": [
+        "java",
+        "freeformobileentity"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/EntityBlockingMap.java:freeSubCell",
+      "type": "function",
+      "name": "freeSubCell",
+      "filePath": "src/cr0s/javara/render/EntityBlockingMap.java",
+      "lineRange": [
+        88,
+        108
+      ],
+      "summary": "freeSubCell method (21 lines) in EntityBlockingMap.java.",
+      "tags": [
+        "java",
+        "freesubcell"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/EntityBlockingMap.java:occupySubCell",
+      "type": "function",
+      "name": "occupySubCell",
+      "filePath": "src/cr0s/javara/render/EntityBlockingMap.java",
+      "lineRange": [
+        110,
+        124
+      ],
+      "summary": "occupySubCell method (15 lines) in EntityBlockingMap.java.",
+      "tags": [
+        "java",
+        "occupysubcell"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/EntityBlockingMap.java:occupyCell",
+      "type": "function",
+      "name": "occupyCell",
+      "filePath": "src/cr0s/javara/render/EntityBlockingMap.java",
+      "lineRange": [
+        126,
+        131
+      ],
+      "summary": "occupyCell method (6 lines) in EntityBlockingMap.java.",
+      "tags": [
+        "java",
+        "occupycell"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/EntityBlockingMap.java:isSubcellFree",
+      "type": "function",
+      "name": "isSubcellFree",
+      "filePath": "src/cr0s/javara/render/EntityBlockingMap.java",
+      "lineRange": [
+        133,
+        169
+      ],
+      "summary": "isSubcellFree method (37 lines) in EntityBlockingMap.java.",
+      "tags": [
+        "java",
+        "issubcellfree"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/EntityBlockingMap.java:isFullCellOccupied",
+      "type": "function",
+      "name": "isFullCellOccupied",
+      "filePath": "src/cr0s/javara/render/EntityBlockingMap.java",
+      "lineRange": [
+        171,
+        184
+      ],
+      "summary": "isFullCellOccupied method (14 lines) in EntityBlockingMap.java.",
+      "tags": [
+        "java",
+        "isfullcelloccupied"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/EntityBlockingMap.java:isAnyInfluenceInCell",
+      "type": "function",
+      "name": "isAnyInfluenceInCell",
+      "filePath": "src/cr0s/javara/render/EntityBlockingMap.java",
+      "lineRange": [
+        186,
+        190
+      ],
+      "summary": "isAnyInfluenceInCell method (5 lines) in EntityBlockingMap.java.",
+      "tags": [
+        "java",
+        "isanyinfluenceincell"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/EntityBlockingMap.java:getFreeSubCell",
+      "type": "function",
+      "name": "getFreeSubCell",
+      "filePath": "src/cr0s/javara/render/EntityBlockingMap.java",
+      "lineRange": [
+        202,
+        222
+      ],
+      "summary": "getFreeSubCell method (21 lines) in EntityBlockingMap.java.",
+      "tags": [
+        "java",
+        "getfreesubcell"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/EntityBlockingMap.java:occupyForBuilding",
+      "type": "function",
+      "name": "occupyForBuilding",
+      "filePath": "src/cr0s/javara/render/EntityBlockingMap.java",
+      "lineRange": [
+        228,
+        247
+      ],
+      "summary": "occupyForBuilding method (20 lines) in EntityBlockingMap.java.",
+      "tags": [
+        "java",
+        "occupyforbuilding"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/EntityBlockingMap.java:isEntityInCell",
+      "type": "function",
+      "name": "isEntityInCell",
+      "filePath": "src/cr0s/javara/render/EntityBlockingMap.java",
+      "lineRange": [
+        249,
+        261
+      ],
+      "summary": "isEntityInCell method (13 lines) in EntityBlockingMap.java.",
+      "tags": [
+        "java",
+        "isentityincell"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/EntityBlockingMap.java:isAnyUnitInCell",
+      "type": "function",
+      "name": "isAnyUnitInCell",
+      "filePath": "src/cr0s/javara/render/EntityBlockingMap.java",
+      "lineRange": [
+        268,
+        280
+      ],
+      "summary": "isAnyUnitInCell method (13 lines) in EntityBlockingMap.java.",
+      "tags": [
+        "java",
+        "isanyunitincell"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/render/World.java",
+      "type": "file",
+      "name": "World.java",
+      "filePath": "src/cr0s/javara/render/World.java",
+      "summary": "Central game world orchestrating all entities, rendering, pathfinding, fog of war, and game state updates.",
+      "tags": [
+        "java",
+        "game",
+        "rendering"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:src/cr0s/javara/render/World.java:World",
+      "type": "class",
+      "name": "World",
+      "filePath": "src/cr0s/javara/render/World.java",
+      "lineRange": [
+        40,
+        740
+      ],
+      "summary": "Central game world managing entities, pathfinding, fog of war, and rendering.",
+      "tags": [
+        "java",
+        "game",
+        "world"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/World.java:World",
+      "type": "function",
+      "name": "World",
+      "filePath": "src/cr0s/javara/render/World.java",
+      "lineRange": [
+        58,
+        71
+      ],
+      "summary": "World method (14 lines) in World.java.",
+      "tags": [
+        "java",
+        "world"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/World.java:generateRangePoints",
+      "type": "function",
+      "name": "generateRangePoints",
+      "filePath": "src/cr0s/javara/render/World.java",
+      "lineRange": [
+        73,
+        85
+      ],
+      "summary": "generateRangePoints method (13 lines) in World.java.",
+      "tags": [
+        "java",
+        "generaterangepoints"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/World.java:handle",
+      "type": "function",
+      "name": "handle",
+      "filePath": "src/cr0s/javara/render/World.java",
+      "lineRange": [
+        87,
+        170
+      ],
+      "summary": "handle method (84 lines) in World.java.",
+      "tags": [
+        "java",
+        "handle"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/World.java:render",
+      "type": "function",
+      "name": "render",
+      "filePath": "src/cr0s/javara/render/World.java",
+      "lineRange": [
+        176,
+        240
+      ],
+      "summary": "render method (65 lines) in World.java.",
+      "tags": [
+        "java",
+        "render"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/World.java:renderEntityBib",
+      "type": "function",
+      "name": "renderEntityBib",
+      "filePath": "src/cr0s/javara/render/World.java",
+      "lineRange": [
+        246,
+        287
+      ],
+      "summary": "renderEntityBib method (42 lines) in World.java.",
+      "tags": [
+        "java",
+        "renderentitybib"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/World.java:renderSelectionBoxes",
+      "type": "function",
+      "name": "renderSelectionBoxes",
+      "filePath": "src/cr0s/javara/render/World.java",
+      "lineRange": [
+        289,
+        299
+      ],
+      "summary": "renderSelectionBoxes method (11 lines) in World.java.",
+      "tags": [
+        "java",
+        "renderselectionboxes"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/World.java:spawnEntityInWorld",
+      "type": "function",
+      "name": "spawnEntityInWorld",
+      "filePath": "src/cr0s/javara/render/World.java",
+      "lineRange": [
+        305,
+        310
+      ],
+      "summary": "spawnEntityInWorld method (6 lines) in World.java.",
+      "tags": [
+        "java",
+        "spawnentityinworld"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/World.java:selectMovableEntitiesInsideBox",
+      "type": "function",
+      "name": "selectMovableEntitiesInsideBox",
+      "filePath": "src/cr0s/javara/render/World.java",
+      "lineRange": [
+        317,
+        333
+      ],
+      "summary": "selectMovableEntitiesInsideBox method (17 lines) in World.java.",
+      "tags": [
+        "java",
+        "selectmovableentitiesinsidebox"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/World.java:cancelAllSelection",
+      "type": "function",
+      "name": "cancelAllSelection",
+      "filePath": "src/cr0s/javara/render/World.java",
+      "lineRange": [
+        335,
+        343
+      ],
+      "summary": "cancelAllSelection method (9 lines) in World.java.",
+      "tags": [
+        "java",
+        "cancelallselection"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/World.java:getEntityInPoint",
+      "type": "function",
+      "name": "getEntityInPoint",
+      "filePath": "src/cr0s/javara/render/World.java",
+      "lineRange": [
+        365,
+        387
+      ],
+      "summary": "getEntityInPoint method (23 lines) in World.java.",
+      "tags": [
+        "java",
+        "getentityinpoint"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/World.java:addBuildingTo",
+      "type": "function",
+      "name": "addBuildingTo",
+      "filePath": "src/cr0s/javara/render/World.java",
+      "lineRange": [
+        395,
+        402
+      ],
+      "summary": "addBuildingTo method (8 lines) in World.java.",
+      "tags": [
+        "java",
+        "addbuildingto"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/World.java:isCellPassable",
+      "type": "function",
+      "name": "isCellPassable",
+      "filePath": "src/cr0s/javara/render/World.java",
+      "lineRange": [
+        408,
+        428
+      ],
+      "summary": "isCellPassable method (21 lines) in World.java.",
+      "tags": [
+        "java",
+        "iscellpassable"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/World.java:isCellBuildable",
+      "type": "function",
+      "name": "isCellBuildable",
+      "filePath": "src/cr0s/javara/render/World.java",
+      "lineRange": [
+        434,
+        448
+      ],
+      "summary": "isCellBuildable method (15 lines) in World.java.",
+      "tags": [
+        "java",
+        "iscellbuildable"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/World.java:occupyRandomSpawnForPlayer",
+      "type": "function",
+      "name": "occupyRandomSpawnForPlayer",
+      "filePath": "src/cr0s/javara/render/World.java",
+      "lineRange": [
+        475,
+        486
+      ],
+      "summary": "occupyRandomSpawnForPlayer method (12 lines) in World.java.",
+      "tags": [
+        "java",
+        "occupyrandomspawnforplayer"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/World.java:addPlayer",
+      "type": "function",
+      "name": "addPlayer",
+      "filePath": "src/cr0s/javara/render/World.java",
+      "lineRange": [
+        488,
+        493
+      ],
+      "summary": "addPlayer method (6 lines) in World.java.",
+      "tags": [
+        "java",
+        "addplayer"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/World.java:isPossibleToBuildHere",
+      "type": "function",
+      "name": "isPossibleToBuildHere",
+      "filePath": "src/cr0s/javara/render/World.java",
+      "lineRange": [
+        495,
+        507
+      ],
+      "summary": "isPossibleToBuildHere method (13 lines) in World.java.",
+      "tags": [
+        "java",
+        "ispossibletobuildhere"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/World.java:getBuildingInCell",
+      "type": "function",
+      "name": "getBuildingInCell",
+      "filePath": "src/cr0s/javara/render/World.java",
+      "lineRange": [
+        513,
+        527
+      ],
+      "summary": "getBuildingInCell method (15 lines) in World.java.",
+      "tags": [
+        "java",
+        "getbuildingincell"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/World.java:getMobileEntityInCell",
+      "type": "function",
+      "name": "getMobileEntityInCell",
+      "filePath": "src/cr0s/javara/render/World.java",
+      "lineRange": [
+        529,
+        543
+      ],
+      "summary": "getMobileEntityInCell method (15 lines) in World.java.",
+      "tags": [
+        "java",
+        "getmobileentityincell"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/World.java:chooseTilesInAnnulus",
+      "type": "function",
+      "name": "chooseTilesInAnnulus",
+      "filePath": "src/cr0s/javara/render/World.java",
+      "lineRange": [
+        557,
+        582
+      ],
+      "summary": "chooseTilesInAnnulus method (26 lines) in World.java.",
+      "tags": [
+        "java",
+        "choosetilesinannulus"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/World.java:chooseTilesInCircle",
+      "type": "function",
+      "name": "chooseTilesInCircle",
+      "filePath": "src/cr0s/javara/render/World.java",
+      "lineRange": [
+        584,
+        601
+      ],
+      "summary": "chooseTilesInCircle method (18 lines) in World.java.",
+      "tags": [
+        "java",
+        "choosetilesincircle"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/World.java:choosePassableCellsInCircle",
+      "type": "function",
+      "name": "choosePassableCellsInCircle",
+      "filePath": "src/cr0s/javara/render/World.java",
+      "lineRange": [
+        603,
+        612
+      ],
+      "summary": "choosePassableCellsInCircle method (10 lines) in World.java.",
+      "tags": [
+        "java",
+        "choosepassablecellsincircle"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/World.java:getCellTargetType",
+      "type": "function",
+      "name": "getCellTargetType",
+      "filePath": "src/cr0s/javara/render/World.java",
+      "lineRange": [
+        614,
+        640
+      ],
+      "summary": "getCellTargetType method (27 lines) in World.java.",
+      "tags": [
+        "java",
+        "getcelltargettype"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/World.java:spawnExplosionAt",
+      "type": "function",
+      "name": "spawnExplosionAt",
+      "filePath": "src/cr0s/javara/render/World.java",
+      "lineRange": [
+        642,
+        647
+      ],
+      "summary": "spawnExplosionAt method (6 lines) in World.java.",
+      "tags": [
+        "java",
+        "spawnexplosionat"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/World.java:spawnSmokeAt",
+      "type": "function",
+      "name": "spawnSmokeAt",
+      "filePath": "src/cr0s/javara/render/World.java",
+      "lineRange": [
+        649,
+        654
+      ],
+      "summary": "spawnSmokeAt method (6 lines) in World.java.",
+      "tags": [
+        "java",
+        "spawnsmokeat"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/World.java:getActorsInCircle",
+      "type": "function",
+      "name": "getActorsInCircle",
+      "filePath": "src/cr0s/javara/render/World.java",
+      "lineRange": [
+        665,
+        688
+      ],
+      "summary": "getActorsInCircle method (24 lines) in World.java.",
+      "tags": [
+        "java",
+        "getactorsincircle"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/World.java:chooseClosestPassableCellInRangeAroundOtherCell",
+      "type": "function",
+      "name": "chooseClosestPassableCellInRangeAroundOtherCell",
+      "filePath": "src/cr0s/javara/render/World.java",
+      "lineRange": [
+        694,
+        717
+      ],
+      "summary": "chooseClosestPassableCellInRangeAroundOtherCell method (24 lines) in World.java.",
+      "tags": [
+        "java",
+        "chooseclosestpassablecellinrangearoundothercell"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/World.java:playSequenceAt",
+      "type": "function",
+      "name": "playSequenceAt",
+      "filePath": "src/cr0s/javara/render/World.java",
+      "lineRange": [
+        719,
+        724
+      ],
+      "summary": "playSequenceAt method (6 lines) in World.java.",
+      "tags": [
+        "java",
+        "playsequenceat"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/render/map/AStarPathFinder.java",
+      "type": "file",
+      "name": "AStarPathFinder.java",
+      "filePath": "src/cr0s/javara/render/map/AStarPathFinder.java",
+      "summary": "A* pathfinding implementation using mazesolver for route calculation between map cells.",
+      "tags": [
+        "java",
+        "game",
+        "rendering"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/cr0s/javara/render/map/AStarPathFinder.java:AStarPathFinder",
+      "type": "class",
+      "name": "AStarPathFinder",
+      "filePath": "src/cr0s/javara/render/map/AStarPathFinder.java",
+      "lineRange": [
+        35,
+        76
+      ],
+      "summary": "A* algorithm adapter for grid-based pathfinding using mazesolver.",
+      "tags": [
+        "java",
+        "game",
+        "astarpathfinder"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/map/AStarPathFinder.java:findPath",
+      "type": "function",
+      "name": "findPath",
+      "filePath": "src/cr0s/javara/render/map/AStarPathFinder.java",
+      "lineRange": [
+        48,
+        74
+      ],
+      "summary": "findPath method (27 lines) in AStarPathFinder.java.",
+      "tags": [
+        "java",
+        "findpath"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/render/map/InfantryPathfinder.java",
+      "type": "file",
+      "name": "InfantryPathfinder.java",
+      "filePath": "src/cr0s/javara/render/map/InfantryPathfinder.java",
+      "summary": "Infantry-specific pathfinder with cell occupancy checks and building avoidance.",
+      "tags": [
+        "java",
+        "game",
+        "rendering"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/cr0s/javara/render/map/InfantryPathfinder.java:InfantryPathfinder",
+      "type": "class",
+      "name": "InfantryPathfinder",
+      "filePath": "src/cr0s/javara/render/map/InfantryPathfinder.java",
+      "lineRange": [
+        13,
+        25
+      ],
+      "summary": "Infantry pathfinder with cell occupancy and building checks.",
+      "tags": [
+        "java",
+        "game",
+        "infantrypathfinder"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/map/InfantryPathfinder.java:findPathFromTo",
+      "type": "function",
+      "name": "findPathFromTo",
+      "filePath": "src/cr0s/javara/render/map/InfantryPathfinder.java",
+      "lineRange": [
+        21,
+        24
+      ],
+      "summary": "findPathFromTo method (4 lines) in InfantryPathfinder.java.",
+      "tags": [
+        "java",
+        "findpathfromto"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/map/InfantryPathfinder.java:getCost",
+      "type": "function",
+      "name": "getCost",
+      "filePath": "src/cr0s/javara/render/map/InfantryPathfinder.java",
+      "lineRange": [
+        32,
+        35
+      ],
+      "summary": "getCost method (4 lines) in InfantryPathfinder.java.",
+      "tags": [
+        "java",
+        "getcost"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/cr0s/javara/perfomance/Profiler.java",
+      "target": "class:src/cr0s/javara/perfomance/Profiler.java:Profiler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/perfomance/Profiler.java",
+      "target": "class:src/cr0s/javara/perfomance/Profiler.java:Profiler",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/perfomance/Profiler.java",
+      "target": "function:src/cr0s/javara/perfomance/Profiler.java:getInstance",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/perfomance/Profiler.java",
+      "target": "function:src/cr0s/javara/perfomance/Profiler.java:getInstance",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/perfomance/Profiler.java",
+      "target": "function:src/cr0s/javara/perfomance/Profiler.java:getSection",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/Controller.java",
+      "target": "class:src/cr0s/javara/render/Controller.java:Controller",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/Controller.java",
+      "target": "class:src/cr0s/javara/render/Controller.java:Controller",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/Controller.java",
+      "target": "function:src/cr0s/javara/render/Controller.java:Controller",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/Controller.java",
+      "target": "function:src/cr0s/javara/render/Controller.java:Controller",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/Controller.java",
+      "target": "function:src/cr0s/javara/render/Controller.java:update",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/Controller.java",
+      "target": "function:src/cr0s/javara/render/Controller.java:update",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/Controller.java",
+      "target": "file:src/cr0s/javara/gameplay/Player.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/render/EntityBlockingMap.java",
+      "target": "class:src/cr0s/javara/render/EntityBlockingMap.java:EntityBlockingMap",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/EntityBlockingMap.java",
+      "target": "class:src/cr0s/javara/render/EntityBlockingMap.java:EntityBlockingMap",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/EntityBlockingMap.java",
+      "target": "function:src/cr0s/javara/render/EntityBlockingMap.java:EntityBlockingMap",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/EntityBlockingMap.java",
+      "target": "function:src/cr0s/javara/render/EntityBlockingMap.java:EntityBlockingMap",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/EntityBlockingMap.java",
+      "target": "function:src/cr0s/javara/render/EntityBlockingMap.java:update",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/EntityBlockingMap.java",
+      "target": "function:src/cr0s/javara/render/EntityBlockingMap.java:update",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/EntityBlockingMap.java",
+      "target": "function:src/cr0s/javara/render/EntityBlockingMap.java:occupyForMobileEntity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/EntityBlockingMap.java",
+      "target": "function:src/cr0s/javara/render/EntityBlockingMap.java:occupyForMobileEntity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/EntityBlockingMap.java",
+      "target": "function:src/cr0s/javara/render/EntityBlockingMap.java:freeForMobileEntity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/EntityBlockingMap.java",
+      "target": "function:src/cr0s/javara/render/EntityBlockingMap.java:freeForMobileEntity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/EntityBlockingMap.java",
+      "target": "function:src/cr0s/javara/render/EntityBlockingMap.java:freeSubCell",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/EntityBlockingMap.java",
+      "target": "function:src/cr0s/javara/render/EntityBlockingMap.java:freeSubCell",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/EntityBlockingMap.java",
+      "target": "function:src/cr0s/javara/render/EntityBlockingMap.java:occupySubCell",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/EntityBlockingMap.java",
+      "target": "function:src/cr0s/javara/render/EntityBlockingMap.java:occupySubCell",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/EntityBlockingMap.java",
+      "target": "function:src/cr0s/javara/render/EntityBlockingMap.java:occupyCell",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/EntityBlockingMap.java",
+      "target": "function:src/cr0s/javara/render/EntityBlockingMap.java:occupyCell",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/EntityBlockingMap.java",
+      "target": "function:src/cr0s/javara/render/EntityBlockingMap.java:isSubcellFree",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/EntityBlockingMap.java",
+      "target": "function:src/cr0s/javara/render/EntityBlockingMap.java:isSubcellFree",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/EntityBlockingMap.java",
+      "target": "function:src/cr0s/javara/render/EntityBlockingMap.java:isFullCellOccupied",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/EntityBlockingMap.java",
+      "target": "function:src/cr0s/javara/render/EntityBlockingMap.java:isFullCellOccupied",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/EntityBlockingMap.java",
+      "target": "function:src/cr0s/javara/render/EntityBlockingMap.java:isAnyInfluenceInCell",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/EntityBlockingMap.java",
+      "target": "function:src/cr0s/javara/render/EntityBlockingMap.java:isAnyInfluenceInCell",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/EntityBlockingMap.java",
+      "target": "function:src/cr0s/javara/render/EntityBlockingMap.java:getFreeSubCell",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/EntityBlockingMap.java",
+      "target": "function:src/cr0s/javara/render/EntityBlockingMap.java:getFreeSubCell",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/EntityBlockingMap.java",
+      "target": "function:src/cr0s/javara/render/EntityBlockingMap.java:occupyForBuilding",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/EntityBlockingMap.java",
+      "target": "function:src/cr0s/javara/render/EntityBlockingMap.java:occupyForBuilding",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/EntityBlockingMap.java",
+      "target": "function:src/cr0s/javara/render/EntityBlockingMap.java:isEntityInCell",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/EntityBlockingMap.java",
+      "target": "function:src/cr0s/javara/render/EntityBlockingMap.java:isEntityInCell",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/EntityBlockingMap.java",
+      "target": "function:src/cr0s/javara/render/EntityBlockingMap.java:isAnyUnitInCell",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/EntityBlockingMap.java",
+      "target": "function:src/cr0s/javara/render/EntityBlockingMap.java:isAnyUnitInCell",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/EntityBlockingMap.java",
+      "target": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/render/EntityBlockingMap.java",
+      "target": "file:src/cr0s/javara/entity/Entity.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/render/EntityBlockingMap.java",
+      "target": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/render/EntityBlockingMap.java",
+      "target": "file:src/cr0s/javara/perfomance/Profiler.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/render/EntityBlockingMap.java",
+      "target": "file:src/cr0s/javara/render/map/TileSet.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/render/EntityBlockingMap.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/render/World.java",
+      "target": "class:src/cr0s/javara/render/World.java:World",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/World.java",
+      "target": "class:src/cr0s/javara/render/World.java:World",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/World.java",
+      "target": "function:src/cr0s/javara/render/World.java:World",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/World.java",
+      "target": "function:src/cr0s/javara/render/World.java:World",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/World.java",
+      "target": "function:src/cr0s/javara/render/World.java:generateRangePoints",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/World.java",
+      "target": "function:src/cr0s/javara/render/World.java:handle",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/World.java",
+      "target": "function:src/cr0s/javara/render/World.java:handle",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/World.java",
+      "target": "function:src/cr0s/javara/render/World.java:render",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/World.java",
+      "target": "function:src/cr0s/javara/render/World.java:render",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/World.java",
+      "target": "function:src/cr0s/javara/render/World.java:renderEntityBib",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/World.java",
+      "target": "function:src/cr0s/javara/render/World.java:renderSelectionBoxes",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/World.java",
+      "target": "function:src/cr0s/javara/render/World.java:spawnEntityInWorld",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/World.java",
+      "target": "function:src/cr0s/javara/render/World.java:spawnEntityInWorld",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/World.java",
+      "target": "function:src/cr0s/javara/render/World.java:selectMovableEntitiesInsideBox",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/World.java",
+      "target": "function:src/cr0s/javara/render/World.java:selectMovableEntitiesInsideBox",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/World.java",
+      "target": "function:src/cr0s/javara/render/World.java:cancelAllSelection",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/World.java",
+      "target": "function:src/cr0s/javara/render/World.java:cancelAllSelection",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/World.java",
+      "target": "function:src/cr0s/javara/render/World.java:getEntityInPoint",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/World.java",
+      "target": "function:src/cr0s/javara/render/World.java:getEntityInPoint",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/World.java",
+      "target": "function:src/cr0s/javara/render/World.java:addBuildingTo",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/World.java",
+      "target": "function:src/cr0s/javara/render/World.java:addBuildingTo",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/World.java",
+      "target": "function:src/cr0s/javara/render/World.java:isCellPassable",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/World.java",
+      "target": "function:src/cr0s/javara/render/World.java:isCellPassable",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/World.java",
+      "target": "function:src/cr0s/javara/render/World.java:isCellBuildable",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/World.java",
+      "target": "function:src/cr0s/javara/render/World.java:isCellBuildable",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/World.java",
+      "target": "function:src/cr0s/javara/render/World.java:occupyRandomSpawnForPlayer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/World.java",
+      "target": "function:src/cr0s/javara/render/World.java:occupyRandomSpawnForPlayer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/World.java",
+      "target": "function:src/cr0s/javara/render/World.java:addPlayer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/World.java",
+      "target": "function:src/cr0s/javara/render/World.java:addPlayer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/World.java",
+      "target": "function:src/cr0s/javara/render/World.java:isPossibleToBuildHere",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/World.java",
+      "target": "function:src/cr0s/javara/render/World.java:isPossibleToBuildHere",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/World.java",
+      "target": "function:src/cr0s/javara/render/World.java:getBuildingInCell",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/World.java",
+      "target": "function:src/cr0s/javara/render/World.java:getBuildingInCell",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/World.java",
+      "target": "function:src/cr0s/javara/render/World.java:getMobileEntityInCell",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/World.java",
+      "target": "function:src/cr0s/javara/render/World.java:getMobileEntityInCell",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/World.java",
+      "target": "function:src/cr0s/javara/render/World.java:chooseTilesInAnnulus",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/World.java",
+      "target": "function:src/cr0s/javara/render/World.java:chooseTilesInAnnulus",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/World.java",
+      "target": "function:src/cr0s/javara/render/World.java:chooseTilesInCircle",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/World.java",
+      "target": "function:src/cr0s/javara/render/World.java:chooseTilesInCircle",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/World.java",
+      "target": "function:src/cr0s/javara/render/World.java:choosePassableCellsInCircle",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/World.java",
+      "target": "function:src/cr0s/javara/render/World.java:choosePassableCellsInCircle",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/World.java",
+      "target": "function:src/cr0s/javara/render/World.java:getCellTargetType",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/World.java",
+      "target": "function:src/cr0s/javara/render/World.java:getCellTargetType",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/World.java",
+      "target": "function:src/cr0s/javara/render/World.java:spawnExplosionAt",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/World.java",
+      "target": "function:src/cr0s/javara/render/World.java:spawnExplosionAt",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/World.java",
+      "target": "function:src/cr0s/javara/render/World.java:spawnSmokeAt",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/World.java",
+      "target": "function:src/cr0s/javara/render/World.java:spawnSmokeAt",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/World.java",
+      "target": "function:src/cr0s/javara/render/World.java:chooseTilesInCircle",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/World.java",
+      "target": "function:src/cr0s/javara/render/World.java:chooseTilesInCircle",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/World.java",
+      "target": "function:src/cr0s/javara/render/World.java:getActorsInCircle",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/World.java",
+      "target": "function:src/cr0s/javara/render/World.java:getActorsInCircle",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/World.java",
+      "target": "function:src/cr0s/javara/render/World.java:chooseClosestPassableCellInRangeAroundOtherCell",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/World.java",
+      "target": "function:src/cr0s/javara/render/World.java:chooseClosestPassableCellInRangeAroundOtherCell",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/World.java",
+      "target": "function:src/cr0s/javara/render/World.java:playSequenceAt",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/World.java",
+      "target": "function:src/cr0s/javara/render/World.java:playSequenceAt",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/World.java",
+      "target": "function:src/cr0s/javara/render/World.java:chooseTilesInAnnulus",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/World.java",
+      "target": "function:src/cr0s/javara/render/World.java:chooseTilesInAnnulus",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/World.java",
+      "target": "file:src/cr0s/javara/combat/TargetType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/render/World.java",
+      "target": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/render/World.java",
+      "target": "file:src/cr0s/javara/entity/building/BibType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/render/World.java",
+      "target": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/render/World.java",
+      "target": "file:src/cr0s/javara/entity/building/EntityBuildingProgress.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/render/World.java",
+      "target": "file:src/cr0s/javara/entity/effect/Explosion.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/render/World.java",
+      "target": "file:src/cr0s/javara/entity/effect/SequencePlayer.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/render/World.java",
+      "target": "file:src/cr0s/javara/entity/effect/Smoke.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/render/World.java",
+      "target": "file:src/cr0s/javara/entity/Entity.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/render/World.java",
+      "target": "file:src/cr0s/javara/entity/IShroudRevealer.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/render/World.java",
+      "target": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/render/World.java",
+      "target": "file:src/cr0s/javara/entity/turreted/IHaveTurret.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/render/World.java",
+      "target": "file:src/cr0s/javara/gameplay/Player.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/render/World.java",
+      "target": "file:src/cr0s/javara/order/ITargetLines.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/render/World.java",
+      "target": "file:src/cr0s/javara/order/TargetLine.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/render/World.java",
+      "target": "file:src/cr0s/javara/perfomance/Profiler.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/render/World.java",
+      "target": "file:src/cr0s/javara/render/map/InfantryPathfinder.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/render/World.java",
+      "target": "file:src/cr0s/javara/render/map/SmudgeLayer.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/render/World.java",
+      "target": "file:src/cr0s/javara/render/map/TileMap.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/render/World.java",
+      "target": "file:src/cr0s/javara/render/map/TileSet.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/render/World.java",
+      "target": "file:src/cr0s/javara/render/map/VehiclePathfinder.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/render/World.java",
+      "target": "file:src/cr0s/javara/resources/ResourceManager.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/render/World.java",
+      "target": "file:src/cr0s/javara/util/CellChooser.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/render/World.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/render/World.java",
+      "target": "file:src/cr0s/javara/util/SpriteSheet.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/AStarPathFinder.java",
+      "target": "class:src/cr0s/javara/render/map/AStarPathFinder.java:AStarPathFinder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/AStarPathFinder.java",
+      "target": "function:src/cr0s/javara/render/map/AStarPathFinder.java:findPath",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/AStarPathFinder.java",
+      "target": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/AStarPathFinder.java",
+      "target": "file:src/cr0s/javara/render/World.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/AStarPathFinder.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/AStarPathFinder.java",
+      "target": "file:src/mazesolver/Director.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/AStarPathFinder.java",
+      "target": "file:src/mazesolver/Helper.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/AStarPathFinder.java",
+      "target": "file:src/mazesolver/Maze.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/InfantryPathfinder.java",
+      "target": "class:src/cr0s/javara/render/map/InfantryPathfinder.java:InfantryPathfinder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/InfantryPathfinder.java",
+      "target": "class:src/cr0s/javara/render/map/InfantryPathfinder.java:InfantryPathfinder",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/InfantryPathfinder.java",
+      "target": "function:src/cr0s/javara/render/map/InfantryPathfinder.java:findPathFromTo",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/InfantryPathfinder.java",
+      "target": "function:src/cr0s/javara/render/map/InfantryPathfinder.java:findPathFromTo",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/InfantryPathfinder.java",
+      "target": "function:src/cr0s/javara/render/map/InfantryPathfinder.java:getCost",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/InfantryPathfinder.java",
+      "target": "function:src/cr0s/javara/render/map/InfantryPathfinder.java:getCost",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/InfantryPathfinder.java",
+      "target": "file:src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/InfantryPathfinder.java",
+      "target": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/InfantryPathfinder.java",
+      "target": "file:src/cr0s/javara/render/World.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/InfantryPathfinder.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

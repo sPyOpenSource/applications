@@ -1,0 +1,886 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/cr0s/javara/combat/ArmorType.java",
+      "type": "file",
+      "name": "ArmorType.java",
+      "filePath": "src/cr0s/javara/combat/ArmorType.java",
+      "summary": "Enum defining armor types used for damage calculation against different unit categories.",
+      "tags": ["enum", "combat", "type-definition"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/combat/Combat.java",
+      "type": "file",
+      "name": "Combat.java",
+      "filePath": "src/cr0s/javara/combat/Combat.java",
+      "summary": "Core combat damage system handling impact detection, damage calculation with falloff, and warhead effectiveness against entities.",
+      "tags": ["combat", "damage", "utility"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/cr0s/javara/combat/Combat.java:Combat",
+      "type": "class",
+      "name": "Combat",
+      "filePath": "src/cr0s/javara/combat/Combat.java",
+      "summary": "Static utility class providing damage computation, warhead impact resolution, and area-of-effect damage distribution.",
+      "tags": ["combat", "damage", "utility"],
+      "complexity": "moderate",
+      "lineRange": [10, 151]
+    },
+    {
+      "id": "function:src/cr0s/javara/combat/Combat.java:doImpact",
+      "type": "function",
+      "name": "doImpact",
+      "filePath": "src/cr0s/javara/combat/Combat.java",
+      "summary": "Resolves a single warhead impact at a position, applying damage to affected entities with falloff and environment effects.",
+      "tags": ["combat", "damage", "impact"],
+      "complexity": "complex",
+      "lineRange": [23, 98]
+    },
+    {
+      "id": "function:src/cr0s/javara/combat/Combat.java:doImpacts",
+      "type": "function",
+      "name": "doImpacts",
+      "filePath": "src/cr0s/javara/combat/Combat.java",
+      "summary": "Iterates over all warheads on a weapon and triggers doImpact for each at the target position.",
+      "tags": ["combat", "damage", "warhead"],
+      "complexity": "simple",
+      "lineRange": [100, 109]
+    },
+    {
+      "id": "function:src/cr0s/javara/combat/Combat.java:getDamageToInflict",
+      "type": "function",
+      "name": "getDamageToInflict",
+      "filePath": "src/cr0s/javara/combat/Combat.java",
+      "summary": "Computes final damage value accounting for armor effectiveness, falloff distance, and firepower modifiers.",
+      "tags": ["combat", "damage", "calculation"],
+      "complexity": "moderate",
+      "lineRange": [129, 150]
+    },
+    {
+      "id": "file:src/cr0s/javara/combat/Projectile.java",
+      "type": "file",
+      "name": "Projectile.java",
+      "filePath": "src/cr0s/javara/combat/Projectile.java",
+      "summary": "Base projectile entity rendered as a animated sprite with trajectory line, extending Entity for in-world rendering.",
+      "tags": ["combat", "projectile", "entity", "rendering"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/cr0s/javara/combat/Projectile.java:Projectile",
+      "type": "class",
+      "name": "Projectile",
+      "filePath": "src/cr0s/javara/combat/Projectile.java",
+      "summary": "Base class for in-flight projectiles with texture animation, position tracking, source/target references, and line rendering.",
+      "tags": ["combat", "projectile", "entity", "rendering"],
+      "complexity": "moderate",
+      "lineRange": [20, 104]
+    },
+    {
+      "id": "function:src/cr0s/javara/combat/Projectile.java:renderEntity",
+      "type": "function",
+      "name": "renderEntity",
+      "filePath": "src/cr0s/javara/combat/Projectile.java",
+      "summary": "Renders the projectile sprite at its current position and draws a trajectory line from source to target using JavaFX PathTransition.",
+      "tags": ["combat", "rendering", "projectile"],
+      "complexity": "moderate",
+      "lineRange": [82, 103]
+    },
+    {
+      "id": "file:src/cr0s/javara/combat/TargetType.java",
+      "type": "file",
+      "name": "TargetType.java",
+      "filePath": "src/cr0s/javara/combat/TargetType.java",
+      "summary": "Enum defining target type categories used for weapon target filtering.",
+      "tags": ["enum", "combat", "type-definition"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/combat/Warhead.java",
+      "type": "file",
+      "name": "Warhead.java",
+      "filePath": "src/cr0s/javara/combat/Warhead.java",
+      "summary": "Warhead data model defining damage, spread, explosion effects, and per-armor-type effectiveness multipliers.",
+      "tags": ["combat", "warhead", "data-model"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/cr0s/javara/combat/Warhead.java:Warhead",
+      "type": "class",
+      "name": "Warhead",
+      "filePath": "src/cr0s/javara/combat/Warhead.java",
+      "summary": "Data class holding warhead configuration including damage, spread, explosion visuals, smudge behavior, and armor effectiveness map.",
+      "tags": ["combat", "warhead", "data-model"],
+      "complexity": "simple",
+      "lineRange": [7, 42]
+    },
+    {
+      "id": "file:src/cr0s/javara/combat/Weapon.java",
+      "type": "file",
+      "name": "Weapon.java",
+      "filePath": "src/cr0s/javara/combat/Weapon.java",
+      "summary": "Base weapon class defining rate of fire, valid/invalid targets, range constraints, projectile creation, and warhead assignment.",
+      "tags": ["combat", "weapon", "base-class"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/cr0s/javara/combat/Weapon.java:Weapon",
+      "type": "class",
+      "name": "Weapon",
+      "filePath": "src/cr0s/javara/combat/Weapon.java",
+      "summary": "Abstract weapon configuration with target validation against entities, cells, and Target objects, plus projectile factory method.",
+      "tags": ["combat", "weapon", "base-class"],
+      "complexity": "moderate",
+      "lineRange": [14, 114]
+    },
+    {
+      "id": "file:src/cr0s/javara/combat/weapon/Weapon105mm.java",
+      "type": "file",
+      "name": "Weapon105mm.java",
+      "filePath": "src/cr0s/javara/combat/weapon/Weapon105mm.java",
+      "summary": "105mm cannon weapon firing Bullet projectiles with MuzzleFlash effect, used by heavy tanks.",
+      "tags": ["combat", "weapon", "tank"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/cr0s/javara/combat/weapon/Weapon105mm.java:Weapon105mm",
+      "type": "class",
+      "name": "Weapon105mm",
+      "filePath": "src/cr0s/javara/combat/weapon/Weapon105mm.java",
+      "summary": "Concrete weapon extending Weapon, configuring 105mm cannon stats, warhead effectiveness, valid targets, and Bullet projectile spawning.",
+      "tags": ["combat", "weapon", "tank"],
+      "complexity": "moderate",
+      "lineRange": [14, 95]
+    },
+    {
+      "id": "function:src/cr0s/javara/combat/weapon/Weapon105mm.java:createProjectile",
+      "type": "function",
+      "name": "createProjectile",
+      "filePath": "src/cr0s/javara/combat/weapon/Weapon105mm.java",
+      "summary": "Creates a Bullet projectile and MuzzleFlash effect at the muzzle position for 105mm cannon fire.",
+      "tags": ["combat", "projectile", "weapon"],
+      "complexity": "moderate",
+      "lineRange": [75, 93]
+    },
+    {
+      "id": "file:src/cr0s/javara/combat/weapon/Weapon120mm.java",
+      "type": "file",
+      "name": "Weapon120mm.java",
+      "filePath": "src/cr0s/javara/combat/weapon/Weapon120mm.java",
+      "summary": "120mm cannon weapon firing Bullet projectiles with MuzzleFlash effect, used by mammoth tanks.",
+      "tags": ["combat", "weapon", "tank"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/cr0s/javara/combat/weapon/Weapon120mm.java:Weapon120mm",
+      "type": "class",
+      "name": "Weapon120mm",
+      "filePath": "src/cr0s/javara/combat/weapon/Weapon120mm.java",
+      "summary": "Concrete weapon extending Weapon, configuring 120mm cannon stats, warhead effectiveness, valid targets, and Bullet projectile spawning.",
+      "tags": ["combat", "weapon", "tank"],
+      "complexity": "moderate",
+      "lineRange": [14, 95]
+    },
+    {
+      "id": "function:src/cr0s/javara/combat/weapon/Weapon120mm.java:createProjectile",
+      "type": "function",
+      "name": "createProjectile",
+      "filePath": "src/cr0s/javara/combat/weapon/Weapon120mm.java",
+      "summary": "Creates a Bullet projectile and MuzzleFlash effect at the muzzle position for 120mm cannon fire.",
+      "tags": ["combat", "projectile", "weapon"],
+      "complexity": "moderate",
+      "lineRange": [75, 93]
+    },
+    {
+      "id": "file:src/cr0s/javara/combat/weapon/WeaponDragon.java",
+      "type": "file",
+      "name": "WeaponDragon.java",
+      "filePath": "src/cr0s/javara/combat/weapon/WeaponDragon.java",
+      "summary": "Dragon missile launcher weapon firing guided Missile projectiles with rotation and accuracy modeling.",
+      "tags": ["combat", "weapon", "missile", "guided"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/cr0s/javara/combat/weapon/WeaponDragon.java:WeaponDragon",
+      "type": "class",
+      "name": "WeaponDragon",
+      "filePath": "src/cr0s/javara/combat/weapon/WeaponDragon.java",
+      "summary": "Concrete weapon extending Weapon, configuring Dragon missile launcher stats with guided Missile spawning and facing-based rotation.",
+      "tags": ["combat", "weapon", "missile", "guided"],
+      "complexity": "moderate",
+      "lineRange": [15, 110]
+    },
+    {
+      "id": "function:src/cr0s/javara/combat/weapon/WeaponDragon.java:createProjectile",
+      "type": "function",
+      "name": "createProjectile",
+      "filePath": "src/cr0s/javara/combat/weapon/WeaponDragon.java",
+      "summary": "Creates a guided Missile projectile with facing-based rotation calculation and MuzzleFlash effect.",
+      "tags": ["combat", "projectile", "missile", "guided"],
+      "complexity": "moderate",
+      "lineRange": [83, 108]
+    },
+    {
+      "id": "file:src/cr0s/javara/combat/weapon/WeaponFireballLauncher.java",
+      "type": "file",
+      "name": "WeaponFireballLauncher.java",
+      "filePath": "src/cr0s/javara/combat/weapon/WeaponFireballLauncher.java",
+      "summary": "Fireball launcher weapon firing Bullet projectiles with MuzzleFlash, used by fire turret defenses.",
+      "tags": ["combat", "weapon", "defense"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/cr0s/javara/combat/weapon/WeaponFireballLauncher.java:WeaponFireballLauncher",
+      "type": "class",
+      "name": "WeaponFireballLauncher",
+      "filePath": "src/cr0s/javara/combat/weapon/WeaponFireballLauncher.java",
+      "summary": "Concrete weapon extending Weapon, configuring fireball launcher stats with Bullet projectile and MuzzleFlash spawning.",
+      "tags": ["combat", "weapon", "defense"],
+      "complexity": "moderate",
+      "lineRange": [14, 95]
+    },
+    {
+      "id": "function:src/cr0s/javara/combat/weapon/WeaponFireballLauncher.java:createProjectile",
+      "type": "function",
+      "name": "createProjectile",
+      "filePath": "src/cr0s/javara/combat/weapon/WeaponFireballLauncher.java",
+      "summary": "Creates a Bullet projectile and MuzzleFlash effect for fireball launcher weapon fire.",
+      "tags": ["combat", "projectile", "weapon"],
+      "complexity": "moderate",
+      "lineRange": [75, 93]
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/cr0s/javara/combat/Combat.java",
+      "target": "class:src/cr0s/javara/combat/Combat.java:Combat",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/Combat.java",
+      "target": "function:src/cr0s/javara/combat/Combat.java:doImpact",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/Combat.java",
+      "target": "function:src/cr0s/javara/combat/Combat.java:doImpacts",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/Combat.java",
+      "target": "function:src/cr0s/javara/combat/Combat.java:getDamageToInflict",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/Projectile.java",
+      "target": "class:src/cr0s/javara/combat/Projectile.java:Projectile",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/Projectile.java",
+      "target": "function:src/cr0s/javara/combat/Projectile.java:renderEntity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/Warhead.java",
+      "target": "class:src/cr0s/javara/combat/Warhead.java:Warhead",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/Weapon.java",
+      "target": "class:src/cr0s/javara/combat/Weapon.java:Weapon",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/Weapon105mm.java",
+      "target": "class:src/cr0s/javara/combat/weapon/Weapon105mm.java:Weapon105mm",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/Weapon105mm.java",
+      "target": "function:src/cr0s/javara/combat/weapon/Weapon105mm.java:createProjectile",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/Weapon120mm.java",
+      "target": "class:src/cr0s/javara/combat/weapon/Weapon120mm.java:Weapon120mm",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/Weapon120mm.java",
+      "target": "function:src/cr0s/javara/combat/weapon/Weapon120mm.java:createProjectile",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/WeaponDragon.java",
+      "target": "class:src/cr0s/javara/combat/weapon/WeaponDragon.java:WeaponDragon",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/WeaponDragon.java",
+      "target": "function:src/cr0s/javara/combat/weapon/WeaponDragon.java:createProjectile",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/WeaponFireballLauncher.java",
+      "target": "class:src/cr0s/javara/combat/weapon/WeaponFireballLauncher.java:WeaponFireballLauncher",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/WeaponFireballLauncher.java",
+      "target": "function:src/cr0s/javara/combat/weapon/WeaponFireballLauncher.java:createProjectile",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/Combat.java",
+      "target": "class:src/cr0s/javara/combat/Combat.java:Combat",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/Combat.java",
+      "target": "function:src/cr0s/javara/combat/Combat.java:doImpact",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/Combat.java",
+      "target": "function:src/cr0s/javara/combat/Combat.java:doImpacts",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/Projectile.java",
+      "target": "class:src/cr0s/javara/combat/Projectile.java:Projectile",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/Projectile.java",
+      "target": "function:src/cr0s/javara/combat/Projectile.java:renderEntity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/Warhead.java",
+      "target": "class:src/cr0s/javara/combat/Warhead.java:Warhead",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/Weapon.java",
+      "target": "class:src/cr0s/javara/combat/Weapon.java:Weapon",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/Weapon105mm.java",
+      "target": "class:src/cr0s/javara/combat/weapon/Weapon105mm.java:Weapon105mm",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/Weapon105mm.java",
+      "target": "function:src/cr0s/javara/combat/weapon/Weapon105mm.java:createProjectile",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/Weapon120mm.java",
+      "target": "class:src/cr0s/javara/combat/weapon/Weapon120mm.java:Weapon120mm",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/Weapon120mm.java",
+      "target": "function:src/cr0s/javara/combat/weapon/Weapon120mm.java:createProjectile",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/WeaponDragon.java",
+      "target": "class:src/cr0s/javara/combat/weapon/WeaponDragon.java:WeaponDragon",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/WeaponDragon.java",
+      "target": "function:src/cr0s/javara/combat/weapon/WeaponDragon.java:createProjectile",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/WeaponFireballLauncher.java",
+      "target": "class:src/cr0s/javara/combat/weapon/WeaponFireballLauncher.java:WeaponFireballLauncher",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/WeaponFireballLauncher.java",
+      "target": "function:src/cr0s/javara/combat/weapon/WeaponFireballLauncher.java:createProjectile",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/Combat.java",
+      "target": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/Combat.java",
+      "target": "file:src/cr0s/javara/render/map/TileSet.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/Combat.java",
+      "target": "file:src/cr0s/javara/render/World.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/Combat.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/Projectile.java",
+      "target": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/Projectile.java",
+      "target": "file:src/cr0s/javara/entity/Entity.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/Projectile.java",
+      "target": "file:src/cr0s/javara/entity/IEffect.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/Projectile.java",
+      "target": "file:src/cr0s/javara/render/Sequence.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/Projectile.java",
+      "target": "file:src/cr0s/javara/resources/ResourceManager.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/Projectile.java",
+      "target": "file:src/cr0s/javara/resources/ShpTexture.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/Projectile.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/Warhead.java",
+      "target": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/Weapon.java",
+      "target": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/Weapon.java",
+      "target": "file:src/cr0s/javara/main/GUI.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/Weapon.java",
+      "target": "file:src/cr0s/javara/order/Target.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/Weapon.java",
+      "target": "file:src/cr0s/javara/render/World.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/Weapon.java",
+      "target": "file:src/cr0s/javara/resources/SoundManager.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/Weapon.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/Weapon105mm.java",
+      "target": "file:src/cr0s/javara/combat/ArmorType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/Weapon105mm.java",
+      "target": "file:src/cr0s/javara/combat/Projectile.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/Weapon105mm.java",
+      "target": "file:src/cr0s/javara/combat/TargetType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/Weapon105mm.java",
+      "target": "file:src/cr0s/javara/combat/Warhead.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/Weapon105mm.java",
+      "target": "file:src/cr0s/javara/combat/Weapon.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/Weapon105mm.java",
+      "target": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/Weapon105mm.java",
+      "target": "file:src/cr0s/javara/entity/effect/Bullet.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/Weapon105mm.java",
+      "target": "file:src/cr0s/javara/entity/effect/MuzzleFlash.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/Weapon105mm.java",
+      "target": "file:src/cr0s/javara/order/Target.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/Weapon105mm.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/Weapon120mm.java",
+      "target": "file:src/cr0s/javara/combat/ArmorType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/Weapon120mm.java",
+      "target": "file:src/cr0s/javara/combat/Projectile.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/Weapon120mm.java",
+      "target": "file:src/cr0s/javara/combat/TargetType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/Weapon120mm.java",
+      "target": "file:src/cr0s/javara/combat/Warhead.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/Weapon120mm.java",
+      "target": "file:src/cr0s/javara/combat/Weapon.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/Weapon120mm.java",
+      "target": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/Weapon120mm.java",
+      "target": "file:src/cr0s/javara/entity/effect/Bullet.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/Weapon120mm.java",
+      "target": "file:src/cr0s/javara/entity/effect/MuzzleFlash.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/Weapon120mm.java",
+      "target": "file:src/cr0s/javara/order/Target.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/Weapon120mm.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/WeaponDragon.java",
+      "target": "file:src/cr0s/javara/combat/ArmorType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/WeaponDragon.java",
+      "target": "file:src/cr0s/javara/combat/Projectile.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/WeaponDragon.java",
+      "target": "file:src/cr0s/javara/combat/TargetType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/WeaponDragon.java",
+      "target": "file:src/cr0s/javara/combat/Warhead.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/WeaponDragon.java",
+      "target": "file:src/cr0s/javara/combat/Weapon.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/WeaponDragon.java",
+      "target": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/WeaponDragon.java",
+      "target": "file:src/cr0s/javara/entity/effect/Missile.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/WeaponDragon.java",
+      "target": "file:src/cr0s/javara/entity/effect/MuzzleFlash.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/WeaponDragon.java",
+      "target": "file:src/cr0s/javara/order/Target.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/WeaponDragon.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/WeaponDragon.java",
+      "target": "file:src/cr0s/javara/util/RotationUtil.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/WeaponFireballLauncher.java",
+      "target": "file:src/cr0s/javara/combat/ArmorType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/WeaponFireballLauncher.java",
+      "target": "file:src/cr0s/javara/combat/Projectile.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/WeaponFireballLauncher.java",
+      "target": "file:src/cr0s/javara/combat/TargetType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/WeaponFireballLauncher.java",
+      "target": "file:src/cr0s/javara/combat/Warhead.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/WeaponFireballLauncher.java",
+      "target": "file:src/cr0s/javara/combat/Weapon.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/WeaponFireballLauncher.java",
+      "target": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/WeaponFireballLauncher.java",
+      "target": "file:src/cr0s/javara/entity/effect/Bullet.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/WeaponFireballLauncher.java",
+      "target": "file:src/cr0s/javara/entity/effect/MuzzleFlash.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/WeaponFireballLauncher.java",
+      "target": "file:src/cr0s/javara/order/Target.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/WeaponFireballLauncher.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

@@ -1,0 +1,131 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 4,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "tilesets/desert.yaml",
+      "language": "yaml",
+      "fileCategory": "config",
+      "totalLines": 3101,
+      "nonEmptyLines": 3099,
+      "sections": [
+        {
+          "heading": "General",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Terrain",
+          "level": 1,
+          "line": 10
+        },
+        {
+          "heading": "Templates",
+          "level": 1,
+          "line": 72
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 3
+      }
+    },
+    {
+      "path": "tilesets/interior.yaml",
+      "language": "yaml",
+      "fileCategory": "config",
+      "totalLines": 864,
+      "nonEmptyLines": 861,
+      "sections": [
+        {
+          "heading": "General",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Terrain",
+          "level": 1,
+          "line": 7
+        },
+        {
+          "heading": "Templates",
+          "level": 1,
+          "line": 54
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 3
+      }
+    },
+    {
+      "path": "tilesets/snow.yaml",
+      "language": "yaml",
+      "fileCategory": "config",
+      "totalLines": 3139,
+      "nonEmptyLines": 3137,
+      "sections": [
+        {
+          "heading": "General",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Terrain",
+          "level": 1,
+          "line": 8
+        },
+        {
+          "heading": "Templates",
+          "level": 1,
+          "line": 55
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 3
+      }
+    },
+    {
+      "path": "tilesets/temperat.yaml",
+      "language": "yaml",
+      "fileCategory": "config",
+      "totalLines": 3622,
+      "nonEmptyLines": 3620,
+      "sections": [
+        {
+          "heading": "General",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Terrain",
+          "level": 1,
+          "line": 8
+        },
+        {
+          "heading": "Templates",
+          "level": 1,
+          "line": 77
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 3
+      }
+    }
+  ]
+}

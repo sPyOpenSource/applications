@@ -1,0 +1,1088 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/cr0s/javara/combat/weapon/WeaponGrenade.java",
+      "type": "file",
+      "name": "WeaponGrenade.java",
+      "filePath": "src/cr0s/javara/combat/weapon/WeaponGrenade.java",
+      "summary": "Grenade launcher weapon firing Bullet projectiles with area-of-effect warhead, used by grenade troopers.",
+      "tags": ["combat", "weapon", "grenade"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/cr0s/javara/combat/weapon/WeaponGrenade.java:WeaponGrenade",
+      "type": "class",
+      "name": "WeaponGrenade",
+      "filePath": "src/cr0s/javara/combat/weapon/WeaponGrenade.java",
+      "summary": "Concrete weapon extending Weapon, configuring grenade launcher stats, warhead, and Bullet projectile spawning.",
+      "tags": ["combat", "weapon", "grenade"],
+      "complexity": "moderate",
+      "lineRange": [13, 88]
+    },
+    {
+      "id": "function:src/cr0s/javara/combat/weapon/WeaponGrenade.java:createProjectile",
+      "type": "function",
+      "name": "createProjectile",
+      "filePath": "src/cr0s/javara/combat/weapon/WeaponGrenade.java",
+      "summary": "Creates a Bullet projectile for grenade launcher fire.",
+      "tags": ["combat", "projectile", "grenade"],
+      "complexity": "simple",
+      "lineRange": [76, 86]
+    },
+    {
+      "id": "file:src/cr0s/javara/combat/weapon/WeaponM1Carabine.java",
+      "type": "file",
+      "name": "WeaponM1Carabine.java",
+      "filePath": "src/cr0s/javara/combat/weapon/WeaponM1Carabine.java",
+      "summary": "M1 Carbine rifle weapon firing Bullet projectiles, used by rifle infantry units.",
+      "tags": ["combat", "weapon", "rifle"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/cr0s/javara/combat/weapon/WeaponM1Carabine.java:WeaponM1Carabine",
+      "type": "class",
+      "name": "WeaponM1Carabine",
+      "filePath": "src/cr0s/javara/combat/weapon/WeaponM1Carabine.java",
+      "summary": "Concrete weapon extending Weapon, configuring M1 Carbine rifle stats, warhead, and Bullet projectile spawning.",
+      "tags": ["combat", "weapon", "rifle", "infantry"],
+      "complexity": "moderate",
+      "lineRange": [13, 75]
+    },
+    {
+      "id": "file:src/cr0s/javara/combat/weapon/WeaponMammothTusk.java",
+      "type": "file",
+      "name": "WeaponMammothTusk.java",
+      "filePath": "src/cr0s/javara/combat/weapon/WeaponMammothTusk.java",
+      "summary": "Mammoth tank tusk missile launcher firing guided Missile projectiles with facing-based rotation.",
+      "tags": ["combat", "weapon", "missile", "tank"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/cr0s/javara/combat/weapon/WeaponMammothTusk.java:WeaponMammothTusk",
+      "type": "class",
+      "name": "WeaponMammothTusk",
+      "filePath": "src/cr0s/javara/combat/weapon/WeaponMammothTusk.java",
+      "summary": "Concrete weapon extending Weapon, configuring Mammoth tusk launcher stats with guided Missile spawning.",
+      "tags": ["combat", "weapon", "missile", "tank"],
+      "complexity": "moderate",
+      "lineRange": [14, 109]
+    },
+    {
+      "id": "function:src/cr0s/javara/combat/weapon/WeaponMammothTusk.java:createProjectile",
+      "type": "function",
+      "name": "createProjectile",
+      "filePath": "src/cr0s/javara/combat/weapon/WeaponMammothTusk.java",
+      "summary": "Creates a guided Missile projectile with muzzle flash for Mammoth tusk weapon fire.",
+      "tags": ["combat", "projectile", "missile"],
+      "complexity": "moderate",
+      "lineRange": [84, 107]
+    },
+    {
+      "id": "file:src/cr0s/javara/combat/weapon/WeaponSCUD.java",
+      "type": "file",
+      "name": "WeaponSCUD.java",
+      "filePath": "src/cr0s/javara/combat/weapon/WeaponSCUD.java",
+      "summary": "SCUD missile launcher weapon firing Bullet projectiles with muzzle flash, used by V2 launcher vehicles.",
+      "tags": ["combat", "weapon", "missile", "vehicle"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/cr0s/javara/combat/weapon/WeaponSCUD.java:WeaponSCUD",
+      "type": "class",
+      "name": "WeaponSCUD",
+      "filePath": "src/cr0s/javara/combat/weapon/WeaponSCUD.java",
+      "summary": "Concrete weapon extending Weapon, configuring SCUD launcher stats with Bullet projectile and MuzzleFlash spawning.",
+      "tags": ["combat", "weapon", "missile", "vehicle"],
+      "complexity": "moderate",
+      "lineRange": [14, 101]
+    },
+    {
+      "id": "function:src/cr0s/javara/combat/weapon/WeaponSCUD.java:createProjectile",
+      "type": "function",
+      "name": "createProjectile",
+      "filePath": "src/cr0s/javara/combat/weapon/WeaponSCUD.java",
+      "summary": "Creates a Bullet projectile with MuzzleFlash effect for SCUD missile launcher fire.",
+      "tags": ["combat", "projectile", "missile"],
+      "complexity": "moderate",
+      "lineRange": [78, 99]
+    },
+    {
+      "id": "file:src/cr0s/javara/combat/weapon/WeaponTeslaZap.java",
+      "type": "file",
+      "name": "WeaponTeslaZap.java",
+      "filePath": "src/cr0s/javara/combat/weapon/WeaponTeslaZap.java",
+      "summary": "Tesla coil zap weapon firing TeslaZap projectile effect, used by Tesla coil defenses.",
+      "tags": ["combat", "weapon", "tesla", "defense"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/cr0s/javara/combat/weapon/WeaponTeslaZap.java:WeaponTeslaZap",
+      "type": "class",
+      "name": "WeaponTeslaZap",
+      "filePath": "src/cr0s/javara/combat/weapon/WeaponTeslaZap.java",
+      "summary": "Concrete weapon extending Weapon, configuring Tesla coil zap stats with TeslaZap projectile spawning.",
+      "tags": ["combat", "weapon", "tesla", "defense"],
+      "complexity": "moderate",
+      "lineRange": [13, 75]
+    },
+    {
+      "id": "file:src/cr0s/javara/entity/effect/Bullet.java",
+      "type": "file",
+      "name": "Bullet.java",
+      "filePath": "src/cr0s/javara/entity/effect/Bullet.java",
+      "summary": "Bullet projectile entity with ballistic trajectory, smoke trail, facing updates, and impact explosion triggering.",
+      "tags": ["combat", "projectile", "entity", "ballistic"],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:src/cr0s/javara/entity/effect/Bullet.java:Bullet",
+      "type": "class",
+      "name": "Bullet",
+      "filePath": "src/cr0s/javara/entity/effect/Bullet.java",
+      "summary": "Projectile subclass implementing ballistic bullet physics with quadratic interpolation, facing updates, contrail effects, and explosion on arrival.",
+      "tags": ["combat", "projectile", "entity", "ballistic"],
+      "complexity": "complex",
+      "lineRange": [14, 141]
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/effect/Bullet.java:updateEntity",
+      "type": "function",
+      "name": "updateEntity",
+      "filePath": "src/cr0s/javara/entity/effect/Bullet.java",
+      "summary": "Updates bullet position along ballistic trajectory using quadratic interpolation, spawns smoke trail, and triggers explosion at target.",
+      "tags": ["combat", "projectile", "update", "ballistic"],
+      "complexity": "moderate",
+      "lineRange": [87, 107]
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/effect/Bullet.java:updateFacing",
+      "type": "function",
+      "name": "updateFacing",
+      "filePath": "src/cr0s/javara/entity/effect/Bullet.java",
+      "summary": "Rotates bullet facing direction to match the flight path angle between current and next trajectory point.",
+      "tags": ["combat", "projectile", "rotation"],
+      "complexity": "moderate",
+      "lineRange": [109, 133]
+    },
+    {
+      "id": "file:src/cr0s/javara/entity/effect/Missile.java",
+      "type": "file",
+      "name": "Missile.java",
+      "filePath": "src/cr0s/javara/entity/effect/Missile.java",
+      "summary": "Guided missile projectile entity with target tracking, pitch control, and terrain-aware flight.",
+      "tags": ["combat", "projectile", "entity", "guided"],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:src/cr0s/javara/entity/effect/Missile.java:Missile",
+      "type": "class",
+      "name": "Missile",
+      "filePath": "src/cr0s/javara/entity/effect/Missile.java",
+      "summary": "Projectile subclass implementing guided missile physics with target tracking, pitch control, facing updates, and explosion on impact.",
+      "tags": ["combat", "projectile", "entity", "guided"],
+      "complexity": "complex",
+      "lineRange": [15, 151]
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/effect/Missile.java:updateEntity",
+      "type": "function",
+      "name": "updateEntity",
+      "filePath": "src/cr0s/javara/entity/effect/Missile.java",
+      "summary": "Updates guided missile position with target tracking, pitch calculation, facing rotation, smoke trail, and terrain-bound explosion detection.",
+      "tags": ["combat", "projectile", "update", "guided"],
+      "complexity": "complex",
+      "lineRange": [88, 143]
+    },
+    {
+      "id": "file:src/cr0s/javara/entity/effect/MuzzleFlash.java",
+      "type": "file",
+      "name": "MuzzleFlash.java",
+      "filePath": "src/cr0s/javara/entity/effect/MuzzleFlash.java",
+      "summary": "Muzzle flash visual effect entity with animated sprite sequence that self-destructs after completion.",
+      "tags": ["combat", "visual-effect", "entity", "animation"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/cr0s/javara/entity/effect/MuzzleFlash.java:MuzzleFlash",
+      "type": "class",
+      "name": "MuzzleFlash",
+      "filePath": "src/cr0s/javara/entity/effect/MuzzleFlash.java",
+      "summary": "Temporary visual effect entity displaying an animated muzzle flash sequence that removes itself when finished.",
+      "tags": ["combat", "visual-effect", "entity", "animation"],
+      "complexity": "moderate",
+      "lineRange": [12, 60]
+    },
+    {
+      "id": "file:src/cr0s/javara/entity/effect/TeslaZap.java",
+      "type": "file",
+      "name": "TeslaZap.java",
+      "filePath": "src/cr0s/javara/entity/effect/TeslaZap.java",
+      "summary": "Tesla zap visual effect entity rendering lightning bolts between source and target with damage application.",
+      "tags": ["combat", "visual-effect", "entity", "tesla"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/cr0s/javara/entity/effect/TeslaZap.java:TeslaZap",
+      "type": "class",
+      "name": "TeslaZap",
+      "filePath": "src/cr0s/javara/entity/effect/TeslaZap.java",
+      "summary": "Visual effect entity that renders Tesla coil lightning arcs using TeslaZapRenderer and applies combat damage.",
+      "tags": ["combat", "visual-effect", "entity", "tesla"],
+      "complexity": "moderate",
+      "lineRange": [11, 75]
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/effect/TeslaZap.java:updateEntity",
+      "type": "function",
+      "name": "updateEntity",
+      "filePath": "src/cr0s/javara/entity/effect/TeslaZap.java",
+      "summary": "Updates Tesla zap state, spawning TeslaZapRenderer visual arcs and applying combat damage via Combat.doImpacts.",
+      "tags": ["combat", "visual-effect", "update", "tesla"],
+      "complexity": "moderate",
+      "lineRange": [33, 68]
+    },
+    {
+      "id": "file:src/cr0s/javara/order/Target.java",
+      "type": "file",
+      "name": "Target.java",
+      "filePath": "src/cr0s/javara/order/Target.java",
+      "summary": "Target descriptor supporting entity targets, cell targets, range checking, and validity validation.",
+      "tags": ["order", "targeting", "utility"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/cr0s/javara/order/Target.java:Target",
+      "type": "class",
+      "name": "Target",
+      "filePath": "src/cr0s/javara/order/Target.java",
+      "summary": "Union-type target reference that can hold either an Entity or a cell position, with range checking and validity methods.",
+      "tags": ["order", "targeting", "utility"],
+      "complexity": "moderate",
+      "lineRange": [7, 67]
+    },
+    {
+      "id": "function:src/cr0s/javara/order/Target.java:centerPosition",
+      "type": "function",
+      "name": "centerPosition",
+      "filePath": "src/cr0s/javara/order/Target.java",
+      "summary": "Returns the center position of the target, handling both entity and cell target types.",
+      "tags": ["order", "targeting", "position"],
+      "complexity": "simple",
+      "lineRange": [48, 62]
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/WeaponGrenade.java",
+      "target": "class:src/cr0s/javara/combat/weapon/WeaponGrenade.java:WeaponGrenade",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/WeaponGrenade.java",
+      "target": "function:src/cr0s/javara/combat/weapon/WeaponGrenade.java:createProjectile",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/WeaponM1Carabine.java",
+      "target": "class:src/cr0s/javara/combat/weapon/WeaponM1Carabine.java:WeaponM1Carabine",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/WeaponMammothTusk.java",
+      "target": "class:src/cr0s/javara/combat/weapon/WeaponMammothTusk.java:WeaponMammothTusk",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/WeaponMammothTusk.java",
+      "target": "function:src/cr0s/javara/combat/weapon/WeaponMammothTusk.java:createProjectile",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/WeaponSCUD.java",
+      "target": "class:src/cr0s/javara/combat/weapon/WeaponSCUD.java:WeaponSCUD",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/WeaponSCUD.java",
+      "target": "function:src/cr0s/javara/combat/weapon/WeaponSCUD.java:createProjectile",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/WeaponTeslaZap.java",
+      "target": "class:src/cr0s/javara/combat/weapon/WeaponTeslaZap.java:WeaponTeslaZap",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/Bullet.java",
+      "target": "class:src/cr0s/javara/entity/effect/Bullet.java:Bullet",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/Bullet.java",
+      "target": "function:src/cr0s/javara/entity/effect/Bullet.java:updateEntity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/Bullet.java",
+      "target": "function:src/cr0s/javara/entity/effect/Bullet.java:updateFacing",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/Missile.java",
+      "target": "class:src/cr0s/javara/entity/effect/Missile.java:Missile",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/Missile.java",
+      "target": "function:src/cr0s/javara/entity/effect/Missile.java:updateEntity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/MuzzleFlash.java",
+      "target": "class:src/cr0s/javara/entity/effect/MuzzleFlash.java:MuzzleFlash",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/TeslaZap.java",
+      "target": "class:src/cr0s/javara/entity/effect/TeslaZap.java:TeslaZap",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/TeslaZap.java",
+      "target": "function:src/cr0s/javara/entity/effect/TeslaZap.java:updateEntity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/order/Target.java",
+      "target": "class:src/cr0s/javara/order/Target.java:Target",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/order/Target.java",
+      "target": "function:src/cr0s/javara/order/Target.java:centerPosition",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/WeaponGrenade.java",
+      "target": "class:src/cr0s/javara/combat/weapon/WeaponGrenade.java:WeaponGrenade",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/WeaponGrenade.java",
+      "target": "function:src/cr0s/javara/combat/weapon/WeaponGrenade.java:createProjectile",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/WeaponM1Carabine.java",
+      "target": "class:src/cr0s/javara/combat/weapon/WeaponM1Carabine.java:WeaponM1Carabine",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/WeaponMammothTusk.java",
+      "target": "class:src/cr0s/javara/combat/weapon/WeaponMammothTusk.java:WeaponMammothTusk",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/WeaponMammothTusk.java",
+      "target": "function:src/cr0s/javara/combat/weapon/WeaponMammothTusk.java:createProjectile",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/WeaponSCUD.java",
+      "target": "class:src/cr0s/javara/combat/weapon/WeaponSCUD.java:WeaponSCUD",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/WeaponSCUD.java",
+      "target": "function:src/cr0s/javara/combat/weapon/WeaponSCUD.java:createProjectile",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/WeaponTeslaZap.java",
+      "target": "class:src/cr0s/javara/combat/weapon/WeaponTeslaZap.java:WeaponTeslaZap",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/Bullet.java",
+      "target": "class:src/cr0s/javara/entity/effect/Bullet.java:Bullet",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/Bullet.java",
+      "target": "function:src/cr0s/javara/entity/effect/Bullet.java:updateEntity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/Missile.java",
+      "target": "class:src/cr0s/javara/entity/effect/Missile.java:Missile",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/Missile.java",
+      "target": "function:src/cr0s/javara/entity/effect/Missile.java:updateEntity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/MuzzleFlash.java",
+      "target": "class:src/cr0s/javara/entity/effect/MuzzleFlash.java:MuzzleFlash",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/TeslaZap.java",
+      "target": "class:src/cr0s/javara/entity/effect/TeslaZap.java:TeslaZap",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/TeslaZap.java",
+      "target": "function:src/cr0s/javara/entity/effect/TeslaZap.java:updateEntity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/order/Target.java",
+      "target": "class:src/cr0s/javara/order/Target.java:Target",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/order/Target.java",
+      "target": "function:src/cr0s/javara/order/Target.java:centerPosition",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/WeaponGrenade.java",
+      "target": "file:src/cr0s/javara/combat/ArmorType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/WeaponGrenade.java",
+      "target": "file:src/cr0s/javara/combat/Projectile.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/WeaponGrenade.java",
+      "target": "file:src/cr0s/javara/combat/TargetType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/WeaponGrenade.java",
+      "target": "file:src/cr0s/javara/combat/Warhead.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/WeaponGrenade.java",
+      "target": "file:src/cr0s/javara/combat/Weapon.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/WeaponGrenade.java",
+      "target": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/WeaponGrenade.java",
+      "target": "file:src/cr0s/javara/entity/effect/Bullet.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/WeaponGrenade.java",
+      "target": "file:src/cr0s/javara/order/Target.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/WeaponGrenade.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/WeaponM1Carabine.java",
+      "target": "file:src/cr0s/javara/combat/ArmorType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/WeaponM1Carabine.java",
+      "target": "file:src/cr0s/javara/combat/Projectile.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/WeaponM1Carabine.java",
+      "target": "file:src/cr0s/javara/combat/TargetType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/WeaponM1Carabine.java",
+      "target": "file:src/cr0s/javara/combat/Warhead.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/WeaponM1Carabine.java",
+      "target": "file:src/cr0s/javara/combat/Weapon.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/WeaponM1Carabine.java",
+      "target": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/WeaponM1Carabine.java",
+      "target": "file:src/cr0s/javara/entity/effect/Bullet.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/WeaponM1Carabine.java",
+      "target": "file:src/cr0s/javara/order/Target.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/WeaponM1Carabine.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/WeaponMammothTusk.java",
+      "target": "file:src/cr0s/javara/combat/ArmorType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/WeaponMammothTusk.java",
+      "target": "file:src/cr0s/javara/combat/Projectile.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/WeaponMammothTusk.java",
+      "target": "file:src/cr0s/javara/combat/TargetType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/WeaponMammothTusk.java",
+      "target": "file:src/cr0s/javara/combat/Warhead.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/WeaponMammothTusk.java",
+      "target": "file:src/cr0s/javara/combat/Weapon.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/WeaponMammothTusk.java",
+      "target": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/WeaponMammothTusk.java",
+      "target": "file:src/cr0s/javara/entity/effect/Missile.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/WeaponMammothTusk.java",
+      "target": "file:src/cr0s/javara/entity/effect/MuzzleFlash.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/WeaponMammothTusk.java",
+      "target": "file:src/cr0s/javara/order/Target.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/WeaponMammothTusk.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/WeaponSCUD.java",
+      "target": "file:src/cr0s/javara/combat/ArmorType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/WeaponSCUD.java",
+      "target": "file:src/cr0s/javara/combat/Projectile.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/WeaponSCUD.java",
+      "target": "file:src/cr0s/javara/combat/TargetType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/WeaponSCUD.java",
+      "target": "file:src/cr0s/javara/combat/Warhead.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/WeaponSCUD.java",
+      "target": "file:src/cr0s/javara/combat/Weapon.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/WeaponSCUD.java",
+      "target": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/WeaponSCUD.java",
+      "target": "file:src/cr0s/javara/entity/effect/Bullet.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/WeaponSCUD.java",
+      "target": "file:src/cr0s/javara/entity/effect/MuzzleFlash.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/WeaponSCUD.java",
+      "target": "file:src/cr0s/javara/order/Target.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/WeaponSCUD.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/WeaponTeslaZap.java",
+      "target": "file:src/cr0s/javara/combat/ArmorType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/WeaponTeslaZap.java",
+      "target": "file:src/cr0s/javara/combat/Projectile.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/WeaponTeslaZap.java",
+      "target": "file:src/cr0s/javara/combat/TargetType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/WeaponTeslaZap.java",
+      "target": "file:src/cr0s/javara/combat/Warhead.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/WeaponTeslaZap.java",
+      "target": "file:src/cr0s/javara/combat/Weapon.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/WeaponTeslaZap.java",
+      "target": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/WeaponTeslaZap.java",
+      "target": "file:src/cr0s/javara/entity/effect/TeslaZap.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/WeaponTeslaZap.java",
+      "target": "file:src/cr0s/javara/order/Target.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/weapon/WeaponTeslaZap.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/Bullet.java",
+      "target": "file:src/cr0s/javara/combat/Combat.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/Bullet.java",
+      "target": "file:src/cr0s/javara/combat/Projectile.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/Bullet.java",
+      "target": "file:src/cr0s/javara/combat/Weapon.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/Bullet.java",
+      "target": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/Bullet.java",
+      "target": "file:src/cr0s/javara/render/World.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/Bullet.java",
+      "target": "file:src/cr0s/javara/util/PointsUtil.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/Bullet.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/Bullet.java",
+      "target": "file:src/cr0s/javara/util/RotationUtil.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/Missile.java",
+      "target": "file:src/cr0s/javara/combat/Combat.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/Missile.java",
+      "target": "file:src/cr0s/javara/combat/Projectile.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/Missile.java",
+      "target": "file:src/cr0s/javara/combat/TargetType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/Missile.java",
+      "target": "file:src/cr0s/javara/combat/Weapon.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/Missile.java",
+      "target": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/Missile.java",
+      "target": "file:src/cr0s/javara/order/Target.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/Missile.java",
+      "target": "file:src/cr0s/javara/render/World.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/Missile.java",
+      "target": "file:src/cr0s/javara/util/PointsUtil.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/Missile.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/Missile.java",
+      "target": "file:src/cr0s/javara/util/RotationUtil.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/MuzzleFlash.java",
+      "target": "file:src/cr0s/javara/entity/Entity.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/MuzzleFlash.java",
+      "target": "file:src/cr0s/javara/entity/IEffect.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/MuzzleFlash.java",
+      "target": "file:src/cr0s/javara/render/Sequence.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/MuzzleFlash.java",
+      "target": "file:src/cr0s/javara/resources/ResourceManager.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/MuzzleFlash.java",
+      "target": "file:src/cr0s/javara/resources/ShpTexture.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/MuzzleFlash.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/MuzzleFlash.java",
+      "target": "file:src/cr0s/javara/util/SpriteSheet.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/TeslaZap.java",
+      "target": "file:src/cr0s/javara/combat/Combat.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/TeslaZap.java",
+      "target": "file:src/cr0s/javara/combat/Projectile.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/TeslaZap.java",
+      "target": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/TeslaZap.java",
+      "target": "file:src/cr0s/javara/entity/IEffect.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/TeslaZap.java",
+      "target": "file:src/cr0s/javara/order/Target.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/TeslaZap.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/order/Target.java",
+      "target": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/order/Target.java",
+      "target": "file:src/cr0s/javara/entity/Entity.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/order/Target.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

@@ -1,0 +1,1974 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/cr0s/javara/entity/building/china/Barrack.java",
+      "type": "file",
+      "name": "Barrack.java",
+      "filePath": "src/cr0s/javara/entity/building/china/Barrack.java",
+      "summary": "Chinese faction barracks building entity, extending EntityBuilding with fixed 2x2 tile footprint.",
+      "tags": [
+        "java",
+        "game",
+        "entity"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/cr0s/javara/entity/building/china/Barrack.java:Barrack",
+      "type": "class",
+      "name": "Barrack",
+      "filePath": "src/cr0s/javara/entity/building/china/Barrack.java",
+      "lineRange": [
+        9,
+        42
+      ],
+      "summary": "Chinese barracks building with fixed footprint rendering.",
+      "tags": [
+        "java",
+        "game",
+        "barrack"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/china/Barrack.java:Barrack",
+      "type": "function",
+      "name": "Barrack",
+      "filePath": "src/cr0s/javara/entity/building/china/Barrack.java",
+      "lineRange": [
+        10,
+        21
+      ],
+      "summary": "Barrack method (12 lines) in Barrack.java.",
+      "tags": [
+        "java",
+        "barrack"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/china/Barrack.java:renderEntity",
+      "type": "function",
+      "name": "renderEntity",
+      "filePath": "src/cr0s/javara/entity/building/china/Barrack.java",
+      "lineRange": [
+        23,
+        26
+      ],
+      "summary": "renderEntity method (4 lines) in Barrack.java.",
+      "tags": [
+        "java",
+        "renderentity"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/china/Barrack.java:shouldRenderedInPass",
+      "type": "function",
+      "name": "shouldRenderedInPass",
+      "filePath": "src/cr0s/javara/entity/building/china/Barrack.java",
+      "lineRange": [
+        28,
+        31
+      ],
+      "summary": "shouldRenderedInPass method (4 lines) in Barrack.java.",
+      "tags": [
+        "java",
+        "shouldrenderedinpass"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/china/Barrack.java:getHeightInTiles",
+      "type": "function",
+      "name": "getHeightInTiles",
+      "filePath": "src/cr0s/javara/entity/building/china/Barrack.java",
+      "lineRange": [
+        33,
+        36
+      ],
+      "summary": "getHeightInTiles method (4 lines) in Barrack.java.",
+      "tags": [
+        "java",
+        "getheightintiles"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/china/Barrack.java:getWidthInTiles",
+      "type": "function",
+      "name": "getWidthInTiles",
+      "filePath": "src/cr0s/javara/entity/building/china/Barrack.java",
+      "lineRange": [
+        38,
+        41
+      ],
+      "summary": "getWidthInTiles method (4 lines) in Barrack.java.",
+      "tags": [
+        "java",
+        "getwidthintiles"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/entity/building/china/ElixirCollector.java",
+      "type": "file",
+      "name": "ElixirCollector.java",
+      "filePath": "src/cr0s/javara/entity/building/china/ElixirCollector.java",
+      "summary": "Chinese faction elixir collector building entity with fixed 2x2 tile footprint.",
+      "tags": [
+        "java",
+        "game",
+        "entity"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/cr0s/javara/entity/building/china/ElixirCollector.java:ElixirCollector",
+      "type": "class",
+      "name": "ElixirCollector",
+      "filePath": "src/cr0s/javara/entity/building/china/ElixirCollector.java",
+      "lineRange": [
+        9,
+        42
+      ],
+      "summary": "Chinese elixir collector building entity.",
+      "tags": [
+        "java",
+        "game",
+        "elixircollector"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/china/ElixirCollector.java:ElixirCollector",
+      "type": "function",
+      "name": "ElixirCollector",
+      "filePath": "src/cr0s/javara/entity/building/china/ElixirCollector.java",
+      "lineRange": [
+        10,
+        21
+      ],
+      "summary": "ElixirCollector method (12 lines) in ElixirCollector.java.",
+      "tags": [
+        "java",
+        "elixircollector"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/china/ElixirCollector.java:renderEntity",
+      "type": "function",
+      "name": "renderEntity",
+      "filePath": "src/cr0s/javara/entity/building/china/ElixirCollector.java",
+      "lineRange": [
+        23,
+        26
+      ],
+      "summary": "renderEntity method (4 lines) in ElixirCollector.java.",
+      "tags": [
+        "java",
+        "renderentity"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/china/ElixirCollector.java:shouldRenderedInPass",
+      "type": "function",
+      "name": "shouldRenderedInPass",
+      "filePath": "src/cr0s/javara/entity/building/china/ElixirCollector.java",
+      "lineRange": [
+        28,
+        31
+      ],
+      "summary": "shouldRenderedInPass method (4 lines) in ElixirCollector.java.",
+      "tags": [
+        "java",
+        "shouldrenderedinpass"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/china/ElixirCollector.java:getHeightInTiles",
+      "type": "function",
+      "name": "getHeightInTiles",
+      "filePath": "src/cr0s/javara/entity/building/china/ElixirCollector.java",
+      "lineRange": [
+        33,
+        36
+      ],
+      "summary": "getHeightInTiles method (4 lines) in ElixirCollector.java.",
+      "tags": [
+        "java",
+        "getheightintiles"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/china/ElixirCollector.java:getWidthInTiles",
+      "type": "function",
+      "name": "getWidthInTiles",
+      "filePath": "src/cr0s/javara/entity/building/china/ElixirCollector.java",
+      "lineRange": [
+        38,
+        41
+      ],
+      "summary": "getWidthInTiles method (4 lines) in ElixirCollector.java.",
+      "tags": [
+        "java",
+        "getwidthintiles"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/entity/building/china/GoldMine.java",
+      "type": "file",
+      "name": "GoldMine.java",
+      "filePath": "src/cr0s/javara/entity/building/china/GoldMine.java",
+      "summary": "Chinese faction gold mine building entity with fixed 2x2 tile footprint.",
+      "tags": [
+        "java",
+        "game",
+        "entity"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/cr0s/javara/entity/building/china/GoldMine.java:GoldMine",
+      "type": "class",
+      "name": "GoldMine",
+      "filePath": "src/cr0s/javara/entity/building/china/GoldMine.java",
+      "lineRange": [
+        9,
+        40
+      ],
+      "summary": "Chinese gold mine building entity.",
+      "tags": [
+        "java",
+        "game",
+        "goldmine"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/china/GoldMine.java:GoldMine",
+      "type": "function",
+      "name": "GoldMine",
+      "filePath": "src/cr0s/javara/entity/building/china/GoldMine.java",
+      "lineRange": [
+        10,
+        19
+      ],
+      "summary": "GoldMine method (10 lines) in GoldMine.java.",
+      "tags": [
+        "java",
+        "goldmine"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/china/GoldMine.java:renderEntity",
+      "type": "function",
+      "name": "renderEntity",
+      "filePath": "src/cr0s/javara/entity/building/china/GoldMine.java",
+      "lineRange": [
+        21,
+        24
+      ],
+      "summary": "renderEntity method (4 lines) in GoldMine.java.",
+      "tags": [
+        "java",
+        "renderentity"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/china/GoldMine.java:shouldRenderedInPass",
+      "type": "function",
+      "name": "shouldRenderedInPass",
+      "filePath": "src/cr0s/javara/entity/building/china/GoldMine.java",
+      "lineRange": [
+        26,
+        29
+      ],
+      "summary": "shouldRenderedInPass method (4 lines) in GoldMine.java.",
+      "tags": [
+        "java",
+        "shouldrenderedinpass"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/china/GoldMine.java:getHeightInTiles",
+      "type": "function",
+      "name": "getHeightInTiles",
+      "filePath": "src/cr0s/javara/entity/building/china/GoldMine.java",
+      "lineRange": [
+        31,
+        34
+      ],
+      "summary": "getHeightInTiles method (4 lines) in GoldMine.java.",
+      "tags": [
+        "java",
+        "getheightintiles"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/china/GoldMine.java:getWidthInTiles",
+      "type": "function",
+      "name": "getWidthInTiles",
+      "filePath": "src/cr0s/javara/entity/building/china/GoldMine.java",
+      "lineRange": [
+        36,
+        39
+      ],
+      "summary": "getWidthInTiles method (4 lines) in GoldMine.java.",
+      "tags": [
+        "java",
+        "getwidthintiles"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/entity/effect/ScreenShaker.java",
+      "type": "file",
+      "name": "ScreenShaker.java",
+      "filePath": "src/cr0s/javara/entity/effect/ScreenShaker.java",
+      "summary": "Singleton screen shake effect manager that applies camera vibration based on explosion intensity and distance.",
+      "tags": [
+        "java",
+        "game",
+        "effect"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/cr0s/javara/entity/effect/ScreenShaker.java:ScreenShaker",
+      "type": "class",
+      "name": "ScreenShaker",
+      "filePath": "src/cr0s/javara/entity/effect/ScreenShaker.java",
+      "lineRange": [
+        8,
+        121
+      ],
+      "summary": "Singleton manager for screen shake effects with intensity and distance calculations.",
+      "tags": [
+        "java",
+        "game",
+        "screenshaker"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/effect/ScreenShaker.java:getInstance",
+      "type": "function",
+      "name": "getInstance",
+      "filePath": "src/cr0s/javara/entity/effect/ScreenShaker.java",
+      "lineRange": [
+        21,
+        27
+      ],
+      "summary": "getInstance method (7 lines) in ScreenShaker.java.",
+      "tags": [
+        "java",
+        "getinstance"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/effect/ScreenShaker.java:update",
+      "type": "function",
+      "name": "update",
+      "filePath": "src/cr0s/javara/entity/effect/ScreenShaker.java",
+      "lineRange": [
+        29,
+        47
+      ],
+      "summary": "update method (19 lines) in ScreenShaker.java.",
+      "tags": [
+        "java",
+        "update"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/effect/ScreenShaker.java:getIntensity",
+      "type": "function",
+      "name": "getIntensity",
+      "filePath": "src/cr0s/javara/entity/effect/ScreenShaker.java",
+      "lineRange": [
+        55,
+        67
+      ],
+      "summary": "getIntensity method (13 lines) in ScreenShaker.java.",
+      "tags": [
+        "java",
+        "getintensity"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/effect/ScreenShaker.java:getMultiplier",
+      "type": "function",
+      "name": "getMultiplier",
+      "filePath": "src/cr0s/javara/entity/effect/ScreenShaker.java",
+      "lineRange": [
+        69,
+        93
+      ],
+      "summary": "getMultiplier method (25 lines) in ScreenShaker.java.",
+      "tags": [
+        "java",
+        "getmultiplier"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/effect/ScreenShaker.java:addEffect",
+      "type": "function",
+      "name": "addEffect",
+      "filePath": "src/cr0s/javara/entity/effect/ScreenShaker.java",
+      "lineRange": [
+        101,
+        105
+      ],
+      "summary": "addEffect method (5 lines) in ScreenShaker.java.",
+      "tags": [
+        "java",
+        "addeffect"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "type": "file",
+      "name": "EntityInfantry.java",
+      "filePath": "src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "summary": "Core infantry entity class with movement, animation, combat, and sound systems for all infantry units.",
+      "tags": [
+        "java",
+        "game",
+        "infantry"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:src/cr0s/javara/entity/infantry/EntityInfantry.java:EntityInfantry",
+      "type": "class",
+      "name": "EntityInfantry",
+      "filePath": "src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "lineRange": [
+        40,
+        421
+      ],
+      "summary": "Core infantry entity with movement, animation states, death sequences, and sound management.",
+      "tags": [
+        "java",
+        "game",
+        "entityinfantry"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/infantry/EntityInfantry.java:EntityInfantry",
+      "type": "function",
+      "name": "EntityInfantry",
+      "filePath": "src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "lineRange": [
+        97,
+        139
+      ],
+      "summary": "EntityInfantry method (43 lines) in EntityInfantry.java.",
+      "tags": [
+        "java",
+        "entityinfantry"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/infantry/EntityInfantry.java:findPathFromTo",
+      "type": "function",
+      "name": "findPathFromTo",
+      "filePath": "src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "lineRange": [
+        141,
+        144
+      ],
+      "summary": "findPathFromTo method (4 lines) in EntityInfantry.java.",
+      "tags": [
+        "java",
+        "findpathfromto"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/infantry/EntityInfantry.java:canEnterCell",
+      "type": "function",
+      "name": "canEnterCell",
+      "filePath": "src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "lineRange": [
+        146,
+        149
+      ],
+      "summary": "canEnterCell method (4 lines) in EntityInfantry.java.",
+      "tags": [
+        "java",
+        "canentercell"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/infantry/EntityInfantry.java:getMoveSpeed",
+      "type": "function",
+      "name": "getMoveSpeed",
+      "filePath": "src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "lineRange": [
+        151,
+        154
+      ],
+      "summary": "getMoveSpeed method (4 lines) in EntityInfantry.java.",
+      "tags": [
+        "java",
+        "getmovespeed"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/infantry/EntityInfantry.java:updateEntity",
+      "type": "function",
+      "name": "updateEntity",
+      "filePath": "src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "lineRange": [
+        156,
+        220
+      ],
+      "summary": "updateEntity method (65 lines) in EntityInfantry.java.",
+      "tags": [
+        "java",
+        "updateentity"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/infantry/EntityInfantry.java:renderEntity",
+      "type": "function",
+      "name": "renderEntity",
+      "filePath": "src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "lineRange": [
+        222,
+        235
+      ],
+      "summary": "renderEntity method (14 lines) in EntityInfantry.java.",
+      "tags": [
+        "java",
+        "renderentity"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/infantry/EntityInfantry.java:moveTo",
+      "type": "function",
+      "name": "moveTo",
+      "filePath": "src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "lineRange": [
+        237,
+        253
+      ],
+      "summary": "moveTo method (17 lines) in EntityInfantry.java.",
+      "tags": [
+        "java",
+        "moveto"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/infantry/EntityInfantry.java:startMovingByPath",
+      "type": "function",
+      "name": "startMovingByPath",
+      "filePath": "src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "lineRange": [
+        255,
+        263
+      ],
+      "summary": "startMovingByPath method (9 lines) in EntityInfantry.java.",
+      "tags": [
+        "java",
+        "startmovingbypath"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/infantry/EntityInfantry.java:shouldRenderedInPass",
+      "type": "function",
+      "name": "shouldRenderedInPass",
+      "filePath": "src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "lineRange": [
+        265,
+        268
+      ],
+      "summary": "shouldRenderedInPass method (4 lines) in EntityInfantry.java.",
+      "tags": [
+        "java",
+        "shouldrenderedinpass"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/infantry/EntityInfantry.java:getCenterPosX",
+      "type": "function",
+      "name": "getCenterPosX",
+      "filePath": "src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "lineRange": [
+        270,
+        273
+      ],
+      "summary": "getCenterPosX method (4 lines) in EntityInfantry.java.",
+      "tags": [
+        "java",
+        "getcenterposx"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/infantry/EntityInfantry.java:getCenterPosY",
+      "type": "function",
+      "name": "getCenterPosY",
+      "filePath": "src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "lineRange": [
+        275,
+        278
+      ],
+      "summary": "getCenterPosY method (4 lines) in EntityInfantry.java.",
+      "tags": [
+        "java",
+        "getcenterposy"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/infantry/EntityInfantry.java:getSelectSound",
+      "type": "function",
+      "name": "getSelectSound",
+      "filePath": "src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "lineRange": [
+        280,
+        283
+      ],
+      "summary": "getSelectSound method (4 lines) in EntityInfantry.java.",
+      "tags": [
+        "java",
+        "getselectsound"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/infantry/EntityInfantry.java:playSelectedSound",
+      "type": "function",
+      "name": "playSelectedSound",
+      "filePath": "src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "lineRange": [
+        285,
+        305
+      ],
+      "summary": "playSelectedSound method (21 lines) in EntityInfantry.java.",
+      "tags": [
+        "java",
+        "playselectedsound"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/infantry/EntityInfantry.java:playOrderSound",
+      "type": "function",
+      "name": "playOrderSound",
+      "filePath": "src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "lineRange": [
+        307,
+        336
+      ],
+      "summary": "playOrderSound method (30 lines) in EntityInfantry.java.",
+      "tags": [
+        "java",
+        "playordersound"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/infantry/EntityInfantry.java:issueOrder",
+      "type": "function",
+      "name": "issueOrder",
+      "filePath": "src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "lineRange": [
+        346,
+        353
+      ],
+      "summary": "issueOrder method (8 lines) in EntityInfantry.java.",
+      "tags": [
+        "java",
+        "issueorder"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/infantry/EntityInfantry.java:resolveOrder",
+      "type": "function",
+      "name": "resolveOrder",
+      "filePath": "src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "lineRange": [
+        355,
+        362
+      ],
+      "summary": "resolveOrder method (8 lines) in EntityInfantry.java.",
+      "tags": [
+        "java",
+        "resolveorder"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/infantry/EntityInfantry.java:moveToRange",
+      "type": "function",
+      "name": "moveToRange",
+      "filePath": "src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "lineRange": [
+        364,
+        370
+      ],
+      "summary": "moveToRange method (7 lines) in EntityInfantry.java.",
+      "tags": [
+        "java",
+        "movetorange"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/infantry/EntityInfantry.java:getMaxFacings",
+      "type": "function",
+      "name": "getMaxFacings",
+      "filePath": "src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "lineRange": [
+        372,
+        375
+      ],
+      "summary": "getMaxFacings method (4 lines) in EntityInfantry.java.",
+      "tags": [
+        "java",
+        "getmaxfacings"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/infantry/EntityInfantry.java:giveDamage",
+      "type": "function",
+      "name": "giveDamage",
+      "filePath": "src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "lineRange": [
+        377,
+        405
+      ],
+      "summary": "giveDamage method (29 lines) in EntityInfantry.java.",
+      "tags": [
+        "java",
+        "givedamage"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/gameplay/Production.java",
+      "type": "file",
+      "name": "Production.java",
+      "filePath": "src/cr0s/javara/gameplay/Production.java",
+      "summary": "Production system that coordinates entity creation across buildings, managing build queues and resource costs.",
+      "tags": [
+        "java",
+        "game",
+        "gameplay"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:src/cr0s/javara/gameplay/Production.java:Production",
+      "type": "class",
+      "name": "Production",
+      "filePath": "src/cr0s/javara/gameplay/Production.java",
+      "lineRange": [
+        19,
+        266
+      ],
+      "summary": "Production system managing build queues, resource costs, and entity deployment.",
+      "tags": [
+        "java",
+        "game",
+        "production"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/cr0s/javara/gameplay/Production.java:startBuildingActor",
+      "type": "function",
+      "name": "startBuildingActor",
+      "filePath": "src/cr0s/javara/gameplay/Production.java",
+      "lineRange": [
+        53,
+        82
+      ],
+      "summary": "startBuildingActor method (30 lines) in Production.java.",
+      "tags": [
+        "java",
+        "startbuildingactor"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/gameplay/Production.java:update",
+      "type": "function",
+      "name": "update",
+      "filePath": "src/cr0s/javara/gameplay/Production.java",
+      "lineRange": [
+        84,
+        136
+      ],
+      "summary": "update method (53 lines) in Production.java.",
+      "tags": [
+        "java",
+        "update"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/gameplay/Production.java:deployCurrentActor",
+      "type": "function",
+      "name": "deployCurrentActor",
+      "filePath": "src/cr0s/javara/gameplay/Production.java",
+      "lineRange": [
+        138,
+        162
+      ],
+      "summary": "deployCurrentActor method (25 lines) in Production.java.",
+      "tags": [
+        "java",
+        "deploycurrentactor"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/gameplay/Production.java:getBuildingTime",
+      "type": "function",
+      "name": "getBuildingTime",
+      "filePath": "src/cr0s/javara/gameplay/Production.java",
+      "lineRange": [
+        164,
+        173
+      ],
+      "summary": "getBuildingTime method (10 lines) in Production.java.",
+      "tags": [
+        "java",
+        "getbuildingtime"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/gameplay/Production.java:cancel",
+      "type": "function",
+      "name": "cancel",
+      "filePath": "src/cr0s/javara/gameplay/Production.java",
+      "lineRange": [
+        179,
+        185
+      ],
+      "summary": "cancel method (7 lines) in Production.java.",
+      "tags": [
+        "java",
+        "cancel"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/gameplay/Production.java:resetTargetActor",
+      "type": "function",
+      "name": "resetTargetActor",
+      "filePath": "src/cr0s/javara/gameplay/Production.java",
+      "lineRange": [
+        187,
+        197
+      ],
+      "summary": "resetTargetActor method (11 lines) in Production.java.",
+      "tags": [
+        "java",
+        "resettargetactor"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/gameplay/Production.java:drawProductionButton",
+      "type": "function",
+      "name": "drawProductionButton",
+      "filePath": "src/cr0s/javara/gameplay/Production.java",
+      "lineRange": [
+        211,
+        241
+      ],
+      "summary": "drawProductionButton method (31 lines) in Production.java.",
+      "tags": [
+        "java",
+        "drawproductionbutton"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/gameplay/Production.java:restartBuilding",
+      "type": "function",
+      "name": "restartBuilding",
+      "filePath": "src/cr0s/javara/gameplay/Production.java",
+      "lineRange": [
+        247,
+        257
+      ],
+      "summary": "restartBuilding method (11 lines) in Production.java.",
+      "tags": [
+        "java",
+        "restartbuilding"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/Barrack.java",
+      "target": "class:src/cr0s/javara/entity/building/china/Barrack.java:Barrack",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/Barrack.java",
+      "target": "class:src/cr0s/javara/entity/building/china/Barrack.java:Barrack",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/Barrack.java",
+      "target": "function:src/cr0s/javara/entity/building/china/Barrack.java:Barrack",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/Barrack.java",
+      "target": "function:src/cr0s/javara/entity/building/china/Barrack.java:Barrack",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/Barrack.java",
+      "target": "function:src/cr0s/javara/entity/building/china/Barrack.java:renderEntity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/Barrack.java",
+      "target": "function:src/cr0s/javara/entity/building/china/Barrack.java:renderEntity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/Barrack.java",
+      "target": "function:src/cr0s/javara/entity/building/china/Barrack.java:shouldRenderedInPass",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/Barrack.java",
+      "target": "function:src/cr0s/javara/entity/building/china/Barrack.java:shouldRenderedInPass",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/Barrack.java",
+      "target": "function:src/cr0s/javara/entity/building/china/Barrack.java:getHeightInTiles",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/Barrack.java",
+      "target": "function:src/cr0s/javara/entity/building/china/Barrack.java:getHeightInTiles",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/Barrack.java",
+      "target": "function:src/cr0s/javara/entity/building/china/Barrack.java:getWidthInTiles",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/Barrack.java",
+      "target": "function:src/cr0s/javara/entity/building/china/Barrack.java:getWidthInTiles",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/Barrack.java",
+      "target": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/Barrack.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/ElixirCollector.java",
+      "target": "class:src/cr0s/javara/entity/building/china/ElixirCollector.java:ElixirCollector",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/ElixirCollector.java",
+      "target": "class:src/cr0s/javara/entity/building/china/ElixirCollector.java:ElixirCollector",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/ElixirCollector.java",
+      "target": "function:src/cr0s/javara/entity/building/china/ElixirCollector.java:ElixirCollector",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/ElixirCollector.java",
+      "target": "function:src/cr0s/javara/entity/building/china/ElixirCollector.java:ElixirCollector",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/ElixirCollector.java",
+      "target": "function:src/cr0s/javara/entity/building/china/ElixirCollector.java:renderEntity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/ElixirCollector.java",
+      "target": "function:src/cr0s/javara/entity/building/china/ElixirCollector.java:renderEntity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/ElixirCollector.java",
+      "target": "function:src/cr0s/javara/entity/building/china/ElixirCollector.java:shouldRenderedInPass",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/ElixirCollector.java",
+      "target": "function:src/cr0s/javara/entity/building/china/ElixirCollector.java:shouldRenderedInPass",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/ElixirCollector.java",
+      "target": "function:src/cr0s/javara/entity/building/china/ElixirCollector.java:getHeightInTiles",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/ElixirCollector.java",
+      "target": "function:src/cr0s/javara/entity/building/china/ElixirCollector.java:getHeightInTiles",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/ElixirCollector.java",
+      "target": "function:src/cr0s/javara/entity/building/china/ElixirCollector.java:getWidthInTiles",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/ElixirCollector.java",
+      "target": "function:src/cr0s/javara/entity/building/china/ElixirCollector.java:getWidthInTiles",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/ElixirCollector.java",
+      "target": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/ElixirCollector.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/GoldMine.java",
+      "target": "class:src/cr0s/javara/entity/building/china/GoldMine.java:GoldMine",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/GoldMine.java",
+      "target": "class:src/cr0s/javara/entity/building/china/GoldMine.java:GoldMine",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/GoldMine.java",
+      "target": "function:src/cr0s/javara/entity/building/china/GoldMine.java:GoldMine",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/GoldMine.java",
+      "target": "function:src/cr0s/javara/entity/building/china/GoldMine.java:GoldMine",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/GoldMine.java",
+      "target": "function:src/cr0s/javara/entity/building/china/GoldMine.java:renderEntity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/GoldMine.java",
+      "target": "function:src/cr0s/javara/entity/building/china/GoldMine.java:renderEntity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/GoldMine.java",
+      "target": "function:src/cr0s/javara/entity/building/china/GoldMine.java:shouldRenderedInPass",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/GoldMine.java",
+      "target": "function:src/cr0s/javara/entity/building/china/GoldMine.java:shouldRenderedInPass",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/GoldMine.java",
+      "target": "function:src/cr0s/javara/entity/building/china/GoldMine.java:getHeightInTiles",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/GoldMine.java",
+      "target": "function:src/cr0s/javara/entity/building/china/GoldMine.java:getHeightInTiles",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/GoldMine.java",
+      "target": "function:src/cr0s/javara/entity/building/china/GoldMine.java:getWidthInTiles",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/GoldMine.java",
+      "target": "function:src/cr0s/javara/entity/building/china/GoldMine.java:getWidthInTiles",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/GoldMine.java",
+      "target": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/GoldMine.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/ScreenShaker.java",
+      "target": "class:src/cr0s/javara/entity/effect/ScreenShaker.java:ScreenShaker",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/ScreenShaker.java",
+      "target": "class:src/cr0s/javara/entity/effect/ScreenShaker.java:ScreenShaker",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/ScreenShaker.java",
+      "target": "function:src/cr0s/javara/entity/effect/ScreenShaker.java:getInstance",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/ScreenShaker.java",
+      "target": "function:src/cr0s/javara/entity/effect/ScreenShaker.java:getInstance",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/ScreenShaker.java",
+      "target": "function:src/cr0s/javara/entity/effect/ScreenShaker.java:update",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/ScreenShaker.java",
+      "target": "function:src/cr0s/javara/entity/effect/ScreenShaker.java:update",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/ScreenShaker.java",
+      "target": "function:src/cr0s/javara/entity/effect/ScreenShaker.java:getIntensity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/ScreenShaker.java",
+      "target": "function:src/cr0s/javara/entity/effect/ScreenShaker.java:getMultiplier",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/ScreenShaker.java",
+      "target": "function:src/cr0s/javara/entity/effect/ScreenShaker.java:addEffect",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/ScreenShaker.java",
+      "target": "function:src/cr0s/javara/entity/effect/ScreenShaker.java:addEffect",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/ScreenShaker.java",
+      "target": "file:src/cr0s/javara/main/GUI.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/ScreenShaker.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "target": "class:src/cr0s/javara/entity/infantry/EntityInfantry.java:EntityInfantry",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "target": "class:src/cr0s/javara/entity/infantry/EntityInfantry.java:EntityInfantry",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityInfantry.java:EntityInfantry",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityInfantry.java:EntityInfantry",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityInfantry.java:findPathFromTo",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityInfantry.java:findPathFromTo",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityInfantry.java:canEnterCell",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityInfantry.java:canEnterCell",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityInfantry.java:getMoveSpeed",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityInfantry.java:getMoveSpeed",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityInfantry.java:updateEntity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityInfantry.java:updateEntity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityInfantry.java:renderEntity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityInfantry.java:renderEntity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityInfantry.java:moveTo",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityInfantry.java:moveTo",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityInfantry.java:startMovingByPath",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityInfantry.java:startMovingByPath",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityInfantry.java:shouldRenderedInPass",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityInfantry.java:shouldRenderedInPass",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityInfantry.java:getCenterPosX",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityInfantry.java:getCenterPosX",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityInfantry.java:getCenterPosY",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityInfantry.java:getCenterPosY",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityInfantry.java:getSelectSound",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityInfantry.java:getSelectSound",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityInfantry.java:playSelectedSound",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityInfantry.java:playSelectedSound",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityInfantry.java:playOrderSound",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityInfantry.java:playOrderSound",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityInfantry.java:issueOrder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityInfantry.java:issueOrder",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityInfantry.java:resolveOrder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityInfantry.java:resolveOrder",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityInfantry.java:moveToRange",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityInfantry.java:moveToRange",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityInfantry.java:getMaxFacings",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityInfantry.java:getMaxFacings",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityInfantry.java:giveDamage",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityInfantry.java:giveDamage",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "target": "file:src/cr0s/javara/combat/ArmorType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "target": "file:src/cr0s/javara/combat/attack/AttackBase.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "target": "file:src/cr0s/javara/combat/attack/AutoTarget.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "target": "file:src/cr0s/javara/combat/TargetType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "target": "file:src/cr0s/javara/combat/Warhead.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "target": "file:src/cr0s/javara/entity/actor/activity/activities/Attack.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "target": "file:src/cr0s/javara/entity/actor/activity/activities/MoveInfantry.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "target": "file:src/cr0s/javara/entity/actor/activity/Activity.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "target": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "target": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "target": "file:src/cr0s/javara/entity/Entity.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "target": "file:src/cr0s/javara/entity/IShroudRevealer.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "target": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "target": "file:src/cr0s/javara/order/InputAttributes.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "target": "file:src/cr0s/javara/order/Order.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "target": "file:src/cr0s/javara/order/OrderTargeter.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "target": "file:src/cr0s/javara/order/Target.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "target": "file:src/cr0s/javara/render/Sequence.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "target": "file:src/cr0s/javara/render/World.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "target": "file:src/cr0s/javara/resources/ResourceManager.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "target": "file:src/cr0s/javara/resources/ShpTexture.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "target": "file:src/cr0s/javara/resources/SoundManager.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "target": "file:src/mazesolver/Director.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "target": "file:src/mazesolver/Maze.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Production.java",
+      "target": "class:src/cr0s/javara/gameplay/Production.java:Production",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Production.java",
+      "target": "class:src/cr0s/javara/gameplay/Production.java:Production",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Production.java",
+      "target": "function:src/cr0s/javara/gameplay/Production.java:startBuildingActor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Production.java",
+      "target": "function:src/cr0s/javara/gameplay/Production.java:startBuildingActor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Production.java",
+      "target": "function:src/cr0s/javara/gameplay/Production.java:update",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Production.java",
+      "target": "function:src/cr0s/javara/gameplay/Production.java:update",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Production.java",
+      "target": "function:src/cr0s/javara/gameplay/Production.java:deployCurrentActor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Production.java",
+      "target": "function:src/cr0s/javara/gameplay/Production.java:deployCurrentActor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Production.java",
+      "target": "function:src/cr0s/javara/gameplay/Production.java:getBuildingTime",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Production.java",
+      "target": "function:src/cr0s/javara/gameplay/Production.java:getBuildingTime",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Production.java",
+      "target": "function:src/cr0s/javara/gameplay/Production.java:cancel",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Production.java",
+      "target": "function:src/cr0s/javara/gameplay/Production.java:cancel",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Production.java",
+      "target": "function:src/cr0s/javara/gameplay/Production.java:resetTargetActor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Production.java",
+      "target": "function:src/cr0s/javara/gameplay/Production.java:resetTargetActor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Production.java",
+      "target": "function:src/cr0s/javara/gameplay/Production.java:drawProductionButton",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Production.java",
+      "target": "function:src/cr0s/javara/gameplay/Production.java:drawProductionButton",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Production.java",
+      "target": "function:src/cr0s/javara/gameplay/Production.java:restartBuilding",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Production.java",
+      "target": "function:src/cr0s/javara/gameplay/Production.java:restartBuilding",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Production.java",
+      "target": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Production.java",
+      "target": "file:src/cr0s/javara/entity/aircraft/EntityAircraft.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Production.java",
+      "target": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Production.java",
+      "target": "file:src/cr0s/javara/entity/IHaveCost.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Production.java",
+      "target": "file:src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Production.java",
+      "target": "file:src/cr0s/javara/entity/vehicle/EntityVehicle.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Production.java",
+      "target": "file:src/cr0s/javara/main/GUI.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Production.java",
+      "target": "file:src/cr0s/javara/resources/ResourceManager.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Production.java",
+      "target": "file:src/cr0s/javara/resources/ShpTexture.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Production.java",
+      "target": "file:src/cr0s/javara/resources/SoundManager.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Production.java",
+      "target": "file:src/cr0s/javara/ui/sbpages/SideBarItemsButton.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

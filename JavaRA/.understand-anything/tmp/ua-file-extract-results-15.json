@@ -1,0 +1,220 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 25,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": ".checkstyle",
+      "language": "unknown",
+      "fileCategory": "code",
+      "totalLines": 7,
+      "nonEmptyLines": 6,
+      "metrics": {}
+    },
+    {
+      "path": ".classpath",
+      "language": "unknown",
+      "fileCategory": "code",
+      "totalLines": 25,
+      "nonEmptyLines": 25,
+      "metrics": {}
+    },
+    {
+      "path": ".project",
+      "language": "unknown",
+      "fileCategory": "code",
+      "totalLines": 34,
+      "nonEmptyLines": 34,
+      "metrics": {}
+    },
+    {
+      "path": ".settings/org.eclipse.jdt.core.prefs",
+      "language": "prefs",
+      "fileCategory": "code",
+      "totalLines": 281,
+      "nonEmptyLines": 281,
+      "metrics": {}
+    },
+    {
+      "path": ".settings/org.eclipse.jdt.ui.prefs",
+      "language": "prefs",
+      "fileCategory": "code",
+      "totalLines": 60,
+      "nonEmptyLines": 60,
+      "metrics": {}
+    },
+    {
+      "path": ".understand-anything/.understandignore",
+      "language": "unknown",
+      "fileCategory": "code",
+      "totalLines": 31,
+      "nonEmptyLines": 27,
+      "metrics": {}
+    },
+    {
+      "path": ".understand-anything/config.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "sections": [
+        {
+          "heading": "outputLanguage",
+          "level": 1,
+          "line": 1
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 1
+      }
+    },
+    {
+      "path": "assets/allies.mix",
+      "language": "mix",
+      "fileCategory": "code",
+      "totalLines": 3090,
+      "nonEmptyLines": 3089,
+      "metrics": {}
+    },
+    {
+      "path": "assets/conquer.mix",
+      "language": "mix",
+      "fileCategory": "code",
+      "totalLines": 12097,
+      "nonEmptyLines": 11376,
+      "metrics": {}
+    },
+    {
+      "path": "assets/general.mix",
+      "language": "mix",
+      "fileCategory": "code",
+      "totalLines": 5873,
+      "nonEmptyLines": 5389,
+      "metrics": {}
+    },
+    {
+      "path": "assets/hires.mix",
+      "language": "mix",
+      "fileCategory": "code",
+      "totalLines": 7603,
+      "nonEmptyLines": 7164,
+      "metrics": {}
+    },
+    {
+      "path": "assets/interface.mix",
+      "language": "mix",
+      "fileCategory": "code",
+      "totalLines": 4678,
+      "nonEmptyLines": 4649,
+      "metrics": {}
+    },
+    {
+      "path": "assets/interior.mix",
+      "language": "mix",
+      "fileCategory": "code",
+      "totalLines": 7,
+      "nonEmptyLines": 7,
+      "metrics": {}
+    },
+    {
+      "path": "assets/mouse.shp",
+      "language": "shp",
+      "fileCategory": "code",
+      "totalLines": 302,
+      "nonEmptyLines": 120,
+      "metrics": {}
+    },
+    {
+      "path": "assets/pal/00000005.pal",
+      "language": "pal",
+      "fileCategory": "code",
+      "totalLines": 2,
+      "nonEmptyLines": 2,
+      "metrics": {}
+    },
+    {
+      "path": "assets/pal/egopal.pal",
+      "language": "pal",
+      "fileCategory": "code",
+      "totalLines": 16,
+      "nonEmptyLines": 13,
+      "metrics": {}
+    },
+    {
+      "path": "assets/pal/interior.pal",
+      "language": "pal",
+      "fileCategory": "code",
+      "totalLines": 16,
+      "nonEmptyLines": 13,
+      "metrics": {}
+    },
+    {
+      "path": "assets/pal/snow.pal",
+      "language": "pal",
+      "fileCategory": "code",
+      "totalLines": 16,
+      "nonEmptyLines": 13,
+      "metrics": {}
+    },
+    {
+      "path": "assets/pal/temperat.pal",
+      "language": "pal",
+      "fileCategory": "code",
+      "totalLines": 16,
+      "nonEmptyLines": 13,
+      "metrics": {}
+    },
+    {
+      "path": "assets/redalert.mix",
+      "language": "mix",
+      "fileCategory": "code",
+      "totalLines": 25028,
+      "nonEmptyLines": 24488,
+      "metrics": {}
+    },
+    {
+      "path": "assets/russian.mix",
+      "language": "mix",
+      "fileCategory": "code",
+      "totalLines": 2503,
+      "nonEmptyLines": 2497,
+      "metrics": {}
+    },
+    {
+      "path": "assets/scores.mix",
+      "language": "mix",
+      "fileCategory": "code",
+      "totalLines": 45475,
+      "nonEmptyLines": 45243,
+      "metrics": {}
+    },
+    {
+      "path": "assets/snow.mix",
+      "language": "mix",
+      "fileCategory": "code",
+      "totalLines": 887,
+      "nonEmptyLines": 801,
+      "metrics": {}
+    },
+    {
+      "path": "assets/sounds.mix",
+      "language": "mix",
+      "fileCategory": "code",
+      "totalLines": 9312,
+      "nonEmptyLines": 9288,
+      "metrics": {}
+    },
+    {
+      "path": "assets/speech.mix",
+      "language": "mix",
+      "fileCategory": "code",
+      "totalLines": 17507,
+      "nonEmptyLines": 17418,
+      "metrics": {}
+    }
+  ]
+}

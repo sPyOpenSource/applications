@@ -1,0 +1,815 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/cr0s/javara/resources/ShpTexture.java",
+      "type": "file",
+      "name": "ShpTexture.java",
+      "filePath": "src/cr0s/javara/resources/ShpTexture.java",
+      "summary": "SHP texture loader handling frame extraction, color palettes, and image assembly.",
+      "tags": [
+        "resources",
+        "texture",
+        "shp",
+        "loader",
+        "sprite"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/cr0s/javara/ui/cursor/CursorManager.java",
+      "type": "file",
+      "name": "CursorManager.java",
+      "filePath": "src/cr0s/javara/ui/cursor/CursorManager.java",
+      "summary": "Cursor manager handling cursor sequences, animation, and rendering.",
+      "tags": [
+        "ui",
+        "cursor",
+        "manager",
+        "animation",
+        "input"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/cr0s/javara/util/SpriteSheet.java",
+      "type": "file",
+      "name": "SpriteSheet.java",
+      "filePath": "src/cr0s/javara/util/SpriteSheet.java",
+      "summary": "Sprite sheet utility for extracting sub-images from combined texture atlases.",
+      "tags": [
+        "util",
+        "sprite",
+        "texture",
+        "image",
+        "rendering"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/cr0s/javara/resources/ShpTexture.java:ShpTexture",
+      "type": "class",
+      "name": "ShpTexture",
+      "filePath": "src/cr0s/javara/resources/ShpTexture.java",
+      "lineRange": [
+        11,
+        226
+      ],
+      "summary": "ShpTexture class with 10 methods managing 9 properties for gameplay logic.",
+      "tags": [
+        "class",
+        "exported",
+        "class"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/cr0s/javara/resources/ShpTexture.java:ShpTexture",
+      "type": "function",
+      "name": "ShpTexture",
+      "filePath": "src/cr0s/javara/resources/ShpTexture.java",
+      "lineRange": [
+        23,
+        33
+      ],
+      "summary": "ShpTexture (shp) — 11 lines , exported.",
+      "tags": [
+        "function",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/resources/ShpTexture.java:getAsImage",
+      "type": "function",
+      "name": "getAsImage",
+      "filePath": "src/cr0s/javara/resources/ShpTexture.java",
+      "lineRange": [
+        41,
+        55
+      ],
+      "summary": "getAsImage (index, remapColor) — 15 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/resources/ShpTexture.java:remapShpFrame",
+      "type": "function",
+      "name": "remapShpFrame",
+      "filePath": "src/cr0s/javara/resources/ShpTexture.java",
+      "lineRange": [
+        57,
+        96
+      ],
+      "summary": "remapShpFrame (index, remapColor) — 40 lines .",
+      "tags": [
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/resources/ShpTexture.java:remapShpShadowFrame",
+      "type": "function",
+      "name": "remapShpShadowFrame",
+      "filePath": "src/cr0s/javara/resources/ShpTexture.java",
+      "lineRange": [
+        98,
+        125
+      ],
+      "summary": "remapShpShadowFrame (index) — 28 lines .",
+      "tags": [
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/resources/ShpTexture.java:getAsCombinedImage",
+      "type": "function",
+      "name": "getAsCombinedImage",
+      "filePath": "src/cr0s/javara/resources/ShpTexture.java",
+      "lineRange": [
+        128,
+        130
+      ],
+      "summary": "getAsCombinedImage (remapColor) — 3 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/resources/ShpTexture.java:remapPallete",
+      "type": "function",
+      "name": "remapPallete",
+      "filePath": "src/cr0s/javara/resources/ShpTexture.java",
+      "lineRange": [
+        182,
+        213
+      ],
+      "summary": "remapPallete (colors, pal, remapColor) — 32 lines , exported.",
+      "tags": [
+        "function",
+        "exported"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/resources/ShpTexture.java:setSheetPos",
+      "type": "function",
+      "name": "setSheetPos",
+      "filePath": "src/cr0s/javara/resources/ShpTexture.java",
+      "lineRange": [
+        215,
+        217
+      ],
+      "summary": "setSheetPos (x, y) — 3 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "setter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/resources/ShpTexture.java:getSpriteSheetCoords",
+      "type": "function",
+      "name": "getSpriteSheetCoords",
+      "filePath": "src/cr0s/javara/resources/ShpTexture.java",
+      "lineRange": [
+        219,
+        221
+      ],
+      "summary": "getSpriteSheetCoords (no params) — 3 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/resources/ShpTexture.java:getTextureName",
+      "type": "function",
+      "name": "getTextureName",
+      "filePath": "src/cr0s/javara/resources/ShpTexture.java",
+      "lineRange": [
+        223,
+        225
+      ],
+      "summary": "getTextureName (no params) — 3 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/cr0s/javara/ui/cursor/CursorManager.java:CursorManager",
+      "type": "class",
+      "name": "CursorManager",
+      "filePath": "src/cr0s/javara/ui/cursor/CursorManager.java",
+      "lineRange": [
+        7,
+        133
+      ],
+      "summary": "CursorManager class with 7 methods managing 23 properties for gameplay logic.",
+      "tags": [
+        "class",
+        "exported",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/ui/cursor/CursorManager.java:getInstance",
+      "type": "function",
+      "name": "getInstance",
+      "filePath": "src/cr0s/javara/ui/cursor/CursorManager.java",
+      "lineRange": [
+        26,
+        32
+      ],
+      "summary": "getInstance (no params) — 7 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/ui/cursor/CursorManager.java:loadCursors",
+      "type": "function",
+      "name": "loadCursors",
+      "filePath": "src/cr0s/javara/ui/cursor/CursorManager.java",
+      "lineRange": [
+        34,
+        54
+      ],
+      "summary": "loadCursors (no params) — 21 lines .",
+      "tags": [
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/ui/cursor/CursorManager.java:getCursor",
+      "type": "function",
+      "name": "getCursor",
+      "filePath": "src/cr0s/javara/ui/cursor/CursorManager.java",
+      "lineRange": [
+        56,
+        58
+      ],
+      "summary": "getCursor (no params) — 3 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/ui/cursor/CursorManager.java:setCursorType",
+      "type": "function",
+      "name": "setCursorType",
+      "filePath": "src/cr0s/javara/ui/cursor/CursorManager.java",
+      "lineRange": [
+        60,
+        114
+      ],
+      "summary": "setCursorType (cursor) — 55 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "setter"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/cr0s/javara/ui/cursor/CursorManager.java:update",
+      "type": "function",
+      "name": "update",
+      "filePath": "src/cr0s/javara/ui/cursor/CursorManager.java",
+      "lineRange": [
+        116,
+        126
+      ],
+      "summary": "update (no params) — 11 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "update"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/ui/cursor/CursorManager.java:drawCursor",
+      "type": "function",
+      "name": "drawCursor",
+      "filePath": "src/cr0s/javara/ui/cursor/CursorManager.java",
+      "lineRange": [
+        128,
+        132
+      ],
+      "summary": "drawCursor (g) — 5 lines , exported.",
+      "tags": [
+        "function",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/cr0s/javara/util/SpriteSheet.java:SpriteSheet",
+      "type": "class",
+      "name": "SpriteSheet",
+      "filePath": "src/cr0s/javara/util/SpriteSheet.java",
+      "lineRange": [
+        18,
+        130
+      ],
+      "summary": "SpriteSheet class with 10 methods managing 10 properties for gameplay logic.",
+      "tags": [
+        "class",
+        "exported",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/util/SpriteSheet.java:SpriteSheet",
+      "type": "function",
+      "name": "SpriteSheet",
+      "filePath": "src/cr0s/javara/util/SpriteSheet.java",
+      "lineRange": [
+        35,
+        48
+      ],
+      "summary": "SpriteSheet (imageView, image, columns, rows, totalFrames, frameWidth, frameHeight, framesPerSecond) — 14 lines , exported.",
+      "tags": [
+        "function",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/util/SpriteSheet.java:handle",
+      "type": "function",
+      "name": "handle",
+      "filePath": "src/cr0s/javara/util/SpriteSheet.java",
+      "lineRange": [
+        63,
+        89
+      ],
+      "summary": "handle (now) — 27 lines , exported.",
+      "tags": [
+        "function",
+        "exported"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/util/SpriteSheet.java:getSubImage",
+      "type": "function",
+      "name": "getSubImage",
+      "filePath": "src/cr0s/javara/util/SpriteSheet.java",
+      "lineRange": [
+        91,
+        93
+      ],
+      "summary": "getSubImage (i, index) — 3 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/util/SpriteSheet.java:getImage",
+      "type": "function",
+      "name": "getImage",
+      "filePath": "src/cr0s/javara/util/SpriteSheet.java",
+      "lineRange": [
+        95,
+        97
+      ],
+      "summary": "getImage (no params) — 3 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/util/SpriteSheet.java:renderInUse",
+      "type": "function",
+      "name": "renderInUse",
+      "filePath": "src/cr0s/javara/util/SpriteSheet.java",
+      "lineRange": [
+        116,
+        121
+      ],
+      "summary": "renderInUse (x, y, i1, i2) — 6 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "render"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/util/SpriteSheet.java:getHorizontalCount",
+      "type": "function",
+      "name": "getHorizontalCount",
+      "filePath": "src/cr0s/javara/util/SpriteSheet.java",
+      "lineRange": [
+        123,
+        125
+      ],
+      "summary": "getHorizontalCount (no params) — 3 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/util/SpriteSheet.java:getVerticalCount",
+      "type": "function",
+      "name": "getVerticalCount",
+      "filePath": "src/cr0s/javara/util/SpriteSheet.java",
+      "lineRange": [
+        127,
+        129
+      ],
+      "summary": "getVerticalCount (no params) — 3 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/cr0s/javara/resources/ShpTexture.java",
+      "target": "class:src/cr0s/javara/resources/ShpTexture.java:ShpTexture",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/resources/ShpTexture.java",
+      "target": "class:src/cr0s/javara/resources/ShpTexture.java:ShpTexture",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/resources/ShpTexture.java",
+      "target": "function:src/cr0s/javara/resources/ShpTexture.java:ShpTexture",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/resources/ShpTexture.java",
+      "target": "function:src/cr0s/javara/resources/ShpTexture.java:ShpTexture",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/resources/ShpTexture.java",
+      "target": "function:src/cr0s/javara/resources/ShpTexture.java:getAsImage",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/resources/ShpTexture.java",
+      "target": "function:src/cr0s/javara/resources/ShpTexture.java:getAsImage",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/resources/ShpTexture.java",
+      "target": "function:src/cr0s/javara/resources/ShpTexture.java:remapShpFrame",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/resources/ShpTexture.java",
+      "target": "function:src/cr0s/javara/resources/ShpTexture.java:remapShpShadowFrame",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/resources/ShpTexture.java",
+      "target": "function:src/cr0s/javara/resources/ShpTexture.java:getAsCombinedImage",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/resources/ShpTexture.java",
+      "target": "function:src/cr0s/javara/resources/ShpTexture.java:getAsCombinedImage",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/resources/ShpTexture.java",
+      "target": "function:src/cr0s/javara/resources/ShpTexture.java:remapPallete",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/resources/ShpTexture.java",
+      "target": "function:src/cr0s/javara/resources/ShpTexture.java:remapPallete",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/resources/ShpTexture.java",
+      "target": "function:src/cr0s/javara/resources/ShpTexture.java:setSheetPos",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/resources/ShpTexture.java",
+      "target": "function:src/cr0s/javara/resources/ShpTexture.java:setSheetPos",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/resources/ShpTexture.java",
+      "target": "function:src/cr0s/javara/resources/ShpTexture.java:getSpriteSheetCoords",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/resources/ShpTexture.java",
+      "target": "function:src/cr0s/javara/resources/ShpTexture.java:getSpriteSheetCoords",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/resources/ShpTexture.java",
+      "target": "function:src/cr0s/javara/resources/ShpTexture.java:getTextureName",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/resources/ShpTexture.java",
+      "target": "function:src/cr0s/javara/resources/ShpTexture.java:getTextureName",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/resources/ShpTexture.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/cursor/CursorManager.java",
+      "target": "class:src/cr0s/javara/ui/cursor/CursorManager.java:CursorManager",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/cursor/CursorManager.java",
+      "target": "class:src/cr0s/javara/ui/cursor/CursorManager.java:CursorManager",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/cursor/CursorManager.java",
+      "target": "function:src/cr0s/javara/ui/cursor/CursorManager.java:getInstance",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/cursor/CursorManager.java",
+      "target": "function:src/cr0s/javara/ui/cursor/CursorManager.java:getInstance",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/cursor/CursorManager.java",
+      "target": "function:src/cr0s/javara/ui/cursor/CursorManager.java:loadCursors",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/cursor/CursorManager.java",
+      "target": "function:src/cr0s/javara/ui/cursor/CursorManager.java:getCursor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/cursor/CursorManager.java",
+      "target": "function:src/cr0s/javara/ui/cursor/CursorManager.java:getCursor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/cursor/CursorManager.java",
+      "target": "function:src/cr0s/javara/ui/cursor/CursorManager.java:setCursorType",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/cursor/CursorManager.java",
+      "target": "function:src/cr0s/javara/ui/cursor/CursorManager.java:setCursorType",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/cursor/CursorManager.java",
+      "target": "function:src/cr0s/javara/ui/cursor/CursorManager.java:update",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/cursor/CursorManager.java",
+      "target": "function:src/cr0s/javara/ui/cursor/CursorManager.java:update",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/cursor/CursorManager.java",
+      "target": "function:src/cr0s/javara/ui/cursor/CursorManager.java:drawCursor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/cursor/CursorManager.java",
+      "target": "function:src/cr0s/javara/ui/cursor/CursorManager.java:drawCursor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/cursor/CursorManager.java",
+      "target": "file:src/cr0s/javara/resources/ResourceManager.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/cursor/CursorManager.java",
+      "target": "file:src/cr0s/javara/resources/ShpTexture.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/util/SpriteSheet.java",
+      "target": "class:src/cr0s/javara/util/SpriteSheet.java:SpriteSheet",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/util/SpriteSheet.java",
+      "target": "class:src/cr0s/javara/util/SpriteSheet.java:SpriteSheet",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/util/SpriteSheet.java",
+      "target": "function:src/cr0s/javara/util/SpriteSheet.java:SpriteSheet",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/util/SpriteSheet.java",
+      "target": "function:src/cr0s/javara/util/SpriteSheet.java:SpriteSheet",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/util/SpriteSheet.java",
+      "target": "function:src/cr0s/javara/util/SpriteSheet.java:handle",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/util/SpriteSheet.java",
+      "target": "function:src/cr0s/javara/util/SpriteSheet.java:handle",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/util/SpriteSheet.java",
+      "target": "function:src/cr0s/javara/util/SpriteSheet.java:getSubImage",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/util/SpriteSheet.java",
+      "target": "function:src/cr0s/javara/util/SpriteSheet.java:getSubImage",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/util/SpriteSheet.java",
+      "target": "function:src/cr0s/javara/util/SpriteSheet.java:getImage",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/util/SpriteSheet.java",
+      "target": "function:src/cr0s/javara/util/SpriteSheet.java:getImage",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/util/SpriteSheet.java",
+      "target": "function:src/cr0s/javara/util/SpriteSheet.java:renderInUse",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/util/SpriteSheet.java",
+      "target": "function:src/cr0s/javara/util/SpriteSheet.java:renderInUse",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/util/SpriteSheet.java",
+      "target": "function:src/cr0s/javara/util/SpriteSheet.java:getHorizontalCount",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/util/SpriteSheet.java",
+      "target": "function:src/cr0s/javara/util/SpriteSheet.java:getHorizontalCount",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/util/SpriteSheet.java",
+      "target": "function:src/cr0s/javara/util/SpriteSheet.java:getVerticalCount",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/util/SpriteSheet.java",
+      "target": "function:src/cr0s/javara/util/SpriteSheet.java:getVerticalCount",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}

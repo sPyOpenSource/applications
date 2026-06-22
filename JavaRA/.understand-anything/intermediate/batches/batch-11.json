@@ -1,0 +1,57 @@
+{
+  "batchIndex": 11,
+  "files": [
+    {
+      "path": "LICENSE.txt",
+      "language": "txt",
+      "sizeLines": 674,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "README.md",
+      "language": "markdown",
+      "sizeLines": 7,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "build.xml",
+      "language": "xml",
+      "sizeLines": 73,
+      "fileCategory": "config"
+    },
+    {
+      "path": "example_coords.txt",
+      "language": "txt",
+      "sizeLines": 1,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "example_maze.txt",
+      "language": "txt",
+      "sizeLines": 76,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "example_venues.txt",
+      "language": "txt",
+      "sizeLines": 21,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "nb-build.xml",
+      "language": "xml",
+      "sizeLines": 73,
+      "fileCategory": "config"
+    }
+  ],
+  "batchImportData": {
+    "LICENSE.txt": [],
+    "README.md": [],
+    "build.xml": [],
+    "example_coords.txt": [],
+    "example_maze.txt": [],
+    "example_venues.txt": [],
+    "nb-build.xml": []
+  },
+  "neighborMap": {}
+}

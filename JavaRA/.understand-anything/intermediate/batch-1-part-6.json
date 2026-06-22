@@ -1,0 +1,396 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/cr0s/javara/order/IOrderIssuer.java",
+      "type": "file",
+      "name": "IOrderIssuer.java",
+      "filePath": "src/cr0s/javara/order/IOrderIssuer.java",
+      "summary": "Defines the IOrderIssuer interface for the JavaRA RTS game engine.",
+      "tags": [
+        "java",
+        "interface",
+        "game-engine"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/cr0s/javara/order/IOrderIssuer.java:IOrderIssuer",
+      "type": "class",
+      "name": "IOrderIssuer",
+      "filePath": "src/cr0s/javara/order/IOrderIssuer.java",
+      "lineRange": [
+        7,
+        10
+      ],
+      "summary": "Class IOrderIssuer with 2 methods providing core functionality for the JavaRA engine.",
+      "tags": [
+        "java",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/order/InputAttributes.java",
+      "type": "file",
+      "name": "InputAttributes.java",
+      "filePath": "src/cr0s/javara/order/InputAttributes.java",
+      "summary": "Defines the InputAttributes interface for the JavaRA RTS game engine.",
+      "tags": [
+        "java",
+        "interface",
+        "game-engine"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/order/InputAttributes.java:InputAttributes",
+      "type": "function",
+      "name": "InputAttributes",
+      "filePath": "src/cr0s/javara/order/InputAttributes.java",
+      "lineRange": [
+        8,
+        10
+      ],
+      "summary": "InputAttributes(mouse) - 3 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/order/Order.java",
+      "type": "file",
+      "name": "Order.java",
+      "filePath": "src/cr0s/javara/order/Order.java",
+      "summary": "Order data class representing a command with target entity or cell and an order string identifier.",
+      "tags": [
+        "java",
+        "order",
+        "command-pattern"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/cr0s/javara/order/Order.java:Order",
+      "type": "class",
+      "name": "Order",
+      "filePath": "src/cr0s/javara/order/Order.java",
+      "lineRange": [
+        6,
+        43
+      ],
+      "summary": "Class Order with 5 methods providing core functionality for the JavaRA engine.",
+      "tags": [
+        "java",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/order/Order.java:Order",
+      "type": "function",
+      "name": "Order",
+      "filePath": "src/cr0s/javara/order/Order.java",
+      "lineRange": [
+        17,
+        21
+      ],
+      "summary": "Order(order, subj, targetLoc, queued) - 5 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/order/OrderTargeter.java",
+      "type": "file",
+      "name": "OrderTargeter.java",
+      "filePath": "src/cr0s/javara/order/OrderTargeter.java",
+      "summary": "Order targeter class providing target validation and cursor feedback for attack orders.",
+      "tags": [
+        "java",
+        "order",
+        "targeting"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/cr0s/javara/order/OrderTargeter.java:OrderTargeter",
+      "type": "class",
+      "name": "OrderTargeter",
+      "filePath": "src/cr0s/javara/order/OrderTargeter.java",
+      "lineRange": [
+        7,
+        24
+      ],
+      "summary": "Class OrderTargeter with 3 methods providing core functionality for the JavaRA engine.",
+      "tags": [
+        "java",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/order/OrderTargeter.java:OrderTargeter",
+      "type": "function",
+      "name": "OrderTargeter",
+      "filePath": "src/cr0s/javara/order/OrderTargeter.java",
+      "lineRange": [
+        14,
+        20
+      ],
+      "summary": "OrderTargeter(order, prior, targetAlly, targetEnemy, ent) - 7 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/order/OrderTargeter.java:canTarget",
+      "type": "function",
+      "name": "canTarget",
+      "filePath": "src/cr0s/javara/order/OrderTargeter.java",
+      "lineRange": [
+        22,
+        22
+      ],
+      "summary": "canTarget(self, target) - 1 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/order/OrderTargeter.java:getCursorForTarget",
+      "type": "function",
+      "name": "getCursorForTarget",
+      "filePath": "src/cr0s/javara/order/OrderTargeter.java",
+      "lineRange": [
+        23,
+        23
+      ],
+      "summary": "getCursorForTarget(self, target) - 1 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/cr0s/javara/order/IOrderIssuer.java",
+      "target": "class:src/cr0s/javara/order/IOrderIssuer.java:IOrderIssuer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/order/IOrderIssuer.java",
+      "target": "class:src/cr0s/javara/order/IOrderIssuer.java:IOrderIssuer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/order/IOrderIssuer.java",
+      "target": "file:src/cr0s/javara/entity/Entity.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/order/InputAttributes.java",
+      "target": "function:src/cr0s/javara/order/InputAttributes.java:InputAttributes",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/order/InputAttributes.java",
+      "target": "function:src/cr0s/javara/order/InputAttributes.java:InputAttributes",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/order/Order.java",
+      "target": "class:src/cr0s/javara/order/Order.java:Order",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/order/Order.java",
+      "target": "class:src/cr0s/javara/order/Order.java:Order",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/order/Order.java",
+      "target": "function:src/cr0s/javara/order/Order.java:Order",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/order/Order.java",
+      "target": "function:src/cr0s/javara/order/Order.java:Order",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/order/Order.java",
+      "target": "function:src/cr0s/javara/order/Order.java:Order",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/order/Order.java",
+      "target": "function:src/cr0s/javara/order/Order.java:Order",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/order/Order.java",
+      "target": "function:src/cr0s/javara/order/Order.java:Order",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/order/Order.java",
+      "target": "function:src/cr0s/javara/order/Order.java:Order",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/order/Order.java",
+      "target": "function:src/cr0s/javara/order/Order.java:Order",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/order/Order.java",
+      "target": "function:src/cr0s/javara/order/Order.java:Order",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/order/Order.java",
+      "target": "function:src/cr0s/javara/order/Order.java:Order",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/order/Order.java",
+      "target": "function:src/cr0s/javara/order/Order.java:Order",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/order/Order.java",
+      "target": "file:src/cr0s/javara/entity/Entity.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/order/Order.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/order/OrderTargeter.java",
+      "target": "class:src/cr0s/javara/order/OrderTargeter.java:OrderTargeter",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/order/OrderTargeter.java",
+      "target": "class:src/cr0s/javara/order/OrderTargeter.java:OrderTargeter",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/order/OrderTargeter.java",
+      "target": "function:src/cr0s/javara/order/OrderTargeter.java:OrderTargeter",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/order/OrderTargeter.java",
+      "target": "function:src/cr0s/javara/order/OrderTargeter.java:OrderTargeter",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/order/OrderTargeter.java",
+      "target": "function:src/cr0s/javara/order/OrderTargeter.java:canTarget",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/order/OrderTargeter.java",
+      "target": "function:src/cr0s/javara/order/OrderTargeter.java:canTarget",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/order/OrderTargeter.java",
+      "target": "function:src/cr0s/javara/order/OrderTargeter.java:getCursorForTarget",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/order/OrderTargeter.java",
+      "target": "function:src/cr0s/javara/order/OrderTargeter.java:getCursorForTarget",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/order/OrderTargeter.java",
+      "target": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/order/OrderTargeter.java",
+      "target": "file:src/cr0s/javara/entity/Entity.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/order/OrderTargeter.java",
+      "target": "file:src/cr0s/javara/ui/cursor/CursorType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

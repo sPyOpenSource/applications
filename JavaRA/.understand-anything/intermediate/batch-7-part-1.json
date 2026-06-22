@@ -1,0 +1,1906 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/cr0s/javara/ai/AIPlayer.java",
+      "type": "file",
+      "name": "AIPlayer.java",
+      "filePath": "src/cr0s/javara/ai/AIPlayer.java",
+      "summary": "AI player controller managing squad formation, building placement, unit production, and combat tactics for the CPU opponent.",
+      "tags": [
+        "ai",
+        "exports"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:src/cr0s/javara/ai/AIPlayer.java:AIPlayer",
+      "type": "class",
+      "name": "AIPlayer",
+      "filePath": "src/cr0s/javara/ai/AIPlayer.java",
+      "lineRange": [
+        43,
+        786
+      ],
+      "summary": "AIPlayer class with 34 methods in AIPlayer.java.",
+      "tags": [],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/cr0s/javara/ai/AIPlayer.java:AIPlayer",
+      "type": "function",
+      "name": "AIPlayer",
+      "filePath": "src/cr0s/javara/ai/AIPlayer.java",
+      "lineRange": [
+        93,
+        99
+      ],
+      "summary": "AIPlayer(w, name, side, color) - 7 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/ai/AIPlayer.java:loadAIRules",
+      "type": "function",
+      "name": "loadAIRules",
+      "filePath": "src/cr0s/javara/ai/AIPlayer.java",
+      "lineRange": [
+        101,
+        170
+      ],
+      "summary": "loadAIRules(name) - 70 lines.",
+      "tags": [],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/cr0s/javara/ai/AIPlayer.java:spawn",
+      "type": "function",
+      "name": "spawn",
+      "filePath": "src/cr0s/javara/ai/AIPlayer.java",
+      "lineRange": [
+        172,
+        178
+      ],
+      "summary": "spawn() - 7 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/ai/AIPlayer.java:update",
+      "type": "function",
+      "name": "update",
+      "filePath": "src/cr0s/javara/ai/AIPlayer.java",
+      "lineRange": [
+        180,
+        202
+      ],
+      "summary": "update() - 23 lines.",
+      "tags": [],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/ai/AIPlayer.java:findAndDeployAllMcv",
+      "type": "function",
+      "name": "findAndDeployAllMcv",
+      "filePath": "src/cr0s/javara/ai/AIPlayer.java",
+      "lineRange": [
+        204,
+        220
+      ],
+      "summary": "findAndDeployAllMcv() - 17 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/ai/AIPlayer.java:countBuildings",
+      "type": "function",
+      "name": "countBuildings",
+      "filePath": "src/cr0s/javara/ai/AIPlayer.java",
+      "lineRange": [
+        222,
+        240
+      ],
+      "summary": "countBuildings(frac, owner) - 19 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/ai/AIPlayer.java:countUnits",
+      "type": "function",
+      "name": "countUnits",
+      "filePath": "src/cr0s/javara/ai/AIPlayer.java",
+      "lineRange": [
+        242,
+        258
+      ],
+      "summary": "countUnits(unit, owner) - 17 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/ai/AIPlayer.java:countBuildingByCommonName",
+      "type": "function",
+      "name": "countBuildingByCommonName",
+      "filePath": "src/cr0s/javara/ai/AIPlayer.java",
+      "lineRange": [
+        260,
+        278
+      ],
+      "summary": "countBuildingByCommonName(commonName, owner) - 19 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/ai/AIPlayer.java:hasAdequateProc",
+      "type": "function",
+      "name": "hasAdequateProc",
+      "filePath": "src/cr0s/javara/ai/AIPlayer.java",
+      "lineRange": [
+        285,
+        288
+      ],
+      "summary": "hasAdequateProc() - 4 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/ai/AIPlayer.java:hasMinimumProc",
+      "type": "function",
+      "name": "hasMinimumProc",
+      "filePath": "src/cr0s/javara/ai/AIPlayer.java",
+      "lineRange": [
+        290,
+        294
+      ],
+      "summary": "hasMinimumProc() - 5 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/ai/AIPlayer.java:hasAdequateAirUnits",
+      "type": "function",
+      "name": "hasAdequateAirUnits",
+      "filePath": "src/cr0s/javara/ai/AIPlayer.java",
+      "lineRange": [
+        296,
+        299
+      ],
+      "summary": "hasAdequateAirUnits(a) - 4 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/ai/AIPlayer.java:findPosForBuilding",
+      "type": "function",
+      "name": "findPosForBuilding",
+      "filePath": "src/cr0s/javara/ai/AIPlayer.java",
+      "lineRange": [
+        301,
+        336
+      ],
+      "summary": "findPosForBuilding(actorType, center, target, minRange, maxRange, distanceToBaseIsImportant) - 36 lines.",
+      "tags": [],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/ai/AIPlayer.java:findClosestEnemy",
+      "type": "function",
+      "name": "findClosestEnemy",
+      "filePath": "src/cr0s/javara/ai/AIPlayer.java",
+      "lineRange": [
+        338,
+        346
+      ],
+      "summary": "findClosestEnemy(center) - 9 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/ai/AIPlayer.java:chooseBuildLocation",
+      "type": "function",
+      "name": "chooseBuildLocation",
+      "filePath": "src/cr0s/javara/ai/AIPlayer.java",
+      "lineRange": [
+        348,
+        391
+      ],
+      "summary": "chooseBuildLocation(actorType, distanceToBaseIsImportant, type) - 44 lines.",
+      "tags": [],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/ai/AIPlayer.java:notifyDamaged",
+      "type": "function",
+      "name": "notifyDamaged",
+      "filePath": "src/cr0s/javara/ai/AIPlayer.java",
+      "lineRange": [
+        393,
+        426
+      ],
+      "summary": "notifyDamaged(who, by, amount, warhead) - 34 lines.",
+      "tags": [],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/ai/AIPlayer.java:chooseEnemyTarget",
+      "type": "function",
+      "name": "chooseEnemyTarget",
+      "filePath": "src/cr0s/javara/ai/AIPlayer.java",
+      "lineRange": [
+        428,
+        477
+      ],
+      "summary": "chooseEnemyTarget() - 50 lines.",
+      "tags": [],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/ai/AIPlayer.java:findEnemyConstructionYards",
+      "type": "function",
+      "name": "findEnemyConstructionYards",
+      "filePath": "src/cr0s/javara/ai/AIPlayer.java",
+      "lineRange": [
+        479,
+        491
+      ],
+      "summary": "findEnemyConstructionYards() - 13 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/ai/AIPlayer.java:cleanSquads",
+      "type": "function",
+      "name": "cleanSquads",
+      "filePath": "src/cr0s/javara/ai/AIPlayer.java",
+      "lineRange": [
+        493,
+        505
+      ],
+      "summary": "cleanSquads() - 13 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/ai/AIPlayer.java:cleanFromDeadAndNotOwn",
+      "type": "function",
+      "name": "cleanFromDeadAndNotOwn",
+      "filePath": "src/cr0s/javara/ai/AIPlayer.java",
+      "lineRange": [
+        528,
+        537
+      ],
+      "summary": "cleanFromDeadAndNotOwn(list) - 10 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/ai/AIPlayer.java:assignRolesToIdleUnits",
+      "type": "function",
+      "name": "assignRolesToIdleUnits",
+      "filePath": "src/cr0s/javara/ai/AIPlayer.java",
+      "lineRange": [
+        539,
+        568
+      ],
+      "summary": "assignRolesToIdleUnits() - 30 lines.",
+      "tags": [],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/ai/AIPlayer.java:createAttackForce",
+      "type": "function",
+      "name": "createAttackForce",
+      "filePath": "src/cr0s/javara/ai/AIPlayer.java",
+      "lineRange": [
+        570,
+        584
+      ],
+      "summary": "createAttackForce() - 15 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/ai/AIPlayer.java:findNewUnits",
+      "type": "function",
+      "name": "findNewUnits",
+      "filePath": "src/cr0s/javara/ai/AIPlayer.java",
+      "lineRange": [
+        586,
+        611
+      ],
+      "summary": "findNewUnits() - 26 lines.",
+      "tags": [],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/ai/AIPlayer.java:giveOrdersToIdleHarvesters",
+      "type": "function",
+      "name": "giveOrdersToIdleHarvesters",
+      "filePath": "src/cr0s/javara/ai/AIPlayer.java",
+      "lineRange": [
+        613,
+        637
+      ],
+      "summary": "giveOrdersToIdleHarvesters() - 25 lines.",
+      "tags": [],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/ai/AIPlayer.java:tryToRushAttack",
+      "type": "function",
+      "name": "tryToRushAttack",
+      "filePath": "src/cr0s/javara/ai/AIPlayer.java",
+      "lineRange": [
+        639,
+        649
+      ],
+      "summary": "tryToRushAttack() - 11 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/ai/AIPlayer.java:protectOwn",
+      "type": "function",
+      "name": "protectOwn",
+      "filePath": "src/cr0s/javara/ai/AIPlayer.java",
+      "lineRange": [
+        651,
+        675
+      ],
+      "summary": "protectOwn(attacker) - 25 lines.",
+      "tags": [],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/ai/AIPlayer.java:productUnits",
+      "type": "function",
+      "name": "productUnits",
+      "filePath": "src/cr0s/javara/ai/AIPlayer.java",
+      "lineRange": [
+        677,
+        689
+      ],
+      "summary": "productUnits() - 13 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/ai/AIPlayer.java:buidUnits",
+      "type": "function",
+      "name": "buidUnits",
+      "filePath": "src/cr0s/javara/ai/AIPlayer.java",
+      "lineRange": [
+        691,
+        749
+      ],
+      "summary": "buidUnits(buildRandom) - 59 lines.",
+      "tags": [],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/cr0s/javara/ai/AIPlayer.java:buildInfantry",
+      "type": "function",
+      "name": "buildInfantry",
+      "filePath": "src/cr0s/javara/ai/AIPlayer.java",
+      "lineRange": [
+        760,
+        767
+      ],
+      "summary": "buildInfantry(name) - 8 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/ai/AIPlayer.java:thereIsNoMcv",
+      "type": "function",
+      "name": "thereIsNoMcv",
+      "filePath": "src/cr0s/javara/ai/AIPlayer.java",
+      "lineRange": [
+        769,
+        785
+      ],
+      "summary": "thereIsNoMcv() - 17 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/ai/Squad.java",
+      "type": "file",
+      "name": "Squad.java",
+      "filePath": "src/cr0s/javara/ai/Squad.java",
+      "summary": "Represents a military squad with unit grouping, target assignment, and state machine management.",
+      "tags": [
+        "ai",
+        "squad"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/cr0s/javara/ai/Squad.java:Squad",
+      "type": "class",
+      "name": "Squad",
+      "filePath": "src/cr0s/javara/ai/Squad.java",
+      "lineRange": [
+        12,
+        88
+      ],
+      "summary": "Squad class with 12 methods in Squad.java.",
+      "tags": [],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/ai/Squad.java:Squad",
+      "type": "function",
+      "name": "Squad",
+      "filePath": "src/cr0s/javara/ai/Squad.java",
+      "lineRange": [
+        22,
+        24
+      ],
+      "summary": "Squad(bot, type) - 3 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/ai/Squad.java:Squad",
+      "type": "function",
+      "name": "Squad",
+      "filePath": "src/cr0s/javara/ai/Squad.java",
+      "lineRange": [
+        26,
+        33
+      ],
+      "summary": "Squad(bot, type, target) - 8 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/ai/Squad.java:isValid",
+      "type": "function",
+      "name": "isValid",
+      "filePath": "src/cr0s/javara/ai/Squad.java",
+      "lineRange": [
+        35,
+        37
+      ],
+      "summary": "isValid() - 3 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/ai/Squad.java:removeDeadAndNotOwnUnits",
+      "type": "function",
+      "name": "removeDeadAndNotOwnUnits",
+      "filePath": "src/cr0s/javara/ai/Squad.java",
+      "lineRange": [
+        39,
+        49
+      ],
+      "summary": "removeDeadAndNotOwnUnits() - 11 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/ai/Squad.java:getType",
+      "type": "function",
+      "name": "getType",
+      "filePath": "src/cr0s/javara/ai/Squad.java",
+      "lineRange": [
+        51,
+        53
+      ],
+      "summary": "getType() - 3 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/ai/Squad.java:update",
+      "type": "function",
+      "name": "update",
+      "filePath": "src/cr0s/javara/ai/Squad.java",
+      "lineRange": [
+        55,
+        59
+      ],
+      "summary": "update() - 5 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/ai/Squad.java:addUnit",
+      "type": "function",
+      "name": "addUnit",
+      "filePath": "src/cr0s/javara/ai/Squad.java",
+      "lineRange": [
+        61,
+        63
+      ],
+      "summary": "addUnit(a) - 3 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/ai/Squad.java:targetIsValid",
+      "type": "function",
+      "name": "targetIsValid",
+      "filePath": "src/cr0s/javara/ai/Squad.java",
+      "lineRange": [
+        65,
+        67
+      ],
+      "summary": "targetIsValid() - 3 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/ai/Squad.java:setTarget",
+      "type": "function",
+      "name": "setTarget",
+      "filePath": "src/cr0s/javara/ai/Squad.java",
+      "lineRange": [
+        69,
+        75
+      ],
+      "summary": "setTarget(tgt) - 7 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/ai/Squad.java:getBot",
+      "type": "function",
+      "name": "getBot",
+      "filePath": "src/cr0s/javara/ai/Squad.java",
+      "lineRange": [
+        77,
+        79
+      ],
+      "summary": "getBot() - 3 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/ai/Squad.java:getUnits",
+      "type": "function",
+      "name": "getUnits",
+      "filePath": "src/cr0s/javara/ai/Squad.java",
+      "lineRange": [
+        81,
+        83
+      ],
+      "summary": "getUnits() - 3 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/ai/Squad.java:getFsm",
+      "type": "function",
+      "name": "getFsm",
+      "filePath": "src/cr0s/javara/ai/Squad.java",
+      "lineRange": [
+        85,
+        87
+      ],
+      "summary": "getFsm() - 3 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/ai/states/GroundStateBase.java",
+      "type": "file",
+      "name": "GroundStateBase.java",
+      "filePath": "src/cr0s/javara/ai/states/GroundStateBase.java",
+      "summary": "Ground unit AI states for idle patrolling and attack-move behavior.",
+      "tags": [
+        "ai",
+        "state-machine"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/cr0s/javara/ai/states/GroundStateBase.java:GroundUnitsIdleState",
+      "type": "class",
+      "name": "GroundUnitsIdleState",
+      "filePath": "src/cr0s/javara/ai/states/GroundStateBase.java",
+      "lineRange": [
+        12,
+        45
+      ],
+      "summary": "GroundUnitsIdleState class with 3 methods in GroundStateBase.java.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/cr0s/javara/ai/states/GroundStateBase.java:GroundUnitsAttackMoveState",
+      "type": "class",
+      "name": "GroundUnitsAttackMoveState",
+      "filePath": "src/cr0s/javara/ai/states/GroundStateBase.java",
+      "lineRange": [
+        47,
+        82
+      ],
+      "summary": "GroundUnitsAttackMoveState class with 3 methods in GroundStateBase.java.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/ai/states/GroundStateBase.java:activate",
+      "type": "function",
+      "name": "activate",
+      "filePath": "src/cr0s/javara/ai/states/GroundStateBase.java",
+      "lineRange": [
+        14,
+        17
+      ],
+      "summary": "activate(bot) - 4 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/ai/states/GroundStateBase.java:tick",
+      "type": "function",
+      "name": "tick",
+      "filePath": "src/cr0s/javara/ai/states/GroundStateBase.java",
+      "lineRange": [
+        19,
+        37
+      ],
+      "summary": "tick(owner) - 19 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/ai/states/GroundStateBase.java:deactivate",
+      "type": "function",
+      "name": "deactivate",
+      "filePath": "src/cr0s/javara/ai/states/GroundStateBase.java",
+      "lineRange": [
+        39,
+        43
+      ],
+      "summary": "deactivate(bot) - 5 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/ai/states/GroundStateBase.java:activate",
+      "type": "function",
+      "name": "activate",
+      "filePath": "src/cr0s/javara/ai/states/GroundStateBase.java",
+      "lineRange": [
+        49,
+        52
+      ],
+      "summary": "activate(bot) - 4 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/ai/states/GroundStateBase.java:tick",
+      "type": "function",
+      "name": "tick",
+      "filePath": "src/cr0s/javara/ai/states/GroundStateBase.java",
+      "lineRange": [
+        54,
+        75
+      ],
+      "summary": "tick(owner) - 22 lines.",
+      "tags": [],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/ai/states/GroundStateBase.java:deactivate",
+      "type": "function",
+      "name": "deactivate",
+      "filePath": "src/cr0s/javara/ai/states/GroundStateBase.java",
+      "lineRange": [
+        77,
+        80
+      ],
+      "summary": "deactivate(bot) - 4 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/ai/states/StateBase.java",
+      "type": "file",
+      "name": "StateBase.java",
+      "filePath": "src/cr0s/javara/ai/states/StateBase.java",
+      "summary": "Base class for AI squad states providing utility methods for attack, flee, and navigation decisions.",
+      "tags": [
+        "ai",
+        "state-machine"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/cr0s/javara/ai/states/StateBase.java:StateBase",
+      "type": "class",
+      "name": "StateBase",
+      "filePath": "src/cr0s/javara/ai/states/StateBase.java",
+      "lineRange": [
+        17,
+        93
+      ],
+      "summary": "StateBase class with 5 methods in StateBase.java.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/ai/states/StateBase.java:randomBuildingLocation",
+      "type": "function",
+      "name": "randomBuildingLocation",
+      "filePath": "src/cr0s/javara/ai/states/StateBase.java",
+      "lineRange": [
+        28,
+        37
+      ],
+      "summary": "randomBuildingLocation(s) - 10 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/ai/states/StateBase.java:busyAttack",
+      "type": "function",
+      "name": "busyAttack",
+      "filePath": "src/cr0s/javara/ai/states/StateBase.java",
+      "lineRange": [
+        39,
+        55
+      ],
+      "summary": "busyAttack(a) - 17 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/ai/states/StateBase.java:canAttackTarget",
+      "type": "function",
+      "name": "canAttackTarget",
+      "filePath": "src/cr0s/javara/ai/states/StateBase.java",
+      "lineRange": [
+        57,
+        70
+      ],
+      "summary": "canAttackTarget(a, target) - 14 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/ai/states/StateBase.java:shouldFlee",
+      "type": "function",
+      "name": "shouldFlee",
+      "filePath": "src/cr0s/javara/ai/states/StateBase.java",
+      "lineRange": [
+        72,
+        92
+      ],
+      "summary": "shouldFlee(squad) - 21 lines.",
+      "tags": [],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/cr0s/javara/combat/attack/AttackCharge.java",
+      "type": "file",
+      "name": "AttackCharge.java",
+      "filePath": "src/cr0s/javara/combat/attack/AttackCharge.java",
+      "summary": "Charge attack strategy that builds up over time before delivering a single powerful strike.",
+      "tags": [
+        "combat"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/cr0s/javara/combat/attack/AttackCharge.java:AttackCharge",
+      "type": "class",
+      "name": "AttackCharge",
+      "filePath": "src/cr0s/javara/combat/attack/AttackCharge.java",
+      "lineRange": [
+        10,
+        110
+      ],
+      "summary": "AttackCharge class with 7 methods in AttackCharge.java.",
+      "tags": [],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/combat/attack/AttackCharge.java:AttackCharge",
+      "type": "function",
+      "name": "AttackCharge",
+      "filePath": "src/cr0s/javara/combat/attack/AttackCharge.java",
+      "lineRange": [
+        16,
+        18
+      ],
+      "summary": "AttackCharge(s) - 3 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/combat/attack/AttackCharge.java:getAttackActivity",
+      "type": "function",
+      "name": "getAttackActivity",
+      "filePath": "src/cr0s/javara/combat/attack/AttackCharge.java",
+      "lineRange": [
+        29,
+        37
+      ],
+      "summary": "getAttackActivity(tgt, allowMove) - 9 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/combat/attack/AttackCharge.java:setCharged",
+      "type": "function",
+      "name": "setCharged",
+      "filePath": "src/cr0s/javara/combat/attack/AttackCharge.java",
+      "lineRange": [
+        39,
+        41
+      ],
+      "summary": "setCharged(charged) - 3 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/combat/attack/AttackCharge.java:doAttack",
+      "type": "function",
+      "name": "doAttack",
+      "filePath": "src/cr0s/javara/combat/attack/AttackCharge.java",
+      "lineRange": [
+        43,
+        52
+      ],
+      "summary": "doAttack(tgt) - 10 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/combat/attack/AttackCharge.java:setMaxChargeTicks",
+      "type": "function",
+      "name": "setMaxChargeTicks",
+      "filePath": "src/cr0s/javara/combat/attack/AttackCharge.java",
+      "lineRange": [
+        103,
+        105
+      ],
+      "summary": "setMaxChargeTicks(maxChargeTicks) - 3 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/combat/attack/AttackCharge.java:setRechargeTicks",
+      "type": "function",
+      "name": "setRechargeTicks",
+      "filePath": "src/cr0s/javara/combat/attack/AttackCharge.java",
+      "lineRange": [
+        107,
+        109
+      ],
+      "summary": "setRechargeTicks(rechargeTicks) - 3 lines.",
+      "tags": [],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/cr0s/javara/ai/AIPlayer.java",
+      "target": "class:src/cr0s/javara/ai/AIPlayer.java:AIPlayer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/AIPlayer.java",
+      "target": "function:src/cr0s/javara/ai/AIPlayer.java:AIPlayer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/AIPlayer.java",
+      "target": "function:src/cr0s/javara/ai/AIPlayer.java:AIPlayer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/AIPlayer.java",
+      "target": "function:src/cr0s/javara/ai/AIPlayer.java:loadAIRules",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/AIPlayer.java",
+      "target": "function:src/cr0s/javara/ai/AIPlayer.java:spawn",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/AIPlayer.java",
+      "target": "function:src/cr0s/javara/ai/AIPlayer.java:spawn",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/AIPlayer.java",
+      "target": "function:src/cr0s/javara/ai/AIPlayer.java:update",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/AIPlayer.java",
+      "target": "function:src/cr0s/javara/ai/AIPlayer.java:update",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/AIPlayer.java",
+      "target": "function:src/cr0s/javara/ai/AIPlayer.java:findAndDeployAllMcv",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/AIPlayer.java",
+      "target": "function:src/cr0s/javara/ai/AIPlayer.java:findAndDeployAllMcv",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/AIPlayer.java",
+      "target": "function:src/cr0s/javara/ai/AIPlayer.java:countBuildings",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/AIPlayer.java",
+      "target": "function:src/cr0s/javara/ai/AIPlayer.java:countBuildings",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/AIPlayer.java",
+      "target": "function:src/cr0s/javara/ai/AIPlayer.java:countUnits",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/AIPlayer.java",
+      "target": "function:src/cr0s/javara/ai/AIPlayer.java:countBuildingByCommonName",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/AIPlayer.java",
+      "target": "function:src/cr0s/javara/ai/AIPlayer.java:hasAdequateProc",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/AIPlayer.java",
+      "target": "function:src/cr0s/javara/ai/AIPlayer.java:hasAdequateProc",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/AIPlayer.java",
+      "target": "function:src/cr0s/javara/ai/AIPlayer.java:hasMinimumProc",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/AIPlayer.java",
+      "target": "function:src/cr0s/javara/ai/AIPlayer.java:hasMinimumProc",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/AIPlayer.java",
+      "target": "function:src/cr0s/javara/ai/AIPlayer.java:hasAdequateAirUnits",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/AIPlayer.java",
+      "target": "function:src/cr0s/javara/ai/AIPlayer.java:hasAdequateAirUnits",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/AIPlayer.java",
+      "target": "function:src/cr0s/javara/ai/AIPlayer.java:findPosForBuilding",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/AIPlayer.java",
+      "target": "function:src/cr0s/javara/ai/AIPlayer.java:findClosestEnemy",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/AIPlayer.java",
+      "target": "function:src/cr0s/javara/ai/AIPlayer.java:findClosestEnemy",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/AIPlayer.java",
+      "target": "function:src/cr0s/javara/ai/AIPlayer.java:chooseBuildLocation",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/AIPlayer.java",
+      "target": "function:src/cr0s/javara/ai/AIPlayer.java:chooseBuildLocation",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/AIPlayer.java",
+      "target": "function:src/cr0s/javara/ai/AIPlayer.java:notifyDamaged",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/AIPlayer.java",
+      "target": "function:src/cr0s/javara/ai/AIPlayer.java:notifyDamaged",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/AIPlayer.java",
+      "target": "function:src/cr0s/javara/ai/AIPlayer.java:chooseEnemyTarget",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/AIPlayer.java",
+      "target": "function:src/cr0s/javara/ai/AIPlayer.java:findEnemyConstructionYards",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/AIPlayer.java",
+      "target": "function:src/cr0s/javara/ai/AIPlayer.java:cleanSquads",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/AIPlayer.java",
+      "target": "function:src/cr0s/javara/ai/AIPlayer.java:cleanFromDeadAndNotOwn",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/AIPlayer.java",
+      "target": "function:src/cr0s/javara/ai/AIPlayer.java:assignRolesToIdleUnits",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/AIPlayer.java",
+      "target": "function:src/cr0s/javara/ai/AIPlayer.java:createAttackForce",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/AIPlayer.java",
+      "target": "function:src/cr0s/javara/ai/AIPlayer.java:findNewUnits",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/AIPlayer.java",
+      "target": "function:src/cr0s/javara/ai/AIPlayer.java:giveOrdersToIdleHarvesters",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/AIPlayer.java",
+      "target": "function:src/cr0s/javara/ai/AIPlayer.java:tryToRushAttack",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/AIPlayer.java",
+      "target": "function:src/cr0s/javara/ai/AIPlayer.java:protectOwn",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/AIPlayer.java",
+      "target": "function:src/cr0s/javara/ai/AIPlayer.java:productUnits",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/AIPlayer.java",
+      "target": "function:src/cr0s/javara/ai/AIPlayer.java:buidUnits",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/AIPlayer.java",
+      "target": "function:src/cr0s/javara/ai/AIPlayer.java:buildInfantry",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/AIPlayer.java",
+      "target": "function:src/cr0s/javara/ai/AIPlayer.java:buildInfantry",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/AIPlayer.java",
+      "target": "function:src/cr0s/javara/ai/AIPlayer.java:thereIsNoMcv",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/Squad.java",
+      "target": "class:src/cr0s/javara/ai/Squad.java:Squad",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/Squad.java",
+      "target": "function:src/cr0s/javara/ai/Squad.java:Squad",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/Squad.java",
+      "target": "function:src/cr0s/javara/ai/Squad.java:Squad",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/Squad.java",
+      "target": "function:src/cr0s/javara/ai/Squad.java:Squad",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/Squad.java",
+      "target": "function:src/cr0s/javara/ai/Squad.java:Squad",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/Squad.java",
+      "target": "function:src/cr0s/javara/ai/Squad.java:isValid",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/Squad.java",
+      "target": "function:src/cr0s/javara/ai/Squad.java:isValid",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/Squad.java",
+      "target": "function:src/cr0s/javara/ai/Squad.java:removeDeadAndNotOwnUnits",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/Squad.java",
+      "target": "function:src/cr0s/javara/ai/Squad.java:removeDeadAndNotOwnUnits",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/Squad.java",
+      "target": "function:src/cr0s/javara/ai/Squad.java:getType",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/Squad.java",
+      "target": "function:src/cr0s/javara/ai/Squad.java:getType",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/Squad.java",
+      "target": "function:src/cr0s/javara/ai/Squad.java:update",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/Squad.java",
+      "target": "function:src/cr0s/javara/ai/Squad.java:update",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/Squad.java",
+      "target": "function:src/cr0s/javara/ai/Squad.java:addUnit",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/Squad.java",
+      "target": "function:src/cr0s/javara/ai/Squad.java:addUnit",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/Squad.java",
+      "target": "function:src/cr0s/javara/ai/Squad.java:targetIsValid",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/Squad.java",
+      "target": "function:src/cr0s/javara/ai/Squad.java:targetIsValid",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/Squad.java",
+      "target": "function:src/cr0s/javara/ai/Squad.java:setTarget",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/Squad.java",
+      "target": "function:src/cr0s/javara/ai/Squad.java:setTarget",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/Squad.java",
+      "target": "function:src/cr0s/javara/ai/Squad.java:getBot",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/Squad.java",
+      "target": "function:src/cr0s/javara/ai/Squad.java:getBot",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/Squad.java",
+      "target": "function:src/cr0s/javara/ai/Squad.java:getUnits",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/Squad.java",
+      "target": "function:src/cr0s/javara/ai/Squad.java:getUnits",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/Squad.java",
+      "target": "function:src/cr0s/javara/ai/Squad.java:getFsm",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/Squad.java",
+      "target": "function:src/cr0s/javara/ai/Squad.java:getFsm",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/states/GroundStateBase.java",
+      "target": "class:src/cr0s/javara/ai/states/GroundStateBase.java:GroundUnitsIdleState",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/states/GroundStateBase.java",
+      "target": "class:src/cr0s/javara/ai/states/GroundStateBase.java:GroundUnitsAttackMoveState",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/states/GroundStateBase.java",
+      "target": "function:src/cr0s/javara/ai/states/GroundStateBase.java:activate",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/states/GroundStateBase.java",
+      "target": "function:src/cr0s/javara/ai/states/GroundStateBase.java:activate",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/states/GroundStateBase.java",
+      "target": "function:src/cr0s/javara/ai/states/GroundStateBase.java:tick",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/states/GroundStateBase.java",
+      "target": "function:src/cr0s/javara/ai/states/GroundStateBase.java:tick",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/states/GroundStateBase.java",
+      "target": "function:src/cr0s/javara/ai/states/GroundStateBase.java:deactivate",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/states/GroundStateBase.java",
+      "target": "function:src/cr0s/javara/ai/states/GroundStateBase.java:deactivate",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/states/GroundStateBase.java",
+      "target": "function:src/cr0s/javara/ai/states/GroundStateBase.java:activate",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/states/GroundStateBase.java",
+      "target": "function:src/cr0s/javara/ai/states/GroundStateBase.java:activate",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/states/GroundStateBase.java",
+      "target": "function:src/cr0s/javara/ai/states/GroundStateBase.java:tick",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/states/GroundStateBase.java",
+      "target": "function:src/cr0s/javara/ai/states/GroundStateBase.java:tick",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/states/GroundStateBase.java",
+      "target": "function:src/cr0s/javara/ai/states/GroundStateBase.java:deactivate",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/states/GroundStateBase.java",
+      "target": "function:src/cr0s/javara/ai/states/GroundStateBase.java:deactivate",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/states/StateBase.java",
+      "target": "class:src/cr0s/javara/ai/states/StateBase.java:StateBase",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/states/StateBase.java",
+      "target": "function:src/cr0s/javara/ai/states/StateBase.java:randomBuildingLocation",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/states/StateBase.java",
+      "target": "function:src/cr0s/javara/ai/states/StateBase.java:busyAttack",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/states/StateBase.java",
+      "target": "function:src/cr0s/javara/ai/states/StateBase.java:canAttackTarget",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/states/StateBase.java",
+      "target": "function:src/cr0s/javara/ai/states/StateBase.java:shouldFlee",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackCharge.java",
+      "target": "class:src/cr0s/javara/combat/attack/AttackCharge.java:AttackCharge",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackCharge.java",
+      "target": "function:src/cr0s/javara/combat/attack/AttackCharge.java:AttackCharge",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackCharge.java",
+      "target": "function:src/cr0s/javara/combat/attack/AttackCharge.java:AttackCharge",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackCharge.java",
+      "target": "function:src/cr0s/javara/combat/attack/AttackCharge.java:getAttackActivity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackCharge.java",
+      "target": "function:src/cr0s/javara/combat/attack/AttackCharge.java:getAttackActivity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackCharge.java",
+      "target": "function:src/cr0s/javara/combat/attack/AttackCharge.java:setCharged",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackCharge.java",
+      "target": "function:src/cr0s/javara/combat/attack/AttackCharge.java:setCharged",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackCharge.java",
+      "target": "function:src/cr0s/javara/combat/attack/AttackCharge.java:doAttack",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackCharge.java",
+      "target": "function:src/cr0s/javara/combat/attack/AttackCharge.java:doAttack",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackCharge.java",
+      "target": "function:src/cr0s/javara/combat/attack/AttackCharge.java:setMaxChargeTicks",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackCharge.java",
+      "target": "function:src/cr0s/javara/combat/attack/AttackCharge.java:setMaxChargeTicks",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackCharge.java",
+      "target": "function:src/cr0s/javara/combat/attack/AttackCharge.java:setRechargeTicks",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackCharge.java",
+      "target": "function:src/cr0s/javara/combat/attack/AttackCharge.java:setRechargeTicks",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/AIPlayer.java",
+      "target": "file:src/cr0s/javara/combat/attack/ICanAttack.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/AIPlayer.java",
+      "target": "file:src/cr0s/javara/combat/Warhead.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/AIPlayer.java",
+      "target": "file:src/cr0s/javara/entity/actor/activity/activities/harvester/FindResources.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/AIPlayer.java",
+      "target": "file:src/cr0s/javara/entity/actor/activity/activities/Wait.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/AIPlayer.java",
+      "target": "file:src/cr0s/javara/entity/actor/activity/Activity.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/AIPlayer.java",
+      "target": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/AIPlayer.java",
+      "target": "file:src/cr0s/javara/entity/building/BuildingType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/AIPlayer.java",
+      "target": "file:src/cr0s/javara/entity/building/common/EntityConstructionYard.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/AIPlayer.java",
+      "target": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/AIPlayer.java",
+      "target": "file:src/cr0s/javara/entity/building/EntityBuildingProgress.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/AIPlayer.java",
+      "target": "file:src/cr0s/javara/entity/Entity.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/AIPlayer.java",
+      "target": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/AIPlayer.java",
+      "target": "file:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/AIPlayer.java",
+      "target": "file:src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/AIPlayer.java",
+      "target": "file:src/cr0s/javara/gameplay/Player.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/AIPlayer.java",
+      "target": "file:src/cr0s/javara/main/GUI.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/AIPlayer.java",
+      "target": "file:src/cr0s/javara/order/Order.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/AIPlayer.java",
+      "target": "file:src/cr0s/javara/perfomance/Profiler.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/AIPlayer.java",
+      "target": "file:src/cr0s/javara/render/World.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/AIPlayer.java",
+      "target": "file:src/cr0s/javara/resources/ResourceManager.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/AIPlayer.java",
+      "target": "file:src/cr0s/javara/util/CellChooser.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/AIPlayer.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/Squad.java",
+      "target": "file:src/cr0s/javara/entity/actor/activity/activities/Follow.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/Squad.java",
+      "target": "file:src/cr0s/javara/entity/actor/activity/activities/Move.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/Squad.java",
+      "target": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/Squad.java",
+      "target": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/Squad.java",
+      "target": "file:src/cr0s/javara/order/Target.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/states/GroundStateBase.java",
+      "target": "file:src/cr0s/javara/ai/Squad.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/states/GroundStateBase.java",
+      "target": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/states/GroundStateBase.java",
+      "target": "file:src/cr0s/javara/render/World.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/states/StateBase.java",
+      "target": "file:src/cr0s/javara/ai/Squad.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/states/StateBase.java",
+      "target": "file:src/cr0s/javara/combat/Armament.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/states/StateBase.java",
+      "target": "file:src/cr0s/javara/combat/attack/ICanAttack.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/states/StateBase.java",
+      "target": "file:src/cr0s/javara/entity/actor/activity/activities/Attack.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/states/StateBase.java",
+      "target": "file:src/cr0s/javara/entity/actor/activity/Activity.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/states/StateBase.java",
+      "target": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/states/StateBase.java",
+      "target": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/states/StateBase.java",
+      "target": "file:src/cr0s/javara/main/GUI.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/states/StateBase.java",
+      "target": "file:src/cr0s/javara/order/Order.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/states/StateBase.java",
+      "target": "file:src/cr0s/javara/render/World.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/states/StateBase.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackCharge.java",
+      "target": "file:src/cr0s/javara/combat/Armament.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackCharge.java",
+      "target": "file:src/cr0s/javara/entity/actor/activity/activities/Wait.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackCharge.java",
+      "target": "file:src/cr0s/javara/entity/actor/activity/Activity.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackCharge.java",
+      "target": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackCharge.java",
+      "target": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackCharge.java",
+      "target": "file:src/cr0s/javara/order/Target.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

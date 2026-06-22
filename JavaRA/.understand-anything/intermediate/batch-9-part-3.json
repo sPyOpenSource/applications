@@ -1,0 +1,1901 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "type": "file",
+      "name": "EntityHarvester.java",
+      "filePath": "src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "summary": "Harvester vehicle entity implementing resource collection, delivery, pip display, order resolution, and rendering for harvester units.",
+      "tags": ["vehicle", "harvester", "resource", "entity"],
+      "complexity": "complex",
+      "languageNotes": "Java entity with extensive state management for resource harvesting workflow."
+    },
+    {
+      "id": "class:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java:EntityHarvester",
+      "type": "class",
+      "name": "EntityHarvester",
+      "filePath": "src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "lineRange": [37, 390],
+      "summary": "Harvester entity with resource capacity tracking, sprite rendering, proc linking, order targeting, and resource extraction lifecycle.",
+      "tags": ["vehicle", "harvester", "resource", "entity"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java:EntityHarvester",
+      "type": "function",
+      "name": "EntityHarvester",
+      "filePath": "src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "lineRange": [84, 102],
+      "summary": "Constructor loading textures, setting HP/max HP, creating order targeters, and configuring build requirements.",
+      "tags": ["constructor", "harvester"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java:updateEntity",
+      "type": "function",
+      "name": "updateEntity",
+      "filePath": "src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "lineRange": [104, 136],
+      "summary": "Updates harvester state including harvesting/dropping frame animation and super.updateEntity delegation.",
+      "tags": ["update", "animation"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java:renderEntity",
+      "type": "function",
+      "name": "renderEntity",
+      "filePath": "src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "lineRange": [138, 174],
+      "summary": "Renders the harvester with rotation-aware texture sub-images and pip overlay for resource visualization.",
+      "tags": ["rendering", "rotation"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java:select",
+      "type": "function",
+      "name": "select",
+      "filePath": "src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "lineRange": [176, 179],
+      "summary": "Marks the harvester as selected with visual highlight.",
+      "tags": ["selection"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java:cancelSelect",
+      "type": "function",
+      "name": "cancelSelect",
+      "filePath": "src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "lineRange": [181, 184],
+      "summary": "Removes selection highlight from the harvester.",
+      "tags": ["selection"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java:isSelected",
+      "type": "function",
+      "name": "isSelected",
+      "filePath": "src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "lineRange": [186, 189],
+      "summary": "Returns the selection state of the harvester.",
+      "tags": ["selection", "getter"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java:shouldRenderedInPass",
+      "type": "function",
+      "name": "shouldRenderedInPass",
+      "filePath": "src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "lineRange": [191, 194],
+      "summary": "Determines which render pass this entity belongs to.",
+      "tags": ["rendering"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java:getMoveSpeed",
+      "type": "function",
+      "name": "getMoveSpeed",
+      "filePath": "src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "lineRange": [196, 199],
+      "summary": "Returns the harvester movement speed.",
+      "tags": ["movement", "getter"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java:getTextureX",
+      "type": "function",
+      "name": "getTextureX",
+      "filePath": "src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "lineRange": [201, 203],
+      "summary": "Returns the X position for texture rendering.",
+      "tags": ["rendering", "getter"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java:getTextureY",
+      "type": "function",
+      "name": "getTextureY",
+      "filePath": "src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "lineRange": [205, 207],
+      "summary": "Returns the Y position for texture rendering.",
+      "tags": ["rendering", "getter"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java:getRevealingRange",
+      "type": "function",
+      "name": "getRevealingRange",
+      "filePath": "src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "lineRange": [209, 212],
+      "summary": "Returns the shroud revealing range.",
+      "tags": ["shroud", "getter"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java:findPathFromTo",
+      "type": "function",
+      "name": "findPathFromTo",
+      "filePath": "src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "lineRange": [214, 217],
+      "summary": "Delegates pathfinding to the vehicle pathfinder via the world.",
+      "tags": ["pathfinding"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java:getMinimumEnoughRange",
+      "type": "function",
+      "name": "getMinimumEnoughRange",
+      "filePath": "src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "lineRange": [219, 222],
+      "summary": "Returns minimum range threshold for movement.",
+      "tags": ["movement", "getter"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java:getWaitAverageTime",
+      "type": "function",
+      "name": "getWaitAverageTime",
+      "filePath": "src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "lineRange": [224, 227],
+      "summary": "Returns average wait time for movement blocking.",
+      "tags": ["movement", "getter"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java:getWaitSpreadTime",
+      "type": "function",
+      "name": "getWaitSpreadTime",
+      "filePath": "src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "lineRange": [229, 232],
+      "summary": "Returns wait time spread for movement blocking.",
+      "tags": ["movement", "getter"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java:acceptResource",
+      "type": "function",
+      "name": "acceptResource",
+      "filePath": "src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "lineRange": [234, 242],
+      "summary": "Adds a resource type to the harvester's contents map, incrementing quantity or setting to 1.",
+      "tags": ["resource", "inventory"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java:isFull",
+      "type": "function",
+      "name": "isFull",
+      "filePath": "src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "lineRange": [244, 246],
+      "summary": "Checks if the harvester has reached its total capacity.",
+      "tags": ["resource", "capacity"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java:isEmpty",
+      "type": "function",
+      "name": "isEmpty",
+      "filePath": "src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "lineRange": [248, 250],
+      "summary": "Checks if the harvester has no resources.",
+      "tags": ["resource", "capacity"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java:getCapacity",
+      "type": "function",
+      "name": "getCapacity",
+      "filePath": "src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "lineRange": [252, 260],
+      "summary": "Calculates total resource capacity by summing all resource quantities in contents.",
+      "tags": ["resource", "capacity"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java:clearContents",
+      "type": "function",
+      "name": "clearContents",
+      "filePath": "src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "lineRange": [262, 270],
+      "summary": "Delivers each resource type to the linked proc and clears the harvester's contents.",
+      "tags": ["resource", "delivery"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java:getPipCount",
+      "type": "function",
+      "name": "getPipCount",
+      "filePath": "src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "lineRange": [272, 275],
+      "summary": "Returns the number of pip indicators to display.",
+      "tags": ["ui", "getter"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java:getPipColorAt",
+      "type": "function",
+      "name": "getPipColorAt",
+      "filePath": "src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "lineRange": [277, 292],
+      "summary": "Returns the pip color at a given index based on resource contents, cycling through resource types.",
+      "tags": ["ui", "resource"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java:issueOrder",
+      "type": "function",
+      "name": "issueOrder",
+      "filePath": "src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "lineRange": [294, 303],
+      "summary": "Issues harvest or deliver orders based on the order targeter string.",
+      "tags": ["order", "command"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java:resolveOrder",
+      "type": "function",
+      "name": "resolveOrder",
+      "filePath": "src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "lineRange": [305, 331],
+      "summary": "Resolves incoming orders: harvest, return, stop, and move, queuing appropriate activities.",
+      "tags": ["order", "command"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java:findClosestProc",
+      "type": "function",
+      "name": "findClosestProc",
+      "filePath": "src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "lineRange": [333, 346],
+      "summary": "Scans world entities for the closest EntityProc (refinery) to the harvester.",
+      "tags": ["resource", "proc", "pathfinding"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java:getBuildingCost",
+      "type": "function",
+      "name": "getBuildingCost",
+      "filePath": "src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "lineRange": [386, 389],
+      "summary": "Returns the building cost of the harvester.",
+      "tags": ["economy", "getter"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "type": "file",
+      "name": "EntityMcv.java",
+      "filePath": "src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "summary": "MCV (Mobile Construction Vehicle) entity with deployment logic to construct buildings, rendering, and order resolution.",
+      "tags": ["vehicle", "mcv", "deployment", "entity"],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:src/cr0s/javara/entity/vehicle/common/EntityMcv.java:EntityMcv",
+      "type": "class",
+      "name": "EntityMcv",
+      "filePath": "src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "lineRange": [30, 267],
+      "summary": "MCV entity capable of deploying into a Construction Yard, with deployment validation, rendering, and order management.",
+      "tags": ["vehicle", "mcv", "deployment"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/common/EntityMcv.java:EntityMcv",
+      "type": "function",
+      "name": "EntityMcv",
+      "filePath": "src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "lineRange": [53, 73],
+      "summary": "Constructor loading textures, setting HP/max HP, creating deploy targeter, and configuring build requirements.",
+      "tags": ["constructor", "mcv"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/common/EntityMcv.java:updateEntity",
+      "type": "function",
+      "name": "updateEntity",
+      "filePath": "src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "lineRange": [75, 82],
+      "summary": "Updates MCV state with rotation animation and super.updateEntity delegation.",
+      "tags": ["update", "animation"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/common/EntityMcv.java:renderEntity",
+      "type": "function",
+      "name": "renderEntity",
+      "filePath": "src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "lineRange": [84, 114],
+      "summary": "Renders the MCV with rotation-aware texture sub-images and deployment animation support.",
+      "tags": ["rendering", "animation"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/common/EntityMcv.java:select",
+      "type": "function",
+      "name": "select",
+      "filePath": "src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "lineRange": [116, 119],
+      "summary": "Marks the MCV as selected with visual highlight.",
+      "tags": ["selection"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/common/EntityMcv.java:cancelSelect",
+      "type": "function",
+      "name": "cancelSelect",
+      "filePath": "src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "lineRange": [121, 124],
+      "summary": "Removes selection highlight from the MCV.",
+      "tags": ["selection"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/common/EntityMcv.java:isSelected",
+      "type": "function",
+      "name": "isSelected",
+      "filePath": "src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "lineRange": [126, 129],
+      "summary": "Returns the selection state of the MCV.",
+      "tags": ["selection", "getter"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/common/EntityMcv.java:canDeploy",
+      "type": "function",
+      "name": "canDeploy",
+      "filePath": "src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "lineRange": [131, 151],
+      "summary": "Validates whether the MCV can deploy at its current position by checking cell alignment and blocking entities.",
+      "tags": ["deployment", "validation"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/common/EntityMcv.java:deploy",
+      "type": "function",
+      "name": "deploy",
+      "filePath": "src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "lineRange": [153, 158],
+      "summary": "Triggers the deployment sequence by calling deployConstructionYard.",
+      "tags": ["deployment"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/common/EntityMcv.java:deployConstructionYard",
+      "type": "function",
+      "name": "deployConstructionYard",
+      "filePath": "src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "lineRange": [160, 165],
+      "summary": "Queues Turn and Deploy activities for the deployment animation sequence.",
+      "tags": ["deployment", "animation"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/common/EntityMcv.java:shouldRenderedInPass",
+      "type": "function",
+      "name": "shouldRenderedInPass",
+      "filePath": "src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "lineRange": [167, 170],
+      "summary": "Determines which render pass this entity belongs to.",
+      "tags": ["rendering"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/common/EntityMcv.java:getMoveSpeed",
+      "type": "function",
+      "name": "getMoveSpeed",
+      "filePath": "src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "lineRange": [172, 175],
+      "summary": "Returns the MCV movement speed.",
+      "tags": ["movement", "getter"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/common/EntityMcv.java:getTextureX",
+      "type": "function",
+      "name": "getTextureX",
+      "filePath": "src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "lineRange": [177, 179],
+      "summary": "Returns the X position for texture rendering.",
+      "tags": ["rendering", "getter"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/common/EntityMcv.java:getTextureY",
+      "type": "function",
+      "name": "getTextureY",
+      "filePath": "src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "lineRange": [181, 183],
+      "summary": "Returns the Y position for texture rendering.",
+      "tags": ["rendering", "getter"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/common/EntityMcv.java:getRevealingRange",
+      "type": "function",
+      "name": "getRevealingRange",
+      "filePath": "src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "lineRange": [185, 188],
+      "summary": "Returns the shroud revealing range.",
+      "tags": ["shroud", "getter"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/common/EntityMcv.java:findPathFromTo",
+      "type": "function",
+      "name": "findPathFromTo",
+      "filePath": "src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "lineRange": [190, 193],
+      "summary": "Delegates pathfinding to the vehicle pathfinder via the world.",
+      "tags": ["pathfinding"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/common/EntityMcv.java:executeDeployment",
+      "type": "function",
+      "name": "executeDeployment",
+      "filePath": "src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "lineRange": [195, 212],
+      "summary": "Creates a TownHall at the MCV position, adds it to the world and owner entities, then marks the MCV as dead.",
+      "tags": ["deployment", "building"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/common/EntityMcv.java:getMinimumEnoughRange",
+      "type": "function",
+      "name": "getMinimumEnoughRange",
+      "filePath": "src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "lineRange": [214, 217],
+      "summary": "Returns minimum range threshold for movement.",
+      "tags": ["movement", "getter"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/common/EntityMcv.java:getWaitAverageTime",
+      "type": "function",
+      "name": "getWaitAverageTime",
+      "filePath": "src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "lineRange": [219, 222],
+      "summary": "Returns average wait time for movement blocking.",
+      "tags": ["movement", "getter"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/common/EntityMcv.java:getWaitSpreadTime",
+      "type": "function",
+      "name": "getWaitSpreadTime",
+      "filePath": "src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "lineRange": [224, 227],
+      "summary": "Returns wait time spread for movement blocking.",
+      "tags": ["movement", "getter"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/common/EntityMcv.java:issueOrder",
+      "type": "function",
+      "name": "issueOrder",
+      "filePath": "src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "lineRange": [229, 236],
+      "summary": "Issues deploy order based on the order targeter string.",
+      "tags": ["order", "deployment"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/common/EntityMcv.java:resolveOrder",
+      "type": "function",
+      "name": "resolveOrder",
+      "filePath": "src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "lineRange": [238, 245],
+      "summary": "Resolves deploy order by calling this.deploy.",
+      "tags": ["order", "deployment"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/common/EntityMcv.java:getBuildingCost",
+      "type": "function",
+      "name": "getBuildingCost",
+      "filePath": "src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "lineRange": [263, 266],
+      "summary": "Returns the building cost of the MCV.",
+      "tags": ["economy", "getter"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/order/IOrderResolver.java",
+      "type": "file",
+      "name": "IOrderResolver.java",
+      "filePath": "src/cr0s/javara/order/IOrderResolver.java",
+      "summary": "Interface defining the resolveOrder contract for order resolution across entities.",
+      "tags": ["interface", "order", "contract"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/cr0s/javara/order/IOrderResolver.java:IOrderResolver",
+      "type": "class",
+      "name": "IOrderResolver",
+      "filePath": "src/cr0s/javara/order/IOrderResolver.java",
+      "lineRange": [3, 5],
+      "summary": "Interface requiring entities to implement resolveOrder for processing game orders.",
+      "tags": ["interface", "order"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/order/MoveOrderTargeter.java",
+      "type": "file",
+      "name": "MoveOrderTargeter.java",
+      "filePath": "src/cr0s/javara/order/MoveOrderTargeter.java",
+      "summary": "Order targeter for move orders, validating cell targets and determining cursor feedback.",
+      "tags": ["order", "movement", "targeter"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/cr0s/javara/order/MoveOrderTargeter.java:MoveOrderTargeter",
+      "type": "class",
+      "name": "MoveOrderTargeter",
+      "filePath": "src/cr0s/javara/order/MoveOrderTargeter.java",
+      "lineRange": [9, 35],
+      "summary": "Order targeter for movement orders with cell-target validation and cursor type selection.",
+      "tags": ["order", "movement", "targeter"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/order/MoveOrderTargeter.java:MoveOrderTargeter",
+      "type": "function",
+      "name": "MoveOrderTargeter",
+      "filePath": "src/cr0s/javara/order/MoveOrderTargeter.java",
+      "lineRange": [11, 13],
+      "summary": "Constructor accepting the entity reference.",
+      "tags": ["constructor", "targeter"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/order/MoveOrderTargeter.java:canTarget",
+      "type": "function",
+      "name": "canTarget",
+      "filePath": "src/cr0s/javara/order/MoveOrderTargeter.java",
+      "lineRange": [15, 22],
+      "summary": "Checks if the target is a valid cell target for movement.",
+      "tags": ["targeting", "validation"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/order/MoveOrderTargeter.java:getCursorForTarget",
+      "type": "function",
+      "name": "getCursorForTarget",
+      "filePath": "src/cr0s/javara/order/MoveOrderTargeter.java",
+      "lineRange": [24, 33],
+      "summary": "Returns the appropriate cursor type for the target, showing move or block cursor based on cell passability.",
+      "tags": ["targeting", "cursor"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/render/map/Map.java",
+      "type": "file",
+      "name": "Map.java",
+      "filePath": "src/cr0s/javara/render/map/Map.java",
+      "summary": "Game map entity containing map metadata, attacking heroes list, map view, and buildings map.",
+      "tags": ["map", "render", "entity"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/cr0s/javara/render/map/Map.java:Map",
+      "type": "class",
+      "name": "Map",
+      "filePath": "src/cr0s/javara/render/map/Map.java",
+      "lineRange": [9, 26],
+      "summary": "Game map class providing map ID, attacking heroes list, map view, and buildings map accessors.",
+      "tags": ["map", "render"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/map/Map.java:Map",
+      "type": "function",
+      "name": "Map",
+      "filePath": "src/cr0s/javara/render/map/Map.java",
+      "lineRange": [10, 13],
+      "summary": "Constructor initializing map ID and attacking heroes list.",
+      "tags": ["constructor", "map"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/map/Map.java:getMapId",
+      "type": "function",
+      "name": "getMapId",
+      "filePath": "src/cr0s/javara/render/map/Map.java",
+      "lineRange": [18, 20],
+      "summary": "Returns the map identifier.",
+      "tags": ["map", "getter"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/map/Map.java:getAttackingHeroes",
+      "type": "function",
+      "name": "getAttackingHeroes",
+      "filePath": "src/cr0s/javara/render/map/Map.java",
+      "lineRange": [21, 23],
+      "summary": "Returns a copy of the attacking heroes list.",
+      "tags": ["combat", "getter"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/map/Map.java:getMapView",
+      "type": "function",
+      "name": "getMapView",
+      "filePath": "src/cr0s/javara/render/map/Map.java",
+      "lineRange": [24, 24],
+      "summary": "Returns the map view reference.",
+      "tags": ["rendering", "getter"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/map/Map.java:getBuildingsMap",
+      "type": "function",
+      "name": "getBuildingsMap",
+      "filePath": "src/cr0s/javara/render/map/Map.java",
+      "lineRange": [25, 25],
+      "summary": "Returns the buildings map reference.",
+      "tags": ["building", "getter"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "target": "class:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java:EntityHarvester",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "target": "class:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java:EntityHarvester",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java:EntityHarvester",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java:EntityHarvester",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java:updateEntity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java:updateEntity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java:renderEntity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java:renderEntity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java:select",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java:select",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java:cancelSelect",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java:cancelSelect",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java:isSelected",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java:isSelected",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java:shouldRenderedInPass",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java:shouldRenderedInPass",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java:getMoveSpeed",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java:getMoveSpeed",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java:getTextureX",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java:getTextureX",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java:getTextureY",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java:getTextureY",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java:getRevealingRange",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java:getRevealingRange",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java:findPathFromTo",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java:findPathFromTo",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java:getMinimumEnoughRange",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java:getMinimumEnoughRange",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java:getWaitAverageTime",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java:getWaitAverageTime",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java:getWaitSpreadTime",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java:getWaitSpreadTime",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java:acceptResource",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java:acceptResource",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java:isFull",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java:isFull",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java:isEmpty",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java:isEmpty",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java:getCapacity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java:getCapacity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java:clearContents",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java:clearContents",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java:getPipCount",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java:getPipCount",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java:getPipColorAt",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java:getPipColorAt",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java:issueOrder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java:issueOrder",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java:resolveOrder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java:resolveOrder",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java:findClosestProc",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java:findClosestProc",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java:getBuildingCost",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java:getBuildingCost",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "target": "class:src/cr0s/javara/entity/vehicle/common/EntityMcv.java:EntityMcv",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "target": "class:src/cr0s/javara/entity/vehicle/common/EntityMcv.java:EntityMcv",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/common/EntityMcv.java:EntityMcv",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/common/EntityMcv.java:EntityMcv",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/common/EntityMcv.java:updateEntity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/common/EntityMcv.java:updateEntity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/common/EntityMcv.java:renderEntity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/common/EntityMcv.java:renderEntity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/common/EntityMcv.java:select",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/common/EntityMcv.java:select",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/common/EntityMcv.java:cancelSelect",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/common/EntityMcv.java:cancelSelect",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/common/EntityMcv.java:isSelected",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/common/EntityMcv.java:isSelected",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/common/EntityMcv.java:canDeploy",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/common/EntityMcv.java:canDeploy",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/common/EntityMcv.java:deploy",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/common/EntityMcv.java:deploy",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/common/EntityMcv.java:deployConstructionYard",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/common/EntityMcv.java:deployConstructionYard",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/common/EntityMcv.java:shouldRenderedInPass",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/common/EntityMcv.java:shouldRenderedInPass",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/common/EntityMcv.java:getMoveSpeed",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/common/EntityMcv.java:getMoveSpeed",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/common/EntityMcv.java:getTextureX",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/common/EntityMcv.java:getTextureX",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/common/EntityMcv.java:getTextureY",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/common/EntityMcv.java:getTextureY",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/common/EntityMcv.java:getRevealingRange",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/common/EntityMcv.java:getRevealingRange",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/common/EntityMcv.java:findPathFromTo",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/common/EntityMcv.java:findPathFromTo",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/common/EntityMcv.java:executeDeployment",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/common/EntityMcv.java:executeDeployment",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/common/EntityMcv.java:getMinimumEnoughRange",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/common/EntityMcv.java:getMinimumEnoughRange",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/common/EntityMcv.java:getWaitAverageTime",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/common/EntityMcv.java:getWaitAverageTime",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/common/EntityMcv.java:getWaitSpreadTime",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/common/EntityMcv.java:getWaitSpreadTime",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/common/EntityMcv.java:issueOrder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/common/EntityMcv.java:issueOrder",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/common/EntityMcv.java:resolveOrder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/common/EntityMcv.java:resolveOrder",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/common/EntityMcv.java:getBuildingCost",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/common/EntityMcv.java:getBuildingCost",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/order/IOrderResolver.java",
+      "target": "class:src/cr0s/javara/order/IOrderResolver.java:IOrderResolver",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/order/IOrderResolver.java",
+      "target": "class:src/cr0s/javara/order/IOrderResolver.java:IOrderResolver",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/order/MoveOrderTargeter.java",
+      "target": "class:src/cr0s/javara/order/MoveOrderTargeter.java:MoveOrderTargeter",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/order/MoveOrderTargeter.java",
+      "target": "class:src/cr0s/javara/order/MoveOrderTargeter.java:MoveOrderTargeter",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/order/MoveOrderTargeter.java",
+      "target": "function:src/cr0s/javara/order/MoveOrderTargeter.java:MoveOrderTargeter",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/order/MoveOrderTargeter.java",
+      "target": "function:src/cr0s/javara/order/MoveOrderTargeter.java:MoveOrderTargeter",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/order/MoveOrderTargeter.java",
+      "target": "function:src/cr0s/javara/order/MoveOrderTargeter.java:canTarget",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/order/MoveOrderTargeter.java",
+      "target": "function:src/cr0s/javara/order/MoveOrderTargeter.java:canTarget",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/order/MoveOrderTargeter.java",
+      "target": "function:src/cr0s/javara/order/MoveOrderTargeter.java:getCursorForTarget",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/order/MoveOrderTargeter.java",
+      "target": "function:src/cr0s/javara/order/MoveOrderTargeter.java:getCursorForTarget",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/Map.java",
+      "target": "class:src/cr0s/javara/render/map/Map.java:Map",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/Map.java",
+      "target": "class:src/cr0s/javara/render/map/Map.java:Map",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/Map.java",
+      "target": "function:src/cr0s/javara/render/map/Map.java:Map",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/Map.java",
+      "target": "function:src/cr0s/javara/render/map/Map.java:Map",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/Map.java",
+      "target": "function:src/cr0s/javara/render/map/Map.java:getMapId",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/Map.java",
+      "target": "function:src/cr0s/javara/render/map/Map.java:getMapId",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/Map.java",
+      "target": "function:src/cr0s/javara/render/map/Map.java:getAttackingHeroes",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/Map.java",
+      "target": "function:src/cr0s/javara/render/map/Map.java:getAttackingHeroes",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/Map.java",
+      "target": "function:src/cr0s/javara/render/map/Map.java:getMapView",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/Map.java",
+      "target": "function:src/cr0s/javara/render/map/Map.java:getMapView",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/Map.java",
+      "target": "function:src/cr0s/javara/render/map/Map.java:getBuildingsMap",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/Map.java",
+      "target": "function:src/cr0s/javara/render/map/Map.java:getBuildingsMap",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "target": "file:src/cr0s/javara/entity/actor/activity/activities/harvester/DeliverResources.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "target": "file:src/cr0s/javara/entity/actor/activity/activities/harvester/DropResources.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "target": "file:src/cr0s/javara/entity/actor/activity/activities/harvester/FindResources.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "target": "file:src/cr0s/javara/entity/actor/activity/activities/harvester/FinishDrop.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "target": "file:src/cr0s/javara/entity/actor/activity/activities/harvester/HarvestResource.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "target": "file:src/cr0s/javara/entity/actor/activity/activities/Wait.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "target": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "target": "file:src/cr0s/javara/entity/building/common/EntityProc.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "target": "file:src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "target": "file:src/cr0s/javara/entity/Entity.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "target": "file:src/cr0s/javara/entity/IHaveCost.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "target": "file:src/cr0s/javara/entity/IPips.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "target": "file:src/cr0s/javara/entity/ISelectable.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "target": "file:src/cr0s/javara/entity/IShroudRevealer.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "target": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "target": "file:src/cr0s/javara/entity/vehicle/EntityVehicle.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "target": "file:src/cr0s/javara/main/GUI.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "target": "file:src/cr0s/javara/order/InputAttributes.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "target": "file:src/cr0s/javara/order/Order.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "target": "file:src/cr0s/javara/order/OrderTargeter.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "target": "file:src/cr0s/javara/order/Target.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "target": "file:src/cr0s/javara/resources/ResourceManager.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "target": "file:src/cr0s/javara/ui/cursor/CursorType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "target": "file:src/cr0s/javara/util/RotationUtil.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "target": "file:src/cr0s/javara/util/SpriteSheet.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "target": "file:src/cr0s/javara/entity/actor/activity/activities/Deploy.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "target": "file:src/cr0s/javara/entity/actor/activity/activities/Turn.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "target": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "target": "file:src/cr0s/javara/entity/building/china/TownHall.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "target": "file:src/cr0s/javara/entity/building/common/EntityConstructionYard.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "target": "file:src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "target": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "target": "file:src/cr0s/javara/entity/Entity.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "target": "file:src/cr0s/javara/entity/IDeployable.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "target": "file:src/cr0s/javara/entity/IHaveCost.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "target": "file:src/cr0s/javara/entity/ISelectable.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "target": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "target": "file:src/cr0s/javara/entity/vehicle/EntityVehicle.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "target": "file:src/cr0s/javara/main/GUI.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "target": "file:src/cr0s/javara/order/InputAttributes.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "target": "file:src/cr0s/javara/order/Order.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "target": "file:src/cr0s/javara/order/OrderTargeter.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "target": "file:src/cr0s/javara/order/Target.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "target": "file:src/cr0s/javara/resources/ResourceManager.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "target": "file:src/cr0s/javara/ui/cursor/CursorType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "target": "file:src/cr0s/javara/util/SpriteSheet.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/order/MoveOrderTargeter.java",
+      "target": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/order/MoveOrderTargeter.java",
+      "target": "file:src/cr0s/javara/entity/Entity.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/order/MoveOrderTargeter.java",
+      "target": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/order/MoveOrderTargeter.java",
+      "target": "file:src/cr0s/javara/ui/cursor/CursorType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/order/MoveOrderTargeter.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/Map.java",
+      "target": "file:src/cr0s/javara/entity/Entity.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/Map.java",
+      "target": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

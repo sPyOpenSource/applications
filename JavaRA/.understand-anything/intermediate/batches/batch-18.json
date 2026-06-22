@@ -1,0 +1,202 @@
+{
+  "batchIndex": 18,
+  "files": [
+    {
+      "path": "maps/forest-path/map.yaml",
+      "language": "yaml",
+      "sizeLines": 449,
+      "fileCategory": "config"
+    },
+    {
+      "path": "maps/haos-ridges/map.bin",
+      "language": "bin",
+      "sizeLines": 487,
+      "fileCategory": "code"
+    },
+    {
+      "path": "maps/haos-ridges/map.yaml",
+      "language": "yaml",
+      "sizeLines": 988,
+      "fileCategory": "config"
+    },
+    {
+      "path": "src/cr0s/javara/ai/StateMachine.java",
+      "language": "java",
+      "sizeLines": 40,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/combat/attack/UnitStance.java",
+      "language": "java",
+      "sizeLines": 5,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/combat/DamageModel.java",
+      "language": "java",
+      "sizeLines": 5,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/entity/building/china/package.bluej",
+      "language": "bluej",
+      "sizeLines": 117,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/entity/INotifyBlockingMove.java",
+      "language": "java",
+      "sizeLines": 9,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/main/StateLoadingScreen.java",
+      "language": "java",
+      "sizeLines": 95,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/perfomance/ProfilingSection.java",
+      "language": "java",
+      "sizeLines": 70,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/render/map/Mover.java",
+      "language": "java",
+      "sizeLines": 25,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/render/map/TileReference.java",
+      "language": "java",
+      "sizeLines": 21,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/render/PathFindingContext.java",
+      "language": "java",
+      "sizeLines": 27,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/resources/RemappedTextureCache.java",
+      "language": "java",
+      "sizeLines": 68,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/ui/SideBarPageCategory.java",
+      "language": "java",
+      "sizeLines": 16,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/mazesolver/Main.java",
+      "language": "java",
+      "sizeLines": 53,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/mazesolver/Route.java",
+      "language": "java",
+      "sizeLines": 158,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/mazesolver/Settings.java",
+      "language": "java",
+      "sizeLines": 89,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/module-info.java",
+      "language": "java",
+      "sizeLines": 29,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/net/pso/jswarm/alpine/ExampleRepulsive.java",
+      "language": "java",
+      "sizeLines": 42,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/net/pso/jswarm/Attic/example_2/Attic/DrawingArea.java",
+      "language": "java",
+      "sizeLines": 68,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/net/pso/jswarm/Attic/example_2/Attic/SwarmThread.java",
+      "language": "java",
+      "sizeLines": 50,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/net/pso/jswarm/Attic/Example.java",
+      "language": "java",
+      "sizeLines": 35,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/net/pso/jswarm/example_1/Example.java,v",
+      "language": "java,v",
+      "sizeLines": 194,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/net/pso/jswarm/example_1/MyParticle.java,v",
+      "language": "java,v",
+      "sizeLines": 55,
+      "fileCategory": "code"
+    }
+  ],
+  "batchImportData": {
+    "maps/forest-path/map.yaml": [],
+    "maps/haos-ridges/map.bin": [],
+    "maps/haos-ridges/map.yaml": [],
+    "src/cr0s/javara/ai/StateMachine.java": [],
+    "src/cr0s/javara/combat/attack/UnitStance.java": [],
+    "src/cr0s/javara/combat/DamageModel.java": [],
+    "src/cr0s/javara/entity/building/china/package.bluej": [],
+    "src/cr0s/javara/entity/INotifyBlockingMove.java": [],
+    "src/cr0s/javara/main/StateLoadingScreen.java": [],
+    "src/cr0s/javara/perfomance/ProfilingSection.java": [],
+    "src/cr0s/javara/render/map/Mover.java": [],
+    "src/cr0s/javara/render/map/TileReference.java": [],
+    "src/cr0s/javara/render/PathFindingContext.java": [],
+    "src/cr0s/javara/resources/RemappedTextureCache.java": [],
+    "src/cr0s/javara/ui/SideBarPageCategory.java": [],
+    "src/mazesolver/Main.java": [],
+    "src/mazesolver/Route.java": [],
+    "src/mazesolver/Settings.java": [],
+    "src/module-info.java": [],
+    "src/net/pso/jswarm/alpine/ExampleRepulsive.java": [
+      "src/net/pso/jswarm/SwarmRepulsive.java"
+    ],
+    "src/net/pso/jswarm/Attic/example_2/Attic/DrawingArea.java": [],
+    "src/net/pso/jswarm/Attic/example_2/Attic/SwarmThread.java": [],
+    "src/net/pso/jswarm/Attic/Example.java": [],
+    "src/net/pso/jswarm/example_1/Example.java,v": [],
+    "src/net/pso/jswarm/example_1/MyParticle.java,v": []
+  },
+  "neighborMap": {
+    "src/net/pso/jswarm/alpine/ExampleRepulsive.java": [
+      {
+        "path": "src/net/pso/jswarm/SwarmRepulsive.java",
+        "batchIndex": 19,
+        "symbols": [
+          "DEFAULT_OTHER_PARTICLE_INCREMENT",
+          "DEFAULT_RANDOM_INCREMENT",
+          "SwarmRepulsive",
+          "getOtherParticleIncrement",
+          "getRandomIncrement",
+          "setOtherParticleIncrement",
+          "setRandomIncrement",
+          "SwarmRepulsive"
+        ]
+      }
+    ]
+  }
+}

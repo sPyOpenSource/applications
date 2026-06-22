@@ -1,0 +1,41 @@
+{
+  "nodes": [
+    {
+      "id": "config:ai/NavalAI.yaml",
+      "type": "config",
+      "name": "NavalAI.yaml",
+      "filePath": "ai/NavalAI.yaml",
+      "summary": "Naval-focused AI strategy configuration prioritizing naval unit production (helis, hinds, subs, destroyers) with heavy airfield and naval yard construction.",
+      "tags": ["configuration", "ai-strategy", "naval-warfare", "game-ai"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:ai/NormalAI.yaml",
+      "type": "config",
+      "name": "NormalAI.yaml",
+      "filePath": "ai/NormalAI.yaml",
+      "summary": "Balanced all-purpose AI strategy configuration with ground and naval unit production, fortified defense coverage (tesla coils, pillboxes), and large 40-unit squad sizes.",
+      "tags": ["configuration", "ai-strategy", "general-purpose", "game-ai"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:ai/RushAI.yaml",
+      "type": "config",
+      "name": "RushAI.yaml",
+      "filePath": "ai/RushAI.yaml",
+      "summary": "Aggressive rush AI strategy configuration emphasizing early tank production (1tnk, 3tnk), V2 rocket launchers, and power infrastructure prioritization with 20-unit squads.",
+      "tags": ["configuration", "ai-strategy", "rush", "game-ai"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:ai/TurtleAI.yaml",
+      "type": "config",
+      "name": "TurtleAI.yaml",
+      "filePath": "ai/TurtleAI.yaml",
+      "summary": "Defensive turtle AI strategy configuration balancing ground unit production with heavy power and defensive structures (pillboxes, turrets) and smaller 10-unit squads.",
+      "tags": ["configuration", "ai-strategy", "defensive", "game-ai"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": []
+}

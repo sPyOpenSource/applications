@@ -1,0 +1,733 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/net/pso/jswarm/example_2/Example.java",
+      "type": "file",
+      "name": "Example.java",
+      "filePath": "src/net/pso/jswarm/example_2/Example.java",
+      "summary": "Example 2 entry point demonstrating PSO with 1D neighborhood topology and Swing visualization.",
+      "tags": [
+        "entry-point",
+        "example",
+        "visualization",
+        "neighborhood"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/net/pso/jswarm/example_2/Example.java:Example",
+      "type": "class",
+      "name": "Example",
+      "filePath": "src/net/pso/jswarm/example_2/Example.java",
+      "lineRange": [
+        17,
+        51
+      ],
+      "summary": "Class Example with 1 methods.",
+      "tags": [
+        "class",
+        "java"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/example_2/Example.java:main_L19",
+      "type": "function",
+      "name": "main",
+      "filePath": "src/net/pso/jswarm/example_2/Example.java",
+      "lineRange": [
+        19,
+        49
+      ],
+      "summary": "Method main with parameters [args].",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/net/pso/jswarm/example_2/SwarmShow2D.java",
+      "type": "file",
+      "name": "SwarmShow2D.java",
+      "filePath": "src/net/pso/jswarm/example_2/SwarmShow2D.java",
+      "summary": "Swing-based 2D swarm visualization panel for Example 2 with real-time evolution display and interactive controls.",
+      "tags": [
+        "visualization",
+        "swing",
+        "swarm",
+        "example"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/net/pso/jswarm/example_2/SwarmShow2D.java:SwarmShow2D",
+      "type": "class",
+      "name": "SwarmShow2D",
+      "filePath": "src/net/pso/jswarm/example_2/SwarmShow2D.java",
+      "lineRange": [
+        25,
+        207
+      ],
+      "summary": "Class SwarmShow2D with 21 methods.",
+      "tags": [
+        "class",
+        "java"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/example_2/SwarmShow2D.java:SwarmShow2D_L57",
+      "type": "function",
+      "name": "SwarmShow2D",
+      "filePath": "src/net/pso/jswarm/example_2/SwarmShow2D.java",
+      "lineRange": [
+        57,
+        65
+      ],
+      "summary": "Method SwarmShow2D with parameters [swarm, numberOfIterations, displayRefresh, showVelocity].",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/example_2/SwarmShow2D.java:actionPerformed_L74",
+      "type": "function",
+      "name": "actionPerformed",
+      "filePath": "src/net/pso/jswarm/example_2/SwarmShow2D.java",
+      "lineRange": [
+        74,
+        77
+      ],
+      "summary": "Method actionPerformed with parameters [e].",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/example_2/SwarmShow2D.java:clear_L118",
+      "type": "function",
+      "name": "clear",
+      "filePath": "src/net/pso/jswarm/example_2/SwarmShow2D.java",
+      "lineRange": [
+        118,
+        120
+      ],
+      "summary": "Method clear.",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/example_2/SwarmShow2D.java:run_L151",
+      "type": "function",
+      "name": "run",
+      "filePath": "src/net/pso/jswarm/example_2/SwarmShow2D.java",
+      "lineRange": [
+        151,
+        170
+      ],
+      "summary": "Method run.",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/example_2/SwarmShow2D.java:showSwarm_L204",
+      "type": "function",
+      "name": "showSwarm",
+      "filePath": "src/net/pso/jswarm/example_2/SwarmShow2D.java",
+      "lineRange": [
+        204,
+        206
+      ],
+      "summary": "Method showSwarm.",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/net/pso/jswarm/rosenbrock/MyFitnessFunction.java",
+      "type": "file",
+      "name": "MyFitnessFunction.java",
+      "filePath": "src/net/pso/jswarm/rosenbrock/MyFitnessFunction.java",
+      "summary": "Rosenbrock benchmark fitness function evaluating the Rosenbrock valley mathematical test function.",
+      "tags": [
+        "fitness-function",
+        "benchmark",
+        "rosenbrock"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/net/pso/jswarm/rosenbrock/MyFitnessFunction.java:MyFitnessFunction",
+      "type": "class",
+      "name": "MyFitnessFunction",
+      "filePath": "src/net/pso/jswarm/rosenbrock/MyFitnessFunction.java",
+      "lineRange": [
+        14,
+        37
+      ],
+      "summary": "Class MyFitnessFunction with 2 methods.",
+      "tags": [
+        "class",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/rosenbrock/MyFitnessFunction.java:MyFitnessFunction_L17",
+      "type": "function",
+      "name": "MyFitnessFunction",
+      "filePath": "src/net/pso/jswarm/rosenbrock/MyFitnessFunction.java",
+      "lineRange": [
+        17,
+        19
+      ],
+      "summary": "Method MyFitnessFunction.",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/rosenbrock/MyFitnessFunction.java:evaluate_L30",
+      "type": "function",
+      "name": "evaluate",
+      "filePath": "src/net/pso/jswarm/rosenbrock/MyFitnessFunction.java",
+      "lineRange": [
+        30,
+        35
+      ],
+      "summary": "Method evaluate with parameters [position].",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/net/pso/jswarm/schaffer/MyFitnessFunction.java",
+      "type": "file",
+      "name": "MyFitnessFunction.java",
+      "filePath": "src/net/pso/jswarm/schaffer/MyFitnessFunction.java",
+      "summary": "Schaffer benchmark fitness function evaluating the Schaffer F6 mathematical test function.",
+      "tags": [
+        "fitness-function",
+        "benchmark",
+        "schaffer"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/net/pso/jswarm/schaffer/MyFitnessFunction.java:MyFitnessFunction",
+      "type": "class",
+      "name": "MyFitnessFunction",
+      "filePath": "src/net/pso/jswarm/schaffer/MyFitnessFunction.java",
+      "lineRange": [
+        12,
+        36
+      ],
+      "summary": "Class MyFitnessFunction with 2 methods.",
+      "tags": [
+        "class",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/schaffer/MyFitnessFunction.java:MyFitnessFunction_L15",
+      "type": "function",
+      "name": "MyFitnessFunction",
+      "filePath": "src/net/pso/jswarm/schaffer/MyFitnessFunction.java",
+      "lineRange": [
+        15,
+        17
+      ],
+      "summary": "Method MyFitnessFunction.",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/schaffer/MyFitnessFunction.java:evaluate_L28",
+      "type": "function",
+      "name": "evaluate",
+      "filePath": "src/net/pso/jswarm/schaffer/MyFitnessFunction.java",
+      "lineRange": [
+        28,
+        35
+      ],
+      "summary": "Method evaluate with parameters [position].",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/net/pso/jswarm/sphere/MyFitnessFunction.java",
+      "type": "file",
+      "name": "MyFitnessFunction.java",
+      "filePath": "src/net/pso/jswarm/sphere/MyFitnessFunction.java",
+      "summary": "Sphere benchmark fitness function evaluating the simple sphere (quadratic) mathematical test function.",
+      "tags": [
+        "fitness-function",
+        "benchmark",
+        "sphere"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/net/pso/jswarm/sphere/MyFitnessFunction.java:MyFitnessFunction",
+      "type": "class",
+      "name": "MyFitnessFunction",
+      "filePath": "src/net/pso/jswarm/sphere/MyFitnessFunction.java",
+      "lineRange": [
+        12,
+        36
+      ],
+      "summary": "Class MyFitnessFunction with 2 methods.",
+      "tags": [
+        "class",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/sphere/MyFitnessFunction.java:MyFitnessFunction_L15",
+      "type": "function",
+      "name": "MyFitnessFunction",
+      "filePath": "src/net/pso/jswarm/sphere/MyFitnessFunction.java",
+      "lineRange": [
+        15,
+        17
+      ],
+      "summary": "Method MyFitnessFunction.",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/sphere/MyFitnessFunction.java:evaluate_L28",
+      "type": "function",
+      "name": "evaluate",
+      "filePath": "src/net/pso/jswarm/sphere/MyFitnessFunction.java",
+      "lineRange": [
+        28,
+        34
+      ],
+      "summary": "Method evaluate with parameters [position].",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/net/pso/jswarm/zzz/MyFitnessFunction.java",
+      "type": "file",
+      "name": "MyFitnessFunction.java",
+      "filePath": "src/net/pso/jswarm/zzz/MyFitnessFunction.java",
+      "summary": "Experimental/placeholder fitness function implementation with a penalty-factor field for constrained optimization testing.",
+      "tags": [
+        "fitness-function",
+        "experimental",
+        "penalty"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/net/pso/jswarm/zzz/MyFitnessFunction.java:MyFitnessFunction",
+      "type": "class",
+      "name": "MyFitnessFunction",
+      "filePath": "src/net/pso/jswarm/zzz/MyFitnessFunction.java",
+      "lineRange": [
+        9,
+        26
+      ],
+      "summary": "Class MyFitnessFunction with 1 methods.",
+      "tags": [
+        "class",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/zzz/MyFitnessFunction.java:evaluate_L13",
+      "type": "function",
+      "name": "evaluate",
+      "filePath": "src/net/pso/jswarm/zzz/MyFitnessFunction.java",
+      "lineRange": [
+        13,
+        25
+      ],
+      "summary": "Method evaluate with parameters [position].",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/net/pso/jswarm/example_2/Example.java",
+      "target": "class:src/net/pso/jswarm/example_2/Example.java:Example",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/example_2/Example.java",
+      "target": "class:src/net/pso/jswarm/example_2/Example.java:Example",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/example_2/Example.java",
+      "target": "function:src/net/pso/jswarm/example_2/Example.java:main_L19",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/example_2/Example.java",
+      "target": "function:src/net/pso/jswarm/example_2/Example.java:main_L19",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/example_2/Example.java",
+      "target": "file:src/net/pso/jswarm/Attic/MyParticle.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/net/pso/jswarm/example_2/Example.java",
+      "target": "file:src/net/pso/jswarm/Neighborhood.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/net/pso/jswarm/example_2/Example.java",
+      "target": "file:src/net/pso/jswarm/Neighborhood1D.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/net/pso/jswarm/example_2/Example.java",
+      "target": "file:src/net/pso/jswarm/rosenbrock/MyFitnessFunction.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/net/pso/jswarm/example_2/Example.java",
+      "target": "file:src/net/pso/jswarm/Swarm.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/net/pso/jswarm/example_2/SwarmShow2D.java",
+      "target": "class:src/net/pso/jswarm/example_2/SwarmShow2D.java:SwarmShow2D",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/example_2/SwarmShow2D.java",
+      "target": "class:src/net/pso/jswarm/example_2/SwarmShow2D.java:SwarmShow2D",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/example_2/SwarmShow2D.java",
+      "target": "function:src/net/pso/jswarm/example_2/SwarmShow2D.java:SwarmShow2D_L57",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/example_2/SwarmShow2D.java",
+      "target": "function:src/net/pso/jswarm/example_2/SwarmShow2D.java:SwarmShow2D_L57",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/example_2/SwarmShow2D.java",
+      "target": "function:src/net/pso/jswarm/example_2/SwarmShow2D.java:actionPerformed_L74",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/example_2/SwarmShow2D.java",
+      "target": "function:src/net/pso/jswarm/example_2/SwarmShow2D.java:actionPerformed_L74",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/example_2/SwarmShow2D.java",
+      "target": "function:src/net/pso/jswarm/example_2/SwarmShow2D.java:clear_L118",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/example_2/SwarmShow2D.java",
+      "target": "function:src/net/pso/jswarm/example_2/SwarmShow2D.java:clear_L118",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/example_2/SwarmShow2D.java",
+      "target": "function:src/net/pso/jswarm/example_2/SwarmShow2D.java:run_L151",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/example_2/SwarmShow2D.java",
+      "target": "function:src/net/pso/jswarm/example_2/SwarmShow2D.java:run_L151",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/example_2/SwarmShow2D.java",
+      "target": "function:src/net/pso/jswarm/example_2/SwarmShow2D.java:showSwarm_L204",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/example_2/SwarmShow2D.java",
+      "target": "function:src/net/pso/jswarm/example_2/SwarmShow2D.java:showSwarm_L204",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/example_2/SwarmShow2D.java",
+      "target": "file:src/net/pso/jswarm/Gpr.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/net/pso/jswarm/example_2/SwarmShow2D.java",
+      "target": "file:src/net/pso/jswarm/Swarm.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/net/pso/jswarm/rosenbrock/MyFitnessFunction.java",
+      "target": "class:src/net/pso/jswarm/rosenbrock/MyFitnessFunction.java:MyFitnessFunction",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/rosenbrock/MyFitnessFunction.java",
+      "target": "class:src/net/pso/jswarm/rosenbrock/MyFitnessFunction.java:MyFitnessFunction",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/rosenbrock/MyFitnessFunction.java",
+      "target": "function:src/net/pso/jswarm/rosenbrock/MyFitnessFunction.java:MyFitnessFunction_L17",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/rosenbrock/MyFitnessFunction.java",
+      "target": "function:src/net/pso/jswarm/rosenbrock/MyFitnessFunction.java:MyFitnessFunction_L17",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/rosenbrock/MyFitnessFunction.java",
+      "target": "function:src/net/pso/jswarm/rosenbrock/MyFitnessFunction.java:evaluate_L30",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/rosenbrock/MyFitnessFunction.java",
+      "target": "function:src/net/pso/jswarm/rosenbrock/MyFitnessFunction.java:evaluate_L30",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/rosenbrock/MyFitnessFunction.java",
+      "target": "file:src/net/pso/jswarm/FitnessFunction.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/net/pso/jswarm/schaffer/MyFitnessFunction.java",
+      "target": "class:src/net/pso/jswarm/schaffer/MyFitnessFunction.java:MyFitnessFunction",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/schaffer/MyFitnessFunction.java",
+      "target": "class:src/net/pso/jswarm/schaffer/MyFitnessFunction.java:MyFitnessFunction",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/schaffer/MyFitnessFunction.java",
+      "target": "function:src/net/pso/jswarm/schaffer/MyFitnessFunction.java:MyFitnessFunction_L15",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/schaffer/MyFitnessFunction.java",
+      "target": "function:src/net/pso/jswarm/schaffer/MyFitnessFunction.java:MyFitnessFunction_L15",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/schaffer/MyFitnessFunction.java",
+      "target": "function:src/net/pso/jswarm/schaffer/MyFitnessFunction.java:evaluate_L28",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/schaffer/MyFitnessFunction.java",
+      "target": "function:src/net/pso/jswarm/schaffer/MyFitnessFunction.java:evaluate_L28",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/schaffer/MyFitnessFunction.java",
+      "target": "file:src/net/pso/jswarm/FitnessFunction.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/net/pso/jswarm/sphere/MyFitnessFunction.java",
+      "target": "class:src/net/pso/jswarm/sphere/MyFitnessFunction.java:MyFitnessFunction",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/sphere/MyFitnessFunction.java",
+      "target": "class:src/net/pso/jswarm/sphere/MyFitnessFunction.java:MyFitnessFunction",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/sphere/MyFitnessFunction.java",
+      "target": "function:src/net/pso/jswarm/sphere/MyFitnessFunction.java:MyFitnessFunction_L15",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/sphere/MyFitnessFunction.java",
+      "target": "function:src/net/pso/jswarm/sphere/MyFitnessFunction.java:MyFitnessFunction_L15",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/sphere/MyFitnessFunction.java",
+      "target": "function:src/net/pso/jswarm/sphere/MyFitnessFunction.java:evaluate_L28",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/sphere/MyFitnessFunction.java",
+      "target": "function:src/net/pso/jswarm/sphere/MyFitnessFunction.java:evaluate_L28",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/sphere/MyFitnessFunction.java",
+      "target": "file:src/net/pso/jswarm/FitnessFunction.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/net/pso/jswarm/zzz/MyFitnessFunction.java",
+      "target": "class:src/net/pso/jswarm/zzz/MyFitnessFunction.java:MyFitnessFunction",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/zzz/MyFitnessFunction.java",
+      "target": "class:src/net/pso/jswarm/zzz/MyFitnessFunction.java:MyFitnessFunction",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/zzz/MyFitnessFunction.java",
+      "target": "function:src/net/pso/jswarm/zzz/MyFitnessFunction.java:evaluate_L13",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/zzz/MyFitnessFunction.java",
+      "target": "function:src/net/pso/jswarm/zzz/MyFitnessFunction.java:evaluate_L13",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/zzz/MyFitnessFunction.java",
+      "target": "file:src/net/pso/jswarm/FitnessFunction.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

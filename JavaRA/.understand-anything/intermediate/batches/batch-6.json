@@ -1,0 +1,203 @@
+{
+  "batchIndex": 6,
+  "files": [
+    {
+      "path": "src/net/pso/jswarm/Attic/MyFitnessFunction.java",
+      "language": "java",
+      "sizeLines": 30,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/net/pso/jswarm/Attic/MyParticle.java",
+      "language": "java",
+      "sizeLines": 15,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/net/pso/jswarm/Attic/Swarm.java",
+      "language": "java",
+      "sizeLines": 472,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/net/pso/jswarm/Attic/example_2/Attic/Example.java",
+      "language": "java",
+      "sizeLines": 48,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/net/pso/jswarm/Attic/example_2/Attic/MyFitnessFunction.java",
+      "language": "java",
+      "sizeLines": 38,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/net/pso/jswarm/Attic/example_2/Attic/MyParticle.java",
+      "language": "java",
+      "sizeLines": 42,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/net/pso/jswarm/Attic/example_2/Attic/SwarmShow2D.java",
+      "language": "java",
+      "sizeLines": 205,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/net/pso/jswarm/FitnessFunction.java",
+      "language": "java",
+      "sizeLines": 78,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/net/pso/jswarm/Gpr.java",
+      "language": "java",
+      "sizeLines": 110,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/net/pso/jswarm/Neighborhood.java",
+      "language": "java",
+      "sizeLines": 93,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/net/pso/jswarm/Neighborhood1D.java",
+      "language": "java",
+      "sizeLines": 79,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/net/pso/jswarm/Particle.java",
+      "language": "java",
+      "sizeLines": 331,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/net/pso/jswarm/Swarm.java",
+      "language": "java",
+      "sizeLines": 533,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/net/pso/jswarm/alpine/Example.java",
+      "language": "java",
+      "sizeLines": 44,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/net/pso/jswarm/alpine/MyFitnessFunction.java",
+      "language": "java",
+      "sizeLines": 30,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/net/pso/jswarm/alpine/MyParticle.java",
+      "language": "java",
+      "sizeLines": 16,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/net/pso/jswarm/example_2/Example.java",
+      "language": "java",
+      "sizeLines": 51,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/net/pso/jswarm/example_2/SwarmShow2D.java",
+      "language": "java",
+      "sizeLines": 207,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/net/pso/jswarm/rosenbrock/MyFitnessFunction.java",
+      "language": "java",
+      "sizeLines": 37,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/net/pso/jswarm/schaffer/MyFitnessFunction.java",
+      "language": "java",
+      "sizeLines": 36,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/net/pso/jswarm/sphere/MyFitnessFunction.java",
+      "language": "java",
+      "sizeLines": 36,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/net/pso/jswarm/zzz/MyFitnessFunction.java",
+      "language": "java",
+      "sizeLines": 26,
+      "fileCategory": "code"
+    }
+  ],
+  "batchImportData": {
+    "src/net/pso/jswarm/Attic/MyFitnessFunction.java": [
+      "src/net/pso/jswarm/FitnessFunction.java"
+    ],
+    "src/net/pso/jswarm/Attic/MyParticle.java": [
+      "src/net/pso/jswarm/Particle.java"
+    ],
+    "src/net/pso/jswarm/Attic/Swarm.java": [
+      "src/net/pso/jswarm/FitnessFunction.java",
+      "src/net/pso/jswarm/Particle.java"
+    ],
+    "src/net/pso/jswarm/Attic/example_2/Attic/Example.java": [
+      "src/net/pso/jswarm/Attic/Swarm.java",
+      "src/net/pso/jswarm/Neighborhood.java",
+      "src/net/pso/jswarm/Neighborhood1D.java"
+    ],
+    "src/net/pso/jswarm/Attic/example_2/Attic/MyFitnessFunction.java": [
+      "src/net/pso/jswarm/FitnessFunction.java"
+    ],
+    "src/net/pso/jswarm/Attic/example_2/Attic/MyParticle.java": [
+      "src/net/pso/jswarm/Particle.java"
+    ],
+    "src/net/pso/jswarm/Attic/example_2/Attic/SwarmShow2D.java": [
+      "src/net/pso/jswarm/Attic/Swarm.java",
+      "src/net/pso/jswarm/Gpr.java"
+    ],
+    "src/net/pso/jswarm/FitnessFunction.java": [],
+    "src/net/pso/jswarm/Gpr.java": [],
+    "src/net/pso/jswarm/Neighborhood.java": [],
+    "src/net/pso/jswarm/Neighborhood1D.java": [],
+    "src/net/pso/jswarm/Particle.java": [],
+    "src/net/pso/jswarm/Swarm.java": [],
+    "src/net/pso/jswarm/alpine/Example.java": [
+      "src/net/pso/jswarm/Swarm.java"
+    ],
+    "src/net/pso/jswarm/alpine/MyFitnessFunction.java": [
+      "src/net/pso/jswarm/FitnessFunction.java"
+    ],
+    "src/net/pso/jswarm/alpine/MyParticle.java": [
+      "src/net/pso/jswarm/Particle.java"
+    ],
+    "src/net/pso/jswarm/example_2/Example.java": [
+      "src/net/pso/jswarm/Attic/MyParticle.java",
+      "src/net/pso/jswarm/Neighborhood.java",
+      "src/net/pso/jswarm/Neighborhood1D.java",
+      "src/net/pso/jswarm/rosenbrock/MyFitnessFunction.java",
+      "src/net/pso/jswarm/Swarm.java"
+    ],
+    "src/net/pso/jswarm/example_2/SwarmShow2D.java": [
+      "src/net/pso/jswarm/Gpr.java",
+      "src/net/pso/jswarm/Swarm.java"
+    ],
+    "src/net/pso/jswarm/rosenbrock/MyFitnessFunction.java": [
+      "src/net/pso/jswarm/FitnessFunction.java"
+    ],
+    "src/net/pso/jswarm/schaffer/MyFitnessFunction.java": [
+      "src/net/pso/jswarm/FitnessFunction.java"
+    ],
+    "src/net/pso/jswarm/sphere/MyFitnessFunction.java": [
+      "src/net/pso/jswarm/FitnessFunction.java"
+    ],
+    "src/net/pso/jswarm/zzz/MyFitnessFunction.java": [
+      "src/net/pso/jswarm/FitnessFunction.java"
+    ]
+  },
+  "neighborMap": {}
+}

@@ -1,0 +1,792 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/cr0s/javara/entity/actor/activity/activities/Attack.java",
+      "type": "file",
+      "name": "Attack.java",
+      "filePath": "src/cr0s/javara/entity/actor/activity/activities/Attack.java",
+      "summary": "Attack activity that manages target approach, facing, and firing during combat ticks.",
+      "tags": [
+        "state-machine",
+        "entity",
+        "combat"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/cr0s/javara/entity/actor/activity/activities/Attack.java:Attack",
+      "type": "class",
+      "name": "Attack",
+      "filePath": "src/cr0s/javara/entity/actor/activity/activities/Attack.java",
+      "lineRange": [
+        11,
+        81
+      ],
+      "summary": "Attack class with 3 methods in Attack.java.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/actor/activity/activities/Attack.java:Attack",
+      "type": "function",
+      "name": "Attack",
+      "filePath": "src/cr0s/javara/entity/actor/activity/activities/Attack.java",
+      "lineRange": [
+        22,
+        27
+      ],
+      "summary": "Attack(attack, self, tgt, range, allowMove) - 6 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/actor/activity/activities/Attack.java:tick",
+      "type": "function",
+      "name": "tick",
+      "filePath": "src/cr0s/javara/entity/actor/activity/activities/Attack.java",
+      "lineRange": [
+        29,
+        35
+      ],
+      "summary": "tick(self) - 7 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/actor/activity/activities/Attack.java:innerTick",
+      "type": "function",
+      "name": "innerTick",
+      "filePath": "src/cr0s/javara/entity/actor/activity/activities/Attack.java",
+      "lineRange": [
+        37,
+        79
+      ],
+      "summary": "innerTick(self) - 43 lines.",
+      "tags": [],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/cr0s/javara/entity/actor/activity/activities/Deploy.java",
+      "type": "file",
+      "name": "Deploy.java",
+      "filePath": "src/cr0s/javara/entity/actor/activity/activities/Deploy.java",
+      "summary": "Deployment activity triggering entity deployment (e.g., MCV to construction yard).",
+      "tags": [
+        "state-machine",
+        "entity",
+        "deployment"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/actor/activity/activities/Deploy.java:tick",
+      "type": "function",
+      "name": "tick",
+      "filePath": "src/cr0s/javara/entity/actor/activity/activities/Deploy.java",
+      "lineRange": [
+        9,
+        14
+      ],
+      "summary": "tick(a) - 6 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/entity/actor/activity/activities/Drag.java",
+      "type": "file",
+      "name": "Drag.java",
+      "filePath": "src/cr0s/javara/entity/actor/activity/activities/Drag.java",
+      "summary": "Drag activity implementing smooth positional transitions along a linear path.",
+      "tags": [
+        "state-machine",
+        "entity",
+        "movement"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/cr0s/javara/entity/actor/activity/activities/Drag.java:Drag",
+      "type": "class",
+      "name": "Drag",
+      "filePath": "src/cr0s/javara/entity/actor/activity/activities/Drag.java",
+      "lineRange": [
+        9,
+        49
+      ],
+      "summary": "Drag class with 2 methods in Drag.java.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/actor/activity/activities/Drag.java:Drag",
+      "type": "function",
+      "name": "Drag",
+      "filePath": "src/cr0s/javara/entity/actor/activity/activities/Drag.java",
+      "lineRange": [
+        16,
+        20
+      ],
+      "summary": "Drag(aStart, aEnd, aLengthInTicks) - 5 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/actor/activity/activities/Drag.java:tick",
+      "type": "function",
+      "name": "tick",
+      "filePath": "src/cr0s/javara/entity/actor/activity/activities/Drag.java",
+      "lineRange": [
+        22,
+        47
+      ],
+      "summary": "tick(a) - 26 lines.",
+      "tags": [],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/cr0s/javara/entity/actor/activity/activities/Follow.java",
+      "type": "file",
+      "name": "Follow.java",
+      "filePath": "src/cr0s/javara/entity/actor/activity/activities/Follow.java",
+      "summary": "Follow activity that continuously tracks and pursues a target entity.",
+      "tags": [
+        "state-machine",
+        "entity",
+        "movement"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/cr0s/javara/entity/actor/activity/activities/Follow.java:Follow",
+      "type": "class",
+      "name": "Follow",
+      "filePath": "src/cr0s/javara/entity/actor/activity/activities/Follow.java",
+      "lineRange": [
+        10,
+        48
+      ],
+      "summary": "Follow class with 2 methods in Follow.java.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/actor/activity/activities/Follow.java:Follow",
+      "type": "function",
+      "name": "Follow",
+      "filePath": "src/cr0s/javara/entity/actor/activity/activities/Follow.java",
+      "lineRange": [
+        16,
+        20
+      ],
+      "summary": "Follow(self, tgt, range) - 5 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/actor/activity/activities/Follow.java:tick",
+      "type": "function",
+      "name": "tick",
+      "filePath": "src/cr0s/javara/entity/actor/activity/activities/Follow.java",
+      "lineRange": [
+        22,
+        46
+      ],
+      "summary": "tick(a) - 25 lines.",
+      "tags": [],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/cr0s/javara/entity/actor/activity/activities/Move.java",
+      "type": "file",
+      "name": "Move.java",
+      "filePath": "src/cr0s/javara/entity/actor/activity/activities/Move.java",
+      "summary": "Move activity implementing path-based movement with repathing and obstacle avoidance.",
+      "tags": [
+        "state-machine",
+        "entity",
+        "movement"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:src/cr0s/javara/entity/actor/activity/activities/Move.java:Move",
+      "type": "class",
+      "name": "Move",
+      "filePath": "src/cr0s/javara/entity/actor/activity/activities/Move.java",
+      "lineRange": [
+        16,
+        333
+      ],
+      "summary": "Move class with 9 methods in Move.java.",
+      "tags": [],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/actor/activity/activities/Move.java:Move",
+      "type": "function",
+      "name": "Move",
+      "filePath": "src/cr0s/javara/entity/actor/activity/activities/Move.java",
+      "lineRange": [
+        34,
+        40
+      ],
+      "summary": "Move(me, destinationCell) - 7 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/actor/activity/activities/Move.java:Move",
+      "type": "function",
+      "name": "Move",
+      "filePath": "src/cr0s/javara/entity/actor/activity/activities/Move.java",
+      "lineRange": [
+        42,
+        48
+      ],
+      "summary": "Move(me, destinationCell, enoughRange) - 7 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/actor/activity/activities/Move.java:Move",
+      "type": "function",
+      "name": "Move",
+      "filePath": "src/cr0s/javara/entity/actor/activity/activities/Move.java",
+      "lineRange": [
+        50,
+        54
+      ],
+      "summary": "Move(me, destinationCell, enoughRange, aIgnoreBuilding) - 5 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/actor/activity/activities/Move.java:Move",
+      "type": "function",
+      "name": "Move",
+      "filePath": "src/cr0s/javara/entity/actor/activity/activities/Move.java",
+      "lineRange": [
+        56,
+        61
+      ],
+      "summary": "Move(me, scriptedPath, destinationCell, aIgnoreBuilding) - 6 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/actor/activity/activities/Move.java:popPath",
+      "type": "function",
+      "name": "popPath",
+      "filePath": "src/cr0s/javara/entity/actor/activity/activities/Move.java",
+      "lineRange": [
+        63,
+        142
+      ],
+      "summary": "popPath(me) - 80 lines.",
+      "tags": [],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/actor/activity/activities/Move.java:chooseNewPath",
+      "type": "function",
+      "name": "chooseNewPath",
+      "filePath": "src/cr0s/javara/entity/actor/activity/activities/Move.java",
+      "lineRange": [
+        144,
+        165
+      ],
+      "summary": "chooseNewPath(me) - 22 lines.",
+      "tags": [],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/actor/activity/activities/Move.java:chooseClosestToDestCell",
+      "type": "function",
+      "name": "chooseClosestToDestCell",
+      "filePath": "src/cr0s/javara/entity/actor/activity/activities/Move.java",
+      "lineRange": [
+        167,
+        169
+      ],
+      "summary": "chooseClosestToDestCell(me) - 3 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/actor/activity/activities/Move.java:tick",
+      "type": "function",
+      "name": "tick",
+      "filePath": "src/cr0s/javara/entity/actor/activity/activities/Move.java",
+      "lineRange": [
+        171,
+        224
+      ],
+      "summary": "tick(a) - 54 lines.",
+      "tags": [],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/actor/activity/activities/Move.java:setIgnoreBuilding",
+      "type": "function",
+      "name": "setIgnoreBuilding",
+      "filePath": "src/cr0s/javara/entity/actor/activity/activities/Move.java",
+      "lineRange": [
+        226,
+        228
+      ],
+      "summary": "setIgnoreBuilding(eb) - 3 lines.",
+      "tags": [],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/cr0s/javara/entity/actor/activity/activities/Attack.java",
+      "target": "class:src/cr0s/javara/entity/actor/activity/activities/Attack.java:Attack",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/activity/activities/Attack.java",
+      "target": "function:src/cr0s/javara/entity/actor/activity/activities/Attack.java:Attack",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/activity/activities/Attack.java",
+      "target": "function:src/cr0s/javara/entity/actor/activity/activities/Attack.java:Attack",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/activity/activities/Attack.java",
+      "target": "function:src/cr0s/javara/entity/actor/activity/activities/Attack.java:tick",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/activity/activities/Attack.java",
+      "target": "function:src/cr0s/javara/entity/actor/activity/activities/Attack.java:tick",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/activity/activities/Attack.java",
+      "target": "function:src/cr0s/javara/entity/actor/activity/activities/Attack.java:innerTick",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/activity/activities/Deploy.java",
+      "target": "function:src/cr0s/javara/entity/actor/activity/activities/Deploy.java:tick",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/activity/activities/Deploy.java",
+      "target": "function:src/cr0s/javara/entity/actor/activity/activities/Deploy.java:tick",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/activity/activities/Drag.java",
+      "target": "class:src/cr0s/javara/entity/actor/activity/activities/Drag.java:Drag",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/activity/activities/Drag.java",
+      "target": "function:src/cr0s/javara/entity/actor/activity/activities/Drag.java:Drag",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/activity/activities/Drag.java",
+      "target": "function:src/cr0s/javara/entity/actor/activity/activities/Drag.java:Drag",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/activity/activities/Drag.java",
+      "target": "function:src/cr0s/javara/entity/actor/activity/activities/Drag.java:tick",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/activity/activities/Drag.java",
+      "target": "function:src/cr0s/javara/entity/actor/activity/activities/Drag.java:tick",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/activity/activities/Follow.java",
+      "target": "class:src/cr0s/javara/entity/actor/activity/activities/Follow.java:Follow",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/activity/activities/Follow.java",
+      "target": "function:src/cr0s/javara/entity/actor/activity/activities/Follow.java:Follow",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/activity/activities/Follow.java",
+      "target": "function:src/cr0s/javara/entity/actor/activity/activities/Follow.java:Follow",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/activity/activities/Follow.java",
+      "target": "function:src/cr0s/javara/entity/actor/activity/activities/Follow.java:tick",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/activity/activities/Follow.java",
+      "target": "function:src/cr0s/javara/entity/actor/activity/activities/Follow.java:tick",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/activity/activities/Move.java",
+      "target": "class:src/cr0s/javara/entity/actor/activity/activities/Move.java:Move",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/activity/activities/Move.java",
+      "target": "function:src/cr0s/javara/entity/actor/activity/activities/Move.java:Move",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/activity/activities/Move.java",
+      "target": "function:src/cr0s/javara/entity/actor/activity/activities/Move.java:Move",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/activity/activities/Move.java",
+      "target": "function:src/cr0s/javara/entity/actor/activity/activities/Move.java:Move",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/activity/activities/Move.java",
+      "target": "function:src/cr0s/javara/entity/actor/activity/activities/Move.java:Move",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/activity/activities/Move.java",
+      "target": "function:src/cr0s/javara/entity/actor/activity/activities/Move.java:Move",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/activity/activities/Move.java",
+      "target": "function:src/cr0s/javara/entity/actor/activity/activities/Move.java:Move",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/activity/activities/Move.java",
+      "target": "function:src/cr0s/javara/entity/actor/activity/activities/Move.java:Move",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/activity/activities/Move.java",
+      "target": "function:src/cr0s/javara/entity/actor/activity/activities/Move.java:Move",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/activity/activities/Move.java",
+      "target": "function:src/cr0s/javara/entity/actor/activity/activities/Move.java:popPath",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/activity/activities/Move.java",
+      "target": "function:src/cr0s/javara/entity/actor/activity/activities/Move.java:chooseNewPath",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/activity/activities/Move.java",
+      "target": "function:src/cr0s/javara/entity/actor/activity/activities/Move.java:chooseClosestToDestCell",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/activity/activities/Move.java",
+      "target": "function:src/cr0s/javara/entity/actor/activity/activities/Move.java:chooseClosestToDestCell",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/activity/activities/Move.java",
+      "target": "function:src/cr0s/javara/entity/actor/activity/activities/Move.java:tick",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/activity/activities/Move.java",
+      "target": "function:src/cr0s/javara/entity/actor/activity/activities/Move.java:tick",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/activity/activities/Move.java",
+      "target": "function:src/cr0s/javara/entity/actor/activity/activities/Move.java:setIgnoreBuilding",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/activity/activities/Move.java",
+      "target": "function:src/cr0s/javara/entity/actor/activity/activities/Move.java:setIgnoreBuilding",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/activity/activities/Attack.java",
+      "target": "file:src/cr0s/javara/combat/attack/AttackBase.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/activity/activities/Attack.java",
+      "target": "file:src/cr0s/javara/entity/actor/activity/Activity.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/activity/activities/Attack.java",
+      "target": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/activity/activities/Attack.java",
+      "target": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/activity/activities/Attack.java",
+      "target": "file:src/cr0s/javara/order/Target.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/activity/activities/Attack.java",
+      "target": "file:src/cr0s/javara/render/World.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/activity/activities/Attack.java",
+      "target": "file:src/cr0s/javara/util/RotationUtil.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/activity/activities/Deploy.java",
+      "target": "file:src/cr0s/javara/entity/actor/activity/Activity.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/activity/activities/Deploy.java",
+      "target": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/activity/activities/Deploy.java",
+      "target": "file:src/cr0s/javara/entity/IDeployable.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/activity/activities/Drag.java",
+      "target": "file:src/cr0s/javara/entity/actor/activity/Activity.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/activity/activities/Drag.java",
+      "target": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/activity/activities/Drag.java",
+      "target": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/activity/activities/Drag.java",
+      "target": "file:src/cr0s/javara/util/PointsUtil.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/activity/activities/Drag.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/activity/activities/Follow.java",
+      "target": "file:src/cr0s/javara/entity/actor/activity/Activity.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/activity/activities/Follow.java",
+      "target": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/activity/activities/Follow.java",
+      "target": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/activity/activities/Follow.java",
+      "target": "file:src/cr0s/javara/order/Target.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/activity/activities/Follow.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/activity/activities/Follow.java",
+      "target": "file:src/cr0s/javara/util/WaitAction.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/activity/activities/Move.java",
+      "target": "file:src/cr0s/javara/entity/actor/activity/Activity.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/activity/activities/Move.java",
+      "target": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/activity/activities/Move.java",
+      "target": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/activity/activities/Move.java",
+      "target": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/activity/activities/Move.java",
+      "target": "file:src/cr0s/javara/render/World.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/activity/activities/Move.java",
+      "target": "file:src/cr0s/javara/util/PointsUtil.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/activity/activities/Move.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/activity/activities/Move.java",
+      "target": "file:src/cr0s/javara/util/RotationUtil.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

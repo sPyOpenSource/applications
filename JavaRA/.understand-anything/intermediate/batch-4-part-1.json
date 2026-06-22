@@ -1,0 +1,1229 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/cr0s/javara/ai/BaseBuilder.java",
+      "type": "file",
+      "name": "BaseBuilder.java",
+      "filePath": "src/cr0s/javara/ai/BaseBuilder.java",
+      "summary": "AI building placement logic that manages construction queue, building limits, and selects buildings to construct based on power, economy, and tactical needs.",
+      "tags": [
+        "ai",
+        "building",
+        "strategy"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/cr0s/javara/ai/BaseBuilder.java:BaseBuilder",
+      "type": "class",
+      "name": "BaseBuilder",
+      "filePath": "src/cr0s/javara/ai/BaseBuilder.java",
+      "lineRange": [
+        17,
+        195
+      ],
+      "summary": "BaseBuilder class with 6 methods and 3 properties in the JavaRA game engine.",
+      "tags": [
+        "class",
+        "interface"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/ai/BaseBuilder.java:BaseBuilder",
+      "type": "function",
+      "name": "BaseBuilder",
+      "filePath": "src/cr0s/javara/ai/BaseBuilder.java",
+      "lineRange": [
+        22,
+        24
+      ],
+      "summary": "BaseBuilder function with params: ai in BaseBuilder.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/ai/BaseBuilder.java:update",
+      "type": "function",
+      "name": "update",
+      "filePath": "src/cr0s/javara/ai/BaseBuilder.java",
+      "lineRange": [
+        26,
+        33
+      ],
+      "summary": "update function  in BaseBuilder.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/ai/BaseBuilder.java:tickQueue",
+      "type": "function",
+      "name": "tickQueue",
+      "filePath": "src/cr0s/javara/ai/BaseBuilder.java",
+      "lineRange": [
+        35,
+        69
+      ],
+      "summary": "tickQueue function  in BaseBuilder.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/ai/BaseBuilder.java:getProducibleBuilding",
+      "type": "function",
+      "name": "getProducibleBuilding",
+      "filePath": "src/cr0s/javara/ai/BaseBuilder.java",
+      "lineRange": [
+        71,
+        98
+      ],
+      "summary": "getProducibleBuilding function with params: commonName in BaseBuilder.",
+      "tags": [
+        "function",
+        "getter"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/ai/BaseBuilder.java:checkBuildingLimit",
+      "type": "function",
+      "name": "checkBuildingLimit",
+      "filePath": "src/cr0s/javara/ai/BaseBuilder.java",
+      "lineRange": [
+        106,
+        116
+      ],
+      "summary": "checkBuildingLimit function with params: building in BaseBuilder.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/ai/BaseBuilder.java:chooseBuildingToBuild",
+      "type": "function",
+      "name": "chooseBuildingToBuild",
+      "filePath": "src/cr0s/javara/ai/BaseBuilder.java",
+      "lineRange": [
+        118,
+        194
+      ],
+      "summary": "chooseBuildingToBuild function  in BaseBuilder.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/cr0s/javara/entity/aircraft/Dragon.java",
+      "type": "file",
+      "name": "Dragon.java",
+      "filePath": "src/cr0s/javara/entity/aircraft/Dragon.java",
+      "summary": "Dragon aircraft entity with movement, rendering, and building cost defined for the air unit.",
+      "tags": [
+        "entity",
+        "aircraft",
+        "dragon"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/cr0s/javara/entity/aircraft/Dragon.java:Dragon",
+      "type": "class",
+      "name": "Dragon",
+      "filePath": "src/cr0s/javara/entity/aircraft/Dragon.java",
+      "lineRange": [
+        10,
+        60
+      ],
+      "summary": "Dragon class with 10 methods  in the JavaRA game engine.",
+      "tags": [
+        "class",
+        "interface"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/aircraft/Dragon.java:Dragon",
+      "type": "function",
+      "name": "Dragon",
+      "filePath": "src/cr0s/javara/entity/aircraft/Dragon.java",
+      "lineRange": [
+        11,
+        27
+      ],
+      "summary": "Dragon function with params: x in Dragon.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/aircraft/Dragon.java:findPathFromTo",
+      "type": "function",
+      "name": "findPathFromTo",
+      "filePath": "src/cr0s/javara/entity/aircraft/Dragon.java",
+      "lineRange": [
+        29,
+        32
+      ],
+      "summary": "findPathFromTo function with params: e, aGoal in Dragon.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/aircraft/Dragon.java:getMoveSpeed",
+      "type": "function",
+      "name": "getMoveSpeed",
+      "filePath": "src/cr0s/javara/entity/aircraft/Dragon.java",
+      "lineRange": [
+        34,
+        35
+      ],
+      "summary": "getMoveSpeed function  in Dragon.",
+      "tags": [
+        "function",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/aircraft/Dragon.java:getMinimumEnoughRange",
+      "type": "function",
+      "name": "getMinimumEnoughRange",
+      "filePath": "src/cr0s/javara/entity/aircraft/Dragon.java",
+      "lineRange": [
+        36,
+        37
+      ],
+      "summary": "getMinimumEnoughRange function  in Dragon.",
+      "tags": [
+        "function",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/aircraft/Dragon.java:canEnterCell",
+      "type": "function",
+      "name": "canEnterCell",
+      "filePath": "src/cr0s/javara/entity/aircraft/Dragon.java",
+      "lineRange": [
+        38,
+        39
+      ],
+      "summary": "canEnterCell function with params: cellPos in Dragon.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/aircraft/Dragon.java:getWaitAverageTime",
+      "type": "function",
+      "name": "getWaitAverageTime",
+      "filePath": "src/cr0s/javara/entity/aircraft/Dragon.java",
+      "lineRange": [
+        40,
+        41
+      ],
+      "summary": "getWaitAverageTime function  in Dragon.",
+      "tags": [
+        "function",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/aircraft/Dragon.java:getWaitSpreadTime",
+      "type": "function",
+      "name": "getWaitSpreadTime",
+      "filePath": "src/cr0s/javara/entity/aircraft/Dragon.java",
+      "lineRange": [
+        42,
+        43
+      ],
+      "summary": "getWaitSpreadTime function  in Dragon.",
+      "tags": [
+        "function",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/aircraft/Dragon.java:renderEntity",
+      "type": "function",
+      "name": "renderEntity",
+      "filePath": "src/cr0s/javara/entity/aircraft/Dragon.java",
+      "lineRange": [
+        46,
+        54
+      ],
+      "summary": "renderEntity function  in Dragon.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/aircraft/Dragon.java:getBuildingCost",
+      "type": "function",
+      "name": "getBuildingCost",
+      "filePath": "src/cr0s/javara/entity/aircraft/Dragon.java",
+      "lineRange": [
+        56,
+        59
+      ],
+      "summary": "getBuildingCost function  in Dragon.",
+      "tags": [
+        "function",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/entity/building/BibType.java",
+      "type": "file",
+      "name": "BibType.java",
+      "filePath": "src/cr0s/javara/entity/building/BibType.java",
+      "summary": "Enum defining bib types (building foundation graphics) used by structures.",
+      "tags": [
+        "enum",
+        "building",
+        "graphics"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java",
+      "type": "file",
+      "name": "EntityAdvPowerPlant.java",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java",
+      "summary": "Advanced power plant building that produces increased power for the base.",
+      "tags": [
+        "entity",
+        "building",
+        "power"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java:EntityAdvPowerPlant",
+      "type": "class",
+      "name": "EntityAdvPowerPlant",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java",
+      "lineRange": [
+        21,
+        142
+      ],
+      "summary": "EntityAdvPowerPlant class with 14 methods and 9 properties in the JavaRA game engine.",
+      "tags": [
+        "class",
+        "entity"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java:EntityAdvPowerPlant",
+      "type": "function",
+      "name": "EntityAdvPowerPlant",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java",
+      "lineRange": [
+        33,
+        51
+      ],
+      "summary": "EntityAdvPowerPlant function with params: tile in EntityAdvPowerPlant.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java:renderEntity",
+      "type": "function",
+      "name": "renderEntity",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java",
+      "lineRange": [
+        59,
+        86
+      ],
+      "summary": "renderEntity function  in EntityAdvPowerPlant.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java:shouldRenderedInPass",
+      "type": "function",
+      "name": "shouldRenderedInPass",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java",
+      "lineRange": [
+        88,
+        91
+      ],
+      "summary": "shouldRenderedInPass function with params: passnum in EntityAdvPowerPlant.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java:updateEntity",
+      "type": "function",
+      "name": "updateEntity",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java",
+      "lineRange": [
+        93,
+        96
+      ],
+      "summary": "updateEntity function with params: delta in EntityAdvPowerPlant.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java:select",
+      "type": "function",
+      "name": "select",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java",
+      "lineRange": [
+        98,
+        101
+      ],
+      "summary": "select function  in EntityAdvPowerPlant.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java:cancelSelect",
+      "type": "function",
+      "name": "cancelSelect",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java",
+      "lineRange": [
+        103,
+        106
+      ],
+      "summary": "cancelSelect function  in EntityAdvPowerPlant.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java:isSelected",
+      "type": "function",
+      "name": "isSelected",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java",
+      "lineRange": [
+        108,
+        111
+      ],
+      "summary": "isSelected function  in EntityAdvPowerPlant.",
+      "tags": [
+        "function",
+        "check"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java:getHeightInTiles",
+      "type": "function",
+      "name": "getHeightInTiles",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java",
+      "lineRange": [
+        113,
+        116
+      ],
+      "summary": "getHeightInTiles function  in EntityAdvPowerPlant.",
+      "tags": [
+        "function",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java:getWidthInTiles",
+      "type": "function",
+      "name": "getWidthInTiles",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java",
+      "lineRange": [
+        118,
+        121
+      ],
+      "summary": "getWidthInTiles function  in EntityAdvPowerPlant.",
+      "tags": [
+        "function",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java:getPowerProductionLevel",
+      "type": "function",
+      "name": "getPowerProductionLevel",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java",
+      "lineRange": [
+        123,
+        126
+      ],
+      "summary": "getPowerProductionLevel function  in EntityAdvPowerPlant.",
+      "tags": [
+        "function",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java:getRevealingRange",
+      "type": "function",
+      "name": "getRevealingRange",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java",
+      "lineRange": [
+        128,
+        131
+      ],
+      "summary": "getRevealingRange function  in EntityAdvPowerPlant.",
+      "tags": [
+        "function",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java:getImageView",
+      "type": "function",
+      "name": "getImageView",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java",
+      "lineRange": [
+        133,
+        136
+      ],
+      "summary": "getImageView function  in EntityAdvPowerPlant.",
+      "tags": [
+        "function",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java:getBuildingCost",
+      "type": "function",
+      "name": "getBuildingCost",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java",
+      "lineRange": [
+        138,
+        141
+      ],
+      "summary": "getBuildingCost function  in EntityAdvPowerPlant.",
+      "tags": [
+        "function",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/entity/building/common/EntityConcreteWall.java",
+      "type": "file",
+      "name": "EntityConcreteWall.java",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityConcreteWall.java",
+      "summary": "Concrete wall building entity with cost definition.",
+      "tags": [
+        "entity",
+        "building",
+        "defense"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/cr0s/javara/entity/building/common/EntityConcreteWall.java:EntityConcreteWall",
+      "type": "class",
+      "name": "EntityConcreteWall",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityConcreteWall.java",
+      "lineRange": [
+        7,
+        39
+      ],
+      "summary": "EntityConcreteWall class with 3 methods and 1 properties in the JavaRA game engine.",
+      "tags": [
+        "class",
+        "entity"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityConcreteWall.java:EntityConcreteWall",
+      "type": "function",
+      "name": "EntityConcreteWall",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityConcreteWall.java",
+      "lineRange": [
+        11,
+        13
+      ],
+      "summary": "EntityConcreteWall function with params: aTile in EntityConcreteWall.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityConcreteWall.java:getBuildingCost",
+      "type": "function",
+      "name": "getBuildingCost",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityConcreteWall.java",
+      "lineRange": [
+        35,
+        38
+      ],
+      "summary": "getBuildingCost function  in EntityConcreteWall.",
+      "tags": [
+        "function",
+        "getter"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/cr0s/javara/ai/BaseBuilder.java",
+      "target": "class:src/cr0s/javara/ai/BaseBuilder.java:BaseBuilder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/BaseBuilder.java",
+      "target": "class:src/cr0s/javara/ai/BaseBuilder.java:BaseBuilder",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/BaseBuilder.java",
+      "target": "function:src/cr0s/javara/ai/BaseBuilder.java:BaseBuilder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/BaseBuilder.java",
+      "target": "function:src/cr0s/javara/ai/BaseBuilder.java:BaseBuilder",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/BaseBuilder.java",
+      "target": "function:src/cr0s/javara/ai/BaseBuilder.java:update",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/BaseBuilder.java",
+      "target": "function:src/cr0s/javara/ai/BaseBuilder.java:update",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/BaseBuilder.java",
+      "target": "function:src/cr0s/javara/ai/BaseBuilder.java:tickQueue",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/BaseBuilder.java",
+      "target": "function:src/cr0s/javara/ai/BaseBuilder.java:getProducibleBuilding",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/BaseBuilder.java",
+      "target": "function:src/cr0s/javara/ai/BaseBuilder.java:checkBuildingLimit",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/BaseBuilder.java",
+      "target": "function:src/cr0s/javara/ai/BaseBuilder.java:chooseBuildingToBuild",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/aircraft/Dragon.java",
+      "target": "class:src/cr0s/javara/entity/aircraft/Dragon.java:Dragon",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/aircraft/Dragon.java",
+      "target": "class:src/cr0s/javara/entity/aircraft/Dragon.java:Dragon",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/aircraft/Dragon.java",
+      "target": "function:src/cr0s/javara/entity/aircraft/Dragon.java:Dragon",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/aircraft/Dragon.java",
+      "target": "function:src/cr0s/javara/entity/aircraft/Dragon.java:Dragon",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/aircraft/Dragon.java",
+      "target": "function:src/cr0s/javara/entity/aircraft/Dragon.java:findPathFromTo",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/aircraft/Dragon.java",
+      "target": "function:src/cr0s/javara/entity/aircraft/Dragon.java:findPathFromTo",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/aircraft/Dragon.java",
+      "target": "function:src/cr0s/javara/entity/aircraft/Dragon.java:getMoveSpeed",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/aircraft/Dragon.java",
+      "target": "function:src/cr0s/javara/entity/aircraft/Dragon.java:getMoveSpeed",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/aircraft/Dragon.java",
+      "target": "function:src/cr0s/javara/entity/aircraft/Dragon.java:getMinimumEnoughRange",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/aircraft/Dragon.java",
+      "target": "function:src/cr0s/javara/entity/aircraft/Dragon.java:getMinimumEnoughRange",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/aircraft/Dragon.java",
+      "target": "function:src/cr0s/javara/entity/aircraft/Dragon.java:canEnterCell",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/aircraft/Dragon.java",
+      "target": "function:src/cr0s/javara/entity/aircraft/Dragon.java:canEnterCell",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/aircraft/Dragon.java",
+      "target": "function:src/cr0s/javara/entity/aircraft/Dragon.java:getWaitAverageTime",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/aircraft/Dragon.java",
+      "target": "function:src/cr0s/javara/entity/aircraft/Dragon.java:getWaitAverageTime",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/aircraft/Dragon.java",
+      "target": "function:src/cr0s/javara/entity/aircraft/Dragon.java:getWaitSpreadTime",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/aircraft/Dragon.java",
+      "target": "function:src/cr0s/javara/entity/aircraft/Dragon.java:getWaitSpreadTime",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/aircraft/Dragon.java",
+      "target": "function:src/cr0s/javara/entity/aircraft/Dragon.java:renderEntity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/aircraft/Dragon.java",
+      "target": "function:src/cr0s/javara/entity/aircraft/Dragon.java:renderEntity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/aircraft/Dragon.java",
+      "target": "function:src/cr0s/javara/entity/aircraft/Dragon.java:getBuildingCost",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/aircraft/Dragon.java",
+      "target": "function:src/cr0s/javara/entity/aircraft/Dragon.java:getBuildingCost",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java",
+      "target": "class:src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java:EntityAdvPowerPlant",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java",
+      "target": "class:src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java:EntityAdvPowerPlant",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java:EntityAdvPowerPlant",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java:EntityAdvPowerPlant",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java:renderEntity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java:renderEntity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java:shouldRenderedInPass",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java:shouldRenderedInPass",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java:updateEntity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java:updateEntity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java:select",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java:select",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java:cancelSelect",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java:cancelSelect",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java:isSelected",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java:isSelected",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java:getHeightInTiles",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java:getHeightInTiles",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java:getWidthInTiles",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java:getWidthInTiles",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java:getPowerProductionLevel",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java:getPowerProductionLevel",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java:getRevealingRange",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java:getRevealingRange",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java:getImageView",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java:getImageView",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java:getBuildingCost",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java:getBuildingCost",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityConcreteWall.java",
+      "target": "class:src/cr0s/javara/entity/building/common/EntityConcreteWall.java:EntityConcreteWall",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityConcreteWall.java",
+      "target": "class:src/cr0s/javara/entity/building/common/EntityConcreteWall.java:EntityConcreteWall",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityConcreteWall.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityConcreteWall.java:EntityConcreteWall",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityConcreteWall.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityConcreteWall.java:EntityConcreteWall",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityConcreteWall.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityConcreteWall.java:EntityConcreteWall",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityConcreteWall.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityConcreteWall.java:EntityConcreteWall",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityConcreteWall.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityConcreteWall.java:getBuildingCost",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityConcreteWall.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityConcreteWall.java:getBuildingCost",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/BaseBuilder.java",
+      "target": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/BaseBuilder.java",
+      "target": "file:src/cr0s/javara/entity/building/BuildingType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/BaseBuilder.java",
+      "target": "file:src/cr0s/javara/entity/building/common/EntityProc.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/BaseBuilder.java",
+      "target": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/BaseBuilder.java",
+      "target": "file:src/cr0s/javara/entity/building/IPowerConsumer.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/BaseBuilder.java",
+      "target": "file:src/cr0s/javara/entity/IDefense.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/BaseBuilder.java",
+      "target": "file:src/cr0s/javara/render/World.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/BaseBuilder.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/aircraft/Dragon.java",
+      "target": "file:src/cr0s/javara/entity/actor/activity/Activity.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/aircraft/Dragon.java",
+      "target": "file:src/cr0s/javara/entity/IHaveCost.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/aircraft/Dragon.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java",
+      "target": "file:src/cr0s/javara/combat/ArmorType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java",
+      "target": "file:src/cr0s/javara/entity/building/BibType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java",
+      "target": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java",
+      "target": "file:src/cr0s/javara/entity/building/IPowerProducer.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java",
+      "target": "file:src/cr0s/javara/entity/IHaveCost.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java",
+      "target": "file:src/cr0s/javara/entity/ISelectable.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java",
+      "target": "file:src/cr0s/javara/entity/IShroudRevealer.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java",
+      "target": "file:src/cr0s/javara/main/GUI.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java",
+      "target": "file:src/cr0s/javara/resources/ResourceManager.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java",
+      "target": "file:src/cr0s/javara/resources/ShpTexture.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityConcreteWall.java",
+      "target": "file:src/cr0s/javara/entity/building/BibType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityConcreteWall.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

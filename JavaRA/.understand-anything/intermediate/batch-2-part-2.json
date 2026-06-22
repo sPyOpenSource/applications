@@ -1,0 +1,847 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/cr0s/javara/gameplay/Team.java",
+      "type": "file",
+      "name": "Team.java",
+      "filePath": "src/cr0s/javara/gameplay/Team.java",
+      "summary": "Lightweight team data class storing team color and ally/enemy relationships.",
+      "tags": [
+        "java",
+        "game",
+        "gameplay"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/cr0s/javara/gameplay/Team.java:Team",
+      "type": "class",
+      "name": "Team",
+      "filePath": "src/cr0s/javara/gameplay/Team.java",
+      "lineRange": [
+        5,
+        19
+      ],
+      "summary": "Team data holder with color and relationship tracking.",
+      "tags": [
+        "java",
+        "game",
+        "team"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/gameplay/Team.java:addPlayer",
+      "type": "function",
+      "name": "addPlayer",
+      "filePath": "src/cr0s/javara/gameplay/Team.java",
+      "lineRange": [
+        14,
+        18
+      ],
+      "summary": "addPlayer method (5 lines) in Team.java.",
+      "tags": [
+        "java",
+        "addplayer"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/main/GUI.java",
+      "type": "file",
+      "name": "GUI.java",
+      "filePath": "src/cr0s/javara/main/GUI.java",
+      "summary": "Main GUI singleton managing the game window, camera, rendering pipeline, and top-level game loop.",
+      "tags": [
+        "java",
+        "game",
+        "ui"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/cr0s/javara/main/GUI.java:GUI",
+      "type": "class",
+      "name": "GUI",
+      "filePath": "src/cr0s/javara/main/GUI.java",
+      "lineRange": [
+        22,
+        199
+      ],
+      "summary": "Main game GUI singleton coordinating rendering, camera, input, and game loop.",
+      "tags": [
+        "java",
+        "game",
+        "gui"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/main/GUI.java:getInstance",
+      "type": "function",
+      "name": "getInstance",
+      "filePath": "src/cr0s/javara/main/GUI.java",
+      "lineRange": [
+        46,
+        52
+      ],
+      "summary": "getInstance method (7 lines) in GUI.java.",
+      "tags": [
+        "java",
+        "getinstance"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/main/GUI.java:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "src/cr0s/javara/main/GUI.java",
+      "lineRange": [
+        60,
+        81
+      ],
+      "summary": "main method (22 lines) in GUI.java.",
+      "tags": [
+        "java",
+        "main"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/main/GUI.java:start",
+      "type": "function",
+      "name": "start",
+      "filePath": "src/cr0s/javara/main/GUI.java",
+      "lineRange": [
+        83,
+        101
+      ],
+      "summary": "start method (19 lines) in GUI.java.",
+      "tags": [
+        "java",
+        "start"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/main/GUI.java:startNewGame",
+      "type": "function",
+      "name": "startNewGame",
+      "filePath": "src/cr0s/javara/main/GUI.java",
+      "lineRange": [
+        119,
+        174
+      ],
+      "summary": "startNewGame method (56 lines) in GUI.java.",
+      "tags": [
+        "java",
+        "startnewgame"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/cr0s/javara/main/StateTestScreen.java",
+      "type": "file",
+      "name": "StateTestScreen.java",
+      "filePath": "src/cr0s/javara/main/StateTestScreen.java",
+      "summary": "Test screen state for rendering performance benchmarks with scrolling entity grid.",
+      "tags": [
+        "java",
+        "game",
+        "ui"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/cr0s/javara/main/StateTestScreen.java:StateTestScreen",
+      "type": "class",
+      "name": "StateTestScreen",
+      "filePath": "src/cr0s/javara/main/StateTestScreen.java",
+      "lineRange": [
+        10,
+        110
+      ],
+      "summary": "Performance test screen rendering scrolling entity grid for benchmarking.",
+      "tags": [
+        "java",
+        "game",
+        "statetestscreen"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/main/StateTestScreen.java:init",
+      "type": "function",
+      "name": "init",
+      "filePath": "src/cr0s/javara/main/StateTestScreen.java",
+      "lineRange": [
+        32,
+        35
+      ],
+      "summary": "init method (4 lines) in StateTestScreen.java.",
+      "tags": [
+        "java",
+        "init"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/main/StateTestScreen.java:drawLine",
+      "type": "function",
+      "name": "drawLine",
+      "filePath": "src/cr0s/javara/main/StateTestScreen.java",
+      "lineRange": [
+        41,
+        45
+      ],
+      "summary": "drawLine method (5 lines) in StateTestScreen.java.",
+      "tags": [
+        "java",
+        "drawline"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/main/StateTestScreen.java:drawChainLightning",
+      "type": "function",
+      "name": "drawChainLightning",
+      "filePath": "src/cr0s/javara/main/StateTestScreen.java",
+      "lineRange": [
+        47,
+        53
+      ],
+      "summary": "drawChainLightning method (7 lines) in StateTestScreen.java.",
+      "tags": [
+        "java",
+        "drawchainlightning"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/main/StateTestScreen.java:drawP2ALightning",
+      "type": "function",
+      "name": "drawP2ALightning",
+      "filePath": "src/cr0s/javara/main/StateTestScreen.java",
+      "lineRange": [
+        55,
+        62
+      ],
+      "summary": "drawP2ALightning method (8 lines) in StateTestScreen.java.",
+      "tags": [
+        "java",
+        "drawp2alightning"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/main/StateTestScreen.java:drawP2PLightning",
+      "type": "function",
+      "name": "drawP2PLightning",
+      "filePath": "src/cr0s/javara/main/StateTestScreen.java",
+      "lineRange": [
+        64,
+        71
+      ],
+      "summary": "drawP2PLightning method (8 lines) in StateTestScreen.java.",
+      "tags": [
+        "java",
+        "drawp2plightning"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/main/StateTestScreen.java:drawSingleP2PLightning",
+      "type": "function",
+      "name": "drawSingleP2PLightning",
+      "filePath": "src/cr0s/javara/main/StateTestScreen.java",
+      "lineRange": [
+        73,
+        86
+      ],
+      "summary": "drawSingleP2PLightning method (14 lines) in StateTestScreen.java.",
+      "tags": [
+        "java",
+        "drawsinglep2plightning"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/main/StateTestScreen.java:start",
+      "type": "function",
+      "name": "start",
+      "filePath": "src/cr0s/javara/main/StateTestScreen.java",
+      "lineRange": [
+        88,
+        101
+      ],
+      "summary": "start method (14 lines) in StateTestScreen.java.",
+      "tags": [
+        "java",
+        "start"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/main/StateTestScreen.java:update",
+      "type": "function",
+      "name": "update",
+      "filePath": "src/cr0s/javara/main/StateTestScreen.java",
+      "lineRange": [
+        103,
+        108
+      ],
+      "summary": "update method (6 lines) in StateTestScreen.java.",
+      "tags": [
+        "java",
+        "update"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/order/ITargetLines.java",
+      "type": "file",
+      "name": "ITargetLines.java",
+      "filePath": "src/cr0s/javara/order/ITargetLines.java",
+      "summary": "Interface defining target line rendering contract for entities that show targeting lines.",
+      "tags": [
+        "java",
+        "game",
+        "order"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/order/TargetLine.java",
+      "type": "file",
+      "name": "TargetLine.java",
+      "filePath": "src/cr0s/javara/order/TargetLine.java",
+      "summary": "Target line renderer that draws visual lines from entities to their targets using canvas.",
+      "tags": [
+        "java",
+        "game",
+        "order"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/cr0s/javara/order/TargetLine.java:TargetLine",
+      "type": "class",
+      "name": "TargetLine",
+      "filePath": "src/cr0s/javara/order/TargetLine.java",
+      "lineRange": [
+        9,
+        52
+      ],
+      "summary": "Canvas-based target line renderer between entities and targets.",
+      "tags": [
+        "java",
+        "game",
+        "targetline"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/order/TargetLine.java:TargetLine",
+      "type": "function",
+      "name": "TargetLine",
+      "filePath": "src/cr0s/javara/order/TargetLine.java",
+      "lineRange": [
+        16,
+        22
+      ],
+      "summary": "TargetLine method (7 lines) in TargetLine.java.",
+      "tags": [
+        "java",
+        "targetline"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/order/TargetLine.java:update",
+      "type": "function",
+      "name": "update",
+      "filePath": "src/cr0s/javara/order/TargetLine.java",
+      "lineRange": [
+        31,
+        37
+      ],
+      "summary": "update method (7 lines) in TargetLine.java.",
+      "tags": [
+        "java",
+        "update"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/order/TargetLine.java:render",
+      "type": "function",
+      "name": "render",
+      "filePath": "src/cr0s/javara/order/TargetLine.java",
+      "lineRange": [
+        39,
+        47
+      ],
+      "summary": "render method (9 lines) in TargetLine.java.",
+      "tags": [
+        "java",
+        "render"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/perfomance/PerfomanceGraphRenderer.java",
+      "type": "file",
+      "name": "PerfomanceGraphRenderer.java",
+      "filePath": "src/cr0s/javara/perfomance/PerfomanceGraphRenderer.java",
+      "summary": "Performance graph overlay that renders real-time FPS and memory usage charts.",
+      "tags": [
+        "java",
+        "game",
+        "performance"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/cr0s/javara/perfomance/PerfomanceGraphRenderer.java:PerfomanceGraphRenderer",
+      "type": "class",
+      "name": "PerfomanceGraphRenderer",
+      "filePath": "src/cr0s/javara/perfomance/PerfomanceGraphRenderer.java",
+      "lineRange": [
+        10,
+        69
+      ],
+      "summary": "Real-time FPS and memory usage chart overlay.",
+      "tags": [
+        "java",
+        "game",
+        "perfomancegraphrenderer"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/perfomance/PerfomanceGraphRenderer.java:render",
+      "type": "function",
+      "name": "render",
+      "filePath": "src/cr0s/javara/perfomance/PerfomanceGraphRenderer.java",
+      "lineRange": [
+        20,
+        68
+      ],
+      "summary": "render method (49 lines) in PerfomanceGraphRenderer.java.",
+      "tags": [
+        "java",
+        "render"
+      ],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/cr0s/javara/gameplay/Team.java",
+      "target": "class:src/cr0s/javara/gameplay/Team.java:Team",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Team.java",
+      "target": "class:src/cr0s/javara/gameplay/Team.java:Team",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Team.java",
+      "target": "function:src/cr0s/javara/gameplay/Team.java:addPlayer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Team.java",
+      "target": "function:src/cr0s/javara/gameplay/Team.java:addPlayer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/main/GUI.java",
+      "target": "class:src/cr0s/javara/main/GUI.java:GUI",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/main/GUI.java",
+      "target": "class:src/cr0s/javara/main/GUI.java:GUI",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/main/GUI.java",
+      "target": "function:src/cr0s/javara/main/GUI.java:getInstance",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/main/GUI.java",
+      "target": "function:src/cr0s/javara/main/GUI.java:getInstance",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/main/GUI.java",
+      "target": "function:src/cr0s/javara/main/GUI.java:main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/main/GUI.java",
+      "target": "function:src/cr0s/javara/main/GUI.java:main",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/main/GUI.java",
+      "target": "function:src/cr0s/javara/main/GUI.java:start",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/main/GUI.java",
+      "target": "function:src/cr0s/javara/main/GUI.java:start",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/main/GUI.java",
+      "target": "function:src/cr0s/javara/main/GUI.java:startNewGame",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/main/GUI.java",
+      "target": "function:src/cr0s/javara/main/GUI.java:startNewGame",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/main/GUI.java",
+      "target": "file:src/cr0s/javara/ai/AIPlayer.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/main/GUI.java",
+      "target": "file:src/cr0s/javara/gameplay/BuildingOverlay.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/main/GUI.java",
+      "target": "file:src/cr0s/javara/gameplay/Player.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/main/GUI.java",
+      "target": "file:src/cr0s/javara/gameplay/Team.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/main/GUI.java",
+      "target": "file:src/cr0s/javara/render/Controller.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/main/GUI.java",
+      "target": "file:src/cr0s/javara/render/shrouds/ShroudRenderer.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/main/GUI.java",
+      "target": "file:src/cr0s/javara/render/World.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/main/GUI.java",
+      "target": "file:src/cr0s/javara/resources/ResourceManager.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/main/GUI.java",
+      "target": "file:src/cr0s/javara/ui/GameSideBar.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StateTestScreen.java",
+      "target": "class:src/cr0s/javara/main/StateTestScreen.java:StateTestScreen",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StateTestScreen.java",
+      "target": "class:src/cr0s/javara/main/StateTestScreen.java:StateTestScreen",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StateTestScreen.java",
+      "target": "function:src/cr0s/javara/main/StateTestScreen.java:init",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StateTestScreen.java",
+      "target": "function:src/cr0s/javara/main/StateTestScreen.java:init",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StateTestScreen.java",
+      "target": "function:src/cr0s/javara/main/StateTestScreen.java:drawLine",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StateTestScreen.java",
+      "target": "function:src/cr0s/javara/main/StateTestScreen.java:drawLine",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StateTestScreen.java",
+      "target": "function:src/cr0s/javara/main/StateTestScreen.java:drawChainLightning",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StateTestScreen.java",
+      "target": "function:src/cr0s/javara/main/StateTestScreen.java:drawChainLightning",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StateTestScreen.java",
+      "target": "function:src/cr0s/javara/main/StateTestScreen.java:drawP2ALightning",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StateTestScreen.java",
+      "target": "function:src/cr0s/javara/main/StateTestScreen.java:drawP2ALightning",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StateTestScreen.java",
+      "target": "function:src/cr0s/javara/main/StateTestScreen.java:drawP2PLightning",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StateTestScreen.java",
+      "target": "function:src/cr0s/javara/main/StateTestScreen.java:drawP2PLightning",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StateTestScreen.java",
+      "target": "function:src/cr0s/javara/main/StateTestScreen.java:drawSingleP2PLightning",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StateTestScreen.java",
+      "target": "function:src/cr0s/javara/main/StateTestScreen.java:drawSingleP2PLightning",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StateTestScreen.java",
+      "target": "function:src/cr0s/javara/main/StateTestScreen.java:start",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StateTestScreen.java",
+      "target": "function:src/cr0s/javara/main/StateTestScreen.java:start",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StateTestScreen.java",
+      "target": "function:src/cr0s/javara/main/StateTestScreen.java:update",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StateTestScreen.java",
+      "target": "function:src/cr0s/javara/main/StateTestScreen.java:update",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StateTestScreen.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/order/TargetLine.java",
+      "target": "class:src/cr0s/javara/order/TargetLine.java:TargetLine",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/order/TargetLine.java",
+      "target": "class:src/cr0s/javara/order/TargetLine.java:TargetLine",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/order/TargetLine.java",
+      "target": "function:src/cr0s/javara/order/TargetLine.java:TargetLine",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/order/TargetLine.java",
+      "target": "function:src/cr0s/javara/order/TargetLine.java:TargetLine",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/order/TargetLine.java",
+      "target": "function:src/cr0s/javara/order/TargetLine.java:TargetLine",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/order/TargetLine.java",
+      "target": "function:src/cr0s/javara/order/TargetLine.java:TargetLine",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/order/TargetLine.java",
+      "target": "function:src/cr0s/javara/order/TargetLine.java:update",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/order/TargetLine.java",
+      "target": "function:src/cr0s/javara/order/TargetLine.java:update",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/order/TargetLine.java",
+      "target": "function:src/cr0s/javara/order/TargetLine.java:render",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/order/TargetLine.java",
+      "target": "function:src/cr0s/javara/order/TargetLine.java:render",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/order/TargetLine.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/perfomance/PerfomanceGraphRenderer.java",
+      "target": "class:src/cr0s/javara/perfomance/PerfomanceGraphRenderer.java:PerfomanceGraphRenderer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/perfomance/PerfomanceGraphRenderer.java",
+      "target": "class:src/cr0s/javara/perfomance/PerfomanceGraphRenderer.java:PerfomanceGraphRenderer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/perfomance/PerfomanceGraphRenderer.java",
+      "target": "function:src/cr0s/javara/perfomance/PerfomanceGraphRenderer.java:render",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/perfomance/PerfomanceGraphRenderer.java",
+      "target": "function:src/cr0s/javara/perfomance/PerfomanceGraphRenderer.java:render",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/perfomance/PerfomanceGraphRenderer.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

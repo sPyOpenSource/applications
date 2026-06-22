@@ -1,0 +1,15 @@
+{
+  "batchIndex": 20,
+  "files": [
+    {
+      "path": "test/test/ClassTest.java",
+      "language": "java",
+      "sizeLines": 55,
+      "fileCategory": "code"
+    }
+  ],
+  "batchImportData": {
+    "test/test/ClassTest.java": []
+  },
+  "neighborMap": {}
+}

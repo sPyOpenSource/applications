@@ -1,0 +1,579 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 5,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "src/cr0s/javara/entity/building/BuildingType.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 5,
+      "nonEmptyLines": 4,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/cr0s/javara/entity/building/Defensive.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 34,
+      "nonEmptyLines": 29,
+      "functions": [
+        {
+          "name": "Defensive",
+          "startLine": 11,
+          "endLine": 25,
+          "params": [
+            "buildingType",
+            "hitPoints",
+            "path",
+            "rang",
+            "damagePerSecond",
+            "width",
+            "height",
+            "footprint",
+            "x"
+          ]
+        },
+        {
+          "name": "getRange",
+          "startLine": 27,
+          "endLine": 29,
+          "params": []
+        },
+        {
+          "name": "getDamagePerSecond",
+          "startLine": 31,
+          "endLine": 33,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "Defensive",
+          "startLine": 7,
+          "endLine": 34,
+          "methods": [
+            "Defensive",
+            "getRange",
+            "getDamagePerSecond"
+          ],
+          "properties": [
+            "range",
+            "damagePerSecond"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Defensive",
+          "line": 11,
+          "isDefault": false
+        },
+        {
+          "name": "getRange",
+          "line": 27,
+          "isDefault": false
+        },
+        {
+          "name": "getDamagePerSecond",
+          "line": 31,
+          "isDefault": false
+        },
+        {
+          "name": "Defensive",
+          "line": 7,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "Defensive",
+          "callee": "setHp",
+          "lineNumber": 16
+        },
+        {
+          "caller": "Defensive",
+          "callee": "new Image",
+          "lineNumber": 18
+        },
+        {
+          "caller": "Defensive",
+          "callee": "setImageView",
+          "lineNumber": 19
+        },
+        {
+          "caller": "Defensive",
+          "callee": "new ImageView",
+          "lineNumber": 19
+        },
+        {
+          "caller": "Defensive",
+          "callee": "getImageView().setX",
+          "lineNumber": 20
+        },
+        {
+          "caller": "Defensive",
+          "callee": "getImageView",
+          "lineNumber": 20
+        },
+        {
+          "caller": "Defensive",
+          "callee": "x.getX",
+          "lineNumber": 20
+        },
+        {
+          "caller": "Defensive",
+          "callee": "getImageView().setY",
+          "lineNumber": 21
+        },
+        {
+          "caller": "Defensive",
+          "callee": "getImageView",
+          "lineNumber": 21
+        },
+        {
+          "caller": "Defensive",
+          "callee": "x.getY",
+          "lineNumber": 21
+        },
+        {
+          "caller": "Defensive",
+          "callee": "getImageView().setFitWidth",
+          "lineNumber": 22
+        },
+        {
+          "caller": "Defensive",
+          "callee": "getImageView",
+          "lineNumber": 22
+        },
+        {
+          "caller": "Defensive",
+          "callee": "getImageView().setFitHeight",
+          "lineNumber": 23
+        },
+        {
+          "caller": "Defensive",
+          "callee": "getImageView",
+          "lineNumber": 23
+        },
+        {
+          "caller": "Defensive",
+          "callee": "getImages().add",
+          "lineNumber": 24
+        },
+        {
+          "caller": "Defensive",
+          "callee": "getImages",
+          "lineNumber": 24
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 4,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/cr0s/javara/entity/building/china/ArcherTower.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 32,
+      "nonEmptyLines": 26,
+      "functions": [
+        {
+          "name": "ArcherTower",
+          "startLine": 9,
+          "endLine": 11,
+          "params": [
+            "x"
+          ]
+        },
+        {
+          "name": "shouldRenderedInPass",
+          "startLine": 13,
+          "endLine": 16,
+          "params": [
+            "passNum"
+          ]
+        },
+        {
+          "name": "getHeightInTiles",
+          "startLine": 18,
+          "endLine": 21,
+          "params": []
+        },
+        {
+          "name": "getWidthInTiles",
+          "startLine": 23,
+          "endLine": 26,
+          "params": []
+        },
+        {
+          "name": "renderEntity",
+          "startLine": 28,
+          "endLine": 31,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "ArcherTower",
+          "startLine": 8,
+          "endLine": 32,
+          "methods": [
+            "ArcherTower",
+            "shouldRenderedInPass",
+            "getHeightInTiles",
+            "getWidthInTiles",
+            "renderEntity"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "ArcherTower",
+          "line": 9,
+          "isDefault": false
+        },
+        {
+          "name": "shouldRenderedInPass",
+          "line": 13,
+          "isDefault": false
+        },
+        {
+          "name": "getHeightInTiles",
+          "line": 18,
+          "isDefault": false
+        },
+        {
+          "name": "getWidthInTiles",
+          "line": 23,
+          "isDefault": false
+        },
+        {
+          "name": "renderEntity",
+          "line": 28,
+          "isDefault": false
+        },
+        {
+          "name": "ArcherTower",
+          "line": 8,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "shouldRenderedInPass",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 15
+        },
+        {
+          "caller": "getHeightInTiles",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 20
+        },
+        {
+          "caller": "getWidthInTiles",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 25
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 30
+        }
+      ],
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 6,
+        "functionCount": 5,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/cr0s/javara/entity/building/china/InfernoTower.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 45,
+      "nonEmptyLines": 38,
+      "functions": [
+        {
+          "name": "InfernoTower",
+          "startLine": 11,
+          "endLine": 14,
+          "params": [
+            "x"
+          ]
+        },
+        {
+          "name": "renderEntity",
+          "startLine": 16,
+          "endLine": 24,
+          "params": []
+        },
+        {
+          "name": "shouldRenderedInPass",
+          "startLine": 26,
+          "endLine": 29,
+          "params": [
+            "passNum"
+          ]
+        },
+        {
+          "name": "getHeightInTiles",
+          "startLine": 31,
+          "endLine": 34,
+          "params": []
+        },
+        {
+          "name": "getWidthInTiles",
+          "startLine": 36,
+          "endLine": 39,
+          "params": []
+        },
+        {
+          "name": "getBuildingCost",
+          "startLine": 41,
+          "endLine": 44,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "InfernoTower",
+          "startLine": 10,
+          "endLine": 45,
+          "methods": [
+            "InfernoTower",
+            "renderEntity",
+            "shouldRenderedInPass",
+            "getHeightInTiles",
+            "getWidthInTiles",
+            "getBuildingCost"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "InfernoTower",
+          "line": 11,
+          "isDefault": false
+        },
+        {
+          "name": "renderEntity",
+          "line": 16,
+          "isDefault": false
+        },
+        {
+          "name": "shouldRenderedInPass",
+          "line": 26,
+          "isDefault": false
+        },
+        {
+          "name": "getHeightInTiles",
+          "line": 31,
+          "isDefault": false
+        },
+        {
+          "name": "getWidthInTiles",
+          "line": 36,
+          "isDefault": false
+        },
+        {
+          "name": "getBuildingCost",
+          "line": 41,
+          "isDefault": false
+        },
+        {
+          "name": "InfernoTower",
+          "line": 10,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "renderEntity",
+          "callee": "getImageView",
+          "lineNumber": 18
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "setImageView",
+          "lineNumber": 19
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "new ImageView",
+          "lineNumber": 19
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "getImages().get",
+          "lineNumber": 19
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "getImages",
+          "lineNumber": 19
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "new StackPane",
+          "lineNumber": 21
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "combined.getChildren().add",
+          "lineNumber": 22
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "combined.getChildren",
+          "lineNumber": 22
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "getImageView",
+          "lineNumber": 22
+        },
+        {
+          "caller": "shouldRenderedInPass",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 28
+        }
+      ],
+      "metrics": {
+        "importCount": 4,
+        "exportCount": 7,
+        "functionCount": 6,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/cr0s/javara/entity/building/china/Tesla.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 32,
+      "nonEmptyLines": 26,
+      "functions": [
+        {
+          "name": "Tesla",
+          "startLine": 9,
+          "endLine": 11,
+          "params": [
+            "x"
+          ]
+        },
+        {
+          "name": "renderEntity",
+          "startLine": 13,
+          "endLine": 16,
+          "params": []
+        },
+        {
+          "name": "shouldRenderedInPass",
+          "startLine": 18,
+          "endLine": 21,
+          "params": [
+            "passNum"
+          ]
+        },
+        {
+          "name": "getHeightInTiles",
+          "startLine": 23,
+          "endLine": 26,
+          "params": []
+        },
+        {
+          "name": "getWidthInTiles",
+          "startLine": 28,
+          "endLine": 31,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "Tesla",
+          "startLine": 8,
+          "endLine": 32,
+          "methods": [
+            "Tesla",
+            "renderEntity",
+            "shouldRenderedInPass",
+            "getHeightInTiles",
+            "getWidthInTiles"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "Tesla",
+          "line": 9,
+          "isDefault": false
+        },
+        {
+          "name": "renderEntity",
+          "line": 13,
+          "isDefault": false
+        },
+        {
+          "name": "shouldRenderedInPass",
+          "line": 18,
+          "isDefault": false
+        },
+        {
+          "name": "getHeightInTiles",
+          "line": 23,
+          "isDefault": false
+        },
+        {
+          "name": "getWidthInTiles",
+          "line": 28,
+          "isDefault": false
+        },
+        {
+          "name": "Tesla",
+          "line": 8,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "renderEntity",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 15
+        },
+        {
+          "caller": "shouldRenderedInPass",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 20
+        },
+        {
+          "caller": "getHeightInTiles",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 25
+        },
+        {
+          "caller": "getWidthInTiles",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 30
+        }
+      ],
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 6,
+        "functionCount": 5,
+        "classCount": 1
+      }
+    }
+  ]
+}

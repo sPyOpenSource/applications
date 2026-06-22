@@ -1,0 +1,1390 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/cr0s/javara/entity/INotifySelected.java",
+      "type": "file",
+      "name": "INotifySelected.java",
+      "filePath": "src/cr0s/javara/entity/INotifySelected.java",
+      "summary": "Defines the INotifySelected interface for the JavaRA RTS game engine.",
+      "tags": [
+        "java",
+        "interface",
+        "game-engine"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/entity/turreted/IHaveTurret.java",
+      "type": "file",
+      "name": "IHaveTurret.java",
+      "filePath": "src/cr0s/javara/entity/turreted/IHaveTurret.java",
+      "summary": "Defines the IHaveTurret interface for the JavaRA RTS game engine.",
+      "tags": [
+        "java",
+        "interface",
+        "game-engine"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/cr0s/javara/entity/turreted/IHaveTurret.java:IHaveTurret",
+      "type": "class",
+      "name": "IHaveTurret",
+      "filePath": "src/cr0s/javara/entity/turreted/IHaveTurret.java",
+      "lineRange": [
+        6,
+        11
+      ],
+      "summary": "Class IHaveTurret with 3 methods providing core functionality for the JavaRA engine.",
+      "tags": [
+        "java",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/entity/turreted/Turret.java",
+      "type": "file",
+      "name": "Turret.java",
+      "filePath": "src/cr0s/javara/entity/turreted/Turret.java",
+      "summary": "Turret implementation providing facing, recoil, tick rotation, and position tracking for turreted entities.",
+      "tags": [
+        "java",
+        "entity",
+        "turret",
+        "mechanics"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/cr0s/javara/entity/turreted/Turret.java:Turret",
+      "type": "class",
+      "name": "Turret",
+      "filePath": "src/cr0s/javara/entity/turreted/Turret.java",
+      "lineRange": [
+        11,
+        218
+      ],
+      "summary": "Class Turret with 17 methods providing core functionality for the JavaRA engine.",
+      "tags": [
+        "java",
+        "class"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/turreted/Turret.java:Turret",
+      "type": "function",
+      "name": "Turret",
+      "filePath": "src/cr0s/javara/entity/turreted/Turret.java",
+      "lineRange": [
+        37,
+        39
+      ],
+      "summary": "Turret(a, parentOffset, texture, aStartFrame, aNumFacings) - 3 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/turreted/Turret.java:update",
+      "type": "function",
+      "name": "update",
+      "filePath": "src/cr0s/javara/entity/turreted/Turret.java",
+      "lineRange": [
+        54,
+        72
+      ],
+      "summary": "update(delta) - 19 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/turreted/Turret.java:setTurretSize",
+      "type": "function",
+      "name": "setTurretSize",
+      "filePath": "src/cr0s/javara/entity/turreted/Turret.java",
+      "lineRange": [
+        74,
+        77
+      ],
+      "summary": "setTurretSize(w, h) - 4 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/turreted/Turret.java:updateTurretPos",
+      "type": "function",
+      "name": "updateTurretPos",
+      "filePath": "src/cr0s/javara/entity/turreted/Turret.java",
+      "lineRange": [
+        79,
+        90
+      ],
+      "summary": "updateTurretPos() - 12 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/turreted/Turret.java:render",
+      "type": "function",
+      "name": "render",
+      "filePath": "src/cr0s/javara/entity/turreted/Turret.java",
+      "lineRange": [
+        100,
+        104
+      ],
+      "summary": "render(g) - 5 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/turreted/Turret.java:doTurretRotationTick",
+      "type": "function",
+      "name": "doTurretRotationTick",
+      "filePath": "src/cr0s/javara/entity/turreted/Turret.java",
+      "lineRange": [
+        110,
+        141
+      ],
+      "summary": "doTurretRotationTick() - 32 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/turreted/Turret.java:rotateTurretTo",
+      "type": "function",
+      "name": "rotateTurretTo",
+      "filePath": "src/cr0s/javara/entity/turreted/Turret.java",
+      "lineRange": [
+        156,
+        177
+      ],
+      "summary": "rotateTurretTo(rot) - 22 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/turreted/Turret.java:setTarget",
+      "type": "function",
+      "name": "setTarget",
+      "filePath": "src/cr0s/javara/entity/turreted/Turret.java",
+      "lineRange": [
+        183,
+        188
+      ],
+      "summary": "setTarget(point) - 6 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/turreted/Turret.java:isTargeting",
+      "type": "function",
+      "name": "isTargeting",
+      "filePath": "src/cr0s/javara/entity/turreted/Turret.java",
+      "lineRange": [
+        190,
+        192
+      ],
+      "summary": "isTargeting() - 3 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/turreted/Turret.java:recoil",
+      "type": "function",
+      "name": "recoil",
+      "filePath": "src/cr0s/javara/entity/turreted/Turret.java",
+      "lineRange": [
+        194,
+        196
+      ],
+      "summary": "recoil() - 3 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/turreted/Turret.java:getCurrentFacing",
+      "type": "function",
+      "name": "getCurrentFacing",
+      "filePath": "src/cr0s/javara/entity/turreted/Turret.java",
+      "lineRange": [
+        198,
+        200
+      ],
+      "summary": "getCurrentFacing() - 3 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/turreted/Turret.java:getCenterPos",
+      "type": "function",
+      "name": "getCenterPos",
+      "filePath": "src/cr0s/javara/entity/turreted/Turret.java",
+      "lineRange": [
+        202,
+        204
+      ],
+      "summary": "getCenterPos() - 3 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/turreted/Turret.java:faceTarget",
+      "type": "function",
+      "name": "faceTarget",
+      "filePath": "src/cr0s/javara/entity/turreted/Turret.java",
+      "lineRange": [
+        206,
+        217
+      ],
+      "summary": "faceTarget(centerPosition) - 12 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "type": "file",
+      "name": "EntityHeavyTank.java",
+      "filePath": "src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "summary": "Soviet heavy tank with turreted 105mm cannon attack, war factory deployment, and auto-targeting.",
+      "tags": [
+        "java",
+        "entity",
+        "vehicle",
+        "soviet",
+        "heavy-tank"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java:EntityHeavyTank",
+      "type": "class",
+      "name": "EntityHeavyTank",
+      "filePath": "src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "lineRange": [
+        34,
+        264
+      ],
+      "summary": "Class EntityHeavyTank with 22 methods providing entity functionality for the JavaRA engine.",
+      "tags": [
+        "java",
+        "class"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java:EntityHeavyTank",
+      "type": "function",
+      "name": "EntityHeavyTank",
+      "filePath": "src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "lineRange": [
+        60,
+        88
+      ],
+      "summary": "EntityHeavyTank(pos) - 29 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java:updateEntity",
+      "type": "function",
+      "name": "updateEntity",
+      "filePath": "src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "lineRange": [
+        90,
+        107
+      ],
+      "summary": "updateEntity(delta) - 18 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java:renderEntity",
+      "type": "function",
+      "name": "renderEntity",
+      "filePath": "src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "lineRange": [
+        109,
+        160
+      ],
+      "summary": "renderEntity() - 52 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java:select",
+      "type": "function",
+      "name": "select",
+      "filePath": "src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "lineRange": [
+        162,
+        165
+      ],
+      "summary": "select() - 4 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java:cancelSelect",
+      "type": "function",
+      "name": "cancelSelect",
+      "filePath": "src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "lineRange": [
+        167,
+        170
+      ],
+      "summary": "cancelSelect() - 4 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java:isSelected",
+      "type": "function",
+      "name": "isSelected",
+      "filePath": "src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "lineRange": [
+        172,
+        175
+      ],
+      "summary": "isSelected() - 4 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java:shouldRenderedInPass",
+      "type": "function",
+      "name": "shouldRenderedInPass",
+      "filePath": "src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "lineRange": [
+        177,
+        180
+      ],
+      "summary": "shouldRenderedInPass(passNum) - 4 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java:getMoveSpeed",
+      "type": "function",
+      "name": "getMoveSpeed",
+      "filePath": "src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "lineRange": [
+        182,
+        185
+      ],
+      "summary": "getMoveSpeed() - 4 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java:getTextureX",
+      "type": "function",
+      "name": "getTextureX",
+      "filePath": "src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "lineRange": [
+        187,
+        189
+      ],
+      "summary": "getTextureX() - 3 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java:getTextureY",
+      "type": "function",
+      "name": "getTextureY",
+      "filePath": "src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "lineRange": [
+        191,
+        193
+      ],
+      "summary": "getTextureY() - 3 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java:getRevealingRange",
+      "type": "function",
+      "name": "getRevealingRange",
+      "filePath": "src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "lineRange": [
+        195,
+        198
+      ],
+      "summary": "getRevealingRange() - 4 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java:findPathFromTo",
+      "type": "function",
+      "name": "findPathFromTo",
+      "filePath": "src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "lineRange": [
+        200,
+        203
+      ],
+      "summary": "findPathFromTo(e, aGoal) - 4 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java:getMinimumEnoughRange",
+      "type": "function",
+      "name": "getMinimumEnoughRange",
+      "filePath": "src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "lineRange": [
+        205,
+        208
+      ],
+      "summary": "getMinimumEnoughRange() - 4 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java:getWaitAverageTime",
+      "type": "function",
+      "name": "getWaitAverageTime",
+      "filePath": "src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "lineRange": [
+        210,
+        213
+      ],
+      "summary": "getWaitAverageTime() - 4 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java:getWaitSpreadTime",
+      "type": "function",
+      "name": "getWaitSpreadTime",
+      "filePath": "src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "lineRange": [
+        215,
+        218
+      ],
+      "summary": "getWaitSpreadTime() - 4 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java:getBuildingCost",
+      "type": "function",
+      "name": "getBuildingCost",
+      "filePath": "src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "lineRange": [
+        220,
+        223
+      ],
+      "summary": "getBuildingCost() - 4 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java:drawTurrets",
+      "type": "function",
+      "name": "drawTurrets",
+      "filePath": "src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "lineRange": [
+        225,
+        227
+      ],
+      "summary": "drawTurrets(g) - 3 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java:updateTurrets",
+      "type": "function",
+      "name": "updateTurrets",
+      "filePath": "src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "lineRange": [
+        229,
+        232
+      ],
+      "summary": "updateTurrets(delta) - 4 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java:getTurrets",
+      "type": "function",
+      "name": "getTurrets",
+      "filePath": "src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "lineRange": [
+        234,
+        241
+      ],
+      "summary": "getTurrets() - 8 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java:issueOrder",
+      "type": "function",
+      "name": "issueOrder",
+      "filePath": "src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "lineRange": [
+        243,
+        252
+      ],
+      "summary": "issueOrder(self, targeter, target, ia) - 10 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java:resolveOrder",
+      "type": "function",
+      "name": "resolveOrder",
+      "filePath": "src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "lineRange": [
+        254,
+        258
+      ],
+      "summary": "resolveOrder(order) - 5 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java:getAttackStrategy",
+      "type": "function",
+      "name": "getAttackStrategy",
+      "filePath": "src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "lineRange": [
+        260,
+        263
+      ],
+      "summary": "getAttackStrategy() - 4 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/cr0s/javara/entity/turreted/IHaveTurret.java",
+      "target": "class:src/cr0s/javara/entity/turreted/IHaveTurret.java:IHaveTurret",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/turreted/IHaveTurret.java",
+      "target": "class:src/cr0s/javara/entity/turreted/IHaveTurret.java:IHaveTurret",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/turreted/Turret.java",
+      "target": "class:src/cr0s/javara/entity/turreted/Turret.java:Turret",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/turreted/Turret.java",
+      "target": "class:src/cr0s/javara/entity/turreted/Turret.java:Turret",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/turreted/Turret.java",
+      "target": "function:src/cr0s/javara/entity/turreted/Turret.java:Turret",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/turreted/Turret.java",
+      "target": "function:src/cr0s/javara/entity/turreted/Turret.java:Turret",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/turreted/Turret.java",
+      "target": "function:src/cr0s/javara/entity/turreted/Turret.java:Turret",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/turreted/Turret.java",
+      "target": "function:src/cr0s/javara/entity/turreted/Turret.java:Turret",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/turreted/Turret.java",
+      "target": "function:src/cr0s/javara/entity/turreted/Turret.java:update",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/turreted/Turret.java",
+      "target": "function:src/cr0s/javara/entity/turreted/Turret.java:update",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/turreted/Turret.java",
+      "target": "function:src/cr0s/javara/entity/turreted/Turret.java:setTurretSize",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/turreted/Turret.java",
+      "target": "function:src/cr0s/javara/entity/turreted/Turret.java:setTurretSize",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/turreted/Turret.java",
+      "target": "function:src/cr0s/javara/entity/turreted/Turret.java:updateTurretPos",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/turreted/Turret.java",
+      "target": "function:src/cr0s/javara/entity/turreted/Turret.java:render",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/turreted/Turret.java",
+      "target": "function:src/cr0s/javara/entity/turreted/Turret.java:render",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/turreted/Turret.java",
+      "target": "function:src/cr0s/javara/entity/turreted/Turret.java:doTurretRotationTick",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/turreted/Turret.java",
+      "target": "function:src/cr0s/javara/entity/turreted/Turret.java:rotateTurretTo",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/turreted/Turret.java",
+      "target": "function:src/cr0s/javara/entity/turreted/Turret.java:rotateTurretTo",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/turreted/Turret.java",
+      "target": "function:src/cr0s/javara/entity/turreted/Turret.java:setTarget",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/turreted/Turret.java",
+      "target": "function:src/cr0s/javara/entity/turreted/Turret.java:setTarget",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/turreted/Turret.java",
+      "target": "function:src/cr0s/javara/entity/turreted/Turret.java:isTargeting",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/turreted/Turret.java",
+      "target": "function:src/cr0s/javara/entity/turreted/Turret.java:isTargeting",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/turreted/Turret.java",
+      "target": "function:src/cr0s/javara/entity/turreted/Turret.java:recoil",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/turreted/Turret.java",
+      "target": "function:src/cr0s/javara/entity/turreted/Turret.java:recoil",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/turreted/Turret.java",
+      "target": "function:src/cr0s/javara/entity/turreted/Turret.java:getCurrentFacing",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/turreted/Turret.java",
+      "target": "function:src/cr0s/javara/entity/turreted/Turret.java:getCurrentFacing",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/turreted/Turret.java",
+      "target": "function:src/cr0s/javara/entity/turreted/Turret.java:getCenterPos",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/turreted/Turret.java",
+      "target": "function:src/cr0s/javara/entity/turreted/Turret.java:getCenterPos",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/turreted/Turret.java",
+      "target": "function:src/cr0s/javara/entity/turreted/Turret.java:faceTarget",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/turreted/Turret.java",
+      "target": "function:src/cr0s/javara/entity/turreted/Turret.java:faceTarget",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/turreted/Turret.java",
+      "target": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/turreted/Turret.java",
+      "target": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/turreted/Turret.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/turreted/Turret.java",
+      "target": "file:src/cr0s/javara/util/RotationUtil.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/turreted/Turret.java",
+      "target": "file:src/cr0s/javara/util/SpriteSheet.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "target": "class:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java:EntityHeavyTank",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "target": "class:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java:EntityHeavyTank",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java:EntityHeavyTank",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java:EntityHeavyTank",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java:updateEntity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java:updateEntity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java:renderEntity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java:renderEntity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java:select",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java:select",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java:cancelSelect",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java:cancelSelect",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java:isSelected",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java:isSelected",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java:shouldRenderedInPass",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java:shouldRenderedInPass",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java:getMoveSpeed",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java:getMoveSpeed",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java:getTextureX",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java:getTextureX",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java:getTextureY",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java:getTextureY",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java:getRevealingRange",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java:getRevealingRange",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java:findPathFromTo",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java:findPathFromTo",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java:getMinimumEnoughRange",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java:getMinimumEnoughRange",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java:getWaitAverageTime",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java:getWaitAverageTime",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java:getWaitSpreadTime",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java:getWaitSpreadTime",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java:getBuildingCost",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java:getBuildingCost",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java:drawTurrets",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java:drawTurrets",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java:updateTurrets",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java:updateTurrets",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java:getTurrets",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java:getTurrets",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java:issueOrder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java:issueOrder",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java:resolveOrder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java:resolveOrder",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java:getAttackStrategy",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java:getAttackStrategy",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "target": "file:src/cr0s/javara/combat/Armament.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "target": "file:src/cr0s/javara/combat/attack/AttackBase.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "target": "file:src/cr0s/javara/combat/attack/AttackTurreted.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "target": "file:src/cr0s/javara/combat/attack/AutoTarget.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "target": "file:src/cr0s/javara/combat/attack/ICanAttack.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "target": "file:src/cr0s/javara/combat/weapon/Weapon105mm.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "target": "file:src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "target": "file:src/cr0s/javara/entity/Entity.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "target": "file:src/cr0s/javara/entity/IHaveCost.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "target": "file:src/cr0s/javara/entity/ISelectable.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "target": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "target": "file:src/cr0s/javara/entity/turreted/IHaveTurret.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "target": "file:src/cr0s/javara/entity/turreted/Turret.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "target": "file:src/cr0s/javara/entity/vehicle/EntityVehicle.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "target": "file:src/cr0s/javara/main/GUI.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "target": "file:src/cr0s/javara/order/InputAttributes.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "target": "file:src/cr0s/javara/order/Order.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "target": "file:src/cr0s/javara/order/OrderTargeter.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "target": "file:src/cr0s/javara/order/Target.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "target": "file:src/cr0s/javara/resources/ResourceManager.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "target": "file:src/cr0s/javara/util/SpriteSheet.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

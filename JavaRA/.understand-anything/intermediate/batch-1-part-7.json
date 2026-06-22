@@ -1,0 +1,402 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/cr0s/javara/render/Sequence.java",
+      "type": "file",
+      "name": "Sequence.java",
+      "filePath": "src/cr0s/javara/render/Sequence.java",
+      "summary": "Animation sequence managing texture frames, playback state, rotation facings, and render coordinates.",
+      "tags": [
+        "java",
+        "render",
+        "animation"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/cr0s/javara/render/Sequence.java:Sequence",
+      "type": "class",
+      "name": "Sequence",
+      "filePath": "src/cr0s/javara/render/Sequence.java",
+      "lineRange": [
+        10,
+        106
+      ],
+      "summary": "Class Sequence with 7 methods providing core functionality for the JavaRA engine.",
+      "tags": [
+        "java",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/Sequence.java:Sequence",
+      "type": "function",
+      "name": "Sequence",
+      "filePath": "src/cr0s/javara/render/Sequence.java",
+      "lineRange": [
+        26,
+        44
+      ],
+      "summary": "Sequence(t, startIndex, facingsCount, len, delayTicks, remap) - 19 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/Sequence.java:update",
+      "type": "function",
+      "name": "update",
+      "filePath": "src/cr0s/javara/render/Sequence.java",
+      "lineRange": [
+        46,
+        64
+      ],
+      "summary": "update(facing) - 19 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/Sequence.java:render",
+      "type": "function",
+      "name": "render",
+      "filePath": "src/cr0s/javara/render/Sequence.java",
+      "lineRange": [
+        66,
+        86
+      ],
+      "summary": "render() - 21 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/Sequence.java:isFinished",
+      "type": "function",
+      "name": "isFinished",
+      "filePath": "src/cr0s/javara/render/Sequence.java",
+      "lineRange": [
+        88,
+        90
+      ],
+      "summary": "isFinished() - 3 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/Sequence.java:reset",
+      "type": "function",
+      "name": "reset",
+      "filePath": "src/cr0s/javara/render/Sequence.java",
+      "lineRange": [
+        92,
+        97
+      ],
+      "summary": "reset() - 6 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/Sequence.java:setIsLoop",
+      "type": "function",
+      "name": "setIsLoop",
+      "filePath": "src/cr0s/javara/render/Sequence.java",
+      "lineRange": [
+        99,
+        101
+      ],
+      "summary": "setIsLoop(loop) - 3 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/Sequence.java:getTexture",
+      "type": "function",
+      "name": "getTexture",
+      "filePath": "src/cr0s/javara/render/Sequence.java",
+      "lineRange": [
+        103,
+        105
+      ],
+      "summary": "getTexture() - 3 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/ui/cursor/CursorSequence.java",
+      "type": "file",
+      "name": "CursorSequence.java",
+      "filePath": "src/cr0s/javara/ui/cursor/CursorSequence.java",
+      "summary": "Animation sequence managing texture frames, playback state, rotation facings, and render coordinates.",
+      "tags": [
+        "java",
+        "render",
+        "animation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/cr0s/javara/ui/cursor/CursorSequence.java:CursorSequence",
+      "type": "class",
+      "name": "CursorSequence",
+      "filePath": "src/cr0s/javara/ui/cursor/CursorSequence.java",
+      "lineRange": [
+        7,
+        39
+      ],
+      "summary": "Class CursorSequence with 4 methods providing core functionality for the JavaRA engine.",
+      "tags": [
+        "java",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/ui/cursor/CursorSequence.java:CursorSequence",
+      "type": "function",
+      "name": "CursorSequence",
+      "filePath": "src/cr0s/javara/ui/cursor/CursorSequence.java",
+      "lineRange": [
+        14,
+        16
+      ],
+      "summary": "CursorSequence(cursorTex, startIndex) - 3 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/ui/cursor/CursorType.java",
+      "type": "file",
+      "name": "CursorType.java",
+      "filePath": "src/cr0s/javara/ui/cursor/CursorType.java",
+      "summary": "Enum defining cursor types used for different interaction states and valid target indicators.",
+      "tags": [
+        "java",
+        "enum",
+        "ui",
+        "cursor"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/cr0s/javara/render/Sequence.java",
+      "target": "class:src/cr0s/javara/render/Sequence.java:Sequence",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/Sequence.java",
+      "target": "class:src/cr0s/javara/render/Sequence.java:Sequence",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/Sequence.java",
+      "target": "function:src/cr0s/javara/render/Sequence.java:Sequence",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/Sequence.java",
+      "target": "function:src/cr0s/javara/render/Sequence.java:Sequence",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/Sequence.java",
+      "target": "function:src/cr0s/javara/render/Sequence.java:update",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/Sequence.java",
+      "target": "function:src/cr0s/javara/render/Sequence.java:update",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/Sequence.java",
+      "target": "function:src/cr0s/javara/render/Sequence.java:render",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/Sequence.java",
+      "target": "function:src/cr0s/javara/render/Sequence.java:render",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/Sequence.java",
+      "target": "function:src/cr0s/javara/render/Sequence.java:isFinished",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/Sequence.java",
+      "target": "function:src/cr0s/javara/render/Sequence.java:isFinished",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/Sequence.java",
+      "target": "function:src/cr0s/javara/render/Sequence.java:reset",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/Sequence.java",
+      "target": "function:src/cr0s/javara/render/Sequence.java:reset",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/Sequence.java",
+      "target": "function:src/cr0s/javara/render/Sequence.java:setIsLoop",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/Sequence.java",
+      "target": "function:src/cr0s/javara/render/Sequence.java:setIsLoop",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/Sequence.java",
+      "target": "function:src/cr0s/javara/render/Sequence.java:getTexture",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/Sequence.java",
+      "target": "function:src/cr0s/javara/render/Sequence.java:getTexture",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/Sequence.java",
+      "target": "file:src/cr0s/javara/resources/ShpTexture.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/render/Sequence.java",
+      "target": "file:src/cr0s/javara/util/RotationUtil.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/cursor/CursorSequence.java",
+      "target": "class:src/cr0s/javara/ui/cursor/CursorSequence.java:CursorSequence",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/cursor/CursorSequence.java",
+      "target": "class:src/cr0s/javara/ui/cursor/CursorSequence.java:CursorSequence",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/cursor/CursorSequence.java",
+      "target": "function:src/cr0s/javara/ui/cursor/CursorSequence.java:CursorSequence",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/cursor/CursorSequence.java",
+      "target": "function:src/cr0s/javara/ui/cursor/CursorSequence.java:CursorSequence",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/cursor/CursorSequence.java",
+      "target": "function:src/cr0s/javara/ui/cursor/CursorSequence.java:CursorSequence",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/cursor/CursorSequence.java",
+      "target": "function:src/cr0s/javara/ui/cursor/CursorSequence.java:CursorSequence",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/cursor/CursorSequence.java",
+      "target": "function:src/cr0s/javara/ui/cursor/CursorSequence.java:CursorSequence",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/cursor/CursorSequence.java",
+      "target": "function:src/cr0s/javara/ui/cursor/CursorSequence.java:CursorSequence",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/cursor/CursorSequence.java",
+      "target": "file:src/cr0s/javara/render/Sequence.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/ui/cursor/CursorSequence.java",
+      "target": "file:src/cr0s/javara/resources/ShpTexture.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

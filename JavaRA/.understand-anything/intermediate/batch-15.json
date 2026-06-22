@@ -1,0 +1,230 @@
+{
+  "nodes": [
+    {
+      "id": "file:.checkstyle",
+      "type": "file",
+      "name": ".checkstyle",
+      "filePath": ".checkstyle",
+      "summary": "Eclipse Checkstyle plugin configuration enabling Sun-style Java checks with file-match pattern across the entire project.",
+      "tags": ["configuration", "eclipse", "code-style", "checkstyle"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:.classpath",
+      "type": "file",
+      "name": ".classpath",
+      "filePath": ".classpath",
+      "summary": "Eclipse classpath file defining the src source folder, JRE container, and library dependencies including LWJGL, Slick, and other game engine jars.",
+      "tags": ["configuration", "eclipse", "classpath", "dependencies"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:.project",
+      "type": "file",
+      "name": ".project",
+      "filePath": ".project",
+      "summary": "Eclipse project descriptor for the JavaRA project with Java nature and Checkstyle builder configuration.",
+      "tags": ["configuration", "eclipse", "project-metadata", "java"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:.settings/org.eclipse.jdt.core.prefs",
+      "type": "file",
+      "name": "org.eclipse.jdt.core.prefs",
+      "filePath": ".settings/org.eclipse.jdt.core.prefs",
+      "summary": "Eclipse JDT core formatter preferences defining code style rules for indentation, brace placement, whitespace, and line wrapping across the Java codebase.",
+      "tags": ["configuration", "eclipse", "code-style", "formatter", "java"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:.settings/org.eclipse.jdt.ui.prefs",
+      "type": "file",
+      "name": "org.eclipse.jdt.ui.prefs",
+      "filePath": ".settings/org.eclipse.jdt.ui.prefs",
+      "summary": "Eclipse JDT UI preferences for code cleanup actions, import ordering, and member visibility thresholds used by automated refactoring.",
+      "tags": ["configuration", "eclipse", "code-cleanup", "java"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:.understand-anything/.understandignore",
+      "type": "file",
+      "name": ".understandignore",
+      "filePath": ".understand-anything/.understandignore",
+      "summary": "Ignore patterns for the Understand-Anything code analysis tool, listing build directories and test file patterns to exclude from analysis.",
+      "tags": ["configuration", "ignore-list", "tooling", "code-analysis"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:.understand-anything/config.json",
+      "type": "config",
+      "name": "config.json",
+      "filePath": ".understand-anything/config.json",
+      "summary": "Configuration for the Understand-Anything code analysis tool, setting English as the output language for generated documentation and summaries.",
+      "tags": ["configuration", "tooling", "code-analysis", "output-settings"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:assets/allies.mix",
+      "type": "file",
+      "name": "allies.mix",
+      "filePath": "assets/allies.mix",
+      "summary": "Westwood game archive containing allied forces asset data including unit graphics, terrain, and UI elements for the allied faction.",
+      "tags": ["game-asset", "archive", "mix", "binary", "red-alert"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:assets/conquer.mix",
+      "type": "file",
+      "name": "conquer.mix",
+      "filePath": "assets/conquer.mix",
+      "summary": "Westwood game archive containing core conquest-mode assets including main menu graphics, sidebar UI, and gameplay icons.",
+      "tags": ["game-asset", "archive", "mix", "binary", "red-alert"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:assets/general.mix",
+      "type": "file",
+      "name": "general.mix",
+      "filePath": "assets/general.mix",
+      "summary": "Westwood game archive containing general-purpose asset data shared across game modes and factions.",
+      "tags": ["game-asset", "archive", "mix", "binary", "red-alert"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:assets/hires.mix",
+      "type": "file",
+      "name": "hires.mix",
+      "filePath": "assets/hires.mix",
+      "summary": "Westwood game archive containing high-resolution graphics assets for enhanced display modes.",
+      "tags": ["game-asset", "archive", "mix", "binary", "red-alert"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:assets/interface.mix",
+      "type": "file",
+      "name": "interface.mix",
+      "filePath": "assets/interface.mix",
+      "summary": "Westwood game archive containing user interface assets including buttons, panels, fonts, and HUD elements.",
+      "tags": ["game-asset", "archive", "mix", "binary", "red-alert"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:assets/interior.mix",
+      "type": "file",
+      "name": "interior.mix",
+      "filePath": "assets/interior.mix",
+      "summary": "Westwood game archive containing interior terrain tile graphics for underground or building interior maps.",
+      "tags": ["game-asset", "archive", "mix", "binary", "red-alert"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:assets/mouse.shp",
+      "type": "file",
+      "name": "mouse.shp",
+      "filePath": "assets/mouse.shp",
+      "summary": "Westwood sprite shape file containing mouse cursor graphics including pointer, selection, and action cursor frames.",
+      "tags": ["game-asset", "sprite", "shp", "binary", "red-alert"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:assets/pal/00000005.pal",
+      "type": "file",
+      "name": "00000005.pal",
+      "filePath": "assets/pal/00000005.pal",
+      "summary": "Westwood palette file defining the color lookup table for the default game rendering palette (index 5).",
+      "tags": ["game-asset", "palette", "binary", "red-alert"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:assets/pal/egopal.pal",
+      "type": "file",
+      "name": "egopal.pal",
+      "filePath": "assets/pal/egopal.pal",
+      "summary": "Westwood EGA palette file providing the 16-color EGA-compatible color scheme for legacy display modes.",
+      "tags": ["game-asset", "palette", "binary", "red-alert"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:assets/pal/interior.pal",
+      "type": "file",
+      "name": "interior.pal",
+      "filePath": "assets/pal/interior.pal",
+      "summary": "Westwood palette file defining the color scheme for interior/underground terrain rendering.",
+      "tags": ["game-asset", "palette", "binary", "red-alert"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:assets/pal/snow.pal",
+      "type": "file",
+      "name": "snow.pal",
+      "filePath": "assets/pal/snow.pal",
+      "summary": "Westwood palette file defining the color scheme for snow terrain rendering in Arctic-themed maps.",
+      "tags": ["game-asset", "palette", "binary", "red-alert"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:assets/pal/temperat.pal",
+      "type": "file",
+      "name": "temperat.pal",
+      "filePath": "assets/pal/temperat.pal",
+      "summary": "Westwood palette file defining the color scheme for temperate terrain rendering in standard maps.",
+      "tags": ["game-asset", "palette", "binary", "red-alert"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:assets/redalert.mix",
+      "type": "file",
+      "name": "redalert.mix",
+      "filePath": "assets/redalert.mix",
+      "summary": "Westwood game archive containing Red Alert expansion campaign assets including mission-specific graphics and data.",
+      "tags": ["game-asset", "archive", "mix", "binary", "red-alert"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:assets/russian.mix",
+      "type": "file",
+      "name": "russian.mix",
+      "filePath": "assets/russian.mix",
+      "summary": "Westwood game archive containing Soviet/Russian forces asset data including unit graphics and structures for the Soviet faction.",
+      "tags": ["game-asset", "archive", "mix", "binary", "red-alert"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:assets/scores.mix",
+      "type": "file",
+      "name": "scores.mix",
+      "filePath": "assets/scores.mix",
+      "summary": "Westwood game archive containing music and score assets including background tracks and victory/defeat themes.",
+      "tags": ["game-asset", "archive", "mix", "binary", "red-alert"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:assets/snow.mix",
+      "type": "file",
+      "name": "snow.mix",
+      "filePath": "assets/snow.mix",
+      "summary": "Westwood game archive containing snow terrain tile graphics and Arctic-theme assets.",
+      "tags": ["game-asset", "archive", "mix", "binary", "red-alert"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:assets/sounds.mix",
+      "type": "file",
+      "name": "sounds.mix",
+      "filePath": "assets/sounds.mix",
+      "summary": "Westwood game archive containing sound effects assets including weapon sounds, explosions, alerts, and unit responses.",
+      "tags": ["game-asset", "archive", "mix", "binary", "red-alert"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:assets/speech.mix",
+      "type": "file",
+      "name": "speech.mix",
+      "filePath": "assets/speech.mix",
+      "summary": "Westwood game archive containing voice-over speech assets including mission briefings, unit responses, and event announcements.",
+      "tags": ["game-asset", "archive", "mix", "binary", "red-alert"],
+      "complexity": "complex"
+    }
+  ],
+  "edges": []
+}

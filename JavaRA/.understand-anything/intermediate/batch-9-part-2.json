@@ -1,0 +1,1213 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/cr0s/javara/entity/aircraft/DefBalloon.java",
+      "type": "file",
+      "name": "DefBalloon.java",
+      "filePath": "src/cr0s/javara/entity/aircraft/DefBalloon.java",
+      "summary": "Soviet Defensive Balloon aircraft entity with movement, pathfinding, and rendering capabilities.",
+      "tags": ["aircraft", "entity", "soviet"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/cr0s/javara/entity/aircraft/DefBalloon.java:DefBalloon",
+      "type": "class",
+      "name": "DefBalloon",
+      "filePath": "src/cr0s/javara/entity/aircraft/DefBalloon.java",
+      "lineRange": [8, 36],
+      "summary": "Soviet Defensive Balloon entity with custom pathfinding, movement speed, and rendering overrides.",
+      "tags": ["aircraft", "entity", "soviet"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/aircraft/DefBalloon.java:DefBalloon",
+      "type": "function",
+      "name": "DefBalloon",
+      "filePath": "src/cr0s/javara/entity/aircraft/DefBalloon.java",
+      "lineRange": [9, 16],
+      "summary": "Constructor initializing position, HP, damage per second, and image views.",
+      "tags": ["constructor", "aircraft"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/aircraft/DefBalloon.java:findPathFromTo",
+      "type": "function",
+      "name": "findPathFromTo",
+      "filePath": "src/cr0s/javara/entity/aircraft/DefBalloon.java",
+      "lineRange": [17, 20],
+      "summary": "Direct pathfinding returning a straight-line path to the goal.",
+      "tags": ["pathfinding", "aircraft"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/aircraft/DefBalloon.java:getMoveSpeed",
+      "type": "function",
+      "name": "getMoveSpeed",
+      "filePath": "src/cr0s/javara/entity/aircraft/DefBalloon.java",
+      "lineRange": [22, 23],
+      "summary": "Returns the movement speed of the Defensive Balloon.",
+      "tags": ["movement", "getter"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/aircraft/DefBalloon.java:getMinimumEnoughRange",
+      "type": "function",
+      "name": "getMinimumEnoughRange",
+      "filePath": "src/cr0s/javara/entity/aircraft/DefBalloon.java",
+      "lineRange": [24, 25],
+      "summary": "Returns the minimum range threshold for movement.",
+      "tags": ["range", "getter"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/aircraft/DefBalloon.java:canEnterCell",
+      "type": "function",
+      "name": "canEnterCell",
+      "filePath": "src/cr0s/javara/entity/aircraft/DefBalloon.java",
+      "lineRange": [26, 27],
+      "summary": "Returns true for all cells (air units can fly anywhere).",
+      "tags": ["movement", "aircraft"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/aircraft/DefBalloon.java:getWaitAverageTime",
+      "type": "function",
+      "name": "getWaitAverageTime",
+      "filePath": "src/cr0s/javara/entity/aircraft/DefBalloon.java",
+      "lineRange": [28, 29],
+      "summary": "Returns average wait time for movement blocking.",
+      "tags": ["movement", "getter"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/aircraft/DefBalloon.java:getWaitSpreadTime",
+      "type": "function",
+      "name": "getWaitSpreadTime",
+      "filePath": "src/cr0s/javara/entity/aircraft/DefBalloon.java",
+      "lineRange": [30, 31],
+      "summary": "Returns wait time spread for movement blocking.",
+      "tags": ["movement", "getter"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/aircraft/DefBalloon.java:renderEntity",
+      "type": "function",
+      "name": "renderEntity",
+      "filePath": "src/cr0s/javara/entity/aircraft/DefBalloon.java",
+      "lineRange": [34, 35],
+      "summary": "Renders the entity using its current image view.",
+      "tags": ["rendering"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/entity/aircraft/EntityAircraft.java",
+      "type": "file",
+      "name": "EntityAircraft.java",
+      "filePath": "src/cr0s/javara/entity/aircraft/EntityAircraft.java",
+      "summary": "Base aircraft entity providing movement, pathfinding, landing detection, and fly-step calculations.",
+      "tags": ["aircraft", "entity", "base-class"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/cr0s/javara/entity/aircraft/EntityAircraft.java:EntityAircraft",
+      "type": "class",
+      "name": "EntityAircraft",
+      "filePath": "src/cr0s/javara/entity/aircraft/EntityAircraft.java",
+      "lineRange": [9, 43],
+      "summary": "Base aircraft entity with pathfinding overrides, fly step calculation, and landing validation.",
+      "tags": ["aircraft", "entity", "base-class"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/aircraft/EntityAircraft.java:EntityAircraft",
+      "type": "function",
+      "name": "EntityAircraft",
+      "filePath": "src/cr0s/javara/entity/aircraft/EntityAircraft.java",
+      "lineRange": [11, 14],
+      "summary": "Constructor initializing position and size.",
+      "tags": ["constructor", "aircraft"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/aircraft/EntityAircraft.java:findPathFromTo",
+      "type": "function",
+      "name": "findPathFromTo",
+      "filePath": "src/cr0s/javara/entity/aircraft/EntityAircraft.java",
+      "lineRange": [16, 19],
+      "summary": "Direct pathfinding returning a straight-line path to the goal.",
+      "tags": ["pathfinding", "aircraft"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/aircraft/EntityAircraft.java:canEnterCell",
+      "type": "function",
+      "name": "canEnterCell",
+      "filePath": "src/cr0s/javara/entity/aircraft/EntityAircraft.java",
+      "lineRange": [21, 24],
+      "summary": "Checks if the aircraft can enter a cell by verifying it is within the map bounds.",
+      "tags": ["movement", "validation"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/aircraft/EntityAircraft.java:canLand",
+      "type": "function",
+      "name": "canLand",
+      "filePath": "src/cr0s/javara/entity/aircraft/EntityAircraft.java",
+      "lineRange": [35, 41],
+      "summary": "Validates whether the aircraft can land at a given cell by checking map bounds and blocking entities.",
+      "tags": ["movement", "landing"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/entity/aircraft/GoblinBalloon.java",
+      "type": "file",
+      "name": "GoblinBalloon.java",
+      "filePath": "src/cr0s/javara/entity/aircraft/GoblinBalloon.java",
+      "summary": "Allied Goblin Balloon aircraft entity with movement, pathfinding, and rendering capabilities.",
+      "tags": ["aircraft", "entity", "allied"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/cr0s/javara/entity/aircraft/GoblinBalloon.java:GoblinBalloon",
+      "type": "class",
+      "name": "GoblinBalloon",
+      "filePath": "src/cr0s/javara/entity/aircraft/GoblinBalloon.java",
+      "lineRange": [8, 36],
+      "summary": "Allied Goblin Balloon entity with custom pathfinding, movement speed, and rendering overrides.",
+      "tags": ["aircraft", "entity", "allied"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/aircraft/GoblinBalloon.java:GoblinBalloon",
+      "type": "function",
+      "name": "GoblinBalloon",
+      "filePath": "src/cr0s/javara/entity/aircraft/GoblinBalloon.java",
+      "lineRange": [9, 16],
+      "summary": "Constructor initializing position, HP, damage per second, and image views.",
+      "tags": ["constructor", "aircraft"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/aircraft/GoblinBalloon.java:findPathFromTo",
+      "type": "function",
+      "name": "findPathFromTo",
+      "filePath": "src/cr0s/javara/entity/aircraft/GoblinBalloon.java",
+      "lineRange": [17, 20],
+      "summary": "Direct pathfinding returning a straight-line path to the goal.",
+      "tags": ["pathfinding", "aircraft"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/aircraft/GoblinBalloon.java:getMoveSpeed",
+      "type": "function",
+      "name": "getMoveSpeed",
+      "filePath": "src/cr0s/javara/entity/aircraft/GoblinBalloon.java",
+      "lineRange": [22, 23],
+      "summary": "Returns the movement speed of the Goblin Balloon.",
+      "tags": ["movement", "getter"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/aircraft/GoblinBalloon.java:getMinimumEnoughRange",
+      "type": "function",
+      "name": "getMinimumEnoughRange",
+      "filePath": "src/cr0s/javara/entity/aircraft/GoblinBalloon.java",
+      "lineRange": [24, 25],
+      "summary": "Returns the minimum range threshold for movement.",
+      "tags": ["range", "getter"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/aircraft/GoblinBalloon.java:canEnterCell",
+      "type": "function",
+      "name": "canEnterCell",
+      "filePath": "src/cr0s/javara/entity/aircraft/GoblinBalloon.java",
+      "lineRange": [26, 27],
+      "summary": "Returns true for all cells (air units can fly anywhere).",
+      "tags": ["movement", "aircraft"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/aircraft/GoblinBalloon.java:getWaitAverageTime",
+      "type": "function",
+      "name": "getWaitAverageTime",
+      "filePath": "src/cr0s/javara/entity/aircraft/GoblinBalloon.java",
+      "lineRange": [28, 29],
+      "summary": "Returns average wait time for movement blocking.",
+      "tags": ["movement", "getter"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/aircraft/GoblinBalloon.java:getWaitSpreadTime",
+      "type": "function",
+      "name": "getWaitSpreadTime",
+      "filePath": "src/cr0s/javara/entity/aircraft/GoblinBalloon.java",
+      "lineRange": [30, 31],
+      "summary": "Returns wait time spread for movement blocking.",
+      "tags": ["movement", "getter"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/aircraft/GoblinBalloon.java:renderEntity",
+      "type": "function",
+      "name": "renderEntity",
+      "filePath": "src/cr0s/javara/entity/aircraft/GoblinBalloon.java",
+      "lineRange": [34, 35],
+      "summary": "Renders the entity using its current image view.",
+      "tags": ["rendering"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/entity/building/china/TownHall.java",
+      "type": "file",
+      "name": "TownHall.java",
+      "filePath": "src/cr0s/javara/entity/building/china/TownHall.java",
+      "summary": "Chinese Town Hall building entity with rendering, pass detection, and tile size configuration.",
+      "tags": ["building", "china", "town-hall"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/cr0s/javara/entity/building/china/TownHall.java:TownHall",
+      "type": "class",
+      "name": "TownHall",
+      "filePath": "src/cr0s/javara/entity/building/china/TownHall.java",
+      "lineRange": [9, 45],
+      "summary": "Chinese Town Hall building with custom rendering, render pass filtering, and tile dimensions.",
+      "tags": ["building", "china", "town-hall"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/china/TownHall.java:TownHall",
+      "type": "function",
+      "name": "TownHall",
+      "filePath": "src/cr0s/javara/entity/building/china/TownHall.java",
+      "lineRange": [10, 22],
+      "summary": "Constructor setting HP, loading texture, configuring image view position and size, and registering the image.",
+      "tags": ["constructor", "building"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/china/TownHall.java:renderEntity",
+      "type": "function",
+      "name": "renderEntity",
+      "filePath": "src/cr0s/javara/entity/building/china/TownHall.java",
+      "lineRange": [24, 29],
+      "summary": "Creates a StackPane with the building's image view for rendering.",
+      "tags": ["rendering"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/china/TownHall.java:shouldRenderedInPass",
+      "type": "function",
+      "name": "shouldRenderedInPass",
+      "filePath": "src/cr0s/javara/entity/building/china/TownHall.java",
+      "lineRange": [31, 34],
+      "summary": "Throws UnsupportedOperationException as pass-based rendering is not implemented.",
+      "tags": ["rendering", "exception"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/china/TownHall.java:getHeightInTiles",
+      "type": "function",
+      "name": "getHeightInTiles",
+      "filePath": "src/cr0s/javara/entity/building/china/TownHall.java",
+      "lineRange": [36, 39],
+      "summary": "Returns the building height in tiles.",
+      "tags": ["building", "getter"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/china/TownHall.java:getWidthInTiles",
+      "type": "function",
+      "name": "getWidthInTiles",
+      "filePath": "src/cr0s/javara/entity/building/china/TownHall.java",
+      "lineRange": [41, 44],
+      "summary": "Returns the building width in tiles.",
+      "tags": ["building", "getter"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/entity/vehicle/EntityVehicle.java",
+      "type": "file",
+      "name": "EntityVehicle.java",
+      "filePath": "src/cr0s/javara/entity/vehicle/EntityVehicle.java",
+      "summary": "Base vehicle entity providing sound management, damage handling, order resolution, and concrete-vehicle construction via reflection.",
+      "tags": ["vehicle", "entity", "base-class", "combat"],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:src/cr0s/javara/entity/vehicle/EntityVehicle.java:EntityVehicle",
+      "type": "class",
+      "name": "EntityVehicle",
+      "filePath": "src/cr0s/javara/entity/vehicle/EntityVehicle.java",
+      "lineRange": [22, 207],
+      "summary": "Base vehicle class with selected sounds, order sounds, damage model, cell entry checks, and reflection-based concrete vehicle instantiation.",
+      "tags": ["vehicle", "entity", "base-class"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/EntityVehicle.java:EntityVehicle",
+      "type": "function",
+      "name": "EntityVehicle",
+      "filePath": "src/cr0s/javara/entity/vehicle/EntityVehicle.java",
+      "lineRange": [37, 58],
+      "summary": "Constructor initializing position, sound maps, order sounds, armor type, and target types.",
+      "tags": ["constructor", "vehicle"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/EntityVehicle.java:updateEntity",
+      "type": "function",
+      "name": "updateEntity",
+      "filePath": "src/cr0s/javara/entity/vehicle/EntityVehicle.java",
+      "lineRange": [60, 67],
+      "summary": "Delegates to superclass update entity logic.",
+      "tags": ["update", "entity"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/EntityVehicle.java:newInstance",
+      "type": "function",
+      "name": "newInstance",
+      "filePath": "src/cr0s/javara/entity/vehicle/EntityVehicle.java",
+      "lineRange": [76, 90],
+      "summary": "Creates a new vehicle instance via reflection from an existing entity's class, copying position data.",
+      "tags": ["reflection", "factory"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/EntityVehicle.java:getBuildingSpeed",
+      "type": "function",
+      "name": "getBuildingSpeed",
+      "filePath": "src/cr0s/javara/entity/vehicle/EntityVehicle.java",
+      "lineRange": [92, 94],
+      "summary": "Returns the building construction speed value.",
+      "tags": ["building", "getter"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/EntityVehicle.java:notifySelected",
+      "type": "function",
+      "name": "notifySelected",
+      "filePath": "src/cr0s/javara/entity/vehicle/EntityVehicle.java",
+      "lineRange": [96, 98],
+      "summary": "Plays a random selected sound when the unit is selected.",
+      "tags": ["audio", "selection"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/EntityVehicle.java:getSelectSound",
+      "type": "function",
+      "name": "getSelectSound",
+      "filePath": "src/cr0s/javara/entity/vehicle/EntityVehicle.java",
+      "lineRange": [100, 103],
+      "summary": "Returns a random sound key for unit selection feedback.",
+      "tags": ["audio", "getter"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/EntityVehicle.java:playSelectedSound",
+      "type": "function",
+      "name": "playSelectedSound",
+      "filePath": "src/cr0s/javara/entity/vehicle/EntityVehicle.java",
+      "lineRange": [105, 125],
+      "summary": "Plays a random selection sound globally via SoundManager from the available selectedSounds map.",
+      "tags": ["audio", "selection"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/EntityVehicle.java:resolveOrder",
+      "type": "function",
+      "name": "resolveOrder",
+      "filePath": "src/cr0s/javara/entity/vehicle/EntityVehicle.java",
+      "lineRange": [127, 130],
+      "summary": "Delegates order resolution to the superclass implementation.",
+      "tags": ["order", "delegation"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/EntityVehicle.java:playOrderSound",
+      "type": "function",
+      "name": "playOrderSound",
+      "filePath": "src/cr0s/javara/entity/vehicle/EntityVehicle.java",
+      "lineRange": [132, 161],
+      "summary": "Plays a random order-specific sound globally based on the current order context.",
+      "tags": ["audio", "order"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/EntityVehicle.java:canEnterCell",
+      "type": "function",
+      "name": "canEnterCell",
+      "filePath": "src/cr0s/javara/entity/vehicle/EntityVehicle.java",
+      "lineRange": [163, 166],
+      "summary": "Checks if the vehicle can enter a cell by verifying no blocking entity and cell passability.",
+      "tags": ["movement", "validation"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/EntityVehicle.java:moveToRange",
+      "type": "function",
+      "name": "moveToRange",
+      "filePath": "src/cr0s/javara/entity/vehicle/EntityVehicle.java",
+      "lineRange": [168, 174],
+      "summary": "Creates a Move activity to approach a target cell within a specified range.",
+      "tags": ["movement", "pathfinding"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/EntityVehicle.java:giveDamage",
+      "type": "function",
+      "name": "giveDamage",
+      "filePath": "src/cr0s/javara/entity/vehicle/EntityVehicle.java",
+      "lineRange": [176, 206],
+      "summary": "Applies damage to the vehicle, handles explosions and smoke effects at low HP, and notifies the owner of damage events.",
+      "tags": ["combat", "damage", "explosion"],
+      "complexity": "complex"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/cr0s/javara/entity/aircraft/DefBalloon.java",
+      "target": "class:src/cr0s/javara/entity/aircraft/DefBalloon.java:DefBalloon",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/aircraft/DefBalloon.java",
+      "target": "class:src/cr0s/javara/entity/aircraft/DefBalloon.java:DefBalloon",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/aircraft/DefBalloon.java",
+      "target": "function:src/cr0s/javara/entity/aircraft/DefBalloon.java:DefBalloon",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/aircraft/DefBalloon.java",
+      "target": "function:src/cr0s/javara/entity/aircraft/DefBalloon.java:DefBalloon",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/aircraft/DefBalloon.java",
+      "target": "function:src/cr0s/javara/entity/aircraft/DefBalloon.java:findPathFromTo",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/aircraft/DefBalloon.java",
+      "target": "function:src/cr0s/javara/entity/aircraft/DefBalloon.java:findPathFromTo",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/aircraft/DefBalloon.java",
+      "target": "function:src/cr0s/javara/entity/aircraft/DefBalloon.java:getMoveSpeed",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/aircraft/DefBalloon.java",
+      "target": "function:src/cr0s/javara/entity/aircraft/DefBalloon.java:getMoveSpeed",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/aircraft/DefBalloon.java",
+      "target": "function:src/cr0s/javara/entity/aircraft/DefBalloon.java:getMinimumEnoughRange",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/aircraft/DefBalloon.java",
+      "target": "function:src/cr0s/javara/entity/aircraft/DefBalloon.java:getMinimumEnoughRange",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/aircraft/DefBalloon.java",
+      "target": "function:src/cr0s/javara/entity/aircraft/DefBalloon.java:canEnterCell",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/aircraft/DefBalloon.java",
+      "target": "function:src/cr0s/javara/entity/aircraft/DefBalloon.java:canEnterCell",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/aircraft/DefBalloon.java",
+      "target": "function:src/cr0s/javara/entity/aircraft/DefBalloon.java:getWaitAverageTime",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/aircraft/DefBalloon.java",
+      "target": "function:src/cr0s/javara/entity/aircraft/DefBalloon.java:getWaitAverageTime",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/aircraft/DefBalloon.java",
+      "target": "function:src/cr0s/javara/entity/aircraft/DefBalloon.java:getWaitSpreadTime",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/aircraft/DefBalloon.java",
+      "target": "function:src/cr0s/javara/entity/aircraft/DefBalloon.java:getWaitSpreadTime",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/aircraft/DefBalloon.java",
+      "target": "function:src/cr0s/javara/entity/aircraft/DefBalloon.java:renderEntity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/aircraft/DefBalloon.java",
+      "target": "function:src/cr0s/javara/entity/aircraft/DefBalloon.java:renderEntity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/aircraft/DefBalloon.java",
+      "target": "file:src/cr0s/javara/entity/actor/activity/Activity.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/aircraft/DefBalloon.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/aircraft/EntityAircraft.java",
+      "target": "class:src/cr0s/javara/entity/aircraft/EntityAircraft.java:EntityAircraft",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/aircraft/EntityAircraft.java",
+      "target": "class:src/cr0s/javara/entity/aircraft/EntityAircraft.java:EntityAircraft",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/aircraft/EntityAircraft.java",
+      "target": "function:src/cr0s/javara/entity/aircraft/EntityAircraft.java:EntityAircraft",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/aircraft/EntityAircraft.java",
+      "target": "function:src/cr0s/javara/entity/aircraft/EntityAircraft.java:EntityAircraft",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/aircraft/EntityAircraft.java",
+      "target": "function:src/cr0s/javara/entity/aircraft/EntityAircraft.java:findPathFromTo",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/aircraft/EntityAircraft.java",
+      "target": "function:src/cr0s/javara/entity/aircraft/EntityAircraft.java:findPathFromTo",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/aircraft/EntityAircraft.java",
+      "target": "function:src/cr0s/javara/entity/aircraft/EntityAircraft.java:canEnterCell",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/aircraft/EntityAircraft.java",
+      "target": "function:src/cr0s/javara/entity/aircraft/EntityAircraft.java:canEnterCell",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/aircraft/EntityAircraft.java",
+      "target": "function:src/cr0s/javara/entity/aircraft/EntityAircraft.java:canLand",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/aircraft/EntityAircraft.java",
+      "target": "function:src/cr0s/javara/entity/aircraft/EntityAircraft.java:canLand",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/aircraft/EntityAircraft.java",
+      "target": "file:src/cr0s/javara/entity/actor/activity/Activity.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/aircraft/EntityAircraft.java",
+      "target": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/aircraft/EntityAircraft.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/aircraft/EntityAircraft.java",
+      "target": "file:src/cr0s/javara/util/RotationUtil.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/aircraft/GoblinBalloon.java",
+      "target": "class:src/cr0s/javara/entity/aircraft/GoblinBalloon.java:GoblinBalloon",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/aircraft/GoblinBalloon.java",
+      "target": "class:src/cr0s/javara/entity/aircraft/GoblinBalloon.java:GoblinBalloon",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/aircraft/GoblinBalloon.java",
+      "target": "function:src/cr0s/javara/entity/aircraft/GoblinBalloon.java:GoblinBalloon",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/aircraft/GoblinBalloon.java",
+      "target": "function:src/cr0s/javara/entity/aircraft/GoblinBalloon.java:GoblinBalloon",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/aircraft/GoblinBalloon.java",
+      "target": "function:src/cr0s/javara/entity/aircraft/GoblinBalloon.java:findPathFromTo",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/aircraft/GoblinBalloon.java",
+      "target": "function:src/cr0s/javara/entity/aircraft/GoblinBalloon.java:findPathFromTo",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/aircraft/GoblinBalloon.java",
+      "target": "function:src/cr0s/javara/entity/aircraft/GoblinBalloon.java:getMoveSpeed",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/aircraft/GoblinBalloon.java",
+      "target": "function:src/cr0s/javara/entity/aircraft/GoblinBalloon.java:getMoveSpeed",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/aircraft/GoblinBalloon.java",
+      "target": "function:src/cr0s/javara/entity/aircraft/GoblinBalloon.java:getMinimumEnoughRange",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/aircraft/GoblinBalloon.java",
+      "target": "function:src/cr0s/javara/entity/aircraft/GoblinBalloon.java:getMinimumEnoughRange",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/aircraft/GoblinBalloon.java",
+      "target": "function:src/cr0s/javara/entity/aircraft/GoblinBalloon.java:canEnterCell",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/aircraft/GoblinBalloon.java",
+      "target": "function:src/cr0s/javara/entity/aircraft/GoblinBalloon.java:canEnterCell",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/aircraft/GoblinBalloon.java",
+      "target": "function:src/cr0s/javara/entity/aircraft/GoblinBalloon.java:getWaitAverageTime",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/aircraft/GoblinBalloon.java",
+      "target": "function:src/cr0s/javara/entity/aircraft/GoblinBalloon.java:getWaitAverageTime",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/aircraft/GoblinBalloon.java",
+      "target": "function:src/cr0s/javara/entity/aircraft/GoblinBalloon.java:getWaitSpreadTime",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/aircraft/GoblinBalloon.java",
+      "target": "function:src/cr0s/javara/entity/aircraft/GoblinBalloon.java:getWaitSpreadTime",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/aircraft/GoblinBalloon.java",
+      "target": "function:src/cr0s/javara/entity/aircraft/GoblinBalloon.java:renderEntity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/aircraft/GoblinBalloon.java",
+      "target": "function:src/cr0s/javara/entity/aircraft/GoblinBalloon.java:renderEntity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/aircraft/GoblinBalloon.java",
+      "target": "file:src/cr0s/javara/entity/actor/activity/Activity.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/aircraft/GoblinBalloon.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/TownHall.java",
+      "target": "class:src/cr0s/javara/entity/building/china/TownHall.java:TownHall",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/TownHall.java",
+      "target": "class:src/cr0s/javara/entity/building/china/TownHall.java:TownHall",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/TownHall.java",
+      "target": "function:src/cr0s/javara/entity/building/china/TownHall.java:TownHall",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/TownHall.java",
+      "target": "function:src/cr0s/javara/entity/building/china/TownHall.java:TownHall",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/TownHall.java",
+      "target": "function:src/cr0s/javara/entity/building/china/TownHall.java:renderEntity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/TownHall.java",
+      "target": "function:src/cr0s/javara/entity/building/china/TownHall.java:renderEntity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/TownHall.java",
+      "target": "function:src/cr0s/javara/entity/building/china/TownHall.java:shouldRenderedInPass",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/TownHall.java",
+      "target": "function:src/cr0s/javara/entity/building/china/TownHall.java:shouldRenderedInPass",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/TownHall.java",
+      "target": "function:src/cr0s/javara/entity/building/china/TownHall.java:getHeightInTiles",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/TownHall.java",
+      "target": "function:src/cr0s/javara/entity/building/china/TownHall.java:getHeightInTiles",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/TownHall.java",
+      "target": "function:src/cr0s/javara/entity/building/china/TownHall.java:getWidthInTiles",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/TownHall.java",
+      "target": "function:src/cr0s/javara/entity/building/china/TownHall.java:getWidthInTiles",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/TownHall.java",
+      "target": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/TownHall.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/EntityVehicle.java",
+      "target": "class:src/cr0s/javara/entity/vehicle/EntityVehicle.java:EntityVehicle",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/EntityVehicle.java",
+      "target": "class:src/cr0s/javara/entity/vehicle/EntityVehicle.java:EntityVehicle",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/EntityVehicle.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/EntityVehicle.java:EntityVehicle",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/EntityVehicle.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/EntityVehicle.java:EntityVehicle",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/EntityVehicle.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/EntityVehicle.java:updateEntity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/EntityVehicle.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/EntityVehicle.java:updateEntity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/EntityVehicle.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/EntityVehicle.java:newInstance",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/EntityVehicle.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/EntityVehicle.java:newInstance",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/EntityVehicle.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/EntityVehicle.java:getBuildingSpeed",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/EntityVehicle.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/EntityVehicle.java:getBuildingSpeed",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/EntityVehicle.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/EntityVehicle.java:notifySelected",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/EntityVehicle.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/EntityVehicle.java:notifySelected",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/EntityVehicle.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/EntityVehicle.java:getSelectSound",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/EntityVehicle.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/EntityVehicle.java:getSelectSound",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/EntityVehicle.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/EntityVehicle.java:playSelectedSound",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/EntityVehicle.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/EntityVehicle.java:playSelectedSound",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/EntityVehicle.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/EntityVehicle.java:resolveOrder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/EntityVehicle.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/EntityVehicle.java:resolveOrder",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/EntityVehicle.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/EntityVehicle.java:playOrderSound",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/EntityVehicle.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/EntityVehicle.java:playOrderSound",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/EntityVehicle.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/EntityVehicle.java:canEnterCell",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/EntityVehicle.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/EntityVehicle.java:canEnterCell",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/EntityVehicle.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/EntityVehicle.java:moveToRange",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/EntityVehicle.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/EntityVehicle.java:moveToRange",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/EntityVehicle.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/EntityVehicle.java:giveDamage",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/EntityVehicle.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/EntityVehicle.java:giveDamage",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/EntityVehicle.java",
+      "target": "file:src/cr0s/javara/combat/TargetType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/EntityVehicle.java",
+      "target": "file:src/cr0s/javara/combat/Warhead.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/EntityVehicle.java",
+      "target": "file:src/cr0s/javara/entity/actor/activity/activities/Move.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/EntityVehicle.java",
+      "target": "file:src/cr0s/javara/entity/actor/activity/Activity.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/EntityVehicle.java",
+      "target": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/EntityVehicle.java",
+      "target": "file:src/cr0s/javara/entity/effect/SmokeOnUnit.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/EntityVehicle.java",
+      "target": "file:src/cr0s/javara/entity/IShroudRevealer.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/EntityVehicle.java",
+      "target": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/EntityVehicle.java",
+      "target": "file:src/cr0s/javara/order/Order.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/EntityVehicle.java",
+      "target": "file:src/cr0s/javara/render/World.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/EntityVehicle.java",
+      "target": "file:src/cr0s/javara/resources/SoundManager.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/EntityVehicle.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

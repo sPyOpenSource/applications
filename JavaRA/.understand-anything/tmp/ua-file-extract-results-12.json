@@ -1,0 +1,211 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 4,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "ai/NavalAI.yaml",
+      "language": "yaml",
+      "fileCategory": "config",
+      "totalLines": 52,
+      "nonEmptyLines": 52,
+      "sections": [
+        {
+          "heading": "Name",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "BuildingCommonNames",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "UnitsCommonNames",
+          "level": 1,
+          "line": 10
+        },
+        {
+          "heading": "BuildingLimits",
+          "level": 1,
+          "line": 12
+        },
+        {
+          "heading": "BuildingFractions",
+          "level": 1,
+          "line": 22
+        },
+        {
+          "heading": "UnitsToBuild",
+          "level": 1,
+          "line": 41
+        },
+        {
+          "heading": "SquadSize",
+          "level": 1,
+          "line": 52
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 7
+      }
+    },
+    {
+      "path": "ai/NormalAI.yaml",
+      "language": "yaml",
+      "fileCategory": "config",
+      "totalLines": 66,
+      "nonEmptyLines": 66,
+      "sections": [
+        {
+          "heading": "Name",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "BuildingCommonNames",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "UnitsCommonNames",
+          "level": 1,
+          "line": 10
+        },
+        {
+          "heading": "BuildingLimits",
+          "level": 1,
+          "line": 12
+        },
+        {
+          "heading": "BuildingFractions",
+          "level": 1,
+          "line": 25
+        },
+        {
+          "heading": "UnitsToBuild",
+          "level": 1,
+          "line": 47
+        },
+        {
+          "heading": "SquadSize",
+          "level": 1,
+          "line": 66
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 7
+      }
+    },
+    {
+      "path": "ai/RushAI.yaml",
+      "language": "yaml",
+      "fileCategory": "config",
+      "totalLines": 53,
+      "nonEmptyLines": 52,
+      "sections": [
+        {
+          "heading": "Name",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "BuildingCommonNames",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "UnitsCommonNames",
+          "level": 1,
+          "line": 10
+        },
+        {
+          "heading": "BuildingLimits",
+          "level": 1,
+          "line": 12
+        },
+        {
+          "heading": "BuildingFractions",
+          "level": 1,
+          "line": 25
+        },
+        {
+          "heading": "UnitsToBuild",
+          "level": 1,
+          "line": 41
+        },
+        {
+          "heading": "SquadSize",
+          "level": 1,
+          "line": 52
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 7
+      }
+    },
+    {
+      "path": "ai/TurtleAI.yaml",
+      "language": "yaml",
+      "fileCategory": "config",
+      "totalLines": 65,
+      "nonEmptyLines": 65,
+      "sections": [
+        {
+          "heading": "Name",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "BuildingCommonNames",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "UnitsCommonNames",
+          "level": 1,
+          "line": 10
+        },
+        {
+          "heading": "BuildingLimits",
+          "level": 1,
+          "line": 12
+        },
+        {
+          "heading": "BuildingFractions",
+          "level": 1,
+          "line": 25
+        },
+        {
+          "heading": "UnitsToBuild",
+          "level": 1,
+          "line": 46
+        },
+        {
+          "heading": "SquadSize",
+          "level": 1,
+          "line": 65
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 7
+      }
+    }
+  ]
+}

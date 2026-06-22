@@ -1,0 +1,2832 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "type": "file",
+      "name": "EntityMammothTank.java",
+      "filePath": "src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "summary": "Soviet mammoth tank with dual weapons (120mm cannon and mammoth tusk missiles), turreted attack, and auto-targeting.",
+      "tags": [
+        "java",
+        "entity",
+        "vehicle",
+        "soviet",
+        "super-tank"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java:EntityMammothTank",
+      "type": "class",
+      "name": "EntityMammothTank",
+      "filePath": "src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "lineRange": [
+        38,
+        293
+      ],
+      "summary": "Class EntityMammothTank with 22 methods providing entity functionality for the JavaRA engine.",
+      "tags": [
+        "java",
+        "class"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java:EntityMammothTank",
+      "type": "function",
+      "name": "EntityMammothTank",
+      "filePath": "src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "lineRange": [
+        74,
+        108
+      ],
+      "summary": "EntityMammothTank(pos) - 35 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java:updateEntity",
+      "type": "function",
+      "name": "updateEntity",
+      "filePath": "src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "lineRange": [
+        110,
+        126
+      ],
+      "summary": "updateEntity(delta) - 17 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java:renderEntity",
+      "type": "function",
+      "name": "renderEntity",
+      "filePath": "src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "lineRange": [
+        128,
+        189
+      ],
+      "summary": "renderEntity() - 62 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java:select",
+      "type": "function",
+      "name": "select",
+      "filePath": "src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "lineRange": [
+        191,
+        194
+      ],
+      "summary": "select() - 4 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java:cancelSelect",
+      "type": "function",
+      "name": "cancelSelect",
+      "filePath": "src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "lineRange": [
+        196,
+        199
+      ],
+      "summary": "cancelSelect() - 4 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java:isSelected",
+      "type": "function",
+      "name": "isSelected",
+      "filePath": "src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "lineRange": [
+        201,
+        204
+      ],
+      "summary": "isSelected() - 4 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java:shouldRenderedInPass",
+      "type": "function",
+      "name": "shouldRenderedInPass",
+      "filePath": "src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "lineRange": [
+        206,
+        209
+      ],
+      "summary": "shouldRenderedInPass(passNum) - 4 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java:getMoveSpeed",
+      "type": "function",
+      "name": "getMoveSpeed",
+      "filePath": "src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "lineRange": [
+        211,
+        214
+      ],
+      "summary": "getMoveSpeed() - 4 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java:getTextureX",
+      "type": "function",
+      "name": "getTextureX",
+      "filePath": "src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "lineRange": [
+        216,
+        218
+      ],
+      "summary": "getTextureX() - 3 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java:getTextureY",
+      "type": "function",
+      "name": "getTextureY",
+      "filePath": "src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "lineRange": [
+        220,
+        222
+      ],
+      "summary": "getTextureY() - 3 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java:getRevealingRange",
+      "type": "function",
+      "name": "getRevealingRange",
+      "filePath": "src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "lineRange": [
+        224,
+        227
+      ],
+      "summary": "getRevealingRange() - 4 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java:findPathFromTo",
+      "type": "function",
+      "name": "findPathFromTo",
+      "filePath": "src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "lineRange": [
+        229,
+        232
+      ],
+      "summary": "findPathFromTo(e, aGoal) - 4 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java:getMinimumEnoughRange",
+      "type": "function",
+      "name": "getMinimumEnoughRange",
+      "filePath": "src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "lineRange": [
+        234,
+        237
+      ],
+      "summary": "getMinimumEnoughRange() - 4 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java:getWaitAverageTime",
+      "type": "function",
+      "name": "getWaitAverageTime",
+      "filePath": "src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "lineRange": [
+        239,
+        242
+      ],
+      "summary": "getWaitAverageTime() - 4 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java:getWaitSpreadTime",
+      "type": "function",
+      "name": "getWaitSpreadTime",
+      "filePath": "src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "lineRange": [
+        244,
+        247
+      ],
+      "summary": "getWaitSpreadTime() - 4 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java:getBuildingCost",
+      "type": "function",
+      "name": "getBuildingCost",
+      "filePath": "src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "lineRange": [
+        249,
+        252
+      ],
+      "summary": "getBuildingCost() - 4 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java:drawTurrets",
+      "type": "function",
+      "name": "drawTurrets",
+      "filePath": "src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "lineRange": [
+        254,
+        256
+      ],
+      "summary": "drawTurrets(g) - 3 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java:updateTurrets",
+      "type": "function",
+      "name": "updateTurrets",
+      "filePath": "src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "lineRange": [
+        258,
+        261
+      ],
+      "summary": "updateTurrets(delta) - 4 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java:getTurrets",
+      "type": "function",
+      "name": "getTurrets",
+      "filePath": "src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "lineRange": [
+        263,
+        270
+      ],
+      "summary": "getTurrets() - 8 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java:issueOrder",
+      "type": "function",
+      "name": "issueOrder",
+      "filePath": "src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "lineRange": [
+        272,
+        281
+      ],
+      "summary": "issueOrder(self, targeter, target, ia) - 10 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java:resolveOrder",
+      "type": "function",
+      "name": "resolveOrder",
+      "filePath": "src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "lineRange": [
+        283,
+        287
+      ],
+      "summary": "resolveOrder(order) - 5 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java:getAttackStrategy",
+      "type": "function",
+      "name": "getAttackStrategy",
+      "filePath": "src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "lineRange": [
+        289,
+        292
+      ],
+      "summary": "getAttackStrategy() - 4 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java",
+      "type": "file",
+      "name": "EntityV2Launcher.java",
+      "filePath": "src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java",
+      "summary": "Soviet V2 rocket vehicle with frontal SCUD missile attack, radar dome prerequisite, and auto-targeting.",
+      "tags": [
+        "java",
+        "entity",
+        "vehicle",
+        "soviet",
+        "artillery"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java:EntityV2Launcher",
+      "type": "class",
+      "name": "EntityV2Launcher",
+      "filePath": "src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java",
+      "lineRange": [
+        32,
+        208
+      ],
+      "summary": "Class EntityV2Launcher with 19 methods providing entity functionality for the JavaRA engine.",
+      "tags": [
+        "java",
+        "class"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java:EntityV2Launcher",
+      "type": "function",
+      "name": "EntityV2Launcher",
+      "filePath": "src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java",
+      "lineRange": [
+        56,
+        82
+      ],
+      "summary": "EntityV2Launcher(pos) - 27 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java:updateEntity",
+      "type": "function",
+      "name": "updateEntity",
+      "filePath": "src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java",
+      "lineRange": [
+        84,
+        92
+      ],
+      "summary": "updateEntity(delta) - 9 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java:renderEntity",
+      "type": "function",
+      "name": "renderEntity",
+      "filePath": "src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java",
+      "lineRange": [
+        94,
+        124
+      ],
+      "summary": "renderEntity() - 31 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java:select",
+      "type": "function",
+      "name": "select",
+      "filePath": "src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java",
+      "lineRange": [
+        126,
+        129
+      ],
+      "summary": "select() - 4 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java:cancelSelect",
+      "type": "function",
+      "name": "cancelSelect",
+      "filePath": "src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java",
+      "lineRange": [
+        131,
+        134
+      ],
+      "summary": "cancelSelect() - 4 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java:isSelected",
+      "type": "function",
+      "name": "isSelected",
+      "filePath": "src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java",
+      "lineRange": [
+        136,
+        139
+      ],
+      "summary": "isSelected() - 4 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java:shouldRenderedInPass",
+      "type": "function",
+      "name": "shouldRenderedInPass",
+      "filePath": "src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java",
+      "lineRange": [
+        141,
+        144
+      ],
+      "summary": "shouldRenderedInPass(passNum) - 4 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java:getMoveSpeed",
+      "type": "function",
+      "name": "getMoveSpeed",
+      "filePath": "src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java",
+      "lineRange": [
+        146,
+        149
+      ],
+      "summary": "getMoveSpeed() - 4 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java:getTextureX",
+      "type": "function",
+      "name": "getTextureX",
+      "filePath": "src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java",
+      "lineRange": [
+        151,
+        153
+      ],
+      "summary": "getTextureX() - 3 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java:getTextureY",
+      "type": "function",
+      "name": "getTextureY",
+      "filePath": "src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java",
+      "lineRange": [
+        155,
+        157
+      ],
+      "summary": "getTextureY() - 3 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java:getRevealingRange",
+      "type": "function",
+      "name": "getRevealingRange",
+      "filePath": "src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java",
+      "lineRange": [
+        159,
+        162
+      ],
+      "summary": "getRevealingRange() - 4 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java:findPathFromTo",
+      "type": "function",
+      "name": "findPathFromTo",
+      "filePath": "src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java",
+      "lineRange": [
+        164,
+        167
+      ],
+      "summary": "findPathFromTo(e, aGoal) - 4 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java:getMinimumEnoughRange",
+      "type": "function",
+      "name": "getMinimumEnoughRange",
+      "filePath": "src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java",
+      "lineRange": [
+        169,
+        172
+      ],
+      "summary": "getMinimumEnoughRange() - 4 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java:getWaitAverageTime",
+      "type": "function",
+      "name": "getWaitAverageTime",
+      "filePath": "src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java",
+      "lineRange": [
+        174,
+        177
+      ],
+      "summary": "getWaitAverageTime() - 4 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java:getWaitSpreadTime",
+      "type": "function",
+      "name": "getWaitSpreadTime",
+      "filePath": "src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java",
+      "lineRange": [
+        179,
+        182
+      ],
+      "summary": "getWaitSpreadTime() - 4 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java:getBuildingCost",
+      "type": "function",
+      "name": "getBuildingCost",
+      "filePath": "src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java",
+      "lineRange": [
+        184,
+        187
+      ],
+      "summary": "getBuildingCost() - 4 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java:issueOrder",
+      "type": "function",
+      "name": "issueOrder",
+      "filePath": "src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java",
+      "lineRange": [
+        189,
+        196
+      ],
+      "summary": "issueOrder(self, targeter, target, ia) - 8 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java:resolveOrder",
+      "type": "function",
+      "name": "resolveOrder",
+      "filePath": "src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java",
+      "lineRange": [
+        198,
+        202
+      ],
+      "summary": "resolveOrder(order) - 5 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java:getAttackStrategy",
+      "type": "function",
+      "name": "getAttackStrategy",
+      "filePath": "src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java",
+      "lineRange": [
+        204,
+        207
+      ],
+      "summary": "getAttackStrategy() - 4 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/gameplay/Player.java",
+      "type": "file",
+      "name": "Player.java",
+      "filePath": "src/cr0s/javara/gameplay/Player.java",
+      "summary": "Player management providing team ownership, resource tracking, enemy detection, selection, and order resolution.",
+      "tags": [
+        "java",
+        "gameplay",
+        "player",
+        "team-management"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:src/cr0s/javara/gameplay/Player.java:Player",
+      "type": "class",
+      "name": "Player",
+      "filePath": "src/cr0s/javara/gameplay/Player.java",
+      "lineRange": [
+        27,
+        261
+      ],
+      "summary": "Class Player with 18 methods providing core functionality for the JavaRA engine.",
+      "tags": [
+        "java",
+        "class"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/cr0s/javara/gameplay/Player.java:Player",
+      "type": "function",
+      "name": "Player",
+      "filePath": "src/cr0s/javara/gameplay/Player.java",
+      "lineRange": [
+        45,
+        53
+      ],
+      "summary": "Player(w, name, side, color) - 9 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/gameplay/Player.java:getAlignment",
+      "type": "function",
+      "name": "getAlignment",
+      "filePath": "src/cr0s/javara/gameplay/Player.java",
+      "lineRange": [
+        55,
+        57
+      ],
+      "summary": "getAlignment() - 3 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/gameplay/Player.java:getBase",
+      "type": "function",
+      "name": "getBase",
+      "filePath": "src/cr0s/javara/gameplay/Player.java",
+      "lineRange": [
+        59,
+        61
+      ],
+      "summary": "getBase() - 3 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/gameplay/Player.java:setTeam",
+      "type": "function",
+      "name": "setTeam",
+      "filePath": "src/cr0s/javara/gameplay/Player.java",
+      "lineRange": [
+        63,
+        66
+      ],
+      "summary": "setTeam(t) - 4 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/gameplay/Player.java:getShroud",
+      "type": "function",
+      "name": "getShroud",
+      "filePath": "src/cr0s/javara/gameplay/Player.java",
+      "lineRange": [
+        68,
+        70
+      ],
+      "summary": "getShroud() - 3 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/gameplay/Player.java:setShroud",
+      "type": "function",
+      "name": "setShroud",
+      "filePath": "src/cr0s/javara/gameplay/Player.java",
+      "lineRange": [
+        72,
+        74
+      ],
+      "summary": "setShroud(s) - 3 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/gameplay/Player.java:setSpawn",
+      "type": "function",
+      "name": "setSpawn",
+      "filePath": "src/cr0s/javara/gameplay/Player.java",
+      "lineRange": [
+        76,
+        78
+      ],
+      "summary": "setSpawn(x) - 3 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/gameplay/Player.java:getPlayerSpawnPoint",
+      "type": "function",
+      "name": "getPlayerSpawnPoint",
+      "filePath": "src/cr0s/javara/gameplay/Player.java",
+      "lineRange": [
+        80,
+        82
+      ],
+      "summary": "getPlayerSpawnPoint() - 3 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/gameplay/Player.java:findClosestEnemy",
+      "type": "function",
+      "name": "findClosestEnemy",
+      "filePath": "src/cr0s/javara/gameplay/Player.java",
+      "lineRange": [
+        84,
+        106
+      ],
+      "summary": "findClosestEnemy(center, p, r) - 23 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/gameplay/Player.java:spawn",
+      "type": "function",
+      "name": "spawn",
+      "filePath": "src/cr0s/javara/gameplay/Player.java",
+      "lineRange": [
+        108,
+        180
+      ],
+      "summary": "spawn() - 73 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/gameplay/Player.java:getBestOrderTargeterForTarget",
+      "type": "function",
+      "name": "getBestOrderTargeterForTarget",
+      "filePath": "src/cr0s/javara/gameplay/Player.java",
+      "lineRange": [
+        182,
+        203
+      ],
+      "summary": "getBestOrderTargeterForTarget(target) - 22 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/gameplay/Player.java:selectOneEntity",
+      "type": "function",
+      "name": "selectOneEntity",
+      "filePath": "src/cr0s/javara/gameplay/Player.java",
+      "lineRange": [
+        205,
+        220
+      ],
+      "summary": "selectOneEntity(e) - 16 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/gameplay/Player.java:isAnyActorEntitySelected",
+      "type": "function",
+      "name": "isAnyActorEntitySelected",
+      "filePath": "src/cr0s/javara/gameplay/Player.java",
+      "lineRange": [
+        222,
+        232
+      ],
+      "summary": "isAnyActorEntitySelected() - 11 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/gameplay/Player.java:removeNotActuallySelectedEntities",
+      "type": "function",
+      "name": "removeNotActuallySelectedEntities",
+      "filePath": "src/cr0s/javara/gameplay/Player.java",
+      "lineRange": [
+        234,
+        243
+      ],
+      "summary": "removeNotActuallySelectedEntities() - 10 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/gameplay/Player.java:getTeam",
+      "type": "function",
+      "name": "getTeam",
+      "filePath": "src/cr0s/javara/gameplay/Player.java",
+      "lineRange": [
+        245,
+        247
+      ],
+      "summary": "getTeam() - 3 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/gameplay/Player.java:update",
+      "type": "function",
+      "name": "update",
+      "filePath": "src/cr0s/javara/gameplay/Player.java",
+      "lineRange": [
+        249,
+        251
+      ],
+      "summary": "update() - 3 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/gameplay/Player.java:notifyDamaged",
+      "type": "function",
+      "name": "notifyDamaged",
+      "filePath": "src/cr0s/javara/gameplay/Player.java",
+      "lineRange": [
+        253,
+        256
+      ],
+      "summary": "notifyDamaged(entity, firedBy, amount, warhead) - 4 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/gameplay/Player.java:isEnemyFor",
+      "type": "function",
+      "name": "isEnemyFor",
+      "filePath": "src/cr0s/javara/gameplay/Player.java",
+      "lineRange": [
+        258,
+        260
+      ],
+      "summary": "isEnemyFor(player) - 3 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/main/StateGameMap.java",
+      "type": "file",
+      "name": "StateGameMap.java",
+      "filePath": "src/cr0s/javara/main/StateGameMap.java",
+      "summary": "Main game map state handling entity spawning, input processing, order resolution, cursor management, and rendering.",
+      "tags": [
+        "java",
+        "game-state",
+        "map",
+        "input"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:src/cr0s/javara/main/StateGameMap.java:StateGameMap",
+      "type": "class",
+      "name": "StateGameMap",
+      "filePath": "src/cr0s/javara/main/StateGameMap.java",
+      "lineRange": [
+        25,
+        323
+      ],
+      "summary": "Class StateGameMap with 12 methods providing core functionality for the JavaRA engine.",
+      "tags": [
+        "java",
+        "class"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/cr0s/javara/main/StateGameMap.java:StateGameMap",
+      "type": "function",
+      "name": "StateGameMap",
+      "filePath": "src/cr0s/javara/main/StateGameMap.java",
+      "lineRange": [
+        39,
+        41
+      ],
+      "summary": "StateGameMap() - 3 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/main/StateGameMap.java:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "src/cr0s/javara/main/StateGameMap.java",
+      "lineRange": [
+        43,
+        45
+      ],
+      "summary": "main(args) - 3 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/main/StateGameMap.java:mouseDragged",
+      "type": "function",
+      "name": "mouseDragged",
+      "filePath": "src/cr0s/javara/main/StateGameMap.java",
+      "lineRange": [
+        47,
+        82
+      ],
+      "summary": "mouseDragged(oldX, oldY, newX, newY) - 36 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/main/StateGameMap.java:mouseMoved",
+      "type": "function",
+      "name": "mouseMoved",
+      "filePath": "src/cr0s/javara/main/StateGameMap.java",
+      "lineRange": [
+        84,
+        86
+      ],
+      "summary": "mouseMoved(arg0, arg1, x, y) - 3 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/main/StateGameMap.java:mouseClicked",
+      "type": "function",
+      "name": "mouseClicked",
+      "filePath": "src/cr0s/javara/main/StateGameMap.java",
+      "lineRange": [
+        88,
+        175
+      ],
+      "summary": "mouseClicked(button, x, y, clickCount) - 88 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/main/StateGameMap.java:mousePressed",
+      "type": "function",
+      "name": "mousePressed",
+      "filePath": "src/cr0s/javara/main/StateGameMap.java",
+      "lineRange": [
+        177,
+        183
+      ],
+      "summary": "mousePressed(button, x, y) - 7 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/main/StateGameMap.java:mouseReleased",
+      "type": "function",
+      "name": "mouseReleased",
+      "filePath": "src/cr0s/javara/main/StateGameMap.java",
+      "lineRange": [
+        185,
+        207
+      ],
+      "summary": "mouseReleased(button, x, y) - 23 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/main/StateGameMap.java:keyPressed",
+      "type": "function",
+      "name": "keyPressed",
+      "filePath": "src/cr0s/javara/main/StateGameMap.java",
+      "lineRange": [
+        209,
+        213
+      ],
+      "summary": "keyPressed(arg0, arg1) - 5 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/main/StateGameMap.java:getID",
+      "type": "function",
+      "name": "getID",
+      "filePath": "src/cr0s/javara/main/StateGameMap.java",
+      "lineRange": [
+        215,
+        217
+      ],
+      "summary": "getID() - 3 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/main/StateGameMap.java:start",
+      "type": "function",
+      "name": "start",
+      "filePath": "src/cr0s/javara/main/StateGameMap.java",
+      "lineRange": [
+        219,
+        243
+      ],
+      "summary": "start(arg0) - 25 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/main/StateGameMap.java:update",
+      "type": "function",
+      "name": "update",
+      "filePath": "src/cr0s/javara/main/StateGameMap.java",
+      "lineRange": [
+        245,
+        262
+      ],
+      "summary": "update(arg0, delta) - 18 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/main/StateGameMap.java:updateCursor",
+      "type": "function",
+      "name": "updateCursor",
+      "filePath": "src/cr0s/javara/main/StateGameMap.java",
+      "lineRange": [
+        264,
+        322
+      ],
+      "summary": "updateCursor() - 59 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "target": "class:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java:EntityMammothTank",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "target": "class:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java:EntityMammothTank",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java:EntityMammothTank",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java:EntityMammothTank",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java:updateEntity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java:updateEntity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java:renderEntity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java:renderEntity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java:select",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java:select",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java:cancelSelect",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java:cancelSelect",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java:isSelected",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java:isSelected",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java:shouldRenderedInPass",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java:shouldRenderedInPass",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java:getMoveSpeed",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java:getMoveSpeed",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java:getTextureX",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java:getTextureX",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java:getTextureY",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java:getTextureY",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java:getRevealingRange",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java:getRevealingRange",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java:findPathFromTo",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java:findPathFromTo",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java:getMinimumEnoughRange",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java:getMinimumEnoughRange",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java:getWaitAverageTime",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java:getWaitAverageTime",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java:getWaitSpreadTime",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java:getWaitSpreadTime",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java:getBuildingCost",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java:getBuildingCost",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java:drawTurrets",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java:drawTurrets",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java:updateTurrets",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java:updateTurrets",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java:getTurrets",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java:getTurrets",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java:issueOrder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java:issueOrder",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java:resolveOrder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java:resolveOrder",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java:getAttackStrategy",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java:getAttackStrategy",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "target": "file:src/cr0s/javara/combat/Armament.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "target": "file:src/cr0s/javara/combat/attack/AttackBase.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "target": "file:src/cr0s/javara/combat/attack/AttackTurreted.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "target": "file:src/cr0s/javara/combat/attack/AutoTarget.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "target": "file:src/cr0s/javara/combat/attack/ICanAttack.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "target": "file:src/cr0s/javara/combat/weapon/Weapon120mm.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "target": "file:src/cr0s/javara/combat/weapon/WeaponMammothTusk.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "target": "file:src/cr0s/javara/entity/actor/activity/activities/Move.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "target": "file:src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "target": "file:src/cr0s/javara/entity/Entity.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "target": "file:src/cr0s/javara/entity/IHaveCost.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "target": "file:src/cr0s/javara/entity/ISelectable.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "target": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "target": "file:src/cr0s/javara/entity/turreted/IHaveTurret.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "target": "file:src/cr0s/javara/entity/turreted/Turret.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "target": "file:src/cr0s/javara/entity/vehicle/EntityVehicle.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "target": "file:src/cr0s/javara/main/GUI.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "target": "file:src/cr0s/javara/order/InputAttributes.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "target": "file:src/cr0s/javara/order/Order.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "target": "file:src/cr0s/javara/order/OrderTargeter.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "target": "file:src/cr0s/javara/order/Target.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "target": "file:src/cr0s/javara/resources/ResourceManager.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "target": "file:src/cr0s/javara/util/SpriteSheet.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java",
+      "target": "class:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java:EntityV2Launcher",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java",
+      "target": "class:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java:EntityV2Launcher",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java:EntityV2Launcher",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java:EntityV2Launcher",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java:updateEntity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java:updateEntity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java:renderEntity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java:renderEntity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java:select",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java:select",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java:cancelSelect",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java:cancelSelect",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java:isSelected",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java:isSelected",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java:shouldRenderedInPass",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java:shouldRenderedInPass",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java:getMoveSpeed",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java:getMoveSpeed",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java:getTextureX",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java:getTextureX",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java:getTextureY",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java:getTextureY",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java:getRevealingRange",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java:getRevealingRange",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java:findPathFromTo",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java:findPathFromTo",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java:getMinimumEnoughRange",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java:getMinimumEnoughRange",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java:getWaitAverageTime",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java:getWaitAverageTime",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java:getWaitSpreadTime",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java:getWaitSpreadTime",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java:getBuildingCost",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java:getBuildingCost",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java:issueOrder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java:issueOrder",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java:resolveOrder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java:resolveOrder",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java:getAttackStrategy",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java",
+      "target": "function:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java:getAttackStrategy",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java",
+      "target": "file:src/cr0s/javara/combat/Armament.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java",
+      "target": "file:src/cr0s/javara/combat/ArmorType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java",
+      "target": "file:src/cr0s/javara/combat/attack/AttackBase.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java",
+      "target": "file:src/cr0s/javara/combat/attack/AttackFrontal.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java",
+      "target": "file:src/cr0s/javara/combat/attack/AutoTarget.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java",
+      "target": "file:src/cr0s/javara/combat/attack/ICanAttack.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java",
+      "target": "file:src/cr0s/javara/combat/weapon/WeaponSCUD.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java",
+      "target": "file:src/cr0s/javara/entity/building/common/EntityRadarDome.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java",
+      "target": "file:src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java",
+      "target": "file:src/cr0s/javara/entity/Entity.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java",
+      "target": "file:src/cr0s/javara/entity/IHaveCost.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java",
+      "target": "file:src/cr0s/javara/entity/ISelectable.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java",
+      "target": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java",
+      "target": "file:src/cr0s/javara/entity/vehicle/EntityVehicle.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java",
+      "target": "file:src/cr0s/javara/main/GUI.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java",
+      "target": "file:src/cr0s/javara/order/InputAttributes.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java",
+      "target": "file:src/cr0s/javara/order/Order.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java",
+      "target": "file:src/cr0s/javara/order/OrderTargeter.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java",
+      "target": "file:src/cr0s/javara/order/Target.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java",
+      "target": "file:src/cr0s/javara/resources/ResourceManager.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java",
+      "target": "file:src/cr0s/javara/util/RotationUtil.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java",
+      "target": "file:src/cr0s/javara/util/SpriteSheet.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Player.java",
+      "target": "class:src/cr0s/javara/gameplay/Player.java:Player",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Player.java",
+      "target": "class:src/cr0s/javara/gameplay/Player.java:Player",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Player.java",
+      "target": "function:src/cr0s/javara/gameplay/Player.java:Player",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Player.java",
+      "target": "function:src/cr0s/javara/gameplay/Player.java:Player",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Player.java",
+      "target": "function:src/cr0s/javara/gameplay/Player.java:getAlignment",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Player.java",
+      "target": "function:src/cr0s/javara/gameplay/Player.java:getAlignment",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Player.java",
+      "target": "function:src/cr0s/javara/gameplay/Player.java:getBase",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Player.java",
+      "target": "function:src/cr0s/javara/gameplay/Player.java:getBase",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Player.java",
+      "target": "function:src/cr0s/javara/gameplay/Player.java:setTeam",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Player.java",
+      "target": "function:src/cr0s/javara/gameplay/Player.java:setTeam",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Player.java",
+      "target": "function:src/cr0s/javara/gameplay/Player.java:getShroud",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Player.java",
+      "target": "function:src/cr0s/javara/gameplay/Player.java:getShroud",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Player.java",
+      "target": "function:src/cr0s/javara/gameplay/Player.java:setShroud",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Player.java",
+      "target": "function:src/cr0s/javara/gameplay/Player.java:setShroud",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Player.java",
+      "target": "function:src/cr0s/javara/gameplay/Player.java:setSpawn",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Player.java",
+      "target": "function:src/cr0s/javara/gameplay/Player.java:setSpawn",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Player.java",
+      "target": "function:src/cr0s/javara/gameplay/Player.java:getPlayerSpawnPoint",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Player.java",
+      "target": "function:src/cr0s/javara/gameplay/Player.java:getPlayerSpawnPoint",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Player.java",
+      "target": "function:src/cr0s/javara/gameplay/Player.java:findClosestEnemy",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Player.java",
+      "target": "function:src/cr0s/javara/gameplay/Player.java:findClosestEnemy",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Player.java",
+      "target": "function:src/cr0s/javara/gameplay/Player.java:spawn",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Player.java",
+      "target": "function:src/cr0s/javara/gameplay/Player.java:spawn",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Player.java",
+      "target": "function:src/cr0s/javara/gameplay/Player.java:getBestOrderTargeterForTarget",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Player.java",
+      "target": "function:src/cr0s/javara/gameplay/Player.java:getBestOrderTargeterForTarget",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Player.java",
+      "target": "function:src/cr0s/javara/gameplay/Player.java:selectOneEntity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Player.java",
+      "target": "function:src/cr0s/javara/gameplay/Player.java:selectOneEntity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Player.java",
+      "target": "function:src/cr0s/javara/gameplay/Player.java:isAnyActorEntitySelected",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Player.java",
+      "target": "function:src/cr0s/javara/gameplay/Player.java:isAnyActorEntitySelected",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Player.java",
+      "target": "function:src/cr0s/javara/gameplay/Player.java:removeNotActuallySelectedEntities",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Player.java",
+      "target": "function:src/cr0s/javara/gameplay/Player.java:removeNotActuallySelectedEntities",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Player.java",
+      "target": "function:src/cr0s/javara/gameplay/Player.java:getTeam",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Player.java",
+      "target": "function:src/cr0s/javara/gameplay/Player.java:getTeam",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Player.java",
+      "target": "function:src/cr0s/javara/gameplay/Player.java:update",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Player.java",
+      "target": "function:src/cr0s/javara/gameplay/Player.java:update",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Player.java",
+      "target": "function:src/cr0s/javara/gameplay/Player.java:notifyDamaged",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Player.java",
+      "target": "function:src/cr0s/javara/gameplay/Player.java:notifyDamaged",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Player.java",
+      "target": "function:src/cr0s/javara/gameplay/Player.java:isEnemyFor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Player.java",
+      "target": "function:src/cr0s/javara/gameplay/Player.java:isEnemyFor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Player.java",
+      "target": "file:src/cr0s/javara/combat/Warhead.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Player.java",
+      "target": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Player.java",
+      "target": "file:src/cr0s/javara/entity/Entity.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Player.java",
+      "target": "file:src/cr0s/javara/entity/infantry/EntityGrenadeTrooper.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Player.java",
+      "target": "file:src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Player.java",
+      "target": "file:src/cr0s/javara/entity/infantry/EntityRifleTrooper.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Player.java",
+      "target": "file:src/cr0s/javara/entity/infantry/EntityRocketTrooper.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Player.java",
+      "target": "file:src/cr0s/javara/entity/INotifySelected.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Player.java",
+      "target": "file:src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Player.java",
+      "target": "file:src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Player.java",
+      "target": "file:src/cr0s/javara/order/OrderTargeter.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Player.java",
+      "target": "file:src/cr0s/javara/order/Target.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Player.java",
+      "target": "file:src/cr0s/javara/render/shrouds/Shroud.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Player.java",
+      "target": "file:src/cr0s/javara/render/World.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/gameplay/Player.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StateGameMap.java",
+      "target": "class:src/cr0s/javara/main/StateGameMap.java:StateGameMap",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StateGameMap.java",
+      "target": "class:src/cr0s/javara/main/StateGameMap.java:StateGameMap",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StateGameMap.java",
+      "target": "function:src/cr0s/javara/main/StateGameMap.java:StateGameMap",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StateGameMap.java",
+      "target": "function:src/cr0s/javara/main/StateGameMap.java:StateGameMap",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StateGameMap.java",
+      "target": "function:src/cr0s/javara/main/StateGameMap.java:main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StateGameMap.java",
+      "target": "function:src/cr0s/javara/main/StateGameMap.java:main",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StateGameMap.java",
+      "target": "function:src/cr0s/javara/main/StateGameMap.java:mouseDragged",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StateGameMap.java",
+      "target": "function:src/cr0s/javara/main/StateGameMap.java:mouseDragged",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StateGameMap.java",
+      "target": "function:src/cr0s/javara/main/StateGameMap.java:mouseMoved",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StateGameMap.java",
+      "target": "function:src/cr0s/javara/main/StateGameMap.java:mouseMoved",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StateGameMap.java",
+      "target": "function:src/cr0s/javara/main/StateGameMap.java:mouseClicked",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StateGameMap.java",
+      "target": "function:src/cr0s/javara/main/StateGameMap.java:mouseClicked",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StateGameMap.java",
+      "target": "function:src/cr0s/javara/main/StateGameMap.java:mousePressed",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StateGameMap.java",
+      "target": "function:src/cr0s/javara/main/StateGameMap.java:mousePressed",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StateGameMap.java",
+      "target": "function:src/cr0s/javara/main/StateGameMap.java:mouseReleased",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StateGameMap.java",
+      "target": "function:src/cr0s/javara/main/StateGameMap.java:mouseReleased",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StateGameMap.java",
+      "target": "function:src/cr0s/javara/main/StateGameMap.java:keyPressed",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StateGameMap.java",
+      "target": "function:src/cr0s/javara/main/StateGameMap.java:keyPressed",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StateGameMap.java",
+      "target": "function:src/cr0s/javara/main/StateGameMap.java:getID",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StateGameMap.java",
+      "target": "function:src/cr0s/javara/main/StateGameMap.java:getID",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StateGameMap.java",
+      "target": "function:src/cr0s/javara/main/StateGameMap.java:start",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StateGameMap.java",
+      "target": "function:src/cr0s/javara/main/StateGameMap.java:start",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StateGameMap.java",
+      "target": "function:src/cr0s/javara/main/StateGameMap.java:update",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StateGameMap.java",
+      "target": "function:src/cr0s/javara/main/StateGameMap.java:update",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StateGameMap.java",
+      "target": "function:src/cr0s/javara/main/StateGameMap.java:updateCursor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StateGameMap.java",
+      "target": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StateGameMap.java",
+      "target": "file:src/cr0s/javara/entity/effect/MoveFlash.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StateGameMap.java",
+      "target": "file:src/cr0s/javara/entity/effect/ScreenShaker.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StateGameMap.java",
+      "target": "file:src/cr0s/javara/entity/Entity.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StateGameMap.java",
+      "target": "file:src/cr0s/javara/order/InputAttributes.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StateGameMap.java",
+      "target": "file:src/cr0s/javara/order/Order.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StateGameMap.java",
+      "target": "file:src/cr0s/javara/order/OrderTargeter.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StateGameMap.java",
+      "target": "file:src/cr0s/javara/order/Target.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StateGameMap.java",
+      "target": "file:src/cr0s/javara/perfomance/Profiler.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StateGameMap.java",
+      "target": "file:src/cr0s/javara/resources/SoundManager.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StateGameMap.java",
+      "target": "file:src/cr0s/javara/ui/cursor/CursorManager.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StateGameMap.java",
+      "target": "file:src/cr0s/javara/ui/cursor/CursorType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StateGameMap.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

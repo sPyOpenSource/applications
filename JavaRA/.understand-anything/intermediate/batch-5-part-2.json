@@ -1,0 +1,1317 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java",
+      "type": "file",
+      "name": "EntityTeslaCoil.java",
+      "filePath": "src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java",
+      "summary": "Tesla coil defensive building with charge-based attack, auto-targeting, and turret.",
+      "tags": [
+        "entity",
+        "building",
+        "defense",
+        "tesla",
+        "turret"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/cr0s/javara/entity/effect/Explosion.java",
+      "type": "file",
+      "name": "Explosion.java",
+      "filePath": "src/cr0s/javara/entity/effect/Explosion.java",
+      "summary": "Explosion visual effect entity that animates through sprite frames then self-destructs.",
+      "tags": [
+        "entity",
+        "effect",
+        "explosion",
+        "visual",
+        "animation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/entity/effect/MoveFlash.java",
+      "type": "file",
+      "name": "MoveFlash.java",
+      "filePath": "src/cr0s/javara/entity/effect/MoveFlash.java",
+      "summary": "Move flash visual effect rendered at movement target locations.",
+      "tags": [
+        "entity",
+        "effect",
+        "visual",
+        "movement",
+        "flash"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/entity/effect/Smoke.java",
+      "type": "file",
+      "name": "Smoke.java",
+      "filePath": "src/cr0s/javara/entity/effect/Smoke.java",
+      "summary": "Smoke visual effect entity with frame-based animation and timed self-destruction.",
+      "tags": [
+        "entity",
+        "effect",
+        "smoke",
+        "visual",
+        "animation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java:EntityTeslaCoil",
+      "type": "class",
+      "name": "EntityTeslaCoil",
+      "filePath": "src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java",
+      "lineRange": [
+        36,
+        240
+      ],
+      "summary": "EntityTeslaCoil class with 16 methods managing 20 properties for game entities.",
+      "tags": [
+        "class",
+        "exported",
+        "entity"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java:EntityTeslaCoil",
+      "type": "function",
+      "name": "EntityTeslaCoil",
+      "filePath": "src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java",
+      "lineRange": [
+        62,
+        92
+      ],
+      "summary": "EntityTeslaCoil (tile) — 31 lines , exported.",
+      "tags": [
+        "function",
+        "exported"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java:renderEntity",
+      "type": "function",
+      "name": "renderEntity",
+      "filePath": "src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java",
+      "lineRange": [
+        100,
+        130
+      ],
+      "summary": "renderEntity (no params) — 31 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "render"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java:shouldRenderedInPass",
+      "type": "function",
+      "name": "shouldRenderedInPass",
+      "filePath": "src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java",
+      "lineRange": [
+        132,
+        135
+      ],
+      "summary": "shouldRenderedInPass (passnum) — 4 lines , exported.",
+      "tags": [
+        "function",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java:updateEntity",
+      "type": "function",
+      "name": "updateEntity",
+      "filePath": "src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java",
+      "lineRange": [
+        137,
+        168
+      ],
+      "summary": "updateEntity (delta) — 32 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "update"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java:select",
+      "type": "function",
+      "name": "select",
+      "filePath": "src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java",
+      "lineRange": [
+        170,
+        173
+      ],
+      "summary": "select (no params) — 4 lines , exported.",
+      "tags": [
+        "function",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java:cancelSelect",
+      "type": "function",
+      "name": "cancelSelect",
+      "filePath": "src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java",
+      "lineRange": [
+        175,
+        178
+      ],
+      "summary": "cancelSelect (no params) — 4 lines , exported.",
+      "tags": [
+        "function",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java:isSelected",
+      "type": "function",
+      "name": "isSelected",
+      "filePath": "src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java",
+      "lineRange": [
+        180,
+        183
+      ],
+      "summary": "isSelected (no params) — 4 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java:getHeightInTiles",
+      "type": "function",
+      "name": "getHeightInTiles",
+      "filePath": "src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java",
+      "lineRange": [
+        185,
+        188
+      ],
+      "summary": "getHeightInTiles (no params) — 4 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java:getWidthInTiles",
+      "type": "function",
+      "name": "getWidthInTiles",
+      "filePath": "src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java",
+      "lineRange": [
+        190,
+        193
+      ],
+      "summary": "getWidthInTiles (no params) — 4 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java:getConsumptionLevel",
+      "type": "function",
+      "name": "getConsumptionLevel",
+      "filePath": "src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java",
+      "lineRange": [
+        195,
+        198
+      ],
+      "summary": "getConsumptionLevel (no params) — 4 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java:getRevealingRange",
+      "type": "function",
+      "name": "getRevealingRange",
+      "filePath": "src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java",
+      "lineRange": [
+        200,
+        203
+      ],
+      "summary": "getRevealingRange (no params) — 4 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java:getImageView",
+      "type": "function",
+      "name": "getImageView",
+      "filePath": "src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java",
+      "lineRange": [
+        205,
+        214
+      ],
+      "summary": "getImageView (no params) — 10 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java:getBuildingCost",
+      "type": "function",
+      "name": "getBuildingCost",
+      "filePath": "src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java",
+      "lineRange": [
+        216,
+        219
+      ],
+      "summary": "getBuildingCost (no params) — 4 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java:issueOrder",
+      "type": "function",
+      "name": "issueOrder",
+      "filePath": "src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java",
+      "lineRange": [
+        221,
+        230
+      ],
+      "summary": "issueOrder (self, targeter, target, ia) — 10 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java:resolveOrder",
+      "type": "function",
+      "name": "resolveOrder",
+      "filePath": "src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java",
+      "lineRange": [
+        232,
+        239
+      ],
+      "summary": "resolveOrder (order) — 8 lines , exported.",
+      "tags": [
+        "function",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/cr0s/javara/entity/effect/Explosion.java:Explosion",
+      "type": "class",
+      "name": "Explosion",
+      "filePath": "src/cr0s/javara/entity/effect/Explosion.java",
+      "lineRange": [
+        12,
+        69
+      ],
+      "summary": "Explosion class with 5 methods managing 7 properties for visual effects.",
+      "tags": [
+        "class",
+        "exported",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/effect/Explosion.java:Explosion",
+      "type": "function",
+      "name": "Explosion",
+      "filePath": "src/cr0s/javara/entity/effect/Explosion.java",
+      "lineRange": [
+        22,
+        35
+      ],
+      "summary": "Explosion (pos, texture) — 14 lines , exported.",
+      "tags": [
+        "function",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/effect/Explosion.java:updateEntity",
+      "type": "function",
+      "name": "updateEntity",
+      "filePath": "src/cr0s/javara/entity/effect/Explosion.java",
+      "lineRange": [
+        42,
+        54
+      ],
+      "summary": "updateEntity (delta) — 13 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "update"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/effect/Explosion.java:renderEntity",
+      "type": "function",
+      "name": "renderEntity",
+      "filePath": "src/cr0s/javara/entity/effect/Explosion.java",
+      "lineRange": [
+        56,
+        62
+      ],
+      "summary": "renderEntity (no params) — 7 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "render"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/effect/Explosion.java:shouldRenderedInPass",
+      "type": "function",
+      "name": "shouldRenderedInPass",
+      "filePath": "src/cr0s/javara/entity/effect/Explosion.java",
+      "lineRange": [
+        64,
+        67
+      ],
+      "summary": "shouldRenderedInPass (passNum) — 4 lines , exported.",
+      "tags": [
+        "function",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/cr0s/javara/entity/effect/MoveFlash.java:MoveFlash",
+      "type": "class",
+      "name": "MoveFlash",
+      "filePath": "src/cr0s/javara/entity/effect/MoveFlash.java",
+      "lineRange": [
+        15,
+        59
+      ],
+      "summary": "MoveFlash class with 4 methods managing 5 properties for visual effects.",
+      "tags": [
+        "class",
+        "exported",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/effect/MoveFlash.java:MoveFlash",
+      "type": "function",
+      "name": "MoveFlash",
+      "filePath": "src/cr0s/javara/entity/effect/MoveFlash.java",
+      "lineRange": [
+        23,
+        30
+      ],
+      "summary": "MoveFlash (pos, aSizeWidth, aSizeHeight) — 8 lines , exported.",
+      "tags": [
+        "function",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/effect/MoveFlash.java:updateEntity",
+      "type": "function",
+      "name": "updateEntity",
+      "filePath": "src/cr0s/javara/entity/effect/MoveFlash.java",
+      "lineRange": [
+        32,
+        44
+      ],
+      "summary": "updateEntity (delta) — 13 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "update"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/effect/MoveFlash.java:renderEntity",
+      "type": "function",
+      "name": "renderEntity",
+      "filePath": "src/cr0s/javara/entity/effect/MoveFlash.java",
+      "lineRange": [
+        46,
+        52
+      ],
+      "summary": "renderEntity (no params) — 7 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "render"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/effect/MoveFlash.java:shouldRenderedInPass",
+      "type": "function",
+      "name": "shouldRenderedInPass",
+      "filePath": "src/cr0s/javara/entity/effect/MoveFlash.java",
+      "lineRange": [
+        54,
+        57
+      ],
+      "summary": "shouldRenderedInPass (passNum) — 4 lines , exported.",
+      "tags": [
+        "function",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/cr0s/javara/entity/effect/Smoke.java:Smoke",
+      "type": "class",
+      "name": "Smoke",
+      "filePath": "src/cr0s/javara/entity/effect/Smoke.java",
+      "lineRange": [
+        12,
+        64
+      ],
+      "summary": "Smoke class with 5 methods managing 7 properties for visual effects.",
+      "tags": [
+        "class",
+        "exported",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/effect/Smoke.java:Smoke",
+      "type": "function",
+      "name": "Smoke",
+      "filePath": "src/cr0s/javara/entity/effect/Smoke.java",
+      "lineRange": [
+        21,
+        30
+      ],
+      "summary": "Smoke (pos, texture) — 10 lines , exported.",
+      "tags": [
+        "function",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/effect/Smoke.java:updateEntity",
+      "type": "function",
+      "name": "updateEntity",
+      "filePath": "src/cr0s/javara/entity/effect/Smoke.java",
+      "lineRange": [
+        37,
+        49
+      ],
+      "summary": "updateEntity (delta) — 13 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "update"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/effect/Smoke.java:renderEntity",
+      "type": "function",
+      "name": "renderEntity",
+      "filePath": "src/cr0s/javara/entity/effect/Smoke.java",
+      "lineRange": [
+        51,
+        57
+      ],
+      "summary": "renderEntity (no params) — 7 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "render"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/effect/Smoke.java:shouldRenderedInPass",
+      "type": "function",
+      "name": "shouldRenderedInPass",
+      "filePath": "src/cr0s/javara/entity/effect/Smoke.java",
+      "lineRange": [
+        59,
+        62
+      ],
+      "summary": "shouldRenderedInPass (passNum) — 4 lines , exported.",
+      "tags": [
+        "function",
+        "exported"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java",
+      "target": "class:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java:EntityTeslaCoil",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java",
+      "target": "class:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java:EntityTeslaCoil",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java:EntityTeslaCoil",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java:EntityTeslaCoil",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java:renderEntity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java:renderEntity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java:shouldRenderedInPass",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java:shouldRenderedInPass",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java:updateEntity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java:updateEntity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java:select",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java:select",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java:cancelSelect",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java:cancelSelect",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java:isSelected",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java:isSelected",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java:getHeightInTiles",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java:getHeightInTiles",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java:getWidthInTiles",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java:getWidthInTiles",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java:getConsumptionLevel",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java:getConsumptionLevel",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java:getRevealingRange",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java:getRevealingRange",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java:getImageView",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java:getImageView",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java:getBuildingCost",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java:getBuildingCost",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java:issueOrder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java:issueOrder",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java:resolveOrder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java:resolveOrder",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java",
+      "target": "file:src/cr0s/javara/combat/Armament.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java",
+      "target": "file:src/cr0s/javara/combat/attack/AttackCharge.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java",
+      "target": "file:src/cr0s/javara/combat/attack/AutoTarget.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java",
+      "target": "file:src/cr0s/javara/combat/weapon/WeaponTeslaZap.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java",
+      "target": "file:src/cr0s/javara/entity/building/BibType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java",
+      "target": "file:src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java",
+      "target": "file:src/cr0s/javara/entity/building/Defensive.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java",
+      "target": "file:src/cr0s/javara/entity/building/IPowerConsumer.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java",
+      "target": "file:src/cr0s/javara/entity/Entity.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java",
+      "target": "file:src/cr0s/javara/entity/IDefense.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java",
+      "target": "file:src/cr0s/javara/entity/IHaveCost.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java",
+      "target": "file:src/cr0s/javara/entity/ISelectable.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java",
+      "target": "file:src/cr0s/javara/entity/IShroudRevealer.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java",
+      "target": "file:src/cr0s/javara/entity/turreted/Turret.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java",
+      "target": "file:src/cr0s/javara/main/GUI.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java",
+      "target": "file:src/cr0s/javara/order/InputAttributes.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java",
+      "target": "file:src/cr0s/javara/order/Order.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java",
+      "target": "file:src/cr0s/javara/order/OrderTargeter.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java",
+      "target": "file:src/cr0s/javara/order/Target.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java",
+      "target": "file:src/cr0s/javara/resources/ResourceManager.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java",
+      "target": "file:src/cr0s/javara/resources/ShpTexture.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java",
+      "target": "file:src/cr0s/javara/resources/SoundManager.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java",
+      "target": "file:src/cr0s/javara/util/SpriteSheet.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/Explosion.java",
+      "target": "class:src/cr0s/javara/entity/effect/Explosion.java:Explosion",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/Explosion.java",
+      "target": "class:src/cr0s/javara/entity/effect/Explosion.java:Explosion",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/Explosion.java",
+      "target": "function:src/cr0s/javara/entity/effect/Explosion.java:Explosion",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/Explosion.java",
+      "target": "function:src/cr0s/javara/entity/effect/Explosion.java:Explosion",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/Explosion.java",
+      "target": "function:src/cr0s/javara/entity/effect/Explosion.java:updateEntity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/Explosion.java",
+      "target": "function:src/cr0s/javara/entity/effect/Explosion.java:updateEntity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/Explosion.java",
+      "target": "function:src/cr0s/javara/entity/effect/Explosion.java:renderEntity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/Explosion.java",
+      "target": "function:src/cr0s/javara/entity/effect/Explosion.java:renderEntity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/Explosion.java",
+      "target": "function:src/cr0s/javara/entity/effect/Explosion.java:shouldRenderedInPass",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/Explosion.java",
+      "target": "function:src/cr0s/javara/entity/effect/Explosion.java:shouldRenderedInPass",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/Explosion.java",
+      "target": "file:src/cr0s/javara/entity/Entity.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/Explosion.java",
+      "target": "file:src/cr0s/javara/entity/IEffect.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/Explosion.java",
+      "target": "file:src/cr0s/javara/resources/ResourceManager.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/Explosion.java",
+      "target": "file:src/cr0s/javara/resources/ShpTexture.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/Explosion.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/Explosion.java",
+      "target": "file:src/cr0s/javara/util/SpriteSheet.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/MoveFlash.java",
+      "target": "class:src/cr0s/javara/entity/effect/MoveFlash.java:MoveFlash",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/MoveFlash.java",
+      "target": "class:src/cr0s/javara/entity/effect/MoveFlash.java:MoveFlash",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/MoveFlash.java",
+      "target": "function:src/cr0s/javara/entity/effect/MoveFlash.java:MoveFlash",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/MoveFlash.java",
+      "target": "function:src/cr0s/javara/entity/effect/MoveFlash.java:MoveFlash",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/MoveFlash.java",
+      "target": "function:src/cr0s/javara/entity/effect/MoveFlash.java:updateEntity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/MoveFlash.java",
+      "target": "function:src/cr0s/javara/entity/effect/MoveFlash.java:updateEntity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/MoveFlash.java",
+      "target": "function:src/cr0s/javara/entity/effect/MoveFlash.java:renderEntity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/MoveFlash.java",
+      "target": "function:src/cr0s/javara/entity/effect/MoveFlash.java:renderEntity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/MoveFlash.java",
+      "target": "function:src/cr0s/javara/entity/effect/MoveFlash.java:shouldRenderedInPass",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/MoveFlash.java",
+      "target": "function:src/cr0s/javara/entity/effect/MoveFlash.java:shouldRenderedInPass",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/MoveFlash.java",
+      "target": "file:src/cr0s/javara/entity/Entity.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/MoveFlash.java",
+      "target": "file:src/cr0s/javara/entity/IEffect.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/MoveFlash.java",
+      "target": "file:src/cr0s/javara/main/GUI.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/MoveFlash.java",
+      "target": "file:src/cr0s/javara/resources/ResourceManager.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/MoveFlash.java",
+      "target": "file:src/cr0s/javara/resources/ShpTexture.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/MoveFlash.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/MoveFlash.java",
+      "target": "file:src/cr0s/javara/util/SpriteSheet.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/Smoke.java",
+      "target": "class:src/cr0s/javara/entity/effect/Smoke.java:Smoke",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/Smoke.java",
+      "target": "class:src/cr0s/javara/entity/effect/Smoke.java:Smoke",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/Smoke.java",
+      "target": "function:src/cr0s/javara/entity/effect/Smoke.java:Smoke",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/Smoke.java",
+      "target": "function:src/cr0s/javara/entity/effect/Smoke.java:Smoke",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/Smoke.java",
+      "target": "function:src/cr0s/javara/entity/effect/Smoke.java:updateEntity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/Smoke.java",
+      "target": "function:src/cr0s/javara/entity/effect/Smoke.java:updateEntity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/Smoke.java",
+      "target": "function:src/cr0s/javara/entity/effect/Smoke.java:renderEntity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/Smoke.java",
+      "target": "function:src/cr0s/javara/entity/effect/Smoke.java:renderEntity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/Smoke.java",
+      "target": "function:src/cr0s/javara/entity/effect/Smoke.java:shouldRenderedInPass",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/Smoke.java",
+      "target": "function:src/cr0s/javara/entity/effect/Smoke.java:shouldRenderedInPass",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/Smoke.java",
+      "target": "file:src/cr0s/javara/entity/Entity.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/Smoke.java",
+      "target": "file:src/cr0s/javara/entity/IEffect.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/Smoke.java",
+      "target": "file:src/cr0s/javara/resources/ResourceManager.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/Smoke.java",
+      "target": "file:src/cr0s/javara/resources/ShpTexture.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/Smoke.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/Smoke.java",
+      "target": "file:src/cr0s/javara/util/SpriteSheet.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

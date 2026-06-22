@@ -1,0 +1,41 @@
+{
+  "nodes": [
+    {
+      "id": "config:tilesets/desert.yaml",
+      "type": "config",
+      "name": "desert.yaml",
+      "filePath": "tilesets/desert.yaml",
+      "summary": "Desert tileset configuration defining terrain types (clear, water, road, rock, etc.), tile templates, and palette references for the desert biome in the OpenRA game engine.",
+      "tags": ["tileset", "configuration", "terrain-definition", "openra"],
+      "complexity": "complex"
+    },
+    {
+      "id": "config:tilesets/interior.yaml",
+      "type": "config",
+      "name": "interior.yaml",
+      "filePath": "tilesets/interior.yaml",
+      "summary": "Interior tileset configuration defining terrain types and tile templates for indoor environments, with palette and extension references.",
+      "tags": ["tileset", "configuration", "terrain-definition", "openra"],
+      "complexity": "complex"
+    },
+    {
+      "id": "config:tilesets/snow.yaml",
+      "type": "config",
+      "name": "snow.yaml",
+      "filePath": "tilesets/snow.yaml",
+      "summary": "Snow tileset configuration defining terrain types, tile templates, and palette references for the snow biome in the OpenRA game engine.",
+      "tags": ["tileset", "configuration", "terrain-definition", "openra"],
+      "complexity": "complex"
+    },
+    {
+      "id": "config:tilesets/temperat.yaml",
+      "type": "config",
+      "name": "temperat.yaml",
+      "filePath": "tilesets/temperat.yaml",
+      "summary": "Temperate tileset configuration defining terrain types, tile templates, and palette references for the temperate biome in the OpenRA game engine.",
+      "tags": ["tileset", "configuration", "terrain-definition", "openra"],
+      "complexity": "complex"
+    }
+  ],
+  "edges": []
+}

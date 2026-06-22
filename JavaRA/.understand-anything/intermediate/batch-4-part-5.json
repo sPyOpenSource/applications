@@ -1,0 +1,135 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/cr0s/javara/entity/IPips.java",
+      "type": "file",
+      "name": "IPips.java",
+      "filePath": "src/cr0s/javara/entity/IPips.java",
+      "summary": "Interface defining pip display methods for entities showing resource or status indicators.",
+      "tags": [
+        "interface",
+        "ui",
+        "pips"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/cr0s/javara/entity/IPips.java:IPips",
+      "type": "class",
+      "name": "IPips",
+      "filePath": "src/cr0s/javara/entity/IPips.java",
+      "lineRange": [
+        5,
+        8
+      ],
+      "summary": "IPips class with 2 methods  in the JavaRA game engine.",
+      "tags": [
+        "class",
+        "interface"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/entity/ISelectable.java",
+      "type": "file",
+      "name": "ISelectable.java",
+      "filePath": "src/cr0s/javara/entity/ISelectable.java",
+      "summary": "Interface defining selection behavior (select, cancelSelect, isSelected) for entities.",
+      "tags": [
+        "interface",
+        "selection",
+        "entity"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/cr0s/javara/entity/ISelectable.java:ISelectable",
+      "type": "class",
+      "name": "ISelectable",
+      "filePath": "src/cr0s/javara/entity/ISelectable.java",
+      "lineRange": [
+        7,
+        11
+      ],
+      "summary": "ISelectable class with 3 methods  in the JavaRA game engine.",
+      "tags": [
+        "class",
+        "interface"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/entity/IShroudRevealer.java",
+      "type": "file",
+      "name": "IShroudRevealer.java",
+      "filePath": "src/cr0s/javara/entity/IShroudRevealer.java",
+      "summary": "Interface defining getRevealingRange for entities that reveal fog of war.",
+      "tags": [
+        "interface",
+        "shroud",
+        "visibility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/cr0s/javara/entity/IShroudRevealer.java:IShroudRevealer",
+      "type": "class",
+      "name": "IShroudRevealer",
+      "filePath": "src/cr0s/javara/entity/IShroudRevealer.java",
+      "lineRange": [
+        3,
+        5
+      ],
+      "summary": "IShroudRevealer class with 1 methods  in the JavaRA game engine.",
+      "tags": [
+        "class",
+        "interface"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/cr0s/javara/entity/IPips.java",
+      "target": "class:src/cr0s/javara/entity/IPips.java:IPips",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/IPips.java",
+      "target": "class:src/cr0s/javara/entity/IPips.java:IPips",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/ISelectable.java",
+      "target": "class:src/cr0s/javara/entity/ISelectable.java:ISelectable",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/ISelectable.java",
+      "target": "class:src/cr0s/javara/entity/ISelectable.java:ISelectable",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/IShroudRevealer.java",
+      "target": "class:src/cr0s/javara/entity/IShroudRevealer.java:IShroudRevealer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/IShroudRevealer.java",
+      "target": "class:src/cr0s/javara/entity/IShroudRevealer.java:IShroudRevealer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}

@@ -1,0 +1,2184 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/cr0s/javara/entity/Entity.java",
+      "type": "file",
+      "name": "Entity.java",
+      "filePath": "src/cr0s/javara/entity/Entity.java",
+      "summary": "Base entity class providing HP management, rendering, selection box, and damage handling for all game objects.",
+      "tags": [
+        "java",
+        "entity",
+        "base-class",
+        "game-engine"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:src/cr0s/javara/entity/Entity.java:Entity",
+      "type": "class",
+      "name": "Entity",
+      "filePath": "src/cr0s/javara/entity/Entity.java",
+      "lineRange": [
+        21,
+        284
+      ],
+      "summary": "Class Entity with 23 methods providing entity functionality for the JavaRA engine.",
+      "tags": [
+        "java",
+        "class"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/Entity.java:getImageView",
+      "type": "function",
+      "name": "getImageView",
+      "filePath": "src/cr0s/javara/entity/Entity.java",
+      "lineRange": [
+        45,
+        47
+      ],
+      "summary": "getImageView() - 3 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/Entity.java:setImageView",
+      "type": "function",
+      "name": "setImageView",
+      "filePath": "src/cr0s/javara/entity/Entity.java",
+      "lineRange": [
+        49,
+        55
+      ],
+      "summary": "setImageView(view) - 7 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/Entity.java:getImages",
+      "type": "function",
+      "name": "getImages",
+      "filePath": "src/cr0s/javara/entity/Entity.java",
+      "lineRange": [
+        57,
+        59
+      ],
+      "summary": "getImages() - 3 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/Entity.java:setImageViews",
+      "type": "function",
+      "name": "setImageViews",
+      "filePath": "src/cr0s/javara/entity/Entity.java",
+      "lineRange": [
+        61,
+        66
+      ],
+      "summary": "setImageViews() - 6 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/Entity.java:Entity",
+      "type": "function",
+      "name": "Entity",
+      "filePath": "src/cr0s/javara/entity/Entity.java",
+      "lineRange": [
+        68,
+        75
+      ],
+      "summary": "Entity(pos, aSizeWidth, aSizeHeight) - 8 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/Entity.java:updateEntity",
+      "type": "function",
+      "name": "updateEntity",
+      "filePath": "src/cr0s/javara/entity/Entity.java",
+      "lineRange": [
+        77,
+        77
+      ],
+      "summary": "updateEntity(delta) - 1 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/Entity.java:renderEntity",
+      "type": "function",
+      "name": "renderEntity",
+      "filePath": "src/cr0s/javara/entity/Entity.java",
+      "lineRange": [
+        78,
+        78
+      ],
+      "summary": "renderEntity() - 1 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/Entity.java:shouldRenderedInPass",
+      "type": "function",
+      "name": "shouldRenderedInPass",
+      "filePath": "src/cr0s/javara/entity/Entity.java",
+      "lineRange": [
+        79,
+        79
+      ],
+      "summary": "shouldRenderedInPass(passNum) - 1 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/Entity.java:drawSelectionBox",
+      "type": "function",
+      "name": "drawSelectionBox",
+      "filePath": "src/cr0s/javara/entity/Entity.java",
+      "lineRange": [
+        81,
+        124
+      ],
+      "summary": "drawSelectionBox(g) - 44 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/Entity.java:drawHpBar",
+      "type": "function",
+      "name": "drawHpBar",
+      "filePath": "src/cr0s/javara/entity/Entity.java",
+      "lineRange": [
+        126,
+        181
+      ],
+      "summary": "drawHpBar(g) - 56 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/Entity.java:drawPips",
+      "type": "function",
+      "name": "drawPips",
+      "filePath": "src/cr0s/javara/entity/Entity.java",
+      "lineRange": [
+        183,
+        213
+      ],
+      "summary": "drawPips(g) - 31 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/Entity.java:drawPrimarySign",
+      "type": "function",
+      "name": "drawPrimarySign",
+      "filePath": "src/cr0s/javara/entity/Entity.java",
+      "lineRange": [
+        215,
+        219
+      ],
+      "summary": "drawPrimarySign(g) - 5 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/Entity.java:getHpColor",
+      "type": "function",
+      "name": "getHpColor",
+      "filePath": "src/cr0s/javara/entity/Entity.java",
+      "lineRange": [
+        221,
+        233
+      ],
+      "summary": "getHpColor() - 13 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/Entity.java:isDead",
+      "type": "function",
+      "name": "isDead",
+      "filePath": "src/cr0s/javara/entity/Entity.java",
+      "lineRange": [
+        235,
+        237
+      ],
+      "summary": "isDead() - 3 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/Entity.java:setDead",
+      "type": "function",
+      "name": "setDead",
+      "filePath": "src/cr0s/javara/entity/Entity.java",
+      "lineRange": [
+        239,
+        244
+      ],
+      "summary": "setDead() - 6 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/Entity.java:getHp",
+      "type": "function",
+      "name": "getHp",
+      "filePath": "src/cr0s/javara/entity/Entity.java",
+      "lineRange": [
+        246,
+        248
+      ],
+      "summary": "getHp() - 3 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/Entity.java:setHp",
+      "type": "function",
+      "name": "setHp",
+      "filePath": "src/cr0s/javara/entity/Entity.java",
+      "lineRange": [
+        250,
+        252
+      ],
+      "summary": "setHp(aHp) - 3 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/Entity.java:getMaxHp",
+      "type": "function",
+      "name": "getMaxHp",
+      "filePath": "src/cr0s/javara/entity/Entity.java",
+      "lineRange": [
+        254,
+        256
+      ],
+      "summary": "getMaxHp() - 3 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/Entity.java:setMaxHp",
+      "type": "function",
+      "name": "setMaxHp",
+      "filePath": "src/cr0s/javara/entity/Entity.java",
+      "lineRange": [
+        258,
+        260
+      ],
+      "summary": "setMaxHp(aMaxHp) - 3 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/Entity.java:giveDamage",
+      "type": "function",
+      "name": "giveDamage",
+      "filePath": "src/cr0s/javara/entity/Entity.java",
+      "lineRange": [
+        262,
+        273
+      ],
+      "summary": "giveDamage(firedBy, amount, warhead) - 12 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/Entity.java:setInvuln",
+      "type": "function",
+      "name": "setInvuln",
+      "filePath": "src/cr0s/javara/entity/Entity.java",
+      "lineRange": [
+        275,
+        277
+      ],
+      "summary": "setInvuln(invuln) - 3 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/Entity.java:getInvuln",
+      "type": "function",
+      "name": "getInvuln",
+      "filePath": "src/cr0s/javara/entity/Entity.java",
+      "lineRange": [
+        279,
+        281
+      ],
+      "summary": "getInvuln() - 3 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/Entity.java:getName",
+      "type": "function",
+      "name": "getName",
+      "filePath": "src/cr0s/javara/entity/Entity.java",
+      "lineRange": [
+        283,
+        283
+      ],
+      "summary": "getName() - 1 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/entity/infantry/EntityGrenadeTrooper.java",
+      "type": "file",
+      "name": "EntityGrenadeTrooper.java",
+      "filePath": "src/cr0s/javara/entity/infantry/EntityGrenadeTrooper.java",
+      "summary": "Soviet grenade trooper infantry unit with frontal grenade attack and configurable build cost.",
+      "tags": [
+        "java",
+        "entity",
+        "infantry",
+        "soviet"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/cr0s/javara/entity/infantry/EntityGrenadeTrooper.java:EntityGrenadeTrooper",
+      "type": "class",
+      "name": "EntityGrenadeTrooper",
+      "filePath": "src/cr0s/javara/entity/infantry/EntityGrenadeTrooper.java",
+      "lineRange": [
+        20,
+        120
+      ],
+      "summary": "Class EntityGrenadeTrooper with 12 methods providing entity functionality for the JavaRA engine.",
+      "tags": [
+        "java",
+        "class"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/infantry/EntityGrenadeTrooper.java:EntityGrenadeTrooper",
+      "type": "function",
+      "name": "EntityGrenadeTrooper",
+      "filePath": "src/cr0s/javara/entity/infantry/EntityGrenadeTrooper.java",
+      "lineRange": [
+        24,
+        26
+      ],
+      "summary": "EntityGrenadeTrooper(pos) - 3 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/infantry/EntityGrenadeTrooper.java:updateEntity",
+      "type": "function",
+      "name": "updateEntity",
+      "filePath": "src/cr0s/javara/entity/infantry/EntityGrenadeTrooper.java",
+      "lineRange": [
+        71,
+        74
+      ],
+      "summary": "updateEntity(delta) - 4 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/infantry/EntityGrenadeTrooper.java:getMinimumEnoughRange",
+      "type": "function",
+      "name": "getMinimumEnoughRange",
+      "filePath": "src/cr0s/javara/entity/infantry/EntityGrenadeTrooper.java",
+      "lineRange": [
+        76,
+        79
+      ],
+      "summary": "getMinimumEnoughRange() - 4 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/infantry/EntityGrenadeTrooper.java:getWaitAverageTime",
+      "type": "function",
+      "name": "getWaitAverageTime",
+      "filePath": "src/cr0s/javara/entity/infantry/EntityGrenadeTrooper.java",
+      "lineRange": [
+        81,
+        84
+      ],
+      "summary": "getWaitAverageTime() - 4 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/infantry/EntityGrenadeTrooper.java:getWaitSpreadTime",
+      "type": "function",
+      "name": "getWaitSpreadTime",
+      "filePath": "src/cr0s/javara/entity/infantry/EntityGrenadeTrooper.java",
+      "lineRange": [
+        86,
+        89
+      ],
+      "summary": "getWaitSpreadTime() - 4 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/infantry/EntityGrenadeTrooper.java:getRevealingRange",
+      "type": "function",
+      "name": "getRevealingRange",
+      "filePath": "src/cr0s/javara/entity/infantry/EntityGrenadeTrooper.java",
+      "lineRange": [
+        91,
+        94
+      ],
+      "summary": "getRevealingRange() - 4 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/infantry/EntityGrenadeTrooper.java:select",
+      "type": "function",
+      "name": "select",
+      "filePath": "src/cr0s/javara/entity/infantry/EntityGrenadeTrooper.java",
+      "lineRange": [
+        96,
+        99
+      ],
+      "summary": "select() - 4 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/infantry/EntityGrenadeTrooper.java:cancelSelect",
+      "type": "function",
+      "name": "cancelSelect",
+      "filePath": "src/cr0s/javara/entity/infantry/EntityGrenadeTrooper.java",
+      "lineRange": [
+        101,
+        104
+      ],
+      "summary": "cancelSelect() - 4 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/infantry/EntityGrenadeTrooper.java:isSelected",
+      "type": "function",
+      "name": "isSelected",
+      "filePath": "src/cr0s/javara/entity/infantry/EntityGrenadeTrooper.java",
+      "lineRange": [
+        106,
+        109
+      ],
+      "summary": "isSelected() - 4 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/infantry/EntityGrenadeTrooper.java:getBuildingCost",
+      "type": "function",
+      "name": "getBuildingCost",
+      "filePath": "src/cr0s/javara/entity/infantry/EntityGrenadeTrooper.java",
+      "lineRange": [
+        111,
+        114
+      ],
+      "summary": "getBuildingCost() - 4 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/infantry/EntityGrenadeTrooper.java:getAttackStrategy",
+      "type": "function",
+      "name": "getAttackStrategy",
+      "filePath": "src/cr0s/javara/entity/infantry/EntityGrenadeTrooper.java",
+      "lineRange": [
+        116,
+        119
+      ],
+      "summary": "getAttackStrategy() - 4 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/entity/infantry/EntityRifleTrooper.java",
+      "type": "file",
+      "name": "EntityRifleTrooper.java",
+      "filePath": "src/cr0s/javara/entity/infantry/EntityRifleTrooper.java",
+      "summary": "Soviet rifle trooper infantry unit with frontal M1 carbine attack and configurable build cost.",
+      "tags": [
+        "java",
+        "entity",
+        "infantry",
+        "soviet"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/cr0s/javara/entity/infantry/EntityRifleTrooper.java:EntityRifleTrooper",
+      "type": "class",
+      "name": "EntityRifleTrooper",
+      "filePath": "src/cr0s/javara/entity/infantry/EntityRifleTrooper.java",
+      "lineRange": [
+        17,
+        113
+      ],
+      "summary": "Class EntityRifleTrooper with 12 methods providing entity functionality for the JavaRA engine.",
+      "tags": [
+        "java",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/infantry/EntityRifleTrooper.java:EntityRifleTrooper",
+      "type": "function",
+      "name": "EntityRifleTrooper",
+      "filePath": "src/cr0s/javara/entity/infantry/EntityRifleTrooper.java",
+      "lineRange": [
+        21,
+        23
+      ],
+      "summary": "EntityRifleTrooper(pos) - 3 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/infantry/EntityRifleTrooper.java:updateEntity",
+      "type": "function",
+      "name": "updateEntity",
+      "filePath": "src/cr0s/javara/entity/infantry/EntityRifleTrooper.java",
+      "lineRange": [
+        64,
+        67
+      ],
+      "summary": "updateEntity(delta) - 4 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/infantry/EntityRifleTrooper.java:getMinimumEnoughRange",
+      "type": "function",
+      "name": "getMinimumEnoughRange",
+      "filePath": "src/cr0s/javara/entity/infantry/EntityRifleTrooper.java",
+      "lineRange": [
+        69,
+        72
+      ],
+      "summary": "getMinimumEnoughRange() - 4 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/infantry/EntityRifleTrooper.java:getWaitAverageTime",
+      "type": "function",
+      "name": "getWaitAverageTime",
+      "filePath": "src/cr0s/javara/entity/infantry/EntityRifleTrooper.java",
+      "lineRange": [
+        74,
+        77
+      ],
+      "summary": "getWaitAverageTime() - 4 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/infantry/EntityRifleTrooper.java:getWaitSpreadTime",
+      "type": "function",
+      "name": "getWaitSpreadTime",
+      "filePath": "src/cr0s/javara/entity/infantry/EntityRifleTrooper.java",
+      "lineRange": [
+        79,
+        82
+      ],
+      "summary": "getWaitSpreadTime() - 4 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/infantry/EntityRifleTrooper.java:getRevealingRange",
+      "type": "function",
+      "name": "getRevealingRange",
+      "filePath": "src/cr0s/javara/entity/infantry/EntityRifleTrooper.java",
+      "lineRange": [
+        84,
+        87
+      ],
+      "summary": "getRevealingRange() - 4 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/infantry/EntityRifleTrooper.java:select",
+      "type": "function",
+      "name": "select",
+      "filePath": "src/cr0s/javara/entity/infantry/EntityRifleTrooper.java",
+      "lineRange": [
+        89,
+        92
+      ],
+      "summary": "select() - 4 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/infantry/EntityRifleTrooper.java:cancelSelect",
+      "type": "function",
+      "name": "cancelSelect",
+      "filePath": "src/cr0s/javara/entity/infantry/EntityRifleTrooper.java",
+      "lineRange": [
+        94,
+        97
+      ],
+      "summary": "cancelSelect() - 4 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/infantry/EntityRifleTrooper.java:isSelected",
+      "type": "function",
+      "name": "isSelected",
+      "filePath": "src/cr0s/javara/entity/infantry/EntityRifleTrooper.java",
+      "lineRange": [
+        99,
+        102
+      ],
+      "summary": "isSelected() - 4 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/infantry/EntityRifleTrooper.java:getBuildingCost",
+      "type": "function",
+      "name": "getBuildingCost",
+      "filePath": "src/cr0s/javara/entity/infantry/EntityRifleTrooper.java",
+      "lineRange": [
+        104,
+        107
+      ],
+      "summary": "getBuildingCost() - 4 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/infantry/EntityRifleTrooper.java:getAttackStrategy",
+      "type": "function",
+      "name": "getAttackStrategy",
+      "filePath": "src/cr0s/javara/entity/infantry/EntityRifleTrooper.java",
+      "lineRange": [
+        109,
+        112
+      ],
+      "summary": "getAttackStrategy() - 4 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/entity/infantry/EntityRocketTrooper.java",
+      "type": "file",
+      "name": "EntityRocketTrooper.java",
+      "filePath": "src/cr0s/javara/entity/infantry/EntityRocketTrooper.java",
+      "summary": "Soviet rocket trooper infantry unit with frontal Dragon rocket attack and configurable build cost.",
+      "tags": [
+        "java",
+        "entity",
+        "infantry",
+        "soviet"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/cr0s/javara/entity/infantry/EntityRocketTrooper.java:EntityRocketTrooper",
+      "type": "class",
+      "name": "EntityRocketTrooper",
+      "filePath": "src/cr0s/javara/entity/infantry/EntityRocketTrooper.java",
+      "lineRange": [
+        17,
+        114
+      ],
+      "summary": "Class EntityRocketTrooper with 12 methods providing entity functionality for the JavaRA engine.",
+      "tags": [
+        "java",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/infantry/EntityRocketTrooper.java:EntityRocketTrooper",
+      "type": "function",
+      "name": "EntityRocketTrooper",
+      "filePath": "src/cr0s/javara/entity/infantry/EntityRocketTrooper.java",
+      "lineRange": [
+        21,
+        23
+      ],
+      "summary": "EntityRocketTrooper(pos) - 3 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/infantry/EntityRocketTrooper.java:updateEntity",
+      "type": "function",
+      "name": "updateEntity",
+      "filePath": "src/cr0s/javara/entity/infantry/EntityRocketTrooper.java",
+      "lineRange": [
+        63,
+        66
+      ],
+      "summary": "updateEntity(delta) - 4 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/infantry/EntityRocketTrooper.java:getMinimumEnoughRange",
+      "type": "function",
+      "name": "getMinimumEnoughRange",
+      "filePath": "src/cr0s/javara/entity/infantry/EntityRocketTrooper.java",
+      "lineRange": [
+        68,
+        71
+      ],
+      "summary": "getMinimumEnoughRange() - 4 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/infantry/EntityRocketTrooper.java:getWaitAverageTime",
+      "type": "function",
+      "name": "getWaitAverageTime",
+      "filePath": "src/cr0s/javara/entity/infantry/EntityRocketTrooper.java",
+      "lineRange": [
+        73,
+        77
+      ],
+      "summary": "getWaitAverageTime() - 5 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/infantry/EntityRocketTrooper.java:getWaitSpreadTime",
+      "type": "function",
+      "name": "getWaitSpreadTime",
+      "filePath": "src/cr0s/javara/entity/infantry/EntityRocketTrooper.java",
+      "lineRange": [
+        79,
+        83
+      ],
+      "summary": "getWaitSpreadTime() - 5 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/infantry/EntityRocketTrooper.java:getRevealingRange",
+      "type": "function",
+      "name": "getRevealingRange",
+      "filePath": "src/cr0s/javara/entity/infantry/EntityRocketTrooper.java",
+      "lineRange": [
+        85,
+        88
+      ],
+      "summary": "getRevealingRange() - 4 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/infantry/EntityRocketTrooper.java:select",
+      "type": "function",
+      "name": "select",
+      "filePath": "src/cr0s/javara/entity/infantry/EntityRocketTrooper.java",
+      "lineRange": [
+        90,
+        93
+      ],
+      "summary": "select() - 4 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/infantry/EntityRocketTrooper.java:cancelSelect",
+      "type": "function",
+      "name": "cancelSelect",
+      "filePath": "src/cr0s/javara/entity/infantry/EntityRocketTrooper.java",
+      "lineRange": [
+        95,
+        98
+      ],
+      "summary": "cancelSelect() - 4 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/infantry/EntityRocketTrooper.java:isSelected",
+      "type": "function",
+      "name": "isSelected",
+      "filePath": "src/cr0s/javara/entity/infantry/EntityRocketTrooper.java",
+      "lineRange": [
+        100,
+        103
+      ],
+      "summary": "isSelected() - 4 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/infantry/EntityRocketTrooper.java:getBuildingCost",
+      "type": "function",
+      "name": "getBuildingCost",
+      "filePath": "src/cr0s/javara/entity/infantry/EntityRocketTrooper.java",
+      "lineRange": [
+        105,
+        108
+      ],
+      "summary": "getBuildingCost() - 4 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/infantry/EntityRocketTrooper.java:getAttackStrategy",
+      "type": "function",
+      "name": "getAttackStrategy",
+      "filePath": "src/cr0s/javara/entity/infantry/EntityRocketTrooper.java",
+      "lineRange": [
+        110,
+        113
+      ],
+      "summary": "getAttackStrategy() - 4 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/cr0s/javara/entity/Entity.java",
+      "target": "class:src/cr0s/javara/entity/Entity.java:Entity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/Entity.java",
+      "target": "class:src/cr0s/javara/entity/Entity.java:Entity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/Entity.java",
+      "target": "function:src/cr0s/javara/entity/Entity.java:getImageView",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/Entity.java",
+      "target": "function:src/cr0s/javara/entity/Entity.java:getImageView",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/Entity.java",
+      "target": "function:src/cr0s/javara/entity/Entity.java:setImageView",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/Entity.java",
+      "target": "function:src/cr0s/javara/entity/Entity.java:setImageView",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/Entity.java",
+      "target": "function:src/cr0s/javara/entity/Entity.java:getImages",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/Entity.java",
+      "target": "function:src/cr0s/javara/entity/Entity.java:getImages",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/Entity.java",
+      "target": "function:src/cr0s/javara/entity/Entity.java:setImageViews",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/Entity.java",
+      "target": "function:src/cr0s/javara/entity/Entity.java:setImageViews",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/Entity.java",
+      "target": "function:src/cr0s/javara/entity/Entity.java:Entity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/Entity.java",
+      "target": "function:src/cr0s/javara/entity/Entity.java:Entity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/Entity.java",
+      "target": "function:src/cr0s/javara/entity/Entity.java:updateEntity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/Entity.java",
+      "target": "function:src/cr0s/javara/entity/Entity.java:updateEntity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/Entity.java",
+      "target": "function:src/cr0s/javara/entity/Entity.java:renderEntity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/Entity.java",
+      "target": "function:src/cr0s/javara/entity/Entity.java:renderEntity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/Entity.java",
+      "target": "function:src/cr0s/javara/entity/Entity.java:shouldRenderedInPass",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/Entity.java",
+      "target": "function:src/cr0s/javara/entity/Entity.java:shouldRenderedInPass",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/Entity.java",
+      "target": "function:src/cr0s/javara/entity/Entity.java:drawSelectionBox",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/Entity.java",
+      "target": "function:src/cr0s/javara/entity/Entity.java:drawSelectionBox",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/Entity.java",
+      "target": "function:src/cr0s/javara/entity/Entity.java:drawHpBar",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/Entity.java",
+      "target": "function:src/cr0s/javara/entity/Entity.java:drawHpBar",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/Entity.java",
+      "target": "function:src/cr0s/javara/entity/Entity.java:drawPips",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/Entity.java",
+      "target": "function:src/cr0s/javara/entity/Entity.java:drawPrimarySign",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/Entity.java",
+      "target": "function:src/cr0s/javara/entity/Entity.java:drawPrimarySign",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/Entity.java",
+      "target": "function:src/cr0s/javara/entity/Entity.java:getHpColor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/Entity.java",
+      "target": "function:src/cr0s/javara/entity/Entity.java:getHpColor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/Entity.java",
+      "target": "function:src/cr0s/javara/entity/Entity.java:isDead",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/Entity.java",
+      "target": "function:src/cr0s/javara/entity/Entity.java:isDead",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/Entity.java",
+      "target": "function:src/cr0s/javara/entity/Entity.java:setDead",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/Entity.java",
+      "target": "function:src/cr0s/javara/entity/Entity.java:setDead",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/Entity.java",
+      "target": "function:src/cr0s/javara/entity/Entity.java:getHp",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/Entity.java",
+      "target": "function:src/cr0s/javara/entity/Entity.java:getHp",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/Entity.java",
+      "target": "function:src/cr0s/javara/entity/Entity.java:setHp",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/Entity.java",
+      "target": "function:src/cr0s/javara/entity/Entity.java:setHp",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/Entity.java",
+      "target": "function:src/cr0s/javara/entity/Entity.java:getMaxHp",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/Entity.java",
+      "target": "function:src/cr0s/javara/entity/Entity.java:getMaxHp",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/Entity.java",
+      "target": "function:src/cr0s/javara/entity/Entity.java:setMaxHp",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/Entity.java",
+      "target": "function:src/cr0s/javara/entity/Entity.java:setMaxHp",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/Entity.java",
+      "target": "function:src/cr0s/javara/entity/Entity.java:giveDamage",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/Entity.java",
+      "target": "function:src/cr0s/javara/entity/Entity.java:giveDamage",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/Entity.java",
+      "target": "function:src/cr0s/javara/entity/Entity.java:setInvuln",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/Entity.java",
+      "target": "function:src/cr0s/javara/entity/Entity.java:setInvuln",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/Entity.java",
+      "target": "function:src/cr0s/javara/entity/Entity.java:getInvuln",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/Entity.java",
+      "target": "function:src/cr0s/javara/entity/Entity.java:getInvuln",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/Entity.java",
+      "target": "function:src/cr0s/javara/entity/Entity.java:getName",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/Entity.java",
+      "target": "function:src/cr0s/javara/entity/Entity.java:getName",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/Entity.java",
+      "target": "file:src/cr0s/javara/combat/Warhead.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/Entity.java",
+      "target": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/Entity.java",
+      "target": "file:src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/Entity.java",
+      "target": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/Entity.java",
+      "target": "file:src/cr0s/javara/entity/building/soviet/EntityBarracks.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/Entity.java",
+      "target": "file:src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/Entity.java",
+      "target": "file:src/cr0s/javara/gameplay/Player.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/Entity.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityGrenadeTrooper.java",
+      "target": "class:src/cr0s/javara/entity/infantry/EntityGrenadeTrooper.java:EntityGrenadeTrooper",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityGrenadeTrooper.java",
+      "target": "class:src/cr0s/javara/entity/infantry/EntityGrenadeTrooper.java:EntityGrenadeTrooper",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityGrenadeTrooper.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityGrenadeTrooper.java:EntityGrenadeTrooper",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityGrenadeTrooper.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityGrenadeTrooper.java:EntityGrenadeTrooper",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityGrenadeTrooper.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityGrenadeTrooper.java:EntityGrenadeTrooper",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityGrenadeTrooper.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityGrenadeTrooper.java:EntityGrenadeTrooper",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityGrenadeTrooper.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityGrenadeTrooper.java:updateEntity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityGrenadeTrooper.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityGrenadeTrooper.java:updateEntity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityGrenadeTrooper.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityGrenadeTrooper.java:getMinimumEnoughRange",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityGrenadeTrooper.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityGrenadeTrooper.java:getMinimumEnoughRange",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityGrenadeTrooper.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityGrenadeTrooper.java:getWaitAverageTime",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityGrenadeTrooper.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityGrenadeTrooper.java:getWaitAverageTime",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityGrenadeTrooper.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityGrenadeTrooper.java:getWaitSpreadTime",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityGrenadeTrooper.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityGrenadeTrooper.java:getWaitSpreadTime",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityGrenadeTrooper.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityGrenadeTrooper.java:getRevealingRange",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityGrenadeTrooper.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityGrenadeTrooper.java:getRevealingRange",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityGrenadeTrooper.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityGrenadeTrooper.java:select",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityGrenadeTrooper.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityGrenadeTrooper.java:select",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityGrenadeTrooper.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityGrenadeTrooper.java:cancelSelect",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityGrenadeTrooper.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityGrenadeTrooper.java:cancelSelect",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityGrenadeTrooper.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityGrenadeTrooper.java:isSelected",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityGrenadeTrooper.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityGrenadeTrooper.java:isSelected",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityGrenadeTrooper.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityGrenadeTrooper.java:getBuildingCost",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityGrenadeTrooper.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityGrenadeTrooper.java:getBuildingCost",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityGrenadeTrooper.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityGrenadeTrooper.java:getAttackStrategy",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityGrenadeTrooper.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityGrenadeTrooper.java:getAttackStrategy",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityGrenadeTrooper.java",
+      "target": "file:src/cr0s/javara/combat/Armament.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityGrenadeTrooper.java",
+      "target": "file:src/cr0s/javara/combat/attack/AttackBase.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityGrenadeTrooper.java",
+      "target": "file:src/cr0s/javara/combat/attack/AttackFrontal.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityGrenadeTrooper.java",
+      "target": "file:src/cr0s/javara/combat/attack/AutoTarget.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityGrenadeTrooper.java",
+      "target": "file:src/cr0s/javara/combat/attack/ICanAttack.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityGrenadeTrooper.java",
+      "target": "file:src/cr0s/javara/combat/weapon/WeaponGrenade.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityGrenadeTrooper.java",
+      "target": "file:src/cr0s/javara/entity/IHaveCost.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityGrenadeTrooper.java",
+      "target": "file:src/cr0s/javara/entity/ISelectable.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityGrenadeTrooper.java",
+      "target": "file:src/cr0s/javara/render/Sequence.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityGrenadeTrooper.java",
+      "target": "file:src/cr0s/javara/resources/ResourceManager.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityGrenadeTrooper.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityRifleTrooper.java",
+      "target": "class:src/cr0s/javara/entity/infantry/EntityRifleTrooper.java:EntityRifleTrooper",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityRifleTrooper.java",
+      "target": "class:src/cr0s/javara/entity/infantry/EntityRifleTrooper.java:EntityRifleTrooper",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityRifleTrooper.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityRifleTrooper.java:EntityRifleTrooper",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityRifleTrooper.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityRifleTrooper.java:EntityRifleTrooper",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityRifleTrooper.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityRifleTrooper.java:EntityRifleTrooper",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityRifleTrooper.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityRifleTrooper.java:EntityRifleTrooper",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityRifleTrooper.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityRifleTrooper.java:updateEntity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityRifleTrooper.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityRifleTrooper.java:updateEntity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityRifleTrooper.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityRifleTrooper.java:getMinimumEnoughRange",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityRifleTrooper.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityRifleTrooper.java:getMinimumEnoughRange",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityRifleTrooper.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityRifleTrooper.java:getWaitAverageTime",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityRifleTrooper.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityRifleTrooper.java:getWaitAverageTime",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityRifleTrooper.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityRifleTrooper.java:getWaitSpreadTime",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityRifleTrooper.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityRifleTrooper.java:getWaitSpreadTime",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityRifleTrooper.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityRifleTrooper.java:getRevealingRange",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityRifleTrooper.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityRifleTrooper.java:getRevealingRange",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityRifleTrooper.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityRifleTrooper.java:select",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityRifleTrooper.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityRifleTrooper.java:select",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityRifleTrooper.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityRifleTrooper.java:cancelSelect",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityRifleTrooper.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityRifleTrooper.java:cancelSelect",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityRifleTrooper.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityRifleTrooper.java:isSelected",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityRifleTrooper.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityRifleTrooper.java:isSelected",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityRifleTrooper.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityRifleTrooper.java:getBuildingCost",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityRifleTrooper.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityRifleTrooper.java:getBuildingCost",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityRifleTrooper.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityRifleTrooper.java:getAttackStrategy",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityRifleTrooper.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityRifleTrooper.java:getAttackStrategy",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityRifleTrooper.java",
+      "target": "file:src/cr0s/javara/combat/Armament.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityRifleTrooper.java",
+      "target": "file:src/cr0s/javara/combat/attack/AttackBase.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityRifleTrooper.java",
+      "target": "file:src/cr0s/javara/combat/attack/AttackFrontal.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityRifleTrooper.java",
+      "target": "file:src/cr0s/javara/combat/attack/AutoTarget.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityRifleTrooper.java",
+      "target": "file:src/cr0s/javara/combat/attack/ICanAttack.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityRifleTrooper.java",
+      "target": "file:src/cr0s/javara/combat/weapon/WeaponM1Carabine.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityRifleTrooper.java",
+      "target": "file:src/cr0s/javara/entity/IHaveCost.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityRifleTrooper.java",
+      "target": "file:src/cr0s/javara/entity/ISelectable.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityRifleTrooper.java",
+      "target": "file:src/cr0s/javara/render/Sequence.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityRifleTrooper.java",
+      "target": "file:src/cr0s/javara/resources/ResourceManager.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityRifleTrooper.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityRocketTrooper.java",
+      "target": "class:src/cr0s/javara/entity/infantry/EntityRocketTrooper.java:EntityRocketTrooper",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityRocketTrooper.java",
+      "target": "class:src/cr0s/javara/entity/infantry/EntityRocketTrooper.java:EntityRocketTrooper",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityRocketTrooper.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityRocketTrooper.java:EntityRocketTrooper",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityRocketTrooper.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityRocketTrooper.java:EntityRocketTrooper",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityRocketTrooper.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityRocketTrooper.java:EntityRocketTrooper",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityRocketTrooper.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityRocketTrooper.java:EntityRocketTrooper",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityRocketTrooper.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityRocketTrooper.java:updateEntity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityRocketTrooper.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityRocketTrooper.java:updateEntity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityRocketTrooper.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityRocketTrooper.java:getMinimumEnoughRange",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityRocketTrooper.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityRocketTrooper.java:getMinimumEnoughRange",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityRocketTrooper.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityRocketTrooper.java:getWaitAverageTime",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityRocketTrooper.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityRocketTrooper.java:getWaitAverageTime",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityRocketTrooper.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityRocketTrooper.java:getWaitSpreadTime",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityRocketTrooper.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityRocketTrooper.java:getWaitSpreadTime",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityRocketTrooper.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityRocketTrooper.java:getRevealingRange",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityRocketTrooper.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityRocketTrooper.java:getRevealingRange",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityRocketTrooper.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityRocketTrooper.java:select",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityRocketTrooper.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityRocketTrooper.java:select",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityRocketTrooper.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityRocketTrooper.java:cancelSelect",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityRocketTrooper.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityRocketTrooper.java:cancelSelect",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityRocketTrooper.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityRocketTrooper.java:isSelected",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityRocketTrooper.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityRocketTrooper.java:isSelected",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityRocketTrooper.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityRocketTrooper.java:getBuildingCost",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityRocketTrooper.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityRocketTrooper.java:getBuildingCost",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityRocketTrooper.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityRocketTrooper.java:getAttackStrategy",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityRocketTrooper.java",
+      "target": "function:src/cr0s/javara/entity/infantry/EntityRocketTrooper.java:getAttackStrategy",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityRocketTrooper.java",
+      "target": "file:src/cr0s/javara/combat/Armament.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityRocketTrooper.java",
+      "target": "file:src/cr0s/javara/combat/attack/AttackBase.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityRocketTrooper.java",
+      "target": "file:src/cr0s/javara/combat/attack/AttackFrontal.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityRocketTrooper.java",
+      "target": "file:src/cr0s/javara/combat/attack/AutoTarget.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityRocketTrooper.java",
+      "target": "file:src/cr0s/javara/combat/attack/ICanAttack.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityRocketTrooper.java",
+      "target": "file:src/cr0s/javara/combat/weapon/WeaponDragon.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityRocketTrooper.java",
+      "target": "file:src/cr0s/javara/entity/IHaveCost.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityRocketTrooper.java",
+      "target": "file:src/cr0s/javara/entity/ISelectable.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityRocketTrooper.java",
+      "target": "file:src/cr0s/javara/render/Sequence.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityRocketTrooper.java",
+      "target": "file:src/cr0s/javara/resources/ResourceManager.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/infantry/EntityRocketTrooper.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

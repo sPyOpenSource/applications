@@ -1,0 +1,36 @@
+{
+  "batchIndex": 12,
+  "files": [
+    {
+      "path": "ai/NavalAI.yaml",
+      "language": "yaml",
+      "sizeLines": 52,
+      "fileCategory": "config"
+    },
+    {
+      "path": "ai/NormalAI.yaml",
+      "language": "yaml",
+      "sizeLines": 66,
+      "fileCategory": "config"
+    },
+    {
+      "path": "ai/RushAI.yaml",
+      "language": "yaml",
+      "sizeLines": 53,
+      "fileCategory": "config"
+    },
+    {
+      "path": "ai/TurtleAI.yaml",
+      "language": "yaml",
+      "sizeLines": 65,
+      "fileCategory": "config"
+    }
+  ],
+  "batchImportData": {
+    "ai/NavalAI.yaml": [],
+    "ai/NormalAI.yaml": [],
+    "ai/RushAI.yaml": [],
+    "ai/TurtleAI.yaml": []
+  },
+  "neighborMap": {}
+}

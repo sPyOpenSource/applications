@@ -1,0 +1,708 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/cr0s/javara/entity/building/BuildingType.java",
+      "type": "file",
+      "name": "BuildingType.java",
+      "filePath": "src/cr0s/javara/entity/building/BuildingType.java",
+      "summary": "Defines an enum of building type categories used across defensive and production structures.",
+      "tags": ["type-definition", "enum", "data-model", "building"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/entity/building/Defensive.java",
+      "type": "file",
+      "name": "Defensive.java",
+      "filePath": "src/cr0s/javara/entity/building/Defensive.java",
+      "summary": "Abstract base class for defensive structures with configurable range, damage per second, and rendering support.",
+      "tags": ["abstract-class", "building", "defensive-structure", "game-entity"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/cr0s/javara/entity/building/Defensive.java:Defensive",
+      "type": "class",
+      "name": "Defensive",
+      "filePath": "src/cr0s/javara/entity/building/Defensive.java",
+      "lineRange": [7, 34],
+      "summary": "Abstract class extending EntityBuilding, providing range and damage-per-second attributes for defensive structures with image-based rendering.",
+      "tags": ["abstract-class", "building", "defensive-structure"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/Defensive.java:Defensive",
+      "type": "function",
+      "name": "Defensive",
+      "filePath": "src/cr0s/javara/entity/building/Defensive.java",
+      "lineRange": [11, 25],
+      "summary": "Constructor initializing defensive building with hit points, range, damage, footprint, position, and visual assets.",
+      "tags": ["constructor", "initialization"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/Defensive.java:getRange",
+      "type": "function",
+      "name": "getRange",
+      "filePath": "src/cr0s/javara/entity/building/Defensive.java",
+      "lineRange": [27, 29],
+      "summary": "Returns the attack range of this defensive structure.",
+      "tags": ["getter", "range"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/Defensive.java:getDamagePerSecond",
+      "type": "function",
+      "name": "getDamagePerSecond",
+      "filePath": "src/cr0s/javara/entity/building/Defensive.java",
+      "lineRange": [31, 33],
+      "summary": "Returns the damage per second dealt by this defensive structure.",
+      "tags": ["getter", "damage"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/entity/building/china/ArcherTower.java",
+      "type": "file",
+      "name": "ArcherTower.java",
+      "filePath": "src/cr0s/javara/entity/building/china/ArcherTower.java",
+      "summary": "China faction defensive tower with high hit points and ranged attack, extending the Defensive base class.",
+      "tags": ["defensive-building", "china-faction", "tower", "game-entity"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/cr0s/javara/entity/building/china/ArcherTower.java:ArcherTower",
+      "type": "class",
+      "name": "ArcherTower",
+      "filePath": "src/cr0s/javara/entity/building/china/ArcherTower.java",
+      "lineRange": [8, 32],
+      "summary": "China faction archer tower with 1230 HP, 100 range, and 52 DPS, extending Defensive.",
+      "tags": ["defensive-building", "china-faction", "tower"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/china/ArcherTower.java:ArcherTower",
+      "type": "function",
+      "name": "ArcherTower",
+      "filePath": "src/cr0s/javara/entity/building/china/ArcherTower.java",
+      "lineRange": [9, 11],
+      "summary": "Constructor creating an ArcherTower at the given position with preset stats.",
+      "tags": ["constructor", "initialization"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/china/ArcherTower.java:shouldRenderedInPass",
+      "type": "function",
+      "name": "shouldRenderedInPass",
+      "filePath": "src/cr0s/javara/entity/building/china/ArcherTower.java",
+      "lineRange": [13, 16],
+      "summary": "Determines whether the tower should be rendered in a given render pass.",
+      "tags": ["rendering", "override"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/china/ArcherTower.java:getHeightInTiles",
+      "type": "function",
+      "name": "getHeightInTiles",
+      "filePath": "src/cr0s/javara/entity/building/china/ArcherTower.java",
+      "lineRange": [18, 21],
+      "summary": "Returns the tile height of the archer tower for grid-based positioning.",
+      "tags": ["dimensions", "override"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/china/ArcherTower.java:getWidthInTiles",
+      "type": "function",
+      "name": "getWidthInTiles",
+      "filePath": "src/cr0s/javara/entity/building/china/ArcherTower.java",
+      "lineRange": [23, 26],
+      "summary": "Returns the tile width of the archer tower for grid-based positioning.",
+      "tags": ["dimensions", "override"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/china/ArcherTower.java:renderEntity",
+      "type": "function",
+      "name": "renderEntity",
+      "filePath": "src/cr0s/javara/entity/building/china/ArcherTower.java",
+      "lineRange": [28, 31],
+      "summary": "Renders the archer tower entity on screen.",
+      "tags": ["rendering", "override"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/entity/building/china/InfernoTower.java",
+      "type": "file",
+      "name": "InfernoTower.java",
+      "filePath": "src/cr0s/javara/entity/building/china/InfernoTower.java",
+      "summary": "China faction inferno tower with high damage and cost, extending Defensive and implementing IHaveCost.",
+      "tags": ["defensive-building", "china-faction", "tower", "game-entity", "cost-aware"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/cr0s/javara/entity/building/china/InfernoTower.java:InfernoTower",
+      "type": "class",
+      "name": "InfernoTower",
+      "filePath": "src/cr0s/javara/entity/building/china/InfernoTower.java",
+      "lineRange": [10, 45],
+      "summary": "China faction inferno tower with 2700 HP, 90 range, 200 DPS, costing 100, implementing IHaveCost.",
+      "tags": ["defensive-building", "china-faction", "tower", "cost-aware"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/china/InfernoTower.java:InfernoTower",
+      "type": "function",
+      "name": "InfernoTower",
+      "filePath": "src/cr0s/javara/entity/building/china/InfernoTower.java",
+      "lineRange": [11, 14],
+      "summary": "Constructor creating an InfernoTower at the given position with preset stats and name.",
+      "tags": ["constructor", "initialization"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/china/InfernoTower.java:renderEntity",
+      "type": "function",
+      "name": "renderEntity",
+      "filePath": "src/cr0s/javara/entity/building/china/InfernoTower.java",
+      "lineRange": [16, 24],
+      "summary": "Renders the inferno tower entity by composing its image view in a StackPane.",
+      "tags": ["rendering", "override"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/china/InfernoTower.java:shouldRenderedInPass",
+      "type": "function",
+      "name": "shouldRenderedInPass",
+      "filePath": "src/cr0s/javara/entity/building/china/InfernoTower.java",
+      "lineRange": [26, 29],
+      "summary": "Determines whether the inferno tower should be rendered in a given render pass.",
+      "tags": ["rendering", "override"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/china/InfernoTower.java:getHeightInTiles",
+      "type": "function",
+      "name": "getHeightInTiles",
+      "filePath": "src/cr0s/javara/entity/building/china/InfernoTower.java",
+      "lineRange": [31, 34],
+      "summary": "Returns the tile height of the inferno tower (1 tile).",
+      "tags": ["dimensions", "override"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/china/InfernoTower.java:getWidthInTiles",
+      "type": "function",
+      "name": "getWidthInTiles",
+      "filePath": "src/cr0s/javara/entity/building/china/InfernoTower.java",
+      "lineRange": [36, 39],
+      "summary": "Returns the tile width of the inferno tower (1 tile).",
+      "tags": ["dimensions", "override"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/china/InfernoTower.java:getBuildingCost",
+      "type": "function",
+      "name": "getBuildingCost",
+      "filePath": "src/cr0s/javara/entity/building/china/InfernoTower.java",
+      "lineRange": [41, 44],
+      "summary": "Returns the building cost of the inferno tower (100 currency units).",
+      "tags": ["cost", "override"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/entity/building/china/Tesla.java",
+      "type": "file",
+      "name": "Tesla.java",
+      "filePath": "src/cr0s/javara/entity/building/china/Tesla.java",
+      "summary": "China faction tesla coil defensive structure with moderate damage and hit points.",
+      "tags": ["defensive-building", "china-faction", "tesla", "game-entity"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/cr0s/javara/entity/building/china/Tesla.java:Tesla",
+      "type": "class",
+      "name": "Tesla",
+      "filePath": "src/cr0s/javara/entity/building/china/Tesla.java",
+      "lineRange": [8, 32],
+      "summary": "China faction tesla coil with 900 HP, 70 range, 55 DPS, extending Defensive.",
+      "tags": ["defensive-building", "china-faction", "tesla"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/china/Tesla.java:Tesla",
+      "type": "function",
+      "name": "Tesla",
+      "filePath": "src/cr0s/javara/entity/building/china/Tesla.java",
+      "lineRange": [9, 11],
+      "summary": "Constructor creating a Tesla coil at the given position with preset stats.",
+      "tags": ["constructor", "initialization"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/china/Tesla.java:renderEntity",
+      "type": "function",
+      "name": "renderEntity",
+      "filePath": "src/cr0s/javara/entity/building/china/Tesla.java",
+      "lineRange": [13, 16],
+      "summary": "Renders the tesla coil entity on screen.",
+      "tags": ["rendering", "override"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/china/Tesla.java:shouldRenderedInPass",
+      "type": "function",
+      "name": "shouldRenderedInPass",
+      "filePath": "src/cr0s/javara/entity/building/china/Tesla.java",
+      "lineRange": [18, 21],
+      "summary": "Determines whether the tesla coil should be rendered in a given render pass.",
+      "tags": ["rendering", "override"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/china/Tesla.java:getHeightInTiles",
+      "type": "function",
+      "name": "getHeightInTiles",
+      "filePath": "src/cr0s/javara/entity/building/china/Tesla.java",
+      "lineRange": [23, 26],
+      "summary": "Returns the tile height of the tesla coil for grid-based positioning.",
+      "tags": ["dimensions", "override"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/china/Tesla.java:getWidthInTiles",
+      "type": "function",
+      "name": "getWidthInTiles",
+      "filePath": "src/cr0s/javara/entity/building/china/Tesla.java",
+      "lineRange": [28, 31],
+      "summary": "Returns the tile width of the tesla coil for grid-based positioning.",
+      "tags": ["dimensions", "override"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/cr0s/javara/entity/building/Defensive.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/ArcherTower.java",
+      "target": "file:src/cr0s/javara/entity/building/BuildingType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/ArcherTower.java",
+      "target": "file:src/cr0s/javara/entity/building/Defensive.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/ArcherTower.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/InfernoTower.java",
+      "target": "file:src/cr0s/javara/entity/building/BuildingType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/InfernoTower.java",
+      "target": "file:src/cr0s/javara/entity/building/Defensive.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/InfernoTower.java",
+      "target": "file:src/cr0s/javara/entity/IHaveCost.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/InfernoTower.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/Tesla.java",
+      "target": "file:src/cr0s/javara/entity/building/BuildingType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/Tesla.java",
+      "target": "file:src/cr0s/javara/entity/building/Defensive.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/Tesla.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/Defensive.java",
+      "target": "class:src/cr0s/javara/entity/building/Defensive.java:Defensive",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/Defensive.java",
+      "target": "function:src/cr0s/javara/entity/building/Defensive.java:Defensive",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/Defensive.java",
+      "target": "function:src/cr0s/javara/entity/building/Defensive.java:getRange",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/Defensive.java",
+      "target": "function:src/cr0s/javara/entity/building/Defensive.java:getDamagePerSecond",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/ArcherTower.java",
+      "target": "class:src/cr0s/javara/entity/building/china/ArcherTower.java:ArcherTower",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/ArcherTower.java",
+      "target": "function:src/cr0s/javara/entity/building/china/ArcherTower.java:ArcherTower",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/ArcherTower.java",
+      "target": "function:src/cr0s/javara/entity/building/china/ArcherTower.java:shouldRenderedInPass",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/ArcherTower.java",
+      "target": "function:src/cr0s/javara/entity/building/china/ArcherTower.java:getHeightInTiles",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/ArcherTower.java",
+      "target": "function:src/cr0s/javara/entity/building/china/ArcherTower.java:getWidthInTiles",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/ArcherTower.java",
+      "target": "function:src/cr0s/javara/entity/building/china/ArcherTower.java:renderEntity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/InfernoTower.java",
+      "target": "class:src/cr0s/javara/entity/building/china/InfernoTower.java:InfernoTower",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/InfernoTower.java",
+      "target": "function:src/cr0s/javara/entity/building/china/InfernoTower.java:InfernoTower",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/InfernoTower.java",
+      "target": "function:src/cr0s/javara/entity/building/china/InfernoTower.java:renderEntity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/InfernoTower.java",
+      "target": "function:src/cr0s/javara/entity/building/china/InfernoTower.java:shouldRenderedInPass",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/InfernoTower.java",
+      "target": "function:src/cr0s/javara/entity/building/china/InfernoTower.java:getHeightInTiles",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/InfernoTower.java",
+      "target": "function:src/cr0s/javara/entity/building/china/InfernoTower.java:getWidthInTiles",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/InfernoTower.java",
+      "target": "function:src/cr0s/javara/entity/building/china/InfernoTower.java:getBuildingCost",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/Tesla.java",
+      "target": "class:src/cr0s/javara/entity/building/china/Tesla.java:Tesla",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/Tesla.java",
+      "target": "function:src/cr0s/javara/entity/building/china/Tesla.java:Tesla",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/Tesla.java",
+      "target": "function:src/cr0s/javara/entity/building/china/Tesla.java:renderEntity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/Tesla.java",
+      "target": "function:src/cr0s/javara/entity/building/china/Tesla.java:shouldRenderedInPass",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/Tesla.java",
+      "target": "function:src/cr0s/javara/entity/building/china/Tesla.java:getHeightInTiles",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/Tesla.java",
+      "target": "function:src/cr0s/javara/entity/building/china/Tesla.java:getWidthInTiles",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/Defensive.java",
+      "target": "class:src/cr0s/javara/entity/building/Defensive.java:Defensive",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/Defensive.java",
+      "target": "function:src/cr0s/javara/entity/building/Defensive.java:Defensive",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/Defensive.java",
+      "target": "function:src/cr0s/javara/entity/building/Defensive.java:getRange",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/Defensive.java",
+      "target": "function:src/cr0s/javara/entity/building/Defensive.java:getDamagePerSecond",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/ArcherTower.java",
+      "target": "class:src/cr0s/javara/entity/building/china/ArcherTower.java:ArcherTower",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/ArcherTower.java",
+      "target": "function:src/cr0s/javara/entity/building/china/ArcherTower.java:ArcherTower",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/ArcherTower.java",
+      "target": "function:src/cr0s/javara/entity/building/china/ArcherTower.java:shouldRenderedInPass",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/ArcherTower.java",
+      "target": "function:src/cr0s/javara/entity/building/china/ArcherTower.java:getHeightInTiles",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/ArcherTower.java",
+      "target": "function:src/cr0s/javara/entity/building/china/ArcherTower.java:getWidthInTiles",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/ArcherTower.java",
+      "target": "function:src/cr0s/javara/entity/building/china/ArcherTower.java:renderEntity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/InfernoTower.java",
+      "target": "class:src/cr0s/javara/entity/building/china/InfernoTower.java:InfernoTower",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/InfernoTower.java",
+      "target": "function:src/cr0s/javara/entity/building/china/InfernoTower.java:InfernoTower",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/InfernoTower.java",
+      "target": "function:src/cr0s/javara/entity/building/china/InfernoTower.java:renderEntity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/InfernoTower.java",
+      "target": "function:src/cr0s/javara/entity/building/china/InfernoTower.java:shouldRenderedInPass",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/InfernoTower.java",
+      "target": "function:src/cr0s/javara/entity/building/china/InfernoTower.java:getHeightInTiles",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/InfernoTower.java",
+      "target": "function:src/cr0s/javara/entity/building/china/InfernoTower.java:getWidthInTiles",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/InfernoTower.java",
+      "target": "function:src/cr0s/javara/entity/building/china/InfernoTower.java:getBuildingCost",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/Tesla.java",
+      "target": "class:src/cr0s/javara/entity/building/china/Tesla.java:Tesla",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/Tesla.java",
+      "target": "function:src/cr0s/javara/entity/building/china/Tesla.java:Tesla",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/Tesla.java",
+      "target": "function:src/cr0s/javara/entity/building/china/Tesla.java:renderEntity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/Tesla.java",
+      "target": "function:src/cr0s/javara/entity/building/china/Tesla.java:shouldRenderedInPass",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/Tesla.java",
+      "target": "function:src/cr0s/javara/entity/building/china/Tesla.java:getHeightInTiles",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/china/Tesla.java",
+      "target": "function:src/cr0s/javara/entity/building/china/Tesla.java:getWidthInTiles",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:src/cr0s/javara/entity/building/china/ArcherTower.java:ArcherTower",
+      "target": "class:src/cr0s/javara/entity/building/Defensive.java:Defensive",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:src/cr0s/javara/entity/building/china/InfernoTower.java:InfernoTower",
+      "target": "class:src/cr0s/javara/entity/building/Defensive.java:Defensive",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:src/cr0s/javara/entity/building/china/Tesla.java:Tesla",
+      "target": "class:src/cr0s/javara/entity/building/Defensive.java:Defensive",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:src/cr0s/javara/entity/building/china/InfernoTower.java:InfernoTower",
+      "target": "class:src/cr0s/javara/entity/IHaveCost.java:IHaveCost",
+      "type": "implements",
+      "direction": "forward",
+      "weight": 0.9
+    }
+  ]
+}

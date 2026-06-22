@@ -1,0 +1,5448 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 23,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "src/cr0s/javara/ai/BaseBuilder.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 195,
+      "nonEmptyLines": 159,
+      "functions": [
+        {
+          "name": "BaseBuilder",
+          "startLine": 22,
+          "endLine": 24,
+          "params": [
+            "ai"
+          ]
+        },
+        {
+          "name": "update",
+          "startLine": 26,
+          "endLine": 33,
+          "params": []
+        },
+        {
+          "name": "tickQueue",
+          "startLine": 35,
+          "endLine": 69,
+          "params": []
+        },
+        {
+          "name": "getProducibleBuilding",
+          "startLine": 71,
+          "endLine": 98,
+          "params": [
+            "commonName"
+          ]
+        },
+        {
+          "name": "checkBuildingLimit",
+          "startLine": 106,
+          "endLine": 116,
+          "params": [
+            "building"
+          ]
+        },
+        {
+          "name": "chooseBuildingToBuild",
+          "startLine": 118,
+          "endLine": 194,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "BaseBuilder",
+          "startLine": 17,
+          "endLine": 195,
+          "methods": [
+            "BaseBuilder",
+            "update",
+            "tickQueue",
+            "getProducibleBuilding",
+            "checkBuildingLimit",
+            "chooseBuildingToBuild"
+          ],
+          "properties": [
+            "ai",
+            "waitTicks",
+            "isActive"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "BaseBuilder",
+          "line": 22,
+          "isDefault": false
+        },
+        {
+          "name": "update",
+          "line": 26,
+          "isDefault": false
+        },
+        {
+          "name": "BaseBuilder",
+          "line": 17,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "update",
+          "callee": "tickQueue",
+          "lineNumber": 31
+        },
+        {
+          "caller": "tickQueue",
+          "callee": "this.ai.getBase().getProductionQueue().getCurrentProducingBuilding",
+          "lineNumber": 36
+        },
+        {
+          "caller": "tickQueue",
+          "callee": "this.ai.getBase().getProductionQueue",
+          "lineNumber": 36
+        },
+        {
+          "caller": "tickQueue",
+          "callee": "this.ai.getBase",
+          "lineNumber": 36
+        },
+        {
+          "caller": "tickQueue",
+          "callee": "chooseBuildingToBuild",
+          "lineNumber": 40
+        },
+        {
+          "caller": "tickQueue",
+          "callee": "this.ai.getBase().getProductionQueue().getProductionForBuilding(item).startBuildingActor",
+          "lineNumber": 46
+        },
+        {
+          "caller": "tickQueue",
+          "callee": "this.ai.getBase().getProductionQueue().getProductionForBuilding",
+          "lineNumber": 46
+        },
+        {
+          "caller": "tickQueue",
+          "callee": "this.ai.getBase().getProductionQueue",
+          "lineNumber": 46
+        },
+        {
+          "caller": "tickQueue",
+          "callee": "this.ai.getBase",
+          "lineNumber": 46
+        },
+        {
+          "caller": "tickQueue",
+          "callee": "this.ai.getBase().getProductionQueue().getProductionForBuilding(currentBuilding).isReady",
+          "lineNumber": 47
+        },
+        {
+          "caller": "tickQueue",
+          "callee": "this.ai.getBase().getProductionQueue().getProductionForBuilding",
+          "lineNumber": 47
+        },
+        {
+          "caller": "tickQueue",
+          "callee": "this.ai.getBase().getProductionQueue",
+          "lineNumber": 47
+        },
+        {
+          "caller": "tickQueue",
+          "callee": "this.ai.getBase",
+          "lineNumber": 47
+        },
+        {
+          "caller": "tickQueue",
+          "callee": "this.ai.chooseBuildLocation",
+          "lineNumber": 57
+        },
+        {
+          "caller": "tickQueue",
+          "callee": "currentBuilding.getName",
+          "lineNumber": 57
+        },
+        {
+          "caller": "tickQueue",
+          "callee": "this.ai.getBase().getProductionQueue().getProductionForBuilding(currentBuilding).cancel",
+          "lineNumber": 59
+        },
+        {
+          "caller": "tickQueue",
+          "callee": "this.ai.getBase().getProductionQueue().getProductionForBuilding",
+          "lineNumber": 59
+        },
+        {
+          "caller": "tickQueue",
+          "callee": "this.ai.getBase().getProductionQueue",
+          "lineNumber": 59
+        },
+        {
+          "caller": "tickQueue",
+          "callee": "this.ai.getBase",
+          "lineNumber": 59
+        },
+        {
+          "caller": "tickQueue",
+          "callee": "this.ai.getBase().tryToBuild",
+          "lineNumber": 61
+        },
+        {
+          "caller": "tickQueue",
+          "callee": "this.ai.getBase",
+          "lineNumber": 61
+        },
+        {
+          "caller": "tickQueue",
+          "callee": "this.ai.getBase().getProductionQueue().getProductionForBuilding(currentBuilding).resetTargetActor",
+          "lineNumber": 62
+        },
+        {
+          "caller": "tickQueue",
+          "callee": "this.ai.getBase().getProductionQueue().getProductionForBuilding",
+          "lineNumber": 62
+        },
+        {
+          "caller": "tickQueue",
+          "callee": "this.ai.getBase().getProductionQueue",
+          "lineNumber": 62
+        },
+        {
+          "caller": "tickQueue",
+          "callee": "this.ai.getBase",
+          "lineNumber": 62
+        },
+        {
+          "caller": "getProducibleBuilding",
+          "callee": "this.ai.buildingCommonNames.get",
+          "lineNumber": 72
+        },
+        {
+          "caller": "getProducibleBuilding",
+          "callee": "System.err.println",
+          "lineNumber": 74
+        },
+        {
+          "caller": "getProducibleBuilding",
+          "callee": "Arrays.asList",
+          "lineNumber": 78
+        },
+        {
+          "caller": "getProducibleBuilding",
+          "callee": "new ArrayList<>",
+          "lineNumber": 79
+        },
+        {
+          "caller": "getProducibleBuilding",
+          "callee": "this.ai.getBase().getProductionQueue().getBuildables().values",
+          "lineNumber": 81
+        },
+        {
+          "caller": "getProducibleBuilding",
+          "callee": "this.ai.getBase().getProductionQueue().getBuildables",
+          "lineNumber": 81
+        },
+        {
+          "caller": "getProducibleBuilding",
+          "callee": "this.ai.getBase().getProductionQueue",
+          "lineNumber": 81
+        },
+        {
+          "caller": "getProducibleBuilding",
+          "callee": "this.ai.getBase",
+          "lineNumber": 81
+        },
+        {
+          "caller": "getProducibleBuilding",
+          "callee": "actors.contains",
+          "lineNumber": 86
+        },
+        {
+          "caller": "getProducibleBuilding",
+          "callee": "a.getName",
+          "lineNumber": 86
+        },
+        {
+          "caller": "getProducibleBuilding",
+          "callee": "checkBuildingLimit",
+          "lineNumber": 86
+        },
+        {
+          "caller": "getProducibleBuilding",
+          "callee": "a.getName",
+          "lineNumber": 86
+        },
+        {
+          "caller": "getProducibleBuilding",
+          "callee": "available.add",
+          "lineNumber": 87
+        },
+        {
+          "caller": "getProducibleBuilding",
+          "callee": "available.isEmpty",
+          "lineNumber": 92
+        },
+        {
+          "caller": "getProducibleBuilding",
+          "callee": "available.get",
+          "lineNumber": 93
+        },
+        {
+          "caller": "getProducibleBuilding",
+          "callee": "World.random.nextInt",
+          "lineNumber": 93
+        },
+        {
+          "caller": "getProducibleBuilding",
+          "callee": "available.size",
+          "lineNumber": 93
+        },
+        {
+          "caller": "checkBuildingLimit",
+          "callee": "this.ai.buildingLimits.containsKey",
+          "lineNumber": 107
+        },
+        {
+          "caller": "checkBuildingLimit",
+          "callee": "this.ai.buildingLimits.get",
+          "lineNumber": 108
+        },
+        {
+          "caller": "checkBuildingLimit",
+          "callee": "System.out.println",
+          "lineNumber": 110
+        },
+        {
+          "caller": "checkBuildingLimit",
+          "callee": "this.ai.countBuildings",
+          "lineNumber": 110
+        },
+        {
+          "caller": "checkBuildingLimit",
+          "callee": "this.ai.countBuildings",
+          "lineNumber": 112
+        },
+        {
+          "caller": "chooseBuildingToBuild",
+          "callee": "this.ai.getBase().isLowPower",
+          "lineNumber": 120
+        },
+        {
+          "caller": "chooseBuildingToBuild",
+          "callee": "this.ai.getBase",
+          "lineNumber": 120
+        },
+        {
+          "caller": "chooseBuildingToBuild",
+          "callee": "this.ai.getBase().getPowerLevel",
+          "lineNumber": 120
+        },
+        {
+          "caller": "chooseBuildingToBuild",
+          "callee": "this.ai.getBase",
+          "lineNumber": 120
+        },
+        {
+          "caller": "chooseBuildingToBuild",
+          "callee": "this.getProducibleBuilding",
+          "lineNumber": 121
+        },
+        {
+          "caller": "chooseBuildingToBuild",
+          "callee": "System.out.println",
+          "lineNumber": 124
+        },
+        {
+          "caller": "chooseBuildingToBuild",
+          "callee": "power.getName",
+          "lineNumber": 124
+        },
+        {
+          "caller": "chooseBuildingToBuild",
+          "callee": "this.ai.hasAdequateProc",
+          "lineNumber": 130
+        },
+        {
+          "caller": "chooseBuildingToBuild",
+          "callee": "this.ai.hasMinimumProc",
+          "lineNumber": 130
+        },
+        {
+          "caller": "chooseBuildingToBuild",
+          "callee": "this.getProducibleBuilding",
+          "lineNumber": 131
+        },
+        {
+          "caller": "chooseBuildingToBuild",
+          "callee": "System.out.println",
+          "lineNumber": 133
+        },
+        {
+          "caller": "chooseBuildingToBuild",
+          "callee": "this.ai.getBase().getCash",
+          "lineNumber": 139
+        },
+        {
+          "caller": "chooseBuildingToBuild",
+          "callee": "this.ai.getBase",
+          "lineNumber": 139
+        },
+        {
+          "caller": "chooseBuildingToBuild",
+          "callee": "this.getProducibleBuilding",
+          "lineNumber": 140
+        },
+        {
+          "caller": "chooseBuildingToBuild",
+          "callee": "System.out.println",
+          "lineNumber": 143
+        },
+        {
+          "caller": "chooseBuildingToBuild",
+          "callee": "production.getName",
+          "lineNumber": 143
+        },
+        {
+          "caller": "chooseBuildingToBuild",
+          "callee": "this.ai.getBase().isSilosNeeded",
+          "lineNumber": 149
+        },
+        {
+          "caller": "chooseBuildingToBuild",
+          "callee": "this.ai.getBase",
+          "lineNumber": 149
+        },
+        {
+          "caller": "chooseBuildingToBuild",
+          "callee": "this.getProducibleBuilding",
+          "lineNumber": 150
+        },
+        {
+          "caller": "chooseBuildingToBuild",
+          "callee": "System.out.println",
+          "lineNumber": 153
+        },
+        {
+          "caller": "chooseBuildingToBuild",
+          "callee": "new ArrayList",
+          "lineNumber": 159
+        },
+        {
+          "caller": "chooseBuildingToBuild",
+          "callee": "this.ai.buildingFractions.keySet",
+          "lineNumber": 159
+        },
+        {
+          "caller": "chooseBuildingToBuild",
+          "callee": "Collections.shuffle",
+          "lineNumber": 160
+        },
+        {
+          "caller": "chooseBuildingToBuild",
+          "callee": "this.ai.getBase().getProductionQueue().isBuildable",
+          "lineNumber": 163
+        },
+        {
+          "caller": "chooseBuildingToBuild",
+          "callee": "this.ai.getBase().getProductionQueue",
+          "lineNumber": 163
+        },
+        {
+          "caller": "chooseBuildingToBuild",
+          "callee": "this.ai.getBase",
+          "lineNumber": 163
+        },
+        {
+          "caller": "chooseBuildingToBuild",
+          "callee": "this.ai.countBuildings",
+          "lineNumber": 168
+        },
+        {
+          "caller": "chooseBuildingToBuild",
+          "callee": "this.ai.buildingFractions.get",
+          "lineNumber": 169
+        },
+        {
+          "caller": "chooseBuildingToBuild",
+          "callee": "ai.getBase().getBuildings().size",
+          "lineNumber": 169
+        },
+        {
+          "caller": "chooseBuildingToBuild",
+          "callee": "ai.getBase().getBuildings",
+          "lineNumber": 169
+        },
+        {
+          "caller": "chooseBuildingToBuild",
+          "callee": "ai.getBase",
+          "lineNumber": 169
+        },
+        {
+          "caller": "chooseBuildingToBuild",
+          "callee": "checkBuildingLimit",
+          "lineNumber": 170
+        },
+        {
+          "caller": "chooseBuildingToBuild",
+          "callee": "this.ai.getBase().getProductionQueue().getBuildableActorByName",
+          "lineNumber": 175
+        },
+        {
+          "caller": "chooseBuildingToBuild",
+          "callee": "this.ai.getBase().getProductionQueue",
+          "lineNumber": 175
+        },
+        {
+          "caller": "chooseBuildingToBuild",
+          "callee": "this.ai.getBase",
+          "lineNumber": 175
+        },
+        {
+          "caller": "chooseBuildingToBuild",
+          "callee": "this.ai.getBase().isLowPower",
+          "lineNumber": 177
+        },
+        {
+          "caller": "chooseBuildingToBuild",
+          "callee": "this.ai.getBase",
+          "lineNumber": 177
+        },
+        {
+          "caller": "chooseBuildingToBuild",
+          "callee": "this.ai.getBase().getPowerLevel",
+          "lineNumber": 177
+        },
+        {
+          "caller": "chooseBuildingToBuild",
+          "callee": "this.ai.getBase",
+          "lineNumber": 177
+        },
+        {
+          "caller": "chooseBuildingToBuild",
+          "callee": "this.ai.getBase().getConsumptionLevel",
+          "lineNumber": 177
+        },
+        {
+          "caller": "chooseBuildingToBuild",
+          "callee": "this.ai.getBase",
+          "lineNumber": 177
+        },
+        {
+          "caller": "chooseBuildingToBuild",
+          "callee": "((IPowerConsumer) a).getConsumptionLevel",
+          "lineNumber": 177
+        },
+        {
+          "caller": "chooseBuildingToBuild",
+          "callee": "this.getProducibleBuilding",
+          "lineNumber": 179
+        },
+        {
+          "caller": "chooseBuildingToBuild",
+          "callee": "System.out.println",
+          "lineNumber": 182
+        },
+        {
+          "caller": "chooseBuildingToBuild",
+          "callee": "power.getName",
+          "lineNumber": 182
+        },
+        {
+          "caller": "chooseBuildingToBuild",
+          "callee": "System.out.println",
+          "lineNumber": 188
+        },
+        {
+          "caller": "chooseBuildingToBuild",
+          "callee": "a.getName",
+          "lineNumber": 188
+        }
+      ],
+      "metrics": {
+        "importCount": 8,
+        "exportCount": 3,
+        "functionCount": 6,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/cr0s/javara/entity/IDefense.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 5,
+      "nonEmptyLines": 3,
+      "classes": [
+        {
+          "name": "IDefense",
+          "startLine": 3,
+          "endLine": 5,
+          "methods": [],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "IDefense",
+          "line": 3,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/cr0s/javara/entity/IEffect.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 5,
+      "nonEmptyLines": 3,
+      "classes": [
+        {
+          "name": "IEffect",
+          "startLine": 3,
+          "endLine": 5,
+          "methods": [],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "IEffect",
+          "line": 3,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/cr0s/javara/entity/IHaveCost.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 5,
+      "nonEmptyLines": 4,
+      "classes": [
+        {
+          "name": "IHaveCost",
+          "startLine": 3,
+          "endLine": 5,
+          "methods": [
+            "getBuildingCost"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "IHaveCost",
+          "line": 3,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/cr0s/javara/entity/IPips.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 8,
+      "nonEmptyLines": 6,
+      "classes": [
+        {
+          "name": "IPips",
+          "startLine": 5,
+          "endLine": 8,
+          "methods": [
+            "getPipCount",
+            "getPipColorAt"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "IPips",
+          "line": 5,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/cr0s/javara/entity/ISelectable.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 11,
+      "nonEmptyLines": 10,
+      "classes": [
+        {
+          "name": "ISelectable",
+          "startLine": 7,
+          "endLine": 11,
+          "methods": [
+            "select",
+            "cancelSelect",
+            "isSelected"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "ISelectable",
+          "line": 7,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/cr0s/javara/entity/IShroudRevealer.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 5,
+      "nonEmptyLines": 4,
+      "classes": [
+        {
+          "name": "IShroudRevealer",
+          "startLine": 3,
+          "endLine": 5,
+          "methods": [
+            "getRevealingRange"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "IShroudRevealer",
+          "line": 3,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/cr0s/javara/entity/aircraft/Dragon.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 60,
+      "nonEmptyLines": 55,
+      "functions": [
+        {
+          "name": "Dragon",
+          "startLine": 11,
+          "endLine": 27,
+          "params": [
+            "x"
+          ]
+        },
+        {
+          "name": "findPathFromTo",
+          "startLine": 29,
+          "endLine": 32,
+          "params": [
+            "e",
+            "aGoal"
+          ]
+        },
+        {
+          "name": "getMoveSpeed",
+          "startLine": 34,
+          "endLine": 35,
+          "params": []
+        },
+        {
+          "name": "getMinimumEnoughRange",
+          "startLine": 36,
+          "endLine": 37,
+          "params": []
+        },
+        {
+          "name": "canEnterCell",
+          "startLine": 38,
+          "endLine": 39,
+          "params": [
+            "cellPos"
+          ]
+        },
+        {
+          "name": "getWaitAverageTime",
+          "startLine": 40,
+          "endLine": 41,
+          "params": []
+        },
+        {
+          "name": "getWaitSpreadTime",
+          "startLine": 42,
+          "endLine": 43,
+          "params": []
+        },
+        {
+          "name": "moveToRange",
+          "startLine": 44,
+          "endLine": 45,
+          "params": [
+            "cellPos",
+            "range"
+          ]
+        },
+        {
+          "name": "renderEntity",
+          "startLine": 46,
+          "endLine": 54,
+          "params": []
+        },
+        {
+          "name": "getBuildingCost",
+          "startLine": 56,
+          "endLine": 59,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "Dragon",
+          "startLine": 10,
+          "endLine": 60,
+          "methods": [
+            "Dragon",
+            "findPathFromTo",
+            "getMoveSpeed",
+            "getMinimumEnoughRange",
+            "canEnterCell",
+            "getWaitAverageTime",
+            "getWaitSpreadTime",
+            "moveToRange",
+            "renderEntity",
+            "getBuildingCost"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "Dragon",
+          "line": 11,
+          "isDefault": false
+        },
+        {
+          "name": "findPathFromTo",
+          "line": 29,
+          "isDefault": false
+        },
+        {
+          "name": "getMoveSpeed",
+          "line": 34,
+          "isDefault": false
+        },
+        {
+          "name": "getMinimumEnoughRange",
+          "line": 36,
+          "isDefault": false
+        },
+        {
+          "name": "canEnterCell",
+          "line": 38,
+          "isDefault": false
+        },
+        {
+          "name": "getWaitAverageTime",
+          "line": 40,
+          "isDefault": false
+        },
+        {
+          "name": "getWaitSpreadTime",
+          "line": 42,
+          "isDefault": false
+        },
+        {
+          "name": "renderEntity",
+          "line": 46,
+          "isDefault": false
+        },
+        {
+          "name": "getBuildingCost",
+          "line": 56,
+          "isDefault": false
+        },
+        {
+          "name": "Dragon",
+          "line": 10,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "Dragon",
+          "callee": "setHp",
+          "lineNumber": 14
+        },
+        {
+          "caller": "Dragon",
+          "callee": "setDamagePerSecond",
+          "lineNumber": 15
+        },
+        {
+          "caller": "Dragon",
+          "callee": "setImageViews",
+          "lineNumber": 16
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "getImageView",
+          "lineNumber": 48
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "setImageView",
+          "lineNumber": 49
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "new ImageView",
+          "lineNumber": 49
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "getImages().get",
+          "lineNumber": 49
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "getImages",
+          "lineNumber": 49
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "new StackPane",
+          "lineNumber": 51
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "combined.getChildren().add",
+          "lineNumber": 52
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "combined.getChildren",
+          "lineNumber": 52
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "getImageView",
+          "lineNumber": 52
+        }
+      ],
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 10,
+        "functionCount": 10,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/cr0s/javara/entity/building/BibType.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 9,
+      "nonEmptyLines": 8,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/cr0s/javara/entity/building/EntityBuilding.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 356,
+      "nonEmptyLines": 282,
+      "functions": [
+        {
+          "name": "EntityBuilding",
+          "startLine": 102,
+          "endLine": 126,
+          "params": [
+            "aTile",
+            "aSizeWidth",
+            "aSizeHeight",
+            "aFootprint"
+          ]
+        },
+        {
+          "name": "updateEntity",
+          "startLine": 128,
+          "endLine": 157,
+          "params": [
+            "delta"
+          ]
+        },
+        {
+          "name": "shouldRenderedInPass",
+          "startLine": 159,
+          "endLine": 160,
+          "params": [
+            "passNum"
+          ]
+        },
+        {
+          "name": "isPrimary",
+          "startLine": 162,
+          "endLine": 164,
+          "params": []
+        },
+        {
+          "name": "setPrimary",
+          "startLine": 166,
+          "endLine": 168,
+          "params": [
+            "aIsPrimary"
+          ]
+        },
+        {
+          "name": "isRepairing",
+          "startLine": 170,
+          "endLine": 172,
+          "params": []
+        },
+        {
+          "name": "setRepairing",
+          "startLine": 174,
+          "endLine": 176,
+          "params": [
+            "aIsRepairing"
+          ]
+        },
+        {
+          "name": "isInvuln",
+          "startLine": 178,
+          "endLine": 180,
+          "params": []
+        },
+        {
+          "name": "setInvuln",
+          "startLine": 182,
+          "endLine": 185,
+          "params": [
+            "aIsInvuln"
+          ]
+        },
+        {
+          "name": "isDestroyed",
+          "startLine": 187,
+          "endLine": 189,
+          "params": []
+        },
+        {
+          "name": "setDestroyed",
+          "startLine": 191,
+          "endLine": 193,
+          "params": [
+            "aIsDestroyed"
+          ]
+        },
+        {
+          "name": "getProgressValue",
+          "startLine": 195,
+          "endLine": 197,
+          "params": []
+        },
+        {
+          "name": "setProgressValue",
+          "startLine": 199,
+          "endLine": 201,
+          "params": [
+            "aProgressValue"
+          ]
+        },
+        {
+          "name": "getMaxProgress",
+          "startLine": 203,
+          "endLine": 205,
+          "params": []
+        },
+        {
+          "name": "setMaxProgress",
+          "startLine": 207,
+          "endLine": 209,
+          "params": [
+            "aMaxProgress"
+          ]
+        },
+        {
+          "name": "getWidth",
+          "startLine": 211,
+          "endLine": 213,
+          "params": []
+        },
+        {
+          "name": "getHeight",
+          "startLine": 215,
+          "endLine": 217,
+          "params": []
+        },
+        {
+          "name": "getHeightInTiles",
+          "startLine": 219,
+          "endLine": 219,
+          "params": []
+        },
+        {
+          "name": "getWidthInTiles",
+          "startLine": 220,
+          "endLine": 220,
+          "params": []
+        },
+        {
+          "name": "setBibType",
+          "startLine": 222,
+          "endLine": 224,
+          "params": [
+            "bt"
+          ]
+        },
+        {
+          "name": "getBibType",
+          "startLine": 226,
+          "endLine": 228,
+          "params": []
+        },
+        {
+          "name": "getFootprint",
+          "startLine": 230,
+          "endLine": 232,
+          "params": []
+        },
+        {
+          "name": "generateCellsFromFootprint",
+          "startLine": 239,
+          "endLine": 273,
+          "params": [
+            "footprint",
+            "fc"
+          ]
+        },
+        {
+          "name": "getBlockingCells",
+          "startLine": 275,
+          "endLine": 277,
+          "params": []
+        },
+        {
+          "name": "changeCellPos",
+          "startLine": 279,
+          "endLine": 284,
+          "params": [
+            "newCell"
+          ]
+        },
+        {
+          "name": "toString",
+          "startLine": 286,
+          "endLine": 289,
+          "params": []
+        },
+        {
+          "name": "getTextureWidth",
+          "startLine": 291,
+          "endLine": 293,
+          "params": []
+        },
+        {
+          "name": "getTextureHeight",
+          "startLine": 295,
+          "endLine": 297,
+          "params": []
+        },
+        {
+          "name": "onBuildFinished",
+          "startLine": 299,
+          "endLine": 301,
+          "params": []
+        },
+        {
+          "name": "issueOrder",
+          "startLine": 303,
+          "endLine": 306,
+          "params": [
+            "self",
+            "targeter",
+            "target",
+            "ia"
+          ]
+        },
+        {
+          "name": "resolveOrder",
+          "startLine": 308,
+          "endLine": 310,
+          "params": [
+            "order"
+          ]
+        },
+        {
+          "name": "explodeBuilding",
+          "startLine": 312,
+          "endLine": 322,
+          "params": []
+        },
+        {
+          "name": "giveDamage",
+          "startLine": 324,
+          "endLine": 355,
+          "params": [
+            "firedBy",
+            "amount",
+            "warhead"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "EntityBuilding",
+          "startLine": 29,
+          "endLine": 356,
+          "methods": [
+            "EntityBuilding",
+            "updateEntity",
+            "shouldRenderedInPass",
+            "isPrimary",
+            "setPrimary",
+            "isRepairing",
+            "setRepairing",
+            "isInvuln",
+            "setInvuln",
+            "isDestroyed",
+            "setDestroyed",
+            "getProgressValue",
+            "setProgressValue",
+            "getMaxProgress",
+            "setMaxProgress",
+            "getWidth",
+            "getHeight",
+            "getHeightInTiles",
+            "getWidthInTiles",
+            "setBibType",
+            "getBibType",
+            "getFootprint",
+            "generateCellsFromFootprint",
+            "getBlockingCells",
+            "changeCellPos",
+            "toString",
+            "getTextureWidth",
+            "getTextureHeight",
+            "onBuildFinished",
+            "issueOrder",
+            "resolveOrder",
+            "explodeBuilding",
+            "giveDamage"
+          ],
+          "properties": [
+            "tileWidth",
+            "tileHeight",
+            "width",
+            "height",
+            "buildingSpeed",
+            "makeTextureName",
+            "isPrimary",
+            "isRepairing",
+            "isInvuln",
+            "isDestroyed",
+            "bibType",
+            "progressValue",
+            "maxProgress",
+            "footprint",
+            "blockingCells",
+            "explosionSound",
+            "repairingTicks",
+            "REPAIR_INTERVAL_TICKS",
+            "REPAIR_HP_AMOUNT",
+            "REPAIR_COST",
+            "repairIconBlink",
+            "repairImage"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "buildingSpeed",
+          "line": 43,
+          "isDefault": false
+        },
+        {
+          "name": "makeTextureName",
+          "line": 48,
+          "isDefault": false
+        },
+        {
+          "name": "explosionSound",
+          "line": 81,
+          "isDefault": false
+        },
+        {
+          "name": "EntityBuilding",
+          "line": 102,
+          "isDefault": false
+        },
+        {
+          "name": "updateEntity",
+          "line": 128,
+          "isDefault": false
+        },
+        {
+          "name": "shouldRenderedInPass",
+          "line": 159,
+          "isDefault": false
+        },
+        {
+          "name": "isPrimary",
+          "line": 162,
+          "isDefault": false
+        },
+        {
+          "name": "setPrimary",
+          "line": 166,
+          "isDefault": false
+        },
+        {
+          "name": "isRepairing",
+          "line": 170,
+          "isDefault": false
+        },
+        {
+          "name": "setRepairing",
+          "line": 174,
+          "isDefault": false
+        },
+        {
+          "name": "isInvuln",
+          "line": 178,
+          "isDefault": false
+        },
+        {
+          "name": "setInvuln",
+          "line": 182,
+          "isDefault": false
+        },
+        {
+          "name": "isDestroyed",
+          "line": 187,
+          "isDefault": false
+        },
+        {
+          "name": "setDestroyed",
+          "line": 191,
+          "isDefault": false
+        },
+        {
+          "name": "getProgressValue",
+          "line": 195,
+          "isDefault": false
+        },
+        {
+          "name": "setProgressValue",
+          "line": 199,
+          "isDefault": false
+        },
+        {
+          "name": "getMaxProgress",
+          "line": 203,
+          "isDefault": false
+        },
+        {
+          "name": "setMaxProgress",
+          "line": 207,
+          "isDefault": false
+        },
+        {
+          "name": "getWidth",
+          "line": 211,
+          "isDefault": false
+        },
+        {
+          "name": "getHeight",
+          "line": 215,
+          "isDefault": false
+        },
+        {
+          "name": "getHeightInTiles",
+          "line": 219,
+          "isDefault": false
+        },
+        {
+          "name": "getWidthInTiles",
+          "line": 220,
+          "isDefault": false
+        },
+        {
+          "name": "setBibType",
+          "line": 222,
+          "isDefault": false
+        },
+        {
+          "name": "getBibType",
+          "line": 226,
+          "isDefault": false
+        },
+        {
+          "name": "getFootprint",
+          "line": 230,
+          "isDefault": false
+        },
+        {
+          "name": "getBlockingCells",
+          "line": 275,
+          "isDefault": false
+        },
+        {
+          "name": "changeCellPos",
+          "line": 279,
+          "isDefault": false
+        },
+        {
+          "name": "toString",
+          "line": 286,
+          "isDefault": false
+        },
+        {
+          "name": "getTextureWidth",
+          "line": 291,
+          "isDefault": false
+        },
+        {
+          "name": "getTextureHeight",
+          "line": 295,
+          "isDefault": false
+        },
+        {
+          "name": "onBuildFinished",
+          "line": 299,
+          "isDefault": false
+        },
+        {
+          "name": "issueOrder",
+          "line": 303,
+          "isDefault": false
+        },
+        {
+          "name": "resolveOrder",
+          "line": 308,
+          "isDefault": false
+        },
+        {
+          "name": "explodeBuilding",
+          "line": 312,
+          "isDefault": false
+        },
+        {
+          "name": "giveDamage",
+          "line": 324,
+          "isDefault": false
+        },
+        {
+          "name": "EntityBuilding",
+          "line": 29,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "EntityBuilding",
+          "callee": "generateCellsFromFootprint",
+          "lineNumber": 118
+        },
+        {
+          "caller": "EntityBuilding",
+          "callee": "this.targetTypes.add",
+          "lineNumber": 125
+        },
+        {
+          "caller": "updateEntity",
+          "callee": "super.updateEntity",
+          "lineNumber": 130
+        },
+        {
+          "caller": "updateEntity",
+          "callee": "this.getHp",
+          "lineNumber": 137
+        },
+        {
+          "caller": "updateEntity",
+          "callee": "this.getMaxHp",
+          "lineNumber": 137
+        },
+        {
+          "caller": "updateEntity",
+          "callee": "this.owner.getBase().takeCash",
+          "lineNumber": 138
+        },
+        {
+          "caller": "updateEntity",
+          "callee": "this.owner.getBase",
+          "lineNumber": 138
+        },
+        {
+          "caller": "updateEntity",
+          "callee": "this.setHp",
+          "lineNumber": 139
+        },
+        {
+          "caller": "updateEntity",
+          "callee": "this.getMaxHp",
+          "lineNumber": 139
+        },
+        {
+          "caller": "updateEntity",
+          "callee": "this.owner.getBase().takeCash",
+          "lineNumber": 146
+        },
+        {
+          "caller": "updateEntity",
+          "callee": "this.owner.getBase",
+          "lineNumber": 146
+        },
+        {
+          "caller": "updateEntity",
+          "callee": "this.setHp",
+          "lineNumber": 147
+        },
+        {
+          "caller": "updateEntity",
+          "callee": "this.getHp",
+          "lineNumber": 147
+        },
+        {
+          "caller": "generateCellsFromFootprint",
+          "callee": "footprint.length",
+          "lineNumber": 240
+        },
+        {
+          "caller": "generateCellsFromFootprint",
+          "callee": "footprint.charAt",
+          "lineNumber": 244
+        },
+        {
+          "caller": "changeCellPos",
+          "callee": "this.boundingBox.setX",
+          "lineNumber": 281
+        },
+        {
+          "caller": "changeCellPos",
+          "callee": "newCell.getX",
+          "lineNumber": 281
+        },
+        {
+          "caller": "changeCellPos",
+          "callee": "this.boundingBox.setY",
+          "lineNumber": 282
+        },
+        {
+          "caller": "changeCellPos",
+          "callee": "newCell.getY",
+          "lineNumber": 282
+        },
+        {
+          "caller": "getTextureWidth",
+          "callee": "this.getImageView().getViewport().getWidth",
+          "lineNumber": 292
+        },
+        {
+          "caller": "getTextureWidth",
+          "callee": "this.getImageView().getViewport",
+          "lineNumber": 292
+        },
+        {
+          "caller": "getTextureWidth",
+          "callee": "this.getImageView",
+          "lineNumber": 292
+        },
+        {
+          "caller": "getTextureHeight",
+          "callee": "this.getImageView().getViewport().getHeight",
+          "lineNumber": 296
+        },
+        {
+          "caller": "getTextureHeight",
+          "callee": "this.getImageView().getViewport",
+          "lineNumber": 296
+        },
+        {
+          "caller": "getTextureHeight",
+          "callee": "this.getImageView",
+          "lineNumber": 296
+        },
+        {
+          "caller": "explodeBuilding",
+          "callee": "SoundManager.getInstance().playSfxAt",
+          "lineNumber": 313
+        },
+        {
+          "caller": "explodeBuilding",
+          "callee": "SoundManager.getInstance",
+          "lineNumber": 313
+        },
+        {
+          "caller": "explodeBuilding",
+          "callee": "((EntityActor) this).getPosition",
+          "lineNumber": 313
+        },
+        {
+          "caller": "explodeBuilding",
+          "callee": "this.getWidthInTiles",
+          "lineNumber": 315
+        },
+        {
+          "caller": "explodeBuilding",
+          "callee": "this.getHeightInTiles",
+          "lineNumber": 316
+        },
+        {
+          "caller": "explodeBuilding",
+          "callee": "owner.world.spawnExplosionAt",
+          "lineNumber": 317
+        },
+        {
+          "caller": "explodeBuilding",
+          "callee": "new Pos",
+          "lineNumber": 317
+        },
+        {
+          "caller": "explodeBuilding",
+          "callee": "this.boundingBox.getX",
+          "lineNumber": 317
+        },
+        {
+          "caller": "explodeBuilding",
+          "callee": "this.boundingBox.getY",
+          "lineNumber": 317
+        },
+        {
+          "caller": "explodeBuilding",
+          "callee": "ScreenShaker.getInstance().addEffect",
+          "lineNumber": 321
+        },
+        {
+          "caller": "explodeBuilding",
+          "callee": "ScreenShaker.getInstance",
+          "lineNumber": 321
+        },
+        {
+          "caller": "explodeBuilding",
+          "callee": "this.getHeightInTiles",
+          "lineNumber": 321
+        },
+        {
+          "caller": "explodeBuilding",
+          "callee": "this.getWidthInTiles",
+          "lineNumber": 321
+        },
+        {
+          "caller": "explodeBuilding",
+          "callee": "this.getPosition",
+          "lineNumber": 321
+        },
+        {
+          "caller": "explodeBuilding",
+          "callee": "this.getHeightInTiles",
+          "lineNumber": 321
+        },
+        {
+          "caller": "explodeBuilding",
+          "callee": "this.getWidthInTiles",
+          "lineNumber": 321
+        },
+        {
+          "caller": "giveDamage",
+          "callee": "this.isDead",
+          "lineNumber": 326
+        },
+        {
+          "caller": "giveDamage",
+          "callee": "getHp",
+          "lineNumber": 326
+        },
+        {
+          "caller": "giveDamage",
+          "callee": "this.setHp",
+          "lineNumber": 327
+        },
+        {
+          "caller": "giveDamage",
+          "callee": "this.setDead",
+          "lineNumber": 328
+        },
+        {
+          "caller": "giveDamage",
+          "callee": "this.owner.getBase().removeBuilding",
+          "lineNumber": 330
+        },
+        {
+          "caller": "giveDamage",
+          "callee": "this.owner.getBase",
+          "lineNumber": 330
+        },
+        {
+          "caller": "giveDamage",
+          "callee": "explodeBuilding",
+          "lineNumber": 332
+        },
+        {
+          "caller": "giveDamage",
+          "callee": "this.getHp",
+          "lineNumber": 336
+        },
+        {
+          "caller": "giveDamage",
+          "callee": "this.getMaxHp",
+          "lineNumber": 336
+        },
+        {
+          "caller": "giveDamage",
+          "callee": "this.getHp",
+          "lineNumber": 336
+        },
+        {
+          "caller": "giveDamage",
+          "callee": "this.getMaxHp",
+          "lineNumber": 336
+        },
+        {
+          "caller": "giveDamage",
+          "callee": "SoundManager.getInstance().playSfxAt",
+          "lineNumber": 337
+        },
+        {
+          "caller": "giveDamage",
+          "callee": "SoundManager.getInstance",
+          "lineNumber": 337
+        },
+        {
+          "caller": "giveDamage",
+          "callee": "this.getPosition",
+          "lineNumber": 337
+        },
+        {
+          "caller": "giveDamage",
+          "callee": "this.getWidthInTiles",
+          "lineNumber": 339
+        },
+        {
+          "caller": "giveDamage",
+          "callee": "this.getHeightInTiles",
+          "lineNumber": 340
+        },
+        {
+          "caller": "giveDamage",
+          "callee": "World.getRandomInt",
+          "lineNumber": 345
+        },
+        {
+          "caller": "giveDamage",
+          "callee": "owner.world.spawnExplosionAt",
+          "lineNumber": 346
+        },
+        {
+          "caller": "giveDamage",
+          "callee": "new Pos",
+          "lineNumber": 346
+        },
+        {
+          "caller": "giveDamage",
+          "callee": "this.boundingBox.getX",
+          "lineNumber": 346
+        },
+        {
+          "caller": "giveDamage",
+          "callee": "this.boundingBox.getY",
+          "lineNumber": 346
+        },
+        {
+          "caller": "giveDamage",
+          "callee": "this.setHp",
+          "lineNumber": 352
+        },
+        {
+          "caller": "giveDamage",
+          "callee": "this.getHp",
+          "lineNumber": 352
+        },
+        {
+          "caller": "giveDamage",
+          "callee": "this.owner.notifyDamaged",
+          "lineNumber": 354
+        }
+      ],
+      "metrics": {
+        "importCount": 16,
+        "exportCount": 36,
+        "functionCount": 33,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/cr0s/javara/entity/building/EntityBuildingProgress.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 121,
+      "nonEmptyLines": 94,
+      "functions": [
+        {
+          "name": "EntityBuildingProgress",
+          "startLine": 23,
+          "endLine": 53,
+          "params": [
+            "aTargetBuilding"
+          ]
+        },
+        {
+          "name": "updateEntity",
+          "startLine": 55,
+          "endLine": 72,
+          "params": [
+            "delta"
+          ]
+        },
+        {
+          "name": "renderEntity",
+          "startLine": 74,
+          "endLine": 86,
+          "params": []
+        },
+        {
+          "name": "shouldRenderedInPass",
+          "startLine": 88,
+          "endLine": 91,
+          "params": [
+            "passNum"
+          ]
+        },
+        {
+          "name": "getHeightInTiles",
+          "startLine": 93,
+          "endLine": 96,
+          "params": []
+        },
+        {
+          "name": "getWidthInTiles",
+          "startLine": 98,
+          "endLine": 101,
+          "params": []
+        },
+        {
+          "name": "getRevealingRange",
+          "startLine": 103,
+          "endLine": 110,
+          "params": []
+        },
+        {
+          "name": "getImageView",
+          "startLine": 112,
+          "endLine": 115,
+          "params": []
+        },
+        {
+          "name": "getTargetBuilding",
+          "startLine": 117,
+          "endLine": 119,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "EntityBuildingProgress",
+          "startLine": 15,
+          "endLine": 121,
+          "methods": [
+            "EntityBuildingProgress",
+            "updateEntity",
+            "renderEntity",
+            "shouldRenderedInPass",
+            "getHeightInTiles",
+            "getWidthInTiles",
+            "getRevealingRange",
+            "getImageView",
+            "getTargetBuilding"
+          ],
+          "properties": [
+            "targetBuilding",
+            "makeTexture",
+            "ticksRemaining",
+            "currentFrame"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "EntityBuildingProgress",
+          "line": 23,
+          "isDefault": false
+        },
+        {
+          "name": "updateEntity",
+          "line": 55,
+          "isDefault": false
+        },
+        {
+          "name": "renderEntity",
+          "line": 74,
+          "isDefault": false
+        },
+        {
+          "name": "shouldRenderedInPass",
+          "line": 88,
+          "isDefault": false
+        },
+        {
+          "name": "getHeightInTiles",
+          "line": 93,
+          "isDefault": false
+        },
+        {
+          "name": "getWidthInTiles",
+          "line": 98,
+          "isDefault": false
+        },
+        {
+          "name": "getRevealingRange",
+          "line": 103,
+          "isDefault": false
+        },
+        {
+          "name": "getImageView",
+          "line": 112,
+          "isDefault": false
+        },
+        {
+          "name": "getTargetBuilding",
+          "line": 117,
+          "isDefault": false
+        },
+        {
+          "name": "EntityBuildingProgress",
+          "line": 15,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "EntityBuildingProgress",
+          "callee": "new Pos",
+          "lineNumber": 24
+        },
+        {
+          "caller": "EntityBuildingProgress",
+          "callee": "aTargetBuilding.boundingBox.getX",
+          "lineNumber": 24
+        },
+        {
+          "caller": "EntityBuildingProgress",
+          "callee": "aTargetBuilding.boundingBox.getY",
+          "lineNumber": 24
+        },
+        {
+          "caller": "EntityBuildingProgress",
+          "callee": "aTargetBuilding.getWidth",
+          "lineNumber": 24
+        },
+        {
+          "caller": "EntityBuildingProgress",
+          "callee": "aTargetBuilding.getHeight",
+          "lineNumber": 24
+        },
+        {
+          "caller": "EntityBuildingProgress",
+          "callee": "aTargetBuilding.getFootprint",
+          "lineNumber": 24
+        },
+        {
+          "caller": "EntityBuildingProgress",
+          "callee": "setBibType",
+          "lineNumber": 35
+        },
+        {
+          "caller": "EntityBuildingProgress",
+          "callee": "this.targetBuilding.getBibType",
+          "lineNumber": 35
+        },
+        {
+          "caller": "EntityBuildingProgress",
+          "callee": "this.setMaxHp",
+          "lineNumber": 37
+        },
+        {
+          "caller": "EntityBuildingProgress",
+          "callee": "this.setHp",
+          "lineNumber": 38
+        },
+        {
+          "caller": "EntityBuildingProgress",
+          "callee": "this.setInvuln",
+          "lineNumber": 41
+        },
+        {
+          "caller": "EntityBuildingProgress",
+          "callee": "GUI.getInstance().getPlayer",
+          "lineNumber": 44
+        },
+        {
+          "caller": "EntityBuildingProgress",
+          "callee": "GUI.getInstance",
+          "lineNumber": 44
+        },
+        {
+          "caller": "updateEntity",
+          "callee": "setDead",
+          "lineNumber": 60
+        },
+        {
+          "caller": "updateEntity",
+          "callee": "owner.entities.add",
+          "lineNumber": 66
+        },
+        {
+          "caller": "updateEntity",
+          "callee": "owner.world.spawnEntityInWorld",
+          "lineNumber": 67
+        },
+        {
+          "caller": "updateEntity",
+          "callee": "owner.getBase().addBuilding",
+          "lineNumber": 68
+        },
+        {
+          "caller": "updateEntity",
+          "callee": "owner.getBase",
+          "lineNumber": 68
+        },
+        {
+          "caller": "updateEntity",
+          "callee": "this.targetBuilding.onBuildFinished",
+          "lineNumber": 70
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "new ImageView",
+          "lineNumber": 80
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "SwingFXUtils.toFXImage",
+          "lineNumber": 80
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "this.makeTexture.getAsImage",
+          "lineNumber": 80
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "view.setX",
+          "lineNumber": 81
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "boundingBox.getX",
+          "lineNumber": 81
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "view.setY",
+          "lineNumber": 82
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "boundingBox.getY",
+          "lineNumber": 82
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "new StackPane",
+          "lineNumber": 83
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "combined.getChildren().add",
+          "lineNumber": 84
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "combined.getChildren",
+          "lineNumber": 84
+        },
+        {
+          "caller": "shouldRenderedInPass",
+          "callee": "this.targetBuilding.shouldRenderedInPass",
+          "lineNumber": 90
+        },
+        {
+          "caller": "getRevealingRange",
+          "callee": "iShroudRevealer.getRevealingRange",
+          "lineNumber": 106
+        },
+        {
+          "caller": "getImageView",
+          "callee": "this.targetBuilding.getImageView",
+          "lineNumber": 114
+        }
+      ],
+      "metrics": {
+        "importCount": 7,
+        "exportCount": 10,
+        "functionCount": 9,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/cr0s/javara/entity/building/IOreCapacitor.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 5,
+      "nonEmptyLines": 4,
+      "classes": [
+        {
+          "name": "IOreCapacitor",
+          "startLine": 3,
+          "endLine": 5,
+          "methods": [
+            "getOreCapacityValue"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "IOreCapacitor",
+          "line": 3,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/cr0s/javara/entity/building/IPowerConsumer.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 5,
+      "nonEmptyLines": 4,
+      "classes": [
+        {
+          "name": "IPowerConsumer",
+          "startLine": 3,
+          "endLine": 5,
+          "methods": [
+            "getConsumptionLevel"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "IPowerConsumer",
+          "line": 3,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/cr0s/javara/entity/building/IPowerProducer.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 5,
+      "nonEmptyLines": 4,
+      "classes": [
+        {
+          "name": "IPowerProducer",
+          "startLine": 3,
+          "endLine": 5,
+          "methods": [
+            "getPowerProductionLevel"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "IPowerProducer",
+          "line": 3,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 142,
+      "nonEmptyLines": 114,
+      "functions": [
+        {
+          "name": "EntityAdvPowerPlant",
+          "startLine": 33,
+          "endLine": 51,
+          "params": [
+            "tile"
+          ]
+        },
+        {
+          "name": "initTextures",
+          "startLine": 53,
+          "endLine": 57,
+          "params": []
+        },
+        {
+          "name": "renderEntity",
+          "startLine": 59,
+          "endLine": 86,
+          "params": []
+        },
+        {
+          "name": "shouldRenderedInPass",
+          "startLine": 88,
+          "endLine": 91,
+          "params": [
+            "passnum"
+          ]
+        },
+        {
+          "name": "updateEntity",
+          "startLine": 93,
+          "endLine": 96,
+          "params": [
+            "delta"
+          ]
+        },
+        {
+          "name": "select",
+          "startLine": 98,
+          "endLine": 101,
+          "params": []
+        },
+        {
+          "name": "cancelSelect",
+          "startLine": 103,
+          "endLine": 106,
+          "params": []
+        },
+        {
+          "name": "isSelected",
+          "startLine": 108,
+          "endLine": 111,
+          "params": []
+        },
+        {
+          "name": "getHeightInTiles",
+          "startLine": 113,
+          "endLine": 116,
+          "params": []
+        },
+        {
+          "name": "getWidthInTiles",
+          "startLine": 118,
+          "endLine": 121,
+          "params": []
+        },
+        {
+          "name": "getPowerProductionLevel",
+          "startLine": 123,
+          "endLine": 126,
+          "params": []
+        },
+        {
+          "name": "getRevealingRange",
+          "startLine": 128,
+          "endLine": 131,
+          "params": []
+        },
+        {
+          "name": "getImageView",
+          "startLine": 133,
+          "endLine": 136,
+          "params": []
+        },
+        {
+          "name": "getBuildingCost",
+          "startLine": 138,
+          "endLine": 141,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "EntityAdvPowerPlant",
+          "startLine": 21,
+          "endLine": 142,
+          "methods": [
+            "EntityAdvPowerPlant",
+            "initTextures",
+            "renderEntity",
+            "shouldRenderedInPass",
+            "updateEntity",
+            "select",
+            "cancelSelect",
+            "isSelected",
+            "getHeightInTiles",
+            "getWidthInTiles",
+            "getPowerProductionLevel",
+            "getRevealingRange",
+            "getImageView",
+            "getBuildingCost"
+          ],
+          "properties": [
+            "normal",
+            "corrupted",
+            "TEXTURE_NAME",
+            "MAKE_TEXTURE_NAME",
+            "WIDTH_TILES",
+            "HEIGHT_TILES",
+            "POWER_PRODUCTION_LEVEL",
+            "SHROUD_REVEALING_RANGE",
+            "BUILDING_COST"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "WIDTH_TILES",
+          "line": 26,
+          "isDefault": false
+        },
+        {
+          "name": "HEIGHT_TILES",
+          "line": 27,
+          "isDefault": false
+        },
+        {
+          "name": "EntityAdvPowerPlant",
+          "line": 33,
+          "isDefault": false
+        },
+        {
+          "name": "renderEntity",
+          "line": 59,
+          "isDefault": false
+        },
+        {
+          "name": "shouldRenderedInPass",
+          "line": 88,
+          "isDefault": false
+        },
+        {
+          "name": "updateEntity",
+          "line": 93,
+          "isDefault": false
+        },
+        {
+          "name": "select",
+          "line": 98,
+          "isDefault": false
+        },
+        {
+          "name": "cancelSelect",
+          "line": 103,
+          "isDefault": false
+        },
+        {
+          "name": "isSelected",
+          "line": 108,
+          "isDefault": false
+        },
+        {
+          "name": "getHeightInTiles",
+          "line": 113,
+          "isDefault": false
+        },
+        {
+          "name": "getWidthInTiles",
+          "line": 118,
+          "isDefault": false
+        },
+        {
+          "name": "getPowerProductionLevel",
+          "line": 123,
+          "isDefault": false
+        },
+        {
+          "name": "getRevealingRange",
+          "line": 128,
+          "isDefault": false
+        },
+        {
+          "name": "getImageView",
+          "line": 133,
+          "isDefault": false
+        },
+        {
+          "name": "getBuildingCost",
+          "line": 138,
+          "isDefault": false
+        },
+        {
+          "name": "EntityAdvPowerPlant",
+          "line": 21,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "EntityAdvPowerPlant",
+          "callee": "setBibType",
+          "lineNumber": 36
+        },
+        {
+          "caller": "EntityAdvPowerPlant",
+          "callee": "setProgressValue",
+          "lineNumber": 37
+        },
+        {
+          "caller": "EntityAdvPowerPlant",
+          "callee": "setMaxHp",
+          "lineNumber": 39
+        },
+        {
+          "caller": "EntityAdvPowerPlant",
+          "callee": "setHp",
+          "lineNumber": 40
+        },
+        {
+          "caller": "EntityAdvPowerPlant",
+          "callee": "getMaxHp",
+          "lineNumber": 40
+        },
+        {
+          "caller": "EntityAdvPowerPlant",
+          "callee": "initTextures",
+          "lineNumber": 44
+        },
+        {
+          "caller": "EntityAdvPowerPlant",
+          "callee": "this.requiredToBuild.add",
+          "lineNumber": 48
+        },
+        {
+          "caller": "EntityAdvPowerPlant",
+          "callee": "this.setName",
+          "lineNumber": 50
+        },
+        {
+          "caller": "initTextures",
+          "callee": "ResourceManager.getInstance().getConquerTexture",
+          "lineNumber": 54
+        },
+        {
+          "caller": "initTextures",
+          "callee": "ResourceManager.getInstance",
+          "lineNumber": 54
+        },
+        {
+          "caller": "initTextures",
+          "callee": "tex.getAsImage",
+          "lineNumber": 55
+        },
+        {
+          "caller": "initTextures",
+          "callee": "tex.getAsImage",
+          "lineNumber": 56
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "this.getHp",
+          "lineNumber": 63
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "this.getMaxHp",
+          "lineNumber": 63
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "new ImageView",
+          "lineNumber": 64
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "SwingFXUtils.toFXImage",
+          "lineNumber": 64
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "new StackPane",
+          "lineNumber": 81
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "combined.getChildren().add",
+          "lineNumber": 82
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "combined.getChildren",
+          "lineNumber": 82
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "view.setX",
+          "lineNumber": 83
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "boundingBox.getX",
+          "lineNumber": 83
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "view.setY",
+          "lineNumber": 84
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "boundingBox.getY",
+          "lineNumber": 84
+        },
+        {
+          "caller": "updateEntity",
+          "callee": "super.updateEntity",
+          "lineNumber": 95
+        },
+        {
+          "caller": "getImageView",
+          "callee": "new ImageView",
+          "lineNumber": 135
+        },
+        {
+          "caller": "getImageView",
+          "callee": "SwingFXUtils.toFXImage",
+          "lineNumber": 135
+        }
+      ],
+      "metrics": {
+        "importCount": 11,
+        "exportCount": 16,
+        "functionCount": 14,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/cr0s/javara/entity/building/common/EntityConcreteWall.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 39,
+      "nonEmptyLines": 28,
+      "functions": [
+        {
+          "name": "EntityConcreteWall",
+          "startLine": 11,
+          "endLine": 13,
+          "params": [
+            "aTile"
+          ]
+        },
+        {
+          "name": "EntityConcreteWall",
+          "startLine": 15,
+          "endLine": 33,
+          "params": [
+            "aTile",
+            "aSizeWidth",
+            "aSizeHeight",
+            "aFootprint"
+          ]
+        },
+        {
+          "name": "getBuildingCost",
+          "startLine": 35,
+          "endLine": 38,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "EntityConcreteWall",
+          "startLine": 7,
+          "endLine": 39,
+          "methods": [
+            "EntityConcreteWall",
+            "EntityConcreteWall",
+            "getBuildingCost"
+          ],
+          "properties": [
+            "BUILDING_COST"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "EntityConcreteWall",
+          "line": 11,
+          "isDefault": false
+        },
+        {
+          "name": "EntityConcreteWall",
+          "line": 15,
+          "isDefault": false
+        },
+        {
+          "name": "getBuildingCost",
+          "line": 35,
+          "isDefault": false
+        },
+        {
+          "name": "EntityConcreteWall",
+          "line": 7,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "EntityConcreteWall",
+          "callee": "loadTextures",
+          "lineNumber": 21
+        },
+        {
+          "caller": "EntityConcreteWall",
+          "callee": "setBibType",
+          "lineNumber": 23
+        },
+        {
+          "caller": "EntityConcreteWall",
+          "callee": "setProgressValue",
+          "lineNumber": 24
+        },
+        {
+          "caller": "EntityConcreteWall",
+          "callee": "setMaxHp",
+          "lineNumber": 26
+        },
+        {
+          "caller": "EntityConcreteWall",
+          "callee": "setHp",
+          "lineNumber": 27
+        },
+        {
+          "caller": "EntityConcreteWall",
+          "callee": "getMaxHp",
+          "lineNumber": 27
+        },
+        {
+          "caller": "EntityConcreteWall",
+          "callee": "this.setName",
+          "lineNumber": 32
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 4,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/cr0s/javara/entity/building/common/EntityConstructionYard.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 174,
+      "nonEmptyLines": 142,
+      "functions": [
+        {
+          "name": "EntityConstructionYard",
+          "startLine": 34,
+          "endLine": 54,
+          "params": [
+            "tile"
+          ]
+        },
+        {
+          "name": "initTextures",
+          "startLine": 56,
+          "endLine": 60,
+          "params": []
+        },
+        {
+          "name": "renderEntity",
+          "startLine": 62,
+          "endLine": 100,
+          "params": []
+        },
+        {
+          "name": "shouldRenderedInPass",
+          "startLine": 102,
+          "endLine": 105,
+          "params": [
+            "passnum"
+          ]
+        },
+        {
+          "name": "updateEntity",
+          "startLine": 107,
+          "endLine": 122,
+          "params": [
+            "delta"
+          ]
+        },
+        {
+          "name": "select",
+          "startLine": 124,
+          "endLine": 127,
+          "params": []
+        },
+        {
+          "name": "cancelSelect",
+          "startLine": 129,
+          "endLine": 132,
+          "params": []
+        },
+        {
+          "name": "isSelected",
+          "startLine": 134,
+          "endLine": 137,
+          "params": []
+        },
+        {
+          "name": "getHeightInTiles",
+          "startLine": 139,
+          "endLine": 142,
+          "params": []
+        },
+        {
+          "name": "getWidthInTiles",
+          "startLine": 144,
+          "endLine": 147,
+          "params": []
+        },
+        {
+          "name": "getAlignment",
+          "startLine": 149,
+          "endLine": 151,
+          "params": []
+        },
+        {
+          "name": "getRevealingRange",
+          "startLine": 153,
+          "endLine": 156,
+          "params": []
+        },
+        {
+          "name": "getImageView",
+          "startLine": 158,
+          "endLine": 172,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "EntityConstructionYard",
+          "startLine": 20,
+          "endLine": 174,
+          "methods": [
+            "EntityConstructionYard",
+            "initTextures",
+            "renderEntity",
+            "shouldRenderedInPass",
+            "updateEntity",
+            "select",
+            "cancelSelect",
+            "isSelected",
+            "getHeightInTiles",
+            "getWidthInTiles",
+            "getAlignment",
+            "getRevealingRange",
+            "getImageView"
+          ],
+          "properties": [
+            "sheet",
+            "normal",
+            "corrupted",
+            "TEXTURE_NAME",
+            "MAKE_TEXTURE_NAME",
+            "WIDTH_TILES",
+            "HEIGHT_TILES",
+            "SHROUD_REVEALING_RANGE",
+            "FOOTPRINT",
+            "yardAlignment"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "WIDTH_TILES",
+          "line": 27,
+          "isDefault": false
+        },
+        {
+          "name": "HEIGHT_TILES",
+          "line": 28,
+          "isDefault": false
+        },
+        {
+          "name": "EntityConstructionYard",
+          "line": 34,
+          "isDefault": false
+        },
+        {
+          "name": "renderEntity",
+          "line": 62,
+          "isDefault": false
+        },
+        {
+          "name": "shouldRenderedInPass",
+          "line": 102,
+          "isDefault": false
+        },
+        {
+          "name": "updateEntity",
+          "line": 107,
+          "isDefault": false
+        },
+        {
+          "name": "select",
+          "line": 124,
+          "isDefault": false
+        },
+        {
+          "name": "cancelSelect",
+          "line": 129,
+          "isDefault": false
+        },
+        {
+          "name": "isSelected",
+          "line": 134,
+          "isDefault": false
+        },
+        {
+          "name": "getHeightInTiles",
+          "line": 139,
+          "isDefault": false
+        },
+        {
+          "name": "getWidthInTiles",
+          "line": 144,
+          "isDefault": false
+        },
+        {
+          "name": "getAlignment",
+          "line": 149,
+          "isDefault": false
+        },
+        {
+          "name": "getRevealingRange",
+          "line": 153,
+          "isDefault": false
+        },
+        {
+          "name": "getImageView",
+          "line": 158,
+          "isDefault": false
+        },
+        {
+          "name": "EntityConstructionYard",
+          "line": 20,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "EntityConstructionYard",
+          "callee": "setBibType",
+          "lineNumber": 39
+        },
+        {
+          "caller": "EntityConstructionYard",
+          "callee": "setProgressValue",
+          "lineNumber": 40
+        },
+        {
+          "caller": "EntityConstructionYard",
+          "callee": "setMaxHp",
+          "lineNumber": 42
+        },
+        {
+          "caller": "EntityConstructionYard",
+          "callee": "setHp",
+          "lineNumber": 43
+        },
+        {
+          "caller": "EntityConstructionYard",
+          "callee": "getMaxHp",
+          "lineNumber": 43
+        },
+        {
+          "caller": "EntityConstructionYard",
+          "callee": "initTextures",
+          "lineNumber": 49
+        },
+        {
+          "caller": "EntityConstructionYard",
+          "callee": "this.setName",
+          "lineNumber": 53
+        },
+        {
+          "caller": "initTextures",
+          "callee": "ResourceManager.getInstance().getConquerTexture",
+          "lineNumber": 57
+        },
+        {
+          "caller": "initTextures",
+          "callee": "ResourceManager.getInstance",
+          "lineNumber": 57
+        },
+        {
+          "caller": "initTextures",
+          "callee": "tex.getAsImage",
+          "lineNumber": 58
+        },
+        {
+          "caller": "initTextures",
+          "callee": "tex.getAsImage",
+          "lineNumber": 59
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "this.getHp",
+          "lineNumber": 65
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "this.getMaxHp",
+          "lineNumber": 65
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "new ImageView",
+          "lineNumber": 66
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "SwingFXUtils.toFXImage",
+          "lineNumber": 66
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "new ImageView",
+          "lineNumber": 68
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "SwingFXUtils.toFXImage",
+          "lineNumber": 68
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "view.setX",
+          "lineNumber": 70
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "boundingBox.getX",
+          "lineNumber": 70
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "view.setY",
+          "lineNumber": 71
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "boundingBox.getY",
+          "lineNumber": 71
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "setImageView",
+          "lineNumber": 72
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "new StackPane",
+          "lineNumber": 73
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "combined.getChildren().add",
+          "lineNumber": 74
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "combined.getChildren",
+          "lineNumber": 74
+        },
+        {
+          "caller": "updateEntity",
+          "callee": "super.updateEntity",
+          "lineNumber": 109
+        },
+        {
+          "caller": "getImageView",
+          "callee": "super.getImageView",
+          "lineNumber": 163
+        },
+        {
+          "caller": "getImageView",
+          "callee": "SwingFXUtils.toFXImage",
+          "lineNumber": 165
+        },
+        {
+          "caller": "getImageView",
+          "callee": "setImageView",
+          "lineNumber": 166
+        },
+        {
+          "caller": "getImageView",
+          "callee": "new ImageView",
+          "lineNumber": 166
+        },
+        {
+          "caller": "getImageView",
+          "callee": "super.getImageView().setX",
+          "lineNumber": 167
+        },
+        {
+          "caller": "getImageView",
+          "callee": "super.getImageView",
+          "lineNumber": 167
+        },
+        {
+          "caller": "getImageView",
+          "callee": "boundingBox.getX",
+          "lineNumber": 167
+        },
+        {
+          "caller": "getImageView",
+          "callee": "super.getImageView().setY",
+          "lineNumber": 168
+        },
+        {
+          "caller": "getImageView",
+          "callee": "super.getImageView",
+          "lineNumber": 168
+        },
+        {
+          "caller": "getImageView",
+          "callee": "boundingBox.getY",
+          "lineNumber": 168
+        },
+        {
+          "caller": "getImageView",
+          "callee": "getImages().add",
+          "lineNumber": 169
+        },
+        {
+          "caller": "getImageView",
+          "callee": "getImages",
+          "lineNumber": 169
+        },
+        {
+          "caller": "getImageView",
+          "callee": "super.getImageView",
+          "lineNumber": 171
+        }
+      ],
+      "metrics": {
+        "importCount": 9,
+        "exportCount": 15,
+        "functionCount": 13,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/cr0s/javara/entity/building/common/EntityHelipad.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 186,
+      "nonEmptyLines": 141,
+      "functions": [
+        {
+          "name": "EntityHelipad",
+          "startLine": 50,
+          "endLine": 68,
+          "params": [
+            "tile"
+          ]
+        },
+        {
+          "name": "initTextures",
+          "startLine": 70,
+          "endLine": 73,
+          "params": []
+        },
+        {
+          "name": "renderEntity",
+          "startLine": 75,
+          "endLine": 108,
+          "params": []
+        },
+        {
+          "name": "shouldRenderedInPass",
+          "startLine": 110,
+          "endLine": 113,
+          "params": [
+            "passnum"
+          ]
+        },
+        {
+          "name": "updateEntity",
+          "startLine": 115,
+          "endLine": 124,
+          "params": [
+            "delta"
+          ]
+        },
+        {
+          "name": "select",
+          "startLine": 126,
+          "endLine": 129,
+          "params": []
+        },
+        {
+          "name": "cancelSelect",
+          "startLine": 131,
+          "endLine": 134,
+          "params": []
+        },
+        {
+          "name": "isSelected",
+          "startLine": 136,
+          "endLine": 139,
+          "params": []
+        },
+        {
+          "name": "getHeightInTiles",
+          "startLine": 141,
+          "endLine": 144,
+          "params": []
+        },
+        {
+          "name": "getWidthInTiles",
+          "startLine": 146,
+          "endLine": 149,
+          "params": []
+        },
+        {
+          "name": "getConsumptionLevel",
+          "startLine": 151,
+          "endLine": 154,
+          "params": []
+        },
+        {
+          "name": "getRevealingRange",
+          "startLine": 156,
+          "endLine": 159,
+          "params": []
+        },
+        {
+          "name": "getImageView",
+          "startLine": 161,
+          "endLine": 164,
+          "params": []
+        },
+        {
+          "name": "getBuildingCost",
+          "startLine": 166,
+          "endLine": 169,
+          "params": []
+        },
+        {
+          "name": "deployEntity",
+          "startLine": 171,
+          "endLine": 180,
+          "params": [
+            "newInstance"
+          ]
+        },
+        {
+          "name": "onBuildFinished",
+          "startLine": 182,
+          "endLine": 185,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "EntityHelipad",
+          "startLine": 23,
+          "endLine": 186,
+          "methods": [
+            "EntityHelipad",
+            "initTextures",
+            "renderEntity",
+            "shouldRenderedInPass",
+            "updateEntity",
+            "select",
+            "cancelSelect",
+            "isSelected",
+            "getHeightInTiles",
+            "getWidthInTiles",
+            "getConsumptionLevel",
+            "getRevealingRange",
+            "getImageView",
+            "getBuildingCost",
+            "deployEntity",
+            "onBuildFinished"
+          ],
+          "properties": [
+            "sheet",
+            "animIndex",
+            "animDelayTicks",
+            "ANIM_DELAY_TICKS",
+            "TEXTURE_NAME",
+            "MAKE_TEXTURE_NAME",
+            "WIDTH_TILES",
+            "HEIGHT_TILES",
+            "TEXTURE_WIDTH",
+            "TEXTURE_HEIGHT",
+            "POWER_CONSUMPTION_LEVEL",
+            "SHROUD_REVEALING_RANGE",
+            "BUILDING_COST",
+            "spawnOffset",
+            "initialFacing",
+            "isCharging"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "WIDTH_TILES",
+          "line": 34,
+          "isDefault": false
+        },
+        {
+          "name": "HEIGHT_TILES",
+          "line": 35,
+          "isDefault": false
+        },
+        {
+          "name": "EntityHelipad",
+          "line": 50,
+          "isDefault": false
+        },
+        {
+          "name": "renderEntity",
+          "line": 75,
+          "isDefault": false
+        },
+        {
+          "name": "shouldRenderedInPass",
+          "line": 110,
+          "isDefault": false
+        },
+        {
+          "name": "updateEntity",
+          "line": 115,
+          "isDefault": false
+        },
+        {
+          "name": "select",
+          "line": 126,
+          "isDefault": false
+        },
+        {
+          "name": "cancelSelect",
+          "line": 131,
+          "isDefault": false
+        },
+        {
+          "name": "isSelected",
+          "line": 136,
+          "isDefault": false
+        },
+        {
+          "name": "getHeightInTiles",
+          "line": 141,
+          "isDefault": false
+        },
+        {
+          "name": "getWidthInTiles",
+          "line": 146,
+          "isDefault": false
+        },
+        {
+          "name": "getConsumptionLevel",
+          "line": 151,
+          "isDefault": false
+        },
+        {
+          "name": "getRevealingRange",
+          "line": 156,
+          "isDefault": false
+        },
+        {
+          "name": "getImageView",
+          "line": 161,
+          "isDefault": false
+        },
+        {
+          "name": "getBuildingCost",
+          "line": 166,
+          "isDefault": false
+        },
+        {
+          "name": "deployEntity",
+          "line": 171,
+          "isDefault": false
+        },
+        {
+          "name": "onBuildFinished",
+          "line": 182,
+          "isDefault": false
+        },
+        {
+          "name": "EntityHelipad",
+          "line": 23,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "EntityHelipad",
+          "callee": "setBibType",
+          "lineNumber": 53
+        },
+        {
+          "caller": "EntityHelipad",
+          "callee": "setProgressValue",
+          "lineNumber": 54
+        },
+        {
+          "caller": "EntityHelipad",
+          "callee": "setMaxHp",
+          "lineNumber": 56
+        },
+        {
+          "caller": "EntityHelipad",
+          "callee": "setHp",
+          "lineNumber": 57
+        },
+        {
+          "caller": "EntityHelipad",
+          "callee": "this.getMaxHp",
+          "lineNumber": 57
+        },
+        {
+          "caller": "EntityHelipad",
+          "callee": "initTextures",
+          "lineNumber": 62
+        },
+        {
+          "caller": "EntityHelipad",
+          "callee": "this.requiredToBuild.add",
+          "lineNumber": 65
+        },
+        {
+          "caller": "EntityHelipad",
+          "callee": "this.setName",
+          "lineNumber": 67
+        },
+        {
+          "caller": "initTextures",
+          "callee": "ResourceManager.getInstance().getConquerTexture",
+          "lineNumber": 71
+        },
+        {
+          "caller": "initTextures",
+          "callee": "ResourceManager.getInstance",
+          "lineNumber": 71
+        },
+        {
+          "caller": "initTextures",
+          "callee": "new SpriteSheet",
+          "lineNumber": 72
+        },
+        {
+          "caller": "initTextures",
+          "callee": "tex.getAsCombinedImage",
+          "lineNumber": 72
+        },
+        {
+          "caller": "initTextures",
+          "callee": "tex.getAsImage(0, null).getWidth",
+          "lineNumber": 72
+        },
+        {
+          "caller": "initTextures",
+          "callee": "tex.getAsImage",
+          "lineNumber": 72
+        },
+        {
+          "caller": "initTextures",
+          "callee": "tex.getAsImage(0, null).getHeight",
+          "lineNumber": 72
+        },
+        {
+          "caller": "initTextures",
+          "callee": "tex.getAsImage",
+          "lineNumber": 72
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "this.getHp",
+          "lineNumber": 79
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "this.getMaxHp",
+          "lineNumber": 79
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "sheet.getSubImage",
+          "lineNumber": 86
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "view.setX",
+          "lineNumber": 102
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "boundingBox.getX",
+          "lineNumber": 102
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "view.setY",
+          "lineNumber": 103
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "boundingBox.getY",
+          "lineNumber": 103
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "setImageView",
+          "lineNumber": 104
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "new StackPane",
+          "lineNumber": 105
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "combined.getChildren().add",
+          "lineNumber": 106
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "combined.getChildren",
+          "lineNumber": 106
+        },
+        {
+          "caller": "updateEntity",
+          "callee": "super.updateEntity",
+          "lineNumber": 117
+        },
+        {
+          "caller": "getImageView",
+          "callee": "sheet.getSubImage",
+          "lineNumber": 163
+        },
+        {
+          "caller": "deployEntity",
+          "callee": "owner.world.spawnEntityInWorld",
+          "lineNumber": 175
+        },
+        {
+          "caller": "deployEntity",
+          "callee": "me.setPos",
+          "lineNumber": 177
+        },
+        {
+          "caller": "deployEntity",
+          "callee": "this.getPosition().add",
+          "lineNumber": 177
+        },
+        {
+          "caller": "deployEntity",
+          "callee": "this.getPosition",
+          "lineNumber": 177
+        }
+      ],
+      "metrics": {
+        "importCount": 14,
+        "exportCount": 18,
+        "functionCount": 16,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/cr0s/javara/entity/building/common/EntityOreSilo.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 178,
+      "nonEmptyLines": 137,
+      "functions": [
+        {
+          "name": "EntityOreSilo",
+          "startLine": 44,
+          "endLine": 64,
+          "params": [
+            "tile"
+          ]
+        },
+        {
+          "name": "initTextures",
+          "startLine": 66,
+          "endLine": 70,
+          "params": []
+        },
+        {
+          "name": "renderEntity",
+          "startLine": 72,
+          "endLine": 98,
+          "params": []
+        },
+        {
+          "name": "shouldRenderedInPass",
+          "startLine": 100,
+          "endLine": 103,
+          "params": [
+            "passnum"
+          ]
+        },
+        {
+          "name": "updateEntity",
+          "startLine": 105,
+          "endLine": 117,
+          "params": [
+            "delta"
+          ]
+        },
+        {
+          "name": "select",
+          "startLine": 119,
+          "endLine": 122,
+          "params": []
+        },
+        {
+          "name": "cancelSelect",
+          "startLine": 124,
+          "endLine": 127,
+          "params": []
+        },
+        {
+          "name": "isSelected",
+          "startLine": 129,
+          "endLine": 132,
+          "params": []
+        },
+        {
+          "name": "getHeightInTiles",
+          "startLine": 134,
+          "endLine": 137,
+          "params": []
+        },
+        {
+          "name": "getWidthInTiles",
+          "startLine": 139,
+          "endLine": 142,
+          "params": []
+        },
+        {
+          "name": "getConsumptionLevel",
+          "startLine": 144,
+          "endLine": 147,
+          "params": []
+        },
+        {
+          "name": "getRevealingRange",
+          "startLine": 149,
+          "endLine": 152,
+          "params": []
+        },
+        {
+          "name": "getImageView",
+          "startLine": 154,
+          "endLine": 157,
+          "params": []
+        },
+        {
+          "name": "getPipCount",
+          "startLine": 159,
+          "endLine": 162,
+          "params": []
+        },
+        {
+          "name": "getPipColorAt",
+          "startLine": 164,
+          "endLine": 167,
+          "params": [
+            "i"
+          ]
+        },
+        {
+          "name": "getOreCapacityValue",
+          "startLine": 169,
+          "endLine": 172,
+          "params": []
+        },
+        {
+          "name": "getBuildingCost",
+          "startLine": 174,
+          "endLine": 177,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "EntityOreSilo",
+          "startLine": 24,
+          "endLine": 178,
+          "methods": [
+            "EntityOreSilo",
+            "initTextures",
+            "renderEntity",
+            "shouldRenderedInPass",
+            "updateEntity",
+            "select",
+            "cancelSelect",
+            "isSelected",
+            "getHeightInTiles",
+            "getWidthInTiles",
+            "getConsumptionLevel",
+            "getRevealingRange",
+            "getImageView",
+            "getPipCount",
+            "getPipColorAt",
+            "getOreCapacityValue",
+            "getBuildingCost"
+          ],
+          "properties": [
+            "sheet",
+            "TEXTURE_NAME",
+            "MAKE_TEXTURE_NAME",
+            "WIDTH_TILES",
+            "HEIGHT_TILES",
+            "POWER_CONSUMPTION_LEVEL",
+            "SHROUD_REVEALING_RANGE",
+            "MAX_CAPACITY",
+            "PIPS_COUNT",
+            "oreLevel",
+            "CORRUPTED_OFFSET",
+            "BUILDING_COST"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "WIDTH_TILES",
+          "line": 30,
+          "isDefault": false
+        },
+        {
+          "name": "HEIGHT_TILES",
+          "line": 31,
+          "isDefault": false
+        },
+        {
+          "name": "MAX_CAPACITY",
+          "line": 37,
+          "isDefault": false
+        },
+        {
+          "name": "PIPS_COUNT",
+          "line": 38,
+          "isDefault": false
+        },
+        {
+          "name": "EntityOreSilo",
+          "line": 44,
+          "isDefault": false
+        },
+        {
+          "name": "renderEntity",
+          "line": 72,
+          "isDefault": false
+        },
+        {
+          "name": "shouldRenderedInPass",
+          "line": 100,
+          "isDefault": false
+        },
+        {
+          "name": "updateEntity",
+          "line": 105,
+          "isDefault": false
+        },
+        {
+          "name": "select",
+          "line": 119,
+          "isDefault": false
+        },
+        {
+          "name": "cancelSelect",
+          "line": 124,
+          "isDefault": false
+        },
+        {
+          "name": "isSelected",
+          "line": 129,
+          "isDefault": false
+        },
+        {
+          "name": "getHeightInTiles",
+          "line": 134,
+          "isDefault": false
+        },
+        {
+          "name": "getWidthInTiles",
+          "line": 139,
+          "isDefault": false
+        },
+        {
+          "name": "getConsumptionLevel",
+          "line": 144,
+          "isDefault": false
+        },
+        {
+          "name": "getRevealingRange",
+          "line": 149,
+          "isDefault": false
+        },
+        {
+          "name": "getImageView",
+          "line": 154,
+          "isDefault": false
+        },
+        {
+          "name": "getPipCount",
+          "line": 159,
+          "isDefault": false
+        },
+        {
+          "name": "getPipColorAt",
+          "line": 164,
+          "isDefault": false
+        },
+        {
+          "name": "getOreCapacityValue",
+          "line": 169,
+          "isDefault": false
+        },
+        {
+          "name": "getBuildingCost",
+          "line": 174,
+          "isDefault": false
+        },
+        {
+          "name": "EntityOreSilo",
+          "line": 24,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "EntityOreSilo",
+          "callee": "setBibType",
+          "lineNumber": 47
+        },
+        {
+          "caller": "EntityOreSilo",
+          "callee": "setProgressValue",
+          "lineNumber": 48
+        },
+        {
+          "caller": "EntityOreSilo",
+          "callee": "setMaxHp",
+          "lineNumber": 50
+        },
+        {
+          "caller": "EntityOreSilo",
+          "callee": "setHp",
+          "lineNumber": 51
+        },
+        {
+          "caller": "EntityOreSilo",
+          "callee": "getMaxHp",
+          "lineNumber": 51
+        },
+        {
+          "caller": "EntityOreSilo",
+          "callee": "initTextures",
+          "lineNumber": 56
+        },
+        {
+          "caller": "EntityOreSilo",
+          "callee": "this.requiredToBuild.add",
+          "lineNumber": 60
+        },
+        {
+          "caller": "EntityOreSilo",
+          "callee": "this.requiredToBuild.add",
+          "lineNumber": 61
+        },
+        {
+          "caller": "EntityOreSilo",
+          "callee": "this.setName",
+          "lineNumber": 63
+        },
+        {
+          "caller": "initTextures",
+          "callee": "ResourceManager.getInstance().getConquerTexture",
+          "lineNumber": 67
+        },
+        {
+          "caller": "initTextures",
+          "callee": "ResourceManager.getInstance",
+          "lineNumber": 67
+        },
+        {
+          "caller": "initTextures",
+          "callee": "new SpriteSheet",
+          "lineNumber": 69
+        },
+        {
+          "caller": "initTextures",
+          "callee": "tex.getAsCombinedImage",
+          "lineNumber": 69
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "this.getHp",
+          "lineNumber": 79
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "this.getMaxHp",
+          "lineNumber": 79
+        },
+        {
+          "caller": "updateEntity",
+          "callee": "super.updateEntity",
+          "lineNumber": 107
+        },
+        {
+          "caller": "updateEntity",
+          "callee": "this.getPipCount",
+          "lineNumber": 112
+        },
+        {
+          "caller": "updateEntity",
+          "callee": "this.getPipColorAt",
+          "lineNumber": 113
+        },
+        {
+          "caller": "getImageView",
+          "callee": "this.sheet.getSubImage",
+          "lineNumber": 156
+        },
+        {
+          "caller": "getPipColorAt",
+          "callee": "owner.getBase",
+          "lineNumber": 166
+        },
+        {
+          "caller": "getPipColorAt",
+          "callee": "owner.getBase",
+          "lineNumber": 166
+        }
+      ],
+      "metrics": {
+        "importCount": 14,
+        "exportCount": 21,
+        "functionCount": 17,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/cr0s/javara/entity/building/common/EntityPowerPlant.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 136,
+      "nonEmptyLines": 110,
+      "functions": [
+        {
+          "name": "EntityPowerPlant",
+          "startLine": 34,
+          "endLine": 50,
+          "params": [
+            "tile"
+          ]
+        },
+        {
+          "name": "initTextures",
+          "startLine": 52,
+          "endLine": 56,
+          "params": []
+        },
+        {
+          "name": "renderEntity",
+          "startLine": 58,
+          "endLine": 85,
+          "params": []
+        },
+        {
+          "name": "shouldRenderedInPass",
+          "startLine": 87,
+          "endLine": 90,
+          "params": [
+            "passnum"
+          ]
+        },
+        {
+          "name": "select",
+          "startLine": 92,
+          "endLine": 95,
+          "params": []
+        },
+        {
+          "name": "cancelSelect",
+          "startLine": 97,
+          "endLine": 100,
+          "params": []
+        },
+        {
+          "name": "isSelected",
+          "startLine": 102,
+          "endLine": 105,
+          "params": []
+        },
+        {
+          "name": "getHeightInTiles",
+          "startLine": 107,
+          "endLine": 110,
+          "params": []
+        },
+        {
+          "name": "getWidthInTiles",
+          "startLine": 112,
+          "endLine": 115,
+          "params": []
+        },
+        {
+          "name": "getPowerProductionLevel",
+          "startLine": 117,
+          "endLine": 120,
+          "params": []
+        },
+        {
+          "name": "getRevealingRange",
+          "startLine": 122,
+          "endLine": 125,
+          "params": []
+        },
+        {
+          "name": "getImageView",
+          "startLine": 127,
+          "endLine": 130,
+          "params": []
+        },
+        {
+          "name": "getBuildingCost",
+          "startLine": 132,
+          "endLine": 135,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "EntityPowerPlant",
+          "startLine": 21,
+          "endLine": 136,
+          "methods": [
+            "EntityPowerPlant",
+            "initTextures",
+            "renderEntity",
+            "shouldRenderedInPass",
+            "select",
+            "cancelSelect",
+            "isSelected",
+            "getHeightInTiles",
+            "getWidthInTiles",
+            "getPowerProductionLevel",
+            "getRevealingRange",
+            "getImageView",
+            "getBuildingCost"
+          ],
+          "properties": [
+            "normal",
+            "corrupted",
+            "TEXTURE_NAME",
+            "MAKE_TEXTURE_NAME",
+            "WIDTH_TILES",
+            "HEIGHT_TILES",
+            "POWER_PRODUCTION_LEVEL",
+            "SHROUD_REVEALING_RANGE",
+            "BUILDING_COST"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "WIDTH_TILES",
+          "line": 26,
+          "isDefault": false
+        },
+        {
+          "name": "HEIGHT_TILES",
+          "line": 27,
+          "isDefault": false
+        },
+        {
+          "name": "EntityPowerPlant",
+          "line": 34,
+          "isDefault": false
+        },
+        {
+          "name": "renderEntity",
+          "line": 58,
+          "isDefault": false
+        },
+        {
+          "name": "shouldRenderedInPass",
+          "line": 87,
+          "isDefault": false
+        },
+        {
+          "name": "select",
+          "line": 92,
+          "isDefault": false
+        },
+        {
+          "name": "cancelSelect",
+          "line": 97,
+          "isDefault": false
+        },
+        {
+          "name": "isSelected",
+          "line": 102,
+          "isDefault": false
+        },
+        {
+          "name": "getHeightInTiles",
+          "line": 107,
+          "isDefault": false
+        },
+        {
+          "name": "getWidthInTiles",
+          "line": 112,
+          "isDefault": false
+        },
+        {
+          "name": "getPowerProductionLevel",
+          "line": 117,
+          "isDefault": false
+        },
+        {
+          "name": "getRevealingRange",
+          "line": 122,
+          "isDefault": false
+        },
+        {
+          "name": "getImageView",
+          "line": 127,
+          "isDefault": false
+        },
+        {
+          "name": "getBuildingCost",
+          "line": 132,
+          "isDefault": false
+        },
+        {
+          "name": "EntityPowerPlant",
+          "line": 21,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "EntityPowerPlant",
+          "callee": "setBibType",
+          "lineNumber": 37
+        },
+        {
+          "caller": "EntityPowerPlant",
+          "callee": "setProgressValue",
+          "lineNumber": 38
+        },
+        {
+          "caller": "EntityPowerPlant",
+          "callee": "setMaxHp",
+          "lineNumber": 40
+        },
+        {
+          "caller": "EntityPowerPlant",
+          "callee": "setHp",
+          "lineNumber": 41
+        },
+        {
+          "caller": "EntityPowerPlant",
+          "callee": "getMaxHp",
+          "lineNumber": 41
+        },
+        {
+          "caller": "EntityPowerPlant",
+          "callee": "initTextures",
+          "lineNumber": 45
+        },
+        {
+          "caller": "EntityPowerPlant",
+          "callee": "this.setName",
+          "lineNumber": 49
+        },
+        {
+          "caller": "initTextures",
+          "callee": "ResourceManager.getInstance().getConquerTexture",
+          "lineNumber": 53
+        },
+        {
+          "caller": "initTextures",
+          "callee": "ResourceManager.getInstance",
+          "lineNumber": 53
+        },
+        {
+          "caller": "initTextures",
+          "callee": "tex.getAsImage",
+          "lineNumber": 54
+        },
+        {
+          "caller": "initTextures",
+          "callee": "tex.getAsImage",
+          "lineNumber": 55
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "this.getHp",
+          "lineNumber": 61
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "this.getMaxHp",
+          "lineNumber": 61
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "new ImageView",
+          "lineNumber": 62
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "SwingFXUtils.toFXImage",
+          "lineNumber": 62
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "view.setX",
+          "lineNumber": 79
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "boundingBox.getX",
+          "lineNumber": 79
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "view.setY",
+          "lineNumber": 80
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "boundingBox.getY",
+          "lineNumber": 80
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "setImageView",
+          "lineNumber": 81
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "new StackPane",
+          "lineNumber": 82
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "combined.getChildren().add",
+          "lineNumber": 83
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "combined.getChildren",
+          "lineNumber": 83
+        },
+        {
+          "caller": "getImageView",
+          "callee": "new ImageView",
+          "lineNumber": 129
+        },
+        {
+          "caller": "getImageView",
+          "callee": "SwingFXUtils.toFXImage",
+          "lineNumber": 129
+        }
+      ],
+      "metrics": {
+        "importCount": 11,
+        "exportCount": 15,
+        "functionCount": 13,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/cr0s/javara/entity/building/common/EntityProc.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 229,
+      "nonEmptyLines": 183,
+      "functions": [
+        {
+          "name": "EntityProc",
+          "startLine": 58,
+          "endLine": 76,
+          "params": [
+            "tile"
+          ]
+        },
+        {
+          "name": "onBuildFinished",
+          "startLine": 78,
+          "endLine": 82,
+          "params": []
+        },
+        {
+          "name": "spawnHarvester",
+          "startLine": 84,
+          "endLine": 101,
+          "params": []
+        },
+        {
+          "name": "getHarvesterCell",
+          "startLine": 103,
+          "endLine": 105,
+          "params": []
+        },
+        {
+          "name": "initTextures",
+          "startLine": 107,
+          "endLine": 111,
+          "params": []
+        },
+        {
+          "name": "renderEntity",
+          "startLine": 113,
+          "endLine": 140,
+          "params": []
+        },
+        {
+          "name": "shouldRenderedInPass",
+          "startLine": 142,
+          "endLine": 145,
+          "params": [
+            "passnum"
+          ]
+        },
+        {
+          "name": "select",
+          "startLine": 147,
+          "endLine": 150,
+          "params": []
+        },
+        {
+          "name": "cancelSelect",
+          "startLine": 152,
+          "endLine": 155,
+          "params": []
+        },
+        {
+          "name": "isSelected",
+          "startLine": 157,
+          "endLine": 160,
+          "params": []
+        },
+        {
+          "name": "getHeightInTiles",
+          "startLine": 162,
+          "endLine": 165,
+          "params": []
+        },
+        {
+          "name": "getWidthInTiles",
+          "startLine": 167,
+          "endLine": 170,
+          "params": []
+        },
+        {
+          "name": "getConsumptionLevel",
+          "startLine": 172,
+          "endLine": 175,
+          "params": []
+        },
+        {
+          "name": "getRevealingRange",
+          "startLine": 177,
+          "endLine": 180,
+          "params": []
+        },
+        {
+          "name": "getImageView",
+          "startLine": 182,
+          "endLine": 185,
+          "params": []
+        },
+        {
+          "name": "acceptResources",
+          "startLine": 187,
+          "endLine": 189,
+          "params": [
+            "aCapacity"
+          ]
+        },
+        {
+          "name": "getPipCount",
+          "startLine": 191,
+          "endLine": 194,
+          "params": []
+        },
+        {
+          "name": "getPipColorAt",
+          "startLine": 196,
+          "endLine": 199,
+          "params": [
+            "i"
+          ]
+        },
+        {
+          "name": "getOreCapacityValue",
+          "startLine": 201,
+          "endLine": 204,
+          "params": []
+        },
+        {
+          "name": "getTargetLines",
+          "startLine": 206,
+          "endLine": 209,
+          "params": []
+        },
+        {
+          "name": "linkedHarvestersLines",
+          "startLine": 211,
+          "endLine": 223,
+          "params": []
+        },
+        {
+          "name": "getBuildingCost",
+          "startLine": 225,
+          "endLine": 228,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "EntityProc",
+          "startLine": 33,
+          "endLine": 229,
+          "methods": [
+            "EntityProc",
+            "onBuildFinished",
+            "spawnHarvester",
+            "getHarvesterCell",
+            "initTextures",
+            "renderEntity",
+            "shouldRenderedInPass",
+            "select",
+            "cancelSelect",
+            "isSelected",
+            "getHeightInTiles",
+            "getWidthInTiles",
+            "getConsumptionLevel",
+            "getRevealingRange",
+            "getImageView",
+            "acceptResources",
+            "getPipCount",
+            "getPipColorAt",
+            "getOreCapacityValue",
+            "getTargetLines",
+            "linkedHarvestersLines",
+            "getBuildingCost"
+          ],
+          "properties": [
+            "sheet",
+            "normal",
+            "corrupted",
+            "TEXTURE_NAME",
+            "MAKE_TEXTURE_NAME",
+            "WIDTH_TILES",
+            "HEIGHT_TILES",
+            "HARV_FACING",
+            "POWER_CONSUMPTION_LEVEL",
+            "SHROUD_REVEALING_RANGE",
+            "HARV_OFFSET_X",
+            "HARV_OFFSET_Y",
+            "MAX_CAPACITY",
+            "PIPS_COUNT",
+            "targetLines",
+            "BUILDING_COST"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "WIDTH_TILES",
+          "line": 40,
+          "isDefault": false
+        },
+        {
+          "name": "HEIGHT_TILES",
+          "line": 41,
+          "isDefault": false
+        },
+        {
+          "name": "HARV_FACING",
+          "line": 42,
+          "isDefault": false
+        },
+        {
+          "name": "MAX_CAPACITY",
+          "line": 52,
+          "isDefault": false
+        },
+        {
+          "name": "PIPS_COUNT",
+          "line": 53,
+          "isDefault": false
+        },
+        {
+          "name": "EntityProc",
+          "line": 58,
+          "isDefault": false
+        },
+        {
+          "name": "onBuildFinished",
+          "line": 78,
+          "isDefault": false
+        },
+        {
+          "name": "getHarvesterCell",
+          "line": 103,
+          "isDefault": false
+        },
+        {
+          "name": "renderEntity",
+          "line": 113,
+          "isDefault": false
+        },
+        {
+          "name": "shouldRenderedInPass",
+          "line": 142,
+          "isDefault": false
+        },
+        {
+          "name": "select",
+          "line": 147,
+          "isDefault": false
+        },
+        {
+          "name": "cancelSelect",
+          "line": 152,
+          "isDefault": false
+        },
+        {
+          "name": "isSelected",
+          "line": 157,
+          "isDefault": false
+        },
+        {
+          "name": "getHeightInTiles",
+          "line": 162,
+          "isDefault": false
+        },
+        {
+          "name": "getWidthInTiles",
+          "line": 167,
+          "isDefault": false
+        },
+        {
+          "name": "getConsumptionLevel",
+          "line": 172,
+          "isDefault": false
+        },
+        {
+          "name": "getRevealingRange",
+          "line": 177,
+          "isDefault": false
+        },
+        {
+          "name": "getImageView",
+          "line": 182,
+          "isDefault": false
+        },
+        {
+          "name": "acceptResources",
+          "line": 187,
+          "isDefault": false
+        },
+        {
+          "name": "getPipCount",
+          "line": 191,
+          "isDefault": false
+        },
+        {
+          "name": "getPipColorAt",
+          "line": 196,
+          "isDefault": false
+        },
+        {
+          "name": "getOreCapacityValue",
+          "line": 201,
+          "isDefault": false
+        },
+        {
+          "name": "getTargetLines",
+          "line": 206,
+          "isDefault": false
+        },
+        {
+          "name": "getBuildingCost",
+          "line": 225,
+          "isDefault": false
+        },
+        {
+          "name": "EntityProc",
+          "line": 33,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "EntityProc",
+          "callee": "setBibType",
+          "lineNumber": 61
+        },
+        {
+          "caller": "EntityProc",
+          "callee": "setProgressValue",
+          "lineNumber": 62
+        },
+        {
+          "caller": "EntityProc",
+          "callee": "setMaxHp",
+          "lineNumber": 64
+        },
+        {
+          "caller": "EntityProc",
+          "callee": "setHp",
+          "lineNumber": 65
+        },
+        {
+          "caller": "EntityProc",
+          "callee": "getMaxHp",
+          "lineNumber": 65
+        },
+        {
+          "caller": "EntityProc",
+          "callee": "initTextures",
+          "lineNumber": 70
+        },
+        {
+          "caller": "EntityProc",
+          "callee": "this.requiredToBuild.add",
+          "lineNumber": 73
+        },
+        {
+          "caller": "EntityProc",
+          "callee": "this.setName",
+          "lineNumber": 75
+        },
+        {
+          "caller": "onBuildFinished",
+          "callee": "super.onBuildFinished",
+          "lineNumber": 80
+        },
+        {
+          "caller": "onBuildFinished",
+          "callee": "spawnHarvester",
+          "lineNumber": 81
+        },
+        {
+          "caller": "spawnHarvester",
+          "callee": "getHarvesterCell",
+          "lineNumber": 89
+        },
+        {
+          "caller": "spawnHarvester",
+          "callee": "new EntityHarvester",
+          "lineNumber": 90
+        },
+        {
+          "caller": "spawnHarvester",
+          "callee": "harv.queueActivity",
+          "lineNumber": 96
+        },
+        {
+          "caller": "spawnHarvester",
+          "callee": "new FindResources",
+          "lineNumber": 96
+        },
+        {
+          "caller": "spawnHarvester",
+          "callee": "owner.world.spawnEntityInWorld",
+          "lineNumber": 98
+        },
+        {
+          "caller": "spawnHarvester",
+          "callee": "owner.entities.add",
+          "lineNumber": 99
+        },
+        {
+          "caller": "spawnHarvester",
+          "callee": "this.setName",
+          "lineNumber": 100
+        },
+        {
+          "caller": "getHarvesterCell",
+          "callee": "new Pos",
+          "lineNumber": 104
+        },
+        {
+          "caller": "getHarvesterCell",
+          "callee": "this.boundingBox.getX",
+          "lineNumber": 104
+        },
+        {
+          "caller": "getHarvesterCell",
+          "callee": "this.boundingBox.getY",
+          "lineNumber": 104
+        },
+        {
+          "caller": "initTextures",
+          "callee": "ResourceManager.getInstance().getConquerTexture",
+          "lineNumber": 108
+        },
+        {
+          "caller": "initTextures",
+          "callee": "ResourceManager.getInstance",
+          "lineNumber": 108
+        },
+        {
+          "caller": "initTextures",
+          "callee": "tex.getAsImage",
+          "lineNumber": 109
+        },
+        {
+          "caller": "initTextures",
+          "callee": "tex.getAsImage",
+          "lineNumber": 110
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "this.getHp",
+          "lineNumber": 116
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "this.getMaxHp",
+          "lineNumber": 116
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "new ImageView",
+          "lineNumber": 117
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "SwingFXUtils.toFXImage",
+          "lineNumber": 117
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "view.setX",
+          "lineNumber": 134
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "boundingBox.getX",
+          "lineNumber": 134
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "view.setY",
+          "lineNumber": 135
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "boundingBox.getY",
+          "lineNumber": 135
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "setImageView",
+          "lineNumber": 136
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "new StackPane",
+          "lineNumber": 137
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "combined.getChildren().add",
+          "lineNumber": 138
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "combined.getChildren",
+          "lineNumber": 138
+        },
+        {
+          "caller": "getImageView",
+          "callee": "new ImageView",
+          "lineNumber": 184
+        },
+        {
+          "caller": "getImageView",
+          "callee": "SwingFXUtils.toFXImage",
+          "lineNumber": 184
+        },
+        {
+          "caller": "acceptResources",
+          "callee": "owner.getBase().giveOre",
+          "lineNumber": 188
+        },
+        {
+          "caller": "acceptResources",
+          "callee": "owner.getBase",
+          "lineNumber": 188
+        },
+        {
+          "caller": "getPipColorAt",
+          "callee": "owner.getBase",
+          "lineNumber": 198
+        },
+        {
+          "caller": "getPipColorAt",
+          "callee": "owner.getBase",
+          "lineNumber": 198
+        },
+        {
+          "caller": "getTargetLines",
+          "callee": "linkedHarvestersLines",
+          "lineNumber": 208
+        },
+        {
+          "caller": "linkedHarvestersLines",
+          "callee": "this.targetLines.clear",
+          "lineNumber": 212
+        },
+        {
+          "caller": "linkedHarvestersLines",
+          "callee": "owner.world.getEntitiesList",
+          "lineNumber": 214
+        }
+      ],
+      "metrics": {
+        "importCount": 19,
+        "exportCount": 25,
+        "functionCount": 22,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/cr0s/javara/entity/building/common/EntityRadarDome.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 151,
+      "nonEmptyLines": 122,
+      "functions": [
+        {
+          "name": "EntityRadarDome",
+          "startLine": 34,
+          "endLine": 55,
+          "params": [
+            "tile"
+          ]
+        },
+        {
+          "name": "initTextures",
+          "startLine": 57,
+          "endLine": 61,
+          "params": []
+        },
+        {
+          "name": "renderEntity",
+          "startLine": 63,
+          "endLine": 91,
+          "params": []
+        },
+        {
+          "name": "shouldRenderedInPass",
+          "startLine": 93,
+          "endLine": 96,
+          "params": [
+            "passnum"
+          ]
+        },
+        {
+          "name": "select",
+          "startLine": 98,
+          "endLine": 101,
+          "params": []
+        },
+        {
+          "name": "cancelSelect",
+          "startLine": 103,
+          "endLine": 106,
+          "params": []
+        },
+        {
+          "name": "isSelected",
+          "startLine": 108,
+          "endLine": 111,
+          "params": []
+        },
+        {
+          "name": "getHeightInTiles",
+          "startLine": 113,
+          "endLine": 116,
+          "params": []
+        },
+        {
+          "name": "getWidthInTiles",
+          "startLine": 118,
+          "endLine": 121,
+          "params": []
+        },
+        {
+          "name": "getRevealingRange",
+          "startLine": 123,
+          "endLine": 126,
+          "params": []
+        },
+        {
+          "name": "getImageView",
+          "startLine": 128,
+          "endLine": 131,
+          "params": []
+        },
+        {
+          "name": "getConsumptionLevel",
+          "startLine": 133,
+          "endLine": 136,
+          "params": []
+        },
+        {
+          "name": "onBuildFinished",
+          "startLine": 138,
+          "endLine": 145,
+          "params": []
+        },
+        {
+          "name": "getBuildingCost",
+          "startLine": 147,
+          "endLine": 150,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "EntityRadarDome",
+          "startLine": 22,
+          "endLine": 151,
+          "methods": [
+            "EntityRadarDome",
+            "initTextures",
+            "renderEntity",
+            "shouldRenderedInPass",
+            "select",
+            "cancelSelect",
+            "isSelected",
+            "getHeightInTiles",
+            "getWidthInTiles",
+            "getRevealingRange",
+            "getImageView",
+            "getConsumptionLevel",
+            "onBuildFinished",
+            "getBuildingCost"
+          ],
+          "properties": [
+            "normal",
+            "corrupted",
+            "TEXTURE_NAME",
+            "MAKE_TEXTURE_NAME",
+            "WIDTH_TILES",
+            "HEIGHT_TILES",
+            "POWER_CONSUMPTION_LEVEL",
+            "BUILDING_COST",
+            "SHROUD_REVEALING_RANGE"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "WIDTH_TILES",
+          "line": 27,
+          "isDefault": false
+        },
+        {
+          "name": "HEIGHT_TILES",
+          "line": 28,
+          "isDefault": false
+        },
+        {
+          "name": "EntityRadarDome",
+          "line": 34,
+          "isDefault": false
+        },
+        {
+          "name": "renderEntity",
+          "line": 63,
+          "isDefault": false
+        },
+        {
+          "name": "shouldRenderedInPass",
+          "line": 93,
+          "isDefault": false
+        },
+        {
+          "name": "select",
+          "line": 98,
+          "isDefault": false
+        },
+        {
+          "name": "cancelSelect",
+          "line": 103,
+          "isDefault": false
+        },
+        {
+          "name": "isSelected",
+          "line": 108,
+          "isDefault": false
+        },
+        {
+          "name": "getHeightInTiles",
+          "line": 113,
+          "isDefault": false
+        },
+        {
+          "name": "getWidthInTiles",
+          "line": 118,
+          "isDefault": false
+        },
+        {
+          "name": "getRevealingRange",
+          "line": 123,
+          "isDefault": false
+        },
+        {
+          "name": "getImageView",
+          "line": 128,
+          "isDefault": false
+        },
+        {
+          "name": "getConsumptionLevel",
+          "line": 133,
+          "isDefault": false
+        },
+        {
+          "name": "onBuildFinished",
+          "line": 138,
+          "isDefault": false
+        },
+        {
+          "name": "getBuildingCost",
+          "line": 147,
+          "isDefault": false
+        },
+        {
+          "name": "EntityRadarDome",
+          "line": 22,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "EntityRadarDome",
+          "callee": "setBibType",
+          "lineNumber": 37
+        },
+        {
+          "caller": "EntityRadarDome",
+          "callee": "setProgressValue",
+          "lineNumber": 38
+        },
+        {
+          "caller": "EntityRadarDome",
+          "callee": "setMaxHp",
+          "lineNumber": 40
+        },
+        {
+          "caller": "EntityRadarDome",
+          "callee": "setHp",
+          "lineNumber": 41
+        },
+        {
+          "caller": "EntityRadarDome",
+          "callee": "getMaxHp",
+          "lineNumber": 41
+        },
+        {
+          "caller": "EntityRadarDome",
+          "callee": "initTextures",
+          "lineNumber": 47
+        },
+        {
+          "caller": "EntityRadarDome",
+          "callee": "this.requiredToBuild.add",
+          "lineNumber": 51
+        },
+        {
+          "caller": "EntityRadarDome",
+          "callee": "this.requiredToBuild.add",
+          "lineNumber": 52
+        },
+        {
+          "caller": "EntityRadarDome",
+          "callee": "this.setName",
+          "lineNumber": 54
+        },
+        {
+          "caller": "initTextures",
+          "callee": "ResourceManager.getInstance().getConquerTexture",
+          "lineNumber": 58
+        },
+        {
+          "caller": "initTextures",
+          "callee": "ResourceManager.getInstance",
+          "lineNumber": 58
+        },
+        {
+          "caller": "initTextures",
+          "callee": "tex.getAsImage",
+          "lineNumber": 59
+        },
+        {
+          "caller": "initTextures",
+          "callee": "tex.getAsImage",
+          "lineNumber": 60
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "this.getHp",
+          "lineNumber": 68
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "this.getMaxHp",
+          "lineNumber": 68
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "new ImageView",
+          "lineNumber": 69
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "SwingFXUtils.toFXImage",
+          "lineNumber": 69
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "view.setX",
+          "lineNumber": 86
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "boundingBox.getX",
+          "lineNumber": 86
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "view.setY",
+          "lineNumber": 87
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "boundingBox.getY",
+          "lineNumber": 87
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "new StackPane",
+          "lineNumber": 88
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "combined.getChildren().add",
+          "lineNumber": 89
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "combined.getChildren",
+          "lineNumber": 89
+        },
+        {
+          "caller": "getImageView",
+          "callee": "new ImageView",
+          "lineNumber": 130
+        },
+        {
+          "caller": "getImageView",
+          "callee": "SwingFXUtils.toFXImage",
+          "lineNumber": 130
+        },
+        {
+          "caller": "onBuildFinished",
+          "callee": "super.onBuildFinished",
+          "lineNumber": 140
+        }
+      ],
+      "metrics": {
+        "importCount": 12,
+        "exportCount": 16,
+        "functionCount": 14,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/cr0s/javara/entity/building/common/EntityWall.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 136,
+      "nonEmptyLines": 105,
+      "functions": [
+        {
+          "name": "EntityWall",
+          "startLine": 29,
+          "endLine": 33,
+          "params": [
+            "aTile",
+            "aSizeWidth",
+            "aSizeHeight",
+            "aFootprint"
+          ]
+        },
+        {
+          "name": "loadTextures",
+          "startLine": 35,
+          "endLine": 43,
+          "params": []
+        },
+        {
+          "name": "updateEntity",
+          "startLine": 45,
+          "endLine": 73,
+          "params": [
+            "delta"
+          ]
+        },
+        {
+          "name": "updateNeighbours",
+          "startLine": 75,
+          "endLine": 93,
+          "params": []
+        },
+        {
+          "name": "setDirty",
+          "startLine": 95,
+          "endLine": 97,
+          "params": []
+        },
+        {
+          "name": "renderEntity",
+          "startLine": 99,
+          "endLine": 105,
+          "params": []
+        },
+        {
+          "name": "shouldRenderedInPass",
+          "startLine": 107,
+          "endLine": 110,
+          "params": [
+            "passNum"
+          ]
+        },
+        {
+          "name": "getHeightInTiles",
+          "startLine": 112,
+          "endLine": 115,
+          "params": []
+        },
+        {
+          "name": "getWidthInTiles",
+          "startLine": 117,
+          "endLine": 120,
+          "params": []
+        },
+        {
+          "name": "getImageView",
+          "startLine": 122,
+          "endLine": 125,
+          "params": []
+        },
+        {
+          "name": "onBuildFinished",
+          "startLine": 127,
+          "endLine": 131,
+          "params": []
+        },
+        {
+          "name": "setRepairing",
+          "startLine": 133,
+          "endLine": 135,
+          "params": [
+            "b"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "EntityWall",
+          "startLine": 14,
+          "endLine": 136,
+          "methods": [
+            "EntityWall",
+            "loadTextures",
+            "updateEntity",
+            "updateNeighbours",
+            "setDirty",
+            "renderEntity",
+            "shouldRenderedInPass",
+            "getHeightInTiles",
+            "getWidthInTiles",
+            "getImageView",
+            "onBuildFinished",
+            "setRepairing"
+          ],
+          "properties": [
+            "dirty",
+            "adjacent",
+            "sheet",
+            "textureName",
+            "damageModifier",
+            "UPDATE_INTERVAL_TICKS",
+            "updateNeighboursTicks",
+            "lineBuildMaxLength"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "textureName",
+          "line": 20,
+          "isDefault": false
+        },
+        {
+          "name": "lineBuildMaxLength",
+          "line": 27,
+          "isDefault": false
+        },
+        {
+          "name": "EntityWall",
+          "line": 29,
+          "isDefault": false
+        },
+        {
+          "name": "updateEntity",
+          "line": 45,
+          "isDefault": false
+        },
+        {
+          "name": "setDirty",
+          "line": 95,
+          "isDefault": false
+        },
+        {
+          "name": "renderEntity",
+          "line": 99,
+          "isDefault": false
+        },
+        {
+          "name": "shouldRenderedInPass",
+          "line": 107,
+          "isDefault": false
+        },
+        {
+          "name": "getHeightInTiles",
+          "line": 112,
+          "isDefault": false
+        },
+        {
+          "name": "getWidthInTiles",
+          "line": 117,
+          "isDefault": false
+        },
+        {
+          "name": "getImageView",
+          "line": 122,
+          "isDefault": false
+        },
+        {
+          "name": "onBuildFinished",
+          "line": 127,
+          "isDefault": false
+        },
+        {
+          "name": "setRepairing",
+          "line": 133,
+          "isDefault": false
+        },
+        {
+          "name": "EntityWall",
+          "line": 14,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "loadTextures",
+          "callee": "ResourceManager.getInstance().getConquerTexture",
+          "lineNumber": 36
+        },
+        {
+          "caller": "loadTextures",
+          "callee": "ResourceManager.getInstance",
+          "lineNumber": 36
+        },
+        {
+          "caller": "loadTextures",
+          "callee": "new SpriteSheet",
+          "lineNumber": 39
+        },
+        {
+          "caller": "loadTextures",
+          "callee": "tex.getAsCombinedImage",
+          "lineNumber": 39
+        },
+        {
+          "caller": "loadTextures",
+          "callee": "System.err.println",
+          "lineNumber": 41
+        },
+        {
+          "caller": "updateEntity",
+          "callee": "this.boundingBox.getX",
+          "lineNumber": 58
+        },
+        {
+          "caller": "updateEntity",
+          "callee": "this.boundingBox.getY",
+          "lineNumber": 59
+        },
+        {
+          "caller": "updateEntity",
+          "callee": "owner.world.getBuildingInCell",
+          "lineNumber": 62
+        },
+        {
+          "caller": "updateEntity",
+          "callee": "new Pos",
+          "lineNumber": 62
+        },
+        {
+          "caller": "updateEntity",
+          "callee": "((EntityWall) b).textureName.equals",
+          "lineNumber": 65
+        },
+        {
+          "caller": "updateNeighbours",
+          "callee": "this.boundingBox.getX",
+          "lineNumber": 82
+        },
+        {
+          "caller": "updateNeighbours",
+          "callee": "this.boundingBox.getY",
+          "lineNumber": 83
+        },
+        {
+          "caller": "updateNeighbours",
+          "callee": "owner.world.getBuildingInCell",
+          "lineNumber": 86
+        },
+        {
+          "caller": "updateNeighbours",
+          "callee": "new Pos",
+          "lineNumber": 86
+        },
+        {
+          "caller": "updateNeighbours",
+          "callee": "((EntityWall) b).setDirty",
+          "lineNumber": 89
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "sheet.getSubImage",
+          "lineNumber": 101
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "new StackPane",
+          "lineNumber": 102
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "combined.getChildren().add",
+          "lineNumber": 103
+        },
+        {
+          "caller": "renderEntity",
+          "callee": "combined.getChildren",
+          "lineNumber": 103
+        },
+        {
+          "caller": "getImageView",
+          "callee": "sheet.getSubImage",
+          "lineNumber": 124
+        },
+        {
+          "caller": "onBuildFinished",
+          "callee": "this.updateNeighbours",
+          "lineNumber": 130
+        }
+      ],
+      "metrics": {
+        "importCount": 7,
+        "exportCount": 13,
+        "functionCount": 12,
+        "classCount": 1
+      }
+    }
+  ]
+}

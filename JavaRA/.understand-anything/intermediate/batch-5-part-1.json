@@ -1,0 +1,2179 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "type": "file",
+      "name": "EntityWarFactory.java",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "summary": "Soviet war factory building that deploys vehicles with animated doors and corruption mechanics.",
+      "tags": [
+        "entity",
+        "building",
+        "war-factory",
+        "soviet",
+        "deploy"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/cr0s/javara/entity/building/soviet/EntityAirField.java",
+      "type": "file",
+      "name": "EntityAirField.java",
+      "filePath": "src/cr0s/javara/entity/building/soviet/EntityAirField.java",
+      "summary": "Soviet airfield building that spawns aircraft units with animation and power consumption.",
+      "tags": [
+        "entity",
+        "building",
+        "airfield",
+        "soviet",
+        "aircraft"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/cr0s/javara/entity/building/soviet/EntityBarracks.java",
+      "type": "file",
+      "name": "EntityBarracks.java",
+      "filePath": "src/cr0s/javara/entity/building/soviet/EntityBarracks.java",
+      "summary": "Soviet barracks building that deploys infantry units with path-based exit movement.",
+      "tags": [
+        "entity",
+        "building",
+        "barracks",
+        "soviet",
+        "infantry"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/cr0s/javara/entity/building/soviet/EntityBarredWireWall.java",
+      "type": "file",
+      "name": "EntityBarredWireWall.java",
+      "filePath": "src/cr0s/javara/entity/building/soviet/EntityBarredWireWall.java",
+      "summary": "Simple wall building entity with cost and construction support.",
+      "tags": [
+        "entity",
+        "building",
+        "wall",
+        "defense",
+        "soviet"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/cr0s/javara/entity/building/common/EntityWarFactory.java:EntityWarFactory",
+      "type": "class",
+      "name": "EntityWarFactory",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "lineRange": [
+        30,
+        365
+      ],
+      "summary": "EntityWarFactory class with 25 methods managing 31 properties for game entities.",
+      "tags": [
+        "class",
+        "exported",
+        "entity"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityWarFactory.java:EntityWarFactory",
+      "type": "function",
+      "name": "EntityWarFactory",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "lineRange": [
+        73,
+        100
+      ],
+      "summary": "EntityWarFactory (tile) — 28 lines , exported.",
+      "tags": [
+        "function",
+        "exported"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityWarFactory.java:renderEntity",
+      "type": "function",
+      "name": "renderEntity",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "lineRange": [
+        111,
+        152
+      ],
+      "summary": "renderEntity (no params) — 42 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "render"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityWarFactory.java:shouldRenderedInPass",
+      "type": "function",
+      "name": "shouldRenderedInPass",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "lineRange": [
+        154,
+        159
+      ],
+      "summary": "shouldRenderedInPass (passnum) — 6 lines , exported.",
+      "tags": [
+        "function",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityWarFactory.java:updateEntity",
+      "type": "function",
+      "name": "updateEntity",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "lineRange": [
+        161,
+        199
+      ],
+      "summary": "updateEntity (delta) — 39 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "update"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityWarFactory.java:tryToDeployEntity",
+      "type": "function",
+      "name": "tryToDeployEntity",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "lineRange": [
+        201,
+        213
+      ],
+      "summary": "tryToDeployEntity (no params) — 13 lines .",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityWarFactory.java:tryToMoveOutEntityToUnlockedCells",
+      "type": "function",
+      "name": "tryToMoveOutEntityToUnlockedCells",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "lineRange": [
+        215,
+        253
+      ],
+      "summary": "tryToMoveOutEntityToUnlockedCells (v) — 39 lines .",
+      "tags": [
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityWarFactory.java:isCellBlocked",
+      "type": "function",
+      "name": "isCellBlocked",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "lineRange": [
+        255,
+        257
+      ],
+      "summary": "isCellBlocked (cellX, cellY) — 3 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityWarFactory.java:deployEntity",
+      "type": "function",
+      "name": "deployEntity",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "lineRange": [
+        259,
+        274
+      ],
+      "summary": "deployEntity (target) — 16 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "deploy"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityWarFactory.java:select",
+      "type": "function",
+      "name": "select",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "lineRange": [
+        294,
+        297
+      ],
+      "summary": "select (no params) — 4 lines , exported.",
+      "tags": [
+        "function",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityWarFactory.java:cancelSelect",
+      "type": "function",
+      "name": "cancelSelect",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "lineRange": [
+        299,
+        302
+      ],
+      "summary": "cancelSelect (no params) — 4 lines , exported.",
+      "tags": [
+        "function",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityWarFactory.java:isSelected",
+      "type": "function",
+      "name": "isSelected",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "lineRange": [
+        304,
+        307
+      ],
+      "summary": "isSelected (no params) — 4 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityWarFactory.java:getHeightInTiles",
+      "type": "function",
+      "name": "getHeightInTiles",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "lineRange": [
+        309,
+        312
+      ],
+      "summary": "getHeightInTiles (no params) — 4 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityWarFactory.java:getWidthInTiles",
+      "type": "function",
+      "name": "getWidthInTiles",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "lineRange": [
+        314,
+        317
+      ],
+      "summary": "getWidthInTiles (no params) — 4 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityWarFactory.java:getAlignment",
+      "type": "function",
+      "name": "getAlignment",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "lineRange": [
+        319,
+        321
+      ],
+      "summary": "getAlignment (no params) — 3 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityWarFactory.java:getRevealingRange",
+      "type": "function",
+      "name": "getRevealingRange",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "lineRange": [
+        323,
+        326
+      ],
+      "summary": "getRevealingRange (no params) — 4 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityWarFactory.java:getImageView",
+      "type": "function",
+      "name": "getImageView",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "lineRange": [
+        328,
+        335
+      ],
+      "summary": "getImageView (no params) — 8 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityWarFactory.java:getBottomTexture",
+      "type": "function",
+      "name": "getBottomTexture",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "lineRange": [
+        337,
+        339
+      ],
+      "summary": "getBottomTexture (no params) — 3 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityWarFactory.java:canDeploy",
+      "type": "function",
+      "name": "canDeploy",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "lineRange": [
+        341,
+        344
+      ],
+      "summary": "canDeploy (no params) — 4 lines , exported.",
+      "tags": [
+        "function",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityWarFactory.java:deploy",
+      "type": "function",
+      "name": "deploy",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "lineRange": [
+        346,
+        349
+      ],
+      "summary": "deploy (no params) — 4 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "deploy"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityWarFactory.java:executeDeployment",
+      "type": "function",
+      "name": "executeDeployment",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "lineRange": [
+        351,
+        354
+      ],
+      "summary": "executeDeployment (no params) — 4 lines , exported.",
+      "tags": [
+        "function",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityWarFactory.java:getBuildingCost",
+      "type": "function",
+      "name": "getBuildingCost",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "lineRange": [
+        356,
+        359
+      ],
+      "summary": "getBuildingCost (no params) — 4 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityWarFactory.java:getConsumptionLevel",
+      "type": "function",
+      "name": "getConsumptionLevel",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "lineRange": [
+        361,
+        364
+      ],
+      "summary": "getConsumptionLevel (no params) — 4 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/cr0s/javara/entity/building/soviet/EntityAirField.java:EntityAirField",
+      "type": "class",
+      "name": "EntityAirField",
+      "filePath": "src/cr0s/javara/entity/building/soviet/EntityAirField.java",
+      "lineRange": [
+        27,
+        194
+      ],
+      "summary": "EntityAirField class with 16 methods managing 16 properties for game entities.",
+      "tags": [
+        "class",
+        "exported",
+        "entity"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/soviet/EntityAirField.java:EntityAirField",
+      "type": "function",
+      "name": "EntityAirField",
+      "filePath": "src/cr0s/javara/entity/building/soviet/EntityAirField.java",
+      "lineRange": [
+        50,
+        68
+      ],
+      "summary": "EntityAirField (tile) — 19 lines , exported.",
+      "tags": [
+        "function",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/soviet/EntityAirField.java:renderEntity",
+      "type": "function",
+      "name": "renderEntity",
+      "filePath": "src/cr0s/javara/entity/building/soviet/EntityAirField.java",
+      "lineRange": [
+        75,
+        106
+      ],
+      "summary": "renderEntity (no params) — 32 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "render"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/soviet/EntityAirField.java:shouldRenderedInPass",
+      "type": "function",
+      "name": "shouldRenderedInPass",
+      "filePath": "src/cr0s/javara/entity/building/soviet/EntityAirField.java",
+      "lineRange": [
+        108,
+        111
+      ],
+      "summary": "shouldRenderedInPass (passnum) — 4 lines , exported.",
+      "tags": [
+        "function",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/soviet/EntityAirField.java:updateEntity",
+      "type": "function",
+      "name": "updateEntity",
+      "filePath": "src/cr0s/javara/entity/building/soviet/EntityAirField.java",
+      "lineRange": [
+        113,
+        126
+      ],
+      "summary": "updateEntity (delta) — 14 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "update"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/soviet/EntityAirField.java:select",
+      "type": "function",
+      "name": "select",
+      "filePath": "src/cr0s/javara/entity/building/soviet/EntityAirField.java",
+      "lineRange": [
+        128,
+        131
+      ],
+      "summary": "select (no params) — 4 lines , exported.",
+      "tags": [
+        "function",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/soviet/EntityAirField.java:cancelSelect",
+      "type": "function",
+      "name": "cancelSelect",
+      "filePath": "src/cr0s/javara/entity/building/soviet/EntityAirField.java",
+      "lineRange": [
+        133,
+        136
+      ],
+      "summary": "cancelSelect (no params) — 4 lines , exported.",
+      "tags": [
+        "function",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/soviet/EntityAirField.java:isSelected",
+      "type": "function",
+      "name": "isSelected",
+      "filePath": "src/cr0s/javara/entity/building/soviet/EntityAirField.java",
+      "lineRange": [
+        138,
+        141
+      ],
+      "summary": "isSelected (no params) — 4 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/soviet/EntityAirField.java:getHeightInTiles",
+      "type": "function",
+      "name": "getHeightInTiles",
+      "filePath": "src/cr0s/javara/entity/building/soviet/EntityAirField.java",
+      "lineRange": [
+        143,
+        146
+      ],
+      "summary": "getHeightInTiles (no params) — 4 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/soviet/EntityAirField.java:getWidthInTiles",
+      "type": "function",
+      "name": "getWidthInTiles",
+      "filePath": "src/cr0s/javara/entity/building/soviet/EntityAirField.java",
+      "lineRange": [
+        148,
+        151
+      ],
+      "summary": "getWidthInTiles (no params) — 4 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/soviet/EntityAirField.java:getConsumptionLevel",
+      "type": "function",
+      "name": "getConsumptionLevel",
+      "filePath": "src/cr0s/javara/entity/building/soviet/EntityAirField.java",
+      "lineRange": [
+        153,
+        156
+      ],
+      "summary": "getConsumptionLevel (no params) — 4 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/soviet/EntityAirField.java:getRevealingRange",
+      "type": "function",
+      "name": "getRevealingRange",
+      "filePath": "src/cr0s/javara/entity/building/soviet/EntityAirField.java",
+      "lineRange": [
+        158,
+        161
+      ],
+      "summary": "getRevealingRange (no params) — 4 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/soviet/EntityAirField.java:getImageView",
+      "type": "function",
+      "name": "getImageView",
+      "filePath": "src/cr0s/javara/entity/building/soviet/EntityAirField.java",
+      "lineRange": [
+        163,
+        172
+      ],
+      "summary": "getImageView (no params) — 10 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/soviet/EntityAirField.java:getBuildingCost",
+      "type": "function",
+      "name": "getBuildingCost",
+      "filePath": "src/cr0s/javara/entity/building/soviet/EntityAirField.java",
+      "lineRange": [
+        174,
+        177
+      ],
+      "summary": "getBuildingCost (no params) — 4 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/soviet/EntityAirField.java:deployEntity",
+      "type": "function",
+      "name": "deployEntity",
+      "filePath": "src/cr0s/javara/entity/building/soviet/EntityAirField.java",
+      "lineRange": [
+        179,
+        188
+      ],
+      "summary": "deployEntity (newInstance) — 10 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "deploy"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/soviet/EntityAirField.java:onBuildFinished",
+      "type": "function",
+      "name": "onBuildFinished",
+      "filePath": "src/cr0s/javara/entity/building/soviet/EntityAirField.java",
+      "lineRange": [
+        190,
+        193
+      ],
+      "summary": "onBuildFinished (no params) — 4 lines , exported.",
+      "tags": [
+        "function",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/cr0s/javara/entity/building/soviet/EntityBarracks.java:EntityBarracks",
+      "type": "class",
+      "name": "EntityBarracks",
+      "filePath": "src/cr0s/javara/entity/building/soviet/EntityBarracks.java",
+      "lineRange": [
+        27,
+        216
+      ],
+      "summary": "EntityBarracks class with 16 methods managing 15 properties for game entities.",
+      "tags": [
+        "class",
+        "exported",
+        "entity"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/soviet/EntityBarracks.java:EntityBarracks",
+      "type": "function",
+      "name": "EntityBarracks",
+      "filePath": "src/cr0s/javara/entity/building/soviet/EntityBarracks.java",
+      "lineRange": [
+        51,
+        69
+      ],
+      "summary": "EntityBarracks (tile) — 19 lines , exported.",
+      "tags": [
+        "function",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/soviet/EntityBarracks.java:renderEntity",
+      "type": "function",
+      "name": "renderEntity",
+      "filePath": "src/cr0s/javara/entity/building/soviet/EntityBarracks.java",
+      "lineRange": [
+        76,
+        108
+      ],
+      "summary": "renderEntity (no params) — 33 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "render"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/soviet/EntityBarracks.java:shouldRenderedInPass",
+      "type": "function",
+      "name": "shouldRenderedInPass",
+      "filePath": "src/cr0s/javara/entity/building/soviet/EntityBarracks.java",
+      "lineRange": [
+        110,
+        113
+      ],
+      "summary": "shouldRenderedInPass (passnum) — 4 lines , exported.",
+      "tags": [
+        "function",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/soviet/EntityBarracks.java:updateEntity",
+      "type": "function",
+      "name": "updateEntity",
+      "filePath": "src/cr0s/javara/entity/building/soviet/EntityBarracks.java",
+      "lineRange": [
+        115,
+        124
+      ],
+      "summary": "updateEntity (delta) — 10 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "update"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/soviet/EntityBarracks.java:select",
+      "type": "function",
+      "name": "select",
+      "filePath": "src/cr0s/javara/entity/building/soviet/EntityBarracks.java",
+      "lineRange": [
+        126,
+        129
+      ],
+      "summary": "select (no params) — 4 lines , exported.",
+      "tags": [
+        "function",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/soviet/EntityBarracks.java:cancelSelect",
+      "type": "function",
+      "name": "cancelSelect",
+      "filePath": "src/cr0s/javara/entity/building/soviet/EntityBarracks.java",
+      "lineRange": [
+        131,
+        134
+      ],
+      "summary": "cancelSelect (no params) — 4 lines , exported.",
+      "tags": [
+        "function",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/soviet/EntityBarracks.java:isSelected",
+      "type": "function",
+      "name": "isSelected",
+      "filePath": "src/cr0s/javara/entity/building/soviet/EntityBarracks.java",
+      "lineRange": [
+        136,
+        139
+      ],
+      "summary": "isSelected (no params) — 4 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/soviet/EntityBarracks.java:getHeightInTiles",
+      "type": "function",
+      "name": "getHeightInTiles",
+      "filePath": "src/cr0s/javara/entity/building/soviet/EntityBarracks.java",
+      "lineRange": [
+        141,
+        144
+      ],
+      "summary": "getHeightInTiles (no params) — 4 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/soviet/EntityBarracks.java:getWidthInTiles",
+      "type": "function",
+      "name": "getWidthInTiles",
+      "filePath": "src/cr0s/javara/entity/building/soviet/EntityBarracks.java",
+      "lineRange": [
+        146,
+        149
+      ],
+      "summary": "getWidthInTiles (no params) — 4 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/soviet/EntityBarracks.java:getConsumptionLevel",
+      "type": "function",
+      "name": "getConsumptionLevel",
+      "filePath": "src/cr0s/javara/entity/building/soviet/EntityBarracks.java",
+      "lineRange": [
+        151,
+        154
+      ],
+      "summary": "getConsumptionLevel (no params) — 4 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/soviet/EntityBarracks.java:getRevealingRange",
+      "type": "function",
+      "name": "getRevealingRange",
+      "filePath": "src/cr0s/javara/entity/building/soviet/EntityBarracks.java",
+      "lineRange": [
+        156,
+        159
+      ],
+      "summary": "getRevealingRange (no params) — 4 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/soviet/EntityBarracks.java:getImageView",
+      "type": "function",
+      "name": "getImageView",
+      "filePath": "src/cr0s/javara/entity/building/soviet/EntityBarracks.java",
+      "lineRange": [
+        161,
+        164
+      ],
+      "summary": "getImageView (no params) — 4 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/soviet/EntityBarracks.java:getBuildingCost",
+      "type": "function",
+      "name": "getBuildingCost",
+      "filePath": "src/cr0s/javara/entity/building/soviet/EntityBarracks.java",
+      "lineRange": [
+        166,
+        169
+      ],
+      "summary": "getBuildingCost (no params) — 4 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/soviet/EntityBarracks.java:deployEntity",
+      "type": "function",
+      "name": "deployEntity",
+      "filePath": "src/cr0s/javara/entity/building/soviet/EntityBarracks.java",
+      "lineRange": [
+        171,
+        209
+      ],
+      "summary": "deployEntity (newInstance) — 39 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "deploy"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/soviet/EntityBarracks.java:onBuildFinished",
+      "type": "function",
+      "name": "onBuildFinished",
+      "filePath": "src/cr0s/javara/entity/building/soviet/EntityBarracks.java",
+      "lineRange": [
+        211,
+        215
+      ],
+      "summary": "onBuildFinished (no params) — 5 lines , exported.",
+      "tags": [
+        "function",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/cr0s/javara/entity/building/soviet/EntityBarredWireWall.java:EntityBarredWireWall",
+      "type": "class",
+      "name": "EntityBarredWireWall",
+      "filePath": "src/cr0s/javara/entity/building/soviet/EntityBarredWireWall.java",
+      "lineRange": [
+        8,
+        40
+      ],
+      "summary": "EntityBarredWireWall class with 3 methods managing 1 properties for game entities.",
+      "tags": [
+        "class",
+        "exported",
+        "entity"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/soviet/EntityBarredWireWall.java:EntityBarredWireWall",
+      "type": "function",
+      "name": "EntityBarredWireWall",
+      "filePath": "src/cr0s/javara/entity/building/soviet/EntityBarredWireWall.java",
+      "lineRange": [
+        12,
+        30
+      ],
+      "summary": "EntityBarredWireWall (aTile, aSizeWidth, aSizeHeight, aFootprint) — 19 lines , exported.",
+      "tags": [
+        "function",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/soviet/EntityBarredWireWall.java:getBuildingCost",
+      "type": "function",
+      "name": "getBuildingCost",
+      "filePath": "src/cr0s/javara/entity/building/soviet/EntityBarredWireWall.java",
+      "lineRange": [
+        36,
+        39
+      ],
+      "summary": "getBuildingCost (no params) — 4 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "target": "class:src/cr0s/javara/entity/building/common/EntityWarFactory.java:EntityWarFactory",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "target": "class:src/cr0s/javara/entity/building/common/EntityWarFactory.java:EntityWarFactory",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityWarFactory.java:EntityWarFactory",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityWarFactory.java:EntityWarFactory",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityWarFactory.java:renderEntity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityWarFactory.java:renderEntity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityWarFactory.java:shouldRenderedInPass",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityWarFactory.java:shouldRenderedInPass",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityWarFactory.java:updateEntity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityWarFactory.java:updateEntity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityWarFactory.java:tryToDeployEntity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityWarFactory.java:tryToMoveOutEntityToUnlockedCells",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityWarFactory.java:isCellBlocked",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityWarFactory.java:isCellBlocked",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityWarFactory.java:deployEntity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityWarFactory.java:deployEntity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityWarFactory.java:select",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityWarFactory.java:select",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityWarFactory.java:cancelSelect",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityWarFactory.java:cancelSelect",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityWarFactory.java:isSelected",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityWarFactory.java:isSelected",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityWarFactory.java:getHeightInTiles",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityWarFactory.java:getHeightInTiles",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityWarFactory.java:getWidthInTiles",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityWarFactory.java:getWidthInTiles",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityWarFactory.java:getAlignment",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityWarFactory.java:getAlignment",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityWarFactory.java:getRevealingRange",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityWarFactory.java:getRevealingRange",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityWarFactory.java:getImageView",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityWarFactory.java:getImageView",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityWarFactory.java:getBottomTexture",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityWarFactory.java:getBottomTexture",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityWarFactory.java:canDeploy",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityWarFactory.java:canDeploy",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityWarFactory.java:deploy",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityWarFactory.java:deploy",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityWarFactory.java:executeDeployment",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityWarFactory.java:executeDeployment",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityWarFactory.java:getBuildingCost",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityWarFactory.java:getBuildingCost",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityWarFactory.java:getConsumptionLevel",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityWarFactory.java:getConsumptionLevel",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "target": "file:src/cr0s/javara/combat/ArmorType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "target": "file:src/cr0s/javara/entity/building/BibType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "target": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "target": "file:src/cr0s/javara/entity/building/IPowerConsumer.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "target": "file:src/cr0s/javara/entity/building/soviet/EntityBarracks.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "target": "file:src/cr0s/javara/entity/IDeployable.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "target": "file:src/cr0s/javara/entity/IHaveCost.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "target": "file:src/cr0s/javara/entity/ISelectable.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "target": "file:src/cr0s/javara/entity/IShroudRevealer.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "target": "file:src/cr0s/javara/entity/vehicle/EntityVehicle.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "target": "file:src/cr0s/javara/main/GUI.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "target": "file:src/cr0s/javara/resources/ResourceManager.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "target": "file:src/cr0s/javara/resources/ShpTexture.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "target": "file:src/cr0s/javara/util/SpriteSheet.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityAirField.java",
+      "target": "class:src/cr0s/javara/entity/building/soviet/EntityAirField.java:EntityAirField",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityAirField.java",
+      "target": "class:src/cr0s/javara/entity/building/soviet/EntityAirField.java:EntityAirField",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityAirField.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityAirField.java:EntityAirField",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityAirField.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityAirField.java:EntityAirField",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityAirField.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityAirField.java:renderEntity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityAirField.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityAirField.java:renderEntity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityAirField.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityAirField.java:shouldRenderedInPass",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityAirField.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityAirField.java:shouldRenderedInPass",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityAirField.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityAirField.java:updateEntity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityAirField.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityAirField.java:updateEntity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityAirField.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityAirField.java:select",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityAirField.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityAirField.java:select",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityAirField.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityAirField.java:cancelSelect",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityAirField.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityAirField.java:cancelSelect",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityAirField.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityAirField.java:isSelected",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityAirField.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityAirField.java:isSelected",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityAirField.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityAirField.java:getHeightInTiles",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityAirField.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityAirField.java:getHeightInTiles",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityAirField.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityAirField.java:getWidthInTiles",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityAirField.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityAirField.java:getWidthInTiles",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityAirField.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityAirField.java:getConsumptionLevel",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityAirField.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityAirField.java:getConsumptionLevel",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityAirField.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityAirField.java:getRevealingRange",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityAirField.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityAirField.java:getRevealingRange",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityAirField.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityAirField.java:getImageView",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityAirField.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityAirField.java:getImageView",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityAirField.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityAirField.java:getBuildingCost",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityAirField.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityAirField.java:getBuildingCost",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityAirField.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityAirField.java:deployEntity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityAirField.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityAirField.java:deployEntity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityAirField.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityAirField.java:onBuildFinished",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityAirField.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityAirField.java:onBuildFinished",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityAirField.java",
+      "target": "file:src/cr0s/javara/combat/ArmorType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityAirField.java",
+      "target": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityAirField.java",
+      "target": "file:src/cr0s/javara/entity/building/BibType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityAirField.java",
+      "target": "file:src/cr0s/javara/entity/building/common/EntityRadarDome.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityAirField.java",
+      "target": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityAirField.java",
+      "target": "file:src/cr0s/javara/entity/building/IPowerConsumer.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityAirField.java",
+      "target": "file:src/cr0s/javara/entity/IHaveCost.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityAirField.java",
+      "target": "file:src/cr0s/javara/entity/ISelectable.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityAirField.java",
+      "target": "file:src/cr0s/javara/entity/IShroudRevealer.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityAirField.java",
+      "target": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityAirField.java",
+      "target": "file:src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityAirField.java",
+      "target": "file:src/cr0s/javara/main/GUI.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityAirField.java",
+      "target": "file:src/cr0s/javara/render/World.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityAirField.java",
+      "target": "file:src/cr0s/javara/resources/ResourceManager.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityAirField.java",
+      "target": "file:src/cr0s/javara/resources/ShpTexture.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityAirField.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityAirField.java",
+      "target": "file:src/cr0s/javara/util/SpriteSheet.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityBarracks.java",
+      "target": "class:src/cr0s/javara/entity/building/soviet/EntityBarracks.java:EntityBarracks",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityBarracks.java",
+      "target": "class:src/cr0s/javara/entity/building/soviet/EntityBarracks.java:EntityBarracks",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityBarracks.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityBarracks.java:EntityBarracks",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityBarracks.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityBarracks.java:EntityBarracks",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityBarracks.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityBarracks.java:renderEntity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityBarracks.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityBarracks.java:renderEntity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityBarracks.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityBarracks.java:shouldRenderedInPass",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityBarracks.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityBarracks.java:shouldRenderedInPass",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityBarracks.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityBarracks.java:updateEntity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityBarracks.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityBarracks.java:updateEntity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityBarracks.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityBarracks.java:select",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityBarracks.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityBarracks.java:select",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityBarracks.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityBarracks.java:cancelSelect",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityBarracks.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityBarracks.java:cancelSelect",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityBarracks.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityBarracks.java:isSelected",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityBarracks.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityBarracks.java:isSelected",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityBarracks.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityBarracks.java:getHeightInTiles",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityBarracks.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityBarracks.java:getHeightInTiles",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityBarracks.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityBarracks.java:getWidthInTiles",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityBarracks.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityBarracks.java:getWidthInTiles",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityBarracks.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityBarracks.java:getConsumptionLevel",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityBarracks.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityBarracks.java:getConsumptionLevel",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityBarracks.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityBarracks.java:getRevealingRange",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityBarracks.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityBarracks.java:getRevealingRange",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityBarracks.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityBarracks.java:getImageView",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityBarracks.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityBarracks.java:getImageView",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityBarracks.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityBarracks.java:getBuildingCost",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityBarracks.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityBarracks.java:getBuildingCost",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityBarracks.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityBarracks.java:deployEntity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityBarracks.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityBarracks.java:deployEntity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityBarracks.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityBarracks.java:onBuildFinished",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityBarracks.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityBarracks.java:onBuildFinished",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityBarracks.java",
+      "target": "file:src/cr0s/javara/combat/ArmorType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityBarracks.java",
+      "target": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityBarracks.java",
+      "target": "file:src/cr0s/javara/entity/building/BibType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityBarracks.java",
+      "target": "file:src/cr0s/javara/entity/building/common/EntityPowerPlant.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityBarracks.java",
+      "target": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityBarracks.java",
+      "target": "file:src/cr0s/javara/entity/building/IPowerConsumer.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityBarracks.java",
+      "target": "file:src/cr0s/javara/entity/IHaveCost.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityBarracks.java",
+      "target": "file:src/cr0s/javara/entity/ISelectable.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityBarracks.java",
+      "target": "file:src/cr0s/javara/entity/IShroudRevealer.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityBarracks.java",
+      "target": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityBarracks.java",
+      "target": "file:src/cr0s/javara/main/GUI.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityBarracks.java",
+      "target": "file:src/cr0s/javara/resources/ResourceManager.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityBarracks.java",
+      "target": "file:src/cr0s/javara/resources/ShpTexture.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityBarracks.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityBarracks.java",
+      "target": "file:src/cr0s/javara/util/SpriteSheet.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityBarredWireWall.java",
+      "target": "class:src/cr0s/javara/entity/building/soviet/EntityBarredWireWall.java:EntityBarredWireWall",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityBarredWireWall.java",
+      "target": "class:src/cr0s/javara/entity/building/soviet/EntityBarredWireWall.java:EntityBarredWireWall",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityBarredWireWall.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityBarredWireWall.java:EntityBarredWireWall",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityBarredWireWall.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityBarredWireWall.java:EntityBarredWireWall",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityBarredWireWall.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityBarredWireWall.java:getBuildingCost",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityBarredWireWall.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityBarredWireWall.java:getBuildingCost",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityBarredWireWall.java",
+      "target": "file:src/cr0s/javara/entity/building/BibType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityBarredWireWall.java",
+      "target": "file:src/cr0s/javara/entity/building/common/EntityWall.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityBarredWireWall.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

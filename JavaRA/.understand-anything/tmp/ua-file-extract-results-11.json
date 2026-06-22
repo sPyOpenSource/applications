@@ -1,0 +1,81 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 7,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "LICENSE.txt",
+      "language": "txt",
+      "fileCategory": "docs",
+      "totalLines": 674,
+      "nonEmptyLines": 553,
+      "metrics": {}
+    },
+    {
+      "path": "README.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 7,
+      "nonEmptyLines": 4,
+      "sections": [
+        {
+          "heading": "JavaRA",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "A Java clone of Command & Conquer: Red Alert 1",
+          "level": 2,
+          "line": 2
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 2
+      }
+    },
+    {
+      "path": "build.xml",
+      "language": "xml",
+      "fileCategory": "config",
+      "totalLines": 73,
+      "nonEmptyLines": 60,
+      "metrics": {}
+    },
+    {
+      "path": "example_coords.txt",
+      "language": "txt",
+      "fileCategory": "docs",
+      "totalLines": 2,
+      "nonEmptyLines": 2,
+      "metrics": {}
+    },
+    {
+      "path": "example_maze.txt",
+      "language": "txt",
+      "fileCategory": "docs",
+      "totalLines": 76,
+      "nonEmptyLines": 76,
+      "metrics": {}
+    },
+    {
+      "path": "example_venues.txt",
+      "language": "txt",
+      "fileCategory": "docs",
+      "totalLines": 21,
+      "nonEmptyLines": 21,
+      "metrics": {}
+    },
+    {
+      "path": "nb-build.xml",
+      "language": "xml",
+      "fileCategory": "config",
+      "totalLines": 73,
+      "nonEmptyLines": 60,
+      "metrics": {}
+    }
+  ]
+}

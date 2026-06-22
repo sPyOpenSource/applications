@@ -1,0 +1,2922 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/cr0s/javara/entity/building/common/EntityConstructionYard.java",
+      "type": "file",
+      "name": "EntityConstructionYard.java",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityConstructionYard.java",
+      "summary": "Construction yard building that serves as the primary structure for base building deployment.",
+      "tags": [
+        "entity",
+        "building",
+        "construction"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/cr0s/javara/entity/building/common/EntityConstructionYard.java:EntityConstructionYard",
+      "type": "class",
+      "name": "EntityConstructionYard",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityConstructionYard.java",
+      "lineRange": [
+        20,
+        174
+      ],
+      "summary": "EntityConstructionYard class with 13 methods and 10 properties in the JavaRA game engine.",
+      "tags": [
+        "class",
+        "entity"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityConstructionYard.java:EntityConstructionYard",
+      "type": "function",
+      "name": "EntityConstructionYard",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityConstructionYard.java",
+      "lineRange": [
+        34,
+        54
+      ],
+      "summary": "EntityConstructionYard function with params: tile in EntityConstructionYard.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityConstructionYard.java:renderEntity",
+      "type": "function",
+      "name": "renderEntity",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityConstructionYard.java",
+      "lineRange": [
+        62,
+        100
+      ],
+      "summary": "renderEntity function  in EntityConstructionYard.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityConstructionYard.java:shouldRenderedInPass",
+      "type": "function",
+      "name": "shouldRenderedInPass",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityConstructionYard.java",
+      "lineRange": [
+        102,
+        105
+      ],
+      "summary": "shouldRenderedInPass function with params: passnum in EntityConstructionYard.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityConstructionYard.java:updateEntity",
+      "type": "function",
+      "name": "updateEntity",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityConstructionYard.java",
+      "lineRange": [
+        107,
+        122
+      ],
+      "summary": "updateEntity function with params: delta in EntityConstructionYard.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityConstructionYard.java:select",
+      "type": "function",
+      "name": "select",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityConstructionYard.java",
+      "lineRange": [
+        124,
+        127
+      ],
+      "summary": "select function  in EntityConstructionYard.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityConstructionYard.java:cancelSelect",
+      "type": "function",
+      "name": "cancelSelect",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityConstructionYard.java",
+      "lineRange": [
+        129,
+        132
+      ],
+      "summary": "cancelSelect function  in EntityConstructionYard.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityConstructionYard.java:isSelected",
+      "type": "function",
+      "name": "isSelected",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityConstructionYard.java",
+      "lineRange": [
+        134,
+        137
+      ],
+      "summary": "isSelected function  in EntityConstructionYard.",
+      "tags": [
+        "function",
+        "check"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityConstructionYard.java:getHeightInTiles",
+      "type": "function",
+      "name": "getHeightInTiles",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityConstructionYard.java",
+      "lineRange": [
+        139,
+        142
+      ],
+      "summary": "getHeightInTiles function  in EntityConstructionYard.",
+      "tags": [
+        "function",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityConstructionYard.java:getWidthInTiles",
+      "type": "function",
+      "name": "getWidthInTiles",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityConstructionYard.java",
+      "lineRange": [
+        144,
+        147
+      ],
+      "summary": "getWidthInTiles function  in EntityConstructionYard.",
+      "tags": [
+        "function",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityConstructionYard.java:getAlignment",
+      "type": "function",
+      "name": "getAlignment",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityConstructionYard.java",
+      "lineRange": [
+        149,
+        151
+      ],
+      "summary": "getAlignment function  in EntityConstructionYard.",
+      "tags": [
+        "function",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityConstructionYard.java:getRevealingRange",
+      "type": "function",
+      "name": "getRevealingRange",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityConstructionYard.java",
+      "lineRange": [
+        153,
+        156
+      ],
+      "summary": "getRevealingRange function  in EntityConstructionYard.",
+      "tags": [
+        "function",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityConstructionYard.java:getImageView",
+      "type": "function",
+      "name": "getImageView",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityConstructionYard.java",
+      "lineRange": [
+        158,
+        172
+      ],
+      "summary": "getImageView function  in EntityConstructionYard.",
+      "tags": [
+        "function",
+        "getter"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/cr0s/javara/entity/building/common/EntityHelipad.java",
+      "type": "file",
+      "name": "EntityHelipad.java",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityHelipad.java",
+      "summary": "Helipad building that can deploy aircraft entities on build completion.",
+      "tags": [
+        "entity",
+        "building",
+        "aircraft"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/cr0s/javara/entity/building/common/EntityHelipad.java:EntityHelipad",
+      "type": "class",
+      "name": "EntityHelipad",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityHelipad.java",
+      "lineRange": [
+        23,
+        186
+      ],
+      "summary": "EntityHelipad class with 16 methods and 16 properties in the JavaRA game engine.",
+      "tags": [
+        "class",
+        "entity"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityHelipad.java:EntityHelipad",
+      "type": "function",
+      "name": "EntityHelipad",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityHelipad.java",
+      "lineRange": [
+        50,
+        68
+      ],
+      "summary": "EntityHelipad function with params: tile in EntityHelipad.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityHelipad.java:renderEntity",
+      "type": "function",
+      "name": "renderEntity",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityHelipad.java",
+      "lineRange": [
+        75,
+        108
+      ],
+      "summary": "renderEntity function  in EntityHelipad.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityHelipad.java:shouldRenderedInPass",
+      "type": "function",
+      "name": "shouldRenderedInPass",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityHelipad.java",
+      "lineRange": [
+        110,
+        113
+      ],
+      "summary": "shouldRenderedInPass function with params: passnum in EntityHelipad.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityHelipad.java:updateEntity",
+      "type": "function",
+      "name": "updateEntity",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityHelipad.java",
+      "lineRange": [
+        115,
+        124
+      ],
+      "summary": "updateEntity function with params: delta in EntityHelipad.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityHelipad.java:select",
+      "type": "function",
+      "name": "select",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityHelipad.java",
+      "lineRange": [
+        126,
+        129
+      ],
+      "summary": "select function  in EntityHelipad.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityHelipad.java:cancelSelect",
+      "type": "function",
+      "name": "cancelSelect",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityHelipad.java",
+      "lineRange": [
+        131,
+        134
+      ],
+      "summary": "cancelSelect function  in EntityHelipad.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityHelipad.java:isSelected",
+      "type": "function",
+      "name": "isSelected",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityHelipad.java",
+      "lineRange": [
+        136,
+        139
+      ],
+      "summary": "isSelected function  in EntityHelipad.",
+      "tags": [
+        "function",
+        "check"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityHelipad.java:getHeightInTiles",
+      "type": "function",
+      "name": "getHeightInTiles",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityHelipad.java",
+      "lineRange": [
+        141,
+        144
+      ],
+      "summary": "getHeightInTiles function  in EntityHelipad.",
+      "tags": [
+        "function",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityHelipad.java:getWidthInTiles",
+      "type": "function",
+      "name": "getWidthInTiles",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityHelipad.java",
+      "lineRange": [
+        146,
+        149
+      ],
+      "summary": "getWidthInTiles function  in EntityHelipad.",
+      "tags": [
+        "function",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityHelipad.java:getConsumptionLevel",
+      "type": "function",
+      "name": "getConsumptionLevel",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityHelipad.java",
+      "lineRange": [
+        151,
+        154
+      ],
+      "summary": "getConsumptionLevel function  in EntityHelipad.",
+      "tags": [
+        "function",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityHelipad.java:getRevealingRange",
+      "type": "function",
+      "name": "getRevealingRange",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityHelipad.java",
+      "lineRange": [
+        156,
+        159
+      ],
+      "summary": "getRevealingRange function  in EntityHelipad.",
+      "tags": [
+        "function",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityHelipad.java:getImageView",
+      "type": "function",
+      "name": "getImageView",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityHelipad.java",
+      "lineRange": [
+        161,
+        164
+      ],
+      "summary": "getImageView function  in EntityHelipad.",
+      "tags": [
+        "function",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityHelipad.java:getBuildingCost",
+      "type": "function",
+      "name": "getBuildingCost",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityHelipad.java",
+      "lineRange": [
+        166,
+        169
+      ],
+      "summary": "getBuildingCost function  in EntityHelipad.",
+      "tags": [
+        "function",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityHelipad.java:deployEntity",
+      "type": "function",
+      "name": "deployEntity",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityHelipad.java",
+      "lineRange": [
+        171,
+        180
+      ],
+      "summary": "deployEntity function with params: newInstance in EntityHelipad.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityHelipad.java:onBuildFinished",
+      "type": "function",
+      "name": "onBuildFinished",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityHelipad.java",
+      "lineRange": [
+        182,
+        185
+      ],
+      "summary": "onBuildFinished function  in EntityHelipad.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/entity/building/common/EntityOreSilo.java",
+      "type": "file",
+      "name": "EntityOreSilo.java",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityOreSilo.java",
+      "summary": "Ore silo building providing ore storage capacity for the base.",
+      "tags": [
+        "entity",
+        "building",
+        "economy"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/cr0s/javara/entity/building/common/EntityOreSilo.java:EntityOreSilo",
+      "type": "class",
+      "name": "EntityOreSilo",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityOreSilo.java",
+      "lineRange": [
+        24,
+        178
+      ],
+      "summary": "EntityOreSilo class with 17 methods and 12 properties in the JavaRA game engine.",
+      "tags": [
+        "class",
+        "entity"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityOreSilo.java:EntityOreSilo",
+      "type": "function",
+      "name": "EntityOreSilo",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityOreSilo.java",
+      "lineRange": [
+        44,
+        64
+      ],
+      "summary": "EntityOreSilo function with params: tile in EntityOreSilo.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityOreSilo.java:renderEntity",
+      "type": "function",
+      "name": "renderEntity",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityOreSilo.java",
+      "lineRange": [
+        72,
+        98
+      ],
+      "summary": "renderEntity function  in EntityOreSilo.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityOreSilo.java:shouldRenderedInPass",
+      "type": "function",
+      "name": "shouldRenderedInPass",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityOreSilo.java",
+      "lineRange": [
+        100,
+        103
+      ],
+      "summary": "shouldRenderedInPass function with params: passnum in EntityOreSilo.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityOreSilo.java:updateEntity",
+      "type": "function",
+      "name": "updateEntity",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityOreSilo.java",
+      "lineRange": [
+        105,
+        117
+      ],
+      "summary": "updateEntity function with params: delta in EntityOreSilo.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityOreSilo.java:select",
+      "type": "function",
+      "name": "select",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityOreSilo.java",
+      "lineRange": [
+        119,
+        122
+      ],
+      "summary": "select function  in EntityOreSilo.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityOreSilo.java:cancelSelect",
+      "type": "function",
+      "name": "cancelSelect",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityOreSilo.java",
+      "lineRange": [
+        124,
+        127
+      ],
+      "summary": "cancelSelect function  in EntityOreSilo.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityOreSilo.java:isSelected",
+      "type": "function",
+      "name": "isSelected",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityOreSilo.java",
+      "lineRange": [
+        129,
+        132
+      ],
+      "summary": "isSelected function  in EntityOreSilo.",
+      "tags": [
+        "function",
+        "check"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityOreSilo.java:getHeightInTiles",
+      "type": "function",
+      "name": "getHeightInTiles",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityOreSilo.java",
+      "lineRange": [
+        134,
+        137
+      ],
+      "summary": "getHeightInTiles function  in EntityOreSilo.",
+      "tags": [
+        "function",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityOreSilo.java:getWidthInTiles",
+      "type": "function",
+      "name": "getWidthInTiles",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityOreSilo.java",
+      "lineRange": [
+        139,
+        142
+      ],
+      "summary": "getWidthInTiles function  in EntityOreSilo.",
+      "tags": [
+        "function",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityOreSilo.java:getConsumptionLevel",
+      "type": "function",
+      "name": "getConsumptionLevel",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityOreSilo.java",
+      "lineRange": [
+        144,
+        147
+      ],
+      "summary": "getConsumptionLevel function  in EntityOreSilo.",
+      "tags": [
+        "function",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityOreSilo.java:getRevealingRange",
+      "type": "function",
+      "name": "getRevealingRange",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityOreSilo.java",
+      "lineRange": [
+        149,
+        152
+      ],
+      "summary": "getRevealingRange function  in EntityOreSilo.",
+      "tags": [
+        "function",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityOreSilo.java:getImageView",
+      "type": "function",
+      "name": "getImageView",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityOreSilo.java",
+      "lineRange": [
+        154,
+        157
+      ],
+      "summary": "getImageView function  in EntityOreSilo.",
+      "tags": [
+        "function",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityOreSilo.java:getPipCount",
+      "type": "function",
+      "name": "getPipCount",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityOreSilo.java",
+      "lineRange": [
+        159,
+        162
+      ],
+      "summary": "getPipCount function  in EntityOreSilo.",
+      "tags": [
+        "function",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityOreSilo.java:getPipColorAt",
+      "type": "function",
+      "name": "getPipColorAt",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityOreSilo.java",
+      "lineRange": [
+        164,
+        167
+      ],
+      "summary": "getPipColorAt function with params: i in EntityOreSilo.",
+      "tags": [
+        "function",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityOreSilo.java:getOreCapacityValue",
+      "type": "function",
+      "name": "getOreCapacityValue",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityOreSilo.java",
+      "lineRange": [
+        169,
+        172
+      ],
+      "summary": "getOreCapacityValue function  in EntityOreSilo.",
+      "tags": [
+        "function",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityOreSilo.java:getBuildingCost",
+      "type": "function",
+      "name": "getBuildingCost",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityOreSilo.java",
+      "lineRange": [
+        174,
+        177
+      ],
+      "summary": "getBuildingCost function  in EntityOreSilo.",
+      "tags": [
+        "function",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/entity/building/common/EntityPowerPlant.java",
+      "type": "file",
+      "name": "EntityPowerPlant.java",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityPowerPlant.java",
+      "summary": "Standard power plant building providing power to the base.",
+      "tags": [
+        "entity",
+        "building",
+        "power"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/cr0s/javara/entity/building/common/EntityPowerPlant.java:EntityPowerPlant",
+      "type": "class",
+      "name": "EntityPowerPlant",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityPowerPlant.java",
+      "lineRange": [
+        21,
+        136
+      ],
+      "summary": "EntityPowerPlant class with 13 methods and 9 properties in the JavaRA game engine.",
+      "tags": [
+        "class",
+        "entity"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityPowerPlant.java:EntityPowerPlant",
+      "type": "function",
+      "name": "EntityPowerPlant",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityPowerPlant.java",
+      "lineRange": [
+        34,
+        50
+      ],
+      "summary": "EntityPowerPlant function with params: tile in EntityPowerPlant.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityPowerPlant.java:renderEntity",
+      "type": "function",
+      "name": "renderEntity",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityPowerPlant.java",
+      "lineRange": [
+        58,
+        85
+      ],
+      "summary": "renderEntity function  in EntityPowerPlant.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityPowerPlant.java:shouldRenderedInPass",
+      "type": "function",
+      "name": "shouldRenderedInPass",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityPowerPlant.java",
+      "lineRange": [
+        87,
+        90
+      ],
+      "summary": "shouldRenderedInPass function with params: passnum in EntityPowerPlant.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityPowerPlant.java:select",
+      "type": "function",
+      "name": "select",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityPowerPlant.java",
+      "lineRange": [
+        92,
+        95
+      ],
+      "summary": "select function  in EntityPowerPlant.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityPowerPlant.java:cancelSelect",
+      "type": "function",
+      "name": "cancelSelect",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityPowerPlant.java",
+      "lineRange": [
+        97,
+        100
+      ],
+      "summary": "cancelSelect function  in EntityPowerPlant.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityPowerPlant.java:isSelected",
+      "type": "function",
+      "name": "isSelected",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityPowerPlant.java",
+      "lineRange": [
+        102,
+        105
+      ],
+      "summary": "isSelected function  in EntityPowerPlant.",
+      "tags": [
+        "function",
+        "check"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityPowerPlant.java:getHeightInTiles",
+      "type": "function",
+      "name": "getHeightInTiles",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityPowerPlant.java",
+      "lineRange": [
+        107,
+        110
+      ],
+      "summary": "getHeightInTiles function  in EntityPowerPlant.",
+      "tags": [
+        "function",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityPowerPlant.java:getWidthInTiles",
+      "type": "function",
+      "name": "getWidthInTiles",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityPowerPlant.java",
+      "lineRange": [
+        112,
+        115
+      ],
+      "summary": "getWidthInTiles function  in EntityPowerPlant.",
+      "tags": [
+        "function",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityPowerPlant.java:getPowerProductionLevel",
+      "type": "function",
+      "name": "getPowerProductionLevel",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityPowerPlant.java",
+      "lineRange": [
+        117,
+        120
+      ],
+      "summary": "getPowerProductionLevel function  in EntityPowerPlant.",
+      "tags": [
+        "function",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityPowerPlant.java:getRevealingRange",
+      "type": "function",
+      "name": "getRevealingRange",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityPowerPlant.java",
+      "lineRange": [
+        122,
+        125
+      ],
+      "summary": "getRevealingRange function  in EntityPowerPlant.",
+      "tags": [
+        "function",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityPowerPlant.java:getImageView",
+      "type": "function",
+      "name": "getImageView",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityPowerPlant.java",
+      "lineRange": [
+        127,
+        130
+      ],
+      "summary": "getImageView function  in EntityPowerPlant.",
+      "tags": [
+        "function",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityPowerPlant.java:getBuildingCost",
+      "type": "function",
+      "name": "getBuildingCost",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityPowerPlant.java",
+      "lineRange": [
+        132,
+        135
+      ],
+      "summary": "getBuildingCost function  in EntityPowerPlant.",
+      "tags": [
+        "function",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/entity/building/common/EntityProc.java",
+      "type": "file",
+      "name": "EntityProc.java",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityProc.java",
+      "summary": "Ore processing building that accepts harvested resources and spawns harvesters.",
+      "tags": [
+        "entity",
+        "building",
+        "economy"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/cr0s/javara/entity/building/common/EntityProc.java:EntityProc",
+      "type": "class",
+      "name": "EntityProc",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityProc.java",
+      "lineRange": [
+        33,
+        229
+      ],
+      "summary": "EntityProc class with 22 methods and 16 properties in the JavaRA game engine.",
+      "tags": [
+        "class",
+        "entity"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityProc.java:EntityProc",
+      "type": "function",
+      "name": "EntityProc",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityProc.java",
+      "lineRange": [
+        58,
+        76
+      ],
+      "summary": "EntityProc function with params: tile in EntityProc.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityProc.java:onBuildFinished",
+      "type": "function",
+      "name": "onBuildFinished",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityProc.java",
+      "lineRange": [
+        78,
+        82
+      ],
+      "summary": "onBuildFinished function  in EntityProc.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityProc.java:spawnHarvester",
+      "type": "function",
+      "name": "spawnHarvester",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityProc.java",
+      "lineRange": [
+        84,
+        101
+      ],
+      "summary": "spawnHarvester function  in EntityProc.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityProc.java:getHarvesterCell",
+      "type": "function",
+      "name": "getHarvesterCell",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityProc.java",
+      "lineRange": [
+        103,
+        105
+      ],
+      "summary": "getHarvesterCell function  in EntityProc.",
+      "tags": [
+        "function",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityProc.java:renderEntity",
+      "type": "function",
+      "name": "renderEntity",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityProc.java",
+      "lineRange": [
+        113,
+        140
+      ],
+      "summary": "renderEntity function  in EntityProc.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityProc.java:shouldRenderedInPass",
+      "type": "function",
+      "name": "shouldRenderedInPass",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityProc.java",
+      "lineRange": [
+        142,
+        145
+      ],
+      "summary": "shouldRenderedInPass function with params: passnum in EntityProc.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityProc.java:select",
+      "type": "function",
+      "name": "select",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityProc.java",
+      "lineRange": [
+        147,
+        150
+      ],
+      "summary": "select function  in EntityProc.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityProc.java:cancelSelect",
+      "type": "function",
+      "name": "cancelSelect",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityProc.java",
+      "lineRange": [
+        152,
+        155
+      ],
+      "summary": "cancelSelect function  in EntityProc.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityProc.java:isSelected",
+      "type": "function",
+      "name": "isSelected",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityProc.java",
+      "lineRange": [
+        157,
+        160
+      ],
+      "summary": "isSelected function  in EntityProc.",
+      "tags": [
+        "function",
+        "check"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityProc.java:getHeightInTiles",
+      "type": "function",
+      "name": "getHeightInTiles",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityProc.java",
+      "lineRange": [
+        162,
+        165
+      ],
+      "summary": "getHeightInTiles function  in EntityProc.",
+      "tags": [
+        "function",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityProc.java:getWidthInTiles",
+      "type": "function",
+      "name": "getWidthInTiles",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityProc.java",
+      "lineRange": [
+        167,
+        170
+      ],
+      "summary": "getWidthInTiles function  in EntityProc.",
+      "tags": [
+        "function",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityProc.java:getConsumptionLevel",
+      "type": "function",
+      "name": "getConsumptionLevel",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityProc.java",
+      "lineRange": [
+        172,
+        175
+      ],
+      "summary": "getConsumptionLevel function  in EntityProc.",
+      "tags": [
+        "function",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityProc.java:getRevealingRange",
+      "type": "function",
+      "name": "getRevealingRange",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityProc.java",
+      "lineRange": [
+        177,
+        180
+      ],
+      "summary": "getRevealingRange function  in EntityProc.",
+      "tags": [
+        "function",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityProc.java:getImageView",
+      "type": "function",
+      "name": "getImageView",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityProc.java",
+      "lineRange": [
+        182,
+        185
+      ],
+      "summary": "getImageView function  in EntityProc.",
+      "tags": [
+        "function",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityProc.java:acceptResources",
+      "type": "function",
+      "name": "acceptResources",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityProc.java",
+      "lineRange": [
+        187,
+        189
+      ],
+      "summary": "acceptResources function with params: aCapacity in EntityProc.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityProc.java:getPipCount",
+      "type": "function",
+      "name": "getPipCount",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityProc.java",
+      "lineRange": [
+        191,
+        194
+      ],
+      "summary": "getPipCount function  in EntityProc.",
+      "tags": [
+        "function",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityProc.java:getPipColorAt",
+      "type": "function",
+      "name": "getPipColorAt",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityProc.java",
+      "lineRange": [
+        196,
+        199
+      ],
+      "summary": "getPipColorAt function with params: i in EntityProc.",
+      "tags": [
+        "function",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityProc.java:getOreCapacityValue",
+      "type": "function",
+      "name": "getOreCapacityValue",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityProc.java",
+      "lineRange": [
+        201,
+        204
+      ],
+      "summary": "getOreCapacityValue function  in EntityProc.",
+      "tags": [
+        "function",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityProc.java:getTargetLines",
+      "type": "function",
+      "name": "getTargetLines",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityProc.java",
+      "lineRange": [
+        206,
+        209
+      ],
+      "summary": "getTargetLines function  in EntityProc.",
+      "tags": [
+        "function",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityProc.java:linkedHarvestersLines",
+      "type": "function",
+      "name": "linkedHarvestersLines",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityProc.java",
+      "lineRange": [
+        211,
+        223
+      ],
+      "summary": "linkedHarvestersLines function  in EntityProc.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityProc.java:getBuildingCost",
+      "type": "function",
+      "name": "getBuildingCost",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityProc.java",
+      "lineRange": [
+        225,
+        228
+      ],
+      "summary": "getBuildingCost function  in EntityProc.",
+      "tags": [
+        "function",
+        "getter"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityConstructionYard.java",
+      "target": "class:src/cr0s/javara/entity/building/common/EntityConstructionYard.java:EntityConstructionYard",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityConstructionYard.java",
+      "target": "class:src/cr0s/javara/entity/building/common/EntityConstructionYard.java:EntityConstructionYard",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityConstructionYard.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityConstructionYard.java:EntityConstructionYard",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityConstructionYard.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityConstructionYard.java:EntityConstructionYard",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityConstructionYard.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityConstructionYard.java:renderEntity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityConstructionYard.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityConstructionYard.java:renderEntity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityConstructionYard.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityConstructionYard.java:shouldRenderedInPass",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityConstructionYard.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityConstructionYard.java:shouldRenderedInPass",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityConstructionYard.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityConstructionYard.java:updateEntity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityConstructionYard.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityConstructionYard.java:updateEntity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityConstructionYard.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityConstructionYard.java:select",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityConstructionYard.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityConstructionYard.java:select",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityConstructionYard.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityConstructionYard.java:cancelSelect",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityConstructionYard.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityConstructionYard.java:cancelSelect",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityConstructionYard.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityConstructionYard.java:isSelected",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityConstructionYard.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityConstructionYard.java:isSelected",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityConstructionYard.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityConstructionYard.java:getHeightInTiles",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityConstructionYard.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityConstructionYard.java:getHeightInTiles",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityConstructionYard.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityConstructionYard.java:getWidthInTiles",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityConstructionYard.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityConstructionYard.java:getWidthInTiles",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityConstructionYard.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityConstructionYard.java:getAlignment",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityConstructionYard.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityConstructionYard.java:getAlignment",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityConstructionYard.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityConstructionYard.java:getRevealingRange",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityConstructionYard.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityConstructionYard.java:getRevealingRange",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityConstructionYard.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityConstructionYard.java:getImageView",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityConstructionYard.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityConstructionYard.java:getImageView",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityHelipad.java",
+      "target": "class:src/cr0s/javara/entity/building/common/EntityHelipad.java:EntityHelipad",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityHelipad.java",
+      "target": "class:src/cr0s/javara/entity/building/common/EntityHelipad.java:EntityHelipad",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityHelipad.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityHelipad.java:EntityHelipad",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityHelipad.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityHelipad.java:EntityHelipad",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityHelipad.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityHelipad.java:renderEntity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityHelipad.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityHelipad.java:renderEntity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityHelipad.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityHelipad.java:shouldRenderedInPass",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityHelipad.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityHelipad.java:shouldRenderedInPass",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityHelipad.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityHelipad.java:updateEntity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityHelipad.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityHelipad.java:updateEntity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityHelipad.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityHelipad.java:select",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityHelipad.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityHelipad.java:select",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityHelipad.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityHelipad.java:cancelSelect",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityHelipad.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityHelipad.java:cancelSelect",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityHelipad.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityHelipad.java:isSelected",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityHelipad.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityHelipad.java:isSelected",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityHelipad.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityHelipad.java:getHeightInTiles",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityHelipad.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityHelipad.java:getHeightInTiles",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityHelipad.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityHelipad.java:getWidthInTiles",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityHelipad.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityHelipad.java:getWidthInTiles",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityHelipad.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityHelipad.java:getConsumptionLevel",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityHelipad.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityHelipad.java:getConsumptionLevel",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityHelipad.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityHelipad.java:getRevealingRange",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityHelipad.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityHelipad.java:getRevealingRange",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityHelipad.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityHelipad.java:getImageView",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityHelipad.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityHelipad.java:getImageView",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityHelipad.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityHelipad.java:getBuildingCost",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityHelipad.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityHelipad.java:getBuildingCost",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityHelipad.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityHelipad.java:deployEntity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityHelipad.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityHelipad.java:deployEntity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityHelipad.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityHelipad.java:onBuildFinished",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityHelipad.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityHelipad.java:onBuildFinished",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityOreSilo.java",
+      "target": "class:src/cr0s/javara/entity/building/common/EntityOreSilo.java:EntityOreSilo",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityOreSilo.java",
+      "target": "class:src/cr0s/javara/entity/building/common/EntityOreSilo.java:EntityOreSilo",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityOreSilo.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityOreSilo.java:EntityOreSilo",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityOreSilo.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityOreSilo.java:EntityOreSilo",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityOreSilo.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityOreSilo.java:renderEntity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityOreSilo.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityOreSilo.java:renderEntity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityOreSilo.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityOreSilo.java:shouldRenderedInPass",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityOreSilo.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityOreSilo.java:shouldRenderedInPass",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityOreSilo.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityOreSilo.java:updateEntity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityOreSilo.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityOreSilo.java:updateEntity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityOreSilo.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityOreSilo.java:select",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityOreSilo.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityOreSilo.java:select",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityOreSilo.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityOreSilo.java:cancelSelect",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityOreSilo.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityOreSilo.java:cancelSelect",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityOreSilo.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityOreSilo.java:isSelected",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityOreSilo.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityOreSilo.java:isSelected",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityOreSilo.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityOreSilo.java:getHeightInTiles",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityOreSilo.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityOreSilo.java:getHeightInTiles",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityOreSilo.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityOreSilo.java:getWidthInTiles",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityOreSilo.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityOreSilo.java:getWidthInTiles",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityOreSilo.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityOreSilo.java:getConsumptionLevel",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityOreSilo.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityOreSilo.java:getConsumptionLevel",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityOreSilo.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityOreSilo.java:getRevealingRange",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityOreSilo.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityOreSilo.java:getRevealingRange",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityOreSilo.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityOreSilo.java:getImageView",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityOreSilo.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityOreSilo.java:getImageView",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityOreSilo.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityOreSilo.java:getPipCount",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityOreSilo.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityOreSilo.java:getPipCount",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityOreSilo.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityOreSilo.java:getPipColorAt",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityOreSilo.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityOreSilo.java:getPipColorAt",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityOreSilo.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityOreSilo.java:getOreCapacityValue",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityOreSilo.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityOreSilo.java:getOreCapacityValue",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityOreSilo.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityOreSilo.java:getBuildingCost",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityOreSilo.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityOreSilo.java:getBuildingCost",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityPowerPlant.java",
+      "target": "class:src/cr0s/javara/entity/building/common/EntityPowerPlant.java:EntityPowerPlant",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityPowerPlant.java",
+      "target": "class:src/cr0s/javara/entity/building/common/EntityPowerPlant.java:EntityPowerPlant",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityPowerPlant.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityPowerPlant.java:EntityPowerPlant",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityPowerPlant.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityPowerPlant.java:EntityPowerPlant",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityPowerPlant.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityPowerPlant.java:renderEntity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityPowerPlant.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityPowerPlant.java:renderEntity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityPowerPlant.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityPowerPlant.java:shouldRenderedInPass",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityPowerPlant.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityPowerPlant.java:shouldRenderedInPass",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityPowerPlant.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityPowerPlant.java:select",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityPowerPlant.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityPowerPlant.java:select",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityPowerPlant.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityPowerPlant.java:cancelSelect",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityPowerPlant.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityPowerPlant.java:cancelSelect",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityPowerPlant.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityPowerPlant.java:isSelected",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityPowerPlant.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityPowerPlant.java:isSelected",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityPowerPlant.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityPowerPlant.java:getHeightInTiles",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityPowerPlant.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityPowerPlant.java:getHeightInTiles",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityPowerPlant.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityPowerPlant.java:getWidthInTiles",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityPowerPlant.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityPowerPlant.java:getWidthInTiles",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityPowerPlant.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityPowerPlant.java:getPowerProductionLevel",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityPowerPlant.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityPowerPlant.java:getPowerProductionLevel",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityPowerPlant.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityPowerPlant.java:getRevealingRange",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityPowerPlant.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityPowerPlant.java:getRevealingRange",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityPowerPlant.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityPowerPlant.java:getImageView",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityPowerPlant.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityPowerPlant.java:getImageView",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityPowerPlant.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityPowerPlant.java:getBuildingCost",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityPowerPlant.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityPowerPlant.java:getBuildingCost",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityProc.java",
+      "target": "class:src/cr0s/javara/entity/building/common/EntityProc.java:EntityProc",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityProc.java",
+      "target": "class:src/cr0s/javara/entity/building/common/EntityProc.java:EntityProc",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityProc.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityProc.java:EntityProc",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityProc.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityProc.java:EntityProc",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityProc.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityProc.java:onBuildFinished",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityProc.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityProc.java:onBuildFinished",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityProc.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityProc.java:spawnHarvester",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityProc.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityProc.java:getHarvesterCell",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityProc.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityProc.java:getHarvesterCell",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityProc.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityProc.java:renderEntity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityProc.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityProc.java:renderEntity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityProc.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityProc.java:shouldRenderedInPass",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityProc.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityProc.java:shouldRenderedInPass",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityProc.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityProc.java:select",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityProc.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityProc.java:select",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityProc.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityProc.java:cancelSelect",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityProc.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityProc.java:cancelSelect",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityProc.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityProc.java:isSelected",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityProc.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityProc.java:isSelected",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityProc.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityProc.java:getHeightInTiles",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityProc.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityProc.java:getHeightInTiles",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityProc.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityProc.java:getWidthInTiles",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityProc.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityProc.java:getWidthInTiles",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityProc.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityProc.java:getConsumptionLevel",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityProc.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityProc.java:getConsumptionLevel",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityProc.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityProc.java:getRevealingRange",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityProc.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityProc.java:getRevealingRange",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityProc.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityProc.java:getImageView",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityProc.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityProc.java:getImageView",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityProc.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityProc.java:acceptResources",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityProc.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityProc.java:acceptResources",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityProc.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityProc.java:getPipCount",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityProc.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityProc.java:getPipCount",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityProc.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityProc.java:getPipColorAt",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityProc.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityProc.java:getPipColorAt",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityProc.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityProc.java:getOreCapacityValue",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityProc.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityProc.java:getOreCapacityValue",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityProc.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityProc.java:getTargetLines",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityProc.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityProc.java:getTargetLines",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityProc.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityProc.java:linkedHarvestersLines",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityProc.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityProc.java:getBuildingCost",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityProc.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityProc.java:getBuildingCost",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityConstructionYard.java",
+      "target": "file:src/cr0s/javara/combat/ArmorType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityConstructionYard.java",
+      "target": "file:src/cr0s/javara/entity/building/BibType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityConstructionYard.java",
+      "target": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityConstructionYard.java",
+      "target": "file:src/cr0s/javara/entity/ISelectable.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityConstructionYard.java",
+      "target": "file:src/cr0s/javara/entity/IShroudRevealer.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityConstructionYard.java",
+      "target": "file:src/cr0s/javara/resources/ResourceManager.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityConstructionYard.java",
+      "target": "file:src/cr0s/javara/resources/ShpTexture.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityConstructionYard.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityConstructionYard.java",
+      "target": "file:src/cr0s/javara/util/SpriteSheet.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityHelipad.java",
+      "target": "file:src/cr0s/javara/combat/ArmorType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityHelipad.java",
+      "target": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityHelipad.java",
+      "target": "file:src/cr0s/javara/entity/building/BibType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityHelipad.java",
+      "target": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityHelipad.java",
+      "target": "file:src/cr0s/javara/entity/building/IPowerConsumer.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityHelipad.java",
+      "target": "file:src/cr0s/javara/entity/IHaveCost.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityHelipad.java",
+      "target": "file:src/cr0s/javara/entity/ISelectable.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityHelipad.java",
+      "target": "file:src/cr0s/javara/entity/IShroudRevealer.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityHelipad.java",
+      "target": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityHelipad.java",
+      "target": "file:src/cr0s/javara/main/GUI.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityHelipad.java",
+      "target": "file:src/cr0s/javara/resources/ResourceManager.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityHelipad.java",
+      "target": "file:src/cr0s/javara/resources/ShpTexture.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityHelipad.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityHelipad.java",
+      "target": "file:src/cr0s/javara/util/SpriteSheet.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityOreSilo.java",
+      "target": "file:src/cr0s/javara/combat/ArmorType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityOreSilo.java",
+      "target": "file:src/cr0s/javara/entity/building/BibType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityOreSilo.java",
+      "target": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityOreSilo.java",
+      "target": "file:src/cr0s/javara/entity/building/IOreCapacitor.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityOreSilo.java",
+      "target": "file:src/cr0s/javara/entity/building/IPowerConsumer.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityOreSilo.java",
+      "target": "file:src/cr0s/javara/entity/IHaveCost.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityOreSilo.java",
+      "target": "file:src/cr0s/javara/entity/IPips.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityOreSilo.java",
+      "target": "file:src/cr0s/javara/entity/ISelectable.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityOreSilo.java",
+      "target": "file:src/cr0s/javara/entity/IShroudRevealer.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityOreSilo.java",
+      "target": "file:src/cr0s/javara/main/GUI.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityOreSilo.java",
+      "target": "file:src/cr0s/javara/resources/ResourceManager.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityOreSilo.java",
+      "target": "file:src/cr0s/javara/resources/ShpTexture.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityOreSilo.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityOreSilo.java",
+      "target": "file:src/cr0s/javara/util/SpriteSheet.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityPowerPlant.java",
+      "target": "file:src/cr0s/javara/combat/ArmorType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityPowerPlant.java",
+      "target": "file:src/cr0s/javara/entity/building/BibType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityPowerPlant.java",
+      "target": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityPowerPlant.java",
+      "target": "file:src/cr0s/javara/entity/building/IPowerProducer.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityPowerPlant.java",
+      "target": "file:src/cr0s/javara/entity/IHaveCost.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityPowerPlant.java",
+      "target": "file:src/cr0s/javara/entity/ISelectable.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityPowerPlant.java",
+      "target": "file:src/cr0s/javara/entity/IShroudRevealer.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityPowerPlant.java",
+      "target": "file:src/cr0s/javara/main/GUI.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityPowerPlant.java",
+      "target": "file:src/cr0s/javara/resources/ResourceManager.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityPowerPlant.java",
+      "target": "file:src/cr0s/javara/resources/ShpTexture.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityPowerPlant.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityProc.java",
+      "target": "file:src/cr0s/javara/combat/ArmorType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityProc.java",
+      "target": "file:src/cr0s/javara/entity/actor/activity/activities/harvester/FindResources.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityProc.java",
+      "target": "file:src/cr0s/javara/entity/building/BibType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityProc.java",
+      "target": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityProc.java",
+      "target": "file:src/cr0s/javara/entity/building/IOreCapacitor.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityProc.java",
+      "target": "file:src/cr0s/javara/entity/building/IPowerConsumer.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityProc.java",
+      "target": "file:src/cr0s/javara/entity/Entity.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityProc.java",
+      "target": "file:src/cr0s/javara/entity/IHaveCost.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityProc.java",
+      "target": "file:src/cr0s/javara/entity/IPips.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityProc.java",
+      "target": "file:src/cr0s/javara/entity/ISelectable.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityProc.java",
+      "target": "file:src/cr0s/javara/entity/IShroudRevealer.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityProc.java",
+      "target": "file:src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityProc.java",
+      "target": "file:src/cr0s/javara/main/GUI.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityProc.java",
+      "target": "file:src/cr0s/javara/order/ITargetLines.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityProc.java",
+      "target": "file:src/cr0s/javara/order/TargetLine.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityProc.java",
+      "target": "file:src/cr0s/javara/resources/ResourceManager.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityProc.java",
+      "target": "file:src/cr0s/javara/resources/ShpTexture.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityProc.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityProc.java",
+      "target": "file:src/cr0s/javara/util/SpriteSheet.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

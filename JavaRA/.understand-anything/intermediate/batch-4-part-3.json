@@ -1,0 +1,2455 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/cr0s/javara/entity/building/common/EntityRadarDome.java",
+      "type": "file",
+      "name": "EntityRadarDome.java",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityRadarDome.java",
+      "summary": "Radar dome building providing shroud revealing range and radar capabilities.",
+      "tags": [
+        "entity",
+        "building",
+        "radar"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/cr0s/javara/entity/building/common/EntityRadarDome.java:EntityRadarDome",
+      "type": "class",
+      "name": "EntityRadarDome",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityRadarDome.java",
+      "lineRange": [
+        22,
+        151
+      ],
+      "summary": "EntityRadarDome class with 14 methods and 9 properties in the JavaRA game engine.",
+      "tags": [
+        "class",
+        "entity"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityRadarDome.java:EntityRadarDome",
+      "type": "function",
+      "name": "EntityRadarDome",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityRadarDome.java",
+      "lineRange": [
+        34,
+        55
+      ],
+      "summary": "EntityRadarDome function with params: tile in EntityRadarDome.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityRadarDome.java:renderEntity",
+      "type": "function",
+      "name": "renderEntity",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityRadarDome.java",
+      "lineRange": [
+        63,
+        91
+      ],
+      "summary": "renderEntity function  in EntityRadarDome.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityRadarDome.java:shouldRenderedInPass",
+      "type": "function",
+      "name": "shouldRenderedInPass",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityRadarDome.java",
+      "lineRange": [
+        93,
+        96
+      ],
+      "summary": "shouldRenderedInPass function with params: passnum in EntityRadarDome.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityRadarDome.java:select",
+      "type": "function",
+      "name": "select",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityRadarDome.java",
+      "lineRange": [
+        98,
+        101
+      ],
+      "summary": "select function  in EntityRadarDome.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityRadarDome.java:cancelSelect",
+      "type": "function",
+      "name": "cancelSelect",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityRadarDome.java",
+      "lineRange": [
+        103,
+        106
+      ],
+      "summary": "cancelSelect function  in EntityRadarDome.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityRadarDome.java:isSelected",
+      "type": "function",
+      "name": "isSelected",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityRadarDome.java",
+      "lineRange": [
+        108,
+        111
+      ],
+      "summary": "isSelected function  in EntityRadarDome.",
+      "tags": [
+        "function",
+        "check"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityRadarDome.java:getHeightInTiles",
+      "type": "function",
+      "name": "getHeightInTiles",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityRadarDome.java",
+      "lineRange": [
+        113,
+        116
+      ],
+      "summary": "getHeightInTiles function  in EntityRadarDome.",
+      "tags": [
+        "function",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityRadarDome.java:getWidthInTiles",
+      "type": "function",
+      "name": "getWidthInTiles",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityRadarDome.java",
+      "lineRange": [
+        118,
+        121
+      ],
+      "summary": "getWidthInTiles function  in EntityRadarDome.",
+      "tags": [
+        "function",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityRadarDome.java:getRevealingRange",
+      "type": "function",
+      "name": "getRevealingRange",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityRadarDome.java",
+      "lineRange": [
+        123,
+        126
+      ],
+      "summary": "getRevealingRange function  in EntityRadarDome.",
+      "tags": [
+        "function",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityRadarDome.java:getImageView",
+      "type": "function",
+      "name": "getImageView",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityRadarDome.java",
+      "lineRange": [
+        128,
+        131
+      ],
+      "summary": "getImageView function  in EntityRadarDome.",
+      "tags": [
+        "function",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityRadarDome.java:getConsumptionLevel",
+      "type": "function",
+      "name": "getConsumptionLevel",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityRadarDome.java",
+      "lineRange": [
+        133,
+        136
+      ],
+      "summary": "getConsumptionLevel function  in EntityRadarDome.",
+      "tags": [
+        "function",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityRadarDome.java:onBuildFinished",
+      "type": "function",
+      "name": "onBuildFinished",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityRadarDome.java",
+      "lineRange": [
+        138,
+        145
+      ],
+      "summary": "onBuildFinished function  in EntityRadarDome.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityRadarDome.java:getBuildingCost",
+      "type": "function",
+      "name": "getBuildingCost",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityRadarDome.java",
+      "lineRange": [
+        147,
+        150
+      ],
+      "summary": "getBuildingCost function  in EntityRadarDome.",
+      "tags": [
+        "function",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/entity/building/common/EntityWall.java",
+      "type": "file",
+      "name": "EntityWall.java",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityWall.java",
+      "summary": "Wall building that connects to adjacent wall segments and provides defensive barriers.",
+      "tags": [
+        "entity",
+        "building",
+        "defense"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/cr0s/javara/entity/building/common/EntityWall.java:EntityWall",
+      "type": "class",
+      "name": "EntityWall",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityWall.java",
+      "lineRange": [
+        14,
+        136
+      ],
+      "summary": "EntityWall class with 12 methods and 8 properties in the JavaRA game engine.",
+      "tags": [
+        "class",
+        "entity"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityWall.java:EntityWall",
+      "type": "function",
+      "name": "EntityWall",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityWall.java",
+      "lineRange": [
+        29,
+        33
+      ],
+      "summary": "EntityWall function with params: aTile, aSizeWidth, aSizeHeight, aFootprint in EntityWall.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityWall.java:updateEntity",
+      "type": "function",
+      "name": "updateEntity",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityWall.java",
+      "lineRange": [
+        45,
+        73
+      ],
+      "summary": "updateEntity function with params: delta in EntityWall.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityWall.java:updateNeighbours",
+      "type": "function",
+      "name": "updateNeighbours",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityWall.java",
+      "lineRange": [
+        75,
+        93
+      ],
+      "summary": "updateNeighbours function  in EntityWall.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityWall.java:setDirty",
+      "type": "function",
+      "name": "setDirty",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityWall.java",
+      "lineRange": [
+        95,
+        97
+      ],
+      "summary": "setDirty function  in EntityWall.",
+      "tags": [
+        "function",
+        "setter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityWall.java:renderEntity",
+      "type": "function",
+      "name": "renderEntity",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityWall.java",
+      "lineRange": [
+        99,
+        105
+      ],
+      "summary": "renderEntity function  in EntityWall.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityWall.java:shouldRenderedInPass",
+      "type": "function",
+      "name": "shouldRenderedInPass",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityWall.java",
+      "lineRange": [
+        107,
+        110
+      ],
+      "summary": "shouldRenderedInPass function with params: passNum in EntityWall.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityWall.java:getHeightInTiles",
+      "type": "function",
+      "name": "getHeightInTiles",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityWall.java",
+      "lineRange": [
+        112,
+        115
+      ],
+      "summary": "getHeightInTiles function  in EntityWall.",
+      "tags": [
+        "function",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityWall.java:getWidthInTiles",
+      "type": "function",
+      "name": "getWidthInTiles",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityWall.java",
+      "lineRange": [
+        117,
+        120
+      ],
+      "summary": "getWidthInTiles function  in EntityWall.",
+      "tags": [
+        "function",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityWall.java:getImageView",
+      "type": "function",
+      "name": "getImageView",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityWall.java",
+      "lineRange": [
+        122,
+        125
+      ],
+      "summary": "getImageView function  in EntityWall.",
+      "tags": [
+        "function",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityWall.java:onBuildFinished",
+      "type": "function",
+      "name": "onBuildFinished",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityWall.java",
+      "lineRange": [
+        127,
+        131
+      ],
+      "summary": "onBuildFinished function  in EntityWall.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/common/EntityWall.java:setRepairing",
+      "type": "function",
+      "name": "setRepairing",
+      "filePath": "src/cr0s/javara/entity/building/common/EntityWall.java",
+      "lineRange": [
+        133,
+        135
+      ],
+      "summary": "setRepairing function with params: b in EntityWall.",
+      "tags": [
+        "function",
+        "setter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "type": "file",
+      "name": "EntityBuilding.java",
+      "filePath": "src/cr0s/javara/entity/building/EntityBuilding.java",
+      "summary": "Core building entity with HP, repair, damage, footprint, and building progress management.",
+      "tags": [
+        "entity",
+        "building",
+        "core"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:src/cr0s/javara/entity/building/EntityBuilding.java:EntityBuilding",
+      "type": "class",
+      "name": "EntityBuilding",
+      "filePath": "src/cr0s/javara/entity/building/EntityBuilding.java",
+      "lineRange": [
+        29,
+        356
+      ],
+      "summary": "EntityBuilding class with 33 methods and 22 properties in the JavaRA game engine.",
+      "tags": [
+        "class",
+        "entity"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/EntityBuilding.java:EntityBuilding",
+      "type": "function",
+      "name": "EntityBuilding",
+      "filePath": "src/cr0s/javara/entity/building/EntityBuilding.java",
+      "lineRange": [
+        102,
+        126
+      ],
+      "summary": "EntityBuilding function with params: aTile, aSizeWidth, aSizeHeight, aFootprint in EntityBuilding.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/EntityBuilding.java:updateEntity",
+      "type": "function",
+      "name": "updateEntity",
+      "filePath": "src/cr0s/javara/entity/building/EntityBuilding.java",
+      "lineRange": [
+        128,
+        157
+      ],
+      "summary": "updateEntity function with params: delta in EntityBuilding.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/EntityBuilding.java:shouldRenderedInPass",
+      "type": "function",
+      "name": "shouldRenderedInPass",
+      "filePath": "src/cr0s/javara/entity/building/EntityBuilding.java",
+      "lineRange": [
+        159,
+        160
+      ],
+      "summary": "shouldRenderedInPass function with params: passNum in EntityBuilding.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/EntityBuilding.java:isPrimary",
+      "type": "function",
+      "name": "isPrimary",
+      "filePath": "src/cr0s/javara/entity/building/EntityBuilding.java",
+      "lineRange": [
+        162,
+        164
+      ],
+      "summary": "isPrimary function  in EntityBuilding.",
+      "tags": [
+        "function",
+        "check"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/EntityBuilding.java:setPrimary",
+      "type": "function",
+      "name": "setPrimary",
+      "filePath": "src/cr0s/javara/entity/building/EntityBuilding.java",
+      "lineRange": [
+        166,
+        168
+      ],
+      "summary": "setPrimary function with params: aIsPrimary in EntityBuilding.",
+      "tags": [
+        "function",
+        "setter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/EntityBuilding.java:isRepairing",
+      "type": "function",
+      "name": "isRepairing",
+      "filePath": "src/cr0s/javara/entity/building/EntityBuilding.java",
+      "lineRange": [
+        170,
+        172
+      ],
+      "summary": "isRepairing function  in EntityBuilding.",
+      "tags": [
+        "function",
+        "check"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/EntityBuilding.java:setRepairing",
+      "type": "function",
+      "name": "setRepairing",
+      "filePath": "src/cr0s/javara/entity/building/EntityBuilding.java",
+      "lineRange": [
+        174,
+        176
+      ],
+      "summary": "setRepairing function with params: aIsRepairing in EntityBuilding.",
+      "tags": [
+        "function",
+        "setter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/EntityBuilding.java:isInvuln",
+      "type": "function",
+      "name": "isInvuln",
+      "filePath": "src/cr0s/javara/entity/building/EntityBuilding.java",
+      "lineRange": [
+        178,
+        180
+      ],
+      "summary": "isInvuln function  in EntityBuilding.",
+      "tags": [
+        "function",
+        "check"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/EntityBuilding.java:setInvuln",
+      "type": "function",
+      "name": "setInvuln",
+      "filePath": "src/cr0s/javara/entity/building/EntityBuilding.java",
+      "lineRange": [
+        182,
+        185
+      ],
+      "summary": "setInvuln function with params: aIsInvuln in EntityBuilding.",
+      "tags": [
+        "function",
+        "setter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/EntityBuilding.java:isDestroyed",
+      "type": "function",
+      "name": "isDestroyed",
+      "filePath": "src/cr0s/javara/entity/building/EntityBuilding.java",
+      "lineRange": [
+        187,
+        189
+      ],
+      "summary": "isDestroyed function  in EntityBuilding.",
+      "tags": [
+        "function",
+        "check"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/EntityBuilding.java:setDestroyed",
+      "type": "function",
+      "name": "setDestroyed",
+      "filePath": "src/cr0s/javara/entity/building/EntityBuilding.java",
+      "lineRange": [
+        191,
+        193
+      ],
+      "summary": "setDestroyed function with params: aIsDestroyed in EntityBuilding.",
+      "tags": [
+        "function",
+        "setter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/EntityBuilding.java:getProgressValue",
+      "type": "function",
+      "name": "getProgressValue",
+      "filePath": "src/cr0s/javara/entity/building/EntityBuilding.java",
+      "lineRange": [
+        195,
+        197
+      ],
+      "summary": "getProgressValue function  in EntityBuilding.",
+      "tags": [
+        "function",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/EntityBuilding.java:setProgressValue",
+      "type": "function",
+      "name": "setProgressValue",
+      "filePath": "src/cr0s/javara/entity/building/EntityBuilding.java",
+      "lineRange": [
+        199,
+        201
+      ],
+      "summary": "setProgressValue function with params: aProgressValue in EntityBuilding.",
+      "tags": [
+        "function",
+        "setter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/EntityBuilding.java:getMaxProgress",
+      "type": "function",
+      "name": "getMaxProgress",
+      "filePath": "src/cr0s/javara/entity/building/EntityBuilding.java",
+      "lineRange": [
+        203,
+        205
+      ],
+      "summary": "getMaxProgress function  in EntityBuilding.",
+      "tags": [
+        "function",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/EntityBuilding.java:setMaxProgress",
+      "type": "function",
+      "name": "setMaxProgress",
+      "filePath": "src/cr0s/javara/entity/building/EntityBuilding.java",
+      "lineRange": [
+        207,
+        209
+      ],
+      "summary": "setMaxProgress function with params: aMaxProgress in EntityBuilding.",
+      "tags": [
+        "function",
+        "setter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/EntityBuilding.java:getWidth",
+      "type": "function",
+      "name": "getWidth",
+      "filePath": "src/cr0s/javara/entity/building/EntityBuilding.java",
+      "lineRange": [
+        211,
+        213
+      ],
+      "summary": "getWidth function  in EntityBuilding.",
+      "tags": [
+        "function",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/EntityBuilding.java:getHeight",
+      "type": "function",
+      "name": "getHeight",
+      "filePath": "src/cr0s/javara/entity/building/EntityBuilding.java",
+      "lineRange": [
+        215,
+        217
+      ],
+      "summary": "getHeight function  in EntityBuilding.",
+      "tags": [
+        "function",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/EntityBuilding.java:getHeightInTiles",
+      "type": "function",
+      "name": "getHeightInTiles",
+      "filePath": "src/cr0s/javara/entity/building/EntityBuilding.java",
+      "lineRange": [
+        219,
+        219
+      ],
+      "summary": "getHeightInTiles function  in EntityBuilding.",
+      "tags": [
+        "function",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/EntityBuilding.java:getWidthInTiles",
+      "type": "function",
+      "name": "getWidthInTiles",
+      "filePath": "src/cr0s/javara/entity/building/EntityBuilding.java",
+      "lineRange": [
+        220,
+        220
+      ],
+      "summary": "getWidthInTiles function  in EntityBuilding.",
+      "tags": [
+        "function",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/EntityBuilding.java:setBibType",
+      "type": "function",
+      "name": "setBibType",
+      "filePath": "src/cr0s/javara/entity/building/EntityBuilding.java",
+      "lineRange": [
+        222,
+        224
+      ],
+      "summary": "setBibType function with params: bt in EntityBuilding.",
+      "tags": [
+        "function",
+        "setter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/EntityBuilding.java:getBibType",
+      "type": "function",
+      "name": "getBibType",
+      "filePath": "src/cr0s/javara/entity/building/EntityBuilding.java",
+      "lineRange": [
+        226,
+        228
+      ],
+      "summary": "getBibType function  in EntityBuilding.",
+      "tags": [
+        "function",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/EntityBuilding.java:getFootprint",
+      "type": "function",
+      "name": "getFootprint",
+      "filePath": "src/cr0s/javara/entity/building/EntityBuilding.java",
+      "lineRange": [
+        230,
+        232
+      ],
+      "summary": "getFootprint function  in EntityBuilding.",
+      "tags": [
+        "function",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/EntityBuilding.java:generateCellsFromFootprint",
+      "type": "function",
+      "name": "generateCellsFromFootprint",
+      "filePath": "src/cr0s/javara/entity/building/EntityBuilding.java",
+      "lineRange": [
+        239,
+        273
+      ],
+      "summary": "generateCellsFromFootprint function with params: footprint, fc in EntityBuilding.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/EntityBuilding.java:getBlockingCells",
+      "type": "function",
+      "name": "getBlockingCells",
+      "filePath": "src/cr0s/javara/entity/building/EntityBuilding.java",
+      "lineRange": [
+        275,
+        277
+      ],
+      "summary": "getBlockingCells function  in EntityBuilding.",
+      "tags": [
+        "function",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/EntityBuilding.java:changeCellPos",
+      "type": "function",
+      "name": "changeCellPos",
+      "filePath": "src/cr0s/javara/entity/building/EntityBuilding.java",
+      "lineRange": [
+        279,
+        284
+      ],
+      "summary": "changeCellPos function with params: newCell in EntityBuilding.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/EntityBuilding.java:toString",
+      "type": "function",
+      "name": "toString",
+      "filePath": "src/cr0s/javara/entity/building/EntityBuilding.java",
+      "lineRange": [
+        286,
+        289
+      ],
+      "summary": "toString function  in EntityBuilding.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/EntityBuilding.java:getTextureWidth",
+      "type": "function",
+      "name": "getTextureWidth",
+      "filePath": "src/cr0s/javara/entity/building/EntityBuilding.java",
+      "lineRange": [
+        291,
+        293
+      ],
+      "summary": "getTextureWidth function  in EntityBuilding.",
+      "tags": [
+        "function",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/EntityBuilding.java:getTextureHeight",
+      "type": "function",
+      "name": "getTextureHeight",
+      "filePath": "src/cr0s/javara/entity/building/EntityBuilding.java",
+      "lineRange": [
+        295,
+        297
+      ],
+      "summary": "getTextureHeight function  in EntityBuilding.",
+      "tags": [
+        "function",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/EntityBuilding.java:onBuildFinished",
+      "type": "function",
+      "name": "onBuildFinished",
+      "filePath": "src/cr0s/javara/entity/building/EntityBuilding.java",
+      "lineRange": [
+        299,
+        301
+      ],
+      "summary": "onBuildFinished function  in EntityBuilding.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/EntityBuilding.java:issueOrder",
+      "type": "function",
+      "name": "issueOrder",
+      "filePath": "src/cr0s/javara/entity/building/EntityBuilding.java",
+      "lineRange": [
+        303,
+        306
+      ],
+      "summary": "issueOrder function with params: self, targeter, target, ia in EntityBuilding.",
+      "tags": [
+        "function",
+        "check"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/EntityBuilding.java:resolveOrder",
+      "type": "function",
+      "name": "resolveOrder",
+      "filePath": "src/cr0s/javara/entity/building/EntityBuilding.java",
+      "lineRange": [
+        308,
+        310
+      ],
+      "summary": "resolveOrder function with params: order in EntityBuilding.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/EntityBuilding.java:explodeBuilding",
+      "type": "function",
+      "name": "explodeBuilding",
+      "filePath": "src/cr0s/javara/entity/building/EntityBuilding.java",
+      "lineRange": [
+        312,
+        322
+      ],
+      "summary": "explodeBuilding function  in EntityBuilding.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/EntityBuilding.java:giveDamage",
+      "type": "function",
+      "name": "giveDamage",
+      "filePath": "src/cr0s/javara/entity/building/EntityBuilding.java",
+      "lineRange": [
+        324,
+        355
+      ],
+      "summary": "giveDamage function with params: firedBy, amount, warhead in EntityBuilding.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/cr0s/javara/entity/building/EntityBuildingProgress.java",
+      "type": "file",
+      "name": "EntityBuildingProgress.java",
+      "filePath": "src/cr0s/javara/entity/building/EntityBuildingProgress.java",
+      "summary": "Rendered building-in-progress entity that spawns the actual building on completion.",
+      "tags": [
+        "entity",
+        "building",
+        "construction"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/cr0s/javara/entity/building/EntityBuildingProgress.java:EntityBuildingProgress",
+      "type": "class",
+      "name": "EntityBuildingProgress",
+      "filePath": "src/cr0s/javara/entity/building/EntityBuildingProgress.java",
+      "lineRange": [
+        15,
+        121
+      ],
+      "summary": "EntityBuildingProgress class with 9 methods and 4 properties in the JavaRA game engine.",
+      "tags": [
+        "class",
+        "entity"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/EntityBuildingProgress.java:EntityBuildingProgress",
+      "type": "function",
+      "name": "EntityBuildingProgress",
+      "filePath": "src/cr0s/javara/entity/building/EntityBuildingProgress.java",
+      "lineRange": [
+        23,
+        53
+      ],
+      "summary": "EntityBuildingProgress function with params: aTargetBuilding in EntityBuildingProgress.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/EntityBuildingProgress.java:updateEntity",
+      "type": "function",
+      "name": "updateEntity",
+      "filePath": "src/cr0s/javara/entity/building/EntityBuildingProgress.java",
+      "lineRange": [
+        55,
+        72
+      ],
+      "summary": "updateEntity function with params: delta in EntityBuildingProgress.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/EntityBuildingProgress.java:renderEntity",
+      "type": "function",
+      "name": "renderEntity",
+      "filePath": "src/cr0s/javara/entity/building/EntityBuildingProgress.java",
+      "lineRange": [
+        74,
+        86
+      ],
+      "summary": "renderEntity function  in EntityBuildingProgress.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/EntityBuildingProgress.java:shouldRenderedInPass",
+      "type": "function",
+      "name": "shouldRenderedInPass",
+      "filePath": "src/cr0s/javara/entity/building/EntityBuildingProgress.java",
+      "lineRange": [
+        88,
+        91
+      ],
+      "summary": "shouldRenderedInPass function with params: passNum in EntityBuildingProgress.",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/EntityBuildingProgress.java:getHeightInTiles",
+      "type": "function",
+      "name": "getHeightInTiles",
+      "filePath": "src/cr0s/javara/entity/building/EntityBuildingProgress.java",
+      "lineRange": [
+        93,
+        96
+      ],
+      "summary": "getHeightInTiles function  in EntityBuildingProgress.",
+      "tags": [
+        "function",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/EntityBuildingProgress.java:getWidthInTiles",
+      "type": "function",
+      "name": "getWidthInTiles",
+      "filePath": "src/cr0s/javara/entity/building/EntityBuildingProgress.java",
+      "lineRange": [
+        98,
+        101
+      ],
+      "summary": "getWidthInTiles function  in EntityBuildingProgress.",
+      "tags": [
+        "function",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/EntityBuildingProgress.java:getRevealingRange",
+      "type": "function",
+      "name": "getRevealingRange",
+      "filePath": "src/cr0s/javara/entity/building/EntityBuildingProgress.java",
+      "lineRange": [
+        103,
+        110
+      ],
+      "summary": "getRevealingRange function  in EntityBuildingProgress.",
+      "tags": [
+        "function",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/EntityBuildingProgress.java:getImageView",
+      "type": "function",
+      "name": "getImageView",
+      "filePath": "src/cr0s/javara/entity/building/EntityBuildingProgress.java",
+      "lineRange": [
+        112,
+        115
+      ],
+      "summary": "getImageView function  in EntityBuildingProgress.",
+      "tags": [
+        "function",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/EntityBuildingProgress.java:getTargetBuilding",
+      "type": "function",
+      "name": "getTargetBuilding",
+      "filePath": "src/cr0s/javara/entity/building/EntityBuildingProgress.java",
+      "lineRange": [
+        117,
+        119
+      ],
+      "summary": "getTargetBuilding function  in EntityBuildingProgress.",
+      "tags": [
+        "function",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/entity/building/IOreCapacitor.java",
+      "type": "file",
+      "name": "IOreCapacitor.java",
+      "filePath": "src/cr0s/javara/entity/building/IOreCapacitor.java",
+      "summary": "Interface for entities that provide ore storage capacity.",
+      "tags": [
+        "interface",
+        "ore",
+        "economy"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/cr0s/javara/entity/building/IOreCapacitor.java:IOreCapacitor",
+      "type": "class",
+      "name": "IOreCapacitor",
+      "filePath": "src/cr0s/javara/entity/building/IOreCapacitor.java",
+      "lineRange": [
+        3,
+        5
+      ],
+      "summary": "IOreCapacitor class with 1 methods  in the JavaRA game engine.",
+      "tags": [
+        "class",
+        "interface"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "target": "class:src/cr0s/javara/entity/building/EntityBuilding.java:EntityBuilding",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "target": "class:src/cr0s/javara/entity/building/EntityBuilding.java:EntityBuilding",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "target": "function:src/cr0s/javara/entity/building/EntityBuilding.java:EntityBuilding",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "target": "function:src/cr0s/javara/entity/building/EntityBuilding.java:EntityBuilding",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "target": "function:src/cr0s/javara/entity/building/EntityBuilding.java:updateEntity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "target": "function:src/cr0s/javara/entity/building/EntityBuilding.java:updateEntity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "target": "function:src/cr0s/javara/entity/building/EntityBuilding.java:shouldRenderedInPass",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "target": "function:src/cr0s/javara/entity/building/EntityBuilding.java:shouldRenderedInPass",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "target": "function:src/cr0s/javara/entity/building/EntityBuilding.java:isPrimary",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "target": "function:src/cr0s/javara/entity/building/EntityBuilding.java:isPrimary",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "target": "function:src/cr0s/javara/entity/building/EntityBuilding.java:setPrimary",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "target": "function:src/cr0s/javara/entity/building/EntityBuilding.java:setPrimary",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "target": "function:src/cr0s/javara/entity/building/EntityBuilding.java:isRepairing",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "target": "function:src/cr0s/javara/entity/building/EntityBuilding.java:isRepairing",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "target": "function:src/cr0s/javara/entity/building/EntityBuilding.java:setRepairing",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "target": "function:src/cr0s/javara/entity/building/EntityBuilding.java:setRepairing",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "target": "function:src/cr0s/javara/entity/building/EntityBuilding.java:isInvuln",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "target": "function:src/cr0s/javara/entity/building/EntityBuilding.java:isInvuln",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "target": "function:src/cr0s/javara/entity/building/EntityBuilding.java:setInvuln",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "target": "function:src/cr0s/javara/entity/building/EntityBuilding.java:setInvuln",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "target": "function:src/cr0s/javara/entity/building/EntityBuilding.java:isDestroyed",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "target": "function:src/cr0s/javara/entity/building/EntityBuilding.java:isDestroyed",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "target": "function:src/cr0s/javara/entity/building/EntityBuilding.java:setDestroyed",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "target": "function:src/cr0s/javara/entity/building/EntityBuilding.java:setDestroyed",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "target": "function:src/cr0s/javara/entity/building/EntityBuilding.java:getProgressValue",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "target": "function:src/cr0s/javara/entity/building/EntityBuilding.java:getProgressValue",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "target": "function:src/cr0s/javara/entity/building/EntityBuilding.java:setProgressValue",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "target": "function:src/cr0s/javara/entity/building/EntityBuilding.java:setProgressValue",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "target": "function:src/cr0s/javara/entity/building/EntityBuilding.java:getMaxProgress",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "target": "function:src/cr0s/javara/entity/building/EntityBuilding.java:getMaxProgress",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "target": "function:src/cr0s/javara/entity/building/EntityBuilding.java:setMaxProgress",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "target": "function:src/cr0s/javara/entity/building/EntityBuilding.java:setMaxProgress",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "target": "function:src/cr0s/javara/entity/building/EntityBuilding.java:getWidth",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "target": "function:src/cr0s/javara/entity/building/EntityBuilding.java:getWidth",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "target": "function:src/cr0s/javara/entity/building/EntityBuilding.java:getHeight",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "target": "function:src/cr0s/javara/entity/building/EntityBuilding.java:getHeight",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "target": "function:src/cr0s/javara/entity/building/EntityBuilding.java:getHeightInTiles",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "target": "function:src/cr0s/javara/entity/building/EntityBuilding.java:getHeightInTiles",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "target": "function:src/cr0s/javara/entity/building/EntityBuilding.java:getWidthInTiles",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "target": "function:src/cr0s/javara/entity/building/EntityBuilding.java:getWidthInTiles",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "target": "function:src/cr0s/javara/entity/building/EntityBuilding.java:setBibType",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "target": "function:src/cr0s/javara/entity/building/EntityBuilding.java:setBibType",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "target": "function:src/cr0s/javara/entity/building/EntityBuilding.java:getBibType",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "target": "function:src/cr0s/javara/entity/building/EntityBuilding.java:getBibType",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "target": "function:src/cr0s/javara/entity/building/EntityBuilding.java:getFootprint",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "target": "function:src/cr0s/javara/entity/building/EntityBuilding.java:getFootprint",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "target": "function:src/cr0s/javara/entity/building/EntityBuilding.java:generateCellsFromFootprint",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "target": "function:src/cr0s/javara/entity/building/EntityBuilding.java:getBlockingCells",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "target": "function:src/cr0s/javara/entity/building/EntityBuilding.java:getBlockingCells",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "target": "function:src/cr0s/javara/entity/building/EntityBuilding.java:changeCellPos",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "target": "function:src/cr0s/javara/entity/building/EntityBuilding.java:changeCellPos",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "target": "function:src/cr0s/javara/entity/building/EntityBuilding.java:toString",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "target": "function:src/cr0s/javara/entity/building/EntityBuilding.java:toString",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "target": "function:src/cr0s/javara/entity/building/EntityBuilding.java:getTextureWidth",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "target": "function:src/cr0s/javara/entity/building/EntityBuilding.java:getTextureWidth",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "target": "function:src/cr0s/javara/entity/building/EntityBuilding.java:getTextureHeight",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "target": "function:src/cr0s/javara/entity/building/EntityBuilding.java:getTextureHeight",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "target": "function:src/cr0s/javara/entity/building/EntityBuilding.java:onBuildFinished",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "target": "function:src/cr0s/javara/entity/building/EntityBuilding.java:onBuildFinished",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "target": "function:src/cr0s/javara/entity/building/EntityBuilding.java:issueOrder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "target": "function:src/cr0s/javara/entity/building/EntityBuilding.java:issueOrder",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "target": "function:src/cr0s/javara/entity/building/EntityBuilding.java:resolveOrder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "target": "function:src/cr0s/javara/entity/building/EntityBuilding.java:resolveOrder",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "target": "function:src/cr0s/javara/entity/building/EntityBuilding.java:explodeBuilding",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "target": "function:src/cr0s/javara/entity/building/EntityBuilding.java:explodeBuilding",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "target": "function:src/cr0s/javara/entity/building/EntityBuilding.java:giveDamage",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "target": "function:src/cr0s/javara/entity/building/EntityBuilding.java:giveDamage",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuildingProgress.java",
+      "target": "class:src/cr0s/javara/entity/building/EntityBuildingProgress.java:EntityBuildingProgress",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuildingProgress.java",
+      "target": "class:src/cr0s/javara/entity/building/EntityBuildingProgress.java:EntityBuildingProgress",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuildingProgress.java",
+      "target": "function:src/cr0s/javara/entity/building/EntityBuildingProgress.java:EntityBuildingProgress",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuildingProgress.java",
+      "target": "function:src/cr0s/javara/entity/building/EntityBuildingProgress.java:EntityBuildingProgress",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuildingProgress.java",
+      "target": "function:src/cr0s/javara/entity/building/EntityBuildingProgress.java:updateEntity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuildingProgress.java",
+      "target": "function:src/cr0s/javara/entity/building/EntityBuildingProgress.java:updateEntity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuildingProgress.java",
+      "target": "function:src/cr0s/javara/entity/building/EntityBuildingProgress.java:renderEntity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuildingProgress.java",
+      "target": "function:src/cr0s/javara/entity/building/EntityBuildingProgress.java:renderEntity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuildingProgress.java",
+      "target": "function:src/cr0s/javara/entity/building/EntityBuildingProgress.java:shouldRenderedInPass",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuildingProgress.java",
+      "target": "function:src/cr0s/javara/entity/building/EntityBuildingProgress.java:shouldRenderedInPass",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuildingProgress.java",
+      "target": "function:src/cr0s/javara/entity/building/EntityBuildingProgress.java:getHeightInTiles",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuildingProgress.java",
+      "target": "function:src/cr0s/javara/entity/building/EntityBuildingProgress.java:getHeightInTiles",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuildingProgress.java",
+      "target": "function:src/cr0s/javara/entity/building/EntityBuildingProgress.java:getWidthInTiles",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuildingProgress.java",
+      "target": "function:src/cr0s/javara/entity/building/EntityBuildingProgress.java:getWidthInTiles",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuildingProgress.java",
+      "target": "function:src/cr0s/javara/entity/building/EntityBuildingProgress.java:getRevealingRange",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuildingProgress.java",
+      "target": "function:src/cr0s/javara/entity/building/EntityBuildingProgress.java:getRevealingRange",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuildingProgress.java",
+      "target": "function:src/cr0s/javara/entity/building/EntityBuildingProgress.java:getImageView",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuildingProgress.java",
+      "target": "function:src/cr0s/javara/entity/building/EntityBuildingProgress.java:getImageView",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuildingProgress.java",
+      "target": "function:src/cr0s/javara/entity/building/EntityBuildingProgress.java:getTargetBuilding",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuildingProgress.java",
+      "target": "function:src/cr0s/javara/entity/building/EntityBuildingProgress.java:getTargetBuilding",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/IOreCapacitor.java",
+      "target": "class:src/cr0s/javara/entity/building/IOreCapacitor.java:IOreCapacitor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/IOreCapacitor.java",
+      "target": "class:src/cr0s/javara/entity/building/IOreCapacitor.java:IOreCapacitor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityRadarDome.java",
+      "target": "class:src/cr0s/javara/entity/building/common/EntityRadarDome.java:EntityRadarDome",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityRadarDome.java",
+      "target": "class:src/cr0s/javara/entity/building/common/EntityRadarDome.java:EntityRadarDome",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityRadarDome.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityRadarDome.java:EntityRadarDome",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityRadarDome.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityRadarDome.java:EntityRadarDome",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityRadarDome.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityRadarDome.java:renderEntity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityRadarDome.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityRadarDome.java:renderEntity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityRadarDome.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityRadarDome.java:shouldRenderedInPass",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityRadarDome.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityRadarDome.java:shouldRenderedInPass",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityRadarDome.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityRadarDome.java:select",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityRadarDome.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityRadarDome.java:select",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityRadarDome.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityRadarDome.java:cancelSelect",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityRadarDome.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityRadarDome.java:cancelSelect",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityRadarDome.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityRadarDome.java:isSelected",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityRadarDome.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityRadarDome.java:isSelected",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityRadarDome.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityRadarDome.java:getHeightInTiles",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityRadarDome.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityRadarDome.java:getHeightInTiles",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityRadarDome.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityRadarDome.java:getWidthInTiles",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityRadarDome.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityRadarDome.java:getWidthInTiles",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityRadarDome.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityRadarDome.java:getRevealingRange",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityRadarDome.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityRadarDome.java:getRevealingRange",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityRadarDome.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityRadarDome.java:getImageView",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityRadarDome.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityRadarDome.java:getImageView",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityRadarDome.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityRadarDome.java:getConsumptionLevel",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityRadarDome.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityRadarDome.java:getConsumptionLevel",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityRadarDome.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityRadarDome.java:onBuildFinished",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityRadarDome.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityRadarDome.java:onBuildFinished",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityRadarDome.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityRadarDome.java:getBuildingCost",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityRadarDome.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityRadarDome.java:getBuildingCost",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityWall.java",
+      "target": "class:src/cr0s/javara/entity/building/common/EntityWall.java:EntityWall",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityWall.java",
+      "target": "class:src/cr0s/javara/entity/building/common/EntityWall.java:EntityWall",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityWall.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityWall.java:EntityWall",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityWall.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityWall.java:EntityWall",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityWall.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityWall.java:updateEntity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityWall.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityWall.java:updateEntity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityWall.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityWall.java:updateNeighbours",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityWall.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityWall.java:setDirty",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityWall.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityWall.java:setDirty",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityWall.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityWall.java:renderEntity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityWall.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityWall.java:renderEntity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityWall.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityWall.java:shouldRenderedInPass",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityWall.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityWall.java:shouldRenderedInPass",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityWall.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityWall.java:getHeightInTiles",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityWall.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityWall.java:getHeightInTiles",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityWall.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityWall.java:getWidthInTiles",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityWall.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityWall.java:getWidthInTiles",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityWall.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityWall.java:getImageView",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityWall.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityWall.java:getImageView",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityWall.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityWall.java:onBuildFinished",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityWall.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityWall.java:onBuildFinished",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityWall.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityWall.java:setRepairing",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityWall.java",
+      "target": "function:src/cr0s/javara/entity/building/common/EntityWall.java:setRepairing",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "target": "file:src/cr0s/javara/combat/ArmorType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "target": "file:src/cr0s/javara/combat/TargetType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "target": "file:src/cr0s/javara/combat/Warhead.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "target": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "target": "file:src/cr0s/javara/entity/building/common/EntityConstructionYard.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "target": "file:src/cr0s/javara/entity/effect/ScreenShaker.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "target": "file:src/cr0s/javara/entity/Entity.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "target": "file:src/cr0s/javara/order/InputAttributes.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "target": "file:src/cr0s/javara/order/Order.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "target": "file:src/cr0s/javara/order/OrderTargeter.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "target": "file:src/cr0s/javara/order/Target.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "target": "file:src/cr0s/javara/render/map/TileSet.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "target": "file:src/cr0s/javara/render/World.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "target": "file:src/cr0s/javara/resources/ResourceManager.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "target": "file:src/cr0s/javara/resources/SoundManager.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuildingProgress.java",
+      "target": "file:src/cr0s/javara/entity/building/common/EntityWall.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuildingProgress.java",
+      "target": "file:src/cr0s/javara/entity/IShroudRevealer.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuildingProgress.java",
+      "target": "file:src/cr0s/javara/main/GUI.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuildingProgress.java",
+      "target": "file:src/cr0s/javara/resources/ResourceManager.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuildingProgress.java",
+      "target": "file:src/cr0s/javara/resources/ShpTexture.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuildingProgress.java",
+      "target": "file:src/cr0s/javara/resources/SoundManager.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/EntityBuildingProgress.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityRadarDome.java",
+      "target": "file:src/cr0s/javara/combat/ArmorType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityRadarDome.java",
+      "target": "file:src/cr0s/javara/entity/building/BibType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityRadarDome.java",
+      "target": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityRadarDome.java",
+      "target": "file:src/cr0s/javara/entity/building/IPowerConsumer.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityRadarDome.java",
+      "target": "file:src/cr0s/javara/entity/IHaveCost.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityRadarDome.java",
+      "target": "file:src/cr0s/javara/entity/ISelectable.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityRadarDome.java",
+      "target": "file:src/cr0s/javara/entity/IShroudRevealer.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityRadarDome.java",
+      "target": "file:src/cr0s/javara/main/GUI.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityRadarDome.java",
+      "target": "file:src/cr0s/javara/resources/ResourceManager.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityRadarDome.java",
+      "target": "file:src/cr0s/javara/resources/ShpTexture.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityRadarDome.java",
+      "target": "file:src/cr0s/javara/resources/SoundManager.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityRadarDome.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityWall.java",
+      "target": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityWall.java",
+      "target": "file:src/cr0s/javara/entity/IDefense.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityWall.java",
+      "target": "file:src/cr0s/javara/entity/IHaveCost.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityWall.java",
+      "target": "file:src/cr0s/javara/resources/ResourceManager.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityWall.java",
+      "target": "file:src/cr0s/javara/resources/ShpTexture.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityWall.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/common/EntityWall.java",
+      "target": "file:src/cr0s/javara/util/SpriteSheet.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

@@ -1,0 +1,1171 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/cr0s/javara/combat/attack/AutoTarget.java",
+      "type": "file",
+      "name": "AutoTarget.java",
+      "filePath": "src/cr0s/javara/combat/attack/AutoTarget.java",
+      "summary": "Automatic target acquisition system scanning for enemies and initiating attacks based on stances.",
+      "tags": [
+        "java",
+        "combat",
+        "auto-target",
+        "ai"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/cr0s/javara/combat/attack/AutoTarget.java:AutoTarget",
+      "type": "class",
+      "name": "AutoTarget",
+      "filePath": "src/cr0s/javara/combat/attack/AutoTarget.java",
+      "lineRange": [
+        10,
+        124
+      ],
+      "summary": "Class AutoTarget with 8 methods providing core functionality for the JavaRA engine.",
+      "tags": [
+        "java",
+        "class"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/cr0s/javara/combat/attack/AutoTarget.java:AutoTarget",
+      "type": "function",
+      "name": "AutoTarget",
+      "filePath": "src/cr0s/javara/combat/attack/AutoTarget.java",
+      "lineRange": [
+        31,
+        40
+      ],
+      "summary": "AutoTarget(self, attack) - 10 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/combat/attack/AutoTarget.java:update",
+      "type": "function",
+      "name": "update",
+      "filePath": "src/cr0s/javara/combat/attack/AutoTarget.java",
+      "lineRange": [
+        46,
+        52
+      ],
+      "summary": "update(delta) - 7 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/combat/attack/AutoTarget.java:tickIdle",
+      "type": "function",
+      "name": "tickIdle",
+      "filePath": "src/cr0s/javara/combat/attack/AutoTarget.java",
+      "lineRange": [
+        60,
+        70
+      ],
+      "summary": "tickIdle() - 11 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/combat/attack/AutoTarget.java:scanForTarget",
+      "type": "function",
+      "name": "scanForTarget",
+      "filePath": "src/cr0s/javara/combat/attack/AutoTarget.java",
+      "lineRange": [
+        87,
+        98
+      ],
+      "summary": "scanForTarget(currentTarget) - 12 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/combat/attack/AutoTarget.java:chooseTarget",
+      "type": "function",
+      "name": "chooseTarget",
+      "filePath": "src/cr0s/javara/combat/attack/AutoTarget.java",
+      "lineRange": [
+        100,
+        123
+      ],
+      "summary": "chooseTarget(rangeInCells) - 24 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/combat/attack/ICanAttack.java",
+      "type": "file",
+      "name": "ICanAttack.java",
+      "filePath": "src/cr0s/javara/combat/attack/ICanAttack.java",
+      "summary": "Defines the ICanAttack interface for the JavaRA RTS game engine.",
+      "tags": [
+        "java",
+        "interface",
+        "game-engine"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java",
+      "type": "file",
+      "name": "EntityFireTurret.java",
+      "filePath": "src/cr0s/javara/entity/building/soviet/EntityFireTurret.java",
+      "summary": "Soviet fire turret defense building with turreted attack, auto-targeting, and power consumption.",
+      "tags": [
+        "java",
+        "entity",
+        "building",
+        "soviet",
+        "defense"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java:EntityFireTurret",
+      "type": "class",
+      "name": "EntityFireTurret",
+      "filePath": "src/cr0s/javara/entity/building/soviet/EntityFireTurret.java",
+      "lineRange": [
+        38,
+        223
+      ],
+      "summary": "Class EntityFireTurret with 19 methods providing entity functionality for the JavaRA engine.",
+      "tags": [
+        "java",
+        "class"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java:EntityFireTurret",
+      "type": "function",
+      "name": "EntityFireTurret",
+      "filePath": "src/cr0s/javara/entity/building/soviet/EntityFireTurret.java",
+      "lineRange": [
+        57,
+        87
+      ],
+      "summary": "EntityFireTurret(tile) - 31 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java:renderEntity",
+      "type": "function",
+      "name": "renderEntity",
+      "filePath": "src/cr0s/javara/entity/building/soviet/EntityFireTurret.java",
+      "lineRange": [
+        95,
+        126
+      ],
+      "summary": "renderEntity() - 32 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java:shouldRenderedInPass",
+      "type": "function",
+      "name": "shouldRenderedInPass",
+      "filePath": "src/cr0s/javara/entity/building/soviet/EntityFireTurret.java",
+      "lineRange": [
+        128,
+        131
+      ],
+      "summary": "shouldRenderedInPass(passnum) - 4 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java:updateEntity",
+      "type": "function",
+      "name": "updateEntity",
+      "filePath": "src/cr0s/javara/entity/building/soviet/EntityFireTurret.java",
+      "lineRange": [
+        133,
+        139
+      ],
+      "summary": "updateEntity(delta) - 7 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java:select",
+      "type": "function",
+      "name": "select",
+      "filePath": "src/cr0s/javara/entity/building/soviet/EntityFireTurret.java",
+      "lineRange": [
+        141,
+        144
+      ],
+      "summary": "select() - 4 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java:cancelSelect",
+      "type": "function",
+      "name": "cancelSelect",
+      "filePath": "src/cr0s/javara/entity/building/soviet/EntityFireTurret.java",
+      "lineRange": [
+        146,
+        149
+      ],
+      "summary": "cancelSelect() - 4 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java:isSelected",
+      "type": "function",
+      "name": "isSelected",
+      "filePath": "src/cr0s/javara/entity/building/soviet/EntityFireTurret.java",
+      "lineRange": [
+        151,
+        154
+      ],
+      "summary": "isSelected() - 4 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java:getHeightInTiles",
+      "type": "function",
+      "name": "getHeightInTiles",
+      "filePath": "src/cr0s/javara/entity/building/soviet/EntityFireTurret.java",
+      "lineRange": [
+        156,
+        159
+      ],
+      "summary": "getHeightInTiles() - 4 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java:getWidthInTiles",
+      "type": "function",
+      "name": "getWidthInTiles",
+      "filePath": "src/cr0s/javara/entity/building/soviet/EntityFireTurret.java",
+      "lineRange": [
+        161,
+        164
+      ],
+      "summary": "getWidthInTiles() - 4 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java:getConsumptionLevel",
+      "type": "function",
+      "name": "getConsumptionLevel",
+      "filePath": "src/cr0s/javara/entity/building/soviet/EntityFireTurret.java",
+      "lineRange": [
+        166,
+        169
+      ],
+      "summary": "getConsumptionLevel() - 4 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java:getRevealingRange",
+      "type": "function",
+      "name": "getRevealingRange",
+      "filePath": "src/cr0s/javara/entity/building/soviet/EntityFireTurret.java",
+      "lineRange": [
+        171,
+        174
+      ],
+      "summary": "getRevealingRange() - 4 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java:getImageView",
+      "type": "function",
+      "name": "getImageView",
+      "filePath": "src/cr0s/javara/entity/building/soviet/EntityFireTurret.java",
+      "lineRange": [
+        176,
+        179
+      ],
+      "summary": "getImageView() - 4 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java:getBuildingCost",
+      "type": "function",
+      "name": "getBuildingCost",
+      "filePath": "src/cr0s/javara/entity/building/soviet/EntityFireTurret.java",
+      "lineRange": [
+        181,
+        184
+      ],
+      "summary": "getBuildingCost() - 4 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java:issueOrder",
+      "type": "function",
+      "name": "issueOrder",
+      "filePath": "src/cr0s/javara/entity/building/soviet/EntityFireTurret.java",
+      "lineRange": [
+        186,
+        195
+      ],
+      "summary": "issueOrder(self, targeter, target, ia) - 10 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java:resolveOrder",
+      "type": "function",
+      "name": "resolveOrder",
+      "filePath": "src/cr0s/javara/entity/building/soviet/EntityFireTurret.java",
+      "lineRange": [
+        197,
+        204
+      ],
+      "summary": "resolveOrder(order) - 8 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java:drawTurrets",
+      "type": "function",
+      "name": "drawTurrets",
+      "filePath": "src/cr0s/javara/entity/building/soviet/EntityFireTurret.java",
+      "lineRange": [
+        206,
+        209
+      ],
+      "summary": "drawTurrets(g) - 4 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java:updateTurrets",
+      "type": "function",
+      "name": "updateTurrets",
+      "filePath": "src/cr0s/javara/entity/building/soviet/EntityFireTurret.java",
+      "lineRange": [
+        211,
+        214
+      ],
+      "summary": "updateTurrets(delta) - 4 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java:getTurrets",
+      "type": "function",
+      "name": "getTurrets",
+      "filePath": "src/cr0s/javara/entity/building/soviet/EntityFireTurret.java",
+      "lineRange": [
+        216,
+        222
+      ],
+      "summary": "getTurrets() - 7 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/entity/effect/SequencePlayer.java",
+      "type": "file",
+      "name": "SequencePlayer.java",
+      "filePath": "src/cr0s/javara/entity/effect/SequencePlayer.java",
+      "summary": "Plays animation frame sequences for visual effects with configurable frame timing.",
+      "tags": [
+        "java",
+        "effect",
+        "animation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/cr0s/javara/entity/effect/SequencePlayer.java:SequencePlayer",
+      "type": "class",
+      "name": "SequencePlayer",
+      "filePath": "src/cr0s/javara/entity/effect/SequencePlayer.java",
+      "lineRange": [
+        9,
+        55
+      ],
+      "summary": "Class SequencePlayer with 5 methods providing core functionality for the JavaRA engine.",
+      "tags": [
+        "java",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/effect/SequencePlayer.java:SequencePlayer",
+      "type": "function",
+      "name": "SequencePlayer",
+      "filePath": "src/cr0s/javara/entity/effect/SequencePlayer.java",
+      "lineRange": [
+        18,
+        26
+      ],
+      "summary": "SequencePlayer(pos, seq) - 9 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/effect/SequencePlayer.java:updateEntity",
+      "type": "function",
+      "name": "updateEntity",
+      "filePath": "src/cr0s/javara/entity/effect/SequencePlayer.java",
+      "lineRange": [
+        33,
+        40
+      ],
+      "summary": "updateEntity(delta) - 8 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/effect/SequencePlayer.java:renderEntity",
+      "type": "function",
+      "name": "renderEntity",
+      "filePath": "src/cr0s/javara/entity/effect/SequencePlayer.java",
+      "lineRange": [
+        42,
+        48
+      ],
+      "summary": "renderEntity() - 7 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/effect/SequencePlayer.java:shouldRenderedInPass",
+      "type": "function",
+      "name": "shouldRenderedInPass",
+      "filePath": "src/cr0s/javara/entity/effect/SequencePlayer.java",
+      "lineRange": [
+        50,
+        53
+      ],
+      "summary": "shouldRenderedInPass(passNum) - 4 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AutoTarget.java",
+      "target": "class:src/cr0s/javara/combat/attack/AutoTarget.java:AutoTarget",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AutoTarget.java",
+      "target": "class:src/cr0s/javara/combat/attack/AutoTarget.java:AutoTarget",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AutoTarget.java",
+      "target": "function:src/cr0s/javara/combat/attack/AutoTarget.java:AutoTarget",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AutoTarget.java",
+      "target": "function:src/cr0s/javara/combat/attack/AutoTarget.java:AutoTarget",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AutoTarget.java",
+      "target": "function:src/cr0s/javara/combat/attack/AutoTarget.java:update",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AutoTarget.java",
+      "target": "function:src/cr0s/javara/combat/attack/AutoTarget.java:update",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AutoTarget.java",
+      "target": "function:src/cr0s/javara/combat/attack/AutoTarget.java:tickIdle",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AutoTarget.java",
+      "target": "function:src/cr0s/javara/combat/attack/AutoTarget.java:scanForTarget",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AutoTarget.java",
+      "target": "function:src/cr0s/javara/combat/attack/AutoTarget.java:chooseTarget",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AutoTarget.java",
+      "target": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AutoTarget.java",
+      "target": "file:src/cr0s/javara/gameplay/Player.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AutoTarget.java",
+      "target": "file:src/cr0s/javara/order/Target.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AutoTarget.java",
+      "target": "file:src/cr0s/javara/render/World.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java",
+      "target": "class:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java:EntityFireTurret",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java",
+      "target": "class:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java:EntityFireTurret",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java:EntityFireTurret",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java:EntityFireTurret",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java:renderEntity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java:renderEntity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java:shouldRenderedInPass",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java:shouldRenderedInPass",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java:updateEntity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java:updateEntity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java:select",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java:select",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java:cancelSelect",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java:cancelSelect",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java:isSelected",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java:isSelected",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java:getHeightInTiles",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java:getHeightInTiles",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java:getWidthInTiles",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java:getWidthInTiles",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java:getConsumptionLevel",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java:getConsumptionLevel",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java:getRevealingRange",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java:getRevealingRange",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java:getImageView",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java:getImageView",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java:getBuildingCost",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java:getBuildingCost",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java:issueOrder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java:issueOrder",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java:resolveOrder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java:resolveOrder",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java:drawTurrets",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java:drawTurrets",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java:updateTurrets",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java:updateTurrets",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java:getTurrets",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java",
+      "target": "function:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java:getTurrets",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java",
+      "target": "file:src/cr0s/javara/combat/Armament.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java",
+      "target": "file:src/cr0s/javara/combat/attack/AttackTurreted.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java",
+      "target": "file:src/cr0s/javara/combat/attack/AutoTarget.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java",
+      "target": "file:src/cr0s/javara/combat/weapon/WeaponFireballLauncher.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java",
+      "target": "file:src/cr0s/javara/entity/building/BibType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java",
+      "target": "file:src/cr0s/javara/entity/building/Defensive.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java",
+      "target": "file:src/cr0s/javara/entity/building/IPowerConsumer.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java",
+      "target": "file:src/cr0s/javara/entity/Entity.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java",
+      "target": "file:src/cr0s/javara/entity/IDefense.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java",
+      "target": "file:src/cr0s/javara/entity/IHaveCost.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java",
+      "target": "file:src/cr0s/javara/entity/ISelectable.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java",
+      "target": "file:src/cr0s/javara/entity/IShroudRevealer.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java",
+      "target": "file:src/cr0s/javara/entity/turreted/IHaveTurret.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java",
+      "target": "file:src/cr0s/javara/entity/turreted/Turret.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java",
+      "target": "file:src/cr0s/javara/main/GUI.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java",
+      "target": "file:src/cr0s/javara/order/InputAttributes.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java",
+      "target": "file:src/cr0s/javara/order/Order.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java",
+      "target": "file:src/cr0s/javara/order/OrderTargeter.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java",
+      "target": "file:src/cr0s/javara/order/Target.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java",
+      "target": "file:src/cr0s/javara/resources/ResourceManager.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java",
+      "target": "file:src/cr0s/javara/resources/ShpTexture.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/soviet/EntityFireTurret.java",
+      "target": "file:src/cr0s/javara/util/SpriteSheet.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/SequencePlayer.java",
+      "target": "class:src/cr0s/javara/entity/effect/SequencePlayer.java:SequencePlayer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/SequencePlayer.java",
+      "target": "class:src/cr0s/javara/entity/effect/SequencePlayer.java:SequencePlayer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/SequencePlayer.java",
+      "target": "function:src/cr0s/javara/entity/effect/SequencePlayer.java:SequencePlayer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/SequencePlayer.java",
+      "target": "function:src/cr0s/javara/entity/effect/SequencePlayer.java:SequencePlayer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/SequencePlayer.java",
+      "target": "function:src/cr0s/javara/entity/effect/SequencePlayer.java:SequencePlayer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/SequencePlayer.java",
+      "target": "function:src/cr0s/javara/entity/effect/SequencePlayer.java:SequencePlayer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/SequencePlayer.java",
+      "target": "function:src/cr0s/javara/entity/effect/SequencePlayer.java:updateEntity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/SequencePlayer.java",
+      "target": "function:src/cr0s/javara/entity/effect/SequencePlayer.java:updateEntity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/SequencePlayer.java",
+      "target": "function:src/cr0s/javara/entity/effect/SequencePlayer.java:renderEntity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/SequencePlayer.java",
+      "target": "function:src/cr0s/javara/entity/effect/SequencePlayer.java:renderEntity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/SequencePlayer.java",
+      "target": "function:src/cr0s/javara/entity/effect/SequencePlayer.java:shouldRenderedInPass",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/SequencePlayer.java",
+      "target": "function:src/cr0s/javara/entity/effect/SequencePlayer.java:shouldRenderedInPass",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/SequencePlayer.java",
+      "target": "file:src/cr0s/javara/entity/Entity.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/SequencePlayer.java",
+      "target": "file:src/cr0s/javara/entity/IEffect.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/SequencePlayer.java",
+      "target": "file:src/cr0s/javara/render/Sequence.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/effect/SequencePlayer.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

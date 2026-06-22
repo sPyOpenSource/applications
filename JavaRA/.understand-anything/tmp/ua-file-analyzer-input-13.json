@@ -1,0 +1,15 @@
+{
+  "projectRoot": "/Users/xuyi/Source/OS/armOS/lib/jcore/test/JavaRA",
+  "batchFiles": [
+    {"path": "nbproject/build-impl.xml", "language": "xml", "sizeLines": 1789, "fileCategory": "config"},
+    {"path": "nbproject/genfiles.properties", "language": "properties", "sizeLines": 8, "fileCategory": "config"},
+    {"path": "nbproject/project.properties", "language": "properties", "sizeLines": 128, "fileCategory": "config"},
+    {"path": "nbproject/project.xml", "language": "xml", "sizeLines": 25, "fileCategory": "config"}
+  ],
+  "batchImportData": {
+    "nbproject/build-impl.xml": [],
+    "nbproject/genfiles.properties": [],
+    "nbproject/project.properties": [],
+    "nbproject/project.xml": []
+  }
+}

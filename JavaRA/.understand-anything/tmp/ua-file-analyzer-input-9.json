@@ -1,0 +1,163 @@
+{
+  "projectRoot": "/Users/xuyi/Source/OS/armOS/lib/jcore/test/JavaRA",
+  "batchFiles": [
+    {"path": "src/cr0s/javara/entity/actor/activity/activities/harvester/DropResources.java", "language": "java", "sizeLines": 64, "fileCategory": "code"},
+    {"path": "src/cr0s/javara/entity/actor/activity/activities/harvester/FindResources.java", "language": "java", "sizeLines": 148, "fileCategory": "code"},
+    {"path": "src/cr0s/javara/entity/actor/activity/activities/harvester/FinishDrop.java", "language": "java", "sizeLines": 22, "fileCategory": "code"},
+    {"path": "src/cr0s/javara/entity/actor/activity/activities/harvester/HarvestResource.java", "language": "java", "sizeLines": 63, "fileCategory": "code"},
+    {"path": "src/cr0s/javara/entity/aircraft/ArcherBalloon.java", "language": "java", "sizeLines": 37, "fileCategory": "code"},
+    {"path": "src/cr0s/javara/entity/aircraft/DefBalloon.java", "language": "java", "sizeLines": 36, "fileCategory": "code"},
+    {"path": "src/cr0s/javara/entity/aircraft/EntityAircraft.java", "language": "java", "sizeLines": 43, "fileCategory": "code"},
+    {"path": "src/cr0s/javara/entity/aircraft/GoblinBalloon.java", "language": "java", "sizeLines": 36, "fileCategory": "code"},
+    {"path": "src/cr0s/javara/entity/building/china/TownHall.java", "language": "java", "sizeLines": 45, "fileCategory": "code"},
+    {"path": "src/cr0s/javara/entity/vehicle/EntityVehicle.java", "language": "java", "sizeLines": 207, "fileCategory": "code"},
+    {"path": "src/cr0s/javara/entity/vehicle/common/EntityHarvester.java", "language": "java", "sizeLines": 390, "fileCategory": "code"},
+    {"path": "src/cr0s/javara/entity/vehicle/common/EntityMcv.java", "language": "java", "sizeLines": 267, "fileCategory": "code"},
+    {"path": "src/cr0s/javara/order/IOrderResolver.java", "language": "java", "sizeLines": 5, "fileCategory": "code"},
+    {"path": "src/cr0s/javara/order/MoveOrderTargeter.java", "language": "java", "sizeLines": 35, "fileCategory": "code"},
+    {"path": "src/cr0s/javara/render/map/Map.java", "language": "java", "sizeLines": 26, "fileCategory": "code"},
+    {"path": "src/cr0s/javara/render/map/VehiclePathfinder.java", "language": "java", "sizeLines": 42, "fileCategory": "code"},
+    {"path": "src/cr0s/javara/util/Action.java", "language": "java", "sizeLines": 9, "fileCategory": "code"},
+    {"path": "src/cr0s/javara/util/PointsUtil.java", "language": "java", "sizeLines": 60, "fileCategory": "code"},
+    {"path": "src/cr0s/javara/util/RotationUtil.java", "language": "java", "sizeLines": 94, "fileCategory": "code"},
+    {"path": "src/cr0s/javara/util/WaitAction.java", "language": "java", "sizeLines": 9, "fileCategory": "code"}
+  ],
+  "batchImportData": {
+    "src/cr0s/javara/entity/actor/activity/activities/harvester/DropResources.java": [
+      "src/cr0s/javara/entity/actor/activity/activities/Turn.java",
+      "src/cr0s/javara/entity/actor/activity/Activity.java",
+      "src/cr0s/javara/entity/actor/EntityActor.java",
+      "src/cr0s/javara/entity/building/common/EntityProc.java",
+      "src/cr0s/javara/entity/vehicle/common/EntityHarvester.java"
+    ],
+    "src/cr0s/javara/entity/actor/activity/activities/harvester/FindResources.java": [
+      "src/cr0s/javara/entity/actor/activity/activities/Move.java",
+      "src/cr0s/javara/entity/actor/activity/Activity.java",
+      "src/cr0s/javara/entity/actor/EntityActor.java",
+      "src/cr0s/javara/entity/MobileEntity.java",
+      "src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "src/cr0s/javara/entity/actor/activity/activities/harvester/FinishDrop.java": [
+      "src/cr0s/javara/entity/actor/activity/Activity.java",
+      "src/cr0s/javara/entity/actor/EntityActor.java"
+    ],
+    "src/cr0s/javara/entity/actor/activity/activities/harvester/HarvestResource.java": [
+      "src/cr0s/javara/entity/actor/activity/activities/Wait.java",
+      "src/cr0s/javara/entity/actor/activity/Activity.java",
+      "src/cr0s/javara/entity/actor/EntityActor.java",
+      "src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "src/cr0s/javara/entity/aircraft/ArcherBalloon.java": [
+      "src/cr0s/javara/entity/actor/activity/Activity.java",
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "src/cr0s/javara/entity/aircraft/DefBalloon.java": [
+      "src/cr0s/javara/entity/actor/activity/Activity.java",
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "src/cr0s/javara/entity/aircraft/EntityAircraft.java": [
+      "src/cr0s/javara/entity/actor/activity/Activity.java",
+      "src/cr0s/javara/entity/MobileEntity.java",
+      "src/cr0s/javara/util/Pos.java",
+      "src/cr0s/javara/util/RotationUtil.java"
+    ],
+    "src/cr0s/javara/entity/aircraft/GoblinBalloon.java": [
+      "src/cr0s/javara/entity/actor/activity/Activity.java",
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "src/cr0s/javara/entity/building/china/TownHall.java": [
+      "src/cr0s/javara/entity/building/EntityBuilding.java",
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "src/cr0s/javara/entity/vehicle/EntityVehicle.java": [
+      "src/cr0s/javara/combat/TargetType.java",
+      "src/cr0s/javara/combat/Warhead.java",
+      "src/cr0s/javara/entity/actor/activity/activities/Move.java",
+      "src/cr0s/javara/entity/actor/activity/Activity.java",
+      "src/cr0s/javara/entity/actor/EntityActor.java",
+      "src/cr0s/javara/entity/effect/SmokeOnUnit.java",
+      "src/cr0s/javara/entity/IShroudRevealer.java",
+      "src/cr0s/javara/entity/MobileEntity.java",
+      "src/cr0s/javara/order/Order.java",
+      "src/cr0s/javara/render/World.java",
+      "src/cr0s/javara/resources/SoundManager.java",
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "src/cr0s/javara/entity/vehicle/common/EntityHarvester.java": [
+      "src/cr0s/javara/entity/actor/activity/activities/harvester/DeliverResources.java",
+      "src/cr0s/javara/entity/actor/activity/activities/harvester/DropResources.java",
+      "src/cr0s/javara/entity/actor/activity/activities/harvester/FindResources.java",
+      "src/cr0s/javara/entity/actor/activity/activities/harvester/FinishDrop.java",
+      "src/cr0s/javara/entity/actor/activity/activities/harvester/HarvestResource.java",
+      "src/cr0s/javara/entity/actor/activity/activities/Wait.java",
+      "src/cr0s/javara/entity/actor/EntityActor.java",
+      "src/cr0s/javara/entity/building/common/EntityProc.java",
+      "src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "src/cr0s/javara/entity/Entity.java",
+      "src/cr0s/javara/entity/IHaveCost.java",
+      "src/cr0s/javara/entity/IPips.java",
+      "src/cr0s/javara/entity/ISelectable.java",
+      "src/cr0s/javara/entity/IShroudRevealer.java",
+      "src/cr0s/javara/entity/MobileEntity.java",
+      "src/cr0s/javara/entity/vehicle/EntityVehicle.java",
+      "src/cr0s/javara/main/GUI.java",
+      "src/cr0s/javara/order/InputAttributes.java",
+      "src/cr0s/javara/order/Order.java",
+      "src/cr0s/javara/order/OrderTargeter.java",
+      "src/cr0s/javara/order/Target.java",
+      "src/cr0s/javara/resources/ResourceManager.java",
+      "src/cr0s/javara/ui/cursor/CursorType.java",
+      "src/cr0s/javara/util/Pos.java",
+      "src/cr0s/javara/util/RotationUtil.java",
+      "src/cr0s/javara/util/SpriteSheet.java"
+    ],
+    "src/cr0s/javara/entity/vehicle/common/EntityMcv.java": [
+      "src/cr0s/javara/entity/actor/activity/activities/Deploy.java",
+      "src/cr0s/javara/entity/actor/activity/activities/Turn.java",
+      "src/cr0s/javara/entity/actor/EntityActor.java",
+      "src/cr0s/javara/entity/building/china/TownHall.java",
+      "src/cr0s/javara/entity/building/common/EntityConstructionYard.java",
+      "src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "src/cr0s/javara/entity/building/EntityBuilding.java",
+      "src/cr0s/javara/entity/Entity.java",
+      "src/cr0s/javara/entity/IDeployable.java",
+      "src/cr0s/javara/entity/IHaveCost.java",
+      "src/cr0s/javara/entity/ISelectable.java",
+      "src/cr0s/javara/entity/MobileEntity.java",
+      "src/cr0s/javara/entity/vehicle/EntityVehicle.java",
+      "src/cr0s/javara/main/GUI.java",
+      "src/cr0s/javara/order/InputAttributes.java",
+      "src/cr0s/javara/order/Order.java",
+      "src/cr0s/javara/order/OrderTargeter.java",
+      "src/cr0s/javara/order/Target.java",
+      "src/cr0s/javara/resources/ResourceManager.java",
+      "src/cr0s/javara/ui/cursor/CursorType.java",
+      "src/cr0s/javara/util/Pos.java",
+      "src/cr0s/javara/util/SpriteSheet.java"
+    ],
+    "src/cr0s/javara/order/IOrderResolver.java": [],
+    "src/cr0s/javara/order/MoveOrderTargeter.java": [
+      "src/cr0s/javara/entity/actor/EntityActor.java",
+      "src/cr0s/javara/entity/Entity.java",
+      "src/cr0s/javara/entity/MobileEntity.java",
+      "src/cr0s/javara/ui/cursor/CursorType.java",
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "src/cr0s/javara/render/map/Map.java": [
+      "src/cr0s/javara/entity/Entity.java",
+      "src/cr0s/javara/entity/MobileEntity.java"
+    ],
+    "src/cr0s/javara/render/map/VehiclePathfinder.java": [
+      "src/cr0s/javara/entity/MobileEntity.java",
+      "src/cr0s/javara/entity/vehicle/EntityVehicle.java",
+      "src/cr0s/javara/render/World.java",
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "src/cr0s/javara/util/Action.java": [],
+    "src/cr0s/javara/util/PointsUtil.java": [],
+    "src/cr0s/javara/util/RotationUtil.java": [],
+    "src/cr0s/javara/util/WaitAction.java": []
+  }
+}

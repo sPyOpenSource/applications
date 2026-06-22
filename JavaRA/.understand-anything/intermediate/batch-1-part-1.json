@@ -1,0 +1,1331 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/cr0s/javara/combat/Armament.java",
+      "type": "file",
+      "name": "Armament.java",
+      "filePath": "src/cr0s/javara/combat/Armament.java",
+      "summary": "Manages weapon armaments with barrel configuration, firing, and muzzle position calculation for combat entities.",
+      "tags": [
+        "java",
+        "combat",
+        "weapon",
+        "armament"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/cr0s/javara/combat/Armament.java:Armament",
+      "type": "class",
+      "name": "Armament",
+      "filePath": "src/cr0s/javara/combat/Armament.java",
+      "lineRange": [
+        15,
+        193
+      ],
+      "summary": "Class Armament with 11 methods providing core functionality for the JavaRA engine.",
+      "tags": [
+        "java",
+        "class"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/cr0s/javara/combat/Armament.java:Armament",
+      "type": "function",
+      "name": "Armament",
+      "filePath": "src/cr0s/javara/combat/Armament.java",
+      "lineRange": [
+        38,
+        45
+      ],
+      "summary": "Armament(s, weap) - 8 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/combat/Armament.java:addBarrel",
+      "type": "function",
+      "name": "addBarrel",
+      "filePath": "src/cr0s/javara/combat/Armament.java",
+      "lineRange": [
+        47,
+        49
+      ],
+      "summary": "addBarrel(offset, yaw) - 3 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/combat/Armament.java:update",
+      "type": "function",
+      "name": "update",
+      "filePath": "src/cr0s/javara/combat/Armament.java",
+      "lineRange": [
+        51,
+        72
+      ],
+      "summary": "update(delta) - 22 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/combat/Armament.java:getMuzzlePos",
+      "type": "function",
+      "name": "getMuzzlePos",
+      "filePath": "src/cr0s/javara/combat/Armament.java",
+      "lineRange": [
+        84,
+        108
+      ],
+      "summary": "getMuzzlePos(b) - 25 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/combat/Armament.java:getBarrels",
+      "type": "function",
+      "name": "getBarrels",
+      "filePath": "src/cr0s/javara/combat/Armament.java",
+      "lineRange": [
+        110,
+        112
+      ],
+      "summary": "getBarrels() - 3 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/combat/Armament.java:isReloading",
+      "type": "function",
+      "name": "isReloading",
+      "filePath": "src/cr0s/javara/combat/Armament.java",
+      "lineRange": [
+        114,
+        116
+      ],
+      "summary": "isReloading() - 3 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/combat/Armament.java:isShouldExplode",
+      "type": "function",
+      "name": "isShouldExplode",
+      "filePath": "src/cr0s/javara/combat/Armament.java",
+      "lineRange": [
+        118,
+        120
+      ],
+      "summary": "isShouldExplode() - 3 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/combat/Armament.java:checkFire",
+      "type": "function",
+      "name": "checkFire",
+      "filePath": "src/cr0s/javara/combat/Armament.java",
+      "lineRange": [
+        122,
+        172
+      ],
+      "summary": "checkFire(facing, tgt) - 51 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/combat/Armament.java:getMuzzleFacing",
+      "type": "function",
+      "name": "getMuzzleFacing",
+      "filePath": "src/cr0s/javara/combat/Armament.java",
+      "lineRange": [
+        174,
+        188
+      ],
+      "summary": "getMuzzleFacing(brl) - 15 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/combat/Armament.java:getWeapon",
+      "type": "function",
+      "name": "getWeapon",
+      "filePath": "src/cr0s/javara/combat/Armament.java",
+      "lineRange": [
+        190,
+        192
+      ],
+      "summary": "getWeapon() - 3 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/combat/attack/AttackBase.java",
+      "type": "file",
+      "name": "AttackBase.java",
+      "filePath": "src/cr0s/javara/combat/attack/AttackBase.java",
+      "summary": "Base class for attack strategies providing target resolution, armament selection, and order issuing for combat entities.",
+      "tags": [
+        "java",
+        "combat",
+        "attack-strategy",
+        "base-class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/cr0s/javara/combat/attack/AttackBase.java:AttackBase",
+      "type": "class",
+      "name": "AttackBase",
+      "filePath": "src/cr0s/javara/combat/attack/AttackBase.java",
+      "lineRange": [
+        18,
+        217
+      ],
+      "summary": "Class AttackBase with 17 methods providing attack functionality for the JavaRA engine.",
+      "tags": [
+        "java",
+        "class"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/cr0s/javara/combat/attack/AttackBase.java:AttackBase",
+      "type": "function",
+      "name": "AttackBase",
+      "filePath": "src/cr0s/javara/combat/attack/AttackBase.java",
+      "lineRange": [
+        27,
+        31
+      ],
+      "summary": "AttackBase(s) - 5 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/combat/attack/AttackBase.java:addArmament",
+      "type": "function",
+      "name": "addArmament",
+      "filePath": "src/cr0s/javara/combat/attack/AttackBase.java",
+      "lineRange": [
+        33,
+        35
+      ],
+      "summary": "addArmament(arma) - 3 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/combat/attack/AttackBase.java:canAttack",
+      "type": "function",
+      "name": "canAttack",
+      "filePath": "src/cr0s/javara/combat/attack/AttackBase.java",
+      "lineRange": [
+        37,
+        49
+      ],
+      "summary": "canAttack(tgt) - 13 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/combat/attack/AttackBase.java:doAttack",
+      "type": "function",
+      "name": "doAttack",
+      "filePath": "src/cr0s/javara/combat/attack/AttackBase.java",
+      "lineRange": [
+        51,
+        59
+      ],
+      "summary": "doAttack(tgt) - 9 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/combat/attack/AttackBase.java:getMaxRange",
+      "type": "function",
+      "name": "getMaxRange",
+      "filePath": "src/cr0s/javara/combat/attack/AttackBase.java",
+      "lineRange": [
+        61,
+        71
+      ],
+      "summary": "getMaxRange() - 11 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/combat/attack/AttackBase.java:attackTarget",
+      "type": "function",
+      "name": "attackTarget",
+      "filePath": "src/cr0s/javara/combat/attack/AttackBase.java",
+      "lineRange": [
+        73,
+        83
+      ],
+      "summary": "attackTarget(tgt, queued, allowMove) - 11 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/combat/attack/AttackBase.java:chooseArmamentForTarget",
+      "type": "function",
+      "name": "chooseArmamentForTarget",
+      "filePath": "src/cr0s/javara/combat/attack/AttackBase.java",
+      "lineRange": [
+        130,
+        138
+      ],
+      "summary": "chooseArmamentForTarget(tgt) - 9 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/combat/attack/AttackBase.java:hasAnyValidWeapons",
+      "type": "function",
+      "name": "hasAnyValidWeapons",
+      "filePath": "src/cr0s/javara/combat/attack/AttackBase.java",
+      "lineRange": [
+        140,
+        142
+      ],
+      "summary": "hasAnyValidWeapons(tgt) - 3 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/combat/attack/AttackBase.java:getOrders",
+      "type": "function",
+      "name": "getOrders",
+      "filePath": "src/cr0s/javara/combat/attack/AttackBase.java",
+      "lineRange": [
+        144,
+        151
+      ],
+      "summary": "getOrders() - 8 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/combat/attack/AttackBase.java:issueOrder",
+      "type": "function",
+      "name": "issueOrder",
+      "filePath": "src/cr0s/javara/combat/attack/AttackBase.java",
+      "lineRange": [
+        153,
+        176
+      ],
+      "summary": "issueOrder(self, targeter, target, ia) - 24 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/combat/attack/AttackBase.java:resolveOrder",
+      "type": "function",
+      "name": "resolveOrder",
+      "filePath": "src/cr0s/javara/combat/attack/AttackBase.java",
+      "lineRange": [
+        178,
+        189
+      ],
+      "summary": "resolveOrder(order) - 12 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/combat/attack/AttackBase.java:isReachableTarget",
+      "type": "function",
+      "name": "isReachableTarget",
+      "filePath": "src/cr0s/javara/combat/attack/AttackBase.java",
+      "lineRange": [
+        191,
+        195
+      ],
+      "summary": "isReachableTarget(tgt, allowMove) - 5 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/combat/attack/AttackBase.java:getAttackActivity",
+      "type": "function",
+      "name": "getAttackActivity",
+      "filePath": "src/cr0s/javara/combat/attack/AttackBase.java",
+      "lineRange": [
+        197,
+        197
+      ],
+      "summary": "getAttackActivity(tgt, allowMove) - 1 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/combat/attack/AttackBase.java:update",
+      "type": "function",
+      "name": "update",
+      "filePath": "src/cr0s/javara/combat/attack/AttackBase.java",
+      "lineRange": [
+        199,
+        203
+      ],
+      "summary": "update(delta) - 5 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/combat/attack/AttackBase.java:isReloading",
+      "type": "function",
+      "name": "isReloading",
+      "filePath": "src/cr0s/javara/combat/attack/AttackBase.java",
+      "lineRange": [
+        205,
+        207
+      ],
+      "summary": "isReloading() - 3 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/combat/attack/AttackBase.java:cancelAttack",
+      "type": "function",
+      "name": "cancelAttack",
+      "filePath": "src/cr0s/javara/combat/attack/AttackBase.java",
+      "lineRange": [
+        209,
+        212
+      ],
+      "summary": "cancelAttack() - 4 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/combat/attack/AttackBase.java:getTarget",
+      "type": "function",
+      "name": "getTarget",
+      "filePath": "src/cr0s/javara/combat/attack/AttackBase.java",
+      "lineRange": [
+        214,
+        216
+      ],
+      "summary": "getTarget() - 3 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/combat/attack/AttackFrontal.java",
+      "type": "file",
+      "name": "AttackFrontal.java",
+      "filePath": "src/cr0s/javara/combat/attack/AttackFrontal.java",
+      "summary": "Frontal attack strategy restricting attacks to targets within a forward-facing angle cone.",
+      "tags": [
+        "java",
+        "combat",
+        "attack-strategy",
+        "frontal"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/cr0s/javara/combat/attack/AttackFrontal.java:AttackFrontal",
+      "type": "class",
+      "name": "AttackFrontal",
+      "filePath": "src/cr0s/javara/combat/attack/AttackFrontal.java",
+      "lineRange": [
+        10,
+        44
+      ],
+      "summary": "Class AttackFrontal with 3 methods providing attack functionality for the JavaRA engine.",
+      "tags": [
+        "java",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/combat/attack/AttackFrontal.java:AttackFrontal",
+      "type": "function",
+      "name": "AttackFrontal",
+      "filePath": "src/cr0s/javara/combat/attack/AttackFrontal.java",
+      "lineRange": [
+        15,
+        17
+      ],
+      "summary": "AttackFrontal(s) - 3 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/combat/attack/AttackFrontal.java:canAttack",
+      "type": "function",
+      "name": "canAttack",
+      "filePath": "src/cr0s/javara/combat/attack/AttackFrontal.java",
+      "lineRange": [
+        19,
+        32
+      ],
+      "summary": "canAttack(tgt) - 14 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/combat/attack/AttackFrontal.java:getAttackActivity",
+      "type": "function",
+      "name": "getAttackActivity",
+      "filePath": "src/cr0s/javara/combat/attack/AttackFrontal.java",
+      "lineRange": [
+        34,
+        42
+      ],
+      "summary": "getAttackActivity(tgt, allowMove) - 9 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/combat/attack/AttackTurreted.java",
+      "type": "file",
+      "name": "AttackTurreted.java",
+      "filePath": "src/cr0s/javara/combat/attack/AttackTurreted.java",
+      "summary": "Turret-based attack strategy allowing entities with turrets to face and attack targets.",
+      "tags": [
+        "java",
+        "combat",
+        "attack-strategy",
+        "turret"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/cr0s/javara/combat/attack/AttackTurreted.java:AttackTurreted",
+      "type": "class",
+      "name": "AttackTurreted",
+      "filePath": "src/cr0s/javara/combat/attack/AttackTurreted.java",
+      "lineRange": [
+        8,
+        33
+      ],
+      "summary": "Class AttackTurreted with 2 methods providing attack functionality for the JavaRA engine.",
+      "tags": [
+        "java",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/combat/attack/AttackTurreted.java:AttackTurreted",
+      "type": "function",
+      "name": "AttackTurreted",
+      "filePath": "src/cr0s/javara/combat/attack/AttackTurreted.java",
+      "lineRange": [
+        10,
+        12
+      ],
+      "summary": "AttackTurreted(s) - 3 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/combat/attack/AttackTurreted.java:canAttack",
+      "type": "function",
+      "name": "canAttack",
+      "filePath": "src/cr0s/javara/combat/attack/AttackTurreted.java",
+      "lineRange": [
+        14,
+        32
+      ],
+      "summary": "canAttack(tgt) - 19 lines",
+      "tags": [
+        "java",
+        "function"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/cr0s/javara/combat/Armament.java",
+      "target": "class:src/cr0s/javara/combat/Armament.java:Armament",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/Armament.java",
+      "target": "class:src/cr0s/javara/combat/Armament.java:Armament",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/Armament.java",
+      "target": "function:src/cr0s/javara/combat/Armament.java:Armament",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/Armament.java",
+      "target": "function:src/cr0s/javara/combat/Armament.java:Armament",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/Armament.java",
+      "target": "function:src/cr0s/javara/combat/Armament.java:addBarrel",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/Armament.java",
+      "target": "function:src/cr0s/javara/combat/Armament.java:addBarrel",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/Armament.java",
+      "target": "function:src/cr0s/javara/combat/Armament.java:update",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/Armament.java",
+      "target": "function:src/cr0s/javara/combat/Armament.java:update",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/Armament.java",
+      "target": "function:src/cr0s/javara/combat/Armament.java:getMuzzlePos",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/Armament.java",
+      "target": "function:src/cr0s/javara/combat/Armament.java:getMuzzlePos",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/Armament.java",
+      "target": "function:src/cr0s/javara/combat/Armament.java:getBarrels",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/Armament.java",
+      "target": "function:src/cr0s/javara/combat/Armament.java:getBarrels",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/Armament.java",
+      "target": "function:src/cr0s/javara/combat/Armament.java:isReloading",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/Armament.java",
+      "target": "function:src/cr0s/javara/combat/Armament.java:isReloading",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/Armament.java",
+      "target": "function:src/cr0s/javara/combat/Armament.java:isShouldExplode",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/Armament.java",
+      "target": "function:src/cr0s/javara/combat/Armament.java:isShouldExplode",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/Armament.java",
+      "target": "function:src/cr0s/javara/combat/Armament.java:checkFire",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/Armament.java",
+      "target": "function:src/cr0s/javara/combat/Armament.java:checkFire",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/Armament.java",
+      "target": "function:src/cr0s/javara/combat/Armament.java:getMuzzleFacing",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/Armament.java",
+      "target": "function:src/cr0s/javara/combat/Armament.java:getMuzzleFacing",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/Armament.java",
+      "target": "function:src/cr0s/javara/combat/Armament.java:getWeapon",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/Armament.java",
+      "target": "function:src/cr0s/javara/combat/Armament.java:getWeapon",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/Armament.java",
+      "target": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/Armament.java",
+      "target": "file:src/cr0s/javara/entity/turreted/IHaveTurret.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/Armament.java",
+      "target": "file:src/cr0s/javara/entity/turreted/Turret.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/Armament.java",
+      "target": "file:src/cr0s/javara/order/Target.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/Armament.java",
+      "target": "file:src/cr0s/javara/render/Sequence.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/Armament.java",
+      "target": "file:src/cr0s/javara/util/Action.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/Armament.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/Armament.java",
+      "target": "file:src/cr0s/javara/util/RotationUtil.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackBase.java",
+      "target": "class:src/cr0s/javara/combat/attack/AttackBase.java:AttackBase",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackBase.java",
+      "target": "class:src/cr0s/javara/combat/attack/AttackBase.java:AttackBase",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackBase.java",
+      "target": "function:src/cr0s/javara/combat/attack/AttackBase.java:AttackBase",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackBase.java",
+      "target": "function:src/cr0s/javara/combat/attack/AttackBase.java:AttackBase",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackBase.java",
+      "target": "function:src/cr0s/javara/combat/attack/AttackBase.java:addArmament",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackBase.java",
+      "target": "function:src/cr0s/javara/combat/attack/AttackBase.java:addArmament",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackBase.java",
+      "target": "function:src/cr0s/javara/combat/attack/AttackBase.java:canAttack",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackBase.java",
+      "target": "function:src/cr0s/javara/combat/attack/AttackBase.java:doAttack",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackBase.java",
+      "target": "function:src/cr0s/javara/combat/attack/AttackBase.java:doAttack",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackBase.java",
+      "target": "function:src/cr0s/javara/combat/attack/AttackBase.java:getMaxRange",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackBase.java",
+      "target": "function:src/cr0s/javara/combat/attack/AttackBase.java:getMaxRange",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackBase.java",
+      "target": "function:src/cr0s/javara/combat/attack/AttackBase.java:attackTarget",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackBase.java",
+      "target": "function:src/cr0s/javara/combat/attack/AttackBase.java:attackTarget",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackBase.java",
+      "target": "function:src/cr0s/javara/combat/attack/AttackBase.java:chooseArmamentForTarget",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackBase.java",
+      "target": "function:src/cr0s/javara/combat/attack/AttackBase.java:chooseArmamentForTarget",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackBase.java",
+      "target": "function:src/cr0s/javara/combat/attack/AttackBase.java:hasAnyValidWeapons",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackBase.java",
+      "target": "function:src/cr0s/javara/combat/attack/AttackBase.java:hasAnyValidWeapons",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackBase.java",
+      "target": "function:src/cr0s/javara/combat/attack/AttackBase.java:getOrders",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackBase.java",
+      "target": "function:src/cr0s/javara/combat/attack/AttackBase.java:getOrders",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackBase.java",
+      "target": "function:src/cr0s/javara/combat/attack/AttackBase.java:issueOrder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackBase.java",
+      "target": "function:src/cr0s/javara/combat/attack/AttackBase.java:issueOrder",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackBase.java",
+      "target": "function:src/cr0s/javara/combat/attack/AttackBase.java:resolveOrder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackBase.java",
+      "target": "function:src/cr0s/javara/combat/attack/AttackBase.java:resolveOrder",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackBase.java",
+      "target": "function:src/cr0s/javara/combat/attack/AttackBase.java:isReachableTarget",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackBase.java",
+      "target": "function:src/cr0s/javara/combat/attack/AttackBase.java:isReachableTarget",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackBase.java",
+      "target": "function:src/cr0s/javara/combat/attack/AttackBase.java:getAttackActivity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackBase.java",
+      "target": "function:src/cr0s/javara/combat/attack/AttackBase.java:getAttackActivity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackBase.java",
+      "target": "function:src/cr0s/javara/combat/attack/AttackBase.java:update",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackBase.java",
+      "target": "function:src/cr0s/javara/combat/attack/AttackBase.java:update",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackBase.java",
+      "target": "function:src/cr0s/javara/combat/attack/AttackBase.java:isReloading",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackBase.java",
+      "target": "function:src/cr0s/javara/combat/attack/AttackBase.java:isReloading",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackBase.java",
+      "target": "function:src/cr0s/javara/combat/attack/AttackBase.java:cancelAttack",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackBase.java",
+      "target": "function:src/cr0s/javara/combat/attack/AttackBase.java:cancelAttack",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackBase.java",
+      "target": "function:src/cr0s/javara/combat/attack/AttackBase.java:getTarget",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackBase.java",
+      "target": "function:src/cr0s/javara/combat/attack/AttackBase.java:getTarget",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackBase.java",
+      "target": "file:src/cr0s/javara/combat/Armament.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackBase.java",
+      "target": "file:src/cr0s/javara/entity/actor/activity/Activity.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackBase.java",
+      "target": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackBase.java",
+      "target": "file:src/cr0s/javara/entity/Entity.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackBase.java",
+      "target": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackBase.java",
+      "target": "file:src/cr0s/javara/order/InputAttributes.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackBase.java",
+      "target": "file:src/cr0s/javara/order/IOrderIssuer.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackBase.java",
+      "target": "file:src/cr0s/javara/order/IOrderResolver.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackBase.java",
+      "target": "file:src/cr0s/javara/order/Order.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackBase.java",
+      "target": "file:src/cr0s/javara/order/OrderTargeter.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackBase.java",
+      "target": "file:src/cr0s/javara/order/Target.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackBase.java",
+      "target": "file:src/cr0s/javara/ui/cursor/CursorType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackFrontal.java",
+      "target": "class:src/cr0s/javara/combat/attack/AttackFrontal.java:AttackFrontal",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackFrontal.java",
+      "target": "class:src/cr0s/javara/combat/attack/AttackFrontal.java:AttackFrontal",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackFrontal.java",
+      "target": "function:src/cr0s/javara/combat/attack/AttackFrontal.java:AttackFrontal",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackFrontal.java",
+      "target": "function:src/cr0s/javara/combat/attack/AttackFrontal.java:AttackFrontal",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackFrontal.java",
+      "target": "function:src/cr0s/javara/combat/attack/AttackFrontal.java:canAttack",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackFrontal.java",
+      "target": "function:src/cr0s/javara/combat/attack/AttackFrontal.java:getAttackActivity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackFrontal.java",
+      "target": "function:src/cr0s/javara/combat/attack/AttackFrontal.java:getAttackActivity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackFrontal.java",
+      "target": "file:src/cr0s/javara/combat/Armament.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackFrontal.java",
+      "target": "file:src/cr0s/javara/entity/actor/activity/activities/Attack.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackFrontal.java",
+      "target": "file:src/cr0s/javara/entity/actor/activity/Activity.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackFrontal.java",
+      "target": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackFrontal.java",
+      "target": "file:src/cr0s/javara/order/Target.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackFrontal.java",
+      "target": "file:src/cr0s/javara/util/RotationUtil.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackTurreted.java",
+      "target": "class:src/cr0s/javara/combat/attack/AttackTurreted.java:AttackTurreted",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackTurreted.java",
+      "target": "class:src/cr0s/javara/combat/attack/AttackTurreted.java:AttackTurreted",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackTurreted.java",
+      "target": "function:src/cr0s/javara/combat/attack/AttackTurreted.java:AttackTurreted",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackTurreted.java",
+      "target": "function:src/cr0s/javara/combat/attack/AttackTurreted.java:AttackTurreted",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackTurreted.java",
+      "target": "function:src/cr0s/javara/combat/attack/AttackTurreted.java:canAttack",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackTurreted.java",
+      "target": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackTurreted.java",
+      "target": "file:src/cr0s/javara/entity/turreted/IHaveTurret.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackTurreted.java",
+      "target": "file:src/cr0s/javara/entity/turreted/Turret.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackTurreted.java",
+      "target": "file:src/cr0s/javara/order/Target.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

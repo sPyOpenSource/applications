@@ -1,0 +1,2127 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/cr0s/javara/combat/attack/AttackFollow.java",
+      "type": "file",
+      "name": "AttackFollow.java",
+      "filePath": "src/cr0s/javara/combat/attack/AttackFollow.java",
+      "summary": "Follow attack strategy that pursues targets while engaging at weapon range.",
+      "tags": [
+        "combat",
+        "movement"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/cr0s/javara/combat/attack/AttackFollow.java:AttackFollow",
+      "type": "class",
+      "name": "AttackFollow",
+      "filePath": "src/cr0s/javara/combat/attack/AttackFollow.java",
+      "lineRange": [
+        11,
+        91
+      ],
+      "summary": "AttackFollow class with 4 methods in AttackFollow.java.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/combat/attack/AttackFollow.java:AttackFollow",
+      "type": "function",
+      "name": "AttackFollow",
+      "filePath": "src/cr0s/javara/combat/attack/AttackFollow.java",
+      "lineRange": [
+        12,
+        14
+      ],
+      "summary": "AttackFollow(s) - 3 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/combat/attack/AttackFollow.java:update",
+      "type": "function",
+      "name": "update",
+      "filePath": "src/cr0s/javara/combat/attack/AttackFollow.java",
+      "lineRange": [
+        16,
+        28
+      ],
+      "summary": "update(delta) - 13 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/combat/attack/AttackFollow.java:getAttackActivity",
+      "type": "function",
+      "name": "getAttackActivity",
+      "filePath": "src/cr0s/javara/combat/attack/AttackFollow.java",
+      "lineRange": [
+        30,
+        33
+      ],
+      "summary": "getAttackActivity(tgt, allowMove) - 4 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/combat/attack/AttackFollow.java:resolveOrder",
+      "type": "function",
+      "name": "resolveOrder",
+      "filePath": "src/cr0s/javara/combat/attack/AttackFollow.java",
+      "lineRange": [
+        35,
+        42
+      ],
+      "summary": "resolveOrder(order) - 8 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/entity/actor/activity/Activity.java",
+      "type": "file",
+      "name": "Activity.java",
+      "filePath": "src/cr0s/javara/entity/actor/activity/Activity.java",
+      "summary": "Base activity class implementing a linked-list pattern for sequenced entity actions.",
+      "tags": [
+        "state-machine",
+        "entity"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/cr0s/javara/entity/actor/activity/Activity.java:Activity",
+      "type": "class",
+      "name": "Activity",
+      "filePath": "src/cr0s/javara/entity/actor/activity/Activity.java",
+      "lineRange": [
+        5,
+        34
+      ],
+      "summary": "Activity class with 5 methods in Activity.java.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/actor/activity/Activity.java:getNext",
+      "type": "function",
+      "name": "getNext",
+      "filePath": "src/cr0s/javara/entity/actor/activity/Activity.java",
+      "lineRange": [
+        9,
+        11
+      ],
+      "summary": "getNext() - 3 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/actor/activity/Activity.java:cancel",
+      "type": "function",
+      "name": "cancel",
+      "filePath": "src/cr0s/javara/entity/actor/activity/Activity.java",
+      "lineRange": [
+        13,
+        15
+      ],
+      "summary": "cancel() - 3 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/actor/activity/Activity.java:isCancelled",
+      "type": "function",
+      "name": "isCancelled",
+      "filePath": "src/cr0s/javara/entity/actor/activity/Activity.java",
+      "lineRange": [
+        17,
+        19
+      ],
+      "summary": "isCancelled() - 3 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/actor/activity/Activity.java:queueActivity",
+      "type": "function",
+      "name": "queueActivity",
+      "filePath": "src/cr0s/javara/entity/actor/activity/Activity.java",
+      "lineRange": [
+        21,
+        31
+      ],
+      "summary": "queueActivity(a) - 11 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/actor/activity/Activity.java:tick",
+      "type": "function",
+      "name": "tick",
+      "filePath": "src/cr0s/javara/entity/actor/activity/Activity.java",
+      "lineRange": [
+        33,
+        33
+      ],
+      "summary": "tick(a) - 1 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "type": "file",
+      "name": "EntityActor.java",
+      "filePath": "src/cr0s/javara/entity/actor/EntityActor.java",
+      "summary": "Abstract base for game actors with activity queue, order handling, and rendering lifecycle.",
+      "tags": [
+        "entity",
+        "exports"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/cr0s/javara/entity/actor/EntityActor.java:EntityActor",
+      "type": "class",
+      "name": "EntityActor",
+      "filePath": "src/cr0s/javara/entity/actor/EntityActor.java",
+      "lineRange": [
+        24,
+        152
+      ],
+      "summary": "EntityActor class with 22 methods in EntityActor.java.",
+      "tags": [],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/actor/EntityActor.java:EntityActor",
+      "type": "function",
+      "name": "EntityActor",
+      "filePath": "src/cr0s/javara/entity/actor/EntityActor.java",
+      "lineRange": [
+        38,
+        46
+      ],
+      "summary": "EntityActor(pos, aSizeWidth, aSizeHeight) - 9 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/actor/EntityActor.java:updateEntity",
+      "type": "function",
+      "name": "updateEntity",
+      "filePath": "src/cr0s/javara/entity/actor/EntityActor.java",
+      "lineRange": [
+        48,
+        53
+      ],
+      "summary": "updateEntity(delta) - 6 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/actor/EntityActor.java:queueActivity",
+      "type": "function",
+      "name": "queueActivity",
+      "filePath": "src/cr0s/javara/entity/actor/EntityActor.java",
+      "lineRange": [
+        55,
+        61
+      ],
+      "summary": "queueActivity(a) - 7 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/actor/EntityActor.java:cancelActivity",
+      "type": "function",
+      "name": "cancelActivity",
+      "filePath": "src/cr0s/javara/entity/actor/EntityActor.java",
+      "lineRange": [
+        63,
+        67
+      ],
+      "summary": "cancelActivity() - 5 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/actor/EntityActor.java:shouldRenderedInPass",
+      "type": "function",
+      "name": "shouldRenderedInPass",
+      "filePath": "src/cr0s/javara/entity/actor/EntityActor.java",
+      "lineRange": [
+        69,
+        72
+      ],
+      "summary": "shouldRenderedInPass(passNum) - 4 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/actor/EntityActor.java:isFrendlyTo",
+      "type": "function",
+      "name": "isFrendlyTo",
+      "filePath": "src/cr0s/javara/entity/actor/EntityActor.java",
+      "lineRange": [
+        74,
+        77
+      ],
+      "summary": "isFrendlyTo(other) - 4 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/actor/EntityActor.java:isIdle",
+      "type": "function",
+      "name": "isIdle",
+      "filePath": "src/cr0s/javara/entity/actor/EntityActor.java",
+      "lineRange": [
+        79,
+        81
+      ],
+      "summary": "isIdle() - 3 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/actor/EntityActor.java:resolveOrder",
+      "type": "function",
+      "name": "resolveOrder",
+      "filePath": "src/cr0s/javara/entity/actor/EntityActor.java",
+      "lineRange": [
+        83,
+        84
+      ],
+      "summary": "resolveOrder(order) - 2 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/actor/EntityActor.java:getOrders",
+      "type": "function",
+      "name": "getOrders",
+      "filePath": "src/cr0s/javara/entity/actor/EntityActor.java",
+      "lineRange": [
+        86,
+        89
+      ],
+      "summary": "getOrders() - 4 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/actor/EntityActor.java:issueOrder",
+      "type": "function",
+      "name": "issueOrder",
+      "filePath": "src/cr0s/javara/entity/actor/EntityActor.java",
+      "lineRange": [
+        91,
+        92
+      ],
+      "summary": "issueOrder(self, targeter, target, ia) - 2 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/actor/EntityActor.java:notifySelected",
+      "type": "function",
+      "name": "notifySelected",
+      "filePath": "src/cr0s/javara/entity/actor/EntityActor.java",
+      "lineRange": [
+        94,
+        96
+      ],
+      "summary": "notifySelected() - 3 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/actor/EntityActor.java:getSounds",
+      "type": "function",
+      "name": "getSounds",
+      "filePath": "src/cr0s/javara/entity/actor/EntityActor.java",
+      "lineRange": [
+        98,
+        100
+      ],
+      "summary": "getSounds() - 3 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/actor/EntityActor.java:getSelectSound",
+      "type": "function",
+      "name": "getSelectSound",
+      "filePath": "src/cr0s/javara/entity/actor/EntityActor.java",
+      "lineRange": [
+        102,
+        104
+      ],
+      "summary": "getSelectSound() - 3 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/actor/EntityActor.java:playSelectedSound",
+      "type": "function",
+      "name": "playSelectedSound",
+      "filePath": "src/cr0s/javara/entity/actor/EntityActor.java",
+      "lineRange": [
+        106,
+        107
+      ],
+      "summary": "playSelectedSound() - 2 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/actor/EntityActor.java:playOrderSound",
+      "type": "function",
+      "name": "playOrderSound",
+      "filePath": "src/cr0s/javara/entity/actor/EntityActor.java",
+      "lineRange": [
+        109,
+        110
+      ],
+      "summary": "playOrderSound() - 2 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/actor/EntityActor.java:newInstance",
+      "type": "function",
+      "name": "newInstance",
+      "filePath": "src/cr0s/javara/entity/actor/EntityActor.java",
+      "lineRange": [
+        112,
+        126
+      ],
+      "summary": "newInstance() - 15 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/actor/EntityActor.java:getPosition",
+      "type": "function",
+      "name": "getPosition",
+      "filePath": "src/cr0s/javara/entity/actor/EntityActor.java",
+      "lineRange": [
+        128,
+        130
+      ],
+      "summary": "getPosition() - 3 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/actor/EntityActor.java:getCellPosition",
+      "type": "function",
+      "name": "getCellPosition",
+      "filePath": "src/cr0s/javara/entity/actor/EntityActor.java",
+      "lineRange": [
+        132,
+        134
+      ],
+      "summary": "getCellPosition() - 3 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/actor/EntityActor.java:getMaxFacings",
+      "type": "function",
+      "name": "getMaxFacings",
+      "filePath": "src/cr0s/javara/entity/actor/EntityActor.java",
+      "lineRange": [
+        136,
+        138
+      ],
+      "summary": "getMaxFacings() - 3 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/actor/EntityActor.java:getName",
+      "type": "function",
+      "name": "getName",
+      "filePath": "src/cr0s/javara/entity/actor/EntityActor.java",
+      "lineRange": [
+        140,
+        143
+      ],
+      "summary": "getName() - 4 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/actor/EntityActor.java:setName",
+      "type": "function",
+      "name": "setName",
+      "filePath": "src/cr0s/javara/entity/actor/EntityActor.java",
+      "lineRange": [
+        145,
+        147
+      ],
+      "summary": "setName(name) - 3 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/actor/EntityActor.java:getCurrentActivity",
+      "type": "function",
+      "name": "getCurrentActivity",
+      "filePath": "src/cr0s/javara/entity/actor/EntityActor.java",
+      "lineRange": [
+        149,
+        151
+      ],
+      "summary": "getCurrentActivity() - 3 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/entity/IDeployable.java",
+      "type": "file",
+      "name": "IDeployable.java",
+      "filePath": "src/cr0s/javara/entity/IDeployable.java",
+      "summary": "Interface defining deployable entity contract with canDeploy, deploy, and executeDeployment methods.",
+      "tags": [
+        "entity",
+        "deployment",
+        "interface"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/cr0s/javara/entity/IDeployable.java:IDeployable",
+      "type": "class",
+      "name": "IDeployable",
+      "filePath": "src/cr0s/javara/entity/IDeployable.java",
+      "lineRange": [
+        7,
+        11
+      ],
+      "summary": "IDeployable class with 3 methods in IDeployable.java.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "type": "file",
+      "name": "MobileEntity.java",
+      "filePath": "src/cr0s/javara/entity/MobileEntity.java",
+      "summary": "Base class for mobile entities providing movement, pathfinding, nudging, and order resolution.",
+      "tags": [
+        "entity",
+        "movement",
+        "exports"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:src/cr0s/javara/entity/MobileEntity.java:MobileEntity",
+      "type": "class",
+      "name": "MobileEntity",
+      "filePath": "src/cr0s/javara/entity/MobileEntity.java",
+      "lineRange": [
+        26,
+        340
+      ],
+      "summary": "MobileEntity class with 36 methods in MobileEntity.java.",
+      "tags": [],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/MobileEntity.java:MobileEntity",
+      "type": "function",
+      "name": "MobileEntity",
+      "filePath": "src/cr0s/javara/entity/MobileEntity.java",
+      "lineRange": [
+        37,
+        42
+      ],
+      "summary": "MobileEntity(pos, aSizeWidth, aSizeHeight) - 6 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/MobileEntity.java:findPathFromTo",
+      "type": "function",
+      "name": "findPathFromTo",
+      "filePath": "src/cr0s/javara/entity/MobileEntity.java",
+      "lineRange": [
+        44,
+        44
+      ],
+      "summary": "findPathFromTo(e, aGoal) - 1 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/MobileEntity.java:getCenterPos",
+      "type": "function",
+      "name": "getCenterPos",
+      "filePath": "src/cr0s/javara/entity/MobileEntity.java",
+      "lineRange": [
+        46,
+        48
+      ],
+      "summary": "getCenterPos() - 3 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/MobileEntity.java:getPos",
+      "type": "function",
+      "name": "getPos",
+      "filePath": "src/cr0s/javara/entity/MobileEntity.java",
+      "lineRange": [
+        50,
+        52
+      ],
+      "summary": "getPos() - 3 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/MobileEntity.java:getCellPos",
+      "type": "function",
+      "name": "getCellPos",
+      "filePath": "src/cr0s/javara/entity/MobileEntity.java",
+      "lineRange": [
+        54,
+        56
+      ],
+      "summary": "getCellPos() - 3 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/MobileEntity.java:getTexturePos",
+      "type": "function",
+      "name": "getTexturePos",
+      "filePath": "src/cr0s/javara/entity/MobileEntity.java",
+      "lineRange": [
+        58,
+        60
+      ],
+      "summary": "getTexturePos() - 3 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/MobileEntity.java:setPos",
+      "type": "function",
+      "name": "setPos",
+      "filePath": "src/cr0s/javara/entity/MobileEntity.java",
+      "lineRange": [
+        62,
+        67
+      ],
+      "summary": "setPos(pos) - 6 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/MobileEntity.java:getDamagePerSecond",
+      "type": "function",
+      "name": "getDamagePerSecond",
+      "filePath": "src/cr0s/javara/entity/MobileEntity.java",
+      "lineRange": [
+        69,
+        71
+      ],
+      "summary": "getDamagePerSecond() - 3 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/MobileEntity.java:setDamagePerSecond",
+      "type": "function",
+      "name": "setDamagePerSecond",
+      "filePath": "src/cr0s/javara/entity/MobileEntity.java",
+      "lineRange": [
+        73,
+        75
+      ],
+      "summary": "setDamagePerSecond(damagePerSecond) - 3 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/MobileEntity.java:setCenterPos",
+      "type": "function",
+      "name": "setCenterPos",
+      "filePath": "src/cr0s/javara/entity/MobileEntity.java",
+      "lineRange": [
+        77,
+        80
+      ],
+      "summary": "setCenterPos(pos) - 4 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/MobileEntity.java:getRang",
+      "type": "function",
+      "name": "getRang",
+      "filePath": "src/cr0s/javara/entity/MobileEntity.java",
+      "lineRange": [
+        82,
+        84
+      ],
+      "summary": "getRang() - 3 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/MobileEntity.java:drawPath",
+      "type": "function",
+      "name": "drawPath",
+      "filePath": "src/cr0s/javara/entity/MobileEntity.java",
+      "lineRange": [
+        86,
+        151
+      ],
+      "summary": "drawPath(g) - 66 lines.",
+      "tags": [],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/MobileEntity.java:finishMoving",
+      "type": "function",
+      "name": "finishMoving",
+      "filePath": "src/cr0s/javara/entity/MobileEntity.java",
+      "lineRange": [
+        153,
+        157
+      ],
+      "summary": "finishMoving() - 5 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/MobileEntity.java:getCenterPosX",
+      "type": "function",
+      "name": "getCenterPosX",
+      "filePath": "src/cr0s/javara/entity/MobileEntity.java",
+      "lineRange": [
+        159,
+        161
+      ],
+      "summary": "getCenterPosX() - 3 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/MobileEntity.java:getCenterPosY",
+      "type": "function",
+      "name": "getCenterPosY",
+      "filePath": "src/cr0s/javara/entity/MobileEntity.java",
+      "lineRange": [
+        163,
+        165
+      ],
+      "summary": "getCenterPosY() - 3 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/MobileEntity.java:setPositionByCenter",
+      "type": "function",
+      "name": "setPositionByCenter",
+      "filePath": "src/cr0s/javara/entity/MobileEntity.java",
+      "lineRange": [
+        167,
+        172
+      ],
+      "summary": "setPositionByCenter(x, y) - 6 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/MobileEntity.java:nudge",
+      "type": "function",
+      "name": "nudge",
+      "filePath": "src/cr0s/javara/entity/MobileEntity.java",
+      "lineRange": [
+        182,
+        184
+      ],
+      "summary": "nudge(nudger, force) - 3 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/MobileEntity.java:nudge",
+      "type": "function",
+      "name": "nudge",
+      "filePath": "src/cr0s/javara/entity/MobileEntity.java",
+      "lineRange": [
+        186,
+        252
+      ],
+      "summary": "nudge(nudger, force, nudgingDepth) - 67 lines.",
+      "tags": [],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/MobileEntity.java:moveTo",
+      "type": "function",
+      "name": "moveTo",
+      "filePath": "src/cr0s/javara/entity/MobileEntity.java",
+      "lineRange": [
+        254,
+        256
+      ],
+      "summary": "moveTo(destCell) - 3 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/MobileEntity.java:moveTo",
+      "type": "function",
+      "name": "moveTo",
+      "filePath": "src/cr0s/javara/entity/MobileEntity.java",
+      "lineRange": [
+        258,
+        273
+      ],
+      "summary": "moveTo(destCell, ignoreBuilding) - 16 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/MobileEntity.java:startMovingByPath",
+      "type": "function",
+      "name": "startMovingByPath",
+      "filePath": "src/cr0s/javara/entity/MobileEntity.java",
+      "lineRange": [
+        275,
+        281
+      ],
+      "summary": "startMovingByPath(p, ignoreBuilding) - 7 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/MobileEntity.java:notifyBlocking",
+      "type": "function",
+      "name": "notifyBlocking",
+      "filePath": "src/cr0s/javara/entity/MobileEntity.java",
+      "lineRange": [
+        283,
+        288
+      ],
+      "summary": "notifyBlocking(from) - 6 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/MobileEntity.java:getMoveSpeed",
+      "type": "function",
+      "name": "getMoveSpeed",
+      "filePath": "src/cr0s/javara/entity/MobileEntity.java",
+      "lineRange": [
+        290,
+        290
+      ],
+      "summary": "getMoveSpeed() - 1 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/MobileEntity.java:getMinimumEnoughRange",
+      "type": "function",
+      "name": "getMinimumEnoughRange",
+      "filePath": "src/cr0s/javara/entity/MobileEntity.java",
+      "lineRange": [
+        291,
+        291
+      ],
+      "summary": "getMinimumEnoughRange() - 1 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/MobileEntity.java:canEnterCell",
+      "type": "function",
+      "name": "canEnterCell",
+      "filePath": "src/cr0s/javara/entity/MobileEntity.java",
+      "lineRange": [
+        292,
+        292
+      ],
+      "summary": "canEnterCell(cellPos) - 1 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/MobileEntity.java:getWaitAverageTime",
+      "type": "function",
+      "name": "getWaitAverageTime",
+      "filePath": "src/cr0s/javara/entity/MobileEntity.java",
+      "lineRange": [
+        293,
+        293
+      ],
+      "summary": "getWaitAverageTime() - 1 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/MobileEntity.java:getWaitSpreadTime",
+      "type": "function",
+      "name": "getWaitSpreadTime",
+      "filePath": "src/cr0s/javara/entity/MobileEntity.java",
+      "lineRange": [
+        294,
+        294
+      ],
+      "summary": "getWaitSpreadTime() - 1 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/MobileEntity.java:getOrders",
+      "type": "function",
+      "name": "getOrders",
+      "filePath": "src/cr0s/javara/entity/MobileEntity.java",
+      "lineRange": [
+        297,
+        300
+      ],
+      "summary": "getOrders() - 4 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/MobileEntity.java:issueOrder",
+      "type": "function",
+      "name": "issueOrder",
+      "filePath": "src/cr0s/javara/entity/MobileEntity.java",
+      "lineRange": [
+        302,
+        313
+      ],
+      "summary": "issueOrder(self, targeter, target, ia) - 12 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/MobileEntity.java:resolveOrder",
+      "type": "function",
+      "name": "resolveOrder",
+      "filePath": "src/cr0s/javara/entity/MobileEntity.java",
+      "lineRange": [
+        315,
+        324
+      ],
+      "summary": "resolveOrder(order) - 10 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/MobileEntity.java:setCellPos",
+      "type": "function",
+      "name": "setCellPos",
+      "filePath": "src/cr0s/javara/entity/MobileEntity.java",
+      "lineRange": [
+        326,
+        329
+      ],
+      "summary": "setCellPos(exitPoint) - 4 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/MobileEntity.java:moveFollow",
+      "type": "function",
+      "name": "moveFollow",
+      "filePath": "src/cr0s/javara/entity/MobileEntity.java",
+      "lineRange": [
+        331,
+        333
+      ],
+      "summary": "moveFollow(self, target, range) - 3 lines.",
+      "tags": [],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/entity/MobileEntity.java:moveWithinRange",
+      "type": "function",
+      "name": "moveWithinRange",
+      "filePath": "src/cr0s/javara/entity/MobileEntity.java",
+      "lineRange": [
+        335,
+        337
+      ],
+      "summary": "moveWithinRange(target, range) - 3 lines.",
+      "tags": [],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackFollow.java",
+      "target": "class:src/cr0s/javara/combat/attack/AttackFollow.java:AttackFollow",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackFollow.java",
+      "target": "function:src/cr0s/javara/combat/attack/AttackFollow.java:AttackFollow",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackFollow.java",
+      "target": "function:src/cr0s/javara/combat/attack/AttackFollow.java:AttackFollow",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackFollow.java",
+      "target": "function:src/cr0s/javara/combat/attack/AttackFollow.java:update",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackFollow.java",
+      "target": "function:src/cr0s/javara/combat/attack/AttackFollow.java:update",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackFollow.java",
+      "target": "function:src/cr0s/javara/combat/attack/AttackFollow.java:getAttackActivity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackFollow.java",
+      "target": "function:src/cr0s/javara/combat/attack/AttackFollow.java:getAttackActivity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackFollow.java",
+      "target": "function:src/cr0s/javara/combat/attack/AttackFollow.java:resolveOrder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackFollow.java",
+      "target": "function:src/cr0s/javara/combat/attack/AttackFollow.java:resolveOrder",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/activity/Activity.java",
+      "target": "class:src/cr0s/javara/entity/actor/activity/Activity.java:Activity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/activity/Activity.java",
+      "target": "function:src/cr0s/javara/entity/actor/activity/Activity.java:getNext",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/activity/Activity.java",
+      "target": "function:src/cr0s/javara/entity/actor/activity/Activity.java:getNext",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/activity/Activity.java",
+      "target": "function:src/cr0s/javara/entity/actor/activity/Activity.java:cancel",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/activity/Activity.java",
+      "target": "function:src/cr0s/javara/entity/actor/activity/Activity.java:cancel",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/activity/Activity.java",
+      "target": "function:src/cr0s/javara/entity/actor/activity/Activity.java:isCancelled",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/activity/Activity.java",
+      "target": "function:src/cr0s/javara/entity/actor/activity/Activity.java:isCancelled",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/activity/Activity.java",
+      "target": "function:src/cr0s/javara/entity/actor/activity/Activity.java:queueActivity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/activity/Activity.java",
+      "target": "function:src/cr0s/javara/entity/actor/activity/Activity.java:queueActivity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/activity/Activity.java",
+      "target": "function:src/cr0s/javara/entity/actor/activity/Activity.java:tick",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/activity/Activity.java",
+      "target": "function:src/cr0s/javara/entity/actor/activity/Activity.java:tick",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "target": "class:src/cr0s/javara/entity/actor/EntityActor.java:EntityActor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "target": "function:src/cr0s/javara/entity/actor/EntityActor.java:EntityActor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "target": "function:src/cr0s/javara/entity/actor/EntityActor.java:EntityActor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "target": "function:src/cr0s/javara/entity/actor/EntityActor.java:updateEntity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "target": "function:src/cr0s/javara/entity/actor/EntityActor.java:updateEntity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "target": "function:src/cr0s/javara/entity/actor/EntityActor.java:queueActivity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "target": "function:src/cr0s/javara/entity/actor/EntityActor.java:queueActivity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "target": "function:src/cr0s/javara/entity/actor/EntityActor.java:cancelActivity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "target": "function:src/cr0s/javara/entity/actor/EntityActor.java:cancelActivity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "target": "function:src/cr0s/javara/entity/actor/EntityActor.java:shouldRenderedInPass",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "target": "function:src/cr0s/javara/entity/actor/EntityActor.java:shouldRenderedInPass",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "target": "function:src/cr0s/javara/entity/actor/EntityActor.java:isFrendlyTo",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "target": "function:src/cr0s/javara/entity/actor/EntityActor.java:isFrendlyTo",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "target": "function:src/cr0s/javara/entity/actor/EntityActor.java:isIdle",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "target": "function:src/cr0s/javara/entity/actor/EntityActor.java:isIdle",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "target": "function:src/cr0s/javara/entity/actor/EntityActor.java:resolveOrder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "target": "function:src/cr0s/javara/entity/actor/EntityActor.java:resolveOrder",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "target": "function:src/cr0s/javara/entity/actor/EntityActor.java:getOrders",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "target": "function:src/cr0s/javara/entity/actor/EntityActor.java:getOrders",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "target": "function:src/cr0s/javara/entity/actor/EntityActor.java:issueOrder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "target": "function:src/cr0s/javara/entity/actor/EntityActor.java:issueOrder",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "target": "function:src/cr0s/javara/entity/actor/EntityActor.java:notifySelected",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "target": "function:src/cr0s/javara/entity/actor/EntityActor.java:notifySelected",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "target": "function:src/cr0s/javara/entity/actor/EntityActor.java:getSounds",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "target": "function:src/cr0s/javara/entity/actor/EntityActor.java:getSounds",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "target": "function:src/cr0s/javara/entity/actor/EntityActor.java:getSelectSound",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "target": "function:src/cr0s/javara/entity/actor/EntityActor.java:getSelectSound",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "target": "function:src/cr0s/javara/entity/actor/EntityActor.java:playSelectedSound",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "target": "function:src/cr0s/javara/entity/actor/EntityActor.java:playSelectedSound",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "target": "function:src/cr0s/javara/entity/actor/EntityActor.java:playOrderSound",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "target": "function:src/cr0s/javara/entity/actor/EntityActor.java:playOrderSound",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "target": "function:src/cr0s/javara/entity/actor/EntityActor.java:newInstance",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "target": "function:src/cr0s/javara/entity/actor/EntityActor.java:newInstance",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "target": "function:src/cr0s/javara/entity/actor/EntityActor.java:getPosition",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "target": "function:src/cr0s/javara/entity/actor/EntityActor.java:getPosition",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "target": "function:src/cr0s/javara/entity/actor/EntityActor.java:getCellPosition",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "target": "function:src/cr0s/javara/entity/actor/EntityActor.java:getCellPosition",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "target": "function:src/cr0s/javara/entity/actor/EntityActor.java:getMaxFacings",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "target": "function:src/cr0s/javara/entity/actor/EntityActor.java:getMaxFacings",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "target": "function:src/cr0s/javara/entity/actor/EntityActor.java:getName",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "target": "function:src/cr0s/javara/entity/actor/EntityActor.java:getName",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "target": "function:src/cr0s/javara/entity/actor/EntityActor.java:setName",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "target": "function:src/cr0s/javara/entity/actor/EntityActor.java:setName",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "target": "function:src/cr0s/javara/entity/actor/EntityActor.java:getCurrentActivity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "target": "function:src/cr0s/javara/entity/actor/EntityActor.java:getCurrentActivity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/IDeployable.java",
+      "target": "class:src/cr0s/javara/entity/IDeployable.java:IDeployable",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "target": "class:src/cr0s/javara/entity/MobileEntity.java:MobileEntity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "target": "function:src/cr0s/javara/entity/MobileEntity.java:MobileEntity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "target": "function:src/cr0s/javara/entity/MobileEntity.java:MobileEntity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "target": "function:src/cr0s/javara/entity/MobileEntity.java:findPathFromTo",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "target": "function:src/cr0s/javara/entity/MobileEntity.java:findPathFromTo",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "target": "function:src/cr0s/javara/entity/MobileEntity.java:getCenterPos",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "target": "function:src/cr0s/javara/entity/MobileEntity.java:getCenterPos",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "target": "function:src/cr0s/javara/entity/MobileEntity.java:getPos",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "target": "function:src/cr0s/javara/entity/MobileEntity.java:getPos",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "target": "function:src/cr0s/javara/entity/MobileEntity.java:getCellPos",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "target": "function:src/cr0s/javara/entity/MobileEntity.java:getCellPos",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "target": "function:src/cr0s/javara/entity/MobileEntity.java:getTexturePos",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "target": "function:src/cr0s/javara/entity/MobileEntity.java:getTexturePos",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "target": "function:src/cr0s/javara/entity/MobileEntity.java:setPos",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "target": "function:src/cr0s/javara/entity/MobileEntity.java:setPos",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "target": "function:src/cr0s/javara/entity/MobileEntity.java:getDamagePerSecond",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "target": "function:src/cr0s/javara/entity/MobileEntity.java:getDamagePerSecond",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "target": "function:src/cr0s/javara/entity/MobileEntity.java:setDamagePerSecond",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "target": "function:src/cr0s/javara/entity/MobileEntity.java:setDamagePerSecond",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "target": "function:src/cr0s/javara/entity/MobileEntity.java:setCenterPos",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "target": "function:src/cr0s/javara/entity/MobileEntity.java:setCenterPos",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "target": "function:src/cr0s/javara/entity/MobileEntity.java:getRang",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "target": "function:src/cr0s/javara/entity/MobileEntity.java:getRang",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "target": "function:src/cr0s/javara/entity/MobileEntity.java:drawPath",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "target": "function:src/cr0s/javara/entity/MobileEntity.java:finishMoving",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "target": "function:src/cr0s/javara/entity/MobileEntity.java:finishMoving",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "target": "function:src/cr0s/javara/entity/MobileEntity.java:getCenterPosX",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "target": "function:src/cr0s/javara/entity/MobileEntity.java:getCenterPosX",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "target": "function:src/cr0s/javara/entity/MobileEntity.java:getCenterPosY",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "target": "function:src/cr0s/javara/entity/MobileEntity.java:getCenterPosY",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "target": "function:src/cr0s/javara/entity/MobileEntity.java:setPositionByCenter",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "target": "function:src/cr0s/javara/entity/MobileEntity.java:setPositionByCenter",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "target": "function:src/cr0s/javara/entity/MobileEntity.java:nudge",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "target": "function:src/cr0s/javara/entity/MobileEntity.java:nudge",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "target": "function:src/cr0s/javara/entity/MobileEntity.java:nudge",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "target": "function:src/cr0s/javara/entity/MobileEntity.java:nudge",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "target": "function:src/cr0s/javara/entity/MobileEntity.java:moveTo",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "target": "function:src/cr0s/javara/entity/MobileEntity.java:moveTo",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "target": "function:src/cr0s/javara/entity/MobileEntity.java:moveTo",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "target": "function:src/cr0s/javara/entity/MobileEntity.java:moveTo",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "target": "function:src/cr0s/javara/entity/MobileEntity.java:startMovingByPath",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "target": "function:src/cr0s/javara/entity/MobileEntity.java:startMovingByPath",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "target": "function:src/cr0s/javara/entity/MobileEntity.java:notifyBlocking",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "target": "function:src/cr0s/javara/entity/MobileEntity.java:notifyBlocking",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "target": "function:src/cr0s/javara/entity/MobileEntity.java:getMoveSpeed",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "target": "function:src/cr0s/javara/entity/MobileEntity.java:getMoveSpeed",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "target": "function:src/cr0s/javara/entity/MobileEntity.java:getMinimumEnoughRange",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "target": "function:src/cr0s/javara/entity/MobileEntity.java:getMinimumEnoughRange",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "target": "function:src/cr0s/javara/entity/MobileEntity.java:canEnterCell",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "target": "function:src/cr0s/javara/entity/MobileEntity.java:canEnterCell",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "target": "function:src/cr0s/javara/entity/MobileEntity.java:getWaitAverageTime",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "target": "function:src/cr0s/javara/entity/MobileEntity.java:getWaitAverageTime",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "target": "function:src/cr0s/javara/entity/MobileEntity.java:getWaitSpreadTime",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "target": "function:src/cr0s/javara/entity/MobileEntity.java:getWaitSpreadTime",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "target": "function:src/cr0s/javara/entity/MobileEntity.java:getOrders",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "target": "function:src/cr0s/javara/entity/MobileEntity.java:getOrders",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "target": "function:src/cr0s/javara/entity/MobileEntity.java:issueOrder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "target": "function:src/cr0s/javara/entity/MobileEntity.java:issueOrder",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "target": "function:src/cr0s/javara/entity/MobileEntity.java:resolveOrder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "target": "function:src/cr0s/javara/entity/MobileEntity.java:resolveOrder",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "target": "function:src/cr0s/javara/entity/MobileEntity.java:setCellPos",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "target": "function:src/cr0s/javara/entity/MobileEntity.java:setCellPos",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "target": "function:src/cr0s/javara/entity/MobileEntity.java:moveFollow",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "target": "function:src/cr0s/javara/entity/MobileEntity.java:moveFollow",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "target": "function:src/cr0s/javara/entity/MobileEntity.java:moveWithinRange",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "target": "function:src/cr0s/javara/entity/MobileEntity.java:moveWithinRange",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackFollow.java",
+      "target": "file:src/cr0s/javara/combat/Armament.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackFollow.java",
+      "target": "file:src/cr0s/javara/entity/actor/activity/activities/Follow.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackFollow.java",
+      "target": "file:src/cr0s/javara/entity/actor/activity/Activity.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackFollow.java",
+      "target": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackFollow.java",
+      "target": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackFollow.java",
+      "target": "file:src/cr0s/javara/order/Order.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/combat/attack/AttackFollow.java",
+      "target": "file:src/cr0s/javara/order/Target.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "target": "file:src/cr0s/javara/entity/actor/activity/activities/Follow.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "target": "file:src/cr0s/javara/entity/actor/activity/activities/Move.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "target": "file:src/cr0s/javara/entity/actor/activity/activities/MoveInfantry.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "target": "file:src/cr0s/javara/entity/actor/activity/Activity.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "target": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "target": "file:src/cr0s/javara/entity/building/EntityBuilding.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "target": "file:src/cr0s/javara/main/GUI.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "target": "file:src/cr0s/javara/order/InputAttributes.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "target": "file:src/cr0s/javara/order/MoveOrderTargeter.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "target": "file:src/cr0s/javara/order/Order.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "target": "file:src/cr0s/javara/order/OrderTargeter.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "target": "file:src/cr0s/javara/order/Target.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "target": "file:src/cr0s/javara/render/World.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/MobileEntity.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "target": "file:src/cr0s/javara/combat/ArmorType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "target": "file:src/cr0s/javara/combat/TargetType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "target": "file:src/cr0s/javara/entity/actor/activity/Activity.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "target": "file:src/cr0s/javara/entity/Entity.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "target": "file:src/cr0s/javara/entity/INotifySelected.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "target": "file:src/cr0s/javara/order/InputAttributes.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "target": "file:src/cr0s/javara/order/IOrderIssuer.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "target": "file:src/cr0s/javara/order/IOrderResolver.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "target": "file:src/cr0s/javara/order/Order.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "target": "file:src/cr0s/javara/order/OrderTargeter.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "target": "file:src/cr0s/javara/order/Target.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/actor/activity/Activity.java",
+      "target": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

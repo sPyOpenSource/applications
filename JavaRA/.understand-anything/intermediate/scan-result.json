@@ -1,0 +1,3881 @@
+{
+  "name": "JavaRA",
+  "description": "A Java clone of Command \\& Conquer: Red Alert 1. Most parts are written from scratch, with some code and ideas from OpenRA.",
+  "files": [
+    {
+      "path": ".checkstyle",
+      "language": "unknown",
+      "sizeLines": 7,
+      "fileCategory": "code"
+    },
+    {
+      "path": ".classpath",
+      "language": "unknown",
+      "sizeLines": 25,
+      "fileCategory": "code"
+    },
+    {
+      "path": ".project",
+      "language": "unknown",
+      "sizeLines": 34,
+      "fileCategory": "code"
+    },
+    {
+      "path": ".settings/org.eclipse.jdt.core.prefs",
+      "language": "prefs",
+      "sizeLines": 281,
+      "fileCategory": "code"
+    },
+    {
+      "path": ".settings/org.eclipse.jdt.ui.prefs",
+      "language": "prefs",
+      "sizeLines": 60,
+      "fileCategory": "code"
+    },
+    {
+      "path": ".understand-anything/.understandignore",
+      "language": "unknown",
+      "sizeLines": 31,
+      "fileCategory": "code"
+    },
+    {
+      "path": ".understand-anything/config.json",
+      "language": "json",
+      "sizeLines": 0,
+      "fileCategory": "config"
+    },
+    {
+      "path": "ai/NavalAI.yaml",
+      "language": "yaml",
+      "sizeLines": 52,
+      "fileCategory": "config"
+    },
+    {
+      "path": "ai/NormalAI.yaml",
+      "language": "yaml",
+      "sizeLines": 66,
+      "fileCategory": "config"
+    },
+    {
+      "path": "ai/RushAI.yaml",
+      "language": "yaml",
+      "sizeLines": 53,
+      "fileCategory": "config"
+    },
+    {
+      "path": "ai/TurtleAI.yaml",
+      "language": "yaml",
+      "sizeLines": 65,
+      "fileCategory": "config"
+    },
+    {
+      "path": "assets/allies.mix",
+      "language": "mix",
+      "sizeLines": 3089,
+      "fileCategory": "code"
+    },
+    {
+      "path": "assets/conquer.mix",
+      "language": "mix",
+      "sizeLines": 12096,
+      "fileCategory": "code"
+    },
+    {
+      "path": "assets/general.mix",
+      "language": "mix",
+      "sizeLines": 5872,
+      "fileCategory": "code"
+    },
+    {
+      "path": "assets/hires.mix",
+      "language": "mix",
+      "sizeLines": 7602,
+      "fileCategory": "code"
+    },
+    {
+      "path": "assets/interface.mix",
+      "language": "mix",
+      "sizeLines": 4677,
+      "fileCategory": "code"
+    },
+    {
+      "path": "assets/interior.mix",
+      "language": "mix",
+      "sizeLines": 6,
+      "fileCategory": "code"
+    },
+    {
+      "path": "assets/mouse.shp",
+      "language": "shp",
+      "sizeLines": 301,
+      "fileCategory": "code"
+    },
+    {
+      "path": "assets/pal/00000005.pal",
+      "language": "pal",
+      "sizeLines": 1,
+      "fileCategory": "code"
+    },
+    {
+      "path": "assets/pal/egopal.pal",
+      "language": "pal",
+      "sizeLines": 15,
+      "fileCategory": "code"
+    },
+    {
+      "path": "assets/pal/interior.pal",
+      "language": "pal",
+      "sizeLines": 15,
+      "fileCategory": "code"
+    },
+    {
+      "path": "assets/pal/snow.pal",
+      "language": "pal",
+      "sizeLines": 15,
+      "fileCategory": "code"
+    },
+    {
+      "path": "assets/pal/temperat.pal",
+      "language": "pal",
+      "sizeLines": 15,
+      "fileCategory": "code"
+    },
+    {
+      "path": "assets/redalert.mix",
+      "language": "mix",
+      "sizeLines": 25027,
+      "fileCategory": "code"
+    },
+    {
+      "path": "assets/russian.mix",
+      "language": "mix",
+      "sizeLines": 2502,
+      "fileCategory": "code"
+    },
+    {
+      "path": "assets/scores.mix",
+      "language": "mix",
+      "sizeLines": 45474,
+      "fileCategory": "code"
+    },
+    {
+      "path": "assets/snow.mix",
+      "language": "mix",
+      "sizeLines": 886,
+      "fileCategory": "code"
+    },
+    {
+      "path": "assets/sounds.mix",
+      "language": "mix",
+      "sizeLines": 9311,
+      "fileCategory": "code"
+    },
+    {
+      "path": "assets/speech.mix",
+      "language": "mix",
+      "sizeLines": 17506,
+      "fileCategory": "code"
+    },
+    {
+      "path": "assets/temperat.mix",
+      "language": "mix",
+      "sizeLines": 973,
+      "fileCategory": "code"
+    },
+    {
+      "path": "assets/trees.yaml",
+      "language": "yaml",
+      "sizeLines": 406,
+      "fileCategory": "config"
+    },
+    {
+      "path": "bin/net/pso/jswarm/example_1/Example.java,v",
+      "language": "java,v",
+      "sizeLines": 194,
+      "fileCategory": "code"
+    },
+    {
+      "path": "bin/net/pso/jswarm/example_1/MyParticle.java,v",
+      "language": "java,v",
+      "sizeLines": 55,
+      "fileCategory": "code"
+    },
+    {
+      "path": "bin/net/pso/jswarm/rosenbrock_30/Example.java,v",
+      "language": "java,v",
+      "sizeLines": 118,
+      "fileCategory": "code"
+    },
+    {
+      "path": "bin/net/pso/jswarm/rosenbrock_30/MyFitnessFunction.java,v",
+      "language": "java,v",
+      "sizeLines": 85,
+      "fileCategory": "code"
+    },
+    {
+      "path": "bin/net/pso/jswarm/rosenbrock_30/MyParticle.java,v",
+      "language": "java,v",
+      "sizeLines": 55,
+      "fileCategory": "code"
+    },
+    {
+      "path": "bin/net/pso/jswarm/rosenbrock/Example.java,v",
+      "language": "java,v",
+      "sizeLines": 89,
+      "fileCategory": "code"
+    },
+    {
+      "path": "bin/net/pso/jswarm/schaffer/Example.java,v",
+      "language": "java,v",
+      "sizeLines": 92,
+      "fileCategory": "code"
+    },
+    {
+      "path": "bin/net/pso/jswarm/sphere/Example.java,v",
+      "language": "java,v",
+      "sizeLines": 88,
+      "fileCategory": "code"
+    },
+    {
+      "path": "bin/net/pso/jswarm/sphere/MyParticle.java,v",
+      "language": "java,v",
+      "sizeLines": 37,
+      "fileCategory": "code"
+    },
+    {
+      "path": "bin/net/pso/jswarm/zzz/Example.java,v",
+      "language": "java,v",
+      "sizeLines": 65,
+      "fileCategory": "code"
+    },
+    {
+      "path": "build.xml",
+      "language": "xml",
+      "sizeLines": 73,
+      "fileCategory": "config"
+    },
+    {
+      "path": "example_coords.txt",
+      "language": "txt",
+      "sizeLines": 1,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "example_maze.txt",
+      "language": "txt",
+      "sizeLines": 76,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "example_venues.txt",
+      "language": "txt",
+      "sizeLines": 21,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "lib/AppleJavaExtensions.jar",
+      "language": "jar",
+      "sizeLines": 21,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/asm-debug-all.jar",
+      "language": "jar",
+      "sizeLines": 1580,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/ibxm.jar",
+      "language": "jar",
+      "sizeLines": 122,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/jinput.jar",
+      "language": "jar",
+      "sizeLines": 1107,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/jnlp.jar",
+      "language": "jar",
+      "sizeLines": 25,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/jogg-0.0.7.jar",
+      "language": "jar",
+      "sizeLines": 14,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/jorbis-0.0.15.jar",
+      "language": "jar",
+      "sizeLines": 220,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/lwjgl_test.jar",
+      "language": "jar",
+      "sizeLines": 1421,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/lwjgl_util_applet.jar",
+      "language": "jar",
+      "sizeLines": 185,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/lwjgl_util.jar",
+      "language": "jar",
+      "sizeLines": 871,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/lwjgl-debug.jar",
+      "language": "jar",
+      "sizeLines": 5006,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/lwjgl.jar",
+      "language": "jar",
+      "sizeLines": 4923,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/lzma.jar",
+      "language": "jar",
+      "sizeLines": 24,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/natives-linux.jar",
+      "language": "jar",
+      "sizeLines": 1808,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/natives-mac.jar",
+      "language": "jar",
+      "sizeLines": 1817,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/natives-windows.jar",
+      "language": "jar",
+      "sizeLines": 2634,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/natives/jinput-dx8_64.dll",
+      "language": "dll",
+      "sizeLines": 262,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/natives/jinput-dx8.dll",
+      "language": "dll",
+      "sizeLines": 208,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/natives/jinput-raw_64.dll",
+      "language": "dll",
+      "sizeLines": 245,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/natives/jinput-raw.dll",
+      "language": "dll",
+      "sizeLines": 171,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/natives/libjinput-linux.so",
+      "language": "so",
+      "sizeLines": 24,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/natives/libjinput-linux64.so",
+      "language": "so",
+      "sizeLines": 28,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/natives/libjinput-osx.jnilib",
+      "language": "jnilib",
+      "sizeLines": 86,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/natives/liblwjgl.jnilib",
+      "language": "jnilib",
+      "sizeLines": 467,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/natives/liblwjgl.so",
+      "language": "so",
+      "sizeLines": 159,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/natives/liblwjgl64.so",
+      "language": "so",
+      "sizeLines": 977,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/natives/libopenal.so",
+      "language": "so",
+      "sizeLines": 1093,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/natives/libopenal64.so",
+      "language": "so",
+      "sizeLines": 833,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/natives/lwjgl.dll",
+      "language": "dll",
+      "sizeLines": 245,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/natives/lwjgl64.dll",
+      "language": "dll",
+      "sizeLines": 409,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/natives/openal.dylib",
+      "language": "dylib",
+      "sizeLines": 159,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/natives/OpenAL32.dll",
+      "language": "dll",
+      "sizeLines": 1097,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/natives/OpenAL64.dll",
+      "language": "dll",
+      "sizeLines": 1254,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/slick-examples.jar",
+      "language": "jar",
+      "sizeLines": 50,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/slick.jar",
+      "language": "jar",
+      "sizeLines": 3311,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/snakeyaml-1.13.jar",
+      "language": "jar",
+      "sizeLines": 904,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/tinylinepp.jar",
+      "language": "jar",
+      "sizeLines": 331,
+      "fileCategory": "code"
+    },
+    {
+      "path": "LICENSE.txt",
+      "language": "txt",
+      "sizeLines": 674,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "maps/forest-path/map.bin",
+      "language": "bin",
+      "sizeLines": 119,
+      "fileCategory": "code"
+    },
+    {
+      "path": "maps/forest-path/map.yaml",
+      "language": "yaml",
+      "sizeLines": 449,
+      "fileCategory": "config"
+    },
+    {
+      "path": "maps/haos-ridges/map.bin",
+      "language": "bin",
+      "sizeLines": 487,
+      "fileCategory": "code"
+    },
+    {
+      "path": "maps/haos-ridges/map.yaml",
+      "language": "yaml",
+      "sizeLines": 988,
+      "fileCategory": "config"
+    },
+    {
+      "path": "nb-build.xml",
+      "language": "xml",
+      "sizeLines": 73,
+      "fileCategory": "config"
+    },
+    {
+      "path": "nbproject/build-impl.xml",
+      "language": "xml",
+      "sizeLines": 1789,
+      "fileCategory": "config"
+    },
+    {
+      "path": "nbproject/genfiles.properties",
+      "language": "properties",
+      "sizeLines": 8,
+      "fileCategory": "config"
+    },
+    {
+      "path": "nbproject/project.properties",
+      "language": "properties",
+      "sizeLines": 128,
+      "fileCategory": "config"
+    },
+    {
+      "path": "nbproject/project.xml",
+      "language": "xml",
+      "sizeLines": 25,
+      "fileCategory": "config"
+    },
+    {
+      "path": "README.md",
+      "language": "markdown",
+      "sizeLines": 7,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "src/cr0s/javara/ai/AIPlayer.java",
+      "language": "java",
+      "sizeLines": 786,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/ai/BaseBuilder.java",
+      "language": "java",
+      "sizeLines": 195,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/ai/Squad.java",
+      "language": "java",
+      "sizeLines": 88,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/ai/StateMachine.java",
+      "language": "java",
+      "sizeLines": 40,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/ai/states/GroundStateBase.java",
+      "language": "java",
+      "sizeLines": 82,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/ai/states/StateBase.java",
+      "language": "java",
+      "sizeLines": 93,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/combat/Armament.java",
+      "language": "java",
+      "sizeLines": 193,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/combat/ArmorType.java",
+      "language": "java",
+      "sizeLines": 5,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/combat/attack/AttackBase.java",
+      "language": "java",
+      "sizeLines": 217,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/combat/attack/AttackCharge.java",
+      "language": "java",
+      "sizeLines": 110,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/combat/attack/AttackFollow.java",
+      "language": "java",
+      "sizeLines": 91,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/combat/attack/AttackFrontal.java",
+      "language": "java",
+      "sizeLines": 44,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/combat/attack/AttackTurreted.java",
+      "language": "java",
+      "sizeLines": 33,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/combat/attack/AutoTarget.java",
+      "language": "java",
+      "sizeLines": 124,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/combat/attack/ICanAttack.java",
+      "language": "java",
+      "sizeLines": 5,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/combat/attack/UnitStance.java",
+      "language": "java",
+      "sizeLines": 5,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/combat/Combat.java",
+      "language": "java",
+      "sizeLines": 151,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/combat/DamageModel.java",
+      "language": "java",
+      "sizeLines": 5,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/combat/Projectile.java",
+      "language": "java",
+      "sizeLines": 104,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/combat/TargetType.java",
+      "language": "java",
+      "sizeLines": 5,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/combat/Warhead.java",
+      "language": "java",
+      "sizeLines": 42,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/combat/Weapon.java",
+      "language": "java",
+      "sizeLines": 114,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/combat/weapon/Weapon105mm.java",
+      "language": "java",
+      "sizeLines": 95,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/combat/weapon/Weapon120mm.java",
+      "language": "java",
+      "sizeLines": 95,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/combat/weapon/WeaponDragon.java",
+      "language": "java",
+      "sizeLines": 110,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/combat/weapon/WeaponFireballLauncher.java",
+      "language": "java",
+      "sizeLines": 95,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/combat/weapon/WeaponGrenade.java",
+      "language": "java",
+      "sizeLines": 88,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/combat/weapon/WeaponM1Carabine.java",
+      "language": "java",
+      "sizeLines": 75,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/combat/weapon/WeaponMammothTusk.java",
+      "language": "java",
+      "sizeLines": 109,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/combat/weapon/WeaponSCUD.java",
+      "language": "java",
+      "sizeLines": 101,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/combat/weapon/WeaponTeslaZap.java",
+      "language": "java",
+      "sizeLines": 75,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/entity/actor/activity/activities/Attack.java",
+      "language": "java",
+      "sizeLines": 81,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/entity/actor/activity/activities/Deploy.java",
+      "language": "java",
+      "sizeLines": 16,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/entity/actor/activity/activities/Drag.java",
+      "language": "java",
+      "sizeLines": 49,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/entity/actor/activity/activities/Follow.java",
+      "language": "java",
+      "sizeLines": 48,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/entity/actor/activity/activities/harvester/DeliverResources.java",
+      "language": "java",
+      "sizeLines": 36,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/entity/actor/activity/activities/harvester/DropResources.java",
+      "language": "java",
+      "sizeLines": 64,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/entity/actor/activity/activities/harvester/FindResources.java",
+      "language": "java",
+      "sizeLines": 148,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/entity/actor/activity/activities/harvester/FinishDrop.java",
+      "language": "java",
+      "sizeLines": 22,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/entity/actor/activity/activities/harvester/HarvestResource.java",
+      "language": "java",
+      "sizeLines": 63,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/entity/actor/activity/activities/Move.java",
+      "language": "java",
+      "sizeLines": 333,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/entity/actor/activity/activities/MoveInfantry.java",
+      "language": "java",
+      "sizeLines": 330,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/entity/actor/activity/activities/Turn.java",
+      "language": "java",
+      "sizeLines": 63,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/entity/actor/activity/activities/Wait.java",
+      "language": "java",
+      "sizeLines": 23,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/entity/actor/activity/activities/WaitFor.java",
+      "language": "java",
+      "sizeLines": 49,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/entity/actor/activity/Activity.java",
+      "language": "java",
+      "sizeLines": 34,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/entity/actor/EntityActor.java",
+      "language": "java",
+      "sizeLines": 152,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/entity/aircraft/ArcherBalloon.java",
+      "language": "java",
+      "sizeLines": 37,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/entity/aircraft/DefBalloon.java",
+      "language": "java",
+      "sizeLines": 36,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/entity/aircraft/Dragon.java",
+      "language": "java",
+      "sizeLines": 60,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/entity/aircraft/EntityAircraft.java",
+      "language": "java",
+      "sizeLines": 43,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/entity/aircraft/GoblinBalloon.java",
+      "language": "java",
+      "sizeLines": 36,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/entity/building/BibType.java",
+      "language": "java",
+      "sizeLines": 9,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/entity/building/BuildingType.java",
+      "language": "java",
+      "sizeLines": 5,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/entity/building/china/ArcherTower.java",
+      "language": "java",
+      "sizeLines": 32,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/entity/building/china/Barrack.java",
+      "language": "java",
+      "sizeLines": 42,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/entity/building/china/ElixirCollector.java",
+      "language": "java",
+      "sizeLines": 42,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/entity/building/china/GoldMine.java",
+      "language": "java",
+      "sizeLines": 40,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/entity/building/china/InfernoTower.java",
+      "language": "java",
+      "sizeLines": 45,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/entity/building/china/package.bluej",
+      "language": "bluej",
+      "sizeLines": 117,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/entity/building/china/Tesla.java",
+      "language": "java",
+      "sizeLines": 32,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/entity/building/china/TownHall.java",
+      "language": "java",
+      "sizeLines": 45,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java",
+      "language": "java",
+      "sizeLines": 142,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/entity/building/common/EntityConcreteWall.java",
+      "language": "java",
+      "sizeLines": 39,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/entity/building/common/EntityConstructionYard.java",
+      "language": "java",
+      "sizeLines": 174,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/entity/building/common/EntityHelipad.java",
+      "language": "java",
+      "sizeLines": 186,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/entity/building/common/EntityOreSilo.java",
+      "language": "java",
+      "sizeLines": 178,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/entity/building/common/EntityPowerPlant.java",
+      "language": "java",
+      "sizeLines": 136,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/entity/building/common/EntityProc.java",
+      "language": "java",
+      "sizeLines": 229,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/entity/building/common/EntityRadarDome.java",
+      "language": "java",
+      "sizeLines": 151,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/entity/building/common/EntityWall.java",
+      "language": "java",
+      "sizeLines": 136,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "language": "java",
+      "sizeLines": 365,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/entity/building/Defensive.java",
+      "language": "java",
+      "sizeLines": 34,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/entity/building/EntityBuilding.java",
+      "language": "java",
+      "sizeLines": 356,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/entity/building/EntityBuildingProgress.java",
+      "language": "java",
+      "sizeLines": 121,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/entity/building/IOreCapacitor.java",
+      "language": "java",
+      "sizeLines": 5,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/entity/building/IPowerConsumer.java",
+      "language": "java",
+      "sizeLines": 5,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/entity/building/IPowerProducer.java",
+      "language": "java",
+      "sizeLines": 5,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/entity/building/soviet/EntityAirField.java",
+      "language": "java",
+      "sizeLines": 194,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/entity/building/soviet/EntityBarracks.java",
+      "language": "java",
+      "sizeLines": 216,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/entity/building/soviet/EntityBarredWireWall.java",
+      "language": "java",
+      "sizeLines": 40,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/entity/building/soviet/EntityFireTurret.java",
+      "language": "java",
+      "sizeLines": 223,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java",
+      "language": "java",
+      "sizeLines": 240,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/entity/effect/Bullet.java",
+      "language": "java",
+      "sizeLines": 141,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/entity/effect/Explosion.java",
+      "language": "java",
+      "sizeLines": 69,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/entity/effect/Missile.java",
+      "language": "java",
+      "sizeLines": 151,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/entity/effect/MoveFlash.java",
+      "language": "java",
+      "sizeLines": 59,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/entity/effect/MuzzleFlash.java",
+      "language": "java",
+      "sizeLines": 60,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/entity/effect/ScreenShaker.java",
+      "language": "java",
+      "sizeLines": 121,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/entity/effect/SequencePlayer.java",
+      "language": "java",
+      "sizeLines": 55,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/entity/effect/Smoke.java",
+      "language": "java",
+      "sizeLines": 64,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/entity/effect/SmokeOnUnit.java",
+      "language": "java",
+      "sizeLines": 76,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/entity/effect/TeslaZap.java",
+      "language": "java",
+      "sizeLines": 75,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/entity/effect/TeslaZapRenderer.java",
+      "language": "java",
+      "sizeLines": 169,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/entity/Entity.java",
+      "language": "java",
+      "sizeLines": 284,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/entity/IDefense.java",
+      "language": "java",
+      "sizeLines": 5,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/entity/IDeployable.java",
+      "language": "java",
+      "sizeLines": 11,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/entity/IEffect.java",
+      "language": "java",
+      "sizeLines": 5,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/entity/IHaveCost.java",
+      "language": "java",
+      "sizeLines": 5,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/entity/infantry/EntityGrenadeTrooper.java",
+      "language": "java",
+      "sizeLines": 120,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "language": "java",
+      "sizeLines": 421,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/entity/infantry/EntityRifleTrooper.java",
+      "language": "java",
+      "sizeLines": 113,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/entity/infantry/EntityRocketTrooper.java",
+      "language": "java",
+      "sizeLines": 114,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/entity/infantry/Panda.java",
+      "language": "java",
+      "sizeLines": 63,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/entity/INotifyBlockingMove.java",
+      "language": "java",
+      "sizeLines": 9,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/entity/INotifySelected.java",
+      "language": "java",
+      "sizeLines": 5,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/entity/IPips.java",
+      "language": "java",
+      "sizeLines": 8,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/entity/ISelectable.java",
+      "language": "java",
+      "sizeLines": 11,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/entity/IShroudRevealer.java",
+      "language": "java",
+      "sizeLines": 5,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/entity/MobileEntity.java",
+      "language": "java",
+      "sizeLines": 340,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/entity/turreted/IHaveTurret.java",
+      "language": "java",
+      "sizeLines": 11,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/entity/turreted/Turret.java",
+      "language": "java",
+      "sizeLines": 218,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "language": "java",
+      "sizeLines": 390,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "language": "java",
+      "sizeLines": 267,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/entity/vehicle/EntityVehicle.java",
+      "language": "java",
+      "sizeLines": 207,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "language": "java",
+      "sizeLines": 264,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "language": "java",
+      "sizeLines": 293,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java",
+      "language": "java",
+      "sizeLines": 208,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/gameplay/Base.java",
+      "language": "java",
+      "sizeLines": 545,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/gameplay/BuildingOverlay.java",
+      "language": "java",
+      "sizeLines": 174,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/gameplay/Player.java",
+      "language": "java",
+      "sizeLines": 261,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/gameplay/Production.java",
+      "language": "java",
+      "sizeLines": 266,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/gameplay/ProductionQueue.java",
+      "language": "java",
+      "sizeLines": 333,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/gameplay/Team.java",
+      "language": "java",
+      "sizeLines": 19,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/main/GUI.java",
+      "language": "java",
+      "sizeLines": 199,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/main/StateGameMap.java",
+      "language": "java",
+      "sizeLines": 323,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/main/StateLoadingScreen.java",
+      "language": "java",
+      "sizeLines": 95,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/main/StateMainMenu.java",
+      "language": "java",
+      "sizeLines": 212,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/main/StatePauseMenu.java",
+      "language": "java",
+      "sizeLines": 208,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/main/StateTestScreen.java",
+      "language": "java",
+      "sizeLines": 110,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/order/InputAttributes.java",
+      "language": "java",
+      "sizeLines": 11,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/order/IOrderIssuer.java",
+      "language": "java",
+      "sizeLines": 10,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/order/IOrderResolver.java",
+      "language": "java",
+      "sizeLines": 5,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/order/ITargetLines.java",
+      "language": "java",
+      "sizeLines": 7,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/order/MoveOrderTargeter.java",
+      "language": "java",
+      "sizeLines": 35,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/order/Order.java",
+      "language": "java",
+      "sizeLines": 43,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/order/OrderTargeter.java",
+      "language": "java",
+      "sizeLines": 24,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/order/Target.java",
+      "language": "java",
+      "sizeLines": 67,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/order/TargetLine.java",
+      "language": "java",
+      "sizeLines": 52,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/perfomance/PerfomanceGraphRenderer.java",
+      "language": "java",
+      "sizeLines": 69,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/perfomance/Profiler.java",
+      "language": "java",
+      "sizeLines": 54,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/perfomance/ProfilingSection.java",
+      "language": "java",
+      "sizeLines": 70,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/render/Controller.java",
+      "language": "java",
+      "sizeLines": 138,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/render/EntityBlockingMap.java",
+      "language": "java",
+      "sizeLines": 281,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/render/map/AStarPathFinder.java",
+      "language": "java",
+      "sizeLines": 76,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/render/map/InfantryPathfinder.java",
+      "language": "java",
+      "sizeLines": 37,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/render/map/Map.java",
+      "language": "java",
+      "sizeLines": 26,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/render/map/MapEntity.java",
+      "language": "java",
+      "sizeLines": 93,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/render/map/MinimapRenderer.java",
+      "language": "java",
+      "sizeLines": 109,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/render/map/Mover.java",
+      "language": "java",
+      "sizeLines": 25,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/render/map/ResourcesLayer.java",
+      "language": "java",
+      "sizeLines": 168,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/render/map/SmudgeLayer.java",
+      "language": "java",
+      "sizeLines": 109,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/render/map/TheaterCache.java",
+      "language": "java",
+      "sizeLines": 302,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/render/map/TileMap.java",
+      "language": "java",
+      "sizeLines": 357,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/render/map/TileReference.java",
+      "language": "java",
+      "sizeLines": 21,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/render/map/TileSet.java",
+      "language": "java",
+      "sizeLines": 117,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/render/map/VehiclePathfinder.java",
+      "language": "java",
+      "sizeLines": 42,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/render/PathFindingContext.java",
+      "language": "java",
+      "sizeLines": 27,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/render/Sequence.java",
+      "language": "java",
+      "sizeLines": 106,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/render/shrouds/Shroud.java",
+      "language": "java",
+      "sizeLines": 68,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/render/shrouds/ShroudRenderer.java",
+      "language": "java",
+      "sizeLines": 180,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/render/viewport/Camera.java",
+      "language": "java",
+      "sizeLines": 94,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/render/World.java",
+      "language": "java",
+      "sizeLines": 740,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/resources/RemappedTextureCache.java",
+      "language": "java",
+      "sizeLines": 68,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/resources/ResourceManager.java",
+      "language": "java",
+      "sizeLines": 362,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/resources/ShpTexture.java",
+      "language": "java",
+      "sizeLines": 226,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/resources/SoundManager.java",
+      "language": "java",
+      "sizeLines": 115,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/resources/TmpTexture.java",
+      "language": "java",
+      "sizeLines": 188,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/ui/cursor/CursorManager.java",
+      "language": "java",
+      "sizeLines": 133,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/ui/cursor/CursorSequence.java",
+      "language": "java",
+      "sizeLines": 39,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/ui/cursor/CursorType.java",
+      "language": "java",
+      "sizeLines": 26,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/ui/GameSideBar.java",
+      "language": "java",
+      "sizeLines": 560,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/ui/PowerBarRenderer.java",
+      "language": "java",
+      "sizeLines": 66,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/ui/sbpages/building/BuildingSidebarButton.java",
+      "language": "java",
+      "sizeLines": 11,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/ui/sbpages/building/PageBuildingSoviet.java",
+      "language": "java",
+      "sizeLines": 65,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/ui/sbpages/infantry/InfantrySidebarButton.java",
+      "language": "java",
+      "sizeLines": 21,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/ui/sbpages/infantry/PageInfantry.java",
+      "language": "java",
+      "sizeLines": 45,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/ui/sbpages/SideBarItemsButton.java",
+      "language": "java",
+      "sizeLines": 77,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/ui/sbpages/SideBarPage.java",
+      "language": "java",
+      "sizeLines": 106,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/ui/sbpages/vehicle/PageVehicle.java",
+      "language": "java",
+      "sizeLines": 65,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/ui/sbpages/vehicle/VehicleSidebarButton.java",
+      "language": "java",
+      "sizeLines": 12,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/ui/SideBarPageCategory.java",
+      "language": "java",
+      "sizeLines": 16,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/ui/SideBarToolTip.java",
+      "language": "java",
+      "sizeLines": 32,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/util/Action.java",
+      "language": "java",
+      "sizeLines": 9,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/util/CellChooser.java",
+      "language": "java",
+      "sizeLines": 5,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/util/PointsUtil.java",
+      "language": "java",
+      "sizeLines": 60,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/util/Pos.java",
+      "language": "java",
+      "sizeLines": 161,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/util/RotationUtil.java",
+      "language": "java",
+      "sizeLines": 94,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/util/SpriteSheet.java",
+      "language": "java",
+      "sizeLines": 130,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/cr0s/javara/util/WaitAction.java",
+      "language": "java",
+      "sizeLines": 9,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/mazesolver/Ant.java",
+      "language": "java",
+      "sizeLines": 151,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/mazesolver/Director.java",
+      "language": "java",
+      "sizeLines": 318,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/mazesolver/Graphics.java",
+      "language": "java",
+      "sizeLines": 263,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/mazesolver/Helper.java",
+      "language": "java",
+      "sizeLines": 265,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/mazesolver/Main.java",
+      "language": "java",
+      "sizeLines": 53,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/mazesolver/Maze.java",
+      "language": "java",
+      "sizeLines": 230,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/mazesolver/Route.java",
+      "language": "java",
+      "sizeLines": 158,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/mazesolver/Settings.java",
+      "language": "java",
+      "sizeLines": 89,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/mazesolver/SubRoute.java",
+      "language": "java",
+      "sizeLines": 166,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/mazesolver/Venue.java",
+      "language": "java",
+      "sizeLines": 37,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/module-info.java",
+      "language": "java",
+      "sizeLines": 29,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/net/pso/jswarm/alpine/Example.java",
+      "language": "java",
+      "sizeLines": 44,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/net/pso/jswarm/alpine/ExampleRepulsive.java",
+      "language": "java",
+      "sizeLines": 42,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/net/pso/jswarm/alpine/MyFitnessFunction.java",
+      "language": "java",
+      "sizeLines": 30,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/net/pso/jswarm/alpine/MyParticle.java",
+      "language": "java",
+      "sizeLines": 16,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/net/pso/jswarm/Attic/example_2/Attic/DrawingArea.java",
+      "language": "java",
+      "sizeLines": 68,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/net/pso/jswarm/Attic/example_2/Attic/Example.java",
+      "language": "java",
+      "sizeLines": 48,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/net/pso/jswarm/Attic/example_2/Attic/MyFitnessFunction.java",
+      "language": "java",
+      "sizeLines": 38,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/net/pso/jswarm/Attic/example_2/Attic/MyParticle.java",
+      "language": "java",
+      "sizeLines": 42,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/net/pso/jswarm/Attic/example_2/Attic/SwarmShow2D.java",
+      "language": "java",
+      "sizeLines": 205,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/net/pso/jswarm/Attic/example_2/Attic/SwarmThread.java",
+      "language": "java",
+      "sizeLines": 50,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/net/pso/jswarm/Attic/Example.java",
+      "language": "java",
+      "sizeLines": 35,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/net/pso/jswarm/Attic/MyFitnessFunction.java",
+      "language": "java",
+      "sizeLines": 30,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/net/pso/jswarm/Attic/MyParticle.java",
+      "language": "java",
+      "sizeLines": 15,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/net/pso/jswarm/Attic/Swarm.java",
+      "language": "java",
+      "sizeLines": 472,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/net/pso/jswarm/example_1/Example.java,v",
+      "language": "java,v",
+      "sizeLines": 194,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/net/pso/jswarm/example_1/MyParticle.java,v",
+      "language": "java,v",
+      "sizeLines": 55,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/net/pso/jswarm/example_2/DrawingArea.java",
+      "language": "java",
+      "sizeLines": 67,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/net/pso/jswarm/example_2/Example.java",
+      "language": "java",
+      "sizeLines": 51,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/net/pso/jswarm/example_2/SwarmShow2D.java",
+      "language": "java",
+      "sizeLines": 207,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/net/pso/jswarm/example_2/SwarmThread.java",
+      "language": "java",
+      "sizeLines": 50,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/net/pso/jswarm/FitnessFunction.java",
+      "language": "java",
+      "sizeLines": 78,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/net/pso/jswarm/Gpr.java",
+      "language": "java",
+      "sizeLines": 110,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/net/pso/jswarm/Neighborhood.java",
+      "language": "java",
+      "sizeLines": 93,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/net/pso/jswarm/Neighborhood1D.java",
+      "language": "java",
+      "sizeLines": 79,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/net/pso/jswarm/Particle.java",
+      "language": "java",
+      "sizeLines": 331,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/net/pso/jswarm/ParticleUpdate.java",
+      "language": "java",
+      "sizeLines": 35,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/net/pso/jswarm/ParticleUpdateFullyRandom.java",
+      "language": "java",
+      "sizeLines": 40,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/net/pso/jswarm/ParticleUpdateRandomByParticle.java",
+      "language": "java",
+      "sizeLines": 44,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/net/pso/jswarm/ParticleUpdateRepulsive.java",
+      "language": "java",
+      "sizeLines": 80,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/net/pso/jswarm/ParticleUpdateSimple.java",
+      "language": "java",
+      "sizeLines": 72,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/net/pso/jswarm/rosenbrock_30/Example.java,v",
+      "language": "java,v",
+      "sizeLines": 118,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/net/pso/jswarm/rosenbrock_30/MyFitnessFunction.java,v",
+      "language": "java,v",
+      "sizeLines": 85,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/net/pso/jswarm/rosenbrock_30/MyParticle.java,v",
+      "language": "java,v",
+      "sizeLines": 55,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/net/pso/jswarm/rosenbrock/Example.java,v",
+      "language": "java,v",
+      "sizeLines": 89,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/net/pso/jswarm/rosenbrock/MyFitnessFunction.java",
+      "language": "java",
+      "sizeLines": 37,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/net/pso/jswarm/schaffer/Example.java,v",
+      "language": "java,v",
+      "sizeLines": 92,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/net/pso/jswarm/schaffer/MyFitnessFunction.java",
+      "language": "java",
+      "sizeLines": 36,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/net/pso/jswarm/sphere/Example.java,v",
+      "language": "java,v",
+      "sizeLines": 88,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/net/pso/jswarm/sphere/MyFitnessFunction.java",
+      "language": "java",
+      "sizeLines": 36,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/net/pso/jswarm/sphere/MyParticle.java,v",
+      "language": "java,v",
+      "sizeLines": 37,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/net/pso/jswarm/Swarm.java",
+      "language": "java",
+      "sizeLines": 533,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/net/pso/jswarm/SwarmRepulsive.java",
+      "language": "java",
+      "sizeLines": 50,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/net/pso/jswarm/VariablesUpdate.java",
+      "language": "java",
+      "sizeLines": 28,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/net/pso/jswarm/zzz/Example.java,v",
+      "language": "java,v",
+      "sizeLines": 65,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/net/pso/jswarm/zzz/MyFitnessFunction.java",
+      "language": "java",
+      "sizeLines": 26,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/soundly/AudioData.java",
+      "language": "java",
+      "sizeLines": 48,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/soundly/impl/XOpenALStreamPlayer.java",
+      "language": "java",
+      "sizeLines": 318,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/soundly/ManagedSound.java",
+      "language": "java",
+      "sizeLines": 390,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/soundly/Mix.java",
+      "language": "java",
+      "sizeLines": 126,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/soundly/SoundGroup.java",
+      "language": "java",
+      "sizeLines": 148,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/soundly/Soundly.java",
+      "language": "java",
+      "sizeLines": 1036,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/soundly/SoundStore.java",
+      "language": "java",
+      "sizeLines": 75,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/soundly/XSound.java",
+      "language": "java",
+      "sizeLines": 292,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/soundly/XStreamingSound.java",
+      "language": "java",
+      "sizeLines": 214,
+      "fileCategory": "code"
+    },
+    {
+      "path": "test/module-info.java",
+      "language": "java",
+      "sizeLines": 21,
+      "fileCategory": "code"
+    },
+    {
+      "path": "test/test/ClassTest.java",
+      "language": "java",
+      "sizeLines": 55,
+      "fileCategory": "code"
+    },
+    {
+      "path": "test/test/PointsUtilTest.java",
+      "language": "java",
+      "sizeLines": 88,
+      "fileCategory": "code"
+    },
+    {
+      "path": "test/test/PosTest.java",
+      "language": "java",
+      "sizeLines": 223,
+      "fileCategory": "code"
+    },
+    {
+      "path": "test/test/RotationUtilTest.java",
+      "language": "java",
+      "sizeLines": 176,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tilesets/desert.yaml",
+      "language": "yaml",
+      "sizeLines": 3101,
+      "fileCategory": "config"
+    },
+    {
+      "path": "tilesets/interior.yaml",
+      "language": "yaml",
+      "sizeLines": 864,
+      "fileCategory": "config"
+    },
+    {
+      "path": "tilesets/snow.yaml",
+      "language": "yaml",
+      "sizeLines": 3139,
+      "fileCategory": "config"
+    },
+    {
+      "path": "tilesets/temperat.yaml",
+      "language": "yaml",
+      "sizeLines": 3621,
+      "fileCategory": "config"
+    }
+  ],
+  "importMap": {
+    ".checkstyle": [],
+    ".classpath": [],
+    ".project": [],
+    ".settings/org.eclipse.jdt.core.prefs": [],
+    ".settings/org.eclipse.jdt.ui.prefs": [],
+    ".understand-anything/.understandignore": [],
+    ".understand-anything/config.json": [],
+    "ai/NavalAI.yaml": [],
+    "ai/NormalAI.yaml": [],
+    "ai/RushAI.yaml": [],
+    "ai/TurtleAI.yaml": [],
+    "assets/allies.mix": [],
+    "assets/conquer.mix": [],
+    "assets/general.mix": [],
+    "assets/hires.mix": [],
+    "assets/interface.mix": [],
+    "assets/interior.mix": [],
+    "assets/mouse.shp": [],
+    "assets/pal/00000005.pal": [],
+    "assets/pal/egopal.pal": [],
+    "assets/pal/interior.pal": [],
+    "assets/pal/snow.pal": [],
+    "assets/pal/temperat.pal": [],
+    "assets/redalert.mix": [],
+    "assets/russian.mix": [],
+    "assets/scores.mix": [],
+    "assets/snow.mix": [],
+    "assets/sounds.mix": [],
+    "assets/speech.mix": [],
+    "assets/temperat.mix": [],
+    "assets/trees.yaml": [],
+    "bin/net/pso/jswarm/example_1/Example.java,v": [],
+    "bin/net/pso/jswarm/example_1/MyParticle.java,v": [],
+    "bin/net/pso/jswarm/rosenbrock_30/Example.java,v": [],
+    "bin/net/pso/jswarm/rosenbrock_30/MyFitnessFunction.java,v": [],
+    "bin/net/pso/jswarm/rosenbrock_30/MyParticle.java,v": [],
+    "bin/net/pso/jswarm/rosenbrock/Example.java,v": [],
+    "bin/net/pso/jswarm/schaffer/Example.java,v": [],
+    "bin/net/pso/jswarm/sphere/Example.java,v": [],
+    "bin/net/pso/jswarm/sphere/MyParticle.java,v": [],
+    "bin/net/pso/jswarm/zzz/Example.java,v": [],
+    "build.xml": [],
+    "example_coords.txt": [],
+    "example_maze.txt": [],
+    "example_venues.txt": [],
+    "lib/AppleJavaExtensions.jar": [],
+    "lib/asm-debug-all.jar": [],
+    "lib/ibxm.jar": [],
+    "lib/jinput.jar": [],
+    "lib/jnlp.jar": [],
+    "lib/jogg-0.0.7.jar": [],
+    "lib/jorbis-0.0.15.jar": [],
+    "lib/lwjgl_test.jar": [],
+    "lib/lwjgl_util_applet.jar": [],
+    "lib/lwjgl_util.jar": [],
+    "lib/lwjgl-debug.jar": [],
+    "lib/lwjgl.jar": [],
+    "lib/lzma.jar": [],
+    "lib/natives-linux.jar": [],
+    "lib/natives-mac.jar": [],
+    "lib/natives-windows.jar": [],
+    "lib/natives/jinput-dx8_64.dll": [],
+    "lib/natives/jinput-dx8.dll": [],
+    "lib/natives/jinput-raw_64.dll": [],
+    "lib/natives/jinput-raw.dll": [],
+    "lib/natives/libjinput-linux.so": [],
+    "lib/natives/libjinput-linux64.so": [],
+    "lib/natives/libjinput-osx.jnilib": [],
+    "lib/natives/liblwjgl.jnilib": [],
+    "lib/natives/liblwjgl.so": [],
+    "lib/natives/liblwjgl64.so": [],
+    "lib/natives/libopenal.so": [],
+    "lib/natives/libopenal64.so": [],
+    "lib/natives/lwjgl.dll": [],
+    "lib/natives/lwjgl64.dll": [],
+    "lib/natives/openal.dylib": [],
+    "lib/natives/OpenAL32.dll": [],
+    "lib/natives/OpenAL64.dll": [],
+    "lib/slick-examples.jar": [],
+    "lib/slick.jar": [],
+    "lib/snakeyaml-1.13.jar": [],
+    "lib/tinylinepp.jar": [],
+    "LICENSE.txt": [],
+    "maps/forest-path/map.bin": [],
+    "maps/forest-path/map.yaml": [],
+    "maps/haos-ridges/map.bin": [],
+    "maps/haos-ridges/map.yaml": [],
+    "nb-build.xml": [],
+    "nbproject/build-impl.xml": [],
+    "nbproject/genfiles.properties": [],
+    "nbproject/project.properties": [],
+    "nbproject/project.xml": [],
+    "README.md": [],
+    "src/cr0s/javara/ai/AIPlayer.java": [
+      "src/cr0s/javara/combat/attack/ICanAttack.java",
+      "src/cr0s/javara/combat/Warhead.java",
+      "src/cr0s/javara/entity/actor/activity/activities/harvester/FindResources.java",
+      "src/cr0s/javara/entity/actor/activity/activities/Wait.java",
+      "src/cr0s/javara/entity/actor/activity/Activity.java",
+      "src/cr0s/javara/entity/actor/EntityActor.java",
+      "src/cr0s/javara/entity/building/BuildingType.java",
+      "src/cr0s/javara/entity/building/common/EntityConstructionYard.java",
+      "src/cr0s/javara/entity/building/EntityBuilding.java",
+      "src/cr0s/javara/entity/building/EntityBuildingProgress.java",
+      "src/cr0s/javara/entity/Entity.java",
+      "src/cr0s/javara/entity/MobileEntity.java",
+      "src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "src/cr0s/javara/gameplay/Player.java",
+      "src/cr0s/javara/main/GUI.java",
+      "src/cr0s/javara/order/Order.java",
+      "src/cr0s/javara/perfomance/Profiler.java",
+      "src/cr0s/javara/render/World.java",
+      "src/cr0s/javara/resources/ResourceManager.java",
+      "src/cr0s/javara/util/CellChooser.java",
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "src/cr0s/javara/ai/BaseBuilder.java": [
+      "src/cr0s/javara/entity/actor/EntityActor.java",
+      "src/cr0s/javara/entity/building/BuildingType.java",
+      "src/cr0s/javara/entity/building/common/EntityProc.java",
+      "src/cr0s/javara/entity/building/EntityBuilding.java",
+      "src/cr0s/javara/entity/building/IPowerConsumer.java",
+      "src/cr0s/javara/entity/IDefense.java",
+      "src/cr0s/javara/render/World.java",
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "src/cr0s/javara/ai/Squad.java": [
+      "src/cr0s/javara/entity/actor/activity/activities/Follow.java",
+      "src/cr0s/javara/entity/actor/activity/activities/Move.java",
+      "src/cr0s/javara/entity/actor/EntityActor.java",
+      "src/cr0s/javara/entity/MobileEntity.java",
+      "src/cr0s/javara/order/Target.java"
+    ],
+    "src/cr0s/javara/ai/StateMachine.java": [],
+    "src/cr0s/javara/ai/states/GroundStateBase.java": [
+      "src/cr0s/javara/ai/Squad.java",
+      "src/cr0s/javara/entity/actor/EntityActor.java",
+      "src/cr0s/javara/render/World.java"
+    ],
+    "src/cr0s/javara/ai/states/StateBase.java": [
+      "src/cr0s/javara/ai/Squad.java",
+      "src/cr0s/javara/combat/Armament.java",
+      "src/cr0s/javara/combat/attack/ICanAttack.java",
+      "src/cr0s/javara/entity/actor/activity/activities/Attack.java",
+      "src/cr0s/javara/entity/actor/activity/Activity.java",
+      "src/cr0s/javara/entity/actor/EntityActor.java",
+      "src/cr0s/javara/entity/building/EntityBuilding.java",
+      "src/cr0s/javara/main/GUI.java",
+      "src/cr0s/javara/order/Order.java",
+      "src/cr0s/javara/render/World.java",
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "src/cr0s/javara/combat/Armament.java": [
+      "src/cr0s/javara/entity/actor/EntityActor.java",
+      "src/cr0s/javara/entity/turreted/IHaveTurret.java",
+      "src/cr0s/javara/entity/turreted/Turret.java",
+      "src/cr0s/javara/order/Target.java",
+      "src/cr0s/javara/render/Sequence.java",
+      "src/cr0s/javara/util/Action.java",
+      "src/cr0s/javara/util/Pos.java",
+      "src/cr0s/javara/util/RotationUtil.java"
+    ],
+    "src/cr0s/javara/combat/ArmorType.java": [],
+    "src/cr0s/javara/combat/attack/AttackBase.java": [
+      "src/cr0s/javara/combat/Armament.java",
+      "src/cr0s/javara/entity/actor/activity/Activity.java",
+      "src/cr0s/javara/entity/actor/EntityActor.java",
+      "src/cr0s/javara/entity/Entity.java",
+      "src/cr0s/javara/entity/MobileEntity.java",
+      "src/cr0s/javara/order/InputAttributes.java",
+      "src/cr0s/javara/order/IOrderIssuer.java",
+      "src/cr0s/javara/order/IOrderResolver.java",
+      "src/cr0s/javara/order/Order.java",
+      "src/cr0s/javara/order/OrderTargeter.java",
+      "src/cr0s/javara/order/Target.java",
+      "src/cr0s/javara/ui/cursor/CursorType.java"
+    ],
+    "src/cr0s/javara/combat/attack/AttackCharge.java": [
+      "src/cr0s/javara/combat/Armament.java",
+      "src/cr0s/javara/entity/actor/activity/activities/Wait.java",
+      "src/cr0s/javara/entity/actor/activity/Activity.java",
+      "src/cr0s/javara/entity/actor/EntityActor.java",
+      "src/cr0s/javara/entity/MobileEntity.java",
+      "src/cr0s/javara/order/Target.java"
+    ],
+    "src/cr0s/javara/combat/attack/AttackFollow.java": [
+      "src/cr0s/javara/combat/Armament.java",
+      "src/cr0s/javara/entity/actor/activity/activities/Follow.java",
+      "src/cr0s/javara/entity/actor/activity/Activity.java",
+      "src/cr0s/javara/entity/actor/EntityActor.java",
+      "src/cr0s/javara/entity/MobileEntity.java",
+      "src/cr0s/javara/order/Order.java",
+      "src/cr0s/javara/order/Target.java"
+    ],
+    "src/cr0s/javara/combat/attack/AttackFrontal.java": [
+      "src/cr0s/javara/combat/Armament.java",
+      "src/cr0s/javara/entity/actor/activity/activities/Attack.java",
+      "src/cr0s/javara/entity/actor/activity/Activity.java",
+      "src/cr0s/javara/entity/actor/EntityActor.java",
+      "src/cr0s/javara/order/Target.java",
+      "src/cr0s/javara/util/RotationUtil.java"
+    ],
+    "src/cr0s/javara/combat/attack/AttackTurreted.java": [
+      "src/cr0s/javara/entity/actor/EntityActor.java",
+      "src/cr0s/javara/entity/turreted/IHaveTurret.java",
+      "src/cr0s/javara/entity/turreted/Turret.java",
+      "src/cr0s/javara/order/Target.java"
+    ],
+    "src/cr0s/javara/combat/attack/AutoTarget.java": [
+      "src/cr0s/javara/entity/actor/EntityActor.java",
+      "src/cr0s/javara/gameplay/Player.java",
+      "src/cr0s/javara/order/Target.java",
+      "src/cr0s/javara/render/World.java"
+    ],
+    "src/cr0s/javara/combat/attack/ICanAttack.java": [],
+    "src/cr0s/javara/combat/attack/UnitStance.java": [],
+    "src/cr0s/javara/combat/Combat.java": [
+      "src/cr0s/javara/entity/actor/EntityActor.java",
+      "src/cr0s/javara/render/map/TileSet.java",
+      "src/cr0s/javara/render/World.java",
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "src/cr0s/javara/combat/DamageModel.java": [],
+    "src/cr0s/javara/combat/Projectile.java": [
+      "src/cr0s/javara/entity/actor/EntityActor.java",
+      "src/cr0s/javara/entity/Entity.java",
+      "src/cr0s/javara/entity/IEffect.java",
+      "src/cr0s/javara/render/Sequence.java",
+      "src/cr0s/javara/resources/ResourceManager.java",
+      "src/cr0s/javara/resources/ShpTexture.java",
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "src/cr0s/javara/combat/TargetType.java": [],
+    "src/cr0s/javara/combat/Warhead.java": [
+      "src/cr0s/javara/entity/actor/EntityActor.java"
+    ],
+    "src/cr0s/javara/combat/Weapon.java": [
+      "src/cr0s/javara/entity/actor/EntityActor.java",
+      "src/cr0s/javara/main/GUI.java",
+      "src/cr0s/javara/order/Target.java",
+      "src/cr0s/javara/render/World.java",
+      "src/cr0s/javara/resources/SoundManager.java",
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "src/cr0s/javara/combat/weapon/Weapon105mm.java": [
+      "src/cr0s/javara/combat/ArmorType.java",
+      "src/cr0s/javara/combat/Projectile.java",
+      "src/cr0s/javara/combat/TargetType.java",
+      "src/cr0s/javara/combat/Warhead.java",
+      "src/cr0s/javara/combat/Weapon.java",
+      "src/cr0s/javara/entity/actor/EntityActor.java",
+      "src/cr0s/javara/entity/effect/Bullet.java",
+      "src/cr0s/javara/entity/effect/MuzzleFlash.java",
+      "src/cr0s/javara/order/Target.java",
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "src/cr0s/javara/combat/weapon/Weapon120mm.java": [
+      "src/cr0s/javara/combat/ArmorType.java",
+      "src/cr0s/javara/combat/Projectile.java",
+      "src/cr0s/javara/combat/TargetType.java",
+      "src/cr0s/javara/combat/Warhead.java",
+      "src/cr0s/javara/combat/Weapon.java",
+      "src/cr0s/javara/entity/actor/EntityActor.java",
+      "src/cr0s/javara/entity/effect/Bullet.java",
+      "src/cr0s/javara/entity/effect/MuzzleFlash.java",
+      "src/cr0s/javara/order/Target.java",
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "src/cr0s/javara/combat/weapon/WeaponDragon.java": [
+      "src/cr0s/javara/combat/ArmorType.java",
+      "src/cr0s/javara/combat/Projectile.java",
+      "src/cr0s/javara/combat/TargetType.java",
+      "src/cr0s/javara/combat/Warhead.java",
+      "src/cr0s/javara/combat/Weapon.java",
+      "src/cr0s/javara/entity/actor/EntityActor.java",
+      "src/cr0s/javara/entity/effect/Missile.java",
+      "src/cr0s/javara/entity/effect/MuzzleFlash.java",
+      "src/cr0s/javara/order/Target.java",
+      "src/cr0s/javara/util/Pos.java",
+      "src/cr0s/javara/util/RotationUtil.java"
+    ],
+    "src/cr0s/javara/combat/weapon/WeaponFireballLauncher.java": [
+      "src/cr0s/javara/combat/ArmorType.java",
+      "src/cr0s/javara/combat/Projectile.java",
+      "src/cr0s/javara/combat/TargetType.java",
+      "src/cr0s/javara/combat/Warhead.java",
+      "src/cr0s/javara/combat/Weapon.java",
+      "src/cr0s/javara/entity/actor/EntityActor.java",
+      "src/cr0s/javara/entity/effect/Bullet.java",
+      "src/cr0s/javara/entity/effect/MuzzleFlash.java",
+      "src/cr0s/javara/order/Target.java",
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "src/cr0s/javara/combat/weapon/WeaponGrenade.java": [
+      "src/cr0s/javara/combat/ArmorType.java",
+      "src/cr0s/javara/combat/Projectile.java",
+      "src/cr0s/javara/combat/TargetType.java",
+      "src/cr0s/javara/combat/Warhead.java",
+      "src/cr0s/javara/combat/Weapon.java",
+      "src/cr0s/javara/entity/actor/EntityActor.java",
+      "src/cr0s/javara/entity/effect/Bullet.java",
+      "src/cr0s/javara/order/Target.java",
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "src/cr0s/javara/combat/weapon/WeaponM1Carabine.java": [
+      "src/cr0s/javara/combat/ArmorType.java",
+      "src/cr0s/javara/combat/Projectile.java",
+      "src/cr0s/javara/combat/TargetType.java",
+      "src/cr0s/javara/combat/Warhead.java",
+      "src/cr0s/javara/combat/Weapon.java",
+      "src/cr0s/javara/entity/actor/EntityActor.java",
+      "src/cr0s/javara/entity/effect/Bullet.java",
+      "src/cr0s/javara/order/Target.java",
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "src/cr0s/javara/combat/weapon/WeaponMammothTusk.java": [
+      "src/cr0s/javara/combat/ArmorType.java",
+      "src/cr0s/javara/combat/Projectile.java",
+      "src/cr0s/javara/combat/TargetType.java",
+      "src/cr0s/javara/combat/Warhead.java",
+      "src/cr0s/javara/combat/Weapon.java",
+      "src/cr0s/javara/entity/actor/EntityActor.java",
+      "src/cr0s/javara/entity/effect/Missile.java",
+      "src/cr0s/javara/entity/effect/MuzzleFlash.java",
+      "src/cr0s/javara/order/Target.java",
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "src/cr0s/javara/combat/weapon/WeaponSCUD.java": [
+      "src/cr0s/javara/combat/ArmorType.java",
+      "src/cr0s/javara/combat/Projectile.java",
+      "src/cr0s/javara/combat/TargetType.java",
+      "src/cr0s/javara/combat/Warhead.java",
+      "src/cr0s/javara/combat/Weapon.java",
+      "src/cr0s/javara/entity/actor/EntityActor.java",
+      "src/cr0s/javara/entity/effect/Bullet.java",
+      "src/cr0s/javara/entity/effect/MuzzleFlash.java",
+      "src/cr0s/javara/order/Target.java",
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "src/cr0s/javara/combat/weapon/WeaponTeslaZap.java": [
+      "src/cr0s/javara/combat/ArmorType.java",
+      "src/cr0s/javara/combat/Projectile.java",
+      "src/cr0s/javara/combat/TargetType.java",
+      "src/cr0s/javara/combat/Warhead.java",
+      "src/cr0s/javara/combat/Weapon.java",
+      "src/cr0s/javara/entity/actor/EntityActor.java",
+      "src/cr0s/javara/entity/effect/TeslaZap.java",
+      "src/cr0s/javara/order/Target.java",
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "src/cr0s/javara/entity/actor/activity/activities/Attack.java": [
+      "src/cr0s/javara/combat/attack/AttackBase.java",
+      "src/cr0s/javara/entity/actor/activity/Activity.java",
+      "src/cr0s/javara/entity/actor/EntityActor.java",
+      "src/cr0s/javara/entity/MobileEntity.java",
+      "src/cr0s/javara/order/Target.java",
+      "src/cr0s/javara/render/World.java",
+      "src/cr0s/javara/util/RotationUtil.java"
+    ],
+    "src/cr0s/javara/entity/actor/activity/activities/Deploy.java": [
+      "src/cr0s/javara/entity/actor/activity/Activity.java",
+      "src/cr0s/javara/entity/actor/EntityActor.java",
+      "src/cr0s/javara/entity/IDeployable.java"
+    ],
+    "src/cr0s/javara/entity/actor/activity/activities/Drag.java": [
+      "src/cr0s/javara/entity/actor/activity/Activity.java",
+      "src/cr0s/javara/entity/actor/EntityActor.java",
+      "src/cr0s/javara/entity/MobileEntity.java",
+      "src/cr0s/javara/util/PointsUtil.java",
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "src/cr0s/javara/entity/actor/activity/activities/Follow.java": [
+      "src/cr0s/javara/entity/actor/activity/Activity.java",
+      "src/cr0s/javara/entity/actor/EntityActor.java",
+      "src/cr0s/javara/entity/MobileEntity.java",
+      "src/cr0s/javara/order/Target.java",
+      "src/cr0s/javara/util/Pos.java",
+      "src/cr0s/javara/util/WaitAction.java"
+    ],
+    "src/cr0s/javara/entity/actor/activity/activities/harvester/DeliverResources.java": [
+      "src/cr0s/javara/entity/actor/activity/activities/Move.java",
+      "src/cr0s/javara/entity/actor/activity/Activity.java",
+      "src/cr0s/javara/entity/actor/EntityActor.java",
+      "src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "src/cr0s/javara/entity/actor/activity/activities/harvester/DropResources.java": [
+      "src/cr0s/javara/entity/actor/activity/activities/Turn.java",
+      "src/cr0s/javara/entity/actor/activity/Activity.java",
+      "src/cr0s/javara/entity/actor/EntityActor.java",
+      "src/cr0s/javara/entity/building/common/EntityProc.java",
+      "src/cr0s/javara/entity/vehicle/common/EntityHarvester.java"
+    ],
+    "src/cr0s/javara/entity/actor/activity/activities/harvester/FindResources.java": [
+      "src/cr0s/javara/entity/actor/activity/activities/Move.java",
+      "src/cr0s/javara/entity/actor/activity/Activity.java",
+      "src/cr0s/javara/entity/actor/EntityActor.java",
+      "src/cr0s/javara/entity/MobileEntity.java",
+      "src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "src/cr0s/javara/entity/actor/activity/activities/harvester/FinishDrop.java": [
+      "src/cr0s/javara/entity/actor/activity/Activity.java",
+      "src/cr0s/javara/entity/actor/EntityActor.java"
+    ],
+    "src/cr0s/javara/entity/actor/activity/activities/harvester/HarvestResource.java": [
+      "src/cr0s/javara/entity/actor/activity/activities/Wait.java",
+      "src/cr0s/javara/entity/actor/activity/Activity.java",
+      "src/cr0s/javara/entity/actor/EntityActor.java",
+      "src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "src/cr0s/javara/entity/actor/activity/activities/Move.java": [
+      "src/cr0s/javara/entity/actor/activity/Activity.java",
+      "src/cr0s/javara/entity/actor/EntityActor.java",
+      "src/cr0s/javara/entity/building/EntityBuilding.java",
+      "src/cr0s/javara/entity/MobileEntity.java",
+      "src/cr0s/javara/render/World.java",
+      "src/cr0s/javara/util/PointsUtil.java",
+      "src/cr0s/javara/util/Pos.java",
+      "src/cr0s/javara/util/RotationUtil.java"
+    ],
+    "src/cr0s/javara/entity/actor/activity/activities/MoveInfantry.java": [
+      "src/cr0s/javara/entity/actor/activity/Activity.java",
+      "src/cr0s/javara/entity/actor/EntityActor.java",
+      "src/cr0s/javara/entity/building/EntityBuilding.java",
+      "src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "src/cr0s/javara/entity/MobileEntity.java",
+      "src/cr0s/javara/render/World.java",
+      "src/cr0s/javara/util/PointsUtil.java",
+      "src/cr0s/javara/util/Pos.java",
+      "src/cr0s/javara/util/RotationUtil.java"
+    ],
+    "src/cr0s/javara/entity/actor/activity/activities/Turn.java": [
+      "src/cr0s/javara/entity/actor/activity/Activity.java",
+      "src/cr0s/javara/entity/actor/EntityActor.java"
+    ],
+    "src/cr0s/javara/entity/actor/activity/activities/Wait.java": [
+      "src/cr0s/javara/entity/actor/activity/Activity.java",
+      "src/cr0s/javara/entity/actor/EntityActor.java",
+      "src/cr0s/javara/util/Action.java"
+    ],
+    "src/cr0s/javara/entity/actor/activity/activities/WaitFor.java": [
+      "src/cr0s/javara/entity/actor/activity/Activity.java",
+      "src/cr0s/javara/entity/actor/EntityActor.java",
+      "src/cr0s/javara/util/Action.java",
+      "src/cr0s/javara/util/WaitAction.java"
+    ],
+    "src/cr0s/javara/entity/actor/activity/Activity.java": [
+      "src/cr0s/javara/entity/actor/EntityActor.java"
+    ],
+    "src/cr0s/javara/entity/actor/EntityActor.java": [
+      "src/cr0s/javara/combat/ArmorType.java",
+      "src/cr0s/javara/combat/TargetType.java",
+      "src/cr0s/javara/entity/actor/activity/Activity.java",
+      "src/cr0s/javara/entity/Entity.java",
+      "src/cr0s/javara/entity/INotifySelected.java",
+      "src/cr0s/javara/order/InputAttributes.java",
+      "src/cr0s/javara/order/IOrderIssuer.java",
+      "src/cr0s/javara/order/IOrderResolver.java",
+      "src/cr0s/javara/order/Order.java",
+      "src/cr0s/javara/order/OrderTargeter.java",
+      "src/cr0s/javara/order/Target.java",
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "src/cr0s/javara/entity/aircraft/ArcherBalloon.java": [
+      "src/cr0s/javara/entity/actor/activity/Activity.java",
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "src/cr0s/javara/entity/aircraft/DefBalloon.java": [
+      "src/cr0s/javara/entity/actor/activity/Activity.java",
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "src/cr0s/javara/entity/aircraft/Dragon.java": [
+      "src/cr0s/javara/entity/actor/activity/Activity.java",
+      "src/cr0s/javara/entity/IHaveCost.java",
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "src/cr0s/javara/entity/aircraft/EntityAircraft.java": [
+      "src/cr0s/javara/entity/actor/activity/Activity.java",
+      "src/cr0s/javara/entity/MobileEntity.java",
+      "src/cr0s/javara/util/Pos.java",
+      "src/cr0s/javara/util/RotationUtil.java"
+    ],
+    "src/cr0s/javara/entity/aircraft/GoblinBalloon.java": [
+      "src/cr0s/javara/entity/actor/activity/Activity.java",
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "src/cr0s/javara/entity/building/BibType.java": [],
+    "src/cr0s/javara/entity/building/BuildingType.java": [],
+    "src/cr0s/javara/entity/building/china/ArcherTower.java": [
+      "src/cr0s/javara/entity/building/BuildingType.java",
+      "src/cr0s/javara/entity/building/Defensive.java",
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "src/cr0s/javara/entity/building/china/Barrack.java": [
+      "src/cr0s/javara/entity/building/EntityBuilding.java",
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "src/cr0s/javara/entity/building/china/ElixirCollector.java": [
+      "src/cr0s/javara/entity/building/EntityBuilding.java",
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "src/cr0s/javara/entity/building/china/GoldMine.java": [
+      "src/cr0s/javara/entity/building/EntityBuilding.java",
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "src/cr0s/javara/entity/building/china/InfernoTower.java": [
+      "src/cr0s/javara/entity/building/BuildingType.java",
+      "src/cr0s/javara/entity/building/Defensive.java",
+      "src/cr0s/javara/entity/IHaveCost.java",
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "src/cr0s/javara/entity/building/china/package.bluej": [],
+    "src/cr0s/javara/entity/building/china/Tesla.java": [
+      "src/cr0s/javara/entity/building/BuildingType.java",
+      "src/cr0s/javara/entity/building/Defensive.java",
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "src/cr0s/javara/entity/building/china/TownHall.java": [
+      "src/cr0s/javara/entity/building/EntityBuilding.java",
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java": [
+      "src/cr0s/javara/combat/ArmorType.java",
+      "src/cr0s/javara/entity/building/BibType.java",
+      "src/cr0s/javara/entity/building/EntityBuilding.java",
+      "src/cr0s/javara/entity/building/IPowerProducer.java",
+      "src/cr0s/javara/entity/IHaveCost.java",
+      "src/cr0s/javara/entity/ISelectable.java",
+      "src/cr0s/javara/entity/IShroudRevealer.java",
+      "src/cr0s/javara/main/GUI.java",
+      "src/cr0s/javara/resources/ResourceManager.java",
+      "src/cr0s/javara/resources/ShpTexture.java",
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "src/cr0s/javara/entity/building/common/EntityConcreteWall.java": [
+      "src/cr0s/javara/entity/building/BibType.java",
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "src/cr0s/javara/entity/building/common/EntityConstructionYard.java": [
+      "src/cr0s/javara/combat/ArmorType.java",
+      "src/cr0s/javara/entity/building/BibType.java",
+      "src/cr0s/javara/entity/building/EntityBuilding.java",
+      "src/cr0s/javara/entity/ISelectable.java",
+      "src/cr0s/javara/entity/IShroudRevealer.java",
+      "src/cr0s/javara/resources/ResourceManager.java",
+      "src/cr0s/javara/resources/ShpTexture.java",
+      "src/cr0s/javara/util/Pos.java",
+      "src/cr0s/javara/util/SpriteSheet.java"
+    ],
+    "src/cr0s/javara/entity/building/common/EntityHelipad.java": [
+      "src/cr0s/javara/combat/ArmorType.java",
+      "src/cr0s/javara/entity/actor/EntityActor.java",
+      "src/cr0s/javara/entity/building/BibType.java",
+      "src/cr0s/javara/entity/building/EntityBuilding.java",
+      "src/cr0s/javara/entity/building/IPowerConsumer.java",
+      "src/cr0s/javara/entity/IHaveCost.java",
+      "src/cr0s/javara/entity/ISelectable.java",
+      "src/cr0s/javara/entity/IShroudRevealer.java",
+      "src/cr0s/javara/entity/MobileEntity.java",
+      "src/cr0s/javara/main/GUI.java",
+      "src/cr0s/javara/resources/ResourceManager.java",
+      "src/cr0s/javara/resources/ShpTexture.java",
+      "src/cr0s/javara/util/Pos.java",
+      "src/cr0s/javara/util/SpriteSheet.java"
+    ],
+    "src/cr0s/javara/entity/building/common/EntityOreSilo.java": [
+      "src/cr0s/javara/combat/ArmorType.java",
+      "src/cr0s/javara/entity/building/BibType.java",
+      "src/cr0s/javara/entity/building/EntityBuilding.java",
+      "src/cr0s/javara/entity/building/IOreCapacitor.java",
+      "src/cr0s/javara/entity/building/IPowerConsumer.java",
+      "src/cr0s/javara/entity/IHaveCost.java",
+      "src/cr0s/javara/entity/IPips.java",
+      "src/cr0s/javara/entity/ISelectable.java",
+      "src/cr0s/javara/entity/IShroudRevealer.java",
+      "src/cr0s/javara/main/GUI.java",
+      "src/cr0s/javara/resources/ResourceManager.java",
+      "src/cr0s/javara/resources/ShpTexture.java",
+      "src/cr0s/javara/util/Pos.java",
+      "src/cr0s/javara/util/SpriteSheet.java"
+    ],
+    "src/cr0s/javara/entity/building/common/EntityPowerPlant.java": [
+      "src/cr0s/javara/combat/ArmorType.java",
+      "src/cr0s/javara/entity/building/BibType.java",
+      "src/cr0s/javara/entity/building/EntityBuilding.java",
+      "src/cr0s/javara/entity/building/IPowerProducer.java",
+      "src/cr0s/javara/entity/IHaveCost.java",
+      "src/cr0s/javara/entity/ISelectable.java",
+      "src/cr0s/javara/entity/IShroudRevealer.java",
+      "src/cr0s/javara/main/GUI.java",
+      "src/cr0s/javara/resources/ResourceManager.java",
+      "src/cr0s/javara/resources/ShpTexture.java",
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "src/cr0s/javara/entity/building/common/EntityProc.java": [
+      "src/cr0s/javara/combat/ArmorType.java",
+      "src/cr0s/javara/entity/actor/activity/activities/harvester/FindResources.java",
+      "src/cr0s/javara/entity/building/BibType.java",
+      "src/cr0s/javara/entity/building/EntityBuilding.java",
+      "src/cr0s/javara/entity/building/IOreCapacitor.java",
+      "src/cr0s/javara/entity/building/IPowerConsumer.java",
+      "src/cr0s/javara/entity/Entity.java",
+      "src/cr0s/javara/entity/IHaveCost.java",
+      "src/cr0s/javara/entity/IPips.java",
+      "src/cr0s/javara/entity/ISelectable.java",
+      "src/cr0s/javara/entity/IShroudRevealer.java",
+      "src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "src/cr0s/javara/main/GUI.java",
+      "src/cr0s/javara/order/ITargetLines.java",
+      "src/cr0s/javara/order/TargetLine.java",
+      "src/cr0s/javara/resources/ResourceManager.java",
+      "src/cr0s/javara/resources/ShpTexture.java",
+      "src/cr0s/javara/util/Pos.java",
+      "src/cr0s/javara/util/SpriteSheet.java"
+    ],
+    "src/cr0s/javara/entity/building/common/EntityRadarDome.java": [
+      "src/cr0s/javara/combat/ArmorType.java",
+      "src/cr0s/javara/entity/building/BibType.java",
+      "src/cr0s/javara/entity/building/EntityBuilding.java",
+      "src/cr0s/javara/entity/building/IPowerConsumer.java",
+      "src/cr0s/javara/entity/IHaveCost.java",
+      "src/cr0s/javara/entity/ISelectable.java",
+      "src/cr0s/javara/entity/IShroudRevealer.java",
+      "src/cr0s/javara/main/GUI.java",
+      "src/cr0s/javara/resources/ResourceManager.java",
+      "src/cr0s/javara/resources/ShpTexture.java",
+      "src/cr0s/javara/resources/SoundManager.java",
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "src/cr0s/javara/entity/building/common/EntityWall.java": [
+      "src/cr0s/javara/entity/building/EntityBuilding.java",
+      "src/cr0s/javara/entity/IDefense.java",
+      "src/cr0s/javara/entity/IHaveCost.java",
+      "src/cr0s/javara/resources/ResourceManager.java",
+      "src/cr0s/javara/resources/ShpTexture.java",
+      "src/cr0s/javara/util/Pos.java",
+      "src/cr0s/javara/util/SpriteSheet.java"
+    ],
+    "src/cr0s/javara/entity/building/common/EntityWarFactory.java": [
+      "src/cr0s/javara/combat/ArmorType.java",
+      "src/cr0s/javara/entity/building/BibType.java",
+      "src/cr0s/javara/entity/building/EntityBuilding.java",
+      "src/cr0s/javara/entity/building/IPowerConsumer.java",
+      "src/cr0s/javara/entity/building/soviet/EntityBarracks.java",
+      "src/cr0s/javara/entity/IDeployable.java",
+      "src/cr0s/javara/entity/IHaveCost.java",
+      "src/cr0s/javara/entity/ISelectable.java",
+      "src/cr0s/javara/entity/IShroudRevealer.java",
+      "src/cr0s/javara/entity/vehicle/EntityVehicle.java",
+      "src/cr0s/javara/main/GUI.java",
+      "src/cr0s/javara/resources/ResourceManager.java",
+      "src/cr0s/javara/resources/ShpTexture.java",
+      "src/cr0s/javara/util/Pos.java",
+      "src/cr0s/javara/util/SpriteSheet.java"
+    ],
+    "src/cr0s/javara/entity/building/Defensive.java": [
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "src/cr0s/javara/entity/building/EntityBuilding.java": [
+      "src/cr0s/javara/combat/ArmorType.java",
+      "src/cr0s/javara/combat/TargetType.java",
+      "src/cr0s/javara/combat/Warhead.java",
+      "src/cr0s/javara/entity/actor/EntityActor.java",
+      "src/cr0s/javara/entity/building/common/EntityConstructionYard.java",
+      "src/cr0s/javara/entity/effect/ScreenShaker.java",
+      "src/cr0s/javara/entity/Entity.java",
+      "src/cr0s/javara/order/InputAttributes.java",
+      "src/cr0s/javara/order/Order.java",
+      "src/cr0s/javara/order/OrderTargeter.java",
+      "src/cr0s/javara/order/Target.java",
+      "src/cr0s/javara/render/map/TileSet.java",
+      "src/cr0s/javara/render/World.java",
+      "src/cr0s/javara/resources/ResourceManager.java",
+      "src/cr0s/javara/resources/SoundManager.java",
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "src/cr0s/javara/entity/building/EntityBuildingProgress.java": [
+      "src/cr0s/javara/entity/building/common/EntityWall.java",
+      "src/cr0s/javara/entity/IShroudRevealer.java",
+      "src/cr0s/javara/main/GUI.java",
+      "src/cr0s/javara/resources/ResourceManager.java",
+      "src/cr0s/javara/resources/ShpTexture.java",
+      "src/cr0s/javara/resources/SoundManager.java",
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "src/cr0s/javara/entity/building/IOreCapacitor.java": [],
+    "src/cr0s/javara/entity/building/IPowerConsumer.java": [],
+    "src/cr0s/javara/entity/building/IPowerProducer.java": [],
+    "src/cr0s/javara/entity/building/soviet/EntityAirField.java": [
+      "src/cr0s/javara/combat/ArmorType.java",
+      "src/cr0s/javara/entity/actor/EntityActor.java",
+      "src/cr0s/javara/entity/building/BibType.java",
+      "src/cr0s/javara/entity/building/common/EntityRadarDome.java",
+      "src/cr0s/javara/entity/building/EntityBuilding.java",
+      "src/cr0s/javara/entity/building/IPowerConsumer.java",
+      "src/cr0s/javara/entity/IHaveCost.java",
+      "src/cr0s/javara/entity/ISelectable.java",
+      "src/cr0s/javara/entity/IShroudRevealer.java",
+      "src/cr0s/javara/entity/MobileEntity.java",
+      "src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "src/cr0s/javara/main/GUI.java",
+      "src/cr0s/javara/render/World.java",
+      "src/cr0s/javara/resources/ResourceManager.java",
+      "src/cr0s/javara/resources/ShpTexture.java",
+      "src/cr0s/javara/util/Pos.java",
+      "src/cr0s/javara/util/SpriteSheet.java"
+    ],
+    "src/cr0s/javara/entity/building/soviet/EntityBarracks.java": [
+      "src/cr0s/javara/combat/ArmorType.java",
+      "src/cr0s/javara/entity/actor/EntityActor.java",
+      "src/cr0s/javara/entity/building/BibType.java",
+      "src/cr0s/javara/entity/building/common/EntityPowerPlant.java",
+      "src/cr0s/javara/entity/building/EntityBuilding.java",
+      "src/cr0s/javara/entity/building/IPowerConsumer.java",
+      "src/cr0s/javara/entity/IHaveCost.java",
+      "src/cr0s/javara/entity/ISelectable.java",
+      "src/cr0s/javara/entity/IShroudRevealer.java",
+      "src/cr0s/javara/entity/MobileEntity.java",
+      "src/cr0s/javara/main/GUI.java",
+      "src/cr0s/javara/resources/ResourceManager.java",
+      "src/cr0s/javara/resources/ShpTexture.java",
+      "src/cr0s/javara/util/Pos.java",
+      "src/cr0s/javara/util/SpriteSheet.java"
+    ],
+    "src/cr0s/javara/entity/building/soviet/EntityBarredWireWall.java": [
+      "src/cr0s/javara/entity/building/BibType.java",
+      "src/cr0s/javara/entity/building/common/EntityWall.java",
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "src/cr0s/javara/entity/building/soviet/EntityFireTurret.java": [
+      "src/cr0s/javara/combat/Armament.java",
+      "src/cr0s/javara/combat/attack/AttackTurreted.java",
+      "src/cr0s/javara/combat/attack/AutoTarget.java",
+      "src/cr0s/javara/combat/weapon/WeaponFireballLauncher.java",
+      "src/cr0s/javara/entity/building/BibType.java",
+      "src/cr0s/javara/entity/building/Defensive.java",
+      "src/cr0s/javara/entity/building/IPowerConsumer.java",
+      "src/cr0s/javara/entity/Entity.java",
+      "src/cr0s/javara/entity/IDefense.java",
+      "src/cr0s/javara/entity/IHaveCost.java",
+      "src/cr0s/javara/entity/ISelectable.java",
+      "src/cr0s/javara/entity/IShroudRevealer.java",
+      "src/cr0s/javara/entity/turreted/IHaveTurret.java",
+      "src/cr0s/javara/entity/turreted/Turret.java",
+      "src/cr0s/javara/main/GUI.java",
+      "src/cr0s/javara/order/InputAttributes.java",
+      "src/cr0s/javara/order/Order.java",
+      "src/cr0s/javara/order/OrderTargeter.java",
+      "src/cr0s/javara/order/Target.java",
+      "src/cr0s/javara/resources/ResourceManager.java",
+      "src/cr0s/javara/resources/ShpTexture.java",
+      "src/cr0s/javara/util/Pos.java",
+      "src/cr0s/javara/util/SpriteSheet.java"
+    ],
+    "src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java": [
+      "src/cr0s/javara/combat/Armament.java",
+      "src/cr0s/javara/combat/attack/AttackCharge.java",
+      "src/cr0s/javara/combat/attack/AutoTarget.java",
+      "src/cr0s/javara/combat/weapon/WeaponTeslaZap.java",
+      "src/cr0s/javara/entity/building/BibType.java",
+      "src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "src/cr0s/javara/entity/building/Defensive.java",
+      "src/cr0s/javara/entity/building/IPowerConsumer.java",
+      "src/cr0s/javara/entity/Entity.java",
+      "src/cr0s/javara/entity/IDefense.java",
+      "src/cr0s/javara/entity/IHaveCost.java",
+      "src/cr0s/javara/entity/ISelectable.java",
+      "src/cr0s/javara/entity/IShroudRevealer.java",
+      "src/cr0s/javara/entity/turreted/Turret.java",
+      "src/cr0s/javara/main/GUI.java",
+      "src/cr0s/javara/order/InputAttributes.java",
+      "src/cr0s/javara/order/Order.java",
+      "src/cr0s/javara/order/OrderTargeter.java",
+      "src/cr0s/javara/order/Target.java",
+      "src/cr0s/javara/resources/ResourceManager.java",
+      "src/cr0s/javara/resources/ShpTexture.java",
+      "src/cr0s/javara/resources/SoundManager.java",
+      "src/cr0s/javara/util/Pos.java",
+      "src/cr0s/javara/util/SpriteSheet.java"
+    ],
+    "src/cr0s/javara/entity/effect/Bullet.java": [
+      "src/cr0s/javara/combat/Combat.java",
+      "src/cr0s/javara/combat/Projectile.java",
+      "src/cr0s/javara/combat/Weapon.java",
+      "src/cr0s/javara/entity/actor/EntityActor.java",
+      "src/cr0s/javara/render/World.java",
+      "src/cr0s/javara/util/PointsUtil.java",
+      "src/cr0s/javara/util/Pos.java",
+      "src/cr0s/javara/util/RotationUtil.java"
+    ],
+    "src/cr0s/javara/entity/effect/Explosion.java": [
+      "src/cr0s/javara/entity/Entity.java",
+      "src/cr0s/javara/entity/IEffect.java",
+      "src/cr0s/javara/resources/ResourceManager.java",
+      "src/cr0s/javara/resources/ShpTexture.java",
+      "src/cr0s/javara/util/Pos.java",
+      "src/cr0s/javara/util/SpriteSheet.java"
+    ],
+    "src/cr0s/javara/entity/effect/Missile.java": [
+      "src/cr0s/javara/combat/Combat.java",
+      "src/cr0s/javara/combat/Projectile.java",
+      "src/cr0s/javara/combat/TargetType.java",
+      "src/cr0s/javara/combat/Weapon.java",
+      "src/cr0s/javara/entity/actor/EntityActor.java",
+      "src/cr0s/javara/order/Target.java",
+      "src/cr0s/javara/render/World.java",
+      "src/cr0s/javara/util/PointsUtil.java",
+      "src/cr0s/javara/util/Pos.java",
+      "src/cr0s/javara/util/RotationUtil.java"
+    ],
+    "src/cr0s/javara/entity/effect/MoveFlash.java": [
+      "src/cr0s/javara/entity/Entity.java",
+      "src/cr0s/javara/entity/IEffect.java",
+      "src/cr0s/javara/main/GUI.java",
+      "src/cr0s/javara/resources/ResourceManager.java",
+      "src/cr0s/javara/resources/ShpTexture.java",
+      "src/cr0s/javara/util/Pos.java",
+      "src/cr0s/javara/util/SpriteSheet.java"
+    ],
+    "src/cr0s/javara/entity/effect/MuzzleFlash.java": [
+      "src/cr0s/javara/entity/Entity.java",
+      "src/cr0s/javara/entity/IEffect.java",
+      "src/cr0s/javara/render/Sequence.java",
+      "src/cr0s/javara/resources/ResourceManager.java",
+      "src/cr0s/javara/resources/ShpTexture.java",
+      "src/cr0s/javara/util/Pos.java",
+      "src/cr0s/javara/util/SpriteSheet.java"
+    ],
+    "src/cr0s/javara/entity/effect/ScreenShaker.java": [
+      "src/cr0s/javara/main/GUI.java",
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "src/cr0s/javara/entity/effect/SequencePlayer.java": [
+      "src/cr0s/javara/entity/Entity.java",
+      "src/cr0s/javara/entity/IEffect.java",
+      "src/cr0s/javara/render/Sequence.java",
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "src/cr0s/javara/entity/effect/Smoke.java": [
+      "src/cr0s/javara/entity/Entity.java",
+      "src/cr0s/javara/entity/IEffect.java",
+      "src/cr0s/javara/resources/ResourceManager.java",
+      "src/cr0s/javara/resources/ShpTexture.java",
+      "src/cr0s/javara/util/Pos.java",
+      "src/cr0s/javara/util/SpriteSheet.java"
+    ],
+    "src/cr0s/javara/entity/effect/SmokeOnUnit.java": [
+      "src/cr0s/javara/entity/actor/EntityActor.java",
+      "src/cr0s/javara/entity/Entity.java",
+      "src/cr0s/javara/entity/IEffect.java",
+      "src/cr0s/javara/resources/ResourceManager.java",
+      "src/cr0s/javara/resources/ShpTexture.java",
+      "src/cr0s/javara/util/Pos.java",
+      "src/cr0s/javara/util/SpriteSheet.java"
+    ],
+    "src/cr0s/javara/entity/effect/TeslaZap.java": [
+      "src/cr0s/javara/combat/Combat.java",
+      "src/cr0s/javara/combat/Projectile.java",
+      "src/cr0s/javara/entity/actor/EntityActor.java",
+      "src/cr0s/javara/entity/IEffect.java",
+      "src/cr0s/javara/order/Target.java",
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "src/cr0s/javara/entity/effect/TeslaZapRenderer.java": [
+      "src/cr0s/javara/combat/Projectile.java",
+      "src/cr0s/javara/entity/actor/EntityActor.java",
+      "src/cr0s/javara/entity/IEffect.java",
+      "src/cr0s/javara/order/Target.java",
+      "src/cr0s/javara/render/World.java",
+      "src/cr0s/javara/resources/ResourceManager.java",
+      "src/cr0s/javara/util/Pos.java",
+      "src/cr0s/javara/util/SpriteSheet.java"
+    ],
+    "src/cr0s/javara/entity/Entity.java": [
+      "src/cr0s/javara/combat/Warhead.java",
+      "src/cr0s/javara/entity/actor/EntityActor.java",
+      "src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "src/cr0s/javara/entity/building/EntityBuilding.java",
+      "src/cr0s/javara/entity/building/soviet/EntityBarracks.java",
+      "src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "src/cr0s/javara/gameplay/Player.java",
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "src/cr0s/javara/entity/IDefense.java": [],
+    "src/cr0s/javara/entity/IDeployable.java": [],
+    "src/cr0s/javara/entity/IEffect.java": [],
+    "src/cr0s/javara/entity/IHaveCost.java": [],
+    "src/cr0s/javara/entity/infantry/EntityGrenadeTrooper.java": [
+      "src/cr0s/javara/combat/Armament.java",
+      "src/cr0s/javara/combat/attack/AttackBase.java",
+      "src/cr0s/javara/combat/attack/AttackFrontal.java",
+      "src/cr0s/javara/combat/attack/AutoTarget.java",
+      "src/cr0s/javara/combat/attack/ICanAttack.java",
+      "src/cr0s/javara/combat/weapon/WeaponGrenade.java",
+      "src/cr0s/javara/entity/IHaveCost.java",
+      "src/cr0s/javara/entity/ISelectable.java",
+      "src/cr0s/javara/render/Sequence.java",
+      "src/cr0s/javara/resources/ResourceManager.java",
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "src/cr0s/javara/entity/infantry/EntityInfantry.java": [
+      "src/cr0s/javara/combat/ArmorType.java",
+      "src/cr0s/javara/combat/attack/AttackBase.java",
+      "src/cr0s/javara/combat/attack/AutoTarget.java",
+      "src/cr0s/javara/combat/TargetType.java",
+      "src/cr0s/javara/combat/Warhead.java",
+      "src/cr0s/javara/entity/actor/activity/activities/Attack.java",
+      "src/cr0s/javara/entity/actor/activity/activities/MoveInfantry.java",
+      "src/cr0s/javara/entity/actor/activity/Activity.java",
+      "src/cr0s/javara/entity/actor/EntityActor.java",
+      "src/cr0s/javara/entity/building/EntityBuilding.java",
+      "src/cr0s/javara/entity/Entity.java",
+      "src/cr0s/javara/entity/IShroudRevealer.java",
+      "src/cr0s/javara/entity/MobileEntity.java",
+      "src/cr0s/javara/order/InputAttributes.java",
+      "src/cr0s/javara/order/Order.java",
+      "src/cr0s/javara/order/OrderTargeter.java",
+      "src/cr0s/javara/order/Target.java",
+      "src/cr0s/javara/render/Sequence.java",
+      "src/cr0s/javara/render/World.java",
+      "src/cr0s/javara/resources/ResourceManager.java",
+      "src/cr0s/javara/resources/ShpTexture.java",
+      "src/cr0s/javara/resources/SoundManager.java",
+      "src/cr0s/javara/util/Pos.java",
+      "src/mazesolver/Director.java",
+      "src/mazesolver/Maze.java"
+    ],
+    "src/cr0s/javara/entity/infantry/EntityRifleTrooper.java": [
+      "src/cr0s/javara/combat/Armament.java",
+      "src/cr0s/javara/combat/attack/AttackBase.java",
+      "src/cr0s/javara/combat/attack/AttackFrontal.java",
+      "src/cr0s/javara/combat/attack/AutoTarget.java",
+      "src/cr0s/javara/combat/attack/ICanAttack.java",
+      "src/cr0s/javara/combat/weapon/WeaponM1Carabine.java",
+      "src/cr0s/javara/entity/IHaveCost.java",
+      "src/cr0s/javara/entity/ISelectable.java",
+      "src/cr0s/javara/render/Sequence.java",
+      "src/cr0s/javara/resources/ResourceManager.java",
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "src/cr0s/javara/entity/infantry/EntityRocketTrooper.java": [
+      "src/cr0s/javara/combat/Armament.java",
+      "src/cr0s/javara/combat/attack/AttackBase.java",
+      "src/cr0s/javara/combat/attack/AttackFrontal.java",
+      "src/cr0s/javara/combat/attack/AutoTarget.java",
+      "src/cr0s/javara/combat/attack/ICanAttack.java",
+      "src/cr0s/javara/combat/weapon/WeaponDragon.java",
+      "src/cr0s/javara/entity/IHaveCost.java",
+      "src/cr0s/javara/entity/ISelectable.java",
+      "src/cr0s/javara/render/Sequence.java",
+      "src/cr0s/javara/resources/ResourceManager.java",
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "src/cr0s/javara/entity/infantry/Panda.java": [
+      "src/cr0s/javara/entity/IHaveCost.java",
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "src/cr0s/javara/entity/INotifyBlockingMove.java": [],
+    "src/cr0s/javara/entity/INotifySelected.java": [],
+    "src/cr0s/javara/entity/IPips.java": [],
+    "src/cr0s/javara/entity/ISelectable.java": [],
+    "src/cr0s/javara/entity/IShroudRevealer.java": [],
+    "src/cr0s/javara/entity/MobileEntity.java": [
+      "src/cr0s/javara/entity/actor/activity/activities/Follow.java",
+      "src/cr0s/javara/entity/actor/activity/activities/Move.java",
+      "src/cr0s/javara/entity/actor/activity/activities/MoveInfantry.java",
+      "src/cr0s/javara/entity/actor/activity/Activity.java",
+      "src/cr0s/javara/entity/actor/EntityActor.java",
+      "src/cr0s/javara/entity/building/EntityBuilding.java",
+      "src/cr0s/javara/main/GUI.java",
+      "src/cr0s/javara/order/InputAttributes.java",
+      "src/cr0s/javara/order/MoveOrderTargeter.java",
+      "src/cr0s/javara/order/Order.java",
+      "src/cr0s/javara/order/OrderTargeter.java",
+      "src/cr0s/javara/order/Target.java",
+      "src/cr0s/javara/render/World.java",
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "src/cr0s/javara/entity/turreted/IHaveTurret.java": [],
+    "src/cr0s/javara/entity/turreted/Turret.java": [
+      "src/cr0s/javara/entity/actor/EntityActor.java",
+      "src/cr0s/javara/entity/MobileEntity.java",
+      "src/cr0s/javara/util/Pos.java",
+      "src/cr0s/javara/util/RotationUtil.java",
+      "src/cr0s/javara/util/SpriteSheet.java"
+    ],
+    "src/cr0s/javara/entity/vehicle/common/EntityHarvester.java": [
+      "src/cr0s/javara/entity/actor/activity/activities/harvester/DeliverResources.java",
+      "src/cr0s/javara/entity/actor/activity/activities/harvester/DropResources.java",
+      "src/cr0s/javara/entity/actor/activity/activities/harvester/FindResources.java",
+      "src/cr0s/javara/entity/actor/activity/activities/harvester/FinishDrop.java",
+      "src/cr0s/javara/entity/actor/activity/activities/harvester/HarvestResource.java",
+      "src/cr0s/javara/entity/actor/activity/activities/Wait.java",
+      "src/cr0s/javara/entity/actor/EntityActor.java",
+      "src/cr0s/javara/entity/building/common/EntityProc.java",
+      "src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "src/cr0s/javara/entity/Entity.java",
+      "src/cr0s/javara/entity/IHaveCost.java",
+      "src/cr0s/javara/entity/IPips.java",
+      "src/cr0s/javara/entity/ISelectable.java",
+      "src/cr0s/javara/entity/IShroudRevealer.java",
+      "src/cr0s/javara/entity/MobileEntity.java",
+      "src/cr0s/javara/entity/vehicle/EntityVehicle.java",
+      "src/cr0s/javara/main/GUI.java",
+      "src/cr0s/javara/order/InputAttributes.java",
+      "src/cr0s/javara/order/Order.java",
+      "src/cr0s/javara/order/OrderTargeter.java",
+      "src/cr0s/javara/order/Target.java",
+      "src/cr0s/javara/resources/ResourceManager.java",
+      "src/cr0s/javara/ui/cursor/CursorType.java",
+      "src/cr0s/javara/util/Pos.java",
+      "src/cr0s/javara/util/RotationUtil.java",
+      "src/cr0s/javara/util/SpriteSheet.java"
+    ],
+    "src/cr0s/javara/entity/vehicle/common/EntityMcv.java": [
+      "src/cr0s/javara/entity/actor/activity/activities/Deploy.java",
+      "src/cr0s/javara/entity/actor/activity/activities/Turn.java",
+      "src/cr0s/javara/entity/actor/EntityActor.java",
+      "src/cr0s/javara/entity/building/china/TownHall.java",
+      "src/cr0s/javara/entity/building/common/EntityConstructionYard.java",
+      "src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "src/cr0s/javara/entity/building/EntityBuilding.java",
+      "src/cr0s/javara/entity/Entity.java",
+      "src/cr0s/javara/entity/IDeployable.java",
+      "src/cr0s/javara/entity/IHaveCost.java",
+      "src/cr0s/javara/entity/ISelectable.java",
+      "src/cr0s/javara/entity/MobileEntity.java",
+      "src/cr0s/javara/entity/vehicle/EntityVehicle.java",
+      "src/cr0s/javara/main/GUI.java",
+      "src/cr0s/javara/order/InputAttributes.java",
+      "src/cr0s/javara/order/Order.java",
+      "src/cr0s/javara/order/OrderTargeter.java",
+      "src/cr0s/javara/order/Target.java",
+      "src/cr0s/javara/resources/ResourceManager.java",
+      "src/cr0s/javara/ui/cursor/CursorType.java",
+      "src/cr0s/javara/util/Pos.java",
+      "src/cr0s/javara/util/SpriteSheet.java"
+    ],
+    "src/cr0s/javara/entity/vehicle/EntityVehicle.java": [
+      "src/cr0s/javara/combat/TargetType.java",
+      "src/cr0s/javara/combat/Warhead.java",
+      "src/cr0s/javara/entity/actor/activity/activities/Move.java",
+      "src/cr0s/javara/entity/actor/activity/Activity.java",
+      "src/cr0s/javara/entity/actor/EntityActor.java",
+      "src/cr0s/javara/entity/effect/SmokeOnUnit.java",
+      "src/cr0s/javara/entity/IShroudRevealer.java",
+      "src/cr0s/javara/entity/MobileEntity.java",
+      "src/cr0s/javara/order/Order.java",
+      "src/cr0s/javara/render/World.java",
+      "src/cr0s/javara/resources/SoundManager.java",
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java": [
+      "src/cr0s/javara/combat/Armament.java",
+      "src/cr0s/javara/combat/attack/AttackBase.java",
+      "src/cr0s/javara/combat/attack/AttackTurreted.java",
+      "src/cr0s/javara/combat/attack/AutoTarget.java",
+      "src/cr0s/javara/combat/attack/ICanAttack.java",
+      "src/cr0s/javara/combat/weapon/Weapon105mm.java",
+      "src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "src/cr0s/javara/entity/Entity.java",
+      "src/cr0s/javara/entity/IHaveCost.java",
+      "src/cr0s/javara/entity/ISelectable.java",
+      "src/cr0s/javara/entity/MobileEntity.java",
+      "src/cr0s/javara/entity/turreted/IHaveTurret.java",
+      "src/cr0s/javara/entity/turreted/Turret.java",
+      "src/cr0s/javara/entity/vehicle/EntityVehicle.java",
+      "src/cr0s/javara/main/GUI.java",
+      "src/cr0s/javara/order/InputAttributes.java",
+      "src/cr0s/javara/order/Order.java",
+      "src/cr0s/javara/order/OrderTargeter.java",
+      "src/cr0s/javara/order/Target.java",
+      "src/cr0s/javara/resources/ResourceManager.java",
+      "src/cr0s/javara/util/Pos.java",
+      "src/cr0s/javara/util/SpriteSheet.java"
+    ],
+    "src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java": [
+      "src/cr0s/javara/combat/Armament.java",
+      "src/cr0s/javara/combat/attack/AttackBase.java",
+      "src/cr0s/javara/combat/attack/AttackTurreted.java",
+      "src/cr0s/javara/combat/attack/AutoTarget.java",
+      "src/cr0s/javara/combat/attack/ICanAttack.java",
+      "src/cr0s/javara/combat/weapon/Weapon120mm.java",
+      "src/cr0s/javara/combat/weapon/WeaponMammothTusk.java",
+      "src/cr0s/javara/entity/actor/activity/activities/Move.java",
+      "src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "src/cr0s/javara/entity/Entity.java",
+      "src/cr0s/javara/entity/IHaveCost.java",
+      "src/cr0s/javara/entity/ISelectable.java",
+      "src/cr0s/javara/entity/MobileEntity.java",
+      "src/cr0s/javara/entity/turreted/IHaveTurret.java",
+      "src/cr0s/javara/entity/turreted/Turret.java",
+      "src/cr0s/javara/entity/vehicle/EntityVehicle.java",
+      "src/cr0s/javara/main/GUI.java",
+      "src/cr0s/javara/order/InputAttributes.java",
+      "src/cr0s/javara/order/Order.java",
+      "src/cr0s/javara/order/OrderTargeter.java",
+      "src/cr0s/javara/order/Target.java",
+      "src/cr0s/javara/resources/ResourceManager.java",
+      "src/cr0s/javara/util/Pos.java",
+      "src/cr0s/javara/util/SpriteSheet.java"
+    ],
+    "src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java": [
+      "src/cr0s/javara/combat/Armament.java",
+      "src/cr0s/javara/combat/ArmorType.java",
+      "src/cr0s/javara/combat/attack/AttackBase.java",
+      "src/cr0s/javara/combat/attack/AttackFrontal.java",
+      "src/cr0s/javara/combat/attack/AutoTarget.java",
+      "src/cr0s/javara/combat/attack/ICanAttack.java",
+      "src/cr0s/javara/combat/weapon/WeaponSCUD.java",
+      "src/cr0s/javara/entity/building/common/EntityRadarDome.java",
+      "src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "src/cr0s/javara/entity/Entity.java",
+      "src/cr0s/javara/entity/IHaveCost.java",
+      "src/cr0s/javara/entity/ISelectable.java",
+      "src/cr0s/javara/entity/MobileEntity.java",
+      "src/cr0s/javara/entity/vehicle/EntityVehicle.java",
+      "src/cr0s/javara/main/GUI.java",
+      "src/cr0s/javara/order/InputAttributes.java",
+      "src/cr0s/javara/order/Order.java",
+      "src/cr0s/javara/order/OrderTargeter.java",
+      "src/cr0s/javara/order/Target.java",
+      "src/cr0s/javara/resources/ResourceManager.java",
+      "src/cr0s/javara/util/Pos.java",
+      "src/cr0s/javara/util/RotationUtil.java",
+      "src/cr0s/javara/util/SpriteSheet.java"
+    ],
+    "src/cr0s/javara/gameplay/Base.java": [
+      "src/cr0s/javara/entity/actor/EntityActor.java",
+      "src/cr0s/javara/entity/aircraft/EntityAircraft.java",
+      "src/cr0s/javara/entity/building/common/EntityConstructionYard.java",
+      "src/cr0s/javara/entity/building/common/EntityRadarDome.java",
+      "src/cr0s/javara/entity/building/common/EntityWall.java",
+      "src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "src/cr0s/javara/entity/building/EntityBuilding.java",
+      "src/cr0s/javara/entity/building/EntityBuildingProgress.java",
+      "src/cr0s/javara/entity/building/IOreCapacitor.java",
+      "src/cr0s/javara/entity/building/IPowerConsumer.java",
+      "src/cr0s/javara/entity/building/IPowerProducer.java",
+      "src/cr0s/javara/entity/building/soviet/EntityAirField.java",
+      "src/cr0s/javara/entity/building/soviet/EntityBarracks.java",
+      "src/cr0s/javara/entity/IDefense.java",
+      "src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "src/cr0s/javara/entity/vehicle/EntityVehicle.java",
+      "src/cr0s/javara/main/GUI.java",
+      "src/cr0s/javara/render/map/TileSet.java",
+      "src/cr0s/javara/resources/SoundManager.java",
+      "src/cr0s/javara/ui/sbpages/SideBarItemsButton.java",
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "src/cr0s/javara/gameplay/BuildingOverlay.java": [
+      "src/cr0s/javara/entity/building/common/EntityConstructionYard.java",
+      "src/cr0s/javara/entity/building/common/EntityWall.java",
+      "src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "src/cr0s/javara/entity/building/EntityBuilding.java",
+      "src/cr0s/javara/main/GUI.java",
+      "src/cr0s/javara/render/map/TileSet.java",
+      "src/cr0s/javara/render/World.java",
+      "src/cr0s/javara/resources/SoundManager.java",
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "src/cr0s/javara/gameplay/Player.java": [
+      "src/cr0s/javara/combat/Warhead.java",
+      "src/cr0s/javara/entity/actor/EntityActor.java",
+      "src/cr0s/javara/entity/Entity.java",
+      "src/cr0s/javara/entity/infantry/EntityGrenadeTrooper.java",
+      "src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "src/cr0s/javara/entity/infantry/EntityRifleTrooper.java",
+      "src/cr0s/javara/entity/infantry/EntityRocketTrooper.java",
+      "src/cr0s/javara/entity/INotifySelected.java",
+      "src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "src/cr0s/javara/order/OrderTargeter.java",
+      "src/cr0s/javara/order/Target.java",
+      "src/cr0s/javara/render/shrouds/Shroud.java",
+      "src/cr0s/javara/render/World.java",
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "src/cr0s/javara/gameplay/Production.java": [
+      "src/cr0s/javara/entity/actor/EntityActor.java",
+      "src/cr0s/javara/entity/aircraft/EntityAircraft.java",
+      "src/cr0s/javara/entity/building/EntityBuilding.java",
+      "src/cr0s/javara/entity/IHaveCost.java",
+      "src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "src/cr0s/javara/entity/vehicle/EntityVehicle.java",
+      "src/cr0s/javara/main/GUI.java",
+      "src/cr0s/javara/resources/ResourceManager.java",
+      "src/cr0s/javara/resources/ShpTexture.java",
+      "src/cr0s/javara/resources/SoundManager.java",
+      "src/cr0s/javara/ui/sbpages/SideBarItemsButton.java"
+    ],
+    "src/cr0s/javara/gameplay/ProductionQueue.java": [
+      "src/cr0s/javara/entity/actor/EntityActor.java",
+      "src/cr0s/javara/entity/aircraft/Dragon.java",
+      "src/cr0s/javara/entity/aircraft/EntityAircraft.java",
+      "src/cr0s/javara/entity/building/china/InfernoTower.java",
+      "src/cr0s/javara/entity/building/common/EntityAdvPowerPlant.java",
+      "src/cr0s/javara/entity/building/common/EntityConcreteWall.java",
+      "src/cr0s/javara/entity/building/common/EntityHelipad.java",
+      "src/cr0s/javara/entity/building/common/EntityOreSilo.java",
+      "src/cr0s/javara/entity/building/common/EntityPowerPlant.java",
+      "src/cr0s/javara/entity/building/common/EntityProc.java",
+      "src/cr0s/javara/entity/building/common/EntityRadarDome.java",
+      "src/cr0s/javara/entity/building/common/EntityWarFactory.java",
+      "src/cr0s/javara/entity/building/EntityBuilding.java",
+      "src/cr0s/javara/entity/building/soviet/EntityAirField.java",
+      "src/cr0s/javara/entity/building/soviet/EntityBarracks.java",
+      "src/cr0s/javara/entity/building/soviet/EntityBarredWireWall.java",
+      "src/cr0s/javara/entity/building/soviet/EntityFireTurret.java",
+      "src/cr0s/javara/entity/building/soviet/EntityTeslaCoil.java",
+      "src/cr0s/javara/entity/infantry/EntityGrenadeTrooper.java",
+      "src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "src/cr0s/javara/entity/infantry/EntityRifleTrooper.java",
+      "src/cr0s/javara/entity/infantry/EntityRocketTrooper.java",
+      "src/cr0s/javara/entity/infantry/Panda.java",
+      "src/cr0s/javara/entity/vehicle/common/EntityHarvester.java",
+      "src/cr0s/javara/entity/vehicle/common/EntityMcv.java",
+      "src/cr0s/javara/entity/vehicle/EntityVehicle.java",
+      "src/cr0s/javara/entity/vehicle/soviet/EntityHeavyTank.java",
+      "src/cr0s/javara/entity/vehicle/soviet/EntityMammothTank.java",
+      "src/cr0s/javara/entity/vehicle/soviet/EntityV2Launcher.java",
+      "src/cr0s/javara/ui/sbpages/SideBarItemsButton.java",
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "src/cr0s/javara/gameplay/Team.java": [],
+    "src/cr0s/javara/main/GUI.java": [
+      "src/cr0s/javara/ai/AIPlayer.java",
+      "src/cr0s/javara/gameplay/BuildingOverlay.java",
+      "src/cr0s/javara/gameplay/Player.java",
+      "src/cr0s/javara/gameplay/Team.java",
+      "src/cr0s/javara/render/Controller.java",
+      "src/cr0s/javara/render/shrouds/ShroudRenderer.java",
+      "src/cr0s/javara/render/World.java",
+      "src/cr0s/javara/resources/ResourceManager.java",
+      "src/cr0s/javara/ui/GameSideBar.java"
+    ],
+    "src/cr0s/javara/main/StateGameMap.java": [
+      "src/cr0s/javara/entity/actor/EntityActor.java",
+      "src/cr0s/javara/entity/effect/MoveFlash.java",
+      "src/cr0s/javara/entity/effect/ScreenShaker.java",
+      "src/cr0s/javara/entity/Entity.java",
+      "src/cr0s/javara/order/InputAttributes.java",
+      "src/cr0s/javara/order/Order.java",
+      "src/cr0s/javara/order/OrderTargeter.java",
+      "src/cr0s/javara/order/Target.java",
+      "src/cr0s/javara/perfomance/Profiler.java",
+      "src/cr0s/javara/resources/SoundManager.java",
+      "src/cr0s/javara/ui/cursor/CursorManager.java",
+      "src/cr0s/javara/ui/cursor/CursorType.java",
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "src/cr0s/javara/main/StateLoadingScreen.java": [],
+    "src/cr0s/javara/main/StateMainMenu.java": [
+      "src/cr0s/javara/ui/cursor/CursorManager.java",
+      "src/cr0s/javara/ui/cursor/CursorType.java",
+      "src/cr0s/javara/util/SpriteSheet.java"
+    ],
+    "src/cr0s/javara/main/StatePauseMenu.java": [
+      "src/cr0s/javara/ui/cursor/CursorManager.java",
+      "src/cr0s/javara/util/SpriteSheet.java"
+    ],
+    "src/cr0s/javara/main/StateTestScreen.java": [
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "src/cr0s/javara/order/InputAttributes.java": [],
+    "src/cr0s/javara/order/IOrderIssuer.java": [
+      "src/cr0s/javara/entity/Entity.java"
+    ],
+    "src/cr0s/javara/order/IOrderResolver.java": [],
+    "src/cr0s/javara/order/ITargetLines.java": [],
+    "src/cr0s/javara/order/MoveOrderTargeter.java": [
+      "src/cr0s/javara/entity/actor/EntityActor.java",
+      "src/cr0s/javara/entity/Entity.java",
+      "src/cr0s/javara/entity/MobileEntity.java",
+      "src/cr0s/javara/ui/cursor/CursorType.java",
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "src/cr0s/javara/order/Order.java": [
+      "src/cr0s/javara/entity/Entity.java",
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "src/cr0s/javara/order/OrderTargeter.java": [
+      "src/cr0s/javara/entity/actor/EntityActor.java",
+      "src/cr0s/javara/entity/Entity.java",
+      "src/cr0s/javara/ui/cursor/CursorType.java"
+    ],
+    "src/cr0s/javara/order/Target.java": [
+      "src/cr0s/javara/entity/actor/EntityActor.java",
+      "src/cr0s/javara/entity/Entity.java",
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "src/cr0s/javara/order/TargetLine.java": [
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "src/cr0s/javara/perfomance/PerfomanceGraphRenderer.java": [
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "src/cr0s/javara/perfomance/Profiler.java": [],
+    "src/cr0s/javara/perfomance/ProfilingSection.java": [],
+    "src/cr0s/javara/render/Controller.java": [
+      "src/cr0s/javara/gameplay/Player.java"
+    ],
+    "src/cr0s/javara/render/EntityBlockingMap.java": [
+      "src/cr0s/javara/entity/building/EntityBuilding.java",
+      "src/cr0s/javara/entity/Entity.java",
+      "src/cr0s/javara/entity/MobileEntity.java",
+      "src/cr0s/javara/perfomance/Profiler.java",
+      "src/cr0s/javara/render/map/TileSet.java",
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "src/cr0s/javara/render/map/AStarPathFinder.java": [
+      "src/cr0s/javara/entity/MobileEntity.java",
+      "src/cr0s/javara/render/World.java",
+      "src/cr0s/javara/util/Pos.java",
+      "src/mazesolver/Director.java",
+      "src/mazesolver/Helper.java",
+      "src/mazesolver/Maze.java"
+    ],
+    "src/cr0s/javara/render/map/InfantryPathfinder.java": [
+      "src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "src/cr0s/javara/entity/MobileEntity.java",
+      "src/cr0s/javara/render/World.java",
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "src/cr0s/javara/render/map/Map.java": [
+      "src/cr0s/javara/entity/Entity.java",
+      "src/cr0s/javara/entity/MobileEntity.java"
+    ],
+    "src/cr0s/javara/render/map/MapEntity.java": [
+      "src/cr0s/javara/resources/ShpTexture.java"
+    ],
+    "src/cr0s/javara/render/map/MinimapRenderer.java": [
+      "src/cr0s/javara/entity/actor/EntityActor.java",
+      "src/cr0s/javara/entity/Entity.java",
+      "src/cr0s/javara/main/GUI.java",
+      "src/cr0s/javara/render/World.java",
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "src/cr0s/javara/render/map/Mover.java": [],
+    "src/cr0s/javara/render/map/ResourcesLayer.java": [
+      "src/cr0s/javara/main/GUI.java",
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "src/cr0s/javara/render/map/SmudgeLayer.java": [
+      "src/cr0s/javara/main/GUI.java",
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "src/cr0s/javara/render/map/TheaterCache.java": [
+      "src/cr0s/javara/resources/ResourceManager.java",
+      "src/cr0s/javara/resources/ShpTexture.java",
+      "src/cr0s/javara/resources/TmpTexture.java",
+      "src/cr0s/javara/util/Pos.java",
+      "src/cr0s/javara/util/SpriteSheet.java"
+    ],
+    "src/cr0s/javara/render/map/TileMap.java": [
+      "src/cr0s/javara/render/World.java",
+      "src/cr0s/javara/resources/ResourceManager.java",
+      "src/cr0s/javara/resources/ShpTexture.java",
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "src/cr0s/javara/render/map/TileReference.java": [],
+    "src/cr0s/javara/render/map/TileSet.java": [
+      "src/cr0s/javara/resources/ResourceManager.java"
+    ],
+    "src/cr0s/javara/render/map/VehiclePathfinder.java": [
+      "src/cr0s/javara/entity/MobileEntity.java",
+      "src/cr0s/javara/entity/vehicle/EntityVehicle.java",
+      "src/cr0s/javara/render/World.java",
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "src/cr0s/javara/render/PathFindingContext.java": [],
+    "src/cr0s/javara/render/Sequence.java": [
+      "src/cr0s/javara/resources/ShpTexture.java",
+      "src/cr0s/javara/util/RotationUtil.java"
+    ],
+    "src/cr0s/javara/render/shrouds/Shroud.java": [
+      "src/cr0s/javara/gameplay/Player.java",
+      "src/cr0s/javara/render/World.java",
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "src/cr0s/javara/render/shrouds/ShroudRenderer.java": [
+      "src/cr0s/javara/main/GUI.java",
+      "src/cr0s/javara/render/World.java",
+      "src/cr0s/javara/resources/ResourceManager.java",
+      "src/cr0s/javara/util/SpriteSheet.java"
+    ],
+    "src/cr0s/javara/render/viewport/Camera.java": [
+      "src/cr0s/javara/entity/Entity.java",
+      "src/cr0s/javara/render/map/TileMap.java",
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "src/cr0s/javara/render/World.java": [
+      "src/cr0s/javara/combat/TargetType.java",
+      "src/cr0s/javara/entity/actor/EntityActor.java",
+      "src/cr0s/javara/entity/building/BibType.java",
+      "src/cr0s/javara/entity/building/EntityBuilding.java",
+      "src/cr0s/javara/entity/building/EntityBuildingProgress.java",
+      "src/cr0s/javara/entity/effect/Explosion.java",
+      "src/cr0s/javara/entity/effect/SequencePlayer.java",
+      "src/cr0s/javara/entity/effect/Smoke.java",
+      "src/cr0s/javara/entity/Entity.java",
+      "src/cr0s/javara/entity/IShroudRevealer.java",
+      "src/cr0s/javara/entity/MobileEntity.java",
+      "src/cr0s/javara/entity/turreted/IHaveTurret.java",
+      "src/cr0s/javara/gameplay/Player.java",
+      "src/cr0s/javara/order/ITargetLines.java",
+      "src/cr0s/javara/order/TargetLine.java",
+      "src/cr0s/javara/perfomance/Profiler.java",
+      "src/cr0s/javara/render/map/InfantryPathfinder.java",
+      "src/cr0s/javara/render/map/SmudgeLayer.java",
+      "src/cr0s/javara/render/map/TileMap.java",
+      "src/cr0s/javara/render/map/TileSet.java",
+      "src/cr0s/javara/render/map/VehiclePathfinder.java",
+      "src/cr0s/javara/resources/ResourceManager.java",
+      "src/cr0s/javara/util/CellChooser.java",
+      "src/cr0s/javara/util/Pos.java",
+      "src/cr0s/javara/util/SpriteSheet.java"
+    ],
+    "src/cr0s/javara/resources/RemappedTextureCache.java": [],
+    "src/cr0s/javara/resources/ResourceManager.java": [
+      "src/cr0s/javara/entity/building/BibType.java",
+      "src/cr0s/javara/util/SpriteSheet.java",
+      "src/soundly/XSound.java"
+    ],
+    "src/cr0s/javara/resources/ShpTexture.java": [
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "src/cr0s/javara/resources/SoundManager.java": [
+      "src/cr0s/javara/entity/actor/EntityActor.java",
+      "src/cr0s/javara/main/GUI.java",
+      "src/cr0s/javara/util/Pos.java",
+      "src/soundly/Soundly.java",
+      "src/soundly/XSound.java"
+    ],
+    "src/cr0s/javara/resources/TmpTexture.java": [
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "src/cr0s/javara/ui/cursor/CursorManager.java": [
+      "src/cr0s/javara/resources/ResourceManager.java",
+      "src/cr0s/javara/resources/ShpTexture.java"
+    ],
+    "src/cr0s/javara/ui/cursor/CursorSequence.java": [
+      "src/cr0s/javara/render/Sequence.java",
+      "src/cr0s/javara/resources/ShpTexture.java"
+    ],
+    "src/cr0s/javara/ui/cursor/CursorType.java": [],
+    "src/cr0s/javara/ui/GameSideBar.java": [
+      "src/cr0s/javara/entity/actor/EntityActor.java",
+      "src/cr0s/javara/entity/building/EntityBuilding.java",
+      "src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "src/cr0s/javara/gameplay/Base.java",
+      "src/cr0s/javara/gameplay/Player.java",
+      "src/cr0s/javara/gameplay/Production.java",
+      "src/cr0s/javara/main/GUI.java",
+      "src/cr0s/javara/perfomance/Profiler.java",
+      "src/cr0s/javara/render/map/MinimapRenderer.java",
+      "src/cr0s/javara/resources/SoundManager.java",
+      "src/cr0s/javara/ui/sbpages/building/PageBuildingSoviet.java",
+      "src/cr0s/javara/ui/sbpages/infantry/PageInfantry.java",
+      "src/cr0s/javara/ui/sbpages/SideBarPage.java",
+      "src/cr0s/javara/ui/sbpages/vehicle/PageVehicle.java",
+      "src/cr0s/javara/util/Pos.java",
+      "src/cr0s/javara/util/SpriteSheet.java"
+    ],
+    "src/cr0s/javara/ui/PowerBarRenderer.java": [
+      "src/cr0s/javara/main/GUI.java",
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "src/cr0s/javara/ui/sbpages/building/BuildingSidebarButton.java": [
+      "src/cr0s/javara/ui/sbpages/SideBarItemsButton.java",
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "src/cr0s/javara/ui/sbpages/building/PageBuildingSoviet.java": [
+      "src/cr0s/javara/main/GUI.java",
+      "src/cr0s/javara/resources/SoundManager.java",
+      "src/cr0s/javara/ui/sbpages/SideBarItemsButton.java",
+      "src/cr0s/javara/ui/sbpages/SideBarPage.java",
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "src/cr0s/javara/ui/sbpages/infantry/InfantrySidebarButton.java": [
+      "src/cr0s/javara/entity/infantry/EntityInfantry.java",
+      "src/cr0s/javara/ui/sbpages/SideBarItemsButton.java",
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "src/cr0s/javara/ui/sbpages/infantry/PageInfantry.java": [
+      "src/cr0s/javara/main/GUI.java",
+      "src/cr0s/javara/resources/SoundManager.java",
+      "src/cr0s/javara/ui/sbpages/SideBarItemsButton.java",
+      "src/cr0s/javara/ui/sbpages/SideBarPage.java",
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "src/cr0s/javara/ui/sbpages/SideBarItemsButton.java": [
+      "src/cr0s/javara/main/GUI.java",
+      "src/cr0s/javara/resources/ResourceManager.java",
+      "src/cr0s/javara/resources/ShpTexture.java",
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "src/cr0s/javara/ui/sbpages/SideBarPage.java": [
+      "src/cr0s/javara/entity/actor/EntityActor.java",
+      "src/cr0s/javara/entity/IHaveCost.java",
+      "src/cr0s/javara/main/GUI.java",
+      "src/cr0s/javara/ui/GameSideBar.java",
+      "src/cr0s/javara/ui/SideBarToolTip.java",
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "src/cr0s/javara/ui/sbpages/vehicle/PageVehicle.java": [
+      "src/cr0s/javara/main/GUI.java",
+      "src/cr0s/javara/resources/SoundManager.java",
+      "src/cr0s/javara/ui/sbpages/SideBarItemsButton.java",
+      "src/cr0s/javara/ui/sbpages/SideBarPage.java",
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "src/cr0s/javara/ui/sbpages/vehicle/VehicleSidebarButton.java": [
+      "src/cr0s/javara/ui/sbpages/SideBarItemsButton.java",
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "src/cr0s/javara/ui/SideBarPageCategory.java": [],
+    "src/cr0s/javara/ui/SideBarToolTip.java": [
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "src/cr0s/javara/util/Action.java": [],
+    "src/cr0s/javara/util/CellChooser.java": [],
+    "src/cr0s/javara/util/PointsUtil.java": [],
+    "src/cr0s/javara/util/Pos.java": [],
+    "src/cr0s/javara/util/RotationUtil.java": [],
+    "src/cr0s/javara/util/SpriteSheet.java": [],
+    "src/cr0s/javara/util/WaitAction.java": [],
+    "src/mazesolver/Ant.java": [
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "src/mazesolver/Director.java": [
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "src/mazesolver/Graphics.java": [
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "src/mazesolver/Helper.java": [
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "src/mazesolver/Main.java": [],
+    "src/mazesolver/Maze.java": [
+      "src/cr0s/javara/render/World.java",
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "src/mazesolver/Route.java": [],
+    "src/mazesolver/Settings.java": [],
+    "src/mazesolver/SubRoute.java": [
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "src/mazesolver/Venue.java": [
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "src/module-info.java": [],
+    "src/net/pso/jswarm/alpine/Example.java": [
+      "src/net/pso/jswarm/Swarm.java"
+    ],
+    "src/net/pso/jswarm/alpine/ExampleRepulsive.java": [
+      "src/net/pso/jswarm/SwarmRepulsive.java"
+    ],
+    "src/net/pso/jswarm/alpine/MyFitnessFunction.java": [
+      "src/net/pso/jswarm/FitnessFunction.java"
+    ],
+    "src/net/pso/jswarm/alpine/MyParticle.java": [
+      "src/net/pso/jswarm/Particle.java"
+    ],
+    "src/net/pso/jswarm/Attic/example_2/Attic/DrawingArea.java": [],
+    "src/net/pso/jswarm/Attic/example_2/Attic/Example.java": [
+      "src/net/pso/jswarm/Attic/Swarm.java",
+      "src/net/pso/jswarm/Neighborhood.java",
+      "src/net/pso/jswarm/Neighborhood1D.java"
+    ],
+    "src/net/pso/jswarm/Attic/example_2/Attic/MyFitnessFunction.java": [
+      "src/net/pso/jswarm/FitnessFunction.java"
+    ],
+    "src/net/pso/jswarm/Attic/example_2/Attic/MyParticle.java": [
+      "src/net/pso/jswarm/Particle.java"
+    ],
+    "src/net/pso/jswarm/Attic/example_2/Attic/SwarmShow2D.java": [
+      "src/net/pso/jswarm/Attic/Swarm.java",
+      "src/net/pso/jswarm/Gpr.java"
+    ],
+    "src/net/pso/jswarm/Attic/example_2/Attic/SwarmThread.java": [],
+    "src/net/pso/jswarm/Attic/Example.java": [],
+    "src/net/pso/jswarm/Attic/MyFitnessFunction.java": [
+      "src/net/pso/jswarm/FitnessFunction.java"
+    ],
+    "src/net/pso/jswarm/Attic/MyParticle.java": [
+      "src/net/pso/jswarm/Particle.java"
+    ],
+    "src/net/pso/jswarm/Attic/Swarm.java": [
+      "src/net/pso/jswarm/FitnessFunction.java",
+      "src/net/pso/jswarm/Particle.java"
+    ],
+    "src/net/pso/jswarm/example_1/Example.java,v": [],
+    "src/net/pso/jswarm/example_1/MyParticle.java,v": [],
+    "src/net/pso/jswarm/example_2/DrawingArea.java": [],
+    "src/net/pso/jswarm/example_2/Example.java": [
+      "src/net/pso/jswarm/Attic/MyParticle.java",
+      "src/net/pso/jswarm/Neighborhood.java",
+      "src/net/pso/jswarm/Neighborhood1D.java",
+      "src/net/pso/jswarm/rosenbrock/MyFitnessFunction.java",
+      "src/net/pso/jswarm/Swarm.java"
+    ],
+    "src/net/pso/jswarm/example_2/SwarmShow2D.java": [
+      "src/net/pso/jswarm/Gpr.java",
+      "src/net/pso/jswarm/Swarm.java"
+    ],
+    "src/net/pso/jswarm/example_2/SwarmThread.java": [],
+    "src/net/pso/jswarm/FitnessFunction.java": [],
+    "src/net/pso/jswarm/Gpr.java": [],
+    "src/net/pso/jswarm/Neighborhood.java": [],
+    "src/net/pso/jswarm/Neighborhood1D.java": [],
+    "src/net/pso/jswarm/Particle.java": [],
+    "src/net/pso/jswarm/ParticleUpdate.java": [],
+    "src/net/pso/jswarm/ParticleUpdateFullyRandom.java": [],
+    "src/net/pso/jswarm/ParticleUpdateRandomByParticle.java": [],
+    "src/net/pso/jswarm/ParticleUpdateRepulsive.java": [],
+    "src/net/pso/jswarm/ParticleUpdateSimple.java": [],
+    "src/net/pso/jswarm/rosenbrock_30/Example.java,v": [],
+    "src/net/pso/jswarm/rosenbrock_30/MyFitnessFunction.java,v": [],
+    "src/net/pso/jswarm/rosenbrock_30/MyParticle.java,v": [],
+    "src/net/pso/jswarm/rosenbrock/Example.java,v": [],
+    "src/net/pso/jswarm/rosenbrock/MyFitnessFunction.java": [
+      "src/net/pso/jswarm/FitnessFunction.java"
+    ],
+    "src/net/pso/jswarm/schaffer/Example.java,v": [],
+    "src/net/pso/jswarm/schaffer/MyFitnessFunction.java": [
+      "src/net/pso/jswarm/FitnessFunction.java"
+    ],
+    "src/net/pso/jswarm/sphere/Example.java,v": [],
+    "src/net/pso/jswarm/sphere/MyFitnessFunction.java": [
+      "src/net/pso/jswarm/FitnessFunction.java"
+    ],
+    "src/net/pso/jswarm/sphere/MyParticle.java,v": [],
+    "src/net/pso/jswarm/Swarm.java": [],
+    "src/net/pso/jswarm/SwarmRepulsive.java": [],
+    "src/net/pso/jswarm/VariablesUpdate.java": [],
+    "src/net/pso/jswarm/zzz/Example.java,v": [],
+    "src/net/pso/jswarm/zzz/MyFitnessFunction.java": [
+      "src/net/pso/jswarm/FitnessFunction.java"
+    ],
+    "src/soundly/AudioData.java": [],
+    "src/soundly/impl/XOpenALStreamPlayer.java": [],
+    "src/soundly/ManagedSound.java": [],
+    "src/soundly/Mix.java": [],
+    "src/soundly/SoundGroup.java": [],
+    "src/soundly/Soundly.java": [],
+    "src/soundly/SoundStore.java": [],
+    "src/soundly/XSound.java": [],
+    "src/soundly/XStreamingSound.java": [
+      "src/soundly/impl/XOpenALStreamPlayer.java"
+    ],
+    "test/module-info.java": [],
+    "test/test/ClassTest.java": [],
+    "test/test/PointsUtilTest.java": [
+      "src/cr0s/javara/util/PointsUtil.java",
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "test/test/PosTest.java": [
+      "src/cr0s/javara/util/Pos.java"
+    ],
+    "test/test/RotationUtilTest.java": [
+      "src/cr0s/javara/util/Pos.java",
+      "src/cr0s/javara/util/RotationUtil.java"
+    ],
+    "tilesets/desert.yaml": [],
+    "tilesets/interior.yaml": [],
+    "tilesets/snow.yaml": [],
+    "tilesets/temperat.yaml": []
+  },
+  "languages": [
+    "bin",
+    "bluej",
+    "dll",
+    "dylib",
+    "jar",
+    "java",
+    "java,v",
+    "jnilib",
+    "json",
+    "markdown",
+    "mix",
+    "pal",
+    "prefs",
+    "properties",
+    "shp",
+    "so",
+    "txt",
+    "unknown",
+    "xml",
+    "yaml"
+  ],
+  "frameworks": [
+    "LWJGL",
+    "Slick2D"
+  ],
+  "totalFiles": 357,
+  "filteredByIgnore": 0,
+  "estimatedComplexity": "large",
+  "stats": {
+    "filesScanned": 357,
+    "byCategory": {
+      "code": 334,
+      "config": 18,
+      "docs": 5
+    },
+    "byLanguage": {
+      "unknown": 4,
+      "prefs": 2,
+      "json": 1,
+      "yaml": 11,
+      "mix": 13,
+      "shp": 1,
+      "pal": 5,
+      "java,v": 20,
+      "xml": 4,
+      "txt": 4,
+      "jar": 20,
+      "dll": 8,
+      "so": 6,
+      "jnilib": 2,
+      "dylib": 1,
+      "bin": 2,
+      "properties": 2,
+      "markdown": 1,
+      "java": 249,
+      "bluej": 1
+    }
+  }
+}

@@ -1,0 +1,1937 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/net/pso/jswarm/Gpr.java",
+      "type": "file",
+      "name": "Gpr.java",
+      "filePath": "src/net/pso/jswarm/Gpr.java",
+      "summary": "Debug logging utility class providing overloaded debug methods with varying detail levels and a warning tracker.",
+      "tags": [
+        "utility",
+        "logging",
+        "debug",
+        "tool"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/net/pso/jswarm/Gpr.java:Gpr",
+      "type": "class",
+      "name": "Gpr",
+      "filePath": "src/net/pso/jswarm/Gpr.java",
+      "lineRange": [
+        7,
+        110
+      ],
+      "summary": "Class Gpr with 10 methods.",
+      "tags": [
+        "class",
+        "java"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/Gpr.java:debug_L19",
+      "type": "function",
+      "name": "debug",
+      "filePath": "src/net/pso/jswarm/Gpr.java",
+      "lineRange": [
+        19,
+        21
+      ],
+      "summary": "Method debug with parameters [b].",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/Gpr.java:debug_L28",
+      "type": "function",
+      "name": "debug",
+      "filePath": "src/net/pso/jswarm/Gpr.java",
+      "lineRange": [
+        28,
+        30
+      ],
+      "summary": "Method debug with parameters [debug, i].",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/Gpr.java:debug_L37",
+      "type": "function",
+      "name": "debug",
+      "filePath": "src/net/pso/jswarm/Gpr.java",
+      "lineRange": [
+        37,
+        39
+      ],
+      "summary": "Method debug with parameters [debug, obj].",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/Gpr.java:debug_L45",
+      "type": "function",
+      "name": "debug",
+      "filePath": "src/net/pso/jswarm/Gpr.java",
+      "lineRange": [
+        45,
+        47
+      ],
+      "summary": "Method debug with parameters [d].",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/Gpr.java:debug_L53",
+      "type": "function",
+      "name": "debug",
+      "filePath": "src/net/pso/jswarm/Gpr.java",
+      "lineRange": [
+        53,
+        55
+      ],
+      "summary": "Method debug with parameters [i].",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/Gpr.java:debug_L63",
+      "type": "function",
+      "name": "debug",
+      "filePath": "src/net/pso/jswarm/Gpr.java",
+      "lineRange": [
+        63,
+        65
+      ],
+      "summary": "Method debug with parameters [currentDebugLevel, thisMessageLevel, obj].",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/Gpr.java:debug_L71",
+      "type": "function",
+      "name": "debug",
+      "filePath": "src/net/pso/jswarm/Gpr.java",
+      "lineRange": [
+        71,
+        73
+      ],
+      "summary": "Method debug with parameters [obj].",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/Gpr.java:debug_L80",
+      "type": "function",
+      "name": "debug",
+      "filePath": "src/net/pso/jswarm/Gpr.java",
+      "lineRange": [
+        80,
+        82
+      ],
+      "summary": "Method debug with parameters [obj, offset].",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/Gpr.java:debug_L90",
+      "type": "function",
+      "name": "debug",
+      "filePath": "src/net/pso/jswarm/Gpr.java",
+      "lineRange": [
+        90,
+        98
+      ],
+      "summary": "Method debug with parameters [obj, offset, newLine].",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/Gpr.java:warn_L104",
+      "type": "function",
+      "name": "warn",
+      "filePath": "src/net/pso/jswarm/Gpr.java",
+      "lineRange": [
+        104,
+        109
+      ],
+      "summary": "Method warn with parameters [warning].",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/net/pso/jswarm/Neighborhood.java",
+      "type": "file",
+      "name": "Neighborhood.java",
+      "filePath": "src/net/pso/jswarm/Neighborhood.java",
+      "summary": "Abstract neighborhood topology manager defining particle neighbor calculation, best-particle tracking, and swarm integration.",
+      "tags": [
+        "neighborhood",
+        "topology",
+        "abstract-class",
+        "pso"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/net/pso/jswarm/Neighborhood.java:Neighborhood",
+      "type": "class",
+      "name": "Neighborhood",
+      "filePath": "src/net/pso/jswarm/Neighborhood.java",
+      "lineRange": [
+        11,
+        93
+      ],
+      "summary": "Class Neighborhood with 7 methods.",
+      "tags": [
+        "class",
+        "java"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/Neighborhood.java:Neighborhood_L18",
+      "type": "function",
+      "name": "Neighborhood",
+      "filePath": "src/net/pso/jswarm/Neighborhood.java",
+      "lineRange": [
+        18,
+        21
+      ],
+      "summary": "Method Neighborhood.",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/Neighborhood.java:calcNeighbours_L31",
+      "type": "function",
+      "name": "calcNeighbours",
+      "filePath": "src/net/pso/jswarm/Neighborhood.java",
+      "lineRange": [
+        31,
+        31
+      ],
+      "summary": "Method calcNeighbours with parameters [p].",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/Neighborhood.java:getBestPosition_L47",
+      "type": "function",
+      "name": "getBestPosition",
+      "filePath": "src/net/pso/jswarm/Neighborhood.java",
+      "lineRange": [
+        47,
+        51
+      ],
+      "summary": "Method getBestPosition with parameters [p].",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/Neighborhood.java:getNeighbours_L58",
+      "type": "function",
+      "name": "getNeighbours",
+      "filePath": "src/net/pso/jswarm/Neighborhood.java",
+      "lineRange": [
+        58,
+        62
+      ],
+      "summary": "Method getNeighbours with parameters [p].",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/Neighborhood.java:init_L69",
+      "type": "function",
+      "name": "init",
+      "filePath": "src/net/pso/jswarm/Neighborhood.java",
+      "lineRange": [
+        69,
+        75
+      ],
+      "summary": "Method init with parameters [swarm].",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/Neighborhood.java:update_L82",
+      "type": "function",
+      "name": "update",
+      "filePath": "src/net/pso/jswarm/Neighborhood.java",
+      "lineRange": [
+        82,
+        92
+      ],
+      "summary": "Method update with parameters [swarm, p].",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/net/pso/jswarm/Neighborhood1D.java",
+      "type": "file",
+      "name": "Neighborhood1D.java",
+      "filePath": "src/net/pso/jswarm/Neighborhood1D.java",
+      "summary": "Concrete 1D ring-topology neighborhood implementation supporting configurable size and circular wrapping.",
+      "tags": [
+        "neighborhood",
+        "topology",
+        "ring",
+        "pso"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/net/pso/jswarm/Neighborhood1D.java:Neighborhood1D",
+      "type": "class",
+      "name": "Neighborhood1D",
+      "filePath": "src/net/pso/jswarm/Neighborhood1D.java",
+      "lineRange": [
+        11,
+        79
+      ],
+      "summary": "Class Neighborhood1D with 5 methods.",
+      "tags": [
+        "class",
+        "java"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/Neighborhood1D.java:Neighborhood1D_L22",
+      "type": "function",
+      "name": "Neighborhood1D",
+      "filePath": "src/net/pso/jswarm/Neighborhood1D.java",
+      "lineRange": [
+        22,
+        27
+      ],
+      "summary": "Method Neighborhood1D with parameters [size, circular].",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/Neighborhood1D.java:calcNeighbours_L29",
+      "type": "function",
+      "name": "calcNeighbours",
+      "filePath": "src/net/pso/jswarm/Neighborhood1D.java",
+      "lineRange": [
+        29,
+        41
+      ],
+      "summary": "Method calcNeighbours with parameters [p].",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/Neighborhood1D.java:init_L71",
+      "type": "function",
+      "name": "init",
+      "filePath": "src/net/pso/jswarm/Neighborhood1D.java",
+      "lineRange": [
+        71,
+        78
+      ],
+      "summary": "Method init with parameters [swarm].",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/net/pso/jswarm/Particle.java",
+      "type": "file",
+      "name": "Particle.java",
+      "filePath": "src/net/pso/jswarm/Particle.java",
+      "summary": "Core particle entity managing position, velocity, fitness state, constraint enforcement, and clone-based self-factory creation.",
+      "tags": [
+        "particle",
+        "entity",
+        "pso",
+        "constraints"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:src/net/pso/jswarm/Particle.java:Particle",
+      "type": "class",
+      "name": "Particle",
+      "filePath": "src/net/pso/jswarm/Particle.java",
+      "lineRange": [
+        10,
+        331
+      ],
+      "summary": "Class Particle with 23 methods.",
+      "tags": [
+        "class",
+        "java"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/Particle.java:Particle_L31",
+      "type": "function",
+      "name": "Particle",
+      "filePath": "src/net/pso/jswarm/Particle.java",
+      "lineRange": [
+        31,
+        33
+      ],
+      "summary": "Method Particle.",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/Particle.java:Particle_L39",
+      "type": "function",
+      "name": "Particle",
+      "filePath": "src/net/pso/jswarm/Particle.java",
+      "lineRange": [
+        39,
+        41
+      ],
+      "summary": "Method Particle with parameters [dimention].",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/Particle.java:Particle_L47",
+      "type": "function",
+      "name": "Particle",
+      "filePath": "src/net/pso/jswarm/Particle.java",
+      "lineRange": [
+        47,
+        50
+      ],
+      "summary": "Method Particle with parameters [sampleParticle].",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/Particle.java:allocate_L57",
+      "type": "function",
+      "name": "allocate",
+      "filePath": "src/net/pso/jswarm/Particle.java",
+      "lineRange": [
+        57,
+        65
+      ],
+      "summary": "Method allocate with parameters [dimention].",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/Particle.java:applyConstraints_L74",
+      "type": "function",
+      "name": "applyConstraints",
+      "filePath": "src/net/pso/jswarm/Particle.java",
+      "lineRange": [
+        74,
+        134
+      ],
+      "summary": "Method applyConstraints with parameters [minPosition, maxPosition, minVelocity, maxVelocity].",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/Particle.java:copyPosition_L137",
+      "type": "function",
+      "name": "copyPosition",
+      "filePath": "src/net/pso/jswarm/Particle.java",
+      "lineRange": [
+        137,
+        139
+      ],
+      "summary": "Method copyPosition with parameters [positionCopy].",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/Particle.java:copyPosition2Best_L142",
+      "type": "function",
+      "name": "copyPosition2Best",
+      "filePath": "src/net/pso/jswarm/Particle.java",
+      "lineRange": [
+        142,
+        144
+      ],
+      "summary": "Method copyPosition2Best.",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/Particle.java:init_L177",
+      "type": "function",
+      "name": "init",
+      "filePath": "src/net/pso/jswarm/Particle.java",
+      "lineRange": [
+        177,
+        197
+      ],
+      "summary": "Method init with parameters [maxPosition, minPosition, maxVelocity, minVelocity].",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/Particle.java:selfFactory_L203",
+      "type": "function",
+      "name": "selfFactory",
+      "filePath": "src/net/pso/jswarm/Particle.java",
+      "lineRange": [
+        203,
+        218
+      ],
+      "summary": "Method selfFactory.",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/Particle.java:setFitness_L234",
+      "type": "function",
+      "name": "setFitness",
+      "filePath": "src/net/pso/jswarm/Particle.java",
+      "lineRange": [
+        234,
+        242
+      ],
+      "summary": "Method setFitness with parameters [fitness, maximize].",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/Particle.java:toString_L252",
+      "type": "function",
+      "name": "toString",
+      "filePath": "src/net/pso/jswarm/Particle.java",
+      "lineRange": [
+        252,
+        276
+      ],
+      "summary": "Method toString.",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/Particle.java:update_L285",
+      "type": "function",
+      "name": "update",
+      "filePath": "src/net/pso/jswarm/Particle.java",
+      "lineRange": [
+        285,
+        299
+      ],
+      "summary": "Method update with parameters [inertia, particleIncrement, globalIncrement, globalBestPosition].",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/Particle.java:updateRepulsive_L311",
+      "type": "function",
+      "name": "updateRepulsive",
+      "filePath": "src/net/pso/jswarm/Particle.java",
+      "lineRange": [
+        311,
+        330
+      ],
+      "summary": "Method updateRepulsive with parameters [inertia, particleIncrement, otherParticleIncrement, randomIncrement, otherParticleBestPosition, minVelocity, maxVelocity].",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/net/pso/jswarm/Swarm.java",
+      "type": "file",
+      "name": "Swarm.java",
+      "filePath": "src/net/pso/jswarm/Swarm.java",
+      "summary": "Main PSO swarm orchestrator managing particle collection, fitness evaluation, evolution cycles, neighborhood topology, and visualization.",
+      "tags": [
+        "swarm",
+        "optimization",
+        "pso",
+        "orchestrator"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:src/net/pso/jswarm/Swarm.java:Swarm",
+      "type": "class",
+      "name": "Swarm",
+      "filePath": "src/net/pso/jswarm/Swarm.java",
+      "lineRange": [
+        13,
+        533
+      ],
+      "summary": "Class Swarm with 53 methods.",
+      "tags": [
+        "class",
+        "java"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/Swarm.java:Swarm_L74",
+      "type": "function",
+      "name": "Swarm",
+      "filePath": "src/net/pso/jswarm/Swarm.java",
+      "lineRange": [
+        74,
+        97
+      ],
+      "summary": "Method Swarm with parameters [numberOfParticles, sampleParticle, fitnessFunction].",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/Swarm.java:evaluate_L107",
+      "type": "function",
+      "name": "evaluate",
+      "filePath": "src/net/pso/jswarm/Swarm.java",
+      "lineRange": [
+        107,
+        140
+      ],
+      "summary": "Method evaluate.",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/Swarm.java:evolve_L148",
+      "type": "function",
+      "name": "evolve",
+      "filePath": "src/net/pso/jswarm/Swarm.java",
+      "lineRange": [
+        148,
+        156
+      ],
+      "summary": "Method evolve.",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/Swarm.java:getNeighborhood_L202",
+      "type": "function",
+      "name": "getNeighborhood",
+      "filePath": "src/net/pso/jswarm/Swarm.java",
+      "lineRange": [
+        202,
+        205
+      ],
+      "summary": "Method getNeighborhood.",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/Swarm.java:getNeighborhoodBestPosition_L215",
+      "type": "function",
+      "name": "getNeighborhoodBestPosition",
+      "filePath": "src/net/pso/jswarm/Swarm.java",
+      "lineRange": [
+        215,
+        221
+      ],
+      "summary": "Method getNeighborhoodBestPosition with parameters [particle].",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/Swarm.java:init_L263",
+      "type": "function",
+      "name": "init",
+      "filePath": "src/net/pso/jswarm/Swarm.java",
+      "lineRange": [
+        263,
+        293
+      ],
+      "summary": "Method init.",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/Swarm.java:iterator_L298",
+      "type": "function",
+      "name": "iterator",
+      "filePath": "src/net/pso/jswarm/Swarm.java",
+      "lineRange": [
+        298,
+        306
+      ],
+      "summary": "Method iterator.",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/Swarm.java:setMaxMinVelocity_L332",
+      "type": "function",
+      "name": "setMaxMinVelocity",
+      "filePath": "src/net/pso/jswarm/Swarm.java",
+      "lineRange": [
+        332,
+        341
+      ],
+      "summary": "Method setMaxMinVelocity with parameters [maxVelocity].",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/Swarm.java:setMaxPosition_L347",
+      "type": "function",
+      "name": "setMaxPosition",
+      "filePath": "src/net/pso/jswarm/Swarm.java",
+      "lineRange": [
+        347,
+        353
+      ],
+      "summary": "Method setMaxPosition with parameters [maxPosition].",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/Swarm.java:setMinPosition_L367",
+      "type": "function",
+      "name": "setMinPosition",
+      "filePath": "src/net/pso/jswarm/Swarm.java",
+      "lineRange": [
+        367,
+        373
+      ],
+      "summary": "Method setMinPosition with parameters [minPosition].",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/Swarm.java:setNeighborhood_L383",
+      "type": "function",
+      "name": "setNeighborhood",
+      "filePath": "src/net/pso/jswarm/Swarm.java",
+      "lineRange": [
+        383,
+        386
+      ],
+      "summary": "Method setNeighborhood with parameters [neighborhood].",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/Swarm.java:setParticles_L404",
+      "type": "function",
+      "name": "setParticles",
+      "filePath": "src/net/pso/jswarm/Swarm.java",
+      "lineRange": [
+        404,
+        407
+      ],
+      "summary": "Method setParticles with parameters [particle].",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/Swarm.java:show_L431",
+      "type": "function",
+      "name": "show",
+      "filePath": "src/net/pso/jswarm/Swarm.java",
+      "lineRange": [
+        431,
+        459
+      ],
+      "summary": "Method show with parameters [graphics, foreground, width, height, dim0, dim1, showVelocity].",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/Swarm.java:size_L462",
+      "type": "function",
+      "name": "size",
+      "filePath": "src/net/pso/jswarm/Swarm.java",
+      "lineRange": [
+        462,
+        464
+      ],
+      "summary": "Method size.",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/Swarm.java:toString_L467",
+      "type": "function",
+      "name": "toString",
+      "filePath": "src/net/pso/jswarm/Swarm.java",
+      "lineRange": [
+        467,
+        497
+      ],
+      "summary": "Method toString.",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/Swarm.java:toStringStats_L503",
+      "type": "function",
+      "name": "toStringStats",
+      "filePath": "src/net/pso/jswarm/Swarm.java",
+      "lineRange": [
+        503,
+        512
+      ],
+      "summary": "Method toStringStats.",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/Swarm.java:update_L518",
+      "type": "function",
+      "name": "update",
+      "filePath": "src/net/pso/jswarm/Swarm.java",
+      "lineRange": [
+        518,
+        532
+      ],
+      "summary": "Method update.",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/net/pso/jswarm/alpine/Example.java",
+      "type": "file",
+      "name": "Example.java",
+      "filePath": "src/net/pso/jswarm/alpine/Example.java",
+      "summary": "Alpine function benchmark entry point running a PSO optimization with parameter configuration and result reporting.",
+      "tags": [
+        "entry-point",
+        "example",
+        "benchmark",
+        "alpine"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/net/pso/jswarm/alpine/Example.java:Example",
+      "type": "class",
+      "name": "Example",
+      "filePath": "src/net/pso/jswarm/alpine/Example.java",
+      "lineRange": [
+        14,
+        44
+      ],
+      "summary": "Class Example with 1 methods.",
+      "tags": [
+        "class",
+        "java"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/alpine/Example.java:main_L19",
+      "type": "function",
+      "name": "main",
+      "filePath": "src/net/pso/jswarm/alpine/Example.java",
+      "lineRange": [
+        19,
+        42
+      ],
+      "summary": "Method main with parameters [args].",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/net/pso/jswarm/alpine/MyFitnessFunction.java",
+      "type": "file",
+      "name": "MyFitnessFunction.java",
+      "filePath": "src/net/pso/jswarm/alpine/MyFitnessFunction.java",
+      "summary": "Alpine benchmark fitness function evaluating the Alpine 2D mathematical test function.",
+      "tags": [
+        "fitness-function",
+        "benchmark",
+        "alpine"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/net/pso/jswarm/alpine/MyFitnessFunction.java:MyFitnessFunction",
+      "type": "class",
+      "name": "MyFitnessFunction",
+      "filePath": "src/net/pso/jswarm/alpine/MyFitnessFunction.java",
+      "lineRange": [
+        12,
+        30
+      ],
+      "summary": "Class MyFitnessFunction with 1 methods.",
+      "tags": [
+        "class",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/alpine/MyFitnessFunction.java:evaluate_L23",
+      "type": "function",
+      "name": "evaluate",
+      "filePath": "src/net/pso/jswarm/alpine/MyFitnessFunction.java",
+      "lineRange": [
+        23,
+        28
+      ],
+      "summary": "Method evaluate with parameters [position].",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/net/pso/jswarm/alpine/MyParticle.java",
+      "type": "file",
+      "name": "MyParticle.java",
+      "filePath": "src/net/pso/jswarm/alpine/MyParticle.java",
+      "summary": "Simple particle subclass for alpine benchmark with minimal constructor.",
+      "tags": [
+        "particle",
+        "template",
+        "benchmark"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/net/pso/jswarm/alpine/MyParticle.java:MyParticle",
+      "type": "class",
+      "name": "MyParticle",
+      "filePath": "src/net/pso/jswarm/alpine/MyParticle.java",
+      "lineRange": [
+        9,
+        16
+      ],
+      "summary": "Class MyParticle with 1 methods.",
+      "tags": [
+        "class",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/alpine/MyParticle.java:MyParticle_L12",
+      "type": "function",
+      "name": "MyParticle",
+      "filePath": "src/net/pso/jswarm/alpine/MyParticle.java",
+      "lineRange": [
+        12,
+        14
+      ],
+      "summary": "Method MyParticle.",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/net/pso/jswarm/Gpr.java",
+      "target": "class:src/net/pso/jswarm/Gpr.java:Gpr",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Gpr.java",
+      "target": "class:src/net/pso/jswarm/Gpr.java:Gpr",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Gpr.java",
+      "target": "function:src/net/pso/jswarm/Gpr.java:debug_L19",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Gpr.java",
+      "target": "function:src/net/pso/jswarm/Gpr.java:debug_L19",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Gpr.java",
+      "target": "function:src/net/pso/jswarm/Gpr.java:debug_L28",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Gpr.java",
+      "target": "function:src/net/pso/jswarm/Gpr.java:debug_L28",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Gpr.java",
+      "target": "function:src/net/pso/jswarm/Gpr.java:debug_L37",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Gpr.java",
+      "target": "function:src/net/pso/jswarm/Gpr.java:debug_L37",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Gpr.java",
+      "target": "function:src/net/pso/jswarm/Gpr.java:debug_L45",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Gpr.java",
+      "target": "function:src/net/pso/jswarm/Gpr.java:debug_L45",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Gpr.java",
+      "target": "function:src/net/pso/jswarm/Gpr.java:debug_L53",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Gpr.java",
+      "target": "function:src/net/pso/jswarm/Gpr.java:debug_L53",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Gpr.java",
+      "target": "function:src/net/pso/jswarm/Gpr.java:debug_L63",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Gpr.java",
+      "target": "function:src/net/pso/jswarm/Gpr.java:debug_L63",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Gpr.java",
+      "target": "function:src/net/pso/jswarm/Gpr.java:debug_L71",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Gpr.java",
+      "target": "function:src/net/pso/jswarm/Gpr.java:debug_L71",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Gpr.java",
+      "target": "function:src/net/pso/jswarm/Gpr.java:debug_L80",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Gpr.java",
+      "target": "function:src/net/pso/jswarm/Gpr.java:debug_L80",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Gpr.java",
+      "target": "function:src/net/pso/jswarm/Gpr.java:debug_L90",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Gpr.java",
+      "target": "function:src/net/pso/jswarm/Gpr.java:debug_L90",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Gpr.java",
+      "target": "function:src/net/pso/jswarm/Gpr.java:warn_L104",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Gpr.java",
+      "target": "function:src/net/pso/jswarm/Gpr.java:warn_L104",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Neighborhood.java",
+      "target": "class:src/net/pso/jswarm/Neighborhood.java:Neighborhood",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Neighborhood.java",
+      "target": "class:src/net/pso/jswarm/Neighborhood.java:Neighborhood",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Neighborhood.java",
+      "target": "function:src/net/pso/jswarm/Neighborhood.java:Neighborhood_L18",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Neighborhood.java",
+      "target": "function:src/net/pso/jswarm/Neighborhood.java:Neighborhood_L18",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Neighborhood.java",
+      "target": "function:src/net/pso/jswarm/Neighborhood.java:calcNeighbours_L31",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Neighborhood.java",
+      "target": "function:src/net/pso/jswarm/Neighborhood.java:calcNeighbours_L31",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Neighborhood.java",
+      "target": "function:src/net/pso/jswarm/Neighborhood.java:getBestPosition_L47",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Neighborhood.java",
+      "target": "function:src/net/pso/jswarm/Neighborhood.java:getBestPosition_L47",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Neighborhood.java",
+      "target": "function:src/net/pso/jswarm/Neighborhood.java:getNeighbours_L58",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Neighborhood.java",
+      "target": "function:src/net/pso/jswarm/Neighborhood.java:getNeighbours_L58",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Neighborhood.java",
+      "target": "function:src/net/pso/jswarm/Neighborhood.java:init_L69",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Neighborhood.java",
+      "target": "function:src/net/pso/jswarm/Neighborhood.java:init_L69",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Neighborhood.java",
+      "target": "function:src/net/pso/jswarm/Neighborhood.java:update_L82",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Neighborhood.java",
+      "target": "function:src/net/pso/jswarm/Neighborhood.java:update_L82",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Neighborhood1D.java",
+      "target": "class:src/net/pso/jswarm/Neighborhood1D.java:Neighborhood1D",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Neighborhood1D.java",
+      "target": "class:src/net/pso/jswarm/Neighborhood1D.java:Neighborhood1D",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Neighborhood1D.java",
+      "target": "function:src/net/pso/jswarm/Neighborhood1D.java:Neighborhood1D_L22",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Neighborhood1D.java",
+      "target": "function:src/net/pso/jswarm/Neighborhood1D.java:Neighborhood1D_L22",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Neighborhood1D.java",
+      "target": "function:src/net/pso/jswarm/Neighborhood1D.java:calcNeighbours_L29",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Neighborhood1D.java",
+      "target": "function:src/net/pso/jswarm/Neighborhood1D.java:calcNeighbours_L29",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Neighborhood1D.java",
+      "target": "function:src/net/pso/jswarm/Neighborhood1D.java:init_L71",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Neighborhood1D.java",
+      "target": "function:src/net/pso/jswarm/Neighborhood1D.java:init_L71",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Particle.java",
+      "target": "class:src/net/pso/jswarm/Particle.java:Particle",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Particle.java",
+      "target": "class:src/net/pso/jswarm/Particle.java:Particle",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Particle.java",
+      "target": "function:src/net/pso/jswarm/Particle.java:Particle_L31",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Particle.java",
+      "target": "function:src/net/pso/jswarm/Particle.java:Particle_L31",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Particle.java",
+      "target": "function:src/net/pso/jswarm/Particle.java:Particle_L39",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Particle.java",
+      "target": "function:src/net/pso/jswarm/Particle.java:Particle_L39",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Particle.java",
+      "target": "function:src/net/pso/jswarm/Particle.java:Particle_L47",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Particle.java",
+      "target": "function:src/net/pso/jswarm/Particle.java:Particle_L47",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Particle.java",
+      "target": "function:src/net/pso/jswarm/Particle.java:allocate_L57",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Particle.java",
+      "target": "function:src/net/pso/jswarm/Particle.java:allocate_L57",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Particle.java",
+      "target": "function:src/net/pso/jswarm/Particle.java:applyConstraints_L74",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Particle.java",
+      "target": "function:src/net/pso/jswarm/Particle.java:applyConstraints_L74",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Particle.java",
+      "target": "function:src/net/pso/jswarm/Particle.java:copyPosition_L137",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Particle.java",
+      "target": "function:src/net/pso/jswarm/Particle.java:copyPosition_L137",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Particle.java",
+      "target": "function:src/net/pso/jswarm/Particle.java:copyPosition2Best_L142",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Particle.java",
+      "target": "function:src/net/pso/jswarm/Particle.java:copyPosition2Best_L142",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Particle.java",
+      "target": "function:src/net/pso/jswarm/Particle.java:init_L177",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Particle.java",
+      "target": "function:src/net/pso/jswarm/Particle.java:init_L177",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Particle.java",
+      "target": "function:src/net/pso/jswarm/Particle.java:selfFactory_L203",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Particle.java",
+      "target": "function:src/net/pso/jswarm/Particle.java:selfFactory_L203",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Particle.java",
+      "target": "function:src/net/pso/jswarm/Particle.java:setFitness_L234",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Particle.java",
+      "target": "function:src/net/pso/jswarm/Particle.java:setFitness_L234",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Particle.java",
+      "target": "function:src/net/pso/jswarm/Particle.java:toString_L252",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Particle.java",
+      "target": "function:src/net/pso/jswarm/Particle.java:toString_L252",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Particle.java",
+      "target": "function:src/net/pso/jswarm/Particle.java:update_L285",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Particle.java",
+      "target": "function:src/net/pso/jswarm/Particle.java:update_L285",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Particle.java",
+      "target": "function:src/net/pso/jswarm/Particle.java:updateRepulsive_L311",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Particle.java",
+      "target": "function:src/net/pso/jswarm/Particle.java:updateRepulsive_L311",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Swarm.java",
+      "target": "class:src/net/pso/jswarm/Swarm.java:Swarm",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Swarm.java",
+      "target": "class:src/net/pso/jswarm/Swarm.java:Swarm",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Swarm.java",
+      "target": "function:src/net/pso/jswarm/Swarm.java:Swarm_L74",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Swarm.java",
+      "target": "function:src/net/pso/jswarm/Swarm.java:Swarm_L74",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Swarm.java",
+      "target": "function:src/net/pso/jswarm/Swarm.java:evaluate_L107",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Swarm.java",
+      "target": "function:src/net/pso/jswarm/Swarm.java:evaluate_L107",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Swarm.java",
+      "target": "function:src/net/pso/jswarm/Swarm.java:evolve_L148",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Swarm.java",
+      "target": "function:src/net/pso/jswarm/Swarm.java:evolve_L148",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Swarm.java",
+      "target": "function:src/net/pso/jswarm/Swarm.java:getNeighborhood_L202",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Swarm.java",
+      "target": "function:src/net/pso/jswarm/Swarm.java:getNeighborhood_L202",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Swarm.java",
+      "target": "function:src/net/pso/jswarm/Swarm.java:getNeighborhoodBestPosition_L215",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Swarm.java",
+      "target": "function:src/net/pso/jswarm/Swarm.java:getNeighborhoodBestPosition_L215",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Swarm.java",
+      "target": "function:src/net/pso/jswarm/Swarm.java:init_L263",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Swarm.java",
+      "target": "function:src/net/pso/jswarm/Swarm.java:init_L263",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Swarm.java",
+      "target": "function:src/net/pso/jswarm/Swarm.java:iterator_L298",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Swarm.java",
+      "target": "function:src/net/pso/jswarm/Swarm.java:iterator_L298",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Swarm.java",
+      "target": "function:src/net/pso/jswarm/Swarm.java:setMaxMinVelocity_L332",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Swarm.java",
+      "target": "function:src/net/pso/jswarm/Swarm.java:setMaxMinVelocity_L332",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Swarm.java",
+      "target": "function:src/net/pso/jswarm/Swarm.java:setMaxPosition_L347",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Swarm.java",
+      "target": "function:src/net/pso/jswarm/Swarm.java:setMaxPosition_L347",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Swarm.java",
+      "target": "function:src/net/pso/jswarm/Swarm.java:setMinPosition_L367",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Swarm.java",
+      "target": "function:src/net/pso/jswarm/Swarm.java:setMinPosition_L367",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Swarm.java",
+      "target": "function:src/net/pso/jswarm/Swarm.java:setNeighborhood_L383",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Swarm.java",
+      "target": "function:src/net/pso/jswarm/Swarm.java:setNeighborhood_L383",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Swarm.java",
+      "target": "function:src/net/pso/jswarm/Swarm.java:setParticles_L404",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Swarm.java",
+      "target": "function:src/net/pso/jswarm/Swarm.java:setParticles_L404",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Swarm.java",
+      "target": "function:src/net/pso/jswarm/Swarm.java:show_L431",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Swarm.java",
+      "target": "function:src/net/pso/jswarm/Swarm.java:show_L431",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Swarm.java",
+      "target": "function:src/net/pso/jswarm/Swarm.java:size_L462",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Swarm.java",
+      "target": "function:src/net/pso/jswarm/Swarm.java:size_L462",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Swarm.java",
+      "target": "function:src/net/pso/jswarm/Swarm.java:toString_L467",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Swarm.java",
+      "target": "function:src/net/pso/jswarm/Swarm.java:toString_L467",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Swarm.java",
+      "target": "function:src/net/pso/jswarm/Swarm.java:toStringStats_L503",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Swarm.java",
+      "target": "function:src/net/pso/jswarm/Swarm.java:toStringStats_L503",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Swarm.java",
+      "target": "function:src/net/pso/jswarm/Swarm.java:update_L518",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Swarm.java",
+      "target": "function:src/net/pso/jswarm/Swarm.java:update_L518",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/alpine/Example.java",
+      "target": "class:src/net/pso/jswarm/alpine/Example.java:Example",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/alpine/Example.java",
+      "target": "class:src/net/pso/jswarm/alpine/Example.java:Example",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/alpine/Example.java",
+      "target": "function:src/net/pso/jswarm/alpine/Example.java:main_L19",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/alpine/Example.java",
+      "target": "function:src/net/pso/jswarm/alpine/Example.java:main_L19",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/alpine/Example.java",
+      "target": "file:src/net/pso/jswarm/Swarm.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/net/pso/jswarm/alpine/MyFitnessFunction.java",
+      "target": "class:src/net/pso/jswarm/alpine/MyFitnessFunction.java:MyFitnessFunction",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/alpine/MyFitnessFunction.java",
+      "target": "class:src/net/pso/jswarm/alpine/MyFitnessFunction.java:MyFitnessFunction",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/alpine/MyFitnessFunction.java",
+      "target": "function:src/net/pso/jswarm/alpine/MyFitnessFunction.java:evaluate_L23",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/alpine/MyFitnessFunction.java",
+      "target": "function:src/net/pso/jswarm/alpine/MyFitnessFunction.java:evaluate_L23",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/alpine/MyFitnessFunction.java",
+      "target": "file:src/net/pso/jswarm/FitnessFunction.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/net/pso/jswarm/alpine/MyParticle.java",
+      "target": "class:src/net/pso/jswarm/alpine/MyParticle.java:MyParticle",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/alpine/MyParticle.java",
+      "target": "class:src/net/pso/jswarm/alpine/MyParticle.java:MyParticle",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/alpine/MyParticle.java",
+      "target": "function:src/net/pso/jswarm/alpine/MyParticle.java:MyParticle_L12",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/net/pso/jswarm/alpine/MyParticle.java",
+      "target": "function:src/net/pso/jswarm/alpine/MyParticle.java:MyParticle_L12",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/net/pso/jswarm/alpine/MyParticle.java",
+      "target": "file:src/net/pso/jswarm/Particle.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

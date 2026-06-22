@@ -1,0 +1,1163 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/cr0s/javara/render/map/MapEntity.java",
+      "type": "file",
+      "name": "MapEntity.java",
+      "filePath": "src/cr0s/javara/render/map/MapEntity.java",
+      "summary": "Map entity renderer for static map objects using SHP textures.",
+      "tags": [
+        "render",
+        "map",
+        "entity",
+        "texture",
+        "static"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/render/map/TileSet.java",
+      "type": "file",
+      "name": "TileSet.java",
+      "filePath": "src/cr0s/javara/render/map/TileSet.java",
+      "summary": "Tile set definitions with surface types and loaders for map rendering.",
+      "tags": [
+        "render",
+        "map",
+        "tileset",
+        "terrain",
+        "surface"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/cr0s/javara/render/shrouds/ShroudRenderer.java",
+      "type": "file",
+      "name": "ShroudRenderer.java",
+      "filePath": "src/cr0s/javara/render/shrouds/ShroudRenderer.java",
+      "summary": "Fog-of-war shroud renderer that computes visibility and renders obscured areas.",
+      "tags": [
+        "render",
+        "shroud",
+        "fog-of-war",
+        "visibility",
+        "map"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/cr0s/javara/resources/ResourceManager.java",
+      "type": "file",
+      "name": "ResourceManager.java",
+      "filePath": "src/cr0s/javara/resources/ResourceManager.java",
+      "summary": "Central resource manager loading and caching textures, sounds, and game assets.",
+      "tags": [
+        "resources",
+        "manager",
+        "texture",
+        "cache",
+        "singleton"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:src/cr0s/javara/render/map/MapEntity.java:MapEntity",
+      "type": "class",
+      "name": "MapEntity",
+      "filePath": "src/cr0s/javara/render/map/MapEntity.java",
+      "lineRange": [
+        9,
+        93
+      ],
+      "summary": "MapEntity class with 8 methods managing 7 properties for game entities.",
+      "tags": [
+        "class",
+        "exported",
+        "entity"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/map/MapEntity.java:MapEntity",
+      "type": "function",
+      "name": "MapEntity",
+      "filePath": "src/cr0s/javara/render/map/MapEntity.java",
+      "lineRange": [
+        19,
+        32
+      ],
+      "summary": "MapEntity (aX, aY, shpTex, footprint, dimensions) — 14 lines , exported.",
+      "tags": [
+        "function",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/map/MapEntity.java:getTexture",
+      "type": "function",
+      "name": "getTexture",
+      "filePath": "src/cr0s/javara/render/map/MapEntity.java",
+      "lineRange": [
+        34,
+        36
+      ],
+      "summary": "getTexture (no params) — 3 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/map/MapEntity.java:getX",
+      "type": "function",
+      "name": "getX",
+      "filePath": "src/cr0s/javara/render/map/MapEntity.java",
+      "lineRange": [
+        38,
+        40
+      ],
+      "summary": "getX (no params) — 3 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/map/MapEntity.java:getY",
+      "type": "function",
+      "name": "getY",
+      "filePath": "src/cr0s/javara/render/map/MapEntity.java",
+      "lineRange": [
+        42,
+        44
+      ],
+      "summary": "getY (no params) — 3 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/map/MapEntity.java:generateCellsFromFootprint",
+      "type": "function",
+      "name": "generateCellsFromFootprint",
+      "filePath": "src/cr0s/javara/render/map/MapEntity.java",
+      "lineRange": [
+        51,
+        80
+      ],
+      "summary": "generateCellsFromFootprint (footprint, fc) — 30 lines .",
+      "tags": [
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/map/MapEntity.java:getWidth",
+      "type": "function",
+      "name": "getWidth",
+      "filePath": "src/cr0s/javara/render/map/MapEntity.java",
+      "lineRange": [
+        82,
+        84
+      ],
+      "summary": "getWidth (no params) — 3 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/map/MapEntity.java:getHeight",
+      "type": "function",
+      "name": "getHeight",
+      "filePath": "src/cr0s/javara/render/map/MapEntity.java",
+      "lineRange": [
+        86,
+        88
+      ],
+      "summary": "getHeight (no params) — 3 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/map/MapEntity.java:getFootprintCells",
+      "type": "function",
+      "name": "getFootprintCells",
+      "filePath": "src/cr0s/javara/render/map/MapEntity.java",
+      "lineRange": [
+        90,
+        92
+      ],
+      "summary": "getFootprintCells (no params) — 3 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/cr0s/javara/render/map/TileSet.java:TileSet",
+      "type": "class",
+      "name": "TileSet",
+      "filePath": "src/cr0s/javara/render/map/TileSet.java",
+      "lineRange": [
+        16,
+        117
+      ],
+      "summary": "TileSet class with 3 methods managing 17 properties for gameplay logic.",
+      "tags": [
+        "class",
+        "exported",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/map/TileSet.java:TileSet",
+      "type": "function",
+      "name": "TileSet",
+      "filePath": "src/cr0s/javara/render/map/TileSet.java",
+      "lineRange": [
+        51,
+        108
+      ],
+      "summary": "TileSet (aSetName) — 58 lines , exported.",
+      "tags": [
+        "function",
+        "exported"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/map/TileSet.java:getSetName",
+      "type": "function",
+      "name": "getSetName",
+      "filePath": "src/cr0s/javara/render/map/TileSet.java",
+      "lineRange": [
+        110,
+        112
+      ],
+      "summary": "getSetName (no params) — 3 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/map/TileSet.java:getTiles",
+      "type": "function",
+      "name": "getTiles",
+      "filePath": "src/cr0s/javara/render/map/TileSet.java",
+      "lineRange": [
+        114,
+        116
+      ],
+      "summary": "getTiles (no params) — 3 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/cr0s/javara/render/shrouds/ShroudRenderer.java:ShroudRenderer",
+      "type": "class",
+      "name": "ShroudRenderer",
+      "filePath": "src/cr0s/javara/render/shrouds/ShroudRenderer.java",
+      "lineRange": [
+        11,
+        180
+      ],
+      "summary": "ShroudRenderer class with 5 methods managing 6 properties for gameplay logic.",
+      "tags": [
+        "class",
+        "exported",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/shrouds/ShroudRenderer.java:ShroudRenderer",
+      "type": "function",
+      "name": "ShroudRenderer",
+      "filePath": "src/cr0s/javara/render/shrouds/ShroudRenderer.java",
+      "lineRange": [
+        25,
+        40
+      ],
+      "summary": "ShroudRenderer (aW) — 16 lines , exported.",
+      "tags": [
+        "function",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/shrouds/ShroudRenderer.java:renderShrouds",
+      "type": "function",
+      "name": "renderShrouds",
+      "filePath": "src/cr0s/javara/render/shrouds/ShroudRenderer.java",
+      "lineRange": [
+        42,
+        62
+      ],
+      "summary": "renderShrouds (g) — 21 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "render"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/shrouds/ShroudRenderer.java:update",
+      "type": "function",
+      "name": "update",
+      "filePath": "src/cr0s/javara/render/shrouds/ShroudRenderer.java",
+      "lineRange": [
+        64,
+        79
+      ],
+      "summary": "update (s) — 16 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "update"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/shrouds/ShroudRenderer.java:getShroudedEdges",
+      "type": "function",
+      "name": "getShroudedEdges",
+      "filePath": "src/cr0s/javara/render/shrouds/ShroudRenderer.java",
+      "lineRange": [
+        81,
+        116
+      ],
+      "summary": "getShroudedEdges (s, x, y, useExtendedIndex) — 36 lines .",
+      "tags": [
+        "function",
+        "getter"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/shrouds/ShroudRenderer.java:observerShroudedEdges",
+      "type": "function",
+      "name": "observerShroudedEdges",
+      "filePath": "src/cr0s/javara/render/shrouds/ShroudRenderer.java",
+      "lineRange": [
+        118,
+        155
+      ],
+      "summary": "observerShroudedEdges (x, y, useExtendedIndex) — 38 lines .",
+      "tags": [
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/cr0s/javara/resources/ResourceManager.java:ResourceManager",
+      "type": "class",
+      "name": "ResourceManager",
+      "filePath": "src/cr0s/javara/resources/ResourceManager.java",
+      "lineRange": [
+        30,
+        362
+      ],
+      "summary": "ResourceManager class with 16 methods managing 18 properties for gameplay logic.",
+      "tags": [
+        "class",
+        "exported",
+        "class"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/cr0s/javara/resources/ResourceManager.java:getInstance",
+      "type": "function",
+      "name": "getInstance",
+      "filePath": "src/cr0s/javara/resources/ResourceManager.java",
+      "lineRange": [
+        63,
+        69
+      ],
+      "summary": "getInstance (no params) — 7 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/resources/ResourceManager.java:loadBibs",
+      "type": "function",
+      "name": "loadBibs",
+      "filePath": "src/cr0s/javara/resources/ResourceManager.java",
+      "lineRange": [
+        71,
+        75
+      ],
+      "summary": "loadBibs (no params) — 5 lines , exported.",
+      "tags": [
+        "function",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/resources/ResourceManager.java:getBibSheet",
+      "type": "function",
+      "name": "getBibSheet",
+      "filePath": "src/cr0s/javara/resources/ResourceManager.java",
+      "lineRange": [
+        77,
+        88
+      ],
+      "summary": "getBibSheet (bt) — 12 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/resources/ResourceManager.java:loadMixes",
+      "type": "function",
+      "name": "loadMixes",
+      "filePath": "src/cr0s/javara/resources/ResourceManager.java",
+      "lineRange": [
+        90,
+        106
+      ],
+      "summary": "loadMixes (path) — 17 lines .",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/resources/ResourceManager.java:getSidebarTexture",
+      "type": "function",
+      "name": "getSidebarTexture",
+      "filePath": "src/cr0s/javara/resources/ResourceManager.java",
+      "lineRange": [
+        108,
+        132
+      ],
+      "summary": "getSidebarTexture (name) — 25 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/resources/ResourceManager.java:getConquerTexture",
+      "type": "function",
+      "name": "getConquerTexture",
+      "filePath": "src/cr0s/javara/resources/ResourceManager.java",
+      "lineRange": [
+        134,
+        159
+      ],
+      "summary": "getConquerTexture (name) — 26 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/resources/ResourceManager.java:loadSpeechSound",
+      "type": "function",
+      "name": "loadSpeechSound",
+      "filePath": "src/cr0s/javara/resources/ResourceManager.java",
+      "lineRange": [
+        161,
+        163
+      ],
+      "summary": "loadSpeechSound (name) — 3 lines , exported.",
+      "tags": [
+        "function",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/resources/ResourceManager.java:loadSound",
+      "type": "function",
+      "name": "loadSound",
+      "filePath": "src/cr0s/javara/resources/ResourceManager.java",
+      "lineRange": [
+        165,
+        199
+      ],
+      "summary": "loadSound (mixname, name) — 35 lines , exported.",
+      "tags": [
+        "function",
+        "exported"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/resources/ResourceManager.java:getTemplateShpTexture",
+      "type": "function",
+      "name": "getTemplateShpTexture",
+      "filePath": "src/cr0s/javara/resources/ResourceManager.java",
+      "lineRange": [
+        201,
+        230
+      ],
+      "summary": "getTemplateShpTexture (tileSetName, name) — 30 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/resources/ResourceManager.java:getTemplateTexture",
+      "type": "function",
+      "name": "getTemplateTexture",
+      "filePath": "src/cr0s/javara/resources/ResourceManager.java",
+      "lineRange": [
+        232,
+        260
+      ],
+      "summary": "getTemplateTexture (type, name) — 29 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/resources/ResourceManager.java:getPaletteByName",
+      "type": "function",
+      "name": "getPaletteByName",
+      "filePath": "src/cr0s/javara/resources/ResourceManager.java",
+      "lineRange": [
+        262,
+        278
+      ],
+      "summary": "getPaletteByName (name) — 17 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/resources/ResourceManager.java:listDirectoryMixes",
+      "type": "function",
+      "name": "listDirectoryMixes",
+      "filePath": "src/cr0s/javara/resources/ResourceManager.java",
+      "lineRange": [
+        280,
+        292
+      ],
+      "summary": "listDirectoryMixes (resourceFolder) — 13 lines .",
+      "tags": [
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/resources/ResourceManager.java:loadUnitSound",
+      "type": "function",
+      "name": "loadUnitSound",
+      "filePath": "src/cr0s/javara/resources/ResourceManager.java",
+      "lineRange": [
+        294,
+        301
+      ],
+      "summary": "loadUnitSound (alignment, name) — 8 lines , exported.",
+      "tags": [
+        "function",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/resources/ResourceManager.java:getInfantryTexture",
+      "type": "function",
+      "name": "getInfantryTexture",
+      "filePath": "src/cr0s/javara/resources/ResourceManager.java",
+      "lineRange": [
+        303,
+        328
+      ],
+      "summary": "getInfantryTexture (name) — 26 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/resources/ResourceManager.java:getShpTexture",
+      "type": "function",
+      "name": "getShpTexture",
+      "filePath": "src/cr0s/javara/resources/ResourceManager.java",
+      "lineRange": [
+        330,
+        361
+      ],
+      "summary": "getShpTexture (name) — 32 lines , exported.",
+      "tags": [
+        "function",
+        "exported",
+        "getter"
+      ],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/cr0s/javara/render/map/MapEntity.java",
+      "target": "class:src/cr0s/javara/render/map/MapEntity.java:MapEntity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/MapEntity.java",
+      "target": "class:src/cr0s/javara/render/map/MapEntity.java:MapEntity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/MapEntity.java",
+      "target": "function:src/cr0s/javara/render/map/MapEntity.java:MapEntity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/MapEntity.java",
+      "target": "function:src/cr0s/javara/render/map/MapEntity.java:MapEntity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/MapEntity.java",
+      "target": "function:src/cr0s/javara/render/map/MapEntity.java:getTexture",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/MapEntity.java",
+      "target": "function:src/cr0s/javara/render/map/MapEntity.java:getTexture",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/MapEntity.java",
+      "target": "function:src/cr0s/javara/render/map/MapEntity.java:getX",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/MapEntity.java",
+      "target": "function:src/cr0s/javara/render/map/MapEntity.java:getX",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/MapEntity.java",
+      "target": "function:src/cr0s/javara/render/map/MapEntity.java:getY",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/MapEntity.java",
+      "target": "function:src/cr0s/javara/render/map/MapEntity.java:getY",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/MapEntity.java",
+      "target": "function:src/cr0s/javara/render/map/MapEntity.java:generateCellsFromFootprint",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/MapEntity.java",
+      "target": "function:src/cr0s/javara/render/map/MapEntity.java:getWidth",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/MapEntity.java",
+      "target": "function:src/cr0s/javara/render/map/MapEntity.java:getWidth",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/MapEntity.java",
+      "target": "function:src/cr0s/javara/render/map/MapEntity.java:getHeight",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/MapEntity.java",
+      "target": "function:src/cr0s/javara/render/map/MapEntity.java:getHeight",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/MapEntity.java",
+      "target": "function:src/cr0s/javara/render/map/MapEntity.java:getFootprintCells",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/MapEntity.java",
+      "target": "function:src/cr0s/javara/render/map/MapEntity.java:getFootprintCells",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/MapEntity.java",
+      "target": "file:src/cr0s/javara/resources/ShpTexture.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/TileSet.java",
+      "target": "class:src/cr0s/javara/render/map/TileSet.java:TileSet",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/TileSet.java",
+      "target": "class:src/cr0s/javara/render/map/TileSet.java:TileSet",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/TileSet.java",
+      "target": "function:src/cr0s/javara/render/map/TileSet.java:TileSet",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/TileSet.java",
+      "target": "function:src/cr0s/javara/render/map/TileSet.java:TileSet",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/TileSet.java",
+      "target": "function:src/cr0s/javara/render/map/TileSet.java:getSetName",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/TileSet.java",
+      "target": "function:src/cr0s/javara/render/map/TileSet.java:getSetName",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/TileSet.java",
+      "target": "function:src/cr0s/javara/render/map/TileSet.java:getTiles",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/TileSet.java",
+      "target": "function:src/cr0s/javara/render/map/TileSet.java:getTiles",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/TileSet.java",
+      "target": "file:src/cr0s/javara/resources/ResourceManager.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/render/shrouds/ShroudRenderer.java",
+      "target": "class:src/cr0s/javara/render/shrouds/ShroudRenderer.java:ShroudRenderer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/shrouds/ShroudRenderer.java",
+      "target": "class:src/cr0s/javara/render/shrouds/ShroudRenderer.java:ShroudRenderer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/shrouds/ShroudRenderer.java",
+      "target": "function:src/cr0s/javara/render/shrouds/ShroudRenderer.java:ShroudRenderer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/shrouds/ShroudRenderer.java",
+      "target": "function:src/cr0s/javara/render/shrouds/ShroudRenderer.java:ShroudRenderer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/shrouds/ShroudRenderer.java",
+      "target": "function:src/cr0s/javara/render/shrouds/ShroudRenderer.java:renderShrouds",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/shrouds/ShroudRenderer.java",
+      "target": "function:src/cr0s/javara/render/shrouds/ShroudRenderer.java:renderShrouds",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/shrouds/ShroudRenderer.java",
+      "target": "function:src/cr0s/javara/render/shrouds/ShroudRenderer.java:update",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/shrouds/ShroudRenderer.java",
+      "target": "function:src/cr0s/javara/render/shrouds/ShroudRenderer.java:update",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/shrouds/ShroudRenderer.java",
+      "target": "function:src/cr0s/javara/render/shrouds/ShroudRenderer.java:getShroudedEdges",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/shrouds/ShroudRenderer.java",
+      "target": "function:src/cr0s/javara/render/shrouds/ShroudRenderer.java:observerShroudedEdges",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/shrouds/ShroudRenderer.java",
+      "target": "file:src/cr0s/javara/main/GUI.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/render/shrouds/ShroudRenderer.java",
+      "target": "file:src/cr0s/javara/render/World.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/render/shrouds/ShroudRenderer.java",
+      "target": "file:src/cr0s/javara/resources/ResourceManager.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/render/shrouds/ShroudRenderer.java",
+      "target": "file:src/cr0s/javara/util/SpriteSheet.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/resources/ResourceManager.java",
+      "target": "class:src/cr0s/javara/resources/ResourceManager.java:ResourceManager",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/resources/ResourceManager.java",
+      "target": "class:src/cr0s/javara/resources/ResourceManager.java:ResourceManager",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/resources/ResourceManager.java",
+      "target": "function:src/cr0s/javara/resources/ResourceManager.java:getInstance",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/resources/ResourceManager.java",
+      "target": "function:src/cr0s/javara/resources/ResourceManager.java:getInstance",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/resources/ResourceManager.java",
+      "target": "function:src/cr0s/javara/resources/ResourceManager.java:loadBibs",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/resources/ResourceManager.java",
+      "target": "function:src/cr0s/javara/resources/ResourceManager.java:loadBibs",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/resources/ResourceManager.java",
+      "target": "function:src/cr0s/javara/resources/ResourceManager.java:getBibSheet",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/resources/ResourceManager.java",
+      "target": "function:src/cr0s/javara/resources/ResourceManager.java:getBibSheet",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/resources/ResourceManager.java",
+      "target": "function:src/cr0s/javara/resources/ResourceManager.java:loadMixes",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/resources/ResourceManager.java",
+      "target": "function:src/cr0s/javara/resources/ResourceManager.java:getSidebarTexture",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/resources/ResourceManager.java",
+      "target": "function:src/cr0s/javara/resources/ResourceManager.java:getSidebarTexture",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/resources/ResourceManager.java",
+      "target": "function:src/cr0s/javara/resources/ResourceManager.java:getConquerTexture",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/resources/ResourceManager.java",
+      "target": "function:src/cr0s/javara/resources/ResourceManager.java:getConquerTexture",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/resources/ResourceManager.java",
+      "target": "function:src/cr0s/javara/resources/ResourceManager.java:loadSpeechSound",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/resources/ResourceManager.java",
+      "target": "function:src/cr0s/javara/resources/ResourceManager.java:loadSpeechSound",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/resources/ResourceManager.java",
+      "target": "function:src/cr0s/javara/resources/ResourceManager.java:loadSound",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/resources/ResourceManager.java",
+      "target": "function:src/cr0s/javara/resources/ResourceManager.java:loadSound",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/resources/ResourceManager.java",
+      "target": "function:src/cr0s/javara/resources/ResourceManager.java:getTemplateShpTexture",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/resources/ResourceManager.java",
+      "target": "function:src/cr0s/javara/resources/ResourceManager.java:getTemplateShpTexture",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/resources/ResourceManager.java",
+      "target": "function:src/cr0s/javara/resources/ResourceManager.java:getTemplateTexture",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/resources/ResourceManager.java",
+      "target": "function:src/cr0s/javara/resources/ResourceManager.java:getTemplateTexture",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/resources/ResourceManager.java",
+      "target": "function:src/cr0s/javara/resources/ResourceManager.java:getPaletteByName",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/resources/ResourceManager.java",
+      "target": "function:src/cr0s/javara/resources/ResourceManager.java:getPaletteByName",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/resources/ResourceManager.java",
+      "target": "function:src/cr0s/javara/resources/ResourceManager.java:listDirectoryMixes",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/resources/ResourceManager.java",
+      "target": "function:src/cr0s/javara/resources/ResourceManager.java:loadUnitSound",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/resources/ResourceManager.java",
+      "target": "function:src/cr0s/javara/resources/ResourceManager.java:loadUnitSound",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/resources/ResourceManager.java",
+      "target": "function:src/cr0s/javara/resources/ResourceManager.java:getInfantryTexture",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/resources/ResourceManager.java",
+      "target": "function:src/cr0s/javara/resources/ResourceManager.java:getInfantryTexture",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/resources/ResourceManager.java",
+      "target": "function:src/cr0s/javara/resources/ResourceManager.java:getShpTexture",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/resources/ResourceManager.java",
+      "target": "function:src/cr0s/javara/resources/ResourceManager.java:getShpTexture",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/resources/ResourceManager.java",
+      "target": "file:src/cr0s/javara/entity/building/BibType.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/resources/ResourceManager.java",
+      "target": "file:src/cr0s/javara/util/SpriteSheet.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/resources/ResourceManager.java",
+      "target": "file:src/soundly/XSound.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

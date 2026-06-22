@@ -1,0 +1,6997 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 20,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "src/cr0s/javara/ai/AIPlayer.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 786,
+      "nonEmptyLines": 626,
+      "functions": [
+        {
+          "name": "AIPlayer",
+          "startLine": 93,
+          "endLine": 99,
+          "params": [
+            "w",
+            "name",
+            "side",
+            "color"
+          ]
+        },
+        {
+          "name": "loadAIRules",
+          "startLine": 101,
+          "endLine": 170,
+          "params": [
+            "name"
+          ]
+        },
+        {
+          "name": "spawn",
+          "startLine": 172,
+          "endLine": 178,
+          "params": []
+        },
+        {
+          "name": "update",
+          "startLine": 180,
+          "endLine": 202,
+          "params": []
+        },
+        {
+          "name": "findAndDeployAllMcv",
+          "startLine": 204,
+          "endLine": 220,
+          "params": []
+        },
+        {
+          "name": "countBuildings",
+          "startLine": 222,
+          "endLine": 240,
+          "params": [
+            "frac",
+            "owner"
+          ]
+        },
+        {
+          "name": "countUnits",
+          "startLine": 242,
+          "endLine": 258,
+          "params": [
+            "unit",
+            "owner"
+          ]
+        },
+        {
+          "name": "countBuildingByCommonName",
+          "startLine": 260,
+          "endLine": 278,
+          "params": [
+            "commonName",
+            "owner"
+          ]
+        },
+        {
+          "name": "hasAdequateFact",
+          "startLine": 280,
+          "endLine": 283,
+          "params": []
+        },
+        {
+          "name": "hasAdequateProc",
+          "startLine": 285,
+          "endLine": 288,
+          "params": []
+        },
+        {
+          "name": "hasMinimumProc",
+          "startLine": 290,
+          "endLine": 294,
+          "params": []
+        },
+        {
+          "name": "hasAdequateAirUnits",
+          "startLine": 296,
+          "endLine": 299,
+          "params": [
+            "a"
+          ]
+        },
+        {
+          "name": "findPosForBuilding",
+          "startLine": 301,
+          "endLine": 336,
+          "params": [
+            "actorType",
+            "center",
+            "target",
+            "minRange",
+            "maxRange",
+            "distanceToBaseIsImportant"
+          ]
+        },
+        {
+          "name": "findClosestEnemy",
+          "startLine": 338,
+          "endLine": 346,
+          "params": [
+            "center"
+          ]
+        },
+        {
+          "name": "chooseBuildLocation",
+          "startLine": 348,
+          "endLine": 391,
+          "params": [
+            "actorType",
+            "distanceToBaseIsImportant",
+            "type"
+          ]
+        },
+        {
+          "name": "notifyDamaged",
+          "startLine": 393,
+          "endLine": 426,
+          "params": [
+            "who",
+            "by",
+            "amount",
+            "warhead"
+          ]
+        },
+        {
+          "name": "chooseEnemyTarget",
+          "startLine": 428,
+          "endLine": 477,
+          "params": []
+        },
+        {
+          "name": "findEnemyConstructionYards",
+          "startLine": 479,
+          "endLine": 491,
+          "params": []
+        },
+        {
+          "name": "cleanSquads",
+          "startLine": 493,
+          "endLine": 505,
+          "params": []
+        },
+        {
+          "name": "getSquadOfType",
+          "startLine": 507,
+          "endLine": 515,
+          "params": [
+            "type"
+          ]
+        },
+        {
+          "name": "registerNewSquad",
+          "startLine": 517,
+          "endLine": 519,
+          "params": [
+            "type"
+          ]
+        },
+        {
+          "name": "registerNewSquad",
+          "startLine": 521,
+          "endLine": 526,
+          "params": [
+            "type",
+            "target"
+          ]
+        },
+        {
+          "name": "cleanFromDeadAndNotOwn",
+          "startLine": 528,
+          "endLine": 537,
+          "params": [
+            "list"
+          ]
+        },
+        {
+          "name": "assignRolesToIdleUnits",
+          "startLine": 539,
+          "endLine": 568,
+          "params": []
+        },
+        {
+          "name": "createAttackForce",
+          "startLine": 570,
+          "endLine": 584,
+          "params": []
+        },
+        {
+          "name": "findNewUnits",
+          "startLine": 586,
+          "endLine": 611,
+          "params": []
+        },
+        {
+          "name": "giveOrdersToIdleHarvesters",
+          "startLine": 613,
+          "endLine": 637,
+          "params": []
+        },
+        {
+          "name": "tryToRushAttack",
+          "startLine": 639,
+          "endLine": 649,
+          "params": []
+        },
+        {
+          "name": "protectOwn",
+          "startLine": 651,
+          "endLine": 675,
+          "params": [
+            "attacker"
+          ]
+        },
+        {
+          "name": "productUnits",
+          "startLine": 677,
+          "endLine": 689,
+          "params": []
+        },
+        {
+          "name": "buidUnits",
+          "startLine": 691,
+          "endLine": 749,
+          "params": [
+            "buildRandom"
+          ]
+        },
+        {
+          "name": "buildVehicle",
+          "startLine": 751,
+          "endLine": 758,
+          "params": [
+            "name"
+          ]
+        },
+        {
+          "name": "buildInfantry",
+          "startLine": 760,
+          "endLine": 767,
+          "params": [
+            "name"
+          ]
+        },
+        {
+          "name": "thereIsNoMcv",
+          "startLine": 769,
+          "endLine": 785,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "AIPlayer",
+          "startLine": 43,
+          "endLine": 786,
+          "methods": [
+            "AIPlayer",
+            "loadAIRules",
+            "spawn",
+            "update",
+            "findAndDeployAllMcv",
+            "countBuildings",
+            "countUnits",
+            "countBuildingByCommonName",
+            "hasAdequateFact",
+            "hasAdequateProc",
+            "hasMinimumProc",
+            "hasAdequateAirUnits",
+            "findPosForBuilding",
+            "findClosestEnemy",
+            "chooseBuildLocation",
+            "notifyDamaged",
+            "chooseEnemyTarget",
+            "findEnemyConstructionYards",
+            "cleanSquads",
+            "getSquadOfType",
+            "registerNewSquad",
+            "registerNewSquad",
+            "cleanFromDeadAndNotOwn",
+            "assignRolesToIdleUnits",
+            "createAttackForce",
+            "findNewUnits",
+            "giveOrdersToIdleHarvesters",
+            "tryToRushAttack",
+            "protectOwn",
+            "productUnits",
+            "buidUnits",
+            "buildVehicle",
+            "buildInfantry",
+            "thereIsNoMcv"
+          ],
+          "properties": [
+            "enabled",
+            "ticks",
+            "feedbackTime",
+            "squadSize",
+            "squads",
+            "unitsHangingAroundTheBase",
+            "activeUnits",
+            "assignRolesInterval",
+            "rushInterval",
+            "attackForceInterval",
+            "structureProductionInactiveDelay",
+            "structureProductionActiveDelay",
+            "minimumDefenseRadius",
+            "maximumDefenseRadius",
+            "newProductionCashThreshold",
+            "idleBaseUnitsMaximum",
+            "rushAttackScanRadius",
+            "protectUnitScanRadius",
+            "maxBaseRadius",
+            "shoudlRepairBuildings",
+            "unitsToBuild",
+            "buildingFractions",
+            "unitCommonNames",
+            "buildingCommonNames",
+            "buildingLimits",
+            "defenseCenter",
+            "bb",
+            "aggro",
+            "assignRolesTicks",
+            "rushTicks",
+            "attackForceTicks"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "structureProductionInactiveDelay",
+          "line": 65,
+          "isDefault": false
+        },
+        {
+          "name": "structureProductionActiveDelay",
+          "line": 66,
+          "isDefault": false
+        },
+        {
+          "name": "minimumDefenseRadius",
+          "line": 67,
+          "isDefault": false
+        },
+        {
+          "name": "maximumDefenseRadius",
+          "line": 68,
+          "isDefault": false
+        },
+        {
+          "name": "newProductionCashThreshold",
+          "line": 70,
+          "isDefault": false
+        },
+        {
+          "name": "idleBaseUnitsMaximum",
+          "line": 71,
+          "isDefault": false
+        },
+        {
+          "name": "rushAttackScanRadius",
+          "line": 72,
+          "isDefault": false
+        },
+        {
+          "name": "protectUnitScanRadius",
+          "line": 73,
+          "isDefault": false
+        },
+        {
+          "name": "maxBaseRadius",
+          "line": 75,
+          "isDefault": false
+        },
+        {
+          "name": "shoudlRepairBuildings",
+          "line": 76,
+          "isDefault": false
+        },
+        {
+          "name": "AIPlayer",
+          "line": 93,
+          "isDefault": false
+        },
+        {
+          "name": "spawn",
+          "line": 172,
+          "isDefault": false
+        },
+        {
+          "name": "update",
+          "line": 180,
+          "isDefault": false
+        },
+        {
+          "name": "findAndDeployAllMcv",
+          "line": 204,
+          "isDefault": false
+        },
+        {
+          "name": "countBuildings",
+          "line": 222,
+          "isDefault": false
+        },
+        {
+          "name": "hasAdequateProc",
+          "line": 285,
+          "isDefault": false
+        },
+        {
+          "name": "hasMinimumProc",
+          "line": 290,
+          "isDefault": false
+        },
+        {
+          "name": "hasAdequateAirUnits",
+          "line": 296,
+          "isDefault": false
+        },
+        {
+          "name": "findClosestEnemy",
+          "line": 338,
+          "isDefault": false
+        },
+        {
+          "name": "chooseBuildLocation",
+          "line": 348,
+          "isDefault": false
+        },
+        {
+          "name": "notifyDamaged",
+          "line": 393,
+          "isDefault": false
+        },
+        {
+          "name": "buildInfantry",
+          "line": 760,
+          "isDefault": false
+        },
+        {
+          "name": "AIPlayer",
+          "line": 43,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "AIPlayer",
+          "callee": "loadAIRules",
+          "lineNumber": 96
+        },
+        {
+          "caller": "AIPlayer",
+          "callee": "new BaseBuilder",
+          "lineNumber": 98
+        },
+        {
+          "caller": "loadAIRules",
+          "callee": "new HashMap<>",
+          "lineNumber": 102
+        },
+        {
+          "caller": "loadAIRules",
+          "callee": "new HashMap<>",
+          "lineNumber": 103
+        },
+        {
+          "caller": "loadAIRules",
+          "callee": "new HashMap<>",
+          "lineNumber": 104
+        },
+        {
+          "caller": "loadAIRules",
+          "callee": "new HashMap<>",
+          "lineNumber": 105
+        },
+        {
+          "caller": "loadAIRules",
+          "callee": "new HashMap<>",
+          "lineNumber": 106
+        },
+        {
+          "caller": "loadAIRules",
+          "callee": "new FileInputStream",
+          "lineNumber": 110
+        },
+        {
+          "caller": "loadAIRules",
+          "callee": "new File",
+          "lineNumber": 110
+        },
+        {
+          "caller": "loadAIRules",
+          "callee": "new Yaml",
+          "lineNumber": 112
+        },
+        {
+          "caller": "loadAIRules",
+          "callee": "yaml.load",
+          "lineNumber": 113
+        },
+        {
+          "caller": "loadAIRules",
+          "callee": "map.get",
+          "lineNumber": 116
+        },
+        {
+          "caller": "loadAIRules",
+          "callee": "buildingsCommonNamesMap.entrySet",
+          "lineNumber": 117
+        },
+        {
+          "caller": "loadAIRules",
+          "callee": "((String) e.getValue()).split",
+          "lineNumber": 118
+        },
+        {
+          "caller": "loadAIRules",
+          "callee": "e.getValue",
+          "lineNumber": 118
+        },
+        {
+          "caller": "loadAIRules",
+          "callee": "this.buildingCommonNames.put",
+          "lineNumber": 120
+        },
+        {
+          "caller": "loadAIRules",
+          "callee": "e.getKey",
+          "lineNumber": 120
+        },
+        {
+          "caller": "loadAIRules",
+          "callee": "map.get",
+          "lineNumber": 124
+        },
+        {
+          "caller": "loadAIRules",
+          "callee": "unitsCommonNamesMap.entrySet",
+          "lineNumber": 125
+        },
+        {
+          "caller": "loadAIRules",
+          "callee": "((String) e.getValue()).split",
+          "lineNumber": 126
+        },
+        {
+          "caller": "loadAIRules",
+          "callee": "e.getValue",
+          "lineNumber": 126
+        },
+        {
+          "caller": "loadAIRules",
+          "callee": "this.buildingCommonNames.put",
+          "lineNumber": 128
+        },
+        {
+          "caller": "loadAIRules",
+          "callee": "e.getKey",
+          "lineNumber": 128
+        },
+        {
+          "caller": "loadAIRules",
+          "callee": "map.get",
+          "lineNumber": 132
+        },
+        {
+          "caller": "loadAIRules",
+          "callee": "buildingLimitsMap.entrySet",
+          "lineNumber": 133
+        },
+        {
+          "caller": "loadAIRules",
+          "callee": "e.getValue",
+          "lineNumber": 134
+        },
+        {
+          "caller": "loadAIRules",
+          "callee": "this.buildingLimits.put",
+          "lineNumber": 136
+        },
+        {
+          "caller": "loadAIRules",
+          "callee": "e.getKey",
+          "lineNumber": 136
+        },
+        {
+          "caller": "loadAIRules",
+          "callee": "map.get",
+          "lineNumber": 140
+        },
+        {
+          "caller": "loadAIRules",
+          "callee": "buildingFractionsMap.entrySet",
+          "lineNumber": 141
+        },
+        {
+          "caller": "loadAIRules",
+          "callee": "e.getValue",
+          "lineNumber": 142
+        },
+        {
+          "caller": "loadAIRules",
+          "callee": "Float.valueOf",
+          "lineNumber": 143
+        },
+        {
+          "caller": "loadAIRules",
+          "callee": "percentageStr.replace",
+          "lineNumber": 143
+        },
+        {
+          "caller": "loadAIRules",
+          "callee": "this.buildingFractions.put",
+          "lineNumber": 145
+        },
+        {
+          "caller": "loadAIRules",
+          "callee": "e.getKey",
+          "lineNumber": 145
+        },
+        {
+          "caller": "loadAIRules",
+          "callee": "map.get",
+          "lineNumber": 149
+        },
+        {
+          "caller": "loadAIRules",
+          "callee": "unitsToBuildMap.entrySet",
+          "lineNumber": 150
+        },
+        {
+          "caller": "loadAIRules",
+          "callee": "e.getValue",
+          "lineNumber": 151
+        },
+        {
+          "caller": "loadAIRules",
+          "callee": "Float.valueOf",
+          "lineNumber": 152
+        },
+        {
+          "caller": "loadAIRules",
+          "callee": "percentageStr.replace",
+          "lineNumber": 152
+        },
+        {
+          "caller": "loadAIRules",
+          "callee": "this.unitsToBuild.put",
+          "lineNumber": 154
+        },
+        {
+          "caller": "loadAIRules",
+          "callee": "e.getKey",
+          "lineNumber": 154
+        },
+        {
+          "caller": "loadAIRules",
+          "callee": "e.printStackTrace",
+          "lineNumber": 160
+        },
+        {
+          "caller": "loadAIRules",
+          "callee": "input.close",
+          "lineNumber": 164
+        },
+        {
+          "caller": "loadAIRules",
+          "callee": "e.printStackTrace",
+          "lineNumber": 166
+        },
+        {
+          "caller": "spawn",
+          "callee": "super.spawn",
+          "lineNumber": 174
+        },
+        {
+          "caller": "spawn",
+          "callee": "this.getPlayerSpawnPoint",
+          "lineNumber": 176
+        },
+        {
+          "caller": "update",
+          "callee": "super.update",
+          "lineNumber": 182
+        },
+        {
+          "caller": "update",
+          "callee": "Profiler.getInstance().startForSection",
+          "lineNumber": 184
+        },
+        {
+          "caller": "update",
+          "callee": "Profiler.getInstance",
+          "lineNumber": 184
+        },
+        {
+          "caller": "update",
+          "callee": "this.findAndDeployAllMcv",
+          "lineNumber": 192
+        },
+        {
+          "caller": "update",
+          "callee": "this.productUnits",
+          "lineNumber": 196
+        },
+        {
+          "caller": "update",
+          "callee": "this.bb.update",
+          "lineNumber": 199
+        },
+        {
+          "caller": "update",
+          "callee": "assignRolesToIdleUnits",
+          "lineNumber": 200
+        },
+        {
+          "caller": "update",
+          "callee": "Profiler.getInstance().stopForSection",
+          "lineNumber": 201
+        },
+        {
+          "caller": "update",
+          "callee": "Profiler.getInstance",
+          "lineNumber": 201
+        },
+        {
+          "caller": "findAndDeployAllMcv",
+          "callee": "e.isDead",
+          "lineNumber": 206
+        },
+        {
+          "caller": "findAndDeployAllMcv",
+          "callee": "mcv.canDeploy",
+          "lineNumber": 213
+        },
+        {
+          "caller": "findAndDeployAllMcv",
+          "callee": "this.chooseBuildLocation",
+          "lineNumber": 214
+        },
+        {
+          "caller": "findAndDeployAllMcv",
+          "callee": "mcv.resolveOrder",
+          "lineNumber": 215
+        },
+        {
+          "caller": "findAndDeployAllMcv",
+          "callee": "new Order",
+          "lineNumber": 215
+        },
+        {
+          "caller": "findAndDeployAllMcv",
+          "callee": "mcv.resolveOrder",
+          "lineNumber": 218
+        },
+        {
+          "caller": "findAndDeployAllMcv",
+          "callee": "new Order",
+          "lineNumber": 218
+        },
+        {
+          "caller": "countBuildings",
+          "callee": "owner.getBase().getBuildings",
+          "lineNumber": 225
+        },
+        {
+          "caller": "countBuildings",
+          "callee": "owner.getBase",
+          "lineNumber": 225
+        },
+        {
+          "caller": "countBuildings",
+          "callee": "b.getName().equals",
+          "lineNumber": 227
+        },
+        {
+          "caller": "countBuildings",
+          "callee": "b.getName",
+          "lineNumber": 227
+        },
+        {
+          "caller": "countBuildings",
+          "callee": "owner.getBase().getCurrentlyBuilding",
+          "lineNumber": 233
+        },
+        {
+          "caller": "countBuildings",
+          "callee": "owner.getBase",
+          "lineNumber": 233
+        },
+        {
+          "caller": "countBuildings",
+          "callee": "b.getTargetBuilding().getName().equals",
+          "lineNumber": 234
+        },
+        {
+          "caller": "countBuildings",
+          "callee": "b.getTargetBuilding().getName",
+          "lineNumber": 234
+        },
+        {
+          "caller": "countBuildings",
+          "callee": "b.getTargetBuilding",
+          "lineNumber": 234
+        },
+        {
+          "caller": "countUnits",
+          "callee": "GUI.getInstance().getWorld().getEntitiesList",
+          "lineNumber": 245
+        },
+        {
+          "caller": "countUnits",
+          "callee": "GUI.getInstance().getWorld",
+          "lineNumber": 245
+        },
+        {
+          "caller": "countUnits",
+          "callee": "GUI.getInstance",
+          "lineNumber": 245
+        },
+        {
+          "caller": "countUnits",
+          "callee": "a.getName().equals",
+          "lineNumber": 252
+        },
+        {
+          "caller": "countUnits",
+          "callee": "a.getName",
+          "lineNumber": 252
+        },
+        {
+          "caller": "countBuildingByCommonName",
+          "callee": "this.buildingCommonNames.containsKey",
+          "lineNumber": 261
+        },
+        {
+          "caller": "countBuildingByCommonName",
+          "callee": "owner.getBase().getBuildings",
+          "lineNumber": 267
+        },
+        {
+          "caller": "countBuildingByCommonName",
+          "callee": "owner.getBase",
+          "lineNumber": 267
+        },
+        {
+          "caller": "countBuildingByCommonName",
+          "callee": "this.buildingCommonNames.get",
+          "lineNumber": 269
+        },
+        {
+          "caller": "countBuildingByCommonName",
+          "callee": "name.equals",
+          "lineNumber": 270
+        },
+        {
+          "caller": "countBuildingByCommonName",
+          "callee": "b.getName",
+          "lineNumber": 270
+        },
+        {
+          "caller": "hasAdequateFact",
+          "callee": "this.getBase",
+          "lineNumber": 281
+        },
+        {
+          "caller": "hasAdequateFact",
+          "callee": "this.getBase",
+          "lineNumber": 281
+        },
+        {
+          "caller": "hasAdequateFact",
+          "callee": "this.getBase",
+          "lineNumber": 282
+        },
+        {
+          "caller": "hasAdequateFact",
+          "callee": "this.getBase",
+          "lineNumber": 282
+        },
+        {
+          "caller": "hasAdequateProc",
+          "callee": "this.countBuildingByCommonName",
+          "lineNumber": 286
+        },
+        {
+          "caller": "hasAdequateProc",
+          "callee": "this.countBuildingByCommonName",
+          "lineNumber": 287
+        },
+        {
+          "caller": "hasMinimumProc",
+          "callee": "this.countBuildingByCommonName",
+          "lineNumber": 291
+        },
+        {
+          "caller": "hasMinimumProc",
+          "callee": "this.countBuildingByCommonName",
+          "lineNumber": 292
+        },
+        {
+          "caller": "hasMinimumProc",
+          "callee": "this.countBuildingByCommonName",
+          "lineNumber": 293
+        },
+        {
+          "caller": "findPosForBuilding",
+          "callee": "world.chooseTilesInAnnulus",
+          "lineNumber": 302
+        },
+        {
+          "caller": "findPosForBuilding",
+          "callee": "center.equals",
+          "lineNumber": 304
+        },
+        {
+          "caller": "findPosForBuilding",
+          "callee": "Collections.sort",
+          "lineNumber": 305
+        },
+        {
+          "caller": "findPosForBuilding",
+          "callee": "new Comparator<>",
+          "lineNumber": 305
+        },
+        {
+          "caller": "compare",
+          "callee": "p1.distanceToSq",
+          "lineNumber": 309
+        },
+        {
+          "caller": "compare",
+          "callee": "p2.distanceToSq",
+          "lineNumber": 309
+        },
+        {
+          "caller": "findPosForBuilding",
+          "callee": "Collections.shuffle",
+          "lineNumber": 315
+        },
+        {
+          "caller": "findPosForBuilding",
+          "callee": "this.getBase().getProductionQueue().getBuildableActorByName",
+          "lineNumber": 318
+        },
+        {
+          "caller": "findPosForBuilding",
+          "callee": "this.getBase().getProductionQueue",
+          "lineNumber": 318
+        },
+        {
+          "caller": "findPosForBuilding",
+          "callee": "this.getBase",
+          "lineNumber": 318
+        },
+        {
+          "caller": "findPosForBuilding",
+          "callee": "this.getBase().isPossibleToBuildHere",
+          "lineNumber": 324
+        },
+        {
+          "caller": "findPosForBuilding",
+          "callee": "this.getBase",
+          "lineNumber": 324
+        },
+        {
+          "caller": "findPosForBuilding",
+          "callee": "this.getBase().checkBuildingDistance",
+          "lineNumber": 328
+        },
+        {
+          "caller": "findPosForBuilding",
+          "callee": "this.getBase",
+          "lineNumber": 328
+        },
+        {
+          "caller": "findClosestEnemy",
+          "callee": "new ArrayList<>",
+          "lineNumber": 339
+        },
+        {
+          "caller": "findClosestEnemy",
+          "callee": "world.getPlayers",
+          "lineNumber": 340
+        },
+        {
+          "caller": "findClosestEnemy",
+          "callee": "p.isEnemyFor",
+          "lineNumber": 341
+        },
+        {
+          "caller": "findClosestEnemy",
+          "callee": "enemies.add",
+          "lineNumber": 342
+        },
+        {
+          "caller": "findClosestEnemy",
+          "callee": "this.findClosestEnemy",
+          "lineNumber": 345
+        },
+        {
+          "caller": "findClosestEnemy",
+          "callee": "enemies.get",
+          "lineNumber": 345
+        },
+        {
+          "caller": "chooseBuildLocation",
+          "callee": "World.random.nextInt",
+          "lineNumber": 351
+        },
+        {
+          "caller": "chooseBuildLocation",
+          "callee": "this.findClosestEnemy",
+          "lineNumber": 352
+        },
+        {
+          "caller": "chooseBuildLocation",
+          "callee": "closestEnemy.isEmpty",
+          "lineNumber": 353
+        },
+        {
+          "caller": "chooseBuildLocation",
+          "callee": "this.getPlayerSpawnPoint",
+          "lineNumber": 353
+        },
+        {
+          "caller": "chooseBuildLocation",
+          "callee": "closestEnemy.get(0).getCellPosition",
+          "lineNumber": 353
+        },
+        {
+          "caller": "chooseBuildLocation",
+          "callee": "closestEnemy.get",
+          "lineNumber": 353
+        },
+        {
+          "caller": "chooseBuildLocation",
+          "callee": "this.findPosForBuilding",
+          "lineNumber": 358
+        },
+        {
+          "caller": "chooseBuildLocation",
+          "callee": "this.findPosForBuilding",
+          "lineNumber": 360
+        },
+        {
+          "caller": "chooseBuildLocation",
+          "callee": "this.getPlayerSpawnPoint",
+          "lineNumber": 360
+        },
+        {
+          "caller": "chooseBuildLocation",
+          "callee": "this.getPlayerSpawnPoint",
+          "lineNumber": 360
+        },
+        {
+          "caller": "chooseBuildLocation",
+          "callee": "this.findPosForBuilding",
+          "lineNumber": 364
+        },
+        {
+          "caller": "chooseBuildLocation",
+          "callee": "this.getPlayerSpawnPoint",
+          "lineNumber": 364
+        },
+        {
+          "caller": "chooseBuildLocation",
+          "callee": "this.getPlayerSpawnPoint",
+          "lineNumber": 364
+        },
+        {
+          "caller": "chooseBuildLocation",
+          "callee": "world.chooseTilesInCircle",
+          "lineNumber": 368
+        },
+        {
+          "caller": "chooseBuildLocation",
+          "callee": "this.getPlayerSpawnPoint",
+          "lineNumber": 368
+        },
+        {
+          "caller": "chooseBuildLocation",
+          "callee": "new CellChooser",
+          "lineNumber": 368
+        },
+        {
+          "caller": "isCellChoosable",
+          "callee": "world.getMap().getResourcesLayer().isCellEmpty",
+          "lineNumber": 371
+        },
+        {
+          "caller": "isCellChoosable",
+          "callee": "world.getMap().getResourcesLayer",
+          "lineNumber": 371
+        },
+        {
+          "caller": "isCellChoosable",
+          "callee": "world.getMap",
+          "lineNumber": 371
+        },
+        {
+          "caller": "chooseBuildLocation",
+          "callee": "this.findPosForBuilding",
+          "lineNumber": 376
+        },
+        {
+          "caller": "chooseBuildLocation",
+          "callee": "this.getPlayerSpawnPoint",
+          "lineNumber": 376
+        },
+        {
+          "caller": "chooseBuildLocation",
+          "callee": "this.findPosForBuilding",
+          "lineNumber": 384
+        },
+        {
+          "caller": "chooseBuildLocation",
+          "callee": "this.getPlayerSpawnPoint",
+          "lineNumber": 384
+        },
+        {
+          "caller": "chooseBuildLocation",
+          "callee": "this.getPlayerSpawnPoint",
+          "lineNumber": 384
+        },
+        {
+          "caller": "notifyDamaged",
+          "callee": "who.isDead",
+          "lineNumber": 395
+        },
+        {
+          "caller": "notifyDamaged",
+          "callee": "entityBuildingProgress.getTargetBuilding",
+          "lineNumber": 398
+        },
+        {
+          "caller": "notifyDamaged",
+          "callee": "entityBuilding.getCellPosition",
+          "lineNumber": 401
+        },
+        {
+          "caller": "notifyDamaged",
+          "callee": "this.getBase().repairBuilding",
+          "lineNumber": 405
+        },
+        {
+          "caller": "notifyDamaged",
+          "callee": "this.getBase",
+          "lineNumber": 405
+        },
+        {
+          "caller": "notifyDamaged",
+          "callee": "this.aggro.containsKey",
+          "lineNumber": 410
+        },
+        {
+          "caller": "notifyDamaged",
+          "callee": "new Enemy",
+          "lineNumber": 411
+        },
+        {
+          "caller": "notifyDamaged",
+          "callee": "this.aggro.get",
+          "lineNumber": 411
+        },
+        {
+          "caller": "notifyDamaged",
+          "callee": "this.aggro.remove",
+          "lineNumber": 412
+        },
+        {
+          "caller": "notifyDamaged",
+          "callee": "this.aggro.put",
+          "lineNumber": 413
+        },
+        {
+          "caller": "notifyDamaged",
+          "callee": "this.aggro.put",
+          "lineNumber": 415
+        },
+        {
+          "caller": "notifyDamaged",
+          "callee": "new Enemy",
+          "lineNumber": 415
+        },
+        {
+          "caller": "notifyDamaged",
+          "callee": "by.owner.isEnemyFor",
+          "lineNumber": 421
+        },
+        {
+          "caller": "notifyDamaged",
+          "callee": "((EntityActor) who).getCellPosition",
+          "lineNumber": 422
+        },
+        {
+          "caller": "notifyDamaged",
+          "callee": "this.protectOwn",
+          "lineNumber": 423
+        },
+        {
+          "caller": "chooseEnemyTarget",
+          "callee": "world.getPlayers",
+          "lineNumber": 433
+        },
+        {
+          "caller": "chooseEnemyTarget",
+          "callee": "new ArrayList<>",
+          "lineNumber": 434
+        },
+        {
+          "caller": "chooseEnemyTarget",
+          "callee": "p.isEnemyFor",
+          "lineNumber": 436
+        },
+        {
+          "caller": "chooseEnemyTarget",
+          "callee": "enemies.add",
+          "lineNumber": 437
+        },
+        {
+          "caller": "chooseEnemyTarget",
+          "callee": "Collections.sort",
+          "lineNumber": 441
+        },
+        {
+          "caller": "chooseEnemyTarget",
+          "callee": "new Comparator<>",
+          "lineNumber": 441
+        },
+        {
+          "caller": "compare",
+          "callee": "AIPlayer.this.aggro.containsKey",
+          "lineNumber": 444
+        },
+        {
+          "caller": "compare",
+          "callee": "AIPlayer.this.aggro.containsKey",
+          "lineNumber": 444
+        },
+        {
+          "caller": "compare",
+          "callee": "AIPlayer.this.aggro.get",
+          "lineNumber": 445
+        },
+        {
+          "caller": "compare",
+          "callee": "AIPlayer.this.aggro.get",
+          "lineNumber": 445
+        },
+        {
+          "caller": "chooseEnemyTarget",
+          "callee": "enemies.get",
+          "lineNumber": 453
+        },
+        {
+          "caller": "chooseEnemyTarget",
+          "callee": "this.findClosestEnemy",
+          "lineNumber": 454
+        },
+        {
+          "caller": "chooseEnemyTarget",
+          "callee": "this.getPlayerSpawnPoint",
+          "lineNumber": 454
+        },
+        {
+          "caller": "chooseEnemyTarget",
+          "callee": "target.isEmpty",
+          "lineNumber": 456
+        },
+        {
+          "caller": "chooseEnemyTarget",
+          "callee": "this.aggro.containsKey",
+          "lineNumber": 458
+        },
+        {
+          "caller": "chooseEnemyTarget",
+          "callee": "this.aggro.get",
+          "lineNumber": 459
+        },
+        {
+          "caller": "chooseEnemyTarget",
+          "callee": "this.aggro.remove",
+          "lineNumber": 460
+        },
+        {
+          "caller": "chooseEnemyTarget",
+          "callee": "this.aggro.put",
+          "lineNumber": 463
+        },
+        {
+          "caller": "chooseEnemyTarget",
+          "callee": "new Enemy",
+          "lineNumber": 463
+        },
+        {
+          "caller": "chooseEnemyTarget",
+          "callee": "enemies.size",
+          "lineNumber": 468
+        },
+        {
+          "caller": "chooseEnemyTarget",
+          "callee": "this.aggro.containsKey",
+          "lineNumber": 469
+        },
+        {
+          "caller": "chooseEnemyTarget",
+          "callee": "this.aggro.get",
+          "lineNumber": 470
+        },
+        {
+          "caller": "chooseEnemyTarget",
+          "callee": "this.aggro.remove",
+          "lineNumber": 471
+        },
+        {
+          "caller": "chooseEnemyTarget",
+          "callee": "this.aggro.put",
+          "lineNumber": 472
+        },
+        {
+          "caller": "chooseEnemyTarget",
+          "callee": "new Enemy",
+          "lineNumber": 472
+        },
+        {
+          "caller": "findEnemyConstructionYards",
+          "callee": "new ArrayList<>",
+          "lineNumber": 480
+        },
+        {
+          "caller": "findEnemyConstructionYards",
+          "callee": "GUI.getInstance().getWorld().getEntitiesList",
+          "lineNumber": 482
+        },
+        {
+          "caller": "findEnemyConstructionYards",
+          "callee": "GUI.getInstance().getWorld",
+          "lineNumber": 482
+        },
+        {
+          "caller": "findEnemyConstructionYards",
+          "callee": "GUI.getInstance",
+          "lineNumber": 482
+        },
+        {
+          "caller": "findEnemyConstructionYards",
+          "callee": "e.isDead",
+          "lineNumber": 483
+        },
+        {
+          "caller": "findEnemyConstructionYards",
+          "callee": "e.owner.isEnemyFor",
+          "lineNumber": 483
+        },
+        {
+          "caller": "findEnemyConstructionYards",
+          "callee": "result.add",
+          "lineNumber": 487
+        },
+        {
+          "caller": "cleanSquads",
+          "callee": "new ArrayList<>",
+          "lineNumber": 494
+        },
+        {
+          "caller": "cleanSquads",
+          "callee": "s.isValid",
+          "lineNumber": 496
+        },
+        {
+          "caller": "cleanSquads",
+          "callee": "newSquads.add",
+          "lineNumber": 497
+        },
+        {
+          "caller": "cleanSquads",
+          "callee": "s.removeDeadAndNotOwnUnits",
+          "lineNumber": 503
+        },
+        {
+          "caller": "getSquadOfType",
+          "callee": "s.getType",
+          "lineNumber": 509
+        },
+        {
+          "caller": "registerNewSquad",
+          "callee": "this.registerNewSquad",
+          "lineNumber": 518
+        },
+        {
+          "caller": "registerNewSquad",
+          "callee": "new Squad",
+          "lineNumber": 522
+        },
+        {
+          "caller": "registerNewSquad",
+          "callee": "squads.add",
+          "lineNumber": 523
+        },
+        {
+          "caller": "cleanFromDeadAndNotOwn",
+          "callee": "new ArrayList<>",
+          "lineNumber": 529
+        },
+        {
+          "caller": "cleanFromDeadAndNotOwn",
+          "callee": "a.isDead",
+          "lineNumber": 531
+        },
+        {
+          "caller": "cleanFromDeadAndNotOwn",
+          "callee": "newList.add",
+          "lineNumber": 532
+        },
+        {
+          "caller": "assignRolesToIdleUnits",
+          "callee": "cleanFromDeadAndNotOwn",
+          "lineNumber": 541
+        },
+        {
+          "caller": "assignRolesToIdleUnits",
+          "callee": "cleanFromDeadAndNotOwn",
+          "lineNumber": 542
+        },
+        {
+          "caller": "assignRolesToIdleUnits",
+          "callee": "this.tryToRushAttack",
+          "lineNumber": 547
+        },
+        {
+          "caller": "assignRolesToIdleUnits",
+          "callee": "s.update",
+          "lineNumber": 554
+        },
+        {
+          "caller": "assignRolesToIdleUnits",
+          "callee": "this.giveOrdersToIdleHarvesters",
+          "lineNumber": 564
+        },
+        {
+          "caller": "assignRolesToIdleUnits",
+          "callee": "this.findNewUnits",
+          "lineNumber": 565
+        },
+        {
+          "caller": "assignRolesToIdleUnits",
+          "callee": "this.createAttackForce",
+          "lineNumber": 566
+        },
+        {
+          "caller": "assignRolesToIdleUnits",
+          "callee": "this.findAndDeployAllMcv",
+          "lineNumber": 567
+        },
+        {
+          "caller": "createAttackForce",
+          "callee": "World.random.nextInt",
+          "lineNumber": 571
+        },
+        {
+          "caller": "createAttackForce",
+          "callee": "this.unitsHangingAroundTheBase.size",
+          "lineNumber": 573
+        },
+        {
+          "caller": "createAttackForce",
+          "callee": "this.registerNewSquad",
+          "lineNumber": 574
+        },
+        {
+          "caller": "createAttackForce",
+          "callee": "attackForce.addUnit",
+          "lineNumber": 578
+        },
+        {
+          "caller": "createAttackForce",
+          "callee": "this.unitsHangingAroundTheBase.clear",
+          "lineNumber": 582
+        },
+        {
+          "caller": "findNewUnits",
+          "callee": "new ArrayList<>",
+          "lineNumber": 587
+        },
+        {
+          "caller": "findNewUnits",
+          "callee": "e.isDead",
+          "lineNumber": 590
+        },
+        {
+          "caller": "findNewUnits",
+          "callee": "this.activeUnits.contains",
+          "lineNumber": 595
+        },
+        {
+          "caller": "findNewUnits",
+          "callee": "newUnits.add",
+          "lineNumber": 596
+        },
+        {
+          "caller": "findNewUnits",
+          "callee": "a.resolveOrder",
+          "lineNumber": 602
+        },
+        {
+          "caller": "findNewUnits",
+          "callee": "new Order",
+          "lineNumber": 602
+        },
+        {
+          "caller": "findNewUnits",
+          "callee": "this.unitsHangingAroundTheBase.add",
+          "lineNumber": 604
+        },
+        {
+          "caller": "findNewUnits",
+          "callee": "this.activeUnits.add",
+          "lineNumber": 609
+        },
+        {
+          "caller": "giveOrdersToIdleHarvesters",
+          "callee": "harv.isIdle",
+          "lineNumber": 621
+        },
+        {
+          "caller": "giveOrdersToIdleHarvesters",
+          "callee": "a.getCurrentActivity",
+          "lineNumber": 622
+        },
+        {
+          "caller": "giveOrdersToIdleHarvesters",
+          "callee": "harv.isEmpty",
+          "lineNumber": 631
+        },
+        {
+          "caller": "giveOrdersToIdleHarvesters",
+          "callee": "harv.resolveOrder",
+          "lineNumber": 635
+        },
+        {
+          "caller": "giveOrdersToIdleHarvesters",
+          "callee": "new Order",
+          "lineNumber": 635
+        },
+        {
+          "caller": "tryToRushAttack",
+          "callee": "chooseEnemyTarget",
+          "lineNumber": 640
+        },
+        {
+          "caller": "tryToRushAttack",
+          "callee": "a.isEmpty",
+          "lineNumber": 641
+        },
+        {
+          "caller": "tryToRushAttack",
+          "callee": "squads.isEmpty",
+          "lineNumber": 642
+        },
+        {
+          "caller": "tryToRushAttack",
+          "callee": "squads.get",
+          "lineNumber": 643
+        },
+        {
+          "caller": "tryToRushAttack",
+          "callee": "s.setTarget",
+          "lineNumber": 644
+        },
+        {
+          "caller": "tryToRushAttack",
+          "callee": "a.get",
+          "lineNumber": 644
+        },
+        {
+          "caller": "protectOwn",
+          "callee": "this.getSquadOfType",
+          "lineNumber": 652
+        },
+        {
+          "caller": "protectOwn",
+          "callee": "this.registerNewSquad",
+          "lineNumber": 655
+        },
+        {
+          "caller": "protectOwn",
+          "callee": "protectSquad.targetIsValid",
+          "lineNumber": 658
+        },
+        {
+          "caller": "protectOwn",
+          "callee": "protectSquad.setTarget",
+          "lineNumber": 659
+        },
+        {
+          "caller": "protectOwn",
+          "callee": "protectSquad.isValid",
+          "lineNumber": 663
+        },
+        {
+          "caller": "protectOwn",
+          "callee": "GUI.getInstance().getWorld().getActorsInCircle",
+          "lineNumber": 664
+        },
+        {
+          "caller": "protectOwn",
+          "callee": "GUI.getInstance().getWorld",
+          "lineNumber": 664
+        },
+        {
+          "caller": "protectOwn",
+          "callee": "GUI.getInstance",
+          "lineNumber": 664
+        },
+        {
+          "caller": "protectOwn",
+          "callee": "this.getPlayerSpawnPoint",
+          "lineNumber": 664
+        },
+        {
+          "caller": "protectOwn",
+          "callee": "a.isDead",
+          "lineNumber": 667
+        },
+        {
+          "caller": "protectOwn",
+          "callee": "protectSquad.addUnit",
+          "lineNumber": 671
+        },
+        {
+          "caller": "productUnits",
+          "callee": "this.hasAdequateProc",
+          "lineNumber": 679
+        },
+        {
+          "caller": "productUnits",
+          "callee": "this.hasAdequateFact",
+          "lineNumber": 684
+        },
+        {
+          "caller": "productUnits",
+          "callee": "thereIsNoMcv",
+          "lineNumber": 684
+        },
+        {
+          "caller": "productUnits",
+          "callee": "this.buildVehicle",
+          "lineNumber": 685
+        },
+        {
+          "caller": "productUnits",
+          "callee": "this.buidUnits",
+          "lineNumber": 688
+        },
+        {
+          "caller": "productUnits",
+          "callee": "this.unitsHangingAroundTheBase.size",
+          "lineNumber": 688
+        },
+        {
+          "caller": "buidUnits",
+          "callee": "World.random.nextInt",
+          "lineNumber": 693
+        },
+        {
+          "caller": "buidUnits",
+          "callee": "new ArrayList<>",
+          "lineNumber": 695
+        },
+        {
+          "caller": "buidUnits",
+          "callee": "this.getBase().getProductionQueue().getCurrentInfantryProduction().isBuilding",
+          "lineNumber": 699
+        },
+        {
+          "caller": "buidUnits",
+          "callee": "this.getBase().getProductionQueue().getCurrentInfantryProduction",
+          "lineNumber": 699
+        },
+        {
+          "caller": "buidUnits",
+          "callee": "this.getBase().getProductionQueue",
+          "lineNumber": 699
+        },
+        {
+          "caller": "buidUnits",
+          "callee": "this.getBase",
+          "lineNumber": 699
+        },
+        {
+          "caller": "buidUnits",
+          "callee": "this.getBase().getProductionQueue().getCurrentInfantryProduction().isReady",
+          "lineNumber": 699
+        },
+        {
+          "caller": "buidUnits",
+          "callee": "this.getBase().getProductionQueue().getCurrentInfantryProduction",
+          "lineNumber": 699
+        },
+        {
+          "caller": "buidUnits",
+          "callee": "this.getBase().getProductionQueue",
+          "lineNumber": 699
+        },
+        {
+          "caller": "buidUnits",
+          "callee": "this.getBase",
+          "lineNumber": 699
+        },
+        {
+          "caller": "buidUnits",
+          "callee": "this.getBase().getProductionQueue().getBuildables().keySet",
+          "lineNumber": 703
+        },
+        {
+          "caller": "buidUnits",
+          "callee": "this.getBase().getProductionQueue().getBuildables",
+          "lineNumber": 703
+        },
+        {
+          "caller": "buidUnits",
+          "callee": "this.getBase().getProductionQueue",
+          "lineNumber": 703
+        },
+        {
+          "caller": "buidUnits",
+          "callee": "this.getBase",
+          "lineNumber": 703
+        },
+        {
+          "caller": "buidUnits",
+          "callee": "this.getBase",
+          "lineNumber": 704
+        },
+        {
+          "caller": "buidUnits",
+          "callee": "this.getBase().getProductionQueue().alliedInfantry.containsKey",
+          "lineNumber": 704
+        },
+        {
+          "caller": "buidUnits",
+          "callee": "this.getBase().getProductionQueue",
+          "lineNumber": 704
+        },
+        {
+          "caller": "buidUnits",
+          "callee": "this.getBase",
+          "lineNumber": 704
+        },
+        {
+          "caller": "buidUnits",
+          "callee": "buildables.add",
+          "lineNumber": 705
+        },
+        {
+          "caller": "buidUnits",
+          "callee": "this.getBase",
+          "lineNumber": 706
+        },
+        {
+          "caller": "buidUnits",
+          "callee": "this.getBase().getProductionQueue().sovietInfantry.containsKey",
+          "lineNumber": 706
+        },
+        {
+          "caller": "buidUnits",
+          "callee": "this.getBase().getProductionQueue",
+          "lineNumber": 706
+        },
+        {
+          "caller": "buidUnits",
+          "callee": "this.getBase",
+          "lineNumber": 706
+        },
+        {
+          "caller": "buidUnits",
+          "callee": "buildables.add",
+          "lineNumber": 707
+        },
+        {
+          "caller": "buidUnits",
+          "callee": "this.getBase().getProductionQueue().getCurrentVehicleProduction().isBuilding",
+          "lineNumber": 714
+        },
+        {
+          "caller": "buidUnits",
+          "callee": "this.getBase().getProductionQueue().getCurrentVehicleProduction",
+          "lineNumber": 714
+        },
+        {
+          "caller": "buidUnits",
+          "callee": "this.getBase().getProductionQueue",
+          "lineNumber": 714
+        },
+        {
+          "caller": "buidUnits",
+          "callee": "this.getBase",
+          "lineNumber": 714
+        },
+        {
+          "caller": "buidUnits",
+          "callee": "this.getBase().getProductionQueue().getCurrentVehicleProduction().isReady",
+          "lineNumber": 714
+        },
+        {
+          "caller": "buidUnits",
+          "callee": "this.getBase().getProductionQueue().getCurrentVehicleProduction",
+          "lineNumber": 714
+        },
+        {
+          "caller": "buidUnits",
+          "callee": "this.getBase().getProductionQueue",
+          "lineNumber": 714
+        },
+        {
+          "caller": "buidUnits",
+          "callee": "this.getBase",
+          "lineNumber": 714
+        },
+        {
+          "caller": "buidUnits",
+          "callee": "this.getBase().getProductionQueue().getBuildables().keySet",
+          "lineNumber": 718
+        },
+        {
+          "caller": "buidUnits",
+          "callee": "this.getBase().getProductionQueue().getBuildables",
+          "lineNumber": 718
+        },
+        {
+          "caller": "buidUnits",
+          "callee": "this.getBase().getProductionQueue",
+          "lineNumber": 718
+        },
+        {
+          "caller": "buidUnits",
+          "callee": "this.getBase",
+          "lineNumber": 718
+        },
+        {
+          "caller": "buidUnits",
+          "callee": "this.getBase",
+          "lineNumber": 719
+        },
+        {
+          "caller": "buidUnits",
+          "callee": "this.getBase().getProductionQueue().alliedVehicles.containsKey",
+          "lineNumber": 719
+        },
+        {
+          "caller": "buidUnits",
+          "callee": "this.getBase().getProductionQueue",
+          "lineNumber": 719
+        },
+        {
+          "caller": "buidUnits",
+          "callee": "this.getBase",
+          "lineNumber": 719
+        },
+        {
+          "caller": "buidUnits",
+          "callee": "buildables.add",
+          "lineNumber": 720
+        },
+        {
+          "caller": "buidUnits",
+          "callee": "this.getBase",
+          "lineNumber": 721
+        },
+        {
+          "caller": "buidUnits",
+          "callee": "this.getBase().getProductionQueue().sovietVehicles.containsKey",
+          "lineNumber": 721
+        },
+        {
+          "caller": "buidUnits",
+          "callee": "this.getBase().getProductionQueue",
+          "lineNumber": 721
+        },
+        {
+          "caller": "buidUnits",
+          "callee": "this.getBase",
+          "lineNumber": 721
+        },
+        {
+          "caller": "buidUnits",
+          "callee": "buildables.add",
+          "lineNumber": 722
+        },
+        {
+          "caller": "buidUnits",
+          "callee": "this.getBase",
+          "lineNumber": 723
+        },
+        {
+          "caller": "buidUnits",
+          "callee": "this.getBase",
+          "lineNumber": 723
+        },
+        {
+          "caller": "buidUnits",
+          "callee": "this.getBase().getProductionQueue().neutralVehicles.containsKey",
+          "lineNumber": 724
+        },
+        {
+          "caller": "buidUnits",
+          "callee": "this.getBase().getProductionQueue",
+          "lineNumber": 724
+        },
+        {
+          "caller": "buidUnits",
+          "callee": "this.getBase",
+          "lineNumber": 724
+        },
+        {
+          "caller": "buidUnits",
+          "callee": "this.getBase",
+          "lineNumber": 735
+        },
+        {
+          "caller": "buidUnits",
+          "callee": "this.getBase().getProductionQueue().air.keySet",
+          "lineNumber": 736
+        },
+        {
+          "caller": "buidUnits",
+          "callee": "this.getBase().getProductionQueue",
+          "lineNumber": 736
+        },
+        {
+          "caller": "buidUnits",
+          "callee": "this.getBase",
+          "lineNumber": 736
+        },
+        {
+          "caller": "buidUnits",
+          "callee": "buildables.add",
+          "lineNumber": 737
+        },
+        {
+          "caller": "buidUnits",
+          "callee": "buildables.isEmpty",
+          "lineNumber": 743
+        },
+        {
+          "caller": "buidUnits",
+          "callee": "buildables.get",
+          "lineNumber": 744
+        },
+        {
+          "caller": "buidUnits",
+          "callee": "World.random.nextInt",
+          "lineNumber": 744
+        },
+        {
+          "caller": "buidUnits",
+          "callee": "buildables.size",
+          "lineNumber": 744
+        },
+        {
+          "caller": "buidUnits",
+          "callee": "System.out.println",
+          "lineNumber": 745
+        },
+        {
+          "caller": "buidUnits",
+          "callee": "base.getCash",
+          "lineNumber": 745
+        },
+        {
+          "caller": "buidUnits",
+          "callee": "this.getBase().getProductionQueue().startBuildingActor",
+          "lineNumber": 747
+        },
+        {
+          "caller": "buidUnits",
+          "callee": "this.getBase().getProductionQueue",
+          "lineNumber": 747
+        },
+        {
+          "caller": "buidUnits",
+          "callee": "this.getBase",
+          "lineNumber": 747
+        },
+        {
+          "caller": "buidUnits",
+          "callee": "this.getBase().getProductionQueue().getBuildables().get",
+          "lineNumber": 747
+        },
+        {
+          "caller": "buidUnits",
+          "callee": "this.getBase().getProductionQueue().getBuildables",
+          "lineNumber": 747
+        },
+        {
+          "caller": "buidUnits",
+          "callee": "this.getBase().getProductionQueue",
+          "lineNumber": 747
+        },
+        {
+          "caller": "buidUnits",
+          "callee": "this.getBase",
+          "lineNumber": 747
+        },
+        {
+          "caller": "buildVehicle",
+          "callee": "this.getBase().getProductionQueue().isBuildable",
+          "lineNumber": 752
+        },
+        {
+          "caller": "buildVehicle",
+          "callee": "this.getBase().getProductionQueue",
+          "lineNumber": 752
+        },
+        {
+          "caller": "buildVehicle",
+          "callee": "this.getBase",
+          "lineNumber": 752
+        },
+        {
+          "caller": "buildVehicle",
+          "callee": "this.getBase().getProductionQueue().getCurrentVehicleProduction().isBuilding",
+          "lineNumber": 753
+        },
+        {
+          "caller": "buildVehicle",
+          "callee": "this.getBase().getProductionQueue().getCurrentVehicleProduction",
+          "lineNumber": 753
+        },
+        {
+          "caller": "buildVehicle",
+          "callee": "this.getBase().getProductionQueue",
+          "lineNumber": 753
+        },
+        {
+          "caller": "buildVehicle",
+          "callee": "this.getBase",
+          "lineNumber": 753
+        },
+        {
+          "caller": "buildVehicle",
+          "callee": "this.getBase().getProductionQueue().getCurrentVehicleProduction().isReady",
+          "lineNumber": 754
+        },
+        {
+          "caller": "buildVehicle",
+          "callee": "this.getBase().getProductionQueue().getCurrentVehicleProduction",
+          "lineNumber": 754
+        },
+        {
+          "caller": "buildVehicle",
+          "callee": "this.getBase().getProductionQueue",
+          "lineNumber": 754
+        },
+        {
+          "caller": "buildVehicle",
+          "callee": "this.getBase",
+          "lineNumber": 754
+        },
+        {
+          "caller": "buildVehicle",
+          "callee": "this.getBase().getProductionQueue().startBuildingActor",
+          "lineNumber": 756
+        },
+        {
+          "caller": "buildVehicle",
+          "callee": "this.getBase().getProductionQueue",
+          "lineNumber": 756
+        },
+        {
+          "caller": "buildVehicle",
+          "callee": "this.getBase",
+          "lineNumber": 756
+        },
+        {
+          "caller": "buildVehicle",
+          "callee": "this.getBase().getProductionQueue().getBuildableActorByName",
+          "lineNumber": 756
+        },
+        {
+          "caller": "buildVehicle",
+          "callee": "this.getBase().getProductionQueue",
+          "lineNumber": 756
+        },
+        {
+          "caller": "buildVehicle",
+          "callee": "this.getBase",
+          "lineNumber": 756
+        },
+        {
+          "caller": "buildInfantry",
+          "callee": "this.getBase().getProductionQueue().isBuildable",
+          "lineNumber": 761
+        },
+        {
+          "caller": "buildInfantry",
+          "callee": "this.getBase().getProductionQueue",
+          "lineNumber": 761
+        },
+        {
+          "caller": "buildInfantry",
+          "callee": "this.getBase",
+          "lineNumber": 761
+        },
+        {
+          "caller": "buildInfantry",
+          "callee": "this.getBase().getProductionQueue().getCurrentInfantryProduction().isBuilding",
+          "lineNumber": 762
+        },
+        {
+          "caller": "buildInfantry",
+          "callee": "this.getBase().getProductionQueue().getCurrentInfantryProduction",
+          "lineNumber": 762
+        },
+        {
+          "caller": "buildInfantry",
+          "callee": "this.getBase().getProductionQueue",
+          "lineNumber": 762
+        },
+        {
+          "caller": "buildInfantry",
+          "callee": "this.getBase",
+          "lineNumber": 762
+        },
+        {
+          "caller": "buildInfantry",
+          "callee": "this.getBase().getProductionQueue().getCurrentInfantryProduction().isReady",
+          "lineNumber": 763
+        },
+        {
+          "caller": "buildInfantry",
+          "callee": "this.getBase().getProductionQueue().getCurrentInfantryProduction",
+          "lineNumber": 763
+        },
+        {
+          "caller": "buildInfantry",
+          "callee": "this.getBase().getProductionQueue",
+          "lineNumber": 763
+        },
+        {
+          "caller": "buildInfantry",
+          "callee": "this.getBase",
+          "lineNumber": 763
+        },
+        {
+          "caller": "buildInfantry",
+          "callee": "this.getBase().getProductionQueue().startBuildingActor",
+          "lineNumber": 765
+        },
+        {
+          "caller": "buildInfantry",
+          "callee": "this.getBase().getProductionQueue",
+          "lineNumber": 765
+        },
+        {
+          "caller": "buildInfantry",
+          "callee": "this.getBase",
+          "lineNumber": 765
+        },
+        {
+          "caller": "buildInfantry",
+          "callee": "this.getBase().getProductionQueue().getBuildableActorByName",
+          "lineNumber": 765
+        },
+        {
+          "caller": "buildInfantry",
+          "callee": "this.getBase().getProductionQueue",
+          "lineNumber": 765
+        },
+        {
+          "caller": "buildInfantry",
+          "callee": "this.getBase",
+          "lineNumber": 765
+        }
+      ],
+      "metrics": {
+        "importCount": 22,
+        "exportCount": 23,
+        "functionCount": 34,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/cr0s/javara/ai/Squad.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 88,
+      "nonEmptyLines": 67,
+      "functions": [
+        {
+          "name": "Squad",
+          "startLine": 22,
+          "endLine": 24,
+          "params": [
+            "bot",
+            "type"
+          ]
+        },
+        {
+          "name": "Squad",
+          "startLine": 26,
+          "endLine": 33,
+          "params": [
+            "bot",
+            "type",
+            "target"
+          ]
+        },
+        {
+          "name": "isValid",
+          "startLine": 35,
+          "endLine": 37,
+          "params": []
+        },
+        {
+          "name": "removeDeadAndNotOwnUnits",
+          "startLine": 39,
+          "endLine": 49,
+          "params": []
+        },
+        {
+          "name": "getType",
+          "startLine": 51,
+          "endLine": 53,
+          "params": []
+        },
+        {
+          "name": "update",
+          "startLine": 55,
+          "endLine": 59,
+          "params": []
+        },
+        {
+          "name": "addUnit",
+          "startLine": 61,
+          "endLine": 63,
+          "params": [
+            "a"
+          ]
+        },
+        {
+          "name": "targetIsValid",
+          "startLine": 65,
+          "endLine": 67,
+          "params": []
+        },
+        {
+          "name": "setTarget",
+          "startLine": 69,
+          "endLine": 75,
+          "params": [
+            "tgt"
+          ]
+        },
+        {
+          "name": "getBot",
+          "startLine": 77,
+          "endLine": 79,
+          "params": []
+        },
+        {
+          "name": "getUnits",
+          "startLine": 81,
+          "endLine": 83,
+          "params": []
+        },
+        {
+          "name": "getFsm",
+          "startLine": 85,
+          "endLine": 87,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "Squad",
+          "startLine": 12,
+          "endLine": 88,
+          "methods": [
+            "Squad",
+            "Squad",
+            "isValid",
+            "removeDeadAndNotOwnUnits",
+            "getType",
+            "update",
+            "addUnit",
+            "targetIsValid",
+            "setTarget",
+            "getBot",
+            "getUnits",
+            "getFsm"
+          ],
+          "properties": [
+            "target",
+            "bot",
+            "type",
+            "units",
+            "fsm"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Squad",
+          "line": 22,
+          "isDefault": false
+        },
+        {
+          "name": "Squad",
+          "line": 26,
+          "isDefault": false
+        },
+        {
+          "name": "isValid",
+          "line": 35,
+          "isDefault": false
+        },
+        {
+          "name": "removeDeadAndNotOwnUnits",
+          "line": 39,
+          "isDefault": false
+        },
+        {
+          "name": "getType",
+          "line": 51,
+          "isDefault": false
+        },
+        {
+          "name": "update",
+          "line": 55,
+          "isDefault": false
+        },
+        {
+          "name": "addUnit",
+          "line": 61,
+          "isDefault": false
+        },
+        {
+          "name": "targetIsValid",
+          "line": 65,
+          "isDefault": false
+        },
+        {
+          "name": "setTarget",
+          "line": 69,
+          "isDefault": false
+        },
+        {
+          "name": "getBot",
+          "line": 77,
+          "isDefault": false
+        },
+        {
+          "name": "getUnits",
+          "line": 81,
+          "isDefault": false
+        },
+        {
+          "name": "getFsm",
+          "line": 85,
+          "isDefault": false
+        },
+        {
+          "name": "Squad",
+          "line": 12,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "Squad",
+          "callee": "new Target",
+          "lineNumber": 27
+        },
+        {
+          "caller": "Squad",
+          "callee": "new StateMachine",
+          "lineNumber": 32
+        },
+        {
+          "caller": "isValid",
+          "callee": "this.units.isEmpty",
+          "lineNumber": 36
+        },
+        {
+          "caller": "removeDeadAndNotOwnUnits",
+          "callee": "new ArrayList<>",
+          "lineNumber": 40
+        },
+        {
+          "caller": "removeDeadAndNotOwnUnits",
+          "callee": "a.isDead",
+          "lineNumber": 43
+        },
+        {
+          "caller": "removeDeadAndNotOwnUnits",
+          "callee": "newUnits.add",
+          "lineNumber": 44
+        },
+        {
+          "caller": "update",
+          "callee": "this.isValid",
+          "lineNumber": 56
+        },
+        {
+          "caller": "update",
+          "callee": "this.fsm.update",
+          "lineNumber": 57
+        },
+        {
+          "caller": "addUnit",
+          "callee": "this.units.add",
+          "lineNumber": 62
+        },
+        {
+          "caller": "targetIsValid",
+          "callee": "this.units.isEmpty",
+          "lineNumber": 66
+        },
+        {
+          "caller": "targetIsValid",
+          "callee": "this.target.isValidFor",
+          "lineNumber": 66
+        },
+        {
+          "caller": "targetIsValid",
+          "callee": "this.units.get",
+          "lineNumber": 66
+        },
+        {
+          "caller": "setTarget",
+          "callee": "new Target",
+          "lineNumber": 70
+        },
+        {
+          "caller": "setTarget",
+          "callee": "units.get(0).queueActivity",
+          "lineNumber": 71
+        },
+        {
+          "caller": "setTarget",
+          "callee": "units.get",
+          "lineNumber": 71
+        },
+        {
+          "caller": "setTarget",
+          "callee": "new Move",
+          "lineNumber": 71
+        },
+        {
+          "caller": "setTarget",
+          "callee": "units.get",
+          "lineNumber": 71
+        },
+        {
+          "caller": "setTarget",
+          "callee": "tgt.getCellPosition",
+          "lineNumber": 71
+        },
+        {
+          "caller": "setTarget",
+          "callee": "units.size",
+          "lineNumber": 72
+        },
+        {
+          "caller": "setTarget",
+          "callee": "units.get(i).queueActivity",
+          "lineNumber": 73
+        },
+        {
+          "caller": "setTarget",
+          "callee": "units.get",
+          "lineNumber": 73
+        },
+        {
+          "caller": "setTarget",
+          "callee": "new Follow",
+          "lineNumber": 73
+        },
+        {
+          "caller": "setTarget",
+          "callee": "units.get",
+          "lineNumber": 73
+        }
+      ],
+      "metrics": {
+        "importCount": 5,
+        "exportCount": 13,
+        "functionCount": 12,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/cr0s/javara/ai/states/GroundStateBase.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 82,
+      "nonEmptyLines": 58,
+      "functions": [
+        {
+          "name": "activate",
+          "startLine": 14,
+          "endLine": 17,
+          "params": [
+            "bot"
+          ]
+        },
+        {
+          "name": "tick",
+          "startLine": 19,
+          "endLine": 37,
+          "params": [
+            "owner"
+          ]
+        },
+        {
+          "name": "deactivate",
+          "startLine": 39,
+          "endLine": 43,
+          "params": [
+            "bot"
+          ]
+        },
+        {
+          "name": "activate",
+          "startLine": 49,
+          "endLine": 52,
+          "params": [
+            "bot"
+          ]
+        },
+        {
+          "name": "tick",
+          "startLine": 54,
+          "endLine": 75,
+          "params": [
+            "owner"
+          ]
+        },
+        {
+          "name": "deactivate",
+          "startLine": 77,
+          "endLine": 80,
+          "params": [
+            "bot"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "GroundStateBase",
+          "startLine": 8,
+          "endLine": 10,
+          "methods": [],
+          "properties": []
+        },
+        {
+          "name": "GroundUnitsIdleState",
+          "startLine": 12,
+          "endLine": 45,
+          "methods": [
+            "activate",
+            "tick",
+            "deactivate"
+          ],
+          "properties": []
+        },
+        {
+          "name": "GroundUnitsAttackMoveState",
+          "startLine": 47,
+          "endLine": 82,
+          "methods": [
+            "activate",
+            "tick",
+            "deactivate"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "GroundStateBase",
+          "line": 8,
+          "isDefault": false
+        },
+        {
+          "name": "activate",
+          "line": 14,
+          "isDefault": false
+        },
+        {
+          "name": "tick",
+          "line": 19,
+          "isDefault": false
+        },
+        {
+          "name": "deactivate",
+          "line": 39,
+          "isDefault": false
+        },
+        {
+          "name": "activate",
+          "line": 49,
+          "isDefault": false
+        },
+        {
+          "name": "tick",
+          "line": 54,
+          "isDefault": false
+        },
+        {
+          "name": "deactivate",
+          "line": 77,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "tick",
+          "callee": "owner.isValid",
+          "lineNumber": 21
+        },
+        {
+          "caller": "tick",
+          "callee": "owner.targetIsValid",
+          "lineNumber": 25
+        },
+        {
+          "caller": "tick",
+          "callee": "owner.getUnits().isEmpty",
+          "lineNumber": 26
+        },
+        {
+          "caller": "tick",
+          "callee": "owner.getUnits",
+          "lineNumber": 26
+        },
+        {
+          "caller": "tick",
+          "callee": "owner.getBot().findClosestEnemy(owner.getUnits().get(0).getPosition()).get",
+          "lineNumber": 27
+        },
+        {
+          "caller": "tick",
+          "callee": "owner.getBot().findClosestEnemy",
+          "lineNumber": 27
+        },
+        {
+          "caller": "tick",
+          "callee": "owner.getBot",
+          "lineNumber": 27
+        },
+        {
+          "caller": "tick",
+          "callee": "owner.getUnits().get(0).getPosition",
+          "lineNumber": 27
+        },
+        {
+          "caller": "tick",
+          "callee": "owner.getUnits().get",
+          "lineNumber": 27
+        },
+        {
+          "caller": "tick",
+          "callee": "owner.getUnits",
+          "lineNumber": 27
+        },
+        {
+          "caller": "tick",
+          "callee": "owner.setTarget",
+          "lineNumber": 32
+        },
+        {
+          "caller": "tick",
+          "callee": "owner.isValid",
+          "lineNumber": 56
+        },
+        {
+          "caller": "tick",
+          "callee": "owner.targetIsValid",
+          "lineNumber": 60
+        },
+        {
+          "caller": "tick",
+          "callee": "owner.getUnits().get",
+          "lineNumber": 61
+        },
+        {
+          "caller": "tick",
+          "callee": "owner.getUnits",
+          "lineNumber": 61
+        },
+        {
+          "caller": "tick",
+          "callee": "World.random.nextInt",
+          "lineNumber": 61
+        },
+        {
+          "caller": "tick",
+          "callee": "owner.getUnits().size",
+          "lineNumber": 61
+        },
+        {
+          "caller": "tick",
+          "callee": "owner.getUnits",
+          "lineNumber": 61
+        },
+        {
+          "caller": "tick",
+          "callee": "owner.getBot().findClosestEnemy(randomUnit.getCellPosition()).get",
+          "lineNumber": 62
+        },
+        {
+          "caller": "tick",
+          "callee": "owner.getBot().findClosestEnemy",
+          "lineNumber": 62
+        },
+        {
+          "caller": "tick",
+          "callee": "owner.getBot",
+          "lineNumber": 62
+        },
+        {
+          "caller": "tick",
+          "callee": "randomUnit.getCellPosition",
+          "lineNumber": 62
+        },
+        {
+          "caller": "tick",
+          "callee": "owner.setTarget",
+          "lineNumber": 65
+        }
+      ],
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 7,
+        "functionCount": 6,
+        "classCount": 3
+      }
+    },
+    {
+      "path": "src/cr0s/javara/ai/states/StateBase.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 93,
+      "nonEmptyLines": 74,
+      "functions": [
+        {
+          "name": "goToRandomOwnBuilding",
+          "startLine": 20,
+          "endLine": 26,
+          "params": [
+            "s"
+          ]
+        },
+        {
+          "name": "randomBuildingLocation",
+          "startLine": 28,
+          "endLine": 37,
+          "params": [
+            "s"
+          ]
+        },
+        {
+          "name": "busyAttack",
+          "startLine": 39,
+          "endLine": 55,
+          "params": [
+            "a"
+          ]
+        },
+        {
+          "name": "canAttackTarget",
+          "startLine": 57,
+          "endLine": 70,
+          "params": [
+            "a",
+            "target"
+          ]
+        },
+        {
+          "name": "shouldFlee",
+          "startLine": 72,
+          "endLine": 92,
+          "params": [
+            "squad"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "StateBase",
+          "startLine": 17,
+          "endLine": 93,
+          "methods": [
+            "goToRandomOwnBuilding",
+            "randomBuildingLocation",
+            "busyAttack",
+            "canAttackTarget",
+            "shouldFlee"
+          ],
+          "properties": [
+            "DANGER_RADIUS"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "StateBase",
+          "line": 17,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "goToRandomOwnBuilding",
+          "callee": "randomBuildingLocation",
+          "lineNumber": 21
+        },
+        {
+          "caller": "goToRandomOwnBuilding",
+          "callee": "s.getUnits",
+          "lineNumber": 23
+        },
+        {
+          "caller": "goToRandomOwnBuilding",
+          "callee": "a.resolveOrder",
+          "lineNumber": 24
+        },
+        {
+          "caller": "goToRandomOwnBuilding",
+          "callee": "new Order",
+          "lineNumber": 24
+        },
+        {
+          "caller": "randomBuildingLocation",
+          "callee": "s.getBot().getPlayerSpawnPoint",
+          "lineNumber": 29
+        },
+        {
+          "caller": "randomBuildingLocation",
+          "callee": "s.getBot",
+          "lineNumber": 29
+        },
+        {
+          "caller": "randomBuildingLocation",
+          "callee": "s.getBot().getBase().getBuildings",
+          "lineNumber": 31
+        },
+        {
+          "caller": "randomBuildingLocation",
+          "callee": "s.getBot().getBase",
+          "lineNumber": 31
+        },
+        {
+          "caller": "randomBuildingLocation",
+          "callee": "s.getBot",
+          "lineNumber": 31
+        },
+        {
+          "caller": "randomBuildingLocation",
+          "callee": "buildings.isEmpty",
+          "lineNumber": 32
+        },
+        {
+          "caller": "randomBuildingLocation",
+          "callee": "buildings.get(World.random.nextInt(buildings.size())).getCellPosition",
+          "lineNumber": 33
+        },
+        {
+          "caller": "randomBuildingLocation",
+          "callee": "buildings.get",
+          "lineNumber": 33
+        },
+        {
+          "caller": "randomBuildingLocation",
+          "callee": "World.random.nextInt",
+          "lineNumber": 33
+        },
+        {
+          "caller": "randomBuildingLocation",
+          "callee": "buildings.size",
+          "lineNumber": 33
+        },
+        {
+          "caller": "busyAttack",
+          "callee": "a.isIdle",
+          "lineNumber": 40
+        },
+        {
+          "caller": "busyAttack",
+          "callee": "a.getCurrentActivity",
+          "lineNumber": 44
+        },
+        {
+          "caller": "canAttackTarget",
+          "callee": "((ICanAttack) a).getAttackStrategy",
+          "lineNumber": 62
+        },
+        {
+          "caller": "canAttackTarget",
+          "callee": "arma.getWeapon().isValidAgainst",
+          "lineNumber": 64
+        },
+        {
+          "caller": "canAttackTarget",
+          "callee": "arma.getWeapon",
+          "lineNumber": 64
+        },
+        {
+          "caller": "shouldFlee",
+          "callee": "squad.isValid",
+          "lineNumber": 73
+        },
+        {
+          "caller": "shouldFlee",
+          "callee": "squad.getUnits().get",
+          "lineNumber": 77
+        },
+        {
+          "caller": "shouldFlee",
+          "callee": "squad.getUnits",
+          "lineNumber": 77
+        },
+        {
+          "caller": "shouldFlee",
+          "callee": "World.random.nextInt",
+          "lineNumber": 77
+        },
+        {
+          "caller": "shouldFlee",
+          "callee": "squad.getUnits().size",
+          "lineNumber": 77
+        },
+        {
+          "caller": "shouldFlee",
+          "callee": "squad.getUnits",
+          "lineNumber": 77
+        },
+        {
+          "caller": "shouldFlee",
+          "callee": "GUI.getInstance().getWorld().getActorsInCircle",
+          "lineNumber": 78
+        },
+        {
+          "caller": "shouldFlee",
+          "callee": "GUI.getInstance().getWorld",
+          "lineNumber": 78
+        },
+        {
+          "caller": "shouldFlee",
+          "callee": "GUI.getInstance",
+          "lineNumber": 78
+        },
+        {
+          "caller": "shouldFlee",
+          "callee": "u.getPosition",
+          "lineNumber": 78
+        },
+        {
+          "caller": "shouldFlee",
+          "callee": "a.isDead",
+          "lineNumber": 80
+        },
+        {
+          "caller": "shouldFlee",
+          "callee": "squad.getBot",
+          "lineNumber": 80
+        },
+        {
+          "caller": "shouldFlee",
+          "callee": "a.isDead",
+          "lineNumber": 86
+        },
+        {
+          "caller": "shouldFlee",
+          "callee": "a.owner.isEnemyFor",
+          "lineNumber": 86
+        },
+        {
+          "caller": "shouldFlee",
+          "callee": "squad.getBot",
+          "lineNumber": 86
+        }
+      ],
+      "metrics": {
+        "importCount": 11,
+        "exportCount": 1,
+        "functionCount": 5,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/cr0s/javara/combat/attack/AttackCharge.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 110,
+      "nonEmptyLines": 84,
+      "functions": [
+        {
+          "name": "AttackCharge",
+          "startLine": 16,
+          "endLine": 18,
+          "params": [
+            "s"
+          ]
+        },
+        {
+          "name": "canAttack",
+          "startLine": 20,
+          "endLine": 27,
+          "params": [
+            "tgt"
+          ]
+        },
+        {
+          "name": "getAttackActivity",
+          "startLine": 29,
+          "endLine": 37,
+          "params": [
+            "tgt",
+            "allowMove"
+          ]
+        },
+        {
+          "name": "setCharged",
+          "startLine": 39,
+          "endLine": 41,
+          "params": [
+            "charged"
+          ]
+        },
+        {
+          "name": "doAttack",
+          "startLine": 43,
+          "endLine": 52,
+          "params": [
+            "tgt"
+          ]
+        },
+        {
+          "name": "setMaxChargeTicks",
+          "startLine": 103,
+          "endLine": 105,
+          "params": [
+            "maxChargeTicks"
+          ]
+        },
+        {
+          "name": "setRechargeTicks",
+          "startLine": 107,
+          "endLine": 109,
+          "params": [
+            "rechargeTicks"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "AttackCharge",
+          "startLine": 10,
+          "endLine": 110,
+          "methods": [
+            "AttackCharge",
+            "canAttack",
+            "getAttackActivity",
+            "setCharged",
+            "doAttack",
+            "setMaxChargeTicks",
+            "setRechargeTicks"
+          ],
+          "properties": [
+            "isCharged",
+            "maxChargeTicks",
+            "rechargeTicks",
+            "ticks"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "ticks",
+          "line": 14,
+          "isDefault": false
+        },
+        {
+          "name": "AttackCharge",
+          "line": 16,
+          "isDefault": false
+        },
+        {
+          "name": "getAttackActivity",
+          "line": 29,
+          "isDefault": false
+        },
+        {
+          "name": "setCharged",
+          "line": 39,
+          "isDefault": false
+        },
+        {
+          "name": "doAttack",
+          "line": 43,
+          "isDefault": false
+        },
+        {
+          "name": "setMaxChargeTicks",
+          "line": 103,
+          "isDefault": false
+        },
+        {
+          "name": "setRechargeTicks",
+          "line": 107,
+          "isDefault": false
+        },
+        {
+          "name": "AttackCharge",
+          "line": 10,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "canAttack",
+          "callee": "super.canAttack",
+          "lineNumber": 22
+        },
+        {
+          "caller": "getAttackActivity",
+          "callee": "this.chooseArmamentForTarget",
+          "lineNumber": 31
+        },
+        {
+          "caller": "getAttackActivity",
+          "callee": "new Charge",
+          "lineNumber": 36
+        },
+        {
+          "caller": "doAttack",
+          "callee": "canAttack",
+          "lineNumber": 45
+        },
+        {
+          "caller": "doAttack",
+          "callee": "arma.checkFire",
+          "lineNumber": 50
+        },
+        {
+          "caller": "tick",
+          "callee": "this.isCancelled",
+          "lineNumber": 77
+        },
+        {
+          "caller": "tick",
+          "callee": "this.target.isInRange",
+          "lineNumber": 77
+        },
+        {
+          "caller": "tick",
+          "callee": "this.self.getPosition",
+          "lineNumber": 77
+        },
+        {
+          "caller": "tick",
+          "callee": "this.attack.getMaxRange",
+          "lineNumber": 77
+        },
+        {
+          "caller": "tick",
+          "callee": "this.target.isValidFor",
+          "lineNumber": 77
+        },
+        {
+          "caller": "tick",
+          "callee": "this.self.isDead",
+          "lineNumber": 81
+        },
+        {
+          "caller": "tick",
+          "callee": "setCharged",
+          "lineNumber": 86
+        },
+        {
+          "caller": "tick",
+          "callee": "doAttack",
+          "lineNumber": 89
+        },
+        {
+          "caller": "tick",
+          "callee": "new Wait",
+          "lineNumber": 91
+        },
+        {
+          "caller": "tick",
+          "callee": "wait.queueActivity",
+          "lineNumber": 92
+        },
+        {
+          "caller": "tick",
+          "callee": "wait.queueActivity",
+          "lineNumber": 93
+        }
+      ],
+      "metrics": {
+        "importCount": 6,
+        "exportCount": 8,
+        "functionCount": 7,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/cr0s/javara/combat/attack/AttackFollow.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 91,
+      "nonEmptyLines": 70,
+      "functions": [
+        {
+          "name": "AttackFollow",
+          "startLine": 12,
+          "endLine": 14,
+          "params": [
+            "s"
+          ]
+        },
+        {
+          "name": "update",
+          "startLine": 16,
+          "endLine": 28,
+          "params": [
+            "delta"
+          ]
+        },
+        {
+          "name": "getAttackActivity",
+          "startLine": 30,
+          "endLine": 33,
+          "params": [
+            "tgt",
+            "allowMove"
+          ]
+        },
+        {
+          "name": "resolveOrder",
+          "startLine": 35,
+          "endLine": 42,
+          "params": [
+            "order"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "AttackFollow",
+          "startLine": 11,
+          "endLine": 91,
+          "methods": [
+            "AttackFollow",
+            "update",
+            "getAttackActivity",
+            "resolveOrder"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "AttackFollow",
+          "line": 12,
+          "isDefault": false
+        },
+        {
+          "name": "update",
+          "line": 16,
+          "isDefault": false
+        },
+        {
+          "name": "getAttackActivity",
+          "line": 30,
+          "isDefault": false
+        },
+        {
+          "name": "resolveOrder",
+          "line": 35,
+          "isDefault": false
+        },
+        {
+          "name": "AttackFollow",
+          "line": 11,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "update",
+          "callee": "super.update",
+          "lineNumber": 18
+        },
+        {
+          "caller": "update",
+          "callee": "this.doAttack",
+          "lineNumber": 21
+        },
+        {
+          "caller": "update",
+          "callee": "this.target.isValidFor",
+          "lineNumber": 24
+        },
+        {
+          "caller": "getAttackActivity",
+          "callee": "new AttackActivity",
+          "lineNumber": 32
+        },
+        {
+          "caller": "resolveOrder",
+          "callee": "super.resolveOrder",
+          "lineNumber": 37
+        },
+        {
+          "caller": "resolveOrder",
+          "callee": "order.orderString.equals",
+          "lineNumber": 39
+        },
+        {
+          "caller": "resolveOrder",
+          "callee": "order.orderString.equals",
+          "lineNumber": 39
+        },
+        {
+          "caller": "tick",
+          "callee": "this.isCancelled",
+          "lineNumber": 64
+        },
+        {
+          "caller": "tick",
+          "callee": "this.target.isValidFor",
+          "lineNumber": 64
+        },
+        {
+          "caller": "tick",
+          "callee": "this.self.isDead",
+          "lineNumber": 68
+        },
+        {
+          "caller": "tick",
+          "callee": "this.attack.chooseArmamentForTarget",
+          "lineNumber": 74
+        },
+        {
+          "caller": "tick",
+          "callee": "Math.max",
+          "lineNumber": 76
+        },
+        {
+          "caller": "tick",
+          "callee": "weapon.getWeapon",
+          "lineNumber": 76
+        },
+        {
+          "caller": "tick",
+          "callee": "this.target.isInRange",
+          "lineNumber": 79
+        },
+        {
+          "caller": "tick",
+          "callee": "this.self.getPosition",
+          "lineNumber": 79
+        },
+        {
+          "caller": "tick",
+          "callee": "weapon.getWeapon",
+          "lineNumber": 79
+        },
+        {
+          "caller": "tick",
+          "callee": "this.me.moveFollow",
+          "lineNumber": 80
+        },
+        {
+          "caller": "tick",
+          "callee": "f.queueActivity",
+          "lineNumber": 81
+        }
+      ],
+      "metrics": {
+        "importCount": 7,
+        "exportCount": 5,
+        "functionCount": 4,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/cr0s/javara/entity/IDeployable.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 11,
+      "nonEmptyLines": 10,
+      "classes": [
+        {
+          "name": "IDeployable",
+          "startLine": 7,
+          "endLine": 11,
+          "methods": [
+            "canDeploy",
+            "deploy",
+            "executeDeployment"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "IDeployable",
+          "line": 7,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/cr0s/javara/entity/MobileEntity.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 340,
+      "nonEmptyLines": 267,
+      "functions": [
+        {
+          "name": "MobileEntity",
+          "startLine": 37,
+          "endLine": 42,
+          "params": [
+            "pos",
+            "aSizeWidth",
+            "aSizeHeight"
+          ]
+        },
+        {
+          "name": "findPathFromTo",
+          "startLine": 44,
+          "endLine": 44,
+          "params": [
+            "e",
+            "aGoal"
+          ]
+        },
+        {
+          "name": "getCenterPos",
+          "startLine": 46,
+          "endLine": 48,
+          "params": []
+        },
+        {
+          "name": "getPos",
+          "startLine": 50,
+          "endLine": 52,
+          "params": []
+        },
+        {
+          "name": "getCellPos",
+          "startLine": 54,
+          "endLine": 56,
+          "params": []
+        },
+        {
+          "name": "getTexturePos",
+          "startLine": 58,
+          "endLine": 60,
+          "params": []
+        },
+        {
+          "name": "setPos",
+          "startLine": 62,
+          "endLine": 67,
+          "params": [
+            "pos"
+          ]
+        },
+        {
+          "name": "getDamagePerSecond",
+          "startLine": 69,
+          "endLine": 71,
+          "params": []
+        },
+        {
+          "name": "setDamagePerSecond",
+          "startLine": 73,
+          "endLine": 75,
+          "params": [
+            "damagePerSecond"
+          ]
+        },
+        {
+          "name": "setCenterPos",
+          "startLine": 77,
+          "endLine": 80,
+          "params": [
+            "pos"
+          ]
+        },
+        {
+          "name": "getRang",
+          "startLine": 82,
+          "endLine": 84,
+          "params": []
+        },
+        {
+          "name": "drawPath",
+          "startLine": 86,
+          "endLine": 151,
+          "params": [
+            "g"
+          ]
+        },
+        {
+          "name": "finishMoving",
+          "startLine": 153,
+          "endLine": 157,
+          "params": []
+        },
+        {
+          "name": "getCenterPosX",
+          "startLine": 159,
+          "endLine": 161,
+          "params": []
+        },
+        {
+          "name": "getCenterPosY",
+          "startLine": 163,
+          "endLine": 165,
+          "params": []
+        },
+        {
+          "name": "setPositionByCenter",
+          "startLine": 167,
+          "endLine": 172,
+          "params": [
+            "x",
+            "y"
+          ]
+        },
+        {
+          "name": "setCenterX",
+          "startLine": 174,
+          "endLine": 176,
+          "params": [
+            "x"
+          ]
+        },
+        {
+          "name": "setCenterY",
+          "startLine": 178,
+          "endLine": 180,
+          "params": [
+            "y"
+          ]
+        },
+        {
+          "name": "nudge",
+          "startLine": 182,
+          "endLine": 184,
+          "params": [
+            "nudger",
+            "force"
+          ]
+        },
+        {
+          "name": "nudge",
+          "startLine": 186,
+          "endLine": 252,
+          "params": [
+            "nudger",
+            "force",
+            "nudgingDepth"
+          ]
+        },
+        {
+          "name": "moveTo",
+          "startLine": 254,
+          "endLine": 256,
+          "params": [
+            "destCell"
+          ]
+        },
+        {
+          "name": "moveTo",
+          "startLine": 258,
+          "endLine": 273,
+          "params": [
+            "destCell",
+            "ignoreBuilding"
+          ]
+        },
+        {
+          "name": "startMovingByPath",
+          "startLine": 275,
+          "endLine": 281,
+          "params": [
+            "p",
+            "ignoreBuilding"
+          ]
+        },
+        {
+          "name": "notifyBlocking",
+          "startLine": 283,
+          "endLine": 288,
+          "params": [
+            "from"
+          ]
+        },
+        {
+          "name": "getMoveSpeed",
+          "startLine": 290,
+          "endLine": 290,
+          "params": []
+        },
+        {
+          "name": "getMinimumEnoughRange",
+          "startLine": 291,
+          "endLine": 291,
+          "params": []
+        },
+        {
+          "name": "canEnterCell",
+          "startLine": 292,
+          "endLine": 292,
+          "params": [
+            "cellPos"
+          ]
+        },
+        {
+          "name": "getWaitAverageTime",
+          "startLine": 293,
+          "endLine": 293,
+          "params": []
+        },
+        {
+          "name": "getWaitSpreadTime",
+          "startLine": 294,
+          "endLine": 294,
+          "params": []
+        },
+        {
+          "name": "getOrders",
+          "startLine": 297,
+          "endLine": 300,
+          "params": []
+        },
+        {
+          "name": "issueOrder",
+          "startLine": 302,
+          "endLine": 313,
+          "params": [
+            "self",
+            "targeter",
+            "target",
+            "ia"
+          ]
+        },
+        {
+          "name": "resolveOrder",
+          "startLine": 315,
+          "endLine": 324,
+          "params": [
+            "order"
+          ]
+        },
+        {
+          "name": "setCellPos",
+          "startLine": 326,
+          "endLine": 329,
+          "params": [
+            "exitPoint"
+          ]
+        },
+        {
+          "name": "moveFollow",
+          "startLine": 331,
+          "endLine": 333,
+          "params": [
+            "self",
+            "target",
+            "range"
+          ]
+        },
+        {
+          "name": "moveWithinRange",
+          "startLine": 335,
+          "endLine": 337,
+          "params": [
+            "target",
+            "range"
+          ]
+        },
+        {
+          "name": "moveToRange",
+          "startLine": 339,
+          "endLine": 339,
+          "params": [
+            "cellPos",
+            "range"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "MobileEntity",
+          "startLine": 26,
+          "endLine": 340,
+          "methods": [
+            "MobileEntity",
+            "findPathFromTo",
+            "getCenterPos",
+            "getPos",
+            "getCellPos",
+            "getTexturePos",
+            "setPos",
+            "getDamagePerSecond",
+            "setDamagePerSecond",
+            "setCenterPos",
+            "getRang",
+            "drawPath",
+            "finishMoving",
+            "getCenterPosX",
+            "getCenterPosY",
+            "setPositionByCenter",
+            "setCenterX",
+            "setCenterY",
+            "nudge",
+            "nudge",
+            "moveTo",
+            "moveTo",
+            "startMovingByPath",
+            "notifyBlocking",
+            "getMoveSpeed",
+            "getMinimumEnoughRange",
+            "canEnterCell",
+            "getWaitAverageTime",
+            "getWaitSpreadTime",
+            "getOrders",
+            "issueOrder",
+            "resolveOrder",
+            "setCellPos",
+            "moveFollow",
+            "moveWithinRange",
+            "moveToRange"
+          ],
+          "properties": [
+            "moveSpeed",
+            "damagePerSecond",
+            "isMovingToCell",
+            "goal",
+            "currentSubcell",
+            "desiredSubcell",
+            "targetCell"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "isMovingToCell",
+          "line": 30,
+          "isDefault": false
+        },
+        {
+          "name": "goal",
+          "line": 32,
+          "isDefault": false
+        },
+        {
+          "name": "currentSubcell",
+          "line": 33,
+          "isDefault": false
+        },
+        {
+          "name": "desiredSubcell",
+          "line": 34,
+          "isDefault": false
+        },
+        {
+          "name": "targetCell",
+          "line": 35,
+          "isDefault": false
+        },
+        {
+          "name": "MobileEntity",
+          "line": 37,
+          "isDefault": false
+        },
+        {
+          "name": "findPathFromTo",
+          "line": 44,
+          "isDefault": false
+        },
+        {
+          "name": "getCenterPos",
+          "line": 46,
+          "isDefault": false
+        },
+        {
+          "name": "getPos",
+          "line": 50,
+          "isDefault": false
+        },
+        {
+          "name": "getCellPos",
+          "line": 54,
+          "isDefault": false
+        },
+        {
+          "name": "getTexturePos",
+          "line": 58,
+          "isDefault": false
+        },
+        {
+          "name": "setPos",
+          "line": 62,
+          "isDefault": false
+        },
+        {
+          "name": "getDamagePerSecond",
+          "line": 69,
+          "isDefault": false
+        },
+        {
+          "name": "setDamagePerSecond",
+          "line": 73,
+          "isDefault": false
+        },
+        {
+          "name": "setCenterPos",
+          "line": 77,
+          "isDefault": false
+        },
+        {
+          "name": "getRang",
+          "line": 82,
+          "isDefault": false
+        },
+        {
+          "name": "finishMoving",
+          "line": 153,
+          "isDefault": false
+        },
+        {
+          "name": "getCenterPosX",
+          "line": 159,
+          "isDefault": false
+        },
+        {
+          "name": "getCenterPosY",
+          "line": 163,
+          "isDefault": false
+        },
+        {
+          "name": "setPositionByCenter",
+          "line": 167,
+          "isDefault": false
+        },
+        {
+          "name": "nudge",
+          "line": 182,
+          "isDefault": false
+        },
+        {
+          "name": "nudge",
+          "line": 186,
+          "isDefault": false
+        },
+        {
+          "name": "moveTo",
+          "line": 254,
+          "isDefault": false
+        },
+        {
+          "name": "moveTo",
+          "line": 258,
+          "isDefault": false
+        },
+        {
+          "name": "startMovingByPath",
+          "line": 275,
+          "isDefault": false
+        },
+        {
+          "name": "notifyBlocking",
+          "line": 283,
+          "isDefault": false
+        },
+        {
+          "name": "getMoveSpeed",
+          "line": 290,
+          "isDefault": false
+        },
+        {
+          "name": "getMinimumEnoughRange",
+          "line": 291,
+          "isDefault": false
+        },
+        {
+          "name": "canEnterCell",
+          "line": 292,
+          "isDefault": false
+        },
+        {
+          "name": "getWaitAverageTime",
+          "line": 293,
+          "isDefault": false
+        },
+        {
+          "name": "getWaitSpreadTime",
+          "line": 294,
+          "isDefault": false
+        },
+        {
+          "name": "getOrders",
+          "line": 297,
+          "isDefault": false
+        },
+        {
+          "name": "issueOrder",
+          "line": 302,
+          "isDefault": false
+        },
+        {
+          "name": "resolveOrder",
+          "line": 315,
+          "isDefault": false
+        },
+        {
+          "name": "setCellPos",
+          "line": 326,
+          "isDefault": false
+        },
+        {
+          "name": "moveFollow",
+          "line": 331,
+          "isDefault": false
+        },
+        {
+          "name": "moveWithinRange",
+          "line": 335,
+          "isDefault": false
+        },
+        {
+          "name": "MobileEntity",
+          "line": 26,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "MobileEntity",
+          "callee": "new ArrayList<>",
+          "lineNumber": 40
+        },
+        {
+          "caller": "MobileEntity",
+          "callee": "ordersList.add",
+          "lineNumber": 41
+        },
+        {
+          "caller": "MobileEntity",
+          "callee": "new MoveOrderTargeter",
+          "lineNumber": 41
+        },
+        {
+          "caller": "getCenterPos",
+          "callee": "new Pos",
+          "lineNumber": 47
+        },
+        {
+          "caller": "getCenterPos",
+          "callee": "this.getCenterPosX",
+          "lineNumber": 47
+        },
+        {
+          "caller": "getCenterPos",
+          "callee": "this.getCenterPosY",
+          "lineNumber": 47
+        },
+        {
+          "caller": "getPos",
+          "callee": "new Pos",
+          "lineNumber": 51
+        },
+        {
+          "caller": "getPos",
+          "callee": "this.boundingBox.getX",
+          "lineNumber": 51
+        },
+        {
+          "caller": "getPos",
+          "callee": "this.boundingBox.getY",
+          "lineNumber": 51
+        },
+        {
+          "caller": "getCellPos",
+          "callee": "new Pos",
+          "lineNumber": 55
+        },
+        {
+          "caller": "getCellPos",
+          "callee": "getCenterPosX",
+          "lineNumber": 55
+        },
+        {
+          "caller": "getCellPos",
+          "callee": "getCenterPosY",
+          "lineNumber": 55
+        },
+        {
+          "caller": "getTexturePos",
+          "callee": "new Pos",
+          "lineNumber": 59
+        },
+        {
+          "caller": "getTexturePos",
+          "callee": "this.boundingBox.getX",
+          "lineNumber": 59
+        },
+        {
+          "caller": "getTexturePos",
+          "callee": "this.boundingBox.getY",
+          "lineNumber": 59
+        },
+        {
+          "caller": "setPos",
+          "callee": "this.boundingBox.setX",
+          "lineNumber": 63
+        },
+        {
+          "caller": "setPos",
+          "callee": "pos.getX",
+          "lineNumber": 63
+        },
+        {
+          "caller": "setPos",
+          "callee": "this.boundingBox.setY",
+          "lineNumber": 64
+        },
+        {
+          "caller": "setPos",
+          "callee": "pos.getY",
+          "lineNumber": 64
+        },
+        {
+          "caller": "setPos",
+          "callee": "getImageView().setX",
+          "lineNumber": 65
+        },
+        {
+          "caller": "setPos",
+          "callee": "getImageView",
+          "lineNumber": 65
+        },
+        {
+          "caller": "setPos",
+          "callee": "pos.getX",
+          "lineNumber": 65
+        },
+        {
+          "caller": "setPos",
+          "callee": "getImageView().setY",
+          "lineNumber": 66
+        },
+        {
+          "caller": "setPos",
+          "callee": "getImageView",
+          "lineNumber": 66
+        },
+        {
+          "caller": "setPos",
+          "callee": "pos.getY",
+          "lineNumber": 66
+        },
+        {
+          "caller": "setCenterPos",
+          "callee": "this.setCenterX",
+          "lineNumber": 78
+        },
+        {
+          "caller": "setCenterPos",
+          "callee": "pos.getX",
+          "lineNumber": 78
+        },
+        {
+          "caller": "setCenterPos",
+          "callee": "this.setCenterY",
+          "lineNumber": 79
+        },
+        {
+          "caller": "setCenterPos",
+          "callee": "pos.getY",
+          "lineNumber": 79
+        },
+        {
+          "caller": "drawPath",
+          "callee": "currentPath.getElements().size",
+          "lineNumber": 121
+        },
+        {
+          "caller": "drawPath",
+          "callee": "currentPath.getElements",
+          "lineNumber": 121
+        },
+        {
+          "caller": "drawPath",
+          "callee": "currentPath.getElements().size",
+          "lineNumber": 129
+        },
+        {
+          "caller": "drawPath",
+          "callee": "currentPath.getElements",
+          "lineNumber": 129
+        },
+        {
+          "caller": "drawPath",
+          "callee": "currentPath.getElements().get",
+          "lineNumber": 130
+        },
+        {
+          "caller": "drawPath",
+          "callee": "currentPath.getElements",
+          "lineNumber": 130
+        },
+        {
+          "caller": "drawPath",
+          "callee": "currentPath.getElements().get",
+          "lineNumber": 131
+        },
+        {
+          "caller": "drawPath",
+          "callee": "currentPath.getElements",
+          "lineNumber": 131
+        },
+        {
+          "caller": "finishMoving",
+          "callee": "new Pos",
+          "lineNumber": 154
+        },
+        {
+          "caller": "getCenterPosX",
+          "callee": "this.boundingBox.getX",
+          "lineNumber": 160
+        },
+        {
+          "caller": "getCenterPosY",
+          "callee": "this.boundingBox.getY",
+          "lineNumber": 164
+        },
+        {
+          "caller": "setPositionByCenter",
+          "callee": "boundingBox.setX",
+          "lineNumber": 168
+        },
+        {
+          "caller": "setPositionByCenter",
+          "callee": "boundingBox.setY",
+          "lineNumber": 169
+        },
+        {
+          "caller": "setPositionByCenter",
+          "callee": "setCenterX",
+          "lineNumber": 170
+        },
+        {
+          "caller": "setPositionByCenter",
+          "callee": "setCenterY",
+          "lineNumber": 171
+        },
+        {
+          "caller": "setCenterX",
+          "callee": "getImageView().setX",
+          "lineNumber": 175
+        },
+        {
+          "caller": "setCenterX",
+          "callee": "getImageView",
+          "lineNumber": 175
+        },
+        {
+          "caller": "setCenterY",
+          "callee": "getImageView().setY",
+          "lineNumber": 179
+        },
+        {
+          "caller": "setCenterY",
+          "callee": "getImageView",
+          "lineNumber": 179
+        },
+        {
+          "caller": "nudge",
+          "callee": "nudge",
+          "lineNumber": 183
+        },
+        {
+          "caller": "nudge",
+          "callee": "this.isIdle",
+          "lineNumber": 188
+        },
+        {
+          "caller": "nudge",
+          "callee": "nudger.getCellPos",
+          "lineNumber": 198
+        },
+        {
+          "caller": "nudge",
+          "callee": "new ArrayList<>",
+          "lineNumber": 201
+        },
+        {
+          "caller": "nudge",
+          "callee": "new ArrayList<>",
+          "lineNumber": 202
+        },
+        {
+          "caller": "nudge",
+          "callee": "this.getCellPos().getCellX",
+          "lineNumber": 205
+        },
+        {
+          "caller": "nudge",
+          "callee": "this.getCellPos",
+          "lineNumber": 205
+        },
+        {
+          "caller": "nudge",
+          "callee": "this.getCellPos().getCellY",
+          "lineNumber": 206
+        },
+        {
+          "caller": "nudge",
+          "callee": "this.getCellPos",
+          "lineNumber": 206
+        },
+        {
+          "caller": "nudge",
+          "callee": "nudgerPos.getCellX",
+          "lineNumber": 209
+        },
+        {
+          "caller": "nudge",
+          "callee": "nudgerPos.getCellY",
+          "lineNumber": 209
+        },
+        {
+          "caller": "nudge",
+          "callee": "owner.world.isCellPassable",
+          "lineNumber": 213
+        },
+        {
+          "caller": "nudge",
+          "callee": "new Pos",
+          "lineNumber": 213
+        },
+        {
+          "caller": "nudge",
+          "callee": "availCells.add",
+          "lineNumber": 214
+        },
+        {
+          "caller": "nudge",
+          "callee": "new Pos",
+          "lineNumber": 214
+        },
+        {
+          "caller": "nudge",
+          "callee": "smartCells.add",
+          "lineNumber": 216
+        },
+        {
+          "caller": "nudge",
+          "callee": "new Pos",
+          "lineNumber": 216
+        },
+        {
+          "caller": "nudge",
+          "callee": "availCells.isEmpty",
+          "lineNumber": 223
+        },
+        {
+          "caller": "nudge",
+          "callee": "availCells.get",
+          "lineNumber": 224
+        },
+        {
+          "caller": "nudge",
+          "callee": "World.getRandomInt",
+          "lineNumber": 224
+        },
+        {
+          "caller": "nudge",
+          "callee": "availCells.size",
+          "lineNumber": 224
+        },
+        {
+          "caller": "nudge",
+          "callee": "smartCells.isEmpty",
+          "lineNumber": 226
+        },
+        {
+          "caller": "nudge",
+          "callee": "smartCells.get",
+          "lineNumber": 227
+        },
+        {
+          "caller": "nudge",
+          "callee": "World.getRandomInt",
+          "lineNumber": 227
+        },
+        {
+          "caller": "nudge",
+          "callee": "smartCells.size",
+          "lineNumber": 227
+        },
+        {
+          "caller": "nudge",
+          "callee": "availCells.isEmpty",
+          "lineNumber": 231
+        },
+        {
+          "caller": "nudge",
+          "callee": "this.cancelActivity",
+          "lineNumber": 232
+        },
+        {
+          "caller": "nudge",
+          "callee": "this.moveTo",
+          "lineNumber": 234
+        },
+        {
+          "caller": "nudge",
+          "callee": "Collections.shuffle",
+          "lineNumber": 242
+        },
+        {
+          "caller": "nudge",
+          "callee": "owner.world.getMobileEntityInCell",
+          "lineNumber": 245
+        },
+        {
+          "caller": "nudge",
+          "callee": "blocker.isFrendlyTo",
+          "lineNumber": 247
+        },
+        {
+          "caller": "nudge",
+          "callee": "blocker.nudge",
+          "lineNumber": 248
+        },
+        {
+          "caller": "moveTo",
+          "callee": "this.moveTo",
+          "lineNumber": 255
+        },
+        {
+          "caller": "moveTo",
+          "callee": "this.goal.setX",
+          "lineNumber": 259
+        },
+        {
+          "caller": "moveTo",
+          "callee": "destCell.getX",
+          "lineNumber": 259
+        },
+        {
+          "caller": "moveTo",
+          "callee": "this.goal.setY",
+          "lineNumber": 260
+        },
+        {
+          "caller": "moveTo",
+          "callee": "destCell.getY",
+          "lineNumber": 260
+        },
+        {
+          "caller": "moveTo",
+          "callee": "new Move",
+          "lineNumber": 262
+        },
+        {
+          "caller": "moveTo",
+          "callee": "getMinimumEnoughRange",
+          "lineNumber": 262
+        },
+        {
+          "caller": "moveTo",
+          "callee": "this.currentActivity.cancel",
+          "lineNumber": 266
+        },
+        {
+          "caller": "moveTo",
+          "callee": "this.currentActivity.queueActivity",
+          "lineNumber": 268
+        },
+        {
+          "caller": "moveTo",
+          "callee": "queueActivity",
+          "lineNumber": 272
+        },
+        {
+          "caller": "startMovingByPath",
+          "callee": "new Pos",
+          "lineNumber": 276
+        },
+        {
+          "caller": "startMovingByPath",
+          "callee": "((MoveTo)p.getElements().get(p.getElements().size() - 1)).getX",
+          "lineNumber": 277
+        },
+        {
+          "caller": "startMovingByPath",
+          "callee": "p.getElements().get",
+          "lineNumber": 277
+        },
+        {
+          "caller": "startMovingByPath",
+          "callee": "p.getElements",
+          "lineNumber": 277
+        },
+        {
+          "caller": "startMovingByPath",
+          "callee": "p.getElements().size",
+          "lineNumber": 277
+        },
+        {
+          "caller": "startMovingByPath",
+          "callee": "p.getElements",
+          "lineNumber": 277
+        },
+        {
+          "caller": "startMovingByPath",
+          "callee": "((MoveTo)p.getElements().get(p.getElements().size() - 1)).getY",
+          "lineNumber": 278
+        },
+        {
+          "caller": "startMovingByPath",
+          "callee": "p.getElements().get",
+          "lineNumber": 278
+        },
+        {
+          "caller": "startMovingByPath",
+          "callee": "p.getElements",
+          "lineNumber": 278
+        },
+        {
+          "caller": "startMovingByPath",
+          "callee": "p.getElements().size",
+          "lineNumber": 278
+        },
+        {
+          "caller": "startMovingByPath",
+          "callee": "p.getElements",
+          "lineNumber": 278
+        },
+        {
+          "caller": "startMovingByPath",
+          "callee": "queueActivity",
+          "lineNumber": 280
+        },
+        {
+          "caller": "startMovingByPath",
+          "callee": "new Move",
+          "lineNumber": 280
+        },
+        {
+          "caller": "notifyBlocking",
+          "callee": "this.isIdle",
+          "lineNumber": 285
+        },
+        {
+          "caller": "notifyBlocking",
+          "callee": "from.isFrendlyTo",
+          "lineNumber": 285
+        },
+        {
+          "caller": "notifyBlocking",
+          "callee": "this.nudge",
+          "lineNumber": 286
+        },
+        {
+          "caller": "issueOrder",
+          "callee": "targeter.orderString.equals",
+          "lineNumber": 304
+        },
+        {
+          "caller": "issueOrder",
+          "callee": "target.isCellTarget",
+          "lineNumber": 305
+        },
+        {
+          "caller": "issueOrder",
+          "callee": "new Order",
+          "lineNumber": 309
+        },
+        {
+          "caller": "issueOrder",
+          "callee": "target.getTargetCell",
+          "lineNumber": 309
+        },
+        {
+          "caller": "resolveOrder",
+          "callee": "order.orderString.equals",
+          "lineNumber": 317
+        },
+        {
+          "caller": "resolveOrder",
+          "callee": "this.cancelActivity",
+          "lineNumber": 319
+        },
+        {
+          "caller": "resolveOrder",
+          "callee": "this.moveTo",
+          "lineNumber": 322
+        },
+        {
+          "caller": "setCellPos",
+          "callee": "getImageView().setX",
+          "lineNumber": 327
+        },
+        {
+          "caller": "setCellPos",
+          "callee": "getImageView",
+          "lineNumber": 327
+        },
+        {
+          "caller": "setCellPos",
+          "callee": "exitPoint.getX",
+          "lineNumber": 327
+        },
+        {
+          "caller": "setCellPos",
+          "callee": "getImageView().setY",
+          "lineNumber": 328
+        },
+        {
+          "caller": "setCellPos",
+          "callee": "getImageView",
+          "lineNumber": 328
+        },
+        {
+          "caller": "setCellPos",
+          "callee": "exitPoint.getY",
+          "lineNumber": 328
+        },
+        {
+          "caller": "moveFollow",
+          "callee": "new Follow",
+          "lineNumber": 332
+        },
+        {
+          "caller": "moveWithinRange",
+          "callee": "this.moveToRange",
+          "lineNumber": 336
+        },
+        {
+          "caller": "moveWithinRange",
+          "callee": "target.centerPosition().Clone",
+          "lineNumber": 336
+        },
+        {
+          "caller": "moveWithinRange",
+          "callee": "target.centerPosition",
+          "lineNumber": 336
+        }
+      ],
+      "metrics": {
+        "importCount": 14,
+        "exportCount": 38,
+        "functionCount": 36,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/cr0s/javara/entity/actor/EntityActor.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 152,
+      "nonEmptyLines": 120,
+      "functions": [
+        {
+          "name": "EntityActor",
+          "startLine": 38,
+          "endLine": 46,
+          "params": [
+            "pos",
+            "aSizeWidth",
+            "aSizeHeight"
+          ]
+        },
+        {
+          "name": "updateEntity",
+          "startLine": 48,
+          "endLine": 53,
+          "params": [
+            "delta"
+          ]
+        },
+        {
+          "name": "queueActivity",
+          "startLine": 55,
+          "endLine": 61,
+          "params": [
+            "a"
+          ]
+        },
+        {
+          "name": "cancelActivity",
+          "startLine": 63,
+          "endLine": 67,
+          "params": []
+        },
+        {
+          "name": "shouldRenderedInPass",
+          "startLine": 69,
+          "endLine": 72,
+          "params": [
+            "passNum"
+          ]
+        },
+        {
+          "name": "isFrendlyTo",
+          "startLine": 74,
+          "endLine": 77,
+          "params": [
+            "other"
+          ]
+        },
+        {
+          "name": "isIdle",
+          "startLine": 79,
+          "endLine": 81,
+          "params": []
+        },
+        {
+          "name": "resolveOrder",
+          "startLine": 83,
+          "endLine": 84,
+          "params": [
+            "order"
+          ]
+        },
+        {
+          "name": "getOrders",
+          "startLine": 86,
+          "endLine": 89,
+          "params": []
+        },
+        {
+          "name": "issueOrder",
+          "startLine": 91,
+          "endLine": 92,
+          "params": [
+            "self",
+            "targeter",
+            "target",
+            "ia"
+          ]
+        },
+        {
+          "name": "notifySelected",
+          "startLine": 94,
+          "endLine": 96,
+          "params": []
+        },
+        {
+          "name": "getSounds",
+          "startLine": 98,
+          "endLine": 100,
+          "params": []
+        },
+        {
+          "name": "getSelectSound",
+          "startLine": 102,
+          "endLine": 104,
+          "params": []
+        },
+        {
+          "name": "playSelectedSound",
+          "startLine": 106,
+          "endLine": 107,
+          "params": []
+        },
+        {
+          "name": "playOrderSound",
+          "startLine": 109,
+          "endLine": 110,
+          "params": []
+        },
+        {
+          "name": "newInstance",
+          "startLine": 112,
+          "endLine": 126,
+          "params": []
+        },
+        {
+          "name": "getPosition",
+          "startLine": 128,
+          "endLine": 130,
+          "params": []
+        },
+        {
+          "name": "getCellPosition",
+          "startLine": 132,
+          "endLine": 134,
+          "params": []
+        },
+        {
+          "name": "getMaxFacings",
+          "startLine": 136,
+          "endLine": 138,
+          "params": []
+        },
+        {
+          "name": "getName",
+          "startLine": 140,
+          "endLine": 143,
+          "params": []
+        },
+        {
+          "name": "setName",
+          "startLine": 145,
+          "endLine": 147,
+          "params": [
+            "name"
+          ]
+        },
+        {
+          "name": "getCurrentActivity",
+          "startLine": 149,
+          "endLine": 151,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "EntityActor",
+          "startLine": 24,
+          "endLine": 152,
+          "methods": [
+            "EntityActor",
+            "updateEntity",
+            "queueActivity",
+            "cancelActivity",
+            "shouldRenderedInPass",
+            "isFrendlyTo",
+            "isIdle",
+            "resolveOrder",
+            "getOrders",
+            "issueOrder",
+            "notifySelected",
+            "getSounds",
+            "getSelectSound",
+            "playSelectedSound",
+            "playOrderSound",
+            "newInstance",
+            "getPosition",
+            "getCellPosition",
+            "getMaxFacings",
+            "getName",
+            "setName",
+            "getCurrentActivity"
+          ],
+          "properties": [
+            "ordersList",
+            "selectedSounds",
+            "unitVersion",
+            "unitProductionAlingment",
+            "requiredToBuild",
+            "currentActivity",
+            "armorType",
+            "targetTypes",
+            "maxFacings",
+            "name"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "unitProductionAlingment",
+          "line": 29,
+          "isDefault": false
+        },
+        {
+          "name": "requiredToBuild",
+          "line": 30,
+          "isDefault": false
+        },
+        {
+          "name": "currentActivity",
+          "line": 31,
+          "isDefault": false
+        },
+        {
+          "name": "armorType",
+          "line": 33,
+          "isDefault": false
+        },
+        {
+          "name": "targetTypes",
+          "line": 34,
+          "isDefault": false
+        },
+        {
+          "name": "maxFacings",
+          "line": 35,
+          "isDefault": false
+        },
+        {
+          "name": "name",
+          "line": 36,
+          "isDefault": false
+        },
+        {
+          "name": "EntityActor",
+          "line": 38,
+          "isDefault": false
+        },
+        {
+          "name": "updateEntity",
+          "line": 48,
+          "isDefault": false
+        },
+        {
+          "name": "queueActivity",
+          "line": 55,
+          "isDefault": false
+        },
+        {
+          "name": "cancelActivity",
+          "line": 63,
+          "isDefault": false
+        },
+        {
+          "name": "shouldRenderedInPass",
+          "line": 69,
+          "isDefault": false
+        },
+        {
+          "name": "isFrendlyTo",
+          "line": 74,
+          "isDefault": false
+        },
+        {
+          "name": "isIdle",
+          "line": 79,
+          "isDefault": false
+        },
+        {
+          "name": "resolveOrder",
+          "line": 83,
+          "isDefault": false
+        },
+        {
+          "name": "getOrders",
+          "line": 86,
+          "isDefault": false
+        },
+        {
+          "name": "issueOrder",
+          "line": 91,
+          "isDefault": false
+        },
+        {
+          "name": "notifySelected",
+          "line": 94,
+          "isDefault": false
+        },
+        {
+          "name": "getSounds",
+          "line": 98,
+          "isDefault": false
+        },
+        {
+          "name": "getSelectSound",
+          "line": 102,
+          "isDefault": false
+        },
+        {
+          "name": "playSelectedSound",
+          "line": 106,
+          "isDefault": false
+        },
+        {
+          "name": "playOrderSound",
+          "line": 109,
+          "isDefault": false
+        },
+        {
+          "name": "newInstance",
+          "line": 112,
+          "isDefault": false
+        },
+        {
+          "name": "getPosition",
+          "line": 128,
+          "isDefault": false
+        },
+        {
+          "name": "getCellPosition",
+          "line": 132,
+          "isDefault": false
+        },
+        {
+          "name": "getMaxFacings",
+          "line": 136,
+          "isDefault": false
+        },
+        {
+          "name": "getName",
+          "line": 140,
+          "isDefault": false
+        },
+        {
+          "name": "setName",
+          "line": 145,
+          "isDefault": false
+        },
+        {
+          "name": "getCurrentActivity",
+          "line": 149,
+          "isDefault": false
+        },
+        {
+          "name": "EntityActor",
+          "line": 24,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "EntityActor",
+          "callee": "new ArrayList<>",
+          "lineNumber": 42
+        },
+        {
+          "caller": "EntityActor",
+          "callee": "new HashMap<>",
+          "lineNumber": 43
+        },
+        {
+          "caller": "EntityActor",
+          "callee": "new LinkedList<>",
+          "lineNumber": 45
+        },
+        {
+          "caller": "updateEntity",
+          "callee": "this.currentActivity.tick",
+          "lineNumber": 51
+        },
+        {
+          "caller": "queueActivity",
+          "callee": "this.currentActivity.queueActivity",
+          "lineNumber": 57
+        },
+        {
+          "caller": "cancelActivity",
+          "callee": "this.currentActivity.cancel",
+          "lineNumber": 65
+        },
+        {
+          "caller": "newInstance",
+          "callee": "(this.getClass()).getDeclaredConstructor",
+          "lineNumber": 116
+        },
+        {
+          "caller": "newInstance",
+          "callee": "this.getClass",
+          "lineNumber": 116
+        },
+        {
+          "caller": "newInstance",
+          "callee": "ctor.setAccessible",
+          "lineNumber": 117
+        },
+        {
+          "caller": "newInstance",
+          "callee": "ctor.newInstance",
+          "lineNumber": 118
+        },
+        {
+          "caller": "newInstance",
+          "callee": "new Pos",
+          "lineNumber": 118
+        },
+        {
+          "caller": "newInstance",
+          "callee": "this.boundingBox.getX",
+          "lineNumber": 118
+        },
+        {
+          "caller": "newInstance",
+          "callee": "this.boundingBox.getY",
+          "lineNumber": 118
+        },
+        {
+          "caller": "newInstance",
+          "callee": "System.getLogger(EntityActor.class.getName()).log",
+          "lineNumber": 122
+        },
+        {
+          "caller": "newInstance",
+          "callee": "System.getLogger",
+          "lineNumber": 122
+        },
+        {
+          "caller": "newInstance",
+          "callee": "EntityActor.class.getName",
+          "lineNumber": 122
+        },
+        {
+          "caller": "getPosition",
+          "callee": "new Pos",
+          "lineNumber": 129
+        },
+        {
+          "caller": "getPosition",
+          "callee": "this.boundingBox.getX",
+          "lineNumber": 129
+        },
+        {
+          "caller": "getPosition",
+          "callee": "this.boundingBox.getWidth",
+          "lineNumber": 129
+        },
+        {
+          "caller": "getPosition",
+          "callee": "this.boundingBox.getY",
+          "lineNumber": 129
+        },
+        {
+          "caller": "getPosition",
+          "callee": "this.boundingBox.getArcHeight",
+          "lineNumber": 129
+        },
+        {
+          "caller": "getCellPosition",
+          "callee": "getPosition().Clone",
+          "lineNumber": 133
+        },
+        {
+          "caller": "getCellPosition",
+          "callee": "getPosition",
+          "lineNumber": 133
+        }
+      ],
+      "metrics": {
+        "importCount": 12,
+        "exportCount": 30,
+        "functionCount": 22,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/cr0s/javara/entity/actor/activity/Activity.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 34,
+      "nonEmptyLines": 26,
+      "functions": [
+        {
+          "name": "getNext",
+          "startLine": 9,
+          "endLine": 11,
+          "params": []
+        },
+        {
+          "name": "cancel",
+          "startLine": 13,
+          "endLine": 15,
+          "params": []
+        },
+        {
+          "name": "isCancelled",
+          "startLine": 17,
+          "endLine": 19,
+          "params": []
+        },
+        {
+          "name": "queueActivity",
+          "startLine": 21,
+          "endLine": 31,
+          "params": [
+            "a"
+          ]
+        },
+        {
+          "name": "tick",
+          "startLine": 33,
+          "endLine": 33,
+          "params": [
+            "a"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Activity",
+          "startLine": 5,
+          "endLine": 34,
+          "methods": [
+            "getNext",
+            "cancel",
+            "isCancelled",
+            "queueActivity",
+            "tick"
+          ],
+          "properties": [
+            "nextActivity",
+            "isCancelled"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "nextActivity",
+          "line": 6,
+          "isDefault": false
+        },
+        {
+          "name": "getNext",
+          "line": 9,
+          "isDefault": false
+        },
+        {
+          "name": "cancel",
+          "line": 13,
+          "isDefault": false
+        },
+        {
+          "name": "isCancelled",
+          "line": 17,
+          "isDefault": false
+        },
+        {
+          "name": "queueActivity",
+          "line": 21,
+          "isDefault": false
+        },
+        {
+          "name": "tick",
+          "line": 33,
+          "isDefault": false
+        },
+        {
+          "name": "Activity",
+          "line": 5,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "queueActivity",
+          "callee": "new IllegalArgumentException",
+          "lineNumber": 23
+        },
+        {
+          "caller": "queueActivity",
+          "callee": "this.nextActivity.queueActivity",
+          "lineNumber": 27
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 7,
+        "functionCount": 5,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/cr0s/javara/entity/actor/activity/activities/Attack.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 81,
+      "nonEmptyLines": 61,
+      "functions": [
+        {
+          "name": "Attack",
+          "startLine": 22,
+          "endLine": 27,
+          "params": [
+            "attack",
+            "self",
+            "tgt",
+            "range",
+            "allowMove"
+          ]
+        },
+        {
+          "name": "tick",
+          "startLine": 29,
+          "endLine": 35,
+          "params": [
+            "self"
+          ]
+        },
+        {
+          "name": "innerTick",
+          "startLine": 37,
+          "endLine": 79,
+          "params": [
+            "self"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Attack",
+          "startLine": 11,
+          "endLine": 81,
+          "methods": [
+            "Attack",
+            "tick",
+            "innerTick"
+          ],
+          "properties": [
+            "target",
+            "allowMove",
+            "attack",
+            "range",
+            "REPATH_DELAY_TICKS",
+            "REPATH_SPREAD",
+            "repathDelay"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Attack",
+          "line": 22,
+          "isDefault": false
+        },
+        {
+          "name": "tick",
+          "line": 29,
+          "isDefault": false
+        },
+        {
+          "name": "Attack",
+          "line": 11,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "tick",
+          "callee": "this.innerTick",
+          "lineNumber": 31
+        },
+        {
+          "caller": "innerTick",
+          "callee": "this.isCancelled",
+          "lineNumber": 38
+        },
+        {
+          "caller": "innerTick",
+          "callee": "this.target.isValidFor",
+          "lineNumber": 42
+        },
+        {
+          "caller": "innerTick",
+          "callee": "this.target.isInRange",
+          "lineNumber": 46
+        },
+        {
+          "caller": "innerTick",
+          "callee": "self.getPosition",
+          "lineNumber": 46
+        },
+        {
+          "caller": "innerTick",
+          "callee": "World.getRandomInt",
+          "lineNumber": 51
+        },
+        {
+          "caller": "innerTick",
+          "callee": "((MobileEntity) self).moveWithinRange",
+          "lineNumber": 54
+        },
+        {
+          "caller": "innerTick",
+          "callee": "move.queueActivity",
+          "lineNumber": 55
+        },
+        {
+          "caller": "innerTick",
+          "callee": "RotationUtil.getRotationFromXY",
+          "lineNumber": 64
+        },
+        {
+          "caller": "innerTick",
+          "callee": "self.getPosition().getX",
+          "lineNumber": 64
+        },
+        {
+          "caller": "innerTick",
+          "callee": "self.getPosition",
+          "lineNumber": 64
+        },
+        {
+          "caller": "innerTick",
+          "callee": "self.getPosition().getY",
+          "lineNumber": 64
+        },
+        {
+          "caller": "innerTick",
+          "callee": "self.getPosition",
+          "lineNumber": 64
+        },
+        {
+          "caller": "innerTick",
+          "callee": "this.target.centerPosition().getX",
+          "lineNumber": 64
+        },
+        {
+          "caller": "innerTick",
+          "callee": "this.target.centerPosition",
+          "lineNumber": 64
+        },
+        {
+          "caller": "innerTick",
+          "callee": "this.target.centerPosition().getY",
+          "lineNumber": 64
+        },
+        {
+          "caller": "innerTick",
+          "callee": "this.target.centerPosition",
+          "lineNumber": 64
+        },
+        {
+          "caller": "innerTick",
+          "callee": "self.getMaxFacings",
+          "lineNumber": 66
+        },
+        {
+          "caller": "innerTick",
+          "callee": "RotationUtil.quantizeFacings",
+          "lineNumber": 67
+        },
+        {
+          "caller": "innerTick",
+          "callee": "self.getMaxFacings",
+          "lineNumber": 67
+        },
+        {
+          "caller": "innerTick",
+          "callee": "new Turn",
+          "lineNumber": 71
+        },
+        {
+          "caller": "innerTick",
+          "callee": "turn.queueActivity",
+          "lineNumber": 72
+        },
+        {
+          "caller": "innerTick",
+          "callee": "this.attack.doAttack",
+          "lineNumber": 77
+        }
+      ],
+      "metrics": {
+        "importCount": 7,
+        "exportCount": 3,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/cr0s/javara/entity/actor/activity/activities/Deploy.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 16,
+      "nonEmptyLines": 11,
+      "functions": [
+        {
+          "name": "tick",
+          "startLine": 9,
+          "endLine": 14,
+          "params": [
+            "a"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Deploy",
+          "startLine": 7,
+          "endLine": 16,
+          "methods": [
+            "tick"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "tick",
+          "line": 9,
+          "isDefault": false
+        },
+        {
+          "name": "Deploy",
+          "line": 7,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "tick",
+          "callee": "((IDeployable) a).executeDeployment",
+          "lineNumber": 11
+        }
+      ],
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/cr0s/javara/entity/actor/activity/activities/Drag.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 49,
+      "nonEmptyLines": 37,
+      "functions": [
+        {
+          "name": "Drag",
+          "startLine": 16,
+          "endLine": 20,
+          "params": [
+            "aStart",
+            "aEnd",
+            "aLengthInTicks"
+          ]
+        },
+        {
+          "name": "tick",
+          "startLine": 22,
+          "endLine": 47,
+          "params": [
+            "a"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Drag",
+          "startLine": 9,
+          "endLine": 49,
+          "methods": [
+            "Drag",
+            "tick"
+          ],
+          "properties": [
+            "start",
+            "end",
+            "lengthInTicks",
+            "ticks"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Drag",
+          "line": 16,
+          "isDefault": false
+        },
+        {
+          "name": "tick",
+          "line": 22,
+          "isDefault": false
+        },
+        {
+          "name": "Drag",
+          "line": 9,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "tick",
+          "callee": "System.out.println",
+          "lineNumber": 25
+        },
+        {
+          "caller": "tick",
+          "callee": "PointsUtil.interpolatePos",
+          "lineNumber": 34
+        },
+        {
+          "caller": "tick",
+          "callee": "me.setPos",
+          "lineNumber": 39
+        }
+      ],
+      "metrics": {
+        "importCount": 5,
+        "exportCount": 3,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/cr0s/javara/entity/actor/activity/activities/Follow.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 48,
+      "nonEmptyLines": 37,
+      "functions": [
+        {
+          "name": "Follow",
+          "startLine": 16,
+          "endLine": 20,
+          "params": [
+            "self",
+            "tgt",
+            "range"
+          ]
+        },
+        {
+          "name": "tick",
+          "startLine": 22,
+          "endLine": 46,
+          "params": [
+            "a"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Follow",
+          "startLine": 10,
+          "endLine": 48,
+          "methods": [
+            "Follow",
+            "tick"
+          ],
+          "properties": [
+            "self",
+            "target",
+            "range"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Follow",
+          "line": 16,
+          "isDefault": false
+        },
+        {
+          "name": "tick",
+          "line": 22,
+          "isDefault": false
+        },
+        {
+          "name": "Follow",
+          "line": 10,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "tick",
+          "callee": "this.isCancelled",
+          "lineNumber": 24
+        },
+        {
+          "caller": "tick",
+          "callee": "this.target.isValidFor",
+          "lineNumber": 24
+        },
+        {
+          "caller": "tick",
+          "callee": "this.target.centerPosition",
+          "lineNumber": 28
+        },
+        {
+          "caller": "tick",
+          "callee": "((MobileEntity) this.self).moveWithinRange",
+          "lineNumber": 29
+        },
+        {
+          "caller": "tick",
+          "callee": "this.target.isInRange",
+          "lineNumber": 31
+        },
+        {
+          "caller": "tick",
+          "callee": "self.getPosition",
+          "lineNumber": 31
+        },
+        {
+          "caller": "tick",
+          "callee": "new WaitFor",
+          "lineNumber": 32
+        },
+        {
+          "caller": "tick",
+          "callee": "new WaitAction",
+          "lineNumber": 32
+        },
+        {
+          "caller": "waitFor",
+          "callee": "Follow.this.target.isValidFor",
+          "lineNumber": 35
+        },
+        {
+          "caller": "waitFor",
+          "callee": "Follow.this.target.centerPosition().equals",
+          "lineNumber": 35
+        },
+        {
+          "caller": "waitFor",
+          "callee": "Follow.this.target.centerPosition",
+          "lineNumber": 35
+        },
+        {
+          "caller": "tick",
+          "callee": "wait.queueActivity",
+          "lineNumber": 39
+        },
+        {
+          "caller": "tick",
+          "callee": "move.queueActivity",
+          "lineNumber": 44
+        }
+      ],
+      "metrics": {
+        "importCount": 6,
+        "exportCount": 3,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/cr0s/javara/entity/actor/activity/activities/Move.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 333,
+      "nonEmptyLines": 256,
+      "functions": [
+        {
+          "name": "Move",
+          "startLine": 34,
+          "endLine": 40,
+          "params": [
+            "me",
+            "destinationCell"
+          ]
+        },
+        {
+          "name": "Move",
+          "startLine": 42,
+          "endLine": 48,
+          "params": [
+            "me",
+            "destinationCell",
+            "enoughRange"
+          ]
+        },
+        {
+          "name": "Move",
+          "startLine": 50,
+          "endLine": 54,
+          "params": [
+            "me",
+            "destinationCell",
+            "enoughRange",
+            "aIgnoreBuilding"
+          ]
+        },
+        {
+          "name": "Move",
+          "startLine": 56,
+          "endLine": 61,
+          "params": [
+            "me",
+            "scriptedPath",
+            "destinationCell",
+            "aIgnoreBuilding"
+          ]
+        },
+        {
+          "name": "popPath",
+          "startLine": 63,
+          "endLine": 142,
+          "params": [
+            "me"
+          ]
+        },
+        {
+          "name": "chooseNewPath",
+          "startLine": 144,
+          "endLine": 165,
+          "params": [
+            "me"
+          ]
+        },
+        {
+          "name": "chooseClosestToDestCell",
+          "startLine": 167,
+          "endLine": 169,
+          "params": [
+            "me"
+          ]
+        },
+        {
+          "name": "tick",
+          "startLine": 171,
+          "endLine": 224,
+          "params": [
+            "a"
+          ]
+        },
+        {
+          "name": "setIgnoreBuilding",
+          "startLine": 226,
+          "endLine": 228,
+          "params": [
+            "eb"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Move",
+          "startLine": 16,
+          "endLine": 333,
+          "methods": [
+            "Move",
+            "Move",
+            "Move",
+            "Move",
+            "popPath",
+            "chooseNewPath",
+            "chooseClosestToDestCell",
+            "tick",
+            "setIgnoreBuilding"
+          ],
+          "properties": [
+            "destCell",
+            "destRange",
+            "ignoreBuilding",
+            "currentPath",
+            "currentPathIndex",
+            "forceRange",
+            "hasNotifiedBlocker",
+            "hasWaited",
+            "isNewPath",
+            "REPATHING_INTERVAL_TICKS",
+            "waitTicksRemaining",
+            "ticksBeforeRepath",
+            "randomWaitTicks"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "currentPath",
+          "line": 22,
+          "isDefault": false
+        },
+        {
+          "name": "currentPathIndex",
+          "line": 23,
+          "isDefault": false
+        },
+        {
+          "name": "forceRange",
+          "line": 24,
+          "isDefault": false
+        },
+        {
+          "name": "Move",
+          "line": 34,
+          "isDefault": false
+        },
+        {
+          "name": "Move",
+          "line": 42,
+          "isDefault": false
+        },
+        {
+          "name": "Move",
+          "line": 50,
+          "isDefault": false
+        },
+        {
+          "name": "Move",
+          "line": 56,
+          "isDefault": false
+        },
+        {
+          "name": "chooseClosestToDestCell",
+          "line": 167,
+          "isDefault": false
+        },
+        {
+          "name": "tick",
+          "line": 171,
+          "isDefault": false
+        },
+        {
+          "name": "setIgnoreBuilding",
+          "line": 226,
+          "isDefault": false
+        },
+        {
+          "name": "Move",
+          "line": 16,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "Move",
+          "callee": "World.getRandomInt",
+          "lineNumber": 37
+        },
+        {
+          "caller": "Move",
+          "callee": "chooseNewPath",
+          "lineNumber": 39
+        },
+        {
+          "caller": "Move",
+          "callee": "World.getRandomInt",
+          "lineNumber": 43
+        },
+        {
+          "caller": "Move",
+          "callee": "chooseNewPath",
+          "lineNumber": 47
+        },
+        {
+          "caller": "popPath",
+          "callee": "this.currentPath.getElements().size",
+          "lineNumber": 64
+        },
+        {
+          "caller": "popPath",
+          "callee": "this.currentPath.getElements",
+          "lineNumber": 64
+        },
+        {
+          "caller": "popPath",
+          "callee": "this.currentPath.getElements().size",
+          "lineNumber": 64
+        },
+        {
+          "caller": "popPath",
+          "callee": "this.currentPath.getElements",
+          "lineNumber": 64
+        },
+        {
+          "caller": "popPath",
+          "callee": "currentPath.getElements().get",
+          "lineNumber": 69
+        },
+        {
+          "caller": "popPath",
+          "callee": "currentPath.getElements",
+          "lineNumber": 69
+        },
+        {
+          "caller": "popPath",
+          "callee": "s.getX",
+          "lineNumber": 70
+        },
+        {
+          "caller": "popPath",
+          "callee": "s.getY",
+          "lineNumber": 71
+        },
+        {
+          "caller": "popPath",
+          "callee": "new Pos",
+          "lineNumber": 73
+        },
+        {
+          "caller": "chooseNewPath",
+          "callee": "me.findPathFromTo",
+          "lineNumber": 145
+        },
+        {
+          "caller": "chooseNewPath",
+          "callee": "chooseClosestToDestCell",
+          "lineNumber": 152
+        },
+        {
+          "caller": "chooseNewPath",
+          "callee": "me.findPathFromTo",
+          "lineNumber": 161
+        },
+        {
+          "caller": "chooseClosestToDestCell",
+          "callee": "me.owner.world.chooseClosestPassableCellInRangeAroundOtherCell",
+          "lineNumber": 168
+        },
+        {
+          "caller": "chooseClosestToDestCell",
+          "callee": "me.getCellPos",
+          "lineNumber": 168
+        },
+        {
+          "caller": "tick",
+          "callee": "popPath",
+          "lineNumber": 188
+        },
+        {
+          "caller": "tick",
+          "callee": "me.targetCell.setX",
+          "lineNumber": 195
+        },
+        {
+          "caller": "tick",
+          "callee": "nextCell.getX",
+          "lineNumber": 195
+        },
+        {
+          "caller": "tick",
+          "callee": "me.targetCell.setY",
+          "lineNumber": 196
+        },
+        {
+          "caller": "tick",
+          "callee": "nextCell.getY",
+          "lineNumber": 196
+        },
+        {
+          "caller": "tick",
+          "callee": "new MovePart",
+          "lineNumber": 214
+        },
+        {
+          "caller": "tick",
+          "callee": "me.getPos",
+          "lineNumber": 214
+        },
+        {
+          "caller": "tick",
+          "callee": "movePartActivity.setIsNewPath",
+          "lineNumber": 216
+        },
+        {
+          "caller": "tick",
+          "callee": "movePartActivity.tick",
+          "lineNumber": 221
+        },
+        {
+          "caller": "MovePart",
+          "callee": "aDestCell.Clone",
+          "lineNumber": 248
+        },
+        {
+          "caller": "MovePart",
+          "callee": "aDestCell.Clone",
+          "lineNumber": 250
+        },
+        {
+          "caller": "MovePart",
+          "callee": "aStart.Clone",
+          "lineNumber": 251
+        },
+        {
+          "caller": "MovePart",
+          "callee": "me.getMoveSpeed",
+          "lineNumber": 253
+        },
+        {
+          "caller": "MovePart",
+          "callee": "RotationUtil.getRotationFromXY",
+          "lineNumber": 255
+        },
+        {
+          "caller": "MovePart",
+          "callee": "start.getX",
+          "lineNumber": 255
+        },
+        {
+          "caller": "MovePart",
+          "callee": "start.getY",
+          "lineNumber": 255
+        },
+        {
+          "caller": "MovePart",
+          "callee": "end.getX",
+          "lineNumber": 255
+        },
+        {
+          "caller": "MovePart",
+          "callee": "end.getY",
+          "lineNumber": 255
+        },
+        {
+          "caller": "tick",
+          "callee": "PointsUtil.interpolatePos",
+          "lineNumber": 276
+        },
+        {
+          "caller": "tick",
+          "callee": "turnFacing",
+          "lineNumber": 282
+        },
+        {
+          "caller": "tick",
+          "callee": "me.setPos",
+          "lineNumber": 292
+        },
+        {
+          "caller": "tick",
+          "callee": "me.getPos",
+          "lineNumber": 296
+        },
+        {
+          "caller": "tick",
+          "callee": "me.finishMoving",
+          "lineNumber": 298
+        },
+        {
+          "caller": "tick",
+          "callee": "this.parentMove.isCancelled",
+          "lineNumber": 301
+        }
+      ],
+      "metrics": {
+        "importCount": 8,
+        "exportCount": 11,
+        "functionCount": 9,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/cr0s/javara/entity/actor/activity/activities/MoveInfantry.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 330,
+      "nonEmptyLines": 249,
+      "functions": [
+        {
+          "name": "MoveInfantry",
+          "startLine": 37,
+          "endLine": 43,
+          "params": [
+            "me",
+            "destinationCell"
+          ]
+        },
+        {
+          "name": "MoveInfantry",
+          "startLine": 45,
+          "endLine": 51,
+          "params": [
+            "me",
+            "destinationCell",
+            "enoughRange"
+          ]
+        },
+        {
+          "name": "MoveInfantry",
+          "startLine": 53,
+          "endLine": 57,
+          "params": [
+            "me",
+            "destinationCell",
+            "enoughRange",
+            "aIgnoreBuilding"
+          ]
+        },
+        {
+          "name": "MoveInfantry",
+          "startLine": 59,
+          "endLine": 64,
+          "params": [
+            "me",
+            "scriptedPath",
+            "destinationCell",
+            "aIgnoreBuilding"
+          ]
+        },
+        {
+          "name": "popPath",
+          "startLine": 66,
+          "endLine": 158,
+          "params": [
+            "me"
+          ]
+        },
+        {
+          "name": "chooseNewPath",
+          "startLine": 160,
+          "endLine": 185,
+          "params": [
+            "me"
+          ]
+        },
+        {
+          "name": "chooseClosestToDestCell",
+          "startLine": 187,
+          "endLine": 189,
+          "params": [
+            "me"
+          ]
+        },
+        {
+          "name": "tick",
+          "startLine": 191,
+          "endLine": 244,
+          "params": [
+            "a"
+          ]
+        },
+        {
+          "name": "setIgnoreBuilding",
+          "startLine": 246,
+          "endLine": 248,
+          "params": [
+            "eb"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "MoveInfantry",
+          "startLine": 18,
+          "endLine": 330,
+          "methods": [
+            "MoveInfantry",
+            "MoveInfantry",
+            "MoveInfantry",
+            "MoveInfantry",
+            "popPath",
+            "chooseNewPath",
+            "chooseClosestToDestCell",
+            "tick",
+            "setIgnoreBuilding"
+          ],
+          "properties": [
+            "destCell",
+            "destRange",
+            "ignoreBuilding",
+            "currentPath",
+            "currentPathIndex",
+            "forceRange",
+            "hasNotifiedBlocker",
+            "hasWaited",
+            "waitTicksRemaining",
+            "REPATHING_INTERVAL_TICKS",
+            "ticksBeforeRepath",
+            "isNewPath",
+            "randomWaitTicks"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "currentPath",
+          "line": 24,
+          "isDefault": false
+        },
+        {
+          "name": "currentPathIndex",
+          "line": 25,
+          "isDefault": false
+        },
+        {
+          "name": "forceRange",
+          "line": 26,
+          "isDefault": false
+        },
+        {
+          "name": "MoveInfantry",
+          "line": 37,
+          "isDefault": false
+        },
+        {
+          "name": "MoveInfantry",
+          "line": 45,
+          "isDefault": false
+        },
+        {
+          "name": "MoveInfantry",
+          "line": 53,
+          "isDefault": false
+        },
+        {
+          "name": "MoveInfantry",
+          "line": 59,
+          "isDefault": false
+        },
+        {
+          "name": "chooseClosestToDestCell",
+          "line": 187,
+          "isDefault": false
+        },
+        {
+          "name": "tick",
+          "line": 191,
+          "isDefault": false
+        },
+        {
+          "name": "setIgnoreBuilding",
+          "line": 246,
+          "isDefault": false
+        },
+        {
+          "name": "MoveInfantry",
+          "line": 18,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "MoveInfantry",
+          "callee": "World.getRandomInt",
+          "lineNumber": 40
+        },
+        {
+          "caller": "MoveInfantry",
+          "callee": "chooseNewPath",
+          "lineNumber": 42
+        },
+        {
+          "caller": "MoveInfantry",
+          "callee": "World.getRandomInt",
+          "lineNumber": 47
+        },
+        {
+          "caller": "MoveInfantry",
+          "callee": "chooseNewPath",
+          "lineNumber": 50
+        },
+        {
+          "caller": "popPath",
+          "callee": "this.currentPath.getElements().size",
+          "lineNumber": 67
+        },
+        {
+          "caller": "popPath",
+          "callee": "this.currentPath.getElements",
+          "lineNumber": 67
+        },
+        {
+          "caller": "popPath",
+          "callee": "this.currentPath.getElements().size",
+          "lineNumber": 67
+        },
+        {
+          "caller": "popPath",
+          "callee": "this.currentPath.getElements",
+          "lineNumber": 67
+        },
+        {
+          "caller": "popPath",
+          "callee": "currentPath.getElements().get",
+          "lineNumber": 72
+        },
+        {
+          "caller": "popPath",
+          "callee": "currentPath.getElements",
+          "lineNumber": 72
+        },
+        {
+          "caller": "popPath",
+          "callee": "s.getX",
+          "lineNumber": 73
+        },
+        {
+          "caller": "popPath",
+          "callee": "s.getY",
+          "lineNumber": 74
+        },
+        {
+          "caller": "popPath",
+          "callee": "new Pos",
+          "lineNumber": 76
+        },
+        {
+          "caller": "popPath",
+          "callee": "me.owner.world.blockingEntityMap.isSubcellFree",
+          "lineNumber": 80
+        },
+        {
+          "caller": "popPath",
+          "callee": "me.owner.world.blockingEntityMap.getFreeSubCell",
+          "lineNumber": 81
+        },
+        {
+          "caller": "popPath",
+          "callee": "me.canEnterCell",
+          "lineNumber": 88
+        },
+        {
+          "caller": "popPath",
+          "callee": "me.owner.world.getBuildingInCell",
+          "lineNumber": 90
+        },
+        {
+          "caller": "popPath",
+          "callee": "destCell.getX",
+          "lineNumber": 98
+        },
+        {
+          "caller": "popPath",
+          "callee": "nextCell.getX",
+          "lineNumber": 98
+        },
+        {
+          "caller": "popPath",
+          "callee": "destCell.getY",
+          "lineNumber": 99
+        },
+        {
+          "caller": "popPath",
+          "callee": "nextCell.getY",
+          "lineNumber": 99
+        },
+        {
+          "caller": "popPath",
+          "callee": "this.currentPath.getElements().size",
+          "lineNumber": 103
+        },
+        {
+          "caller": "popPath",
+          "callee": "this.currentPath.getElements",
+          "lineNumber": 103
+        },
+        {
+          "caller": "popPath",
+          "callee": "me.getWaitAverageTime",
+          "lineNumber": 128
+        },
+        {
+          "caller": "popPath",
+          "callee": "World.getRandomInt",
+          "lineNumber": 128
+        },
+        {
+          "caller": "popPath",
+          "callee": "me.getWaitSpreadTime",
+          "lineNumber": 128
+        },
+        {
+          "caller": "popPath",
+          "callee": "me.getWaitSpreadTime",
+          "lineNumber": 128
+        },
+        {
+          "caller": "popPath",
+          "callee": "((EntityInfantry) me).setCurrentAnimationState",
+          "lineNumber": 132
+        },
+        {
+          "caller": "popPath",
+          "callee": "chooseNewPath",
+          "lineNumber": 140
+        },
+        {
+          "caller": "popPath",
+          "callee": "((EntityInfantry) me).setCurrentAnimationState",
+          "lineNumber": 145
+        },
+        {
+          "caller": "popPath",
+          "callee": "chooseNewPath",
+          "lineNumber": 150
+        },
+        {
+          "caller": "chooseNewPath",
+          "callee": "me.findPathFromTo",
+          "lineNumber": 161
+        },
+        {
+          "caller": "chooseNewPath",
+          "callee": "chooseClosestToDestCell",
+          "lineNumber": 168
+        },
+        {
+          "caller": "chooseNewPath",
+          "callee": "me.findPathFromTo",
+          "lineNumber": 177
+        },
+        {
+          "caller": "chooseClosestToDestCell",
+          "callee": "me.owner.world.chooseClosestPassableCellInRangeAroundOtherCell",
+          "lineNumber": 188
+        },
+        {
+          "caller": "chooseClosestToDestCell",
+          "callee": "me.getCellPos",
+          "lineNumber": 188
+        },
+        {
+          "caller": "tick",
+          "callee": "popPath",
+          "lineNumber": 208
+        },
+        {
+          "caller": "tick",
+          "callee": "me.targetCell.setX",
+          "lineNumber": 215
+        },
+        {
+          "caller": "tick",
+          "callee": "nextCell.getX",
+          "lineNumber": 215
+        },
+        {
+          "caller": "tick",
+          "callee": "me.targetCell.setY",
+          "lineNumber": 216
+        },
+        {
+          "caller": "tick",
+          "callee": "nextCell.getY",
+          "lineNumber": 216
+        },
+        {
+          "caller": "tick",
+          "callee": "new MovePart",
+          "lineNumber": 234
+        },
+        {
+          "caller": "tick",
+          "callee": "me.getPos",
+          "lineNumber": 234
+        },
+        {
+          "caller": "tick",
+          "callee": "movePartActivity.setIsNewPath",
+          "lineNumber": 236
+        },
+        {
+          "caller": "tick",
+          "callee": "movePartActivity.tick",
+          "lineNumber": 241
+        },
+        {
+          "caller": "MovePart",
+          "callee": "this.me.targetCell.setX",
+          "lineNumber": 267
+        },
+        {
+          "caller": "MovePart",
+          "callee": "aDestCell.getX",
+          "lineNumber": 267
+        },
+        {
+          "caller": "MovePart",
+          "callee": "this.me.targetCell.setY",
+          "lineNumber": 268
+        },
+        {
+          "caller": "MovePart",
+          "callee": "aDestCell.getY",
+          "lineNumber": 268
+        },
+        {
+          "caller": "MovePart",
+          "callee": "EntityInfantry.subcellOffsets[this.me.desiredSubcell.ordinal()].getX",
+          "lineNumber": 270
+        },
+        {
+          "caller": "MovePart",
+          "callee": "this.me.desiredSubcell.ordinal",
+          "lineNumber": 270
+        },
+        {
+          "caller": "MovePart",
+          "callee": "EntityInfantry.subcellOffsets[this.me.desiredSubcell.ordinal()].getY",
+          "lineNumber": 271
+        },
+        {
+          "caller": "MovePart",
+          "callee": "this.me.desiredSubcell.ordinal",
+          "lineNumber": 271
+        },
+        {
+          "caller": "MovePart",
+          "callee": "EntityInfantry.subcellOffsets[this.me.currentSubcell.ordinal()].getX",
+          "lineNumber": 273
+        },
+        {
+          "caller": "MovePart",
+          "callee": "this.me.currentSubcell.ordinal",
+          "lineNumber": 273
+        },
+        {
+          "caller": "MovePart",
+          "callee": "EntityInfantry.subcellOffsets[this.me.currentSubcell.ordinal()].getY",
+          "lineNumber": 274
+        },
+        {
+          "caller": "MovePart",
+          "callee": "this.me.currentSubcell.ordinal",
+          "lineNumber": 274
+        },
+        {
+          "caller": "MovePart",
+          "callee": "new Pos",
+          "lineNumber": 276
+        },
+        {
+          "caller": "MovePart",
+          "callee": "aDestCell.getX",
+          "lineNumber": 276
+        },
+        {
+          "caller": "MovePart",
+          "callee": "aDestCell.getY",
+          "lineNumber": 276
+        },
+        {
+          "caller": "MovePart",
+          "callee": "me.getMoveSpeed",
+          "lineNumber": 279
+        },
+        {
+          "caller": "MovePart",
+          "callee": "RotationUtil.getRotationFromXY",
+          "lineNumber": 281
+        },
+        {
+          "caller": "MovePart",
+          "callee": "start.getX",
+          "lineNumber": 281
+        },
+        {
+          "caller": "MovePart",
+          "callee": "start.getY",
+          "lineNumber": 281
+        },
+        {
+          "caller": "MovePart",
+          "callee": "end.getX",
+          "lineNumber": 281
+        },
+        {
+          "caller": "MovePart",
+          "callee": "end.getY",
+          "lineNumber": 281
+        },
+        {
+          "caller": "MovePart",
+          "callee": "RotationUtil.quantizeFacings",
+          "lineNumber": 282
+        },
+        {
+          "caller": "MovePart",
+          "callee": "this.me.getMaxFacings",
+          "lineNumber": 282
+        },
+        {
+          "caller": "tick",
+          "callee": "PointsUtil.interpolatePos",
+          "lineNumber": 290
+        },
+        {
+          "caller": "tick",
+          "callee": "this.me.getMaxFacings",
+          "lineNumber": 296
+        },
+        {
+          "caller": "tick",
+          "callee": "me.setPos",
+          "lineNumber": 306
+        },
+        {
+          "caller": "tick",
+          "callee": "me.getPos().getX",
+          "lineNumber": 310
+        },
+        {
+          "caller": "tick",
+          "callee": "me.getPos",
+          "lineNumber": 310
+        },
+        {
+          "caller": "tick",
+          "callee": "end.getX",
+          "lineNumber": 310
+        },
+        {
+          "caller": "tick",
+          "callee": "me.getPos().getY",
+          "lineNumber": 310
+        },
+        {
+          "caller": "tick",
+          "callee": "me.getPos",
+          "lineNumber": 310
+        },
+        {
+          "caller": "tick",
+          "callee": "end.getY",
+          "lineNumber": 310
+        },
+        {
+          "caller": "tick",
+          "callee": "this.me.getMaxFacings",
+          "lineNumber": 311
+        },
+        {
+          "caller": "tick",
+          "callee": "me.finishMoving",
+          "lineNumber": 313
+        },
+        {
+          "caller": "tick",
+          "callee": "parentMove.isCancelled",
+          "lineNumber": 316
+        }
+      ],
+      "metrics": {
+        "importCount": 9,
+        "exportCount": 11,
+        "functionCount": 9,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/cr0s/javara/entity/actor/activity/activities/Turn.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 63,
+      "nonEmptyLines": 48,
+      "functions": [
+        {
+          "name": "Turn",
+          "startLine": 17,
+          "endLine": 34,
+          "params": [
+            "a",
+            "aDesiredFacing",
+            "aTicksBetweenTurn"
+          ]
+        },
+        {
+          "name": "tick",
+          "startLine": 36,
+          "endLine": 61,
+          "params": [
+            "a"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Turn",
+          "startLine": 6,
+          "endLine": 63,
+          "methods": [
+            "Turn",
+            "tick"
+          ],
+          "properties": [
+            "desiredFacing",
+            "rotationDirection",
+            "ticks",
+            "ticksBetweenTurn",
+            "MAX_FACING"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "MAX_FACING",
+          "line": 14,
+          "isDefault": false
+        },
+        {
+          "name": "Turn",
+          "line": 17,
+          "isDefault": false
+        },
+        {
+          "name": "tick",
+          "line": 36,
+          "isDefault": false
+        },
+        {
+          "name": "Turn",
+          "line": 6,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 4,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/cr0s/javara/entity/actor/activity/activities/Wait.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 23,
+      "nonEmptyLines": 17,
+      "functions": [
+        {
+          "name": "Wait",
+          "startLine": 11,
+          "endLine": 13,
+          "params": [
+            "period"
+          ]
+        },
+        {
+          "name": "tick",
+          "startLine": 15,
+          "endLine": 22,
+          "params": [
+            "a"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Wait",
+          "startLine": 7,
+          "endLine": 23,
+          "methods": [
+            "Wait",
+            "tick"
+          ],
+          "properties": [
+            "remainingTicks"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Wait",
+          "line": 11,
+          "isDefault": false
+        },
+        {
+          "name": "tick",
+          "line": 15,
+          "isDefault": false
+        },
+        {
+          "name": "Wait",
+          "line": 7,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 3,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/cr0s/javara/entity/actor/activity/activities/WaitFor.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 50,
+      "nonEmptyLines": 39,
+      "functions": [
+        {
+          "name": "WaitFor",
+          "startLine": 15,
+          "endLine": 17,
+          "params": [
+            "f"
+          ]
+        },
+        {
+          "name": "WaitFor",
+          "startLine": 19,
+          "endLine": 22,
+          "params": [
+            "f",
+            "interruptable"
+          ]
+        },
+        {
+          "name": "WaitFor",
+          "startLine": 24,
+          "endLine": 28,
+          "params": [
+            "f",
+            "interruptable",
+            "cancelNextActivity"
+          ]
+        },
+        {
+          "name": "tick",
+          "startLine": 30,
+          "endLine": 33,
+          "params": [
+            "a"
+          ]
+        },
+        {
+          "name": "cancel",
+          "startLine": 35,
+          "endLine": 49,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "WaitFor",
+          "startLine": 9,
+          "endLine": 50,
+          "methods": [
+            "WaitFor",
+            "WaitFor",
+            "WaitFor",
+            "tick",
+            "cancel"
+          ],
+          "properties": [
+            "f",
+            "interruptable",
+            "cancelNextActivity"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "WaitFor",
+          "line": 15,
+          "isDefault": false
+        },
+        {
+          "name": "WaitFor",
+          "line": 19,
+          "isDefault": false
+        },
+        {
+          "name": "WaitFor",
+          "line": 24,
+          "isDefault": false
+        },
+        {
+          "name": "tick",
+          "line": 30,
+          "isDefault": false
+        },
+        {
+          "name": "cancel",
+          "line": 35,
+          "isDefault": false
+        },
+        {
+          "name": "WaitFor",
+          "line": 9,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "tick",
+          "callee": "f.waitFor",
+          "lineNumber": 32
+        },
+        {
+          "caller": "cancel",
+          "callee": "super.cancel",
+          "lineNumber": 43
+        },
+        {
+          "caller": "cancel",
+          "callee": "this.nextActivity.cancel",
+          "lineNumber": 47
+        }
+      ],
+      "metrics": {
+        "importCount": 4,
+        "exportCount": 6,
+        "functionCount": 5,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/cr0s/javara/entity/actor/activity/activities/harvester/DeliverResources.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 36,
+      "nonEmptyLines": 26,
+      "functions": [
+        {
+          "name": "tick",
+          "startLine": 11,
+          "endLine": 34,
+          "params": [
+            "a"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "DeliverResources",
+          "startLine": 9,
+          "endLine": 36,
+          "methods": [
+            "tick"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "tick",
+          "line": 11,
+          "isDefault": false
+        },
+        {
+          "name": "DeliverResources",
+          "line": 9,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "tick",
+          "callee": "harv.linkedProc.isDead",
+          "lineNumber": 19
+        },
+        {
+          "caller": "tick",
+          "callee": "harv.linkedProc.isDestroyed",
+          "lineNumber": 19
+        },
+        {
+          "caller": "tick",
+          "callee": "harv.findClosestProc",
+          "lineNumber": 20
+        },
+        {
+          "caller": "tick",
+          "callee": "harv.linkedProc.getHarvesterCell",
+          "lineNumber": 27
+        },
+        {
+          "caller": "tick",
+          "callee": "new Move",
+          "lineNumber": 29
+        },
+        {
+          "caller": "tick",
+          "callee": "moveActivity.queueActivity",
+          "lineNumber": 30
+        },
+        {
+          "caller": "tick",
+          "callee": "new DropResources",
+          "lineNumber": 30
+        },
+        {
+          "caller": "tick",
+          "callee": "queueActivity",
+          "lineNumber": 31
+        }
+      ],
+      "metrics": {
+        "importCount": 5,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    }
+  ]
+}

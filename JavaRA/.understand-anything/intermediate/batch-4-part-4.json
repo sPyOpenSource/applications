@@ -1,0 +1,221 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/cr0s/javara/entity/building/IPowerConsumer.java",
+      "type": "file",
+      "name": "IPowerConsumer.java",
+      "filePath": "src/cr0s/javara/entity/building/IPowerConsumer.java",
+      "summary": "Interface for entities that consume power, defining getConsumptionLevel.",
+      "tags": [
+        "interface",
+        "power",
+        "economy"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/cr0s/javara/entity/building/IPowerConsumer.java:IPowerConsumer",
+      "type": "class",
+      "name": "IPowerConsumer",
+      "filePath": "src/cr0s/javara/entity/building/IPowerConsumer.java",
+      "lineRange": [
+        3,
+        5
+      ],
+      "summary": "IPowerConsumer class with 1 methods  in the JavaRA game engine.",
+      "tags": [
+        "class",
+        "interface"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/entity/building/IPowerProducer.java",
+      "type": "file",
+      "name": "IPowerProducer.java",
+      "filePath": "src/cr0s/javara/entity/building/IPowerProducer.java",
+      "summary": "Interface for entities that produce power, defining getPowerProductionLevel.",
+      "tags": [
+        "interface",
+        "power",
+        "economy"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/cr0s/javara/entity/building/IPowerProducer.java:IPowerProducer",
+      "type": "class",
+      "name": "IPowerProducer",
+      "filePath": "src/cr0s/javara/entity/building/IPowerProducer.java",
+      "lineRange": [
+        3,
+        5
+      ],
+      "summary": "IPowerProducer class with 1 methods  in the JavaRA game engine.",
+      "tags": [
+        "class",
+        "interface"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/entity/IDefense.java",
+      "type": "file",
+      "name": "IDefense.java",
+      "filePath": "src/cr0s/javara/entity/IDefense.java",
+      "summary": "Marker interface identifying entities that provide defensive capabilities.",
+      "tags": [
+        "interface",
+        "defense",
+        "entity"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/cr0s/javara/entity/IDefense.java:IDefense",
+      "type": "class",
+      "name": "IDefense",
+      "filePath": "src/cr0s/javara/entity/IDefense.java",
+      "lineRange": [
+        3,
+        5
+      ],
+      "summary": "IDefense class with 0 methods  in the JavaRA game engine.",
+      "tags": [
+        "class",
+        "interface"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/entity/IEffect.java",
+      "type": "file",
+      "name": "IEffect.java",
+      "filePath": "src/cr0s/javara/entity/IEffect.java",
+      "summary": "Marker interface identifying visual or gameplay effect entities.",
+      "tags": [
+        "interface",
+        "effect",
+        "entity"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/cr0s/javara/entity/IEffect.java:IEffect",
+      "type": "class",
+      "name": "IEffect",
+      "filePath": "src/cr0s/javara/entity/IEffect.java",
+      "lineRange": [
+        3,
+        5
+      ],
+      "summary": "IEffect class with 0 methods  in the JavaRA game engine.",
+      "tags": [
+        "class",
+        "interface"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/entity/IHaveCost.java",
+      "type": "file",
+      "name": "IHaveCost.java",
+      "filePath": "src/cr0s/javara/entity/IHaveCost.java",
+      "summary": "Interface defining a getBuildingCost method for entities that have a purchase cost.",
+      "tags": [
+        "interface",
+        "cost",
+        "economy"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/cr0s/javara/entity/IHaveCost.java:IHaveCost",
+      "type": "class",
+      "name": "IHaveCost",
+      "filePath": "src/cr0s/javara/entity/IHaveCost.java",
+      "lineRange": [
+        3,
+        5
+      ],
+      "summary": "IHaveCost class with 1 methods  in the JavaRA game engine.",
+      "tags": [
+        "class",
+        "interface"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/cr0s/javara/entity/IDefense.java",
+      "target": "class:src/cr0s/javara/entity/IDefense.java:IDefense",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/IDefense.java",
+      "target": "class:src/cr0s/javara/entity/IDefense.java:IDefense",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/IEffect.java",
+      "target": "class:src/cr0s/javara/entity/IEffect.java:IEffect",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/IEffect.java",
+      "target": "class:src/cr0s/javara/entity/IEffect.java:IEffect",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/IHaveCost.java",
+      "target": "class:src/cr0s/javara/entity/IHaveCost.java:IHaveCost",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/IHaveCost.java",
+      "target": "class:src/cr0s/javara/entity/IHaveCost.java:IHaveCost",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/IPowerConsumer.java",
+      "target": "class:src/cr0s/javara/entity/building/IPowerConsumer.java:IPowerConsumer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/IPowerConsumer.java",
+      "target": "class:src/cr0s/javara/entity/building/IPowerConsumer.java:IPowerConsumer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/IPowerProducer.java",
+      "target": "class:src/cr0s/javara/entity/building/IPowerProducer.java:IPowerProducer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/building/IPowerProducer.java",
+      "target": "class:src/cr0s/javara/entity/building/IPowerProducer.java:IPowerProducer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}

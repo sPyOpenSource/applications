@@ -1,0 +1,631 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/cr0s/javara/render/viewport/Camera.java",
+      "type": "file",
+      "name": "Camera.java",
+      "filePath": "src/cr0s/javara/render/viewport/Camera.java",
+      "summary": "Game camera controller managing viewport, scrolling, and entity visibility culling.",
+      "tags": [
+        "java",
+        "game",
+        "rendering",
+        "camera"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/cr0s/javara/render/viewport/Camera.java:Camera",
+      "type": "class",
+      "name": "Camera",
+      "filePath": "src/cr0s/javara/render/viewport/Camera.java",
+      "lineRange": [
+        11,
+        95
+      ],
+      "summary": "Viewport camera with scrolling, offset, and entity visibility culling.",
+      "tags": [
+        "java",
+        "game",
+        "camera"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/viewport/Camera.java:init",
+      "type": "function",
+      "name": "init",
+      "filePath": "src/cr0s/javara/render/viewport/Camera.java",
+      "lineRange": [
+        21,
+        26
+      ],
+      "summary": "init method (6 lines) in Camera.java.",
+      "tags": [
+        "java",
+        "init"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/viewport/Camera.java:update",
+      "type": "function",
+      "name": "update",
+      "filePath": "src/cr0s/javara/render/viewport/Camera.java",
+      "lineRange": [
+        28,
+        32
+      ],
+      "summary": "update method (5 lines) in Camera.java.",
+      "tags": [
+        "java",
+        "update"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/viewport/Camera.java:render",
+      "type": "function",
+      "name": "render",
+      "filePath": "src/cr0s/javara/render/viewport/Camera.java",
+      "lineRange": [
+        34,
+        43
+      ],
+      "summary": "render method (10 lines) in Camera.java.",
+      "tags": [
+        "java",
+        "render"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/viewport/Camera.java:renderFinish",
+      "type": "function",
+      "name": "renderFinish",
+      "filePath": "src/cr0s/javara/render/viewport/Camera.java",
+      "lineRange": [
+        45,
+        51
+      ],
+      "summary": "renderFinish method (7 lines) in Camera.java.",
+      "tags": [
+        "java",
+        "renderfinish"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/viewport/Camera.java:setOffset",
+      "type": "function",
+      "name": "setOffset",
+      "filePath": "src/cr0s/javara/render/viewport/Camera.java",
+      "lineRange": [
+        53,
+        61
+      ],
+      "summary": "setOffset method (9 lines) in Camera.java.",
+      "tags": [
+        "java",
+        "setoffset"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/viewport/Camera.java:getOffsetY",
+      "type": "function",
+      "name": "getOffsetY",
+      "filePath": "src/cr0s/javara/render/viewport/Camera.java",
+      "lineRange": [
+        66,
+        69
+      ],
+      "summary": "getOffsetY method (4 lines) in Camera.java.",
+      "tags": [
+        "java",
+        "getoffsety"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/viewport/Camera.java:isEntityInsideViewport",
+      "type": "function",
+      "name": "isEntityInsideViewport",
+      "filePath": "src/cr0s/javara/render/viewport/Camera.java",
+      "lineRange": [
+        75,
+        80
+      ],
+      "summary": "isEntityInsideViewport method (6 lines) in Camera.java.",
+      "tags": [
+        "java",
+        "isentityinsideviewport"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/viewport/Camera.java:scrollBy",
+      "type": "function",
+      "name": "scrollBy",
+      "filePath": "src/cr0s/javara/render/viewport/Camera.java",
+      "lineRange": [
+        86,
+        89
+      ],
+      "summary": "scrollBy method (4 lines) in Camera.java.",
+      "tags": [
+        "java",
+        "scrollby"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/resources/SoundManager.java",
+      "type": "file",
+      "name": "SoundManager.java",
+      "filePath": "src/cr0s/javara/resources/SoundManager.java",
+      "summary": "Sound manager singleton handling global and positional audio playback via the Soundly library.",
+      "tags": [
+        "java",
+        "game",
+        "resource-management"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/cr0s/javara/resources/SoundManager.java:SoundManager",
+      "type": "class",
+      "name": "SoundManager",
+      "filePath": "src/cr0s/javara/resources/SoundManager.java",
+      "lineRange": [
+        12,
+        115
+      ],
+      "summary": "Singleton sound manager for global and positional audio via Soundly.",
+      "tags": [
+        "java",
+        "game",
+        "soundmanager"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/resources/SoundManager.java:SoundManager",
+      "type": "function",
+      "name": "SoundManager",
+      "filePath": "src/cr0s/javara/resources/SoundManager.java",
+      "lineRange": [
+        21,
+        35
+      ],
+      "summary": "SoundManager method (15 lines) in SoundManager.java.",
+      "tags": [
+        "java",
+        "soundmanager"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/resources/SoundManager.java:getInstance",
+      "type": "function",
+      "name": "getInstance",
+      "filePath": "src/cr0s/javara/resources/SoundManager.java",
+      "lineRange": [
+        37,
+        43
+      ],
+      "summary": "getInstance method (7 lines) in SoundManager.java.",
+      "tags": [
+        "java",
+        "getinstance"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/resources/SoundManager.java:playSpeechSoundGlobal",
+      "type": "function",
+      "name": "playSpeechSoundGlobal",
+      "filePath": "src/cr0s/javara/resources/SoundManager.java",
+      "lineRange": [
+        45,
+        51
+      ],
+      "summary": "playSpeechSoundGlobal method (7 lines) in SoundManager.java.",
+      "tags": [
+        "java",
+        "playspeechsoundglobal"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/resources/SoundManager.java:playSfxGlobal",
+      "type": "function",
+      "name": "playSfxGlobal",
+      "filePath": "src/cr0s/javara/resources/SoundManager.java",
+      "lineRange": [
+        53,
+        59
+      ],
+      "summary": "playSfxGlobal method (7 lines) in SoundManager.java.",
+      "tags": [
+        "java",
+        "playsfxglobal"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/resources/SoundManager.java:playSoundGlobal",
+      "type": "function",
+      "name": "playSoundGlobal",
+      "filePath": "src/cr0s/javara/resources/SoundManager.java",
+      "lineRange": [
+        61,
+        68
+      ],
+      "summary": "playSoundGlobal method (8 lines) in SoundManager.java.",
+      "tags": [
+        "java",
+        "playsoundglobal"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/resources/SoundManager.java:playUnitSoundGlobal",
+      "type": "function",
+      "name": "playUnitSoundGlobal",
+      "filePath": "src/cr0s/javara/resources/SoundManager.java",
+      "lineRange": [
+        70,
+        82
+      ],
+      "summary": "playUnitSoundGlobal method (13 lines) in SoundManager.java.",
+      "tags": [
+        "java",
+        "playunitsoundglobal"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/resources/SoundManager.java:update",
+      "type": "function",
+      "name": "update",
+      "filePath": "src/cr0s/javara/resources/SoundManager.java",
+      "lineRange": [
+        84,
+        91
+      ],
+      "summary": "update method (8 lines) in SoundManager.java.",
+      "tags": [
+        "java",
+        "update"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/resources/SoundManager.java:playSfxAt",
+      "type": "function",
+      "name": "playSfxAt",
+      "filePath": "src/cr0s/javara/resources/SoundManager.java",
+      "lineRange": [
+        93,
+        114
+      ],
+      "summary": "playSfxAt method (22 lines) in SoundManager.java.",
+      "tags": [
+        "java",
+        "playsfxat"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/cr0s/javara/render/viewport/Camera.java",
+      "target": "class:src/cr0s/javara/render/viewport/Camera.java:Camera",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/viewport/Camera.java",
+      "target": "class:src/cr0s/javara/render/viewport/Camera.java:Camera",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/viewport/Camera.java",
+      "target": "function:src/cr0s/javara/render/viewport/Camera.java:init",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/viewport/Camera.java",
+      "target": "function:src/cr0s/javara/render/viewport/Camera.java:init",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/viewport/Camera.java",
+      "target": "function:src/cr0s/javara/render/viewport/Camera.java:update",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/viewport/Camera.java",
+      "target": "function:src/cr0s/javara/render/viewport/Camera.java:update",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/viewport/Camera.java",
+      "target": "function:src/cr0s/javara/render/viewport/Camera.java:render",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/viewport/Camera.java",
+      "target": "function:src/cr0s/javara/render/viewport/Camera.java:render",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/viewport/Camera.java",
+      "target": "function:src/cr0s/javara/render/viewport/Camera.java:renderFinish",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/viewport/Camera.java",
+      "target": "function:src/cr0s/javara/render/viewport/Camera.java:renderFinish",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/viewport/Camera.java",
+      "target": "function:src/cr0s/javara/render/viewport/Camera.java:setOffset",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/viewport/Camera.java",
+      "target": "function:src/cr0s/javara/render/viewport/Camera.java:setOffset",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/viewport/Camera.java",
+      "target": "function:src/cr0s/javara/render/viewport/Camera.java:getOffsetY",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/viewport/Camera.java",
+      "target": "function:src/cr0s/javara/render/viewport/Camera.java:getOffsetY",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/viewport/Camera.java",
+      "target": "function:src/cr0s/javara/render/viewport/Camera.java:isEntityInsideViewport",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/viewport/Camera.java",
+      "target": "function:src/cr0s/javara/render/viewport/Camera.java:isEntityInsideViewport",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/viewport/Camera.java",
+      "target": "function:src/cr0s/javara/render/viewport/Camera.java:scrollBy",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/render/viewport/Camera.java",
+      "target": "function:src/cr0s/javara/render/viewport/Camera.java:scrollBy",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/render/viewport/Camera.java",
+      "target": "file:src/cr0s/javara/entity/Entity.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/render/viewport/Camera.java",
+      "target": "file:src/cr0s/javara/render/map/TileMap.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/render/viewport/Camera.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/resources/SoundManager.java",
+      "target": "class:src/cr0s/javara/resources/SoundManager.java:SoundManager",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/resources/SoundManager.java",
+      "target": "class:src/cr0s/javara/resources/SoundManager.java:SoundManager",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/resources/SoundManager.java",
+      "target": "function:src/cr0s/javara/resources/SoundManager.java:SoundManager",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/resources/SoundManager.java",
+      "target": "function:src/cr0s/javara/resources/SoundManager.java:SoundManager",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/resources/SoundManager.java",
+      "target": "function:src/cr0s/javara/resources/SoundManager.java:getInstance",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/resources/SoundManager.java",
+      "target": "function:src/cr0s/javara/resources/SoundManager.java:getInstance",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/resources/SoundManager.java",
+      "target": "function:src/cr0s/javara/resources/SoundManager.java:playSpeechSoundGlobal",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/resources/SoundManager.java",
+      "target": "function:src/cr0s/javara/resources/SoundManager.java:playSpeechSoundGlobal",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/resources/SoundManager.java",
+      "target": "function:src/cr0s/javara/resources/SoundManager.java:playSfxGlobal",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/resources/SoundManager.java",
+      "target": "function:src/cr0s/javara/resources/SoundManager.java:playSfxGlobal",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/resources/SoundManager.java",
+      "target": "function:src/cr0s/javara/resources/SoundManager.java:playSoundGlobal",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/resources/SoundManager.java",
+      "target": "function:src/cr0s/javara/resources/SoundManager.java:playSoundGlobal",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/resources/SoundManager.java",
+      "target": "function:src/cr0s/javara/resources/SoundManager.java:playUnitSoundGlobal",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/resources/SoundManager.java",
+      "target": "function:src/cr0s/javara/resources/SoundManager.java:playUnitSoundGlobal",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/resources/SoundManager.java",
+      "target": "function:src/cr0s/javara/resources/SoundManager.java:update",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/resources/SoundManager.java",
+      "target": "function:src/cr0s/javara/resources/SoundManager.java:update",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/resources/SoundManager.java",
+      "target": "function:src/cr0s/javara/resources/SoundManager.java:playSfxAt",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/cr0s/javara/resources/SoundManager.java",
+      "target": "function:src/cr0s/javara/resources/SoundManager.java:playSfxAt",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cr0s/javara/resources/SoundManager.java",
+      "target": "file:src/cr0s/javara/entity/actor/EntityActor.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/resources/SoundManager.java",
+      "target": "file:src/cr0s/javara/main/GUI.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/resources/SoundManager.java",
+      "target": "file:src/cr0s/javara/util/Pos.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/resources/SoundManager.java",
+      "target": "file:src/soundly/Soundly.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cr0s/javara/resources/SoundManager.java",
+      "target": "file:src/soundly/XSound.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "nodes": [
+    {
+      "id": "config:nbproject/build-impl.xml",
+      "type": "config",
+      "name": "build-impl.xml",
+      "filePath": "nbproject/build-impl.xml",
+      "summary": "NetBeans-generated Ant build implementation file (1789 lines) defining compilation, packaging, Javadoc generation, and deployment targets for the Java project.",
+      "tags": ["configuration", "build-system", "ant", "compilation"],
+      "complexity": "complex"
+    },
+    {
+      "id": "config:nbproject/genfiles.properties",
+      "type": "config",
+      "name": "genfiles.properties",
+      "filePath": "nbproject/genfiles.properties",
+      "summary": "NetBeans project properties file tracking metadata for generated source files and build artifacts.",
+      "tags": ["configuration", "build-system", "properties"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:nbproject/project.properties",
+      "type": "config",
+      "name": "project.properties",
+      "filePath": "nbproject/project.properties",
+      "summary": "Core NetBeans project configuration defining source directories, classpath references, Java platform settings, and build output paths.",
+      "tags": ["configuration", "build-system", "properties", "java"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "config:nbproject/project.xml",
+      "type": "config",
+      "name": "project.xml",
+      "filePath": "nbproject/project.xml",
+      "summary": "NetBeans project descriptor declaring the J2SE project type, build framework reference, and shared library dependencies.",
+      "tags": ["configuration", "build-system", "project-metadata"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "config:nbproject/project.xml",
+      "target": "config:nbproject/project.properties",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "config:nbproject/project.xml",
+      "target": "config:nbproject/build-impl.xml",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "config:nbproject/project.properties",
+      "target": "config:nbproject/build-impl.xml",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "config:nbproject/project.xml",
+      "target": "config:nbproject/genfiles.properties",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}
