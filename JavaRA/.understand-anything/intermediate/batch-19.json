@@ -1,0 +1,552 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/net/pso/jswarm/example_2/DrawingArea.java",
+      "type": "file",
+      "name": "DrawingArea.java",
+      "filePath": "src/net/pso/jswarm/example_2/DrawingArea.java",
+      "summary": "UI component for visualizing the Particle Swarm Optimization process.",
+      "tags": ["ui", "visualization", "pso"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/net/pso/jswarm/example_2/DrawingArea.java:DrawingArea",
+      "type": "class",
+      "name": "DrawingArea",
+      "filePath": "src/net/pso/jswarm/example_2/DrawingArea.java",
+      "lineRange": [14, 67],
+      "summary": "Handles the painting and display of the swarm particles on a canvas.",
+      "tags": ["component", "painting"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/net/pso/jswarm/example_2/SwarmThread.java",
+      "type": "file",
+      "name": "SwarmThread.java",
+      "filePath": "src/net/pso/jswarm/example_2/SwarmThread.java",
+      "summary": "Thread responsible for evolving the swarm in the background.",
+      "tags": ["concurrency", "evolution", "pso"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/net/pso/jswarm/example_2/SwarmThread.java:SwarmThread",
+      "type": "class",
+      "name": "SwarmThread",
+      "filePath": "src/net/pso/jswarm/example_2/SwarmThread.java",
+      "lineRange": [7, 50],
+      "summary": "Implements the execution loop for swarm evolution iterations.",
+      "tags": ["thread", "evolution"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/net/pso/jswarm/ParticleUpdate.java",
+      "type": "file",
+      "name": "ParticleUpdate.java",
+      "filePath": "src/net/pso/jswarm/ParticleUpdate.java",
+      "summary": "Base class defining the interface for particle update strategies in PSO.",
+      "tags": ["strategy", "pso", "base-class"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/net/pso/jswarm/ParticleUpdate.java:ParticleUpdate",
+      "type": "class",
+      "name": "ParticleUpdate",
+      "filePath": "src/net/pso/jswarm/ParticleUpdate.java",
+      "lineRange": [13, 35],
+      "summary": "Defines the core lifecycle methods (begin, update, end) for particle updates.",
+      "tags": ["strategy", "interface"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/net/pso/jswarm/ParticleUpdateFullyRandom.java",
+      "type": "file",
+      "name": "ParticleUpdateFullyRandom.java",
+      "filePath": "src/net/pso/jswarm/ParticleUpdateFullyRandom.java",
+      "summary": "Implements a particle update strategy based on fully random movements.",
+      "tags": ["strategy", "random", "pso"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/net/pso/jswarm/ParticleUpdateFullyRandom.java:ParticleUpdateFullyRandom",
+      "type": "class",
+      "name": "ParticleUpdateFullyRandom",
+      "filePath": "src/net/pso/jswarm/ParticleUpdateFullyRandom.java",
+      "lineRange": [9, 40],
+      "summary": "Updates particle velocity and position using random increments.",
+      "tags": ["random-walk", "update-logic"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/net/pso/jswarm/ParticleUpdateRandomByParticle.java",
+      "type": "file",
+      "name": "ParticleUpdateRandomByParticle.java",
+      "filePath": "src/net/pso/jswarm/ParticleUpdateRandomByParticle.java",
+      "summary": "Implements a particle update strategy that uses particle-specific randomness.",
+      "tags": ["strategy", "random", "pso"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/net/pso/jswarm/ParticleUpdateRandomByParticle.java:ParticleUpdateRandomByParticle",
+      "type": "class",
+      "name": "ParticleUpdateRandomByParticle",
+      "filePath": "src/net/pso/jswarm/ParticleUpdateRandomByParticle.java",
+      "lineRange": [9, 44],
+      "summary": "Updates particles with random coefficients biased by the particle's state.",
+      "tags": ["random-walk", "update-logic"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/net/pso/jswarm/ParticleUpdateRepulsive.java",
+      "type": "file",
+      "name": "ParticleUpdateRepulsive.java",
+      "filePath": "src/net/pso/jswarm/ParticleUpdateRepulsive.java",
+      "summary": "Implements a repulsive update strategy to avoid local optima in PSO.",
+      "tags": ["strategy", "repulsion", "pso"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/net/pso/jswarm/ParticleUpdateRepulsive.java:ParticleUpdateRepulsive",
+      "type": "class",
+      "name": "ParticleUpdateRepulsive",
+      "filePath": "src/net/pso/jswarm/ParticleUpdateRepulsive.java",
+      "lineRange": [9, 80],
+      "summary": "Incorporates repulsive forces into the particle update logic.",
+      "tags": ["repulsion", "update-logic"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/net/pso/jswarm/ParticleUpdateSimple.java",
+      "type": "file",
+      "name": "ParticleUpdateSimple.java",
+      "filePath": "src/net/pso/jswarm/ParticleUpdateSimple.java",
+      "summary": "Implements the standard, simple update rule for Particle Swarm Optimization.",
+      "tags": ["strategy", "standard", "pso"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/net/pso/jswarm/ParticleUpdateSimple.java:ParticleUpdateSimple",
+      "type": "class",
+      "name": "ParticleUpdateSimple",
+      "filePath": "src/net/pso/jswarm/ParticleUpdateSimple.java",
+      "lineRange": [13, 72],
+      "summary": "Classic PSO update rule combining inertia, cognitive and social components.",
+      "tags": ["standard-pso", "update-logic"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/net/pso/jswarm/rosenbrock_30/Example.java,v",
+      "type": "file",
+      "name": "Example.java,v",
+      "filePath": "src/net/pso/jswarm/rosenbrock_30/Example.java,v",
+      "summary": "Example application of PSO to the 30-dimensional Rosenbrock function.",
+      "tags": ["example", "optimization", "rosenbrock"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/net/pso/jswarm/rosenbrock_30/MyFitnessFunction.java,v",
+      "type": "file",
+      "name": "MyFitnessFunction.java,v",
+      "filePath": "src/net/pso/jswarm/rosenbrock_30/MyFitnessFunction.java,v",
+      "summary": "Fitness function implementation for the 30D Rosenbrock benchmark.",
+      "tags": ["fitness", "benchmark", "rosenbrock"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/net/pso/jswarm/rosenbrock_30/MyParticle.java,v",
+      "type": "file",
+      "name": "MyParticle.java,v",
+      "filePath": "src/net/pso/jswarm/rosenbrock_30/MyParticle.java,v",
+      "summary": "Custom particle implementation for the 30D Rosenbrock example.",
+      "tags": ["particle", "customization", "rosenbrock"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/net/pso/jswarm/rosenbrock/Example.java,v",
+      "type": "file",
+      "name": "Example.java,v",
+      "filePath": "src/net/pso/jswarm/rosenbrock/Example.java,v",
+      "summary": "Example application of PSO to the standard Rosenbrock function.",
+      "tags": ["example", "optimization", "rosenbrock"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/net/pso/jswarm/schaffer/Example.java,v",
+      "type": "file",
+      "name": "Example.java,v",
+      "filePath": "src/net/pso/jswarm/schaffer/Example.java,v",
+      "summary": "Example application of PSO to the Schaffer function.",
+      "tags": ["example", "optimization", "schaffer"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/net/pso/jswarm/sphere/Example.java,v",
+      "type": "file",
+      "name": "Example.java,v",
+      "filePath": "src/net/pso/jswarm/sphere/Example.java,v",
+      "summary": "Example application of PSO to the Sphere function.",
+      "tags": ["example", "optimization", "sphere"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/net/pso/jswarm/sphere/MyParticle.java,v",
+      "type": "file",
+      "name": "MyParticle.java,v",
+      "filePath": "src/net/pso/jswarm/sphere/MyParticle.java,v",
+      "summary": "Custom particle implementation for the Sphere example.",
+      "tags": ["particle", "customization", "sphere"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/net/pso/jswarm/SwarmRepulsive.java",
+      "type": "file",
+      "name": "SwarmRepulsive.java",
+      "filePath": "src/net/pso/jswarm/SwarmRepulsive.java",
+      "summary": "Swarm implementation that uses a repulsive update strategy.",
+      "tags": ["swarm", "repulsion", "pso"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/net/pso/jswarm/SwarmRepulsive.java:SwarmRepulsive",
+      "type": "class",
+      "name": "SwarmRepulsive",
+      "filePath": "src/net/pso/jswarm/SwarmRepulsive.java",
+      "lineRange": [7, 50],
+      "summary": "Coordinates a swarm of particles using repulsive update rules.",
+      "tags": ["swarm-coordinator", "pso"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/net/pso/jswarm/VariablesUpdate.java",
+      "type": "file",
+      "name": "VariablesUpdate.java",
+      "filePath": "src/net/pso/jswarm/VariablesUpdate.java",
+      "summary": "Logic for updating variables during swarm evolution.",
+      "tags": ["utility", "update-logic", "pso"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/net/pso/jswarm/VariablesUpdate.java:VariablesUpdate",
+      "type": "class",
+      "name": "VariablesUpdate",
+      "filePath": "src/net/pso/jswarm/VariablesUpdate.java",
+      "lineRange": [9, 28],
+      "summary": "Utility class for performing updates on swarm variables.",
+      "tags": ["utility", "update-logic"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/net/pso/jswarm/zzz/Example.java,v",
+      "type": "file",
+      "name": "Example.java,v",
+      "filePath": "src/net/pso/jswarm/zzz/Example.java,v",
+      "summary": "Additional PSO example implementation.",
+      "tags": ["example", "optimization"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/soundly/AudioData.java",
+      "type": "file",
+      "name": "AudioData.java",
+      "filePath": "src/soundly/AudioData.java",
+      "summary": "Data structure for holding audio buffer and streaming information.",
+      "tags": ["audio", "data-model", "buffer"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/soundly/AudioData.java:AudioData",
+      "type": "class",
+      "name": "AudioData",
+      "filePath": "src/soundly/AudioData.java",
+      "lineRange": [9, 48],
+      "summary": "Represents audio data as either a static buffer or a stream.",
+      "tags": ["data-model", "audio-buffer"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/soundly/impl/XOpenALStreamPlayer.java",
+      "type": "file",
+      "name": "XOpenALStreamPlayer.java",
+      "filePath": "src/soundly/impl/XOpenALStreamPlayer.java",
+      "summary": "OpenAL-based implementation of a streaming audio player.",
+      "tags": ["audio", "openal", "streaming", "implementation"],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:src/soundly/impl/XOpenALStreamPlayer.java:XOpenALStreamPlayer",
+      "type": "class",
+      "name": "XOpenALStreamPlayer",
+      "filePath": "src/soundly/impl/XOpenALStreamPlayer.java",
+      "lineRange": [19, 317],
+      "summary": "Manages OpenAL sources and buffers for seamless audio streaming.",
+      "tags": ["streaming-player", "openal"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/soundly/ManagedSound.java",
+      "type": "file",
+      "name": "ManagedSound.java",
+      "filePath": "src/soundly/ManagedSound.java",
+      "summary": "High-level wrapper for audio sounds with management properties.",
+      "tags": ["audio", "management", "wrapper"],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:src/soundly/ManagedSound.java:ManagedSound",
+      "type": "class",
+      "name": "ManagedSound",
+      "filePath": "src/soundly/ManagedSound.java",
+      "lineRange": [8, 364],
+      "summary": "Controls properties like volume, pitch, and 3D position for a sound.",
+      "tags": ["sound-control", "audio-management"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/soundly/Mix.java",
+      "type": "file",
+      "name": "Mix.java",
+      "filePath": "src/soundly/Mix.java",
+      "summary": "Defines audio mixing parameters for sound modulation.",
+      "tags": ["audio", "mixing", "modulation"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/soundly/Mix.java:Mix",
+      "type": "class",
+      "name": "Mix",
+      "filePath": "src/soundly/Mix.java",
+      "lineRange": [17, 126],
+      "summary": "Holds volume, pitch, and spatial adjustments for audio mixing.",
+      "tags": ["audio-mixing", "parameter-set"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/soundly/SoundGroup.java",
+      "type": "file",
+      "name": "SoundGroup.java",
+      "filePath": "src/soundly/SoundGroup.java",
+      "summary": "Manages groups of sounds for collective control and randomization.",
+      "tags": ["audio", "grouping", "management"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/soundly/SoundGroup.java:SoundGroup",
+      "type": "class",
+      "name": "SoundGroup",
+      "filePath": "src/soundly/SoundGroup.java",
+      "lineRange": [11, 149],
+      "summary": "Provides methods to add, remove, and queue sounds within a group.",
+      "tags": ["sound-group", "audio-management"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/soundly/SoundStore.java",
+      "type": "file",
+      "name": "SoundStore.java",
+      "filePath": "src/soundly/SoundStore.java",
+      "summary": "Central repository for loading and storing audio resources.",
+      "tags": ["audio", "resource-store", "loading"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/soundly/SoundStore.java:SoundStore",
+      "type": "class",
+      "name": "SoundStore",
+      "filePath": "src/soundly/SoundStore.java",
+      "lineRange": [25, 75],
+      "summary": "Handles the caching and retrieval of audio files from different formats.",
+      "tags": ["resource-cache", "audio-loader"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/soundly/XStreamingSound.java",
+      "type": "file",
+      "name": "XStreamingSound.java",
+      "filePath": "src/soundly/XStreamingSound.java",
+      "summary": "Implementation of a streaming sound using a stream player.",
+      "tags": ["audio", "streaming", "implementation"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/soundly/XStreamingSound.java:XStreamingSound",
+      "type": "class",
+      "name": "XStreamingSound",
+      "filePath": "src/soundly/XStreamingSound.java",
+      "lineRange": [21, 214],
+      "summary": "Bridge between high-level sound requests and low-level streaming players.",
+      "tags": ["streaming-sound", "audio-bridge"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:test/module-info.java",
+      "type": "file",
+      "name": "module-info.java",
+      "filePath": "test/module-info.java",
+      "summary": "Java module descriptor for the test module.",
+      "tags": ["java-module", "configuration"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/soundly/XStreamingSound.java",
+      "target": "file:src/soundly/impl/XOpenALStreamPlayer.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/net/pso/jswarm/example_2/DrawingArea.java",
+      "target": "class:src/net/pso/jswarm/example_2/DrawingArea.java:DrawingArea",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/net/pso/jswarm/example_2/SwarmThread.java",
+      "target": "class:src/net/pso/jswarm/example_2/SwarmThread.java:SwarmThread",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/net/pso/jswarm/ParticleUpdate.java",
+      "target": "class:src/net/pso/jswarm/ParticleUpdate.java:ParticleUpdate",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/net/pso/jswarm/ParticleUpdateFullyRandom.java",
+      "target": "class:src/net/pso/jswarm/ParticleUpdateFullyRandom.java:ParticleUpdateFullyRandom",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/net/pso/jswarm/ParticleUpdateRandomByParticle.java",
+      "target": "class:src/net/pso/jswarm/ParticleUpdateRandomByParticle.java:ParticleUpdateRandomByParticle",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/net/pso/jswarm/ParticleUpdateRepulsive.java",
+      "target": "class:src/net/pso/jswarm/ParticleUpdateRepulsive.java:ParticleUpdateRepulsive",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/net/pso/jswarm/ParticleUpdateSimple.java",
+      "target": "class:src/net/pso/jswarm/ParticleUpdateSimple.java:ParticleUpdateSimple",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/net/pso/jswarm/SwarmRepulsive.java",
+      "target": "class:src/net/pso/jswarm/SwarmRepulsive.java:SwarmRepulsive",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/net/pso/jswarm/VariablesUpdate.java",
+      "target": "class:src/net/pso/jswarm/VariablesUpdate.java:VariablesUpdate",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/soundly/AudioData.java",
+      "target": "class:src/soundly/AudioData.java:AudioData",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/soundly/impl/XOpenALStreamPlayer.java",
+      "target": "class:src/soundly/impl/XOpenALStreamPlayer.java:XOpenALStreamPlayer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/soundly/ManagedSound.java",
+      "target": "class:src/soundly/ManagedSound.java:ManagedSound",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/soundly/Mix.java",
+      "target": "class:src/soundly/Mix.java:Mix",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/soundly/SoundGroup.java",
+      "target": "class:src/soundly/SoundGroup.java:SoundGroup",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/soundly/SoundStore.java",
+      "target": "class:src/soundly/SoundStore.java:SoundStore",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/soundly/XStreamingSound.java",
+      "target": "class:src/soundly/XStreamingSound.java:XStreamingSound",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "function:src/net/pso/jswarm/example_2/DrawingArea.java:runSwarm",
+      "target": "class:src/net/pso/jswarm/example_2/SwarmThread.java:SwarmThread",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/net/pso/jswarm/SwarmRepulsive.java:SwarmRepulsive",
+      "target": "class:src/net/pso/jswarm/ParticleUpdateRepulsive.java:ParticleUpdateRepulsive",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:src/soundly/XStreamingSound.java:XStreamingSound",
+      "target": "class:src/soundly/impl/XOpenALStreamPlayer.java:XOpenALStreamPlayer",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:src/soundly/XStreamingSound.java:XStreamingSound",
+      "target": "class:src/soundly/AudioData.java:AudioData",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:src/soundly/XStreamingSound.java:XStreamingSound",
+      "target": "class:src/soundly/SoundStore.java:SoundStore",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:src/soundly/SoundGroup.java:SoundGroup",
+      "target": "class:src/soundly/ManagedSound.java:ManagedSound",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}

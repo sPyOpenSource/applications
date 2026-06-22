@@ -1,0 +1,182 @@
+{
+  "projectRoot": "/Users/xuyi/Source/OS/armOS/lib/jcore/test/JavaRA",
+  "batchFiles": [
+    {
+      "path": "assets/temperat.mix",
+      "language": "mix",
+      "sizeLines": 973,
+      "fileCategory": "code"
+    },
+    {
+      "path": "assets/trees.yaml",
+      "language": "yaml",
+      "sizeLines": 406,
+      "fileCategory": "config"
+    },
+    {
+      "path": "bin/net/pso/jswarm/example_1/Example.java,v",
+      "language": "java,v",
+      "sizeLines": 194,
+      "fileCategory": "code"
+    },
+    {
+      "path": "bin/net/pso/jswarm/example_1/MyParticle.java,v",
+      "language": "java,v",
+      "sizeLines": 55,
+      "fileCategory": "code"
+    },
+    {
+      "path": "bin/net/pso/jswarm/rosenbrock_30/Example.java,v",
+      "language": "java,v",
+      "sizeLines": 118,
+      "fileCategory": "code"
+    },
+    {
+      "path": "bin/net/pso/jswarm/rosenbrock_30/MyFitnessFunction.java,v",
+      "language": "java,v",
+      "sizeLines": 85,
+      "fileCategory": "code"
+    },
+    {
+      "path": "bin/net/pso/jswarm/rosenbrock_30/MyParticle.java,v",
+      "language": "java,v",
+      "sizeLines": 55,
+      "fileCategory": "code"
+    },
+    {
+      "path": "bin/net/pso/jswarm/rosenbrock/Example.java,v",
+      "language": "java,v",
+      "sizeLines": 89,
+      "fileCategory": "code"
+    },
+    {
+      "path": "bin/net/pso/jswarm/schaffer/Example.java,v",
+      "language": "java,v",
+      "sizeLines": 92,
+      "fileCategory": "code"
+    },
+    {
+      "path": "bin/net/pso/jswarm/sphere/Example.java,v",
+      "language": "java,v",
+      "sizeLines": 88,
+      "fileCategory": "code"
+    },
+    {
+      "path": "bin/net/pso/jswarm/sphere/MyParticle.java,v",
+      "language": "java,v",
+      "sizeLines": 37,
+      "fileCategory": "code"
+    },
+    {
+      "path": "bin/net/pso/jswarm/zzz/Example.java,v",
+      "language": "java,v",
+      "sizeLines": 65,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/AppleJavaExtensions.jar",
+      "language": "jar",
+      "sizeLines": 21,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/asm-debug-all.jar",
+      "language": "jar",
+      "sizeLines": 1580,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/ibxm.jar",
+      "language": "jar",
+      "sizeLines": 122,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/jinput.jar",
+      "language": "jar",
+      "sizeLines": 1107,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/jnlp.jar",
+      "language": "jar",
+      "sizeLines": 25,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/jogg-0.0.7.jar",
+      "language": "jar",
+      "sizeLines": 14,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/jorbis-0.0.15.jar",
+      "language": "jar",
+      "sizeLines": 220,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/lwjgl_test.jar",
+      "language": "jar",
+      "sizeLines": 1421,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/lwjgl_util_applet.jar",
+      "language": "jar",
+      "sizeLines": 185,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/lwjgl_util.jar",
+      "language": "jar",
+      "sizeLines": 871,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/lwjgl-debug.jar",
+      "language": "jar",
+      "sizeLines": 5006,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/lwjgl.jar",
+      "language": "jar",
+      "sizeLines": 4923,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/lzma.jar",
+      "language": "jar",
+      "sizeLines": 24,
+      "fileCategory": "code"
+    }
+  ],
+  "batchImportData": {
+    "assets/temperat.mix": [],
+    "assets/trees.yaml": [],
+    "bin/net/pso/jswarm/example_1/Example.java,v": [],
+    "bin/net/pso/jswarm/example_1/MyParticle.java,v": [],
+    "bin/net/pso/jswarm/rosenbrock_30/Example.java,v": [],
+    "bin/net/pso/jswarm/rosenbrock_30/MyFitnessFunction.java,v": [],
+    "bin/net/pso/jswarm/rosenbrock_30/MyParticle.java,v": [],
+    "bin/net/pso/jswarm/rosenbrock/Example.java,v": [],
+    "bin/net/pso/jswarm/schaffer/Example.java,v": [],
+    "bin/net/pso/jswarm/sphere/Example.java,v": [],
+    "bin/net/pso/jswarm/sphere/MyParticle.java,v": [],
+    "bin/net/pso/jswarm/zzz/Example.java,v": [],
+    "lib/AppleJavaExtensions.jar": [],
+    "lib/asm-debug-all.jar": [],
+    "lib/ibxm.jar": [],
+    "lib/jinput.jar": [],
+    "lib/jnlp.jar": [],
+    "lib/jogg-0.0.7.jar": [],
+    "lib/jorbis-0.0.15.jar": [],
+    "lib/lwjgl_test.jar": [],
+    "lib/lwjgl_util_applet.jar": [],
+    "lib/lwjgl_util.jar": [],
+    "lib/lwjgl-debug.jar": [],
+    "lib/lwjgl.jar": [],
+    "lib/lzma.jar": []
+  }
+}

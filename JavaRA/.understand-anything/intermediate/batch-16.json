@@ -1,0 +1,521 @@
+{
+  "nodes": [
+    {
+      "id": "file:assets/temperat.mix",
+      "type": "file",
+      "name": "temperat.mix",
+      "filePath": "assets/temperat.mix",
+      "summary": "Data file containing temperature measurements used for testing.",
+      "tags": ["data", "measurements"],
+      "complexity": "complex"
+    },
+    {
+      "id": "config:assets/trees.yaml",
+      "type": "config",
+      "name": "trees.yaml",
+      "filePath": "assets/trees.yaml",
+      "summary": "Configuration file containing benchmark test cases for tree-based optimization.",
+      "tags": ["configuration", "test-cases"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:bin/net/pso/jswarm/example_1/Example.java,v",
+      "type": "file",
+      "name": "Example.java,v",
+      "filePath": "bin/net/pso/jswarm/example_1/Example.java,v",
+      "summary": "Simple PSO optimization example maximizing a basic function.",
+      "tags": ["test", "pso", "example"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:bin/net/pso/jswarm/example_1/Example.java,v:Example",
+      "type": "class",
+      "name": "Example",
+      "filePath": "bin/net/pso/jswarm/example_1/Example.java,v",
+      "summary": "Main class for Example 1 PSO optimization.",
+      "tags": ["pso", "example"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:bin/net/pso/jswarm/example_1/Example.java,v:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "bin/net/pso/jswarm/example_1/Example.java,v",
+      "lineRange": [65, 98],
+      "summary": "Entry point for Example 1, setting up a swarm and executing optimization.",
+      "tags": ["entry-point"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:bin/net/pso/jswarm/example_1/MyParticle.java,v",
+      "type": "file",
+      "name": "MyParticle.java,v",
+      "filePath": "bin/net/pso/jswarm/example_1/MyParticle.java,v",
+      "summary": "Particle definition for Example 1 PSO.",
+      "tags": ["pso", "data-model"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:bin/net/pso/jswarm/example_1/MyParticle.java,v:MyParticle",
+      "type": "class",
+      "name": "MyParticle",
+      "filePath": "bin/net/pso/jswarm/example_1/MyParticle.java,v",
+      "summary": "Implementation of a particle for Example 1.",
+      "tags": ["pso", "data-model"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:bin/net/pso/jswarm/rosenbrock_30/Example.java,v",
+      "type": "file",
+      "name": "Example.java,v",
+      "filePath": "bin/net/pso/jswarm/rosenbrock_30/Example.java,v",
+      "summary": "PSO optimization example for the 30-dimensional Rosenbrock function.",
+      "tags": ["test", "pso", "example"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:bin/net/pso/jswarm/rosenbrock_30/Example.java,v:Example",
+      "type": "class",
+      "name": "Example",
+      "filePath": "bin/net/pso/jswarm/rosenbrock_30/Example.java,v",
+      "summary": "Main class for Rosenbrock 30 PSO optimization.",
+      "tags": ["pso", "example"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:bin/net/pso/jswarm/rosenbrock_30/Example.java,v:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "bin/net/pso/jswarm/rosenbrock_30/Example.java,v",
+      "lineRange": [48, 85],
+      "summary": "Entry point for Rosenbrock 30 example, configuring and running the swarm.",
+      "tags": ["entry-point"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:bin/net/pso/jswarm/rosenbrock_30/MyFitnessFunction.java,v",
+      "type": "file",
+      "name": "MyFitnessFunction.java,v",
+      "filePath": "bin/net/pso/jswarm/rosenbrock_30/MyFitnessFunction.java,v",
+      "summary": "Fitness function implementation for the Rosenbrock 30 problem.",
+      "tags": ["pso", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:bin/net/pso/jswarm/rosenbrock_30/MyFitnessFunction.java,v:MyFitnessFunction",
+      "type": "class",
+      "name": "MyFitnessFunction",
+      "filePath": "bin/net/pso/jswarm/rosenbrock_30/MyFitnessFunction.java,v",
+      "summary": "Calculates the fitness for particles in Rosenbrock 30.",
+      "tags": ["pso", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:bin/net/pso/jswarm/rosenbrock_30/MyParticle.java,v",
+      "type": "file",
+      "name": "MyParticle.java,v",
+      "filePath": "bin/net/pso/jswarm/rosenbrock_30/MyParticle.java,v",
+      "summary": "Particle definition for Rosenbrock 30 PSO.",
+      "tags": ["pso", "data-model"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:bin/net/pso/jswarm/rosenbrock_30/MyParticle.java,v:MyParticle",
+      "type": "class",
+      "name": "MyParticle",
+      "filePath": "bin/net/pso/jswarm/rosenbrock_30/MyParticle.java,v",
+      "summary": "Implementation of a particle for Rosenbrock 30.",
+      "tags": ["pso", "data-model"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:bin/net/pso/jswarm/rosenbrock/Example.java,v",
+      "type": "file",
+      "name": "Example.java,v",
+      "filePath": "bin/net/pso/jswarm/rosenbrock/Example.java,v",
+      "summary": "PSO optimization example for the Rosenbrock function.",
+      "tags": ["test", "pso", "example"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:bin/net/pso/jswarm/rosenbrock/Example.java,v:Example",
+      "type": "class",
+      "name": "Example",
+      "filePath": "bin/net/pso/jswarm/rosenbrock/Example.java,v",
+      "summary": "Main class for Rosenbrock PSO optimization.",
+      "tags": ["pso", "example"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:bin/net/pso/jswarm/rosenbrock/Example.java,v:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "bin/net/pso/jswarm/rosenbrock/Example.java,v",
+      "lineRange": [48, 69],
+      "summary": "Entry point for Rosenbrock example.",
+      "tags": ["entry-point"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:bin/net/pso/jswarm/schaffer/Example.java,v",
+      "type": "file",
+      "name": "Example.java,v",
+      "filePath": "bin/net/pso/jswarm/schaffer/Example.java,v",
+      "summary": "PSO optimization example for the Schaffer function.",
+      "tags": ["test", "pso", "example"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:bin/net/pso/jswarm/schaffer/Example.java,v:Example",
+      "type": "class",
+      "name": "Example",
+      "filePath": "bin/net/pso/jswarm/schaffer/Example.java,v",
+      "summary": "Main class for Schaffer PSO optimization.",
+      "tags": ["pso", "example"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:bin/net/pso/jswarm/schaffer/Example.java,v:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "bin/net/pso/jswarm/schaffer/Example.java,v",
+      "lineRange": [48, 92],
+      "summary": "Entry point for Schaffer example.",
+      "tags": ["entry-point"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:bin/net/pso/jswarm/sphere/Example.java,v",
+      "type": "file",
+      "name": "Example.java,v",
+      "filePath": "bin/net/pso/jswarm/sphere/Example.java,v",
+      "summary": "PSO optimization example for the Sphere function.",
+      "tags": ["test", "pso", "example"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:bin/net/pso/jswarm/sphere/Example.java,v:Example",
+      "type": "class",
+      "name": "Example",
+      "filePath": "bin/net/pso/jswarm/sphere/Example.java,v",
+      "summary": "Main class for Sphere PSO optimization.",
+      "tags": ["pso", "example"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:bin/net/pso/jswarm/sphere/Example.java,v:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "bin/net/pso/jswarm/sphere/Example.java,v",
+      "lineRange": [48, 88],
+      "summary": "Entry point for Sphere example.",
+      "tags": ["entry-point"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:bin/net/pso/jswarm/sphere/MyParticle.java,v",
+      "type": "file",
+      "name": "MyParticle.java,v",
+      "filePath": "bin/net/pso/jswarm/sphere/MyParticle.java,v",
+      "summary": "Particle definition for Sphere PSO.",
+      "tags": ["pso", "data-model"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:bin/net/pso/jswarm/sphere/MyParticle.java,v:MyParticle",
+      "type": "class",
+      "name": "MyParticle",
+      "filePath": "bin/net/pso/jswarm/sphere/MyParticle.java,v",
+      "summary": "Implementation of a particle for Sphere PSO.",
+      "tags": ["pso", "data-model"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:bin/net/pso/jswarm/zzz/Example.java,v",
+      "type": "file",
+      "name": "Example.java,v",
+      "filePath": "bin/net/pso/jswarm/zzz/Example.java,v",
+      "summary": "PSO optimization example for a miscellaneous function.",
+      "tags": ["test", "pso", "example"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:bin/net/pso/jswarm/zzz/Example.java,v:Example",
+      "type": "class",
+      "name": "Example",
+      "filePath": "bin/net/pso/jswarm/zzz/Example.java,v",
+      "summary": "Main class for a miscellaneous PSO optimization.",
+      "tags": ["pso", "example"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:bin/net/pso/jswarm/zzz/Example.java,v:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "bin/net/pso/jswarm/zzz/Example.java,v",
+      "lineRange": [48, 65],
+      "summary": "Entry point for miscellaneous PSO example.",
+      "tags": ["entry-point"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:lib/AppleJavaExtensions.jar",
+      "type": "file",
+      "name": "AppleJavaExtensions.jar",
+      "filePath": "lib/AppleJavaExtensions.jar",
+      "summary": "Java library for Apple Java Extensions.",
+      "tags": ["library", "dependency"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:lib/asm-debug-all.jar",
+      "type": "file",
+      "name": "asm-debug-all.jar",
+      "filePath": "lib/asm-debug-all.jar",
+      "summary": "Java library for ASM bytecode manipulation.",
+      "tags": ["library", "dependency"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:lib/ibxm.jar",
+      "type": "file",
+      "name": "ibxm.jar",
+      "filePath": "lib/ibxm.jar",
+      "summary": "Java library for ibxm.",
+      "tags": ["library", "dependency"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:lib/jinput.jar",
+      "type": "file",
+      "name": "jinput.jar",
+      "filePath": "lib/jinput.jar",
+      "summary": "Java library for jinput (input devices).",
+      "tags": ["library", "dependency"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:lib/jnlp.jar",
+      "type": "file",
+      "name": "jnlp.jar",
+      "filePath": "lib/jnlp.jar",
+      "summary": "Java library for Java Network Launch Protocol (JNLP).",
+      "tags": ["library", "dependency"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:lib/jogg-0.0.7.jar",
+      "type": "file",
+      "name": "jogg-0.0.7.jar",
+      "filePath": "lib/jogg-0.0.7.jar",
+      "summary": "Java library for Ogg Vorbis (Jogg).",
+      "tags": ["library", "dependency"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:lib/jorbis-0.0.15.jar",
+      "type": "file",
+      "name": "jorbis-0.0.15.jar",
+      "filePath": "lib/jorbis-0.0.15.jar",
+      "summary": "Java library for Ogg Vorbis (Jorbis).",
+      "tags": ["library", "dependency"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:lib/lwjgl_test.jar",
+      "type": "file",
+      "name": "lwjgl_test.jar",
+      "filePath": "lib/lwjgl_test.jar",
+      "summary": "Java library for LWJGL testing.",
+      "tags": ["library", "dependency"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:lib/lwjgl_util_applet.jar",
+      "type": "file",
+      "name": "lwjgl_util_applet.jar",
+      "filePath": "lib/lwjgl_util_applet.jar",
+      "summary": "Java library for LWJGL utility applets.",
+      "tags": ["library", "dependency"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:lib/lwjgl_util.jar",
+      "type": "file",
+      "name": "lwjgl_util.jar",
+      "filePath": "lib/lwjgl_util.jar",
+      "summary": "Java library for LWJGL utility functions.",
+      "tags": ["library", "dependency"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:lib/lwjgl-debug.jar",
+      "type": "file",
+      "name": "lwjgl-debug.jar",
+      "filePath": "lib/lwjgl-debug.jar",
+      "summary": "Java library for LWJGL debug tools.",
+      "tags": ["library", "dependency"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:lib/lwjgl.jar",
+      "type": "file",
+      "name": "lwjgl.jar",
+      "filePath": "lib/lwjgl.jar",
+      "summary": "Java library for Lightweight Java Game Library (LWJGL).",
+      "tags": ["library", "dependency"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:lib/lzma.jar",
+      "type": "file",
+      "name": "lzma.jar",
+      "filePath": "lib/lzma.jar",
+      "summary": "Java library for LZMA compression.",
+      "tags": ["library", "dependency"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:bin/net/pso/jswarm/example_1/Example.java,v",
+      "target": "class:bin/net/pso/jswarm/example_1/Example.java,v:Example",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:bin/net/pso/jswarm/example_1/Example.java,v:Example",
+      "target": "function:bin/net/pso/jswarm/example_1/Example.java,v:main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:bin/net/pso/jswarm/example_1/MyParticle.java,v",
+      "target": "class:bin/net/pso/jswarm/example_1/MyParticle.java,v:MyParticle",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "function:bin/net/pso/jswarm/example_1/Example.java,v:main",
+      "target": "class:bin/net/pso/jswarm/example_1/MyParticle.java,v:MyParticle",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:bin/net/pso/jswarm/rosenbrock_30/Example.java,v",
+      "target": "class:bin/net/pso/jswarm/rosenbrock_30/Example.java,v:Example",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:bin/net/pso/jswarm/rosenbrock_30/Example.java,v:Example",
+      "target": "function:bin/net/pso/jswarm/rosenbrock_30/Example.java,v:main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:bin/net/pso/jswarm/rosenbrock_30/MyFitnessFunction.java,v",
+      "target": "class:bin/net/pso/jswarm/rosenbrock_30/MyFitnessFunction.java,v:MyFitnessFunction",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:bin/net/pso/jswarm/rosenbrock_30/MyParticle.java,v",
+      "target": "class:bin/net/pso/jswarm/rosenbrock_30/MyParticle.java,v:MyParticle",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "function:bin/net/pso/jswarm/rosenbrock_30/Example.java,v:main",
+      "target": "class:bin/net/pso/jswarm/rosenbrock_30/MyParticle.java,v:MyParticle",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:bin/net/pso/jswarm/rosenbrock_30/Example.java,v:main",
+      "target": "class:bin/net/pso/jswarm/rosenbrock_30/MyFitnessFunction.java,v:MyFitnessFunction",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:bin/net/pso/jswarm/rosenbrock/Example.java,v",
+      "target": "class:bin/net/pso/jswarm/rosenbrock/Example.java,v:Example",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:bin/net/pso/jswarm/rosenbrock/Example.java,v:Example",
+      "target": "function:bin/net/pso/jswarm/rosenbrock/Example.java,v:main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:bin/net/pso/jswarm/schaffer/Example.java,v",
+      "target": "class:bin/net/pso/jswarm/schaffer/Example.java,v:Example",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:bin/net/pso/jswarm/schaffer/Example.java,v:Example",
+      "target": "function:bin/net/pso/jswarm/schaffer/Example.java,v:main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:bin/net/pso/jswarm/sphere/Example.java,v",
+      "target": "class:bin/net/pso/jswarm/sphere/Example.java,v:Example",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:bin/net/pso/jswarm/sphere/Example.java,v:Example",
+      "target": "function:bin/net/pso/jswarm/sphere/Example.java,v:main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:bin/net/pso/jswarm/sphere/MyParticle.java,v",
+      "target": "class:bin/net/pso/jswarm/sphere/MyParticle.java,v:MyParticle",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "function:bin/net/pso/jswarm/sphere/Example.java,v:main",
+      "target": "class:bin/net/pso/jswarm/sphere/MyParticle.java,v:MyParticle",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:bin/net/pso/jswarm/zzz/Example.java,v",
+      "target": "class:bin/net/pso/jswarm/zzz/Example.java,v:Example",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:bin/net/pso/jswarm/zzz/Example.java,v:Example",
+      "target": "function:bin/net/pso/jswarm/zzz/Example.java,v:main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    }
+  ]
+}

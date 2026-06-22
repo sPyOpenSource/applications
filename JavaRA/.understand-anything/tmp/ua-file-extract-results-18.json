@@ -1,0 +1,2117 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 25,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "maps/forest-path/map.yaml",
+      "language": "yaml",
+      "fileCategory": "config",
+      "totalLines": 449,
+      "nonEmptyLines": 427,
+      "sections": [
+        {
+          "heading": "Selectable",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "MapFormat",
+          "level": 1,
+          "line": 3
+        },
+        {
+          "heading": "RequiresMod",
+          "level": 1,
+          "line": 5
+        },
+        {
+          "heading": "Title",
+          "level": 1,
+          "line": 7
+        },
+        {
+          "heading": "Description",
+          "level": 1,
+          "line": 9
+        },
+        {
+          "heading": "Author",
+          "level": 1,
+          "line": 11
+        },
+        {
+          "heading": "Tileset",
+          "level": 1,
+          "line": 13
+        },
+        {
+          "heading": "MapSize",
+          "level": 1,
+          "line": 15
+        },
+        {
+          "heading": "Bounds",
+          "level": 1,
+          "line": 17
+        },
+        {
+          "heading": "UseAsShellmap",
+          "level": 1,
+          "line": 19
+        },
+        {
+          "heading": "Type",
+          "level": 1,
+          "line": 21
+        },
+        {
+          "heading": "Options",
+          "level": 1,
+          "line": 23
+        },
+        {
+          "heading": "Players",
+          "level": 1,
+          "line": 25
+        },
+        {
+          "heading": "Actors",
+          "level": 1,
+          "line": 47
+        },
+        {
+          "heading": "Spawns",
+          "level": 1,
+          "line": 425
+        },
+        {
+          "heading": "Smudges",
+          "level": 1,
+          "line": 435
+        },
+        {
+          "heading": "Rules",
+          "level": 1,
+          "line": 437
+        },
+        {
+          "heading": "Sequences",
+          "level": 1,
+          "line": 439
+        },
+        {
+          "heading": "VoxelSequences",
+          "level": 1,
+          "line": 441
+        },
+        {
+          "heading": "Weapons",
+          "level": 1,
+          "line": 443
+        },
+        {
+          "heading": "Voices",
+          "level": 1,
+          "line": 445
+        },
+        {
+          "heading": "Notifications",
+          "level": 1,
+          "line": 447
+        },
+        {
+          "heading": "Translations",
+          "level": 1,
+          "line": 449
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 23
+      }
+    },
+    {
+      "path": "maps/haos-ridges/map.bin",
+      "language": "bin",
+      "fileCategory": "code",
+      "totalLines": 488,
+      "nonEmptyLines": 488,
+      "metrics": {}
+    },
+    {
+      "path": "maps/haos-ridges/map.yaml",
+      "language": "yaml",
+      "fileCategory": "config",
+      "totalLines": 988,
+      "nonEmptyLines": 967,
+      "sections": [
+        {
+          "heading": "Selectable",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "MapFormat",
+          "level": 1,
+          "line": 3
+        },
+        {
+          "heading": "RequiresMod",
+          "level": 1,
+          "line": 5
+        },
+        {
+          "heading": "Title",
+          "level": 1,
+          "line": 7
+        },
+        {
+          "heading": "Description",
+          "level": 1,
+          "line": 9
+        },
+        {
+          "heading": "Author",
+          "level": 1,
+          "line": 11
+        },
+        {
+          "heading": "Tileset",
+          "level": 1,
+          "line": 13
+        },
+        {
+          "heading": "MapSize",
+          "level": 1,
+          "line": 15
+        },
+        {
+          "heading": "Bounds",
+          "level": 1,
+          "line": 17
+        },
+        {
+          "heading": "UseAsShellmap",
+          "level": 1,
+          "line": 19
+        },
+        {
+          "heading": "Type",
+          "level": 1,
+          "line": 21
+        },
+        {
+          "heading": "Options",
+          "level": 1,
+          "line": 23
+        },
+        {
+          "heading": "Players",
+          "level": 1,
+          "line": 25
+        },
+        {
+          "heading": "Actors",
+          "level": 1,
+          "line": 67
+        },
+        {
+          "heading": "Spawns",
+          "level": 1,
+          "line": 949
+        },
+        {
+          "heading": "Smudges",
+          "level": 1,
+          "line": 974
+        },
+        {
+          "heading": "Rules",
+          "level": 1,
+          "line": 976
+        },
+        {
+          "heading": "Sequences",
+          "level": 1,
+          "line": 978
+        },
+        {
+          "heading": "VoxelSequences",
+          "level": 1,
+          "line": 980
+        },
+        {
+          "heading": "Weapons",
+          "level": 1,
+          "line": 982
+        },
+        {
+          "heading": "Voices",
+          "level": 1,
+          "line": 984
+        },
+        {
+          "heading": "Notifications",
+          "level": 1,
+          "line": 986
+        },
+        {
+          "heading": "Translations",
+          "level": 1,
+          "line": 988
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 23
+      }
+    },
+    {
+      "path": "src/cr0s/javara/ai/StateMachine.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 40,
+      "nonEmptyLines": 29,
+      "functions": [
+        {
+          "name": "StateMachine",
+          "startLine": 8,
+          "endLine": 10,
+          "params": []
+        },
+        {
+          "name": "update",
+          "startLine": 12,
+          "endLine": 16,
+          "params": [
+            "squad"
+          ]
+        },
+        {
+          "name": "changeState",
+          "startLine": 18,
+          "endLine": 32,
+          "params": [
+            "squad",
+            "newState",
+            "rememberPrevious"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "StateMachine",
+          "startLine": 3,
+          "endLine": 40,
+          "methods": [
+            "StateMachine",
+            "update",
+            "changeState"
+          ],
+          "properties": [
+            "currentState",
+            "previousState"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "StateMachine",
+          "line": 8,
+          "isDefault": false
+        },
+        {
+          "name": "update",
+          "line": 12,
+          "isDefault": false
+        },
+        {
+          "name": "changeState",
+          "line": 18,
+          "isDefault": false
+        },
+        {
+          "name": "StateMachine",
+          "line": 3,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "update",
+          "callee": "this.currentState.tick",
+          "lineNumber": 14
+        },
+        {
+          "caller": "changeState",
+          "callee": "this.currentState.deactivate",
+          "lineNumber": 24
+        },
+        {
+          "caller": "changeState",
+          "callee": "this.currentState.activate",
+          "lineNumber": 31
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 4,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/cr0s/javara/combat/attack/UnitStance.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 5,
+      "nonEmptyLines": 4,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/cr0s/javara/combat/DamageModel.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 5,
+      "nonEmptyLines": 4,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/cr0s/javara/entity/building/china/package.bluej",
+      "language": "bluej",
+      "fileCategory": "code",
+      "totalLines": 117,
+      "nonEmptyLines": 117,
+      "metrics": {}
+    },
+    {
+      "path": "src/cr0s/javara/entity/INotifyBlockingMove.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 9,
+      "nonEmptyLines": 8,
+      "classes": [
+        {
+          "name": "INotifyBlockingMove",
+          "startLine": 3,
+          "endLine": 9,
+          "methods": [
+            "notifyBlocking"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "INotifyBlockingMove",
+          "line": 3,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/cr0s/javara/main/StateLoadingScreen.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 95,
+      "nonEmptyLines": 77,
+      "functions": [
+        {
+          "name": "main",
+          "startLine": 38,
+          "endLine": 40,
+          "params": [
+            "args"
+          ]
+        },
+        {
+          "name": "getID",
+          "startLine": 42,
+          "endLine": 44,
+          "params": []
+        },
+        {
+          "name": "init",
+          "startLine": 46,
+          "endLine": 51,
+          "params": [
+            "c"
+          ]
+        },
+        {
+          "name": "start",
+          "startLine": 53,
+          "endLine": 73,
+          "params": [
+            "c"
+          ]
+        },
+        {
+          "name": "update",
+          "startLine": 75,
+          "endLine": 93,
+          "params": [
+            "arg0",
+            "arg2"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "StateLoadingScreen",
+          "startLine": 13,
+          "endLine": 95,
+          "methods": [
+            "main",
+            "getID",
+            "init",
+            "start",
+            "update"
+          ],
+          "properties": [
+            "STATE_ID",
+            "BACKGROUND_COLOR",
+            "c",
+            "isLoading",
+            "ticksBeforeLoading",
+            "ticks",
+            "i",
+            "strings"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "STATE_ID",
+          "line": 15,
+          "isDefault": false
+        },
+        {
+          "name": "main",
+          "line": 38,
+          "isDefault": false
+        },
+        {
+          "name": "getID",
+          "line": 42,
+          "isDefault": false
+        },
+        {
+          "name": "init",
+          "line": 46,
+          "isDefault": false
+        },
+        {
+          "name": "start",
+          "line": 53,
+          "isDefault": false
+        },
+        {
+          "name": "update",
+          "line": 75,
+          "isDefault": false
+        },
+        {
+          "name": "StateLoadingScreen",
+          "line": 13,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "main",
+          "callee": "launch",
+          "lineNumber": 39
+        },
+        {
+          "caller": "init",
+          "callee": "Math.random",
+          "lineNumber": 50
+        },
+        {
+          "caller": "start",
+          "callee": "new BorderPane",
+          "lineNumber": 55
+        },
+        {
+          "caller": "start",
+          "callee": "new Scene",
+          "lineNumber": 56
+        },
+        {
+          "caller": "start",
+          "callee": "scene.setFill",
+          "lineNumber": 57
+        },
+        {
+          "caller": "start",
+          "callee": "new Text",
+          "lineNumber": 61
+        },
+        {
+          "caller": "start",
+          "callee": "textFieldID.setStyle",
+          "lineNumber": 62
+        },
+        {
+          "caller": "start",
+          "callee": "new VBox",
+          "lineNumber": 63
+        },
+        {
+          "caller": "start",
+          "callee": "root.setPadding",
+          "lineNumber": 64
+        },
+        {
+          "caller": "start",
+          "callee": "new Insets",
+          "lineNumber": 64
+        },
+        {
+          "caller": "start",
+          "callee": "box.getChildren().add",
+          "lineNumber": 69
+        },
+        {
+          "caller": "start",
+          "callee": "box.getChildren",
+          "lineNumber": 69
+        },
+        {
+          "caller": "start",
+          "callee": "root.getChildren().add",
+          "lineNumber": 70
+        },
+        {
+          "caller": "start",
+          "callee": "root.getChildren",
+          "lineNumber": 70
+        },
+        {
+          "caller": "start",
+          "callee": "c.setScene",
+          "lineNumber": 71
+        },
+        {
+          "caller": "start",
+          "callee": "c.show",
+          "lineNumber": 72
+        },
+        {
+          "caller": "update",
+          "callee": "Math.random",
+          "lineNumber": 79
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 7,
+        "functionCount": 5,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/cr0s/javara/perfomance/ProfilingSection.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 70,
+      "nonEmptyLines": 52,
+      "functions": [
+        {
+          "name": "ProfilingSection",
+          "startLine": 19,
+          "endLine": 23,
+          "params": [
+            "color"
+          ]
+        },
+        {
+          "name": "startTimer",
+          "startLine": 25,
+          "endLine": 28,
+          "params": []
+        },
+        {
+          "name": "stopTimer",
+          "startLine": 30,
+          "endLine": 43,
+          "params": []
+        },
+        {
+          "name": "getMsPassed",
+          "startLine": 45,
+          "endLine": 47,
+          "params": []
+        },
+        {
+          "name": "pushToHistory",
+          "startLine": 49,
+          "endLine": 56,
+          "params": []
+        },
+        {
+          "name": "getAvgMsPassed",
+          "startLine": 58,
+          "endLine": 69,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "ProfilingSection",
+          "startLine": 6,
+          "endLine": 70,
+          "methods": [
+            "ProfilingSection",
+            "startTimer",
+            "stopTimer",
+            "getMsPassed",
+            "pushToHistory",
+            "getAvgMsPassed"
+          ],
+          "properties": [
+            "MAX_HISTORY_SIZE",
+            "SAMPLING_FREQUENCY",
+            "numMeasured",
+            "msPassed",
+            "currentTimeMillis",
+            "isTimerStarted",
+            "history",
+            "color"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "history",
+          "line": 16,
+          "isDefault": false
+        },
+        {
+          "name": "color",
+          "line": 17,
+          "isDefault": false
+        },
+        {
+          "name": "ProfilingSection",
+          "line": 19,
+          "isDefault": false
+        },
+        {
+          "name": "startTimer",
+          "line": 25,
+          "isDefault": false
+        },
+        {
+          "name": "stopTimer",
+          "line": 30,
+          "isDefault": false
+        },
+        {
+          "name": "getMsPassed",
+          "line": 45,
+          "isDefault": false
+        },
+        {
+          "name": "getAvgMsPassed",
+          "line": 58,
+          "isDefault": false
+        },
+        {
+          "name": "ProfilingSection",
+          "line": 6,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "ProfilingSection",
+          "callee": "new LinkedList<>",
+          "lineNumber": 20
+        },
+        {
+          "caller": "startTimer",
+          "callee": "System.currentTimeMillis",
+          "lineNumber": 27
+        },
+        {
+          "caller": "stopTimer",
+          "callee": "System.currentTimeMillis",
+          "lineNumber": 32
+        },
+        {
+          "caller": "stopTimer",
+          "callee": "this.pushToHistory",
+          "lineNumber": 38
+        },
+        {
+          "caller": "pushToHistory",
+          "callee": "this.history.addLast",
+          "lineNumber": 50
+        },
+        {
+          "caller": "pushToHistory",
+          "callee": "this.history.size",
+          "lineNumber": 53
+        },
+        {
+          "caller": "pushToHistory",
+          "callee": "this.history.removeFirst",
+          "lineNumber": 54
+        },
+        {
+          "caller": "getAvgMsPassed",
+          "callee": "this.history.isEmpty",
+          "lineNumber": 64
+        },
+        {
+          "caller": "getAvgMsPassed",
+          "callee": "this.history.size",
+          "lineNumber": 65
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 8,
+        "functionCount": 6,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/cr0s/javara/render/map/Mover.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 25,
+      "nonEmptyLines": 23,
+      "classes": [
+        {
+          "name": "Mover",
+          "startLine": 23,
+          "endLine": 25,
+          "methods": [],
+          "properties": []
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/cr0s/javara/render/map/TileReference.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 21,
+      "nonEmptyLines": 15,
+      "functions": [
+        {
+          "name": "TileReference",
+          "startLine": 8,
+          "endLine": 11,
+          "params": [
+            "aTile",
+            "aIndex"
+          ]
+        },
+        {
+          "name": "getTile",
+          "startLine": 13,
+          "endLine": 15,
+          "params": []
+        },
+        {
+          "name": "getIndex",
+          "startLine": 17,
+          "endLine": 19,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "TileReference",
+          "startLine": 3,
+          "endLine": 21,
+          "methods": [
+            "TileReference",
+            "getTile",
+            "getIndex"
+          ],
+          "properties": [
+            "tile",
+            "index"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "TileReference",
+          "line": 8,
+          "isDefault": false
+        },
+        {
+          "name": "getTile",
+          "line": 13,
+          "isDefault": false
+        },
+        {
+          "name": "getIndex",
+          "line": 17,
+          "isDefault": false
+        },
+        {
+          "name": "TileReference",
+          "line": 3,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 4,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/cr0s/javara/render/PathFindingContext.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 27,
+      "nonEmptyLines": 26,
+      "functions": [
+        {
+          "name": "getMover",
+          "startLine": 24,
+          "endLine": 26,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "PathFindingContext",
+          "startLine": 23,
+          "endLine": 27,
+          "methods": [
+            "getMover"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "PathFindingContext",
+          "line": 23,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/cr0s/javara/resources/RemappedTextureCache.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 68,
+      "nonEmptyLines": 57,
+      "functions": [
+        {
+          "name": "RemappedTextureCache",
+          "startLine": 17,
+          "endLine": 19,
+          "params": []
+        },
+        {
+          "name": "getInstance",
+          "startLine": 21,
+          "endLine": 27,
+          "params": []
+        },
+        {
+          "name": "checkInCache",
+          "startLine": 36,
+          "endLine": 46,
+          "params": [
+            "textureName",
+            "remapColor",
+            "textureIndex"
+          ]
+        },
+        {
+          "name": "putInCache",
+          "startLine": 55,
+          "endLine": 67,
+          "params": [
+            "image",
+            "textureName",
+            "remapColor",
+            "textureIndex"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "RemappedTextureCache",
+          "startLine": 13,
+          "endLine": 68,
+          "methods": [
+            "RemappedTextureCache",
+            "getInstance",
+            "checkInCache",
+            "putInCache"
+          ],
+          "properties": [
+            "instance",
+            "remappedTextures"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "getInstance",
+          "line": 21,
+          "isDefault": false
+        },
+        {
+          "name": "checkInCache",
+          "line": 36,
+          "isDefault": false
+        },
+        {
+          "name": "putInCache",
+          "line": 55,
+          "isDefault": false
+        },
+        {
+          "name": "RemappedTextureCache",
+          "line": 13,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "RemappedTextureCache",
+          "callee": "new WeakHashMap<>",
+          "lineNumber": 18
+        },
+        {
+          "caller": "getInstance",
+          "callee": "new RemappedTextureCache",
+          "lineNumber": 23
+        },
+        {
+          "caller": "checkInCache",
+          "callee": "Color.rgb",
+          "lineNumber": 40
+        },
+        {
+          "caller": "checkInCache",
+          "callee": "Double.toString",
+          "lineNumber": 43
+        },
+        {
+          "caller": "checkInCache",
+          "callee": "remapColor.getRed",
+          "lineNumber": 43
+        },
+        {
+          "caller": "checkInCache",
+          "callee": "Double.toString",
+          "lineNumber": 43
+        },
+        {
+          "caller": "checkInCache",
+          "callee": "remapColor.getGreen",
+          "lineNumber": 43
+        },
+        {
+          "caller": "checkInCache",
+          "callee": "Double.toString",
+          "lineNumber": 43
+        },
+        {
+          "caller": "checkInCache",
+          "callee": "remapColor.getBlue",
+          "lineNumber": 43
+        },
+        {
+          "caller": "checkInCache",
+          "callee": "remappedTextures.get",
+          "lineNumber": 45
+        },
+        {
+          "caller": "putInCache",
+          "callee": "Color.rgb",
+          "lineNumber": 57
+        },
+        {
+          "caller": "putInCache",
+          "callee": "Double.toString",
+          "lineNumber": 60
+        },
+        {
+          "caller": "putInCache",
+          "callee": "remapColor.getRed",
+          "lineNumber": 60
+        },
+        {
+          "caller": "putInCache",
+          "callee": "Double.toString",
+          "lineNumber": 60
+        },
+        {
+          "caller": "putInCache",
+          "callee": "remapColor.getGreen",
+          "lineNumber": 60
+        },
+        {
+          "caller": "putInCache",
+          "callee": "Double.toString",
+          "lineNumber": 60
+        },
+        {
+          "caller": "putInCache",
+          "callee": "remapColor.getBlue",
+          "lineNumber": 60
+        },
+        {
+          "caller": "putInCache",
+          "callee": "this.remappedTextures.containsKey",
+          "lineNumber": 62
+        },
+        {
+          "caller": "putInCache",
+          "callee": "this.remappedTextures.put",
+          "lineNumber": 63
+        },
+        {
+          "caller": "putInCache",
+          "callee": "System.err.println",
+          "lineNumber": 65
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 4,
+        "functionCount": 4,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/cr0s/javara/ui/SideBarPageCategory.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 16,
+      "nonEmptyLines": 15,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/mazesolver/Main.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 53,
+      "nonEmptyLines": 40,
+      "functions": [
+        {
+          "name": "main",
+          "startLine": 15,
+          "endLine": 17,
+          "params": [
+            "args"
+          ]
+        },
+        {
+          "name": "start",
+          "startLine": 19,
+          "endLine": 51,
+          "params": [
+            "stage"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Main",
+          "startLine": 9,
+          "endLine": 53,
+          "methods": [
+            "main",
+            "start"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "main",
+          "line": 15,
+          "isDefault": false
+        },
+        {
+          "name": "start",
+          "line": 19,
+          "isDefault": false
+        },
+        {
+          "name": "Main",
+          "line": 9,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "main",
+          "callee": "launch",
+          "lineNumber": 16
+        },
+        {
+          "caller": "start",
+          "callee": "Maze.readMaze",
+          "lineNumber": 22
+        },
+        {
+          "caller": "start",
+          "callee": "Helper.log",
+          "lineNumber": 29
+        },
+        {
+          "caller": "start",
+          "callee": "maze.getWidth",
+          "lineNumber": 30
+        },
+        {
+          "caller": "start",
+          "callee": "maze.getHeight",
+          "lineNumber": 30
+        },
+        {
+          "caller": "start",
+          "callee": "maze.getHeight",
+          "lineNumber": 32
+        },
+        {
+          "caller": "start",
+          "callee": "maze.getWidth",
+          "lineNumber": 32
+        },
+        {
+          "caller": "start",
+          "callee": "new Director",
+          "lineNumber": 35
+        },
+        {
+          "caller": "start",
+          "callee": "new Graphics",
+          "lineNumber": 38
+        },
+        {
+          "caller": "start",
+          "callee": "graphics.start",
+          "lineNumber": 39
+        },
+        {
+          "caller": "start",
+          "callee": "Helper.log",
+          "lineNumber": 41
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/mazesolver/Route.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 158,
+      "nonEmptyLines": 129,
+      "functions": [
+        {
+          "name": "Route",
+          "startLine": 15,
+          "endLine": 21,
+          "params": [
+            "length"
+          ]
+        },
+        {
+          "name": "getBestOrder",
+          "startLine": 27,
+          "endLine": 29,
+          "params": []
+        },
+        {
+          "name": "updateBestOrder",
+          "startLine": 35,
+          "endLine": 39,
+          "params": [
+            "order"
+          ]
+        },
+        {
+          "name": "getRouteLength",
+          "startLine": 46,
+          "endLine": 53,
+          "params": [
+            "order"
+          ]
+        },
+        {
+          "name": "setLengthMatrix",
+          "startLine": 59,
+          "endLine": 61,
+          "params": [
+            "lengthMatrix"
+          ]
+        },
+        {
+          "name": "findRoute",
+          "startLine": 67,
+          "endLine": 74,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "Route",
+          "startLine": 6,
+          "endLine": 158,
+          "methods": [
+            "Route",
+            "getBestOrder",
+            "updateBestOrder",
+            "getRouteLength",
+            "setLengthMatrix",
+            "findRoute"
+          ],
+          "properties": [
+            "bestOrder",
+            "initOrder",
+            "lengthMatrix",
+            "population"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Route",
+          "line": 15,
+          "isDefault": false
+        },
+        {
+          "name": "getBestOrder",
+          "line": 27,
+          "isDefault": false
+        },
+        {
+          "name": "updateBestOrder",
+          "line": 35,
+          "isDefault": false
+        },
+        {
+          "name": "getRouteLength",
+          "line": 46,
+          "isDefault": false
+        },
+        {
+          "name": "setLengthMatrix",
+          "line": 59,
+          "isDefault": false
+        },
+        {
+          "name": "findRoute",
+          "line": 67,
+          "isDefault": false
+        },
+        {
+          "name": "Route",
+          "line": 6,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "getBestOrder",
+          "callee": "bestOrder.clone",
+          "lineNumber": 28
+        },
+        {
+          "caller": "updateBestOrder",
+          "callee": "getRouteLength",
+          "lineNumber": 37
+        },
+        {
+          "caller": "updateBestOrder",
+          "callee": "getRouteLength",
+          "lineNumber": 37
+        },
+        {
+          "caller": "updateBestOrder",
+          "callee": "order.clone",
+          "lineNumber": 38
+        },
+        {
+          "caller": "findRoute",
+          "callee": "Helper.shuffle",
+          "lineNumber": 70
+        },
+        {
+          "caller": "findRoute",
+          "callee": "new Thread",
+          "lineNumber": 73
+        },
+        {
+          "caller": "findRoute",
+          "callee": "new RouteLogic",
+          "lineNumber": 73
+        },
+        {
+          "caller": "run",
+          "callee": "Helper.debug",
+          "lineNumber": 83
+        },
+        {
+          "caller": "run",
+          "callee": "Thread.currentThread().getName",
+          "lineNumber": 83
+        },
+        {
+          "caller": "run",
+          "callee": "Thread.currentThread",
+          "lineNumber": 83
+        },
+        {
+          "caller": "run",
+          "callee": "getRouteLength",
+          "lineNumber": 96
+        },
+        {
+          "caller": "run",
+          "callee": "getRouteLength",
+          "lineNumber": 101
+        },
+        {
+          "caller": "run",
+          "callee": "updateBestOrder",
+          "lineNumber": 109
+        },
+        {
+          "caller": "run",
+          "callee": "Math.random",
+          "lineNumber": 124
+        },
+        {
+          "caller": "run",
+          "callee": "Math.random",
+          "lineNumber": 136
+        },
+        {
+          "caller": "run",
+          "callee": "Math.random",
+          "lineNumber": 137
+        },
+        {
+          "caller": "run",
+          "callee": "Helper.crossover",
+          "lineNumber": 138
+        },
+        {
+          "caller": "run",
+          "callee": "Math.random",
+          "lineNumber": 142
+        },
+        {
+          "caller": "run",
+          "callee": "Helper.invert",
+          "lineNumber": 143
+        },
+        {
+          "caller": "run",
+          "callee": "Math.random",
+          "lineNumber": 144
+        },
+        {
+          "caller": "run",
+          "callee": "Helper.shuffle",
+          "lineNumber": 145
+        },
+        {
+          "caller": "run",
+          "callee": "Math.random",
+          "lineNumber": 146
+        },
+        {
+          "caller": "run",
+          "callee": "Helper.swap",
+          "lineNumber": 147
+        },
+        {
+          "caller": "run",
+          "callee": "Helper.debug",
+          "lineNumber": 155
+        },
+        {
+          "caller": "run",
+          "callee": "Thread.currentThread().getName",
+          "lineNumber": 155
+        },
+        {
+          "caller": "run",
+          "callee": "Thread.currentThread",
+          "lineNumber": 155
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 7,
+        "functionCount": 6,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/mazesolver/Settings.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 89,
+      "nonEmptyLines": 70,
+      "classes": [
+        {
+          "name": "Settings",
+          "startLine": 6,
+          "endLine": 89,
+          "methods": [],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "Settings",
+          "line": 6,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/module-info.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 30,
+      "nonEmptyLines": 28,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/net/pso/jswarm/alpine/ExampleRepulsive.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 42,
+      "nonEmptyLines": 33,
+      "functions": [
+        {
+          "name": "main",
+          "startLine": 16,
+          "endLine": 40,
+          "params": [
+            "args"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "ExampleRepulsive",
+          "startLine": 11,
+          "endLine": 42,
+          "methods": [
+            "main"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "main",
+          "line": 16,
+          "isDefault": false
+        },
+        {
+          "name": "ExampleRepulsive",
+          "line": 11,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "main",
+          "callee": "System.out.println",
+          "lineNumber": 17
+        },
+        {
+          "caller": "main",
+          "callee": "new SwarmRepulsive",
+          "lineNumber": 20
+        },
+        {
+          "caller": "main",
+          "callee": "new MyParticle",
+          "lineNumber": 20
+        },
+        {
+          "caller": "main",
+          "callee": "new MyFitnessFunction",
+          "lineNumber": 20
+        },
+        {
+          "caller": "main",
+          "callee": "swarm.setInertia",
+          "lineNumber": 23
+        },
+        {
+          "caller": "main",
+          "callee": "swarm.setMaxPosition",
+          "lineNumber": 24
+        },
+        {
+          "caller": "main",
+          "callee": "swarm.setMinPosition",
+          "lineNumber": 25
+        },
+        {
+          "caller": "main",
+          "callee": "swarm.setMaxMinVelocity",
+          "lineNumber": 26
+        },
+        {
+          "caller": "main",
+          "callee": "swarm.evolve",
+          "lineNumber": 32
+        },
+        {
+          "caller": "main",
+          "callee": "System.out.println",
+          "lineNumber": 35
+        },
+        {
+          "caller": "main",
+          "callee": "swarm.toStringStats",
+          "lineNumber": 35
+        },
+        {
+          "caller": "main",
+          "callee": "System.out.println",
+          "lineNumber": 36
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/net/pso/jswarm/Attic/example_2/Attic/DrawingArea.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 68,
+      "nonEmptyLines": 55,
+      "functions": [
+        {
+          "name": "DrawingArea",
+          "startLine": 23,
+          "endLine": 27,
+          "params": [
+            "controller"
+          ]
+        },
+        {
+          "name": "clear",
+          "startLine": 34,
+          "endLine": 36,
+          "params": []
+        },
+        {
+          "name": "getPreferredSize",
+          "startLine": 39,
+          "endLine": 42,
+          "params": []
+        },
+        {
+          "name": "paintComponent",
+          "startLine": 45,
+          "endLine": 52,
+          "params": [
+            "g"
+          ]
+        },
+        {
+          "name": "runSwarm",
+          "startLine": 55,
+          "endLine": 61,
+          "params": []
+        },
+        {
+          "name": "showSwarm",
+          "startLine": 64,
+          "endLine": 66,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "DrawingArea",
+          "startLine": 14,
+          "endLine": 68,
+          "methods": [
+            "DrawingArea",
+            "clear",
+            "getPreferredSize",
+            "paintComponent",
+            "runSwarm",
+            "showSwarm"
+          ],
+          "properties": [
+            "controller",
+            "preferredSize"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "DrawingArea",
+          "line": 23,
+          "isDefault": false
+        },
+        {
+          "name": "clear",
+          "line": 34,
+          "isDefault": false
+        },
+        {
+          "name": "getPreferredSize",
+          "line": 39,
+          "isDefault": false
+        },
+        {
+          "name": "DrawingArea",
+          "line": 14,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "DrawingArea",
+          "callee": "setBackground",
+          "lineNumber": 25
+        },
+        {
+          "caller": "DrawingArea",
+          "callee": "setOpaque",
+          "lineNumber": 26
+        },
+        {
+          "caller": "clear",
+          "callee": "paintComponent",
+          "lineNumber": 35
+        },
+        {
+          "caller": "clear",
+          "callee": "this.getGraphics",
+          "lineNumber": 35
+        },
+        {
+          "caller": "getPreferredSize",
+          "callee": "controller.getPreferredSize",
+          "lineNumber": 41
+        },
+        {
+          "caller": "paintComponent",
+          "callee": "isOpaque",
+          "lineNumber": 48
+        },
+        {
+          "caller": "paintComponent",
+          "callee": "g.setColor",
+          "lineNumber": 49
+        },
+        {
+          "caller": "paintComponent",
+          "callee": "getBackground",
+          "lineNumber": 49
+        },
+        {
+          "caller": "paintComponent",
+          "callee": "g.fillRect",
+          "lineNumber": 50
+        },
+        {
+          "caller": "paintComponent",
+          "callee": "getWidth",
+          "lineNumber": 50
+        },
+        {
+          "caller": "paintComponent",
+          "callee": "getHeight",
+          "lineNumber": 50
+        },
+        {
+          "caller": "runSwarm",
+          "callee": "new SwarmThread",
+          "lineNumber": 56
+        },
+        {
+          "caller": "runSwarm",
+          "callee": "thread.start",
+          "lineNumber": 57
+        },
+        {
+          "caller": "runSwarm",
+          "callee": "thread.join",
+          "lineNumber": 59
+        },
+        {
+          "caller": "showSwarm",
+          "callee": "controller.getSwarm().show",
+          "lineNumber": 65
+        },
+        {
+          "caller": "showSwarm",
+          "callee": "controller.getSwarm",
+          "lineNumber": 65
+        },
+        {
+          "caller": "showSwarm",
+          "callee": "getGraphics",
+          "lineNumber": 65
+        },
+        {
+          "caller": "showSwarm",
+          "callee": "getForeground",
+          "lineNumber": 65
+        },
+        {
+          "caller": "showSwarm",
+          "callee": "getWidth",
+          "lineNumber": 65
+        },
+        {
+          "caller": "showSwarm",
+          "callee": "getHeight",
+          "lineNumber": 65
+        },
+        {
+          "caller": "showSwarm",
+          "callee": "controller.getShowDimention0",
+          "lineNumber": 65
+        },
+        {
+          "caller": "showSwarm",
+          "callee": "controller.getShowDimention1",
+          "lineNumber": 65
+        },
+        {
+          "caller": "showSwarm",
+          "callee": "controller.isShowVelocity",
+          "lineNumber": 65
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 4,
+        "functionCount": 6,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/net/pso/jswarm/Attic/example_2/Attic/SwarmThread.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 50,
+      "nonEmptyLines": 41,
+      "functions": [
+        {
+          "name": "SwarmThread",
+          "startLine": 17,
+          "endLine": 20,
+          "params": [
+            "controller"
+          ]
+        },
+        {
+          "name": "run",
+          "startLine": 27,
+          "endLine": 48,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "SwarmThread",
+          "startLine": 8,
+          "endLine": 50,
+          "methods": [
+            "SwarmThread",
+            "run"
+          ],
+          "properties": [
+            "controller"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "SwarmThread",
+          "line": 17,
+          "isDefault": false
+        },
+        {
+          "name": "run",
+          "line": 27,
+          "isDefault": false
+        },
+        {
+          "name": "SwarmThread",
+          "line": 8,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "run",
+          "callee": "controller.getNumberOfIterations",
+          "lineNumber": 29
+        },
+        {
+          "caller": "run",
+          "callee": "controller.getDisplayRefresh",
+          "lineNumber": 31
+        },
+        {
+          "caller": "run",
+          "callee": "controller.setMessage",
+          "lineNumber": 32
+        },
+        {
+          "caller": "run",
+          "callee": "controller.getSwarm().getBestFitness",
+          "lineNumber": 32
+        },
+        {
+          "caller": "run",
+          "callee": "controller.getSwarm",
+          "lineNumber": 32
+        },
+        {
+          "caller": "run",
+          "callee": "controller.showSwarm",
+          "lineNumber": 34
+        },
+        {
+          "caller": "run",
+          "callee": "controller.getSwarm().evolve",
+          "lineNumber": 38
+        },
+        {
+          "caller": "run",
+          "callee": "controller.getSwarm",
+          "lineNumber": 38
+        },
+        {
+          "caller": "run",
+          "callee": "Thread.sleep",
+          "lineNumber": 41
+        },
+        {
+          "caller": "run",
+          "callee": "Thread.currentThread().interrupt",
+          "lineNumber": 44
+        },
+        {
+          "caller": "run",
+          "callee": "Thread.currentThread",
+          "lineNumber": 44
+        },
+        {
+          "caller": "run",
+          "callee": "controller.setMessage",
+          "lineNumber": 47
+        },
+        {
+          "caller": "run",
+          "callee": "controller.getSwarm().getBestFitness",
+          "lineNumber": 47
+        },
+        {
+          "caller": "run",
+          "callee": "controller.getSwarm",
+          "lineNumber": 47
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/net/pso/jswarm/Attic/Example.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 35,
+      "nonEmptyLines": 29,
+      "functions": [
+        {
+          "name": "main",
+          "startLine": 17,
+          "endLine": 34,
+          "params": [
+            "args"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Example",
+          "startLine": 12,
+          "endLine": 35,
+          "methods": [
+            "main"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "main",
+          "line": 17,
+          "isDefault": false
+        },
+        {
+          "name": "Example",
+          "line": 12,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "main",
+          "callee": "System.out.println",
+          "lineNumber": 18
+        },
+        {
+          "caller": "main",
+          "callee": "new Swarm",
+          "lineNumber": 21
+        },
+        {
+          "caller": "main",
+          "callee": "new MyParticle",
+          "lineNumber": 21
+        },
+        {
+          "caller": "main",
+          "callee": "new MyFitnessFunction",
+          "lineNumber": 21
+        },
+        {
+          "caller": "main",
+          "callee": "swarm.setMaxPosition",
+          "lineNumber": 24
+        },
+        {
+          "caller": "main",
+          "callee": "swarm.setMinPosition",
+          "lineNumber": 25
+        },
+        {
+          "caller": "main",
+          "callee": "swarm.evolve",
+          "lineNumber": 29
+        },
+        {
+          "caller": "main",
+          "callee": "System.out.println",
+          "lineNumber": 32
+        },
+        {
+          "caller": "main",
+          "callee": "swarm.toStringStats",
+          "lineNumber": 32
+        },
+        {
+          "caller": "main",
+          "callee": "System.out.println",
+          "lineNumber": 33
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/net/pso/jswarm/example_1/Example.java,v",
+      "language": "java,v",
+      "fileCategory": "code",
+      "totalLines": 194,
+      "nonEmptyLines": 164,
+      "metrics": {}
+    },
+    {
+      "path": "src/net/pso/jswarm/example_1/MyParticle.java,v",
+      "language": "java,v",
+      "fileCategory": "code",
+      "totalLines": 55,
+      "nonEmptyLines": 42,
+      "metrics": {}
+    }
+  ]
+}

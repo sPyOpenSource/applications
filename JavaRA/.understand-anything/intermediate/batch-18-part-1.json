@@ -1,0 +1,480 @@
+{
+  "nodes": [
+    {
+      "id": "config:maps/forest-path/map.yaml",
+      "type": "config",
+      "name": "map.yaml",
+      "filePath": "maps/forest-path/map.yaml",
+      "summary": "Map configuration file for the Forest Path level, defining tilesets, bounds, and actor spawns.",
+      "tags": ["configuration", "map-data", "level-design"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:maps/haos-ridges/map.bin",
+      "type": "file",
+      "name": "map.bin",
+      "filePath": "maps/haos-ridges/map.bin",
+      "summary": "Binary map data file for Haos Ridges.",
+      "tags": ["binary-data", "map-data"],
+      "complexity": "complex"
+    },
+    {
+      "id": "config:maps/haos-ridges/map.yaml",
+      "type": "config",
+      "name": "map.yaml",
+      "filePath": "maps/haos-ridges/map.yaml",
+      "summary": "Map configuration file for the Haos Ridges level, containing detailed map properties and spawns.",
+      "tags": ["configuration", "map-data", "level-design"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/cr0s/javara/ai/StateMachine.java",
+      "type": "file",
+      "name": "StateMachine.java",
+      "filePath": "src/cr0s/javara/ai/StateMachine.java",
+      "summary": "Implements a basic state machine to manage AI behavior for squads.",
+      "tags": ["ai", "state-machine", "logic"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/cr0s/javara/ai/StateMachine.java:StateMachine",
+      "type": "class",
+      "name": "StateMachine",
+      "filePath": "src/cr0s/javara/ai/StateMachine.java",
+      "lineRange": [3, 40],
+      "summary": "Core state machine class that handles state transitions and updates.",
+      "tags": ["ai", "logic"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/ai/StateMachine.java:update",
+      "type": "function",
+      "name": "update",
+      "filePath": "src/cr0s/javara/ai/StateMachine.java",
+      "lineRange": [12, 16],
+      "summary": "Ticks the current state of the state machine.",
+      "tags": ["ai", "update-loop"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/ai/StateMachine.java:changeState",
+      "type": "function",
+      "name": "changeState",
+      "filePath": "src/cr0s/javara/ai/StateMachine.java",
+      "lineRange": [18, 32],
+      "summary": "Transitions the state machine to a new state, optionally remembering the previous one.",
+      "tags": ["ai", "state-transition"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/combat/attack/UnitStance.java",
+      "type": "file",
+      "name": "UnitStance.java",
+      "filePath": "src/cr0s/javara/combat/attack/UnitStance.java",
+      "summary": "Defines the combat stance of a unit.",
+      "tags": ["combat", "data-model"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/combat/DamageModel.java",
+      "type": "file",
+      "name": "DamageModel.java",
+      "filePath": "src/cr0s/javara/combat/DamageModel.java",
+      "summary": "Defines the damage calculation model for combat.",
+      "tags": ["combat", "logic"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/entity/building/china/package.bluej",
+      "type": "file",
+      "name": "package.bluej",
+      "filePath": "src/cr0s/javara/entity/building/china/package.bluej",
+      "summary": "BlueJ package project file for China building entities.",
+      "tags": ["project-config", "bluej"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/cr0s/javara/entity/INotifyBlockingMove.java",
+      "type": "file",
+      "name": "INotifyBlockingMove.java",
+      "filePath": "src/cr0s/javara/entity/INotifyBlockingMove.java",
+      "summary": "Interface for entities that can be notified when a move is blocked.",
+      "tags": ["interface", "movement", "entity"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/cr0s/javara/entity/INotifyBlockingMove.java:INotifyBlockingMove",
+      "type": "class",
+      "name": "INotifyBlockingMove",
+      "filePath": "src/cr0s/javara/entity/INotifyBlockingMove.java",
+      "lineRange": [3, 9],
+      "summary": "Interface defining the notification mechanism for blocked moves.",
+      "tags": ["interface", "movement"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/main/StateLoadingScreen.java",
+      "type": "file",
+      "name": "StateLoadingScreen.java",
+      "filePath": "src/cr0s/javara/main/StateLoadingScreen.java",
+      "summary": "Handles the loading screen state, including UI initialization and progress updates.",
+      "tags": ["ui", "entry-point", "loading"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/cr0s/javara/main/StateLoadingScreen.java:StateLoadingScreen",
+      "type": "class",
+      "name": "StateLoadingScreen",
+      "filePath": "src/cr0s/javara/main/StateLoadingScreen.java",
+      "lineRange": [13, 95],
+      "summary": "Class representing the loading screen state with JavaFX UI components.",
+      "tags": ["ui", "javafx"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/main/StateLoadingScreen.java:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "src/cr0s/javara/main/StateLoadingScreen.java",
+      "lineRange": [38, 40],
+      "summary": "Main entry point for launching the loading screen.",
+      "tags": ["entry-point"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/main/StateLoadingScreen.java:init",
+      "type": "function",
+      "name": "init",
+      "filePath": "src/cr0s/javara/main/StateLoadingScreen.java",
+      "lineRange": [46, 51],
+      "summary": "Initializes the loading screen state.",
+      "tags": ["initialization"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/main/StateLoadingScreen.java:start",
+      "type": "function",
+      "name": "start",
+      "filePath": "src/cr0s/javara/main/StateLoadingScreen.java",
+      "lineRange": [53, 73],
+      "summary": "Sets up the JavaFX stage and UI elements for the loading screen.",
+      "tags": ["ui", "javafx"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/main/StateLoadingScreen.java:update",
+      "type": "function",
+      "name": "update",
+      "filePath": "src/cr0s/javara/main/StateLoadingScreen.java",
+      "lineRange": [75, 93],
+      "summary": "Updates the loading screen progress and UI.",
+      "tags": ["update-loop"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/perfomance/ProfilingSection.java",
+      "type": "file",
+      "name": "ProfilingSection.java",
+      "filePath": "src/cr0s/javara/perfomance/ProfilingSection.java",
+      "summary": "Provides utilities for profiling code execution time and maintaining a history of measurements.",
+      "tags": ["performance", "utility", "profiling"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/cr0s/javara/perfomance/ProfilingSection.java:ProfilingSection",
+      "type": "class",
+      "name": "ProfilingSection",
+      "filePath": "src/cr0s/javara/perfomance/ProfilingSection.java",
+      "lineRange": [6, 70],
+      "summary": "Class for measuring execution time of code sections with history tracking.",
+      "tags": ["performance", "utility"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/perfomance/ProfilingSection.java:startTimer",
+      "type": "function",
+      "name": "startTimer",
+      "filePath": "src/cr0s/javara/perfomance/ProfilingSection.java",
+      "lineRange": [25, 28],
+      "summary": "Starts the timer for the current profiling section.",
+      "tags": ["utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/perfomance/ProfilingSection.java:stopTimer",
+      "type": "function",
+      "name": "stopTimer",
+      "filePath": "src/cr0s/javara/perfomance/ProfilingSection.java",
+      "lineRange": [30, 43],
+      "summary": "Stops the timer and records the elapsed time into history.",
+      "tags": ["utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/perfomance/ProfilingSection.java:getMsPassed",
+      "type": "function",
+      "name": "getMsPassed",
+      "filePath": "src/cr0s/javara/perfomance/ProfilingSection.java",
+      "lineRange": [45, 47],
+      "summary": "Returns the milliseconds passed since the timer started.",
+      "tags": ["utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/perfomance/ProfilingSection.java:pushToHistory",
+      "type": "function",
+      "name": "pushToHistory",
+      "filePath": "src/cr0s/javara/perfomance/ProfilingSection.java",
+      "lineRange": [49, 56],
+      "summary": "Adds a new measurement to the history, maintaining a maximum size.",
+      "tags": ["utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/perfomance/ProfilingSection.java:getAvgMsPassed",
+      "type": "function",
+      "name": "getAvgMsPassed",
+      "filePath": "src/cr0s/javara/perfomance/ProfilingSection.java",
+      "lineRange": [58, 69],
+      "summary": "Calculates the average execution time from the recorded history.",
+      "tags": ["utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/render/map/Mover.java",
+      "type": "file",
+      "name": "Mover.java",
+      "filePath": "src/cr0s/javara/render/map/Mover.java",
+      "summary": "Defines a mover entity for map rendering.",
+      "tags": ["render", "entity"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/cr0s/javara/render/map/Mover.java:Mover",
+      "type": "class",
+      "name": "Mover",
+      "filePath": "src/cr0s/javara/render/map/Mover.java",
+      "lineRange": [23, 25],
+      "summary": "Class representing a movable entity on the map.",
+      "tags": ["render", "entity"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/render/map/TileReference.java",
+      "type": "file",
+      "name": "TileReference.java",
+      "filePath": "src/cr0s/javara/render/map/TileReference.java",
+      "summary": "Provides a way to reference a specific tile and its index on the map.",
+      "tags": ["render", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/cr0s/javara/render/map/TileReference.java:TileReference",
+      "type": "class",
+      "name": "TileReference",
+      "filePath": "src/cr0s/javara/render/map/TileReference.java",
+      "lineRange": [3, 21],
+      "summary": "Class that associates a tile with its index.",
+      "tags": ["render", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/map/TileReference.java:getTile",
+      "type": "function",
+      "name": "getTile",
+      "filePath": "src/cr0s/javara/render/map/TileReference.java",
+      "lineRange": [13, 15],
+      "summary": "Retrieves the referenced tile.",
+      "tags": ["utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/map/TileReference.java:getIndex",
+      "type": "function",
+      "name": "getIndex",
+      "filePath": "src/cr0s/javara/render/map/TileReference.java",
+      "lineRange": [17, 19],
+      "summary": "Retrieves the index of the referenced tile.",
+      "tags": ["utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/render/PathFindingContext.java",
+      "type": "file",
+      "name": "PathFindingContext.java",
+      "filePath": "src/cr0s/javara/render/PathFindingContext.java",
+      "summary": "Maintains the context required for pathfinding operations on the map.",
+      "tags": ["render", "path-finding", "context"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/cr0s/javara/render/PathFindingContext.java:PathFindingContext",
+      "type": "class",
+      "name": "PathFindingContext",
+      "filePath": "src/cr0s/javara/render/PathFindingContext.java",
+      "lineRange": [23, 27],
+      "summary": "Context class for pathfinding, providing access to movers.",
+      "tags": ["render", "path-finding"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/render/PathFindingContext.java:getMover",
+      "type": "function",
+      "name": "getMover",
+      "filePath": "src/cr0s/javara/render/PathFindingContext.java",
+      "lineRange": [24, 26],
+      "summary": "Returns the mover associated with the context.",
+      "tags": ["utility"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/cr0s/javara/ai/StateMachine.java",
+      "target": "class:src/cr0s/javara/ai/StateMachine.java:StateMachine",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/StateMachine.java",
+      "target": "function:src/cr0s/javara/ai/StateMachine.java:update",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/ai/StateMachine.java",
+      "target": "function:src/cr0s/javara/ai/StateMachine.java:changeState",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/entity/INotifyBlockingMove.java",
+      "target": "class:src/cr0s/javara/entity/INotifyBlockingMove.java:INotifyBlockingMove",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StateLoadingScreen.java",
+      "target": "class:src/cr0s/javara/main/StateLoadingScreen.java:StateLoadingScreen",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StateLoadingScreen.java",
+      "target": "function:src/cr0s/javara/main/StateLoadingScreen.java:main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StateLoadingScreen.java",
+      "target": "function:src/cr0s/javara/main/StateLoadingScreen.java:init",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StateLoadingScreen.java",
+      "target": "function:src/cr0s/javara/main/StateLoadingScreen.java:start",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/main/StateLoadingScreen.java",
+      "target": "function:src/cr0s/javara/main/StateLoadingScreen.java:update",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/perfomance/ProfilingSection.java",
+      "target": "class:src/cr0s/javara/perfomance/ProfilingSection.java:ProfilingSection",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/perfomance/ProfilingSection.java",
+      "target": "function:src/cr0s/javara/perfomance/ProfilingSection.java:startTimer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/perfomance/ProfilingSection.java",
+      "target": "function:src/cr0s/javara/perfomance/ProfilingSection.java:stopTimer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/perfomance/ProfilingSection.java",
+      "target": "function:src/cr0s/javara/perfomance/ProfilingSection.java:getMsPassed",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/perfomance/ProfilingSection.java",
+      "target": "function:src/cr0s/javara/perfomance/ProfilingSection.java:pushToHistory",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/perfomance/ProfilingSection.java",
+      "target": "function:src/cr0s/javara/perfomance/ProfilingSection.java:getAvgMsPassed",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/Mover.java",
+      "target": "class:src/cr0s/javara/render/map/Mover.java:Mover",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/TileReference.java",
+      "target": "class:src/cr0s/javara/render/map/TileReference.java:TileReference",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/TileReference.java",
+      "target": "function:src/cr0s/javara/render/map/TileReference.java:getTile",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/render/map/TileReference.java",
+      "target": "function:src/cr0s/javara/render/map/TileReference.java:getIndex",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/render/PathFindingContext.java",
+      "target": "class:src/cr0s/javara/render/PathFindingContext.java:PathFindingContext",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/render/PathFindingContext.java",
+      "target": "function:src/cr0s/javara/render/PathFindingContext.java:getMover",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    }
+  ]
+}

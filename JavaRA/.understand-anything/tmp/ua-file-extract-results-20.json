@@ -1,0 +1,153 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 1,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "test/test/ClassTest.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 55,
+      "nonEmptyLines": 52,
+      "functions": [
+        {
+          "name": "y2j",
+          "startLine": 31,
+          "endLine": 54,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "ClassTest",
+          "startLine": 30,
+          "endLine": 55,
+          "methods": [
+            "y2j"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "y2j",
+          "line": 31,
+          "isDefault": false
+        },
+        {
+          "name": "ClassTest",
+          "line": 30,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "y2j",
+          "callee": "Files.readString",
+          "lineNumber": 34
+        },
+        {
+          "caller": "y2j",
+          "callee": "Paths.get",
+          "lineNumber": 34
+        },
+        {
+          "caller": "y2j",
+          "callee": "code.replace",
+          "lineNumber": 35
+        },
+        {
+          "caller": "y2j",
+          "callee": "code.replace",
+          "lineNumber": 36
+        },
+        {
+          "caller": "y2j",
+          "callee": "code.replace",
+          "lineNumber": 37
+        },
+        {
+          "caller": "y2j",
+          "callee": "code.replace",
+          "lineNumber": 38
+        },
+        {
+          "caller": "y2j",
+          "callee": "code.replace",
+          "lineNumber": 39
+        },
+        {
+          "caller": "y2j",
+          "callee": "code.replace",
+          "lineNumber": 40
+        },
+        {
+          "caller": "y2j",
+          "callee": "code.replace",
+          "lineNumber": 41
+        },
+        {
+          "caller": "y2j",
+          "callee": "code.replace",
+          "lineNumber": 42
+        },
+        {
+          "caller": "y2j",
+          "callee": "code.replaceFirst",
+          "lineNumber": 43
+        },
+        {
+          "caller": "y2j",
+          "callee": "code.replace",
+          "lineNumber": 44
+        },
+        {
+          "caller": "y2j",
+          "callee": "code.replace",
+          "lineNumber": 46
+        },
+        {
+          "caller": "y2j",
+          "callee": "System.out.println",
+          "lineNumber": 47
+        },
+        {
+          "caller": "y2j",
+          "callee": "new JSONObject",
+          "lineNumber": 48
+        },
+        {
+          "caller": "y2j",
+          "callee": "System.out.println",
+          "lineNumber": 49
+        },
+        {
+          "caller": "y2j",
+          "callee": "object.toString",
+          "lineNumber": 49
+        },
+        {
+          "caller": "y2j",
+          "callee": "System.getLogger(ClassTest.class.getName()).log",
+          "lineNumber": 51
+        },
+        {
+          "caller": "y2j",
+          "callee": "System.getLogger",
+          "lineNumber": 51
+        },
+        {
+          "caller": "y2j",
+          "callee": "ClassTest.class.getName",
+          "lineNumber": 51
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    }
+  ]
+}

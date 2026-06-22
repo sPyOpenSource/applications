@@ -1,0 +1,4129 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 25,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "src/net/pso/jswarm/example_2/DrawingArea.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 67,
+      "nonEmptyLines": 54,
+      "functions": [
+        {
+          "name": "DrawingArea",
+          "startLine": 23,
+          "endLine": 27,
+          "params": [
+            "controller"
+          ]
+        },
+        {
+          "name": "clear",
+          "startLine": 34,
+          "endLine": 36,
+          "params": []
+        },
+        {
+          "name": "getPreferredSize",
+          "startLine": 39,
+          "endLine": 41,
+          "params": []
+        },
+        {
+          "name": "paintComponent",
+          "startLine": 44,
+          "endLine": 50,
+          "params": [
+            "g"
+          ]
+        },
+        {
+          "name": "runSwarm",
+          "startLine": 53,
+          "endLine": 60,
+          "params": []
+        },
+        {
+          "name": "showSwarm",
+          "startLine": 63,
+          "endLine": 65,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "DrawingArea",
+          "startLine": 14,
+          "endLine": 67,
+          "methods": [
+            "DrawingArea",
+            "clear",
+            "getPreferredSize",
+            "paintComponent",
+            "runSwarm",
+            "showSwarm"
+          ],
+          "properties": [
+            "controller",
+            "preferredSize"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "DrawingArea",
+          "line": 23,
+          "isDefault": false
+        },
+        {
+          "name": "clear",
+          "line": 34,
+          "isDefault": false
+        },
+        {
+          "name": "getPreferredSize",
+          "line": 39,
+          "isDefault": false
+        },
+        {
+          "name": "DrawingArea",
+          "line": 14,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "DrawingArea",
+          "callee": "setBackground",
+          "lineNumber": 25
+        },
+        {
+          "caller": "DrawingArea",
+          "callee": "setOpaque",
+          "lineNumber": 26
+        },
+        {
+          "caller": "clear",
+          "callee": "paintComponent",
+          "lineNumber": 35
+        },
+        {
+          "caller": "clear",
+          "callee": "this.getGraphics",
+          "lineNumber": 35
+        },
+        {
+          "caller": "getPreferredSize",
+          "callee": "controller.getPreferredSize",
+          "lineNumber": 40
+        },
+        {
+          "caller": "paintComponent",
+          "callee": "isOpaque",
+          "lineNumber": 46
+        },
+        {
+          "caller": "paintComponent",
+          "callee": "g.setColor",
+          "lineNumber": 47
+        },
+        {
+          "caller": "paintComponent",
+          "callee": "getBackground",
+          "lineNumber": 47
+        },
+        {
+          "caller": "paintComponent",
+          "callee": "g.fillRect",
+          "lineNumber": 48
+        },
+        {
+          "caller": "paintComponent",
+          "callee": "getWidth",
+          "lineNumber": 48
+        },
+        {
+          "caller": "paintComponent",
+          "callee": "getHeight",
+          "lineNumber": 48
+        },
+        {
+          "caller": "runSwarm",
+          "callee": "new SwarmThread",
+          "lineNumber": 54
+        },
+        {
+          "caller": "runSwarm",
+          "callee": "thread.join",
+          "lineNumber": 56
+        },
+        {
+          "caller": "showSwarm",
+          "callee": "controller.getSwarm().show",
+          "lineNumber": 64
+        },
+        {
+          "caller": "showSwarm",
+          "callee": "controller.getSwarm",
+          "lineNumber": 64
+        },
+        {
+          "caller": "showSwarm",
+          "callee": "getGraphics",
+          "lineNumber": 64
+        },
+        {
+          "caller": "showSwarm",
+          "callee": "getForeground",
+          "lineNumber": 64
+        },
+        {
+          "caller": "showSwarm",
+          "callee": "getWidth",
+          "lineNumber": 64
+        },
+        {
+          "caller": "showSwarm",
+          "callee": "getHeight",
+          "lineNumber": 64
+        },
+        {
+          "caller": "showSwarm",
+          "callee": "controller.getShowDimention0",
+          "lineNumber": 64
+        },
+        {
+          "caller": "showSwarm",
+          "callee": "controller.getShowDimention1",
+          "lineNumber": 64
+        },
+        {
+          "caller": "showSwarm",
+          "callee": "controller.isShowVelocity",
+          "lineNumber": 64
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 4,
+        "functionCount": 6,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/net/pso/jswarm/example_2/SwarmThread.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 50,
+      "nonEmptyLines": 42,
+      "functions": [
+        {
+          "name": "SwarmThread",
+          "startLine": 16,
+          "endLine": 20,
+          "params": [
+            "controller"
+          ]
+        },
+        {
+          "name": "run",
+          "startLine": 27,
+          "endLine": 48,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "SwarmThread",
+          "startLine": 7,
+          "endLine": 50,
+          "methods": [
+            "SwarmThread",
+            "run"
+          ],
+          "properties": [
+            "controller"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "SwarmThread",
+          "line": 16,
+          "isDefault": false
+        },
+        {
+          "name": "run",
+          "line": 27,
+          "isDefault": false
+        },
+        {
+          "name": "SwarmThread",
+          "line": 7,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "SwarmThread",
+          "callee": "start",
+          "lineNumber": 19
+        },
+        {
+          "caller": "run",
+          "callee": "controller.getNumberOfIterations",
+          "lineNumber": 29
+        },
+        {
+          "caller": "run",
+          "callee": "controller.getDisplayRefresh",
+          "lineNumber": 31
+        },
+        {
+          "caller": "run",
+          "callee": "controller.setMessage",
+          "lineNumber": 32
+        },
+        {
+          "caller": "run",
+          "callee": "controller.getSwarm().getBestFitness",
+          "lineNumber": 32
+        },
+        {
+          "caller": "run",
+          "callee": "controller.getSwarm",
+          "lineNumber": 32
+        },
+        {
+          "caller": "run",
+          "callee": "controller.clear",
+          "lineNumber": 33
+        },
+        {
+          "caller": "run",
+          "callee": "controller.showSwarm",
+          "lineNumber": 34
+        },
+        {
+          "caller": "run",
+          "callee": "controller.getSwarm().evolve",
+          "lineNumber": 38
+        },
+        {
+          "caller": "run",
+          "callee": "controller.getSwarm",
+          "lineNumber": 38
+        },
+        {
+          "caller": "run",
+          "callee": "Thread.sleep",
+          "lineNumber": 41
+        },
+        {
+          "caller": "run",
+          "callee": "Thread.currentThread().interrupt",
+          "lineNumber": 44
+        },
+        {
+          "caller": "run",
+          "callee": "Thread.currentThread",
+          "lineNumber": 44
+        },
+        {
+          "caller": "run",
+          "callee": "controller.setMessage",
+          "lineNumber": 47
+        },
+        {
+          "caller": "run",
+          "callee": "controller.getSwarm().getBestFitness",
+          "lineNumber": 47
+        },
+        {
+          "caller": "run",
+          "callee": "controller.getSwarm",
+          "lineNumber": 47
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/net/pso/jswarm/ParticleUpdate.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 35,
+      "nonEmptyLines": 30,
+      "functions": [
+        {
+          "name": "ParticleUpdate",
+          "startLine": 19,
+          "endLine": 20,
+          "params": [
+            "particle"
+          ]
+        },
+        {
+          "name": "begin",
+          "startLine": 26,
+          "endLine": 27,
+          "params": [
+            "swarm"
+          ]
+        },
+        {
+          "name": "end",
+          "startLine": 30,
+          "endLine": 31,
+          "params": [
+            "swarm"
+          ]
+        },
+        {
+          "name": "update",
+          "startLine": 34,
+          "endLine": 34,
+          "params": [
+            "swarm",
+            "particle"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "ParticleUpdate",
+          "startLine": 13,
+          "endLine": 35,
+          "methods": [
+            "ParticleUpdate",
+            "begin",
+            "end",
+            "update"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "ParticleUpdate",
+          "line": 19,
+          "isDefault": false
+        },
+        {
+          "name": "begin",
+          "line": 26,
+          "isDefault": false
+        },
+        {
+          "name": "end",
+          "line": 30,
+          "isDefault": false
+        },
+        {
+          "name": "update",
+          "line": 34,
+          "isDefault": false
+        },
+        {
+          "name": "ParticleUpdate",
+          "line": 13,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 5,
+        "functionCount": 4,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/net/pso/jswarm/ParticleUpdateFullyRandom.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 40,
+      "nonEmptyLines": 35,
+      "functions": [
+        {
+          "name": "ParticleUpdateFullyRandom",
+          "startLine": 15,
+          "endLine": 17,
+          "params": [
+            "particle"
+          ]
+        },
+        {
+          "name": "update",
+          "startLine": 20,
+          "endLine": 39,
+          "params": [
+            "swarm",
+            "particle"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "ParticleUpdateFullyRandom",
+          "startLine": 9,
+          "endLine": 40,
+          "methods": [
+            "ParticleUpdateFullyRandom",
+            "update"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "ParticleUpdateFullyRandom",
+          "line": 15,
+          "isDefault": false
+        },
+        {
+          "name": "update",
+          "line": 20,
+          "isDefault": false
+        },
+        {
+          "name": "ParticleUpdateFullyRandom",
+          "line": 9,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "update",
+          "callee": "particle.getPosition",
+          "lineNumber": 22
+        },
+        {
+          "caller": "update",
+          "callee": "particle.getVelocity",
+          "lineNumber": 23
+        },
+        {
+          "caller": "update",
+          "callee": "swarm.getBestPosition",
+          "lineNumber": 24
+        },
+        {
+          "caller": "update",
+          "callee": "particle.getBestPosition",
+          "lineNumber": 25
+        },
+        {
+          "caller": "update",
+          "callee": "swarm.getNeighborhoodBestPosition",
+          "lineNumber": 26
+        },
+        {
+          "caller": "update",
+          "callee": "swarm.getInertia",
+          "lineNumber": 34
+        },
+        {
+          "caller": "update",
+          "callee": "Math.random",
+          "lineNumber": 35
+        },
+        {
+          "caller": "update",
+          "callee": "swarm.getParticleIncrement",
+          "lineNumber": 35
+        },
+        {
+          "caller": "update",
+          "callee": "Math.random",
+          "lineNumber": 36
+        },
+        {
+          "caller": "update",
+          "callee": "swarm.getNeighborhoodIncrement",
+          "lineNumber": 36
+        },
+        {
+          "caller": "update",
+          "callee": "Math.random",
+          "lineNumber": 37
+        },
+        {
+          "caller": "update",
+          "callee": "swarm.getGlobalIncrement",
+          "lineNumber": 37
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/net/pso/jswarm/ParticleUpdateRandomByParticle.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 44,
+      "nonEmptyLines": 38,
+      "functions": [
+        {
+          "name": "ParticleUpdateRandomByParticle",
+          "startLine": 15,
+          "endLine": 17,
+          "params": [
+            "particle"
+          ]
+        },
+        {
+          "name": "update",
+          "startLine": 20,
+          "endLine": 43,
+          "params": [
+            "swarm",
+            "particle"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "ParticleUpdateRandomByParticle",
+          "startLine": 9,
+          "endLine": 44,
+          "methods": [
+            "ParticleUpdateRandomByParticle",
+            "update"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "ParticleUpdateRandomByParticle",
+          "line": 15,
+          "isDefault": false
+        },
+        {
+          "name": "update",
+          "line": 20,
+          "isDefault": false
+        },
+        {
+          "name": "ParticleUpdateRandomByParticle",
+          "line": 9,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "update",
+          "callee": "particle.getPosition",
+          "lineNumber": 22
+        },
+        {
+          "caller": "update",
+          "callee": "particle.getVelocity",
+          "lineNumber": 23
+        },
+        {
+          "caller": "update",
+          "callee": "swarm.getBestPosition",
+          "lineNumber": 24
+        },
+        {
+          "caller": "update",
+          "callee": "particle.getBestPosition",
+          "lineNumber": 25
+        },
+        {
+          "caller": "update",
+          "callee": "swarm.getNeighborhoodBestPosition",
+          "lineNumber": 26
+        },
+        {
+          "caller": "update",
+          "callee": "Math.random",
+          "lineNumber": 28
+        },
+        {
+          "caller": "update",
+          "callee": "Math.random",
+          "lineNumber": 29
+        },
+        {
+          "caller": "update",
+          "callee": "Math.random",
+          "lineNumber": 30
+        },
+        {
+          "caller": "update",
+          "callee": "swarm.getInertia",
+          "lineNumber": 38
+        },
+        {
+          "caller": "update",
+          "callee": "swarm.getParticleIncrement",
+          "lineNumber": 39
+        },
+        {
+          "caller": "update",
+          "callee": "swarm.getNeighborhoodIncrement",
+          "lineNumber": 40
+        },
+        {
+          "caller": "update",
+          "callee": "swarm.getGlobalIncrement",
+          "lineNumber": 41
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/net/pso/jswarm/ParticleUpdateRepulsive.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 80,
+      "nonEmptyLines": 70,
+      "functions": [
+        {
+          "name": "ParticleUpdateRepulsive",
+          "startLine": 24,
+          "endLine": 29,
+          "params": [
+            "particle"
+          ]
+        },
+        {
+          "name": "begin",
+          "startLine": 35,
+          "endLine": 45,
+          "params": [
+            "swarm"
+          ]
+        },
+        {
+          "name": "update",
+          "startLine": 50,
+          "endLine": 79,
+          "params": [
+            "swarm",
+            "particle"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "ParticleUpdateRepulsive",
+          "startLine": 9,
+          "endLine": 80,
+          "methods": [
+            "ParticleUpdateRepulsive",
+            "begin",
+            "update"
+          ],
+          "properties": [
+            "rlocal",
+            "rother",
+            "rneighborhood",
+            "randRand"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "ParticleUpdateRepulsive",
+          "line": 24,
+          "isDefault": false
+        },
+        {
+          "name": "begin",
+          "line": 35,
+          "isDefault": false
+        },
+        {
+          "name": "update",
+          "line": 50,
+          "isDefault": false
+        },
+        {
+          "name": "ParticleUpdateRepulsive",
+          "line": 9,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "ParticleUpdateRepulsive",
+          "callee": "particle.getDimension",
+          "lineNumber": 26
+        },
+        {
+          "caller": "ParticleUpdateRepulsive",
+          "callee": "particle.getDimension",
+          "lineNumber": 27
+        },
+        {
+          "caller": "ParticleUpdateRepulsive",
+          "callee": "particle.getDimension",
+          "lineNumber": 28
+        },
+        {
+          "caller": "begin",
+          "callee": "Math.random",
+          "lineNumber": 37
+        },
+        {
+          "caller": "begin",
+          "callee": "swarm.getSampleParticle().getDimension",
+          "lineNumber": 39
+        },
+        {
+          "caller": "begin",
+          "callee": "swarm.getSampleParticle",
+          "lineNumber": 39
+        },
+        {
+          "caller": "begin",
+          "callee": "Math.random",
+          "lineNumber": 41
+        },
+        {
+          "caller": "begin",
+          "callee": "Math.random",
+          "lineNumber": 42
+        },
+        {
+          "caller": "begin",
+          "callee": "Math.random",
+          "lineNumber": 43
+        },
+        {
+          "caller": "update",
+          "callee": "particle.getPosition",
+          "lineNumber": 52
+        },
+        {
+          "caller": "update",
+          "callee": "particle.getVelocity",
+          "lineNumber": 53
+        },
+        {
+          "caller": "update",
+          "callee": "particle.getBestPosition",
+          "lineNumber": 54
+        },
+        {
+          "caller": "update",
+          "callee": "swarm.getMaxVelocity",
+          "lineNumber": 55
+        },
+        {
+          "caller": "update",
+          "callee": "swarm.getMinVelocity",
+          "lineNumber": 56
+        },
+        {
+          "caller": "update",
+          "callee": "Math.random",
+          "lineNumber": 60
+        },
+        {
+          "caller": "update",
+          "callee": "swarm.size",
+          "lineNumber": 60
+        },
+        {
+          "caller": "update",
+          "callee": "swarm.getParticle(randOtherParticle).getBestPosition",
+          "lineNumber": 61
+        },
+        {
+          "caller": "update",
+          "callee": "swarm.getParticle",
+          "lineNumber": 61
+        },
+        {
+          "caller": "update",
+          "callee": "swarm.getNeighborhoodBestPosition",
+          "lineNumber": 62
+        },
+        {
+          "caller": "update",
+          "callee": "Math.random",
+          "lineNumber": 70
+        },
+        {
+          "caller": "update",
+          "callee": "swarmRepulsive.getInertia",
+          "lineNumber": 73
+        },
+        {
+          "caller": "update",
+          "callee": "swarmRepulsive.getParticleIncrement",
+          "lineNumber": 74
+        },
+        {
+          "caller": "update",
+          "callee": "swarm.getNeighborhoodIncrement",
+          "lineNumber": 75
+        },
+        {
+          "caller": "update",
+          "callee": "swarmRepulsive.getOtherParticleIncrement",
+          "lineNumber": 76
+        },
+        {
+          "caller": "update",
+          "callee": "swarmRepulsive.getRandomIncrement",
+          "lineNumber": 77
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 4,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/net/pso/jswarm/ParticleUpdateSimple.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 72,
+      "nonEmptyLines": 65,
+      "functions": [
+        {
+          "name": "ParticleUpdateSimple",
+          "startLine": 26,
+          "endLine": 31,
+          "params": [
+            "particle"
+          ]
+        },
+        {
+          "name": "begin",
+          "startLine": 37,
+          "endLine": 45,
+          "params": [
+            "swarm"
+          ]
+        },
+        {
+          "name": "end",
+          "startLine": 48,
+          "endLine": 50,
+          "params": [
+            "swarm"
+          ]
+        },
+        {
+          "name": "update",
+          "startLine": 53,
+          "endLine": 71,
+          "params": [
+            "swarm",
+            "particle"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "ParticleUpdateSimple",
+          "startLine": 13,
+          "endLine": 72,
+          "methods": [
+            "ParticleUpdateSimple",
+            "begin",
+            "end",
+            "update"
+          ],
+          "properties": [
+            "rlocal",
+            "rglobal",
+            "rneighborhood"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "ParticleUpdateSimple",
+          "line": 26,
+          "isDefault": false
+        },
+        {
+          "name": "begin",
+          "line": 37,
+          "isDefault": false
+        },
+        {
+          "name": "end",
+          "line": 48,
+          "isDefault": false
+        },
+        {
+          "name": "update",
+          "line": 53,
+          "isDefault": false
+        },
+        {
+          "name": "ParticleUpdateSimple",
+          "line": 13,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "ParticleUpdateSimple",
+          "callee": "particle.getDimension",
+          "lineNumber": 28
+        },
+        {
+          "caller": "ParticleUpdateSimple",
+          "callee": "particle.getDimension",
+          "lineNumber": 29
+        },
+        {
+          "caller": "ParticleUpdateSimple",
+          "callee": "particle.getDimension",
+          "lineNumber": 30
+        },
+        {
+          "caller": "begin",
+          "callee": "swarm.getSampleParticle().getDimension",
+          "lineNumber": 39
+        },
+        {
+          "caller": "begin",
+          "callee": "swarm.getSampleParticle",
+          "lineNumber": 39
+        },
+        {
+          "caller": "begin",
+          "callee": "Math.random",
+          "lineNumber": 41
+        },
+        {
+          "caller": "begin",
+          "callee": "Math.random",
+          "lineNumber": 42
+        },
+        {
+          "caller": "begin",
+          "callee": "Math.random",
+          "lineNumber": 43
+        },
+        {
+          "caller": "update",
+          "callee": "particle.getPosition",
+          "lineNumber": 55
+        },
+        {
+          "caller": "update",
+          "callee": "particle.getVelocity",
+          "lineNumber": 56
+        },
+        {
+          "caller": "update",
+          "callee": "swarm.getBestPosition",
+          "lineNumber": 57
+        },
+        {
+          "caller": "update",
+          "callee": "particle.getBestPosition",
+          "lineNumber": 58
+        },
+        {
+          "caller": "update",
+          "callee": "swarm.getNeighborhoodBestPosition",
+          "lineNumber": 59
+        },
+        {
+          "caller": "update",
+          "callee": "swarm.getInertia",
+          "lineNumber": 64
+        },
+        {
+          "caller": "update",
+          "callee": "swarm.getParticleIncrement",
+          "lineNumber": 65
+        },
+        {
+          "caller": "update",
+          "callee": "swarm.getNeighborhoodIncrement",
+          "lineNumber": 66
+        },
+        {
+          "caller": "update",
+          "callee": "swarm.getGlobalIncrement",
+          "lineNumber": 67
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 5,
+        "functionCount": 4,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/net/pso/jswarm/rosenbrock_30/Example.java,v",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 118,
+      "nonEmptyLines": 98,
+      "metrics": {}
+    },
+    {
+      "path": "src/net/pso/jswarm/rosenbrock_30/MyFitnessFunction.java,v",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 85,
+      "nonEmptyLines": 69,
+      "metrics": {}
+    },
+    {
+      "path": "src/net/pso/jswarm/rosenbrock_30/MyParticle.java,v",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 55,
+      "nonEmptyLines": 42,
+      "metrics": {}
+    },
+    {
+      "path": "src/net/pso/jswarm/rosenbrock/Example.java,v",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 89,
+      "nonEmptyLines": 71,
+      "metrics": {}
+    },
+    {
+      "path": "src/net/pso/jswarm/schaffer/Example.java,v",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 92,
+      "nonEmptyLines": 73,
+      "metrics": {}
+    },
+    {
+      "path": "src/net/pso/jswarm/sphere/Example.java,v",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 88,
+      "nonEmptyLines": 69,
+      "metrics": {}
+    },
+    {
+      "path": "src/net/pso/jswarm/sphere/MyParticle.java,v",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 37,
+      "nonEmptyLines": 28,
+      "metrics": {}
+    },
+    {
+      "path": "src/net/pso/jswarm/SwarmRepulsive.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 50,
+      "nonEmptyLines": 39,
+      "functions": [
+        {
+          "name": "SwarmRepulsive",
+          "startLine": 24,
+          "endLine": 32,
+          "params": [
+            "numberOfParticles",
+            "sampleParticle",
+            "fitnessFunction"
+          ]
+        },
+        {
+          "name": "getOtherParticleIncrement",
+          "startLine": 34,
+          "endLine": 36,
+          "params": []
+        },
+        {
+          "name": "getRandomIncrement",
+          "startLine": 38,
+          "endLine": 40,
+          "params": []
+        },
+        {
+          "name": "setOtherParticleIncrement",
+          "startLine": 42,
+          "endLine": 44,
+          "params": [
+            "otherParticleIncrement"
+          ]
+        },
+        {
+          "name": "setRandomIncrement",
+          "startLine": 46,
+          "endLine": 48,
+          "params": [
+            "randomIncrement"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "SwarmRepulsive",
+          "startLine": 7,
+          "endLine": 50,
+          "methods": [
+            "SwarmRepulsive",
+            "getOtherParticleIncrement",
+            "getRandomIncrement",
+            "setOtherParticleIncrement",
+            "setRandomIncrement"
+          ],
+          "properties": [
+            "DEFAULT_OTHER_PARTICLE_INCREMENT",
+            "DEFAULT_RANDOM_INCREMENT",
+            "otherParticleIncrement",
+            "randomIncrement"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "DEFAULT_OTHER_PARTICLE_INCREMENT",
+          "line": 9,
+          "isDefault": false
+        },
+        {
+          "name": "DEFAULT_RANDOM_INCREMENT",
+          "line": 10,
+          "isDefault": false
+        },
+        {
+          "name": "SwarmRepulsive",
+          "line": 24,
+          "isDefault": false
+        },
+        {
+          "name": "getOtherParticleIncrement",
+          "line": 34,
+          "isDefault": false
+        },
+        {
+          "name": "getRandomIncrement",
+          "line": 38,
+          "isDefault": false
+        },
+        {
+          "name": "setOtherParticleIncrement",
+          "line": 42,
+          "isDefault": false
+        },
+        {
+          "name": "setRandomIncrement",
+          "line": 46,
+          "isDefault": false
+        },
+        {
+          "name": "SwarmRepulsive",
+          "line": 7,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "SwarmRepulsive",
+          "callee": "new ParticleUpdateRepulsive",
+          "lineNumber": 31
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 8,
+        "functionCount": 5,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/net/pso/jswarm/VariablesUpdate.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 28,
+      "nonEmptyLines": 24,
+      "functions": [
+        {
+          "name": "VariablesUpdate",
+          "startLine": 14,
+          "endLine": 16,
+          "params": []
+        },
+        {
+          "name": "update",
+          "startLine": 22,
+          "endLine": 26,
+          "params": [
+            "swarm"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "VariablesUpdate",
+          "startLine": 9,
+          "endLine": 28,
+          "methods": [
+            "VariablesUpdate",
+            "update"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "VariablesUpdate",
+          "line": 14,
+          "isDefault": false
+        },
+        {
+          "name": "update",
+          "line": 22,
+          "isDefault": false
+        },
+        {
+          "name": "VariablesUpdate",
+          "line": 9,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/net/pso/jswarm/zzz/Example.java,v",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 65,
+      "nonEmptyLines": 51,
+      "metrics": {}
+    },
+    {
+      "path": "src/soundly/AudioData.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 48,
+      "nonEmptyLines": 37,
+      "functions": [
+        {
+          "name": "AudioData",
+          "startLine": 18,
+          "endLine": 29,
+          "params": [
+            "buffer"
+          ]
+        },
+        {
+          "name": "AudioData",
+          "startLine": 32,
+          "endLine": 34,
+          "params": []
+        },
+        {
+          "name": "isStreaming",
+          "startLine": 37,
+          "endLine": 39,
+          "params": []
+        },
+        {
+          "name": "getBufferID",
+          "startLine": 41,
+          "endLine": 43,
+          "params": []
+        },
+        {
+          "name": "getLength",
+          "startLine": 45,
+          "endLine": 47,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "AudioData",
+          "startLine": 9,
+          "endLine": 48,
+          "methods": [
+            "AudioData",
+            "AudioData",
+            "isStreaming",
+            "getBufferID",
+            "getLength"
+          ],
+          "properties": [
+            "buffer",
+            "length",
+            "stream"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "AudioData",
+          "line": 18,
+          "isDefault": false
+        },
+        {
+          "name": "AudioData",
+          "line": 32,
+          "isDefault": false
+        },
+        {
+          "name": "isStreaming",
+          "line": 37,
+          "isDefault": false
+        },
+        {
+          "name": "getBufferID",
+          "line": 41,
+          "isDefault": false
+        },
+        {
+          "name": "getLength",
+          "line": 45,
+          "isDefault": false
+        },
+        {
+          "name": "AudioData",
+          "line": 9,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 6,
+        "functionCount": 5,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/soundly/impl/XOpenALStreamPlayer.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 318,
+      "nonEmptyLines": 270,
+      "functions": [
+        {
+          "name": "XOpenALStreamPlayer",
+          "startLine": 57,
+          "endLine": 63,
+          "params": [
+            "source",
+            "ref"
+          ]
+        },
+        {
+          "name": "XOpenALStreamPlayer",
+          "startLine": 71,
+          "endLine": 77,
+          "params": [
+            "source",
+            "url"
+          ]
+        },
+        {
+          "name": "initStreams",
+          "startLine": 84,
+          "endLine": 99,
+          "params": []
+        },
+        {
+          "name": "getSource",
+          "startLine": 106,
+          "endLine": 108,
+          "params": []
+        },
+        {
+          "name": "getSourceID",
+          "startLine": 110,
+          "endLine": 112,
+          "params": []
+        },
+        {
+          "name": "setSource",
+          "startLine": 114,
+          "endLine": 116,
+          "params": [
+            "source"
+          ]
+        },
+        {
+          "name": "setLooping",
+          "startLine": 118,
+          "endLine": 120,
+          "params": [
+            "loop"
+          ]
+        },
+        {
+          "name": "removeBuffers",
+          "startLine": 125,
+          "endLine": 134,
+          "params": []
+        },
+        {
+          "name": "play",
+          "startLine": 142,
+          "endLine": 151,
+          "params": []
+        },
+        {
+          "name": "done",
+          "startLine": 159,
+          "endLine": 161,
+          "params": []
+        },
+        {
+          "name": "update",
+          "startLine": 169,
+          "endLine": 208,
+          "params": []
+        },
+        {
+          "name": "stream",
+          "startLine": 216,
+          "endLine": 247,
+          "params": [
+            "bufferId"
+          ]
+        },
+        {
+          "name": "setPosition",
+          "startLine": 255,
+          "endLine": 291,
+          "params": [
+            "position"
+          ]
+        },
+        {
+          "name": "startPlayback",
+          "startLine": 296,
+          "endLine": 307,
+          "params": []
+        },
+        {
+          "name": "getPosition",
+          "startLine": 314,
+          "endLine": 316,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "XOpenALStreamPlayer",
+          "startLine": 19,
+          "endLine": 317,
+          "methods": [
+            "XOpenALStreamPlayer",
+            "XOpenALStreamPlayer",
+            "initStreams",
+            "getSource",
+            "getSourceID",
+            "setSource",
+            "setLooping",
+            "removeBuffers",
+            "play",
+            "done",
+            "update",
+            "stream",
+            "setPosition",
+            "startPlayback",
+            "getPosition"
+          ],
+          "properties": [
+            "BUFFER_COUNT",
+            "sectionSize",
+            "buffer",
+            "bufferNames",
+            "bufferData",
+            "unqueued",
+            "source",
+            "remainingBufferCount",
+            "loop",
+            "done",
+            "audio",
+            "ref",
+            "url",
+            "positionOffset"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "BUFFER_COUNT",
+          "line": 21,
+          "isDefault": false
+        },
+        {
+          "name": "XOpenALStreamPlayer",
+          "line": 57,
+          "isDefault": false
+        },
+        {
+          "name": "XOpenALStreamPlayer",
+          "line": 71,
+          "isDefault": false
+        },
+        {
+          "name": "getSource",
+          "line": 106,
+          "isDefault": false
+        },
+        {
+          "name": "getSourceID",
+          "line": 110,
+          "isDefault": false
+        },
+        {
+          "name": "setSource",
+          "line": 114,
+          "isDefault": false
+        },
+        {
+          "name": "setLooping",
+          "line": 118,
+          "isDefault": false
+        },
+        {
+          "name": "play",
+          "line": 142,
+          "isDefault": false
+        },
+        {
+          "name": "done",
+          "line": 159,
+          "isDefault": false
+        },
+        {
+          "name": "update",
+          "line": 169,
+          "isDefault": false
+        },
+        {
+          "name": "stream",
+          "line": 216,
+          "isDefault": false
+        },
+        {
+          "name": "setPosition",
+          "line": 255,
+          "isDefault": false
+        },
+        {
+          "name": "getPosition",
+          "line": 314,
+          "isDefault": false
+        },
+        {
+          "name": "XOpenALStreamPlayer",
+          "line": 19,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "XOpenALStreamPlayer",
+          "callee": "IntBuffer.allocate",
+          "lineNumber": 61
+        },
+        {
+          "caller": "XOpenALStreamPlayer",
+          "callee": "IntBuffer.allocate",
+          "lineNumber": 75
+        },
+        {
+          "caller": "initStreams",
+          "callee": "audio.close",
+          "lineNumber": 86
+        },
+        {
+          "caller": "getSource",
+          "callee": "url.toString",
+          "lineNumber": 107
+        },
+        {
+          "caller": "removeBuffers",
+          "callee": "IntBuffer.allocate",
+          "lineNumber": 126
+        },
+        {
+          "caller": "play",
+          "callee": "initStreams",
+          "lineNumber": 143
+        },
+        {
+          "caller": "play",
+          "callee": "removeBuffers",
+          "lineNumber": 148
+        },
+        {
+          "caller": "play",
+          "callee": "startPlayback",
+          "lineNumber": 150
+        },
+        {
+          "caller": "update",
+          "callee": "unqueued.clear",
+          "lineNumber": 184
+        },
+        {
+          "caller": "update",
+          "callee": "unqueued.get",
+          "lineNumber": 187
+        },
+        {
+          "caller": "update",
+          "callee": "stream",
+          "lineNumber": 192
+        },
+        {
+          "caller": "stream",
+          "callee": "audio.read",
+          "lineNumber": 218
+        },
+        {
+          "caller": "stream",
+          "callee": "bufferData.clear",
+          "lineNumber": 221
+        },
+        {
+          "caller": "stream",
+          "callee": "bufferData.put",
+          "lineNumber": 222
+        },
+        {
+          "caller": "stream",
+          "callee": "bufferData.flip",
+          "lineNumber": 223
+        },
+        {
+          "caller": "stream",
+          "callee": "initStreams",
+          "lineNumber": 234
+        },
+        {
+          "caller": "stream",
+          "callee": "stream",
+          "lineNumber": 235
+        },
+        {
+          "caller": "setPosition",
+          "callee": "getPosition",
+          "lineNumber": 257
+        },
+        {
+          "caller": "setPosition",
+          "callee": "initStreams",
+          "lineNumber": 258
+        },
+        {
+          "caller": "setPosition",
+          "callee": "audio.read",
+          "lineNumber": 270
+        },
+        {
+          "caller": "setPosition",
+          "callee": "initStreams",
+          "lineNumber": 276
+        },
+        {
+          "caller": "setPosition",
+          "callee": "startPlayback",
+          "lineNumber": 284
+        },
+        {
+          "caller": "startPlayback",
+          "callee": "stream",
+          "lineNumber": 302
+        },
+        {
+          "caller": "startPlayback",
+          "callee": "bufferNames.get",
+          "lineNumber": 302
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 14,
+        "functionCount": 15,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/soundly/ManagedSound.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 391,
+      "nonEmptyLines": 327,
+      "functions": [
+        {
+          "name": "ManagedSound",
+          "startLine": 35,
+          "endLine": 37,
+          "params": [
+            "description"
+          ]
+        },
+        {
+          "name": "ManagedSound",
+          "startLine": 42,
+          "endLine": 44,
+          "params": []
+        },
+        {
+          "name": "queue",
+          "startLine": 46,
+          "endLine": 46,
+          "params": []
+        },
+        {
+          "name": "queueAtIndex",
+          "startLine": 47,
+          "endLine": 47,
+          "params": [
+            "sourceIndex"
+          ]
+        },
+        {
+          "name": "getParent",
+          "startLine": 49,
+          "endLine": 51,
+          "params": []
+        },
+        {
+          "name": "getDescription",
+          "startLine": 69,
+          "endLine": 71,
+          "params": []
+        },
+        {
+          "name": "setDescription",
+          "startLine": 73,
+          "endLine": 75,
+          "params": []
+        },
+        {
+          "name": "setVolume",
+          "startLine": 81,
+          "endLine": 83,
+          "params": [
+            "volume"
+          ]
+        },
+        {
+          "name": "getVolume",
+          "startLine": 89,
+          "endLine": 91,
+          "params": []
+        },
+        {
+          "name": "setPitch",
+          "startLine": 98,
+          "endLine": 100,
+          "params": [
+            "pitch"
+          ]
+        },
+        {
+          "name": "getPitch",
+          "startLine": 106,
+          "endLine": 108,
+          "params": []
+        },
+        {
+          "name": "setPriority",
+          "startLine": 113,
+          "endLine": 115,
+          "params": [
+            "priority"
+          ]
+        },
+        {
+          "name": "getPriority",
+          "startLine": 117,
+          "endLine": 119,
+          "params": []
+        },
+        {
+          "name": "setLayer",
+          "startLine": 124,
+          "endLine": 126,
+          "params": [
+            "level"
+          ]
+        },
+        {
+          "name": "getLayer",
+          "startLine": 128,
+          "endLine": 130,
+          "params": []
+        },
+        {
+          "name": "setLooping",
+          "startLine": 135,
+          "endLine": 137,
+          "params": [
+            "looping"
+          ]
+        },
+        {
+          "name": "isLooping",
+          "startLine": 139,
+          "endLine": 141,
+          "params": []
+        },
+        {
+          "name": "setRelative",
+          "startLine": 146,
+          "endLine": 148,
+          "params": [
+            "relative"
+          ]
+        },
+        {
+          "name": "isRelative",
+          "startLine": 150,
+          "endLine": 152,
+          "params": []
+        },
+        {
+          "name": "setReplaceable",
+          "startLine": 154,
+          "endLine": 156,
+          "params": [
+            "replaceable"
+          ]
+        },
+        {
+          "name": "isReplaceable",
+          "startLine": 158,
+          "endLine": 160,
+          "params": []
+        },
+        {
+          "name": "getMix",
+          "startLine": 162,
+          "endLine": 164,
+          "params": []
+        },
+        {
+          "name": "setMix",
+          "startLine": 166,
+          "endLine": 168,
+          "params": [
+            "mix"
+          ]
+        },
+        {
+          "name": "mixedPitch",
+          "startLine": 170,
+          "endLine": 174,
+          "params": []
+        },
+        {
+          "name": "mixedVolume",
+          "startLine": 176,
+          "endLine": 184,
+          "params": []
+        },
+        {
+          "name": "mixedX",
+          "startLine": 186,
+          "endLine": 189,
+          "params": []
+        },
+        {
+          "name": "mixedY",
+          "startLine": 191,
+          "endLine": 194,
+          "params": []
+        },
+        {
+          "name": "mixedDepth",
+          "startLine": 196,
+          "endLine": 199,
+          "params": []
+        },
+        {
+          "name": "replaceEvent",
+          "startLine": 201,
+          "endLine": 203,
+          "params": [
+            "audio",
+            "sourceIndex"
+          ]
+        },
+        {
+          "name": "toString",
+          "startLine": 209,
+          "endLine": 213,
+          "params": []
+        },
+        {
+          "name": "setRadius",
+          "startLine": 219,
+          "endLine": 222,
+          "params": [
+            "radius"
+          ]
+        },
+        {
+          "name": "setPosition",
+          "startLine": 233,
+          "endLine": 245,
+          "params": [
+            "x",
+            "y",
+            "depth"
+          ]
+        },
+        {
+          "name": "setPosition",
+          "startLine": 252,
+          "endLine": 254,
+          "params": [
+            "x",
+            "y"
+          ]
+        },
+        {
+          "name": "updatePosition",
+          "startLine": 260,
+          "endLine": 260,
+          "params": []
+        },
+        {
+          "name": "getX",
+          "startLine": 265,
+          "endLine": 267,
+          "params": []
+        },
+        {
+          "name": "setX",
+          "startLine": 272,
+          "endLine": 274,
+          "params": [
+            "x"
+          ]
+        },
+        {
+          "name": "getY",
+          "startLine": 279,
+          "endLine": 281,
+          "params": []
+        },
+        {
+          "name": "setY",
+          "startLine": 286,
+          "endLine": 288,
+          "params": [
+            "y"
+          ]
+        },
+        {
+          "name": "setDepth",
+          "startLine": 294,
+          "endLine": 296,
+          "params": [
+            "depth"
+          ]
+        },
+        {
+          "name": "getDepth",
+          "startLine": 301,
+          "endLine": 303,
+          "params": []
+        },
+        {
+          "name": "distanceChanged",
+          "startLine": 313,
+          "endLine": 319,
+          "params": []
+        },
+        {
+          "name": "isWithinEarshot",
+          "startLine": 325,
+          "endLine": 328,
+          "params": []
+        },
+        {
+          "name": "setProximityEnabled",
+          "startLine": 334,
+          "endLine": 336,
+          "params": [
+            "proximity"
+          ]
+        },
+        {
+          "name": "isProximityEnabled",
+          "startLine": 339,
+          "endLine": 341,
+          "params": []
+        },
+        {
+          "name": "getRadius",
+          "startLine": 343,
+          "endLine": 348,
+          "params": []
+        },
+        {
+          "name": "isMusic",
+          "startLine": 354,
+          "endLine": 356,
+          "params": []
+        },
+        {
+          "name": "setMusic",
+          "startLine": 361,
+          "endLine": 363,
+          "params": [
+            "music"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "ManagedSound",
+          "startLine": 8,
+          "endLine": 364,
+          "methods": [
+            "ManagedSound",
+            "ManagedSound",
+            "queue",
+            "queueAtIndex",
+            "getParent",
+            "getDescription",
+            "setDescription",
+            "setVolume",
+            "getVolume",
+            "setPitch",
+            "getPitch",
+            "setPriority",
+            "getPriority",
+            "setLayer",
+            "getLayer",
+            "setLooping",
+            "isLooping",
+            "setRelative",
+            "isRelative",
+            "setReplaceable",
+            "isReplaceable",
+            "getMix",
+            "setMix",
+            "mixedPitch",
+            "mixedVolume",
+            "mixedX",
+            "mixedY",
+            "mixedDepth",
+            "replaceEvent",
+            "toString",
+            "setRadius",
+            "setPosition",
+            "setPosition",
+            "updatePosition",
+            "getX",
+            "setX",
+            "getY",
+            "setY",
+            "setDepth",
+            "getDepth",
+            "distanceChanged",
+            "isWithinEarshot",
+            "setProximityEnabled",
+            "isProximityEnabled",
+            "getRadius",
+            "isMusic",
+            "setMusic"
+          ],
+          "properties": [
+            "priority",
+            "layer",
+            "pitch",
+            "volume",
+            "description",
+            "looping",
+            "relative",
+            "replaceable",
+            "mix",
+            "parent",
+            "radius",
+            "x",
+            "y",
+            "depth",
+            "proximity",
+            "proximityVol",
+            "distanceFromListener",
+            "withinEarshot",
+            "music"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "ManagedSound",
+          "line": 35,
+          "isDefault": false
+        },
+        {
+          "name": "ManagedSound",
+          "line": 42,
+          "isDefault": false
+        },
+        {
+          "name": "queue",
+          "line": 46,
+          "isDefault": false
+        },
+        {
+          "name": "queueAtIndex",
+          "line": 47,
+          "isDefault": false
+        },
+        {
+          "name": "getParent",
+          "line": 49,
+          "isDefault": false
+        },
+        {
+          "name": "getDescription",
+          "line": 69,
+          "isDefault": false
+        },
+        {
+          "name": "setDescription",
+          "line": 73,
+          "isDefault": false
+        },
+        {
+          "name": "setVolume",
+          "line": 81,
+          "isDefault": false
+        },
+        {
+          "name": "getVolume",
+          "line": 89,
+          "isDefault": false
+        },
+        {
+          "name": "setPitch",
+          "line": 98,
+          "isDefault": false
+        },
+        {
+          "name": "getPitch",
+          "line": 106,
+          "isDefault": false
+        },
+        {
+          "name": "setPriority",
+          "line": 113,
+          "isDefault": false
+        },
+        {
+          "name": "getPriority",
+          "line": 117,
+          "isDefault": false
+        },
+        {
+          "name": "setLayer",
+          "line": 124,
+          "isDefault": false
+        },
+        {
+          "name": "getLayer",
+          "line": 128,
+          "isDefault": false
+        },
+        {
+          "name": "setLooping",
+          "line": 135,
+          "isDefault": false
+        },
+        {
+          "name": "isLooping",
+          "line": 139,
+          "isDefault": false
+        },
+        {
+          "name": "setRelative",
+          "line": 146,
+          "isDefault": false
+        },
+        {
+          "name": "isRelative",
+          "line": 150,
+          "isDefault": false
+        },
+        {
+          "name": "setReplaceable",
+          "line": 154,
+          "isDefault": false
+        },
+        {
+          "name": "isReplaceable",
+          "line": 158,
+          "isDefault": false
+        },
+        {
+          "name": "getMix",
+          "line": 162,
+          "isDefault": false
+        },
+        {
+          "name": "setMix",
+          "line": 166,
+          "isDefault": false
+        },
+        {
+          "name": "mixedPitch",
+          "line": 170,
+          "isDefault": false
+        },
+        {
+          "name": "mixedVolume",
+          "line": 176,
+          "isDefault": false
+        },
+        {
+          "name": "mixedX",
+          "line": 186,
+          "isDefault": false
+        },
+        {
+          "name": "mixedY",
+          "line": 191,
+          "isDefault": false
+        },
+        {
+          "name": "mixedDepth",
+          "line": 196,
+          "isDefault": false
+        },
+        {
+          "name": "replaceEvent",
+          "line": 201,
+          "isDefault": false
+        },
+        {
+          "name": "toString",
+          "line": 209,
+          "isDefault": false
+        },
+        {
+          "name": "setRadius",
+          "line": 219,
+          "isDefault": false
+        },
+        {
+          "name": "setPosition",
+          "line": 233,
+          "isDefault": false
+        },
+        {
+          "name": "setPosition",
+          "line": 252,
+          "isDefault": false
+        },
+        {
+          "name": "updatePosition",
+          "line": 260,
+          "isDefault": false
+        },
+        {
+          "name": "getX",
+          "line": 265,
+          "isDefault": false
+        },
+        {
+          "name": "setX",
+          "line": 272,
+          "isDefault": false
+        },
+        {
+          "name": "getY",
+          "line": 279,
+          "isDefault": false
+        },
+        {
+          "name": "setY",
+          "line": 286,
+          "isDefault": false
+        },
+        {
+          "name": "setDepth",
+          "line": 294,
+          "isDefault": false
+        },
+        {
+          "name": "getDepth",
+          "line": 301,
+          "isDefault": false
+        },
+        {
+          "name": "distanceChanged",
+          "line": 313,
+          "isDefault": false
+        },
+        {
+          "name": "isWithinEarshot",
+          "line": 325,
+          "isDefault": false
+        },
+        {
+          "name": "setProximityEnabled",
+          "line": 334,
+          "isDefault": false
+        },
+        {
+          "name": "isProximityEnabled",
+          "line": 339,
+          "isDefault": false
+        },
+        {
+          "name": "getRadius",
+          "line": 343,
+          "isDefault": false
+        },
+        {
+          "name": "isMusic",
+          "line": 354,
+          "isDefault": false
+        },
+        {
+          "name": "setMusic",
+          "line": 361,
+          "isDefault": false
+        },
+        {
+          "name": "ManagedSound",
+          "line": 8,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "getPriority",
+          "callee": "parent.getPriority",
+          "lineNumber": 118
+        },
+        {
+          "caller": "getLayer",
+          "callee": "parent.getLayer",
+          "lineNumber": 129
+        },
+        {
+          "caller": "isLooping",
+          "callee": "parent.isLooping",
+          "lineNumber": 140
+        },
+        {
+          "caller": "isRelative",
+          "callee": "parent.isRelative",
+          "lineNumber": 151
+        },
+        {
+          "caller": "mixedPitch",
+          "callee": "getMix",
+          "lineNumber": 171
+        },
+        {
+          "caller": "mixedPitch",
+          "callee": "getMix().getPitch",
+          "lineNumber": 171
+        },
+        {
+          "caller": "mixedPitch",
+          "callee": "getMix",
+          "lineNumber": 171
+        },
+        {
+          "caller": "mixedPitch",
+          "callee": "getPitch",
+          "lineNumber": 172
+        },
+        {
+          "caller": "mixedPitch",
+          "callee": "getParent",
+          "lineNumber": 173
+        },
+        {
+          "caller": "mixedPitch",
+          "callee": "getParent().mixedPitch",
+          "lineNumber": 173
+        },
+        {
+          "caller": "mixedPitch",
+          "callee": "getParent",
+          "lineNumber": 173
+        },
+        {
+          "caller": "mixedVolume",
+          "callee": "isProximityEnabled",
+          "lineNumber": 178
+        },
+        {
+          "caller": "mixedVolume",
+          "callee": "Soundly.get().isProximityEnabled",
+          "lineNumber": 178
+        },
+        {
+          "caller": "mixedVolume",
+          "callee": "Soundly.get",
+          "lineNumber": 178
+        },
+        {
+          "caller": "mixedVolume",
+          "callee": "Math.max",
+          "lineNumber": 180
+        },
+        {
+          "caller": "mixedVolume",
+          "callee": "getVolume",
+          "lineNumber": 180
+        },
+        {
+          "caller": "mixedVolume",
+          "callee": "getMix",
+          "lineNumber": 181
+        },
+        {
+          "caller": "mixedVolume",
+          "callee": "getMix().getVolume",
+          "lineNumber": 181
+        },
+        {
+          "caller": "mixedVolume",
+          "callee": "getMix",
+          "lineNumber": 181
+        },
+        {
+          "caller": "mixedVolume",
+          "callee": "getParent",
+          "lineNumber": 182
+        },
+        {
+          "caller": "mixedVolume",
+          "callee": "getParent().mixedVolume",
+          "lineNumber": 182
+        },
+        {
+          "caller": "mixedVolume",
+          "callee": "getParent",
+          "lineNumber": 182
+        },
+        {
+          "caller": "mixedX",
+          "callee": "getMix",
+          "lineNumber": 187
+        },
+        {
+          "caller": "mixedX",
+          "callee": "getMix().getXAdjustment",
+          "lineNumber": 187
+        },
+        {
+          "caller": "mixedX",
+          "callee": "getMix",
+          "lineNumber": 187
+        },
+        {
+          "caller": "mixedX",
+          "callee": "getX",
+          "lineNumber": 188
+        },
+        {
+          "caller": "mixedX",
+          "callee": "getParent",
+          "lineNumber": 188
+        },
+        {
+          "caller": "mixedX",
+          "callee": "getParent().mixedX",
+          "lineNumber": 188
+        },
+        {
+          "caller": "mixedX",
+          "callee": "getParent",
+          "lineNumber": 188
+        },
+        {
+          "caller": "mixedY",
+          "callee": "getMix",
+          "lineNumber": 192
+        },
+        {
+          "caller": "mixedY",
+          "callee": "getMix().getYAdjustment",
+          "lineNumber": 192
+        },
+        {
+          "caller": "mixedY",
+          "callee": "getMix",
+          "lineNumber": 192
+        },
+        {
+          "caller": "mixedY",
+          "callee": "getY",
+          "lineNumber": 193
+        },
+        {
+          "caller": "mixedY",
+          "callee": "getParent",
+          "lineNumber": 193
+        },
+        {
+          "caller": "mixedY",
+          "callee": "getParent().mixedY",
+          "lineNumber": 193
+        },
+        {
+          "caller": "mixedY",
+          "callee": "getParent",
+          "lineNumber": 193
+        },
+        {
+          "caller": "mixedDepth",
+          "callee": "getMix",
+          "lineNumber": 197
+        },
+        {
+          "caller": "mixedDepth",
+          "callee": "getMix().getDepthAdjustment",
+          "lineNumber": 197
+        },
+        {
+          "caller": "mixedDepth",
+          "callee": "getMix",
+          "lineNumber": 197
+        },
+        {
+          "caller": "mixedDepth",
+          "callee": "getDepth",
+          "lineNumber": 198
+        },
+        {
+          "caller": "mixedDepth",
+          "callee": "getParent",
+          "lineNumber": 198
+        },
+        {
+          "caller": "mixedDepth",
+          "callee": "getParent().mixedDepth",
+          "lineNumber": 198
+        },
+        {
+          "caller": "mixedDepth",
+          "callee": "getParent",
+          "lineNumber": 198
+        },
+        {
+          "caller": "toString",
+          "callee": "getDescription",
+          "lineNumber": 211
+        },
+        {
+          "caller": "setRadius",
+          "callee": "distanceChanged",
+          "lineNumber": 221
+        },
+        {
+          "caller": "setPosition",
+          "callee": "this.getX",
+          "lineNumber": 234
+        },
+        {
+          "caller": "setPosition",
+          "callee": "this.getY",
+          "lineNumber": 235
+        },
+        {
+          "caller": "setPosition",
+          "callee": "this.getDepth",
+          "lineNumber": 236
+        },
+        {
+          "caller": "setPosition",
+          "callee": "updatePosition",
+          "lineNumber": 241
+        },
+        {
+          "caller": "setPosition",
+          "callee": "distanceChanged",
+          "lineNumber": 243
+        },
+        {
+          "caller": "setPosition",
+          "callee": "setPosition",
+          "lineNumber": 253
+        },
+        {
+          "caller": "setPosition",
+          "callee": "getDepth",
+          "lineNumber": 253
+        },
+        {
+          "caller": "setX",
+          "callee": "setPosition",
+          "lineNumber": 273
+        },
+        {
+          "caller": "setX",
+          "callee": "getY",
+          "lineNumber": 273
+        },
+        {
+          "caller": "setY",
+          "callee": "setPosition",
+          "lineNumber": 287
+        },
+        {
+          "caller": "setY",
+          "callee": "getX",
+          "lineNumber": 287
+        },
+        {
+          "caller": "setDepth",
+          "callee": "setPosition",
+          "lineNumber": 295
+        },
+        {
+          "caller": "setDepth",
+          "callee": "getX",
+          "lineNumber": 295
+        },
+        {
+          "caller": "setDepth",
+          "callee": "getY",
+          "lineNumber": 295
+        },
+        {
+          "caller": "distanceChanged",
+          "callee": "Soundly.get",
+          "lineNumber": 314
+        },
+        {
+          "caller": "distanceChanged",
+          "callee": "Soundly.calculateDistance",
+          "lineNumber": 315
+        },
+        {
+          "caller": "distanceChanged",
+          "callee": "getX",
+          "lineNumber": 315
+        },
+        {
+          "caller": "distanceChanged",
+          "callee": "getY",
+          "lineNumber": 315
+        },
+        {
+          "caller": "distanceChanged",
+          "callee": "mgr.getListenerX",
+          "lineNumber": 315
+        },
+        {
+          "caller": "distanceChanged",
+          "callee": "mgr.getListenerY",
+          "lineNumber": 315
+        },
+        {
+          "caller": "distanceChanged",
+          "callee": "Soundly.calculateFromCenter",
+          "lineNumber": 316
+        },
+        {
+          "caller": "isWithinEarshot",
+          "callee": "distanceChanged",
+          "lineNumber": 326
+        },
+        {
+          "caller": "isProximityEnabled",
+          "callee": "getParent",
+          "lineNumber": 340
+        },
+        {
+          "caller": "isProximityEnabled",
+          "callee": "getParent().isProximityEnabled",
+          "lineNumber": 340
+        },
+        {
+          "caller": "isProximityEnabled",
+          "callee": "getParent",
+          "lineNumber": 340
+        },
+        {
+          "caller": "getRadius",
+          "callee": "getParent",
+          "lineNumber": 345
+        },
+        {
+          "caller": "getRadius",
+          "callee": "getParent().getRadius",
+          "lineNumber": 346
+        },
+        {
+          "caller": "getRadius",
+          "callee": "getParent",
+          "lineNumber": 346
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 48,
+        "functionCount": 47,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/soundly/Mix.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 126,
+      "nonEmptyLines": 106,
+      "functions": [
+        {
+          "name": "Mix",
+          "startLine": 26,
+          "endLine": 28,
+          "params": []
+        },
+        {
+          "name": "Mix",
+          "startLine": 30,
+          "endLine": 34,
+          "params": [
+            "name",
+            "volume",
+            "pitch"
+          ]
+        },
+        {
+          "name": "Mix",
+          "startLine": 36,
+          "endLine": 38,
+          "params": [
+            "name"
+          ]
+        },
+        {
+          "name": "Mix",
+          "startLine": 40,
+          "endLine": 42,
+          "params": [
+            "volume",
+            "pitch"
+          ]
+        },
+        {
+          "name": "Mix",
+          "startLine": 44,
+          "endLine": 46,
+          "params": [
+            "volume"
+          ]
+        },
+        {
+          "name": "Mix",
+          "startLine": 48,
+          "endLine": 50,
+          "params": [
+            "name",
+            "volume"
+          ]
+        },
+        {
+          "name": "getVolume",
+          "startLine": 55,
+          "endLine": 57,
+          "params": []
+        },
+        {
+          "name": "setVolume",
+          "startLine": 62,
+          "endLine": 64,
+          "params": [
+            "volume"
+          ]
+        },
+        {
+          "name": "getPitch",
+          "startLine": 69,
+          "endLine": 71,
+          "params": []
+        },
+        {
+          "name": "setPitch",
+          "startLine": 76,
+          "endLine": 78,
+          "params": [
+            "pitch"
+          ]
+        },
+        {
+          "name": "getXAdjustment",
+          "startLine": 83,
+          "endLine": 85,
+          "params": []
+        },
+        {
+          "name": "setXAdjustment",
+          "startLine": 90,
+          "endLine": 92,
+          "params": [
+            "xAdjustment"
+          ]
+        },
+        {
+          "name": "getYAdjustment",
+          "startLine": 97,
+          "endLine": 99,
+          "params": []
+        },
+        {
+          "name": "setYAdjustment",
+          "startLine": 104,
+          "endLine": 106,
+          "params": [
+            "yAdjustment"
+          ]
+        },
+        {
+          "name": "getDepthAdjustment",
+          "startLine": 111,
+          "endLine": 113,
+          "params": []
+        },
+        {
+          "name": "setDepthAdjustment",
+          "startLine": 118,
+          "endLine": 120,
+          "params": [
+            "depthAdjustment"
+          ]
+        },
+        {
+          "name": "toString",
+          "startLine": 123,
+          "endLine": 125,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "Mix",
+          "startLine": 17,
+          "endLine": 126,
+          "methods": [
+            "Mix",
+            "Mix",
+            "Mix",
+            "Mix",
+            "Mix",
+            "Mix",
+            "getVolume",
+            "setVolume",
+            "getPitch",
+            "setPitch",
+            "getXAdjustment",
+            "setXAdjustment",
+            "getYAdjustment",
+            "setYAdjustment",
+            "getDepthAdjustment",
+            "setDepthAdjustment",
+            "toString"
+          ],
+          "properties": [
+            "volume",
+            "pitch",
+            "xAdjustment",
+            "yAdjustment",
+            "depthAdjustment",
+            "name"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Mix",
+          "line": 26,
+          "isDefault": false
+        },
+        {
+          "name": "Mix",
+          "line": 30,
+          "isDefault": false
+        },
+        {
+          "name": "Mix",
+          "line": 36,
+          "isDefault": false
+        },
+        {
+          "name": "Mix",
+          "line": 40,
+          "isDefault": false
+        },
+        {
+          "name": "Mix",
+          "line": 44,
+          "isDefault": false
+        },
+        {
+          "name": "Mix",
+          "line": 48,
+          "isDefault": false
+        },
+        {
+          "name": "getVolume",
+          "line": 55,
+          "isDefault": false
+        },
+        {
+          "name": "setVolume",
+          "line": 62,
+          "isDefault": false
+        },
+        {
+          "name": "getPitch",
+          "line": 69,
+          "isDefault": false
+        },
+        {
+          "name": "setPitch",
+          "line": 76,
+          "isDefault": false
+        },
+        {
+          "name": "getXAdjustment",
+          "line": 83,
+          "isDefault": false
+        },
+        {
+          "name": "setXAdjustment",
+          "line": 90,
+          "isDefault": false
+        },
+        {
+          "name": "getYAdjustment",
+          "line": 97,
+          "isDefault": false
+        },
+        {
+          "name": "setYAdjustment",
+          "line": 104,
+          "isDefault": false
+        },
+        {
+          "name": "getDepthAdjustment",
+          "line": 111,
+          "isDefault": false
+        },
+        {
+          "name": "setDepthAdjustment",
+          "line": 118,
+          "isDefault": false
+        },
+        {
+          "name": "toString",
+          "line": 123,
+          "isDefault": false
+        },
+        {
+          "name": "Mix",
+          "line": 17,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "toString",
+          "callee": "String.valueOf",
+          "lineNumber": 124
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 18,
+        "functionCount": 17,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/soundly/SoundGroup.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 149,
+      "nonEmptyLines": 128,
+      "functions": [
+        {
+          "name": "SoundGroup",
+          "startLine": 20,
+          "endLine": 23,
+          "params": [
+            "description"
+          ]
+        },
+        {
+          "name": "SoundGroup",
+          "startLine": 25,
+          "endLine": 27,
+          "params": []
+        },
+        {
+          "name": "SoundGroup",
+          "startLine": 34,
+          "endLine": 36,
+          "params": [
+            "size"
+          ]
+        },
+        {
+          "name": "SoundGroup",
+          "startLine": 43,
+          "endLine": 46,
+          "params": [
+            "description",
+            "size"
+          ]
+        },
+        {
+          "name": "SoundGroup",
+          "startLine": 52,
+          "endLine": 54,
+          "params": [
+            "description"
+          ]
+        },
+        {
+          "name": "SoundGroup",
+          "startLine": 59,
+          "endLine": 61,
+          "params": []
+        },
+        {
+          "name": "addSound",
+          "startLine": 68,
+          "endLine": 72,
+          "params": [
+            "s"
+          ]
+        },
+        {
+          "name": "getSound",
+          "startLine": 79,
+          "endLine": 81,
+          "params": [
+            "index"
+          ]
+        },
+        {
+          "name": "removeSound",
+          "startLine": 88,
+          "endLine": 91,
+          "params": [
+            "s"
+          ]
+        },
+        {
+          "name": "removeSound",
+          "startLine": 98,
+          "endLine": 102,
+          "params": [
+            "index"
+          ]
+        },
+        {
+          "name": "clear",
+          "startLine": 107,
+          "endLine": 112,
+          "params": []
+        },
+        {
+          "name": "size",
+          "startLine": 118,
+          "endLine": 120,
+          "params": []
+        },
+        {
+          "name": "rnd",
+          "startLine": 126,
+          "endLine": 128,
+          "params": []
+        },
+        {
+          "name": "queue",
+          "startLine": 131,
+          "endLine": 133,
+          "params": []
+        },
+        {
+          "name": "queueAtIndex",
+          "startLine": 136,
+          "endLine": 138,
+          "params": [
+            "sourceIndex"
+          ]
+        },
+        {
+          "name": "queueSound",
+          "startLine": 141,
+          "endLine": 143,
+          "params": [
+            "index"
+          ]
+        },
+        {
+          "name": "queueSoundAtIndex",
+          "startLine": 146,
+          "endLine": 148,
+          "params": [
+            "index",
+            "sourceIndex"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "SoundGroup",
+          "startLine": 11,
+          "endLine": 149,
+          "methods": [
+            "SoundGroup",
+            "SoundGroup",
+            "SoundGroup",
+            "SoundGroup",
+            "SoundGroup",
+            "SoundGroup",
+            "addSound",
+            "getSound",
+            "removeSound",
+            "removeSound",
+            "clear",
+            "size",
+            "rnd",
+            "queue",
+            "queueAtIndex",
+            "queueSound",
+            "queueSoundAtIndex"
+          ],
+          "properties": [
+            "sounds"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "SoundGroup",
+          "line": 20,
+          "isDefault": false
+        },
+        {
+          "name": "SoundGroup",
+          "line": 25,
+          "isDefault": false
+        },
+        {
+          "name": "SoundGroup",
+          "line": 34,
+          "isDefault": false
+        },
+        {
+          "name": "SoundGroup",
+          "line": 43,
+          "isDefault": false
+        },
+        {
+          "name": "SoundGroup",
+          "line": 52,
+          "isDefault": false
+        },
+        {
+          "name": "SoundGroup",
+          "line": 59,
+          "isDefault": false
+        },
+        {
+          "name": "addSound",
+          "line": 68,
+          "isDefault": false
+        },
+        {
+          "name": "getSound",
+          "line": 79,
+          "isDefault": false
+        },
+        {
+          "name": "removeSound",
+          "line": 88,
+          "isDefault": false
+        },
+        {
+          "name": "removeSound",
+          "line": 98,
+          "isDefault": false
+        },
+        {
+          "name": "clear",
+          "line": 107,
+          "isDefault": false
+        },
+        {
+          "name": "size",
+          "line": 118,
+          "isDefault": false
+        },
+        {
+          "name": "rnd",
+          "line": 126,
+          "isDefault": false
+        },
+        {
+          "name": "queue",
+          "line": 131,
+          "isDefault": false
+        },
+        {
+          "name": "queueAtIndex",
+          "line": 136,
+          "isDefault": false
+        },
+        {
+          "name": "queueSound",
+          "line": 141,
+          "isDefault": false
+        },
+        {
+          "name": "queueSoundAtIndex",
+          "line": 146,
+          "isDefault": false
+        },
+        {
+          "name": "SoundGroup",
+          "line": 11,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "SoundGroup",
+          "callee": "Arrays.asList",
+          "lineNumber": 22
+        },
+        {
+          "caller": "SoundGroup",
+          "callee": "new ArrayList<ManagedSound>",
+          "lineNumber": 45
+        },
+        {
+          "caller": "addSound",
+          "callee": "s.setPosition",
+          "lineNumber": 69
+        },
+        {
+          "caller": "addSound",
+          "callee": "getX",
+          "lineNumber": 69
+        },
+        {
+          "caller": "addSound",
+          "callee": "getY",
+          "lineNumber": 69
+        },
+        {
+          "caller": "addSound",
+          "callee": "getDepth",
+          "lineNumber": 69
+        },
+        {
+          "caller": "addSound",
+          "callee": "this.sounds.add",
+          "lineNumber": 71
+        },
+        {
+          "caller": "getSound",
+          "callee": "sounds.get",
+          "lineNumber": 80
+        },
+        {
+          "caller": "removeSound",
+          "callee": "sounds.remove",
+          "lineNumber": 90
+        },
+        {
+          "caller": "removeSound",
+          "callee": "sounds.remove",
+          "lineNumber": 99
+        },
+        {
+          "caller": "clear",
+          "callee": "size",
+          "lineNumber": 108
+        },
+        {
+          "caller": "clear",
+          "callee": "getSound",
+          "lineNumber": 109
+        },
+        {
+          "caller": "clear",
+          "callee": "sounds.clear",
+          "lineNumber": 111
+        },
+        {
+          "caller": "size",
+          "callee": "sounds.size",
+          "lineNumber": 119
+        },
+        {
+          "caller": "rnd",
+          "callee": "Math.random",
+          "lineNumber": 127
+        },
+        {
+          "caller": "rnd",
+          "callee": "size",
+          "lineNumber": 127
+        },
+        {
+          "caller": "queue",
+          "callee": "queueAtIndex",
+          "lineNumber": 132
+        },
+        {
+          "caller": "queueAtIndex",
+          "callee": "getSound(rnd()).queueAtIndex",
+          "lineNumber": 137
+        },
+        {
+          "caller": "queueAtIndex",
+          "callee": "getSound",
+          "lineNumber": 137
+        },
+        {
+          "caller": "queueAtIndex",
+          "callee": "rnd",
+          "lineNumber": 137
+        },
+        {
+          "caller": "queueSound",
+          "callee": "queueSoundAtIndex",
+          "lineNumber": 142
+        },
+        {
+          "caller": "queueSoundAtIndex",
+          "callee": "getSound(index).queueAtIndex",
+          "lineNumber": 147
+        },
+        {
+          "caller": "queueSoundAtIndex",
+          "callee": "getSound",
+          "lineNumber": 147
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 18,
+        "functionCount": 17,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/soundly/SoundStore.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 75,
+      "nonEmptyLines": 60,
+      "functions": [
+        {
+          "name": "get",
+          "startLine": 27,
+          "endLine": 29,
+          "params": []
+        },
+        {
+          "name": "init",
+          "startLine": 31,
+          "endLine": 33,
+          "params": []
+        },
+        {
+          "name": "isDeferredLoading",
+          "startLine": 35,
+          "endLine": 37,
+          "params": []
+        },
+        {
+          "name": "soundWorks",
+          "startLine": 39,
+          "endLine": 41,
+          "params": []
+        },
+        {
+          "name": "setDeferredLoading",
+          "startLine": 43,
+          "endLine": 45,
+          "params": [
+            "deferred"
+          ]
+        },
+        {
+          "name": "setMaxSources",
+          "startLine": 47,
+          "endLine": 49,
+          "params": [
+            "maxSources"
+          ]
+        },
+        {
+          "name": "getSource",
+          "startLine": 51,
+          "endLine": 53,
+          "params": [
+            "index"
+          ]
+        },
+        {
+          "name": "clear",
+          "startLine": 55,
+          "endLine": 57,
+          "params": []
+        },
+        {
+          "name": "getOgg",
+          "startLine": 59,
+          "endLine": 61,
+          "params": [
+            "openStream"
+          ]
+        },
+        {
+          "name": "getWAV",
+          "startLine": 63,
+          "endLine": 65,
+          "params": [
+            "openStream"
+          ]
+        },
+        {
+          "name": "getAIF",
+          "startLine": 67,
+          "endLine": 69,
+          "params": [
+            "openStream"
+          ]
+        },
+        {
+          "name": "soundsOn",
+          "startLine": 71,
+          "endLine": 73,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "SoundStore",
+          "startLine": 25,
+          "endLine": 75,
+          "methods": [
+            "get",
+            "init",
+            "isDeferredLoading",
+            "soundWorks",
+            "setDeferredLoading",
+            "setMaxSources",
+            "getSource",
+            "clear",
+            "getOgg",
+            "getWAV",
+            "getAIF",
+            "soundsOn"
+          ],
+          "properties": []
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "get",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 28
+        },
+        {
+          "caller": "init",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 32
+        },
+        {
+          "caller": "isDeferredLoading",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 36
+        },
+        {
+          "caller": "soundWorks",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 40
+        },
+        {
+          "caller": "setDeferredLoading",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 44
+        },
+        {
+          "caller": "setMaxSources",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 48
+        },
+        {
+          "caller": "getSource",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 52
+        },
+        {
+          "caller": "clear",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 56
+        },
+        {
+          "caller": "getOgg",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 60
+        },
+        {
+          "caller": "getWAV",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 64
+        },
+        {
+          "caller": "getAIF",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 68
+        },
+        {
+          "caller": "soundsOn",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 72
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 12,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/soundly/XStreamingSound.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 214,
+      "nonEmptyLines": 192,
+      "functions": [
+        {
+          "name": "XStreamingSound",
+          "startLine": 35,
+          "endLine": 54,
+          "params": [
+            "ref",
+            "description"
+          ]
+        },
+        {
+          "name": "XStreamingSound",
+          "startLine": 57,
+          "endLine": 77,
+          "params": [
+            "url",
+            "description"
+          ]
+        },
+        {
+          "name": "XStreamingSound",
+          "startLine": 79,
+          "endLine": 81,
+          "params": [
+            "ref"
+          ]
+        },
+        {
+          "name": "XStreamingSound",
+          "startLine": 83,
+          "endLine": 85,
+          "params": [
+            "url"
+          ]
+        },
+        {
+          "name": "sourceLooping",
+          "startLine": 87,
+          "endLine": 90,
+          "params": []
+        },
+        {
+          "name": "setLooping",
+          "startLine": 92,
+          "endLine": 97,
+          "params": [
+            "looping"
+          ]
+        },
+        {
+          "name": "clearSource",
+          "startLine": 99,
+          "endLine": 103,
+          "params": []
+        },
+        {
+          "name": "clearStream",
+          "startLine": 105,
+          "endLine": 117,
+          "params": []
+        },
+        {
+          "name": "isFinished",
+          "startLine": 119,
+          "endLine": 125,
+          "params": []
+        },
+        {
+          "name": "startStream",
+          "startLine": 127,
+          "endLine": 139,
+          "params": []
+        },
+        {
+          "name": "updateOpenAL",
+          "startLine": 141,
+          "endLine": 162,
+          "params": [
+            "source",
+            "sourceIndex",
+            "delta",
+            "init"
+          ]
+        },
+        {
+          "name": "stop",
+          "startLine": 164,
+          "endLine": 168,
+          "params": []
+        },
+        {
+          "name": "resume",
+          "startLine": 170,
+          "endLine": 175,
+          "params": []
+        },
+        {
+          "name": "isPlaying",
+          "startLine": 177,
+          "endLine": 182,
+          "params": []
+        },
+        {
+          "name": "queueAtIndex",
+          "startLine": 184,
+          "endLine": 193,
+          "params": [
+            "sourceIndex"
+          ]
+        },
+        {
+          "name": "seek",
+          "startLine": 195,
+          "endLine": 203,
+          "params": [
+            "position"
+          ]
+        },
+        {
+          "name": "getSeekPosition",
+          "startLine": 205,
+          "endLine": 213,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "XStreamingSound",
+          "startLine": 21,
+          "endLine": 214,
+          "methods": [
+            "XStreamingSound",
+            "XStreamingSound",
+            "XStreamingSound",
+            "XStreamingSound",
+            "sourceLooping",
+            "setLooping",
+            "clearSource",
+            "clearStream",
+            "isFinished",
+            "startStream",
+            "updateOpenAL",
+            "stop",
+            "resume",
+            "isPlaying",
+            "queueAtIndex",
+            "seek",
+            "getSeekPosition"
+          ],
+          "properties": [
+            "streamPlayer",
+            "modPlayer",
+            "module",
+            "ref",
+            "url",
+            "stopped"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "XStreamingSound",
+          "line": 35,
+          "isDefault": false
+        },
+        {
+          "name": "XStreamingSound",
+          "line": 57,
+          "isDefault": false
+        },
+        {
+          "name": "XStreamingSound",
+          "line": 79,
+          "isDefault": false
+        },
+        {
+          "name": "XStreamingSound",
+          "line": 83,
+          "isDefault": false
+        },
+        {
+          "name": "sourceLooping",
+          "line": 87,
+          "isDefault": false
+        },
+        {
+          "name": "setLooping",
+          "line": 92,
+          "isDefault": false
+        },
+        {
+          "name": "clearSource",
+          "line": 99,
+          "isDefault": false
+        },
+        {
+          "name": "isFinished",
+          "line": 119,
+          "isDefault": false
+        },
+        {
+          "name": "stop",
+          "line": 164,
+          "isDefault": false
+        },
+        {
+          "name": "resume",
+          "line": 170,
+          "isDefault": false
+        },
+        {
+          "name": "isPlaying",
+          "line": 177,
+          "isDefault": false
+        },
+        {
+          "name": "queueAtIndex",
+          "line": 184,
+          "isDefault": false
+        },
+        {
+          "name": "seek",
+          "line": 195,
+          "isDefault": false
+        },
+        {
+          "name": "getSeekPosition",
+          "line": 205,
+          "isDefault": false
+        },
+        {
+          "name": "XStreamingSound",
+          "line": 21,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "XStreamingSound",
+          "callee": "new AudioData",
+          "lineNumber": 36
+        },
+        {
+          "caller": "XStreamingSound",
+          "callee": "SoundStore.get().init",
+          "lineNumber": 37
+        },
+        {
+          "caller": "XStreamingSound",
+          "callee": "SoundStore.get",
+          "lineNumber": 37
+        },
+        {
+          "caller": "XStreamingSound",
+          "callee": "ref.toLowerCase().endsWith",
+          "lineNumber": 40
+        },
+        {
+          "caller": "XStreamingSound",
+          "callee": "ref.toLowerCase",
+          "lineNumber": 40
+        },
+        {
+          "caller": "XStreamingSound",
+          "callee": "new XOpenALStreamPlayer",
+          "lineNumber": 41
+        },
+        {
+          "caller": "XStreamingSound",
+          "callee": "ref.toLowerCase().endsWith",
+          "lineNumber": 42
+        },
+        {
+          "caller": "XStreamingSound",
+          "callee": "ref.toLowerCase",
+          "lineNumber": 42
+        },
+        {
+          "caller": "XStreamingSound",
+          "callee": "ref.toLowerCase().endsWith",
+          "lineNumber": 42
+        },
+        {
+          "caller": "XStreamingSound",
+          "callee": "ref.toLowerCase",
+          "lineNumber": 42
+        },
+        {
+          "caller": "XStreamingSound",
+          "callee": "new Exception",
+          "lineNumber": 48
+        },
+        {
+          "caller": "XStreamingSound",
+          "callee": "new Exception",
+          "lineNumber": 52
+        },
+        {
+          "caller": "XStreamingSound",
+          "callee": "new AudioData",
+          "lineNumber": 58
+        },
+        {
+          "caller": "XStreamingSound",
+          "callee": "SoundStore.get().init",
+          "lineNumber": 59
+        },
+        {
+          "caller": "XStreamingSound",
+          "callee": "SoundStore.get",
+          "lineNumber": 59
+        },
+        {
+          "caller": "XStreamingSound",
+          "callee": "url.getFile",
+          "lineNumber": 60
+        },
+        {
+          "caller": "XStreamingSound",
+          "callee": "ref.toLowerCase().endsWith",
+          "lineNumber": 63
+        },
+        {
+          "caller": "XStreamingSound",
+          "callee": "ref.toLowerCase",
+          "lineNumber": 63
+        },
+        {
+          "caller": "XStreamingSound",
+          "callee": "new XOpenALStreamPlayer",
+          "lineNumber": 64
+        },
+        {
+          "caller": "XStreamingSound",
+          "callee": "ref.toLowerCase().endsWith",
+          "lineNumber": 65
+        },
+        {
+          "caller": "XStreamingSound",
+          "callee": "ref.toLowerCase",
+          "lineNumber": 65
+        },
+        {
+          "caller": "XStreamingSound",
+          "callee": "ref.toLowerCase().endsWith",
+          "lineNumber": 65
+        },
+        {
+          "caller": "XStreamingSound",
+          "callee": "ref.toLowerCase",
+          "lineNumber": 65
+        },
+        {
+          "caller": "XStreamingSound",
+          "callee": "new Exception",
+          "lineNumber": 71
+        },
+        {
+          "caller": "XStreamingSound",
+          "callee": "new Exception",
+          "lineNumber": 75
+        },
+        {
+          "caller": "setLooping",
+          "callee": "super.setLooping",
+          "lineNumber": 94
+        },
+        {
+          "caller": "setLooping",
+          "callee": "streamPlayer.setLooping",
+          "lineNumber": 96
+        },
+        {
+          "caller": "clearSource",
+          "callee": "clearStream",
+          "lineNumber": 101
+        },
+        {
+          "caller": "clearSource",
+          "callee": "super.clearSource",
+          "lineNumber": 102
+        },
+        {
+          "caller": "clearStream",
+          "callee": "stop",
+          "lineNumber": 106
+        },
+        {
+          "caller": "clearStream",
+          "callee": "getSource",
+          "lineNumber": 107
+        },
+        {
+          "caller": "clearStream",
+          "callee": "IntBuffer.allocate",
+          "lineNumber": 110
+        },
+        {
+          "caller": "clearStream",
+          "callee": "Soundly.setSourceAudio",
+          "lineNumber": 116
+        },
+        {
+          "caller": "isFinished",
+          "callee": "streamPlayer.done",
+          "lineNumber": 123
+        },
+        {
+          "caller": "startStream",
+          "callee": "streamPlayer.play",
+          "lineNumber": 131
+        },
+        {
+          "caller": "updateOpenAL",
+          "callee": "super.updateOpenAL",
+          "lineNumber": 143
+        },
+        {
+          "caller": "updateOpenAL",
+          "callee": "streamPlayer.update",
+          "lineNumber": 155
+        },
+        {
+          "caller": "stop",
+          "callee": "super.stop",
+          "lineNumber": 166
+        },
+        {
+          "caller": "resume",
+          "callee": "super.resume",
+          "lineNumber": 172
+        },
+        {
+          "caller": "isPlaying",
+          "callee": "super.isPlaying",
+          "lineNumber": 181
+        },
+        {
+          "caller": "queueAtIndex",
+          "callee": "super.queueAtIndex",
+          "lineNumber": 187
+        },
+        {
+          "caller": "queueAtIndex",
+          "callee": "streamPlayer.setSource",
+          "lineNumber": 189
+        },
+        {
+          "caller": "seek",
+          "callee": "streamPlayer.setPosition",
+          "lineNumber": 198
+        },
+        {
+          "caller": "seek",
+          "callee": "new RuntimeException",
+          "lineNumber": 200
+        },
+        {
+          "caller": "getSeekPosition",
+          "callee": "streamPlayer.getPosition",
+          "lineNumber": 208
+        },
+        {
+          "caller": "getSeekPosition",
+          "callee": "new RuntimeException",
+          "lineNumber": 210
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 15,
+        "functionCount": 17,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "test/module-info.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 22,
+      "nonEmptyLines": 20,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,563 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/cr0s/javara/resources/RemappedTextureCache.java",
+      "type": "file",
+      "name": "RemappedTextureCache.java",
+      "filePath": "src/cr0s/javara/resources/RemappedTextureCache.java",
+      "summary": "Implements a cache for textures with remapping capabilities to support different color variants.",
+      "tags": ["resources", "cache", "rendering"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/cr0s/javara/resources/RemappedTextureCache.java:RemappedTextureCache",
+      "type": "class",
+      "name": "RemappedTextureCache",
+      "filePath": "src/cr0s/javara/resources/RemappedTextureCache.java",
+      "lineRange": [13, 68],
+      "summary": "Singleton cache that stores remapped textures to avoid redundant processing.",
+      "tags": ["resources", "cache"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cr0s/javara/resources/RemappedTextureCache.java:getInstance",
+      "type": "function",
+      "name": "getInstance",
+      "filePath": "src/cr0s/javara/resources/RemappedTextureCache.java",
+      "lineRange": [21, 27],
+      "summary": "Returns the singleton instance of the RemappedTextureCache.",
+      "tags": ["singleton"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/resources/RemappedTextureCache.java:checkInCache",
+      "type": "function",
+      "name": "checkInCache",
+      "filePath": "src/cr0s/javara/resources/RemappedTextureCache.java",
+      "lineRange": [36, 46],
+      "summary": "Checks if a texture with the given remapping is already in the cache.",
+      "tags": ["cache"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cr0s/javara/resources/RemappedTextureCache.java:putInCache",
+      "type": "function",
+      "name": "putInCache",
+      "filePath": "src/cr0s/javara/resources/RemappedTextureCache.java",
+      "lineRange": [55, 67],
+      "summary": "Adds a remapped texture to the cache.",
+      "tags": ["cache"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cr0s/javara/ui/SideBarPageCategory.java",
+      "type": "file",
+      "name": "SideBarPageCategory.java",
+      "filePath": "src/cr0s/javara/ui/SideBarPageCategory.java",
+      "summary": "Defines categories for pages within the sidebar UI.",
+      "tags": ["ui", "data-model"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/mazesolver/Main.java",
+      "type": "file",
+      "name": "Main.java",
+      "filePath": "src/mazesolver/Main.java",
+      "summary": "Main entry point for the Maze Solver application.",
+      "tags": ["entry-point", "maze-solver"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/mazesolver/Main.java:Main",
+      "type": "class",
+      "name": "Main",
+      "filePath": "src/mazesolver/Main.java",
+      "lineRange": [9, 53],
+      "summary": "Main class that coordinates the maze solving process and visualization.",
+      "tags": ["maze-solver"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/mazesolver/Main.java:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "src/mazesolver/Main.java",
+      "lineRange": [15, 17],
+      "summary": "Main method that launches the application.",
+      "tags": ["entry-point"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/mazesolver/Main.java:start",
+      "type": "function",
+      "name": "start",
+      "filePath": "src/mazesolver/Main.java",
+      "lineRange": [19, 51],
+      "summary": "Initializes the maze, solver, and graphics display.",
+      "tags": ["initialization"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/mazesolver/Route.java",
+      "type": "file",
+      "name": "Route.java",
+      "filePath": "src/mazesolver/Route.java",
+      "summary": "Implements route finding and optimization for the maze solver using genetic algorithms.",
+      "tags": ["maze-solver", "algorithm", "genetic"],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:src/mazesolver/Route.java:Route",
+      "type": "class",
+      "name": "Route",
+      "filePath": "src/mazesolver/Route.java",
+      "lineRange": [6, 158],
+      "summary": "Class that manages route calculation and optimization.",
+      "tags": ["maze-solver", "algorithm"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/mazesolver/Route.java:getBestOrder",
+      "type": "function",
+      "name": "getBestOrder",
+      "filePath": "src/mazesolver/Route.java",
+      "lineRange": [27, 29],
+      "summary": "Returns the best route found so far.",
+      "tags": ["algorithm"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/mazesolver/Route.java:updateBestOrder",
+      "type": "function",
+      "name": "updateBestOrder",
+      "filePath": "src/mazesolver/Route.java",
+      "lineRange": [35, 39],
+      "summary": "Updates the best route if a better one is provided.",
+      "tags": ["algorithm"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/mazesolver/Route.java:getRouteLength",
+      "type": "function",
+      "name": "getRouteLength",
+      "filePath": "src/mazesolver/Route.java",
+      "lineRange": [46, 53],
+      "summary": "Calculates the total length of a given route order.",
+      "tags": ["algorithm"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/mazesolver/Route.java:setLengthMatrix",
+      "type": "function",
+      "name": "setLengthMatrix",
+      "filePath": "src/mazesolver/Route.java",
+      "lineRange": [59, 61],
+      "summary": "Sets the distance matrix used for route calculations.",
+      "tags": ["algorithm"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/mazesolver/Route.java:findRoute",
+      "type": "function",
+      "name": "findRoute",
+      "filePath": "src/mazesolver/Route.java",
+      "lineRange": [67, 74],
+      "summary": "Starts the asynchronous process of finding the optimal route.",
+      "tags": ["algorithm", "async"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/mazesolver/Settings.java",
+      "type": "file",
+      "name": "Settings.java",
+      "filePath": "src/mazesolver/Settings.java",
+      "summary": "Holds configuration settings for the maze solver.",
+      "tags": ["configuration", "maze-solver"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/mazesolver/Settings.java:Settings",
+      "type": "class",
+      "name": "Settings",
+      "filePath": "src/mazesolver/Settings.java",
+      "lineRange": [6, 89],
+      "summary": "Class for storing maze solver settings.",
+      "tags": ["configuration"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/module-info.java",
+      "type": "file",
+      "name": "module-info.java",
+      "filePath": "src/module-info.java",
+      "summary": "Java module definition file specifying dependencies and exports.",
+      "tags": ["configuration", "java-module"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/net/pso/jswarm/alpine/ExampleRepulsive.java",
+      "type": "file",
+      "name": "ExampleRepulsive.java",
+      "filePath": "src/net/pso/jswarm/alpine/ExampleRepulsive.java",
+      "summary": "Example implementation of a Particle Swarm Optimization (PSO) with repulsive forces.",
+      "tags": ["pso", "algorithm", "example"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/net/pso/jswarm/alpine/ExampleRepulsive.java:ExampleRepulsive",
+      "type": "class",
+      "name": "ExampleRepulsive",
+      "filePath": "src/net/pso/jswarm/alpine/ExampleRepulsive.java",
+      "lineRange": [11, 42],
+      "summary": "Class demonstrating the use of SwarmRepulsive for optimization.",
+      "tags": ["pso", "algorithm"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/alpine/ExampleRepulsive.java:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "src/net/pso/jswarm/alpine/ExampleRepulsive.java",
+      "lineRange": [16, 40],
+      "summary": "Main method to run the repulsive PSO example.",
+      "tags": ["entry-point"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/net/pso/jswarm/Attic/example_2/Attic/DrawingArea.java",
+      "type": "file",
+      "name": "DrawingArea.java",
+      "filePath": "src/net/pso/jswarm/Attic/example_2/Attic/DrawingArea.java",
+      "summary": "Provides a drawing area for visualizing the PSO swarm.",
+      "tags": ["ui", "visualization", "pso"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/net/pso/jswarm/Attic/example_2/Attic/DrawingArea.java:DrawingArea",
+      "type": "class",
+      "name": "DrawingArea",
+      "filePath": "src/net/pso/jswarm/Attic/example_2/Attic/DrawingArea.java",
+      "lineRange": [14, 68],
+      "summary": "Custom JPanel for drawing the PSO swarm and its movements.",
+      "tags": ["ui", "swing"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/Attic/example_2/Attic/DrawingArea.java:clear",
+      "type": "function",
+      "name": "clear",
+      "filePath": "src/net/pso/jswarm/Attic/example_2/Attic/DrawingArea.java",
+      "lineRange": [34, 36],
+      "summary": "Clears the drawing area.",
+      "tags": ["ui"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/Attic/example_2/Attic/DrawingArea.java:getPreferredSize",
+      "type": "function",
+      "name": "getPreferredSize",
+      "filePath": "src/net/pso/jswarm/Attic/example_2/Attic/DrawingArea.java",
+      "lineRange": [39, 42],
+      "summary": "Returns the preferred size of the drawing area.",
+      "tags": ["ui"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/Attic/example_2/Attic/DrawingArea.java:paintComponent",
+      "type": "function",
+      "name": "paintComponent",
+      "filePath": "src/net/pso/jswarm/Attic/example_2/Attic/DrawingArea.java",
+      "lineRange": [45, 52],
+      "summary": "Paints the drawing area background.",
+      "tags": ["ui", "swing"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/Attic/example_2/Attic/DrawingArea.java:runSwarm",
+      "type": "function",
+      "name": "runSwarm",
+      "filePath": "src/net/pso/jswarm/Attic/example_2/Attic/DrawingArea.java",
+      "lineRange": [55, 61],
+      "summary": "Launches a new thread to execute the swarm evolution.",
+      "tags": ["pso", "async"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/Attic/example_2/Attic/DrawingArea.java:showSwarm",
+      "type": "function",
+      "name": "showSwarm",
+      "filePath": "src/net/pso/jswarm/Attic/example_2/Attic/DrawingArea.java",
+      "lineRange": [64, 66],
+      "summary": "Visualizes the current state of the swarm on the drawing area.",
+      "tags": ["ui", "visualization"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/net/pso/jswarm/Attic/example_2/Attic/SwarmThread.java",
+      "type": "file",
+      "name": "SwarmThread.java",
+      "filePath": "src/net/pso/jswarm/Attic/example_2/Attic/SwarmThread.java",
+      "summary": "Worker thread for evolving a PSO swarm without blocking the UI thread.",
+      "tags": ["pso", "async", "threading"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/net/pso/jswarm/Attic/example_2/Attic/SwarmThread.java:SwarmThread",
+      "type": "class",
+      "name": "SwarmThread",
+      "filePath": "src/net/pso/jswarm/Attic/example_2/Attic/SwarmThread.java",
+      "lineRange": [8, 50],
+      "summary": "Thread class that manages the evolution loop of the swarm.",
+      "tags": ["pso", "threading"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/Attic/example_2/Attic/SwarmThread.java:run",
+      "type": "function",
+      "name": "run",
+      "filePath": "src/net/pso/jswarm/Attic/example_2/Attic/SwarmThread.java",
+      "lineRange": [27, 48],
+      "summary": "Execution loop that evolves the swarm and updates the UI.",
+      "tags": ["pso", "loop"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/net/pso/jswarm/Attic/Example.java",
+      "type": "file",
+      "name": "Example.java",
+      "filePath": "src/net/pso/jswarm/Attic/Example.java",
+      "summary": "Example implementation of a basic PSO swarm.",
+      "tags": ["pso", "algorithm", "example"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/net/pso/jswarm/Attic/Example.java:Example",
+      "type": "class",
+      "name": "Example",
+      "filePath": "src/net/pso/jswarm/Attic/Example.java",
+      "lineRange": [12, 35],
+      "summary": "Class demonstrating a simple PSO swarm usage.",
+      "tags": ["pso", "algorithm"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/net/pso/jswarm/Attic/Example.java:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "src/net/pso/jswarm/Attic/Example.java",
+      "lineRange": [17, 34],
+      "summary": "Main method to run the basic PSO example.",
+      "tags": ["entry-point"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/net/pso/jswarm/example_1/Example.java,v",
+      "type": "file",
+      "name": "Example.java,v",
+      "filePath": "src/net/pso/jswarm/example_1/Example.java,v",
+      "summary": "Backup or versioned example of a PSO implementation.",
+      "tags": ["pso", "algorithm", "versioned"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/net/pso/jswarm/example_1/MyParticle.java,v",
+      "type": "file",
+      "name": "MyParticle.java,v",
+      "filePath": "src/net/pso/jswarm/example_1/MyParticle.java,v",
+      "summary": "Backup or versioned implementation of a particle for PSO.",
+      "tags": ["pso", "data-model", "versioned"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/cr0s/javara/resources/RemappedTextureCache.java",
+      "target": "class:src/cr0s/javara/resources/RemappedTextureCache.java:RemappedTextureCache",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/resources/RemappedTextureCache.java",
+      "target": "function:src/cr0s/javara/resources/RemappedTextureCache.java:getInstance",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/resources/RemappedTextureCache.java",
+      "target": "function:src/cr0s/javara/resources/RemappedTextureCache.java:checkInCache",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cr0s/javara/resources/RemappedTextureCache.java",
+      "target": "function:src/cr0s/javara/resources/RemappedTextureCache.java:putInCache",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/mazesolver/Main.java",
+      "target": "class:src/mazesolver/Main.java:Main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/mazesolver/Main.java",
+      "target": "function:src/mazesolver/Main.java:main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/mazesolver/Main.java",
+      "target": "function:src/mazesolver/Main.java:start",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/mazesolver/Route.java",
+      "target": "class:src/mazesolver/Route.java:Route",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/mazesolver/Route.java",
+      "target": "function:src/mazesolver/Route.java:getBestOrder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/mazesolver/Route.java",
+      "target": "function:src/mazesolver/Route.java:updateBestOrder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/mazesolver/Route.java",
+      "target": "function:src/mazesolver/Route.java:getRouteLength",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/mazesolver/Route.java",
+      "target": "function:src/mazesolver/Route.java:setLengthMatrix",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/mazesolver/Route.java",
+      "target": "function:src/mazesolver/Route.java:findRoute",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/mazesolver/Settings.java",
+      "target": "class:src/mazesolver/Settings.java:Settings",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/net/pso/jswarm/alpine/ExampleRepulsive.java",
+      "target": "class:src/net/pso/jswarm/alpine/ExampleRepulsive.java:ExampleRepulsive",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/net/pso/jswarm/alpine/ExampleRepulsive.java",
+      "target": "function:src/net/pso/jswarm/alpine/ExampleRepulsive.java:main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/net/pso/jswarm/alpine/ExampleRepulsive.java",
+      "target": "file:src/net/pso/jswarm/SwarmRepulsive.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Attic/example_2/Attic/DrawingArea.java",
+      "target": "class:src/net/pso/jswarm/Attic/example_2/Attic/DrawingArea.java:DrawingArea",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Attic/example_2/Attic/DrawingArea.java",
+      "target": "function:src/net/pso/jswarm/Attic/example_2/Attic/DrawingArea.java:clear",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Attic/example_2/Attic/DrawingArea.java",
+      "target": "function:src/net/pso/jswarm/Attic/example_2/Attic/DrawingArea.java:getPreferredSize",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Attic/example_2/Attic/DrawingArea.java",
+      "target": "function:src/net/pso/jswarm/Attic/example_2/Attic/DrawingArea.java:paintComponent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Attic/example_2/Attic/DrawingArea.java",
+      "target": "function:src/net/pso/jswarm/Attic/example_2/Attic/DrawingArea.java:runSwarm",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Attic/example_2/Attic/DrawingArea.java",
+      "target": "function:src/net/pso/jswarm/Attic/example_2/Attic/DrawingArea.java:showSwarm",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Attic/example_2/Attic/SwarmThread.java",
+      "target": "class:src/net/pso/jswarm/Attic/example_2/Attic/SwarmThread.java:SwarmThread",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Attic/example_2/Attic/SwarmThread.java",
+      "target": "function:src/net/pso/jswarm/Attic/example_2/Attic/SwarmThread.java:run",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Attic/Example.java",
+      "target": "class:src/net/pso/jswarm/Attic/Example.java:Example",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/net/pso/jswarm/Attic/Example.java",
+      "target": "function:src/net/pso/jswarm/Attic/Example.java:main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    }
+  ]
+}

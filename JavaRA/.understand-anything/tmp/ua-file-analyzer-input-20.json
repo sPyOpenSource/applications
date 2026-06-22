@@ -1,0 +1,9 @@
+{
+  "projectRoot": "/Users/xuyi/Source/OS/armOS/lib/jcore/test/JavaRA",
+  "batchFiles": [
+    {"path": "test/test/ClassTest.java", "language": "java", "sizeLines": 55, "fileCategory": "code"}
+  ],
+  "batchImportData": {
+    "test/test/ClassTest.java": []
+  }
+}

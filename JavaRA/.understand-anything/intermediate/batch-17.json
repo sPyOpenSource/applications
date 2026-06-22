@@ -1,0 +1,230 @@
+{
+  "nodes": [
+    {
+      "id": "file:lib/natives-linux.jar",
+      "type": "file",
+      "name": "natives-linux.jar",
+      "filePath": "lib/natives-linux.jar",
+      "summary": "Java archive containing native libraries for Linux platforms.",
+      "tags": ["library", "native", "linux"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:lib/natives-mac.jar",
+      "type": "file",
+      "name": "natives-mac.jar",
+      "filePath": "lib/natives-mac.jar",
+      "summary": "Java archive containing native libraries for macOS platforms.",
+      "tags": ["library", "native", "macos"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:lib/natives-windows.jar",
+      "type": "file",
+      "name": "natives-windows.jar",
+      "filePath": "lib/natives-windows.jar",
+      "summary": "Java archive containing native libraries for Windows platforms.",
+      "tags": ["library", "native", "windows"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:lib/natives/jinput-dx8_64.dll",
+      "type": "file",
+      "name": "jinput-dx8_64.dll",
+      "filePath": "lib/natives/jinput-dx8_64.dll",
+      "summary": "JInput native library for Windows using DirectX 8 (64-bit).",
+      "tags": ["library", "native", "windows", "jinput"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:lib/natives/jinput-dx8.dll",
+      "type": "file",
+      "name": "jinput-dx8.dll",
+      "filePath": "lib/natives/jinput-dx8.dll",
+      "summary": "JInput native library for Windows using DirectX 8 (32-bit).",
+      "tags": ["library", "native", "windows", "jinput"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:lib/natives/jinput-raw_64.dll",
+      "type": "file",
+      "name": "jinput-raw_64.dll",
+      "filePath": "lib/natives/jinput-raw_64.dll",
+      "summary": "JInput native library for Windows using Raw Input (64-bit).",
+      "tags": ["library", "native", "windows", "jinput"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:lib/natives/jinput-raw.dll",
+      "type": "file",
+      "name": "jinput-raw.dll",
+      "filePath": "lib/natives/jinput-raw.dll",
+      "summary": "JInput native library for Windows using Raw Input (32-bit).",
+      "tags": ["library", "native", "windows", "jinput"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:lib/natives/libjinput-linux.so",
+      "type": "file",
+      "name": "libjinput-linux.so",
+      "filePath": "lib/natives/libjinput-linux.so",
+      "summary": "JInput native library for Linux (32-bit).",
+      "tags": ["library", "native", "linux", "jinput"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:lib/natives/libjinput-linux64.so",
+      "type": "file",
+      "name": "libjinput-linux64.so",
+      "filePath": "lib/natives/libjinput-linux64.so",
+      "summary": "JInput native library for Linux (64-bit).",
+      "tags": ["library", "native", "linux", "jinput"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:lib/natives/libjinput-osx.jnilib",
+      "type": "file",
+      "name": "libjinput-osx.jnilib",
+      "filePath": "lib/natives/libjinput-osx.jnilib",
+      "summary": "JInput native library for macOS.",
+      "tags": ["library", "native", "macos", "jinput"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:lib/natives/liblwjgl.jnilib",
+      "type": "file",
+      "name": "liblwjgl.jnilib",
+      "filePath": "lib/natives/liblwjgl.jnilib",
+      "summary": "Lightweight Java Game Library (LWJGL) native library for macOS.",
+      "tags": ["library", "native", "macos", "lwjgl"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:lib/natives/liblwjgl.so",
+      "type": "file",
+      "name": "liblwjgl.so",
+      "filePath": "lib/natives/liblwjgl.so",
+      "summary": "Lightweight Java Game Library (LWJGL) native library for Linux (32-bit).",
+      "tags": ["library", "native", "linux", "lwjgl"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:lib/natives/liblwjgl64.so",
+      "type": "file",
+      "name": "liblwjgl64.so",
+      "filePath": "lib/natives/liblwjgl64.so",
+      "summary": "Lightweight Java Game Library (LWJGL) native library for Linux (64-bit).",
+      "tags": ["library", "native", "linux", "lwjgl"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:lib/natives/libopenal.so",
+      "type": "file",
+      "name": "libopenal.so",
+      "filePath": "lib/natives/libopenal.so",
+      "summary": "OpenAL native library for Linux (32-bit).",
+      "tags": ["library", "native", "linux", "openal"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:lib/natives/libopenal64.so",
+      "type": "file",
+      "name": "libopenal64.so",
+      "filePath": "lib/natives/libopenal64.so",
+      "summary": "OpenAL native library for Linux (64-bit).",
+      "tags": ["library", "native", "linux", "openal"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:lib/natives/lwjgl.dll",
+      "type": "file",
+      "name": "lwjgl.dll",
+      "filePath": "lib/natives/lwjgl.dll",
+      "summary": "Lightweight Java Game Library (LWJGL) native library for Windows (32-bit).",
+      "tags": ["library", "native", "windows", "lwjgl"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:lib/natives/lwjgl64.dll",
+      "type": "file",
+      "name": "lwjgl64.dll",
+      "filePath": "lib/natives/lwjgl64.dll",
+      "summary": "Lightweight Java Game Library (LWJGL) native library for Windows (64-bit).",
+      "tags": ["library", "native", "windows", "lwjgl"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:lib/natives/openal.dylib",
+      "type": "file",
+      "name": "openal.dylib",
+      "filePath": "lib/natives/openal.dylib",
+      "summary": "OpenAL native library for macOS.",
+      "tags": ["library", "native", "macos", "openal"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:lib/natives/OpenAL32.dll",
+      "type": "file",
+      "name": "OpenAL32.dll",
+      "filePath": "lib/natives/OpenAL32.dll",
+      "summary": "OpenAL native library for Windows (32-bit).",
+      "tags": ["library", "native", "windows", "openal"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:lib/natives/OpenAL64.dll",
+      "type": "file",
+      "name": "OpenAL64.dll",
+      "filePath": "lib/natives/OpenAL64.dll",
+      "summary": "OpenAL native library for Windows (64-bit).",
+      "tags": ["library", "native", "windows", "openal"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:lib/slick-examples.jar",
+      "type": "file",
+      "name": "slick-examples.jar",
+      "filePath": "lib/slick-examples.jar",
+      "summary": "Java archive containing examples for the Slick2D library.",
+      "tags": ["library", "examples", "slick2d"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:lib/slick.jar",
+      "type": "file",
+      "name": "slick.jar",
+      "filePath": "lib/slick.jar",
+      "summary": "Java archive containing the Slick2D game development library.",
+      "tags": ["library", "slick2d", "game-dev"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:lib/snakeyaml-1.13.jar",
+      "type": "file",
+      "name": "snakeyaml-1.13.jar",
+      "filePath": "lib/snakeyaml-1.13.jar",
+      "summary": "Java archive containing the SnakeYAML library for YAML parsing.",
+      "tags": ["library", "yaml", "snakeyaml"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:lib/tinylinepp.jar",
+      "type": "file",
+      "name": "tinylinepp.jar",
+      "filePath": "lib/tinylinepp.jar",
+      "summary": "Java archive containing the tinylinepp library.",
+      "tags": ["library", "tinylinepp"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:maps/forest-path/map.bin",
+      "type": "file",
+      "name": "map.bin",
+      "filePath": "maps/forest-path/map.bin",
+      "summary": "Binary map data file for the forest-path level.",
+      "tags": ["data", "map", "binary"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": []
+}

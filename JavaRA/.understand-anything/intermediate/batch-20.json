@@ -1,0 +1,63 @@
+{
+  "nodes": [
+    {
+      "id": "file:test/test/ClassTest.java",
+      "type": "file",
+      "name": "ClassTest.java",
+      "filePath": "test/test/ClassTest.java",
+      "summary": "A test class that implements a utility function y2j to perform string replacements on a file's content and print the result as a JSON object.",
+      "tags": ["test", "utility", "string-manipulation"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:test/test/ClassTest.java:ClassTest",
+      "type": "class",
+      "name": "ClassTest",
+      "filePath": "test/test/ClassTest.java",
+      "lineRange": [30, 55],
+      "summary": "Test class containing the y2j utility method.",
+      "tags": ["test-class"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:test/test/ClassTest.java:y2j",
+      "type": "function",
+      "name": "y2j",
+      "filePath": "test/test/ClassTest.java",
+      "lineRange": [31, 54],
+      "summary": "Reads a file, performs several string replacements to transform its content, and outputs the result as a JSON object.",
+      "tags": ["utility", "string-transformation"],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:test/test/ClassTest.java",
+      "target": "class:test/test/ClassTest.java:ClassTest",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:test/test/ClassTest.java",
+      "target": "function:test/test/ClassTest.java:y2j",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:test/test/ClassTest.java",
+      "target": "class:test/test/ClassTest.java:ClassTest",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:test/test/ClassTest.java",
+      "target": "function:test/test/ClassTest.java:y2j",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}

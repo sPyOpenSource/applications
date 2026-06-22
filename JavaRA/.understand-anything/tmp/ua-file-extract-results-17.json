@@ -1,0 +1,207 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 25,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "lib/natives-linux.jar",
+      "language": "jar",
+      "fileCategory": "code",
+      "totalLines": 1809,
+      "nonEmptyLines": 1805,
+      "metrics": {}
+    },
+    {
+      "path": "lib/natives-mac.jar",
+      "language": "jar",
+      "fileCategory": "code",
+      "totalLines": 1818,
+      "nonEmptyLines": 1815,
+      "metrics": {}
+    },
+    {
+      "path": "lib/natives-windows.jar",
+      "language": "jar",
+      "fileCategory": "code",
+      "totalLines": 2635,
+      "nonEmptyLines": 2628,
+      "metrics": {}
+    },
+    {
+      "path": "lib/natives/jinput-dx8_64.dll",
+      "language": "dll",
+      "fileCategory": "code",
+      "totalLines": 263,
+      "nonEmptyLines": 261,
+      "metrics": {}
+    },
+    {
+      "path": "lib/natives/jinput-dx8.dll",
+      "language": "dll",
+      "fileCategory": "code",
+      "totalLines": 209,
+      "nonEmptyLines": 207,
+      "metrics": {}
+    },
+    {
+      "path": "lib/natives/jinput-raw_64.dll",
+      "language": "dll",
+      "fileCategory": "code",
+      "totalLines": 246,
+      "nonEmptyLines": 244,
+      "metrics": {}
+    },
+    {
+      "path": "lib/natives/jinput-raw.dll",
+      "language": "dll",
+      "fileCategory": "code",
+      "totalLines": 172,
+      "nonEmptyLines": 170,
+      "metrics": {}
+    },
+    {
+      "path": "lib/natives/libjinput-linux.so",
+      "language": "so",
+      "fileCategory": "code",
+      "totalLines": 25,
+      "nonEmptyLines": 25,
+      "metrics": {}
+    },
+    {
+      "path": "lib/natives/libjinput-linux64.so",
+      "language": "so",
+      "fileCategory": "code",
+      "totalLines": 29,
+      "nonEmptyLines": 29,
+      "metrics": {}
+    },
+    {
+      "path": "lib/natives/libjinput-osx.jnilib",
+      "language": "jnilib",
+      "fileCategory": "code",
+      "totalLines": 87,
+      "nonEmptyLines": 87,
+      "metrics": {}
+    },
+    {
+      "path": "lib/natives/liblwjgl.jnilib",
+      "language": "jnilib",
+      "fileCategory": "code",
+      "totalLines": 468,
+      "nonEmptyLines": 468,
+      "metrics": {}
+    },
+    {
+      "path": "lib/natives/liblwjgl.so",
+      "language": "so",
+      "fileCategory": "code",
+      "totalLines": 160,
+      "nonEmptyLines": 160,
+      "metrics": {}
+    },
+    {
+      "path": "lib/natives/liblwjgl64.so",
+      "language": "so",
+      "fileCategory": "code",
+      "totalLines": 978,
+      "nonEmptyLines": 977,
+      "metrics": {}
+    },
+    {
+      "path": "lib/natives/libopenal.so",
+      "language": "so",
+      "fileCategory": "code",
+      "totalLines": 1094,
+      "nonEmptyLines": 1089,
+      "metrics": {}
+    },
+    {
+      "path": "lib/natives/libopenal64.so",
+      "language": "so",
+      "fileCategory": "code",
+      "totalLines": 834,
+      "nonEmptyLines": 829,
+      "metrics": {}
+    },
+    {
+      "path": "lib/natives/lwjgl.dll",
+      "language": "dll",
+      "fileCategory": "code",
+      "totalLines": 246,
+      "nonEmptyLines": 244,
+      "metrics": {}
+    },
+    {
+      "path": "lib/natives/lwjgl64.dll",
+      "language": "dll",
+      "fileCategory": "code",
+      "totalLines": 410,
+      "nonEmptyLines": 408,
+      "metrics": {}
+    },
+    {
+      "path": "lib/natives/openal.dylib",
+      "language": "dylib",
+      "fileCategory": "code",
+      "totalLines": 160,
+      "nonEmptyLines": 160,
+      "metrics": {}
+    },
+    {
+      "path": "lib/natives/OpenAL32.dll",
+      "language": "dll",
+      "fileCategory": "code",
+      "totalLines": 1098,
+      "nonEmptyLines": 1091,
+      "metrics": {}
+    },
+    {
+      "path": "lib/natives/OpenAL64.dll",
+      "language": "dll",
+      "fileCategory": "code",
+      "totalLines": 1255,
+      "nonEmptyLines": 1248,
+      "metrics": {}
+    },
+    {
+      "path": "lib/slick-examples.jar",
+      "language": "jar",
+      "fileCategory": "code",
+      "totalLines": 51,
+      "nonEmptyLines": 51,
+      "metrics": {}
+    },
+    {
+      "path": "lib/slick.jar",
+      "language": "jar",
+      "fileCategory": "code",
+      "totalLines": 3312,
+      "nonEmptyLines": 3305,
+      "metrics": {}
+    },
+    {
+      "path": "lib/snakeyaml-1.13.jar",
+      "language": "jar",
+      "fileCategory": "code",
+      "totalLines": 905,
+      "nonEmptyLines": 898,
+      "metrics": {}
+    },
+    {
+      "path": "lib/tinylinepp.jar",
+      "language": "jar",
+      "fileCategory": "code",
+      "totalLines": 332,
+      "nonEmptyLines": 330,
+      "metrics": {}
+    },
+    {
+      "path": "maps/forest-path/map.bin",
+      "language": "bin",
+      "fileCategory": "code",
+      "totalLines": 120,
+      "nonEmptyLines": 120,
+      "metrics": {}
+    }
+  ]
+}

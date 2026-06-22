@@ -1,0 +1,470 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 25,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "assets/temperat.mix",
+      "language": "mix",
+      "fileCategory": "code",
+      "totalLines": 974,
+      "nonEmptyLines": 877,
+      "metrics": {}
+    },
+    {
+      "path": "assets/trees.yaml",
+      "language": "yaml",
+      "fileCategory": "config",
+      "totalLines": 406,
+      "nonEmptyLines": 355,
+      "sections": [
+        {
+          "heading": "T01",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "T02",
+          "level": 1,
+          "line": 9
+        },
+        {
+          "heading": "T03",
+          "level": 1,
+          "line": 17
+        },
+        {
+          "heading": "T05",
+          "level": 1,
+          "line": 25
+        },
+        {
+          "heading": "T06",
+          "level": 1,
+          "line": 33
+        },
+        {
+          "heading": "T07",
+          "level": 1,
+          "line": 41
+        },
+        {
+          "heading": "T08",
+          "level": 1,
+          "line": 49
+        },
+        {
+          "heading": "T10",
+          "level": 1,
+          "line": 55
+        },
+        {
+          "heading": "T11",
+          "level": 1,
+          "line": 63
+        },
+        {
+          "heading": "T12",
+          "level": 1,
+          "line": 71
+        },
+        {
+          "heading": "T13",
+          "level": 1,
+          "line": 79
+        },
+        {
+          "heading": "T14",
+          "level": 1,
+          "line": 87
+        },
+        {
+          "heading": "T15",
+          "level": 1,
+          "line": 95
+        },
+        {
+          "heading": "T16",
+          "level": 1,
+          "line": 103
+        },
+        {
+          "heading": "T17",
+          "level": 1,
+          "line": 111
+        },
+        {
+          "heading": "TC01",
+          "level": 1,
+          "line": 119
+        },
+        {
+          "heading": "TC02",
+          "level": 1,
+          "line": 125
+        },
+        {
+          "heading": "TC03",
+          "level": 1,
+          "line": 133
+        },
+        {
+          "heading": "TC04",
+          "level": 1,
+          "line": 141
+        },
+        {
+          "heading": "TC05",
+          "level": 1,
+          "line": 149
+        },
+        {
+          "heading": "MINE",
+          "level": 1,
+          "line": 157
+        },
+        {
+          "heading": "RAILMINE",
+          "level": 1,
+          "line": 176
+        },
+        {
+          "heading": "BOXES01",
+          "level": 1,
+          "line": 196
+        },
+        {
+          "heading": "BOXES02",
+          "level": 1,
+          "line": 202
+        },
+        {
+          "heading": "BOXES03",
+          "level": 1,
+          "line": 207
+        },
+        {
+          "heading": "BOXES04",
+          "level": 1,
+          "line": 212
+        },
+        {
+          "heading": "BOXES05",
+          "level": 1,
+          "line": 217
+        },
+        {
+          "heading": "BOXES06",
+          "level": 1,
+          "line": 222
+        },
+        {
+          "heading": "BOXES07",
+          "level": 1,
+          "line": 227
+        },
+        {
+          "heading": "BOXES08",
+          "level": 1,
+          "line": 232
+        },
+        {
+          "heading": "BOXES09",
+          "level": 1,
+          "line": 237
+        },
+        {
+          "heading": "ICE01",
+          "level": 1,
+          "line": 242
+        },
+        {
+          "heading": "ICE02",
+          "level": 1,
+          "line": 252
+        },
+        {
+          "heading": "ICE03",
+          "level": 1,
+          "line": 262
+        },
+        {
+          "heading": "ICE04",
+          "level": 1,
+          "line": 272
+        },
+        {
+          "heading": "ICE05",
+          "level": 1,
+          "line": 279
+        },
+        {
+          "heading": "ROCK1",
+          "level": 1,
+          "line": 287
+        },
+        {
+          "heading": "ROCK2",
+          "level": 1,
+          "line": 293
+        },
+        {
+          "heading": "ROCK3",
+          "level": 1,
+          "line": 299
+        },
+        {
+          "heading": "ROCK4",
+          "level": 1,
+          "line": 305
+        },
+        {
+          "heading": "ROCK5",
+          "level": 1,
+          "line": 311
+        },
+        {
+          "heading": "ROCK6",
+          "level": 1,
+          "line": 317
+        },
+        {
+          "heading": "ROCK7",
+          "level": 1,
+          "line": 323
+        },
+        {
+          "heading": "T04",
+          "level": 1,
+          "line": 329
+        },
+        {
+          "heading": "UTILPOL1",
+          "level": 1,
+          "line": 335
+        },
+        {
+          "heading": "UTILPOL2",
+          "level": 1,
+          "line": 340
+        },
+        {
+          "heading": "TANKTRAP1",
+          "level": 1,
+          "line": 345
+        },
+        {
+          "heading": "TANKTRAP2",
+          "level": 1,
+          "line": 353
+        },
+        {
+          "heading": "QUEE",
+          "level": 1,
+          "line": 361
+        },
+        {
+          "heading": "LAR1",
+          "level": 1,
+          "line": 376
+        },
+        {
+          "heading": "LAR2",
+          "level": 1,
+          "line": 392
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 51
+      }
+    },
+    {
+      "path": "bin/net/pso/jswarm/example_1/Example.java,v",
+      "language": "java,v",
+      "fileCategory": "code",
+      "totalLines": 194,
+      "nonEmptyLines": 164,
+      "metrics": {}
+    },
+    {
+      "path": "bin/net/pso/jswarm/example_1/MyParticle.java,v",
+      "language": "java,v",
+      "fileCategory": "code",
+      "totalLines": 55,
+      "nonEmptyLines": 42,
+      "metrics": {}
+    },
+    {
+      "path": "bin/net/pso/jswarm/rosenbrock_30/Example.java,v",
+      "language": "java,v",
+      "fileCategory": "code",
+      "totalLines": 118,
+      "nonEmptyLines": 98,
+      "metrics": {}
+    },
+    {
+      "path": "bin/net/pso/jswarm/rosenbrock_30/MyFitnessFunction.java,v",
+      "language": "java,v",
+      "fileCategory": "code",
+      "totalLines": 85,
+      "nonEmptyLines": 69,
+      "metrics": {}
+    },
+    {
+      "path": "bin/net/pso/jswarm/rosenbrock_30/MyParticle.java,v",
+      "language": "java,v",
+      "fileCategory": "code",
+      "totalLines": 55,
+      "nonEmptyLines": 42,
+      "metrics": {}
+    },
+    {
+      "path": "bin/net/pso/jswarm/rosenbrock/Example.java,v",
+      "language": "java,v",
+      "fileCategory": "code",
+      "totalLines": 89,
+      "nonEmptyLines": 71,
+      "metrics": {}
+    },
+    {
+      "path": "bin/net/pso/jswarm/schaffer/Example.java,v",
+      "language": "java,v",
+      "fileCategory": "code",
+      "totalLines": 92,
+      "nonEmptyLines": 73,
+      "metrics": {}
+    },
+    {
+      "path": "bin/net/pso/jswarm/sphere/Example.java,v",
+      "language": "java,v",
+      "fileCategory": "code",
+      "totalLines": 88,
+      "nonEmptyLines": 69,
+      "metrics": {}
+    },
+    {
+      "path": "bin/net/pso/jswarm/sphere/MyParticle.java,v",
+      "language": "java,v",
+      "fileCategory": "code",
+      "totalLines": 37,
+      "nonEmptyLines": 28,
+      "metrics": {}
+    },
+    {
+      "path": "bin/net/pso/jswarm/zzz/Example.java,v",
+      "language": "java,v",
+      "fileCategory": "code",
+      "totalLines": 65,
+      "nonEmptyLines": 51,
+      "metrics": {}
+    },
+    {
+      "path": "lib/AppleJavaExtensions.jar",
+      "language": "jar",
+      "fileCategory": "code",
+      "totalLines": 22,
+      "nonEmptyLines": 22,
+      "metrics": {}
+    },
+    {
+      "path": "lib/asm-debug-all.jar",
+      "language": "jar",
+      "fileCategory": "code",
+      "totalLines": 1581,
+      "nonEmptyLines": 1580,
+      "metrics": {}
+    },
+    {
+      "path": "lib/ibxm.jar",
+      "language": "jar",
+      "fileCategory": "code",
+      "totalLines": 123,
+      "nonEmptyLines": 123,
+      "metrics": {}
+    },
+    {
+      "path": "lib/jinput.jar",
+      "language": "jar",
+      "fileCategory": "code",
+      "totalLines": 1108,
+      "nonEmptyLines": 1107,
+      "metrics": {}
+    },
+    {
+      "path": "lib/jnlp.jar",
+      "language": "jar",
+      "fileCategory": "code",
+      "totalLines": 26,
+      "nonEmptyLines": 26,
+      "metrics": {}
+    },
+    {
+      "path": "lib/jogg-0.0.7.jar",
+      "language": "jar",
+      "fileCategory": "code",
+      "totalLines": 15,
+      "nonEmptyLines": 15,
+      "metrics": {}
+    },
+    {
+      "path": "lib/jorbis-0.0.15.jar",
+      "language": "jar",
+      "fileCategory": "code",
+      "totalLines": 221,
+      "nonEmptyLines": 221,
+      "metrics": {}
+    },
+    {
+      "path": "lib/lwjgl_test.jar",
+      "language": "jar",
+      "fileCategory": "code",
+      "totalLines": 1422,
+      "nonEmptyLines": 1415,
+      "metrics": {}
+    },
+    {
+      "path": "lib/lwjgl_util_applet.jar",
+      "language": "jar",
+      "fileCategory": "code",
+      "totalLines": 186,
+      "nonEmptyLines": 185,
+      "metrics": {}
+    },
+    {
+      "path": "lib/lwjgl_util.jar",
+      "language": "jar",
+      "fileCategory": "code",
+      "totalLines": 872,
+      "nonEmptyLines": 871,
+      "metrics": {}
+    },
+    {
+      "path": "lib/lwjgl-debug.jar",
+      "language": "jar",
+      "fileCategory": "code",
+      "totalLines": 5007,
+      "nonEmptyLines": 4997,
+      "metrics": {}
+    },
+    {
+      "path": "lib/lwjgl.jar",
+      "language": "jar",
+      "fileCategory": "code",
+      "totalLines": 4924,
+      "nonEmptyLines": 4909,
+      "metrics": {}
+    },
+    {
+      "path": "lib/lzma.jar",
+      "language": "jar",
+      "fileCategory": "code",
+      "totalLines": 25,
+      "nonEmptyLines": 25,
+      "metrics": {}
+    }
+  ]
+}
