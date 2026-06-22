@@ -1,4 +1,4 @@
-module cr0s.javara.main {
+module test {
     requires javafx.controls;
     requires javafx.fxml;
     requires javafx.media;
@@ -14,7 +14,9 @@ module cr0s.javara.main {
     requires hamcrest.core;
     requires org.json;
     requires junit;
-
+    requires cr0s.javara.main;
+    
+    opens test to javafx.fxml;
     exports test;
 }
     
