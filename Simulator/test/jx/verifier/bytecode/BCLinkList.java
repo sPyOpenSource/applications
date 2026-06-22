@@ -28,48 +28,39 @@ public class BCLinkList {
 	//register Exception handlers
 	exceptionHandlers = new Vector(0);
 	ExceptionHandlerData[] exceptions = method.getExceptionHandlers();
-	for (int i = 0; i< exceptions.length; i++) {
-
-	    String eName;
-	    if (exceptions[i].getCatchTypeCPIndex() == 0) {
-		eName = "java/lang/Throwable";
-	    } else {
-		eName= cPool.classEntryAt(exceptions[i].getCatchTypeCPIndex()).
-		getClassName();
-	    }
-	    ExceptionHandler actHandler = 
-		new ExceptionHandler(eName,
-				     getBCAt(exceptions[i].getStartBCIndex()),
-				     getBCAt(exceptions[i].getEndBCIndex()),
-				     getBCAt(exceptions[i].getHandlerBCIndex()),
-				     exceptions[i].getCatchTypeCPIndex());
-	    this.exceptionHandlers.addElement(actHandler);
-
-	    
-	    //print exceptionhandlers
-	    Verifier.stdPrintln(1,actHandler.toString());
-	    //register exceptionhandler with the starting bytecode of the handler
-	    actHandler.getHandler().startsEH = actHandler;
-	    ByteCode actBC = getBCAt(actHandler.getStartAddress());
-	    //register exceptionhandler with all bytecodes within start and endAddress
-	    while(actBC.getAddress() <= actHandler.getEndAddress()) {
-		if (actBC.eHandlers == null) {
-		    actBC.eHandlers = new ExceptionHandler[1];
-		    actBC.eHandlers[0] = actHandler;
-		} else {
-		    // there is already one or more Exception
-		    ExceptionHandler[] tmpEH = 
-			new ExceptionHandler[actBC.eHandlers.length+1];
-		    for (int j = 0; j < actBC.eHandlers.length; j++) {
-			tmpEH[j] = actBC.eHandlers[j];
-		    }
-		    tmpEH[actBC.eHandlers.length] = actHandler;
-		    actBC.eHandlers = tmpEH;
-		}
-		
-		actBC = actBC.next;
-	    }
-	}
+        for (ExceptionHandlerData exception : exceptions) {
+            String eName;
+            if (exception.getCatchTypeCPIndex() == 0) {
+                eName = "java/lang/Throwable";
+            } else {
+                eName = cPool.classEntryAt(exception.getCatchTypeCPIndex()).getClassName();
+            }
+            ExceptionHandler actHandler = new ExceptionHandler(eName, getBCAt(exception.getStartBCIndex()), getBCAt(exception.getEndBCIndex()), getBCAt(exception.getHandlerBCIndex()), exception.getCatchTypeCPIndex());
+            this.exceptionHandlers.addElement(actHandler);
+            //print exceptionhandlers
+            Verifier.stdPrintln(1,actHandler.toString());
+            //register exceptionhandler with the starting bytecode of the handler
+            actHandler.getHandler().startsEH = actHandler;
+            ByteCode actBC = getBCAt(actHandler.getStartAddress());
+            //register exceptionhandler with all bytecodes within start and endAddress
+            while(actBC.getAddress() <= actHandler.getEndAddress()) {
+                if (actBC.eHandlers == null) {
+                    actBC.eHandlers = new ExceptionHandler[1];
+                    actBC.eHandlers[0] = actHandler;
+                } else {
+                    // there is already one or more Exception
+                    ExceptionHandler[] tmpEH =
+                            new ExceptionHandler[actBC.eHandlers.length+1];
+                    for (int j = 0; j < actBC.eHandlers.length; j++) {
+                        tmpEH[j] = actBC.eHandlers[j];
+                    }
+                    tmpEH[actBC.eHandlers.length] = actHandler;
+                    actBC.eHandlers = tmpEH;
+                }
+                
+                actBC = actBC.next;
+            }
+        }
     }
 	
     public BCLinkList (byte[] byteCode, ConstantPool cPool) throws VerifyException {
@@ -86,9 +77,11 @@ public class BCLinkList {
 
     }
     
-    /**adds a new Bytecode just after the Bytecode 'after'.
-     *  bc and after must be nonnull. Changing the target of after and any other bytecodes
+    /** adds a new Bytecode just after the Bytecode 'after'.
+     * bc and after must be nonnull. Changing the target of after and any other bytecodes
      * appropriatly is left to the caller of the method.
+     * @param bc
+     * @param after
      */
     public void addBC(ByteCode bc, ByteCode after) {
 	if (bc == null || after == null) 
@@ -123,7 +116,8 @@ public class BCLinkList {
 	}
     }
 
-    /**Recreate the bytearray for the bytecode.
+    /** Recreate the bytearray for the bytecode.
+     * @return 
      */
     public byte[] toByteArray() {
 	//get the size of the bytecode.

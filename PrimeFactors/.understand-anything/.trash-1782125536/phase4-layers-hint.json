@@ -1,0 +1,34 @@
+[
+  {
+    "path": "src/BigIntegers/",
+    "label": "Big integer arithmetic (Montgomery, ECM) - BigIntegers package"
+  },
+  {
+    "path": "src/Factorzations/",
+    "label": "Factorization algorithms (ECM, SIQS, Classical, Lehman) - Factorzations package"
+  },
+  {
+    "path": "src/calculator/",
+    "label": "Calculator application (RPN calculator with UI) - calculator package"
+  },
+  {
+    "path": "src/com/gazman/",
+    "label": "Quadratic Sieve implementation - com.gazman package"
+  },
+  {
+    "path": "src/ecm/",
+    "label": "Elliptic Curve Method helpers (primality tests, checks) - ecm package"
+  },
+  {
+    "path": "src/utilities/",
+    "label": "Utilities (FFT, NTT, sieve, timers) - utilities package"
+  },
+  {
+    "path": "nbproject/",
+    "label": "NetBeans project configuration - nbproject"
+  },
+  {
+    "path": "build.xml",
+    "label": "Ant build configuration"
+  }
+]

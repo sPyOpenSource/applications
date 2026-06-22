@@ -1,0 +1,122 @@
+[
+  {
+    "order": 1,
+    "title": "Project Overview and Build Configuration",
+    "description": "Begin with the project README and changelog to understand the factorization algorithms implemented (ECM, SIQS, Lehman, Classical). NetBeans/Ant build configuration defines Factorzations.GUI as the main class targeting Java 11. BlueJ package descriptors reveal the 5 sub-packages: calculator, BigIntegers, Factorzations, utilities, and ecm.",
+    "nodeIds": [
+      "document:src/README.TXT",
+      "document:CHANGELOG",
+      "config:nbproject/project.properties",
+      "config:build.xml",
+      "config:src/package.bluej"
+    ]
+  },
+  {
+    "order": 2,
+    "title": "Application Entry Point and Simple Factorizers",
+    "description": "The main GUI (Factorzations.GUI.java) provides the Swing interface for entering numbers and invoking factorization algorithms. Classical.java performs trial division up to sqrt(N). Lehman.java implements Lehman's perfect-square detection algorithm as a concurrent Thread. These are the first algorithms tried before escalating to ECM/SIQS.",
+    "nodeIds": [
+      "file:src/Factorzations/GUI.java",
+      "file:src/Factorzations/Classical.java",
+      "file:src/Factorzations/Lehman.java",
+      "file:src/BigIntegers/FactorInteger.java"
+    ]
+  },
+  {
+    "order": 3,
+    "title": "Big Integer Arithmetic Foundation",
+    "description": "All factorization algorithms depend on arbitrary-precision integer arithmetic. LargeInteger provides core operations (add, subtract, multiply, divide, pow) with FFT/NTT-based multiplication. MontgomeryInteger extends it with REDC modular multiplication and optional Karatsuba. StaticFunctions bridges java.math.BigInteger with internal 31-bit digit arrays.",
+    "nodeIds": [
+      "file:src/BigIntegers/LargeInteger.java",
+      "file:src/BigIntegers/MontgomeryInteger.java",
+      "file:src/BigIntegers/ECMBigInteger.java",
+      "file:src/BigIntegers/StaticFunctions.java"
+    ]
+  },
+  {
+    "order": 4,
+    "title": "APR-CL Primality Proving and ECM Support Infrastructure",
+    "description": "Before factoring, numbers are tested for primality. The APR-CL deterministic primality prover (AprtCleInteger, AprtCle, AprtCleFinal) uses Jacobi sum evaluation and Montgomery arithmetic with precomputed tables in AprtCleVariable. ECM support utilities provide binary GCD (GCD.java), modular inverse via extended binary GCD (ModInv.java), and Lucas/Fibonacci/Power sequence checks for early factor detection.",
+    "nodeIds": [
+      "file:src/BigIntegers/AprtCleInteger.java",
+      "file:src/ecm/PrimeTest/AprtCle.java",
+      "file:src/ecm/PrimeTest/AprtCleFinal.java",
+      "file:src/ecm/PrimeTest/AprtCleVariable.java",
+      "file:src/ecm/PrimeTest/LucasLehmer.java",
+      "file:src/ecm/BigIntegers/GCD.java",
+      "file:src/ecm/BigIntegers/ModInv.java",
+      "file:src/ecm/Checks/FibonacciCheck.java",
+      "file:src/ecm/Checks/LucasCheck.java",
+      "file:src/ecm/Checks/PowerCheck.java"
+    ]
+  },
+  {
+    "order": 5,
+    "title": "ECM (Elliptic Curve Method) Factorization",
+    "description": "ECM.java orchestrates the elliptic curve method through a class hierarchy: ecmStep0 initializes Montgomery curve parameters (A, X:Z), ecmStep1 performs scalar multiplication using Montgomery's ladder with Lucas chains (PRAC algorithm), and ecmStep2 uses baby-step-giant-step improved standard continuation with sieving. ECM falls back to SIQS for numbers in the 30-90 digit range.",
+    "nodeIds": [
+      "file:src/Factorzations/ecm/ECM.java",
+      "file:src/Factorzations/ecm/ecmStep0.java",
+      "file:src/Factorzations/ecm/ecmStep1.java",
+      "file:src/Factorzations/ecm/ecmStep2.java"
+    ]
+  },
+  {
+    "order": 6,
+    "title": "SIQS (Self-Initializing Quadratic Sieve)",
+    "description": "Siqs.java orchestrates the full SIQS pipeline: Knuth-Schroeppel multiplier selection, factor base generation, spawning Sieve threads that evaluate polynomial sets (FirstPolynomial), detect smooth/partial relations (Relation.java), and perform trial division. The class hierarchy runs Siqs -> Relation -> Matrix -> Maths, each adding capability.",
+    "nodeIds": [
+      "file:src/Factorzations/siqs/Siqs.java",
+      "file:src/Factorzations/siqs/Sieve.java",
+      "file:src/Factorzations/siqs/Relation.java",
+      "file:src/Factorzations/siqs/FirstPolynomial.java",
+      "file:src/Factorzations/siqs/StaticFunctions.java"
+    ]
+  },
+  {
+    "order": 7,
+    "title": "SIQS Linear Algebra: Block Lanczos over GF(2)",
+    "description": "After collecting enough smooth relations, Maths.java orchestrates singleton erasure and invokes Matrix.java which implements the Block Lanczos algorithm (block size 32) over GF(2) to find nullspace vectors. These linear dependencies yield congruence-of-squares solutions, tested via GCD to extract non-trivial factors.",
+    "nodeIds": [
+      "file:src/Factorzations/siqs/Maths.java",
+      "file:src/Factorzations/siqs/Matrix.java"
+    ]
+  },
+  {
+    "order": 8,
+    "title": "Gazman Quadratic Sieve (Independent QS Implementation)",
+    "description": "An independent quadratic sieve implementation under com.gazman provides an alternative QS approach. QuadraticSieve.java uses wheel-based sieving (Wheel.java with Tonelli-Shanks from MathUtils), collects B-smooth vectors, and solves via Gaussian elimination over GF(2) using BitMatrix. Includes its own prime base generation and vector shrinking utilities.",
+    "nodeIds": [
+      "file:src/com/gazman/factor/QuadraticSieve.java",
+      "file:src/com/gazman/factor/matrix/BitMatrix.java",
+      "file:src/com/gazman/factor/matrix/VectorsShrinker.java",
+      "file:src/com/gazman/factor/wheels/Wheel.java",
+      "file:src/com/gazman/math/MathUtils.java",
+      "file:src/com/gazman/Main.java"
+    ]
+  },
+  {
+    "order": 9,
+    "title": "RPN Calculator (MVC Architecture)",
+    "description": "The RPN calculator follows a clean MVC pattern: Calculator (model interface), CalculatorUI (view interface), DefaultUI (Swing implementation), and two CalculatorImpl variants (javamodel for BigInteger, largemodel for LargeInteger). Operations are encapsulated as EncodedOperation implementations (Add, Multiply, Power, etc.) using reflection-based dynamic loading. Supports bases 2-36 and arbitrary-precision arithmetic via LargeInteger.",
+    "nodeIds": [
+      "file:src/calculator/Calculator.java",
+      "file:src/calculator/CalculatorUI.java",
+      "file:src/calculator/DefaultUI.java",
+      "file:src/calculator/GUI.java",
+      "file:src/calculator/largemodel/CalculatorImpl.java",
+      "file:src/calculator/javamodel/CalculatorImpl.java",
+      "file:src/calculator/EncodedOperation.java",
+      "file:src/calculator/Deque.java",
+      "file:src/calculator/NumericDocument.java"
+    ]
+  },
+  {
+    "order": 10,
+    "title": "Test Suite and Utility Infrastructure",
+    "description": "The JUnit test (test/test/JUnitTest.java) exercises core algorithms: ECM factorization, APR-CL primality proving, GCD/modular inverse, Fibonacci/Lucas checks, LargeInteger arithmetic, and the Gazman QS BitMatrix solver. Utility classes (FFT, NTT, Zeef sieve, Timer) underpin LargeInteger's fast multiplication and primality testing.",
+    "nodeIds": [
+      "file:test/test/JUnitTest.java"
+    ]
+  }
+]

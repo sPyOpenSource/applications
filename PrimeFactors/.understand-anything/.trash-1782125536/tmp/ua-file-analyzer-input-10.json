@@ -1,0 +1,152 @@
+{
+  "projectRoot": "/Users/xuyi/Source/OS/armOS/lib/jcore/test/PrimeFactors",
+  "batchFiles": [
+    {
+      "path": "src/Factorzations/siqs/PrimeSieveData.java",
+      "language": "java",
+      "sizeLines": 677,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Factorzations/siqs/PrimeSieveData.ctxt",
+      "language": "bluej",
+      "sizeLines": 6,
+      "fileCategory": "config"
+    },
+    {
+      "path": "src/Factorzations/siqs/PrimeTrialDivisionData.java",
+      "language": "java",
+      "sizeLines": 234,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Factorzations/siqs/PrimeTrialDivisionData.ctxt",
+      "language": "bluej",
+      "sizeLines": 12,
+      "fileCategory": "config"
+    },
+    {
+      "path": "src/Factorzations/siqs/README.TXT",
+      "language": "txt",
+      "sizeLines": 11,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "src/Factorzations/siqs/package.bluej",
+      "language": "bluej",
+      "sizeLines": 119,
+      "fileCategory": "config"
+    },
+    {
+      "path": "src/Factorzations/ecm/ECM.ctxt",
+      "language": "bluej",
+      "sizeLines": 10,
+      "fileCategory": "config"
+    },
+    {
+      "path": "src/Factorzations/ecm/StaticFunctions.ctxt",
+      "language": "bluej",
+      "sizeLines": 20,
+      "fileCategory": "config"
+    },
+    {
+      "path": "src/Factorzations/ecm/StaticFunctions.java",
+      "language": "java",
+      "sizeLines": 205,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Factorzations/ecm/ecmStep0.ctxt",
+      "language": "bluej",
+      "sizeLines": 8,
+      "fileCategory": "config"
+    },
+    {
+      "path": "src/Factorzations/ecm/ecmStep1.ctxt",
+      "language": "bluej",
+      "sizeLines": 18,
+      "fileCategory": "config"
+    },
+    {
+      "path": "src/Factorzations/ecm/ecmStep2.ctxt",
+      "language": "bluej",
+      "sizeLines": 9,
+      "fileCategory": "config"
+    },
+    {
+      "path": "src/Factorzations/ecm/README.TXT",
+      "language": "txt",
+      "sizeLines": 1,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "src/Factorzations/ecm/package.bluej",
+      "language": "bluej",
+      "sizeLines": 64,
+      "fileCategory": "config"
+    },
+    {
+      "path": "src/Factorzations/siqs/FirstPolynomial.ctxt",
+      "language": "bluej",
+      "sizeLines": 7,
+      "fileCategory": "config"
+    },
+    {
+      "path": "src/Factorzations/siqs/Maths.ctxt",
+      "language": "bluej",
+      "sizeLines": 31,
+      "fileCategory": "config"
+    },
+    {
+      "path": "src/Factorzations/siqs/Matrix.ctxt",
+      "language": "bluej",
+      "sizeLines": 7,
+      "fileCategory": "config"
+    },
+    {
+      "path": "src/Factorzations/siqs/Relation.ctxt",
+      "language": "bluej",
+      "sizeLines": 13,
+      "fileCategory": "config"
+    },
+    {
+      "path": "src/Factorzations/siqs/Sieve.ctxt",
+      "language": "bluej",
+      "sizeLines": 11,
+      "fileCategory": "config"
+    },
+    {
+      "path": "src/Factorzations/siqs/Siqs.ctxt",
+      "language": "bluej",
+      "sizeLines": 15,
+      "fileCategory": "config"
+    },
+    {
+      "path": "src/Factorzations/siqs/StaticFunctions.ctxt",
+      "language": "bluej",
+      "sizeLines": 14,
+      "fileCategory": "config"
+    }
+  ],
+  "batchImportData": {
+    "src/Factorzations/siqs/PrimeSieveData.java": [],
+    "src/Factorzations/siqs/PrimeTrialDivisionData.java": [],
+    "src/Factorzations/siqs/README.TXT": [],
+    "src/Factorzations/siqs/package.bluej": [],
+    "src/Factorzations/ecm/ECM.ctxt": [],
+    "src/Factorzations/ecm/StaticFunctions.ctxt": [],
+    "src/Factorzations/ecm/StaticFunctions.java": ["src/BigIntegers/LargeInteger.java"],
+    "src/Factorzations/ecm/ecmStep0.ctxt": [],
+    "src/Factorzations/ecm/ecmStep1.ctxt": [],
+    "src/Factorzations/ecm/ecmStep2.ctxt": [],
+    "src/Factorzations/ecm/README.TXT": [],
+    "src/Factorzations/ecm/package.bluej": [],
+    "src/Factorzations/siqs/FirstPolynomial.ctxt": [],
+    "src/Factorzations/siqs/Maths.ctxt": [],
+    "src/Factorzations/siqs/Matrix.ctxt": [],
+    "src/Factorzations/siqs/Relation.ctxt": [],
+    "src/Factorzations/siqs/Sieve.ctxt": [],
+    "src/Factorzations/siqs/Siqs.ctxt": [],
+    "src/Factorzations/siqs/StaticFunctions.ctxt": []
+  }
+}

@@ -1,0 +1,1427 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 25,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "src/.DS_Store",
+      "language": "unknown",
+      "fileCategory": "other",
+      "totalLines": 7,
+      "nonEmptyLines": 7,
+      "metrics": {}
+    },
+    {
+      "path": ".understand-anything/.understandignore",
+      "language": "unknown",
+      "fileCategory": "config",
+      "totalLines": 31,
+      "nonEmptyLines": 27,
+      "metrics": {}
+    },
+    {
+      "path": "build.xml",
+      "language": "xml",
+      "fileCategory": "config",
+      "totalLines": 73,
+      "nonEmptyLines": 60,
+      "metrics": {}
+    },
+    {
+      "path": "CHANGELOG",
+      "language": "txt",
+      "fileCategory": "docs",
+      "totalLines": 45,
+      "nonEmptyLines": 32,
+      "metrics": {}
+    },
+    {
+      "path": "manifest.mf",
+      "language": "mf",
+      "fileCategory": "config",
+      "totalLines": 3,
+      "nonEmptyLines": 2,
+      "metrics": {}
+    },
+    {
+      "path": ".understand-anything/intermediate/scan-result.json",
+      "language": "json",
+      "fileCategory": "data",
+      "totalLines": 1567,
+      "nonEmptyLines": 1567,
+      "sections": [
+        {
+          "heading": "name",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "description",
+          "level": 1,
+          "line": 3
+        },
+        {
+          "heading": "languages",
+          "level": 1,
+          "line": 4
+        },
+        {
+          "heading": "frameworks",
+          "level": 1,
+          "line": 15
+        },
+        {
+          "heading": "files",
+          "level": 1,
+          "line": 16
+        },
+        {
+          "heading": "totalFiles",
+          "level": 1,
+          "line": 1194
+        },
+        {
+          "heading": "filteredByIgnore",
+          "level": 1,
+          "line": 1195
+        },
+        {
+          "heading": "estimatedComplexity",
+          "level": 1,
+          "line": 1196
+        },
+        {
+          "heading": "importMap",
+          "level": 1,
+          "line": 1197
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 9
+      }
+    },
+    {
+      "path": "src/README.TXT",
+      "language": "txt",
+      "fileCategory": "docs",
+      "totalLines": 16,
+      "nonEmptyLines": 12,
+      "metrics": {}
+    },
+    {
+      "path": "src/package.bluej",
+      "language": "bluej",
+      "fileCategory": "config",
+      "totalLines": 55,
+      "nonEmptyLines": 55,
+      "metrics": {}
+    },
+    {
+      "path": "src/BigIntegers/package.bluej",
+      "language": "bluej",
+      "fileCategory": "config",
+      "totalLines": 68,
+      "nonEmptyLines": 68,
+      "metrics": {}
+    },
+    {
+      "path": "src/BigIntegers/README.TXT",
+      "language": "txt",
+      "fileCategory": "docs",
+      "totalLines": 5,
+      "nonEmptyLines": 5,
+      "metrics": {}
+    },
+    {
+      "path": "src/BigIntegers/AprtCleInteger.ctxt",
+      "language": "ctxt",
+      "fileCategory": "config",
+      "totalLines": 26,
+      "nonEmptyLines": 26,
+      "metrics": {}
+    },
+    {
+      "path": "src/BigIntegers/ECMBigInteger.ctxt",
+      "language": "ctxt",
+      "fileCategory": "config",
+      "totalLines": 24,
+      "nonEmptyLines": 24,
+      "metrics": {}
+    },
+    {
+      "path": "src/BigIntegers/FactorInteger.ctxt",
+      "language": "ctxt",
+      "fileCategory": "config",
+      "totalLines": 58,
+      "nonEmptyLines": 58,
+      "metrics": {}
+    },
+    {
+      "path": "src/BigIntegers/FactorInteger.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 322,
+      "nonEmptyLines": 289,
+      "functions": [
+        {
+          "name": "getPD",
+          "startLine": 31,
+          "endLine": 33,
+          "params": [
+            "index"
+          ]
+        },
+        {
+          "name": "setPD",
+          "startLine": 35,
+          "endLine": 37,
+          "params": [
+            "index",
+            "y"
+          ]
+        },
+        {
+          "name": "getType",
+          "startLine": 39,
+          "endLine": 41,
+          "params": [
+            "index"
+          ]
+        },
+        {
+          "name": "setType",
+          "startLine": 43,
+          "endLine": 45,
+          "params": [
+            "index",
+            "y"
+          ]
+        },
+        {
+          "name": "setExp",
+          "startLine": 47,
+          "endLine": 49,
+          "params": [
+            "index",
+            "y"
+          ]
+        },
+        {
+          "name": "getExp",
+          "startLine": 51,
+          "endLine": 53,
+          "params": [
+            "index"
+          ]
+        },
+        {
+          "name": "setSize",
+          "startLine": 55,
+          "endLine": 57,
+          "params": [
+            "NumberLength"
+          ]
+        },
+        {
+          "name": "pop",
+          "startLine": 59,
+          "endLine": 61,
+          "params": []
+        },
+        {
+          "name": "size",
+          "startLine": 63,
+          "endLine": 65,
+          "params": []
+        },
+        {
+          "name": "getIntArray",
+          "startLine": 67,
+          "endLine": 69,
+          "params": []
+        },
+        {
+          "name": "GetSmallFactors",
+          "startLine": 71,
+          "endLine": 165,
+          "params": [
+            "Type"
+          ]
+        },
+        {
+          "name": "SortFactors",
+          "startLine": 167,
+          "endLine": 182,
+          "params": []
+        },
+        {
+          "name": "SortFactorsPD",
+          "startLine": 184,
+          "endLine": 200,
+          "params": []
+        },
+        {
+          "name": "InsertFactor",
+          "startLine": 202,
+          "endLine": 213,
+          "params": [
+            "N"
+          ]
+        },
+        {
+          "name": "InsertNewFactor",
+          "startLine": 215,
+          "endLine": 258,
+          "params": [
+            "InputFactor",
+            "EC"
+          ]
+        },
+        {
+          "name": "FactorInteger",
+          "startLine": 260,
+          "endLine": 262,
+          "params": [
+            "val"
+          ]
+        },
+        {
+          "name": "get",
+          "startLine": 264,
+          "endLine": 266,
+          "params": [
+            "index"
+          ]
+        },
+        {
+          "name": "set",
+          "startLine": 268,
+          "endLine": 270,
+          "params": [
+            "index",
+            "x"
+          ]
+        },
+        {
+          "name": "setFactor",
+          "startLine": 272,
+          "endLine": 274,
+          "params": [
+            "index",
+            "x"
+          ]
+        },
+        {
+          "name": "getFactor",
+          "startLine": 276,
+          "endLine": 278,
+          "params": [
+            "index"
+          ]
+        },
+        {
+          "name": "getTestComp",
+          "startLine": 280,
+          "endLine": 293,
+          "params": []
+        },
+        {
+          "name": "addSelf2PD",
+          "startLine": 295,
+          "endLine": 301,
+          "params": []
+        },
+        {
+          "name": "getSmallPrime",
+          "startLine": 303,
+          "endLine": 305,
+          "params": [
+            "i"
+          ]
+        },
+        {
+          "name": "setSmallPrime",
+          "startLine": 307,
+          "endLine": 309,
+          "params": [
+            "i",
+            "p"
+          ]
+        },
+        {
+          "name": "getSmallPrimeLength",
+          "startLine": 311,
+          "endLine": 313,
+          "params": []
+        },
+        {
+          "name": "getSmallPrimes",
+          "startLine": 315,
+          "endLine": 317,
+          "params": []
+        },
+        {
+          "name": "setNbrPrimes",
+          "startLine": 319,
+          "endLine": 321,
+          "params": [
+            "n"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "FactorInteger",
+          "startLine": 14,
+          "endLine": 322,
+          "methods": [
+            "getPD",
+            "setPD",
+            "getType",
+            "setType",
+            "setExp",
+            "getExp",
+            "setSize",
+            "pop",
+            "size",
+            "getIntArray",
+            "GetSmallFactors",
+            "SortFactors",
+            "SortFactorsPD",
+            "InsertFactor",
+            "InsertNewFactor",
+            "FactorInteger",
+            "get",
+            "set",
+            "setFactor",
+            "getFactor",
+            "getTestComp",
+            "addSelf2PD",
+            "getSmallPrime",
+            "setSmallPrime",
+            "getSmallPrimeLength",
+            "getSmallPrimes",
+            "setNbrPrimes"
+          ],
+          "properties": [
+            "TYP_AURIF",
+            "TYP_TABLE",
+            "TYP_SIQS",
+            "TYP_LEHMAN",
+            "TYP_RABIN",
+            "TYP_EC",
+            "BigInt3",
+            "NLen",
+            "MaxUInt",
+            "DosALa31",
+            "Base",
+            "exp",
+            "NbrFactors",
+            "NroFact",
+            "isPrime",
+            "isComplete",
+            "SmallPrime",
+            "nbrPrimes",
+            "PD",
+            "Factores",
+            "Exp",
+            "Typ"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "TYP_AURIF",
+          "line": 15,
+          "isDefault": false
+        },
+        {
+          "name": "TYP_TABLE",
+          "line": 15,
+          "isDefault": false
+        },
+        {
+          "name": "TYP_SIQS",
+          "line": 16,
+          "isDefault": false
+        },
+        {
+          "name": "TYP_LEHMAN",
+          "line": 16,
+          "isDefault": false
+        },
+        {
+          "name": "TYP_RABIN",
+          "line": 17,
+          "isDefault": false
+        },
+        {
+          "name": "TYP_EC",
+          "line": 17,
+          "isDefault": false
+        },
+        {
+          "name": "BigInt3",
+          "line": 18,
+          "isDefault": false
+        },
+        {
+          "name": "NLen",
+          "line": 19,
+          "isDefault": false
+        },
+        {
+          "name": "MaxUInt",
+          "line": 20,
+          "isDefault": false
+        },
+        {
+          "name": "DosALa31",
+          "line": 21,
+          "isDefault": false
+        },
+        {
+          "name": "Base",
+          "line": 22,
+          "isDefault": false
+        },
+        {
+          "name": "exp",
+          "line": 22,
+          "isDefault": false
+        },
+        {
+          "name": "NbrFactors",
+          "line": 23,
+          "isDefault": false
+        },
+        {
+          "name": "NroFact",
+          "line": 23,
+          "isDefault": false
+        },
+        {
+          "name": "isPrime",
+          "line": 24,
+          "isDefault": false
+        },
+        {
+          "name": "isComplete",
+          "line": 24,
+          "isDefault": false
+        },
+        {
+          "name": "getPD",
+          "line": 31,
+          "isDefault": false
+        },
+        {
+          "name": "setPD",
+          "line": 35,
+          "isDefault": false
+        },
+        {
+          "name": "getType",
+          "line": 39,
+          "isDefault": false
+        },
+        {
+          "name": "setType",
+          "line": 43,
+          "isDefault": false
+        },
+        {
+          "name": "setExp",
+          "line": 47,
+          "isDefault": false
+        },
+        {
+          "name": "getExp",
+          "line": 51,
+          "isDefault": false
+        },
+        {
+          "name": "setSize",
+          "line": 55,
+          "isDefault": false
+        },
+        {
+          "name": "pop",
+          "line": 59,
+          "isDefault": false
+        },
+        {
+          "name": "size",
+          "line": 63,
+          "isDefault": false
+        },
+        {
+          "name": "getIntArray",
+          "line": 67,
+          "isDefault": false
+        },
+        {
+          "name": "GetSmallFactors",
+          "line": 71,
+          "isDefault": false
+        },
+        {
+          "name": "SortFactors",
+          "line": 167,
+          "isDefault": false
+        },
+        {
+          "name": "SortFactorsPD",
+          "line": 184,
+          "isDefault": false
+        },
+        {
+          "name": "InsertFactor",
+          "line": 202,
+          "isDefault": false
+        },
+        {
+          "name": "InsertNewFactor",
+          "line": 215,
+          "isDefault": false
+        },
+        {
+          "name": "FactorInteger",
+          "line": 260,
+          "isDefault": false
+        },
+        {
+          "name": "get",
+          "line": 264,
+          "isDefault": false
+        },
+        {
+          "name": "set",
+          "line": 268,
+          "isDefault": false
+        },
+        {
+          "name": "setFactor",
+          "line": 272,
+          "isDefault": false
+        },
+        {
+          "name": "getFactor",
+          "line": 276,
+          "isDefault": false
+        },
+        {
+          "name": "getTestComp",
+          "line": 280,
+          "isDefault": false
+        },
+        {
+          "name": "addSelf2PD",
+          "line": 295,
+          "isDefault": false
+        },
+        {
+          "name": "getSmallPrime",
+          "line": 303,
+          "isDefault": false
+        },
+        {
+          "name": "setSmallPrime",
+          "line": 307,
+          "isDefault": false
+        },
+        {
+          "name": "getSmallPrimeLength",
+          "line": 311,
+          "isDefault": false
+        },
+        {
+          "name": "getSmallPrimes",
+          "line": 315,
+          "isDefault": false
+        },
+        {
+          "name": "setNbrPrimes",
+          "line": 319,
+          "isDefault": false
+        },
+        {
+          "name": "FactorInteger",
+          "line": 14,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "GetSmallFactors",
+          "callee": "DivBigNbrByLong",
+          "lineNumber": 86
+        },
+        {
+          "caller": "GetSmallFactors",
+          "callee": "RemDivBigNbrByLong",
+          "lineNumber": 90
+        },
+        {
+          "caller": "GetSmallFactors",
+          "callee": "DivBigNbrByLong",
+          "lineNumber": 97
+        },
+        {
+          "caller": "GetSmallFactors",
+          "callee": "RemDivBigNbrByLong",
+          "lineNumber": 122
+        },
+        {
+          "caller": "GetSmallFactors",
+          "callee": "BigInteger.valueOf",
+          "lineNumber": 127
+        },
+        {
+          "caller": "GetSmallFactors",
+          "callee": "DivBigNbrByLong",
+          "lineNumber": 129
+        },
+        {
+          "caller": "GetSmallFactors",
+          "callee": "BigInteger.valueOf",
+          "lineNumber": 157
+        },
+        {
+          "caller": "SortFactors",
+          "callee": "Factores[k].compareTo",
+          "lineNumber": 170
+        },
+        {
+          "caller": "SortFactorsPD",
+          "callee": "PD[g].compareTo",
+          "lineNumber": 187
+        },
+        {
+          "caller": "InsertFactor",
+          "callee": "Factores[g].gcd",
+          "lineNumber": 205
+        },
+        {
+          "caller": "InsertFactor",
+          "callee": "Factores[NroFact].equals",
+          "lineNumber": 206
+        },
+        {
+          "caller": "InsertFactor",
+          "callee": "Factores[NroFact].equals",
+          "lineNumber": 207
+        },
+        {
+          "caller": "InsertFactor",
+          "callee": "Factores[g].divide",
+          "lineNumber": 209
+        },
+        {
+          "caller": "InsertNewFactor",
+          "callee": "PD[g].gcd",
+          "lineNumber": 221
+        },
+        {
+          "caller": "InsertNewFactor",
+          "callee": "PD[NbrFactors].equals",
+          "lineNumber": 222
+        },
+        {
+          "caller": "InsertNewFactor",
+          "callee": "PD[NbrFactors].equals",
+          "lineNumber": 222
+        },
+        {
+          "caller": "InsertNewFactor",
+          "callee": "PD[g].remainder(PD[NbrFactors]).signum",
+          "lineNumber": 224
+        },
+        {
+          "caller": "InsertNewFactor",
+          "callee": "PD[g].remainder",
+          "lineNumber": 224
+        },
+        {
+          "caller": "InsertNewFactor",
+          "callee": "PD[g].divide",
+          "lineNumber": 225
+        },
+        {
+          "caller": "InsertNewFactor",
+          "callee": "SortFactorsPD",
+          "lineNumber": 257
+        },
+        {
+          "caller": "addSelf2PD",
+          "callee": "getEnd",
+          "lineNumber": 296
+        },
+        {
+          "caller": "addSelf2PD",
+          "callee": "BigIntToBigNbr",
+          "lineNumber": 297
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 44,
+        "functionCount": 27,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/BigIntegers/FactorInteger.class",
+      "language": "unknown",
+      "fileCategory": "code",
+      "totalLines": 44,
+      "nonEmptyLines": 44,
+      "metrics": {}
+    },
+    {
+      "path": "src/BigIntegers/LargeInteger.ctxt",
+      "language": "ctxt",
+      "fileCategory": "config",
+      "totalLines": 90,
+      "nonEmptyLines": 90,
+      "metrics": {}
+    },
+    {
+      "path": "src/BigIntegers/MontgomeryInteger.ctxt",
+      "language": "ctxt",
+      "fileCategory": "config",
+      "totalLines": 22,
+      "nonEmptyLines": 22,
+      "metrics": {}
+    },
+    {
+      "path": "src/BigIntegers/MontgomeryInteger.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 365,
+      "nonEmptyLines": 350,
+      "functions": [
+        {
+          "name": "MontgomeryInteger",
+          "startLine": 23,
+          "endLine": 31,
+          "params": [
+            "val"
+          ]
+        },
+        {
+          "name": "MontgomeryMult",
+          "startLine": 33,
+          "endLine": 59,
+          "params": [
+            "Nbr1",
+            "Nbr2",
+            "Prod"
+          ]
+        },
+        {
+          "name": "KaratsubaMontgomeryMult",
+          "startLine": 67,
+          "endLine": 125,
+          "params": [
+            "Nbr1",
+            "Nbr2",
+            "Prod"
+          ]
+        },
+        {
+          "name": "KaratsubaMultiply",
+          "startLine": 127,
+          "endLine": 202,
+          "params": [
+            "idxFactor1",
+            "length",
+            "endIndex"
+          ]
+        },
+        {
+          "name": "absSubtract",
+          "startLine": 206,
+          "endLine": 231,
+          "params": [
+            "idxMinuend",
+            "idxSubtrahend",
+            "idxResult",
+            "length"
+          ]
+        },
+        {
+          "name": "KaratsubaAdd",
+          "startLine": 233,
+          "endLine": 247,
+          "params": [
+            "idxAddend1",
+            "idxAddend2",
+            "idxSum",
+            "length"
+          ]
+        },
+        {
+          "name": "GetYieldFrequency",
+          "startLine": 249,
+          "endLine": 261,
+          "params": []
+        },
+        {
+          "name": "ComputeMontgomeryParms",
+          "startLine": 263,
+          "endLine": 322,
+          "params": []
+        },
+        {
+          "name": "NormalMultiply",
+          "startLine": 324,
+          "endLine": 364,
+          "params": [
+            "idxFactor1",
+            "length"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "MontgomeryInteger",
+          "startLine": 10,
+          "endLine": 365,
+          "methods": [
+            "MontgomeryInteger",
+            "MontgomeryMult",
+            "KaratsubaMontgomeryMult",
+            "KaratsubaMultiply",
+            "absSubtract",
+            "KaratsubaAdd",
+            "GetYieldFrequency",
+            "ComputeMontgomeryParms",
+            "NormalMultiply"
+          ],
+          "properties": [
+            "dDosALa31",
+            "dDosALa62",
+            "KARATSUBA_CUTOFF",
+            "KARATSUBA_ENABLED",
+            "MontgomeryMultN",
+            "dN",
+            "karatLength",
+            "arrNbr",
+            "arrNbrAux",
+            "arrNbrM",
+            "montgKaratsubaArr",
+            "KaratsubaTestNbr",
+            "MontgomeryMultR1",
+            "MontgomeryMultR2",
+            "MontgomeryMultAfterInv"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "dDosALa31",
+          "line": 11,
+          "isDefault": false
+        },
+        {
+          "name": "dDosALa62",
+          "line": 12,
+          "isDefault": false
+        },
+        {
+          "name": "dN",
+          "line": 16,
+          "isDefault": false
+        },
+        {
+          "name": "MontgomeryMultR1",
+          "line": 21,
+          "isDefault": false
+        },
+        {
+          "name": "MontgomeryMultR2",
+          "line": 21,
+          "isDefault": false
+        },
+        {
+          "name": "MontgomeryMultAfterInv",
+          "line": 21,
+          "isDefault": false
+        },
+        {
+          "name": "MontgomeryInteger",
+          "line": 23,
+          "isDefault": false
+        },
+        {
+          "name": "MontgomeryMult",
+          "line": 33,
+          "isDefault": false
+        },
+        {
+          "name": "GetYieldFrequency",
+          "line": 249,
+          "isDefault": false
+        },
+        {
+          "name": "ComputeMontgomeryParms",
+          "line": 263,
+          "isDefault": false
+        },
+        {
+          "name": "MontgomeryInteger",
+          "line": 10,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "MontgomeryInteger",
+          "callee": "setSize",
+          "lineNumber": 25
+        },
+        {
+          "caller": "MontgomeryInteger",
+          "callee": "BigNbrToBigInt",
+          "lineNumber": 25
+        },
+        {
+          "caller": "MontgomeryInteger",
+          "callee": "this.compareTo",
+          "lineNumber": 27
+        },
+        {
+          "caller": "MontgomeryInteger",
+          "callee": "GetYieldFrequency",
+          "lineNumber": 28
+        },
+        {
+          "caller": "MontgomeryInteger",
+          "callee": "ComputeMontgomeryParms",
+          "lineNumber": 29
+        },
+        {
+          "caller": "MontgomeryMult",
+          "callee": "KaratsubaMontgomeryMult",
+          "lineNumber": 57
+        },
+        {
+          "caller": "KaratsubaMontgomeryMult",
+          "callee": "KaratsubaMultiply",
+          "lineNumber": 74
+        },
+        {
+          "caller": "KaratsubaMontgomeryMult",
+          "callee": "System.arraycopy",
+          "lineNumber": 75
+        },
+        {
+          "caller": "KaratsubaMontgomeryMult",
+          "callee": "System.arraycopy",
+          "lineNumber": 78
+        },
+        {
+          "caller": "KaratsubaMontgomeryMult",
+          "callee": "KaratsubaMultiply",
+          "lineNumber": 81
+        },
+        {
+          "caller": "KaratsubaMontgomeryMult",
+          "callee": "System.arraycopy",
+          "lineNumber": 82
+        },
+        {
+          "caller": "KaratsubaMontgomeryMult",
+          "callee": "System.arraycopy",
+          "lineNumber": 85
+        },
+        {
+          "caller": "KaratsubaMontgomeryMult",
+          "callee": "KaratsubaMultiply",
+          "lineNumber": 88
+        },
+        {
+          "caller": "KaratsubaMultiply",
+          "callee": "NormalMultiply",
+          "lineNumber": 147
+        },
+        {
+          "caller": "KaratsubaMultiply",
+          "callee": "absSubtract",
+          "lineNumber": 160
+        },
+        {
+          "caller": "KaratsubaMultiply",
+          "callee": "absSubtract",
+          "lineNumber": 161
+        },
+        {
+          "caller": "KaratsubaMultiply",
+          "callee": "KaratsubaMultiply",
+          "lineNumber": 166
+        },
+        {
+          "caller": "KaratsubaMultiply",
+          "callee": "KaratsubaMultiply",
+          "lineNumber": 168
+        },
+        {
+          "caller": "KaratsubaMultiply",
+          "callee": "KaratsubaMultiply",
+          "lineNumber": 169
+        },
+        {
+          "caller": "KaratsubaMultiply",
+          "callee": "absSubtract",
+          "lineNumber": 171
+        },
+        {
+          "caller": "KaratsubaMultiply",
+          "callee": "absSubtract",
+          "lineNumber": 172
+        },
+        {
+          "caller": "KaratsubaMultiply",
+          "callee": "KaratsubaAdd",
+          "lineNumber": 175
+        },
+        {
+          "caller": "KaratsubaMultiply",
+          "callee": "KaratsubaAdd",
+          "lineNumber": 178
+        },
+        {
+          "caller": "KaratsubaMultiply",
+          "callee": "KaratsubaAdd",
+          "lineNumber": 179
+        },
+        {
+          "caller": "ComputeMontgomeryParms",
+          "callee": "System.arraycopy",
+          "lineNumber": 295
+        },
+        {
+          "caller": "ComputeMontgomeryParms",
+          "callee": "System.arraycopy",
+          "lineNumber": 296
+        },
+        {
+          "caller": "ComputeMontgomeryParms",
+          "callee": "NormalMultiply",
+          "lineNumber": 297
+        },
+        {
+          "caller": "ComputeMontgomeryParms",
+          "callee": "System.arraycopy",
+          "lineNumber": 306
+        },
+        {
+          "caller": "ComputeMontgomeryParms",
+          "callee": "System.arraycopy",
+          "lineNumber": 307
+        },
+        {
+          "caller": "ComputeMontgomeryParms",
+          "callee": "NormalMultiply",
+          "lineNumber": 308
+        },
+        {
+          "caller": "ComputeMontgomeryParms",
+          "callee": "System.arraycopy",
+          "lineNumber": 309
+        },
+        {
+          "caller": "ComputeMontgomeryParms",
+          "callee": "StaticFunctions.AdjustModN",
+          "lineNumber": 318
+        },
+        {
+          "caller": "ComputeMontgomeryParms",
+          "callee": "StaticFunctions.MultBigNbrModN",
+          "lineNumber": 319
+        },
+        {
+          "caller": "ComputeMontgomeryParms",
+          "callee": "MontgomeryMult",
+          "lineNumber": 320
+        },
+        {
+          "caller": "ComputeMontgomeryParms",
+          "callee": "StaticFunctions.AddBigNbrModN",
+          "lineNumber": 321
+        },
+        {
+          "caller": "NormalMultiply",
+          "callee": "System.arraycopy",
+          "lineNumber": 363
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 11,
+        "functionCount": 9,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/BigIntegers/StaticFunctions.ctxt",
+      "language": "ctxt",
+      "fileCategory": "config",
+      "totalLines": 22,
+      "nonEmptyLines": 22,
+      "metrics": {}
+    },
+    {
+      "path": "src/BigIntegers/StaticFunctions.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 199,
+      "nonEmptyLines": 184,
+      "functions": [
+        {
+          "name": "BigNbrToBigInt",
+          "startLine": 17,
+          "endLine": 47,
+          "params": [
+            "N",
+            "TestNbr"
+          ]
+        },
+        {
+          "name": "Convert32To31Bits",
+          "startLine": 49,
+          "endLine": 62,
+          "params": [
+            "nbr32bits",
+            "TestNbr",
+            "NumberLength"
+          ]
+        },
+        {
+          "name": "BigIntToBigNbr",
+          "startLine": 64,
+          "endLine": 78,
+          "params": [
+            "TestNbr",
+            "NumberLength"
+          ]
+        },
+        {
+          "name": "Convert31To32Bits",
+          "startLine": 80,
+          "endLine": 96,
+          "params": [
+            "nbr32bits",
+            "TestNbr",
+            "NumberLength"
+          ]
+        },
+        {
+          "name": "AdjustModN",
+          "startLine": 98,
+          "endLine": 135,
+          "params": [
+            "Nbr",
+            "TestNbr",
+            "NumberLength"
+          ]
+        },
+        {
+          "name": "MultBigNbrModN",
+          "startLine": 137,
+          "endLine": 163,
+          "params": [
+            "Nbr1",
+            "Nbr2",
+            "Prod",
+            "TestNbr",
+            "NumberLength"
+          ]
+        },
+        {
+          "name": "AddBigNbrModN",
+          "startLine": 165,
+          "endLine": 179,
+          "params": [
+            "Nbr1",
+            "Nbr2",
+            "Sum",
+            "TestNbr",
+            "NumberLength"
+          ]
+        },
+        {
+          "name": "BigNbrAreEqual",
+          "startLine": 181,
+          "endLine": 187,
+          "params": [
+            "Nbr1",
+            "Nbr2",
+            "NumberLength"
+          ]
+        },
+        {
+          "name": "BigNbrIsZero",
+          "startLine": 189,
+          "endLine": 198,
+          "params": [
+            "Nbr",
+            "NumberLength"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "StaticFunctions",
+          "startLine": 13,
+          "endLine": 199,
+          "methods": [
+            "BigNbrToBigInt",
+            "Convert32To31Bits",
+            "BigIntToBigNbr",
+            "Convert31To32Bits",
+            "AdjustModN",
+            "MultBigNbrModN",
+            "AddBigNbrModN",
+            "BigNbrAreEqual",
+            "BigNbrIsZero"
+          ],
+          "properties": [
+            "DosALa32",
+            "Mi"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "BigNbrToBigInt",
+          "line": 17,
+          "isDefault": false
+        },
+        {
+          "name": "Convert32To31Bits",
+          "line": 49,
+          "isDefault": false
+        },
+        {
+          "name": "BigIntToBigNbr",
+          "line": 64,
+          "isDefault": false
+        },
+        {
+          "name": "Convert31To32Bits",
+          "line": 80,
+          "isDefault": false
+        },
+        {
+          "name": "AdjustModN",
+          "line": 98,
+          "isDefault": false
+        },
+        {
+          "name": "MultBigNbrModN",
+          "line": 137,
+          "isDefault": false
+        },
+        {
+          "name": "AddBigNbrModN",
+          "line": 165,
+          "isDefault": false
+        },
+        {
+          "name": "BigNbrAreEqual",
+          "line": 181,
+          "isDefault": false
+        },
+        {
+          "name": "BigNbrIsZero",
+          "line": 189,
+          "isDefault": false
+        },
+        {
+          "name": "StaticFunctions",
+          "line": 13,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "BigNbrToBigInt",
+          "callee": "N.toByteArray",
+          "lineNumber": 24
+        },
+        {
+          "caller": "BigNbrToBigInt",
+          "callee": "Convert32To31Bits",
+          "lineNumber": 40
+        },
+        {
+          "caller": "BigIntToBigNbr",
+          "callee": "Convert31To32Bits",
+          "lineNumber": 67
+        },
+        {
+          "caller": "BigIntToBigNbr",
+          "callee": "new BigInteger",
+          "lineNumber": 77
+        },
+        {
+          "caller": "MultBigNbrModN",
+          "callee": "AdjustModN",
+          "lineNumber": 161
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 10,
+        "functionCount": 9,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/Factorzations/Classical.ctxt",
+      "language": "ctxt",
+      "fileCategory": "config",
+      "totalLines": 14,
+      "nonEmptyLines": 14,
+      "metrics": {}
+    },
+    {
+      "path": "src/Factorzations/Lehman.ctxt",
+      "language": "ctxt",
+      "fileCategory": "config",
+      "totalLines": 10,
+      "nonEmptyLines": 10,
+      "metrics": {}
+    },
+    {
+      "path": "src/Factorzations/GUI.ctxt",
+      "language": "ctxt",
+      "fileCategory": "config",
+      "totalLines": 131,
+      "nonEmptyLines": 131,
+      "metrics": {}
+    },
+    {
+      "path": "src/Factorzations/package.bluej",
+      "language": "bluej",
+      "fileCategory": "config",
+      "totalLines": 53,
+      "nonEmptyLines": 53,
+      "metrics": {}
+    },
+    {
+      "path": "src/Factorzations/README.TXT",
+      "language": "txt",
+      "fileCategory": "docs",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "metrics": {}
+    }
+  ]
+}

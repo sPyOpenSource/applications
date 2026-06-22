@@ -1,0 +1,627 @@
+{
+  "batchIndex": 1,
+  "totalBatches": 10,
+  "files": [
+    {
+      "path": "src/BigIntegers/ECMBigInteger.java",
+      "language": "java",
+      "sizeLines": 412,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/BigIntegers/LargeInteger.java",
+      "language": "java",
+      "sizeLines": 729,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Factorzations/GUI.java",
+      "language": "java",
+      "sizeLines": 718,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/EncodedOperation.java",
+      "language": "java",
+      "sizeLines": 31,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/javamodel/Add.java",
+      "language": "java",
+      "sizeLines": 40,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/javamodel/ChangeSigns.java",
+      "language": "java",
+      "sizeLines": 38,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/javamodel/Divide.java",
+      "language": "java",
+      "sizeLines": 40,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/javamodel/Multiply.java",
+      "language": "java",
+      "sizeLines": 38,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/javamodel/Power.java",
+      "language": "java",
+      "sizeLines": 41,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/javamodel/Remainder.java",
+      "language": "java",
+      "sizeLines": 40,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/javamodel/Subtract.java",
+      "language": "java",
+      "sizeLines": 38,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/javamodel/TenToPower.java",
+      "language": "java",
+      "sizeLines": 40,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/javamodel/TwoToPower.java",
+      "language": "java",
+      "sizeLines": 43,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/largemodel/Add.java",
+      "language": "java",
+      "sizeLines": 58,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/largemodel/ChangeSigns.java",
+      "language": "java",
+      "sizeLines": 49,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/largemodel/Divide.java",
+      "language": "java",
+      "sizeLines": 70,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/largemodel/Multiply.java",
+      "language": "java",
+      "sizeLines": 64,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/largemodel/Power.java",
+      "language": "java",
+      "sizeLines": 42,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/largemodel/Remainder.java",
+      "language": "java",
+      "sizeLines": 68,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/largemodel/Subtract.java",
+      "language": "java",
+      "sizeLines": 59,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/largemodel/TenToPower.java",
+      "language": "java",
+      "sizeLines": 42,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/largemodel/TwoToPower.java",
+      "language": "java",
+      "sizeLines": 42,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/ecm/Checks/PowerCheck.java",
+      "language": "java",
+      "sizeLines": 123,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/ecm/Checks/PowerPM1Check.java",
+      "language": "java",
+      "sizeLines": 235,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/utilities/BitReverseCounter.java",
+      "language": "java",
+      "sizeLines": 58,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/utilities/FFT.java",
+      "language": "java",
+      "sizeLines": 121,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/utilities/NTT.java",
+      "language": "java",
+      "sizeLines": 295,
+      "fileCategory": "code"
+    }
+  ],
+  "batchImportData": {
+    "src/BigIntegers/ECMBigInteger.java": [],
+    "src/BigIntegers/LargeInteger.java": [
+      "src/utilities/BitReverseCounter.java",
+      "src/utilities/FFT.java",
+      "src/utilities/NTT.java"
+    ],
+    "src/Factorzations/GUI.java": [
+      "src/BigIntegers/AprtCleInteger.java",
+      "src/BigIntegers/LargeInteger.java",
+      "src/calculator/Deque.java",
+      "src/calculator/EmptyDequeException.java",
+      "src/calculator/EncodedOperation.java",
+      "src/calculator/largemodel/Add.java",
+      "src/calculator/largemodel/Divide.java",
+      "src/calculator/largemodel/Multiply.java",
+      "src/calculator/largemodel/Power.java",
+      "src/calculator/largemodel/Remainder.java",
+      "src/calculator/largemodel/Subtract.java",
+      "src/ecm/Checks/FibonacciCheck.java",
+      "src/ecm/Checks/LucasCheck.java",
+      "src/ecm/Checks/PowerCheck.java",
+      "src/ecm/Checks/PowerPM1Check.java",
+      "src/ecm/PrimeTest/AprtCle.java",
+      "src/Factorzations/ecm/ECM.java",
+      "src/Factorzations/siqs/Siqs.java"
+    ],
+    "src/calculator/EncodedOperation.java": [],
+    "src/calculator/javamodel/Add.java": [
+      "src/calculator/EncodedOperation.java"
+    ],
+    "src/calculator/javamodel/ChangeSigns.java": [
+      "src/calculator/EncodedOperation.java"
+    ],
+    "src/calculator/javamodel/Divide.java": [
+      "src/calculator/EncodedOperation.java"
+    ],
+    "src/calculator/javamodel/Multiply.java": [
+      "src/calculator/EncodedOperation.java"
+    ],
+    "src/calculator/javamodel/Power.java": [
+      "src/calculator/EncodedOperation.java"
+    ],
+    "src/calculator/javamodel/Remainder.java": [
+      "src/calculator/EncodedOperation.java"
+    ],
+    "src/calculator/javamodel/Subtract.java": [
+      "src/calculator/EncodedOperation.java"
+    ],
+    "src/calculator/javamodel/TenToPower.java": [
+      "src/calculator/EncodedOperation.java"
+    ],
+    "src/calculator/javamodel/TwoToPower.java": [
+      "src/calculator/EncodedOperation.java"
+    ],
+    "src/calculator/largemodel/Add.java": [
+      "src/BigIntegers/LargeInteger.java",
+      "src/calculator/EncodedOperation.java"
+    ],
+    "src/calculator/largemodel/ChangeSigns.java": [
+      "src/BigIntegers/LargeInteger.java",
+      "src/calculator/EncodedOperation.java"
+    ],
+    "src/calculator/largemodel/Divide.java": [
+      "src/BigIntegers/LargeInteger.java",
+      "src/calculator/EncodedOperation.java"
+    ],
+    "src/calculator/largemodel/Multiply.java": [
+      "src/BigIntegers/LargeInteger.java",
+      "src/calculator/EncodedOperation.java"
+    ],
+    "src/calculator/largemodel/Power.java": [
+      "src/BigIntegers/LargeInteger.java",
+      "src/calculator/EncodedOperation.java"
+    ],
+    "src/calculator/largemodel/Remainder.java": [
+      "src/BigIntegers/LargeInteger.java",
+      "src/calculator/EncodedOperation.java"
+    ],
+    "src/calculator/largemodel/Subtract.java": [
+      "src/BigIntegers/LargeInteger.java",
+      "src/calculator/EncodedOperation.java"
+    ],
+    "src/calculator/largemodel/TenToPower.java": [
+      "src/BigIntegers/LargeInteger.java",
+      "src/calculator/EncodedOperation.java"
+    ],
+    "src/calculator/largemodel/TwoToPower.java": [
+      "src/BigIntegers/LargeInteger.java",
+      "src/calculator/EncodedOperation.java"
+    ],
+    "src/ecm/Checks/PowerCheck.java": [
+      "src/BigIntegers/ECMBigInteger.java"
+    ],
+    "src/ecm/Checks/PowerPM1Check.java": [
+      "src/BigIntegers/ECMBigInteger.java"
+    ],
+    "src/utilities/BitReverseCounter.java": [],
+    "src/utilities/FFT.java": [],
+    "src/utilities/NTT.java": []
+  },
+  "neighborMap": {
+    "src/BigIntegers/LargeInteger.java": [
+      {
+        "path": "src/calculator/largemodel/CalculatorImpl.java",
+        "batchIndex": 3,
+        "symbols": [
+          "CalculatorImpl",
+          "CalculatorImpl",
+          "CalculatorImpl",
+          "CalculatorImpl",
+          "doOperation",
+          "changeSettings",
+          "CalculatorImpl"
+        ]
+      },
+      {
+        "path": "test/test/JUnitTest.java",
+        "batchIndex": 2,
+        "symbols": [
+          "testAprtCle",
+          "testPowerPM1",
+          "testPowerCheck",
+          "testCos",
+          "testLongToBigNbr",
+          "testModPow",
+          "testClassical",
+          "testModInvBigNbr",
+          "testGcdBigNbr",
+          "testECM",
+          "testLehman",
+          "testSIQS",
+          "testGetSmallFactors",
+          "testLargeInteger",
+          "testFFT",
+          "testReciprocal",
+          "testForwardTransform",
+          "testisPrimitiveRoot",
+          "testInverseTransform",
+          "testSimpleConvolution",
+          "testRoundtripRandomly",
+          "testLinearityRandomly",
+          "testConvolutionRandomly",
+          "testAutomaticConvolution",
+          "testGetIndexFromDivisor",
+          "testSolve",
+          "testFactorA",
+          "testTotient",
+          "testMoebius",
+          "test4Squares",
+          "testSum",
+          "JUnitTest"
+        ]
+      }
+    ],
+    "src/Factorzations/GUI.java": [
+      {
+        "path": "src/BigIntegers/AprtCleInteger.java",
+        "batchIndex": 2,
+        "symbols": [
+          "variable",
+          "AprtCleInteger",
+          "BigNbrModLong",
+          "JacobiSum",
+          "JS_JW",
+          "NormalizeJS",
+          "JS_2",
+          "JS_E",
+          "NormalizeJW",
+          "BigNbrModN",
+          "CompareSquare",
+          "isProbablePrimeRobin",
+          "AprtCleInteger"
+        ]
+      },
+      {
+        "path": "src/calculator/Deque.java",
+        "batchIndex": 3,
+        "symbols": [
+          "isEmpty",
+          "getSize",
+          "addToBack",
+          "addToFront",
+          "getFront",
+          "getBack",
+          "removeFromFront",
+          "removeFromBack",
+          "Deque"
+        ]
+      },
+      {
+        "path": "src/calculator/EmptyDequeException.java",
+        "batchIndex": 3,
+        "symbols": [
+          "EmptyDequeException"
+        ]
+      },
+      {
+        "path": "src/ecm/Checks/FibonacciCheck.java",
+        "batchIndex": 2,
+        "symbols": [
+          "FibonacciCheck",
+          "Factor",
+          "FibonacciCheck"
+        ]
+      },
+      {
+        "path": "src/ecm/Checks/LucasCheck.java",
+        "batchIndex": 2,
+        "symbols": [
+          "LucasCheck",
+          "Check",
+          "Factor",
+          "get",
+          "LucasCheck"
+        ]
+      },
+      {
+        "path": "src/ecm/PrimeTest/AprtCle.java",
+        "batchIndex": 2,
+        "symbols": [
+          "main",
+          "isProbablePrime",
+          "AprtCle"
+        ]
+      },
+      {
+        "path": "src/Factorzations/ecm/ECM.java",
+        "batchIndex": 2,
+        "symbols": [
+          "factor",
+          "ECM",
+          "main",
+          "ECM"
+        ]
+      },
+      {
+        "path": "src/Factorzations/siqs/Siqs.java",
+        "batchIndex": 2,
+        "symbols": [
+          "nbrFactorsA",
+          "NbrPolynomials",
+          "nbrThreadFinishedPolySet",
+          "trialDivisions",
+          "ValuesSieved",
+          "polynomialsSieved",
+          "TestNbr1",
+          "TestNbr2",
+          "vectExpParity",
+          "threads",
+          "primeSieveData",
+          "log2",
+          "threshold",
+          "indexMinFactorA",
+          "SieveLimit",
+          "NumberLength",
+          "smallPrimeUpperLimit",
+          "firstLimit",
+          "secondLimit",
+          "thirdLimit",
+          "largePrimeUpperBound",
+          "newSeed",
+          "factorSiqs",
+          "span",
+          "Siqs",
+          "main",
+          "getFactorsOfA",
+          "factor",
+          "Siqs"
+        ]
+      }
+    ],
+    "src/calculator/EncodedOperation.java": [
+      {
+        "path": "src/calculator/javamodel/CalculatorImpl.java",
+        "batchIndex": 3,
+        "symbols": [
+          "CalculatorImpl",
+          "CalculatorImpl",
+          "doOperation",
+          "changeSettings",
+          "CalculatorImpl"
+        ]
+      },
+      {
+        "path": "src/calculator/largemodel/CalculatorImpl.java",
+        "batchIndex": 3,
+        "symbols": [
+          "CalculatorImpl",
+          "CalculatorImpl",
+          "CalculatorImpl",
+          "CalculatorImpl",
+          "doOperation",
+          "changeSettings",
+          "CalculatorImpl"
+        ]
+      }
+    ],
+    "src/ecm/Checks/PowerCheck.java": [
+      {
+        "path": "test/test/JUnitTest.java",
+        "batchIndex": 2,
+        "symbols": [
+          "testAprtCle",
+          "testPowerPM1",
+          "testPowerCheck",
+          "testCos",
+          "testLongToBigNbr",
+          "testModPow",
+          "testClassical",
+          "testModInvBigNbr",
+          "testGcdBigNbr",
+          "testECM",
+          "testLehman",
+          "testSIQS",
+          "testGetSmallFactors",
+          "testLargeInteger",
+          "testFFT",
+          "testReciprocal",
+          "testForwardTransform",
+          "testisPrimitiveRoot",
+          "testInverseTransform",
+          "testSimpleConvolution",
+          "testRoundtripRandomly",
+          "testLinearityRandomly",
+          "testConvolutionRandomly",
+          "testAutomaticConvolution",
+          "testGetIndexFromDivisor",
+          "testSolve",
+          "testFactorA",
+          "testTotient",
+          "testMoebius",
+          "test4Squares",
+          "testSum",
+          "JUnitTest"
+        ]
+      }
+    ],
+    "src/ecm/Checks/PowerPM1Check.java": [
+      {
+        "path": "test/test/JUnitTest.java",
+        "batchIndex": 2,
+        "symbols": [
+          "testAprtCle",
+          "testPowerPM1",
+          "testPowerCheck",
+          "testCos",
+          "testLongToBigNbr",
+          "testModPow",
+          "testClassical",
+          "testModInvBigNbr",
+          "testGcdBigNbr",
+          "testECM",
+          "testLehman",
+          "testSIQS",
+          "testGetSmallFactors",
+          "testLargeInteger",
+          "testFFT",
+          "testReciprocal",
+          "testForwardTransform",
+          "testisPrimitiveRoot",
+          "testInverseTransform",
+          "testSimpleConvolution",
+          "testRoundtripRandomly",
+          "testLinearityRandomly",
+          "testConvolutionRandomly",
+          "testAutomaticConvolution",
+          "testGetIndexFromDivisor",
+          "testSolve",
+          "testFactorA",
+          "testTotient",
+          "testMoebius",
+          "test4Squares",
+          "testSum",
+          "JUnitTest"
+        ]
+      }
+    ],
+    "src/utilities/FFT.java": [
+      {
+        "path": "test/test/JUnitTest.java",
+        "batchIndex": 2,
+        "symbols": [
+          "testAprtCle",
+          "testPowerPM1",
+          "testPowerCheck",
+          "testCos",
+          "testLongToBigNbr",
+          "testModPow",
+          "testClassical",
+          "testModInvBigNbr",
+          "testGcdBigNbr",
+          "testECM",
+          "testLehman",
+          "testSIQS",
+          "testGetSmallFactors",
+          "testLargeInteger",
+          "testFFT",
+          "testReciprocal",
+          "testForwardTransform",
+          "testisPrimitiveRoot",
+          "testInverseTransform",
+          "testSimpleConvolution",
+          "testRoundtripRandomly",
+          "testLinearityRandomly",
+          "testConvolutionRandomly",
+          "testAutomaticConvolution",
+          "testGetIndexFromDivisor",
+          "testSolve",
+          "testFactorA",
+          "testTotient",
+          "testMoebius",
+          "test4Squares",
+          "testSum",
+          "JUnitTest"
+        ]
+      }
+    ],
+    "src/utilities/NTT.java": [
+      {
+        "path": "test/test/JUnitTest.java",
+        "batchIndex": 2,
+        "symbols": [
+          "testAprtCle",
+          "testPowerPM1",
+          "testPowerCheck",
+          "testCos",
+          "testLongToBigNbr",
+          "testModPow",
+          "testClassical",
+          "testModInvBigNbr",
+          "testGcdBigNbr",
+          "testECM",
+          "testLehman",
+          "testSIQS",
+          "testGetSmallFactors",
+          "testLargeInteger",
+          "testFFT",
+          "testReciprocal",
+          "testForwardTransform",
+          "testisPrimitiveRoot",
+          "testInverseTransform",
+          "testSimpleConvolution",
+          "testRoundtripRandomly",
+          "testLinearityRandomly",
+          "testConvolutionRandomly",
+          "testAutomaticConvolution",
+          "testGetIndexFromDivisor",
+          "testSolve",
+          "testFactorA",
+          "testTotient",
+          "testMoebius",
+          "test4Squares",
+          "testSum",
+          "JUnitTest"
+        ]
+      }
+    ]
+  }
+}

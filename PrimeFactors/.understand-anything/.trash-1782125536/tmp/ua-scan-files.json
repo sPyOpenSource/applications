@@ -1,0 +1,1203 @@
+{
+  "scriptCompleted": true,
+  "files": [
+    {
+      "path": ".DS_Store",
+      "language": "unknown",
+      "sizeLines": 3,
+      "fileCategory": "code"
+    },
+    {
+      "path": ".understand-anything/.understandignore",
+      "language": "unknown",
+      "sizeLines": 31,
+      "fileCategory": "code"
+    },
+    {
+      "path": "build.xml",
+      "language": "xml",
+      "sizeLines": 73,
+      "fileCategory": "config"
+    },
+    {
+      "path": "CHANGELOG",
+      "language": "unknown",
+      "sizeLines": 45,
+      "fileCategory": "code"
+    },
+    {
+      "path": "manifest.mf",
+      "language": "mf",
+      "sizeLines": 3,
+      "fileCategory": "code"
+    },
+    {
+      "path": "nbproject/build-impl.xml",
+      "language": "xml",
+      "sizeLines": 1771,
+      "fileCategory": "config"
+    },
+    {
+      "path": "nbproject/genfiles.properties",
+      "language": "properties",
+      "sizeLines": 8,
+      "fileCategory": "config"
+    },
+    {
+      "path": "nbproject/project.properties",
+      "language": "properties",
+      "sizeLines": 102,
+      "fileCategory": "config"
+    },
+    {
+      "path": "nbproject/project.xml",
+      "language": "xml",
+      "sizeLines": 15,
+      "fileCategory": "config"
+    },
+    {
+      "path": "src/.DS_Store",
+      "language": "unknown",
+      "sizeLines": 6,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/BigIntegers/AprtCleInteger.ctxt",
+      "language": "ctxt",
+      "sizeLines": 26,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/BigIntegers/AprtCleInteger.java",
+      "language": "java",
+      "sizeLines": 331,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/BigIntegers/ECMBigInteger.ctxt",
+      "language": "ctxt",
+      "sizeLines": 24,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/BigIntegers/ECMBigInteger.java",
+      "language": "java",
+      "sizeLines": 412,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/BigIntegers/FactorInteger.ctxt",
+      "language": "ctxt",
+      "sizeLines": 58,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/BigIntegers/FactorInteger.java",
+      "language": "java",
+      "sizeLines": 322,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/BigIntegers/LargeInteger.ctxt",
+      "language": "ctxt",
+      "sizeLines": 90,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/BigIntegers/LargeInteger.java",
+      "language": "java",
+      "sizeLines": 729,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/BigIntegers/MontgomeryInteger.ctxt",
+      "language": "ctxt",
+      "sizeLines": 22,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/BigIntegers/MontgomeryInteger.java",
+      "language": "java",
+      "sizeLines": 365,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/BigIntegers/package.bluej",
+      "language": "bluej",
+      "sizeLines": 68,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/BigIntegers/README.TXT",
+      "language": "txt",
+      "sizeLines": 4,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "src/BigIntegers/StaticFunctions.ctxt",
+      "language": "ctxt",
+      "sizeLines": 22,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/BigIntegers/StaticFunctions.java",
+      "language": "java",
+      "sizeLines": 199,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/Calculator.ctxt",
+      "language": "ctxt",
+      "sizeLines": 10,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/Calculator.java",
+      "language": "java",
+      "sizeLines": 32,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/CalculatorUI.ctxt",
+      "language": "ctxt",
+      "sizeLines": 19,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/CalculatorUI.java",
+      "language": "java",
+      "sizeLines": 42,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/ConvertBase.ctxt",
+      "language": "ctxt",
+      "sizeLines": 13,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/ConvertBase.java",
+      "language": "java",
+      "sizeLines": 46,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/DefaultUI.ctxt",
+      "language": "ctxt",
+      "sizeLines": 37,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/DefaultUI.java",
+      "language": "java",
+      "sizeLines": 654,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/Deque.ctxt",
+      "language": "ctxt",
+      "sizeLines": 31,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/Deque.java",
+      "language": "java",
+      "sizeLines": 124,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/EmptyDequeException.ctxt",
+      "language": "ctxt",
+      "sizeLines": 4,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/EmptyDequeException.java",
+      "language": "java",
+      "sizeLines": 16,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/EncodedOperation.ctxt",
+      "language": "ctxt",
+      "sizeLines": 7,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/EncodedOperation.java",
+      "language": "java",
+      "sizeLines": 31,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/GUI.ctxt",
+      "language": "ctxt",
+      "sizeLines": 13,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/GUI.java",
+      "language": "java",
+      "sizeLines": 138,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/javamodel/Add.ctxt",
+      "language": "ctxt",
+      "sizeLines": 10,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/javamodel/Add.java",
+      "language": "java",
+      "sizeLines": 40,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/javamodel/CalculatorImpl.ctxt",
+      "language": "ctxt",
+      "sizeLines": 25,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/javamodel/CalculatorImpl.java",
+      "language": "java",
+      "sizeLines": 198,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/javamodel/ChangeSigns.ctxt",
+      "language": "ctxt",
+      "sizeLines": 10,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/javamodel/ChangeSigns.java",
+      "language": "java",
+      "sizeLines": 38,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/javamodel/ClearStack.ctxt",
+      "language": "ctxt",
+      "sizeLines": 7,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/javamodel/ClearStack.java",
+      "language": "java",
+      "sizeLines": 28,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/javamodel/Divide.ctxt",
+      "language": "ctxt",
+      "sizeLines": 10,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/javamodel/Divide.java",
+      "language": "java",
+      "sizeLines": 40,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/javamodel/Multiply.ctxt",
+      "language": "ctxt",
+      "sizeLines": 10,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/javamodel/Multiply.java",
+      "language": "java",
+      "sizeLines": 38,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/javamodel/package.bluej",
+      "language": "bluej",
+      "sizeLines": 137,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/javamodel/Pop.ctxt",
+      "language": "ctxt",
+      "sizeLines": 7,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/javamodel/Pop.java",
+      "language": "java",
+      "sizeLines": 28,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/javamodel/Power.ctxt",
+      "language": "ctxt",
+      "sizeLines": 10,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/javamodel/Power.java",
+      "language": "java",
+      "sizeLines": 41,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/javamodel/Push.ctxt",
+      "language": "ctxt",
+      "sizeLines": 7,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/javamodel/Push.java",
+      "language": "java",
+      "sizeLines": 27,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/javamodel/README.TXT",
+      "language": "txt",
+      "sizeLines": 0,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "src/calculator/javamodel/Remainder.ctxt",
+      "language": "ctxt",
+      "sizeLines": 10,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/javamodel/Remainder.java",
+      "language": "java",
+      "sizeLines": 40,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/javamodel/RotateDown.ctxt",
+      "language": "ctxt",
+      "sizeLines": 7,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/javamodel/RotateDown.java",
+      "language": "java",
+      "sizeLines": 27,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/javamodel/RotateUp.ctxt",
+      "language": "ctxt",
+      "sizeLines": 7,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/javamodel/RotateUp.java",
+      "language": "java",
+      "sizeLines": 27,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/javamodel/Subtract.ctxt",
+      "language": "ctxt",
+      "sizeLines": 10,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/javamodel/Subtract.java",
+      "language": "java",
+      "sizeLines": 38,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/javamodel/TenToPower.ctxt",
+      "language": "ctxt",
+      "sizeLines": 10,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/javamodel/TenToPower.java",
+      "language": "java",
+      "sizeLines": 40,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/javamodel/TwoToPower.ctxt",
+      "language": "ctxt",
+      "sizeLines": 10,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/javamodel/TwoToPower.java",
+      "language": "java",
+      "sizeLines": 43,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/largemodel/Add.ctxt",
+      "language": "ctxt",
+      "sizeLines": 14,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/largemodel/Add.java",
+      "language": "java",
+      "sizeLines": 58,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/largemodel/CalculatorImpl.ctxt",
+      "language": "ctxt",
+      "sizeLines": 31,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/largemodel/CalculatorImpl.java",
+      "language": "java",
+      "sizeLines": 232,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/largemodel/ChangeSigns.ctxt",
+      "language": "ctxt",
+      "sizeLines": 12,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/largemodel/ChangeSigns.java",
+      "language": "java",
+      "sizeLines": 49,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/largemodel/Divide.ctxt",
+      "language": "ctxt",
+      "sizeLines": 12,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/largemodel/Divide.java",
+      "language": "java",
+      "sizeLines": 70,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/largemodel/Multiply.ctxt",
+      "language": "ctxt",
+      "sizeLines": 14,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/largemodel/Multiply.java",
+      "language": "java",
+      "sizeLines": 64,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/largemodel/package.bluej",
+      "language": "bluej",
+      "sizeLines": 97,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/largemodel/Power.ctxt",
+      "language": "ctxt",
+      "sizeLines": 10,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/largemodel/Power.java",
+      "language": "java",
+      "sizeLines": 42,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/largemodel/Push.ctxt",
+      "language": "ctxt",
+      "sizeLines": 7,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/largemodel/Push.java",
+      "language": "java",
+      "sizeLines": 27,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/largemodel/README.TXT",
+      "language": "txt",
+      "sizeLines": 0,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "src/calculator/largemodel/Remainder.ctxt",
+      "language": "ctxt",
+      "sizeLines": 12,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/largemodel/Remainder.java",
+      "language": "java",
+      "sizeLines": 68,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/largemodel/Subtract.ctxt",
+      "language": "ctxt",
+      "sizeLines": 14,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/largemodel/Subtract.java",
+      "language": "java",
+      "sizeLines": 59,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/largemodel/TenToPower.ctxt",
+      "language": "ctxt",
+      "sizeLines": 10,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/largemodel/TenToPower.java",
+      "language": "java",
+      "sizeLines": 42,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/largemodel/TwoToPower.ctxt",
+      "language": "ctxt",
+      "sizeLines": 10,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/largemodel/TwoToPower.java",
+      "language": "java",
+      "sizeLines": 42,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/NumericDocument.ctxt",
+      "language": "ctxt",
+      "sizeLines": 16,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/NumericDocument.java",
+      "language": "java",
+      "sizeLines": 119,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/Operation.ctxt",
+      "language": "ctxt",
+      "sizeLines": 7,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/Operation.java",
+      "language": "java",
+      "sizeLines": 27,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/package.bluej",
+      "language": "bluej",
+      "sizeLines": 126,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/README.TXT",
+      "language": "txt",
+      "sizeLines": 5,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "src/com/gazman/factor/BigPrimesList.java",
+      "language": "java",
+      "sizeLines": 47,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/com/gazman/factor/Logger.java",
+      "language": "java",
+      "sizeLines": 90,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/com/gazman/factor/matrix/BitMatrix.java",
+      "language": "java",
+      "sizeLines": 89,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/com/gazman/factor/matrix/VectorsShrinker.java",
+      "language": "java",
+      "sizeLines": 86,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/com/gazman/factor/QuadraticSieve.java",
+      "language": "java",
+      "sizeLines": 289,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/com/gazman/factor/VectorData.java",
+      "language": "java",
+      "sizeLines": 39,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/com/gazman/factor/wheels/Wheel.java",
+      "language": "java",
+      "sizeLines": 114,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/com/gazman/Main.java",
+      "language": "java",
+      "sizeLines": 27,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/com/gazman/math/MathUtils.java",
+      "language": "java",
+      "sizeLines": 120,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/com/gazman/math/SqrRoot.java",
+      "language": "java",
+      "sizeLines": 22,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/ecm/BigIntegers/GCD.ctxt",
+      "language": "ctxt",
+      "sizeLines": 6,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/ecm/BigIntegers/GCD.java",
+      "language": "java",
+      "sizeLines": 111,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/ecm/BigIntegers/ModInv.ctxt",
+      "language": "ctxt",
+      "sizeLines": 9,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/ecm/BigIntegers/ModInv.java",
+      "language": "java",
+      "sizeLines": 401,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/ecm/BigIntegers/package.bluej",
+      "language": "bluej",
+      "sizeLines": 34,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/ecm/BigIntegers/README.TXT",
+      "language": "txt",
+      "sizeLines": 0,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "src/ecm/Checks/FibonacciCheck.ctxt",
+      "language": "ctxt",
+      "sizeLines": 8,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/ecm/Checks/FibonacciCheck.java",
+      "language": "java",
+      "sizeLines": 47,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/ecm/Checks/LucasCheck.ctxt",
+      "language": "ctxt",
+      "sizeLines": 14,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/ecm/Checks/LucasCheck.java",
+      "language": "java",
+      "sizeLines": 106,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/ecm/Checks/package.bluej",
+      "language": "bluej",
+      "sizeLines": 48,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/ecm/Checks/PowerCheck.ctxt",
+      "language": "ctxt",
+      "sizeLines": 8,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/ecm/Checks/PowerCheck.java",
+      "language": "java",
+      "sizeLines": 123,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/ecm/Checks/PowerPM1Check.ctxt",
+      "language": "ctxt",
+      "sizeLines": 12,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/ecm/Checks/PowerPM1Check.java",
+      "language": "java",
+      "sizeLines": 235,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/ecm/Checks/README.TXT",
+      "language": "txt",
+      "sizeLines": 1,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "src/ecm/package.bluej",
+      "language": "bluej",
+      "sizeLines": 38,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/ecm/PrimeTest/AprtCle.ctxt",
+      "language": "ctxt",
+      "sizeLines": 8,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/ecm/PrimeTest/AprtCle.java",
+      "language": "java",
+      "sizeLines": 314,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/ecm/PrimeTest/AprtCleFinal.ctxt",
+      "language": "ctxt",
+      "sizeLines": 8,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/ecm/PrimeTest/AprtCleFinal.java",
+      "language": "java",
+      "sizeLines": 219,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/ecm/PrimeTest/AprtCleVariable.ctxt",
+      "language": "ctxt",
+      "sizeLines": 4,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/ecm/PrimeTest/AprtCleVariable.java",
+      "language": "java",
+      "sizeLines": 309,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/ecm/PrimeTest/LucasLehmer.ctxt",
+      "language": "ctxt",
+      "sizeLines": 12,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/ecm/PrimeTest/LucasLehmer.java",
+      "language": "java",
+      "sizeLines": 146,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/ecm/PrimeTest/package.bluej",
+      "language": "bluej",
+      "sizeLines": 54,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/ecm/PrimeTest/README.TXT",
+      "language": "txt",
+      "sizeLines": 9,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "src/ecm/README.TXT",
+      "language": "txt",
+      "sizeLines": 0,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "src/Factorzations/Classical.ctxt",
+      "language": "ctxt",
+      "sizeLines": 14,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Factorzations/Classical.java",
+      "language": "java",
+      "sizeLines": 101,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Factorzations/ecm/ECM.ctxt",
+      "language": "ctxt",
+      "sizeLines": 10,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Factorzations/ecm/ECM.java",
+      "language": "java",
+      "sizeLines": 58,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Factorzations/ecm/ecmStep0.ctxt",
+      "language": "ctxt",
+      "sizeLines": 8,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Factorzations/ecm/ecmStep0.java",
+      "language": "java",
+      "sizeLines": 111,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Factorzations/ecm/ecmStep1.ctxt",
+      "language": "ctxt",
+      "sizeLines": 18,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Factorzations/ecm/ecmStep1.java",
+      "language": "java",
+      "sizeLines": 362,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Factorzations/ecm/ecmStep2.ctxt",
+      "language": "ctxt",
+      "sizeLines": 9,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Factorzations/ecm/ecmStep2.java",
+      "language": "java",
+      "sizeLines": 217,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Factorzations/ecm/package.bluej",
+      "language": "bluej",
+      "sizeLines": 64,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Factorzations/ecm/README.TXT",
+      "language": "txt",
+      "sizeLines": 0,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "src/Factorzations/ecm/StaticFunctions.ctxt",
+      "language": "ctxt",
+      "sizeLines": 20,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Factorzations/ecm/StaticFunctions.java",
+      "language": "java",
+      "sizeLines": 205,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Factorzations/GUI.ctxt",
+      "language": "ctxt",
+      "sizeLines": 131,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Factorzations/GUI.form",
+      "language": "form",
+      "sizeLines": 382,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Factorzations/GUI.java",
+      "language": "java",
+      "sizeLines": 718,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Factorzations/Lehman.ctxt",
+      "language": "ctxt",
+      "sizeLines": 10,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Factorzations/Lehman.java",
+      "language": "java",
+      "sizeLines": 152,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Factorzations/package.bluej",
+      "language": "bluej",
+      "sizeLines": 53,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Factorzations/README.TXT",
+      "language": "txt",
+      "sizeLines": 0,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "src/Factorzations/siqs/FirstPolynomial.ctxt",
+      "language": "ctxt",
+      "sizeLines": 7,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Factorzations/siqs/FirstPolynomial.java",
+      "language": "java",
+      "sizeLines": 180,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Factorzations/siqs/Maths.ctxt",
+      "language": "ctxt",
+      "sizeLines": 31,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Factorzations/siqs/Maths.java",
+      "language": "java",
+      "sizeLines": 412,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Factorzations/siqs/Matrix.ctxt",
+      "language": "ctxt",
+      "sizeLines": 7,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Factorzations/siqs/Matrix.java",
+      "language": "java",
+      "sizeLines": 414,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Factorzations/siqs/package.bluej",
+      "language": "bluej",
+      "sizeLines": 119,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Factorzations/siqs/PrimeSieveData.ctxt",
+      "language": "ctxt",
+      "sizeLines": 6,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Factorzations/siqs/PrimeSieveData.java",
+      "language": "java",
+      "sizeLines": 677,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Factorzations/siqs/PrimeTrialDivisionData.ctxt",
+      "language": "ctxt",
+      "sizeLines": 12,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Factorzations/siqs/PrimeTrialDivisionData.java",
+      "language": "java",
+      "sizeLines": 234,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Factorzations/siqs/README.TXT",
+      "language": "txt",
+      "sizeLines": 10,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "src/Factorzations/siqs/Relation.ctxt",
+      "language": "ctxt",
+      "sizeLines": 13,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Factorzations/siqs/Relation.java",
+      "language": "java",
+      "sizeLines": 368,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Factorzations/siqs/Sieve.ctxt",
+      "language": "ctxt",
+      "sizeLines": 11,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Factorzations/siqs/Sieve.java",
+      "language": "java",
+      "sizeLines": 335,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Factorzations/siqs/Siqs.ctxt",
+      "language": "ctxt",
+      "sizeLines": 15,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Factorzations/siqs/Siqs.java",
+      "language": "java",
+      "sizeLines": 459,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Factorzations/siqs/StaticFunctions.ctxt",
+      "language": "ctxt",
+      "sizeLines": 14,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Factorzations/siqs/StaticFunctions.java",
+      "language": "java",
+      "sizeLines": 455,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/package.bluej",
+      "language": "bluej",
+      "sizeLines": 55,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/README.TXT",
+      "language": "txt",
+      "sizeLines": 15,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "src/utilities/BitReverseCounter.ctxt",
+      "language": "ctxt",
+      "sizeLines": 13,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/utilities/BitReverseCounter.java",
+      "language": "java",
+      "sizeLines": 58,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/utilities/FFT.ctxt",
+      "language": "ctxt",
+      "sizeLines": 12,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/utilities/FFT.java",
+      "language": "java",
+      "sizeLines": 121,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/utilities/NTT.ctxt",
+      "language": "ctxt",
+      "sizeLines": 34,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/utilities/NTT.java",
+      "language": "java",
+      "sizeLines": 295,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/utilities/package.bluej",
+      "language": "bluej",
+      "sizeLines": 55,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/utilities/README.TXT",
+      "language": "txt",
+      "sizeLines": 0,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "src/utilities/Timer.ctxt",
+      "language": "ctxt",
+      "sizeLines": 21,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/utilities/Timer.java",
+      "language": "java",
+      "sizeLines": 107,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/utilities/Zeef.ctxt",
+      "language": "ctxt",
+      "sizeLines": 11,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/utilities/Zeef.java",
+      "language": "java",
+      "sizeLines": 66,
+      "fileCategory": "code"
+    },
+    {
+      "path": "test/test/JUnitTest.java",
+      "language": "java",
+      "sizeLines": 550,
+      "fileCategory": "code"
+    }
+  ],
+  "totalFiles": 196,
+  "filteredByIgnore": 0,
+  "estimatedComplexity": "large",
+  "stats": {
+    "filesScanned": 196,
+    "byCategory": {
+      "code": 178,
+      "config": 5,
+      "docs": 13
+    },
+    "byLanguage": {
+      "unknown": 4,
+      "xml": 3,
+      "mf": 1,
+      "properties": 2,
+      "ctxt": 74,
+      "java": 85,
+      "bluej": 13,
+      "txt": 13,
+      "form": 1
+    }
+  }
+}

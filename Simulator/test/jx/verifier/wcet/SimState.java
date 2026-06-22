@@ -542,7 +542,7 @@ public class SimState {
 		    if (otherClass == null) 
 			throw new Error("Internal Error: Class not found: " +
 					className );
-		    MethodData otherMethod = otherClass.getMethodDataNE(methodName, typeDesc);
+		    MethodData otherMethod = (MethodData)otherClass.getMethodDataNE(methodName, typeDesc);
 		    if (otherMethod == null) 
 			throw new Error("Internal Error: Method not found: " +
 					className + "." + methodName + "(" + typeDesc + ")");
@@ -566,8 +566,11 @@ public class SimState {
 	return true;
     }
     
-    /**Simulate effect of method invokation.
+    /** Simulate effect of method invokation.
      * The time needed to execute the method is added to parameter 'eTime' and eTime is returned.
+     * @param method
+     * @param className
+     * @param cPool
      * @param eTime the actual executiontime.
      * @return executionTime after completing the method. Is the same object as parameter eTime.
      */

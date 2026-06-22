@@ -1,0 +1,37 @@
+{
+  "batchIndex": 5,
+  "totalBatches": 10,
+  "files": [
+    {
+      "path": "nbproject/build-impl.xml",
+      "language": "xml",
+      "sizeLines": 1771,
+      "fileCategory": "config"
+    },
+    {
+      "path": "nbproject/genfiles.properties",
+      "language": "properties",
+      "sizeLines": 8,
+      "fileCategory": "config"
+    },
+    {
+      "path": "nbproject/project.properties",
+      "language": "properties",
+      "sizeLines": 102,
+      "fileCategory": "config"
+    },
+    {
+      "path": "nbproject/project.xml",
+      "language": "xml",
+      "sizeLines": 15,
+      "fileCategory": "config"
+    }
+  ],
+  "batchImportData": {
+    "nbproject/build-impl.xml": [],
+    "nbproject/genfiles.properties": [],
+    "nbproject/project.properties": [],
+    "nbproject/project.xml": []
+  },
+  "neighborMap": {}
+}

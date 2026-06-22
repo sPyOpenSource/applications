@@ -26,8 +26,8 @@ public class BCCPArgOp extends ByteCode {
     public String toString() {
 	String retval =  super.toString();
 	ConstantPoolEntry cpe = getCPEntry();
-	if (cpe instanceof ClassMemberCPEntry) {
-	    retval += " " + ((ClassMemberCPEntry)cpe).getDescription();
+	if (cpe instanceof ClassMemberCPEntry classMemberCPEntry) {
+	    retval += " " + classMemberCPEntry.getDescription();
 	} else {
 	    retval += " " + cpe.toString();
 	}

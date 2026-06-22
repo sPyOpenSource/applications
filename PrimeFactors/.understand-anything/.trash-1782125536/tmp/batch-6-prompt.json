@@ -1,0 +1,184 @@
+{
+  "batchIndex": 6,
+  "totalBatches": 10,
+  "files": [
+    {
+      "path": ".DS_Store",
+      "language": "unknown",
+      "sizeLines": 3,
+      "fileCategory": "code"
+    },
+    {
+      "path": ".understand-anything/.understandignore",
+      "language": "unknown",
+      "sizeLines": 31,
+      "fileCategory": "code"
+    },
+    {
+      "path": "build.xml",
+      "language": "xml",
+      "sizeLines": 73,
+      "fileCategory": "config"
+    },
+    {
+      "path": "CHANGELOG",
+      "language": "unknown",
+      "sizeLines": 45,
+      "fileCategory": "code"
+    },
+    {
+      "path": "manifest.mf",
+      "language": "mf",
+      "sizeLines": 3,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/.DS_Store",
+      "language": "unknown",
+      "sizeLines": 6,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/BigIntegers/AprtCleInteger.ctxt",
+      "language": "ctxt",
+      "sizeLines": 26,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/BigIntegers/ECMBigInteger.ctxt",
+      "language": "ctxt",
+      "sizeLines": 24,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/BigIntegers/FactorInteger.ctxt",
+      "language": "ctxt",
+      "sizeLines": 58,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/BigIntegers/FactorInteger.java",
+      "language": "java",
+      "sizeLines": 322,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/BigIntegers/LargeInteger.ctxt",
+      "language": "ctxt",
+      "sizeLines": 90,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/BigIntegers/MontgomeryInteger.ctxt",
+      "language": "ctxt",
+      "sizeLines": 22,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/BigIntegers/MontgomeryInteger.java",
+      "language": "java",
+      "sizeLines": 365,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/BigIntegers/package.bluej",
+      "language": "bluej",
+      "sizeLines": 68,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/BigIntegers/README.TXT",
+      "language": "txt",
+      "sizeLines": 4,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "src/BigIntegers/StaticFunctions.ctxt",
+      "language": "ctxt",
+      "sizeLines": 22,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/Calculator.ctxt",
+      "language": "ctxt",
+      "sizeLines": 10,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/CalculatorUI.ctxt",
+      "language": "ctxt",
+      "sizeLines": 19,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/ConvertBase.ctxt",
+      "language": "ctxt",
+      "sizeLines": 13,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/DefaultUI.ctxt",
+      "language": "ctxt",
+      "sizeLines": 37,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/DefaultUI.java",
+      "language": "java",
+      "sizeLines": 654,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/Deque.ctxt",
+      "language": "ctxt",
+      "sizeLines": 31,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/EmptyDequeException.ctxt",
+      "language": "ctxt",
+      "sizeLines": 4,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/EncodedOperation.ctxt",
+      "language": "ctxt",
+      "sizeLines": 7,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/GUI.ctxt",
+      "language": "ctxt",
+      "sizeLines": 13,
+      "fileCategory": "code"
+    }
+  ],
+  "batchImportData": {
+    ".DS_Store": [],
+    ".understand-anything/.understandignore": [],
+    "build.xml": [],
+    "CHANGELOG": [],
+    "manifest.mf": [],
+    "src/.DS_Store": [],
+    "src/BigIntegers/AprtCleInteger.ctxt": [],
+    "src/BigIntegers/ECMBigInteger.ctxt": [],
+    "src/BigIntegers/FactorInteger.ctxt": [],
+    "src/BigIntegers/FactorInteger.java": [],
+    "src/BigIntegers/LargeInteger.ctxt": [],
+    "src/BigIntegers/MontgomeryInteger.ctxt": [],
+    "src/BigIntegers/MontgomeryInteger.java": [],
+    "src/BigIntegers/package.bluej": [],
+    "src/BigIntegers/README.TXT": [],
+    "src/BigIntegers/StaticFunctions.ctxt": [],
+    "src/calculator/Calculator.ctxt": [],
+    "src/calculator/CalculatorUI.ctxt": [],
+    "src/calculator/ConvertBase.ctxt": [],
+    "src/calculator/DefaultUI.ctxt": [],
+    "src/calculator/DefaultUI.java": [],
+    "src/calculator/Deque.ctxt": [],
+    "src/calculator/EmptyDequeException.ctxt": [],
+    "src/calculator/EncodedOperation.ctxt": [],
+    "src/calculator/GUI.ctxt": []
+  },
+  "neighborMap": {}
+}

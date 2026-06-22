@@ -1,0 +1,1028 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/Factorzations/siqs/StaticFunctions.java",
+      "type": "file",
+      "filePath": "src/Factorzations/siqs/StaticFunctions.java",
+      "summary": "Utility class with static methods for SIQS algorithm including binary search, Jacobi symbol, modular inverse, SQUFOF factoring, and probabilistic primality testing",
+      "tags": [
+        "siqs",
+        "static-utilities",
+        "number-theory",
+        "factoring"
+      ],
+      "complexity": 8
+    },
+    {
+      "id": "file:src/com/gazman/Main.java",
+      "type": "file",
+      "filePath": "src/com/gazman/Main.java",
+      "summary": "Entry point that generates a semiprime from two probable primes and runs the Quadratic Sieve factorization",
+      "tags": [
+        "entry-point",
+        "main",
+        "demo"
+      ],
+      "complexity": 1
+    },
+    {
+      "id": "file:src/com/gazman/factor/BigPrimesList.java",
+      "type": "file",
+      "filePath": "src/com/gazman/factor/BigPrimesList.java",
+      "summary": "Tracks big prime factors found during sieving, storing vectors grouped by shared prime for later combination",
+      "tags": [
+        "data-structure",
+        "big-primes",
+        "sieving"
+      ],
+      "complexity": 2
+    },
+    {
+      "id": "file:src/com/gazman/factor/Logger.java",
+      "type": "file",
+      "filePath": "src/com/gazman/factor/Logger.java",
+      "summary": "Base logging class with timestamped output, number formatting, and array/list pretty-printing",
+      "tags": [
+        "logging",
+        "base-class",
+        "debugging"
+      ],
+      "complexity": 2
+    },
+    {
+      "id": "file:src/com/gazman/factor/QuadraticSieve.java",
+      "type": "file",
+      "filePath": "src/com/gazman/factor/QuadraticSieve.java",
+      "summary": "Quadratic Sieve factorization implementation with multi-threaded sieving, wheel initialization, B-smooth vector collection, and solution solving via matrix reduction",
+      "tags": [
+        "quadratic-sieve",
+        "factoring",
+        "sieving",
+        "multi-threaded"
+      ],
+      "complexity": 9
+    },
+    {
+      "id": "file:src/com/gazman/factor/VectorData.java",
+      "type": "file",
+      "filePath": "src/com/gazman/factor/VectorData.java",
+      "summary": "Data class holding a BitSet vector, sieve position, big prime index, and cached x/y values for matrix solution",
+      "tags": [
+        "data",
+        "vector",
+        "bitset"
+      ],
+      "complexity": 1
+    },
+    {
+      "id": "file:src/com/gazman/factor/matrix/BitMatrix.java",
+      "type": "file",
+      "filePath": "src/com/gazman/factor/matrix/BitMatrix.java",
+      "summary": "Gaussian elimination over GF(2) using BitSet rows to find nullspace vectors that yield factorizations",
+      "tags": [
+        "matrix",
+        "gaussian-elimination",
+        "linear-algebra",
+        "gf2"
+      ],
+      "complexity": 5
+    },
+    {
+      "id": "file:src/com/gazman/factor/matrix/VectorsShrinker.java",
+      "type": "file",
+      "filePath": "src/com/gazman/factor/matrix/VectorsShrinker.java",
+      "summary": "Reduces the vector set by merging vectors sharing the same big prime, assigning indices and XORing their bit vectors",
+      "tags": [
+        "vector-merging",
+        "big-prime",
+        "reduction"
+      ],
+      "complexity": 4
+    },
+    {
+      "id": "file:src/com/gazman/factor/wheels/Wheel.java",
+      "type": "file",
+      "filePath": "src/com/gazman/factor/wheels/Wheel.java",
+      "summary": "Sieve wheel that iterates over positions in the sieve interval where a prime divides Q(x), using Tonelli-Shanks solutions",
+      "tags": [
+        "wheel",
+        "sieving",
+        "prime-divisibility"
+      ],
+      "complexity": 5
+    },
+    {
+      "id": "file:src/com/gazman/math/MathUtils.java",
+      "type": "file",
+      "filePath": "src/com/gazman/math/MathUtils.java",
+      "summary": "Number-theoretic utilities: quadratic residue testing (Euler criterion), Tonelli-Shanks algorithm for modular square roots, and Lucas sequence evaluation",
+      "tags": [
+        "number-theory",
+        "quadratic-residues",
+        "tonelli-shanks",
+        "modular-arithmetic"
+      ],
+      "complexity": 7
+    },
+    {
+      "id": "file:src/com/gazman/math/SqrRoot.java",
+      "type": "file",
+      "filePath": "src/com/gazman/math/SqrRoot.java",
+      "summary": "BigInteger square root ceiling function",
+      "tags": [
+        "math",
+        "square-root",
+        "bigInteger"
+      ],
+      "complexity": 1
+    },
+    {
+      "id": "file:src/ecm/BigIntegers/GCD.java",
+      "type": "file",
+      "filePath": "src/ecm/BigIntegers/GCD.java",
+      "summary": "Binary GCD algorithm for large integers represented as 31-bit digit arrays, with power-of-two factor extraction",
+      "tags": [
+        "gcd",
+        "binary-algorithm",
+        "big-integers",
+        "ecm"
+      ],
+      "complexity": 5
+    },
+    {
+      "id": "file:src/ecm/BigIntegers/ModInv.java",
+      "type": "file",
+      "filePath": "src/ecm/BigIntegers/ModInv.java",
+      "summary": "Modular inverse for large integers using the extended binary GCD with 32-bit digit representation and Montgomery-like multi-precision arithmetic",
+      "tags": [
+        "modular-inverse",
+        "binary-gcd",
+        "big-integers",
+        "ecm"
+      ],
+      "complexity": 9
+    },
+    {
+      "id": "class:StaticFunctions",
+      "type": "class",
+      "name": "StaticFunctions",
+      "filePath": "src/Factorzations/siqs/StaticFunctions.java",
+      "summary": "Static utility class for SIQS: binary search, Jacobi symbol, modular inverse, SQUFOF, and Fermat primality test",
+      "tags": [
+        "siqs",
+        "static-utilities"
+      ],
+      "complexity": 8
+    },
+    {
+      "id": "class:Main",
+      "type": "class",
+      "name": "Main",
+      "filePath": "src/com/gazman/Main.java",
+      "summary": "Entry point that extends Logger, generates a semiprime, and launches Quadratic Sieve factorization",
+      "tags": [
+        "entry-point"
+      ],
+      "complexity": 1
+    },
+    {
+      "id": "class:BigPrimesList",
+      "type": "class",
+      "name": "BigPrimesList",
+      "filePath": "src/com/gazman/factor/BigPrimesList.java",
+      "summary": "Collects vector data grouped by shared big prime for later merging in the sieving process",
+      "tags": [
+        "data-structure",
+        "big-primes"
+      ],
+      "complexity": 2
+    },
+    {
+      "id": "class:Logger",
+      "type": "class",
+      "name": "Logger",
+      "filePath": "src/com/gazman/factor/Logger.java",
+      "summary": "Base class providing formatted timestamped logging with support for arrays, lists, and numbers",
+      "tags": [
+        "logging",
+        "base-class"
+      ],
+      "complexity": 2
+    },
+    {
+      "id": "class:QuadraticSieve",
+      "type": "class",
+      "name": "QuadraticSieve",
+      "filePath": "src/com/gazman/factor/QuadraticSieve.java",
+      "summary": "Quadratic Sieve factoring engine with multi-threaded sieve, wheel-based sieving, and GF(2) matrix solution",
+      "tags": [
+        "quadratic-sieve",
+        "factoring"
+      ],
+      "complexity": 9
+    },
+    {
+      "id": "class:VectorData",
+      "type": "class",
+      "name": "VectorData",
+      "filePath": "src/com/gazman/factor/VectorData.java",
+      "summary": "Immutable-style data holder for a sieve vector: BitSet, position, big prime index, and optional x/y",
+      "tags": [
+        "data",
+        "vector"
+      ],
+      "complexity": 1
+    },
+    {
+      "id": "class:BitMatrix",
+      "type": "class",
+      "name": "BitMatrix",
+      "filePath": "src/com/gazman/factor/matrix/BitMatrix.java",
+      "summary": "Gaussian elimination over GF(2) using BitSet XOR to find linearly dependent rows for factorization",
+      "tags": [
+        "matrix",
+        "gaussian-elimination",
+        "gf2"
+      ],
+      "complexity": 5
+    },
+    {
+      "id": "class:VectorsShrinker",
+      "type": "class",
+      "name": "VectorsShrinker",
+      "filePath": "src/com/gazman/factor/matrix/VectorsShrinker.java",
+      "summary": "Reduces B-smooth and big prime vectors by merging pairs and assigning indices for matrix construction",
+      "tags": [
+        "vector-merging",
+        "reduction"
+      ],
+      "complexity": 4
+    },
+    {
+      "id": "class:Wheel",
+      "type": "class",
+      "name": "Wheel",
+      "filePath": "src/com/gazman/factor/wheels/Wheel.java",
+      "summary": "Sieve wheel using Tonelli-Shanks solutions to iterate over prime-divisible positions in the sieve interval",
+      "tags": [
+        "wheel",
+        "sieving"
+      ],
+      "complexity": 5
+    },
+    {
+      "id": "class:MathUtils",
+      "type": "class",
+      "name": "MathUtils",
+      "filePath": "src/com/gazman/math/MathUtils.java",
+      "summary": "Number theory utilities: quadratic residue check, Tonelli-Shanks, Lucas sequence evaluation",
+      "tags": [
+        "number-theory",
+        "tonelli-shanks"
+      ],
+      "complexity": 7
+    },
+    {
+      "id": "class:SqrRoot",
+      "type": "class",
+      "name": "SqrRoot",
+      "filePath": "src/com/gazman/math/SqrRoot.java",
+      "summary": "BigInteger square root ceiling utility",
+      "tags": [
+        "math",
+        "square-root"
+      ],
+      "complexity": 1
+    },
+    {
+      "id": "class:GCD",
+      "type": "class",
+      "name": "GCD",
+      "filePath": "src/ecm/BigIntegers/GCD.java",
+      "summary": "Binary GCD implementation for large integer arrays with power-of-two factor extraction",
+      "tags": [
+        "gcd",
+        "binary-algorithm",
+        "ecm"
+      ],
+      "complexity": 5
+    },
+    {
+      "id": "class:ModInv",
+      "type": "class",
+      "name": "ModInv",
+      "filePath": "src/ecm/BigIntegers/ModInv.java",
+      "summary": "Extended binary GCD modular inverse for large integers with 32-bit digit representation",
+      "tags": [
+        "modular-inverse",
+        "binary-gcd",
+        "ecm"
+      ],
+      "complexity": 9
+    },
+    {
+      "id": "function:StaticFunctions.getIndexFromDivisor",
+      "type": "function",
+      "name": "getIndexFromDivisor",
+      "filePath": "src/Factorzations/siqs/StaticFunctions.java",
+      "classPath": "class:StaticFunctions",
+      "summary": "Binary search to find index of a divisor in the prime trial division data array",
+      "tags": [
+        "binary-search",
+        "divisor"
+      ],
+      "complexity": 3
+    },
+    {
+      "id": "function:StaticFunctions.JacobiSymbol",
+      "type": "function",
+      "name": "JacobiSymbol",
+      "filePath": "src/Factorzations/siqs/StaticFunctions.java",
+      "classPath": "class:StaticFunctions",
+      "summary": "Computes the Jacobi symbol (M/Q) using the law of quadratic reciprocity",
+      "tags": [
+        "jacobi-symbol",
+        "number-theory"
+      ],
+      "complexity": 3
+    },
+    {
+      "id": "function:StaticFunctions.modInv",
+      "type": "function",
+      "name": "modInv",
+      "filePath": "src/Factorzations/siqs/StaticFunctions.java",
+      "classPath": "class:StaticFunctions",
+      "summary": "Modular inverse using the extended Euclidean algorithm",
+      "tags": [
+        "modular-inverse",
+        "euclidean"
+      ],
+      "complexity": 3
+    },
+    {
+      "id": "function:StaticFunctions.SQUFOF",
+      "type": "function",
+      "name": "SQUFOF",
+      "filePath": "src/Factorzations/siqs/StaticFunctions.java",
+      "classPath": "class:StaticFunctions",
+      "summary": "Square Form Factorization (SQUFOF) algorithm with multiplier 3 optimization for integer factoring",
+      "tags": [
+        "squfof",
+        "factoring",
+        "square-forms"
+      ],
+      "complexity": 9
+    },
+    {
+      "id": "function:StaticFunctions.isProbablePrime",
+      "type": "function",
+      "name": "isProbablePrime",
+      "filePath": "src/Factorzations/siqs/StaticFunctions.java",
+      "classPath": "class:StaticFunctions",
+      "summary": "Fermat probable prime test using Montgomery multiplication with base 2",
+      "tags": [
+        "primality-test",
+        "montgomery",
+        "fermat"
+      ],
+      "complexity": 6
+    },
+    {
+      "id": "function:Main.main",
+      "type": "function",
+      "name": "main",
+      "filePath": "src/com/gazman/Main.java",
+      "classPath": "class:Main",
+      "summary": "Generates a semiprime from two random probable primes and runs the Quadratic Sieve",
+      "tags": [
+        "entry-point",
+        "main"
+      ],
+      "complexity": 1
+    },
+    {
+      "id": "function:BigPrimesList.add",
+      "type": "function",
+      "name": "add",
+      "filePath": "src/com/gazman/factor/BigPrimesList.java",
+      "classPath": "class:BigPrimesList",
+      "summary": "Adds a vector data entry under a prime key, incrementing counter when a collision occurs",
+      "tags": [
+        "add",
+        "big-prime"
+      ],
+      "complexity": 2
+    },
+    {
+      "id": "function:BigPrimesList.getBigPrimes",
+      "type": "function",
+      "name": "getBigPrimes",
+      "filePath": "src/com/gazman/factor/BigPrimesList.java",
+      "classPath": "class:BigPrimesList",
+      "summary": "Returns all prime groups that have more than one vector entry",
+      "tags": [
+        "getter",
+        "big-primes"
+      ],
+      "complexity": 2
+    },
+    {
+      "id": "function:Logger.log",
+      "type": "function",
+      "name": "log",
+      "filePath": "src/com/gazman/factor/Logger.java",
+      "classPath": "class:Logger",
+      "summary": "Logs timestamped message if logging is enabled",
+      "tags": [
+        "log",
+        "output"
+      ],
+      "complexity": 1
+    },
+    {
+      "id": "function:Logger.logTime",
+      "type": "function",
+      "name": "logTime",
+      "filePath": "src/com/gazman/factor/Logger.java",
+      "classPath": "class:Logger",
+      "summary": "Prints elapsed time in seconds.milliseconds format",
+      "tags": [
+        "logging",
+        "time"
+      ],
+      "complexity": 2
+    },
+    {
+      "id": "function:Logger.logInLine",
+      "type": "function",
+      "name": "logInLine",
+      "filePath": "src/com/gazman/factor/Logger.java",
+      "classPath": "class:Logger",
+      "summary": "Formats and prints variadic arguments including numbers, booleans, arrays, and lists",
+      "tags": [
+        "logging",
+        "formatting"
+      ],
+      "complexity": 3
+    },
+    {
+      "id": "function:QuadraticSieve.QuadraticSieve",
+      "type": "function",
+      "name": "QuadraticSieve",
+      "filePath": "src/com/gazman/factor/QuadraticSieve.java",
+      "classPath": "class:QuadraticSieve",
+      "summary": "Initializes the quadratic sieve: computes root, builds prime base, sets up vector shrinker and logging",
+      "tags": [
+        "constructor",
+        "initialization"
+      ],
+      "complexity": 3
+    },
+    {
+      "id": "function:QuadraticSieve.execute",
+      "type": "function",
+      "name": "execute",
+      "filePath": "src/com/gazman/factor/QuadraticSieve.java",
+      "classPath": "class:QuadraticSieve",
+      "summary": "Main sieving loop: builds wheels, sieves intervals, collects smooth vectors, and triggers solution when ready",
+      "tags": [
+        "sieving",
+        "loop",
+        "multi-threaded"
+      ],
+      "complexity": 6
+    },
+    {
+      "id": "function:QuadraticSieve.sieve",
+      "type": "function",
+      "name": "sieve",
+      "filePath": "src/com/gazman/factor/QuadraticSieve.java",
+      "classPath": "class:QuadraticSieve",
+      "summary": "Sieving pass over a sieve interval using wheels to accumulate log values and collect smooth and big prime vectors",
+      "tags": [
+        "sieve",
+        "log-accumulation",
+        "vector-collection"
+      ],
+      "complexity": 7
+    },
+    {
+      "id": "function:QuadraticSieve.tryToSolve",
+      "type": "function",
+      "name": "tryToSolve",
+      "filePath": "src/com/gazman/factor/QuadraticSieve.java",
+      "classPath": "class:QuadraticSieve",
+      "summary": "Shrinks vectors, builds bit matrix, solves for nullspace, and tests each solution for a non-trivial factor",
+      "tags": [
+        "solve",
+        "matrix",
+        "gcd"
+      ],
+      "complexity": 4
+    },
+    {
+      "id": "function:QuadraticSieve.testSolution",
+      "type": "function",
+      "name": "testSolution",
+      "filePath": "src/com/gazman/factor/QuadraticSieve.java",
+      "classPath": "class:QuadraticSieve",
+      "summary": "Computes GCD from a linear combination of solution vectors to extract a non-trivial factor of N",
+      "tags": [
+        "gcd",
+        "solution-testing",
+        "static"
+      ],
+      "complexity": 3
+    },
+    {
+      "id": "function:QuadraticSieve.buildPrimeBase",
+      "type": "function",
+      "name": "buildPrimeBase",
+      "filePath": "src/com/gazman/factor/QuadraticSieve.java",
+      "classPath": "class:QuadraticSieve",
+      "summary": "Generates the factor base primes for which N is a quadratic residue",
+      "tags": [
+        "prime-base",
+        "factor-base",
+        "quadratic-residue"
+      ],
+      "complexity": 2
+    },
+    {
+      "id": "function:BitMatrix.solve",
+      "type": "function",
+      "name": "solve",
+      "filePath": "src/com/gazman/factor/matrix/BitMatrix.java",
+      "classPath": "class:BitMatrix",
+      "summary": "Performs Gaussian elimination over GF(2) on the vector matrix to find nullspace solutions",
+      "tags": [
+        "gaussian-elimination",
+        "solve",
+        "gf2"
+      ],
+      "complexity": 6
+    },
+    {
+      "id": "function:VectorsShrinker.shrink",
+      "type": "function",
+      "name": "shrink",
+      "filePath": "src/com/gazman/factor/matrix/VectorsShrinker.java",
+      "classPath": "class:VectorsShrinker",
+      "summary": "Merges big prime vector pairs via XOR and assigns big prime indices, producing the final vector set for matrix construction",
+      "tags": [
+        "merge",
+        "shrink",
+        "big-prime"
+      ],
+      "complexity": 5
+    },
+    {
+      "id": "function:Wheel.Wheel",
+      "type": "function",
+      "name": "Wheel",
+      "filePath": "src/com/gazman/factor/wheels/Wheel.java",
+      "classPath": "class:Wheel",
+      "summary": "Constructs a sieve wheel by computing Tonelli-Shanks solutions and computing initial positions relative to root",
+      "tags": [
+        "constructor",
+        "wheel",
+        "tonelli-shanks"
+      ],
+      "complexity": 5
+    },
+    {
+      "id": "function:Wheel.move",
+      "type": "function",
+      "name": "move",
+      "filePath": "src/com/gazman/factor/wheels/Wheel.java",
+      "classPath": "class:Wheel",
+      "summary": "Returns the next position in the sieve interval where the prime divides, wrapping around at the sieve bound",
+      "tags": [
+        "move",
+        "iteration"
+      ],
+      "complexity": 3
+    },
+    {
+      "id": "function:MathUtils.ressol",
+      "type": "function",
+      "name": "ressol",
+      "filePath": "src/com/gazman/math/MathUtils.java",
+      "classPath": "class:MathUtils",
+      "summary": "Tonelli-Shanks algorithm for modular square roots, handling prime moduli 2, 4k+3, 8k+5, and general case",
+      "tags": [
+        "tonelli-shanks",
+        "modular-square-root"
+      ],
+      "complexity": 6
+    },
+    {
+      "id": "function:MathUtils.v_",
+      "type": "function",
+      "name": "v_",
+      "filePath": "src/com/gazman/math/MathUtils.java",
+      "classPath": "class:MathUtils",
+      "summary": "Lucas sequence evaluation for the Tonelli-Shanks algorithm in the general case",
+      "tags": [
+        "lucas-sequence",
+        "tonelli-shanks"
+      ],
+      "complexity": 4
+    },
+    {
+      "id": "function:GCD.GcdBigNbr",
+      "type": "function",
+      "name": "GcdBigNbr",
+      "filePath": "src/ecm/BigIntegers/GCD.java",
+      "classPath": "class:GCD",
+      "summary": "Binary GCD for large integer arrays with sign handling, power-of-two factor extraction, and iterative subtraction",
+      "tags": [
+        "gcd",
+        "binary",
+        "big-integers"
+      ],
+      "complexity": 6
+    },
+    {
+      "id": "function:ModInv.ModInvBigNbr",
+      "type": "function",
+      "name": "ModInvBigNbr",
+      "filePath": "src/ecm/BigIntegers/ModInv.java",
+      "classPath": "class:ModInv",
+      "summary": "Modular inverse for large integers using extended binary GCD with 32-bit digit arithmetic and multi-precision multiplication",
+      "tags": [
+        "modular-inverse",
+        "binary-gcd",
+        "big-integers",
+        "multi-precision"
+      ],
+      "complexity": 9
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/com/gazman/Main.java",
+      "target": "file:src/com/gazman/factor/Logger.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/com/gazman/Main.java",
+      "target": "file:src/com/gazman/factor/QuadraticSieve.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/com/gazman/factor/QuadraticSieve.java",
+      "target": "file:src/com/gazman/factor/BigPrimesList.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/com/gazman/factor/QuadraticSieve.java",
+      "target": "file:src/com/gazman/factor/VectorData.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/com/gazman/factor/QuadraticSieve.java",
+      "target": "file:src/com/gazman/factor/matrix/BitMatrix.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/com/gazman/factor/QuadraticSieve.java",
+      "target": "file:src/com/gazman/factor/matrix/VectorsShrinker.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/com/gazman/factor/QuadraticSieve.java",
+      "target": "file:src/com/gazman/factor/wheels/Wheel.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/com/gazman/factor/QuadraticSieve.java",
+      "target": "file:src/com/gazman/math/MathUtils.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/com/gazman/factor/QuadraticSieve.java",
+      "target": "file:src/com/gazman/math/SqrRoot.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/com/gazman/factor/matrix/BitMatrix.java",
+      "target": "file:src/com/gazman/factor/Logger.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/com/gazman/factor/matrix/BitMatrix.java",
+      "target": "file:src/com/gazman/factor/VectorData.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/com/gazman/factor/matrix/VectorsShrinker.java",
+      "target": "file:src/com/gazman/factor/BigPrimesList.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/com/gazman/factor/matrix/VectorsShrinker.java",
+      "target": "file:src/com/gazman/factor/VectorData.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/com/gazman/factor/wheels/Wheel.java",
+      "target": "file:src/com/gazman/math/MathUtils.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/Factorzations/siqs/StaticFunctions.java",
+      "target": "class:StaticFunctions",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/com/gazman/Main.java",
+      "target": "class:Main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/com/gazman/factor/BigPrimesList.java",
+      "target": "class:BigPrimesList",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/com/gazman/factor/Logger.java",
+      "target": "class:Logger",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/com/gazman/factor/QuadraticSieve.java",
+      "target": "class:QuadraticSieve",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/com/gazman/factor/VectorData.java",
+      "target": "class:VectorData",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/com/gazman/factor/matrix/BitMatrix.java",
+      "target": "class:BitMatrix",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/com/gazman/factor/matrix/VectorsShrinker.java",
+      "target": "class:VectorsShrinker",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/com/gazman/factor/wheels/Wheel.java",
+      "target": "class:Wheel",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/com/gazman/math/MathUtils.java",
+      "target": "class:MathUtils",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/com/gazman/math/SqrRoot.java",
+      "target": "class:SqrRoot",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/ecm/BigIntegers/GCD.java",
+      "target": "class:GCD",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/ecm/BigIntegers/ModInv.java",
+      "target": "class:ModInv",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:StaticFunctions",
+      "target": "function:StaticFunctions.getIndexFromDivisor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:StaticFunctions",
+      "target": "function:StaticFunctions.JacobiSymbol",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:StaticFunctions",
+      "target": "function:StaticFunctions.modInv",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:StaticFunctions",
+      "target": "function:StaticFunctions.SQUFOF",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:StaticFunctions",
+      "target": "function:StaticFunctions.isProbablePrime",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:Main",
+      "target": "function:Main.main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:BigPrimesList",
+      "target": "function:BigPrimesList.add",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:BigPrimesList",
+      "target": "function:BigPrimesList.getBigPrimes",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:Logger",
+      "target": "function:Logger.log",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:Logger",
+      "target": "function:Logger.logTime",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:Logger",
+      "target": "function:Logger.logInLine",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:QuadraticSieve",
+      "target": "function:QuadraticSieve.QuadraticSieve",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:QuadraticSieve",
+      "target": "function:QuadraticSieve.execute",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:QuadraticSieve",
+      "target": "function:QuadraticSieve.sieve",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:QuadraticSieve",
+      "target": "function:QuadraticSieve.tryToSolve",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:QuadraticSieve",
+      "target": "function:QuadraticSieve.testSolution",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:QuadraticSieve",
+      "target": "function:QuadraticSieve.buildPrimeBase",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:BitMatrix",
+      "target": "function:BitMatrix.solve",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:VectorsShrinker",
+      "target": "function:VectorsShrinker.shrink",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:Wheel",
+      "target": "function:Wheel.Wheel",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:Wheel",
+      "target": "function:Wheel.move",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:MathUtils",
+      "target": "function:MathUtils.ressol",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:MathUtils",
+      "target": "function:MathUtils.v_",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:GCD",
+      "target": "function:GCD.GcdBigNbr",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:ModInv",
+      "target": "function:ModInv.ModInvBigNbr",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    }
+  ]
+}

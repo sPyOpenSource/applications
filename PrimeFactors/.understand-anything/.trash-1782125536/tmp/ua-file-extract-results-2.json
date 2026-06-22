@@ -1,0 +1,6210 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 17,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "src/BigIntegers/AprtCleInteger.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 331,
+      "nonEmptyLines": 312,
+      "functions": [
+        {
+          "name": "AprtCleInteger",
+          "startLine": 27,
+          "endLine": 29,
+          "params": [
+            "val"
+          ]
+        },
+        {
+          "name": "BigNbrModLong",
+          "startLine": 31,
+          "endLine": 37,
+          "params": [
+            "Nbr2"
+          ]
+        },
+        {
+          "name": "JacobiSum",
+          "startLine": 39,
+          "endLine": 61,
+          "params": [
+            "A",
+            "B",
+            "P",
+            "PK",
+            "PL",
+            "PM",
+            "Q"
+          ]
+        },
+        {
+          "name": "JS_JW",
+          "startLine": 64,
+          "endLine": 80,
+          "params": [
+            "PK",
+            "PL",
+            "PM",
+            "P"
+          ]
+        },
+        {
+          "name": "NormalizeJS",
+          "startLine": 83,
+          "endLine": 95,
+          "params": [
+            "PK",
+            "PL",
+            "PM",
+            "P"
+          ]
+        },
+        {
+          "name": "JS_2",
+          "startLine": 98,
+          "endLine": 118,
+          "params": [
+            "PK",
+            "PL",
+            "PM",
+            "P"
+          ]
+        },
+        {
+          "name": "JS_E",
+          "startLine": 121,
+          "endLine": 153,
+          "params": [
+            "PK",
+            "PL",
+            "PM",
+            "P"
+          ]
+        },
+        {
+          "name": "NormalizeJW",
+          "startLine": 156,
+          "endLine": 168,
+          "params": [
+            "PK",
+            "PL",
+            "PM",
+            "P"
+          ]
+        },
+        {
+          "name": "BigNbrModN",
+          "startLine": 170,
+          "endLine": 188,
+          "params": [
+            "Nbr",
+            "Length",
+            "Mod"
+          ]
+        },
+        {
+          "name": "CompareSquare",
+          "startLine": 191,
+          "endLine": 229,
+          "params": [
+            "biS",
+            "biTmp"
+          ]
+        },
+        {
+          "name": "isProbablePrimeRobin",
+          "startLine": 234,
+          "endLine": 330,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "AprtCleInteger",
+          "startLine": 20,
+          "endLine": 331,
+          "methods": [
+            "AprtCleInteger",
+            "BigNbrModLong",
+            "JacobiSum",
+            "JS_JW",
+            "NormalizeJS",
+            "JS_2",
+            "JS_E",
+            "NormalizeJW",
+            "BigNbrModN",
+            "CompareSquare",
+            "isProbablePrimeRobin"
+          ],
+          "properties": [
+            "variable",
+            "biN",
+            "biT",
+            "biU",
+            "biV",
+            "probableFactor"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "variable",
+          "line": 21,
+          "isDefault": false
+        },
+        {
+          "name": "AprtCleInteger",
+          "line": 27,
+          "isDefault": false
+        },
+        {
+          "name": "BigNbrModLong",
+          "line": 31,
+          "isDefault": false
+        },
+        {
+          "name": "JacobiSum",
+          "line": 39,
+          "isDefault": false
+        },
+        {
+          "name": "JS_JW",
+          "line": 64,
+          "isDefault": false
+        },
+        {
+          "name": "NormalizeJS",
+          "line": 83,
+          "isDefault": false
+        },
+        {
+          "name": "JS_2",
+          "line": 98,
+          "isDefault": false
+        },
+        {
+          "name": "JS_E",
+          "line": 121,
+          "isDefault": false
+        },
+        {
+          "name": "NormalizeJW",
+          "line": 156,
+          "isDefault": false
+        },
+        {
+          "name": "BigNbrModN",
+          "line": 170,
+          "isDefault": false
+        },
+        {
+          "name": "CompareSquare",
+          "line": 191,
+          "isDefault": false
+        },
+        {
+          "name": "isProbablePrimeRobin",
+          "line": 234,
+          "isDefault": false
+        },
+        {
+          "name": "AprtCleInteger",
+          "line": 20,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "JacobiSum",
+          "callee": "StaticFunctions.AddBigNbrModN",
+          "lineNumber": 49
+        },
+        {
+          "caller": "JacobiSum",
+          "callee": "SubtractBigNbrModN",
+          "lineNumber": 52
+        },
+        {
+          "caller": "JS_JW",
+          "callee": "MontgomeryMult",
+          "lineNumber": 69
+        },
+        {
+          "caller": "JS_JW",
+          "callee": "StaticFunctions.AddBigNbrModN",
+          "lineNumber": 70
+        },
+        {
+          "caller": "JS_JW",
+          "callee": "NormalizeJS",
+          "lineNumber": 79
+        },
+        {
+          "caller": "NormalizeJS",
+          "callee": "BigNbrIsZero",
+          "lineNumber": 86
+        },
+        {
+          "caller": "NormalizeJS",
+          "callee": "SubtractBigNbrModN",
+          "lineNumber": 90
+        },
+        {
+          "caller": "JS_2",
+          "callee": "MontgomeryMult",
+          "lineNumber": 102
+        },
+        {
+          "caller": "JS_2",
+          "callee": "StaticFunctions.AddBigNbrModN",
+          "lineNumber": 103
+        },
+        {
+          "caller": "JS_2",
+          "callee": "StaticFunctions.AddBigNbrModN",
+          "lineNumber": 104
+        },
+        {
+          "caller": "JS_2",
+          "callee": "MontgomeryMult",
+          "lineNumber": 107
+        },
+        {
+          "caller": "JS_2",
+          "callee": "StaticFunctions.AddBigNbrModN",
+          "lineNumber": 108
+        },
+        {
+          "caller": "JS_2",
+          "callee": "NormalizeJS",
+          "lineNumber": 117
+        },
+        {
+          "caller": "JS_E",
+          "callee": "JS_2",
+          "lineNumber": 144
+        },
+        {
+          "caller": "JS_E",
+          "callee": "JS_JW",
+          "lineNumber": 151
+        },
+        {
+          "caller": "NormalizeJW",
+          "callee": "BigNbrIsZero",
+          "lineNumber": 159
+        },
+        {
+          "caller": "NormalizeJW",
+          "callee": "SubtractBigNbrModN",
+          "lineNumber": 163
+        },
+        {
+          "caller": "BigNbrModN",
+          "callee": "StaticFunctions.AdjustModN",
+          "lineNumber": 178
+        },
+        {
+          "caller": "BigNbrModN",
+          "callee": "StaticFunctions.AdjustModN",
+          "lineNumber": 186
+        },
+        {
+          "caller": "CompareSquare",
+          "callee": "MultBigNbr",
+          "lineNumber": 218
+        },
+        {
+          "caller": "CompareSquare",
+          "callee": "SubtractBigNbr",
+          "lineNumber": 219
+        },
+        {
+          "caller": "CompareSquare",
+          "callee": "BigNbrIsZero",
+          "lineNumber": 220
+        },
+        {
+          "caller": "isProbablePrimeRobin",
+          "callee": "subtract(BigInteger.ONE).getLowestSetBit",
+          "lineNumber": 236
+        },
+        {
+          "caller": "isProbablePrimeRobin",
+          "callee": "subtract",
+          "lineNumber": 236
+        },
+        {
+          "caller": "isProbablePrimeRobin",
+          "callee": "bitLength",
+          "lineNumber": 238
+        },
+        {
+          "caller": "isProbablePrimeRobin",
+          "callee": "System.arraycopy",
+          "lineNumber": 258
+        },
+        {
+          "caller": "isProbablePrimeRobin",
+          "callee": "MontgomeryMult",
+          "lineNumber": 262
+        },
+        {
+          "caller": "isProbablePrimeRobin",
+          "callee": "MultBigNbrByLongModN",
+          "lineNumber": 264
+        },
+        {
+          "caller": "isProbablePrimeRobin",
+          "callee": "System.arraycopy",
+          "lineNumber": 266
+        },
+        {
+          "caller": "isProbablePrimeRobin",
+          "callee": "AddBigNbr",
+          "lineNumber": 282
+        },
+        {
+          "caller": "isProbablePrimeRobin",
+          "callee": "MontgomeryMult",
+          "lineNumber": 291
+        },
+        {
+          "caller": "isProbablePrimeRobin",
+          "callee": "SubtractBigNbrModN",
+          "lineNumber": 303
+        },
+        {
+          "caller": "isProbablePrimeRobin",
+          "callee": "GcdBigNbr",
+          "lineNumber": 304
+        },
+        {
+          "caller": "isProbablePrimeRobin",
+          "callee": "StaticFunctions.BigIntToBigNbr",
+          "lineNumber": 319
+        },
+        {
+          "caller": "isProbablePrimeRobin",
+          "callee": "System.arraycopy",
+          "lineNumber": 323
+        }
+      ],
+      "metrics": {
+        "importCount": 4,
+        "exportCount": 13,
+        "functionCount": 11,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/Factorzations/Classical.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 101,
+      "nonEmptyLines": 87,
+      "functions": [
+        {
+          "name": "Classical",
+          "startLine": 14,
+          "endLine": 16,
+          "params": [
+            "N"
+          ]
+        },
+        {
+          "name": "odd",
+          "startLine": 18,
+          "endLine": 20,
+          "params": [
+            "i"
+          ]
+        },
+        {
+          "name": "SqrtFloor",
+          "startLine": 22,
+          "endLine": 28,
+          "params": [
+            "x"
+          ]
+        },
+        {
+          "name": "SqrtCeil",
+          "startLine": 30,
+          "endLine": 36,
+          "params": [
+            "x"
+          ]
+        },
+        {
+          "name": "factor",
+          "startLine": 38,
+          "endLine": 100,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "Classical",
+          "startLine": 11,
+          "endLine": 101,
+          "methods": [
+            "Classical",
+            "odd",
+            "SqrtFloor",
+            "SqrtCeil",
+            "factor"
+          ],
+          "properties": [
+            "N"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Classical",
+          "line": 14,
+          "isDefault": false
+        },
+        {
+          "name": "odd",
+          "line": 18,
+          "isDefault": false
+        },
+        {
+          "name": "SqrtFloor",
+          "line": 22,
+          "isDefault": false
+        },
+        {
+          "name": "SqrtCeil",
+          "line": 30,
+          "isDefault": false
+        },
+        {
+          "name": "factor",
+          "line": 38,
+          "isDefault": false
+        },
+        {
+          "name": "Classical",
+          "line": 11,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "odd",
+          "callee": "i.testBit",
+          "lineNumber": 19
+        },
+        {
+          "caller": "SqrtFloor",
+          "callee": "x.compareTo",
+          "lineNumber": 24
+        },
+        {
+          "caller": "SqrtFloor",
+          "callee": "new IllegalArgumentException",
+          "lineNumber": 25
+        },
+        {
+          "caller": "SqrtFloor",
+          "callee": "x.sqrt",
+          "lineNumber": 27
+        },
+        {
+          "caller": "SqrtCeil",
+          "callee": "x.compareTo",
+          "lineNumber": 32
+        },
+        {
+          "caller": "SqrtCeil",
+          "callee": "new IllegalArgumentException",
+          "lineNumber": 33
+        },
+        {
+          "caller": "SqrtCeil",
+          "callee": "bigIntSqRootCeil",
+          "lineNumber": 35
+        },
+        {
+          "caller": "factor",
+          "callee": "N.compareTo",
+          "lineNumber": 42
+        },
+        {
+          "caller": "factor",
+          "callee": "System.out.println",
+          "lineNumber": 43
+        },
+        {
+          "caller": "factor",
+          "callee": "System.out.println",
+          "lineNumber": 46
+        },
+        {
+          "caller": "factor",
+          "callee": "odd",
+          "lineNumber": 50
+        },
+        {
+          "caller": "factor",
+          "callee": "System.out.print",
+          "lineNumber": 51
+        },
+        {
+          "caller": "factor",
+          "callee": "N.divide",
+          "lineNumber": 52
+        },
+        {
+          "caller": "factor",
+          "callee": "N.compareTo",
+          "lineNumber": 56
+        },
+        {
+          "caller": "factor",
+          "callee": "N.isProbablePrime",
+          "lineNumber": 64
+        },
+        {
+          "caller": "factor",
+          "callee": "System.out.print",
+          "lineNumber": 65
+        },
+        {
+          "caller": "factor",
+          "callee": "new BigInteger",
+          "lineNumber": 69
+        },
+        {
+          "caller": "factor",
+          "callee": "SqrtFloor",
+          "lineNumber": 70
+        },
+        {
+          "caller": "factor",
+          "callee": "odd",
+          "lineNumber": 72
+        },
+        {
+          "caller": "factor",
+          "callee": "sqrt.add",
+          "lineNumber": 73
+        },
+        {
+          "caller": "factor",
+          "callee": "ctr.compareTo",
+          "lineNumber": 76
+        },
+        {
+          "caller": "factor",
+          "callee": "ctr.compareTo",
+          "lineNumber": 76
+        },
+        {
+          "caller": "factor",
+          "callee": "BigInteger.valueOf",
+          "lineNumber": 76
+        },
+        {
+          "caller": "factor",
+          "callee": "N.mod",
+          "lineNumber": 78
+        },
+        {
+          "caller": "factor",
+          "callee": "tmp.compareTo",
+          "lineNumber": 79
+        },
+        {
+          "caller": "factor",
+          "callee": "System.out.print",
+          "lineNumber": 80
+        },
+        {
+          "caller": "factor",
+          "callee": "N.divide",
+          "lineNumber": 81
+        },
+        {
+          "caller": "factor",
+          "callee": "SqrtFloor",
+          "lineNumber": 82
+        },
+        {
+          "caller": "factor",
+          "callee": "odd",
+          "lineNumber": 83
+        },
+        {
+          "caller": "factor",
+          "callee": "sqrt.add",
+          "lineNumber": 84
+        },
+        {
+          "caller": "factor",
+          "callee": "ctr.add",
+          "lineNumber": 89
+        },
+        {
+          "caller": "factor",
+          "callee": "N.compareTo",
+          "lineNumber": 90
+        },
+        {
+          "caller": "factor",
+          "callee": "N.isProbablePrime",
+          "lineNumber": 94
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 6,
+        "functionCount": 5,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/Factorzations/Lehman.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 152,
+      "nonEmptyLines": 146,
+      "functions": [
+        {
+          "name": "Lehman",
+          "startLine": 35,
+          "endLine": 38,
+          "params": [
+            "nbr",
+            "k"
+          ]
+        },
+        {
+          "name": "run",
+          "startLine": 40,
+          "endLine": 46,
+          "params": []
+        },
+        {
+          "name": "factor",
+          "startLine": 49,
+          "endLine": 151,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "Lehman",
+          "startLine": 11,
+          "endLine": 152,
+          "methods": [
+            "Lehman",
+            "run",
+            "factor"
+          ],
+          "properties": [
+            "nbr",
+            "k",
+            "bitsSqr",
+            "primes"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Lehman",
+          "line": 35,
+          "isDefault": false
+        },
+        {
+          "name": "run",
+          "line": 40,
+          "isDefault": false
+        },
+        {
+          "name": "factor",
+          "line": 49,
+          "isDefault": false
+        },
+        {
+          "name": "Lehman",
+          "line": 11,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "run",
+          "callee": "factor",
+          "lineNumber": 42
+        },
+        {
+          "caller": "run",
+          "callee": "result.equals",
+          "lineNumber": 43
+        },
+        {
+          "caller": "run",
+          "callee": "System.out.println",
+          "lineNumber": 44
+        },
+        {
+          "caller": "factor",
+          "callee": "nbr.testBit",
+          "lineNumber": 55
+        },
+        {
+          "caller": "factor",
+          "callee": "BigInteger.valueOf(k).add(nbr).and",
+          "lineNumber": 65
+        },
+        {
+          "caller": "factor",
+          "callee": "BigInteger.valueOf(k).add",
+          "lineNumber": 65
+        },
+        {
+          "caller": "factor",
+          "callee": "BigInteger.valueOf",
+          "lineNumber": 65
+        },
+        {
+          "caller": "factor",
+          "callee": "BigInteger.valueOf",
+          "lineNumber": 67
+        },
+        {
+          "caller": "factor",
+          "callee": "nbr.multiply(BigInteger.valueOf(k)).shiftLeft",
+          "lineNumber": 70
+        },
+        {
+          "caller": "factor",
+          "callee": "nbr.multiply",
+          "lineNumber": 70
+        },
+        {
+          "caller": "factor",
+          "callee": "BigInteger.valueOf",
+          "lineNumber": 70
+        },
+        {
+          "caller": "factor",
+          "callee": "sqr.bitLength",
+          "lineNumber": 71
+        },
+        {
+          "caller": "factor",
+          "callee": "Math.log",
+          "lineNumber": 72
+        },
+        {
+          "caller": "factor",
+          "callee": "sqr.shiftRight(intLog2N - 32).add(BigInteger.ONE).doubleValue",
+          "lineNumber": 72
+        },
+        {
+          "caller": "factor",
+          "callee": "sqr.shiftRight(intLog2N - 32).add",
+          "lineNumber": 72
+        },
+        {
+          "caller": "factor",
+          "callee": "sqr.shiftRight",
+          "lineNumber": 72
+        },
+        {
+          "caller": "factor",
+          "callee": "Math.log",
+          "lineNumber": 73
+        },
+        {
+          "caller": "factor",
+          "callee": "BigInteger.valueOf",
+          "lineNumber": 76
+        },
+        {
+          "caller": "factor",
+          "callee": "Math.exp",
+          "lineNumber": 76
+        },
+        {
+          "caller": "factor",
+          "callee": "Math.log",
+          "lineNumber": 76
+        },
+        {
+          "caller": "factor",
+          "callee": "Math.floor",
+          "lineNumber": 78
+        },
+        {
+          "caller": "factor",
+          "callee": "BigInteger\n            .valueOf((long) Math.exp((log2N - intLog2N) * Math.log(2)) + 10).shiftLeft",
+          "lineNumber": 80
+        },
+        {
+          "caller": "factor",
+          "callee": "BigInteger.valueOf",
+          "lineNumber": 80
+        },
+        {
+          "caller": "factor",
+          "callee": "Math.exp",
+          "lineNumber": 81
+        },
+        {
+          "caller": "factor",
+          "callee": "Math.log",
+          "lineNumber": 81
+        },
+        {
+          "caller": "factor",
+          "callee": "root.multiply",
+          "lineNumber": 85
+        },
+        {
+          "caller": "factor",
+          "callee": "sqr.subtract",
+          "lineNumber": 86
+        },
+        {
+          "caller": "factor",
+          "callee": "dif.signum",
+          "lineNumber": 87
+        },
+        {
+          "caller": "factor",
+          "callee": "dif.add(BigInteger.ONE).divide(BigInteger.TWO.multiply(root)).add(root).subtract",
+          "lineNumber": 92
+        },
+        {
+          "caller": "factor",
+          "callee": "dif.add(BigInteger.ONE).divide(BigInteger.TWO.multiply(root)).add",
+          "lineNumber": 92
+        },
+        {
+          "caller": "factor",
+          "callee": "dif.add(BigInteger.ONE).divide",
+          "lineNumber": 92
+        },
+        {
+          "caller": "factor",
+          "callee": "dif.add",
+          "lineNumber": 92
+        },
+        {
+          "caller": "factor",
+          "callee": "BigInteger.TWO.multiply",
+          "lineNumber": 92
+        },
+        {
+          "caller": "factor",
+          "callee": "root.compareTo",
+          "lineNumber": 94
+        },
+        {
+          "caller": "factor",
+          "callee": "a.mod(bM).equals",
+          "lineNumber": 99
+        },
+        {
+          "caller": "factor",
+          "callee": "a.mod",
+          "lineNumber": 99
+        },
+        {
+          "caller": "factor",
+          "callee": "a.multiply(a).compareTo",
+          "lineNumber": 99
+        },
+        {
+          "caller": "factor",
+          "callee": "a.multiply",
+          "lineNumber": 99
+        },
+        {
+          "caller": "factor",
+          "callee": "a.add",
+          "lineNumber": 100
+        },
+        {
+          "caller": "factor",
+          "callee": "a.multiply(a).subtract",
+          "lineNumber": 101
+        },
+        {
+          "caller": "factor",
+          "callee": "a.multiply",
+          "lineNumber": 101
+        },
+        {
+          "caller": "factor",
+          "callee": "BigInteger.valueOf",
+          "lineNumber": 103
+        },
+        {
+          "caller": "factor",
+          "callee": "c.mod(prime).intValue",
+          "lineNumber": 104
+        },
+        {
+          "caller": "factor",
+          "callee": "c.mod",
+          "lineNumber": 104
+        },
+        {
+          "caller": "factor",
+          "callee": "bM.multiply(a.shiftLeft(1).add(bM)).mod(prime).intValue",
+          "lineNumber": 105
+        },
+        {
+          "caller": "factor",
+          "callee": "bM.multiply(a.shiftLeft(1).add(bM)).mod",
+          "lineNumber": 105
+        },
+        {
+          "caller": "factor",
+          "callee": "bM.multiply",
+          "lineNumber": 105
+        },
+        {
+          "caller": "factor",
+          "callee": "a.shiftLeft(1).add",
+          "lineNumber": 105
+        },
+        {
+          "caller": "factor",
+          "callee": "a.shiftLeft",
+          "lineNumber": 105
+        },
+        {
+          "caller": "factor",
+          "callee": "a.add",
+          "lineNumber": 115
+        },
+        {
+          "caller": "factor",
+          "callee": "BigInteger.valueOf",
+          "lineNumber": 115
+        },
+        {
+          "caller": "factor",
+          "callee": "val.multiply(val).subtract",
+          "lineNumber": 116
+        },
+        {
+          "caller": "factor",
+          "callee": "val.multiply",
+          "lineNumber": 116
+        },
+        {
+          "caller": "factor",
+          "callee": "c.bitLength",
+          "lineNumber": 117
+        },
+        {
+          "caller": "factor",
+          "callee": "Math.log",
+          "lineNumber": 118
+        },
+        {
+          "caller": "factor",
+          "callee": "c.shiftRight(intLog2N - 32).add(BigInteger.ONE).doubleValue",
+          "lineNumber": 118
+        },
+        {
+          "caller": "factor",
+          "callee": "c.shiftRight(intLog2N - 32).add",
+          "lineNumber": 118
+        },
+        {
+          "caller": "factor",
+          "callee": "c.shiftRight",
+          "lineNumber": 118
+        },
+        {
+          "caller": "factor",
+          "callee": "Math.log",
+          "lineNumber": 119
+        },
+        {
+          "caller": "factor",
+          "callee": "BigInteger.valueOf",
+          "lineNumber": 122
+        },
+        {
+          "caller": "factor",
+          "callee": "Math.exp",
+          "lineNumber": 122
+        },
+        {
+          "caller": "factor",
+          "callee": "Math.log",
+          "lineNumber": 122
+        },
+        {
+          "caller": "factor",
+          "callee": "Math.floor",
+          "lineNumber": 124
+        },
+        {
+          "caller": "factor",
+          "callee": "BigInteger\n                .valueOf((long) Math.exp((log2N - intLog2N) * Math.log(2)) + 10).shiftLeft",
+          "lineNumber": 126
+        },
+        {
+          "caller": "factor",
+          "callee": "BigInteger.valueOf",
+          "lineNumber": 126
+        },
+        {
+          "caller": "factor",
+          "callee": "Math.exp",
+          "lineNumber": 127
+        },
+        {
+          "caller": "factor",
+          "callee": "Math.log",
+          "lineNumber": 127
+        },
+        {
+          "caller": "factor",
+          "callee": "root.multiply",
+          "lineNumber": 131
+        },
+        {
+          "caller": "factor",
+          "callee": "c.subtract",
+          "lineNumber": 132
+        },
+        {
+          "caller": "factor",
+          "callee": "dif.signum",
+          "lineNumber": 133
+        },
+        {
+          "caller": "factor",
+          "callee": "nbr.gcd",
+          "lineNumber": 134
+        },
+        {
+          "caller": "factor",
+          "callee": "val.add",
+          "lineNumber": 134
+        },
+        {
+          "caller": "factor",
+          "callee": "root.compareTo",
+          "lineNumber": 135
+        },
+        {
+          "caller": "factor",
+          "callee": "BigInteger.valueOf",
+          "lineNumber": 135
+        },
+        {
+          "caller": "factor",
+          "callee": "dif.add(BigInteger.ONE).divide(BigInteger.TWO.multiply(root)).add(root).subtract",
+          "lineNumber": 139
+        },
+        {
+          "caller": "factor",
+          "callee": "dif.add(BigInteger.ONE).divide(BigInteger.TWO.multiply(root)).add",
+          "lineNumber": 139
+        },
+        {
+          "caller": "factor",
+          "callee": "dif.add(BigInteger.ONE).divide",
+          "lineNumber": 139
+        },
+        {
+          "caller": "factor",
+          "callee": "dif.add",
+          "lineNumber": 139
+        },
+        {
+          "caller": "factor",
+          "callee": "BigInteger.TWO.multiply",
+          "lineNumber": 139
+        },
+        {
+          "caller": "factor",
+          "callee": "root.compareTo",
+          "lineNumber": 140
+        }
+      ],
+      "metrics": {
+        "importCount": 4,
+        "exportCount": 4,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/Factorzations/ecm/ECM.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 58,
+      "nonEmptyLines": 51,
+      "functions": [
+        {
+          "name": "factor",
+          "startLine": 17,
+          "endLine": 45,
+          "params": []
+        },
+        {
+          "name": "ECM",
+          "startLine": 47,
+          "endLine": 51,
+          "params": [
+            "NumberToFactor"
+          ]
+        },
+        {
+          "name": "main",
+          "startLine": 53,
+          "endLine": 57,
+          "params": [
+            "args"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "ECM",
+          "startLine": 16,
+          "endLine": 58,
+          "methods": [
+            "factor",
+            "ECM",
+            "main"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "factor",
+          "line": 17,
+          "isDefault": false
+        },
+        {
+          "name": "ECM",
+          "line": 47,
+          "isDefault": false
+        },
+        {
+          "name": "main",
+          "line": 53,
+          "isDefault": false
+        },
+        {
+          "name": "ECM",
+          "line": 16,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "factor",
+          "callee": "new Lehman(N, EC).factor",
+          "lineNumber": 21
+        },
+        {
+          "caller": "factor",
+          "callee": "new Lehman",
+          "lineNumber": 21
+        },
+        {
+          "caller": "factor",
+          "callee": "NN.equals",
+          "lineNumber": 22
+        },
+        {
+          "caller": "factor",
+          "callee": "N.toString().length",
+          "lineNumber": 25
+        },
+        {
+          "caller": "factor",
+          "callee": "N.toString",
+          "lineNumber": 25
+        },
+        {
+          "caller": "factor",
+          "callee": "step0",
+          "lineNumber": 37
+        },
+        {
+          "caller": "factor",
+          "callee": "step1",
+          "lineNumber": 40
+        },
+        {
+          "caller": "factor",
+          "callee": "step2",
+          "lineNumber": 41
+        },
+        {
+          "caller": "factor",
+          "callee": "BigNbrAreEqual",
+          "lineNumber": 43
+        },
+        {
+          "caller": "factor",
+          "callee": "N.getIntArray",
+          "lineNumber": 43
+        },
+        {
+          "caller": "factor",
+          "callee": "N.size",
+          "lineNumber": 43
+        },
+        {
+          "caller": "factor",
+          "callee": "BigIntToBigNbr",
+          "lineNumber": 44
+        },
+        {
+          "caller": "factor",
+          "callee": "N.size",
+          "lineNumber": 44
+        },
+        {
+          "caller": "ECM",
+          "callee": "NumberToFactor.GetYieldFrequency",
+          "lineNumber": 49
+        },
+        {
+          "caller": "ECM",
+          "callee": "NumberToFactor.ComputeMontgomeryParms",
+          "lineNumber": 50
+        },
+        {
+          "caller": "main",
+          "callee": "new AprtCleInteger",
+          "lineNumber": 54
+        },
+        {
+          "caller": "main",
+          "callee": "new ECM",
+          "lineNumber": 55
+        },
+        {
+          "caller": "main",
+          "callee": "System.out.println",
+          "lineNumber": 56
+        },
+        {
+          "caller": "main",
+          "callee": "ecm.factor",
+          "lineNumber": 56
+        }
+      ],
+      "metrics": {
+        "importCount": 9,
+        "exportCount": 4,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/Factorzations/ecm/ecmStep0.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 111,
+      "nonEmptyLines": 105,
+      "functions": [
+        {
+          "name": "ecmStep0",
+          "startLine": 27,
+          "endLine": 44,
+          "params": [
+            "N"
+          ]
+        },
+        {
+          "name": "step0",
+          "startLine": 46,
+          "endLine": 110,
+          "params": [
+            "EC"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "ecmStep0",
+          "startLine": 14,
+          "endLine": 111,
+          "methods": [
+            "ecmStep0",
+            "step0"
+          ],
+          "properties": [
+            "N",
+            "Aux1",
+            "Aux2",
+            "Aux3",
+            "A0",
+            "A02",
+            "A03",
+            "AA",
+            "DX",
+            "DZ",
+            "GD",
+            "M",
+            "W3",
+            "W4",
+            "X",
+            "Z",
+            "L1",
+            "L2",
+            "LS",
+            "Prob",
+            "ProbArray",
+            "forcedECM",
+            "limits"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "N",
+          "line": 15,
+          "isDefault": false
+        },
+        {
+          "name": "ecmStep0",
+          "line": 27,
+          "isDefault": false
+        },
+        {
+          "name": "step0",
+          "line": 46,
+          "isDefault": false
+        },
+        {
+          "name": "ecmStep0",
+          "line": 14,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "ecmStep0",
+          "callee": "N.size",
+          "lineNumber": 29
+        },
+        {
+          "caller": "ecmStep0",
+          "callee": "N.setSmallPrime",
+          "lineNumber": 31
+        },
+        {
+          "caller": "ecmStep0",
+          "callee": "N.getSmallPrimeLength",
+          "lineNumber": 33
+        },
+        {
+          "caller": "ecmStep0",
+          "callee": "N.setSmallPrime",
+          "lineNumber": 34
+        },
+        {
+          "caller": "step0",
+          "callee": "N.setNbrPrimes",
+          "lineNumber": 51
+        },
+        {
+          "caller": "step0",
+          "callee": "N.setNbrPrimes",
+          "lineNumber": 58
+        },
+        {
+          "caller": "step0",
+          "callee": "N.setNbrPrimes",
+          "lineNumber": 65
+        },
+        {
+          "caller": "step0",
+          "callee": "N.setNbrPrimes",
+          "lineNumber": 71
+        },
+        {
+          "caller": "step0",
+          "callee": "Math.round",
+          "lineNumber": 77
+        },
+        {
+          "caller": "step0",
+          "callee": "Math.exp",
+          "lineNumber": 77
+        },
+        {
+          "caller": "step0",
+          "callee": "StaticFunctions.LongToBigNbr",
+          "lineNumber": 79
+        },
+        {
+          "caller": "step0",
+          "callee": "N.size",
+          "lineNumber": 79
+        },
+        {
+          "caller": "step0",
+          "callee": "StaticFunctions.LongToBigNbr",
+          "lineNumber": 80
+        },
+        {
+          "caller": "step0",
+          "callee": "N.size",
+          "lineNumber": 80
+        },
+        {
+          "caller": "step0",
+          "callee": "ModInvBigNbr",
+          "lineNumber": 81
+        },
+        {
+          "caller": "step0",
+          "callee": "N.getIntArray",
+          "lineNumber": 81
+        },
+        {
+          "caller": "step0",
+          "callee": "N.size",
+          "lineNumber": 81
+        },
+        {
+          "caller": "step0",
+          "callee": "StaticFunctions.MultBigNbrModN",
+          "lineNumber": 82
+        },
+        {
+          "caller": "step0",
+          "callee": "N.getIntArray",
+          "lineNumber": 82
+        },
+        {
+          "caller": "step0",
+          "callee": "N.size",
+          "lineNumber": 82
+        },
+        {
+          "caller": "step0",
+          "callee": "StaticFunctions.MultBigNbrModN",
+          "lineNumber": 83
+        },
+        {
+          "caller": "step0",
+          "callee": "N.getIntArray",
+          "lineNumber": 83
+        },
+        {
+          "caller": "step0",
+          "callee": "N.size",
+          "lineNumber": 83
+        },
+        {
+          "caller": "step0",
+          "callee": "N.MontgomeryMult",
+          "lineNumber": 84
+        },
+        {
+          "caller": "step0",
+          "callee": "N.MontgomeryMult",
+          "lineNumber": 85
+        },
+        {
+          "caller": "step0",
+          "callee": "StaticFunctions.SubtractBigNbrModN",
+          "lineNumber": 86
+        },
+        {
+          "caller": "step0",
+          "callee": "N.getIntArray",
+          "lineNumber": 86
+        },
+        {
+          "caller": "step0",
+          "callee": "N.size",
+          "lineNumber": 86
+        },
+        {
+          "caller": "step0",
+          "callee": "StaticFunctions.MultBigNbrByLongModN",
+          "lineNumber": 87
+        },
+        {
+          "caller": "step0",
+          "callee": "N.getIntArray",
+          "lineNumber": 87
+        },
+        {
+          "caller": "step0",
+          "callee": "N.size",
+          "lineNumber": 87
+        },
+        {
+          "caller": "step0",
+          "callee": "StaticFunctions.SubtractBigNbrModN",
+          "lineNumber": 88
+        },
+        {
+          "caller": "step0",
+          "callee": "N.getIntArray",
+          "lineNumber": 88
+        },
+        {
+          "caller": "step0",
+          "callee": "N.size",
+          "lineNumber": 88
+        },
+        {
+          "caller": "step0",
+          "callee": "N.MontgomeryMult",
+          "lineNumber": 89
+        },
+        {
+          "caller": "step0",
+          "callee": "BigNbrIsZero",
+          "lineNumber": 90
+        },
+        {
+          "caller": "step0",
+          "callee": "N.size",
+          "lineNumber": 90
+        },
+        {
+          "caller": "step0",
+          "callee": "StaticFunctions.MultBigNbrByLongModN",
+          "lineNumber": 92
+        },
+        {
+          "caller": "step0",
+          "callee": "N.getIntArray",
+          "lineNumber": 92
+        },
+        {
+          "caller": "step0",
+          "callee": "N.size",
+          "lineNumber": 92
+        },
+        {
+          "caller": "step0",
+          "callee": "StaticFunctions.MultBigNbrByLongModN",
+          "lineNumber": 93
+        },
+        {
+          "caller": "step0",
+          "callee": "N.getIntArray",
+          "lineNumber": 93
+        },
+        {
+          "caller": "step0",
+          "callee": "N.size",
+          "lineNumber": 93
+        },
+        {
+          "caller": "step0",
+          "callee": "StaticFunctions.SubtractBigNbrModN",
+          "lineNumber": 94
+        },
+        {
+          "caller": "step0",
+          "callee": "N.getIntArray",
+          "lineNumber": 94
+        },
+        {
+          "caller": "step0",
+          "callee": "N.size",
+          "lineNumber": 94
+        },
+        {
+          "caller": "step0",
+          "callee": "N.MontgomeryMult",
+          "lineNumber": 95
+        },
+        {
+          "caller": "step0",
+          "callee": "StaticFunctions.MultBigNbrByLongModN",
+          "lineNumber": 96
+        },
+        {
+          "caller": "step0",
+          "callee": "N.getIntArray",
+          "lineNumber": 96
+        },
+        {
+          "caller": "step0",
+          "callee": "N.size",
+          "lineNumber": 96
+        },
+        {
+          "caller": "step0",
+          "callee": "StaticFunctions.SubtractBigNbrModN",
+          "lineNumber": 97
+        },
+        {
+          "caller": "step0",
+          "callee": "N.getIntArray",
+          "lineNumber": 97
+        },
+        {
+          "caller": "step0",
+          "callee": "N.size",
+          "lineNumber": 97
+        },
+        {
+          "caller": "step0",
+          "callee": "StaticFunctions.MultBigNbrByLongModN",
+          "lineNumber": 98
+        },
+        {
+          "caller": "step0",
+          "callee": "N.getIntArray",
+          "lineNumber": 98
+        },
+        {
+          "caller": "step0",
+          "callee": "N.size",
+          "lineNumber": 98
+        },
+        {
+          "caller": "step0",
+          "callee": "ModInvBigNbr",
+          "lineNumber": 99
+        },
+        {
+          "caller": "step0",
+          "callee": "N.getIntArray",
+          "lineNumber": 99
+        },
+        {
+          "caller": "step0",
+          "callee": "N.size",
+          "lineNumber": 99
+        },
+        {
+          "caller": "step0",
+          "callee": "N.MontgomeryMult",
+          "lineNumber": 100
+        },
+        {
+          "caller": "step0",
+          "callee": "N.MontgomeryMult",
+          "lineNumber": 101
+        },
+        {
+          "caller": "step0",
+          "callee": "StaticFunctions.AddBigNbrModN",
+          "lineNumber": 102
+        },
+        {
+          "caller": "step0",
+          "callee": "N.getIntArray",
+          "lineNumber": 102
+        },
+        {
+          "caller": "step0",
+          "callee": "N.size",
+          "lineNumber": 102
+        },
+        {
+          "caller": "step0",
+          "callee": "StaticFunctions.LongToBigNbr",
+          "lineNumber": 103
+        },
+        {
+          "caller": "step0",
+          "callee": "N.size",
+          "lineNumber": 103
+        },
+        {
+          "caller": "step0",
+          "callee": "ModInvBigNbr",
+          "lineNumber": 104
+        },
+        {
+          "caller": "step0",
+          "callee": "N.getIntArray",
+          "lineNumber": 104
+        },
+        {
+          "caller": "step0",
+          "callee": "N.size",
+          "lineNumber": 104
+        },
+        {
+          "caller": "step0",
+          "callee": "StaticFunctions.MultBigNbrModN",
+          "lineNumber": 105
+        },
+        {
+          "caller": "step0",
+          "callee": "N.getIntArray",
+          "lineNumber": 105
+        },
+        {
+          "caller": "step0",
+          "callee": "N.size",
+          "lineNumber": 105
+        },
+        {
+          "caller": "step0",
+          "callee": "N.MontgomeryMult",
+          "lineNumber": 106
+        },
+        {
+          "caller": "step0",
+          "callee": "StaticFunctions.MultBigNbrByLongModN",
+          "lineNumber": 107
+        },
+        {
+          "caller": "step0",
+          "callee": "N.getIntArray",
+          "lineNumber": 107
+        },
+        {
+          "caller": "step0",
+          "callee": "N.size",
+          "lineNumber": 107
+        },
+        {
+          "caller": "step0",
+          "callee": "StaticFunctions.AddBigNbrModN",
+          "lineNumber": 108
+        },
+        {
+          "caller": "step0",
+          "callee": "N.getIntArray",
+          "lineNumber": 108
+        },
+        {
+          "caller": "step0",
+          "callee": "N.size",
+          "lineNumber": 108
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 4,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/Factorzations/ecm/ecmStep1.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 362,
+      "nonEmptyLines": 347,
+      "functions": [
+        {
+          "name": "ecmStep1",
+          "startLine": 29,
+          "endLine": 36,
+          "params": [
+            "val"
+          ]
+        },
+        {
+          "name": "step1",
+          "startLine": 41,
+          "endLine": 133,
+          "params": []
+        },
+        {
+          "name": "duplicate",
+          "startLine": 142,
+          "endLine": 156,
+          "params": [
+            "x2",
+            "z2",
+            "x1",
+            "z1"
+          ]
+        },
+        {
+          "name": "add3",
+          "startLine": 167,
+          "endLine": 202,
+          "params": [
+            "x3",
+            "z3",
+            "x2",
+            "z2",
+            "x1",
+            "z1",
+            "x",
+            "z"
+          ]
+        },
+        {
+          "name": "prac",
+          "startLine": 205,
+          "endLine": 361,
+          "params": [
+            "n",
+            "x",
+            "z",
+            "xT",
+            "zT",
+            "xT2",
+            "zT2"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "ecmStep1",
+          "startLine": 14,
+          "endLine": 362,
+          "methods": [
+            "ecmStep1",
+            "step1",
+            "duplicate",
+            "add3",
+            "prac"
+          ],
+          "properties": [
+            "indexPrimes",
+            "indexM",
+            "u",
+            "Aux4",
+            "Xaux",
+            "Zaux",
+            "sieve",
+            "sieve2310",
+            "W1",
+            "W2",
+            "TX",
+            "TZ",
+            "UX",
+            "UZ",
+            "GcdAccumulated",
+            "BigNbr1",
+            "P"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "ecmStep1",
+          "line": 29,
+          "isDefault": false
+        },
+        {
+          "name": "step1",
+          "line": 41,
+          "isDefault": false
+        },
+        {
+          "name": "ecmStep1",
+          "line": 14,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "step1",
+          "callee": "System.arraycopy",
+          "lineNumber": 42
+        },
+        {
+          "caller": "step1",
+          "callee": "N.size",
+          "lineNumber": 42
+        },
+        {
+          "caller": "step1",
+          "callee": "System.arraycopy",
+          "lineNumber": 43
+        },
+        {
+          "caller": "step1",
+          "callee": "N.size",
+          "lineNumber": 43
+        },
+        {
+          "caller": "step1",
+          "callee": "System.arraycopy",
+          "lineNumber": 44
+        },
+        {
+          "caller": "step1",
+          "callee": "N.size",
+          "lineNumber": 44
+        },
+        {
+          "caller": "step1",
+          "callee": "duplicate",
+          "lineNumber": 49
+        },
+        {
+          "caller": "step1",
+          "callee": "duplicate",
+          "lineNumber": 51
+        },
+        {
+          "caller": "step1",
+          "callee": "add3",
+          "lineNumber": 52
+        },
+        {
+          "caller": "step1",
+          "callee": "N.MontgomeryMult",
+          "lineNumber": 56
+        },
+        {
+          "caller": "step1",
+          "callee": "System.arraycopy",
+          "lineNumber": 57
+        },
+        {
+          "caller": "step1",
+          "callee": "N.size",
+          "lineNumber": 57
+        },
+        {
+          "caller": "step1",
+          "callee": "GcdBigNbr",
+          "lineNumber": 59
+        },
+        {
+          "caller": "step1",
+          "callee": "N.getIntArray",
+          "lineNumber": 59
+        },
+        {
+          "caller": "step1",
+          "callee": "N.size",
+          "lineNumber": 59
+        },
+        {
+          "caller": "step1",
+          "callee": "BigNbrAreEqual",
+          "lineNumber": 60
+        },
+        {
+          "caller": "step1",
+          "callee": "N.size",
+          "lineNumber": 60
+        },
+        {
+          "caller": "step1",
+          "callee": "N.getSmallPrime",
+          "lineNumber": 69
+        },
+        {
+          "caller": "step1",
+          "callee": "prac",
+          "lineNumber": 71
+        },
+        {
+          "caller": "step1",
+          "callee": "N.MontgomeryMult",
+          "lineNumber": 74
+        },
+        {
+          "caller": "step1",
+          "callee": "System.arraycopy",
+          "lineNumber": 75
+        },
+        {
+          "caller": "step1",
+          "callee": "N.size",
+          "lineNumber": 75
+        },
+        {
+          "caller": "step1",
+          "callee": "GcdBigNbr",
+          "lineNumber": 77
+        },
+        {
+          "caller": "step1",
+          "callee": "N.getIntArray",
+          "lineNumber": 77
+        },
+        {
+          "caller": "step1",
+          "callee": "N.size",
+          "lineNumber": 77
+        },
+        {
+          "caller": "step1",
+          "callee": "BigNbrAreEqual",
+          "lineNumber": 78
+        },
+        {
+          "caller": "step1",
+          "callee": "N.size",
+          "lineNumber": 78
+        },
+        {
+          "caller": "step1",
+          "callee": "N.getSmallPrime",
+          "lineNumber": 82
+        },
+        {
+          "caller": "step1",
+          "callee": "StaticFunctions.GenerateSieve",
+          "lineNumber": 97
+        },
+        {
+          "caller": "step1",
+          "callee": "N.getSmallPrimes",
+          "lineNumber": 97
+        },
+        {
+          "caller": "step1",
+          "callee": "prac",
+          "lineNumber": 107
+        },
+        {
+          "caller": "step1",
+          "callee": "N.MontgomeryMult",
+          "lineNumber": 109
+        },
+        {
+          "caller": "step1",
+          "callee": "System.arraycopy",
+          "lineNumber": 110
+        },
+        {
+          "caller": "step1",
+          "callee": "N.size",
+          "lineNumber": 110
+        },
+        {
+          "caller": "step1",
+          "callee": "GcdBigNbr",
+          "lineNumber": 112
+        },
+        {
+          "caller": "step1",
+          "callee": "N.getIntArray",
+          "lineNumber": 112
+        },
+        {
+          "caller": "step1",
+          "callee": "N.size",
+          "lineNumber": 112
+        },
+        {
+          "caller": "step1",
+          "callee": "BigNbrAreEqual",
+          "lineNumber": 113
+        },
+        {
+          "caller": "step1",
+          "callee": "N.size",
+          "lineNumber": 113
+        },
+        {
+          "caller": "step1",
+          "callee": "BigNbrIsZero",
+          "lineNumber": 120
+        },
+        {
+          "caller": "step1",
+          "callee": "N.size",
+          "lineNumber": 120
+        },
+        {
+          "caller": "step1",
+          "callee": "System.arraycopy",
+          "lineNumber": 122
+        },
+        {
+          "caller": "step1",
+          "callee": "N.size",
+          "lineNumber": 122
+        },
+        {
+          "caller": "step1",
+          "callee": "System.arraycopy",
+          "lineNumber": 123
+        },
+        {
+          "caller": "step1",
+          "callee": "N.size",
+          "lineNumber": 123
+        },
+        {
+          "caller": "step1",
+          "callee": "GcdBigNbr",
+          "lineNumber": 126
+        },
+        {
+          "caller": "step1",
+          "callee": "N.getIntArray",
+          "lineNumber": 126
+        },
+        {
+          "caller": "step1",
+          "callee": "N.size",
+          "lineNumber": 126
+        },
+        {
+          "caller": "step1",
+          "callee": "BigNbrAreEqual",
+          "lineNumber": 127
+        },
+        {
+          "caller": "step1",
+          "callee": "N.size",
+          "lineNumber": 127
+        },
+        {
+          "caller": "duplicate",
+          "callee": "StaticFunctions.AddBigNbrModN",
+          "lineNumber": 147
+        },
+        {
+          "caller": "duplicate",
+          "callee": "N.getIntArray",
+          "lineNumber": 147
+        },
+        {
+          "caller": "duplicate",
+          "callee": "N.size",
+          "lineNumber": 147
+        },
+        {
+          "caller": "duplicate",
+          "callee": "N.MontgomeryMult",
+          "lineNumber": 148
+        },
+        {
+          "caller": "duplicate",
+          "callee": "StaticFunctions.SubtractBigNbrModN",
+          "lineNumber": 149
+        },
+        {
+          "caller": "duplicate",
+          "callee": "N.getIntArray",
+          "lineNumber": 149
+        },
+        {
+          "caller": "duplicate",
+          "callee": "N.size",
+          "lineNumber": 149
+        },
+        {
+          "caller": "duplicate",
+          "callee": "N.MontgomeryMult",
+          "lineNumber": 150
+        },
+        {
+          "caller": "duplicate",
+          "callee": "N.MontgomeryMult",
+          "lineNumber": 151
+        },
+        {
+          "caller": "duplicate",
+          "callee": "StaticFunctions.SubtractBigNbrModN",
+          "lineNumber": 152
+        },
+        {
+          "caller": "duplicate",
+          "callee": "N.getIntArray",
+          "lineNumber": 152
+        },
+        {
+          "caller": "duplicate",
+          "callee": "N.size",
+          "lineNumber": 152
+        },
+        {
+          "caller": "duplicate",
+          "callee": "N.MontgomeryMult",
+          "lineNumber": 153
+        },
+        {
+          "caller": "duplicate",
+          "callee": "StaticFunctions.AddBigNbrModN",
+          "lineNumber": 154
+        },
+        {
+          "caller": "duplicate",
+          "callee": "N.getIntArray",
+          "lineNumber": 154
+        },
+        {
+          "caller": "duplicate",
+          "callee": "N.size",
+          "lineNumber": 154
+        },
+        {
+          "caller": "duplicate",
+          "callee": "N.MontgomeryMult",
+          "lineNumber": 155
+        },
+        {
+          "caller": "add3",
+          "callee": "StaticFunctions.SubtractBigNbrModN",
+          "lineNumber": 181
+        },
+        {
+          "caller": "add3",
+          "callee": "N.getIntArray",
+          "lineNumber": 181
+        },
+        {
+          "caller": "add3",
+          "callee": "N.size",
+          "lineNumber": 181
+        },
+        {
+          "caller": "add3",
+          "callee": "StaticFunctions.AddBigNbrModN",
+          "lineNumber": 182
+        },
+        {
+          "caller": "add3",
+          "callee": "N.getIntArray",
+          "lineNumber": 182
+        },
+        {
+          "caller": "add3",
+          "callee": "N.size",
+          "lineNumber": 182
+        },
+        {
+          "caller": "add3",
+          "callee": "N.MontgomeryMult",
+          "lineNumber": 183
+        },
+        {
+          "caller": "add3",
+          "callee": "StaticFunctions.AddBigNbrModN",
+          "lineNumber": 184
+        },
+        {
+          "caller": "add3",
+          "callee": "N.getIntArray",
+          "lineNumber": 184
+        },
+        {
+          "caller": "add3",
+          "callee": "N.size",
+          "lineNumber": 184
+        },
+        {
+          "caller": "add3",
+          "callee": "StaticFunctions.SubtractBigNbrModN",
+          "lineNumber": 185
+        },
+        {
+          "caller": "add3",
+          "callee": "N.getIntArray",
+          "lineNumber": 185
+        },
+        {
+          "caller": "add3",
+          "callee": "N.size",
+          "lineNumber": 185
+        },
+        {
+          "caller": "add3",
+          "callee": "N.MontgomeryMult",
+          "lineNumber": 186
+        },
+        {
+          "caller": "add3",
+          "callee": "StaticFunctions.AddBigNbrModN",
+          "lineNumber": 187
+        },
+        {
+          "caller": "add3",
+          "callee": "N.getIntArray",
+          "lineNumber": 187
+        },
+        {
+          "caller": "add3",
+          "callee": "N.size",
+          "lineNumber": 187
+        },
+        {
+          "caller": "add3",
+          "callee": "N.MontgomeryMult",
+          "lineNumber": 188
+        },
+        {
+          "caller": "add3",
+          "callee": "StaticFunctions.SubtractBigNbrModN",
+          "lineNumber": 189
+        },
+        {
+          "caller": "add3",
+          "callee": "N.getIntArray",
+          "lineNumber": 189
+        },
+        {
+          "caller": "add3",
+          "callee": "N.size",
+          "lineNumber": 189
+        },
+        {
+          "caller": "add3",
+          "callee": "N.MontgomeryMult",
+          "lineNumber": 190
+        },
+        {
+          "caller": "add3",
+          "callee": "BigNbrAreEqual",
+          "lineNumber": 191
+        },
+        {
+          "caller": "add3",
+          "callee": "N.size",
+          "lineNumber": 191
+        },
+        {
+          "caller": "add3",
+          "callee": "System.arraycopy",
+          "lineNumber": 193
+        },
+        {
+          "caller": "add3",
+          "callee": "N.size",
+          "lineNumber": 193
+        },
+        {
+          "caller": "add3",
+          "callee": "System.arraycopy",
+          "lineNumber": 194
+        },
+        {
+          "caller": "add3",
+          "callee": "N.size",
+          "lineNumber": 194
+        },
+        {
+          "caller": "add3",
+          "callee": "N.MontgomeryMult",
+          "lineNumber": 195
+        },
+        {
+          "caller": "add3",
+          "callee": "N.MontgomeryMult",
+          "lineNumber": 196
+        },
+        {
+          "caller": "add3",
+          "callee": "System.arraycopy",
+          "lineNumber": 197
+        },
+        {
+          "caller": "add3",
+          "callee": "N.size",
+          "lineNumber": 197
+        },
+        {
+          "caller": "add3",
+          "callee": "N.MontgomeryMult",
+          "lineNumber": 199
+        },
+        {
+          "caller": "add3",
+          "callee": "N.MontgomeryMult",
+          "lineNumber": 200
+        },
+        {
+          "caller": "prac",
+          "callee": "StaticFunctions.lucas_cost",
+          "lineNumber": 233
+        },
+        {
+          "caller": "prac",
+          "callee": "StaticFunctions.lucas_cost",
+          "lineNumber": 237
+        },
+        {
+          "caller": "prac",
+          "callee": "System.arraycopy",
+          "lineNumber": 249
+        },
+        {
+          "caller": "prac",
+          "callee": "N.size",
+          "lineNumber": 249
+        },
+        {
+          "caller": "prac",
+          "callee": "System.arraycopy",
+          "lineNumber": 250
+        },
+        {
+          "caller": "prac",
+          "callee": "N.size",
+          "lineNumber": 250
+        },
+        {
+          "caller": "prac",
+          "callee": "System.arraycopy",
+          "lineNumber": 251
+        },
+        {
+          "caller": "prac",
+          "callee": "N.size",
+          "lineNumber": 251
+        },
+        {
+          "caller": "prac",
+          "callee": "System.arraycopy",
+          "lineNumber": 252
+        },
+        {
+          "caller": "prac",
+          "callee": "N.size",
+          "lineNumber": 252
+        },
+        {
+          "caller": "prac",
+          "callee": "duplicate",
+          "lineNumber": 253
+        },
+        {
+          "caller": "prac",
+          "callee": "add3",
+          "lineNumber": 274
+        },
+        {
+          "caller": "prac",
+          "callee": "add3",
+          "lineNumber": 275
+        },
+        {
+          "caller": "prac",
+          "callee": "add3",
+          "lineNumber": 276
+        },
+        {
+          "caller": "prac",
+          "callee": "add3",
+          "lineNumber": 287
+        },
+        {
+          "caller": "prac",
+          "callee": "duplicate",
+          "lineNumber": 288
+        },
+        {
+          "caller": "prac",
+          "callee": "add3",
+          "lineNumber": 293
+        },
+        {
+          "caller": "prac",
+          "callee": "add3",
+          "lineNumber": 306
+        },
+        {
+          "caller": "prac",
+          "callee": "duplicate",
+          "lineNumber": 307
+        },
+        {
+          "caller": "prac",
+          "callee": "add3",
+          "lineNumber": 312
+        },
+        {
+          "caller": "prac",
+          "callee": "duplicate",
+          "lineNumber": 313
+        },
+        {
+          "caller": "prac",
+          "callee": "duplicate",
+          "lineNumber": 318
+        },
+        {
+          "caller": "prac",
+          "callee": "add3",
+          "lineNumber": 319
+        },
+        {
+          "caller": "prac",
+          "callee": "add3",
+          "lineNumber": 320
+        },
+        {
+          "caller": "prac",
+          "callee": "add3",
+          "lineNumber": 321
+        },
+        {
+          "caller": "prac",
+          "callee": "add3",
+          "lineNumber": 334
+        },
+        {
+          "caller": "prac",
+          "callee": "add3",
+          "lineNumber": 335
+        },
+        {
+          "caller": "prac",
+          "callee": "duplicate",
+          "lineNumber": 336
+        },
+        {
+          "caller": "prac",
+          "callee": "add3",
+          "lineNumber": 337
+        },
+        {
+          "caller": "prac",
+          "callee": "add3",
+          "lineNumber": 342
+        },
+        {
+          "caller": "prac",
+          "callee": "add3",
+          "lineNumber": 343
+        },
+        {
+          "caller": "prac",
+          "callee": "duplicate",
+          "lineNumber": 350
+        },
+        {
+          "caller": "prac",
+          "callee": "add3",
+          "lineNumber": 351
+        },
+        {
+          "caller": "prac",
+          "callee": "add3",
+          "lineNumber": 356
+        },
+        {
+          "caller": "prac",
+          "callee": "duplicate",
+          "lineNumber": 357
+        },
+        {
+          "caller": "prac",
+          "callee": "add3",
+          "lineNumber": 360
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 5,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/Factorzations/ecm/ecmStep2.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 217,
+      "nonEmptyLines": 211,
+      "functions": [
+        {
+          "name": "ecmStep2",
+          "startLine": 20,
+          "endLine": 22,
+          "params": [
+            "val"
+          ]
+        },
+        {
+          "name": "step2",
+          "startLine": 27,
+          "endLine": 216,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "ecmStep2",
+          "startLine": 15,
+          "endLine": 217,
+          "methods": [
+            "ecmStep2",
+            "step2"
+          ],
+          "properties": [
+            "root",
+            "sieveidx",
+            "WX",
+            "WZ"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "ecmStep2",
+          "line": 20,
+          "isDefault": false
+        },
+        {
+          "name": "step2",
+          "line": 27,
+          "isDefault": false
+        },
+        {
+          "name": "ecmStep2",
+          "line": 15,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "step2",
+          "callee": "System.arraycopy",
+          "lineNumber": 35
+        },
+        {
+          "caller": "step2",
+          "callee": "System.arraycopy",
+          "lineNumber": 36
+        },
+        {
+          "caller": "step2",
+          "callee": "N.size",
+          "lineNumber": 36
+        },
+        {
+          "caller": "step2",
+          "callee": "System.arraycopy",
+          "lineNumber": 37
+        },
+        {
+          "caller": "step2",
+          "callee": "N.size",
+          "lineNumber": 37
+        },
+        {
+          "caller": "step2",
+          "callee": "System.arraycopy",
+          "lineNumber": 39
+        },
+        {
+          "caller": "step2",
+          "callee": "N.size",
+          "lineNumber": 44
+        },
+        {
+          "caller": "step2",
+          "callee": "System.arraycopy",
+          "lineNumber": 45
+        },
+        {
+          "caller": "step2",
+          "callee": "N.size",
+          "lineNumber": 45
+        },
+        {
+          "caller": "step2",
+          "callee": "System.arraycopy",
+          "lineNumber": 46
+        },
+        {
+          "caller": "step2",
+          "callee": "N.size",
+          "lineNumber": 46
+        },
+        {
+          "caller": "step2",
+          "callee": "ModInvBigNbr",
+          "lineNumber": 47
+        },
+        {
+          "caller": "step2",
+          "callee": "N.getIntArray",
+          "lineNumber": 47
+        },
+        {
+          "caller": "step2",
+          "callee": "N.size",
+          "lineNumber": 47
+        },
+        {
+          "caller": "step2",
+          "callee": "N.MontgomeryMult",
+          "lineNumber": 48
+        },
+        {
+          "caller": "step2",
+          "callee": "N.MontgomeryMult",
+          "lineNumber": 49
+        },
+        {
+          "caller": "step2",
+          "callee": "StaticFunctions.AddBigNbrModN",
+          "lineNumber": 51
+        },
+        {
+          "caller": "step2",
+          "callee": "N.getIntArray",
+          "lineNumber": 51
+        },
+        {
+          "caller": "step2",
+          "callee": "N.size",
+          "lineNumber": 51
+        },
+        {
+          "caller": "step2",
+          "callee": "N.MontgomeryMult",
+          "lineNumber": 52
+        },
+        {
+          "caller": "step2",
+          "callee": "StaticFunctions.SubtractBigNbrModN",
+          "lineNumber": 53
+        },
+        {
+          "caller": "step2",
+          "callee": "N.getIntArray",
+          "lineNumber": 53
+        },
+        {
+          "caller": "step2",
+          "callee": "N.size",
+          "lineNumber": 53
+        },
+        {
+          "caller": "step2",
+          "callee": "N.MontgomeryMult",
+          "lineNumber": 54
+        },
+        {
+          "caller": "step2",
+          "callee": "N.MontgomeryMult",
+          "lineNumber": 55
+        },
+        {
+          "caller": "step2",
+          "callee": "StaticFunctions.SubtractBigNbrModN",
+          "lineNumber": 56
+        },
+        {
+          "caller": "step2",
+          "callee": "N.getIntArray",
+          "lineNumber": 56
+        },
+        {
+          "caller": "step2",
+          "callee": "N.size",
+          "lineNumber": 56
+        },
+        {
+          "caller": "step2",
+          "callee": "N.MontgomeryMult",
+          "lineNumber": 57
+        },
+        {
+          "caller": "step2",
+          "callee": "StaticFunctions.AddBigNbrModN",
+          "lineNumber": 58
+        },
+        {
+          "caller": "step2",
+          "callee": "N.getIntArray",
+          "lineNumber": 58
+        },
+        {
+          "caller": "step2",
+          "callee": "N.size",
+          "lineNumber": 58
+        },
+        {
+          "caller": "step2",
+          "callee": "N.MontgomeryMult",
+          "lineNumber": 59
+        },
+        {
+          "caller": "step2",
+          "callee": "StaticFunctions.SubtractBigNbrModN",
+          "lineNumber": 60
+        },
+        {
+          "caller": "step2",
+          "callee": "N.getIntArray",
+          "lineNumber": 60
+        },
+        {
+          "caller": "step2",
+          "callee": "N.size",
+          "lineNumber": 60
+        },
+        {
+          "caller": "step2",
+          "callee": "StaticFunctions.AddBigNbrModN",
+          "lineNumber": 61
+        },
+        {
+          "caller": "step2",
+          "callee": "N.getIntArray",
+          "lineNumber": 61
+        },
+        {
+          "caller": "step2",
+          "callee": "N.size",
+          "lineNumber": 61
+        },
+        {
+          "caller": "step2",
+          "callee": "N.MontgomeryMult",
+          "lineNumber": 62
+        },
+        {
+          "caller": "step2",
+          "callee": "StaticFunctions.AddBigNbrModN",
+          "lineNumber": 63
+        },
+        {
+          "caller": "step2",
+          "callee": "N.getIntArray",
+          "lineNumber": 63
+        },
+        {
+          "caller": "step2",
+          "callee": "N.size",
+          "lineNumber": 63
+        },
+        {
+          "caller": "step2",
+          "callee": "StaticFunctions.SubtractBigNbrModN",
+          "lineNumber": 64
+        },
+        {
+          "caller": "step2",
+          "callee": "N.getIntArray",
+          "lineNumber": 64
+        },
+        {
+          "caller": "step2",
+          "callee": "N.size",
+          "lineNumber": 64
+        },
+        {
+          "caller": "step2",
+          "callee": "N.MontgomeryMult",
+          "lineNumber": 65
+        },
+        {
+          "caller": "step2",
+          "callee": "StaticFunctions.AddBigNbrModN",
+          "lineNumber": 66
+        },
+        {
+          "caller": "step2",
+          "callee": "N.getIntArray",
+          "lineNumber": 66
+        },
+        {
+          "caller": "step2",
+          "callee": "N.size",
+          "lineNumber": 66
+        },
+        {
+          "caller": "step2",
+          "callee": "N.MontgomeryMult",
+          "lineNumber": 67
+        },
+        {
+          "caller": "step2",
+          "callee": "N.MontgomeryMult",
+          "lineNumber": 68
+        },
+        {
+          "caller": "step2",
+          "callee": "StaticFunctions.SubtractBigNbrModN",
+          "lineNumber": 69
+        },
+        {
+          "caller": "step2",
+          "callee": "N.getIntArray",
+          "lineNumber": 69
+        },
+        {
+          "caller": "step2",
+          "callee": "N.size",
+          "lineNumber": 69
+        },
+        {
+          "caller": "step2",
+          "callee": "N.MontgomeryMult",
+          "lineNumber": 70
+        },
+        {
+          "caller": "step2",
+          "callee": "N.MontgomeryMult",
+          "lineNumber": 71
+        },
+        {
+          "caller": "step2",
+          "callee": "System.arraycopy",
+          "lineNumber": 73
+        },
+        {
+          "caller": "step2",
+          "callee": "N.size",
+          "lineNumber": 73
+        },
+        {
+          "caller": "step2",
+          "callee": "System.arraycopy",
+          "lineNumber": 74
+        },
+        {
+          "caller": "step2",
+          "callee": "N.size",
+          "lineNumber": 74
+        },
+        {
+          "caller": "step2",
+          "callee": "StaticFunctions.SubtractBigNbrModN",
+          "lineNumber": 75
+        },
+        {
+          "caller": "step2",
+          "callee": "N.getIntArray",
+          "lineNumber": 75
+        },
+        {
+          "caller": "step2",
+          "callee": "N.size",
+          "lineNumber": 75
+        },
+        {
+          "caller": "step2",
+          "callee": "StaticFunctions.AddBigNbrModN",
+          "lineNumber": 76
+        },
+        {
+          "caller": "step2",
+          "callee": "N.getIntArray",
+          "lineNumber": 76
+        },
+        {
+          "caller": "step2",
+          "callee": "N.size",
+          "lineNumber": 76
+        },
+        {
+          "caller": "step2",
+          "callee": "N.MontgomeryMult",
+          "lineNumber": 77
+        },
+        {
+          "caller": "step2",
+          "callee": "StaticFunctions.AddBigNbrModN",
+          "lineNumber": 78
+        },
+        {
+          "caller": "step2",
+          "callee": "N.getIntArray",
+          "lineNumber": 78
+        },
+        {
+          "caller": "step2",
+          "callee": "N.size",
+          "lineNumber": 78
+        },
+        {
+          "caller": "step2",
+          "callee": "StaticFunctions.SubtractBigNbrModN",
+          "lineNumber": 79
+        },
+        {
+          "caller": "step2",
+          "callee": "N.getIntArray",
+          "lineNumber": 79
+        },
+        {
+          "caller": "step2",
+          "callee": "N.size",
+          "lineNumber": 79
+        },
+        {
+          "caller": "step2",
+          "callee": "N.MontgomeryMult",
+          "lineNumber": 80
+        },
+        {
+          "caller": "step2",
+          "callee": "StaticFunctions.AddBigNbrModN",
+          "lineNumber": 81
+        },
+        {
+          "caller": "step2",
+          "callee": "N.getIntArray",
+          "lineNumber": 81
+        },
+        {
+          "caller": "step2",
+          "callee": "N.size",
+          "lineNumber": 81
+        },
+        {
+          "caller": "step2",
+          "callee": "N.MontgomeryMult",
+          "lineNumber": 82
+        },
+        {
+          "caller": "step2",
+          "callee": "N.MontgomeryMult",
+          "lineNumber": 83
+        },
+        {
+          "caller": "step2",
+          "callee": "StaticFunctions.SubtractBigNbrModN",
+          "lineNumber": 84
+        },
+        {
+          "caller": "step2",
+          "callee": "N.getIntArray",
+          "lineNumber": 84
+        },
+        {
+          "caller": "step2",
+          "callee": "N.size",
+          "lineNumber": 84
+        },
+        {
+          "caller": "step2",
+          "callee": "N.MontgomeryMult",
+          "lineNumber": 85
+        },
+        {
+          "caller": "step2",
+          "callee": "N.MontgomeryMult",
+          "lineNumber": 86
+        },
+        {
+          "caller": "step2",
+          "callee": "N.MontgomeryMult",
+          "lineNumber": 88
+        },
+        {
+          "caller": "step2",
+          "callee": "System.arraycopy",
+          "lineNumber": 89
+        },
+        {
+          "caller": "step2",
+          "callee": "N.size",
+          "lineNumber": 89
+        },
+        {
+          "caller": "step2",
+          "callee": "GCD.GcdBigNbr",
+          "lineNumber": 91
+        },
+        {
+          "caller": "step2",
+          "callee": "N.getIntArray",
+          "lineNumber": 91
+        },
+        {
+          "caller": "step2",
+          "callee": "N.size",
+          "lineNumber": 91
+        },
+        {
+          "caller": "step2",
+          "callee": "BigNbrAreEqual",
+          "lineNumber": 92
+        },
+        {
+          "caller": "step2",
+          "callee": "N.size",
+          "lineNumber": 92
+        },
+        {
+          "caller": "step2",
+          "callee": "System.arraycopy",
+          "lineNumber": 96
+        },
+        {
+          "caller": "step2",
+          "callee": "N.size",
+          "lineNumber": 96
+        },
+        {
+          "caller": "step2",
+          "callee": "System.arraycopy",
+          "lineNumber": 97
+        },
+        {
+          "caller": "step2",
+          "callee": "N.size",
+          "lineNumber": 97
+        },
+        {
+          "caller": "step2",
+          "callee": "ModInvBigNbr",
+          "lineNumber": 101
+        },
+        {
+          "caller": "step2",
+          "callee": "N.getIntArray",
+          "lineNumber": 101
+        },
+        {
+          "caller": "step2",
+          "callee": "N.size",
+          "lineNumber": 101
+        },
+        {
+          "caller": "step2",
+          "callee": "N.MontgomeryMult",
+          "lineNumber": 102
+        },
+        {
+          "caller": "step2",
+          "callee": "N.MontgomeryMult",
+          "lineNumber": 103
+        },
+        {
+          "caller": "step2",
+          "callee": "System.arraycopy",
+          "lineNumber": 105
+        },
+        {
+          "caller": "step2",
+          "callee": "N.size",
+          "lineNumber": 105
+        },
+        {
+          "caller": "step2",
+          "callee": "System.arraycopy",
+          "lineNumber": 106
+        },
+        {
+          "caller": "step2",
+          "callee": "N.size",
+          "lineNumber": 106
+        },
+        {
+          "caller": "step2",
+          "callee": "StaticFunctions.AddBigNbrModN",
+          "lineNumber": 108
+        },
+        {
+          "caller": "step2",
+          "callee": "N.getIntArray",
+          "lineNumber": 108
+        },
+        {
+          "caller": "step2",
+          "callee": "N.size",
+          "lineNumber": 108
+        },
+        {
+          "caller": "step2",
+          "callee": "N.MontgomeryMult",
+          "lineNumber": 109
+        },
+        {
+          "caller": "step2",
+          "callee": "StaticFunctions.SubtractBigNbrModN",
+          "lineNumber": 110
+        },
+        {
+          "caller": "step2",
+          "callee": "N.getIntArray",
+          "lineNumber": 110
+        },
+        {
+          "caller": "step2",
+          "callee": "N.size",
+          "lineNumber": 110
+        },
+        {
+          "caller": "step2",
+          "callee": "N.MontgomeryMult",
+          "lineNumber": 111
+        },
+        {
+          "caller": "step2",
+          "callee": "N.MontgomeryMult",
+          "lineNumber": 112
+        },
+        {
+          "caller": "step2",
+          "callee": "StaticFunctions.SubtractBigNbrModN",
+          "lineNumber": 113
+        },
+        {
+          "caller": "step2",
+          "callee": "N.getIntArray",
+          "lineNumber": 113
+        },
+        {
+          "caller": "step2",
+          "callee": "N.size",
+          "lineNumber": 113
+        },
+        {
+          "caller": "step2",
+          "callee": "N.MontgomeryMult",
+          "lineNumber": 114
+        },
+        {
+          "caller": "step2",
+          "callee": "StaticFunctions.AddBigNbrModN",
+          "lineNumber": 115
+        },
+        {
+          "caller": "step2",
+          "callee": "N.getIntArray",
+          "lineNumber": 115
+        },
+        {
+          "caller": "step2",
+          "callee": "N.size",
+          "lineNumber": 115
+        },
+        {
+          "caller": "step2",
+          "callee": "N.MontgomeryMult",
+          "lineNumber": 116
+        },
+        {
+          "caller": "step2",
+          "callee": "System.arraycopy",
+          "lineNumber": 117
+        },
+        {
+          "caller": "step2",
+          "callee": "N.size",
+          "lineNumber": 117
+        },
+        {
+          "caller": "step2",
+          "callee": "System.arraycopy",
+          "lineNumber": 118
+        },
+        {
+          "caller": "step2",
+          "callee": "N.size",
+          "lineNumber": 118
+        },
+        {
+          "caller": "step2",
+          "callee": "StaticFunctions.AddBigNbrModN",
+          "lineNumber": 119
+        },
+        {
+          "caller": "step2",
+          "callee": "N.getIntArray",
+          "lineNumber": 119
+        },
+        {
+          "caller": "step2",
+          "callee": "N.size",
+          "lineNumber": 119
+        },
+        {
+          "caller": "step2",
+          "callee": "N.MontgomeryMult",
+          "lineNumber": 120
+        },
+        {
+          "caller": "step2",
+          "callee": "StaticFunctions.SubtractBigNbrModN",
+          "lineNumber": 121
+        },
+        {
+          "caller": "step2",
+          "callee": "N.getIntArray",
+          "lineNumber": 121
+        },
+        {
+          "caller": "step2",
+          "callee": "N.size",
+          "lineNumber": 121
+        },
+        {
+          "caller": "step2",
+          "callee": "N.MontgomeryMult",
+          "lineNumber": 122
+        },
+        {
+          "caller": "step2",
+          "callee": "N.MontgomeryMult",
+          "lineNumber": 123
+        },
+        {
+          "caller": "step2",
+          "callee": "StaticFunctions.SubtractBigNbrModN",
+          "lineNumber": 124
+        },
+        {
+          "caller": "step2",
+          "callee": "N.getIntArray",
+          "lineNumber": 124
+        },
+        {
+          "caller": "step2",
+          "callee": "N.size",
+          "lineNumber": 124
+        },
+        {
+          "caller": "step2",
+          "callee": "N.MontgomeryMult",
+          "lineNumber": 125
+        },
+        {
+          "caller": "step2",
+          "callee": "StaticFunctions.AddBigNbrModN",
+          "lineNumber": 126
+        },
+        {
+          "caller": "step2",
+          "callee": "N.getIntArray",
+          "lineNumber": 126
+        },
+        {
+          "caller": "step2",
+          "callee": "N.size",
+          "lineNumber": 126
+        },
+        {
+          "caller": "step2",
+          "callee": "N.MontgomeryMult",
+          "lineNumber": 127
+        },
+        {
+          "caller": "step2",
+          "callee": "StaticFunctions.SubtractBigNbrModN",
+          "lineNumber": 128
+        },
+        {
+          "caller": "step2",
+          "callee": "N.getIntArray",
+          "lineNumber": 128
+        },
+        {
+          "caller": "step2",
+          "callee": "N.size",
+          "lineNumber": 128
+        },
+        {
+          "caller": "step2",
+          "callee": "StaticFunctions.AddBigNbrModN",
+          "lineNumber": 129
+        },
+        {
+          "caller": "step2",
+          "callee": "N.getIntArray",
+          "lineNumber": 129
+        },
+        {
+          "caller": "step2",
+          "callee": "N.size",
+          "lineNumber": 129
+        },
+        {
+          "caller": "step2",
+          "callee": "N.MontgomeryMult",
+          "lineNumber": 130
+        },
+        {
+          "caller": "step2",
+          "callee": "StaticFunctions.AddBigNbrModN",
+          "lineNumber": 131
+        },
+        {
+          "caller": "step2",
+          "callee": "N.getIntArray",
+          "lineNumber": 131
+        },
+        {
+          "caller": "step2",
+          "callee": "N.size",
+          "lineNumber": 131
+        },
+        {
+          "caller": "step2",
+          "callee": "StaticFunctions.SubtractBigNbrModN",
+          "lineNumber": 132
+        },
+        {
+          "caller": "step2",
+          "callee": "N.getIntArray",
+          "lineNumber": 132
+        },
+        {
+          "caller": "step2",
+          "callee": "N.size",
+          "lineNumber": 132
+        },
+        {
+          "caller": "step2",
+          "callee": "N.MontgomeryMult",
+          "lineNumber": 133
+        },
+        {
+          "caller": "step2",
+          "callee": "StaticFunctions.AddBigNbrModN",
+          "lineNumber": 134
+        },
+        {
+          "caller": "step2",
+          "callee": "N.getIntArray",
+          "lineNumber": 134
+        },
+        {
+          "caller": "step2",
+          "callee": "N.size",
+          "lineNumber": 134
+        },
+        {
+          "caller": "step2",
+          "callee": "N.MontgomeryMult",
+          "lineNumber": 135
+        },
+        {
+          "caller": "step2",
+          "callee": "N.MontgomeryMult",
+          "lineNumber": 136
+        },
+        {
+          "caller": "step2",
+          "callee": "StaticFunctions.SubtractBigNbrModN",
+          "lineNumber": 137
+        },
+        {
+          "caller": "step2",
+          "callee": "N.getIntArray",
+          "lineNumber": 137
+        },
+        {
+          "caller": "step2",
+          "callee": "N.size",
+          "lineNumber": 137
+        },
+        {
+          "caller": "step2",
+          "callee": "N.MontgomeryMult",
+          "lineNumber": 138
+        },
+        {
+          "caller": "step2",
+          "callee": "N.MontgomeryMult",
+          "lineNumber": 139
+        },
+        {
+          "caller": "step2",
+          "callee": "ModInvBigNbr",
+          "lineNumber": 146
+        },
+        {
+          "caller": "step2",
+          "callee": "N.getIntArray",
+          "lineNumber": 146
+        },
+        {
+          "caller": "step2",
+          "callee": "N.size",
+          "lineNumber": 146
+        },
+        {
+          "caller": "step2",
+          "callee": "N.MontgomeryMult",
+          "lineNumber": 147
+        },
+        {
+          "caller": "step2",
+          "callee": "N.MontgomeryMult",
+          "lineNumber": 148
+        },
+        {
+          "caller": "step2",
+          "callee": "ModInvBigNbr",
+          "lineNumber": 150
+        },
+        {
+          "caller": "step2",
+          "callee": "N.getIntArray",
+          "lineNumber": 150
+        },
+        {
+          "caller": "step2",
+          "callee": "N.size",
+          "lineNumber": 150
+        },
+        {
+          "caller": "step2",
+          "callee": "N.MontgomeryMult",
+          "lineNumber": 151
+        },
+        {
+          "caller": "step2",
+          "callee": "N.MontgomeryMult",
+          "lineNumber": 152
+        },
+        {
+          "caller": "step2",
+          "callee": "StaticFunctions.GenerateSieve",
+          "lineNumber": 157
+        },
+        {
+          "caller": "step2",
+          "callee": "N.getSmallPrimes",
+          "lineNumber": 161
+        },
+        {
+          "caller": "step2",
+          "callee": "StaticFunctions.SubtractBigNbrModN",
+          "lineNumber": 169
+        },
+        {
+          "caller": "step2",
+          "callee": "N.getIntArray",
+          "lineNumber": 169
+        },
+        {
+          "caller": "step2",
+          "callee": "N.size",
+          "lineNumber": 169
+        },
+        {
+          "caller": "step2",
+          "callee": "N.MontgomeryMult",
+          "lineNumber": 170
+        },
+        {
+          "caller": "step2",
+          "callee": "System.arraycopy",
+          "lineNumber": 171
+        },
+        {
+          "caller": "step2",
+          "callee": "N.size",
+          "lineNumber": 171
+        },
+        {
+          "caller": "step2",
+          "callee": "GCD.GcdBigNbr",
+          "lineNumber": 174
+        },
+        {
+          "caller": "step2",
+          "callee": "N.getIntArray",
+          "lineNumber": 174
+        },
+        {
+          "caller": "step2",
+          "callee": "N.size",
+          "lineNumber": 174
+        },
+        {
+          "caller": "step2",
+          "callee": "BigNbrAreEqual",
+          "lineNumber": 175
+        },
+        {
+          "caller": "step2",
+          "callee": "N.size",
+          "lineNumber": 175
+        },
+        {
+          "caller": "step2",
+          "callee": "System.arraycopy",
+          "lineNumber": 181
+        },
+        {
+          "caller": "step2",
+          "callee": "N.size",
+          "lineNumber": 181
+        },
+        {
+          "caller": "step2",
+          "callee": "System.arraycopy",
+          "lineNumber": 182
+        },
+        {
+          "caller": "step2",
+          "callee": "N.size",
+          "lineNumber": 182
+        },
+        {
+          "caller": "step2",
+          "callee": "StaticFunctions.SubtractBigNbrModN",
+          "lineNumber": 183
+        },
+        {
+          "caller": "step2",
+          "callee": "N.getIntArray",
+          "lineNumber": 183
+        },
+        {
+          "caller": "step2",
+          "callee": "N.size",
+          "lineNumber": 183
+        },
+        {
+          "caller": "step2",
+          "callee": "StaticFunctions.AddBigNbrModN",
+          "lineNumber": 184
+        },
+        {
+          "caller": "step2",
+          "callee": "N.getIntArray",
+          "lineNumber": 184
+        },
+        {
+          "caller": "step2",
+          "callee": "N.size",
+          "lineNumber": 184
+        },
+        {
+          "caller": "step2",
+          "callee": "N.MontgomeryMult",
+          "lineNumber": 185
+        },
+        {
+          "caller": "step2",
+          "callee": "StaticFunctions.AddBigNbrModN",
+          "lineNumber": 186
+        },
+        {
+          "caller": "step2",
+          "callee": "N.getIntArray",
+          "lineNumber": 186
+        },
+        {
+          "caller": "step2",
+          "callee": "N.size",
+          "lineNumber": 186
+        },
+        {
+          "caller": "step2",
+          "callee": "StaticFunctions.SubtractBigNbrModN",
+          "lineNumber": 187
+        },
+        {
+          "caller": "step2",
+          "callee": "N.getIntArray",
+          "lineNumber": 187
+        },
+        {
+          "caller": "step2",
+          "callee": "N.size",
+          "lineNumber": 187
+        },
+        {
+          "caller": "step2",
+          "callee": "N.MontgomeryMult",
+          "lineNumber": 188
+        },
+        {
+          "caller": "step2",
+          "callee": "StaticFunctions.AddBigNbrModN",
+          "lineNumber": 189
+        },
+        {
+          "caller": "step2",
+          "callee": "N.getIntArray",
+          "lineNumber": 189
+        },
+        {
+          "caller": "step2",
+          "callee": "N.size",
+          "lineNumber": 189
+        },
+        {
+          "caller": "step2",
+          "callee": "N.MontgomeryMult",
+          "lineNumber": 190
+        },
+        {
+          "caller": "step2",
+          "callee": "N.MontgomeryMult",
+          "lineNumber": 191
+        },
+        {
+          "caller": "step2",
+          "callee": "StaticFunctions.SubtractBigNbrModN",
+          "lineNumber": 192
+        },
+        {
+          "caller": "step2",
+          "callee": "N.getIntArray",
+          "lineNumber": 192
+        },
+        {
+          "caller": "step2",
+          "callee": "N.size",
+          "lineNumber": 192
+        },
+        {
+          "caller": "step2",
+          "callee": "N.MontgomeryMult",
+          "lineNumber": 193
+        },
+        {
+          "caller": "step2",
+          "callee": "N.MontgomeryMult",
+          "lineNumber": 194
+        },
+        {
+          "caller": "step2",
+          "callee": "System.arraycopy",
+          "lineNumber": 195
+        },
+        {
+          "caller": "step2",
+          "callee": "N.size",
+          "lineNumber": 195
+        },
+        {
+          "caller": "step2",
+          "callee": "System.arraycopy",
+          "lineNumber": 196
+        },
+        {
+          "caller": "step2",
+          "callee": "N.size",
+          "lineNumber": 196
+        },
+        {
+          "caller": "step2",
+          "callee": "BigNbrIsZero",
+          "lineNumber": 200
+        },
+        {
+          "caller": "step2",
+          "callee": "N.size",
+          "lineNumber": 200
+        },
+        {
+          "caller": "step2",
+          "callee": "System.arraycopy",
+          "lineNumber": 202
+        },
+        {
+          "caller": "step2",
+          "callee": "N.size",
+          "lineNumber": 202
+        },
+        {
+          "caller": "step2",
+          "callee": "System.arraycopy",
+          "lineNumber": 203
+        },
+        {
+          "caller": "step2",
+          "callee": "N.size",
+          "lineNumber": 203
+        },
+        {
+          "caller": "step2",
+          "callee": "GCD.GcdBigNbr",
+          "lineNumber": 206
+        },
+        {
+          "caller": "step2",
+          "callee": "N.getIntArray",
+          "lineNumber": 206
+        },
+        {
+          "caller": "step2",
+          "callee": "N.size",
+          "lineNumber": 206
+        },
+        {
+          "caller": "step2",
+          "callee": "BigNbrAreEqual",
+          "lineNumber": 207
+        },
+        {
+          "caller": "step2",
+          "callee": "N.getIntArray",
+          "lineNumber": 207
+        },
+        {
+          "caller": "step2",
+          "callee": "N.size",
+          "lineNumber": 207
+        },
+        {
+          "caller": "step2",
+          "callee": "BigNbrAreEqual",
+          "lineNumber": 209
+        },
+        {
+          "caller": "step2",
+          "callee": "N.size",
+          "lineNumber": 209
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/Factorzations/siqs/FirstPolynomial.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 180,
+      "nonEmptyLines": 171,
+      "functions": [
+        {
+          "name": "init",
+          "startLine": 35,
+          "endLine": 179,
+          "params": [
+            "NumberLength",
+            "biDividend",
+            "primeSieveData"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "FirstPolynomial",
+          "startLine": 21,
+          "endLine": 180,
+          "methods": [
+            "init"
+          ],
+          "properties": [
+            "currentPrime",
+            "NumberLengthA",
+            "inverseA",
+            "twiceInverseA",
+            "Rem",
+            "Q",
+            "remE",
+            "D",
+            "seed",
+            "rowPrimeTrialDivisionData",
+            "rowPrimeSieveData",
+            "Dividend",
+            "aindex",
+            "tmodqq",
+            "afact",
+            "amodq",
+            "biQuadrCoeff",
+            "biLinearCoeff",
+            "biLinearDelta"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "FirstPolynomial",
+          "line": 21,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "init",
+          "callee": "Siqs.getFactorsOfA",
+          "lineNumber": 37
+        },
+        {
+          "caller": "init",
+          "callee": "LongToBigNbr",
+          "lineNumber": 43
+        },
+        {
+          "caller": "init",
+          "callee": "MultBigNbrByLong",
+          "lineNumber": 46
+        },
+        {
+          "caller": "init",
+          "callee": "RemDivBigNbrByLong",
+          "lineNumber": 59
+        },
+        {
+          "caller": "init",
+          "callee": "modInv",
+          "lineNumber": 62
+        },
+        {
+          "caller": "init",
+          "callee": "RemDivBigNbrByLong",
+          "lineNumber": 64
+        },
+        {
+          "caller": "init",
+          "callee": "DivBigNbrByLong",
+          "lineNumber": 68
+        },
+        {
+          "caller": "init",
+          "callee": "MultBigNbrByLong",
+          "lineNumber": 70
+        },
+        {
+          "caller": "init",
+          "callee": "rowPrimeTrialDivisionData.getRem",
+          "lineNumber": 82
+        },
+        {
+          "caller": "init",
+          "callee": "modInv",
+          "lineNumber": 85
+        },
+        {
+          "caller": "init",
+          "callee": "rowPrimeTrialDivisionData.getRem",
+          "lineNumber": 96
+        },
+        {
+          "caller": "init",
+          "callee": "rowPrimeTrialDivisionData.getRem",
+          "lineNumber": 102
+        },
+        {
+          "caller": "init",
+          "callee": "rowPrimeTrialDivisionData.getRem",
+          "lineNumber": 109
+        },
+        {
+          "caller": "init",
+          "callee": "rowPrimeTrialDivisionData.getRem",
+          "lineNumber": 115
+        },
+        {
+          "caller": "init",
+          "callee": "rowPrimeTrialDivisionData.getRem",
+          "lineNumber": 122
+        },
+        {
+          "caller": "init",
+          "callee": "rowPrimeTrialDivisionData.getRem",
+          "lineNumber": 128
+        },
+        {
+          "caller": "init",
+          "callee": "rowPrimeTrialDivisionData.getRem",
+          "lineNumber": 135
+        },
+        {
+          "caller": "init",
+          "callee": "rowPrimeTrialDivisionData.getRem",
+          "lineNumber": 141
+        },
+        {
+          "caller": "init",
+          "callee": "rowPrimeTrialDivisionData.getRem",
+          "lineNumber": 148
+        },
+        {
+          "caller": "init",
+          "callee": "rowPrimeTrialDivisionData.getRem",
+          "lineNumber": 154
+        },
+        {
+          "caller": "init",
+          "callee": "rowPrimeTrialDivisionData.getRem",
+          "lineNumber": 161
+        },
+        {
+          "caller": "init",
+          "callee": "rowPrimeTrialDivisionData.getRem",
+          "lineNumber": 166
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/Factorzations/siqs/Maths.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 412,
+      "nonEmptyLines": 383,
+      "functions": [
+        {
+          "name": "LinearAlgebraPhase",
+          "startLine": 34,
+          "endLine": 116,
+          "params": [
+            "biT",
+            "NumberLength"
+          ]
+        },
+        {
+          "name": "mergeArrays",
+          "startLine": 118,
+          "endLine": 147,
+          "params": [
+            "aindex",
+            "nbrFactorsA",
+            "rowMatrixB",
+            "rowMatrixBeforeMerge",
+            "rowSquares"
+          ]
+        },
+        {
+          "name": "MatrixMultAdd",
+          "startLine": 151,
+          "endLine": 171,
+          "params": [
+            "LeftMatr",
+            "RightMatr",
+            "ProdMatr"
+          ]
+        },
+        {
+          "name": "MatrixMultiplication",
+          "startLine": 175,
+          "endLine": 195,
+          "params": [
+            "LeftMatr",
+            "RightMatr",
+            "ProdMatr"
+          ]
+        },
+        {
+          "name": "MatrTranspMult",
+          "startLine": 200,
+          "endLine": 217,
+          "params": [
+            "LeftMatr",
+            "RightMatr",
+            "ProdMatr"
+          ]
+        },
+        {
+          "name": "MatrixAddition",
+          "startLine": 219,
+          "endLine": 223,
+          "params": [
+            "leftMatr",
+            "rightMatr",
+            "sumMatr"
+          ]
+        },
+        {
+          "name": "MatrMultBySSt",
+          "startLine": 225,
+          "endLine": 229,
+          "params": [
+            "Matr",
+            "diagS",
+            "Prod"
+          ]
+        },
+        {
+          "name": "MultiplyAByMatrix",
+          "startLine": 233,
+          "endLine": 263,
+          "params": [
+            "Matr",
+            "TempMatr",
+            "ProdMatr",
+            "matrixBlength"
+          ]
+        },
+        {
+          "name": "colexchange",
+          "startLine": 269,
+          "endLine": 303,
+          "params": [
+            "XmY",
+            "V",
+            "V1",
+            "V2",
+            "col1",
+            "col2"
+          ]
+        },
+        {
+          "name": "coladd",
+          "startLine": 310,
+          "endLine": 342,
+          "params": [
+            "XmY",
+            "V",
+            "V1",
+            "V2",
+            "col1",
+            "col2"
+          ]
+        },
+        {
+          "name": "EraseSingletons",
+          "startLine": 344,
+          "endLine": 411,
+          "params": [
+            "nbrPrimes"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Maths",
+          "startLine": 25,
+          "endLine": 412,
+          "methods": [
+            "LinearAlgebraPhase",
+            "mergeArrays",
+            "MatrixMultAdd",
+            "MatrixMultiplication",
+            "MatrTranspMult",
+            "MatrixAddition",
+            "MatrMultBySSt",
+            "MultiplyAByMatrix",
+            "colexchange",
+            "coladd",
+            "EraseSingletons"
+          ],
+          "properties": [
+            "ecm",
+            "matrixBlength",
+            "primeTrialDivisionData",
+            "biU",
+            "biR"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "primeTrialDivisionData",
+          "line": 28,
+          "isDefault": false
+        },
+        {
+          "name": "mergeArrays",
+          "line": 118,
+          "isDefault": false
+        },
+        {
+          "name": "Maths",
+          "line": 25,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "LinearAlgebraPhase",
+          "callee": "EraseSingletons",
+          "lineNumber": 42
+        },
+        {
+          "caller": "LinearAlgebraPhase",
+          "callee": "System.out.print",
+          "lineNumber": 44
+        },
+        {
+          "caller": "LinearAlgebraPhase",
+          "callee": "System.out.println",
+          "lineNumber": 45
+        },
+        {
+          "caller": "LinearAlgebraPhase",
+          "callee": "BlockLanczos",
+          "lineNumber": 49
+        },
+        {
+          "caller": "LinearAlgebraPhase",
+          "callee": "LongToBigNbr",
+          "lineNumber": 54
+        },
+        {
+          "caller": "LinearAlgebraPhase",
+          "callee": "LongToBigNbr",
+          "lineNumber": 55
+        },
+        {
+          "caller": "LinearAlgebraPhase",
+          "callee": "MultBigNbrModN",
+          "lineNumber": 67
+        },
+        {
+          "caller": "LinearAlgebraPhase",
+          "callee": "SubtractBigNbr",
+          "lineNumber": 81
+        },
+        {
+          "caller": "LinearAlgebraPhase",
+          "callee": "MultBigNbrByLongModN",
+          "lineNumber": 83
+        },
+        {
+          "caller": "LinearAlgebraPhase",
+          "callee": "SubtractBigNbrModN",
+          "lineNumber": 93
+        },
+        {
+          "caller": "LinearAlgebraPhase",
+          "callee": "GcdBigNbr",
+          "lineNumber": 95
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 11,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/Factorzations/siqs/Matrix.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 414,
+      "nonEmptyLines": 394,
+      "functions": [
+        {
+          "name": "BlockLanczos",
+          "startLine": 13,
+          "endLine": 413,
+          "params": [
+            "matrixBlength",
+            "seed"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Matrix",
+          "startLine": 11,
+          "endLine": 414,
+          "methods": [
+            "BlockLanczos"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "BlockLanczos",
+          "line": 13,
+          "isDefault": false
+        },
+        {
+          "name": "Matrix",
+          "line": 11,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "BlockLanczos",
+          "callee": "MatrTranspMult",
+          "lineNumber": 71
+        },
+        {
+          "caller": "BlockLanczos",
+          "callee": "System.out.println",
+          "lineNumber": 76
+        },
+        {
+          "caller": "BlockLanczos",
+          "callee": "MultiplyAByMatrix",
+          "lineNumber": 82
+        },
+        {
+          "caller": "BlockLanczos",
+          "callee": "MatrTranspMult",
+          "lineNumber": 84
+        },
+        {
+          "caller": "BlockLanczos",
+          "callee": "MatrixMultiplication",
+          "lineNumber": 190
+        },
+        {
+          "caller": "BlockLanczos",
+          "callee": "MatrixMultiplication",
+          "lineNumber": 197
+        },
+        {
+          "caller": "BlockLanczos",
+          "callee": "MatrixMultiplication",
+          "lineNumber": 198
+        },
+        {
+          "caller": "BlockLanczos",
+          "callee": "MatrMultBySSt",
+          "lineNumber": 199
+        },
+        {
+          "caller": "BlockLanczos",
+          "callee": "MatrixMultiplication",
+          "lineNumber": 205
+        },
+        {
+          "caller": "BlockLanczos",
+          "callee": "MatrMultBySSt",
+          "lineNumber": 206
+        },
+        {
+          "caller": "BlockLanczos",
+          "callee": "MatrTranspMult",
+          "lineNumber": 210
+        },
+        {
+          "caller": "BlockLanczos",
+          "callee": "MatrMultBySSt",
+          "lineNumber": 211
+        },
+        {
+          "caller": "BlockLanczos",
+          "callee": "MatrixAddition",
+          "lineNumber": 212
+        },
+        {
+          "caller": "BlockLanczos",
+          "callee": "MatrixMultiplication",
+          "lineNumber": 213
+        },
+        {
+          "caller": "BlockLanczos",
+          "callee": "MatrixMultiplication",
+          "lineNumber": 222
+        },
+        {
+          "caller": "BlockLanczos",
+          "callee": "MatrixMultAdd",
+          "lineNumber": 223
+        },
+        {
+          "caller": "BlockLanczos",
+          "callee": "MatrMultBySSt",
+          "lineNumber": 227
+        },
+        {
+          "caller": "BlockLanczos",
+          "callee": "MatrixMultAdd",
+          "lineNumber": 228
+        },
+        {
+          "caller": "BlockLanczos",
+          "callee": "MatrixMultAdd",
+          "lineNumber": 231
+        },
+        {
+          "caller": "BlockLanczos",
+          "callee": "MatrixMultAdd",
+          "lineNumber": 233
+        },
+        {
+          "caller": "BlockLanczos",
+          "callee": "MatrTranspMult",
+          "lineNumber": 237
+        },
+        {
+          "caller": "BlockLanczos",
+          "callee": "MatrTranspMult",
+          "lineNumber": 240
+        },
+        {
+          "caller": "BlockLanczos",
+          "callee": "MatrixAddition",
+          "lineNumber": 241
+        },
+        {
+          "caller": "BlockLanczos",
+          "callee": "MatrTranspMult",
+          "lineNumber": 244
+        },
+        {
+          "caller": "BlockLanczos",
+          "callee": "MatrixAddition",
+          "lineNumber": 245
+        },
+        {
+          "caller": "BlockLanczos",
+          "callee": "colexchange",
+          "lineNumber": 305
+        },
+        {
+          "caller": "BlockLanczos",
+          "callee": "coladd",
+          "lineNumber": 339
+        },
+        {
+          "caller": "BlockLanczos",
+          "callee": "colexchange",
+          "lineNumber": 344
+        },
+        {
+          "caller": "BlockLanczos",
+          "callee": "colexchange",
+          "lineNumber": 371
+        },
+        {
+          "caller": "BlockLanczos",
+          "callee": "coladd",
+          "lineNumber": 404
+        },
+        {
+          "caller": "BlockLanczos",
+          "callee": "colexchange",
+          "lineNumber": 408
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/Factorzations/siqs/Relation.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 368,
+      "nonEmptyLines": 329,
+      "functions": [
+        {
+          "name": "SmoothRelationFound",
+          "startLine": 52,
+          "endLine": 80,
+          "params": [
+            "positive",
+            "rowMatrixB",
+            "rowMatrixBbeforeMerge",
+            "index2",
+            "aindex",
+            "biQuadrCoeff",
+            "rowSquares",
+            "biLinearCoeff",
+            "biLinearDelta",
+            "NumberLength",
+            "biT",
+            "biU",
+            "biR",
+            "oddPolynomial"
+          ]
+        },
+        {
+          "name": "PartialRelationFound",
+          "startLine": 83,
+          "endLine": 267,
+          "params": [
+            "positive",
+            "rowMatrixB",
+            "rowMatrixBbeforeMerge",
+            "index2",
+            "aindex",
+            "Divid",
+            "oldSeed",
+            "rowPartials",
+            "biQuadrCoeff",
+            "rowSquares",
+            "biLinearCoeff",
+            "biLinearDelta",
+            "NumberLength",
+            "biT",
+            "biR",
+            "biU",
+            "biV",
+            "indexFactorsA",
+            "oddPolynomial"
+          ]
+        },
+        {
+          "name": "CalculateX",
+          "startLine": 269,
+          "endLine": 284,
+          "params": [
+            "biQuadrCoeff",
+            "biLinearCoeff",
+            "biLinearDelta",
+            "index2",
+            "oddPolynomial",
+            "biT",
+            "NumberLength"
+          ]
+        },
+        {
+          "name": "InsertNewRelation",
+          "startLine": 286,
+          "endLine": 367,
+          "params": [
+            "rowMatrixB",
+            "rowSquares",
+            "biT",
+            "biU",
+            "biR",
+            "NumberLength"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Relation",
+          "startLine": 39,
+          "endLine": 368,
+          "methods": [
+            "SmoothRelationFound",
+            "PartialRelationFound",
+            "CalculateX",
+            "InsertNewRelation"
+          ],
+          "properties": [
+            "progressBar",
+            "matrixPartialHashIndex",
+            "bSmoothVectors",
+            "vectLeftHandSide",
+            "matrixPartial",
+            "matrixB",
+            "multiplier",
+            "congruencesFound",
+            "nbrPartials",
+            "smoothsFound",
+            "totalPartials",
+            "partialsFound",
+            "nbrPrimes1",
+            "nbrPrimes2"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "matrixPartialHashIndex",
+          "line": 42,
+          "isDefault": false
+        },
+        {
+          "name": "bSmoothVectors",
+          "line": 43,
+          "isDefault": false
+        },
+        {
+          "name": "vectLeftHandSide",
+          "line": 45,
+          "isDefault": false
+        },
+        {
+          "name": "matrixPartial",
+          "line": 45,
+          "isDefault": false
+        },
+        {
+          "name": "matrixB",
+          "line": 45,
+          "isDefault": false
+        },
+        {
+          "name": "multiplier",
+          "line": 46,
+          "isDefault": false
+        },
+        {
+          "name": "congruencesFound",
+          "line": 47,
+          "isDefault": false
+        },
+        {
+          "name": "nbrPrimes1",
+          "line": 50,
+          "isDefault": false
+        },
+        {
+          "name": "nbrPrimes2",
+          "line": 50,
+          "isDefault": false
+        },
+        {
+          "name": "CalculateX",
+          "line": 269,
+          "isDefault": false
+        },
+        {
+          "name": "Relation",
+          "line": 39,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "SmoothRelationFound",
+          "callee": "congruencesFound.get",
+          "lineNumber": 60
+        },
+        {
+          "caller": "SmoothRelationFound",
+          "callee": "mergeArrays",
+          "lineNumber": 65
+        },
+        {
+          "caller": "SmoothRelationFound",
+          "callee": "LongToBigNbr",
+          "lineNumber": 68
+        },
+        {
+          "caller": "SmoothRelationFound",
+          "callee": "LongToBigNbr",
+          "lineNumber": 69
+        },
+        {
+          "caller": "SmoothRelationFound",
+          "callee": "CalculateX",
+          "lineNumber": 71
+        },
+        {
+          "caller": "SmoothRelationFound",
+          "callee": "InsertNewRelation",
+          "lineNumber": 74
+        },
+        {
+          "caller": "PartialRelationFound",
+          "callee": "congruencesFound.get",
+          "lineNumber": 105
+        },
+        {
+          "caller": "PartialRelationFound",
+          "callee": "matrixPartialHashIndex.containsKey",
+          "lineNumber": 113
+        },
+        {
+          "caller": "PartialRelationFound",
+          "callee": "matrixPartialHashIndex.get",
+          "lineNumber": 114
+        },
+        {
+          "caller": "PartialRelationFound",
+          "callee": "getFactorsOfA",
+          "lineNumber": 132
+        },
+        {
+          "caller": "PartialRelationFound",
+          "callee": "LongToBigNbr",
+          "lineNumber": 133
+        },
+        {
+          "caller": "PartialRelationFound",
+          "callee": "MultBigNbr",
+          "lineNumber": 137
+        },
+        {
+          "caller": "PartialRelationFound",
+          "callee": "SubtractBigNbr",
+          "lineNumber": 139
+        },
+        {
+          "caller": "PartialRelationFound",
+          "callee": "ChSignBigNbr",
+          "lineNumber": 145
+        },
+        {
+          "caller": "PartialRelationFound",
+          "callee": "DivBigNbrByLong",
+          "lineNumber": 149
+        },
+        {
+          "caller": "PartialRelationFound",
+          "callee": "DivBigNbrByLong",
+          "lineNumber": 154
+        },
+        {
+          "caller": "PartialRelationFound",
+          "callee": "rowPrimeTrialDivisionData.getRem",
+          "lineNumber": 174
+        },
+        {
+          "caller": "PartialRelationFound",
+          "callee": "DivBigNbrByLong",
+          "lineNumber": 176
+        },
+        {
+          "caller": "PartialRelationFound",
+          "callee": "CalculateX",
+          "lineNumber": 197
+        },
+        {
+          "caller": "PartialRelationFound",
+          "callee": "MultBigNbrModN",
+          "lineNumber": 201
+        },
+        {
+          "caller": "PartialRelationFound",
+          "callee": "mergeArrays",
+          "lineNumber": 205
+        },
+        {
+          "caller": "PartialRelationFound",
+          "callee": "System.arraycopy",
+          "lineNumber": 208
+        },
+        {
+          "caller": "PartialRelationFound",
+          "callee": "mergeArrays",
+          "lineNumber": 211
+        },
+        {
+          "caller": "PartialRelationFound",
+          "callee": "InsertNewRelation",
+          "lineNumber": 216
+        },
+        {
+          "caller": "PartialRelationFound",
+          "callee": "matrixPartialHashIndex.put",
+          "lineNumber": 237
+        },
+        {
+          "caller": "PartialRelationFound",
+          "callee": "mergeArrays",
+          "lineNumber": 243
+        },
+        {
+          "caller": "PartialRelationFound",
+          "callee": "LongToBigNbr",
+          "lineNumber": 246
+        },
+        {
+          "caller": "PartialRelationFound",
+          "callee": "MultBigNbrByLongModN",
+          "lineNumber": 251
+        },
+        {
+          "caller": "PartialRelationFound",
+          "callee": "DivBigNbrByLong",
+          "lineNumber": 253
+        },
+        {
+          "caller": "PartialRelationFound",
+          "callee": "CalculateX",
+          "lineNumber": 259
+        },
+        {
+          "caller": "CalculateX",
+          "callee": "MultBigNbrByLong",
+          "lineNumber": 272
+        },
+        {
+          "caller": "CalculateX",
+          "callee": "AddBigNbr",
+          "lineNumber": 274
+        },
+        {
+          "caller": "CalculateX",
+          "callee": "SubtractBigNbr",
+          "lineNumber": 277
+        },
+        {
+          "caller": "CalculateX",
+          "callee": "SubtractBigNbr",
+          "lineNumber": 278
+        },
+        {
+          "caller": "CalculateX",
+          "callee": "ChSignBigNbr",
+          "lineNumber": 282
+        },
+        {
+          "caller": "InsertNewRelation",
+          "callee": "AddBigNbr",
+          "lineNumber": 296
+        },
+        {
+          "caller": "InsertNewRelation",
+          "callee": "DivBigNbrByLong",
+          "lineNumber": 297
+        },
+        {
+          "caller": "InsertNewRelation",
+          "callee": "MultBigNbrByLong",
+          "lineNumber": 301
+        },
+        {
+          "caller": "InsertNewRelation",
+          "callee": "congruencesFound.get",
+          "lineNumber": 309
+        },
+        {
+          "caller": "InsertNewRelation",
+          "callee": "congruencesFound.get",
+          "lineNumber": 313
+        },
+        {
+          "caller": "InsertNewRelation",
+          "callee": "congruencesFound.get",
+          "lineNumber": 330
+        },
+        {
+          "caller": "InsertNewRelation",
+          "callee": "DivBigNbrByLong",
+          "lineNumber": 341
+        },
+        {
+          "caller": "InsertNewRelation",
+          "callee": "AddBigNbrModN",
+          "lineNumber": 345
+        },
+        {
+          "caller": "InsertNewRelation",
+          "callee": "ModInv.ModInvBigNbr",
+          "lineNumber": 346
+        },
+        {
+          "caller": "InsertNewRelation",
+          "callee": "ModInv.ModInvBigNbr",
+          "lineNumber": 348
+        },
+        {
+          "caller": "InsertNewRelation",
+          "callee": "AddBigNbr",
+          "lineNumber": 351
+        },
+        {
+          "caller": "InsertNewRelation",
+          "callee": "MultBigNbrModN",
+          "lineNumber": 355
+        },
+        {
+          "caller": "InsertNewRelation",
+          "callee": "System.arraycopy",
+          "lineNumber": 357
+        },
+        {
+          "caller": "InsertNewRelation",
+          "callee": "System.arraycopy",
+          "lineNumber": 361
+        },
+        {
+          "caller": "InsertNewRelation",
+          "callee": "congruencesFound.incrementAndGet",
+          "lineNumber": 364
+        },
+        {
+          "caller": "InsertNewRelation",
+          "callee": "progressBar.setValue",
+          "lineNumber": 365
+        },
+        {
+          "caller": "InsertNewRelation",
+          "callee": "congruencesFound.get",
+          "lineNumber": 365
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 11,
+        "functionCount": 4,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/Factorzations/siqs/Sieve.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 335,
+      "nonEmptyLines": 305,
+      "functions": [
+        {
+          "name": "Sieve",
+          "startLine": 38,
+          "endLine": 40,
+          "params": [
+            "threadNumber"
+          ]
+        },
+        {
+          "name": "SieveLocationHit",
+          "startLine": 42,
+          "endLine": 107,
+          "params": [
+            "rowMatrixB",
+            "rowMatrixBbeforeMerge",
+            "index2",
+            "primeSieveData",
+            "rowPartials",
+            "rowSquares",
+            "biDividend",
+            "NumberLength",
+            "biT",
+            "biR",
+            "biU",
+            "biV",
+            "indexFactorsA",
+            "oddPolynomial"
+          ]
+        },
+        {
+          "name": "run",
+          "startLine": 112,
+          "endLine": 334,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "Sieve",
+          "startLine": 35,
+          "endLine": 335,
+          "methods": [
+            "Sieve",
+            "SieveLocationHit",
+            "run"
+          ],
+          "properties": [
+            "threadNumber"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "run",
+          "line": 112,
+          "isDefault": false
+        },
+        {
+          "name": "Sieve",
+          "line": 35,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "SieveLocationHit",
+          "callee": "CalculateX",
+          "lineNumber": 54
+        },
+        {
+          "caller": "SieveLocationHit",
+          "callee": "MultBigNbr",
+          "lineNumber": 57
+        },
+        {
+          "caller": "SieveLocationHit",
+          "callee": "SubtractBigNbr",
+          "lineNumber": 59
+        },
+        {
+          "caller": "SieveLocationHit",
+          "callee": "ChSignBigNbr",
+          "lineNumber": 68
+        },
+        {
+          "caller": "SieveLocationHit",
+          "callee": "DivBigNbrByLong",
+          "lineNumber": 73
+        },
+        {
+          "caller": "SieveLocationHit",
+          "callee": "PrimeTrialDivisionData.PerformTrialDivision",
+          "lineNumber": 85
+        },
+        {
+          "caller": "SieveLocationHit",
+          "callee": "Siqs.SmoothRelationFound",
+          "lineNumber": 91
+        },
+        {
+          "caller": "SieveLocationHit",
+          "callee": "Siqs.PartialRelationFound",
+          "lineNumber": 99
+        },
+        {
+          "caller": "run",
+          "callee": "new PrimeSieveData",
+          "lineNumber": 137
+        },
+        {
+          "caller": "run",
+          "callee": "Thread.currentThread",
+          "lineNumber": 143
+        },
+        {
+          "caller": "run",
+          "callee": "congruencesFound.get",
+          "lineNumber": 152
+        },
+        {
+          "caller": "run",
+          "callee": "matrixB.notify",
+          "lineNumber": 156
+        },
+        {
+          "caller": "run",
+          "callee": "init",
+          "lineNumber": 161
+        },
+        {
+          "caller": "run",
+          "callee": "congruencesFound.get",
+          "lineNumber": 163
+        },
+        {
+          "caller": "run",
+          "callee": "AddBigNbr",
+          "lineNumber": 179
+        },
+        {
+          "caller": "run",
+          "callee": "SubtractBigNbr",
+          "lineNumber": 182
+        },
+        {
+          "caller": "run",
+          "callee": "System.arraycopy",
+          "lineNumber": 199
+        },
+        {
+          "caller": "run",
+          "callee": "ChSignBigNbr",
+          "lineNumber": 202
+        },
+        {
+          "caller": "run",
+          "callee": "rowPrimeTrialDivisionData.getRem",
+          "lineNumber": 223
+        },
+        {
+          "caller": "run",
+          "callee": "modInv",
+          "lineNumber": 226
+        },
+        {
+          "caller": "run",
+          "callee": "rowPrimeTrialDivisionData.getRem",
+          "lineNumber": 228
+        },
+        {
+          "caller": "run",
+          "callee": "congruencesFound.get",
+          "lineNumber": 238
+        },
+        {
+          "caller": "run",
+          "callee": "PrimeSieveData.PerformSiqsSieveStage",
+          "lineNumber": 249
+        },
+        {
+          "caller": "run",
+          "callee": "congruencesFound.get",
+          "lineNumber": 272
+        },
+        {
+          "caller": "run",
+          "callee": "SieveLocationHit",
+          "lineNumber": 277
+        },
+        {
+          "caller": "run",
+          "callee": "congruencesFound.get",
+          "lineNumber": 285
+        },
+        {
+          "caller": "run",
+          "callee": "congruencesFound.get",
+          "lineNumber": 293
+        },
+        {
+          "caller": "run",
+          "callee": "SieveLocationHit",
+          "lineNumber": 298
+        },
+        {
+          "caller": "run",
+          "callee": "congruencesFound.get",
+          "lineNumber": 306
+        },
+        {
+          "caller": "run",
+          "callee": "congruencesFound.get",
+          "lineNumber": 323
+        },
+        {
+          "caller": "run",
+          "callee": "matrixB.notify",
+          "lineNumber": 331
+        }
+      ],
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 2,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/Factorzations/siqs/Siqs.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 459,
+      "nonEmptyLines": 427,
+      "functions": [
+        {
+          "name": "Siqs",
+          "startLine": 67,
+          "endLine": 72,
+          "params": [
+            "ecm"
+          ]
+        },
+        {
+          "name": "main",
+          "startLine": 74,
+          "endLine": 95,
+          "params": [
+            "args"
+          ]
+        },
+        {
+          "name": "getFactorsOfA",
+          "startLine": 97,
+          "endLine": 128,
+          "params": [
+            "seed",
+            "aindex"
+          ]
+        },
+        {
+          "name": "factor",
+          "startLine": 143,
+          "endLine": 218,
+          "params": []
+        },
+        {
+          "name": "Setup",
+          "startLine": 223,
+          "endLine": 458,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "Siqs",
+          "startLine": 37,
+          "endLine": 459,
+          "methods": [
+            "Siqs",
+            "main",
+            "getFactorsOfA",
+            "factor",
+            "Setup"
+          ],
+          "properties": [
+            "newContentPane",
+            "numberThreads",
+            "nbrFactorsA",
+            "NbrPolynomials",
+            "nbrThreadFinishedPolySet",
+            "trialDivisions",
+            "ValuesSieved",
+            "polynomialsSieved",
+            "TestNbr1",
+            "TestNbr2",
+            "vectExpParity",
+            "threads",
+            "primeSieveData",
+            "log2",
+            "threshold",
+            "indexMinFactorA",
+            "SieveLimit",
+            "NumberLength",
+            "smallPrimeUpperLimit",
+            "firstLimit",
+            "secondLimit",
+            "thirdLimit",
+            "largePrimeUpperBound",
+            "DosALa31_1",
+            "newSeed",
+            "factorSiqs",
+            "span",
+            "Power2",
+            "SqrRootMod",
+            "fact",
+            "FactorBase",
+            "D",
+            "E",
+            "Q",
+            "V",
+            "W",
+            "X",
+            "Y",
+            "T1",
+            "V1",
+            "W1",
+            "Y1",
+            "dNumberToFactor",
+            "Prod",
+            "bestadjust",
+            "arrmult",
+            "adjustment"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "nbrFactorsA",
+          "line": 41,
+          "isDefault": false
+        },
+        {
+          "name": "NbrPolynomials",
+          "line": 41,
+          "isDefault": false
+        },
+        {
+          "name": "nbrThreadFinishedPolySet",
+          "line": 41,
+          "isDefault": false
+        },
+        {
+          "name": "trialDivisions",
+          "line": 42,
+          "isDefault": false
+        },
+        {
+          "name": "ValuesSieved",
+          "line": 42,
+          "isDefault": false
+        },
+        {
+          "name": "polynomialsSieved",
+          "line": 42,
+          "isDefault": false
+        },
+        {
+          "name": "TestNbr1",
+          "line": 44,
+          "isDefault": false
+        },
+        {
+          "name": "TestNbr2",
+          "line": 44,
+          "isDefault": false
+        },
+        {
+          "name": "vectExpParity",
+          "line": 45,
+          "isDefault": false
+        },
+        {
+          "name": "threads",
+          "line": 47,
+          "isDefault": false
+        },
+        {
+          "name": "primeSieveData",
+          "line": 48,
+          "isDefault": false
+        },
+        {
+          "name": "log2",
+          "line": 49,
+          "isDefault": false
+        },
+        {
+          "name": "threshold",
+          "line": 49,
+          "isDefault": false
+        },
+        {
+          "name": "indexMinFactorA",
+          "line": 50,
+          "isDefault": false
+        },
+        {
+          "name": "SieveLimit",
+          "line": 51,
+          "isDefault": false
+        },
+        {
+          "name": "NumberLength",
+          "line": 51,
+          "isDefault": false
+        },
+        {
+          "name": "smallPrimeUpperLimit",
+          "line": 52,
+          "isDefault": false
+        },
+        {
+          "name": "firstLimit",
+          "line": 52,
+          "isDefault": false
+        },
+        {
+          "name": "secondLimit",
+          "line": 52,
+          "isDefault": false
+        },
+        {
+          "name": "thirdLimit",
+          "line": 52,
+          "isDefault": false
+        },
+        {
+          "name": "largePrimeUpperBound",
+          "line": 53,
+          "isDefault": false
+        },
+        {
+          "name": "newSeed",
+          "line": 57,
+          "isDefault": false
+        },
+        {
+          "name": "factorSiqs",
+          "line": 58,
+          "isDefault": false
+        },
+        {
+          "name": "span",
+          "line": 60,
+          "isDefault": false
+        },
+        {
+          "name": "Siqs",
+          "line": 67,
+          "isDefault": false
+        },
+        {
+          "name": "main",
+          "line": 74,
+          "isDefault": false
+        },
+        {
+          "name": "getFactorsOfA",
+          "line": 97,
+          "isDefault": false
+        },
+        {
+          "name": "factor",
+          "line": 143,
+          "isDefault": false
+        },
+        {
+          "name": "Siqs",
+          "line": 37,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "Siqs",
+          "callee": "BigNbrToBigInt",
+          "lineNumber": 71
+        },
+        {
+          "caller": "main",
+          "callee": "new JFrame",
+          "lineNumber": 76
+        },
+        {
+          "caller": "main",
+          "callee": "frame.setPreferredSize",
+          "lineNumber": 77
+        },
+        {
+          "caller": "main",
+          "callee": "new Dimension",
+          "lineNumber": 77
+        },
+        {
+          "caller": "main",
+          "callee": "frame.setDefaultCloseOperation",
+          "lineNumber": 78
+        },
+        {
+          "caller": "main",
+          "callee": "newContentPane.setOpaque",
+          "lineNumber": 81
+        },
+        {
+          "caller": "main",
+          "callee": "frame.setContentPane",
+          "lineNumber": 82
+        },
+        {
+          "caller": "main",
+          "callee": "frame.pack",
+          "lineNumber": 85
+        },
+        {
+          "caller": "main",
+          "callee": "frame.setVisible",
+          "lineNumber": 86
+        },
+        {
+          "caller": "main",
+          "callee": "new Siqs(new AprtCleInteger(\"28812358742867173186384364969583237304303880236561177111998089096093\")).factor",
+          "lineNumber": 88
+        },
+        {
+          "caller": "main",
+          "callee": "new Siqs",
+          "lineNumber": 88
+        },
+        {
+          "caller": "main",
+          "callee": "new AprtCleInteger",
+          "lineNumber": 88
+        },
+        {
+          "caller": "main",
+          "callee": "System.out.println",
+          "lineNumber": 94
+        },
+        {
+          "caller": "factor",
+          "callee": "System.out.println",
+          "lineNumber": 145
+        },
+        {
+          "caller": "factor",
+          "callee": "new AtomicInteger",
+          "lineNumber": 150
+        },
+        {
+          "caller": "factor",
+          "callee": "Math.log",
+          "lineNumber": 152
+        },
+        {
+          "caller": "factor",
+          "callee": "ecm.doubleValue",
+          "lineNumber": 152
+        },
+        {
+          "caller": "factor",
+          "callee": "Math.exp",
+          "lineNumber": 153
+        },
+        {
+          "caller": "factor",
+          "callee": "Math.sqrt",
+          "lineNumber": 153
+        },
+        {
+          "caller": "factor",
+          "callee": "Math.log",
+          "lineNumber": 153
+        },
+        {
+          "caller": "factor",
+          "callee": "Math.exp",
+          "lineNumber": 154
+        },
+        {
+          "caller": "factor",
+          "callee": "System.arraycopy",
+          "lineNumber": 174
+        },
+        {
+          "caller": "factor",
+          "callee": "Setup",
+          "lineNumber": 178
+        },
+        {
+          "caller": "factor",
+          "callee": "new Thread(new Sieve(threadNumber)).start",
+          "lineNumber": 185
+        },
+        {
+          "caller": "factor",
+          "callee": "new Thread",
+          "lineNumber": 185
+        },
+        {
+          "caller": "factor",
+          "callee": "new Sieve",
+          "lineNumber": 185
+        },
+        {
+          "caller": "factor",
+          "callee": "matrixB.wait",
+          "lineNumber": 191
+        },
+        {
+          "caller": "factor",
+          "callee": "LinearAlgebraPhase",
+          "lineNumber": 194
+        },
+        {
+          "caller": "factor",
+          "callee": "BigIntToBigNbr",
+          "lineNumber": 195
+        },
+        {
+          "caller": "factor",
+          "callee": "Logger.getLogger(Siqs.class.getName()).log",
+          "lineNumber": 197
+        },
+        {
+          "caller": "factor",
+          "callee": "Logger.getLogger",
+          "lineNumber": 197
+        },
+        {
+          "caller": "factor",
+          "callee": "Siqs.class.getName",
+          "lineNumber": 197
+        },
+        {
+          "caller": "factor",
+          "callee": "factorSiqs.signum",
+          "lineNumber": 200
+        },
+        {
+          "caller": "factor",
+          "callee": "new ArithmeticException",
+          "lineNumber": 201
+        },
+        {
+          "caller": "factor",
+          "callee": "threads[threadNumber].isAlive",
+          "lineNumber": 204
+        },
+        {
+          "caller": "factor",
+          "callee": "threads[threadNumber].interrupt",
+          "lineNumber": 208
+        },
+        {
+          "caller": "factor",
+          "callee": "Logger.getLogger(Siqs.class.getName()).log",
+          "lineNumber": 210
+        },
+        {
+          "caller": "factor",
+          "callee": "Logger.getLogger",
+          "lineNumber": 210
+        },
+        {
+          "caller": "factor",
+          "callee": "Siqs.class.getName",
+          "lineNumber": 210
+        },
+        {
+          "caller": "factor",
+          "callee": "System.out.println",
+          "lineNumber": 214
+        },
+        {
+          "caller": "Setup",
+          "callee": "new PrimeSieveData",
+          "lineNumber": 226
+        },
+        {
+          "caller": "Setup",
+          "callee": "new PrimeTrialDivisionData",
+          "lineNumber": 230
+        },
+        {
+          "caller": "Setup",
+          "callee": "ecm.and(BigInteger.valueOf(7)).intValue",
+          "lineNumber": 245
+        },
+        {
+          "caller": "Setup",
+          "callee": "ecm.and",
+          "lineNumber": 245
+        },
+        {
+          "caller": "Setup",
+          "callee": "BigInteger.valueOf",
+          "lineNumber": 245
+        },
+        {
+          "caller": "Setup",
+          "callee": "Math.log",
+          "lineNumber": 254
+        },
+        {
+          "caller": "Setup",
+          "callee": "RemDivBigNbrByLong",
+          "lineNumber": 260
+        },
+        {
+          "caller": "Setup",
+          "callee": "JacobiSymbol",
+          "lineNumber": 262
+        },
+        {
+          "caller": "Setup",
+          "callee": "Math.log",
+          "lineNumber": 264
+        },
+        {
+          "caller": "Setup",
+          "callee": "JacobiSymbol",
+          "lineNumber": 271
+        },
+        {
+          "caller": "Setup",
+          "callee": "MultBigNbrByLong",
+          "lineNumber": 299
+        },
+        {
+          "caller": "Setup",
+          "callee": "new JProgressBar",
+          "lineNumber": 305
+        },
+        {
+          "caller": "Setup",
+          "callee": "newContentPane.add",
+          "lineNumber": 306
+        },
+        {
+          "caller": "Setup",
+          "callee": "progressBar.setStringPainted",
+          "lineNumber": 307
+        },
+        {
+          "caller": "Setup",
+          "callee": "progressBar.setValue",
+          "lineNumber": 308
+        },
+        {
+          "caller": "Setup",
+          "callee": "ecm.testBit",
+          "lineNumber": 313
+        },
+        {
+          "caller": "Setup",
+          "callee": "primeTrialDivisionData[2].set",
+          "lineNumber": 329
+        },
+        {
+          "caller": "Setup",
+          "callee": "RemDivBigNbrByLong",
+          "lineNumber": 340
+        },
+        {
+          "caller": "Setup",
+          "callee": "JacobiSymbol",
+          "lineNumber": 343
+        },
+        {
+          "caller": "Setup",
+          "callee": "primeTrialDivisionData[j].set",
+          "lineNumber": 347
+        },
+        {
+          "caller": "Setup",
+          "callee": "modPow",
+          "lineNumber": 351
+        },
+        {
+          "caller": "Setup",
+          "callee": "modPow",
+          "lineNumber": 356
+        },
+        {
+          "caller": "Setup",
+          "callee": "modPow",
+          "lineNumber": 378
+        },
+        {
+          "caller": "Setup",
+          "callee": "modPow",
+          "lineNumber": 379
+        },
+        {
+          "caller": "Setup",
+          "callee": "modPow",
+          "lineNumber": 380
+        },
+        {
+          "caller": "Setup",
+          "callee": "modPow",
+          "lineNumber": 390
+        },
+        {
+          "caller": "Setup",
+          "callee": "ecm.doubleValue",
+          "lineNumber": 419
+        },
+        {
+          "caller": "Setup",
+          "callee": "Math.log",
+          "lineNumber": 430
+        },
+        {
+          "caller": "Setup",
+          "callee": "Math.sqrt",
+          "lineNumber": 432
+        },
+        {
+          "caller": "Setup",
+          "callee": "Math.log",
+          "lineNumber": 435
+        },
+        {
+          "caller": "Setup",
+          "callee": "Math.log",
+          "lineNumber": 436
+        },
+        {
+          "caller": "Setup",
+          "callee": "Math.sqrt",
+          "lineNumber": 449
+        },
+        {
+          "caller": "Setup",
+          "callee": "Math.pow",
+          "lineNumber": 450
+        }
+      ],
+      "metrics": {
+        "importCount": 13,
+        "exportCount": 29,
+        "functionCount": 5,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/Factorzations/siqs/StaticFunctions.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 455,
+      "nonEmptyLines": 441,
+      "functions": [
+        {
+          "name": "getIndexFromDivisor",
+          "startLine": 13,
+          "endLine": 40,
+          "params": [
+            "Divid",
+            "nbrPrimes"
+          ]
+        },
+        {
+          "name": "JacobiSymbol",
+          "startLine": 42,
+          "endLine": 68,
+          "params": [
+            "M",
+            "Q"
+          ]
+        },
+        {
+          "name": "modInv",
+          "startLine": 70,
+          "endLine": 94,
+          "params": [
+            "NbrMod",
+            "currentPrime"
+          ]
+        },
+        {
+          "name": "SQUFOF",
+          "startLine": 98,
+          "endLine": 395,
+          "params": [
+            "N",
+            "queue"
+          ]
+        },
+        {
+          "name": "isProbablePrime",
+          "startLine": 398,
+          "endLine": 454,
+          "params": [
+            "value"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "StaticFunctions",
+          "startLine": 12,
+          "endLine": 455,
+          "methods": [
+            "getIndexFromDivisor",
+            "JacobiSymbol",
+            "modInv",
+            "SQUFOF",
+            "isProbablePrime"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "getIndexFromDivisor",
+          "line": 13,
+          "isDefault": false
+        },
+        {
+          "name": "JacobiSymbol",
+          "line": 42,
+          "isDefault": false
+        },
+        {
+          "name": "modInv",
+          "line": 70,
+          "isDefault": false
+        },
+        {
+          "name": "SQUFOF",
+          "line": 98,
+          "isDefault": false
+        },
+        {
+          "name": "isProbablePrime",
+          "line": 398,
+          "isDefault": false
+        },
+        {
+          "name": "StaticFunctions",
+          "line": 12,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "getIndexFromDivisor",
+          "callee": "congruencesFound.get",
+          "lineNumber": 24
+        },
+        {
+          "caller": "SQUFOF",
+          "callee": "Math.sqrt",
+          "lineNumber": 117
+        },
+        {
+          "caller": "SQUFOF",
+          "callee": "Math.sqrt",
+          "lineNumber": 128
+        },
+        {
+          "caller": "SQUFOF",
+          "callee": "Math.sqrt",
+          "lineNumber": 132
+        },
+        {
+          "caller": "SQUFOF",
+          "callee": "Math.sqrt",
+          "lineNumber": 143
+        },
+        {
+          "caller": "SQUFOF",
+          "callee": "Math.sqrt",
+          "lineNumber": 175
+        },
+        {
+          "caller": "SQUFOF",
+          "callee": "Math.sqrt",
+          "lineNumber": 298
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 6,
+        "functionCount": 5,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/calculator/ConvertBase.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 46,
+      "nonEmptyLines": 40,
+      "functions": [
+        {
+          "name": "ConvertBase",
+          "startLine": 28,
+          "endLine": 31,
+          "params": [
+            "b"
+          ]
+        },
+        {
+          "name": "numOperands",
+          "startLine": 36,
+          "endLine": 38,
+          "params": []
+        },
+        {
+          "name": "getBase",
+          "startLine": 43,
+          "endLine": 45,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "ConvertBase",
+          "startLine": 16,
+          "endLine": 46,
+          "methods": [
+            "ConvertBase",
+            "numOperands",
+            "getBase"
+          ],
+          "properties": [
+            "base"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "ConvertBase",
+          "line": 28,
+          "isDefault": false
+        },
+        {
+          "name": "numOperands",
+          "line": 36,
+          "isDefault": false
+        },
+        {
+          "name": "getBase",
+          "line": 43,
+          "isDefault": false
+        },
+        {
+          "name": "ConvertBase",
+          "line": 16,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "ConvertBase",
+          "callee": "new IllegalArgumentException",
+          "lineNumber": 29
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 4,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/calculator/Deque.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 124,
+      "nonEmptyLines": 110,
+      "functions": [
+        {
+          "name": "isEmpty",
+          "startLine": 45,
+          "endLine": 47,
+          "params": []
+        },
+        {
+          "name": "getSize",
+          "startLine": 52,
+          "endLine": 54,
+          "params": []
+        },
+        {
+          "name": "addToBack",
+          "startLine": 58,
+          "endLine": 62,
+          "params": [
+            "o"
+          ]
+        },
+        {
+          "name": "addToFront",
+          "startLine": 67,
+          "endLine": 71,
+          "params": [
+            "o"
+          ]
+        },
+        {
+          "name": "getFront",
+          "startLine": 77,
+          "endLine": 80,
+          "params": []
+        },
+        {
+          "name": "getBack",
+          "startLine": 86,
+          "endLine": 89,
+          "params": []
+        },
+        {
+          "name": "removeFromFront",
+          "startLine": 94,
+          "endLine": 99,
+          "params": []
+        },
+        {
+          "name": "removeFromBack",
+          "startLine": 104,
+          "endLine": 109,
+          "params": []
+        },
+        {
+          "name": "expand",
+          "startLine": 115,
+          "endLine": 123,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "Deque",
+          "startLine": 15,
+          "endLine": 124,
+          "methods": [
+            "isEmpty",
+            "getSize",
+            "addToBack",
+            "addToFront",
+            "getFront",
+            "getBack",
+            "removeFromFront",
+            "removeFromBack",
+            "expand"
+          ],
+          "properties": [
+            "elements",
+            "front",
+            "back",
+            "size"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "isEmpty",
+          "line": 45,
+          "isDefault": false
+        },
+        {
+          "name": "getSize",
+          "line": 52,
+          "isDefault": false
+        },
+        {
+          "name": "addToBack",
+          "line": 58,
+          "isDefault": false
+        },
+        {
+          "name": "addToFront",
+          "line": 67,
+          "isDefault": false
+        },
+        {
+          "name": "getFront",
+          "line": 77,
+          "isDefault": false
+        },
+        {
+          "name": "getBack",
+          "line": 86,
+          "isDefault": false
+        },
+        {
+          "name": "removeFromFront",
+          "line": 94,
+          "isDefault": false
+        },
+        {
+          "name": "removeFromBack",
+          "line": 104,
+          "isDefault": false
+        },
+        {
+          "name": "Deque",
+          "line": 15,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "addToBack",
+          "callee": "expand",
+          "lineNumber": 59
+        },
+        {
+          "caller": "addToFront",
+          "callee": "expand",
+          "lineNumber": 68
+        },
+        {
+          "caller": "getFront",
+          "callee": "new EmptyDequeException",
+          "lineNumber": 78
+        },
+        {
+          "caller": "getBack",
+          "callee": "new EmptyDequeException",
+          "lineNumber": 87
+        },
+        {
+          "caller": "removeFromFront",
+          "callee": "getFront",
+          "lineNumber": 95
+        },
+        {
+          "caller": "removeFromBack",
+          "callee": "new EmptyDequeException",
+          "lineNumber": 105
+        },
+        {
+          "caller": "expand",
+          "callee": "System.arraycopy",
+          "lineNumber": 118
+        },
+        {
+          "caller": "expand",
+          "callee": "System.arraycopy",
+          "lineNumber": 119
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 9,
+        "functionCount": 9,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/calculator/EmptyDequeException.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 16,
+      "nonEmptyLines": 14,
+      "classes": [
+        {
+          "name": "EmptyDequeException",
+          "startLine": 16,
+          "endLine": 16,
+          "methods": [],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "EmptyDequeException",
+          "line": 16,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    }
+  ]
+}

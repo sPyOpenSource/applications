@@ -1,0 +1,35 @@
+{
+  "projectRoot": "/Users/xuyi/Source/OS/armOS/lib/jcore/test/PrimeFactors",
+  "batchFiles": [
+    {
+      "path": "nbproject/build-impl.xml",
+      "language": "xml",
+      "kind": "config",
+      "imports": []
+    },
+    {
+      "path": "nbproject/genfiles.properties",
+      "language": "properties",
+      "kind": "config",
+      "imports": []
+    },
+    {
+      "path": "nbproject/project.properties",
+      "language": "properties",
+      "kind": "config",
+      "imports": []
+    },
+    {
+      "path": "nbproject/project.xml",
+      "language": "xml",
+      "kind": "config",
+      "imports": []
+    }
+  ],
+  "batchImportData": {
+    "nbproject/build-impl.xml": [],
+    "nbproject/genfiles.properties": [],
+    "nbproject/project.properties": [],
+    "nbproject/project.xml": []
+  }
+}

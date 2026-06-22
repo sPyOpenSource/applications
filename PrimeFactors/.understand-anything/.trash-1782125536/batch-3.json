@@ -1,0 +1,420 @@
+{
+  "batch": 3,
+  "nodes": [
+    {
+      "id": "file:src/calculator/Calculator.java",
+      "type": "interface",
+      "labels": [
+        "interface",
+        "contract",
+        "model",
+        "mvc"
+      ],
+      "language": "java",
+      "fileName": "Calculator.java",
+      "filePath": "src/calculator/Calculator.java",
+      "summary": "Core Model interface in the calculator MVC architecture. Defines the calculator contract with two methods: doOperation(Operation, String) for performing stack operations and changeSettings(Object, String) for mutable settings like sticky bases. Implemented by largemodel/CalculatorImpl.",
+      "extraction": {
+        "totalLines": 32,
+        "nonEmptyLines": 27,
+        "metrics": {
+          "importCount": 0,
+          "exportCount": 1,
+          "functionCount": 0,
+          "classCount": 1
+        },
+        "classes": [
+          {
+            "name": "Calculator",
+            "methods": [
+              "doOperation",
+              "changeSettings"
+            ],
+            "properties": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "file:src/calculator/CalculatorUI.java",
+      "type": "interface",
+      "labels": [
+        "interface",
+        "contract",
+        "view",
+        "mvc"
+      ],
+      "language": "java",
+      "fileName": "CalculatorUI.java",
+      "filePath": "src/calculator/CalculatorUI.java",
+      "summary": "Core View interface in the calculator MVC architecture. Defines the user interface contract with methods: getInput() for reading user input, insert(String) for adding text to the display, setOutput(String, int) for showing results with a radix, setBusy(boolean) for cursor feedback, and showError(Throwable) for error display. Implemented by DefaultUI.",
+      "extraction": {
+        "totalLines": 42,
+        "nonEmptyLines": 35,
+        "metrics": {
+          "importCount": 0,
+          "exportCount": 1,
+          "functionCount": 0,
+          "classCount": 1
+        },
+        "classes": [
+          {
+            "name": "CalculatorUI",
+            "methods": [
+              "getInput",
+              "insert",
+              "setOutput",
+              "setBusy",
+              "showError"
+            ],
+            "properties": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "file:src/calculator/DefaultUI.java",
+      "type": "class",
+      "labels": [
+        "class",
+        "ui",
+        "swing",
+        "view",
+        "gui"
+      ],
+      "language": "java",
+      "fileName": "DefaultUI.java",
+      "filePath": "src/calculator/DefaultUI.java",
+      "summary": "Default Swing-based user interface implementing CalculatorUI for an RPN integer calculator. Constructs a JFrame with a numeric display (NumericDocument), radix combo box (2-36), a 6x4 grid of operation/digit buttons, and a menu bar with Edit (cut/copy/paste/select-all) and Options (sticky bases). Dynamically loads operation classes via reflection from the model package. Contains 7 inner package-private classes: ButtonAction (operation dispatch), TextButtonAction (digit entry), SelectAllAction, HomeAction, EndAction (caret navigation), BaseListener (radix change), and SetSticky (sticky base toggle). Supports all radices 2-36 and base conversion.",
+      "extraction": {
+        "totalLines": 654,
+        "nonEmptyLines": 594,
+        "metrics": {
+          "importCount": 5,
+          "exportCount": 21,
+          "functionCount": 25,
+          "classCount": 8
+        },
+        "classes": [
+          {
+            "name": "DefaultUI",
+            "methods": [
+              "DefaultUI",
+              "getModel",
+              "getMenuBar",
+              "getScrollingDisplay",
+              "getBasePanel",
+              "getButtonPanel",
+              "insert",
+              "getInput",
+              "setOutput",
+              "showError",
+              "setBusy"
+            ],
+            "properties": [
+              "BINDINGS",
+              "CALCULATOR_CLASS",
+              "DEFAULT_BASE",
+              "DEFAULT_CURSOR",
+              "BUSY_CURSOR",
+              "display",
+              "theDocument",
+              "radixBox"
+            ]
+          },
+          {
+            "name": "ButtonAction",
+            "methods": [
+              "ButtonAction",
+              "actionPerformed"
+            ],
+            "properties": [
+              "theCalculator",
+              "theView",
+              "theOperation"
+            ]
+          },
+          {
+            "name": "TextButtonAction",
+            "methods": [
+              "TextButtonAction",
+              "actionPerformed"
+            ],
+            "properties": [
+              "theView",
+              "text"
+            ]
+          },
+          {
+            "name": "SelectAllAction",
+            "methods": [
+              "SelectAllAction",
+              "actionPerformed"
+            ],
+            "properties": [
+              "display"
+            ]
+          },
+          {
+            "name": "HomeAction",
+            "methods": [
+              "HomeAction",
+              "actionPerformed"
+            ],
+            "properties": [
+              "display"
+            ]
+          },
+          {
+            "name": "EndAction",
+            "methods": [
+              "EndAction",
+              "actionPerformed"
+            ],
+            "properties": [
+              "display"
+            ]
+          },
+          {
+            "name": "BaseListener",
+            "methods": [
+              "BaseListener",
+              "itemStateChanged"
+            ],
+            "properties": [
+              "theBox",
+              "theCalculator",
+              "theView"
+            ]
+          },
+          {
+            "name": "SetSticky",
+            "methods": [
+              "SetSticky",
+              "actionPerformed"
+            ],
+            "properties": [
+              "item",
+              "theCalculator",
+              "theView"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "file:src/calculator/NumericDocument.java",
+      "type": "class",
+      "labels": [
+        "class",
+        "document",
+        "input-validation",
+        "base-conversion"
+      ],
+      "language": "java",
+      "fileName": "NumericDocument.java",
+      "filePath": "src/calculator/NumericDocument.java",
+      "summary": "A PlainDocument subclass for storing arbitrarily large integers in arbitrary bases 2-36. Filters character input to accept only valid digits for the current radix. Tracks modification state via isModified() to distinguish user input from programmatic updates. Preserves a leading minus sign for negative numbers and overwrites document content on first user edit for clean input.",
+      "extraction": {
+        "totalLines": 119,
+        "nonEmptyLines": 110,
+        "metrics": {
+          "importCount": 0,
+          "exportCount": 5,
+          "functionCount": 4,
+          "classCount": 1
+        },
+        "classes": [
+          {
+            "name": "NumericDocument",
+            "methods": [
+              "NumericDocument",
+              "insertString",
+              "isModified",
+              "remove"
+            ],
+            "properties": [
+              "base",
+              "modified"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "file:src/calculator/largemodel/ChangeSigns.java",
+      "type": "class",
+      "labels": [
+        "class",
+        "operation",
+        "arithmetic",
+        "negation",
+        "encodederator"
+      ],
+      "language": "java",
+      "fileName": "ChangeSigns.java",
+      "filePath": "src/calculator/largemodel/ChangeSigns.java",
+      "summary": "EncodedOperation for sign negation. Returns the negation of a single LargeInteger operand via operands[0].negate(). Includes a static utility method ChSignBigNbr for low-level two's complement negation on int arrays representing big integers.",
+      "extraction": {
+        "totalLines": 49,
+        "nonEmptyLines": 43,
+        "metrics": {
+          "importCount": 1,
+          "exportCount": 4,
+          "functionCount": 3,
+          "classCount": 1
+        },
+        "classes": [
+          {
+            "name": "ChangeSigns",
+            "methods": [
+              "numOperands",
+              "doOperation",
+              "ChSignBigNbr"
+            ],
+            "properties": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "file:src/calculator/largemodel/Remainder.java",
+      "type": "class",
+      "labels": [
+        "class",
+        "operation",
+        "arithmetic",
+        "remainder",
+        "modulo",
+        "encodederator"
+      ],
+      "language": "java",
+      "fileName": "Remainder.java",
+      "filePath": "src/calculator/largemodel/Remainder.java",
+      "summary": "EncodedOperation for remainder/modulo. Takes two LargeInteger operands and returns operands[0].divide(operands[1])[1] (the remainder). Throws ArithmeticException on division by zero. Includes a static utility method RemDivBigNbrByLong for low-level remainder computation on int arrays using modular arithmetic with 2^31 base.",
+      "extraction": {
+        "totalLines": 68,
+        "nonEmptyLines": 62,
+        "metrics": {
+          "importCount": 1,
+          "exportCount": 4,
+          "functionCount": 3,
+          "classCount": 1
+        },
+        "classes": [
+          {
+            "name": "Remainder",
+            "methods": [
+              "numOperands",
+              "doOperation",
+              "RemDivBigNbrByLong"
+            ],
+            "properties": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "file:src/calculator/largemodel/Subtract.java",
+      "type": "class",
+      "labels": [
+        "class",
+        "operation",
+        "arithmetic",
+        "subtraction",
+        "encodederator"
+      ],
+      "language": "java",
+      "fileName": "Subtract.java",
+      "filePath": "src/calculator/largemodel/Subtract.java",
+      "summary": "EncodedOperation for subtraction. Takes two LargeInteger operands and returns operands[0].subtract(operands[1]). Includes two static utility methods: SubtractBigNbr for 31-bit array subtraction and SubtractBigNbr32 for 32-bit array subtraction, both using carry propagation.",
+      "extraction": {
+        "totalLines": 59,
+        "nonEmptyLines": 51,
+        "metrics": {
+          "importCount": 1,
+          "exportCount": 5,
+          "functionCount": 4,
+          "classCount": 1
+        },
+        "classes": [
+          {
+            "name": "Subtract",
+            "methods": [
+              "numOperands",
+              "doOperation",
+              "SubtractBigNbr",
+              "SubtractBigNbr32"
+            ],
+            "properties": []
+          }
+        ]
+      }
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/calculator/DefaultUI.java",
+      "target": "file:src/calculator/CalculatorUI.java",
+      "relation": "implements"
+    },
+    {
+      "source": "file:src/calculator/DefaultUI.java",
+      "target": "file:src/calculator/Calculator.java",
+      "relation": "uses"
+    },
+    {
+      "source": "file:src/calculator/DefaultUI.java",
+      "target": "file:src/calculator/NumericDocument.java",
+      "relation": "uses"
+    },
+    {
+      "source": "file:src/calculator/DefaultUI.java",
+      "target": "file:src/calculator/GUI.java",
+      "relation": "instantiated_by",
+      "crossBatch": 1
+    },
+    {
+      "source": "file:src/calculator/CalculatorUI.java",
+      "target": "file:src/calculator/GUI.java",
+      "relation": "instantiated_by",
+      "crossBatch": 1
+    },
+    {
+      "source": "file:src/calculator/largemodel/ChangeSigns.java",
+      "target": "file:src/calculator/EncodedOperation.java",
+      "relation": "implements",
+      "crossBatch": 1
+    },
+    {
+      "source": "file:src/calculator/largemodel/Remainder.java",
+      "target": "file:src/calculator/EncodedOperation.java",
+      "relation": "implements",
+      "crossBatch": 1
+    },
+    {
+      "source": "file:src/calculator/largemodel/Subtract.java",
+      "target": "file:src/calculator/EncodedOperation.java",
+      "relation": "implements",
+      "crossBatch": 1
+    },
+    {
+      "source": "file:src/calculator/largemodel/CalculatorImpl.java",
+      "target": "file:src/calculator/largemodel/ChangeSigns.java",
+      "relation": "instantiates",
+      "crossBatch": 2
+    },
+    {
+      "source": "file:src/calculator/largemodel/CalculatorImpl.java",
+      "target": "file:src/calculator/largemodel/Remainder.java",
+      "relation": "instantiates",
+      "crossBatch": 2
+    },
+    {
+      "source": "file:src/calculator/largemodel/CalculatorImpl.java",
+      "target": "file:src/calculator/largemodel/Subtract.java",
+      "relation": "instantiates",
+      "crossBatch": 2
+    }
+  ]
+}

@@ -1,0 +1,1203 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/calculator/GUI.java",
+      "type": "file:code",
+      "label": "src/calculator/GUI.java",
+      "language": "java"
+    },
+    {
+      "id": "file:src/calculator/javamodel/CalculatorImpl.java",
+      "type": "file:code",
+      "label": "src/calculator/javamodel/CalculatorImpl.java",
+      "language": "java"
+    },
+    {
+      "id": "file:src/calculator/javamodel/Push.java",
+      "type": "file:code",
+      "label": "src/calculator/javamodel/Push.java",
+      "language": "java"
+    },
+    {
+      "id": "file:src/calculator/javamodel/Pop.java",
+      "type": "file:code",
+      "label": "src/calculator/javamodel/Pop.java",
+      "language": "java"
+    },
+    {
+      "id": "file:src/calculator/javamodel/Add.java",
+      "type": "file:code",
+      "label": "src/calculator/javamodel/Add.java",
+      "language": "java"
+    },
+    {
+      "id": "file:src/calculator/javamodel/Subtract.java",
+      "type": "file:code",
+      "label": "src/calculator/javamodel/Subtract.java",
+      "language": "java"
+    },
+    {
+      "id": "file:src/calculator/javamodel/Multiply.java",
+      "type": "file:code",
+      "label": "src/calculator/javamodel/Multiply.java",
+      "language": "java"
+    },
+    {
+      "id": "file:src/calculator/javamodel/Divide.java",
+      "type": "file:code",
+      "label": "src/calculator/javamodel/Divide.java",
+      "language": "java"
+    },
+    {
+      "id": "file:src/calculator/javamodel/Power.java",
+      "type": "file:code",
+      "label": "src/calculator/javamodel/Power.java",
+      "language": "java"
+    },
+    {
+      "id": "file:src/calculator/javamodel/Remainder.java",
+      "type": "file:code",
+      "label": "src/calculator/javamodel/Remainder.java",
+      "language": "java"
+    },
+    {
+      "id": "file:src/calculator/javamodel/ChangeSigns.java",
+      "type": "file:code",
+      "label": "src/calculator/javamodel/ChangeSigns.java",
+      "language": "java"
+    },
+    {
+      "id": "file:src/calculator/javamodel/ClearStack.java",
+      "type": "file:code",
+      "label": "src/calculator/javamodel/ClearStack.java",
+      "language": "java"
+    },
+    {
+      "id": "file:src/calculator/javamodel/RotateDown.java",
+      "type": "file:code",
+      "label": "src/calculator/javamodel/RotateDown.java",
+      "language": "java"
+    },
+    {
+      "id": "file:src/calculator/javamodel/RotateUp.java",
+      "type": "file:code",
+      "label": "src/calculator/javamodel/RotateUp.java",
+      "language": "java"
+    },
+    {
+      "id": "file:src/calculator/javamodel/TwoToPower.java",
+      "type": "file:code",
+      "label": "src/calculator/javamodel/TwoToPower.java",
+      "language": "java"
+    },
+    {
+      "id": "file:src/calculator/javamodel/TenToPower.java",
+      "type": "file:code",
+      "label": "src/calculator/javamodel/TenToPower.java",
+      "language": "java"
+    },
+    {
+      "id": "file:src/calculator/largemodel/CalculatorImpl.java",
+      "type": "file:code",
+      "label": "src/calculator/largemodel/CalculatorImpl.java",
+      "language": "java"
+    },
+    {
+      "id": "file:src/calculator/largemodel/Push.java",
+      "type": "file:code",
+      "label": "src/calculator/largemodel/Push.java",
+      "language": "java"
+    },
+    {
+      "id": "file:src/calculator/largemodel/Add.java",
+      "type": "file:code",
+      "label": "src/calculator/largemodel/Add.java",
+      "language": "java"
+    },
+    {
+      "id": "file:src/calculator/largemodel/Multiply.java",
+      "type": "file:code",
+      "label": "src/calculator/largemodel/Multiply.java",
+      "language": "java"
+    },
+    {
+      "id": "file:src/calculator/largemodel/Power.java",
+      "type": "file:code",
+      "label": "src/calculator/largemodel/Power.java",
+      "language": "java"
+    },
+    {
+      "id": "class:GUI@src/calculator/GUI.java",
+      "type": "class",
+      "label": "GUI",
+      "startLine": 49,
+      "endLine": 138
+    },
+    {
+      "id": "class:CalculatorImpl@src/calculator/javamodel/CalculatorImpl.java",
+      "type": "class",
+      "label": "CalculatorImpl",
+      "startLine": 27,
+      "endLine": 198
+    },
+    {
+      "id": "class:Push@src/calculator/javamodel/Push.java",
+      "type": "class",
+      "label": "Push",
+      "startLine": 19,
+      "endLine": 27
+    },
+    {
+      "id": "class:Pop@src/calculator/javamodel/Pop.java",
+      "type": "class",
+      "label": "Pop",
+      "startLine": 18,
+      "endLine": 28
+    },
+    {
+      "id": "class:Add@src/calculator/javamodel/Add.java",
+      "type": "class",
+      "label": "Add",
+      "startLine": 18,
+      "endLine": 40
+    },
+    {
+      "id": "class:Subtract@src/calculator/javamodel/Subtract.java",
+      "type": "class",
+      "label": "Subtract",
+      "startLine": 18,
+      "endLine": 38
+    },
+    {
+      "id": "class:Multiply@src/calculator/javamodel/Multiply.java",
+      "type": "class",
+      "label": "Multiply",
+      "startLine": 18,
+      "endLine": 38
+    },
+    {
+      "id": "class:Divide@src/calculator/javamodel/Divide.java",
+      "type": "class",
+      "label": "Divide",
+      "startLine": 18,
+      "endLine": 40
+    },
+    {
+      "id": "class:Power@src/calculator/javamodel/Power.java",
+      "type": "class",
+      "label": "Power",
+      "startLine": 18,
+      "endLine": 41
+    },
+    {
+      "id": "class:Remainder@src/calculator/javamodel/Remainder.java",
+      "type": "class",
+      "label": "Remainder",
+      "startLine": 18,
+      "endLine": 40
+    },
+    {
+      "id": "class:ChangeSigns@src/calculator/javamodel/ChangeSigns.java",
+      "type": "class",
+      "label": "ChangeSigns",
+      "startLine": 18,
+      "endLine": 38
+    },
+    {
+      "id": "class:ClearStack@src/calculator/javamodel/ClearStack.java",
+      "type": "class",
+      "label": "ClearStack",
+      "startLine": 18,
+      "endLine": 28
+    },
+    {
+      "id": "class:RotateDown@src/calculator/javamodel/RotateDown.java",
+      "type": "class",
+      "label": "RotateDown",
+      "startLine": 19,
+      "endLine": 27
+    },
+    {
+      "id": "class:RotateUp@src/calculator/javamodel/RotateUp.java",
+      "type": "class",
+      "label": "RotateUp",
+      "startLine": 19,
+      "endLine": 27
+    },
+    {
+      "id": "class:TwoToPower@src/calculator/javamodel/TwoToPower.java",
+      "type": "class",
+      "label": "TwoToPower",
+      "startLine": 18,
+      "endLine": 43
+    },
+    {
+      "id": "class:TenToPower@src/calculator/javamodel/TenToPower.java",
+      "type": "class",
+      "label": "TenToPower",
+      "startLine": 18,
+      "endLine": 40
+    },
+    {
+      "id": "class:CalculatorImpl@src/calculator/largemodel/CalculatorImpl.java",
+      "type": "class",
+      "label": "CalculatorImpl",
+      "startLine": 28,
+      "endLine": 232
+    },
+    {
+      "id": "class:Push@src/calculator/largemodel/Push.java",
+      "type": "class",
+      "label": "Push",
+      "startLine": 18,
+      "endLine": 27
+    },
+    {
+      "id": "class:Add@src/calculator/largemodel/Add.java",
+      "type": "class",
+      "label": "Add",
+      "startLine": 19,
+      "endLine": 58
+    },
+    {
+      "id": "class:Multiply@src/calculator/largemodel/Multiply.java",
+      "type": "class",
+      "label": "Multiply",
+      "startLine": 19,
+      "endLine": 64
+    },
+    {
+      "id": "class:Power@src/calculator/largemodel/Power.java",
+      "type": "class",
+      "label": "Power",
+      "startLine": 18,
+      "endLine": 42
+    },
+    {
+      "id": "function:setup@src/calculator/GUI.java",
+      "type": "function",
+      "label": "setup",
+      "startLine": 84,
+      "endLine": 105
+    },
+    {
+      "id": "function:doOperation@src/calculator/javamodel/CalculatorImpl.java",
+      "type": "function",
+      "label": "doOperation",
+      "startLine": 97,
+      "endLine": 121
+    },
+    {
+      "id": "function:doEncodedOperation@src/calculator/javamodel/CalculatorImpl.java",
+      "type": "function",
+      "label": "doEncodedOperation",
+      "startLine": 145,
+      "endLine": 164
+    },
+    {
+      "id": "function:doStackOperation@src/calculator/javamodel/CalculatorImpl.java",
+      "type": "function",
+      "label": "doStackOperation",
+      "startLine": 175,
+      "endLine": 189
+    },
+    {
+      "id": "function:changeBase@src/calculator/javamodel/CalculatorImpl.java",
+      "type": "function",
+      "label": "changeBase",
+      "startLine": 127,
+      "endLine": 135
+    },
+    {
+      "id": "function:doOperation@src/calculator/largemodel/CalculatorImpl.java",
+      "type": "function",
+      "label": "doOperation",
+      "startLine": 121,
+      "endLine": 145
+    },
+    {
+      "id": "function:doEncodedOperation@src/calculator/largemodel/CalculatorImpl.java",
+      "type": "function",
+      "label": "doEncodedOperation",
+      "startLine": 171,
+      "endLine": 188
+    },
+    {
+      "id": "function:doStackOperation@src/calculator/largemodel/CalculatorImpl.java",
+      "type": "function",
+      "label": "doStackOperation",
+      "startLine": 199,
+      "endLine": 217
+    },
+    {
+      "id": "function:changeBase@src/calculator/largemodel/CalculatorImpl.java",
+      "type": "function",
+      "label": "changeBase",
+      "startLine": 151,
+      "endLine": 161
+    },
+    {
+      "id": "function:AddBigNbr@src/calculator/largemodel/Add.java",
+      "type": "function",
+      "label": "AddBigNbr",
+      "startLine": 42,
+      "endLine": 48
+    },
+    {
+      "id": "function:AddBigNbr32@src/calculator/largemodel/Add.java",
+      "type": "function",
+      "label": "AddBigNbr32",
+      "startLine": 50,
+      "endLine": 57
+    },
+    {
+      "id": "function:MultBigNbr@src/calculator/largemodel/Multiply.java",
+      "type": "function",
+      "label": "MultBigNbr",
+      "startLine": 50,
+      "endLine": 63
+    }
+  ],
+  "edges": [
+    {
+      "from": "file:src/calculator/GUI.java",
+      "to": "file:src/calculator/BaseListener.java",
+      "type": "imports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/calculator/GUI.java",
+      "to": "file:src/calculator/ButtonAction.java",
+      "type": "imports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/calculator/GUI.java",
+      "to": "file:src/calculator/CalculatorUI.java",
+      "type": "imports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/calculator/GUI.java",
+      "to": "file:src/calculator/ConvertBase.java",
+      "type": "imports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/calculator/GUI.java",
+      "to": "file:src/calculator/DefaultUI.java",
+      "type": "imports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/calculator/GUI.java",
+      "to": "file:src/calculator/Deque.java",
+      "type": "imports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/calculator/GUI.java",
+      "to": "file:src/calculator/EmptyDequeException.java",
+      "type": "imports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/calculator/GUI.java",
+      "to": "file:src/calculator/EndAction.java",
+      "type": "imports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/calculator/GUI.java",
+      "to": "file:src/calculator/HomeAction.java",
+      "type": "imports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/calculator/GUI.java",
+      "to": "file:src/calculator/NumericDocument.java",
+      "type": "imports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/calculator/GUI.java",
+      "to": "file:src/calculator/SelectAllAction.java",
+      "type": "imports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/calculator/GUI.java",
+      "to": "file:src/calculator/SetSticky.java",
+      "type": "imports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/calculator/GUI.java",
+      "to": "file:src/calculator/TextButtonAction.java",
+      "type": "imports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/calculator/GUI.java",
+      "to": "file:src/calculator/javamodel/CalculatorImpl.java",
+      "type": "imports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/calculator/GUI.java",
+      "to": "file:src/calculator/javamodel/Add.java",
+      "type": "imports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/calculator/GUI.java",
+      "to": "file:src/calculator/javamodel/ChangeSigns.java",
+      "type": "imports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/calculator/GUI.java",
+      "to": "file:src/calculator/javamodel/ClearStack.java",
+      "type": "imports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/calculator/GUI.java",
+      "to": "file:src/calculator/javamodel/Divide.java",
+      "type": "imports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/calculator/GUI.java",
+      "to": "file:src/calculator/javamodel/Multiply.java",
+      "type": "imports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/calculator/GUI.java",
+      "to": "file:src/calculator/javamodel/Pop.java",
+      "type": "imports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/calculator/GUI.java",
+      "to": "file:src/calculator/javamodel/Power.java",
+      "type": "imports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/calculator/GUI.java",
+      "to": "file:src/calculator/javamodel/Push.java",
+      "type": "imports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/calculator/GUI.java",
+      "to": "file:src/calculator/javamodel/Remainder.java",
+      "type": "imports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/calculator/GUI.java",
+      "to": "file:src/calculator/javamodel/RotateDown.java",
+      "type": "imports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/calculator/GUI.java",
+      "to": "file:src/calculator/javamodel/RotateUp.java",
+      "type": "imports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/calculator/GUI.java",
+      "to": "file:src/calculator/javamodel/Subtract.java",
+      "type": "imports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/calculator/GUI.java",
+      "to": "file:src/calculator/javamodel/TenToPower.java",
+      "type": "imports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/calculator/GUI.java",
+      "to": "file:src/calculator/javamodel/TwoToPower.java",
+      "type": "imports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/calculator/GUI.java",
+      "to": "file:src/calculator/largemodel/CalculatorImpl.java",
+      "type": "imports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/calculator/GUI.java",
+      "to": "file:src/calculator/largemodel/Add.java",
+      "type": "imports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/calculator/GUI.java",
+      "to": "file:src/calculator/largemodel/Divide.java",
+      "type": "imports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/calculator/GUI.java",
+      "to": "file:src/calculator/largemodel/Multiply.java",
+      "type": "imports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/calculator/GUI.java",
+      "to": "file:src/calculator/largemodel/Power.java",
+      "type": "imports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/calculator/GUI.java",
+      "to": "file:src/calculator/largemodel/Push.java",
+      "type": "imports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/calculator/GUI.java",
+      "to": "file:src/calculator/largemodel/Remainder.java",
+      "type": "imports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/calculator/GUI.java",
+      "to": "file:src/calculator/largemodel/Subtract.java",
+      "type": "imports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/calculator/GUI.java",
+      "to": "class:GUI@src/calculator/GUI.java",
+      "type": "contains",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/calculator/javamodel/CalculatorImpl.java",
+      "to": "class:CalculatorImpl@src/calculator/javamodel/CalculatorImpl.java",
+      "type": "contains",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/calculator/javamodel/Push.java",
+      "to": "class:Push@src/calculator/javamodel/Push.java",
+      "type": "contains",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/calculator/javamodel/Pop.java",
+      "to": "class:Pop@src/calculator/javamodel/Pop.java",
+      "type": "contains",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/calculator/javamodel/Add.java",
+      "to": "class:Add@src/calculator/javamodel/Add.java",
+      "type": "contains",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/calculator/javamodel/Subtract.java",
+      "to": "class:Subtract@src/calculator/javamodel/Subtract.java",
+      "type": "contains",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/calculator/javamodel/Multiply.java",
+      "to": "class:Multiply@src/calculator/javamodel/Multiply.java",
+      "type": "contains",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/calculator/javamodel/Divide.java",
+      "to": "class:Divide@src/calculator/javamodel/Divide.java",
+      "type": "contains",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/calculator/javamodel/Power.java",
+      "to": "class:Power@src/calculator/javamodel/Power.java",
+      "type": "contains",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/calculator/javamodel/Remainder.java",
+      "to": "class:Remainder@src/calculator/javamodel/Remainder.java",
+      "type": "contains",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/calculator/javamodel/ChangeSigns.java",
+      "to": "class:ChangeSigns@src/calculator/javamodel/ChangeSigns.java",
+      "type": "contains",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/calculator/javamodel/ClearStack.java",
+      "to": "class:ClearStack@src/calculator/javamodel/ClearStack.java",
+      "type": "contains",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/calculator/javamodel/RotateDown.java",
+      "to": "class:RotateDown@src/calculator/javamodel/RotateDown.java",
+      "type": "contains",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/calculator/javamodel/RotateUp.java",
+      "to": "class:RotateUp@src/calculator/javamodel/RotateUp.java",
+      "type": "contains",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/calculator/javamodel/TwoToPower.java",
+      "to": "class:TwoToPower@src/calculator/javamodel/TwoToPower.java",
+      "type": "contains",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/calculator/javamodel/TenToPower.java",
+      "to": "class:TenToPower@src/calculator/javamodel/TenToPower.java",
+      "type": "contains",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/calculator/largemodel/CalculatorImpl.java",
+      "to": "class:CalculatorImpl@src/calculator/largemodel/CalculatorImpl.java",
+      "type": "contains",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/calculator/largemodel/Push.java",
+      "to": "class:Push@src/calculator/largemodel/Push.java",
+      "type": "contains",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/calculator/largemodel/Add.java",
+      "to": "class:Add@src/calculator/largemodel/Add.java",
+      "type": "contains",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/calculator/largemodel/Multiply.java",
+      "to": "class:Multiply@src/calculator/largemodel/Multiply.java",
+      "type": "contains",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/calculator/largemodel/Power.java",
+      "to": "class:Power@src/calculator/largemodel/Power.java",
+      "type": "contains",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:GUI@src/calculator/GUI.java",
+      "to": "function:setup@src/calculator/GUI.java",
+      "type": "contains",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:CalculatorImpl@src/calculator/javamodel/CalculatorImpl.java",
+      "to": "function:doOperation@src/calculator/javamodel/CalculatorImpl.java",
+      "type": "contains",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:CalculatorImpl@src/calculator/javamodel/CalculatorImpl.java",
+      "to": "function:doEncodedOperation@src/calculator/javamodel/CalculatorImpl.java",
+      "type": "contains",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:CalculatorImpl@src/calculator/javamodel/CalculatorImpl.java",
+      "to": "function:doStackOperation@src/calculator/javamodel/CalculatorImpl.java",
+      "type": "contains",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:CalculatorImpl@src/calculator/javamodel/CalculatorImpl.java",
+      "to": "function:changeBase@src/calculator/javamodel/CalculatorImpl.java",
+      "type": "contains",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:CalculatorImpl@src/calculator/largemodel/CalculatorImpl.java",
+      "to": "function:doOperation@src/calculator/largemodel/CalculatorImpl.java",
+      "type": "contains",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:CalculatorImpl@src/calculator/largemodel/CalculatorImpl.java",
+      "to": "function:doEncodedOperation@src/calculator/largemodel/CalculatorImpl.java",
+      "type": "contains",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:CalculatorImpl@src/calculator/largemodel/CalculatorImpl.java",
+      "to": "function:doStackOperation@src/calculator/largemodel/CalculatorImpl.java",
+      "type": "contains",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:CalculatorImpl@src/calculator/largemodel/CalculatorImpl.java",
+      "to": "function:changeBase@src/calculator/largemodel/CalculatorImpl.java",
+      "type": "contains",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:Add@src/calculator/largemodel/Add.java",
+      "to": "function:AddBigNbr@src/calculator/largemodel/Add.java",
+      "type": "contains",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:Add@src/calculator/largemodel/Add.java",
+      "to": "function:AddBigNbr32@src/calculator/largemodel/Add.java",
+      "type": "contains",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:Multiply@src/calculator/largemodel/Multiply.java",
+      "to": "function:MultBigNbr@src/calculator/largemodel/Multiply.java",
+      "type": "contains",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:GUI@src/calculator/GUI.java",
+      "to": "function:setup@src/calculator/GUI.java",
+      "type": "exports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:CalculatorImpl@src/calculator/javamodel/CalculatorImpl.java",
+      "to": "function:doOperation@src/calculator/javamodel/CalculatorImpl.java",
+      "type": "exports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:CalculatorImpl@src/calculator/javamodel/CalculatorImpl.java",
+      "to": "function:doEncodedOperation@src/calculator/javamodel/CalculatorImpl.java",
+      "type": "exports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:CalculatorImpl@src/calculator/javamodel/CalculatorImpl.java",
+      "to": "function:doStackOperation@src/calculator/javamodel/CalculatorImpl.java",
+      "type": "exports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:CalculatorImpl@src/calculator/javamodel/CalculatorImpl.java",
+      "to": "function:changeBase@src/calculator/javamodel/CalculatorImpl.java",
+      "type": "exports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:CalculatorImpl@src/calculator/largemodel/CalculatorImpl.java",
+      "to": "function:doOperation@src/calculator/largemodel/CalculatorImpl.java",
+      "type": "exports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:CalculatorImpl@src/calculator/largemodel/CalculatorImpl.java",
+      "to": "function:doEncodedOperation@src/calculator/largemodel/CalculatorImpl.java",
+      "type": "exports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:CalculatorImpl@src/calculator/largemodel/CalculatorImpl.java",
+      "to": "function:doStackOperation@src/calculator/largemodel/CalculatorImpl.java",
+      "type": "exports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:CalculatorImpl@src/calculator/largemodel/CalculatorImpl.java",
+      "to": "function:changeBase@src/calculator/largemodel/CalculatorImpl.java",
+      "type": "exports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "function:doOperation@src/calculator/javamodel/CalculatorImpl.java",
+      "to": "function:changeBase@src/calculator/javamodel/CalculatorImpl.java",
+      "type": "calls",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "function:doOperation@src/calculator/javamodel/CalculatorImpl.java",
+      "to": "function:doEncodedOperation@src/calculator/javamodel/CalculatorImpl.java",
+      "type": "calls",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "function:doOperation@src/calculator/javamodel/CalculatorImpl.java",
+      "to": "function:doStackOperation@src/calculator/javamodel/CalculatorImpl.java",
+      "type": "calls",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "function:doOperation@src/calculator/largemodel/CalculatorImpl.java",
+      "to": "function:changeBase@src/calculator/largemodel/CalculatorImpl.java",
+      "type": "calls",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "function:doOperation@src/calculator/largemodel/CalculatorImpl.java",
+      "to": "function:doEncodedOperation@src/calculator/largemodel/CalculatorImpl.java",
+      "type": "calls",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "function:doOperation@src/calculator/largemodel/CalculatorImpl.java",
+      "to": "function:doStackOperation@src/calculator/largemodel/CalculatorImpl.java",
+      "type": "calls",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/calculator/GUI.java",
+      "to": "class:GUI@src/calculator/GUI.java",
+      "type": "exports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/calculator/javamodel/CalculatorImpl.java",
+      "to": "class:CalculatorImpl@src/calculator/javamodel/CalculatorImpl.java",
+      "type": "exports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/calculator/javamodel/Push.java",
+      "to": "class:Push@src/calculator/javamodel/Push.java",
+      "type": "exports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/calculator/javamodel/Pop.java",
+      "to": "class:Pop@src/calculator/javamodel/Pop.java",
+      "type": "exports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/calculator/javamodel/Add.java",
+      "to": "class:Add@src/calculator/javamodel/Add.java",
+      "type": "exports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/calculator/javamodel/Subtract.java",
+      "to": "class:Subtract@src/calculator/javamodel/Subtract.java",
+      "type": "exports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/calculator/javamodel/Multiply.java",
+      "to": "class:Multiply@src/calculator/javamodel/Multiply.java",
+      "type": "exports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/calculator/javamodel/Divide.java",
+      "to": "class:Divide@src/calculator/javamodel/Divide.java",
+      "type": "exports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/calculator/javamodel/Power.java",
+      "to": "class:Power@src/calculator/javamodel/Power.java",
+      "type": "exports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/calculator/javamodel/Remainder.java",
+      "to": "class:Remainder@src/calculator/javamodel/Remainder.java",
+      "type": "exports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/calculator/javamodel/ChangeSigns.java",
+      "to": "class:ChangeSigns@src/calculator/javamodel/ChangeSigns.java",
+      "type": "exports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/calculator/javamodel/ClearStack.java",
+      "to": "class:ClearStack@src/calculator/javamodel/ClearStack.java",
+      "type": "exports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/calculator/javamodel/RotateDown.java",
+      "to": "class:RotateDown@src/calculator/javamodel/RotateDown.java",
+      "type": "exports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/calculator/javamodel/RotateUp.java",
+      "to": "class:RotateUp@src/calculator/javamodel/RotateUp.java",
+      "type": "exports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/calculator/javamodel/TwoToPower.java",
+      "to": "class:TwoToPower@src/calculator/javamodel/TwoToPower.java",
+      "type": "exports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/calculator/javamodel/TenToPower.java",
+      "to": "class:TenToPower@src/calculator/javamodel/TenToPower.java",
+      "type": "exports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/calculator/largemodel/CalculatorImpl.java",
+      "to": "class:CalculatorImpl@src/calculator/largemodel/CalculatorImpl.java",
+      "type": "exports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/calculator/largemodel/Push.java",
+      "to": "class:Push@src/calculator/largemodel/Push.java",
+      "type": "exports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/calculator/largemodel/Add.java",
+      "to": "class:Add@src/calculator/largemodel/Add.java",
+      "type": "exports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/calculator/largemodel/Multiply.java",
+      "to": "class:Multiply@src/calculator/largemodel/Multiply.java",
+      "type": "exports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/calculator/largemodel/Power.java",
+      "to": "class:Power@src/calculator/largemodel/Power.java",
+      "type": "exports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    }
+  ]
+}

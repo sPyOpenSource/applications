@@ -1,0 +1,543 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 25,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "src/Factorzations/GUI.java",
+      "language": "java",
+      "totalLines": 718,
+      "nonEmptyLines": 641,
+      "functions": [
+        {
+          "name": "GUI",
+          "startLine": 48,
+          "endLine": 50,
+          "params": []
+        },
+        {
+          "name": "initComponents",
+          "startLine": 57,
+          "endLine": 405,
+          "params": []
+        },
+        {
+          "name": "bigNumberActionPerformed",
+          "startLine": 407,
+          "endLine": 409,
+          "params": [
+            "evt"
+          ]
+        },
+        {
+          "name": "FactorActionPerformed",
+          "startLine": 411,
+          "endLine": 464,
+          "params": [
+            "evt"
+          ]
+        },
+        {
+          "name": "Checks",
+          "startLine": 466,
+          "endLine": 493,
+          "params": [
+            "N",
+            "i"
+          ]
+        },
+        {
+          "name": "ClearActionPerformed",
+          "startLine": 495,
+          "endLine": 499,
+          "params": [
+            "evt"
+          ]
+        },
+        {
+          "name": "UpActionPerformed",
+          "startLine": 501,
+          "endLine": 508,
+          "params": [
+            "evt"
+          ]
+        },
+        {
+          "name": "DownActionPerformed",
+          "startLine": 510,
+          "endLine": 517,
+          "params": [
+            "evt"
+          ]
+        },
+        {
+          "name": "RemActionPerformed",
+          "startLine": 519,
+          "endLine": 522,
+          "params": [
+            "evt"
+          ]
+        },
+        {
+          "name": "jButton10ActionPerformed",
+          "startLine": 524,
+          "endLine": 529,
+          "params": [
+            "evt"
+          ]
+        },
+        {
+          "name": "jButton11ActionPerformed",
+          "startLine": 531,
+          "endLine": 536,
+          "params": [
+            "evt"
+          ]
+        },
+        {
+          "name": "DivideActionPerformed",
+          "startLine": 538,
+          "endLine": 541,
+          "params": [
+            "evt"
+          ]
+        },
+        {
+          "name": "jButton4ActionPerformed",
+          "startLine": 543,
+          "endLine": 546,
+          "params": [
+            "evt"
+          ]
+        },
+        {
+          "name": "jButton8ActionPerformed",
+          "startLine": 548,
+          "endLine": 551,
+          "params": [
+            "evt"
+          ]
+        },
+        {
+          "name": "jButton9ActionPerformed",
+          "startLine": 553,
+          "endLine": 556,
+          "params": [
+            "evt"
+          ]
+        },
+        {
+          "name": "jButton6ActionPerformed",
+          "startLine": 558,
+          "endLine": 561,
+          "params": [
+            "evt"
+          ]
+        },
+        {
+          "name": "jButton3ActionPerformed",
+          "startLine": 563,
+          "endLine": 566,
+          "params": [
+            "evt"
+          ]
+        },
+        {
+          "name": "MultiplyActionPerformed",
+          "startLine": 568,
+          "endLine": 571,
+          "params": [
+            "evt"
+          ]
+        },
+        {
+          "name": "SubActionPerformed",
+          "startLine": 573,
+          "endLine": 576,
+          "params": [
+            "evt"
+          ]
+        },
+        {
+          "name": "AddActionPerformed",
+          "startLine": 578,
+          "endLine": 581,
+          "params": [
+            "evt"
+          ]
+        },
+        {
+          "name": "jButton0ActionPerformed",
+          "startLine": 583,
+          "endLine": 586,
+          "params": [
+            "evt"
+          ]
+        },
+        {
+          "name": "DeleteActionPerformed",
+          "startLine": 588,
+          "endLine": 590,
+          "params": [
+            "evt"
+          ]
+        },
+        {
+          "name": "EnterActionPerformed",
+          "startLine": 592,
+          "endLine": 607,
+          "params": [
+            "evt"
+          ]
+        },
+        {
+          "name": "jButton7ActionPerformed",
+          "startLine": 609,
+          "endLine": 612,
+          "params": [
+            "evt"
+          ]
+        },
+        {
+          "name": "jButton5ActionPerformed",
+          "startLine": 614,
+          "endLine": 617,
+          "params": [
+            "evt"
+          ]
+        },
+        {
+          "name": "jButton1ActionPerformed",
+          "startLine": 619,
+          "endLine": 622,
+          "params": [
+            "evt"
+          ]
+        },
+        {
+          "name": "jButton2ActionPerformed",
+          "startLine": 624,
+          "endLine": 627,
+          "params": [
+            "evt"
+          ]
+        },
+        {
+          "name": "PowerActionPerformed",
+          "startLine": 629,
+          "endLine": 632,
+          "params": [
+            "evt"
+          ]
+        },
+        {
+          "name": "SignActionPerformed",
+          "startLine": 634,
+          "endLine": 638,
+          "params": [
+            "evt"
+          ]
+        },
+        {
+          "name": "TotientActionPerformed",
+          "startLine": 640,
+          "endLine": 644,
+          "params": [
+            "evt"
+          ]
+        },
+        {
+          "name": "MobiusActionPerformed",
+          "startLine": 646,
+          "endLine": 650,
+          "params": [
+            "evt"
+          ]
+        },
+        {
+          "name": "SumActionPerformed",
+          "startLine": 652,
+          "endLine": 656,
+          "params": [
+            "evt"
+          ]
+        },
+        {
+          "name": "main",
+          "startLine": 661,
+          "endLine": 685,
+          "params": [
+            "args"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "GUI",
+          "startLine": 40,
+          "endLine": 718,
+          "methods": [
+            "GUI",
+            "initComponents",
+            "bigNumberActionPerformed",
+            "FactorActionPerformed",
+            "Checks",
+            "ClearActionPerformed",
+            "UpActionPerformed",
+            "DownActionPerformed",
+            "RemActionPerformed",
+            "jButton10ActionPerformed",
+            "jButton11ActionPerformed",
+            "DivideActionPerformed",
+            "jButton4ActionPerformed",
+            "jButton8ActionPerformed",
+            "jButton9ActionPerformed",
+            "jButton6ActionPerformed",
+            "jButton3ActionPerformed",
+            "MultiplyActionPerformed",
+            "SubActionPerformed",
+            "AddActionPerformed",
+            "jButton0ActionPerformed",
+            "DeleteActionPerformed",
+            "EnterActionPerformed",
+            "jButton7ActionPerformed",
+            "jButton5ActionPerformed",
+            "jButton1ActionPerformed",
+            "jButton2ActionPerformed",
+            "PowerActionPerformed",
+            "SignActionPerformed",
+            "TotientActionPerformed",
+            "MobiusActionPerformed",
+            "SumActionPerformed",
+            "main"
+          ],
+          "properties": [
+            "theStack",
+            "op",
+            "N",
+            "Add",
+            "Clear",
+            "Delete",
+            "Divide",
+            "Down",
+            "Enter",
+            "Factor",
+            "Mobius",
+            "Multiply",
+            "Power",
+            "Rem",
+            "Sign",
+            "Sub",
+            "Sum",
+            "Totient",
+            "Up",
+            "bigNumber",
+            "jButton0",
+            "jButton1",
+            "jButton10",
+            "jButton11",
+            "jButton2",
+            "jButton3",
+            "jButton4",
+            "jButton5",
+            "jButton6",
+            "jButton7",
+            "jButton8",
+            "jButton9"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "GUI",
+          "line": 48,
+          "isDefault": false
+        },
+        {
+          "name": "main",
+          "line": 661,
+          "isDefault": false
+        },
+        {
+          "name": "GUI",
+          "line": 40,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 33,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/calculator/javamodel/Add.ctxt",
+      "language": "ctxt",
+      "totalLines": 10,
+      "nonEmptyLines": 10,
+      "metrics": {}
+    },
+    {
+      "path": "src/calculator/javamodel/CalculatorImpl.ctxt",
+      "language": "ctxt",
+      "totalLines": 25,
+      "nonEmptyLines": 25,
+      "metrics": {}
+    },
+    {
+      "path": "src/calculator/javamodel/ChangeSigns.ctxt",
+      "language": "ctxt",
+      "totalLines": 10,
+      "nonEmptyLines": 10,
+      "metrics": {}
+    },
+    {
+      "path": "src/calculator/javamodel/ClearStack.ctxt",
+      "language": "ctxt",
+      "totalLines": 7,
+      "nonEmptyLines": 7,
+      "metrics": {}
+    },
+    {
+      "path": "src/calculator/javamodel/Divide.ctxt",
+      "language": "ctxt",
+      "totalLines": 10,
+      "nonEmptyLines": 10,
+      "metrics": {}
+    },
+    {
+      "path": "src/calculator/javamodel/Multiply.ctxt",
+      "language": "ctxt",
+      "totalLines": 10,
+      "nonEmptyLines": 10,
+      "metrics": {}
+    },
+    {
+      "path": "src/calculator/javamodel/Pop.ctxt",
+      "language": "ctxt",
+      "totalLines": 7,
+      "nonEmptyLines": 7,
+      "metrics": {}
+    },
+    {
+      "path": "src/calculator/javamodel/Power.ctxt",
+      "language": "ctxt",
+      "totalLines": 10,
+      "nonEmptyLines": 10,
+      "metrics": {}
+    },
+    {
+      "path": "src/calculator/javamodel/Push.ctxt",
+      "language": "ctxt",
+      "totalLines": 7,
+      "nonEmptyLines": 7,
+      "metrics": {}
+    },
+    {
+      "path": "src/calculator/javamodel/Remainder.ctxt",
+      "language": "ctxt",
+      "totalLines": 10,
+      "nonEmptyLines": 10,
+      "metrics": {}
+    },
+    {
+      "path": "src/calculator/javamodel/RotateDown.ctxt",
+      "language": "ctxt",
+      "totalLines": 7,
+      "nonEmptyLines": 7,
+      "metrics": {}
+    },
+    {
+      "path": "src/calculator/javamodel/RotateUp.ctxt",
+      "language": "ctxt",
+      "totalLines": 7,
+      "nonEmptyLines": 7,
+      "metrics": {}
+    },
+    {
+      "path": "src/calculator/javamodel/Subtract.ctxt",
+      "language": "ctxt",
+      "totalLines": 10,
+      "nonEmptyLines": 10,
+      "metrics": {}
+    },
+    {
+      "path": "src/calculator/javamodel/TenToPower.ctxt",
+      "language": "ctxt",
+      "totalLines": 10,
+      "nonEmptyLines": 10,
+      "metrics": {}
+    },
+    {
+      "path": "src/calculator/javamodel/TwoToPower.ctxt",
+      "language": "ctxt",
+      "totalLines": 10,
+      "nonEmptyLines": 10,
+      "metrics": {}
+    },
+    {
+      "path": "src/calculator/Calculator.ctxt",
+      "language": "ctxt",
+      "totalLines": 10,
+      "nonEmptyLines": 10,
+      "metrics": {}
+    },
+    {
+      "path": "src/calculator/CalculatorUI.ctxt",
+      "language": "ctxt",
+      "totalLines": 19,
+      "nonEmptyLines": 19,
+      "metrics": {}
+    },
+    {
+      "path": "src/calculator/ConvertBase.ctxt",
+      "language": "ctxt",
+      "totalLines": 13,
+      "nonEmptyLines": 13,
+      "metrics": {}
+    },
+    {
+      "path": "src/calculator/Deque.ctxt",
+      "language": "ctxt",
+      "totalLines": 31,
+      "nonEmptyLines": 31,
+      "metrics": {}
+    },
+    {
+      "path": "src/calculator/DefaultUI.ctxt",
+      "language": "ctxt",
+      "totalLines": 37,
+      "nonEmptyLines": 37,
+      "metrics": {}
+    },
+    {
+      "path": "src/calculator/EncodedOperation.ctxt",
+      "language": "ctxt",
+      "totalLines": 7,
+      "nonEmptyLines": 7,
+      "metrics": {}
+    },
+    {
+      "path": "src/calculator/EmptyDequeException.ctxt",
+      "language": "ctxt",
+      "totalLines": 4,
+      "nonEmptyLines": 4,
+      "metrics": {}
+    },
+    {
+      "path": "src/calculator/javamodel/package.bluej",
+      "language": "bluej",
+      "totalLines": 137,
+      "nonEmptyLines": 137,
+      "metrics": {}
+    },
+    {
+      "path": "src/calculator/package.bluej",
+      "language": "bluej",
+      "totalLines": 126,
+      "nonEmptyLines": 126,
+      "metrics": {}
+    }
+  ]
+}

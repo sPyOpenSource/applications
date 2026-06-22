@@ -1,0 +1,185 @@
+{
+  "nodes": [
+    {
+      "id": "document:src/calculator/README.TXT",
+      "type": "document",
+      "name": "README.TXT",
+      "filePath": "src/calculator/README.TXT",
+      "summary": "Source file: src/calculator/README.TXT",
+      "tags": [
+        "docs",
+        "txt"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/calculator/largemodel/Add.ctxt",
+      "type": "file",
+      "name": "Add.ctxt",
+      "filePath": "src/calculator/largemodel/Add.ctxt",
+      "summary": "Source file: src/calculator/largemodel/Add.ctxt",
+      "tags": [
+        "code",
+        "ctxt"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/calculator/largemodel/CalculatorImpl.ctxt",
+      "type": "file",
+      "name": "CalculatorImpl.ctxt",
+      "filePath": "src/calculator/largemodel/CalculatorImpl.ctxt",
+      "summary": "Source file: src/calculator/largemodel/CalculatorImpl.ctxt",
+      "tags": [
+        "code",
+        "ctxt"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/calculator/largemodel/ChangeSigns.ctxt",
+      "type": "file",
+      "name": "ChangeSigns.ctxt",
+      "filePath": "src/calculator/largemodel/ChangeSigns.ctxt",
+      "summary": "Source file: src/calculator/largemodel/ChangeSigns.ctxt",
+      "tags": [
+        "code",
+        "ctxt"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/calculator/largemodel/Divide.ctxt",
+      "type": "file",
+      "name": "Divide.ctxt",
+      "filePath": "src/calculator/largemodel/Divide.ctxt",
+      "summary": "Source file: src/calculator/largemodel/Divide.ctxt",
+      "tags": [
+        "code",
+        "ctxt"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/calculator/largemodel/Multiply.ctxt",
+      "type": "file",
+      "name": "Multiply.ctxt",
+      "filePath": "src/calculator/largemodel/Multiply.ctxt",
+      "summary": "Source file: src/calculator/largemodel/Multiply.ctxt",
+      "tags": [
+        "code",
+        "ctxt"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/calculator/largemodel/Power.ctxt",
+      "type": "file",
+      "name": "Power.ctxt",
+      "filePath": "src/calculator/largemodel/Power.ctxt",
+      "summary": "Source file: src/calculator/largemodel/Power.ctxt",
+      "tags": [
+        "code",
+        "ctxt"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/calculator/largemodel/Push.ctxt",
+      "type": "file",
+      "name": "Push.ctxt",
+      "filePath": "src/calculator/largemodel/Push.ctxt",
+      "summary": "Source file: src/calculator/largemodel/Push.ctxt",
+      "tags": [
+        "code",
+        "ctxt"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/calculator/largemodel/Remainder.ctxt",
+      "type": "file",
+      "name": "Remainder.ctxt",
+      "filePath": "src/calculator/largemodel/Remainder.ctxt",
+      "summary": "Source file: src/calculator/largemodel/Remainder.ctxt",
+      "tags": [
+        "code",
+        "ctxt"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/calculator/largemodel/Subtract.ctxt",
+      "type": "file",
+      "name": "Subtract.ctxt",
+      "filePath": "src/calculator/largemodel/Subtract.ctxt",
+      "summary": "Source file: src/calculator/largemodel/Subtract.ctxt",
+      "tags": [
+        "code",
+        "ctxt"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:src/calculator/largemodel/README.TXT",
+      "type": "document",
+      "name": "README.TXT",
+      "filePath": "src/calculator/largemodel/README.TXT",
+      "summary": "Source file: src/calculator/largemodel/README.TXT",
+      "tags": [
+        "docs",
+        "txt"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/calculator/largemodel/package.bluej",
+      "type": "file",
+      "name": "package.bluej",
+      "filePath": "src/calculator/largemodel/package.bluej",
+      "summary": "Source file: src/calculator/largemodel/package.bluej",
+      "tags": [
+        "code",
+        "bluej"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/calculator/NumericDocument.ctxt",
+      "type": "file",
+      "name": "NumericDocument.ctxt",
+      "filePath": "src/calculator/NumericDocument.ctxt",
+      "summary": "Source file: src/calculator/NumericDocument.ctxt",
+      "tags": [
+        "code",
+        "ctxt"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/calculator/Operation.ctxt",
+      "type": "file",
+      "name": "Operation.ctxt",
+      "filePath": "src/calculator/Operation.ctxt",
+      "summary": "Source file: src/calculator/Operation.ctxt",
+      "tags": [
+        "code",
+        "ctxt"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/calculator/GUI.ctxt",
+      "type": "file",
+      "name": "GUI.ctxt",
+      "filePath": "src/calculator/GUI.ctxt",
+      "summary": "Source file: src/calculator/GUI.ctxt",
+      "tags": [
+        "code",
+        "ctxt"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": []
+}

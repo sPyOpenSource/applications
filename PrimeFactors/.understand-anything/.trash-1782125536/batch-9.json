@@ -1,0 +1,803 @@
+{
+  "batch": 9,
+  "nodes": [
+    {
+      "id": "file:src/ecm/PrimeTest/LucasLehmer.ctxt",
+      "type": "config",
+      "labels": [
+        "config",
+        "bluej",
+        "class-context"
+      ],
+      "language": "ctxt",
+      "fileName": "LucasLehmer.ctxt",
+      "filePath": "src/ecm/PrimeTest/LucasLehmer.ctxt",
+      "summary": "BlueJ class context descriptor for LucasLehmer. Defines Javadoc comments for the LucasLehmer class, main method, constructor, run, and isPrime methods. Contains 5 comment entries.",
+      "extraction": {
+        "totalLines": 12,
+        "nonEmptyLines": 12,
+        "metrics": {}
+      }
+    },
+    {
+      "id": "file:src/ecm/PrimeTest/LucasLehmer.java",
+      "type": "code",
+      "labels": [
+        "code",
+        "java",
+        "primality-test",
+        "mersenne",
+        "lucas-lehmer"
+      ],
+      "language": "java",
+      "fileName": "LucasLehmer.java",
+      "filePath": "src/ecm/PrimeTest/LucasLehmer.java",
+      "summary": "Lucas-Lehmer primality test for Mersenne numbers (2^p-1) with a Swing GUI progress bar. Contains LucasLehmer class (main, constructor, run, isPrime) and a package-private PrimeThread class that wraps BigInteger.isProbablePrime for comparison. Uses a Zeef sieve to get small primes and runs tests in a thread pool.",
+      "tags": [
+        "lucas-lehmer",
+        "mersenne",
+        "primality-test",
+        "swing",
+        "thread-pool"
+      ],
+      "classCount": 2,
+      "functionCount": 6,
+      "classes": [
+        "LucasLehmer",
+        "PrimeThread"
+      ],
+      "functions": [
+        "main",
+        "LucasLehmer",
+        "run",
+        "isPrime",
+        "PrimeThread",
+        "run"
+      ],
+      "dependencies": [
+        "src/utilities/Zeef.java"
+      ],
+      "dependents": [],
+      "extraction": {
+        "totalLines": 147,
+        "nonEmptyLines": 133,
+        "metrics": {
+          "importCount": 0,
+          "exportCount": 6,
+          "functionCount": 6,
+          "classCount": 2
+        }
+      }
+    },
+    {
+      "id": "file:src/ecm/PrimeTest/package.bluej",
+      "type": "config",
+      "labels": [
+        "config",
+        "bluej",
+        "package-descriptor"
+      ],
+      "language": "bluej",
+      "fileName": "package.bluej",
+      "filePath": "src/ecm/PrimeTest/package.bluej",
+      "summary": "BlueJ package blueprint for the ecm.PrimeTest package. Lists classes (LucasLehmer, AprtCle, AprtCleFinal, AprtCleVariable) with their dependency descriptors, Java source/dependency file references, and BlueJ editor/strip state.",
+      "extraction": {
+        "totalLines": 54,
+        "nonEmptyLines": 54,
+        "metrics": {}
+      }
+    },
+    {
+      "id": "document:src/ecm/PrimeTest/README.TXT",
+      "type": "docs",
+      "labels": [
+        "docs",
+        "readme",
+        "primality-test"
+      ],
+      "language": "txt",
+      "fileName": "README.TXT",
+      "filePath": "src/ecm/PrimeTest/README.TXT",
+      "summary": "Documentation for the primality test package. Explains Lucas-Lehmer test for Mersenne numbers (2^p-1) and APR-CL (Adleman-Pomerance-Rumely-Cohen-Lenstra) general primality test using cyclotomic polynomials and modular arithmetic.",
+      "extraction": {
+        "totalLines": 10,
+        "nonEmptyLines": 8,
+        "metrics": {}
+      }
+    },
+    {
+      "id": "file:src/ecm/PrimeTest/AprtCle.ctxt",
+      "type": "config",
+      "labels": [
+        "config",
+        "bluej",
+        "class-context"
+      ],
+      "language": "ctxt",
+      "fileName": "AprtCle.ctxt",
+      "filePath": "src/ecm/PrimeTest/AprtCle.ctxt",
+      "summary": "BlueJ class context descriptor for AprtCle. Defines Javadoc comments for the AprtCle class, main method, and isProbablePrime method.",
+      "extraction": {
+        "totalLines": 8,
+        "nonEmptyLines": 8,
+        "metrics": {}
+      }
+    },
+    {
+      "id": "file:src/ecm/PrimeTest/AprtCle.java",
+      "type": "code",
+      "labels": [
+        "code",
+        "java",
+        "primality-test",
+        "apr-cl",
+        "acpt"
+      ],
+      "language": "java",
+      "fileName": "AprtCle.java",
+      "filePath": "src/ecm/PrimeTest/AprtCle.java",
+      "summary": "APR-CL (Adleman-Pomerance-Rumely-Cohen-Lenstra) primality test implementation. Extends AprtCleFinal. The main isProbablePrime method performs Jacobi sum computations, modular exponentiation, Montgomery multiplication, and exponent-level matching to determine primality. Supports multi-level trial factoring with quadratic bounds, falling back to Miller-Rabin (isProbablePrimeRobin) for numbers too large to test.",
+      "tags": [
+        "apr-cl",
+        "acpt",
+        "primality-test",
+        "jacobi-sum",
+        "montgomery-multiplication",
+        "cyclotomic"
+      ],
+      "classCount": 1,
+      "functionCount": 2,
+      "classes": [
+        "AprtCle"
+      ],
+      "functions": [
+        "main",
+        "isProbablePrime"
+      ],
+      "dependencies": [
+        "src/ecm/BigIntegers/GCD.java",
+        "src/ecm/BigIntegers/ModInv.java",
+        "src/ecm/Checks/LucasCheck.java",
+        "src/ecm/Checks/PowerCheck.java",
+        "src/ecm/Checks/PowerPM1Check.java",
+        "src/utilities/NTT.java",
+        "src/utilities/Zeef.java"
+      ],
+      "dependents": [
+        "src/Factorzations/GUI.java"
+      ],
+      "neighbors": [
+        {
+          "path": "src/Factorzations/GUI.java",
+          "batchIndex": 1
+        }
+      ],
+      "extraction": {
+        "totalLines": 314,
+        "nonEmptyLines": 301,
+        "metrics": {
+          "importCount": 7,
+          "exportCount": 3,
+          "functionCount": 2,
+          "classCount": 1
+        }
+      }
+    },
+    {
+      "id": "file:src/ecm/PrimeTest/AprtCleFinal.ctxt",
+      "type": "config",
+      "labels": [
+        "config",
+        "bluej",
+        "class-context"
+      ],
+      "language": "ctxt",
+      "fileName": "AprtCleFinal.ctxt",
+      "filePath": "src/ecm/PrimeTest/AprtCleFinal.ctxt",
+      "summary": "BlueJ class context descriptor for AprtCleFinal. Defines Javadoc comments for the AprtCleFinal class, Final method, and check method.",
+      "extraction": {
+        "totalLines": 8,
+        "nonEmptyLines": 8,
+        "metrics": {}
+      }
+    },
+    {
+      "id": "file:src/ecm/PrimeTest/AprtCleFinal.java",
+      "type": "code",
+      "labels": [
+        "code",
+        "java",
+        "primality-test",
+        "apr-cl-base"
+      ],
+      "language": "java",
+      "fileName": "AprtCleFinal.java",
+      "filePath": "src/ecm/PrimeTest/AprtCleFinal.java",
+      "summary": "Base class for APR-CL primality testing. Contains Final() which performs the final verification step: converting number to Montgomery form, computing N mod S iteratively with modular multiplication, checking for composite/prime conditions. Also contains check() which computes Jacobi sum normalization and matching for both odd primes (P != 2) and powers of 2 (P == 2, K=1,2,3+).",
+      "tags": [
+        "apr-cl",
+        "primality-test",
+        "montgomery-arithmetic",
+        "jacobi-sum",
+        "normalization"
+      ],
+      "classCount": 1,
+      "functionCount": 2,
+      "classes": [
+        "AprtCleFinal"
+      ],
+      "functions": [
+        "Final",
+        "check"
+      ],
+      "dependencies": [],
+      "dependents": [],
+      "extraction": {
+        "totalLines": 219,
+        "nonEmptyLines": 212,
+        "metrics": {
+          "importCount": 0,
+          "exportCount": 1,
+          "functionCount": 2,
+          "classCount": 1
+        }
+      }
+    },
+    {
+      "id": "file:src/ecm/PrimeTest/AprtCleVariable.ctxt",
+      "type": "config",
+      "labels": [
+        "config",
+        "bluej",
+        "class-context"
+      ],
+      "language": "ctxt",
+      "fileName": "AprtCleVariable.ctxt",
+      "filePath": "src/ecm/PrimeTest/AprtCleVariable.ctxt",
+      "summary": "BlueJ class context descriptor for AprtCleVariable.",
+      "extraction": {
+        "totalLines": 4,
+        "nonEmptyLines": 4,
+        "metrics": {}
+      }
+    },
+    {
+      "id": "file:src/ecm/PrimeTest/AprtCleVariable.java",
+      "type": "code",
+      "labels": [
+        "code",
+        "java",
+        "primality-test",
+        "apr-cl-data"
+      ],
+      "language": "java",
+      "fileName": "AprtCleVariable.java",
+      "filePath": "src/ecm/PrimeTest/AprtCleVariable.java",
+      "summary": "APR-CL static data and variable definitions. Contains precomputed tables for primes (aiP), test bases (aiQ), primitive roots (aiG), level constants (aiNP, aiNQ, aiT), and large multi-dimensional integer arrays (aiJS, aiJW, aiJ0-aiJ2, aiJX) used by the APR-CL primality test algorithm. Defines PWmax=32, Qmax=30241, LEVELmax=11.",
+      "tags": [
+        "apr-cl",
+        "constants",
+        "precomputed-tables",
+        "primes",
+        "primitive-roots"
+      ],
+      "classCount": 1,
+      "functionCount": 0,
+      "classes": [
+        "AprtCleVariable"
+      ],
+      "functions": [],
+      "dependencies": [],
+      "dependents": [],
+      "extraction": {
+        "totalLines": 309,
+        "nonEmptyLines": 306,
+        "metrics": {
+          "importCount": 0,
+          "exportCount": 14,
+          "functionCount": 0,
+          "classCount": 1
+        }
+      }
+    },
+    {
+      "id": "file:src/ecm/PrimeTest/PrimeThread.ctxt",
+      "type": "config",
+      "labels": [
+        "config",
+        "bluej",
+        "class-context"
+      ],
+      "language": "ctxt",
+      "fileName": "PrimeThread.ctxt",
+      "filePath": "src/ecm/PrimeTest/PrimeThread.ctxt",
+      "summary": "BlueJ class context descriptor for PrimeThread (non-existent as separate file; class is defined within LucasLehmer.java).",
+      "extraction": {
+        "totalLines": 0,
+        "nonEmptyLines": 0,
+        "metrics": {}
+      }
+    },
+    {
+      "id": "file:src/ecm/PrimeTest/PrimeThread.java",
+      "type": "code",
+      "labels": [
+        "code",
+        "java",
+        "primality-test"
+      ],
+      "language": "java",
+      "fileName": "PrimeThread.java",
+      "filePath": "src/ecm/PrimeTest/PrimeThread.java",
+      "summary": "Non-existent separate file. The PrimeThread class is defined as a package-private class within LucasLehmer.java (lines 116-147). Wraps BigInteger.isProbablePrime for testing Mersenne numbers in a thread.",
+      "tags": [
+        "mersenne",
+        "primality-test",
+        "thread"
+      ],
+      "classCount": 0,
+      "functionCount": 0,
+      "classes": [],
+      "functions": [],
+      "dependencies": [],
+      "dependents": [],
+      "extraction": {
+        "totalLines": 0,
+        "nonEmptyLines": 0,
+        "metrics": {}
+      }
+    },
+    {
+      "id": "document:src/ecm/README.TXT",
+      "type": "docs",
+      "labels": [
+        "docs",
+        "readme",
+        "ecm"
+      ],
+      "language": "txt",
+      "fileName": "README.TXT",
+      "filePath": "src/ecm/README.TXT",
+      "summary": "Top-level README for the ECM factorization package. States that the package contains classes for ECM (Elliptic Curve Method) factorization.",
+      "extraction": {
+        "totalLines": 1,
+        "nonEmptyLines": 1,
+        "metrics": {}
+      }
+    },
+    {
+      "id": "file:src/ecm/package.bluej",
+      "type": "config",
+      "labels": [
+        "config",
+        "bluej",
+        "package-descriptor"
+      ],
+      "language": "bluej",
+      "fileName": "package.bluej",
+      "filePath": "src/ecm/package.bluej",
+      "summary": "BlueJ package blueprint for the ecm package. Lists sub-packages (BigIntegers, Checks, PrimeTest) as dependent packages with their dependency descriptors.",
+      "extraction": {
+        "totalLines": 38,
+        "nonEmptyLines": 38,
+        "metrics": {}
+      }
+    },
+    {
+      "id": "file:src/ecm/BigIntegers/GCD.ctxt",
+      "type": "config",
+      "labels": [
+        "config",
+        "bluej",
+        "class-context"
+      ],
+      "language": "ctxt",
+      "fileName": "GCD.ctxt",
+      "filePath": "src/ecm/BigIntegers/GCD.ctxt",
+      "summary": "BlueJ class context descriptor for GCD. Defines Javadoc comments for the GCD class and GcdBigNbr method.",
+      "extraction": {
+        "totalLines": 6,
+        "nonEmptyLines": 6,
+        "metrics": {}
+      }
+    },
+    {
+      "id": "file:src/ecm/BigIntegers/ModInv.ctxt",
+      "type": "config",
+      "labels": [
+        "config",
+        "bluej",
+        "class-context"
+      ],
+      "language": "ctxt",
+      "fileName": "ModInv.ctxt",
+      "filePath": "src/ecm/BigIntegers/ModInv.ctxt",
+      "summary": "BlueJ class context descriptor for ModInvInteger. Defines Javadoc comments for the ModInvInteger class, constructor, and ModInvBigNbr method.",
+      "extraction": {
+        "totalLines": 9,
+        "nonEmptyLines": 9,
+        "metrics": {}
+      }
+    },
+    {
+      "id": "document:src/ecm/BigIntegers/README.TXT",
+      "type": "docs",
+      "labels": [
+        "docs",
+        "readme",
+        "big-integers"
+      ],
+      "language": "txt",
+      "fileName": "README.TXT",
+      "filePath": "src/ecm/BigIntegers/README.TXT",
+      "summary": "README for the BigIntegers utility package. States the package contains GCD and ModInv implementations for BigInteger arithmetic.",
+      "extraction": {
+        "totalLines": 1,
+        "nonEmptyLines": 1,
+        "metrics": {}
+      }
+    },
+    {
+      "id": "file:src/ecm/BigIntegers/package.bluej",
+      "type": "config",
+      "labels": [
+        "config",
+        "bluej",
+        "package-descriptor"
+      ],
+      "language": "bluej",
+      "fileName": "package.bluej",
+      "filePath": "src/ecm/BigIntegers/package.bluej",
+      "summary": "BlueJ package blueprint for the ecm.BigIntegers package. Lists GCD and ModInvInteger classes with their dependency descriptors, Java source and dependency file references, and editor state.",
+      "extraction": {
+        "totalLines": 34,
+        "nonEmptyLines": 34,
+        "metrics": {}
+      }
+    },
+    {
+      "id": "file:src/ecm/Checks/FibonacciCheck.ctxt",
+      "type": "config",
+      "labels": [
+        "config",
+        "bluej",
+        "class-context"
+      ],
+      "language": "ctxt",
+      "fileName": "FibonacciCheck.ctxt",
+      "filePath": "src/ecm/Checks/FibonacciCheck.ctxt",
+      "summary": "BlueJ class context descriptor for FibonacciCheck. Defines Javadoc comments for the FibonacciCheck class, constructor, and Factor method.",
+      "extraction": {
+        "totalLines": 8,
+        "nonEmptyLines": 8,
+        "metrics": {}
+      }
+    },
+    {
+      "id": "file:src/ecm/Checks/FibonacciCheck.java",
+      "type": "code",
+      "labels": [
+        "code",
+        "java",
+        "fibonacci",
+        "factoring-check"
+      ],
+      "language": "java",
+      "fileName": "FibonacciCheck.java",
+      "filePath": "src/ecm/Checks/FibonacciCheck.java",
+      "summary": "Fibonacci-based factoring check. Extends LucasCheck, overrides Factor to use GCD with Fibonacci numbers F(k) and F(Index/k) at each divisor k of the input index. Also uses InsertLucasFactor from the parent for Lucas sequence factoring.",
+      "tags": [
+        "fibonacci",
+        "factoring",
+        "gcd",
+        "divisor-check"
+      ],
+      "classCount": 1,
+      "functionCount": 2,
+      "classes": [
+        "FibonacciCheck"
+      ],
+      "functions": [
+        "FibonacciCheck",
+        "Factor"
+      ],
+      "dependencies": [],
+      "dependents": [],
+      "extraction": {
+        "totalLines": 47,
+        "nonEmptyLines": 41,
+        "metrics": {
+          "importCount": 0,
+          "exportCount": 3,
+          "functionCount": 2,
+          "classCount": 1
+        }
+      }
+    },
+    {
+      "id": "file:src/ecm/Checks/LucasCheck.ctxt",
+      "type": "config",
+      "labels": [
+        "config",
+        "bluej",
+        "class-context"
+      ],
+      "language": "ctxt",
+      "fileName": "LucasCheck.ctxt",
+      "filePath": "src/ecm/Checks/LucasCheck.ctxt",
+      "summary": "BlueJ class context descriptor for LucasCheck. Defines Javadoc comments for the LucasCheck class, Check, Factor, InsertLucasFactor, and get methods.",
+      "extraction": {
+        "totalLines": 14,
+        "nonEmptyLines": 14,
+        "metrics": {}
+      }
+    },
+    {
+      "id": "file:src/ecm/Checks/LucasCheck.java",
+      "type": "code",
+      "labels": [
+        "code",
+        "java",
+        "lucas-sequence",
+        "factoring-check"
+      ],
+      "language": "java",
+      "fileName": "LucasCheck.java",
+      "filePath": "src/ecm/Checks/LucasCheck.java",
+      "summary": "Lucas sequence-based factoring check. Detects if the input number is a Lucas number by checking bit length and iterating the Lucas sequence (L_n). InsertLucasFactor extracts factors by iterating divisors k of Index and computing GCD with Lucas numbers L(k) and L(Index/k), with special handling for factors of 5. Also provides static get() for generating Fibonacci/Lucas numbers.",
+      "tags": [
+        "lucas-sequence",
+        "factoring",
+        "gcd",
+        "divisor-check"
+      ],
+      "classCount": 1,
+      "functionCount": 5,
+      "classes": [
+        "LucasCheck"
+      ],
+      "functions": [
+        "LucasCheck",
+        "Check",
+        "Factor",
+        "InsertLucasFactor",
+        "get"
+      ],
+      "dependencies": [],
+      "dependents": [],
+      "extraction": {
+        "totalLines": 106,
+        "nonEmptyLines": 96,
+        "metrics": {
+          "importCount": 0,
+          "exportCount": 5,
+          "functionCount": 5,
+          "classCount": 1
+        }
+      }
+    },
+    {
+      "id": "file:src/ecm/Checks/PowerCheck.ctxt",
+      "type": "config",
+      "labels": [
+        "config",
+        "bluej",
+        "class-context"
+      ],
+      "language": "ctxt",
+      "fileName": "PowerCheck.ctxt",
+      "filePath": "src/ecm/Checks/PowerCheck.ctxt",
+      "summary": "BlueJ class context descriptor for PowerCheck. Defines Javadoc comments for the PowerCheck class, constructor, and Check method.",
+      "extraction": {
+        "totalLines": 8,
+        "nonEmptyLines": 8,
+        "metrics": {}
+      }
+    },
+    {
+      "id": "file:src/ecm/Checks/PowerCheck.java",
+      "type": "code",
+      "labels": [
+        "code",
+        "java",
+        "perfect-power",
+        "factoring-check"
+      ],
+      "language": "java",
+      "fileName": "PowerCheck.java",
+      "filePath": "src/ecm/Checks/PowerCheck.java",
+      "summary": "Perfect power detection for factoring. Uses a probabilistic filter with primes of the form 2310x+1 to eliminate impossible exponents (2,3,5,7,11), then an Eratosthenes-sieve-based filter over all primes up to 2*maxExpon+3. For remaining candidates, computes the integer k-th root via Newton iteration and checks if root^Exponent == N. Uses log2 approximation for initial root estimate.",
+      "tags": [
+        "perfect-power",
+        "root-finding",
+        "newton-iteration",
+        "factoring",
+        "sieve"
+      ],
+      "classCount": 1,
+      "functionCount": 2,
+      "classes": [
+        "PowerCheck"
+      ],
+      "functions": [
+        "PowerCheck",
+        "Check"
+      ],
+      "dependencies": [],
+      "dependents": [],
+      "extraction": {
+        "totalLines": 123,
+        "nonEmptyLines": 118,
+        "metrics": {
+          "importCount": 0,
+          "exportCount": 3,
+          "functionCount": 2,
+          "classCount": 1
+        }
+      }
+    },
+    {
+      "id": "file:src/ecm/Checks/PowerPM1Check.ctxt",
+      "type": "config",
+      "labels": [
+        "config",
+        "bluej",
+        "class-context"
+      ],
+      "language": "ctxt",
+      "fileName": "PowerPM1Check.ctxt",
+      "filePath": "src/ecm/Checks/PowerPM1Check.ctxt",
+      "summary": "BlueJ class context descriptor for PowerPM1Check. Defines Javadoc comments for the PowerPM1Check class, constructor, Check, ProcessExponent, and Cunningham methods.",
+      "extraction": {
+        "totalLines": 12,
+        "nonEmptyLines": 12,
+        "metrics": {}
+      }
+    },
+    {
+      "id": "file:src/ecm/Checks/PowerPM1Check.java",
+      "type": "code",
+      "labels": [
+        "code",
+        "java",
+        "cunningham",
+        "mersenne",
+        "fermat",
+        "perfect-power"
+      ],
+      "language": "java",
+      "fileName": "PowerPM1Check.java",
+      "filePath": "src/ecm/Checks/PowerPM1Check.java",
+      "summary": "Perfect power detection for numbers of the form a^e +/- 1 (Cunningham numbers). Contains precomputed factorization maps for Mersenne (2^p-1) and Fermat (2^(2^k)+1) numbers. Check() uses modular residue filters and log approximation to find candidate exponents. ProcessExponent computes integer k-th roots of N+1 and N-1 via Newton iteration. Cunningham() inserts known primitive factors and Aurifeuillian factors.",
+      "tags": [
+        "cunningham",
+        "mersenne",
+        "fermat",
+        "perfect-power",
+        "newton-iteration",
+        "aurifeuillian"
+      ],
+      "classCount": 1,
+      "functionCount": 4,
+      "classes": [
+        "PowerPM1Check"
+      ],
+      "functions": [
+        "PowerPM1Check",
+        "Check",
+        "ProcessExponent",
+        "Cunningham"
+      ],
+      "dependencies": [],
+      "dependents": [],
+      "extraction": {
+        "totalLines": 235,
+        "nonEmptyLines": 227,
+        "metrics": {
+          "importCount": 0,
+          "exportCount": 3,
+          "functionCount": 4,
+          "classCount": 1
+        }
+      }
+    },
+    {
+      "id": "document:src/ecm/Checks/README.TXT",
+      "type": "docs",
+      "labels": [
+        "docs",
+        "readme",
+        "checks"
+      ],
+      "language": "txt",
+      "fileName": "README.TXT",
+      "filePath": "src/ecm/Checks/README.TXT",
+      "summary": "README for the Checks package. States the package contains format checks (Fibonacci, Lucas, Fermat and Mersenne Number) and power checks.",
+      "extraction": {
+        "totalLines": 2,
+        "nonEmptyLines": 2,
+        "metrics": {}
+      }
+    },
+    {
+      "id": "file:src/ecm/Checks/package.bluej",
+      "type": "config",
+      "labels": [
+        "config",
+        "bluej",
+        "package-descriptor"
+      ],
+      "language": "bluej",
+      "fileName": "package.bluej",
+      "filePath": "src/ecm/Checks/package.bluej",
+      "summary": "BlueJ package blueprint for the ecm.Checks package. Lists FibonacciCheck, LucasCheck, PowerCheck, and PowerPM1Check classes with their dependency descriptors, Java source files, and editor state.",
+      "extraction": {
+        "totalLines": 48,
+        "nonEmptyLines": 48,
+        "metrics": {}
+      }
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/ecm/PrimeTest/AprtCle.java",
+      "target": "file:src/ecm/BigIntegers/GCD.java",
+      "type": "imports",
+      "weight": 1
+    },
+    {
+      "source": "file:src/ecm/PrimeTest/AprtCle.java",
+      "target": "file:src/ecm/BigIntegers/ModInv.java",
+      "type": "imports",
+      "weight": 1
+    },
+    {
+      "source": "file:src/ecm/PrimeTest/AprtCle.java",
+      "target": "file:src/ecm/Checks/LucasCheck.java",
+      "type": "imports",
+      "weight": 1
+    },
+    {
+      "source": "file:src/ecm/PrimeTest/AprtCle.java",
+      "target": "file:src/ecm/Checks/PowerCheck.java",
+      "type": "imports",
+      "weight": 1
+    },
+    {
+      "source": "file:src/ecm/PrimeTest/AprtCle.java",
+      "target": "file:src/ecm/Checks/PowerPM1Check.java",
+      "type": "imports",
+      "weight": 1
+    },
+    {
+      "source": "file:src/ecm/PrimeTest/AprtCle.java",
+      "target": "file:src/utilities/NTT.java",
+      "type": "imports",
+      "weight": 1
+    },
+    {
+      "source": "file:src/ecm/PrimeTest/AprtCle.java",
+      "target": "file:src/utilities/Zeef.java",
+      "type": "imports",
+      "weight": 1
+    },
+    {
+      "source": "file:src/ecm/PrimeTest/AprtCle.java",
+      "target": "file:src/Factorzations/GUI.java",
+      "type": "cross-reference",
+      "weight": 1
+    },
+    {
+      "source": "file:src/ecm/PrimeTest/LucasLehmer.java",
+      "target": "file:src/utilities/Zeef.java",
+      "type": "imports",
+      "weight": 1
+    },
+    {
+      "source": "file:src/ecm/Checks/FibonacciCheck.java",
+      "target": "file:src/ecm/Checks/LucasCheck.java",
+      "type": "extends",
+      "weight": 1
+    }
+  ]
+}

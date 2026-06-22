@@ -1,0 +1,2498 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 13,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "src/Factorzations/siqs/StaticFunctions.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 455,
+      "nonEmptyLines": 441,
+      "functions": [
+        {
+          "name": "getIndexFromDivisor",
+          "startLine": 13,
+          "endLine": 40,
+          "params": [
+            "Divid",
+            "nbrPrimes"
+          ]
+        },
+        {
+          "name": "JacobiSymbol",
+          "startLine": 42,
+          "endLine": 68,
+          "params": [
+            "M",
+            "Q"
+          ]
+        },
+        {
+          "name": "modInv",
+          "startLine": 70,
+          "endLine": 94,
+          "params": [
+            "NbrMod",
+            "currentPrime"
+          ]
+        },
+        {
+          "name": "SQUFOF",
+          "startLine": 98,
+          "endLine": 395,
+          "params": [
+            "N",
+            "queue"
+          ]
+        },
+        {
+          "name": "isProbablePrime",
+          "startLine": 398,
+          "endLine": 454,
+          "params": [
+            "value"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "StaticFunctions",
+          "startLine": 12,
+          "endLine": 455,
+          "methods": [
+            "getIndexFromDivisor",
+            "JacobiSymbol",
+            "modInv",
+            "SQUFOF",
+            "isProbablePrime"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "getIndexFromDivisor",
+          "line": 13,
+          "isDefault": false
+        },
+        {
+          "name": "JacobiSymbol",
+          "line": 42,
+          "isDefault": false
+        },
+        {
+          "name": "modInv",
+          "line": 70,
+          "isDefault": false
+        },
+        {
+          "name": "SQUFOF",
+          "line": 98,
+          "isDefault": false
+        },
+        {
+          "name": "isProbablePrime",
+          "line": 398,
+          "isDefault": false
+        },
+        {
+          "name": "StaticFunctions",
+          "line": 12,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "getIndexFromDivisor",
+          "callee": "congruencesFound.get",
+          "lineNumber": 24
+        },
+        {
+          "caller": "SQUFOF",
+          "callee": "Math.sqrt",
+          "lineNumber": 117
+        },
+        {
+          "caller": "SQUFOF",
+          "callee": "Math.sqrt",
+          "lineNumber": 128
+        },
+        {
+          "caller": "SQUFOF",
+          "callee": "Math.sqrt",
+          "lineNumber": 132
+        },
+        {
+          "caller": "SQUFOF",
+          "callee": "Math.sqrt",
+          "lineNumber": 143
+        },
+        {
+          "caller": "SQUFOF",
+          "callee": "Math.sqrt",
+          "lineNumber": 175
+        },
+        {
+          "caller": "SQUFOF",
+          "callee": "Math.sqrt",
+          "lineNumber": 298
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 6,
+        "functionCount": 5,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/com/gazman/Main.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 27,
+      "nonEmptyLines": 19,
+      "functions": [
+        {
+          "name": "main",
+          "startLine": 14,
+          "endLine": 25,
+          "params": [
+            "args"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Main",
+          "startLine": 10,
+          "endLine": 27,
+          "methods": [
+            "main"
+          ],
+          "properties": [
+            "random"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "main",
+          "line": 14,
+          "isDefault": false
+        },
+        {
+          "name": "Main",
+          "line": 10,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "main",
+          "callee": "BigInteger.probablePrime",
+          "lineNumber": 16
+        },
+        {
+          "caller": "main",
+          "callee": "BigInteger.probablePrime",
+          "lineNumber": 17
+        },
+        {
+          "caller": "main",
+          "callee": "a.multiply",
+          "lineNumber": 19
+        },
+        {
+          "caller": "main",
+          "callee": "System.out.println",
+          "lineNumber": 20
+        },
+        {
+          "caller": "main",
+          "callee": "new QuadraticSieve(new BigInteger(\"1192729626363545334371466409576203777052945105817717\")).start",
+          "lineNumber": 24
+        },
+        {
+          "caller": "main",
+          "callee": "new QuadraticSieve",
+          "lineNumber": 24
+        },
+        {
+          "caller": "main",
+          "callee": "new BigInteger",
+          "lineNumber": 24
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/com/gazman/factor/BigPrimesList.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 47,
+      "nonEmptyLines": 38,
+      "functions": [
+        {
+          "name": "add",
+          "startLine": 17,
+          "endLine": 30,
+          "params": [
+            "prime",
+            "bigPrime"
+          ]
+        },
+        {
+          "name": "getPrimesFound",
+          "startLine": 32,
+          "endLine": 34,
+          "params": []
+        },
+        {
+          "name": "getBigPrimes",
+          "startLine": 36,
+          "endLine": 45,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "BigPrimesList",
+          "startLine": 11,
+          "endLine": 47,
+          "methods": [
+            "add",
+            "getPrimesFound",
+            "getBigPrimes"
+          ],
+          "properties": [
+            "primes",
+            "primesHash",
+            "primesFound"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "getBigPrimes",
+          "line": 36,
+          "isDefault": false
+        },
+        {
+          "name": "BigPrimesList",
+          "line": 11,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "add",
+          "callee": "primesHash.containsKey",
+          "lineNumber": 19
+        },
+        {
+          "caller": "add",
+          "callee": "primesHash.get",
+          "lineNumber": 20
+        },
+        {
+          "caller": "add",
+          "callee": "new LinkedList<>",
+          "lineNumber": 22
+        },
+        {
+          "caller": "add",
+          "callee": "primesHash.put",
+          "lineNumber": 23
+        },
+        {
+          "caller": "add",
+          "callee": "primes.add",
+          "lineNumber": 24
+        },
+        {
+          "caller": "add",
+          "callee": "vectorDatas.add",
+          "lineNumber": 26
+        },
+        {
+          "caller": "add",
+          "callee": "vectorDatas.size",
+          "lineNumber": 27
+        },
+        {
+          "caller": "getBigPrimes",
+          "callee": "new ArrayList<>",
+          "lineNumber": 37
+        },
+        {
+          "caller": "getBigPrimes",
+          "callee": "prime.size",
+          "lineNumber": 39
+        },
+        {
+          "caller": "getBigPrimes",
+          "callee": "primeList.add",
+          "lineNumber": 40
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/com/gazman/factor/Logger.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 90,
+      "nonEmptyLines": 78,
+      "functions": [
+        {
+          "name": "log",
+          "startLine": 20,
+          "endLine": 29,
+          "params": []
+        },
+        {
+          "name": "logTime",
+          "startLine": 31,
+          "endLine": 45,
+          "params": []
+        },
+        {
+          "name": "logInLine",
+          "startLine": 47,
+          "endLine": 74,
+          "params": []
+        },
+        {
+          "name": "printNumber",
+          "startLine": 76,
+          "endLine": 81,
+          "params": [
+            "value"
+          ]
+        },
+        {
+          "name": "updateLength",
+          "startLine": 83,
+          "endLine": 88,
+          "params": [
+            "input",
+            "minLength"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Logger",
+          "startLine": 11,
+          "endLine": 90,
+          "methods": [
+            "log",
+            "logTime",
+            "logInLine",
+            "printNumber",
+            "updateLength"
+          ],
+          "properties": [
+            "startingTime",
+            "one",
+            "logsEnabled",
+            "emptyChar"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Logger",
+          "line": 11,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "log",
+          "callee": "logTime",
+          "lineNumber": 25
+        },
+        {
+          "caller": "log",
+          "callee": "logInLine",
+          "lineNumber": 26
+        },
+        {
+          "caller": "log",
+          "callee": "System.out.println",
+          "lineNumber": 28
+        },
+        {
+          "caller": "logTime",
+          "callee": "System.currentTimeMillis",
+          "lineNumber": 32
+        },
+        {
+          "caller": "logTime",
+          "callee": "millisecondsString.length",
+          "lineNumber": 36
+        },
+        {
+          "caller": "logTime",
+          "callee": "System.out.print",
+          "lineNumber": 44
+        },
+        {
+          "caller": "logInLine",
+          "callee": "printNumber",
+          "lineNumber": 53
+        },
+        {
+          "caller": "logInLine",
+          "callee": "System.out.print",
+          "lineNumber": 55
+        },
+        {
+          "caller": "logInLine",
+          "callee": "param.getClass().isArray",
+          "lineNumber": 56
+        },
+        {
+          "caller": "logInLine",
+          "callee": "param.getClass",
+          "lineNumber": 56
+        },
+        {
+          "caller": "logInLine",
+          "callee": "System.out.print",
+          "lineNumber": 57
+        },
+        {
+          "caller": "logInLine",
+          "callee": "Array.getLength",
+          "lineNumber": 58
+        },
+        {
+          "caller": "logInLine",
+          "callee": "System.out.print",
+          "lineNumber": 59
+        },
+        {
+          "caller": "logInLine",
+          "callee": "Array.get",
+          "lineNumber": 59
+        },
+        {
+          "caller": "logInLine",
+          "callee": "System.out.print",
+          "lineNumber": 61
+        },
+        {
+          "caller": "logInLine",
+          "callee": "System.out.print",
+          "lineNumber": 63
+        },
+        {
+          "caller": "logInLine",
+          "callee": "list.size",
+          "lineNumber": 65
+        },
+        {
+          "caller": "logInLine",
+          "callee": "list.get",
+          "lineNumber": 66
+        },
+        {
+          "caller": "logInLine",
+          "callee": "System.out.print",
+          "lineNumber": 67
+        },
+        {
+          "caller": "logInLine",
+          "callee": "list.size",
+          "lineNumber": 67
+        },
+        {
+          "caller": "logInLine",
+          "callee": "System.out.print",
+          "lineNumber": 69
+        },
+        {
+          "caller": "logInLine",
+          "callee": "System.out.print",
+          "lineNumber": 71
+        },
+        {
+          "caller": "printNumber",
+          "callee": "value.toString",
+          "lineNumber": 78
+        },
+        {
+          "caller": "printNumber",
+          "callee": "updateLength",
+          "lineNumber": 79
+        },
+        {
+          "caller": "printNumber",
+          "callee": "System.out.print",
+          "lineNumber": 80
+        },
+        {
+          "caller": "updateLength",
+          "callee": "input.length",
+          "lineNumber": 84
+        },
+        {
+          "caller": "updateLength",
+          "callee": "new String(new char[minLength - input.length()]).replaceAll",
+          "lineNumber": 85
+        },
+        {
+          "caller": "updateLength",
+          "callee": "new String",
+          "lineNumber": 85
+        },
+        {
+          "caller": "updateLength",
+          "callee": "input.length",
+          "lineNumber": 85
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 5,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/com/gazman/factor/QuadraticSieve.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 289,
+      "nonEmptyLines": 253,
+      "functions": [
+        {
+          "name": "QuadraticSieve",
+          "startLine": 41,
+          "endLine": 59,
+          "params": [
+            "input"
+          ]
+        },
+        {
+          "name": "start",
+          "startLine": 61,
+          "endLine": 66,
+          "params": []
+        },
+        {
+          "name": "execute",
+          "startLine": 68,
+          "endLine": 121,
+          "params": [
+            "threadId"
+          ]
+        },
+        {
+          "name": "logProcesses",
+          "startLine": 123,
+          "endLine": 131,
+          "params": []
+        },
+        {
+          "name": "calculateBaseLog",
+          "startLine": 133,
+          "endLine": 136,
+          "params": [
+            "position"
+          ]
+        },
+        {
+          "name": "initSieveWheels",
+          "startLine": 138,
+          "endLine": 144,
+          "params": [
+            "position"
+          ]
+        },
+        {
+          "name": "sieve",
+          "startLine": 146,
+          "endLine": 208,
+          "params": [
+            "destination",
+            "baseLog",
+            "wheels"
+          ]
+        },
+        {
+          "name": "tryToSolve",
+          "startLine": 210,
+          "endLine": 230,
+          "params": []
+        },
+        {
+          "name": "isReadyToBeSolved",
+          "startLine": 232,
+          "endLine": 234,
+          "params": []
+        },
+        {
+          "name": "testSolution",
+          "startLine": 236,
+          "endLine": 273,
+          "params": [
+            "solutionVector",
+            "root",
+            "N"
+          ]
+        },
+        {
+          "name": "buildPrimeBase",
+          "startLine": 275,
+          "endLine": 288,
+          "params": [
+            "B_SMOOTH",
+            "N"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "QuadraticSieve",
+          "startLine": 17,
+          "endLine": 289,
+          "methods": [
+            "QuadraticSieve",
+            "start",
+            "execute",
+            "logProcesses",
+            "calculateBaseLog",
+            "initSieveWheels",
+            "sieve",
+            "tryToSolve",
+            "isReadyToBeSolved",
+            "testSolution",
+            "buildPrimeBase"
+          ],
+          "properties": [
+            "B_SMOOTH",
+            "MINIMUM_LOG",
+            "MAX_LOOPS",
+            "LOGS_TIME_BY_LOOPS",
+            "minimumBigPrimeLog",
+            "sieveVectorBound",
+            "primeBase",
+            "step",
+            "bSmoothVectors",
+            "N",
+            "root",
+            "bSmoothFound",
+            "bigPrimesList",
+            "vectorsShrinker",
+            "double2Root",
+            "threadCount",
+            "speedCounter",
+            "speed",
+            "startingTime"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "MAX_LOOPS",
+          "line": 21,
+          "isDefault": false
+        },
+        {
+          "name": "LOGS_TIME_BY_LOOPS",
+          "line": 22,
+          "isDefault": false
+        },
+        {
+          "name": "QuadraticSieve",
+          "line": 41,
+          "isDefault": false
+        },
+        {
+          "name": "start",
+          "line": 61,
+          "isDefault": false
+        },
+        {
+          "name": "testSolution",
+          "line": 236,
+          "isDefault": false
+        },
+        {
+          "name": "buildPrimeBase",
+          "line": 275,
+          "isDefault": false
+        },
+        {
+          "name": "QuadraticSieve",
+          "line": 17,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "QuadraticSieve",
+          "callee": "log",
+          "lineNumber": 42
+        },
+        {
+          "caller": "QuadraticSieve",
+          "callee": "SqrRoot.bigIntSqRootCeil",
+          "lineNumber": 44
+        },
+        {
+          "caller": "QuadraticSieve",
+          "callee": "root.add(root).doubleValue",
+          "lineNumber": 45
+        },
+        {
+          "caller": "QuadraticSieve",
+          "callee": "root.add",
+          "lineNumber": 45
+        },
+        {
+          "caller": "QuadraticSieve",
+          "callee": "log",
+          "lineNumber": 47
+        },
+        {
+          "caller": "QuadraticSieve",
+          "callee": "buildPrimeBase",
+          "lineNumber": 48
+        },
+        {
+          "caller": "QuadraticSieve",
+          "callee": "vectorsShrinker.init",
+          "lineNumber": 49
+        },
+        {
+          "caller": "QuadraticSieve",
+          "callee": "highestPrime.intValue",
+          "lineNumber": 51
+        },
+        {
+          "caller": "QuadraticSieve",
+          "callee": "Math.log",
+          "lineNumber": 52
+        },
+        {
+          "caller": "QuadraticSieve",
+          "callee": "highestPrime.pow(2).doubleValue",
+          "lineNumber": 52
+        },
+        {
+          "caller": "QuadraticSieve",
+          "callee": "highestPrime.pow",
+          "lineNumber": 52
+        },
+        {
+          "caller": "QuadraticSieve",
+          "callee": "log",
+          "lineNumber": 54
+        },
+        {
+          "caller": "QuadraticSieve",
+          "callee": "log",
+          "lineNumber": 55
+        },
+        {
+          "caller": "QuadraticSieve",
+          "callee": "log",
+          "lineNumber": 57
+        },
+        {
+          "caller": "QuadraticSieve",
+          "callee": "log",
+          "lineNumber": 58
+        },
+        {
+          "caller": "start",
+          "callee": "new Thread(() -> execute(threadId)).start",
+          "lineNumber": 64
+        },
+        {
+          "caller": "start",
+          "callee": "new Thread",
+          "lineNumber": 64
+        },
+        {
+          "caller": "start",
+          "callee": "execute",
+          "lineNumber": 64
+        },
+        {
+          "caller": "execute",
+          "callee": "System.currentTimeMillis",
+          "lineNumber": 71
+        },
+        {
+          "caller": "execute",
+          "callee": "log",
+          "lineNumber": 75
+        },
+        {
+          "caller": "execute",
+          "callee": "initSieveWheels",
+          "lineNumber": 76
+        },
+        {
+          "caller": "execute",
+          "callee": "log",
+          "lineNumber": 77
+        },
+        {
+          "caller": "execute",
+          "callee": "calculateBaseLog",
+          "lineNumber": 79
+        },
+        {
+          "caller": "execute",
+          "callee": "sieve",
+          "lineNumber": 81
+        },
+        {
+          "caller": "execute",
+          "callee": "speed.incrementAndGet",
+          "lineNumber": 82
+        },
+        {
+          "caller": "execute",
+          "callee": "speedCounter.incrementAndGet",
+          "lineNumber": 83
+        },
+        {
+          "caller": "execute",
+          "callee": "speedCounter.set",
+          "lineNumber": 84
+        },
+        {
+          "caller": "execute",
+          "callee": "logProcesses",
+          "lineNumber": 85
+        },
+        {
+          "caller": "execute",
+          "callee": "isReadyToBeSolved",
+          "lineNumber": 88
+        },
+        {
+          "caller": "execute",
+          "callee": "log",
+          "lineNumber": 89
+        },
+        {
+          "caller": "execute",
+          "callee": "Thread.sleep",
+          "lineNumber": 92
+        },
+        {
+          "caller": "execute",
+          "callee": "e.printStackTrace",
+          "lineNumber": 94
+        },
+        {
+          "caller": "execute",
+          "callee": "log",
+          "lineNumber": 99
+        },
+        {
+          "caller": "execute",
+          "callee": "QuadraticSieve.this.wait",
+          "lineNumber": 100
+        },
+        {
+          "caller": "execute",
+          "callee": "e.printStackTrace",
+          "lineNumber": 103
+        },
+        {
+          "caller": "execute",
+          "callee": "logProcesses",
+          "lineNumber": 107
+        },
+        {
+          "caller": "execute",
+          "callee": "tryToSolve",
+          "lineNumber": 108
+        },
+        {
+          "caller": "execute",
+          "callee": "System.exit",
+          "lineNumber": 109
+        },
+        {
+          "caller": "execute",
+          "callee": "System.exit",
+          "lineNumber": 112
+        },
+        {
+          "caller": "execute",
+          "callee": "QuadraticSieve.this.notifyAll",
+          "lineNumber": 114
+        },
+        {
+          "caller": "logProcesses",
+          "callee": "this.speed.intValue",
+          "lineNumber": 124
+        },
+        {
+          "caller": "logProcesses",
+          "callee": "System.currentTimeMillis",
+          "lineNumber": 125
+        },
+        {
+          "caller": "logProcesses",
+          "callee": "log",
+          "lineNumber": 130
+        },
+        {
+          "caller": "logProcesses",
+          "callee": "bigPrimesList.getPrimesFound",
+          "lineNumber": 130
+        },
+        {
+          "caller": "calculateBaseLog",
+          "callee": "Math.log",
+          "lineNumber": 135
+        },
+        {
+          "caller": "initSieveWheels",
+          "callee": "new Wheel",
+          "lineNumber": 141
+        },
+        {
+          "caller": "initSieveWheels",
+          "callee": "root.add",
+          "lineNumber": 141
+        },
+        {
+          "caller": "initSieveWheels",
+          "callee": "BigInteger.valueOf",
+          "lineNumber": 141
+        },
+        {
+          "caller": "sieve",
+          "callee": "wheel.savePosition",
+          "lineNumber": 154
+        },
+        {
+          "caller": "sieve",
+          "callee": "wheel.prepareToMove",
+          "lineNumber": 155
+        },
+        {
+          "caller": "sieve",
+          "callee": "wheel.testMove",
+          "lineNumber": 156
+        },
+        {
+          "caller": "sieve",
+          "callee": "wheel.move",
+          "lineNumber": 157
+        },
+        {
+          "caller": "sieve",
+          "callee": "log",
+          "lineNumber": 159
+        },
+        {
+          "caller": "sieve",
+          "callee": "System.exit",
+          "lineNumber": 160
+        },
+        {
+          "caller": "sieve",
+          "callee": "wheel.restorePosition",
+          "lineNumber": 164
+        },
+        {
+          "caller": "sieve",
+          "callee": "wheel.prepareToMove",
+          "lineNumber": 169
+        },
+        {
+          "caller": "sieve",
+          "callee": "wheel.testMove",
+          "lineNumber": 170
+        },
+        {
+          "caller": "sieve",
+          "callee": "wheel.move",
+          "lineNumber": 171
+        },
+        {
+          "caller": "sieve",
+          "callee": "calculateBaseLog",
+          "lineNumber": 178
+        },
+        {
+          "caller": "sieve",
+          "callee": "new VectorData",
+          "lineNumber": 190
+        },
+        {
+          "caller": "sieve",
+          "callee": "new BitSet",
+          "lineNumber": 190
+        },
+        {
+          "caller": "sieve",
+          "callee": "Math.round",
+          "lineNumber": 194
+        },
+        {
+          "caller": "sieve",
+          "callee": "Math.pow",
+          "lineNumber": 194
+        },
+        {
+          "caller": "sieve",
+          "callee": "bigPrimesList.add",
+          "lineNumber": 195
+        },
+        {
+          "caller": "sieve",
+          "callee": "bSmoothVectors.add",
+          "lineNumber": 197
+        },
+        {
+          "caller": "sieve",
+          "callee": "vectors[index].vector.set",
+          "lineNumber": 202
+        },
+        {
+          "caller": "tryToSolve",
+          "callee": "log",
+          "lineNumber": 211
+        },
+        {
+          "caller": "tryToSolve",
+          "callee": "vectorsShrinker.shrink",
+          "lineNumber": 213
+        },
+        {
+          "caller": "tryToSolve",
+          "callee": "new BitMatrix",
+          "lineNumber": 215
+        },
+        {
+          "caller": "tryToSolve",
+          "callee": "bitMatrix.solve",
+          "lineNumber": 216
+        },
+        {
+          "caller": "tryToSolve",
+          "callee": "solutions.size",
+          "lineNumber": 218
+        },
+        {
+          "caller": "tryToSolve",
+          "callee": "solutions.get",
+          "lineNumber": 219
+        },
+        {
+          "caller": "tryToSolve",
+          "callee": "log",
+          "lineNumber": 220
+        },
+        {
+          "caller": "tryToSolve",
+          "callee": "solutions.size",
+          "lineNumber": 220
+        },
+        {
+          "caller": "tryToSolve",
+          "callee": "testSolution",
+          "lineNumber": 221
+        },
+        {
+          "caller": "tryToSolve",
+          "callee": "gcd.equals",
+          "lineNumber": 222
+        },
+        {
+          "caller": "tryToSolve",
+          "callee": "gcd.equals",
+          "lineNumber": 222
+        },
+        {
+          "caller": "tryToSolve",
+          "callee": "System.out.println",
+          "lineNumber": 223
+        },
+        {
+          "caller": "tryToSolve",
+          "callee": "log",
+          "lineNumber": 227
+        },
+        {
+          "caller": "isReadyToBeSolved",
+          "callee": "bSmoothVectors.size",
+          "lineNumber": 233
+        },
+        {
+          "caller": "isReadyToBeSolved",
+          "callee": "bigPrimesList.getPrimesFound",
+          "lineNumber": 233
+        },
+        {
+          "caller": "testSolution",
+          "callee": "root.add",
+          "lineNumber": 246
+        },
+        {
+          "caller": "testSolution",
+          "callee": "BigInteger.valueOf",
+          "lineNumber": 246
+        },
+        {
+          "caller": "testSolution",
+          "callee": "savedX.pow(2).subtract",
+          "lineNumber": 247
+        },
+        {
+          "caller": "testSolution",
+          "callee": "savedX.pow",
+          "lineNumber": 247
+        },
+        {
+          "caller": "testSolution",
+          "callee": "x.multiply(savedX).mod",
+          "lineNumber": 249
+        },
+        {
+          "caller": "testSolution",
+          "callee": "x.multiply",
+          "lineNumber": 249
+        },
+        {
+          "caller": "testSolution",
+          "callee": "y.multiply",
+          "lineNumber": 250
+        },
+        {
+          "caller": "testSolution",
+          "callee": "y.sqrt",
+          "lineNumber": 253
+        },
+        {
+          "caller": "testSolution",
+          "callee": "y.add(x).mod",
+          "lineNumber": 256
+        },
+        {
+          "caller": "testSolution",
+          "callee": "y.add",
+          "lineNumber": 256
+        },
+        {
+          "caller": "testSolution",
+          "callee": "N.gcd",
+          "lineNumber": 265
+        },
+        {
+          "caller": "testSolution",
+          "callee": "gcd.equals",
+          "lineNumber": 266
+        },
+        {
+          "caller": "testSolution",
+          "callee": "gcd.equals",
+          "lineNumber": 266
+        },
+        {
+          "caller": "buildPrimeBase",
+          "callee": "prime.nextProbablePrime",
+          "lineNumber": 280
+        },
+        {
+          "caller": "buildPrimeBase",
+          "callee": "MathUtils.isRootInQuadraticResidues",
+          "lineNumber": 281
+        }
+      ],
+      "metrics": {
+        "importCount": 7,
+        "exportCount": 7,
+        "functionCount": 11,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/com/gazman/factor/VectorData.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 39,
+      "nonEmptyLines": 29,
+      "functions": [
+        {
+          "name": "VectorData",
+          "startLine": 19,
+          "endLine": 22,
+          "params": [
+            "vector",
+            "position"
+          ]
+        },
+        {
+          "name": "toString",
+          "startLine": 24,
+          "endLine": 27,
+          "params": []
+        },
+        {
+          "name": "hashCode",
+          "startLine": 29,
+          "endLine": 32,
+          "params": []
+        },
+        {
+          "name": "equals",
+          "startLine": 34,
+          "endLine": 37,
+          "params": [
+            "obj"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "VectorData",
+          "startLine": 10,
+          "endLine": 39,
+          "methods": [
+            "VectorData",
+            "toString",
+            "hashCode",
+            "equals"
+          ],
+          "properties": [
+            "vector",
+            "position",
+            "bigPrimeIndex",
+            "x",
+            "y"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "vector",
+          "line": 12,
+          "isDefault": false
+        },
+        {
+          "name": "position",
+          "line": 13,
+          "isDefault": false
+        },
+        {
+          "name": "bigPrimeIndex",
+          "line": 14,
+          "isDefault": false
+        },
+        {
+          "name": "x",
+          "line": 16,
+          "isDefault": false
+        },
+        {
+          "name": "y",
+          "line": 17,
+          "isDefault": false
+        },
+        {
+          "name": "VectorData",
+          "line": 19,
+          "isDefault": false
+        },
+        {
+          "name": "toString",
+          "line": 24,
+          "isDefault": false
+        },
+        {
+          "name": "hashCode",
+          "line": 29,
+          "isDefault": false
+        },
+        {
+          "name": "equals",
+          "line": 34,
+          "isDefault": false
+        },
+        {
+          "name": "VectorData",
+          "line": 10,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "toString",
+          "callee": "vector.toString",
+          "lineNumber": 26
+        },
+        {
+          "caller": "hashCode",
+          "callee": "vector.toString().hashCode",
+          "lineNumber": 31
+        },
+        {
+          "caller": "hashCode",
+          "callee": "vector.toString",
+          "lineNumber": 31
+        },
+        {
+          "caller": "equals",
+          "callee": "vector.toString().equals",
+          "lineNumber": 36
+        },
+        {
+          "caller": "equals",
+          "callee": "vector.toString",
+          "lineNumber": 36
+        },
+        {
+          "caller": "equals",
+          "callee": "((VectorData) obj).vector.toString",
+          "lineNumber": 36
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 10,
+        "functionCount": 4,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/com/gazman/factor/matrix/BitMatrix.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 89,
+      "nonEmptyLines": 73,
+      "functions": [
+        {
+          "name": "solve",
+          "startLine": 21,
+          "endLine": 72,
+          "params": [
+            "vectorDatas"
+          ]
+        },
+        {
+          "name": "createSolution",
+          "startLine": 74,
+          "endLine": 82,
+          "params": [
+            "row"
+          ]
+        },
+        {
+          "name": "xor",
+          "startLine": 84,
+          "endLine": 87,
+          "params": [
+            "rowA",
+            "rowB"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "BitMatrix",
+          "startLine": 15,
+          "endLine": 89,
+          "methods": [
+            "solve",
+            "createSolution",
+            "xor"
+          ],
+          "properties": [
+            "rows",
+            "solutionRows",
+            "vectorDatas"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "solve",
+          "line": 21,
+          "isDefault": false
+        },
+        {
+          "name": "BitMatrix",
+          "line": 15,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "solve",
+          "callee": "log",
+          "lineNumber": 22
+        },
+        {
+          "caller": "solve",
+          "callee": "new HashSet<>",
+          "lineNumber": 25
+        },
+        {
+          "caller": "solve",
+          "callee": "vectorDatas.size",
+          "lineNumber": 26
+        },
+        {
+          "caller": "solve",
+          "callee": "vectorDatas.size",
+          "lineNumber": 27
+        },
+        {
+          "caller": "solve",
+          "callee": "new BitSet",
+          "lineNumber": 29
+        },
+        {
+          "caller": "solve",
+          "callee": "rows[i].or",
+          "lineNumber": 30
+        },
+        {
+          "caller": "solve",
+          "callee": "vectorDatas.get",
+          "lineNumber": 30
+        },
+        {
+          "caller": "solve",
+          "callee": "new BitSet",
+          "lineNumber": 31
+        },
+        {
+          "caller": "solve",
+          "callee": "solutionRows[i].set",
+          "lineNumber": 32
+        },
+        {
+          "caller": "solve",
+          "callee": "log",
+          "lineNumber": 35
+        },
+        {
+          "caller": "solve",
+          "callee": "rows[row].get",
+          "lineNumber": 40
+        },
+        {
+          "caller": "solve",
+          "callee": "map.contains",
+          "lineNumber": 43
+        },
+        {
+          "caller": "solve",
+          "callee": "map.add",
+          "lineNumber": 45
+        },
+        {
+          "caller": "solve",
+          "callee": "xor",
+          "lineNumber": 49
+        },
+        {
+          "caller": "solve",
+          "callee": "rows[row].get",
+          "lineNumber": 53
+        },
+        {
+          "caller": "solve",
+          "callee": "xor",
+          "lineNumber": 56
+        },
+        {
+          "caller": "solve",
+          "callee": "log",
+          "lineNumber": 60
+        },
+        {
+          "caller": "solve",
+          "callee": "new ArrayList<>",
+          "lineNumber": 62
+        },
+        {
+          "caller": "solve",
+          "callee": "rows[i].isEmpty",
+          "lineNumber": 64
+        },
+        {
+          "caller": "solve",
+          "callee": "solutions.add",
+          "lineNumber": 65
+        },
+        {
+          "caller": "solve",
+          "callee": "createSolution",
+          "lineNumber": 65
+        },
+        {
+          "caller": "solve",
+          "callee": "log",
+          "lineNumber": 69
+        },
+        {
+          "caller": "createSolution",
+          "callee": "new ArrayList<>",
+          "lineNumber": 75
+        },
+        {
+          "caller": "createSolution",
+          "callee": "solutionRows[row].get",
+          "lineNumber": 77
+        },
+        {
+          "caller": "createSolution",
+          "callee": "solution.add",
+          "lineNumber": 78
+        },
+        {
+          "caller": "createSolution",
+          "callee": "vectorDatas.get",
+          "lineNumber": 78
+        },
+        {
+          "caller": "xor",
+          "callee": "rows[rowA].xor",
+          "lineNumber": 85
+        },
+        {
+          "caller": "xor",
+          "callee": "solutionRows[rowA].xor",
+          "lineNumber": 86
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/com/gazman/factor/matrix/VectorsShrinker.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 86,
+      "nonEmptyLines": 71,
+      "functions": [
+        {
+          "name": "init",
+          "startLine": 20,
+          "endLine": 24,
+          "params": [
+            "root",
+            "biggestPrimeIndex",
+            "N"
+          ]
+        },
+        {
+          "name": "shrink",
+          "startLine": 26,
+          "endLine": 68,
+          "params": [
+            "bSmoothVectors",
+            "bigPrimesList"
+          ]
+        },
+        {
+          "name": "merge",
+          "startLine": 70,
+          "endLine": 76,
+          "params": [
+            "result",
+            "vectorToMerge"
+          ]
+        },
+        {
+          "name": "calculateY",
+          "startLine": 78,
+          "endLine": 80,
+          "params": [
+            "x"
+          ]
+        },
+        {
+          "name": "calculateX",
+          "startLine": 82,
+          "endLine": 84,
+          "params": [
+            "position"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "VectorsShrinker",
+          "startLine": 14,
+          "endLine": 86,
+          "methods": [
+            "init",
+            "shrink",
+            "merge",
+            "calculateY",
+            "calculateX"
+          ],
+          "properties": [
+            "N",
+            "root",
+            "bigPrimesIndex"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "init",
+          "line": 20,
+          "isDefault": false
+        },
+        {
+          "name": "shrink",
+          "line": 26,
+          "isDefault": false
+        },
+        {
+          "name": "VectorsShrinker",
+          "line": 14,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "shrink",
+          "callee": "bSmoothVectors.clone",
+          "lineNumber": 28
+        },
+        {
+          "caller": "shrink",
+          "callee": "bigPrimesList.getBigPrimes",
+          "lineNumber": 29
+        },
+        {
+          "caller": "shrink",
+          "callee": "bigPrimes.size",
+          "lineNumber": 31
+        },
+        {
+          "caller": "shrink",
+          "callee": "bigPrimes.get",
+          "lineNumber": 32
+        },
+        {
+          "caller": "shrink",
+          "callee": "vectorDatas.size",
+          "lineNumber": 33
+        },
+        {
+          "caller": "shrink",
+          "callee": "bigPrimes.remove",
+          "lineNumber": 34
+        },
+        {
+          "caller": "shrink",
+          "callee": "vectorDatas.get",
+          "lineNumber": 35
+        },
+        {
+          "caller": "shrink",
+          "callee": "merge",
+          "lineNumber": 36
+        },
+        {
+          "caller": "shrink",
+          "callee": "vectorDatas.get",
+          "lineNumber": 36
+        },
+        {
+          "caller": "shrink",
+          "callee": "bSmoothVectors.add",
+          "lineNumber": 37
+        },
+        {
+          "caller": "shrink",
+          "callee": "vectorData.vector.set",
+          "lineNumber": 56
+        },
+        {
+          "caller": "shrink",
+          "callee": "bSmoothVectors.add",
+          "lineNumber": 60
+        },
+        {
+          "caller": "merge",
+          "callee": "result.vector.xor",
+          "lineNumber": 71
+        },
+        {
+          "caller": "merge",
+          "callee": "calculateX",
+          "lineNumber": 72
+        },
+        {
+          "caller": "merge",
+          "callee": "calculateX",
+          "lineNumber": 73
+        },
+        {
+          "caller": "merge",
+          "callee": "x1.multiply",
+          "lineNumber": 74
+        },
+        {
+          "caller": "merge",
+          "callee": "calculateY(x1).multiply",
+          "lineNumber": 75
+        },
+        {
+          "caller": "merge",
+          "callee": "calculateY",
+          "lineNumber": 75
+        },
+        {
+          "caller": "merge",
+          "callee": "calculateY",
+          "lineNumber": 75
+        },
+        {
+          "caller": "calculateY",
+          "callee": "x.pow(2).subtract",
+          "lineNumber": 79
+        },
+        {
+          "caller": "calculateY",
+          "callee": "x.pow",
+          "lineNumber": 79
+        },
+        {
+          "caller": "calculateX",
+          "callee": "root.add",
+          "lineNumber": 83
+        },
+        {
+          "caller": "calculateX",
+          "callee": "BigInteger.valueOf",
+          "lineNumber": 83
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 5,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/com/gazman/factor/wheels/Wheel.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 114,
+      "nonEmptyLines": 97,
+      "functions": [
+        {
+          "name": "Wheel",
+          "startLine": 20,
+          "endLine": 57,
+          "params": [
+            "prime",
+            "N",
+            "root",
+            "sieveVectorBound"
+          ]
+        },
+        {
+          "name": "move",
+          "startLine": 59,
+          "endLine": 72,
+          "params": []
+        },
+        {
+          "name": "testMove",
+          "startLine": 74,
+          "endLine": 76,
+          "params": []
+        },
+        {
+          "name": "savePosition",
+          "startLine": 78,
+          "endLine": 84,
+          "params": []
+        },
+        {
+          "name": "restorePosition",
+          "startLine": 86,
+          "endLine": 92,
+          "params": []
+        },
+        {
+          "name": "toString",
+          "startLine": 94,
+          "endLine": 97,
+          "params": []
+        },
+        {
+          "name": "prepareToMove",
+          "startLine": 99,
+          "endLine": 103,
+          "params": []
+        },
+        {
+          "name": "clone",
+          "startLine": 105,
+          "endLine": 113,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "Wheel",
+          "startLine": 10,
+          "endLine": 114,
+          "methods": [
+            "Wheel",
+            "move",
+            "testMove",
+            "savePosition",
+            "restorePosition",
+            "toString",
+            "prepareToMove",
+            "clone"
+          ],
+          "properties": [
+            "positions",
+            "count",
+            "prime",
+            "log",
+            "savedPosition",
+            "savedCount",
+            "sieveVectorBound",
+            "loops"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "log",
+          "line": 14,
+          "isDefault": false
+        },
+        {
+          "name": "Wheel",
+          "line": 20,
+          "isDefault": false
+        },
+        {
+          "name": "move",
+          "line": 59,
+          "isDefault": false
+        },
+        {
+          "name": "testMove",
+          "line": 74,
+          "isDefault": false
+        },
+        {
+          "name": "savePosition",
+          "line": 78,
+          "isDefault": false
+        },
+        {
+          "name": "restorePosition",
+          "line": 86,
+          "isDefault": false
+        },
+        {
+          "name": "toString",
+          "line": 94,
+          "isDefault": false
+        },
+        {
+          "name": "prepareToMove",
+          "line": 99,
+          "isDefault": false
+        },
+        {
+          "name": "clone",
+          "line": 105,
+          "isDefault": false
+        },
+        {
+          "name": "Wheel",
+          "line": 10,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "Wheel",
+          "callee": "N.mod(prime).intValue",
+          "lineNumber": 22
+        },
+        {
+          "caller": "Wheel",
+          "callee": "N.mod",
+          "lineNumber": 22
+        },
+        {
+          "caller": "Wheel",
+          "callee": "prime.intValue",
+          "lineNumber": 23
+        },
+        {
+          "caller": "Wheel",
+          "callee": "Math.log",
+          "lineNumber": 24
+        },
+        {
+          "caller": "Wheel",
+          "callee": "MathUtils.ressol",
+          "lineNumber": 26
+        },
+        {
+          "caller": "Wheel",
+          "callee": "root.mod(prime).intValue",
+          "lineNumber": 46
+        },
+        {
+          "caller": "Wheel",
+          "callee": "root.mod",
+          "lineNumber": 46
+        },
+        {
+          "caller": "clone",
+          "callee": "super.clone",
+          "lineNumber": 108
+        },
+        {
+          "caller": "clone",
+          "callee": "e.printStackTrace",
+          "lineNumber": 110
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 10,
+        "functionCount": 8,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/com/gazman/math/MathUtils.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 120,
+      "nonEmptyLines": 106,
+      "functions": [
+        {
+          "name": "isRootInQuadraticResidues",
+          "startLine": 10,
+          "endLine": 18,
+          "params": [
+            "n",
+            "p"
+          ]
+        },
+        {
+          "name": "ressol",
+          "startLine": 28,
+          "endLine": 87,
+          "params": [
+            "prime",
+            "n"
+          ]
+        },
+        {
+          "name": "modPowLong",
+          "startLine": 89,
+          "endLine": 91,
+          "params": [
+            "n",
+            "exponent",
+            "modulo"
+          ]
+        },
+        {
+          "name": "v_",
+          "startLine": 93,
+          "endLine": 118,
+          "params": [
+            "j",
+            "h",
+            "n",
+            "p"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "MathUtils",
+          "startLine": 8,
+          "endLine": 120,
+          "methods": [
+            "isRootInQuadraticResidues",
+            "ressol",
+            "modPowLong",
+            "v_"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "isRootInQuadraticResidues",
+          "line": 10,
+          "isDefault": false
+        },
+        {
+          "name": "ressol",
+          "line": 28,
+          "isDefault": false
+        },
+        {
+          "name": "MathUtils",
+          "line": 8,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "isRootInQuadraticResidues",
+          "callee": "n.mod",
+          "lineNumber": 12
+        },
+        {
+          "caller": "isRootInQuadraticResidues",
+          "callee": "p.equals",
+          "lineNumber": 13
+        },
+        {
+          "caller": "isRootInQuadraticResidues",
+          "callee": "x.mod(two).equals",
+          "lineNumber": 14
+        },
+        {
+          "caller": "isRootInQuadraticResidues",
+          "callee": "x.mod",
+          "lineNumber": 14
+        },
+        {
+          "caller": "isRootInQuadraticResidues",
+          "callee": "p.subtract(BigInteger.ONE).divide",
+          "lineNumber": 16
+        },
+        {
+          "caller": "isRootInQuadraticResidues",
+          "callee": "p.subtract",
+          "lineNumber": 16
+        },
+        {
+          "caller": "isRootInQuadraticResidues",
+          "callee": "x.modPow(exponent, p).equals",
+          "lineNumber": 17
+        },
+        {
+          "caller": "isRootInQuadraticResidues",
+          "callee": "x.modPow",
+          "lineNumber": 17
+        },
+        {
+          "caller": "ressol",
+          "callee": "BigInteger.valueOf",
+          "lineNumber": 30
+        },
+        {
+          "caller": "ressol",
+          "callee": "BigInteger.valueOf",
+          "lineNumber": 31
+        },
+        {
+          "caller": "ressol",
+          "callee": "modPowLong",
+          "lineNumber": 46
+        },
+        {
+          "caller": "ressol",
+          "callee": "modPowLong",
+          "lineNumber": 54
+        },
+        {
+          "caller": "ressol",
+          "callee": "modPowLong",
+          "lineNumber": 56
+        },
+        {
+          "caller": "ressol",
+          "callee": "modPowLong",
+          "lineNumber": 62
+        },
+        {
+          "caller": "ressol",
+          "callee": "BigInteger.valueOf",
+          "lineNumber": 62
+        },
+        {
+          "caller": "ressol",
+          "callee": "isRootInQuadraticResidues",
+          "lineNumber": 74
+        },
+        {
+          "caller": "ressol",
+          "callee": "BigInteger.valueOf",
+          "lineNumber": 74
+        },
+        {
+          "caller": "ressol",
+          "callee": "v_",
+          "lineNumber": 78
+        },
+        {
+          "caller": "modPowLong",
+          "callee": "n.modPow(BigInteger.valueOf(exponent), modulo).longValue",
+          "lineNumber": 90
+        },
+        {
+          "caller": "modPowLong",
+          "callee": "n.modPow",
+          "lineNumber": 90
+        },
+        {
+          "caller": "modPowLong",
+          "callee": "BigInteger.valueOf",
+          "lineNumber": 90
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 4,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/com/gazman/math/SqrRoot.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 22,
+      "nonEmptyLines": 16,
+      "functions": [
+        {
+          "name": "bigIntSqRootCeil",
+          "startLine": 13,
+          "endLine": 20,
+          "params": [
+            "x"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "SqrRoot",
+          "startLine": 10,
+          "endLine": 22,
+          "methods": [
+            "bigIntSqRootCeil"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "bigIntSqRootCeil",
+          "line": 13,
+          "isDefault": false
+        },
+        {
+          "name": "SqrRoot",
+          "line": 10,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "bigIntSqRootCeil",
+          "callee": "x.sqrt",
+          "lineNumber": 15
+        },
+        {
+          "caller": "bigIntSqRootCeil",
+          "callee": "x.compareTo",
+          "lineNumber": 16
+        },
+        {
+          "caller": "bigIntSqRootCeil",
+          "callee": "y.multiply",
+          "lineNumber": 16
+        },
+        {
+          "caller": "bigIntSqRootCeil",
+          "callee": "y.add",
+          "lineNumber": 19
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/ecm/BigIntegers/GCD.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 111,
+      "nonEmptyLines": 106,
+      "functions": [
+        {
+          "name": "GcdBigNbr",
+          "startLine": 27,
+          "endLine": 110,
+          "params": [
+            "Nbr1",
+            "Nbr2",
+            "Gcd",
+            "NumberLength"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "GCD",
+          "startLine": 14,
+          "endLine": 111,
+          "methods": [
+            "GcdBigNbr"
+          ],
+          "properties": [
+            "CalcAuxGcdU",
+            "CalcAuxGcdV",
+            "CalcAuxGcdT"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "GcdBigNbr",
+          "line": 27,
+          "isDefault": false
+        },
+        {
+          "name": "GCD",
+          "line": 14,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "GcdBigNbr",
+          "callee": "System.arraycopy",
+          "lineNumber": 31
+        },
+        {
+          "caller": "GcdBigNbr",
+          "callee": "System.arraycopy",
+          "lineNumber": 32
+        },
+        {
+          "caller": "GcdBigNbr",
+          "callee": "System.arraycopy",
+          "lineNumber": 42
+        },
+        {
+          "caller": "GcdBigNbr",
+          "callee": "System.arraycopy",
+          "lineNumber": 54
+        },
+        {
+          "caller": "GcdBigNbr",
+          "callee": "ChSignBigNbr",
+          "lineNumber": 59
+        },
+        {
+          "caller": "GcdBigNbr",
+          "callee": "ChSignBigNbr",
+          "lineNumber": 63
+        },
+        {
+          "caller": "GcdBigNbr",
+          "callee": "DivBigNbrByLong",
+          "lineNumber": 69
+        },
+        {
+          "caller": "GcdBigNbr",
+          "callee": "DivBigNbrByLong",
+          "lineNumber": 70
+        },
+        {
+          "caller": "GcdBigNbr",
+          "callee": "System.arraycopy",
+          "lineNumber": 74
+        },
+        {
+          "caller": "GcdBigNbr",
+          "callee": "ChSignBigNbr",
+          "lineNumber": 75
+        },
+        {
+          "caller": "GcdBigNbr",
+          "callee": "System.arraycopy",
+          "lineNumber": 77
+        },
+        {
+          "caller": "GcdBigNbr",
+          "callee": "DivBigNbrByLong",
+          "lineNumber": 83
+        },
+        {
+          "caller": "GcdBigNbr",
+          "callee": "System.arraycopy",
+          "lineNumber": 87
+        },
+        {
+          "caller": "GcdBigNbr",
+          "callee": "System.arraycopy",
+          "lineNumber": 91
+        },
+        {
+          "caller": "GcdBigNbr",
+          "callee": "ChSignBigNbr",
+          "lineNumber": 92
+        },
+        {
+          "caller": "GcdBigNbr",
+          "callee": "SubtractBigNbr",
+          "lineNumber": 94
+        },
+        {
+          "caller": "GcdBigNbr",
+          "callee": "System.arraycopy",
+          "lineNumber": 104
+        },
+        {
+          "caller": "GcdBigNbr",
+          "callee": "AddBigNbr",
+          "lineNumber": 107
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/ecm/BigIntegers/ModInv.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 401,
+      "nonEmptyLines": 394,
+      "functions": [
+        {
+          "name": "ModInvBigNbr",
+          "startLine": 30,
+          "endLine": 400,
+          "params": [
+            "a",
+            "inv",
+            "b",
+            "NumberLength"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "ModInv",
+          "startLine": 13,
+          "endLine": 401,
+          "methods": [
+            "ModInvBigNbr"
+          ],
+          "properties": [
+            "CalcAuxModInvBB",
+            "CalcAuxModInvA",
+            "CalcAuxModInvB",
+            "CalcAuxModInvMu",
+            "CalcAuxModInvGamma"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "ModInvBigNbr",
+          "line": 30,
+          "isDefault": false
+        },
+        {
+          "name": "ModInv",
+          "line": 13,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "ModInvBigNbr",
+          "callee": "StaticFunctions.Convert31To32Bits",
+          "lineNumber": 54
+        },
+        {
+          "caller": "ModInvBigNbr",
+          "callee": "StaticFunctions.Convert31To32Bits",
+          "lineNumber": 55
+        },
+        {
+          "caller": "ModInvBigNbr",
+          "callee": "System.arraycopy",
+          "lineNumber": 56
+        },
+        {
+          "caller": "ModInvBigNbr",
+          "callee": "SubtractBigNbr32",
+          "lineNumber": 387
+        },
+        {
+          "caller": "ModInvBigNbr",
+          "callee": "AddBigNbr32",
+          "lineNumber": 390
+        },
+        {
+          "caller": "ModInvBigNbr",
+          "callee": "SubtractBigNbr32",
+          "lineNumber": 397
+        },
+        {
+          "caller": "ModInvBigNbr",
+          "callee": "StaticFunctions.Convert32To31Bits",
+          "lineNumber": 399
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    }
+  ]
+}

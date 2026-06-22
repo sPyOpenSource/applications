@@ -1,0 +1,19 @@
+{
+  "fixedSectionOk": true,
+  "nodesRecovered": 51,
+  "edgesRestored": 105,
+  "crossBatchEdgesAdded": 94,
+  "typesRemapped": 39,
+  "complexityRemapped": 0,
+  "notes": [
+    "Remapped 39 nodes from non-standard types (file:code->file, file:interface->file, code->file, docs->document)",
+    "Recovered 51 missing file nodes from scan-result.json and importMap references",
+    "Added 94 import edges from importMap data (scan-result.json)",
+    "Fixed 11 edges with missing 'type' field (inferred from 'relation')",
+    "All 153 import edges now match the scan-result.json importMap",
+    "Graph grew from 349 nodes/127 edges to 400 nodes/241 edges",
+    "All dangling edge references eliminated \u2014 every edge source/target now exists as a node",
+    "No complexity=None nodes remain (0 encountered in current data)",
+    "5 config nodes and 13 document nodes were also added for non-Java files referenced in scan"
+  ]
+}

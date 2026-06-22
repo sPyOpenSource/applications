@@ -1,0 +1,1207 @@
+[
+  {
+    "source": "file:src/Factorzations/Lehman.java",
+    "target": "file:src/BigIntegers/AprtCleInteger.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/Factorzations/ecm/ECM.java",
+    "target": "file:src/BigIntegers/ECMBigInteger.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/Factorzations/ecm/ECM.java",
+    "target": "file:src/BigIntegers/LargeInteger.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/Factorzations/ecm/ECM.java",
+    "target": "file:src/ecm/BigIntegers/GCD.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/Factorzations/ecm/ECM.java",
+    "target": "file:src/ecm/BigIntegers/ModInv.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/Factorzations/ecm/ECM.java",
+    "target": "file:src/ecm/Checks/FibonacciCheck.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/Factorzations/ecm/ECM.java",
+    "target": "file:src/ecm/Checks/LucasCheck.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/Factorzations/ecm/ECM.java",
+    "target": "file:src/ecm/Checks/PowerCheck.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/Factorzations/ecm/ECM.java",
+    "target": "file:src/ecm/Checks/PowerPM1Check.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/Factorzations/ecm/ECM.java",
+    "target": "file:src/ecm/PrimeTest/AprtCle.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/Factorzations/siqs/Sieve.java",
+    "target": "file:src/Factorzations/siqs/PrimeSieveData.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/Factorzations/siqs/Sieve.java",
+    "target": "file:src/Factorzations/siqs/PrimeTrialDivisionData.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/Factorzations/siqs/Sieve.java",
+    "target": "file:src/Factorzations/siqs/FirstPolynomial.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/Factorzations/siqs/Siqs.java",
+    "target": "file:src/BigIntegers/LargeInteger.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/Factorzations/siqs/Siqs.java",
+    "target": "file:src/Factorzations/siqs/FirstPolynomial.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/Factorzations/siqs/Siqs.java",
+    "target": "file:src/Factorzations/siqs/Maths.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/Factorzations/siqs/Siqs.java",
+    "target": "file:src/Factorzations/siqs/Matrix.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/Factorzations/siqs/Siqs.java",
+    "target": "file:src/Factorzations/siqs/PrimeSieveData.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/Factorzations/siqs/Siqs.java",
+    "target": "file:src/Factorzations/siqs/PrimeTrialDivisionData.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/Factorzations/siqs/Siqs.java",
+    "target": "file:src/Factorzations/siqs/Relation.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/Factorzations/siqs/Siqs.java",
+    "target": "file:src/Factorzations/siqs/Sieve.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/Factorzations/siqs/Siqs.java",
+    "target": "file:src/Factorzations/siqs/StaticFunctions.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/calculator/ConvertBase.java",
+    "target": "file:src/BigIntegers/LargeInteger.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/calculator/Deque.java",
+    "target": "file:src/calculator/EmptyDequeException.java",
+    "type": "imports"
+  },
+  {
+    "source": "class:src/Factorzations/ecm/ECM.java:ECM",
+    "target": "class:src/Factorzations/ecm/ecmStep2.java:ecmStep2",
+    "type": "inherits"
+  },
+  {
+    "source": "class:src/Factorzations/ecm/ecmStep1.java:ecmStep1",
+    "target": "class:src/Factorzations/ecm/ecmStep0.java:ecmStep0",
+    "type": "inherits"
+  },
+  {
+    "source": "class:src/Factorzations/ecm/ecmStep2.java:ecmStep2",
+    "target": "class:src/Factorzations/ecm/ecmStep1.java:ecmStep1",
+    "type": "inherits"
+  },
+  {
+    "source": "class:src/Factorzations/siqs/Sieve.java:Sieve",
+    "target": "class:src/Factorzations/siqs/FirstPolynomial.java:FirstPolynomial",
+    "type": "inherits"
+  },
+  {
+    "source": "class:src/Factorzations/siqs/Matrix.java:Matrix",
+    "target": "class:src/Factorzations/siqs/Maths.java:Maths",
+    "type": "inherits"
+  },
+  {
+    "source": "class:src/Factorzations/siqs/Relation.java:Relation",
+    "target": "class:src/Factorzations/siqs/Matrix.java:Matrix",
+    "type": "inherits"
+  },
+  {
+    "source": "class:src/Factorzations/siqs/Siqs.java:Siqs",
+    "target": "class:src/Factorzations/siqs/Relation.java:Relation",
+    "type": "inherits"
+  },
+  {
+    "source": "function:src/Factorzations/siqs/Sieve.java:run",
+    "target": "function:src/Factorzations/siqs/FirstPolynomial.java:init",
+    "type": "calls"
+  },
+  {
+    "source": "function:src/Factorzations/siqs/Sieve.java:run",
+    "target": "function:src/Factorzations/siqs/Sieve.java:SieveLocationHit",
+    "type": "calls"
+  },
+  {
+    "source": "function:src/Factorzations/siqs/Sieve.java:SieveLocationHit",
+    "target": "function:src/Factorzations/siqs/Relation.java:SmoothRelationFound",
+    "type": "calls"
+  },
+  {
+    "source": "function:src/Factorzations/siqs/Sieve.java:SieveLocationHit",
+    "target": "function:src/Factorzations/siqs/Relation.java:PartialRelationFound",
+    "type": "calls"
+  },
+  {
+    "source": "function:src/Factorzations/ecm/ECM.java:factor",
+    "target": "function:src/Factorzations/ecm/ecmStep0.java:step0",
+    "type": "calls"
+  },
+  {
+    "source": "function:src/Factorzations/ecm/ECM.java:factor",
+    "target": "function:src/Factorzations/ecm/ecmStep1.java:step1",
+    "type": "calls"
+  },
+  {
+    "source": "function:src/Factorzations/ecm/ECM.java:factor",
+    "target": "function:src/Factorzations/ecm/ecmStep2.java:step2",
+    "type": "calls"
+  },
+  {
+    "source": "function:src/Factorzations/siqs/Maths.java:LinearAlgebraPhase",
+    "target": "function:src/Factorzations/siqs/Matrix.java:BlockLanczos",
+    "type": "calls"
+  },
+  {
+    "source": "function:src/Factorzations/siqs/Siqs.java:factor",
+    "target": "function:src/Factorzations/siqs/Maths.java:LinearAlgebraPhase",
+    "type": "calls"
+  },
+  {
+    "source": "function:src/Factorzations/siqs/Relation.java:PartialRelationFound",
+    "target": "function:src/Factorzations/siqs/Relation.java:InsertNewRelation",
+    "type": "calls"
+  },
+  {
+    "source": "function:src/Factorzations/siqs/Relation.java:SmoothRelationFound",
+    "target": "function:src/Factorzations/siqs/Relation.java:InsertNewRelation",
+    "type": "calls"
+  },
+  {
+    "source": "file:src/calculator/DefaultUI.java",
+    "target": "file:src/calculator/CalculatorUI.java",
+    "type": "inherits"
+  },
+  {
+    "source": "file:src/calculator/DefaultUI.java",
+    "target": "file:src/calculator/Calculator.java",
+    "type": "calls"
+  },
+  {
+    "source": "file:src/calculator/DefaultUI.java",
+    "target": "file:src/calculator/NumericDocument.java",
+    "type": "calls"
+  },
+  {
+    "source": "file:src/calculator/DefaultUI.java",
+    "target": "file:src/calculator/GUI.java",
+    "type": "calls"
+  },
+  {
+    "source": "file:src/calculator/CalculatorUI.java",
+    "target": "file:src/calculator/GUI.java",
+    "type": "calls"
+  },
+  {
+    "source": "file:src/calculator/largemodel/ChangeSigns.java",
+    "target": "file:src/calculator/EncodedOperation.java",
+    "type": "inherits"
+  },
+  {
+    "source": "file:src/calculator/largemodel/Remainder.java",
+    "target": "file:src/calculator/EncodedOperation.java",
+    "type": "inherits"
+  },
+  {
+    "source": "file:src/calculator/largemodel/Subtract.java",
+    "target": "file:src/calculator/EncodedOperation.java",
+    "type": "inherits"
+  },
+  {
+    "source": "file:src/calculator/largemodel/CalculatorImpl.java",
+    "target": "file:src/calculator/largemodel/ChangeSigns.java",
+    "type": "calls"
+  },
+  {
+    "source": "file:src/calculator/largemodel/CalculatorImpl.java",
+    "target": "file:src/calculator/largemodel/Remainder.java",
+    "type": "calls"
+  },
+  {
+    "source": "file:src/calculator/largemodel/CalculatorImpl.java",
+    "target": "file:src/calculator/largemodel/Subtract.java",
+    "type": "calls"
+  },
+  {
+    "source": "file:src/com/gazman/Main.java",
+    "target": "file:src/com/gazman/factor/Logger.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/com/gazman/Main.java",
+    "target": "file:src/com/gazman/factor/QuadraticSieve.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/com/gazman/factor/QuadraticSieve.java",
+    "target": "file:src/com/gazman/factor/BigPrimesList.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/com/gazman/factor/QuadraticSieve.java",
+    "target": "file:src/com/gazman/factor/VectorData.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/com/gazman/factor/QuadraticSieve.java",
+    "target": "file:src/com/gazman/factor/matrix/BitMatrix.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/com/gazman/factor/QuadraticSieve.java",
+    "target": "file:src/com/gazman/factor/matrix/VectorsShrinker.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/com/gazman/factor/QuadraticSieve.java",
+    "target": "file:src/com/gazman/factor/wheels/Wheel.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/com/gazman/factor/QuadraticSieve.java",
+    "target": "file:src/com/gazman/math/MathUtils.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/com/gazman/factor/QuadraticSieve.java",
+    "target": "file:src/com/gazman/math/SqrRoot.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/com/gazman/factor/matrix/BitMatrix.java",
+    "target": "file:src/com/gazman/factor/Logger.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/com/gazman/factor/matrix/BitMatrix.java",
+    "target": "file:src/com/gazman/factor/VectorData.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/com/gazman/factor/matrix/VectorsShrinker.java",
+    "target": "file:src/com/gazman/factor/BigPrimesList.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/com/gazman/factor/matrix/VectorsShrinker.java",
+    "target": "file:src/com/gazman/factor/VectorData.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/com/gazman/factor/wheels/Wheel.java",
+    "target": "file:src/com/gazman/math/MathUtils.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/Factorzations/siqs/StaticFunctions.java",
+    "target": "class:StaticFunctions",
+    "type": "contains"
+  },
+  {
+    "source": "file:src/com/gazman/Main.java",
+    "target": "class:Main",
+    "type": "contains"
+  },
+  {
+    "source": "file:src/com/gazman/factor/BigPrimesList.java",
+    "target": "class:BigPrimesList",
+    "type": "contains"
+  },
+  {
+    "source": "file:src/com/gazman/factor/Logger.java",
+    "target": "class:Logger",
+    "type": "contains"
+  },
+  {
+    "source": "file:src/com/gazman/factor/QuadraticSieve.java",
+    "target": "class:QuadraticSieve",
+    "type": "contains"
+  },
+  {
+    "source": "file:src/com/gazman/factor/VectorData.java",
+    "target": "class:VectorData",
+    "type": "contains"
+  },
+  {
+    "source": "file:src/com/gazman/factor/matrix/BitMatrix.java",
+    "target": "class:BitMatrix",
+    "type": "contains"
+  },
+  {
+    "source": "file:src/com/gazman/factor/matrix/VectorsShrinker.java",
+    "target": "class:VectorsShrinker",
+    "type": "contains"
+  },
+  {
+    "source": "file:src/com/gazman/factor/wheels/Wheel.java",
+    "target": "class:Wheel",
+    "type": "contains"
+  },
+  {
+    "source": "file:src/com/gazman/math/MathUtils.java",
+    "target": "class:MathUtils",
+    "type": "contains"
+  },
+  {
+    "source": "file:src/com/gazman/math/SqrRoot.java",
+    "target": "class:SqrRoot",
+    "type": "contains"
+  },
+  {
+    "source": "file:src/ecm/BigIntegers/GCD.java",
+    "target": "class:GCD",
+    "type": "contains"
+  },
+  {
+    "source": "file:src/ecm/BigIntegers/ModInv.java",
+    "target": "class:ModInv",
+    "type": "contains"
+  },
+  {
+    "source": "class:StaticFunctions",
+    "target": "function:StaticFunctions.getIndexFromDivisor",
+    "type": "contains"
+  },
+  {
+    "source": "class:StaticFunctions",
+    "target": "function:StaticFunctions.JacobiSymbol",
+    "type": "contains"
+  },
+  {
+    "source": "class:StaticFunctions",
+    "target": "function:StaticFunctions.modInv",
+    "type": "contains"
+  },
+  {
+    "source": "class:StaticFunctions",
+    "target": "function:StaticFunctions.SQUFOF",
+    "type": "contains"
+  },
+  {
+    "source": "class:StaticFunctions",
+    "target": "function:StaticFunctions.isProbablePrime",
+    "type": "contains"
+  },
+  {
+    "source": "class:Main",
+    "target": "function:Main.main",
+    "type": "contains"
+  },
+  {
+    "source": "class:BigPrimesList",
+    "target": "function:BigPrimesList.add",
+    "type": "contains"
+  },
+  {
+    "source": "class:BigPrimesList",
+    "target": "function:BigPrimesList.getBigPrimes",
+    "type": "contains"
+  },
+  {
+    "source": "class:Logger",
+    "target": "function:Logger.log",
+    "type": "contains"
+  },
+  {
+    "source": "class:Logger",
+    "target": "function:Logger.logTime",
+    "type": "contains"
+  },
+  {
+    "source": "class:Logger",
+    "target": "function:Logger.logInLine",
+    "type": "contains"
+  },
+  {
+    "source": "class:QuadraticSieve",
+    "target": "function:QuadraticSieve.QuadraticSieve",
+    "type": "contains"
+  },
+  {
+    "source": "class:QuadraticSieve",
+    "target": "function:QuadraticSieve.execute",
+    "type": "contains"
+  },
+  {
+    "source": "class:QuadraticSieve",
+    "target": "function:QuadraticSieve.sieve",
+    "type": "contains"
+  },
+  {
+    "source": "class:QuadraticSieve",
+    "target": "function:QuadraticSieve.tryToSolve",
+    "type": "contains"
+  },
+  {
+    "source": "class:QuadraticSieve",
+    "target": "function:QuadraticSieve.testSolution",
+    "type": "contains"
+  },
+  {
+    "source": "class:QuadraticSieve",
+    "target": "function:QuadraticSieve.buildPrimeBase",
+    "type": "contains"
+  },
+  {
+    "source": "class:BitMatrix",
+    "target": "function:BitMatrix.solve",
+    "type": "contains"
+  },
+  {
+    "source": "class:VectorsShrinker",
+    "target": "function:VectorsShrinker.shrink",
+    "type": "contains"
+  },
+  {
+    "source": "class:Wheel",
+    "target": "function:Wheel.Wheel",
+    "type": "contains"
+  },
+  {
+    "source": "class:Wheel",
+    "target": "function:Wheel.move",
+    "type": "contains"
+  },
+  {
+    "source": "class:MathUtils",
+    "target": "function:MathUtils.ressol",
+    "type": "contains"
+  },
+  {
+    "source": "class:MathUtils",
+    "target": "function:MathUtils.v_",
+    "type": "contains"
+  },
+  {
+    "source": "class:GCD",
+    "target": "function:GCD.GcdBigNbr",
+    "type": "contains"
+  },
+  {
+    "source": "class:ModInv",
+    "target": "function:ModInv.ModInvBigNbr",
+    "type": "contains"
+  },
+  {
+    "source": "file:src/Factorzations/GUI.java",
+    "target": "function:src/Factorzations/GUI.java:initComponents",
+    "type": "contains"
+  },
+  {
+    "source": "file:src/Factorzations/GUI.java",
+    "target": "function:src/Factorzations/GUI.java:FactorActionPerformed",
+    "type": "contains"
+  },
+  {
+    "source": "file:src/Factorzations/GUI.java",
+    "target": "function:src/Factorzations/GUI.java:Checks",
+    "type": "contains"
+  },
+  {
+    "source": "file:src/Factorzations/GUI.java",
+    "target": "function:src/Factorzations/GUI.java:EnterActionPerformed",
+    "type": "contains"
+  },
+  {
+    "source": "file:src/Factorzations/GUI.java",
+    "target": "function:src/Factorzations/GUI.java:main",
+    "type": "contains"
+  },
+  {
+    "source": "file:src/Factorzations/GUI.java",
+    "target": "class:src/Factorzations/GUI.java:GUI",
+    "type": "contains"
+  },
+  {
+    "source": "file:src/ecm/PrimeTest/AprtCle.java",
+    "target": "file:src/ecm/BigIntegers/GCD.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/ecm/PrimeTest/AprtCle.java",
+    "target": "file:src/ecm/BigIntegers/ModInv.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/ecm/PrimeTest/AprtCle.java",
+    "target": "file:src/ecm/Checks/LucasCheck.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/ecm/PrimeTest/AprtCle.java",
+    "target": "file:src/ecm/Checks/PowerCheck.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/ecm/PrimeTest/AprtCle.java",
+    "target": "file:src/ecm/Checks/PowerPM1Check.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/ecm/PrimeTest/AprtCle.java",
+    "target": "file:src/Factorzations/GUI.java",
+    "type": "related"
+  },
+  {
+    "source": "file:src/ecm/Checks/FibonacciCheck.java",
+    "target": "file:src/ecm/Checks/LucasCheck.java",
+    "type": "inherits"
+  },
+  {
+    "source": "file:src/Factorzations/siqs/PrimeSieveData.java",
+    "target": "function:src/Factorzations/siqs/PrimeSieveData.java:PerformSiqsSieveStage",
+    "type": "contains"
+  },
+  {
+    "source": "file:src/Factorzations/siqs/PrimeSieveData.java",
+    "target": "class:src/Factorzations/siqs/PrimeSieveData.java:PrimeSieveData",
+    "type": "contains"
+  },
+  {
+    "source": "file:src/Factorzations/siqs/PrimeTrialDivisionData.java",
+    "target": "function:src/Factorzations/siqs/PrimeTrialDivisionData.java:set",
+    "type": "contains"
+  },
+  {
+    "source": "file:src/Factorzations/siqs/PrimeTrialDivisionData.java",
+    "target": "function:src/Factorzations/siqs/PrimeTrialDivisionData.java:Divid",
+    "type": "contains"
+  },
+  {
+    "source": "file:src/Factorzations/siqs/PrimeTrialDivisionData.java",
+    "target": "function:src/Factorzations/siqs/PrimeTrialDivisionData.java:getRem",
+    "type": "contains"
+  },
+  {
+    "source": "file:src/Factorzations/siqs/PrimeTrialDivisionData.java",
+    "target": "function:src/Factorzations/siqs/PrimeTrialDivisionData.java:PerformTrialDivision",
+    "type": "contains"
+  },
+  {
+    "source": "file:src/Factorzations/siqs/PrimeTrialDivisionData.java",
+    "target": "class:src/Factorzations/siqs/PrimeTrialDivisionData.java:PrimeTrialDivisionData",
+    "type": "contains"
+  },
+  {
+    "source": "file:src/Factorzations/ecm/StaticFunctions.java",
+    "target": "function:src/Factorzations/ecm/StaticFunctions.java:modPow",
+    "type": "contains"
+  },
+  {
+    "source": "file:src/Factorzations/ecm/StaticFunctions.java",
+    "target": "function:src/Factorzations/ecm/StaticFunctions.java:GenerateSieve",
+    "type": "contains"
+  },
+  {
+    "source": "file:src/Factorzations/ecm/StaticFunctions.java",
+    "target": "function:src/Factorzations/ecm/StaticFunctions.java:lucas_cost",
+    "type": "contains"
+  },
+  {
+    "source": "file:src/Factorzations/ecm/StaticFunctions.java",
+    "target": "function:src/Factorzations/ecm/StaticFunctions.java:MultBigNbrByLongModN",
+    "type": "contains"
+  },
+  {
+    "source": "file:src/Factorzations/ecm/StaticFunctions.java",
+    "target": "function:src/Factorzations/ecm/StaticFunctions.java:SubtractBigNbrModN",
+    "type": "contains"
+  },
+  {
+    "source": "file:src/Factorzations/ecm/StaticFunctions.java",
+    "target": "class:src/Factorzations/ecm/StaticFunctions.java:StaticFunctions",
+    "type": "contains"
+  },
+  {
+    "source": "file:src/ecm/BigIntegers/ModInv.java",
+    "target": "file:src/BigIntegers/StaticFunctions.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/Factorzations/ecm/ECM.java",
+    "target": "file:src/BigIntegers/AprtCleInteger.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/Factorzations/ecm/ECM.java",
+    "target": "file:src/Factorzations/Lehman.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/Factorzations/ecm/ecmStep0.java",
+    "target": "file:src/BigIntegers/AprtCleInteger.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/Factorzations/ecm/ecmStep1.java",
+    "target": "file:src/BigIntegers/AprtCleInteger.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/Factorzations/ecm/ecmStep2.java",
+    "target": "file:src/BigIntegers/AprtCleInteger.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/Factorzations/ecm/ecmStep2.java",
+    "target": "file:src/ecm/BigIntegers/GCD.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/Factorzations/GUI.java",
+    "target": "file:src/BigIntegers/AprtCleInteger.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/Factorzations/GUI.java",
+    "target": "file:src/calculator/Deque.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/Factorzations/GUI.java",
+    "target": "file:src/calculator/EmptyDequeException.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/Factorzations/GUI.java",
+    "target": "file:src/Factorzations/ecm/ECM.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/Factorzations/GUI.java",
+    "target": "file:src/Factorzations/siqs/Siqs.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/Factorzations/siqs/Maths.java",
+    "target": "file:src/BigIntegers/AprtCleInteger.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/Factorzations/siqs/Relation.java",
+    "target": "file:src/com/gazman/factor/VectorData.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/Factorzations/siqs/Relation.java",
+    "target": "file:src/ecm/BigIntegers/ModInv.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/Factorzations/siqs/Siqs.java",
+    "target": "file:src/BigIntegers/AprtCleInteger.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/BigIntegers/AprtCleInteger.java",
+    "target": "file:src/ecm/PrimeTest/AprtCleVariable.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/BigIntegers/LargeInteger.java",
+    "target": "file:src/utilities/BitReverseCounter.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/BigIntegers/LargeInteger.java",
+    "target": "file:src/utilities/FFT.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/BigIntegers/LargeInteger.java",
+    "target": "file:src/utilities/NTT.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/calculator/javamodel/Add.java",
+    "target": "file:src/calculator/EncodedOperation.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/calculator/javamodel/CalculatorImpl.java",
+    "target": "file:src/calculator/Calculator.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/calculator/javamodel/CalculatorImpl.java",
+    "target": "file:src/calculator/CalculatorUI.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/calculator/javamodel/CalculatorImpl.java",
+    "target": "file:src/calculator/ConvertBase.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/calculator/javamodel/CalculatorImpl.java",
+    "target": "file:src/calculator/Deque.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/calculator/javamodel/CalculatorImpl.java",
+    "target": "file:src/calculator/EmptyDequeException.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/calculator/javamodel/CalculatorImpl.java",
+    "target": "file:src/calculator/EncodedOperation.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/calculator/javamodel/CalculatorImpl.java",
+    "target": "file:src/calculator/Operation.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/calculator/javamodel/ChangeSigns.java",
+    "target": "file:src/calculator/EncodedOperation.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/calculator/javamodel/ClearStack.java",
+    "target": "file:src/calculator/Operation.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/calculator/javamodel/Divide.java",
+    "target": "file:src/calculator/EncodedOperation.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/calculator/javamodel/Multiply.java",
+    "target": "file:src/calculator/EncodedOperation.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/calculator/javamodel/Pop.java",
+    "target": "file:src/calculator/Operation.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/calculator/javamodel/Power.java",
+    "target": "file:src/calculator/EncodedOperation.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/calculator/javamodel/Push.java",
+    "target": "file:src/calculator/Operation.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/calculator/javamodel/Remainder.java",
+    "target": "file:src/calculator/EncodedOperation.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/calculator/javamodel/RotateDown.java",
+    "target": "file:src/calculator/Operation.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/calculator/javamodel/RotateUp.java",
+    "target": "file:src/calculator/Operation.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/calculator/javamodel/Subtract.java",
+    "target": "file:src/calculator/EncodedOperation.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/calculator/javamodel/TenToPower.java",
+    "target": "file:src/calculator/EncodedOperation.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/calculator/javamodel/TwoToPower.java",
+    "target": "file:src/calculator/EncodedOperation.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/calculator/largemodel/Add.java",
+    "target": "file:src/BigIntegers/LargeInteger.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/calculator/largemodel/Add.java",
+    "target": "file:src/calculator/EncodedOperation.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/calculator/largemodel/CalculatorImpl.java",
+    "target": "file:src/BigIntegers/LargeInteger.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/calculator/largemodel/CalculatorImpl.java",
+    "target": "file:src/calculator/Calculator.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/calculator/largemodel/CalculatorImpl.java",
+    "target": "file:src/calculator/CalculatorUI.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/calculator/largemodel/CalculatorImpl.java",
+    "target": "file:src/calculator/ConvertBase.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/calculator/largemodel/CalculatorImpl.java",
+    "target": "file:src/calculator/Deque.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/calculator/largemodel/CalculatorImpl.java",
+    "target": "file:src/calculator/EmptyDequeException.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/calculator/largemodel/CalculatorImpl.java",
+    "target": "file:src/calculator/EncodedOperation.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/calculator/largemodel/CalculatorImpl.java",
+    "target": "file:src/calculator/javamodel/ClearStack.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/calculator/largemodel/CalculatorImpl.java",
+    "target": "file:src/calculator/javamodel/Pop.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/calculator/largemodel/CalculatorImpl.java",
+    "target": "file:src/calculator/javamodel/RotateDown.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/calculator/largemodel/CalculatorImpl.java",
+    "target": "file:src/calculator/javamodel/RotateUp.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/calculator/largemodel/CalculatorImpl.java",
+    "target": "file:src/calculator/Operation.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/calculator/largemodel/ChangeSigns.java",
+    "target": "file:src/BigIntegers/LargeInteger.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/calculator/largemodel/ChangeSigns.java",
+    "target": "file:src/calculator/EncodedOperation.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/calculator/largemodel/Divide.java",
+    "target": "file:src/BigIntegers/LargeInteger.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/calculator/largemodel/Divide.java",
+    "target": "file:src/calculator/EncodedOperation.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/calculator/largemodel/Multiply.java",
+    "target": "file:src/BigIntegers/LargeInteger.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/calculator/largemodel/Multiply.java",
+    "target": "file:src/calculator/EncodedOperation.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/calculator/largemodel/Power.java",
+    "target": "file:src/BigIntegers/LargeInteger.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/calculator/largemodel/Power.java",
+    "target": "file:src/calculator/EncodedOperation.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/calculator/largemodel/Push.java",
+    "target": "file:src/calculator/Operation.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/calculator/largemodel/Remainder.java",
+    "target": "file:src/BigIntegers/LargeInteger.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/calculator/largemodel/Remainder.java",
+    "target": "file:src/calculator/EncodedOperation.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/calculator/largemodel/Subtract.java",
+    "target": "file:src/BigIntegers/LargeInteger.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/calculator/largemodel/Subtract.java",
+    "target": "file:src/calculator/EncodedOperation.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/calculator/largemodel/TenToPower.java",
+    "target": "file:src/BigIntegers/LargeInteger.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/calculator/largemodel/TenToPower.java",
+    "target": "file:src/calculator/EncodedOperation.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/calculator/largemodel/TwoToPower.java",
+    "target": "file:src/BigIntegers/LargeInteger.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/calculator/largemodel/TwoToPower.java",
+    "target": "file:src/calculator/EncodedOperation.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/ecm/Checks/FibonacciCheck.java",
+    "target": "file:src/BigIntegers/AprtCleInteger.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/ecm/Checks/LucasCheck.java",
+    "target": "file:src/BigIntegers/AprtCleInteger.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/ecm/Checks/PowerCheck.java",
+    "target": "file:src/BigIntegers/ECMBigInteger.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/ecm/Checks/PowerPM1Check.java",
+    "target": "file:src/BigIntegers/ECMBigInteger.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/ecm/PrimeTest/AprtCle.java",
+    "target": "file:src/BigIntegers/AprtCleInteger.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/ecm/PrimeTest/AprtCleFinal.java",
+    "target": "file:src/BigIntegers/AprtCleInteger.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/ecm/PrimeTest/LucasLehmer.java",
+    "target": "file:src/utilities/Zeef.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/Factorzations/GUI.java",
+    "target": "file:src/BigIntegers/LargeInteger.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/Factorzations/GUI.java",
+    "target": "file:src/calculator/EncodedOperation.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/Factorzations/GUI.java",
+    "target": "file:src/calculator/largemodel/Add.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/Factorzations/GUI.java",
+    "target": "file:src/calculator/largemodel/Divide.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/Factorzations/GUI.java",
+    "target": "file:src/calculator/largemodel/Multiply.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/Factorzations/GUI.java",
+    "target": "file:src/calculator/largemodel/Power.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/Factorzations/GUI.java",
+    "target": "file:src/calculator/largemodel/Remainder.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/Factorzations/GUI.java",
+    "target": "file:src/calculator/largemodel/Subtract.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/Factorzations/GUI.java",
+    "target": "file:src/ecm/Checks/FibonacciCheck.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/Factorzations/GUI.java",
+    "target": "file:src/ecm/Checks/LucasCheck.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/Factorzations/GUI.java",
+    "target": "file:src/ecm/Checks/PowerCheck.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/Factorzations/GUI.java",
+    "target": "file:src/ecm/Checks/PowerPM1Check.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:src/Factorzations/GUI.java",
+    "target": "file:src/ecm/PrimeTest/AprtCle.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:test/test/JUnitTest.java",
+    "target": "file:src/BigIntegers/AprtCleInteger.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:test/test/JUnitTest.java",
+    "target": "file:src/BigIntegers/LargeInteger.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:test/test/JUnitTest.java",
+    "target": "file:src/com/gazman/factor/matrix/BitMatrix.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:test/test/JUnitTest.java",
+    "target": "file:src/com/gazman/factor/VectorData.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:test/test/JUnitTest.java",
+    "target": "file:src/ecm/BigIntegers/GCD.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:test/test/JUnitTest.java",
+    "target": "file:src/ecm/BigIntegers/ModInv.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:test/test/JUnitTest.java",
+    "target": "file:src/ecm/Checks/FibonacciCheck.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:test/test/JUnitTest.java",
+    "target": "file:src/ecm/Checks/LucasCheck.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:test/test/JUnitTest.java",
+    "target": "file:src/ecm/Checks/PowerCheck.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:test/test/JUnitTest.java",
+    "target": "file:src/ecm/Checks/PowerPM1Check.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:test/test/JUnitTest.java",
+    "target": "file:src/ecm/PrimeTest/AprtCle.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:test/test/JUnitTest.java",
+    "target": "file:src/Factorzations/Classical.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:test/test/JUnitTest.java",
+    "target": "file:src/Factorzations/ecm/ECM.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:test/test/JUnitTest.java",
+    "target": "file:src/Factorzations/Lehman.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:test/test/JUnitTest.java",
+    "target": "file:src/Factorzations/siqs/PrimeTrialDivisionData.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:test/test/JUnitTest.java",
+    "target": "file:src/Factorzations/siqs/Siqs.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:test/test/JUnitTest.java",
+    "target": "file:src/utilities/FFT.java",
+    "type": "imports"
+  },
+  {
+    "source": "file:test/test/JUnitTest.java",
+    "target": "file:src/utilities/NTT.java",
+    "type": "imports"
+  }
+]

@@ -675,4 +675,50 @@ public abstract class BytecodeVisitor {
         stack.push(result);
         return 0;
     }
+    
+    void op_if_icmplt() {
+        int value2 = stack.pop().getInt();
+        int value1 = stack.pop().getInt();
+        //pc += (value1 < value2) ? ARRAY_TO_INT16(code[pc + 1]) : 3;
+    }
+    
+    void op_if_icmpge() {
+        int value2 = stack.pop().getInt();
+        int value1 = stack.pop().getInt();
+        //pc += (value1 >= value2) ? ARRAY_TO_INT16(code[pc + 1]) : 3;
+    }
+    
+    void op_if_icmpgt() {
+        int value2 = stack.pop().getInt();
+        int value1 = stack.pop().getInt();
+        //pc += (value1 > value2) ? ARRAY_TO_INT16(code[pc + 1]) : 3;
+    }
+    
+    void op_if_icmple() {
+        int value2 = stack.pop().getInt();
+        int value1 = stack.pop().getInt();
+        //pc += (value1 <= value2) ? ARRAY_TO_INT16(code[pc + 1]) : 3;
+    }
+    
+    void op_goto(){
+        //pc += ARRAY_TO_INT16(code[pc + 1]);
+    }
+    
+    void op_goto_w(){
+        //pc += ARRAY_TO_INT32(code[pc + 1]);
+    }
+    
+    void op_jsr(){
+        //stack.push(Int32(pc + 3));
+        //pc += ARRAY_TO_INT16(code[pc + 1]);
+    }
+    
+    void op_jsrw(){
+        //stack.push(Int32(pc + 5));
+        //pc += ARRAY_TO_INT32(code[pc + 1]);
+    }
+    
+    void op_ret(){
+        //pc = locals[code[pc + 1]];
+    }
 }

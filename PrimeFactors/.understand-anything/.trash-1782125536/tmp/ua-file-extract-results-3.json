@@ -1,0 +1,1545 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 7,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "src/calculator/Calculator.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 32,
+      "nonEmptyLines": 27,
+      "classes": [
+        {
+          "name": "Calculator",
+          "startLine": 15,
+          "endLine": 32,
+          "methods": [
+            "doOperation",
+            "changeSettings"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "Calculator",
+          "line": 15,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/calculator/CalculatorUI.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 42,
+      "nonEmptyLines": 35,
+      "classes": [
+        {
+          "name": "CalculatorUI",
+          "startLine": 15,
+          "endLine": 42,
+          "methods": [
+            "getInput",
+            "insert",
+            "setOutput",
+            "setBusy",
+            "showError"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "CalculatorUI",
+          "line": 15,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/calculator/DefaultUI.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 654,
+      "nonEmptyLines": 594,
+      "functions": [
+        {
+          "name": "DefaultUI",
+          "startLine": 206,
+          "endLine": 220,
+          "params": [
+            "modelLoc",
+            "parent"
+          ]
+        },
+        {
+          "name": "getModel",
+          "startLine": 238,
+          "endLine": 248,
+          "params": [
+            "modelLoc"
+          ]
+        },
+        {
+          "name": "getMenuBar",
+          "startLine": 254,
+          "endLine": 275,
+          "params": [
+            "calc"
+          ]
+        },
+        {
+          "name": "getScrollingDisplay",
+          "startLine": 280,
+          "endLine": 292,
+          "params": []
+        },
+        {
+          "name": "getBasePanel",
+          "startLine": 298,
+          "endLine": 310,
+          "params": [
+            "calc"
+          ]
+        },
+        {
+          "name": "getButtonPanel",
+          "startLine": 318,
+          "endLine": 335,
+          "params": [
+            "modelLoc",
+            "calc"
+          ]
+        },
+        {
+          "name": "insert",
+          "startLine": 341,
+          "endLine": 345,
+          "params": [
+            "s"
+          ]
+        },
+        {
+          "name": "getInput",
+          "startLine": 351,
+          "endLine": 355,
+          "params": []
+        },
+        {
+          "name": "setOutput",
+          "startLine": 360,
+          "endLine": 366,
+          "params": [
+            "s",
+            "b"
+          ]
+        },
+        {
+          "name": "showError",
+          "startLine": 371,
+          "endLine": 382,
+          "params": [
+            "e"
+          ]
+        },
+        {
+          "name": "setBusy",
+          "startLine": 388,
+          "endLine": 392,
+          "params": [
+            "busy"
+          ]
+        },
+        {
+          "name": "ButtonAction",
+          "startLine": 421,
+          "endLine": 425,
+          "params": [
+            "v",
+            "c",
+            "op"
+          ]
+        },
+        {
+          "name": "actionPerformed",
+          "startLine": 430,
+          "endLine": 441,
+          "params": [
+            "ev"
+          ]
+        },
+        {
+          "name": "TextButtonAction",
+          "startLine": 464,
+          "endLine": 467,
+          "params": [
+            "v",
+            "s"
+          ]
+        },
+        {
+          "name": "actionPerformed",
+          "startLine": 472,
+          "endLine": 475,
+          "params": [
+            "e"
+          ]
+        },
+        {
+          "name": "SelectAllAction",
+          "startLine": 492,
+          "endLine": 495,
+          "params": [
+            "t"
+          ]
+        },
+        {
+          "name": "actionPerformed",
+          "startLine": 500,
+          "endLine": 503,
+          "params": [
+            "e"
+          ]
+        },
+        {
+          "name": "HomeAction",
+          "startLine": 520,
+          "endLine": 522,
+          "params": [
+            "t"
+          ]
+        },
+        {
+          "name": "actionPerformed",
+          "startLine": 527,
+          "endLine": 530,
+          "params": [
+            "e"
+          ]
+        },
+        {
+          "name": "EndAction",
+          "startLine": 547,
+          "endLine": 549,
+          "params": [
+            "t"
+          ]
+        },
+        {
+          "name": "actionPerformed",
+          "startLine": 554,
+          "endLine": 557,
+          "params": [
+            "e"
+          ]
+        },
+        {
+          "name": "BaseListener",
+          "startLine": 586,
+          "endLine": 590,
+          "params": [
+            "b",
+            "c",
+            "v"
+          ]
+        },
+        {
+          "name": "itemStateChanged",
+          "startLine": 595,
+          "endLine": 607,
+          "params": [
+            "e"
+          ]
+        },
+        {
+          "name": "SetSticky",
+          "startLine": 636,
+          "endLine": 640,
+          "params": [
+            "b",
+            "c",
+            "v"
+          ]
+        },
+        {
+          "name": "actionPerformed",
+          "startLine": 645,
+          "endLine": 653,
+          "params": [
+            "e"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "DefaultUI",
+          "startLine": 97,
+          "endLine": 393,
+          "methods": [
+            "DefaultUI",
+            "getModel",
+            "getMenuBar",
+            "getScrollingDisplay",
+            "getBasePanel",
+            "getButtonPanel",
+            "insert",
+            "getInput",
+            "setOutput",
+            "showError",
+            "setBusy"
+          ],
+          "properties": [
+            "BINDINGS",
+            "CALCULATOR_CLASS",
+            "DEFAULT_BASE",
+            "DEFAULT_CURSOR",
+            "BUSY_CURSOR",
+            "display",
+            "theDocument",
+            "radixBox"
+          ]
+        },
+        {
+          "name": "ButtonAction",
+          "startLine": 398,
+          "endLine": 442,
+          "methods": [
+            "ButtonAction",
+            "actionPerformed"
+          ],
+          "properties": [
+            "theCalculator",
+            "theView",
+            "theOperation"
+          ]
+        },
+        {
+          "name": "TextButtonAction",
+          "startLine": 447,
+          "endLine": 476,
+          "methods": [
+            "TextButtonAction",
+            "actionPerformed"
+          ],
+          "properties": [
+            "theView",
+            "text"
+          ]
+        },
+        {
+          "name": "SelectAllAction",
+          "startLine": 481,
+          "endLine": 504,
+          "methods": [
+            "SelectAllAction",
+            "actionPerformed"
+          ],
+          "properties": [
+            "display"
+          ]
+        },
+        {
+          "name": "HomeAction",
+          "startLine": 509,
+          "endLine": 531,
+          "methods": [
+            "HomeAction",
+            "actionPerformed"
+          ],
+          "properties": [
+            "display"
+          ]
+        },
+        {
+          "name": "EndAction",
+          "startLine": 536,
+          "endLine": 558,
+          "methods": [
+            "EndAction",
+            "actionPerformed"
+          ],
+          "properties": [
+            "display"
+          ]
+        },
+        {
+          "name": "BaseListener",
+          "startLine": 563,
+          "endLine": 608,
+          "methods": [
+            "BaseListener",
+            "itemStateChanged"
+          ],
+          "properties": [
+            "theBox",
+            "theCalculator",
+            "theView"
+          ]
+        },
+        {
+          "name": "SetSticky",
+          "startLine": 613,
+          "endLine": 654,
+          "methods": [
+            "SetSticky",
+            "actionPerformed"
+          ],
+          "properties": [
+            "item",
+            "theCalculator",
+            "theView"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "DefaultUI",
+          "line": 206,
+          "isDefault": false
+        },
+        {
+          "name": "insert",
+          "line": 341,
+          "isDefault": false
+        },
+        {
+          "name": "getInput",
+          "line": 351,
+          "isDefault": false
+        },
+        {
+          "name": "setOutput",
+          "line": 360,
+          "isDefault": false
+        },
+        {
+          "name": "showError",
+          "line": 371,
+          "isDefault": false
+        },
+        {
+          "name": "setBusy",
+          "line": 388,
+          "isDefault": false
+        },
+        {
+          "name": "DefaultUI",
+          "line": 97,
+          "isDefault": false
+        },
+        {
+          "name": "ButtonAction",
+          "line": 421,
+          "isDefault": false
+        },
+        {
+          "name": "actionPerformed",
+          "line": 430,
+          "isDefault": false
+        },
+        {
+          "name": "TextButtonAction",
+          "line": 464,
+          "isDefault": false
+        },
+        {
+          "name": "actionPerformed",
+          "line": 472,
+          "isDefault": false
+        },
+        {
+          "name": "SelectAllAction",
+          "line": 492,
+          "isDefault": false
+        },
+        {
+          "name": "actionPerformed",
+          "line": 500,
+          "isDefault": false
+        },
+        {
+          "name": "HomeAction",
+          "line": 520,
+          "isDefault": false
+        },
+        {
+          "name": "actionPerformed",
+          "line": 527,
+          "isDefault": false
+        },
+        {
+          "name": "EndAction",
+          "line": 547,
+          "isDefault": false
+        },
+        {
+          "name": "actionPerformed",
+          "line": 554,
+          "isDefault": false
+        },
+        {
+          "name": "BaseListener",
+          "line": 586,
+          "isDefault": false
+        },
+        {
+          "name": "itemStateChanged",
+          "line": 595,
+          "isDefault": false
+        },
+        {
+          "name": "SetSticky",
+          "line": 636,
+          "isDefault": false
+        },
+        {
+          "name": "actionPerformed",
+          "line": 645,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "DefaultUI",
+          "callee": "getModel",
+          "lineNumber": 210
+        },
+        {
+          "caller": "DefaultUI",
+          "callee": "parent.getContentPane",
+          "lineNumber": 211
+        },
+        {
+          "caller": "DefaultUI",
+          "callee": "content.setLayout",
+          "lineNumber": 212
+        },
+        {
+          "caller": "DefaultUI",
+          "callee": "new FlowLayout",
+          "lineNumber": 212
+        },
+        {
+          "caller": "DefaultUI",
+          "callee": "new JPanel",
+          "lineNumber": 213
+        },
+        {
+          "caller": "DefaultUI",
+          "callee": "c.setLayout",
+          "lineNumber": 214
+        },
+        {
+          "caller": "DefaultUI",
+          "callee": "new BoxLayout",
+          "lineNumber": 214
+        },
+        {
+          "caller": "DefaultUI",
+          "callee": "parent.setJMenuBar",
+          "lineNumber": 215
+        },
+        {
+          "caller": "DefaultUI",
+          "callee": "getMenuBar",
+          "lineNumber": 215
+        },
+        {
+          "caller": "DefaultUI",
+          "callee": "c.add",
+          "lineNumber": 216
+        },
+        {
+          "caller": "DefaultUI",
+          "callee": "getScrollingDisplay",
+          "lineNumber": 216
+        },
+        {
+          "caller": "DefaultUI",
+          "callee": "c.add",
+          "lineNumber": 217
+        },
+        {
+          "caller": "DefaultUI",
+          "callee": "getBasePanel",
+          "lineNumber": 217
+        },
+        {
+          "caller": "DefaultUI",
+          "callee": "c.add",
+          "lineNumber": 218
+        },
+        {
+          "caller": "DefaultUI",
+          "callee": "getButtonPanel",
+          "lineNumber": 218
+        },
+        {
+          "caller": "DefaultUI",
+          "callee": "content.add",
+          "lineNumber": 219
+        },
+        {
+          "caller": "getModel",
+          "callee": "Class.forName",
+          "lineNumber": 242
+        },
+        {
+          "caller": "getModel",
+          "callee": "calcClass.getConstructor",
+          "lineNumber": 243
+        },
+        {
+          "caller": "getModel",
+          "callee": "Class.forName",
+          "lineNumber": 244
+        },
+        {
+          "caller": "getModel",
+          "callee": "calcConstr.newInstance",
+          "lineNumber": 247
+        },
+        {
+          "caller": "getMenuBar",
+          "callee": "new JMenuBar",
+          "lineNumber": 255
+        },
+        {
+          "caller": "getMenuBar",
+          "callee": "new JMenu",
+          "lineNumber": 256
+        },
+        {
+          "caller": "getMenuBar",
+          "callee": "editMenu.add",
+          "lineNumber": 257
+        },
+        {
+          "caller": "getMenuBar",
+          "callee": "new SelectAllAction",
+          "lineNumber": 257
+        },
+        {
+          "caller": "getMenuBar",
+          "callee": "new DefaultEditorKit.CutAction",
+          "lineNumber": 258
+        },
+        {
+          "caller": "getMenuBar",
+          "callee": "cut.putValue",
+          "lineNumber": 259
+        },
+        {
+          "caller": "getMenuBar",
+          "callee": "editMenu.add",
+          "lineNumber": 260
+        },
+        {
+          "caller": "getMenuBar",
+          "callee": "new DefaultEditorKit.CopyAction",
+          "lineNumber": 261
+        },
+        {
+          "caller": "getMenuBar",
+          "callee": "copy.putValue",
+          "lineNumber": 262
+        },
+        {
+          "caller": "getMenuBar",
+          "callee": "editMenu.add",
+          "lineNumber": 263
+        },
+        {
+          "caller": "getMenuBar",
+          "callee": "new DefaultEditorKit.PasteAction",
+          "lineNumber": 264
+        },
+        {
+          "caller": "getMenuBar",
+          "callee": "paste.putValue",
+          "lineNumber": 265
+        },
+        {
+          "caller": "getMenuBar",
+          "callee": "editMenu.add",
+          "lineNumber": 266
+        },
+        {
+          "caller": "getMenuBar",
+          "callee": "menuBar.add",
+          "lineNumber": 267
+        },
+        {
+          "caller": "getMenuBar",
+          "callee": "new JMenu",
+          "lineNumber": 268
+        },
+        {
+          "caller": "getMenuBar",
+          "callee": "new JCheckBoxMenuItem",
+          "lineNumber": 269
+        },
+        {
+          "caller": "getMenuBar",
+          "callee": "new SetSticky",
+          "lineNumber": 270
+        },
+        {
+          "caller": "getMenuBar",
+          "callee": "stickyBase.addActionListener",
+          "lineNumber": 271
+        },
+        {
+          "caller": "getMenuBar",
+          "callee": "optionsMenu.add",
+          "lineNumber": 272
+        },
+        {
+          "caller": "getMenuBar",
+          "callee": "menuBar.add",
+          "lineNumber": 273
+        },
+        {
+          "caller": "getScrollingDisplay",
+          "callee": "display.setFont",
+          "lineNumber": 281
+        },
+        {
+          "caller": "getScrollingDisplay",
+          "callee": "new Font",
+          "lineNumber": 281
+        },
+        {
+          "caller": "getScrollingDisplay",
+          "callee": "display.setDocument",
+          "lineNumber": 282
+        },
+        {
+          "caller": "getScrollingDisplay",
+          "callee": "display.getKeymap",
+          "lineNumber": 283
+        },
+        {
+          "caller": "getScrollingDisplay",
+          "callee": "KeyStroke.getKeyStroke",
+          "lineNumber": 284
+        },
+        {
+          "caller": "getScrollingDisplay",
+          "callee": "map.removeKeyStrokeBinding",
+          "lineNumber": 285
+        },
+        {
+          "caller": "getScrollingDisplay",
+          "callee": "map.addActionForKeyStroke",
+          "lineNumber": 286
+        },
+        {
+          "caller": "getScrollingDisplay",
+          "callee": "new HomeAction",
+          "lineNumber": 286
+        },
+        {
+          "caller": "getScrollingDisplay",
+          "callee": "KeyStroke.getKeyStroke",
+          "lineNumber": 287
+        },
+        {
+          "caller": "getScrollingDisplay",
+          "callee": "map.removeKeyStrokeBinding",
+          "lineNumber": 288
+        },
+        {
+          "caller": "getScrollingDisplay",
+          "callee": "map.addActionForKeyStroke",
+          "lineNumber": 289
+        },
+        {
+          "caller": "getScrollingDisplay",
+          "callee": "new EndAction",
+          "lineNumber": 289
+        },
+        {
+          "caller": "getScrollingDisplay",
+          "callee": "new JScrollPane",
+          "lineNumber": 290
+        },
+        {
+          "caller": "getBasePanel",
+          "callee": "new JPanel",
+          "lineNumber": 299
+        },
+        {
+          "caller": "getBasePanel",
+          "callee": "basePanel.add",
+          "lineNumber": 300
+        },
+        {
+          "caller": "getBasePanel",
+          "callee": "new JLabel",
+          "lineNumber": 300
+        },
+        {
+          "caller": "getBasePanel",
+          "callee": "new JComboBox",
+          "lineNumber": 305
+        },
+        {
+          "caller": "getBasePanel",
+          "callee": "radixBox.setSelectedIndex",
+          "lineNumber": 306
+        },
+        {
+          "caller": "getBasePanel",
+          "callee": "basePanel.add",
+          "lineNumber": 307
+        },
+        {
+          "caller": "getBasePanel",
+          "callee": "radixBox.addItemListener",
+          "lineNumber": 308
+        },
+        {
+          "caller": "getBasePanel",
+          "callee": "new BaseListener",
+          "lineNumber": 308
+        },
+        {
+          "caller": "getButtonPanel",
+          "callee": "new JPanel",
+          "lineNumber": 319
+        },
+        {
+          "caller": "getButtonPanel",
+          "callee": "new GridLayout",
+          "lineNumber": 319
+        },
+        {
+          "caller": "getButtonPanel",
+          "callee": "new JButton",
+          "lineNumber": 321
+        },
+        {
+          "caller": "getButtonPanel",
+          "callee": "Class.forName",
+          "lineNumber": 324
+        },
+        {
+          "caller": "getButtonPanel",
+          "callee": "opClass.newInstance",
+          "lineNumber": 325
+        },
+        {
+          "caller": "getButtonPanel",
+          "callee": "btn.addActionListener",
+          "lineNumber": 326
+        },
+        {
+          "caller": "getButtonPanel",
+          "callee": "new ButtonAction",
+          "lineNumber": 326
+        },
+        {
+          "caller": "getButtonPanel",
+          "callee": "btn.setEnabled",
+          "lineNumber": 328
+        },
+        {
+          "caller": "getButtonPanel",
+          "callee": "btn.addActionListener",
+          "lineNumber": 330
+        },
+        {
+          "caller": "getButtonPanel",
+          "callee": "new TextButtonAction",
+          "lineNumber": 330
+        },
+        {
+          "caller": "getButtonPanel",
+          "callee": "btnPanel.add",
+          "lineNumber": 332
+        },
+        {
+          "caller": "insert",
+          "callee": "display.replaceSelection",
+          "lineNumber": 343
+        },
+        {
+          "caller": "insert",
+          "callee": "display.requestFocus",
+          "lineNumber": 344
+        },
+        {
+          "caller": "getInput",
+          "callee": "((NumericDocument) display.getDocument()).isModified",
+          "lineNumber": 353
+        },
+        {
+          "caller": "getInput",
+          "callee": "display.getDocument",
+          "lineNumber": 353
+        },
+        {
+          "caller": "getInput",
+          "callee": "display.getText",
+          "lineNumber": 354
+        },
+        {
+          "caller": "setOutput",
+          "callee": "display.setDocument",
+          "lineNumber": 362
+        },
+        {
+          "caller": "setOutput",
+          "callee": "new NumericDocument",
+          "lineNumber": 362
+        },
+        {
+          "caller": "setOutput",
+          "callee": "radixBox.getSelectedIndex",
+          "lineNumber": 363
+        },
+        {
+          "caller": "setOutput",
+          "callee": "radixBox.setSelectedIndex",
+          "lineNumber": 364
+        },
+        {
+          "caller": "setOutput",
+          "callee": "display.requestFocus",
+          "lineNumber": 365
+        },
+        {
+          "caller": "showError",
+          "callee": "JOptionPane.showMessageDialog",
+          "lineNumber": 380
+        },
+        {
+          "caller": "actionPerformed",
+          "callee": "theView.setBusy",
+          "lineNumber": 432
+        },
+        {
+          "caller": "actionPerformed",
+          "callee": "theView.getInput",
+          "lineNumber": 434
+        },
+        {
+          "caller": "actionPerformed",
+          "callee": "theCalculator.doOperation",
+          "lineNumber": 435
+        },
+        {
+          "caller": "actionPerformed",
+          "callee": "theView.setBusy",
+          "lineNumber": 436
+        },
+        {
+          "caller": "actionPerformed",
+          "callee": "theView.setBusy",
+          "lineNumber": 438
+        },
+        {
+          "caller": "actionPerformed",
+          "callee": "theView.showError",
+          "lineNumber": 439
+        },
+        {
+          "caller": "actionPerformed",
+          "callee": "theView.insert",
+          "lineNumber": 474
+        },
+        {
+          "caller": "actionPerformed",
+          "callee": "display.selectAll",
+          "lineNumber": 502
+        },
+        {
+          "caller": "actionPerformed",
+          "callee": "display.setCaretPosition",
+          "lineNumber": 529
+        },
+        {
+          "caller": "actionPerformed",
+          "callee": "display.setCaretPosition",
+          "lineNumber": 556
+        },
+        {
+          "caller": "actionPerformed",
+          "callee": "display.getDocument().getLength",
+          "lineNumber": 556
+        },
+        {
+          "caller": "actionPerformed",
+          "callee": "display.getDocument",
+          "lineNumber": 556
+        },
+        {
+          "caller": "itemStateChanged",
+          "callee": "theView.getInput",
+          "lineNumber": 598
+        },
+        {
+          "caller": "itemStateChanged",
+          "callee": "theView.setBusy",
+          "lineNumber": 599
+        },
+        {
+          "caller": "itemStateChanged",
+          "callee": "theCalculator.doOperation",
+          "lineNumber": 600
+        },
+        {
+          "caller": "itemStateChanged",
+          "callee": "new ConvertBase",
+          "lineNumber": 600
+        },
+        {
+          "caller": "itemStateChanged",
+          "callee": "theBox.getSelectedIndex",
+          "lineNumber": 600
+        },
+        {
+          "caller": "itemStateChanged",
+          "callee": "theView.setBusy",
+          "lineNumber": 602
+        },
+        {
+          "caller": "itemStateChanged",
+          "callee": "theView.setBusy",
+          "lineNumber": 604
+        },
+        {
+          "caller": "itemStateChanged",
+          "callee": "theView.showError",
+          "lineNumber": 605
+        },
+        {
+          "caller": "actionPerformed",
+          "callee": "theCalculator.changeSettings",
+          "lineNumber": 648
+        },
+        {
+          "caller": "actionPerformed",
+          "callee": "item.getState",
+          "lineNumber": 648
+        },
+        {
+          "caller": "actionPerformed",
+          "callee": "theView.getInput",
+          "lineNumber": 649
+        },
+        {
+          "caller": "actionPerformed",
+          "callee": "theView.showError",
+          "lineNumber": 651
+        }
+      ],
+      "metrics": {
+        "importCount": 5,
+        "exportCount": 21,
+        "functionCount": 25,
+        "classCount": 8
+      }
+    },
+    {
+      "path": "src/calculator/NumericDocument.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 119,
+      "nonEmptyLines": 110,
+      "functions": [
+        {
+          "name": "NumericDocument",
+          "startLine": 37,
+          "endLine": 46,
+          "params": [
+            "b",
+            "s"
+          ]
+        },
+        {
+          "name": "insertString",
+          "startLine": 57,
+          "endLine": 98,
+          "params": [
+            "offs",
+            "str",
+            "a"
+          ]
+        },
+        {
+          "name": "isModified",
+          "startLine": 104,
+          "endLine": 106,
+          "params": []
+        },
+        {
+          "name": "remove",
+          "startLine": 116,
+          "endLine": 118,
+          "params": [
+            "offs",
+            "len"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "NumericDocument",
+          "startLine": 20,
+          "endLine": 119,
+          "methods": [
+            "NumericDocument",
+            "insertString",
+            "isModified",
+            "remove"
+          ],
+          "properties": [
+            "base",
+            "modified"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "NumericDocument",
+          "line": 37,
+          "isDefault": false
+        },
+        {
+          "name": "insertString",
+          "line": 57,
+          "isDefault": false
+        },
+        {
+          "name": "isModified",
+          "line": 104,
+          "isDefault": false
+        },
+        {
+          "name": "remove",
+          "line": 116,
+          "isDefault": false
+        },
+        {
+          "name": "NumericDocument",
+          "line": 20,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "NumericDocument",
+          "callee": "super.insertString",
+          "lineNumber": 40
+        },
+        {
+          "caller": "NumericDocument",
+          "callee": "e.printStackTrace",
+          "lineNumber": 44
+        },
+        {
+          "caller": "insertString",
+          "callee": "super.remove",
+          "lineNumber": 61
+        },
+        {
+          "caller": "insertString",
+          "callee": "getLength",
+          "lineNumber": 61
+        },
+        {
+          "caller": "insertString",
+          "callee": "getText",
+          "lineNumber": 67
+        },
+        {
+          "caller": "insertString",
+          "callee": "first.equals",
+          "lineNumber": 68
+        },
+        {
+          "caller": "insertString",
+          "callee": "new StringBuffer",
+          "lineNumber": 73
+        },
+        {
+          "caller": "insertString",
+          "callee": "str.length",
+          "lineNumber": 73
+        },
+        {
+          "caller": "insertString",
+          "callee": "sb.length",
+          "lineNumber": 74
+        },
+        {
+          "caller": "insertString",
+          "callee": "str.length",
+          "lineNumber": 74
+        },
+        {
+          "caller": "insertString",
+          "callee": "str.charAt",
+          "lineNumber": 75
+        },
+        {
+          "caller": "insertString",
+          "callee": "sb.append",
+          "lineNumber": 77
+        },
+        {
+          "caller": "insertString",
+          "callee": "sb.append",
+          "lineNumber": 79
+        },
+        {
+          "caller": "insertString",
+          "callee": "sb.append",
+          "lineNumber": 81
+        },
+        {
+          "caller": "insertString",
+          "callee": "sb.append",
+          "lineNumber": 83
+        },
+        {
+          "caller": "insertString",
+          "callee": "Character.toLowerCase",
+          "lineNumber": 83
+        },
+        {
+          "caller": "insertString",
+          "callee": "str.length",
+          "lineNumber": 85
+        },
+        {
+          "caller": "insertString",
+          "callee": "str.charAt",
+          "lineNumber": 86
+        },
+        {
+          "caller": "insertString",
+          "callee": "sb.append",
+          "lineNumber": 88
+        },
+        {
+          "caller": "insertString",
+          "callee": "sb.append",
+          "lineNumber": 90
+        },
+        {
+          "caller": "insertString",
+          "callee": "sb.append",
+          "lineNumber": 92
+        },
+        {
+          "caller": "insertString",
+          "callee": "Character.toLowerCase",
+          "lineNumber": 92
+        },
+        {
+          "caller": "insertString",
+          "callee": "sb.length",
+          "lineNumber": 94
+        },
+        {
+          "caller": "insertString",
+          "callee": "super.insertString",
+          "lineNumber": 95
+        },
+        {
+          "caller": "insertString",
+          "callee": "sb.toString",
+          "lineNumber": 95
+        },
+        {
+          "caller": "remove",
+          "callee": "super.remove",
+          "lineNumber": 117
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 5,
+        "functionCount": 4,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/calculator/largemodel/ChangeSigns.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 49,
+      "nonEmptyLines": 43,
+      "functions": [
+        {
+          "name": "numOperands",
+          "startLine": 24,
+          "endLine": 27,
+          "params": []
+        },
+        {
+          "name": "doOperation",
+          "startLine": 36,
+          "endLine": 40,
+          "params": [
+            "operands"
+          ]
+        },
+        {
+          "name": "ChSignBigNbr",
+          "startLine": 42,
+          "endLine": 48,
+          "params": [
+            "TestNbr",
+            "NumberLength"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "ChangeSigns",
+          "startLine": 19,
+          "endLine": 49,
+          "methods": [
+            "numOperands",
+            "doOperation",
+            "ChSignBigNbr"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "numOperands",
+          "line": 24,
+          "isDefault": false
+        },
+        {
+          "name": "doOperation",
+          "line": 36,
+          "isDefault": false
+        },
+        {
+          "name": "ChSignBigNbr",
+          "line": 42,
+          "isDefault": false
+        },
+        {
+          "name": "ChangeSigns",
+          "line": 19,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "doOperation",
+          "callee": "((LargeInteger) operands[0]).negate",
+          "lineNumber": 39
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 4,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/calculator/largemodel/Remainder.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 68,
+      "nonEmptyLines": 62,
+      "functions": [
+        {
+          "name": "numOperands",
+          "startLine": 23,
+          "endLine": 26,
+          "params": []
+        },
+        {
+          "name": "doOperation",
+          "startLine": 36,
+          "endLine": 41,
+          "params": [
+            "operands"
+          ]
+        },
+        {
+          "name": "RemDivBigNbrByLong",
+          "startLine": 43,
+          "endLine": 67,
+          "params": [
+            "Dividend",
+            "Divisor",
+            "NumberLength"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Remainder",
+          "startLine": 18,
+          "endLine": 68,
+          "methods": [
+            "numOperands",
+            "doOperation",
+            "RemDivBigNbrByLong"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "numOperands",
+          "line": 23,
+          "isDefault": false
+        },
+        {
+          "name": "doOperation",
+          "line": 36,
+          "isDefault": false
+        },
+        {
+          "name": "RemDivBigNbrByLong",
+          "line": 43,
+          "isDefault": false
+        },
+        {
+          "name": "Remainder",
+          "line": 18,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "doOperation",
+          "callee": "((LargeInteger) operands[0]).divide",
+          "lineNumber": 40
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 4,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/calculator/largemodel/Subtract.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 59,
+      "nonEmptyLines": 51,
+      "functions": [
+        {
+          "name": "numOperands",
+          "startLine": 24,
+          "endLine": 27,
+          "params": []
+        },
+        {
+          "name": "doOperation",
+          "startLine": 36,
+          "endLine": 40,
+          "params": [
+            "operands"
+          ]
+        },
+        {
+          "name": "SubtractBigNbr",
+          "startLine": 42,
+          "endLine": 48,
+          "params": [
+            "Nbr1",
+            "Nbr2",
+            "Diff",
+            "NumberLength"
+          ]
+        },
+        {
+          "name": "SubtractBigNbr32",
+          "startLine": 50,
+          "endLine": 57,
+          "params": [
+            "Nbr1",
+            "Nbr2",
+            "Diff",
+            "NumberLength"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Subtract",
+          "startLine": 19,
+          "endLine": 59,
+          "methods": [
+            "numOperands",
+            "doOperation",
+            "SubtractBigNbr",
+            "SubtractBigNbr32"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "numOperands",
+          "line": 24,
+          "isDefault": false
+        },
+        {
+          "name": "doOperation",
+          "line": 36,
+          "isDefault": false
+        },
+        {
+          "name": "SubtractBigNbr",
+          "line": 42,
+          "isDefault": false
+        },
+        {
+          "name": "SubtractBigNbr32",
+          "line": 50,
+          "isDefault": false
+        },
+        {
+          "name": "Subtract",
+          "line": 19,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "doOperation",
+          "callee": "((LargeInteger) operands[0]).subtract",
+          "lineNumber": 39
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 5,
+        "functionCount": 4,
+        "classCount": 1
+      }
+    }
+  ]
+}

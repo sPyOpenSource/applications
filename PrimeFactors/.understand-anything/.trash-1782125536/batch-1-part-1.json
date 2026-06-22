@@ -1,0 +1,1434 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/BigIntegers/ECMBigInteger.java",
+      "type": "file:code",
+      "label": "src/BigIntegers/ECMBigInteger.java",
+      "language": "java"
+    },
+    {
+      "id": "file:src/BigIntegers/LargeInteger.java",
+      "type": "file:code",
+      "label": "src/BigIntegers/LargeInteger.java",
+      "language": "java"
+    },
+    {
+      "id": "file:src/Factorzations/GUI.java",
+      "type": "file:code",
+      "label": "src/Factorzations/GUI.java",
+      "language": "java"
+    },
+    {
+      "id": "file:src/calculator/EncodedOperation.java",
+      "type": "file:interface",
+      "label": "src/calculator/EncodedOperation.java",
+      "language": "java"
+    },
+    {
+      "id": "file:src/calculator/Operation.java",
+      "type": "file:interface",
+      "label": "src/calculator/Operation.java",
+      "language": "java"
+    },
+    {
+      "id": "file:src/calculator/calculatorUI.java",
+      "type": "file:interface",
+      "label": "src/calculator/calculatorUI.java",
+      "language": "java"
+    },
+    {
+      "id": "class:ECMBigInteger@src/BigIntegers/ECMBigInteger.java",
+      "type": "class",
+      "label": "ECMBigInteger",
+      "startLine": 12,
+      "endLine": 412
+    },
+    {
+      "id": "class:LargeInteger@src/BigIntegers/LargeInteger.java",
+      "type": "class",
+      "label": "LargeInteger",
+      "startLine": 27,
+      "endLine": 729
+    },
+    {
+      "id": "class:GUI@src/Factorzations/GUI.java",
+      "type": "class",
+      "label": "GUI",
+      "startLine": 40,
+      "endLine": 718
+    },
+    {
+      "id": "class:EncodedOperation@src/calculator/EncodedOperation.java",
+      "type": "class",
+      "label": "EncodedOperation",
+      "startLine": 15,
+      "endLine": 31
+    },
+    {
+      "id": "class:Operation@src/calculator/Operation.java",
+      "type": "class",
+      "label": "Operation",
+      "startLine": 21,
+      "endLine": 27
+    },
+    {
+      "id": "class:CalculatorUI@src/calculator/calculatorUI.java",
+      "type": "class",
+      "label": "CalculatorUI",
+      "startLine": 15,
+      "endLine": 42
+    },
+    {
+      "id": "function:Sum@src/BigIntegers/ECMBigInteger.java",
+      "type": "function",
+      "label": "Sum",
+      "startLine": 24,
+      "endLine": 33
+    },
+    {
+      "id": "function:Totient(N)@src/BigIntegers/ECMBigInteger.java",
+      "type": "function",
+      "label": "Totient(N)",
+      "startLine": 44,
+      "endLine": 72
+    },
+    {
+      "id": "function:Moebius()@src/BigIntegers/ECMBigInteger.java",
+      "type": "function",
+      "label": "Moebius()",
+      "startLine": 74,
+      "endLine": 88
+    },
+    {
+      "id": "function:Moebius(N)@src/BigIntegers/ECMBigInteger.java",
+      "type": "function",
+      "label": "Moebius(N)",
+      "startLine": 90,
+      "endLine": 120
+    },
+    {
+      "id": "function:InsertAurifFactors@src/BigIntegers/ECMBigInteger.java",
+      "type": "function",
+      "label": "InsertAurifFactors",
+      "startLine": 122,
+      "endLine": 192
+    },
+    {
+      "id": "function:GetAurifeuilleFactor@src/BigIntegers/ECMBigInteger.java",
+      "type": "function",
+      "label": "GetAurifeuilleFactor",
+      "startLine": 194,
+      "endLine": 207
+    },
+    {
+      "id": "function:ComputeFourSquares@src/BigIntegers/ECMBigInteger.java",
+      "type": "function",
+      "label": "ComputeFourSquares",
+      "startLine": 209,
+      "endLine": 382
+    },
+    {
+      "id": "function:Calculate@src/BigIntegers/ECMBigInteger.java",
+      "type": "function",
+      "label": "Calculate",
+      "startLine": 384,
+      "endLine": 411
+    },
+    {
+      "id": "function:LargeInteger(s,b)@src/BigIntegers/LargeInteger.java",
+      "type": "function",
+      "label": "LargeInteger(s,b)",
+      "startLine": 81,
+      "endLine": 103
+    },
+    {
+      "id": "function:add@src/BigIntegers/LargeInteger.java",
+      "type": "function",
+      "label": "add",
+      "startLine": 124,
+      "endLine": 143
+    },
+    {
+      "id": "function:addInts@src/BigIntegers/LargeInteger.java",
+      "type": "function",
+      "label": "addInts",
+      "startLine": 151,
+      "endLine": 160
+    },
+    {
+      "id": "function:subtract@src/BigIntegers/LargeInteger.java",
+      "type": "function",
+      "label": "subtract",
+      "startLine": 165,
+      "endLine": 183
+    },
+    {
+      "id": "function:subtractInts@src/BigIntegers/LargeInteger.java",
+      "type": "function",
+      "label": "subtractInts",
+      "startLine": 191,
+      "endLine": 200
+    },
+    {
+      "id": "function:multiply@src/BigIntegers/LargeInteger.java",
+      "type": "function",
+      "label": "multiply",
+      "startLine": 211,
+      "endLine": 268
+    },
+    {
+      "id": "function:squareFFT@src/BigIntegers/LargeInteger.java",
+      "type": "function",
+      "label": "squareFFT",
+      "startLine": 273,
+      "endLine": 319
+    },
+    {
+      "id": "function:squareNTT@src/BigIntegers/LargeInteger.java",
+      "type": "function",
+      "label": "squareNTT",
+      "startLine": 324,
+      "endLine": 366
+    },
+    {
+      "id": "function:divide@src/BigIntegers/LargeInteger.java",
+      "type": "function",
+      "label": "divide",
+      "startLine": 390,
+      "endLine": 428
+    },
+    {
+      "id": "function:getReciprocal@src/BigIntegers/LargeInteger.java",
+      "type": "function",
+      "label": "getReciprocal",
+      "startLine": 442,
+      "endLine": 469
+    },
+    {
+      "id": "function:pow(exp)@src/BigIntegers/LargeInteger.java",
+      "type": "function",
+      "label": "pow(exp)",
+      "startLine": 503,
+      "endLine": 512
+    },
+    {
+      "id": "function:pow(a,exp)@src/BigIntegers/LargeInteger.java",
+      "type": "function",
+      "label": "pow(a,exp)",
+      "startLine": 532,
+      "endLine": 541
+    },
+    {
+      "id": "function:multiply(a)@src/BigIntegers/LargeInteger.java",
+      "type": "function",
+      "label": "multiply(a)",
+      "startLine": 562,
+      "endLine": 576
+    },
+    {
+      "id": "function:divide(a)@src/BigIntegers/LargeInteger.java",
+      "type": "function",
+      "label": "divide(a)",
+      "startLine": 583,
+      "endLine": 599
+    },
+    {
+      "id": "function:toString@src/BigIntegers/LargeInteger.java",
+      "type": "function",
+      "label": "toString",
+      "startLine": 606,
+      "endLine": 620
+    },
+    {
+      "id": "function:compareTo@src/BigIntegers/LargeInteger.java",
+      "type": "function",
+      "label": "compareTo",
+      "startLine": 633,
+      "endLine": 647
+    },
+    {
+      "id": "function:and@src/BigIntegers/LargeInteger.java",
+      "type": "function",
+      "label": "and",
+      "startLine": 649,
+      "endLine": 661
+    },
+    {
+      "id": "function:shiftLeft@src/BigIntegers/LargeInteger.java",
+      "type": "function",
+      "label": "shiftLeft",
+      "startLine": 663,
+      "endLine": 673
+    },
+    {
+      "id": "function:shiftRight@src/BigIntegers/LargeInteger.java",
+      "type": "function",
+      "label": "shiftRight",
+      "startLine": 675,
+      "endLine": 689
+    },
+    {
+      "id": "function:isPrime@src/BigIntegers/LargeInteger.java",
+      "type": "function",
+      "label": "isPrime",
+      "startLine": 692,
+      "endLine": 728
+    },
+    {
+      "id": "function:pow(a,exp,db)@src/BigIntegers/LargeInteger.java",
+      "type": "function",
+      "label": "pow(a,exp,db)",
+      "startLine": 549,
+      "endLine": 557
+    },
+    {
+      "id": "function:initComponents@src/Factorzations/GUI.java",
+      "type": "function",
+      "label": "initComponents",
+      "startLine": 57,
+      "endLine": 405
+    },
+    {
+      "id": "function:FactorActionPerformed@src/Factorzations/GUI.java",
+      "type": "function",
+      "label": "FactorActionPerformed",
+      "startLine": 411,
+      "endLine": 464
+    },
+    {
+      "id": "function:Checks@src/Factorzations/GUI.java",
+      "type": "function",
+      "label": "Checks",
+      "startLine": 466,
+      "endLine": 493
+    },
+    {
+      "id": "function:EnterActionPerformed@src/Factorzations/GUI.java",
+      "type": "function",
+      "label": "EnterActionPerformed",
+      "startLine": 592,
+      "endLine": 607
+    },
+    {
+      "id": "function:main@src/Factorzations/GUI.java",
+      "type": "function",
+      "label": "main",
+      "startLine": 661,
+      "endLine": 685
+    }
+  ],
+  "edges": [
+    {
+      "from": "file:src/Factorzations/GUI.java",
+      "to": "file:src/BigIntegers/LargeInteger.java",
+      "type": "imports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/Factorzations/GUI.java",
+      "to": "file:src/calculator/EncodedOperation.java",
+      "type": "imports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/BigIntegers/ECMBigInteger.java",
+      "to": "class:ECMBigInteger@src/BigIntegers/ECMBigInteger.java",
+      "type": "contains",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/BigIntegers/LargeInteger.java",
+      "to": "class:LargeInteger@src/BigIntegers/LargeInteger.java",
+      "type": "contains",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/Factorzations/GUI.java",
+      "to": "class:GUI@src/Factorzations/GUI.java",
+      "type": "contains",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/calculator/EncodedOperation.java",
+      "to": "class:EncodedOperation@src/calculator/EncodedOperation.java",
+      "type": "contains",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/calculator/Operation.java",
+      "to": "class:Operation@src/calculator/Operation.java",
+      "type": "contains",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/calculator/calculatorUI.java",
+      "to": "class:CalculatorUI@src/calculator/calculatorUI.java",
+      "type": "contains",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:ECMBigInteger@src/BigIntegers/ECMBigInteger.java",
+      "to": "function:Sum@src/BigIntegers/ECMBigInteger.java",
+      "type": "contains",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:ECMBigInteger@src/BigIntegers/ECMBigInteger.java",
+      "to": "function:Totient(N)@src/BigIntegers/ECMBigInteger.java",
+      "type": "contains",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:ECMBigInteger@src/BigIntegers/ECMBigInteger.java",
+      "to": "function:Moebius()@src/BigIntegers/ECMBigInteger.java",
+      "type": "contains",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:ECMBigInteger@src/BigIntegers/ECMBigInteger.java",
+      "to": "function:Moebius(N)@src/BigIntegers/ECMBigInteger.java",
+      "type": "contains",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:ECMBigInteger@src/BigIntegers/ECMBigInteger.java",
+      "to": "function:InsertAurifFactors@src/BigIntegers/ECMBigInteger.java",
+      "type": "contains",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:ECMBigInteger@src/BigIntegers/ECMBigInteger.java",
+      "to": "function:GetAurifeuilleFactor@src/BigIntegers/ECMBigInteger.java",
+      "type": "contains",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:ECMBigInteger@src/BigIntegers/ECMBigInteger.java",
+      "to": "function:ComputeFourSquares@src/BigIntegers/ECMBigInteger.java",
+      "type": "contains",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:ECMBigInteger@src/BigIntegers/ECMBigInteger.java",
+      "to": "function:Calculate@src/BigIntegers/ECMBigInteger.java",
+      "type": "contains",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:LargeInteger@src/BigIntegers/LargeInteger.java",
+      "to": "function:LargeInteger(s,b)@src/BigIntegers/LargeInteger.java",
+      "type": "contains",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:LargeInteger@src/BigIntegers/LargeInteger.java",
+      "to": "function:add@src/BigIntegers/LargeInteger.java",
+      "type": "contains",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:LargeInteger@src/BigIntegers/LargeInteger.java",
+      "to": "function:addInts@src/BigIntegers/LargeInteger.java",
+      "type": "contains",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:LargeInteger@src/BigIntegers/LargeInteger.java",
+      "to": "function:subtract@src/BigIntegers/LargeInteger.java",
+      "type": "contains",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:LargeInteger@src/BigIntegers/LargeInteger.java",
+      "to": "function:subtractInts@src/BigIntegers/LargeInteger.java",
+      "type": "contains",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:LargeInteger@src/BigIntegers/LargeInteger.java",
+      "to": "function:multiply@src/BigIntegers/LargeInteger.java",
+      "type": "contains",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:LargeInteger@src/BigIntegers/LargeInteger.java",
+      "to": "function:squareFFT@src/BigIntegers/LargeInteger.java",
+      "type": "contains",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:LargeInteger@src/BigIntegers/LargeInteger.java",
+      "to": "function:squareNTT@src/BigIntegers/LargeInteger.java",
+      "type": "contains",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:LargeInteger@src/BigIntegers/LargeInteger.java",
+      "to": "function:divide@src/BigIntegers/LargeInteger.java",
+      "type": "contains",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:LargeInteger@src/BigIntegers/LargeInteger.java",
+      "to": "function:getReciprocal@src/BigIntegers/LargeInteger.java",
+      "type": "contains",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:LargeInteger@src/BigIntegers/LargeInteger.java",
+      "to": "function:pow(exp)@src/BigIntegers/LargeInteger.java",
+      "type": "contains",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:LargeInteger@src/BigIntegers/LargeInteger.java",
+      "to": "function:pow(a,exp)@src/BigIntegers/LargeInteger.java",
+      "type": "contains",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:LargeInteger@src/BigIntegers/LargeInteger.java",
+      "to": "function:multiply(a)@src/BigIntegers/LargeInteger.java",
+      "type": "contains",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:LargeInteger@src/BigIntegers/LargeInteger.java",
+      "to": "function:divide(a)@src/BigIntegers/LargeInteger.java",
+      "type": "contains",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:LargeInteger@src/BigIntegers/LargeInteger.java",
+      "to": "function:toString@src/BigIntegers/LargeInteger.java",
+      "type": "contains",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:LargeInteger@src/BigIntegers/LargeInteger.java",
+      "to": "function:compareTo@src/BigIntegers/LargeInteger.java",
+      "type": "contains",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:LargeInteger@src/BigIntegers/LargeInteger.java",
+      "to": "function:and@src/BigIntegers/LargeInteger.java",
+      "type": "contains",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:LargeInteger@src/BigIntegers/LargeInteger.java",
+      "to": "function:shiftLeft@src/BigIntegers/LargeInteger.java",
+      "type": "contains",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:LargeInteger@src/BigIntegers/LargeInteger.java",
+      "to": "function:shiftRight@src/BigIntegers/LargeInteger.java",
+      "type": "contains",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:LargeInteger@src/BigIntegers/LargeInteger.java",
+      "to": "function:isPrime@src/BigIntegers/LargeInteger.java",
+      "type": "contains",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:LargeInteger@src/BigIntegers/LargeInteger.java",
+      "to": "function:pow(a,exp,db)@src/BigIntegers/LargeInteger.java",
+      "type": "contains",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:GUI@src/Factorzations/GUI.java",
+      "to": "function:initComponents@src/Factorzations/GUI.java",
+      "type": "contains",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:GUI@src/Factorzations/GUI.java",
+      "to": "function:FactorActionPerformed@src/Factorzations/GUI.java",
+      "type": "contains",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:GUI@src/Factorzations/GUI.java",
+      "to": "function:Checks@src/Factorzations/GUI.java",
+      "type": "contains",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:GUI@src/Factorzations/GUI.java",
+      "to": "function:EnterActionPerformed@src/Factorzations/GUI.java",
+      "type": "contains",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:GUI@src/Factorzations/GUI.java",
+      "to": "function:main@src/Factorzations/GUI.java",
+      "type": "contains",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:ECMBigInteger@src/BigIntegers/ECMBigInteger.java",
+      "to": "function:Sum@src/BigIntegers/ECMBigInteger.java",
+      "type": "exports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:ECMBigInteger@src/BigIntegers/ECMBigInteger.java",
+      "to": "function:Totient(N)@src/BigIntegers/ECMBigInteger.java",
+      "type": "exports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:ECMBigInteger@src/BigIntegers/ECMBigInteger.java",
+      "to": "function:Moebius()@src/BigIntegers/ECMBigInteger.java",
+      "type": "exports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:ECMBigInteger@src/BigIntegers/ECMBigInteger.java",
+      "to": "function:Moebius(N)@src/BigIntegers/ECMBigInteger.java",
+      "type": "exports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:ECMBigInteger@src/BigIntegers/ECMBigInteger.java",
+      "to": "function:InsertAurifFactors@src/BigIntegers/ECMBigInteger.java",
+      "type": "exports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:ECMBigInteger@src/BigIntegers/ECMBigInteger.java",
+      "to": "function:GetAurifeuilleFactor@src/BigIntegers/ECMBigInteger.java",
+      "type": "exports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:ECMBigInteger@src/BigIntegers/ECMBigInteger.java",
+      "to": "function:ComputeFourSquares@src/BigIntegers/ECMBigInteger.java",
+      "type": "exports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:ECMBigInteger@src/BigIntegers/ECMBigInteger.java",
+      "to": "function:Calculate@src/BigIntegers/ECMBigInteger.java",
+      "type": "exports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:LargeInteger@src/BigIntegers/LargeInteger.java",
+      "to": "function:LargeInteger(s,b)@src/BigIntegers/LargeInteger.java",
+      "type": "exports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:LargeInteger@src/BigIntegers/LargeInteger.java",
+      "to": "function:add@src/BigIntegers/LargeInteger.java",
+      "type": "exports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:LargeInteger@src/BigIntegers/LargeInteger.java",
+      "to": "function:addInts@src/BigIntegers/LargeInteger.java",
+      "type": "exports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:LargeInteger@src/BigIntegers/LargeInteger.java",
+      "to": "function:subtract@src/BigIntegers/LargeInteger.java",
+      "type": "exports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:LargeInteger@src/BigIntegers/LargeInteger.java",
+      "to": "function:subtractInts@src/BigIntegers/LargeInteger.java",
+      "type": "exports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:LargeInteger@src/BigIntegers/LargeInteger.java",
+      "to": "function:multiply@src/BigIntegers/LargeInteger.java",
+      "type": "exports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:LargeInteger@src/BigIntegers/LargeInteger.java",
+      "to": "function:squareFFT@src/BigIntegers/LargeInteger.java",
+      "type": "exports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:LargeInteger@src/BigIntegers/LargeInteger.java",
+      "to": "function:squareNTT@src/BigIntegers/LargeInteger.java",
+      "type": "exports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:LargeInteger@src/BigIntegers/LargeInteger.java",
+      "to": "function:divide@src/BigIntegers/LargeInteger.java",
+      "type": "exports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:LargeInteger@src/BigIntegers/LargeInteger.java",
+      "to": "function:getReciprocal@src/BigIntegers/LargeInteger.java",
+      "type": "exports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:LargeInteger@src/BigIntegers/LargeInteger.java",
+      "to": "function:pow(exp)@src/BigIntegers/LargeInteger.java",
+      "type": "exports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:LargeInteger@src/BigIntegers/LargeInteger.java",
+      "to": "function:pow(a,exp)@src/BigIntegers/LargeInteger.java",
+      "type": "exports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:LargeInteger@src/BigIntegers/LargeInteger.java",
+      "to": "function:multiply(a)@src/BigIntegers/LargeInteger.java",
+      "type": "exports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:LargeInteger@src/BigIntegers/LargeInteger.java",
+      "to": "function:divide(a)@src/BigIntegers/LargeInteger.java",
+      "type": "exports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:LargeInteger@src/BigIntegers/LargeInteger.java",
+      "to": "function:toString@src/BigIntegers/LargeInteger.java",
+      "type": "exports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:LargeInteger@src/BigIntegers/LargeInteger.java",
+      "to": "function:compareTo@src/BigIntegers/LargeInteger.java",
+      "type": "exports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:LargeInteger@src/BigIntegers/LargeInteger.java",
+      "to": "function:and@src/BigIntegers/LargeInteger.java",
+      "type": "exports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:LargeInteger@src/BigIntegers/LargeInteger.java",
+      "to": "function:shiftLeft@src/BigIntegers/LargeInteger.java",
+      "type": "exports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:LargeInteger@src/BigIntegers/LargeInteger.java",
+      "to": "function:shiftRight@src/BigIntegers/LargeInteger.java",
+      "type": "exports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:LargeInteger@src/BigIntegers/LargeInteger.java",
+      "to": "function:isPrime@src/BigIntegers/LargeInteger.java",
+      "type": "exports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:LargeInteger@src/BigIntegers/LargeInteger.java",
+      "to": "function:pow(a,exp,db)@src/BigIntegers/LargeInteger.java",
+      "type": "exports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:GUI@src/Factorzations/GUI.java",
+      "to": "function:main@src/Factorzations/GUI.java",
+      "type": "exports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:EncodedOperation@src/calculator/EncodedOperation.java",
+      "to": "class:Operation@src/calculator/Operation.java",
+      "type": "inherits",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "function:InsertAurifFactors@src/BigIntegers/ECMBigInteger.java",
+      "to": "function:Totient(N)@src/BigIntegers/ECMBigInteger.java",
+      "type": "calls",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "function:InsertAurifFactors@src/BigIntegers/ECMBigInteger.java",
+      "to": "function:Moebius(N)@src/BigIntegers/ECMBigInteger.java",
+      "type": "calls",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "function:InsertAurifFactors@src/BigIntegers/ECMBigInteger.java",
+      "to": "function:GetAurifeuilleFactor@src/BigIntegers/ECMBigInteger.java",
+      "type": "calls",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "function:ComputeFourSquares@src/BigIntegers/ECMBigInteger.java",
+      "to": "function:Calculate@src/BigIntegers/ECMBigInteger.java",
+      "type": "calls",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "function:add@src/BigIntegers/LargeInteger.java",
+      "to": "function:addInts@src/BigIntegers/LargeInteger.java",
+      "type": "calls",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "function:subtract@src/BigIntegers/LargeInteger.java",
+      "to": "function:subtractInts@src/BigIntegers/LargeInteger.java",
+      "type": "calls",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "function:divide@src/BigIntegers/LargeInteger.java",
+      "to": "function:getReciprocal@src/BigIntegers/LargeInteger.java",
+      "type": "calls",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "function:divide@src/BigIntegers/LargeInteger.java",
+      "to": "function:multiply@src/BigIntegers/LargeInteger.java",
+      "type": "calls",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "function:divide@src/BigIntegers/LargeInteger.java",
+      "to": "function:subtract@src/BigIntegers/LargeInteger.java",
+      "type": "calls",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "function:divide@src/BigIntegers/LargeInteger.java",
+      "to": "function:add@src/BigIntegers/LargeInteger.java",
+      "type": "calls",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "function:FactorActionPerformed@src/Factorzations/GUI.java",
+      "to": "function:Checks@src/Factorzations/GUI.java",
+      "type": "calls",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "function:FactorActionPerformed@src/Factorzations/GUI.java",
+      "to": "class:ECMBigInteger@src/BigIntegers/ECMBigInteger.java",
+      "type": "calls",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "function:FactorActionPerformed@src/Factorzations/GUI.java",
+      "to": "class:LargeInteger@src/BigIntegers/LargeInteger.java",
+      "type": "calls",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:EncodedOperation@src/calculator/EncodedOperation.java",
+      "to": "class:Operation@src/calculator/Operation.java",
+      "type": "exports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/calculator/calculatorUI.java",
+      "to": "class:CalculatorUI@src/calculator/calculatorUI.java",
+      "type": "contains",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/BigIntegers/ECMBigInteger.java",
+      "to": "class:ECMBigInteger@src/BigIntegers/ECMBigInteger.java",
+      "type": "exports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/BigIntegers/LargeInteger.java",
+      "to": "class:LargeInteger@src/BigIntegers/LargeInteger.java",
+      "type": "exports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/Factorzations/GUI.java",
+      "to": "class:GUI@src/Factorzations/GUI.java",
+      "type": "exports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/calculator/EncodedOperation.java",
+      "to": "class:EncodedOperation@src/calculator/EncodedOperation.java",
+      "type": "exports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/calculator/Operation.java",
+      "to": "class:Operation@src/calculator/Operation.java",
+      "type": "exports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/calculator/calculatorUI.java",
+      "to": "class:CalculatorUI@src/calculator/calculatorUI.java",
+      "type": "exports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/BigIntegers/LargeInteger.java",
+      "to": "file:src/utilities/BitReverseCounter.java",
+      "type": "imports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/BigIntegers/LargeInteger.java",
+      "to": "file:src/utilities/FFT.java",
+      "type": "imports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/BigIntegers/LargeInteger.java",
+      "to": "file:src/utilities/NTT.java",
+      "type": "imports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/BigIntegers/LargeInteger.java",
+      "to": "file:src/utilities/Zeef.java",
+      "type": "imports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/Factorzations/GUI.java",
+      "to": "file:src/BigIntegers/AprtCleInteger.java",
+      "type": "imports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/Factorzations/GUI.java",
+      "to": "file:src/calculator/Deque.java",
+      "type": "imports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/Factorzations/GUI.java",
+      "to": "file:src/calculator/EmptyDequeException.java",
+      "type": "imports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/Factorzations/GUI.java",
+      "to": "file:src/calculator/largemodel/Add.java",
+      "type": "imports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/Factorzations/GUI.java",
+      "to": "file:src/calculator/largemodel/CalculatorImpl.java",
+      "type": "imports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/Factorzations/GUI.java",
+      "to": "file:src/calculator/largemodel/Divide.java",
+      "type": "imports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/Factorzations/GUI.java",
+      "to": "file:src/calculator/largemodel/Multiply.java",
+      "type": "imports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/Factorzations/GUI.java",
+      "to": "file:src/calculator/largemodel/Power.java",
+      "type": "imports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/Factorzations/GUI.java",
+      "to": "file:src/calculator/largemodel/Push.java",
+      "type": "imports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/Factorzations/GUI.java",
+      "to": "file:src/calculator/largemodel/Remainder.java",
+      "type": "imports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/Factorzations/GUI.java",
+      "to": "file:src/calculator/largemodel/Subtract.java",
+      "type": "imports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/Factorzations/GUI.java",
+      "to": "file:src/ecm/PrimeTest/AprtCle.java",
+      "type": "imports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/Factorzations/GUI.java",
+      "to": "file:src/Factorzations/Classical.java",
+      "type": "imports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/Factorzations/GUI.java",
+      "to": "file:src/Factorzations/ecm/ECM.java",
+      "type": "imports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/Factorzations/GUI.java",
+      "to": "file:src/Factorzations/Lehman.java",
+      "type": "imports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/Factorzations/GUI.java",
+      "to": "file:src/Factorzations/siqs/Siqs.java",
+      "type": "imports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/Factorzations/GUI.java",
+      "to": "file:src/utilities/FFT.java",
+      "type": "imports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/Factorzations/GUI.java",
+      "to": "file:src/utilities/NTT.java",
+      "type": "imports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/calculator/GUI.java",
+      "to": "file:src/calculator/EncodedOperation.java",
+      "type": "imports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/calculator/GUI.java",
+      "to": "file:src/calculator/Operation.java",
+      "type": "imports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/calculator/largemodel/CalculatorImpl.java",
+      "to": "file:src/calculator/EncodedOperation.java",
+      "type": "imports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "file:src/calculator/largemodel/CalculatorImpl.java",
+      "to": "file:src/calculator/Operation.java",
+      "type": "imports",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:Add@src/calculator/javamodel/Add.java",
+      "to": "class:EncodedOperation@src/calculator/EncodedOperation.java",
+      "type": "implements",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:Subtract@src/calculator/javamodel/Subtract.java",
+      "to": "class:EncodedOperation@src/calculator/EncodedOperation.java",
+      "type": "implements",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:Multiply@src/calculator/javamodel/Multiply.java",
+      "to": "class:EncodedOperation@src/calculator/EncodedOperation.java",
+      "type": "implements",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:Divide@src/calculator/javamodel/Divide.java",
+      "to": "class:EncodedOperation@src/calculator/EncodedOperation.java",
+      "type": "implements",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:Power@src/calculator/javamodel/Power.java",
+      "to": "class:EncodedOperation@src/calculator/EncodedOperation.java",
+      "type": "implements",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:Remainder@src/calculator/javamodel/Remainder.java",
+      "to": "class:EncodedOperation@src/calculator/EncodedOperation.java",
+      "type": "implements",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:ChangeSigns@src/calculator/javamodel/ChangeSigns.java",
+      "to": "class:EncodedOperation@src/calculator/EncodedOperation.java",
+      "type": "implements",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:TwoToPower@src/calculator/javamodel/TwoToPower.java",
+      "to": "class:EncodedOperation@src/calculator/EncodedOperation.java",
+      "type": "implements",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:TenToPower@src/calculator/javamodel/TenToPower.java",
+      "to": "class:EncodedOperation@src/calculator/EncodedOperation.java",
+      "type": "implements",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:Push@src/calculator/javamodel/Push.java",
+      "to": "class:Operation@src/calculator/Operation.java",
+      "type": "implements",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:Pop@src/calculator/javamodel/Pop.java",
+      "to": "class:Operation@src/calculator/Operation.java",
+      "type": "implements",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:ClearStack@src/calculator/javamodel/ClearStack.java",
+      "to": "class:Operation@src/calculator/Operation.java",
+      "type": "implements",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:RotateDown@src/calculator/javamodel/RotateDown.java",
+      "to": "class:Operation@src/calculator/Operation.java",
+      "type": "implements",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:RotateUp@src/calculator/javamodel/RotateUp.java",
+      "to": "class:Operation@src/calculator/Operation.java",
+      "type": "implements",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:Add@src/calculator/largemodel/Add.java",
+      "to": "class:EncodedOperation@src/calculator/EncodedOperation.java",
+      "type": "implements",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:Multiply@src/calculator/largemodel/Multiply.java",
+      "to": "class:EncodedOperation@src/calculator/EncodedOperation.java",
+      "type": "implements",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:Power@src/calculator/largemodel/Power.java",
+      "to": "class:EncodedOperation@src/calculator/EncodedOperation.java",
+      "type": "implements",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "class:Push@src/calculator/largemodel/Push.java",
+      "to": "class:Operation@src/calculator/Operation.java",
+      "type": "implements",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    },
+    {
+      "from": "function:getReciprocal@src/BigIntegers/LargeInteger.java",
+      "to": "function:trunc@src/BigIntegers/LargeInteger.java",
+      "type": "calls",
+      "weight": 1,
+      "source": "",
+      "target": ""
+    }
+  ]
+}

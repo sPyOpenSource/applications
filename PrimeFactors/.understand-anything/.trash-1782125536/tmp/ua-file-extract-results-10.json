@@ -1,0 +1,565 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 21,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "src/Factorzations/siqs/PrimeSieveData.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 677,
+      "nonEmptyLines": 658,
+      "functions": [
+        {
+          "name": "PerformSiqsSieveStage",
+          "startLine": 29,
+          "endLine": 676,
+          "params": [
+            "primeSieveData",
+            "SieveArray",
+            "biLinearCoeff",
+            "biLinearDelta",
+            "PolynomialIndex",
+            "NumberLength"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "PrimeSieveData",
+          "startLine": 23,
+          "endLine": 677,
+          "methods": [
+            "PerformSiqsSieveStage"
+          ],
+          "properties": [
+            "value",
+            "modsqrt",
+            "Bainv2",
+            "Bainv2_0",
+            "soln1",
+            "difsoln"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "PerformSiqsSieveStage",
+          "line": 29,
+          "isDefault": false
+        },
+        {
+          "name": "PrimeSieveData",
+          "line": 23,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "PerformSiqsSieveStage",
+          "callee": "AddBigNbr",
+          "lineNumber": 51
+        },
+        {
+          "caller": "PerformSiqsSieveStage",
+          "callee": "AddBigNbr",
+          "lineNumber": 53
+        },
+        {
+          "caller": "PerformSiqsSieveStage",
+          "callee": "SubtractBigNbr",
+          "lineNumber": 58
+        },
+        {
+          "caller": "PerformSiqsSieveStage",
+          "callee": "SubtractBigNbr",
+          "lineNumber": 60
+        },
+        {
+          "caller": "PerformSiqsSieveStage",
+          "callee": "System.arraycopy",
+          "lineNumber": 98
+        },
+        {
+          "caller": "PerformSiqsSieveStage",
+          "callee": "System.arraycopy",
+          "lineNumber": 101
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/Factorzations/siqs/PrimeSieveData.ctxt",
+      "language": "bluej",
+      "fileCategory": "config",
+      "totalLines": 6,
+      "nonEmptyLines": 6,
+      "metrics": {}
+    },
+    {
+      "path": "src/Factorzations/siqs/PrimeTrialDivisionData.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 234,
+      "nonEmptyLines": 224,
+      "functions": [
+        {
+          "name": "set",
+          "startLine": 19,
+          "endLine": 33,
+          "params": [
+            "currentPrime"
+          ]
+        },
+        {
+          "name": "Divid",
+          "startLine": 35,
+          "endLine": 101,
+          "params": [
+            "biR",
+            "NumberLength",
+            "Divisor"
+          ]
+        },
+        {
+          "name": "getRem",
+          "startLine": 103,
+          "endLine": 119,
+          "params": [
+            "NumberLength",
+            "Dividend"
+          ]
+        },
+        {
+          "name": "PerformTrialDivision",
+          "startLine": 121,
+          "endLine": 233,
+          "params": [
+            "primeSieveData",
+            "rowMatrixBbeforeMerge",
+            "index2",
+            "aindex",
+            "biDividend",
+            "rowSquares",
+            "NumberLength",
+            "oddPolynomial"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "PrimeTrialDivisionData",
+          "startLine": 15,
+          "endLine": 234,
+          "methods": [
+            "set",
+            "Divid",
+            "getRem",
+            "PerformTrialDivision"
+          ],
+          "properties": [
+            "value",
+            "exp1",
+            "exp2",
+            "exp3",
+            "exp4",
+            "exp5",
+            "exp6"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "value",
+          "line": 17,
+          "isDefault": false
+        },
+        {
+          "name": "exp1",
+          "line": 17,
+          "isDefault": false
+        },
+        {
+          "name": "exp2",
+          "line": 17,
+          "isDefault": false
+        },
+        {
+          "name": "exp3",
+          "line": 17,
+          "isDefault": false
+        },
+        {
+          "name": "exp4",
+          "line": 17,
+          "isDefault": false
+        },
+        {
+          "name": "exp5",
+          "line": 17,
+          "isDefault": false
+        },
+        {
+          "name": "exp6",
+          "line": 17,
+          "isDefault": false
+        },
+        {
+          "name": "set",
+          "line": 19,
+          "isDefault": false
+        },
+        {
+          "name": "Divid",
+          "line": 35,
+          "isDefault": false
+        },
+        {
+          "name": "getRem",
+          "line": 103,
+          "isDefault": false
+        },
+        {
+          "name": "PerformTrialDivision",
+          "line": 121,
+          "isDefault": false
+        },
+        {
+          "name": "PrimeTrialDivisionData",
+          "line": 15,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "PerformTrialDivision",
+          "callee": "rowPrimeTrialDivisionData.getRem",
+          "lineNumber": 192
+        },
+        {
+          "caller": "PerformTrialDivision",
+          "callee": "Divid",
+          "lineNumber": 194
+        },
+        {
+          "caller": "PerformTrialDivision",
+          "callee": "Math.sqrt",
+          "lineNumber": 206
+        },
+        {
+          "caller": "PerformTrialDivision",
+          "callee": "getIndexFromDivisor",
+          "lineNumber": 211
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 12,
+        "functionCount": 4,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/Factorzations/siqs/PrimeTrialDivisionData.ctxt",
+      "language": "bluej",
+      "fileCategory": "config",
+      "totalLines": 12,
+      "nonEmptyLines": 12,
+      "metrics": {}
+    },
+    {
+      "path": "src/Factorzations/siqs/README.TXT",
+      "language": "txt",
+      "fileCategory": "docs",
+      "totalLines": 11,
+      "nonEmptyLines": 9,
+      "metrics": {}
+    },
+    {
+      "path": "src/Factorzations/siqs/package.bluej",
+      "language": "bluej",
+      "fileCategory": "config",
+      "totalLines": 119,
+      "nonEmptyLines": 119,
+      "metrics": {}
+    },
+    {
+      "path": "src/Factorzations/ecm/ECM.ctxt",
+      "language": "bluej",
+      "fileCategory": "config",
+      "totalLines": 10,
+      "nonEmptyLines": 10,
+      "metrics": {}
+    },
+    {
+      "path": "src/Factorzations/ecm/StaticFunctions.ctxt",
+      "language": "bluej",
+      "fileCategory": "config",
+      "totalLines": 20,
+      "nonEmptyLines": 20,
+      "metrics": {}
+    },
+    {
+      "path": "src/Factorzations/ecm/StaticFunctions.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 205,
+      "nonEmptyLines": 190,
+      "functions": [
+        {
+          "name": "modPow",
+          "startLine": 10,
+          "endLine": 21,
+          "params": [
+            "NbrMod",
+            "Expon",
+            "currentPrime"
+          ]
+        },
+        {
+          "name": "GenerateSieve",
+          "startLine": 36,
+          "endLine": 78,
+          "params": [
+            "initial",
+            "sieve",
+            "sieve2310",
+            "SmallPrime"
+          ]
+        },
+        {
+          "name": "lucas_cost",
+          "startLine": 81,
+          "endLine": 149,
+          "params": [
+            "n",
+            "v"
+          ]
+        },
+        {
+          "name": "Cos",
+          "startLine": 151,
+          "endLine": 159,
+          "params": [
+            "N"
+          ]
+        },
+        {
+          "name": "MultBigNbrByLongModN",
+          "startLine": 161,
+          "endLine": 176,
+          "params": [
+            "Nbr1",
+            "Nbr2",
+            "Prod",
+            "TestNbr",
+            "NumberLength"
+          ]
+        },
+        {
+          "name": "SubtractBigNbrModN",
+          "startLine": 178,
+          "endLine": 196,
+          "params": [
+            "Nbr1",
+            "Nbr2",
+            "Diff",
+            "TestNbr",
+            "NumberLength"
+          ]
+        },
+        {
+          "name": "LongToBigNbr",
+          "startLine": 198,
+          "endLine": 204,
+          "params": [
+            "Nbr",
+            "Out",
+            "NumberLength"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "StaticFunctions",
+          "startLine": 9,
+          "endLine": 205,
+          "methods": [
+            "modPow",
+            "GenerateSieve",
+            "lucas_cost",
+            "Cos",
+            "MultBigNbrByLongModN",
+            "SubtractBigNbrModN",
+            "LongToBigNbr"
+          ],
+          "properties": [
+            "ADD",
+            "DUP"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "modPow",
+          "line": 10,
+          "isDefault": false
+        },
+        {
+          "name": "GenerateSieve",
+          "line": 36,
+          "isDefault": false
+        },
+        {
+          "name": "lucas_cost",
+          "line": 81,
+          "isDefault": false
+        },
+        {
+          "name": "Cos",
+          "line": 151,
+          "isDefault": false
+        },
+        {
+          "name": "MultBigNbrByLongModN",
+          "line": 161,
+          "isDefault": false
+        },
+        {
+          "name": "SubtractBigNbrModN",
+          "line": 178,
+          "isDefault": false
+        },
+        {
+          "name": "LongToBigNbr",
+          "line": 198,
+          "isDefault": false
+        },
+        {
+          "name": "StaticFunctions",
+          "line": 9,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "GenerateSieve",
+          "callee": "System.arraycopy",
+          "lineNumber": 45
+        },
+        {
+          "caller": "MultBigNbrByLongModN",
+          "callee": "AdjustModN",
+          "lineNumber": 175
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 8,
+        "functionCount": 7,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/Factorzations/ecm/ecmStep0.ctxt",
+      "language": "bluej",
+      "fileCategory": "config",
+      "totalLines": 8,
+      "nonEmptyLines": 8,
+      "metrics": {}
+    },
+    {
+      "path": "src/Factorzations/ecm/ecmStep1.ctxt",
+      "language": "bluej",
+      "fileCategory": "config",
+      "totalLines": 18,
+      "nonEmptyLines": 18,
+      "metrics": {}
+    },
+    {
+      "path": "src/Factorzations/ecm/ecmStep2.ctxt",
+      "language": "bluej",
+      "fileCategory": "config",
+      "totalLines": 9,
+      "nonEmptyLines": 9,
+      "metrics": {}
+    },
+    {
+      "path": "src/Factorzations/ecm/README.TXT",
+      "language": "txt",
+      "fileCategory": "docs",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "metrics": {}
+    },
+    {
+      "path": "src/Factorzations/ecm/package.bluej",
+      "language": "bluej",
+      "fileCategory": "config",
+      "totalLines": 64,
+      "nonEmptyLines": 64,
+      "metrics": {}
+    },
+    {
+      "path": "src/Factorzations/siqs/FirstPolynomial.ctxt",
+      "language": "bluej",
+      "fileCategory": "config",
+      "totalLines": 7,
+      "nonEmptyLines": 7,
+      "metrics": {}
+    },
+    {
+      "path": "src/Factorzations/siqs/Maths.ctxt",
+      "language": "bluej",
+      "fileCategory": "config",
+      "totalLines": 31,
+      "nonEmptyLines": 31,
+      "metrics": {}
+    },
+    {
+      "path": "src/Factorzations/siqs/Matrix.ctxt",
+      "language": "bluej",
+      "fileCategory": "config",
+      "totalLines": 7,
+      "nonEmptyLines": 7,
+      "metrics": {}
+    },
+    {
+      "path": "src/Factorzations/siqs/Relation.ctxt",
+      "language": "bluej",
+      "fileCategory": "config",
+      "totalLines": 13,
+      "nonEmptyLines": 13,
+      "metrics": {}
+    },
+    {
+      "path": "src/Factorzations/siqs/Sieve.ctxt",
+      "language": "bluej",
+      "fileCategory": "config",
+      "totalLines": 11,
+      "nonEmptyLines": 11,
+      "metrics": {}
+    },
+    {
+      "path": "src/Factorzations/siqs/Siqs.ctxt",
+      "language": "bluej",
+      "fileCategory": "config",
+      "totalLines": 15,
+      "nonEmptyLines": 15,
+      "metrics": {}
+    },
+    {
+      "path": "src/Factorzations/siqs/StaticFunctions.ctxt",
+      "language": "bluej",
+      "fileCategory": "config",
+      "totalLines": 14,
+      "nonEmptyLines": 14,
+      "metrics": {}
+    }
+  ]
+}

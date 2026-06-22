@@ -1,0 +1,438 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/Factorzations/GUI.java",
+      "type": "file",
+      "name": "GUI.java",
+      "filePath": "src/Factorzations/GUI.java",
+      "summary": "Source file: src/Factorzations/GUI.java",
+      "tags": [
+        "code",
+        "java"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/Factorzations/GUI.java:initComponents",
+      "type": "function",
+      "name": "initComponents",
+      "filePath": "src/Factorzations/GUI.java",
+      "lineRange": [
+        57,
+        405
+      ],
+      "summary": "Function initComponents in src/Factorzations/GUI.java",
+      "tags": [
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/Factorzations/GUI.java:FactorActionPerformed",
+      "type": "function",
+      "name": "FactorActionPerformed",
+      "filePath": "src/Factorzations/GUI.java",
+      "lineRange": [
+        411,
+        464
+      ],
+      "summary": "Function FactorActionPerformed in src/Factorzations/GUI.java",
+      "tags": [
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/Factorzations/GUI.java:Checks",
+      "type": "function",
+      "name": "Checks",
+      "filePath": "src/Factorzations/GUI.java",
+      "lineRange": [
+        466,
+        493
+      ],
+      "summary": "Function Checks in src/Factorzations/GUI.java",
+      "tags": [
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/Factorzations/GUI.java:EnterActionPerformed",
+      "type": "function",
+      "name": "EnterActionPerformed",
+      "filePath": "src/Factorzations/GUI.java",
+      "lineRange": [
+        592,
+        607
+      ],
+      "summary": "Function EnterActionPerformed in src/Factorzations/GUI.java",
+      "tags": [
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/Factorzations/GUI.java:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "src/Factorzations/GUI.java",
+      "lineRange": [
+        661,
+        685
+      ],
+      "summary": "Function main in src/Factorzations/GUI.java",
+      "tags": [
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/Factorzations/GUI.java:GUI",
+      "type": "class",
+      "name": "GUI",
+      "filePath": "src/Factorzations/GUI.java",
+      "lineRange": [
+        40,
+        718
+      ],
+      "summary": "Class GUI in src/Factorzations/GUI.java",
+      "tags": [
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/calculator/javamodel/Add.ctxt",
+      "type": "file",
+      "name": "Add.ctxt",
+      "filePath": "src/calculator/javamodel/Add.ctxt",
+      "summary": "Source file: src/calculator/javamodel/Add.ctxt",
+      "tags": [
+        "code",
+        "ctxt"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/calculator/javamodel/CalculatorImpl.ctxt",
+      "type": "file",
+      "name": "CalculatorImpl.ctxt",
+      "filePath": "src/calculator/javamodel/CalculatorImpl.ctxt",
+      "summary": "Source file: src/calculator/javamodel/CalculatorImpl.ctxt",
+      "tags": [
+        "code",
+        "ctxt"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/calculator/javamodel/ChangeSigns.ctxt",
+      "type": "file",
+      "name": "ChangeSigns.ctxt",
+      "filePath": "src/calculator/javamodel/ChangeSigns.ctxt",
+      "summary": "Source file: src/calculator/javamodel/ChangeSigns.ctxt",
+      "tags": [
+        "code",
+        "ctxt"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/calculator/javamodel/ClearStack.ctxt",
+      "type": "file",
+      "name": "ClearStack.ctxt",
+      "filePath": "src/calculator/javamodel/ClearStack.ctxt",
+      "summary": "Source file: src/calculator/javamodel/ClearStack.ctxt",
+      "tags": [
+        "code",
+        "ctxt"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/calculator/javamodel/Divide.ctxt",
+      "type": "file",
+      "name": "Divide.ctxt",
+      "filePath": "src/calculator/javamodel/Divide.ctxt",
+      "summary": "Source file: src/calculator/javamodel/Divide.ctxt",
+      "tags": [
+        "code",
+        "ctxt"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/calculator/javamodel/Multiply.ctxt",
+      "type": "file",
+      "name": "Multiply.ctxt",
+      "filePath": "src/calculator/javamodel/Multiply.ctxt",
+      "summary": "Source file: src/calculator/javamodel/Multiply.ctxt",
+      "tags": [
+        "code",
+        "ctxt"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/calculator/javamodel/Pop.ctxt",
+      "type": "file",
+      "name": "Pop.ctxt",
+      "filePath": "src/calculator/javamodel/Pop.ctxt",
+      "summary": "Source file: src/calculator/javamodel/Pop.ctxt",
+      "tags": [
+        "code",
+        "ctxt"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/calculator/javamodel/Power.ctxt",
+      "type": "file",
+      "name": "Power.ctxt",
+      "filePath": "src/calculator/javamodel/Power.ctxt",
+      "summary": "Source file: src/calculator/javamodel/Power.ctxt",
+      "tags": [
+        "code",
+        "ctxt"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/calculator/javamodel/Push.ctxt",
+      "type": "file",
+      "name": "Push.ctxt",
+      "filePath": "src/calculator/javamodel/Push.ctxt",
+      "summary": "Source file: src/calculator/javamodel/Push.ctxt",
+      "tags": [
+        "code",
+        "ctxt"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/calculator/javamodel/Remainder.ctxt",
+      "type": "file",
+      "name": "Remainder.ctxt",
+      "filePath": "src/calculator/javamodel/Remainder.ctxt",
+      "summary": "Source file: src/calculator/javamodel/Remainder.ctxt",
+      "tags": [
+        "code",
+        "ctxt"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/calculator/javamodel/RotateDown.ctxt",
+      "type": "file",
+      "name": "RotateDown.ctxt",
+      "filePath": "src/calculator/javamodel/RotateDown.ctxt",
+      "summary": "Source file: src/calculator/javamodel/RotateDown.ctxt",
+      "tags": [
+        "code",
+        "ctxt"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/calculator/javamodel/RotateUp.ctxt",
+      "type": "file",
+      "name": "RotateUp.ctxt",
+      "filePath": "src/calculator/javamodel/RotateUp.ctxt",
+      "summary": "Source file: src/calculator/javamodel/RotateUp.ctxt",
+      "tags": [
+        "code",
+        "ctxt"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/calculator/javamodel/Subtract.ctxt",
+      "type": "file",
+      "name": "Subtract.ctxt",
+      "filePath": "src/calculator/javamodel/Subtract.ctxt",
+      "summary": "Source file: src/calculator/javamodel/Subtract.ctxt",
+      "tags": [
+        "code",
+        "ctxt"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/calculator/javamodel/TenToPower.ctxt",
+      "type": "file",
+      "name": "TenToPower.ctxt",
+      "filePath": "src/calculator/javamodel/TenToPower.ctxt",
+      "summary": "Source file: src/calculator/javamodel/TenToPower.ctxt",
+      "tags": [
+        "code",
+        "ctxt"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/calculator/javamodel/TwoToPower.ctxt",
+      "type": "file",
+      "name": "TwoToPower.ctxt",
+      "filePath": "src/calculator/javamodel/TwoToPower.ctxt",
+      "summary": "Source file: src/calculator/javamodel/TwoToPower.ctxt",
+      "tags": [
+        "code",
+        "ctxt"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/calculator/Calculator.ctxt",
+      "type": "file",
+      "name": "Calculator.ctxt",
+      "filePath": "src/calculator/Calculator.ctxt",
+      "summary": "Source file: src/calculator/Calculator.ctxt",
+      "tags": [
+        "code",
+        "ctxt"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/calculator/CalculatorUI.ctxt",
+      "type": "file",
+      "name": "CalculatorUI.ctxt",
+      "filePath": "src/calculator/CalculatorUI.ctxt",
+      "summary": "Source file: src/calculator/CalculatorUI.ctxt",
+      "tags": [
+        "code",
+        "ctxt"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/calculator/ConvertBase.ctxt",
+      "type": "file",
+      "name": "ConvertBase.ctxt",
+      "filePath": "src/calculator/ConvertBase.ctxt",
+      "summary": "Source file: src/calculator/ConvertBase.ctxt",
+      "tags": [
+        "code",
+        "ctxt"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/calculator/Deque.ctxt",
+      "type": "file",
+      "name": "Deque.ctxt",
+      "filePath": "src/calculator/Deque.ctxt",
+      "summary": "Source file: src/calculator/Deque.ctxt",
+      "tags": [
+        "code",
+        "ctxt"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/calculator/DefaultUI.ctxt",
+      "type": "file",
+      "name": "DefaultUI.ctxt",
+      "filePath": "src/calculator/DefaultUI.ctxt",
+      "summary": "Source file: src/calculator/DefaultUI.ctxt",
+      "tags": [
+        "code",
+        "ctxt"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/calculator/EncodedOperation.ctxt",
+      "type": "file",
+      "name": "EncodedOperation.ctxt",
+      "filePath": "src/calculator/EncodedOperation.ctxt",
+      "summary": "Source file: src/calculator/EncodedOperation.ctxt",
+      "tags": [
+        "code",
+        "ctxt"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/calculator/EmptyDequeException.ctxt",
+      "type": "file",
+      "name": "EmptyDequeException.ctxt",
+      "filePath": "src/calculator/EmptyDequeException.ctxt",
+      "summary": "Source file: src/calculator/EmptyDequeException.ctxt",
+      "tags": [
+        "code",
+        "ctxt"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/calculator/javamodel/package.bluej",
+      "type": "file",
+      "name": "package.bluej",
+      "filePath": "src/calculator/javamodel/package.bluej",
+      "summary": "Source file: src/calculator/javamodel/package.bluej",
+      "tags": [
+        "code",
+        "bluej"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/calculator/package.bluej",
+      "type": "file",
+      "name": "package.bluej",
+      "filePath": "src/calculator/package.bluej",
+      "summary": "Source file: src/calculator/package.bluej",
+      "tags": [
+        "code",
+        "bluej"
+      ],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/Factorzations/GUI.java",
+      "target": "function:src/Factorzations/GUI.java:initComponents",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/Factorzations/GUI.java",
+      "target": "function:src/Factorzations/GUI.java:FactorActionPerformed",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/Factorzations/GUI.java",
+      "target": "function:src/Factorzations/GUI.java:Checks",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/Factorzations/GUI.java",
+      "target": "function:src/Factorzations/GUI.java:EnterActionPerformed",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/Factorzations/GUI.java",
+      "target": "function:src/Factorzations/GUI.java:main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/Factorzations/GUI.java",
+      "target": "class:src/Factorzations/GUI.java:GUI",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    }
+  ]
+}

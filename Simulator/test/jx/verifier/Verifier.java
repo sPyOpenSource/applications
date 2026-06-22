@@ -68,7 +68,7 @@ public class Verifier {
 		TypeCheck.verify(actClass, classTree);
 	    }
 	    MethodData[] methods = actClass.getMethodData();
-	    for (int i=0; i < methods.length; i++) {
+	    for (int i = 0; i < methods.length; i++) {
 		if (methods[i] == null) {
 		    stdPrintln(1,"methods["+i+"] is null!");
 		} else {

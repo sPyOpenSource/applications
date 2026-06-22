@@ -1,0 +1,31 @@
+{
+  "projectRoot": "/Users/xuyi/Source/OS/armOS/lib/jcore/test/PrimeFactors",
+  "batchFiles": [
+    {"path": "src/.DS_Store", "language": "unknown", "fileCategory": "other", "sizeLines": 1},
+    {"path": ".understand-anything/.understandignore", "language": "unknown", "fileCategory": "config", "sizeLines": 31},
+    {"path": "build.xml", "language": "xml", "fileCategory": "config", "sizeLines": 73},
+    {"path": "CHANGELOG", "language": "txt", "fileCategory": "docs", "sizeLines": 45},
+    {"path": "manifest.mf", "language": "mf", "fileCategory": "config", "sizeLines": 3},
+    {"path": ".understand-anything/intermediate/scan-result.json", "language": "json", "fileCategory": "data", "sizeLines": 61020},
+    {"path": "src/README.TXT", "language": "txt", "fileCategory": "docs", "sizeLines": 16},
+    {"path": "src/package.bluej", "language": "bluej", "fileCategory": "config", "sizeLines": 55},
+    {"path": "src/BigIntegers/package.bluej", "language": "bluej", "fileCategory": "config", "sizeLines": 68},
+    {"path": "src/BigIntegers/README.TXT", "language": "txt", "fileCategory": "docs", "sizeLines": 5},
+    {"path": "src/BigIntegers/AprtCleInteger.ctxt", "language": "ctxt", "fileCategory": "config", "sizeLines": 26},
+    {"path": "src/BigIntegers/ECMBigInteger.ctxt", "language": "ctxt", "fileCategory": "config", "sizeLines": 24},
+    {"path": "src/BigIntegers/FactorInteger.ctxt", "language": "ctxt", "fileCategory": "config", "sizeLines": 58},
+    {"path": "src/BigIntegers/FactorInteger.java", "language": "java", "fileCategory": "code", "sizeLines": 322},
+    {"path": "src/BigIntegers/FactorInteger.class", "language": "unknown", "fileCategory": "code", "sizeLines": 0},
+    {"path": "src/BigIntegers/LargeInteger.ctxt", "language": "ctxt", "fileCategory": "config", "sizeLines": 90},
+    {"path": "src/BigIntegers/MontgomeryInteger.ctxt", "language": "ctxt", "fileCategory": "config", "sizeLines": 22},
+    {"path": "src/BigIntegers/MontgomeryInteger.java", "language": "java", "fileCategory": "code", "sizeLines": 365},
+    {"path": "src/BigIntegers/StaticFunctions.ctxt", "language": "ctxt", "fileCategory": "config", "sizeLines": 22},
+    {"path": "src/BigIntegers/StaticFunctions.java", "language": "java", "fileCategory": "code", "sizeLines": 199},
+    {"path": "src/Factorzations/Classical.ctxt", "language": "ctxt", "fileCategory": "config", "sizeLines": 14},
+    {"path": "src/Factorzations/Lehman.ctxt", "language": "ctxt", "fileCategory": "config", "sizeLines": 10},
+    {"path": "src/Factorzations/GUI.ctxt", "language": "ctxt", "fileCategory": "config", "sizeLines": 131},
+    {"path": "src/Factorzations/package.bluej", "language": "bluej", "fileCategory": "config", "sizeLines": 53},
+    {"path": "src/Factorzations/README.TXT", "language": "txt", "fileCategory": "docs", "sizeLines": 1}
+  ],
+  "batchImportData": {"src/.DS_Store": [], ".understand-anything/.understandignore": [], "build.xml": [], "CHANGELOG": [], "manifest.mf": [], ".understand-anything/intermediate/scan-result.json": [], "src/README.TXT": [], "src/package.bluej": [], "src/BigIntegers/package.bluej": [], "src/BigIntegers/README.TXT": [], "src/BigIntegers/AprtCleInteger.ctxt": [], "src/BigIntegers/ECMBigInteger.ctxt": [], "src/BigIntegers/FactorInteger.ctxt": [], "src/BigIntegers/FactorInteger.java": [], "src/BigIntegers/FactorInteger.class": [], "src/BigIntegers/LargeInteger.ctxt": [], "src/BigIntegers/MontgomeryInteger.ctxt": [], "src/BigIntegers/MontgomeryInteger.java": [], "src/BigIntegers/StaticFunctions.ctxt": [], "src/BigIntegers/StaticFunctions.java": [], "src/Factorzations/Classical.ctxt": [], "src/Factorzations/Lehman.ctxt": [], "src/Factorzations/GUI.ctxt": [], "src/Factorzations/package.bluej": [], "src/Factorzations/README.TXT": []}
+}

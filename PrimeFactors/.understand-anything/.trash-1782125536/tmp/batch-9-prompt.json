@@ -1,0 +1,200 @@
+{
+  "batchIndex": 9,
+  "totalBatches": 10,
+  "files": [
+    {
+      "path": "src/ecm/PrimeTest/LucasLehmer.ctxt",
+      "language": "ctxt",
+      "sizeLines": 12,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/ecm/PrimeTest/LucasLehmer.java",
+      "language": "java",
+      "sizeLines": 146,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/ecm/PrimeTest/package.bluej",
+      "language": "bluej",
+      "sizeLines": 54,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/ecm/PrimeTest/README.TXT",
+      "language": "txt",
+      "sizeLines": 9,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "src/ecm/README.TXT",
+      "language": "txt",
+      "sizeLines": 0,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "src/Factorzations/Classical.ctxt",
+      "language": "ctxt",
+      "sizeLines": 14,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Factorzations/ecm/ECM.ctxt",
+      "language": "ctxt",
+      "sizeLines": 10,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Factorzations/ecm/ecmStep0.ctxt",
+      "language": "ctxt",
+      "sizeLines": 8,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Factorzations/ecm/ecmStep1.ctxt",
+      "language": "ctxt",
+      "sizeLines": 18,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Factorzations/ecm/ecmStep2.ctxt",
+      "language": "ctxt",
+      "sizeLines": 9,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Factorzations/ecm/package.bluej",
+      "language": "bluej",
+      "sizeLines": 64,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Factorzations/ecm/README.TXT",
+      "language": "txt",
+      "sizeLines": 0,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "src/Factorzations/ecm/StaticFunctions.ctxt",
+      "language": "ctxt",
+      "sizeLines": 20,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Factorzations/ecm/StaticFunctions.java",
+      "language": "java",
+      "sizeLines": 205,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Factorzations/GUI.ctxt",
+      "language": "ctxt",
+      "sizeLines": 131,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Factorzations/GUI.form",
+      "language": "form",
+      "sizeLines": 382,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Factorzations/Lehman.ctxt",
+      "language": "ctxt",
+      "sizeLines": 10,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Factorzations/package.bluej",
+      "language": "bluej",
+      "sizeLines": 53,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Factorzations/README.TXT",
+      "language": "txt",
+      "sizeLines": 0,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "src/Factorzations/siqs/FirstPolynomial.ctxt",
+      "language": "ctxt",
+      "sizeLines": 7,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Factorzations/siqs/FirstPolynomial.java",
+      "language": "java",
+      "sizeLines": 180,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Factorzations/siqs/Maths.ctxt",
+      "language": "ctxt",
+      "sizeLines": 31,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Factorzations/siqs/Matrix.ctxt",
+      "language": "ctxt",
+      "sizeLines": 7,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Factorzations/siqs/Matrix.java",
+      "language": "java",
+      "sizeLines": 414,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Factorzations/siqs/package.bluej",
+      "language": "bluej",
+      "sizeLines": 119,
+      "fileCategory": "code"
+    }
+  ],
+  "batchImportData": {
+    "src/ecm/PrimeTest/LucasLehmer.ctxt": [],
+    "src/ecm/PrimeTest/LucasLehmer.java": [
+      "src/utilities/Zeef.java"
+    ],
+    "src/ecm/PrimeTest/package.bluej": [],
+    "src/ecm/PrimeTest/README.TXT": [],
+    "src/ecm/README.TXT": [],
+    "src/Factorzations/Classical.ctxt": [],
+    "src/Factorzations/ecm/ECM.ctxt": [],
+    "src/Factorzations/ecm/ecmStep0.ctxt": [],
+    "src/Factorzations/ecm/ecmStep1.ctxt": [],
+    "src/Factorzations/ecm/ecmStep2.ctxt": [],
+    "src/Factorzations/ecm/package.bluej": [],
+    "src/Factorzations/ecm/README.TXT": [],
+    "src/Factorzations/ecm/StaticFunctions.ctxt": [],
+    "src/Factorzations/ecm/StaticFunctions.java": [],
+    "src/Factorzations/GUI.ctxt": [],
+    "src/Factorzations/GUI.form": [],
+    "src/Factorzations/Lehman.ctxt": [],
+    "src/Factorzations/package.bluej": [],
+    "src/Factorzations/README.TXT": [],
+    "src/Factorzations/siqs/FirstPolynomial.ctxt": [],
+    "src/Factorzations/siqs/FirstPolynomial.java": [],
+    "src/Factorzations/siqs/Maths.ctxt": [],
+    "src/Factorzations/siqs/Matrix.ctxt": [],
+    "src/Factorzations/siqs/Matrix.java": [],
+    "src/Factorzations/siqs/package.bluej": []
+  },
+  "neighborMap": {
+    "src/ecm/PrimeTest/LucasLehmer.java": [
+      {
+        "path": "src/utilities/Zeef.java",
+        "batchIndex": 10,
+        "symbols": [
+          "main",
+          "getSize",
+          "Zeef",
+          "getPrimes",
+          "Zeef"
+        ]
+      }
+    ]
+  }
+}

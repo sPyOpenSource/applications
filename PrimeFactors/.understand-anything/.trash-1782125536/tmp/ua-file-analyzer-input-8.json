@@ -1,0 +1,182 @@
+{
+  "batch": 8,
+  "totalBatches": 10,
+  "projectRoot": "/Users/xuyi/Source/OS/armOS/lib/jcore/test/PrimeFactors",
+  "batchFiles": [
+    {
+      "path": "src/calculator/Push.ctxt",
+      "content": null,
+      "language": "ctxt",
+      "imports": [],
+      "type": "config"
+    },
+    {
+      "path": "src/calculator/README.TXT",
+      "content": "Calculator\n\nIt can perform various mathematical operations on numbers, \nsuch as addition, subtraction, multiplication, division, exponentiation, root extraction, trigonometry, logarithm, etc.\n\nIt has different levels of complexity and functionality.",
+      "language": "txt",
+      "imports": [],
+      "type": "document"
+    },
+    {
+      "path": "src/calculator/Remainder.ctxt",
+      "content": null,
+      "language": "ctxt",
+      "imports": [],
+      "type": "config"
+    },
+    {
+      "path": "src/calculator/Subtract.ctxt",
+      "content": null,
+      "language": "ctxt",
+      "imports": [],
+      "type": "config"
+    },
+    {
+      "path": "src/calculator/largemodel/Add.ctxt",
+      "content": "#BlueJ class context\ncomment0.target=Add\ncomment0.text=\\n\\ The\\ add\\ operation.\\n\\n\\ @author\\ Rod\\ Howell\\n\\ \\ \\ \\ \\ \\ \\ \\ (<a\\ href\\=\"mailto\\:howell@cis.ksu.edu\">howell@cis.ksu.edu</a>)\\n\ncomment1.params=\ncomment1.target=int\\ numOperands()\ncomment1.text=\\n\\ @return\\ 2.\\n\ncomment2.params=operands\ncomment2.target=java.lang.Object\\ doOperation(java.lang.Object[])\ncomment2.text=\\n\\ Returns\\ the\\ result\\ of\\ adding\\ the\\ given\\ operands.\\n\\ @throws\\ ArrayIndexOutOfBoundsException\\ \\ If\\ <tt>operands</tt>\\ is\\ not\\ of\\ \\n\\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ length\\ at\\ least\\ 2.\\n\\ @throws\\ ClassCastException\\ \\ If\\ the\\ elements\\ of\\ <tt>operands</tt>\\ are\\ not\\ \\n\\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ both\\ <tt>LargeInteger</tt>s.\\n\ncomment3.params=Nbr1\\ Nbr2\\ Sum\\ NumberLength\ncomment3.target=void\\ AddBigNbr(int[],\\ int[],\\ int[],\\ int)\ncomment4.params=Nbr1\\ Nbr2\\ Sum\\ NumberLength\ncomment4.target=void\\ AddBigNbr32(long[],\\ long[],\\ long[],\\ int)\nnumComments=5",
+      "language": "ctxt",
+      "imports": [],
+      "type": "config"
+    },
+    {
+      "path": "src/calculator/largemodel/CalculatorImpl.ctxt",
+      "content": "#BlueJ class context\ncomment0.target=CalculatorImpl\ncomment0.text=\\n\\ A\\ model\\ for\\ an\\ RPN\\ calculator\\ using\\ the\\n\\ {@link\\ EDU.ksu.cis.calculator.LargeInteger}\\ class.\\n\\n\\ @author\\ Rod\\ Howell\\n\\ \\ \\ \\ \\ \\ \\ \\ (<a\\ href\\=\"mailto\\:howell@cis.ksu.edu\">howell@cis.ksu.edu</a>)\\n\ncomment1.params=v\ncomment1.target=CalculatorImpl(calculator.CalculatorUI)\ncomment1.text=\\n\\ Constructs\\ a\\ new\\ CalculatorImpl\\ using\\ the\\ given\\ user\\ interface,\\ base\\ 10,\\n\\ and\\ sticky\\ bases.\\n\ncomment2.params=v\\ b\ncomment2.target=CalculatorImpl(calculator.CalculatorUI,\\ int)\ncomment2.text=\\n\\ Constructs\\ a\\ new\\ CalculatorImpl\\ using\\ the\\ given\\ user\\ interface\\ and\\ base,\\n\\ with\\ sticky\\ bases.\\n\ncomment3.params=v\\ s\ncomment3.target=CalculatorImpl(calculator.CalculatorUI,\\ boolean)\ncomment3.text=\\n\\ Constructs\\ a\\ new\\ CalculatorImpl\\ using\\ the\\ given\\ user\\ interface\\ and\\n\\ the\\ given\\ setting\\ for\\ sticky\\ bases,\\ in\\ base\\ 10.\\n\ncomment4.params=v\\ b\\ s\ncomment4.target=CalculatorImpl(calculator.CalculatorUI,\\ int,\\ boolean)\ncomment4.text=\\n\\ Constructs\\ a\\ new\\ CalculatorImpl\\ using\\ the\\ given\\ user\\ interface,\\ base,\\ and\\n\\ setting\\ for\\ sticky\\ bases.\\n\ncomment5.params=op\\ input\ncomment5.target=void\\ doOperation(calculator.Operation,\\ java.lang.String)\ncomment5.text=\\n\\ Performs\\ the\\ given\\ operation.\\ \\ If\\ <var>input</var>\\ is\\ non-null,\\ it\\n\\ is\\ treated\\ as\\ the\\ top\\ of\\ the\\ stack.\\ \\ If\\ <var>input</var>\\ is\\ \"\"\\ or\\ \"-\",\\ it\\ is\\n\\ interpreted\\ as\\ \"0\".\\ \\ Operands\\ are\\ taken\\ from\\ the\\ top\\n\\ of\\ the\\ stack\\ so\\ that\\ the\\ top\\ element\\ is\\ the\\ last\\ operand.\\ \\ The\\ result\\n\\ (if\\ any)\\ is\\ pushed\\ onto\\ the\\ stack.\\ \\ When\\ the\\ operation\\ is\\ complete,\\n\\ the\\ element\\ that\\ then\\ resides\\ at\\ the\\ top\\ of\\ the\\ stack\\ (if\\ any)\\ is\\n\\ reported\\ to\\ the\\ user\\ interface.\\ \\ If\\ an\\ exception\\ or\\ error\\ is\\ thrown,\\n\\ the\\ stack\\ will\\ be\\ restored\\ to\\ its\\ original\\ contents,\\ if\\ possible.\\n\\ <p>\\n\\ The\\ following\\ classes\\ of\\ operations\\ are\\ supported\\:\\n\\ <ul>\\n\\ <li>\\ {@link\\ Push}\\ -\\ If\\ <var>input</var>\\ is\\ null,\\ a\\ copy\\ of\\ the\\ top\\ of\\ the\\ \\n\\ \\ \\ \\ \\ \\ stack\\ is\\ pushed.\\ \\ Otherwise,\\ <var>input</var>\\ is\\ simply\\ accepted\\ as\\n\\ \\ \\ \\ \\ \\ the\\ new\\ top\\ of\\ the\\ stack.\\ \\ Unrecognized\\ subclasses\\ of\\n\\ \\ \\ \\ \\ \\ {@link\\ EDU.ksu.cis.calculator.Operation}\\ are\\ treated\\ as\\ Push.\\n\\ <li>\\ {@link\\ Pop}\\ -\\ Removes\\ the\\ top\\ from\\ the\\ stack.\\n\\ <li>\\ {@link\\ ClearStack}\\ -\\ Empties\\ the\\ stack.\\n\\ <li>\\ {@link\\ RotateUp}\\ -\\ Moves\\ the\\ element\\ at\\ the\\ bottom\\ of\\ the\\ stack\\ to\\ \\n\\ \\ \\ \\ \\ \\ the\\ top.\\n\\ <li>\\ {@link\\ RotateDown}\\ -\\ Moves\\ the\\ element\\ at\\ the\\ top\\ of\\ the\\ stack\\ to\\ the\\n\\ \\ \\ \\ \\ \\ bottom.\\n\\ <li>\\ {@link\\ EDU.ksu.cis.calculator.ConvertBase}\\ -\\ Converts\\ the\\ top\\ of\\ \\n\\ \\ \\ \\ \\ \\ the\\ stack\\ to\\ the\\ base\\ specified\\ by\\ \\n\\ \\ \\ \\ \\ \\ {@link\\ EDU.ksu.cis.calculator.ConvertBase\\#getBase()\\ op.getBase()}.\\n\\ \\ \\ \\ \\ \\ If\\ the\\ stack\\ is\\ empty,\\ simply\\ reports\\ the\\ new\\ base\\ to\\ the\\ user\\n\\ \\ \\ \\ \\ \\ interface.\\n\\ <li>\\ {@link\\ EDU.ksu.cis.calculator.EncodedOperation}\\ -\\ Performs\\ the\\ \\n\\ \\ \\ \\ \\ \\ operation\\ specified\\ by\\ the\\ given\\ subclass\\ of\\ EncodedOperation.\\n\\ </ul>\\n\\ @throws\\ EmptyDequeException\\ \\ If\\ the\\ operation\\ requires\\ more\\ operands\\ than\\n\\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ exist\\ on\\ the\\ stack.\\n\ncomment6.params=b\ncomment6.target=void\\ changeBase(int)\ncomment6.text=\\n\\ Changes\\ the\\ current\\ base\\ to\\ b,\\ performs\\ any\\ base\\ conversion\\ necessary\\ to\\n\\ reflect\\ this\\ change,\\ and\\ reports\\ the\\ result\\ to\\ the\\ user\\ interface.\\n\ncomment7.params=op\ncomment7.target=void\\ doEncodedOperation(calculator.EncodedOperation)\ncomment7.text=\\n\\ Performs\\ the\\ given\\ EncodedOperation\\ using\\ the\\ value(s)\\ at\\ the\\ top\\n\\ of\\ the\\ stack\\ for\\ operand(s),\\ and\\ reports\\ the\\ results\\ to\\ the\\ user\\n\\ interface.\\ \\ Assumes\\ sufficiently\\ many\\ values\\n\\ exist\\ on\\ the\\ stack.\\ \\ If\\ an\\ Exception\\ or\\ Error\\ is\\ thrown,\\ an\\n\\ attempt\\ will\\ be\\ made\\ to\\ restore\\ the\\ stack\\ to\\ its\\ original\\ contents.\\n\\ @throws\\ Exception\\ \\ If\\ the\\ given\\ operation\\ throws\\ an\\ Exception.\\n\ncomment8.params=op\\ noNewInput\ncomment8.target=void\\ doStackOperation(calculator.Operation,\\ boolean)\ncomment8.text=\\n\\ Performs\\ the\\ given\\ stack\\ operation\\ ({@link\\ Push},\\ {@link\\ Pop},\\n\\ {@link\\ RotateUp},\\ or\\ {@link\\ RotateDown})\\ and\\ reports\\ the\\ results\\ to\\n\\ user\\ interface.\\ \\ Other\\ subclasses\\ of\\ {@link\\ Operation}\\ are\\ treated\\n\\ as\\ Push.\\n\\ @param\\ \\ op\\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ The\\ operation\\ to\\ perform.\\n\\ @param\\ \\ noNewInput\\ \\ true\\ iff\\ no\\ new\\ input\\ has\\ been\\ received.\\n\\ @throws\\ EmptyDequeException\\ \\ If\\ the\\ stack\\ is\\ empty.\\n\ncomment9.params=change\\ input\ncomment9.target=void\\ changeSettings(java.lang.Object,\\ java.lang.String)\ncomment9.text=\\n\\ Changes\\ the\\ settings\\ of\\ the\\ calculator.\\ \\ The\\ only\\ setting\\ that\\ can\\n\\ be\\ changed\\ in\\ this\\ model\\ is\\ sticky\\ bases.\\ \\ If\\ <var>change</var>\\ is\\ of\\n\\ type\\ {@link\\ java.lang.Boolean},\\ then\\ bases\\ are\\ set\\ to\\ sticky\\ iff\\ the\\n\\ value\\ of\\ <var>change</var>\\ is\\ true.\\ \\ If\\ <var>change</var>\\ is\\ of\\ a\\ different\\ \\n\\ type,\\ this\\ method\\ has\\ no\\ effect.\\ \\ The\\ second\\ parameter\\ is\\ ignored.\\n\nnumComments=10",
+      "language": "ctxt",
+      "imports": [],
+      "type": "config"
+    },
+    {
+      "path": "src/calculator/largemodel/ChangeSigns.ctxt",
+      "content": "#BlueJ class context\ncomment0.target=ChangeSigns\ncomment0.text=\\n\\ The\\ change\\ signs\\ operation.\\n\\n\\ @author\\ Rod\\ Howell\\n\\ \\ \\ \\ \\ \\ \\ \\ (<a\\ href\\=\"mailto\\:howell@cis.ksu.edu\">howell@cis.ksu.edu</a>)\\n\ncomment1.params=\ncomment1.target=int\\ numOperands()\ncomment1.text=\\n\\ @return\\ 1.\\n\ncomment2.params=operands\ncomment2.target=java.lang.Object\\ doOperation(java.lang.Object[])\ncomment2.text=\\n\\ Returns\\ negation\\ of\\ <tt>operands[0]</tt>.\\n\\ @throws\\ ArrayIndexOutOfBoundsException\\ \\ If\\ <tt>operands</tt>\\ is\\ not\\ of\\ \\n\\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ length\\ at\\ least\\ 1.\\n\\ @throws\\ ClassCastException\\ \\ If\\ <tt>operands[0]</tt>\\ is\\ not\\ \\n\\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ a\\ <tt>LargeInteger</tt>.\\n\ncomment3.params=TestNbr\\ NumberLength\ncomment3.target=void\\ ChSignBigNbr(int[],\\ int)\nnumComments=4",
+      "language": "ctxt",
+      "imports": [],
+      "type": "config"
+    },
+    {
+      "path": "src/calculator/largemodel/Divide.ctxt",
+      "content": "#BlueJ class context\ncomment0.target=Divide\ncomment0.text=\\n\\ The\\ divide\\ operation.\\n\\n\\ @author\\ Rod\\ Howell\\n\\ \\ \\ \\ \\ \\ \\ \\ (<a\\ href\\=\"mailto\\:howell@cis.ksu.edu\">howell@cis.ksu.edu</a>)\\n\ncomment1.params=\ncomment1.target=int\\ numOperands()\ncomment1.text=\\n\\ @return\\ 2.\\n\ncomment2.params=operands\ncomment2.target=java.lang.Object\\ doOperation(java.lang.Object[])\ncomment2.text=\\n\\ Returns\\ the\\ result\\ of\\ dividing\\ operand[0]\\ by\\ operand[1].\\n\\ @throws\\ ArrayIndexOutOfBoundsException\\ \\ If\\ <tt>operands</tt>\\ is\\ not\\ of\\ \\n\\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ length\\ at\\ least\\ 2.\\n\\ @throws\\ ClassCastException\\ \\ If\\ the\\ elements\\ of\\ <tt>operands</tt>\\ are\\ not\\ \\n\\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ both\\ <tt>LargeInteger</tt>s.\\n\\ @throws\\ ArithmeticException\\ If\\ operand[1]\\ is\\ zero.\\n\ncomment3.params=Dividend\\ Divisor\\ Quotient\\ NumberLength\ncomment3.target=void\\ DivBigNbrByLong(int[],\\ long,\\ int[],\\ int)\nnumComments=4",
+      "language": "ctxt",
+      "imports": [],
+      "type": "config"
+    },
+    {
+      "path": "src/calculator/largemodel/Multiply.ctxt",
+      "content": "#BlueJ class context\ncomment0.target=Multiply\ncomment0.text=\\n\\ The\\ multiply\\ operation.\\n\\n\\ @author\\ Rod\\ Howell\\n\\ \\ \\ \\ \\ \\ \\ \\ (<a\\ href\\=\"mailto\\:howell@cis.ksu.edu\">howell@cis.ksu.edu</a>)\\n\ncomment1.params=\ncomment1.target=int\\ numOperands()\ncomment1.text=\\n\\ @return\\ 2.\\n\ncomment2.params=operands\ncomment2.target=java.lang.Object\\ doOperation(java.lang.Object[])\ncomment2.text=\\n\\ Returns\\ the\\ result\\ of\\ multiplyinging\\ the\\ given\\ operands.\\n\\ @throws\\ ArrayIndexOutOfBoundsException\\ \\ If\\ <tt>operands</tt>\\ is\\ not\\ of\\ \\n\\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ length\\ at\\ least\\ 2.\\n\\ @throws\\ ClassCastException\\ \\ If\\ the\\ elements\\ of\\ <tt>operands</tt>\\ are\\ not\\ \\n\\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ both\\ <tt>LargeInteger</tt>s.\\n\ncomment3.params=Nbr1\\ Nbr2\\ Prod\\ NumberLength\ncomment3.target=void\\ MultBigNbrByLong(int[],\\ long,\\ int[],\\ int)\ncomment4.params=Nbr1\\ Nbr2\\ Prod\\ NumberLength\ncomment4.target=void\\ MultBigNbr(int[],\\ int[],\\ int[],\\ int)\nnumComments=5",
+      "language": "ctxt",
+      "imports": [],
+      "type": "config"
+    },
+    {
+      "path": "src/calculator/largemodel/Power.ctxt",
+      "content": "#BlueJ class context\ncomment0.target=Power\ncomment0.text=\\n\\ The\\ general\\ exponentiation\\ operation.\\n\\n\\ @author\\ Rod\\ Howell\\n\\ \\ \\ \\ \\ \\ \\ \\ (<a\\ href\\=\"mailto\\:howell@cis.ksu.edu\">howell@cis.ksu.edu</a>)\\n\ncomment1.params=\ncomment1.target=int\\ numOperands()\ncomment1.text=\\n\\ @return\\ 2.\\n\ncomment2.params=operands\ncomment2.target=java.lang.Object\\ doOperation(java.lang.Object[])\ncomment2.text=\\n\\ Returns\\ the\\ result\\ of\\ raising\\ operand[0]\\ to\\ the\\ power\\ of\\ operand[1].\\n\\ @throws\\ ArrayIndexOutOfBoundsException\\ \\ If\\ <tt>operands</tt>\\ is\\ not\\ of\\ \\n\\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ length\\ at\\ least\\ 2.\\n\\ @throws\\ ClassCastException\\ \\ If\\ the\\ elements\\ of\\ <tt>operands</tt>\\ are\\ not\\ \\n\\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ both\\ <tt>LargeInteger</tt>s.\\n\\ @throws\\ ArithmeticException\\ If\\ operand[1]\\ is\\ negative.\\n\nnumComments=3",
+      "language": "ctxt",
+      "imports": [],
+      "type": "config"
+    },
+    {
+      "path": "src/calculator/largemodel/Push.ctxt",
+      "content": "#BlueJ class context\ncomment0.target=Push\ncomment0.text=\\n\\ The\\ push\\ operation.\\ \\ Objects\\ of\\ this\\ class\\ are\\ used\\ to\\n\\ encapsulate\\ a\\ push\\ request.\\n\\n\\ @author\\ Rod\\ Howell\\n\\ \\ \\ \\ \\ \\ \\ \\ (<a\\ href\\=\"mailto\\:howell@cis.ksu.edu\">howell@cis.ksu.edu</a>)\\n\ncomment1.params=\ncomment1.target=int\\ numOperands()\ncomment1.text=\\n\\ @return\\ 1.\\n\nnumComments=2",
+      "language": "ctxt",
+      "imports": [],
+      "type": "config"
+    },
+    {
+      "path": "src/calculator/largemodel/Remainder.ctxt",
+      "content": "#BlueJ class context\ncomment0.target=Remainder\ncomment0.text=\\n\\ The\\ remainder\\ operation.\\n\\n\\ @author\\ Rod\\ Howell\\n\\ \\ \\ \\ \\ \\ \\ \\ (<a\\ href\\=\"mailto\\:howell@cis.ksu.edu\">howell@cis.ksu.edu</a>)\\n\ncomment1.params=\ncomment1.target=int\\ numOperands()\ncomment1.text=\\n\\ @return\\ 2.\\n\ncomment2.params=operands\ncomment2.target=java.lang.Object\\ doOperation(java.lang.Object[])\ncomment2.text=\\n\\ Returns\\ the\\ remainder\\ obtained\\ when\\ dividing\\ operand[0]\\ by\\ operand[1].\\n\\ @throws\\ ArrayIndexOutOfBoundsException\\ \\ If\\ <tt>operands</tt>\\ is\\ not\\ of\\ \\n\\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ length\\ at\\ least\\ 2.\\n\\ @throws\\ ClassCastException\\ \\ If\\ the\\ elements\\ of\\ <tt>operands</tt>\\ are\\ not\\ \\n\\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ both\\ <tt>LargeInteger</tt>s.\\n\\ @throws\\ ArithmeticException\\ If\\ operand[1]\\ is\\ zero.\\n\ncomment3.params=Dividend\\ Divisor\\ NumberLength\ncomment3.target=long\\ RemDivBigNbrByLong(int[],\\ long,\\ int)\nnumComments=4",
+      "language": "ctxt",
+      "imports": [],
+      "type": "config"
+    },
+    {
+      "path": "src/calculator/largemodel/Subtract.ctxt",
+      "content": "#BlueJ class context\ncomment0.target=Subtract\ncomment0.text=\\n\\ The\\ subtract\\ operation.\\n\\n\\ @author\\ Rod\\ Howell\\n\\ \\ \\ \\ \\ \\ \\ \\ (<a\\ href\\=\"mailto\\:howell@cis.ksu.edu\">howell@cis.ksu.edu</a>)\\n\ncomment1.params=\ncomment1.target=int\\ numOperands()\ncomment1.text=\\n\\ @return\\ 2.\\n\ncomment2.params=operands\ncomment2.target=java.lang.Object\\ doOperation(java.lang.Object[])\ncomment2.text=\\n\\ Returns\\ the\\ result\\ of\\ subtracting\\ operand[1]\\ from\\ operand[0].\\n\\ @throws\\ ArrayIndexOutOfBoundsException\\ \\ If\\ <tt>operands</tt>\\ is\\ not\\ of\\ \\n\\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ length\\ at\\ least\\ 2.\\n\\ @throws\\ ClassCastException\\ \\ If\\ the\\ elements\\ of\\ <tt>operands</tt>\\ are\\ not\\ \\n\\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ both\\ <tt>LargeInteger</tt>s.\\n\ncomment3.params=Nbr1\\ Nbr2\\ Diff\\ NumberLength\ncomment3.target=void\\ SubtractBigNbr(int[],\\ int[],\\ int[],\\ int)\ncomment4.params=Nbr1\\ Nbr2\\ Diff\\ NumberLength\ncomment4.target=void\\ SubtractBigNbr32(long[],\\ long[],\\ long[],\\ int)\nnumComments=5",
+      "language": "ctxt",
+      "imports": [],
+      "type": "config"
+    },
+    {
+      "path": "src/calculator/largemodel/README.TXT",
+      "content": "The calculator used LargeInteger class to store the big integer.",
+      "language": "txt",
+      "imports": [],
+      "type": "document"
+    },
+    {
+      "path": "src/calculator/largemodel/package.bluej",
+      "content": "#BlueJ package file\nobjectbench.height=116\nobjectbench.width=1416\npackage.divider.horizontal=0.6\npackage.divider.vertical=0.8483353884093712\npackage.editor.height=681\npackage.editor.width=1325\npackage.editor.x=0\npackage.editor.y=25\npackage.frame.height=875\npackage.frame.width=1440\npackage.numDependencies=0\npackage.numTargets=11\npackage.showExtends=true\npackage.showUses=true\nreadme.height=60\nreadme.name=@README\nreadme.width=48\nreadme.x=10\nreadme.y=10\ntarget1.height=70\ntarget1.name=Add\ntarget1.showInterface=false\ntarget1.type=ClassTarget\ntarget1.width=120\ntarget1.x=350\ntarget1.y=250\ntarget10.height=70\ntarget10.name=Push\ntarget10.showInterface=false\ntarget10.type=ClassTarget\ntarget10.width=120\ntarget10.x=200\ntarget10.y=250\ntarget11.height=70\ntarget11.name=Power\ntarget11.showInterface=false\ntarget11.type=ClassTarget\ntarget11.width=120\ntarget11.x=350\ntarget11.y=50\ntarget2.height=70\ntarget2.name=TwoToPower\ntarget2.showInterface=false\ntarget2.type=ClassTarget\ntarget2.width=120\ntarget2.x=500\ntarget2.y=50\ntarget3.height=70\ntarget3.name=TenToPower\ntarget3.showInterface=false\ntarget3.type=ClassTarget\ntarget3.width=120\ntarget3.x=650\ntarget3.y=50\ntarget4.height=70\ntarget4.name=Remainder\ntarget4.showInterface=false\ntarget4.type=ClassTarget\ntarget4.width=120\ntarget4.x=650\ntarget4.y=150\ntarget5.height=70\ntarget5.name=Divide\ntarget5.showInterface=false\ntarget5.type=ClassTarget\ntarget5.width=120\ntarget5.x=500\ntarget5.y=150\ntarget6.height=70\ntarget6.name=Multiply\ntarget6.showInterface=false\ntarget6.type=ClassTarget\ntarget6.width=120\ntarget6.x=350\ntarget6.y=150\ntarget7.height=70\ntarget7.name=ChangeSigns\ntarget7.showInterface=false\ntarget7.type=ClassTarget\ntarget7.width=120\ntarget7.x=650\ntarget7.y=250\ntarget8.height=70\ntarget8.name=CalculatorImpl\ntarget8.showInterface=false\ntarget8.type=ClassTarget\ntarget8.width=120\ntarget8.x=840\ntarget8.y=250\ntarget9.height=70\ntarget9.name=Subtract\ntarget9.showInterface=false\ntarget9.type=ClassTarget\ntarget9.width=120\ntarget9.x=500\ntarget9.y=250",
+      "language": "bluej",
+      "imports": [],
+      "type": "config"
+    },
+    {
+      "path": "src/calculator/NumericDocument.ctxt",
+      "content": "#BlueJ class context\ncomment0.target=NumericDocument\ncomment0.text=\\n\\ A\\ Document\\ for\\ storing\\ an\\ arbitrarily\\ large\\ number\\ in\\ an\\ arbitrary\\ base,\\n\\ 2-36.\\n\\n\\ @author\\ Rod\\ Howell\\n\\ \\ \\ \\ \\ \\ \\ \\ (<a\\ href\\=\"mailto\\:howell@cis.ksu.edu\">howell@cis.ksu.edu</a>)\\n\ncomment1.params=b\\ s\ncomment1.target=NumericDocument(int,\\ java.lang.String)\ncomment1.text=\\n\\ Constructs\\ a\\ new\\ NumericDocument.\\n\\ @param\\ b\\ \\ The\\ radix\\ in\\ which\\ the\\ numeric\\ content\\ is\\ represented.\\n\\ @param\\ s\\ \\ The\\ initial\\ content\\ of\\ the\\ document.\\n\ncomment2.params=offs\\ str\\ a\ncomment2.target=void\\ insertString(int,\\ java.lang.String,\\ javax.swing.text.AttributeSet)\ncomment2.text=\\n\\ Inserts\\ the\\ given\\ String\\ into\\ the\\ document,\\ removing\\ any\\ illegal\\n\\ characters.\\n\\ @param\\ offs\\ \\ The\\ offset\\ at\\ which\\ the\\ String\\ is\\ inserted.\\n\\ @param\\ str\\ \\ \\ The\\ String\\ to\\ be\\ inserted.\\n\\ @param\\ a\\ \\ \\ \\ The\\ attributes\\ for\\ the\\ inserted\\ content.\\n\\ @throws\\ \\ \\ BadLocationException\\ \\ If\\ offs\\ does\\ not\\ represent\\ a\\ valid\\n\\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ insertion\\ location.\\n\ncomment3.params=\ncomment3.target=boolean\\ isModified()\ncomment3.text=\\n\\ Returns\\ true\\ iff\\ this\\ NumericDocument\\ has\\ been\\ modified\\ since\\ its\\n\\ creation.\\n\ncomment4.params=offs\\ len\ncomment4.target=void\\ remove(int,\\ int)\ncomment4.text=\\n\\ Removes\\ the\\ specified\\ substring\\ from\\ this\\ NumericDocument.\\ \\ If\\ the\\n\\ content\\ has\\ not\\ been\\ modified\\ since\\ its\\ creation,\\ the\\ removal\\ is\\n\\ suppressed.\\ \\ This\\ forces\\ the\\ first\\ modification\\ to\\ be\\ an\\ insertion,\\n\\ which\\ in\\ fact\\ replaces\\ any\\ content\\ entirely.\\n\\ @throws\\ BadLocationException\\ \\ If\\ the\\ given\\ remove\\ position\\ is\\ not\\n\\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ a\\ valid\\ position\\ within\\ the\\ document.\\n\nnumComments=5",
+      "language": "ctxt",
+      "imports": [],
+      "type": "config"
+    },
+    {
+      "path": "src/calculator/Operation.ctxt",
+      "content": "#BlueJ class context\ncomment0.target=Operation\ncomment0.text=\\n\\ An\\ interface\\ abstracting\\ any\\ operation.\\ \\ The\\ operation\\ may\\ be\\n\\ explicitly\\ encoded\\ in\\ an\\ implementing\\ subclass,\\ or\\ may\\ defer\\ the\\n\\ operation\\ to\\ some\\ method\\ receiving\\ the\\ Operation\\ as\\ a\\ parameter.\\n\\ Arithmetic\\ operations\\ should\\ be\\ encoded\\ explicitly;\\ in\\ this\\ case,\\n\\ subclasses\\ should\\ implement\\ {@link\\ EncodedOperation}.\\ \\ In\\ this\\ way,\\n\\ the\\ encoding\\ of\\ an\\ arithmetic\\ operation\\ can\\ be\\ decoupled\\ from\\ the\\n\\ control\\ of\\ evaluation\\ order.\\n\\n\\ @author\\ Rod\\ Howell\\n\\ \\ \\ \\ \\ \\ \\ \\ (<a\\ href\\=\"mailto\\:howell@cis.ksu.edu\">howell@cis.ksu.edu</a>)\\n\ncomment1.params=\ncomment1.target=int\\ numOperands()\ncomment1.text=\\n\\ @return\\ the\\ number\\ of\\ operands\\ required\\ by\\ this\\ Operation.\\n\nnumComments=2",
+      "language": "ctxt",
+      "imports": [],
+      "type": "config"
+    },
+    {
+      "path": "src/calculator/GUI.ctxt",
+      "content": "#BlueJ class context\ncomment0.target=GUI\ncomment0.text=\\n\\ This\\ is\\ the\\ driver\\ class\\ for\\ the\\ arbitrary-precision\\ integer\\ calculator.\\n\\ It\\ may\\ be\\ run\\ either\\ as\\ an\\ application\\ or\\ an\\ applet.\\ \\ When\\ run\\ as\\n\\ an\\ application,\\ it\\ accepts\\ two\\ optional\\ command-line\\ arguments.\\ \\ The\\n\\ first\\ is\\ the\\ name\\ of\\ the\\ package\\ containing\\ the\\ classes\\ implementing\\n\\ the\\ calculator\\ model.\\ \\ The\\ name\\ must\\ be\\ terminated\\ by\\ a\\ period.\\ \\ If\\n\\ omitted,\\ <tt>EDU.ksu.cis.calculator.defaultmodel.</tt>\\ is\\ used.\\ \\ The\\n\\ second\\ command-line\\ argument\\ gives\\ the\\ name\\ of\\ a\\ class\\ implementing\\n\\ the\\ user\\ interface\\ to\\ be\\ used.\\ \\ This\\ class\\ must\\ implement\\ the\\n\\ interface\\ {@link\\ CalculatorUI}.\\ \\ If\\ omitted,\\ the\\ class\\ \\n\\ {@link\\ DefaultUI}\\ is\\ used.\\ \\ If\\ packages\\ other\\ than\\:\\n\\ <ul>\\n\\ <li>\\ {@link\\ EDU.ksu.cis.calculator.defaultmodel}\\ or\\n\\ <li>\\ {@link\\ EDU.ksu.cis.calculator.javamodel}\\n\\ </ul>\\n\\ are\\ used\\ for\\ the\\ calculator\\ model,\\ or\\ if\\ classes\\ other\\ than\\ \\n\\ {@link\\ DefaultUI}\\ are\\ used\\ for\\ the\\ user\\ interface,\\ care\\ must\\ be\\ taken\\n\\ that\\ the\\ model\\ package\\ provides\\ all\\ of\\ the\\ classes\\ required\\ by\\ the\\n\\ user\\ interface\\ class.\\ \\ See\\ {@link\\ DefaultUI}\\ for\\ more\\ details.\\n\\n\\ When\\ run\\ as\\ an\\ applet,\\ these\\ values\\ can\\ be\\ passed\\ using\\ the\\ following\\n\\ <tt>param</tt>\\ tags\\:\\n\\ <ul>\\n\\ <li>\\ <tt>ModelLocation</tt>\\:\\ Package\\ containing\\ the\\ model\\n\\ <li>\\ <tt>UIName</tt>\\:\\ Class\\ name\\ of\\ the\\ user\\ interface\\n\\ </ul>\\n\\n\\ @author\\ Rod\\ Howell\\n\\ \\ \\ \\ \\ \\ \\ \\ (<a\\ href\\=\"mailto\\:howell@cis.ksu.edu\">howell@cis.ksu.edu</a>)\\n\ncomment1.params=frame\ncomment1.target=void\\ setup(javax.swing.JFrame)\ncomment1.text=\\n\\ Does\\ initialization\\ common\\ to\\ applets\\ and\\ applications.\\n\ncomment2.params=\ncomment2.target=java.lang.String[][]\\ getParameterInfo()\ncomment2.text=\\n\\ @return\\ information\\ for\\ applet\\ parameters.\\n\\ @see\\ javax.swing.JApplet\\#getParameterInfo()\\n\ncomment3.params=args\ncomment3.target=void\\ main(java.lang.String[])\ncomment3.text=\\n\\ Initializes\\ the\\ application.\\n\\ @param\\ args\\ \\ An\\ array\\ of\\ optional\\ String\\ arguments.\\ \\ If\\ present,\\n\\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ the\\ first\\ argument\\ gives\\ the\\ name\\ of\\ the\\ package\\ containing\\n\\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ the\\ calculator\\ model.\\ \\ This\\ name\\ must\\ be\\ terminated\\ with\\n\\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ a\\ period.\\ \\ If\\ a\\ second\\ argument\\ is\\ present,\\ it\\ gives\\ the\\n\\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ name\\ of\\ the\\ user\\ interface\\ class.\\n\nnumComments=4",
+      "language": "ctxt",
+      "imports": [],
+      "type": "config"
+    },
+    {
+      "path": "src/calculator/BaseListener.ctxt",
+      "content": null,
+      "language": "ctxt",
+      "imports": [],
+      "type": "config"
+    },
+    {
+      "path": "src/calculator/ButtonAction.ctxt",
+      "content": null,
+      "language": "ctxt",
+      "imports": [],
+      "type": "config"
+    },
+    {
+      "path": "src/calculator/EndAction.ctxt",
+      "content": null,
+      "language": "ctxt",
+      "imports": [],
+      "type": "config"
+    },
+    {
+      "path": "src/calculator/HomeAction.ctxt",
+      "content": null,
+      "language": "ctxt",
+      "imports": [],
+      "type": "config"
+    },
+    {
+      "path": "src/calculator/SelectAllAction.ctxt",
+      "content": null,
+      "language": "ctxt",
+      "imports": [],
+      "type": "config"
+    },
+    {
+      "path": "src/calculator/SetSticky.ctxt",
+      "content": null,
+      "language": "ctxt",
+      "imports": [],
+      "type": "config"
+    },
+    {
+      "path": "src/calculator/TextButtonAction.ctxt",
+      "content": null,
+      "language": "ctxt",
+      "imports": [],
+      "type": "config"
+    }
+  ]
+}

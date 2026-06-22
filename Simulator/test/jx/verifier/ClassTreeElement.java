@@ -202,7 +202,7 @@ public class ClassTreeElement {
      *return the methodData Object for specified method or null if method not found or one of java/lang/Object's methods.
      */
     public MethodData getMethod(String methodName, String typeDesc) {
-	MethodData mData = classData.getMethodDataNE(methodName, typeDesc);
+	MethodData mData = (MethodData)classData.getMethodDataNE(methodName, typeDesc);
 	if (mData != null)
 	    return mData; //method found!
 	if (superClass != null) {

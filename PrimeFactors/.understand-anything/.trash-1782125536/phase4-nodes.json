@@ -1,0 +1,2286 @@
+[
+  {
+    "id": "file:src/calculator/GUI.java",
+    "type": "file",
+    "name": "GUI.java",
+    "filePath": "",
+    "summary": "",
+    "tags": []
+  },
+  {
+    "id": "file:src/calculator/javamodel/CalculatorImpl.java",
+    "type": "file",
+    "name": "CalculatorImpl.java",
+    "filePath": "",
+    "summary": "",
+    "tags": []
+  },
+  {
+    "id": "file:src/calculator/javamodel/Push.java",
+    "type": "file",
+    "name": "Push.java",
+    "filePath": "",
+    "summary": "",
+    "tags": []
+  },
+  {
+    "id": "file:src/calculator/javamodel/Pop.java",
+    "type": "file",
+    "name": "Pop.java",
+    "filePath": "",
+    "summary": "",
+    "tags": []
+  },
+  {
+    "id": "file:src/calculator/javamodel/Add.java",
+    "type": "file",
+    "name": "Add.java",
+    "filePath": "",
+    "summary": "",
+    "tags": []
+  },
+  {
+    "id": "file:src/calculator/javamodel/Subtract.java",
+    "type": "file",
+    "name": "Subtract.java",
+    "filePath": "",
+    "summary": "",
+    "tags": []
+  },
+  {
+    "id": "file:src/calculator/javamodel/Multiply.java",
+    "type": "file",
+    "name": "Multiply.java",
+    "filePath": "",
+    "summary": "",
+    "tags": []
+  },
+  {
+    "id": "file:src/calculator/javamodel/Divide.java",
+    "type": "file",
+    "name": "Divide.java",
+    "filePath": "",
+    "summary": "",
+    "tags": []
+  },
+  {
+    "id": "file:src/calculator/javamodel/Power.java",
+    "type": "file",
+    "name": "Power.java",
+    "filePath": "",
+    "summary": "",
+    "tags": []
+  },
+  {
+    "id": "file:src/calculator/javamodel/Remainder.java",
+    "type": "file",
+    "name": "Remainder.java",
+    "filePath": "",
+    "summary": "",
+    "tags": []
+  },
+  {
+    "id": "file:src/calculator/javamodel/ChangeSigns.java",
+    "type": "file",
+    "name": "ChangeSigns.java",
+    "filePath": "",
+    "summary": "",
+    "tags": []
+  },
+  {
+    "id": "file:src/calculator/javamodel/ClearStack.java",
+    "type": "file",
+    "name": "ClearStack.java",
+    "filePath": "",
+    "summary": "",
+    "tags": []
+  },
+  {
+    "id": "file:src/calculator/javamodel/RotateDown.java",
+    "type": "file",
+    "name": "RotateDown.java",
+    "filePath": "",
+    "summary": "",
+    "tags": []
+  },
+  {
+    "id": "file:src/calculator/javamodel/RotateUp.java",
+    "type": "file",
+    "name": "RotateUp.java",
+    "filePath": "",
+    "summary": "",
+    "tags": []
+  },
+  {
+    "id": "file:src/calculator/javamodel/TwoToPower.java",
+    "type": "file",
+    "name": "TwoToPower.java",
+    "filePath": "",
+    "summary": "",
+    "tags": []
+  },
+  {
+    "id": "file:src/calculator/javamodel/TenToPower.java",
+    "type": "file",
+    "name": "TenToPower.java",
+    "filePath": "",
+    "summary": "",
+    "tags": []
+  },
+  {
+    "id": "file:src/calculator/largemodel/CalculatorImpl.java",
+    "type": "file",
+    "name": "CalculatorImpl.java",
+    "filePath": "",
+    "summary": "",
+    "tags": []
+  },
+  {
+    "id": "file:src/calculator/largemodel/Push.java",
+    "type": "file",
+    "name": "Push.java",
+    "filePath": "",
+    "summary": "",
+    "tags": []
+  },
+  {
+    "id": "file:src/calculator/largemodel/Add.java",
+    "type": "file",
+    "name": "Add.java",
+    "filePath": "",
+    "summary": "",
+    "tags": []
+  },
+  {
+    "id": "file:src/calculator/largemodel/Multiply.java",
+    "type": "file",
+    "name": "Multiply.java",
+    "filePath": "",
+    "summary": "",
+    "tags": []
+  },
+  {
+    "id": "file:src/calculator/largemodel/Power.java",
+    "type": "file",
+    "name": "Power.java",
+    "filePath": "",
+    "summary": "",
+    "tags": []
+  },
+  {
+    "id": "file:src/BigIntegers/ECMBigInteger.java",
+    "type": "file",
+    "name": "ECMBigInteger.java",
+    "filePath": "",
+    "summary": "",
+    "tags": []
+  },
+  {
+    "id": "file:src/BigIntegers/LargeInteger.java",
+    "type": "file",
+    "name": "LargeInteger.java",
+    "filePath": "",
+    "summary": "",
+    "tags": []
+  },
+  {
+    "id": "file:src/Factorzations/GUI.java",
+    "type": "file",
+    "name": "GUI.java",
+    "filePath": "src/Factorzations/GUI.java",
+    "summary": "Source file: src/Factorzations/GUI.java",
+    "tags": [
+      "code",
+      "java"
+    ]
+  },
+  {
+    "id": "file:src/calculator/EncodedOperation.java",
+    "type": "file",
+    "name": "EncodedOperation.java",
+    "filePath": "",
+    "summary": "",
+    "tags": []
+  },
+  {
+    "id": "file:src/calculator/Operation.java",
+    "type": "file",
+    "name": "Operation.java",
+    "filePath": "",
+    "summary": "",
+    "tags": []
+  },
+  {
+    "id": "file:src/calculator/calculatorUI.java",
+    "type": "file",
+    "name": "calculatorUI.java",
+    "filePath": "",
+    "summary": "",
+    "tags": []
+  },
+  {
+    "id": "file:src/BigIntegers/AprtCleInteger.java",
+    "type": "file",
+    "name": "AprtCleInteger.java",
+    "filePath": "src/BigIntegers/AprtCleInteger.java",
+    "summary": "Implements the APR-CL primality proving algorithm with Montgomery arithmetic for large integers, providing Jacobi sum evaluation, exponentiation, and Miller-Rabin probabilistic prime testing.",
+    "tags": [
+      "APR-CL",
+      "primality-proving",
+      "Montgomery-arithmetic",
+      "Jacobi-sum"
+    ]
+  },
+  {
+    "id": "file:src/Factorzations/Classical.java",
+    "type": "file",
+    "name": "Classical.java",
+    "filePath": "src/Factorzations/Classical.java",
+    "summary": "Implements classical trial division factorization, dividing by small primes up to a bound while checking for primality and even factors.",
+    "tags": [
+      "trial-division",
+      "factorization",
+      "primality-check"
+    ]
+  },
+  {
+    "id": "file:src/Factorzations/Lehman.java",
+    "type": "file",
+    "name": "Lehman.java",
+    "filePath": "src/Factorzations/Lehman.java",
+    "summary": "Implements Lehman's factorization algorithm as a Thread, using perfect square detection with modular residue tables for efficient trial factoring.",
+    "tags": [
+      "Lehman",
+      "factorization",
+      "perfect-square",
+      "multi-threaded"
+    ]
+  },
+  {
+    "id": "file:src/Factorzations/ecm/ECM.java",
+    "type": "file",
+    "name": "ECM.java",
+    "filePath": "src/Factorzations/ecm/ECM.java",
+    "summary": "Top-level entry point for the Elliptic Curve Method factorization, orchestrating ECM steps and switching to SIQS for numbers in the 30-90 digit range.",
+    "tags": [
+      "ECM",
+      "elliptic-curve",
+      "factorization",
+      "SIQS-switch"
+    ]
+  },
+  {
+    "id": "file:src/Factorzations/ecm/ecmStep0.java",
+    "type": "file",
+    "name": "ecmStep0.java",
+    "filePath": "src/Factorzations/ecm/ecmStep0.java",
+    "summary": "Initializes ECM elliptic curve parameters: generates small primes, sets up Montgomery curve coefficients A and coordinates (X:Z) for step 1.",
+    "tags": [
+      "ECM",
+      "curve-init",
+      "Montgomery-curve",
+      "prime-generation"
+    ]
+  },
+  {
+    "id": "file:src/Factorzations/ecm/ecmStep1.java",
+    "type": "file",
+    "name": "ecmStep1.java",
+    "filePath": "src/Factorzations/ecm/ecmStep1.java",
+    "summary": "Performs ECM step 1: computes scalar multiples of a point on the elliptic curve using Montgomery's ladder with Lucas chains (prac algorithm).",
+    "tags": [
+      "ECM-step1",
+      "point-multiplication",
+      "Lucas-chain",
+      "Montgomery-ladder"
+    ]
+  },
+  {
+    "id": "file:src/Factorzations/ecm/ecmStep2.java",
+    "type": "file",
+    "name": "ecmStep2.java",
+    "filePath": "src/Factorzations/ecm/ecmStep2.java",
+    "summary": "Performs ECM step 2 using improved standard continuation with sieving, computing differences of multiples of Q and accumulating GCDs to find factors.",
+    "tags": [
+      "ECM-step2",
+      "improved-continuation",
+      "GCD",
+      "sieving"
+    ]
+  },
+  {
+    "id": "file:src/Factorzations/siqs/FirstPolynomial.java",
+    "type": "file",
+    "name": "FirstPolynomial.java",
+    "filePath": "src/Factorzations/siqs/FirstPolynomial.java",
+    "summary": "Abstract base for SIQS polynomial initialization, computing leading coefficient A, linear coefficients, and sieve data for the first polynomial in each set.",
+    "tags": [
+      "SIQS",
+      "polynomial-init",
+      "leading-coefficient",
+      "sieve"
+    ]
+  },
+  {
+    "id": "file:src/Factorzations/siqs/Maths.java",
+    "type": "file",
+    "name": "Maths.java",
+    "filePath": "src/Factorzations/siqs/Maths.java",
+    "summary": "Provides linear algebra operations for SIQS: Block Lanczos setup, binary matrix operations (mult, add, transpose), singleton erasure, and column exchange utilities.",
+    "tags": [
+      "SIQS",
+      "linear-algebra",
+      "binary-matrix",
+      "Block-Lanczos",
+      "GF2"
+    ]
+  },
+  {
+    "id": "file:src/Factorzations/siqs/Matrix.java",
+    "type": "file",
+    "name": "Matrix.java",
+    "filePath": "src/Factorzations/siqs/Matrix.java",
+    "summary": "Implements the Block Lanczos algorithm for finding the nullspace of a sparse binary matrix over GF(2) with block size 32.",
+    "tags": [
+      "SIQS",
+      "Block-Lanczos",
+      "nullspace",
+      "GF2"
+    ]
+  },
+  {
+    "id": "file:src/Factorzations/siqs/Relation.java",
+    "type": "file",
+    "name": "Relation.java",
+    "filePath": "src/Factorzations/siqs/Relation.java",
+    "summary": "Manages smooth and partial congruence relations in SIQS: detects full factorizations, matches partials via hash map, and inserts relations into the sparse matrix.",
+    "tags": [
+      "SIQS",
+      "congruence",
+      "smooth-numbers",
+      "partial-relations",
+      "hash-map"
+    ]
+  },
+  {
+    "id": "file:src/Factorzations/siqs/Sieve.java",
+    "type": "file",
+    "name": "Sieve.java",
+    "filePath": "src/Factorzations/siqs/Sieve.java",
+    "summary": "SIQS sieving thread: performs polynomial evaluation, trial division, smooth/partial relation detection, and reports results back to the main SIQS orchestrator.",
+    "tags": [
+      "SIQS",
+      "sieving",
+      "polynomial-evaluation",
+      "trial-division",
+      "thread"
+    ]
+  },
+  {
+    "id": "file:src/Factorzations/siqs/Siqs.java",
+    "type": "file",
+    "name": "Siqs.java",
+    "filePath": "src/Factorzations/siqs/Siqs.java",
+    "summary": "Top-level orchestrator for the Self-Initializing Quadratic Sieve: manages factor base generation, Knuth-Schroeppel multiplier selection, thread spawning, and result collection.",
+    "tags": [
+      "SIQS",
+      "orchestrator",
+      "factor-base",
+      "multiplier",
+      "thread"
+    ]
+  },
+  {
+    "id": "file:src/Factorzations/siqs/StaticFunctions.java",
+    "type": "file",
+    "name": "StaticFunctions.java",
+    "filePath": "src/Factorzations/siqs/StaticFunctions.java",
+    "summary": "Utility class with static methods for SIQS algorithm including binary search, Jacobi symbol, modular inverse, SQUFOF factoring, and probabilistic primality testing",
+    "tags": [
+      "siqs",
+      "static-utilities",
+      "number-theory",
+      "factoring"
+    ]
+  },
+  {
+    "id": "file:src/calculator/ConvertBase.java",
+    "type": "file",
+    "name": "ConvertBase.java",
+    "filePath": "src/calculator/ConvertBase.java",
+    "summary": "Encapsulates a base-conversion operation for the calculator, validating that the base falls within the range 2 to 36.",
+    "tags": [
+      "calculator",
+      "base-conversion",
+      "operation"
+    ]
+  },
+  {
+    "id": "file:src/calculator/Deque.java",
+    "type": "file",
+    "name": "Deque.java",
+    "filePath": "src/calculator/Deque.java",
+    "summary": "A dynamic double-ended queue (deque) that grows as needed, supporting add/remove/get operations at both front and back.",
+    "tags": [
+      "calculator",
+      "deque",
+      "data-structure",
+      "queue"
+    ]
+  },
+  {
+    "id": "file:src/calculator/EmptyDequeException.java",
+    "type": "file",
+    "name": "EmptyDequeException.java",
+    "filePath": "src/calculator/EmptyDequeException.java",
+    "summary": "A simple exception class thrown when attempting to access an element in an empty Deque.",
+    "tags": [
+      "calculator",
+      "exception",
+      "deque"
+    ]
+  },
+  {
+    "id": "file:src/com/gazman/Main.java",
+    "type": "file",
+    "name": "Main.java",
+    "filePath": "src/com/gazman/Main.java",
+    "summary": "Entry point that generates a semiprime from two probable primes and runs the Quadratic Sieve factorization",
+    "tags": [
+      "entry-point",
+      "main",
+      "demo"
+    ]
+  },
+  {
+    "id": "file:src/com/gazman/factor/BigPrimesList.java",
+    "type": "file",
+    "name": "BigPrimesList.java",
+    "filePath": "src/com/gazman/factor/BigPrimesList.java",
+    "summary": "Tracks big prime factors found during sieving, storing vectors grouped by shared prime for later combination",
+    "tags": [
+      "data-structure",
+      "big-primes",
+      "sieving"
+    ]
+  },
+  {
+    "id": "file:src/com/gazman/factor/Logger.java",
+    "type": "file",
+    "name": "Logger.java",
+    "filePath": "src/com/gazman/factor/Logger.java",
+    "summary": "Base logging class with timestamped output, number formatting, and array/list pretty-printing",
+    "tags": [
+      "logging",
+      "base-class",
+      "debugging"
+    ]
+  },
+  {
+    "id": "file:src/com/gazman/factor/QuadraticSieve.java",
+    "type": "file",
+    "name": "QuadraticSieve.java",
+    "filePath": "src/com/gazman/factor/QuadraticSieve.java",
+    "summary": "Quadratic Sieve factorization implementation with multi-threaded sieving, wheel initialization, B-smooth vector collection, and solution solving via matrix reduction",
+    "tags": [
+      "quadratic-sieve",
+      "factoring",
+      "sieving",
+      "multi-threaded"
+    ]
+  },
+  {
+    "id": "file:src/com/gazman/factor/VectorData.java",
+    "type": "file",
+    "name": "VectorData.java",
+    "filePath": "src/com/gazman/factor/VectorData.java",
+    "summary": "Data class holding a BitSet vector, sieve position, big prime index, and cached x/y values for matrix solution",
+    "tags": [
+      "data",
+      "vector",
+      "bitset"
+    ]
+  },
+  {
+    "id": "file:src/com/gazman/factor/matrix/BitMatrix.java",
+    "type": "file",
+    "name": "BitMatrix.java",
+    "filePath": "src/com/gazman/factor/matrix/BitMatrix.java",
+    "summary": "Gaussian elimination over GF(2) using BitSet rows to find nullspace vectors that yield factorizations",
+    "tags": [
+      "matrix",
+      "gaussian-elimination",
+      "linear-algebra",
+      "gf2"
+    ]
+  },
+  {
+    "id": "file:src/com/gazman/factor/matrix/VectorsShrinker.java",
+    "type": "file",
+    "name": "VectorsShrinker.java",
+    "filePath": "src/com/gazman/factor/matrix/VectorsShrinker.java",
+    "summary": "Reduces the vector set by merging vectors sharing the same big prime, assigning indices and XORing their bit vectors",
+    "tags": [
+      "vector-merging",
+      "big-prime",
+      "reduction"
+    ]
+  },
+  {
+    "id": "file:src/com/gazman/factor/wheels/Wheel.java",
+    "type": "file",
+    "name": "Wheel.java",
+    "filePath": "src/com/gazman/factor/wheels/Wheel.java",
+    "summary": "Sieve wheel that iterates over positions in the sieve interval where a prime divides Q(x), using Tonelli-Shanks solutions",
+    "tags": [
+      "wheel",
+      "sieving",
+      "prime-divisibility"
+    ]
+  },
+  {
+    "id": "file:src/com/gazman/math/MathUtils.java",
+    "type": "file",
+    "name": "MathUtils.java",
+    "filePath": "src/com/gazman/math/MathUtils.java",
+    "summary": "Number-theoretic utilities: quadratic residue testing (Euler criterion), Tonelli-Shanks algorithm for modular square roots, and Lucas sequence evaluation",
+    "tags": [
+      "number-theory",
+      "quadratic-residues",
+      "tonelli-shanks",
+      "modular-arithmetic"
+    ]
+  },
+  {
+    "id": "file:src/com/gazman/math/SqrRoot.java",
+    "type": "file",
+    "name": "SqrRoot.java",
+    "filePath": "src/com/gazman/math/SqrRoot.java",
+    "summary": "BigInteger square root ceiling function",
+    "tags": [
+      "math",
+      "square-root",
+      "bigInteger"
+    ]
+  },
+  {
+    "id": "file:src/ecm/BigIntegers/GCD.java",
+    "type": "file",
+    "name": "GCD.java",
+    "filePath": "src/ecm/BigIntegers/GCD.java",
+    "summary": "Binary GCD algorithm for large integers represented as 31-bit digit arrays, with power-of-two factor extraction",
+    "tags": [
+      "gcd",
+      "binary-algorithm",
+      "big-integers",
+      "ecm"
+    ]
+  },
+  {
+    "id": "file:src/ecm/BigIntegers/ModInv.java",
+    "type": "file",
+    "name": "ModInv.java",
+    "filePath": "src/ecm/BigIntegers/ModInv.java",
+    "summary": "Modular inverse for large integers using the extended binary GCD with 32-bit digit representation and Montgomery-like multi-precision arithmetic",
+    "tags": [
+      "modular-inverse",
+      "binary-gcd",
+      "big-integers",
+      "ecm"
+    ]
+  },
+  {
+    "id": "config:nbproject/build-impl.xml",
+    "type": "config",
+    "name": "build-impl.xml",
+    "filePath": "nbproject/build-impl.xml",
+    "summary": "Auto-generated NetBeans Ant build script for the PrimeFactors J2SE project. Contains 1771 lines of Ant targets organized into sections: initialization, compilation, JAR building, execution, debugging, profiling, javadoc generation, test compilation/execution/debugging, applet support, and cleanup. Defines macros for javac, junit, testng, and debugging with support for both modular (Java 9+) and pre-module Java versions.",
+    "tags": []
+  },
+  {
+    "id": "config:nbproject/genfiles.properties",
+    "type": "config",
+    "name": "genfiles.properties",
+    "filePath": "nbproject/genfiles.properties",
+    "summary": "NetBeans-generated CRC checksum tracking file. Stores CRC32 checksums for build.xml and nbproject/build-impl.xml used by the IDE to detect when generated build files need regeneration. Auto-maintained by NetBeans and not intended for manual editing.",
+    "tags": []
+  },
+  {
+    "id": "config:nbproject/project.properties",
+    "type": "config",
+    "name": "project.properties",
+    "filePath": "nbproject/project.properties",
+    "summary": "NetBeans project build configuration properties for PrimeFactors. Defines source and target Java version 11, main class (Factorzations.GUI), source/test directories (src/test), build/dist directory paths, JAR filename (PrimeFactors.jar), encoding (UTF-8), JUnit 4 test dependency, JNLP deployment settings, annotation processing configuration, javac/external VM settings, and various manifest customization options.",
+    "tags": []
+  },
+  {
+    "id": "config:nbproject/project.xml",
+    "type": "config",
+    "name": "project.xml",
+    "filePath": "nbproject/project.xml",
+    "summary": "NetBeans project metadata descriptor. Declares the project type as org.netbeans.modules.java.j2seproject (a standard Java SE project), sets the project name to 'PrimeFactors', and defines source-roots (src.dir) and test-roots (test.src.dir) for compilation.",
+    "tags": []
+  },
+  {
+    "id": "config:.understand-anything/.understandignore",
+    "type": "config",
+    "name": ".understandignore",
+    "filePath": ".understand-anything/.understandignore",
+    "summary": "Configuration file defining ignore patterns for file analysis. Uses gitignore-style syntax to exclude build/, test patterns, and other non-essential files from analysis.",
+    "tags": [
+      "config",
+      "ignore-rules",
+      "analysis-skip"
+    ]
+  },
+  {
+    "id": "config:build.xml",
+    "type": "config",
+    "name": "build.xml",
+    "filePath": "build.xml",
+    "summary": "Apache Ant build file for the PrimeFactors project. Defines the default build target and imports nbproject/build-impl.xml. Includes commented documentation of available build lifecycle targets such as -pre-compile, -post-jar, -javadoc-build, and test-report.",
+    "tags": [
+      "config",
+      "build",
+      "ant",
+      "xml"
+    ]
+  },
+  {
+    "id": "document:CHANGELOG",
+    "type": "document",
+    "name": "CHANGELOG",
+    "filePath": "CHANGELOG",
+    "summary": "Version history spanning v1.2 to v2.2 (2019-2022). Documents addition of NTT, SIQS separation, FFT/NTT, zeef, GUI, Lucas Lehmer Test, and code reorganization by XW.",
+    "tags": [
+      "docs",
+      "changelog",
+      "version-history",
+      "release-notes"
+    ]
+  },
+  {
+    "id": "config:manifest.mf",
+    "type": "config",
+    "name": "manifest.mf",
+    "filePath": "manifest.mf",
+    "summary": "JAR manifest file with version 1.0. Comments indicate Main-Class will be added automatically during build.",
+    "tags": [
+      "config",
+      "manifest",
+      "jar",
+      "java"
+    ]
+  },
+  {
+    "id": "document:src/README.TXT",
+    "type": "document",
+    "name": "README.TXT",
+    "filePath": "src/README.TXT",
+    "summary": "Project overview describing the two main factorization algorithms: ECM (Elliptic Curve Method) using random elliptic curves and point addition, and SIQS (Self-Initializing Quadratic Sieve) using polynomial generation, smooth relation collection, and linear algebra for congruence of squares.",
+    "tags": [
+      "docs",
+      "readme",
+      "ecm",
+      "siqs",
+      "factorization"
+    ]
+  },
+  {
+    "id": "config:src/package.bluej",
+    "type": "config",
+    "name": "package.bluej",
+    "filePath": "src/package.bluej",
+    "summary": "BlueJ IDE package layout for the root src package. Defines window geometry and 5 sub-package targets: calculator, BigIntegers, Factorzations, utilities, and ecm.",
+    "tags": [
+      "config",
+      "bluej",
+      "ide",
+      "package-layout"
+    ]
+  },
+  {
+    "id": "config:src/BigIntegers/package.bluej",
+    "type": "config",
+    "name": "package.bluej",
+    "filePath": "src/BigIntegers/package.bluej",
+    "summary": "BlueJ package layout for BigIntegers sub-package. Lists 6 class targets: StaticFunctions, FactorInteger, MontgomeryInteger, LargeInteger, AprtCleInteger, ECMBigInteger. Defines 2 UsesDependencies: MontgomeryInteger\u2192StaticFunctions and AprtCleInteger\u2192StaticFunctions.",
+    "tags": [
+      "config",
+      "bluej",
+      "ide",
+      "package-layout",
+      "dependencies"
+    ]
+  },
+  {
+    "id": "document:src/BigIntegers/README.TXT",
+    "type": "document",
+    "name": "README.TXT",
+    "filePath": "src/BigIntegers/README.TXT",
+    "summary": "Brief descriptions of BigIntegers classes: FactorInteger (factorization), LargeInteger (multiplication), ECMBigInteger (ECM), MontgomeryInteger (Montgomery multiplication), AprtCleInteger (APRT-CLE primality test).",
+    "tags": [
+      "docs",
+      "readme",
+      "class-overview",
+      "big-integers"
+    ]
+  },
+  {
+    "id": "config:src/BigIntegers/AprtCleInteger.ctxt",
+    "type": "config",
+    "name": "AprtCleInteger.ctxt",
+    "filePath": "src/BigIntegers/AprtCleInteger.ctxt",
+    "summary": "BlueJ class context for AprtCleInteger. Documents 12 methods including JacobiSum, JS_JW, NormalizeJS, JS_2, JS_E, NormalizeJW, BigNbrModN, CompareSquare, and isProbablePrimeRobin. Author: spy. Constructor takes a String val.",
+    "tags": [
+      "config",
+      "bluej",
+      "ctxt",
+      "class-context"
+    ]
+  },
+  {
+    "id": "config:src/BigIntegers/ECMBigInteger.ctxt",
+    "type": "config",
+    "name": "ECMBigInteger.ctxt",
+    "filePath": "src/BigIntegers/ECMBigInteger.ctxt",
+    "summary": "BlueJ class context for ECMBigInteger. Documents 11 methods including Sum, Totient, Moebius, InsertAurifFactors, GetAurifeuilleFactor, ComputeFourSquares, and Calculate. Author: X. Wang.",
+    "tags": [
+      "config",
+      "bluej",
+      "ctxt",
+      "class-context",
+      "ecm"
+    ]
+  },
+  {
+    "id": "config:src/BigIntegers/FactorInteger.ctxt",
+    "type": "config",
+    "name": "FactorInteger.ctxt",
+    "filePath": "src/BigIntegers/FactorInteger.ctxt",
+    "summary": "BlueJ class context for FactorInteger. Documents 28 methods including getPD, setPD, getType, setType, GetSmallFactors, SortFactors, SortFactorsPD, InsertFactor, InsertNewFactor, addSelf2PD, getTestComp, and small prime accessors. Author: X. Wang.",
+    "tags": [
+      "config",
+      "bluej",
+      "ctxt",
+      "class-context",
+      "factorization"
+    ]
+  },
+  {
+    "id": "file:src/BigIntegers/FactorInteger.java",
+    "type": "file",
+    "name": "FactorInteger.java",
+    "filePath": "src/BigIntegers/FactorInteger.java",
+    "summary": "FactorInteger class extending LargeInteger for factorization result tracking. Manages arrays of prime divisors (PD), exponents (Exp), and factor types (Typ). Implements GetSmallFactors trial division up to 131072, bubble sort for factors, and InsertNewFactor with type tracking (AURIF, TABLE, SIQS, LEHMAN, RABIN, EC). Provides accessors for small primes and factor arrays.",
+    "tags": [
+      "code",
+      "java",
+      "factorization",
+      "prime-divisors",
+      "trial-division"
+    ]
+  },
+  {
+    "id": "file:src/BigIntegers/FactorInteger.class",
+    "type": "file",
+    "name": "FactorInteger.class",
+    "filePath": "src/BigIntegers/FactorInteger.class",
+    "summary": "Compiled Java bytecode for FactorInteger. Zero-length file indicating empty or incomplete compilation output.",
+    "tags": [
+      "code",
+      "java",
+      "bytecode",
+      "compiled"
+    ]
+  },
+  {
+    "id": "config:src/BigIntegers/LargeInteger.ctxt",
+    "type": "config",
+    "name": "LargeInteger.ctxt",
+    "filePath": "src/BigIntegers/LargeInteger.ctxt",
+    "summary": "BlueJ class context for LargeInteger. Documents 32 methods for arbitrary-precision integer arithmetic including add, subtract, multiply, divide, pow, squareFFT, squareNTT, getReciprocal, trunc, pad, shiftLeft, shiftRight, and isPrime. Original author: Rod Howell (howell@cis.ksu.edu). Supports radix 2-36 with lazy conversion.",
+    "tags": [
+      "config",
+      "bluej",
+      "ctxt",
+      "class-context",
+      "big-integer",
+      "arithmetic"
+    ]
+  },
+  {
+    "id": "config:src/BigIntegers/MontgomeryInteger.ctxt",
+    "type": "config",
+    "name": "MontgomeryInteger.ctxt",
+    "filePath": "src/BigIntegers/MontgomeryInteger.ctxt",
+    "summary": "BlueJ class context for MontgomeryInteger. Documents 10 methods including MontgomeryMult, KaratsubaMontgomeryMult, KaratsubaMultiply, absSubtract, KaratsubaAdd, GetYieldFrequency, ComputeMontgomeryParms, and NormalMultiply. Example references Curve25519. Author: X. Wang.",
+    "tags": [
+      "config",
+      "bluej",
+      "ctxt",
+      "class-context",
+      "montgomery",
+      "multiplication"
+    ]
+  },
+  {
+    "id": "file:src/BigIntegers/MontgomeryInteger.java",
+    "type": "file",
+    "name": "MontgomeryInteger.java",
+    "filePath": "src/BigIntegers/MontgomeryInteger.java",
+    "summary": "MontgomeryInteger class extending ECMBigInteger for Montgomery modular multiplication. Implements MontgomeryMult (REDC algorithm with or without Karatsuba), KaratsubaMontgomeryMult, recursive KaratsubaMultiply, absSubtract, KaratsubaAdd, NormalMultiply (schoolbook), GetYieldFrequency, and ComputeMontgomeryParms (Newton iteration for inverse). Configurable KARATSUBA_CUTOFF=64 but Karatsuba is disabled by default. Example references Curve25519.",
+    "tags": [
+      "code",
+      "java",
+      "montgomery",
+      "modular-multiplication",
+      "karatsuba",
+      "redc"
+    ]
+  },
+  {
+    "id": "config:src/BigIntegers/StaticFunctions.ctxt",
+    "type": "config",
+    "name": "StaticFunctions.ctxt",
+    "filePath": "src/BigIntegers/StaticFunctions.ctxt",
+    "summary": "BlueJ class context for StaticFunctions. Documents 10 static utility methods: BigNbrToBigInt, Convert32To31Bits, BigIntToBigNbr, Convert31To32Bits, AdjustModN, MultBigNbrModN, AddBigNbrModN, BigNbrAreEqual, BigNbrIsZero. Author: xuyi.",
+    "tags": [
+      "config",
+      "bluej",
+      "ctxt",
+      "class-context",
+      "utilities"
+    ]
+  },
+  {
+    "id": "file:src/BigIntegers/StaticFunctions.java",
+    "type": "file",
+    "name": "StaticFunctions.java",
+    "filePath": "src/BigIntegers/StaticFunctions.java",
+    "summary": "Static utility class for the BigIntegers package. Provides conversion between BigInteger and custom 31-bit digit arrays (BigNbrToBigInt, BigIntToBigNbr), 32/31-bit conversion routines, modular arithmetic (AdjustModN using trial quotient with floating-point estimation, MultBigNbrModN, AddBigNbrModN), and comparison helpers (BigNbrAreEqual, BigNbrIsZero).",
+    "tags": [
+      "code",
+      "java",
+      "utilities",
+      "conversion",
+      "modular-arithmetic",
+      "big-integer"
+    ]
+  },
+  {
+    "id": "config:src/Factorzations/Classical.ctxt",
+    "type": "config",
+    "name": "Classical.ctxt",
+    "filePath": "src/Factorzations/Classical.ctxt",
+    "summary": "BlueJ class context for Classical factorization class. Documents 6 methods including constructor (BigInteger), odd check, SqrtFloor, SqrtCeil, and factor. Author: spy.",
+    "tags": [
+      "config",
+      "bluej",
+      "ctxt",
+      "class-context",
+      "factorization"
+    ]
+  },
+  {
+    "id": "config:src/Factorzations/Lehman.ctxt",
+    "type": "config",
+    "name": "Lehman.ctxt",
+    "filePath": "src/Factorzations/Lehman.ctxt",
+    "summary": "BlueJ class context for Lehman factorization class. Documents 4 methods: constructor(BigInteger, int), run, and factor. Author: spy.",
+    "tags": [
+      "config",
+      "bluej",
+      "ctxt",
+      "class-context",
+      "lehman",
+      "factorization"
+    ]
+  },
+  {
+    "id": "config:src/Factorzations/GUI.ctxt",
+    "type": "config",
+    "name": "GUI.ctxt",
+    "filePath": "src/Factorzations/GUI.ctxt",
+    "summary": "BlueJ class context for GUI. Documents 63 methods including initComponents, main, and numerous actionPerformed handlers for buttons (jButton0-jButton11), plus bigNumberActionPerformed, FactorActionPerformed, ClearActionPerformed, UpActionPerformed, DownActionPerformed, RemActionPerformed, DivideActionPerformed, MultiplyActionPerformed, SubActionPerformed, AddActionPerformed, PowerActionPerformed, SignActionPerformed, TotientActionPerformed, MobiusActionPerformed, SumActionPerformed, EnterActionPerformed, DeleteActionPerformed, and Checks(AprtCleInteger, int). Author: spy.",
+    "tags": [
+      "config",
+      "bluej",
+      "ctxt",
+      "class-context",
+      "gui",
+      "swing"
+    ]
+  },
+  {
+    "id": "config:src/Factorzations/package.bluej",
+    "type": "config",
+    "name": "package.bluej",
+    "filePath": "src/Factorzations/package.bluej",
+    "summary": "BlueJ package layout for Factorzations sub-package. Lists 5 targets: Classical, GUI, Lehman (ClassTargets), plus siqs and ecm (PackageTargets). No dependencies configured.",
+    "tags": [
+      "config",
+      "bluej",
+      "ide",
+      "package-layout",
+      "factorization"
+    ]
+  },
+  {
+    "id": "document:src/Factorzations/README.TXT",
+    "type": "document",
+    "name": "README.TXT",
+    "filePath": "src/Factorzations/README.TXT",
+    "summary": "Brief description: Graphic User Interface for Prime Factorzations Calculator.",
+    "tags": [
+      "docs",
+      "readme",
+      "gui",
+      "factorization"
+    ]
+  },
+  {
+    "id": "file:src/calculator/javamodel/Add.ctxt",
+    "type": "file",
+    "name": "Add.ctxt",
+    "filePath": "src/calculator/javamodel/Add.ctxt",
+    "summary": "Source file: src/calculator/javamodel/Add.ctxt",
+    "tags": [
+      "code",
+      "ctxt"
+    ]
+  },
+  {
+    "id": "file:src/calculator/javamodel/CalculatorImpl.ctxt",
+    "type": "file",
+    "name": "CalculatorImpl.ctxt",
+    "filePath": "src/calculator/javamodel/CalculatorImpl.ctxt",
+    "summary": "Source file: src/calculator/javamodel/CalculatorImpl.ctxt",
+    "tags": [
+      "code",
+      "ctxt"
+    ]
+  },
+  {
+    "id": "file:src/calculator/javamodel/ChangeSigns.ctxt",
+    "type": "file",
+    "name": "ChangeSigns.ctxt",
+    "filePath": "src/calculator/javamodel/ChangeSigns.ctxt",
+    "summary": "Source file: src/calculator/javamodel/ChangeSigns.ctxt",
+    "tags": [
+      "code",
+      "ctxt"
+    ]
+  },
+  {
+    "id": "file:src/calculator/javamodel/ClearStack.ctxt",
+    "type": "file",
+    "name": "ClearStack.ctxt",
+    "filePath": "src/calculator/javamodel/ClearStack.ctxt",
+    "summary": "Source file: src/calculator/javamodel/ClearStack.ctxt",
+    "tags": [
+      "code",
+      "ctxt"
+    ]
+  },
+  {
+    "id": "file:src/calculator/javamodel/Divide.ctxt",
+    "type": "file",
+    "name": "Divide.ctxt",
+    "filePath": "src/calculator/javamodel/Divide.ctxt",
+    "summary": "Source file: src/calculator/javamodel/Divide.ctxt",
+    "tags": [
+      "code",
+      "ctxt"
+    ]
+  },
+  {
+    "id": "file:src/calculator/javamodel/Multiply.ctxt",
+    "type": "file",
+    "name": "Multiply.ctxt",
+    "filePath": "src/calculator/javamodel/Multiply.ctxt",
+    "summary": "Source file: src/calculator/javamodel/Multiply.ctxt",
+    "tags": [
+      "code",
+      "ctxt"
+    ]
+  },
+  {
+    "id": "file:src/calculator/javamodel/Pop.ctxt",
+    "type": "file",
+    "name": "Pop.ctxt",
+    "filePath": "src/calculator/javamodel/Pop.ctxt",
+    "summary": "Source file: src/calculator/javamodel/Pop.ctxt",
+    "tags": [
+      "code",
+      "ctxt"
+    ]
+  },
+  {
+    "id": "file:src/calculator/javamodel/Power.ctxt",
+    "type": "file",
+    "name": "Power.ctxt",
+    "filePath": "src/calculator/javamodel/Power.ctxt",
+    "summary": "Source file: src/calculator/javamodel/Power.ctxt",
+    "tags": [
+      "code",
+      "ctxt"
+    ]
+  },
+  {
+    "id": "file:src/calculator/javamodel/Push.ctxt",
+    "type": "file",
+    "name": "Push.ctxt",
+    "filePath": "src/calculator/javamodel/Push.ctxt",
+    "summary": "Source file: src/calculator/javamodel/Push.ctxt",
+    "tags": [
+      "code",
+      "ctxt"
+    ]
+  },
+  {
+    "id": "file:src/calculator/javamodel/Remainder.ctxt",
+    "type": "file",
+    "name": "Remainder.ctxt",
+    "filePath": "src/calculator/javamodel/Remainder.ctxt",
+    "summary": "Source file: src/calculator/javamodel/Remainder.ctxt",
+    "tags": [
+      "code",
+      "ctxt"
+    ]
+  },
+  {
+    "id": "file:src/calculator/javamodel/RotateDown.ctxt",
+    "type": "file",
+    "name": "RotateDown.ctxt",
+    "filePath": "src/calculator/javamodel/RotateDown.ctxt",
+    "summary": "Source file: src/calculator/javamodel/RotateDown.ctxt",
+    "tags": [
+      "code",
+      "ctxt"
+    ]
+  },
+  {
+    "id": "file:src/calculator/javamodel/RotateUp.ctxt",
+    "type": "file",
+    "name": "RotateUp.ctxt",
+    "filePath": "src/calculator/javamodel/RotateUp.ctxt",
+    "summary": "Source file: src/calculator/javamodel/RotateUp.ctxt",
+    "tags": [
+      "code",
+      "ctxt"
+    ]
+  },
+  {
+    "id": "file:src/calculator/javamodel/Subtract.ctxt",
+    "type": "file",
+    "name": "Subtract.ctxt",
+    "filePath": "src/calculator/javamodel/Subtract.ctxt",
+    "summary": "Source file: src/calculator/javamodel/Subtract.ctxt",
+    "tags": [
+      "code",
+      "ctxt"
+    ]
+  },
+  {
+    "id": "file:src/calculator/javamodel/TenToPower.ctxt",
+    "type": "file",
+    "name": "TenToPower.ctxt",
+    "filePath": "src/calculator/javamodel/TenToPower.ctxt",
+    "summary": "Source file: src/calculator/javamodel/TenToPower.ctxt",
+    "tags": [
+      "code",
+      "ctxt"
+    ]
+  },
+  {
+    "id": "file:src/calculator/javamodel/TwoToPower.ctxt",
+    "type": "file",
+    "name": "TwoToPower.ctxt",
+    "filePath": "src/calculator/javamodel/TwoToPower.ctxt",
+    "summary": "Source file: src/calculator/javamodel/TwoToPower.ctxt",
+    "tags": [
+      "code",
+      "ctxt"
+    ]
+  },
+  {
+    "id": "file:src/calculator/Calculator.ctxt",
+    "type": "file",
+    "name": "Calculator.ctxt",
+    "filePath": "src/calculator/Calculator.ctxt",
+    "summary": "Source file: src/calculator/Calculator.ctxt",
+    "tags": [
+      "code",
+      "ctxt"
+    ]
+  },
+  {
+    "id": "file:src/calculator/CalculatorUI.ctxt",
+    "type": "file",
+    "name": "CalculatorUI.ctxt",
+    "filePath": "src/calculator/CalculatorUI.ctxt",
+    "summary": "Source file: src/calculator/CalculatorUI.ctxt",
+    "tags": [
+      "code",
+      "ctxt"
+    ]
+  },
+  {
+    "id": "file:src/calculator/ConvertBase.ctxt",
+    "type": "file",
+    "name": "ConvertBase.ctxt",
+    "filePath": "src/calculator/ConvertBase.ctxt",
+    "summary": "Source file: src/calculator/ConvertBase.ctxt",
+    "tags": [
+      "code",
+      "ctxt"
+    ]
+  },
+  {
+    "id": "file:src/calculator/Deque.ctxt",
+    "type": "file",
+    "name": "Deque.ctxt",
+    "filePath": "src/calculator/Deque.ctxt",
+    "summary": "Source file: src/calculator/Deque.ctxt",
+    "tags": [
+      "code",
+      "ctxt"
+    ]
+  },
+  {
+    "id": "file:src/calculator/DefaultUI.ctxt",
+    "type": "file",
+    "name": "DefaultUI.ctxt",
+    "filePath": "src/calculator/DefaultUI.ctxt",
+    "summary": "Source file: src/calculator/DefaultUI.ctxt",
+    "tags": [
+      "code",
+      "ctxt"
+    ]
+  },
+  {
+    "id": "file:src/calculator/EncodedOperation.ctxt",
+    "type": "file",
+    "name": "EncodedOperation.ctxt",
+    "filePath": "src/calculator/EncodedOperation.ctxt",
+    "summary": "Source file: src/calculator/EncodedOperation.ctxt",
+    "tags": [
+      "code",
+      "ctxt"
+    ]
+  },
+  {
+    "id": "file:src/calculator/EmptyDequeException.ctxt",
+    "type": "file",
+    "name": "EmptyDequeException.ctxt",
+    "filePath": "src/calculator/EmptyDequeException.ctxt",
+    "summary": "Source file: src/calculator/EmptyDequeException.ctxt",
+    "tags": [
+      "code",
+      "ctxt"
+    ]
+  },
+  {
+    "id": "file:src/calculator/javamodel/package.bluej",
+    "type": "file",
+    "name": "package.bluej",
+    "filePath": "src/calculator/javamodel/package.bluej",
+    "summary": "Source file: src/calculator/javamodel/package.bluej",
+    "tags": [
+      "code",
+      "bluej"
+    ]
+  },
+  {
+    "id": "file:src/calculator/package.bluej",
+    "type": "file",
+    "name": "package.bluej",
+    "filePath": "src/calculator/package.bluej",
+    "summary": "Source file: src/calculator/package.bluej",
+    "tags": [
+      "code",
+      "bluej"
+    ]
+  },
+  {
+    "id": "document:src/calculator/README.TXT",
+    "type": "document",
+    "name": "README.TXT",
+    "filePath": "src/calculator/README.TXT",
+    "summary": "Source file: src/calculator/README.TXT",
+    "tags": [
+      "docs",
+      "txt"
+    ]
+  },
+  {
+    "id": "file:src/calculator/largemodel/Add.ctxt",
+    "type": "file",
+    "name": "Add.ctxt",
+    "filePath": "src/calculator/largemodel/Add.ctxt",
+    "summary": "Source file: src/calculator/largemodel/Add.ctxt",
+    "tags": [
+      "code",
+      "ctxt"
+    ]
+  },
+  {
+    "id": "file:src/calculator/largemodel/CalculatorImpl.ctxt",
+    "type": "file",
+    "name": "CalculatorImpl.ctxt",
+    "filePath": "src/calculator/largemodel/CalculatorImpl.ctxt",
+    "summary": "Source file: src/calculator/largemodel/CalculatorImpl.ctxt",
+    "tags": [
+      "code",
+      "ctxt"
+    ]
+  },
+  {
+    "id": "file:src/calculator/largemodel/ChangeSigns.ctxt",
+    "type": "file",
+    "name": "ChangeSigns.ctxt",
+    "filePath": "src/calculator/largemodel/ChangeSigns.ctxt",
+    "summary": "Source file: src/calculator/largemodel/ChangeSigns.ctxt",
+    "tags": [
+      "code",
+      "ctxt"
+    ]
+  },
+  {
+    "id": "file:src/calculator/largemodel/Divide.ctxt",
+    "type": "file",
+    "name": "Divide.ctxt",
+    "filePath": "src/calculator/largemodel/Divide.ctxt",
+    "summary": "Source file: src/calculator/largemodel/Divide.ctxt",
+    "tags": [
+      "code",
+      "ctxt"
+    ]
+  },
+  {
+    "id": "file:src/calculator/largemodel/Multiply.ctxt",
+    "type": "file",
+    "name": "Multiply.ctxt",
+    "filePath": "src/calculator/largemodel/Multiply.ctxt",
+    "summary": "Source file: src/calculator/largemodel/Multiply.ctxt",
+    "tags": [
+      "code",
+      "ctxt"
+    ]
+  },
+  {
+    "id": "file:src/calculator/largemodel/Power.ctxt",
+    "type": "file",
+    "name": "Power.ctxt",
+    "filePath": "src/calculator/largemodel/Power.ctxt",
+    "summary": "Source file: src/calculator/largemodel/Power.ctxt",
+    "tags": [
+      "code",
+      "ctxt"
+    ]
+  },
+  {
+    "id": "file:src/calculator/largemodel/Push.ctxt",
+    "type": "file",
+    "name": "Push.ctxt",
+    "filePath": "src/calculator/largemodel/Push.ctxt",
+    "summary": "Source file: src/calculator/largemodel/Push.ctxt",
+    "tags": [
+      "code",
+      "ctxt"
+    ]
+  },
+  {
+    "id": "file:src/calculator/largemodel/Remainder.ctxt",
+    "type": "file",
+    "name": "Remainder.ctxt",
+    "filePath": "src/calculator/largemodel/Remainder.ctxt",
+    "summary": "Source file: src/calculator/largemodel/Remainder.ctxt",
+    "tags": [
+      "code",
+      "ctxt"
+    ]
+  },
+  {
+    "id": "file:src/calculator/largemodel/Subtract.ctxt",
+    "type": "file",
+    "name": "Subtract.ctxt",
+    "filePath": "src/calculator/largemodel/Subtract.ctxt",
+    "summary": "Source file: src/calculator/largemodel/Subtract.ctxt",
+    "tags": [
+      "code",
+      "ctxt"
+    ]
+  },
+  {
+    "id": "document:src/calculator/largemodel/README.TXT",
+    "type": "document",
+    "name": "README.TXT",
+    "filePath": "src/calculator/largemodel/README.TXT",
+    "summary": "Source file: src/calculator/largemodel/README.TXT",
+    "tags": [
+      "docs",
+      "txt"
+    ]
+  },
+  {
+    "id": "file:src/calculator/largemodel/package.bluej",
+    "type": "file",
+    "name": "package.bluej",
+    "filePath": "src/calculator/largemodel/package.bluej",
+    "summary": "Source file: src/calculator/largemodel/package.bluej",
+    "tags": [
+      "code",
+      "bluej"
+    ]
+  },
+  {
+    "id": "file:src/calculator/NumericDocument.ctxt",
+    "type": "file",
+    "name": "NumericDocument.ctxt",
+    "filePath": "src/calculator/NumericDocument.ctxt",
+    "summary": "Source file: src/calculator/NumericDocument.ctxt",
+    "tags": [
+      "code",
+      "ctxt"
+    ]
+  },
+  {
+    "id": "file:src/calculator/Operation.ctxt",
+    "type": "file",
+    "name": "Operation.ctxt",
+    "filePath": "src/calculator/Operation.ctxt",
+    "summary": "Source file: src/calculator/Operation.ctxt",
+    "tags": [
+      "code",
+      "ctxt"
+    ]
+  },
+  {
+    "id": "file:src/calculator/GUI.ctxt",
+    "type": "file",
+    "name": "GUI.ctxt",
+    "filePath": "src/calculator/GUI.ctxt",
+    "summary": "Source file: src/calculator/GUI.ctxt",
+    "tags": [
+      "code",
+      "ctxt"
+    ]
+  },
+  {
+    "id": "file:src/ecm/PrimeTest/LucasLehmer.ctxt",
+    "type": "config",
+    "name": "LucasLehmer.ctxt",
+    "filePath": "src/ecm/PrimeTest/LucasLehmer.ctxt",
+    "summary": "BlueJ class context descriptor for LucasLehmer. Defines Javadoc comments for the LucasLehmer class, main method, constructor, run, and isPrime methods. Contains 5 comment entries.",
+    "tags": []
+  },
+  {
+    "id": "file:src/ecm/PrimeTest/LucasLehmer.java",
+    "type": "file",
+    "name": "LucasLehmer.java",
+    "filePath": "src/ecm/PrimeTest/LucasLehmer.java",
+    "summary": "Lucas-Lehmer primality test for Mersenne numbers (2^p-1) with a Swing GUI progress bar. Contains LucasLehmer class (main, constructor, run, isPrime) and a package-private PrimeThread class that wraps BigInteger.isProbablePrime for comparison. Uses a Zeef sieve to get small primes and runs tests in a thread pool.",
+    "tags": [
+      "lucas-lehmer",
+      "mersenne",
+      "primality-test",
+      "swing",
+      "thread-pool"
+    ]
+  },
+  {
+    "id": "file:src/ecm/PrimeTest/package.bluej",
+    "type": "config",
+    "name": "package.bluej",
+    "filePath": "src/ecm/PrimeTest/package.bluej",
+    "summary": "BlueJ package blueprint for the ecm.PrimeTest package. Lists classes (LucasLehmer, AprtCle, AprtCleFinal, AprtCleVariable) with their dependency descriptors, Java source/dependency file references, and BlueJ editor/strip state.",
+    "tags": []
+  },
+  {
+    "id": "document:src/ecm/PrimeTest/README.TXT",
+    "type": "document",
+    "name": "README.TXT",
+    "filePath": "src/ecm/PrimeTest/README.TXT",
+    "summary": "Documentation for the primality test package. Explains Lucas-Lehmer test for Mersenne numbers (2^p-1) and APR-CL (Adleman-Pomerance-Rumely-Cohen-Lenstra) general primality test using cyclotomic polynomials and modular arithmetic.",
+    "tags": []
+  },
+  {
+    "id": "file:src/ecm/PrimeTest/AprtCle.ctxt",
+    "type": "config",
+    "name": "AprtCle.ctxt",
+    "filePath": "src/ecm/PrimeTest/AprtCle.ctxt",
+    "summary": "BlueJ class context descriptor for AprtCle. Defines Javadoc comments for the AprtCle class, main method, and isProbablePrime method.",
+    "tags": []
+  },
+  {
+    "id": "file:src/ecm/PrimeTest/AprtCle.java",
+    "type": "file",
+    "name": "AprtCle.java",
+    "filePath": "src/ecm/PrimeTest/AprtCle.java",
+    "summary": "APR-CL (Adleman-Pomerance-Rumely-Cohen-Lenstra) primality test implementation. Extends AprtCleFinal. The main isProbablePrime method performs Jacobi sum computations, modular exponentiation, Montgomery multiplication, and exponent-level matching to determine primality. Supports multi-level trial factoring with quadratic bounds, falling back to Miller-Rabin (isProbablePrimeRobin) for numbers too large to test.",
+    "tags": [
+      "apr-cl",
+      "acpt",
+      "primality-test",
+      "jacobi-sum",
+      "montgomery-multiplication",
+      "cyclotomic"
+    ]
+  },
+  {
+    "id": "file:src/ecm/PrimeTest/AprtCleFinal.ctxt",
+    "type": "config",
+    "name": "AprtCleFinal.ctxt",
+    "filePath": "src/ecm/PrimeTest/AprtCleFinal.ctxt",
+    "summary": "BlueJ class context descriptor for AprtCleFinal. Defines Javadoc comments for the AprtCleFinal class, Final method, and check method.",
+    "tags": []
+  },
+  {
+    "id": "file:src/ecm/PrimeTest/AprtCleFinal.java",
+    "type": "file",
+    "name": "AprtCleFinal.java",
+    "filePath": "src/ecm/PrimeTest/AprtCleFinal.java",
+    "summary": "Base class for APR-CL primality testing. Contains Final() which performs the final verification step: converting number to Montgomery form, computing N mod S iteratively with modular multiplication, checking for composite/prime conditions. Also contains check() which computes Jacobi sum normalization and matching for both odd primes (P != 2) and powers of 2 (P == 2, K=1,2,3+).",
+    "tags": [
+      "apr-cl",
+      "primality-test",
+      "montgomery-arithmetic",
+      "jacobi-sum",
+      "normalization"
+    ]
+  },
+  {
+    "id": "file:src/ecm/PrimeTest/AprtCleVariable.ctxt",
+    "type": "config",
+    "name": "AprtCleVariable.ctxt",
+    "filePath": "src/ecm/PrimeTest/AprtCleVariable.ctxt",
+    "summary": "BlueJ class context descriptor for AprtCleVariable.",
+    "tags": []
+  },
+  {
+    "id": "file:src/ecm/PrimeTest/AprtCleVariable.java",
+    "type": "file",
+    "name": "AprtCleVariable.java",
+    "filePath": "src/ecm/PrimeTest/AprtCleVariable.java",
+    "summary": "APR-CL static data and variable definitions. Contains precomputed tables for primes (aiP), test bases (aiQ), primitive roots (aiG), level constants (aiNP, aiNQ, aiT), and large multi-dimensional integer arrays (aiJS, aiJW, aiJ0-aiJ2, aiJX) used by the APR-CL primality test algorithm. Defines PWmax=32, Qmax=30241, LEVELmax=11.",
+    "tags": [
+      "apr-cl",
+      "constants",
+      "precomputed-tables",
+      "primes",
+      "primitive-roots"
+    ]
+  },
+  {
+    "id": "file:src/ecm/PrimeTest/PrimeThread.ctxt",
+    "type": "config",
+    "name": "PrimeThread.ctxt",
+    "filePath": "src/ecm/PrimeTest/PrimeThread.ctxt",
+    "summary": "BlueJ class context descriptor for PrimeThread (non-existent as separate file; class is defined within LucasLehmer.java).",
+    "tags": []
+  },
+  {
+    "id": "file:src/ecm/PrimeTest/PrimeThread.java",
+    "type": "file",
+    "name": "PrimeThread.java",
+    "filePath": "src/ecm/PrimeTest/PrimeThread.java",
+    "summary": "Non-existent separate file. The PrimeThread class is defined as a package-private class within LucasLehmer.java (lines 116-147). Wraps BigInteger.isProbablePrime for testing Mersenne numbers in a thread.",
+    "tags": [
+      "mersenne",
+      "primality-test",
+      "thread"
+    ]
+  },
+  {
+    "id": "document:src/ecm/README.TXT",
+    "type": "document",
+    "name": "README.TXT",
+    "filePath": "src/ecm/README.TXT",
+    "summary": "Top-level README for the ECM factorization package. States that the package contains classes for ECM (Elliptic Curve Method) factorization.",
+    "tags": []
+  },
+  {
+    "id": "file:src/ecm/package.bluej",
+    "type": "config",
+    "name": "package.bluej",
+    "filePath": "src/ecm/package.bluej",
+    "summary": "BlueJ package blueprint for the ecm package. Lists sub-packages (BigIntegers, Checks, PrimeTest) as dependent packages with their dependency descriptors.",
+    "tags": []
+  },
+  {
+    "id": "file:src/ecm/BigIntegers/GCD.ctxt",
+    "type": "config",
+    "name": "GCD.ctxt",
+    "filePath": "src/ecm/BigIntegers/GCD.ctxt",
+    "summary": "BlueJ class context descriptor for GCD. Defines Javadoc comments for the GCD class and GcdBigNbr method.",
+    "tags": []
+  },
+  {
+    "id": "file:src/ecm/BigIntegers/ModInv.ctxt",
+    "type": "config",
+    "name": "ModInv.ctxt",
+    "filePath": "src/ecm/BigIntegers/ModInv.ctxt",
+    "summary": "BlueJ class context descriptor for ModInvInteger. Defines Javadoc comments for the ModInvInteger class, constructor, and ModInvBigNbr method.",
+    "tags": []
+  },
+  {
+    "id": "document:src/ecm/BigIntegers/README.TXT",
+    "type": "document",
+    "name": "README.TXT",
+    "filePath": "src/ecm/BigIntegers/README.TXT",
+    "summary": "README for the BigIntegers utility package. States the package contains GCD and ModInv implementations for BigInteger arithmetic.",
+    "tags": []
+  },
+  {
+    "id": "file:src/ecm/BigIntegers/package.bluej",
+    "type": "config",
+    "name": "package.bluej",
+    "filePath": "src/ecm/BigIntegers/package.bluej",
+    "summary": "BlueJ package blueprint for the ecm.BigIntegers package. Lists GCD and ModInvInteger classes with their dependency descriptors, Java source and dependency file references, and editor state.",
+    "tags": []
+  },
+  {
+    "id": "file:src/ecm/Checks/FibonacciCheck.ctxt",
+    "type": "config",
+    "name": "FibonacciCheck.ctxt",
+    "filePath": "src/ecm/Checks/FibonacciCheck.ctxt",
+    "summary": "BlueJ class context descriptor for FibonacciCheck. Defines Javadoc comments for the FibonacciCheck class, constructor, and Factor method.",
+    "tags": []
+  },
+  {
+    "id": "file:src/ecm/Checks/FibonacciCheck.java",
+    "type": "file",
+    "name": "FibonacciCheck.java",
+    "filePath": "src/ecm/Checks/FibonacciCheck.java",
+    "summary": "Fibonacci-based factoring check. Extends LucasCheck, overrides Factor to use GCD with Fibonacci numbers F(k) and F(Index/k) at each divisor k of the input index. Also uses InsertLucasFactor from the parent for Lucas sequence factoring.",
+    "tags": [
+      "fibonacci",
+      "factoring",
+      "gcd",
+      "divisor-check"
+    ]
+  },
+  {
+    "id": "file:src/ecm/Checks/LucasCheck.ctxt",
+    "type": "config",
+    "name": "LucasCheck.ctxt",
+    "filePath": "src/ecm/Checks/LucasCheck.ctxt",
+    "summary": "BlueJ class context descriptor for LucasCheck. Defines Javadoc comments for the LucasCheck class, Check, Factor, InsertLucasFactor, and get methods.",
+    "tags": []
+  },
+  {
+    "id": "file:src/ecm/Checks/LucasCheck.java",
+    "type": "file",
+    "name": "LucasCheck.java",
+    "filePath": "src/ecm/Checks/LucasCheck.java",
+    "summary": "Lucas sequence-based factoring check. Detects if the input number is a Lucas number by checking bit length and iterating the Lucas sequence (L_n). InsertLucasFactor extracts factors by iterating divisors k of Index and computing GCD with Lucas numbers L(k) and L(Index/k), with special handling for factors of 5. Also provides static get() for generating Fibonacci/Lucas numbers.",
+    "tags": [
+      "lucas-sequence",
+      "factoring",
+      "gcd",
+      "divisor-check"
+    ]
+  },
+  {
+    "id": "file:src/ecm/Checks/PowerCheck.ctxt",
+    "type": "config",
+    "name": "PowerCheck.ctxt",
+    "filePath": "src/ecm/Checks/PowerCheck.ctxt",
+    "summary": "BlueJ class context descriptor for PowerCheck. Defines Javadoc comments for the PowerCheck class, constructor, and Check method.",
+    "tags": []
+  },
+  {
+    "id": "file:src/ecm/Checks/PowerCheck.java",
+    "type": "file",
+    "name": "PowerCheck.java",
+    "filePath": "src/ecm/Checks/PowerCheck.java",
+    "summary": "Perfect power detection for factoring. Uses a probabilistic filter with primes of the form 2310x+1 to eliminate impossible exponents (2,3,5,7,11), then an Eratosthenes-sieve-based filter over all primes up to 2*maxExpon+3. For remaining candidates, computes the integer k-th root via Newton iteration and checks if root^Exponent == N. Uses log2 approximation for initial root estimate.",
+    "tags": [
+      "perfect-power",
+      "root-finding",
+      "newton-iteration",
+      "factoring",
+      "sieve"
+    ]
+  },
+  {
+    "id": "file:src/ecm/Checks/PowerPM1Check.ctxt",
+    "type": "config",
+    "name": "PowerPM1Check.ctxt",
+    "filePath": "src/ecm/Checks/PowerPM1Check.ctxt",
+    "summary": "BlueJ class context descriptor for PowerPM1Check. Defines Javadoc comments for the PowerPM1Check class, constructor, Check, ProcessExponent, and Cunningham methods.",
+    "tags": []
+  },
+  {
+    "id": "file:src/ecm/Checks/PowerPM1Check.java",
+    "type": "file",
+    "name": "PowerPM1Check.java",
+    "filePath": "src/ecm/Checks/PowerPM1Check.java",
+    "summary": "Perfect power detection for numbers of the form a^e +/- 1 (Cunningham numbers). Contains precomputed factorization maps for Mersenne (2^p-1) and Fermat (2^(2^k)+1) numbers. Check() uses modular residue filters and log approximation to find candidate exponents. ProcessExponent computes integer k-th roots of N+1 and N-1 via Newton iteration. Cunningham() inserts known primitive factors and Aurifeuillian factors.",
+    "tags": [
+      "cunningham",
+      "mersenne",
+      "fermat",
+      "perfect-power",
+      "newton-iteration",
+      "aurifeuillian"
+    ]
+  },
+  {
+    "id": "document:src/ecm/Checks/README.TXT",
+    "type": "document",
+    "name": "README.TXT",
+    "filePath": "src/ecm/Checks/README.TXT",
+    "summary": "README for the Checks package. States the package contains format checks (Fibonacci, Lucas, Fermat and Mersenne Number) and power checks.",
+    "tags": []
+  },
+  {
+    "id": "file:src/ecm/Checks/package.bluej",
+    "type": "config",
+    "name": "package.bluej",
+    "filePath": "src/ecm/Checks/package.bluej",
+    "summary": "BlueJ package blueprint for the ecm.Checks package. Lists FibonacciCheck, LucasCheck, PowerCheck, and PowerPM1Check classes with their dependency descriptors, Java source files, and editor state.",
+    "tags": []
+  },
+  {
+    "id": "file:src/Factorzations/siqs/PrimeSieveData.java",
+    "type": "file",
+    "name": "PrimeSieveData.java",
+    "filePath": "src/Factorzations/siqs/PrimeSieveData.java",
+    "summary": "Source file: src/Factorzations/siqs/PrimeSieveData.java",
+    "tags": [
+      "code",
+      "java"
+    ]
+  },
+  {
+    "id": "file:src/Factorzations/siqs/PrimeSieveData.ctxt",
+    "type": "file",
+    "name": "PrimeSieveData.ctxt",
+    "filePath": "src/Factorzations/siqs/PrimeSieveData.ctxt",
+    "summary": "Source file: src/Factorzations/siqs/PrimeSieveData.ctxt",
+    "tags": [
+      "code",
+      "bluej"
+    ]
+  },
+  {
+    "id": "file:src/Factorzations/siqs/PrimeTrialDivisionData.java",
+    "type": "file",
+    "name": "PrimeTrialDivisionData.java",
+    "filePath": "src/Factorzations/siqs/PrimeTrialDivisionData.java",
+    "summary": "Source file: src/Factorzations/siqs/PrimeTrialDivisionData.java",
+    "tags": [
+      "code",
+      "java"
+    ]
+  },
+  {
+    "id": "file:src/Factorzations/siqs/PrimeTrialDivisionData.ctxt",
+    "type": "file",
+    "name": "PrimeTrialDivisionData.ctxt",
+    "filePath": "src/Factorzations/siqs/PrimeTrialDivisionData.ctxt",
+    "summary": "Source file: src/Factorzations/siqs/PrimeTrialDivisionData.ctxt",
+    "tags": [
+      "code",
+      "bluej"
+    ]
+  },
+  {
+    "id": "document:src/Factorzations/siqs/README.TXT",
+    "type": "document",
+    "name": "README.TXT",
+    "filePath": "src/Factorzations/siqs/README.TXT",
+    "summary": "Source file: src/Factorzations/siqs/README.TXT",
+    "tags": [
+      "docs",
+      "txt"
+    ]
+  },
+  {
+    "id": "file:src/Factorzations/siqs/package.bluej",
+    "type": "file",
+    "name": "package.bluej",
+    "filePath": "src/Factorzations/siqs/package.bluej",
+    "summary": "Source file: src/Factorzations/siqs/package.bluej",
+    "tags": [
+      "code",
+      "bluej"
+    ]
+  },
+  {
+    "id": "file:src/Factorzations/ecm/ECM.ctxt",
+    "type": "file",
+    "name": "ECM.ctxt",
+    "filePath": "src/Factorzations/ecm/ECM.ctxt",
+    "summary": "Source file: src/Factorzations/ecm/ECM.ctxt",
+    "tags": [
+      "code",
+      "bluej"
+    ]
+  },
+  {
+    "id": "file:src/Factorzations/ecm/StaticFunctions.ctxt",
+    "type": "file",
+    "name": "StaticFunctions.ctxt",
+    "filePath": "src/Factorzations/ecm/StaticFunctions.ctxt",
+    "summary": "Source file: src/Factorzations/ecm/StaticFunctions.ctxt",
+    "tags": [
+      "code",
+      "bluej"
+    ]
+  },
+  {
+    "id": "file:src/Factorzations/ecm/StaticFunctions.java",
+    "type": "file",
+    "name": "StaticFunctions.java",
+    "filePath": "src/Factorzations/ecm/StaticFunctions.java",
+    "summary": "Source file: src/Factorzations/ecm/StaticFunctions.java",
+    "tags": [
+      "code",
+      "java"
+    ]
+  },
+  {
+    "id": "file:src/Factorzations/ecm/ecmStep0.ctxt",
+    "type": "file",
+    "name": "ecmStep0.ctxt",
+    "filePath": "src/Factorzations/ecm/ecmStep0.ctxt",
+    "summary": "Source file: src/Factorzations/ecm/ecmStep0.ctxt",
+    "tags": [
+      "code",
+      "bluej"
+    ]
+  },
+  {
+    "id": "file:src/Factorzations/ecm/ecmStep1.ctxt",
+    "type": "file",
+    "name": "ecmStep1.ctxt",
+    "filePath": "src/Factorzations/ecm/ecmStep1.ctxt",
+    "summary": "Source file: src/Factorzations/ecm/ecmStep1.ctxt",
+    "tags": [
+      "code",
+      "bluej"
+    ]
+  },
+  {
+    "id": "file:src/Factorzations/ecm/ecmStep2.ctxt",
+    "type": "file",
+    "name": "ecmStep2.ctxt",
+    "filePath": "src/Factorzations/ecm/ecmStep2.ctxt",
+    "summary": "Source file: src/Factorzations/ecm/ecmStep2.ctxt",
+    "tags": [
+      "code",
+      "bluej"
+    ]
+  },
+  {
+    "id": "document:src/Factorzations/ecm/README.TXT",
+    "type": "document",
+    "name": "README.TXT",
+    "filePath": "src/Factorzations/ecm/README.TXT",
+    "summary": "Source file: src/Factorzations/ecm/README.TXT",
+    "tags": [
+      "docs",
+      "txt"
+    ]
+  },
+  {
+    "id": "file:src/Factorzations/ecm/package.bluej",
+    "type": "file",
+    "name": "package.bluej",
+    "filePath": "src/Factorzations/ecm/package.bluej",
+    "summary": "Source file: src/Factorzations/ecm/package.bluej",
+    "tags": [
+      "code",
+      "bluej"
+    ]
+  },
+  {
+    "id": "file:src/Factorzations/siqs/FirstPolynomial.ctxt",
+    "type": "file",
+    "name": "FirstPolynomial.ctxt",
+    "filePath": "src/Factorzations/siqs/FirstPolynomial.ctxt",
+    "summary": "Source file: src/Factorzations/siqs/FirstPolynomial.ctxt",
+    "tags": [
+      "code",
+      "bluej"
+    ]
+  },
+  {
+    "id": "file:src/Factorzations/siqs/Maths.ctxt",
+    "type": "file",
+    "name": "Maths.ctxt",
+    "filePath": "src/Factorzations/siqs/Maths.ctxt",
+    "summary": "Source file: src/Factorzations/siqs/Maths.ctxt",
+    "tags": [
+      "code",
+      "bluej"
+    ]
+  },
+  {
+    "id": "file:src/Factorzations/siqs/Matrix.ctxt",
+    "type": "file",
+    "name": "Matrix.ctxt",
+    "filePath": "src/Factorzations/siqs/Matrix.ctxt",
+    "summary": "Source file: src/Factorzations/siqs/Matrix.ctxt",
+    "tags": [
+      "code",
+      "bluej"
+    ]
+  },
+  {
+    "id": "file:src/Factorzations/siqs/Relation.ctxt",
+    "type": "file",
+    "name": "Relation.ctxt",
+    "filePath": "src/Factorzations/siqs/Relation.ctxt",
+    "summary": "Source file: src/Factorzations/siqs/Relation.ctxt",
+    "tags": [
+      "code",
+      "bluej"
+    ]
+  },
+  {
+    "id": "file:src/Factorzations/siqs/Sieve.ctxt",
+    "type": "file",
+    "name": "Sieve.ctxt",
+    "filePath": "src/Factorzations/siqs/Sieve.ctxt",
+    "summary": "Source file: src/Factorzations/siqs/Sieve.ctxt",
+    "tags": [
+      "code",
+      "bluej"
+    ]
+  },
+  {
+    "id": "file:src/Factorzations/siqs/Siqs.ctxt",
+    "type": "file",
+    "name": "Siqs.ctxt",
+    "filePath": "src/Factorzations/siqs/Siqs.ctxt",
+    "summary": "Source file: src/Factorzations/siqs/Siqs.ctxt",
+    "tags": [
+      "code",
+      "bluej"
+    ]
+  },
+  {
+    "id": "file:src/Factorzations/siqs/StaticFunctions.ctxt",
+    "type": "file",
+    "name": "StaticFunctions.ctxt",
+    "filePath": "src/Factorzations/siqs/StaticFunctions.ctxt",
+    "summary": "Source file: src/Factorzations/siqs/StaticFunctions.ctxt",
+    "tags": [
+      "code",
+      "bluej"
+    ]
+  },
+  {
+    "id": "file:build.xml",
+    "type": "config",
+    "name": "build.xml",
+    "filePath": "build.xml",
+    "summary": "",
+    "tags": []
+  },
+  {
+    "id": "file:CHANGELOG",
+    "type": "file",
+    "name": "CHANGELOG",
+    "filePath": "CHANGELOG",
+    "summary": "",
+    "tags": []
+  },
+  {
+    "id": "file:manifest.mf",
+    "type": "file",
+    "name": "manifest.mf",
+    "filePath": "manifest.mf",
+    "summary": "",
+    "tags": []
+  },
+  {
+    "id": "file:nbproject/build-impl.xml",
+    "type": "config",
+    "name": "build-impl.xml",
+    "filePath": "nbproject/build-impl.xml",
+    "summary": "",
+    "tags": []
+  },
+  {
+    "id": "file:nbproject/genfiles.properties",
+    "type": "config",
+    "name": "genfiles.properties",
+    "filePath": "nbproject/genfiles.properties",
+    "summary": "",
+    "tags": []
+  },
+  {
+    "id": "file:nbproject/project.properties",
+    "type": "config",
+    "name": "project.properties",
+    "filePath": "nbproject/project.properties",
+    "summary": "",
+    "tags": []
+  },
+  {
+    "id": "file:nbproject/project.xml",
+    "type": "config",
+    "name": "project.xml",
+    "filePath": "nbproject/project.xml",
+    "summary": "",
+    "tags": []
+  },
+  {
+    "id": "file:src/.DS_Store",
+    "type": "file",
+    "name": ".DS_Store",
+    "filePath": "src/.DS_Store",
+    "summary": "",
+    "tags": []
+  },
+  {
+    "id": "file:src/BigIntegers/AprtCleInteger.ctxt",
+    "type": "file",
+    "name": "AprtCleInteger.ctxt",
+    "filePath": "src/BigIntegers/AprtCleInteger.ctxt",
+    "summary": "",
+    "tags": []
+  },
+  {
+    "id": "file:src/BigIntegers/ECMBigInteger.ctxt",
+    "type": "file",
+    "name": "ECMBigInteger.ctxt",
+    "filePath": "src/BigIntegers/ECMBigInteger.ctxt",
+    "summary": "",
+    "tags": []
+  },
+  {
+    "id": "file:src/BigIntegers/FactorInteger.ctxt",
+    "type": "file",
+    "name": "FactorInteger.ctxt",
+    "filePath": "src/BigIntegers/FactorInteger.ctxt",
+    "summary": "",
+    "tags": []
+  },
+  {
+    "id": "file:src/BigIntegers/LargeInteger.ctxt",
+    "type": "file",
+    "name": "LargeInteger.ctxt",
+    "filePath": "src/BigIntegers/LargeInteger.ctxt",
+    "summary": "",
+    "tags": []
+  },
+  {
+    "id": "file:src/BigIntegers/MontgomeryInteger.ctxt",
+    "type": "file",
+    "name": "MontgomeryInteger.ctxt",
+    "filePath": "src/BigIntegers/MontgomeryInteger.ctxt",
+    "summary": "",
+    "tags": []
+  },
+  {
+    "id": "file:src/BigIntegers/package.bluej",
+    "type": "file",
+    "name": "package.bluej",
+    "filePath": "src/BigIntegers/package.bluej",
+    "summary": "",
+    "tags": []
+  },
+  {
+    "id": "file:src/BigIntegers/README.TXT",
+    "type": "document",
+    "name": "README.TXT",
+    "filePath": "src/BigIntegers/README.TXT",
+    "summary": "",
+    "tags": []
+  },
+  {
+    "id": "file:src/BigIntegers/StaticFunctions.ctxt",
+    "type": "file",
+    "name": "StaticFunctions.ctxt",
+    "filePath": "src/BigIntegers/StaticFunctions.ctxt",
+    "summary": "",
+    "tags": []
+  },
+  {
+    "id": "file:src/calculator/javamodel/README.TXT",
+    "type": "document",
+    "name": "README.TXT",
+    "filePath": "src/calculator/javamodel/README.TXT",
+    "summary": "",
+    "tags": []
+  },
+  {
+    "id": "file:src/calculator/largemodel/Divide.java",
+    "type": "file",
+    "name": "Divide.java",
+    "filePath": "src/calculator/largemodel/Divide.java",
+    "summary": "",
+    "tags": []
+  },
+  {
+    "id": "file:src/calculator/largemodel/README.TXT",
+    "type": "document",
+    "name": "README.TXT",
+    "filePath": "src/calculator/largemodel/README.TXT",
+    "summary": "",
+    "tags": []
+  },
+  {
+    "id": "file:src/calculator/largemodel/TenToPower.ctxt",
+    "type": "file",
+    "name": "TenToPower.ctxt",
+    "filePath": "src/calculator/largemodel/TenToPower.ctxt",
+    "summary": "",
+    "tags": []
+  },
+  {
+    "id": "file:src/calculator/largemodel/TenToPower.java",
+    "type": "file",
+    "name": "TenToPower.java",
+    "filePath": "src/calculator/largemodel/TenToPower.java",
+    "summary": "",
+    "tags": []
+  },
+  {
+    "id": "file:src/calculator/largemodel/TwoToPower.ctxt",
+    "type": "file",
+    "name": "TwoToPower.ctxt",
+    "filePath": "src/calculator/largemodel/TwoToPower.ctxt",
+    "summary": "",
+    "tags": []
+  },
+  {
+    "id": "file:src/calculator/largemodel/TwoToPower.java",
+    "type": "file",
+    "name": "TwoToPower.java",
+    "filePath": "src/calculator/largemodel/TwoToPower.java",
+    "summary": "",
+    "tags": []
+  },
+  {
+    "id": "file:src/calculator/README.TXT",
+    "type": "document",
+    "name": "README.TXT",
+    "filePath": "src/calculator/README.TXT",
+    "summary": "",
+    "tags": []
+  },
+  {
+    "id": "file:src/ecm/BigIntegers/README.TXT",
+    "type": "document",
+    "name": "README.TXT",
+    "filePath": "src/ecm/BigIntegers/README.TXT",
+    "summary": "",
+    "tags": []
+  },
+  {
+    "id": "file:src/ecm/Checks/README.TXT",
+    "type": "document",
+    "name": "README.TXT",
+    "filePath": "src/ecm/Checks/README.TXT",
+    "summary": "",
+    "tags": []
+  },
+  {
+    "id": "file:src/ecm/PrimeTest/README.TXT",
+    "type": "document",
+    "name": "README.TXT",
+    "filePath": "src/ecm/PrimeTest/README.TXT",
+    "summary": "",
+    "tags": []
+  },
+  {
+    "id": "file:src/ecm/README.TXT",
+    "type": "document",
+    "name": "README.TXT",
+    "filePath": "src/ecm/README.TXT",
+    "summary": "",
+    "tags": []
+  },
+  {
+    "id": "file:src/Factorzations/Classical.ctxt",
+    "type": "file",
+    "name": "Classical.ctxt",
+    "filePath": "src/Factorzations/Classical.ctxt",
+    "summary": "",
+    "tags": []
+  },
+  {
+    "id": "file:src/Factorzations/ecm/README.TXT",
+    "type": "document",
+    "name": "README.TXT",
+    "filePath": "src/Factorzations/ecm/README.TXT",
+    "summary": "",
+    "tags": []
+  },
+  {
+    "id": "file:src/Factorzations/GUI.ctxt",
+    "type": "file",
+    "name": "GUI.ctxt",
+    "filePath": "src/Factorzations/GUI.ctxt",
+    "summary": "",
+    "tags": []
+  },
+  {
+    "id": "file:src/Factorzations/GUI.form",
+    "type": "file",
+    "name": "GUI.form",
+    "filePath": "src/Factorzations/GUI.form",
+    "summary": "",
+    "tags": []
+  },
+  {
+    "id": "file:src/Factorzations/Lehman.ctxt",
+    "type": "file",
+    "name": "Lehman.ctxt",
+    "filePath": "src/Factorzations/Lehman.ctxt",
+    "summary": "",
+    "tags": []
+  },
+  {
+    "id": "file:src/Factorzations/package.bluej",
+    "type": "file",
+    "name": "package.bluej",
+    "filePath": "src/Factorzations/package.bluej",
+    "summary": "",
+    "tags": []
+  },
+  {
+    "id": "file:src/Factorzations/README.TXT",
+    "type": "document",
+    "name": "README.TXT",
+    "filePath": "src/Factorzations/README.TXT",
+    "summary": "",
+    "tags": []
+  },
+  {
+    "id": "file:src/Factorzations/siqs/README.TXT",
+    "type": "document",
+    "name": "README.TXT",
+    "filePath": "src/Factorzations/siqs/README.TXT",
+    "summary": "",
+    "tags": []
+  },
+  {
+    "id": "file:src/package.bluej",
+    "type": "file",
+    "name": "package.bluej",
+    "filePath": "src/package.bluej",
+    "summary": "",
+    "tags": []
+  },
+  {
+    "id": "file:src/README.TXT",
+    "type": "document",
+    "name": "README.TXT",
+    "filePath": "src/README.TXT",
+    "summary": "",
+    "tags": []
+  },
+  {
+    "id": "file:src/utilities/BitReverseCounter.ctxt",
+    "type": "file",
+    "name": "BitReverseCounter.ctxt",
+    "filePath": "src/utilities/BitReverseCounter.ctxt",
+    "summary": "",
+    "tags": []
+  },
+  {
+    "id": "file:src/utilities/BitReverseCounter.java",
+    "type": "file",
+    "name": "BitReverseCounter.java",
+    "filePath": "src/utilities/BitReverseCounter.java",
+    "summary": "",
+    "tags": []
+  },
+  {
+    "id": "file:src/utilities/FFT.ctxt",
+    "type": "file",
+    "name": "FFT.ctxt",
+    "filePath": "src/utilities/FFT.ctxt",
+    "summary": "",
+    "tags": []
+  },
+  {
+    "id": "file:src/utilities/FFT.java",
+    "type": "file",
+    "name": "FFT.java",
+    "filePath": "src/utilities/FFT.java",
+    "summary": "",
+    "tags": []
+  },
+  {
+    "id": "file:src/utilities/NTT.ctxt",
+    "type": "file",
+    "name": "NTT.ctxt",
+    "filePath": "src/utilities/NTT.ctxt",
+    "summary": "",
+    "tags": []
+  },
+  {
+    "id": "file:src/utilities/NTT.java",
+    "type": "file",
+    "name": "NTT.java",
+    "filePath": "src/utilities/NTT.java",
+    "summary": "",
+    "tags": []
+  },
+  {
+    "id": "file:src/utilities/package.bluej",
+    "type": "file",
+    "name": "package.bluej",
+    "filePath": "src/utilities/package.bluej",
+    "summary": "",
+    "tags": []
+  },
+  {
+    "id": "file:src/utilities/README.TXT",
+    "type": "document",
+    "name": "README.TXT",
+    "filePath": "src/utilities/README.TXT",
+    "summary": "",
+    "tags": []
+  },
+  {
+    "id": "file:src/utilities/Timer.ctxt",
+    "type": "file",
+    "name": "Timer.ctxt",
+    "filePath": "src/utilities/Timer.ctxt",
+    "summary": "",
+    "tags": []
+  },
+  {
+    "id": "file:src/utilities/Timer.java",
+    "type": "file",
+    "name": "Timer.java",
+    "filePath": "src/utilities/Timer.java",
+    "summary": "",
+    "tags": []
+  },
+  {
+    "id": "file:src/utilities/Zeef.ctxt",
+    "type": "file",
+    "name": "Zeef.ctxt",
+    "filePath": "src/utilities/Zeef.ctxt",
+    "summary": "",
+    "tags": []
+  },
+  {
+    "id": "file:src/utilities/Zeef.java",
+    "type": "file",
+    "name": "Zeef.java",
+    "filePath": "src/utilities/Zeef.java",
+    "summary": "",
+    "tags": []
+  },
+  {
+    "id": "file:test/test/JUnitTest.java",
+    "type": "file",
+    "name": "JUnitTest.java",
+    "filePath": "test/test/JUnitTest.java",
+    "summary": "",
+    "tags": []
+  }
+]

@@ -18,7 +18,6 @@ import cr0s.javara.entity.Entity;
 import cr0s.javara.entity.MobileEntity;
 import cr0s.javara.entity.actor.EntityActor;
 import cr0s.javara.entity.actor.activity.Activity;
-import cr0s.javara.entity.actor.activity.activities.Move;
 import cr0s.javara.entity.actor.activity.activities.Wait;
 import cr0s.javara.entity.actor.activity.activities.harvester.FindResources;
 import cr0s.javara.entity.building.BuildingType;

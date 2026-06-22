@@ -1,0 +1,82 @@
+{
+  "batch": 5,
+  "nodes": [
+    {
+      "id": "config:nbproject/build-impl.xml",
+      "type": "config",
+      "labels": [
+        "config",
+        "ant",
+        "netbeans",
+        "build"
+      ],
+      "language": "xml",
+      "fileName": "build-impl.xml",
+      "filePath": "nbproject/build-impl.xml",
+      "summary": "Auto-generated NetBeans Ant build script for the PrimeFactors J2SE project. Contains 1771 lines of Ant targets organized into sections: initialization, compilation, JAR building, execution, debugging, profiling, javadoc generation, test compilation/execution/debugging, applet support, and cleanup. Defines macros for javac, junit, testng, and debugging with support for both modular (Java 9+) and pre-module Java versions.",
+      "extraction": {
+        "totalLines": 1771,
+        "nonEmptyLines": 1768,
+        "metrics": {}
+      }
+    },
+    {
+      "id": "config:nbproject/genfiles.properties",
+      "type": "config",
+      "labels": [
+        "config",
+        "netbeans",
+        "properties",
+        "crc"
+      ],
+      "language": "properties",
+      "fileName": "genfiles.properties",
+      "filePath": "nbproject/genfiles.properties",
+      "summary": "NetBeans-generated CRC checksum tracking file. Stores CRC32 checksums for build.xml and nbproject/build-impl.xml used by the IDE to detect when generated build files need regeneration. Auto-maintained by NetBeans and not intended for manual editing.",
+      "extraction": {
+        "totalLines": 8,
+        "nonEmptyLines": 8,
+        "metrics": {}
+      }
+    },
+    {
+      "id": "config:nbproject/project.properties",
+      "type": "config",
+      "labels": [
+        "config",
+        "netbeans",
+        "properties",
+        "build"
+      ],
+      "language": "properties",
+      "fileName": "project.properties",
+      "filePath": "nbproject/project.properties",
+      "summary": "NetBeans project build configuration properties for PrimeFactors. Defines source and target Java version 11, main class (Factorzations.GUI), source/test directories (src/test), build/dist directory paths, JAR filename (PrimeFactors.jar), encoding (UTF-8), JUnit 4 test dependency, JNLP deployment settings, annotation processing configuration, javac/external VM settings, and various manifest customization options.",
+      "extraction": {
+        "totalLines": 102,
+        "nonEmptyLines": 102,
+        "metrics": {}
+      }
+    },
+    {
+      "id": "config:nbproject/project.xml",
+      "type": "config",
+      "labels": [
+        "config",
+        "netbeans",
+        "xml",
+        "project-descriptor"
+      ],
+      "language": "xml",
+      "fileName": "project.xml",
+      "filePath": "nbproject/project.xml",
+      "summary": "NetBeans project metadata descriptor. Declares the project type as org.netbeans.modules.java.j2seproject (a standard Java SE project), sets the project name to 'PrimeFactors', and defines source-roots (src.dir) and test-roots (test.src.dir) for compilation.",
+      "extraction": {
+        "totalLines": 15,
+        "nonEmptyLines": 15,
+        "metrics": {}
+      }
+    }
+  ],
+  "edges": []
+}

@@ -1,0 +1,243 @@
+{
+  "batchIndex": 4,
+  "totalBatches": 10,
+  "files": [
+    {
+      "path": "src/BigIntegers/StaticFunctions.java",
+      "language": "java",
+      "sizeLines": 199,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Factorzations/siqs/Relation.java",
+      "language": "java",
+      "sizeLines": 368,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/com/gazman/Main.java",
+      "language": "java",
+      "sizeLines": 27,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/com/gazman/factor/BigPrimesList.java",
+      "language": "java",
+      "sizeLines": 47,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/com/gazman/factor/Logger.java",
+      "language": "java",
+      "sizeLines": 90,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/com/gazman/factor/QuadraticSieve.java",
+      "language": "java",
+      "sizeLines": 289,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/com/gazman/factor/VectorData.java",
+      "language": "java",
+      "sizeLines": 39,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/com/gazman/factor/matrix/BitMatrix.java",
+      "language": "java",
+      "sizeLines": 89,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/com/gazman/factor/matrix/VectorsShrinker.java",
+      "language": "java",
+      "sizeLines": 86,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/com/gazman/factor/wheels/Wheel.java",
+      "language": "java",
+      "sizeLines": 114,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/com/gazman/math/MathUtils.java",
+      "language": "java",
+      "sizeLines": 120,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/com/gazman/math/SqrRoot.java",
+      "language": "java",
+      "sizeLines": 22,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/ecm/BigIntegers/ModInv.java",
+      "language": "java",
+      "sizeLines": 401,
+      "fileCategory": "code"
+    }
+  ],
+  "batchImportData": {
+    "src/BigIntegers/StaticFunctions.java": [],
+    "src/Factorzations/siqs/Relation.java": [
+      "src/com/gazman/factor/VectorData.java",
+      "src/ecm/BigIntegers/ModInv.java"
+    ],
+    "src/com/gazman/Main.java": [
+      "src/com/gazman/factor/Logger.java",
+      "src/com/gazman/factor/QuadraticSieve.java"
+    ],
+    "src/com/gazman/factor/BigPrimesList.java": [],
+    "src/com/gazman/factor/Logger.java": [],
+    "src/com/gazman/factor/QuadraticSieve.java": [
+      "src/com/gazman/factor/matrix/BitMatrix.java",
+      "src/com/gazman/factor/matrix/VectorsShrinker.java",
+      "src/com/gazman/factor/wheels/Wheel.java",
+      "src/com/gazman/math/MathUtils.java",
+      "src/com/gazman/math/SqrRoot.java"
+    ],
+    "src/com/gazman/factor/VectorData.java": [],
+    "src/com/gazman/factor/matrix/BitMatrix.java": [
+      "src/com/gazman/factor/Logger.java",
+      "src/com/gazman/factor/VectorData.java"
+    ],
+    "src/com/gazman/factor/matrix/VectorsShrinker.java": [
+      "src/com/gazman/factor/BigPrimesList.java",
+      "src/com/gazman/factor/VectorData.java"
+    ],
+    "src/com/gazman/factor/wheels/Wheel.java": [
+      "src/com/gazman/math/MathUtils.java"
+    ],
+    "src/com/gazman/math/MathUtils.java": [],
+    "src/com/gazman/math/SqrRoot.java": [],
+    "src/ecm/BigIntegers/ModInv.java": [
+      "src/BigIntegers/StaticFunctions.java"
+    ]
+  },
+  "neighborMap": {
+    "src/com/gazman/factor/VectorData.java": [
+      {
+        "path": "test/test/JUnitTest.java",
+        "batchIndex": 2,
+        "symbols": [
+          "testAprtCle",
+          "testPowerPM1",
+          "testPowerCheck",
+          "testCos",
+          "testLongToBigNbr",
+          "testModPow",
+          "testClassical",
+          "testModInvBigNbr",
+          "testGcdBigNbr",
+          "testECM",
+          "testLehman",
+          "testSIQS",
+          "testGetSmallFactors",
+          "testLargeInteger",
+          "testFFT",
+          "testReciprocal",
+          "testForwardTransform",
+          "testisPrimitiveRoot",
+          "testInverseTransform",
+          "testSimpleConvolution",
+          "testRoundtripRandomly",
+          "testLinearityRandomly",
+          "testConvolutionRandomly",
+          "testAutomaticConvolution",
+          "testGetIndexFromDivisor",
+          "testSolve",
+          "testFactorA",
+          "testTotient",
+          "testMoebius",
+          "test4Squares",
+          "testSum",
+          "JUnitTest"
+        ]
+      }
+    ],
+    "src/com/gazman/factor/matrix/BitMatrix.java": [
+      {
+        "path": "test/test/JUnitTest.java",
+        "batchIndex": 2,
+        "symbols": [
+          "testAprtCle",
+          "testPowerPM1",
+          "testPowerCheck",
+          "testCos",
+          "testLongToBigNbr",
+          "testModPow",
+          "testClassical",
+          "testModInvBigNbr",
+          "testGcdBigNbr",
+          "testECM",
+          "testLehman",
+          "testSIQS",
+          "testGetSmallFactors",
+          "testLargeInteger",
+          "testFFT",
+          "testReciprocal",
+          "testForwardTransform",
+          "testisPrimitiveRoot",
+          "testInverseTransform",
+          "testSimpleConvolution",
+          "testRoundtripRandomly",
+          "testLinearityRandomly",
+          "testConvolutionRandomly",
+          "testAutomaticConvolution",
+          "testGetIndexFromDivisor",
+          "testSolve",
+          "testFactorA",
+          "testTotient",
+          "testMoebius",
+          "test4Squares",
+          "testSum",
+          "JUnitTest"
+        ]
+      }
+    ],
+    "src/ecm/BigIntegers/ModInv.java": [
+      {
+        "path": "test/test/JUnitTest.java",
+        "batchIndex": 2,
+        "symbols": [
+          "testAprtCle",
+          "testPowerPM1",
+          "testPowerCheck",
+          "testCos",
+          "testLongToBigNbr",
+          "testModPow",
+          "testClassical",
+          "testModInvBigNbr",
+          "testGcdBigNbr",
+          "testECM",
+          "testLehman",
+          "testSIQS",
+          "testGetSmallFactors",
+          "testLargeInteger",
+          "testFFT",
+          "testReciprocal",
+          "testForwardTransform",
+          "testisPrimitiveRoot",
+          "testInverseTransform",
+          "testSimpleConvolution",
+          "testRoundtripRandomly",
+          "testLinearityRandomly",
+          "testConvolutionRandomly",
+          "testAutomaticConvolution",
+          "testGetIndexFromDivisor",
+          "testSolve",
+          "testFactorA",
+          "testTotient",
+          "testMoebius",
+          "test4Squares",
+          "testSum",
+          "JUnitTest"
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,378 @@
+{
+  "scriptCompleted": true,
+  "stats": {
+    "filesScanned": 196,
+    "filesWithImports": 50,
+    "totalEdges": 122
+  },
+  "importMap": {
+    ".DS_Store": [],
+    ".understand-anything/.understandignore": [],
+    "build.xml": [],
+    "CHANGELOG": [],
+    "manifest.mf": [],
+    "nbproject/build-impl.xml": [],
+    "nbproject/genfiles.properties": [],
+    "nbproject/project.properties": [],
+    "nbproject/project.xml": [],
+    "src/.DS_Store": [],
+    "src/BigIntegers/AprtCleInteger.ctxt": [],
+    "src/BigIntegers/AprtCleInteger.java": [
+      "src/ecm/PrimeTest/AprtCleVariable.java"
+    ],
+    "src/BigIntegers/ECMBigInteger.ctxt": [],
+    "src/BigIntegers/ECMBigInteger.java": [],
+    "src/BigIntegers/FactorInteger.ctxt": [],
+    "src/BigIntegers/FactorInteger.java": [],
+    "src/BigIntegers/LargeInteger.ctxt": [],
+    "src/BigIntegers/LargeInteger.java": [
+      "src/utilities/BitReverseCounter.java",
+      "src/utilities/FFT.java",
+      "src/utilities/NTT.java"
+    ],
+    "src/BigIntegers/MontgomeryInteger.ctxt": [],
+    "src/BigIntegers/MontgomeryInteger.java": [],
+    "src/BigIntegers/package.bluej": [],
+    "src/BigIntegers/README.TXT": [],
+    "src/BigIntegers/StaticFunctions.ctxt": [],
+    "src/BigIntegers/StaticFunctions.java": [],
+    "src/calculator/Calculator.ctxt": [],
+    "src/calculator/Calculator.java": [],
+    "src/calculator/CalculatorUI.ctxt": [],
+    "src/calculator/CalculatorUI.java": [],
+    "src/calculator/ConvertBase.ctxt": [],
+    "src/calculator/ConvertBase.java": [],
+    "src/calculator/DefaultUI.ctxt": [],
+    "src/calculator/DefaultUI.java": [],
+    "src/calculator/Deque.ctxt": [],
+    "src/calculator/Deque.java": [],
+    "src/calculator/EmptyDequeException.ctxt": [],
+    "src/calculator/EmptyDequeException.java": [],
+    "src/calculator/EncodedOperation.ctxt": [],
+    "src/calculator/EncodedOperation.java": [],
+    "src/calculator/GUI.ctxt": [],
+    "src/calculator/GUI.java": [],
+    "src/calculator/javamodel/Add.ctxt": [],
+    "src/calculator/javamodel/Add.java": [
+      "src/calculator/EncodedOperation.java"
+    ],
+    "src/calculator/javamodel/CalculatorImpl.ctxt": [],
+    "src/calculator/javamodel/CalculatorImpl.java": [
+      "src/calculator/Calculator.java",
+      "src/calculator/CalculatorUI.java",
+      "src/calculator/ConvertBase.java",
+      "src/calculator/Deque.java",
+      "src/calculator/EmptyDequeException.java",
+      "src/calculator/EncodedOperation.java",
+      "src/calculator/Operation.java"
+    ],
+    "src/calculator/javamodel/ChangeSigns.ctxt": [],
+    "src/calculator/javamodel/ChangeSigns.java": [
+      "src/calculator/EncodedOperation.java"
+    ],
+    "src/calculator/javamodel/ClearStack.ctxt": [],
+    "src/calculator/javamodel/ClearStack.java": [
+      "src/calculator/Operation.java"
+    ],
+    "src/calculator/javamodel/Divide.ctxt": [],
+    "src/calculator/javamodel/Divide.java": [
+      "src/calculator/EncodedOperation.java"
+    ],
+    "src/calculator/javamodel/Multiply.ctxt": [],
+    "src/calculator/javamodel/Multiply.java": [
+      "src/calculator/EncodedOperation.java"
+    ],
+    "src/calculator/javamodel/package.bluej": [],
+    "src/calculator/javamodel/Pop.ctxt": [],
+    "src/calculator/javamodel/Pop.java": [
+      "src/calculator/Operation.java"
+    ],
+    "src/calculator/javamodel/Power.ctxt": [],
+    "src/calculator/javamodel/Power.java": [
+      "src/calculator/EncodedOperation.java"
+    ],
+    "src/calculator/javamodel/Push.ctxt": [],
+    "src/calculator/javamodel/Push.java": [
+      "src/calculator/Operation.java"
+    ],
+    "src/calculator/javamodel/README.TXT": [],
+    "src/calculator/javamodel/Remainder.ctxt": [],
+    "src/calculator/javamodel/Remainder.java": [
+      "src/calculator/EncodedOperation.java"
+    ],
+    "src/calculator/javamodel/RotateDown.ctxt": [],
+    "src/calculator/javamodel/RotateDown.java": [
+      "src/calculator/Operation.java"
+    ],
+    "src/calculator/javamodel/RotateUp.ctxt": [],
+    "src/calculator/javamodel/RotateUp.java": [
+      "src/calculator/Operation.java"
+    ],
+    "src/calculator/javamodel/Subtract.ctxt": [],
+    "src/calculator/javamodel/Subtract.java": [
+      "src/calculator/EncodedOperation.java"
+    ],
+    "src/calculator/javamodel/TenToPower.ctxt": [],
+    "src/calculator/javamodel/TenToPower.java": [
+      "src/calculator/EncodedOperation.java"
+    ],
+    "src/calculator/javamodel/TwoToPower.ctxt": [],
+    "src/calculator/javamodel/TwoToPower.java": [
+      "src/calculator/EncodedOperation.java"
+    ],
+    "src/calculator/largemodel/Add.ctxt": [],
+    "src/calculator/largemodel/Add.java": [
+      "src/BigIntegers/LargeInteger.java",
+      "src/calculator/EncodedOperation.java"
+    ],
+    "src/calculator/largemodel/CalculatorImpl.ctxt": [],
+    "src/calculator/largemodel/CalculatorImpl.java": [
+      "src/BigIntegers/LargeInteger.java",
+      "src/calculator/Calculator.java",
+      "src/calculator/CalculatorUI.java",
+      "src/calculator/ConvertBase.java",
+      "src/calculator/Deque.java",
+      "src/calculator/EmptyDequeException.java",
+      "src/calculator/EncodedOperation.java",
+      "src/calculator/javamodel/ClearStack.java",
+      "src/calculator/javamodel/Pop.java",
+      "src/calculator/javamodel/RotateDown.java",
+      "src/calculator/javamodel/RotateUp.java",
+      "src/calculator/Operation.java"
+    ],
+    "src/calculator/largemodel/ChangeSigns.ctxt": [],
+    "src/calculator/largemodel/ChangeSigns.java": [
+      "src/BigIntegers/LargeInteger.java",
+      "src/calculator/EncodedOperation.java"
+    ],
+    "src/calculator/largemodel/Divide.ctxt": [],
+    "src/calculator/largemodel/Divide.java": [
+      "src/BigIntegers/LargeInteger.java",
+      "src/calculator/EncodedOperation.java"
+    ],
+    "src/calculator/largemodel/Multiply.ctxt": [],
+    "src/calculator/largemodel/Multiply.java": [
+      "src/BigIntegers/LargeInteger.java",
+      "src/calculator/EncodedOperation.java"
+    ],
+    "src/calculator/largemodel/package.bluej": [],
+    "src/calculator/largemodel/Power.ctxt": [],
+    "src/calculator/largemodel/Power.java": [
+      "src/BigIntegers/LargeInteger.java",
+      "src/calculator/EncodedOperation.java"
+    ],
+    "src/calculator/largemodel/Push.ctxt": [],
+    "src/calculator/largemodel/Push.java": [
+      "src/calculator/Operation.java"
+    ],
+    "src/calculator/largemodel/README.TXT": [],
+    "src/calculator/largemodel/Remainder.ctxt": [],
+    "src/calculator/largemodel/Remainder.java": [
+      "src/BigIntegers/LargeInteger.java",
+      "src/calculator/EncodedOperation.java"
+    ],
+    "src/calculator/largemodel/Subtract.ctxt": [],
+    "src/calculator/largemodel/Subtract.java": [
+      "src/BigIntegers/LargeInteger.java",
+      "src/calculator/EncodedOperation.java"
+    ],
+    "src/calculator/largemodel/TenToPower.ctxt": [],
+    "src/calculator/largemodel/TenToPower.java": [
+      "src/BigIntegers/LargeInteger.java",
+      "src/calculator/EncodedOperation.java"
+    ],
+    "src/calculator/largemodel/TwoToPower.ctxt": [],
+    "src/calculator/largemodel/TwoToPower.java": [
+      "src/BigIntegers/LargeInteger.java",
+      "src/calculator/EncodedOperation.java"
+    ],
+    "src/calculator/NumericDocument.ctxt": [],
+    "src/calculator/NumericDocument.java": [],
+    "src/calculator/Operation.ctxt": [],
+    "src/calculator/Operation.java": [],
+    "src/calculator/package.bluej": [],
+    "src/calculator/README.TXT": [],
+    "src/com/gazman/factor/BigPrimesList.java": [],
+    "src/com/gazman/factor/Logger.java": [],
+    "src/com/gazman/factor/matrix/BitMatrix.java": [
+      "src/com/gazman/factor/Logger.java",
+      "src/com/gazman/factor/VectorData.java"
+    ],
+    "src/com/gazman/factor/matrix/VectorsShrinker.java": [
+      "src/com/gazman/factor/BigPrimesList.java",
+      "src/com/gazman/factor/VectorData.java"
+    ],
+    "src/com/gazman/factor/QuadraticSieve.java": [
+      "src/com/gazman/factor/matrix/BitMatrix.java",
+      "src/com/gazman/factor/matrix/VectorsShrinker.java",
+      "src/com/gazman/factor/wheels/Wheel.java",
+      "src/com/gazman/math/MathUtils.java",
+      "src/com/gazman/math/SqrRoot.java"
+    ],
+    "src/com/gazman/factor/VectorData.java": [],
+    "src/com/gazman/factor/wheels/Wheel.java": [
+      "src/com/gazman/math/MathUtils.java"
+    ],
+    "src/com/gazman/Main.java": [
+      "src/com/gazman/factor/Logger.java",
+      "src/com/gazman/factor/QuadraticSieve.java"
+    ],
+    "src/com/gazman/math/MathUtils.java": [],
+    "src/com/gazman/math/SqrRoot.java": [],
+    "src/ecm/BigIntegers/GCD.ctxt": [],
+    "src/ecm/BigIntegers/GCD.java": [],
+    "src/ecm/BigIntegers/ModInv.ctxt": [],
+    "src/ecm/BigIntegers/ModInv.java": [
+      "src/BigIntegers/StaticFunctions.java"
+    ],
+    "src/ecm/BigIntegers/package.bluej": [],
+    "src/ecm/BigIntegers/README.TXT": [],
+    "src/ecm/Checks/FibonacciCheck.ctxt": [],
+    "src/ecm/Checks/FibonacciCheck.java": [
+      "src/BigIntegers/AprtCleInteger.java"
+    ],
+    "src/ecm/Checks/LucasCheck.ctxt": [],
+    "src/ecm/Checks/LucasCheck.java": [
+      "src/BigIntegers/AprtCleInteger.java"
+    ],
+    "src/ecm/Checks/package.bluej": [],
+    "src/ecm/Checks/PowerCheck.ctxt": [],
+    "src/ecm/Checks/PowerCheck.java": [
+      "src/BigIntegers/ECMBigInteger.java"
+    ],
+    "src/ecm/Checks/PowerPM1Check.ctxt": [],
+    "src/ecm/Checks/PowerPM1Check.java": [
+      "src/BigIntegers/ECMBigInteger.java"
+    ],
+    "src/ecm/Checks/README.TXT": [],
+    "src/ecm/package.bluej": [],
+    "src/ecm/PrimeTest/AprtCle.ctxt": [],
+    "src/ecm/PrimeTest/AprtCle.java": [
+      "src/BigIntegers/AprtCleInteger.java"
+    ],
+    "src/ecm/PrimeTest/AprtCleFinal.ctxt": [],
+    "src/ecm/PrimeTest/AprtCleFinal.java": [
+      "src/BigIntegers/AprtCleInteger.java"
+    ],
+    "src/ecm/PrimeTest/AprtCleVariable.ctxt": [],
+    "src/ecm/PrimeTest/AprtCleVariable.java": [],
+    "src/ecm/PrimeTest/LucasLehmer.ctxt": [],
+    "src/ecm/PrimeTest/LucasLehmer.java": [
+      "src/utilities/Zeef.java"
+    ],
+    "src/ecm/PrimeTest/package.bluej": [],
+    "src/ecm/PrimeTest/README.TXT": [],
+    "src/ecm/README.TXT": [],
+    "src/Factorzations/Classical.ctxt": [],
+    "src/Factorzations/Classical.java": [],
+    "src/Factorzations/ecm/ECM.ctxt": [],
+    "src/Factorzations/ecm/ECM.java": [
+      "src/BigIntegers/AprtCleInteger.java",
+      "src/Factorzations/Lehman.java"
+    ],
+    "src/Factorzations/ecm/ecmStep0.ctxt": [],
+    "src/Factorzations/ecm/ecmStep0.java": [
+      "src/BigIntegers/AprtCleInteger.java"
+    ],
+    "src/Factorzations/ecm/ecmStep1.ctxt": [],
+    "src/Factorzations/ecm/ecmStep1.java": [
+      "src/BigIntegers/AprtCleInteger.java"
+    ],
+    "src/Factorzations/ecm/ecmStep2.ctxt": [],
+    "src/Factorzations/ecm/ecmStep2.java": [
+      "src/BigIntegers/AprtCleInteger.java",
+      "src/ecm/BigIntegers/GCD.java"
+    ],
+    "src/Factorzations/ecm/package.bluej": [],
+    "src/Factorzations/ecm/README.TXT": [],
+    "src/Factorzations/ecm/StaticFunctions.ctxt": [],
+    "src/Factorzations/ecm/StaticFunctions.java": [],
+    "src/Factorzations/GUI.ctxt": [],
+    "src/Factorzations/GUI.form": [],
+    "src/Factorzations/GUI.java": [
+      "src/BigIntegers/AprtCleInteger.java",
+      "src/BigIntegers/LargeInteger.java",
+      "src/calculator/Deque.java",
+      "src/calculator/EmptyDequeException.java",
+      "src/calculator/EncodedOperation.java",
+      "src/calculator/largemodel/Add.java",
+      "src/calculator/largemodel/Divide.java",
+      "src/calculator/largemodel/Multiply.java",
+      "src/calculator/largemodel/Power.java",
+      "src/calculator/largemodel/Remainder.java",
+      "src/calculator/largemodel/Subtract.java",
+      "src/ecm/Checks/FibonacciCheck.java",
+      "src/ecm/Checks/LucasCheck.java",
+      "src/ecm/Checks/PowerCheck.java",
+      "src/ecm/Checks/PowerPM1Check.java",
+      "src/ecm/PrimeTest/AprtCle.java",
+      "src/Factorzations/ecm/ECM.java",
+      "src/Factorzations/siqs/Siqs.java"
+    ],
+    "src/Factorzations/Lehman.ctxt": [],
+    "src/Factorzations/Lehman.java": [],
+    "src/Factorzations/package.bluej": [],
+    "src/Factorzations/README.TXT": [],
+    "src/Factorzations/siqs/FirstPolynomial.ctxt": [],
+    "src/Factorzations/siqs/FirstPolynomial.java": [],
+    "src/Factorzations/siqs/Maths.ctxt": [],
+    "src/Factorzations/siqs/Maths.java": [
+      "src/BigIntegers/AprtCleInteger.java"
+    ],
+    "src/Factorzations/siqs/Matrix.ctxt": [],
+    "src/Factorzations/siqs/Matrix.java": [],
+    "src/Factorzations/siqs/package.bluej": [],
+    "src/Factorzations/siqs/PrimeSieveData.ctxt": [],
+    "src/Factorzations/siqs/PrimeSieveData.java": [],
+    "src/Factorzations/siqs/PrimeTrialDivisionData.ctxt": [],
+    "src/Factorzations/siqs/PrimeTrialDivisionData.java": [],
+    "src/Factorzations/siqs/README.TXT": [],
+    "src/Factorzations/siqs/Relation.ctxt": [],
+    "src/Factorzations/siqs/Relation.java": [
+      "src/com/gazman/factor/VectorData.java",
+      "src/ecm/BigIntegers/ModInv.java"
+    ],
+    "src/Factorzations/siqs/Sieve.ctxt": [],
+    "src/Factorzations/siqs/Sieve.java": [],
+    "src/Factorzations/siqs/Siqs.ctxt": [],
+    "src/Factorzations/siqs/Siqs.java": [
+      "src/BigIntegers/AprtCleInteger.java"
+    ],
+    "src/Factorzations/siqs/StaticFunctions.ctxt": [],
+    "src/Factorzations/siqs/StaticFunctions.java": [],
+    "src/package.bluej": [],
+    "src/README.TXT": [],
+    "src/utilities/BitReverseCounter.ctxt": [],
+    "src/utilities/BitReverseCounter.java": [],
+    "src/utilities/FFT.ctxt": [],
+    "src/utilities/FFT.java": [],
+    "src/utilities/NTT.ctxt": [],
+    "src/utilities/NTT.java": [],
+    "src/utilities/package.bluej": [],
+    "src/utilities/README.TXT": [],
+    "src/utilities/Timer.ctxt": [],
+    "src/utilities/Timer.java": [],
+    "src/utilities/Zeef.ctxt": [],
+    "src/utilities/Zeef.java": [],
+    "test/test/JUnitTest.java": [
+      "src/BigIntegers/AprtCleInteger.java",
+      "src/BigIntegers/LargeInteger.java",
+      "src/com/gazman/factor/matrix/BitMatrix.java",
+      "src/com/gazman/factor/VectorData.java",
+      "src/ecm/BigIntegers/GCD.java",
+      "src/ecm/BigIntegers/ModInv.java",
+      "src/ecm/Checks/FibonacciCheck.java",
+      "src/ecm/Checks/LucasCheck.java",
+      "src/ecm/Checks/PowerCheck.java",
+      "src/ecm/Checks/PowerPM1Check.java",
+      "src/ecm/PrimeTest/AprtCle.java",
+      "src/Factorzations/Classical.java",
+      "src/Factorzations/ecm/ECM.java",
+      "src/Factorzations/Lehman.java",
+      "src/Factorzations/siqs/PrimeTrialDivisionData.java",
+      "src/Factorzations/siqs/Siqs.java",
+      "src/utilities/FFT.java",
+      "src/utilities/NTT.java"
+    ]
+  }
+}

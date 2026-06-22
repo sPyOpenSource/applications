@@ -1,0 +1,68 @@
+{
+  "projectRoot": "/Users/xuyi/Source/OS/armOS/lib/jcore/test/PrimeFactors",
+  "batchFiles": [
+    {
+      "path": "src/calculator/Calculator.java",
+      "language": "java",
+      "sizeLines": 32,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/CalculatorUI.java",
+      "language": "java",
+      "sizeLines": 42,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/DefaultUI.java",
+      "language": "java",
+      "sizeLines": 654,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/NumericDocument.java",
+      "language": "java",
+      "sizeLines": 119,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/largemodel/ChangeSigns.java",
+      "language": "java",
+      "sizeLines": 49,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/largemodel/Remainder.java",
+      "language": "java",
+      "sizeLines": 68,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/largemodel/Subtract.java",
+      "language": "java",
+      "sizeLines": 59,
+      "fileCategory": "code"
+    }
+  ],
+  "batchImportData": {
+    "src/calculator/Calculator.java": [],
+    "src/calculator/CalculatorUI.java": [],
+    "src/calculator/DefaultUI.java": [
+      "src/calculator/Calculator.java",
+      "src/calculator/CalculatorUI.java",
+      "src/calculator/ConvertBase.java",
+      "src/calculator/EncodedOperation.java",
+      "src/calculator/Operation.java"
+    ],
+    "src/calculator/NumericDocument.java": [],
+    "src/calculator/largemodel/ChangeSigns.java": [
+      "src/calculator/EncodedOperation.java"
+    ],
+    "src/calculator/largemodel/Remainder.java": [
+      "src/calculator/EncodedOperation.java"
+    ],
+    "src/calculator/largemodel/Subtract.java": [
+      "src/calculator/EncodedOperation.java"
+    ]
+  }
+}

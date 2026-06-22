@@ -1,0 +1,356 @@
+{
+  "batchIndex": 2,
+  "totalBatches": 10,
+  "files": [
+    {
+      "path": "src/BigIntegers/AprtCleInteger.java",
+      "language": "java",
+      "sizeLines": 331,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Factorzations/Classical.java",
+      "language": "java",
+      "sizeLines": 101,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Factorzations/Lehman.java",
+      "language": "java",
+      "sizeLines": 152,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Factorzations/ecm/ECM.java",
+      "language": "java",
+      "sizeLines": 58,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Factorzations/ecm/ecmStep0.java",
+      "language": "java",
+      "sizeLines": 111,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Factorzations/ecm/ecmStep1.java",
+      "language": "java",
+      "sizeLines": 362,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Factorzations/ecm/ecmStep2.java",
+      "language": "java",
+      "sizeLines": 217,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Factorzations/siqs/Maths.java",
+      "language": "java",
+      "sizeLines": 412,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Factorzations/siqs/PrimeTrialDivisionData.java",
+      "language": "java",
+      "sizeLines": 234,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Factorzations/siqs/Siqs.java",
+      "language": "java",
+      "sizeLines": 459,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/ecm/BigIntegers/GCD.java",
+      "language": "java",
+      "sizeLines": 111,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/ecm/Checks/FibonacciCheck.java",
+      "language": "java",
+      "sizeLines": 47,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/ecm/Checks/LucasCheck.java",
+      "language": "java",
+      "sizeLines": 106,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/ecm/PrimeTest/AprtCle.java",
+      "language": "java",
+      "sizeLines": 314,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/ecm/PrimeTest/AprtCleFinal.java",
+      "language": "java",
+      "sizeLines": 219,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/ecm/PrimeTest/AprtCleVariable.java",
+      "language": "java",
+      "sizeLines": 309,
+      "fileCategory": "code"
+    },
+    {
+      "path": "test/test/JUnitTest.java",
+      "language": "java",
+      "sizeLines": 550,
+      "fileCategory": "code"
+    }
+  ],
+  "batchImportData": {
+    "src/BigIntegers/AprtCleInteger.java": [
+      "src/ecm/PrimeTest/AprtCleVariable.java"
+    ],
+    "src/Factorzations/Classical.java": [],
+    "src/Factorzations/Lehman.java": [],
+    "src/Factorzations/ecm/ECM.java": [
+      "src/BigIntegers/AprtCleInteger.java",
+      "src/Factorzations/Lehman.java"
+    ],
+    "src/Factorzations/ecm/ecmStep0.java": [
+      "src/BigIntegers/AprtCleInteger.java"
+    ],
+    "src/Factorzations/ecm/ecmStep1.java": [
+      "src/BigIntegers/AprtCleInteger.java"
+    ],
+    "src/Factorzations/ecm/ecmStep2.java": [
+      "src/BigIntegers/AprtCleInteger.java",
+      "src/ecm/BigIntegers/GCD.java"
+    ],
+    "src/Factorzations/siqs/Maths.java": [
+      "src/BigIntegers/AprtCleInteger.java"
+    ],
+    "src/Factorzations/siqs/PrimeTrialDivisionData.java": [],
+    "src/Factorzations/siqs/Siqs.java": [
+      "src/BigIntegers/AprtCleInteger.java"
+    ],
+    "src/ecm/BigIntegers/GCD.java": [],
+    "src/ecm/Checks/FibonacciCheck.java": [
+      "src/BigIntegers/AprtCleInteger.java"
+    ],
+    "src/ecm/Checks/LucasCheck.java": [
+      "src/BigIntegers/AprtCleInteger.java"
+    ],
+    "src/ecm/PrimeTest/AprtCle.java": [
+      "src/BigIntegers/AprtCleInteger.java"
+    ],
+    "src/ecm/PrimeTest/AprtCleFinal.java": [
+      "src/BigIntegers/AprtCleInteger.java"
+    ],
+    "src/ecm/PrimeTest/AprtCleVariable.java": [],
+    "test/test/JUnitTest.java": [
+      "src/BigIntegers/AprtCleInteger.java",
+      "src/BigIntegers/LargeInteger.java",
+      "src/com/gazman/factor/matrix/BitMatrix.java",
+      "src/com/gazman/factor/VectorData.java",
+      "src/ecm/BigIntegers/GCD.java",
+      "src/ecm/BigIntegers/ModInv.java",
+      "src/ecm/Checks/FibonacciCheck.java",
+      "src/ecm/Checks/LucasCheck.java",
+      "src/ecm/Checks/PowerCheck.java",
+      "src/ecm/Checks/PowerPM1Check.java",
+      "src/ecm/PrimeTest/AprtCle.java",
+      "src/Factorzations/Classical.java",
+      "src/Factorzations/ecm/ECM.java",
+      "src/Factorzations/Lehman.java",
+      "src/Factorzations/siqs/PrimeTrialDivisionData.java",
+      "src/Factorzations/siqs/Siqs.java",
+      "src/utilities/FFT.java",
+      "src/utilities/NTT.java"
+    ]
+  },
+  "neighborMap": {
+    "src/BigIntegers/AprtCleInteger.java": [
+      {
+        "path": "src/Factorzations/GUI.java",
+        "batchIndex": 1,
+        "symbols": [
+          "GUI",
+          "main",
+          "GUI"
+        ]
+      }
+    ],
+    "src/Factorzations/ecm/ECM.java": [
+      {
+        "path": "src/Factorzations/GUI.java",
+        "batchIndex": 1,
+        "symbols": [
+          "GUI",
+          "main",
+          "GUI"
+        ]
+      }
+    ],
+    "src/Factorzations/siqs/Siqs.java": [
+      {
+        "path": "src/Factorzations/GUI.java",
+        "batchIndex": 1,
+        "symbols": [
+          "GUI",
+          "main",
+          "GUI"
+        ]
+      }
+    ],
+    "src/ecm/Checks/FibonacciCheck.java": [
+      {
+        "path": "src/Factorzations/GUI.java",
+        "batchIndex": 1,
+        "symbols": [
+          "GUI",
+          "main",
+          "GUI"
+        ]
+      }
+    ],
+    "src/ecm/Checks/LucasCheck.java": [
+      {
+        "path": "src/Factorzations/GUI.java",
+        "batchIndex": 1,
+        "symbols": [
+          "GUI",
+          "main",
+          "GUI"
+        ]
+      }
+    ],
+    "src/ecm/PrimeTest/AprtCle.java": [
+      {
+        "path": "src/Factorzations/GUI.java",
+        "batchIndex": 1,
+        "symbols": [
+          "GUI",
+          "main",
+          "GUI"
+        ]
+      }
+    ],
+    "test/test/JUnitTest.java": [
+      {
+        "path": "src/BigIntegers/LargeInteger.java",
+        "batchIndex": 1,
+        "symbols": [
+          "LargeInteger",
+          "LargeInteger",
+          "add",
+          "subtract",
+          "negate",
+          "multiply",
+          "squareFFT",
+          "squareNTT",
+          "getEnd",
+          "divide",
+          "abs",
+          "pow",
+          "pow",
+          "pow",
+          "pow",
+          "multiply",
+          "divide",
+          "toString",
+          "getBase",
+          "compareTo",
+          "and",
+          "shiftLeft",
+          "shiftRight",
+          "isPrime",
+          "LargeInteger"
+        ]
+      },
+      {
+        "path": "src/com/gazman/factor/matrix/BitMatrix.java",
+        "batchIndex": 4,
+        "symbols": [
+          "solve",
+          "BitMatrix"
+        ]
+      },
+      {
+        "path": "src/com/gazman/factor/VectorData.java",
+        "batchIndex": 4,
+        "symbols": [
+          "vector",
+          "position",
+          "bigPrimeIndex",
+          "x",
+          "y",
+          "VectorData",
+          "toString",
+          "hashCode",
+          "equals",
+          "VectorData"
+        ]
+      },
+      {
+        "path": "src/ecm/BigIntegers/ModInv.java",
+        "batchIndex": 4,
+        "symbols": [
+          "ModInvBigNbr",
+          "ModInv"
+        ]
+      },
+      {
+        "path": "src/ecm/Checks/PowerCheck.java",
+        "batchIndex": 1,
+        "symbols": [
+          "PowerCheck",
+          "Check",
+          "PowerCheck"
+        ]
+      },
+      {
+        "path": "src/ecm/Checks/PowerPM1Check.java",
+        "batchIndex": 1,
+        "symbols": [
+          "PowerPM1Check",
+          "Check",
+          "PowerPM1Check"
+        ]
+      },
+      {
+        "path": "src/utilities/FFT.java",
+        "batchIndex": 1,
+        "symbols": [
+          "mod",
+          "roots",
+          "rootsInv",
+          "lengthInv",
+          "transform",
+          "inverseTransform",
+          "modmult",
+          "FFT"
+        ]
+      },
+      {
+        "path": "src/utilities/NTT.java",
+        "batchIndex": 1,
+        "symbols": [
+          "transform",
+          "inverseTransform",
+          "transformRadix2",
+          "circularConvolve",
+          "findModulus",
+          "findGenerator",
+          "findPrimitiveRoot",
+          "isGenerator",
+          "isPrimitiveRoot",
+          "reciprocal",
+          "uniquePrimeFactors",
+          "isPrime",
+          "pow",
+          "sqrt",
+          "NTT"
+        ]
+      }
+    ]
+  }
+}

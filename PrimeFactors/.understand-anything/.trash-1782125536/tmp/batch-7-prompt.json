@@ -1,0 +1,184 @@
+{
+  "batchIndex": 7,
+  "totalBatches": 10,
+  "files": [
+    {
+      "path": "src/calculator/GUI.java",
+      "language": "java",
+      "sizeLines": 138,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/javamodel/Add.ctxt",
+      "language": "ctxt",
+      "sizeLines": 10,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/javamodel/CalculatorImpl.ctxt",
+      "language": "ctxt",
+      "sizeLines": 25,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/javamodel/ChangeSigns.ctxt",
+      "language": "ctxt",
+      "sizeLines": 10,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/javamodel/ClearStack.ctxt",
+      "language": "ctxt",
+      "sizeLines": 7,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/javamodel/Divide.ctxt",
+      "language": "ctxt",
+      "sizeLines": 10,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/javamodel/Multiply.ctxt",
+      "language": "ctxt",
+      "sizeLines": 10,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/javamodel/package.bluej",
+      "language": "bluej",
+      "sizeLines": 137,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/javamodel/Pop.ctxt",
+      "language": "ctxt",
+      "sizeLines": 7,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/javamodel/Power.ctxt",
+      "language": "ctxt",
+      "sizeLines": 10,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/javamodel/Push.ctxt",
+      "language": "ctxt",
+      "sizeLines": 7,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/javamodel/README.TXT",
+      "language": "txt",
+      "sizeLines": 0,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "src/calculator/javamodel/Remainder.ctxt",
+      "language": "ctxt",
+      "sizeLines": 10,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/javamodel/RotateDown.ctxt",
+      "language": "ctxt",
+      "sizeLines": 7,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/javamodel/RotateUp.ctxt",
+      "language": "ctxt",
+      "sizeLines": 7,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/javamodel/Subtract.ctxt",
+      "language": "ctxt",
+      "sizeLines": 10,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/javamodel/TenToPower.ctxt",
+      "language": "ctxt",
+      "sizeLines": 10,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/javamodel/TwoToPower.ctxt",
+      "language": "ctxt",
+      "sizeLines": 10,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/largemodel/Add.ctxt",
+      "language": "ctxt",
+      "sizeLines": 14,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/largemodel/CalculatorImpl.ctxt",
+      "language": "ctxt",
+      "sizeLines": 31,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/largemodel/ChangeSigns.ctxt",
+      "language": "ctxt",
+      "sizeLines": 12,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/largemodel/Divide.ctxt",
+      "language": "ctxt",
+      "sizeLines": 12,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/largemodel/Multiply.ctxt",
+      "language": "ctxt",
+      "sizeLines": 14,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/largemodel/package.bluej",
+      "language": "bluej",
+      "sizeLines": 97,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/largemodel/Power.ctxt",
+      "language": "ctxt",
+      "sizeLines": 10,
+      "fileCategory": "code"
+    }
+  ],
+  "batchImportData": {
+    "src/calculator/GUI.java": [],
+    "src/calculator/javamodel/Add.ctxt": [],
+    "src/calculator/javamodel/CalculatorImpl.ctxt": [],
+    "src/calculator/javamodel/ChangeSigns.ctxt": [],
+    "src/calculator/javamodel/ClearStack.ctxt": [],
+    "src/calculator/javamodel/Divide.ctxt": [],
+    "src/calculator/javamodel/Multiply.ctxt": [],
+    "src/calculator/javamodel/package.bluej": [],
+    "src/calculator/javamodel/Pop.ctxt": [],
+    "src/calculator/javamodel/Power.ctxt": [],
+    "src/calculator/javamodel/Push.ctxt": [],
+    "src/calculator/javamodel/README.TXT": [],
+    "src/calculator/javamodel/Remainder.ctxt": [],
+    "src/calculator/javamodel/RotateDown.ctxt": [],
+    "src/calculator/javamodel/RotateUp.ctxt": [],
+    "src/calculator/javamodel/Subtract.ctxt": [],
+    "src/calculator/javamodel/TenToPower.ctxt": [],
+    "src/calculator/javamodel/TwoToPower.ctxt": [],
+    "src/calculator/largemodel/Add.ctxt": [],
+    "src/calculator/largemodel/CalculatorImpl.ctxt": [],
+    "src/calculator/largemodel/ChangeSigns.ctxt": [],
+    "src/calculator/largemodel/Divide.ctxt": [],
+    "src/calculator/largemodel/Multiply.ctxt": [],
+    "src/calculator/largemodel/package.bluej": [],
+    "src/calculator/largemodel/Power.ctxt": []
+  },
+  "neighborMap": {}
+}

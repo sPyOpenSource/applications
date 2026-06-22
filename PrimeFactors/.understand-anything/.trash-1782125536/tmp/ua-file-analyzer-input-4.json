@@ -1,0 +1,33 @@
+{
+  "projectRoot": "/Users/xuyi/Source/OS/armOS/lib/jcore/test/PrimeFactors",
+  "batchFiles": [
+    {"path": "src/Factorzations/siqs/StaticFunctions.java", "size": 455, "language": "java", "fileCategory": "code"},
+    {"path": "src/com/gazman/Main.java", "size": 27, "language": "java", "fileCategory": "code"},
+    {"path": "src/com/gazman/factor/BigPrimesList.java", "size": 47, "language": "java", "fileCategory": "code"},
+    {"path": "src/com/gazman/factor/Logger.java", "size": 90, "language": "java", "fileCategory": "code"},
+    {"path": "src/com/gazman/factor/QuadraticSieve.java", "size": 289, "language": "java", "fileCategory": "code"},
+    {"path": "src/com/gazman/factor/VectorData.java", "size": 39, "language": "java", "fileCategory": "code"},
+    {"path": "src/com/gazman/factor/matrix/BitMatrix.java", "size": 89, "language": "java", "fileCategory": "code"},
+    {"path": "src/com/gazman/factor/matrix/VectorsShrinker.java", "size": 86, "language": "java", "fileCategory": "code"},
+    {"path": "src/com/gazman/factor/wheels/Wheel.java", "size": 114, "language": "java", "fileCategory": "code"},
+    {"path": "src/com/gazman/math/MathUtils.java", "size": 120, "language": "java", "fileCategory": "code"},
+    {"path": "src/com/gazman/math/SqrRoot.java", "size": 22, "language": "java", "fileCategory": "code"},
+    {"path": "src/ecm/BigIntegers/GCD.java", "size": 111, "language": "java", "fileCategory": "code"},
+    {"path": "src/ecm/BigIntegers/ModInv.java", "size": 401, "language": "java", "fileCategory": "code"}
+  ],
+  "batchImportData": {
+    "src/Factorzations/siqs/StaticFunctions.java": [],
+    "src/com/gazman/Main.java": [],
+    "src/com/gazman/factor/BigPrimesList.java": [],
+    "src/com/gazman/factor/Logger.java": [],
+    "src/com/gazman/factor/QuadraticSieve.java": ["src/com/gazman/factor/BigPrimesList.java", "src/com/gazman/factor/VectorData.java", "src/com/gazman/factor/matrix/BitMatrix.java", "src/com/gazman/factor/matrix/VectorsShrinker.java", "src/com/gazman/factor/wheels/Wheel.java", "src/com/gazman/math/MathUtils.java", "src/com/gazman/math/SqrRoot.java"],
+    "src/com/gazman/factor/VectorData.java": [],
+    "src/com/gazman/factor/matrix/BitMatrix.java": [],
+    "src/com/gazman/factor/matrix/VectorsShrinker.java": [],
+    "src/com/gazman/factor/wheels/Wheel.java": [],
+    "src/com/gazman/math/MathUtils.java": [],
+    "src/com/gazman/math/SqrRoot.java": [],
+    "src/ecm/BigIntegers/GCD.java": [],
+    "src/ecm/BigIntegers/ModInv.java": []
+  }
+}

@@ -1,0 +1,123 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 15,
+  "filesSkipped": [
+    "src/calculator/Push.ctxt",
+    "src/calculator/Remainder.ctxt",
+    "src/calculator/Subtract.ctxt",
+    "src/calculator/BaseListener.ctxt",
+    "src/calculator/ButtonAction.ctxt",
+    "src/calculator/EndAction.ctxt",
+    "src/calculator/HomeAction.ctxt",
+    "src/calculator/SelectAllAction.ctxt",
+    "src/calculator/SetSticky.ctxt",
+    "src/calculator/TextButtonAction.ctxt"
+  ],
+  "results": [
+    {
+      "path": "src/calculator/README.TXT",
+      "language": "txt",
+      "totalLines": 6,
+      "nonEmptyLines": 4,
+      "metrics": {}
+    },
+    {
+      "path": "src/calculator/largemodel/Add.ctxt",
+      "language": "ctxt",
+      "totalLines": 14,
+      "nonEmptyLines": 14,
+      "metrics": {}
+    },
+    {
+      "path": "src/calculator/largemodel/CalculatorImpl.ctxt",
+      "language": "ctxt",
+      "totalLines": 31,
+      "nonEmptyLines": 31,
+      "metrics": {}
+    },
+    {
+      "path": "src/calculator/largemodel/ChangeSigns.ctxt",
+      "language": "ctxt",
+      "totalLines": 12,
+      "nonEmptyLines": 12,
+      "metrics": {}
+    },
+    {
+      "path": "src/calculator/largemodel/Divide.ctxt",
+      "language": "ctxt",
+      "totalLines": 12,
+      "nonEmptyLines": 12,
+      "metrics": {}
+    },
+    {
+      "path": "src/calculator/largemodel/Multiply.ctxt",
+      "language": "ctxt",
+      "totalLines": 14,
+      "nonEmptyLines": 14,
+      "metrics": {}
+    },
+    {
+      "path": "src/calculator/largemodel/Power.ctxt",
+      "language": "ctxt",
+      "totalLines": 10,
+      "nonEmptyLines": 10,
+      "metrics": {}
+    },
+    {
+      "path": "src/calculator/largemodel/Push.ctxt",
+      "language": "ctxt",
+      "totalLines": 7,
+      "nonEmptyLines": 7,
+      "metrics": {}
+    },
+    {
+      "path": "src/calculator/largemodel/Remainder.ctxt",
+      "language": "ctxt",
+      "totalLines": 12,
+      "nonEmptyLines": 12,
+      "metrics": {}
+    },
+    {
+      "path": "src/calculator/largemodel/Subtract.ctxt",
+      "language": "ctxt",
+      "totalLines": 14,
+      "nonEmptyLines": 14,
+      "metrics": {}
+    },
+    {
+      "path": "src/calculator/largemodel/README.TXT",
+      "language": "txt",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "metrics": {}
+    },
+    {
+      "path": "src/calculator/largemodel/package.bluej",
+      "language": "bluej",
+      "totalLines": 97,
+      "nonEmptyLines": 97,
+      "metrics": {}
+    },
+    {
+      "path": "src/calculator/NumericDocument.ctxt",
+      "language": "ctxt",
+      "totalLines": 16,
+      "nonEmptyLines": 16,
+      "metrics": {}
+    },
+    {
+      "path": "src/calculator/Operation.ctxt",
+      "language": "ctxt",
+      "totalLines": 7,
+      "nonEmptyLines": 7,
+      "metrics": {}
+    },
+    {
+      "path": "src/calculator/GUI.ctxt",
+      "language": "ctxt",
+      "totalLines": 13,
+      "nonEmptyLines": 13,
+      "metrics": {}
+    }
+  ]
+}

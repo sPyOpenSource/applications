@@ -1,0 +1,1175 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/BigIntegers/AprtCleInteger.java",
+      "type": "file",
+      "name": "AprtCleInteger.java",
+      "filePath": "src/BigIntegers/AprtCleInteger.java",
+      "summary": "Implements the APR-CL primality proving algorithm with Montgomery arithmetic for large integers, providing Jacobi sum evaluation, exponentiation, and Miller-Rabin probabilistic prime testing.",
+      "tags": [
+        "APR-CL",
+        "primality-proving",
+        "Montgomery-arithmetic",
+        "Jacobi-sum"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:src/BigIntegers/AprtCleInteger.java:AprtCleInteger",
+      "type": "class",
+      "name": "AprtCleInteger",
+      "filePath": "src/BigIntegers/AprtCleInteger.java",
+      "summary": "Extends MontgomeryInteger to perform APR-CL primality proving via Jacobi sum computations and Miller-Rabin probabilistic primality tests.",
+      "tags": [
+        "APR-CL",
+        "primality-test",
+        "MontgomeryInteger"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/BigIntegers/AprtCleInteger.java:isProbablePrimeRobin",
+      "type": "function",
+      "name": "isProbablePrimeRobin",
+      "filePath": "src/BigIntegers/AprtCleInteger.java",
+      "summary": "Miller-Rabin probabilistic primality test iterating over multiple bases; returns true if probably prime, false if composite (with factor extraction on certain failures).",
+      "tags": [
+        "Miller-Rabin",
+        "primality-test",
+        "probabilistic"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/BigIntegers/AprtCleInteger.java:JS_E",
+      "type": "function",
+      "name": "JS_E",
+      "filePath": "src/BigIntegers/AprtCleInteger.java",
+      "summary": "Computes Jacobi sum exponentiation JS^E using Montgomery multiplication with optimized squaring and multiplication steps.",
+      "tags": [
+        "Jacobi-sum",
+        "exponentiation",
+        "Montgomery"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/Factorzations/Classical.java",
+      "type": "file",
+      "name": "Classical.java",
+      "filePath": "src/Factorzations/Classical.java",
+      "summary": "Implements classical trial division factorization, dividing by small primes up to a bound while checking for primality and even factors.",
+      "tags": [
+        "trial-division",
+        "factorization",
+        "primality-check"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/Factorzations/Classical.java:Classical",
+      "type": "class",
+      "name": "Classical",
+      "filePath": "src/Factorzations/Classical.java",
+      "summary": "Provides trial division factorization using BigInteger, testing odd divisors up to sqrt(N) and checking primality via isProbablePrime.",
+      "tags": [
+        "trial-division",
+        "BigInteger",
+        "factorization"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/Factorzations/Classical.java:factor",
+      "type": "function",
+      "name": "factor",
+      "filePath": "src/Factorzations/Classical.java",
+      "summary": "Main factorization method using trial division: extracts powers of 2, then tests odd divisors up to sqrt(N) or a bound of 131072.",
+      "tags": [
+        "trial-division",
+        "factorization",
+        "loop"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/Factorzations/Lehman.java",
+      "type": "file",
+      "name": "Lehman.java",
+      "filePath": "src/Factorzations/Lehman.java",
+      "summary": "Implements Lehman's factorization algorithm as a Thread, using perfect square detection with modular residue tables for efficient trial factoring.",
+      "tags": [
+        "Lehman",
+        "factorization",
+        "perfect-square",
+        "multi-threaded"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/Factorzations/Lehman.java:Lehman",
+      "type": "class",
+      "name": "Lehman",
+      "filePath": "src/Factorzations/Lehman.java",
+      "summary": "Extends Thread to run Lehman's factorization in parallel; uses precomputed quadratic residue bit masks for rapid perfect square rejection.",
+      "tags": [
+        "Lehman",
+        "factorization",
+        "Thread"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/Factorzations/Lehman.java:factor",
+      "type": "function",
+      "name": "factor",
+      "filePath": "src/Factorzations/Lehman.java",
+      "summary": "Lehman's factorization algorithm iterating over candidate a values, testing if a^2 - 4kN is a perfect square using bitmask-based quadratic residue checks.",
+      "tags": [
+        "Lehman",
+        "perfect-square",
+        "modular"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/Factorzations/ecm/ECM.java",
+      "type": "file",
+      "name": "ECM.java",
+      "filePath": "src/Factorzations/ecm/ECM.java",
+      "summary": "Top-level entry point for the Elliptic Curve Method factorization, orchestrating ECM steps and switching to SIQS for numbers in the 30-90 digit range.",
+      "tags": [
+        "ECM",
+        "elliptic-curve",
+        "factorization",
+        "SIQS-switch"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/Factorzations/ecm/ECM.java:ECM",
+      "type": "class",
+      "name": "ECM",
+      "filePath": "src/Factorzations/ecm/ECM.java",
+      "summary": "Extends ecmStep2 to orchestrate ECM factorization: loops curves via Lehman pre-test, step0, step1, step2 and conditionally switches to SIQS.",
+      "tags": [
+        "ECM",
+        "factorization",
+        "elliptic-curve"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/Factorzations/ecm/ECM.java:factor",
+      "type": "function",
+      "name": "factor",
+      "filePath": "src/Factorzations/ecm/ECM.java",
+      "summary": "Main ECM factorization loop: tests each curve through Lehman, step0/1/2, and returns the discovered factor or switches to SIQS.",
+      "tags": [
+        "ECM",
+        "factorization",
+        "loop"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/Factorzations/ecm/ecmStep0.java",
+      "type": "file",
+      "name": "ecmStep0.java",
+      "filePath": "src/Factorzations/ecm/ecmStep0.java",
+      "summary": "Initializes ECM elliptic curve parameters: generates small primes, sets up Montgomery curve coefficients A and coordinates (X:Z) for step 1.",
+      "tags": [
+        "ECM",
+        "curve-init",
+        "Montgomery-curve",
+        "prime-generation"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/Factorzations/ecm/ecmStep0.java:ecmStep0",
+      "type": "class",
+      "name": "ecmStep0",
+      "filePath": "src/Factorzations/ecm/ecmStep0.java",
+      "summary": "Base class for ECM steps; allocates Montgomery-form curve parameters and generates small primes up to configurable limits for the elliptic curve method.",
+      "tags": [
+        "ECM",
+        "curve-parameters",
+        "Montgomery"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/Factorzations/ecm/ecmStep0.java:step0",
+      "type": "function",
+      "name": "step0",
+      "filePath": "src/Factorzations/ecm/ecmStep0.java",
+      "summary": "Computes curve coefficients A, AA and initial point (X:Z) for ECM step 1 using modular arithmetic with Montgomery multiplication.",
+      "tags": [
+        "ECM",
+        "curve-computation",
+        "Montgomery"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/Factorzations/ecm/ecmStep1.java",
+      "type": "file",
+      "name": "ecmStep1.java",
+      "filePath": "src/Factorzations/ecm/ecmStep1.java",
+      "summary": "Performs ECM step 1: computes scalar multiples of a point on the elliptic curve using Montgomery's ladder with Lucas chains (prac algorithm).",
+      "tags": [
+        "ECM-step1",
+        "point-multiplication",
+        "Lucas-chain",
+        "Montgomery-ladder"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:src/Factorzations/ecm/ecmStep1.java:ecmStep1",
+      "type": "class",
+      "name": "ecmStep1",
+      "filePath": "src/Factorzations/ecm/ecmStep1.java",
+      "summary": "Extends ecmStep0 to implement ECM step 1 using Montgomery point arithmetic (duplicate, add3, prac) with prime power sieving and GCD accumulation.",
+      "tags": [
+        "ECM",
+        "point-arithmetic",
+        "Montgomery",
+        "step1"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/Factorzations/ecm/ecmStep1.java:step1",
+      "type": "function",
+      "name": "step1",
+      "filePath": "src/Factorzations/ecm/ecmStep1.java",
+      "summary": "ECM step 1: processes powers of small primes and sieved primes up to L1, accumulating Montgomery point multiplications with GCD checks for factor discovery.",
+      "tags": [
+        "ECM",
+        "step1",
+        "prime-power",
+        "GCD"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/Factorzations/ecm/ecmStep1.java:prac",
+      "type": "function",
+      "name": "prac",
+      "filePath": "src/Factorzations/ecm/ecmStep1.java",
+      "summary": "Montgomery's PRAC algorithm for scalar multiplication on elliptic curves using Lucas chains, choosing optimal addition chain based on the golden ratio.",
+      "tags": [
+        "Lucas-chain",
+        "scalar-mult",
+        "Montgomery",
+        "PRAC"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/Factorzations/ecm/ecmStep1.java:duplicate",
+      "type": "function",
+      "name": "duplicate",
+      "filePath": "src/Factorzations/ecm/ecmStep1.java",
+      "summary": "Computes 2P on a Montgomery elliptic curve using 5 multiplications and 4 additions on projective (X:Z) coordinates.",
+      "tags": [
+        "point-doubling",
+        "Montgomery",
+        "elliptic-curve"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/Factorzations/ecm/ecmStep1.java:add3",
+      "type": "function",
+      "name": "add3",
+      "filePath": "src/Factorzations/ecm/ecmStep1.java",
+      "summary": "Adds two points Q and R on a Montgomery curve where Q-R is known, using 5/6 multiplications and 6 additions on projective coordinates.",
+      "tags": [
+        "point-addition",
+        "Montgomery",
+        "elliptic-curve"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/Factorzations/ecm/ecmStep2.java",
+      "type": "file",
+      "name": "ecmStep2.java",
+      "filePath": "src/Factorzations/ecm/ecmStep2.java",
+      "summary": "Performs ECM step 2 using improved standard continuation with sieving, computing differences of multiples of Q and accumulating GCDs to find factors.",
+      "tags": [
+        "ECM-step2",
+        "improved-continuation",
+        "GCD",
+        "sieving"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:src/Factorzations/ecm/ecmStep2.java:ecmStep2",
+      "type": "class",
+      "name": "ecmStep2",
+      "filePath": "src/Factorzations/ecm/ecmStep2.java",
+      "summary": "Extends ecmStep1 to implement ECM step 2 using the improved standard continuation with precomputed roots, sieving, and modular arithmetic.",
+      "tags": [
+        "ECM",
+        "step2",
+        "continuation",
+        "GCD"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/Factorzations/ecm/ecmStep2.java:step2",
+      "type": "function",
+      "name": "step2",
+      "filePath": "src/Factorzations/ecm/ecmStep2.java",
+      "summary": "ECM step 2 using improved standard continuation: computes baby-step points (kQ), giant steps, and accumulates GCD differences to find factors.",
+      "tags": [
+        "ECM",
+        "step2",
+        "baby-step-giant-step",
+        "GCD"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/Factorzations/siqs/FirstPolynomial.java",
+      "type": "file",
+      "name": "FirstPolynomial.java",
+      "filePath": "src/Factorzations/siqs/FirstPolynomial.java",
+      "summary": "Abstract base for SIQS polynomial initialization, computing leading coefficient A, linear coefficients, and sieve data for the first polynomial in each set.",
+      "tags": [
+        "SIQS",
+        "polynomial-init",
+        "leading-coefficient",
+        "sieve"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/Factorzations/siqs/FirstPolynomial.java:FirstPolynomial",
+      "type": "class",
+      "name": "FirstPolynomial",
+      "filePath": "src/Factorzations/siqs/FirstPolynomial.java",
+      "summary": "Abstract Runnable class that initializes SIQS polynomial parameters: A coefficient from prime factors, linear coefficients, and per-prime sieve offsets.",
+      "tags": [
+        "SIQS",
+        "polynomial",
+        "sieve",
+        "abstract"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/Factorzations/siqs/FirstPolynomial.java:init",
+      "type": "function",
+      "name": "init",
+      "filePath": "src/Factorzations/siqs/FirstPolynomial.java",
+      "summary": "Initializes the first polynomial of an SIQS polynomial set: computes A from prime factors, per-prime linear deltas, and sieve initialization data.",
+      "tags": [
+        "SIQS",
+        "initialization",
+        "polynomial",
+        "sieve"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/Factorzations/siqs/Maths.java",
+      "type": "file",
+      "name": "Maths.java",
+      "filePath": "src/Factorzations/siqs/Maths.java",
+      "summary": "Provides linear algebra operations for SIQS: Block Lanczos setup, binary matrix operations (mult, add, transpose), singleton erasure, and column exchange utilities.",
+      "tags": [
+        "SIQS",
+        "linear-algebra",
+        "binary-matrix",
+        "Block-Lanczos",
+        "GF2"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:src/Factorzations/siqs/Maths.java:Maths",
+      "type": "class",
+      "name": "Maths",
+      "filePath": "src/Factorzations/siqs/Maths.java",
+      "summary": "Core linear algebra class for SIQS: provides matrix operations over GF(2) and the LinearAlgebraPhase that ties Block Lanczos to factor extraction.",
+      "tags": [
+        "SIQS",
+        "linear-algebra",
+        "matrix",
+        "GF2"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/Factorzations/siqs/Maths.java:LinearAlgebraPhase",
+      "type": "function",
+      "name": "LinearAlgebraPhase",
+      "filePath": "src/Factorzations/siqs/Maths.java",
+      "summary": "Orchestrates the linear algebra phase: erases singletons, runs Block Lanczos, and tests GCD of resulting relations to extract a non-trivial factor.",
+      "tags": [
+        "SIQS",
+        "linear-algebra",
+        "factor-extraction",
+        "Block-Lanczos"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/Factorzations/siqs/Maths.java:EraseSingletons",
+      "type": "function",
+      "name": "EraseSingletons",
+      "filePath": "src/Factorzations/siqs/Maths.java",
+      "summary": "Iteratively removes singleton columns from the binary relation matrix and compacts remaining rows, reducing the matrix for Block Lanczos processing.",
+      "tags": [
+        "SIQS",
+        "singleton-erasure",
+        "matrix-reduction"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/Factorzations/siqs/Matrix.java",
+      "type": "file",
+      "name": "Matrix.java",
+      "filePath": "src/Factorzations/siqs/Matrix.java",
+      "summary": "Implements the Block Lanczos algorithm for finding the nullspace of a sparse binary matrix over GF(2) with block size 32.",
+      "tags": [
+        "SIQS",
+        "Block-Lanczos",
+        "nullspace",
+        "GF2"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:src/Factorzations/siqs/Matrix.java:Matrix",
+      "type": "class",
+      "name": "Matrix",
+      "filePath": "src/Factorzations/siqs/Matrix.java",
+      "summary": "Extends Maths to implement Block Lanczos nullspace computation on a sparse binary matrix, applying row/column reductions to find linear dependencies.",
+      "tags": [
+        "SIQS",
+        "Block-Lanczos",
+        "nullspace",
+        "matrix"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/Factorzations/siqs/Matrix.java:BlockLanczos",
+      "type": "function",
+      "name": "BlockLanczos",
+      "filePath": "src/Factorzations/siqs/Matrix.java",
+      "summary": "Block Lanczos algorithm over GF(2) with block size 32: iterates until nullspace found, managing block vectors D, E, F and performing column operations for linear independence.",
+      "tags": [
+        "Block-Lanczos",
+        "nullspace",
+        "GF2",
+        "iteration"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/Factorzations/siqs/Relation.java",
+      "type": "file",
+      "name": "Relation.java",
+      "filePath": "src/Factorzations/siqs/Relation.java",
+      "summary": "Manages smooth and partial congruence relations in SIQS: detects full factorizations, matches partials via hash map, and inserts relations into the sparse matrix.",
+      "tags": [
+        "SIQS",
+        "congruence",
+        "smooth-numbers",
+        "partial-relations",
+        "hash-map"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:src/Factorzations/siqs/Relation.java:Relation",
+      "type": "class",
+      "name": "Relation",
+      "filePath": "src/Factorzations/siqs/Relation.java",
+      "summary": "Extends Matrix to handle SIQS relation processing: smooth/partial relation detection, partial matching via HashMap, matrix insertion, and left-hand side computation.",
+      "tags": [
+        "SIQS",
+        "relation",
+        "partial",
+        "smooth",
+        "matrix"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/Factorzations/siqs/Relation.java:SmoothRelationFound",
+      "type": "function",
+      "name": "SmoothRelationFound",
+      "filePath": "src/Factorzations/siqs/Relation.java",
+      "summary": "Handles a fully factored (smooth) relation: merges factor arrays, computes the arithmetic relation, and inserts it into the sparse matrix.",
+      "tags": [
+        "SIQS",
+        "smooth",
+        "relation",
+        "merge"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/Factorzations/siqs/Relation.java:PartialRelationFound",
+      "type": "function",
+      "name": "PartialRelationFound",
+      "filePath": "src/Factorzations/siqs/Relation.java",
+      "summary": "Handles partial relations with one large prime factor: matches via hash table, merges with a matching partial to form a full relation, or stores for later matching.",
+      "tags": [
+        "SIQS",
+        "partial",
+        "hash-map",
+        "matching"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/Factorzations/siqs/Relation.java:InsertNewRelation",
+      "type": "function",
+      "name": "InsertNewRelation",
+      "filePath": "src/Factorzations/siqs/Relation.java",
+      "summary": "Inserts a new relation into the matrix in sorted order, computing the modular left-hand side value and avoiding duplicate entries.",
+      "tags": [
+        "SIQS",
+        "matrix-insertion",
+        "modular",
+        "dedup"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/Factorzations/siqs/Sieve.java",
+      "type": "file",
+      "name": "Sieve.java",
+      "filePath": "src/Factorzations/siqs/Sieve.java",
+      "summary": "SIQS sieving thread: performs polynomial evaluation, trial division, smooth/partial relation detection, and reports results back to the main SIQS orchestrator.",
+      "tags": [
+        "SIQS",
+        "sieving",
+        "polynomial-evaluation",
+        "trial-division",
+        "thread"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:src/Factorzations/siqs/Sieve.java:Sieve",
+      "type": "class",
+      "name": "Sieve",
+      "filePath": "src/Factorzations/siqs/Sieve.java",
+      "summary": "Extends FirstPolynomial and implements Runnable to perform SIQS sieving in a thread, evaluating polynomials, running trial division, and detecting smooth/partial relations.",
+      "tags": [
+        "SIQS",
+        "sieving",
+        "thread",
+        "Runnable"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/Factorzations/siqs/Sieve.java:run",
+      "type": "function",
+      "name": "run",
+      "filePath": "src/Factorzations/siqs/Sieve.java",
+      "summary": "Main sieve thread loop: generates polynomial sets, performs sieve stage over the interval, trial division, and calls relation handlers for each hit.",
+      "tags": [
+        "SIQS",
+        "sieving",
+        "thread-loop",
+        "trial-division"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/Factorzations/siqs/Sieve.java:SieveLocationHit",
+      "type": "function",
+      "name": "SieveLocationHit",
+      "filePath": "src/Factorzations/siqs/Sieve.java",
+      "summary": "Processes a sieve hit: computes (Ax+B)^2-N, factors the result, and routes to smooth or partial relation handling based on the remaining unfactored part.",
+      "tags": [
+        "SIQS",
+        "hit-processing",
+        "trial-division",
+        "factoring"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/Factorzations/siqs/Siqs.java",
+      "type": "file",
+      "name": "Siqs.java",
+      "filePath": "src/Factorzations/siqs/Siqs.java",
+      "summary": "Top-level orchestrator for the Self-Initializing Quadratic Sieve: manages factor base generation, Knuth-Schroeppel multiplier selection, thread spawning, and result collection.",
+      "tags": [
+        "SIQS",
+        "orchestrator",
+        "factor-base",
+        "multiplier",
+        "thread"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:src/Factorzations/siqs/Siqs.java:Siqs",
+      "type": "class",
+      "name": "Siqs",
+      "filePath": "src/Factorzations/siqs/Siqs.java",
+      "summary": "Extends Relation to orchestrate the complete SIQS factorization process: setup, factor base with Knuth-Schroeppel multiplier, sieving threads, and linear algebra.",
+      "tags": [
+        "SIQS",
+        "factorization",
+        "orchestrator",
+        "setup"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/Factorzations/siqs/Siqs.java:factor",
+      "type": "function",
+      "name": "factor",
+      "filePath": "src/Factorzations/siqs/Siqs.java",
+      "summary": "Main SIQS factor method: configures parameters, spawns sieve threads, waits for sufficient congruences, then runs linear algebra to extract the factor.",
+      "tags": [
+        "SIQS",
+        "factorization",
+        "thread-management",
+        "linear-algebra"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/Factorzations/siqs/Siqs.java:Setup",
+      "type": "function",
+      "name": "Setup",
+      "filePath": "src/Factorzations/siqs/Siqs.java",
+      "summary": "Computes SIQS startup data: finds optimal Knuth-Schroeppel multiplier, generates factor base with quadratic residues, sets sieve thresholds and polynomial parameters.",
+      "tags": [
+        "SIQS",
+        "setup",
+        "factor-base",
+        "multiplier",
+        "Jacobii"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/Factorzations/siqs/StaticFunctions.java",
+      "type": "file",
+      "name": "StaticFunctions.java",
+      "filePath": "src/Factorzations/siqs/StaticFunctions.java",
+      "summary": "Utility functions for SIQS: SQUFOF factoring algorithm, Jacobi symbol computation, modular inverse by extended Euclid, and Montgomery-based primality test.",
+      "tags": [
+        "SIQS",
+        "SQUFOF",
+        "Jacobi-symbol",
+        "modular-inverse",
+        "primality"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:src/Factorzations/siqs/StaticFunctions.java:StaticFunctions",
+      "type": "class",
+      "name": "StaticFunctions",
+      "filePath": "src/Factorzations/siqs/StaticFunctions.java",
+      "summary": "Static utility class providing SQUFOF integer factorization, Jacobi symbol, modular inverse, binary search for divisor index, and probabilistic primality testing.",
+      "tags": [
+        "SIQS",
+        "SQUFOF",
+        "utilities",
+        "primality"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/Factorzations/siqs/StaticFunctions.java:SQUFOF",
+      "type": "function",
+      "name": "SQUFOF",
+      "filePath": "src/Factorzations/siqs/StaticFunctions.java",
+      "summary": "SQUFOF (Square Form Factorization) algorithm with multiplier 3: cycles forward to find square forms, then backward to extract factors of small integers.",
+      "tags": [
+        "SQUFOF",
+        "factorization",
+        "square-form",
+        "queues"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/Factorzations/siqs/StaticFunctions.java:isProbablePrime",
+      "type": "function",
+      "name": "isProbablePrime",
+      "filePath": "src/Factorzations/siqs/StaticFunctions.java",
+      "summary": "Montgomery multiplication-based probabilistic primality test checking if 2^value mod value == 2 for odd values, using 31-bit limb arithmetic.",
+      "tags": [
+        "primality-test",
+        "Montgomery",
+        "Fermat"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/calculator/ConvertBase.java",
+      "type": "file",
+      "name": "ConvertBase.java",
+      "filePath": "src/calculator/ConvertBase.java",
+      "summary": "Encapsulates a base-conversion operation for the calculator, validating that the base falls within the range 2 to 36.",
+      "tags": [
+        "calculator",
+        "base-conversion",
+        "operation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/calculator/ConvertBase.java:ConvertBase",
+      "type": "class",
+      "name": "ConvertBase",
+      "filePath": "src/calculator/ConvertBase.java",
+      "summary": "Implements the Operation interface to represent a base conversion request, storing the target base and validating its range.",
+      "tags": [
+        "calculator",
+        "base-conversion",
+        "Operation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/calculator/Deque.java",
+      "type": "file",
+      "name": "Deque.java",
+      "filePath": "src/calculator/Deque.java",
+      "summary": "A dynamic double-ended queue (deque) that grows as needed, supporting add/remove/get operations at both front and back.",
+      "tags": [
+        "calculator",
+        "deque",
+        "data-structure",
+        "queue"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/calculator/Deque.java:Deque",
+      "type": "class",
+      "name": "Deque",
+      "filePath": "src/calculator/Deque.java",
+      "summary": "Circular array-based deque that doubles its capacity when full, providing O(1) amortized add/remove at both ends.",
+      "tags": [
+        "deque",
+        "circular-buffer",
+        "data-structure"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/calculator/EmptyDequeException.java",
+      "type": "file",
+      "name": "EmptyDequeException.java",
+      "filePath": "src/calculator/EmptyDequeException.java",
+      "summary": "A simple exception class thrown when attempting to access an element in an empty Deque.",
+      "tags": [
+        "calculator",
+        "exception",
+        "deque"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/calculator/EmptyDequeException.java:EmptyDequeException",
+      "type": "class",
+      "name": "EmptyDequeException",
+      "filePath": "src/calculator/EmptyDequeException.java",
+      "summary": "Extends Exception to signal that a Deque access was attempted while the Deque is empty.",
+      "tags": [
+        "exception",
+        "deque",
+        "empty"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/BigIntegers/AprtCleInteger.java",
+      "target": "file:src/utilities/FFT.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/BigIntegers/AprtCleInteger.java",
+      "target": "file:src/utilities/NTT.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/BigIntegers/AprtCleInteger.java",
+      "target": "file:src/utilities/Zeef.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/BigIntegers/AprtCleInteger.java",
+      "target": "file:src/utilities/BitReverseCounter.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/Factorzations/Lehman.java",
+      "target": "file:src/BigIntegers/AprtCleInteger.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/Factorzations/Lehman.java",
+      "target": "file:src/utilities/FFT.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/Factorzations/Lehman.java",
+      "target": "file:src/utilities/NTT.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/Factorzations/Lehman.java",
+      "target": "file:src/utilities/Zeef.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/Factorzations/ecm/ECM.java",
+      "target": "file:src/BigIntegers/ECMBigInteger.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/Factorzations/ecm/ECM.java",
+      "target": "file:src/BigIntegers/LargeInteger.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/Factorzations/ecm/ECM.java",
+      "target": "file:src/ecm/BigIntegers/GCD.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/Factorzations/ecm/ECM.java",
+      "target": "file:src/ecm/BigIntegers/ModInv.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/Factorzations/ecm/ECM.java",
+      "target": "file:src/ecm/Checks/FibonacciCheck.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/Factorzations/ecm/ECM.java",
+      "target": "file:src/ecm/Checks/LucasCheck.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/Factorzations/ecm/ECM.java",
+      "target": "file:src/ecm/Checks/PowerCheck.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/Factorzations/ecm/ECM.java",
+      "target": "file:src/ecm/Checks/PowerPM1Check.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/Factorzations/ecm/ECM.java",
+      "target": "file:src/ecm/PrimeTest/AprtCle.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/Factorzations/siqs/Sieve.java",
+      "target": "file:src/Factorzations/siqs/PrimeSieveData.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/Factorzations/siqs/Sieve.java",
+      "target": "file:src/Factorzations/siqs/PrimeTrialDivisionData.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/Factorzations/siqs/Sieve.java",
+      "target": "file:src/Factorzations/siqs/FirstPolynomial.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/Factorzations/siqs/Siqs.java",
+      "target": "file:src/BigIntegers/LargeInteger.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/Factorzations/siqs/Siqs.java",
+      "target": "file:src/Factorzations/siqs/FirstPolynomial.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/Factorzations/siqs/Siqs.java",
+      "target": "file:src/Factorzations/siqs/Maths.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/Factorzations/siqs/Siqs.java",
+      "target": "file:src/Factorzations/siqs/Matrix.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/Factorzations/siqs/Siqs.java",
+      "target": "file:src/Factorzations/siqs/PrimeSieveData.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/Factorzations/siqs/Siqs.java",
+      "target": "file:src/Factorzations/siqs/PrimeTrialDivisionData.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/Factorzations/siqs/Siqs.java",
+      "target": "file:src/Factorzations/siqs/Relation.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/Factorzations/siqs/Siqs.java",
+      "target": "file:src/Factorzations/siqs/Sieve.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/Factorzations/siqs/Siqs.java",
+      "target": "file:src/Factorzations/siqs/StaticFunctions.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/Factorzations/siqs/Siqs.java",
+      "target": "file:src/utilities/BitReverseCounter.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/Factorzations/siqs/Siqs.java",
+      "target": "file:src/utilities/FFT.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/Factorzations/siqs/Siqs.java",
+      "target": "file:src/utilities/NTT.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/Factorzations/siqs/Siqs.java",
+      "target": "file:src/utilities/Zeef.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/calculator/ConvertBase.java",
+      "target": "file:src/BigIntegers/LargeInteger.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/calculator/Deque.java",
+      "target": "file:src/calculator/EmptyDequeException.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "class:src/Factorzations/ecm/ECM.java:ECM",
+      "target": "class:src/Factorzations/ecm/ecmStep2.java:ecmStep2",
+      "type": "extends",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:src/Factorzations/ecm/ecmStep1.java:ecmStep1",
+      "target": "class:src/Factorzations/ecm/ecmStep0.java:ecmStep0",
+      "type": "extends",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:src/Factorzations/ecm/ecmStep2.java:ecmStep2",
+      "target": "class:src/Factorzations/ecm/ecmStep1.java:ecmStep1",
+      "type": "extends",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:src/Factorzations/siqs/Sieve.java:Sieve",
+      "target": "class:src/Factorzations/siqs/FirstPolynomial.java:FirstPolynomial",
+      "type": "extends",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:src/Factorzations/siqs/Matrix.java:Matrix",
+      "target": "class:src/Factorzations/siqs/Maths.java:Maths",
+      "type": "extends",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:src/Factorzations/siqs/Relation.java:Relation",
+      "target": "class:src/Factorzations/siqs/Matrix.java:Matrix",
+      "type": "extends",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:src/Factorzations/siqs/Siqs.java:Siqs",
+      "target": "class:src/Factorzations/siqs/Relation.java:Relation",
+      "type": "extends",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "function:src/Factorzations/siqs/Sieve.java:run",
+      "target": "function:src/Factorzations/siqs/FirstPolynomial.java:init",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/Factorzations/siqs/Sieve.java:run",
+      "target": "function:src/Factorzations/siqs/Sieve.java:SieveLocationHit",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/Factorzations/siqs/Sieve.java:SieveLocationHit",
+      "target": "function:src/Factorzations/siqs/Relation.java:SmoothRelationFound",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/Factorzations/siqs/Sieve.java:SieveLocationHit",
+      "target": "function:src/Factorzations/siqs/Relation.java:PartialRelationFound",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/Factorzations/ecm/ECM.java:factor",
+      "target": "function:src/Factorzations/ecm/ecmStep0.java:step0",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/Factorzations/ecm/ECM.java:factor",
+      "target": "function:src/Factorzations/ecm/ecmStep1.java:step1",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/Factorzations/ecm/ECM.java:factor",
+      "target": "function:src/Factorzations/ecm/ecmStep2.java:step2",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/Factorzations/siqs/Maths.java:LinearAlgebraPhase",
+      "target": "function:src/Factorzations/siqs/Matrix.java:BlockLanczos",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/Factorzations/siqs/Siqs.java:factor",
+      "target": "function:src/Factorzations/siqs/Maths.java:LinearAlgebraPhase",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/Factorzations/siqs/Relation.java:PartialRelationFound",
+      "target": "function:src/Factorzations/siqs/Relation.java:InsertNewRelation",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/Factorzations/siqs/Relation.java:SmoothRelationFound",
+      "target": "function:src/Factorzations/siqs/Relation.java:InsertNewRelation",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}

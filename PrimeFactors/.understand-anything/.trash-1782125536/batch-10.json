@@ -1,0 +1,544 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/Factorzations/siqs/PrimeSieveData.java",
+      "type": "file",
+      "name": "PrimeSieveData.java",
+      "filePath": "src/Factorzations/siqs/PrimeSieveData.java",
+      "summary": "Source file: src/Factorzations/siqs/PrimeSieveData.java",
+      "tags": [
+        "code",
+        "java"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/Factorzations/siqs/PrimeSieveData.java:PerformSiqsSieveStage",
+      "type": "function",
+      "name": "PerformSiqsSieveStage",
+      "filePath": "src/Factorzations/siqs/PrimeSieveData.java",
+      "lineRange": [
+        29,
+        676
+      ],
+      "summary": "Function PerformSiqsSieveStage in src/Factorzations/siqs/PrimeSieveData.java",
+      "tags": [
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/Factorzations/siqs/PrimeSieveData.java:PrimeSieveData",
+      "type": "class",
+      "name": "PrimeSieveData",
+      "filePath": "src/Factorzations/siqs/PrimeSieveData.java",
+      "lineRange": [
+        23,
+        677
+      ],
+      "summary": "Class PrimeSieveData in src/Factorzations/siqs/PrimeSieveData.java",
+      "tags": [
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/Factorzations/siqs/PrimeSieveData.ctxt",
+      "type": "file",
+      "name": "PrimeSieveData.ctxt",
+      "filePath": "src/Factorzations/siqs/PrimeSieveData.ctxt",
+      "summary": "Source file: src/Factorzations/siqs/PrimeSieveData.ctxt",
+      "tags": [
+        "code",
+        "bluej"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/Factorzations/siqs/PrimeTrialDivisionData.java",
+      "type": "file",
+      "name": "PrimeTrialDivisionData.java",
+      "filePath": "src/Factorzations/siqs/PrimeTrialDivisionData.java",
+      "summary": "Source file: src/Factorzations/siqs/PrimeTrialDivisionData.java",
+      "tags": [
+        "code",
+        "java"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/Factorzations/siqs/PrimeTrialDivisionData.java:set",
+      "type": "function",
+      "name": "set",
+      "filePath": "src/Factorzations/siqs/PrimeTrialDivisionData.java",
+      "lineRange": [
+        19,
+        33
+      ],
+      "summary": "Function set in src/Factorzations/siqs/PrimeTrialDivisionData.java",
+      "tags": [
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/Factorzations/siqs/PrimeTrialDivisionData.java:Divid",
+      "type": "function",
+      "name": "Divid",
+      "filePath": "src/Factorzations/siqs/PrimeTrialDivisionData.java",
+      "lineRange": [
+        35,
+        101
+      ],
+      "summary": "Function Divid in src/Factorzations/siqs/PrimeTrialDivisionData.java",
+      "tags": [
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/Factorzations/siqs/PrimeTrialDivisionData.java:getRem",
+      "type": "function",
+      "name": "getRem",
+      "filePath": "src/Factorzations/siqs/PrimeTrialDivisionData.java",
+      "lineRange": [
+        103,
+        119
+      ],
+      "summary": "Function getRem in src/Factorzations/siqs/PrimeTrialDivisionData.java",
+      "tags": [
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/Factorzations/siqs/PrimeTrialDivisionData.java:PerformTrialDivision",
+      "type": "function",
+      "name": "PerformTrialDivision",
+      "filePath": "src/Factorzations/siqs/PrimeTrialDivisionData.java",
+      "lineRange": [
+        121,
+        233
+      ],
+      "summary": "Function PerformTrialDivision in src/Factorzations/siqs/PrimeTrialDivisionData.java",
+      "tags": [
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/Factorzations/siqs/PrimeTrialDivisionData.java:PrimeTrialDivisionData",
+      "type": "class",
+      "name": "PrimeTrialDivisionData",
+      "filePath": "src/Factorzations/siqs/PrimeTrialDivisionData.java",
+      "lineRange": [
+        15,
+        234
+      ],
+      "summary": "Class PrimeTrialDivisionData in src/Factorzations/siqs/PrimeTrialDivisionData.java",
+      "tags": [
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/Factorzations/siqs/PrimeTrialDivisionData.ctxt",
+      "type": "file",
+      "name": "PrimeTrialDivisionData.ctxt",
+      "filePath": "src/Factorzations/siqs/PrimeTrialDivisionData.ctxt",
+      "summary": "Source file: src/Factorzations/siqs/PrimeTrialDivisionData.ctxt",
+      "tags": [
+        "code",
+        "bluej"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:src/Factorzations/siqs/README.TXT",
+      "type": "document",
+      "name": "README.TXT",
+      "filePath": "src/Factorzations/siqs/README.TXT",
+      "summary": "Source file: src/Factorzations/siqs/README.TXT",
+      "tags": [
+        "docs",
+        "txt"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/Factorzations/siqs/package.bluej",
+      "type": "file",
+      "name": "package.bluej",
+      "filePath": "src/Factorzations/siqs/package.bluej",
+      "summary": "Source file: src/Factorzations/siqs/package.bluej",
+      "tags": [
+        "code",
+        "bluej"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/Factorzations/ecm/ECM.ctxt",
+      "type": "file",
+      "name": "ECM.ctxt",
+      "filePath": "src/Factorzations/ecm/ECM.ctxt",
+      "summary": "Source file: src/Factorzations/ecm/ECM.ctxt",
+      "tags": [
+        "code",
+        "bluej"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/Factorzations/ecm/StaticFunctions.ctxt",
+      "type": "file",
+      "name": "StaticFunctions.ctxt",
+      "filePath": "src/Factorzations/ecm/StaticFunctions.ctxt",
+      "summary": "Source file: src/Factorzations/ecm/StaticFunctions.ctxt",
+      "tags": [
+        "code",
+        "bluej"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/Factorzations/ecm/StaticFunctions.java",
+      "type": "file",
+      "name": "StaticFunctions.java",
+      "filePath": "src/Factorzations/ecm/StaticFunctions.java",
+      "summary": "Source file: src/Factorzations/ecm/StaticFunctions.java",
+      "tags": [
+        "code",
+        "java"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/Factorzations/ecm/StaticFunctions.java:modPow",
+      "type": "function",
+      "name": "modPow",
+      "filePath": "src/Factorzations/ecm/StaticFunctions.java",
+      "lineRange": [
+        10,
+        21
+      ],
+      "summary": "Function modPow in src/Factorzations/ecm/StaticFunctions.java",
+      "tags": [
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/Factorzations/ecm/StaticFunctions.java:GenerateSieve",
+      "type": "function",
+      "name": "GenerateSieve",
+      "filePath": "src/Factorzations/ecm/StaticFunctions.java",
+      "lineRange": [
+        36,
+        78
+      ],
+      "summary": "Function GenerateSieve in src/Factorzations/ecm/StaticFunctions.java",
+      "tags": [
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/Factorzations/ecm/StaticFunctions.java:lucas_cost",
+      "type": "function",
+      "name": "lucas_cost",
+      "filePath": "src/Factorzations/ecm/StaticFunctions.java",
+      "lineRange": [
+        81,
+        149
+      ],
+      "summary": "Function lucas_cost in src/Factorzations/ecm/StaticFunctions.java",
+      "tags": [
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/Factorzations/ecm/StaticFunctions.java:MultBigNbrByLongModN",
+      "type": "function",
+      "name": "MultBigNbrByLongModN",
+      "filePath": "src/Factorzations/ecm/StaticFunctions.java",
+      "lineRange": [
+        161,
+        176
+      ],
+      "summary": "Function MultBigNbrByLongModN in src/Factorzations/ecm/StaticFunctions.java",
+      "tags": [
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/Factorzations/ecm/StaticFunctions.java:SubtractBigNbrModN",
+      "type": "function",
+      "name": "SubtractBigNbrModN",
+      "filePath": "src/Factorzations/ecm/StaticFunctions.java",
+      "lineRange": [
+        178,
+        196
+      ],
+      "summary": "Function SubtractBigNbrModN in src/Factorzations/ecm/StaticFunctions.java",
+      "tags": [
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/Factorzations/ecm/StaticFunctions.java:StaticFunctions",
+      "type": "class",
+      "name": "StaticFunctions",
+      "filePath": "src/Factorzations/ecm/StaticFunctions.java",
+      "lineRange": [
+        9,
+        205
+      ],
+      "summary": "Class StaticFunctions in src/Factorzations/ecm/StaticFunctions.java",
+      "tags": [
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/Factorzations/ecm/ecmStep0.ctxt",
+      "type": "file",
+      "name": "ecmStep0.ctxt",
+      "filePath": "src/Factorzations/ecm/ecmStep0.ctxt",
+      "summary": "Source file: src/Factorzations/ecm/ecmStep0.ctxt",
+      "tags": [
+        "code",
+        "bluej"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/Factorzations/ecm/ecmStep1.ctxt",
+      "type": "file",
+      "name": "ecmStep1.ctxt",
+      "filePath": "src/Factorzations/ecm/ecmStep1.ctxt",
+      "summary": "Source file: src/Factorzations/ecm/ecmStep1.ctxt",
+      "tags": [
+        "code",
+        "bluej"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/Factorzations/ecm/ecmStep2.ctxt",
+      "type": "file",
+      "name": "ecmStep2.ctxt",
+      "filePath": "src/Factorzations/ecm/ecmStep2.ctxt",
+      "summary": "Source file: src/Factorzations/ecm/ecmStep2.ctxt",
+      "tags": [
+        "code",
+        "bluej"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:src/Factorzations/ecm/README.TXT",
+      "type": "document",
+      "name": "README.TXT",
+      "filePath": "src/Factorzations/ecm/README.TXT",
+      "summary": "Source file: src/Factorzations/ecm/README.TXT",
+      "tags": [
+        "docs",
+        "txt"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/Factorzations/ecm/package.bluej",
+      "type": "file",
+      "name": "package.bluej",
+      "filePath": "src/Factorzations/ecm/package.bluej",
+      "summary": "Source file: src/Factorzations/ecm/package.bluej",
+      "tags": [
+        "code",
+        "bluej"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/Factorzations/siqs/FirstPolynomial.ctxt",
+      "type": "file",
+      "name": "FirstPolynomial.ctxt",
+      "filePath": "src/Factorzations/siqs/FirstPolynomial.ctxt",
+      "summary": "Source file: src/Factorzations/siqs/FirstPolynomial.ctxt",
+      "tags": [
+        "code",
+        "bluej"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/Factorzations/siqs/Maths.ctxt",
+      "type": "file",
+      "name": "Maths.ctxt",
+      "filePath": "src/Factorzations/siqs/Maths.ctxt",
+      "summary": "Source file: src/Factorzations/siqs/Maths.ctxt",
+      "tags": [
+        "code",
+        "bluej"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/Factorzations/siqs/Matrix.ctxt",
+      "type": "file",
+      "name": "Matrix.ctxt",
+      "filePath": "src/Factorzations/siqs/Matrix.ctxt",
+      "summary": "Source file: src/Factorzations/siqs/Matrix.ctxt",
+      "tags": [
+        "code",
+        "bluej"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/Factorzations/siqs/Relation.ctxt",
+      "type": "file",
+      "name": "Relation.ctxt",
+      "filePath": "src/Factorzations/siqs/Relation.ctxt",
+      "summary": "Source file: src/Factorzations/siqs/Relation.ctxt",
+      "tags": [
+        "code",
+        "bluej"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/Factorzations/siqs/Sieve.ctxt",
+      "type": "file",
+      "name": "Sieve.ctxt",
+      "filePath": "src/Factorzations/siqs/Sieve.ctxt",
+      "summary": "Source file: src/Factorzations/siqs/Sieve.ctxt",
+      "tags": [
+        "code",
+        "bluej"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/Factorzations/siqs/Siqs.ctxt",
+      "type": "file",
+      "name": "Siqs.ctxt",
+      "filePath": "src/Factorzations/siqs/Siqs.ctxt",
+      "summary": "Source file: src/Factorzations/siqs/Siqs.ctxt",
+      "tags": [
+        "code",
+        "bluej"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/Factorzations/siqs/StaticFunctions.ctxt",
+      "type": "file",
+      "name": "StaticFunctions.ctxt",
+      "filePath": "src/Factorzations/siqs/StaticFunctions.ctxt",
+      "summary": "Source file: src/Factorzations/siqs/StaticFunctions.ctxt",
+      "tags": [
+        "code",
+        "bluej"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/Factorzations/siqs/PrimeSieveData.java",
+      "target": "function:src/Factorzations/siqs/PrimeSieveData.java:PerformSiqsSieveStage",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/Factorzations/siqs/PrimeSieveData.java",
+      "target": "class:src/Factorzations/siqs/PrimeSieveData.java:PrimeSieveData",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/Factorzations/siqs/PrimeTrialDivisionData.java",
+      "target": "function:src/Factorzations/siqs/PrimeTrialDivisionData.java:set",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/Factorzations/siqs/PrimeTrialDivisionData.java",
+      "target": "function:src/Factorzations/siqs/PrimeTrialDivisionData.java:Divid",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/Factorzations/siqs/PrimeTrialDivisionData.java",
+      "target": "function:src/Factorzations/siqs/PrimeTrialDivisionData.java:getRem",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/Factorzations/siqs/PrimeTrialDivisionData.java",
+      "target": "function:src/Factorzations/siqs/PrimeTrialDivisionData.java:PerformTrialDivision",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/Factorzations/siqs/PrimeTrialDivisionData.java",
+      "target": "class:src/Factorzations/siqs/PrimeTrialDivisionData.java:PrimeTrialDivisionData",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/Factorzations/ecm/StaticFunctions.java",
+      "target": "function:src/Factorzations/ecm/StaticFunctions.java:modPow",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/Factorzations/ecm/StaticFunctions.java",
+      "target": "function:src/Factorzations/ecm/StaticFunctions.java:GenerateSieve",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/Factorzations/ecm/StaticFunctions.java",
+      "target": "function:src/Factorzations/ecm/StaticFunctions.java:lucas_cost",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/Factorzations/ecm/StaticFunctions.java",
+      "target": "function:src/Factorzations/ecm/StaticFunctions.java:MultBigNbrByLongModN",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/Factorzations/ecm/StaticFunctions.java",
+      "target": "function:src/Factorzations/ecm/StaticFunctions.java:SubtractBigNbrModN",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/Factorzations/ecm/StaticFunctions.java",
+      "target": "class:src/Factorzations/ecm/StaticFunctions.java:StaticFunctions",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    }
+  ]
+}

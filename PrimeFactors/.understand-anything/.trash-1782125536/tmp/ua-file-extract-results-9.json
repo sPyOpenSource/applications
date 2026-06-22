@@ -1,0 +1,3155 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 26,
+  "filesSkipped": [
+    "src/ecm/PrimeTest/PrimeThread.ctxt",
+    "src/ecm/PrimeTest/PrimeThread.java"
+  ],
+  "results": [
+    {
+      "path": "src/ecm/PrimeTest/LucasLehmer.ctxt",
+      "language": "ctxt",
+      "fileCategory": "config",
+      "totalLines": 12,
+      "nonEmptyLines": 12,
+      "metrics": {}
+    },
+    {
+      "path": "src/ecm/PrimeTest/LucasLehmer.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 147,
+      "nonEmptyLines": 133,
+      "functions": [
+        {
+          "name": "main",
+          "startLine": 30,
+          "endLine": 53,
+          "params": [
+            "args"
+          ]
+        },
+        {
+          "name": "LucasLehmer",
+          "startLine": 55,
+          "endLine": 57,
+          "params": [
+            "prime"
+          ]
+        },
+        {
+          "name": "run",
+          "startLine": 59,
+          "endLine": 68,
+          "params": []
+        },
+        {
+          "name": "isPrime",
+          "startLine": 71,
+          "endLine": 113,
+          "params": []
+        },
+        {
+          "name": "PrimeThread",
+          "startLine": 122,
+          "endLine": 126,
+          "params": [
+            "prime",
+            "certainty"
+          ]
+        },
+        {
+          "name": "run",
+          "startLine": 128,
+          "endLine": 146,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "LucasLehmer",
+          "startLine": 20,
+          "endLine": 114,
+          "methods": [
+            "main",
+            "LucasLehmer",
+            "run",
+            "isPrime"
+          ],
+          "properties": [
+            "smallPrimes",
+            "prime",
+            "newContentPane"
+          ]
+        },
+        {
+          "name": "PrimeThread",
+          "startLine": 116,
+          "endLine": 147,
+          "methods": [
+            "PrimeThread",
+            "run"
+          ],
+          "properties": [
+            "m",
+            "prime",
+            "certainty",
+            "aprt"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "main",
+          "line": 30,
+          "isDefault": false
+        },
+        {
+          "name": "LucasLehmer",
+          "line": 55,
+          "isDefault": false
+        },
+        {
+          "name": "run",
+          "line": 59,
+          "isDefault": false
+        },
+        {
+          "name": "isPrime",
+          "line": 71,
+          "isDefault": false
+        },
+        {
+          "name": "LucasLehmer",
+          "line": 20,
+          "isDefault": false
+        },
+        {
+          "name": "run",
+          "line": 128,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "main",
+          "callee": "new JFrame",
+          "lineNumber": 32
+        },
+        {
+          "caller": "main",
+          "callee": "frame.setPreferredSize",
+          "lineNumber": 33
+        },
+        {
+          "caller": "main",
+          "callee": "new Dimension",
+          "lineNumber": 33
+        },
+        {
+          "caller": "main",
+          "callee": "frame.setDefaultCloseOperation",
+          "lineNumber": 34
+        },
+        {
+          "caller": "main",
+          "callee": "newContentPane.setOpaque",
+          "lineNumber": 37
+        },
+        {
+          "caller": "main",
+          "callee": "frame.setContentPane",
+          "lineNumber": 38
+        },
+        {
+          "caller": "main",
+          "callee": "frame.pack",
+          "lineNumber": 41
+        },
+        {
+          "caller": "main",
+          "callee": "frame.setVisible",
+          "lineNumber": 42
+        },
+        {
+          "caller": "main",
+          "callee": "System.out.println",
+          "lineNumber": 43
+        },
+        {
+          "caller": "main",
+          "callee": "new Zeef",
+          "lineNumber": 45
+        },
+        {
+          "caller": "main",
+          "callee": "System.arraycopy",
+          "lineNumber": 46
+        },
+        {
+          "caller": "main",
+          "callee": "zeef.getPrimes",
+          "lineNumber": 46
+        },
+        {
+          "caller": "main",
+          "callee": "zeef.getSize",
+          "lineNumber": 46
+        },
+        {
+          "caller": "main",
+          "callee": "Executors.newFixedThreadPool",
+          "lineNumber": 47
+        },
+        {
+          "caller": "main",
+          "callee": "Runtime.getRuntime().availableProcessors",
+          "lineNumber": 47
+        },
+        {
+          "caller": "main",
+          "callee": "Runtime.getRuntime",
+          "lineNumber": 47
+        },
+        {
+          "caller": "main",
+          "callee": "new LucasLehmer",
+          "lineNumber": 49
+        },
+        {
+          "caller": "main",
+          "callee": "pool.execute",
+          "lineNumber": 51
+        },
+        {
+          "caller": "run",
+          "callee": "System.nanoTime",
+          "lineNumber": 61
+        },
+        {
+          "caller": "run",
+          "callee": "isPrime",
+          "lineNumber": 62
+        },
+        {
+          "caller": "run",
+          "callee": "System.out.printf",
+          "lineNumber": 63
+        },
+        {
+          "caller": "run",
+          "callee": "System.out.printf",
+          "lineNumber": 65
+        },
+        {
+          "caller": "run",
+          "callee": "System.out.println",
+          "lineNumber": 67
+        },
+        {
+          "caller": "run",
+          "callee": "System.nanoTime",
+          "lineNumber": 67
+        },
+        {
+          "caller": "isPrime",
+          "callee": "new JProgressBar",
+          "lineNumber": 72
+        },
+        {
+          "caller": "isPrime",
+          "callee": "newContentPane.add",
+          "lineNumber": 73
+        },
+        {
+          "caller": "isPrime",
+          "callee": "progressBar.setStringPainted",
+          "lineNumber": 74
+        },
+        {
+          "caller": "isPrime",
+          "callee": "progressBar.setString",
+          "lineNumber": 75
+        },
+        {
+          "caller": "isPrime",
+          "callee": "progressBar.setValue",
+          "lineNumber": 76
+        },
+        {
+          "caller": "isPrime",
+          "callee": "BigInteger.valueOf",
+          "lineNumber": 77
+        },
+        {
+          "caller": "isPrime",
+          "callee": "BigInteger.ONE.shiftLeft(prime).subtract",
+          "lineNumber": 78
+        },
+        {
+          "caller": "isPrime",
+          "callee": "BigInteger.ONE.shiftLeft",
+          "lineNumber": 78
+        },
+        {
+          "caller": "isPrime",
+          "callee": "s.pow(2).subtract",
+          "lineNumber": 85
+        },
+        {
+          "caller": "isPrime",
+          "callee": "s.pow",
+          "lineNumber": 85
+        },
+        {
+          "caller": "isPrime",
+          "callee": "s.compareTo",
+          "lineNumber": 87
+        },
+        {
+          "caller": "isPrime",
+          "callee": "s.shiftRight",
+          "lineNumber": 89
+        },
+        {
+          "caller": "isPrime",
+          "callee": "s.and",
+          "lineNumber": 91
+        },
+        {
+          "caller": "isPrime",
+          "callee": "y.add",
+          "lineNumber": 93
+        },
+        {
+          "caller": "isPrime",
+          "callee": "progressBar.setValue",
+          "lineNumber": 96
+        },
+        {
+          "caller": "isPrime",
+          "callee": "s.compareTo",
+          "lineNumber": 97
+        },
+        {
+          "caller": "isPrime",
+          "callee": "progressBar.setForeground",
+          "lineNumber": 98
+        },
+        {
+          "caller": "isPrime",
+          "callee": "s.compareTo",
+          "lineNumber": 105
+        },
+        {
+          "caller": "isPrime",
+          "callee": "progressBar.setForeground",
+          "lineNumber": 107
+        },
+        {
+          "caller": "isPrime",
+          "callee": "progressBar.setForeground",
+          "lineNumber": 110
+        },
+        {
+          "caller": "PrimeThread",
+          "callee": "BigInteger.ONE.shiftLeft(prime).subtract",
+          "lineNumber": 123
+        },
+        {
+          "caller": "PrimeThread",
+          "callee": "BigInteger.ONE.shiftLeft",
+          "lineNumber": 123
+        },
+        {
+          "caller": "run",
+          "callee": "m.isProbablePrime",
+          "lineNumber": 141
+        },
+        {
+          "caller": "run",
+          "callee": "System.out.printf",
+          "lineNumber": 142
+        },
+        {
+          "caller": "run",
+          "callee": "System.out.printf",
+          "lineNumber": 144
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 6,
+        "functionCount": 6,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "src/ecm/PrimeTest/package.bluej",
+      "language": "bluej",
+      "fileCategory": "config",
+      "totalLines": 54,
+      "nonEmptyLines": 54,
+      "metrics": {}
+    },
+    {
+      "path": "src/ecm/PrimeTest/README.TXT",
+      "language": "txt",
+      "fileCategory": "docs",
+      "totalLines": 10,
+      "nonEmptyLines": 8,
+      "metrics": {}
+    },
+    {
+      "path": "src/ecm/PrimeTest/AprtCle.ctxt",
+      "language": "ctxt",
+      "fileCategory": "config",
+      "totalLines": 8,
+      "nonEmptyLines": 8,
+      "metrics": {}
+    },
+    {
+      "path": "src/ecm/PrimeTest/AprtCle.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 314,
+      "nonEmptyLines": 301,
+      "functions": [
+        {
+          "name": "main",
+          "startLine": 21,
+          "endLine": 25,
+          "params": [
+            "args"
+          ]
+        },
+        {
+          "name": "isProbablePrime",
+          "startLine": 30,
+          "endLine": 313,
+          "params": [
+            "N"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "AprtCle",
+          "startLine": 20,
+          "endLine": 314,
+          "methods": [
+            "main",
+            "isProbablePrime"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "main",
+          "line": 21,
+          "isDefault": false
+        },
+        {
+          "name": "isProbablePrime",
+          "line": 30,
+          "isDefault": false
+        },
+        {
+          "name": "AprtCle",
+          "line": 20,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "main",
+          "callee": "new AprtCle",
+          "lineNumber": 22
+        },
+        {
+          "caller": "main",
+          "callee": "aprtCle.isProbablePrime",
+          "lineNumber": 23
+        },
+        {
+          "caller": "main",
+          "callee": "new AprtCleInteger",
+          "lineNumber": 23
+        },
+        {
+          "caller": "main",
+          "callee": "System.out.println",
+          "lineNumber": 24
+        },
+        {
+          "caller": "isProbablePrime",
+          "callee": "N.size",
+          "lineNumber": 34
+        },
+        {
+          "caller": "isProbablePrime",
+          "callee": "N.size",
+          "lineNumber": 42
+        },
+        {
+          "caller": "isProbablePrime",
+          "callee": "MultBigNbrByLong",
+          "lineNumber": 50
+        },
+        {
+          "caller": "isProbablePrime",
+          "callee": "N.size",
+          "lineNumber": 50
+        },
+        {
+          "caller": "isProbablePrime",
+          "callee": "N.CompareSquare",
+          "lineNumber": 52
+        },
+        {
+          "caller": "isProbablePrime",
+          "callee": "N.isProbablePrimeRobin",
+          "lineNumber": 58
+        },
+        {
+          "caller": "isProbablePrime",
+          "callee": "N.BigNbrModLong",
+          "lineNumber": 68
+        },
+        {
+          "caller": "isProbablePrime",
+          "callee": "N.size",
+          "lineNumber": 100
+        },
+        {
+          "caller": "isProbablePrime",
+          "callee": "N.JacobiSum",
+          "lineNumber": 105
+        },
+        {
+          "caller": "isProbablePrime",
+          "callee": "N.JacobiSum",
+          "lineNumber": 108
+        },
+        {
+          "caller": "isProbablePrime",
+          "callee": "N.size",
+          "lineNumber": 110
+        },
+        {
+          "caller": "isProbablePrime",
+          "callee": "N.size",
+          "lineNumber": 116
+        },
+        {
+          "caller": "isProbablePrime",
+          "callee": "N.JacobiSum",
+          "lineNumber": 120
+        },
+        {
+          "caller": "isProbablePrime",
+          "callee": "N.size",
+          "lineNumber": 122
+        },
+        {
+          "caller": "isProbablePrime",
+          "callee": "N.JS_JW",
+          "lineNumber": 126
+        },
+        {
+          "caller": "isProbablePrime",
+          "callee": "N.NormalizeJS",
+          "lineNumber": 127
+        },
+        {
+          "caller": "isProbablePrime",
+          "callee": "N.size",
+          "lineNumber": 129
+        },
+        {
+          "caller": "isProbablePrime",
+          "callee": "N.JacobiSum",
+          "lineNumber": 133
+        },
+        {
+          "caller": "isProbablePrime",
+          "callee": "N.size",
+          "lineNumber": 134
+        },
+        {
+          "caller": "isProbablePrime",
+          "callee": "N.JS_2",
+          "lineNumber": 142
+        },
+        {
+          "caller": "isProbablePrime",
+          "callee": "N.NormalizeJS",
+          "lineNumber": 143
+        },
+        {
+          "caller": "isProbablePrime",
+          "callee": "N.size",
+          "lineNumber": 145
+        },
+        {
+          "caller": "isProbablePrime",
+          "callee": "N.size",
+          "lineNumber": 152
+        },
+        {
+          "caller": "isProbablePrime",
+          "callee": "N.BigNbrModLong",
+          "lineNumber": 158
+        },
+        {
+          "caller": "isProbablePrime",
+          "callee": "check",
+          "lineNumber": 179
+        },
+        {
+          "caller": "isProbablePrime",
+          "callee": "N.size",
+          "lineNumber": 181
+        },
+        {
+          "caller": "isProbablePrime",
+          "callee": "N.size",
+          "lineNumber": 186
+        },
+        {
+          "caller": "isProbablePrime",
+          "callee": "DivBigNbrByLong",
+          "lineNumber": 190
+        },
+        {
+          "caller": "isProbablePrime",
+          "callee": "N.getIntArray",
+          "lineNumber": 190
+        },
+        {
+          "caller": "isProbablePrime",
+          "callee": "N.size",
+          "lineNumber": 190
+        },
+        {
+          "caller": "isProbablePrime",
+          "callee": "N.JS_E",
+          "lineNumber": 191
+        },
+        {
+          "caller": "isProbablePrime",
+          "callee": "N.size",
+          "lineNumber": 193
+        },
+        {
+          "caller": "isProbablePrime",
+          "callee": "N.MontgomeryMult",
+          "lineNumber": 199
+        },
+        {
+          "caller": "isProbablePrime",
+          "callee": "AddBigNbrModN",
+          "lineNumber": 200
+        },
+        {
+          "caller": "isProbablePrime",
+          "callee": "N.getIntArray",
+          "lineNumber": 200
+        },
+        {
+          "caller": "isProbablePrime",
+          "callee": "N.size",
+          "lineNumber": 200
+        },
+        {
+          "caller": "isProbablePrime",
+          "callee": "N.NormalizeJW",
+          "lineNumber": 203
+        },
+        {
+          "caller": "isProbablePrime",
+          "callee": "BigNbrIsZero",
+          "lineNumber": 208
+        },
+        {
+          "caller": "isProbablePrime",
+          "callee": "N.size",
+          "lineNumber": 208
+        },
+        {
+          "caller": "isProbablePrime",
+          "callee": "BigNbrAreEqual",
+          "lineNumber": 209
+        },
+        {
+          "caller": "isProbablePrime",
+          "callee": "N.size",
+          "lineNumber": 209
+        },
+        {
+          "caller": "isProbablePrime",
+          "callee": "AddBigNbrModN",
+          "lineNumber": 213
+        },
+        {
+          "caller": "isProbablePrime",
+          "callee": "N.getIntArray",
+          "lineNumber": 213
+        },
+        {
+          "caller": "isProbablePrime",
+          "callee": "N.size",
+          "lineNumber": 213
+        },
+        {
+          "caller": "isProbablePrime",
+          "callee": "BigNbrIsZero",
+          "lineNumber": 214
+        },
+        {
+          "caller": "isProbablePrime",
+          "callee": "N.size",
+          "lineNumber": 214
+        },
+        {
+          "caller": "isProbablePrime",
+          "callee": "AddBigNbrModN",
+          "lineNumber": 223
+        },
+        {
+          "caller": "isProbablePrime",
+          "callee": "N.getIntArray",
+          "lineNumber": 223
+        },
+        {
+          "caller": "isProbablePrime",
+          "callee": "N.size",
+          "lineNumber": 223
+        },
+        {
+          "caller": "isProbablePrime",
+          "callee": "BigNbrIsZero",
+          "lineNumber": 224
+        },
+        {
+          "caller": "isProbablePrime",
+          "callee": "N.size",
+          "lineNumber": 224
+        },
+        {
+          "caller": "isProbablePrime",
+          "callee": "AddBigNbrModN",
+          "lineNumber": 229
+        },
+        {
+          "caller": "isProbablePrime",
+          "callee": "N.getIntArray",
+          "lineNumber": 229
+        },
+        {
+          "caller": "isProbablePrime",
+          "callee": "N.size",
+          "lineNumber": 229
+        },
+        {
+          "caller": "isProbablePrime",
+          "callee": "BigNbrIsZero",
+          "lineNumber": 230
+        },
+        {
+          "caller": "isProbablePrime",
+          "callee": "N.size",
+          "lineNumber": 230
+        },
+        {
+          "caller": "isProbablePrime",
+          "callee": "N.get",
+          "lineNumber": 241
+        },
+        {
+          "caller": "isProbablePrime",
+          "callee": "MultBigNbrByLongModN",
+          "lineNumber": 247
+        },
+        {
+          "caller": "isProbablePrime",
+          "callee": "N.getIntArray",
+          "lineNumber": 247
+        },
+        {
+          "caller": "isProbablePrime",
+          "callee": "N.size",
+          "lineNumber": 247
+        },
+        {
+          "caller": "isProbablePrime",
+          "callee": "N.size",
+          "lineNumber": 248
+        },
+        {
+          "caller": "isProbablePrime",
+          "callee": "N.size",
+          "lineNumber": 249
+        },
+        {
+          "caller": "isProbablePrime",
+          "callee": "N.get",
+          "lineNumber": 251
+        },
+        {
+          "caller": "isProbablePrime",
+          "callee": "N.MontgomeryMult",
+          "lineNumber": 264
+        },
+        {
+          "caller": "isProbablePrime",
+          "callee": "N.size",
+          "lineNumber": 265
+        },
+        {
+          "caller": "isProbablePrime",
+          "callee": "N.get",
+          "lineNumber": 266
+        },
+        {
+          "caller": "isProbablePrime",
+          "callee": "N.MontgomeryMult",
+          "lineNumber": 267
+        },
+        {
+          "caller": "isProbablePrime",
+          "callee": "N.size",
+          "lineNumber": 268
+        },
+        {
+          "caller": "isProbablePrime",
+          "callee": "AddBigNbrModN",
+          "lineNumber": 271
+        },
+        {
+          "caller": "isProbablePrime",
+          "callee": "N.getIntArray",
+          "lineNumber": 271
+        },
+        {
+          "caller": "isProbablePrime",
+          "callee": "N.size",
+          "lineNumber": 271
+        },
+        {
+          "caller": "isProbablePrime",
+          "callee": "BigNbrIsZero",
+          "lineNumber": 272
+        },
+        {
+          "caller": "isProbablePrime",
+          "callee": "N.size",
+          "lineNumber": 272
+        },
+        {
+          "caller": "isProbablePrime",
+          "callee": "MultBigNbrByLong",
+          "lineNumber": 282
+        },
+        {
+          "caller": "isProbablePrime",
+          "callee": "N.size",
+          "lineNumber": 282
+        },
+        {
+          "caller": "isProbablePrime",
+          "callee": "N.isProbablePrimeRobin",
+          "lineNumber": 288
+        },
+        {
+          "caller": "isProbablePrime",
+          "callee": "N.size",
+          "lineNumber": 292
+        },
+        {
+          "caller": "isProbablePrime",
+          "callee": "MultBigNbrByLong",
+          "lineNumber": 297
+        },
+        {
+          "caller": "isProbablePrime",
+          "callee": "N.size",
+          "lineNumber": 297
+        },
+        {
+          "caller": "isProbablePrime",
+          "callee": "N.CompareSquare",
+          "lineNumber": 300
+        },
+        {
+          "caller": "isProbablePrime",
+          "callee": "N.isProbablePrimeRobin",
+          "lineNumber": 305
+        },
+        {
+          "caller": "isProbablePrime",
+          "callee": "Final",
+          "lineNumber": 311
+        }
+      ],
+      "metrics": {
+        "importCount": 7,
+        "exportCount": 3,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/ecm/PrimeTest/AprtCleFinal.ctxt",
+      "language": "ctxt",
+      "fileCategory": "config",
+      "totalLines": 8,
+      "nonEmptyLines": 8,
+      "metrics": {}
+    },
+    {
+      "path": "src/ecm/PrimeTest/AprtCleFinal.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 219,
+      "nonEmptyLines": 212,
+      "functions": [
+        {
+          "name": "Final",
+          "startLine": 27,
+          "endLine": 85,
+          "params": []
+        },
+        {
+          "name": "check",
+          "startLine": 87,
+          "endLine": 218,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "AprtCleFinal",
+          "startLine": 18,
+          "endLine": 219,
+          "methods": [
+            "Final",
+            "check"
+          ],
+          "properties": [
+            "i",
+            "j",
+            "G",
+            "H",
+            "I",
+            "J",
+            "K",
+            "P",
+            "Q",
+            "T",
+            "U",
+            "W",
+            "X",
+            "IV",
+            "InvX",
+            "LEVELnow",
+            "NP",
+            "PK",
+            "PL",
+            "PM",
+            "SW",
+            "VK",
+            "TestedQs",
+            "TestingQs",
+            "QQ",
+            "T1",
+            "T3",
+            "U1",
+            "U3",
+            "V1",
+            "V3",
+            "LengthN",
+            "LengthS",
+            "Mask",
+            "dS",
+            "N"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "AprtCleFinal",
+          "line": 18,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "Final",
+          "callee": "N.size",
+          "lineNumber": 28
+        },
+        {
+          "caller": "Final",
+          "callee": "N.size",
+          "lineNumber": 29
+        },
+        {
+          "caller": "Final",
+          "callee": "N.get",
+          "lineNumber": 30
+        },
+        {
+          "caller": "Final",
+          "callee": "N.set",
+          "lineNumber": 31
+        },
+        {
+          "caller": "Final",
+          "callee": "N.get",
+          "lineNumber": 35
+        },
+        {
+          "caller": "Final",
+          "callee": "N.size",
+          "lineNumber": 35
+        },
+        {
+          "caller": "Final",
+          "callee": "N.pop",
+          "lineNumber": 37
+        },
+        {
+          "caller": "Final",
+          "callee": "N.get",
+          "lineNumber": 39
+        },
+        {
+          "caller": "Final",
+          "callee": "N.size",
+          "lineNumber": 39
+        },
+        {
+          "caller": "Final",
+          "callee": "N.size",
+          "lineNumber": 40
+        },
+        {
+          "caller": "Final",
+          "callee": "N.getIntArray",
+          "lineNumber": 41
+        },
+        {
+          "caller": "Final",
+          "callee": "N.size",
+          "lineNumber": 41
+        },
+        {
+          "caller": "Final",
+          "callee": "N.size",
+          "lineNumber": 42
+        },
+        {
+          "caller": "Final",
+          "callee": "N.getIntArray",
+          "lineNumber": 43
+        },
+        {
+          "caller": "Final",
+          "callee": "N.size",
+          "lineNumber": 43
+        },
+        {
+          "caller": "Final",
+          "callee": "N.size",
+          "lineNumber": 44
+        },
+        {
+          "caller": "Final",
+          "callee": "N.size",
+          "lineNumber": 47
+        },
+        {
+          "caller": "Final",
+          "callee": "N.BigNbrModN",
+          "lineNumber": 50
+        },
+        {
+          "caller": "Final",
+          "callee": "MultBigNbrModN",
+          "lineNumber": 52
+        },
+        {
+          "caller": "Final",
+          "callee": "N.getIntArray",
+          "lineNumber": 52
+        },
+        {
+          "caller": "Final",
+          "callee": "N.size",
+          "lineNumber": 52
+        },
+        {
+          "caller": "Final",
+          "callee": "N.size",
+          "lineNumber": 53
+        },
+        {
+          "caller": "Final",
+          "callee": "N.size",
+          "lineNumber": 58
+        },
+        {
+          "caller": "Final",
+          "callee": "N.pop",
+          "lineNumber": 59
+        },
+        {
+          "caller": "Final",
+          "callee": "N.size",
+          "lineNumber": 61
+        },
+        {
+          "caller": "Final",
+          "callee": "N.set",
+          "lineNumber": 61
+        },
+        {
+          "caller": "Final",
+          "callee": "N.getIntArray",
+          "lineNumber": 62
+        },
+        {
+          "caller": "Final",
+          "callee": "N.size",
+          "lineNumber": 62
+        },
+        {
+          "caller": "Final",
+          "callee": "N.size",
+          "lineNumber": 63
+        },
+        {
+          "caller": "Final",
+          "callee": "N.getIntArray",
+          "lineNumber": 64
+        },
+        {
+          "caller": "Final",
+          "callee": "N.size",
+          "lineNumber": 64
+        },
+        {
+          "caller": "Final",
+          "callee": "N.size",
+          "lineNumber": 65
+        },
+        {
+          "caller": "Final",
+          "callee": "N.getIntArray",
+          "lineNumber": 66
+        },
+        {
+          "caller": "Final",
+          "callee": "N.size",
+          "lineNumber": 66
+        },
+        {
+          "caller": "Final",
+          "callee": "N.size",
+          "lineNumber": 67
+        },
+        {
+          "caller": "Final",
+          "callee": "N.getIntArray",
+          "lineNumber": 68
+        },
+        {
+          "caller": "Final",
+          "callee": "N.getIntArray",
+          "lineNumber": 70
+        },
+        {
+          "caller": "Final",
+          "callee": "N.BigNbrModN",
+          "lineNumber": 71
+        },
+        {
+          "caller": "Final",
+          "callee": "BigNbrIsZero",
+          "lineNumber": 72
+        },
+        {
+          "caller": "Final",
+          "callee": "N.size",
+          "lineNumber": 72
+        },
+        {
+          "caller": "Final",
+          "callee": "N.setSize",
+          "lineNumber": 78
+        },
+        {
+          "caller": "Final",
+          "callee": "N.size",
+          "lineNumber": 79
+        },
+        {
+          "caller": "Final",
+          "callee": "N.getIntArray",
+          "lineNumber": 80
+        },
+        {
+          "caller": "Final",
+          "callee": "N.getIntArray",
+          "lineNumber": 81
+        },
+        {
+          "caller": "check",
+          "callee": "N.size",
+          "lineNumber": 92
+        },
+        {
+          "caller": "check",
+          "callee": "LongToBigNbr",
+          "lineNumber": 96
+        },
+        {
+          "caller": "check",
+          "callee": "N.size",
+          "lineNumber": 96
+        },
+        {
+          "caller": "check",
+          "callee": "LongToBigNbr",
+          "lineNumber": 98
+        },
+        {
+          "caller": "check",
+          "callee": "N.size",
+          "lineNumber": 98
+        },
+        {
+          "caller": "check",
+          "callee": "N.JS_E",
+          "lineNumber": 101
+        },
+        {
+          "caller": "check",
+          "callee": "N.size",
+          "lineNumber": 103
+        },
+        {
+          "caller": "check",
+          "callee": "AddBigNbrModN",
+          "lineNumber": 109
+        },
+        {
+          "caller": "check",
+          "callee": "N.getIntArray",
+          "lineNumber": 109
+        },
+        {
+          "caller": "check",
+          "callee": "N.size",
+          "lineNumber": 109
+        },
+        {
+          "caller": "check",
+          "callee": "N.NormalizeJW",
+          "lineNumber": 111
+        },
+        {
+          "caller": "check",
+          "callee": "N.size",
+          "lineNumber": 114
+        },
+        {
+          "caller": "check",
+          "callee": "N.size",
+          "lineNumber": 118
+        },
+        {
+          "caller": "check",
+          "callee": "N.JS_JW",
+          "lineNumber": 122
+        },
+        {
+          "caller": "check",
+          "callee": "N.size",
+          "lineNumber": 125
+        },
+        {
+          "caller": "check",
+          "callee": "N.size",
+          "lineNumber": 129
+        },
+        {
+          "caller": "check",
+          "callee": "MultBigNbrByLongModN",
+          "lineNumber": 136
+        },
+        {
+          "caller": "check",
+          "callee": "N.getIntArray",
+          "lineNumber": 136
+        },
+        {
+          "caller": "check",
+          "callee": "N.size",
+          "lineNumber": 136
+        },
+        {
+          "caller": "check",
+          "callee": "N.size",
+          "lineNumber": 137
+        },
+        {
+          "caller": "check",
+          "callee": "N.size",
+          "lineNumber": 141
+        },
+        {
+          "caller": "check",
+          "callee": "N.size",
+          "lineNumber": 143
+        },
+        {
+          "caller": "check",
+          "callee": "N.JS_2",
+          "lineNumber": 147
+        },
+        {
+          "caller": "check",
+          "callee": "N.size",
+          "lineNumber": 149
+        },
+        {
+          "caller": "check",
+          "callee": "MultBigNbrByLongModN",
+          "lineNumber": 154
+        },
+        {
+          "caller": "check",
+          "callee": "N.getIntArray",
+          "lineNumber": 154
+        },
+        {
+          "caller": "check",
+          "callee": "N.size",
+          "lineNumber": 154
+        },
+        {
+          "caller": "check",
+          "callee": "MultBigNbrByLongModN",
+          "lineNumber": 155
+        },
+        {
+          "caller": "check",
+          "callee": "N.getIntArray",
+          "lineNumber": 155
+        },
+        {
+          "caller": "check",
+          "callee": "N.size",
+          "lineNumber": 155
+        },
+        {
+          "caller": "check",
+          "callee": "N.size",
+          "lineNumber": 160
+        },
+        {
+          "caller": "check",
+          "callee": "LongToBigNbr",
+          "lineNumber": 164
+        },
+        {
+          "caller": "check",
+          "callee": "N.size",
+          "lineNumber": 164
+        },
+        {
+          "caller": "check",
+          "callee": "LongToBigNbr",
+          "lineNumber": 166
+        },
+        {
+          "caller": "check",
+          "callee": "N.size",
+          "lineNumber": 166
+        },
+        {
+          "caller": "check",
+          "callee": "N.JS_E",
+          "lineNumber": 169
+        },
+        {
+          "caller": "check",
+          "callee": "N.size",
+          "lineNumber": 171
+        },
+        {
+          "caller": "check",
+          "callee": "AddBigNbrModN",
+          "lineNumber": 176
+        },
+        {
+          "caller": "check",
+          "callee": "N.getIntArray",
+          "lineNumber": 176
+        },
+        {
+          "caller": "check",
+          "callee": "N.size",
+          "lineNumber": 176
+        },
+        {
+          "caller": "check",
+          "callee": "N.NormalizeJW",
+          "lineNumber": 178
+        },
+        {
+          "caller": "check",
+          "callee": "N.size",
+          "lineNumber": 181
+        },
+        {
+          "caller": "check",
+          "callee": "N.size",
+          "lineNumber": 185
+        },
+        {
+          "caller": "check",
+          "callee": "N.NormalizeJS",
+          "lineNumber": 188
+        },
+        {
+          "caller": "check",
+          "callee": "N.JS_JW",
+          "lineNumber": 189
+        },
+        {
+          "caller": "check",
+          "callee": "N.size",
+          "lineNumber": 192
+        },
+        {
+          "caller": "check",
+          "callee": "N.size",
+          "lineNumber": 196
+        },
+        {
+          "caller": "check",
+          "callee": "N.size",
+          "lineNumber": 202
+        },
+        {
+          "caller": "check",
+          "callee": "N.size",
+          "lineNumber": 208
+        },
+        {
+          "caller": "check",
+          "callee": "N.JS_JW",
+          "lineNumber": 210
+        },
+        {
+          "caller": "check",
+          "callee": "N.size",
+          "lineNumber": 212
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/ecm/PrimeTest/AprtCleVariable.ctxt",
+      "language": "ctxt",
+      "fileCategory": "config",
+      "totalLines": 4,
+      "nonEmptyLines": 4,
+      "metrics": {}
+    },
+    {
+      "path": "src/ecm/PrimeTest/AprtCleVariable.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 309,
+      "nonEmptyLines": 306,
+      "classes": [
+        {
+          "name": "AprtCleVariable",
+          "startLine": 10,
+          "endLine": 309,
+          "methods": [],
+          "properties": [
+            "PWmax",
+            "Qmax",
+            "LEVELmax",
+            "aiIndx",
+            "aiF",
+            "aiP",
+            "aiQ",
+            "aiG",
+            "aiInv",
+            "aiNP",
+            "aiNQ",
+            "aiT",
+            "biTmp",
+            "biExp",
+            "biN",
+            "biR",
+            "biS",
+            "biT",
+            "aiJS",
+            "aiJW",
+            "aiJ1",
+            "aiJ2",
+            "aiJ00",
+            "aiJ01",
+            "aiJX",
+            "aiJ0"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "PWmax",
+          "line": 11,
+          "isDefault": false
+        },
+        {
+          "name": "Qmax",
+          "line": 11,
+          "isDefault": false
+        },
+        {
+          "name": "LEVELmax",
+          "line": 11,
+          "isDefault": false
+        },
+        {
+          "name": "aiIndx",
+          "line": 12,
+          "isDefault": false
+        },
+        {
+          "name": "aiF",
+          "line": 12,
+          "isDefault": false
+        },
+        {
+          "name": "biTmp",
+          "line": 303,
+          "isDefault": false
+        },
+        {
+          "name": "biExp",
+          "line": 303,
+          "isDefault": false
+        },
+        {
+          "name": "biN",
+          "line": 303,
+          "isDefault": false
+        },
+        {
+          "name": "biR",
+          "line": 303,
+          "isDefault": false
+        },
+        {
+          "name": "aiJS",
+          "line": 305,
+          "isDefault": false
+        },
+        {
+          "name": "aiJW",
+          "line": 305,
+          "isDefault": false
+        },
+        {
+          "name": "aiJX",
+          "line": 308,
+          "isDefault": false
+        },
+        {
+          "name": "aiJ0",
+          "line": 308,
+          "isDefault": false
+        },
+        {
+          "name": "AprtCleVariable",
+          "line": 10,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 14,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/ecm/README.TXT",
+      "language": "txt",
+      "fileCategory": "docs",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "metrics": {}
+    },
+    {
+      "path": "src/ecm/package.bluej",
+      "language": "bluej",
+      "fileCategory": "config",
+      "totalLines": 38,
+      "nonEmptyLines": 38,
+      "metrics": {}
+    },
+    {
+      "path": "src/ecm/BigIntegers/GCD.ctxt",
+      "language": "ctxt",
+      "fileCategory": "config",
+      "totalLines": 6,
+      "nonEmptyLines": 6,
+      "metrics": {}
+    },
+    {
+      "path": "src/ecm/BigIntegers/ModInv.ctxt",
+      "language": "ctxt",
+      "fileCategory": "config",
+      "totalLines": 9,
+      "nonEmptyLines": 9,
+      "metrics": {}
+    },
+    {
+      "path": "src/ecm/BigIntegers/README.TXT",
+      "language": "txt",
+      "fileCategory": "docs",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "metrics": {}
+    },
+    {
+      "path": "src/ecm/BigIntegers/package.bluej",
+      "language": "bluej",
+      "fileCategory": "config",
+      "totalLines": 34,
+      "nonEmptyLines": 34,
+      "metrics": {}
+    },
+    {
+      "path": "src/ecm/Checks/FibonacciCheck.ctxt",
+      "language": "ctxt",
+      "fileCategory": "config",
+      "totalLines": 8,
+      "nonEmptyLines": 8,
+      "metrics": {}
+    },
+    {
+      "path": "src/ecm/Checks/FibonacciCheck.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 47,
+      "nonEmptyLines": 41,
+      "functions": [
+        {
+          "name": "FibonacciCheck",
+          "startLine": 13,
+          "endLine": 18,
+          "params": [
+            "NumberToFactor"
+          ]
+        },
+        {
+          "name": "Factor",
+          "startLine": 20,
+          "endLine": 45,
+          "params": [
+            "Index",
+            "BigOriginal"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "FibonacciCheck",
+          "startLine": 11,
+          "endLine": 47,
+          "methods": [
+            "FibonacciCheck",
+            "Factor"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "FibonacciCheck",
+          "line": 13,
+          "isDefault": false
+        },
+        {
+          "name": "Factor",
+          "line": 20,
+          "isDefault": false
+        },
+        {
+          "name": "FibonacciCheck",
+          "line": 11,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "Factor",
+          "callee": "NumberToFactor.setFactor",
+          "lineNumber": 23
+        },
+        {
+          "caller": "Factor",
+          "callee": "get(k, Prev, Act).gcd",
+          "lineNumber": 30
+        },
+        {
+          "caller": "Factor",
+          "callee": "get",
+          "lineNumber": 30
+        },
+        {
+          "caller": "Factor",
+          "callee": "NumberToFactor.InsertFactor",
+          "lineNumber": 31
+        },
+        {
+          "caller": "Factor",
+          "callee": "NumberToFactor.InsertFactor",
+          "lineNumber": 32
+        },
+        {
+          "caller": "Factor",
+          "callee": "BigOriginal.divide",
+          "lineNumber": 32
+        },
+        {
+          "caller": "Factor",
+          "callee": "get(Index / k, Prev, Act).gcd",
+          "lineNumber": 33
+        },
+        {
+          "caller": "Factor",
+          "callee": "get",
+          "lineNumber": 33
+        },
+        {
+          "caller": "Factor",
+          "callee": "NumberToFactor.InsertFactor",
+          "lineNumber": 34
+        },
+        {
+          "caller": "Factor",
+          "callee": "NumberToFactor.InsertFactor",
+          "lineNumber": 35
+        },
+        {
+          "caller": "Factor",
+          "callee": "BigOriginal.divide",
+          "lineNumber": 35
+        },
+        {
+          "caller": "Factor",
+          "callee": "InsertLucasFactor",
+          "lineNumber": 42
+        },
+        {
+          "caller": "Factor",
+          "callee": "NumberToFactor.SortFactors",
+          "lineNumber": 44
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/ecm/Checks/LucasCheck.ctxt",
+      "language": "ctxt",
+      "fileCategory": "config",
+      "totalLines": 14,
+      "nonEmptyLines": 14,
+      "metrics": {}
+    },
+    {
+      "path": "src/ecm/Checks/LucasCheck.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 106,
+      "nonEmptyLines": 96,
+      "functions": [
+        {
+          "name": "LucasCheck",
+          "startLine": 18,
+          "endLine": 20,
+          "params": [
+            "NumberToFactor"
+          ]
+        },
+        {
+          "name": "Check",
+          "startLine": 22,
+          "endLine": 48,
+          "params": []
+        },
+        {
+          "name": "Factor",
+          "startLine": 50,
+          "endLine": 55,
+          "params": [
+            "Index",
+            "BigOriginal"
+          ]
+        },
+        {
+          "name": "InsertLucasFactor",
+          "startLine": 57,
+          "endLine": 94,
+          "params": [
+            "Index",
+            "BigOriginal"
+          ]
+        },
+        {
+          "name": "get",
+          "startLine": 96,
+          "endLine": 104,
+          "params": [
+            "Index",
+            "prev",
+            "act"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "LucasCheck",
+          "startLine": 11,
+          "endLine": 106,
+          "methods": [
+            "LucasCheck",
+            "Check",
+            "Factor",
+            "InsertLucasFactor",
+            "get"
+          ],
+          "properties": [
+            "NumberToFactor",
+            "Prev",
+            "Act",
+            "addition"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "LucasCheck",
+          "line": 18,
+          "isDefault": false
+        },
+        {
+          "name": "Check",
+          "line": 22,
+          "isDefault": false
+        },
+        {
+          "name": "Factor",
+          "line": 50,
+          "isDefault": false
+        },
+        {
+          "name": "get",
+          "line": 96,
+          "isDefault": false
+        },
+        {
+          "name": "LucasCheck",
+          "line": 11,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "Check",
+          "callee": "NumberToFactor.bitLength",
+          "lineNumber": 23
+        },
+        {
+          "caller": "Check",
+          "callee": "NumberToFactor.bitLength",
+          "lineNumber": 24
+        },
+        {
+          "caller": "Check",
+          "callee": "Math.log",
+          "lineNumber": 26
+        },
+        {
+          "caller": "Check",
+          "callee": "Math.log",
+          "lineNumber": 27
+        },
+        {
+          "caller": "Check",
+          "callee": "NumberToFactor.shiftRight(maxExpon - 32).longValue",
+          "lineNumber": 27
+        },
+        {
+          "caller": "Check",
+          "callee": "NumberToFactor.shiftRight",
+          "lineNumber": 27
+        },
+        {
+          "caller": "Check",
+          "callee": "Math.floor",
+          "lineNumber": 29
+        },
+        {
+          "caller": "Check",
+          "callee": "act.compareTo",
+          "lineNumber": 37
+        },
+        {
+          "caller": "Check",
+          "callee": "prev.add",
+          "lineNumber": 43
+        },
+        {
+          "caller": "Factor",
+          "callee": "NumberToFactor.setFactor",
+          "lineNumber": 52
+        },
+        {
+          "caller": "Factor",
+          "callee": "InsertLucasFactor",
+          "lineNumber": 53
+        },
+        {
+          "caller": "Factor",
+          "callee": "NumberToFactor.SortFactors",
+          "lineNumber": 54
+        },
+        {
+          "caller": "InsertLucasFactor",
+          "callee": "BigInteger.valueOf",
+          "lineNumber": 59
+        },
+        {
+          "caller": "InsertLucasFactor",
+          "callee": "get(k, Prev, Act).gcd",
+          "lineNumber": 63
+        },
+        {
+          "caller": "InsertLucasFactor",
+          "callee": "get",
+          "lineNumber": 63
+        },
+        {
+          "caller": "InsertLucasFactor",
+          "callee": "NumberToFactor.InsertFactor",
+          "lineNumber": 64
+        },
+        {
+          "caller": "InsertLucasFactor",
+          "callee": "get",
+          "lineNumber": 66
+        },
+        {
+          "caller": "InsertLucasFactor",
+          "callee": "NumberToFactor.InsertFactor",
+          "lineNumber": 67
+        },
+        {
+          "caller": "InsertLucasFactor",
+          "callee": "BigInt5.multiply(Fibo).subtract(BigInt5).multiply(Fibo).add",
+          "lineNumber": 68
+        },
+        {
+          "caller": "InsertLucasFactor",
+          "callee": "BigInt5.multiply(Fibo).subtract(BigInt5).multiply",
+          "lineNumber": 68
+        },
+        {
+          "caller": "InsertLucasFactor",
+          "callee": "BigInt5.multiply(Fibo).subtract",
+          "lineNumber": 68
+        },
+        {
+          "caller": "InsertLucasFactor",
+          "callee": "BigInt5.multiply",
+          "lineNumber": 68
+        },
+        {
+          "caller": "InsertLucasFactor",
+          "callee": "NumberToFactor.InsertFactor",
+          "lineNumber": 70
+        },
+        {
+          "caller": "InsertLucasFactor",
+          "callee": "BigInt5.multiply(Fibo).add(BigInt5).multiply(Fibo).add",
+          "lineNumber": 71
+        },
+        {
+          "caller": "InsertLucasFactor",
+          "callee": "BigInt5.multiply(Fibo).add(BigInt5).multiply",
+          "lineNumber": 71
+        },
+        {
+          "caller": "InsertLucasFactor",
+          "callee": "BigInt5.multiply(Fibo).add",
+          "lineNumber": 71
+        },
+        {
+          "caller": "InsertLucasFactor",
+          "callee": "BigInt5.multiply",
+          "lineNumber": 71
+        },
+        {
+          "caller": "InsertLucasFactor",
+          "callee": "NumberToFactor.InsertFactor",
+          "lineNumber": 74
+        },
+        {
+          "caller": "InsertLucasFactor",
+          "callee": "NumberToFactor.InsertFactor",
+          "lineNumber": 75
+        },
+        {
+          "caller": "InsertLucasFactor",
+          "callee": "BigOriginal.divide",
+          "lineNumber": 75
+        },
+        {
+          "caller": "InsertLucasFactor",
+          "callee": "get(Index / k, Prev, Act).gcd",
+          "lineNumber": 77
+        },
+        {
+          "caller": "InsertLucasFactor",
+          "callee": "get",
+          "lineNumber": 77
+        },
+        {
+          "caller": "InsertLucasFactor",
+          "callee": "NumberToFactor.InsertFactor",
+          "lineNumber": 78
+        },
+        {
+          "caller": "InsertLucasFactor",
+          "callee": "get",
+          "lineNumber": 80
+        },
+        {
+          "caller": "InsertLucasFactor",
+          "callee": "NumberToFactor.InsertFactor",
+          "lineNumber": 81
+        },
+        {
+          "caller": "InsertLucasFactor",
+          "callee": "BigInt5.multiply(Fibo).subtract(BigInt5).multiply(Fibo).add",
+          "lineNumber": 82
+        },
+        {
+          "caller": "InsertLucasFactor",
+          "callee": "BigInt5.multiply(Fibo).subtract(BigInt5).multiply",
+          "lineNumber": 82
+        },
+        {
+          "caller": "InsertLucasFactor",
+          "callee": "BigInt5.multiply(Fibo).subtract",
+          "lineNumber": 82
+        },
+        {
+          "caller": "InsertLucasFactor",
+          "callee": "BigInt5.multiply",
+          "lineNumber": 82
+        },
+        {
+          "caller": "InsertLucasFactor",
+          "callee": "NumberToFactor.InsertFactor",
+          "lineNumber": 84
+        },
+        {
+          "caller": "InsertLucasFactor",
+          "callee": "BigInt5.multiply(Fibo).add(BigInt5).multiply(Fibo).add",
+          "lineNumber": 85
+        },
+        {
+          "caller": "InsertLucasFactor",
+          "callee": "BigInt5.multiply(Fibo).add(BigInt5).multiply",
+          "lineNumber": 85
+        },
+        {
+          "caller": "InsertLucasFactor",
+          "callee": "BigInt5.multiply(Fibo).add",
+          "lineNumber": 85
+        },
+        {
+          "caller": "InsertLucasFactor",
+          "callee": "BigInt5.multiply",
+          "lineNumber": 85
+        },
+        {
+          "caller": "InsertLucasFactor",
+          "callee": "NumberToFactor.InsertFactor",
+          "lineNumber": 88
+        },
+        {
+          "caller": "InsertLucasFactor",
+          "callee": "NumberToFactor.InsertFactor",
+          "lineNumber": 89
+        },
+        {
+          "caller": "InsertLucasFactor",
+          "callee": "BigOriginal.divide",
+          "lineNumber": 89
+        },
+        {
+          "caller": "get",
+          "callee": "prev.add",
+          "lineNumber": 99
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 5,
+        "functionCount": 5,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/ecm/Checks/PowerCheck.ctxt",
+      "language": "ctxt",
+      "fileCategory": "config",
+      "totalLines": 8,
+      "nonEmptyLines": 8,
+      "metrics": {}
+    },
+    {
+      "path": "src/ecm/Checks/PowerCheck.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 123,
+      "nonEmptyLines": 118,
+      "functions": [
+        {
+          "name": "PowerCheck",
+          "startLine": 15,
+          "endLine": 17,
+          "params": [
+            "NumberToFactor"
+          ]
+        },
+        {
+          "name": "Check",
+          "startLine": 19,
+          "endLine": 122,
+          "params": [
+            "i"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "PowerCheck",
+          "startLine": 12,
+          "endLine": 123,
+          "methods": [
+            "PowerCheck",
+            "Check"
+          ],
+          "properties": [
+            "NumberToFactor"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "PowerCheck",
+          "line": 15,
+          "isDefault": false
+        },
+        {
+          "name": "Check",
+          "line": 19,
+          "isDefault": false
+        },
+        {
+          "name": "PowerCheck",
+          "line": 12,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "Check",
+          "callee": "NumberToFactor.bitLength",
+          "lineNumber": 20
+        },
+        {
+          "caller": "Check",
+          "callee": "NumberToFactor.mod(BigInteger.valueOf(testprime)).intValue",
+          "lineNumber": 30
+        },
+        {
+          "caller": "Check",
+          "callee": "NumberToFactor.mod",
+          "lineNumber": 30
+        },
+        {
+          "caller": "Check",
+          "callee": "BigInteger.valueOf",
+          "lineNumber": 30
+        },
+        {
+          "caller": "Check",
+          "callee": "modPow",
+          "lineNumber": 31
+        },
+        {
+          "caller": "Check",
+          "callee": "modPow",
+          "lineNumber": 33
+        },
+        {
+          "caller": "Check",
+          "callee": "modPow",
+          "lineNumber": 35
+        },
+        {
+          "caller": "Check",
+          "callee": "modPow",
+          "lineNumber": 37
+        },
+        {
+          "caller": "Check",
+          "callee": "modPow",
+          "lineNumber": 39
+        },
+        {
+          "caller": "Check",
+          "callee": "NumberToFactor.mod(BigInteger.valueOf(j)).longValue",
+          "lineNumber": 59
+        },
+        {
+          "caller": "Check",
+          "callee": "NumberToFactor.mod",
+          "lineNumber": 59
+        },
+        {
+          "caller": "Check",
+          "callee": "BigInteger.valueOf",
+          "lineNumber": 59
+        },
+        {
+          "caller": "Check",
+          "callee": "modPow",
+          "lineNumber": 60
+        },
+        {
+          "caller": "Check",
+          "callee": "NumberToFactor.bitLength",
+          "lineNumber": 84
+        },
+        {
+          "caller": "Check",
+          "callee": "Math.log",
+          "lineNumber": 87
+        },
+        {
+          "caller": "Check",
+          "callee": "NumberToFactor.shiftRight(intLog2N - 32).add(BigInteger.ONE).doubleValue",
+          "lineNumber": 87
+        },
+        {
+          "caller": "Check",
+          "callee": "NumberToFactor.shiftRight(intLog2N - 32).add",
+          "lineNumber": 87
+        },
+        {
+          "caller": "Check",
+          "callee": "NumberToFactor.shiftRight",
+          "lineNumber": 87
+        },
+        {
+          "caller": "Check",
+          "callee": "Math.log",
+          "lineNumber": 88
+        },
+        {
+          "caller": "Check",
+          "callee": "BigInteger.valueOf",
+          "lineNumber": 92
+        },
+        {
+          "caller": "Check",
+          "callee": "Math.exp",
+          "lineNumber": 92
+        },
+        {
+          "caller": "Check",
+          "callee": "Math.log",
+          "lineNumber": 92
+        },
+        {
+          "caller": "Check",
+          "callee": "Math.floor",
+          "lineNumber": 94
+        },
+        {
+          "caller": "Check",
+          "callee": "BigInteger\n                .valueOf((long) Math.exp((log2N - intLog2N) * Math.log(2)) + 10).shiftLeft",
+          "lineNumber": 96
+        },
+        {
+          "caller": "Check",
+          "callee": "BigInteger.valueOf",
+          "lineNumber": 96
+        },
+        {
+          "caller": "Check",
+          "callee": "Math.exp",
+          "lineNumber": 97
+        },
+        {
+          "caller": "Check",
+          "callee": "Math.log",
+          "lineNumber": 97
+        },
+        {
+          "caller": "Check",
+          "callee": "root.pow",
+          "lineNumber": 101
+        },
+        {
+          "caller": "Check",
+          "callee": "root.multiply",
+          "lineNumber": 102
+        },
+        {
+          "caller": "Check",
+          "callee": "NumberToFactor.subtract",
+          "lineNumber": 103
+        },
+        {
+          "caller": "Check",
+          "callee": "dif.signum",
+          "lineNumber": 104
+        },
+        {
+          "caller": "Check",
+          "callee": "NumberToFactor.setPD",
+          "lineNumber": 106
+        },
+        {
+          "caller": "Check",
+          "callee": "NumberToFactor.setExp",
+          "lineNumber": 107
+        },
+        {
+          "caller": "Check",
+          "callee": "NumberToFactor.getExp",
+          "lineNumber": 107
+        },
+        {
+          "caller": "Check",
+          "callee": "dif\n                .add(BigInteger.ONE)\n                .divide(BigInteger.valueOf(Exponent).multiply(rootN1))\n                .add(root).subtract",
+          "lineNumber": 111
+        },
+        {
+          "caller": "Check",
+          "callee": "dif\n                .add(BigInteger.ONE)\n                .divide(BigInteger.valueOf(Exponent).multiply(rootN1)).add",
+          "lineNumber": 111
+        },
+        {
+          "caller": "Check",
+          "callee": "dif\n                .add(BigInteger.ONE).divide",
+          "lineNumber": 111
+        },
+        {
+          "caller": "Check",
+          "callee": "dif.add",
+          "lineNumber": 111
+        },
+        {
+          "caller": "Check",
+          "callee": "BigInteger.valueOf(Exponent).multiply",
+          "lineNumber": 113
+        },
+        {
+          "caller": "Check",
+          "callee": "BigInteger.valueOf",
+          "lineNumber": 113
+        },
+        {
+          "caller": "Check",
+          "callee": "root.compareTo",
+          "lineNumber": 116
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/ecm/Checks/PowerPM1Check.ctxt",
+      "language": "ctxt",
+      "fileCategory": "config",
+      "totalLines": 12,
+      "nonEmptyLines": 12,
+      "metrics": {}
+    },
+    {
+      "path": "src/ecm/Checks/PowerPM1Check.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 235,
+      "nonEmptyLines": 227,
+      "functions": [
+        {
+          "name": "PowerPM1Check",
+          "startLine": 16,
+          "endLine": 46,
+          "params": [
+            "NumberToFactor"
+          ]
+        },
+        {
+          "name": "Check",
+          "startLine": 48,
+          "endLine": 111,
+          "params": []
+        },
+        {
+          "name": "ProcessExponent",
+          "startLine": 113,
+          "endLine": 172,
+          "params": [
+            "Exponent"
+          ]
+        },
+        {
+          "name": "Cunningham",
+          "startLine": 174,
+          "endLine": 234,
+          "params": [
+            "BigBase",
+            "Expon",
+            "BigIncre",
+            "BigOriginal"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "PowerPM1Check",
+          "startLine": 12,
+          "endLine": 235,
+          "methods": [
+            "PowerPM1Check",
+            "Check",
+            "ProcessExponent",
+            "Cunningham"
+          ],
+          "properties": [
+            "NumberToFactor",
+            "M",
+            "F"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "PowerPM1Check",
+          "line": 16,
+          "isDefault": false
+        },
+        {
+          "name": "Check",
+          "line": 48,
+          "isDefault": false
+        },
+        {
+          "name": "PowerPM1Check",
+          "line": 12,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "PowerPM1Check",
+          "callee": "M.put",
+          "lineNumber": 18
+        },
+        {
+          "caller": "PowerPM1Check",
+          "callee": "M.put",
+          "lineNumber": 19
+        },
+        {
+          "caller": "PowerPM1Check",
+          "callee": "M.put",
+          "lineNumber": 20
+        },
+        {
+          "caller": "PowerPM1Check",
+          "callee": "M.put",
+          "lineNumber": 21
+        },
+        {
+          "caller": "PowerPM1Check",
+          "callee": "M.put",
+          "lineNumber": 22
+        },
+        {
+          "caller": "PowerPM1Check",
+          "callee": "M.put",
+          "lineNumber": 23
+        },
+        {
+          "caller": "PowerPM1Check",
+          "callee": "M.put",
+          "lineNumber": 24
+        },
+        {
+          "caller": "PowerPM1Check",
+          "callee": "M.put",
+          "lineNumber": 25
+        },
+        {
+          "caller": "PowerPM1Check",
+          "callee": "M.put",
+          "lineNumber": 26
+        },
+        {
+          "caller": "PowerPM1Check",
+          "callee": "M.put",
+          "lineNumber": 27
+        },
+        {
+          "caller": "PowerPM1Check",
+          "callee": "M.put",
+          "lineNumber": 28
+        },
+        {
+          "caller": "PowerPM1Check",
+          "callee": "M.put",
+          "lineNumber": 29
+        },
+        {
+          "caller": "PowerPM1Check",
+          "callee": "M.put",
+          "lineNumber": 30
+        },
+        {
+          "caller": "PowerPM1Check",
+          "callee": "M.put",
+          "lineNumber": 31
+        },
+        {
+          "caller": "PowerPM1Check",
+          "callee": "M.put",
+          "lineNumber": 32
+        },
+        {
+          "caller": "PowerPM1Check",
+          "callee": "M.put",
+          "lineNumber": 33
+        },
+        {
+          "caller": "PowerPM1Check",
+          "callee": "M.put",
+          "lineNumber": 34
+        },
+        {
+          "caller": "PowerPM1Check",
+          "callee": "M.put",
+          "lineNumber": 35
+        },
+        {
+          "caller": "PowerPM1Check",
+          "callee": "M.put",
+          "lineNumber": 36
+        },
+        {
+          "caller": "PowerPM1Check",
+          "callee": "M.put",
+          "lineNumber": 37
+        },
+        {
+          "caller": "PowerPM1Check",
+          "callee": "F.put",
+          "lineNumber": 39
+        },
+        {
+          "caller": "PowerPM1Check",
+          "callee": "F.put",
+          "lineNumber": 40
+        },
+        {
+          "caller": "PowerPM1Check",
+          "callee": "F.put",
+          "lineNumber": 41
+        },
+        {
+          "caller": "PowerPM1Check",
+          "callee": "F.put",
+          "lineNumber": 42
+        },
+        {
+          "caller": "PowerPM1Check",
+          "callee": "F.put",
+          "lineNumber": 43
+        },
+        {
+          "caller": "PowerPM1Check",
+          "callee": "F.put",
+          "lineNumber": 44
+        },
+        {
+          "caller": "PowerPM1Check",
+          "callee": "F.put",
+          "lineNumber": 45
+        },
+        {
+          "caller": "Check",
+          "callee": "NumberToFactor.mod(BigInteger.valueOf(9L)).intValue",
+          "lineNumber": 52
+        },
+        {
+          "caller": "Check",
+          "callee": "NumberToFactor.mod",
+          "lineNumber": 52
+        },
+        {
+          "caller": "Check",
+          "callee": "BigInteger.valueOf",
+          "lineNumber": 52
+        },
+        {
+          "caller": "Check",
+          "callee": "NumberToFactor.bitLength",
+          "lineNumber": 53
+        },
+        {
+          "caller": "Check",
+          "callee": "Math.log",
+          "lineNumber": 54
+        },
+        {
+          "caller": "Check",
+          "callee": "Math.log",
+          "lineNumber": 54
+        },
+        {
+          "caller": "Check",
+          "callee": "NumberToFactor.shiftRight(maxExpon - 32).longValue",
+          "lineNumber": 54
+        },
+        {
+          "caller": "Check",
+          "callee": "NumberToFactor.shiftRight",
+          "lineNumber": 54
+        },
+        {
+          "caller": "Check",
+          "callee": "NumberToFactor.mod(BigInteger.valueOf(i)).intValue",
+          "lineNumber": 70
+        },
+        {
+          "caller": "Check",
+          "callee": "NumberToFactor.mod",
+          "lineNumber": 70
+        },
+        {
+          "caller": "Check",
+          "callee": "BigInteger.valueOf",
+          "lineNumber": 70
+        },
+        {
+          "caller": "Check",
+          "callee": "NumberToFactor.mod(BigInteger.valueOf(i2)).longValue",
+          "lineNumber": 71
+        },
+        {
+          "caller": "Check",
+          "callee": "NumberToFactor.mod",
+          "lineNumber": 71
+        },
+        {
+          "caller": "Check",
+          "callee": "BigInteger.valueOf",
+          "lineNumber": 71
+        },
+        {
+          "caller": "Check",
+          "callee": "NumberToFactor.mod(BigInteger.valueOf(i2)).longValue",
+          "lineNumber": 73
+        },
+        {
+          "caller": "Check",
+          "callee": "NumberToFactor.mod",
+          "lineNumber": 73
+        },
+        {
+          "caller": "Check",
+          "callee": "BigInteger.valueOf",
+          "lineNumber": 73
+        },
+        {
+          "caller": "Check",
+          "callee": "Math.log",
+          "lineNumber": 91
+        },
+        {
+          "caller": "Check",
+          "callee": "Math.floor",
+          "lineNumber": 92
+        },
+        {
+          "caller": "Check",
+          "callee": "ProcessExponent",
+          "lineNumber": 99
+        },
+        {
+          "caller": "Check",
+          "callee": "ProcessExponent",
+          "lineNumber": 107
+        },
+        {
+          "caller": "ProcessExponent",
+          "callee": "NumberToFactor.add",
+          "lineNumber": 115
+        },
+        {
+          "caller": "ProcessExponent",
+          "callee": "NumberToFactor.subtract",
+          "lineNumber": 116
+        },
+        {
+          "caller": "ProcessExponent",
+          "callee": "NFp1.bitLength",
+          "lineNumber": 117
+        },
+        {
+          "caller": "ProcessExponent",
+          "callee": "Math.log",
+          "lineNumber": 120
+        },
+        {
+          "caller": "ProcessExponent",
+          "callee": "NFp1.shiftRight(intLog2N - 32).add(BigInteger.ONE).doubleValue",
+          "lineNumber": 120
+        },
+        {
+          "caller": "ProcessExponent",
+          "callee": "NFp1.shiftRight(intLog2N - 32).add",
+          "lineNumber": 120
+        },
+        {
+          "caller": "ProcessExponent",
+          "callee": "NFp1.shiftRight",
+          "lineNumber": 120
+        },
+        {
+          "caller": "ProcessExponent",
+          "callee": "Math.log",
+          "lineNumber": 121
+        },
+        {
+          "caller": "ProcessExponent",
+          "callee": "BigInteger.valueOf",
+          "lineNumber": 125
+        },
+        {
+          "caller": "ProcessExponent",
+          "callee": "Math.exp",
+          "lineNumber": 125
+        },
+        {
+          "caller": "ProcessExponent",
+          "callee": "Math.log",
+          "lineNumber": 125
+        },
+        {
+          "caller": "ProcessExponent",
+          "callee": "Math.floor",
+          "lineNumber": 127
+        },
+        {
+          "caller": "ProcessExponent",
+          "callee": "BigInteger\n              .valueOf((long) Math.exp((log2N - intLog2N) * Math.log(2)) + 10).shiftLeft",
+          "lineNumber": 129
+        },
+        {
+          "caller": "ProcessExponent",
+          "callee": "BigInteger.valueOf",
+          "lineNumber": 129
+        },
+        {
+          "caller": "ProcessExponent",
+          "callee": "Math.exp",
+          "lineNumber": 130
+        },
+        {
+          "caller": "ProcessExponent",
+          "callee": "Math.log",
+          "lineNumber": 130
+        },
+        {
+          "caller": "ProcessExponent",
+          "callee": "root.pow",
+          "lineNumber": 135
+        },
+        {
+          "caller": "ProcessExponent",
+          "callee": "root.multiply",
+          "lineNumber": 136
+        },
+        {
+          "caller": "ProcessExponent",
+          "callee": "NFp1.subtract",
+          "lineNumber": 137
+        },
+        {
+          "caller": "ProcessExponent",
+          "callee": "dif.signum",
+          "lineNumber": 138
+        },
+        {
+          "caller": "ProcessExponent",
+          "callee": "Cunningham",
+          "lineNumber": 139
+        },
+        {
+          "caller": "ProcessExponent",
+          "callee": "BigInteger.ONE.negate",
+          "lineNumber": 139
+        },
+        {
+          "caller": "ProcessExponent",
+          "callee": "NumberToFactor.getPD",
+          "lineNumber": 139
+        },
+        {
+          "caller": "ProcessExponent",
+          "callee": "dif\n              .add(BigInteger.ONE)\n              .divide(BigInteger.valueOf(Exponent).multiply(rootN1))\n              .add(root).subtract",
+          "lineNumber": 143
+        },
+        {
+          "caller": "ProcessExponent",
+          "callee": "dif\n              .add(BigInteger.ONE)\n              .divide(BigInteger.valueOf(Exponent).multiply(rootN1)).add",
+          "lineNumber": 143
+        },
+        {
+          "caller": "ProcessExponent",
+          "callee": "dif\n              .add(BigInteger.ONE).divide",
+          "lineNumber": 143
+        },
+        {
+          "caller": "ProcessExponent",
+          "callee": "dif.add",
+          "lineNumber": 143
+        },
+        {
+          "caller": "ProcessExponent",
+          "callee": "BigInteger.valueOf(Exponent).multiply",
+          "lineNumber": 145
+        },
+        {
+          "caller": "ProcessExponent",
+          "callee": "BigInteger.valueOf",
+          "lineNumber": 145
+        },
+        {
+          "caller": "ProcessExponent",
+          "callee": "root.compareTo",
+          "lineNumber": 148
+        },
+        {
+          "caller": "ProcessExponent",
+          "callee": "root.pow",
+          "lineNumber": 154
+        },
+        {
+          "caller": "ProcessExponent",
+          "callee": "root.multiply",
+          "lineNumber": 155
+        },
+        {
+          "caller": "ProcessExponent",
+          "callee": "NFm1.subtract",
+          "lineNumber": 156
+        },
+        {
+          "caller": "ProcessExponent",
+          "callee": "dif.signum",
+          "lineNumber": 157
+        },
+        {
+          "caller": "ProcessExponent",
+          "callee": "Cunningham",
+          "lineNumber": 158
+        },
+        {
+          "caller": "ProcessExponent",
+          "callee": "NumberToFactor.getPD",
+          "lineNumber": 158
+        },
+        {
+          "caller": "ProcessExponent",
+          "callee": "dif\n              .add(BigInteger.ONE)\n              .divide(BigInteger.valueOf(Exponent).multiply(rootN1))\n              .add(root).subtract",
+          "lineNumber": 162
+        },
+        {
+          "caller": "ProcessExponent",
+          "callee": "dif\n              .add(BigInteger.ONE)\n              .divide(BigInteger.valueOf(Exponent).multiply(rootN1)).add",
+          "lineNumber": 162
+        },
+        {
+          "caller": "ProcessExponent",
+          "callee": "dif\n              .add(BigInteger.ONE).divide",
+          "lineNumber": 162
+        },
+        {
+          "caller": "ProcessExponent",
+          "callee": "dif.add",
+          "lineNumber": 162
+        },
+        {
+          "caller": "ProcessExponent",
+          "callee": "BigInteger.valueOf(Exponent).multiply",
+          "lineNumber": 164
+        },
+        {
+          "caller": "ProcessExponent",
+          "callee": "BigInteger.valueOf",
+          "lineNumber": 164
+        },
+        {
+          "caller": "ProcessExponent",
+          "callee": "root.compareTo",
+          "lineNumber": 167
+        },
+        {
+          "caller": "Cunningham",
+          "callee": "BigIncre.intValue",
+          "lineNumber": 180
+        },
+        {
+          "caller": "Cunningham",
+          "callee": "BigBase.intValue",
+          "lineNumber": 181
+        },
+        {
+          "caller": "Cunningham",
+          "callee": "NumberToFactor.setFactor",
+          "lineNumber": 184
+        },
+        {
+          "caller": "Cunningham",
+          "callee": "BigBase.pow(Expon2).add",
+          "lineNumber": 186
+        },
+        {
+          "caller": "Cunningham",
+          "callee": "BigBase.pow",
+          "lineNumber": 186
+        },
+        {
+          "caller": "Cunningham",
+          "callee": "NumberToFactor.InsertFactor",
+          "lineNumber": 187
+        },
+        {
+          "caller": "Cunningham",
+          "callee": "F.get",
+          "lineNumber": 191
+        },
+        {
+          "caller": "Cunningham",
+          "callee": "M.get",
+          "lineNumber": 193
+        },
+        {
+          "caller": "Cunningham",
+          "callee": "factorsAscii.length",
+          "lineNumber": 195
+        },
+        {
+          "caller": "Cunningham",
+          "callee": "factorsAscii.indexOf",
+          "lineNumber": 198
+        },
+        {
+          "caller": "Cunningham",
+          "callee": "NumberToFactor.InsertFactor",
+          "lineNumber": 200
+        },
+        {
+          "caller": "Cunningham",
+          "callee": "new BigInteger",
+          "lineNumber": 201
+        },
+        {
+          "caller": "Cunningham",
+          "callee": "factorsAscii.substring",
+          "lineNumber": 202
+        },
+        {
+          "caller": "Cunningham",
+          "callee": "NumberToFactor.InsertFactor",
+          "lineNumber": 204
+        },
+        {
+          "caller": "Cunningham",
+          "callee": "new BigInteger",
+          "lineNumber": 205
+        },
+        {
+          "caller": "Cunningham",
+          "callee": "factorsAscii.substring",
+          "lineNumber": 205
+        },
+        {
+          "caller": "Cunningham",
+          "callee": "NumberToFactor.InsertFactor",
+          "lineNumber": 212
+        },
+        {
+          "caller": "Cunningham",
+          "callee": "BigBase.pow(Expon2).add",
+          "lineNumber": 212
+        },
+        {
+          "caller": "Cunningham",
+          "callee": "BigBase.pow",
+          "lineNumber": 212
+        },
+        {
+          "caller": "Cunningham",
+          "callee": "NumberToFactor.InsertAurifFactors",
+          "lineNumber": 213
+        },
+        {
+          "caller": "Cunningham",
+          "callee": "BigBase.pow(Expon / k).add(BigIncre).gcd",
+          "lineNumber": 219
+        },
+        {
+          "caller": "Cunningham",
+          "callee": "BigBase.pow(Expon / k).add",
+          "lineNumber": 219
+        },
+        {
+          "caller": "Cunningham",
+          "callee": "BigBase.pow",
+          "lineNumber": 219
+        },
+        {
+          "caller": "Cunningham",
+          "callee": "NumberToFactor.InsertFactor",
+          "lineNumber": 220
+        },
+        {
+          "caller": "Cunningham",
+          "callee": "NumberToFactor.InsertFactor",
+          "lineNumber": 221
+        },
+        {
+          "caller": "Cunningham",
+          "callee": "BigOriginal.divide",
+          "lineNumber": 221
+        },
+        {
+          "caller": "Cunningham",
+          "callee": "NumberToFactor.InsertAurifFactors",
+          "lineNumber": 222
+        },
+        {
+          "caller": "Cunningham",
+          "callee": "BigBase.pow(k).add(BigIncre).gcd",
+          "lineNumber": 225
+        },
+        {
+          "caller": "Cunningham",
+          "callee": "BigBase.pow(k).add",
+          "lineNumber": 225
+        },
+        {
+          "caller": "Cunningham",
+          "callee": "BigBase.pow",
+          "lineNumber": 225
+        },
+        {
+          "caller": "Cunningham",
+          "callee": "NumberToFactor.InsertFactor",
+          "lineNumber": 226
+        },
+        {
+          "caller": "Cunningham",
+          "callee": "NumberToFactor.InsertFactor",
+          "lineNumber": 227
+        },
+        {
+          "caller": "Cunningham",
+          "callee": "BigOriginal.divide",
+          "lineNumber": 227
+        },
+        {
+          "caller": "Cunningham",
+          "callee": "NumberToFactor.InsertAurifFactors",
+          "lineNumber": 228
+        },
+        {
+          "caller": "Cunningham",
+          "callee": "NumberToFactor.SortFactors",
+          "lineNumber": 233
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 4,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/ecm/Checks/README.TXT",
+      "language": "txt",
+      "fileCategory": "docs",
+      "totalLines": 2,
+      "nonEmptyLines": 2,
+      "metrics": {}
+    },
+    {
+      "path": "src/ecm/Checks/package.bluej",
+      "language": "bluej",
+      "fileCategory": "config",
+      "totalLines": 48,
+      "nonEmptyLines": 48,
+      "metrics": {}
+    }
+  ]
+}

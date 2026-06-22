@@ -19,76 +19,76 @@ public class VmStackFrame {
     public static int STACK_ENTRY_DOUBLE = 4;
     public static int STACK_ENTRY_FLOAT  = 5;
     
-        private int top;
-        
-        VmStackEntry a[] = new VmStackEntry[MAX]; // Maximum size of Stack 
+    private int top;
 
-        public boolean isEmpty()
-        { 
-            return (top < 0);
-        } 
-        
-        public VmStackFrame() 
-        { 
-            top = -1;
-        }
+    VmStackEntry a[] = new VmStackEntry[MAX]; // Maximum size of Stack 
 
-        public boolean push(VmStackEntry x)
-        { 
-            if (top >= (MAX - 1)) { 
-                System.out.println("Stack Overflow"); 
-                return false;
-            } else {
-                a[++top] = x; 
-                System.out.println(x + " pushed into stack"); 
-                return true;
-            }
-        }
+    public boolean isEmpty()
+    { 
+        return (top < 0);
+    } 
 
-        public VmStackEntry pop()
-        {
-            if (top < 0) {
-                System.out.println("Stack Underflow");
-                return null;
-            } else {
-                VmStackEntry x = a[top--];
-                return x;
-            }
-        }
+    public VmStackFrame() 
+    { 
+        top = -1;
+    }
 
-        public VmStackEntry peek()
-        {
-            if (top < 0) {
-                System.out.println("Stack Underflow");
-                return null;
-            } else {
-                VmStackEntry x = a[top];
-                return x;
-            }
+    public boolean push(VmStackEntry x)
+    { 
+        if (top >= (MAX - 1)) { 
+            System.out.println("Stack Overflow"); 
+            return false;
+        } else {
+            a[++top] = x; 
+            System.out.println(x + " pushed into stack"); 
+            return true;
         }
+    }
 
-        public void push(int i) {
-            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public VmStackEntry pop()
+    {
+        if (top < 0) {
+            System.out.println("Stack Underflow");
+            return null;
+        } else {
+            VmStackEntry x = a[top--];
+            return x;
         }
+    }
 
-        public void push(double i) {
-            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public VmStackEntry peek()
+    {
+        if (top < 0) {
+            System.out.println("Stack Underflow");
+            return null;
+        } else {
+            VmStackEntry x = a[top];
+            return x;
         }
-        
-        public double get_double_parameter(ConstantPool cp)
-        {
-            double value;
-            if (is_ref_entry()) {
-                int index = popInt();
-                value = ((BCDouble)((NumericCPEntry)cp.entryAt(index)).value()).doubleValue();
-                //System.out.print("index %d\n", index);
-                //System.out.print("get value from constant pool = %f\n", value);
-            } else {
-                value = popDouble();
-                //System.out.print("get value from stack = %f\n", value);
-            }
-            return value;
+    }
+
+    public void push(int i) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    public void push(double i) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    public double get_double_parameter(ConstantPool cp)
+    {
+        double value;
+        if (is_ref_entry()) {
+            int index = popInt();
+            value = ((BCDouble)((NumericCPEntry)cp.entryAt(index)).value()).doubleValue();
+            //System.out.print("index %d\n", index);
+            //System.out.print("get value from constant pool = %f\n", value);
+        } else {
+            value = popDouble();
+            //System.out.print("get value from stack = %f\n", value);
         }
+        return value;
+    }
 
     private boolean is_ref_entry() {
         return a[top].type == STACK_ENTRY_REF;

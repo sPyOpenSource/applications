@@ -1,0 +1,376 @@
+{
+  "batch": 6,
+  "totalBatches": 10,
+  "description": "Config, docs, and misc files for PrimeFactors project",
+  "skipped": [
+    "src/.DS_Store",
+    ".understand-anything/intermediate/scan-result.json"
+  ],
+  "nodes": [
+    {
+      "id": "config:.understand-anything/.understandignore",
+      "type": "config",
+      "language": "unknown",
+      "lines": 31,
+      "summary": "Configuration file defining ignore patterns for file analysis. Uses gitignore-style syntax to exclude build/, test patterns, and other non-essential files from analysis.",
+      "tags": [
+        "config",
+        "ignore-rules",
+        "analysis-skip"
+      ],
+      "languageLesson": "File with gitignore-style glob patterns for excluding files from understand-anything analysis.",
+      "filePath": ".understand-anything/.understandignore"
+    },
+    {
+      "id": "config:build.xml",
+      "type": "config",
+      "language": "xml",
+      "lines": 73,
+      "summary": "Apache Ant build file for the PrimeFactors project. Defines the default build target and imports nbproject/build-impl.xml. Includes commented documentation of available build lifecycle targets such as -pre-compile, -post-jar, -javadoc-build, and test-report.",
+      "tags": [
+        "config",
+        "build",
+        "ant",
+        "xml"
+      ],
+      "languageLesson": "Apache Ant XML build configuration for Java project compilation, JAR packaging, and testing.",
+      "filePath": "build.xml"
+    },
+    {
+      "id": "document:CHANGELOG",
+      "type": "document",
+      "language": "txt",
+      "lines": 45,
+      "summary": "Version history spanning v1.2 to v2.2 (2019-2022). Documents addition of NTT, SIQS separation, FFT/NTT, zeef, GUI, Lucas Lehmer Test, and code reorganization by XW.",
+      "tags": [
+        "docs",
+        "changelog",
+        "version-history",
+        "release-notes"
+      ],
+      "languageLesson": "Plain text changelog documenting project release history and feature evolution.",
+      "filePath": "CHANGELOG"
+    },
+    {
+      "id": "config:manifest.mf",
+      "type": "config",
+      "language": "mf",
+      "lines": 3,
+      "summary": "JAR manifest file with version 1.0. Comments indicate Main-Class will be added automatically during build.",
+      "tags": [
+        "config",
+        "manifest",
+        "jar",
+        "java"
+      ],
+      "languageLesson": "JAR manifest metadata file specifying packaging attributes for Java archive.",
+      "filePath": "manifest.mf"
+    },
+    {
+      "id": "document:src/README.TXT",
+      "type": "document",
+      "language": "txt",
+      "lines": 16,
+      "summary": "Project overview describing the two main factorization algorithms: ECM (Elliptic Curve Method) using random elliptic curves and point addition, and SIQS (Self-Initializing Quadratic Sieve) using polynomial generation, smooth relation collection, and linear algebra for congruence of squares.",
+      "tags": [
+        "docs",
+        "readme",
+        "ecm",
+        "siqs",
+        "factorization"
+      ],
+      "languageLesson": "Technical documentation describing ECM and SIQS integer factorization algorithms.",
+      "filePath": "src/README.TXT"
+    },
+    {
+      "id": "config:src/package.bluej",
+      "type": "config",
+      "language": "bluej",
+      "lines": 55,
+      "summary": "BlueJ IDE package layout for the root src package. Defines window geometry and 5 sub-package targets: calculator, BigIntegers, Factorzations, utilities, and ecm.",
+      "tags": [
+        "config",
+        "bluej",
+        "ide",
+        "package-layout"
+      ],
+      "languageLesson": "BlueJ IDE package configuration defining sub-package organization and editor layout.",
+      "filePath": "src/package.bluej"
+    },
+    {
+      "id": "config:src/BigIntegers/package.bluej",
+      "type": "config",
+      "language": "bluej",
+      "lines": 68,
+      "summary": "BlueJ package layout for BigIntegers sub-package. Lists 6 class targets: StaticFunctions, FactorInteger, MontgomeryInteger, LargeInteger, AprtCleInteger, ECMBigInteger. Defines 2 UsesDependencies: MontgomeryInteger\u2192StaticFunctions and AprtCleInteger\u2192StaticFunctions.",
+      "tags": [
+        "config",
+        "bluej",
+        "ide",
+        "package-layout",
+        "dependencies"
+      ],
+      "languageLesson": "BlueJ IDE package configuration showing class targets and usage dependencies.",
+      "filePath": "src/BigIntegers/package.bluej"
+    },
+    {
+      "id": "document:src/BigIntegers/README.TXT",
+      "type": "document",
+      "language": "txt",
+      "lines": 5,
+      "summary": "Brief descriptions of BigIntegers classes: FactorInteger (factorization), LargeInteger (multiplication), ECMBigInteger (ECM), MontgomeryInteger (Montgomery multiplication), AprtCleInteger (APRT-CLE primality test).",
+      "tags": [
+        "docs",
+        "readme",
+        "class-overview",
+        "big-integers"
+      ],
+      "languageLesson": "Short README describing the purpose of each class in the BigIntegers package.",
+      "filePath": "src/BigIntegers/README.TXT"
+    },
+    {
+      "id": "config:src/BigIntegers/AprtCleInteger.ctxt",
+      "type": "config",
+      "language": "ctxt",
+      "lines": 26,
+      "summary": "BlueJ class context for AprtCleInteger. Documents 12 methods including JacobiSum, JS_JW, NormalizeJS, JS_2, JS_E, NormalizeJW, BigNbrModN, CompareSquare, and isProbablePrimeRobin. Author: spy. Constructor takes a String val.",
+      "tags": [
+        "config",
+        "bluej",
+        "ctxt",
+        "class-context"
+      ],
+      "languageLesson": "BlueJ class context metadata file documenting method signatures and Javadoc comments.",
+      "filePath": "src/BigIntegers/AprtCleInteger.ctxt"
+    },
+    {
+      "id": "config:src/BigIntegers/ECMBigInteger.ctxt",
+      "type": "config",
+      "language": "ctxt",
+      "lines": 24,
+      "summary": "BlueJ class context for ECMBigInteger. Documents 11 methods including Sum, Totient, Moebius, InsertAurifFactors, GetAurifeuilleFactor, ComputeFourSquares, and Calculate. Author: X. Wang.",
+      "tags": [
+        "config",
+        "bluej",
+        "ctxt",
+        "class-context",
+        "ecm"
+      ],
+      "languageLesson": "BlueJ class context metadata for the ECM elliptic curve factorization class.",
+      "filePath": "src/BigIntegers/ECMBigInteger.ctxt"
+    },
+    {
+      "id": "config:src/BigIntegers/FactorInteger.ctxt",
+      "type": "config",
+      "language": "ctxt",
+      "lines": 58,
+      "summary": "BlueJ class context for FactorInteger. Documents 28 methods including getPD, setPD, getType, setType, GetSmallFactors, SortFactors, SortFactorsPD, InsertFactor, InsertNewFactor, addSelf2PD, getTestComp, and small prime accessors. Author: X. Wang.",
+      "tags": [
+        "config",
+        "bluej",
+        "ctxt",
+        "class-context",
+        "factorization"
+      ],
+      "languageLesson": "BlueJ class context metadata for the FactorInteger factorization tracking class.",
+      "filePath": "src/BigIntegers/FactorInteger.ctxt"
+    },
+    {
+      "id": "file:src/BigIntegers/FactorInteger.java",
+      "type": "file",
+      "language": "java",
+      "lines": 322,
+      "summary": "FactorInteger class extending LargeInteger for factorization result tracking. Manages arrays of prime divisors (PD), exponents (Exp), and factor types (Typ). Implements GetSmallFactors trial division up to 131072, bubble sort for factors, and InsertNewFactor with type tracking (AURIF, TABLE, SIQS, LEHMAN, RABIN, EC). Provides accessors for small primes and factor arrays.",
+      "tags": [
+        "code",
+        "java",
+        "factorization",
+        "prime-divisors",
+        "trial-division"
+      ],
+      "languageLesson": "Java class for tracking factorization results with type-coded prime factor management.",
+      "filePath": "src/BigIntegers/FactorInteger.java"
+    },
+    {
+      "id": "file:src/BigIntegers/FactorInteger.class",
+      "type": "file",
+      "language": "unknown",
+      "lines": 0,
+      "summary": "Compiled Java bytecode for FactorInteger. Zero-length file indicating empty or incomplete compilation output.",
+      "tags": [
+        "code",
+        "java",
+        "bytecode",
+        "compiled"
+      ],
+      "languageLesson": "Compiled Java class file containing JVM bytecode for the FactorInteger class.",
+      "filePath": "src/BigIntegers/FactorInteger.class"
+    },
+    {
+      "id": "config:src/BigIntegers/LargeInteger.ctxt",
+      "type": "config",
+      "language": "ctxt",
+      "lines": 90,
+      "summary": "BlueJ class context for LargeInteger. Documents 32 methods for arbitrary-precision integer arithmetic including add, subtract, multiply, divide, pow, squareFFT, squareNTT, getReciprocal, trunc, pad, shiftLeft, shiftRight, and isPrime. Original author: Rod Howell (howell@cis.ksu.edu). Supports radix 2-36 with lazy conversion.",
+      "tags": [
+        "config",
+        "bluej",
+        "ctxt",
+        "class-context",
+        "big-integer",
+        "arithmetic"
+      ],
+      "languageLesson": "BlueJ class context for arbitrary-precision integer arithmetic library by Rod Howell.",
+      "filePath": "src/BigIntegers/LargeInteger.ctxt"
+    },
+    {
+      "id": "config:src/BigIntegers/MontgomeryInteger.ctxt",
+      "type": "config",
+      "language": "ctxt",
+      "lines": 22,
+      "summary": "BlueJ class context for MontgomeryInteger. Documents 10 methods including MontgomeryMult, KaratsubaMontgomeryMult, KaratsubaMultiply, absSubtract, KaratsubaAdd, GetYieldFrequency, ComputeMontgomeryParms, and NormalMultiply. Example references Curve25519. Author: X. Wang.",
+      "tags": [
+        "config",
+        "bluej",
+        "ctxt",
+        "class-context",
+        "montgomery",
+        "multiplication"
+      ],
+      "languageLesson": "BlueJ class context for Montgomery modular multiplication with Karatsuba optimization.",
+      "filePath": "src/BigIntegers/MontgomeryInteger.ctxt"
+    },
+    {
+      "id": "file:src/BigIntegers/MontgomeryInteger.java",
+      "type": "file",
+      "language": "java",
+      "lines": 365,
+      "summary": "MontgomeryInteger class extending ECMBigInteger for Montgomery modular multiplication. Implements MontgomeryMult (REDC algorithm with or without Karatsuba), KaratsubaMontgomeryMult, recursive KaratsubaMultiply, absSubtract, KaratsubaAdd, NormalMultiply (schoolbook), GetYieldFrequency, and ComputeMontgomeryParms (Newton iteration for inverse). Configurable KARATSUBA_CUTOFF=64 but Karatsuba is disabled by default. Example references Curve25519.",
+      "tags": [
+        "code",
+        "java",
+        "montgomery",
+        "modular-multiplication",
+        "karatsuba",
+        "redc"
+      ],
+      "languageLesson": "Java class implementing Montgomery modular multiplication with Karatsuba optimization option.",
+      "filePath": "src/BigIntegers/MontgomeryInteger.java"
+    },
+    {
+      "id": "config:src/BigIntegers/StaticFunctions.ctxt",
+      "type": "config",
+      "language": "ctxt",
+      "lines": 22,
+      "summary": "BlueJ class context for StaticFunctions. Documents 10 static utility methods: BigNbrToBigInt, Convert32To31Bits, BigIntToBigNbr, Convert31To32Bits, AdjustModN, MultBigNbrModN, AddBigNbrModN, BigNbrAreEqual, BigNbrIsZero. Author: xuyi.",
+      "tags": [
+        "config",
+        "bluej",
+        "ctxt",
+        "class-context",
+        "utilities"
+      ],
+      "languageLesson": "BlueJ class context for static utility functions handling big integer conversion and modular arithmetic.",
+      "filePath": "src/BigIntegers/StaticFunctions.ctxt"
+    },
+    {
+      "id": "file:src/BigIntegers/StaticFunctions.java",
+      "type": "file",
+      "language": "java",
+      "lines": 199,
+      "summary": "Static utility class for the BigIntegers package. Provides conversion between BigInteger and custom 31-bit digit arrays (BigNbrToBigInt, BigIntToBigNbr), 32/31-bit conversion routines, modular arithmetic (AdjustModN using trial quotient with floating-point estimation, MultBigNbrModN, AddBigNbrModN), and comparison helpers (BigNbrAreEqual, BigNbrIsZero).",
+      "tags": [
+        "code",
+        "java",
+        "utilities",
+        "conversion",
+        "modular-arithmetic",
+        "big-integer"
+      ],
+      "languageLesson": "Java static utility class for big integer conversion and modular arithmetic operations.",
+      "filePath": "src/BigIntegers/StaticFunctions.java"
+    },
+    {
+      "id": "config:src/Factorzations/Classical.ctxt",
+      "type": "config",
+      "language": "ctxt",
+      "lines": 14,
+      "summary": "BlueJ class context for Classical factorization class. Documents 6 methods including constructor (BigInteger), odd check, SqrtFloor, SqrtCeil, and factor. Author: spy.",
+      "tags": [
+        "config",
+        "bluej",
+        "ctxt",
+        "class-context",
+        "factorization"
+      ],
+      "languageLesson": "BlueJ class context for classical integer factorization methods.",
+      "filePath": "src/Factorzations/Classical.ctxt"
+    },
+    {
+      "id": "config:src/Factorzations/Lehman.ctxt",
+      "type": "config",
+      "language": "ctxt",
+      "lines": 10,
+      "summary": "BlueJ class context for Lehman factorization class. Documents 4 methods: constructor(BigInteger, int), run, and factor. Author: spy.",
+      "tags": [
+        "config",
+        "bluej",
+        "ctxt",
+        "class-context",
+        "lehman",
+        "factorization"
+      ],
+      "languageLesson": "BlueJ class context for Lehman's integer factorization algorithm.",
+      "filePath": "src/Factorzations/Lehman.ctxt"
+    },
+    {
+      "id": "config:src/Factorzations/GUI.ctxt",
+      "type": "config",
+      "language": "ctxt",
+      "lines": 131,
+      "summary": "BlueJ class context for GUI. Documents 63 methods including initComponents, main, and numerous actionPerformed handlers for buttons (jButton0-jButton11), plus bigNumberActionPerformed, FactorActionPerformed, ClearActionPerformed, UpActionPerformed, DownActionPerformed, RemActionPerformed, DivideActionPerformed, MultiplyActionPerformed, SubActionPerformed, AddActionPerformed, PowerActionPerformed, SignActionPerformed, TotientActionPerformed, MobiusActionPerformed, SumActionPerformed, EnterActionPerformed, DeleteActionPerformed, and Checks(AprtCleInteger, int). Author: spy.",
+      "tags": [
+        "config",
+        "bluej",
+        "ctxt",
+        "class-context",
+        "gui",
+        "swing"
+      ],
+      "languageLesson": "BlueJ class context for a Swing-based GUI with calculator-style action listeners.",
+      "filePath": "src/Factorzations/GUI.ctxt"
+    },
+    {
+      "id": "config:src/Factorzations/package.bluej",
+      "type": "config",
+      "language": "bluej",
+      "lines": 53,
+      "summary": "BlueJ package layout for Factorzations sub-package. Lists 5 targets: Classical, GUI, Lehman (ClassTargets), plus siqs and ecm (PackageTargets). No dependencies configured.",
+      "tags": [
+        "config",
+        "bluej",
+        "ide",
+        "package-layout",
+        "factorization"
+      ],
+      "languageLesson": "BlueJ IDE package configuration for Factorzations with classical/Lehman/GUI classes and siqs/ecm sub-packages.",
+      "filePath": "src/Factorzations/package.bluej"
+    },
+    {
+      "id": "document:src/Factorzations/README.TXT",
+      "type": "document",
+      "language": "txt",
+      "lines": 1,
+      "summary": "Brief description: Graphic User Interface for Prime Factorzations Calculator.",
+      "tags": [
+        "docs",
+        "readme",
+        "gui",
+        "factorization"
+      ],
+      "languageLesson": "Short README describing the Factorzations package as containing the GUI.",
+      "filePath": "src/Factorzations/README.TXT"
+    }
+  ],
+  "edges": []
+}

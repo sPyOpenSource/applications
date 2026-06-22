@@ -1,0 +1,171 @@
+{
+  "batchIndex": 10,
+  "totalBatches": 10,
+  "files": [
+    {
+      "path": "src/Factorzations/siqs/PrimeSieveData.ctxt",
+      "language": "ctxt",
+      "sizeLines": 6,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Factorzations/siqs/PrimeSieveData.java",
+      "language": "java",
+      "sizeLines": 677,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Factorzations/siqs/PrimeTrialDivisionData.ctxt",
+      "language": "ctxt",
+      "sizeLines": 12,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Factorzations/siqs/README.TXT",
+      "language": "txt",
+      "sizeLines": 10,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "src/Factorzations/siqs/Relation.ctxt",
+      "language": "ctxt",
+      "sizeLines": 13,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Factorzations/siqs/Sieve.ctxt",
+      "language": "ctxt",
+      "sizeLines": 11,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Factorzations/siqs/Sieve.java",
+      "language": "java",
+      "sizeLines": 335,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Factorzations/siqs/Siqs.ctxt",
+      "language": "ctxt",
+      "sizeLines": 15,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Factorzations/siqs/StaticFunctions.ctxt",
+      "language": "ctxt",
+      "sizeLines": 14,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/Factorzations/siqs/StaticFunctions.java",
+      "language": "java",
+      "sizeLines": 455,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/package.bluej",
+      "language": "bluej",
+      "sizeLines": 55,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/README.TXT",
+      "language": "txt",
+      "sizeLines": 15,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "src/utilities/BitReverseCounter.ctxt",
+      "language": "ctxt",
+      "sizeLines": 13,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/utilities/FFT.ctxt",
+      "language": "ctxt",
+      "sizeLines": 12,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/utilities/NTT.ctxt",
+      "language": "ctxt",
+      "sizeLines": 34,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/utilities/package.bluej",
+      "language": "bluej",
+      "sizeLines": 55,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/utilities/README.TXT",
+      "language": "txt",
+      "sizeLines": 0,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "src/utilities/Timer.ctxt",
+      "language": "ctxt",
+      "sizeLines": 21,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/utilities/Timer.java",
+      "language": "java",
+      "sizeLines": 107,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/utilities/Zeef.ctxt",
+      "language": "ctxt",
+      "sizeLines": 11,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/utilities/Zeef.java",
+      "language": "java",
+      "sizeLines": 66,
+      "fileCategory": "code"
+    }
+  ],
+  "batchImportData": {
+    "src/Factorzations/siqs/PrimeSieveData.ctxt": [],
+    "src/Factorzations/siqs/PrimeSieveData.java": [],
+    "src/Factorzations/siqs/PrimeTrialDivisionData.ctxt": [],
+    "src/Factorzations/siqs/README.TXT": [],
+    "src/Factorzations/siqs/Relation.ctxt": [],
+    "src/Factorzations/siqs/Sieve.ctxt": [],
+    "src/Factorzations/siqs/Sieve.java": [],
+    "src/Factorzations/siqs/Siqs.ctxt": [],
+    "src/Factorzations/siqs/StaticFunctions.ctxt": [],
+    "src/Factorzations/siqs/StaticFunctions.java": [],
+    "src/package.bluej": [],
+    "src/README.TXT": [],
+    "src/utilities/BitReverseCounter.ctxt": [],
+    "src/utilities/FFT.ctxt": [],
+    "src/utilities/NTT.ctxt": [],
+    "src/utilities/package.bluej": [],
+    "src/utilities/README.TXT": [],
+    "src/utilities/Timer.ctxt": [],
+    "src/utilities/Timer.java": [],
+    "src/utilities/Zeef.ctxt": [],
+    "src/utilities/Zeef.java": []
+  },
+  "neighborMap": {
+    "src/utilities/Zeef.java": [
+      {
+        "path": "src/ecm/PrimeTest/LucasLehmer.java",
+        "batchIndex": 9,
+        "symbols": [
+          "main",
+          "LucasLehmer",
+          "run",
+          "isPrime",
+          "LucasLehmer",
+          "run"
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,212 @@
+{
+  "batchIndex": 3,
+  "totalBatches": 10,
+  "files": [
+    {
+      "path": "src/calculator/Calculator.java",
+      "language": "java",
+      "sizeLines": 32,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/CalculatorUI.java",
+      "language": "java",
+      "sizeLines": 42,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/ConvertBase.java",
+      "language": "java",
+      "sizeLines": 46,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/Deque.java",
+      "language": "java",
+      "sizeLines": 124,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/EmptyDequeException.java",
+      "language": "java",
+      "sizeLines": 16,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/Operation.java",
+      "language": "java",
+      "sizeLines": 27,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/javamodel/CalculatorImpl.java",
+      "language": "java",
+      "sizeLines": 198,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/javamodel/ClearStack.java",
+      "language": "java",
+      "sizeLines": 28,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/javamodel/Pop.java",
+      "language": "java",
+      "sizeLines": 28,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/javamodel/Push.java",
+      "language": "java",
+      "sizeLines": 27,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/javamodel/RotateDown.java",
+      "language": "java",
+      "sizeLines": 27,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/javamodel/RotateUp.java",
+      "language": "java",
+      "sizeLines": 27,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/largemodel/CalculatorImpl.java",
+      "language": "java",
+      "sizeLines": 232,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/largemodel/Push.java",
+      "language": "java",
+      "sizeLines": 27,
+      "fileCategory": "code"
+    }
+  ],
+  "batchImportData": {
+    "src/calculator/Calculator.java": [],
+    "src/calculator/CalculatorUI.java": [],
+    "src/calculator/ConvertBase.java": [],
+    "src/calculator/Deque.java": [],
+    "src/calculator/EmptyDequeException.java": [],
+    "src/calculator/Operation.java": [],
+    "src/calculator/javamodel/CalculatorImpl.java": [
+      "src/calculator/Calculator.java",
+      "src/calculator/CalculatorUI.java",
+      "src/calculator/ConvertBase.java",
+      "src/calculator/Deque.java",
+      "src/calculator/EmptyDequeException.java",
+      "src/calculator/EncodedOperation.java",
+      "src/calculator/Operation.java"
+    ],
+    "src/calculator/javamodel/ClearStack.java": [
+      "src/calculator/Operation.java"
+    ],
+    "src/calculator/javamodel/Pop.java": [
+      "src/calculator/Operation.java"
+    ],
+    "src/calculator/javamodel/Push.java": [
+      "src/calculator/Operation.java"
+    ],
+    "src/calculator/javamodel/RotateDown.java": [
+      "src/calculator/Operation.java"
+    ],
+    "src/calculator/javamodel/RotateUp.java": [
+      "src/calculator/Operation.java"
+    ],
+    "src/calculator/largemodel/CalculatorImpl.java": [
+      "src/BigIntegers/LargeInteger.java",
+      "src/calculator/Calculator.java",
+      "src/calculator/CalculatorUI.java",
+      "src/calculator/ConvertBase.java",
+      "src/calculator/Deque.java",
+      "src/calculator/EmptyDequeException.java",
+      "src/calculator/EncodedOperation.java",
+      "src/calculator/javamodel/ClearStack.java",
+      "src/calculator/javamodel/Pop.java",
+      "src/calculator/javamodel/RotateDown.java",
+      "src/calculator/javamodel/RotateUp.java",
+      "src/calculator/Operation.java"
+    ],
+    "src/calculator/largemodel/Push.java": [
+      "src/calculator/Operation.java"
+    ]
+  },
+  "neighborMap": {
+    "src/calculator/Deque.java": [
+      {
+        "path": "src/Factorzations/GUI.java",
+        "batchIndex": 1,
+        "symbols": [
+          "GUI",
+          "main",
+          "GUI"
+        ]
+      }
+    ],
+    "src/calculator/EmptyDequeException.java": [
+      {
+        "path": "src/Factorzations/GUI.java",
+        "batchIndex": 1,
+        "symbols": [
+          "GUI",
+          "main",
+          "GUI"
+        ]
+      }
+    ],
+    "src/calculator/javamodel/CalculatorImpl.java": [
+      {
+        "path": "src/calculator/EncodedOperation.java",
+        "batchIndex": 1,
+        "symbols": [
+          "EncodedOperation"
+        ]
+      }
+    ],
+    "src/calculator/largemodel/CalculatorImpl.java": [
+      {
+        "path": "src/BigIntegers/LargeInteger.java",
+        "batchIndex": 1,
+        "symbols": [
+          "LargeInteger",
+          "LargeInteger",
+          "add",
+          "subtract",
+          "negate",
+          "multiply",
+          "squareFFT",
+          "squareNTT",
+          "getEnd",
+          "divide",
+          "abs",
+          "pow",
+          "pow",
+          "pow",
+          "pow",
+          "multiply",
+          "divide",
+          "toString",
+          "getBase",
+          "compareTo",
+          "and",
+          "shiftLeft",
+          "shiftRight",
+          "isPrime",
+          "LargeInteger"
+        ]
+      },
+      {
+        "path": "src/calculator/EncodedOperation.java",
+        "batchIndex": 1,
+        "symbols": [
+          "EncodedOperation"
+        ]
+      }
+    ]
+  }
+}

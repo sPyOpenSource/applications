@@ -1,0 +1,184 @@
+{
+  "batchIndex": 8,
+  "totalBatches": 10,
+  "files": [
+    {
+      "path": "src/calculator/largemodel/Push.ctxt",
+      "language": "ctxt",
+      "sizeLines": 7,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/largemodel/README.TXT",
+      "language": "txt",
+      "sizeLines": 0,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "src/calculator/largemodel/Remainder.ctxt",
+      "language": "ctxt",
+      "sizeLines": 12,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/largemodel/Subtract.ctxt",
+      "language": "ctxt",
+      "sizeLines": 14,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/largemodel/TenToPower.ctxt",
+      "language": "ctxt",
+      "sizeLines": 10,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/largemodel/TwoToPower.ctxt",
+      "language": "ctxt",
+      "sizeLines": 10,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/NumericDocument.ctxt",
+      "language": "ctxt",
+      "sizeLines": 16,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/NumericDocument.java",
+      "language": "java",
+      "sizeLines": 119,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/Operation.ctxt",
+      "language": "ctxt",
+      "sizeLines": 7,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/package.bluej",
+      "language": "bluej",
+      "sizeLines": 126,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/calculator/README.TXT",
+      "language": "txt",
+      "sizeLines": 5,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "src/ecm/BigIntegers/GCD.ctxt",
+      "language": "ctxt",
+      "sizeLines": 6,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/ecm/BigIntegers/ModInv.ctxt",
+      "language": "ctxt",
+      "sizeLines": 9,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/ecm/BigIntegers/package.bluej",
+      "language": "bluej",
+      "sizeLines": 34,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/ecm/BigIntegers/README.TXT",
+      "language": "txt",
+      "sizeLines": 0,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "src/ecm/Checks/FibonacciCheck.ctxt",
+      "language": "ctxt",
+      "sizeLines": 8,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/ecm/Checks/LucasCheck.ctxt",
+      "language": "ctxt",
+      "sizeLines": 14,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/ecm/Checks/package.bluej",
+      "language": "bluej",
+      "sizeLines": 48,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/ecm/Checks/PowerCheck.ctxt",
+      "language": "ctxt",
+      "sizeLines": 8,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/ecm/Checks/PowerPM1Check.ctxt",
+      "language": "ctxt",
+      "sizeLines": 12,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/ecm/Checks/README.TXT",
+      "language": "txt",
+      "sizeLines": 1,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "src/ecm/package.bluej",
+      "language": "bluej",
+      "sizeLines": 38,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/ecm/PrimeTest/AprtCle.ctxt",
+      "language": "ctxt",
+      "sizeLines": 8,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/ecm/PrimeTest/AprtCleFinal.ctxt",
+      "language": "ctxt",
+      "sizeLines": 8,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/ecm/PrimeTest/AprtCleVariable.ctxt",
+      "language": "ctxt",
+      "sizeLines": 4,
+      "fileCategory": "code"
+    }
+  ],
+  "batchImportData": {
+    "src/calculator/largemodel/Push.ctxt": [],
+    "src/calculator/largemodel/README.TXT": [],
+    "src/calculator/largemodel/Remainder.ctxt": [],
+    "src/calculator/largemodel/Subtract.ctxt": [],
+    "src/calculator/largemodel/TenToPower.ctxt": [],
+    "src/calculator/largemodel/TwoToPower.ctxt": [],
+    "src/calculator/NumericDocument.ctxt": [],
+    "src/calculator/NumericDocument.java": [],
+    "src/calculator/Operation.ctxt": [],
+    "src/calculator/package.bluej": [],
+    "src/calculator/README.TXT": [],
+    "src/ecm/BigIntegers/GCD.ctxt": [],
+    "src/ecm/BigIntegers/ModInv.ctxt": [],
+    "src/ecm/BigIntegers/package.bluej": [],
+    "src/ecm/BigIntegers/README.TXT": [],
+    "src/ecm/Checks/FibonacciCheck.ctxt": [],
+    "src/ecm/Checks/LucasCheck.ctxt": [],
+    "src/ecm/Checks/package.bluej": [],
+    "src/ecm/Checks/PowerCheck.ctxt": [],
+    "src/ecm/Checks/PowerPM1Check.ctxt": [],
+    "src/ecm/Checks/README.TXT": [],
+    "src/ecm/package.bluej": [],
+    "src/ecm/PrimeTest/AprtCle.ctxt": [],
+    "src/ecm/PrimeTest/AprtCleFinal.ctxt": [],
+    "src/ecm/PrimeTest/AprtCleVariable.ctxt": []
+  },
+  "neighborMap": {}
+}
