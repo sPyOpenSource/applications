@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 1: The Congruence of Squares</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+<h1>The Congruence of Squares</h1>
+<p class="lesson-meta">
+  Lesson 1 · 15 min · Foundation for both QS and ECM
+</p>
+
+<p>
+  Every algorithm in this codebase — the Quadratic Sieve in
+  <code>com/gazman/factor/</code>, the Elliptic Curve Method in
+  <code>ecm/</code> — is trying to find the same thing:
+</p>
+
+<div class="math">
+  x<sup>2</sup> ≡ y<sup>2</sup> &nbsp;(mod&nbsp;n) &nbsp;&nbsp;with&nbsp;
+  x ≢ ±y &nbsp;(mod&nbsp;n)
+</div>
+
+<p>
+  This is called a <strong>congruence of squares</strong>, and it gives us
+  a factor of n directly.
+</p>
+
+<h2>The Algebra</h2>
+
+<p>
+  If x<sup>2</sup> ≡ y<sup>2</sup> (mod n), then the integer
+  (x − y)(x + y) is divisible by n. If we also know x ≢ ±y (mod n),
+  then n divides the <em>product</em> but not either <em>factor</em>
+  individually — so gcd(x − y, n) must be a nontrivial divisor.
+</p>
+
+<div class="callout info">
+  <strong>Key fact.</strong> Reducing factoring to finding a congruence
+  of squares is not just a trick — it's an equivalence. Computing square
+  roots modulo a composite number is <em>probabilistic polynomial-time
+  equivalent</em> to factoring that number.
+  <a href="https://en.wikipedia.org/wiki/Congruence_of_squares">[source]</a>
+</div>
+
+<h2>Worked Example</h2>
+
+<p>
+  Let's factor n = 1649 — the canonical classroom example from Pomerance's
+  original QS paper.
+</p>
+
+<p>
+  First, pick numbers near ⌈√1649⌉ = 41:
+</p>
+
+<div class="math">
+  a = 41: &nbsp;41<sup>2</sup> = 1681 ≡ 32 &nbsp;(mod 1649)<br>
+  a = 42: &nbsp;42<sup>2</sup> = 1764 ≡ 115 &nbsp;(mod 1649)<br>
+  a = 43: &nbsp;43<sup>2</sup> = 1849 ≡ 200 &nbsp;(mod 1649)<br>
+</div>
+
+<p>
+  None of the residues 32, 115, 200 are perfect squares. But look at their
+  factorizations:
+</p>
+
+<div class="math">
+  32 = 2<sup>5</sup> &nbsp;&nbsp;
+  115 = 5 · 23 &nbsp;&nbsp;
+  200 = 2<sup>3</sup> · 5<sup>2</sup>
+</div>
+
+<p>
+  The <em>product</em> of 32 and 200 has only even exponents:
+</p>
+
+<div class="math">
+  32 · 200 = 6400 = 2<sup>8</sup> · 5<sup>2</sup> = (2<sup>4</sup> · 5)<sup>2</sup> = 80<sup>2</sup>
+</div>
+
+<p>
+  So we have:
+</p>
+
+<div class="math">
+  (41 · 43)<sup>2</sup> ≡ 32 · 200 ≡ 80<sup>2</sup> &nbsp;(mod 1649)<br>
+  1763<sup>2</sup> ≡ 80<sup>2</sup> &nbsp;(mod 1649)<br>
+  x = 1763 mod 1649 = 114, y = 80
+</div>
+
+<p>
+  Check: 114 ≠ ±80 (mod 1649). So we compute:
+</p>
+
+<div class="math">
+  gcd(114 − 80, 1649) = gcd(34, 1649) = 17
+</div>
+
+<p>
+  And 1649 = 17 × 97. Done.
+</p>
+
+<div class="callout warn">
+  <strong>Why this works.</strong> The key insight is that we didn't need
+  any one residue to be a square — we needed a <em>product</em> of residues
+  to be a square. That's much easier to find, and it's the engine behind
+  every modern factoring algorithm.
+</div>
+
+<h2>The General Framework</h2>
+
+<p>
+  The search for a congruence of squares splits into four steps:
+</p>
+
+<ol>
+  <li>
+    <strong>Build a factor base</strong> — a set of small primes
+    B = {p₁, …, p<sub>k</sub>}.
+  </li>
+  <li>
+    <strong>Collect relations</strong> — find values a<sub>i</sub> such that
+    g(a<sub>i</sub>) = a<sub>i</sub>² − n factors completely over B
+    (is <strong>B-smooth</strong>).
+  </li>
+  <li>
+    <strong>Find a dependency</strong> — the exponent vectors of
+    g(a<sub>i</sub>) modulo 2 form a matrix over 𝔽₂. Gaussian elimination
+    finds a subset whose sum is the zero vector.
+  </li>
+  <li>
+    <strong>Extract the factor</strong> — multiply the corresponding
+    a<sub>i</sub> to get x, multiply the g(a<sub>i</sub>) to get y²,
+    compute gcd(x − y, n).
+  </li>
+</ol>
+
+<p>
+  Step 3 is the crucial insight: once you have k + 1 relations (more rows
+  than columns), a linear dependency is <em>guaranteed</em> by linear
+  algebra over 𝔽₂.
+</p>
+
+<h2>Map to the Code</h2>
+
+<p>
+  Let's see each step in the QuadraticSieve implementation:
+</p>
+
+<h3>Step 1: Factor base</h3>
+
+<div class="code-ann">
+  <span class="line-ref">275–288</span>
+  <span class="explanation">
+    <code>buildPrimeBase(B_SMOOTH, N)</code> collects the first
+    <code>B_SMOOTH = 5000</code> primes where N is a quadratic residue.
+    The check is the Legendre symbol: N<sup>(p−1)/2</sup> ≡ 1 (mod p)
+    (line 17 of MathUtils.java).
+  </span>
+</div>
+
+<h3>Step 2: Sieving</h3>
+
+<div class="code-ann">
+  <span class="line-ref">146–208</span>
+  <span class="explanation">
+    <code>sieve()</code> evaluates g(x) = (root + position)² − N for a
+    range of positions.  Instead of dividing each value by each prime, it
+    accumulates <code>log(p)</code> at every position divisible by p
+    (tracked by the <code>Wheel</code> class). If the accumulated log
+    approaches the true log of g(x), the value is likely B-smooth.
+  </span>
+</div>
+
+<h3>Step 3: Linear algebra</h3>
+
+<div class="code-ann">
+  <span class="line-ref">210–230</span>
+  <span class="explanation">
+    <code>tryToSolve()</code> passes the exponent vectors to
+    <code>BitMatrix.solve()</code>, which performs Gaussian elimination
+    over 𝔽₂ (the <code>BitSet</code> rows represent exponent vectors
+    mod 2). Any row that becomes all-zero corresponds to a dependency.
+  </span>
+</div>
+
+<h3>Step 4: Extract factor</h3>
+
+<div class="code-ann">
+  <span class="line-ref">236–273</span>
+  <span class="explanation">
+    <code>testSolution()</code> multiplies the a<sub>i</sub> values
+    (mod N) to get x, multiplies and square-roots the y<sub>i</sub>
+    values to get y, then returns gcd(x + y, N).
+  </span>
+</div>
+
+<h2>Why This Matters for ECM</h2>
+
+<p>
+  ECM pursues the same goal — a congruence of squares — but through a
+  completely different mechanism. Instead of sieving for smooth numbers,
+  Lenstra's method uses elliptic curves over ℤ<sub>n</sub>. The group law
+  on the curve provides a structure where "failure" of a computation
+  (inversion modulo p but not modulo n) leaks a factor. Both algorithms
+  converge on the same algebraic fact: x² ≡ y² (mod n) → gcd(x − y, n)
+  gives a factor.
+</p>
+
+<h2>Retrieval Practice</h2>
+
+<div class="quiz">
+  <p><strong>Q1.</strong> You find x² ≡ y² (mod n) where x ≡ 3, y ≡ 10,
+  and n = 91. What is the factor you extract?</p>
+  <button onclick="reveal('q1')">Show reasoning</button>
+  <div id="q1" class="feedback">
+    Compute gcd(3 − 10, 91) = gcd(−7, 91) = 7. Check: 91 = 7 × 13.
+    <br>Since 3 ≢ ±10 (mod 91), this is nontrivial.
+  </div>
+</div>
+
+<div class="quiz">
+  <p><strong>Q2.</strong> You have collected 7 relations over a factor base
+  of 5 primes. How are you guaranteed that a subset product is a square?</p>
+  <button onclick="reveal('q2')">Show answer</button>
+  <div id="q2" class="feedback">
+    The exponent vectors are 5-dimensional over 𝔽₂. With 7 vectors in a
+    5-dimensional space, there must be a linear dependency. The sum of
+    any dependent subset has even exponents in every prime — a perfect
+    square.
+  </div>
+</div>
+
+<div class="quiz">
+  <p><strong>Q3.</strong> True or false: the QS factor base should include
+  <em>every</em> small prime up to some bound.</p>
+  <button onclick="reveal('q3')">Show answer</button>
+  <div id="q3" class="feedback">
+    False. Only primes where n is a quadratic residue modulo p are included.
+    If (n/p) = −1, then g(x) mod p is never 0 and the prime never helps
+    — it only adds overhead. See the Legendre check in
+    <code>buildPrimeBase()</code> at line 281.
+  </div>
+</div>
+
+<h2>Further Reading</h2>
+
+<ul>
+  <li>
+    <a href="https://en.wikipedia.org/wiki/Congruence_of_squares">
+      Wikipedia: Congruence of squares
+    </a>
+  </li>
+  <li>
+    <a href="https://en.wikipedia.org/wiki/Quadratic_sieve">
+      Wikipedia: Quadratic sieve
+    </a>
+  </li>
+  <li>
+    Pomerance, C. (1981). <em>The Quadratic Sieve Factoring Algorithm</em>.
+    Proceedings of EUROCRYPT 84. — the original paper
+  </li>
+  <li>
+    <a href="https://web.archive.org/web/20150405063620/http://www.crypto-world.com/documents/contini_siqs.pdf">
+      Contini, S. (1997). <em>Factoring Integers with the Self-Initializing
+      Quadratic Sieve</em>
+    </a> — the thesis this codebase's SIQS variant follows
+  </li>
+</ul>
+
+<h2>Review</h2>
+
+<p>
+  Ask your teacher (the agent) follow-up questions about anything unclear.
+  The next lesson builds on this: we'll look at <em>how</em> the factor
+  base primes are chosen and why the Legendre symbol determines membership.
+</p>
+
+<script>
+function reveal(id) {
+  let el = document.getElementById(id);
+  el.classList.toggle('correct');
+  el.style.display = 'block';
+}
+</script>
+
+</body>
+</html>

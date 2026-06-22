@@ -1,0 +1,290 @@
+/* ── PrimeFactors Teaching Workspace ──
+   Shared stylesheet for all lessons and reference docs.
+   Tufte-inspired: clean, readable, print-friendly. */
+
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Fira+Code:wght@400;600&display=swap');
+
+:root {
+  --bg: #fffff8;
+  --text: #111;
+  --accent: #1a56db;
+  --accent-light: #dbeafe;
+  --code-bg: #f4f4f0;
+  --border: #ddd;
+  --muted: #666;
+  --sans: 'system-ui', -apple-system, sans-serif;
+  --serif: 'EB Garamond', Georgia, 'Times New Roman', serif;
+  --mono: 'Fira Code', 'Cascadia Code', 'JetBrains Mono', 'SF Mono', monospace;
+  --measure: 70ch;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1a1a1a;
+    --text: #e0e0e0;
+    --accent: #60a5fa;
+    --accent-light: #1e3a5f;
+    --code-bg: #2a2a2a;
+    --border: #444;
+    --muted: #999;
+  }
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: var(--serif);
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--bg);
+  padding: 2rem 1rem;
+  max-width: var(--measure);
+  margin: 0 auto;
+  counter-reset: footnote;
+}
+
+/* ── Typography ── */
+
+h1, h2, h3, h4 {
+  font-family: var(--sans);
+  font-weight: 600;
+  line-height: 1.2;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+h1 { font-size: 2rem; margin-top: 0; border-bottom: 2px solid var(--accent); padding-bottom: 0.25rem; }
+h2 { font-size: 1.4rem; color: var(--accent); }
+h3 { font-size: 1.15rem; }
+h4 { font-size: 1rem; font-style: italic; }
+
+p { margin-bottom: 1rem; }
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+ul, ol { margin-bottom: 1rem; padding-left: 1.5rem; }
+li { margin-bottom: 0.25rem; }
+
+/* ── Code ── */
+
+code, pre {
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  background: var(--code-bg);
+  border-radius: 3px;
+}
+
+code {
+  padding: 0.1em 0.3em;
+}
+
+pre {
+  padding: 1rem;
+  overflow-x: auto;
+  line-height: 1.4;
+  margin-bottom: 1rem;
+  border: 1px solid var(--border);
+}
+
+pre code {
+  background: none;
+  padding: 0;
+}
+
+/* ── Math ── */
+
+.math {
+  font-family: var(--serif);
+  font-style: italic;
+  padding: 0.75rem 1rem;
+  margin: 0.75rem 0;
+  background: var(--code-bg);
+  border-left: 3px solid var(--accent);
+  overflow-x: auto;
+}
+
+/* ── Blockquotes ── */
+
+blockquote {
+  margin: 1rem 0;
+  padding: 0.5rem 1rem;
+  border-left: 3px solid var(--accent);
+  background: var(--accent-light);
+  font-style: italic;
+}
+
+blockquote p:last-child { margin-bottom: 0; }
+
+/* ── Callout boxes ── */
+
+.callout {
+  margin: 1rem 0;
+  padding: 0.75rem 1rem;
+  border-radius: 4px;
+  font-size: 0.95rem;
+}
+
+.callout.info {
+  background: var(--accent-light);
+  border-left: 3px solid var(--accent);
+}
+
+.callout.warn {
+  background: #fef3cd;
+  border-left: 3px solid #eab308;
+  color: #713f12;
+}
+
+.callout.danger {
+  background: #fee2e2;
+  border-left: 3px solid #ef4444;
+  color: #991b1b;
+}
+
+/* ── Tables ── */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
+th, td {
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+th {
+  font-family: var(--sans);
+  font-weight: 600;
+  background: var(--code-bg);
+}
+
+tr:hover { background: var(--code-bg); }
+
+/* ── Footnotes ── */
+
+.footnote-ref {
+  font-size: 0.8rem;
+  vertical-align: super;
+  cursor: pointer;
+}
+
+.footnotes {
+  margin-top: 3rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.footnotes ol { margin-bottom: 0; }
+.footnotes li { margin-bottom: 0.5rem; }
+
+/* ── Lesson meta ── */
+
+.lesson-meta {
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 2rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+/* ── Print ── */
+
+@media print {
+  body {
+    font-size: 11pt;
+    padding: 0.5in;
+  }
+  pre { page-break-inside: avoid; }
+  h1, h2, h3 { page-break-after: avoid; }
+}
+
+/* ── Quiz widget ── */
+
+.quiz {
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background: var(--code-bg);
+  border-radius: 4px;
+}
+
+.quiz p { margin-bottom: 0.75rem; }
+
+.quiz button {
+  font-family: var(--sans);
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 0.4rem 1rem;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.quiz button:hover { opacity: 0.9; }
+
+.quiz .feedback {
+  margin-top: 0.75rem;
+  padding: 0.5rem;
+  font-size: 0.9rem;
+  border-radius: 3px;
+  display: none;
+}
+
+.quiz .feedback.correct {
+  display: block;
+  background: #dcfce7;
+  color: #166534;
+  border: 1px solid #86efac;
+}
+
+.quiz .feedback.incorrect {
+  display: block;
+  background: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #fca5a5;
+}
+
+/* ── Code annotation ── */
+
+.code-ann {
+  margin: 1rem 0;
+  padding: 0.75rem;
+  display: flex;
+  gap: 1rem;
+  font-size: 0.9rem;
+  background: var(--code-bg);
+  border-radius: 4px;
+}
+
+.code-ann .line-ref {
+  font-family: var(--mono);
+  color: var(--muted);
+  min-width: 4ch;
+  text-align: right;
+  user-select: none;
+}
+
+.code-ann .explanation {
+  flex: 1;
+}
+
+/* ── Navigation / series links ── */
+
+.series-nav {
+  margin-top: 3rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  display: flex;
+  justify-content: space-between;
+}

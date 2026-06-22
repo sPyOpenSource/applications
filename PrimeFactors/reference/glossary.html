@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Glossary — Prime Factors</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+<h1>Glossary</h1>
+<p class="lesson-meta">Terms used in the PrimeFactors codebase and related literature.</p>
+
+<h2 id="symbols">Notation</h2>
+
+<div class="math">
+  n (or N) &mdash; The integer being factored.<br>
+  p, q &mdash; Prime factors of n (so n = p · q).<br>
+  a, b &mdash; Usually: a<sup>2</sup> ≡ b<sup>2</sup> (mod n).<br>
+  ℤ<sub>n</sub> &mdash; The ring of integers modulo n.<br>
+  𝔽<sub>p</sub> &mdash; The finite field of order p.<br>
+  (a/p) &mdash; The Legendre symbol: +1 if a is a quadratic residue mod p, &minus;1 otherwise.
+</div>
+
+<h2 id="A">A–Z</h2>
+
+<h3 id="congruence-of-squares">congruence of squares</h3>
+<p>
+  A relation x<sup>2</sup> ≡ y<sup>2</sup> (mod n) where x ≠ ±y (mod n).
+  When such a relation holds, gcd(x − y, n) yields a nontrivial factor of n.
+  The central building block of all modern factoring algorithms.
+</p>
+
+<h3 id="ecm">ECM (Elliptic Curve Method)</h3>
+<p>
+  A factoring algorithm due to H. W. Lenstra Jr. (1987) that uses elliptic
+  curves over ℤ<sub>n</sub> to find a factor p. The algorithm picks a random
+  curve and point, then computes a scalar multiple k·P modulo n using the
+  curve's group law. If k·P succeeds modulo n but fails modulo p (because
+  the group order #E(𝔽<sub>p</sub>) divides k), the failure reveals p via
+  a gcd operation. Implemented in the <code>ecm/</code> package.
+</p>
+
+<h3 id="exponent-vector">exponent vector</h3>
+<p>
+  For an integer m factored as ∏ p<sub>i</sub><sup>e<sub>i</sub></sup>, the
+  vector (e<sub>1</sub>, e<sub>2</sub>, …, e<sub>k</sub>) of exponents.
+  Multiplying numbers corresponds to adding their exponent vectors. A number
+  is a <strong>square</strong> iff every exponent is even. For factoring we
+  reduce exponents modulo 2, turning the problem into linear algebra over
+  the field 𝔽<sub>2</sub>.
+</p>
+
+<h3 id="factor-base">factor base</h3>
+<p>
+  A set B = {p<sub>1</sub>, p<sub>2</sub>, …, p<sub>k</sub>} of small
+  primes. An integer is <strong>B-smooth</strong> if all its prime factors
+  lie in B. The QS factor base includes only primes for which n is a
+  quadratic residue (so x<sup>2</sup> ≡ n (mod p) has solutions), which
+  ensures the polynomial g(x) = (x + ⌈√n⌉)<sup>2</sup> − n can factor
+  smoothly over B.
+</p>
+
+<h3 id="legendre-symbol">Legendre symbol</h3>
+<p>
+  For odd prime p and integer a, (a/p) = a<sup>(p−1)/2</sup> mod p, taking
+  value 1 (quadratic residue), &minus;1 (non-residue), or 0 (p divides a).
+  Used in <code>MathUtils.isRootInQuadraticResidues()</code> to test
+  whether n is a quadratic residue modulo a candidate factor base prime.
+</p>
+
+<h3 id="quadratic-residue">quadratic residue</h3>
+<p>
+  An integer a is a quadratic residue modulo p if the congruence
+  x<sup>2</sup> ≡ a (mod p) has a solution. For QS, we need n to be a
+  quadratic residue modulo each factor-base prime p, so that the sieving
+  polynomial can attain values ≡ 0 (mod p).
+</p>
+
+<h3 id="qs">QS (Quadratic Sieve)</h3>
+<p>
+  A general-purpose factoring algorithm invented by Carl Pomerance (1981).
+  It sieves over values of a quadratic polynomial g(x) = (x + ⌈√n⌉)<sup>2</sup> − n,
+  collecting those that factor completely over a chosen factor base. The
+  exponent vectors of these B-smooth values form a matrix; dependencies in
+  that matrix (over 𝔽<sub>2</sub>) produce a congruence of squares.
+  The variant in this codebase is the <strong>Self-Initializing Quadratic
+  Sieve (SIQS)</strong>, which re-initializes the polynomial periodically
+  to cover more of the search space. Implemented in
+  <code>com/gazman/factor/</code>.
+</p>
+
+<h3 id="ressol">RESSOL (Tonelli–Shanks / modular square root)</h3>
+<p>
+  An algorithm for solving x<sup>2</sup> ≡ n (mod p) for an odd prime p.
+  Implemented in <code>MathUtils.ressol()</code>. The two solutions r and
+  p − r give the starting offsets for the sieving wheel for each
+  factor-base prime.
+</p>
+
+<h3 id="sieving">sieving</h3>
+<p>
+  The process of adding log<sub>2</sub>(p) contributions at arithmetic
+  progressions in an array, to identify indices where a polynomial value
+  is likely B-smooth. Rather than trial-dividing each candidate, QS
+  accumulates log-p approximations and selects candidates whose total
+  log approaches log(g(x)). This replaces expensive factorization
+  attempts with fast integer addition. Implemented via the
+  <code>Wheel</code> class.
+</p>
+
+<h3 id="smooth">smooth (B-smooth)</h3>
+<p>
+  An integer is B-smooth if all its prime divisors are ≤ B. The QS relies
+  on g(x) = (x + ⌈√n⌉)<sup>2</sup> − n being B-smooth with probability
+  high enough to collect ~B + ε relations in polynomial time. Smoothness
+  probability determines the optimal factor-base size.
+</p>
+
+<h3 id="siqs">SIQS (Self-Initializing Quadratic Sieve)</h3>
+<p>
+  An improved variant of QS that replaces the single polynomial
+  g(x) = (x + ⌈√n⌉)<sup>2</sup> − n with a family of polynomials
+  g<sub>a</sub>(x) = (ax + b)<sup>2</sup> − n, where a is chosen as a
+  product of factor-base primes and b is a modular square root. This
+  allows the sieve to sample from many different arithmetic progressions,
+  increasing the density of smooth values. This is what Gazman's code
+  implements.
+</p>
+
+<h3 id="wheel">wheel (sieving wheel)</h3>
+<p>
+  In this codebase, a <code>Wheel</code> tracks the current positions in
+  the sieve array for a given factor-base prime. For each prime p, the
+  wheel stores the two offsets (from Tonelli–Shanks) and advances by p
+  each step, producing indices where p divides g(x). It accumulates
+  log(p) contributions to approximate trial division.
+  Implemented in <code>Wheel.java</code>.
+</p>
+
+<h3 id="gcd">GCD (Greatest Common Divisor)</h3>
+<p>
+  The largest integer dividing both inputs. In factoring, gcd(a, n)
+  extracts a factor when a shares a divisor with n. Computed via the
+  Euclidean algorithm. Used in <code>testSolution()</code> to extract
+  factors from a candidate congruence of squares.
+</p>
+
+<h3 id="nullspace">nullspace / kernel (over 𝔽<sub>2</sub>)</h3>
+<p>
+  The set of vectors v such that M·v = 0 (mod 2). Each such vector
+  identifies a subset of relations whose exponent vectors sum to zero
+  modulo 2 — meaning the product of the corresponding y-values is a
+  perfect square. Found via Gaussian elimination on the transpose in
+  <code>BitMatrix.solve()</code>.
+</p>
+
+</body>
+</html>
