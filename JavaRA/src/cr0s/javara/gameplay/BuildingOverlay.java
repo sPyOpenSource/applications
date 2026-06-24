@@ -138,7 +138,7 @@ public class BuildingOverlay {
 		this.resetBuildingMode();
 	    } else {
 		// "Cannot deploy here"
-		SoundManager.getInstance().playSpeechSoundGlobal("nodeply1");
+		//SoundManager.getInstance().playSpeechSoundGlobal("nodeply1");
 	    }
 	} else if (button == 1 && targetBuilding != null) {
 	    this.resetBuildingMode();

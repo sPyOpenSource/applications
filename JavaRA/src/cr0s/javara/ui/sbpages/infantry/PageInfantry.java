@@ -39,7 +39,7 @@ public class PageInfantry extends SideBarPage {
     @Override
     public void buttonClicked(SideBarItemsButton button) {
 	super.buttonClicked(button);
-	SoundManager.getInstance().playSpeechSoundGlobal("train1");
+	//SoundManager.getInstance().playSpeechSoundGlobal("train1");
     }
 
 }

@@ -286,7 +286,7 @@ public class GameSideBar extends Application {
 	    if (--this.lowPowerAdviceTicks <= 0) {
 		this.lowPowerAdviceTicks = this.LOW_POWER_ADVICE_INTERVAL;
 
-		SoundManager.getInstance().playSpeechSoundGlobal("lopower1");
+		//SoundManager.getInstance().playSpeechSoundGlobal("lopower1");
 	    }
 
 	    if (!wasLowPower) {
@@ -294,7 +294,7 @@ public class GameSideBar extends Application {
 
 		// If power down occured with radar, play radar disabling sound
 		if (GUI.getInstance().getPlayer().getBase().isRadarDomePresent) {
-		    SoundManager.getInstance().playSfxGlobal("radardn1", 0.9f);
+		    //SoundManager.getInstance().playSfxGlobal("radardn1", 0.9f);
 		}
 	    }
 	} else {
@@ -303,7 +303,7 @@ public class GameSideBar extends Application {
 
 		// If power up occured with radar, play radar enabling sound
 		if (GUI.getInstance().getPlayer().getBase().isRadarDomePresent) {
-		    SoundManager.getInstance().playSfxGlobal("radaron2", 0.9f);
+		    //SoundManager.getInstance().playSfxGlobal("radaron2", 0.9f);
 		}		
 	    }
 	}
@@ -375,28 +375,28 @@ public class GameSideBar extends Application {
 	    if (production.isOnHold()) {
 		production.setOnHold(false);
 
-		SoundManager.getInstance().playSpeechSoundGlobal("abldgin1"); // "Building"
+		//SoundManager.getInstance().playSpeechSoundGlobal("abldgin1"); // "Building"
 	    } else {
 		if (production.getTargetActor() instanceof EntityBuilding) {
-		    SoundManager.getInstance().playSfxGlobal("ramenu1", 0.8f);
+		    //SoundManager.getInstance().playSfxGlobal("ramenu1", 0.8f);
 
 		    if (production.isReady() && !production.isBuilding()) {
 			GUI.getInstance().getBuildingOverlay().setBuildingMode((EntityBuilding) production.getTargetActor());
 		    } else if (!production.isReady() && production.isBuilding()){
-			SoundManager.getInstance().playSpeechSoundGlobal("progres1"); // "Unable to comply, building in progress"
+			//SoundManager.getInstance().playSpeechSoundGlobal("progres1"); // "Unable to comply, building in progress"
 		    } else if (!production.isReady() && !production.isBuilding()) {
-			SoundManager.getInstance().playSfxGlobal("ramenu1", 0.8f);
-			SoundManager.getInstance().playSpeechSoundGlobal("abldgin1");
+			//SoundManager.getInstance().playSfxGlobal("ramenu1", 0.8f);
+			//SoundManager.getInstance().playSpeechSoundGlobal("abldgin1");
 			production.restartBuilding();
 		    } 
 		} else {
-		    SoundManager.getInstance().playSfxGlobal("ramenu1", 0.8f);
+		    //SoundManager.getInstance().playSfxGlobal("ramenu1", 0.8f);
 
 		    if (!production.isReady() && !production.isBuilding()) {
 			if (!(production.getTargetActor() instanceof EntityInfantry)) { 
-			    SoundManager.getInstance().playSpeechSoundGlobal("abldgin1");
+			    //SoundManager.getInstance().playSpeechSoundGlobal("abldgin1");
 			} else {
-			    SoundManager.getInstance().playSpeechSoundGlobal("train1");
+			    //SoundManager.getInstance().playSpeechSoundGlobal("train1");
 			}
 			production.restartBuilding();
 		    } 
@@ -407,23 +407,23 @@ public class GameSideBar extends Application {
 		if (production.isOnHold() || production.isReady()) {
 		    production.cancel(true);
 
-		    SoundManager.getInstance().playSfxGlobal("ramenu1", 0.8f);
-		    SoundManager.getInstance().playSpeechSoundGlobal("cancld1"); // "Canceled"
+		    //SoundManager.getInstance().playSfxGlobal("ramenu1", 0.8f);
+		    //SoundManager.getInstance().playSpeechSoundGlobal("cancld1"); // "Canceled"
 		} else if (!production.isOnHold()) {
 		    production.setOnHold(true);
 
-		    SoundManager.getInstance().playSfxGlobal("ramenu1", 0.8f);
-		    SoundManager.getInstance().playSpeechSoundGlobal("onhold1"); // "On hold"
+		    //SoundManager.getInstance().playSfxGlobal("ramenu1", 0.8f);
+		    //SoundManager.getInstance().playSpeechSoundGlobal("onhold1"); // "On hold"
 		} 
 	    } else if (!production.isReady() || production.isDeployed()) {
-		SoundManager.getInstance().playSfxGlobal("ramenu1", 0.8f);
+		//SoundManager.getInstance().playSfxGlobal("ramenu1", 0.8f);
 		production.resetTargetActor();
 		openPageByClick(buttonX, buttonY);
 	    } else {
 		production.cancel(true);
 
-		SoundManager.getInstance().playSfxGlobal("ramenu1", 0.8f);
-		SoundManager.getInstance().playSpeechSoundGlobal("cancld1"); // "Canceled"		
+		//SoundManager.getInstance().playSfxGlobal("ramenu1", 0.8f);
+		//SoundManager.getInstance().playSpeechSoundGlobal("cancld1"); // "Canceled"		
 	    }
 	}	
     }
@@ -434,7 +434,7 @@ public class GameSideBar extends Application {
 	    if (buttonX == 0) { // left side click
 		if (this.player.getAlignment() == Alignment.SOVIET && this.sideBarCategoriesOpened[0][1]) {
 		    // TODO: add allied building page
-		    SoundManager.getInstance().playSfxGlobal("ramenu1", 0.8f);
+		    //SoundManager.getInstance().playSfxGlobal("ramenu1", 0.8f);
 		    switchPage(PAGE_BUILDING_SOVIET);
 		} else if (buttonX == 1) {
 
@@ -445,10 +445,10 @@ public class GameSideBar extends Application {
 
 	case 1:
 	    if (buttonX == 0 && this.sideBarCategoriesOpened[1][0]) {
-		SoundManager.getInstance().playSfxGlobal("ramenu1", 0.8f);
+		//SoundManager.getInstance().playSfxGlobal("ramenu1", 0.8f);
 		switchPage(PAGE_VEHICLE);
 	    } else if (buttonX == 1 && this.sideBarCategoriesOpened[1][1]) {
-		SoundManager.getInstance().playSfxGlobal("ramenu1", 0.8f);
+		//SoundManager.getInstance().playSfxGlobal("ramenu1", 0.8f);
 		switchPage(PAGE_INFANTRY);
 	    }
 
@@ -525,7 +525,7 @@ public class GameSideBar extends Application {
 	    this.startPageClick(button, buttonX, buttonY);
 	} else {
 	    if (button == 1) {
-		SoundManager.getInstance().playSfxGlobal("ramenu1", 0.8f);
+		//SoundManager.getInstance().playSfxGlobal("ramenu1", 0.8f);
 		this.switchPage("start");
 		return;
 	    }
@@ -533,7 +533,7 @@ public class GameSideBar extends Application {
 	    buttonX = 1 - (barX / 64);
 	    buttonY = barY / 48;
 
-	    SoundManager.getInstance().playSfxGlobal("ramenu1", 0.8f);
+	    //SoundManager.getInstance().playSfxGlobal("ramenu1", 0.8f);
 	    this.currentPage.mouseClick(buttonX, buttonY);
 	}
 

@@ -179,7 +179,7 @@ public class ResourceManager {
 
 		XSound sound = null;
 		try {
-		    sound = new XSound(name, new BufferedInputStream(Channels.newInputStream(aud.getSoundData())));
+		    //sound = new XSound(name, new BufferedInputStream(Channels.newInputStream(aud.getSoundData())));
 		} catch (Exception e) {
 		    e.printStackTrace();
 		}

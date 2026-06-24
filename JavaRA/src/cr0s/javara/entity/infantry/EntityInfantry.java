@@ -296,12 +296,12 @@ public abstract class EntityInfantry extends MobileEntity implements IShroudReve
 	    }
 
 	    if (World.random.nextBoolean() && canPlay) {
-		SoundManager.getInstance().playUnitSoundGlobal(this, s, this.unitVersion);
+		//SoundManager.getInstance().playUnitSoundGlobal(this, s, this.unitVersion);
 		return;
 	    }
 	}
 
-	SoundManager.getInstance().playUnitSoundGlobal(this, SELECTED_SOUND, 1);
+	//SoundManager.getInstance().playUnitSoundGlobal(this, SELECTED_SOUND, 1);
     }    
 
     @Override
@@ -323,15 +323,15 @@ public abstract class EntityInfantry extends MobileEntity implements IShroudReve
 	    }
 
 	    if (World.random.nextBoolean() && canPlay) {
-		SoundManager.getInstance().playUnitSoundGlobal(this, s, this.unitVersion);
+		//SoundManager.getInstance().playUnitSoundGlobal(this, s, this.unitVersion);
 		return;
 	    }
 	}
 
 	if (World.random.nextBoolean()) {
-	    SoundManager.getInstance().playUnitSoundGlobal(this, "ackno", this.unitVersion);
+	    //SoundManager.getInstance().playUnitSoundGlobal(this, "ackno", this.unitVersion);
 	} else {
-	    SoundManager.getInstance().playUnitSoundGlobal(this, "affirm1", this.unitVersion);
+	    //SoundManager.getInstance().playUnitSoundGlobal(this, "affirm1", this.unitVersion);
 	}	
     }
 

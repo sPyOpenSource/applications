@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import cr0s.javara.entity.actor.EntityActor;
 import cr0s.javara.render.World;
 import cr0s.javara.render.map.TileSet;
+import cr0s.javara.resources.SoundManager;
 import cr0s.javara.util.Pos;
 
 public class Combat {
@@ -35,7 +36,7 @@ public class Combat {
 	    world.spawnExplosionAt(pos, explosionType);
 	}
 
-	//SoundManager.getInstance().playSfxAt(getImpactSound(warhead, isInWater), pos);
+	SoundManager.getInstance().playSfxAt(getImpactSound(warhead, isInWater), pos);
 
 	// Warhead can attack in radius
 	if (warhead.explosionSize[0] > 0) {

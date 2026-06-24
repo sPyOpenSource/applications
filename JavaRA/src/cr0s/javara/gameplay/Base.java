@@ -119,7 +119,7 @@ public class Base {
 	    this.displayCash += move;
 
 	    if (this.owner == GUI.getInstance().getPlayer()) {
-		SoundManager.getInstance().playSfxGlobal("cashup1", 0.8f);
+		//SoundManager.getInstance().playSfxGlobal("cashup1", 0.8f);
 	    }
 	}
 	else if (this.displayCash > this.cash)
@@ -127,7 +127,7 @@ public class Base {
 	    this.displayCash -= move;
 	    if (this.ticksWaitCash == 0) { 
 		if (this.owner == GUI.getInstance().getPlayer()) {
-		    SoundManager.getInstance().playSfxGlobal("cashdn1", 0.8f);
+		    //SoundManager.getInstance().playSfxGlobal("cashdn1", 0.8f);
 		}
 
 		this.ticksWaitCash = TICKS_WAIT_CASH;
@@ -145,7 +145,7 @@ public class Base {
 	    this.displayOre += move;
 
 	    if (this.owner == GUI.getInstance().getPlayer()) {
-		SoundManager.getInstance().playSfxGlobal("cashup1", 0.8f);
+		//SoundManager.getInstance().playSfxGlobal("cashup1", 0.8f);
 	    }
 	}
 	else if (this.displayOre > this.ore)
@@ -154,7 +154,7 @@ public class Base {
 
 	    if (this.ticksWaitOre == 0) { 
 		if (this.owner == GUI.getInstance().getPlayer()) {
-		    SoundManager.getInstance().playSfxGlobal("cashdn1", 0.8f);
+		    //SoundManager.getInstance().playSfxGlobal("cashdn1", 0.8f);
 		}
 
 		this.ticksWaitOre = TICKS_WAIT_CASH;
@@ -413,7 +413,7 @@ public class Base {
 	if (this.ore + aCapacity > 0.8f * this.oreCapacity) {
 	    if (this.owner == GUI.getInstance().getPlayer()) {
 		// "Silos needed"
-		SoundManager.getInstance().playSpeechSoundGlobal("silond1");
+		//SoundManager.getInstance().playSpeechSoundGlobal("silond1");
 	    }
 	}
 

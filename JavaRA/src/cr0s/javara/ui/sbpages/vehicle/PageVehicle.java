@@ -59,7 +59,7 @@ public class PageVehicle extends SideBarPage {
     @Override
     public void buttonClicked(SideBarItemsButton button) {
 	super.buttonClicked(button);
-	SoundManager.getInstance().playSpeechSoundGlobal("abldgin1"); // "Building"
+	//SoundManager.getInstance().playSpeechSoundGlobal("abldgin1"); // "Building"
     }
 
 }

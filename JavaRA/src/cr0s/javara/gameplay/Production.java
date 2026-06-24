@@ -95,7 +95,7 @@ public class Production {
 	    if (cashPerTick != 0 && !this.player.getBase().takeCash(cashPerTick)) {
 		if (!this.notifiedNoFunds) {
 		    if (this.player == GUI.getInstance().getPlayer()) {
-			SoundManager.getInstance().playSpeechSoundGlobal("nofunds1");
+			//SoundManager.getInstance().playSpeechSoundGlobal("nofunds1");
 		    }
 		    this.notifiedNoFunds = true;
 		}
@@ -114,7 +114,7 @@ public class Production {
 		    this.ticksBeforeDeploy = DEPLOY_WAIT_TIME_TICKS;
 
 		    if (this.player == GUI.getInstance().getPlayer()) {
-			SoundManager.getInstance().playSpeechSoundGlobal("unitrdy1");
+			//SoundManager.getInstance().playSpeechSoundGlobal("unitrdy1");
 		    }
 
 		    this.isBuilding = false;
@@ -122,7 +122,7 @@ public class Production {
 		    this.isBuilding = false;
 
 		    if (this.player == GUI.getInstance().getPlayer()) {
-			SoundManager.getInstance().playSpeechSoundGlobal("conscmp1");
+			//SoundManager.getInstance().playSpeechSoundGlobal("conscmp1");
 		    }
 		}
 	    }
