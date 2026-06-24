@@ -146,7 +146,7 @@ public class GUI extends Application {
         Scene scene = new Scene(w.render(), 1200, 700);
         scene.setFill(Color.GREEN);
 	w.addPlayer(player);
-	SoundManager.getInstance().playMusic("main_theme");
+	//SoundManager.getInstance().playMusic("main_theme");
 	
 	//this.getCamera().setOffset(-Math.max(w.getMap().getBounds().getMinX(), (playerSpawn.getX() * 24) - this.getContainer().getWidth() / 2), -Math.max(w.getMap().getBounds().getMinY(), (playerSpawn.getY() * 24)));
 

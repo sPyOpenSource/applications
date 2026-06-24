@@ -10,7 +10,7 @@ import cr0s.javara.entity.actor.activity.activities.Move;
 import cr0s.javara.order.Target;
 
 public class Squad {
-    public enum SquadType { ASSAULT, AIR, RUSH, PROTECTION };
+    public enum SquadType { ASSAULT, AIR, RUSH, PROTECTION, DEFENSIVE, HARVEST, CONSTRUCTION };
     
     private Target target;
     private AIPlayer bot;

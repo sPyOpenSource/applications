@@ -52,7 +52,7 @@ public class AIPlayer extends Player {
     private boolean enabled;
     private int ticks;
     private final int feedbackTime = 30;
-    private int squadSize = 8;
+    private final int squadSize = 8;
 
     private ArrayList<Squad> squads = new ArrayList<>();
     private ArrayList<EntityActor> unitsHangingAroundTheBase = new ArrayList<>();
@@ -81,6 +81,70 @@ public class AIPlayer extends Player {
     HashMap<String, String[]> unitCommonNames;
     HashMap<String, String[]> buildingCommonNames;
     HashMap<String, Integer> buildingLimits;
+    
+    // Squad class
+    /*private class Squad {
+        SquadType type;
+        EntityActor target;
+        ArrayList<EntityActor> units = new ArrayList<>();
+        
+        public Squad(SquadType type, EntityActor target) {
+            this.type = type;
+            this.target = target;
+        }
+        
+        public void addUnit(EntityActor unit) {
+            units.add(unit);
+        }
+        
+        public boolean isValid() {
+            return !units.isEmpty() && !units.stream().allMatch(u -> u.isDead());
+        }
+        
+        public void setTarget(EntityActor target) {
+            this.target = target;
+        }
+        
+        public boolean targetIsValid() {
+            return target != null && !target.isDead() && target.owner == AIPlayer.this;
+        }
+        
+        public void update() {
+            if (!isValid() || !targetIsValid()) return;
+            
+            for (EntityActor unit : new ArrayList<>(units)) {
+                if (unit instanceof MobileEntity) {
+                    switch (type) {
+                        case ASSAULT:
+                            unit.resolveOrder(new Order("Attack", unit, target, true));
+                            break;
+                        case DEFENSIVE:
+                            if (target != null) {
+                                unit.resolveOrder(new Order("Move", unit, target, true));
+                            }
+                            break;
+                        case HARVEST:
+                            unit.resolveOrder(new Order("Harvest", unit, null, false));
+                            break;
+                        case CONSTRUCTION:
+                            if (target != null) {
+                                unit.resolveOrder(new Order("Build", unit, target, false));
+                            }
+                            break;
+                        case PROTECTION:
+                            if (target != null) {
+                                unit.resolveOrder(new Order("Protect", unit, target, false));
+                            }
+                            break;
+                    }
+                }
+            }
+        }
+        
+        public void removeDeadAndNotOwnUnits() {
+            units.removeIf(u -> u.isDead() || u.owner != AIPlayer.this);
+        }
+    }*/
 
     private Pos defenseCenter;
     private final BaseBuilder bb;
