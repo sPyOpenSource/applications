@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 2: The Algebraic Core of GNFS</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+<h1>The Algebraic Core of the General Number Field Sieve</h1>
+<p class="lesson-meta">
+  Lesson 2 · 20 min · Side topic — generalizes QS from ℤ to number fields
+</p>
+
+<p>
+  The General Number Field Sieve (GNFS) is the fastest known classical
+  algorithm for factoring integers above ≈100 digits. It was responsible
+  for the <a href="https://en.wikipedia.org/wiki/RSA_Factoring_Challenge">RSA-240</a>
+  factorization (2020, 795 bits).
+</p>
+
+<p>
+  This lesson focuses on <em>one thing</em>: the algebraic machinery that
+  lifts the
+  <a href="0001-congruence-of-squares.html">congruence-of-squares idea</a>
+  from ℤ into a number field. If you understand this, you understand what
+  makes GNFS tick — and why it's faster than QS.
+</p>
+
+<h2>1. Recall: QS in One Diagram</h2>
+
+<p>
+  The Quadratic Sieve, in its simplest form:
+</p>
+
+<div class="math">
+  Pick a_i = ⌈√n⌉ + i. &nbsp;&nbsp;
+  Compute g(a_i) = a_i² − n.<br>
+  Find a subset where ∏ g(a_i) is a <em>square</em> in ℤ.<br>
+  Then (∏ a_i)² ≡ ∏ g(a_i) &nbsp;(mod n) → factor via gcd.
+</div>
+
+<p>
+  The numbers g(a_i) are O(√n). For n of 100+ digits, these are enormous
+  — too large to be smooth with useful probability. GNFS fixes this by
+  finding <em>smaller</em> numbers to test for smoothness, using a
+  number field.
+</p>
+
+<h2>2. The Core Algebraic Setup</h2>
+
+<p>
+  We pick:
+</p>
+
+<ul>
+  <li>
+    An irreducible monic polynomial f(x) ∈ ℤ[x] of degree d
+  </li>
+  <li>
+    An integer m such that f(m) ≡ 0 (mod n)
+  </li>
+  <li>
+    A root α ∈ ℂ of f(x), giving the number field K = ℚ(α)
+  </li>
+</ul>
+
+<p>
+  The integer m and the root α are tied together by the
+  <strong>evaluation homomorphism</strong>:
+</p>
+
+<div class="math">
+  φ: ℤ[α] → ℤ_n &nbsp;&nbsp; φ(α) = m mod n
+</div>
+
+<p>
+  This is well-defined because f(α) = 0 in ℤ[α], and f(m) ≡ 0 (mod n),
+  so the relation f(α) = 0 maps to the relation f(m) ≡ 0 in ℤ_n.
+</p>
+
+<div class="callout info">
+  <strong>Why two representations?</strong> The element a − bα ∈ ℤ[α]
+  and its image a − bm ∈ ℤ represent the same information in two rings.
+  If we can make both sides squares simultaneously, φ gives us a
+  congruence of squares in ℤ_n.
+</div>
+
+<h2>3. The Norm: The Bridge Between Both Worlds</h2>
+
+<p>
+  For an element a − bα ∈ ℤ[α], its <strong>norm</strong> down to ℚ is:
+</p>
+
+<div class="math">
+  N(a − bα) = ∏_{σ: K → ℂ} σ(a − bα)<br>
+  = b^d · f(a/b) &nbsp;&nbsp;(the <em>resultant</em> formula)
+</div>
+
+<p>
+  This is the crucial formula. The norm is an <em>integer</em> (since
+  a − bα is an algebraic integer when f is monic), and it's exactly
+  b^d · f(a/b).
+</p>
+
+<div class="callout warn">
+  <strong>This is the whole reason GNFS works.</strong> The values we
+  test for smoothness are N(a − bα) = b^d · f(a/b). These are much
+  <em>smaller</em> than √n, because f is chosen (via polynomial
+  selection) to have very small coefficients — typically of size
+  approximately n^{1/d}. By increasing d, we shrink the smoothness
+  candidates. The optimal trade-off gives GNFS its sub-exponential
+  complexity L_n[1/3, (64/9)^{1/3}].
+</div>
+
+<p>
+  Concretely: for n of ≈100 digits, QS tests numbers of size ≈10^50.
+  GNFS with degree d ≈ 5 tests numbers of size ≈10^20 — vastly more
+  likely to be smooth.
+</p>
+
+<h2>4. The Two-Sided Smoothness Problem</h2>
+
+<p>
+  For each pair (a, b) with gcd(a, b) = 1 and b > 0, we get two
+  numbers:
+</p>
+
+<table>
+  <tr><th>Side</th><th>Value</th><th>Ring</th></tr>
+  <tr>
+    <td><strong>Rational</strong></td>
+    <td>a − bm</td>
+    <td>ℤ</td>
+  </tr>
+  <tr>
+    <td><strong>Algebraic</strong></td>
+    <td>N(a − bα) = b^d · f(a/b)</td>
+    <td>ℤ (the norm)</td>
+  </tr>
+</table>
+
+<p>
+  We need <em>both</em> to be B-smooth simultaneously. This defines our
+  relation: a pair (a, b) where both the rational side and the algebraic
+  norm factor over a chosen factor base.
+</p>
+
+<p>
+  The rational side factors into ordinary primes. The algebraic side
+  factors into prime <em>ideals</em> in O_K, but the norm's integer
+  factorization tells us which prime ideals appear.
+</p>
+
+<h2>5. From Relations to Congruence of Squares</h2>
+
+<p>
+  Suppose we find a set S of (a, b) pairs such that:
+</p>
+
+<div class="math">
+  (rational) &nbsp; ∏_{(a,b)∈S} (a − bm) = A² &nbsp;in ℤ<br>
+  (algebraic) &nbsp; ∏_{(a,b)∈S} (a − bα) = β² &nbsp;in ℤ[α]
+</div>
+
+<p>
+  Apply φ to the algebraic square:
+</p>
+
+<div class="math">
+  φ(β)² = φ(β²) = φ(∏(a − bα)) = ∏ φ(a − bα)<br>
+  &nbsp;= ∏ (a − bm) ≡ A² &nbsp;(mod n)
+</div>
+
+<p>
+  So φ(β)² ≡ A² (mod n). This is our congruence of squares!
+  If φ(β) ≢ ±A (mod n), then gcd(φ(β) − A, n) gives a factor.
+</p>
+
+<div class="callout info">
+  <strong>The diagram:</strong><br><br>
+  <pre>
+  ℤ[α] ──φ──→ ℤ_n
+   |            |
+   | square     | square
+   v            v
+  β²  ──→  φ(β²) = A²
+  </pre>
+  The algebraic square root β lives in ℤ[α] (an algebraic integer).
+  Its image under φ is an integer modulo n. That integer and A
+  give us the congruence.
+</div>
+
+<h2>6. The Square Root Problem</h2>
+
+<p>
+  The hardest part: finding β ∈ ℤ[α] such that β² = ∏(a − bα).
+  We know the product is a square in ℤ[α], but actually computing
+  its square root requires:
+</p>
+
+<ul>
+  <li>
+    Representing the product's prime ideal factorization (obtained
+    during sieving)
+  </li>
+  <li>
+    Finding a representation β ∈ ℤ[α] from the ideal factorization
+    — this is the <strong>algebraic square root</strong> step, and
+    it's notoriously delicate
+  </li>
+</ul>
+
+<p>
+  Several methods exist: the Chinese remainder theorem approach
+  (Montgomery), the Couveignes method, and the more practical
+  "naive" method using CRT modulo large primes.
+</p>
+
+<h2>7. Complexity Comparison</h2>
+
+<table>
+  <tr><th>Algorithm</th><th>Complexity (L-notation)</th><th>Best use</th></tr>
+  <tr>
+    <td>Trial division</td>
+    <td>n^{1/2}</td>
+    <td>&lt; 10^10</td>
+  </tr>
+  <tr>
+    <td>Pollard's Rho</td>
+    <td>n^{1/4}</td>
+    <td>&lt; 10^20</td>
+  </tr>
+  <tr>
+    <td>ECM</td>
+    <td>L_n[1/2, √2]</td>
+    <td>Small factors of large n</td>
+  </tr>
+  <tr>
+    <td>Quadratic Sieve</td>
+    <td>L_n[1/2, 1]</td>
+    <td>~30–100 digits</td>
+  </tr>
+  <tr>
+    <td><strong>GNFS</strong></td>
+    <td>L_n[1/3, (64/9)^{1/3}]</td>
+    <td>~100+ digits</td>
+  </tr>
+</table>
+
+<p>
+  Where L_n[a, c] = exp((c + o(1)) (log n)^a (log log n)^{1-a}).
+  The jump from a = 1/2 to a = 1/3 is what makes GNFS the asymptotic
+  champion: the exponent of log n gets smaller.
+</p>
+
+<h2>Retrieval Practice</h2>
+
+<div class="quiz">
+  <p><strong>Q1.</strong> Why does GNFS test smaller numbers for smoothness
+  than QS?</p>
+  <button onclick="reveal('q1')">Show answer</button>
+  <div id="q1" class="feedback">
+    QS tests g(x) ≈ √n. GNFS tests N(a − bα) = b^d f(a/b) ≈ n^{1/d}.
+    By choosing d ≈ (log n)^{1/3}, these values are much smaller.
+  </div>
+</div>
+
+<div class="quiz">
+  <p><strong>Q2.</strong> What condition must m satisfy?</p>
+  <button onclick="reveal('q2')">Show answer</button>
+  <div id="q2" class="feedback">
+    f(m) ≡ 0 (mod n). This ensures φ(α) = m is a well-defined
+    ring homomorphism from ℤ[α] to ℤ_n.
+  </div>
+</div>
+
+<div class="quiz">
+  <p><strong>Q3.</strong> A relation (a, b) requires smoothness on two
+  sides. What are they?</p>
+  <button onclick="reveal('q3')">Show answer</button>
+  <div id="q3" class="feedback">
+    Rational side: a − bm. Algebraic side: N(a − bα) = b^d f(a/b).
+    Both must be B-smooth.
+  </div>
+</div>
+
+<h2>Further Reading</h2>
+
+<ul>
+  <li>
+    <strong>Stevenhagen, P. (2008).</strong>
+    <a href="https://pub.math.leidenuniv.nl/~stevenhagenp/ANTproc/04psh.pdf">
+      The Number Field Sieve</a>.
+    The clearest concise treatment — 12 pages, starts from the algebra.
+  </li>
+  <li>
+    <strong>Contini, S. (1997).</strong>
+    <a href="https://web.archive.org/web/20150405063620/http://www.crypto-world.com/documents/contini_siqs.pdf">
+      Factoring Integers with the Self-Initializing Quadratic Sieve</a>.
+    Builds the bridge from QS to NFS in the introduction.
+  </li>
+  <li>
+    <strong>Wikipedia.</strong>
+    <a href="https://en.wikipedia.org/wiki/General_number_field_sieve">
+      General number field sieve</a>.
+  </li>
+  <li>
+    <strong>UCSD CSE 291-14 slides</strong> (Emmanuel Thomé, 2022).
+    <a href="https://cseweb.ucsd.edu/classes/wi22/cse291-14/slides/cse-291-14-lecture-05.pdf">
+      Lecture 5: Background</a> and
+    <a href="https://cseweb.ucsd.edu/classes/wi22/cse291-14/slides/cse-291-14-lecture-06.pdf">
+      Lecture 6: NFS</a>.
+    Excellent slide decks with the NFS diagram.
+  </li>
+  <li>
+    <strong>Lenstra, A. K. & Lenstra, H. W. Jr. (1993).</strong>
+    <em>The Development of the Number Field Sieve</em>. Springer.
+    The canonical collection of papers.
+  </li>
+</ul>
+
+<h2>Review</h2>
+
+<p>
+  Ask your teacher (the agent) follow-up questions about anything unclear.
+  Want me to expand on any part — polynomial selection, the ideal
+  factorization, the square root step, or the connection back to the QS
+  code?
+</p>
+
+<script>
+function reveal(id) {
+  let el = document.getElementById(id);
+  el.classList.toggle('correct');
+  el.style.display = 'block';
+}
+</script>
+
+</body>
+</html>

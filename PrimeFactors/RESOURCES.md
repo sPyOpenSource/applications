@@ -42,10 +42,21 @@
   *Proceedings of the 7th Algorithmic Number Theory Symposium*.
   Comprehensive survey of ECM improvements (stage 2, parameter choices).
 
+### GNFS (Side Topic)
+
+- **Stevenhagen, P. (2008).** [The Number Field Sieve](https://pub.math.leidenuniv.nl/~stevenhagenp/ANTproc/04psh.pdf).
+  The clearest concise treatment — 12 pages, starts from the algebra.
+- **Lenstra, A. K. & Lenstra, H. W. Jr. (1993).** *The Development of the
+  Number Field Sieve*. Springer. The canonical collection of papers.
+- **UCSD CSE 291-14** (Thomé, 2022).
+  [Lecture 5: Background](https://cseweb.ucsd.edu/classes/wi22/cse291-14/slides/cse-291-14-lecture-05.pdf),
+  [Lecture 6: NFS](https://cseweb.ucsd.edu/classes/wi22/cse291-14/slides/cse-291-14-lecture-06.pdf).
+
 ### Wikipedia Articles
 
 - [Congruence of squares](https://en.wikipedia.org/wiki/Congruence_of_squares)
 - [Quadratic sieve](https://en.wikipedia.org/wiki/Quadratic_sieve)
+- [General number field sieve](https://en.wikipedia.org/wiki/General_number_field_sieve)
 - [Lenstra elliptic-curve factorization](https://en.wikipedia.org/wiki/Lenstra_elliptic-curve_factorization)
 - [Tonelli–Shanks algorithm](https://en.wikipedia.org/wiki/Tonelli%E2%80%93Shanks_algorithm)
   (used in this codebase for solving x² ≡ n (mod p))
