@@ -13196,7 +13196,7 @@
         73,
         100
       ],
-      "summary": "EntityWarFactory (tile) — 28 lines , exported.",
+      "summary": "EntityWarFactory (tile) \u2014 28 lines , exported.",
       "tags": [
         "function",
         "exported"
@@ -13212,7 +13212,7 @@
         111,
         152
       ],
-      "summary": "renderEntity (no params) — 42 lines , exported.",
+      "summary": "renderEntity (no params) \u2014 42 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -13229,7 +13229,7 @@
         154,
         159
       ],
-      "summary": "shouldRenderedInPass (passnum) — 6 lines , exported.",
+      "summary": "shouldRenderedInPass (passnum) \u2014 6 lines , exported.",
       "tags": [
         "function",
         "exported"
@@ -13245,7 +13245,7 @@
         161,
         199
       ],
-      "summary": "updateEntity (delta) — 39 lines , exported.",
+      "summary": "updateEntity (delta) \u2014 39 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -13262,7 +13262,7 @@
         201,
         213
       ],
-      "summary": "tryToDeployEntity (no params) — 13 lines .",
+      "summary": "tryToDeployEntity (no params) \u2014 13 lines .",
       "tags": [
         "function"
       ],
@@ -13277,7 +13277,7 @@
         215,
         253
       ],
-      "summary": "tryToMoveOutEntityToUnlockedCells (v) — 39 lines .",
+      "summary": "tryToMoveOutEntityToUnlockedCells (v) \u2014 39 lines .",
       "tags": [
         "function"
       ],
@@ -13292,7 +13292,7 @@
         255,
         257
       ],
-      "summary": "isCellBlocked (cellX, cellY) — 3 lines , exported.",
+      "summary": "isCellBlocked (cellX, cellY) \u2014 3 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -13309,7 +13309,7 @@
         259,
         274
       ],
-      "summary": "deployEntity (target) — 16 lines , exported.",
+      "summary": "deployEntity (target) \u2014 16 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -13326,7 +13326,7 @@
         294,
         297
       ],
-      "summary": "select (no params) — 4 lines , exported.",
+      "summary": "select (no params) \u2014 4 lines , exported.",
       "tags": [
         "function",
         "exported"
@@ -13342,7 +13342,7 @@
         299,
         302
       ],
-      "summary": "cancelSelect (no params) — 4 lines , exported.",
+      "summary": "cancelSelect (no params) \u2014 4 lines , exported.",
       "tags": [
         "function",
         "exported"
@@ -13358,7 +13358,7 @@
         304,
         307
       ],
-      "summary": "isSelected (no params) — 4 lines , exported.",
+      "summary": "isSelected (no params) \u2014 4 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -13375,7 +13375,7 @@
         309,
         312
       ],
-      "summary": "getHeightInTiles (no params) — 4 lines , exported.",
+      "summary": "getHeightInTiles (no params) \u2014 4 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -13392,7 +13392,7 @@
         314,
         317
       ],
-      "summary": "getWidthInTiles (no params) — 4 lines , exported.",
+      "summary": "getWidthInTiles (no params) \u2014 4 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -13409,7 +13409,7 @@
         319,
         321
       ],
-      "summary": "getAlignment (no params) — 3 lines , exported.",
+      "summary": "getAlignment (no params) \u2014 3 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -13426,7 +13426,7 @@
         323,
         326
       ],
-      "summary": "getRevealingRange (no params) — 4 lines , exported.",
+      "summary": "getRevealingRange (no params) \u2014 4 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -13443,7 +13443,7 @@
         328,
         335
       ],
-      "summary": "getImageView (no params) — 8 lines , exported.",
+      "summary": "getImageView (no params) \u2014 8 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -13460,7 +13460,7 @@
         337,
         339
       ],
-      "summary": "getBottomTexture (no params) — 3 lines , exported.",
+      "summary": "getBottomTexture (no params) \u2014 3 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -13477,7 +13477,7 @@
         341,
         344
       ],
-      "summary": "canDeploy (no params) — 4 lines , exported.",
+      "summary": "canDeploy (no params) \u2014 4 lines , exported.",
       "tags": [
         "function",
         "exported"
@@ -13493,7 +13493,7 @@
         346,
         349
       ],
-      "summary": "deploy (no params) — 4 lines , exported.",
+      "summary": "deploy (no params) \u2014 4 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -13510,7 +13510,7 @@
         351,
         354
       ],
-      "summary": "executeDeployment (no params) — 4 lines , exported.",
+      "summary": "executeDeployment (no params) \u2014 4 lines , exported.",
       "tags": [
         "function",
         "exported"
@@ -13526,7 +13526,7 @@
         356,
         359
       ],
-      "summary": "getBuildingCost (no params) — 4 lines , exported.",
+      "summary": "getBuildingCost (no params) \u2014 4 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -13543,7 +13543,7 @@
         361,
         364
       ],
-      "summary": "getConsumptionLevel (no params) — 4 lines , exported.",
+      "summary": "getConsumptionLevel (no params) \u2014 4 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -13577,7 +13577,7 @@
         50,
         68
       ],
-      "summary": "EntityAirField (tile) — 19 lines , exported.",
+      "summary": "EntityAirField (tile) \u2014 19 lines , exported.",
       "tags": [
         "function",
         "exported"
@@ -13593,7 +13593,7 @@
         75,
         106
       ],
-      "summary": "renderEntity (no params) — 32 lines , exported.",
+      "summary": "renderEntity (no params) \u2014 32 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -13610,7 +13610,7 @@
         108,
         111
       ],
-      "summary": "shouldRenderedInPass (passnum) — 4 lines , exported.",
+      "summary": "shouldRenderedInPass (passnum) \u2014 4 lines , exported.",
       "tags": [
         "function",
         "exported"
@@ -13626,7 +13626,7 @@
         113,
         126
       ],
-      "summary": "updateEntity (delta) — 14 lines , exported.",
+      "summary": "updateEntity (delta) \u2014 14 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -13643,7 +13643,7 @@
         128,
         131
       ],
-      "summary": "select (no params) — 4 lines , exported.",
+      "summary": "select (no params) \u2014 4 lines , exported.",
       "tags": [
         "function",
         "exported"
@@ -13659,7 +13659,7 @@
         133,
         136
       ],
-      "summary": "cancelSelect (no params) — 4 lines , exported.",
+      "summary": "cancelSelect (no params) \u2014 4 lines , exported.",
       "tags": [
         "function",
         "exported"
@@ -13675,7 +13675,7 @@
         138,
         141
       ],
-      "summary": "isSelected (no params) — 4 lines , exported.",
+      "summary": "isSelected (no params) \u2014 4 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -13692,7 +13692,7 @@
         143,
         146
       ],
-      "summary": "getHeightInTiles (no params) — 4 lines , exported.",
+      "summary": "getHeightInTiles (no params) \u2014 4 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -13709,7 +13709,7 @@
         148,
         151
       ],
-      "summary": "getWidthInTiles (no params) — 4 lines , exported.",
+      "summary": "getWidthInTiles (no params) \u2014 4 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -13726,7 +13726,7 @@
         153,
         156
       ],
-      "summary": "getConsumptionLevel (no params) — 4 lines , exported.",
+      "summary": "getConsumptionLevel (no params) \u2014 4 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -13743,7 +13743,7 @@
         158,
         161
       ],
-      "summary": "getRevealingRange (no params) — 4 lines , exported.",
+      "summary": "getRevealingRange (no params) \u2014 4 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -13760,7 +13760,7 @@
         163,
         172
       ],
-      "summary": "getImageView (no params) — 10 lines , exported.",
+      "summary": "getImageView (no params) \u2014 10 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -13777,7 +13777,7 @@
         174,
         177
       ],
-      "summary": "getBuildingCost (no params) — 4 lines , exported.",
+      "summary": "getBuildingCost (no params) \u2014 4 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -13794,7 +13794,7 @@
         179,
         188
       ],
-      "summary": "deployEntity (newInstance) — 10 lines , exported.",
+      "summary": "deployEntity (newInstance) \u2014 10 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -13811,7 +13811,7 @@
         190,
         193
       ],
-      "summary": "onBuildFinished (no params) — 4 lines , exported.",
+      "summary": "onBuildFinished (no params) \u2014 4 lines , exported.",
       "tags": [
         "function",
         "exported"
@@ -13844,7 +13844,7 @@
         51,
         69
       ],
-      "summary": "EntityBarracks (tile) — 19 lines , exported.",
+      "summary": "EntityBarracks (tile) \u2014 19 lines , exported.",
       "tags": [
         "function",
         "exported"
@@ -13860,7 +13860,7 @@
         76,
         108
       ],
-      "summary": "renderEntity (no params) — 33 lines , exported.",
+      "summary": "renderEntity (no params) \u2014 33 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -13877,7 +13877,7 @@
         110,
         113
       ],
-      "summary": "shouldRenderedInPass (passnum) — 4 lines , exported.",
+      "summary": "shouldRenderedInPass (passnum) \u2014 4 lines , exported.",
       "tags": [
         "function",
         "exported"
@@ -13893,7 +13893,7 @@
         115,
         124
       ],
-      "summary": "updateEntity (delta) — 10 lines , exported.",
+      "summary": "updateEntity (delta) \u2014 10 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -13910,7 +13910,7 @@
         126,
         129
       ],
-      "summary": "select (no params) — 4 lines , exported.",
+      "summary": "select (no params) \u2014 4 lines , exported.",
       "tags": [
         "function",
         "exported"
@@ -13926,7 +13926,7 @@
         131,
         134
       ],
-      "summary": "cancelSelect (no params) — 4 lines , exported.",
+      "summary": "cancelSelect (no params) \u2014 4 lines , exported.",
       "tags": [
         "function",
         "exported"
@@ -13942,7 +13942,7 @@
         136,
         139
       ],
-      "summary": "isSelected (no params) — 4 lines , exported.",
+      "summary": "isSelected (no params) \u2014 4 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -13959,7 +13959,7 @@
         141,
         144
       ],
-      "summary": "getHeightInTiles (no params) — 4 lines , exported.",
+      "summary": "getHeightInTiles (no params) \u2014 4 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -13976,7 +13976,7 @@
         146,
         149
       ],
-      "summary": "getWidthInTiles (no params) — 4 lines , exported.",
+      "summary": "getWidthInTiles (no params) \u2014 4 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -13993,7 +13993,7 @@
         151,
         154
       ],
-      "summary": "getConsumptionLevel (no params) — 4 lines , exported.",
+      "summary": "getConsumptionLevel (no params) \u2014 4 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -14010,7 +14010,7 @@
         156,
         159
       ],
-      "summary": "getRevealingRange (no params) — 4 lines , exported.",
+      "summary": "getRevealingRange (no params) \u2014 4 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -14027,7 +14027,7 @@
         161,
         164
       ],
-      "summary": "getImageView (no params) — 4 lines , exported.",
+      "summary": "getImageView (no params) \u2014 4 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -14044,7 +14044,7 @@
         166,
         169
       ],
-      "summary": "getBuildingCost (no params) — 4 lines , exported.",
+      "summary": "getBuildingCost (no params) \u2014 4 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -14061,7 +14061,7 @@
         171,
         209
       ],
-      "summary": "deployEntity (newInstance) — 39 lines , exported.",
+      "summary": "deployEntity (newInstance) \u2014 39 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -14078,7 +14078,7 @@
         211,
         215
       ],
-      "summary": "onBuildFinished (no params) — 5 lines , exported.",
+      "summary": "onBuildFinished (no params) \u2014 5 lines , exported.",
       "tags": [
         "function",
         "exported"
@@ -14111,7 +14111,7 @@
         12,
         30
       ],
-      "summary": "EntityBarredWireWall (aTile, aSizeWidth, aSizeHeight, aFootprint) — 19 lines , exported.",
+      "summary": "EntityBarredWireWall (aTile, aSizeWidth, aSizeHeight, aFootprint) \u2014 19 lines , exported.",
       "tags": [
         "function",
         "exported"
@@ -14127,7 +14127,7 @@
         36,
         39
       ],
-      "summary": "getBuildingCost (no params) — 4 lines , exported.",
+      "summary": "getBuildingCost (no params) \u2014 4 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -14206,7 +14206,7 @@
         23,
         33
       ],
-      "summary": "ShpTexture (shp) — 11 lines , exported.",
+      "summary": "ShpTexture (shp) \u2014 11 lines , exported.",
       "tags": [
         "function",
         "exported"
@@ -14222,7 +14222,7 @@
         41,
         55
       ],
-      "summary": "getAsImage (index, remapColor) — 15 lines , exported.",
+      "summary": "getAsImage (index, remapColor) \u2014 15 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -14239,7 +14239,7 @@
         57,
         96
       ],
-      "summary": "remapShpFrame (index, remapColor) — 40 lines .",
+      "summary": "remapShpFrame (index, remapColor) \u2014 40 lines .",
       "tags": [
         "function"
       ],
@@ -14254,7 +14254,7 @@
         98,
         125
       ],
-      "summary": "remapShpShadowFrame (index) — 28 lines .",
+      "summary": "remapShpShadowFrame (index) \u2014 28 lines .",
       "tags": [
         "function"
       ],
@@ -14269,7 +14269,7 @@
         128,
         130
       ],
-      "summary": "getAsCombinedImage (remapColor) — 3 lines , exported.",
+      "summary": "getAsCombinedImage (remapColor) \u2014 3 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -14286,7 +14286,7 @@
         182,
         213
       ],
-      "summary": "remapPallete (colors, pal, remapColor) — 32 lines , exported.",
+      "summary": "remapPallete (colors, pal, remapColor) \u2014 32 lines , exported.",
       "tags": [
         "function",
         "exported"
@@ -14302,7 +14302,7 @@
         215,
         217
       ],
-      "summary": "setSheetPos (x, y) — 3 lines , exported.",
+      "summary": "setSheetPos (x, y) \u2014 3 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -14319,7 +14319,7 @@
         219,
         221
       ],
-      "summary": "getSpriteSheetCoords (no params) — 3 lines , exported.",
+      "summary": "getSpriteSheetCoords (no params) \u2014 3 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -14336,7 +14336,7 @@
         223,
         225
       ],
-      "summary": "getTextureName (no params) — 3 lines , exported.",
+      "summary": "getTextureName (no params) \u2014 3 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -14370,7 +14370,7 @@
         26,
         32
       ],
-      "summary": "getInstance (no params) — 7 lines , exported.",
+      "summary": "getInstance (no params) \u2014 7 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -14387,7 +14387,7 @@
         34,
         54
       ],
-      "summary": "loadCursors (no params) — 21 lines .",
+      "summary": "loadCursors (no params) \u2014 21 lines .",
       "tags": [
         "function"
       ],
@@ -14402,7 +14402,7 @@
         56,
         58
       ],
-      "summary": "getCursor (no params) — 3 lines , exported.",
+      "summary": "getCursor (no params) \u2014 3 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -14419,7 +14419,7 @@
         60,
         114
       ],
-      "summary": "setCursorType (cursor) — 55 lines , exported.",
+      "summary": "setCursorType (cursor) \u2014 55 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -14436,7 +14436,7 @@
         116,
         126
       ],
-      "summary": "update (no params) — 11 lines , exported.",
+      "summary": "update (no params) \u2014 11 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -14453,7 +14453,7 @@
         128,
         132
       ],
-      "summary": "drawCursor (g) — 5 lines , exported.",
+      "summary": "drawCursor (g) \u2014 5 lines , exported.",
       "tags": [
         "function",
         "exported"
@@ -14486,7 +14486,7 @@
         35,
         48
       ],
-      "summary": "SpriteSheet (imageView, image, columns, rows, totalFrames, frameWidth, frameHeight, framesPerSecond) — 14 lines , exported.",
+      "summary": "SpriteSheet (imageView, image, columns, rows, totalFrames, frameWidth, frameHeight, framesPerSecond) \u2014 14 lines , exported.",
       "tags": [
         "function",
         "exported"
@@ -14502,7 +14502,7 @@
         63,
         89
       ],
-      "summary": "handle (now) — 27 lines , exported.",
+      "summary": "handle (now) \u2014 27 lines , exported.",
       "tags": [
         "function",
         "exported"
@@ -14518,7 +14518,7 @@
         91,
         93
       ],
-      "summary": "getSubImage (i, index) — 3 lines , exported.",
+      "summary": "getSubImage (i, index) \u2014 3 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -14535,7 +14535,7 @@
         95,
         97
       ],
-      "summary": "getImage (no params) — 3 lines , exported.",
+      "summary": "getImage (no params) \u2014 3 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -14552,7 +14552,7 @@
         116,
         121
       ],
-      "summary": "renderInUse (x, y, i1, i2) — 6 lines , exported.",
+      "summary": "renderInUse (x, y, i1, i2) \u2014 6 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -14569,7 +14569,7 @@
         123,
         125
       ],
-      "summary": "getHorizontalCount (no params) — 3 lines , exported.",
+      "summary": "getHorizontalCount (no params) \u2014 3 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -14586,7 +14586,7 @@
         127,
         129
       ],
-      "summary": "getVerticalCount (no params) — 3 lines , exported.",
+      "summary": "getVerticalCount (no params) \u2014 3 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -14680,7 +14680,7 @@
         31,
         34
       ],
-      "summary": "BuildingOverlay (p, w) — 4 lines , exported.",
+      "summary": "BuildingOverlay (p, w) \u2014 4 lines , exported.",
       "tags": [
         "function",
         "exported"
@@ -14696,7 +14696,7 @@
         36,
         86
       ],
-      "summary": "render (g) — 51 lines , exported.",
+      "summary": "render (g) \u2014 51 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -14713,7 +14713,7 @@
         88,
         99
       ],
-      "summary": "drawCYCircles (g) — 12 lines , exported.",
+      "summary": "drawCYCircles (g) \u2014 12 lines , exported.",
       "tags": [
         "function",
         "exported"
@@ -14729,7 +14729,7 @@
         101,
         112
       ],
-      "summary": "update (delta) — 12 lines , exported.",
+      "summary": "update (delta) \u2014 12 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -14746,7 +14746,7 @@
         114,
         116
       ],
-      "summary": "setBuildingMode (eb) — 3 lines , exported.",
+      "summary": "setBuildingMode (eb) \u2014 3 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -14763,7 +14763,7 @@
         118,
         120
       ],
-      "summary": "resetBuildingMode (no params) — 3 lines , exported.",
+      "summary": "resetBuildingMode (no params) \u2014 3 lines , exported.",
       "tags": [
         "function",
         "exported"
@@ -14779,7 +14779,7 @@
         122,
         147
       ],
-      "summary": "mouseClick (button) — 26 lines , exported.",
+      "summary": "mouseClick (button) \u2014 26 lines , exported.",
       "tags": [
         "function",
         "exported"
@@ -14795,7 +14795,7 @@
         149,
         165
       ],
-      "summary": "mouseDragged (oldx, oldy, newx, newy) — 17 lines , exported.",
+      "summary": "mouseDragged (oldx, oldy, newx, newy) \u2014 17 lines , exported.",
       "tags": [
         "function",
         "exported"
@@ -14811,7 +14811,7 @@
         167,
         169
       ],
-      "summary": "isBuildingWalls (no params) — 3 lines , exported.",
+      "summary": "isBuildingWalls (no params) \u2014 3 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -14828,7 +14828,7 @@
         171,
         173
       ],
-      "summary": "isInBuildingMode (no params) — 3 lines , exported.",
+      "summary": "isInBuildingMode (no params) \u2014 3 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -14862,7 +14862,7 @@
         59,
         162
       ],
-      "summary": "ProductionQueue (p) — 104 lines , exported.",
+      "summary": "ProductionQueue (p) \u2014 104 lines , exported.",
       "tags": [
         "function",
         "exported"
@@ -14878,7 +14878,7 @@
         164,
         166
       ],
-      "summary": "getBuildableActor (texture) — 3 lines , exported.",
+      "summary": "getBuildableActor (texture) \u2014 3 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -14895,7 +14895,7 @@
         173,
         184
       ],
-      "summary": "getBuildableActorByName (name) — 12 lines , exported.",
+      "summary": "getBuildableActorByName (name) \u2014 12 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -14912,7 +14912,7 @@
         186,
         196
       ],
-      "summary": "startBuildingActor (name, texture) — 11 lines , exported.",
+      "summary": "startBuildingActor (name, texture) \u2014 11 lines , exported.",
       "tags": [
         "function",
         "exported"
@@ -14928,7 +14928,7 @@
         210,
         220
       ],
-      "summary": "getCurrentProducingBuilding (no params) — 11 lines , exported.",
+      "summary": "getCurrentProducingBuilding (no params) \u2014 11 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -14945,7 +14945,7 @@
         222,
         235
       ],
-      "summary": "getProductionForBuilding (target) — 14 lines , exported.",
+      "summary": "getProductionForBuilding (target) \u2014 14 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -14962,7 +14962,7 @@
         237,
         247
       ],
-      "summary": "update (no params) — 11 lines , exported.",
+      "summary": "update (no params) \u2014 11 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -14979,7 +14979,7 @@
         249,
         263
       ],
-      "summary": "updateBuildables (no params) — 15 lines .",
+      "summary": "updateBuildables (no params) \u2014 15 lines .",
       "tags": [
         "function",
         "update"
@@ -14995,7 +14995,7 @@
         265,
         277
       ],
-      "summary": "addToBuildablesFrom (map) — 13 lines .",
+      "summary": "addToBuildablesFrom (map) \u2014 13 lines .",
       "tags": [
         "function"
       ],
@@ -15010,7 +15010,7 @@
         279,
         281
       ],
-      "summary": "getCurrentSovietBuildingProduction (no params) — 3 lines , exported.",
+      "summary": "getCurrentSovietBuildingProduction (no params) \u2014 3 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -15027,7 +15027,7 @@
         283,
         285
       ],
-      "summary": "getCurrentAlliedBuildingProduction (no params) — 3 lines , exported.",
+      "summary": "getCurrentAlliedBuildingProduction (no params) \u2014 3 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -15044,7 +15044,7 @@
         287,
         289
       ],
-      "summary": "getCurrentVehicleProduction (no params) — 3 lines , exported.",
+      "summary": "getCurrentVehicleProduction (no params) \u2014 3 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -15061,7 +15061,7 @@
         291,
         293
       ],
-      "summary": "getCurrentInfantryProduction (no params) — 3 lines , exported.",
+      "summary": "getCurrentInfantryProduction (no params) \u2014 3 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -15078,7 +15078,7 @@
         295,
         297
       ],
-      "summary": "getCurrentNeutralBuildingProduction (no params) — 3 lines , exported.",
+      "summary": "getCurrentNeutralBuildingProduction (no params) \u2014 3 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -15095,7 +15095,7 @@
         299,
         308
       ],
-      "summary": "isPrerequisitesSatisfiedFor (e) — 10 lines , exported.",
+      "summary": "isPrerequisitesSatisfiedFor (e) \u2014 10 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -15112,7 +15112,7 @@
         310,
         316
       ],
-      "summary": "canBuild (targetBuilding) — 7 lines , exported.",
+      "summary": "canBuild (targetBuilding) \u2014 7 lines , exported.",
       "tags": [
         "function",
         "exported"
@@ -15128,7 +15128,7 @@
         318,
         324
       ],
-      "summary": "isBuildable (name) — 7 lines , exported.",
+      "summary": "isBuildable (name) \u2014 7 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -15145,7 +15145,7 @@
         326,
         328
       ],
-      "summary": "getBuildables (no params) — 3 lines , exported.",
+      "summary": "getBuildables (no params) \u2014 3 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -15162,7 +15162,7 @@
         330,
         332
       ],
-      "summary": "getCurrentProducingVehicle (no params) — 3 lines , exported.",
+      "summary": "getCurrentProducingVehicle (no params) \u2014 3 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -15196,7 +15196,7 @@
         50,
         52
       ],
-      "summary": "main (args) — 3 lines , exported.",
+      "summary": "main (args) \u2014 3 lines , exported.",
       "tags": [
         "function",
         "exported"
@@ -15212,7 +15212,7 @@
         54,
         58
       ],
-      "summary": "mousePressed (button, x, y) — 5 lines , exported.",
+      "summary": "mousePressed (button, x, y) \u2014 5 lines , exported.",
       "tags": [
         "function",
         "exported"
@@ -15228,7 +15228,7 @@
         60,
         77
       ],
-      "summary": "mouseReleased (button, arg1, arg2) — 18 lines , exported.",
+      "summary": "mouseReleased (button, arg1, arg2) \u2014 18 lines , exported.",
       "tags": [
         "function",
         "exported"
@@ -15244,7 +15244,7 @@
         79,
         81
       ],
-      "summary": "isAcceptingInput (no params) — 3 lines , exported.",
+      "summary": "isAcceptingInput (no params) \u2014 3 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -15261,7 +15261,7 @@
         83,
         89
       ],
-      "summary": "enter (c) — 7 lines , exported.",
+      "summary": "enter (c) \u2014 7 lines , exported.",
       "tags": [
         "function",
         "exported"
@@ -15277,7 +15277,7 @@
         91,
         93
       ],
-      "summary": "getID (no params) — 3 lines , exported.",
+      "summary": "getID (no params) \u2014 3 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -15294,7 +15294,7 @@
         95,
         191
       ],
-      "summary": "start (c) — 97 lines , exported.",
+      "summary": "start (c) \u2014 97 lines , exported.",
       "tags": [
         "function",
         "exported"
@@ -15310,7 +15310,7 @@
         193,
         196
       ],
-      "summary": "update (arg0, arg2) — 4 lines , exported.",
+      "summary": "update (arg0, arg2) \u2014 4 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -15344,7 +15344,7 @@
         54,
         56
       ],
-      "summary": "main (args) — 3 lines , exported.",
+      "summary": "main (args) \u2014 3 lines , exported.",
       "tags": [
         "function",
         "exported"
@@ -15360,7 +15360,7 @@
         58,
         62
       ],
-      "summary": "mousePressed (button, x, y) — 5 lines , exported.",
+      "summary": "mousePressed (button, x, y) \u2014 5 lines , exported.",
       "tags": [
         "function",
         "exported"
@@ -15376,7 +15376,7 @@
         64,
         81
       ],
-      "summary": "mouseReleased (button, arg1, arg2) — 18 lines , exported.",
+      "summary": "mouseReleased (button, arg1, arg2) \u2014 18 lines , exported.",
       "tags": [
         "function",
         "exported"
@@ -15392,7 +15392,7 @@
         83,
         85
       ],
-      "summary": "isAcceptingInput (no params) — 3 lines , exported.",
+      "summary": "isAcceptingInput (no params) \u2014 3 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -15409,7 +15409,7 @@
         87,
         91
       ],
-      "summary": "keyPressed (arg0, arg1) — 5 lines , exported.",
+      "summary": "keyPressed (arg0, arg1) \u2014 5 lines , exported.",
       "tags": [
         "function",
         "exported"
@@ -15425,7 +15425,7 @@
         93,
         96
       ],
-      "summary": "enter (c) — 4 lines , exported.",
+      "summary": "enter (c) \u2014 4 lines , exported.",
       "tags": [
         "function",
         "exported"
@@ -15441,7 +15441,7 @@
         98,
         100
       ],
-      "summary": "getID (no params) — 3 lines , exported.",
+      "summary": "getID (no params) \u2014 3 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -15458,7 +15458,7 @@
         102,
         187
       ],
-      "summary": "start (c) — 86 lines , exported.",
+      "summary": "start (c) \u2014 86 lines , exported.",
       "tags": [
         "function",
         "exported"
@@ -15474,7 +15474,7 @@
         189,
         192
       ],
-      "summary": "update (arg0, arg2) — 4 lines , exported.",
+      "summary": "update (arg0, arg2) \u2014 4 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -15568,7 +15568,7 @@
         19,
         32
       ],
-      "summary": "MapEntity (aX, aY, shpTex, footprint, dimensions) — 14 lines , exported.",
+      "summary": "MapEntity (aX, aY, shpTex, footprint, dimensions) \u2014 14 lines , exported.",
       "tags": [
         "function",
         "exported"
@@ -15584,7 +15584,7 @@
         34,
         36
       ],
-      "summary": "getTexture (no params) — 3 lines , exported.",
+      "summary": "getTexture (no params) \u2014 3 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -15601,7 +15601,7 @@
         38,
         40
       ],
-      "summary": "getX (no params) — 3 lines , exported.",
+      "summary": "getX (no params) \u2014 3 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -15618,7 +15618,7 @@
         42,
         44
       ],
-      "summary": "getY (no params) — 3 lines , exported.",
+      "summary": "getY (no params) \u2014 3 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -15635,7 +15635,7 @@
         51,
         80
       ],
-      "summary": "generateCellsFromFootprint (footprint, fc) — 30 lines .",
+      "summary": "generateCellsFromFootprint (footprint, fc) \u2014 30 lines .",
       "tags": [
         "function"
       ],
@@ -15650,7 +15650,7 @@
         82,
         84
       ],
-      "summary": "getWidth (no params) — 3 lines , exported.",
+      "summary": "getWidth (no params) \u2014 3 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -15667,7 +15667,7 @@
         86,
         88
       ],
-      "summary": "getHeight (no params) — 3 lines , exported.",
+      "summary": "getHeight (no params) \u2014 3 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -15684,7 +15684,7 @@
         90,
         92
       ],
-      "summary": "getFootprintCells (no params) — 3 lines , exported.",
+      "summary": "getFootprintCells (no params) \u2014 3 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -15718,7 +15718,7 @@
         51,
         108
       ],
-      "summary": "TileSet (aSetName) — 58 lines , exported.",
+      "summary": "TileSet (aSetName) \u2014 58 lines , exported.",
       "tags": [
         "function",
         "exported"
@@ -15734,7 +15734,7 @@
         110,
         112
       ],
-      "summary": "getSetName (no params) — 3 lines , exported.",
+      "summary": "getSetName (no params) \u2014 3 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -15751,7 +15751,7 @@
         114,
         116
       ],
-      "summary": "getTiles (no params) — 3 lines , exported.",
+      "summary": "getTiles (no params) \u2014 3 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -15785,7 +15785,7 @@
         25,
         40
       ],
-      "summary": "ShroudRenderer (aW) — 16 lines , exported.",
+      "summary": "ShroudRenderer (aW) \u2014 16 lines , exported.",
       "tags": [
         "function",
         "exported"
@@ -15801,7 +15801,7 @@
         42,
         62
       ],
-      "summary": "renderShrouds (g) — 21 lines , exported.",
+      "summary": "renderShrouds (g) \u2014 21 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -15818,7 +15818,7 @@
         64,
         79
       ],
-      "summary": "update (s) — 16 lines , exported.",
+      "summary": "update (s) \u2014 16 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -15835,7 +15835,7 @@
         81,
         116
       ],
-      "summary": "getShroudedEdges (s, x, y, useExtendedIndex) — 36 lines .",
+      "summary": "getShroudedEdges (s, x, y, useExtendedIndex) \u2014 36 lines .",
       "tags": [
         "function",
         "getter"
@@ -15851,7 +15851,7 @@
         118,
         155
       ],
-      "summary": "observerShroudedEdges (x, y, useExtendedIndex) — 38 lines .",
+      "summary": "observerShroudedEdges (x, y, useExtendedIndex) \u2014 38 lines .",
       "tags": [
         "function"
       ],
@@ -15883,7 +15883,7 @@
         63,
         69
       ],
-      "summary": "getInstance (no params) — 7 lines , exported.",
+      "summary": "getInstance (no params) \u2014 7 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -15900,7 +15900,7 @@
         71,
         75
       ],
-      "summary": "loadBibs (no params) — 5 lines , exported.",
+      "summary": "loadBibs (no params) \u2014 5 lines , exported.",
       "tags": [
         "function",
         "exported"
@@ -15916,7 +15916,7 @@
         77,
         88
       ],
-      "summary": "getBibSheet (bt) — 12 lines , exported.",
+      "summary": "getBibSheet (bt) \u2014 12 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -15933,7 +15933,7 @@
         90,
         106
       ],
-      "summary": "loadMixes (path) — 17 lines .",
+      "summary": "loadMixes (path) \u2014 17 lines .",
       "tags": [
         "function"
       ],
@@ -15948,7 +15948,7 @@
         108,
         132
       ],
-      "summary": "getSidebarTexture (name) — 25 lines , exported.",
+      "summary": "getSidebarTexture (name) \u2014 25 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -15965,7 +15965,7 @@
         134,
         159
       ],
-      "summary": "getConquerTexture (name) — 26 lines , exported.",
+      "summary": "getConquerTexture (name) \u2014 26 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -15982,7 +15982,7 @@
         161,
         163
       ],
-      "summary": "loadSpeechSound (name) — 3 lines , exported.",
+      "summary": "loadSpeechSound (name) \u2014 3 lines , exported.",
       "tags": [
         "function",
         "exported"
@@ -15998,7 +15998,7 @@
         165,
         199
       ],
-      "summary": "loadSound (mixname, name) — 35 lines , exported.",
+      "summary": "loadSound (mixname, name) \u2014 35 lines , exported.",
       "tags": [
         "function",
         "exported"
@@ -16014,7 +16014,7 @@
         201,
         230
       ],
-      "summary": "getTemplateShpTexture (tileSetName, name) — 30 lines , exported.",
+      "summary": "getTemplateShpTexture (tileSetName, name) \u2014 30 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -16031,7 +16031,7 @@
         232,
         260
       ],
-      "summary": "getTemplateTexture (type, name) — 29 lines , exported.",
+      "summary": "getTemplateTexture (type, name) \u2014 29 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -16048,7 +16048,7 @@
         262,
         278
       ],
-      "summary": "getPaletteByName (name) — 17 lines , exported.",
+      "summary": "getPaletteByName (name) \u2014 17 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -16065,7 +16065,7 @@
         280,
         292
       ],
-      "summary": "listDirectoryMixes (resourceFolder) — 13 lines .",
+      "summary": "listDirectoryMixes (resourceFolder) \u2014 13 lines .",
       "tags": [
         "function"
       ],
@@ -16080,7 +16080,7 @@
         294,
         301
       ],
-      "summary": "loadUnitSound (alignment, name) — 8 lines , exported.",
+      "summary": "loadUnitSound (alignment, name) \u2014 8 lines , exported.",
       "tags": [
         "function",
         "exported"
@@ -16096,7 +16096,7 @@
         303,
         328
       ],
-      "summary": "getInfantryTexture (name) — 26 lines , exported.",
+      "summary": "getInfantryTexture (name) \u2014 26 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -16113,7 +16113,7 @@
         330,
         361
       ],
-      "summary": "getShpTexture (name) — 32 lines , exported.",
+      "summary": "getShpTexture (name) \u2014 32 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -16207,7 +16207,7 @@
         62,
         92
       ],
-      "summary": "EntityTeslaCoil (tile) — 31 lines , exported.",
+      "summary": "EntityTeslaCoil (tile) \u2014 31 lines , exported.",
       "tags": [
         "function",
         "exported"
@@ -16223,7 +16223,7 @@
         100,
         130
       ],
-      "summary": "renderEntity (no params) — 31 lines , exported.",
+      "summary": "renderEntity (no params) \u2014 31 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -16240,7 +16240,7 @@
         132,
         135
       ],
-      "summary": "shouldRenderedInPass (passnum) — 4 lines , exported.",
+      "summary": "shouldRenderedInPass (passnum) \u2014 4 lines , exported.",
       "tags": [
         "function",
         "exported"
@@ -16256,7 +16256,7 @@
         137,
         168
       ],
-      "summary": "updateEntity (delta) — 32 lines , exported.",
+      "summary": "updateEntity (delta) \u2014 32 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -16273,7 +16273,7 @@
         170,
         173
       ],
-      "summary": "select (no params) — 4 lines , exported.",
+      "summary": "select (no params) \u2014 4 lines , exported.",
       "tags": [
         "function",
         "exported"
@@ -16289,7 +16289,7 @@
         175,
         178
       ],
-      "summary": "cancelSelect (no params) — 4 lines , exported.",
+      "summary": "cancelSelect (no params) \u2014 4 lines , exported.",
       "tags": [
         "function",
         "exported"
@@ -16305,7 +16305,7 @@
         180,
         183
       ],
-      "summary": "isSelected (no params) — 4 lines , exported.",
+      "summary": "isSelected (no params) \u2014 4 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -16322,7 +16322,7 @@
         185,
         188
       ],
-      "summary": "getHeightInTiles (no params) — 4 lines , exported.",
+      "summary": "getHeightInTiles (no params) \u2014 4 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -16339,7 +16339,7 @@
         190,
         193
       ],
-      "summary": "getWidthInTiles (no params) — 4 lines , exported.",
+      "summary": "getWidthInTiles (no params) \u2014 4 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -16356,7 +16356,7 @@
         195,
         198
       ],
-      "summary": "getConsumptionLevel (no params) — 4 lines , exported.",
+      "summary": "getConsumptionLevel (no params) \u2014 4 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -16373,7 +16373,7 @@
         200,
         203
       ],
-      "summary": "getRevealingRange (no params) — 4 lines , exported.",
+      "summary": "getRevealingRange (no params) \u2014 4 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -16390,7 +16390,7 @@
         205,
         214
       ],
-      "summary": "getImageView (no params) — 10 lines , exported.",
+      "summary": "getImageView (no params) \u2014 10 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -16407,7 +16407,7 @@
         216,
         219
       ],
-      "summary": "getBuildingCost (no params) — 4 lines , exported.",
+      "summary": "getBuildingCost (no params) \u2014 4 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -16424,7 +16424,7 @@
         221,
         230
       ],
-      "summary": "issueOrder (self, targeter, target, ia) — 10 lines , exported.",
+      "summary": "issueOrder (self, targeter, target, ia) \u2014 10 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -16441,7 +16441,7 @@
         232,
         239
       ],
-      "summary": "resolveOrder (order) — 8 lines , exported.",
+      "summary": "resolveOrder (order) \u2014 8 lines , exported.",
       "tags": [
         "function",
         "exported"
@@ -16474,7 +16474,7 @@
         22,
         35
       ],
-      "summary": "Explosion (pos, texture) — 14 lines , exported.",
+      "summary": "Explosion (pos, texture) \u2014 14 lines , exported.",
       "tags": [
         "function",
         "exported"
@@ -16490,7 +16490,7 @@
         42,
         54
       ],
-      "summary": "updateEntity (delta) — 13 lines , exported.",
+      "summary": "updateEntity (delta) \u2014 13 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -16507,7 +16507,7 @@
         56,
         62
       ],
-      "summary": "renderEntity (no params) — 7 lines , exported.",
+      "summary": "renderEntity (no params) \u2014 7 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -16524,7 +16524,7 @@
         64,
         67
       ],
-      "summary": "shouldRenderedInPass (passNum) — 4 lines , exported.",
+      "summary": "shouldRenderedInPass (passNum) \u2014 4 lines , exported.",
       "tags": [
         "function",
         "exported"
@@ -16557,7 +16557,7 @@
         23,
         30
       ],
-      "summary": "MoveFlash (pos, aSizeWidth, aSizeHeight) — 8 lines , exported.",
+      "summary": "MoveFlash (pos, aSizeWidth, aSizeHeight) \u2014 8 lines , exported.",
       "tags": [
         "function",
         "exported"
@@ -16573,7 +16573,7 @@
         32,
         44
       ],
-      "summary": "updateEntity (delta) — 13 lines , exported.",
+      "summary": "updateEntity (delta) \u2014 13 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -16590,7 +16590,7 @@
         46,
         52
       ],
-      "summary": "renderEntity (no params) — 7 lines , exported.",
+      "summary": "renderEntity (no params) \u2014 7 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -16607,7 +16607,7 @@
         54,
         57
       ],
-      "summary": "shouldRenderedInPass (passNum) — 4 lines , exported.",
+      "summary": "shouldRenderedInPass (passNum) \u2014 4 lines , exported.",
       "tags": [
         "function",
         "exported"
@@ -16640,7 +16640,7 @@
         21,
         30
       ],
-      "summary": "Smoke (pos, texture) — 10 lines , exported.",
+      "summary": "Smoke (pos, texture) \u2014 10 lines , exported.",
       "tags": [
         "function",
         "exported"
@@ -16656,7 +16656,7 @@
         37,
         49
       ],
-      "summary": "updateEntity (delta) — 13 lines , exported.",
+      "summary": "updateEntity (delta) \u2014 13 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -16673,7 +16673,7 @@
         51,
         57
       ],
-      "summary": "renderEntity (no params) — 7 lines , exported.",
+      "summary": "renderEntity (no params) \u2014 7 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -16690,7 +16690,7 @@
         59,
         62
       ],
-      "summary": "shouldRenderedInPass (passNum) — 4 lines , exported.",
+      "summary": "shouldRenderedInPass (passNum) \u2014 4 lines , exported.",
       "tags": [
         "function",
         "exported"
@@ -16783,7 +16783,7 @@
         26,
         39
       ],
-      "summary": "SmokeOnUnit (parentUnit, texture) — 14 lines , exported.",
+      "summary": "SmokeOnUnit (parentUnit, texture) \u2014 14 lines , exported.",
       "tags": [
         "function",
         "exported"
@@ -16799,7 +16799,7 @@
         46,
         61
       ],
-      "summary": "updateEntity (delta) — 16 lines , exported.",
+      "summary": "updateEntity (delta) \u2014 16 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -16816,7 +16816,7 @@
         63,
         69
       ],
-      "summary": "renderEntity (no params) — 7 lines , exported.",
+      "summary": "renderEntity (no params) \u2014 7 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -16833,7 +16833,7 @@
         71,
         74
       ],
-      "summary": "shouldRenderedInPass (passNum) — 4 lines , exported.",
+      "summary": "shouldRenderedInPass (passNum) \u2014 4 lines , exported.",
       "tags": [
         "function",
         "exported"
@@ -16866,7 +16866,7 @@
         41,
         46
       ],
-      "summary": "TeslaZapRenderer (srcActor, srcPos, passivePos, targetActor, width, height, isBright) — 6 lines , exported.",
+      "summary": "TeslaZapRenderer (srcActor, srcPos, passivePos, targetActor, width, height, isBright) \u2014 6 lines , exported.",
       "tags": [
         "function",
         "exported"
@@ -16882,7 +16882,7 @@
         57,
         62
       ],
-      "summary": "updateEntity (delta) — 6 lines , exported.",
+      "summary": "updateEntity (delta) \u2014 6 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -16899,7 +16899,7 @@
         64,
         66
       ],
-      "summary": "getRandom (from, to) — 3 lines , exported.",
+      "summary": "getRandom (from, to) \u2014 3 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -16916,7 +16916,7 @@
         68,
         77
       ],
-      "summary": "renderEntity (no params) — 10 lines , exported.",
+      "summary": "renderEntity (no params) \u2014 10 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -16933,7 +16933,7 @@
         79,
         114
       ],
-      "summary": "drawZapWandering (from, to, displace, detail) — 36 lines .",
+      "summary": "drawZapWandering (from, to, displace, detail) \u2014 36 lines .",
       "tags": [
         "function"
       ],
@@ -16948,7 +16948,7 @@
         123,
         153
       ],
-      "summary": "drawZap (from, to) — 31 lines .",
+      "summary": "drawZap (from, to) \u2014 31 lines .",
       "tags": [
         "function"
       ],
@@ -16963,7 +16963,7 @@
         155,
         168
       ],
-      "summary": "chooseStep (to, z, c, q) — 14 lines .",
+      "summary": "chooseStep (to, z, c, q) \u2014 14 lines .",
       "tags": [
         "function"
       ],
@@ -16995,7 +16995,7 @@
         10,
         30
       ],
-      "summary": "Panda (x) — 21 lines , exported.",
+      "summary": "Panda (x) \u2014 21 lines , exported.",
       "tags": [
         "function",
         "exported"
@@ -17011,7 +17011,7 @@
         32,
         35
       ],
-      "summary": "findPathFromTo (e, aGoal) — 4 lines , exported.",
+      "summary": "findPathFromTo (e, aGoal) \u2014 4 lines , exported.",
       "tags": [
         "function",
         "exported"
@@ -17027,7 +17027,7 @@
         37,
         38
       ],
-      "summary": "getMoveSpeed (no params) — 2 lines , exported.",
+      "summary": "getMoveSpeed (no params) \u2014 2 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -17044,7 +17044,7 @@
         39,
         40
       ],
-      "summary": "getMinimumEnoughRange (no params) — 2 lines , exported.",
+      "summary": "getMinimumEnoughRange (no params) \u2014 2 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -17061,7 +17061,7 @@
         41,
         42
       ],
-      "summary": "canEnterCell (cellPos) — 2 lines , exported.",
+      "summary": "canEnterCell (cellPos) \u2014 2 lines , exported.",
       "tags": [
         "function",
         "exported"
@@ -17077,7 +17077,7 @@
         43,
         44
       ],
-      "summary": "getWaitAverageTime (no params) — 2 lines , exported.",
+      "summary": "getWaitAverageTime (no params) \u2014 2 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -17094,7 +17094,7 @@
         45,
         46
       ],
-      "summary": "getWaitSpreadTime (no params) — 2 lines , exported.",
+      "summary": "getWaitSpreadTime (no params) \u2014 2 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -17111,7 +17111,7 @@
         47,
         48
       ],
-      "summary": "getRevealingRange (no params) — 2 lines , exported.",
+      "summary": "getRevealingRange (no params) \u2014 2 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -17128,7 +17128,7 @@
         49,
         57
       ],
-      "summary": "renderEntity (no params) — 9 lines , exported.",
+      "summary": "renderEntity (no params) \u2014 9 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -17145,7 +17145,7 @@
         59,
         62
       ],
-      "summary": "getBuildingCost (no params) — 4 lines , exported.",
+      "summary": "getBuildingCost (no params) \u2014 4 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -17179,7 +17179,7 @@
         90,
         94
       ],
-      "summary": "Base (team, aOwner) — 5 lines , exported.",
+      "summary": "Base (team, aOwner) \u2014 5 lines , exported.",
       "tags": [
         "function",
         "exported"
@@ -17195,7 +17195,7 @@
         96,
         101
       ],
-      "summary": "update (no params) — 6 lines , exported.",
+      "summary": "update (no params) \u2014 6 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -17212,7 +17212,7 @@
         103,
         165
       ],
-      "summary": "updateDisplayedCash (no params) — 63 lines , exported.",
+      "summary": "updateDisplayedCash (no params) \u2014 63 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -17229,7 +17229,7 @@
         167,
         218
       ],
-      "summary": "updateBuildings (no params) — 52 lines .",
+      "summary": "updateBuildings (no params) \u2014 52 lines .",
       "tags": [
         "function",
         "update"
@@ -17245,7 +17245,7 @@
         220,
         222
       ],
-      "summary": "isLowPower (no params) — 3 lines , exported.",
+      "summary": "isLowPower (no params) \u2014 3 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -17262,7 +17262,7 @@
         224,
         226
       ],
-      "summary": "getPowerLevel (no params) — 3 lines , exported.",
+      "summary": "getPowerLevel (no params) \u2014 3 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -17279,7 +17279,7 @@
         228,
         230
       ],
-      "summary": "getConsumptionLevel (no params) — 3 lines , exported.",
+      "summary": "getConsumptionLevel (no params) \u2014 3 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -17296,7 +17296,7 @@
         232,
         240
       ],
-      "summary": "addBuilding (building) — 9 lines , exported.",
+      "summary": "addBuilding (building) \u2014 9 lines , exported.",
       "tags": [
         "function",
         "exported"
@@ -17312,7 +17312,7 @@
         242,
         244
       ],
-      "summary": "removeBuilding (building) — 3 lines , exported.",
+      "summary": "removeBuilding (building) \u2014 3 lines , exported.",
       "tags": [
         "function",
         "exported"
@@ -17328,7 +17328,7 @@
         246,
         258
       ],
-      "summary": "isPossibleToBuildHere (cell, targetBuilding) — 13 lines , exported.",
+      "summary": "isPossibleToBuildHere (cell, targetBuilding) \u2014 13 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -17345,7 +17345,7 @@
         260,
         283
       ],
-      "summary": "tryToBuild (cell, targetBuilding) — 24 lines , exported.",
+      "summary": "tryToBuild (cell, targetBuilding) \u2014 24 lines , exported.",
       "tags": [
         "function",
         "exported"
@@ -17361,7 +17361,7 @@
         285,
         313
       ],
-      "summary": "checkBuildingDistance (cell, isWall) — 29 lines , exported.",
+      "summary": "checkBuildingDistance (cell, isWall) \u2014 29 lines , exported.",
       "tags": [
         "function",
         "exported"
@@ -17377,7 +17377,7 @@
         315,
         317
       ],
-      "summary": "getBuildings (no params) — 3 lines , exported.",
+      "summary": "getBuildings (no params) \u2014 3 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -17394,7 +17394,7 @@
         319,
         325
       ],
-      "summary": "deployBuildedVehicle (v) — 7 lines , exported.",
+      "summary": "deployBuildedVehicle (v) \u2014 7 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -17411,7 +17411,7 @@
         327,
         337
       ],
-      "summary": "getPrimaryBarrackOrTent (no params) — 11 lines , exported.",
+      "summary": "getPrimaryBarrackOrTent (no params) \u2014 11 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -17428,7 +17428,7 @@
         339,
         345
       ],
-      "summary": "setPrimaryTentOrBarrack (b) — 7 lines , exported.",
+      "summary": "setPrimaryTentOrBarrack (b) \u2014 7 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -17445,7 +17445,7 @@
         347,
         360
       ],
-      "summary": "isMoreThanOneTentOrBarrack (no params) — 14 lines , exported.",
+      "summary": "isMoreThanOneTentOrBarrack (no params) \u2014 14 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -17462,7 +17462,7 @@
         362,
         374
       ],
-      "summary": "deployTrainedInfantry (i) — 13 lines , exported.",
+      "summary": "deployTrainedInfantry (i) \u2014 13 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -17479,7 +17479,7 @@
         376,
         386
       ],
-      "summary": "getPrimaryWarFactory (no params) — 11 lines , exported.",
+      "summary": "getPrimaryWarFactory (no params) \u2014 11 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -17496,7 +17496,7 @@
         388,
         394
       ],
-      "summary": "setPrimaryWarFactory (entityWarFactory) — 7 lines , exported.",
+      "summary": "setPrimaryWarFactory (entityWarFactory) \u2014 7 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -17513,7 +17513,7 @@
         396,
         409
       ],
-      "summary": "isMoreThanOneWarFactory (no params) — 14 lines , exported.",
+      "summary": "isMoreThanOneWarFactory (no params) \u2014 14 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -17530,7 +17530,7 @@
         412,
         430
       ],
-      "summary": "giveOre (aCapacity) — 19 lines , exported.",
+      "summary": "giveOre (aCapacity) \u2014 19 lines , exported.",
       "tags": [
         "function",
         "exported"
@@ -17546,7 +17546,7 @@
         432,
         438
       ],
-      "summary": "takeOre (value) — 7 lines , exported.",
+      "summary": "takeOre (value) \u2014 7 lines , exported.",
       "tags": [
         "function",
         "exported"
@@ -17562,7 +17562,7 @@
         440,
         442
       ],
-      "summary": "gainCash (amount) — 3 lines , exported.",
+      "summary": "gainCash (amount) \u2014 3 lines , exported.",
       "tags": [
         "function",
         "exported"
@@ -17578,7 +17578,7 @@
         444,
         457
       ],
-      "summary": "takeCash (amount) — 14 lines , exported.",
+      "summary": "takeCash (amount) \u2014 14 lines , exported.",
       "tags": [
         "function",
         "exported"
@@ -17594,7 +17594,7 @@
         459,
         461
       ],
-      "summary": "getProductionQueue (no params) — 3 lines , exported.",
+      "summary": "getProductionQueue (no params) \u2014 3 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -17611,7 +17611,7 @@
         463,
         466
       ],
-      "summary": "productButtonItem (texture) — 4 lines , exported.",
+      "summary": "productButtonItem (texture) \u2014 4 lines , exported.",
       "tags": [
         "function",
         "exported"
@@ -17627,7 +17627,7 @@
         468,
         470
       ],
-      "summary": "getCash (no params) — 3 lines , exported.",
+      "summary": "getCash (no params) \u2014 3 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -17644,7 +17644,7 @@
         472,
         474
       ],
-      "summary": "getDisplayCash (no params) — 3 lines , exported.",
+      "summary": "getDisplayCash (no params) \u2014 3 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -17661,7 +17661,7 @@
         476,
         478
       ],
-      "summary": "getDisplayOre (no params) — 3 lines , exported.",
+      "summary": "getDisplayOre (no params) \u2014 3 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -17678,7 +17678,7 @@
         480,
         482
       ],
-      "summary": "getBuildingClasses (no params) — 3 lines , exported.",
+      "summary": "getBuildingClasses (no params) \u2014 3 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -17695,7 +17695,7 @@
         484,
         507
       ],
-      "summary": "tryToBuildWalls (currentWallsList, targetBuilding) — 24 lines , exported.",
+      "summary": "tryToBuildWalls (currentWallsList, targetBuilding) \u2014 24 lines , exported.",
       "tags": [
         "function",
         "exported"
@@ -17711,7 +17711,7 @@
         509,
         511
       ],
-      "summary": "isSilosNeeded (no params) — 3 lines , exported.",
+      "summary": "isSilosNeeded (no params) \u2014 3 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -17728,7 +17728,7 @@
         513,
         516
       ],
-      "summary": "addToCurrentlyBuilding (entityBuildingProgress) — 4 lines , exported.",
+      "summary": "addToCurrentlyBuilding (entityBuildingProgress) \u2014 4 lines , exported.",
       "tags": [
         "function",
         "exported"
@@ -17744,7 +17744,7 @@
         518,
         520
       ],
-      "summary": "getCurrentlyBuilding (no params) — 3 lines , exported.",
+      "summary": "getCurrentlyBuilding (no params) \u2014 3 lines , exported.",
       "tags": [
         "function",
         "exported",
@@ -17761,7 +17761,7 @@
         522,
         524
       ],
-      "summary": "repairBuilding (entityBuilding) — 3 lines , exported.",
+      "summary": "repairBuilding (entityBuilding) \u2014 3 lines , exported.",
       "tags": [
         "function",
         "exported"
@@ -17777,7 +17777,7 @@
         534,
         544
       ],
-      "summary": "getPrimaryAirField (no params) — 11 lines .",
+      "summary": "getPrimaryAirField (no params) \u2014 11 lines .",
       "tags": [
         "function",
         "getter"
@@ -55977,5 +55977,22 @@
       "direction": "forward",
       "weight": 0.8
     }
-  ]
+  ],
+  "version": "1.0",
+  "kind": "codebase",
+  "project": {
+    "name": "JavaRA",
+    "languages": [
+      "Java"
+    ],
+    "frameworks": [
+      "LWJGL",
+      "Slick2D"
+    ],
+    "description": "Java clone of Command & Conquer: Red Alert 1 \u2014 an RTS game engine with entity, combat, AI, rendering, and map systems.",
+    "analyzedAt": "2026-06-23T05:49:45.665280",
+    "gitCommitHash": "1293c5c6670ca20a6485c1391c0b9e8e8c9eccfe"
+  },
+  "layers": [],
+  "tour": []
 }

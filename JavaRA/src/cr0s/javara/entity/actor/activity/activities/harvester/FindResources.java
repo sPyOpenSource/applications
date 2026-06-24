@@ -31,7 +31,7 @@ public class FindResources extends Activity {
 	Path pathToResource = findPathToClosestResourceCell(harv);
 	Move moveActivity;
 
-	if (pathToResource != null) {
+	if (pathToResource != null && !pathToResource.getElements().isEmpty()) {
 	    if (harv.isFull()) {
 		DeliverResources deliverActivity = new DeliverResources();
 		deliverActivity.queueActivity(nextActivity);

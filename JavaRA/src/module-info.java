@@ -10,10 +10,11 @@ module cr0s.javara.main {
     requires javafx.swing;
     requires javafx.web;
     requires assets;
-    requires snakeyaml;
+    requires org.yaml.snakeyaml;
 
     opens cr0s.javara.main to javafx.fxml;
     exports cr0s.javara.main;
+    exports cr0s.javara.render;
     exports cr0s.javara.render.map;
     exports cr0s.javara.ui;
     exports cr0s.javara.entity.aircraft;

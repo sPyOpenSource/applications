@@ -10,7 +10,7 @@ module test {
     requires javafx.swing;
     requires javafx.web;
     requires assets;
-    requires snakeyaml;
+    requires org.yaml.snakeyaml;
     requires hamcrest.core;
     requires org.json;
     requires junit;
