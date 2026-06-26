@@ -3,147 +3,194 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Lesson 1: Tracing a RISC-V Instruction Through the Simulator</title>
+<title>Lesson 1: Tracing a RISC-V Instruction</title>
 <link rel="stylesheet" href="../assets/lesson.css">
+<style>
+/* Lesson-specific diagrams */
+.instr-diagram {
+  display: flex;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+  margin: 1rem 0;
+}
+.instr-diagram .seg {
+  flex: 1;
+  text-align: center;
+  padding: 4px 2px;
+  border-right: 1px solid rgba(0,0,0,0.08);
+}
+.instr-diagram .seg:last-child { border-right: none; }
+.instr-diagram .seg .val  { font-weight: 700; font-size: 0.78rem; }
+.instr-diagram .seg .name { font-size: 0.65rem; margin-top: 1px; color: var(--text-secondary); }
+
+.ins-value { display: block; margin: 0.4rem 0; font-weight: 700; }
+</style>
 </head>
 <body>
 
-<h1>Tracing a RISC-V Instruction Through the Simulator</h1>
-<p class="filename"><code>src/jCPU/RiscV/IsaSim.java</code> — the main loop</p>
+<div class="lesson-header">
+  <span class="lesson-number">Lesson 1 / 7</span>
+  <h1>Tracing a RISC-V Instruction Through the Simulator</h1>
+  <p class="subtitle">Follow one <code>ADD</code> instruction through fetch → decode → execute → writeback</p>
+</div>
+<p class="filename">src/jCPU/RiscV/IsaSim.java — the main loop</p>
 
-<p>This lesson traces one RISC-V instruction through the full fetch→decode→execute→writeback cycle. By the end you should be able to open <code>IsaSim.java</code> and follow any instruction path without getting lost.</p>
+<p>This lesson traces one RISC-V instruction through the full cycle. By the end you should be able to open <code>IsaSim.java</code> and follow any instruction path without getting lost — you'll know exactly which methods run, how they decode bit fields, and where the results land.</p>
 
 <div class="callout callout-info">
-<strong>Prerequisites:</strong> Java, basic knowledge of RISC-V register names (x0–x31). No simulator knowledge needed.
+  <div class="callout-label">Prerequisites</div>
+  <p>You know Java. You know what registers and program counters are. No simulator knowledge needed.</p>
 </div>
 
-<h2>The main loop: <code>step()</code></h2>
+<h2 id="the-loop">The machinery: <code>step()</code></h2>
 
-<p>The heart of the simulator is <code>IsaSim.step()</code> (line 66). Every tick of the simulation calls this method once. It does exactly four things in order:</p>
+<p>The heart of every simulator is a loop that runs once per instruction. In <code>IsaSim</code> it lives in <code>step()</code> (line 66). Every instruction — ADD, LW, JAL, ECALL — passes through this exact sequence:</p>
 
-<pre><code>// 1. FETCH — read the instruction word from memory at PC
+<pre><code>// 1. FETCH — read the 32-bit instruction word from memory at PC
 int instr = code.read32(pc);
 
-// 2. DECODE — extract the opcode (low 7 bits)
+// 2. DECODE — the low 7 bits tell us the instruction category
 int opcode = instr & 0x7f;
 
-// 3. EXECUTE — dispatch to the right handler
+// 3. EXECUTE — dispatch to the correct handler
 switch (opcode) {
-    case LUI_MASK:       loadUpperImmediate(instr);      break;
-    case JAL_MASK:       jumpAndLink(instr);             break;
-    case BRANCH_MASK:    offsetPC = branchInstruction(instr); break;
-    case OP_IMM_MASK:    immediateInstruction(instr);    break;
-    case OP_MASK:        arithmeticInstruction(instr);   break;
-    // ... 7 more cases
+    case LUI_MASK:     loadUpperImmediate(instr);        break;
+    case AUIPC_MASK:   addUpperImmediatePC(instr);       break;
+    case JAL_MASK:     jumpAndLink(instr);               break;
+    case JALR_MASK:    jumpAndLinkRegister(instr);       break;
+    case BRANCH_MASK:  offsetPC = branchInstruction(instr); break;
+    case LOAD_MASK:    loadInstruction(instr);           break;
+    case STORE_MASK:   storeInstruction(instr);          break;
+    case OP_IMM_MASK:  immediateInstruction(instr);      break;
+    case OP_MASK:      arithmeticInstruction(instr);     break;
+    case FENCE_MASK:   /* no-op */                       break;
+    case CSR_MASK:     breakProgram = ecallInstruction(); break;
 }
 
-// 4. WRITEBACK — advance PC (unless a branch modified it)
+// 4. WRITEBACK — advance the PC (unless a branch modified it)
 if (!offsetPC) { pc += 4; }
 offsetPC = false;
-reg[0] = 0;          // x0 is always zero</code></pre>
+reg[0] = 0;   // x0 is always zero — hardware guarantee</code></pre>
 
-<p>That's the entire single-cycle model in ~90 lines. Every RISC-V instruction — whether it's ADD, LW, JAL, or ECALL — passes through this same switch statement.</p>
+<p>Eleven opcode cases. Nine handler methods. One <code>switch</code>. That's the entire simulator.</p>
 
-<h2>Example: tracing an ADD instruction</h2>
+<h2 id="trace-add">Tracing an ADD instruction</h2>
 
-<p>Imagine memory at <code>pc = 0x100</code> contains the 32-bit word <code>0x001100B3</code>. Let's trace it.</p>
+<p>Suppose memory at <code>pc = 0x100</code> contains <code>0x001100B3</code>. Let's watch what happens.</p>
 
-<h3>1. Fetch</h3>
-<pre><code>int instr = code.read32(0x100);
-// instr = 0x001100B3</code></pre>
-
-<h3>2. Decode</h3>
-<pre><code>int opcode = instr & 0x7f;
-// 0x001100B3 & 0x7f = 0x33</code></pre>
-<p><code>0x33</code> is <code>OP_MASK</code> — the RISC-V opcode for register-register arithmetic. The switch dispatches to <code>arithmeticInstruction(instr)</code>.</p>
-
-<h3>3. Execute: <code>arithmeticInstruction</code></h3>
-<p>Open <code>IsaSim.java:516</code>.</p>
-<pre><code>int rd  = (instr >> 7)  & 0x1F;  // bits 11-7:  destination register
-int rs1 = (instr >> 15) & 0x1F;  // bits 19-15: source register 1
-int rs2 = (instr >> 20) & 0x1F;  // bits 24-20: source register 2
-int funct3 = (instr >> 12) & 0x7;
-int funct7 = (instr >> 25);</code></pre>
-<p>For our instruction <code>0x001100B3</code>:</p>
-<table>
-<tr><th>Field</th><th>Value</th><th>Meaning</th></tr>
-<tr><td>opcode (bits 6-0)</td><td>0x33</td><td>OP (register-register ALU)</td></tr>
-<tr><td>rd (bits 11-7)</td><td>00001 = x1</td><td>Write destination</td></tr>
-<tr><td>funct3 (bits 14-12)</td><td>000</td><td>ADD / SUB / SLL / ...</td></tr>
-<tr><td>rs1 (bits 19-15)</td><td>00010 = x2</td><td>First source</td></tr>
-<tr><td>rs2 (bits 24-20)</td><td>00011 = x3</td><td>Second source</td></tr>
-<tr><td>funct7 (bits 31-25)</td><td>0000000</td><td>ADD (not SUB)</td></tr>
-</table>
-
-<p>The dispatch logic (line 583):</p>
-<pre><code>switch (funct3) {
-case 0x0: // ADD or SUB
-    if (funct7 == 0x00) {        // ADD
-        reg[rd] = reg[rs1] + reg[rs2];  // x1 = x2 + x3
-    } else {                     // SUB
-        reg[rd] = reg[rs1] - reg[rs2];
-    }
-    break;
-</code></pre>
-<p><code>funct3 == 0</code> and <code>funct7 == 0</code> → <strong>ADD</strong>. The result of <code>x2 + x3</code> is written into <code>x1</code>.</p>
-
-<h3>4. Writeback</h3>
-<p>Back in <code>step()</code>:</p>
-<pre><code>if (!offsetPC) { pc += 4; }  // pc was 0x100, now 0x104
-offsetPC = false;
-reg[0] = 0;  // hardware guarantee: x0 is always zero</code></pre>
-
-<h2>Contrast: an I-type instruction (ADDI)</h2>
-
-<p>ADDI uses the same opcode dispatch <code>OP_IMM_MASK → immediateInstruction</code>. The difference: instead of reading <code>rs2</code> from the register fields, it sign-extends the 12-bit immediate from bits 31-20:</p>
-
-<pre><code>int imm = (instr >> 20);
-if ((imm >> 11) == 1) { imm |= 0xFFFFF000; }  // sign-extend
-
-switch (funct3) {
-case 0x0: // ADDI
-    reg[rd] = reg[rs1] + imm;
-    break;
-...</code></pre>
-
-<p>Immediate instructions are the same pattern as register instructions — just with an encoded constant instead of a second register read.</p>
-
-<h2>The real loop: <code>go()</code></h2>
-
-<p>The outer loop (line 57) is even simpler:</p>
-<pre><code>public void go(int limit) throws Exception {
-    while (true) {
-        RVInstruction ins = new RVInstruction(code.read16(pc));
-        decode_riscv_binary(ins);
-        step();
-    }
-}</code></pre>
-
-<p>It first runs the <strong>Decoder</strong> (inherited from <code>Decoder.java</code>) which pre-decodes the instruction into an <code>RVInstruction</code> struct, then calls <code>step()</code>. The <code>step()</code> acts as the execute phase, reading from the struct's already-decoded fields. The Decoder handles compressed (16-bit) instructions and floating-point, while <code>step()</code> handles the base RV32IM set.</p>
-
-<div class="callout callout-green">
-<strong>Key insight:</strong> Once you know the <code>step()</code> switch, you know the entire simulator. Each <code>case</code> branch is a method that decodes fields from the instruction word and mutates <code>reg[]</code> and <code>pc</code>. Nothing else happens. No pipeline stages, no hazard detection, no cache — just fetch, decode, compute, write.
+<h3>Fetch</h3>
+<div class="callout callout-green" style="counter-reset: step;">
+  <div class="callout-label">Step 1</div>
+  <p><code>code.read32(0x100)</code> reads four bytes from the <code>HashMap&lt;Integer, Byte&gt;</code> backing store. The method at <code>Memory.java:35</code> reassembles them into a little-endian 32-bit integer.</p>
+  <div class="instr-diagram">
+    <div class="seg"><div class="val">00</div><div class="name">byte@+3</div></div>
+    <div class="seg"><div class="val">11</div><div class="name">byte@+2</div></div>
+    <div class="seg"><div class="val">00</div><div class="name">byte@+1</div></div>
+    <div class="seg"><div class="val">B3</div><div class="name">byte@+0</div></div>
+    <div class="seg" style="flex:0.4;background:var(--accent-light)"><div class="val">→ 0x001100B3</div><div class="name">instr</div></div>
+  </div>
 </div>
 
-<h2>Your turn</h2>
+<h3>Decode</h3>
+<div class="callout callout-green">
+  <div class="callout-label">Step 2</div>
+  <p><code>instr &amp; 0x7f = 0x33</code> — this is <code>OP_MASK</code>, the opcode for register-register arithmetic. The switch sends us to <code>arithmeticInstruction(instr)</code>.</p>
+</div>
 
-<p>Open <code>IsaSim.java</code>. Pick one of these instructions and trace it through the same four steps:</p>
-<ul>
-<li><strong>LW</strong> — word load (<code>LOAD_MASK</code>)</li>
-<li><strong>BEQ</strong> — branch if equal (<code>BRANCH_MASK</code>)</li>
-<li><strong>SRAI</strong> — shift right arithmetic immediate (<code>OP_IMM_MASK</code>, funct3=5, funct7=32)</li>
-</ul>
+<h3>Execute</h3>
+<div class="callout callout-green">
+  <div class="callout-label">Step 3</div>
+  <p>The handler at line 516 extracts every field from the instruction word using the same bit-shift pattern:</p>
 
-<p>For each, identify: (1) which switch case handles it, (2) how it decodes its instruction fields, (3) what state it modifies.</p>
+  <pre><code>// ISA Sim.java:516
+int rd     = (instr >> 7)  & 0x1F;   // bits 11–7
+int rs1    = (instr >> 15) & 0x1F;   // bits 19–15
+int rs2    = (instr >> 20) & 0x1F;   // bits 24–20
+int funct3 = (instr >> 12) & 0x7;    // bits 14–12
+int funct7 = (instr >> 25);          // bits 31–25</code></pre>
 
-<h2>Further reading</h2>
-<ul>
-<li>Patterson & Hennessey, <em>Computer Organization and Design: RISC-V Edition</em>, Chapter 4 — the single-cycle datapath this code implements in software</li>
-<li><a href="https://riscv.org/technical/specifications/">RISC-V Unprivileged Specification v2.2</a>, Chapter 2 — RV32I base instruction formats</li>
-<li><code>src/jCPU/RiscV/Decoder.java</code> — the pre-decode step that runs before <code>step()</code></li>
-</ul>
+  <p>Plugging in <code>0x001100B3</code>:</p>
+  <div class="instr-diagram">
+    <div class="seg" style="background:var(--red-bg)"><div class="val">0000000</div><div class="name">funct7</div></div>
+    <div class="seg" style="background:var(--amber-bg)"><div class="val">00011</div><div class="name">rs2=x3</div></div>
+    <div class="seg" style="background:var(--green-bg)"><div class="val">00010</div><div class="name">rs1=x2</div></div>
+    <div class="seg" style="background:var(--accent-light)"><div class="val">000</div><div class="name">funct3</div></div>
+    <div class="seg" style="background:#f3e8fe"><div class="val">00001</div><div class="name">rd=x1</div></div>
+    <div class="seg" style="background:#e8fae8"><div class="val">0110011</div><div class="name">opcode</div></div>
+  </div>
 
-<p><em>Ask your instructor any follow-up questions — about bit field extraction, the instruction formats, or how a particular instruction works.</em></p>
+  <p><code>funct3 == 0 &amp;&amp; funct7 == 0</code> → ADD. The CPU computes:</p>
+  <pre><code>reg[1] = reg[2] + reg[3];   // x1 = x2 + x3</code></pre>
+</div>
+
+<h3>Writeback</h3>
+<div class="callout callout-green">
+  <div class="callout-label">Step 4</div>
+  <p>Back in <code>step()</code>, the PC advances past the current instruction:</p>
+  <pre><code>if (!offsetPC) { pc += 4; }  // pc was 0x100, now 0x104
+offsetPC = false;
+reg[0] = 0;                    // guarantee x0 stays zero</code></pre>
+  <p>The simulation counter <code>cc</code> increments. Next call to <code>step()</code> will fetch from <code>0x104</code>.</p>
+</div>
+
+<h2 id="exercise">Exercise: trace LW</h2>
+
+<div class="exercise">
+  <h3>Exercise</h3>
+  <p>The instruction word <code>0x0042A803</code> is a <strong>LW</strong> (load word). Open <code>IsaSim.java</code> and trace it through the four steps:</p>
+  <ol>
+    <li>Which switch case catches it? (What opcode value? What mask constant?)</li>
+    <li>Which handler method runs?</li>
+    <li>What are <code>rd</code>, <code>rs1</code>, and the immediate offset?</li>
+    <li>Which memory address is read, and where does the value go?</li>
+  </ol>
+  <p><em>Hint: the instruction format is I-type. The handler is at line 375.</em></p>
+</div>
+
+<details>
+  <summary>Reveal answer</summary>
+  <ul>
+    <li><code>0x0042A803 &amp; 0x7f = 0x03</code> → <code>LOAD_MASK</code>. Dispatches to <code>loadInstruction(instr)</code>.</li>
+    <li><code>rd = 5</code> (x5), <code>rs1 = 5</code> (x5), imm = 4 (no sign extension needed).</li>
+    <li><code>funct3 = 2</code> → word load (LW).</li>
+    <li><code>memAddr = reg[5] + 4</code>. Reads 32 bits via <code>code.read16</code> (note: there's a bug here — it uses <code>read16</code> instead of <code>read32</code> for LW). Writes to <code>reg[5]</code>.</li>
+  </ul>
+  <p>Noticed the bug? The simulator has a cut-and-paste error at line 408: LW calls <code>code.read16</code> instead of <code>code.read32</code>. This means only the low 16 bits of memory are loaded — upper 16 are always zero in practice.</p>
+</details>
+
+<h2 id="contrast-immediate">Contrast: ADDI (immediate variant)</h2>
+
+<p>ADDI (<code>OP_IMM_MASK = 0x13</code>) follows the same pattern as ADD but reads its second operand from the instruction word instead of a register:</p>
+
+<pre><code>// immediateInstruction() — line 455
+int imm = (instr >> 20);               // bits 31–20
+if ((imm >> 11) == 1) imm |= 0xFFFFF000;  // sign-extend from bit 11
+
+switch (funct3) {
+case 0x0: reg[rd] = reg[rs1] + imm;   // ADDI
+...</code></pre>
+
+<p>The only difference between R-type and I-type is where the second operand comes from. Everything else — the register file access, the ALU operation, the writeback — is identical.</p>
+
+<h2 id="big-picture">The big picture</h2>
+
+<p>Every instruction in this simulator does exactly what you just traced: read a word, decode bits, run a method, update <code>reg[]</code> and <code>pc</code>. No pipeline stages. No hazard detection. No cache. The memory interface is a <code>HashMap&lt;Integer, Byte&gt;</code>.</p>
+
+<p>This is the simplest possible correct simulator — a textbook single-cycle datapath implemented in Java. Understanding this makes the other three simulators (8051, ARM, NASM) much easier to approach: they all share the same fetch→decode→execute pattern, just with different instruction formats and dispatch strategies.</p>
+
+<nav class="lesson-nav">
+  <span></span>
+  <span><em>Next: 8051 instruction dispatch — MCS51.java → 94 opcode classes</em></span>
+</nav>
+
+<div class="lesson-footer">
+  <p><strong>Primary source:</strong> Patterson &amp; Hennessey, <em>Computer Organization and Design: RISC-V Edition</em>, Chapter 4 — the single-cycle datapath.<br>
+  <strong>Reference:</strong> <a href="../reference/riscv-instr-formats.html">RISC-V Instruction Formats</a> — opcode table and bit field extraction cheat sheet.<br>
+  <em>Ask your instructor any follow-up questions — about bit field extraction, the instruction formats, or how a particular instruction works.</em></p>
+</div>
 
 </body>
 </html>

@@ -5,106 +5,161 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>RISC-V Instruction Formats — Reference</title>
 <link rel="stylesheet" href="../assets/lesson.css">
-<style>
-.format-row { display: flex; gap: 2px; margin: 1rem 0; font-family: var(--mono); font-size: 0.75rem; }
-.format-row .bits { display: flex; flex: 1; text-align: center; }
-.format-row .bits .field { padding: 4px 2px; border: 1px solid var(--border); }
-.field-label { font-size: 0.65rem; margin-top: 2px; }
-.b31-27 { background: #ffcdd2; }
-.b26-25 { background: #f8bbd0; }
-.b24-20 { background: #e1bee7; }
-.b19-15 { background: #d1c4e9; }
-.b14-12 { background: #c5cae9; }
-.b11-7 { background: #bbdefb; }
-.b6-0 { background: #b3e5fc; }
-.imm { background: #fff9c4; }
-</style>
 </head>
 <body>
 
-<h1>RISC-V Instruction Formats</h1>
-<p class="filename">RV32I base — 6 instruction formats, fixed 32-bit length</p>
+<div class="lesson-header">
+  <span class="lesson-number">Reference</span>
+  <h1>RISC-V Instruction Formats</h1>
+  <p class="subtitle">RV32I base — 6 instruction formats, fixed 32-bit length</p>
+</div>
+<p class="filename">src/jCPU/RiscV/RVConstants.java — opcode constants</p>
 
-<p>Every RISC-V instruction is a 32-bit word with the opcode in the low 7 bits. The remaining bits encode registers, immediates, and function selectors. Six formats cover the entire base ISA:</p>
+<p>Every RISC-V instruction is a 32-bit word with the <strong>opcode</strong> in the low 7 bits. The remaining bits encode source/destination registers, immediates, and function selectors that qualify the operation. Six formats cover the entire base ISA.</p>
 
-<h2>R-type (register-register)</h2>
-<pre><code>31:25   24:20   19:15   14:12   11:7    6:0
-funct7  rs2     rs1     funct3  rd      opcode</code></pre>
-<p>Used by: <code>ADD</code>, <code>SUB</code>, <code>SLL</code>, <code>SLT</code>, <code>XOR</code>, <code>OR</code>, <code>AND</code>, <code>MUL</code>, <code>DIV</code>, etc.</p>
-<p>Logic: <code>reg[rd] = reg[rs1] OP reg[rs2]</code> where <code>funct7:funct3</code> selects the operation.</p>
+<h2 id="r-type">R-type — Register-Register</h2>
+<div class="bit-diagram">
+  <div class="bit-field f-r"><div class="bits">31–25</div><div class="label">funct7</div></div>
+  <div class="bit-field f-r"><div class="bits">24–20</div><div class="label">rs2</div></div>
+  <div class="bit-field f-r"><div class="bits">19–15</div><div class="label">rs1</div></div>
+  <div class="bit-field f-r"><div class="bits">14–12</div><div class="label">funct3</div></div>
+  <div class="bit-field f-r"><div class="bits">11–7</div><div class="label">rd</div></div>
+  <div class="bit-field f-r"><div class="bits">6–0</div><div class="label">opcode</div></div>
+</div>
 
-<h2>I-type (immediate / load)</h2>
-<pre><code>31:20       19:15   14:12   11:7    6:0
-imm[11:0]   rs1     funct3  rd      opcode</code></pre>
-<p>Used by: <code>ADDI</code>, <code>SLTI</code>, <code>XORI</code>, <code>ORI</code>, <code>ANDI</code>, <code>SLLI</code>, <code>SRLI</code>, <code>SRAI</code>, <code>LB</code>, <code>LH</code>, <code>LW</code>, <code>LBU</code>, <code>LHU</code>, <code>JALR</code></p>
-<p>Logic: <code>reg[rd] = reg[rs1] OP sext(imm[11:0])</code>. The 12-bit immediate is sign-extended to 32 bits.</p>
+<p><strong>Instructions:</strong> <code>ADD</code>, <code>SUB</code>, <code>SLL</code>, <code>SLT</code>, <code>SLTU</code>, <code>XOR</code>, <code>SRL</code>, <code>SRA</code>, <code>OR</code>, <code>AND</code>, and the M-extension: <code>MUL</code>, <code>MULH</code>, <code>MULHSU</code>, <code>MULHU</code>, <code>DIV</code>, <code>DIVU</code>, <code>REM</code>, <code>REMU</code></p>
 
-<h2>S-type (store)</h2>
-<pre><code>31:25       24:20   19:15   14:12   11:7    6:0
-imm[11:5]   rs2     rs1     funct3  imm[4:0] opcode</code></pre>
-<p>Used by: <code>SB</code>, <code>SH</code>, <code>SW</code></p>
-<p>Logic: <code>mem[reg[rs1] + sext(imm)] = reg[rs2]</code>. The immediate is split between bits 31-25 and 11-7.</p>
+<p><code>reg[rd] = reg[rs1] OP reg[rs2]</code> — <code>funct7:funct3</code> selects the ALU operation.</p>
 
-<h2>B-type (branch)</h2>
-<pre><code>31:25       24:20   19:15   14:12   11:7    6:0
-imm[12|10:5] rs2    rs1     funct3  imm[4:1|11] opcode</code></pre>
-<p>Used by: <code>BEQ</code>, <code>BNE</code>, <code>BLT</code>, <code>BGE</code>, <code>BLTU</code>, <code>BGEU</code></p>
-<p>The immediate encodes a signed offset in multiples of 2 (bit 0 is always 0).</p>
+<p class="filename">IsaSim.java:516 — arithmeticInstruction()</p>
+
+<h2 id="i-type">I-type — Immediate / Load</h2>
+<div class="bit-diagram">
+  <div class="bit-field f-i"><div class="bits">31–20</div><div class="label">imm[11:0]</div></div>
+  <div class="bit-field f-i"><div class="bits">19–15</div><div class="label">rs1</div></div>
+  <div class="bit-field f-i"><div class="bits">14–12</div><div class="label">funct3</div></div>
+  <div class="bit-field f-i"><div class="bits">11–7</div><div class="label">rd</div></div>
+  <div class="bit-field f-i"><div class="bits">6–0</div><div class="label">opcode</div></div>
+</div>
+
+<p><strong>Instructions:</strong> <code>ADDI</code>, <code>SLTI</code>, <code>SLTIU</code>, <code>XORI</code>, <code>ORI</code>, <code>ANDI</code>, <code>SLLI</code>, <code>SRLI</code>, <code>SRAI</code>, <code>LB</code>, <code>LH</code>, <code>LW</code>, <code>LBU</code>, <code>LHU</code>, <code>JALR</code>, <code>ECALL</code>, <code>EBREAK</code>, <code>CSRRW</code>, <code>CSRRS</code>, <code>CSRRC</code></p>
+
+<p><code>reg[rd] = reg[rs1] OP sext(imm[11:0])</code> — the 12-bit immediate is sign-extended to 32 bits. For shift instructions <code>SLLI</code>/<code>SRLI</code>/<code>SRAI</code>, the upper bits encode a shift-amount (<code>shamt</code>) and <code>funct7</code> distinguishes arithmetic vs logical right shift.</p>
+
+<p class="filename">IsaSim.java:455 — immediateInstruction()</p>
+
+<h2 id="s-type">S-type — Store</h2>
+<div class="bit-diagram">
+  <div class="bit-field f-s"><div class="bits">31–25</div><div class="label">imm[11:5]</div></div>
+  <div class="bit-field f-s"><div class="bits">24–20</div><div class="label">rs2</div></div>
+  <div class="bit-field f-s"><div class="bits">19–15</div><div class="label">rs1</div></div>
+  <div class="bit-field f-s"><div class="bits">14–12</div><div class="label">funct3</div></div>
+  <div class="bit-field f-s"><div class="bits">11–7</div><div class="label">imm[4:0]</div></div>
+  <div class="bit-field f-s"><div class="bits">6–0</div><div class="label">opcode</div></div>
+</div>
+
+<p><strong>Instructions:</strong> <code>SB</code>, <code>SH</code>, <code>SW</code></p>
+
+<p><code>mem[reg[rs1] + sext(imm)] = reg[rs2]</code> — the immediate is split between bits 31–25 and 11–7, then reassembled.</p>
+
+<pre><code>// Decoding from IsaSim.java:425
+int imm = ((instr >> 7) & 0x1F) | ((instr >> 25) << 5);
+if ((instr >> 31) == 1) imm |= 0xFFFFF000;  // sign-extend
+int memAddr = reg[rs1] + imm;
+int memValue = reg[rs2];
+switch (funct3) {
+    case 0x0: code.write(memAddr, memValue & 0xFF); break;        // SB
+    case 0x1: code.write16(memAddr, (short)(memValue & 0xFFFF)); break; // SH
+    case 0x2: code.write16(memAddr, (short)memValue); break;       // SW
+}</code></pre>
+
+<h2 id="b-type">B-type — Branch</h2>
+<div class="bit-diagram">
+  <div class="bit-field f-b"><div class="bits">31–25</div><div class="label">imm[12|10:5]</div></div>
+  <div class="bit-field f-b"><div class="bits">24–20</div><div class="label">rs2</div></div>
+  <div class="bit-field f-b"><div class="bits">19–15</div><div class="label">rs1</div></div>
+  <div class="bit-field f-b"><div class="bits">14–12</div><div class="label">funct3</div></div>
+  <div class="bit-field f-b"><div class="bits">11–7</div><div class="label">imm[4:1|11]</div></div>
+  <div class="bit-field f-b"><div class="bits">6–0</div><div class="label">opcode</div></div>
+</div>
+
+<p><strong>Instructions:</strong> <code>BEQ</code>, <code>BNE</code>, <code>BLT</code>, <code>BGE</code>, <code>BLTU</code>, <code>BGEU</code></p>
+
+<p>The immediate encodes a signed offset in multiples of 2 (bit 0 of the offset is always 0, so it is not stored). The <code>funct3</code> selects the comparison condition.</p>
+
 <pre><code>// Decoding from IsaSim.java:321
-int imm = (((instr >> 8) & 0xF) << 1)
-        | (((instr >> 25) & 0x3F) << 5)
-        | (((instr >> 7) & 0x1) << 11)
-        | ((instr >> 31) << 12);
-if ((imm >> 11) == 1) imm |= 0xFFFFE000; // sign-extend</code></pre>
+int imm = (((instr >> 8) & 0xF) << 1)       // imm[4:1]
+        | (((instr >> 25) & 0x3F) << 5)     // imm[10:5]
+        | (((instr >> 7) & 0x1) << 11)      // imm[11]
+        | ((instr >> 31) << 12);            // imm[12] (sign)
+if ((imm >> 11) == 1) imm |= 0xFFFFE000;    // sign-extend</code></pre>
 
-<h2>U-type (upper immediate)</h2>
-<pre><code>31:12       11:7    6:0
-imm[31:12]  rd      opcode</code></pre>
-<p>Used by: <code>LUI</code>, <code>AUIPC</code></p>
-<p>Logic: <code>reg[rd] = imm << 12</code> (LUI) or <code>reg[rd] = pc + (imm << 12)</code> (AUIPC).</p>
+<h2 id="u-type">U-type — Upper Immediate</h2>
+<div class="bit-diagram">
+  <div class="bit-field f-u"><div class="bits">31–12</div><div class="label">imm[31:12]</div></div>
+  <div class="bit-field f-u"><div class="bits">11–7</div><div class="label">rd</div></div>
+  <div class="bit-field f-u"><div class="bits">6–0</div><div class="label">opcode</div></div>
+</div>
 
-<h2>J-type (jump)</h2>
-<pre><code>31:12            11:7    6:0
-imm[20|10:1|11|19:12] rd      opcode</code></pre>
-<p>Used by: <code>JAL</code></p>
+<p><strong>Instructions:</strong> <code>LUI</code>, <code>AUIPC</code></p>
+
+<p><code>LUI</code>: <code>reg[rd] = imm << 12</code> — loads the 20-bit immediate into the upper bits of <code>rd</code>, lower 12 bits are zero.</p>
+<p><code>AUIPC</code>: <code>reg[rd] = pc + (imm << 12)</code> — adds the shifted immediate to the current PC.</p>
+
+<h2 id="j-type">J-type — Jump</h2>
+<div class="bit-diagram">
+  <div class="bit-field f-j"><div class="bits">31–12</div><div class="label">imm[20|10:1|11|19:12]</div></div>
+  <div class="bit-field f-j"><div class="bits">11–7</div><div class="label">rd</div></div>
+  <div class="bit-field f-j"><div class="bits">6–0</div><div class="label">opcode</div></div>
+</div>
+
+<p><strong>Instructions:</strong> <code>JAL</code></p>
+
+<p><code>reg[rd] = pc + 4</code> (return address), then <code>pc += offset</code>. The 21-bit immediate stores a signed offset in multiples of 2, split across 4 bit-groups in the instruction word.</p>
+
 <pre><code>// Decoding from IsaSim.java:282
-int imm = (((instr >> 21) & 0x3FF) << 1)
-        | (((instr >> 20) & 0x1) << 11)
-        | (((instr >> 12) & 0xFF) << 12)
-        | ((instr >> 31) << 20);
-if ((instr >> 31) == 1) imm |= 0xFFF00000; // sign-extend
+int imm = (((instr >> 21) & 0x3FF) << 1)    // imm[10:1]
+        | (((instr >> 20) & 0x1) << 11)     // imm[11]
+        | (((instr >> 12) & 0xFF) << 12)    // imm[19:12]
+        | ((instr >> 31) << 20);            // imm[20] (sign)
+if ((instr >> 31) == 1) imm |= 0xFFF00000;  // sign-extend
 reg[rd] = pc + 4;
 pc += imm;</code></pre>
 
-<h2>Opcode map (top-level dispatch)</h2>
-<table>
-<tr><th>opcode[6:0]</th><th>Name</th><th>Format</th><th>Instruction class</th></tr>
-<tr><td>0110111</td><td>LUI</td><td>U</td><td>Load Upper Immediate</td></tr>
-<tr><td>0010111</td><td>AUIPC</td><td>U</td><td>Add Upper Immediate to PC</td></tr>
-<tr><td>1101111</td><td>JAL</td><td>J</td><td>Jump and Link</td></tr>
-<tr><td>1100111</td><td>JALR</td><td>I</td><td>Jump and Link Register</td></tr>
-<tr><td>1100011</td><td>BRANCH</td><td>B</td><td>Conditional branch</td></tr>
-<tr><td>0000011</td><td>LOAD</td><td>I</td><td>Load from memory</td></tr>
-<tr><td>0100011</td><td>STORE</td><td>S</td><td>Store to memory</td></tr>
-<tr><td>0010011</td><td>OP-IMM</td><td>I</td><td>ALU with immediate</td></tr>
-<tr><td>0110011</td><td>OP</td><td>R</td><td>Register-register ALU</td></tr>
-<tr><td>0001111</td><td>FENCE</td><td>I</td><td>Fence (not implemented)</td></tr>
-<tr><td>1110011</td><td>CSR</td><td>I</td><td>ECALL / EBREAK / CSR</td></tr>
+<h2 id="opcode-map">Opcode map</h2>
+<p>The <code>step()</code> switch in <code>IsaSim.java</code> dispatches on these values:</p>
+
+<table class="opcode-table">
+  <tr><th>opcode[6:0]</th><th>Constant</th><th>Format</th><th>Instructions</th><th>Handler method</th></tr>
+  <tr><td>0110111</td><td><code>LUI_MASK</code></td><td>U</td><td>LUI</td><td><code>loadUpperImmediate</code></td></tr>
+  <tr><td>0010111</td><td><code>AUIPC_MASK</code></td><td>U</td><td>AUIPC</td><td><code>addUpperImmediatePC</code></td></tr>
+  <tr><td>1101111</td><td><code>JAL_MASK</code></td><td>J</td><td>JAL</td><td><code>jumpAndLink</code></td></tr>
+  <tr><td>1100111</td><td><code>JALR_MASK</code></td><td>I</td><td>JALR</td><td><code>jumpAndLinkRegister</code></td></tr>
+  <tr><td>1100011</td><td><code>BRANCH_MASK</code></td><td>B</td><td>BEQ, BNE, BLT, BGE, BLTU, BGEU</td><td><code>branchInstruction</code></td></tr>
+  <tr><td>0000011</td><td><code>LOAD_MASK</code></td><td>I</td><td>LB, LH, LW, LBU, LHU</td><td><code>loadInstruction</code></td></tr>
+  <tr><td>0100011</td><td><code>STORE_MASK</code></td><td>S</td><td>SB, SH, SW</td><td><code>storeInstruction</code></td></tr>
+  <tr><td>0010011</td><td><code>OP_IMM_MASK</code></td><td>I</td><td>ADDI, SLTI, XORI, ORI, ANDI, SLLI, SRLI, SRAI</td><td><code>immediateInstruction</code></td></tr>
+  <tr><td>0110011</td><td><code>OP_MASK</code></td><td>R</td><td>ADD, SUB, SLL, SLT, XOR, SRL, SRA, OR, AND, MUL, DIV, REM</td><td><code>arithmeticInstruction</code></td></tr>
+  <tr><td>0001111</td><td><code>FENCE_MASK</code></td><td>I</td><td>FENCE (not implemented)</td><td><em>no-op</em></td></tr>
+  <tr><td>1110011</td><td><code>CSR_MASK</code></td><td>I</td><td>ECALL, EBREAK</td><td><code>ecallInstruction</code></td></tr>
 </table>
 
-<h2>The <code>RVConstants</code> file</h2>
-<p>These opcode constants are defined in <code>src/jCPU/RiscV/RVConstants.java</code>. The simulator's switch statement maps directly from here:</p>
-<pre><code>public static final int LUI_MASK     = 0x37;
-public static final int AUIPC_MASK   = 0x17;
-public static final int JAL_MASK     = 0x6F;
-public static final int JALR_MASK    = 0x67;
-public static final int BRANCH_MASK  = 0x63;
-public static final int LOAD_MASK    = 0x03;
-public static final int STORE_MASK   = 0x23;
-public static final int OP_IMM_MASK  = 0x13;
-public static final int OP_MASK      = 0x33;
-public static final int FENCE_MASK   = 0x0F;
-public static final int CSR_MASK     = 0x73;</code></pre>
+<h2 id="mnemonic">Field extraction cheat sheet</h2>
+<p>The bit-manipulation patterns appear identically across every handler. Internalise these:</p>
+
+<pre><code>int rd     = (instr >> 7)  & 0x1F;  // bits 11–7  → 5-bit destination register
+int rs1    = (instr >> 15) & 0x1F;  // bits 19–15 → 5-bit source register 1
+int rs2    = (instr >> 20) & 0x1F;  // bits 24–20 → 5-bit source register 2
+int funct3 = (instr >> 12) & 0x7;   // bits 14–12 → 3-bit function selector
+int funct7 = (instr >> 25);         // bits 31–25 → 7-bit function selector
+
+// Sign-extension idiom for 12-bit immediate
+int imm12 = (instr >> 20);
+if ((imm12 >> 11) == 1) imm12 |= 0xFFFFF000;</code></pre>
+
+<div class="lesson-footer">
+  <p>Primary source: <a href="https://riscv.org/technical/specifications/">RISC-V Unprivileged Specification v2.2</a>, Chapter 2 — Instruction Formats. <br>Ask your instructor about any format or decoding question.</p>
+</div>
 
 </body>
 </html>
