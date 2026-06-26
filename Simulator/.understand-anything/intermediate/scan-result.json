@@ -1,0 +1,3048 @@
+{
+  "projectName": "armOS Simulator Suite",
+  "projectDescription": "A Java-based RISC-V instruction set simulator with 8051 emulator (J51) and ARM support, built with Apache Ant",
+  "languages": [
+    "java"
+  ],
+  "frameworks": [],
+  "importMap": {
+    "src/de/mud/terminal/SoftFont.java": [],
+    "src/de/mud/terminal/SwingTerminal.java": [],
+    "src/de/mud/terminal/VDUBuffer.java": [],
+    "src/de/mud/terminal/VDUDisplay.java": [],
+    "src/de/mud/terminal/VDUInput.java": [],
+    "src/de/mud/terminal/vt320.java": [],
+    "src/j51/atmel/AT89C51RD2.java": [
+      "src/j51/device/Timer.java",
+      "src/j51/device/Timer2.java",
+      "src/j51/util/Hex.java"
+    ],
+    "src/j51/atmel/AT89C51RD2Constants.java": [],
+    "src/j51/atmel/AT89Port6.java": [
+      "src/j51/swing/JPort.java"
+    ],
+    "src/j51/atmel/Atmel24C16.java": [
+      "src/j51/util/Hex.java",
+      "src/j51/util/Logger.java"
+    ],
+    "src/j51/atmel/bt/S400.java": [
+      "src/j51/swing/JUart.java"
+    ],
+    "src/j51/cmon51/Mon51.java": [
+      "src/j51/device/Timer.java",
+      "src/j51/swing/JPort.java",
+      "src/j51/swing/JUartTA.java"
+    ],
+    "src/j51/device/i2c/I2cBus.java": [
+      "src/j51/intel/MCS51.java",
+      "src/j51/intel/OpenCollectorMemoryBit.java",
+      "src/j51/util/Hex.java",
+      "src/j51/util/Logger.java"
+    ],
+    "src/j51/device/i2c/I2cSlave.java": [],
+    "src/j51/device/JLed.java": [
+      "src/j51/swing/JFactory.java"
+    ],
+    "src/j51/device/JMotor.java": [
+      "src/j51/philips/diseqc/Motor.java",
+      "src/j51/swing/JFactory.java"
+    ],
+    "src/j51/device/lcd/GLcd.java": [],
+    "src/j51/device/lcd/JLcd.java": [],
+    "src/j51/device/Timer.java": [
+      "src/j51/util/Hex.java"
+    ],
+    "src/j51/device/Timer2.java": [],
+    "src/j51/device/Uart.java": [],
+    "src/j51/device/VolatileMemory.java": [
+      "src/j51/intel/MemoryByte.java",
+      "src/j51/util/FastArray.java",
+      "src/j51/util/Hex.java",
+      "src/j51/util/Logger.java",
+      "src/jCPU/iMemory.java",
+      "src/jCPU/MemoryReadListener.java",
+      "src/jCPU/MemoryWriteListener.java"
+    ],
+    "src/j51/GUI.java": [
+      "src/jCPU/JavaVM/ByteCode.java",
+      "src/nl/lxtreme/arm/memory/Chunk.java",
+      "src/nl/lxtreme/arm/memory/Memory.java"
+    ],
+    "src/j51/intel/AbstractInterruptSource.java": [],
+    "src/j51/intel/ArrayList.java": [],
+    "src/j51/intel/AsyncTimerListener.java": [],
+    "src/j51/intel/CallListener.java": [],
+    "src/j51/intel/Code.java": [
+      "src/jCPU/iMemory.java"
+    ],
+    "src/j51/intel/EmulationListener.java": [],
+    "src/j51/intel/FlashCode.java": [],
+    "src/j51/intel/graph/Arithmetic.java": [
+      "src/jCPU/AbstractOpcode.java",
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/graph/ArithmeticOperation.java": [
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/graph/AsyncTimer.java": [
+      "src/j51/util/FastArray.java"
+    ],
+    "src/j51/intel/graph/CJNE.java": [
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/graph/inst/ACALL.java": [
+      "src/j51/intel/CallListener.java",
+      "src/j51/intel/MCS51.java",
+      "src/jCPU/AbstractOpcode.java",
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/graph/inst/AJMP.java": [
+      "src/j51/intel/MCS51.java",
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/graph/inst/ANL_C_DIRECT.java": [
+      "src/jCPU/AbstractOpcode.java",
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/graph/inst/ANL_C_NOT_DIRECT.java": [
+      "src/jCPU/AbstractOpcode.java",
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/graph/inst/ANL_DIRECT_A.java": [
+      "src/jCPU/AbstractOpcode.java",
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/graph/inst/ANL_DIRECT_DATA.java": [
+      "src/jCPU/AbstractOpcode.java",
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/graph/inst/ArithmeticADD.java": [
+      "src/j51/intel/graph/ArithmeticOperation.java",
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/graph/inst/ArithmeticADDC.java": [
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/graph/inst/ArithmeticANL.java": [
+      "src/j51/intel/graph/ArithmeticOperation.java",
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/graph/inst/ArithmeticORL.java": [
+      "src/j51/intel/graph/ArithmeticOperation.java",
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/graph/inst/ArithmeticSUBB.java": [],
+    "src/j51/intel/graph/inst/ArithmeticXRL.java": [
+      "src/j51/intel/graph/ArithmeticOperation.java",
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/graph/inst/CJNE_A_DATA.java": [
+      "src/j51/intel/graph/CJNE.java",
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/graph/inst/CJNE_A_DIRECT.java": [
+      "src/j51/intel/graph/CJNE.java",
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/graph/inst/CJNE_R_DATA.java": [
+      "src/j51/intel/graph/CJNE.java",
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/graph/inst/CJNE_RI_DATA.java": [
+      "src/j51/intel/graph/CJNE.java",
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/graph/inst/CLR_A.java": [
+      "src/jCPU/AbstractOpcode.java",
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/graph/inst/CLR_BIT.java": [
+      "src/jCPU/AbstractOpcode.java",
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/graph/inst/CLR_C.java": [
+      "src/jCPU/AbstractOpcode.java",
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/graph/inst/CPL_A.java": [
+      "src/jCPU/AbstractOpcode.java",
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/graph/inst/CPL_BIT.java": [
+      "src/jCPU/AbstractOpcode.java",
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/graph/inst/CPL_C.java": [
+      "src/jCPU/AbstractOpcode.java",
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/graph/inst/DA_A.java": [
+      "src/jCPU/AbstractOpcode.java",
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/graph/inst/DEC_A.java": [
+      "src/jCPU/AbstractOpcode.java",
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/graph/inst/DEC_DIRECT.java": [
+      "src/jCPU/AbstractOpcode.java",
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/graph/inst/DEC_R.java": [
+      "src/jCPU/AbstractOpcode.java",
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/graph/inst/DEC_RI.java": [
+      "src/jCPU/AbstractOpcode.java",
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/graph/inst/DIV_AB.java": [
+      "src/jCPU/AbstractOpcode.java",
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/graph/inst/DJNZ_DIRECT.java": [
+      "src/j51/intel/MCS51.java",
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/graph/inst/DJNZ_R.java": [
+      "src/j51/intel/MCS51.java",
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/graph/inst/DJNZ.java": [
+      "src/j51/intel/graph/JR.java",
+      "src/j51/intel/MCS51.java"
+    ],
+    "src/j51/intel/graph/inst/INC_A.java": [
+      "src/jCPU/AbstractOpcode.java",
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/graph/inst/INC_DIRECT.java": [
+      "src/jCPU/AbstractOpcode.java",
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/graph/inst/INC_DPTR.java": [
+      "src/jCPU/AbstractOpcode.java",
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/graph/inst/INC_R.java": [
+      "src/jCPU/AbstractOpcode.java",
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/graph/inst/INC_RI.java": [
+      "src/jCPU/AbstractOpcode.java",
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/graph/inst/JB.java": [
+      "src/j51/intel/graph/JR.java",
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/graph/inst/JBC.java": [
+      "src/j51/intel/graph/JR.java",
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/graph/inst/JC.java": [
+      "src/j51/intel/graph/JR.java",
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/graph/inst/JMP_A_DPTR.java": [
+      "src/jCPU/AbstractOpcode.java",
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/graph/inst/JNB.java": [
+      "src/j51/intel/graph/JR.java",
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/graph/inst/JNC.java": [
+      "src/j51/intel/graph/JR.java",
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/graph/inst/JNZ.java": [
+      "src/j51/intel/graph/JR.java",
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/graph/inst/JZ.java": [
+      "src/j51/intel/graph/JR.java",
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/graph/inst/LCALL.java": [
+      "src/j51/intel/CallListener.java",
+      "src/j51/intel/MCS51.java",
+      "src/jCPU/AbstractOpcode.java",
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/graph/inst/LJMP.java": [
+      "src/jCPU/AbstractOpcode.java",
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/graph/inst/MOV_A_DATA.java": [
+      "src/jCPU/AbstractOpcode.java",
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/graph/inst/MOV_A_DIRECT.java": [
+      "src/jCPU/AbstractOpcode.java",
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/graph/inst/MOV_A_R.java": [
+      "src/jCPU/AbstractOpcode.java",
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/graph/inst/MOV_A_RI.java": [
+      "src/jCPU/AbstractOpcode.java",
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/graph/inst/MOV_BIT_C.java": [
+      "src/jCPU/AbstractOpcode.java",
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/graph/inst/MOV_C_BIT.java": [
+      "src/jCPU/AbstractOpcode.java",
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/graph/inst/MOV_DIRECT_A.java": [
+      "src/jCPU/AbstractOpcode.java",
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/graph/inst/MOV_DIRECT_DATA.java": [
+      "src/jCPU/AbstractOpcode.java",
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/graph/inst/MOV_DIRECT_DIRECT.java": [
+      "src/jCPU/AbstractOpcode.java",
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/graph/inst/MOV_DIRECT_R.java": [
+      "src/jCPU/AbstractOpcode.java",
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/graph/inst/MOV_DIRECT_RI.java": [
+      "src/jCPU/AbstractOpcode.java",
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/graph/inst/MOV_DPTR_DATA16.java": [
+      "src/jCPU/AbstractOpcode.java",
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/graph/inst/MOV_R_A.java": [
+      "src/jCPU/AbstractOpcode.java",
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/graph/inst/MOV_R_DATA.java": [
+      "src/jCPU/AbstractOpcode.java",
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/graph/inst/MOV_R_DIRECT.java": [
+      "src/jCPU/AbstractOpcode.java",
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/graph/inst/MOV_RI_A.java": [
+      "src/jCPU/AbstractOpcode.java",
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/graph/inst/MOV_RI_DATA.java": [
+      "src/jCPU/AbstractOpcode.java",
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/graph/inst/MOV_RI_DIRECT.java": [
+      "src/jCPU/AbstractOpcode.java",
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/graph/inst/MOVC_A_DPTR_A.java": [
+      "src/jCPU/AbstractOpcode.java",
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/graph/inst/MOVC_A_PC_A.java": [
+      "src/jCPU/AbstractOpcode.java",
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/graph/inst/MOVX_A_DPTR.java": [
+      "src/jCPU/AbstractOpcode.java",
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/graph/inst/MOVX_A_RI.java": [
+      "src/jCPU/AbstractOpcode.java",
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/graph/inst/MOVX_DPTR_A.java": [
+      "src/jCPU/AbstractOpcode.java",
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/graph/inst/MOVX_RI_A.java": [
+      "src/jCPU/AbstractOpcode.java",
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/graph/inst/MUL_AB.java": [
+      "src/jCPU/AbstractOpcode.java",
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/graph/inst/NOP.java": [
+      "src/jCPU/AbstractOpcode.java",
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/graph/inst/ORL_C_BIT.java": [
+      "src/jCPU/AbstractOpcode.java",
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/graph/inst/ORL_C_NBIT.java": [
+      "src/jCPU/AbstractOpcode.java",
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/graph/inst/ORL_DIRECT_A.java": [
+      "src/jCPU/AbstractOpcode.java",
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/graph/inst/ORL_DIRECT_DATA.java": [
+      "src/jCPU/AbstractOpcode.java",
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/graph/inst/POP_DIRECT.java": [
+      "src/jCPU/AbstractOpcode.java",
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/graph/inst/PUSH_DIRECT.java": [
+      "src/jCPU/AbstractOpcode.java",
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/graph/inst/RET.java": [
+      "src/jCPU/AbstractOpcode.java",
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/graph/inst/RETI.java": [
+      "src/jCPU/AbstractOpcode.java",
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/graph/inst/RL_A.java": [
+      "src/jCPU/AbstractOpcode.java",
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/graph/inst/RLC_A.java": [
+      "src/jCPU/AbstractOpcode.java",
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/graph/inst/RR_A.java": [
+      "src/jCPU/AbstractOpcode.java",
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/graph/inst/RRC_A.java": [
+      "src/jCPU/AbstractOpcode.java",
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/graph/inst/SETB_BIT.java": [
+      "src/jCPU/AbstractOpcode.java",
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/graph/inst/SETB_C.java": [
+      "src/jCPU/AbstractOpcode.java",
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/graph/inst/SJMP.java": [
+      "src/j51/intel/graph/JR.java",
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/graph/inst/SWAP_A.java": [
+      "src/jCPU/AbstractOpcode.java",
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/graph/inst/XCH_A_DIRECT.java": [
+      "src/jCPU/AbstractOpcode.java",
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/graph/inst/XCH_A_R.java": [
+      "src/jCPU/AbstractOpcode.java",
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/graph/inst/XCH_A_RI.java": [
+      "src/jCPU/AbstractOpcode.java",
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/graph/inst/XCHD_A_RI.java": [
+      "src/jCPU/AbstractOpcode.java",
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/graph/inst/XRL_DIRECT_A.java": [
+      "src/jCPU/AbstractOpcode.java",
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/graph/inst/XRL_DIRECT_DATA.java": [
+      "src/jCPU/AbstractOpcode.java",
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/graph/JR.java": [
+      "src/jCPU/AbstractOpcode.java",
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/graph/RESERVED.java": [
+      "src/jCPU/AbstractOpcode.java",
+      "src/jCPU/iCPU.java"
+    ],
+    "src/j51/intel/InterruptSource.java": [],
+    "src/j51/intel/InterruptStatistic.java": [],
+    "src/j51/intel/MachineCyclesListener.java": [],
+    "src/j51/intel/MCS51.java": [
+      "src/jCPU/iCPU.java",
+      "src/jCPU/MemoryReadListener.java",
+      "src/jCPU/MemoryWriteListener.java",
+      "src/jCPU/Opcode.java"
+    ],
+    "src/j51/intel/MCS51Constants.java": [],
+    "src/j51/intel/MCS51Performance.java": [],
+    "src/j51/intel/MCS51Peripheral.java": [],
+    "src/j51/intel/MemoryBit.java": [
+      "src/jCPU/iMemory.java"
+    ],
+    "src/j51/intel/MemoryBits.java": [
+      "src/jCPU/iMemory.java",
+      "src/jCPU/MemoryWriteListener.java"
+    ],
+    "src/j51/intel/MemoryByte.java": [
+      "src/j51/util/FastArray.java",
+      "src/jCPU/MemoryReadListener.java",
+      "src/jCPU/MemoryWriteListener.java"
+    ],
+    "src/j51/intel/MemoryReadListenerSfr.java": [
+      "src/jCPU/MemoryReadListener.java"
+    ],
+    "src/j51/intel/MemoryWriteListenerSfr.java": [
+      "src/jCPU/MemoryWriteListener.java"
+    ],
+    "src/j51/intel/OpenCollectorMemoryBit.java": [
+      "src/jCPU/iMemory.java",
+      "src/jCPU/MemoryReadListener.java"
+    ],
+    "src/j51/intel/P8051.java": [
+      "src/j51/device/Timer.java",
+      "src/j51/swing/JPort.java",
+      "src/j51/swing/JUartTA.java"
+    ],
+    "src/j51/intel/PersistentBuffer.java": [
+      "src/j51/util/Hex.java"
+    ],
+    "src/j51/intel/PersistentMemory.java": [
+      "src/j51/device/VolatileMemory.java",
+      "src/j51/util/Logger.java"
+    ],
+    "src/j51/intel/ResetListener.java": [],
+    "src/j51/intel/SfrPage.java": [
+      "src/j51/device/VolatileMemory.java"
+    ],
+    "src/j51/intel/SfrReadListener.java": [],
+    "src/j51/intel/SfrRegister.java": [
+      "src/j51/util/FastArray.java",
+      "src/j51/util/Hex.java"
+    ],
+    "src/j51/intel/SfrWriteListener.java": [],
+    "src/j51/intel/VolatileCode.java": [
+      "src/j51/device/VolatileMemory.java"
+    ],
+    "src/j51/J51Panel.java": [
+      "src/j51/swing/JFactory.java"
+    ],
+    "src/j51/philips/diseqc/Diseqc.java": [
+      "src/j51/atmel/Atmel24C16.java",
+      "src/j51/device/i2c/I2cBus.java"
+    ],
+    "src/j51/philips/diseqc/DiseqcPeripheral.java": [
+      "src/j51/device/JLed.java",
+      "src/jCPU/MemoryReadListener.java"
+    ],
+    "src/j51/philips/diseqc/Motor.java": [],
+    "src/j51/philips/diseqc/Satellite.java": [],
+    "src/j51/philips/keil/MCB900.java": [],
+    "src/j51/philips/LPC764.java": [],
+    "src/j51/philips/LPC764Base.java": [
+      "src/j51/swing/JUart.java",
+      "src/jCPU/MemoryReadListener.java",
+      "src/jCPU/MemoryWriteListener.java"
+    ],
+    "src/j51/philips/LPC764Constants.java": [],
+    "src/j51/philips/LPC764Ports.java": [
+      "src/j51/swing/JPort.java"
+    ],
+    "src/j51/philips/LPC900.java": [
+      "src/j51/swing/JUart.java",
+      "src/j51/util/Logger.java",
+      "src/jCPU/iMemory.java",
+      "src/jCPU/MemoryReadListener.java",
+      "src/jCPU/MemoryWriteListener.java"
+    ],
+    "src/j51/philips/LPC900Constants.java": [],
+    "src/j51/philips/LPC900Misc.java": [
+      "src/j51/util/Logger.java"
+    ],
+    "src/j51/philips/LPC900Ports.java": [
+      "src/j51/swing/JPort.java"
+    ],
+    "src/j51/philips/LPC900WDT.java": [],
+    "src/j51/philips/LPC936.java": [],
+    "src/j51/silabs/C8051F120.java": [],
+    "src/j51/swing/JAssembly.java": [
+      "src/j51/J51Panel.java",
+      "src/j51/util/FastArray.java",
+      "src/j51/util/Hex.java"
+    ],
+    "src/j51/swing/JBitField.java": [],
+    "src/j51/swing/JCode.java": [
+      "src/j51/intel/MCS51.java"
+    ],
+    "src/j51/swing/JData.java": [
+      "src/j51/J51Panel.java",
+      "src/j51/util/Hex.java"
+    ],
+    "src/j51/swing/JFactory.java": [],
+    "src/j51/swing/JFixedField.java": [],
+    "src/j51/swing/JHexByte.java": [],
+    "src/j51/swing/JHexField.java": [
+      "src/j51/util/Hex.java"
+    ],
+    "src/j51/swing/JHexWord.java": [],
+    "src/j51/swing/JIdata.java": [],
+    "src/j51/swing/JInfo.java": [
+      "src/j51/J51Panel.java"
+    ],
+    "src/j51/swing/JNumField.java": [],
+    "src/j51/swing/JPeripheral.java": [
+      "src/j51/intel/MCS51.java",
+      "src/j51/intel/MCS51Peripheral.java",
+      "src/j51/J51Panel.java"
+    ],
+    "src/j51/swing/JPort.java": [],
+    "src/j51/swing/JRegister.java": [
+      "src/j51/J51Panel.java"
+    ],
+    "src/j51/swing/JSfr.java": [
+      "src/j51/intel/MCS51.java",
+      "src/j51/J51Panel.java",
+      "src/j51/util/Hex.java"
+    ],
+    "src/j51/swing/JUart.java": [
+      "src/j51/device/Uart.java",
+      "src/j51/intel/MCS51.java"
+    ],
+    "src/j51/swing/JUartTA.java": [
+      "src/de/mud/terminal/SwingTerminal.java",
+      "src/de/mud/terminal/vt320.java",
+      "src/j51/device/Uart.java",
+      "src/j51/GUI.java"
+    ],
+    "src/j51/swing/JXdata.java": [
+      "src/j51/intel/MCS51.java"
+    ],
+    "src/j51/swing/UpdatableComponent.java": [],
+    "src/j51/swing/Worker.java": [],
+    "src/j51/test/Test.java": [],
+    "src/j51/util/FastArray.java": [],
+    "src/j51/util/Hex.java": [],
+    "src/j51/util/Logger.java": [],
+    "src/j51/util/SortedLong.java": [],
+    "src/jCPU/AbstractOpcode.java": [
+      "src/j51/util/FastArray.java",
+      "src/j51/util/Hex.java"
+    ],
+    "src/jCPU/iCPU.java": [
+      "src/j51/intel/CallListener.java"
+    ],
+    "src/jCPU/iMemory.java": [],
+    "src/jCPU/JavaVM/ByteCode.java": [
+      "src/j51/intel/Code.java"
+    ],
+    "src/jCPU/JavaVM/BytecodeParser.java": [
+      "src/j51/intel/Code.java"
+    ],
+    "src/jCPU/JavaVM/BytecodeVisitor.java": [],
+    "src/jCPU/JavaVM/JVM.java": [
+      "src/jx/disass/Disassembler.java"
+    ],
+    "src/jCPU/JavaVM/VmOpcode.java": [
+      "src/jCPU/iCPU.java",
+      "src/jCPU/Opcode.java"
+    ],
+    "src/jCPU/JavaVM/VmStackEntry.java": [],
+    "src/jCPU/JavaVM/VmStackFrame.java": [],
+    "src/jCPU/MemoryReadListener.java": [],
+    "src/jCPU/MemoryWriteListener.java": [],
+    "src/jCPU/Opcode.java": [],
+    "src/jCPU/RiscV/Decoder.java": [],
+    "src/jCPU/RiscV/IsaSim.java": [],
+    "src/jCPU/RiscV/Memory.java": [
+      "src/j51/intel/Code.java",
+      "src/jCPU/MemoryReadListener.java",
+      "src/jCPU/MemoryWriteListener.java"
+    ],
+    "src/jCPU/RiscV/RVConstants.java": [],
+    "src/jCPU/RiscV/RVInstruction.java": [
+      "src/jCPU/iCPU.java",
+      "src/jCPU/Opcode.java"
+    ],
+    "src/jx/disass/Disassembler.java": [],
+    "src/jx/disass/ObjDump.java": [],
+    "src/jx/disass/package.bluej": [],
+    "src/jx/disass/Visitor.java": [],
+    "src/jx/disass/x86.java": [],
+    "src/name/bizna/jarm/AlignmentException.java": [],
+    "src/name/bizna/jarm/ARMConstants.java": [],
+    "src/name/bizna/jarm/BusErrorException.java": [],
+    "src/name/bizna/jarm/ByteArrayRegion.java": [],
+    "src/name/bizna/jarm/ByteBackedRegion.java": [],
+    "src/name/bizna/jarm/Coprocessor.java": [],
+    "src/name/bizna/jarm/CP15.java": [],
+    "src/name/bizna/jarm/CPU.java": [],
+    "src/name/bizna/jarm/Debugger.java": [],
+    "src/name/bizna/jarm/EscapeCompleteException.java": [],
+    "src/name/bizna/jarm/EscapeRetryException.java": [],
+    "src/name/bizna/jarm/FatalException.java": [],
+    "src/name/bizna/jarm/FPU.java": [],
+    "src/name/bizna/jarm/MemoryRegion.java": [],
+    "src/name/bizna/jarm/PhysicalMemorySpace.java": [],
+    "src/name/bizna/jarm/ReservedCoprocessorNameException.java": [],
+    "src/name/bizna/jarm/SaneCoprocessor.java": [],
+    "src/name/bizna/jarm/UndefinedException.java": [],
+    "src/name/bizna/jarm/UnimplementedInstructionException.java": [],
+    "src/name/bizna/jarm/VirtualMemorySpace.java": [
+      "src/jCPU/iMemory.java",
+      "src/jCPU/MemoryReadListener.java",
+      "src/jCPU/MemoryWriteListener.java"
+    ],
+    "src/name/bizna/jarmtool/CP3.java": [
+      "src/name/bizna/jarm/AlignmentException.java",
+      "src/name/bizna/jarm/BusErrorException.java",
+      "src/name/bizna/jarm/CPU.java",
+      "src/name/bizna/jarm/EscapeCompleteException.java",
+      "src/name/bizna/jarm/EscapeRetryException.java",
+      "src/name/bizna/jarm/SaneCoprocessor.java",
+      "src/name/bizna/jarm/UndefinedException.java",
+      "src/name/bizna/jarm/VirtualMemorySpace.java"
+    ],
+    "src/name/bizna/jarmtool/CP7.java": [
+      "src/name/bizna/jarm/AlignmentException.java",
+      "src/name/bizna/jarm/BusErrorException.java",
+      "src/name/bizna/jarm/CPU.java",
+      "src/name/bizna/jarm/EscapeCompleteException.java",
+      "src/name/bizna/jarm/EscapeRetryException.java",
+      "src/name/bizna/jarm/SaneCoprocessor.java",
+      "src/name/bizna/jarm/UndefinedException.java",
+      "src/name/bizna/jarm/VirtualMemorySpace.java"
+    ],
+    "src/name/bizna/jarmtool/JarmTool.java": [
+      "src/j51/util/Logger.java",
+      "src/name/bizna/jarm/AlignmentException.java",
+      "src/name/bizna/jarm/BusErrorException.java",
+      "src/name/bizna/jarm/ByteArrayRegion.java",
+      "src/name/bizna/jarm/CPU.java",
+      "src/name/bizna/jarm/EscapeCompleteException.java",
+      "src/name/bizna/jarm/EscapeRetryException.java",
+      "src/name/bizna/jarm/UndefinedException.java"
+    ],
+    "src/name/bizna/jarmtool/ProgramExit.java": [],
+    "src/nasm/C3a2nasm.java": [
+      "src/nasm/expr/NasmRegister.java"
+    ],
+    "src/nasm/expr/ExpMinus.java": [
+      "src/nasm/NasmVisitor.java"
+    ],
+    "src/nasm/expr/ExpPlus.java": [
+      "src/nasm/NasmVisitor.java"
+    ],
+    "src/nasm/expr/ExpTimes.java": [
+      "src/nasm/NasmVisitor.java"
+    ],
+    "src/nasm/expr/Label.java": [
+      "src/nasm/NasmVisitor.java",
+      "src/nasm/Operand.java"
+    ],
+    "src/nasm/expr/NasmConstant.java": [
+      "src/nasm/NasmVisitor.java",
+      "src/nasm/Operand.java"
+    ],
+    "src/nasm/expr/NasmExp.java": [
+      "src/nasm/NasmVisitor.java"
+    ],
+    "src/nasm/expr/NasmRegister.java": [
+      "src/nasm/Nasm.java",
+      "src/nasm/NasmVisitor.java",
+      "src/nasm/Operand.java"
+    ],
+    "src/nasm/inst/Add.java": [
+      "src/nasm/NasmVisitor.java",
+      "src/nasm/Operand.java",
+      "src/nasm/Ref.java",
+      "src/nasm/Reg.java",
+      "src/nasm/SymbolTableEntryBase.java"
+    ],
+    "src/nasm/inst/And.java": [
+      "src/nasm/NasmVisitor.java",
+      "src/nasm/Operand.java",
+      "src/nasm/Ref.java",
+      "src/nasm/Reg.java",
+      "src/nasm/SymbolTableEntryBase.java"
+    ],
+    "src/nasm/inst/Call.java": [
+      "src/nasm/NasmVisitor.java",
+      "src/nasm/Operand.java",
+      "src/nasm/SymbolTableEntryBase.java"
+    ],
+    "src/nasm/inst/Cmp.java": [
+      "src/nasm/NasmVisitor.java",
+      "src/nasm/Operand.java",
+      "src/nasm/Ref.java",
+      "src/nasm/Reg.java",
+      "src/nasm/SymbolTableEntryBase.java"
+    ],
+    "src/nasm/inst/Div.java": [
+      "src/nasm/NasmVisitor.java",
+      "src/nasm/Operand.java"
+    ],
+    "src/nasm/inst/Empty.java": [
+      "src/nasm/NasmVisitor.java",
+      "src/nasm/Operand.java"
+    ],
+    "src/nasm/inst/Equ.java": [
+      "src/nasm/expr/Label.java",
+      "src/nasm/NasmVisitor.java"
+    ],
+    "src/nasm/inst/Int.java": [
+      "src/nasm/NasmVisitor.java",
+      "src/nasm/Operand.java"
+    ],
+    "src/nasm/inst/Je.java": [
+      "src/nasm/NasmVisitor.java",
+      "src/nasm/Operand.java",
+      "src/nasm/SymbolTableEntryBase.java"
+    ],
+    "src/nasm/inst/Jg.java": [
+      "src/nasm/NasmVisitor.java",
+      "src/nasm/Operand.java",
+      "src/nasm/SymbolTableEntryBase.java"
+    ],
+    "src/nasm/inst/Jge.java": [
+      "src/nasm/NasmVisitor.java",
+      "src/nasm/Operand.java",
+      "src/nasm/SymbolTableEntryBase.java"
+    ],
+    "src/nasm/inst/Jl.java": [
+      "src/nasm/NasmVisitor.java",
+      "src/nasm/Operand.java",
+      "src/nasm/SymbolTableEntryBase.java"
+    ],
+    "src/nasm/inst/Jle.java": [
+      "src/nasm/NasmVisitor.java",
+      "src/nasm/Operand.java",
+      "src/nasm/SymbolTableEntryBase.java"
+    ],
+    "src/nasm/inst/Jmp.java": [
+      "src/nasm/NasmVisitor.java",
+      "src/nasm/Operand.java",
+      "src/nasm/Reg.java",
+      "src/nasm/SymbolTableEntryBase.java",
+      "src/nasm/UnresolvedJump.java"
+    ],
+    "src/nasm/inst/Jne.java": [
+      "src/nasm/NasmVisitor.java",
+      "src/nasm/Operand.java",
+      "src/nasm/SymbolTableEntryBase.java"
+    ],
+    "src/nasm/inst/Mov.java": [
+      "src/nasm/NasmVisitor.java",
+      "src/nasm/Operand.java",
+      "src/nasm/Ref.java",
+      "src/nasm/Reg.java",
+      "src/nasm/SymbolTableEntryBase.java"
+    ],
+    "src/nasm/inst/Mul.java": [
+      "src/nasm/NasmVisitor.java",
+      "src/nasm/Operand.java"
+    ],
+    "src/nasm/inst/NasmInst.java": [
+      "src/nasm/NasmVisitor.java",
+      "src/nasm/Operand.java",
+      "src/nasm/Ref.java",
+      "src/nasm/Reg.java",
+      "src/nasm/SymbolTableEntryBase.java",
+      "src/nasm/UnresolvedJump.java"
+    ],
+    "src/nasm/inst/Not.java": [
+      "src/nasm/NasmVisitor.java",
+      "src/nasm/Operand.java"
+    ],
+    "src/nasm/inst/Or.java": [
+      "src/nasm/NasmVisitor.java",
+      "src/nasm/Operand.java",
+      "src/nasm/Ref.java",
+      "src/nasm/Reg.java",
+      "src/nasm/SymbolTableEntryBase.java"
+    ],
+    "src/nasm/inst/Org.java": [
+      "src/nasm/expr/Label.java",
+      "src/nasm/NasmVisitor.java"
+    ],
+    "src/nasm/inst/Pop.java": [
+      "src/nasm/NasmVisitor.java",
+      "src/nasm/Operand.java",
+      "src/nasm/Reg.java"
+    ],
+    "src/nasm/inst/PseudoInst.java": [
+      "src/nasm/expr/Label.java",
+      "src/nasm/Operand.java"
+    ],
+    "src/nasm/inst/Push.java": [
+      "src/nasm/NasmVisitor.java",
+      "src/nasm/Operand.java",
+      "src/nasm/Ref.java",
+      "src/nasm/Reg.java",
+      "src/nasm/SymbolTableEntryBase.java"
+    ],
+    "src/nasm/inst/Resb.java": [
+      "src/nasm/expr/Label.java",
+      "src/nasm/NasmVisitor.java"
+    ],
+    "src/nasm/inst/Resd.java": [
+      "src/nasm/expr/Label.java",
+      "src/nasm/NasmVisitor.java"
+    ],
+    "src/nasm/inst/Resq.java": [
+      "src/nasm/expr/Label.java",
+      "src/nasm/NasmVisitor.java"
+    ],
+    "src/nasm/inst/Rest.java": [
+      "src/nasm/expr/Label.java",
+      "src/nasm/NasmVisitor.java"
+    ],
+    "src/nasm/inst/Resw.java": [
+      "src/nasm/expr/Label.java",
+      "src/nasm/NasmVisitor.java"
+    ],
+    "src/nasm/inst/Ret.java": [
+      "src/nasm/NasmVisitor.java",
+      "src/nasm/Operand.java"
+    ],
+    "src/nasm/inst/Sub.java": [
+      "src/nasm/NasmVisitor.java",
+      "src/nasm/Operand.java",
+      "src/nasm/Ref.java",
+      "src/nasm/Reg.java",
+      "src/nasm/SymbolTableEntryBase.java"
+    ],
+    "src/nasm/inst/Xor.java": [
+      "src/nasm/NasmVisitor.java",
+      "src/nasm/Operand.java",
+      "src/nasm/Ref.java",
+      "src/nasm/Reg.java",
+      "src/nasm/SymbolTableEntryBase.java"
+    ],
+    "src/nasm/LoadNasm.java": [
+      "src/nasm/expr/Label.java",
+      "src/nasm/inst/NasmInst.java",
+      "src/nasm/inst/PseudoInst.java"
+    ],
+    "src/nasm/Nasm.java": [
+      "src/nasm/inst/PseudoInst.java"
+    ],
+    "src/nasm/NasmAddress.java": [
+      "src/nasm/expr/NasmExp.java"
+    ],
+    "src/nasm/NasmEval.java": [],
+    "src/nasm/NasmSize.java": [],
+    "src/nasm/NasmVisitor.java": [
+      "src/nasm/inst/Div.java"
+    ],
+    "src/nasm/NasmVM.java": [
+      "src/j51/intel/MCS51.java",
+      "src/nasm/inst/NasmInst.java"
+    ],
+    "src/nasm/Operand.java": [],
+    "src/nasm/Ref.java": [],
+    "src/nasm/Reg.java": [],
+    "src/nasm/SymbolTableEntryBase.java": [],
+    "src/nasm/UnresolvedJump.java": [],
+    "src/nl/lxtreme/arm/ConditionCode.java": [],
+    "src/nl/lxtreme/arm/Cpsr.java": [],
+    "src/nl/lxtreme/arm/CPU.java": [],
+    "src/nl/lxtreme/arm/memory/Chunk.java": [],
+    "src/nl/lxtreme/arm/memory/Memory.java": [
+      "src/j51/intel/Code.java",
+      "src/jCPU/MemoryReadListener.java",
+      "src/jCPU/MemoryWriteListener.java"
+    ],
+    "src/sjc/emulation/AddressRange.ctxt": [],
+    "src/sjc/emulation/AddressRange.java": [],
+    "src/sjc/emulation/BasicRAM.ctxt": [],
+    "src/sjc/emulation/BasicRAM.java": [],
+    "src/sjc/emulation/BasicVGA.ctxt": [],
+    "src/sjc/emulation/BasicVGA.java": [],
+    "src/sjc/emulation/BreakPointListener.ctxt": [],
+    "src/sjc/emulation/BreakPointListener.java": [],
+    "src/sjc/emulation/cond/BreakPoint.ctxt": [],
+    "src/sjc/emulation/cond/BreakPoint.java": [
+      "src/sjc/emulation/Condition.java",
+      "src/sjc/emulation/Emulator.java"
+    ],
+    "src/sjc/emulation/cond/MemoryBreak.ctxt": [],
+    "src/sjc/emulation/cond/MemoryBreak.java": [
+      "src/sjc/emulation/AddressRange.java",
+      "src/sjc/emulation/Condition.java",
+      "src/sjc/emulation/Emulator.java"
+    ],
+    "src/sjc/emulation/cond/package.bluej": [],
+    "src/sjc/emulation/cond/StackCond.ctxt": [],
+    "src/sjc/emulation/cond/StackCond.java": [
+      "src/sjc/emulation/Condition.java",
+      "src/sjc/emulation/Emulator.java"
+    ],
+    "src/sjc/emulation/Condition.ctxt": [],
+    "src/sjc/emulation/Condition.java": [],
+    "src/sjc/emulation/Emulate.java": [
+      "src/sjc/emulation/cond/BreakPoint.java",
+      "src/sjc/emulation/cond/MemoryBreak.java"
+    ],
+    "src/sjc/emulation/Emulator.ctxt": [],
+    "src/sjc/emulation/Emulator.java": [],
+    "src/sjc/emulation/EmulFactory.ctxt": [],
+    "src/sjc/emulation/EmulFactory.java": [
+      "src/sjc/emulation/ssa/SSAEmul.java"
+    ],
+    "src/sjc/emulation/MethodDisassembly.ctxt": [],
+    "src/sjc/emulation/MethodDisassembly.java": [],
+    "src/sjc/emulation/MethodStatistics.ctxt": [],
+    "src/sjc/emulation/MethodStatistics.java": [],
+    "src/sjc/emulation/Mnemonic.ctxt": [],
+    "src/sjc/emulation/Mnemonic.java": [],
+    "src/sjc/emulation/package.bluej": [],
+    "src/sjc/emulation/ssa/package.bluej": [],
+    "src/sjc/emulation/ssa/Register.ctxt": [],
+    "src/sjc/emulation/ssa/Register.java": [],
+    "src/sjc/emulation/ssa/SSAEmul.ctxt": [],
+    "src/sjc/emulation/ssa/SSAEmul.java": [
+      "src/sjc/emulation/cond/StackCond.java",
+      "src/sjc/emulation/Emulator.java",
+      "src/sjc/emulation/MethodDisassembly.java",
+      "src/sjc/emulation/Mnemonic.java"
+    ],
+    "src/sjc/emulation/TextScreen.ctxt": [],
+    "src/sjc/emulation/TextScreen.java": []
+  },
+  "entryPoint": "src/jCPU/RiscV/IsaSim.java",
+  "files": [
+    {
+      "path": "src/de/mud/terminal/SoftFont.java",
+      "language": "java",
+      "sizeLines": 1142,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/de/mud/terminal/SwingTerminal.java",
+      "language": "java",
+      "sizeLines": 1085,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/de/mud/terminal/VDUBuffer.java",
+      "language": "java",
+      "sizeLines": 792,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/de/mud/terminal/VDUDisplay.java",
+      "language": "java",
+      "sizeLines": 37,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/de/mud/terminal/VDUInput.java",
+      "language": "java",
+      "sizeLines": 89,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/de/mud/terminal/vt320.java",
+      "language": "java",
+      "sizeLines": 2685,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/atmel/AT89C51RD2.java",
+      "language": "java",
+      "sizeLines": 80,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/atmel/AT89C51RD2Constants.java",
+      "language": "java",
+      "sizeLines": 19,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/atmel/AT89Port6.java",
+      "language": "java",
+      "sizeLines": 23,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/atmel/Atmel24C16.java",
+      "language": "java",
+      "sizeLines": 73,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/atmel/bt/S400.java",
+      "language": "java",
+      "sizeLines": 93,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/cmon51/Mon51.java",
+      "language": "java",
+      "sizeLines": 79,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/device/i2c/I2cBus.java",
+      "language": "java",
+      "sizeLines": 374,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/device/i2c/I2cSlave.java",
+      "language": "java",
+      "sizeLines": 32,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/device/JLed.java",
+      "language": "java",
+      "sizeLines": 81,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/device/JMotor.java",
+      "language": "java",
+      "sizeLines": 83,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/device/lcd/GLcd.java",
+      "language": "java",
+      "sizeLines": 91,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/device/lcd/JLcd.java",
+      "language": "java",
+      "sizeLines": 716,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/device/Timer.java",
+      "language": "java",
+      "sizeLines": 211,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/device/Timer2.java",
+      "language": "java",
+      "sizeLines": 100,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/device/Uart.java",
+      "language": "java",
+      "sizeLines": 140,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/device/VolatileMemory.java",
+      "language": "java",
+      "sizeLines": 316,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/GUI.java",
+      "language": "java",
+      "sizeLines": 1045,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/AbstractInterruptSource.java",
+      "language": "java",
+      "sizeLines": 36,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/ArrayList.java",
+      "language": "java",
+      "sizeLines": 107,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/AsyncTimerListener.java",
+      "language": "java",
+      "sizeLines": 16,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/CallListener.java",
+      "language": "java",
+      "sizeLines": 16,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/Code.java",
+      "language": "java",
+      "sizeLines": 22,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/EmulationListener.java",
+      "language": "java",
+      "sizeLines": 17,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/FlashCode.java",
+      "language": "java",
+      "sizeLines": 78,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/Arithmetic.java",
+      "language": "java",
+      "sizeLines": 28,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/ArithmeticOperation.java",
+      "language": "java",
+      "sizeLines": 13,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/AsyncTimer.java",
+      "language": "java",
+      "sizeLines": 13,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/CJNE.java",
+      "language": "java",
+      "sizeLines": 33,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/inst/ACALL.java",
+      "language": "java",
+      "sizeLines": 47,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/inst/AJMP.java",
+      "language": "java",
+      "sizeLines": 26,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/inst/ANL_C_DIRECT.java",
+      "language": "java",
+      "sizeLines": 30,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/inst/ANL_C_NOT_DIRECT.java",
+      "language": "java",
+      "sizeLines": 29,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/inst/ANL_DIRECT_A.java",
+      "language": "java",
+      "sizeLines": 30,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/inst/ANL_DIRECT_DATA.java",
+      "language": "java",
+      "sizeLines": 32,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/inst/ArithmeticADD.java",
+      "language": "java",
+      "sizeLines": 33,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/inst/ArithmeticADDC.java",
+      "language": "java",
+      "sizeLines": 20,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/inst/ArithmeticANL.java",
+      "language": "java",
+      "sizeLines": 18,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/inst/ArithmeticORL.java",
+      "language": "java",
+      "sizeLines": 14,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/inst/ArithmeticSUBB.java",
+      "language": "java",
+      "sizeLines": 18,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/inst/ArithmeticXRL.java",
+      "language": "java",
+      "sizeLines": 19,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/inst/CJNE_A_DATA.java",
+      "language": "java",
+      "sizeLines": 23,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/inst/CJNE_A_DIRECT.java",
+      "language": "java",
+      "sizeLines": 23,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/inst/CJNE_R_DATA.java",
+      "language": "java",
+      "sizeLines": 29,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/inst/CJNE_RI_DATA.java",
+      "language": "java",
+      "sizeLines": 29,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/inst/CLR_A.java",
+      "language": "java",
+      "sizeLines": 23,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/inst/CLR_BIT.java",
+      "language": "java",
+      "sizeLines": 23,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/inst/CLR_C.java",
+      "language": "java",
+      "sizeLines": 23,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/inst/CPL_A.java",
+      "language": "java",
+      "sizeLines": 23,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/inst/CPL_BIT.java",
+      "language": "java",
+      "sizeLines": 24,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/inst/CPL_C.java",
+      "language": "java",
+      "sizeLines": 23,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/inst/DA_A.java",
+      "language": "java",
+      "sizeLines": 40,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/inst/DEC_A.java",
+      "language": "java",
+      "sizeLines": 24,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/inst/DEC_DIRECT.java",
+      "language": "java",
+      "sizeLines": 24,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/inst/DEC_R.java",
+      "language": "java",
+      "sizeLines": 30,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/inst/DEC_RI.java",
+      "language": "java",
+      "sizeLines": 29,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/inst/DIV_AB.java",
+      "language": "java",
+      "sizeLines": 31,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/inst/DJNZ_DIRECT.java",
+      "language": "java",
+      "sizeLines": 25,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/inst/DJNZ_R.java",
+      "language": "java",
+      "sizeLines": 33,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/inst/DJNZ.java",
+      "language": "java",
+      "sizeLines": 24,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/inst/INC_A.java",
+      "language": "java",
+      "sizeLines": 24,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/inst/INC_DIRECT.java",
+      "language": "java",
+      "sizeLines": 25,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/inst/INC_DPTR.java",
+      "language": "java",
+      "sizeLines": 23,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/inst/INC_R.java",
+      "language": "java",
+      "sizeLines": 28,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/inst/INC_RI.java",
+      "language": "java",
+      "sizeLines": 29,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/inst/JB.java",
+      "language": "java",
+      "sizeLines": 24,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/inst/JBC.java",
+      "language": "java",
+      "sizeLines": 28,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/inst/JC.java",
+      "language": "java",
+      "sizeLines": 25,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/inst/JMP_A_DPTR.java",
+      "language": "java",
+      "sizeLines": 23,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/inst/JNB.java",
+      "language": "java",
+      "sizeLines": 26,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/inst/JNC.java",
+      "language": "java",
+      "sizeLines": 25,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/inst/JNZ.java",
+      "language": "java",
+      "sizeLines": 24,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/inst/JZ.java",
+      "language": "java",
+      "sizeLines": 24,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/inst/LCALL.java",
+      "language": "java",
+      "sizeLines": 36,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/inst/LJMP.java",
+      "language": "java",
+      "sizeLines": 25,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/inst/MOV_A_DATA.java",
+      "language": "java",
+      "sizeLines": 22,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/inst/MOV_A_DIRECT.java",
+      "language": "java",
+      "sizeLines": 22,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/inst/MOV_A_R.java",
+      "language": "java",
+      "sizeLines": 28,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/inst/MOV_A_RI.java",
+      "language": "java",
+      "sizeLines": 28,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/inst/MOV_BIT_C.java",
+      "language": "java",
+      "sizeLines": 23,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/inst/MOV_C_BIT.java",
+      "language": "java",
+      "sizeLines": 23,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/inst/MOV_DIRECT_A.java",
+      "language": "java",
+      "sizeLines": 22,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/inst/MOV_DIRECT_DATA.java",
+      "language": "java",
+      "sizeLines": 23,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/inst/MOV_DIRECT_DIRECT.java",
+      "language": "java",
+      "sizeLines": 24,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/inst/MOV_DIRECT_R.java",
+      "language": "java",
+      "sizeLines": 29,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/inst/MOV_DIRECT_RI.java",
+      "language": "java",
+      "sizeLines": 30,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/inst/MOV_DPTR_DATA16.java",
+      "language": "java",
+      "sizeLines": 22,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/inst/MOV_R_A.java",
+      "language": "java",
+      "sizeLines": 30,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/inst/MOV_R_DATA.java",
+      "language": "java",
+      "sizeLines": 28,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/inst/MOV_R_DIRECT.java",
+      "language": "java",
+      "sizeLines": 31,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/inst/MOV_RI_A.java",
+      "language": "java",
+      "sizeLines": 29,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/inst/MOV_RI_DATA.java",
+      "language": "java",
+      "sizeLines": 32,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/inst/MOV_RI_DIRECT.java",
+      "language": "java",
+      "sizeLines": 31,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/inst/MOVC_A_DPTR_A.java",
+      "language": "java",
+      "sizeLines": 22,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/inst/MOVC_A_PC_A.java",
+      "language": "java",
+      "sizeLines": 22,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/inst/MOVX_A_DPTR.java",
+      "language": "java",
+      "sizeLines": 22,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/inst/MOVX_A_RI.java",
+      "language": "java",
+      "sizeLines": 30,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/inst/MOVX_DPTR_A.java",
+      "language": "java",
+      "sizeLines": 23,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/inst/MOVX_RI_A.java",
+      "language": "java",
+      "sizeLines": 30,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/inst/MUL_AB.java",
+      "language": "java",
+      "sizeLines": 28,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/inst/NOP.java",
+      "language": "java",
+      "sizeLines": 23,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/inst/ORL_C_BIT.java",
+      "language": "java",
+      "sizeLines": 23,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/inst/ORL_C_NBIT.java",
+      "language": "java",
+      "sizeLines": 23,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/inst/ORL_DIRECT_A.java",
+      "language": "java",
+      "sizeLines": 24,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/inst/ORL_DIRECT_DATA.java",
+      "language": "java",
+      "sizeLines": 24,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/inst/POP_DIRECT.java",
+      "language": "java",
+      "sizeLines": 24,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/inst/PUSH_DIRECT.java",
+      "language": "java",
+      "sizeLines": 23,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/inst/RET.java",
+      "language": "java",
+      "sizeLines": 23,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/inst/RETI.java",
+      "language": "java",
+      "sizeLines": 24,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/inst/RL_A.java",
+      "language": "java",
+      "sizeLines": 29,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/inst/RLC_A.java",
+      "language": "java",
+      "sizeLines": 29,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/inst/RR_A.java",
+      "language": "java",
+      "sizeLines": 28,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/inst/RRC_A.java",
+      "language": "java",
+      "sizeLines": 32,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/inst/SETB_BIT.java",
+      "language": "java",
+      "sizeLines": 23,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/inst/SETB_C.java",
+      "language": "java",
+      "sizeLines": 23,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/inst/SJMP.java",
+      "language": "java",
+      "sizeLines": 23,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/inst/SWAP_A.java",
+      "language": "java",
+      "sizeLines": 25,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/inst/XCH_A_DIRECT.java",
+      "language": "java",
+      "sizeLines": 26,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/inst/XCH_A_R.java",
+      "language": "java",
+      "sizeLines": 32,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/inst/XCH_A_RI.java",
+      "language": "java",
+      "sizeLines": 31,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/inst/XCHD_A_RI.java",
+      "language": "java",
+      "sizeLines": 31,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/inst/XRL_DIRECT_A.java",
+      "language": "java",
+      "sizeLines": 24,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/inst/XRL_DIRECT_DATA.java",
+      "language": "java",
+      "sizeLines": 24,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/JR.java",
+      "language": "java",
+      "sizeLines": 31,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/graph/RESERVED.java",
+      "language": "java",
+      "sizeLines": 24,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/InterruptSource.java",
+      "language": "java",
+      "sizeLines": 36,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/InterruptStatistic.java",
+      "language": "java",
+      "sizeLines": 43,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/MachineCyclesListener.java",
+      "language": "java",
+      "sizeLines": 20,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/MCS51.java",
+      "language": "java",
+      "sizeLines": 1729,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/MCS51Constants.java",
+      "language": "java",
+      "sizeLines": 104,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/MCS51Performance.java",
+      "language": "java",
+      "sizeLines": 18,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/MCS51Peripheral.java",
+      "language": "java",
+      "sizeLines": 20,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/MemoryBit.java",
+      "language": "java",
+      "sizeLines": 37,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/MemoryBits.java",
+      "language": "java",
+      "sizeLines": 68,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/MemoryByte.java",
+      "language": "java",
+      "sizeLines": 45,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/MemoryReadListenerSfr.java",
+      "language": "java",
+      "sizeLines": 33,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/MemoryWriteListenerSfr.java",
+      "language": "java",
+      "sizeLines": 31,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/OpenCollectorMemoryBit.java",
+      "language": "java",
+      "sizeLines": 67,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/P8051.java",
+      "language": "java",
+      "sizeLines": 32,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/PersistentBuffer.java",
+      "language": "java",
+      "sizeLines": 121,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/PersistentMemory.java",
+      "language": "java",
+      "sizeLines": 114,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/ResetListener.java",
+      "language": "java",
+      "sizeLines": 18,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/SfrPage.java",
+      "language": "java",
+      "sizeLines": 44,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/SfrReadListener.java",
+      "language": "java",
+      "sizeLines": 15,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/SfrRegister.java",
+      "language": "java",
+      "sizeLines": 29,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/SfrWriteListener.java",
+      "language": "java",
+      "sizeLines": 16,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/intel/VolatileCode.java",
+      "language": "java",
+      "sizeLines": 72,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/J51Panel.java",
+      "language": "java",
+      "sizeLines": 59,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/philips/diseqc/Diseqc.java",
+      "language": "java",
+      "sizeLines": 57,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/philips/diseqc/DiseqcPeripheral.java",
+      "language": "java",
+      "sizeLines": 239,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/philips/diseqc/Motor.java",
+      "language": "java",
+      "sizeLines": 20,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/philips/diseqc/Satellite.java",
+      "language": "java",
+      "sizeLines": 150,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/philips/keil/MCB900.java",
+      "language": "java",
+      "sizeLines": 133,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/philips/LPC764.java",
+      "language": "java",
+      "sizeLines": 33,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/philips/LPC764Base.java",
+      "language": "java",
+      "sizeLines": 97,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/philips/LPC764Constants.java",
+      "language": "java",
+      "sizeLines": 15,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/philips/LPC764Ports.java",
+      "language": "java",
+      "sizeLines": 22,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/philips/LPC900.java",
+      "language": "java",
+      "sizeLines": 222,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/philips/LPC900Constants.java",
+      "language": "java",
+      "sizeLines": 64,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/philips/LPC900Misc.java",
+      "language": "java",
+      "sizeLines": 107,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/philips/LPC900Ports.java",
+      "language": "java",
+      "sizeLines": 43,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/philips/LPC900WDT.java",
+      "language": "java",
+      "sizeLines": 158,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/philips/LPC936.java",
+      "language": "java",
+      "sizeLines": 29,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/silabs/C8051F120.java",
+      "language": "java",
+      "sizeLines": 78,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/swing/JAssembly.java",
+      "language": "java",
+      "sizeLines": 257,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/swing/JBitField.java",
+      "language": "java",
+      "sizeLines": 135,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/swing/JCode.java",
+      "language": "java",
+      "sizeLines": 65,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/swing/JData.java",
+      "language": "java",
+      "sizeLines": 147,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/swing/JFactory.java",
+      "language": "java",
+      "sizeLines": 47,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/swing/JFixedField.java",
+      "language": "java",
+      "sizeLines": 90,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/swing/JHexByte.java",
+      "language": "java",
+      "sizeLines": 18,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/swing/JHexField.java",
+      "language": "java",
+      "sizeLines": 197,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/swing/JHexWord.java",
+      "language": "java",
+      "sizeLines": 35,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/swing/JIdata.java",
+      "language": "java",
+      "sizeLines": 26,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/swing/JInfo.java",
+      "language": "java",
+      "sizeLines": 276,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/swing/JNumField.java",
+      "language": "java",
+      "sizeLines": 185,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/swing/JPeripheral.java",
+      "language": "java",
+      "sizeLines": 44,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/swing/JPort.java",
+      "language": "java",
+      "sizeLines": 238,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/swing/JRegister.java",
+      "language": "java",
+      "sizeLines": 243,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/swing/JSfr.java",
+      "language": "java",
+      "sizeLines": 69,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/swing/JUart.java",
+      "language": "java",
+      "sizeLines": 108,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/swing/JUartTA.java",
+      "language": "java",
+      "sizeLines": 135,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/swing/JXdata.java",
+      "language": "java",
+      "sizeLines": 34,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/swing/UpdatableComponent.java",
+      "language": "java",
+      "sizeLines": 15,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/swing/Worker.java",
+      "language": "java",
+      "sizeLines": 181,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/test/Test.java",
+      "language": "java",
+      "sizeLines": 85,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/util/FastArray.java",
+      "language": "java",
+      "sizeLines": 131,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/util/Hex.java",
+      "language": "java",
+      "sizeLines": 70,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/util/Logger.java",
+      "language": "java",
+      "sizeLines": 114,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/j51/util/SortedLong.java",
+      "language": "java",
+      "sizeLines": 71,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jCPU/AbstractOpcode.java",
+      "language": "java",
+      "sizeLines": 372,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jCPU/iCPU.java",
+      "language": "java",
+      "sizeLines": 84,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jCPU/iMemory.java",
+      "language": "java",
+      "sizeLines": 35,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jCPU/JavaVM/ByteCode.java",
+      "language": "java",
+      "sizeLines": 248,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jCPU/JavaVM/BytecodeParser.java",
+      "language": "java",
+      "sizeLines": 1050,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jCPU/JavaVM/BytecodeVisitor.java",
+      "language": "java",
+      "sizeLines": 724,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jCPU/JavaVM/JVM.java",
+      "language": "java",
+      "sizeLines": 235,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jCPU/JavaVM/VmOpcode.java",
+      "language": "java",
+      "sizeLines": 55,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jCPU/JavaVM/VmStackEntry.java",
+      "language": "java",
+      "sizeLines": 18,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jCPU/JavaVM/VmStackFrame.java",
+      "language": "java",
+      "sizeLines": 104,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jCPU/MemoryReadListener.java",
+      "language": "java",
+      "sizeLines": 17,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jCPU/MemoryWriteListener.java",
+      "language": "java",
+      "sizeLines": 17,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jCPU/Opcode.java",
+      "language": "java",
+      "sizeLines": 54,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jCPU/RiscV/Decoder.java",
+      "language": "java",
+      "sizeLines": 1028,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jCPU/RiscV/IsaSim.java",
+      "language": "java",
+      "sizeLines": 719,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jCPU/RiscV/Memory.java",
+      "language": "java",
+      "sizeLines": 199,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jCPU/RiscV/RVConstants.java",
+      "language": "java",
+      "sizeLines": 80,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jCPU/RiscV/RVInstruction.java",
+      "language": "java",
+      "sizeLines": 55,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/disass/Disassembler.java",
+      "language": "java",
+      "sizeLines": 2022,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/disass/ObjDump.java",
+      "language": "java",
+      "sizeLines": 40,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/disass/package.bluej",
+      "language": "bluej",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/disass/Visitor.java",
+      "language": "java",
+      "sizeLines": 759,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/disass/x86.java",
+      "language": "java",
+      "sizeLines": 874,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/name/bizna/jarm/AlignmentException.java",
+      "language": "java",
+      "sizeLines": 5,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/name/bizna/jarm/ARMConstants.java",
+      "language": "java",
+      "sizeLines": 50,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/name/bizna/jarm/BusErrorException.java",
+      "language": "java",
+      "sizeLines": 33,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/name/bizna/jarm/ByteArrayRegion.java",
+      "language": "java",
+      "sizeLines": 75,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/name/bizna/jarm/ByteBackedRegion.java",
+      "language": "java",
+      "sizeLines": 95,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/name/bizna/jarm/Coprocessor.java",
+      "language": "java",
+      "sizeLines": 32,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/name/bizna/jarm/CP15.java",
+      "language": "java",
+      "sizeLines": 418,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/name/bizna/jarm/CPU.java",
+      "language": "java",
+      "sizeLines": 2064,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/name/bizna/jarm/Debugger.java",
+      "language": "java",
+      "sizeLines": 25,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/name/bizna/jarm/EscapeCompleteException.java",
+      "language": "java",
+      "sizeLines": 7,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/name/bizna/jarm/EscapeRetryException.java",
+      "language": "java",
+      "sizeLines": 7,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/name/bizna/jarm/FatalException.java",
+      "language": "java",
+      "sizeLines": 6,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/name/bizna/jarm/FPU.java",
+      "language": "java",
+      "sizeLines": 752,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/name/bizna/jarm/MemoryRegion.java",
+      "language": "java",
+      "sizeLines": 24,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/name/bizna/jarm/PhysicalMemorySpace.java",
+      "language": "java",
+      "sizeLines": 122,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/name/bizna/jarm/ReservedCoprocessorNameException.java",
+      "language": "java",
+      "sizeLines": 5,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/name/bizna/jarm/SaneCoprocessor.java",
+      "language": "java",
+      "sizeLines": 181,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/name/bizna/jarm/UndefinedException.java",
+      "language": "java",
+      "sizeLines": 7,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/name/bizna/jarm/UnimplementedInstructionException.java",
+      "language": "java",
+      "sizeLines": 48,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/name/bizna/jarm/VirtualMemorySpace.java",
+      "language": "java",
+      "sizeLines": 206,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/name/bizna/jarmtool/CP3.java",
+      "language": "java",
+      "sizeLines": 97,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/name/bizna/jarmtool/CP7.java",
+      "language": "java",
+      "sizeLines": 598,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/name/bizna/jarmtool/JarmTool.java",
+      "language": "java",
+      "sizeLines": 221,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/name/bizna/jarmtool/ProgramExit.java",
+      "language": "java",
+      "sizeLines": 12,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/nasm/C3a2nasm.java",
+      "language": "java",
+      "sizeLines": 59,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/nasm/expr/ExpMinus.java",
+      "language": "java",
+      "sizeLines": 40,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/nasm/expr/ExpPlus.java",
+      "language": "java",
+      "sizeLines": 39,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/nasm/expr/ExpTimes.java",
+      "language": "java",
+      "sizeLines": 39,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/nasm/expr/Label.java",
+      "language": "java",
+      "sizeLines": 35,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/nasm/expr/NasmConstant.java",
+      "language": "java",
+      "sizeLines": 36,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/nasm/expr/NasmExp.java",
+      "language": "java",
+      "sizeLines": 13,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/nasm/expr/NasmRegister.java",
+      "language": "java",
+      "sizeLines": 62,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/nasm/inst/Add.java",
+      "language": "java",
+      "sizeLines": 86,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/nasm/inst/And.java",
+      "language": "java",
+      "sizeLines": 71,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/nasm/inst/Call.java",
+      "language": "java",
+      "sizeLines": 47,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/nasm/inst/Cmp.java",
+      "language": "java",
+      "sizeLines": 86,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/nasm/inst/Div.java",
+      "language": "java",
+      "sizeLines": 34,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/nasm/inst/Empty.java",
+      "language": "java",
+      "sizeLines": 31,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/nasm/inst/Equ.java",
+      "language": "java",
+      "sizeLines": 24,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/nasm/inst/Int.java",
+      "language": "java",
+      "sizeLines": 28,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/nasm/inst/Je.java",
+      "language": "java",
+      "sizeLines": 49,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/nasm/inst/Jg.java",
+      "language": "java",
+      "sizeLines": 36,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/nasm/inst/Jge.java",
+      "language": "java",
+      "sizeLines": 36,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/nasm/inst/Jl.java",
+      "language": "java",
+      "sizeLines": 36,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/nasm/inst/Jle.java",
+      "language": "java",
+      "sizeLines": 42,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/nasm/inst/Jmp.java",
+      "language": "java",
+      "sizeLines": 71,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/nasm/inst/Jne.java",
+      "language": "java",
+      "sizeLines": 48,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/nasm/inst/Mov.java",
+      "language": "java",
+      "sizeLines": 117,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/nasm/inst/Mul.java",
+      "language": "java",
+      "sizeLines": 40,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/nasm/inst/NasmInst.java",
+      "language": "java",
+      "sizeLines": 74,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/nasm/inst/Not.java",
+      "language": "java",
+      "sizeLines": 36,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/nasm/inst/Or.java",
+      "language": "java",
+      "sizeLines": 67,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/nasm/inst/Org.java",
+      "language": "java",
+      "sizeLines": 24,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/nasm/inst/Pop.java",
+      "language": "java",
+      "sizeLines": 48,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/nasm/inst/PseudoInst.java",
+      "language": "java",
+      "sizeLines": 31,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/nasm/inst/Push.java",
+      "language": "java",
+      "sizeLines": 57,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/nasm/inst/Resb.java",
+      "language": "java",
+      "sizeLines": 23,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/nasm/inst/Resd.java",
+      "language": "java",
+      "sizeLines": 23,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/nasm/inst/Resq.java",
+      "language": "java",
+      "sizeLines": 24,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/nasm/inst/Rest.java",
+      "language": "java",
+      "sizeLines": 24,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/nasm/inst/Resw.java",
+      "language": "java",
+      "sizeLines": 24,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/nasm/inst/Ret.java",
+      "language": "java",
+      "sizeLines": 28,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/nasm/inst/Sub.java",
+      "language": "java",
+      "sizeLines": 79,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/nasm/inst/Xor.java",
+      "language": "java",
+      "sizeLines": 67,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/nasm/LoadNasm.java",
+      "language": "java",
+      "sizeLines": 1138,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/nasm/Nasm.java",
+      "language": "java",
+      "sizeLines": 169,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/nasm/NasmAddress.java",
+      "language": "java",
+      "sizeLines": 30,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/nasm/NasmEval.java",
+      "language": "java",
+      "sizeLines": 430,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/nasm/NasmSize.java",
+      "language": "java",
+      "sizeLines": 21,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/nasm/NasmVisitor.java",
+      "language": "java",
+      "sizeLines": 52,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/nasm/NasmVM.java",
+      "language": "java",
+      "sizeLines": 89,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/nasm/Operand.java",
+      "language": "java",
+      "sizeLines": 14,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/nasm/Ref.java",
+      "language": "java",
+      "sizeLines": 10,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/nasm/Reg.java",
+      "language": "java",
+      "sizeLines": 12,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/nasm/SymbolTableEntryBase.java",
+      "language": "java",
+      "sizeLines": 14,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/nasm/UnresolvedJump.java",
+      "language": "java",
+      "sizeLines": 10,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/nl/lxtreme/arm/ConditionCode.java",
+      "language": "java",
+      "sizeLines": 29,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/nl/lxtreme/arm/Cpsr.java",
+      "language": "java",
+      "sizeLines": 87,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/nl/lxtreme/arm/CPU.java",
+      "language": "java",
+      "sizeLines": 2627,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/nl/lxtreme/arm/memory/Chunk.java",
+      "language": "java",
+      "sizeLines": 276,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/nl/lxtreme/arm/memory/Memory.java",
+      "language": "java",
+      "sizeLines": 290,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/sjc/emulation/AddressRange.ctxt",
+      "language": "ctxt",
+      "sizeLines": 31,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/sjc/emulation/AddressRange.java",
+      "language": "java",
+      "sizeLines": 135,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/sjc/emulation/BasicRAM.ctxt",
+      "language": "ctxt",
+      "sizeLines": 34,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/sjc/emulation/BasicRAM.java",
+      "language": "java",
+      "sizeLines": 162,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/sjc/emulation/BasicVGA.ctxt",
+      "language": "ctxt",
+      "sizeLines": 22,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/sjc/emulation/BasicVGA.java",
+      "language": "java",
+      "sizeLines": 90,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/sjc/emulation/BreakPointListener.ctxt",
+      "language": "ctxt",
+      "sizeLines": 13,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/sjc/emulation/BreakPointListener.java",
+      "language": "java",
+      "sizeLines": 50,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/sjc/emulation/cond/BreakPoint.ctxt",
+      "language": "ctxt",
+      "sizeLines": 19,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/sjc/emulation/cond/BreakPoint.java",
+      "language": "java",
+      "sizeLines": 77,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/sjc/emulation/cond/MemoryBreak.ctxt",
+      "language": "ctxt",
+      "sizeLines": 19,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/sjc/emulation/cond/MemoryBreak.java",
+      "language": "java",
+      "sizeLines": 101,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/sjc/emulation/cond/package.bluej",
+      "language": "bluej",
+      "sizeLines": 41,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/sjc/emulation/cond/StackCond.ctxt",
+      "language": "ctxt",
+      "sizeLines": 19,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/sjc/emulation/cond/StackCond.java",
+      "language": "java",
+      "sizeLines": 79,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/sjc/emulation/Condition.ctxt",
+      "language": "ctxt",
+      "sizeLines": 16,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/sjc/emulation/Condition.java",
+      "language": "java",
+      "sizeLines": 65,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/sjc/emulation/Emulate.java",
+      "language": "java",
+      "sizeLines": 2777,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/sjc/emulation/Emulator.ctxt",
+      "language": "ctxt",
+      "sizeLines": 73,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/sjc/emulation/Emulator.java",
+      "language": "java",
+      "sizeLines": 457,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/sjc/emulation/EmulFactory.ctxt",
+      "language": "ctxt",
+      "sizeLines": 10,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/sjc/emulation/EmulFactory.java",
+      "language": "java",
+      "sizeLines": 55,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/sjc/emulation/MethodDisassembly.ctxt",
+      "language": "ctxt",
+      "sizeLines": 25,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/sjc/emulation/MethodDisassembly.java",
+      "language": "java",
+      "sizeLines": 167,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/sjc/emulation/MethodStatistics.ctxt",
+      "language": "ctxt",
+      "sizeLines": 22,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/sjc/emulation/MethodStatistics.java",
+      "language": "java",
+      "sizeLines": 146,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/sjc/emulation/Mnemonic.ctxt",
+      "language": "ctxt",
+      "sizeLines": 10,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/sjc/emulation/Mnemonic.java",
+      "language": "java",
+      "sizeLines": 86,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/sjc/emulation/package.bluej",
+      "language": "bluej",
+      "sizeLines": 145,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/sjc/emulation/ssa/package.bluej",
+      "language": "bluej",
+      "sizeLines": 37,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/sjc/emulation/ssa/Register.ctxt",
+      "language": "ctxt",
+      "sizeLines": 4,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/sjc/emulation/ssa/Register.java",
+      "language": "java",
+      "sizeLines": 34,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/sjc/emulation/ssa/SSAEmul.ctxt",
+      "language": "ctxt",
+      "sizeLines": 213,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/sjc/emulation/ssa/SSAEmul.java",
+      "language": "java",
+      "sizeLines": 2909,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/sjc/emulation/TextScreen.ctxt",
+      "language": "ctxt",
+      "sizeLines": 10,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/sjc/emulation/TextScreen.java",
+      "language": "java",
+      "sizeLines": 34,
+      "fileCategory": "code"
+    }
+  ],
+  "totalFiles": 335,
+  "filteredByIgnore": 266,
+  "estimatedComplexity": "moderate",
+  "stats": {
+    "filesScanned": 335,
+    "byCategory": {
+      "code": 335
+    },
+    "byLanguage": {
+      "java": 315,
+      "bluej": 4,
+      "ctxt": 16
+    }
+  }
+}
