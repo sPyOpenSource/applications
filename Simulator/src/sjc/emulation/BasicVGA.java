@@ -40,22 +40,27 @@ public class BasicVGA extends AddressRange {
     buffer = new byte[width * height * 2];
   }
   
+  @Override
   public byte read8(int address) {
     return buffer[address - BASE];
   }
   
+  @Override
   public short read16(int address) {
     return (short)(((int)read8(address)&0xFF)|(((int)read8(address+1)&0xFF)<<8));
   }
   
+  @Override
   public int read32(int address) {
     return ((int)read16(address)&0xFFFF)|(((int)read16(address+2)&0xFFFF)<<16);
   }
   
+  @Override
   public long read64(int address) {
     return ((long)read32(address)&0xFFFFFFFFl)|(((long)read32(address+4)&0xFFFFFFFFl)<<32);
   }
   
+  @Override
   public void write8(int address, byte v) {
     int off = address - BASE, x, y;
     

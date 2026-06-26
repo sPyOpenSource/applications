@@ -9,7 +9,7 @@ import org.junit.Test;
  *
  * @author xuyi
  */
-public class NewClass {
+public class UtilsTest {
     @Test
     public void test() {
         File elfFile = new File("/Users/xuyi/Source/OS/bootboot/mykernel/mykernel.x86_64.elf");
