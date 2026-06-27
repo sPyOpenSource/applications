@@ -11,7 +11,9 @@ import cr0s.javara.order.Target;
 
 public class Squad {
     public enum SquadType { ASSAULT, AIR, RUSH, PROTECTION, DEFENSIVE, HARVEST, CONSTRUCTION };
+    public enum Formation { LINE, WEDGE, COLUMN, BOX }
     
+    private Formation currentFormation;
     private Target target;
     private AIPlayer bot;
     private SquadType type;
@@ -31,7 +33,10 @@ public class Squad {
 	
 	this.fsm = new StateMachine();
     }
-
+    
+    public void adoptFormation(Formation f) {  }
+    public void maintainCohesion() {  }
+    
     public boolean isValid() {
 	return !this.units.isEmpty();
     }
