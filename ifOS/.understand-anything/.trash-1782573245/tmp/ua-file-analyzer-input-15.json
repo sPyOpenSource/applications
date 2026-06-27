@@ -1,0 +1,32 @@
+{
+  "projectRoot": "/Users/xuyi/Source/OS/armOS/lib/jcore/test/ifOS",
+  "batchFiles": [
+    {
+      "path": "src/jx/net/rpc/RPCProc.java",
+      "language": "java",
+      "sizeLines": 4,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/net/rpcsvc/mount/MountProc.java",
+      "language": "java",
+      "sizeLines": 25,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/net/rpcsvc/nfs/NFSProc.java",
+      "language": "java",
+      "sizeLines": 49,
+      "fileCategory": "code"
+    }
+  ],
+  "batchImportData": {
+    "src/jx/net/rpc/RPCProc.java": [],
+    "src/jx/net/rpcsvc/mount/MountProc.java": [
+      "src/jx/net/rpc/RPCProc.java"
+    ],
+    "src/jx/net/rpcsvc/nfs/NFSProc.java": [
+      "src/jx/net/rpc/RPCProc.java"
+    ]
+  }
+}

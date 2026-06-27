@@ -1,0 +1,131 @@
+{
+  "nodes": [
+    {
+      "id": "file:undefined",
+      "type": "file"
+    },
+    {
+      "id": "class:Directory:undefined",
+      "type": "class",
+      "label": "Directory"
+    },
+    {
+      "id": "class:FileSystemInterface:undefined",
+      "type": "class",
+      "label": "FileSystemInterface"
+    },
+    {
+      "id": "class:FS:undefined",
+      "type": "class",
+      "label": "FS"
+    },
+    {
+      "id": "class:FSAttribute:undefined",
+      "type": "class",
+      "label": "FSAttribute"
+    },
+    {
+      "id": "class:FSObject:undefined",
+      "type": "class",
+      "label": "FSObject"
+    },
+    {
+      "id": "class:Node:undefined",
+      "type": "class",
+      "label": "Node"
+    },
+    {
+      "id": "class:Permission:undefined",
+      "type": "class",
+      "label": "Permission"
+    },
+    {
+      "id": "class:ReadOnlyDirectory:undefined",
+      "type": "class",
+      "label": "ReadOnlyDirectory"
+    },
+    {
+      "id": "class:ReadOnlyRegularFile:undefined",
+      "type": "class",
+      "label": "ReadOnlyRegularFile"
+    },
+    {
+      "id": "class:RegularFile:undefined",
+      "type": "class",
+      "label": "RegularFile"
+    },
+    {
+      "id": "class:StatFS:undefined",
+      "type": "class",
+      "label": "StatFS"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:undefined",
+      "target": "class:Directory:undefined",
+      "type": "contains",
+      "weight": 1
+    },
+    {
+      "source": "file:undefined",
+      "target": "class:FileSystemInterface:undefined",
+      "type": "contains",
+      "weight": 1
+    },
+    {
+      "source": "file:undefined",
+      "target": "class:FS:undefined",
+      "type": "contains",
+      "weight": 1
+    },
+    {
+      "source": "file:undefined",
+      "target": "class:FSAttribute:undefined",
+      "type": "contains",
+      "weight": 1
+    },
+    {
+      "source": "file:undefined",
+      "target": "class:FSObject:undefined",
+      "type": "contains",
+      "weight": 1
+    },
+    {
+      "source": "file:undefined",
+      "target": "class:Node:undefined",
+      "type": "contains",
+      "weight": 1
+    },
+    {
+      "source": "file:undefined",
+      "target": "class:Permission:undefined",
+      "type": "contains",
+      "weight": 1
+    },
+    {
+      "source": "file:undefined",
+      "target": "class:ReadOnlyDirectory:undefined",
+      "type": "contains",
+      "weight": 1
+    },
+    {
+      "source": "file:undefined",
+      "target": "class:ReadOnlyRegularFile:undefined",
+      "type": "contains",
+      "weight": 1
+    },
+    {
+      "source": "file:undefined",
+      "target": "class:RegularFile:undefined",
+      "type": "contains",
+      "weight": 1
+    },
+    {
+      "source": "file:undefined",
+      "target": "class:StatFS:undefined",
+      "type": "contains",
+      "weight": 1
+    }
+  ]
+}

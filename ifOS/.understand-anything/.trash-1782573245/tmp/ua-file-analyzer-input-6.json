@@ -1,0 +1,61 @@
+{
+  "projectRoot": "/Users/xuyi/Source/OS/armOS/lib/jcore/test/ifOS",
+  "batchFiles": [
+    {
+      "path": "src/gnu/java/io/encode/Encoder.java",
+      "language": "java",
+      "sizeLines": 343,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/gnu/java/io/encode/EncoderEightBitLookup.java",
+      "language": "java",
+      "sizeLines": 187,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/java/io/OutputStream.java",
+      "language": "java",
+      "sizeLines": 31,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/java/io/Writer.java",
+      "language": "java",
+      "sizeLines": 205,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/java/security/Certificate.java",
+      "language": "java",
+      "sizeLines": 134,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/java/security/KeyStoreSpi.java",
+      "language": "java",
+      "sizeLines": 254,
+      "fileCategory": "code"
+    }
+  ],
+  "batchImportData": {
+    "src/gnu/java/io/encode/Encoder.java": [
+      "src/java/io/OutputStream.java",
+      "src/java/io/Writer.java"
+    ],
+    "src/gnu/java/io/encode/EncoderEightBitLookup.java": [
+      "src/java/io/OutputStream.java"
+    ],
+    "src/java/io/OutputStream.java": [],
+    "src/java/io/Writer.java": [],
+    "src/java/security/Certificate.java": [
+      "src/java/io/InputStream.java",
+      "src/java/io/OutputStream.java"
+    ],
+    "src/java/security/KeyStoreSpi.java": [
+      "src/java/io/InputStream.java",
+      "src/java/io/OutputStream.java",
+      "src/java/util/Enumeration.java"
+    ]
+  }
+}

@@ -1,0 +1,352 @@
+[
+  {
+    "batchIndex": 12,
+    "files": [
+      {
+        "path": "src/jx/devices/Bus.java",
+        "language": "java",
+        "sizeLines": 5,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/jx/devices/ide/IDEDevice.java",
+        "language": "java",
+        "sizeLines": 46,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/jx/devices/pci/PCIDevice.java",
+        "language": "java",
+        "sizeLines": 56,
+        "fileCategory": "code"
+      }
+    ],
+    "batchImportData": {
+      "src/jx/devices/Bus.java": [],
+      "src/jx/devices/ide/IDEDevice.java": [
+        "src/jx/devices/Bus.java"
+      ],
+      "src/jx/devices/pci/PCIDevice.java": [
+        "src/jx/devices/Bus.java"
+      ]
+    },
+    "neighborMap": {}
+  },
+  {
+    "batchIndex": 13,
+    "files": [
+      {
+        "path": "src/jx/devices/Device.java",
+        "language": "java",
+        "sizeLines": 25,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/jx/devices/net/NetworkDevice.java",
+        "language": "java",
+        "sizeLines": 18,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/jx/fs/buffer/separator/NonBlockingMemoryConsumer.java",
+        "language": "java",
+        "sizeLines": 19,
+        "fileCategory": "code"
+      }
+    ],
+    "batchImportData": {
+      "src/jx/devices/Device.java": [],
+      "src/jx/devices/net/NetworkDevice.java": [
+        "src/jx/devices/Device.java",
+        "src/jx/fs/buffer/separator/NonBlockingMemoryConsumer.java"
+      ],
+      "src/jx/fs/buffer/separator/NonBlockingMemoryConsumer.java": []
+    },
+    "neighborMap": {}
+  },
+  {
+    "batchIndex": 14,
+    "files": [
+      {
+        "path": "src/jx/fs/buffer/separator/MemoryConsumer.java",
+        "language": "java",
+        "sizeLines": 18,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/jx/net/PacketsConsumer.java",
+        "language": "java",
+        "sizeLines": 17,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/jx/net/PacketsProducer.java",
+        "language": "java",
+        "sizeLines": 8,
+        "fileCategory": "code"
+      }
+    ],
+    "batchImportData": {
+      "src/jx/fs/buffer/separator/MemoryConsumer.java": [],
+      "src/jx/net/PacketsConsumer.java": [
+        "src/jx/fs/buffer/separator/MemoryConsumer.java"
+      ],
+      "src/jx/net/PacketsProducer.java": [
+        "src/jx/fs/buffer/separator/MemoryConsumer.java"
+      ]
+    },
+    "neighborMap": {}
+  },
+  {
+    "batchIndex": 15,
+    "files": [
+      {
+        "path": "src/jx/net/rpc/RPCProc.java",
+        "language": "java",
+        "sizeLines": 4,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/jx/net/rpcsvc/mount/MountProc.java",
+        "language": "java",
+        "sizeLines": 25,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/jx/net/rpcsvc/nfs/NFSProc.java",
+        "language": "java",
+        "sizeLines": 49,
+        "fileCategory": "code"
+      }
+    ],
+    "batchImportData": {
+      "src/jx/net/rpc/RPCProc.java": [],
+      "src/jx/net/rpcsvc/mount/MountProc.java": [
+        "src/jx/net/rpc/RPCProc.java"
+      ],
+      "src/jx/net/rpcsvc/nfs/NFSProc.java": [
+        "src/jx/net/rpc/RPCProc.java"
+      ]
+    },
+    "neighborMap": {}
+  },
+  {
+    "batchIndex": 16,
+    "files": [
+      {
+        "path": "nbproject/build-impl.xml",
+        "language": "xml",
+        "sizeLines": 1817,
+        "fileCategory": "config"
+      },
+      {
+        "path": "nbproject/genfiles.properties",
+        "language": "properties",
+        "sizeLines": 8,
+        "fileCategory": "config"
+      },
+      {
+        "path": "nbproject/project.properties",
+        "language": "properties",
+        "sizeLines": 105,
+        "fileCategory": "config"
+      },
+      {
+        "path": "nbproject/project.xml",
+        "language": "xml",
+        "sizeLines": 26,
+        "fileCategory": "config"
+      }
+    ],
+    "batchImportData": {
+      "nbproject/build-impl.xml": [],
+      "nbproject/genfiles.properties": [],
+      "nbproject/project.properties": [],
+      "nbproject/project.xml": []
+    },
+    "neighborMap": {}
+  },
+  {
+    "batchIndex": 17,
+    "files": [
+      {
+        "path": ".understand-anything/.understandignore",
+        "language": "unknown",
+        "sizeLines": 33,
+        "fileCategory": "code"
+      },
+      {
+        "path": "alternative/jdk_collections_impl/java/util/AbstractCollection.j",
+        "language": "j",
+        "sizeLines": 345,
+        "fileCategory": "code"
+      },
+      {
+        "path": "alternative/jdk0/java/util/AbstractList.j",
+        "language": "j",
+        "sizeLines": 49,
+        "fileCategory": "code"
+      },
+      {
+        "path": "build.xml",
+        "language": "xml",
+        "sizeLines": 73,
+        "fileCategory": "config"
+      },
+      {
+        "path": "CHANGELOG",
+        "language": "unknown",
+        "sizeLines": 107,
+        "fileCategory": "code"
+      },
+      {
+        "path": "manifest.mf",
+        "language": "mf",
+        "sizeLines": 3,
+        "fileCategory": "code"
+      },
+      {
+        "path": "META",
+        "language": "unknown",
+        "sizeLines": 14,
+        "fileCategory": "code"
+      },
+      {
+        "path": "README.rst",
+        "language": "markdown",
+        "sizeLines": 12,
+        "fileCategory": "docs"
+      },
+      {
+        "path": "src/gnu/java/io/decode/Decoder.ctxt",
+        "language": "ctxt",
+        "sizeLines": 37,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/gnu/java/io/decode/DecoderEightBitLookup.ctxt",
+        "language": "ctxt",
+        "sizeLines": 16,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/gnu/java/io/decode/package.bluej",
+        "language": "bluej",
+        "sizeLines": 34,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/gnu/java/io/encode/Encoder.ctxt",
+        "language": "ctxt",
+        "sizeLines": 40,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/gnu/java/io/encode/EncoderEightBitLookup.ctxt",
+        "language": "ctxt",
+        "sizeLines": 19,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/gnu/java/io/encode/package.bluej",
+        "language": "bluej",
+        "sizeLines": 34,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/gnu/java/io/package.bluej",
+        "language": "bluej",
+        "sizeLines": 32,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/gnu/java/package.bluej",
+        "language": "bluej",
+        "sizeLines": 26,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/gnu/package.bluej",
+        "language": "bluej",
+        "sizeLines": 26,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/java/applet/AppletStub.java",
+        "language": "java",
+        "sizeLines": 86,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/java/applet/AudioClip.java",
+        "language": "java",
+        "sizeLines": 54,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/java/applet/package.bluej",
+        "language": "bluej",
+        "sizeLines": 47,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/java/beans/BeanInfo.java",
+        "language": "java",
+        "sizeLines": 170,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/java/beans/Customizer.java",
+        "language": "java",
+        "sizeLines": 75,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/java/beans/DesignMode.java",
+        "language": "java",
+        "sizeLines": 80,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/java/beans/package.bluej",
+        "language": "bluej",
+        "sizeLines": 0,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/java/beans/PropertyEditor.java",
+        "language": "java",
+        "sizeLines": 197,
+        "fileCategory": "code"
+      }
+    ],
+    "batchImportData": {
+      ".understand-anything/.understandignore": [],
+      "alternative/jdk_collections_impl/java/util/AbstractCollection.j": [],
+      "alternative/jdk0/java/util/AbstractList.j": [],
+      "build.xml": [],
+      "CHANGELOG": [],
+      "manifest.mf": [],
+      "META": [],
+      "README.rst": [],
+      "src/gnu/java/io/decode/Decoder.ctxt": [],
+      "src/gnu/java/io/decode/DecoderEightBitLookup.ctxt": [],
+      "src/gnu/java/io/decode/package.bluej": [],
+      "src/gnu/java/io/encode/Encoder.ctxt": [],
+      "src/gnu/java/io/encode/EncoderEightBitLookup.ctxt": [],
+      "src/gnu/java/io/encode/package.bluej": [],
+      "src/gnu/java/io/package.bluej": [],
+      "src/gnu/java/package.bluej": [],
+      "src/gnu/package.bluej": [],
+      "src/java/applet/AppletStub.java": [],
+      "src/java/applet/AudioClip.java": [],
+      "src/java/applet/package.bluej": [],
+      "src/java/beans/BeanInfo.java": [],
+      "src/java/beans/Customizer.java": [],
+      "src/java/beans/DesignMode.java": [],
+      "src/java/beans/package.bluej": [],
+      "src/java/beans/PropertyEditor.java": []
+    },
+    "neighborMap": {}
+  }
+]

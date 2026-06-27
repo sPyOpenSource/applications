@@ -1,0 +1,115 @@
+{
+  "nodes": [
+    {
+      "id": "file:undefined",
+      "type": "file"
+    },
+    {
+      "id": "class:MemoryConsumer2:undefined",
+      "type": "class",
+      "label": "MemoryConsumer2"
+    },
+    {
+      "id": "class:MemoryProducer:undefined",
+      "type": "class",
+      "label": "MemoryProducer"
+    },
+    {
+      "id": "class:Comparable:undefined",
+      "type": "class",
+      "label": "Comparable"
+    },
+    {
+      "id": "class:BufferList:undefined",
+      "type": "class",
+      "label": "BufferList"
+    },
+    {
+      "id": "class:Database:undefined",
+      "type": "class",
+      "label": "Database"
+    },
+    {
+      "id": "class:Index:undefined",
+      "type": "class",
+      "label": "Index"
+    },
+    {
+      "id": "class:IndexInfo:undefined",
+      "type": "class",
+      "label": "IndexInfo"
+    },
+    {
+      "id": "class:Key:undefined",
+      "type": "class",
+      "label": "Key"
+    },
+    {
+      "id": "class:RelationalOperator:undefined",
+      "type": "class",
+      "label": "RelationalOperator"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:undefined",
+      "target": "class:MemoryConsumer2:undefined",
+      "type": "contains",
+      "weight": 1
+    },
+    {
+      "source": "file:undefined",
+      "target": "class:MemoryProducer:undefined",
+      "type": "contains",
+      "weight": 1
+    },
+    {
+      "source": "file:undefined",
+      "target": "class:Comparable:undefined",
+      "type": "contains",
+      "weight": 1
+    },
+    {
+      "source": "file:undefined",
+      "target": "class:BufferList:undefined",
+      "type": "contains",
+      "weight": 1
+    },
+    {
+      "source": "file:undefined",
+      "target": "class:Database:undefined",
+      "type": "contains",
+      "weight": 1
+    },
+    {
+      "source": "file:undefined",
+      "target": "class:Index:undefined",
+      "type": "contains",
+      "weight": 1
+    },
+    {
+      "source": "file:undefined",
+      "target": "class:IndexInfo:undefined",
+      "type": "contains",
+      "weight": 1
+    },
+    {
+      "source": "file:undefined",
+      "target": "class:Key:undefined",
+      "type": "contains",
+      "weight": 1
+    },
+    {
+      "source": "file:undefined",
+      "target": "class:RelationalOperator:undefined",
+      "type": "contains",
+      "weight": 1
+    },
+    {
+      "source": "file:src/jx/fs/db/Database.java",
+      "target": "file:src/jx/fs/db/types/TypeManager.java",
+      "type": "imports",
+      "weight": 0.7
+    }
+  ]
+}

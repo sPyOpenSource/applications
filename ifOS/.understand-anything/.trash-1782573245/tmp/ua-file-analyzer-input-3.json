@@ -1,0 +1,16 @@
+{
+  "projectRoot": "/Users/xuyi/Source/OS/armOS/lib/jcore/test/ifOS",
+  "batchFiles": [
+    {"path": "src/java/lang/invoke/BoundMethodHandle.java", "language": "java", "sizeLines": 324, "fileCategory": "code"},
+    {"path": "src/java/security/cert/X509CRLEntry.java", "language": "java", "sizeLines": 166, "fileCategory": "code"},
+    {"path": "src/java/security/cert/X509Certificate.java", "language": "java", "sizeLines": 448, "fileCategory": "code"},
+    {"path": "src/java/security/cert/X509Extension.java", "language": "java", "sizeLines": 102, "fileCategory": "code"},
+    {"path": "src/java/sql/Array.java", "language": "java", "sizeLines": 226, "fileCategory": "code"},
+    {"path": "src/java/sql/Connection.java", "language": "java", "sizeLines": 451, "fileCategory": "code"},
+    {"path": "src/java/sql/Struct.java", "language": "java", "sizeLines": 80, "fileCategory": "code"},
+    {"path": "src/java/text/AttributedCharacterIterator.java", "language": "java", "sizeLines": 332, "fileCategory": "code"},
+    {"path": "src/java/util/Map.java", "language": "java", "sizeLines": 58, "fileCategory": "code"},
+    {"path": "src/java/util/Set.java", "language": "java", "sizeLines": 51, "fileCategory": "code"},
+    {"path": "src/java/util/function/Function.java", "language": "java", "sizeLines": 100, "fileCategory": "code"}
+  ]
+}

@@ -1,0 +1,284 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 13,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "alternative/jdk_collections_impl/java/util/AbstractCollection.j",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 345,
+      "nonEmptyLines": 323,
+      "metrics": {}
+    },
+    {
+      "path": "alternative/jdk0/java/util/AbstractList.j",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 49,
+      "nonEmptyLines": 41,
+      "metrics": {}
+    },
+    {
+      "path": "build.xml",
+      "language": "xml",
+      "fileCategory": "code",
+      "totalLines": 73,
+      "nonEmptyLines": 60,
+      "metrics": {}
+    },
+    {
+      "path": "CHANGELOG",
+      "language": "markdown",
+      "fileCategory": "document",
+      "totalLines": 107,
+      "nonEmptyLines": 77,
+      "metrics": {}
+    },
+    {
+      "path": "manifest.mf",
+      "language": "properties",
+      "fileCategory": "script",
+      "totalLines": 3,
+      "nonEmptyLines": 2,
+      "metrics": {}
+    },
+    {
+      "path": "META",
+      "language": "properties",
+      "fileCategory": "script",
+      "totalLines": 14,
+      "nonEmptyLines": 12,
+      "metrics": {}
+    },
+    {
+      "path": "README.rst",
+      "language": "markdown",
+      "fileCategory": "document",
+      "totalLines": 12,
+      "nonEmptyLines": 8,
+      "metrics": {}
+    },
+    {
+      "path": "src/java/applet/AppletStub.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 86,
+      "nonEmptyLines": 71,
+      "classes": [
+        {
+          "name": "AppletStub",
+          "startLine": 37,
+          "endLine": 86,
+          "methods": [
+            "getDocumentBase",
+            "getCodeBase",
+            "getParameter",
+            "getAppletContext",
+            "isActive",
+            "appletResize"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "AppletStub",
+          "line": 37,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/applet/AudioClip.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 54,
+      "nonEmptyLines": 42,
+      "classes": [
+        {
+          "name": "AudioClip",
+          "startLine": 35,
+          "endLine": 54,
+          "methods": [
+            "play",
+            "stop",
+            "loop"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "AudioClip",
+          "line": 35,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/beans/BeanInfo.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 170,
+      "nonEmptyLines": 153,
+      "classes": [
+        {
+          "name": "BeanInfo",
+          "startLine": 64,
+          "endLine": 170,
+          "methods": [
+            "getBeanDescriptor",
+            "getEventSetDescriptors",
+            "getDefaultEventIndex",
+            "getPropertyDescriptors",
+            "getDefaultPropertyIndex",
+            "getMethodDescriptors",
+            "getAdditionalBeanInfo",
+            "getIcon"
+          ],
+          "properties": [
+            "ICON_COLOR_16x16",
+            "ICON_COLOR_32x32",
+            "ICON_MONO_16x16",
+            "ICON_MONO_32x32"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "BeanInfo",
+          "line": 64,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/beans/Customizer.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 75,
+      "nonEmptyLines": 64,
+      "classes": [
+        {
+          "name": "Customizer",
+          "startLine": 58,
+          "endLine": 75,
+          "methods": [
+            "setObject",
+            "addPropertyChangeListener",
+            "removePropertyChangeListener"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "Customizer",
+          "line": 58,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/beans/DesignMode.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 80,
+      "nonEmptyLines": 71,
+      "classes": [
+        {
+          "name": "DesignMode",
+          "startLine": 39,
+          "endLine": 80,
+          "methods": [
+            "setDesignTime",
+            "isDesignTime"
+          ],
+          "properties": [
+            "PROPERTYNAME"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "DesignMode",
+          "line": 39,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/beans/PropertyEditor.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 197,
+      "nonEmptyLines": 174,
+      "classes": [
+        {
+          "name": "PropertyEditor",
+          "startLine": 99,
+          "endLine": 197,
+          "methods": [
+            "setValue",
+            "getValue",
+            "setAsText",
+            "getAsText",
+            "getTags",
+            "isPaintable",
+            "paintValue",
+            "supportsCustomEditor",
+            "getCustomEditor",
+            "addPropertyChangeListener",
+            "removePropertyChangeListener",
+            "getJavaInitializationString"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "PropertyEditor",
+          "line": 99,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    }
+  ]
+}

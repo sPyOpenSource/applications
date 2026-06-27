@@ -1,0 +1,606 @@
+{
+  "batchIndex": 3,
+  "projectName": "ifOS",
+  "nodes": [
+    {
+      "id": "file:src/java/lang/invoke/BoundMethodHandle.java",
+      "type": "file",
+      "name": "BoundMethodHandle.java",
+      "filePath": "src/java/lang/invoke/BoundMethodHandle.java",
+      "summary": "BoundMethodHandle.java - java code file",
+      "tags": [
+        "java",
+        "lang",
+        "invoke"
+      ],
+      "complexity": "medium",
+      "sizeLines": 324,
+      "language": "java"
+    },
+    {
+      "id": "class:src/java/lang/invoke/BoundMethodHandle.java:BoundMethodHandle",
+      "type": "class",
+      "name": "BoundMethodHandle",
+      "filePath": "src/java/lang/invoke/BoundMethodHandle.java",
+      "summary": "Class BoundMethodHandle with 30 methods",
+      "tags": [
+        "java",
+        "lang",
+        "invoke"
+      ],
+      "complexity": "medium",
+      "methods": 30
+    },
+    {
+      "id": "function:src/java/lang/invoke/BoundMethodHandle.java:bindSingle",
+      "type": "function",
+      "name": "bindSingle",
+      "filePath": "src/java/lang/invoke/BoundMethodHandle.java",
+      "summary": "Function bindSingle",
+      "tags": [
+        "java",
+        "lang",
+        "invoke"
+      ],
+      "complexity": "low"
+    },
+    {
+      "id": "function:src/java/lang/invoke/BoundMethodHandle.java:arg",
+      "type": "function",
+      "name": "arg",
+      "filePath": "src/java/lang/invoke/BoundMethodHandle.java",
+      "summary": "Function arg",
+      "tags": [
+        "java",
+        "lang",
+        "invoke"
+      ],
+      "complexity": "low"
+    },
+    {
+      "id": "file:src/java/security/cert/X509CRLEntry.java",
+      "type": "file",
+      "name": "X509CRLEntry.java",
+      "filePath": "src/java/security/cert/X509CRLEntry.java",
+      "summary": "X509CRLEntry.java - java code file",
+      "tags": [
+        "java",
+        "security"
+      ],
+      "complexity": "medium",
+      "sizeLines": 166,
+      "language": "java"
+    },
+    {
+      "id": "class:src/java/security/cert/X509CRLEntry.java:X509CRLEntry",
+      "type": "class",
+      "name": "X509CRLEntry",
+      "filePath": "src/java/security/cert/X509CRLEntry.java",
+      "summary": "Class X509CRLEntry with 12 methods",
+      "tags": [
+        "java",
+        "security"
+      ],
+      "complexity": "medium",
+      "methods": 12
+    },
+    {
+      "id": "function:src/java/security/cert/X509CRLEntry.java:equals",
+      "type": "function",
+      "name": "equals",
+      "filePath": "src/java/security/cert/X509CRLEntry.java",
+      "summary": "Function equals",
+      "tags": [
+        "java",
+        "security"
+      ],
+      "complexity": "low"
+    },
+    {
+      "id": "file:src/java/security/cert/X509Certificate.java",
+      "type": "file",
+      "name": "X509Certificate.java",
+      "filePath": "src/java/security/cert/X509Certificate.java",
+      "summary": "X509Certificate.java - java code file",
+      "tags": [
+        "java",
+        "security"
+      ],
+      "complexity": "medium",
+      "sizeLines": 448,
+      "language": "java"
+    },
+    {
+      "id": "class:src/java/security/cert/X509Certificate.java:X509Certificate",
+      "type": "class",
+      "name": "X509Certificate",
+      "filePath": "src/java/security/cert/X509Certificate.java",
+      "summary": "Class X509Certificate with 22 methods",
+      "tags": [
+        "java",
+        "security"
+      ],
+      "complexity": "medium",
+      "methods": 22
+    },
+    {
+      "id": "file:src/java/security/cert/X509Extension.java",
+      "type": "file",
+      "name": "X509Extension.java",
+      "filePath": "src/java/security/cert/X509Extension.java",
+      "summary": "X509Extension.java - java code file",
+      "tags": [
+        "java",
+        "security"
+      ],
+      "complexity": "medium",
+      "sizeLines": 102,
+      "language": "java"
+    },
+    {
+      "id": "class:src/java/security/cert/X509Extension.java:X509Extension",
+      "type": "class",
+      "name": "X509Extension",
+      "filePath": "src/java/security/cert/X509Extension.java",
+      "summary": "Class X509Extension with 4 methods",
+      "tags": [
+        "java",
+        "security"
+      ],
+      "complexity": "low",
+      "methods": 4
+    },
+    {
+      "id": "file:src/java/sql/Array.java",
+      "type": "file",
+      "name": "Array.java",
+      "filePath": "src/java/sql/Array.java",
+      "summary": "Array.java - java code file",
+      "tags": [
+        "java",
+        "sql"
+      ],
+      "complexity": "medium",
+      "sizeLines": 226,
+      "language": "java"
+    },
+    {
+      "id": "class:src/java/sql/Array.java:Array",
+      "type": "class",
+      "name": "Array",
+      "filePath": "src/java/sql/Array.java",
+      "summary": "Class Array with 10 methods",
+      "tags": [
+        "java",
+        "sql"
+      ],
+      "complexity": "medium",
+      "methods": 10
+    },
+    {
+      "id": "file:src/java/sql/Connection.java",
+      "type": "file",
+      "name": "Connection.java",
+      "filePath": "src/java/sql/Connection.java",
+      "summary": "Connection.java - java code file",
+      "tags": [
+        "java",
+        "sql"
+      ],
+      "complexity": "medium",
+      "sizeLines": 451,
+      "language": "java"
+    },
+    {
+      "id": "class:src/java/sql/Connection.java:Connection",
+      "type": "class",
+      "name": "Connection",
+      "filePath": "src/java/sql/Connection.java",
+      "summary": "Class Connection with 24 methods",
+      "tags": [
+        "java",
+        "sql"
+      ],
+      "complexity": "medium",
+      "methods": 24
+    },
+    {
+      "id": "file:src/java/sql/Struct.java",
+      "type": "file",
+      "name": "Struct.java",
+      "filePath": "src/java/sql/Struct.java",
+      "summary": "Struct.java - java code file",
+      "tags": [
+        "java",
+        "sql"
+      ],
+      "complexity": "low",
+      "sizeLines": 80,
+      "language": "java"
+    },
+    {
+      "id": "class:src/java/sql/Struct.java:Struct",
+      "type": "class",
+      "name": "Struct",
+      "filePath": "src/java/sql/Struct.java",
+      "summary": "Class Struct with 3 methods",
+      "tags": [
+        "java",
+        "sql"
+      ],
+      "complexity": "low",
+      "methods": 3
+    },
+    {
+      "id": "file:src/java/text/AttributedCharacterIterator.java",
+      "type": "file",
+      "name": "AttributedCharacterIterator.java",
+      "filePath": "src/java/text/AttributedCharacterIterator.java",
+      "summary": "AttributedCharacterIterator.java - java code file",
+      "tags": [
+        "java",
+        "text"
+      ],
+      "complexity": "medium",
+      "sizeLines": 332,
+      "language": "java"
+    },
+    {
+      "id": "class:src/java/text/AttributedCharacterIterator.java:AttributedCharacterIterator",
+      "type": "class",
+      "name": "AttributedCharacterIterator",
+      "filePath": "src/java/text/AttributedCharacterIterator.java",
+      "summary": "Class AttributedCharacterIterator with 9 methods",
+      "tags": [
+        "java",
+        "text"
+      ],
+      "complexity": "medium",
+      "methods": 9
+    },
+    {
+      "id": "file:src/java/util/Map.java",
+      "type": "file",
+      "name": "Map.java",
+      "filePath": "src/java/util/Map.java",
+      "summary": "Map.java - java code file",
+      "tags": [
+        "java",
+        "util"
+      ],
+      "complexity": "low",
+      "sizeLines": 58,
+      "language": "java"
+    },
+    {
+      "id": "class:src/java/util/Map.java:Map",
+      "type": "class",
+      "name": "Map",
+      "filePath": "src/java/util/Map.java",
+      "summary": "Class Map with 14 methods",
+      "tags": [
+        "java",
+        "util"
+      ],
+      "complexity": "low",
+      "methods": 14
+    },
+    {
+      "id": "file:src/java/util/Set.java",
+      "type": "file",
+      "name": "Set.java",
+      "filePath": "src/java/util/Set.java",
+      "summary": "Set.java - java code file",
+      "tags": [
+        "java",
+        "util"
+      ],
+      "complexity": "low",
+      "sizeLines": 51,
+      "language": "java"
+    },
+    {
+      "id": "class:src/java/util/Set.java:Set",
+      "type": "class",
+      "name": "Set",
+      "filePath": "src/java/util/Set.java",
+      "summary": "Class Set with 14 methods",
+      "tags": [
+        "java",
+        "util"
+      ],
+      "complexity": "low",
+      "methods": 14
+    },
+    {
+      "id": "file:src/java/util/function/Function.java",
+      "type": "file",
+      "name": "Function.java",
+      "filePath": "src/java/util/function/Function.java",
+      "summary": "Function.java - java code file",
+      "tags": [
+        "java",
+        "util",
+        "function"
+      ],
+      "complexity": "low",
+      "sizeLines": 100,
+      "language": "java"
+    },
+    {
+      "id": "class:src/java/util/function/Function.java:Function",
+      "type": "class",
+      "name": "Function",
+      "filePath": "src/java/util/function/Function.java",
+      "summary": "Class Function with 4 methods",
+      "tags": [
+        "java",
+        "util",
+        "function"
+      ],
+      "complexity": "low",
+      "methods": 4
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/java/lang/invoke/BoundMethodHandle.java",
+      "target": "class:src/java/lang/invoke/BoundMethodHandle.java:BoundMethodHandle",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/lang/invoke/BoundMethodHandle.java",
+      "target": "function:src/java/lang/invoke/BoundMethodHandle.java:bindSingle",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/lang/invoke/BoundMethodHandle.java",
+      "target": "function:src/java/lang/invoke/BoundMethodHandle.java:arg",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/security/cert/X509CRLEntry.java",
+      "target": "class:src/java/security/cert/X509CRLEntry.java:X509CRLEntry",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/security/cert/X509CRLEntry.java",
+      "target": "class:src/java/security/cert/X509CRLEntry.java:X509CRLEntry",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/security/cert/X509CRLEntry.java",
+      "target": "function:src/java/security/cert/X509CRLEntry.java:equals",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/security/cert/X509CRLEntry.java",
+      "target": "function:src/java/security/cert/X509CRLEntry.java:equals",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/security/cert/X509Certificate.java",
+      "target": "class:src/java/security/cert/X509Certificate.java:X509Certificate",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/security/cert/X509Certificate.java",
+      "target": "class:src/java/security/cert/X509Certificate.java:X509Certificate",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/security/cert/X509Extension.java",
+      "target": "class:src/java/security/cert/X509Extension.java:X509Extension",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/security/cert/X509Extension.java",
+      "target": "class:src/java/security/cert/X509Extension.java:X509Extension",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/sql/Array.java",
+      "target": "class:src/java/sql/Array.java:Array",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/sql/Array.java",
+      "target": "class:src/java/sql/Array.java:Array",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/sql/Connection.java",
+      "target": "class:src/java/sql/Connection.java:Connection",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/sql/Connection.java",
+      "target": "class:src/java/sql/Connection.java:Connection",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/sql/Struct.java",
+      "target": "class:src/java/sql/Struct.java:Struct",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/sql/Struct.java",
+      "target": "class:src/java/sql/Struct.java:Struct",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/text/AttributedCharacterIterator.java",
+      "target": "class:src/java/text/AttributedCharacterIterator.java:AttributedCharacterIterator",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/text/AttributedCharacterIterator.java",
+      "target": "class:src/java/text/AttributedCharacterIterator.java:AttributedCharacterIterator",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/util/Map.java",
+      "target": "class:src/java/util/Map.java:Map",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/util/Map.java",
+      "target": "class:src/java/util/Map.java:Map",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/util/Set.java",
+      "target": "class:src/java/util/Set.java:Set",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/util/Set.java",
+      "target": "class:src/java/util/Set.java:Set",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/util/function/Function.java",
+      "target": "class:src/java/util/function/Function.java:Function",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/util/function/Function.java",
+      "target": "class:src/java/util/function/Function.java:Function",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/lang/invoke/BoundMethodHandle.java",
+      "target": "file:src/java/util/function/Function.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/java/lang/invoke/BoundMethodHandle.java",
+      "target": "file:src/java/util/Map.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/java/security/cert/X509CRLEntry.java",
+      "target": "file:src/java/util/Set.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/java/security/cert/X509Certificate.java",
+      "target": "file:src/java/security/Principal.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/java/security/cert/X509Certificate.java",
+      "target": "file:src/java/util/Set.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/java/security/cert/X509Extension.java",
+      "target": "file:src/java/util/Set.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/java/sql/Array.java",
+      "target": "file:src/java/util/Map.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/java/sql/Connection.java",
+      "target": "file:src/java/util/Map.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/java/sql/Struct.java",
+      "target": "file:src/java/util/Map.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/java/text/AttributedCharacterIterator.java",
+      "target": "file:src/java/io/Serializable.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/java/text/AttributedCharacterIterator.java",
+      "target": "file:src/java/util/Map.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/java/text/AttributedCharacterIterator.java",
+      "target": "file:src/java/util/Set.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

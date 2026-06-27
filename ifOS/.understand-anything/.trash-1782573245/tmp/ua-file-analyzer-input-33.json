@@ -1,0 +1,155 @@
+{
+  "projectRoot": "/Users/xuyi/Source/OS/armOS/lib/jcore/test/ifOS",
+  "batchFiles": [
+    {
+      "path": "src/jx/zero/rtc/package.bluej",
+      "language": "bluej",
+      "sizeLines": 27,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/zero/rtc/RTC.ctxt",
+      "language": "ctxt",
+      "sizeLines": 7,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/zero/rtc/RTC.java",
+      "language": "java",
+      "sizeLines": 22,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/zero/scheduler/package.bluej",
+      "language": "bluej",
+      "sizeLines": 27,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/zero/scheduler/SchedulerPortal.ctxt",
+      "language": "ctxt",
+      "sizeLines": 5,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/zero/scheduler/SchedulerPortal.java",
+      "language": "java",
+      "sizeLines": 6,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/zero/synch/mutex/BlockingLock.ctxt",
+      "language": "ctxt",
+      "sizeLines": 7,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/zero/synch/mutex/BlockingLock.java",
+      "language": "java",
+      "sizeLines": 6,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/zero/synch/mutex/package.bluej",
+      "language": "bluej",
+      "sizeLines": 27,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/zero/synch/nonblocking/package.bluej",
+      "language": "bluej",
+      "sizeLines": 27,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/zero/synch/nonblocking/Queue.ctxt",
+      "language": "ctxt",
+      "sizeLines": 7,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/zero/synch/nonblocking/Queue.java",
+      "language": "java",
+      "sizeLines": 6,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/zero/synch/package.bluej",
+      "language": "bluej",
+      "sizeLines": 32,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/zero/timer/package.bluej",
+      "language": "bluej",
+      "sizeLines": 57,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/zero/timer/SleepManager.ctxt",
+      "language": "ctxt",
+      "sizeLines": 9,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/zero/timer/SleepManager.java",
+      "language": "java",
+      "sizeLines": 16,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/zero/timer/Timer.ctxt",
+      "language": "ctxt",
+      "sizeLines": 7,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/zero/timer/Timer.java",
+      "language": "java",
+      "sizeLines": 6,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/zero/timer/TimerHandler.ctxt",
+      "language": "ctxt",
+      "sizeLines": 5,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/zero/timer/TimerHandler.java",
+      "language": "java",
+      "sizeLines": 7,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/zero/timer/TimerManager.ctxt",
+      "language": "ctxt",
+      "sizeLines": 23,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/zero/timer/TimerManager.java",
+      "language": "java",
+      "sizeLines": 17,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/zero/verifier/JVMLocalVarsElement.ctxt",
+      "language": "ctxt",
+      "sizeLines": 18,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/zero/verifier/JVMLocalVarsElement.java",
+      "language": "java",
+      "sizeLines": 38,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/zero/verifier/JVMOPStackElement.ctxt",
+      "language": "ctxt",
+      "sizeLines": 28,
+      "fileCategory": "code"
+    }
+  ]
+}

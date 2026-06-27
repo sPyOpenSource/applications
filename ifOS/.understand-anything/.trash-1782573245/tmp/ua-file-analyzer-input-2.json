@@ -1,0 +1,17 @@
+{
+  "projectRoot": "/Users/xuyi/Source/OS/armOS/lib/jcore/test/ifOS",
+  "batchFiles": [
+    {"path": "src/java/io/Serializable.java", "language": "java", "sizeLines": 4, "fileCategory": "code"},
+    {"path": "src/java/lang/Number.java", "language": "java", "sizeLines": 19, "fileCategory": "code"},
+    {"path": "src/java/security/Identity.java", "language": "java", "sizeLines": 358, "fileCategory": "code"},
+    {"path": "src/java/security/Key.java", "language": "java", "sizeLines": 97, "fileCategory": "code"},
+    {"path": "src/java/security/Permission.java", "language": "java", "sizeLines": 193, "fileCategory": "code"},
+    {"path": "src/java/security/Provider.java", "language": "java", "sizeLines": 208, "fileCategory": "code"},
+    {"path": "src/java/security/SecureRandomSpi.java", "language": "java", "sizeLines": 75, "fileCategory": "code"},
+    {"path": "src/java/text/Collator.java", "language": "java", "sizeLines": 473, "fileCategory": "code"},
+    {"path": "src/java/text/Format.java", "language": "java", "sizeLines": 167, "fileCategory": "code"},
+    {"path": "src/java/text/NumberFormat.java", "language": "java", "sizeLines": 633, "fileCategory": "code"},
+    {"path": "src/java/util/Comparator.java", "language": "java", "sizeLines": 64, "fileCategory": "code"},
+    {"path": "src/java/util/ResourceBundle.java", "language": "java", "sizeLines": 450, "fileCategory": "code"}
+  ]
+}

@@ -1,0 +1,725 @@
+{
+  "batchIndex": 8,
+  "nodes": [
+    {
+      "id": "file:src/jx/zero/ByteCode.java",
+      "type": "file",
+      "label": "ByteCode.java",
+      "properties": {
+        "path": "src/jx/zero/ByteCode.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 340,
+        "nonEmptyLines": 327
+      }
+    },
+    {
+      "id": "class:src/jx/zero/ByteCode.java::ByteCode",
+      "type": "class",
+      "label": "ByteCode",
+      "properties": {
+        "name": "ByteCode",
+        "startLine": 9,
+        "endLine": 340,
+        "methods": [
+          "getPrev",
+          "getNext",
+          "isTarget",
+          "mvCheckCount",
+          "svCheckCount",
+          "getOpCode",
+          "getTargets",
+          "getSources",
+          "mvCheckCount",
+          "getAddress",
+          "svCheckCount"
+        ],
+        "properties": [
+          "OPNAMES",
+          "OPNUMARGS",
+          "NOP",
+          "ACONST_NULL",
+          "ICONST_M1",
+          "ICONST_0",
+          "ICONST_1",
+          "ICONST_2",
+          "ICONST_3",
+          "ICONST_4",
+          "ICONST_5",
+          "LCONST_0",
+          "LCONST_1",
+          "FCONST_0",
+          "FCONST_1",
+          "FCONST_2",
+          "DCONST_0",
+          "DCONST_1",
+          "BIPUSH",
+          "SIPUSH",
+          "LDC",
+          "LDC_W",
+          "LDC2_W",
+          "ILOAD",
+          "LLOAD",
+          "FLOAD",
+          "DLOAD",
+          "ALOAD",
+          "ILOAD_0",
+          "ILOAD_1",
+          "ILOAD_2",
+          "ILOAD_3",
+          "LLOAD_0",
+          "LLOAD_1",
+          "LLOAD_2",
+          "LLOAD_3",
+          "FLOAD_0",
+          "FLOAD_1",
+          "FLOAD_2",
+          "FLOAD_3",
+          "DLOAD_0",
+          "DLOAD_1",
+          "DLOAD_2",
+          "DLOAD_3",
+          "ALOAD_0",
+          "ALOAD_1",
+          "ALOAD_2",
+          "ALOAD_3",
+          "IALOAD",
+          "LALOAD",
+          "FALOAD",
+          "DALOAD",
+          "AALOAD",
+          "BALOAD",
+          "CALOAD",
+          "SALOAD",
+          "ISTORE",
+          "LSTORE",
+          "FSTORE",
+          "DSTORE",
+          "ASTORE",
+          "ISTORE_0",
+          "ISTORE_1",
+          "ISTORE_2",
+          "ISTORE_3",
+          "LSTORE_0",
+          "LSTORE_1",
+          "LSTORE_2",
+          "LSTORE_3",
+          "FSTORE_0",
+          "FSTORE_1",
+          "FSTORE_2",
+          "FSTORE_3",
+          "DSTORE_0",
+          "DSTORE_1",
+          "DSTORE_2",
+          "DSTORE_3",
+          "ASTORE_0",
+          "ASTORE_1",
+          "ASTORE_2",
+          "ASTORE_3",
+          "IASTORE",
+          "LASTORE",
+          "FASTORE",
+          "DASTORE",
+          "AASTORE",
+          "BASTORE",
+          "CASTORE",
+          "SASTORE",
+          "POP",
+          "POP2",
+          "DUP",
+          "DUP_X1",
+          "DUP_X2",
+          "DUP2",
+          "DUP2_X1",
+          "DUP2_X2",
+          "SWAP",
+          "IADD",
+          "LADD",
+          "FADD",
+          "DADD",
+          "ISUB",
+          "LSUB",
+          "FSUB",
+          "DSUB",
+          "IMUL",
+          "LMUL",
+          "FMUL",
+          "DMUL",
+          "IDIV",
+          "LDIV",
+          "FDIV",
+          "DDIV",
+          "IREM",
+          "LREM",
+          "FREM",
+          "DREM",
+          "INEG",
+          "LNEG",
+          "FNEG",
+          "DNEG",
+          "ISHL",
+          "LSHL",
+          "ISHR",
+          "LSHR",
+          "IUSHR",
+          "LUSHR",
+          "IAND",
+          "LAND",
+          "IOR",
+          "LOR",
+          "IXOR",
+          "LXOR",
+          "IINC",
+          "I2L",
+          "I2F",
+          "I2D",
+          "L2I",
+          "L2F",
+          "L2D",
+          "F2I",
+          "F2L",
+          "F2D",
+          "D2I",
+          "D2L",
+          "D2F",
+          "I2B",
+          "I2C",
+          "I2S",
+          "LCMP",
+          "FCMPL",
+          "FCMPG",
+          "DCMPL",
+          "DCMPG",
+          "IFEQ",
+          "IFNE",
+          "IFLT",
+          "IFGE",
+          "IFGT",
+          "IFLE",
+          "IF_ICMPEQ",
+          "IF_ICMPNE",
+          "IF_ICMPLT",
+          "IF_ICMPGE",
+          "IF_ICMPGT",
+          "IF_ICMPLE",
+          "IF_ACMPEQ",
+          "IF_ACMPNE",
+          "GOTO",
+          "JSR",
+          "RET",
+          "TABLESWITCH",
+          "LOOKUPSWITCH",
+          "IRETURN",
+          "LRETURN",
+          "FRETURN",
+          "DRETURN",
+          "ARETURN",
+          "RETURN",
+          "GETSTATIC",
+          "PUTSTATIC",
+          "GETFIELD",
+          "PUTFIELD",
+          "INVOKEVIRTUAL",
+          "INVOKESPECIAL",
+          "INVOKESTATIC",
+          "INVOKEINTERFACE",
+          "NEW",
+          "NEWARRAY",
+          "ANEWARRAY",
+          "ARRAYLENGTH",
+          "ATHROW",
+          "CHECKCAST",
+          "INSTANCEOF",
+          "MONITORENTER",
+          "MONITOREXIT",
+          "WIDE",
+          "MULTIANEWARRAY",
+          "IFNULL",
+          "IFNONNULL",
+          "GOTO_W",
+          "JSR_W"
+        ]
+      }
+    },
+    {
+      "id": "file:src/jx/zero/classfile/MethodSource.java",
+      "type": "file",
+      "label": "MethodSource.java",
+      "properties": {
+        "path": "src/jx/zero/classfile/MethodSource.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 30,
+        "nonEmptyLines": 26
+      }
+    },
+    {
+      "id": "class:src/jx/zero/classfile/MethodSource.java::MethodSource",
+      "type": "class",
+      "label": "MethodSource",
+      "properties": {
+        "name": "MethodSource",
+        "startLine": 8,
+        "endLine": 30,
+        "methods": [
+          "getDeclaringClassSource",
+          "getMethodName",
+          "getMethodType",
+          "isPublic",
+          "isPrivate",
+          "isProtected",
+          "isStatic",
+          "isFinal",
+          "isAbstract",
+          "isNative",
+          "getBytecode",
+          "getNumInstr",
+          "getNumLocalVariables",
+          "getNumStackSlots",
+          "getExceptionHandlers",
+          "getLineNumberTable",
+          "getVerifyResult",
+          "setVerifyResult"
+        ],
+        "properties": []
+      }
+    },
+    {
+      "id": "function:src/jx/zero/classfile/MethodSource.java::getDeclaringClassSource",
+      "type": "function",
+      "label": "getDeclaringClassSource",
+      "properties": {
+        "name": "getDeclaringClassSource",
+        "startLine": 9,
+        "endLine": 9,
+        "params": []
+      }
+    },
+    {
+      "id": "function:src/jx/zero/classfile/MethodSource.java::getMethodName",
+      "type": "function",
+      "label": "getMethodName",
+      "properties": {
+        "name": "getMethodName",
+        "startLine": 10,
+        "endLine": 10,
+        "params": []
+      }
+    },
+    {
+      "id": "function:src/jx/zero/classfile/MethodSource.java::getMethodType",
+      "type": "function",
+      "label": "getMethodType",
+      "properties": {
+        "name": "getMethodType",
+        "startLine": 11,
+        "endLine": 11,
+        "params": []
+      }
+    },
+    {
+      "id": "function:src/jx/zero/classfile/MethodSource.java::isPublic",
+      "type": "function",
+      "label": "isPublic",
+      "properties": {
+        "name": "isPublic",
+        "startLine": 13,
+        "endLine": 13,
+        "params": []
+      }
+    },
+    {
+      "id": "function:src/jx/zero/classfile/MethodSource.java::isPrivate",
+      "type": "function",
+      "label": "isPrivate",
+      "properties": {
+        "name": "isPrivate",
+        "startLine": 14,
+        "endLine": 14,
+        "params": []
+      }
+    },
+    {
+      "id": "function:src/jx/zero/classfile/MethodSource.java::isProtected",
+      "type": "function",
+      "label": "isProtected",
+      "properties": {
+        "name": "isProtected",
+        "startLine": 15,
+        "endLine": 15,
+        "params": []
+      }
+    },
+    {
+      "id": "function:src/jx/zero/classfile/MethodSource.java::isStatic",
+      "type": "function",
+      "label": "isStatic",
+      "properties": {
+        "name": "isStatic",
+        "startLine": 16,
+        "endLine": 16,
+        "params": []
+      }
+    },
+    {
+      "id": "function:src/jx/zero/classfile/MethodSource.java::isFinal",
+      "type": "function",
+      "label": "isFinal",
+      "properties": {
+        "name": "isFinal",
+        "startLine": 17,
+        "endLine": 17,
+        "params": []
+      }
+    },
+    {
+      "id": "function:src/jx/zero/classfile/MethodSource.java::isAbstract",
+      "type": "function",
+      "label": "isAbstract",
+      "properties": {
+        "name": "isAbstract",
+        "startLine": 18,
+        "endLine": 18,
+        "params": []
+      }
+    },
+    {
+      "id": "function:src/jx/zero/classfile/MethodSource.java::isNative",
+      "type": "function",
+      "label": "isNative",
+      "properties": {
+        "name": "isNative",
+        "startLine": 19,
+        "endLine": 19,
+        "params": []
+      }
+    },
+    {
+      "id": "function:src/jx/zero/classfile/MethodSource.java::getBytecode",
+      "type": "function",
+      "label": "getBytecode",
+      "properties": {
+        "name": "getBytecode",
+        "startLine": 21,
+        "endLine": 21,
+        "params": []
+      }
+    },
+    {
+      "id": "function:src/jx/zero/classfile/MethodSource.java::getNumInstr",
+      "type": "function",
+      "label": "getNumInstr",
+      "properties": {
+        "name": "getNumInstr",
+        "startLine": 22,
+        "endLine": 22,
+        "params": []
+      }
+    },
+    {
+      "id": "function:src/jx/zero/classfile/MethodSource.java::getNumLocalVariables",
+      "type": "function",
+      "label": "getNumLocalVariables",
+      "properties": {
+        "name": "getNumLocalVariables",
+        "startLine": 23,
+        "endLine": 23,
+        "params": []
+      }
+    },
+    {
+      "id": "function:src/jx/zero/classfile/MethodSource.java::getNumStackSlots",
+      "type": "function",
+      "label": "getNumStackSlots",
+      "properties": {
+        "name": "getNumStackSlots",
+        "startLine": 24,
+        "endLine": 24,
+        "params": []
+      }
+    },
+    {
+      "id": "function:src/jx/zero/classfile/MethodSource.java::getExceptionHandlers",
+      "type": "function",
+      "label": "getExceptionHandlers",
+      "properties": {
+        "name": "getExceptionHandlers",
+        "startLine": 25,
+        "endLine": 25,
+        "params": []
+      }
+    },
+    {
+      "id": "function:src/jx/zero/classfile/MethodSource.java::getLineNumberTable",
+      "type": "function",
+      "label": "getLineNumberTable",
+      "properties": {
+        "name": "getLineNumberTable",
+        "startLine": 26,
+        "endLine": 26,
+        "params": []
+      }
+    },
+    {
+      "id": "function:src/jx/zero/classfile/MethodSource.java::getVerifyResult",
+      "type": "function",
+      "label": "getVerifyResult",
+      "properties": {
+        "name": "getVerifyResult",
+        "startLine": 28,
+        "endLine": 28,
+        "params": [
+          "type"
+        ]
+      }
+    },
+    {
+      "id": "function:src/jx/zero/classfile/MethodSource.java::setVerifyResult",
+      "type": "function",
+      "label": "setVerifyResult",
+      "properties": {
+        "name": "setVerifyResult",
+        "startLine": 29,
+        "endLine": 29,
+        "params": [
+          "newElm"
+        ]
+      }
+    },
+    {
+      "id": "file:src/jx/zero/verifier/VerifierInterface.java",
+      "type": "file",
+      "label": "VerifierInterface.java",
+      "properties": {
+        "path": "src/jx/zero/verifier/VerifierInterface.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 17,
+        "nonEmptyLines": 15
+      }
+    },
+    {
+      "id": "class:src/jx/zero/verifier/VerifierInterface.java::VerifierInterface",
+      "type": "class",
+      "label": "VerifierInterface",
+      "properties": {
+        "name": "VerifierInterface",
+        "startLine": 6,
+        "endLine": 17,
+        "methods": [
+          "runChecks",
+          "checkBC",
+          "getSrs",
+          "getClassName",
+          "getMethod",
+          "endChecks",
+          "getParameter"
+        ],
+        "properties": []
+      }
+    },
+    {
+      "id": "file:src/jx/zero/verifier/wcet/ExecutionTime.java",
+      "type": "file",
+      "label": "ExecutionTime.java",
+      "properties": {
+        "path": "src/jx/zero/verifier/wcet/ExecutionTime.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 26,
+        "nonEmptyLines": 23
+      }
+    },
+    {
+      "id": "class:src/jx/zero/verifier/wcet/ExecutionTime.java::ExecutionTime",
+      "type": "class",
+      "label": "ExecutionTime",
+      "properties": {
+        "name": "ExecutionTime",
+        "startLine": 7,
+        "endLine": 26,
+        "methods": [
+          "add",
+          "max",
+          "addTimeOfBC",
+          "copy",
+          "limitExceeded",
+          "setTimeLimit",
+          "getTimeLimit",
+          "useAllTime",
+          "timeLeft"
+        ],
+        "properties": []
+      }
+    },
+    {
+      "id": "file:src/jx/zero/verifier/wcet/ValueProvider.java",
+      "type": "file",
+      "label": "ValueProvider.java",
+      "properties": {
+        "path": "src/jx/zero/verifier/wcet/ValueProvider.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 69,
+        "nonEmptyLines": 62
+      }
+    },
+    {
+      "id": "class:src/jx/zero/verifier/wcet/ValueProvider.java::ValueProvider",
+      "type": "class",
+      "label": "ValueProvider",
+      "properties": {
+        "name": "ValueProvider",
+        "startLine": 7,
+        "endLine": 69,
+        "methods": [
+          "valueAvailable",
+          "getIntField",
+          "invokeIntMethod",
+          "getMethodWCET",
+          "providesMethodWCET",
+          "setContext",
+          "getMethodArgument"
+        ],
+        "properties": []
+      }
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/jx/zero/ByteCode.java",
+      "target": "class:src/jx/zero/ByteCode.java::ByteCode",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/jx/zero/classfile/MethodSource.java",
+      "target": "class:src/jx/zero/classfile/MethodSource.java::MethodSource",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/jx/zero/classfile/MethodSource.java",
+      "target": "function:src/jx/zero/classfile/MethodSource.java::getDeclaringClassSource",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/jx/zero/classfile/MethodSource.java",
+      "target": "function:src/jx/zero/classfile/MethodSource.java::getMethodName",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/jx/zero/classfile/MethodSource.java",
+      "target": "function:src/jx/zero/classfile/MethodSource.java::getMethodType",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/jx/zero/classfile/MethodSource.java",
+      "target": "function:src/jx/zero/classfile/MethodSource.java::isPublic",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/jx/zero/classfile/MethodSource.java",
+      "target": "function:src/jx/zero/classfile/MethodSource.java::isPrivate",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/jx/zero/classfile/MethodSource.java",
+      "target": "function:src/jx/zero/classfile/MethodSource.java::isProtected",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/jx/zero/classfile/MethodSource.java",
+      "target": "function:src/jx/zero/classfile/MethodSource.java::isStatic",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/jx/zero/classfile/MethodSource.java",
+      "target": "function:src/jx/zero/classfile/MethodSource.java::isFinal",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/jx/zero/classfile/MethodSource.java",
+      "target": "function:src/jx/zero/classfile/MethodSource.java::isAbstract",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/jx/zero/classfile/MethodSource.java",
+      "target": "function:src/jx/zero/classfile/MethodSource.java::isNative",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/jx/zero/classfile/MethodSource.java",
+      "target": "function:src/jx/zero/classfile/MethodSource.java::getBytecode",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/jx/zero/classfile/MethodSource.java",
+      "target": "function:src/jx/zero/classfile/MethodSource.java::getNumInstr",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/jx/zero/classfile/MethodSource.java",
+      "target": "function:src/jx/zero/classfile/MethodSource.java::getNumLocalVariables",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/jx/zero/classfile/MethodSource.java",
+      "target": "function:src/jx/zero/classfile/MethodSource.java::getNumStackSlots",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/jx/zero/classfile/MethodSource.java",
+      "target": "function:src/jx/zero/classfile/MethodSource.java::getExceptionHandlers",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/jx/zero/classfile/MethodSource.java",
+      "target": "function:src/jx/zero/classfile/MethodSource.java::getLineNumberTable",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/jx/zero/classfile/MethodSource.java",
+      "target": "function:src/jx/zero/classfile/MethodSource.java::getVerifyResult",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/jx/zero/classfile/MethodSource.java",
+      "target": "function:src/jx/zero/classfile/MethodSource.java::setVerifyResult",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/jx/zero/verifier/VerifierInterface.java",
+      "target": "class:src/jx/zero/verifier/VerifierInterface.java::VerifierInterface",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/jx/zero/verifier/wcet/ExecutionTime.java",
+      "target": "class:src/jx/zero/verifier/wcet/ExecutionTime.java::ExecutionTime",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/jx/zero/verifier/wcet/ValueProvider.java",
+      "target": "class:src/jx/zero/verifier/wcet/ValueProvider.java::ValueProvider",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/jx/zero/verifier/VerifierInterface.java",
+      "target": "file:src/jx/zero/ByteCode.java",
+      "relation": "imports"
+    },
+    {
+      "source": "file:src/jx/zero/verifier/VerifierInterface.java",
+      "target": "file:src/jx/zero/classfile/MethodSource.java",
+      "relation": "imports"
+    },
+    {
+      "source": "file:src/jx/zero/verifier/wcet/ExecutionTime.java",
+      "target": "file:src/jx/zero/ByteCode.java",
+      "relation": "imports"
+    },
+    {
+      "source": "file:src/jx/zero/verifier/wcet/ValueProvider.java",
+      "target": "file:src/jx/zero/ByteCode.java",
+      "relation": "imports"
+    }
+  ]
+}

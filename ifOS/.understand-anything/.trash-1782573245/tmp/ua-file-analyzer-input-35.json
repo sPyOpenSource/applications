@@ -1,0 +1,11 @@
+{
+  "projectRoot": "/Users/xuyi/Source/OS/armOS/lib/jcore/test/ifOS",
+  "batchFiles": [
+    {
+      "path": "src/README.TXT",
+      "language": "txt",
+      "sizeLines": 0,
+      "fileCategory": "docs"
+    }
+  ]
+}

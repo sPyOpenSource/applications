@@ -1,0 +1,994 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 6,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "src/gnu/java/io/encode/Encoder.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 343,
+      "nonEmptyLines": 293,
+      "functions": [
+        {
+          "name": "getSchemeName",
+          "startLine": 107,
+          "endLine": 111,
+          "params": []
+        },
+        {
+          "name": "getSchemeDescription",
+          "startLine": 121,
+          "endLine": 125,
+          "params": []
+        },
+        {
+          "name": "Encoder",
+          "startLine": 139,
+          "endLine": 143,
+          "params": [
+            "out"
+          ]
+        },
+        {
+          "name": "bytesInCharArray",
+          "startLine": 166,
+          "endLine": 170,
+          "params": [
+            "buf"
+          ]
+        },
+        {
+          "name": "bytesInCharArray",
+          "startLine": 192,
+          "endLine": 193,
+          "params": [
+            "buf",
+            "offset",
+            "len"
+          ]
+        },
+        {
+          "name": "convertToBytes",
+          "startLine": 207,
+          "endLine": 211,
+          "params": [
+            "buf"
+          ]
+        },
+        {
+          "name": "convertToBytes",
+          "startLine": 228,
+          "endLine": 234,
+          "params": [
+            "buf",
+            "offset",
+            "len"
+          ]
+        },
+        {
+          "name": "convertToBytes",
+          "startLine": 256,
+          "endLine": 261,
+          "params": [
+            "buf",
+            "bbuf",
+            "bbuf_offset"
+          ]
+        },
+        {
+          "name": "convertToBytes",
+          "startLine": 286,
+          "endLine": 288,
+          "params": [
+            "buf",
+            "buf_offset",
+            "len",
+            "bbuf",
+            "bbuf_offset"
+          ]
+        },
+        {
+          "name": "close",
+          "startLine": 297,
+          "endLine": 302,
+          "params": []
+        },
+        {
+          "name": "flush",
+          "startLine": 311,
+          "endLine": 316,
+          "params": []
+        },
+        {
+          "name": "setBadCharValue",
+          "startLine": 331,
+          "endLine": 340,
+          "params": [
+            "bad_char"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Encoder",
+          "startLine": 53,
+          "endLine": 342,
+          "methods": [
+            "getSchemeName",
+            "getSchemeDescription",
+            "Encoder",
+            "bytesInCharArray",
+            "bytesInCharArray",
+            "convertToBytes",
+            "convertToBytes",
+            "convertToBytes",
+            "convertToBytes",
+            "close",
+            "flush",
+            "setBadCharValue"
+          ],
+          "properties": [
+            "scheme_name",
+            "scheme_description",
+            "out",
+            "bad_char",
+            "bad_char_set"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "getSchemeName",
+          "line": 107,
+          "isDefault": false
+        },
+        {
+          "name": "getSchemeDescription",
+          "line": 121,
+          "isDefault": false
+        },
+        {
+          "name": "Encoder",
+          "line": 139,
+          "isDefault": false
+        },
+        {
+          "name": "bytesInCharArray",
+          "line": 166,
+          "isDefault": false
+        },
+        {
+          "name": "bytesInCharArray",
+          "line": 192,
+          "isDefault": false
+        },
+        {
+          "name": "convertToBytes",
+          "line": 207,
+          "isDefault": false
+        },
+        {
+          "name": "convertToBytes",
+          "line": 228,
+          "isDefault": false
+        },
+        {
+          "name": "convertToBytes",
+          "line": 256,
+          "isDefault": false
+        },
+        {
+          "name": "convertToBytes",
+          "line": 286,
+          "isDefault": false
+        },
+        {
+          "name": "close",
+          "line": 297,
+          "isDefault": false
+        },
+        {
+          "name": "flush",
+          "line": 311,
+          "isDefault": false
+        },
+        {
+          "name": "setBadCharValue",
+          "line": 331,
+          "isDefault": false
+        },
+        {
+          "name": "Encoder",
+          "line": 53,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "bytesInCharArray",
+          "callee": "bytesInCharArray",
+          "lineNumber": 169
+        },
+        {
+          "caller": "convertToBytes",
+          "callee": "convertToBytes",
+          "lineNumber": 210
+        },
+        {
+          "caller": "convertToBytes",
+          "callee": "bytesInCharArray",
+          "lineNumber": 231
+        },
+        {
+          "caller": "convertToBytes",
+          "callee": "convertToBytes",
+          "lineNumber": 233
+        },
+        {
+          "caller": "convertToBytes",
+          "callee": "convertToBytes",
+          "lineNumber": 260
+        },
+        {
+          "caller": "close",
+          "callee": "out.close",
+          "lineNumber": 301
+        },
+        {
+          "caller": "flush",
+          "callee": "out.flush",
+          "lineNumber": 315
+        },
+        {
+          "caller": "setBadCharValue",
+          "callee": "convertToBytes",
+          "lineNumber": 336
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 13,
+        "functionCount": 12,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/gnu/java/io/encode/EncoderEightBitLookup.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 187,
+      "nonEmptyLines": 157,
+      "functions": [
+        {
+          "name": "loadTable",
+          "startLine": 91,
+          "endLine": 102,
+          "params": []
+        },
+        {
+          "name": "EncoderEightBitLookup",
+          "startLine": 109,
+          "endLine": 113,
+          "params": [
+            "out"
+          ]
+        },
+        {
+          "name": "bytesInCharArray",
+          "startLine": 127,
+          "endLine": 132,
+          "params": [
+            "buf",
+            "offset",
+            "len"
+          ]
+        },
+        {
+          "name": "convertToBytes",
+          "startLine": 139,
+          "endLine": 169,
+          "params": [
+            "buf",
+            "buf_offset",
+            "len",
+            "bbuf",
+            "bbuf_offset"
+          ]
+        },
+        {
+          "name": "write",
+          "startLine": 177,
+          "endLine": 185,
+          "params": [
+            "buf",
+            "offset",
+            "len"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "EncoderEightBitLookup",
+          "startLine": 57,
+          "endLine": 187,
+          "methods": [
+            "loadTable",
+            "EncoderEightBitLookup",
+            "bytesInCharArray",
+            "convertToBytes",
+            "write"
+          ],
+          "properties": [
+            "lookup_table",
+            "encoding_table"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "EncoderEightBitLookup",
+          "line": 109,
+          "isDefault": false
+        },
+        {
+          "name": "bytesInCharArray",
+          "line": 127,
+          "isDefault": false
+        },
+        {
+          "name": "convertToBytes",
+          "line": 139,
+          "isDefault": false
+        },
+        {
+          "name": "write",
+          "line": 177,
+          "isDefault": false
+        },
+        {
+          "name": "EncoderEightBitLookup",
+          "line": 57,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "convertToBytes",
+          "callee": "new CharConversionException",
+          "lineNumber": 158
+        },
+        {
+          "caller": "write",
+          "callee": "convertToBytes",
+          "lineNumber": 183
+        },
+        {
+          "caller": "write",
+          "callee": "out.write",
+          "lineNumber": 184
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 5,
+        "functionCount": 5,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/io/OutputStream.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 31,
+      "nonEmptyLines": 23,
+      "functions": [
+        {
+          "name": "close",
+          "startLine": 5,
+          "endLine": 7,
+          "params": []
+        },
+        {
+          "name": "flush",
+          "startLine": 9,
+          "endLine": 11,
+          "params": []
+        },
+        {
+          "name": "write",
+          "startLine": 13,
+          "endLine": 13,
+          "params": [
+            "b"
+          ]
+        },
+        {
+          "name": "write",
+          "startLine": 15,
+          "endLine": 19,
+          "params": [
+            "b",
+            "off",
+            "len"
+          ]
+        },
+        {
+          "name": "write",
+          "startLine": 21,
+          "endLine": 24,
+          "params": [
+            "b"
+          ]
+        },
+        {
+          "name": "OutputStream",
+          "startLine": 26,
+          "endLine": 28,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "OutputStream",
+          "startLine": 3,
+          "endLine": 29,
+          "methods": [
+            "close",
+            "flush",
+            "write",
+            "write",
+            "write",
+            "OutputStream"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "close",
+          "line": 5,
+          "isDefault": false
+        },
+        {
+          "name": "flush",
+          "line": 9,
+          "isDefault": false
+        },
+        {
+          "name": "write",
+          "line": 13,
+          "isDefault": false
+        },
+        {
+          "name": "write",
+          "line": 15,
+          "isDefault": false
+        },
+        {
+          "name": "write",
+          "line": 21,
+          "isDefault": false
+        },
+        {
+          "name": "OutputStream",
+          "line": 26,
+          "isDefault": false
+        },
+        {
+          "name": "OutputStream",
+          "line": 3,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "write",
+          "callee": "write",
+          "lineNumber": 18
+        },
+        {
+          "caller": "write",
+          "callee": "write",
+          "lineNumber": 23
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 7,
+        "functionCount": 6,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/io/Writer.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 205,
+      "nonEmptyLines": 171,
+      "functions": [
+        {
+          "name": "Writer",
+          "startLine": 63,
+          "endLine": 67,
+          "params": []
+        },
+        {
+          "name": "Writer",
+          "startLine": 77,
+          "endLine": 81,
+          "params": [
+            "lock"
+          ]
+        },
+        {
+          "name": "flush",
+          "startLine": 98,
+          "endLine": 99,
+          "params": []
+        },
+        {
+          "name": "close",
+          "startLine": 112,
+          "endLine": 113,
+          "params": []
+        },
+        {
+          "name": "write",
+          "startLine": 124,
+          "endLine": 131,
+          "params": [
+            "b"
+          ]
+        },
+        {
+          "name": "write",
+          "startLine": 144,
+          "endLine": 148,
+          "params": [
+            "buf"
+          ]
+        },
+        {
+          "name": "write",
+          "startLine": 164,
+          "endLine": 165,
+          "params": [
+            "buf",
+            "offset",
+            "len"
+          ]
+        },
+        {
+          "name": "write",
+          "startLine": 177,
+          "endLine": 181,
+          "params": [
+            "str"
+          ]
+        },
+        {
+          "name": "write",
+          "startLine": 195,
+          "endLine": 202,
+          "params": [
+            "str",
+            "offset",
+            "len"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Writer",
+          "startLine": 41,
+          "endLine": 204,
+          "methods": [
+            "Writer",
+            "Writer",
+            "flush",
+            "close",
+            "write",
+            "write",
+            "write",
+            "write",
+            "write"
+          ],
+          "properties": [
+            "lock"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "flush",
+          "line": 98,
+          "isDefault": false
+        },
+        {
+          "name": "close",
+          "line": 112,
+          "isDefault": false
+        },
+        {
+          "name": "write",
+          "line": 124,
+          "isDefault": false
+        },
+        {
+          "name": "write",
+          "line": 144,
+          "isDefault": false
+        },
+        {
+          "name": "write",
+          "line": 164,
+          "isDefault": false
+        },
+        {
+          "name": "write",
+          "line": 177,
+          "isDefault": false
+        },
+        {
+          "name": "write",
+          "line": 195,
+          "isDefault": false
+        },
+        {
+          "name": "Writer",
+          "line": 41,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "write",
+          "callee": "write",
+          "lineNumber": 130
+        },
+        {
+          "caller": "write",
+          "callee": "write",
+          "lineNumber": 147
+        },
+        {
+          "caller": "write",
+          "callee": "write",
+          "lineNumber": 180
+        },
+        {
+          "caller": "write",
+          "callee": "str.length",
+          "lineNumber": 180
+        },
+        {
+          "caller": "write",
+          "callee": "str.getChars",
+          "lineNumber": 200
+        },
+        {
+          "caller": "write",
+          "callee": "write",
+          "lineNumber": 201
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 8,
+        "functionCount": 9,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/security/Certificate.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 134,
+      "nonEmptyLines": 110,
+      "classes": [
+        {
+          "name": "Certificate",
+          "startLine": 49,
+          "endLine": 133,
+          "methods": [
+            "getGuarantor",
+            "getPrincipal",
+            "getPublicKey",
+            "getFormat",
+            "encode",
+            "decode",
+            "toString"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "Certificate",
+          "line": 49,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/security/KeyStoreSpi.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 254,
+      "nonEmptyLines": 192,
+      "functions": [
+        {
+          "name": "KeyStoreSpi",
+          "startLine": 51,
+          "endLine": 52,
+          "params": []
+        },
+        {
+          "name": "engineGetKey",
+          "startLine": 68,
+          "endLine": 70,
+          "params": [
+            "alias",
+            "password"
+          ]
+        },
+        {
+          "name": "engineGetCertificateChain",
+          "startLine": 83,
+          "endLine": 83,
+          "params": [
+            "alias"
+          ]
+        },
+        {
+          "name": "engineGetCertificate",
+          "startLine": 98,
+          "endLine": 98,
+          "params": [
+            "alias"
+          ]
+        },
+        {
+          "name": "engineGetCreationDate",
+          "startLine": 107,
+          "endLine": 107,
+          "params": [
+            "alias"
+          ]
+        },
+        {
+          "name": "engineSetKeyEntry",
+          "startLine": 123,
+          "endLine": 124,
+          "params": [
+            "alias",
+            "key",
+            "password",
+            "chain"
+          ]
+        },
+        {
+          "name": "engineSetKeyEntry",
+          "startLine": 139,
+          "endLine": 140,
+          "params": [
+            "alias",
+            "key",
+            "chain"
+          ]
+        },
+        {
+          "name": "engineSetCertificateEntry",
+          "startLine": 152,
+          "endLine": 153,
+          "params": [
+            "alias",
+            "cert"
+          ]
+        },
+        {
+          "name": "engineDeleteEntry",
+          "startLine": 162,
+          "endLine": 163,
+          "params": [
+            "alias"
+          ]
+        },
+        {
+          "name": "engineAliases",
+          "startLine": 170,
+          "endLine": 170,
+          "params": []
+        },
+        {
+          "name": "engineContainsAlias",
+          "startLine": 179,
+          "endLine": 179,
+          "params": [
+            "alias"
+          ]
+        },
+        {
+          "name": "engineSize",
+          "startLine": 186,
+          "endLine": 186,
+          "params": []
+        },
+        {
+          "name": "engineIsKeyEntry",
+          "startLine": 196,
+          "endLine": 196,
+          "params": [
+            "alias"
+          ]
+        },
+        {
+          "name": "engineIsCertificateEntry",
+          "startLine": 206,
+          "endLine": 206,
+          "params": [
+            "alias"
+          ]
+        },
+        {
+          "name": "engineGetCertificateAlias",
+          "startLine": 220,
+          "endLine": 220,
+          "params": [
+            "cert"
+          ]
+        },
+        {
+          "name": "engineStore",
+          "startLine": 235,
+          "endLine": 236,
+          "params": [
+            "stream",
+            "password"
+          ]
+        },
+        {
+          "name": "engineLoad",
+          "startLine": 252,
+          "endLine": 253,
+          "params": [
+            "stream",
+            "password"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "KeyStoreSpi",
+          "startLine": 45,
+          "endLine": 254,
+          "methods": [
+            "KeyStoreSpi",
+            "engineGetKey",
+            "engineGetCertificateChain",
+            "engineGetCertificate",
+            "engineGetCreationDate",
+            "engineSetKeyEntry",
+            "engineSetKeyEntry",
+            "engineSetCertificateEntry",
+            "engineDeleteEntry",
+            "engineAliases",
+            "engineContainsAlias",
+            "engineSize",
+            "engineIsKeyEntry",
+            "engineIsCertificateEntry",
+            "engineGetCertificateAlias",
+            "engineStore",
+            "engineLoad"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "KeyStoreSpi",
+          "line": 51,
+          "isDefault": false
+        },
+        {
+          "name": "engineGetKey",
+          "line": 68,
+          "isDefault": false
+        },
+        {
+          "name": "engineGetCertificateChain",
+          "line": 83,
+          "isDefault": false
+        },
+        {
+          "name": "engineGetCertificate",
+          "line": 98,
+          "isDefault": false
+        },
+        {
+          "name": "engineGetCreationDate",
+          "line": 107,
+          "isDefault": false
+        },
+        {
+          "name": "engineSetKeyEntry",
+          "line": 123,
+          "isDefault": false
+        },
+        {
+          "name": "engineSetKeyEntry",
+          "line": 139,
+          "isDefault": false
+        },
+        {
+          "name": "engineSetCertificateEntry",
+          "line": 152,
+          "isDefault": false
+        },
+        {
+          "name": "engineDeleteEntry",
+          "line": 162,
+          "isDefault": false
+        },
+        {
+          "name": "engineAliases",
+          "line": 170,
+          "isDefault": false
+        },
+        {
+          "name": "engineContainsAlias",
+          "line": 179,
+          "isDefault": false
+        },
+        {
+          "name": "engineSize",
+          "line": 186,
+          "isDefault": false
+        },
+        {
+          "name": "engineIsKeyEntry",
+          "line": 196,
+          "isDefault": false
+        },
+        {
+          "name": "engineIsCertificateEntry",
+          "line": 206,
+          "isDefault": false
+        },
+        {
+          "name": "engineGetCertificateAlias",
+          "line": 220,
+          "isDefault": false
+        },
+        {
+          "name": "engineStore",
+          "line": 235,
+          "isDefault": false
+        },
+        {
+          "name": "engineLoad",
+          "line": 252,
+          "isDefault": false
+        },
+        {
+          "name": "KeyStoreSpi",
+          "line": 45,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 18,
+        "functionCount": 17,
+        "classCount": 1
+      }
+    }
+  ]
+}

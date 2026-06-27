@@ -1,0 +1,155 @@
+{
+  "projectRoot": "/Users/xuyi/Source/OS/armOS/lib/jcore/test/ifOS",
+  "batchFiles": [
+    {
+      "path": "src/jx/zero/classfile/ExceptionHandlerData.ctxt",
+      "language": "ctxt",
+      "sizeLines": 12,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/zero/classfile/ExceptionHandlerData.java",
+      "language": "java",
+      "sizeLines": 18,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/zero/classfile/FieldData.ctxt",
+      "language": "ctxt",
+      "sizeLines": 4,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/zero/classfile/FieldData.java",
+      "language": "java",
+      "sizeLines": 10,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/zero/classfile/LineAttributeData.ctxt",
+      "language": "ctxt",
+      "sizeLines": 4,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/zero/classfile/LineAttributeData.java",
+      "language": "java",
+      "sizeLines": 10,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/zero/classfile/MethodSource.ctxt",
+      "language": "ctxt",
+      "sizeLines": 40,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/zero/classfile/package.bluej",
+      "language": "bluej",
+      "sizeLines": 87,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/zero/classfile/VerifyResult.ctxt",
+      "language": "ctxt",
+      "sizeLines": 7,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/zero/classfile/VerifyResult.java",
+      "language": "java",
+      "sizeLines": 17,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/zero/classstore/ClassData.ctxt",
+      "language": "ctxt",
+      "sizeLines": 10,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/zero/classstore/ClassData.java",
+      "language": "java",
+      "sizeLines": 18,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/zero/classstore/ClassFinder.ctxt",
+      "language": "ctxt",
+      "sizeLines": 9,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/zero/classstore/ClassFinder.java",
+      "language": "java",
+      "sizeLines": 15,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/zero/classstore/package.bluej",
+      "language": "bluej",
+      "sizeLines": 37,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/zero/collections/Collection.ctxt",
+      "language": "ctxt",
+      "sizeLines": 9,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/zero/collections/Collection.java",
+      "language": "java",
+      "sizeLines": 7,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/zero/collections/Comparator.ctxt",
+      "language": "ctxt",
+      "sizeLines": 5,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/zero/collections/Comparator.java",
+      "language": "java",
+      "sizeLines": 5,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/zero/collections/Iterator.ctxt",
+      "language": "ctxt",
+      "sizeLines": 7,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/zero/collections/Iterator.java",
+      "language": "java",
+      "sizeLines": 6,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/zero/collections/package.bluej",
+      "language": "bluej",
+      "sizeLines": 54,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/zero/collections/SortedList.ctxt",
+      "language": "ctxt",
+      "sizeLines": 5,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/zero/collections/SortedList.java",
+      "language": "java",
+      "sizeLines": 6,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/zero/package.bluej",
+      "language": "bluej",
+      "sizeLines": 82,
+      "fileCategory": "code"
+    }
+  ]
+}

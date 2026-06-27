@@ -1,0 +1,117 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 3,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "src/jx/devices/bio/BlockIO.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 44,
+      "nonEmptyLines": 39,
+      "classes": [
+        {
+          "name": "BlockIO",
+          "startLine": 10,
+          "endLine": 44,
+          "methods": [
+            "getCapacity",
+            "getSectorSize",
+            "readSectors",
+            "writeSectors"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "BlockIO",
+          "line": 10,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/jx/fs/FileSystem.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 70,
+      "nonEmptyLines": 59,
+      "classes": [
+        {
+          "name": "FileSystem",
+          "startLine": 12,
+          "endLine": 70,
+          "methods": [
+            "init",
+            "name",
+            "getRootNode",
+            "init",
+            "release",
+            "build",
+            "check",
+            "getNode",
+            "getDeviceID"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "FileSystem",
+          "line": 12,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/jx/fs/buffer/BufferCache.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 24,
+      "nonEmptyLines": 14,
+      "classes": [
+        {
+          "name": "BufferCache",
+          "startLine": 8,
+          "endLine": 24,
+          "methods": [
+            "syncDevice",
+            "flushCache",
+            "showBuffers",
+            "bread",
+            "getblk",
+            "bdwrite",
+            "brelse"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "BufferCache",
+          "line": 8,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    }
+  ]
+}

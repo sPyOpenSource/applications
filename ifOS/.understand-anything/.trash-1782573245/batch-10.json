@@ -1,0 +1,112 @@
+{
+  "batchIndex": 10,
+  "nodes": [
+    {
+      "id": "file:src/java/security/PrivateKey.java",
+      "type": "file",
+      "label": "PrivateKey.java",
+      "properties": {
+        "path": "src/java/security/PrivateKey.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 47,
+        "nonEmptyLines": 36
+      }
+    },
+    {
+      "id": "class:src/java/security/PrivateKey.java::PrivateKey",
+      "type": "class",
+      "label": "PrivateKey",
+      "properties": {
+        "name": "PrivateKey",
+        "startLine": 38,
+        "endLine": 46,
+        "methods": [],
+        "properties": [
+          "serialVersionUID"
+        ]
+      }
+    },
+    {
+      "id": "file:src/java/security/interfaces/DSAPrivateKey.java",
+      "type": "file",
+      "label": "DSAPrivateKey.java",
+      "properties": {
+        "path": "src/java/security/interfaces/DSAPrivateKey.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 61,
+        "nonEmptyLines": 50
+      }
+    },
+    {
+      "id": "class:src/java/security/interfaces/DSAPrivateKey.java::DSAPrivateKey",
+      "type": "class",
+      "label": "DSAPrivateKey",
+      "properties": {
+        "name": "DSAPrivateKey",
+        "startLine": 34,
+        "endLine": 60,
+        "methods": [
+          "getX"
+        ],
+        "properties": [
+          "serialVersionUID"
+        ]
+      }
+    },
+    {
+      "id": "file:src/java/security/interfaces/RSAPrivateKey.java",
+      "type": "file",
+      "label": "RSAPrivateKey.java",
+      "properties": {
+        "path": "src/java/security/interfaces/RSAPrivateKey.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 54,
+        "nonEmptyLines": 41
+      }
+    },
+    {
+      "id": "class:src/java/security/interfaces/RSAPrivateKey.java::RSAPrivateKey",
+      "type": "class",
+      "label": "RSAPrivateKey",
+      "properties": {
+        "name": "RSAPrivateKey",
+        "startLine": 40,
+        "endLine": 53,
+        "methods": [
+          "getPrivateExponent"
+        ],
+        "properties": []
+      }
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/java/security/PrivateKey.java",
+      "target": "class:src/java/security/PrivateKey.java::PrivateKey",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/interfaces/DSAPrivateKey.java",
+      "target": "class:src/java/security/interfaces/DSAPrivateKey.java::DSAPrivateKey",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/interfaces/RSAPrivateKey.java",
+      "target": "class:src/java/security/interfaces/RSAPrivateKey.java::RSAPrivateKey",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/interfaces/DSAPrivateKey.java",
+      "target": "file:src/java/security/PrivateKey.java",
+      "relation": "imports"
+    },
+    {
+      "source": "file:src/java/security/interfaces/RSAPrivateKey.java",
+      "target": "file:src/java/security/PrivateKey.java",
+      "relation": "imports"
+    }
+  ]
+}

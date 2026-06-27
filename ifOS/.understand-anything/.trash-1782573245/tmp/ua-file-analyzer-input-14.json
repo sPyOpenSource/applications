@@ -1,0 +1,32 @@
+{
+  "projectRoot": "/Users/xuyi/Source/OS/armOS/lib/jcore/test/ifOS",
+  "batchFiles": [
+    {
+      "path": "src/jx/fs/buffer/separator/MemoryConsumer.java",
+      "language": "java",
+      "sizeLines": 18,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/net/PacketsConsumer.java",
+      "language": "java",
+      "sizeLines": 17,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/net/PacketsProducer.java",
+      "language": "java",
+      "sizeLines": 8,
+      "fileCategory": "code"
+    }
+  ],
+  "batchImportData": {
+    "src/jx/fs/buffer/separator/MemoryConsumer.java": [],
+    "src/jx/net/PacketsConsumer.java": [
+      "src/jx/fs/buffer/separator/MemoryConsumer.java"
+    ],
+    "src/jx/net/PacketsProducer.java": [
+      "src/jx/fs/buffer/separator/MemoryConsumer.java"
+    ]
+  }
+}

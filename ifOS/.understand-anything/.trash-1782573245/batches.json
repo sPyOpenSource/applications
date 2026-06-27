@@ -1,0 +1,6742 @@
+{
+  "schemaVersion": 1,
+  "algorithm": "louvain",
+  "totalFiles": 561,
+  "totalBatches": 36,
+  "exportsByPath": {
+    ".understand-anything/.understandignore": [],
+    "alternative/jdk_collections_impl/java/util/AbstractCollection.j": [],
+    "alternative/jdk0/java/util/AbstractList.j": [],
+    "CHANGELOG": [],
+    "manifest.mf": [],
+    "META": [],
+    "src/gnu/java/io/decode/Decoder.ctxt": [],
+    "src/gnu/java/io/decode/Decoder.java": [
+      "getSchemeName",
+      "getSchemeDescription",
+      "Decoder",
+      "charsInByteArray",
+      "charsInByteArray",
+      "convertToChars",
+      "convertToChars",
+      "convertToChars",
+      "convertToChars",
+      "close",
+      "ready",
+      "Decoder"
+    ],
+    "src/gnu/java/io/decode/DecoderEightBitLookup.ctxt": [],
+    "src/gnu/java/io/decode/DecoderEightBitLookup.java": [
+      "DecoderEightBitLookup",
+      "charsInByteArray",
+      "convertToChars",
+      "read",
+      "DecoderEightBitLookup"
+    ],
+    "src/gnu/java/io/decode/package.bluej": [],
+    "src/gnu/java/io/encode/Encoder.ctxt": [],
+    "src/gnu/java/io/encode/Encoder.java": [
+      "getSchemeName",
+      "getSchemeDescription",
+      "Encoder",
+      "bytesInCharArray",
+      "bytesInCharArray",
+      "convertToBytes",
+      "convertToBytes",
+      "convertToBytes",
+      "convertToBytes",
+      "close",
+      "flush",
+      "setBadCharValue",
+      "Encoder"
+    ],
+    "src/gnu/java/io/encode/EncoderEightBitLookup.ctxt": [],
+    "src/gnu/java/io/encode/EncoderEightBitLookup.java": [
+      "EncoderEightBitLookup",
+      "bytesInCharArray",
+      "convertToBytes",
+      "write",
+      "EncoderEightBitLookup"
+    ],
+    "src/gnu/java/io/encode/package.bluej": [],
+    "src/gnu/java/io/package.bluej": [],
+    "src/gnu/java/package.bluej": [],
+    "src/gnu/package.bluej": [],
+    "src/java/applet/AppletContext.java": [
+      "AppletContext"
+    ],
+    "src/java/applet/AppletStub.java": [
+      "AppletStub"
+    ],
+    "src/java/applet/AudioClip.java": [
+      "AudioClip"
+    ],
+    "src/java/applet/package.bluej": [],
+    "src/java/beans/BeanInfo.java": [
+      "BeanInfo"
+    ],
+    "src/java/beans/Customizer.java": [
+      "Customizer"
+    ],
+    "src/java/beans/DesignMode.java": [
+      "DesignMode"
+    ],
+    "src/java/beans/package.bluej": [],
+    "src/java/beans/PropertyChangeListener.java": [
+      "PropertyChangeListener"
+    ],
+    "src/java/beans/PropertyEditor.java": [
+      "PropertyEditor"
+    ],
+    "src/java/beans/VetoableChangeListener.java": [
+      "VetoableChangeListener"
+    ],
+    "src/java/beans/Visibility.java": [
+      "Visibility"
+    ],
+    "src/java/io/Closeable.java": [
+      "Closeable"
+    ],
+    "src/java/io/DataInput.java": [
+      "DataInput"
+    ],
+    "src/java/io/DataOutput.java": [
+      "DataOutput"
+    ],
+    "src/java/io/Externalizable.java": [
+      "Externalizable"
+    ],
+    "src/java/io/FilenameFilter.java": [
+      "FilenameFilter"
+    ],
+    "src/java/io/InputStream.java": [
+      "available",
+      "close",
+      "markSupported",
+      "mark",
+      "read",
+      "read",
+      "read",
+      "reset",
+      "skip",
+      "InputStream",
+      "InputStream"
+    ],
+    "src/java/io/ObjectOutput.java": [
+      "ObjectOutput"
+    ],
+    "src/java/io/ObjectStreamConstants.java": [
+      "ObjectStreamConstants"
+    ],
+    "src/java/io/ObjectStreamException.java": [
+      "ObjectStreamException"
+    ],
+    "src/java/io/OutputStream.java": [
+      "close",
+      "flush",
+      "write",
+      "write",
+      "write",
+      "OutputStream",
+      "OutputStream"
+    ],
+    "src/java/io/package.bluej": [],
+    "src/java/io/Reader.java": [
+      "read",
+      "read",
+      "read",
+      "close",
+      "markSupported",
+      "mark",
+      "reset",
+      "ready",
+      "Reader"
+    ],
+    "src/java/io/Serializable.java": [
+      "Serializable"
+    ],
+    "src/java/io/Writer.java": [
+      "flush",
+      "close",
+      "write",
+      "write",
+      "write",
+      "write",
+      "write",
+      "Writer"
+    ],
+    "src/java/lang/Appendable.java": [
+      "Appendable"
+    ],
+    "src/java/lang/AutoCloseable.java": [
+      "AutoCloseable"
+    ],
+    "src/java/lang/CharSequence.java": [
+      "CharSequence"
+    ],
+    "src/java/lang/ClassLoader.java": [
+      "getSystemResourceAsStream",
+      "loadClass",
+      "getResourceAsStream",
+      "ClassLoader"
+    ],
+    "src/java/lang/Cloneable.java": [
+      "Cloneable"
+    ],
+    "src/java/lang/Comparable.java": [
+      "Comparable"
+    ],
+    "src/java/lang/Enum.java": [
+      "name",
+      "ordinal",
+      "toString",
+      "equals",
+      "hashCode",
+      "compareTo",
+      "getDeclaringClass",
+      "valueOf",
+      "Enum"
+    ],
+    "src/java/lang/invoke/AbstractValidatingLambdaMetafactory.java": [],
+    "src/java/lang/invoke/BoundMethodHandle.java": [],
+    "src/java/lang/invoke/DelegatingMethodHandle.java": [],
+    "src/java/lang/invoke/MethodHandle.java": [
+      "MethodHandle",
+      "MethodHandle"
+    ],
+    "src/java/lang/invoke/MethodHandleImpl.java": [],
+    "src/java/lang/invoke/MethodHandleInfo.java": [
+      "MethodHandleInfo"
+    ],
+    "src/java/lang/invoke/package.bluej": [],
+    "src/java/lang/Iterable.java": [
+      "Iterable"
+    ],
+    "src/java/lang/Number.java": [
+      "Number",
+      "intValue",
+      "longValue",
+      "byteValue",
+      "shortValue",
+      "Number"
+    ],
+    "src/java/lang/package.bluej": [],
+    "src/java/lang/reflect/Member.java": [
+      "Member"
+    ],
+    "src/java/lang/reflect/package.bluej": [],
+    "src/java/lang/Runnable.java": [
+      "Runnable"
+    ],
+    "src/java/net/ContentHandler.java": [
+      "ContentHandler",
+      "getContent",
+      "ContentHandler"
+    ],
+    "src/java/net/ContentHandlerFactory.java": [
+      "ContentHandlerFactory"
+    ],
+    "src/java/net/FileNameMap.java": [
+      "FileNameMap"
+    ],
+    "src/java/net/package.bluej": [],
+    "src/java/net/URLStreamHandlerFactory.java": [
+      "URLStreamHandlerFactory"
+    ],
+    "src/java/nio/Buffer.java": [
+      "capacity",
+      "position",
+      "position",
+      "limit",
+      "limit",
+      "mark",
+      "reset",
+      "clear",
+      "flip",
+      "rewind",
+      "remaining",
+      "hasRemaining",
+      "isReadOnly",
+      "hasArray",
+      "array",
+      "arrayOffset",
+      "isDirect",
+      "Buffer"
+    ],
+    "src/java/nio/package.bluej": [],
+    "src/java/package.bluej": [],
+    "src/java/security/acl/Acl.java": [
+      "Acl"
+    ],
+    "src/java/security/acl/AclEntry.java": [
+      "AclEntry"
+    ],
+    "src/java/security/acl/Group.java": [
+      "Group"
+    ],
+    "src/java/security/acl/Owner.java": [
+      "Owner"
+    ],
+    "src/java/security/acl/package.bluej": [],
+    "src/java/security/acl/Permission.java": [
+      "Permission"
+    ],
+    "src/java/security/AlgorithmParameterGeneratorSpi.java": [
+      "AlgorithmParameterGeneratorSpi",
+      "AlgorithmParameterGeneratorSpi"
+    ],
+    "src/java/security/AlgorithmParametersSpi.java": [
+      "AlgorithmParametersSpi",
+      "AlgorithmParametersSpi"
+    ],
+    "src/java/security/BasicPermission.java": [
+      "BasicPermission",
+      "BasicPermission",
+      "implies",
+      "equals",
+      "hashCode",
+      "getActions",
+      "newPermissionCollection",
+      "BasicPermission"
+    ],
+    "src/java/security/cert/Certificate.java": [
+      "getType",
+      "equals",
+      "hashCode",
+      "getEncoded",
+      "verify",
+      "verify",
+      "toString",
+      "getPublicKey",
+      "Certificate"
+    ],
+    "src/java/security/cert/CertificateFactorySpi.java": [
+      "CertificateFactorySpi",
+      "engineGenerateCertificate",
+      "engineGenerateCertificates",
+      "engineGenerateCRL",
+      "engineGenerateCRLs",
+      "CertificateFactorySpi"
+    ],
+    "src/java/security/cert/CRL.java": [
+      "getType",
+      "toString",
+      "isRevoked",
+      "CRL"
+    ],
+    "src/java/security/cert/Makefile.am": [],
+    "src/java/security/cert/Makefile.in": [],
+    "src/java/security/cert/package.bluej": [],
+    "src/java/security/cert/X509Certificate.java": [
+      "checkValidity",
+      "checkValidity",
+      "getVersion",
+      "getSerialNumber",
+      "getIssuerDN",
+      "getSubjectDN",
+      "getNotBefore",
+      "getNotAfter",
+      "getTBSCertificate",
+      "getSignature",
+      "getSigAlgName",
+      "getSigAlgOID",
+      "getSigAlgParams",
+      "getIssuerUniqueID",
+      "getSubjectUniqueID",
+      "getKeyUsage",
+      "getBasicConstraints",
+      "hasUnsupportedCriticalExtension",
+      "getCriticalExtensionOIDs",
+      "getNonCriticalExtensionOIDs",
+      "getExtensionValue",
+      "X509Certificate"
+    ],
+    "src/java/security/cert/X509CRL.java": [
+      "equals",
+      "hashCode",
+      "getEncoded",
+      "verify",
+      "verify",
+      "getVersion",
+      "getIssuerDN",
+      "getThisUpdate",
+      "getNextUpdate",
+      "getRevokedCertificate",
+      "getRevokedCertificates",
+      "getTBSCertList",
+      "getSignature",
+      "getSigAlgName",
+      "getSigAlgOID",
+      "getSigAlgParams",
+      "hasUnsupportedCriticalExtension",
+      "getCriticalExtensionOIDs",
+      "getNonCriticalExtensionOIDs",
+      "getExtensionValue",
+      "X509CRL"
+    ],
+    "src/java/security/cert/X509CRLEntry.java": [
+      "X509CRLEntry",
+      "equals",
+      "hashCode",
+      "getEncoded",
+      "getSerialNumber",
+      "getRevocationDate",
+      "hasExtensions",
+      "toString",
+      "hasUnsupportedCriticalExtension",
+      "getCriticalExtensionOIDs",
+      "getNonCriticalExtensionOIDs",
+      "getExtensionValue",
+      "X509CRLEntry"
+    ],
+    "src/java/security/cert/X509Extension.java": [
+      "X509Extension"
+    ],
+    "src/java/security/Certificate.java": [
+      "Certificate"
+    ],
+    "src/java/security/DomainCombiner.java": [
+      "DomainCombiner"
+    ],
+    "src/java/security/Guard.java": [
+      "Guard"
+    ],
+    "src/java/security/Identity.java": [
+      "Identity",
+      "Identity",
+      "getName",
+      "getScope",
+      "getPublicKey",
+      "setPublicKey",
+      "setInfo",
+      "getInfo",
+      "addCertificate",
+      "removeCertificate",
+      "certificates",
+      "equals",
+      "toString",
+      "toString",
+      "hashCode",
+      "Identity"
+    ],
+    "src/java/security/IdentityScope.java": [
+      "IdentityScope",
+      "IdentityScope",
+      "getSystemScope",
+      "size",
+      "getIdentity",
+      "getIdentity",
+      "getIdentity",
+      "addIdentity",
+      "removeIdentity",
+      "identities",
+      "toString",
+      "IdentityScope"
+    ],
+    "src/java/security/interfaces/DSAKey.java": [
+      "DSAKey"
+    ],
+    "src/java/security/interfaces/DSAKeyPairGenerator.java": [
+      "DSAKeyPairGenerator"
+    ],
+    "src/java/security/interfaces/DSAParams.java": [
+      "DSAParams"
+    ],
+    "src/java/security/interfaces/DSAPrivateKey.java": [
+      "DSAPrivateKey"
+    ],
+    "src/java/security/interfaces/DSAPublicKey.java": [
+      "DSAPublicKey"
+    ],
+    "src/java/security/interfaces/package.bluej": [],
+    "src/java/security/interfaces/RSAKey.java": [
+      "RSAKey"
+    ],
+    "src/java/security/interfaces/RSAPrivateCrtKey.java": [
+      "RSAPrivateCrtKey"
+    ],
+    "src/java/security/interfaces/RSAPrivateKey.java": [
+      "RSAPrivateKey"
+    ],
+    "src/java/security/interfaces/RSAPublicKey.java": [
+      "RSAPublicKey"
+    ],
+    "src/java/security/Key.java": [
+      "Key"
+    ],
+    "src/java/security/KeyFactorySpi.java": [
+      "KeyFactorySpi",
+      "KeyFactorySpi"
+    ],
+    "src/java/security/KeyPairGenerator.java": [
+      "getAlgorithm",
+      "getInstance",
+      "getInstance",
+      "getProvider",
+      "initialize",
+      "initialize",
+      "initialize",
+      "initialize",
+      "genKeyPair",
+      "generateKeyPair",
+      "KeyPairGenerator"
+    ],
+    "src/java/security/KeyPairGeneratorSpi.java": [
+      "KeyPairGeneratorSpi",
+      "initialize",
+      "initialize",
+      "generateKeyPair",
+      "KeyPairGeneratorSpi"
+    ],
+    "src/java/security/KeyStoreSpi.java": [
+      "KeyStoreSpi",
+      "engineGetKey",
+      "engineGetCertificateChain",
+      "engineGetCertificate",
+      "engineGetCreationDate",
+      "engineSetKeyEntry",
+      "engineSetKeyEntry",
+      "engineSetCertificateEntry",
+      "engineDeleteEntry",
+      "engineAliases",
+      "engineContainsAlias",
+      "engineSize",
+      "engineIsKeyEntry",
+      "engineIsCertificateEntry",
+      "engineGetCertificateAlias",
+      "engineStore",
+      "engineLoad",
+      "KeyStoreSpi"
+    ],
+    "src/java/security/MessageDigest.java": [
+      "getInstance",
+      "getInstance",
+      "getProvider",
+      "update",
+      "update",
+      "update",
+      "digest",
+      "digest",
+      "digest",
+      "toString",
+      "isEqual",
+      "reset",
+      "getAlgorithm",
+      "getDigestLength",
+      "clone",
+      "MessageDigest"
+    ],
+    "src/java/security/MessageDigestSpi.java": [
+      "MessageDigestSpi",
+      "clone",
+      "MessageDigestSpi"
+    ],
+    "src/java/security/package.bluej": [],
+    "src/java/security/Permission.java": [
+      "Permission",
+      "getName",
+      "getActions",
+      "checkGuard",
+      "implies",
+      "hashCode",
+      "toString",
+      "newPermissionCollection",
+      "Permission"
+    ],
+    "src/java/security/PermissionCollection.java": [
+      "linesep",
+      "PermissionCollection",
+      "isReadOnly",
+      "setReadOnly",
+      "add",
+      "elements",
+      "implies",
+      "toString",
+      "PermissionCollection"
+    ],
+    "src/java/security/Policy.java": [
+      "Policy",
+      "getPolicy",
+      "setPolicy",
+      "getPermissions",
+      "refresh",
+      "Policy"
+    ],
+    "src/java/security/Principal.java": [
+      "Principal"
+    ],
+    "src/java/security/PrivateKey.java": [
+      "PrivateKey"
+    ],
+    "src/java/security/PrivilegedAction.java": [
+      "PrivilegedAction"
+    ],
+    "src/java/security/PrivilegedExceptionAction.java": [
+      "PrivilegedExceptionAction"
+    ],
+    "src/java/security/Provider.java": [
+      "getName",
+      "getVersion",
+      "getInfo",
+      "put",
+      "remove",
+      "clear",
+      "toString",
+      "Provider"
+    ],
+    "src/java/security/PublicKey.java": [
+      "PublicKey"
+    ],
+    "src/java/security/SecureRandomSpi.java": [
+      "SecureRandomSpi",
+      "SecureRandomSpi"
+    ],
+    "src/java/security/SignatureSpi.java": [
+      "SignatureSpi",
+      "clone",
+      "SignatureSpi"
+    ],
+    "src/java/security/Signer.java": [
+      "Signer",
+      "Signer",
+      "getPrivateKey",
+      "setKeyPair",
+      "toString",
+      "Signer"
+    ],
+    "src/java/security/spec/AlgorithmParameterSpec.java": [
+      "AlgorithmParameterSpec"
+    ],
+    "src/java/security/spec/EncodedKeySpec.java": [
+      "EncodedKeySpec",
+      "getEncoded",
+      "getFormat",
+      "EncodedKeySpec"
+    ],
+    "src/java/security/spec/KeySpec.java": [
+      "KeySpec"
+    ],
+    "src/java/security/spec/package.bluej": [],
+    "src/java/security/spec/RSAKeyGenParameterSpec.j": [],
+    "src/java/sql/Array.java": [
+      "Array"
+    ],
+    "src/java/sql/Blob.java": [
+      "Blob"
+    ],
+    "src/java/sql/CallableStatement.java": [
+      "CallableStatement"
+    ],
+    "src/java/sql/Clob.java": [
+      "Clob"
+    ],
+    "src/java/sql/Connection.java": [
+      "Connection"
+    ],
+    "src/java/sql/DatabaseMetaData.java": [
+      "DatabaseMetaData"
+    ],
+    "src/java/sql/Driver.java": [
+      "Driver"
+    ],
+    "src/java/sql/package.bluej": [],
+    "src/java/sql/PreparedStatement.java": [
+      "PreparedStatement"
+    ],
+    "src/java/sql/Ref.java": [
+      "Ref"
+    ],
+    "src/java/sql/ResultSet.java": [
+      "ResultSet"
+    ],
+    "src/java/sql/ResultSetMetaData.java": [
+      "ResultSetMetaData"
+    ],
+    "src/java/sql/SQLData.java": [
+      "SQLData"
+    ],
+    "src/java/sql/SQLInput.java": [
+      "SQLInput"
+    ],
+    "src/java/sql/SQLOutput.java": [
+      "SQLOutput"
+    ],
+    "src/java/sql/Statement.java": [
+      "Statement"
+    ],
+    "src/java/sql/Struct.java": [
+      "Struct"
+    ],
+    "src/java/text/AttributedCharacterIterator.java": [
+      "AttributedCharacterIterator"
+    ],
+    "src/java/text/CharacterIterator.java": [
+      "CharacterIterator"
+    ],
+    "src/java/text/Collator.java": [
+      "PRIMARY",
+      "SECONDARY",
+      "TERTIARY",
+      "IDENTICAL",
+      "NO_DECOMPOSITION",
+      "CANONICAL_DECOMPOSITION",
+      "FULL_DECOMPOSITION",
+      "getInstance",
+      "getInstance",
+      "getAvailableLocales",
+      "getStrength",
+      "setStrength",
+      "getDecomposition",
+      "setDecomposition",
+      "compare",
+      "compare",
+      "equals",
+      "equals",
+      "getCollationKey",
+      "clone",
+      "hashCode",
+      "Collator"
+    ],
+    "src/java/text/DateFormat.java": [
+      "FULL",
+      "LONG",
+      "MEDIUM",
+      "SHORT",
+      "DEFAULT",
+      "ERA_FIELD",
+      "YEAR_FIELD",
+      "MONTH_FIELD",
+      "DATE_FIELD",
+      "HOUR_OF_DAY1_FIELD",
+      "HOUR_OF_DAY0_FIELD",
+      "MINUTE_FIELD",
+      "SECOND_FIELD",
+      "MILLISECOND_FIELD",
+      "DAY_OF_WEEK_FIELD",
+      "DAY_OF_YEAR_FIELD",
+      "DAY_OF_WEEK_IN_MONTH_FIELD",
+      "WEEK_OF_YEAR_FIELD",
+      "WEEK_OF_MONTH_FIELD",
+      "AM_PM_FIELD",
+      "HOUR1_FIELD",
+      "HOUR0_FIELD",
+      "TIMEZONE_FIELD",
+      "equals",
+      "clone",
+      "format",
+      "format",
+      "format",
+      "getAvailableLocales",
+      "getCalendar",
+      "getDateInstance",
+      "getDateInstance",
+      "getDateInstance",
+      "getDateTimeInstance",
+      "getDateTimeInstance",
+      "getDateTimeInstance",
+      "getInstance",
+      "getNumberFormat",
+      "getTimeInstance",
+      "getTimeInstance",
+      "getTimeInstance",
+      "getTimeZone",
+      "hashCode",
+      "isLenient",
+      "parse",
+      "parse",
+      "parseObject",
+      "setCalendar",
+      "setLenient",
+      "setNumberFormat",
+      "setTimeZone",
+      "DateFormat"
+    ],
+    "src/java/text/Format.java": [
+      "Format",
+      "format",
+      "format",
+      "parseObject",
+      "parseObject",
+      "clone",
+      "Format"
+    ],
+    "src/java/text/NumberFormat.java": [
+      "INTEGER_FIELD",
+      "FRACTION_FIELD",
+      "getInstance",
+      "getInstance",
+      "getNumberInstance",
+      "getNumberInstance",
+      "getCurrencyInstance",
+      "getCurrencyInstance",
+      "getPercentInstance",
+      "getPercentInstance",
+      "getAvailableLocales",
+      "NumberFormat",
+      "getMaximumIntegerDigits",
+      "setMaximumIntegerDigits",
+      "getMinimumIntegerDigits",
+      "setMinimumIntegerDigits",
+      "getMaximumFractionDigits",
+      "setMaximumFractionDigits",
+      "getMinimumFractionDigits",
+      "setMinimumFractionDigits",
+      "isGroupingUsed",
+      "setGroupingUsed",
+      "isParseIntegerOnly",
+      "setParseIntegerOnly",
+      "format",
+      "format",
+      "format",
+      "format",
+      "format",
+      "parse",
+      "parse",
+      "parseObject",
+      "hashCode",
+      "equals",
+      "NumberFormat"
+    ],
+    "src/java/text/package.bluej": [],
+    "src/java/util/AbstractCollection.j": [],
+    "src/java/util/AbstractCollection.java": [
+      "equals",
+      "add",
+      "size",
+      "clear",
+      "isEmpty",
+      "addAll",
+      "contains",
+      "containsAll",
+      "iterator",
+      "remove",
+      "removeAll",
+      "retainAll",
+      "toArray",
+      "toArray",
+      "AbstractCollection"
+    ],
+    "src/java/util/AbstractList.j": [],
+    "src/java/util/AbstractList.java": [
+      "sort",
+      "add",
+      "add",
+      "iterator",
+      "remove",
+      "get",
+      "listIterator",
+      "listIterator",
+      "indexOf",
+      "lastIndexOf",
+      "set",
+      "subList",
+      "AbstractList"
+    ],
+    "src/java/util/AbstractMap.java": [
+      "clear",
+      "containsKey",
+      "containsValue",
+      "entrySet",
+      "equals",
+      "get",
+      "hashCode",
+      "isEmpty",
+      "keySet",
+      "put",
+      "putAll",
+      "remove",
+      "size",
+      "toString",
+      "values",
+      "AbstractMap"
+    ],
+    "src/java/util/AbstractQueue.java": [
+      "add",
+      "offer",
+      "poll",
+      "peek",
+      "remove",
+      "element",
+      "clear",
+      "addAll",
+      "AbstractQueue"
+    ],
+    "src/java/util/AbstractSequentialList.java": [
+      "listIterator",
+      "add",
+      "addAll",
+      "iterator",
+      "set",
+      "AbstractSequentialList"
+    ],
+    "src/java/util/AbstractSet.java": [
+      "equals",
+      "hashCode",
+      "removeAll",
+      "AbstractSet"
+    ],
+    "src/java/util/Calendar.java": [
+      "ERA",
+      "YEAR",
+      "MONTH",
+      "WEEK_OF_YEAR",
+      "WEEK_OF_MONTH",
+      "DATE",
+      "DAY_OF_MONTH",
+      "DAY_OF_YEAR",
+      "DAY_OF_WEEK",
+      "DAY_OF_WEEK_IN_MONTH",
+      "AM_PM",
+      "HOUR",
+      "HOUR_OF_DAY",
+      "MINUTE",
+      "SECOND",
+      "MILLISECOND",
+      "ZONE_OFFSET",
+      "DST_OFFSET",
+      "FIELD_COUNT",
+      "SUNDAY",
+      "MONDAY",
+      "TUESDAY",
+      "WEDNESDAY",
+      "THURSDAY",
+      "FRIDAY",
+      "SATURDAY",
+      "JANUARY",
+      "FEBRUARY",
+      "MARCH",
+      "APRIL",
+      "MAY",
+      "JUNE",
+      "JULY",
+      "AUGUST",
+      "SEPTEMBER",
+      "OCTOBER",
+      "NOVEMBER",
+      "DECEMBER",
+      "UNDECIMBER",
+      "AM",
+      "PM",
+      "getInstance",
+      "getInstance",
+      "getInstance",
+      "getInstance",
+      "getAvailableLocales",
+      "getTime",
+      "setTime",
+      "get",
+      "set",
+      "set",
+      "set",
+      "set",
+      "clear",
+      "clear",
+      "isSet",
+      "equals",
+      "hashCode",
+      "before",
+      "after",
+      "add",
+      "roll",
+      "roll",
+      "setTimeZone",
+      "getTimeZone",
+      "setLenient",
+      "isLenient",
+      "setFirstDayOfWeek",
+      "getFirstDayOfWeek",
+      "setMinimalDaysInFirstWeek",
+      "getMinimalDaysInFirstWeek",
+      "getMinimum",
+      "getMaximum",
+      "getGreatestMinimum",
+      "getLeastMaximum",
+      "getActualMinimum",
+      "getActualMaximum",
+      "clone",
+      "toString",
+      "Calendar"
+    ],
+    "src/java/util/Collection.java": [
+      "Collection"
+    ],
+    "src/java/util/Comparator.java": [
+      "Comparator"
+    ],
+    "src/java/util/Deque.java": [
+      "Deque"
+    ],
+    "src/java/util/Dictionary.java": [
+      "elements",
+      "get",
+      "isEmpty",
+      "keys",
+      "put",
+      "remove",
+      "size",
+      "Dictionary"
+    ],
+    "src/java/util/Enumeration.java": [
+      "Enumeration"
+    ],
+    "src/java/util/EventListener.java": [
+      "EventListener"
+    ],
+    "src/java/util/function/BiConsumer.java": [
+      "BiConsumer"
+    ],
+    "src/java/util/function/BiFunction.java": [
+      "BiFunction"
+    ],
+    "src/java/util/function/Consumer.java": [
+      "Consumer"
+    ],
+    "src/java/util/function/DoubleConsumer.java": [
+      "DoubleConsumer"
+    ],
+    "src/java/util/function/Function.java": [
+      "Function"
+    ],
+    "src/java/util/function/IntConsumer.java": [
+      "IntConsumer"
+    ],
+    "src/java/util/function/IntUnaryOperator.java": [
+      "IntUnaryOperator"
+    ],
+    "src/java/util/function/LongConsumer.java": [
+      "LongConsumer"
+    ],
+    "src/java/util/function/package.bluej": [],
+    "src/java/util/function/Supplier.java": [
+      "Supplier"
+    ],
+    "src/java/util/function/UnaryOperator.java": [
+      "UnaryOperator"
+    ],
+    "src/java/util/Iterator.java": [
+      "Iterator"
+    ],
+    "src/java/util/LinkedList.j": [],
+    "src/java/util/List.java": [
+      "List"
+    ],
+    "src/java/util/ListIterator.java": [
+      "ListIterator"
+    ],
+    "src/java/util/ListResourceBundle.java": [
+      "ListResourceBundle",
+      "getKeys",
+      "ListResourceBundle"
+    ],
+    "src/java/util/Map.java": [
+      "Map"
+    ],
+    "src/java/util/NavigableMap.java": [
+      "NavigableMap"
+    ],
+    "src/java/util/NavigableSet.java": [
+      "NavigableSet"
+    ],
+    "src/java/util/package.bluej": [],
+    "src/java/util/PrimitiveIterator.java": [
+      "PrimitiveIterator"
+    ],
+    "src/java/util/Queue.java": [
+      "Queue"
+    ],
+    "src/java/util/RandomAccess.java": [
+      "RandomAccess"
+    ],
+    "src/java/util/ResourceBundle.java": [
+      "ResourceBundle",
+      "getString",
+      "getStringArray",
+      "getObject",
+      "getBundle",
+      "getBundle",
+      "getBundle",
+      "getLocale",
+      "getKeys",
+      "ResourceBundle"
+    ],
+    "src/java/util/Set.java": [
+      "Set"
+    ],
+    "src/java/util/SortedMap.java": [
+      "SortedMap"
+    ],
+    "src/java/util/SortedSet.java": [
+      "SortedSet"
+    ],
+    "src/java/util/Spliterator.java": [
+      "Spliterator"
+    ],
+    "src/java/util/stream/IntStream.java": [
+      "IntStream"
+    ],
+    "src/java/util/stream/package.bluej": [],
+    "src/java/util/TimeZone.java": [
+      "SHORT",
+      "LONG",
+      "getOffset",
+      "getRawOffset",
+      "setRawOffset",
+      "getID",
+      "setID",
+      "getDisplayName",
+      "getDisplayName",
+      "getDisplayName",
+      "getDisplayName",
+      "useDaylightTime",
+      "inDaylightTime",
+      "getTimeZone",
+      "getAvailableIDs",
+      "getAvailableIDs",
+      "getDefault",
+      "setDefault",
+      "hasSameRules",
+      "clone",
+      "TimeZone"
+    ],
+    "src/jx/devices/bio/BlockIO.ctxt": [],
+    "src/jx/devices/bio/BlockIO.java": [
+      "BlockIO"
+    ],
+    "src/jx/devices/bio/package.bluej": [],
+    "src/jx/devices/Bus.ctxt": [],
+    "src/jx/devices/Bus.java": [
+      "Bus"
+    ],
+    "src/jx/devices/Device.ctxt": [],
+    "src/jx/devices/Device.java": [
+      "Device"
+    ],
+    "src/jx/devices/DeviceConfiguration.ctxt": [],
+    "src/jx/devices/DeviceConfiguration.java": [
+      "DeviceConfiguration"
+    ],
+    "src/jx/devices/DeviceConfigurationTemplate.ctxt": [],
+    "src/jx/devices/DeviceConfigurationTemplate.java": [
+      "DeviceConfigurationTemplate"
+    ],
+    "src/jx/devices/DeviceFinder.ctxt": [],
+    "src/jx/devices/DeviceFinder.java": [
+      "DeviceFinder"
+    ],
+    "src/jx/devices/framebuffer/ClippingRectangle.ctxt": [],
+    "src/jx/devices/framebuffer/ClippingRectangle.java": [
+      "ClippingRectangle"
+    ],
+    "src/jx/devices/framebuffer/ClippingTransformer.ctxt": [],
+    "src/jx/devices/framebuffer/ClippingTransformer.java": [
+      "ClippingTransformer"
+    ],
+    "src/jx/devices/framebuffer/package.bluej": [],
+    "src/jx/devices/framebuffer/PackedFramebuffer.ctxt": [],
+    "src/jx/devices/framebuffer/PackedFramebuffer.java": [
+      "PackedFramebuffer"
+    ],
+    "src/jx/devices/ide/IDEDevice.ctxt": [],
+    "src/jx/devices/ide/IDEDevice.java": [
+      "IDEDevice"
+    ],
+    "src/jx/devices/ide/package.bluej": [],
+    "src/jx/devices/Keyboard.ctxt": [],
+    "src/jx/devices/Keyboard.java": [
+      "Keyboard"
+    ],
+    "src/jx/devices/KeyListener.ctxt": [],
+    "src/jx/devices/KeyListener.java": [
+      "KeyListener"
+    ],
+    "src/jx/devices/Mouse.ctxt": [],
+    "src/jx/devices/Mouse.java": [
+      "Mouse"
+    ],
+    "src/jx/devices/net/NetworkDevice.ctxt": [],
+    "src/jx/devices/net/NetworkDevice.java": [
+      "NetworkDevice"
+    ],
+    "src/jx/devices/net/package.bluej": [],
+    "src/jx/devices/net/PacketsProducer.ctxt": [],
+    "src/jx/devices/net/PacketsProducer.java": [
+      "PacketsProducer"
+    ],
+    "src/jx/devices/net/PacketsQueue.ctxt": [],
+    "src/jx/devices/net/PacketsQueue.java": [
+      "PacketsQueue"
+    ],
+    "src/jx/devices/net/PacketsQueueConsumer.ctxt": [],
+    "src/jx/devices/net/PacketsQueueConsumer.java": [
+      "PacketsQueueConsumer"
+    ],
+    "src/jx/devices/net/PacketsQueueProducer.ctxt": [],
+    "src/jx/devices/net/PacketsQueueProducer.java": [
+      "PacketsQueueProducer"
+    ],
+    "src/jx/devices/package.bluej": [],
+    "src/jx/devices/pci/package.bluej": [],
+    "src/jx/devices/pci/PCI.ctxt": [],
+    "src/jx/devices/pci/PCI.java": [
+      "PCI"
+    ],
+    "src/jx/devices/pci/PCIAccess.ctxt": [],
+    "src/jx/devices/pci/PCIAccess.java": [
+      "PCIAccess"
+    ],
+    "src/jx/devices/pci/PCIAddress.ctxt": [],
+    "src/jx/devices/pci/PCIAddress.java": [
+      "PCIAddress"
+    ],
+    "src/jx/devices/pci/PCICap.ctxt": [],
+    "src/jx/devices/pci/PCICap.java": [
+      "PCICap"
+    ],
+    "src/jx/devices/pci/PCIDevice.ctxt": [],
+    "src/jx/devices/pci/PCIDevice.java": [
+      "PCIDevice"
+    ],
+    "src/jx/devices/Screen.ctxt": [],
+    "src/jx/devices/Screen.java": [
+      "Screen"
+    ],
+    "src/jx/fs/buffer/BufferCache.ctxt": [],
+    "src/jx/fs/buffer/BufferCache.java": [
+      "BufferCache"
+    ],
+    "src/jx/fs/buffer/BufferHead.ctxt": [],
+    "src/jx/fs/buffer/BufferHead.java": [
+      "BufferHead"
+    ],
+    "src/jx/fs/buffer/multithread/Buffer.ctxt": [],
+    "src/jx/fs/buffer/multithread/Buffer.java": [
+      "Buffer"
+    ],
+    "src/jx/fs/buffer/multithread/BufferConsumer.ctxt": [],
+    "src/jx/fs/buffer/multithread/BufferConsumer.java": [
+      "BufferConsumer"
+    ],
+    "src/jx/fs/buffer/multithread/BufferProducer.ctxt": [],
+    "src/jx/fs/buffer/multithread/BufferProducer.java": [
+      "BufferProducer"
+    ],
+    "src/jx/fs/buffer/multithread/package.bluej": [],
+    "src/jx/fs/buffer/package.bluej": [],
+    "src/jx/fs/buffer/separator/MemoryConsumer.ctxt": [],
+    "src/jx/fs/buffer/separator/MemoryConsumer.java": [
+      "MemoryConsumer"
+    ],
+    "src/jx/fs/buffer/separator/MemoryConsumer2.ctxt": [],
+    "src/jx/fs/buffer/separator/MemoryConsumer2.java": [
+      "MemoryConsumer2"
+    ],
+    "src/jx/fs/buffer/separator/MemoryProducer.ctxt": [],
+    "src/jx/fs/buffer/separator/MemoryProducer.java": [
+      "MemoryProducer"
+    ],
+    "src/jx/fs/buffer/separator/NonBlockingMemoryConsumer.ctxt": [],
+    "src/jx/fs/buffer/separator/NonBlockingMemoryConsumer.java": [
+      "NonBlockingMemoryConsumer"
+    ],
+    "src/jx/fs/buffer/separator/package.bluej": [],
+    "src/jx/fs/db/avltree/Comparable.ctxt": [],
+    "src/jx/fs/db/avltree/Comparable.java": [
+      "Comparable"
+    ],
+    "src/jx/fs/db/avltree/package.bluej": [],
+    "src/jx/fs/db/BufferList.ctxt": [],
+    "src/jx/fs/db/BufferList.java": [
+      "BufferList"
+    ],
+    "src/jx/fs/db/Database.ctxt": [],
+    "src/jx/fs/db/Database.java": [
+      "Database"
+    ],
+    "src/jx/fs/db/Index.ctxt": [],
+    "src/jx/fs/db/Index.java": [
+      "Index"
+    ],
+    "src/jx/fs/db/IndexInfo.ctxt": [],
+    "src/jx/fs/db/IndexInfo.java": [
+      "IndexInfo"
+    ],
+    "src/jx/fs/db/Key.ctxt": [],
+    "src/jx/fs/db/Key.java": [
+      "Key"
+    ],
+    "src/jx/fs/db/package.bluej": [],
+    "src/jx/fs/db/RelationalOperator.ctxt": [],
+    "src/jx/fs/db/RelationalOperator.java": [
+      "RelationalOperator"
+    ],
+    "src/jx/fs/db/RelationScan.ctxt": [],
+    "src/jx/fs/db/RelationScan.java": [
+      "RelationScan"
+    ],
+    "src/jx/fs/db/SetNumberReader.ctxt": [],
+    "src/jx/fs/db/SetNumberReader.java": [
+      "SetNumberReader"
+    ],
+    "src/jx/fs/db/systembuffer/package.bluej": [],
+    "src/jx/fs/db/systembuffer/strategy/package.bluej": [],
+    "src/jx/fs/db/systembuffer/strategy/PageStrategy.ctxt": [],
+    "src/jx/fs/db/systembuffer/strategy/PageStrategy.java": [
+      "PageStrategy"
+    ],
+    "src/jx/fs/db/systembuffer/strategy/PageStrategyRecord.ctxt": [],
+    "src/jx/fs/db/systembuffer/strategy/PageStrategyRecord.java": [
+      "PageStrategyRecord"
+    ],
+    "src/jx/fs/db/Table.ctxt": [],
+    "src/jx/fs/db/Table.java": [
+      "Table"
+    ],
+    "src/jx/fs/db/TupleDescriptor.ctxt": [],
+    "src/jx/fs/db/TupleDescriptor.java": [
+      "TupleDescriptor"
+    ],
+    "src/jx/fs/db/TupleReader.ctxt": [],
+    "src/jx/fs/db/TupleReader.java": [
+      "TupleReader"
+    ],
+    "src/jx/fs/db/TupleWriter.ctxt": [],
+    "src/jx/fs/db/TupleWriter.java": [
+      "TupleWriter"
+    ],
+    "src/jx/fs/db/types/DbComparator.ctxt": [],
+    "src/jx/fs/db/types/DbComparator.java": [
+      "DbComparator"
+    ],
+    "src/jx/fs/db/types/DbConverter.ctxt": [],
+    "src/jx/fs/db/types/DbConverter.java": [
+      "DbConverter"
+    ],
+    "src/jx/fs/db/types/package.bluej": [],
+    "src/jx/fs/db/types/TypeManager.ctxt": [],
+    "src/jx/fs/db/types/TypeManager.java": [
+      "TypeManager"
+    ],
+    "src/jx/fs/Directory.ctxt": [],
+    "src/jx/fs/Directory.java": [
+      "Directory"
+    ],
+    "src/jx/fs/FileSystem.ctxt": [],
+    "src/jx/fs/FileSystem.java": [
+      "FileSystem"
+    ],
+    "src/jx/fs/FileSystemInterface.ctxt": [],
+    "src/jx/fs/FileSystemInterface.java": [
+      "FileSystemInterface"
+    ],
+    "src/jx/fs/FS.ctxt": [],
+    "src/jx/fs/FS.java": [
+      "FS"
+    ],
+    "src/jx/fs/FSAttribute.ctxt": [],
+    "src/jx/fs/FSAttribute.java": [
+      "FSAttribute"
+    ],
+    "src/jx/fs/FSObject.ctxt": [],
+    "src/jx/fs/FSObject.java": [
+      "FSObject"
+    ],
+    "src/jx/fs/Node.ctxt": [],
+    "src/jx/fs/Node.java": [
+      "Node"
+    ],
+    "src/jx/fs/package.bluej": [],
+    "src/jx/fs/Permission.ctxt": [],
+    "src/jx/fs/Permission.java": [
+      "Permission"
+    ],
+    "src/jx/fs/ReadOnlyDirectory.ctxt": [],
+    "src/jx/fs/ReadOnlyDirectory.java": [
+      "ReadOnlyDirectory"
+    ],
+    "src/jx/fs/ReadOnlyRegularFile.ctxt": [],
+    "src/jx/fs/ReadOnlyRegularFile.java": [
+      "ReadOnlyRegularFile"
+    ],
+    "src/jx/fs/RegularFile.ctxt": [],
+    "src/jx/fs/RegularFile.java": [
+      "RegularFile"
+    ],
+    "src/jx/fs/StatFS.ctxt": [],
+    "src/jx/fs/StatFS.java": [
+      "StatFS"
+    ],
+    "src/jx/fs/VolumeManager.ctxt": [],
+    "src/jx/fs/VolumeManager.java": [
+      "VolumeManager"
+    ],
+    "src/jx/net/AddressResolution.ctxt": [],
+    "src/jx/net/AddressResolution.java": [
+      "AddressResolution"
+    ],
+    "src/jx/net/EtherConsumer.ctxt": [],
+    "src/jx/net/EtherConsumer.java": [
+      "EtherConsumer"
+    ],
+    "src/jx/net/EtherData.ctxt": [],
+    "src/jx/net/EtherData.java": [
+      "EtherData"
+    ],
+    "src/jx/net/EtherProducer.ctxt": [],
+    "src/jx/net/EtherProducer.java": [
+      "EtherProducer"
+    ],
+    "src/jx/net/IPAddress.ctxt": [],
+    "src/jx/net/IPAddress.java": [
+      "IPAddress"
+    ],
+    "src/jx/net/IPConsumer.ctxt": [],
+    "src/jx/net/IPConsumer.java": [
+      "IPConsumer"
+    ],
+    "src/jx/net/IPData.ctxt": [],
+    "src/jx/net/IPData.java": [
+      "IPData"
+    ],
+    "src/jx/net/IPProducer.ctxt": [],
+    "src/jx/net/IPProducer.java": [
+      "IPProducer"
+    ],
+    "src/jx/net/IPReceiver.ctxt": [],
+    "src/jx/net/IPReceiver.java": [
+      "IPReceiver"
+    ],
+    "src/jx/net/IPSender.ctxt": [],
+    "src/jx/net/IPSender.java": [
+      "IPSender"
+    ],
+    "src/jx/net/NetInit.ctxt": [],
+    "src/jx/net/NetInit.java": [
+      "NetInit"
+    ],
+    "src/jx/net/package.bluej": [],
+    "src/jx/net/PacketsConsumer.ctxt": [],
+    "src/jx/net/PacketsConsumer.java": [
+      "PacketsConsumer"
+    ],
+    "src/jx/net/PacketsConsumer1.ctxt": [],
+    "src/jx/net/PacketsConsumer1.java": [
+      "PacketsConsumer1"
+    ],
+    "src/jx/net/PacketsProducer.ctxt": [],
+    "src/jx/net/PacketsProducer.java": [
+      "PacketsProducer"
+    ],
+    "src/jx/net/rdp/crypto/Key.ctxt": [],
+    "src/jx/net/rdp/crypto/Key.java": [
+      "Key"
+    ],
+    "src/jx/net/rdp/crypto/package.bluej": [],
+    "src/jx/net/rdp/orders/Order.ctxt": [],
+    "src/jx/net/rdp/orders/Order.java": [
+      "Order"
+    ],
+    "src/jx/net/rdp/orders/package.bluej": [],
+    "src/jx/net/rdp/package.bluej": [],
+    "src/jx/net/rpc/package.bluej": [],
+    "src/jx/net/rpc/RPCData.ctxt": [],
+    "src/jx/net/rpc/RPCData.java": [
+      "RPCData"
+    ],
+    "src/jx/net/rpc/RPCEnum.ctxt": [],
+    "src/jx/net/rpc/RPCEnum.java": [
+      "RPCEnum"
+    ],
+    "src/jx/net/rpc/RPCOpaque.ctxt": [],
+    "src/jx/net/rpc/RPCOpaque.java": [
+      "RPCOpaque"
+    ],
+    "src/jx/net/rpc/RPCOptional.ctxt": [],
+    "src/jx/net/rpc/RPCOptional.java": [
+      "RPCOptional"
+    ],
+    "src/jx/net/rpc/RPCProc.ctxt": [],
+    "src/jx/net/rpc/RPCProc.java": [
+      "RPCProc"
+    ],
+    "src/jx/net/rpc/RPCReader.ctxt": [],
+    "src/jx/net/rpc/RPCReader.java": [
+      "RPCReader"
+    ],
+    "src/jx/net/rpc/RPCUnion.ctxt": [],
+    "src/jx/net/rpc/RPCUnion.java": [
+      "RPCUnion"
+    ],
+    "src/jx/net/rpc/RPCWriter.ctxt": [],
+    "src/jx/net/rpc/RPCWriter.java": [
+      "RPCWriter"
+    ],
+    "src/jx/net/rpcsvc/mount/Exports.ctxt": [],
+    "src/jx/net/rpcsvc/mount/Exports.java": [
+      "Exports"
+    ],
+    "src/jx/net/rpcsvc/mount/FHStatus.ctxt": [],
+    "src/jx/net/rpcsvc/mount/FHStatus.java": [
+      "FHStatus"
+    ],
+    "src/jx/net/rpcsvc/mount/MountList.ctxt": [],
+    "src/jx/net/rpcsvc/mount/MountList.java": [
+      "MountList"
+    ],
+    "src/jx/net/rpcsvc/mount/MountProc.ctxt": [],
+    "src/jx/net/rpcsvc/mount/MountProc.java": [
+      "MountProc"
+    ],
+    "src/jx/net/rpcsvc/mount/package.bluej": [],
+    "src/jx/net/rpcsvc/nfs/AttrStat.ctxt": [],
+    "src/jx/net/rpcsvc/nfs/AttrStat.java": [
+      "AttrStat"
+    ],
+    "src/jx/net/rpcsvc/nfs/DirOpRes.ctxt": [],
+    "src/jx/net/rpcsvc/nfs/DirOpRes.java": [
+      "DirOpRes"
+    ],
+    "src/jx/net/rpcsvc/nfs/DirPath.ctxt": [],
+    "src/jx/net/rpcsvc/nfs/DirPath.java": [
+      "DirPath"
+    ],
+    "src/jx/net/rpcsvc/nfs/FHandle.ctxt": [],
+    "src/jx/net/rpcsvc/nfs/FHandle.java": [
+      "FHandle"
+    ],
+    "src/jx/net/rpcsvc/nfs/Name.ctxt": [],
+    "src/jx/net/rpcsvc/nfs/Name.java": [
+      "Name"
+    ],
+    "src/jx/net/rpcsvc/nfs/NFSCookie.ctxt": [],
+    "src/jx/net/rpcsvc/nfs/NFSCookie.java": [
+      "NFSCookie"
+    ],
+    "src/jx/net/rpcsvc/nfs/NFSData.ctxt": [],
+    "src/jx/net/rpcsvc/nfs/NFSData.java": [
+      "NFSData"
+    ],
+    "src/jx/net/rpcsvc/nfs/NFSProc.ctxt": [],
+    "src/jx/net/rpcsvc/nfs/NFSProc.java": [
+      "NFSProc"
+    ],
+    "src/jx/net/rpcsvc/nfs/package.bluej": [],
+    "src/jx/net/rpcsvc/nfs/ReadDirRes.ctxt": [],
+    "src/jx/net/rpcsvc/nfs/ReadDirRes.java": [
+      "ReadDirRes"
+    ],
+    "src/jx/net/rpcsvc/nfs/ReadLinkRes.ctxt": [],
+    "src/jx/net/rpcsvc/nfs/ReadLinkRes.java": [
+      "ReadLinkRes"
+    ],
+    "src/jx/net/rpcsvc/nfs/ReadRes.ctxt": [],
+    "src/jx/net/rpcsvc/nfs/ReadRes.java": [
+      "ReadRes"
+    ],
+    "src/jx/net/rpcsvc/nfs/SAttr.ctxt": [],
+    "src/jx/net/rpcsvc/nfs/SAttr.java": [
+      "SAttr"
+    ],
+    "src/jx/net/rpcsvc/nfs/Stat.ctxt": [],
+    "src/jx/net/rpcsvc/nfs/Stat.java": [
+      "Stat"
+    ],
+    "src/jx/net/rpcsvc/nfs/StatFSRes.ctxt": [],
+    "src/jx/net/rpcsvc/nfs/StatFSRes.java": [
+      "StatFSRes"
+    ],
+    "src/jx/net/rpcsvc/package.bluej": [],
+    "src/jx/net/TCPSocket.ctxt": [],
+    "src/jx/net/TCPSocket.java": [
+      "TCPSocket"
+    ],
+    "src/jx/net/UDPConsumer.ctxt": [],
+    "src/jx/net/UDPConsumer.java": [
+      "UDPConsumer"
+    ],
+    "src/jx/net/UDPData.ctxt": [],
+    "src/jx/net/UDPData.java": [
+      "UDPData"
+    ],
+    "src/jx/net/UDPReceiver.ctxt": [],
+    "src/jx/net/UDPReceiver.java": [
+      "UDPReceiver"
+    ],
+    "src/jx/net/UDPSender.ctxt": [],
+    "src/jx/net/UDPSender.java": [
+      "UDPSender"
+    ],
+    "src/jx/net/xdr/Format.ctxt": [],
+    "src/jx/net/xdr/Format.java": [
+      "length",
+      "writeInt",
+      "writeShort",
+      "writeString",
+      "readInt",
+      "readShort",
+      "readByte",
+      "writeByteArray",
+      "writeFixByteArray",
+      "writeIntArray",
+      "writeShortArray",
+      "readBoolean",
+      "readIntArray",
+      "readShortArray",
+      "readByteArray",
+      "readFixByteArray",
+      "readString",
+      "lengthByte",
+      "lengthShort",
+      "lengthInt",
+      "lengthIntArray",
+      "lengthShortArray",
+      "lengthByteArray",
+      "lengthFixByteArray",
+      "lengthString",
+      "Format"
+    ],
+    "src/jx/net/xdr/FormatMem.ctxt": [],
+    "src/jx/net/xdr/FormatMem.java": [
+      "debug",
+      "length",
+      "lengthByte",
+      "lengthShort",
+      "lengthInt",
+      "lengthIntArray",
+      "lengthShortArray",
+      "lengthByteArray",
+      "lengthFixByteArray",
+      "lengthString",
+      "FormatMem"
+    ],
+    "src/jx/net/xdr/package.bluej": [],
+    "src/jx/net/xdr/XDRBuffer.ctxt": [],
+    "src/jx/net/xdr/XDRBuffer.java": [
+      "XDRBuffer"
+    ],
+    "src/jx/package.bluej": [],
+    "src/jx/zero/ByteCode.ctxt": [],
+    "src/jx/zero/ByteCode.java": [
+      "ByteCode"
+    ],
+    "src/jx/zero/ByteCodeTranslater.ctxt": [],
+    "src/jx/zero/ByteCodeTranslater.java": [
+      "ByteCodeTranslater"
+    ],
+    "src/jx/zero/classfile/ClassSource.ctxt": [],
+    "src/jx/zero/classfile/ClassSource.java": [
+      "ACC_PUBLIC",
+      "ACC_PRIVATE",
+      "ACC_PROTECTED",
+      "ACC_STATIC",
+      "ACC_FINAL",
+      "ACC_SYNCHRONIZED",
+      "ACC_VOLATILE",
+      "ACC_TRANSIENT",
+      "ACC_NATIVE",
+      "ACC_INTERFACE",
+      "ACC_ABSTRACT",
+      "isPublic",
+      "isPrivate",
+      "isProtected",
+      "isStatic",
+      "isFinal",
+      "isSynchronized",
+      "isVolatile",
+      "isTransient",
+      "isNative",
+      "isInterface",
+      "isAbstract",
+      "isPublic",
+      "isPrivate",
+      "isProtected",
+      "isStatic",
+      "isFinal",
+      "isAbstract",
+      "isNative",
+      "isSynchronized",
+      "isInterface",
+      "isVolatile",
+      "isTransient",
+      "getMethods",
+      "getConstantPool",
+      "getMethod",
+      "getClassName",
+      "getSuperClassName",
+      "getInterfaceNames",
+      "getFields",
+      "getSourceFileAttribute",
+      "ClassSource"
+    ],
+    "src/jx/zero/classfile/ConstantPool.ctxt": [],
+    "src/jx/zero/classfile/ConstantPool.java": [
+      "ConstantPool"
+    ],
+    "src/jx/zero/classfile/datatypes/BasicTypeDescriptor.ctxt": [],
+    "src/jx/zero/classfile/datatypes/BasicTypeDescriptor.java": [
+      "BasicTypeDescriptor"
+    ],
+    "src/jx/zero/classfile/datatypes/BCBasicDatatype.ctxt": [],
+    "src/jx/zero/classfile/datatypes/BCBasicDatatype.java": [
+      "INT",
+      "LONG",
+      "FLOAT",
+      "DOUBLE",
+      "REFERENCE",
+      "BYTE",
+      "CHAR",
+      "SHORT",
+      "BOOLEAN",
+      "RETURN_ADDRESS",
+      "VOID",
+      "UNKNOWN_TYPE",
+      "SECOND_SLOT",
+      "sizeInWords",
+      "toChar",
+      "toTypeDesc",
+      "isDouble",
+      "sizeInByte",
+      "translateToIMType",
+      "type",
+      "sizeInWords",
+      "toSymbol",
+      "toString",
+      "BCBasicDatatype"
+    ],
+    "src/jx/zero/classfile/datatypes/BCFloatDatatype.ctxt": [],
+    "src/jx/zero/classfile/datatypes/BCFloatDatatype.java": [
+      "doubleValue",
+      "BCFloatDatatype"
+    ],
+    "src/jx/zero/classfile/datatypes/BCIntegerDatatype.ctxt": [],
+    "src/jx/zero/classfile/datatypes/BCIntegerDatatype.java": [
+      "combined",
+      "negated",
+      "BCIntegerDatatype"
+    ],
+    "src/jx/zero/classfile/datatypes/BCNumericDatatype.ctxt": [],
+    "src/jx/zero/classfile/datatypes/BCNumericDatatype.java": [
+      "ADD",
+      "SUB",
+      "MUL",
+      "DIV",
+      "REM",
+      "NEG",
+      "SHL",
+      "SHR",
+      "USHR",
+      "AND",
+      "OR",
+      "XOR",
+      "combined",
+      "negated",
+      "BCNumericDatatype"
+    ],
+    "src/jx/zero/classfile/datatypes/package.bluej": [],
+    "src/jx/zero/classfile/ExceptionHandlerData.ctxt": [],
+    "src/jx/zero/classfile/ExceptionHandlerData.java": [
+      "ExceptionHandlerData"
+    ],
+    "src/jx/zero/classfile/FieldData.ctxt": [],
+    "src/jx/zero/classfile/FieldData.java": [
+      "FieldData"
+    ],
+    "src/jx/zero/classfile/LineAttributeData.ctxt": [],
+    "src/jx/zero/classfile/LineAttributeData.java": [
+      "LineAttributeData"
+    ],
+    "src/jx/zero/classfile/MethodSource.ctxt": [],
+    "src/jx/zero/classfile/MethodSource.java": [
+      "getDeclaringClassSource",
+      "getMethodName",
+      "getMethodType",
+      "isPublic",
+      "isPrivate",
+      "isProtected",
+      "isStatic",
+      "isFinal",
+      "isAbstract",
+      "isNative",
+      "getBytecode",
+      "getNumInstr",
+      "getNumLocalVariables",
+      "getNumStackSlots",
+      "getExceptionHandlers",
+      "getLineNumberTable",
+      "getVerifyResult",
+      "setVerifyResult",
+      "MethodSource"
+    ],
+    "src/jx/zero/classfile/package.bluej": [],
+    "src/jx/zero/classfile/VerifyResult.ctxt": [],
+    "src/jx/zero/classfile/VerifyResult.java": [
+      "NPA_RESULT",
+      "FLA_RESULT",
+      "WCET_RESULT",
+      "CINSTR_RESULT",
+      "getType",
+      "VerifyResult",
+      "VerifyResult"
+    ],
+    "src/jx/zero/classstore/ClassData.ctxt": [],
+    "src/jx/zero/classstore/ClassData.java": [
+      "ClassData"
+    ],
+    "src/jx/zero/classstore/ClassFinder.ctxt": [],
+    "src/jx/zero/classstore/ClassFinder.java": [
+      "ClassFinder"
+    ],
+    "src/jx/zero/classstore/package.bluej": [],
+    "src/jx/zero/collections/Collection.ctxt": [],
+    "src/jx/zero/collections/Collection.java": [
+      "Collection"
+    ],
+    "src/jx/zero/collections/Comparator.ctxt": [],
+    "src/jx/zero/collections/Comparator.java": [
+      "Comparator"
+    ],
+    "src/jx/zero/collections/Iterator.ctxt": [],
+    "src/jx/zero/collections/Iterator.java": [
+      "Iterator"
+    ],
+    "src/jx/zero/collections/package.bluej": [],
+    "src/jx/zero/collections/SortedList.ctxt": [],
+    "src/jx/zero/collections/SortedList.java": [
+      "SortedList"
+    ],
+    "src/jx/zero/package.bluej": [],
+    "src/jx/zero/rtc/package.bluej": [],
+    "src/jx/zero/rtc/RTC.ctxt": [],
+    "src/jx/zero/rtc/RTC.java": [
+      "RTC"
+    ],
+    "src/jx/zero/scheduler/package.bluej": [],
+    "src/jx/zero/scheduler/SchedulerPortal.ctxt": [],
+    "src/jx/zero/scheduler/SchedulerPortal.java": [
+      "SchedulerPortal"
+    ],
+    "src/jx/zero/synch/mutex/BlockingLock.ctxt": [],
+    "src/jx/zero/synch/mutex/BlockingLock.java": [
+      "BlockingLock"
+    ],
+    "src/jx/zero/synch/mutex/package.bluej": [],
+    "src/jx/zero/synch/nonblocking/package.bluej": [],
+    "src/jx/zero/synch/nonblocking/Queue.ctxt": [],
+    "src/jx/zero/synch/nonblocking/Queue.java": [
+      "Queue"
+    ],
+    "src/jx/zero/synch/package.bluej": [],
+    "src/jx/zero/timer/package.bluej": [],
+    "src/jx/zero/timer/SleepManager.ctxt": [],
+    "src/jx/zero/timer/SleepManager.java": [
+      "SleepManager"
+    ],
+    "src/jx/zero/timer/Timer.ctxt": [],
+    "src/jx/zero/timer/Timer.java": [
+      "Timer"
+    ],
+    "src/jx/zero/timer/TimerHandler.ctxt": [],
+    "src/jx/zero/timer/TimerHandler.java": [
+      "TimerHandler"
+    ],
+    "src/jx/zero/timer/TimerManager.ctxt": [],
+    "src/jx/zero/timer/TimerManager.java": [
+      "TimerManager"
+    ],
+    "src/jx/zero/verifier/JVMLocalVarsElement.ctxt": [],
+    "src/jx/zero/verifier/JVMLocalVarsElement.java": [
+      "merge",
+      "dataEquals",
+      "getBcAddr",
+      "JVMLocalVarsElement",
+      "toString",
+      "JVMLocalVarsElement"
+    ],
+    "src/jx/zero/verifier/JVMOPStackElement.ctxt": [],
+    "src/jx/zero/verifier/JVMOPStackElement.java": [
+      "merge",
+      "dataEquals",
+      "ADDR_INIT",
+      "ADDR_EXCEPTION",
+      "ADDR_MERGE",
+      "getBCAddr",
+      "getPrev",
+      "setPrev",
+      "JVMOPStackElement",
+      "JVMOPStackElement",
+      "addressString",
+      "toString",
+      "JVMOPStackElement"
+    ],
+    "src/jx/zero/verifier/npa/NPALocalVarsInterface.ctxt": [],
+    "src/jx/zero/verifier/npa/NPALocalVarsInterface.java": [
+      "NPALocalVarsInterface"
+    ],
+    "src/jx/zero/verifier/npa/NPAValue.ctxt": [],
+    "src/jx/zero/verifier/npa/NPAValue.java": [
+      "NPAValue"
+    ],
+    "src/jx/zero/verifier/npa/package.bluej": [],
+    "src/jx/zero/verifier/package.bluej": [],
+    "src/jx/zero/verifier/Subroutines.ctxt": [],
+    "src/jx/zero/verifier/Subroutines.java": [
+      "Subroutines"
+    ],
+    "src/jx/zero/verifier/typecheck/package.bluej": [],
+    "src/jx/zero/verifier/typecheck/TCLocalVarsInterface.ctxt": [],
+    "src/jx/zero/verifier/typecheck/TCLocalVarsInterface.java": [
+      "TCLocalVarsInterface"
+    ],
+    "src/jx/zero/verifier/typecheck/TCTypes.ctxt": [],
+    "src/jx/zero/verifier/typecheck/TCTypes.java": [
+      "TCTypes"
+    ],
+    "src/jx/zero/verifier/VerifierInterface.ctxt": [],
+    "src/jx/zero/verifier/VerifierInterface.java": [
+      "VerifierInterface"
+    ],
+    "src/jx/zero/verifier/wcet/CFGNode.ctxt": [],
+    "src/jx/zero/verifier/wcet/CFGNode.java": [
+      "CFGNode"
+    ],
+    "src/jx/zero/verifier/wcet/ExecutionTime.ctxt": [],
+    "src/jx/zero/verifier/wcet/ExecutionTime.java": [
+      "ExecutionTime"
+    ],
+    "src/jx/zero/verifier/wcet/OpenIfListElement.ctxt": [],
+    "src/jx/zero/verifier/wcet/OpenIfListElement.java": [
+      "OpenIfListElement"
+    ],
+    "src/jx/zero/verifier/wcet/package.bluej": [],
+    "src/jx/zero/verifier/wcet/SimState.ctxt": [],
+    "src/jx/zero/verifier/wcet/SimState.java": [
+      "SimState"
+    ],
+    "src/jx/zero/verifier/wcet/ValueProvider.ctxt": [],
+    "src/jx/zero/verifier/wcet/ValueProvider.java": [
+      "ValueProvider"
+    ],
+    "src/package.bluej": []
+  },
+  "batches": [
+    {
+      "batchIndex": 1,
+      "files": [
+        {
+          "path": "src/gnu/java/io/decode/Decoder.java",
+          "language": "java",
+          "sizeLines": 309,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/gnu/java/io/decode/DecoderEightBitLookup.java",
+          "language": "java",
+          "sizeLines": 145,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/io/InputStream.java",
+          "language": "java",
+          "sizeLines": 64,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/io/Reader.java",
+          "language": "java",
+          "sizeLines": 241,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/lang/ClassLoader.java",
+          "language": "java",
+          "sizeLines": 67,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/security/cert/CertificateFactorySpi.java",
+          "language": "java",
+          "sizeLines": 142,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/sql/Blob.java",
+          "language": "java",
+          "sizeLines": 119,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/sql/CallableStatement.java",
+          "language": "java",
+          "sizeLines": 454,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/sql/Clob.java",
+          "language": "java",
+          "sizeLines": 136,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/sql/PreparedStatement.java",
+          "language": "java",
+          "sizeLines": 546,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/sql/ResultSet.java",
+          "language": "java",
+          "sizeLines": 2006,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/sql/SQLInput.java",
+          "language": "java",
+          "sizeLines": 332,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/sql/SQLOutput.java",
+          "language": "java",
+          "sizeLines": 331,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/util/Calendar.java",
+          "language": "java",
+          "sizeLines": 993,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/util/Collection.java",
+          "language": "java",
+          "sizeLines": 239,
+          "fileCategory": "code"
+        }
+      ],
+      "batchImportData": {
+        "src/gnu/java/io/decode/Decoder.java": [
+          "src/java/io/InputStream.java",
+          "src/java/io/Reader.java"
+        ],
+        "src/gnu/java/io/decode/DecoderEightBitLookup.java": [
+          "src/java/io/InputStream.java"
+        ],
+        "src/java/io/InputStream.java": [],
+        "src/java/io/Reader.java": [],
+        "src/java/lang/ClassLoader.java": [
+          "src/java/io/InputStream.java"
+        ],
+        "src/java/security/cert/CertificateFactorySpi.java": [
+          "src/java/io/InputStream.java",
+          "src/java/util/Collection.java"
+        ],
+        "src/java/sql/Blob.java": [
+          "src/java/io/InputStream.java"
+        ],
+        "src/java/sql/CallableStatement.java": [
+          "src/java/io/InputStream.java",
+          "src/java/io/Reader.java",
+          "src/java/util/Calendar.java",
+          "src/java/util/Map.java"
+        ],
+        "src/java/sql/Clob.java": [
+          "src/java/io/InputStream.java",
+          "src/java/io/Reader.java"
+        ],
+        "src/java/sql/PreparedStatement.java": [
+          "src/java/io/InputStream.java",
+          "src/java/io/Reader.java",
+          "src/java/util/Calendar.java"
+        ],
+        "src/java/sql/ResultSet.java": [
+          "src/java/io/InputStream.java",
+          "src/java/io/Reader.java",
+          "src/java/util/Calendar.java",
+          "src/java/util/Map.java"
+        ],
+        "src/java/sql/SQLInput.java": [
+          "src/java/io/InputStream.java",
+          "src/java/io/Reader.java"
+        ],
+        "src/java/sql/SQLOutput.java": [
+          "src/java/io/InputStream.java",
+          "src/java/io/Reader.java"
+        ],
+        "src/java/util/Calendar.java": [],
+        "src/java/util/Collection.java": []
+      },
+      "neighborMap": {
+        "src/java/io/InputStream.java": [
+          {
+            "path": "src/java/security/Certificate.java",
+            "batchIndex": 7,
+            "symbols": [
+              "Certificate"
+            ]
+          },
+          {
+            "path": "src/java/security/KeyStoreSpi.java",
+            "batchIndex": 7,
+            "symbols": [
+              "KeyStoreSpi",
+              "engineGetKey",
+              "engineGetCertificateChain",
+              "engineGetCertificate",
+              "engineGetCreationDate",
+              "engineSetKeyEntry",
+              "engineSetKeyEntry",
+              "engineSetCertificateEntry",
+              "engineDeleteEntry",
+              "engineAliases",
+              "engineContainsAlias",
+              "engineSize",
+              "engineIsKeyEntry",
+              "engineIsCertificateEntry",
+              "engineGetCertificateAlias",
+              "engineStore",
+              "engineLoad",
+              "KeyStoreSpi"
+            ]
+          }
+        ],
+        "src/java/sql/CallableStatement.java": [
+          {
+            "path": "src/java/util/Map.java",
+            "batchIndex": 4,
+            "symbols": [
+              "Map"
+            ]
+          }
+        ],
+        "src/java/sql/ResultSet.java": [
+          {
+            "path": "src/java/util/Map.java",
+            "batchIndex": 4,
+            "symbols": [
+              "Map"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "batchIndex": 2,
+      "files": [
+        {
+          "path": "src/java/lang/Iterable.java",
+          "language": "java",
+          "sizeLines": 103,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/nio/Buffer.java",
+          "language": "java",
+          "sizeLines": 548,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/util/Iterator.java",
+          "language": "java",
+          "sizeLines": 77,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/util/PrimitiveIterator.java",
+          "language": "java",
+          "sizeLines": 305,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/util/Spliterator.java",
+          "language": "java",
+          "sizeLines": 832,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/util/function/BiConsumer.java",
+          "language": "java",
+          "sizeLines": 75,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/util/function/Consumer.java",
+          "language": "java",
+          "sizeLines": 67,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/util/function/DoubleConsumer.java",
+          "language": "java",
+          "sizeLines": 67,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/util/function/IntConsumer.java",
+          "language": "java",
+          "sizeLines": 67,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/util/function/IntUnaryOperator.java",
+          "language": "java",
+          "sizeLines": 95,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/util/function/LongConsumer.java",
+          "language": "java",
+          "sizeLines": 67,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/util/function/Supplier.java",
+          "language": "java",
+          "sizeLines": 49,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/util/stream/IntStream.java",
+          "language": "java",
+          "sizeLines": 929,
+          "fileCategory": "code"
+        }
+      ],
+      "batchImportData": {
+        "src/java/lang/Iterable.java": [
+          "src/java/util/function/Consumer.java",
+          "src/java/util/Iterator.java",
+          "src/java/util/Spliterator.java"
+        ],
+        "src/java/nio/Buffer.java": [
+          "src/java/util/Spliterator.java"
+        ],
+        "src/java/util/Iterator.java": [
+          "src/java/util/function/Consumer.java"
+        ],
+        "src/java/util/PrimitiveIterator.java": [
+          "src/java/util/function/Consumer.java",
+          "src/java/util/function/DoubleConsumer.java",
+          "src/java/util/function/IntConsumer.java",
+          "src/java/util/function/LongConsumer.java"
+        ],
+        "src/java/util/Spliterator.java": [
+          "src/java/util/function/Consumer.java",
+          "src/java/util/function/DoubleConsumer.java",
+          "src/java/util/function/IntConsumer.java",
+          "src/java/util/function/LongConsumer.java"
+        ],
+        "src/java/util/function/BiConsumer.java": [],
+        "src/java/util/function/Consumer.java": [],
+        "src/java/util/function/DoubleConsumer.java": [],
+        "src/java/util/function/IntConsumer.java": [],
+        "src/java/util/function/IntUnaryOperator.java": [],
+        "src/java/util/function/LongConsumer.java": [],
+        "src/java/util/function/Supplier.java": [],
+        "src/java/util/stream/IntStream.java": [
+          "src/java/util/function/BiConsumer.java",
+          "src/java/util/function/Function.java",
+          "src/java/util/function/IntConsumer.java",
+          "src/java/util/function/IntUnaryOperator.java",
+          "src/java/util/function/Supplier.java",
+          "src/java/util/PrimitiveIterator.java",
+          "src/java/util/Spliterator.java"
+        ]
+      },
+      "neighborMap": {
+        "src/java/util/stream/IntStream.java": [
+          {
+            "path": "src/java/util/function/Function.java",
+            "batchIndex": 4,
+            "symbols": [
+              "Function"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "batchIndex": 3,
+      "files": [
+        {
+          "path": "src/java/io/Serializable.java",
+          "language": "java",
+          "sizeLines": 4,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/lang/Number.java",
+          "language": "java",
+          "sizeLines": 19,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/security/Identity.java",
+          "language": "java",
+          "sizeLines": 358,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/security/Key.java",
+          "language": "java",
+          "sizeLines": 97,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/security/Permission.java",
+          "language": "java",
+          "sizeLines": 193,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/security/Provider.java",
+          "language": "java",
+          "sizeLines": 208,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/security/SecureRandomSpi.java",
+          "language": "java",
+          "sizeLines": 75,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/text/Collator.java",
+          "language": "java",
+          "sizeLines": 473,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/text/Format.java",
+          "language": "java",
+          "sizeLines": 167,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/text/NumberFormat.java",
+          "language": "java",
+          "sizeLines": 633,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/util/Comparator.java",
+          "language": "java",
+          "sizeLines": 64,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/util/ResourceBundle.java",
+          "language": "java",
+          "sizeLines": 450,
+          "fileCategory": "code"
+        }
+      ],
+      "batchImportData": {
+        "src/java/io/Serializable.java": [],
+        "src/java/lang/Number.java": [
+          "src/java/io/Serializable.java"
+        ],
+        "src/java/security/Identity.java": [
+          "src/java/io/Serializable.java"
+        ],
+        "src/java/security/Key.java": [
+          "src/java/io/Serializable.java"
+        ],
+        "src/java/security/Permission.java": [
+          "src/java/io/Serializable.java"
+        ],
+        "src/java/security/Provider.java": [
+          "src/java/io/Serializable.java"
+        ],
+        "src/java/security/SecureRandomSpi.java": [
+          "src/java/io/Serializable.java"
+        ],
+        "src/java/text/Collator.java": [
+          "src/java/io/Serializable.java",
+          "src/java/util/Comparator.java",
+          "src/java/util/ResourceBundle.java"
+        ],
+        "src/java/text/Format.java": [
+          "src/java/io/Serializable.java"
+        ],
+        "src/java/text/NumberFormat.java": [
+          "src/java/io/Serializable.java"
+        ],
+        "src/java/util/Comparator.java": [],
+        "src/java/util/ResourceBundle.java": []
+      },
+      "neighborMap": {
+        "src/java/io/Serializable.java": [
+          {
+            "path": "src/java/lang/Enum.java",
+            "batchIndex": 6,
+            "symbols": [
+              "name",
+              "ordinal",
+              "toString",
+              "equals",
+              "hashCode",
+              "compareTo",
+              "getDeclaringClass",
+              "valueOf",
+              "Enum"
+            ]
+          },
+          {
+            "path": "src/java/security/BasicPermission.java",
+            "batchIndex": 5,
+            "symbols": [
+              "BasicPermission",
+              "BasicPermission",
+              "implies",
+              "equals",
+              "hashCode",
+              "getActions",
+              "newPermissionCollection",
+              "BasicPermission"
+            ]
+          },
+          {
+            "path": "src/java/security/PermissionCollection.java",
+            "batchIndex": 5,
+            "symbols": [
+              "linesep",
+              "PermissionCollection",
+              "isReadOnly",
+              "setReadOnly",
+              "add",
+              "elements",
+              "implies",
+              "toString",
+              "PermissionCollection"
+            ]
+          },
+          {
+            "path": "src/java/text/AttributedCharacterIterator.java",
+            "batchIndex": 4,
+            "symbols": [
+              "AttributedCharacterIterator"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "batchIndex": 4,
+      "files": [
+        {
+          "path": "src/java/lang/invoke/BoundMethodHandle.java",
+          "language": "java",
+          "sizeLines": 324,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/security/cert/X509CRLEntry.java",
+          "language": "java",
+          "sizeLines": 166,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/security/cert/X509Certificate.java",
+          "language": "java",
+          "sizeLines": 448,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/security/cert/X509Extension.java",
+          "language": "java",
+          "sizeLines": 102,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/sql/Array.java",
+          "language": "java",
+          "sizeLines": 226,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/sql/Connection.java",
+          "language": "java",
+          "sizeLines": 451,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/sql/Struct.java",
+          "language": "java",
+          "sizeLines": 80,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/text/AttributedCharacterIterator.java",
+          "language": "java",
+          "sizeLines": 332,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/util/Map.java",
+          "language": "java",
+          "sizeLines": 58,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/util/Set.java",
+          "language": "java",
+          "sizeLines": 51,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/util/function/Function.java",
+          "language": "java",
+          "sizeLines": 100,
+          "fileCategory": "code"
+        }
+      ],
+      "batchImportData": {
+        "src/java/lang/invoke/BoundMethodHandle.java": [
+          "src/java/util/function/Function.java",
+          "src/java/util/Map.java"
+        ],
+        "src/java/security/cert/X509CRLEntry.java": [
+          "src/java/util/Set.java"
+        ],
+        "src/java/security/cert/X509Certificate.java": [
+          "src/java/security/Principal.java",
+          "src/java/util/Set.java"
+        ],
+        "src/java/security/cert/X509Extension.java": [
+          "src/java/util/Set.java"
+        ],
+        "src/java/sql/Array.java": [
+          "src/java/util/Map.java"
+        ],
+        "src/java/sql/Connection.java": [
+          "src/java/util/Map.java"
+        ],
+        "src/java/sql/Struct.java": [
+          "src/java/util/Map.java"
+        ],
+        "src/java/text/AttributedCharacterIterator.java": [
+          "src/java/io/Serializable.java",
+          "src/java/util/Map.java",
+          "src/java/util/Set.java"
+        ],
+        "src/java/util/Map.java": [],
+        "src/java/util/Set.java": [],
+        "src/java/util/function/Function.java": []
+      },
+      "neighborMap": {
+        "src/java/security/cert/X509Certificate.java": [
+          {
+            "path": "src/java/security/Principal.java",
+            "batchIndex": 5,
+            "symbols": [
+              "Principal"
+            ]
+          }
+        ],
+        "src/java/text/AttributedCharacterIterator.java": [
+          {
+            "path": "src/java/io/Serializable.java",
+            "batchIndex": 3,
+            "symbols": [
+              "Serializable"
+            ]
+          }
+        ],
+        "src/java/util/Map.java": [
+          {
+            "path": "src/java/sql/CallableStatement.java",
+            "batchIndex": 1,
+            "symbols": [
+              "CallableStatement"
+            ]
+          },
+          {
+            "path": "src/java/sql/ResultSet.java",
+            "batchIndex": 1,
+            "symbols": [
+              "ResultSet"
+            ]
+          }
+        ],
+        "src/java/util/Set.java": [
+          {
+            "path": "src/java/security/cert/X509CRL.java",
+            "batchIndex": 6,
+            "symbols": [
+              "equals",
+              "hashCode",
+              "getEncoded",
+              "verify",
+              "verify",
+              "getVersion",
+              "getIssuerDN",
+              "getThisUpdate",
+              "getNextUpdate",
+              "getRevokedCertificate",
+              "getRevokedCertificates",
+              "getTBSCertList",
+              "getSignature",
+              "getSigAlgName",
+              "getSigAlgOID",
+              "getSigAlgParams",
+              "hasUnsupportedCriticalExtension",
+              "getCriticalExtensionOIDs",
+              "getNonCriticalExtensionOIDs",
+              "getExtensionValue",
+              "X509CRL"
+            ]
+          }
+        ],
+        "src/java/util/function/Function.java": [
+          {
+            "path": "src/java/util/stream/IntStream.java",
+            "batchIndex": 2,
+            "symbols": [
+              "IntStream"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "batchIndex": 5,
+      "files": [
+        {
+          "path": "src/java/applet/AppletContext.java",
+          "language": "java",
+          "sizeLines": 108,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/security/BasicPermission.java",
+          "language": "java",
+          "sizeLines": 271,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/security/IdentityScope.java",
+          "language": "java",
+          "sizeLines": 208,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/security/PermissionCollection.java",
+          "language": "java",
+          "sizeLines": 207,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/security/Principal.java",
+          "language": "java",
+          "sizeLines": 85,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/security/acl/Acl.java",
+          "language": "java",
+          "sizeLines": 160,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/security/acl/AclEntry.java",
+          "language": "java",
+          "sizeLines": 164,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/security/acl/Group.java",
+          "language": "java",
+          "sizeLines": 93,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/security/acl/Owner.java",
+          "language": "java",
+          "sizeLines": 92,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/util/Enumeration.java",
+          "language": "java",
+          "sizeLines": 8,
+          "fileCategory": "code"
+        }
+      ],
+      "batchImportData": {
+        "src/java/applet/AppletContext.java": [
+          "src/java/util/Enumeration.java"
+        ],
+        "src/java/security/BasicPermission.java": [
+          "src/java/io/Serializable.java",
+          "src/java/util/Enumeration.java"
+        ],
+        "src/java/security/IdentityScope.java": [
+          "src/java/util/Enumeration.java"
+        ],
+        "src/java/security/PermissionCollection.java": [
+          "src/java/io/Serializable.java",
+          "src/java/util/Enumeration.java"
+        ],
+        "src/java/security/Principal.java": [],
+        "src/java/security/acl/Acl.java": [
+          "src/java/security/Principal.java",
+          "src/java/util/Enumeration.java"
+        ],
+        "src/java/security/acl/AclEntry.java": [
+          "src/java/security/Principal.java",
+          "src/java/util/Enumeration.java"
+        ],
+        "src/java/security/acl/Group.java": [
+          "src/java/security/Principal.java",
+          "src/java/util/Enumeration.java"
+        ],
+        "src/java/security/acl/Owner.java": [
+          "src/java/security/Principal.java"
+        ],
+        "src/java/util/Enumeration.java": []
+      },
+      "neighborMap": {
+        "src/java/security/BasicPermission.java": [
+          {
+            "path": "src/java/io/Serializable.java",
+            "batchIndex": 3,
+            "symbols": [
+              "Serializable"
+            ]
+          }
+        ],
+        "src/java/security/PermissionCollection.java": [
+          {
+            "path": "src/java/io/Serializable.java",
+            "batchIndex": 3,
+            "symbols": [
+              "Serializable"
+            ]
+          }
+        ],
+        "src/java/security/Principal.java": [
+          {
+            "path": "src/java/security/cert/X509Certificate.java",
+            "batchIndex": 4,
+            "symbols": [
+              "checkValidity",
+              "checkValidity",
+              "getVersion",
+              "getSerialNumber",
+              "getIssuerDN",
+              "getSubjectDN",
+              "getNotBefore",
+              "getNotAfter",
+              "getTBSCertificate",
+              "getSignature",
+              "getSigAlgName",
+              "getSigAlgOID",
+              "getSigAlgParams",
+              "getIssuerUniqueID",
+              "getSubjectUniqueID",
+              "getKeyUsage",
+              "getBasicConstraints",
+              "hasUnsupportedCriticalExtension",
+              "getCriticalExtensionOIDs",
+              "getNonCriticalExtensionOIDs",
+              "getExtensionValue",
+              "X509Certificate"
+            ]
+          },
+          {
+            "path": "src/java/security/cert/X509CRL.java",
+            "batchIndex": 6,
+            "symbols": [
+              "equals",
+              "hashCode",
+              "getEncoded",
+              "verify",
+              "verify",
+              "getVersion",
+              "getIssuerDN",
+              "getThisUpdate",
+              "getNextUpdate",
+              "getRevokedCertificate",
+              "getRevokedCertificates",
+              "getTBSCertList",
+              "getSignature",
+              "getSigAlgName",
+              "getSigAlgOID",
+              "getSigAlgParams",
+              "hasUnsupportedCriticalExtension",
+              "getCriticalExtensionOIDs",
+              "getNonCriticalExtensionOIDs",
+              "getExtensionValue",
+              "X509CRL"
+            ]
+          }
+        ],
+        "src/java/util/Enumeration.java": [
+          {
+            "path": "src/java/security/KeyStoreSpi.java",
+            "batchIndex": 7,
+            "symbols": [
+              "KeyStoreSpi",
+              "engineGetKey",
+              "engineGetCertificateChain",
+              "engineGetCertificate",
+              "engineGetCreationDate",
+              "engineSetKeyEntry",
+              "engineSetKeyEntry",
+              "engineSetCertificateEntry",
+              "engineDeleteEntry",
+              "engineAliases",
+              "engineContainsAlias",
+              "engineSize",
+              "engineIsKeyEntry",
+              "engineIsCertificateEntry",
+              "engineGetCertificateAlias",
+              "engineStore",
+              "engineLoad",
+              "KeyStoreSpi"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "batchIndex": 6,
+      "files": [
+        {
+          "path": "src/java/io/ObjectStreamException.java",
+          "language": "java",
+          "sizeLines": 70,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/lang/Enum.java",
+          "language": "java",
+          "sizeLines": 240,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/security/PublicKey.java",
+          "language": "java",
+          "sizeLines": 47,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/security/cert/Certificate.java",
+          "language": "java",
+          "sizeLines": 237,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/security/cert/X509CRL.java",
+          "language": "java",
+          "sizeLines": 377,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/security/interfaces/DSAPublicKey.java",
+          "language": "java",
+          "sizeLines": 61,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/security/interfaces/RSAPublicKey.java",
+          "language": "java",
+          "sizeLines": 54,
+          "fileCategory": "code"
+        }
+      ],
+      "batchImportData": {
+        "src/java/io/ObjectStreamException.java": [],
+        "src/java/lang/Enum.java": [
+          "src/java/io/ObjectStreamException.java",
+          "src/java/io/Serializable.java"
+        ],
+        "src/java/security/PublicKey.java": [],
+        "src/java/security/cert/Certificate.java": [
+          "src/java/io/ObjectStreamException.java",
+          "src/java/security/PublicKey.java"
+        ],
+        "src/java/security/cert/X509CRL.java": [
+          "src/java/security/Principal.java",
+          "src/java/security/PublicKey.java",
+          "src/java/util/Set.java"
+        ],
+        "src/java/security/interfaces/DSAPublicKey.java": [
+          "src/java/security/PublicKey.java"
+        ],
+        "src/java/security/interfaces/RSAPublicKey.java": [
+          "src/java/security/PublicKey.java"
+        ]
+      },
+      "neighborMap": {
+        "src/java/lang/Enum.java": [
+          {
+            "path": "src/java/io/Serializable.java",
+            "batchIndex": 3,
+            "symbols": [
+              "Serializable"
+            ]
+          }
+        ],
+        "src/java/security/cert/X509CRL.java": [
+          {
+            "path": "src/java/security/Principal.java",
+            "batchIndex": 5,
+            "symbols": [
+              "Principal"
+            ]
+          },
+          {
+            "path": "src/java/util/Set.java",
+            "batchIndex": 4,
+            "symbols": [
+              "Set"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "batchIndex": 7,
+      "files": [
+        {
+          "path": "src/gnu/java/io/encode/Encoder.java",
+          "language": "java",
+          "sizeLines": 343,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/gnu/java/io/encode/EncoderEightBitLookup.java",
+          "language": "java",
+          "sizeLines": 187,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/io/OutputStream.java",
+          "language": "java",
+          "sizeLines": 31,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/io/Writer.java",
+          "language": "java",
+          "sizeLines": 205,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/security/Certificate.java",
+          "language": "java",
+          "sizeLines": 134,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/security/KeyStoreSpi.java",
+          "language": "java",
+          "sizeLines": 254,
+          "fileCategory": "code"
+        }
+      ],
+      "batchImportData": {
+        "src/gnu/java/io/encode/Encoder.java": [
+          "src/java/io/OutputStream.java",
+          "src/java/io/Writer.java"
+        ],
+        "src/gnu/java/io/encode/EncoderEightBitLookup.java": [
+          "src/java/io/OutputStream.java"
+        ],
+        "src/java/io/OutputStream.java": [],
+        "src/java/io/Writer.java": [],
+        "src/java/security/Certificate.java": [
+          "src/java/io/InputStream.java",
+          "src/java/io/OutputStream.java"
+        ],
+        "src/java/security/KeyStoreSpi.java": [
+          "src/java/io/InputStream.java",
+          "src/java/io/OutputStream.java",
+          "src/java/util/Enumeration.java"
+        ]
+      },
+      "neighborMap": {
+        "src/java/security/Certificate.java": [
+          {
+            "path": "src/java/io/InputStream.java",
+            "batchIndex": 1,
+            "symbols": [
+              "available",
+              "close",
+              "markSupported",
+              "mark",
+              "read",
+              "read",
+              "read",
+              "reset",
+              "skip",
+              "InputStream",
+              "InputStream"
+            ]
+          }
+        ],
+        "src/java/security/KeyStoreSpi.java": [
+          {
+            "path": "src/java/io/InputStream.java",
+            "batchIndex": 1,
+            "symbols": [
+              "available",
+              "close",
+              "markSupported",
+              "mark",
+              "read",
+              "read",
+              "read",
+              "reset",
+              "skip",
+              "InputStream",
+              "InputStream"
+            ]
+          },
+          {
+            "path": "src/java/util/Enumeration.java",
+            "batchIndex": 5,
+            "symbols": [
+              "Enumeration"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "batchIndex": 8,
+      "files": [
+        {
+          "path": "src/java/security/AlgorithmParameterGeneratorSpi.java",
+          "language": "java",
+          "sizeLines": 81,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/security/AlgorithmParametersSpi.java",
+          "language": "java",
+          "sizeLines": 131,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/security/KeyPairGenerator.java",
+          "language": "java",
+          "sizeLines": 241,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/security/KeyPairGeneratorSpi.java",
+          "language": "java",
+          "sizeLines": 84,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/security/SignatureSpi.java",
+          "language": "java",
+          "sizeLines": 248,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/security/spec/AlgorithmParameterSpec.java",
+          "language": "java",
+          "sizeLines": 41,
+          "fileCategory": "code"
+        }
+      ],
+      "batchImportData": {
+        "src/java/security/AlgorithmParameterGeneratorSpi.java": [
+          "src/java/security/spec/AlgorithmParameterSpec.java"
+        ],
+        "src/java/security/AlgorithmParametersSpi.java": [
+          "src/java/security/spec/AlgorithmParameterSpec.java"
+        ],
+        "src/java/security/KeyPairGenerator.java": [
+          "src/java/security/spec/AlgorithmParameterSpec.java"
+        ],
+        "src/java/security/KeyPairGeneratorSpi.java": [
+          "src/java/security/spec/AlgorithmParameterSpec.java"
+        ],
+        "src/java/security/SignatureSpi.java": [
+          "src/java/security/spec/AlgorithmParameterSpec.java"
+        ],
+        "src/java/security/spec/AlgorithmParameterSpec.java": []
+      },
+      "neighborMap": {}
+    },
+    {
+      "batchIndex": 9,
+      "files": [
+        {
+          "path": "src/jx/zero/ByteCode.java",
+          "language": "java",
+          "sizeLines": 340,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/zero/classfile/MethodSource.java",
+          "language": "java",
+          "sizeLines": 30,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/zero/verifier/VerifierInterface.java",
+          "language": "java",
+          "sizeLines": 17,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/zero/verifier/wcet/ExecutionTime.java",
+          "language": "java",
+          "sizeLines": 26,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/zero/verifier/wcet/ValueProvider.java",
+          "language": "java",
+          "sizeLines": 69,
+          "fileCategory": "code"
+        }
+      ],
+      "batchImportData": {
+        "src/jx/zero/ByteCode.java": [],
+        "src/jx/zero/classfile/MethodSource.java": [],
+        "src/jx/zero/verifier/VerifierInterface.java": [
+          "src/jx/zero/ByteCode.java",
+          "src/jx/zero/classfile/MethodSource.java"
+        ],
+        "src/jx/zero/verifier/wcet/ExecutionTime.java": [
+          "src/jx/zero/ByteCode.java"
+        ],
+        "src/jx/zero/verifier/wcet/ValueProvider.java": [
+          "src/jx/zero/ByteCode.java"
+        ]
+      },
+      "neighborMap": {}
+    },
+    {
+      "batchIndex": 10,
+      "files": [
+        {
+          "path": "src/java/beans/PropertyChangeListener.java",
+          "language": "java",
+          "sizeLines": 49,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/beans/VetoableChangeListener.java",
+          "language": "java",
+          "sizeLines": 65,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/util/EventListener.java",
+          "language": "java",
+          "sizeLines": 32,
+          "fileCategory": "code"
+        }
+      ],
+      "batchImportData": {
+        "src/java/beans/PropertyChangeListener.java": [
+          "src/java/util/EventListener.java"
+        ],
+        "src/java/beans/VetoableChangeListener.java": [
+          "src/java/util/EventListener.java"
+        ],
+        "src/java/util/EventListener.java": []
+      },
+      "neighborMap": {}
+    },
+    {
+      "batchIndex": 11,
+      "files": [
+        {
+          "path": "src/java/security/PrivateKey.java",
+          "language": "java",
+          "sizeLines": 47,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/security/interfaces/DSAPrivateKey.java",
+          "language": "java",
+          "sizeLines": 61,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/security/interfaces/RSAPrivateKey.java",
+          "language": "java",
+          "sizeLines": 54,
+          "fileCategory": "code"
+        }
+      ],
+      "batchImportData": {
+        "src/java/security/PrivateKey.java": [],
+        "src/java/security/interfaces/DSAPrivateKey.java": [
+          "src/java/security/PrivateKey.java"
+        ],
+        "src/java/security/interfaces/RSAPrivateKey.java": [
+          "src/java/security/PrivateKey.java"
+        ]
+      },
+      "neighborMap": {}
+    },
+    {
+      "batchIndex": 12,
+      "files": [
+        {
+          "path": "src/jx/devices/bio/BlockIO.java",
+          "language": "java",
+          "sizeLines": 44,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/FileSystem.java",
+          "language": "java",
+          "sizeLines": 70,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/buffer/BufferCache.java",
+          "language": "java",
+          "sizeLines": 24,
+          "fileCategory": "code"
+        }
+      ],
+      "batchImportData": {
+        "src/jx/devices/bio/BlockIO.java": [],
+        "src/jx/fs/FileSystem.java": [
+          "src/jx/devices/bio/BlockIO.java",
+          "src/jx/fs/buffer/BufferCache.java"
+        ],
+        "src/jx/fs/buffer/BufferCache.java": []
+      },
+      "neighborMap": {}
+    },
+    {
+      "batchIndex": 13,
+      "files": [
+        {
+          "path": "src/jx/devices/Bus.java",
+          "language": "java",
+          "sizeLines": 5,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/devices/ide/IDEDevice.java",
+          "language": "java",
+          "sizeLines": 46,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/devices/pci/PCIDevice.java",
+          "language": "java",
+          "sizeLines": 56,
+          "fileCategory": "code"
+        }
+      ],
+      "batchImportData": {
+        "src/jx/devices/Bus.java": [],
+        "src/jx/devices/ide/IDEDevice.java": [
+          "src/jx/devices/Bus.java"
+        ],
+        "src/jx/devices/pci/PCIDevice.java": [
+          "src/jx/devices/Bus.java"
+        ]
+      },
+      "neighborMap": {}
+    },
+    {
+      "batchIndex": 14,
+      "files": [
+        {
+          "path": "src/jx/devices/Device.java",
+          "language": "java",
+          "sizeLines": 25,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/devices/net/NetworkDevice.java",
+          "language": "java",
+          "sizeLines": 18,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/buffer/separator/NonBlockingMemoryConsumer.java",
+          "language": "java",
+          "sizeLines": 19,
+          "fileCategory": "code"
+        }
+      ],
+      "batchImportData": {
+        "src/jx/devices/Device.java": [],
+        "src/jx/devices/net/NetworkDevice.java": [
+          "src/jx/devices/Device.java",
+          "src/jx/fs/buffer/separator/NonBlockingMemoryConsumer.java"
+        ],
+        "src/jx/fs/buffer/separator/NonBlockingMemoryConsumer.java": []
+      },
+      "neighborMap": {}
+    },
+    {
+      "batchIndex": 15,
+      "files": [
+        {
+          "path": "src/jx/fs/buffer/separator/MemoryConsumer.java",
+          "language": "java",
+          "sizeLines": 18,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/PacketsConsumer.java",
+          "language": "java",
+          "sizeLines": 17,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/PacketsProducer.java",
+          "language": "java",
+          "sizeLines": 8,
+          "fileCategory": "code"
+        }
+      ],
+      "batchImportData": {
+        "src/jx/fs/buffer/separator/MemoryConsumer.java": [],
+        "src/jx/net/PacketsConsumer.java": [
+          "src/jx/fs/buffer/separator/MemoryConsumer.java"
+        ],
+        "src/jx/net/PacketsProducer.java": [
+          "src/jx/fs/buffer/separator/MemoryConsumer.java"
+        ]
+      },
+      "neighborMap": {}
+    },
+    {
+      "batchIndex": 16,
+      "files": [
+        {
+          "path": "src/jx/net/rpc/RPCProc.java",
+          "language": "java",
+          "sizeLines": 4,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rpcsvc/mount/MountProc.java",
+          "language": "java",
+          "sizeLines": 25,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rpcsvc/nfs/NFSProc.java",
+          "language": "java",
+          "sizeLines": 49,
+          "fileCategory": "code"
+        }
+      ],
+      "batchImportData": {
+        "src/jx/net/rpc/RPCProc.java": [],
+        "src/jx/net/rpcsvc/mount/MountProc.java": [
+          "src/jx/net/rpc/RPCProc.java"
+        ],
+        "src/jx/net/rpcsvc/nfs/NFSProc.java": [
+          "src/jx/net/rpc/RPCProc.java"
+        ]
+      },
+      "neighborMap": {}
+    },
+    {
+      "batchIndex": 17,
+      "files": [
+        {
+          "path": "nbproject/build-impl.xml",
+          "language": "xml",
+          "sizeLines": 1817,
+          "fileCategory": "config"
+        },
+        {
+          "path": "nbproject/genfiles.properties",
+          "language": "properties",
+          "sizeLines": 8,
+          "fileCategory": "config"
+        },
+        {
+          "path": "nbproject/project.properties",
+          "language": "properties",
+          "sizeLines": 105,
+          "fileCategory": "config"
+        },
+        {
+          "path": "nbproject/project.xml",
+          "language": "xml",
+          "sizeLines": 26,
+          "fileCategory": "config"
+        }
+      ],
+      "batchImportData": {
+        "nbproject/build-impl.xml": [],
+        "nbproject/genfiles.properties": [],
+        "nbproject/project.properties": [],
+        "nbproject/project.xml": []
+      },
+      "neighborMap": {}
+    },
+    {
+      "batchIndex": 18,
+      "files": [
+        {
+          "path": ".understand-anything/.understandignore",
+          "language": "unknown",
+          "sizeLines": 33,
+          "fileCategory": "code"
+        },
+        {
+          "path": "alternative/jdk_collections_impl/java/util/AbstractCollection.j",
+          "language": "j",
+          "sizeLines": 345,
+          "fileCategory": "code"
+        },
+        {
+          "path": "alternative/jdk0/java/util/AbstractList.j",
+          "language": "j",
+          "sizeLines": 49,
+          "fileCategory": "code"
+        },
+        {
+          "path": "build.xml",
+          "language": "xml",
+          "sizeLines": 73,
+          "fileCategory": "config"
+        },
+        {
+          "path": "CHANGELOG",
+          "language": "unknown",
+          "sizeLines": 107,
+          "fileCategory": "code"
+        },
+        {
+          "path": "manifest.mf",
+          "language": "mf",
+          "sizeLines": 3,
+          "fileCategory": "code"
+        },
+        {
+          "path": "META",
+          "language": "unknown",
+          "sizeLines": 14,
+          "fileCategory": "code"
+        },
+        {
+          "path": "README.rst",
+          "language": "markdown",
+          "sizeLines": 12,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "src/gnu/java/io/decode/Decoder.ctxt",
+          "language": "ctxt",
+          "sizeLines": 37,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/gnu/java/io/decode/DecoderEightBitLookup.ctxt",
+          "language": "ctxt",
+          "sizeLines": 16,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/gnu/java/io/decode/package.bluej",
+          "language": "bluej",
+          "sizeLines": 34,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/gnu/java/io/encode/Encoder.ctxt",
+          "language": "ctxt",
+          "sizeLines": 40,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/gnu/java/io/encode/EncoderEightBitLookup.ctxt",
+          "language": "ctxt",
+          "sizeLines": 19,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/gnu/java/io/encode/package.bluej",
+          "language": "bluej",
+          "sizeLines": 34,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/gnu/java/io/package.bluej",
+          "language": "bluej",
+          "sizeLines": 32,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/gnu/java/package.bluej",
+          "language": "bluej",
+          "sizeLines": 26,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/gnu/package.bluej",
+          "language": "bluej",
+          "sizeLines": 26,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/applet/AppletStub.java",
+          "language": "java",
+          "sizeLines": 86,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/applet/AudioClip.java",
+          "language": "java",
+          "sizeLines": 54,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/applet/package.bluej",
+          "language": "bluej",
+          "sizeLines": 47,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/beans/BeanInfo.java",
+          "language": "java",
+          "sizeLines": 170,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/beans/Customizer.java",
+          "language": "java",
+          "sizeLines": 75,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/beans/DesignMode.java",
+          "language": "java",
+          "sizeLines": 80,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/beans/package.bluej",
+          "language": "bluej",
+          "sizeLines": 0,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/beans/PropertyEditor.java",
+          "language": "java",
+          "sizeLines": 197,
+          "fileCategory": "code"
+        }
+      ],
+      "batchImportData": {
+        ".understand-anything/.understandignore": [],
+        "alternative/jdk_collections_impl/java/util/AbstractCollection.j": [],
+        "alternative/jdk0/java/util/AbstractList.j": [],
+        "build.xml": [],
+        "CHANGELOG": [],
+        "manifest.mf": [],
+        "META": [],
+        "README.rst": [],
+        "src/gnu/java/io/decode/Decoder.ctxt": [],
+        "src/gnu/java/io/decode/DecoderEightBitLookup.ctxt": [],
+        "src/gnu/java/io/decode/package.bluej": [],
+        "src/gnu/java/io/encode/Encoder.ctxt": [],
+        "src/gnu/java/io/encode/EncoderEightBitLookup.ctxt": [],
+        "src/gnu/java/io/encode/package.bluej": [],
+        "src/gnu/java/io/package.bluej": [],
+        "src/gnu/java/package.bluej": [],
+        "src/gnu/package.bluej": [],
+        "src/java/applet/AppletStub.java": [],
+        "src/java/applet/AudioClip.java": [],
+        "src/java/applet/package.bluej": [],
+        "src/java/beans/BeanInfo.java": [],
+        "src/java/beans/Customizer.java": [],
+        "src/java/beans/DesignMode.java": [],
+        "src/java/beans/package.bluej": [],
+        "src/java/beans/PropertyEditor.java": []
+      },
+      "neighborMap": {}
+    },
+    {
+      "batchIndex": 19,
+      "files": [
+        {
+          "path": "src/java/beans/Visibility.java",
+          "language": "java",
+          "sizeLines": 74,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/io/Closeable.java",
+          "language": "java",
+          "sizeLines": 33,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/io/DataInput.java",
+          "language": "java",
+          "sizeLines": 19,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/io/DataOutput.java",
+          "language": "java",
+          "sizeLines": 18,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/io/Externalizable.java",
+          "language": "java",
+          "sizeLines": 94,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/io/FilenameFilter.java",
+          "language": "java",
+          "sizeLines": 58,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/io/ObjectOutput.java",
+          "language": "java",
+          "sizeLines": 91,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/io/ObjectStreamConstants.java",
+          "language": "java",
+          "sizeLines": 235,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/io/package.bluej",
+          "language": "bluej",
+          "sizeLines": 114,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/lang/Appendable.java",
+          "language": "java",
+          "sizeLines": 121,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/lang/AutoCloseable.java",
+          "language": "java",
+          "sizeLines": 98,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/lang/CharSequence.java",
+          "language": "java",
+          "sizeLines": 110,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/lang/Cloneable.java",
+          "language": "java",
+          "sizeLines": 6,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/lang/Comparable.java",
+          "language": "java",
+          "sizeLines": 20,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/lang/invoke/AbstractValidatingLambdaMetafactory.java",
+          "language": "java",
+          "sizeLines": 376,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/lang/invoke/DelegatingMethodHandle.java",
+          "language": "java",
+          "sizeLines": 155,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/lang/invoke/MethodHandle.java",
+          "language": "java",
+          "sizeLines": 494,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/lang/invoke/MethodHandleImpl.java",
+          "language": "java",
+          "sizeLines": 20,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/lang/invoke/MethodHandleInfo.java",
+          "language": "java",
+          "sizeLines": 28,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/lang/invoke/package.bluej",
+          "language": "bluej",
+          "sizeLines": 80,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/lang/package.bluej",
+          "language": "bluej",
+          "sizeLines": 105,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/lang/reflect/Member.java",
+          "language": "java",
+          "sizeLines": 73,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/lang/reflect/package.bluej",
+          "language": "bluej",
+          "sizeLines": 27,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/lang/Runnable.java",
+          "language": "java",
+          "sizeLines": 5,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/net/ContentHandler.java",
+          "language": "java",
+          "sizeLines": 78,
+          "fileCategory": "code"
+        }
+      ],
+      "batchImportData": {
+        "src/java/beans/Visibility.java": [],
+        "src/java/io/Closeable.java": [],
+        "src/java/io/DataInput.java": [],
+        "src/java/io/DataOutput.java": [],
+        "src/java/io/Externalizable.java": [],
+        "src/java/io/FilenameFilter.java": [],
+        "src/java/io/ObjectOutput.java": [],
+        "src/java/io/ObjectStreamConstants.java": [],
+        "src/java/io/package.bluej": [],
+        "src/java/lang/Appendable.java": [],
+        "src/java/lang/AutoCloseable.java": [],
+        "src/java/lang/CharSequence.java": [],
+        "src/java/lang/Cloneable.java": [],
+        "src/java/lang/Comparable.java": [],
+        "src/java/lang/invoke/AbstractValidatingLambdaMetafactory.java": [],
+        "src/java/lang/invoke/DelegatingMethodHandle.java": [],
+        "src/java/lang/invoke/MethodHandle.java": [],
+        "src/java/lang/invoke/MethodHandleImpl.java": [],
+        "src/java/lang/invoke/MethodHandleInfo.java": [
+          "src/java/lang/reflect/Member.java"
+        ],
+        "src/java/lang/invoke/package.bluej": [],
+        "src/java/lang/package.bluej": [],
+        "src/java/lang/reflect/Member.java": [],
+        "src/java/lang/reflect/package.bluej": [],
+        "src/java/lang/Runnable.java": [],
+        "src/java/net/ContentHandler.java": []
+      },
+      "neighborMap": {}
+    },
+    {
+      "batchIndex": 20,
+      "files": [
+        {
+          "path": "src/java/net/ContentHandlerFactory.java",
+          "language": "java",
+          "sizeLines": 51,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/net/FileNameMap.java",
+          "language": "java",
+          "sizeLines": 51,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/net/package.bluej",
+          "language": "bluej",
+          "sizeLines": 51,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/net/URLStreamHandlerFactory.java",
+          "language": "java",
+          "sizeLines": 51,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/nio/package.bluej",
+          "language": "bluej",
+          "sizeLines": 0,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/package.bluej",
+          "language": "bluej",
+          "sizeLines": 86,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/security/acl/package.bluej",
+          "language": "bluej",
+          "sizeLines": 0,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/security/acl/Permission.java",
+          "language": "java",
+          "sizeLines": 64,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/security/cert/CRL.java",
+          "language": "java",
+          "sizeLines": 86,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/security/cert/Makefile.am",
+          "language": "am",
+          "sizeLines": 19,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/security/cert/Makefile.in",
+          "language": "in",
+          "sizeLines": 221,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/security/cert/package.bluej",
+          "language": "bluej",
+          "sizeLines": 0,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/security/DomainCombiner.java",
+          "language": "java",
+          "sizeLines": 54,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/security/Guard.java",
+          "language": "java",
+          "sizeLines": 54,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/security/interfaces/DSAKey.java",
+          "language": "java",
+          "sizeLines": 50,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/security/interfaces/DSAKeyPairGenerator.java",
+          "language": "java",
+          "sizeLines": 81,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/security/interfaces/DSAParams.java",
+          "language": "java",
+          "sizeLines": 72,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/security/interfaces/package.bluej",
+          "language": "bluej",
+          "sizeLines": 0,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/security/interfaces/RSAKey.java",
+          "language": "java",
+          "sizeLines": 45,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/security/interfaces/RSAPrivateCrtKey.java",
+          "language": "java",
+          "sizeLines": 102,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/security/KeyFactorySpi.java",
+          "language": "java",
+          "sizeLines": 122,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/security/MessageDigest.java",
+          "language": "java",
+          "sizeLines": 315,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/security/MessageDigestSpi.java",
+          "language": "java",
+          "sizeLines": 148,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/security/package.bluej",
+          "language": "bluej",
+          "sizeLines": 0,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/security/Policy.java",
+          "language": "java",
+          "sizeLines": 146,
+          "fileCategory": "code"
+        }
+      ],
+      "batchImportData": {
+        "src/java/net/ContentHandlerFactory.java": [],
+        "src/java/net/FileNameMap.java": [],
+        "src/java/net/package.bluej": [],
+        "src/java/net/URLStreamHandlerFactory.java": [],
+        "src/java/nio/package.bluej": [],
+        "src/java/package.bluej": [],
+        "src/java/security/acl/package.bluej": [],
+        "src/java/security/acl/Permission.java": [],
+        "src/java/security/cert/CRL.java": [],
+        "src/java/security/cert/Makefile.am": [],
+        "src/java/security/cert/Makefile.in": [],
+        "src/java/security/cert/package.bluej": [],
+        "src/java/security/DomainCombiner.java": [],
+        "src/java/security/Guard.java": [],
+        "src/java/security/interfaces/DSAKey.java": [],
+        "src/java/security/interfaces/DSAKeyPairGenerator.java": [],
+        "src/java/security/interfaces/DSAParams.java": [],
+        "src/java/security/interfaces/package.bluej": [],
+        "src/java/security/interfaces/RSAKey.java": [],
+        "src/java/security/interfaces/RSAPrivateCrtKey.java": [],
+        "src/java/security/KeyFactorySpi.java": [
+          "src/java/security/spec/KeySpec.java"
+        ],
+        "src/java/security/MessageDigest.java": [],
+        "src/java/security/MessageDigestSpi.java": [],
+        "src/java/security/package.bluej": [],
+        "src/java/security/Policy.java": []
+      },
+      "neighborMap": {
+        "src/java/security/KeyFactorySpi.java": [
+          {
+            "path": "src/java/security/spec/KeySpec.java",
+            "batchIndex": 21,
+            "symbols": [
+              "KeySpec"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "batchIndex": 21,
+      "files": [
+        {
+          "path": "src/java/security/PrivilegedAction.java",
+          "language": "java",
+          "sizeLines": 53,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/security/PrivilegedExceptionAction.java",
+          "language": "java",
+          "sizeLines": 57,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/security/Signer.java",
+          "language": "java",
+          "sizeLines": 139,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/security/spec/EncodedKeySpec.java",
+          "language": "java",
+          "sizeLines": 74,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/security/spec/KeySpec.java",
+          "language": "java",
+          "sizeLines": 39,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/security/spec/package.bluej",
+          "language": "bluej",
+          "sizeLines": 0,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/security/spec/RSAKeyGenParameterSpec.j",
+          "language": "j",
+          "sizeLines": 86,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/sql/DatabaseMetaData.java",
+          "language": "java",
+          "sizeLines": 2736,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/sql/Driver.java",
+          "language": "java",
+          "sizeLines": 137,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/sql/package.bluej",
+          "language": "bluej",
+          "sizeLines": 0,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/sql/Ref.java",
+          "language": "java",
+          "sizeLines": 51,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/sql/ResultSetMetaData.java",
+          "language": "java",
+          "sizeLines": 378,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/sql/SQLData.java",
+          "language": "java",
+          "sizeLines": 74,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/sql/Statement.java",
+          "language": "java",
+          "sizeLines": 413,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/text/CharacterIterator.java",
+          "language": "java",
+          "sizeLines": 175,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/text/DateFormat.java",
+          "language": "java",
+          "sizeLines": 586,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/text/package.bluej",
+          "language": "bluej",
+          "sizeLines": 0,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/util/AbstractCollection.j",
+          "language": "j",
+          "sizeLines": 347,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/util/AbstractCollection.java",
+          "language": "java",
+          "sizeLines": 211,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/util/AbstractList.j",
+          "language": "j",
+          "sizeLines": 538,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/util/AbstractList.java",
+          "language": "java",
+          "sizeLines": 99,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/util/AbstractMap.java",
+          "language": "java",
+          "sizeLines": 412,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/util/AbstractQueue.java",
+          "language": "java",
+          "sizeLines": 198,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/util/AbstractSequentialList.java",
+          "language": "java",
+          "sizeLines": 132,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/util/AbstractSet.java",
+          "language": "java",
+          "sizeLines": 104,
+          "fileCategory": "code"
+        }
+      ],
+      "batchImportData": {
+        "src/java/security/PrivilegedAction.java": [],
+        "src/java/security/PrivilegedExceptionAction.java": [],
+        "src/java/security/Signer.java": [],
+        "src/java/security/spec/EncodedKeySpec.java": [],
+        "src/java/security/spec/KeySpec.java": [],
+        "src/java/security/spec/package.bluej": [],
+        "src/java/security/spec/RSAKeyGenParameterSpec.j": [],
+        "src/java/sql/DatabaseMetaData.java": [],
+        "src/java/sql/Driver.java": [],
+        "src/java/sql/package.bluej": [],
+        "src/java/sql/Ref.java": [],
+        "src/java/sql/ResultSetMetaData.java": [],
+        "src/java/sql/SQLData.java": [],
+        "src/java/sql/Statement.java": [],
+        "src/java/text/CharacterIterator.java": [],
+        "src/java/text/DateFormat.java": [],
+        "src/java/text/package.bluej": [],
+        "src/java/util/AbstractCollection.j": [],
+        "src/java/util/AbstractCollection.java": [],
+        "src/java/util/AbstractList.j": [],
+        "src/java/util/AbstractList.java": [],
+        "src/java/util/AbstractMap.java": [],
+        "src/java/util/AbstractQueue.java": [],
+        "src/java/util/AbstractSequentialList.java": [],
+        "src/java/util/AbstractSet.java": []
+      },
+      "neighborMap": {
+        "src/java/security/spec/KeySpec.java": [
+          {
+            "path": "src/java/security/KeyFactorySpi.java",
+            "batchIndex": 20,
+            "symbols": [
+              "KeyFactorySpi",
+              "KeyFactorySpi"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "batchIndex": 22,
+      "files": [
+        {
+          "path": "src/java/util/Deque.java",
+          "language": "java",
+          "sizeLines": 584,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/util/Dictionary.java",
+          "language": "java",
+          "sizeLines": 13,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/util/function/BiFunction.java",
+          "language": "java",
+          "sizeLines": 72,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/util/function/package.bluej",
+          "language": "bluej",
+          "sizeLines": 93,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/util/function/UnaryOperator.java",
+          "language": "java",
+          "sizeLines": 52,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/util/LinkedList.j",
+          "language": "j",
+          "sizeLines": 677,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/util/List.java",
+          "language": "java",
+          "sizeLines": 357,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/util/ListIterator.java",
+          "language": "java",
+          "sizeLines": 147,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/util/ListResourceBundle.java",
+          "language": "java",
+          "sizeLines": 100,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/util/NavigableMap.java",
+          "language": "java",
+          "sizeLines": 424,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/util/NavigableSet.java",
+          "language": "java",
+          "sizeLines": 319,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/util/package.bluej",
+          "language": "bluej",
+          "sizeLines": 352,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/util/Queue.java",
+          "language": "java",
+          "sizeLines": 218,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/util/RandomAccess.java",
+          "language": "java",
+          "sizeLines": 64,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/util/SortedMap.java",
+          "language": "java",
+          "sizeLines": 284,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/util/SortedSet.java",
+          "language": "java",
+          "sizeLines": 264,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/util/stream/package.bluej",
+          "language": "bluej",
+          "sizeLines": 27,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/java/util/TimeZone.java",
+          "language": "java",
+          "sizeLines": 1096,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/devices/bio/BlockIO.ctxt",
+          "language": "ctxt",
+          "sizeLines": 16,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/devices/bio/package.bluej",
+          "language": "bluej",
+          "sizeLines": 27,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/devices/Bus.ctxt",
+          "language": "ctxt",
+          "sizeLines": 5,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/devices/Device.ctxt",
+          "language": "ctxt",
+          "sizeLines": 13,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/devices/DeviceConfiguration.ctxt",
+          "language": "ctxt",
+          "sizeLines": 3,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/devices/DeviceConfiguration.java",
+          "language": "java",
+          "sizeLines": 4,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/devices/DeviceConfigurationTemplate.ctxt",
+          "language": "ctxt",
+          "sizeLines": 4,
+          "fileCategory": "code"
+        }
+      ],
+      "batchImportData": {
+        "src/java/util/Deque.java": [],
+        "src/java/util/Dictionary.java": [],
+        "src/java/util/function/BiFunction.java": [],
+        "src/java/util/function/package.bluej": [],
+        "src/java/util/function/UnaryOperator.java": [],
+        "src/java/util/LinkedList.j": [],
+        "src/java/util/List.java": [],
+        "src/java/util/ListIterator.java": [],
+        "src/java/util/ListResourceBundle.java": [],
+        "src/java/util/NavigableMap.java": [],
+        "src/java/util/NavigableSet.java": [],
+        "src/java/util/package.bluej": [],
+        "src/java/util/Queue.java": [],
+        "src/java/util/RandomAccess.java": [],
+        "src/java/util/SortedMap.java": [],
+        "src/java/util/SortedSet.java": [],
+        "src/java/util/stream/package.bluej": [],
+        "src/java/util/TimeZone.java": [],
+        "src/jx/devices/bio/BlockIO.ctxt": [],
+        "src/jx/devices/bio/package.bluej": [],
+        "src/jx/devices/Bus.ctxt": [],
+        "src/jx/devices/Device.ctxt": [],
+        "src/jx/devices/DeviceConfiguration.ctxt": [],
+        "src/jx/devices/DeviceConfiguration.java": [],
+        "src/jx/devices/DeviceConfigurationTemplate.ctxt": []
+      },
+      "neighborMap": {}
+    },
+    {
+      "batchIndex": 23,
+      "files": [
+        {
+          "path": "src/jx/devices/DeviceConfigurationTemplate.java",
+          "language": "java",
+          "sizeLines": 11,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/devices/DeviceFinder.ctxt",
+          "language": "ctxt",
+          "sizeLines": 5,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/devices/DeviceFinder.java",
+          "language": "java",
+          "sizeLines": 7,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/devices/framebuffer/ClippingRectangle.ctxt",
+          "language": "ctxt",
+          "sizeLines": 4,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/devices/framebuffer/ClippingRectangle.java",
+          "language": "java",
+          "sizeLines": 10,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/devices/framebuffer/ClippingTransformer.ctxt",
+          "language": "ctxt",
+          "sizeLines": 5,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/devices/framebuffer/ClippingTransformer.java",
+          "language": "java",
+          "sizeLines": 5,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/devices/framebuffer/package.bluej",
+          "language": "bluej",
+          "sizeLines": 44,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/devices/framebuffer/PackedFramebuffer.ctxt",
+          "language": "ctxt",
+          "sizeLines": 29,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/devices/framebuffer/PackedFramebuffer.java",
+          "language": "java",
+          "sizeLines": 23,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/devices/ide/IDEDevice.ctxt",
+          "language": "ctxt",
+          "sizeLines": 13,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/devices/ide/package.bluej",
+          "language": "bluej",
+          "sizeLines": 27,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/devices/Keyboard.ctxt",
+          "language": "ctxt",
+          "sizeLines": 9,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/devices/Keyboard.java",
+          "language": "java",
+          "sizeLines": 9,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/devices/KeyListener.ctxt",
+          "language": "ctxt",
+          "sizeLines": 5,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/devices/KeyListener.java",
+          "language": "java",
+          "sizeLines": 7,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/devices/Mouse.ctxt",
+          "language": "ctxt",
+          "sizeLines": 3,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/devices/Mouse.java",
+          "language": "java",
+          "sizeLines": 4,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/devices/net/NetworkDevice.ctxt",
+          "language": "ctxt",
+          "sizeLines": 15,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/devices/net/package.bluej",
+          "language": "bluej",
+          "sizeLines": 55,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/devices/net/PacketsProducer.ctxt",
+          "language": "ctxt",
+          "sizeLines": 5,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/devices/net/PacketsProducer.java",
+          "language": "java",
+          "sizeLines": 5,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/devices/net/PacketsQueue.ctxt",
+          "language": "ctxt",
+          "sizeLines": 3,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/devices/net/PacketsQueue.java",
+          "language": "java",
+          "sizeLines": 4,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/devices/net/PacketsQueueConsumer.ctxt",
+          "language": "ctxt",
+          "sizeLines": 10,
+          "fileCategory": "code"
+        }
+      ],
+      "batchImportData": {
+        "src/jx/devices/DeviceConfigurationTemplate.java": [],
+        "src/jx/devices/DeviceFinder.ctxt": [],
+        "src/jx/devices/DeviceFinder.java": [],
+        "src/jx/devices/framebuffer/ClippingRectangle.ctxt": [],
+        "src/jx/devices/framebuffer/ClippingRectangle.java": [],
+        "src/jx/devices/framebuffer/ClippingTransformer.ctxt": [],
+        "src/jx/devices/framebuffer/ClippingTransformer.java": [],
+        "src/jx/devices/framebuffer/package.bluej": [],
+        "src/jx/devices/framebuffer/PackedFramebuffer.ctxt": [],
+        "src/jx/devices/framebuffer/PackedFramebuffer.java": [],
+        "src/jx/devices/ide/IDEDevice.ctxt": [],
+        "src/jx/devices/ide/package.bluej": [],
+        "src/jx/devices/Keyboard.ctxt": [],
+        "src/jx/devices/Keyboard.java": [],
+        "src/jx/devices/KeyListener.ctxt": [],
+        "src/jx/devices/KeyListener.java": [],
+        "src/jx/devices/Mouse.ctxt": [],
+        "src/jx/devices/Mouse.java": [],
+        "src/jx/devices/net/NetworkDevice.ctxt": [],
+        "src/jx/devices/net/package.bluej": [],
+        "src/jx/devices/net/PacketsProducer.ctxt": [],
+        "src/jx/devices/net/PacketsProducer.java": [],
+        "src/jx/devices/net/PacketsQueue.ctxt": [],
+        "src/jx/devices/net/PacketsQueue.java": [],
+        "src/jx/devices/net/PacketsQueueConsumer.ctxt": []
+      },
+      "neighborMap": {}
+    },
+    {
+      "batchIndex": 24,
+      "files": [
+        {
+          "path": "src/jx/devices/net/PacketsQueueConsumer.java",
+          "language": "java",
+          "sizeLines": 15,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/devices/net/PacketsQueueProducer.ctxt",
+          "language": "ctxt",
+          "sizeLines": 9,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/devices/net/PacketsQueueProducer.java",
+          "language": "java",
+          "sizeLines": 9,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/devices/package.bluej",
+          "language": "bluej",
+          "sizeLines": 122,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/devices/pci/package.bluej",
+          "language": "bluej",
+          "sizeLines": 64,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/devices/pci/PCI.ctxt",
+          "language": "ctxt",
+          "sizeLines": 4,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/devices/pci/PCI.java",
+          "language": "java",
+          "sizeLines": 156,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/devices/pci/PCIAccess.ctxt",
+          "language": "ctxt",
+          "sizeLines": 17,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/devices/pci/PCIAccess.java",
+          "language": "java",
+          "sizeLines": 17,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/devices/pci/PCIAddress.ctxt",
+          "language": "ctxt",
+          "sizeLines": 10,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/devices/pci/PCIAddress.java",
+          "language": "java",
+          "sizeLines": 12,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/devices/pci/PCICap.ctxt",
+          "language": "ctxt",
+          "sizeLines": 3,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/devices/pci/PCICap.java",
+          "language": "java",
+          "sizeLines": 21,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/devices/pci/PCIDevice.ctxt",
+          "language": "ctxt",
+          "sizeLines": 46,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/devices/Screen.ctxt",
+          "language": "ctxt",
+          "sizeLines": 15,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/devices/Screen.java",
+          "language": "java",
+          "sizeLines": 13,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/buffer/BufferCache.ctxt",
+          "language": "ctxt",
+          "sizeLines": 18,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/buffer/BufferHead.ctxt",
+          "language": "ctxt",
+          "sizeLines": 22,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/buffer/BufferHead.java",
+          "language": "java",
+          "sizeLines": 45,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/buffer/multithread/Buffer.ctxt",
+          "language": "ctxt",
+          "sizeLines": 4,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/buffer/multithread/Buffer.java",
+          "language": "java",
+          "sizeLines": 10,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/buffer/multithread/BufferConsumer.ctxt",
+          "language": "ctxt",
+          "sizeLines": 6,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/buffer/multithread/BufferConsumer.java",
+          "language": "java",
+          "sizeLines": 8,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/buffer/multithread/BufferProducer.ctxt",
+          "language": "ctxt",
+          "sizeLines": 6,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/buffer/multithread/BufferProducer.java",
+          "language": "java",
+          "sizeLines": 8,
+          "fileCategory": "code"
+        }
+      ],
+      "batchImportData": {
+        "src/jx/devices/net/PacketsQueueConsumer.java": [],
+        "src/jx/devices/net/PacketsQueueProducer.ctxt": [],
+        "src/jx/devices/net/PacketsQueueProducer.java": [],
+        "src/jx/devices/package.bluej": [],
+        "src/jx/devices/pci/package.bluej": [],
+        "src/jx/devices/pci/PCI.ctxt": [],
+        "src/jx/devices/pci/PCI.java": [],
+        "src/jx/devices/pci/PCIAccess.ctxt": [],
+        "src/jx/devices/pci/PCIAccess.java": [],
+        "src/jx/devices/pci/PCIAddress.ctxt": [],
+        "src/jx/devices/pci/PCIAddress.java": [],
+        "src/jx/devices/pci/PCICap.ctxt": [],
+        "src/jx/devices/pci/PCICap.java": [],
+        "src/jx/devices/pci/PCIDevice.ctxt": [],
+        "src/jx/devices/Screen.ctxt": [],
+        "src/jx/devices/Screen.java": [],
+        "src/jx/fs/buffer/BufferCache.ctxt": [],
+        "src/jx/fs/buffer/BufferHead.ctxt": [],
+        "src/jx/fs/buffer/BufferHead.java": [],
+        "src/jx/fs/buffer/multithread/Buffer.ctxt": [],
+        "src/jx/fs/buffer/multithread/Buffer.java": [],
+        "src/jx/fs/buffer/multithread/BufferConsumer.ctxt": [],
+        "src/jx/fs/buffer/multithread/BufferConsumer.java": [],
+        "src/jx/fs/buffer/multithread/BufferProducer.ctxt": [],
+        "src/jx/fs/buffer/multithread/BufferProducer.java": []
+      },
+      "neighborMap": {}
+    },
+    {
+      "batchIndex": 25,
+      "files": [
+        {
+          "path": "src/jx/fs/buffer/multithread/package.bluej",
+          "language": "bluej",
+          "sizeLines": 47,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/buffer/package.bluej",
+          "language": "bluej",
+          "sizeLines": 49,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/buffer/separator/MemoryConsumer.ctxt",
+          "language": "ctxt",
+          "sizeLines": 6,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/buffer/separator/MemoryConsumer2.ctxt",
+          "language": "ctxt",
+          "sizeLines": 6,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/buffer/separator/MemoryConsumer2.java",
+          "language": "java",
+          "sizeLines": 18,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/buffer/separator/MemoryProducer.ctxt",
+          "language": "ctxt",
+          "sizeLines": 6,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/buffer/separator/MemoryProducer.java",
+          "language": "java",
+          "sizeLines": 12,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/buffer/separator/NonBlockingMemoryConsumer.ctxt",
+          "language": "ctxt",
+          "sizeLines": 8,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/buffer/separator/package.bluej",
+          "language": "bluej",
+          "sizeLines": 48,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/db/avltree/Comparable.ctxt",
+          "language": "ctxt",
+          "sizeLines": 6,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/db/avltree/Comparable.java",
+          "language": "java",
+          "sizeLines": 21,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/db/avltree/package.bluej",
+          "language": "bluej",
+          "sizeLines": 27,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/db/BufferList.ctxt",
+          "language": "ctxt",
+          "sizeLines": 19,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/db/BufferList.java",
+          "language": "java",
+          "sizeLines": 49,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/db/Database.ctxt",
+          "language": "ctxt",
+          "sizeLines": 33,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/db/Database.java",
+          "language": "java",
+          "sizeLines": 65,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/db/Index.ctxt",
+          "language": "ctxt",
+          "sizeLines": 14,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/db/Index.java",
+          "language": "java",
+          "sizeLines": 32,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/db/IndexInfo.ctxt",
+          "language": "ctxt",
+          "sizeLines": 12,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/db/IndexInfo.java",
+          "language": "java",
+          "sizeLines": 16,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/db/Key.ctxt",
+          "language": "ctxt",
+          "sizeLines": 21,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/db/Key.java",
+          "language": "java",
+          "sizeLines": 19,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/db/package.bluej",
+          "language": "bluej",
+          "sizeLines": 185,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/db/RelationalOperator.ctxt",
+          "language": "ctxt",
+          "sizeLines": 18,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/db/RelationalOperator.java",
+          "language": "java",
+          "sizeLines": 32,
+          "fileCategory": "code"
+        }
+      ],
+      "batchImportData": {
+        "src/jx/fs/buffer/multithread/package.bluej": [],
+        "src/jx/fs/buffer/package.bluej": [],
+        "src/jx/fs/buffer/separator/MemoryConsumer.ctxt": [],
+        "src/jx/fs/buffer/separator/MemoryConsumer2.ctxt": [],
+        "src/jx/fs/buffer/separator/MemoryConsumer2.java": [],
+        "src/jx/fs/buffer/separator/MemoryProducer.ctxt": [],
+        "src/jx/fs/buffer/separator/MemoryProducer.java": [],
+        "src/jx/fs/buffer/separator/NonBlockingMemoryConsumer.ctxt": [],
+        "src/jx/fs/buffer/separator/package.bluej": [],
+        "src/jx/fs/db/avltree/Comparable.ctxt": [],
+        "src/jx/fs/db/avltree/Comparable.java": [],
+        "src/jx/fs/db/avltree/package.bluej": [],
+        "src/jx/fs/db/BufferList.ctxt": [],
+        "src/jx/fs/db/BufferList.java": [],
+        "src/jx/fs/db/Database.ctxt": [],
+        "src/jx/fs/db/Database.java": [
+          "src/jx/fs/db/types/TypeManager.java"
+        ],
+        "src/jx/fs/db/Index.ctxt": [],
+        "src/jx/fs/db/Index.java": [],
+        "src/jx/fs/db/IndexInfo.ctxt": [],
+        "src/jx/fs/db/IndexInfo.java": [],
+        "src/jx/fs/db/Key.ctxt": [],
+        "src/jx/fs/db/Key.java": [],
+        "src/jx/fs/db/package.bluej": [],
+        "src/jx/fs/db/RelationalOperator.ctxt": [],
+        "src/jx/fs/db/RelationalOperator.java": []
+      },
+      "neighborMap": {
+        "src/jx/fs/db/Database.java": [
+          {
+            "path": "src/jx/fs/db/types/TypeManager.java",
+            "batchIndex": 26,
+            "symbols": [
+              "TypeManager"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "batchIndex": 26,
+      "files": [
+        {
+          "path": "src/jx/fs/db/RelationScan.ctxt",
+          "language": "ctxt",
+          "sizeLines": 19,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/db/RelationScan.java",
+          "language": "java",
+          "sizeLines": 44,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/db/SetNumberReader.ctxt",
+          "language": "ctxt",
+          "sizeLines": 13,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/db/SetNumberReader.java",
+          "language": "java",
+          "sizeLines": 31,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/db/systembuffer/package.bluej",
+          "language": "bluej",
+          "sizeLines": 26,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/db/systembuffer/strategy/package.bluej",
+          "language": "bluej",
+          "sizeLines": 37,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/db/systembuffer/strategy/PageStrategy.ctxt",
+          "language": "ctxt",
+          "sizeLines": 31,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/db/systembuffer/strategy/PageStrategy.java",
+          "language": "java",
+          "sizeLines": 78,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/db/systembuffer/strategy/PageStrategyRecord.ctxt",
+          "language": "ctxt",
+          "sizeLines": 16,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/db/systembuffer/strategy/PageStrategyRecord.java",
+          "language": "java",
+          "sizeLines": 22,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/db/Table.ctxt",
+          "language": "ctxt",
+          "sizeLines": 24,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/db/Table.java",
+          "language": "java",
+          "sizeLines": 43,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/db/TupleDescriptor.ctxt",
+          "language": "ctxt",
+          "sizeLines": 21,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/db/TupleDescriptor.java",
+          "language": "java",
+          "sizeLines": 31,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/db/TupleReader.ctxt",
+          "language": "ctxt",
+          "sizeLines": 25,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/db/TupleReader.java",
+          "language": "java",
+          "sizeLines": 51,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/db/TupleWriter.ctxt",
+          "language": "ctxt",
+          "sizeLines": 15,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/db/TupleWriter.java",
+          "language": "java",
+          "sizeLines": 34,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/db/types/DbComparator.ctxt",
+          "language": "ctxt",
+          "sizeLines": 7,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/db/types/DbComparator.java",
+          "language": "java",
+          "sizeLines": 8,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/db/types/DbConverter.ctxt",
+          "language": "ctxt",
+          "sizeLines": 8,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/db/types/DbConverter.java",
+          "language": "java",
+          "sizeLines": 15,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/db/types/package.bluej",
+          "language": "bluej",
+          "sizeLines": 47,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/db/types/TypeManager.ctxt",
+          "language": "ctxt",
+          "sizeLines": 13,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/db/types/TypeManager.java",
+          "language": "java",
+          "sizeLines": 35,
+          "fileCategory": "code"
+        }
+      ],
+      "batchImportData": {
+        "src/jx/fs/db/RelationScan.ctxt": [],
+        "src/jx/fs/db/RelationScan.java": [],
+        "src/jx/fs/db/SetNumberReader.ctxt": [],
+        "src/jx/fs/db/SetNumberReader.java": [],
+        "src/jx/fs/db/systembuffer/package.bluej": [],
+        "src/jx/fs/db/systembuffer/strategy/package.bluej": [],
+        "src/jx/fs/db/systembuffer/strategy/PageStrategy.ctxt": [],
+        "src/jx/fs/db/systembuffer/strategy/PageStrategy.java": [],
+        "src/jx/fs/db/systembuffer/strategy/PageStrategyRecord.ctxt": [],
+        "src/jx/fs/db/systembuffer/strategy/PageStrategyRecord.java": [],
+        "src/jx/fs/db/Table.ctxt": [],
+        "src/jx/fs/db/Table.java": [],
+        "src/jx/fs/db/TupleDescriptor.ctxt": [],
+        "src/jx/fs/db/TupleDescriptor.java": [
+          "src/jx/fs/db/types/DbConverter.java"
+        ],
+        "src/jx/fs/db/TupleReader.ctxt": [],
+        "src/jx/fs/db/TupleReader.java": [],
+        "src/jx/fs/db/TupleWriter.ctxt": [],
+        "src/jx/fs/db/TupleWriter.java": [],
+        "src/jx/fs/db/types/DbComparator.ctxt": [],
+        "src/jx/fs/db/types/DbComparator.java": [],
+        "src/jx/fs/db/types/DbConverter.ctxt": [],
+        "src/jx/fs/db/types/DbConverter.java": [],
+        "src/jx/fs/db/types/package.bluej": [],
+        "src/jx/fs/db/types/TypeManager.ctxt": [],
+        "src/jx/fs/db/types/TypeManager.java": []
+      },
+      "neighborMap": {
+        "src/jx/fs/db/types/TypeManager.java": [
+          {
+            "path": "src/jx/fs/db/Database.java",
+            "batchIndex": 25,
+            "symbols": [
+              "Database"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "batchIndex": 27,
+      "files": [
+        {
+          "path": "src/jx/fs/Directory.ctxt",
+          "language": "ctxt",
+          "sizeLines": 17,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/Directory.java",
+          "language": "java",
+          "sizeLines": 13,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/FileSystem.ctxt",
+          "language": "ctxt",
+          "sizeLines": 29,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/FileSystemInterface.ctxt",
+          "language": "ctxt",
+          "sizeLines": 15,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/FileSystemInterface.java",
+          "language": "java",
+          "sizeLines": 12,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/FS.ctxt",
+          "language": "ctxt",
+          "sizeLines": 67,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/FS.java",
+          "language": "java",
+          "sizeLines": 257,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/FSAttribute.ctxt",
+          "language": "ctxt",
+          "sizeLines": 7,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/FSAttribute.java",
+          "language": "java",
+          "sizeLines": 6,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/FSObject.ctxt",
+          "language": "ctxt",
+          "sizeLines": 19,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/FSObject.java",
+          "language": "java",
+          "sizeLines": 12,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/Node.ctxt",
+          "language": "ctxt",
+          "sizeLines": 135,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/Node.java",
+          "language": "java",
+          "sizeLines": 386,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/package.bluej",
+          "language": "bluej",
+          "sizeLines": 171,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/Permission.ctxt",
+          "language": "ctxt",
+          "sizeLines": 3,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/Permission.java",
+          "language": "java",
+          "sizeLines": 4,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/ReadOnlyDirectory.ctxt",
+          "language": "ctxt",
+          "sizeLines": 9,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/ReadOnlyDirectory.java",
+          "language": "java",
+          "sizeLines": 7,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/ReadOnlyRegularFile.ctxt",
+          "language": "ctxt",
+          "sizeLines": 12,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/ReadOnlyRegularFile.java",
+          "language": "java",
+          "sizeLines": 17,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/RegularFile.ctxt",
+          "language": "ctxt",
+          "sizeLines": 21,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/RegularFile.java",
+          "language": "java",
+          "sizeLines": 37,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/StatFS.ctxt",
+          "language": "ctxt",
+          "sizeLines": 4,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/StatFS.java",
+          "language": "java",
+          "sizeLines": 22,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/VolumeManager.ctxt",
+          "language": "ctxt",
+          "sizeLines": 5,
+          "fileCategory": "code"
+        }
+      ],
+      "batchImportData": {
+        "src/jx/fs/Directory.ctxt": [],
+        "src/jx/fs/Directory.java": [],
+        "src/jx/fs/FileSystem.ctxt": [],
+        "src/jx/fs/FileSystemInterface.ctxt": [],
+        "src/jx/fs/FileSystemInterface.java": [],
+        "src/jx/fs/FS.ctxt": [],
+        "src/jx/fs/FS.java": [],
+        "src/jx/fs/FSAttribute.ctxt": [],
+        "src/jx/fs/FSAttribute.java": [],
+        "src/jx/fs/FSObject.ctxt": [],
+        "src/jx/fs/FSObject.java": [],
+        "src/jx/fs/Node.ctxt": [],
+        "src/jx/fs/Node.java": [],
+        "src/jx/fs/package.bluej": [],
+        "src/jx/fs/Permission.ctxt": [],
+        "src/jx/fs/Permission.java": [],
+        "src/jx/fs/ReadOnlyDirectory.ctxt": [],
+        "src/jx/fs/ReadOnlyDirectory.java": [],
+        "src/jx/fs/ReadOnlyRegularFile.ctxt": [],
+        "src/jx/fs/ReadOnlyRegularFile.java": [],
+        "src/jx/fs/RegularFile.ctxt": [],
+        "src/jx/fs/RegularFile.java": [],
+        "src/jx/fs/StatFS.ctxt": [],
+        "src/jx/fs/StatFS.java": [],
+        "src/jx/fs/VolumeManager.ctxt": []
+      },
+      "neighborMap": {}
+    },
+    {
+      "batchIndex": 28,
+      "files": [
+        {
+          "path": "src/jx/fs/VolumeManager.java",
+          "language": "java",
+          "sizeLines": 5,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/AddressResolution.ctxt",
+          "language": "ctxt",
+          "sizeLines": 10,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/AddressResolution.java",
+          "language": "java",
+          "sizeLines": 12,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/EtherConsumer.ctxt",
+          "language": "ctxt",
+          "sizeLines": 5,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/EtherConsumer.java",
+          "language": "java",
+          "sizeLines": 7,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/EtherData.ctxt",
+          "language": "ctxt",
+          "sizeLines": 20,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/EtherData.java",
+          "language": "java",
+          "sizeLines": 25,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/EtherProducer.ctxt",
+          "language": "ctxt",
+          "sizeLines": 5,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/EtherProducer.java",
+          "language": "java",
+          "sizeLines": 5,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/IPAddress.ctxt",
+          "language": "ctxt",
+          "sizeLines": 18,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/IPAddress.java",
+          "language": "java",
+          "sizeLines": 26,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/IPConsumer.ctxt",
+          "language": "ctxt",
+          "sizeLines": 5,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/IPConsumer.java",
+          "language": "java",
+          "sizeLines": 7,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/IPData.ctxt",
+          "language": "ctxt",
+          "sizeLines": 24,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/IPData.java",
+          "language": "java",
+          "sizeLines": 30,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/IPProducer.ctxt",
+          "language": "ctxt",
+          "sizeLines": 5,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/IPProducer.java",
+          "language": "java",
+          "sizeLines": 5,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/IPReceiver.ctxt",
+          "language": "ctxt",
+          "sizeLines": 9,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/IPReceiver.java",
+          "language": "java",
+          "sizeLines": 9,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/IPSender.ctxt",
+          "language": "ctxt",
+          "sizeLines": 11,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/IPSender.java",
+          "language": "java",
+          "sizeLines": 10,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/NetInit.ctxt",
+          "language": "ctxt",
+          "sizeLines": 27,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/NetInit.java",
+          "language": "java",
+          "sizeLines": 22,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/package.bluej",
+          "language": "bluej",
+          "sizeLines": 234,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/PacketsConsumer.ctxt",
+          "language": "ctxt",
+          "sizeLines": 9,
+          "fileCategory": "code"
+        }
+      ],
+      "batchImportData": {
+        "src/jx/fs/VolumeManager.java": [],
+        "src/jx/net/AddressResolution.ctxt": [],
+        "src/jx/net/AddressResolution.java": [],
+        "src/jx/net/EtherConsumer.ctxt": [],
+        "src/jx/net/EtherConsumer.java": [],
+        "src/jx/net/EtherData.ctxt": [],
+        "src/jx/net/EtherData.java": [],
+        "src/jx/net/EtherProducer.ctxt": [],
+        "src/jx/net/EtherProducer.java": [],
+        "src/jx/net/IPAddress.ctxt": [],
+        "src/jx/net/IPAddress.java": [],
+        "src/jx/net/IPConsumer.ctxt": [],
+        "src/jx/net/IPConsumer.java": [],
+        "src/jx/net/IPData.ctxt": [],
+        "src/jx/net/IPData.java": [],
+        "src/jx/net/IPProducer.ctxt": [],
+        "src/jx/net/IPProducer.java": [],
+        "src/jx/net/IPReceiver.ctxt": [],
+        "src/jx/net/IPReceiver.java": [],
+        "src/jx/net/IPSender.ctxt": [],
+        "src/jx/net/IPSender.java": [],
+        "src/jx/net/NetInit.ctxt": [],
+        "src/jx/net/NetInit.java": [],
+        "src/jx/net/package.bluej": [],
+        "src/jx/net/PacketsConsumer.ctxt": []
+      },
+      "neighborMap": {}
+    },
+    {
+      "batchIndex": 29,
+      "files": [
+        {
+          "path": "src/jx/net/PacketsConsumer1.ctxt",
+          "language": "ctxt",
+          "sizeLines": 11,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/PacketsConsumer1.java",
+          "language": "java",
+          "sizeLines": 18,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/PacketsProducer.ctxt",
+          "language": "ctxt",
+          "sizeLines": 5,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rdp/crypto/Key.ctxt",
+          "language": "ctxt",
+          "sizeLines": 13,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rdp/crypto/Key.java",
+          "language": "java",
+          "sizeLines": 113,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rdp/crypto/package.bluej",
+          "language": "bluej",
+          "sizeLines": 27,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rdp/orders/Order.ctxt",
+          "language": "ctxt",
+          "sizeLines": 3,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rdp/orders/Order.java",
+          "language": "java",
+          "sizeLines": 4,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rdp/orders/package.bluej",
+          "language": "bluej",
+          "sizeLines": 27,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rdp/package.bluej",
+          "language": "bluej",
+          "sizeLines": 32,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rpc/package.bluej",
+          "language": "bluej",
+          "sizeLines": 76,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rpc/RPCData.ctxt",
+          "language": "ctxt",
+          "sizeLines": 3,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rpc/RPCData.java",
+          "language": "java",
+          "sizeLines": 4,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rpc/RPCEnum.ctxt",
+          "language": "ctxt",
+          "sizeLines": 3,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rpc/RPCEnum.java",
+          "language": "java",
+          "sizeLines": 4,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rpc/RPCOpaque.ctxt",
+          "language": "ctxt",
+          "sizeLines": 4,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rpc/RPCOpaque.java",
+          "language": "java",
+          "sizeLines": 8,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rpc/RPCOptional.ctxt",
+          "language": "ctxt",
+          "sizeLines": 3,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rpc/RPCOptional.java",
+          "language": "java",
+          "sizeLines": 4,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rpc/RPCProc.ctxt",
+          "language": "ctxt",
+          "sizeLines": 3,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rpc/RPCReader.ctxt",
+          "language": "ctxt",
+          "sizeLines": 5,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rpc/RPCReader.java",
+          "language": "java",
+          "sizeLines": 5,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rpc/RPCUnion.ctxt",
+          "language": "ctxt",
+          "sizeLines": 3,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rpc/RPCUnion.java",
+          "language": "java",
+          "sizeLines": 4,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rpc/RPCWriter.ctxt",
+          "language": "ctxt",
+          "sizeLines": 5,
+          "fileCategory": "code"
+        }
+      ],
+      "batchImportData": {
+        "src/jx/net/PacketsConsumer1.ctxt": [],
+        "src/jx/net/PacketsConsumer1.java": [],
+        "src/jx/net/PacketsProducer.ctxt": [],
+        "src/jx/net/rdp/crypto/Key.ctxt": [],
+        "src/jx/net/rdp/crypto/Key.java": [],
+        "src/jx/net/rdp/crypto/package.bluej": [],
+        "src/jx/net/rdp/orders/Order.ctxt": [],
+        "src/jx/net/rdp/orders/Order.java": [],
+        "src/jx/net/rdp/orders/package.bluej": [],
+        "src/jx/net/rdp/package.bluej": [],
+        "src/jx/net/rpc/package.bluej": [],
+        "src/jx/net/rpc/RPCData.ctxt": [],
+        "src/jx/net/rpc/RPCData.java": [],
+        "src/jx/net/rpc/RPCEnum.ctxt": [],
+        "src/jx/net/rpc/RPCEnum.java": [],
+        "src/jx/net/rpc/RPCOpaque.ctxt": [],
+        "src/jx/net/rpc/RPCOpaque.java": [],
+        "src/jx/net/rpc/RPCOptional.ctxt": [],
+        "src/jx/net/rpc/RPCOptional.java": [],
+        "src/jx/net/rpc/RPCProc.ctxt": [],
+        "src/jx/net/rpc/RPCReader.ctxt": [],
+        "src/jx/net/rpc/RPCReader.java": [],
+        "src/jx/net/rpc/RPCUnion.ctxt": [],
+        "src/jx/net/rpc/RPCUnion.java": [],
+        "src/jx/net/rpc/RPCWriter.ctxt": []
+      },
+      "neighborMap": {}
+    },
+    {
+      "batchIndex": 30,
+      "files": [
+        {
+          "path": "src/jx/net/rpc/RPCWriter.java",
+          "language": "java",
+          "sizeLines": 5,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rpcsvc/mount/Exports.ctxt",
+          "language": "ctxt",
+          "sizeLines": 4,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rpcsvc/mount/Exports.java",
+          "language": "java",
+          "sizeLines": 10,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rpcsvc/mount/FHStatus.ctxt",
+          "language": "ctxt",
+          "sizeLines": 4,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rpcsvc/mount/FHStatus.java",
+          "language": "java",
+          "sizeLines": 10,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rpcsvc/mount/MountList.ctxt",
+          "language": "ctxt",
+          "sizeLines": 4,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rpcsvc/mount/MountList.java",
+          "language": "java",
+          "sizeLines": 10,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rpcsvc/mount/MountProc.ctxt",
+          "language": "ctxt",
+          "sizeLines": 16,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rpcsvc/mount/package.bluej",
+          "language": "bluej",
+          "sizeLines": 57,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rpcsvc/nfs/AttrStat.ctxt",
+          "language": "ctxt",
+          "sizeLines": 4,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rpcsvc/nfs/AttrStat.java",
+          "language": "java",
+          "sizeLines": 10,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rpcsvc/nfs/DirOpRes.ctxt",
+          "language": "ctxt",
+          "sizeLines": 4,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rpcsvc/nfs/DirOpRes.java",
+          "language": "java",
+          "sizeLines": 10,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rpcsvc/nfs/DirPath.ctxt",
+          "language": "ctxt",
+          "sizeLines": 4,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rpcsvc/nfs/DirPath.java",
+          "language": "java",
+          "sizeLines": 10,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rpcsvc/nfs/FHandle.ctxt",
+          "language": "ctxt",
+          "sizeLines": 4,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rpcsvc/nfs/FHandle.java",
+          "language": "java",
+          "sizeLines": 10,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rpcsvc/nfs/Name.ctxt",
+          "language": "ctxt",
+          "sizeLines": 4,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rpcsvc/nfs/Name.java",
+          "language": "java",
+          "sizeLines": 10,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rpcsvc/nfs/NFSCookie.ctxt",
+          "language": "ctxt",
+          "sizeLines": 4,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rpcsvc/nfs/NFSCookie.java",
+          "language": "java",
+          "sizeLines": 10,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rpcsvc/nfs/NFSData.ctxt",
+          "language": "ctxt",
+          "sizeLines": 4,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rpcsvc/nfs/NFSData.java",
+          "language": "java",
+          "sizeLines": 10,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rpcsvc/nfs/NFSProc.ctxt",
+          "language": "ctxt",
+          "sizeLines": 40,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rpcsvc/nfs/package.bluej",
+          "language": "bluej",
+          "sizeLines": 157,
+          "fileCategory": "code"
+        }
+      ],
+      "batchImportData": {
+        "src/jx/net/rpc/RPCWriter.java": [],
+        "src/jx/net/rpcsvc/mount/Exports.ctxt": [],
+        "src/jx/net/rpcsvc/mount/Exports.java": [],
+        "src/jx/net/rpcsvc/mount/FHStatus.ctxt": [],
+        "src/jx/net/rpcsvc/mount/FHStatus.java": [],
+        "src/jx/net/rpcsvc/mount/MountList.ctxt": [],
+        "src/jx/net/rpcsvc/mount/MountList.java": [],
+        "src/jx/net/rpcsvc/mount/MountProc.ctxt": [],
+        "src/jx/net/rpcsvc/mount/package.bluej": [],
+        "src/jx/net/rpcsvc/nfs/AttrStat.ctxt": [],
+        "src/jx/net/rpcsvc/nfs/AttrStat.java": [],
+        "src/jx/net/rpcsvc/nfs/DirOpRes.ctxt": [],
+        "src/jx/net/rpcsvc/nfs/DirOpRes.java": [],
+        "src/jx/net/rpcsvc/nfs/DirPath.ctxt": [],
+        "src/jx/net/rpcsvc/nfs/DirPath.java": [],
+        "src/jx/net/rpcsvc/nfs/FHandle.ctxt": [],
+        "src/jx/net/rpcsvc/nfs/FHandle.java": [],
+        "src/jx/net/rpcsvc/nfs/Name.ctxt": [],
+        "src/jx/net/rpcsvc/nfs/Name.java": [],
+        "src/jx/net/rpcsvc/nfs/NFSCookie.ctxt": [],
+        "src/jx/net/rpcsvc/nfs/NFSCookie.java": [],
+        "src/jx/net/rpcsvc/nfs/NFSData.ctxt": [],
+        "src/jx/net/rpcsvc/nfs/NFSData.java": [],
+        "src/jx/net/rpcsvc/nfs/NFSProc.ctxt": [],
+        "src/jx/net/rpcsvc/nfs/package.bluej": []
+      },
+      "neighborMap": {}
+    },
+    {
+      "batchIndex": 31,
+      "files": [
+        {
+          "path": "src/jx/net/rpcsvc/nfs/ReadDirRes.ctxt",
+          "language": "ctxt",
+          "sizeLines": 4,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rpcsvc/nfs/ReadDirRes.java",
+          "language": "java",
+          "sizeLines": 10,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rpcsvc/nfs/ReadLinkRes.ctxt",
+          "language": "ctxt",
+          "sizeLines": 4,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rpcsvc/nfs/ReadLinkRes.java",
+          "language": "java",
+          "sizeLines": 10,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rpcsvc/nfs/ReadRes.ctxt",
+          "language": "ctxt",
+          "sizeLines": 4,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rpcsvc/nfs/ReadRes.java",
+          "language": "java",
+          "sizeLines": 10,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rpcsvc/nfs/SAttr.ctxt",
+          "language": "ctxt",
+          "sizeLines": 4,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rpcsvc/nfs/SAttr.java",
+          "language": "java",
+          "sizeLines": 10,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rpcsvc/nfs/Stat.ctxt",
+          "language": "ctxt",
+          "sizeLines": 4,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rpcsvc/nfs/Stat.java",
+          "language": "java",
+          "sizeLines": 10,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rpcsvc/nfs/StatFSRes.ctxt",
+          "language": "ctxt",
+          "sizeLines": 4,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rpcsvc/nfs/StatFSRes.java",
+          "language": "java",
+          "sizeLines": 10,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rpcsvc/package.bluej",
+          "language": "bluej",
+          "sizeLines": 32,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/TCPSocket.ctxt",
+          "language": "ctxt",
+          "sizeLines": 19,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/TCPSocket.java",
+          "language": "java",
+          "sizeLines": 16,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/UDPConsumer.ctxt",
+          "language": "ctxt",
+          "sizeLines": 5,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/UDPConsumer.java",
+          "language": "java",
+          "sizeLines": 7,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/UDPData.ctxt",
+          "language": "ctxt",
+          "sizeLines": 20,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/UDPData.java",
+          "language": "java",
+          "sizeLines": 27,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/UDPReceiver.ctxt",
+          "language": "ctxt",
+          "sizeLines": 9,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/UDPReceiver.java",
+          "language": "java",
+          "sizeLines": 9,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/UDPSender.ctxt",
+          "language": "ctxt",
+          "sizeLines": 15,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/UDPSender.java",
+          "language": "java",
+          "sizeLines": 12,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/xdr/Format.ctxt",
+          "language": "ctxt",
+          "sizeLines": 63,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/xdr/Format.java",
+          "language": "java",
+          "sizeLines": 285,
+          "fileCategory": "code"
+        }
+      ],
+      "batchImportData": {
+        "src/jx/net/rpcsvc/nfs/ReadDirRes.ctxt": [],
+        "src/jx/net/rpcsvc/nfs/ReadDirRes.java": [],
+        "src/jx/net/rpcsvc/nfs/ReadLinkRes.ctxt": [],
+        "src/jx/net/rpcsvc/nfs/ReadLinkRes.java": [],
+        "src/jx/net/rpcsvc/nfs/ReadRes.ctxt": [],
+        "src/jx/net/rpcsvc/nfs/ReadRes.java": [],
+        "src/jx/net/rpcsvc/nfs/SAttr.ctxt": [],
+        "src/jx/net/rpcsvc/nfs/SAttr.java": [],
+        "src/jx/net/rpcsvc/nfs/Stat.ctxt": [],
+        "src/jx/net/rpcsvc/nfs/Stat.java": [],
+        "src/jx/net/rpcsvc/nfs/StatFSRes.ctxt": [],
+        "src/jx/net/rpcsvc/nfs/StatFSRes.java": [],
+        "src/jx/net/rpcsvc/package.bluej": [],
+        "src/jx/net/TCPSocket.ctxt": [],
+        "src/jx/net/TCPSocket.java": [],
+        "src/jx/net/UDPConsumer.ctxt": [],
+        "src/jx/net/UDPConsumer.java": [],
+        "src/jx/net/UDPData.ctxt": [],
+        "src/jx/net/UDPData.java": [],
+        "src/jx/net/UDPReceiver.ctxt": [],
+        "src/jx/net/UDPReceiver.java": [],
+        "src/jx/net/UDPSender.ctxt": [],
+        "src/jx/net/UDPSender.java": [],
+        "src/jx/net/xdr/Format.ctxt": [],
+        "src/jx/net/xdr/Format.java": []
+      },
+      "neighborMap": {}
+    },
+    {
+      "batchIndex": 32,
+      "files": [
+        {
+          "path": "src/jx/net/xdr/FormatMem.ctxt",
+          "language": "ctxt",
+          "sizeLines": 60,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/xdr/FormatMem.java",
+          "language": "java",
+          "sizeLines": 285,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/xdr/package.bluej",
+          "language": "bluej",
+          "sizeLines": 44,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/xdr/XDRBuffer.ctxt",
+          "language": "ctxt",
+          "sizeLines": 11,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/xdr/XDRBuffer.java",
+          "language": "java",
+          "sizeLines": 8,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/package.bluej",
+          "language": "bluej",
+          "sizeLines": 44,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/README.TXT",
+          "language": "txt",
+          "sizeLines": 0,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "src/jx/zero/ByteCode.ctxt",
+          "language": "ctxt",
+          "sizeLines": 26,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/zero/ByteCodeTranslater.ctxt",
+          "language": "ctxt",
+          "sizeLines": 5,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/zero/ByteCodeTranslater.java",
+          "language": "java",
+          "sizeLines": 6,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/zero/classfile/ClassSource.ctxt",
+          "language": "ctxt",
+          "sizeLines": 64,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/zero/classfile/ClassSource.java",
+          "language": "java",
+          "sizeLines": 56,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/zero/classfile/ConstantPool.ctxt",
+          "language": "ctxt",
+          "sizeLines": 6,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/zero/classfile/ConstantPool.java",
+          "language": "java",
+          "sizeLines": 12,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/zero/classfile/datatypes/BasicTypeDescriptor.ctxt",
+          "language": "ctxt",
+          "sizeLines": 4,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/zero/classfile/datatypes/BasicTypeDescriptor.java",
+          "language": "java",
+          "sizeLines": 21,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/zero/classfile/datatypes/BCBasicDatatype.ctxt",
+          "language": "ctxt",
+          "sizeLines": 30,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/zero/classfile/datatypes/BCBasicDatatype.java",
+          "language": "java",
+          "sizeLines": 185,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/zero/classfile/datatypes/BCFloatDatatype.ctxt",
+          "language": "ctxt",
+          "sizeLines": 5,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/zero/classfile/datatypes/BCFloatDatatype.java",
+          "language": "java",
+          "sizeLines": 6,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/zero/classfile/datatypes/BCIntegerDatatype.ctxt",
+          "language": "ctxt",
+          "sizeLines": 11,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/zero/classfile/datatypes/BCIntegerDatatype.java",
+          "language": "java",
+          "sizeLines": 37,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/zero/classfile/datatypes/BCNumericDatatype.ctxt",
+          "language": "ctxt",
+          "sizeLines": 7,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/zero/classfile/datatypes/BCNumericDatatype.java",
+          "language": "java",
+          "sizeLines": 24,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/zero/classfile/datatypes/package.bluej",
+          "language": "bluej",
+          "sizeLines": 61,
+          "fileCategory": "code"
+        }
+      ],
+      "batchImportData": {
+        "src/jx/net/xdr/FormatMem.ctxt": [],
+        "src/jx/net/xdr/FormatMem.java": [],
+        "src/jx/net/xdr/package.bluej": [],
+        "src/jx/net/xdr/XDRBuffer.ctxt": [],
+        "src/jx/net/xdr/XDRBuffer.java": [],
+        "src/jx/package.bluej": [],
+        "src/jx/README.TXT": [],
+        "src/jx/zero/ByteCode.ctxt": [],
+        "src/jx/zero/ByteCodeTranslater.ctxt": [],
+        "src/jx/zero/ByteCodeTranslater.java": [],
+        "src/jx/zero/classfile/ClassSource.ctxt": [],
+        "src/jx/zero/classfile/ClassSource.java": [],
+        "src/jx/zero/classfile/ConstantPool.ctxt": [],
+        "src/jx/zero/classfile/ConstantPool.java": [],
+        "src/jx/zero/classfile/datatypes/BasicTypeDescriptor.ctxt": [],
+        "src/jx/zero/classfile/datatypes/BasicTypeDescriptor.java": [],
+        "src/jx/zero/classfile/datatypes/BCBasicDatatype.ctxt": [],
+        "src/jx/zero/classfile/datatypes/BCBasicDatatype.java": [],
+        "src/jx/zero/classfile/datatypes/BCFloatDatatype.ctxt": [],
+        "src/jx/zero/classfile/datatypes/BCFloatDatatype.java": [],
+        "src/jx/zero/classfile/datatypes/BCIntegerDatatype.ctxt": [],
+        "src/jx/zero/classfile/datatypes/BCIntegerDatatype.java": [],
+        "src/jx/zero/classfile/datatypes/BCNumericDatatype.ctxt": [],
+        "src/jx/zero/classfile/datatypes/BCNumericDatatype.java": [],
+        "src/jx/zero/classfile/datatypes/package.bluej": []
+      },
+      "neighborMap": {}
+    },
+    {
+      "batchIndex": 33,
+      "files": [
+        {
+          "path": "src/jx/zero/classfile/ExceptionHandlerData.ctxt",
+          "language": "ctxt",
+          "sizeLines": 12,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/zero/classfile/ExceptionHandlerData.java",
+          "language": "java",
+          "sizeLines": 18,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/zero/classfile/FieldData.ctxt",
+          "language": "ctxt",
+          "sizeLines": 4,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/zero/classfile/FieldData.java",
+          "language": "java",
+          "sizeLines": 10,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/zero/classfile/LineAttributeData.ctxt",
+          "language": "ctxt",
+          "sizeLines": 4,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/zero/classfile/LineAttributeData.java",
+          "language": "java",
+          "sizeLines": 10,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/zero/classfile/MethodSource.ctxt",
+          "language": "ctxt",
+          "sizeLines": 40,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/zero/classfile/package.bluej",
+          "language": "bluej",
+          "sizeLines": 87,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/zero/classfile/VerifyResult.ctxt",
+          "language": "ctxt",
+          "sizeLines": 7,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/zero/classfile/VerifyResult.java",
+          "language": "java",
+          "sizeLines": 17,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/zero/classstore/ClassData.ctxt",
+          "language": "ctxt",
+          "sizeLines": 10,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/zero/classstore/ClassData.java",
+          "language": "java",
+          "sizeLines": 18,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/zero/classstore/ClassFinder.ctxt",
+          "language": "ctxt",
+          "sizeLines": 9,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/zero/classstore/ClassFinder.java",
+          "language": "java",
+          "sizeLines": 15,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/zero/classstore/package.bluej",
+          "language": "bluej",
+          "sizeLines": 37,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/zero/collections/Collection.ctxt",
+          "language": "ctxt",
+          "sizeLines": 9,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/zero/collections/Collection.java",
+          "language": "java",
+          "sizeLines": 7,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/zero/collections/Comparator.ctxt",
+          "language": "ctxt",
+          "sizeLines": 5,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/zero/collections/Comparator.java",
+          "language": "java",
+          "sizeLines": 5,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/zero/collections/Iterator.ctxt",
+          "language": "ctxt",
+          "sizeLines": 7,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/zero/collections/Iterator.java",
+          "language": "java",
+          "sizeLines": 6,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/zero/collections/package.bluej",
+          "language": "bluej",
+          "sizeLines": 54,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/zero/collections/SortedList.ctxt",
+          "language": "ctxt",
+          "sizeLines": 5,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/zero/collections/SortedList.java",
+          "language": "java",
+          "sizeLines": 6,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/zero/package.bluej",
+          "language": "bluej",
+          "sizeLines": 82,
+          "fileCategory": "code"
+        }
+      ],
+      "batchImportData": {
+        "src/jx/zero/classfile/ExceptionHandlerData.ctxt": [],
+        "src/jx/zero/classfile/ExceptionHandlerData.java": [],
+        "src/jx/zero/classfile/FieldData.ctxt": [],
+        "src/jx/zero/classfile/FieldData.java": [],
+        "src/jx/zero/classfile/LineAttributeData.ctxt": [],
+        "src/jx/zero/classfile/LineAttributeData.java": [],
+        "src/jx/zero/classfile/MethodSource.ctxt": [],
+        "src/jx/zero/classfile/package.bluej": [],
+        "src/jx/zero/classfile/VerifyResult.ctxt": [],
+        "src/jx/zero/classfile/VerifyResult.java": [],
+        "src/jx/zero/classstore/ClassData.ctxt": [],
+        "src/jx/zero/classstore/ClassData.java": [],
+        "src/jx/zero/classstore/ClassFinder.ctxt": [],
+        "src/jx/zero/classstore/ClassFinder.java": [
+          "src/jx/zero/collections/Iterator.java"
+        ],
+        "src/jx/zero/classstore/package.bluej": [],
+        "src/jx/zero/collections/Collection.ctxt": [],
+        "src/jx/zero/collections/Collection.java": [],
+        "src/jx/zero/collections/Comparator.ctxt": [],
+        "src/jx/zero/collections/Comparator.java": [],
+        "src/jx/zero/collections/Iterator.ctxt": [],
+        "src/jx/zero/collections/Iterator.java": [],
+        "src/jx/zero/collections/package.bluej": [],
+        "src/jx/zero/collections/SortedList.ctxt": [],
+        "src/jx/zero/collections/SortedList.java": [],
+        "src/jx/zero/package.bluej": []
+      },
+      "neighborMap": {}
+    },
+    {
+      "batchIndex": 34,
+      "files": [
+        {
+          "path": "src/jx/zero/rtc/package.bluej",
+          "language": "bluej",
+          "sizeLines": 27,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/zero/rtc/RTC.ctxt",
+          "language": "ctxt",
+          "sizeLines": 7,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/zero/rtc/RTC.java",
+          "language": "java",
+          "sizeLines": 22,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/zero/scheduler/package.bluej",
+          "language": "bluej",
+          "sizeLines": 27,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/zero/scheduler/SchedulerPortal.ctxt",
+          "language": "ctxt",
+          "sizeLines": 5,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/zero/scheduler/SchedulerPortal.java",
+          "language": "java",
+          "sizeLines": 6,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/zero/synch/mutex/BlockingLock.ctxt",
+          "language": "ctxt",
+          "sizeLines": 7,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/zero/synch/mutex/BlockingLock.java",
+          "language": "java",
+          "sizeLines": 6,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/zero/synch/mutex/package.bluej",
+          "language": "bluej",
+          "sizeLines": 27,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/zero/synch/nonblocking/package.bluej",
+          "language": "bluej",
+          "sizeLines": 27,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/zero/synch/nonblocking/Queue.ctxt",
+          "language": "ctxt",
+          "sizeLines": 7,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/zero/synch/nonblocking/Queue.java",
+          "language": "java",
+          "sizeLines": 6,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/zero/synch/package.bluej",
+          "language": "bluej",
+          "sizeLines": 32,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/zero/timer/package.bluej",
+          "language": "bluej",
+          "sizeLines": 57,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/zero/timer/SleepManager.ctxt",
+          "language": "ctxt",
+          "sizeLines": 9,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/zero/timer/SleepManager.java",
+          "language": "java",
+          "sizeLines": 16,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/zero/timer/Timer.ctxt",
+          "language": "ctxt",
+          "sizeLines": 7,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/zero/timer/Timer.java",
+          "language": "java",
+          "sizeLines": 6,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/zero/timer/TimerHandler.ctxt",
+          "language": "ctxt",
+          "sizeLines": 5,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/zero/timer/TimerHandler.java",
+          "language": "java",
+          "sizeLines": 7,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/zero/timer/TimerManager.ctxt",
+          "language": "ctxt",
+          "sizeLines": 23,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/zero/timer/TimerManager.java",
+          "language": "java",
+          "sizeLines": 17,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/zero/verifier/JVMLocalVarsElement.ctxt",
+          "language": "ctxt",
+          "sizeLines": 18,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/zero/verifier/JVMLocalVarsElement.java",
+          "language": "java",
+          "sizeLines": 38,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/zero/verifier/JVMOPStackElement.ctxt",
+          "language": "ctxt",
+          "sizeLines": 28,
+          "fileCategory": "code"
+        }
+      ],
+      "batchImportData": {
+        "src/jx/zero/rtc/package.bluej": [],
+        "src/jx/zero/rtc/RTC.ctxt": [],
+        "src/jx/zero/rtc/RTC.java": [],
+        "src/jx/zero/scheduler/package.bluej": [],
+        "src/jx/zero/scheduler/SchedulerPortal.ctxt": [],
+        "src/jx/zero/scheduler/SchedulerPortal.java": [],
+        "src/jx/zero/synch/mutex/BlockingLock.ctxt": [],
+        "src/jx/zero/synch/mutex/BlockingLock.java": [],
+        "src/jx/zero/synch/mutex/package.bluej": [],
+        "src/jx/zero/synch/nonblocking/package.bluej": [],
+        "src/jx/zero/synch/nonblocking/Queue.ctxt": [],
+        "src/jx/zero/synch/nonblocking/Queue.java": [],
+        "src/jx/zero/synch/package.bluej": [],
+        "src/jx/zero/timer/package.bluej": [],
+        "src/jx/zero/timer/SleepManager.ctxt": [],
+        "src/jx/zero/timer/SleepManager.java": [],
+        "src/jx/zero/timer/Timer.ctxt": [],
+        "src/jx/zero/timer/Timer.java": [],
+        "src/jx/zero/timer/TimerHandler.ctxt": [],
+        "src/jx/zero/timer/TimerHandler.java": [],
+        "src/jx/zero/timer/TimerManager.ctxt": [],
+        "src/jx/zero/timer/TimerManager.java": [],
+        "src/jx/zero/verifier/JVMLocalVarsElement.ctxt": [],
+        "src/jx/zero/verifier/JVMLocalVarsElement.java": [],
+        "src/jx/zero/verifier/JVMOPStackElement.ctxt": []
+      },
+      "neighborMap": {}
+    },
+    {
+      "batchIndex": 35,
+      "files": [
+        {
+          "path": "src/jx/zero/verifier/JVMOPStackElement.java",
+          "language": "java",
+          "sizeLines": 92,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/zero/verifier/npa/NPALocalVarsInterface.ctxt",
+          "language": "ctxt",
+          "sizeLines": 9,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/zero/verifier/npa/NPALocalVarsInterface.java",
+          "language": "java",
+          "sizeLines": 9,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/zero/verifier/npa/NPAValue.ctxt",
+          "language": "ctxt",
+          "sizeLines": 4,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/zero/verifier/npa/NPAValue.java",
+          "language": "java",
+          "sizeLines": 10,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/zero/verifier/npa/package.bluej",
+          "language": "bluej",
+          "sizeLines": 37,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/zero/verifier/package.bluej",
+          "language": "bluej",
+          "sizeLines": 69,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/zero/verifier/Subroutines.ctxt",
+          "language": "ctxt",
+          "sizeLines": 4,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/zero/verifier/Subroutines.java",
+          "language": "java",
+          "sizeLines": 10,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/zero/verifier/typecheck/package.bluej",
+          "language": "bluej",
+          "sizeLines": 37,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/zero/verifier/typecheck/TCLocalVarsInterface.ctxt",
+          "language": "ctxt",
+          "sizeLines": 7,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/zero/verifier/typecheck/TCLocalVarsInterface.java",
+          "language": "java",
+          "sizeLines": 6,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/zero/verifier/typecheck/TCTypes.ctxt",
+          "language": "ctxt",
+          "sizeLines": 4,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/zero/verifier/typecheck/TCTypes.java",
+          "language": "java",
+          "sizeLines": 10,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/zero/verifier/VerifierInterface.ctxt",
+          "language": "ctxt",
+          "sizeLines": 18,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/zero/verifier/wcet/CFGNode.ctxt",
+          "language": "ctxt",
+          "sizeLines": 4,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/zero/verifier/wcet/CFGNode.java",
+          "language": "java",
+          "sizeLines": 10,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/zero/verifier/wcet/ExecutionTime.ctxt",
+          "language": "ctxt",
+          "sizeLines": 21,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/zero/verifier/wcet/OpenIfListElement.ctxt",
+          "language": "ctxt",
+          "sizeLines": 4,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/zero/verifier/wcet/OpenIfListElement.java",
+          "language": "java",
+          "sizeLines": 10,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/zero/verifier/wcet/package.bluej",
+          "language": "bluej",
+          "sizeLines": 58,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/zero/verifier/wcet/SimState.ctxt",
+          "language": "ctxt",
+          "sizeLines": 4,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/zero/verifier/wcet/SimState.java",
+          "language": "java",
+          "sizeLines": 10,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/zero/verifier/wcet/ValueProvider.ctxt",
+          "language": "ctxt",
+          "sizeLines": 25,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/package.bluej",
+          "language": "bluej",
+          "sizeLines": 43,
+          "fileCategory": "code"
+        }
+      ],
+      "batchImportData": {
+        "src/jx/zero/verifier/JVMOPStackElement.java": [],
+        "src/jx/zero/verifier/npa/NPALocalVarsInterface.ctxt": [],
+        "src/jx/zero/verifier/npa/NPALocalVarsInterface.java": [],
+        "src/jx/zero/verifier/npa/NPAValue.ctxt": [],
+        "src/jx/zero/verifier/npa/NPAValue.java": [],
+        "src/jx/zero/verifier/npa/package.bluej": [],
+        "src/jx/zero/verifier/package.bluej": [],
+        "src/jx/zero/verifier/Subroutines.ctxt": [],
+        "src/jx/zero/verifier/Subroutines.java": [],
+        "src/jx/zero/verifier/typecheck/package.bluej": [],
+        "src/jx/zero/verifier/typecheck/TCLocalVarsInterface.ctxt": [],
+        "src/jx/zero/verifier/typecheck/TCLocalVarsInterface.java": [],
+        "src/jx/zero/verifier/typecheck/TCTypes.ctxt": [],
+        "src/jx/zero/verifier/typecheck/TCTypes.java": [],
+        "src/jx/zero/verifier/VerifierInterface.ctxt": [],
+        "src/jx/zero/verifier/wcet/CFGNode.ctxt": [],
+        "src/jx/zero/verifier/wcet/CFGNode.java": [],
+        "src/jx/zero/verifier/wcet/ExecutionTime.ctxt": [],
+        "src/jx/zero/verifier/wcet/OpenIfListElement.ctxt": [],
+        "src/jx/zero/verifier/wcet/OpenIfListElement.java": [],
+        "src/jx/zero/verifier/wcet/package.bluej": [],
+        "src/jx/zero/verifier/wcet/SimState.ctxt": [],
+        "src/jx/zero/verifier/wcet/SimState.java": [],
+        "src/jx/zero/verifier/wcet/ValueProvider.ctxt": [],
+        "src/package.bluej": []
+      },
+      "neighborMap": {}
+    },
+    {
+      "batchIndex": 36,
+      "files": [
+        {
+          "path": "src/README.TXT",
+          "language": "txt",
+          "sizeLines": 0,
+          "fileCategory": "docs"
+        }
+      ],
+      "batchImportData": {
+        "src/README.TXT": []
+      },
+      "neighborMap": {}
+    }
+  ]
+}

@@ -1,0 +1,142 @@
+{
+  "nodes": [
+    {
+      "id": "file:undefined",
+      "type": "file"
+    },
+    {
+      "id": "class:VolumeManager:undefined",
+      "type": "class",
+      "label": "VolumeManager"
+    },
+    {
+      "id": "class:AddressResolution:undefined",
+      "type": "class",
+      "label": "AddressResolution"
+    },
+    {
+      "id": "class:EtherConsumer:undefined",
+      "type": "class",
+      "label": "EtherConsumer"
+    },
+    {
+      "id": "class:EtherData:undefined",
+      "type": "class",
+      "label": "EtherData"
+    },
+    {
+      "id": "class:EtherProducer:undefined",
+      "type": "class",
+      "label": "EtherProducer"
+    },
+    {
+      "id": "class:IPAddress:undefined",
+      "type": "class",
+      "label": "IPAddress"
+    },
+    {
+      "id": "class:IPConsumer:undefined",
+      "type": "class",
+      "label": "IPConsumer"
+    },
+    {
+      "id": "class:IPData:undefined",
+      "type": "class",
+      "label": "IPData"
+    },
+    {
+      "id": "class:IPProducer:undefined",
+      "type": "class",
+      "label": "IPProducer"
+    },
+    {
+      "id": "class:IPReceiver:undefined",
+      "type": "class",
+      "label": "IPReceiver"
+    },
+    {
+      "id": "class:IPSender:undefined",
+      "type": "class",
+      "label": "IPSender"
+    },
+    {
+      "id": "class:NetInit:undefined",
+      "type": "class",
+      "label": "NetInit"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:undefined",
+      "target": "class:VolumeManager:undefined",
+      "type": "contains",
+      "weight": 1
+    },
+    {
+      "source": "file:undefined",
+      "target": "class:AddressResolution:undefined",
+      "type": "contains",
+      "weight": 1
+    },
+    {
+      "source": "file:undefined",
+      "target": "class:EtherConsumer:undefined",
+      "type": "contains",
+      "weight": 1
+    },
+    {
+      "source": "file:undefined",
+      "target": "class:EtherData:undefined",
+      "type": "contains",
+      "weight": 1
+    },
+    {
+      "source": "file:undefined",
+      "target": "class:EtherProducer:undefined",
+      "type": "contains",
+      "weight": 1
+    },
+    {
+      "source": "file:undefined",
+      "target": "class:IPAddress:undefined",
+      "type": "contains",
+      "weight": 1
+    },
+    {
+      "source": "file:undefined",
+      "target": "class:IPConsumer:undefined",
+      "type": "contains",
+      "weight": 1
+    },
+    {
+      "source": "file:undefined",
+      "target": "class:IPData:undefined",
+      "type": "contains",
+      "weight": 1
+    },
+    {
+      "source": "file:undefined",
+      "target": "class:IPProducer:undefined",
+      "type": "contains",
+      "weight": 1
+    },
+    {
+      "source": "file:undefined",
+      "target": "class:IPReceiver:undefined",
+      "type": "contains",
+      "weight": 1
+    },
+    {
+      "source": "file:undefined",
+      "target": "class:IPSender:undefined",
+      "type": "contains",
+      "weight": 1
+    },
+    {
+      "source": "file:undefined",
+      "target": "class:NetInit:undefined",
+      "type": "contains",
+      "weight": 1
+    }
+  ]
+}

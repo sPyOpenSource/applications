@@ -1,0 +1,1199 @@
+{
+  "batchIndex": 6,
+  "nodes": [
+    {
+      "id": "file:src/gnu/java/io/encode/Encoder.java",
+      "type": "file",
+      "label": "Encoder.java",
+      "properties": {
+        "path": "src/gnu/java/io/encode/Encoder.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 343,
+        "nonEmptyLines": 293
+      }
+    },
+    {
+      "id": "class:src/gnu/java/io/encode/Encoder.java::Encoder",
+      "type": "class",
+      "label": "Encoder",
+      "properties": {
+        "name": "Encoder",
+        "startLine": 53,
+        "endLine": 342,
+        "methods": [
+          "getSchemeName",
+          "getSchemeDescription",
+          "Encoder",
+          "bytesInCharArray",
+          "bytesInCharArray",
+          "convertToBytes",
+          "convertToBytes",
+          "convertToBytes",
+          "convertToBytes",
+          "close",
+          "flush",
+          "setBadCharValue"
+        ],
+        "properties": [
+          "scheme_name",
+          "scheme_description",
+          "out",
+          "bad_char",
+          "bad_char_set"
+        ]
+      }
+    },
+    {
+      "id": "function:src/gnu/java/io/encode/Encoder.java::getSchemeName",
+      "type": "function",
+      "label": "getSchemeName",
+      "properties": {
+        "name": "getSchemeName",
+        "startLine": 107,
+        "endLine": 111,
+        "params": []
+      }
+    },
+    {
+      "id": "function:src/gnu/java/io/encode/Encoder.java::getSchemeDescription",
+      "type": "function",
+      "label": "getSchemeDescription",
+      "properties": {
+        "name": "getSchemeDescription",
+        "startLine": 121,
+        "endLine": 125,
+        "params": []
+      }
+    },
+    {
+      "id": "function:src/gnu/java/io/encode/Encoder.java::Encoder",
+      "type": "function",
+      "label": "Encoder",
+      "properties": {
+        "name": "Encoder",
+        "startLine": 139,
+        "endLine": 143,
+        "params": [
+          "out"
+        ]
+      }
+    },
+    {
+      "id": "function:src/gnu/java/io/encode/Encoder.java::bytesInCharArray",
+      "type": "function",
+      "label": "bytesInCharArray",
+      "properties": {
+        "name": "bytesInCharArray",
+        "startLine": 166,
+        "endLine": 170,
+        "params": [
+          "buf"
+        ]
+      }
+    },
+    {
+      "id": "function:src/gnu/java/io/encode/Encoder.java::bytesInCharArray",
+      "type": "function",
+      "label": "bytesInCharArray",
+      "properties": {
+        "name": "bytesInCharArray",
+        "startLine": 192,
+        "endLine": 193,
+        "params": [
+          "buf",
+          "offset",
+          "len"
+        ]
+      }
+    },
+    {
+      "id": "function:src/gnu/java/io/encode/Encoder.java::convertToBytes",
+      "type": "function",
+      "label": "convertToBytes",
+      "properties": {
+        "name": "convertToBytes",
+        "startLine": 207,
+        "endLine": 211,
+        "params": [
+          "buf"
+        ]
+      }
+    },
+    {
+      "id": "function:src/gnu/java/io/encode/Encoder.java::convertToBytes",
+      "type": "function",
+      "label": "convertToBytes",
+      "properties": {
+        "name": "convertToBytes",
+        "startLine": 228,
+        "endLine": 234,
+        "params": [
+          "buf",
+          "offset",
+          "len"
+        ]
+      }
+    },
+    {
+      "id": "function:src/gnu/java/io/encode/Encoder.java::convertToBytes",
+      "type": "function",
+      "label": "convertToBytes",
+      "properties": {
+        "name": "convertToBytes",
+        "startLine": 256,
+        "endLine": 261,
+        "params": [
+          "buf",
+          "bbuf",
+          "bbuf_offset"
+        ]
+      }
+    },
+    {
+      "id": "function:src/gnu/java/io/encode/Encoder.java::convertToBytes",
+      "type": "function",
+      "label": "convertToBytes",
+      "properties": {
+        "name": "convertToBytes",
+        "startLine": 286,
+        "endLine": 288,
+        "params": [
+          "buf",
+          "buf_offset",
+          "len",
+          "bbuf",
+          "bbuf_offset"
+        ]
+      }
+    },
+    {
+      "id": "function:src/gnu/java/io/encode/Encoder.java::close",
+      "type": "function",
+      "label": "close",
+      "properties": {
+        "name": "close",
+        "startLine": 297,
+        "endLine": 302,
+        "params": []
+      }
+    },
+    {
+      "id": "function:src/gnu/java/io/encode/Encoder.java::flush",
+      "type": "function",
+      "label": "flush",
+      "properties": {
+        "name": "flush",
+        "startLine": 311,
+        "endLine": 316,
+        "params": []
+      }
+    },
+    {
+      "id": "function:src/gnu/java/io/encode/Encoder.java::setBadCharValue",
+      "type": "function",
+      "label": "setBadCharValue",
+      "properties": {
+        "name": "setBadCharValue",
+        "startLine": 331,
+        "endLine": 340,
+        "params": [
+          "bad_char"
+        ]
+      }
+    },
+    {
+      "id": "file:src/gnu/java/io/encode/EncoderEightBitLookup.java",
+      "type": "file",
+      "label": "EncoderEightBitLookup.java",
+      "properties": {
+        "path": "src/gnu/java/io/encode/EncoderEightBitLookup.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 187,
+        "nonEmptyLines": 157
+      }
+    },
+    {
+      "id": "class:src/gnu/java/io/encode/EncoderEightBitLookup.java::EncoderEightBitLookup",
+      "type": "class",
+      "label": "EncoderEightBitLookup",
+      "properties": {
+        "name": "EncoderEightBitLookup",
+        "startLine": 57,
+        "endLine": 187,
+        "methods": [
+          "loadTable",
+          "EncoderEightBitLookup",
+          "bytesInCharArray",
+          "convertToBytes",
+          "write"
+        ],
+        "properties": [
+          "lookup_table",
+          "encoding_table"
+        ]
+      }
+    },
+    {
+      "id": "function:src/gnu/java/io/encode/EncoderEightBitLookup.java::loadTable",
+      "type": "function",
+      "label": "loadTable",
+      "properties": {
+        "name": "loadTable",
+        "startLine": 91,
+        "endLine": 102,
+        "params": []
+      }
+    },
+    {
+      "id": "function:src/gnu/java/io/encode/EncoderEightBitLookup.java::EncoderEightBitLookup",
+      "type": "function",
+      "label": "EncoderEightBitLookup",
+      "properties": {
+        "name": "EncoderEightBitLookup",
+        "startLine": 109,
+        "endLine": 113,
+        "params": [
+          "out"
+        ]
+      }
+    },
+    {
+      "id": "function:src/gnu/java/io/encode/EncoderEightBitLookup.java::bytesInCharArray",
+      "type": "function",
+      "label": "bytesInCharArray",
+      "properties": {
+        "name": "bytesInCharArray",
+        "startLine": 127,
+        "endLine": 132,
+        "params": [
+          "buf",
+          "offset",
+          "len"
+        ]
+      }
+    },
+    {
+      "id": "function:src/gnu/java/io/encode/EncoderEightBitLookup.java::convertToBytes",
+      "type": "function",
+      "label": "convertToBytes",
+      "properties": {
+        "name": "convertToBytes",
+        "startLine": 139,
+        "endLine": 169,
+        "params": [
+          "buf",
+          "buf_offset",
+          "len",
+          "bbuf",
+          "bbuf_offset"
+        ]
+      }
+    },
+    {
+      "id": "function:src/gnu/java/io/encode/EncoderEightBitLookup.java::write",
+      "type": "function",
+      "label": "write",
+      "properties": {
+        "name": "write",
+        "startLine": 177,
+        "endLine": 185,
+        "params": [
+          "buf",
+          "offset",
+          "len"
+        ]
+      }
+    },
+    {
+      "id": "file:src/java/io/OutputStream.java",
+      "type": "file",
+      "label": "OutputStream.java",
+      "properties": {
+        "path": "src/java/io/OutputStream.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 31,
+        "nonEmptyLines": 23
+      }
+    },
+    {
+      "id": "class:src/java/io/OutputStream.java::OutputStream",
+      "type": "class",
+      "label": "OutputStream",
+      "properties": {
+        "name": "OutputStream",
+        "startLine": 3,
+        "endLine": 29,
+        "methods": [
+          "close",
+          "flush",
+          "write",
+          "write",
+          "write",
+          "OutputStream"
+        ],
+        "properties": []
+      }
+    },
+    {
+      "id": "function:src/java/io/OutputStream.java::close",
+      "type": "function",
+      "label": "close",
+      "properties": {
+        "name": "close",
+        "startLine": 5,
+        "endLine": 7,
+        "params": []
+      }
+    },
+    {
+      "id": "function:src/java/io/OutputStream.java::flush",
+      "type": "function",
+      "label": "flush",
+      "properties": {
+        "name": "flush",
+        "startLine": 9,
+        "endLine": 11,
+        "params": []
+      }
+    },
+    {
+      "id": "function:src/java/io/OutputStream.java::write",
+      "type": "function",
+      "label": "write",
+      "properties": {
+        "name": "write",
+        "startLine": 13,
+        "endLine": 13,
+        "params": [
+          "b"
+        ]
+      }
+    },
+    {
+      "id": "function:src/java/io/OutputStream.java::write",
+      "type": "function",
+      "label": "write",
+      "properties": {
+        "name": "write",
+        "startLine": 15,
+        "endLine": 19,
+        "params": [
+          "b",
+          "off",
+          "len"
+        ]
+      }
+    },
+    {
+      "id": "function:src/java/io/OutputStream.java::write",
+      "type": "function",
+      "label": "write",
+      "properties": {
+        "name": "write",
+        "startLine": 21,
+        "endLine": 24,
+        "params": [
+          "b"
+        ]
+      }
+    },
+    {
+      "id": "function:src/java/io/OutputStream.java::OutputStream",
+      "type": "function",
+      "label": "OutputStream",
+      "properties": {
+        "name": "OutputStream",
+        "startLine": 26,
+        "endLine": 28,
+        "params": []
+      }
+    },
+    {
+      "id": "file:src/java/io/Writer.java",
+      "type": "file",
+      "label": "Writer.java",
+      "properties": {
+        "path": "src/java/io/Writer.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 205,
+        "nonEmptyLines": 171
+      }
+    },
+    {
+      "id": "class:src/java/io/Writer.java::Writer",
+      "type": "class",
+      "label": "Writer",
+      "properties": {
+        "name": "Writer",
+        "startLine": 41,
+        "endLine": 204,
+        "methods": [
+          "Writer",
+          "Writer",
+          "flush",
+          "close",
+          "write",
+          "write",
+          "write",
+          "write",
+          "write"
+        ],
+        "properties": [
+          "lock"
+        ]
+      }
+    },
+    {
+      "id": "function:src/java/io/Writer.java::Writer",
+      "type": "function",
+      "label": "Writer",
+      "properties": {
+        "name": "Writer",
+        "startLine": 63,
+        "endLine": 67,
+        "params": []
+      }
+    },
+    {
+      "id": "function:src/java/io/Writer.java::Writer",
+      "type": "function",
+      "label": "Writer",
+      "properties": {
+        "name": "Writer",
+        "startLine": 77,
+        "endLine": 81,
+        "params": [
+          "lock"
+        ]
+      }
+    },
+    {
+      "id": "function:src/java/io/Writer.java::flush",
+      "type": "function",
+      "label": "flush",
+      "properties": {
+        "name": "flush",
+        "startLine": 98,
+        "endLine": 99,
+        "params": []
+      }
+    },
+    {
+      "id": "function:src/java/io/Writer.java::close",
+      "type": "function",
+      "label": "close",
+      "properties": {
+        "name": "close",
+        "startLine": 112,
+        "endLine": 113,
+        "params": []
+      }
+    },
+    {
+      "id": "function:src/java/io/Writer.java::write",
+      "type": "function",
+      "label": "write",
+      "properties": {
+        "name": "write",
+        "startLine": 124,
+        "endLine": 131,
+        "params": [
+          "b"
+        ]
+      }
+    },
+    {
+      "id": "function:src/java/io/Writer.java::write",
+      "type": "function",
+      "label": "write",
+      "properties": {
+        "name": "write",
+        "startLine": 144,
+        "endLine": 148,
+        "params": [
+          "buf"
+        ]
+      }
+    },
+    {
+      "id": "function:src/java/io/Writer.java::write",
+      "type": "function",
+      "label": "write",
+      "properties": {
+        "name": "write",
+        "startLine": 164,
+        "endLine": 165,
+        "params": [
+          "buf",
+          "offset",
+          "len"
+        ]
+      }
+    },
+    {
+      "id": "function:src/java/io/Writer.java::write",
+      "type": "function",
+      "label": "write",
+      "properties": {
+        "name": "write",
+        "startLine": 177,
+        "endLine": 181,
+        "params": [
+          "str"
+        ]
+      }
+    },
+    {
+      "id": "function:src/java/io/Writer.java::write",
+      "type": "function",
+      "label": "write",
+      "properties": {
+        "name": "write",
+        "startLine": 195,
+        "endLine": 202,
+        "params": [
+          "str",
+          "offset",
+          "len"
+        ]
+      }
+    },
+    {
+      "id": "file:src/java/security/Certificate.java",
+      "type": "file",
+      "label": "Certificate.java",
+      "properties": {
+        "path": "src/java/security/Certificate.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 134,
+        "nonEmptyLines": 110
+      }
+    },
+    {
+      "id": "class:src/java/security/Certificate.java::Certificate",
+      "type": "class",
+      "label": "Certificate",
+      "properties": {
+        "name": "Certificate",
+        "startLine": 49,
+        "endLine": 133,
+        "methods": [
+          "getGuarantor",
+          "getPrincipal",
+          "getPublicKey",
+          "getFormat",
+          "encode",
+          "decode",
+          "toString"
+        ],
+        "properties": []
+      }
+    },
+    {
+      "id": "file:src/java/security/KeyStoreSpi.java",
+      "type": "file",
+      "label": "KeyStoreSpi.java",
+      "properties": {
+        "path": "src/java/security/KeyStoreSpi.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 254,
+        "nonEmptyLines": 192
+      }
+    },
+    {
+      "id": "class:src/java/security/KeyStoreSpi.java::KeyStoreSpi",
+      "type": "class",
+      "label": "KeyStoreSpi",
+      "properties": {
+        "name": "KeyStoreSpi",
+        "startLine": 45,
+        "endLine": 254,
+        "methods": [
+          "KeyStoreSpi",
+          "engineGetKey",
+          "engineGetCertificateChain",
+          "engineGetCertificate",
+          "engineGetCreationDate",
+          "engineSetKeyEntry",
+          "engineSetKeyEntry",
+          "engineSetCertificateEntry",
+          "engineDeleteEntry",
+          "engineAliases",
+          "engineContainsAlias",
+          "engineSize",
+          "engineIsKeyEntry",
+          "engineIsCertificateEntry",
+          "engineGetCertificateAlias",
+          "engineStore",
+          "engineLoad"
+        ],
+        "properties": []
+      }
+    },
+    {
+      "id": "function:src/java/security/KeyStoreSpi.java::KeyStoreSpi",
+      "type": "function",
+      "label": "KeyStoreSpi",
+      "properties": {
+        "name": "KeyStoreSpi",
+        "startLine": 51,
+        "endLine": 52,
+        "params": []
+      }
+    },
+    {
+      "id": "function:src/java/security/KeyStoreSpi.java::engineGetKey",
+      "type": "function",
+      "label": "engineGetKey",
+      "properties": {
+        "name": "engineGetKey",
+        "startLine": 68,
+        "endLine": 70,
+        "params": [
+          "alias",
+          "password"
+        ]
+      }
+    },
+    {
+      "id": "function:src/java/security/KeyStoreSpi.java::engineGetCertificateChain",
+      "type": "function",
+      "label": "engineGetCertificateChain",
+      "properties": {
+        "name": "engineGetCertificateChain",
+        "startLine": 83,
+        "endLine": 83,
+        "params": [
+          "alias"
+        ]
+      }
+    },
+    {
+      "id": "function:src/java/security/KeyStoreSpi.java::engineGetCertificate",
+      "type": "function",
+      "label": "engineGetCertificate",
+      "properties": {
+        "name": "engineGetCertificate",
+        "startLine": 98,
+        "endLine": 98,
+        "params": [
+          "alias"
+        ]
+      }
+    },
+    {
+      "id": "function:src/java/security/KeyStoreSpi.java::engineGetCreationDate",
+      "type": "function",
+      "label": "engineGetCreationDate",
+      "properties": {
+        "name": "engineGetCreationDate",
+        "startLine": 107,
+        "endLine": 107,
+        "params": [
+          "alias"
+        ]
+      }
+    },
+    {
+      "id": "function:src/java/security/KeyStoreSpi.java::engineSetKeyEntry",
+      "type": "function",
+      "label": "engineSetKeyEntry",
+      "properties": {
+        "name": "engineSetKeyEntry",
+        "startLine": 123,
+        "endLine": 124,
+        "params": [
+          "alias",
+          "key",
+          "password",
+          "chain"
+        ]
+      }
+    },
+    {
+      "id": "function:src/java/security/KeyStoreSpi.java::engineSetKeyEntry",
+      "type": "function",
+      "label": "engineSetKeyEntry",
+      "properties": {
+        "name": "engineSetKeyEntry",
+        "startLine": 139,
+        "endLine": 140,
+        "params": [
+          "alias",
+          "key",
+          "chain"
+        ]
+      }
+    },
+    {
+      "id": "function:src/java/security/KeyStoreSpi.java::engineSetCertificateEntry",
+      "type": "function",
+      "label": "engineSetCertificateEntry",
+      "properties": {
+        "name": "engineSetCertificateEntry",
+        "startLine": 152,
+        "endLine": 153,
+        "params": [
+          "alias",
+          "cert"
+        ]
+      }
+    },
+    {
+      "id": "function:src/java/security/KeyStoreSpi.java::engineDeleteEntry",
+      "type": "function",
+      "label": "engineDeleteEntry",
+      "properties": {
+        "name": "engineDeleteEntry",
+        "startLine": 162,
+        "endLine": 163,
+        "params": [
+          "alias"
+        ]
+      }
+    },
+    {
+      "id": "function:src/java/security/KeyStoreSpi.java::engineAliases",
+      "type": "function",
+      "label": "engineAliases",
+      "properties": {
+        "name": "engineAliases",
+        "startLine": 170,
+        "endLine": 170,
+        "params": []
+      }
+    },
+    {
+      "id": "function:src/java/security/KeyStoreSpi.java::engineContainsAlias",
+      "type": "function",
+      "label": "engineContainsAlias",
+      "properties": {
+        "name": "engineContainsAlias",
+        "startLine": 179,
+        "endLine": 179,
+        "params": [
+          "alias"
+        ]
+      }
+    },
+    {
+      "id": "function:src/java/security/KeyStoreSpi.java::engineSize",
+      "type": "function",
+      "label": "engineSize",
+      "properties": {
+        "name": "engineSize",
+        "startLine": 186,
+        "endLine": 186,
+        "params": []
+      }
+    },
+    {
+      "id": "function:src/java/security/KeyStoreSpi.java::engineIsKeyEntry",
+      "type": "function",
+      "label": "engineIsKeyEntry",
+      "properties": {
+        "name": "engineIsKeyEntry",
+        "startLine": 196,
+        "endLine": 196,
+        "params": [
+          "alias"
+        ]
+      }
+    },
+    {
+      "id": "function:src/java/security/KeyStoreSpi.java::engineIsCertificateEntry",
+      "type": "function",
+      "label": "engineIsCertificateEntry",
+      "properties": {
+        "name": "engineIsCertificateEntry",
+        "startLine": 206,
+        "endLine": 206,
+        "params": [
+          "alias"
+        ]
+      }
+    },
+    {
+      "id": "function:src/java/security/KeyStoreSpi.java::engineGetCertificateAlias",
+      "type": "function",
+      "label": "engineGetCertificateAlias",
+      "properties": {
+        "name": "engineGetCertificateAlias",
+        "startLine": 220,
+        "endLine": 220,
+        "params": [
+          "cert"
+        ]
+      }
+    },
+    {
+      "id": "function:src/java/security/KeyStoreSpi.java::engineStore",
+      "type": "function",
+      "label": "engineStore",
+      "properties": {
+        "name": "engineStore",
+        "startLine": 235,
+        "endLine": 236,
+        "params": [
+          "stream",
+          "password"
+        ]
+      }
+    },
+    {
+      "id": "function:src/java/security/KeyStoreSpi.java::engineLoad",
+      "type": "function",
+      "label": "engineLoad",
+      "properties": {
+        "name": "engineLoad",
+        "startLine": 252,
+        "endLine": 253,
+        "params": [
+          "stream",
+          "password"
+        ]
+      }
+    },
+    {
+      "id": "file:src/java/io/InputStream.java",
+      "type": "file",
+      "label": "InputStream.java",
+      "properties": {
+        "path": "src/java/io/InputStream.java",
+        "stub": true
+      }
+    },
+    {
+      "id": "file:src/java/util/Enumeration.java",
+      "type": "file",
+      "label": "Enumeration.java",
+      "properties": {
+        "path": "src/java/util/Enumeration.java",
+        "stub": true
+      }
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/gnu/java/io/encode/Encoder.java",
+      "target": "class:src/gnu/java/io/encode/Encoder.java::Encoder",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/gnu/java/io/encode/Encoder.java",
+      "target": "function:src/gnu/java/io/encode/Encoder.java::getSchemeName",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/gnu/java/io/encode/Encoder.java",
+      "target": "function:src/gnu/java/io/encode/Encoder.java::getSchemeDescription",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/gnu/java/io/encode/Encoder.java",
+      "target": "function:src/gnu/java/io/encode/Encoder.java::Encoder",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/gnu/java/io/encode/Encoder.java",
+      "target": "function:src/gnu/java/io/encode/Encoder.java::bytesInCharArray",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/gnu/java/io/encode/Encoder.java",
+      "target": "function:src/gnu/java/io/encode/Encoder.java::bytesInCharArray",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/gnu/java/io/encode/Encoder.java",
+      "target": "function:src/gnu/java/io/encode/Encoder.java::convertToBytes",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/gnu/java/io/encode/Encoder.java",
+      "target": "function:src/gnu/java/io/encode/Encoder.java::convertToBytes",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/gnu/java/io/encode/Encoder.java",
+      "target": "function:src/gnu/java/io/encode/Encoder.java::convertToBytes",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/gnu/java/io/encode/Encoder.java",
+      "target": "function:src/gnu/java/io/encode/Encoder.java::convertToBytes",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/gnu/java/io/encode/Encoder.java",
+      "target": "function:src/gnu/java/io/encode/Encoder.java::close",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/gnu/java/io/encode/Encoder.java",
+      "target": "function:src/gnu/java/io/encode/Encoder.java::flush",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/gnu/java/io/encode/Encoder.java",
+      "target": "function:src/gnu/java/io/encode/Encoder.java::setBadCharValue",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/gnu/java/io/encode/EncoderEightBitLookup.java",
+      "target": "class:src/gnu/java/io/encode/EncoderEightBitLookup.java::EncoderEightBitLookup",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/gnu/java/io/encode/EncoderEightBitLookup.java",
+      "target": "function:src/gnu/java/io/encode/EncoderEightBitLookup.java::loadTable",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/gnu/java/io/encode/EncoderEightBitLookup.java",
+      "target": "function:src/gnu/java/io/encode/EncoderEightBitLookup.java::EncoderEightBitLookup",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/gnu/java/io/encode/EncoderEightBitLookup.java",
+      "target": "function:src/gnu/java/io/encode/EncoderEightBitLookup.java::bytesInCharArray",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/gnu/java/io/encode/EncoderEightBitLookup.java",
+      "target": "function:src/gnu/java/io/encode/EncoderEightBitLookup.java::convertToBytes",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/gnu/java/io/encode/EncoderEightBitLookup.java",
+      "target": "function:src/gnu/java/io/encode/EncoderEightBitLookup.java::write",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/io/OutputStream.java",
+      "target": "class:src/java/io/OutputStream.java::OutputStream",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/io/OutputStream.java",
+      "target": "function:src/java/io/OutputStream.java::close",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/io/OutputStream.java",
+      "target": "function:src/java/io/OutputStream.java::flush",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/io/OutputStream.java",
+      "target": "function:src/java/io/OutputStream.java::write",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/io/OutputStream.java",
+      "target": "function:src/java/io/OutputStream.java::write",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/io/OutputStream.java",
+      "target": "function:src/java/io/OutputStream.java::write",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/io/OutputStream.java",
+      "target": "function:src/java/io/OutputStream.java::OutputStream",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/io/Writer.java",
+      "target": "class:src/java/io/Writer.java::Writer",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/io/Writer.java",
+      "target": "function:src/java/io/Writer.java::Writer",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/io/Writer.java",
+      "target": "function:src/java/io/Writer.java::Writer",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/io/Writer.java",
+      "target": "function:src/java/io/Writer.java::flush",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/io/Writer.java",
+      "target": "function:src/java/io/Writer.java::close",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/io/Writer.java",
+      "target": "function:src/java/io/Writer.java::write",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/io/Writer.java",
+      "target": "function:src/java/io/Writer.java::write",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/io/Writer.java",
+      "target": "function:src/java/io/Writer.java::write",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/io/Writer.java",
+      "target": "function:src/java/io/Writer.java::write",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/io/Writer.java",
+      "target": "function:src/java/io/Writer.java::write",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/Certificate.java",
+      "target": "class:src/java/security/Certificate.java::Certificate",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/KeyStoreSpi.java",
+      "target": "class:src/java/security/KeyStoreSpi.java::KeyStoreSpi",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/KeyStoreSpi.java",
+      "target": "function:src/java/security/KeyStoreSpi.java::KeyStoreSpi",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/KeyStoreSpi.java",
+      "target": "function:src/java/security/KeyStoreSpi.java::engineGetKey",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/KeyStoreSpi.java",
+      "target": "function:src/java/security/KeyStoreSpi.java::engineGetCertificateChain",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/KeyStoreSpi.java",
+      "target": "function:src/java/security/KeyStoreSpi.java::engineGetCertificate",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/KeyStoreSpi.java",
+      "target": "function:src/java/security/KeyStoreSpi.java::engineGetCreationDate",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/KeyStoreSpi.java",
+      "target": "function:src/java/security/KeyStoreSpi.java::engineSetKeyEntry",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/KeyStoreSpi.java",
+      "target": "function:src/java/security/KeyStoreSpi.java::engineSetKeyEntry",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/KeyStoreSpi.java",
+      "target": "function:src/java/security/KeyStoreSpi.java::engineSetCertificateEntry",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/KeyStoreSpi.java",
+      "target": "function:src/java/security/KeyStoreSpi.java::engineDeleteEntry",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/KeyStoreSpi.java",
+      "target": "function:src/java/security/KeyStoreSpi.java::engineAliases",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/KeyStoreSpi.java",
+      "target": "function:src/java/security/KeyStoreSpi.java::engineContainsAlias",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/KeyStoreSpi.java",
+      "target": "function:src/java/security/KeyStoreSpi.java::engineSize",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/KeyStoreSpi.java",
+      "target": "function:src/java/security/KeyStoreSpi.java::engineIsKeyEntry",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/KeyStoreSpi.java",
+      "target": "function:src/java/security/KeyStoreSpi.java::engineIsCertificateEntry",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/KeyStoreSpi.java",
+      "target": "function:src/java/security/KeyStoreSpi.java::engineGetCertificateAlias",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/KeyStoreSpi.java",
+      "target": "function:src/java/security/KeyStoreSpi.java::engineStore",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/KeyStoreSpi.java",
+      "target": "function:src/java/security/KeyStoreSpi.java::engineLoad",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/gnu/java/io/encode/Encoder.java",
+      "target": "file:src/java/io/OutputStream.java",
+      "relation": "imports"
+    },
+    {
+      "source": "file:src/gnu/java/io/encode/Encoder.java",
+      "target": "file:src/java/io/Writer.java",
+      "relation": "imports"
+    },
+    {
+      "source": "file:src/gnu/java/io/encode/EncoderEightBitLookup.java",
+      "target": "file:src/java/io/OutputStream.java",
+      "relation": "imports"
+    },
+    {
+      "source": "file:src/java/security/Certificate.java",
+      "target": "file:src/java/io/InputStream.java",
+      "relation": "imports"
+    },
+    {
+      "source": "file:src/java/security/Certificate.java",
+      "target": "file:src/java/io/OutputStream.java",
+      "relation": "imports"
+    },
+    {
+      "source": "file:src/java/security/KeyStoreSpi.java",
+      "target": "file:src/java/io/InputStream.java",
+      "relation": "imports"
+    },
+    {
+      "source": "file:src/java/security/KeyStoreSpi.java",
+      "target": "file:src/java/io/OutputStream.java",
+      "relation": "imports"
+    },
+    {
+      "source": "file:src/java/security/KeyStoreSpi.java",
+      "target": "file:src/java/util/Enumeration.java",
+      "relation": "imports"
+    }
+  ]
+}

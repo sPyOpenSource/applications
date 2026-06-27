@@ -1,0 +1,3623 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 25,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "src/java/security/PrivilegedAction.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 53,
+      "nonEmptyLines": 42,
+      "classes": [
+        {
+          "name": "PrivilegedAction",
+          "startLine": 40,
+          "endLine": 52,
+          "methods": [
+            "run"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "PrivilegedAction",
+          "line": 40,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/security/PrivilegedExceptionAction.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 57,
+      "nonEmptyLines": 46,
+      "classes": [
+        {
+          "name": "PrivilegedExceptionAction",
+          "startLine": 41,
+          "endLine": 56,
+          "methods": [
+            "run"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "PrivilegedExceptionAction",
+          "line": 41,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/security/Signer.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 139,
+      "nonEmptyLines": 110,
+      "functions": [
+        {
+          "name": "Signer",
+          "startLine": 44,
+          "endLine": 45,
+          "params": []
+        },
+        {
+          "name": "Signer",
+          "startLine": 52,
+          "endLine": 55,
+          "params": [
+            "name"
+          ]
+        },
+        {
+          "name": "Signer",
+          "startLine": 67,
+          "endLine": 71,
+          "params": [
+            "name",
+            "scope"
+          ]
+        },
+        {
+          "name": "getPrivateKey",
+          "startLine": 84,
+          "endLine": 91,
+          "params": []
+        },
+        {
+          "name": "setKeyPair",
+          "startLine": 106,
+          "endLine": 127,
+          "params": [
+            "pair"
+          ]
+        },
+        {
+          "name": "toString",
+          "startLine": 134,
+          "endLine": 138,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "Signer",
+          "startLine": 38,
+          "endLine": 139,
+          "methods": [
+            "Signer",
+            "Signer",
+            "Signer",
+            "getPrivateKey",
+            "setKeyPair",
+            "toString"
+          ],
+          "properties": [
+            "privateKey"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Signer",
+          "line": 52,
+          "isDefault": false
+        },
+        {
+          "name": "Signer",
+          "line": 67,
+          "isDefault": false
+        },
+        {
+          "name": "getPrivateKey",
+          "line": 84,
+          "isDefault": false
+        },
+        {
+          "name": "setKeyPair",
+          "line": 106,
+          "isDefault": false
+        },
+        {
+          "name": "toString",
+          "line": 134,
+          "isDefault": false
+        },
+        {
+          "name": "Signer",
+          "line": 38,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "getPrivateKey",
+          "callee": "System.getSecurityManager",
+          "lineNumber": 86
+        },
+        {
+          "caller": "getPrivateKey",
+          "callee": "sm.checkSecurityAccess",
+          "lineNumber": 88
+        },
+        {
+          "caller": "setKeyPair",
+          "callee": "System.getSecurityManager",
+          "lineNumber": 109
+        },
+        {
+          "caller": "setKeyPair",
+          "callee": "sm.checkSecurityAccess",
+          "lineNumber": 111
+        },
+        {
+          "caller": "setKeyPair",
+          "callee": "pair.getPublic",
+          "lineNumber": 114
+        },
+        {
+          "caller": "setKeyPair",
+          "callee": "setPublicKey",
+          "lineNumber": 115
+        },
+        {
+          "caller": "setKeyPair",
+          "callee": "pair.getPublic",
+          "lineNumber": 115
+        },
+        {
+          "caller": "setKeyPair",
+          "callee": "new InvalidParameterException",
+          "lineNumber": 117
+        },
+        {
+          "caller": "setKeyPair",
+          "callee": "new KeyException",
+          "lineNumber": 120
+        },
+        {
+          "caller": "setKeyPair",
+          "callee": "pair.getPrivate",
+          "lineNumber": 123
+        },
+        {
+          "caller": "setKeyPair",
+          "callee": "pair.getPrivate",
+          "lineNumber": 124
+        },
+        {
+          "caller": "setKeyPair",
+          "callee": "new InvalidParameterException",
+          "lineNumber": 126
+        },
+        {
+          "caller": "toString",
+          "callee": "getName",
+          "lineNumber": 137
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 6,
+        "functionCount": 6,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/security/spec/EncodedKeySpec.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 74,
+      "nonEmptyLines": 55,
+      "functions": [
+        {
+          "name": "EncodedKeySpec",
+          "startLine": 48,
+          "endLine": 51,
+          "params": [
+            "encodedKey"
+          ]
+        },
+        {
+          "name": "getEncoded",
+          "startLine": 58,
+          "endLine": 61,
+          "params": []
+        },
+        {
+          "name": "getFormat",
+          "startLine": 72,
+          "endLine": 72,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "EncodedKeySpec",
+          "startLine": 38,
+          "endLine": 74,
+          "methods": [
+            "EncodedKeySpec",
+            "getEncoded",
+            "getFormat"
+          ],
+          "properties": [
+            "encodedKey"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "EncodedKeySpec",
+          "line": 48,
+          "isDefault": false
+        },
+        {
+          "name": "getEncoded",
+          "line": 58,
+          "isDefault": false
+        },
+        {
+          "name": "getFormat",
+          "line": 72,
+          "isDefault": false
+        },
+        {
+          "name": "EncodedKeySpec",
+          "line": 38,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 4,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/security/spec/KeySpec.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 39,
+      "nonEmptyLines": 31,
+      "classes": [
+        {
+          "name": "KeySpec",
+          "startLine": 37,
+          "endLine": 39,
+          "methods": [],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "KeySpec",
+          "line": 37,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/security/spec/package.bluej",
+      "language": "bluej",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 0,
+      "metrics": {}
+    },
+    {
+      "path": "src/java/security/spec/RSAKeyGenParameterSpec.j",
+      "language": "j",
+      "fileCategory": "code",
+      "totalLines": 86,
+      "nonEmptyLines": 68,
+      "metrics": {}
+    },
+    {
+      "path": "src/java/sql/DatabaseMetaData.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 2736,
+      "nonEmptyLines": 2385,
+      "classes": [
+        {
+          "name": "DatabaseMetaData",
+          "startLine": 36,
+          "endLine": 2735,
+          "methods": [
+            "allProceduresAreCallable",
+            "allTablesAreSelectable",
+            "getURL",
+            "getUserName",
+            "isReadOnly",
+            "nullsAreSortedHigh",
+            "nullsAreSortedLow",
+            "nullsAreSortedAtStart",
+            "nullsAreSortedAtEnd",
+            "getDatabaseProductName",
+            "getDatabaseProductVersion",
+            "getDriverName",
+            "getDriverVersion",
+            "getDriverMajorVersion",
+            "getDriverMinorVersion",
+            "usesLocalFiles",
+            "usesLocalFilePerTable",
+            "supportsMixedCaseIdentifiers",
+            "storesUpperCaseIdentifiers",
+            "storesLowerCaseIdentifiers",
+            "storesMixedCaseIdentifiers",
+            "supportsMixedCaseQuotedIdentifiers",
+            "storesUpperCaseQuotedIdentifiers",
+            "storesLowerCaseQuotedIdentifiers",
+            "storesMixedCaseQuotedIdentifiers",
+            "getIdentifierQuoteString",
+            "getSQLKeywords",
+            "getNumericFunctions",
+            "getStringFunctions",
+            "getSystemFunctions",
+            "getTimeDateFunctions",
+            "getSearchStringEscape",
+            "getExtraNameCharacters",
+            "supportsAlterTableWithAddColumn",
+            "supportsAlterTableWithDropColumn",
+            "supportsColumnAliasing",
+            "nullPlusNonNullIsNull",
+            "supportsConvert",
+            "supportsConvert",
+            "supportsTableCorrelationNames",
+            "supportsDifferentTableCorrelationNames",
+            "supportsExpressionsInOrderBy",
+            "supportsOrderByUnrelated",
+            "supportsGroupBy",
+            "supportsGroupByUnrelated",
+            "supportsGroupByBeyondSelect",
+            "supportsLikeEscapeClause",
+            "supportsMultipleResultSets",
+            "supportsMultipleTransactions",
+            "supportsNonNullableColumns",
+            "supportsMinimumSQLGrammar",
+            "supportsCoreSQLGrammar",
+            "supportsExtendedSQLGrammar",
+            "supportsANSI92EntryLevelSQL",
+            "supportsANSI92IntermediateSQL",
+            "supportsANSI92FullSQL",
+            "supportsIntegrityEnhancementFacility",
+            "supportsOuterJoins",
+            "supportsFullOuterJoins",
+            "supportsLimitedOuterJoins",
+            "getSchemaTerm",
+            "getProcedureTerm",
+            "getCatalogTerm",
+            "isCatalogAtStart",
+            "getCatalogSeparator",
+            "supportsSchemasInDataManipulation",
+            "supportsSchemasInProcedureCalls",
+            "supportsSchemasInTableDefinitions",
+            "supportsSchemasInIndexDefinitions",
+            "supportsSchemasInPrivilegeDefinitions",
+            "supportsCatalogsInDataManipulation",
+            "supportsCatalogsInProcedureCalls",
+            "supportsCatalogsInTableDefinitions",
+            "supportsCatalogsInIndexDefinitions",
+            "supportsCatalogsInPrivilegeDefinitions",
+            "supportsPositionedDelete",
+            "supportsPositionedUpdate",
+            "supportsSelectForUpdate",
+            "supportsStoredProcedures",
+            "supportsSubqueriesInComparisons",
+            "supportsSubqueriesInExists",
+            "supportsSubqueriesInIns",
+            "supportsSubqueriesInQuantifieds",
+            "supportsCorrelatedSubqueries",
+            "supportsUnion",
+            "supportsUnionAll",
+            "supportsOpenCursorsAcrossCommit",
+            "supportsOpenCursorsAcrossRollback",
+            "supportsOpenStatementsAcrossCommit",
+            "supportsOpenStatementsAcrossRollback",
+            "getMaxBinaryLiteralLength",
+            "getMaxCharLiteralLength",
+            "getMaxColumnNameLength",
+            "getMaxColumnsInGroupBy",
+            "getMaxColumnsInIndex",
+            "getMaxColumnsInOrderBy",
+            "getMaxColumnsInSelect",
+            "getMaxColumnsInTable",
+            "getMaxConnections",
+            "getMaxCursorNameLength",
+            "getMaxIndexLength",
+            "getMaxSchemaNameLength",
+            "getMaxProcedureNameLength",
+            "getMaxCatalogNameLength",
+            "getMaxRowSize",
+            "doesMaxRowSizeIncludeBlobs",
+            "getMaxStatementLength",
+            "getMaxStatements",
+            "getMaxTableNameLength",
+            "getMaxTablesInSelect",
+            "getMaxUserNameLength",
+            "getDefaultTransactionIsolation",
+            "supportsTransactions",
+            "supportsTransactionIsolationLevel",
+            "supportsDataDefinitionAndDataManipulationTransactions",
+            "supportsDataManipulationTransactionsOnly",
+            "dataDefinitionCausesTransactionCommit",
+            "dataDefinitionIgnoredInTransactions",
+            "getProcedures",
+            "getProcedureColumns",
+            "getTables",
+            "getSchemas",
+            "getCatalogs",
+            "getTableTypes",
+            "getColumns",
+            "getColumnPrivileges",
+            "getTablePrivileges",
+            "getBestRowIdentifier",
+            "getVersionColumns",
+            "getPrimaryKeys",
+            "getImportedKeys",
+            "getExportedKeys",
+            "getCrossReference",
+            "getTypeInfo",
+            "getIndexInfo",
+            "supportsResultSetType",
+            "supportsResultSetConcurrency",
+            "ownUpdatesAreVisible",
+            "ownDeletesAreVisible",
+            "ownInsertsAreVisible",
+            "othersUpdatesAreVisible",
+            "othersDeletesAreVisible",
+            "othersInsertsAreVisible",
+            "updatesAreDetected",
+            "deletesAreDetected",
+            "insertsAreDetected",
+            "supportsBatchUpdates",
+            "getUDTs",
+            "getConnection"
+          ],
+          "properties": [
+            "bestRowUnknown",
+            "bestRowNotPseudo",
+            "bestRowPseudo",
+            "bestRowTemporary",
+            "bestRowTransaction",
+            "bestRowSession",
+            "procedureResultUnknown",
+            "procedureNoResult",
+            "procedureReturnsResult",
+            "procedureColumnUnknown",
+            "procedureColumnIn",
+            "procedureColumnInOut",
+            "procedureColumnOut",
+            "procedureColumnReturn",
+            "procedureColumnResult",
+            "procedureNoNulls",
+            "procedureNullable",
+            "procedureNullableUnknown",
+            "columnNoNulls",
+            "columnNullable",
+            "columnNullableUnknown",
+            "versionColumnUnknown",
+            "versionColumnNotPseudo",
+            "versionColumnPseudo",
+            "importedKeyCascade",
+            "importedKeyRestrict",
+            "importedKeySetNull",
+            "importedKeyNoAction",
+            "importedKeySetDefault",
+            "importedKeyInitiallyDeferred",
+            "importedKeyInitiallyImmediate",
+            "importedKeyNotDeferrable",
+            "typeNoNulls",
+            "typeNullable",
+            "typeNullableUnknown",
+            "typePredNone",
+            "typePredChar",
+            "typePredBasic",
+            "typeSearchable",
+            "tableIndexStatistic",
+            "tableIndexClustered",
+            "tableIndexHashed",
+            "tableIndexOther"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "DatabaseMetaData",
+          "line": 36,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/sql/Driver.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 137,
+      "nonEmptyLines": 115,
+      "classes": [
+        {
+          "name": "Driver",
+          "startLine": 46,
+          "endLine": 136,
+          "methods": [
+            "getMajorVersion",
+            "getMinorVersion",
+            "jdbcCompliant",
+            "getPropertyInfo",
+            "acceptsURL",
+            "connect"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "Driver",
+          "line": 46,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/sql/package.bluej",
+      "language": "bluej",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 0,
+      "metrics": {}
+    },
+    {
+      "path": "src/java/sql/Ref.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 51,
+      "nonEmptyLines": 40,
+      "classes": [
+        {
+          "name": "Ref",
+          "startLine": 36,
+          "endLine": 50,
+          "methods": [
+            "getBaseTypeName"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "Ref",
+          "line": 36,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/sql/ResultSetMetaData.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 378,
+      "nonEmptyLines": 323,
+      "classes": [
+        {
+          "name": "ResultSetMetaData",
+          "startLine": 38,
+          "endLine": 377,
+          "methods": [
+            "getColumnCount",
+            "isAutoIncrement",
+            "isCaseSensitive",
+            "isSearchable",
+            "isCurrency",
+            "isNullable",
+            "isSigned",
+            "getColumnDisplaySize",
+            "getColumnLabel",
+            "getColumnName",
+            "getSchemaName",
+            "getPrecision",
+            "getScale",
+            "getTableName",
+            "getCatalogName",
+            "getColumnType",
+            "getColumnTypeName",
+            "isReadOnly",
+            "isWritable",
+            "isDefinitelyWritable",
+            "getColumnClassName"
+          ],
+          "properties": [
+            "columnNoNulls",
+            "columnNullable",
+            "columnNullableUnknown"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "ResultSetMetaData",
+          "line": 38,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/sql/SQLData.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 74,
+      "nonEmptyLines": 59,
+      "classes": [
+        {
+          "name": "SQLData",
+          "startLine": 35,
+          "endLine": 73,
+          "methods": [
+            "getSQLTypeName",
+            "readSQL",
+            "writeSQL"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "SQLData",
+          "line": 35,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/sql/Statement.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 413,
+      "nonEmptyLines": 348,
+      "classes": [
+        {
+          "name": "Statement",
+          "startLine": 35,
+          "endLine": 412,
+          "methods": [
+            "executeQuery",
+            "executeUpdate",
+            "close",
+            "getMaxFieldSize",
+            "setMaxFieldSize",
+            "getMaxRows",
+            "setMaxRows",
+            "setEscapeProcessing",
+            "getQueryTimeout",
+            "setQueryTimeout",
+            "cancel",
+            "getWarnings",
+            "clearWarnings",
+            "setCursorName",
+            "execute",
+            "getResultSet",
+            "getUpdateCount",
+            "getMoreResults",
+            "getFetchDirection",
+            "setFetchDirection",
+            "getFetchSize",
+            "setFetchSize",
+            "getResultSetConcurrency",
+            "getResultSetType",
+            "addBatch",
+            "clearBatch",
+            "executeBatch",
+            "getConnection"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "Statement",
+          "line": 35,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/text/CharacterIterator.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 175,
+      "nonEmptyLines": 141,
+      "classes": [
+        {
+          "name": "CharacterIterator",
+          "startLine": 41,
+          "endLine": 174,
+          "methods": [
+            "current",
+            "next",
+            "previous",
+            "first",
+            "last",
+            "getIndex",
+            "setIndex",
+            "getBeginIndex",
+            "getEndIndex",
+            "clone"
+          ],
+          "properties": [
+            "DONE"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "CharacterIterator",
+          "line": 41,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/text/DateFormat.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 586,
+      "nonEmptyLines": 537,
+      "functions": [
+        {
+          "name": "DateFormat",
+          "startLine": 92,
+          "endLine": 94,
+          "params": []
+        },
+        {
+          "name": "equals",
+          "startLine": 112,
+          "endLine": 118,
+          "params": [
+            "obj"
+          ]
+        },
+        {
+          "name": "clone",
+          "startLine": 125,
+          "endLine": 129,
+          "params": []
+        },
+        {
+          "name": "format",
+          "startLine": 147,
+          "endLine": 153,
+          "params": [
+            "obj",
+            "buf",
+            "pos"
+          ]
+        },
+        {
+          "name": "format",
+          "startLine": 160,
+          "endLine": 165,
+          "params": [
+            "date"
+          ]
+        },
+        {
+          "name": "format",
+          "startLine": 180,
+          "endLine": 181,
+          "params": [
+            "date",
+            "buf",
+            "pos"
+          ]
+        },
+        {
+          "name": "getAvailableLocales",
+          "startLine": 187,
+          "endLine": 193,
+          "params": []
+        },
+        {
+          "name": "getCalendar",
+          "startLine": 203,
+          "endLine": 206,
+          "params": []
+        },
+        {
+          "name": "computeInstance",
+          "startLine": 208,
+          "endLine": 213,
+          "params": [
+            "style",
+            "loc",
+            "use_date",
+            "use_time"
+          ]
+        },
+        {
+          "name": "computeInstance",
+          "startLine": 215,
+          "endLine": 310,
+          "params": [
+            "dateStyle",
+            "timeStyle",
+            "loc",
+            "use_date",
+            "use_time"
+          ]
+        },
+        {
+          "name": "getDateInstance",
+          "startLine": 318,
+          "endLine": 321,
+          "params": []
+        },
+        {
+          "name": "getDateInstance",
+          "startLine": 331,
+          "endLine": 334,
+          "params": [
+            "style"
+          ]
+        },
+        {
+          "name": "getDateInstance",
+          "startLine": 346,
+          "endLine": 349,
+          "params": [
+            "style",
+            "loc"
+          ]
+        },
+        {
+          "name": "getDateTimeInstance",
+          "startLine": 357,
+          "endLine": 360,
+          "params": []
+        },
+        {
+          "name": "getDateTimeInstance",
+          "startLine": 368,
+          "endLine": 372,
+          "params": [
+            "dateStyle",
+            "timeStyle"
+          ]
+        },
+        {
+          "name": "getDateTimeInstance",
+          "startLine": 383,
+          "endLine": 388,
+          "params": [
+            "dateStyle",
+            "timeStyle",
+            "loc"
+          ]
+        },
+        {
+          "name": "getInstance",
+          "startLine": 396,
+          "endLine": 400,
+          "params": []
+        },
+        {
+          "name": "getNumberFormat",
+          "startLine": 408,
+          "endLine": 411,
+          "params": []
+        },
+        {
+          "name": "getTimeInstance",
+          "startLine": 419,
+          "endLine": 422,
+          "params": []
+        },
+        {
+          "name": "getTimeInstance",
+          "startLine": 432,
+          "endLine": 435,
+          "params": [
+            "style"
+          ]
+        },
+        {
+          "name": "getTimeInstance",
+          "startLine": 447,
+          "endLine": 450,
+          "params": [
+            "style",
+            "loc"
+          ]
+        },
+        {
+          "name": "getTimeZone",
+          "startLine": 458,
+          "endLine": 461,
+          "params": []
+        },
+        {
+          "name": "hashCode",
+          "startLine": 468,
+          "endLine": 474,
+          "params": []
+        },
+        {
+          "name": "isLenient",
+          "startLine": 483,
+          "endLine": 486,
+          "params": []
+        },
+        {
+          "name": "parse",
+          "startLine": 495,
+          "endLine": 507,
+          "params": [
+            "source"
+          ]
+        },
+        {
+          "name": "parse",
+          "startLine": 522,
+          "endLine": 522,
+          "params": [
+            "source",
+            "pos"
+          ]
+        },
+        {
+          "name": "parseObject",
+          "startLine": 536,
+          "endLine": 539,
+          "params": [
+            "source",
+            "pos"
+          ]
+        },
+        {
+          "name": "setCalendar",
+          "startLine": 549,
+          "endLine": 552,
+          "params": [
+            "calendar"
+          ]
+        },
+        {
+          "name": "setLenient",
+          "startLine": 561,
+          "endLine": 564,
+          "params": [
+            "lenient"
+          ]
+        },
+        {
+          "name": "setNumberFormat",
+          "startLine": 572,
+          "endLine": 575,
+          "params": [
+            "numberFormat"
+          ]
+        },
+        {
+          "name": "setTimeZone",
+          "startLine": 582,
+          "endLine": 585,
+          "params": [
+            "timeZone"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "DateFormat",
+          "startLine": 52,
+          "endLine": 586,
+          "methods": [
+            "DateFormat",
+            "equals",
+            "clone",
+            "format",
+            "format",
+            "format",
+            "getAvailableLocales",
+            "getCalendar",
+            "computeInstance",
+            "computeInstance",
+            "getDateInstance",
+            "getDateInstance",
+            "getDateInstance",
+            "getDateTimeInstance",
+            "getDateTimeInstance",
+            "getDateTimeInstance",
+            "getInstance",
+            "getNumberFormat",
+            "getTimeInstance",
+            "getTimeInstance",
+            "getTimeInstance",
+            "getTimeZone",
+            "hashCode",
+            "isLenient",
+            "parse",
+            "parse",
+            "parseObject",
+            "setCalendar",
+            "setLenient",
+            "setNumberFormat",
+            "setTimeZone"
+          ],
+          "properties": [
+            "calendar",
+            "numberFormat",
+            "FULL",
+            "LONG",
+            "MEDIUM",
+            "SHORT",
+            "DEFAULT",
+            "ERA_FIELD",
+            "YEAR_FIELD",
+            "MONTH_FIELD",
+            "DATE_FIELD",
+            "HOUR_OF_DAY1_FIELD",
+            "HOUR_OF_DAY0_FIELD",
+            "MINUTE_FIELD",
+            "SECOND_FIELD",
+            "MILLISECOND_FIELD",
+            "DAY_OF_WEEK_FIELD",
+            "DAY_OF_YEAR_FIELD",
+            "DAY_OF_WEEK_IN_MONTH_FIELD",
+            "WEEK_OF_YEAR_FIELD",
+            "WEEK_OF_MONTH_FIELD",
+            "AM_PM_FIELD",
+            "HOUR1_FIELD",
+            "HOUR0_FIELD",
+            "TIMEZONE_FIELD"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "FULL",
+          "line": 58,
+          "isDefault": false
+        },
+        {
+          "name": "LONG",
+          "line": 59,
+          "isDefault": false
+        },
+        {
+          "name": "MEDIUM",
+          "line": 60,
+          "isDefault": false
+        },
+        {
+          "name": "SHORT",
+          "line": 61,
+          "isDefault": false
+        },
+        {
+          "name": "DEFAULT",
+          "line": 62,
+          "isDefault": false
+        },
+        {
+          "name": "ERA_FIELD",
+          "line": 70,
+          "isDefault": false
+        },
+        {
+          "name": "YEAR_FIELD",
+          "line": 71,
+          "isDefault": false
+        },
+        {
+          "name": "MONTH_FIELD",
+          "line": 72,
+          "isDefault": false
+        },
+        {
+          "name": "DATE_FIELD",
+          "line": 73,
+          "isDefault": false
+        },
+        {
+          "name": "HOUR_OF_DAY1_FIELD",
+          "line": 74,
+          "isDefault": false
+        },
+        {
+          "name": "HOUR_OF_DAY0_FIELD",
+          "line": 75,
+          "isDefault": false
+        },
+        {
+          "name": "MINUTE_FIELD",
+          "line": 76,
+          "isDefault": false
+        },
+        {
+          "name": "SECOND_FIELD",
+          "line": 77,
+          "isDefault": false
+        },
+        {
+          "name": "MILLISECOND_FIELD",
+          "line": 78,
+          "isDefault": false
+        },
+        {
+          "name": "DAY_OF_WEEK_FIELD",
+          "line": 79,
+          "isDefault": false
+        },
+        {
+          "name": "DAY_OF_YEAR_FIELD",
+          "line": 80,
+          "isDefault": false
+        },
+        {
+          "name": "DAY_OF_WEEK_IN_MONTH_FIELD",
+          "line": 81,
+          "isDefault": false
+        },
+        {
+          "name": "WEEK_OF_YEAR_FIELD",
+          "line": 82,
+          "isDefault": false
+        },
+        {
+          "name": "WEEK_OF_MONTH_FIELD",
+          "line": 83,
+          "isDefault": false
+        },
+        {
+          "name": "AM_PM_FIELD",
+          "line": 84,
+          "isDefault": false
+        },
+        {
+          "name": "HOUR1_FIELD",
+          "line": 85,
+          "isDefault": false
+        },
+        {
+          "name": "HOUR0_FIELD",
+          "line": 86,
+          "isDefault": false
+        },
+        {
+          "name": "TIMEZONE_FIELD",
+          "line": 87,
+          "isDefault": false
+        },
+        {
+          "name": "equals",
+          "line": 112,
+          "isDefault": false
+        },
+        {
+          "name": "clone",
+          "line": 125,
+          "isDefault": false
+        },
+        {
+          "name": "format",
+          "line": 147,
+          "isDefault": false
+        },
+        {
+          "name": "format",
+          "line": 160,
+          "isDefault": false
+        },
+        {
+          "name": "format",
+          "line": 180,
+          "isDefault": false
+        },
+        {
+          "name": "getAvailableLocales",
+          "line": 187,
+          "isDefault": false
+        },
+        {
+          "name": "getCalendar",
+          "line": 203,
+          "isDefault": false
+        },
+        {
+          "name": "getDateInstance",
+          "line": 318,
+          "isDefault": false
+        },
+        {
+          "name": "getDateInstance",
+          "line": 331,
+          "isDefault": false
+        },
+        {
+          "name": "getDateInstance",
+          "line": 346,
+          "isDefault": false
+        },
+        {
+          "name": "getDateTimeInstance",
+          "line": 357,
+          "isDefault": false
+        },
+        {
+          "name": "getDateTimeInstance",
+          "line": 368,
+          "isDefault": false
+        },
+        {
+          "name": "getDateTimeInstance",
+          "line": 383,
+          "isDefault": false
+        },
+        {
+          "name": "getInstance",
+          "line": 396,
+          "isDefault": false
+        },
+        {
+          "name": "getNumberFormat",
+          "line": 408,
+          "isDefault": false
+        },
+        {
+          "name": "getTimeInstance",
+          "line": 419,
+          "isDefault": false
+        },
+        {
+          "name": "getTimeInstance",
+          "line": 432,
+          "isDefault": false
+        },
+        {
+          "name": "getTimeInstance",
+          "line": 447,
+          "isDefault": false
+        },
+        {
+          "name": "getTimeZone",
+          "line": 458,
+          "isDefault": false
+        },
+        {
+          "name": "hashCode",
+          "line": 468,
+          "isDefault": false
+        },
+        {
+          "name": "isLenient",
+          "line": 483,
+          "isDefault": false
+        },
+        {
+          "name": "parse",
+          "line": 495,
+          "isDefault": false
+        },
+        {
+          "name": "parse",
+          "line": 522,
+          "isDefault": false
+        },
+        {
+          "name": "parseObject",
+          "line": 536,
+          "isDefault": false
+        },
+        {
+          "name": "setCalendar",
+          "line": 549,
+          "isDefault": false
+        },
+        {
+          "name": "setLenient",
+          "line": 561,
+          "isDefault": false
+        },
+        {
+          "name": "setNumberFormat",
+          "line": 572,
+          "isDefault": false
+        },
+        {
+          "name": "setTimeZone",
+          "line": 582,
+          "isDefault": false
+        },
+        {
+          "name": "DateFormat",
+          "line": 52,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "equals",
+          "callee": "calendar.equals",
+          "lineNumber": 117
+        },
+        {
+          "caller": "equals",
+          "callee": "numberFormat.equals",
+          "lineNumber": 117
+        },
+        {
+          "caller": "clone",
+          "callee": "super.clone",
+          "lineNumber": 128
+        },
+        {
+          "caller": "format",
+          "callee": "new Date",
+          "lineNumber": 151
+        },
+        {
+          "caller": "format",
+          "callee": "((Number) obj).longValue",
+          "lineNumber": 151
+        },
+        {
+          "caller": "format",
+          "callee": "format",
+          "lineNumber": 152
+        },
+        {
+          "caller": "format",
+          "callee": "new StringBuffer",
+          "lineNumber": 162
+        },
+        {
+          "caller": "format",
+          "callee": "format",
+          "lineNumber": 163
+        },
+        {
+          "caller": "format",
+          "callee": "new FieldPosition",
+          "lineNumber": 163
+        },
+        {
+          "caller": "format",
+          "callee": "sb.toString",
+          "lineNumber": 164
+        },
+        {
+          "caller": "computeInstance",
+          "callee": "computeInstance",
+          "lineNumber": 212
+        },
+        {
+          "caller": "computeInstance",
+          "callee": "ResourceBundle.getBundle",
+          "lineNumber": 224
+        },
+        {
+          "caller": "computeInstance",
+          "callee": "new IllegalArgumentException",
+          "lineNumber": 255
+        },
+        {
+          "caller": "computeInstance",
+          "callee": "res.getString",
+          "lineNumber": 259
+        },
+        {
+          "caller": "computeInstance",
+          "callee": "new IllegalArgumentException",
+          "lineNumber": 294
+        },
+        {
+          "caller": "computeInstance",
+          "callee": "res.getString",
+          "lineNumber": 300
+        },
+        {
+          "caller": "computeInstance",
+          "callee": "new SimpleDateFormat",
+          "lineNumber": 309
+        },
+        {
+          "caller": "getDateInstance",
+          "callee": "getDateInstance",
+          "lineNumber": 320
+        },
+        {
+          "caller": "getDateInstance",
+          "callee": "Locale.getDefault",
+          "lineNumber": 320
+        },
+        {
+          "caller": "getDateInstance",
+          "callee": "getDateInstance",
+          "lineNumber": 333
+        },
+        {
+          "caller": "getDateInstance",
+          "callee": "Locale.getDefault",
+          "lineNumber": 333
+        },
+        {
+          "caller": "getDateInstance",
+          "callee": "computeInstance",
+          "lineNumber": 348
+        },
+        {
+          "caller": "getDateTimeInstance",
+          "callee": "getDateTimeInstance",
+          "lineNumber": 359
+        },
+        {
+          "caller": "getDateTimeInstance",
+          "callee": "Locale.getDefault",
+          "lineNumber": 359
+        },
+        {
+          "caller": "getDateTimeInstance",
+          "callee": "getDateTimeInstance",
+          "lineNumber": 371
+        },
+        {
+          "caller": "getDateTimeInstance",
+          "callee": "Locale.getDefault",
+          "lineNumber": 371
+        },
+        {
+          "caller": "getDateTimeInstance",
+          "callee": "computeInstance",
+          "lineNumber": 387
+        },
+        {
+          "caller": "getInstance",
+          "callee": "getDateTimeInstance",
+          "lineNumber": 399
+        },
+        {
+          "caller": "getInstance",
+          "callee": "Locale.getDefault",
+          "lineNumber": 399
+        },
+        {
+          "caller": "getTimeInstance",
+          "callee": "getTimeInstance",
+          "lineNumber": 421
+        },
+        {
+          "caller": "getTimeInstance",
+          "callee": "Locale.getDefault",
+          "lineNumber": 421
+        },
+        {
+          "caller": "getTimeInstance",
+          "callee": "getTimeInstance",
+          "lineNumber": 434
+        },
+        {
+          "caller": "getTimeInstance",
+          "callee": "Locale.getDefault",
+          "lineNumber": 434
+        },
+        {
+          "caller": "getTimeInstance",
+          "callee": "computeInstance",
+          "lineNumber": 449
+        },
+        {
+          "caller": "getTimeZone",
+          "callee": "calendar.getTimeZone",
+          "lineNumber": 460
+        },
+        {
+          "caller": "hashCode",
+          "callee": "calendar.hashCode",
+          "lineNumber": 470
+        },
+        {
+          "caller": "hashCode",
+          "callee": "numberFormat.hashCode",
+          "lineNumber": 472
+        },
+        {
+          "caller": "isLenient",
+          "callee": "calendar.isLenient",
+          "lineNumber": 485
+        },
+        {
+          "caller": "parse",
+          "callee": "new ParsePosition",
+          "lineNumber": 497
+        },
+        {
+          "caller": "parse",
+          "callee": "parse",
+          "lineNumber": 498
+        },
+        {
+          "caller": "parse",
+          "callee": "pos.getErrorIndex",
+          "lineNumber": 501
+        },
+        {
+          "caller": "parse",
+          "callee": "pos.getIndex",
+          "lineNumber": 503
+        },
+        {
+          "caller": "parse",
+          "callee": "new ParseException",
+          "lineNumber": 504
+        },
+        {
+          "caller": "parseObject",
+          "callee": "parse",
+          "lineNumber": 538
+        },
+        {
+          "caller": "setLenient",
+          "callee": "calendar.setLenient",
+          "lineNumber": 563
+        },
+        {
+          "caller": "setTimeZone",
+          "callee": "calendar.setTimeZone",
+          "lineNumber": 584
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 52,
+        "functionCount": 31,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/text/package.bluej",
+      "language": "bluej",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 0,
+      "metrics": {}
+    },
+    {
+      "path": "src/java/util/AbstractCollection.j",
+      "language": "j",
+      "fileCategory": "code",
+      "totalLines": 347,
+      "nonEmptyLines": 325,
+      "metrics": {}
+    },
+    {
+      "path": "src/java/util/AbstractCollection.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 211,
+      "nonEmptyLines": 204,
+      "functions": [
+        {
+          "name": "equals",
+          "startLine": 4,
+          "endLine": 4,
+          "params": [
+            "a",
+            "b"
+          ]
+        },
+        {
+          "name": "add",
+          "startLine": 5,
+          "endLine": 8,
+          "params": [
+            "e"
+          ]
+        },
+        {
+          "name": "size",
+          "startLine": 9,
+          "endLine": 10,
+          "params": []
+        },
+        {
+          "name": "clear",
+          "startLine": 11,
+          "endLine": 18,
+          "params": []
+        },
+        {
+          "name": "isEmpty",
+          "startLine": 19,
+          "endLine": 22,
+          "params": []
+        },
+        {
+          "name": "addAll",
+          "startLine": 23,
+          "endLine": 30,
+          "params": [
+            "c"
+          ]
+        },
+        {
+          "name": "contains",
+          "startLine": 31,
+          "endLine": 44,
+          "params": [
+            "o"
+          ]
+        },
+        {
+          "name": "containsAll",
+          "startLine": 45,
+          "endLine": 51,
+          "params": [
+            "c"
+          ]
+        },
+        {
+          "name": "iterator",
+          "startLine": 52,
+          "endLine": 53,
+          "params": []
+        },
+        {
+          "name": "remove",
+          "startLine": 54,
+          "endLine": 72,
+          "params": [
+            "o"
+          ]
+        },
+        {
+          "name": "removeAll",
+          "startLine": 73,
+          "endLine": 84,
+          "params": [
+            "c"
+          ]
+        },
+        {
+          "name": "retainAll",
+          "startLine": 85,
+          "endLine": 96,
+          "params": [
+            "c"
+          ]
+        },
+        {
+          "name": "toArray",
+          "startLine": 98,
+          "endLine": 109,
+          "params": []
+        },
+        {
+          "name": "toArray",
+          "startLine": 138,
+          "endLine": 165,
+          "params": [
+            "a"
+          ]
+        },
+        {
+          "name": "finishToArray",
+          "startLine": 185,
+          "endLine": 201,
+          "params": [
+            "r",
+            "it"
+          ]
+        },
+        {
+          "name": "hugeCapacity",
+          "startLine": 203,
+          "endLine": 210,
+          "params": [
+            "minCapacity"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "AbstractCollection",
+          "startLine": 3,
+          "endLine": 211,
+          "methods": [
+            "equals",
+            "add",
+            "size",
+            "clear",
+            "isEmpty",
+            "addAll",
+            "contains",
+            "containsAll",
+            "iterator",
+            "remove",
+            "removeAll",
+            "retainAll",
+            "toArray",
+            "toArray",
+            "finishToArray",
+            "hugeCapacity"
+          ],
+          "properties": [
+            "MAX_ARRAY_SIZE"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "equals",
+          "line": 4,
+          "isDefault": false
+        },
+        {
+          "name": "add",
+          "line": 5,
+          "isDefault": false
+        },
+        {
+          "name": "size",
+          "line": 9,
+          "isDefault": false
+        },
+        {
+          "name": "clear",
+          "line": 11,
+          "isDefault": false
+        },
+        {
+          "name": "isEmpty",
+          "line": 19,
+          "isDefault": false
+        },
+        {
+          "name": "addAll",
+          "line": 23,
+          "isDefault": false
+        },
+        {
+          "name": "contains",
+          "line": 31,
+          "isDefault": false
+        },
+        {
+          "name": "containsAll",
+          "line": 45,
+          "isDefault": false
+        },
+        {
+          "name": "iterator",
+          "line": 52,
+          "isDefault": false
+        },
+        {
+          "name": "remove",
+          "line": 54,
+          "isDefault": false
+        },
+        {
+          "name": "removeAll",
+          "line": 73,
+          "isDefault": false
+        },
+        {
+          "name": "retainAll",
+          "line": 85,
+          "isDefault": false
+        },
+        {
+          "name": "toArray",
+          "line": 98,
+          "isDefault": false
+        },
+        {
+          "name": "toArray",
+          "line": 138,
+          "isDefault": false
+        },
+        {
+          "name": "AbstractCollection",
+          "line": 3,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "equals",
+          "callee": "new Error",
+          "lineNumber": 4
+        },
+        {
+          "caller": "add",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 7
+        },
+        {
+          "caller": "clear",
+          "callee": "iterator",
+          "lineNumber": 13
+        },
+        {
+          "caller": "clear",
+          "callee": "it.hasNext",
+          "lineNumber": 14
+        },
+        {
+          "caller": "clear",
+          "callee": "it.next",
+          "lineNumber": 15
+        },
+        {
+          "caller": "clear",
+          "callee": "it.remove",
+          "lineNumber": 16
+        },
+        {
+          "caller": "isEmpty",
+          "callee": "size",
+          "lineNumber": 21
+        },
+        {
+          "caller": "addAll",
+          "callee": "add",
+          "lineNumber": 27
+        },
+        {
+          "caller": "contains",
+          "callee": "iterator",
+          "lineNumber": 33
+        },
+        {
+          "caller": "contains",
+          "callee": "it.hasNext",
+          "lineNumber": 35
+        },
+        {
+          "caller": "contains",
+          "callee": "it.next",
+          "lineNumber": 36
+        },
+        {
+          "caller": "contains",
+          "callee": "it.hasNext",
+          "lineNumber": 39
+        },
+        {
+          "caller": "contains",
+          "callee": "o.equals",
+          "lineNumber": 40
+        },
+        {
+          "caller": "contains",
+          "callee": "it.next",
+          "lineNumber": 40
+        },
+        {
+          "caller": "containsAll",
+          "callee": "contains",
+          "lineNumber": 48
+        },
+        {
+          "caller": "remove",
+          "callee": "iterator",
+          "lineNumber": 55
+        },
+        {
+          "caller": "remove",
+          "callee": "it.hasNext",
+          "lineNumber": 57
+        },
+        {
+          "caller": "remove",
+          "callee": "it.next",
+          "lineNumber": 58
+        },
+        {
+          "caller": "remove",
+          "callee": "it.remove",
+          "lineNumber": 59
+        },
+        {
+          "caller": "remove",
+          "callee": "it.hasNext",
+          "lineNumber": 64
+        },
+        {
+          "caller": "remove",
+          "callee": "o.equals",
+          "lineNumber": 65
+        },
+        {
+          "caller": "remove",
+          "callee": "it.next",
+          "lineNumber": 65
+        },
+        {
+          "caller": "remove",
+          "callee": "it.remove",
+          "lineNumber": 66
+        },
+        {
+          "caller": "removeAll",
+          "callee": "Objects.requireNonNull",
+          "lineNumber": 74
+        },
+        {
+          "caller": "removeAll",
+          "callee": "iterator",
+          "lineNumber": 76
+        },
+        {
+          "caller": "removeAll",
+          "callee": "it.hasNext",
+          "lineNumber": 77
+        },
+        {
+          "caller": "removeAll",
+          "callee": "c.contains",
+          "lineNumber": 78
+        },
+        {
+          "caller": "removeAll",
+          "callee": "it.next",
+          "lineNumber": 78
+        },
+        {
+          "caller": "removeAll",
+          "callee": "it.remove",
+          "lineNumber": 79
+        },
+        {
+          "caller": "retainAll",
+          "callee": "Objects.requireNonNull",
+          "lineNumber": 86
+        },
+        {
+          "caller": "retainAll",
+          "callee": "iterator",
+          "lineNumber": 88
+        },
+        {
+          "caller": "retainAll",
+          "callee": "it.hasNext",
+          "lineNumber": 89
+        },
+        {
+          "caller": "retainAll",
+          "callee": "c.contains",
+          "lineNumber": 90
+        },
+        {
+          "caller": "retainAll",
+          "callee": "it.next",
+          "lineNumber": 90
+        },
+        {
+          "caller": "retainAll",
+          "callee": "it.remove",
+          "lineNumber": 91
+        },
+        {
+          "caller": "toArray",
+          "callee": "size",
+          "lineNumber": 101
+        },
+        {
+          "caller": "toArray",
+          "callee": "iterator",
+          "lineNumber": 102
+        },
+        {
+          "caller": "toArray",
+          "callee": "it.hasNext",
+          "lineNumber": 104
+        },
+        {
+          "caller": "toArray",
+          "callee": "Arrays.copyOf",
+          "lineNumber": 105
+        },
+        {
+          "caller": "toArray",
+          "callee": "it.next",
+          "lineNumber": 106
+        },
+        {
+          "caller": "toArray",
+          "callee": "it.hasNext",
+          "lineNumber": 108
+        },
+        {
+          "caller": "toArray",
+          "callee": "finishToArray",
+          "lineNumber": 108
+        },
+        {
+          "caller": "toArray",
+          "callee": "size",
+          "lineNumber": 141
+        },
+        {
+          "caller": "toArray",
+          "callee": "java.lang.reflect.Array.newInstance",
+          "lineNumber": 143
+        },
+        {
+          "caller": "toArray",
+          "callee": "a.getClass().getComponentType",
+          "lineNumber": 144
+        },
+        {
+          "caller": "toArray",
+          "callee": "a.getClass",
+          "lineNumber": 144
+        },
+        {
+          "caller": "toArray",
+          "callee": "iterator",
+          "lineNumber": 145
+        },
+        {
+          "caller": "toArray",
+          "callee": "it.hasNext",
+          "lineNumber": 148
+        },
+        {
+          "caller": "toArray",
+          "callee": "Arrays.copyOf",
+          "lineNumber": 152
+        },
+        {
+          "caller": "toArray",
+          "callee": "System.arraycopy",
+          "lineNumber": 154
+        },
+        {
+          "caller": "toArray",
+          "callee": "it.next",
+          "lineNumber": 161
+        },
+        {
+          "caller": "toArray",
+          "callee": "it.hasNext",
+          "lineNumber": 164
+        },
+        {
+          "caller": "toArray",
+          "callee": "finishToArray",
+          "lineNumber": 164
+        },
+        {
+          "caller": "finishToArray",
+          "callee": "it.hasNext",
+          "lineNumber": 188
+        },
+        {
+          "caller": "finishToArray",
+          "callee": "hugeCapacity",
+          "lineNumber": 194
+        },
+        {
+          "caller": "finishToArray",
+          "callee": "Arrays.copyOf",
+          "lineNumber": 195
+        },
+        {
+          "caller": "finishToArray",
+          "callee": "it.next",
+          "lineNumber": 197
+        },
+        {
+          "caller": "finishToArray",
+          "callee": "Arrays.copyOf",
+          "lineNumber": 200
+        },
+        {
+          "caller": "hugeCapacity",
+          "callee": "new OutOfMemoryError",
+          "lineNumber": 205
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 15,
+        "functionCount": 16,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/util/AbstractList.j",
+      "language": "j",
+      "fileCategory": "code",
+      "totalLines": 538,
+      "nonEmptyLines": 470,
+      "metrics": {}
+    },
+    {
+      "path": "src/java/util/AbstractList.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 99,
+      "nonEmptyLines": 83,
+      "functions": [
+        {
+          "name": "sort",
+          "startLine": 8,
+          "endLine": 17,
+          "params": [
+            "c"
+          ]
+        },
+        {
+          "name": "add",
+          "startLine": 19,
+          "endLine": 23,
+          "params": [
+            "e"
+          ]
+        },
+        {
+          "name": "add",
+          "startLine": 25,
+          "endLine": 28,
+          "params": [
+            "index",
+            "element"
+          ]
+        },
+        {
+          "name": "iterator",
+          "startLine": 30,
+          "endLine": 33,
+          "params": []
+        },
+        {
+          "name": "remove",
+          "startLine": 35,
+          "endLine": 38,
+          "params": [
+            "index"
+          ]
+        },
+        {
+          "name": "get",
+          "startLine": 40,
+          "endLine": 41,
+          "params": [
+            "index"
+          ]
+        },
+        {
+          "name": "listIterator",
+          "startLine": 43,
+          "endLine": 46,
+          "params": []
+        },
+        {
+          "name": "listIterator",
+          "startLine": 48,
+          "endLine": 54,
+          "params": [
+            "index"
+          ]
+        },
+        {
+          "name": "indexOf",
+          "startLine": 56,
+          "endLine": 69,
+          "params": [
+            "o"
+          ]
+        },
+        {
+          "name": "lastIndexOf",
+          "startLine": 71,
+          "endLine": 84,
+          "params": [
+            "o"
+          ]
+        },
+        {
+          "name": "set",
+          "startLine": 86,
+          "endLine": 89,
+          "params": [
+            "index",
+            "element"
+          ]
+        },
+        {
+          "name": "subList",
+          "startLine": 91,
+          "endLine": 97,
+          "params": [
+            "fromIndex",
+            "toIndex"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "AbstractList",
+          "startLine": 3,
+          "endLine": 99,
+          "methods": [
+            "sort",
+            "add",
+            "add",
+            "iterator",
+            "remove",
+            "get",
+            "listIterator",
+            "listIterator",
+            "indexOf",
+            "lastIndexOf",
+            "set",
+            "subList"
+          ],
+          "properties": [
+            "modCount"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "sort",
+          "line": 8,
+          "isDefault": false
+        },
+        {
+          "name": "add",
+          "line": 19,
+          "isDefault": false
+        },
+        {
+          "name": "add",
+          "line": 25,
+          "isDefault": false
+        },
+        {
+          "name": "iterator",
+          "line": 30,
+          "isDefault": false
+        },
+        {
+          "name": "remove",
+          "line": 35,
+          "isDefault": false
+        },
+        {
+          "name": "get",
+          "line": 40,
+          "isDefault": false
+        },
+        {
+          "name": "listIterator",
+          "line": 43,
+          "isDefault": false
+        },
+        {
+          "name": "listIterator",
+          "line": 48,
+          "isDefault": false
+        },
+        {
+          "name": "indexOf",
+          "line": 56,
+          "isDefault": false
+        },
+        {
+          "name": "lastIndexOf",
+          "line": 71,
+          "isDefault": false
+        },
+        {
+          "name": "set",
+          "line": 86,
+          "isDefault": false
+        },
+        {
+          "name": "subList",
+          "line": 91,
+          "isDefault": false
+        },
+        {
+          "name": "AbstractList",
+          "line": 3,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "sort",
+          "callee": "this.toArray",
+          "lineNumber": 10
+        },
+        {
+          "caller": "sort",
+          "callee": "Arrays.sort",
+          "lineNumber": 11
+        },
+        {
+          "caller": "sort",
+          "callee": "this.listIterator",
+          "lineNumber": 12
+        },
+        {
+          "caller": "sort",
+          "callee": "i.next",
+          "lineNumber": 14
+        },
+        {
+          "caller": "sort",
+          "callee": "i.set",
+          "lineNumber": 15
+        },
+        {
+          "caller": "add",
+          "callee": "add",
+          "lineNumber": 21
+        },
+        {
+          "caller": "add",
+          "callee": "size",
+          "lineNumber": 21
+        },
+        {
+          "caller": "add",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 27
+        },
+        {
+          "caller": "iterator",
+          "callee": "new Error",
+          "lineNumber": 32
+        },
+        {
+          "caller": "remove",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 37
+        },
+        {
+          "caller": "listIterator",
+          "callee": "listIterator",
+          "lineNumber": 45
+        },
+        {
+          "caller": "listIterator",
+          "callee": "new Error",
+          "lineNumber": 53
+        },
+        {
+          "caller": "indexOf",
+          "callee": "listIterator",
+          "lineNumber": 58
+        },
+        {
+          "caller": "indexOf",
+          "callee": "it.hasNext",
+          "lineNumber": 60
+        },
+        {
+          "caller": "indexOf",
+          "callee": "it.next",
+          "lineNumber": 61
+        },
+        {
+          "caller": "indexOf",
+          "callee": "it.previousIndex",
+          "lineNumber": 62
+        },
+        {
+          "caller": "indexOf",
+          "callee": "it.hasNext",
+          "lineNumber": 64
+        },
+        {
+          "caller": "indexOf",
+          "callee": "o.equals",
+          "lineNumber": 65
+        },
+        {
+          "caller": "indexOf",
+          "callee": "it.next",
+          "lineNumber": 65
+        },
+        {
+          "caller": "indexOf",
+          "callee": "it.previousIndex",
+          "lineNumber": 66
+        },
+        {
+          "caller": "lastIndexOf",
+          "callee": "listIterator",
+          "lineNumber": 73
+        },
+        {
+          "caller": "lastIndexOf",
+          "callee": "size",
+          "lineNumber": 73
+        },
+        {
+          "caller": "lastIndexOf",
+          "callee": "it.hasPrevious",
+          "lineNumber": 75
+        },
+        {
+          "caller": "lastIndexOf",
+          "callee": "it.previous",
+          "lineNumber": 76
+        },
+        {
+          "caller": "lastIndexOf",
+          "callee": "it.nextIndex",
+          "lineNumber": 77
+        },
+        {
+          "caller": "lastIndexOf",
+          "callee": "it.hasPrevious",
+          "lineNumber": 79
+        },
+        {
+          "caller": "lastIndexOf",
+          "callee": "o.equals",
+          "lineNumber": 80
+        },
+        {
+          "caller": "lastIndexOf",
+          "callee": "it.previous",
+          "lineNumber": 80
+        },
+        {
+          "caller": "lastIndexOf",
+          "callee": "it.nextIndex",
+          "lineNumber": 81
+        },
+        {
+          "caller": "set",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 88
+        },
+        {
+          "caller": "subList",
+          "callee": "new Error",
+          "lineNumber": 96
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 13,
+        "functionCount": 12,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/util/AbstractMap.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 412,
+      "nonEmptyLines": 359,
+      "functions": [
+        {
+          "name": "clear",
+          "startLine": 45,
+          "endLine": 48,
+          "params": []
+        },
+        {
+          "name": "containsKey",
+          "startLine": 50,
+          "endLine": 63,
+          "params": [
+            "key"
+          ]
+        },
+        {
+          "name": "containsValue",
+          "startLine": 65,
+          "endLine": 78,
+          "params": [
+            "value"
+          ]
+        },
+        {
+          "name": "entrySet",
+          "startLine": 80,
+          "endLine": 80,
+          "params": []
+        },
+        {
+          "name": "equals",
+          "startLine": 82,
+          "endLine": 103,
+          "params": [
+            "o"
+          ]
+        },
+        {
+          "name": "get",
+          "startLine": 105,
+          "endLine": 120,
+          "params": [
+            "key"
+          ]
+        },
+        {
+          "name": "hashCode",
+          "startLine": 122,
+          "endLine": 132,
+          "params": []
+        },
+        {
+          "name": "isEmpty",
+          "startLine": 134,
+          "endLine": 137,
+          "params": []
+        },
+        {
+          "name": "keySet",
+          "startLine": 139,
+          "endLine": 181,
+          "params": []
+        },
+        {
+          "name": "put",
+          "startLine": 183,
+          "endLine": 186,
+          "params": [
+            "key",
+            "value"
+          ]
+        },
+        {
+          "name": "putAll",
+          "startLine": 188,
+          "endLine": 199,
+          "params": [
+            "m"
+          ]
+        },
+        {
+          "name": "remove",
+          "startLine": 201,
+          "endLine": 219,
+          "params": [
+            "key"
+          ]
+        },
+        {
+          "name": "size",
+          "startLine": 221,
+          "endLine": 224,
+          "params": []
+        },
+        {
+          "name": "toString",
+          "startLine": 226,
+          "endLine": 239,
+          "params": []
+        },
+        {
+          "name": "values",
+          "startLine": 241,
+          "endLine": 278,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "AbstractMap",
+          "startLine": 34,
+          "endLine": 412,
+          "methods": [
+            "clear",
+            "containsKey",
+            "containsValue",
+            "entrySet",
+            "equals",
+            "get",
+            "hashCode",
+            "isEmpty",
+            "keySet",
+            "put",
+            "putAll",
+            "remove",
+            "size",
+            "toString",
+            "values"
+          ],
+          "properties": [
+            "values",
+            "keySet"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "clear",
+          "line": 45,
+          "isDefault": false
+        },
+        {
+          "name": "containsKey",
+          "line": 50,
+          "isDefault": false
+        },
+        {
+          "name": "containsValue",
+          "line": 65,
+          "isDefault": false
+        },
+        {
+          "name": "entrySet",
+          "line": 80,
+          "isDefault": false
+        },
+        {
+          "name": "equals",
+          "line": 82,
+          "isDefault": false
+        },
+        {
+          "name": "get",
+          "line": 105,
+          "isDefault": false
+        },
+        {
+          "name": "hashCode",
+          "line": 122,
+          "isDefault": false
+        },
+        {
+          "name": "isEmpty",
+          "line": 134,
+          "isDefault": false
+        },
+        {
+          "name": "keySet",
+          "line": 139,
+          "isDefault": false
+        },
+        {
+          "name": "put",
+          "line": 183,
+          "isDefault": false
+        },
+        {
+          "name": "putAll",
+          "line": 188,
+          "isDefault": false
+        },
+        {
+          "name": "remove",
+          "line": 201,
+          "isDefault": false
+        },
+        {
+          "name": "size",
+          "line": 221,
+          "isDefault": false
+        },
+        {
+          "name": "toString",
+          "line": 226,
+          "isDefault": false
+        },
+        {
+          "name": "values",
+          "line": 241,
+          "isDefault": false
+        },
+        {
+          "name": "AbstractMap",
+          "line": 34,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "clear",
+          "callee": "entrySet().clear",
+          "lineNumber": 47
+        },
+        {
+          "caller": "clear",
+          "callee": "entrySet",
+          "lineNumber": 47
+        },
+        {
+          "caller": "containsKey",
+          "callee": "entrySet",
+          "lineNumber": 53
+        },
+        {
+          "caller": "containsKey",
+          "callee": "es.iterator",
+          "lineNumber": 54
+        },
+        {
+          "caller": "containsKey",
+          "callee": "size",
+          "lineNumber": 55
+        },
+        {
+          "caller": "containsKey",
+          "callee": "((Map.Entry) entries.next()).getKey",
+          "lineNumber": 58
+        },
+        {
+          "caller": "containsKey",
+          "callee": "entries.next",
+          "lineNumber": 58
+        },
+        {
+          "caller": "containsKey",
+          "callee": "key.equals",
+          "lineNumber": 59
+        },
+        {
+          "caller": "containsValue",
+          "callee": "entrySet",
+          "lineNumber": 68
+        },
+        {
+          "caller": "containsValue",
+          "callee": "es.iterator",
+          "lineNumber": 69
+        },
+        {
+          "caller": "containsValue",
+          "callee": "size",
+          "lineNumber": 70
+        },
+        {
+          "caller": "containsValue",
+          "callee": "((Map.Entry) entries.next()).getValue",
+          "lineNumber": 73
+        },
+        {
+          "caller": "containsValue",
+          "callee": "entries.next",
+          "lineNumber": 73
+        },
+        {
+          "caller": "containsValue",
+          "callee": "value.equals",
+          "lineNumber": 74
+        },
+        {
+          "caller": "equals",
+          "callee": "m.entrySet",
+          "lineNumber": 90
+        },
+        {
+          "caller": "equals",
+          "callee": "entrySet().iterator",
+          "lineNumber": 91
+        },
+        {
+          "caller": "equals",
+          "callee": "entrySet",
+          "lineNumber": 91
+        },
+        {
+          "caller": "equals",
+          "callee": "size",
+          "lineNumber": 92
+        },
+        {
+          "caller": "equals",
+          "callee": "m.size",
+          "lineNumber": 94
+        },
+        {
+          "caller": "equals",
+          "callee": "s.contains",
+          "lineNumber": 99
+        },
+        {
+          "caller": "equals",
+          "callee": "itr.next",
+          "lineNumber": 99
+        },
+        {
+          "caller": "get",
+          "callee": "entrySet",
+          "lineNumber": 107
+        },
+        {
+          "caller": "get",
+          "callee": "s.iterator",
+          "lineNumber": 108
+        },
+        {
+          "caller": "get",
+          "callee": "size",
+          "lineNumber": 109
+        },
+        {
+          "caller": "get",
+          "callee": "entries.next",
+          "lineNumber": 113
+        },
+        {
+          "caller": "get",
+          "callee": "entry.getKey",
+          "lineNumber": 114
+        },
+        {
+          "caller": "get",
+          "callee": "key.equals",
+          "lineNumber": 115
+        },
+        {
+          "caller": "get",
+          "callee": "entry.getValue",
+          "lineNumber": 116
+        },
+        {
+          "caller": "hashCode",
+          "callee": "entrySet().iterator",
+          "lineNumber": 125
+        },
+        {
+          "caller": "hashCode",
+          "callee": "entrySet",
+          "lineNumber": 125
+        },
+        {
+          "caller": "hashCode",
+          "callee": "size",
+          "lineNumber": 126
+        },
+        {
+          "caller": "hashCode",
+          "callee": "itr.next().hashCode",
+          "lineNumber": 129
+        },
+        {
+          "caller": "hashCode",
+          "callee": "itr.next",
+          "lineNumber": 129
+        },
+        {
+          "caller": "isEmpty",
+          "callee": "size",
+          "lineNumber": 136
+        },
+        {
+          "caller": "put",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 185
+        },
+        {
+          "caller": "putAll",
+          "callee": "m.entrySet().iterator",
+          "lineNumber": 191
+        },
+        {
+          "caller": "putAll",
+          "callee": "m.entrySet",
+          "lineNumber": 191
+        },
+        {
+          "caller": "putAll",
+          "callee": "m.size",
+          "lineNumber": 192
+        },
+        {
+          "caller": "putAll",
+          "callee": "entries.next",
+          "lineNumber": 196
+        },
+        {
+          "caller": "putAll",
+          "callee": "put",
+          "lineNumber": 197
+        },
+        {
+          "caller": "putAll",
+          "callee": "entry.getKey",
+          "lineNumber": 197
+        },
+        {
+          "caller": "putAll",
+          "callee": "entry.getValue",
+          "lineNumber": 197
+        },
+        {
+          "caller": "remove",
+          "callee": "entrySet().iterator",
+          "lineNumber": 203
+        },
+        {
+          "caller": "remove",
+          "callee": "entrySet",
+          "lineNumber": 203
+        },
+        {
+          "caller": "remove",
+          "callee": "size",
+          "lineNumber": 204
+        },
+        {
+          "caller": "remove",
+          "callee": "entries.next",
+          "lineNumber": 208
+        },
+        {
+          "caller": "remove",
+          "callee": "entry.getKey",
+          "lineNumber": 209
+        },
+        {
+          "caller": "remove",
+          "callee": "key.equals",
+          "lineNumber": 210
+        },
+        {
+          "caller": "remove",
+          "callee": "entry.getValue",
+          "lineNumber": 212
+        },
+        {
+          "caller": "remove",
+          "callee": "entries.remove",
+          "lineNumber": 213
+        },
+        {
+          "caller": "size",
+          "callee": "entrySet().size",
+          "lineNumber": 223
+        },
+        {
+          "caller": "size",
+          "callee": "entrySet",
+          "lineNumber": 223
+        },
+        {
+          "caller": "toString",
+          "callee": "entrySet().iterator",
+          "lineNumber": 228
+        },
+        {
+          "caller": "toString",
+          "callee": "entrySet",
+          "lineNumber": 228
+        },
+        {
+          "caller": "toString",
+          "callee": "size",
+          "lineNumber": 229
+        },
+        {
+          "caller": "toString",
+          "callee": "entries.next",
+          "lineNumber": 233
+        },
+        {
+          "caller": "SimpleImmutableEntry",
+          "callee": "entry.getKey",
+          "lineNumber": 318
+        },
+        {
+          "caller": "SimpleImmutableEntry",
+          "callee": "entry.getValue",
+          "lineNumber": 319
+        },
+        {
+          "caller": "setValue",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 351
+        },
+        {
+          "caller": "hashCode",
+          "callee": "key.hashCode",
+          "lineNumber": 396
+        },
+        {
+          "caller": "hashCode",
+          "callee": "value.hashCode",
+          "lineNumber": 397
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 16,
+        "functionCount": 15,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/util/AbstractQueue.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 198,
+      "nonEmptyLines": 187,
+      "functions": [
+        {
+          "name": "AbstractQueue",
+          "startLine": 71,
+          "endLine": 72,
+          "params": []
+        },
+        {
+          "name": "add",
+          "startLine": 94,
+          "endLine": 99,
+          "params": [
+            "e"
+          ]
+        },
+        {
+          "name": "offer",
+          "startLine": 101,
+          "endLine": 103,
+          "params": [
+            "o"
+          ]
+        },
+        {
+          "name": "poll",
+          "startLine": 104,
+          "endLine": 104,
+          "params": []
+        },
+        {
+          "name": "peek",
+          "startLine": 105,
+          "endLine": 105,
+          "params": []
+        },
+        {
+          "name": "remove",
+          "startLine": 118,
+          "endLine": 124,
+          "params": []
+        },
+        {
+          "name": "element",
+          "startLine": 137,
+          "endLine": 143,
+          "params": []
+        },
+        {
+          "name": "clear",
+          "startLine": 152,
+          "endLine": 155,
+          "params": []
+        },
+        {
+          "name": "addAll",
+          "startLine": 186,
+          "endLine": 196,
+          "params": [
+            "c"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "AbstractQueue",
+          "startLine": 64,
+          "endLine": 198,
+          "methods": [
+            "AbstractQueue",
+            "add",
+            "offer",
+            "poll",
+            "peek",
+            "remove",
+            "element",
+            "clear",
+            "addAll"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "add",
+          "line": 94,
+          "isDefault": false
+        },
+        {
+          "name": "offer",
+          "line": 101,
+          "isDefault": false
+        },
+        {
+          "name": "poll",
+          "line": 104,
+          "isDefault": false
+        },
+        {
+          "name": "peek",
+          "line": 105,
+          "isDefault": false
+        },
+        {
+          "name": "remove",
+          "line": 118,
+          "isDefault": false
+        },
+        {
+          "name": "element",
+          "line": 137,
+          "isDefault": false
+        },
+        {
+          "name": "clear",
+          "line": 152,
+          "isDefault": false
+        },
+        {
+          "name": "addAll",
+          "line": 186,
+          "isDefault": false
+        },
+        {
+          "name": "AbstractQueue",
+          "line": 64,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "add",
+          "callee": "offer",
+          "lineNumber": 95
+        },
+        {
+          "caller": "add",
+          "callee": "new IllegalStateException",
+          "lineNumber": 98
+        },
+        {
+          "caller": "remove",
+          "callee": "poll",
+          "lineNumber": 119
+        },
+        {
+          "caller": "remove",
+          "callee": "new NoSuchElementException",
+          "lineNumber": 123
+        },
+        {
+          "caller": "element",
+          "callee": "peek",
+          "lineNumber": 138
+        },
+        {
+          "caller": "element",
+          "callee": "new NoSuchElementException",
+          "lineNumber": 142
+        },
+        {
+          "caller": "clear",
+          "callee": "poll",
+          "lineNumber": 153
+        },
+        {
+          "caller": "addAll",
+          "callee": "new NullPointerException",
+          "lineNumber": 188
+        },
+        {
+          "caller": "addAll",
+          "callee": "new IllegalArgumentException",
+          "lineNumber": 190
+        },
+        {
+          "caller": "addAll",
+          "callee": "add",
+          "lineNumber": 193
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 9,
+        "functionCount": 9,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/util/AbstractSequentialList.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 132,
+      "nonEmptyLines": 115,
+      "functions": [
+        {
+          "name": "listIterator",
+          "startLine": 50,
+          "endLine": 50,
+          "params": [
+            "index"
+          ]
+        },
+        {
+          "name": "add",
+          "startLine": 63,
+          "endLine": 67,
+          "params": [
+            "index",
+            "o"
+          ]
+        },
+        {
+          "name": "addAll",
+          "startLine": 75,
+          "endLine": 84,
+          "params": [
+            "index",
+            "c"
+          ]
+        },
+        {
+          "name": "iterator",
+          "startLine": 102,
+          "endLine": 105,
+          "params": []
+        },
+        {
+          "name": "set",
+          "startLine": 118,
+          "endLine": 127,
+          "params": [
+            "index",
+            "o"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "AbstractSequentialList",
+          "startLine": 39,
+          "endLine": 132,
+          "methods": [
+            "listIterator",
+            "add",
+            "addAll",
+            "iterator",
+            "set"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "listIterator",
+          "line": 50,
+          "isDefault": false
+        },
+        {
+          "name": "add",
+          "line": 63,
+          "isDefault": false
+        },
+        {
+          "name": "addAll",
+          "line": 75,
+          "isDefault": false
+        },
+        {
+          "name": "iterator",
+          "line": 102,
+          "isDefault": false
+        },
+        {
+          "name": "set",
+          "line": 118,
+          "isDefault": false
+        },
+        {
+          "name": "AbstractSequentialList",
+          "line": 39,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "add",
+          "callee": "listIterator",
+          "lineNumber": 65
+        },
+        {
+          "caller": "add",
+          "callee": "i.add",
+          "lineNumber": 66
+        },
+        {
+          "caller": "addAll",
+          "callee": "listIterator",
+          "lineNumber": 80
+        },
+        {
+          "caller": "iterator",
+          "callee": "listIterator",
+          "lineNumber": 104
+        },
+        {
+          "caller": "set",
+          "callee": "listIterator",
+          "lineNumber": 120
+        },
+        {
+          "caller": "set",
+          "callee": "size",
+          "lineNumber": 121
+        },
+        {
+          "caller": "set",
+          "callee": "new IndexOutOfBoundsException",
+          "lineNumber": 122
+        },
+        {
+          "caller": "set",
+          "callee": "size",
+          "lineNumber": 123
+        },
+        {
+          "caller": "set",
+          "callee": "i.next",
+          "lineNumber": 124
+        },
+        {
+          "caller": "set",
+          "callee": "i.set",
+          "lineNumber": 125
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 6,
+        "functionCount": 5,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/util/AbstractSet.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 104,
+      "nonEmptyLines": 91,
+      "functions": [
+        {
+          "name": "equals",
+          "startLine": 52,
+          "endLine": 61,
+          "params": [
+            "o"
+          ]
+        },
+        {
+          "name": "hashCode",
+          "startLine": 71,
+          "endLine": 84,
+          "params": []
+        },
+        {
+          "name": "removeAll",
+          "startLine": 86,
+          "endLine": 102,
+          "params": [
+            "c"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "AbstractSet",
+          "startLine": 39,
+          "endLine": 104,
+          "methods": [
+            "equals",
+            "hashCode",
+            "removeAll"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "equals",
+          "line": 52,
+          "isDefault": false
+        },
+        {
+          "name": "hashCode",
+          "line": 71,
+          "isDefault": false
+        },
+        {
+          "name": "removeAll",
+          "line": 86,
+          "isDefault": false
+        },
+        {
+          "name": "AbstractSet",
+          "line": 39,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "equals",
+          "callee": "((Set) o).size",
+          "lineNumber": 57
+        },
+        {
+          "caller": "equals",
+          "callee": "size",
+          "lineNumber": 57
+        },
+        {
+          "caller": "equals",
+          "callee": "containsAll",
+          "lineNumber": 58
+        },
+        {
+          "caller": "hashCode",
+          "callee": "iterator",
+          "lineNumber": 74
+        },
+        {
+          "caller": "hashCode",
+          "callee": "size",
+          "lineNumber": 75
+        },
+        {
+          "caller": "hashCode",
+          "callee": "itr.next",
+          "lineNumber": 79
+        },
+        {
+          "caller": "hashCode",
+          "callee": "obj.hashCode",
+          "lineNumber": 81
+        },
+        {
+          "caller": "removeAll",
+          "callee": "Objects.requireNonNull",
+          "lineNumber": 87
+        },
+        {
+          "caller": "removeAll",
+          "callee": "size",
+          "lineNumber": 90
+        },
+        {
+          "caller": "removeAll",
+          "callee": "c.size",
+          "lineNumber": 90
+        },
+        {
+          "caller": "removeAll",
+          "callee": "c.iterator",
+          "lineNumber": 91
+        },
+        {
+          "caller": "removeAll",
+          "callee": "i.hasNext",
+          "lineNumber": 91
+        },
+        {
+          "caller": "removeAll",
+          "callee": "remove",
+          "lineNumber": 92
+        },
+        {
+          "caller": "removeAll",
+          "callee": "i.next",
+          "lineNumber": 92
+        },
+        {
+          "caller": "removeAll",
+          "callee": "iterator",
+          "lineNumber": 94
+        },
+        {
+          "caller": "removeAll",
+          "callee": "i.hasNext",
+          "lineNumber": 94
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 4,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    }
+  ]
+}

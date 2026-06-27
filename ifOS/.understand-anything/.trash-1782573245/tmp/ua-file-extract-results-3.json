@@ -1,0 +1,1413 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 11,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "src/java/lang/invoke/BoundMethodHandle.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 324,
+      "nonEmptyLines": 277,
+      "functions": [
+        {
+          "name": "BoundMethodHandle",
+          "startLine": 51,
+          "endLine": 54,
+          "params": [
+            "type",
+            "form"
+          ]
+        },
+        {
+          "name": "bindSingle",
+          "startLine": 60,
+          "endLine": 80,
+          "params": [
+            "type",
+            "form",
+            "xtype",
+            "x"
+          ]
+        },
+        {
+          "name": "editor",
+          "startLine": 83,
+          "endLine": 86,
+          "params": []
+        },
+        {
+          "name": "bindSingle",
+          "startLine": 88,
+          "endLine": 90,
+          "params": [
+            "type",
+            "form",
+            "x"
+          ]
+        },
+        {
+          "name": "bindArgumentL",
+          "startLine": 94,
+          "endLine": 96,
+          "params": [
+            "pos",
+            "value"
+          ]
+        },
+        {
+          "name": "bindArgumentI",
+          "startLine": 98,
+          "endLine": 100,
+          "params": [
+            "pos",
+            "value"
+          ]
+        },
+        {
+          "name": "bindArgumentJ",
+          "startLine": 102,
+          "endLine": 104,
+          "params": [
+            "pos",
+            "value"
+          ]
+        },
+        {
+          "name": "bindArgumentF",
+          "startLine": 106,
+          "endLine": 108,
+          "params": [
+            "pos",
+            "value"
+          ]
+        },
+        {
+          "name": "bindArgumentD",
+          "startLine": 110,
+          "endLine": 112,
+          "params": [
+            "pos",
+            "value"
+          ]
+        },
+        {
+          "name": "rebind",
+          "startLine": 114,
+          "endLine": 120,
+          "params": []
+        },
+        {
+          "name": "tooComplex",
+          "startLine": 122,
+          "endLine": 126,
+          "params": []
+        },
+        {
+          "name": "makeReinvoker",
+          "startLine": 134,
+          "endLine": 140,
+          "params": [
+            "target"
+          ]
+        },
+        {
+          "name": "speciesData",
+          "startLine": 146,
+          "endLine": 146,
+          "params": []
+        },
+        {
+          "name": "speciesData",
+          "startLine": 148,
+          "endLine": 154,
+          "params": [
+            "form"
+          ]
+        },
+        {
+          "name": "fieldCount",
+          "startLine": 159,
+          "endLine": 159,
+          "params": []
+        },
+        {
+          "name": "internalProperties",
+          "startLine": 161,
+          "endLine": 163,
+          "params": []
+        },
+        {
+          "name": "internalValues",
+          "startLine": 165,
+          "endLine": 171,
+          "params": []
+        },
+        {
+          "name": "arg",
+          "startLine": 173,
+          "endLine": 186,
+          "params": [
+            "i"
+          ]
+        },
+        {
+          "name": "copyWith",
+          "startLine": 192,
+          "endLine": 192,
+          "params": [
+            "mt",
+            "lf"
+          ]
+        },
+        {
+          "name": "copyWithExtendL",
+          "startLine": 193,
+          "endLine": 193,
+          "params": [
+            "mt",
+            "lf",
+            "narg"
+          ]
+        },
+        {
+          "name": "copyWithExtendI",
+          "startLine": 194,
+          "endLine": 194,
+          "params": [
+            "mt",
+            "lf",
+            "narg"
+          ]
+        },
+        {
+          "name": "copyWithExtendJ",
+          "startLine": 195,
+          "endLine": 195,
+          "params": [
+            "mt",
+            "lf",
+            "narg"
+          ]
+        },
+        {
+          "name": "copyWithExtendF",
+          "startLine": 196,
+          "endLine": 196,
+          "params": [
+            "mt",
+            "lf",
+            "narg"
+          ]
+        },
+        {
+          "name": "copyWithExtendD",
+          "startLine": 197,
+          "endLine": 197,
+          "params": [
+            "mt",
+            "lf",
+            "narg"
+          ]
+        },
+        {
+          "name": "checkCache",
+          "startLine": 312,
+          "endLine": 318,
+          "params": [
+            "size",
+            "types"
+          ]
+        },
+        {
+          "name": "speciesData_L",
+          "startLine": 319,
+          "endLine": 319,
+          "params": []
+        },
+        {
+          "name": "speciesData_LL",
+          "startLine": 320,
+          "endLine": 320,
+          "params": []
+        },
+        {
+          "name": "speciesData_LLL",
+          "startLine": 321,
+          "endLine": 321,
+          "params": []
+        },
+        {
+          "name": "speciesData_LLLL",
+          "startLine": 322,
+          "endLine": 322,
+          "params": []
+        },
+        {
+          "name": "speciesData_LLLLL",
+          "startLine": 323,
+          "endLine": 323,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "BoundMethodHandle",
+          "startLine": 49,
+          "endLine": 324,
+          "methods": [
+            "BoundMethodHandle",
+            "bindSingle",
+            "editor",
+            "bindSingle",
+            "bindArgumentL",
+            "bindArgumentI",
+            "bindArgumentJ",
+            "bindArgumentF",
+            "bindArgumentD",
+            "rebind",
+            "tooComplex",
+            "makeReinvoker",
+            "speciesData",
+            "speciesData",
+            "fieldCount",
+            "internalProperties",
+            "internalValues",
+            "arg",
+            "copyWith",
+            "copyWithExtendL",
+            "copyWithExtendI",
+            "copyWithExtendJ",
+            "copyWithExtendF",
+            "copyWithExtendD",
+            "checkCache",
+            "speciesData_L",
+            "speciesData_LL",
+            "speciesData_LLL",
+            "speciesData_LLLL",
+            "speciesData_LLLLL"
+          ],
+          "properties": [
+            "FIELD_COUNT_THRESHOLD",
+            "FORM_EXPRESSION_THRESHOLD",
+            "LOOKUP",
+            "SPECIES_DATA",
+            "SPECIES_DATA_CACHE"
+          ]
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "BoundMethodHandle",
+          "callee": "speciesData",
+          "lineNumber": 53
+        },
+        {
+          "caller": "BoundMethodHandle",
+          "callee": "speciesData",
+          "lineNumber": 53
+        },
+        {
+          "caller": "bindSingle",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 79
+        },
+        {
+          "caller": "editor",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 85
+        },
+        {
+          "caller": "bindSingle",
+          "callee": "Species_L.make",
+          "lineNumber": 89
+        },
+        {
+          "caller": "bindArgumentL",
+          "callee": "editor().bindArgumentL",
+          "lineNumber": 95
+        },
+        {
+          "caller": "bindArgumentL",
+          "callee": "editor",
+          "lineNumber": 95
+        },
+        {
+          "caller": "bindArgumentI",
+          "callee": "editor().bindArgumentI",
+          "lineNumber": 99
+        },
+        {
+          "caller": "bindArgumentI",
+          "callee": "editor",
+          "lineNumber": 99
+        },
+        {
+          "caller": "bindArgumentJ",
+          "callee": "editor().bindArgumentJ",
+          "lineNumber": 103
+        },
+        {
+          "caller": "bindArgumentJ",
+          "callee": "editor",
+          "lineNumber": 103
+        },
+        {
+          "caller": "bindArgumentF",
+          "callee": "editor().bindArgumentF",
+          "lineNumber": 107
+        },
+        {
+          "caller": "bindArgumentF",
+          "callee": "editor",
+          "lineNumber": 107
+        },
+        {
+          "caller": "bindArgumentD",
+          "callee": "editor().bindArgumentD",
+          "lineNumber": 111
+        },
+        {
+          "caller": "bindArgumentD",
+          "callee": "editor",
+          "lineNumber": 111
+        },
+        {
+          "caller": "rebind",
+          "callee": "tooComplex",
+          "lineNumber": 116
+        },
+        {
+          "caller": "rebind",
+          "callee": "makeReinvoker",
+          "lineNumber": 119
+        },
+        {
+          "caller": "tooComplex",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 125
+        },
+        {
+          "caller": "makeReinvoker",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 139
+        },
+        {
+          "caller": "internalProperties",
+          "callee": "internalValues",
+          "lineNumber": 162
+        },
+        {
+          "caller": "internalValues",
+          "callee": "speciesData().fieldCount",
+          "lineNumber": 166
+        },
+        {
+          "caller": "internalValues",
+          "callee": "speciesData",
+          "lineNumber": 166
+        },
+        {
+          "caller": "internalValues",
+          "callee": "arg",
+          "lineNumber": 168
+        },
+        {
+          "caller": "internalValues",
+          "callee": "Arrays.asList",
+          "lineNumber": 170
+        },
+        {
+          "caller": "arg",
+          "callee": "new InternalError",
+          "lineNumber": 185
+        },
+        {
+          "caller": "arg",
+          "callee": "speciesData",
+          "lineNumber": 185
+        },
+        {
+          "caller": "make",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 207
+        },
+        {
+          "caller": "speciesData",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 216
+        },
+        {
+          "caller": "fieldCount",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 221
+        },
+        {
+          "caller": "copyWith",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 226
+        },
+        {
+          "caller": "copyWithExtendL",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 231
+        },
+        {
+          "caller": "copyWithExtendI",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 236
+        },
+        {
+          "caller": "copyWithExtendJ",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 241
+        },
+        {
+          "caller": "copyWithExtendF",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 246
+        },
+        {
+          "caller": "copyWithExtendD",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 251
+        },
+        {
+          "caller": "SpeciesData",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 276
+        },
+        {
+          "caller": "getterFunction",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 280
+        },
+        {
+          "caller": "fieldCount",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 284
+        },
+        {
+          "caller": "speciesData_L",
+          "callee": "checkCache",
+          "lineNumber": 319
+        },
+        {
+          "caller": "speciesData_LL",
+          "callee": "checkCache",
+          "lineNumber": 320
+        },
+        {
+          "caller": "speciesData_LLL",
+          "callee": "checkCache",
+          "lineNumber": 321
+        },
+        {
+          "caller": "speciesData_LLLL",
+          "callee": "checkCache",
+          "lineNumber": 322
+        },
+        {
+          "caller": "speciesData_LLLLL",
+          "callee": "checkCache",
+          "lineNumber": 323
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 30,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/security/cert/X509CRLEntry.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 166,
+      "nonEmptyLines": 127,
+      "functions": [
+        {
+          "name": "X509CRLEntry",
+          "startLine": 69,
+          "endLine": 70,
+          "params": []
+        },
+        {
+          "name": "equals",
+          "startLine": 81,
+          "endLine": 102,
+          "params": [
+            "other"
+          ]
+        },
+        {
+          "name": "hashCode",
+          "startLine": 110,
+          "endLine": 113,
+          "params": []
+        },
+        {
+          "name": "getEncoded",
+          "startLine": 123,
+          "endLine": 123,
+          "params": []
+        },
+        {
+          "name": "getSerialNumber",
+          "startLine": 131,
+          "endLine": 131,
+          "params": []
+        },
+        {
+          "name": "getRevocationDate",
+          "startLine": 140,
+          "endLine": 140,
+          "params": []
+        },
+        {
+          "name": "hasExtensions",
+          "startLine": 148,
+          "endLine": 148,
+          "params": []
+        },
+        {
+          "name": "toString",
+          "startLine": 156,
+          "endLine": 157,
+          "params": []
+        },
+        {
+          "name": "hasUnsupportedCriticalExtension",
+          "startLine": 158,
+          "endLine": 159,
+          "params": []
+        },
+        {
+          "name": "getCriticalExtensionOIDs",
+          "startLine": 160,
+          "endLine": 161,
+          "params": []
+        },
+        {
+          "name": "getNonCriticalExtensionOIDs",
+          "startLine": 162,
+          "endLine": 163,
+          "params": []
+        },
+        {
+          "name": "getExtensionValue",
+          "startLine": 164,
+          "endLine": 165,
+          "params": [
+            "oid"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "X509CRLEntry",
+          "startLine": 63,
+          "endLine": 166,
+          "methods": [
+            "X509CRLEntry",
+            "equals",
+            "hashCode",
+            "getEncoded",
+            "getSerialNumber",
+            "getRevocationDate",
+            "hasExtensions",
+            "toString",
+            "hasUnsupportedCriticalExtension",
+            "getCriticalExtensionOIDs",
+            "getNonCriticalExtensionOIDs",
+            "getExtensionValue"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "X509CRLEntry",
+          "line": 69,
+          "isDefault": false
+        },
+        {
+          "name": "equals",
+          "line": 81,
+          "isDefault": false
+        },
+        {
+          "name": "hashCode",
+          "line": 110,
+          "isDefault": false
+        },
+        {
+          "name": "getEncoded",
+          "line": 123,
+          "isDefault": false
+        },
+        {
+          "name": "getSerialNumber",
+          "line": 131,
+          "isDefault": false
+        },
+        {
+          "name": "getRevocationDate",
+          "line": 140,
+          "isDefault": false
+        },
+        {
+          "name": "hasExtensions",
+          "line": 148,
+          "isDefault": false
+        },
+        {
+          "name": "toString",
+          "line": 156,
+          "isDefault": false
+        },
+        {
+          "name": "hasUnsupportedCriticalExtension",
+          "line": 158,
+          "isDefault": false
+        },
+        {
+          "name": "getCriticalExtensionOIDs",
+          "line": 160,
+          "isDefault": false
+        },
+        {
+          "name": "getNonCriticalExtensionOIDs",
+          "line": 162,
+          "isDefault": false
+        },
+        {
+          "name": "getExtensionValue",
+          "line": 164,
+          "isDefault": false
+        },
+        {
+          "name": "X509CRLEntry",
+          "line": 63,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "hashCode",
+          "callee": "super.hashCode",
+          "lineNumber": 112
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 13,
+        "functionCount": 12,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/security/cert/X509Certificate.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 448,
+      "nonEmptyLines": 320,
+      "functions": [
+        {
+          "name": "X509Certificate",
+          "startLine": 120,
+          "endLine": 123,
+          "params": []
+        },
+        {
+          "name": "checkValidity",
+          "startLine": 148,
+          "endLine": 150,
+          "params": []
+        },
+        {
+          "name": "checkValidity",
+          "startLine": 163,
+          "endLine": 165,
+          "params": [
+            "date"
+          ]
+        },
+        {
+          "name": "getVersion",
+          "startLine": 180,
+          "endLine": 180,
+          "params": []
+        },
+        {
+          "name": "getSerialNumber",
+          "startLine": 197,
+          "endLine": 197,
+          "params": []
+        },
+        {
+          "name": "getIssuerDN",
+          "startLine": 235,
+          "endLine": 235,
+          "params": []
+        },
+        {
+          "name": "getSubjectDN",
+          "startLine": 250,
+          "endLine": 250,
+          "params": []
+        },
+        {
+          "name": "getNotBefore",
+          "startLine": 272,
+          "endLine": 272,
+          "params": []
+        },
+        {
+          "name": "getNotAfter",
+          "startLine": 280,
+          "endLine": 280,
+          "params": []
+        },
+        {
+          "name": "getTBSCertificate",
+          "startLine": 290,
+          "endLine": 290,
+          "params": []
+        },
+        {
+          "name": "getSignature",
+          "startLine": 303,
+          "endLine": 303,
+          "params": []
+        },
+        {
+          "name": "getSigAlgName",
+          "startLine": 323,
+          "endLine": 323,
+          "params": []
+        },
+        {
+          "name": "getSigAlgOID",
+          "startLine": 340,
+          "endLine": 340,
+          "params": []
+        },
+        {
+          "name": "getSigAlgParams",
+          "startLine": 353,
+          "endLine": 353,
+          "params": []
+        },
+        {
+          "name": "getIssuerUniqueID",
+          "startLine": 370,
+          "endLine": 370,
+          "params": []
+        },
+        {
+          "name": "getSubjectUniqueID",
+          "startLine": 386,
+          "endLine": 386,
+          "params": []
+        },
+        {
+          "name": "getKeyUsage",
+          "startLine": 412,
+          "endLine": 412,
+          "params": []
+        },
+        {
+          "name": "getBasicConstraints",
+          "startLine": 438,
+          "endLine": 438,
+          "params": []
+        },
+        {
+          "name": "hasUnsupportedCriticalExtension",
+          "startLine": 440,
+          "endLine": 441,
+          "params": []
+        },
+        {
+          "name": "getCriticalExtensionOIDs",
+          "startLine": 442,
+          "endLine": 443,
+          "params": []
+        },
+        {
+          "name": "getNonCriticalExtensionOIDs",
+          "startLine": 444,
+          "endLine": 445,
+          "params": []
+        },
+        {
+          "name": "getExtensionValue",
+          "startLine": 446,
+          "endLine": 447,
+          "params": [
+            "oid"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "X509Certificate",
+          "startLine": 114,
+          "endLine": 448,
+          "methods": [
+            "X509Certificate",
+            "checkValidity",
+            "checkValidity",
+            "getVersion",
+            "getSerialNumber",
+            "getIssuerDN",
+            "getSubjectDN",
+            "getNotBefore",
+            "getNotAfter",
+            "getTBSCertificate",
+            "getSignature",
+            "getSigAlgName",
+            "getSigAlgOID",
+            "getSigAlgParams",
+            "getIssuerUniqueID",
+            "getSubjectUniqueID",
+            "getKeyUsage",
+            "getBasicConstraints",
+            "hasUnsupportedCriticalExtension",
+            "getCriticalExtensionOIDs",
+            "getNonCriticalExtensionOIDs",
+            "getExtensionValue"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "checkValidity",
+          "line": 148,
+          "isDefault": false
+        },
+        {
+          "name": "checkValidity",
+          "line": 163,
+          "isDefault": false
+        },
+        {
+          "name": "getVersion",
+          "line": 180,
+          "isDefault": false
+        },
+        {
+          "name": "getSerialNumber",
+          "line": 197,
+          "isDefault": false
+        },
+        {
+          "name": "getIssuerDN",
+          "line": 235,
+          "isDefault": false
+        },
+        {
+          "name": "getSubjectDN",
+          "line": 250,
+          "isDefault": false
+        },
+        {
+          "name": "getNotBefore",
+          "line": 272,
+          "isDefault": false
+        },
+        {
+          "name": "getNotAfter",
+          "line": 280,
+          "isDefault": false
+        },
+        {
+          "name": "getTBSCertificate",
+          "line": 290,
+          "isDefault": false
+        },
+        {
+          "name": "getSignature",
+          "line": 303,
+          "isDefault": false
+        },
+        {
+          "name": "getSigAlgName",
+          "line": 323,
+          "isDefault": false
+        },
+        {
+          "name": "getSigAlgOID",
+          "line": 340,
+          "isDefault": false
+        },
+        {
+          "name": "getSigAlgParams",
+          "line": 353,
+          "isDefault": false
+        },
+        {
+          "name": "getIssuerUniqueID",
+          "line": 370,
+          "isDefault": false
+        },
+        {
+          "name": "getSubjectUniqueID",
+          "line": 386,
+          "isDefault": false
+        },
+        {
+          "name": "getKeyUsage",
+          "line": 412,
+          "isDefault": false
+        },
+        {
+          "name": "getBasicConstraints",
+          "line": 438,
+          "isDefault": false
+        },
+        {
+          "name": "hasUnsupportedCriticalExtension",
+          "line": 440,
+          "isDefault": false
+        },
+        {
+          "name": "getCriticalExtensionOIDs",
+          "line": 442,
+          "isDefault": false
+        },
+        {
+          "name": "getNonCriticalExtensionOIDs",
+          "line": 444,
+          "isDefault": false
+        },
+        {
+          "name": "getExtensionValue",
+          "line": 446,
+          "isDefault": false
+        },
+        {
+          "name": "X509Certificate",
+          "line": 114,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 22,
+        "functionCount": 22,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/security/cert/X509Extension.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 102,
+      "nonEmptyLines": 79,
+      "classes": [
+        {
+          "name": "X509Extension",
+          "startLine": 64,
+          "endLine": 102,
+          "methods": [
+            "hasUnsupportedCriticalExtension",
+            "getCriticalExtensionOIDs",
+            "getNonCriticalExtensionOIDs",
+            "getExtensionValue"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "X509Extension",
+          "line": 64,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/sql/Array.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 226,
+      "nonEmptyLines": 196,
+      "classes": [
+        {
+          "name": "Array",
+          "startLine": 37,
+          "endLine": 225,
+          "methods": [
+            "getBaseTypeName",
+            "getBaseType",
+            "getArray",
+            "getArray",
+            "getArray",
+            "getArray",
+            "getResultSet",
+            "getResultSet",
+            "getResultSet",
+            "getResultSet"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "Array",
+          "line": 37,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/sql/Connection.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 451,
+      "nonEmptyLines": 387,
+      "classes": [
+        {
+          "name": "Connection",
+          "startLine": 37,
+          "endLine": 450,
+          "methods": [
+            "createStatement",
+            "createStatement",
+            "prepareStatement",
+            "prepareStatement",
+            "prepareCall",
+            "prepareCall",
+            "nativeSQL",
+            "getAutoCommit",
+            "setAutoCommit",
+            "commit",
+            "rollback",
+            "close",
+            "isClosed",
+            "getMetaData",
+            "isReadOnly",
+            "setReadOnly",
+            "getCatalog",
+            "setCatalog",
+            "getTransactionIsolation",
+            "setTransactionIsolation",
+            "getWarnings",
+            "clearWarnings",
+            "getTypeMap",
+            "setTypeMap"
+          ],
+          "properties": [
+            "TRANSACTION_NONE",
+            "TRANSACTION_READ_UNCOMMITTED",
+            "TRANSACTION_READ_COMMITTED",
+            "TRANSACTION_REPEATABLE_READ",
+            "TRANSACTION_SERIALIZABLE"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Connection",
+          "line": 37,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/sql/Struct.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 80,
+      "nonEmptyLines": 64,
+      "classes": [
+        {
+          "name": "Struct",
+          "startLine": 38,
+          "endLine": 79,
+          "methods": [
+            "getSQLTypeName",
+            "getAttributes",
+            "getAttributes"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "Struct",
+          "line": 38,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/text/AttributedCharacterIterator.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 332,
+      "nonEmptyLines": 275,
+      "classes": [
+        {
+          "name": "AttributedCharacterIterator",
+          "startLine": 49,
+          "endLine": 332,
+          "methods": [
+            "getAllAttributeKeys",
+            "getAttributes",
+            "getAttribute",
+            "getRunStart",
+            "getRunStart",
+            "getRunStart",
+            "getRunLimit",
+            "getRunLimit",
+            "getRunLimit"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "AttributedCharacterIterator",
+          "line": 49,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "readResolve",
+          "callee": "this.equals",
+          "lineNumber": 152
+        },
+        {
+          "caller": "readResolve",
+          "callee": "this.equals",
+          "lineNumber": 155
+        },
+        {
+          "caller": "readResolve",
+          "callee": "this.equals",
+          "lineNumber": 158
+        },
+        {
+          "caller": "readResolve",
+          "callee": "new InvalidObjectException",
+          "lineNumber": 161
+        },
+        {
+          "caller": "readResolve",
+          "callee": "getName",
+          "lineNumber": 161
+        },
+        {
+          "caller": "hashCode",
+          "callee": "super.hashCode",
+          "lineNumber": 198
+        },
+        {
+          "caller": "toString",
+          "callee": "getClass().getName",
+          "lineNumber": 211
+        },
+        {
+          "caller": "toString",
+          "callee": "getClass",
+          "lineNumber": 211
+        },
+        {
+          "caller": "toString",
+          "callee": "getName",
+          "lineNumber": 211
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/util/Map.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 58,
+      "nonEmptyLines": 48,
+      "classes": [
+        {
+          "name": "Map",
+          "startLine": 33,
+          "endLine": 58,
+          "methods": [
+            "clear",
+            "containsKey",
+            "containsValue",
+            "entrySet",
+            "equals",
+            "get",
+            "put",
+            "hashCode",
+            "isEmpty",
+            "keySet",
+            "putAll",
+            "remove",
+            "size",
+            "values"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "Map",
+          "line": 33,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/util/Set.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 51,
+      "nonEmptyLines": 41,
+      "classes": [
+        {
+          "name": "Set",
+          "startLine": 33,
+          "endLine": 51,
+          "methods": [
+            "add",
+            "addAll",
+            "clear",
+            "contains",
+            "containsAll",
+            "equals",
+            "hashCode",
+            "isEmpty",
+            "iterator",
+            "remove",
+            "removeAll",
+            "retainAll",
+            "size",
+            "toArray"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "Set",
+          "line": 33,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/util/function/Function.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 100,
+      "nonEmptyLines": 94,
+      "classes": [
+        {
+          "name": "Function",
+          "startLine": 40,
+          "endLine": 100,
+          "methods": [
+            "apply",
+            "compose",
+            "andThen",
+            "identity"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "Function",
+          "line": 40,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "compose",
+          "callee": "Objects.requireNonNull",
+          "lineNumber": 67
+        },
+        {
+          "caller": "compose",
+          "callee": "apply",
+          "lineNumber": 68
+        },
+        {
+          "caller": "compose",
+          "callee": "before.apply",
+          "lineNumber": 68
+        },
+        {
+          "caller": "andThen",
+          "callee": "Objects.requireNonNull",
+          "lineNumber": 87
+        },
+        {
+          "caller": "andThen",
+          "callee": "after.apply",
+          "lineNumber": 88
+        },
+        {
+          "caller": "andThen",
+          "callee": "apply",
+          "lineNumber": 88
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    }
+  ]
+}

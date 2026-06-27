@@ -1,0 +1,2471 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 12,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "src/java/io/Serializable.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 4,
+      "nonEmptyLines": 3,
+      "classes": [
+        {
+          "name": "Serializable",
+          "startLine": 3,
+          "endLine": 4,
+          "methods": [],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "Serializable",
+          "line": 3,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/lang/Number.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 19,
+      "nonEmptyLines": 17,
+      "functions": [
+        {
+          "name": "Number",
+          "startLine": 6,
+          "endLine": 6,
+          "params": []
+        },
+        {
+          "name": "intValue",
+          "startLine": 7,
+          "endLine": 7,
+          "params": []
+        },
+        {
+          "name": "longValue",
+          "startLine": 8,
+          "endLine": 8,
+          "params": []
+        },
+        {
+          "name": "byteValue",
+          "startLine": 13,
+          "endLine": 15,
+          "params": []
+        },
+        {
+          "name": "shortValue",
+          "startLine": 16,
+          "endLine": 18,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "Number",
+          "startLine": 5,
+          "endLine": 19,
+          "methods": [
+            "Number",
+            "intValue",
+            "longValue",
+            "byteValue",
+            "shortValue"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "Number",
+          "line": 6,
+          "isDefault": false
+        },
+        {
+          "name": "intValue",
+          "line": 7,
+          "isDefault": false
+        },
+        {
+          "name": "longValue",
+          "line": 8,
+          "isDefault": false
+        },
+        {
+          "name": "byteValue",
+          "line": 13,
+          "isDefault": false
+        },
+        {
+          "name": "shortValue",
+          "line": 16,
+          "isDefault": false
+        },
+        {
+          "name": "Number",
+          "line": 5,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "byteValue",
+          "callee": "intValue",
+          "lineNumber": 14
+        },
+        {
+          "caller": "shortValue",
+          "callee": "intValue",
+          "lineNumber": 17
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 6,
+        "functionCount": 5,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/security/Identity.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 358,
+      "nonEmptyLines": 288,
+      "functions": [
+        {
+          "name": "Identity",
+          "startLine": 67,
+          "endLine": 68,
+          "params": []
+        },
+        {
+          "name": "Identity",
+          "startLine": 80,
+          "endLine": 85,
+          "params": [
+            "name",
+            "scope"
+          ]
+        },
+        {
+          "name": "Identity",
+          "startLine": 93,
+          "endLine": 97,
+          "params": [
+            "name"
+          ]
+        },
+        {
+          "name": "getName",
+          "startLine": 104,
+          "endLine": 108,
+          "params": []
+        },
+        {
+          "name": "getScope",
+          "startLine": 115,
+          "endLine": 118,
+          "params": []
+        },
+        {
+          "name": "getPublicKey",
+          "startLine": 125,
+          "endLine": 128,
+          "params": []
+        },
+        {
+          "name": "setPublicKey",
+          "startLine": 144,
+          "endLine": 152,
+          "params": [
+            "key"
+          ]
+        },
+        {
+          "name": "setInfo",
+          "startLine": 165,
+          "endLine": 172,
+          "params": [
+            "info"
+          ]
+        },
+        {
+          "name": "getInfo",
+          "startLine": 179,
+          "endLine": 182,
+          "params": []
+        },
+        {
+          "name": "addCertificate",
+          "startLine": 199,
+          "endLine": 213,
+          "params": [
+            "certificate"
+          ]
+        },
+        {
+          "name": "removeCertificate",
+          "startLine": 228,
+          "endLine": 239,
+          "params": [
+            "certificate"
+          ]
+        },
+        {
+          "name": "certificates",
+          "startLine": 246,
+          "endLine": 253,
+          "params": []
+        },
+        {
+          "name": "equals",
+          "startLine": 263,
+          "endLine": 276,
+          "params": [
+            "identity"
+          ]
+        },
+        {
+          "name": "identityEquals",
+          "startLine": 285,
+          "endLine": 289,
+          "params": [
+            "identity"
+          ]
+        },
+        {
+          "name": "toString",
+          "startLine": 302,
+          "endLine": 311,
+          "params": []
+        },
+        {
+          "name": "toString",
+          "startLine": 327,
+          "endLine": 340,
+          "params": [
+            "detailed"
+          ]
+        },
+        {
+          "name": "hashCode",
+          "startLine": 347,
+          "endLine": 357,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "Identity",
+          "startLine": 56,
+          "endLine": 358,
+          "methods": [
+            "Identity",
+            "Identity",
+            "Identity",
+            "getName",
+            "getScope",
+            "getPublicKey",
+            "setPublicKey",
+            "setInfo",
+            "getInfo",
+            "addCertificate",
+            "removeCertificate",
+            "certificates",
+            "equals",
+            "identityEquals",
+            "toString",
+            "toString",
+            "hashCode"
+          ],
+          "properties": [
+            "name",
+            "scope",
+            "publicKey",
+            "info",
+            "certificates"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Identity",
+          "line": 80,
+          "isDefault": false
+        },
+        {
+          "name": "Identity",
+          "line": 93,
+          "isDefault": false
+        },
+        {
+          "name": "getName",
+          "line": 104,
+          "isDefault": false
+        },
+        {
+          "name": "getScope",
+          "line": 115,
+          "isDefault": false
+        },
+        {
+          "name": "getPublicKey",
+          "line": 125,
+          "isDefault": false
+        },
+        {
+          "name": "setPublicKey",
+          "line": 144,
+          "isDefault": false
+        },
+        {
+          "name": "setInfo",
+          "line": 165,
+          "isDefault": false
+        },
+        {
+          "name": "getInfo",
+          "line": 179,
+          "isDefault": false
+        },
+        {
+          "name": "addCertificate",
+          "line": 199,
+          "isDefault": false
+        },
+        {
+          "name": "removeCertificate",
+          "line": 228,
+          "isDefault": false
+        },
+        {
+          "name": "certificates",
+          "line": 246,
+          "isDefault": false
+        },
+        {
+          "name": "equals",
+          "line": 263,
+          "isDefault": false
+        },
+        {
+          "name": "toString",
+          "line": 302,
+          "isDefault": false
+        },
+        {
+          "name": "toString",
+          "line": 327,
+          "isDefault": false
+        },
+        {
+          "name": "hashCode",
+          "line": 347,
+          "isDefault": false
+        },
+        {
+          "name": "Identity",
+          "line": 56,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "setPublicKey",
+          "callee": "System.getSecurityManager",
+          "lineNumber": 147
+        },
+        {
+          "caller": "setPublicKey",
+          "callee": "sm.checkSecurityAccess",
+          "lineNumber": 149
+        },
+        {
+          "caller": "setInfo",
+          "callee": "System.getSecurityManager",
+          "lineNumber": 167
+        },
+        {
+          "caller": "setInfo",
+          "callee": "sm.checkSecurityAccess",
+          "lineNumber": 169
+        },
+        {
+          "caller": "addCertificate",
+          "callee": "System.getSecurityManager",
+          "lineNumber": 202
+        },
+        {
+          "caller": "addCertificate",
+          "callee": "sm.checkSecurityAccess",
+          "lineNumber": 204
+        },
+        {
+          "caller": "addCertificate",
+          "callee": "certificates.isEmpty",
+          "lineNumber": 208
+        },
+        {
+          "caller": "addCertificate",
+          "callee": "((Certificate)certificates.firstElement()).getPublicKey",
+          "lineNumber": 209
+        },
+        {
+          "caller": "addCertificate",
+          "callee": "certificates.firstElement",
+          "lineNumber": 209
+        },
+        {
+          "caller": "addCertificate",
+          "callee": "new KeyManagementException",
+          "lineNumber": 210
+        },
+        {
+          "caller": "addCertificate",
+          "callee": "certificates.addElement",
+          "lineNumber": 212
+        },
+        {
+          "caller": "removeCertificate",
+          "callee": "System.getSecurityManager",
+          "lineNumber": 231
+        },
+        {
+          "caller": "removeCertificate",
+          "callee": "sm.checkSecurityAccess",
+          "lineNumber": 233
+        },
+        {
+          "caller": "removeCertificate",
+          "callee": "certificates.contains",
+          "lineNumber": 235
+        },
+        {
+          "caller": "removeCertificate",
+          "callee": "new KeyManagementException",
+          "lineNumber": 236
+        },
+        {
+          "caller": "removeCertificate",
+          "callee": "certificates.removeElement",
+          "lineNumber": 238
+        },
+        {
+          "caller": "certificates",
+          "callee": "certificates.size",
+          "lineNumber": 248
+        },
+        {
+          "caller": "certificates",
+          "callee": "certificates.size",
+          "lineNumber": 249
+        },
+        {
+          "caller": "certificates",
+          "callee": "certificates.elementAt",
+          "lineNumber": 251
+        },
+        {
+          "caller": "equals",
+          "callee": "((Identity)identity).getName",
+          "lineNumber": 269
+        },
+        {
+          "caller": "equals",
+          "callee": "((Identity)identity).getName().equals",
+          "lineNumber": 269
+        },
+        {
+          "caller": "equals",
+          "callee": "((Identity)identity).getName",
+          "lineNumber": 269
+        },
+        {
+          "caller": "equals",
+          "callee": "((Identity)identity).getScope",
+          "lineNumber": 270
+        },
+        {
+          "caller": "equals",
+          "callee": "identityEquals",
+          "lineNumber": 273
+        },
+        {
+          "caller": "identityEquals",
+          "callee": "identity.getName",
+          "lineNumber": 287
+        },
+        {
+          "caller": "identityEquals",
+          "callee": "identity.getName().equals",
+          "lineNumber": 287
+        },
+        {
+          "caller": "identityEquals",
+          "callee": "identity.getName",
+          "lineNumber": 287
+        },
+        {
+          "caller": "identityEquals",
+          "callee": "identity.getPublicKey",
+          "lineNumber": 288
+        },
+        {
+          "caller": "toString",
+          "callee": "System.getSecurityManager",
+          "lineNumber": 305
+        },
+        {
+          "caller": "toString",
+          "callee": "sm.checkSecurityAccess",
+          "lineNumber": 307
+        },
+        {
+          "caller": "toString",
+          "callee": "System.getSecurityManager",
+          "lineNumber": 329
+        },
+        {
+          "caller": "toString",
+          "callee": "sm.checkSecurityAccess",
+          "lineNumber": 331
+        },
+        {
+          "caller": "hashCode",
+          "callee": "name.hashCode",
+          "lineNumber": 350
+        },
+        {
+          "caller": "hashCode",
+          "callee": "publicKey.hashCode",
+          "lineNumber": 351
+        },
+        {
+          "caller": "hashCode",
+          "callee": "scope.hashCode",
+          "lineNumber": 352
+        },
+        {
+          "caller": "hashCode",
+          "callee": "info.hashCode",
+          "lineNumber": 353
+        },
+        {
+          "caller": "hashCode",
+          "callee": "certificates.hashCode",
+          "lineNumber": 354
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 16,
+        "functionCount": 17,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/security/Key.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 97,
+      "nonEmptyLines": 77,
+      "classes": [
+        {
+          "name": "Key",
+          "startLine": 44,
+          "endLine": 97,
+          "methods": [
+            "getAlgorithm",
+            "getFormat",
+            "getEncoded"
+          ],
+          "properties": [
+            "serialVersionUID"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Key",
+          "line": 44,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/security/Permission.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 193,
+      "nonEmptyLines": 162,
+      "functions": [
+        {
+          "name": "Permission",
+          "startLine": 82,
+          "endLine": 86,
+          "params": [
+            "name"
+          ]
+        },
+        {
+          "name": "getName",
+          "startLine": 99,
+          "endLine": 103,
+          "params": []
+        },
+        {
+          "name": "getActions",
+          "startLine": 113,
+          "endLine": 114,
+          "params": []
+        },
+        {
+          "name": "checkGuard",
+          "startLine": 129,
+          "endLine": 136,
+          "params": [
+            "obj"
+          ]
+        },
+        {
+          "name": "implies",
+          "startLine": 148,
+          "endLine": 149,
+          "params": [
+            "perm"
+          ]
+        },
+        {
+          "name": "hashCode",
+          "startLine": 158,
+          "endLine": 160,
+          "params": []
+        },
+        {
+          "name": "toString",
+          "startLine": 170,
+          "endLine": 176,
+          "params": []
+        },
+        {
+          "name": "newPermissionCollection",
+          "startLine": 187,
+          "endLine": 191,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "Permission",
+          "startLine": 58,
+          "endLine": 193,
+          "methods": [
+            "Permission",
+            "getName",
+            "getActions",
+            "checkGuard",
+            "implies",
+            "hashCode",
+            "toString",
+            "newPermissionCollection"
+          ],
+          "properties": [
+            "name"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Permission",
+          "line": 82,
+          "isDefault": false
+        },
+        {
+          "name": "getName",
+          "line": 99,
+          "isDefault": false
+        },
+        {
+          "name": "getActions",
+          "line": 113,
+          "isDefault": false
+        },
+        {
+          "name": "checkGuard",
+          "line": 129,
+          "isDefault": false
+        },
+        {
+          "name": "implies",
+          "line": 148,
+          "isDefault": false
+        },
+        {
+          "name": "hashCode",
+          "line": 158,
+          "isDefault": false
+        },
+        {
+          "name": "toString",
+          "line": 170,
+          "isDefault": false
+        },
+        {
+          "name": "newPermissionCollection",
+          "line": 187,
+          "isDefault": false
+        },
+        {
+          "name": "Permission",
+          "line": 58,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "checkGuard",
+          "callee": "System.getSecurityManager",
+          "lineNumber": 133
+        },
+        {
+          "caller": "toString",
+          "callee": "getClass().getName",
+          "lineNumber": 174
+        },
+        {
+          "caller": "toString",
+          "callee": "getClass",
+          "lineNumber": 174
+        },
+        {
+          "caller": "toString",
+          "callee": "getName",
+          "lineNumber": 174
+        },
+        {
+          "caller": "toString",
+          "callee": "getActions",
+          "lineNumber": 175
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 9,
+        "functionCount": 8,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/security/Provider.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 208,
+      "nonEmptyLines": 171,
+      "functions": [
+        {
+          "name": "Provider",
+          "startLine": 96,
+          "endLine": 102,
+          "params": [
+            "name",
+            "version",
+            "info"
+          ]
+        },
+        {
+          "name": "getName",
+          "startLine": 115,
+          "endLine": 119,
+          "params": []
+        },
+        {
+          "name": "getVersion",
+          "startLine": 128,
+          "endLine": 132,
+          "params": []
+        },
+        {
+          "name": "getInfo",
+          "startLine": 141,
+          "endLine": 145,
+          "params": []
+        },
+        {
+          "name": "put",
+          "startLine": 157,
+          "endLine": 161,
+          "params": [
+            "key",
+            "value"
+          ]
+        },
+        {
+          "name": "remove",
+          "startLine": 173,
+          "endLine": 177,
+          "params": [
+            "key"
+          ]
+        },
+        {
+          "name": "clear",
+          "startLine": 186,
+          "endLine": 190,
+          "params": []
+        },
+        {
+          "name": "toString",
+          "startLine": 201,
+          "endLine": 205,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "Provider",
+          "startLine": 47,
+          "endLine": 207,
+          "methods": [
+            "Provider",
+            "getName",
+            "getVersion",
+            "getInfo",
+            "put",
+            "remove",
+            "clear",
+            "toString"
+          ],
+          "properties": [
+            "info",
+            "name",
+            "version",
+            "serialVersionUID"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "getName",
+          "line": 115,
+          "isDefault": false
+        },
+        {
+          "name": "getVersion",
+          "line": 128,
+          "isDefault": false
+        },
+        {
+          "name": "getInfo",
+          "line": 141,
+          "isDefault": false
+        },
+        {
+          "name": "put",
+          "line": 157,
+          "isDefault": false
+        },
+        {
+          "name": "remove",
+          "line": 173,
+          "isDefault": false
+        },
+        {
+          "name": "clear",
+          "line": 186,
+          "isDefault": false
+        },
+        {
+          "name": "toString",
+          "line": 201,
+          "isDefault": false
+        },
+        {
+          "name": "Provider",
+          "line": 47,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "put",
+          "callee": "super.put",
+          "lineNumber": 160
+        },
+        {
+          "caller": "remove",
+          "callee": "super.remove",
+          "lineNumber": 176
+        },
+        {
+          "caller": "clear",
+          "callee": "super.clear",
+          "lineNumber": 189
+        },
+        {
+          "caller": "toString",
+          "callee": "getClass().getName",
+          "lineNumber": 204
+        },
+        {
+          "caller": "toString",
+          "callee": "getClass",
+          "lineNumber": 204
+        },
+        {
+          "caller": "toString",
+          "callee": "getName",
+          "lineNumber": 204
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 8,
+        "functionCount": 8,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/security/SecureRandomSpi.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 75,
+      "nonEmptyLines": 57,
+      "functions": [
+        {
+          "name": "SecureRandomSpi",
+          "startLine": 48,
+          "endLine": 49,
+          "params": []
+        },
+        {
+          "name": "engineSetSeed",
+          "startLine": 55,
+          "endLine": 55,
+          "params": [
+            "seed"
+          ]
+        },
+        {
+          "name": "engineNextBytes",
+          "startLine": 64,
+          "endLine": 64,
+          "params": [
+            "bytes"
+          ]
+        },
+        {
+          "name": "engineGenerateSeed",
+          "startLine": 74,
+          "endLine": 74,
+          "params": [
+            "numBytes"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "SecureRandomSpi",
+          "startLine": 42,
+          "endLine": 75,
+          "methods": [
+            "SecureRandomSpi",
+            "engineSetSeed",
+            "engineNextBytes",
+            "engineGenerateSeed"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "SecureRandomSpi",
+          "line": 48,
+          "isDefault": false
+        },
+        {
+          "name": "SecureRandomSpi",
+          "line": 42,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 4,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/text/Collator.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 473,
+      "nonEmptyLines": 402,
+      "functions": [
+        {
+          "name": "getInstance",
+          "startLine": 157,
+          "endLine": 161,
+          "params": []
+        },
+        {
+          "name": "getInstance",
+          "startLine": 174,
+          "endLine": 212,
+          "params": [
+            "locale"
+          ]
+        },
+        {
+          "name": "getAvailableLocales",
+          "startLine": 222,
+          "endLine": 231,
+          "params": []
+        },
+        {
+          "name": "Collator",
+          "startLine": 247,
+          "endLine": 252,
+          "params": []
+        },
+        {
+          "name": "getStrength",
+          "startLine": 267,
+          "endLine": 271,
+          "params": []
+        },
+        {
+          "name": "setStrength",
+          "startLine": 285,
+          "endLine": 295,
+          "params": [
+            "strength"
+          ]
+        },
+        {
+          "name": "getDecomposition",
+          "startLine": 307,
+          "endLine": 311,
+          "params": []
+        },
+        {
+          "name": "setDecomposition",
+          "startLine": 325,
+          "endLine": 334,
+          "params": [
+            "decmp"
+          ]
+        },
+        {
+          "name": "compare",
+          "startLine": 351,
+          "endLine": 355,
+          "params": [
+            "obj1",
+            "obj2"
+          ]
+        },
+        {
+          "name": "compare",
+          "startLine": 372,
+          "endLine": 373,
+          "params": [
+            "str1",
+            "str2"
+          ]
+        },
+        {
+          "name": "equals",
+          "startLine": 387,
+          "endLine": 395,
+          "params": [
+            "str1",
+            "str2"
+          ]
+        },
+        {
+          "name": "equals",
+          "startLine": 414,
+          "endLine": 432,
+          "params": [
+            "obj"
+          ]
+        },
+        {
+          "name": "getCollationKey",
+          "startLine": 446,
+          "endLine": 447,
+          "params": [
+            "str"
+          ]
+        },
+        {
+          "name": "clone",
+          "startLine": 456,
+          "endLine": 460,
+          "params": []
+        },
+        {
+          "name": "hashCode",
+          "startLine": 469,
+          "endLine": 470,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "Collator",
+          "startLine": 61,
+          "endLine": 472,
+          "methods": [
+            "getInstance",
+            "getInstance",
+            "getAvailableLocales",
+            "Collator",
+            "getStrength",
+            "setStrength",
+            "getDecomposition",
+            "setDecomposition",
+            "compare",
+            "compare",
+            "equals",
+            "equals",
+            "getCollationKey",
+            "clone",
+            "hashCode"
+          ],
+          "properties": [
+            "PRIMARY",
+            "SECONDARY",
+            "TERTIARY",
+            "IDENTICAL",
+            "NO_DECOMPOSITION",
+            "CANONICAL_DECOMPOSITION",
+            "FULL_DECOMPOSITION",
+            "collator_cache",
+            "decmp",
+            "strength"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "PRIMARY",
+          "line": 76,
+          "isDefault": false
+        },
+        {
+          "name": "SECONDARY",
+          "line": 84,
+          "isDefault": false
+        },
+        {
+          "name": "TERTIARY",
+          "line": 92,
+          "isDefault": false
+        },
+        {
+          "name": "IDENTICAL",
+          "line": 98,
+          "isDefault": false
+        },
+        {
+          "name": "NO_DECOMPOSITION",
+          "line": 106,
+          "isDefault": false
+        },
+        {
+          "name": "CANONICAL_DECOMPOSITION",
+          "line": 114,
+          "isDefault": false
+        },
+        {
+          "name": "FULL_DECOMPOSITION",
+          "line": 122,
+          "isDefault": false
+        },
+        {
+          "name": "getInstance",
+          "line": 157,
+          "isDefault": false
+        },
+        {
+          "name": "getInstance",
+          "line": 174,
+          "isDefault": false
+        },
+        {
+          "name": "getAvailableLocales",
+          "line": 222,
+          "isDefault": false
+        },
+        {
+          "name": "getStrength",
+          "line": 267,
+          "isDefault": false
+        },
+        {
+          "name": "setStrength",
+          "line": 285,
+          "isDefault": false
+        },
+        {
+          "name": "getDecomposition",
+          "line": 307,
+          "isDefault": false
+        },
+        {
+          "name": "setDecomposition",
+          "line": 325,
+          "isDefault": false
+        },
+        {
+          "name": "compare",
+          "line": 351,
+          "isDefault": false
+        },
+        {
+          "name": "compare",
+          "line": 372,
+          "isDefault": false
+        },
+        {
+          "name": "equals",
+          "line": 387,
+          "isDefault": false
+        },
+        {
+          "name": "equals",
+          "line": 414,
+          "isDefault": false
+        },
+        {
+          "name": "getCollationKey",
+          "line": 446,
+          "isDefault": false
+        },
+        {
+          "name": "clone",
+          "line": 456,
+          "isDefault": false
+        },
+        {
+          "name": "hashCode",
+          "line": 469,
+          "isDefault": false
+        },
+        {
+          "name": "Collator",
+          "line": 61,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "getInstance",
+          "callee": "getInstance",
+          "lineNumber": 160
+        },
+        {
+          "caller": "getInstance",
+          "callee": "Locale.getDefault",
+          "lineNumber": 160
+        },
+        {
+          "caller": "getInstance",
+          "callee": "collator_cache.get",
+          "lineNumber": 182
+        },
+        {
+          "caller": "getInstance",
+          "callee": "locale.getDisplayName",
+          "lineNumber": 182
+        },
+        {
+          "caller": "getInstance",
+          "callee": "PropertyResourceBundle.getBundle",
+          "lineNumber": 189
+        },
+        {
+          "caller": "getInstance",
+          "callee": "rb.getString",
+          "lineNumber": 192
+        },
+        {
+          "caller": "getInstance",
+          "callee": "new RuntimeException",
+          "lineNumber": 196
+        },
+        {
+          "caller": "getInstance",
+          "callee": "e.getMessage",
+          "lineNumber": 197
+        },
+        {
+          "caller": "getInstance",
+          "callee": "new RuleBasedCollator",
+          "lineNumber": 202
+        },
+        {
+          "caller": "getInstance",
+          "callee": "collator_cache.put",
+          "lineNumber": 203
+        },
+        {
+          "caller": "getInstance",
+          "callee": "locale.getDisplayName",
+          "lineNumber": 203
+        },
+        {
+          "caller": "getInstance",
+          "callee": "new RuntimeException",
+          "lineNumber": 209
+        },
+        {
+          "caller": "getInstance",
+          "callee": "e.getMessage",
+          "lineNumber": 210
+        },
+        {
+          "caller": "getAvailableLocales",
+          "callee": "Locale.getDefault",
+          "lineNumber": 228
+        },
+        {
+          "caller": "setStrength",
+          "callee": "new IllegalArgumentException",
+          "lineNumber": 292
+        },
+        {
+          "caller": "setDecomposition",
+          "callee": "new IllegalArgumentException",
+          "lineNumber": 331
+        },
+        {
+          "caller": "compare",
+          "callee": "compare",
+          "lineNumber": 354
+        },
+        {
+          "caller": "equals",
+          "callee": "compare",
+          "lineNumber": 390
+        },
+        {
+          "caller": "equals",
+          "callee": "c.getStrength",
+          "lineNumber": 425
+        },
+        {
+          "caller": "equals",
+          "callee": "getStrength",
+          "lineNumber": 425
+        },
+        {
+          "caller": "equals",
+          "callee": "c.getDecomposition",
+          "lineNumber": 428
+        },
+        {
+          "caller": "equals",
+          "callee": "getDecomposition",
+          "lineNumber": 428
+        },
+        {
+          "caller": "clone",
+          "callee": "super.clone",
+          "lineNumber": 459
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 22,
+        "functionCount": 15,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/text/Format.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 167,
+      "nonEmptyLines": 141,
+      "functions": [
+        {
+          "name": "Format",
+          "startLine": 63,
+          "endLine": 67,
+          "params": []
+        },
+        {
+          "name": "format",
+          "startLine": 84,
+          "endLine": 92,
+          "params": [
+            "obj"
+          ]
+        },
+        {
+          "name": "format",
+          "startLine": 108,
+          "endLine": 110,
+          "params": [
+            "obj",
+            "sb",
+            "pos"
+          ]
+        },
+        {
+          "name": "parseObject",
+          "startLine": 124,
+          "endLine": 128,
+          "params": [
+            "str"
+          ]
+        },
+        {
+          "name": "parseObject",
+          "startLine": 143,
+          "endLine": 144,
+          "params": [
+            "str",
+            "pos"
+          ]
+        },
+        {
+          "name": "clone",
+          "startLine": 153,
+          "endLine": 164,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "Format",
+          "startLine": 50,
+          "endLine": 166,
+          "methods": [
+            "Format",
+            "format",
+            "format",
+            "parseObject",
+            "parseObject",
+            "clone"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "Format",
+          "line": 63,
+          "isDefault": false
+        },
+        {
+          "name": "format",
+          "line": 84,
+          "isDefault": false
+        },
+        {
+          "name": "format",
+          "line": 108,
+          "isDefault": false
+        },
+        {
+          "name": "parseObject",
+          "line": 124,
+          "isDefault": false
+        },
+        {
+          "name": "parseObject",
+          "line": 143,
+          "isDefault": false
+        },
+        {
+          "name": "clone",
+          "line": 153,
+          "isDefault": false
+        },
+        {
+          "name": "Format",
+          "line": 50,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "format",
+          "callee": "new StringBuffer",
+          "lineNumber": 87
+        },
+        {
+          "caller": "format",
+          "callee": "new FieldPosition",
+          "lineNumber": 88
+        },
+        {
+          "caller": "format",
+          "callee": "format",
+          "lineNumber": 90
+        },
+        {
+          "caller": "format",
+          "callee": "sb.toString",
+          "lineNumber": 91
+        },
+        {
+          "caller": "parseObject",
+          "callee": "parseObject",
+          "lineNumber": 127
+        },
+        {
+          "caller": "parseObject",
+          "callee": "new ParsePosition",
+          "lineNumber": 127
+        },
+        {
+          "caller": "clone",
+          "callee": "super.clone",
+          "lineNumber": 158
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 7,
+        "functionCount": 6,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/text/NumberFormat.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 633,
+      "nonEmptyLines": 538,
+      "functions": [
+        {
+          "name": "getInstance",
+          "startLine": 104,
+          "endLine": 108,
+          "params": []
+        },
+        {
+          "name": "getInstance",
+          "startLine": 121,
+          "endLine": 125,
+          "params": [
+            "locale"
+          ]
+        },
+        {
+          "name": "getNumberInstance",
+          "startLine": 137,
+          "endLine": 141,
+          "params": []
+        },
+        {
+          "name": "getNumberInstance",
+          "startLine": 155,
+          "endLine": 160,
+          "params": [
+            "locale"
+          ]
+        },
+        {
+          "name": "getCurrencyInstance",
+          "startLine": 170,
+          "endLine": 174,
+          "params": []
+        },
+        {
+          "name": "getCurrencyInstance",
+          "startLine": 184,
+          "endLine": 189,
+          "params": [
+            "locale"
+          ]
+        },
+        {
+          "name": "getPercentInstance",
+          "startLine": 199,
+          "endLine": 203,
+          "params": []
+        },
+        {
+          "name": "getPercentInstance",
+          "startLine": 215,
+          "endLine": 220,
+          "params": [
+            "locale"
+          ]
+        },
+        {
+          "name": "getAvailableLocales",
+          "startLine": 230,
+          "endLine": 237,
+          "params": []
+        },
+        {
+          "name": "NumberFormat",
+          "startLine": 248,
+          "endLine": 250,
+          "params": []
+        },
+        {
+          "name": "getMaximumIntegerDigits",
+          "startLine": 264,
+          "endLine": 268,
+          "params": []
+        },
+        {
+          "name": "setMaximumIntegerDigits",
+          "startLine": 280,
+          "endLine": 287,
+          "params": [
+            "maximumIntegerDigits"
+          ]
+        },
+        {
+          "name": "getMinimumIntegerDigits",
+          "startLine": 297,
+          "endLine": 301,
+          "params": []
+        },
+        {
+          "name": "setMinimumIntegerDigits",
+          "startLine": 313,
+          "endLine": 320,
+          "params": [
+            "minimumIntegerDigits"
+          ]
+        },
+        {
+          "name": "getMaximumFractionDigits",
+          "startLine": 330,
+          "endLine": 334,
+          "params": []
+        },
+        {
+          "name": "setMaximumFractionDigits",
+          "startLine": 346,
+          "endLine": 353,
+          "params": [
+            "maximumFractionDigits"
+          ]
+        },
+        {
+          "name": "getMinimumFractionDigits",
+          "startLine": 363,
+          "endLine": 367,
+          "params": []
+        },
+        {
+          "name": "setMinimumFractionDigits",
+          "startLine": 379,
+          "endLine": 386,
+          "params": [
+            "minimumFractionDigits"
+          ]
+        },
+        {
+          "name": "isGroupingUsed",
+          "startLine": 401,
+          "endLine": 405,
+          "params": []
+        },
+        {
+          "name": "setGroupingUsed",
+          "startLine": 420,
+          "endLine": 424,
+          "params": [
+            "groupingUsed"
+          ]
+        },
+        {
+          "name": "isParseIntegerOnly",
+          "startLine": 435,
+          "endLine": 439,
+          "params": []
+        },
+        {
+          "name": "setParseIntegerOnly",
+          "startLine": 449,
+          "endLine": 453,
+          "params": [
+            "parseIntegerOnly"
+          ]
+        },
+        {
+          "name": "format",
+          "startLine": 465,
+          "endLine": 471,
+          "params": [
+            "number"
+          ]
+        },
+        {
+          "name": "format",
+          "startLine": 483,
+          "endLine": 489,
+          "params": [
+            "number"
+          ]
+        },
+        {
+          "name": "format",
+          "startLine": 503,
+          "endLine": 504,
+          "params": [
+            "number",
+            "sb",
+            "pos"
+          ]
+        },
+        {
+          "name": "format",
+          "startLine": 518,
+          "endLine": 519,
+          "params": [
+            "number",
+            "sb",
+            "pos"
+          ]
+        },
+        {
+          "name": "format",
+          "startLine": 521,
+          "endLine": 526,
+          "params": [
+            "number",
+            "toAppendTo",
+            "pos"
+          ]
+        },
+        {
+          "name": "parse",
+          "startLine": 542,
+          "endLine": 552,
+          "params": [
+            "str"
+          ]
+        },
+        {
+          "name": "parse",
+          "startLine": 567,
+          "endLine": 568,
+          "params": [
+            "str",
+            "pp"
+          ]
+        },
+        {
+          "name": "parseObject",
+          "startLine": 583,
+          "endLine": 587,
+          "params": [
+            "str",
+            "pp"
+          ]
+        },
+        {
+          "name": "hashCode",
+          "startLine": 596,
+          "endLine": 600,
+          "params": []
+        },
+        {
+          "name": "equals",
+          "startLine": 620,
+          "endLine": 630,
+          "params": [
+            "obj"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "NumberFormat",
+          "startLine": 51,
+          "endLine": 632,
+          "methods": [
+            "getInstance",
+            "getInstance",
+            "getNumberInstance",
+            "getNumberInstance",
+            "getCurrencyInstance",
+            "getCurrencyInstance",
+            "getPercentInstance",
+            "getPercentInstance",
+            "getAvailableLocales",
+            "NumberFormat",
+            "getMaximumIntegerDigits",
+            "setMaximumIntegerDigits",
+            "getMinimumIntegerDigits",
+            "setMinimumIntegerDigits",
+            "getMaximumFractionDigits",
+            "setMaximumFractionDigits",
+            "getMinimumFractionDigits",
+            "setMinimumFractionDigits",
+            "isGroupingUsed",
+            "setGroupingUsed",
+            "isParseIntegerOnly",
+            "setParseIntegerOnly",
+            "format",
+            "format",
+            "format",
+            "format",
+            "format",
+            "parse",
+            "parse",
+            "parseObject",
+            "hashCode",
+            "equals"
+          ],
+          "properties": [
+            "INTEGER_FIELD",
+            "FRACTION_FIELD",
+            "groupingUsed",
+            "maxFractionDigits",
+            "maximumFractionDigits",
+            "maximumIntegerDigits",
+            "maxIntegerDigits",
+            "minFractionDigits",
+            "minimumFractionDigits",
+            "minIntegerDigits",
+            "minimumIntegerDigits",
+            "parseIntegerOnly",
+            "serialVersionOnStream"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "INTEGER_FIELD",
+          "line": 65,
+          "isDefault": false
+        },
+        {
+          "name": "FRACTION_FIELD",
+          "line": 71,
+          "isDefault": false
+        },
+        {
+          "name": "getInstance",
+          "line": 104,
+          "isDefault": false
+        },
+        {
+          "name": "getInstance",
+          "line": 121,
+          "isDefault": false
+        },
+        {
+          "name": "getNumberInstance",
+          "line": 137,
+          "isDefault": false
+        },
+        {
+          "name": "getNumberInstance",
+          "line": 155,
+          "isDefault": false
+        },
+        {
+          "name": "getCurrencyInstance",
+          "line": 170,
+          "isDefault": false
+        },
+        {
+          "name": "getCurrencyInstance",
+          "line": 184,
+          "isDefault": false
+        },
+        {
+          "name": "getPercentInstance",
+          "line": 199,
+          "isDefault": false
+        },
+        {
+          "name": "getPercentInstance",
+          "line": 215,
+          "isDefault": false
+        },
+        {
+          "name": "getAvailableLocales",
+          "line": 230,
+          "isDefault": false
+        },
+        {
+          "name": "NumberFormat",
+          "line": 248,
+          "isDefault": false
+        },
+        {
+          "name": "getMaximumIntegerDigits",
+          "line": 264,
+          "isDefault": false
+        },
+        {
+          "name": "setMaximumIntegerDigits",
+          "line": 280,
+          "isDefault": false
+        },
+        {
+          "name": "getMinimumIntegerDigits",
+          "line": 297,
+          "isDefault": false
+        },
+        {
+          "name": "setMinimumIntegerDigits",
+          "line": 313,
+          "isDefault": false
+        },
+        {
+          "name": "getMaximumFractionDigits",
+          "line": 330,
+          "isDefault": false
+        },
+        {
+          "name": "setMaximumFractionDigits",
+          "line": 346,
+          "isDefault": false
+        },
+        {
+          "name": "getMinimumFractionDigits",
+          "line": 363,
+          "isDefault": false
+        },
+        {
+          "name": "setMinimumFractionDigits",
+          "line": 379,
+          "isDefault": false
+        },
+        {
+          "name": "isGroupingUsed",
+          "line": 401,
+          "isDefault": false
+        },
+        {
+          "name": "setGroupingUsed",
+          "line": 420,
+          "isDefault": false
+        },
+        {
+          "name": "isParseIntegerOnly",
+          "line": 435,
+          "isDefault": false
+        },
+        {
+          "name": "setParseIntegerOnly",
+          "line": 449,
+          "isDefault": false
+        },
+        {
+          "name": "format",
+          "line": 465,
+          "isDefault": false
+        },
+        {
+          "name": "format",
+          "line": 483,
+          "isDefault": false
+        },
+        {
+          "name": "format",
+          "line": 503,
+          "isDefault": false
+        },
+        {
+          "name": "format",
+          "line": 518,
+          "isDefault": false
+        },
+        {
+          "name": "format",
+          "line": 521,
+          "isDefault": false
+        },
+        {
+          "name": "parse",
+          "line": 542,
+          "isDefault": false
+        },
+        {
+          "name": "parse",
+          "line": 567,
+          "isDefault": false
+        },
+        {
+          "name": "parseObject",
+          "line": 583,
+          "isDefault": false
+        },
+        {
+          "name": "hashCode",
+          "line": 596,
+          "isDefault": false
+        },
+        {
+          "name": "equals",
+          "line": 620,
+          "isDefault": false
+        },
+        {
+          "name": "NumberFormat",
+          "line": 51,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "getInstance",
+          "callee": "getInstance",
+          "lineNumber": 107
+        },
+        {
+          "caller": "getInstance",
+          "callee": "Locale.getDefault",
+          "lineNumber": 107
+        },
+        {
+          "caller": "getInstance",
+          "callee": "getNumberInstance",
+          "lineNumber": 124
+        },
+        {
+          "caller": "getNumberInstance",
+          "callee": "getNumberInstance",
+          "lineNumber": 140
+        },
+        {
+          "caller": "getNumberInstance",
+          "callee": "Locale.getDefault",
+          "lineNumber": 140
+        },
+        {
+          "caller": "getCurrencyInstance",
+          "callee": "getCurrencyInstance",
+          "lineNumber": 173
+        },
+        {
+          "caller": "getCurrencyInstance",
+          "callee": "Locale.getDefault",
+          "lineNumber": 173
+        },
+        {
+          "caller": "getPercentInstance",
+          "callee": "getPercentInstance",
+          "lineNumber": 202
+        },
+        {
+          "caller": "getPercentInstance",
+          "callee": "Locale.getDefault",
+          "lineNumber": 202
+        },
+        {
+          "caller": "setMaximumIntegerDigits",
+          "callee": "getMinimumIntegerDigits",
+          "lineNumber": 285
+        },
+        {
+          "caller": "setMaximumIntegerDigits",
+          "callee": "setMinimumIntegerDigits",
+          "lineNumber": 286
+        },
+        {
+          "caller": "setMinimumIntegerDigits",
+          "callee": "getMaximumIntegerDigits",
+          "lineNumber": 318
+        },
+        {
+          "caller": "setMinimumIntegerDigits",
+          "callee": "setMaximumIntegerDigits",
+          "lineNumber": 319
+        },
+        {
+          "caller": "setMaximumFractionDigits",
+          "callee": "getMinimumFractionDigits",
+          "lineNumber": 351
+        },
+        {
+          "caller": "setMaximumFractionDigits",
+          "callee": "setMinimumFractionDigits",
+          "lineNumber": 352
+        },
+        {
+          "caller": "setMinimumFractionDigits",
+          "callee": "getMaximumFractionDigits",
+          "lineNumber": 384
+        },
+        {
+          "caller": "setMinimumFractionDigits",
+          "callee": "setMaximumFractionDigits",
+          "lineNumber": 385
+        },
+        {
+          "caller": "format",
+          "callee": "new StringBuffer",
+          "lineNumber": 467
+        },
+        {
+          "caller": "format",
+          "callee": "format",
+          "lineNumber": 469
+        },
+        {
+          "caller": "format",
+          "callee": "new FieldPosition",
+          "lineNumber": 469
+        },
+        {
+          "caller": "format",
+          "callee": "sb.toString",
+          "lineNumber": 470
+        },
+        {
+          "caller": "format",
+          "callee": "new StringBuffer",
+          "lineNumber": 485
+        },
+        {
+          "caller": "format",
+          "callee": "format",
+          "lineNumber": 487
+        },
+        {
+          "caller": "format",
+          "callee": "new FieldPosition",
+          "lineNumber": 487
+        },
+        {
+          "caller": "format",
+          "callee": "sb.toString",
+          "lineNumber": 488
+        },
+        {
+          "caller": "format",
+          "callee": "new Error",
+          "lineNumber": 525
+        },
+        {
+          "caller": "parse",
+          "callee": "new ParsePosition",
+          "lineNumber": 545
+        },
+        {
+          "caller": "parse",
+          "callee": "parse",
+          "lineNumber": 547
+        },
+        {
+          "caller": "parse",
+          "callee": "pp.getIndex",
+          "lineNumber": 548
+        },
+        {
+          "caller": "parse",
+          "callee": "new ParseException",
+          "lineNumber": 549
+        },
+        {
+          "caller": "parseObject",
+          "callee": "parse",
+          "lineNumber": 586
+        },
+        {
+          "caller": "hashCode",
+          "callee": "System.identityHashCode",
+          "lineNumber": 599
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 35,
+        "functionCount": 32,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/util/Comparator.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 64,
+      "nonEmptyLines": 56,
+      "classes": [
+        {
+          "name": "Comparator",
+          "startLine": 44,
+          "endLine": 64,
+          "methods": [
+            "compare"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "Comparator",
+          "line": 44,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/util/ResourceBundle.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 450,
+      "nonEmptyLines": 411,
+      "functions": [
+        {
+          "name": "ResourceBundle",
+          "startLine": 93,
+          "endLine": 95,
+          "params": []
+        },
+        {
+          "name": "getString",
+          "startLine": 106,
+          "endLine": 109,
+          "params": [
+            "key"
+          ]
+        },
+        {
+          "name": "getStringArray",
+          "startLine": 119,
+          "endLine": 123,
+          "params": [
+            "key"
+          ]
+        },
+        {
+          "name": "getObject",
+          "startLine": 132,
+          "endLine": 148,
+          "params": [
+            "key"
+          ]
+        },
+        {
+          "name": "getClassContext",
+          "startLine": 162,
+          "endLine": 162,
+          "params": []
+        },
+        {
+          "name": "getBundle",
+          "startLine": 172,
+          "endLine": 178,
+          "params": [
+            "baseName"
+          ]
+        },
+        {
+          "name": "getBundle",
+          "startLine": 190,
+          "endLine": 197,
+          "params": [
+            "baseName",
+            "locale"
+          ]
+        },
+        {
+          "name": "getBundle",
+          "startLine": 354,
+          "endLine": 407,
+          "params": [
+            "baseName",
+            "locale",
+            "classLoader"
+          ]
+        },
+        {
+          "name": "getLocale",
+          "startLine": 414,
+          "endLine": 417,
+          "params": []
+        },
+        {
+          "name": "setParent",
+          "startLine": 424,
+          "endLine": 428,
+          "params": [
+            "parent"
+          ]
+        },
+        {
+          "name": "handleGetObject",
+          "startLine": 442,
+          "endLine": 443,
+          "params": [
+            "key"
+          ]
+        },
+        {
+          "name": "getKeys",
+          "startLine": 449,
+          "endLine": 449,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "ResourceBundle",
+          "startLine": 74,
+          "endLine": 450,
+          "methods": [
+            "ResourceBundle",
+            "getString",
+            "getStringArray",
+            "getObject",
+            "getClassContext",
+            "getBundle",
+            "getBundle",
+            "getBundle",
+            "getLocale",
+            "setParent",
+            "handleGetObject",
+            "getKeys"
+          ],
+          "properties": [
+            "parent",
+            "locale"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "ResourceBundle",
+          "line": 93,
+          "isDefault": false
+        },
+        {
+          "name": "getString",
+          "line": 106,
+          "isDefault": false
+        },
+        {
+          "name": "getStringArray",
+          "line": 119,
+          "isDefault": false
+        },
+        {
+          "name": "getObject",
+          "line": 132,
+          "isDefault": false
+        },
+        {
+          "name": "getBundle",
+          "line": 172,
+          "isDefault": false
+        },
+        {
+          "name": "getBundle",
+          "line": 190,
+          "isDefault": false
+        },
+        {
+          "name": "getBundle",
+          "line": 354,
+          "isDefault": false
+        },
+        {
+          "name": "getLocale",
+          "line": 414,
+          "isDefault": false
+        },
+        {
+          "name": "getKeys",
+          "line": 449,
+          "isDefault": false
+        },
+        {
+          "name": "ResourceBundle",
+          "line": 74,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "getString",
+          "callee": "getObject",
+          "lineNumber": 108
+        },
+        {
+          "caller": "getStringArray",
+          "callee": "getObject",
+          "lineNumber": 122
+        },
+        {
+          "caller": "getObject",
+          "callee": "bundle.handleGetObject",
+          "lineNumber": 138
+        },
+        {
+          "caller": "getObject",
+          "callee": "new MissingResourceException",
+          "lineNumber": 146
+        },
+        {
+          "caller": "getObject",
+          "callee": "getClass().getName",
+          "lineNumber": 147
+        },
+        {
+          "caller": "getObject",
+          "callee": "getClass",
+          "lineNumber": 147
+        },
+        {
+          "caller": "getClassContext",
+          "callee": "new Error",
+          "lineNumber": 162
+        },
+        {
+          "caller": "getBundle",
+          "callee": "new Error",
+          "lineNumber": 175
+        },
+        {
+          "caller": "getBundle",
+          "callee": "new MissingResourceException",
+          "lineNumber": 196
+        },
+        {
+          "caller": "getBundle",
+          "callee": "new Error",
+          "lineNumber": 359
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 10,
+        "functionCount": 12,
+        "classCount": 1
+      }
+    }
+  ]
+}

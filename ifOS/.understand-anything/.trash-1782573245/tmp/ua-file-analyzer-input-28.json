@@ -1,0 +1,155 @@
+{
+  "projectRoot": "/Users/xuyi/Source/OS/armOS/lib/jcore/test/ifOS",
+  "batchFiles": [
+    {
+      "path": "src/jx/net/PacketsConsumer1.ctxt",
+      "language": "ctxt",
+      "sizeLines": 11,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/net/PacketsConsumer1.java",
+      "language": "java",
+      "sizeLines": 18,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/net/PacketsProducer.ctxt",
+      "language": "ctxt",
+      "sizeLines": 5,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/net/rdp/crypto/Key.ctxt",
+      "language": "ctxt",
+      "sizeLines": 13,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/net/rdp/crypto/Key.java",
+      "language": "java",
+      "sizeLines": 113,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/net/rdp/crypto/package.bluej",
+      "language": "bluej",
+      "sizeLines": 27,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/net/rdp/orders/Order.ctxt",
+      "language": "ctxt",
+      "sizeLines": 3,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/net/rdp/orders/Order.java",
+      "language": "java",
+      "sizeLines": 4,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/net/rdp/orders/package.bluej",
+      "language": "bluej",
+      "sizeLines": 27,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/net/rdp/package.bluej",
+      "language": "bluej",
+      "sizeLines": 32,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/net/rpc/package.bluej",
+      "language": "bluej",
+      "sizeLines": 76,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/net/rpc/RPCData.ctxt",
+      "language": "ctxt",
+      "sizeLines": 3,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/net/rpc/RPCData.java",
+      "language": "java",
+      "sizeLines": 4,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/net/rpc/RPCEnum.ctxt",
+      "language": "ctxt",
+      "sizeLines": 3,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/net/rpc/RPCEnum.java",
+      "language": "java",
+      "sizeLines": 4,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/net/rpc/RPCOpaque.ctxt",
+      "language": "ctxt",
+      "sizeLines": 4,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/net/rpc/RPCOpaque.java",
+      "language": "java",
+      "sizeLines": 8,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/net/rpc/RPCOptional.ctxt",
+      "language": "ctxt",
+      "sizeLines": 3,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/net/rpc/RPCOptional.java",
+      "language": "java",
+      "sizeLines": 4,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/net/rpc/RPCProc.ctxt",
+      "language": "ctxt",
+      "sizeLines": 3,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/net/rpc/RPCReader.ctxt",
+      "language": "ctxt",
+      "sizeLines": 5,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/net/rpc/RPCReader.java",
+      "language": "java",
+      "sizeLines": 5,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/net/rpc/RPCUnion.ctxt",
+      "language": "ctxt",
+      "sizeLines": 3,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/net/rpc/RPCUnion.java",
+      "language": "java",
+      "sizeLines": 4,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/net/rpc/RPCWriter.ctxt",
+      "language": "ctxt",
+      "sizeLines": 5,
+      "fileCategory": "code"
+    }
+  ]
+}

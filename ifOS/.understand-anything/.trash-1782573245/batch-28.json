@@ -1,0 +1,109 @@
+{
+  "nodes": [
+    {
+      "id": "file:undefined",
+      "type": "file"
+    },
+    {
+      "id": "class:PacketsConsumer1:undefined",
+      "type": "class",
+      "label": "PacketsConsumer1"
+    },
+    {
+      "id": "class:Key:undefined",
+      "type": "class",
+      "label": "Key"
+    },
+    {
+      "id": "class:Order:undefined",
+      "type": "class",
+      "label": "Order"
+    },
+    {
+      "id": "class:RPCData:undefined",
+      "type": "class",
+      "label": "RPCData"
+    },
+    {
+      "id": "class:RPCEnum:undefined",
+      "type": "class",
+      "label": "RPCEnum"
+    },
+    {
+      "id": "class:RPCOpaque:undefined",
+      "type": "class",
+      "label": "RPCOpaque"
+    },
+    {
+      "id": "class:RPCOptional:undefined",
+      "type": "class",
+      "label": "RPCOptional"
+    },
+    {
+      "id": "class:RPCReader:undefined",
+      "type": "class",
+      "label": "RPCReader"
+    },
+    {
+      "id": "class:RPCUnion:undefined",
+      "type": "class",
+      "label": "RPCUnion"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:undefined",
+      "target": "class:PacketsConsumer1:undefined",
+      "type": "contains",
+      "weight": 1
+    },
+    {
+      "source": "file:undefined",
+      "target": "class:Key:undefined",
+      "type": "contains",
+      "weight": 1
+    },
+    {
+      "source": "file:undefined",
+      "target": "class:Order:undefined",
+      "type": "contains",
+      "weight": 1
+    },
+    {
+      "source": "file:undefined",
+      "target": "class:RPCData:undefined",
+      "type": "contains",
+      "weight": 1
+    },
+    {
+      "source": "file:undefined",
+      "target": "class:RPCEnum:undefined",
+      "type": "contains",
+      "weight": 1
+    },
+    {
+      "source": "file:undefined",
+      "target": "class:RPCOpaque:undefined",
+      "type": "contains",
+      "weight": 1
+    },
+    {
+      "source": "file:undefined",
+      "target": "class:RPCOptional:undefined",
+      "type": "contains",
+      "weight": 1
+    },
+    {
+      "source": "file:undefined",
+      "target": "class:RPCReader:undefined",
+      "type": "contains",
+      "weight": 1
+    },
+    {
+      "source": "file:undefined",
+      "target": "class:RPCUnion:undefined",
+      "type": "contains",
+      "weight": 1
+    }
+  ]
+}

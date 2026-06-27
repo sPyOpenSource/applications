@@ -1,0 +1,156 @@
+{
+  "projectRoot": "/Users/xuyi/Source/OS/armOS/lib/jcore/test/ifOS",
+  "batchFiles": [
+    {
+      "path": "src/jx/devices/DeviceConfigurationTemplate.java",
+      "language": "java",
+      "sizeLines": 11,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/devices/DeviceFinder.ctxt",
+      "language": "ctxt",
+      "sizeLines": 5,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/devices/DeviceFinder.java",
+      "language": "java",
+      "sizeLines": 7,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/devices/framebuffer/ClippingRectangle.ctxt",
+      "language": "ctxt",
+      "sizeLines": 4,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/devices/framebuffer/ClippingRectangle.java",
+      "language": "java",
+      "sizeLines": 10,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/devices/framebuffer/ClippingTransformer.ctxt",
+      "language": "ctxt",
+      "sizeLines": 5,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/devices/framebuffer/ClippingTransformer.java",
+      "language": "java",
+      "sizeLines": 5,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/devices/framebuffer/package.bluej",
+      "language": "bluej",
+      "sizeLines": 44,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/devices/framebuffer/PackedFramebuffer.ctxt",
+      "language": "ctxt",
+      "sizeLines": 29,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/devices/framebuffer/PackedFramebuffer.java",
+      "language": "java",
+      "sizeLines": 23,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/devices/ide/IDEDevice.ctxt",
+      "language": "ctxt",
+      "sizeLines": 13,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/devices/ide/package.bluej",
+      "language": "bluej",
+      "sizeLines": 27,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/devices/Keyboard.ctxt",
+      "language": "ctxt",
+      "sizeLines": 9,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/devices/Keyboard.java",
+      "language": "java",
+      "sizeLines": 9,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/devices/KeyListener.ctxt",
+      "language": "ctxt",
+      "sizeLines": 5,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/devices/KeyListener.java",
+      "language": "java",
+      "sizeLines": 7,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/devices/Mouse.ctxt",
+      "language": "ctxt",
+      "sizeLines": 3,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/devices/Mouse.java",
+      "language": "java",
+      "sizeLines": 4,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/devices/net/NetworkDevice.ctxt",
+      "language": "ctxt",
+      "sizeLines": 15,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/devices/net/package.bluej",
+      "language": "bluej",
+      "sizeLines": 55,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/devices/net/PacketsProducer.ctxt",
+      "language": "ctxt",
+      "sizeLines": 5,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/devices/net/PacketsProducer.java",
+      "language": "java",
+      "sizeLines": 5,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/devices/net/PacketsQueue.ctxt",
+      "language": "ctxt",
+      "sizeLines": 3,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/devices/net/PacketsQueue.java",
+      "language": "java",
+      "sizeLines": 4,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/devices/net/PacketsQueueConsumer.ctxt",
+      "language": "ctxt",
+      "sizeLines": 10,
+      "fileCategory": "code"
+    }
+  ],
+  "batchImportData": {}
+}

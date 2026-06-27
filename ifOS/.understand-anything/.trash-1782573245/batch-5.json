@@ -1,0 +1,436 @@
+{
+  "batchIndex": 5,
+  "projectName": "ifOS",
+  "nodes": [
+    {
+      "id": "file:src/java/io/ObjectStreamException.java",
+      "type": "file",
+      "name": "ObjectStreamException.java",
+      "filePath": "src/java/io/ObjectStreamException.java",
+      "summary": "ObjectStreamException.java - java code file",
+      "tags": [
+        "java",
+        "io"
+      ],
+      "complexity": "low",
+      "sizeLines": 70,
+      "language": "java"
+    },
+    {
+      "id": "class:src/java/io/ObjectStreamException.java:ObjectStreamException",
+      "type": "class",
+      "name": "ObjectStreamException",
+      "filePath": "src/java/io/ObjectStreamException.java",
+      "summary": "Class ObjectStreamException with 2 methods",
+      "tags": [
+        "java",
+        "io"
+      ],
+      "complexity": "low",
+      "methods": 2
+    },
+    {
+      "id": "file:src/java/lang/Enum.java",
+      "type": "file",
+      "name": "Enum.java",
+      "filePath": "src/java/lang/Enum.java",
+      "summary": "Enum.java - java code file",
+      "tags": [
+        "java",
+        "lang"
+      ],
+      "complexity": "medium",
+      "sizeLines": 240,
+      "language": "java"
+    },
+    {
+      "id": "class:src/java/lang/Enum.java:Enum",
+      "type": "class",
+      "name": "Enum",
+      "filePath": "src/java/lang/Enum.java",
+      "summary": "Class Enum with 13 methods",
+      "tags": [
+        "java",
+        "lang"
+      ],
+      "complexity": "medium",
+      "methods": 13
+    },
+    {
+      "id": "function:src/java/lang/Enum.java:valueOf",
+      "type": "function",
+      "name": "valueOf",
+      "filePath": "src/java/lang/Enum.java",
+      "summary": "Function valueOf",
+      "tags": [
+        "java",
+        "lang"
+      ],
+      "complexity": "low"
+    },
+    {
+      "id": "file:src/java/security/PublicKey.java",
+      "type": "file",
+      "name": "PublicKey.java",
+      "filePath": "src/java/security/PublicKey.java",
+      "summary": "PublicKey.java - java code file",
+      "tags": [
+        "java",
+        "security"
+      ],
+      "complexity": "low",
+      "sizeLines": 47,
+      "language": "java"
+    },
+    {
+      "id": "class:src/java/security/PublicKey.java:PublicKey",
+      "type": "class",
+      "name": "PublicKey",
+      "filePath": "src/java/security/PublicKey.java",
+      "summary": "Class PublicKey with 0 methods",
+      "tags": [
+        "java",
+        "security"
+      ],
+      "complexity": "low",
+      "methods": 0
+    },
+    {
+      "id": "file:src/java/security/cert/Certificate.java",
+      "type": "file",
+      "name": "Certificate.java",
+      "filePath": "src/java/security/cert/Certificate.java",
+      "summary": "Certificate.java - java code file",
+      "tags": [
+        "java",
+        "security"
+      ],
+      "complexity": "medium",
+      "sizeLines": 237,
+      "language": "java"
+    },
+    {
+      "id": "class:src/java/security/cert/Certificate.java:Certificate",
+      "type": "class",
+      "name": "Certificate",
+      "filePath": "src/java/security/cert/Certificate.java",
+      "summary": "Class Certificate with 9 methods",
+      "tags": [
+        "java",
+        "security"
+      ],
+      "complexity": "medium",
+      "methods": 9
+    },
+    {
+      "id": "function:src/java/security/cert/Certificate.java:equals",
+      "type": "function",
+      "name": "equals",
+      "filePath": "src/java/security/cert/Certificate.java",
+      "summary": "Function equals",
+      "tags": [
+        "java",
+        "security"
+      ],
+      "complexity": "low"
+    },
+    {
+      "id": "file:src/java/security/cert/X509CRL.java",
+      "type": "file",
+      "name": "X509CRL.java",
+      "filePath": "src/java/security/cert/X509CRL.java",
+      "summary": "X509CRL.java - java code file",
+      "tags": [
+        "java",
+        "security"
+      ],
+      "complexity": "medium",
+      "sizeLines": 377,
+      "language": "java"
+    },
+    {
+      "id": "class:src/java/security/cert/X509CRL.java:X509CRL",
+      "type": "class",
+      "name": "X509CRL",
+      "filePath": "src/java/security/cert/X509CRL.java",
+      "summary": "Class X509CRL with 21 methods",
+      "tags": [
+        "java",
+        "security"
+      ],
+      "complexity": "medium",
+      "methods": 21
+    },
+    {
+      "id": "function:src/java/security/cert/X509CRL.java:equals",
+      "type": "function",
+      "name": "equals",
+      "filePath": "src/java/security/cert/X509CRL.java",
+      "summary": "Function equals",
+      "tags": [
+        "java",
+        "security"
+      ],
+      "complexity": "low"
+    },
+    {
+      "id": "file:src/java/security/interfaces/DSAPublicKey.java",
+      "type": "file",
+      "name": "DSAPublicKey.java",
+      "filePath": "src/java/security/interfaces/DSAPublicKey.java",
+      "summary": "DSAPublicKey.java - java code file",
+      "tags": [
+        "java",
+        "security"
+      ],
+      "complexity": "low",
+      "sizeLines": 61,
+      "language": "java"
+    },
+    {
+      "id": "class:src/java/security/interfaces/DSAPublicKey.java:DSAPublicKey",
+      "type": "class",
+      "name": "DSAPublicKey",
+      "filePath": "src/java/security/interfaces/DSAPublicKey.java",
+      "summary": "Class DSAPublicKey with 1 methods",
+      "tags": [
+        "java",
+        "security"
+      ],
+      "complexity": "low",
+      "methods": 1
+    },
+    {
+      "id": "file:src/java/security/interfaces/RSAPublicKey.java",
+      "type": "file",
+      "name": "RSAPublicKey.java",
+      "filePath": "src/java/security/interfaces/RSAPublicKey.java",
+      "summary": "RSAPublicKey.java - java code file",
+      "tags": [
+        "java",
+        "security"
+      ],
+      "complexity": "low",
+      "sizeLines": 54,
+      "language": "java"
+    },
+    {
+      "id": "class:src/java/security/interfaces/RSAPublicKey.java:RSAPublicKey",
+      "type": "class",
+      "name": "RSAPublicKey",
+      "filePath": "src/java/security/interfaces/RSAPublicKey.java",
+      "summary": "Class RSAPublicKey with 1 methods",
+      "tags": [
+        "java",
+        "security"
+      ],
+      "complexity": "low",
+      "methods": 1
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/java/io/ObjectStreamException.java",
+      "target": "class:src/java/io/ObjectStreamException.java:ObjectStreamException",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/io/ObjectStreamException.java",
+      "target": "class:src/java/io/ObjectStreamException.java:ObjectStreamException",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/lang/Enum.java",
+      "target": "class:src/java/lang/Enum.java:Enum",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/lang/Enum.java",
+      "target": "class:src/java/lang/Enum.java:Enum",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/lang/Enum.java",
+      "target": "function:src/java/lang/Enum.java:valueOf",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/lang/Enum.java",
+      "target": "function:src/java/lang/Enum.java:valueOf",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/security/PublicKey.java",
+      "target": "class:src/java/security/PublicKey.java:PublicKey",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/security/PublicKey.java",
+      "target": "class:src/java/security/PublicKey.java:PublicKey",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/security/cert/Certificate.java",
+      "target": "class:src/java/security/cert/Certificate.java:Certificate",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/security/cert/Certificate.java",
+      "target": "class:src/java/security/cert/Certificate.java:Certificate",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/security/cert/Certificate.java",
+      "target": "function:src/java/security/cert/Certificate.java:equals",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/security/cert/Certificate.java",
+      "target": "function:src/java/security/cert/Certificate.java:equals",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/security/cert/X509CRL.java",
+      "target": "class:src/java/security/cert/X509CRL.java:X509CRL",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/security/cert/X509CRL.java",
+      "target": "class:src/java/security/cert/X509CRL.java:X509CRL",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/security/cert/X509CRL.java",
+      "target": "function:src/java/security/cert/X509CRL.java:equals",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/security/cert/X509CRL.java",
+      "target": "function:src/java/security/cert/X509CRL.java:equals",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/security/interfaces/DSAPublicKey.java",
+      "target": "class:src/java/security/interfaces/DSAPublicKey.java:DSAPublicKey",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/security/interfaces/DSAPublicKey.java",
+      "target": "class:src/java/security/interfaces/DSAPublicKey.java:DSAPublicKey",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/security/interfaces/RSAPublicKey.java",
+      "target": "class:src/java/security/interfaces/RSAPublicKey.java:RSAPublicKey",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/security/interfaces/RSAPublicKey.java",
+      "target": "class:src/java/security/interfaces/RSAPublicKey.java:RSAPublicKey",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/lang/Enum.java",
+      "target": "file:src/java/io/ObjectStreamException.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/java/lang/Enum.java",
+      "target": "file:src/java/io/Serializable.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/java/security/cert/Certificate.java",
+      "target": "file:src/java/io/ObjectStreamException.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/java/security/cert/Certificate.java",
+      "target": "file:src/java/security/PublicKey.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/java/security/cert/X509CRL.java",
+      "target": "file:src/java/security/Principal.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/java/security/cert/X509CRL.java",
+      "target": "file:src/java/security/PublicKey.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/java/security/cert/X509CRL.java",
+      "target": "file:src/java/util/Set.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/java/security/interfaces/DSAPublicKey.java",
+      "target": "file:src/java/security/PublicKey.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/java/security/interfaces/RSAPublicKey.java",
+      "target": "file:src/java/security/PublicKey.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

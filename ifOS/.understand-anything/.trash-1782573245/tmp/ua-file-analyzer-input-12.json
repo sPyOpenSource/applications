@@ -1,0 +1,15 @@
+{
+  "projectRoot": "/Users/xuyi/Source/OS/armOS/lib/jcore/test/ifOS",
+  "batchIndex": 12,
+  "batchFiles": [
+    {"path": "src/jx/devices/Bus.java", "language": "java", "sizeLines": 5, "fileCategory": "code"},
+    {"path": "src/jx/devices/ide/IDEDevice.java", "language": "java", "sizeLines": 46, "fileCategory": "code"},
+    {"path": "src/jx/devices/pci/PCIDevice.java", "language": "java", "sizeLines": 56, "fileCategory": "code"}
+  ],
+  "batchImportData": {
+    "src/jx/devices/Bus.java": [],
+    "src/jx/devices/ide/IDEDevice.java": ["src/jx/devices/Bus.java"],
+    "src/jx/devices/pci/PCIDevice.java": ["src/jx/devices/Bus.java"]
+  },
+  "neighborMap": {}
+}

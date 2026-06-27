@@ -1,0 +1,1293 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 25,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "src/java/net/ContentHandlerFactory.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 51,
+      "nonEmptyLines": 41,
+      "classes": [
+        {
+          "name": "ContentHandlerFactory",
+          "startLine": 37,
+          "endLine": 50,
+          "methods": [
+            "createContentHandler"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "ContentHandlerFactory",
+          "line": 37,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/net/FileNameMap.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 51,
+      "nonEmptyLines": 40,
+      "classes": [
+        {
+          "name": "FileNameMap",
+          "startLine": 36,
+          "endLine": 50,
+          "methods": [
+            "getContentTypeFor"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "FileNameMap",
+          "line": 36,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/net/package.bluej",
+      "language": "bluej",
+      "fileCategory": "code",
+      "totalLines": 51,
+      "nonEmptyLines": 51,
+      "metrics": {}
+    },
+    {
+      "path": "src/java/net/URLStreamHandlerFactory.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 51,
+      "nonEmptyLines": 41,
+      "classes": [
+        {
+          "name": "URLStreamHandlerFactory",
+          "startLine": 36,
+          "endLine": 50,
+          "methods": [
+            "createURLStreamHandler"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "URLStreamHandlerFactory",
+          "line": 36,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/nio/package.bluej",
+      "language": "bluej",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 0,
+      "metrics": {}
+    },
+    {
+      "path": "src/java/package.bluej",
+      "language": "bluej",
+      "fileCategory": "code",
+      "totalLines": 86,
+      "nonEmptyLines": 86,
+      "metrics": {}
+    },
+    {
+      "path": "src/java/security/acl/package.bluej",
+      "language": "bluej",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 0,
+      "metrics": {}
+    },
+    {
+      "path": "src/java/security/acl/Permission.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 64,
+      "nonEmptyLines": 51,
+      "classes": [
+        {
+          "name": "Permission",
+          "startLine": 39,
+          "endLine": 63,
+          "methods": [
+            "equals",
+            "toString"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "Permission",
+          "line": 39,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/security/cert/CRL.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 86,
+      "nonEmptyLines": 65,
+      "functions": [
+        {
+          "name": "CRL",
+          "startLine": 53,
+          "endLine": 56,
+          "params": [
+            "type"
+          ]
+        },
+        {
+          "name": "getType",
+          "startLine": 63,
+          "endLine": 66,
+          "params": []
+        },
+        {
+          "name": "toString",
+          "startLine": 72,
+          "endLine": 73,
+          "params": []
+        },
+        {
+          "name": "isRevoked",
+          "startLine": 84,
+          "endLine": 84,
+          "params": [
+            "cert"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "CRL",
+          "startLine": 42,
+          "endLine": 86,
+          "methods": [
+            "CRL",
+            "getType",
+            "toString",
+            "isRevoked"
+          ],
+          "properties": [
+            "type"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "getType",
+          "line": 63,
+          "isDefault": false
+        },
+        {
+          "name": "toString",
+          "line": 72,
+          "isDefault": false
+        },
+        {
+          "name": "isRevoked",
+          "line": 84,
+          "isDefault": false
+        },
+        {
+          "name": "CRL",
+          "line": 42,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 4,
+        "functionCount": 4,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/security/cert/Makefile.am",
+      "language": "am",
+      "fileCategory": "code",
+      "totalLines": 19,
+      "nonEmptyLines": 16,
+      "metrics": {}
+    },
+    {
+      "path": "src/java/security/cert/Makefile.in",
+      "language": "in",
+      "fileCategory": "code",
+      "totalLines": 221,
+      "nonEmptyLines": 181,
+      "metrics": {}
+    },
+    {
+      "path": "src/java/security/cert/package.bluej",
+      "language": "bluej",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 0,
+      "metrics": {}
+    },
+    {
+      "path": "src/java/security/DomainCombiner.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 54,
+      "nonEmptyLines": 43,
+      "classes": [
+        {
+          "name": "DomainCombiner",
+          "startLine": 42,
+          "endLine": 54,
+          "methods": [
+            "combine"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "DomainCombiner",
+          "line": 42,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/security/Guard.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 54,
+      "nonEmptyLines": 43,
+      "classes": [
+        {
+          "name": "Guard",
+          "startLine": 38,
+          "endLine": 53,
+          "methods": [
+            "checkGuard"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "Guard",
+          "line": 38,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/security/interfaces/DSAKey.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 50,
+      "nonEmptyLines": 39,
+      "classes": [
+        {
+          "name": "DSAKey",
+          "startLine": 38,
+          "endLine": 49,
+          "methods": [
+            "getParams"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "DSAKey",
+          "line": 38,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/security/interfaces/DSAKeyPairGenerator.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 81,
+      "nonEmptyLines": 67,
+      "classes": [
+        {
+          "name": "DSAKeyPairGenerator",
+          "startLine": 44,
+          "endLine": 80,
+          "methods": [
+            "initialize",
+            "initialize"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "DSAKeyPairGenerator",
+          "line": 44,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/security/interfaces/DSAParams.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 72,
+      "nonEmptyLines": 56,
+      "classes": [
+        {
+          "name": "DSAParams",
+          "startLine": 40,
+          "endLine": 71,
+          "methods": [
+            "getG",
+            "getP",
+            "getQ"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "DSAParams",
+          "line": 40,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/security/interfaces/package.bluej",
+      "language": "bluej",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 0,
+      "metrics": {}
+    },
+    {
+      "path": "src/java/security/interfaces/RSAKey.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 45,
+      "nonEmptyLines": 34,
+      "classes": [
+        {
+          "name": "RSAKey",
+          "startLine": 37,
+          "endLine": 45,
+          "methods": [
+            "getModulus"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "RSAKey",
+          "line": 37,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/security/interfaces/RSAPrivateCrtKey.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 102,
+      "nonEmptyLines": 80,
+      "classes": [
+        {
+          "name": "RSAPrivateCrtKey",
+          "startLine": 40,
+          "endLine": 101,
+          "methods": [
+            "getPublicExponent",
+            "getPrimeP",
+            "getPrimeQ",
+            "getPrimeExponentP",
+            "getPrimeExponentQ",
+            "getCrtCoefficient"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "RSAPrivateCrtKey",
+          "line": 40,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/security/KeyFactorySpi.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 122,
+      "nonEmptyLines": 90,
+      "functions": [
+        {
+          "name": "KeyFactorySpi",
+          "startLine": 59,
+          "endLine": 60,
+          "params": []
+        },
+        {
+          "name": "engineGeneratePublic",
+          "startLine": 72,
+          "endLine": 73,
+          "params": [
+            "keySpec"
+          ]
+        },
+        {
+          "name": "engineGeneratePrivate",
+          "startLine": 86,
+          "endLine": 87,
+          "params": [
+            "keySpec"
+          ]
+        },
+        {
+          "name": "engineGetKeySpec",
+          "startLine": 105,
+          "endLine": 106,
+          "params": [
+            "key",
+            "keySpec"
+          ]
+        },
+        {
+          "name": "engineTranslateKey",
+          "startLine": 120,
+          "endLine": 121,
+          "params": [
+            "key"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "KeyFactorySpi",
+          "startLine": 53,
+          "endLine": 122,
+          "methods": [
+            "KeyFactorySpi",
+            "engineGeneratePublic",
+            "engineGeneratePrivate",
+            "engineGetKeySpec",
+            "engineTranslateKey"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "KeyFactorySpi",
+          "line": 59,
+          "isDefault": false
+        },
+        {
+          "name": "KeyFactorySpi",
+          "line": 53,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 5,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/security/MessageDigest.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 315,
+      "nonEmptyLines": 256,
+      "functions": [
+        {
+          "name": "MessageDigest",
+          "startLine": 42,
+          "endLine": 46,
+          "params": [
+            "algorithm"
+          ]
+        },
+        {
+          "name": "getInstance",
+          "startLine": 58,
+          "endLine": 71,
+          "params": [
+            "algorithm"
+          ]
+        },
+        {
+          "name": "getInstance",
+          "startLine": 88,
+          "endLine": 98,
+          "params": [
+            "algorithm",
+            "provider"
+          ]
+        },
+        {
+          "name": "getInstance",
+          "startLine": 100,
+          "endLine": 128,
+          "params": [
+            "classname",
+            "algorithm",
+            "provider"
+          ]
+        },
+        {
+          "name": "getProvider",
+          "startLine": 136,
+          "endLine": 139,
+          "params": []
+        },
+        {
+          "name": "update",
+          "startLine": 146,
+          "endLine": 149,
+          "params": [
+            "input"
+          ]
+        },
+        {
+          "name": "update",
+          "startLine": 159,
+          "endLine": 162,
+          "params": [
+            "input",
+            "offset",
+            "len"
+          ]
+        },
+        {
+          "name": "update",
+          "startLine": 169,
+          "endLine": 172,
+          "params": [
+            "input"
+          ]
+        },
+        {
+          "name": "digest",
+          "startLine": 179,
+          "endLine": 182,
+          "params": []
+        },
+        {
+          "name": "digest",
+          "startLine": 193,
+          "endLine": 196,
+          "params": [
+            "buf",
+            "offset",
+            "len"
+          ]
+        },
+        {
+          "name": "digest",
+          "startLine": 206,
+          "endLine": 210,
+          "params": [
+            "input"
+          ]
+        },
+        {
+          "name": "toString",
+          "startLine": 217,
+          "endLine": 221,
+          "params": []
+        },
+        {
+          "name": "isEqual",
+          "startLine": 230,
+          "endLine": 240,
+          "params": [
+            "digesta",
+            "digestb"
+          ]
+        },
+        {
+          "name": "reset",
+          "startLine": 246,
+          "endLine": 249,
+          "params": []
+        },
+        {
+          "name": "getAlgorithm",
+          "startLine": 257,
+          "endLine": 260,
+          "params": []
+        },
+        {
+          "name": "getDigestLength",
+          "startLine": 269,
+          "endLine": 272,
+          "params": []
+        },
+        {
+          "name": "clone",
+          "startLine": 285,
+          "endLine": 291,
+          "params": []
+        },
+        {
+          "name": "digestToString",
+          "startLine": 293,
+          "endLine": 313,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "MessageDigest",
+          "startLine": 30,
+          "endLine": 315,
+          "methods": [
+            "MessageDigest",
+            "getInstance",
+            "getInstance",
+            "getInstance",
+            "getProvider",
+            "update",
+            "update",
+            "update",
+            "digest",
+            "digest",
+            "digest",
+            "toString",
+            "isEqual",
+            "reset",
+            "getAlgorithm",
+            "getDigestLength",
+            "clone",
+            "digestToString"
+          ],
+          "properties": [
+            "algorithm",
+            "provider",
+            "lastDigest"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "getInstance",
+          "line": 58,
+          "isDefault": false
+        },
+        {
+          "name": "getInstance",
+          "line": 88,
+          "isDefault": false
+        },
+        {
+          "name": "getProvider",
+          "line": 136,
+          "isDefault": false
+        },
+        {
+          "name": "update",
+          "line": 146,
+          "isDefault": false
+        },
+        {
+          "name": "update",
+          "line": 159,
+          "isDefault": false
+        },
+        {
+          "name": "update",
+          "line": 169,
+          "isDefault": false
+        },
+        {
+          "name": "digest",
+          "line": 179,
+          "isDefault": false
+        },
+        {
+          "name": "digest",
+          "line": 193,
+          "isDefault": false
+        },
+        {
+          "name": "digest",
+          "line": 206,
+          "isDefault": false
+        },
+        {
+          "name": "toString",
+          "line": 217,
+          "isDefault": false
+        },
+        {
+          "name": "isEqual",
+          "line": 230,
+          "isDefault": false
+        },
+        {
+          "name": "reset",
+          "line": 246,
+          "isDefault": false
+        },
+        {
+          "name": "getAlgorithm",
+          "line": 257,
+          "isDefault": false
+        },
+        {
+          "name": "getDigestLength",
+          "line": 269,
+          "isDefault": false
+        },
+        {
+          "name": "clone",
+          "line": 285,
+          "isDefault": false
+        },
+        {
+          "name": "MessageDigest",
+          "line": 30,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "getInstance",
+          "callee": "Security.getProviders",
+          "lineNumber": 61
+        },
+        {
+          "caller": "getInstance",
+          "callee": "p[i].getProperty",
+          "lineNumber": 65
+        },
+        {
+          "caller": "getInstance",
+          "callee": "getInstance",
+          "lineNumber": 67
+        },
+        {
+          "caller": "getInstance",
+          "callee": "new NoSuchAlgorithmException",
+          "lineNumber": 70
+        },
+        {
+          "caller": "getInstance",
+          "callee": "Security.getProvider",
+          "lineNumber": 91
+        },
+        {
+          "caller": "getInstance",
+          "callee": "new NoSuchProviderException",
+          "lineNumber": 94
+        },
+        {
+          "caller": "getInstance",
+          "callee": "getInstance",
+          "lineNumber": 96
+        },
+        {
+          "caller": "getInstance",
+          "callee": "p.getProperty",
+          "lineNumber": 96
+        },
+        {
+          "caller": "getInstance",
+          "callee": "new NoSuchAlgorithmException",
+          "lineNumber": 106
+        },
+        {
+          "caller": "getInstance",
+          "callee": "Class.forName (classname).newInstance",
+          "lineNumber": 110
+        },
+        {
+          "caller": "getInstance",
+          "callee": "Class.forName",
+          "lineNumber": 110
+        },
+        {
+          "caller": "getInstance",
+          "callee": "new NoSuchAlgorithmException",
+          "lineNumber": 117
+        },
+        {
+          "caller": "getInstance",
+          "callee": "new NoSuchAlgorithmException",
+          "lineNumber": 121
+        },
+        {
+          "caller": "getInstance",
+          "callee": "new NoSuchAlgorithmException",
+          "lineNumber": 126
+        },
+        {
+          "caller": "update",
+          "callee": "engineUpdate",
+          "lineNumber": 148
+        },
+        {
+          "caller": "update",
+          "callee": "engineUpdate",
+          "lineNumber": 161
+        },
+        {
+          "caller": "update",
+          "callee": "engineUpdate",
+          "lineNumber": 171
+        },
+        {
+          "caller": "digest",
+          "callee": "engineDigest",
+          "lineNumber": 181
+        },
+        {
+          "caller": "digest",
+          "callee": "engineDigest",
+          "lineNumber": 195
+        },
+        {
+          "caller": "digest",
+          "callee": "update",
+          "lineNumber": 208
+        },
+        {
+          "caller": "digest",
+          "callee": "digest",
+          "lineNumber": 209
+        },
+        {
+          "caller": "toString",
+          "callee": "(getClass ()).getName",
+          "lineNumber": 219
+        },
+        {
+          "caller": "toString",
+          "callee": "getClass",
+          "lineNumber": 219
+        },
+        {
+          "caller": "toString",
+          "callee": "digestToString",
+          "lineNumber": 220
+        },
+        {
+          "caller": "reset",
+          "callee": "engineReset",
+          "lineNumber": 248
+        },
+        {
+          "caller": "getDigestLength",
+          "callee": "engineGetDigestLength",
+          "lineNumber": 271
+        },
+        {
+          "caller": "clone",
+          "callee": "super.clone",
+          "lineNumber": 288
+        },
+        {
+          "caller": "clone",
+          "callee": "new CloneNotSupportedException",
+          "lineNumber": 290
+        },
+        {
+          "caller": "digestToString",
+          "callee": "new StringBuffer",
+          "lineNumber": 300
+        },
+        {
+          "caller": "digestToString",
+          "callee": "buf.append",
+          "lineNumber": 308
+        },
+        {
+          "caller": "digestToString",
+          "callee": "buf.append",
+          "lineNumber": 309
+        },
+        {
+          "caller": "digestToString",
+          "callee": "buf.toString",
+          "lineNumber": 312
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 16,
+        "functionCount": 18,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/security/MessageDigestSpi.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 148,
+      "nonEmptyLines": 116,
+      "functions": [
+        {
+          "name": "MessageDigestSpi",
+          "startLine": 54,
+          "endLine": 54,
+          "params": []
+        },
+        {
+          "name": "engineGetDigestLength",
+          "startLine": 66,
+          "endLine": 69,
+          "params": []
+        },
+        {
+          "name": "engineUpdate",
+          "startLine": 76,
+          "endLine": 76,
+          "params": [
+            "input"
+          ]
+        },
+        {
+          "name": "engineUpdate",
+          "startLine": 87,
+          "endLine": 87,
+          "params": [
+            "input",
+            "offset",
+            "len"
+          ]
+        },
+        {
+          "name": "engineDigest",
+          "startLine": 96,
+          "endLine": 96,
+          "params": []
+        },
+        {
+          "name": "engineDigest",
+          "startLine": 112,
+          "endLine": 124,
+          "params": [
+            "buf",
+            "offset",
+            "len"
+          ]
+        },
+        {
+          "name": "engineReset",
+          "startLine": 130,
+          "endLine": 130,
+          "params": []
+        },
+        {
+          "name": "clone",
+          "startLine": 140,
+          "endLine": 146,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "MessageDigestSpi",
+          "startLine": 49,
+          "endLine": 148,
+          "methods": [
+            "MessageDigestSpi",
+            "engineGetDigestLength",
+            "engineUpdate",
+            "engineUpdate",
+            "engineDigest",
+            "engineDigest",
+            "engineReset",
+            "clone"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "MessageDigestSpi",
+          "line": 54,
+          "isDefault": false
+        },
+        {
+          "name": "clone",
+          "line": 140,
+          "isDefault": false
+        },
+        {
+          "name": "MessageDigestSpi",
+          "line": 49,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "engineDigest",
+          "callee": "engineGetDigestLength",
+          "lineNumber": 115
+        },
+        {
+          "caller": "engineDigest",
+          "callee": "new DigestException",
+          "lineNumber": 116
+        },
+        {
+          "caller": "engineDigest",
+          "callee": "engineDigest",
+          "lineNumber": 118
+        },
+        {
+          "caller": "engineDigest",
+          "callee": "new DigestException",
+          "lineNumber": 120
+        },
+        {
+          "caller": "engineDigest",
+          "callee": "System.arraycopy",
+          "lineNumber": 122
+        },
+        {
+          "caller": "clone",
+          "callee": "super.clone",
+          "lineNumber": 143
+        },
+        {
+          "caller": "clone",
+          "callee": "new CloneNotSupportedException",
+          "lineNumber": 145
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 8,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/security/package.bluej",
+      "language": "bluej",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 0,
+      "metrics": {}
+    },
+    {
+      "path": "src/java/security/Policy.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 146,
+      "nonEmptyLines": 115,
+      "functions": [
+        {
+          "name": "Policy",
+          "startLine": 80,
+          "endLine": 81,
+          "params": []
+        },
+        {
+          "name": "getPolicy",
+          "startLine": 96,
+          "endLine": 103,
+          "params": []
+        },
+        {
+          "name": "setPolicy",
+          "startLine": 117,
+          "endLine": 124,
+          "params": [
+            "policy"
+          ]
+        },
+        {
+          "name": "getPermissions",
+          "startLine": 139,
+          "endLine": 139,
+          "params": [
+            "codesource"
+          ]
+        },
+        {
+          "name": "refresh",
+          "startLine": 145,
+          "endLine": 145,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "Policy",
+          "startLine": 73,
+          "endLine": 146,
+          "methods": [
+            "Policy",
+            "getPolicy",
+            "setPolicy",
+            "getPermissions",
+            "refresh"
+          ],
+          "properties": [
+            "currentPolicy"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Policy",
+          "line": 80,
+          "isDefault": false
+        },
+        {
+          "name": "getPolicy",
+          "line": 96,
+          "isDefault": false
+        },
+        {
+          "name": "setPolicy",
+          "line": 117,
+          "isDefault": false
+        },
+        {
+          "name": "getPermissions",
+          "line": 139,
+          "isDefault": false
+        },
+        {
+          "name": "refresh",
+          "line": 145,
+          "isDefault": false
+        },
+        {
+          "name": "Policy",
+          "line": 73,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "getPolicy",
+          "callee": "System.getSecurityManager",
+          "lineNumber": 98
+        },
+        {
+          "caller": "getPolicy",
+          "callee": "sm.checkPermission",
+          "lineNumber": 100
+        },
+        {
+          "caller": "getPolicy",
+          "callee": "new SecurityPermission",
+          "lineNumber": 100
+        },
+        {
+          "caller": "setPolicy",
+          "callee": "System.getSecurityManager",
+          "lineNumber": 119
+        },
+        {
+          "caller": "setPolicy",
+          "callee": "sm.checkPermission",
+          "lineNumber": 121
+        },
+        {
+          "caller": "setPolicy",
+          "callee": "new SecurityPermission",
+          "lineNumber": 121
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 6,
+        "functionCount": 5,
+        "classCount": 1
+      }
+    }
+  ]
+}

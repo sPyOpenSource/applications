@@ -1,0 +1,1135 @@
+{
+  "projectRoot": "/Users/xuyi/Source/OS/armOS/lib/jcore/test/ifOS",
+  "projectName": "ifOS",
+  "languages": [
+    "java",
+    "xml",
+    "markdown",
+    "properties"
+  ],
+  "skillDir": "/Users/xuyi/.understand-anything-plugin/skills/understand",
+  "batches": [
+    {
+      "batchIndex": 24,
+      "files": [
+        {
+          "path": "src/jx/fs/buffer/multithread/package.bluej",
+          "language": "bluej",
+          "sizeLines": 47,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/buffer/package.bluej",
+          "language": "bluej",
+          "sizeLines": 49,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/buffer/separator/MemoryConsumer.ctxt",
+          "language": "ctxt",
+          "sizeLines": 6,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/buffer/separator/MemoryConsumer2.ctxt",
+          "language": "ctxt",
+          "sizeLines": 6,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/buffer/separator/MemoryConsumer2.java",
+          "language": "java",
+          "sizeLines": 18,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/buffer/separator/MemoryProducer.ctxt",
+          "language": "ctxt",
+          "sizeLines": 6,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/buffer/separator/MemoryProducer.java",
+          "language": "java",
+          "sizeLines": 12,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/buffer/separator/NonBlockingMemoryConsumer.ctxt",
+          "language": "ctxt",
+          "sizeLines": 8,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/buffer/separator/package.bluej",
+          "language": "bluej",
+          "sizeLines": 48,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/db/avltree/Comparable.ctxt",
+          "language": "ctxt",
+          "sizeLines": 6,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/db/avltree/Comparable.java",
+          "language": "java",
+          "sizeLines": 21,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/db/avltree/package.bluej",
+          "language": "bluej",
+          "sizeLines": 27,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/db/BufferList.ctxt",
+          "language": "ctxt",
+          "sizeLines": 19,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/db/BufferList.java",
+          "language": "java",
+          "sizeLines": 49,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/db/Database.ctxt",
+          "language": "ctxt",
+          "sizeLines": 33,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/db/Database.java",
+          "language": "java",
+          "sizeLines": 65,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/db/Index.ctxt",
+          "language": "ctxt",
+          "sizeLines": 14,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/db/Index.java",
+          "language": "java",
+          "sizeLines": 32,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/db/IndexInfo.ctxt",
+          "language": "ctxt",
+          "sizeLines": 12,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/db/IndexInfo.java",
+          "language": "java",
+          "sizeLines": 16,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/db/Key.ctxt",
+          "language": "ctxt",
+          "sizeLines": 21,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/db/Key.java",
+          "language": "java",
+          "sizeLines": 19,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/db/package.bluej",
+          "language": "bluej",
+          "sizeLines": 185,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/db/RelationalOperator.ctxt",
+          "language": "ctxt",
+          "sizeLines": 18,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/db/RelationalOperator.java",
+          "language": "java",
+          "sizeLines": 32,
+          "fileCategory": "code"
+        }
+      ],
+      "batchImportData": {
+        "src/jx/fs/buffer/multithread/package.bluej": [],
+        "src/jx/fs/buffer/package.bluej": [],
+        "src/jx/fs/buffer/separator/MemoryConsumer.ctxt": [],
+        "src/jx/fs/buffer/separator/MemoryConsumer2.ctxt": [],
+        "src/jx/fs/buffer/separator/MemoryConsumer2.java": [],
+        "src/jx/fs/buffer/separator/MemoryProducer.ctxt": [],
+        "src/jx/fs/buffer/separator/MemoryProducer.java": [],
+        "src/jx/fs/buffer/separator/NonBlockingMemoryConsumer.ctxt": [],
+        "src/jx/fs/buffer/separator/package.bluej": [],
+        "src/jx/fs/db/avltree/Comparable.ctxt": [],
+        "src/jx/fs/db/avltree/Comparable.java": [],
+        "src/jx/fs/db/avltree/package.bluej": [],
+        "src/jx/fs/db/BufferList.ctxt": [],
+        "src/jx/fs/db/BufferList.java": [],
+        "src/jx/fs/db/Database.ctxt": [],
+        "src/jx/fs/db/Database.java": [
+          "src/jx/fs/db/types/TypeManager.java"
+        ],
+        "src/jx/fs/db/Index.ctxt": [],
+        "src/jx/fs/db/Index.java": [],
+        "src/jx/fs/db/IndexInfo.ctxt": [],
+        "src/jx/fs/db/IndexInfo.java": [],
+        "src/jx/fs/db/Key.ctxt": [],
+        "src/jx/fs/db/Key.java": [],
+        "src/jx/fs/db/package.bluej": [],
+        "src/jx/fs/db/RelationalOperator.ctxt": [],
+        "src/jx/fs/db/RelationalOperator.java": []
+      },
+      "neighborMap": {
+        "src/jx/fs/db/Database.java": [
+          {
+            "path": "src/jx/fs/db/types/TypeManager.java",
+            "batchIndex": 26,
+            "symbols": [
+              "TypeManager"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "batchIndex": 25,
+      "files": [
+        {
+          "path": "src/jx/fs/db/RelationScan.ctxt",
+          "language": "ctxt",
+          "sizeLines": 19,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/db/RelationScan.java",
+          "language": "java",
+          "sizeLines": 44,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/db/SetNumberReader.ctxt",
+          "language": "ctxt",
+          "sizeLines": 13,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/db/SetNumberReader.java",
+          "language": "java",
+          "sizeLines": 31,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/db/systembuffer/package.bluej",
+          "language": "bluej",
+          "sizeLines": 26,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/db/systembuffer/strategy/package.bluej",
+          "language": "bluej",
+          "sizeLines": 37,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/db/systembuffer/strategy/PageStrategy.ctxt",
+          "language": "ctxt",
+          "sizeLines": 31,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/db/systembuffer/strategy/PageStrategy.java",
+          "language": "java",
+          "sizeLines": 78,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/db/systembuffer/strategy/PageStrategyRecord.ctxt",
+          "language": "ctxt",
+          "sizeLines": 16,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/db/systembuffer/strategy/PageStrategyRecord.java",
+          "language": "java",
+          "sizeLines": 22,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/db/Table.ctxt",
+          "language": "ctxt",
+          "sizeLines": 24,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/db/Table.java",
+          "language": "java",
+          "sizeLines": 43,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/db/TupleDescriptor.ctxt",
+          "language": "ctxt",
+          "sizeLines": 21,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/db/TupleDescriptor.java",
+          "language": "java",
+          "sizeLines": 31,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/db/TupleReader.ctxt",
+          "language": "ctxt",
+          "sizeLines": 25,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/db/TupleReader.java",
+          "language": "java",
+          "sizeLines": 51,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/db/TupleWriter.ctxt",
+          "language": "ctxt",
+          "sizeLines": 15,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/db/TupleWriter.java",
+          "language": "java",
+          "sizeLines": 34,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/db/types/DbComparator.ctxt",
+          "language": "ctxt",
+          "sizeLines": 7,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/db/types/DbComparator.java",
+          "language": "java",
+          "sizeLines": 8,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/db/types/DbConverter.ctxt",
+          "language": "ctxt",
+          "sizeLines": 8,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/db/types/DbConverter.java",
+          "language": "java",
+          "sizeLines": 15,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/db/types/package.bluej",
+          "language": "bluej",
+          "sizeLines": 47,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/db/types/TypeManager.ctxt",
+          "language": "ctxt",
+          "sizeLines": 13,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/db/types/TypeManager.java",
+          "language": "java",
+          "sizeLines": 35,
+          "fileCategory": "code"
+        }
+      ],
+      "batchImportData": {
+        "src/jx/fs/db/RelationScan.ctxt": [],
+        "src/jx/fs/db/RelationScan.java": [],
+        "src/jx/fs/db/SetNumberReader.ctxt": [],
+        "src/jx/fs/db/SetNumberReader.java": [],
+        "src/jx/fs/db/systembuffer/package.bluej": [],
+        "src/jx/fs/db/systembuffer/strategy/package.bluej": [],
+        "src/jx/fs/db/systembuffer/strategy/PageStrategy.ctxt": [],
+        "src/jx/fs/db/systembuffer/strategy/PageStrategy.java": [],
+        "src/jx/fs/db/systembuffer/strategy/PageStrategyRecord.ctxt": [],
+        "src/jx/fs/db/systembuffer/strategy/PageStrategyRecord.java": [],
+        "src/jx/fs/db/Table.ctxt": [],
+        "src/jx/fs/db/Table.java": [],
+        "src/jx/fs/db/TupleDescriptor.ctxt": [],
+        "src/jx/fs/db/TupleDescriptor.java": [
+          "src/jx/fs/db/types/DbConverter.java"
+        ],
+        "src/jx/fs/db/TupleReader.ctxt": [],
+        "src/jx/fs/db/TupleReader.java": [],
+        "src/jx/fs/db/TupleWriter.ctxt": [],
+        "src/jx/fs/db/TupleWriter.java": [],
+        "src/jx/fs/db/types/DbComparator.ctxt": [],
+        "src/jx/fs/db/types/DbComparator.java": [],
+        "src/jx/fs/db/types/DbConverter.ctxt": [],
+        "src/jx/fs/db/types/DbConverter.java": [],
+        "src/jx/fs/db/types/package.bluej": [],
+        "src/jx/fs/db/types/TypeManager.ctxt": [],
+        "src/jx/fs/db/types/TypeManager.java": []
+      },
+      "neighborMap": {
+        "src/jx/fs/db/types/TypeManager.java": [
+          {
+            "path": "src/jx/fs/db/Database.java",
+            "batchIndex": 25,
+            "symbols": [
+              "Database"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "batchIndex": 26,
+      "files": [
+        {
+          "path": "src/jx/fs/Directory.ctxt",
+          "language": "ctxt",
+          "sizeLines": 17,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/Directory.java",
+          "language": "java",
+          "sizeLines": 13,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/FileSystem.ctxt",
+          "language": "ctxt",
+          "sizeLines": 29,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/FileSystemInterface.ctxt",
+          "language": "ctxt",
+          "sizeLines": 15,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/FileSystemInterface.java",
+          "language": "java",
+          "sizeLines": 12,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/FS.ctxt",
+          "language": "ctxt",
+          "sizeLines": 67,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/FS.java",
+          "language": "java",
+          "sizeLines": 257,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/FSAttribute.ctxt",
+          "language": "ctxt",
+          "sizeLines": 7,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/FSAttribute.java",
+          "language": "java",
+          "sizeLines": 6,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/FSObject.ctxt",
+          "language": "ctxt",
+          "sizeLines": 19,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/FSObject.java",
+          "language": "java",
+          "sizeLines": 12,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/Node.ctxt",
+          "language": "ctxt",
+          "sizeLines": 135,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/Node.java",
+          "language": "java",
+          "sizeLines": 386,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/package.bluej",
+          "language": "bluej",
+          "sizeLines": 171,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/Permission.ctxt",
+          "language": "ctxt",
+          "sizeLines": 3,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/Permission.java",
+          "language": "java",
+          "sizeLines": 4,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/ReadOnlyDirectory.ctxt",
+          "language": "ctxt",
+          "sizeLines": 9,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/ReadOnlyDirectory.java",
+          "language": "java",
+          "sizeLines": 7,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/ReadOnlyRegularFile.ctxt",
+          "language": "ctxt",
+          "sizeLines": 12,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/ReadOnlyRegularFile.java",
+          "language": "java",
+          "sizeLines": 17,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/RegularFile.ctxt",
+          "language": "ctxt",
+          "sizeLines": 21,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/RegularFile.java",
+          "language": "java",
+          "sizeLines": 37,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/StatFS.ctxt",
+          "language": "ctxt",
+          "sizeLines": 4,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/StatFS.java",
+          "language": "java",
+          "sizeLines": 22,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/fs/VolumeManager.ctxt",
+          "language": "ctxt",
+          "sizeLines": 5,
+          "fileCategory": "code"
+        }
+      ],
+      "batchImportData": {
+        "src/jx/fs/Directory.ctxt": [],
+        "src/jx/fs/Directory.java": [],
+        "src/jx/fs/FileSystem.ctxt": [],
+        "src/jx/fs/FileSystemInterface.ctxt": [],
+        "src/jx/fs/FileSystemInterface.java": [],
+        "src/jx/fs/FS.ctxt": [],
+        "src/jx/fs/FS.java": [],
+        "src/jx/fs/FSAttribute.ctxt": [],
+        "src/jx/fs/FSAttribute.java": [],
+        "src/jx/fs/FSObject.ctxt": [],
+        "src/jx/fs/FSObject.java": [],
+        "src/jx/fs/Node.ctxt": [],
+        "src/jx/fs/Node.java": [],
+        "src/jx/fs/package.bluej": [],
+        "src/jx/fs/Permission.ctxt": [],
+        "src/jx/fs/Permission.java": [],
+        "src/jx/fs/ReadOnlyDirectory.ctxt": [],
+        "src/jx/fs/ReadOnlyDirectory.java": [],
+        "src/jx/fs/ReadOnlyRegularFile.ctxt": [],
+        "src/jx/fs/ReadOnlyRegularFile.java": [],
+        "src/jx/fs/RegularFile.ctxt": [],
+        "src/jx/fs/RegularFile.java": [],
+        "src/jx/fs/StatFS.ctxt": [],
+        "src/jx/fs/StatFS.java": [],
+        "src/jx/fs/VolumeManager.ctxt": []
+      },
+      "neighborMap": {}
+    },
+    {
+      "batchIndex": 27,
+      "files": [
+        {
+          "path": "src/jx/fs/VolumeManager.java",
+          "language": "java",
+          "sizeLines": 5,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/AddressResolution.ctxt",
+          "language": "ctxt",
+          "sizeLines": 10,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/AddressResolution.java",
+          "language": "java",
+          "sizeLines": 12,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/EtherConsumer.ctxt",
+          "language": "ctxt",
+          "sizeLines": 5,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/EtherConsumer.java",
+          "language": "java",
+          "sizeLines": 7,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/EtherData.ctxt",
+          "language": "ctxt",
+          "sizeLines": 20,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/EtherData.java",
+          "language": "java",
+          "sizeLines": 25,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/EtherProducer.ctxt",
+          "language": "ctxt",
+          "sizeLines": 5,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/EtherProducer.java",
+          "language": "java",
+          "sizeLines": 5,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/IPAddress.ctxt",
+          "language": "ctxt",
+          "sizeLines": 18,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/IPAddress.java",
+          "language": "java",
+          "sizeLines": 26,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/IPConsumer.ctxt",
+          "language": "ctxt",
+          "sizeLines": 5,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/IPConsumer.java",
+          "language": "java",
+          "sizeLines": 7,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/IPData.ctxt",
+          "language": "ctxt",
+          "sizeLines": 24,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/IPData.java",
+          "language": "java",
+          "sizeLines": 30,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/IPProducer.ctxt",
+          "language": "ctxt",
+          "sizeLines": 5,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/IPProducer.java",
+          "language": "java",
+          "sizeLines": 5,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/IPReceiver.ctxt",
+          "language": "ctxt",
+          "sizeLines": 9,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/IPReceiver.java",
+          "language": "java",
+          "sizeLines": 9,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/IPSender.ctxt",
+          "language": "ctxt",
+          "sizeLines": 11,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/IPSender.java",
+          "language": "java",
+          "sizeLines": 10,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/NetInit.ctxt",
+          "language": "ctxt",
+          "sizeLines": 27,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/NetInit.java",
+          "language": "java",
+          "sizeLines": 22,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/package.bluej",
+          "language": "bluej",
+          "sizeLines": 234,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/PacketsConsumer.ctxt",
+          "language": "ctxt",
+          "sizeLines": 9,
+          "fileCategory": "code"
+        }
+      ],
+      "batchImportData": {
+        "src/jx/fs/VolumeManager.java": [],
+        "src/jx/net/AddressResolution.ctxt": [],
+        "src/jx/net/AddressResolution.java": [],
+        "src/jx/net/EtherConsumer.ctxt": [],
+        "src/jx/net/EtherConsumer.java": [],
+        "src/jx/net/EtherData.ctxt": [],
+        "src/jx/net/EtherData.java": [],
+        "src/jx/net/EtherProducer.ctxt": [],
+        "src/jx/net/EtherProducer.java": [],
+        "src/jx/net/IPAddress.ctxt": [],
+        "src/jx/net/IPAddress.java": [],
+        "src/jx/net/IPConsumer.ctxt": [],
+        "src/jx/net/IPConsumer.java": [],
+        "src/jx/net/IPData.ctxt": [],
+        "src/jx/net/IPData.java": [],
+        "src/jx/net/IPProducer.ctxt": [],
+        "src/jx/net/IPProducer.java": [],
+        "src/jx/net/IPReceiver.ctxt": [],
+        "src/jx/net/IPReceiver.java": [],
+        "src/jx/net/IPSender.ctxt": [],
+        "src/jx/net/IPSender.java": [],
+        "src/jx/net/NetInit.ctxt": [],
+        "src/jx/net/NetInit.java": [],
+        "src/jx/net/package.bluej": [],
+        "src/jx/net/PacketsConsumer.ctxt": []
+      },
+      "neighborMap": {}
+    },
+    {
+      "batchIndex": 28,
+      "files": [
+        {
+          "path": "src/jx/net/PacketsConsumer1.ctxt",
+          "language": "ctxt",
+          "sizeLines": 11,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/PacketsConsumer1.java",
+          "language": "java",
+          "sizeLines": 18,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/PacketsProducer.ctxt",
+          "language": "ctxt",
+          "sizeLines": 5,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rdp/crypto/Key.ctxt",
+          "language": "ctxt",
+          "sizeLines": 13,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rdp/crypto/Key.java",
+          "language": "java",
+          "sizeLines": 113,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rdp/crypto/package.bluej",
+          "language": "bluej",
+          "sizeLines": 27,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rdp/orders/Order.ctxt",
+          "language": "ctxt",
+          "sizeLines": 3,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rdp/orders/Order.java",
+          "language": "java",
+          "sizeLines": 4,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rdp/orders/package.bluej",
+          "language": "bluej",
+          "sizeLines": 27,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rdp/package.bluej",
+          "language": "bluej",
+          "sizeLines": 32,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rpc/package.bluej",
+          "language": "bluej",
+          "sizeLines": 76,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rpc/RPCData.ctxt",
+          "language": "ctxt",
+          "sizeLines": 3,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rpc/RPCData.java",
+          "language": "java",
+          "sizeLines": 4,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rpc/RPCEnum.ctxt",
+          "language": "ctxt",
+          "sizeLines": 3,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rpc/RPCEnum.java",
+          "language": "java",
+          "sizeLines": 4,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rpc/RPCOpaque.ctxt",
+          "language": "ctxt",
+          "sizeLines": 4,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rpc/RPCOpaque.java",
+          "language": "java",
+          "sizeLines": 8,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rpc/RPCOptional.ctxt",
+          "language": "ctxt",
+          "sizeLines": 3,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rpc/RPCOptional.java",
+          "language": "java",
+          "sizeLines": 4,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rpc/RPCProc.ctxt",
+          "language": "ctxt",
+          "sizeLines": 3,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rpc/RPCReader.ctxt",
+          "language": "ctxt",
+          "sizeLines": 5,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rpc/RPCReader.java",
+          "language": "java",
+          "sizeLines": 5,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rpc/RPCUnion.ctxt",
+          "language": "ctxt",
+          "sizeLines": 3,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rpc/RPCUnion.java",
+          "language": "java",
+          "sizeLines": 4,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rpc/RPCWriter.ctxt",
+          "language": "ctxt",
+          "sizeLines": 5,
+          "fileCategory": "code"
+        }
+      ],
+      "batchImportData": {
+        "src/jx/net/PacketsConsumer1.ctxt": [],
+        "src/jx/net/PacketsConsumer1.java": [],
+        "src/jx/net/PacketsProducer.ctxt": [],
+        "src/jx/net/rdp/crypto/Key.ctxt": [],
+        "src/jx/net/rdp/crypto/Key.java": [],
+        "src/jx/net/rdp/crypto/package.bluej": [],
+        "src/jx/net/rdp/orders/Order.ctxt": [],
+        "src/jx/net/rdp/orders/Order.java": [],
+        "src/jx/net/rdp/orders/package.bluej": [],
+        "src/jx/net/rdp/package.bluej": [],
+        "src/jx/net/rpc/package.bluej": [],
+        "src/jx/net/rpc/RPCData.ctxt": [],
+        "src/jx/net/rpc/RPCData.java": [],
+        "src/jx/net/rpc/RPCEnum.ctxt": [],
+        "src/jx/net/rpc/RPCEnum.java": [],
+        "src/jx/net/rpc/RPCOpaque.ctxt": [],
+        "src/jx/net/rpc/RPCOpaque.java": [],
+        "src/jx/net/rpc/RPCOptional.ctxt": [],
+        "src/jx/net/rpc/RPCOptional.java": [],
+        "src/jx/net/rpc/RPCProc.ctxt": [],
+        "src/jx/net/rpc/RPCReader.ctxt": [],
+        "src/jx/net/rpc/RPCReader.java": [],
+        "src/jx/net/rpc/RPCUnion.ctxt": [],
+        "src/jx/net/rpc/RPCUnion.java": [],
+        "src/jx/net/rpc/RPCWriter.ctxt": []
+      },
+      "neighborMap": {}
+    },
+    {
+      "batchIndex": 29,
+      "files": [
+        {
+          "path": "src/jx/net/rpc/RPCWriter.java",
+          "language": "java",
+          "sizeLines": 5,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rpcsvc/mount/Exports.ctxt",
+          "language": "ctxt",
+          "sizeLines": 4,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rpcsvc/mount/Exports.java",
+          "language": "java",
+          "sizeLines": 10,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rpcsvc/mount/FHStatus.ctxt",
+          "language": "ctxt",
+          "sizeLines": 4,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rpcsvc/mount/FHStatus.java",
+          "language": "java",
+          "sizeLines": 10,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rpcsvc/mount/MountList.ctxt",
+          "language": "ctxt",
+          "sizeLines": 4,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rpcsvc/mount/MountList.java",
+          "language": "java",
+          "sizeLines": 10,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rpcsvc/mount/MountProc.ctxt",
+          "language": "ctxt",
+          "sizeLines": 16,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rpcsvc/mount/package.bluej",
+          "language": "bluej",
+          "sizeLines": 57,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rpcsvc/nfs/AttrStat.ctxt",
+          "language": "ctxt",
+          "sizeLines": 4,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rpcsvc/nfs/AttrStat.java",
+          "language": "java",
+          "sizeLines": 10,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rpcsvc/nfs/DirOpRes.ctxt",
+          "language": "ctxt",
+          "sizeLines": 4,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rpcsvc/nfs/DirOpRes.java",
+          "language": "java",
+          "sizeLines": 10,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rpcsvc/nfs/DirPath.ctxt",
+          "language": "ctxt",
+          "sizeLines": 4,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rpcsvc/nfs/DirPath.java",
+          "language": "java",
+          "sizeLines": 10,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rpcsvc/nfs/FHandle.ctxt",
+          "language": "ctxt",
+          "sizeLines": 4,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rpcsvc/nfs/FHandle.java",
+          "language": "java",
+          "sizeLines": 10,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rpcsvc/nfs/Name.ctxt",
+          "language": "ctxt",
+          "sizeLines": 4,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rpcsvc/nfs/Name.java",
+          "language": "java",
+          "sizeLines": 10,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rpcsvc/nfs/NFSCookie.ctxt",
+          "language": "ctxt",
+          "sizeLines": 4,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rpcsvc/nfs/NFSCookie.java",
+          "language": "java",
+          "sizeLines": 10,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rpcsvc/nfs/NFSData.ctxt",
+          "language": "ctxt",
+          "sizeLines": 4,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rpcsvc/nfs/NFSData.java",
+          "language": "java",
+          "sizeLines": 10,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rpcsvc/nfs/NFSProc.ctxt",
+          "language": "ctxt",
+          "sizeLines": 40,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/rpcsvc/nfs/package.bluej",
+          "language": "bluej",
+          "sizeLines": 157,
+          "fileCategory": "code"
+        }
+      ],
+      "batchImportData": {
+        "src/jx/net/rpc/RPCWriter.java": [],
+        "src/jx/net/rpcsvc/mount/Exports.ctxt": [],
+        "src/jx/net/rpcsvc/mount/Exports.java": [],
+        "src/jx/net/rpcsvc/mount/FHStatus.ctxt": [],
+        "src/jx/net/rpcsvc/mount/FHStatus.java": [],
+        "src/jx/net/rpcsvc/mount/MountList.ctxt": [],
+        "src/jx/net/rpcsvc/mount/MountList.java": [],
+        "src/jx/net/rpcsvc/mount/MountProc.ctxt": [],
+        "src/jx/net/rpcsvc/mount/package.bluej": [],
+        "src/jx/net/rpcsvc/nfs/AttrStat.ctxt": [],
+        "src/jx/net/rpcsvc/nfs/AttrStat.java": [],
+        "src/jx/net/rpcsvc/nfs/DirOpRes.ctxt": [],
+        "src/jx/net/rpcsvc/nfs/DirOpRes.java": [],
+        "src/jx/net/rpcsvc/nfs/DirPath.ctxt": [],
+        "src/jx/net/rpcsvc/nfs/DirPath.java": [],
+        "src/jx/net/rpcsvc/nfs/FHandle.ctxt": [],
+        "src/jx/net/rpcsvc/nfs/FHandle.java": [],
+        "src/jx/net/rpcsvc/nfs/Name.ctxt": [],
+        "src/jx/net/rpcsvc/nfs/Name.java": [],
+        "src/jx/net/rpcsvc/nfs/NFSCookie.ctxt": [],
+        "src/jx/net/rpcsvc/nfs/NFSCookie.java": [],
+        "src/jx/net/rpcsvc/nfs/NFSData.ctxt": [],
+        "src/jx/net/rpcsvc/nfs/NFSData.java": [],
+        "src/jx/net/rpcsvc/nfs/NFSProc.ctxt": [],
+        "src/jx/net/rpcsvc/nfs/package.bluej": []
+      },
+      "neighborMap": {}
+    }
+  ]
+}

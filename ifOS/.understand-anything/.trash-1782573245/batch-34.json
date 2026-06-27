@@ -1,0 +1,516 @@
+{
+  "batchIndex": 34,
+  "nodes": [
+    {
+      "id": "file:src/jx/zero/verifier/JVMOPStackElement.java",
+      "label": "src/jx/zero/verifier/JVMOPStackElement.java",
+      "type": "file",
+      "properties": {
+        "path": "src/jx/zero/verifier/JVMOPStackElement.java",
+        "language": "java",
+        "category": "code",
+        "totalLines": 92,
+        "nonEmptyLines": 83
+      }
+    },
+    {
+      "id": "class:src/jx/zero/verifier/JVMOPStackElement.java::JVMOPStackElement",
+      "label": "JVMOPStackElement (src/jx/zero/verifier/JVMOPStackElement.java)",
+      "type": "class",
+      "properties": {
+        "name": "JVMOPStackElement",
+        "startLine": 6,
+        "endLine": 92,
+        "methods": [
+          "merge",
+          "dataEquals",
+          "getBCAddr",
+          "getPrev",
+          "setPrev",
+          "JVMOPStackElement",
+          "JVMOPStackElement",
+          "addressString",
+          "toString"
+        ],
+        "properties": [
+          "ADDR_INIT",
+          "ADDR_EXCEPTION",
+          "ADDR_MERGE",
+          "prev",
+          "bcAddr"
+        ]
+      }
+    },
+    {
+      "id": "function:src/jx/zero/verifier/JVMOPStackElement.java::merge",
+      "label": "merge (src/jx/zero/verifier/JVMOPStackElement.java)",
+      "type": "function",
+      "properties": {
+        "name": "merge",
+        "startLine": 20,
+        "endLine": 20,
+        "params": [
+          "other"
+        ]
+      }
+    },
+    {
+      "id": "function:src/jx/zero/verifier/JVMOPStackElement.java::dataEquals",
+      "label": "dataEquals (src/jx/zero/verifier/JVMOPStackElement.java)",
+      "type": "function",
+      "properties": {
+        "name": "dataEquals",
+        "startLine": 24,
+        "endLine": 24,
+        "params": [
+          "other"
+        ]
+      }
+    },
+    {
+      "id": "function:src/jx/zero/verifier/JVMOPStackElement.java::getBCAddr",
+      "label": "getBCAddr (src/jx/zero/verifier/JVMOPStackElement.java)",
+      "type": "function",
+      "properties": {
+        "name": "getBCAddr",
+        "startLine": 36,
+        "endLine": 36
+      }
+    },
+    {
+      "id": "function:src/jx/zero/verifier/JVMOPStackElement.java::getPrev",
+      "label": "getPrev (src/jx/zero/verifier/JVMOPStackElement.java)",
+      "type": "function",
+      "properties": {
+        "name": "getPrev",
+        "startLine": 37,
+        "endLine": 37
+      }
+    },
+    {
+      "id": "function:src/jx/zero/verifier/JVMOPStackElement.java::setPrev",
+      "label": "setPrev (src/jx/zero/verifier/JVMOPStackElement.java)",
+      "type": "function",
+      "properties": {
+        "name": "setPrev",
+        "startLine": 43,
+        "endLine": 49,
+        "params": [
+          "prev"
+        ]
+      }
+    },
+    {
+      "id": "function:src/jx/zero/verifier/JVMOPStackElement.java::JVMOPStackElement",
+      "label": "JVMOPStackElement (src/jx/zero/verifier/JVMOPStackElement.java)",
+      "type": "function",
+      "properties": {
+        "name": "JVMOPStackElement",
+        "startLine": 55,
+        "endLine": 57,
+        "params": [
+          "prev"
+        ]
+      }
+    },
+    {
+      "id": "function:src/jx/zero/verifier/JVMOPStackElement.java::addressString",
+      "label": "addressString (src/jx/zero/verifier/JVMOPStackElement.java)",
+      "type": "function",
+      "properties": {
+        "name": "addressString",
+        "startLine": 68,
+        "endLine": 84
+      }
+    },
+    {
+      "id": "function:src/jx/zero/verifier/JVMOPStackElement.java::toString",
+      "label": "toString (src/jx/zero/verifier/JVMOPStackElement.java)",
+      "type": "function",
+      "properties": {
+        "name": "toString",
+        "startLine": 86,
+        "endLine": 91
+      }
+    },
+    {
+      "id": "file:src/jx/zero/verifier/npa/NPALocalVarsInterface.java",
+      "label": "src/jx/zero/verifier/npa/NPALocalVarsInterface.java",
+      "type": "file",
+      "properties": {
+        "path": "src/jx/zero/verifier/npa/NPALocalVarsInterface.java",
+        "language": "java",
+        "category": "code",
+        "totalLines": 9,
+        "nonEmptyLines": 8
+      }
+    },
+    {
+      "id": "class:src/jx/zero/verifier/npa/NPALocalVarsInterface.java::NPALocalVarsInterface",
+      "label": "NPALocalVarsInterface (src/jx/zero/verifier/npa/NPALocalVarsInterface.java)",
+      "type": "class",
+      "properties": {
+        "name": "NPALocalVarsInterface",
+        "startLine": 3,
+        "endLine": 9,
+        "methods": [
+          "write",
+          "NPAread",
+          "setValue"
+        ]
+      }
+    },
+    {
+      "id": "file:src/jx/zero/verifier/npa/NPAValue.java",
+      "label": "src/jx/zero/verifier/npa/NPAValue.java",
+      "type": "file",
+      "properties": {
+        "path": "src/jx/zero/verifier/npa/NPAValue.java",
+        "language": "java",
+        "category": "code",
+        "totalLines": 10,
+        "nonEmptyLines": 7
+      }
+    },
+    {
+      "id": "class:src/jx/zero/verifier/npa/NPAValue.java::NPAValue",
+      "label": "NPAValue (src/jx/zero/verifier/npa/NPAValue.java)",
+      "type": "class",
+      "properties": {
+        "name": "NPAValue",
+        "startLine": 8,
+        "endLine": 10
+      }
+    },
+    {
+      "id": "file:src/jx/zero/verifier/Subroutines.java",
+      "label": "src/jx/zero/verifier/Subroutines.java",
+      "type": "file",
+      "properties": {
+        "path": "src/jx/zero/verifier/Subroutines.java",
+        "language": "java",
+        "category": "code",
+        "totalLines": 10,
+        "nonEmptyLines": 7
+      }
+    },
+    {
+      "id": "class:src/jx/zero/verifier/Subroutines.java::Subroutines",
+      "label": "Subroutines (src/jx/zero/verifier/Subroutines.java)",
+      "type": "class",
+      "properties": {
+        "name": "Subroutines",
+        "startLine": 8,
+        "endLine": 10
+      }
+    },
+    {
+      "id": "file:src/jx/zero/verifier/typecheck/TCLocalVarsInterface.java",
+      "label": "src/jx/zero/verifier/typecheck/TCLocalVarsInterface.java",
+      "type": "file",
+      "properties": {
+        "path": "src/jx/zero/verifier/typecheck/TCLocalVarsInterface.java",
+        "language": "java",
+        "category": "code",
+        "totalLines": 6,
+        "nonEmptyLines": 5
+      }
+    },
+    {
+      "id": "class:src/jx/zero/verifier/typecheck/TCLocalVarsInterface.java::TCLocalVarsInterface",
+      "label": "TCLocalVarsInterface (src/jx/zero/verifier/typecheck/TCLocalVarsInterface.java)",
+      "type": "class",
+      "properties": {
+        "name": "TCLocalVarsInterface",
+        "startLine": 3,
+        "endLine": 6,
+        "methods": [
+          "write",
+          "read"
+        ]
+      }
+    },
+    {
+      "id": "file:src/jx/zero/verifier/typecheck/TCTypes.java",
+      "label": "src/jx/zero/verifier/typecheck/TCTypes.java",
+      "type": "file",
+      "properties": {
+        "path": "src/jx/zero/verifier/typecheck/TCTypes.java",
+        "language": "java",
+        "category": "code",
+        "totalLines": 10,
+        "nonEmptyLines": 7
+      }
+    },
+    {
+      "id": "class:src/jx/zero/verifier/typecheck/TCTypes.java::TCTypes",
+      "label": "TCTypes (src/jx/zero/verifier/typecheck/TCTypes.java)",
+      "type": "class",
+      "properties": {
+        "name": "TCTypes",
+        "startLine": 8,
+        "endLine": 10
+      }
+    },
+    {
+      "id": "file:src/jx/zero/verifier/wcet/CFGNode.java",
+      "label": "src/jx/zero/verifier/wcet/CFGNode.java",
+      "type": "file",
+      "properties": {
+        "path": "src/jx/zero/verifier/wcet/CFGNode.java",
+        "language": "java",
+        "category": "code",
+        "totalLines": 10,
+        "nonEmptyLines": 7
+      }
+    },
+    {
+      "id": "class:src/jx/zero/verifier/wcet/CFGNode.java::CFGNode",
+      "label": "CFGNode (src/jx/zero/verifier/wcet/CFGNode.java)",
+      "type": "class",
+      "properties": {
+        "name": "CFGNode",
+        "startLine": 8,
+        "endLine": 10
+      }
+    },
+    {
+      "id": "file:src/jx/zero/verifier/wcet/OpenIfListElement.java",
+      "label": "src/jx/zero/verifier/wcet/OpenIfListElement.java",
+      "type": "file",
+      "properties": {
+        "path": "src/jx/zero/verifier/wcet/OpenIfListElement.java",
+        "language": "java",
+        "category": "code",
+        "totalLines": 10,
+        "nonEmptyLines": 7
+      }
+    },
+    {
+      "id": "class:src/jx/zero/verifier/wcet/OpenIfListElement.java::OpenIfListElement",
+      "label": "OpenIfListElement (src/jx/zero/verifier/wcet/OpenIfListElement.java)",
+      "type": "class",
+      "properties": {
+        "name": "OpenIfListElement",
+        "startLine": 8,
+        "endLine": 10
+      }
+    },
+    {
+      "id": "file:src/jx/zero/verifier/wcet/SimState.java",
+      "label": "src/jx/zero/verifier/wcet/SimState.java",
+      "type": "file",
+      "properties": {
+        "path": "src/jx/zero/verifier/wcet/SimState.java",
+        "language": "java",
+        "category": "code",
+        "totalLines": 10,
+        "nonEmptyLines": 7
+      }
+    },
+    {
+      "id": "class:src/jx/zero/verifier/wcet/SimState.java::SimState",
+      "label": "SimState (src/jx/zero/verifier/wcet/SimState.java)",
+      "type": "class",
+      "properties": {
+        "name": "SimState",
+        "startLine": 8,
+        "endLine": 10
+      }
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/jx/zero/verifier/JVMOPStackElement.java",
+      "target": "class:src/jx/zero/verifier/JVMOPStackElement.java::JVMOPStackElement",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/zero/verifier/JVMOPStackElement.java",
+      "target": "class:src/jx/zero/verifier/JVMOPStackElement.java::JVMOPStackElement",
+      "label": "exports",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/jx/zero/verifier/JVMOPStackElement.java",
+      "target": "function:src/jx/zero/verifier/JVMOPStackElement.java::merge",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/zero/verifier/JVMOPStackElement.java",
+      "target": "function:src/jx/zero/verifier/JVMOPStackElement.java::dataEquals",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/zero/verifier/JVMOPStackElement.java",
+      "target": "function:src/jx/zero/verifier/JVMOPStackElement.java::getBCAddr",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/zero/verifier/JVMOPStackElement.java",
+      "target": "function:src/jx/zero/verifier/JVMOPStackElement.java::getPrev",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/zero/verifier/JVMOPStackElement.java",
+      "target": "function:src/jx/zero/verifier/JVMOPStackElement.java::setPrev",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/zero/verifier/JVMOPStackElement.java",
+      "target": "function:src/jx/zero/verifier/JVMOPStackElement.java::JVMOPStackElement",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/zero/verifier/JVMOPStackElement.java",
+      "target": "function:src/jx/zero/verifier/JVMOPStackElement.java::addressString",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/zero/verifier/JVMOPStackElement.java",
+      "target": "function:src/jx/zero/verifier/JVMOPStackElement.java::toString",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/zero/verifier/npa/NPALocalVarsInterface.java",
+      "target": "class:src/jx/zero/verifier/npa/NPALocalVarsInterface.java::NPALocalVarsInterface",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/zero/verifier/npa/NPALocalVarsInterface.java",
+      "target": "class:src/jx/zero/verifier/npa/NPALocalVarsInterface.java::NPALocalVarsInterface",
+      "label": "exports",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/jx/zero/verifier/npa/NPAValue.java",
+      "target": "class:src/jx/zero/verifier/npa/NPAValue.java::NPAValue",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/zero/verifier/npa/NPAValue.java",
+      "target": "class:src/jx/zero/verifier/npa/NPAValue.java::NPAValue",
+      "label": "exports",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/jx/zero/verifier/npa/NPAValue.java",
+      "target": "file:src/jx/zero/verifier/npa/NPALocalVarsInterface.java",
+      "label": "related",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/jx/zero/verifier/Subroutines.java",
+      "target": "class:src/jx/zero/verifier/Subroutines.java::Subroutines",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/zero/verifier/Subroutines.java",
+      "target": "class:src/jx/zero/verifier/Subroutines.java::Subroutines",
+      "label": "exports",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/jx/zero/verifier/Subroutines.java",
+      "target": "file:src/jx/zero/verifier/JVMOPStackElement.java",
+      "label": "related",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/jx/zero/verifier/typecheck/TCLocalVarsInterface.java",
+      "target": "class:src/jx/zero/verifier/typecheck/TCLocalVarsInterface.java::TCLocalVarsInterface",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/zero/verifier/typecheck/TCLocalVarsInterface.java",
+      "target": "class:src/jx/zero/verifier/typecheck/TCLocalVarsInterface.java::TCLocalVarsInterface",
+      "label": "exports",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/jx/zero/verifier/typecheck/TCTypes.java",
+      "target": "class:src/jx/zero/verifier/typecheck/TCTypes.java::TCTypes",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/zero/verifier/typecheck/TCTypes.java",
+      "target": "class:src/jx/zero/verifier/typecheck/TCTypes.java::TCTypes",
+      "label": "exports",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/jx/zero/verifier/typecheck/TCTypes.java",
+      "target": "file:src/jx/zero/verifier/typecheck/TCLocalVarsInterface.java",
+      "label": "related",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/jx/zero/verifier/wcet/CFGNode.java",
+      "target": "class:src/jx/zero/verifier/wcet/CFGNode.java::CFGNode",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/zero/verifier/wcet/CFGNode.java",
+      "target": "class:src/jx/zero/verifier/wcet/CFGNode.java::CFGNode",
+      "label": "exports",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/jx/zero/verifier/wcet/OpenIfListElement.java",
+      "target": "class:src/jx/zero/verifier/wcet/OpenIfListElement.java::OpenIfListElement",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/zero/verifier/wcet/OpenIfListElement.java",
+      "target": "class:src/jx/zero/verifier/wcet/OpenIfListElement.java::OpenIfListElement",
+      "label": "exports",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/jx/zero/verifier/wcet/OpenIfListElement.java",
+      "target": "file:src/jx/zero/verifier/wcet/CFGNode.java",
+      "label": "related",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/jx/zero/verifier/wcet/SimState.java",
+      "target": "class:src/jx/zero/verifier/wcet/SimState.java::SimState",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/zero/verifier/wcet/SimState.java",
+      "target": "class:src/jx/zero/verifier/wcet/SimState.java::SimState",
+      "label": "exports",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/jx/zero/verifier/wcet/SimState.java",
+      "target": "file:src/jx/zero/verifier/wcet/CFGNode.java",
+      "label": "related",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/jx/zero/verifier/wcet/SimState.java",
+      "target": "file:src/jx/zero/verifier/wcet/OpenIfListElement.java",
+      "label": "related",
+      "weight": 0.5
+    }
+  ]
+}

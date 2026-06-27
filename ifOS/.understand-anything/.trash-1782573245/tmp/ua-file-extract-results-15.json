@@ -1,0 +1,150 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 3,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "src/jx/net/rpc/RPCProc.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 4,
+      "nonEmptyLines": 3,
+      "classes": [
+        {
+          "name": "RPCProc",
+          "startLine": 3,
+          "endLine": 4,
+          "methods": [],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "RPCProc",
+          "line": 3,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/jx/net/rpcsvc/mount/MountProc.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 25,
+      "nonEmptyLines": 21,
+      "classes": [
+        {
+          "name": "MountProc",
+          "startLine": 8,
+          "endLine": 25,
+          "methods": [
+            "nullproc",
+            "mnt",
+            "dump",
+            "umnt",
+            "umntall",
+            "export"
+          ],
+          "properties": [
+            "VERSION",
+            "PROGRAM",
+            "MID_nullproc_0",
+            "MID_mnt_1",
+            "MID_dump_2",
+            "MID_umnt_3",
+            "MID_umntall_4",
+            "MID_export_5"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "MountProc",
+          "line": 8,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/jx/net/rpcsvc/nfs/NFSProc.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 49,
+      "nonEmptyLines": 45,
+      "classes": [
+        {
+          "name": "NFSProc",
+          "startLine": 8,
+          "endLine": 49,
+          "methods": [
+            "nullproc",
+            "getattr",
+            "setattr",
+            "root",
+            "lookup",
+            "readlink",
+            "read",
+            "writeCache",
+            "write",
+            "create",
+            "remove",
+            "rename",
+            "link",
+            "symlink",
+            "mkdir",
+            "rmdir",
+            "readdir",
+            "statfs"
+          ],
+          "properties": [
+            "VERSION",
+            "PROGRAM",
+            "MID_nullproc_0",
+            "MID_getattr_1",
+            "MID_setattr_2",
+            "MID_root_3",
+            "MID_lookup_4",
+            "MID_readlink_5",
+            "MID_read_6",
+            "MID_writeCache_7",
+            "MID_write_8",
+            "MID_create_9",
+            "MID_remove_10",
+            "MID_rename_11",
+            "MID_link_12",
+            "MID_symlink_13",
+            "MID_mkdir_14",
+            "MID_rmdir_15",
+            "MID_readdir_16",
+            "MID_statfs_17"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "NFSProc",
+          "line": 8,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    }
+  ]
+}

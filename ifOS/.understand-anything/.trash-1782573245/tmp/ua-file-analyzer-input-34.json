@@ -1,0 +1,155 @@
+{
+  "projectRoot": "/Users/xuyi/Source/OS/armOS/lib/jcore/test/ifOS",
+  "batchFiles": [
+    {
+      "path": "src/jx/zero/verifier/JVMOPStackElement.java",
+      "language": "java",
+      "sizeLines": 92,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/zero/verifier/npa/NPALocalVarsInterface.ctxt",
+      "language": "ctxt",
+      "sizeLines": 9,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/zero/verifier/npa/NPALocalVarsInterface.java",
+      "language": "java",
+      "sizeLines": 9,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/zero/verifier/npa/NPAValue.ctxt",
+      "language": "ctxt",
+      "sizeLines": 4,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/zero/verifier/npa/NPAValue.java",
+      "language": "java",
+      "sizeLines": 10,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/zero/verifier/npa/package.bluej",
+      "language": "bluej",
+      "sizeLines": 37,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/zero/verifier/package.bluej",
+      "language": "bluej",
+      "sizeLines": 69,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/zero/verifier/Subroutines.ctxt",
+      "language": "ctxt",
+      "sizeLines": 4,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/zero/verifier/Subroutines.java",
+      "language": "java",
+      "sizeLines": 10,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/zero/verifier/typecheck/package.bluej",
+      "language": "bluej",
+      "sizeLines": 37,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/zero/verifier/typecheck/TCLocalVarsInterface.ctxt",
+      "language": "ctxt",
+      "sizeLines": 7,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/zero/verifier/typecheck/TCLocalVarsInterface.java",
+      "language": "java",
+      "sizeLines": 6,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/zero/verifier/typecheck/TCTypes.ctxt",
+      "language": "ctxt",
+      "sizeLines": 4,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/zero/verifier/typecheck/TCTypes.java",
+      "language": "java",
+      "sizeLines": 10,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/zero/verifier/VerifierInterface.ctxt",
+      "language": "ctxt",
+      "sizeLines": 18,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/zero/verifier/wcet/CFGNode.ctxt",
+      "language": "ctxt",
+      "sizeLines": 4,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/zero/verifier/wcet/CFGNode.java",
+      "language": "java",
+      "sizeLines": 10,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/zero/verifier/wcet/ExecutionTime.ctxt",
+      "language": "ctxt",
+      "sizeLines": 21,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/zero/verifier/wcet/OpenIfListElement.ctxt",
+      "language": "ctxt",
+      "sizeLines": 4,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/zero/verifier/wcet/OpenIfListElement.java",
+      "language": "java",
+      "sizeLines": 10,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/zero/verifier/wcet/package.bluej",
+      "language": "bluej",
+      "sizeLines": 58,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/zero/verifier/wcet/SimState.ctxt",
+      "language": "ctxt",
+      "sizeLines": 4,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/zero/verifier/wcet/SimState.java",
+      "language": "java",
+      "sizeLines": 10,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/zero/verifier/wcet/ValueProvider.ctxt",
+      "language": "ctxt",
+      "sizeLines": 25,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/package.bluej",
+      "language": "bluej",
+      "sizeLines": 43,
+      "fileCategory": "code"
+    }
+  ]
+}

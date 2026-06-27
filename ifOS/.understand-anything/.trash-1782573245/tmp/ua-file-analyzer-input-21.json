@@ -1,0 +1,156 @@
+{
+  "projectRoot": "/Users/xuyi/Source/OS/armOS/lib/jcore/test/ifOS",
+  "batchFiles": [
+    {
+      "path": "src/java/util/Deque.java",
+      "language": "java",
+      "sizeLines": 584,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/java/util/Dictionary.java",
+      "language": "java",
+      "sizeLines": 13,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/java/util/function/BiFunction.java",
+      "language": "java",
+      "sizeLines": 72,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/java/util/function/package.bluej",
+      "language": "bluej",
+      "sizeLines": 93,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/java/util/function/UnaryOperator.java",
+      "language": "java",
+      "sizeLines": 52,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/java/util/LinkedList.j",
+      "language": "j",
+      "sizeLines": 677,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/java/util/List.java",
+      "language": "java",
+      "sizeLines": 357,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/java/util/ListIterator.java",
+      "language": "java",
+      "sizeLines": 147,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/java/util/ListResourceBundle.java",
+      "language": "java",
+      "sizeLines": 100,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/java/util/NavigableMap.java",
+      "language": "java",
+      "sizeLines": 424,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/java/util/NavigableSet.java",
+      "language": "java",
+      "sizeLines": 319,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/java/util/package.bluej",
+      "language": "bluej",
+      "sizeLines": 352,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/java/util/Queue.java",
+      "language": "java",
+      "sizeLines": 218,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/java/util/RandomAccess.java",
+      "language": "java",
+      "sizeLines": 64,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/java/util/SortedMap.java",
+      "language": "java",
+      "sizeLines": 284,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/java/util/SortedSet.java",
+      "language": "java",
+      "sizeLines": 264,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/java/util/stream/package.bluej",
+      "language": "bluej",
+      "sizeLines": 27,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/java/util/TimeZone.java",
+      "language": "java",
+      "sizeLines": 1096,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/devices/bio/BlockIO.ctxt",
+      "language": "ctxt",
+      "sizeLines": 16,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/devices/bio/package.bluej",
+      "language": "bluej",
+      "sizeLines": 27,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/devices/Bus.ctxt",
+      "language": "ctxt",
+      "sizeLines": 5,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/devices/Device.ctxt",
+      "language": "ctxt",
+      "sizeLines": 13,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/devices/DeviceConfiguration.ctxt",
+      "language": "ctxt",
+      "sizeLines": 3,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/devices/DeviceConfiguration.java",
+      "language": "java",
+      "sizeLines": 4,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/devices/DeviceConfigurationTemplate.ctxt",
+      "language": "ctxt",
+      "sizeLines": 4,
+      "fileCategory": "code"
+    }
+  ],
+  "batchImportData": {}
+}

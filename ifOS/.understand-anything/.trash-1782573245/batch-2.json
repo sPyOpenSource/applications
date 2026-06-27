@@ -1,0 +1,981 @@
+{
+  "batchIndex": 2,
+  "projectName": "ifOS",
+  "nodes": [
+    {
+      "id": "file:src/java/io/Serializable.java",
+      "type": "file",
+      "name": "Serializable.java",
+      "filePath": "src/java/io/Serializable.java",
+      "summary": "Serializable.java - java code file",
+      "tags": [
+        "java",
+        "io"
+      ],
+      "complexity": "low",
+      "sizeLines": 4,
+      "language": "java"
+    },
+    {
+      "id": "class:src/java/io/Serializable.java:Serializable",
+      "type": "class",
+      "name": "Serializable",
+      "filePath": "src/java/io/Serializable.java",
+      "summary": "Class Serializable with 0 methods",
+      "tags": [
+        "java",
+        "io"
+      ],
+      "complexity": "low",
+      "methods": 0
+    },
+    {
+      "id": "file:src/java/lang/Number.java",
+      "type": "file",
+      "name": "Number.java",
+      "filePath": "src/java/lang/Number.java",
+      "summary": "Number.java - java code file",
+      "tags": [
+        "java",
+        "lang"
+      ],
+      "complexity": "low",
+      "sizeLines": 19,
+      "language": "java"
+    },
+    {
+      "id": "class:src/java/lang/Number.java:Number",
+      "type": "class",
+      "name": "Number",
+      "filePath": "src/java/lang/Number.java",
+      "summary": "Class Number with 5 methods",
+      "tags": [
+        "java",
+        "lang"
+      ],
+      "complexity": "low",
+      "methods": 5
+    },
+    {
+      "id": "file:src/java/security/Identity.java",
+      "type": "file",
+      "name": "Identity.java",
+      "filePath": "src/java/security/Identity.java",
+      "summary": "Identity.java - java code file",
+      "tags": [
+        "java",
+        "security"
+      ],
+      "complexity": "medium",
+      "sizeLines": 358,
+      "language": "java"
+    },
+    {
+      "id": "class:src/java/security/Identity.java:Identity",
+      "type": "class",
+      "name": "Identity",
+      "filePath": "src/java/security/Identity.java",
+      "summary": "Class Identity with 17 methods",
+      "tags": [
+        "java",
+        "security"
+      ],
+      "complexity": "medium",
+      "methods": 17
+    },
+    {
+      "id": "function:src/java/security/Identity.java:addCertificate",
+      "type": "function",
+      "name": "addCertificate",
+      "filePath": "src/java/security/Identity.java",
+      "summary": "Function addCertificate",
+      "tags": [
+        "java",
+        "security"
+      ],
+      "complexity": "low"
+    },
+    {
+      "id": "function:src/java/security/Identity.java:removeCertificate",
+      "type": "function",
+      "name": "removeCertificate",
+      "filePath": "src/java/security/Identity.java",
+      "summary": "Function removeCertificate",
+      "tags": [
+        "java",
+        "security"
+      ],
+      "complexity": "low"
+    },
+    {
+      "id": "function:src/java/security/Identity.java:equals",
+      "type": "function",
+      "name": "equals",
+      "filePath": "src/java/security/Identity.java",
+      "summary": "Function equals",
+      "tags": [
+        "java",
+        "security"
+      ],
+      "complexity": "low"
+    },
+    {
+      "id": "function:src/java/security/Identity.java:toString",
+      "type": "function",
+      "name": "toString",
+      "filePath": "src/java/security/Identity.java",
+      "summary": "Function toString",
+      "tags": [
+        "java",
+        "security"
+      ],
+      "complexity": "low"
+    },
+    {
+      "id": "function:src/java/security/Identity.java:hashCode",
+      "type": "function",
+      "name": "hashCode",
+      "filePath": "src/java/security/Identity.java",
+      "summary": "Function hashCode",
+      "tags": [
+        "java",
+        "security"
+      ],
+      "complexity": "low"
+    },
+    {
+      "id": "file:src/java/security/Key.java",
+      "type": "file",
+      "name": "Key.java",
+      "filePath": "src/java/security/Key.java",
+      "summary": "Key.java - java code file",
+      "tags": [
+        "java",
+        "security"
+      ],
+      "complexity": "low",
+      "sizeLines": 97,
+      "language": "java"
+    },
+    {
+      "id": "class:src/java/security/Key.java:Key",
+      "type": "class",
+      "name": "Key",
+      "filePath": "src/java/security/Key.java",
+      "summary": "Class Key with 3 methods",
+      "tags": [
+        "java",
+        "security"
+      ],
+      "complexity": "low",
+      "methods": 3
+    },
+    {
+      "id": "file:src/java/security/Permission.java",
+      "type": "file",
+      "name": "Permission.java",
+      "filePath": "src/java/security/Permission.java",
+      "summary": "Permission.java - java code file",
+      "tags": [
+        "java",
+        "security"
+      ],
+      "complexity": "medium",
+      "sizeLines": 193,
+      "language": "java"
+    },
+    {
+      "id": "class:src/java/security/Permission.java:Permission",
+      "type": "class",
+      "name": "Permission",
+      "filePath": "src/java/security/Permission.java",
+      "summary": "Class Permission with 8 methods",
+      "tags": [
+        "java",
+        "security"
+      ],
+      "complexity": "medium",
+      "methods": 8
+    },
+    {
+      "id": "file:src/java/security/Provider.java",
+      "type": "file",
+      "name": "Provider.java",
+      "filePath": "src/java/security/Provider.java",
+      "summary": "Provider.java - java code file",
+      "tags": [
+        "java",
+        "security"
+      ],
+      "complexity": "medium",
+      "sizeLines": 208,
+      "language": "java"
+    },
+    {
+      "id": "class:src/java/security/Provider.java:Provider",
+      "type": "class",
+      "name": "Provider",
+      "filePath": "src/java/security/Provider.java",
+      "summary": "Class Provider with 8 methods",
+      "tags": [
+        "java",
+        "security"
+      ],
+      "complexity": "medium",
+      "methods": 8
+    },
+    {
+      "id": "file:src/java/security/SecureRandomSpi.java",
+      "type": "file",
+      "name": "SecureRandomSpi.java",
+      "filePath": "src/java/security/SecureRandomSpi.java",
+      "summary": "SecureRandomSpi.java - java code file",
+      "tags": [
+        "java",
+        "security"
+      ],
+      "complexity": "low",
+      "sizeLines": 75,
+      "language": "java"
+    },
+    {
+      "id": "class:src/java/security/SecureRandomSpi.java:SecureRandomSpi",
+      "type": "class",
+      "name": "SecureRandomSpi",
+      "filePath": "src/java/security/SecureRandomSpi.java",
+      "summary": "Class SecureRandomSpi with 4 methods",
+      "tags": [
+        "java",
+        "security"
+      ],
+      "complexity": "low",
+      "methods": 4
+    },
+    {
+      "id": "file:src/java/text/Collator.java",
+      "type": "file",
+      "name": "Collator.java",
+      "filePath": "src/java/text/Collator.java",
+      "summary": "Collator.java - java code file",
+      "tags": [
+        "java",
+        "text"
+      ],
+      "complexity": "medium",
+      "sizeLines": 473,
+      "language": "java"
+    },
+    {
+      "id": "class:src/java/text/Collator.java:Collator",
+      "type": "class",
+      "name": "Collator",
+      "filePath": "src/java/text/Collator.java",
+      "summary": "Class Collator with 15 methods",
+      "tags": [
+        "java",
+        "text"
+      ],
+      "complexity": "medium",
+      "methods": 15
+    },
+    {
+      "id": "function:src/java/text/Collator.java:getInstance",
+      "type": "function",
+      "name": "getInstance",
+      "filePath": "src/java/text/Collator.java",
+      "summary": "Function getInstance",
+      "tags": [
+        "java",
+        "text"
+      ],
+      "complexity": "low"
+    },
+    {
+      "id": "function:src/java/text/Collator.java:getAvailableLocales",
+      "type": "function",
+      "name": "getAvailableLocales",
+      "filePath": "src/java/text/Collator.java",
+      "summary": "Function getAvailableLocales",
+      "tags": [
+        "java",
+        "text"
+      ],
+      "complexity": "low"
+    },
+    {
+      "id": "function:src/java/text/Collator.java:setStrength",
+      "type": "function",
+      "name": "setStrength",
+      "filePath": "src/java/text/Collator.java",
+      "summary": "Function setStrength",
+      "tags": [
+        "java",
+        "text"
+      ],
+      "complexity": "low"
+    },
+    {
+      "id": "function:src/java/text/Collator.java:setDecomposition",
+      "type": "function",
+      "name": "setDecomposition",
+      "filePath": "src/java/text/Collator.java",
+      "summary": "Function setDecomposition",
+      "tags": [
+        "java",
+        "text"
+      ],
+      "complexity": "low"
+    },
+    {
+      "id": "function:src/java/text/Collator.java:equals",
+      "type": "function",
+      "name": "equals",
+      "filePath": "src/java/text/Collator.java",
+      "summary": "Function equals",
+      "tags": [
+        "java",
+        "text"
+      ],
+      "complexity": "low"
+    },
+    {
+      "id": "file:src/java/text/Format.java",
+      "type": "file",
+      "name": "Format.java",
+      "filePath": "src/java/text/Format.java",
+      "summary": "Format.java - java code file",
+      "tags": [
+        "java",
+        "text"
+      ],
+      "complexity": "medium",
+      "sizeLines": 167,
+      "language": "java"
+    },
+    {
+      "id": "class:src/java/text/Format.java:Format",
+      "type": "class",
+      "name": "Format",
+      "filePath": "src/java/text/Format.java",
+      "summary": "Class Format with 6 methods",
+      "tags": [
+        "java",
+        "text"
+      ],
+      "complexity": "medium",
+      "methods": 6
+    },
+    {
+      "id": "function:src/java/text/Format.java:clone",
+      "type": "function",
+      "name": "clone",
+      "filePath": "src/java/text/Format.java",
+      "summary": "Function clone",
+      "tags": [
+        "java",
+        "text"
+      ],
+      "complexity": "low"
+    },
+    {
+      "id": "file:src/java/text/NumberFormat.java",
+      "type": "file",
+      "name": "NumberFormat.java",
+      "filePath": "src/java/text/NumberFormat.java",
+      "summary": "NumberFormat.java - java code file",
+      "tags": [
+        "java",
+        "text"
+      ],
+      "complexity": "high",
+      "sizeLines": 633,
+      "language": "java"
+    },
+    {
+      "id": "class:src/java/text/NumberFormat.java:NumberFormat",
+      "type": "class",
+      "name": "NumberFormat",
+      "filePath": "src/java/text/NumberFormat.java",
+      "summary": "Class NumberFormat with 32 methods",
+      "tags": [
+        "java",
+        "text"
+      ],
+      "complexity": "high",
+      "methods": 32
+    },
+    {
+      "id": "function:src/java/text/NumberFormat.java:parse",
+      "type": "function",
+      "name": "parse",
+      "filePath": "src/java/text/NumberFormat.java",
+      "summary": "Function parse",
+      "tags": [
+        "java",
+        "text"
+      ],
+      "complexity": "low"
+    },
+    {
+      "id": "function:src/java/text/NumberFormat.java:equals",
+      "type": "function",
+      "name": "equals",
+      "filePath": "src/java/text/NumberFormat.java",
+      "summary": "Function equals",
+      "tags": [
+        "java",
+        "text"
+      ],
+      "complexity": "low"
+    },
+    {
+      "id": "file:src/java/util/Comparator.java",
+      "type": "file",
+      "name": "Comparator.java",
+      "filePath": "src/java/util/Comparator.java",
+      "summary": "Comparator.java - java code file",
+      "tags": [
+        "java",
+        "util"
+      ],
+      "complexity": "low",
+      "sizeLines": 64,
+      "language": "java"
+    },
+    {
+      "id": "class:src/java/util/Comparator.java:Comparator",
+      "type": "class",
+      "name": "Comparator",
+      "filePath": "src/java/util/Comparator.java",
+      "summary": "Class Comparator with 1 methods",
+      "tags": [
+        "java",
+        "util"
+      ],
+      "complexity": "low",
+      "methods": 1
+    },
+    {
+      "id": "file:src/java/util/ResourceBundle.java",
+      "type": "file",
+      "name": "ResourceBundle.java",
+      "filePath": "src/java/util/ResourceBundle.java",
+      "summary": "ResourceBundle.java - java code file",
+      "tags": [
+        "java",
+        "util"
+      ],
+      "complexity": "medium",
+      "sizeLines": 450,
+      "language": "java"
+    },
+    {
+      "id": "class:src/java/util/ResourceBundle.java:ResourceBundle",
+      "type": "class",
+      "name": "ResourceBundle",
+      "filePath": "src/java/util/ResourceBundle.java",
+      "summary": "Class ResourceBundle with 12 methods",
+      "tags": [
+        "java",
+        "util"
+      ],
+      "complexity": "medium",
+      "methods": 12
+    },
+    {
+      "id": "function:src/java/util/ResourceBundle.java:getObject",
+      "type": "function",
+      "name": "getObject",
+      "filePath": "src/java/util/ResourceBundle.java",
+      "summary": "Function getObject",
+      "tags": [
+        "java",
+        "util"
+      ],
+      "complexity": "low"
+    },
+    {
+      "id": "function:src/java/util/ResourceBundle.java:getBundle",
+      "type": "function",
+      "name": "getBundle",
+      "filePath": "src/java/util/ResourceBundle.java",
+      "summary": "Function getBundle",
+      "tags": [
+        "java",
+        "util"
+      ],
+      "complexity": "low"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/java/io/Serializable.java",
+      "target": "class:src/java/io/Serializable.java:Serializable",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/io/Serializable.java",
+      "target": "class:src/java/io/Serializable.java:Serializable",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/lang/Number.java",
+      "target": "class:src/java/lang/Number.java:Number",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/lang/Number.java",
+      "target": "class:src/java/lang/Number.java:Number",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/security/Identity.java",
+      "target": "class:src/java/security/Identity.java:Identity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/security/Identity.java",
+      "target": "class:src/java/security/Identity.java:Identity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/security/Identity.java",
+      "target": "function:src/java/security/Identity.java:addCertificate",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/security/Identity.java",
+      "target": "function:src/java/security/Identity.java:addCertificate",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/security/Identity.java",
+      "target": "function:src/java/security/Identity.java:removeCertificate",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/security/Identity.java",
+      "target": "function:src/java/security/Identity.java:removeCertificate",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/security/Identity.java",
+      "target": "function:src/java/security/Identity.java:equals",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/security/Identity.java",
+      "target": "function:src/java/security/Identity.java:equals",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/security/Identity.java",
+      "target": "function:src/java/security/Identity.java:toString",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/security/Identity.java",
+      "target": "function:src/java/security/Identity.java:toString",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/security/Identity.java",
+      "target": "function:src/java/security/Identity.java:toString",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/security/Identity.java",
+      "target": "function:src/java/security/Identity.java:toString",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/security/Identity.java",
+      "target": "function:src/java/security/Identity.java:hashCode",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/security/Identity.java",
+      "target": "function:src/java/security/Identity.java:hashCode",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/security/Key.java",
+      "target": "class:src/java/security/Key.java:Key",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/security/Key.java",
+      "target": "class:src/java/security/Key.java:Key",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/security/Permission.java",
+      "target": "class:src/java/security/Permission.java:Permission",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/security/Permission.java",
+      "target": "class:src/java/security/Permission.java:Permission",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/security/Provider.java",
+      "target": "class:src/java/security/Provider.java:Provider",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/security/Provider.java",
+      "target": "class:src/java/security/Provider.java:Provider",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/security/SecureRandomSpi.java",
+      "target": "class:src/java/security/SecureRandomSpi.java:SecureRandomSpi",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/security/SecureRandomSpi.java",
+      "target": "class:src/java/security/SecureRandomSpi.java:SecureRandomSpi",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/text/Collator.java",
+      "target": "class:src/java/text/Collator.java:Collator",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/text/Collator.java",
+      "target": "class:src/java/text/Collator.java:Collator",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/text/Collator.java",
+      "target": "function:src/java/text/Collator.java:getInstance",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/text/Collator.java",
+      "target": "function:src/java/text/Collator.java:getInstance",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/text/Collator.java",
+      "target": "function:src/java/text/Collator.java:getAvailableLocales",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/text/Collator.java",
+      "target": "function:src/java/text/Collator.java:getAvailableLocales",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/text/Collator.java",
+      "target": "function:src/java/text/Collator.java:setStrength",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/text/Collator.java",
+      "target": "function:src/java/text/Collator.java:setStrength",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/text/Collator.java",
+      "target": "function:src/java/text/Collator.java:setDecomposition",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/text/Collator.java",
+      "target": "function:src/java/text/Collator.java:setDecomposition",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/text/Collator.java",
+      "target": "function:src/java/text/Collator.java:equals",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/text/Collator.java",
+      "target": "function:src/java/text/Collator.java:equals",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/text/Format.java",
+      "target": "class:src/java/text/Format.java:Format",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/text/Format.java",
+      "target": "class:src/java/text/Format.java:Format",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/text/Format.java",
+      "target": "function:src/java/text/Format.java:clone",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/text/Format.java",
+      "target": "function:src/java/text/Format.java:clone",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/text/NumberFormat.java",
+      "target": "class:src/java/text/NumberFormat.java:NumberFormat",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/text/NumberFormat.java",
+      "target": "class:src/java/text/NumberFormat.java:NumberFormat",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/text/NumberFormat.java",
+      "target": "function:src/java/text/NumberFormat.java:parse",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/text/NumberFormat.java",
+      "target": "function:src/java/text/NumberFormat.java:parse",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/text/NumberFormat.java",
+      "target": "function:src/java/text/NumberFormat.java:equals",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/text/NumberFormat.java",
+      "target": "function:src/java/text/NumberFormat.java:equals",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/util/Comparator.java",
+      "target": "class:src/java/util/Comparator.java:Comparator",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/util/Comparator.java",
+      "target": "class:src/java/util/Comparator.java:Comparator",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/util/ResourceBundle.java",
+      "target": "class:src/java/util/ResourceBundle.java:ResourceBundle",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/util/ResourceBundle.java",
+      "target": "class:src/java/util/ResourceBundle.java:ResourceBundle",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/util/ResourceBundle.java",
+      "target": "function:src/java/util/ResourceBundle.java:getObject",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/util/ResourceBundle.java",
+      "target": "function:src/java/util/ResourceBundle.java:getObject",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/util/ResourceBundle.java",
+      "target": "function:src/java/util/ResourceBundle.java:getBundle",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/util/ResourceBundle.java",
+      "target": "function:src/java/util/ResourceBundle.java:getBundle",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/lang/Number.java",
+      "target": "file:src/java/io/Serializable.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/java/security/Identity.java",
+      "target": "file:src/java/io/Serializable.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/java/security/Key.java",
+      "target": "file:src/java/io/Serializable.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/java/security/Permission.java",
+      "target": "file:src/java/io/Serializable.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/java/security/Provider.java",
+      "target": "file:src/java/io/Serializable.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/java/security/SecureRandomSpi.java",
+      "target": "file:src/java/io/Serializable.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/java/text/Collator.java",
+      "target": "file:src/java/io/Serializable.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/java/text/Collator.java",
+      "target": "file:src/java/util/Comparator.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/java/text/Collator.java",
+      "target": "file:src/java/util/ResourceBundle.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/java/text/Format.java",
+      "target": "file:src/java/io/Serializable.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/java/text/NumberFormat.java",
+      "target": "file:src/java/io/Serializable.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

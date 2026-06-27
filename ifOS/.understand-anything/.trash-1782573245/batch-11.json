@@ -1,0 +1,127 @@
+{
+  "batchIndex": 11,
+  "nodes": [
+    {
+      "id": "file:src/jx/devices/bio/BlockIO.java",
+      "type": "file",
+      "label": "BlockIO.java",
+      "properties": {
+        "path": "src/jx/devices/bio/BlockIO.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 44,
+        "nonEmptyLines": 39
+      }
+    },
+    {
+      "id": "class:src/jx/devices/bio/BlockIO.java::BlockIO",
+      "type": "class",
+      "label": "BlockIO",
+      "properties": {
+        "name": "BlockIO",
+        "startLine": 10,
+        "endLine": 44,
+        "methods": [
+          "getCapacity",
+          "getSectorSize",
+          "readSectors",
+          "writeSectors"
+        ],
+        "properties": []
+      }
+    },
+    {
+      "id": "file:src/jx/fs/FileSystem.java",
+      "type": "file",
+      "label": "FileSystem.java",
+      "properties": {
+        "path": "src/jx/fs/FileSystem.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 70,
+        "nonEmptyLines": 59
+      }
+    },
+    {
+      "id": "class:src/jx/fs/FileSystem.java::FileSystem",
+      "type": "class",
+      "label": "FileSystem",
+      "properties": {
+        "name": "FileSystem",
+        "startLine": 12,
+        "endLine": 70,
+        "methods": [
+          "init",
+          "name",
+          "getRootNode",
+          "init",
+          "release",
+          "build",
+          "check",
+          "getNode",
+          "getDeviceID"
+        ],
+        "properties": []
+      }
+    },
+    {
+      "id": "file:src/jx/fs/buffer/BufferCache.java",
+      "type": "file",
+      "label": "BufferCache.java",
+      "properties": {
+        "path": "src/jx/fs/buffer/BufferCache.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 24,
+        "nonEmptyLines": 14
+      }
+    },
+    {
+      "id": "class:src/jx/fs/buffer/BufferCache.java::BufferCache",
+      "type": "class",
+      "label": "BufferCache",
+      "properties": {
+        "name": "BufferCache",
+        "startLine": 8,
+        "endLine": 24,
+        "methods": [
+          "syncDevice",
+          "flushCache",
+          "showBuffers",
+          "bread",
+          "getblk",
+          "bdwrite",
+          "brelse"
+        ],
+        "properties": []
+      }
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/jx/devices/bio/BlockIO.java",
+      "target": "class:src/jx/devices/bio/BlockIO.java::BlockIO",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/jx/fs/FileSystem.java",
+      "target": "class:src/jx/fs/FileSystem.java::FileSystem",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/jx/fs/buffer/BufferCache.java",
+      "target": "class:src/jx/fs/buffer/BufferCache.java::BufferCache",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/jx/fs/FileSystem.java",
+      "target": "file:src/jx/devices/bio/BlockIO.java",
+      "relation": "imports"
+    },
+    {
+      "source": "file:src/jx/fs/FileSystem.java",
+      "target": "file:src/jx/fs/buffer/BufferCache.java",
+      "relation": "imports"
+    }
+  ]
+}

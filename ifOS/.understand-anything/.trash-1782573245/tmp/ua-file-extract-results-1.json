@@ -1,0 +1,1372 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 13,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "src/java/lang/Iterable.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 103,
+      "nonEmptyLines": 99,
+      "classes": [
+        {
+          "name": "Iterable",
+          "startLine": 45,
+          "endLine": 103,
+          "methods": [
+            "iterator",
+            "forEach",
+            "spliterator"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "Iterable",
+          "line": 45,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "forEach",
+          "callee": "Objects.requireNonNull",
+          "lineNumber": 73
+        },
+        {
+          "caller": "forEach",
+          "callee": "action.accept",
+          "lineNumber": 75
+        },
+        {
+          "caller": "spliterator",
+          "callee": "Spliterators.spliteratorUnknownSize",
+          "lineNumber": 101
+        },
+        {
+          "caller": "spliterator",
+          "callee": "iterator",
+          "lineNumber": 101
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/nio/Buffer.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 548,
+      "nonEmptyLines": 512,
+      "functions": [
+        {
+          "name": "Buffer",
+          "startLine": 176,
+          "endLine": 188,
+          "params": [
+            "mark",
+            "pos",
+            "lim",
+            "cap"
+          ]
+        },
+        {
+          "name": "capacity",
+          "startLine": 195,
+          "endLine": 197,
+          "params": []
+        },
+        {
+          "name": "position",
+          "startLine": 204,
+          "endLine": 206,
+          "params": []
+        },
+        {
+          "name": "position",
+          "startLine": 221,
+          "endLine": 227,
+          "params": [
+            "newPosition"
+          ]
+        },
+        {
+          "name": "limit",
+          "startLine": 234,
+          "endLine": 236,
+          "params": []
+        },
+        {
+          "name": "limit",
+          "startLine": 252,
+          "endLine": 259,
+          "params": [
+            "newLimit"
+          ]
+        },
+        {
+          "name": "mark",
+          "startLine": 266,
+          "endLine": 269,
+          "params": []
+        },
+        {
+          "name": "reset",
+          "startLine": 282,
+          "endLine": 288,
+          "params": []
+        },
+        {
+          "name": "clear",
+          "startLine": 307,
+          "endLine": 312,
+          "params": []
+        },
+        {
+          "name": "flip",
+          "startLine": 335,
+          "endLine": 340,
+          "params": []
+        },
+        {
+          "name": "rewind",
+          "startLine": 357,
+          "endLine": 361,
+          "params": []
+        },
+        {
+          "name": "remaining",
+          "startLine": 369,
+          "endLine": 371,
+          "params": []
+        },
+        {
+          "name": "hasRemaining",
+          "startLine": 380,
+          "endLine": 382,
+          "params": []
+        },
+        {
+          "name": "isReadOnly",
+          "startLine": 389,
+          "endLine": 389,
+          "params": []
+        },
+        {
+          "name": "hasArray",
+          "startLine": 404,
+          "endLine": 404,
+          "params": []
+        },
+        {
+          "name": "array",
+          "startLine": 431,
+          "endLine": 431,
+          "params": []
+        },
+        {
+          "name": "arrayOffset",
+          "startLine": 455,
+          "endLine": 455,
+          "params": []
+        },
+        {
+          "name": "isDirect",
+          "startLine": 465,
+          "endLine": 465,
+          "params": []
+        },
+        {
+          "name": "nextGetIndex",
+          "startLine": 477,
+          "endLine": 481,
+          "params": []
+        },
+        {
+          "name": "nextGetIndex",
+          "startLine": 483,
+          "endLine": 489,
+          "params": [
+            "nb"
+          ]
+        },
+        {
+          "name": "nextPutIndex",
+          "startLine": 498,
+          "endLine": 502,
+          "params": []
+        },
+        {
+          "name": "nextPutIndex",
+          "startLine": 504,
+          "endLine": 510,
+          "params": [
+            "nb"
+          ]
+        },
+        {
+          "name": "checkIndex",
+          "startLine": 517,
+          "endLine": 521,
+          "params": [
+            "i"
+          ]
+        },
+        {
+          "name": "checkIndex",
+          "startLine": 523,
+          "endLine": 527,
+          "params": [
+            "i",
+            "nb"
+          ]
+        },
+        {
+          "name": "markValue",
+          "startLine": 529,
+          "endLine": 531,
+          "params": []
+        },
+        {
+          "name": "truncate",
+          "startLine": 533,
+          "endLine": 538,
+          "params": []
+        },
+        {
+          "name": "discardMark",
+          "startLine": 540,
+          "endLine": 542,
+          "params": []
+        },
+        {
+          "name": "checkBounds",
+          "startLine": 544,
+          "endLine": 547,
+          "params": [
+            "off",
+            "len",
+            "size"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Buffer",
+          "startLine": 155,
+          "endLine": 548,
+          "methods": [
+            "Buffer",
+            "capacity",
+            "position",
+            "position",
+            "limit",
+            "limit",
+            "mark",
+            "reset",
+            "clear",
+            "flip",
+            "rewind",
+            "remaining",
+            "hasRemaining",
+            "isReadOnly",
+            "hasArray",
+            "array",
+            "arrayOffset",
+            "isDirect",
+            "nextGetIndex",
+            "nextGetIndex",
+            "nextPutIndex",
+            "nextPutIndex",
+            "checkIndex",
+            "checkIndex",
+            "markValue",
+            "truncate",
+            "discardMark",
+            "checkBounds"
+          ],
+          "properties": [
+            "SPLITERATOR_CHARACTERISTICS",
+            "mark",
+            "position",
+            "limit",
+            "capacity",
+            "address"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "capacity",
+          "line": 195,
+          "isDefault": false
+        },
+        {
+          "name": "position",
+          "line": 204,
+          "isDefault": false
+        },
+        {
+          "name": "position",
+          "line": 221,
+          "isDefault": false
+        },
+        {
+          "name": "limit",
+          "line": 234,
+          "isDefault": false
+        },
+        {
+          "name": "limit",
+          "line": 252,
+          "isDefault": false
+        },
+        {
+          "name": "mark",
+          "line": 266,
+          "isDefault": false
+        },
+        {
+          "name": "reset",
+          "line": 282,
+          "isDefault": false
+        },
+        {
+          "name": "clear",
+          "line": 307,
+          "isDefault": false
+        },
+        {
+          "name": "flip",
+          "line": 335,
+          "isDefault": false
+        },
+        {
+          "name": "rewind",
+          "line": 357,
+          "isDefault": false
+        },
+        {
+          "name": "remaining",
+          "line": 369,
+          "isDefault": false
+        },
+        {
+          "name": "hasRemaining",
+          "line": 380,
+          "isDefault": false
+        },
+        {
+          "name": "isReadOnly",
+          "line": 389,
+          "isDefault": false
+        },
+        {
+          "name": "hasArray",
+          "line": 404,
+          "isDefault": false
+        },
+        {
+          "name": "array",
+          "line": 431,
+          "isDefault": false
+        },
+        {
+          "name": "arrayOffset",
+          "line": 455,
+          "isDefault": false
+        },
+        {
+          "name": "isDirect",
+          "line": 465,
+          "isDefault": false
+        },
+        {
+          "name": "Buffer",
+          "line": 155,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "Buffer",
+          "callee": "new IllegalArgumentException",
+          "lineNumber": 178
+        },
+        {
+          "caller": "Buffer",
+          "callee": "limit",
+          "lineNumber": 180
+        },
+        {
+          "caller": "Buffer",
+          "callee": "position",
+          "lineNumber": 181
+        },
+        {
+          "caller": "Buffer",
+          "callee": "new IllegalArgumentException",
+          "lineNumber": 184
+        },
+        {
+          "caller": "position",
+          "callee": "new IllegalArgumentException",
+          "lineNumber": 223
+        },
+        {
+          "caller": "limit",
+          "callee": "new IllegalArgumentException",
+          "lineNumber": 254
+        },
+        {
+          "caller": "reset",
+          "callee": "new InvalidMarkException",
+          "lineNumber": 285
+        },
+        {
+          "caller": "nextGetIndex",
+          "callee": "new BufferUnderflowException",
+          "lineNumber": 479
+        },
+        {
+          "caller": "nextGetIndex",
+          "callee": "new BufferUnderflowException",
+          "lineNumber": 485
+        },
+        {
+          "caller": "nextPutIndex",
+          "callee": "new BufferOverflowException",
+          "lineNumber": 500
+        },
+        {
+          "caller": "nextPutIndex",
+          "callee": "new BufferOverflowException",
+          "lineNumber": 506
+        },
+        {
+          "caller": "checkIndex",
+          "callee": "new IndexOutOfBoundsException",
+          "lineNumber": 519
+        },
+        {
+          "caller": "checkIndex",
+          "callee": "new IndexOutOfBoundsException",
+          "lineNumber": 525
+        },
+        {
+          "caller": "checkBounds",
+          "callee": "new IndexOutOfBoundsException",
+          "lineNumber": 546
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 18,
+        "functionCount": 28,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/util/Iterator.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 77,
+      "nonEmptyLines": 65,
+      "classes": [
+        {
+          "name": "Iterator",
+          "startLine": 41,
+          "endLine": 77,
+          "methods": [
+            "hasNext",
+            "next",
+            "remove",
+            "forEachRemaining"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "Iterator",
+          "line": 41,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "forEachRemaining",
+          "callee": "Objects.requireNonNull",
+          "lineNumber": 73
+        },
+        {
+          "caller": "forEachRemaining",
+          "callee": "hasNext",
+          "lineNumber": 74
+        },
+        {
+          "caller": "forEachRemaining",
+          "callee": "action.accept",
+          "lineNumber": 75
+        },
+        {
+          "caller": "forEachRemaining",
+          "callee": "next",
+          "lineNumber": 75
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/util/PrimitiveIterator.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 305,
+      "nonEmptyLines": 286,
+      "classes": [
+        {
+          "name": "PrimitiveIterator",
+          "startLine": 68,
+          "endLine": 305,
+          "methods": [
+            "forEachRemaining"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "PrimitiveIterator",
+          "line": 68,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "forEachRemaining",
+          "callee": "Objects.requireNonNull",
+          "lineNumber": 114
+        },
+        {
+          "caller": "forEachRemaining",
+          "callee": "hasNext",
+          "lineNumber": 115
+        },
+        {
+          "caller": "forEachRemaining",
+          "callee": "action.accept",
+          "lineNumber": 116
+        },
+        {
+          "caller": "forEachRemaining",
+          "callee": "nextInt",
+          "lineNumber": 116
+        },
+        {
+          "caller": "next",
+          "callee": "Tripwire.trip",
+          "lineNumber": 128
+        },
+        {
+          "caller": "next",
+          "callee": "getClass",
+          "lineNumber": 128
+        },
+        {
+          "caller": "next",
+          "callee": "new Error",
+          "lineNumber": 130
+        },
+        {
+          "caller": "forEachRemaining",
+          "callee": "forEachRemaining",
+          "lineNumber": 145
+        },
+        {
+          "caller": "forEachRemaining",
+          "callee": "Objects.requireNonNull",
+          "lineNumber": 148
+        },
+        {
+          "caller": "forEachRemaining",
+          "callee": "Tripwire.trip",
+          "lineNumber": 150
+        },
+        {
+          "caller": "forEachRemaining",
+          "callee": "getClass",
+          "lineNumber": 150
+        },
+        {
+          "caller": "forEachRemaining",
+          "callee": "Objects.requireNonNull",
+          "lineNumber": 189
+        },
+        {
+          "caller": "forEachRemaining",
+          "callee": "hasNext",
+          "lineNumber": 190
+        },
+        {
+          "caller": "forEachRemaining",
+          "callee": "action.accept",
+          "lineNumber": 191
+        },
+        {
+          "caller": "forEachRemaining",
+          "callee": "nextLong",
+          "lineNumber": 191
+        },
+        {
+          "caller": "next",
+          "callee": "Tripwire.trip",
+          "lineNumber": 203
+        },
+        {
+          "caller": "next",
+          "callee": "getClass",
+          "lineNumber": 203
+        },
+        {
+          "caller": "next",
+          "callee": "new Error",
+          "lineNumber": 205
+        },
+        {
+          "caller": "forEachRemaining",
+          "callee": "forEachRemaining",
+          "lineNumber": 220
+        },
+        {
+          "caller": "forEachRemaining",
+          "callee": "Objects.requireNonNull",
+          "lineNumber": 223
+        },
+        {
+          "caller": "forEachRemaining",
+          "callee": "Tripwire.trip",
+          "lineNumber": 225
+        },
+        {
+          "caller": "forEachRemaining",
+          "callee": "getClass",
+          "lineNumber": 225
+        },
+        {
+          "caller": "forEachRemaining",
+          "callee": "Objects.requireNonNull",
+          "lineNumber": 263
+        },
+        {
+          "caller": "forEachRemaining",
+          "callee": "hasNext",
+          "lineNumber": 264
+        },
+        {
+          "caller": "forEachRemaining",
+          "callee": "action.accept",
+          "lineNumber": 265
+        },
+        {
+          "caller": "forEachRemaining",
+          "callee": "nextDouble",
+          "lineNumber": 265
+        },
+        {
+          "caller": "next",
+          "callee": "Tripwire.trip",
+          "lineNumber": 277
+        },
+        {
+          "caller": "next",
+          "callee": "getClass",
+          "lineNumber": 277
+        },
+        {
+          "caller": "next",
+          "callee": "new Error",
+          "lineNumber": 279
+        },
+        {
+          "caller": "forEachRemaining",
+          "callee": "forEachRemaining",
+          "lineNumber": 295
+        },
+        {
+          "caller": "forEachRemaining",
+          "callee": "Objects.requireNonNull",
+          "lineNumber": 298
+        },
+        {
+          "caller": "forEachRemaining",
+          "callee": "Tripwire.trip",
+          "lineNumber": 300
+        },
+        {
+          "caller": "forEachRemaining",
+          "callee": "getClass",
+          "lineNumber": 300
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/util/Spliterator.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 832,
+      "nonEmptyLines": 794,
+      "classes": [
+        {
+          "name": "Spliterator",
+          "startLine": 296,
+          "endLine": 832,
+          "methods": [
+            "tryAdvance",
+            "forEachRemaining",
+            "trySplit",
+            "estimateSize",
+            "characteristics"
+          ],
+          "properties": [
+            "ORDERED",
+            "DISTINCT",
+            "SORTED",
+            "SIZED",
+            "NONNULL",
+            "IMMUTABLE",
+            "CONCURRENT",
+            "SUBSIZED"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Spliterator",
+          "line": 296,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "forEachRemaining",
+          "callee": "tryAdvance",
+          "lineNumber": 326
+        },
+        {
+          "caller": "forEachRemaining",
+          "callee": "tryAdvance",
+          "lineNumber": 636
+        },
+        {
+          "caller": "forEachRemaining",
+          "callee": "tryAdvance",
+          "lineNumber": 654
+        },
+        {
+          "caller": "tryAdvance",
+          "callee": "tryAdvance",
+          "lineNumber": 670
+        },
+        {
+          "caller": "tryAdvance",
+          "callee": "Tripwire.trip",
+          "lineNumber": 674
+        },
+        {
+          "caller": "tryAdvance",
+          "callee": "getClass",
+          "lineNumber": 674
+        },
+        {
+          "caller": "tryAdvance",
+          "callee": "tryAdvance",
+          "lineNumber": 676
+        },
+        {
+          "caller": "forEachRemaining",
+          "callee": "forEachRemaining",
+          "lineNumber": 693
+        },
+        {
+          "caller": "forEachRemaining",
+          "callee": "Tripwire.trip",
+          "lineNumber": 697
+        },
+        {
+          "caller": "forEachRemaining",
+          "callee": "getClass",
+          "lineNumber": 697
+        },
+        {
+          "caller": "forEachRemaining",
+          "callee": "forEachRemaining",
+          "lineNumber": 699
+        },
+        {
+          "caller": "forEachRemaining",
+          "callee": "tryAdvance",
+          "lineNumber": 718
+        },
+        {
+          "caller": "tryAdvance",
+          "callee": "tryAdvance",
+          "lineNumber": 734
+        },
+        {
+          "caller": "tryAdvance",
+          "callee": "Tripwire.trip",
+          "lineNumber": 738
+        },
+        {
+          "caller": "tryAdvance",
+          "callee": "getClass",
+          "lineNumber": 738
+        },
+        {
+          "caller": "tryAdvance",
+          "callee": "tryAdvance",
+          "lineNumber": 740
+        },
+        {
+          "caller": "forEachRemaining",
+          "callee": "forEachRemaining",
+          "lineNumber": 757
+        },
+        {
+          "caller": "forEachRemaining",
+          "callee": "Tripwire.trip",
+          "lineNumber": 761
+        },
+        {
+          "caller": "forEachRemaining",
+          "callee": "getClass",
+          "lineNumber": 761
+        },
+        {
+          "caller": "forEachRemaining",
+          "callee": "forEachRemaining",
+          "lineNumber": 763
+        },
+        {
+          "caller": "forEachRemaining",
+          "callee": "tryAdvance",
+          "lineNumber": 782
+        },
+        {
+          "caller": "tryAdvance",
+          "callee": "tryAdvance",
+          "lineNumber": 798
+        },
+        {
+          "caller": "tryAdvance",
+          "callee": "Tripwire.trip",
+          "lineNumber": 802
+        },
+        {
+          "caller": "tryAdvance",
+          "callee": "getClass",
+          "lineNumber": 802
+        },
+        {
+          "caller": "tryAdvance",
+          "callee": "tryAdvance",
+          "lineNumber": 804
+        },
+        {
+          "caller": "forEachRemaining",
+          "callee": "forEachRemaining",
+          "lineNumber": 822
+        },
+        {
+          "caller": "forEachRemaining",
+          "callee": "Tripwire.trip",
+          "lineNumber": 826
+        },
+        {
+          "caller": "forEachRemaining",
+          "callee": "getClass",
+          "lineNumber": 826
+        },
+        {
+          "caller": "forEachRemaining",
+          "callee": "forEachRemaining",
+          "lineNumber": 828
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/util/function/BiConsumer.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 75,
+      "nonEmptyLines": 70,
+      "classes": [
+        {
+          "name": "BiConsumer",
+          "startLine": 44,
+          "endLine": 75,
+          "methods": [
+            "accept",
+            "andThen"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "BiConsumer",
+          "line": 44,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "andThen",
+          "callee": "Objects.requireNonNull",
+          "lineNumber": 68
+        },
+        {
+          "caller": "andThen",
+          "callee": "accept",
+          "lineNumber": 71
+        },
+        {
+          "caller": "andThen",
+          "callee": "after.accept",
+          "lineNumber": 72
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/util/function/Consumer.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 67,
+      "nonEmptyLines": 63,
+      "classes": [
+        {
+          "name": "Consumer",
+          "startLine": 41,
+          "endLine": 67,
+          "methods": [
+            "accept"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "Consumer",
+          "line": 41,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/util/function/DoubleConsumer.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 67,
+      "nonEmptyLines": 63,
+      "classes": [
+        {
+          "name": "DoubleConsumer",
+          "startLine": 41,
+          "endLine": 67,
+          "methods": [
+            "accept"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "DoubleConsumer",
+          "line": 41,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/util/function/IntConsumer.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 67,
+      "nonEmptyLines": 63,
+      "classes": [
+        {
+          "name": "IntConsumer",
+          "startLine": 41,
+          "endLine": 67,
+          "methods": [
+            "accept"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "IntConsumer",
+          "line": 41,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/util/function/IntUnaryOperator.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 95,
+      "nonEmptyLines": 89,
+      "classes": [
+        {
+          "name": "IntUnaryOperator",
+          "startLine": 40,
+          "endLine": 95,
+          "methods": [
+            "applyAsInt",
+            "compose",
+            "andThen",
+            "identity"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "IntUnaryOperator",
+          "line": 40,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "compose",
+          "callee": "Objects.requireNonNull",
+          "lineNumber": 65
+        },
+        {
+          "caller": "compose",
+          "callee": "applyAsInt",
+          "lineNumber": 66
+        },
+        {
+          "caller": "compose",
+          "callee": "before.applyAsInt",
+          "lineNumber": 66
+        },
+        {
+          "caller": "andThen",
+          "callee": "Objects.requireNonNull",
+          "lineNumber": 83
+        },
+        {
+          "caller": "andThen",
+          "callee": "after.applyAsInt",
+          "lineNumber": 84
+        },
+        {
+          "caller": "andThen",
+          "callee": "applyAsInt",
+          "lineNumber": 84
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/util/function/LongConsumer.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 67,
+      "nonEmptyLines": 63,
+      "classes": [
+        {
+          "name": "LongConsumer",
+          "startLine": 41,
+          "endLine": 67,
+          "methods": [
+            "accept"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "LongConsumer",
+          "line": 41,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/util/function/Supplier.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 49,
+      "nonEmptyLines": 47,
+      "classes": [
+        {
+          "name": "Supplier",
+          "startLine": 40,
+          "endLine": 49,
+          "methods": [
+            "get"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "Supplier",
+          "line": 40,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/util/stream/IntStream.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 929,
+      "nonEmptyLines": 872,
+      "classes": [
+        {
+          "name": "IntStream",
+          "startLine": 73,
+          "endLine": 929,
+          "methods": [
+            "filter",
+            "map",
+            "mapToObj",
+            "mapToLong",
+            "mapToDouble",
+            "flatMap",
+            "distinct",
+            "sorted",
+            "peek",
+            "limit",
+            "skip",
+            "forEach",
+            "forEachOrdered",
+            "toArray",
+            "reduce",
+            "reduce",
+            "collect",
+            "sum",
+            "min",
+            "max",
+            "count",
+            "average",
+            "summaryStatistics",
+            "anyMatch",
+            "allMatch",
+            "noneMatch",
+            "findFirst",
+            "findAny",
+            "asLongStream",
+            "asDoubleStream",
+            "boxed",
+            "sequential",
+            "parallel",
+            "iterator",
+            "spliterator",
+            "builder",
+            "empty",
+            "of",
+            "of",
+            "iterate",
+            "generate",
+            "range",
+            "rangeClosed",
+            "concat"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "IntStream",
+          "line": 73,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "builder",
+          "callee": "new Streams.IntStreamBuilderImpl",
+          "lineNumber": 690
+        },
+        {
+          "caller": "empty",
+          "callee": "StreamSupport.intStream",
+          "lineNumber": 699
+        },
+        {
+          "caller": "empty",
+          "callee": "Spliterators.emptyIntSpliterator",
+          "lineNumber": 699
+        },
+        {
+          "caller": "of",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 710
+        },
+        {
+          "caller": "of",
+          "callee": "Arrays.stream",
+          "lineNumber": 720
+        },
+        {
+          "caller": "iterate",
+          "callee": "Objects.requireNonNull",
+          "lineNumber": 740
+        },
+        {
+          "caller": "iterate",
+          "callee": "new PrimitiveIterator.OfInt",
+          "lineNumber": 741
+        },
+        {
+          "caller": "nextInt",
+          "callee": "f.applyAsInt",
+          "lineNumber": 752
+        },
+        {
+          "caller": "forEachRemaining",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 758
+        },
+        {
+          "caller": "next",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 763
+        },
+        {
+          "caller": "remove",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 768
+        },
+        {
+          "caller": "iterate",
+          "callee": "StreamSupport.intStream",
+          "lineNumber": 771
+        },
+        {
+          "caller": "iterate",
+          "callee": "Spliterators.spliteratorUnknownSize",
+          "lineNumber": 771
+        },
+        {
+          "caller": "generate",
+          "callee": "Objects.requireNonNull",
+          "lineNumber": 785
+        },
+        {
+          "caller": "generate",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 788
+        },
+        {
+          "caller": "range",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 815
+        },
+        {
+          "caller": "rangeClosed",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 842
+        },
+        {
+          "caller": "concat",
+          "callee": "Objects.requireNonNull",
+          "lineNumber": 863
+        },
+        {
+          "caller": "concat",
+          "callee": "Objects.requireNonNull",
+          "lineNumber": 864
+        },
+        {
+          "caller": "concat",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 870
+        },
+        {
+          "caller": "add",
+          "callee": "accept",
+          "lineNumber": 913
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    }
+  ]
+}

@@ -1,0 +1,155 @@
+{
+  "projectRoot": "/Users/xuyi/Source/OS/armOS/lib/jcore/test/ifOS",
+  "batchFiles": [
+    {
+      "path": "src/jx/fs/db/RelationScan.ctxt",
+      "language": "ctxt",
+      "sizeLines": 19,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/fs/db/RelationScan.java",
+      "language": "java",
+      "sizeLines": 44,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/fs/db/SetNumberReader.ctxt",
+      "language": "ctxt",
+      "sizeLines": 13,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/fs/db/SetNumberReader.java",
+      "language": "java",
+      "sizeLines": 31,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/fs/db/systembuffer/package.bluej",
+      "language": "bluej",
+      "sizeLines": 26,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/fs/db/systembuffer/strategy/package.bluej",
+      "language": "bluej",
+      "sizeLines": 37,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/fs/db/systembuffer/strategy/PageStrategy.ctxt",
+      "language": "ctxt",
+      "sizeLines": 31,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/fs/db/systembuffer/strategy/PageStrategy.java",
+      "language": "java",
+      "sizeLines": 78,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/fs/db/systembuffer/strategy/PageStrategyRecord.ctxt",
+      "language": "ctxt",
+      "sizeLines": 16,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/fs/db/systembuffer/strategy/PageStrategyRecord.java",
+      "language": "java",
+      "sizeLines": 22,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/fs/db/Table.ctxt",
+      "language": "ctxt",
+      "sizeLines": 24,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/fs/db/Table.java",
+      "language": "java",
+      "sizeLines": 43,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/fs/db/TupleDescriptor.ctxt",
+      "language": "ctxt",
+      "sizeLines": 21,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/fs/db/TupleDescriptor.java",
+      "language": "java",
+      "sizeLines": 31,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/fs/db/TupleReader.ctxt",
+      "language": "ctxt",
+      "sizeLines": 25,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/fs/db/TupleReader.java",
+      "language": "java",
+      "sizeLines": 51,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/fs/db/TupleWriter.ctxt",
+      "language": "ctxt",
+      "sizeLines": 15,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/fs/db/TupleWriter.java",
+      "language": "java",
+      "sizeLines": 34,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/fs/db/types/DbComparator.ctxt",
+      "language": "ctxt",
+      "sizeLines": 7,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/fs/db/types/DbComparator.java",
+      "language": "java",
+      "sizeLines": 8,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/fs/db/types/DbConverter.ctxt",
+      "language": "ctxt",
+      "sizeLines": 8,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/fs/db/types/DbConverter.java",
+      "language": "java",
+      "sizeLines": 15,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/fs/db/types/package.bluej",
+      "language": "bluej",
+      "sizeLines": 47,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/fs/db/types/TypeManager.ctxt",
+      "language": "ctxt",
+      "sizeLines": 13,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/fs/db/types/TypeManager.java",
+      "language": "java",
+      "sizeLines": 35,
+      "fileCategory": "code"
+    }
+  ]
+}

@@ -1,0 +1,137 @@
+{
+  "nodes": [
+    {
+      "id": "file:undefined",
+      "type": "file"
+    },
+    {
+      "id": "class:RelationScan:undefined",
+      "type": "class",
+      "label": "RelationScan"
+    },
+    {
+      "id": "class:SetNumberReader:undefined",
+      "type": "class",
+      "label": "SetNumberReader"
+    },
+    {
+      "id": "class:PageStrategy:undefined",
+      "type": "class",
+      "label": "PageStrategy"
+    },
+    {
+      "id": "class:PageStrategyRecord:undefined",
+      "type": "class",
+      "label": "PageStrategyRecord"
+    },
+    {
+      "id": "class:Table:undefined",
+      "type": "class",
+      "label": "Table"
+    },
+    {
+      "id": "class:TupleDescriptor:undefined",
+      "type": "class",
+      "label": "TupleDescriptor"
+    },
+    {
+      "id": "class:TupleReader:undefined",
+      "type": "class",
+      "label": "TupleReader"
+    },
+    {
+      "id": "class:TupleWriter:undefined",
+      "type": "class",
+      "label": "TupleWriter"
+    },
+    {
+      "id": "class:DbComparator:undefined",
+      "type": "class",
+      "label": "DbComparator"
+    },
+    {
+      "id": "class:DbConverter:undefined",
+      "type": "class",
+      "label": "DbConverter"
+    },
+    {
+      "id": "class:TypeManager:undefined",
+      "type": "class",
+      "label": "TypeManager"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:undefined",
+      "target": "class:RelationScan:undefined",
+      "type": "contains",
+      "weight": 1
+    },
+    {
+      "source": "file:undefined",
+      "target": "class:SetNumberReader:undefined",
+      "type": "contains",
+      "weight": 1
+    },
+    {
+      "source": "file:undefined",
+      "target": "class:PageStrategy:undefined",
+      "type": "contains",
+      "weight": 1
+    },
+    {
+      "source": "file:undefined",
+      "target": "class:PageStrategyRecord:undefined",
+      "type": "contains",
+      "weight": 1
+    },
+    {
+      "source": "file:undefined",
+      "target": "class:Table:undefined",
+      "type": "contains",
+      "weight": 1
+    },
+    {
+      "source": "file:undefined",
+      "target": "class:TupleDescriptor:undefined",
+      "type": "contains",
+      "weight": 1
+    },
+    {
+      "source": "file:undefined",
+      "target": "class:TupleReader:undefined",
+      "type": "contains",
+      "weight": 1
+    },
+    {
+      "source": "file:undefined",
+      "target": "class:TupleWriter:undefined",
+      "type": "contains",
+      "weight": 1
+    },
+    {
+      "source": "file:undefined",
+      "target": "class:DbComparator:undefined",
+      "type": "contains",
+      "weight": 1
+    },
+    {
+      "source": "file:undefined",
+      "target": "class:DbConverter:undefined",
+      "type": "contains",
+      "weight": 1
+    },
+    {
+      "source": "file:undefined",
+      "target": "class:TypeManager:undefined",
+      "type": "contains",
+      "weight": 1
+    },
+    {
+      "source": "file:src/jx/fs/db/TupleDescriptor.java",
+      "target": "file:src/jx/fs/db/types/DbConverter.java",
+      "type": "imports",
+      "weight": 0.7
+    }
+  ]
+}

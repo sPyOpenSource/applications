@@ -1,0 +1,445 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 9,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "src/jx/zero/verifier/JVMOPStackElement.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 92,
+      "nonEmptyLines": 83,
+      "functions": [
+        {
+          "name": "merge",
+          "startLine": 20,
+          "endLine": 20,
+          "params": [
+            "other"
+          ]
+        },
+        {
+          "name": "dataEquals",
+          "startLine": 24,
+          "endLine": 24,
+          "params": [
+            "other"
+          ]
+        },
+        {
+          "name": "getBCAddr",
+          "startLine": 36,
+          "endLine": 36,
+          "params": []
+        },
+        {
+          "name": "getPrev",
+          "startLine": 37,
+          "endLine": 37,
+          "params": []
+        },
+        {
+          "name": "setPrev",
+          "startLine": 43,
+          "endLine": 49,
+          "params": [
+            "prev"
+          ]
+        },
+        {
+          "name": "JVMOPStackElement",
+          "startLine": 55,
+          "endLine": 57,
+          "params": [
+            "prev"
+          ]
+        },
+        {
+          "name": "JVMOPStackElement",
+          "startLine": 63,
+          "endLine": 66,
+          "params": [
+            "prev",
+            "bcAddr"
+          ]
+        },
+        {
+          "name": "addressString",
+          "startLine": 68,
+          "endLine": 84,
+          "params": []
+        },
+        {
+          "name": "toString",
+          "startLine": 86,
+          "endLine": 91,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "JVMOPStackElement",
+          "startLine": 6,
+          "endLine": 92,
+          "methods": [
+            "merge",
+            "dataEquals",
+            "getBCAddr",
+            "getPrev",
+            "setPrev",
+            "JVMOPStackElement",
+            "JVMOPStackElement",
+            "addressString",
+            "toString"
+          ],
+          "properties": [
+            "ADDR_INIT",
+            "ADDR_EXCEPTION",
+            "ADDR_MERGE",
+            "prev",
+            "bcAddr"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "merge",
+          "line": 20,
+          "isDefault": false
+        },
+        {
+          "name": "dataEquals",
+          "line": 24,
+          "isDefault": false
+        },
+        {
+          "name": "ADDR_INIT",
+          "line": 27,
+          "isDefault": false
+        },
+        {
+          "name": "ADDR_EXCEPTION",
+          "line": 28,
+          "isDefault": false
+        },
+        {
+          "name": "ADDR_MERGE",
+          "line": 29,
+          "isDefault": false
+        },
+        {
+          "name": "getBCAddr",
+          "line": 36,
+          "isDefault": false
+        },
+        {
+          "name": "getPrev",
+          "line": 37,
+          "isDefault": false
+        },
+        {
+          "name": "setPrev",
+          "line": 43,
+          "isDefault": false
+        },
+        {
+          "name": "JVMOPStackElement",
+          "line": 55,
+          "isDefault": false
+        },
+        {
+          "name": "JVMOPStackElement",
+          "line": 63,
+          "isDefault": false
+        },
+        {
+          "name": "addressString",
+          "line": 68,
+          "isDefault": false
+        },
+        {
+          "name": "toString",
+          "line": 86,
+          "isDefault": false
+        },
+        {
+          "name": "JVMOPStackElement",
+          "line": 6,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "setPrev",
+          "callee": "new Error",
+          "lineNumber": 47
+        },
+        {
+          "caller": "addressString",
+          "callee": "Integer.toHexString",
+          "lineNumber": 81
+        },
+        {
+          "caller": "toString",
+          "callee": "prev.toString",
+          "lineNumber": 88
+        },
+        {
+          "caller": "toString",
+          "callee": "addressString",
+          "lineNumber": 88
+        },
+        {
+          "caller": "toString",
+          "callee": "addressString",
+          "lineNumber": 90
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 13,
+        "functionCount": 9,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/jx/zero/verifier/npa/NPALocalVarsInterface.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 9,
+      "nonEmptyLines": 8,
+      "classes": [
+        {
+          "name": "NPALocalVarsInterface",
+          "startLine": 3,
+          "endLine": 9,
+          "methods": [
+            "write",
+            "NPAread",
+            "setValue"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "NPALocalVarsInterface",
+          "line": 3,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/jx/zero/verifier/npa/NPAValue.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 10,
+      "nonEmptyLines": 7,
+      "classes": [
+        {
+          "name": "NPAValue",
+          "startLine": 8,
+          "endLine": 10,
+          "methods": [],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "NPAValue",
+          "line": 8,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/jx/zero/verifier/Subroutines.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 10,
+      "nonEmptyLines": 7,
+      "classes": [
+        {
+          "name": "Subroutines",
+          "startLine": 8,
+          "endLine": 10,
+          "methods": [],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "Subroutines",
+          "line": 8,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/jx/zero/verifier/typecheck/TCLocalVarsInterface.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 6,
+      "nonEmptyLines": 5,
+      "classes": [
+        {
+          "name": "TCLocalVarsInterface",
+          "startLine": 3,
+          "endLine": 6,
+          "methods": [
+            "write",
+            "read"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "TCLocalVarsInterface",
+          "line": 3,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/jx/zero/verifier/typecheck/TCTypes.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 10,
+      "nonEmptyLines": 7,
+      "classes": [
+        {
+          "name": "TCTypes",
+          "startLine": 8,
+          "endLine": 10,
+          "methods": [],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "TCTypes",
+          "line": 8,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/jx/zero/verifier/wcet/CFGNode.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 10,
+      "nonEmptyLines": 7,
+      "classes": [
+        {
+          "name": "CFGNode",
+          "startLine": 8,
+          "endLine": 10,
+          "methods": [],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "CFGNode",
+          "line": 8,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/jx/zero/verifier/wcet/OpenIfListElement.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 10,
+      "nonEmptyLines": 7,
+      "classes": [
+        {
+          "name": "OpenIfListElement",
+          "startLine": 8,
+          "endLine": 10,
+          "methods": [],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "OpenIfListElement",
+          "line": 8,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/jx/zero/verifier/wcet/SimState.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 10,
+      "nonEmptyLines": 7,
+      "classes": [
+        {
+          "name": "SimState",
+          "startLine": 8,
+          "endLine": 10,
+          "methods": [],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "SimState",
+          "line": 8,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    }
+  ]
+}

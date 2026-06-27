@@ -1,0 +1,108 @@
+{
+  "batchIndex": 9,
+  "nodes": [
+    {
+      "id": "file:src/java/beans/PropertyChangeListener.java",
+      "type": "file",
+      "label": "PropertyChangeListener.java",
+      "properties": {
+        "path": "src/java/beans/PropertyChangeListener.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 49,
+        "nonEmptyLines": 41
+      }
+    },
+    {
+      "id": "class:src/java/beans/PropertyChangeListener.java::PropertyChangeListener",
+      "type": "class",
+      "label": "PropertyChangeListener",
+      "properties": {
+        "name": "PropertyChangeListener",
+        "startLine": 43,
+        "endLine": 49,
+        "methods": [
+          "propertyChange"
+        ],
+        "properties": []
+      }
+    },
+    {
+      "id": "file:src/java/beans/VetoableChangeListener.java",
+      "type": "file",
+      "label": "VetoableChangeListener.java",
+      "properties": {
+        "path": "src/java/beans/VetoableChangeListener.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 65,
+        "nonEmptyLines": 56
+      }
+    },
+    {
+      "id": "class:src/java/beans/VetoableChangeListener.java::VetoableChangeListener",
+      "type": "class",
+      "label": "VetoableChangeListener",
+      "properties": {
+        "name": "VetoableChangeListener",
+        "startLine": 56,
+        "endLine": 65,
+        "methods": [
+          "vetoableChange"
+        ],
+        "properties": []
+      }
+    },
+    {
+      "id": "file:src/java/util/EventListener.java",
+      "type": "file",
+      "label": "EventListener.java",
+      "properties": {
+        "path": "src/java/util/EventListener.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 32,
+        "nonEmptyLines": 24
+      }
+    },
+    {
+      "id": "class:src/java/util/EventListener.java::EventListener",
+      "type": "class",
+      "label": "EventListener",
+      "properties": {
+        "name": "EventListener",
+        "startLine": 30,
+        "endLine": 32,
+        "methods": [],
+        "properties": []
+      }
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/java/beans/PropertyChangeListener.java",
+      "target": "class:src/java/beans/PropertyChangeListener.java::PropertyChangeListener",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/beans/VetoableChangeListener.java",
+      "target": "class:src/java/beans/VetoableChangeListener.java::VetoableChangeListener",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/EventListener.java",
+      "target": "class:src/java/util/EventListener.java::EventListener",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/beans/PropertyChangeListener.java",
+      "target": "file:src/java/util/EventListener.java",
+      "relation": "imports"
+    },
+    {
+      "source": "file:src/java/beans/VetoableChangeListener.java",
+      "target": "file:src/java/util/EventListener.java",
+      "relation": "imports"
+    }
+  ]
+}

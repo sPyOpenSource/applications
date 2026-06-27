@@ -1,0 +1,102 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 3,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "src/java/security/PrivateKey.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 47,
+      "nonEmptyLines": 36,
+      "classes": [
+        {
+          "name": "PrivateKey",
+          "startLine": 38,
+          "endLine": 46,
+          "methods": [],
+          "properties": [
+            "serialVersionUID"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "PrivateKey",
+          "line": 38,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/security/interfaces/DSAPrivateKey.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 61,
+      "nonEmptyLines": 50,
+      "classes": [
+        {
+          "name": "DSAPrivateKey",
+          "startLine": 34,
+          "endLine": 60,
+          "methods": [
+            "getX"
+          ],
+          "properties": [
+            "serialVersionUID"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "DSAPrivateKey",
+          "line": 34,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/security/interfaces/RSAPrivateKey.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 54,
+      "nonEmptyLines": 41,
+      "classes": [
+        {
+          "name": "RSAPrivateKey",
+          "startLine": 40,
+          "endLine": 53,
+          "methods": [
+            "getPrivateExponent"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "RSAPrivateKey",
+          "line": 40,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    }
+  ]
+}

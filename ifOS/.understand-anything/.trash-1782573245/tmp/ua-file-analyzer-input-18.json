@@ -1,0 +1,156 @@
+{
+  "projectRoot": "/Users/xuyi/Source/OS/armOS/lib/jcore/test/ifOS",
+  "batchFiles": [
+    {
+      "path": "src/java/beans/Visibility.java",
+      "language": "java",
+      "sizeLines": 74,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/java/io/Closeable.java",
+      "language": "java",
+      "sizeLines": 33,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/java/io/DataInput.java",
+      "language": "java",
+      "sizeLines": 19,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/java/io/DataOutput.java",
+      "language": "java",
+      "sizeLines": 18,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/java/io/Externalizable.java",
+      "language": "java",
+      "sizeLines": 94,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/java/io/FilenameFilter.java",
+      "language": "java",
+      "sizeLines": 58,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/java/io/ObjectOutput.java",
+      "language": "java",
+      "sizeLines": 91,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/java/io/ObjectStreamConstants.java",
+      "language": "java",
+      "sizeLines": 235,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/java/io/package.bluej",
+      "language": "bluej",
+      "sizeLines": 114,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/java/lang/Appendable.java",
+      "language": "java",
+      "sizeLines": 121,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/java/lang/AutoCloseable.java",
+      "language": "java",
+      "sizeLines": 98,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/java/lang/CharSequence.java",
+      "language": "java",
+      "sizeLines": 110,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/java/lang/Cloneable.java",
+      "language": "java",
+      "sizeLines": 6,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/java/lang/Comparable.java",
+      "language": "java",
+      "sizeLines": 20,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/java/lang/invoke/AbstractValidatingLambdaMetafactory.java",
+      "language": "java",
+      "sizeLines": 376,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/java/lang/invoke/DelegatingMethodHandle.java",
+      "language": "java",
+      "sizeLines": 155,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/java/lang/invoke/MethodHandle.java",
+      "language": "java",
+      "sizeLines": 494,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/java/lang/invoke/MethodHandleImpl.java",
+      "language": "java",
+      "sizeLines": 20,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/java/lang/invoke/MethodHandleInfo.java",
+      "language": "java",
+      "sizeLines": 28,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/java/lang/invoke/package.bluej",
+      "language": "bluej",
+      "sizeLines": 80,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/java/lang/package.bluej",
+      "language": "bluej",
+      "sizeLines": 105,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/java/lang/reflect/Member.java",
+      "language": "java",
+      "sizeLines": 73,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/java/lang/reflect/package.bluej",
+      "language": "bluej",
+      "sizeLines": 27,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/java/lang/Runnable.java",
+      "language": "java",
+      "sizeLines": 5,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/java/net/ContentHandler.java",
+      "language": "java",
+      "sizeLines": 78,
+      "fileCategory": "code"
+    }
+  ],
+  "batchImportData": {}
+}

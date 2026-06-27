@@ -1,0 +1,15 @@
+{
+  "projectRoot": "/Users/xuyi/Source/OS/armOS/lib/jcore/test/ifOS",
+  "batchFiles": [
+    {"path": "src/java/applet/AppletContext.java", "language": "java", "sizeLines": 108, "fileCategory": "code"},
+    {"path": "src/java/security/BasicPermission.java", "language": "java", "sizeLines": 271, "fileCategory": "code"},
+    {"path": "src/java/security/IdentityScope.java", "language": "java", "sizeLines": 208, "fileCategory": "code"},
+    {"path": "src/java/security/PermissionCollection.java", "language": "java", "sizeLines": 207, "fileCategory": "code"},
+    {"path": "src/java/security/Principal.java", "language": "java", "sizeLines": 85, "fileCategory": "code"},
+    {"path": "src/java/security/acl/Acl.java", "language": "java", "sizeLines": 160, "fileCategory": "code"},
+    {"path": "src/java/security/acl/AclEntry.java", "language": "java", "sizeLines": 164, "fileCategory": "code"},
+    {"path": "src/java/security/acl/Group.java", "language": "java", "sizeLines": 93, "fileCategory": "code"},
+    {"path": "src/java/security/acl/Owner.java", "language": "java", "sizeLines": 92, "fileCategory": "code"},
+    {"path": "src/java/util/Enumeration.java", "language": "java", "sizeLines": 8, "fileCategory": "code"}
+  ]
+}

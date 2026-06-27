@@ -1,0 +1,12 @@
+{
+  "projectRoot": "/Users/xuyi/Source/OS/armOS/lib/jcore/test/ifOS",
+  "batchFiles": [
+    {"path": "src/java/io/ObjectStreamException.java", "language": "java", "sizeLines": 70, "fileCategory": "code"},
+    {"path": "src/java/lang/Enum.java", "language": "java", "sizeLines": 240, "fileCategory": "code"},
+    {"path": "src/java/security/PublicKey.java", "language": "java", "sizeLines": 47, "fileCategory": "code"},
+    {"path": "src/java/security/cert/Certificate.java", "language": "java", "sizeLines": 237, "fileCategory": "code"},
+    {"path": "src/java/security/cert/X509CRL.java", "language": "java", "sizeLines": 377, "fileCategory": "code"},
+    {"path": "src/java/security/interfaces/DSAPublicKey.java", "language": "java", "sizeLines": 61, "fileCategory": "code"},
+    {"path": "src/java/security/interfaces/RSAPublicKey.java", "language": "java", "sizeLines": 54, "fileCategory": "code"}
+  ]
+}

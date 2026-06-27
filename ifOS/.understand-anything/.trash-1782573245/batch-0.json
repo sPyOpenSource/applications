@@ -1,0 +1,1083 @@
+{
+  "batchIndex": 0,
+  "projectName": "ifOS",
+  "nodes": [
+    {
+      "id": "file:src/gnu/java/io/decode/Decoder.java",
+      "type": "file",
+      "name": "Decoder.java",
+      "filePath": "src/gnu/java/io/decode/Decoder.java",
+      "summary": "Decoder.java - java code file",
+      "tags": [
+        "java",
+        "io",
+        "decode"
+      ],
+      "complexity": "medium",
+      "sizeLines": 309,
+      "language": "java"
+    },
+    {
+      "id": "class:src/gnu/java/io/decode/Decoder.java:Decoder",
+      "type": "class",
+      "name": "Decoder",
+      "filePath": "src/gnu/java/io/decode/Decoder.java",
+      "summary": "Class Decoder with 11 methods",
+      "tags": [
+        "java",
+        "io",
+        "decode"
+      ],
+      "complexity": "medium",
+      "methods": 11
+    },
+    {
+      "id": "file:src/gnu/java/io/decode/DecoderEightBitLookup.java",
+      "type": "file",
+      "name": "DecoderEightBitLookup.java",
+      "filePath": "src/gnu/java/io/decode/DecoderEightBitLookup.java",
+      "summary": "DecoderEightBitLookup.java - java code file",
+      "tags": [
+        "java",
+        "io",
+        "decode"
+      ],
+      "complexity": "medium",
+      "sizeLines": 145,
+      "language": "java"
+    },
+    {
+      "id": "class:src/gnu/java/io/decode/DecoderEightBitLookup.java:DecoderEightBitLookup",
+      "type": "class",
+      "name": "DecoderEightBitLookup",
+      "filePath": "src/gnu/java/io/decode/DecoderEightBitLookup.java",
+      "summary": "Class DecoderEightBitLookup with 4 methods",
+      "tags": [
+        "java",
+        "io",
+        "decode"
+      ],
+      "complexity": "low",
+      "methods": 4
+    },
+    {
+      "id": "function:src/gnu/java/io/decode/DecoderEightBitLookup.java:convertToChars",
+      "type": "function",
+      "name": "convertToChars",
+      "filePath": "src/gnu/java/io/decode/DecoderEightBitLookup.java",
+      "summary": "Function convertToChars",
+      "tags": [
+        "java",
+        "io",
+        "decode"
+      ],
+      "complexity": "low"
+    },
+    {
+      "id": "function:src/gnu/java/io/decode/DecoderEightBitLookup.java:read",
+      "type": "function",
+      "name": "read",
+      "filePath": "src/gnu/java/io/decode/DecoderEightBitLookup.java",
+      "summary": "Function read",
+      "tags": [
+        "java",
+        "io",
+        "decode"
+      ],
+      "complexity": "low"
+    },
+    {
+      "id": "file:src/java/io/InputStream.java",
+      "type": "file",
+      "name": "InputStream.java",
+      "filePath": "src/java/io/InputStream.java",
+      "summary": "InputStream.java - java code file",
+      "tags": [
+        "java",
+        "io"
+      ],
+      "complexity": "low",
+      "sizeLines": 64,
+      "language": "java"
+    },
+    {
+      "id": "class:src/java/io/InputStream.java:InputStream",
+      "type": "class",
+      "name": "InputStream",
+      "filePath": "src/java/io/InputStream.java",
+      "summary": "Class InputStream with 10 methods",
+      "tags": [
+        "java",
+        "io"
+      ],
+      "complexity": "low",
+      "methods": 10
+    },
+    {
+      "id": "function:src/java/io/InputStream.java:read",
+      "type": "function",
+      "name": "read",
+      "filePath": "src/java/io/InputStream.java",
+      "summary": "Function read",
+      "tags": [
+        "java",
+        "io"
+      ],
+      "complexity": "low"
+    },
+    {
+      "id": "function:src/java/io/InputStream.java:skip",
+      "type": "function",
+      "name": "skip",
+      "filePath": "src/java/io/InputStream.java",
+      "summary": "Function skip",
+      "tags": [
+        "java",
+        "io"
+      ],
+      "complexity": "low"
+    },
+    {
+      "id": "file:src/java/io/Reader.java",
+      "type": "file",
+      "name": "Reader.java",
+      "filePath": "src/java/io/Reader.java",
+      "summary": "Reader.java - java code file",
+      "tags": [
+        "java",
+        "io"
+      ],
+      "complexity": "medium",
+      "sizeLines": 241,
+      "language": "java"
+    },
+    {
+      "id": "class:src/java/io/Reader.java:Reader",
+      "type": "class",
+      "name": "Reader",
+      "filePath": "src/java/io/Reader.java",
+      "summary": "Class Reader with 10 methods",
+      "tags": [
+        "java",
+        "io"
+      ],
+      "complexity": "medium",
+      "methods": 10
+    },
+    {
+      "id": "file:src/java/lang/ClassLoader.java",
+      "type": "file",
+      "name": "ClassLoader.java",
+      "filePath": "src/java/lang/ClassLoader.java",
+      "summary": "ClassLoader.java - java code file",
+      "tags": [
+        "java",
+        "lang"
+      ],
+      "complexity": "low",
+      "sizeLines": 67,
+      "language": "java"
+    },
+    {
+      "id": "class:src/java/lang/ClassLoader.java:ClassLoader",
+      "type": "class",
+      "name": "ClassLoader",
+      "filePath": "src/java/lang/ClassLoader.java",
+      "summary": "Class ClassLoader with 11 methods",
+      "tags": [
+        "java",
+        "lang"
+      ],
+      "complexity": "low",
+      "methods": 11
+    },
+    {
+      "id": "file:src/java/security/cert/CertificateFactorySpi.java",
+      "type": "file",
+      "name": "CertificateFactorySpi.java",
+      "filePath": "src/java/security/cert/CertificateFactorySpi.java",
+      "summary": "CertificateFactorySpi.java - java code file",
+      "tags": [
+        "java",
+        "security"
+      ],
+      "complexity": "medium",
+      "sizeLines": 142,
+      "language": "java"
+    },
+    {
+      "id": "class:src/java/security/cert/CertificateFactorySpi.java:CertificateFactorySpi",
+      "type": "class",
+      "name": "CertificateFactorySpi",
+      "filePath": "src/java/security/cert/CertificateFactorySpi.java",
+      "summary": "Class CertificateFactorySpi with 5 methods",
+      "tags": [
+        "java",
+        "security"
+      ],
+      "complexity": "low",
+      "methods": 5
+    },
+    {
+      "id": "file:src/java/sql/Blob.java",
+      "type": "file",
+      "name": "Blob.java",
+      "filePath": "src/java/sql/Blob.java",
+      "summary": "Blob.java - java code file",
+      "tags": [
+        "java",
+        "sql"
+      ],
+      "complexity": "medium",
+      "sizeLines": 119,
+      "language": "java"
+    },
+    {
+      "id": "class:src/java/sql/Blob.java:Blob",
+      "type": "class",
+      "name": "Blob",
+      "filePath": "src/java/sql/Blob.java",
+      "summary": "Class Blob with 5 methods",
+      "tags": [
+        "java",
+        "sql"
+      ],
+      "complexity": "low",
+      "methods": 5
+    },
+    {
+      "id": "file:src/java/sql/CallableStatement.java",
+      "type": "file",
+      "name": "CallableStatement.java",
+      "filePath": "src/java/sql/CallableStatement.java",
+      "summary": "CallableStatement.java - java code file",
+      "tags": [
+        "java",
+        "sql"
+      ],
+      "complexity": "medium",
+      "sizeLines": 454,
+      "language": "java"
+    },
+    {
+      "id": "class:src/java/sql/CallableStatement.java:CallableStatement",
+      "type": "class",
+      "name": "CallableStatement",
+      "filePath": "src/java/sql/CallableStatement.java",
+      "summary": "Class CallableStatement with 27 methods",
+      "tags": [
+        "java",
+        "sql"
+      ],
+      "complexity": "medium",
+      "methods": 27
+    },
+    {
+      "id": "file:src/java/sql/Clob.java",
+      "type": "file",
+      "name": "Clob.java",
+      "filePath": "src/java/sql/Clob.java",
+      "summary": "Clob.java - java code file",
+      "tags": [
+        "java",
+        "sql"
+      ],
+      "complexity": "medium",
+      "sizeLines": 136,
+      "language": "java"
+    },
+    {
+      "id": "class:src/java/sql/Clob.java:Clob",
+      "type": "class",
+      "name": "Clob",
+      "filePath": "src/java/sql/Clob.java",
+      "summary": "Class Clob with 6 methods",
+      "tags": [
+        "java",
+        "sql"
+      ],
+      "complexity": "low",
+      "methods": 6
+    },
+    {
+      "id": "file:src/java/sql/PreparedStatement.java",
+      "type": "file",
+      "name": "PreparedStatement.java",
+      "filePath": "src/java/sql/PreparedStatement.java",
+      "summary": "PreparedStatement.java - java code file",
+      "tags": [
+        "java",
+        "sql"
+      ],
+      "complexity": "high",
+      "sizeLines": 546,
+      "language": "java"
+    },
+    {
+      "id": "class:src/java/sql/PreparedStatement.java:PreparedStatement",
+      "type": "class",
+      "name": "PreparedStatement",
+      "filePath": "src/java/sql/PreparedStatement.java",
+      "summary": "Class PreparedStatement with 35 methods",
+      "tags": [
+        "java",
+        "sql"
+      ],
+      "complexity": "high",
+      "methods": 35
+    },
+    {
+      "id": "file:src/java/sql/ResultSet.java",
+      "type": "file",
+      "name": "ResultSet.java",
+      "filePath": "src/java/sql/ResultSet.java",
+      "summary": "ResultSet.java - java code file",
+      "tags": [
+        "java",
+        "sql"
+      ],
+      "complexity": "high",
+      "sizeLines": 2006,
+      "language": "java"
+    },
+    {
+      "id": "class:src/java/sql/ResultSet.java:ResultSet",
+      "type": "class",
+      "name": "ResultSet",
+      "filePath": "src/java/sql/ResultSet.java",
+      "summary": "Class ResultSet with 129 methods",
+      "tags": [
+        "java",
+        "sql"
+      ],
+      "complexity": "high",
+      "methods": 129
+    },
+    {
+      "id": "file:src/java/sql/SQLInput.java",
+      "type": "file",
+      "name": "SQLInput.java",
+      "filePath": "src/java/sql/SQLInput.java",
+      "summary": "SQLInput.java - java code file",
+      "tags": [
+        "java",
+        "sql"
+      ],
+      "complexity": "medium",
+      "sizeLines": 332,
+      "language": "java"
+    },
+    {
+      "id": "class:src/java/sql/SQLInput.java:SQLInput",
+      "type": "class",
+      "name": "SQLInput",
+      "filePath": "src/java/sql/SQLInput.java",
+      "summary": "Class SQLInput with 22 methods",
+      "tags": [
+        "java",
+        "sql"
+      ],
+      "complexity": "medium",
+      "methods": 22
+    },
+    {
+      "id": "file:src/java/sql/SQLOutput.java",
+      "type": "file",
+      "name": "SQLOutput.java",
+      "filePath": "src/java/sql/SQLOutput.java",
+      "summary": "SQLOutput.java - java code file",
+      "tags": [
+        "java",
+        "sql"
+      ],
+      "complexity": "medium",
+      "sizeLines": 331,
+      "language": "java"
+    },
+    {
+      "id": "class:src/java/sql/SQLOutput.java:SQLOutput",
+      "type": "class",
+      "name": "SQLOutput",
+      "filePath": "src/java/sql/SQLOutput.java",
+      "summary": "Class SQLOutput with 22 methods",
+      "tags": [
+        "java",
+        "sql"
+      ],
+      "complexity": "medium",
+      "methods": 22
+    },
+    {
+      "id": "file:src/java/util/Calendar.java",
+      "type": "file",
+      "name": "Calendar.java",
+      "filePath": "src/java/util/Calendar.java",
+      "summary": "Calendar.java - java code file",
+      "tags": [
+        "java",
+        "util"
+      ],
+      "complexity": "high",
+      "sizeLines": 993,
+      "language": "java"
+    },
+    {
+      "id": "class:src/java/util/Calendar.java:Calendar",
+      "type": "class",
+      "name": "Calendar",
+      "filePath": "src/java/util/Calendar.java",
+      "summary": "Class Calendar with 48 methods",
+      "tags": [
+        "java",
+        "util"
+      ],
+      "complexity": "high",
+      "methods": 48
+    },
+    {
+      "id": "function:src/java/util/Calendar.java:Calendar",
+      "type": "function",
+      "name": "Calendar",
+      "filePath": "src/java/util/Calendar.java",
+      "summary": "Function Calendar",
+      "tags": [
+        "java",
+        "util"
+      ],
+      "complexity": "low"
+    },
+    {
+      "id": "function:src/java/util/Calendar.java:getInstance",
+      "type": "function",
+      "name": "getInstance",
+      "filePath": "src/java/util/Calendar.java",
+      "summary": "Function getInstance",
+      "tags": [
+        "java",
+        "util"
+      ],
+      "complexity": "low"
+    },
+    {
+      "id": "function:src/java/util/Calendar.java:set",
+      "type": "function",
+      "name": "set",
+      "filePath": "src/java/util/Calendar.java",
+      "summary": "Function set",
+      "tags": [
+        "java",
+        "util"
+      ],
+      "complexity": "low"
+    },
+    {
+      "id": "function:src/java/util/Calendar.java:roll",
+      "type": "function",
+      "name": "roll",
+      "filePath": "src/java/util/Calendar.java",
+      "summary": "Function roll",
+      "tags": [
+        "java",
+        "util"
+      ],
+      "complexity": "low"
+    },
+    {
+      "id": "function:src/java/util/Calendar.java:clone",
+      "type": "function",
+      "name": "clone",
+      "filePath": "src/java/util/Calendar.java",
+      "summary": "Function clone",
+      "tags": [
+        "java",
+        "util"
+      ],
+      "complexity": "low"
+    },
+    {
+      "id": "function:src/java/util/Calendar.java:toString",
+      "type": "function",
+      "name": "toString",
+      "filePath": "src/java/util/Calendar.java",
+      "summary": "Function toString",
+      "tags": [
+        "java",
+        "util"
+      ],
+      "complexity": "low"
+    },
+    {
+      "id": "function:src/java/util/Calendar.java:readObject",
+      "type": "function",
+      "name": "readObject",
+      "filePath": "src/java/util/Calendar.java",
+      "summary": "Function readObject",
+      "tags": [
+        "java",
+        "util"
+      ],
+      "complexity": "low"
+    },
+    {
+      "id": "file:src/java/util/Collection.java",
+      "type": "file",
+      "name": "Collection.java",
+      "filePath": "src/java/util/Collection.java",
+      "summary": "Collection.java - java code file",
+      "tags": [
+        "java",
+        "util"
+      ],
+      "complexity": "medium",
+      "sizeLines": 239,
+      "language": "java"
+    },
+    {
+      "id": "class:src/java/util/Collection.java:Collection",
+      "type": "class",
+      "name": "Collection",
+      "filePath": "src/java/util/Collection.java",
+      "summary": "Class Collection with 12 methods",
+      "tags": [
+        "java",
+        "util"
+      ],
+      "complexity": "medium",
+      "methods": 12
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/gnu/java/io/decode/Decoder.java",
+      "target": "class:src/gnu/java/io/decode/Decoder.java:Decoder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/gnu/java/io/decode/Decoder.java",
+      "target": "class:src/gnu/java/io/decode/Decoder.java:Decoder",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/gnu/java/io/decode/DecoderEightBitLookup.java",
+      "target": "class:src/gnu/java/io/decode/DecoderEightBitLookup.java:DecoderEightBitLookup",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/gnu/java/io/decode/DecoderEightBitLookup.java",
+      "target": "class:src/gnu/java/io/decode/DecoderEightBitLookup.java:DecoderEightBitLookup",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/gnu/java/io/decode/DecoderEightBitLookup.java",
+      "target": "function:src/gnu/java/io/decode/DecoderEightBitLookup.java:convertToChars",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/gnu/java/io/decode/DecoderEightBitLookup.java",
+      "target": "function:src/gnu/java/io/decode/DecoderEightBitLookup.java:convertToChars",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/gnu/java/io/decode/DecoderEightBitLookup.java",
+      "target": "function:src/gnu/java/io/decode/DecoderEightBitLookup.java:read",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/gnu/java/io/decode/DecoderEightBitLookup.java",
+      "target": "function:src/gnu/java/io/decode/DecoderEightBitLookup.java:read",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/gnu/java/io/decode/DecoderEightBitLookup.java:read",
+      "target": "function:src/gnu/java/io/decode/DecoderEightBitLookup.java:convertToChars",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/io/InputStream.java",
+      "target": "class:src/java/io/InputStream.java:InputStream",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/io/InputStream.java",
+      "target": "class:src/java/io/InputStream.java:InputStream",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/io/InputStream.java",
+      "target": "function:src/java/io/InputStream.java:read",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/io/InputStream.java",
+      "target": "function:src/java/io/InputStream.java:read",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/io/InputStream.java",
+      "target": "function:src/java/io/InputStream.java:skip",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/io/InputStream.java",
+      "target": "function:src/java/io/InputStream.java:skip",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/io/Reader.java",
+      "target": "class:src/java/io/Reader.java:Reader",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/io/Reader.java",
+      "target": "class:src/java/io/Reader.java:Reader",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/lang/ClassLoader.java",
+      "target": "class:src/java/lang/ClassLoader.java:ClassLoader",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/lang/ClassLoader.java",
+      "target": "class:src/java/lang/ClassLoader.java:ClassLoader",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/security/cert/CertificateFactorySpi.java",
+      "target": "class:src/java/security/cert/CertificateFactorySpi.java:CertificateFactorySpi",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/security/cert/CertificateFactorySpi.java",
+      "target": "class:src/java/security/cert/CertificateFactorySpi.java:CertificateFactorySpi",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/sql/Blob.java",
+      "target": "class:src/java/sql/Blob.java:Blob",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/sql/Blob.java",
+      "target": "class:src/java/sql/Blob.java:Blob",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/sql/CallableStatement.java",
+      "target": "class:src/java/sql/CallableStatement.java:CallableStatement",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/sql/CallableStatement.java",
+      "target": "class:src/java/sql/CallableStatement.java:CallableStatement",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/sql/Clob.java",
+      "target": "class:src/java/sql/Clob.java:Clob",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/sql/Clob.java",
+      "target": "class:src/java/sql/Clob.java:Clob",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/sql/PreparedStatement.java",
+      "target": "class:src/java/sql/PreparedStatement.java:PreparedStatement",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/sql/PreparedStatement.java",
+      "target": "class:src/java/sql/PreparedStatement.java:PreparedStatement",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/sql/ResultSet.java",
+      "target": "class:src/java/sql/ResultSet.java:ResultSet",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/sql/ResultSet.java",
+      "target": "class:src/java/sql/ResultSet.java:ResultSet",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/sql/SQLInput.java",
+      "target": "class:src/java/sql/SQLInput.java:SQLInput",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/sql/SQLInput.java",
+      "target": "class:src/java/sql/SQLInput.java:SQLInput",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/sql/SQLOutput.java",
+      "target": "class:src/java/sql/SQLOutput.java:SQLOutput",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/sql/SQLOutput.java",
+      "target": "class:src/java/sql/SQLOutput.java:SQLOutput",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/util/Calendar.java",
+      "target": "class:src/java/util/Calendar.java:Calendar",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/util/Calendar.java",
+      "target": "class:src/java/util/Calendar.java:Calendar",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/util/Calendar.java",
+      "target": "function:src/java/util/Calendar.java:Calendar",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/util/Calendar.java",
+      "target": "function:src/java/util/Calendar.java:Calendar",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/util/Calendar.java",
+      "target": "function:src/java/util/Calendar.java:getInstance",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/util/Calendar.java",
+      "target": "function:src/java/util/Calendar.java:getInstance",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/util/Calendar.java",
+      "target": "function:src/java/util/Calendar.java:set",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/util/Calendar.java",
+      "target": "function:src/java/util/Calendar.java:set",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/util/Calendar.java",
+      "target": "function:src/java/util/Calendar.java:roll",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/util/Calendar.java",
+      "target": "function:src/java/util/Calendar.java:roll",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/util/Calendar.java",
+      "target": "function:src/java/util/Calendar.java:clone",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/util/Calendar.java",
+      "target": "function:src/java/util/Calendar.java:clone",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/util/Calendar.java",
+      "target": "function:src/java/util/Calendar.java:toString",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/util/Calendar.java",
+      "target": "function:src/java/util/Calendar.java:toString",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/util/Calendar.java",
+      "target": "function:src/java/util/Calendar.java:readObject",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/util/Collection.java",
+      "target": "class:src/java/util/Collection.java:Collection",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/util/Collection.java",
+      "target": "class:src/java/util/Collection.java:Collection",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/gnu/java/io/decode/Decoder.java",
+      "target": "file:src/java/io/InputStream.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/gnu/java/io/decode/Decoder.java",
+      "target": "file:src/java/io/Reader.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/gnu/java/io/decode/DecoderEightBitLookup.java",
+      "target": "file:src/java/io/InputStream.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/java/lang/ClassLoader.java",
+      "target": "file:src/java/io/InputStream.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/java/security/cert/CertificateFactorySpi.java",
+      "target": "file:src/java/io/InputStream.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/java/security/cert/CertificateFactorySpi.java",
+      "target": "file:src/java/util/Collection.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/java/sql/Blob.java",
+      "target": "file:src/java/io/InputStream.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/java/sql/CallableStatement.java",
+      "target": "file:src/java/io/InputStream.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/java/sql/CallableStatement.java",
+      "target": "file:src/java/io/Reader.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/java/sql/CallableStatement.java",
+      "target": "file:src/java/util/Calendar.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/java/sql/CallableStatement.java",
+      "target": "file:src/java/util/Map.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/java/sql/Clob.java",
+      "target": "file:src/java/io/InputStream.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/java/sql/Clob.java",
+      "target": "file:src/java/io/Reader.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/java/sql/PreparedStatement.java",
+      "target": "file:src/java/io/InputStream.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/java/sql/PreparedStatement.java",
+      "target": "file:src/java/io/Reader.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/java/sql/PreparedStatement.java",
+      "target": "file:src/java/util/Calendar.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/java/sql/ResultSet.java",
+      "target": "file:src/java/io/InputStream.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/java/sql/ResultSet.java",
+      "target": "file:src/java/io/Reader.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/java/sql/ResultSet.java",
+      "target": "file:src/java/util/Calendar.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/java/sql/ResultSet.java",
+      "target": "file:src/java/util/Map.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/java/sql/SQLInput.java",
+      "target": "file:src/java/io/InputStream.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/java/sql/SQLInput.java",
+      "target": "file:src/java/io/Reader.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/java/sql/SQLOutput.java",
+      "target": "file:src/java/io/InputStream.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/java/sql/SQLOutput.java",
+      "target": "file:src/java/io/Reader.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

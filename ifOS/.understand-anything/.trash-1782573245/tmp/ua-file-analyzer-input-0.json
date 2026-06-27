@@ -1,0 +1,20 @@
+{
+  "projectRoot": "/Users/xuyi/Source/OS/armOS/lib/jcore/test/ifOS",
+  "batchFiles": [
+    {"path": "src/gnu/java/io/decode/Decoder.java", "language": "java", "sizeLines": 309, "fileCategory": "code"},
+    {"path": "src/gnu/java/io/decode/DecoderEightBitLookup.java", "language": "java", "sizeLines": 145, "fileCategory": "code"},
+    {"path": "src/java/io/InputStream.java", "language": "java", "sizeLines": 64, "fileCategory": "code"},
+    {"path": "src/java/io/Reader.java", "language": "java", "sizeLines": 241, "fileCategory": "code"},
+    {"path": "src/java/lang/ClassLoader.java", "language": "java", "sizeLines": 67, "fileCategory": "code"},
+    {"path": "src/java/security/cert/CertificateFactorySpi.java", "language": "java", "sizeLines": 142, "fileCategory": "code"},
+    {"path": "src/java/sql/Blob.java", "language": "java", "sizeLines": 119, "fileCategory": "code"},
+    {"path": "src/java/sql/CallableStatement.java", "language": "java", "sizeLines": 454, "fileCategory": "code"},
+    {"path": "src/java/sql/Clob.java", "language": "java", "sizeLines": 136, "fileCategory": "code"},
+    {"path": "src/java/sql/PreparedStatement.java", "language": "java", "sizeLines": 546, "fileCategory": "code"},
+    {"path": "src/java/sql/ResultSet.java", "language": "java", "sizeLines": 2006, "fileCategory": "code"},
+    {"path": "src/java/sql/SQLInput.java", "language": "java", "sizeLines": 332, "fileCategory": "code"},
+    {"path": "src/java/sql/SQLOutput.java", "language": "java", "sizeLines": 331, "fileCategory": "code"},
+    {"path": "src/java/util/Calendar.java", "language": "java", "sizeLines": 993, "fileCategory": "code"},
+    {"path": "src/java/util/Collection.java", "language": "java", "sizeLines": 239, "fileCategory": "code"}
+  ]
+}

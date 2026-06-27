@@ -1,0 +1,439 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 25,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "src/jx/devices/DeviceConfigurationTemplate.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 11,
+      "nonEmptyLines": 10,
+      "classes": [
+        {
+          "name": "DeviceConfigurationTemplate",
+          "startLine": 10,
+          "endLine": 11,
+          "methods": [],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "DeviceConfigurationTemplate",
+          "line": 10,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/jx/devices/DeviceFinder.ctxt",
+      "language": "ctxt",
+      "fileCategory": "code",
+      "totalLines": 5,
+      "nonEmptyLines": 5,
+      "metrics": {}
+    },
+    {
+      "path": "src/jx/devices/DeviceFinder.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 7,
+      "nonEmptyLines": 5,
+      "classes": [
+        {
+          "name": "DeviceFinder",
+          "startLine": 5,
+          "endLine": 7,
+          "methods": [
+            "find"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "DeviceFinder",
+          "line": 5,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/jx/devices/framebuffer/ClippingRectangle.ctxt",
+      "language": "ctxt",
+      "fileCategory": "code",
+      "totalLines": 4,
+      "nonEmptyLines": 4,
+      "metrics": {}
+    },
+    {
+      "path": "src/jx/devices/framebuffer/ClippingRectangle.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 10,
+      "nonEmptyLines": 7,
+      "classes": [
+        {
+          "name": "ClippingRectangle",
+          "startLine": 8,
+          "endLine": 10,
+          "methods": [],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "ClippingRectangle",
+          "line": 8,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/jx/devices/framebuffer/ClippingTransformer.ctxt",
+      "language": "ctxt",
+      "fileCategory": "code",
+      "totalLines": 5,
+      "nonEmptyLines": 5,
+      "metrics": {}
+    },
+    {
+      "path": "src/jx/devices/framebuffer/ClippingTransformer.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 5,
+      "nonEmptyLines": 4,
+      "classes": [
+        {
+          "name": "ClippingTransformer",
+          "startLine": 3,
+          "endLine": 5,
+          "methods": [
+            "transformClippings"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "ClippingTransformer",
+          "line": 3,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/jx/devices/framebuffer/package.bluej",
+      "language": "bluej",
+      "fileCategory": "code",
+      "totalLines": 44,
+      "nonEmptyLines": 44,
+      "metrics": {}
+    },
+    {
+      "path": "src/jx/devices/framebuffer/PackedFramebuffer.ctxt",
+      "language": "ctxt",
+      "fileCategory": "code",
+      "totalLines": 29,
+      "nonEmptyLines": 29,
+      "metrics": {}
+    },
+    {
+      "path": "src/jx/devices/framebuffer/PackedFramebuffer.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 23,
+      "nonEmptyLines": 18,
+      "classes": [
+        {
+          "name": "PackedFramebuffer",
+          "startLine": 9,
+          "endLine": 23,
+          "methods": [
+            "width",
+            "height",
+            "depth",
+            "startAddress",
+            "scanlineOffset",
+            "pixelOffset",
+            "memObj",
+            "clear",
+            "framebufferType"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "PackedFramebuffer",
+          "line": 9,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/jx/devices/ide/IDEDevice.ctxt",
+      "language": "ctxt",
+      "fileCategory": "code",
+      "totalLines": 13,
+      "nonEmptyLines": 13,
+      "metrics": {}
+    },
+    {
+      "path": "src/jx/devices/ide/package.bluej",
+      "language": "bluej",
+      "fileCategory": "code",
+      "totalLines": 27,
+      "nonEmptyLines": 27,
+      "metrics": {}
+    },
+    {
+      "path": "src/jx/devices/Keyboard.ctxt",
+      "language": "ctxt",
+      "fileCategory": "code",
+      "totalLines": 9,
+      "nonEmptyLines": 9,
+      "metrics": {}
+    },
+    {
+      "path": "src/jx/devices/Keyboard.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 9,
+      "nonEmptyLines": 7,
+      "classes": [
+        {
+          "name": "Keyboard",
+          "startLine": 5,
+          "endLine": 9,
+          "methods": [
+            "addKeyListener",
+            "getc",
+            "getcode"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "Keyboard",
+          "line": 5,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/jx/devices/KeyListener.ctxt",
+      "language": "ctxt",
+      "fileCategory": "code",
+      "totalLines": 5,
+      "nonEmptyLines": 5,
+      "metrics": {}
+    },
+    {
+      "path": "src/jx/devices/KeyListener.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 7,
+      "nonEmptyLines": 5,
+      "classes": [
+        {
+          "name": "KeyListener",
+          "startLine": 5,
+          "endLine": 7,
+          "methods": [
+            "keyPressed"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "KeyListener",
+          "line": 5,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/jx/devices/Mouse.ctxt",
+      "language": "ctxt",
+      "fileCategory": "code",
+      "totalLines": 3,
+      "nonEmptyLines": 3,
+      "metrics": {}
+    },
+    {
+      "path": "src/jx/devices/Mouse.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 4,
+      "nonEmptyLines": 3,
+      "classes": [
+        {
+          "name": "Mouse",
+          "startLine": 3,
+          "endLine": 4,
+          "methods": [],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "Mouse",
+          "line": 3,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/jx/devices/net/NetworkDevice.ctxt",
+      "language": "ctxt",
+      "fileCategory": "code",
+      "totalLines": 15,
+      "nonEmptyLines": 15,
+      "metrics": {}
+    },
+    {
+      "path": "src/jx/devices/net/package.bluej",
+      "language": "bluej",
+      "fileCategory": "code",
+      "totalLines": 55,
+      "nonEmptyLines": 55,
+      "metrics": {}
+    },
+    {
+      "path": "src/jx/devices/net/PacketsProducer.ctxt",
+      "language": "ctxt",
+      "fileCategory": "code",
+      "totalLines": 5,
+      "nonEmptyLines": 5,
+      "metrics": {}
+    },
+    {
+      "path": "src/jx/devices/net/PacketsProducer.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 5,
+      "nonEmptyLines": 4,
+      "classes": [
+        {
+          "name": "PacketsProducer",
+          "startLine": 3,
+          "endLine": 5,
+          "methods": [
+            "reenablePacketProduction"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "PacketsProducer",
+          "line": 3,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/jx/devices/net/PacketsQueue.ctxt",
+      "language": "ctxt",
+      "fileCategory": "code",
+      "totalLines": 3,
+      "nonEmptyLines": 3,
+      "metrics": {}
+    },
+    {
+      "path": "src/jx/devices/net/PacketsQueue.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 4,
+      "nonEmptyLines": 3,
+      "classes": [
+        {
+          "name": "PacketsQueue",
+          "startLine": 3,
+          "endLine": 4,
+          "methods": [],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "PacketsQueue",
+          "line": 3,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/jx/devices/net/PacketsQueueConsumer.ctxt",
+      "language": "ctxt",
+      "fileCategory": "code",
+      "totalLines": 10,
+      "nonEmptyLines": 10,
+      "metrics": {}
+    }
+  ]
+}

@@ -1,0 +1,501 @@
+{
+  "batchIndex": 33,
+  "nodes": [
+    {
+      "id": "file:src/jx/zero/rtc/RTC.java",
+      "label": "src/jx/zero/rtc/RTC.java",
+      "type": "file",
+      "properties": {
+        "path": "src/jx/zero/rtc/RTC.java",
+        "language": "java",
+        "category": "code",
+        "totalLines": 22,
+        "nonEmptyLines": 19
+      }
+    },
+    {
+      "id": "class:src/jx/zero/rtc/RTC.java::RTC",
+      "label": "RTC (src/jx/zero/rtc/RTC.java)",
+      "type": "class",
+      "properties": {
+        "name": "RTC",
+        "startLine": 5,
+        "endLine": 22,
+        "methods": [
+          "getTime",
+          "installIntervallTimer"
+        ],
+        "properties": [
+          "HZ_2",
+          "HZ_4",
+          "HZ_8",
+          "HZ_16",
+          "HZ_32",
+          "HZ_64",
+          "HZ_128",
+          "HZ_256",
+          "HZ_512",
+          "HZ_1024",
+          "HZ_2048",
+          "HZ_4096",
+          "HZ_8192"
+        ]
+      }
+    },
+    {
+      "id": "file:src/jx/zero/scheduler/SchedulerPortal.java",
+      "label": "src/jx/zero/scheduler/SchedulerPortal.java",
+      "type": "file",
+      "properties": {
+        "path": "src/jx/zero/scheduler/SchedulerPortal.java",
+        "language": "java",
+        "category": "code",
+        "totalLines": 7,
+        "nonEmptyLines": 5
+      }
+    },
+    {
+      "id": "class:src/jx/zero/scheduler/SchedulerPortal.java::SchedulerPortal",
+      "label": "SchedulerPortal (src/jx/zero/scheduler/SchedulerPortal.java)",
+      "type": "class",
+      "properties": {
+        "name": "SchedulerPortal",
+        "startLine": 5,
+        "endLine": 7,
+        "methods": [
+          "changeScheduler"
+        ]
+      }
+    },
+    {
+      "id": "file:src/jx/zero/synch/mutex/BlockingLock.java",
+      "label": "src/jx/zero/synch/mutex/BlockingLock.java",
+      "type": "file",
+      "properties": {
+        "path": "src/jx/zero/synch/mutex/BlockingLock.java",
+        "language": "java",
+        "category": "code",
+        "totalLines": 6,
+        "nonEmptyLines": 5
+      }
+    },
+    {
+      "id": "class:src/jx/zero/synch/mutex/BlockingLock.java::BlockingLock",
+      "label": "BlockingLock (src/jx/zero/synch/mutex/BlockingLock.java)",
+      "type": "class",
+      "properties": {
+        "name": "BlockingLock",
+        "startLine": 3,
+        "endLine": 6,
+        "methods": [
+          "lock",
+          "unlock"
+        ]
+      }
+    },
+    {
+      "id": "file:src/jx/zero/synch/nonblocking/Queue.java",
+      "label": "src/jx/zero/synch/nonblocking/Queue.java",
+      "type": "file",
+      "properties": {
+        "path": "src/jx/zero/synch/nonblocking/Queue.java",
+        "language": "java",
+        "category": "code",
+        "totalLines": 6,
+        "nonEmptyLines": 5
+      }
+    },
+    {
+      "id": "class:src/jx/zero/synch/nonblocking/Queue.java::Queue",
+      "label": "Queue (src/jx/zero/synch/nonblocking/Queue.java)",
+      "type": "class",
+      "properties": {
+        "name": "Queue",
+        "startLine": 3,
+        "endLine": 6,
+        "methods": [
+          "enqueue",
+          "dequeue"
+        ]
+      }
+    },
+    {
+      "id": "file:src/jx/zero/timer/SleepManager.java",
+      "label": "src/jx/zero/timer/SleepManager.java",
+      "type": "file",
+      "properties": {
+        "path": "src/jx/zero/timer/SleepManager.java",
+        "language": "java",
+        "category": "code",
+        "totalLines": 16,
+        "nonEmptyLines": 14
+      }
+    },
+    {
+      "id": "class:src/jx/zero/timer/SleepManager.java::SleepManager",
+      "label": "SleepManager (src/jx/zero/timer/SleepManager.java)",
+      "type": "class",
+      "properties": {
+        "name": "SleepManager",
+        "startLine": 5,
+        "endLine": 16,
+        "methods": [
+          "udelay",
+          "mdelay"
+        ]
+      }
+    },
+    {
+      "id": "file:src/jx/zero/timer/Timer.java",
+      "label": "src/jx/zero/timer/Timer.java",
+      "type": "file",
+      "properties": {
+        "path": "src/jx/zero/timer/Timer.java",
+        "language": "java",
+        "category": "code",
+        "totalLines": 6,
+        "nonEmptyLines": 5
+      }
+    },
+    {
+      "id": "class:src/jx/zero/timer/Timer.java::Timer",
+      "label": "Timer (src/jx/zero/timer/Timer.java)",
+      "type": "class",
+      "properties": {
+        "name": "Timer",
+        "startLine": 3,
+        "endLine": 6,
+        "methods": [
+          "getExpiresFromNow",
+          "getTimerManager"
+        ]
+      }
+    },
+    {
+      "id": "file:src/jx/zero/timer/TimerHandler.java",
+      "label": "src/jx/zero/timer/TimerHandler.java",
+      "type": "file",
+      "properties": {
+        "path": "src/jx/zero/timer/TimerHandler.java",
+        "language": "java",
+        "category": "code",
+        "totalLines": 7,
+        "nonEmptyLines": 5
+      }
+    },
+    {
+      "id": "class:src/jx/zero/timer/TimerHandler.java::TimerHandler",
+      "label": "TimerHandler (src/jx/zero/timer/TimerHandler.java)",
+      "type": "class",
+      "properties": {
+        "name": "TimerHandler",
+        "startLine": 5,
+        "endLine": 7,
+        "methods": [
+          "timer"
+        ]
+      }
+    },
+    {
+      "id": "file:src/jx/zero/timer/TimerManager.java",
+      "label": "src/jx/zero/timer/TimerManager.java",
+      "type": "file",
+      "properties": {
+        "path": "src/jx/zero/timer/TimerManager.java",
+        "language": "java",
+        "category": "code",
+        "totalLines": 17,
+        "nonEmptyLines": 15
+      }
+    },
+    {
+      "id": "class:src/jx/zero/timer/TimerManager.java::TimerManager",
+      "label": "TimerManager (src/jx/zero/timer/TimerManager.java)",
+      "type": "class",
+      "properties": {
+        "name": "TimerManager",
+        "startLine": 6,
+        "endLine": 17,
+        "methods": [
+          "addMillisTimer",
+          "addMillisIntervalTimer",
+          "addTimer",
+          "deleteTimer",
+          "getTimeInMillis",
+          "getTimeBaseInMicros",
+          "getCurrentTime",
+          "getCurrentTimePlusMillis",
+          "unblockInMillis",
+          "unblockInMillisInterval"
+        ]
+      }
+    },
+    {
+      "id": "file:src/jx/zero/verifier/JVMLocalVarsElement.java",
+      "label": "src/jx/zero/verifier/JVMLocalVarsElement.java",
+      "type": "file",
+      "properties": {
+        "path": "src/jx/zero/verifier/JVMLocalVarsElement.java",
+        "language": "java",
+        "category": "code",
+        "totalLines": 38,
+        "nonEmptyLines": 36
+      }
+    },
+    {
+      "id": "class:src/jx/zero/verifier/JVMLocalVarsElement.java::JVMLocalVarsElement",
+      "label": "JVMLocalVarsElement (src/jx/zero/verifier/JVMLocalVarsElement.java)",
+      "type": "class",
+      "properties": {
+        "name": "JVMLocalVarsElement",
+        "startLine": 7,
+        "endLine": 38,
+        "methods": [
+          "merge",
+          "dataEquals",
+          "getBcAddr",
+          "JVMLocalVarsElement",
+          "toString"
+        ],
+        "properties": [
+          "bcAddr"
+        ]
+      }
+    },
+    {
+      "id": "function:src/jx/zero/verifier/JVMLocalVarsElement.java::merge",
+      "label": "merge (src/jx/zero/verifier/JVMLocalVarsElement.java)",
+      "type": "function",
+      "properties": {
+        "name": "merge",
+        "startLine": 17,
+        "endLine": 17,
+        "params": [
+          "other"
+        ]
+      }
+    },
+    {
+      "id": "function:src/jx/zero/verifier/JVMLocalVarsElement.java::dataEquals",
+      "label": "dataEquals (src/jx/zero/verifier/JVMLocalVarsElement.java)",
+      "type": "function",
+      "properties": {
+        "name": "dataEquals",
+        "startLine": 23,
+        "endLine": 23,
+        "params": [
+          "other"
+        ]
+      }
+    },
+    {
+      "id": "function:src/jx/zero/verifier/JVMLocalVarsElement.java::getBcAddr",
+      "label": "getBcAddr (src/jx/zero/verifier/JVMLocalVarsElement.java)",
+      "type": "function",
+      "properties": {
+        "name": "getBcAddr",
+        "startLine": 27,
+        "endLine": 27
+      }
+    },
+    {
+      "id": "function:src/jx/zero/verifier/JVMLocalVarsElement.java::JVMLocalVarsElement",
+      "label": "JVMLocalVarsElement (src/jx/zero/verifier/JVMLocalVarsElement.java)",
+      "type": "function",
+      "properties": {
+        "name": "JVMLocalVarsElement",
+        "startLine": 31,
+        "endLine": 33,
+        "params": [
+          "bcAddr"
+        ]
+      }
+    },
+    {
+      "id": "function:src/jx/zero/verifier/JVMLocalVarsElement.java::toString",
+      "label": "toString (src/jx/zero/verifier/JVMLocalVarsElement.java)",
+      "type": "function",
+      "properties": {
+        "name": "toString",
+        "startLine": 34,
+        "endLine": 37
+      }
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/jx/zero/rtc/RTC.java",
+      "target": "class:src/jx/zero/rtc/RTC.java::RTC",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/zero/rtc/RTC.java",
+      "target": "class:src/jx/zero/rtc/RTC.java::RTC",
+      "label": "exports",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/jx/zero/scheduler/SchedulerPortal.java",
+      "target": "class:src/jx/zero/scheduler/SchedulerPortal.java::SchedulerPortal",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/zero/scheduler/SchedulerPortal.java",
+      "target": "class:src/jx/zero/scheduler/SchedulerPortal.java::SchedulerPortal",
+      "label": "exports",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/jx/zero/synch/mutex/BlockingLock.java",
+      "target": "class:src/jx/zero/synch/mutex/BlockingLock.java::BlockingLock",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/zero/synch/mutex/BlockingLock.java",
+      "target": "class:src/jx/zero/synch/mutex/BlockingLock.java::BlockingLock",
+      "label": "exports",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/jx/zero/synch/nonblocking/Queue.java",
+      "target": "class:src/jx/zero/synch/nonblocking/Queue.java::Queue",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/zero/synch/nonblocking/Queue.java",
+      "target": "class:src/jx/zero/synch/nonblocking/Queue.java::Queue",
+      "label": "exports",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/jx/zero/timer/SleepManager.java",
+      "target": "class:src/jx/zero/timer/SleepManager.java::SleepManager",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/zero/timer/SleepManager.java",
+      "target": "class:src/jx/zero/timer/SleepManager.java::SleepManager",
+      "label": "exports",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/jx/zero/timer/Timer.java",
+      "target": "class:src/jx/zero/timer/Timer.java::Timer",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/zero/timer/Timer.java",
+      "target": "class:src/jx/zero/timer/Timer.java::Timer",
+      "label": "exports",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/jx/zero/timer/Timer.java",
+      "target": "file:src/jx/zero/timer/SleepManager.java",
+      "label": "related",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/jx/zero/timer/TimerHandler.java",
+      "target": "class:src/jx/zero/timer/TimerHandler.java::TimerHandler",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/zero/timer/TimerHandler.java",
+      "target": "class:src/jx/zero/timer/TimerHandler.java::TimerHandler",
+      "label": "exports",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/jx/zero/timer/TimerHandler.java",
+      "target": "file:src/jx/zero/timer/SleepManager.java",
+      "label": "related",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/jx/zero/timer/TimerHandler.java",
+      "target": "file:src/jx/zero/timer/Timer.java",
+      "label": "related",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/jx/zero/timer/TimerManager.java",
+      "target": "class:src/jx/zero/timer/TimerManager.java::TimerManager",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/zero/timer/TimerManager.java",
+      "target": "class:src/jx/zero/timer/TimerManager.java::TimerManager",
+      "label": "exports",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/jx/zero/timer/TimerManager.java",
+      "target": "file:src/jx/zero/timer/SleepManager.java",
+      "label": "related",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/jx/zero/timer/TimerManager.java",
+      "target": "file:src/jx/zero/timer/Timer.java",
+      "label": "related",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/jx/zero/timer/TimerManager.java",
+      "target": "file:src/jx/zero/timer/TimerHandler.java",
+      "label": "related",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/jx/zero/verifier/JVMLocalVarsElement.java",
+      "target": "class:src/jx/zero/verifier/JVMLocalVarsElement.java::JVMLocalVarsElement",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/zero/verifier/JVMLocalVarsElement.java",
+      "target": "class:src/jx/zero/verifier/JVMLocalVarsElement.java::JVMLocalVarsElement",
+      "label": "exports",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/jx/zero/verifier/JVMLocalVarsElement.java",
+      "target": "function:src/jx/zero/verifier/JVMLocalVarsElement.java::merge",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/zero/verifier/JVMLocalVarsElement.java",
+      "target": "function:src/jx/zero/verifier/JVMLocalVarsElement.java::dataEquals",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/zero/verifier/JVMLocalVarsElement.java",
+      "target": "function:src/jx/zero/verifier/JVMLocalVarsElement.java::getBcAddr",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/zero/verifier/JVMLocalVarsElement.java",
+      "target": "function:src/jx/zero/verifier/JVMLocalVarsElement.java::JVMLocalVarsElement",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/zero/verifier/JVMLocalVarsElement.java",
+      "target": "function:src/jx/zero/verifier/JVMLocalVarsElement.java::toString",
+      "label": "contains",
+      "weight": 1.0
+    }
+  ]
+}

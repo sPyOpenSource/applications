@@ -1,0 +1,156 @@
+{
+  "projectRoot": "/Users/xuyi/Source/OS/armOS/lib/jcore/test/ifOS",
+  "batchFiles": [
+    {
+      "path": "src/java/security/PrivilegedAction.java",
+      "language": "java",
+      "sizeLines": 53,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/java/security/PrivilegedExceptionAction.java",
+      "language": "java",
+      "sizeLines": 57,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/java/security/Signer.java",
+      "language": "java",
+      "sizeLines": 139,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/java/security/spec/EncodedKeySpec.java",
+      "language": "java",
+      "sizeLines": 74,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/java/security/spec/KeySpec.java",
+      "language": "java",
+      "sizeLines": 39,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/java/security/spec/package.bluej",
+      "language": "bluej",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/java/security/spec/RSAKeyGenParameterSpec.j",
+      "language": "j",
+      "sizeLines": 86,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/java/sql/DatabaseMetaData.java",
+      "language": "java",
+      "sizeLines": 2736,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/java/sql/Driver.java",
+      "language": "java",
+      "sizeLines": 137,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/java/sql/package.bluej",
+      "language": "bluej",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/java/sql/Ref.java",
+      "language": "java",
+      "sizeLines": 51,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/java/sql/ResultSetMetaData.java",
+      "language": "java",
+      "sizeLines": 378,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/java/sql/SQLData.java",
+      "language": "java",
+      "sizeLines": 74,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/java/sql/Statement.java",
+      "language": "java",
+      "sizeLines": 413,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/java/text/CharacterIterator.java",
+      "language": "java",
+      "sizeLines": 175,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/java/text/DateFormat.java",
+      "language": "java",
+      "sizeLines": 586,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/java/text/package.bluej",
+      "language": "bluej",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/java/util/AbstractCollection.j",
+      "language": "j",
+      "sizeLines": 347,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/java/util/AbstractCollection.java",
+      "language": "java",
+      "sizeLines": 211,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/java/util/AbstractList.j",
+      "language": "j",
+      "sizeLines": 538,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/java/util/AbstractList.java",
+      "language": "java",
+      "sizeLines": 99,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/java/util/AbstractMap.java",
+      "language": "java",
+      "sizeLines": 412,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/java/util/AbstractQueue.java",
+      "language": "java",
+      "sizeLines": 198,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/java/util/AbstractSequentialList.java",
+      "language": "java",
+      "sizeLines": 132,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/java/util/AbstractSet.java",
+      "language": "java",
+      "sizeLines": 104,
+      "fileCategory": "code"
+    }
+  ],
+  "batchImportData": {}
+}

@@ -1,0 +1,16 @@
+{
+  "batchIndex": 35,
+  "nodes": [
+    {
+      "id": "document:src/README.TXT",
+      "label": "src/README.TXT",
+      "type": "document",
+      "properties": {
+        "path": "src/README.TXT",
+        "category": "docs",
+        "language": "txt"
+      }
+    }
+  ],
+  "edges": []
+}

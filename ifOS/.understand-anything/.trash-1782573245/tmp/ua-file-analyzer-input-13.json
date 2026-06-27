@@ -1,0 +1,31 @@
+{
+  "projectRoot": "/Users/xuyi/Source/OS/armOS/lib/jcore/test/ifOS",
+  "batchFiles": [
+    {
+      "path": "src/jx/devices/Device.java",
+      "language": "java",
+      "sizeLines": 25,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/devices/net/NetworkDevice.java",
+      "language": "java",
+      "sizeLines": 18,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/fs/buffer/separator/NonBlockingMemoryConsumer.java",
+      "language": "java",
+      "sizeLines": 19,
+      "fileCategory": "code"
+    }
+  ],
+  "batchImportData": {
+    "src/jx/devices/Device.java": [],
+    "src/jx/devices/net/NetworkDevice.java": [
+      "src/jx/devices/Device.java",
+      "src/jx/fs/buffer/separator/NonBlockingMemoryConsumer.java"
+    ],
+    "src/jx/fs/buffer/separator/NonBlockingMemoryConsumer.java": []
+  }
+}

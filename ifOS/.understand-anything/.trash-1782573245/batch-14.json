@@ -1,0 +1,84 @@
+{
+  "batchIndex": 14,
+  "nodes": [
+    {
+      "id": "file:src/jx/fs/buffer/separator/MemoryConsumer.java",
+      "type": "file",
+      "path": "src/jx/fs/buffer/separator/MemoryConsumer.java",
+      "sizeLines": 18,
+      "language": "java",
+      "fileCategory": "code"
+    },
+    {
+      "id": "class:jx.fs.buffer.separator.MemoryConsumer",
+      "type": "class",
+      "name": "jx.fs.buffer.separator.MemoryConsumer",
+      "startLine": 16,
+      "endLine": 18
+    },
+    {
+      "id": "file:src/jx/net/PacketsConsumer.java",
+      "type": "file",
+      "path": "src/jx/net/PacketsConsumer.java",
+      "sizeLines": 17,
+      "language": "java",
+      "fileCategory": "code"
+    },
+    {
+      "id": "class:jx.net.PacketsConsumer",
+      "type": "class",
+      "name": "jx.net.PacketsConsumer",
+      "startLine": 5,
+      "endLine": 17
+    },
+    {
+      "id": "file:src/jx/net/PacketsProducer.java",
+      "type": "file",
+      "path": "src/jx/net/PacketsProducer.java",
+      "sizeLines": 8,
+      "language": "java",
+      "fileCategory": "code"
+    },
+    {
+      "id": "class:jx.net.PacketsProducer",
+      "type": "class",
+      "name": "jx.net.PacketsProducer",
+      "startLine": 5,
+      "endLine": 8
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/jx/fs/buffer/separator/MemoryConsumer.java",
+      "target": "class:jx.fs.buffer.separator.MemoryConsumer",
+      "relationship": "contains"
+    },
+    {
+      "source": "file:src/jx/net/PacketsConsumer.java",
+      "target": "class:jx.net.PacketsConsumer",
+      "relationship": "contains"
+    },
+    {
+      "source": "file:src/jx/net/PacketsProducer.java",
+      "target": "class:jx.net.PacketsProducer",
+      "relationship": "contains"
+    },
+    {
+      "source": "file:src/jx/net/PacketsConsumer.java",
+      "target": "file:src/jx/fs/buffer/separator/MemoryConsumer.java",
+      "relationship": "imports"
+    },
+    {
+      "source": "file:src/jx/net/PacketsProducer.java",
+      "target": "file:src/jx/fs/buffer/separator/MemoryConsumer.java",
+      "relationship": "imports"
+    },
+    {
+      "source": "class:jx.net.PacketsConsumer",
+      "target": "class:jx.fs.buffer.separator.MemoryConsumer",
+      "relationship": "extends"
+    }
+  ],
+  "filesAnalyzed": 3,
+  "filesSkipped": []
+}

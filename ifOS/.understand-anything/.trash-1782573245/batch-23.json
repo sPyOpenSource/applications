@@ -1,0 +1,468 @@
+{
+  "batchIndex": 23,
+  "nodes": [
+    {
+      "id": "file:src/jx/devices/net/PacketsQueueConsumer.java",
+      "type": "file",
+      "label": "PacketsQueueConsumer.java",
+      "properties": {
+        "path": "src/jx/devices/net/PacketsQueueConsumer.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 15,
+        "nonEmptyLines": 13
+      }
+    },
+    {
+      "id": "class:src/jx/devices/net/PacketsQueueConsumer.java::PacketsQueueConsumer",
+      "type": "class",
+      "label": "PacketsQueueConsumer",
+      "properties": {
+        "name": "PacketsQueueConsumer",
+        "startLine": 5,
+        "endLine": 15,
+        "methods": [
+          "get",
+          "isEmpty",
+          "size"
+        ],
+        "properties": []
+      }
+    },
+    {
+      "id": "file:src/jx/devices/net/PacketsQueueProducer.java",
+      "type": "file",
+      "label": "PacketsQueueProducer.java",
+      "properties": {
+        "path": "src/jx/devices/net/PacketsQueueProducer.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 9,
+        "nonEmptyLines": 7
+      }
+    },
+    {
+      "id": "class:src/jx/devices/net/PacketsQueueProducer.java::PacketsQueueProducer",
+      "type": "class",
+      "label": "PacketsQueueProducer",
+      "properties": {
+        "name": "PacketsQueueProducer",
+        "startLine": 5,
+        "endLine": 9,
+        "methods": [
+          "add",
+          "isEmpty",
+          "size"
+        ],
+        "properties": []
+      }
+    },
+    {
+      "id": "file:src/jx/devices/pci/PCI.java",
+      "type": "file",
+      "label": "PCI.java",
+      "properties": {
+        "path": "src/jx/devices/pci/PCI.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 156,
+        "nonEmptyLines": 122
+      }
+    },
+    {
+      "id": "class:src/jx/devices/pci/PCI.java::PCI",
+      "type": "class",
+      "label": "PCI",
+      "properties": {
+        "name": "PCI",
+        "startLine": 6,
+        "endLine": 156,
+        "methods": [],
+        "properties": [
+          "REG_DEVVEND",
+          "DEVICE_MASK",
+          "DEVICE_SHIFT",
+          "VENDOR_MASK",
+          "VENDOR_SHIFT",
+          "REG_STATCMD",
+          "COMMAND_MASK",
+          "COMMAND_SHIFT",
+          "STATUS_MASK",
+          "STATUS_SHIFT",
+          "REG_CLASSREV",
+          "CLASSCODE_MASK",
+          "CLASSCODE_SHIFT",
+          "REVISION_MASK",
+          "REVISION_SHIFT",
+          "REG_BHLC",
+          "BIST_MASK",
+          "BIST_SHIFT",
+          "HEADERTYPE_MASK",
+          "HEADERTYPE_SHIFT",
+          "LATENCYTIMER_MASK",
+          "LATENCYTIMER_SHIFT",
+          "CACHELINE_MASK",
+          "CACHELINE_SHIFT",
+          "REG_BASEADDRESS_0",
+          "REG_BASEADDRESS_1",
+          "REG_BASEADDRESS_2",
+          "REG_BASEADDRESS_3",
+          "REG_BASEADDRESS_4",
+          "REG_BASEADDRESS_5",
+          "BASEADDRESS_MEM_MASK",
+          "REG_SUBDEVVEND",
+          "SUBSYSTEM_MASK",
+          "SUBSYSTEM_SHIFT",
+          "SUBVENDOR_MASK",
+          "SUBVENDOR_SHIFT",
+          "REG_EXPANSIONROM",
+          "REG_CAP",
+          "CAP_MASK",
+          "CAP_SHIFT",
+          "REG_LGII",
+          "MAXLATENCY_MASK",
+          "MAXLATENCY_SHIFT",
+          "MINGNT_MASK",
+          "MINGNT_SHIFT",
+          "INTERRUPTPIN_MASK",
+          "INTERRUPTPIN_SHIFT",
+          "INTERRUPTLINE_MASK",
+          "INTERRUPTLINE_SHIFT",
+          "STATUS_CAPABILITY",
+          "HEADER_MULTIFUNCTION",
+          "CLASSCODE_CLASS_MASK",
+          "CLASSCODE_SUBCLASS_MASK",
+          "CLASSCODE_PIF_MASK",
+          "BASECLASS_LEGACY",
+          "BASECLASS_STORAGE",
+          "BASECLASS_NETWORK",
+          "BASECLASS_VIDEO",
+          "BASECLASS_MULTIMEDIA",
+          "BASECLASS_MEMORY",
+          "BASECLASS_BRIDGE",
+          "SUBCLASS_NETWORK_ETHERNET",
+          "SUBCLASS_NETWORK_TOKEN_RING",
+          "SUBCLASS_NETWORK_FDDI",
+          "SUBCLASS_NETWORK_ATM",
+          "SUBCLASS_NETWORK_OTHER",
+          "SUBCLASS_MULTIMEDIA_VIDEO",
+          "SUBCLASS_MULTIMEDIA_AUDIO",
+          "SUBCLASS_MULTIMEDIA_OTHER",
+          "CMD_STATUS_PARITY_ERROR",
+          "CMD_STATUS_SYSTEM_ERROR",
+          "CMD_STATUS_MASTER_ABORT",
+          "CMD_STATUS_TARGET_ABORT",
+          "CMD_STATUS_SIG_TARGET_ABORT",
+          "CMD_STATUS_DEVSEL_TIM_MASK",
+          "CMD_STATUS_DEVSEL_TIM_OFF",
+          "CMD_STATUS_PARITY_ERROR_R",
+          "CMD_STATUS_FB2B_CAP",
+          "CMD_COMMAND_SERR_ENABLE",
+          "CMD_COMMAND_PERR_ENABLE",
+          "CMD_COMMAND_BM_ENABLE",
+          "CMD_COMMAND_MEM_SPACE",
+          "VENDOR_HAUPPAUGE",
+          "VENDOR_MIRO",
+          "VENDOR_BROOKTREE",
+          "BROOKTREE_BT878",
+          "BROOKTREE_BT879",
+          "BROOKTREE_BT848"
+        ]
+      }
+    },
+    {
+      "id": "file:src/jx/devices/pci/PCIAccess.java",
+      "type": "file",
+      "label": "PCIAccess.java",
+      "properties": {
+        "path": "src/jx/devices/pci/PCIAccess.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 17,
+        "nonEmptyLines": 11
+      }
+    },
+    {
+      "id": "class:src/jx/devices/pci/PCIAccess.java::PCIAccess",
+      "type": "class",
+      "label": "PCIAccess",
+      "properties": {
+        "name": "PCIAccess",
+        "startLine": 5,
+        "endLine": 17,
+        "methods": [
+          "getNumberOfDevices",
+          "getDeviceAt",
+          "getDevicesByID",
+          "getDevicesByClass",
+          "readDeviceConfig",
+          "writeDeviceConfig",
+          "dumpDevices"
+        ],
+        "properties": []
+      }
+    },
+    {
+      "id": "file:src/jx/devices/pci/PCIAddress.java",
+      "type": "file",
+      "label": "PCIAddress.java",
+      "properties": {
+        "path": "src/jx/devices/pci/PCIAddress.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 12,
+        "nonEmptyLines": 10
+      }
+    },
+    {
+      "id": "class:src/jx/devices/pci/PCIAddress.java::PCIAddress",
+      "type": "class",
+      "label": "PCIAddress",
+      "properties": {
+        "name": "PCIAddress",
+        "startLine": 8,
+        "endLine": 12,
+        "methods": [
+          "getBus",
+          "getDevice",
+          "getFunction"
+        ],
+        "properties": []
+      }
+    },
+    {
+      "id": "file:src/jx/devices/pci/PCICap.java",
+      "type": "file",
+      "label": "PCICap.java",
+      "properties": {
+        "path": "src/jx/devices/pci/PCICap.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 21,
+        "nonEmptyLines": 14
+      }
+    },
+    {
+      "id": "class:src/jx/devices/pci/PCICap.java::PCICap",
+      "type": "class",
+      "label": "PCICap",
+      "properties": {
+        "name": "PCICap",
+        "startLine": 3,
+        "endLine": 21,
+        "methods": [],
+        "properties": [
+          "ID_PM",
+          "ID_AGP",
+          "ID_VPD",
+          "ID_SI",
+          "ID_MSI",
+          "CAP_ID_MASK",
+          "CAP_ID_SHIFT",
+          "CAP_NEXT_MASK",
+          "CAP_NEXT_SHIFT"
+        ]
+      }
+    },
+    {
+      "id": "file:src/jx/devices/Screen.java",
+      "type": "file",
+      "label": "Screen.java",
+      "properties": {
+        "path": "src/jx/devices/Screen.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 13,
+        "nonEmptyLines": 11
+      }
+    },
+    {
+      "id": "class:src/jx/devices/Screen.java::Screen",
+      "type": "class",
+      "label": "Screen",
+      "properties": {
+        "name": "Screen",
+        "startLine": 6,
+        "endLine": 13,
+        "methods": [
+          "getWidth",
+          "getHeight",
+          "moveCursorTo",
+          "putAt",
+          "clear",
+          "getVideoMemory"
+        ],
+        "properties": []
+      }
+    },
+    {
+      "id": "file:src/jx/fs/buffer/BufferHead.java",
+      "type": "file",
+      "label": "BufferHead.java",
+      "properties": {
+        "path": "src/jx/fs/buffer/BufferHead.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 45,
+        "nonEmptyLines": 33
+      }
+    },
+    {
+      "id": "class:src/jx/fs/buffer/BufferHead.java::BufferHead",
+      "type": "class",
+      "label": "BufferHead",
+      "properties": {
+        "name": "BufferHead",
+        "startLine": 25,
+        "endLine": 45,
+        "methods": [
+          "markDirty",
+          "markUptodate",
+          "clear",
+          "getBlock",
+          "getSize",
+          "endIo",
+          "ref",
+          "dirty",
+          "getData"
+        ],
+        "properties": []
+      }
+    },
+    {
+      "id": "file:src/jx/fs/buffer/multithread/Buffer.java",
+      "type": "file",
+      "label": "Buffer.java",
+      "properties": {
+        "path": "src/jx/fs/buffer/multithread/Buffer.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 10,
+        "nonEmptyLines": 7
+      }
+    },
+    {
+      "id": "class:src/jx/fs/buffer/multithread/Buffer.java::Buffer",
+      "type": "class",
+      "label": "Buffer",
+      "properties": {
+        "name": "Buffer",
+        "startLine": 8,
+        "endLine": 10,
+        "methods": [],
+        "properties": []
+      }
+    },
+    {
+      "id": "file:src/jx/fs/buffer/multithread/BufferConsumer.java",
+      "type": "file",
+      "label": "BufferConsumer.java",
+      "properties": {
+        "path": "src/jx/fs/buffer/multithread/BufferConsumer.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 8,
+        "nonEmptyLines": 7
+      }
+    },
+    {
+      "id": "class:src/jx/fs/buffer/multithread/BufferConsumer.java::BufferConsumer",
+      "type": "class",
+      "label": "BufferConsumer",
+      "properties": {
+        "name": "BufferConsumer",
+        "startLine": 6,
+        "endLine": 8,
+        "methods": [
+          "undockFirstElement"
+        ],
+        "properties": []
+      }
+    },
+    {
+      "id": "file:src/jx/fs/buffer/multithread/BufferProducer.java",
+      "type": "file",
+      "label": "BufferProducer.java",
+      "properties": {
+        "path": "src/jx/fs/buffer/multithread/BufferProducer.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 8,
+        "nonEmptyLines": 7
+      }
+    },
+    {
+      "id": "class:src/jx/fs/buffer/multithread/BufferProducer.java::BufferProducer",
+      "type": "class",
+      "label": "BufferProducer",
+      "properties": {
+        "name": "BufferProducer",
+        "startLine": 6,
+        "endLine": 8,
+        "methods": [
+          "appendElement"
+        ],
+        "properties": []
+      }
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/jx/devices/net/PacketsQueueConsumer.java",
+      "target": "class:src/jx/devices/net/PacketsQueueConsumer.java::PacketsQueueConsumer",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/jx/devices/net/PacketsQueueProducer.java",
+      "target": "class:src/jx/devices/net/PacketsQueueProducer.java::PacketsQueueProducer",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/jx/devices/pci/PCI.java",
+      "target": "class:src/jx/devices/pci/PCI.java::PCI",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/jx/devices/pci/PCIAccess.java",
+      "target": "class:src/jx/devices/pci/PCIAccess.java::PCIAccess",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/jx/devices/pci/PCIAddress.java",
+      "target": "class:src/jx/devices/pci/PCIAddress.java::PCIAddress",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/jx/devices/pci/PCICap.java",
+      "target": "class:src/jx/devices/pci/PCICap.java::PCICap",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/jx/devices/Screen.java",
+      "target": "class:src/jx/devices/Screen.java::Screen",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/jx/fs/buffer/BufferHead.java",
+      "target": "class:src/jx/fs/buffer/BufferHead.java::BufferHead",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/jx/fs/buffer/multithread/Buffer.java",
+      "target": "class:src/jx/fs/buffer/multithread/Buffer.java::Buffer",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/jx/fs/buffer/multithread/BufferConsumer.java",
+      "target": "class:src/jx/fs/buffer/multithread/BufferConsumer.java::BufferConsumer",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/jx/fs/buffer/multithread/BufferProducer.java",
+      "target": "class:src/jx/fs/buffer/multithread/BufferProducer.java::BufferProducer",
+      "relation": "contains"
+    }
+  ],
+  "nodeCount": 22,
+  "edgeCount": 11
+}

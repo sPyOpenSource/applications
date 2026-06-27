@@ -1,0 +1,155 @@
+{
+  "projectRoot": "/Users/xuyi/Source/OS/armOS/lib/jcore/test/ifOS",
+  "batchFiles": [
+    {
+      "path": "src/jx/fs/Directory.ctxt",
+      "language": "ctxt",
+      "sizeLines": 17,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/fs/Directory.java",
+      "language": "java",
+      "sizeLines": 13,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/fs/FileSystem.ctxt",
+      "language": "ctxt",
+      "sizeLines": 29,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/fs/FileSystemInterface.ctxt",
+      "language": "ctxt",
+      "sizeLines": 15,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/fs/FileSystemInterface.java",
+      "language": "java",
+      "sizeLines": 12,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/fs/FS.ctxt",
+      "language": "ctxt",
+      "sizeLines": 67,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/fs/FS.java",
+      "language": "java",
+      "sizeLines": 257,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/fs/FSAttribute.ctxt",
+      "language": "ctxt",
+      "sizeLines": 7,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/fs/FSAttribute.java",
+      "language": "java",
+      "sizeLines": 6,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/fs/FSObject.ctxt",
+      "language": "ctxt",
+      "sizeLines": 19,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/fs/FSObject.java",
+      "language": "java",
+      "sizeLines": 12,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/fs/Node.ctxt",
+      "language": "ctxt",
+      "sizeLines": 135,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/fs/Node.java",
+      "language": "java",
+      "sizeLines": 386,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/fs/package.bluej",
+      "language": "bluej",
+      "sizeLines": 171,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/fs/Permission.ctxt",
+      "language": "ctxt",
+      "sizeLines": 3,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/fs/Permission.java",
+      "language": "java",
+      "sizeLines": 4,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/fs/ReadOnlyDirectory.ctxt",
+      "language": "ctxt",
+      "sizeLines": 9,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/fs/ReadOnlyDirectory.java",
+      "language": "java",
+      "sizeLines": 7,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/fs/ReadOnlyRegularFile.ctxt",
+      "language": "ctxt",
+      "sizeLines": 12,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/fs/ReadOnlyRegularFile.java",
+      "language": "java",
+      "sizeLines": 17,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/fs/RegularFile.ctxt",
+      "language": "ctxt",
+      "sizeLines": 21,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/fs/RegularFile.java",
+      "language": "java",
+      "sizeLines": 37,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/fs/StatFS.ctxt",
+      "language": "ctxt",
+      "sizeLines": 4,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/fs/StatFS.java",
+      "language": "java",
+      "sizeLines": 22,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/fs/VolumeManager.ctxt",
+      "language": "ctxt",
+      "sizeLines": 5,
+      "fileCategory": "code"
+    }
+  ]
+}

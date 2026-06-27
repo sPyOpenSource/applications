@@ -1,0 +1,49 @@
+{
+  "projectRoot": "/Users/xuyi/Source/OS/armOS/lib/jcore/test/ifOS",
+  "batchFiles": [
+    {
+      "path": "src/jx/zero/ByteCode.java",
+      "language": "java",
+      "sizeLines": 340,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/zero/classfile/MethodSource.java",
+      "language": "java",
+      "sizeLines": 30,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/zero/verifier/VerifierInterface.java",
+      "language": "java",
+      "sizeLines": 17,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/zero/verifier/wcet/ExecutionTime.java",
+      "language": "java",
+      "sizeLines": 26,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/zero/verifier/wcet/ValueProvider.java",
+      "language": "java",
+      "sizeLines": 69,
+      "fileCategory": "code"
+    }
+  ],
+  "batchImportData": {
+    "src/jx/zero/ByteCode.java": [],
+    "src/jx/zero/classfile/MethodSource.java": [],
+    "src/jx/zero/verifier/VerifierInterface.java": [
+      "src/jx/zero/ByteCode.java",
+      "src/jx/zero/classfile/MethodSource.java"
+    ],
+    "src/jx/zero/verifier/wcet/ExecutionTime.java": [
+      "src/jx/zero/ByteCode.java"
+    ],
+    "src/jx/zero/verifier/wcet/ValueProvider.java": [
+      "src/jx/zero/ByteCode.java"
+    ]
+  }
+}

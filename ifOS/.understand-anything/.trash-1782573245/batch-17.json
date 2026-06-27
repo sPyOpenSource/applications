@@ -1,0 +1,190 @@
+{
+  "batchIndex": 17,
+  "nodes": [
+    {
+      "id": "file:alternative/jdk_collections_impl/java/util/AbstractCollection.j",
+      "type": "file",
+      "path": "alternative/jdk_collections_impl/java/util/AbstractCollection.j",
+      "sizeLines": 345,
+      "language": "java",
+      "fileCategory": "code"
+    },
+    {
+      "id": "file:alternative/jdk0/java/util/AbstractList.j",
+      "type": "file",
+      "path": "alternative/jdk0/java/util/AbstractList.j",
+      "sizeLines": 49,
+      "language": "java",
+      "fileCategory": "code"
+    },
+    {
+      "id": "config:build.xml",
+      "type": "config",
+      "path": "build.xml",
+      "sizeLines": 73,
+      "language": "xml",
+      "fileCategory": "code"
+    },
+    {
+      "id": "document:CHANGELOG",
+      "type": "document",
+      "path": "CHANGELOG",
+      "sizeLines": 107,
+      "language": "markdown",
+      "fileCategory": "document"
+    },
+    {
+      "id": "config:manifest.mf",
+      "type": "config",
+      "path": "manifest.mf",
+      "sizeLines": 3,
+      "language": "properties",
+      "fileCategory": "script"
+    },
+    {
+      "id": "config:META",
+      "type": "config",
+      "path": "META",
+      "sizeLines": 14,
+      "language": "properties",
+      "fileCategory": "script"
+    },
+    {
+      "id": "document:README.rst",
+      "type": "document",
+      "path": "README.rst",
+      "sizeLines": 12,
+      "language": "markdown",
+      "fileCategory": "document"
+    },
+    {
+      "id": "file:src/java/applet/AppletStub.java",
+      "type": "file",
+      "path": "src/java/applet/AppletStub.java",
+      "sizeLines": 86,
+      "language": "java",
+      "fileCategory": "code"
+    },
+    {
+      "id": "class:java.applet.AppletStub",
+      "type": "class",
+      "name": "java.applet.AppletStub",
+      "startLine": 37,
+      "endLine": 86
+    },
+    {
+      "id": "file:src/java/applet/AudioClip.java",
+      "type": "file",
+      "path": "src/java/applet/AudioClip.java",
+      "sizeLines": 54,
+      "language": "java",
+      "fileCategory": "code"
+    },
+    {
+      "id": "class:java.applet.AudioClip",
+      "type": "class",
+      "name": "java.applet.AudioClip",
+      "startLine": 35,
+      "endLine": 54
+    },
+    {
+      "id": "file:src/java/beans/BeanInfo.java",
+      "type": "file",
+      "path": "src/java/beans/BeanInfo.java",
+      "sizeLines": 170,
+      "language": "java",
+      "fileCategory": "code"
+    },
+    {
+      "id": "class:java.beans.BeanInfo",
+      "type": "class",
+      "name": "java.beans.BeanInfo",
+      "startLine": 64,
+      "endLine": 170
+    },
+    {
+      "id": "file:src/java/beans/Customizer.java",
+      "type": "file",
+      "path": "src/java/beans/Customizer.java",
+      "sizeLines": 75,
+      "language": "java",
+      "fileCategory": "code"
+    },
+    {
+      "id": "class:java.beans.Customizer",
+      "type": "class",
+      "name": "java.beans.Customizer",
+      "startLine": 58,
+      "endLine": 75
+    },
+    {
+      "id": "file:src/java/beans/DesignMode.java",
+      "type": "file",
+      "path": "src/java/beans/DesignMode.java",
+      "sizeLines": 80,
+      "language": "java",
+      "fileCategory": "code"
+    },
+    {
+      "id": "class:java.beans.DesignMode",
+      "type": "class",
+      "name": "java.beans.DesignMode",
+      "startLine": 39,
+      "endLine": 80
+    },
+    {
+      "id": "file:src/java/beans/PropertyEditor.java",
+      "type": "file",
+      "path": "src/java/beans/PropertyEditor.java",
+      "sizeLines": 197,
+      "language": "java",
+      "fileCategory": "code"
+    },
+    {
+      "id": "class:java.beans.PropertyEditor",
+      "type": "class",
+      "name": "java.beans.PropertyEditor",
+      "startLine": 99,
+      "endLine": 197
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/java/applet/AppletStub.java",
+      "target": "class:java.applet.AppletStub",
+      "relationship": "contains"
+    },
+    {
+      "source": "file:src/java/applet/AudioClip.java",
+      "target": "class:java.applet.AudioClip",
+      "relationship": "contains"
+    },
+    {
+      "source": "file:src/java/beans/BeanInfo.java",
+      "target": "class:java.beans.BeanInfo",
+      "relationship": "contains"
+    },
+    {
+      "source": "file:src/java/beans/Customizer.java",
+      "target": "class:java.beans.Customizer",
+      "relationship": "contains"
+    },
+    {
+      "source": "file:src/java/beans/DesignMode.java",
+      "target": "class:java.beans.DesignMode",
+      "relationship": "contains"
+    },
+    {
+      "source": "file:src/java/beans/PropertyEditor.java",
+      "target": "class:java.beans.PropertyEditor",
+      "relationship": "contains"
+    },
+    {
+      "source": "class:java.util.AbstractList",
+      "target": "class:java.util.AbstractCollection",
+      "relationship": "extends"
+    }
+  ],
+  "filesAnalyzed": 13,
+  "filesSkipped": []
+}

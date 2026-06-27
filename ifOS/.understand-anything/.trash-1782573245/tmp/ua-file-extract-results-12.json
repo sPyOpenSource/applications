@@ -1,0 +1,123 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 3,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "src/jx/devices/Bus.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 5,
+      "nonEmptyLines": 4,
+      "classes": [
+        {
+          "name": "Bus",
+          "startLine": 3,
+          "endLine": 5,
+          "methods": [
+            "getChild"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "Bus",
+          "line": 3,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/jx/devices/ide/IDEDevice.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 46,
+      "nonEmptyLines": 42,
+      "classes": [
+        {
+          "name": "IDEDevice",
+          "startLine": 14,
+          "endLine": 46,
+          "methods": [
+            "isPresent",
+            "getCapacity",
+            "memoryIO"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "IDEDevice",
+          "line": 14,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/jx/devices/pci/PCIDevice.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 56,
+      "nonEmptyLines": 30,
+      "classes": [
+        {
+          "name": "PCIDevice",
+          "startLine": 10,
+          "endLine": 56,
+          "methods": [
+            "getDeviceID",
+            "getVendorID",
+            "getInterruptLine",
+            "getBaseAddress",
+            "getCommand",
+            "setCommand",
+            "getClassCode",
+            "getAddress",
+            "readConfig",
+            "getHeaderType",
+            "readPackedConfig",
+            "writePackedConfig",
+            "busmasterCapable",
+            "enforceBusmaster",
+            "writeConfig",
+            "setBaseAddress",
+            "setLatencyTimer",
+            "getLatencyTimer",
+            "getCacheLineSize",
+            "getRevisionID",
+            "readIRQLine",
+            "setInterruptLine"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "PCIDevice",
+          "line": 10,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    }
+  ]
+}

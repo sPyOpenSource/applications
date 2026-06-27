@@ -1,0 +1,1373 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 25,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "src/java/util/Deque.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 584,
+      "nonEmptyLines": 549,
+      "classes": [
+        {
+          "name": "Deque",
+          "startLine": 193,
+          "endLine": 584,
+          "methods": [
+            "addFirst",
+            "addLast",
+            "offerFirst",
+            "offerLast",
+            "removeFirst",
+            "removeLast",
+            "pollFirst",
+            "pollLast",
+            "getFirst",
+            "getLast",
+            "peekFirst",
+            "peekLast",
+            "removeFirstOccurrence",
+            "removeLastOccurrence",
+            "add",
+            "offer",
+            "remove",
+            "poll",
+            "element",
+            "peek",
+            "push",
+            "pop",
+            "remove",
+            "contains",
+            "size",
+            "iterator",
+            "descendingIterator"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "Deque",
+          "line": 193,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/util/Dictionary.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 13,
+      "nonEmptyLines": 11,
+      "functions": [
+        {
+          "name": "elements",
+          "startLine": 5,
+          "endLine": 5,
+          "params": []
+        },
+        {
+          "name": "get",
+          "startLine": 6,
+          "endLine": 6,
+          "params": [
+            "key"
+          ]
+        },
+        {
+          "name": "isEmpty",
+          "startLine": 7,
+          "endLine": 7,
+          "params": []
+        },
+        {
+          "name": "keys",
+          "startLine": 8,
+          "endLine": 8,
+          "params": []
+        },
+        {
+          "name": "put",
+          "startLine": 9,
+          "endLine": 9,
+          "params": [
+            "key",
+            "value"
+          ]
+        },
+        {
+          "name": "remove",
+          "startLine": 10,
+          "endLine": 10,
+          "params": [
+            "key"
+          ]
+        },
+        {
+          "name": "size",
+          "startLine": 11,
+          "endLine": 11,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "Dictionary",
+          "startLine": 3,
+          "endLine": 12,
+          "methods": [
+            "elements",
+            "get",
+            "isEmpty",
+            "keys",
+            "put",
+            "remove",
+            "size"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "elements",
+          "line": 5,
+          "isDefault": false
+        },
+        {
+          "name": "get",
+          "line": 6,
+          "isDefault": false
+        },
+        {
+          "name": "isEmpty",
+          "line": 7,
+          "isDefault": false
+        },
+        {
+          "name": "keys",
+          "line": 8,
+          "isDefault": false
+        },
+        {
+          "name": "put",
+          "line": 9,
+          "isDefault": false
+        },
+        {
+          "name": "remove",
+          "line": 10,
+          "isDefault": false
+        },
+        {
+          "name": "size",
+          "line": 11,
+          "isDefault": false
+        },
+        {
+          "name": "Dictionary",
+          "line": 3,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 8,
+        "functionCount": 7,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/util/function/BiFunction.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 72,
+      "nonEmptyLines": 68,
+      "classes": [
+        {
+          "name": "BiFunction",
+          "startLine": 43,
+          "endLine": 72,
+          "methods": [
+            "apply",
+            "andThen"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "BiFunction",
+          "line": 43,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "andThen",
+          "callee": "Objects.requireNonNull",
+          "lineNumber": 69
+        },
+        {
+          "caller": "andThen",
+          "callee": "after.apply",
+          "lineNumber": 70
+        },
+        {
+          "caller": "andThen",
+          "callee": "apply",
+          "lineNumber": 70
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/util/function/package.bluej",
+      "language": "bluej",
+      "fileCategory": "code",
+      "totalLines": 93,
+      "nonEmptyLines": 93,
+      "metrics": {}
+    },
+    {
+      "path": "src/java/util/function/UnaryOperator.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 52,
+      "nonEmptyLines": 50,
+      "classes": [
+        {
+          "name": "UnaryOperator",
+          "startLine": 40,
+          "endLine": 52,
+          "methods": [
+            "identity"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "UnaryOperator",
+          "line": 40,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/util/LinkedList.j",
+      "language": "j",
+      "fileCategory": "code",
+      "totalLines": 677,
+      "nonEmptyLines": 601,
+      "metrics": {}
+    },
+    {
+      "path": "src/java/util/List.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 357,
+      "nonEmptyLines": 317,
+      "classes": [
+        {
+          "name": "List",
+          "startLine": 43,
+          "endLine": 357,
+          "methods": [
+            "add",
+            "remove",
+            "size",
+            "get",
+            "sort",
+            "listIterator",
+            "listIterator",
+            "add",
+            "indexOf",
+            "lastIndexOf",
+            "set",
+            "subList"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "List",
+          "line": 43,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "sort",
+          "callee": "this.toArray",
+          "lineNumber": 56
+        },
+        {
+          "caller": "sort",
+          "callee": "Arrays.sort",
+          "lineNumber": 57
+        },
+        {
+          "caller": "sort",
+          "callee": "this.listIterator",
+          "lineNumber": 58
+        },
+        {
+          "caller": "sort",
+          "callee": "i.next",
+          "lineNumber": 60
+        },
+        {
+          "caller": "sort",
+          "callee": "i.set",
+          "lineNumber": 61
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/util/ListIterator.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 147,
+      "nonEmptyLines": 131,
+      "classes": [
+        {
+          "name": "ListIterator",
+          "startLine": 36,
+          "endLine": 147,
+          "methods": [
+            "hasNext",
+            "hasPrevious",
+            "next",
+            "previous",
+            "nextIndex",
+            "previousIndex",
+            "add",
+            "remove",
+            "set"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "ListIterator",
+          "line": 36,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/util/ListResourceBundle.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 100,
+      "nonEmptyLines": 88,
+      "functions": [
+        {
+          "name": "ListResourceBundle",
+          "startLine": 50,
+          "endLine": 52,
+          "params": []
+        },
+        {
+          "name": "getContents",
+          "startLine": 60,
+          "endLine": 60,
+          "params": []
+        },
+        {
+          "name": "handleGetObject",
+          "startLine": 68,
+          "endLine": 77,
+          "params": [
+            "key"
+          ]
+        },
+        {
+          "name": "getKeys",
+          "startLine": 83,
+          "endLine": 99,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "ListResourceBundle",
+          "startLine": 45,
+          "endLine": 100,
+          "methods": [
+            "ListResourceBundle",
+            "getContents",
+            "handleGetObject",
+            "getKeys"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "ListResourceBundle",
+          "line": 50,
+          "isDefault": false
+        },
+        {
+          "name": "getKeys",
+          "line": 83,
+          "isDefault": false
+        },
+        {
+          "name": "ListResourceBundle",
+          "line": 45,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "handleGetObject",
+          "callee": "getContents",
+          "lineNumber": 70
+        },
+        {
+          "caller": "handleGetObject",
+          "callee": "key.equals",
+          "lineNumber": 73
+        },
+        {
+          "caller": "getKeys",
+          "callee": "getContents",
+          "lineNumber": 85
+        },
+        {
+          "caller": "getKeys",
+          "callee": "new Enumeration",
+          "lineNumber": 87
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 4,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/util/NavigableMap.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 424,
+      "nonEmptyLines": 401,
+      "classes": [
+        {
+          "name": "NavigableMap",
+          "startLine": 95,
+          "endLine": 424,
+          "methods": [
+            "lowerEntry",
+            "lowerKey",
+            "floorEntry",
+            "floorKey",
+            "ceilingEntry",
+            "ceilingKey",
+            "higherEntry",
+            "higherKey",
+            "firstEntry",
+            "lastEntry",
+            "pollFirstEntry",
+            "pollLastEntry",
+            "descendingMap",
+            "navigableKeySet",
+            "descendingKeySet",
+            "subMap",
+            "headMap",
+            "tailMap",
+            "subMap",
+            "headMap",
+            "tailMap"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "NavigableMap",
+          "line": 95,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/util/NavigableSet.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 319,
+      "nonEmptyLines": 302,
+      "classes": [
+        {
+          "name": "NavigableSet",
+          "startLine": 86,
+          "endLine": 319,
+          "methods": [
+            "lower",
+            "floor",
+            "ceiling",
+            "higher",
+            "pollFirst",
+            "pollLast",
+            "iterator",
+            "descendingSet",
+            "descendingIterator",
+            "subSet",
+            "headSet",
+            "tailSet",
+            "subSet",
+            "headSet",
+            "tailSet"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "NavigableSet",
+          "line": 86,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/util/package.bluej",
+      "language": "bluej",
+      "fileCategory": "code",
+      "totalLines": 352,
+      "nonEmptyLines": 352,
+      "metrics": {}
+    },
+    {
+      "path": "src/java/util/Queue.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 218,
+      "nonEmptyLines": 210,
+      "classes": [
+        {
+          "name": "Queue",
+          "startLine": 144,
+          "endLine": 218,
+          "methods": [
+            "add",
+            "offer",
+            "remove",
+            "poll",
+            "element",
+            "peek"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "Queue",
+          "line": 144,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/util/RandomAccess.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 64,
+      "nonEmptyLines": 55,
+      "classes": [
+        {
+          "name": "RandomAccess",
+          "startLine": 61,
+          "endLine": 64,
+          "methods": [],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "RandomAccess",
+          "line": 61,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/util/SortedMap.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 284,
+      "nonEmptyLines": 273,
+      "classes": [
+        {
+          "name": "SortedMap",
+          "startLine": 113,
+          "endLine": 284,
+          "methods": [
+            "comparator",
+            "subMap",
+            "headMap",
+            "tailMap",
+            "firstKey",
+            "lastKey",
+            "keySet",
+            "values",
+            "entrySet"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "SortedMap",
+          "line": 113,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/util/SortedSet.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 264,
+      "nonEmptyLines": 255,
+      "classes": [
+        {
+          "name": "SortedSet",
+          "startLine": 108,
+          "endLine": 264,
+          "methods": [
+            "comparator",
+            "subSet",
+            "headSet",
+            "tailSet",
+            "first",
+            "last",
+            "spliterator"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "SortedSet",
+          "line": 108,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "spliterator",
+          "callee": "new Spliterators.IteratorSpliterator<E>",
+          "lineNumber": 256
+        },
+        {
+          "caller": "getComparator",
+          "callee": "SortedSet.this.comparator",
+          "lineNumber": 260
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/util/stream/package.bluej",
+      "language": "bluej",
+      "fileCategory": "code",
+      "totalLines": 27,
+      "nonEmptyLines": 27,
+      "metrics": {}
+    },
+    {
+      "path": "src/java/util/TimeZone.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 1096,
+      "nonEmptyLines": 1041,
+      "functions": [
+        {
+          "name": "getOffset",
+          "startLine": 750,
+          "endLine": 751,
+          "params": [
+            "era",
+            "year",
+            "month",
+            "day",
+            "dayOfWeek",
+            "milliseconds"
+          ]
+        },
+        {
+          "name": "getRawOffset",
+          "startLine": 758,
+          "endLine": 758,
+          "params": []
+        },
+        {
+          "name": "setRawOffset",
+          "startLine": 765,
+          "endLine": 765,
+          "params": [
+            "offsetMillis"
+          ]
+        },
+        {
+          "name": "getID",
+          "startLine": 772,
+          "endLine": 775,
+          "params": []
+        },
+        {
+          "name": "setID",
+          "startLine": 782,
+          "endLine": 785,
+          "params": [
+            "id"
+          ]
+        },
+        {
+          "name": "getDisplayName",
+          "startLine": 795,
+          "endLine": 798,
+          "params": []
+        },
+        {
+          "name": "getDisplayName",
+          "startLine": 810,
+          "endLine": 813,
+          "params": [
+            "locale"
+          ]
+        },
+        {
+          "name": "getDisplayName",
+          "startLine": 826,
+          "endLine": 829,
+          "params": [
+            "dst",
+            "style"
+          ]
+        },
+        {
+          "name": "getDisplayName",
+          "startLine": 844,
+          "endLine": 879,
+          "params": [
+            "dst",
+            "style",
+            "locale"
+          ]
+        },
+        {
+          "name": "getDefaultDisplayName",
+          "startLine": 881,
+          "endLine": 904,
+          "params": [
+            "dst"
+          ]
+        },
+        {
+          "name": "useDaylightTime",
+          "startLine": 909,
+          "endLine": 909,
+          "params": []
+        },
+        {
+          "name": "inDaylightTime",
+          "startLine": 916,
+          "endLine": 916,
+          "params": [
+            "date"
+          ]
+        },
+        {
+          "name": "getTimeZone",
+          "startLine": 924,
+          "endLine": 1002,
+          "params": [
+            "ID"
+          ]
+        },
+        {
+          "name": "getAvailableIDs",
+          "startLine": 1012,
+          "endLine": 1038,
+          "params": [
+            "rawOffset"
+          ]
+        },
+        {
+          "name": "getAvailableIDs",
+          "startLine": 1044,
+          "endLine": 1051,
+          "params": []
+        },
+        {
+          "name": "getDefault",
+          "startLine": 1059,
+          "endLine": 1062,
+          "params": []
+        },
+        {
+          "name": "setDefault",
+          "startLine": 1064,
+          "endLine": 1067,
+          "params": [
+            "zone"
+          ]
+        },
+        {
+          "name": "hasSameRules",
+          "startLine": 1076,
+          "endLine": 1079,
+          "params": [
+            "other"
+          ]
+        },
+        {
+          "name": "clone",
+          "startLine": 1085,
+          "endLine": 1095,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "TimeZone",
+          "startLine": 48,
+          "endLine": 1096,
+          "methods": [
+            "getOffset",
+            "getRawOffset",
+            "setRawOffset",
+            "getID",
+            "setID",
+            "getDisplayName",
+            "getDisplayName",
+            "getDisplayName",
+            "getDisplayName",
+            "getDefaultDisplayName",
+            "useDaylightTime",
+            "inDaylightTime",
+            "getTimeZone",
+            "getAvailableIDs",
+            "getAvailableIDs",
+            "getDefault",
+            "setDefault",
+            "hasSameRules",
+            "clone"
+          ],
+          "properties": [
+            "SHORT",
+            "LONG",
+            "ID",
+            "defaultZone",
+            "serialVersionUID",
+            "timezones"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "SHORT",
+          "line": 55,
+          "isDefault": false
+        },
+        {
+          "name": "LONG",
+          "line": 61,
+          "isDefault": false
+        },
+        {
+          "name": "getOffset",
+          "line": 750,
+          "isDefault": false
+        },
+        {
+          "name": "getRawOffset",
+          "line": 758,
+          "isDefault": false
+        },
+        {
+          "name": "setRawOffset",
+          "line": 765,
+          "isDefault": false
+        },
+        {
+          "name": "getID",
+          "line": 772,
+          "isDefault": false
+        },
+        {
+          "name": "setID",
+          "line": 782,
+          "isDefault": false
+        },
+        {
+          "name": "getDisplayName",
+          "line": 795,
+          "isDefault": false
+        },
+        {
+          "name": "getDisplayName",
+          "line": 810,
+          "isDefault": false
+        },
+        {
+          "name": "getDisplayName",
+          "line": 826,
+          "isDefault": false
+        },
+        {
+          "name": "getDisplayName",
+          "line": 844,
+          "isDefault": false
+        },
+        {
+          "name": "useDaylightTime",
+          "line": 909,
+          "isDefault": false
+        },
+        {
+          "name": "inDaylightTime",
+          "line": 916,
+          "isDefault": false
+        },
+        {
+          "name": "getTimeZone",
+          "line": 924,
+          "isDefault": false
+        },
+        {
+          "name": "getAvailableIDs",
+          "line": 1012,
+          "isDefault": false
+        },
+        {
+          "name": "getAvailableIDs",
+          "line": 1044,
+          "isDefault": false
+        },
+        {
+          "name": "getDefault",
+          "line": 1059,
+          "isDefault": false
+        },
+        {
+          "name": "setDefault",
+          "line": 1064,
+          "isDefault": false
+        },
+        {
+          "name": "hasSameRules",
+          "line": 1076,
+          "isDefault": false
+        },
+        {
+          "name": "clone",
+          "line": 1085,
+          "isDefault": false
+        },
+        {
+          "name": "TimeZone",
+          "line": 48,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "getDisplayName",
+          "callee": "getDisplayName",
+          "lineNumber": 797
+        },
+        {
+          "caller": "getDisplayName",
+          "callee": "Locale.getDefault",
+          "lineNumber": 797
+        },
+        {
+          "caller": "getDisplayName",
+          "callee": "getDisplayName",
+          "lineNumber": 812
+        },
+        {
+          "caller": "getDisplayName",
+          "callee": "getDisplayName",
+          "lineNumber": 828
+        },
+        {
+          "caller": "getDisplayName",
+          "callee": "Locale.getDefault",
+          "lineNumber": 828
+        },
+        {
+          "caller": "getDisplayName",
+          "callee": "zoneinfo[i][0].equals",
+          "lineNumber": 855
+        },
+        {
+          "caller": "getDisplayName",
+          "callee": "getID",
+          "lineNumber": 855
+        },
+        {
+          "caller": "getDisplayName",
+          "callee": "getDefaultDisplayName",
+          "lineNumber": 878
+        },
+        {
+          "caller": "getDefaultDisplayName",
+          "callee": "getRawOffset",
+          "lineNumber": 883
+        },
+        {
+          "caller": "getDefaultDisplayName",
+          "callee": "((SimpleTimeZone) this).getDSTSavings",
+          "lineNumber": 889
+        },
+        {
+          "caller": "getDefaultDisplayName",
+          "callee": "new StringBuffer",
+          "lineNumber": 892
+        },
+        {
+          "caller": "getDefaultDisplayName",
+          "callee": "sb.append",
+          "lineNumber": 893
+        },
+        {
+          "caller": "getDefaultDisplayName",
+          "callee": "sb.append",
+          "lineNumber": 894
+        },
+        {
+          "caller": "getDefaultDisplayName",
+          "callee": "Math.abs",
+          "lineNumber": 896
+        },
+        {
+          "caller": "getDefaultDisplayName",
+          "callee": "sb.append((char) ('0' + hours / 10)).append",
+          "lineNumber": 900
+        },
+        {
+          "caller": "getDefaultDisplayName",
+          "callee": "sb.append",
+          "lineNumber": 900
+        },
+        {
+          "caller": "getDefaultDisplayName",
+          "callee": "sb.append",
+          "lineNumber": 901
+        },
+        {
+          "caller": "getDefaultDisplayName",
+          "callee": "sb.append((char) ('0' + minutes / 10)).append",
+          "lineNumber": 902
+        },
+        {
+          "caller": "getDefaultDisplayName",
+          "callee": "sb.append",
+          "lineNumber": 902
+        },
+        {
+          "caller": "getDefaultDisplayName",
+          "callee": "sb.toString",
+          "lineNumber": 903
+        },
+        {
+          "caller": "getTimeZone",
+          "callee": "timezones.get",
+          "lineNumber": 927
+        },
+        {
+          "caller": "getTimeZone",
+          "callee": "tz.getID().equals",
+          "lineNumber": 930
+        },
+        {
+          "caller": "getTimeZone",
+          "callee": "tz.getID",
+          "lineNumber": 930
+        },
+        {
+          "caller": "getTimeZone",
+          "callee": "tz.clone",
+          "lineNumber": 935
+        },
+        {
+          "caller": "getTimeZone",
+          "callee": "tz.setID",
+          "lineNumber": 936
+        },
+        {
+          "caller": "getTimeZone",
+          "callee": "timezones.put",
+          "lineNumber": 940
+        },
+        {
+          "caller": "getTimeZone",
+          "callee": "ID.startsWith",
+          "lineNumber": 946
+        },
+        {
+          "caller": "getTimeZone",
+          "callee": "ID.charAt",
+          "lineNumber": 951
+        },
+        {
+          "caller": "getTimeZone",
+          "callee": "ID.charAt",
+          "lineNumber": 956
+        },
+        {
+          "caller": "getTimeZone",
+          "callee": "ID.substring",
+          "lineNumber": 965
+        },
+        {
+          "caller": "getTimeZone",
+          "callee": "offset_str.indexOf",
+          "lineNumber": 966
+        },
+        {
+          "caller": "getTimeZone",
+          "callee": "Integer.parseInt",
+          "lineNumber": 969
+        },
+        {
+          "caller": "getTimeZone",
+          "callee": "offset_str.substring",
+          "lineNumber": 969
+        },
+        {
+          "caller": "getTimeZone",
+          "callee": "Integer.parseInt",
+          "lineNumber": 970
+        },
+        {
+          "caller": "getTimeZone",
+          "callee": "offset_str.substring",
+          "lineNumber": 970
+        },
+        {
+          "caller": "getTimeZone",
+          "callee": "offset_str.length",
+          "lineNumber": 974
+        },
+        {
+          "caller": "getTimeZone",
+          "callee": "Integer.parseInt",
+          "lineNumber": 978
+        },
+        {
+          "caller": "getTimeZone",
+          "callee": "Integer.parseInt",
+          "lineNumber": 984
+        },
+        {
+          "caller": "getTimeZone",
+          "callee": "offset_str.substring",
+          "lineNumber": 985
+        },
+        {
+          "caller": "getTimeZone",
+          "callee": "Integer.parseInt",
+          "lineNumber": 986
+        },
+        {
+          "caller": "getTimeZone",
+          "callee": "offset_str.substring",
+          "lineNumber": 987
+        },
+        {
+          "caller": "getTimeZone",
+          "callee": "new SimpleTimeZone",
+          "lineNumber": 991
+        },
+        {
+          "caller": "getTimeZone",
+          "callee": "getTimeZone",
+          "lineNumber": 1001
+        },
+        {
+          "caller": "getAvailableIDs",
+          "callee": "new Error",
+          "lineNumber": 1037
+        },
+        {
+          "caller": "getAvailableIDs",
+          "callee": "new Error",
+          "lineNumber": 1050
+        },
+        {
+          "caller": "hasSameRules",
+          "callee": "other.getRawOffset",
+          "lineNumber": 1078
+        },
+        {
+          "caller": "hasSameRules",
+          "callee": "getRawOffset",
+          "lineNumber": 1078
+        },
+        {
+          "caller": "clone",
+          "callee": "super.clone",
+          "lineNumber": 1089
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 21,
+        "functionCount": 19,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/jx/devices/bio/BlockIO.ctxt",
+      "language": "ctxt",
+      "fileCategory": "code",
+      "totalLines": 16,
+      "nonEmptyLines": 16,
+      "metrics": {}
+    },
+    {
+      "path": "src/jx/devices/bio/package.bluej",
+      "language": "bluej",
+      "fileCategory": "code",
+      "totalLines": 27,
+      "nonEmptyLines": 27,
+      "metrics": {}
+    },
+    {
+      "path": "src/jx/devices/Bus.ctxt",
+      "language": "ctxt",
+      "fileCategory": "code",
+      "totalLines": 5,
+      "nonEmptyLines": 5,
+      "metrics": {}
+    },
+    {
+      "path": "src/jx/devices/Device.ctxt",
+      "language": "ctxt",
+      "fileCategory": "code",
+      "totalLines": 13,
+      "nonEmptyLines": 13,
+      "metrics": {}
+    },
+    {
+      "path": "src/jx/devices/DeviceConfiguration.ctxt",
+      "language": "ctxt",
+      "fileCategory": "code",
+      "totalLines": 3,
+      "nonEmptyLines": 3,
+      "metrics": {}
+    },
+    {
+      "path": "src/jx/devices/DeviceConfiguration.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 4,
+      "nonEmptyLines": 3,
+      "classes": [
+        {
+          "name": "DeviceConfiguration",
+          "startLine": 3,
+          "endLine": 4,
+          "methods": [],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "DeviceConfiguration",
+          "line": 3,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/jx/devices/DeviceConfigurationTemplate.ctxt",
+      "language": "ctxt",
+      "fileCategory": "code",
+      "totalLines": 4,
+      "nonEmptyLines": 4,
+      "metrics": {}
+    }
+  ]
+}

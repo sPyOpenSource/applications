@@ -1,0 +1,113 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 3,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "src/jx/devices/Device.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 25,
+      "nonEmptyLines": 21,
+      "classes": [
+        {
+          "name": "Device",
+          "startLine": 7,
+          "endLine": 25,
+          "methods": [
+            "getSupportedConfigurations",
+            "open",
+            "close",
+            "getId"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "Device",
+          "line": 7,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/jx/devices/net/NetworkDevice.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 18,
+      "nonEmptyLines": 15,
+      "classes": [
+        {
+          "name": "NetworkDevice",
+          "startLine": 7,
+          "endLine": 18,
+          "methods": [
+            "setReceiveMode",
+            "transmit",
+            "transmit1",
+            "getMACAddress",
+            "getMTU",
+            "registerNonBlockingConsumer"
+          ],
+          "properties": [
+            "RECEIVE_MODE_INDIVIDUAL",
+            "RECEIVE_MODE_PROMISCOUS",
+            "RECEIVE_MODE_MULTICAST"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "NetworkDevice",
+          "line": 7,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/jx/fs/buffer/separator/NonBlockingMemoryConsumer.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 19,
+      "nonEmptyLines": 17,
+      "classes": [
+        {
+          "name": "NonBlockingMemoryConsumer",
+          "startLine": 16,
+          "endLine": 19,
+          "methods": [
+            "processMemory",
+            "EtherQueueConsumerThread"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "NonBlockingMemoryConsumer",
+          "line": 16,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    }
+  ]
+}

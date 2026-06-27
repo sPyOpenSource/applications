@@ -1,0 +1,639 @@
+{
+  "batchIndex": 4,
+  "projectName": "ifOS",
+  "nodes": [
+    {
+      "id": "file:src/java/applet/AppletContext.java",
+      "type": "file",
+      "name": "AppletContext.java",
+      "filePath": "src/java/applet/AppletContext.java",
+      "summary": "AppletContext.java - java code file",
+      "tags": [
+        "java",
+        "applet"
+      ],
+      "complexity": "medium",
+      "sizeLines": 108,
+      "language": "java"
+    },
+    {
+      "id": "class:src/java/applet/AppletContext.java:AppletContext",
+      "type": "class",
+      "name": "AppletContext",
+      "filePath": "src/java/applet/AppletContext.java",
+      "summary": "Class AppletContext with 7 methods",
+      "tags": [
+        "java",
+        "applet"
+      ],
+      "complexity": "low",
+      "methods": 7
+    },
+    {
+      "id": "file:src/java/security/BasicPermission.java",
+      "type": "file",
+      "name": "BasicPermission.java",
+      "filePath": "src/java/security/BasicPermission.java",
+      "summary": "BasicPermission.java - java code file",
+      "tags": [
+        "java",
+        "security"
+      ],
+      "complexity": "medium",
+      "sizeLines": 271,
+      "language": "java"
+    },
+    {
+      "id": "class:src/java/security/BasicPermission.java:BasicPermission",
+      "type": "class",
+      "name": "BasicPermission",
+      "filePath": "src/java/security/BasicPermission.java",
+      "summary": "Class BasicPermission with 7 methods",
+      "tags": [
+        "java",
+        "security"
+      ],
+      "complexity": "medium",
+      "methods": 7
+    },
+    {
+      "id": "function:src/java/security/BasicPermission.java:BasicPermission",
+      "type": "function",
+      "name": "BasicPermission",
+      "filePath": "src/java/security/BasicPermission.java",
+      "summary": "Function BasicPermission",
+      "tags": [
+        "java",
+        "security"
+      ],
+      "complexity": "low"
+    },
+    {
+      "id": "function:src/java/security/BasicPermission.java:implies",
+      "type": "function",
+      "name": "implies",
+      "filePath": "src/java/security/BasicPermission.java",
+      "summary": "Function implies",
+      "tags": [
+        "java",
+        "security"
+      ],
+      "complexity": "low"
+    },
+    {
+      "id": "function:src/java/security/BasicPermission.java:equals",
+      "type": "function",
+      "name": "equals",
+      "filePath": "src/java/security/BasicPermission.java",
+      "summary": "Function equals",
+      "tags": [
+        "java",
+        "security"
+      ],
+      "complexity": "low"
+    },
+    {
+      "id": "function:src/java/security/BasicPermission.java:newPermissionCollection",
+      "type": "function",
+      "name": "newPermissionCollection",
+      "filePath": "src/java/security/BasicPermission.java",
+      "summary": "Function newPermissionCollection",
+      "tags": [
+        "java",
+        "security"
+      ],
+      "complexity": "low"
+    },
+    {
+      "id": "file:src/java/security/IdentityScope.java",
+      "type": "file",
+      "name": "IdentityScope.java",
+      "filePath": "src/java/security/IdentityScope.java",
+      "summary": "IdentityScope.java - java code file",
+      "tags": [
+        "java",
+        "security"
+      ],
+      "complexity": "medium",
+      "sizeLines": 208,
+      "language": "java"
+    },
+    {
+      "id": "class:src/java/security/IdentityScope.java:IdentityScope",
+      "type": "class",
+      "name": "IdentityScope",
+      "filePath": "src/java/security/IdentityScope.java",
+      "summary": "Class IdentityScope with 13 methods",
+      "tags": [
+        "java",
+        "security"
+      ],
+      "complexity": "medium",
+      "methods": 13
+    },
+    {
+      "id": "file:src/java/security/PermissionCollection.java",
+      "type": "file",
+      "name": "PermissionCollection.java",
+      "filePath": "src/java/security/PermissionCollection.java",
+      "summary": "PermissionCollection.java - java code file",
+      "tags": [
+        "java",
+        "security"
+      ],
+      "complexity": "medium",
+      "sizeLines": 207,
+      "language": "java"
+    },
+    {
+      "id": "class:src/java/security/PermissionCollection.java:PermissionCollection",
+      "type": "class",
+      "name": "PermissionCollection",
+      "filePath": "src/java/security/PermissionCollection.java",
+      "summary": "Class PermissionCollection with 7 methods",
+      "tags": [
+        "java",
+        "security"
+      ],
+      "complexity": "medium",
+      "methods": 7
+    },
+    {
+      "id": "function:src/java/security/PermissionCollection.java:toString",
+      "type": "function",
+      "name": "toString",
+      "filePath": "src/java/security/PermissionCollection.java",
+      "summary": "Function toString",
+      "tags": [
+        "java",
+        "security"
+      ],
+      "complexity": "low"
+    },
+    {
+      "id": "file:src/java/security/Principal.java",
+      "type": "file",
+      "name": "Principal.java",
+      "filePath": "src/java/security/Principal.java",
+      "summary": "Principal.java - java code file",
+      "tags": [
+        "java",
+        "security"
+      ],
+      "complexity": "low",
+      "sizeLines": 85,
+      "language": "java"
+    },
+    {
+      "id": "class:src/java/security/Principal.java:Principal",
+      "type": "class",
+      "name": "Principal",
+      "filePath": "src/java/security/Principal.java",
+      "summary": "Class Principal with 4 methods",
+      "tags": [
+        "java",
+        "security"
+      ],
+      "complexity": "low",
+      "methods": 4
+    },
+    {
+      "id": "file:src/java/security/acl/Acl.java",
+      "type": "file",
+      "name": "Acl.java",
+      "filePath": "src/java/security/acl/Acl.java",
+      "summary": "Acl.java - java code file",
+      "tags": [
+        "java",
+        "security"
+      ],
+      "complexity": "medium",
+      "sizeLines": 160,
+      "language": "java"
+    },
+    {
+      "id": "class:src/java/security/acl/Acl.java:Acl",
+      "type": "class",
+      "name": "Acl",
+      "filePath": "src/java/security/acl/Acl.java",
+      "summary": "Class Acl with 8 methods",
+      "tags": [
+        "java",
+        "security"
+      ],
+      "complexity": "medium",
+      "methods": 8
+    },
+    {
+      "id": "file:src/java/security/acl/AclEntry.java",
+      "type": "file",
+      "name": "AclEntry.java",
+      "filePath": "src/java/security/acl/AclEntry.java",
+      "summary": "AclEntry.java - java code file",
+      "tags": [
+        "java",
+        "security"
+      ],
+      "complexity": "medium",
+      "sizeLines": 164,
+      "language": "java"
+    },
+    {
+      "id": "class:src/java/security/acl/AclEntry.java:AclEntry",
+      "type": "class",
+      "name": "AclEntry",
+      "filePath": "src/java/security/acl/AclEntry.java",
+      "summary": "Class AclEntry with 10 methods",
+      "tags": [
+        "java",
+        "security"
+      ],
+      "complexity": "medium",
+      "methods": 10
+    },
+    {
+      "id": "file:src/java/security/acl/Group.java",
+      "type": "file",
+      "name": "Group.java",
+      "filePath": "src/java/security/acl/Group.java",
+      "summary": "Group.java - java code file",
+      "tags": [
+        "java",
+        "security"
+      ],
+      "complexity": "low",
+      "sizeLines": 93,
+      "language": "java"
+    },
+    {
+      "id": "class:src/java/security/acl/Group.java:Group",
+      "type": "class",
+      "name": "Group",
+      "filePath": "src/java/security/acl/Group.java",
+      "summary": "Class Group with 4 methods",
+      "tags": [
+        "java",
+        "security"
+      ],
+      "complexity": "low",
+      "methods": 4
+    },
+    {
+      "id": "file:src/java/security/acl/Owner.java",
+      "type": "file",
+      "name": "Owner.java",
+      "filePath": "src/java/security/acl/Owner.java",
+      "summary": "Owner.java - java code file",
+      "tags": [
+        "java",
+        "security"
+      ],
+      "complexity": "low",
+      "sizeLines": 92,
+      "language": "java"
+    },
+    {
+      "id": "class:src/java/security/acl/Owner.java:Owner",
+      "type": "class",
+      "name": "Owner",
+      "filePath": "src/java/security/acl/Owner.java",
+      "summary": "Class Owner with 3 methods",
+      "tags": [
+        "java",
+        "security"
+      ],
+      "complexity": "low",
+      "methods": 3
+    },
+    {
+      "id": "file:src/java/util/Enumeration.java",
+      "type": "file",
+      "name": "Enumeration.java",
+      "filePath": "src/java/util/Enumeration.java",
+      "summary": "Enumeration.java - java code file",
+      "tags": [
+        "java",
+        "util"
+      ],
+      "complexity": "low",
+      "sizeLines": 8,
+      "language": "java"
+    },
+    {
+      "id": "class:src/java/util/Enumeration.java:Enumeration",
+      "type": "class",
+      "name": "Enumeration",
+      "filePath": "src/java/util/Enumeration.java",
+      "summary": "Class Enumeration with 2 methods",
+      "tags": [
+        "java",
+        "util"
+      ],
+      "complexity": "low",
+      "methods": 2
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/java/applet/AppletContext.java",
+      "target": "class:src/java/applet/AppletContext.java:AppletContext",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/applet/AppletContext.java",
+      "target": "class:src/java/applet/AppletContext.java:AppletContext",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/security/BasicPermission.java",
+      "target": "class:src/java/security/BasicPermission.java:BasicPermission",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/security/BasicPermission.java",
+      "target": "class:src/java/security/BasicPermission.java:BasicPermission",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/security/BasicPermission.java",
+      "target": "function:src/java/security/BasicPermission.java:BasicPermission",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/security/BasicPermission.java",
+      "target": "function:src/java/security/BasicPermission.java:BasicPermission",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/security/BasicPermission.java",
+      "target": "function:src/java/security/BasicPermission.java:implies",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/security/BasicPermission.java",
+      "target": "function:src/java/security/BasicPermission.java:implies",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/security/BasicPermission.java",
+      "target": "function:src/java/security/BasicPermission.java:equals",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/security/BasicPermission.java",
+      "target": "function:src/java/security/BasicPermission.java:equals",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/security/BasicPermission.java",
+      "target": "function:src/java/security/BasicPermission.java:newPermissionCollection",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/security/BasicPermission.java",
+      "target": "function:src/java/security/BasicPermission.java:newPermissionCollection",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/security/IdentityScope.java",
+      "target": "class:src/java/security/IdentityScope.java:IdentityScope",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/security/IdentityScope.java",
+      "target": "class:src/java/security/IdentityScope.java:IdentityScope",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/security/PermissionCollection.java",
+      "target": "class:src/java/security/PermissionCollection.java:PermissionCollection",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/security/PermissionCollection.java",
+      "target": "class:src/java/security/PermissionCollection.java:PermissionCollection",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/security/PermissionCollection.java",
+      "target": "function:src/java/security/PermissionCollection.java:toString",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/security/PermissionCollection.java",
+      "target": "function:src/java/security/PermissionCollection.java:toString",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/security/Principal.java",
+      "target": "class:src/java/security/Principal.java:Principal",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/security/Principal.java",
+      "target": "class:src/java/security/Principal.java:Principal",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/security/acl/Acl.java",
+      "target": "class:src/java/security/acl/Acl.java:Acl",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/security/acl/Acl.java",
+      "target": "class:src/java/security/acl/Acl.java:Acl",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/security/acl/AclEntry.java",
+      "target": "class:src/java/security/acl/AclEntry.java:AclEntry",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/security/acl/AclEntry.java",
+      "target": "class:src/java/security/acl/AclEntry.java:AclEntry",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/security/acl/Group.java",
+      "target": "class:src/java/security/acl/Group.java:Group",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/security/acl/Group.java",
+      "target": "class:src/java/security/acl/Group.java:Group",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/security/acl/Owner.java",
+      "target": "class:src/java/security/acl/Owner.java:Owner",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/security/acl/Owner.java",
+      "target": "class:src/java/security/acl/Owner.java:Owner",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/util/Enumeration.java",
+      "target": "class:src/java/util/Enumeration.java:Enumeration",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/util/Enumeration.java",
+      "target": "class:src/java/util/Enumeration.java:Enumeration",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/applet/AppletContext.java",
+      "target": "file:src/java/util/Enumeration.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/java/security/BasicPermission.java",
+      "target": "file:src/java/io/Serializable.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/java/security/BasicPermission.java",
+      "target": "file:src/java/util/Enumeration.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/java/security/IdentityScope.java",
+      "target": "file:src/java/util/Enumeration.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/java/security/PermissionCollection.java",
+      "target": "file:src/java/io/Serializable.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/java/security/PermissionCollection.java",
+      "target": "file:src/java/util/Enumeration.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/java/security/acl/Acl.java",
+      "target": "file:src/java/security/Principal.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/java/security/acl/Acl.java",
+      "target": "file:src/java/util/Enumeration.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/java/security/acl/AclEntry.java",
+      "target": "file:src/java/security/Principal.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/java/security/acl/AclEntry.java",
+      "target": "file:src/java/util/Enumeration.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/java/security/acl/Group.java",
+      "target": "file:src/java/security/Principal.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/java/security/acl/Group.java",
+      "target": "file:src/java/util/Enumeration.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/java/security/acl/Owner.java",
+      "target": "file:src/java/security/Principal.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

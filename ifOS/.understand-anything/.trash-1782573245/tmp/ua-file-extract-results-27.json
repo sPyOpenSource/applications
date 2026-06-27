@@ -1,0 +1,523 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 25,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "src/jx/fs/VolumeManager.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 5,
+      "nonEmptyLines": 4,
+      "classes": [
+        {
+          "name": "VolumeManager",
+          "startLine": 3,
+          "endLine": 5,
+          "methods": [
+            "getRootDirectory"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "VolumeManager",
+          "line": 3,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/jx/net/AddressResolution.ctxt",
+      "language": "ctxt",
+      "fileCategory": "code",
+      "totalLines": 10,
+      "nonEmptyLines": 10,
+      "metrics": {}
+    },
+    {
+      "path": "src/jx/net/AddressResolution.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 12,
+      "nonEmptyLines": 10,
+      "classes": [
+        {
+          "name": "AddressResolution",
+          "startLine": 3,
+          "endLine": 12,
+          "methods": [
+            "register",
+            "notifyAddressChange",
+            "lookup"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "AddressResolution",
+          "line": 3,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/jx/net/EtherConsumer.ctxt",
+      "language": "ctxt",
+      "fileCategory": "code",
+      "totalLines": 5,
+      "nonEmptyLines": 5,
+      "metrics": {}
+    },
+    {
+      "path": "src/jx/net/EtherConsumer.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 7,
+      "nonEmptyLines": 5,
+      "classes": [
+        {
+          "name": "EtherConsumer",
+          "startLine": 5,
+          "endLine": 7,
+          "methods": [
+            "processEther"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "EtherConsumer",
+          "line": 5,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/jx/net/EtherData.ctxt",
+      "language": "ctxt",
+      "fileCategory": "code",
+      "totalLines": 20,
+      "nonEmptyLines": 20,
+      "metrics": {}
+    },
+    {
+      "path": "src/jx/net/EtherData.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 25,
+      "nonEmptyLines": 16,
+      "classes": [
+        {
+          "name": "EtherData",
+          "startLine": 10,
+          "endLine": 25,
+          "methods": [
+            "getMemory",
+            "getOffset",
+            "Size",
+            "setMemory",
+            "setOffset",
+            "setSize",
+            "setSrcAddress",
+            "setDstAddress"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "EtherData",
+          "line": 10,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/jx/net/EtherProducer.ctxt",
+      "language": "ctxt",
+      "fileCategory": "code",
+      "totalLines": 5,
+      "nonEmptyLines": 5,
+      "metrics": {}
+    },
+    {
+      "path": "src/jx/net/EtherProducer.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 5,
+      "nonEmptyLines": 4,
+      "classes": [
+        {
+          "name": "EtherProducer",
+          "startLine": 3,
+          "endLine": 5,
+          "methods": [
+            "registerConsumerEther"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "EtherProducer",
+          "line": 3,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/jx/net/IPAddress.ctxt",
+      "language": "ctxt",
+      "fileCategory": "code",
+      "totalLines": 18,
+      "nonEmptyLines": 18,
+      "metrics": {}
+    },
+    {
+      "path": "src/jx/net/IPAddress.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 26,
+      "nonEmptyLines": 15,
+      "classes": [
+        {
+          "name": "IPAddress",
+          "startLine": 10,
+          "endLine": 26,
+          "methods": [
+            "getDefaultSubnetmask",
+            "getAddress",
+            "getBytes",
+            "getHostName",
+            "toInetAddress",
+            "isAnyLocalAddress",
+            "and"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "IPAddress",
+          "line": 10,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/jx/net/IPConsumer.ctxt",
+      "language": "ctxt",
+      "fileCategory": "code",
+      "totalLines": 5,
+      "nonEmptyLines": 5,
+      "metrics": {}
+    },
+    {
+      "path": "src/jx/net/IPConsumer.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 7,
+      "nonEmptyLines": 5,
+      "classes": [
+        {
+          "name": "IPConsumer",
+          "startLine": 5,
+          "endLine": 7,
+          "methods": [
+            "processIP"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "IPConsumer",
+          "line": 5,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/jx/net/IPData.ctxt",
+      "language": "ctxt",
+      "fileCategory": "code",
+      "totalLines": 24,
+      "nonEmptyLines": 24,
+      "metrics": {}
+    },
+    {
+      "path": "src/jx/net/IPData.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 30,
+      "nonEmptyLines": 18,
+      "classes": [
+        {
+          "name": "IPData",
+          "startLine": 10,
+          "endLine": 30,
+          "methods": [
+            "Size",
+            "getOffset",
+            "getMemory",
+            "setMemory",
+            "getSourceAddress",
+            "setOffset",
+            "getDestinationAddress",
+            "setSourceAddress",
+            "setDestinationAddress",
+            "setSize"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "IPData",
+          "line": 10,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/jx/net/IPProducer.ctxt",
+      "language": "ctxt",
+      "fileCategory": "code",
+      "totalLines": 5,
+      "nonEmptyLines": 5,
+      "metrics": {}
+    },
+    {
+      "path": "src/jx/net/IPProducer.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 5,
+      "nonEmptyLines": 4,
+      "classes": [
+        {
+          "name": "IPProducer",
+          "startLine": 3,
+          "endLine": 5,
+          "methods": [
+            "registerConsumer"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "IPProducer",
+          "line": 3,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/jx/net/IPReceiver.ctxt",
+      "language": "ctxt",
+      "fileCategory": "code",
+      "totalLines": 9,
+      "nonEmptyLines": 9,
+      "metrics": {}
+    },
+    {
+      "path": "src/jx/net/IPReceiver.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 9,
+      "nonEmptyLines": 7,
+      "classes": [
+        {
+          "name": "IPReceiver",
+          "startLine": 5,
+          "endLine": 9,
+          "methods": [
+            "receive",
+            "receive",
+            "close"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "IPReceiver",
+          "line": 5,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/jx/net/IPSender.ctxt",
+      "language": "ctxt",
+      "fileCategory": "code",
+      "totalLines": 11,
+      "nonEmptyLines": 11,
+      "metrics": {}
+    },
+    {
+      "path": "src/jx/net/IPSender.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 10,
+      "nonEmptyLines": 8,
+      "classes": [
+        {
+          "name": "IPSender",
+          "startLine": 5,
+          "endLine": 10,
+          "methods": [
+            "send",
+            "send",
+            "close",
+            "getDestination"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "IPSender",
+          "line": 5,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/jx/net/NetInit.ctxt",
+      "language": "ctxt",
+      "fileCategory": "code",
+      "totalLines": 27,
+      "nonEmptyLines": 27,
+      "metrics": {}
+    },
+    {
+      "path": "src/jx/net/NetInit.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 22,
+      "nonEmptyLines": 17,
+      "classes": [
+        {
+          "name": "NetInit",
+          "startLine": 5,
+          "endLine": 22,
+          "methods": [
+            "getTCPSocket",
+            "getTCPBuffer",
+            "getUDPReceiver",
+            "getUDPSender",
+            "getUDPBuffer",
+            "getUDPBuffer",
+            "getIPReceiver",
+            "getIPReceiver",
+            "getIPSender",
+            "getIPBuffer",
+            "getIPBuffer",
+            "getLocalAddress"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "NetInit",
+          "line": 5,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/jx/net/package.bluej",
+      "language": "bluej",
+      "fileCategory": "code",
+      "totalLines": 234,
+      "nonEmptyLines": 234,
+      "metrics": {}
+    },
+    {
+      "path": "src/jx/net/PacketsConsumer.ctxt",
+      "language": "ctxt",
+      "fileCategory": "code",
+      "totalLines": 9,
+      "nonEmptyLines": 9,
+      "metrics": {}
+    }
+  ]
+}

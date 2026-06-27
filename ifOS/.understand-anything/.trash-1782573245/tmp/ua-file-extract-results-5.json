@@ -1,0 +1,880 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 7,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "src/java/io/ObjectStreamException.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 70,
+      "nonEmptyLines": 56,
+      "functions": [
+        {
+          "name": "ObjectStreamException",
+          "startLine": 50,
+          "endLine": 54,
+          "params": []
+        },
+        {
+          "name": "ObjectStreamException",
+          "startLine": 63,
+          "endLine": 67,
+          "params": [
+            "message"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "ObjectStreamException",
+          "startLine": 39,
+          "endLine": 69,
+          "methods": [
+            "ObjectStreamException",
+            "ObjectStreamException"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "ObjectStreamException",
+          "line": 39,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/lang/Enum.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 240,
+      "nonEmptyLines": 223,
+      "functions": [
+        {
+          "name": "name",
+          "startLine": 56,
+          "endLine": 58,
+          "params": []
+        },
+        {
+          "name": "ordinal",
+          "startLine": 82,
+          "endLine": 84,
+          "params": []
+        },
+        {
+          "name": "Enum",
+          "startLine": 97,
+          "endLine": 100,
+          "params": [
+            "name",
+            "ordinal"
+          ]
+        },
+        {
+          "name": "toString",
+          "startLine": 110,
+          "endLine": 112,
+          "params": []
+        },
+        {
+          "name": "equals",
+          "startLine": 122,
+          "endLine": 124,
+          "params": [
+            "other"
+          ]
+        },
+        {
+          "name": "hashCode",
+          "startLine": 131,
+          "endLine": 134,
+          "params": []
+        },
+        {
+          "name": "clone",
+          "startLine": 143,
+          "endLine": 146,
+          "params": []
+        },
+        {
+          "name": "compareTo",
+          "startLine": 157,
+          "endLine": 165,
+          "params": [
+            "o"
+          ]
+        },
+        {
+          "name": "getDeclaringClass",
+          "startLine": 179,
+          "endLine": 184,
+          "params": []
+        },
+        {
+          "name": "valueOf",
+          "startLine": 213,
+          "endLine": 222,
+          "params": [
+            "enumType",
+            "name"
+          ]
+        },
+        {
+          "name": "finalize",
+          "startLine": 227,
+          "endLine": 227,
+          "params": []
+        },
+        {
+          "name": "readObject",
+          "startLine": 232,
+          "endLine": 235,
+          "params": [
+            "in"
+          ]
+        },
+        {
+          "name": "readObjectNoData",
+          "startLine": 237,
+          "endLine": 239,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "Enum",
+          "startLine": 35,
+          "endLine": 240,
+          "methods": [
+            "name",
+            "ordinal",
+            "Enum",
+            "toString",
+            "equals",
+            "hashCode",
+            "clone",
+            "compareTo",
+            "getDeclaringClass",
+            "valueOf",
+            "finalize",
+            "readObject",
+            "readObjectNoData"
+          ],
+          "properties": [
+            "name",
+            "ordinal"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "name",
+          "line": 56,
+          "isDefault": false
+        },
+        {
+          "name": "ordinal",
+          "line": 82,
+          "isDefault": false
+        },
+        {
+          "name": "toString",
+          "line": 110,
+          "isDefault": false
+        },
+        {
+          "name": "equals",
+          "line": 122,
+          "isDefault": false
+        },
+        {
+          "name": "hashCode",
+          "line": 131,
+          "isDefault": false
+        },
+        {
+          "name": "compareTo",
+          "line": 157,
+          "isDefault": false
+        },
+        {
+          "name": "getDeclaringClass",
+          "line": 179,
+          "isDefault": false
+        },
+        {
+          "name": "valueOf",
+          "line": 213,
+          "isDefault": false
+        },
+        {
+          "name": "Enum",
+          "line": 35,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "hashCode",
+          "callee": "super.hashCode",
+          "lineNumber": 133
+        },
+        {
+          "caller": "clone",
+          "callee": "new CloneNotSupportedException",
+          "lineNumber": 145
+        },
+        {
+          "caller": "compareTo",
+          "callee": "self.getClass",
+          "lineNumber": 161
+        },
+        {
+          "caller": "compareTo",
+          "callee": "other.getClass",
+          "lineNumber": 161
+        },
+        {
+          "caller": "compareTo",
+          "callee": "self.getDeclaringClass",
+          "lineNumber": 162
+        },
+        {
+          "caller": "compareTo",
+          "callee": "other.getDeclaringClass",
+          "lineNumber": 162
+        },
+        {
+          "caller": "compareTo",
+          "callee": "new ClassCastException",
+          "lineNumber": 163
+        },
+        {
+          "caller": "getDeclaringClass",
+          "callee": "getClass",
+          "lineNumber": 181
+        },
+        {
+          "caller": "getDeclaringClass",
+          "callee": "clazz.getSuperclass",
+          "lineNumber": 182
+        },
+        {
+          "caller": "valueOf",
+          "callee": "new NullPointerException",
+          "lineNumber": 219
+        },
+        {
+          "caller": "valueOf",
+          "callee": "new IllegalArgumentException",
+          "lineNumber": 220
+        },
+        {
+          "caller": "valueOf",
+          "callee": "enumType.getCanonicalName",
+          "lineNumber": 221
+        },
+        {
+          "caller": "readObject",
+          "callee": "new InvalidObjectException",
+          "lineNumber": 234
+        },
+        {
+          "caller": "readObjectNoData",
+          "callee": "new InvalidObjectException",
+          "lineNumber": 238
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 9,
+        "functionCount": 13,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/security/PublicKey.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 47,
+      "nonEmptyLines": 36,
+      "classes": [
+        {
+          "name": "PublicKey",
+          "startLine": 38,
+          "endLine": 46,
+          "methods": [],
+          "properties": [
+            "serialVersionUID"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "PublicKey",
+          "line": 38,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/security/cert/Certificate.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 237,
+      "nonEmptyLines": 191,
+      "functions": [
+        {
+          "name": "Certificate",
+          "startLine": 69,
+          "endLine": 72,
+          "params": [
+            "type"
+          ]
+        },
+        {
+          "name": "getType",
+          "startLine": 79,
+          "endLine": 82,
+          "params": []
+        },
+        {
+          "name": "equals",
+          "startLine": 93,
+          "endLine": 114,
+          "params": [
+            "other"
+          ]
+        },
+        {
+          "name": "hashCode",
+          "startLine": 122,
+          "endLine": 125,
+          "params": []
+        },
+        {
+          "name": "getEncoded",
+          "startLine": 136,
+          "endLine": 136,
+          "params": []
+        },
+        {
+          "name": "verify",
+          "startLine": 150,
+          "endLine": 155,
+          "params": [
+            "key"
+          ]
+        },
+        {
+          "name": "verify",
+          "startLine": 171,
+          "endLine": 177,
+          "params": [
+            "key",
+            "sigProvider"
+          ]
+        },
+        {
+          "name": "toString",
+          "startLine": 184,
+          "endLine": 184,
+          "params": []
+        },
+        {
+          "name": "getPublicKey",
+          "startLine": 192,
+          "endLine": 192,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "Certificate",
+          "startLine": 59,
+          "endLine": 237,
+          "methods": [
+            "Certificate",
+            "getType",
+            "equals",
+            "hashCode",
+            "getEncoded",
+            "verify",
+            "verify",
+            "toString",
+            "getPublicKey"
+          ],
+          "properties": [
+            "type"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "getType",
+          "line": 79,
+          "isDefault": false
+        },
+        {
+          "name": "equals",
+          "line": 93,
+          "isDefault": false
+        },
+        {
+          "name": "hashCode",
+          "line": 122,
+          "isDefault": false
+        },
+        {
+          "name": "getEncoded",
+          "line": 136,
+          "isDefault": false
+        },
+        {
+          "name": "verify",
+          "line": 150,
+          "isDefault": false
+        },
+        {
+          "name": "verify",
+          "line": 171,
+          "isDefault": false
+        },
+        {
+          "name": "toString",
+          "line": 184,
+          "isDefault": false
+        },
+        {
+          "name": "getPublicKey",
+          "line": 192,
+          "isDefault": false
+        },
+        {
+          "name": "Certificate",
+          "line": 59,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "hashCode",
+          "callee": "super.hashCode",
+          "lineNumber": 124
+        },
+        {
+          "caller": "readResolve",
+          "callee": "new ObjectInputStream( new ByteArrayInputStream( data ) ).readObject",
+          "lineNumber": 229
+        },
+        {
+          "caller": "readResolve",
+          "callee": "new ObjectInputStream",
+          "lineNumber": 229
+        },
+        {
+          "caller": "readResolve",
+          "callee": "new ByteArrayInputStream",
+          "lineNumber": 229
+        },
+        {
+          "caller": "readResolve",
+          "callee": "e.printStackTrace",
+          "lineNumber": 231
+        },
+        {
+          "caller": "readResolve",
+          "callee": "new RuntimeException",
+          "lineNumber": 232
+        },
+        {
+          "caller": "readResolve",
+          "callee": "e.toString",
+          "lineNumber": 232
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 9,
+        "functionCount": 9,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/security/cert/X509CRL.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 377,
+      "nonEmptyLines": 284,
+      "functions": [
+        {
+          "name": "X509CRL",
+          "startLine": 94,
+          "endLine": 97,
+          "params": []
+        },
+        {
+          "name": "equals",
+          "startLine": 108,
+          "endLine": 129,
+          "params": [
+            "other"
+          ]
+        },
+        {
+          "name": "hashCode",
+          "startLine": 137,
+          "endLine": 140,
+          "params": []
+        },
+        {
+          "name": "getEncoded",
+          "startLine": 149,
+          "endLine": 149,
+          "params": []
+        },
+        {
+          "name": "verify",
+          "startLine": 163,
+          "endLine": 168,
+          "params": [
+            "key"
+          ]
+        },
+        {
+          "name": "verify",
+          "startLine": 184,
+          "endLine": 190,
+          "params": [
+            "key",
+            "sigProvider"
+          ]
+        },
+        {
+          "name": "getVersion",
+          "startLine": 206,
+          "endLine": 206,
+          "params": []
+        },
+        {
+          "name": "getIssuerDN",
+          "startLine": 244,
+          "endLine": 244,
+          "params": []
+        },
+        {
+          "name": "getThisUpdate",
+          "startLine": 261,
+          "endLine": 261,
+          "params": []
+        },
+        {
+          "name": "getNextUpdate",
+          "startLine": 278,
+          "endLine": 278,
+          "params": []
+        },
+        {
+          "name": "getRevokedCertificate",
+          "startLine": 286,
+          "endLine": 286,
+          "params": [
+            "serialNumber"
+          ]
+        },
+        {
+          "name": "getRevokedCertificates",
+          "startLine": 293,
+          "endLine": 293,
+          "params": []
+        },
+        {
+          "name": "getTBSCertList",
+          "startLine": 308,
+          "endLine": 308,
+          "params": []
+        },
+        {
+          "name": "getSignature",
+          "startLine": 320,
+          "endLine": 320,
+          "params": []
+        },
+        {
+          "name": "getSigAlgName",
+          "startLine": 340,
+          "endLine": 340,
+          "params": []
+        },
+        {
+          "name": "getSigAlgOID",
+          "startLine": 356,
+          "endLine": 356,
+          "params": []
+        },
+        {
+          "name": "getSigAlgParams",
+          "startLine": 368,
+          "endLine": 368,
+          "params": []
+        },
+        {
+          "name": "hasUnsupportedCriticalExtension",
+          "startLine": 369,
+          "endLine": 370,
+          "params": []
+        },
+        {
+          "name": "getCriticalExtensionOIDs",
+          "startLine": 371,
+          "endLine": 372,
+          "params": []
+        },
+        {
+          "name": "getNonCriticalExtensionOIDs",
+          "startLine": 373,
+          "endLine": 374,
+          "params": []
+        },
+        {
+          "name": "getExtensionValue",
+          "startLine": 375,
+          "endLine": 376,
+          "params": [
+            "oid"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "X509CRL",
+          "startLine": 88,
+          "endLine": 377,
+          "methods": [
+            "X509CRL",
+            "equals",
+            "hashCode",
+            "getEncoded",
+            "verify",
+            "verify",
+            "getVersion",
+            "getIssuerDN",
+            "getThisUpdate",
+            "getNextUpdate",
+            "getRevokedCertificate",
+            "getRevokedCertificates",
+            "getTBSCertList",
+            "getSignature",
+            "getSigAlgName",
+            "getSigAlgOID",
+            "getSigAlgParams",
+            "hasUnsupportedCriticalExtension",
+            "getCriticalExtensionOIDs",
+            "getNonCriticalExtensionOIDs",
+            "getExtensionValue"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "equals",
+          "line": 108,
+          "isDefault": false
+        },
+        {
+          "name": "hashCode",
+          "line": 137,
+          "isDefault": false
+        },
+        {
+          "name": "getEncoded",
+          "line": 149,
+          "isDefault": false
+        },
+        {
+          "name": "verify",
+          "line": 163,
+          "isDefault": false
+        },
+        {
+          "name": "verify",
+          "line": 184,
+          "isDefault": false
+        },
+        {
+          "name": "getVersion",
+          "line": 206,
+          "isDefault": false
+        },
+        {
+          "name": "getIssuerDN",
+          "line": 244,
+          "isDefault": false
+        },
+        {
+          "name": "getThisUpdate",
+          "line": 261,
+          "isDefault": false
+        },
+        {
+          "name": "getNextUpdate",
+          "line": 278,
+          "isDefault": false
+        },
+        {
+          "name": "getRevokedCertificate",
+          "line": 286,
+          "isDefault": false
+        },
+        {
+          "name": "getRevokedCertificates",
+          "line": 293,
+          "isDefault": false
+        },
+        {
+          "name": "getTBSCertList",
+          "line": 308,
+          "isDefault": false
+        },
+        {
+          "name": "getSignature",
+          "line": 320,
+          "isDefault": false
+        },
+        {
+          "name": "getSigAlgName",
+          "line": 340,
+          "isDefault": false
+        },
+        {
+          "name": "getSigAlgOID",
+          "line": 356,
+          "isDefault": false
+        },
+        {
+          "name": "getSigAlgParams",
+          "line": 368,
+          "isDefault": false
+        },
+        {
+          "name": "hasUnsupportedCriticalExtension",
+          "line": 369,
+          "isDefault": false
+        },
+        {
+          "name": "getCriticalExtensionOIDs",
+          "line": 371,
+          "isDefault": false
+        },
+        {
+          "name": "getNonCriticalExtensionOIDs",
+          "line": 373,
+          "isDefault": false
+        },
+        {
+          "name": "getExtensionValue",
+          "line": 375,
+          "isDefault": false
+        },
+        {
+          "name": "X509CRL",
+          "line": 88,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "hashCode",
+          "callee": "super.hashCode",
+          "lineNumber": 139
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 21,
+        "functionCount": 21,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/security/interfaces/DSAPublicKey.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 61,
+      "nonEmptyLines": 50,
+      "classes": [
+        {
+          "name": "DSAPublicKey",
+          "startLine": 34,
+          "endLine": 60,
+          "methods": [
+            "getY"
+          ],
+          "properties": [
+            "serialVersionUID"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "DSAPublicKey",
+          "line": 34,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/security/interfaces/RSAPublicKey.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 54,
+      "nonEmptyLines": 41,
+      "classes": [
+        {
+          "name": "RSAPublicKey",
+          "startLine": 40,
+          "endLine": 53,
+          "methods": [
+            "getPublicExponent"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "RSAPublicKey",
+          "line": 40,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    }
+  ]
+}

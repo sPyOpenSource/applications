@@ -1,0 +1,59 @@
+{
+  "projectRoot": "/Users/xuyi/Source/OS/armOS/lib/jcore/test/ifOS",
+  "batchFiles": [
+    {
+      "path": "src/java/security/AlgorithmParameterGeneratorSpi.java",
+      "language": "java",
+      "sizeLines": 81,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/java/security/AlgorithmParametersSpi.java",
+      "language": "java",
+      "sizeLines": 131,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/java/security/KeyPairGenerator.java",
+      "language": "java",
+      "sizeLines": 241,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/java/security/KeyPairGeneratorSpi.java",
+      "language": "java",
+      "sizeLines": 84,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/java/security/SignatureSpi.java",
+      "language": "java",
+      "sizeLines": 248,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/java/security/spec/AlgorithmParameterSpec.java",
+      "language": "java",
+      "sizeLines": 41,
+      "fileCategory": "code"
+    }
+  ],
+  "batchImportData": {
+    "src/java/security/AlgorithmParameterGeneratorSpi.java": [
+      "src/java/security/spec/AlgorithmParameterSpec.java"
+    ],
+    "src/java/security/AlgorithmParametersSpi.java": [
+      "src/java/security/spec/AlgorithmParameterSpec.java"
+    ],
+    "src/java/security/KeyPairGenerator.java": [
+      "src/java/security/spec/AlgorithmParameterSpec.java"
+    ],
+    "src/java/security/KeyPairGeneratorSpi.java": [
+      "src/java/security/spec/AlgorithmParameterSpec.java"
+    ],
+    "src/java/security/SignatureSpi.java": [
+      "src/java/security/spec/AlgorithmParameterSpec.java"
+    ],
+    "src/java/security/spec/AlgorithmParameterSpec.java": []
+  }
+}

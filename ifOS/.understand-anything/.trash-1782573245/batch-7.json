@@ -1,0 +1,983 @@
+{
+  "batchIndex": 7,
+  "nodes": [
+    {
+      "id": "file:src/java/security/AlgorithmParameterGeneratorSpi.java",
+      "type": "file",
+      "label": "AlgorithmParameterGeneratorSpi.java",
+      "properties": {
+        "path": "src/java/security/AlgorithmParameterGeneratorSpi.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 81,
+        "nonEmptyLines": 61
+      }
+    },
+    {
+      "id": "class:src/java/security/AlgorithmParameterGeneratorSpi.java::AlgorithmParameterGeneratorSpi",
+      "type": "class",
+      "label": "AlgorithmParameterGeneratorSpi",
+      "properties": {
+        "name": "AlgorithmParameterGeneratorSpi",
+        "startLine": 40,
+        "endLine": 81,
+        "methods": [
+          "AlgorithmParameterGeneratorSpi",
+          "engineInit",
+          "engineInit",
+          "engineGenerateParameters"
+        ],
+        "properties": []
+      }
+    },
+    {
+      "id": "function:src/java/security/AlgorithmParameterGeneratorSpi.java::AlgorithmParameterGeneratorSpi",
+      "type": "function",
+      "label": "AlgorithmParameterGeneratorSpi",
+      "properties": {
+        "name": "AlgorithmParameterGeneratorSpi",
+        "startLine": 46,
+        "endLine": 47,
+        "params": []
+      }
+    },
+    {
+      "id": "function:src/java/security/AlgorithmParameterGeneratorSpi.java::engineInit",
+      "type": "function",
+      "label": "engineInit",
+      "properties": {
+        "name": "engineInit",
+        "startLine": 56,
+        "endLine": 56,
+        "params": [
+          "size",
+          "random"
+        ]
+      }
+    },
+    {
+      "id": "function:src/java/security/AlgorithmParameterGeneratorSpi.java::engineInit",
+      "type": "function",
+      "label": "engineInit",
+      "properties": {
+        "name": "engineInit",
+        "startLine": 71,
+        "endLine": 71,
+        "params": [
+          "genParamSpec",
+          "random"
+        ]
+      }
+    },
+    {
+      "id": "function:src/java/security/AlgorithmParameterGeneratorSpi.java::engineGenerateParameters",
+      "type": "function",
+      "label": "engineGenerateParameters",
+      "properties": {
+        "name": "engineGenerateParameters",
+        "startLine": 79,
+        "endLine": 79,
+        "params": []
+      }
+    },
+    {
+      "id": "file:src/java/security/AlgorithmParametersSpi.java",
+      "type": "file",
+      "label": "AlgorithmParametersSpi.java",
+      "properties": {
+        "path": "src/java/security/AlgorithmParametersSpi.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 131,
+        "nonEmptyLines": 98
+      }
+    },
+    {
+      "id": "class:src/java/security/AlgorithmParametersSpi.java::AlgorithmParametersSpi",
+      "type": "class",
+      "label": "AlgorithmParametersSpi",
+      "properties": {
+        "name": "AlgorithmParametersSpi",
+        "startLine": 41,
+        "endLine": 131,
+        "methods": [
+          "AlgorithmParametersSpi",
+          "engineInit",
+          "engineInit",
+          "engineInit",
+          "engineGetParameterSpec",
+          "engineGetEncoded",
+          "engineGetEncoded",
+          "engineToString"
+        ],
+        "properties": []
+      }
+    },
+    {
+      "id": "function:src/java/security/AlgorithmParametersSpi.java::AlgorithmParametersSpi",
+      "type": "function",
+      "label": "AlgorithmParametersSpi",
+      "properties": {
+        "name": "AlgorithmParametersSpi",
+        "startLine": 47,
+        "endLine": 48,
+        "params": []
+      }
+    },
+    {
+      "id": "function:src/java/security/AlgorithmParametersSpi.java::engineInit",
+      "type": "function",
+      "label": "engineInit",
+      "properties": {
+        "name": "engineInit",
+        "startLine": 58,
+        "endLine": 58,
+        "params": [
+          "paramSpec"
+        ]
+      }
+    },
+    {
+      "id": "function:src/java/security/AlgorithmParametersSpi.java::engineInit",
+      "type": "function",
+      "label": "engineInit",
+      "properties": {
+        "name": "engineInit",
+        "startLine": 72,
+        "endLine": 72,
+        "params": [
+          "params"
+        ]
+      }
+    },
+    {
+      "id": "function:src/java/security/AlgorithmParametersSpi.java::engineInit",
+      "type": "function",
+      "label": "engineInit",
+      "properties": {
+        "name": "engineInit",
+        "startLine": 87,
+        "endLine": 87,
+        "params": [
+          "params",
+          "format"
+        ]
+      }
+    },
+    {
+      "id": "function:src/java/security/AlgorithmParametersSpi.java::engineGetParameterSpec",
+      "type": "function",
+      "label": "engineGetParameterSpec",
+      "properties": {
+        "name": "engineGetParameterSpec",
+        "startLine": 101,
+        "endLine": 101,
+        "params": [
+          "paramSpec"
+        ]
+      }
+    },
+    {
+      "id": "function:src/java/security/AlgorithmParametersSpi.java::engineGetEncoded",
+      "type": "function",
+      "label": "engineGetEncoded",
+      "properties": {
+        "name": "engineGetEncoded",
+        "startLine": 111,
+        "endLine": 111,
+        "params": []
+      }
+    },
+    {
+      "id": "function:src/java/security/AlgorithmParametersSpi.java::engineGetEncoded",
+      "type": "function",
+      "label": "engineGetEncoded",
+      "properties": {
+        "name": "engineGetEncoded",
+        "startLine": 122,
+        "endLine": 122,
+        "params": [
+          "format"
+        ]
+      }
+    },
+    {
+      "id": "function:src/java/security/AlgorithmParametersSpi.java::engineToString",
+      "type": "function",
+      "label": "engineToString",
+      "properties": {
+        "name": "engineToString",
+        "startLine": 130,
+        "endLine": 130,
+        "params": []
+      }
+    },
+    {
+      "id": "file:src/java/security/KeyPairGenerator.java",
+      "type": "file",
+      "label": "KeyPairGenerator.java",
+      "properties": {
+        "path": "src/java/security/KeyPairGenerator.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 242,
+        "nonEmptyLines": 195
+      }
+    },
+    {
+      "id": "class:src/java/security/KeyPairGenerator.java::KeyPairGenerator",
+      "type": "class",
+      "label": "KeyPairGenerator",
+      "properties": {
+        "name": "KeyPairGenerator",
+        "startLine": 42,
+        "endLine": 242,
+        "methods": [
+          "KeyPairGenerator",
+          "getAlgorithm",
+          "getInstance",
+          "getInstance",
+          "getInstance",
+          "getProvider",
+          "initialize",
+          "initialize",
+          "initialize",
+          "initialize",
+          "genKeyPair",
+          "generateKeyPair"
+        ],
+        "properties": [
+          "provider",
+          "algorithm"
+        ]
+      }
+    },
+    {
+      "id": "function:src/java/security/KeyPairGenerator.java::KeyPairGenerator",
+      "type": "function",
+      "label": "KeyPairGenerator",
+      "properties": {
+        "name": "KeyPairGenerator",
+        "startLine": 53,
+        "endLine": 57,
+        "params": [
+          "algorithm"
+        ]
+      }
+    },
+    {
+      "id": "function:src/java/security/KeyPairGenerator.java::getAlgorithm",
+      "type": "function",
+      "label": "getAlgorithm",
+      "properties": {
+        "name": "getAlgorithm",
+        "startLine": 64,
+        "endLine": 67,
+        "params": []
+      }
+    },
+    {
+      "id": "function:src/java/security/KeyPairGenerator.java::getInstance",
+      "type": "function",
+      "label": "getInstance",
+      "properties": {
+        "name": "getInstance",
+        "startLine": 79,
+        "endLine": 92,
+        "params": [
+          "algorithm"
+        ]
+      }
+    },
+    {
+      "id": "function:src/java/security/KeyPairGenerator.java::getInstance",
+      "type": "function",
+      "label": "getInstance",
+      "properties": {
+        "name": "getInstance",
+        "startLine": 106,
+        "endLine": 114,
+        "params": [
+          "algorithm",
+          "provider"
+        ]
+      }
+    },
+    {
+      "id": "function:src/java/security/KeyPairGenerator.java::getInstance",
+      "type": "function",
+      "label": "getInstance",
+      "properties": {
+        "name": "getInstance",
+        "startLine": 116,
+        "endLine": 141,
+        "params": [
+          "classname",
+          "algorithm",
+          "provider"
+        ]
+      }
+    },
+    {
+      "id": "function:src/java/security/KeyPairGenerator.java::getProvider",
+      "type": "function",
+      "label": "getProvider",
+      "properties": {
+        "name": "getProvider",
+        "startLine": 148,
+        "endLine": 151,
+        "params": []
+      }
+    },
+    {
+      "id": "function:src/java/security/KeyPairGenerator.java::initialize",
+      "type": "function",
+      "label": "initialize",
+      "properties": {
+        "name": "initialize",
+        "startLine": 160,
+        "endLine": 163,
+        "params": [
+          "keysize"
+        ]
+      }
+    },
+    {
+      "id": "function:src/java/security/KeyPairGenerator.java::initialize",
+      "type": "function",
+      "label": "initialize",
+      "properties": {
+        "name": "initialize",
+        "startLine": 174,
+        "endLine": 177,
+        "params": [
+          "keysize",
+          "random"
+        ]
+      }
+    },
+    {
+      "id": "function:src/java/security/KeyPairGenerator.java::initialize",
+      "type": "function",
+      "label": "initialize",
+      "properties": {
+        "name": "initialize",
+        "startLine": 189,
+        "endLine": 192,
+        "params": [
+          "params"
+        ]
+      }
+    },
+    {
+      "id": "function:src/java/security/KeyPairGenerator.java::initialize",
+      "type": "function",
+      "label": "initialize",
+      "properties": {
+        "name": "initialize",
+        "startLine": 203,
+        "endLine": 206,
+        "params": [
+          "params",
+          "random"
+        ]
+      }
+    },
+    {
+      "id": "function:src/java/security/KeyPairGenerator.java::genKeyPair",
+      "type": "function",
+      "label": "genKeyPair",
+      "properties": {
+        "name": "genKeyPair",
+        "startLine": 217,
+        "endLine": 226,
+        "params": []
+      }
+    },
+    {
+      "id": "function:src/java/security/KeyPairGenerator.java::generateKeyPair",
+      "type": "function",
+      "label": "generateKeyPair",
+      "properties": {
+        "name": "generateKeyPair",
+        "startLine": 237,
+        "endLine": 240,
+        "params": []
+      }
+    },
+    {
+      "id": "file:src/java/security/KeyPairGeneratorSpi.java",
+      "type": "file",
+      "label": "KeyPairGeneratorSpi.java",
+      "properties": {
+        "path": "src/java/security/KeyPairGeneratorSpi.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 84,
+        "nonEmptyLines": 64
+      }
+    },
+    {
+      "id": "class:src/java/security/KeyPairGeneratorSpi.java::KeyPairGeneratorSpi",
+      "type": "class",
+      "label": "KeyPairGeneratorSpi",
+      "properties": {
+        "name": "KeyPairGeneratorSpi",
+        "startLine": 37,
+        "endLine": 84,
+        "methods": [
+          "KeyPairGeneratorSpi",
+          "initialize",
+          "initialize",
+          "generateKeyPair"
+        ],
+        "properties": []
+      }
+    },
+    {
+      "id": "function:src/java/security/KeyPairGeneratorSpi.java::KeyPairGeneratorSpi",
+      "type": "function",
+      "label": "KeyPairGeneratorSpi",
+      "properties": {
+        "name": "KeyPairGeneratorSpi",
+        "startLine": 43,
+        "endLine": 44,
+        "params": []
+      }
+    },
+    {
+      "id": "function:src/java/security/KeyPairGeneratorSpi.java::initialize",
+      "type": "function",
+      "label": "initialize",
+      "properties": {
+        "name": "initialize",
+        "startLine": 54,
+        "endLine": 54,
+        "params": [
+          "keysize",
+          "random"
+        ]
+      }
+    },
+    {
+      "id": "function:src/java/security/KeyPairGeneratorSpi.java::initialize",
+      "type": "function",
+      "label": "initialize",
+      "properties": {
+        "name": "initialize",
+        "startLine": 70,
+        "endLine": 73,
+        "params": [
+          "params",
+          "random"
+        ]
+      }
+    },
+    {
+      "id": "function:src/java/security/KeyPairGeneratorSpi.java::generateKeyPair",
+      "type": "function",
+      "label": "generateKeyPair",
+      "properties": {
+        "name": "generateKeyPair",
+        "startLine": 82,
+        "endLine": 82,
+        "params": []
+      }
+    },
+    {
+      "id": "file:src/java/security/SignatureSpi.java",
+      "type": "file",
+      "label": "SignatureSpi.java",
+      "properties": {
+        "path": "src/java/security/SignatureSpi.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 248,
+        "nonEmptyLines": 186
+      }
+    },
+    {
+      "id": "class:src/java/security/SignatureSpi.java::SignatureSpi",
+      "type": "class",
+      "label": "SignatureSpi",
+      "properties": {
+        "name": "SignatureSpi",
+        "startLine": 41,
+        "endLine": 247,
+        "methods": [
+          "SignatureSpi",
+          "engineInitVerify",
+          "engineInitSign",
+          "engineInitSign",
+          "engineUpdate",
+          "engineUpdate",
+          "engineSign",
+          "engineSign",
+          "engineVerify",
+          "engineSetParameter",
+          "engineSetParameter",
+          "engineGetParameter",
+          "clone"
+        ],
+        "properties": [
+          "appRandom"
+        ]
+      }
+    },
+    {
+      "id": "function:src/java/security/SignatureSpi.java::SignatureSpi",
+      "type": "function",
+      "label": "SignatureSpi",
+      "properties": {
+        "name": "SignatureSpi",
+        "startLine": 52,
+        "endLine": 55,
+        "params": []
+      }
+    },
+    {
+      "id": "function:src/java/security/SignatureSpi.java::engineInitVerify",
+      "type": "function",
+      "label": "engineInitVerify",
+      "properties": {
+        "name": "engineInitVerify",
+        "startLine": 65,
+        "endLine": 66,
+        "params": [
+          "publicKey"
+        ]
+      }
+    },
+    {
+      "id": "function:src/java/security/SignatureSpi.java::engineInitSign",
+      "type": "function",
+      "label": "engineInitSign",
+      "properties": {
+        "name": "engineInitSign",
+        "startLine": 76,
+        "endLine": 77,
+        "params": [
+          "privateKey"
+        ]
+      }
+    },
+    {
+      "id": "function:src/java/security/SignatureSpi.java::engineInitSign",
+      "type": "function",
+      "label": "engineInitSign",
+      "properties": {
+        "name": "engineInitSign",
+        "startLine": 92,
+        "endLine": 97,
+        "params": [
+          "privateKey",
+          "random"
+        ]
+      }
+    },
+    {
+      "id": "function:src/java/security/SignatureSpi.java::engineUpdate",
+      "type": "function",
+      "label": "engineUpdate",
+      "properties": {
+        "name": "engineUpdate",
+        "startLine": 107,
+        "endLine": 108,
+        "params": [
+          "b"
+        ]
+      }
+    },
+    {
+      "id": "function:src/java/security/SignatureSpi.java::engineUpdate",
+      "type": "function",
+      "label": "engineUpdate",
+      "properties": {
+        "name": "engineUpdate",
+        "startLine": 120,
+        "endLine": 121,
+        "params": [
+          "b",
+          "off",
+          "len"
+        ]
+      }
+    },
+    {
+      "id": "function:src/java/security/SignatureSpi.java::engineSign",
+      "type": "function",
+      "label": "engineSign",
+      "properties": {
+        "name": "engineSign",
+        "startLine": 132,
+        "endLine": 132,
+        "params": []
+      }
+    },
+    {
+      "id": "function:src/java/security/SignatureSpi.java::engineSign",
+      "type": "function",
+      "label": "engineSign",
+      "properties": {
+        "name": "engineSign",
+        "startLine": 159,
+        "endLine": 170,
+        "params": [
+          "outbuf",
+          "offset",
+          "len"
+        ]
+      }
+    },
+    {
+      "id": "function:src/java/security/SignatureSpi.java::engineVerify",
+      "type": "function",
+      "label": "engineVerify",
+      "properties": {
+        "name": "engineVerify",
+        "startLine": 182,
+        "endLine": 183,
+        "params": [
+          "sigBytes"
+        ]
+      }
+    },
+    {
+      "id": "function:src/java/security/SignatureSpi.java::engineSetParameter",
+      "type": "function",
+      "label": "engineSetParameter",
+      "properties": {
+        "name": "engineSetParameter",
+        "startLine": 197,
+        "endLine": 198,
+        "params": [
+          "param",
+          "value"
+        ]
+      }
+    },
+    {
+      "id": "function:src/java/security/SignatureSpi.java::engineSetParameter",
+      "type": "function",
+      "label": "engineSetParameter",
+      "properties": {
+        "name": "engineSetParameter",
+        "startLine": 214,
+        "endLine": 218,
+        "params": [
+          "params"
+        ]
+      }
+    },
+    {
+      "id": "function:src/java/security/SignatureSpi.java::engineGetParameter",
+      "type": "function",
+      "label": "engineGetParameter",
+      "properties": {
+        "name": "engineGetParameter",
+        "startLine": 231,
+        "endLine": 232,
+        "params": [
+          "param"
+        ]
+      }
+    },
+    {
+      "id": "function:src/java/security/SignatureSpi.java::clone",
+      "type": "function",
+      "label": "clone",
+      "properties": {
+        "name": "clone",
+        "startLine": 242,
+        "endLine": 246,
+        "params": []
+      }
+    },
+    {
+      "id": "file:src/java/security/spec/AlgorithmParameterSpec.java",
+      "type": "file",
+      "label": "AlgorithmParameterSpec.java",
+      "properties": {
+        "path": "src/java/security/spec/AlgorithmParameterSpec.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 41,
+        "nonEmptyLines": 31
+      }
+    },
+    {
+      "id": "class:src/java/security/spec/AlgorithmParameterSpec.java::AlgorithmParameterSpec",
+      "type": "class",
+      "label": "AlgorithmParameterSpec",
+      "properties": {
+        "name": "AlgorithmParameterSpec",
+        "startLine": 39,
+        "endLine": 41,
+        "methods": [],
+        "properties": []
+      }
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/java/security/AlgorithmParameterGeneratorSpi.java",
+      "target": "class:src/java/security/AlgorithmParameterGeneratorSpi.java::AlgorithmParameterGeneratorSpi",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/AlgorithmParameterGeneratorSpi.java",
+      "target": "function:src/java/security/AlgorithmParameterGeneratorSpi.java::AlgorithmParameterGeneratorSpi",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/AlgorithmParameterGeneratorSpi.java",
+      "target": "function:src/java/security/AlgorithmParameterGeneratorSpi.java::engineInit",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/AlgorithmParameterGeneratorSpi.java",
+      "target": "function:src/java/security/AlgorithmParameterGeneratorSpi.java::engineInit",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/AlgorithmParameterGeneratorSpi.java",
+      "target": "function:src/java/security/AlgorithmParameterGeneratorSpi.java::engineGenerateParameters",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/AlgorithmParametersSpi.java",
+      "target": "class:src/java/security/AlgorithmParametersSpi.java::AlgorithmParametersSpi",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/AlgorithmParametersSpi.java",
+      "target": "function:src/java/security/AlgorithmParametersSpi.java::AlgorithmParametersSpi",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/AlgorithmParametersSpi.java",
+      "target": "function:src/java/security/AlgorithmParametersSpi.java::engineInit",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/AlgorithmParametersSpi.java",
+      "target": "function:src/java/security/AlgorithmParametersSpi.java::engineInit",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/AlgorithmParametersSpi.java",
+      "target": "function:src/java/security/AlgorithmParametersSpi.java::engineInit",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/AlgorithmParametersSpi.java",
+      "target": "function:src/java/security/AlgorithmParametersSpi.java::engineGetParameterSpec",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/AlgorithmParametersSpi.java",
+      "target": "function:src/java/security/AlgorithmParametersSpi.java::engineGetEncoded",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/AlgorithmParametersSpi.java",
+      "target": "function:src/java/security/AlgorithmParametersSpi.java::engineGetEncoded",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/AlgorithmParametersSpi.java",
+      "target": "function:src/java/security/AlgorithmParametersSpi.java::engineToString",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/KeyPairGenerator.java",
+      "target": "class:src/java/security/KeyPairGenerator.java::KeyPairGenerator",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/KeyPairGenerator.java",
+      "target": "function:src/java/security/KeyPairGenerator.java::KeyPairGenerator",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/KeyPairGenerator.java",
+      "target": "function:src/java/security/KeyPairGenerator.java::getAlgorithm",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/KeyPairGenerator.java",
+      "target": "function:src/java/security/KeyPairGenerator.java::getInstance",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/KeyPairGenerator.java",
+      "target": "function:src/java/security/KeyPairGenerator.java::getInstance",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/KeyPairGenerator.java",
+      "target": "function:src/java/security/KeyPairGenerator.java::getInstance",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/KeyPairGenerator.java",
+      "target": "function:src/java/security/KeyPairGenerator.java::getProvider",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/KeyPairGenerator.java",
+      "target": "function:src/java/security/KeyPairGenerator.java::initialize",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/KeyPairGenerator.java",
+      "target": "function:src/java/security/KeyPairGenerator.java::initialize",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/KeyPairGenerator.java",
+      "target": "function:src/java/security/KeyPairGenerator.java::initialize",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/KeyPairGenerator.java",
+      "target": "function:src/java/security/KeyPairGenerator.java::initialize",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/KeyPairGenerator.java",
+      "target": "function:src/java/security/KeyPairGenerator.java::genKeyPair",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/KeyPairGenerator.java",
+      "target": "function:src/java/security/KeyPairGenerator.java::generateKeyPair",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/KeyPairGeneratorSpi.java",
+      "target": "class:src/java/security/KeyPairGeneratorSpi.java::KeyPairGeneratorSpi",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/KeyPairGeneratorSpi.java",
+      "target": "function:src/java/security/KeyPairGeneratorSpi.java::KeyPairGeneratorSpi",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/KeyPairGeneratorSpi.java",
+      "target": "function:src/java/security/KeyPairGeneratorSpi.java::initialize",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/KeyPairGeneratorSpi.java",
+      "target": "function:src/java/security/KeyPairGeneratorSpi.java::initialize",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/KeyPairGeneratorSpi.java",
+      "target": "function:src/java/security/KeyPairGeneratorSpi.java::generateKeyPair",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/SignatureSpi.java",
+      "target": "class:src/java/security/SignatureSpi.java::SignatureSpi",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/SignatureSpi.java",
+      "target": "function:src/java/security/SignatureSpi.java::SignatureSpi",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/SignatureSpi.java",
+      "target": "function:src/java/security/SignatureSpi.java::engineInitVerify",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/SignatureSpi.java",
+      "target": "function:src/java/security/SignatureSpi.java::engineInitSign",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/SignatureSpi.java",
+      "target": "function:src/java/security/SignatureSpi.java::engineInitSign",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/SignatureSpi.java",
+      "target": "function:src/java/security/SignatureSpi.java::engineUpdate",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/SignatureSpi.java",
+      "target": "function:src/java/security/SignatureSpi.java::engineUpdate",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/SignatureSpi.java",
+      "target": "function:src/java/security/SignatureSpi.java::engineSign",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/SignatureSpi.java",
+      "target": "function:src/java/security/SignatureSpi.java::engineSign",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/SignatureSpi.java",
+      "target": "function:src/java/security/SignatureSpi.java::engineVerify",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/SignatureSpi.java",
+      "target": "function:src/java/security/SignatureSpi.java::engineSetParameter",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/SignatureSpi.java",
+      "target": "function:src/java/security/SignatureSpi.java::engineSetParameter",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/SignatureSpi.java",
+      "target": "function:src/java/security/SignatureSpi.java::engineGetParameter",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/SignatureSpi.java",
+      "target": "function:src/java/security/SignatureSpi.java::clone",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/spec/AlgorithmParameterSpec.java",
+      "target": "class:src/java/security/spec/AlgorithmParameterSpec.java::AlgorithmParameterSpec",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/AlgorithmParameterGeneratorSpi.java",
+      "target": "file:src/java/security/spec/AlgorithmParameterSpec.java",
+      "relation": "imports"
+    },
+    {
+      "source": "file:src/java/security/AlgorithmParametersSpi.java",
+      "target": "file:src/java/security/spec/AlgorithmParameterSpec.java",
+      "relation": "imports"
+    },
+    {
+      "source": "file:src/java/security/KeyPairGenerator.java",
+      "target": "file:src/java/security/spec/AlgorithmParameterSpec.java",
+      "relation": "imports"
+    },
+    {
+      "source": "file:src/java/security/KeyPairGeneratorSpi.java",
+      "target": "file:src/java/security/spec/AlgorithmParameterSpec.java",
+      "relation": "imports"
+    },
+    {
+      "source": "file:src/java/security/SignatureSpi.java",
+      "target": "file:src/java/security/spec/AlgorithmParameterSpec.java",
+      "relation": "imports"
+    }
+  ]
+}

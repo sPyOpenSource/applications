@@ -1,0 +1,2757 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 15,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "src/gnu/java/io/decode/Decoder.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 309,
+      "nonEmptyLines": 265,
+      "functions": [
+        {
+          "name": "getSchemeName",
+          "startLine": 96,
+          "endLine": 100,
+          "params": []
+        },
+        {
+          "name": "getSchemeDescription",
+          "startLine": 109,
+          "endLine": 113,
+          "params": []
+        },
+        {
+          "name": "Decoder",
+          "startLine": 127,
+          "endLine": 131,
+          "params": [
+            "in"
+          ]
+        },
+        {
+          "name": "charsInByteArray",
+          "startLine": 152,
+          "endLine": 156,
+          "params": [
+            "buf"
+          ]
+        },
+        {
+          "name": "charsInByteArray",
+          "startLine": 176,
+          "endLine": 177,
+          "params": [
+            "buf",
+            "offset",
+            "len"
+          ]
+        },
+        {
+          "name": "convertToChars",
+          "startLine": 191,
+          "endLine": 195,
+          "params": [
+            "buf"
+          ]
+        },
+        {
+          "name": "convertToChars",
+          "startLine": 212,
+          "endLine": 218,
+          "params": [
+            "buf",
+            "offset",
+            "len"
+          ]
+        },
+        {
+          "name": "convertToChars",
+          "startLine": 240,
+          "endLine": 245,
+          "params": [
+            "buf",
+            "cbuf",
+            "cbuf_offset"
+          ]
+        },
+        {
+          "name": "convertToChars",
+          "startLine": 270,
+          "endLine": 272,
+          "params": [
+            "buf",
+            "buf_offset",
+            "len",
+            "cbuf",
+            "cbuf_offset"
+          ]
+        },
+        {
+          "name": "close",
+          "startLine": 281,
+          "endLine": 286,
+          "params": []
+        },
+        {
+          "name": "ready",
+          "startLine": 302,
+          "endLine": 307,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "Decoder",
+          "startLine": 53,
+          "endLine": 309,
+          "methods": [
+            "getSchemeName",
+            "getSchemeDescription",
+            "Decoder",
+            "charsInByteArray",
+            "charsInByteArray",
+            "convertToChars",
+            "convertToChars",
+            "convertToChars",
+            "convertToChars",
+            "close",
+            "ready"
+          ],
+          "properties": [
+            "scheme_name",
+            "scheme_description",
+            "in"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "getSchemeName",
+          "line": 96,
+          "isDefault": false
+        },
+        {
+          "name": "getSchemeDescription",
+          "line": 109,
+          "isDefault": false
+        },
+        {
+          "name": "Decoder",
+          "line": 127,
+          "isDefault": false
+        },
+        {
+          "name": "charsInByteArray",
+          "line": 152,
+          "isDefault": false
+        },
+        {
+          "name": "charsInByteArray",
+          "line": 176,
+          "isDefault": false
+        },
+        {
+          "name": "convertToChars",
+          "line": 191,
+          "isDefault": false
+        },
+        {
+          "name": "convertToChars",
+          "line": 212,
+          "isDefault": false
+        },
+        {
+          "name": "convertToChars",
+          "line": 240,
+          "isDefault": false
+        },
+        {
+          "name": "convertToChars",
+          "line": 270,
+          "isDefault": false
+        },
+        {
+          "name": "close",
+          "line": 281,
+          "isDefault": false
+        },
+        {
+          "name": "ready",
+          "line": 302,
+          "isDefault": false
+        },
+        {
+          "name": "Decoder",
+          "line": 53,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "charsInByteArray",
+          "callee": "charsInByteArray",
+          "lineNumber": 155
+        },
+        {
+          "caller": "convertToChars",
+          "callee": "convertToChars",
+          "lineNumber": 194
+        },
+        {
+          "caller": "convertToChars",
+          "callee": "charsInByteArray",
+          "lineNumber": 215
+        },
+        {
+          "caller": "convertToChars",
+          "callee": "convertToChars",
+          "lineNumber": 217
+        },
+        {
+          "caller": "convertToChars",
+          "callee": "convertToChars",
+          "lineNumber": 244
+        },
+        {
+          "caller": "close",
+          "callee": "in.close",
+          "lineNumber": 285
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 12,
+        "functionCount": 11,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/gnu/java/io/decode/DecoderEightBitLookup.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 145,
+      "nonEmptyLines": 119,
+      "functions": [
+        {
+          "name": "DecoderEightBitLookup",
+          "startLine": 79,
+          "endLine": 83,
+          "params": [
+            "in"
+          ]
+        },
+        {
+          "name": "charsInByteArray",
+          "startLine": 98,
+          "endLine": 103,
+          "params": [
+            "buf",
+            "offset",
+            "len"
+          ]
+        },
+        {
+          "name": "convertToChars",
+          "startLine": 111,
+          "endLine": 120,
+          "params": [
+            "buf",
+            "buf_offset",
+            "len",
+            "cbuf",
+            "cbuf_offset"
+          ]
+        },
+        {
+          "name": "read",
+          "startLine": 131,
+          "endLine": 143,
+          "params": [
+            "cbuf",
+            "offset",
+            "len"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "DecoderEightBitLookup",
+          "startLine": 56,
+          "endLine": 145,
+          "methods": [
+            "DecoderEightBitLookup",
+            "charsInByteArray",
+            "convertToChars",
+            "read"
+          ],
+          "properties": [
+            "lookup_table"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "DecoderEightBitLookup",
+          "line": 79,
+          "isDefault": false
+        },
+        {
+          "name": "charsInByteArray",
+          "line": 98,
+          "isDefault": false
+        },
+        {
+          "name": "convertToChars",
+          "line": 111,
+          "isDefault": false
+        },
+        {
+          "name": "read",
+          "line": 131,
+          "isDefault": false
+        },
+        {
+          "name": "DecoderEightBitLookup",
+          "line": 56,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "read",
+          "callee": "in.read",
+          "lineNumber": 137
+        },
+        {
+          "caller": "read",
+          "callee": "convertToChars",
+          "lineNumber": 141
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 5,
+        "functionCount": 4,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/io/InputStream.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 64,
+      "nonEmptyLines": 51,
+      "functions": [
+        {
+          "name": "available",
+          "startLine": 5,
+          "endLine": 8,
+          "params": []
+        },
+        {
+          "name": "close",
+          "startLine": 10,
+          "endLine": 12,
+          "params": []
+        },
+        {
+          "name": "markSupported",
+          "startLine": 14,
+          "endLine": 17,
+          "params": []
+        },
+        {
+          "name": "mark",
+          "startLine": 19,
+          "endLine": 21,
+          "params": [
+            "readlimit"
+          ]
+        },
+        {
+          "name": "read",
+          "startLine": 23,
+          "endLine": 23,
+          "params": []
+        },
+        {
+          "name": "read",
+          "startLine": 25,
+          "endLine": 36,
+          "params": [
+            "b",
+            "off",
+            "len"
+          ]
+        },
+        {
+          "name": "read",
+          "startLine": 38,
+          "endLine": 41,
+          "params": [
+            "b"
+          ]
+        },
+        {
+          "name": "reset",
+          "startLine": 43,
+          "endLine": 46,
+          "params": []
+        },
+        {
+          "name": "skip",
+          "startLine": 48,
+          "endLine": 58,
+          "params": [
+            "n"
+          ]
+        },
+        {
+          "name": "InputStream",
+          "startLine": 60,
+          "endLine": 62,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "InputStream",
+          "startLine": 3,
+          "endLine": 63,
+          "methods": [
+            "available",
+            "close",
+            "markSupported",
+            "mark",
+            "read",
+            "read",
+            "read",
+            "reset",
+            "skip",
+            "InputStream"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "available",
+          "line": 5,
+          "isDefault": false
+        },
+        {
+          "name": "close",
+          "line": 10,
+          "isDefault": false
+        },
+        {
+          "name": "markSupported",
+          "line": 14,
+          "isDefault": false
+        },
+        {
+          "name": "mark",
+          "line": 19,
+          "isDefault": false
+        },
+        {
+          "name": "read",
+          "line": 23,
+          "isDefault": false
+        },
+        {
+          "name": "read",
+          "line": 25,
+          "isDefault": false
+        },
+        {
+          "name": "read",
+          "line": 38,
+          "isDefault": false
+        },
+        {
+          "name": "reset",
+          "line": 43,
+          "isDefault": false
+        },
+        {
+          "name": "skip",
+          "line": 48,
+          "isDefault": false
+        },
+        {
+          "name": "InputStream",
+          "line": 60,
+          "isDefault": false
+        },
+        {
+          "name": "InputStream",
+          "line": 3,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "read",
+          "callee": "read",
+          "lineNumber": 29
+        },
+        {
+          "caller": "read",
+          "callee": "read",
+          "lineNumber": 40
+        },
+        {
+          "caller": "reset",
+          "callee": "new IOException",
+          "lineNumber": 45
+        },
+        {
+          "caller": "skip",
+          "callee": "read",
+          "lineNumber": 52
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 11,
+        "functionCount": 10,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/io/Reader.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 241,
+      "nonEmptyLines": 225,
+      "functions": [
+        {
+          "name": "Reader",
+          "startLine": 40,
+          "endLine": 43,
+          "params": []
+        },
+        {
+          "name": "Reader",
+          "startLine": 51,
+          "endLine": 54,
+          "params": [
+            "lock"
+          ]
+        },
+        {
+          "name": "read",
+          "startLine": 83,
+          "endLine": 84,
+          "params": [
+            "buf",
+            "offset",
+            "count"
+          ]
+        },
+        {
+          "name": "read",
+          "startLine": 103,
+          "endLine": 106,
+          "params": [
+            "buf"
+          ]
+        },
+        {
+          "name": "read",
+          "startLine": 119,
+          "endLine": 124,
+          "params": []
+        },
+        {
+          "name": "close",
+          "startLine": 132,
+          "endLine": 132,
+          "params": []
+        },
+        {
+          "name": "markSupported",
+          "startLine": 148,
+          "endLine": 151,
+          "params": []
+        },
+        {
+          "name": "mark",
+          "startLine": 169,
+          "endLine": 172,
+          "params": [
+            "readLimit"
+          ]
+        },
+        {
+          "name": "reset",
+          "startLine": 184,
+          "endLine": 187,
+          "params": []
+        },
+        {
+          "name": "ready",
+          "startLine": 200,
+          "endLine": 203,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "Reader",
+          "startLine": 27,
+          "endLine": 241,
+          "methods": [
+            "Reader",
+            "Reader",
+            "read",
+            "read",
+            "read",
+            "close",
+            "markSupported",
+            "mark",
+            "reset",
+            "ready"
+          ],
+          "properties": [
+            "lock"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "read",
+          "line": 83,
+          "isDefault": false
+        },
+        {
+          "name": "read",
+          "line": 103,
+          "isDefault": false
+        },
+        {
+          "name": "read",
+          "line": 119,
+          "isDefault": false
+        },
+        {
+          "name": "close",
+          "line": 132,
+          "isDefault": false
+        },
+        {
+          "name": "markSupported",
+          "line": 148,
+          "isDefault": false
+        },
+        {
+          "name": "mark",
+          "line": 169,
+          "isDefault": false
+        },
+        {
+          "name": "reset",
+          "line": 184,
+          "isDefault": false
+        },
+        {
+          "name": "ready",
+          "line": 200,
+          "isDefault": false
+        },
+        {
+          "name": "Reader",
+          "line": 27,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "read",
+          "callee": "read",
+          "lineNumber": 105
+        },
+        {
+          "caller": "read",
+          "callee": "read",
+          "lineNumber": 122
+        },
+        {
+          "caller": "mark",
+          "callee": "new IOException",
+          "lineNumber": 171
+        },
+        {
+          "caller": "reset",
+          "callee": "new IOException",
+          "lineNumber": 186
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 9,
+        "functionCount": 10,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/lang/ClassLoader.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 67,
+      "nonEmptyLines": 50,
+      "functions": [
+        {
+          "name": "getSystemResourceAsStream",
+          "startLine": 7,
+          "endLine": 9,
+          "params": [
+            "string"
+          ]
+        },
+        {
+          "name": "ClassLoader",
+          "startLine": 11,
+          "endLine": 13,
+          "params": []
+        },
+        {
+          "name": "loadClass",
+          "startLine": 15,
+          "endLine": 17,
+          "params": [
+            "name"
+          ]
+        },
+        {
+          "name": "loadClass",
+          "startLine": 19,
+          "endLine": 19,
+          "params": [
+            "name",
+            "resolve"
+          ]
+        },
+        {
+          "name": "defineClass",
+          "startLine": 31,
+          "endLine": 33,
+          "params": [
+            "data",
+            "offset",
+            "len"
+          ]
+        },
+        {
+          "name": "defineClass",
+          "startLine": 35,
+          "endLine": 37,
+          "params": [
+            "name",
+            "data",
+            "offset",
+            "len"
+          ]
+        },
+        {
+          "name": "resolveClass",
+          "startLine": 39,
+          "endLine": 41,
+          "params": [
+            "c"
+          ]
+        },
+        {
+          "name": "findSystemClass",
+          "startLine": 43,
+          "endLine": 45,
+          "params": [
+            "name"
+          ]
+        },
+        {
+          "name": "setSigners",
+          "startLine": 47,
+          "endLine": 49,
+          "params": [
+            "c",
+            "signers"
+          ]
+        },
+        {
+          "name": "findLoadedClass",
+          "startLine": 51,
+          "endLine": 53,
+          "params": [
+            "name"
+          ]
+        },
+        {
+          "name": "getResourceAsStream",
+          "startLine": 64,
+          "endLine": 66,
+          "params": [
+            "string"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "ClassLoader",
+          "startLine": 5,
+          "endLine": 67,
+          "methods": [
+            "getSystemResourceAsStream",
+            "ClassLoader",
+            "loadClass",
+            "loadClass",
+            "defineClass",
+            "defineClass",
+            "resolveClass",
+            "findSystemClass",
+            "setSigners",
+            "findLoadedClass",
+            "getResourceAsStream"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "getSystemResourceAsStream",
+          "line": 7,
+          "isDefault": false
+        },
+        {
+          "name": "loadClass",
+          "line": 15,
+          "isDefault": false
+        },
+        {
+          "name": "getResourceAsStream",
+          "line": 64,
+          "isDefault": false
+        },
+        {
+          "name": "ClassLoader",
+          "line": 5,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "getSystemResourceAsStream",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 8
+        },
+        {
+          "caller": "ClassLoader",
+          "callee": "new Error",
+          "lineNumber": 12
+        },
+        {
+          "caller": "loadClass",
+          "callee": "new Error",
+          "lineNumber": 16
+        },
+        {
+          "caller": "defineClass",
+          "callee": "new Error",
+          "lineNumber": 32
+        },
+        {
+          "caller": "defineClass",
+          "callee": "new Error",
+          "lineNumber": 36
+        },
+        {
+          "caller": "resolveClass",
+          "callee": "new Error",
+          "lineNumber": 40
+        },
+        {
+          "caller": "findSystemClass",
+          "callee": "new Error",
+          "lineNumber": 44
+        },
+        {
+          "caller": "setSigners",
+          "callee": "new Error",
+          "lineNumber": 48
+        },
+        {
+          "caller": "findLoadedClass",
+          "callee": "new Error",
+          "lineNumber": 52
+        },
+        {
+          "caller": "getResourceAsStream",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 65
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 4,
+        "functionCount": 11,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/security/cert/CertificateFactorySpi.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 142,
+      "nonEmptyLines": 106,
+      "functions": [
+        {
+          "name": "CertificateFactorySpi",
+          "startLine": 52,
+          "endLine": 53,
+          "params": []
+        },
+        {
+          "name": "engineGenerateCertificate",
+          "startLine": 78,
+          "endLine": 79,
+          "params": [
+            "inStream"
+          ]
+        },
+        {
+          "name": "engineGenerateCertificates",
+          "startLine": 99,
+          "endLine": 100,
+          "params": [
+            "inStream"
+          ]
+        },
+        {
+          "name": "engineGenerateCRL",
+          "startLine": 119,
+          "endLine": 120,
+          "params": [
+            "inStream"
+          ]
+        },
+        {
+          "name": "engineGenerateCRLs",
+          "startLine": 139,
+          "endLine": 140,
+          "params": [
+            "inStream"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "CertificateFactorySpi",
+          "startLine": 46,
+          "endLine": 141,
+          "methods": [
+            "CertificateFactorySpi",
+            "engineGenerateCertificate",
+            "engineGenerateCertificates",
+            "engineGenerateCRL",
+            "engineGenerateCRLs"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "CertificateFactorySpi",
+          "line": 52,
+          "isDefault": false
+        },
+        {
+          "name": "engineGenerateCertificate",
+          "line": 78,
+          "isDefault": false
+        },
+        {
+          "name": "engineGenerateCertificates",
+          "line": 99,
+          "isDefault": false
+        },
+        {
+          "name": "engineGenerateCRL",
+          "line": 119,
+          "isDefault": false
+        },
+        {
+          "name": "engineGenerateCRLs",
+          "line": 139,
+          "isDefault": false
+        },
+        {
+          "name": "CertificateFactorySpi",
+          "line": 46,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 6,
+        "functionCount": 5,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/sql/Blob.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 119,
+      "nonEmptyLines": 99,
+      "classes": [
+        {
+          "name": "Blob",
+          "startLine": 38,
+          "endLine": 119,
+          "methods": [
+            "length",
+            "getBytes",
+            "getBinaryStream",
+            "position",
+            "position"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "Blob",
+          "line": 38,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/sql/CallableStatement.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 454,
+      "nonEmptyLines": 388,
+      "classes": [
+        {
+          "name": "CallableStatement",
+          "startLine": 41,
+          "endLine": 452,
+          "methods": [
+            "wasNull",
+            "getString",
+            "getObject",
+            "getObject",
+            "getBoolean",
+            "getByte",
+            "getShort",
+            "getInt",
+            "getLong",
+            "getFloat",
+            "getDouble",
+            "getBigDecimal",
+            "getBigDecimal",
+            "getBytes",
+            "getDate",
+            "getDate",
+            "getTime",
+            "getTime",
+            "getTimestamp",
+            "getTimestamp",
+            "getRef",
+            "getBlob",
+            "getClob",
+            "getArray",
+            "registerOutParameter",
+            "registerOutParameter",
+            "registerOutParameter"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "CallableStatement",
+          "line": 41,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/sql/Clob.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 136,
+      "nonEmptyLines": 114,
+      "classes": [
+        {
+          "name": "Clob",
+          "startLine": 39,
+          "endLine": 135,
+          "methods": [
+            "length",
+            "getSubString",
+            "getAsciiStream",
+            "getCharacterStream",
+            "position",
+            "position"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "Clob",
+          "line": 39,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/sql/PreparedStatement.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 546,
+      "nonEmptyLines": 466,
+      "classes": [
+        {
+          "name": "PreparedStatement",
+          "startLine": 43,
+          "endLine": 545,
+          "methods": [
+            "setNull",
+            "setNull",
+            "setBoolean",
+            "setByte",
+            "setShort",
+            "setInt",
+            "setLong",
+            "setFloat",
+            "setDouble",
+            "setString",
+            "setBytes",
+            "setBigDecimal",
+            "setDate",
+            "setDate",
+            "setTime",
+            "setTime",
+            "setTimestamp",
+            "setTimestamp",
+            "setAsciiStream",
+            "setUnicodeStream",
+            "setBinaryStream",
+            "setCharacterStream",
+            "setRef",
+            "setBlob",
+            "setClob",
+            "setArray",
+            "setObject",
+            "setObject",
+            "setObject",
+            "addBatch",
+            "clearParameters",
+            "getMetaData",
+            "execute",
+            "executeQuery",
+            "executeUpdate"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "PreparedStatement",
+          "line": 43,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/sql/ResultSet.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 2006,
+      "nonEmptyLines": 1729,
+      "classes": [
+        {
+          "name": "ResultSet",
+          "startLine": 50,
+          "endLine": 2005,
+          "methods": [
+            "next",
+            "previous",
+            "close",
+            "wasNull",
+            "getString",
+            "getObject",
+            "getBoolean",
+            "getByte",
+            "getShort",
+            "getInt",
+            "getLong",
+            "getFloat",
+            "getDouble",
+            "getBigDecimal",
+            "getBigDecimal",
+            "getBytes",
+            "getDate",
+            "getTime",
+            "getTimestamp",
+            "getAsciiStream",
+            "getUnicodeStream",
+            "getBinaryStream",
+            "getCharacterStream",
+            "getString",
+            "getObject",
+            "getBoolean",
+            "getByte",
+            "getShort",
+            "getInt",
+            "getLong",
+            "getFloat",
+            "getDouble",
+            "getBigDecimal",
+            "getBigDecimal",
+            "getBytes",
+            "getDate",
+            "getTime",
+            "getTimestamp",
+            "getAsciiStream",
+            "getUnicodeStream",
+            "getBinaryStream",
+            "getCharacterStream",
+            "getWarnings",
+            "clearWarnings",
+            "getCursorName",
+            "getMetaData",
+            "findColumn",
+            "isBeforeFirst",
+            "isAfterLast",
+            "isFirst",
+            "isLast",
+            "beforeFirst",
+            "afterLast",
+            "first",
+            "last",
+            "getRow",
+            "absolute",
+            "relative",
+            "setFetchDirection",
+            "getFetchDirection",
+            "setFetchSize",
+            "getFetchSize",
+            "getType",
+            "getConcurrency",
+            "rowUpdated",
+            "rowInserted",
+            "rowDeleted",
+            "updateNull",
+            "updateBoolean",
+            "updateByte",
+            "updateShort",
+            "updateInt",
+            "updateLong",
+            "updateFloat",
+            "updateDouble",
+            "updateBigDecimal",
+            "updateString",
+            "updateBytes",
+            "updateDate",
+            "updateTime",
+            "updateTimestamp",
+            "updateAsciiStream",
+            "updateBinaryStream",
+            "updateCharacterStream",
+            "updateObject",
+            "updateObject",
+            "updateNull",
+            "updateBoolean",
+            "updateByte",
+            "updateShort",
+            "updateInt",
+            "updateLong",
+            "updateFloat",
+            "updateDouble",
+            "updateBigDecimal",
+            "updateString",
+            "updateBytes",
+            "updateDate",
+            "updateTime",
+            "updateTimestamp",
+            "updateAsciiStream",
+            "updateBinaryStream",
+            "updateCharacterStream",
+            "updateObject",
+            "updateObject",
+            "insertRow",
+            "updateRow",
+            "deleteRow",
+            "refreshRow",
+            "cancelRowUpdates",
+            "moveToInsertRow",
+            "moveToCurrentRow",
+            "getStatement",
+            "getObject",
+            "getRef",
+            "getBlob",
+            "getClob",
+            "getArray",
+            "getObject",
+            "getRef",
+            "getBlob",
+            "getClob",
+            "getArray",
+            "getDate",
+            "getTime",
+            "getTimestamp",
+            "getDate",
+            "getTime",
+            "getTimestamp"
+          ],
+          "properties": [
+            "FETCH_FORWARD",
+            "FETCH_REVERSE",
+            "FETCH_UNKNOWN",
+            "TYPE_FORWARD_ONLY",
+            "TYPE_SCROLL_INSENSITIVE",
+            "TYPE_SCROLL_SENSITIVE",
+            "CONCUR_READ_ONLY",
+            "CONCUR_UPDATABLE"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "ResultSet",
+          "line": 50,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/sql/SQLInput.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 332,
+      "nonEmptyLines": 277,
+      "classes": [
+        {
+          "name": "SQLInput",
+          "startLine": 41,
+          "endLine": 331,
+          "methods": [
+            "readString",
+            "readBoolean",
+            "readByte",
+            "readShort",
+            "readInt",
+            "readLong",
+            "readFloat",
+            "readDouble",
+            "readBigDecimal",
+            "readBytes",
+            "readDate",
+            "readTime",
+            "readTimestamp",
+            "readAsciiStream",
+            "readBinaryStream",
+            "readCharacterStream",
+            "readObject",
+            "readRef",
+            "readBlob",
+            "readClob",
+            "readArray",
+            "wasNull"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "SQLInput",
+          "line": 41,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/sql/SQLOutput.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 331,
+      "nonEmptyLines": 276,
+      "classes": [
+        {
+          "name": "SQLOutput",
+          "startLine": 41,
+          "endLine": 330,
+          "methods": [
+            "writeString",
+            "writeBoolean",
+            "writeByte",
+            "writeShort",
+            "writeInt",
+            "writeLong",
+            "writeFloat",
+            "writeDouble",
+            "writeBigDecimal",
+            "writeBytes",
+            "writeDate",
+            "writeTime",
+            "writeTimestamp",
+            "writeCharacterStream",
+            "writeBinaryStream",
+            "writeAsciiStream",
+            "writeObject",
+            "writeRef",
+            "writeBlob",
+            "writeClob",
+            "writeStruct",
+            "writeArray"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "SQLOutput",
+          "line": 41,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/util/Calendar.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 993,
+      "nonEmptyLines": 915,
+      "functions": [
+        {
+          "name": "Calendar",
+          "startLine": 365,
+          "endLine": 368,
+          "params": []
+        },
+        {
+          "name": "Calendar",
+          "startLine": 376,
+          "endLine": 390,
+          "params": [
+            "zone",
+            "locale"
+          ]
+        },
+        {
+          "name": "getInstance",
+          "startLine": 396,
+          "endLine": 399,
+          "params": []
+        },
+        {
+          "name": "getInstance",
+          "startLine": 406,
+          "endLine": 409,
+          "params": [
+            "zone"
+          ]
+        },
+        {
+          "name": "getInstance",
+          "startLine": 416,
+          "endLine": 419,
+          "params": [
+            "locale"
+          ]
+        },
+        {
+          "name": "getInstance",
+          "startLine": 428,
+          "endLine": 459,
+          "params": [
+            "zone",
+            "locale"
+          ]
+        },
+        {
+          "name": "getAvailableLocales",
+          "startLine": 466,
+          "endLine": 471,
+          "params": []
+        },
+        {
+          "name": "computeTime",
+          "startLine": 477,
+          "endLine": 477,
+          "params": []
+        },
+        {
+          "name": "computeFields",
+          "startLine": 485,
+          "endLine": 485,
+          "params": []
+        },
+        {
+          "name": "getTime",
+          "startLine": 492,
+          "endLine": 497,
+          "params": []
+        },
+        {
+          "name": "setTime",
+          "startLine": 504,
+          "endLine": 507,
+          "params": [
+            "date"
+          ]
+        },
+        {
+          "name": "getTimeInMillis",
+          "startLine": 513,
+          "endLine": 518,
+          "params": []
+        },
+        {
+          "name": "setTimeInMillis",
+          "startLine": 525,
+          "endLine": 530,
+          "params": [
+            "time"
+          ]
+        },
+        {
+          "name": "get",
+          "startLine": 538,
+          "endLine": 542,
+          "params": [
+            "field"
+          ]
+        },
+        {
+          "name": "internalGet",
+          "startLine": 551,
+          "endLine": 554,
+          "params": [
+            "field"
+          ]
+        },
+        {
+          "name": "set",
+          "startLine": 562,
+          "endLine": 569,
+          "params": [
+            "field",
+            "value"
+          ]
+        },
+        {
+          "name": "set",
+          "startLine": 577,
+          "endLine": 586,
+          "params": [
+            "year",
+            "month",
+            "date"
+          ]
+        },
+        {
+          "name": "set",
+          "startLine": 596,
+          "endLine": 602,
+          "params": [
+            "year",
+            "month",
+            "date",
+            "hour",
+            "minute"
+          ]
+        },
+        {
+          "name": "set",
+          "startLine": 613,
+          "endLine": 619,
+          "params": [
+            "year",
+            "month",
+            "date",
+            "hour",
+            "minute",
+            "second"
+          ]
+        },
+        {
+          "name": "clear",
+          "startLine": 624,
+          "endLine": 630,
+          "params": []
+        },
+        {
+          "name": "clear",
+          "startLine": 636,
+          "endLine": 641,
+          "params": [
+            "field"
+          ]
+        },
+        {
+          "name": "isSet",
+          "startLine": 647,
+          "endLine": 650,
+          "params": [
+            "field"
+          ]
+        },
+        {
+          "name": "complete",
+          "startLine": 656,
+          "endLine": 662,
+          "params": []
+        },
+        {
+          "name": "equals",
+          "startLine": 670,
+          "endLine": 674,
+          "params": [
+            "o"
+          ]
+        },
+        {
+          "name": "hashCode",
+          "startLine": 681,
+          "endLine": 685,
+          "params": []
+        },
+        {
+          "name": "before",
+          "startLine": 695,
+          "endLine": 698,
+          "params": [
+            "o"
+          ]
+        },
+        {
+          "name": "after",
+          "startLine": 708,
+          "endLine": 711,
+          "params": [
+            "o"
+          ]
+        },
+        {
+          "name": "add",
+          "startLine": 720,
+          "endLine": 720,
+          "params": [
+            "field",
+            "amount"
+          ]
+        },
+        {
+          "name": "roll",
+          "startLine": 734,
+          "endLine": 734,
+          "params": [
+            "field",
+            "up"
+          ]
+        },
+        {
+          "name": "roll",
+          "startLine": 748,
+          "endLine": 760,
+          "params": [
+            "field",
+            "amount"
+          ]
+        },
+        {
+          "name": "setTimeZone",
+          "startLine": 767,
+          "endLine": 770,
+          "params": [
+            "zone"
+          ]
+        },
+        {
+          "name": "getTimeZone",
+          "startLine": 776,
+          "endLine": 779,
+          "params": []
+        },
+        {
+          "name": "setLenient",
+          "startLine": 789,
+          "endLine": 792,
+          "params": [
+            "lenient"
+          ]
+        },
+        {
+          "name": "isLenient",
+          "startLine": 799,
+          "endLine": 802,
+          "params": []
+        },
+        {
+          "name": "setFirstDayOfWeek",
+          "startLine": 809,
+          "endLine": 812,
+          "params": [
+            "value"
+          ]
+        },
+        {
+          "name": "getFirstDayOfWeek",
+          "startLine": 819,
+          "endLine": 822,
+          "params": []
+        },
+        {
+          "name": "setMinimalDaysInFirstWeek",
+          "startLine": 831,
+          "endLine": 834,
+          "params": [
+            "value"
+          ]
+        },
+        {
+          "name": "getMinimalDaysInFirstWeek",
+          "startLine": 841,
+          "endLine": 844,
+          "params": []
+        },
+        {
+          "name": "getMinimum",
+          "startLine": 851,
+          "endLine": 851,
+          "params": [
+            "field"
+          ]
+        },
+        {
+          "name": "getMaximum",
+          "startLine": 858,
+          "endLine": 858,
+          "params": [
+            "field"
+          ]
+        },
+        {
+          "name": "getGreatestMinimum",
+          "startLine": 866,
+          "endLine": 866,
+          "params": [
+            "field"
+          ]
+        },
+        {
+          "name": "getLeastMaximum",
+          "startLine": 874,
+          "endLine": 874,
+          "params": [
+            "field"
+          ]
+        },
+        {
+          "name": "getActualMinimum",
+          "startLine": 884,
+          "endLine": 884,
+          "params": [
+            "field"
+          ]
+        },
+        {
+          "name": "getActualMaximum",
+          "startLine": 894,
+          "endLine": 894,
+          "params": [
+            "field"
+          ]
+        },
+        {
+          "name": "clone",
+          "startLine": 899,
+          "endLine": 912,
+          "params": []
+        },
+        {
+          "name": "toString",
+          "startLine": 930,
+          "endLine": 954,
+          "params": []
+        },
+        {
+          "name": "writeObject",
+          "startLine": 964,
+          "endLine": 969,
+          "params": [
+            "stream"
+          ]
+        },
+        {
+          "name": "readObject",
+          "startLine": 974,
+          "endLine": 992,
+          "params": [
+            "stream"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Calendar",
+          "startLine": 94,
+          "endLine": 993,
+          "methods": [
+            "Calendar",
+            "Calendar",
+            "getInstance",
+            "getInstance",
+            "getInstance",
+            "getInstance",
+            "getAvailableLocales",
+            "computeTime",
+            "computeFields",
+            "getTime",
+            "setTime",
+            "getTimeInMillis",
+            "setTimeInMillis",
+            "get",
+            "internalGet",
+            "set",
+            "set",
+            "set",
+            "set",
+            "clear",
+            "clear",
+            "isSet",
+            "complete",
+            "equals",
+            "hashCode",
+            "before",
+            "after",
+            "add",
+            "roll",
+            "roll",
+            "setTimeZone",
+            "getTimeZone",
+            "setLenient",
+            "isLenient",
+            "setFirstDayOfWeek",
+            "getFirstDayOfWeek",
+            "setMinimalDaysInFirstWeek",
+            "getMinimalDaysInFirstWeek",
+            "getMinimum",
+            "getMaximum",
+            "getGreatestMinimum",
+            "getLeastMaximum",
+            "getActualMinimum",
+            "getActualMaximum",
+            "clone",
+            "toString",
+            "writeObject",
+            "readObject"
+          ],
+          "properties": [
+            "ERA",
+            "YEAR",
+            "MONTH",
+            "WEEK_OF_YEAR",
+            "WEEK_OF_MONTH",
+            "DATE",
+            "DAY_OF_MONTH",
+            "DAY_OF_YEAR",
+            "DAY_OF_WEEK",
+            "DAY_OF_WEEK_IN_MONTH",
+            "AM_PM",
+            "HOUR",
+            "HOUR_OF_DAY",
+            "MINUTE",
+            "SECOND",
+            "MILLISECOND",
+            "ZONE_OFFSET",
+            "DST_OFFSET",
+            "FIELD_COUNT",
+            "SUNDAY",
+            "MONDAY",
+            "TUESDAY",
+            "WEDNESDAY",
+            "THURSDAY",
+            "FRIDAY",
+            "SATURDAY",
+            "JANUARY",
+            "FEBRUARY",
+            "MARCH",
+            "APRIL",
+            "MAY",
+            "JUNE",
+            "JULY",
+            "AUGUST",
+            "SEPTEMBER",
+            "OCTOBER",
+            "NOVEMBER",
+            "DECEMBER",
+            "UNDECIMBER",
+            "AM",
+            "PM",
+            "fields",
+            "isSet",
+            "time",
+            "isTimeSet",
+            "areFieldsSet",
+            "zone",
+            "lenient",
+            "firstDayOfWeek",
+            "minimalDaysInFirstWeek",
+            "serialVersionOnStream",
+            "serialVersionUID",
+            "bundleName",
+            "fieldNames"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "ERA",
+          "line": 99,
+          "isDefault": false
+        },
+        {
+          "name": "YEAR",
+          "line": 103,
+          "isDefault": false
+        },
+        {
+          "name": "MONTH",
+          "line": 108,
+          "isDefault": false
+        },
+        {
+          "name": "WEEK_OF_YEAR",
+          "line": 113,
+          "isDefault": false
+        },
+        {
+          "name": "WEEK_OF_MONTH",
+          "line": 118,
+          "isDefault": false
+        },
+        {
+          "name": "DATE",
+          "line": 122,
+          "isDefault": false
+        },
+        {
+          "name": "DAY_OF_MONTH",
+          "line": 126,
+          "isDefault": false
+        },
+        {
+          "name": "DAY_OF_YEAR",
+          "line": 131,
+          "isDefault": false
+        },
+        {
+          "name": "DAY_OF_WEEK",
+          "line": 136,
+          "isDefault": false
+        },
+        {
+          "name": "DAY_OF_WEEK_IN_MONTH",
+          "line": 143,
+          "isDefault": false
+        },
+        {
+          "name": "AM_PM",
+          "line": 148,
+          "isDefault": false
+        },
+        {
+          "name": "HOUR",
+          "line": 152,
+          "isDefault": false
+        },
+        {
+          "name": "HOUR_OF_DAY",
+          "line": 156,
+          "isDefault": false
+        },
+        {
+          "name": "MINUTE",
+          "line": 160,
+          "isDefault": false
+        },
+        {
+          "name": "SECOND",
+          "line": 164,
+          "isDefault": false
+        },
+        {
+          "name": "MILLISECOND",
+          "line": 168,
+          "isDefault": false
+        },
+        {
+          "name": "ZONE_OFFSET",
+          "line": 174,
+          "isDefault": false
+        },
+        {
+          "name": "DST_OFFSET",
+          "line": 179,
+          "isDefault": false
+        },
+        {
+          "name": "FIELD_COUNT",
+          "line": 183,
+          "isDefault": false
+        },
+        {
+          "name": "SUNDAY",
+          "line": 188,
+          "isDefault": false
+        },
+        {
+          "name": "MONDAY",
+          "line": 192,
+          "isDefault": false
+        },
+        {
+          "name": "TUESDAY",
+          "line": 196,
+          "isDefault": false
+        },
+        {
+          "name": "WEDNESDAY",
+          "line": 200,
+          "isDefault": false
+        },
+        {
+          "name": "THURSDAY",
+          "line": 204,
+          "isDefault": false
+        },
+        {
+          "name": "FRIDAY",
+          "line": 208,
+          "isDefault": false
+        },
+        {
+          "name": "SATURDAY",
+          "line": 212,
+          "isDefault": false
+        },
+        {
+          "name": "JANUARY",
+          "line": 217,
+          "isDefault": false
+        },
+        {
+          "name": "FEBRUARY",
+          "line": 221,
+          "isDefault": false
+        },
+        {
+          "name": "MARCH",
+          "line": 225,
+          "isDefault": false
+        },
+        {
+          "name": "APRIL",
+          "line": 229,
+          "isDefault": false
+        },
+        {
+          "name": "MAY",
+          "line": 233,
+          "isDefault": false
+        },
+        {
+          "name": "JUNE",
+          "line": 237,
+          "isDefault": false
+        },
+        {
+          "name": "JULY",
+          "line": 241,
+          "isDefault": false
+        },
+        {
+          "name": "AUGUST",
+          "line": 245,
+          "isDefault": false
+        },
+        {
+          "name": "SEPTEMBER",
+          "line": 249,
+          "isDefault": false
+        },
+        {
+          "name": "OCTOBER",
+          "line": 253,
+          "isDefault": false
+        },
+        {
+          "name": "NOVEMBER",
+          "line": 257,
+          "isDefault": false
+        },
+        {
+          "name": "DECEMBER",
+          "line": 261,
+          "isDefault": false
+        },
+        {
+          "name": "UNDECIMBER",
+          "line": 266,
+          "isDefault": false
+        },
+        {
+          "name": "AM",
+          "line": 271,
+          "isDefault": false
+        },
+        {
+          "name": "PM",
+          "line": 275,
+          "isDefault": false
+        },
+        {
+          "name": "getInstance",
+          "line": 396,
+          "isDefault": false
+        },
+        {
+          "name": "getInstance",
+          "line": 406,
+          "isDefault": false
+        },
+        {
+          "name": "getInstance",
+          "line": 416,
+          "isDefault": false
+        },
+        {
+          "name": "getInstance",
+          "line": 428,
+          "isDefault": false
+        },
+        {
+          "name": "getAvailableLocales",
+          "line": 466,
+          "isDefault": false
+        },
+        {
+          "name": "getTime",
+          "line": 492,
+          "isDefault": false
+        },
+        {
+          "name": "setTime",
+          "line": 504,
+          "isDefault": false
+        },
+        {
+          "name": "get",
+          "line": 538,
+          "isDefault": false
+        },
+        {
+          "name": "set",
+          "line": 562,
+          "isDefault": false
+        },
+        {
+          "name": "set",
+          "line": 577,
+          "isDefault": false
+        },
+        {
+          "name": "set",
+          "line": 596,
+          "isDefault": false
+        },
+        {
+          "name": "set",
+          "line": 613,
+          "isDefault": false
+        },
+        {
+          "name": "clear",
+          "line": 624,
+          "isDefault": false
+        },
+        {
+          "name": "clear",
+          "line": 636,
+          "isDefault": false
+        },
+        {
+          "name": "isSet",
+          "line": 647,
+          "isDefault": false
+        },
+        {
+          "name": "equals",
+          "line": 670,
+          "isDefault": false
+        },
+        {
+          "name": "hashCode",
+          "line": 681,
+          "isDefault": false
+        },
+        {
+          "name": "before",
+          "line": 695,
+          "isDefault": false
+        },
+        {
+          "name": "after",
+          "line": 708,
+          "isDefault": false
+        },
+        {
+          "name": "add",
+          "line": 720,
+          "isDefault": false
+        },
+        {
+          "name": "roll",
+          "line": 734,
+          "isDefault": false
+        },
+        {
+          "name": "roll",
+          "line": 748,
+          "isDefault": false
+        },
+        {
+          "name": "setTimeZone",
+          "line": 767,
+          "isDefault": false
+        },
+        {
+          "name": "getTimeZone",
+          "line": 776,
+          "isDefault": false
+        },
+        {
+          "name": "setLenient",
+          "line": 789,
+          "isDefault": false
+        },
+        {
+          "name": "isLenient",
+          "line": 799,
+          "isDefault": false
+        },
+        {
+          "name": "setFirstDayOfWeek",
+          "line": 809,
+          "isDefault": false
+        },
+        {
+          "name": "getFirstDayOfWeek",
+          "line": 819,
+          "isDefault": false
+        },
+        {
+          "name": "setMinimalDaysInFirstWeek",
+          "line": 831,
+          "isDefault": false
+        },
+        {
+          "name": "getMinimalDaysInFirstWeek",
+          "line": 841,
+          "isDefault": false
+        },
+        {
+          "name": "getMinimum",
+          "line": 851,
+          "isDefault": false
+        },
+        {
+          "name": "getMaximum",
+          "line": 858,
+          "isDefault": false
+        },
+        {
+          "name": "getGreatestMinimum",
+          "line": 866,
+          "isDefault": false
+        },
+        {
+          "name": "getLeastMaximum",
+          "line": 874,
+          "isDefault": false
+        },
+        {
+          "name": "getActualMinimum",
+          "line": 884,
+          "isDefault": false
+        },
+        {
+          "name": "getActualMaximum",
+          "line": 894,
+          "isDefault": false
+        },
+        {
+          "name": "clone",
+          "line": 899,
+          "isDefault": false
+        },
+        {
+          "name": "toString",
+          "line": 930,
+          "isDefault": false
+        },
+        {
+          "name": "Calendar",
+          "line": 94,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "Calendar",
+          "callee": "TimeZone.getDefault",
+          "lineNumber": 367
+        },
+        {
+          "caller": "Calendar",
+          "callee": "Locale.getDefault",
+          "lineNumber": 367
+        },
+        {
+          "caller": "getInstance",
+          "callee": "getInstance",
+          "lineNumber": 398
+        },
+        {
+          "caller": "getInstance",
+          "callee": "TimeZone.getDefault",
+          "lineNumber": 398
+        },
+        {
+          "caller": "getInstance",
+          "callee": "Locale.getDefault",
+          "lineNumber": 398
+        },
+        {
+          "caller": "getInstance",
+          "callee": "getInstance",
+          "lineNumber": 408
+        },
+        {
+          "caller": "getInstance",
+          "callee": "Locale.getDefault",
+          "lineNumber": 408
+        },
+        {
+          "caller": "getInstance",
+          "callee": "getInstance",
+          "lineNumber": 418
+        },
+        {
+          "caller": "getInstance",
+          "callee": "TimeZone.getDefault",
+          "lineNumber": 418
+        },
+        {
+          "caller": "getInstance",
+          "callee": "ResourceBundle.getBundle",
+          "lineNumber": 431
+        },
+        {
+          "caller": "getInstance",
+          "callee": "rb.getString",
+          "lineNumber": 432
+        },
+        {
+          "caller": "getInstance",
+          "callee": "Class.forName",
+          "lineNumber": 437
+        },
+        {
+          "caller": "getInstance",
+          "callee": "Calendar.class.isAssignableFrom",
+          "lineNumber": 438
+        },
+        {
+          "caller": "getInstance",
+          "callee": "calendarClass.getConstructor(\n\t\t  new Class[] { TimeZone.class, Locale.class}\n\t\t).newInstance",
+          "lineNumber": 440
+        },
+        {
+          "caller": "getInstance",
+          "callee": "calendarClass.getConstructor",
+          "lineNumber": 440
+        },
+        {
+          "caller": "getInstance",
+          "callee": "new GregorianCalendar",
+          "lineNumber": 458
+        },
+        {
+          "caller": "getAvailableLocales",
+          "callee": "ResourceBundle.getBundle",
+          "lineNumber": 468
+        },
+        {
+          "caller": "getAvailableLocales",
+          "callee": "new Locale",
+          "lineNumber": 469
+        },
+        {
+          "caller": "getAvailableLocales",
+          "callee": "rb.getObject",
+          "lineNumber": 470
+        },
+        {
+          "caller": "getTime",
+          "callee": "computeTime",
+          "lineNumber": 495
+        },
+        {
+          "caller": "getTime",
+          "callee": "new Date",
+          "lineNumber": 496
+        },
+        {
+          "caller": "setTime",
+          "callee": "setTimeInMillis",
+          "lineNumber": 506
+        },
+        {
+          "caller": "setTime",
+          "callee": "date.getTime",
+          "lineNumber": 506
+        },
+        {
+          "caller": "getTimeInMillis",
+          "callee": "computeTime",
+          "lineNumber": 516
+        },
+        {
+          "caller": "setTimeInMillis",
+          "callee": "computeFields",
+          "lineNumber": 529
+        },
+        {
+          "caller": "get",
+          "callee": "complete",
+          "lineNumber": 540
+        },
+        {
+          "caller": "set",
+          "callee": "computeFields",
+          "lineNumber": 565
+        },
+        {
+          "caller": "set",
+          "callee": "computeFields",
+          "lineNumber": 580
+        },
+        {
+          "caller": "set",
+          "callee": "set",
+          "lineNumber": 598
+        },
+        {
+          "caller": "set",
+          "callee": "set",
+          "lineNumber": 616
+        },
+        {
+          "caller": "complete",
+          "callee": "computeTime",
+          "lineNumber": 659
+        },
+        {
+          "caller": "complete",
+          "callee": "computeFields",
+          "lineNumber": 661
+        },
+        {
+          "caller": "equals",
+          "callee": "getTimeInMillis",
+          "lineNumber": 673
+        },
+        {
+          "caller": "equals",
+          "callee": "((Calendar) o).getTimeInMillis",
+          "lineNumber": 673
+        },
+        {
+          "caller": "hashCode",
+          "callee": "getTimeInMillis",
+          "lineNumber": 683
+        },
+        {
+          "caller": "before",
+          "callee": "getTimeInMillis",
+          "lineNumber": 697
+        },
+        {
+          "caller": "before",
+          "callee": "((Calendar) o).getTimeInMillis",
+          "lineNumber": 697
+        },
+        {
+          "caller": "after",
+          "callee": "getTimeInMillis",
+          "lineNumber": 710
+        },
+        {
+          "caller": "after",
+          "callee": "((Calendar) o).getTimeInMillis",
+          "lineNumber": 710
+        },
+        {
+          "caller": "roll",
+          "callee": "roll",
+          "lineNumber": 752
+        },
+        {
+          "caller": "roll",
+          "callee": "roll",
+          "lineNumber": 757
+        },
+        {
+          "caller": "clone",
+          "callee": "super.clone",
+          "lineNumber": 903
+        },
+        {
+          "caller": "clone",
+          "callee": "fields.clone",
+          "lineNumber": 904
+        },
+        {
+          "caller": "clone",
+          "callee": "isSet.clone",
+          "lineNumber": 905
+        },
+        {
+          "caller": "toString",
+          "callee": "new StringBuffer",
+          "lineNumber": 932
+        },
+        {
+          "caller": "toString",
+          "callee": "sb.append(getClass().getName()).append",
+          "lineNumber": 933
+        },
+        {
+          "caller": "toString",
+          "callee": "sb.append",
+          "lineNumber": 933
+        },
+        {
+          "caller": "toString",
+          "callee": "getClass().getName",
+          "lineNumber": 933
+        },
+        {
+          "caller": "toString",
+          "callee": "getClass",
+          "lineNumber": 933
+        },
+        {
+          "caller": "toString",
+          "callee": "sb.append",
+          "lineNumber": 934
+        },
+        {
+          "caller": "toString",
+          "callee": "sb.append",
+          "lineNumber": 936
+        },
+        {
+          "caller": "toString",
+          "callee": "sb.append",
+          "lineNumber": 938
+        },
+        {
+          "caller": "toString",
+          "callee": "sb.append",
+          "lineNumber": 939
+        },
+        {
+          "caller": "toString",
+          "callee": "sb.append",
+          "lineNumber": 940
+        },
+        {
+          "caller": "toString",
+          "callee": "sb.append",
+          "lineNumber": 943
+        },
+        {
+          "caller": "toString",
+          "callee": "sb.append",
+          "lineNumber": 945
+        },
+        {
+          "caller": "toString",
+          "callee": "sb.append",
+          "lineNumber": 947
+        },
+        {
+          "caller": "toString",
+          "callee": "sb.append(\",lenient=\").append",
+          "lineNumber": 949
+        },
+        {
+          "caller": "toString",
+          "callee": "sb.append",
+          "lineNumber": 949
+        },
+        {
+          "caller": "toString",
+          "callee": "sb.append(\",firstDayOfWeek=\").append",
+          "lineNumber": 950
+        },
+        {
+          "caller": "toString",
+          "callee": "sb.append",
+          "lineNumber": 950
+        },
+        {
+          "caller": "toString",
+          "callee": "sb.append(\",minimalDaysInFirstWeek=\").append",
+          "lineNumber": 951
+        },
+        {
+          "caller": "toString",
+          "callee": "sb.append",
+          "lineNumber": 951
+        },
+        {
+          "caller": "toString",
+          "callee": "sb.append",
+          "lineNumber": 952
+        },
+        {
+          "caller": "toString",
+          "callee": "sb.toString",
+          "lineNumber": 953
+        },
+        {
+          "caller": "writeObject",
+          "callee": "computeTime",
+          "lineNumber": 967
+        },
+        {
+          "caller": "writeObject",
+          "callee": "stream.defaultWriteObject",
+          "lineNumber": 968
+        },
+        {
+          "caller": "readObject",
+          "callee": "stream.defaultReadObject",
+          "lineNumber": 977
+        },
+        {
+          "caller": "readObject",
+          "callee": "computeTime",
+          "lineNumber": 979
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 80,
+        "functionCount": 48,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/util/Collection.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 239,
+      "nonEmptyLines": 215,
+      "classes": [
+        {
+          "name": "Collection",
+          "startLine": 64,
+          "endLine": 239,
+          "methods": [
+            "add",
+            "addAll",
+            "clear",
+            "contains",
+            "containsAll",
+            "isEmpty",
+            "iterator",
+            "remove",
+            "removeAll",
+            "retainAll",
+            "size",
+            "toArray"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "Collection",
+          "line": 64,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "projectRoot": "/Users/xuyi/Source/OS/armOS/lib/jcore/test/ifOS",
+  "batchFiles": [
+    {
+      "path": "nbproject/build-impl.xml",
+      "language": "xml",
+      "sizeLines": 1817,
+      "fileCategory": "code"
+    },
+    {
+      "path": "nbproject/genfiles.properties",
+      "language": "properties",
+      "sizeLines": 8,
+      "fileCategory": "script"
+    },
+    {
+      "path": "nbproject/project.properties",
+      "language": "properties",
+      "sizeLines": 105,
+      "fileCategory": "script"
+    },
+    {
+      "path": "nbproject/project.xml",
+      "language": "xml",
+      "sizeLines": 26,
+      "fileCategory": "code"
+    }
+  ],
+  "batchImportData": {
+    "nbproject/build-impl.xml": [],
+    "nbproject/genfiles.properties": [],
+    "nbproject/project.properties": [],
+    "nbproject/project.xml": []
+  }
+}

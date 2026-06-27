@@ -1,0 +1,1679 @@
+{
+  "batchIndex": 31,
+  "nodes": [
+    {
+      "id": "file:src/jx/net/xdr/FormatMem.java",
+      "label": "src/jx/net/xdr/FormatMem.java",
+      "type": "file",
+      "properties": {
+        "path": "src/jx/net/xdr/FormatMem.java",
+        "language": "java",
+        "category": "code",
+        "totalLines": 285,
+        "nonEmptyLines": 241
+      }
+    },
+    {
+      "id": "class:src/jx/net/xdr/FormatMem.java::FormatMem",
+      "label": "FormatMem (src/jx/net/xdr/FormatMem.java)",
+      "type": "class",
+      "properties": {
+        "name": "FormatMem",
+        "startLine": 7,
+        "endLine": 285,
+        "methods": [
+          "FormatMem",
+          "FormatMem",
+          "init",
+          "length",
+          "writeInt",
+          "writeShort",
+          "writeUShort",
+          "writeByte",
+          "writeBytes",
+          "writeString",
+          "writeIntArray",
+          "writeByteArray",
+          "readByte",
+          "readBytes",
+          "readShort",
+          "readByte",
+          "readShort",
+          "readInt",
+          "readInt",
+          "lengthByte",
+          "lengthShort",
+          "lengthInt",
+          "lengthIntArray",
+          "lengthShortArray",
+          "lengthByteArray",
+          "lengthFixByteArray",
+          "lengthString"
+        ],
+        "properties": [
+          "debug",
+          "buf",
+          "offset"
+        ]
+      }
+    },
+    {
+      "id": "function:src/jx/net/xdr/FormatMem.java::FormatMem",
+      "label": "FormatMem (src/jx/net/xdr/FormatMem.java)",
+      "type": "function",
+      "properties": {
+        "name": "FormatMem",
+        "startLine": 13,
+        "endLine": 13,
+        "params": [
+          "buf",
+          "offset"
+        ]
+      }
+    },
+    {
+      "id": "function:src/jx/net/xdr/FormatMem.java::init",
+      "label": "init (src/jx/net/xdr/FormatMem.java)",
+      "type": "function",
+      "properties": {
+        "name": "init",
+        "startLine": 16,
+        "endLine": 16,
+        "params": [
+          "buf",
+          "offset"
+        ]
+      }
+    },
+    {
+      "id": "function:src/jx/net/xdr/FormatMem.java::length",
+      "label": "length (src/jx/net/xdr/FormatMem.java)",
+      "type": "function",
+      "properties": {
+        "name": "length",
+        "startLine": 18,
+        "endLine": 18
+      }
+    },
+    {
+      "id": "function:src/jx/net/xdr/FormatMem.java::writeInt",
+      "label": "writeInt (src/jx/net/xdr/FormatMem.java)",
+      "type": "function",
+      "properties": {
+        "name": "writeInt",
+        "startLine": 22,
+        "endLine": 27,
+        "params": [
+          "o",
+          "d"
+        ]
+      }
+    },
+    {
+      "id": "function:src/jx/net/xdr/FormatMem.java::writeShort",
+      "label": "writeShort (src/jx/net/xdr/FormatMem.java)",
+      "type": "function",
+      "properties": {
+        "name": "writeShort",
+        "startLine": 30,
+        "endLine": 33,
+        "params": [
+          "o",
+          "d"
+        ]
+      }
+    },
+    {
+      "id": "function:src/jx/net/xdr/FormatMem.java::writeUShort",
+      "label": "writeUShort (src/jx/net/xdr/FormatMem.java)",
+      "type": "function",
+      "properties": {
+        "name": "writeUShort",
+        "startLine": 35,
+        "endLine": 37,
+        "params": [
+          "o",
+          "d"
+        ]
+      }
+    },
+    {
+      "id": "function:src/jx/net/xdr/FormatMem.java::writeByte",
+      "label": "writeByte (src/jx/net/xdr/FormatMem.java)",
+      "type": "function",
+      "properties": {
+        "name": "writeByte",
+        "startLine": 39,
+        "endLine": 41,
+        "params": [
+          "o",
+          "d"
+        ]
+      }
+    },
+    {
+      "id": "function:src/jx/net/xdr/FormatMem.java::writeBytes",
+      "label": "writeBytes (src/jx/net/xdr/FormatMem.java)",
+      "type": "function",
+      "properties": {
+        "name": "writeBytes",
+        "startLine": 43,
+        "endLine": 47,
+        "params": [
+          "o",
+          "d"
+        ]
+      }
+    },
+    {
+      "id": "function:src/jx/net/xdr/FormatMem.java::writeString",
+      "label": "writeString (src/jx/net/xdr/FormatMem.java)",
+      "type": "function",
+      "properties": {
+        "name": "writeString",
+        "startLine": 49,
+        "endLine": 52,
+        "params": [
+          "o",
+          "s"
+        ]
+      }
+    },
+    {
+      "id": "function:src/jx/net/xdr/FormatMem.java::writeIntArray",
+      "label": "writeIntArray (src/jx/net/xdr/FormatMem.java)",
+      "type": "function",
+      "properties": {
+        "name": "writeIntArray",
+        "startLine": 54,
+        "endLine": 59,
+        "params": [
+          "o",
+          "d"
+        ]
+      }
+    },
+    {
+      "id": "function:src/jx/net/xdr/FormatMem.java::writeByteArray",
+      "label": "writeByteArray (src/jx/net/xdr/FormatMem.java)",
+      "type": "function",
+      "properties": {
+        "name": "writeByteArray",
+        "startLine": 61,
+        "endLine": 66,
+        "params": [
+          "o",
+          "d"
+        ]
+      }
+    },
+    {
+      "id": "function:src/jx/net/xdr/FormatMem.java::readByte",
+      "label": "readByte (src/jx/net/xdr/FormatMem.java)",
+      "type": "function",
+      "properties": {
+        "name": "readByte",
+        "startLine": 71,
+        "endLine": 74,
+        "params": [
+          "o"
+        ]
+      }
+    },
+    {
+      "id": "function:src/jx/net/xdr/FormatMem.java::readBytes",
+      "label": "readBytes (src/jx/net/xdr/FormatMem.java)",
+      "type": "function",
+      "properties": {
+        "name": "readBytes",
+        "startLine": 76,
+        "endLine": 80,
+        "params": [
+          "o",
+          "d"
+        ]
+      }
+    },
+    {
+      "id": "function:src/jx/net/xdr/FormatMem.java::readShort",
+      "label": "readShort (src/jx/net/xdr/FormatMem.java)",
+      "type": "function",
+      "properties": {
+        "name": "readShort",
+        "startLine": 82,
+        "endLine": 87,
+        "params": [
+          "o"
+        ]
+      }
+    },
+    {
+      "id": "function:src/jx/net/xdr/FormatMem.java::readInt",
+      "label": "readInt (src/jx/net/xdr/FormatMem.java)",
+      "type": "function",
+      "properties": {
+        "name": "readInt",
+        "startLine": 101,
+        "endLine": 108,
+        "params": [
+          "o"
+        ]
+      }
+    },
+    {
+      "id": "function:src/jx/net/xdr/FormatMem.java::lengthByte",
+      "label": "lengthByte (src/jx/net/xdr/FormatMem.java)",
+      "type": "function",
+      "properties": {
+        "name": "lengthByte",
+        "startLine": 270,
+        "endLine": 270,
+        "params": [
+          "d"
+        ]
+      }
+    },
+    {
+      "id": "function:src/jx/net/xdr/FormatMem.java::lengthShort",
+      "label": "lengthShort (src/jx/net/xdr/FormatMem.java)",
+      "type": "function",
+      "properties": {
+        "name": "lengthShort",
+        "startLine": 271,
+        "endLine": 271,
+        "params": [
+          "d"
+        ]
+      }
+    },
+    {
+      "id": "function:src/jx/net/xdr/FormatMem.java::lengthInt",
+      "label": "lengthInt (src/jx/net/xdr/FormatMem.java)",
+      "type": "function",
+      "properties": {
+        "name": "lengthInt",
+        "startLine": 272,
+        "endLine": 272,
+        "params": [
+          "d"
+        ]
+      }
+    },
+    {
+      "id": "function:src/jx/net/xdr/FormatMem.java::lengthIntArray",
+      "label": "lengthIntArray (src/jx/net/xdr/FormatMem.java)",
+      "type": "function",
+      "properties": {
+        "name": "lengthIntArray",
+        "startLine": 273,
+        "endLine": 273,
+        "params": [
+          "d"
+        ]
+      }
+    },
+    {
+      "id": "function:src/jx/net/xdr/FormatMem.java::lengthShortArray",
+      "label": "lengthShortArray (src/jx/net/xdr/FormatMem.java)",
+      "type": "function",
+      "properties": {
+        "name": "lengthShortArray",
+        "startLine": 274,
+        "endLine": 274,
+        "params": [
+          "d"
+        ]
+      }
+    },
+    {
+      "id": "function:src/jx/net/xdr/FormatMem.java::lengthByteArray",
+      "label": "lengthByteArray (src/jx/net/xdr/FormatMem.java)",
+      "type": "function",
+      "properties": {
+        "name": "lengthByteArray",
+        "startLine": 275,
+        "endLine": 275,
+        "params": [
+          "d"
+        ]
+      }
+    },
+    {
+      "id": "function:src/jx/net/xdr/FormatMem.java::lengthFixByteArray",
+      "label": "lengthFixByteArray (src/jx/net/xdr/FormatMem.java)",
+      "type": "function",
+      "properties": {
+        "name": "lengthFixByteArray",
+        "startLine": 276,
+        "endLine": 276,
+        "params": [
+          "d",
+          "l"
+        ]
+      }
+    },
+    {
+      "id": "function:src/jx/net/xdr/FormatMem.java::lengthString",
+      "label": "lengthString (src/jx/net/xdr/FormatMem.java)",
+      "type": "function",
+      "properties": {
+        "name": "lengthString",
+        "startLine": 277,
+        "endLine": 283,
+        "params": [
+          "s"
+        ]
+      }
+    },
+    {
+      "id": "file:src/jx/net/xdr/XDRBuffer.java",
+      "label": "src/jx/net/xdr/XDRBuffer.java",
+      "type": "file",
+      "properties": {
+        "path": "src/jx/net/xdr/XDRBuffer.java",
+        "language": "java",
+        "category": "code",
+        "totalLines": 8,
+        "nonEmptyLines": 7
+      }
+    },
+    {
+      "id": "class:src/jx/net/xdr/XDRBuffer.java::XDRBuffer",
+      "label": "XDRBuffer (src/jx/net/xdr/XDRBuffer.java)",
+      "type": "class",
+      "properties": {
+        "name": "XDRBuffer",
+        "startLine": 3,
+        "endLine": 8,
+        "methods": [
+          "setByte",
+          "getByte",
+          "getBytes",
+          "advance"
+        ]
+      }
+    },
+    {
+      "id": "file:src/jx/README.TXT",
+      "label": "src/jx/README.TXT",
+      "type": "file",
+      "properties": {
+        "path": "src/jx/README.TXT",
+        "language": "txt",
+        "category": "docs",
+        "totalLines": 1,
+        "nonEmptyLines": 1
+      }
+    },
+    {
+      "id": "document:src/jx/README.TXT",
+      "label": "src/jx/README.TXT",
+      "type": "document",
+      "properties": {
+        "path": "src/jx/README.TXT",
+        "category": "docs",
+        "language": "txt"
+      }
+    },
+    {
+      "id": "file:src/jx/zero/ByteCodeTranslater.java",
+      "label": "src/jx/zero/ByteCodeTranslater.java",
+      "type": "file",
+      "properties": {
+        "path": "src/jx/zero/ByteCodeTranslater.java",
+        "language": "java",
+        "category": "code",
+        "totalLines": 6,
+        "nonEmptyLines": 5
+      }
+    },
+    {
+      "id": "class:src/jx/zero/ByteCodeTranslater.java::ByteCodeTranslater",
+      "label": "ByteCodeTranslater (src/jx/zero/ByteCodeTranslater.java)",
+      "type": "class",
+      "properties": {
+        "name": "ByteCodeTranslater",
+        "startLine": 3,
+        "endLine": 6,
+        "methods": [
+          "translate"
+        ]
+      }
+    },
+    {
+      "id": "file:src/jx/zero/classfile/ClassSource.java",
+      "label": "src/jx/zero/classfile/ClassSource.java",
+      "type": "file",
+      "properties": {
+        "path": "src/jx/zero/classfile/ClassSource.java",
+        "language": "java",
+        "category": "code",
+        "totalLines": 56,
+        "nonEmptyLines": 51
+      }
+    },
+    {
+      "id": "class:src/jx/zero/classfile/ClassSource.java::ClassSource",
+      "label": "ClassSource (src/jx/zero/classfile/ClassSource.java)",
+      "type": "class",
+      "properties": {
+        "name": "ClassSource",
+        "startLine": 9,
+        "endLine": 56,
+        "methods": [
+          "isPublic",
+          "isPrivate",
+          "isProtected",
+          "isStatic",
+          "isFinal",
+          "isSynchronized",
+          "isVolatile",
+          "isTransient",
+          "isNative",
+          "isInterface",
+          "isAbstract",
+          "isPublic",
+          "isPrivate",
+          "isProtected",
+          "isStatic",
+          "isFinal",
+          "isAbstract",
+          "isNative",
+          "isSynchronized",
+          "isInterface",
+          "isVolatile",
+          "isTransient",
+          "getMethods",
+          "getConstantPool",
+          "getMethod",
+          "getClassName",
+          "getSuperClassName",
+          "getInterfaceNames",
+          "getFields",
+          "getSourceFileAttribute"
+        ],
+        "properties": [
+          "ACC_PUBLIC",
+          "ACC_PRIVATE",
+          "ACC_PROTECTED",
+          "ACC_STATIC",
+          "ACC_FINAL",
+          "ACC_SYNCHRONIZED",
+          "ACC_VOLATILE",
+          "ACC_TRANSIENT",
+          "ACC_NATIVE",
+          "ACC_INTERFACE",
+          "ACC_ABSTRACT"
+        ]
+      }
+    },
+    {
+      "id": "function:src/jx/zero/classfile/ClassSource.java::isPublic",
+      "label": "isPublic (src/jx/zero/classfile/ClassSource.java)",
+      "type": "function",
+      "properties": {
+        "name": "isPublic",
+        "startLine": 22,
+        "endLine": 22,
+        "params": [
+          "accessFlags"
+        ]
+      }
+    },
+    {
+      "id": "function:src/jx/zero/classfile/ClassSource.java::isPrivate",
+      "label": "isPrivate (src/jx/zero/classfile/ClassSource.java)",
+      "type": "function",
+      "properties": {
+        "name": "isPrivate",
+        "startLine": 23,
+        "endLine": 23,
+        "params": [
+          "accessFlags"
+        ]
+      }
+    },
+    {
+      "id": "function:src/jx/zero/classfile/ClassSource.java::isProtected",
+      "label": "isProtected (src/jx/zero/classfile/ClassSource.java)",
+      "type": "function",
+      "properties": {
+        "name": "isProtected",
+        "startLine": 24,
+        "endLine": 24,
+        "params": [
+          "accessFlags"
+        ]
+      }
+    },
+    {
+      "id": "function:src/jx/zero/classfile/ClassSource.java::isStatic",
+      "label": "isStatic (src/jx/zero/classfile/ClassSource.java)",
+      "type": "function",
+      "properties": {
+        "name": "isStatic",
+        "startLine": 25,
+        "endLine": 25,
+        "params": [
+          "accessFlags"
+        ]
+      }
+    },
+    {
+      "id": "function:src/jx/zero/classfile/ClassSource.java::isFinal",
+      "label": "isFinal (src/jx/zero/classfile/ClassSource.java)",
+      "type": "function",
+      "properties": {
+        "name": "isFinal",
+        "startLine": 26,
+        "endLine": 26,
+        "params": [
+          "accessFlags"
+        ]
+      }
+    },
+    {
+      "id": "function:src/jx/zero/classfile/ClassSource.java::isSynchronized",
+      "label": "isSynchronized (src/jx/zero/classfile/ClassSource.java)",
+      "type": "function",
+      "properties": {
+        "name": "isSynchronized",
+        "startLine": 27,
+        "endLine": 27,
+        "params": [
+          "accessFlags"
+        ]
+      }
+    },
+    {
+      "id": "function:src/jx/zero/classfile/ClassSource.java::isVolatile",
+      "label": "isVolatile (src/jx/zero/classfile/ClassSource.java)",
+      "type": "function",
+      "properties": {
+        "name": "isVolatile",
+        "startLine": 28,
+        "endLine": 28,
+        "params": [
+          "accessFlags"
+        ]
+      }
+    },
+    {
+      "id": "function:src/jx/zero/classfile/ClassSource.java::isTransient",
+      "label": "isTransient (src/jx/zero/classfile/ClassSource.java)",
+      "type": "function",
+      "properties": {
+        "name": "isTransient",
+        "startLine": 29,
+        "endLine": 29,
+        "params": [
+          "accessFlags"
+        ]
+      }
+    },
+    {
+      "id": "function:src/jx/zero/classfile/ClassSource.java::isNative",
+      "label": "isNative (src/jx/zero/classfile/ClassSource.java)",
+      "type": "function",
+      "properties": {
+        "name": "isNative",
+        "startLine": 30,
+        "endLine": 30,
+        "params": [
+          "accessFlags"
+        ]
+      }
+    },
+    {
+      "id": "function:src/jx/zero/classfile/ClassSource.java::isInterface",
+      "label": "isInterface (src/jx/zero/classfile/ClassSource.java)",
+      "type": "function",
+      "properties": {
+        "name": "isInterface",
+        "startLine": 31,
+        "endLine": 31,
+        "params": [
+          "accessFlags"
+        ]
+      }
+    },
+    {
+      "id": "function:src/jx/zero/classfile/ClassSource.java::isAbstract",
+      "label": "isAbstract (src/jx/zero/classfile/ClassSource.java)",
+      "type": "function",
+      "properties": {
+        "name": "isAbstract",
+        "startLine": 32,
+        "endLine": 32,
+        "params": [
+          "accessFlags"
+        ]
+      }
+    },
+    {
+      "id": "function:src/jx/zero/classfile/ClassSource.java::getMethods",
+      "label": "getMethods (src/jx/zero/classfile/ClassSource.java)",
+      "type": "function",
+      "properties": {
+        "name": "getMethods",
+        "startLine": 47,
+        "endLine": 47
+      }
+    },
+    {
+      "id": "function:src/jx/zero/classfile/ClassSource.java::getConstantPool",
+      "label": "getConstantPool (src/jx/zero/classfile/ClassSource.java)",
+      "type": "function",
+      "properties": {
+        "name": "getConstantPool",
+        "startLine": 48,
+        "endLine": 48
+      }
+    },
+    {
+      "id": "function:src/jx/zero/classfile/ClassSource.java::getMethod",
+      "label": "getMethod (src/jx/zero/classfile/ClassSource.java)",
+      "type": "function",
+      "properties": {
+        "name": "getMethod",
+        "startLine": 49,
+        "endLine": 49,
+        "params": [
+          "methodName",
+          "methodType"
+        ]
+      }
+    },
+    {
+      "id": "function:src/jx/zero/classfile/ClassSource.java::getClassName",
+      "label": "getClassName (src/jx/zero/classfile/ClassSource.java)",
+      "type": "function",
+      "properties": {
+        "name": "getClassName",
+        "startLine": 50,
+        "endLine": 50
+      }
+    },
+    {
+      "id": "function:src/jx/zero/classfile/ClassSource.java::getSuperClassName",
+      "label": "getSuperClassName (src/jx/zero/classfile/ClassSource.java)",
+      "type": "function",
+      "properties": {
+        "name": "getSuperClassName",
+        "startLine": 51,
+        "endLine": 51
+      }
+    },
+    {
+      "id": "function:src/jx/zero/classfile/ClassSource.java::getInterfaceNames",
+      "label": "getInterfaceNames (src/jx/zero/classfile/ClassSource.java)",
+      "type": "function",
+      "properties": {
+        "name": "getInterfaceNames",
+        "startLine": 53,
+        "endLine": 53
+      }
+    },
+    {
+      "id": "function:src/jx/zero/classfile/ClassSource.java::getFields",
+      "label": "getFields (src/jx/zero/classfile/ClassSource.java)",
+      "type": "function",
+      "properties": {
+        "name": "getFields",
+        "startLine": 54,
+        "endLine": 54
+      }
+    },
+    {
+      "id": "function:src/jx/zero/classfile/ClassSource.java::getSourceFileAttribute",
+      "label": "getSourceFileAttribute (src/jx/zero/classfile/ClassSource.java)",
+      "type": "function",
+      "properties": {
+        "name": "getSourceFileAttribute",
+        "startLine": 55,
+        "endLine": 55
+      }
+    },
+    {
+      "id": "file:src/jx/zero/classfile/ConstantPool.java",
+      "label": "src/jx/zero/classfile/ConstantPool.java",
+      "type": "file",
+      "properties": {
+        "path": "src/jx/zero/classfile/ConstantPool.java",
+        "language": "java",
+        "category": "code",
+        "totalLines": 12,
+        "nonEmptyLines": 8
+      }
+    },
+    {
+      "id": "class:src/jx/zero/classfile/ConstantPool.java::ConstantPool",
+      "label": "ConstantPool (src/jx/zero/classfile/ConstantPool.java)",
+      "type": "class",
+      "properties": {
+        "name": "ConstantPool",
+        "startLine": 8,
+        "endLine": 12,
+        "methods": [
+          "classEntryAt"
+        ]
+      }
+    },
+    {
+      "id": "file:src/jx/zero/classfile/datatypes/BasicTypeDescriptor.java",
+      "label": "src/jx/zero/classfile/datatypes/BasicTypeDescriptor.java",
+      "type": "file",
+      "properties": {
+        "path": "src/jx/zero/classfile/datatypes/BasicTypeDescriptor.java",
+        "language": "java",
+        "category": "code",
+        "totalLines": 21,
+        "nonEmptyLines": 19
+      }
+    },
+    {
+      "id": "class:src/jx/zero/classfile/datatypes/BasicTypeDescriptor.java::BasicTypeDescriptor",
+      "label": "BasicTypeDescriptor (src/jx/zero/classfile/datatypes/BasicTypeDescriptor.java)",
+      "type": "class",
+      "properties": {
+        "name": "BasicTypeDescriptor",
+        "startLine": 8,
+        "endLine": 21,
+        "properties": [
+          "BYTE",
+          "CHAR",
+          "DOUBLE",
+          "FLOAT",
+          "INT",
+          "LONG",
+          "SHORT",
+          "BOOLEAN",
+          "CLASS",
+          "ARRAY",
+          "VOID"
+        ]
+      }
+    },
+    {
+      "id": "file:src/jx/zero/classfile/datatypes/BCBasicDatatype.java",
+      "label": "src/jx/zero/classfile/datatypes/BCBasicDatatype.java",
+      "type": "file",
+      "properties": {
+        "path": "src/jx/zero/classfile/datatypes/BCBasicDatatype.java",
+        "language": "java",
+        "category": "code",
+        "totalLines": 185,
+        "nonEmptyLines": 167
+      }
+    },
+    {
+      "id": "class:src/jx/zero/classfile/datatypes/BCBasicDatatype.java::BCBasicDatatype",
+      "label": "BCBasicDatatype (src/jx/zero/classfile/datatypes/BCBasicDatatype.java)",
+      "type": "class",
+      "properties": {
+        "name": "BCBasicDatatype",
+        "startLine": 17,
+        "endLine": 185,
+        "methods": [
+          "sizeInWords",
+          "toChar",
+          "toTypeDesc",
+          "isDouble",
+          "sizeInByte",
+          "translateToIMType",
+          "type",
+          "sizeInWords",
+          "toSymbol",
+          "toString"
+        ],
+        "properties": [
+          "INT",
+          "LONG",
+          "FLOAT",
+          "DOUBLE",
+          "REFERENCE",
+          "BYTE",
+          "CHAR",
+          "SHORT",
+          "BOOLEAN",
+          "RETURN_ADDRESS",
+          "VOID",
+          "UNKNOWN_TYPE",
+          "SINGLE_WORD_TYPE",
+          "DOUBLE_WORD_TYPE",
+          "SECOND_SLOT"
+        ]
+      }
+    },
+    {
+      "id": "function:src/jx/zero/classfile/datatypes/BCBasicDatatype.java::sizeInWords",
+      "label": "sizeInWords (src/jx/zero/classfile/datatypes/BCBasicDatatype.java)",
+      "type": "function",
+      "properties": {
+        "name": "sizeInWords",
+        "startLine": 54,
+        "endLine": 64,
+        "params": [
+          "datatype"
+        ]
+      }
+    },
+    {
+      "id": "function:src/jx/zero/classfile/datatypes/BCBasicDatatype.java::toChar",
+      "label": "toChar (src/jx/zero/classfile/datatypes/BCBasicDatatype.java)",
+      "type": "function",
+      "properties": {
+        "name": "toChar",
+        "startLine": 73,
+        "endLine": 88,
+        "params": [
+          "datatype"
+        ]
+      }
+    },
+    {
+      "id": "function:src/jx/zero/classfile/datatypes/BCBasicDatatype.java::toTypeDesc",
+      "label": "toTypeDesc (src/jx/zero/classfile/datatypes/BCBasicDatatype.java)",
+      "type": "function",
+      "properties": {
+        "name": "toTypeDesc",
+        "startLine": 96,
+        "endLine": 101,
+        "params": [
+          "datatype"
+        ]
+      }
+    },
+    {
+      "id": "function:src/jx/zero/classfile/datatypes/BCBasicDatatype.java::isDouble",
+      "label": "isDouble (src/jx/zero/classfile/datatypes/BCBasicDatatype.java)",
+      "type": "function",
+      "properties": {
+        "name": "isDouble",
+        "startLine": 107,
+        "endLine": 109,
+        "params": [
+          "datatype"
+        ]
+      }
+    },
+    {
+      "id": "function:src/jx/zero/classfile/datatypes/BCBasicDatatype.java::sizeInByte",
+      "label": "sizeInByte (src/jx/zero/classfile/datatypes/BCBasicDatatype.java)",
+      "type": "function",
+      "properties": {
+        "name": "sizeInByte",
+        "startLine": 116,
+        "endLine": 129,
+        "params": [
+          "datatype"
+        ]
+      }
+    },
+    {
+      "id": "function:src/jx/zero/classfile/datatypes/BCBasicDatatype.java::translateToIMType",
+      "label": "translateToIMType (src/jx/zero/classfile/datatypes/BCBasicDatatype.java)",
+      "type": "function",
+      "properties": {
+        "name": "translateToIMType",
+        "startLine": 139,
+        "endLine": 145,
+        "params": [
+          "datatype"
+        ]
+      }
+    },
+    {
+      "id": "function:src/jx/zero/classfile/datatypes/BCBasicDatatype.java::type",
+      "label": "type (src/jx/zero/classfile/datatypes/BCBasicDatatype.java)",
+      "type": "function",
+      "properties": {
+        "name": "type",
+        "startLine": 150,
+        "endLine": 150
+      }
+    },
+    {
+      "id": "function:src/jx/zero/classfile/datatypes/BCBasicDatatype.java::toSymbol",
+      "label": "toSymbol (src/jx/zero/classfile/datatypes/BCBasicDatatype.java)",
+      "type": "function",
+      "properties": {
+        "name": "toSymbol",
+        "startLine": 154,
+        "endLine": 168,
+        "params": [
+          "datatype"
+        ]
+      }
+    },
+    {
+      "id": "function:src/jx/zero/classfile/datatypes/BCBasicDatatype.java::toString",
+      "label": "toString (src/jx/zero/classfile/datatypes/BCBasicDatatype.java)",
+      "type": "function",
+      "properties": {
+        "name": "toString",
+        "startLine": 170,
+        "endLine": 184,
+        "params": [
+          "datatype"
+        ]
+      }
+    },
+    {
+      "id": "file:src/jx/zero/classfile/datatypes/BCFloatDatatype.java",
+      "label": "src/jx/zero/classfile/datatypes/BCFloatDatatype.java",
+      "type": "file",
+      "properties": {
+        "path": "src/jx/zero/classfile/datatypes/BCFloatDatatype.java",
+        "language": "java",
+        "category": "code",
+        "totalLines": 6,
+        "nonEmptyLines": 4
+      }
+    },
+    {
+      "id": "class:src/jx/zero/classfile/datatypes/BCFloatDatatype.java::BCFloatDatatype",
+      "label": "BCFloatDatatype (src/jx/zero/classfile/datatypes/BCFloatDatatype.java)",
+      "type": "class",
+      "properties": {
+        "name": "BCFloatDatatype",
+        "startLine": 4,
+        "endLine": 6,
+        "methods": [
+          "doubleValue"
+        ]
+      }
+    },
+    {
+      "id": "function:src/jx/zero/classfile/datatypes/BCFloatDatatype.java::doubleValue",
+      "label": "doubleValue (src/jx/zero/classfile/datatypes/BCFloatDatatype.java)",
+      "type": "function",
+      "properties": {
+        "name": "doubleValue",
+        "startLine": 5,
+        "endLine": 5
+      }
+    },
+    {
+      "id": "file:src/jx/zero/classfile/datatypes/BCIntegerDatatype.java",
+      "label": "src/jx/zero/classfile/datatypes/BCIntegerDatatype.java",
+      "type": "file",
+      "properties": {
+        "path": "src/jx/zero/classfile/datatypes/BCIntegerDatatype.java",
+        "language": "java",
+        "category": "code",
+        "totalLines": 37,
+        "nonEmptyLines": 30
+      }
+    },
+    {
+      "id": "class:src/jx/zero/classfile/datatypes/BCIntegerDatatype.java::BCIntegerDatatype",
+      "label": "BCIntegerDatatype (src/jx/zero/classfile/datatypes/BCIntegerDatatype.java)",
+      "type": "class",
+      "properties": {
+        "name": "BCIntegerDatatype",
+        "startLine": 4,
+        "endLine": 37,
+        "methods": [
+          "longValue",
+          "getObjectFor",
+          "combined",
+          "negated"
+        ]
+      }
+    },
+    {
+      "id": "function:src/jx/zero/classfile/datatypes/BCIntegerDatatype.java::longValue",
+      "label": "longValue (src/jx/zero/classfile/datatypes/BCIntegerDatatype.java)",
+      "type": "function",
+      "properties": {
+        "name": "longValue",
+        "startLine": 6,
+        "endLine": 6
+      }
+    },
+    {
+      "id": "function:src/jx/zero/classfile/datatypes/BCIntegerDatatype.java::getObjectFor",
+      "label": "getObjectFor (src/jx/zero/classfile/datatypes/BCIntegerDatatype.java)",
+      "type": "function",
+      "properties": {
+        "name": "getObjectFor",
+        "startLine": 8,
+        "endLine": 8,
+        "params": [
+          "value"
+        ]
+      }
+    },
+    {
+      "id": "function:src/jx/zero/classfile/datatypes/BCIntegerDatatype.java::combined",
+      "label": "combined (src/jx/zero/classfile/datatypes/BCIntegerDatatype.java)",
+      "type": "function",
+      "properties": {
+        "name": "combined",
+        "startLine": 11,
+        "endLine": 30,
+        "params": [
+          "operator",
+          "op2"
+        ]
+      }
+    },
+    {
+      "id": "function:src/jx/zero/classfile/datatypes/BCIntegerDatatype.java::negated",
+      "label": "negated (src/jx/zero/classfile/datatypes/BCIntegerDatatype.java)",
+      "type": "function",
+      "properties": {
+        "name": "negated",
+        "startLine": 32,
+        "endLine": 35
+      }
+    },
+    {
+      "id": "file:src/jx/zero/classfile/datatypes/BCNumericDatatype.java",
+      "label": "src/jx/zero/classfile/datatypes/BCNumericDatatype.java",
+      "type": "file",
+      "properties": {
+        "path": "src/jx/zero/classfile/datatypes/BCNumericDatatype.java",
+        "language": "java",
+        "category": "code",
+        "totalLines": 24,
+        "nonEmptyLines": 21
+      }
+    },
+    {
+      "id": "class:src/jx/zero/classfile/datatypes/BCNumericDatatype.java::BCNumericDatatype",
+      "label": "BCNumericDatatype (src/jx/zero/classfile/datatypes/BCNumericDatatype.java)",
+      "type": "class",
+      "properties": {
+        "name": "BCNumericDatatype",
+        "startLine": 6,
+        "endLine": 24,
+        "methods": [
+          "combined",
+          "negated"
+        ],
+        "properties": [
+          "ADD",
+          "SUB",
+          "MUL",
+          "DIV",
+          "REM",
+          "NEG",
+          "SHL",
+          "SHR",
+          "USHR",
+          "AND",
+          "OR",
+          "XOR"
+        ]
+      }
+    },
+    {
+      "id": "function:src/jx/zero/classfile/datatypes/BCNumericDatatype.java::combined",
+      "label": "combined (src/jx/zero/classfile/datatypes/BCNumericDatatype.java)",
+      "type": "function",
+      "properties": {
+        "name": "combined",
+        "startLine": 22,
+        "endLine": 22,
+        "params": [
+          "operator",
+          "op2"
+        ]
+      }
+    },
+    {
+      "id": "function:src/jx/zero/classfile/datatypes/BCNumericDatatype.java::negated",
+      "label": "negated (src/jx/zero/classfile/datatypes/BCNumericDatatype.java)",
+      "type": "function",
+      "properties": {
+        "name": "negated",
+        "startLine": 23,
+        "endLine": 23
+      }
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/jx/net/xdr/FormatMem.java",
+      "target": "class:src/jx/net/xdr/FormatMem.java::FormatMem",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/net/xdr/FormatMem.java",
+      "target": "class:src/jx/net/xdr/FormatMem.java::FormatMem",
+      "label": "exports",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/jx/net/xdr/FormatMem.java",
+      "target": "function:src/jx/net/xdr/FormatMem.java::FormatMem",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/net/xdr/FormatMem.java",
+      "target": "function:src/jx/net/xdr/FormatMem.java::init",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/net/xdr/FormatMem.java",
+      "target": "function:src/jx/net/xdr/FormatMem.java::length",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/net/xdr/FormatMem.java",
+      "target": "function:src/jx/net/xdr/FormatMem.java::writeInt",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/net/xdr/FormatMem.java",
+      "target": "function:src/jx/net/xdr/FormatMem.java::writeShort",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/net/xdr/FormatMem.java",
+      "target": "function:src/jx/net/xdr/FormatMem.java::writeUShort",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/net/xdr/FormatMem.java",
+      "target": "function:src/jx/net/xdr/FormatMem.java::writeByte",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/net/xdr/FormatMem.java",
+      "target": "function:src/jx/net/xdr/FormatMem.java::writeBytes",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/net/xdr/FormatMem.java",
+      "target": "function:src/jx/net/xdr/FormatMem.java::writeString",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/net/xdr/FormatMem.java",
+      "target": "function:src/jx/net/xdr/FormatMem.java::writeIntArray",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/net/xdr/FormatMem.java",
+      "target": "function:src/jx/net/xdr/FormatMem.java::writeByteArray",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/net/xdr/FormatMem.java",
+      "target": "function:src/jx/net/xdr/FormatMem.java::readByte",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/net/xdr/FormatMem.java",
+      "target": "function:src/jx/net/xdr/FormatMem.java::readBytes",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/net/xdr/FormatMem.java",
+      "target": "function:src/jx/net/xdr/FormatMem.java::readShort",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/net/xdr/FormatMem.java",
+      "target": "function:src/jx/net/xdr/FormatMem.java::readInt",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/net/xdr/FormatMem.java",
+      "target": "function:src/jx/net/xdr/FormatMem.java::lengthByte",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/net/xdr/FormatMem.java",
+      "target": "function:src/jx/net/xdr/FormatMem.java::lengthShort",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/net/xdr/FormatMem.java",
+      "target": "function:src/jx/net/xdr/FormatMem.java::lengthInt",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/net/xdr/FormatMem.java",
+      "target": "function:src/jx/net/xdr/FormatMem.java::lengthIntArray",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/net/xdr/FormatMem.java",
+      "target": "function:src/jx/net/xdr/FormatMem.java::lengthShortArray",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/net/xdr/FormatMem.java",
+      "target": "function:src/jx/net/xdr/FormatMem.java::lengthByteArray",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/net/xdr/FormatMem.java",
+      "target": "function:src/jx/net/xdr/FormatMem.java::lengthFixByteArray",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/net/xdr/FormatMem.java",
+      "target": "function:src/jx/net/xdr/FormatMem.java::lengthString",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/net/xdr/XDRBuffer.java",
+      "target": "class:src/jx/net/xdr/XDRBuffer.java::XDRBuffer",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/net/xdr/XDRBuffer.java",
+      "target": "class:src/jx/net/xdr/XDRBuffer.java::XDRBuffer",
+      "label": "exports",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/jx/net/xdr/XDRBuffer.java",
+      "target": "file:src/jx/net/xdr/FormatMem.java",
+      "label": "related",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/jx/zero/ByteCodeTranslater.java",
+      "target": "class:src/jx/zero/ByteCodeTranslater.java::ByteCodeTranslater",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/zero/ByteCodeTranslater.java",
+      "target": "class:src/jx/zero/ByteCodeTranslater.java::ByteCodeTranslater",
+      "label": "exports",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/jx/zero/classfile/ClassSource.java",
+      "target": "class:src/jx/zero/classfile/ClassSource.java::ClassSource",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/zero/classfile/ClassSource.java",
+      "target": "class:src/jx/zero/classfile/ClassSource.java::ClassSource",
+      "label": "exports",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/jx/zero/classfile/ClassSource.java",
+      "target": "function:src/jx/zero/classfile/ClassSource.java::isPublic",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/zero/classfile/ClassSource.java",
+      "target": "function:src/jx/zero/classfile/ClassSource.java::isPrivate",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/zero/classfile/ClassSource.java",
+      "target": "function:src/jx/zero/classfile/ClassSource.java::isProtected",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/zero/classfile/ClassSource.java",
+      "target": "function:src/jx/zero/classfile/ClassSource.java::isStatic",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/zero/classfile/ClassSource.java",
+      "target": "function:src/jx/zero/classfile/ClassSource.java::isFinal",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/zero/classfile/ClassSource.java",
+      "target": "function:src/jx/zero/classfile/ClassSource.java::isSynchronized",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/zero/classfile/ClassSource.java",
+      "target": "function:src/jx/zero/classfile/ClassSource.java::isVolatile",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/zero/classfile/ClassSource.java",
+      "target": "function:src/jx/zero/classfile/ClassSource.java::isTransient",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/zero/classfile/ClassSource.java",
+      "target": "function:src/jx/zero/classfile/ClassSource.java::isNative",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/zero/classfile/ClassSource.java",
+      "target": "function:src/jx/zero/classfile/ClassSource.java::isInterface",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/zero/classfile/ClassSource.java",
+      "target": "function:src/jx/zero/classfile/ClassSource.java::isAbstract",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/zero/classfile/ClassSource.java",
+      "target": "function:src/jx/zero/classfile/ClassSource.java::getMethods",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/zero/classfile/ClassSource.java",
+      "target": "function:src/jx/zero/classfile/ClassSource.java::getConstantPool",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/zero/classfile/ClassSource.java",
+      "target": "function:src/jx/zero/classfile/ClassSource.java::getMethod",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/zero/classfile/ClassSource.java",
+      "target": "function:src/jx/zero/classfile/ClassSource.java::getClassName",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/zero/classfile/ClassSource.java",
+      "target": "function:src/jx/zero/classfile/ClassSource.java::getSuperClassName",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/zero/classfile/ClassSource.java",
+      "target": "function:src/jx/zero/classfile/ClassSource.java::getInterfaceNames",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/zero/classfile/ClassSource.java",
+      "target": "function:src/jx/zero/classfile/ClassSource.java::getFields",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/zero/classfile/ClassSource.java",
+      "target": "function:src/jx/zero/classfile/ClassSource.java::getSourceFileAttribute",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/zero/classfile/ConstantPool.java",
+      "target": "class:src/jx/zero/classfile/ConstantPool.java::ConstantPool",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/zero/classfile/ConstantPool.java",
+      "target": "class:src/jx/zero/classfile/ConstantPool.java::ConstantPool",
+      "label": "exports",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/jx/zero/classfile/ConstantPool.java",
+      "target": "file:src/jx/zero/classfile/ClassSource.java",
+      "label": "related",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/jx/zero/classfile/datatypes/BasicTypeDescriptor.java",
+      "target": "class:src/jx/zero/classfile/datatypes/BasicTypeDescriptor.java::BasicTypeDescriptor",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/zero/classfile/datatypes/BasicTypeDescriptor.java",
+      "target": "class:src/jx/zero/classfile/datatypes/BasicTypeDescriptor.java::BasicTypeDescriptor",
+      "label": "exports",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/jx/zero/classfile/datatypes/BCBasicDatatype.java",
+      "target": "class:src/jx/zero/classfile/datatypes/BCBasicDatatype.java::BCBasicDatatype",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/zero/classfile/datatypes/BCBasicDatatype.java",
+      "target": "class:src/jx/zero/classfile/datatypes/BCBasicDatatype.java::BCBasicDatatype",
+      "label": "exports",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/jx/zero/classfile/datatypes/BCBasicDatatype.java",
+      "target": "function:src/jx/zero/classfile/datatypes/BCBasicDatatype.java::sizeInWords",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/zero/classfile/datatypes/BCBasicDatatype.java",
+      "target": "function:src/jx/zero/classfile/datatypes/BCBasicDatatype.java::toChar",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/zero/classfile/datatypes/BCBasicDatatype.java",
+      "target": "function:src/jx/zero/classfile/datatypes/BCBasicDatatype.java::toTypeDesc",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/zero/classfile/datatypes/BCBasicDatatype.java",
+      "target": "function:src/jx/zero/classfile/datatypes/BCBasicDatatype.java::isDouble",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/zero/classfile/datatypes/BCBasicDatatype.java",
+      "target": "function:src/jx/zero/classfile/datatypes/BCBasicDatatype.java::sizeInByte",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/zero/classfile/datatypes/BCBasicDatatype.java",
+      "target": "function:src/jx/zero/classfile/datatypes/BCBasicDatatype.java::translateToIMType",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/zero/classfile/datatypes/BCBasicDatatype.java",
+      "target": "function:src/jx/zero/classfile/datatypes/BCBasicDatatype.java::type",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/zero/classfile/datatypes/BCBasicDatatype.java",
+      "target": "function:src/jx/zero/classfile/datatypes/BCBasicDatatype.java::toSymbol",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/zero/classfile/datatypes/BCBasicDatatype.java",
+      "target": "function:src/jx/zero/classfile/datatypes/BCBasicDatatype.java::toString",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/zero/classfile/datatypes/BCBasicDatatype.java",
+      "target": "file:src/jx/zero/classfile/datatypes/BasicTypeDescriptor.java",
+      "label": "related",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/jx/zero/classfile/datatypes/BCFloatDatatype.java",
+      "target": "class:src/jx/zero/classfile/datatypes/BCFloatDatatype.java::BCFloatDatatype",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/zero/classfile/datatypes/BCFloatDatatype.java",
+      "target": "class:src/jx/zero/classfile/datatypes/BCFloatDatatype.java::BCFloatDatatype",
+      "label": "exports",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/jx/zero/classfile/datatypes/BCFloatDatatype.java",
+      "target": "function:src/jx/zero/classfile/datatypes/BCFloatDatatype.java::doubleValue",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/zero/classfile/datatypes/BCFloatDatatype.java",
+      "target": "file:src/jx/zero/classfile/datatypes/BasicTypeDescriptor.java",
+      "label": "related",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/jx/zero/classfile/datatypes/BCFloatDatatype.java",
+      "target": "file:src/jx/zero/classfile/datatypes/BCBasicDatatype.java",
+      "label": "related",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/jx/zero/classfile/datatypes/BCIntegerDatatype.java",
+      "target": "class:src/jx/zero/classfile/datatypes/BCIntegerDatatype.java::BCIntegerDatatype",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/zero/classfile/datatypes/BCIntegerDatatype.java",
+      "target": "class:src/jx/zero/classfile/datatypes/BCIntegerDatatype.java::BCIntegerDatatype",
+      "label": "exports",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/jx/zero/classfile/datatypes/BCIntegerDatatype.java",
+      "target": "function:src/jx/zero/classfile/datatypes/BCIntegerDatatype.java::longValue",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/zero/classfile/datatypes/BCIntegerDatatype.java",
+      "target": "function:src/jx/zero/classfile/datatypes/BCIntegerDatatype.java::getObjectFor",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/zero/classfile/datatypes/BCIntegerDatatype.java",
+      "target": "function:src/jx/zero/classfile/datatypes/BCIntegerDatatype.java::combined",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/zero/classfile/datatypes/BCIntegerDatatype.java",
+      "target": "function:src/jx/zero/classfile/datatypes/BCIntegerDatatype.java::negated",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/zero/classfile/datatypes/BCIntegerDatatype.java",
+      "target": "file:src/jx/zero/classfile/datatypes/BasicTypeDescriptor.java",
+      "label": "related",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/jx/zero/classfile/datatypes/BCIntegerDatatype.java",
+      "target": "file:src/jx/zero/classfile/datatypes/BCBasicDatatype.java",
+      "label": "related",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/jx/zero/classfile/datatypes/BCIntegerDatatype.java",
+      "target": "file:src/jx/zero/classfile/datatypes/BCFloatDatatype.java",
+      "label": "related",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/jx/zero/classfile/datatypes/BCNumericDatatype.java",
+      "target": "class:src/jx/zero/classfile/datatypes/BCNumericDatatype.java::BCNumericDatatype",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/zero/classfile/datatypes/BCNumericDatatype.java",
+      "target": "class:src/jx/zero/classfile/datatypes/BCNumericDatatype.java::BCNumericDatatype",
+      "label": "exports",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/jx/zero/classfile/datatypes/BCNumericDatatype.java",
+      "target": "function:src/jx/zero/classfile/datatypes/BCNumericDatatype.java::combined",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/zero/classfile/datatypes/BCNumericDatatype.java",
+      "target": "function:src/jx/zero/classfile/datatypes/BCNumericDatatype.java::negated",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/zero/classfile/datatypes/BCNumericDatatype.java",
+      "target": "file:src/jx/zero/classfile/datatypes/BasicTypeDescriptor.java",
+      "label": "related",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/jx/zero/classfile/datatypes/BCNumericDatatype.java",
+      "target": "file:src/jx/zero/classfile/datatypes/BCBasicDatatype.java",
+      "label": "related",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/jx/zero/classfile/datatypes/BCNumericDatatype.java",
+      "target": "file:src/jx/zero/classfile/datatypes/BCFloatDatatype.java",
+      "label": "related",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/jx/zero/classfile/datatypes/BCNumericDatatype.java",
+      "target": "file:src/jx/zero/classfile/datatypes/BCIntegerDatatype.java",
+      "label": "related",
+      "weight": 0.5
+    }
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "batchIndex": 12,
+  "nodes": [
+    {
+      "id": "file:src/jx/devices/Bus.java",
+      "type": "file",
+      "path": "src/jx/devices/Bus.java",
+      "sizeLines": 5,
+      "language": "java",
+      "fileCategory": "code"
+    },
+    {
+      "id": "class:jx.devices.Bus",
+      "type": "class",
+      "name": "jx.devices.Bus",
+      "startLine": 3,
+      "endLine": 5
+    },
+    {
+      "id": "file:src/jx/devices/ide/IDEDevice.java",
+      "type": "file",
+      "path": "src/jx/devices/ide/IDEDevice.java",
+      "sizeLines": 46,
+      "language": "java",
+      "fileCategory": "code"
+    },
+    {
+      "id": "class:jx.devices.ide.IDEDevice",
+      "type": "class",
+      "name": "jx.devices.ide.IDEDevice",
+      "startLine": 14,
+      "endLine": 46
+    },
+    {
+      "id": "file:src/jx/devices/pci/PCIDevice.java",
+      "type": "file",
+      "path": "src/jx/devices/pci/PCIDevice.java",
+      "sizeLines": 56,
+      "language": "java",
+      "fileCategory": "code"
+    },
+    {
+      "id": "class:jx.devices.pci.PCIDevice",
+      "type": "class",
+      "name": "jx.devices.pci.PCIDevice",
+      "startLine": 10,
+      "endLine": 56
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/jx/devices/Bus.java",
+      "target": "class:jx.devices.Bus",
+      "relationship": "contains"
+    },
+    {
+      "source": "file:src/jx/devices/ide/IDEDevice.java",
+      "target": "class:jx.devices.ide.IDEDevice",
+      "relationship": "contains"
+    },
+    {
+      "source": "file:src/jx/devices/pci/PCIDevice.java",
+      "target": "class:jx.devices.pci.PCIDevice",
+      "relationship": "contains"
+    },
+    {
+      "source": "file:src/jx/devices/ide/IDEDevice.java",
+      "target": "file:src/jx/devices/Bus.java",
+      "relationship": "imports"
+    },
+    {
+      "source": "file:src/jx/devices/pci/PCIDevice.java",
+      "target": "file:src/jx/devices/Bus.java",
+      "relationship": "imports"
+    },
+    {
+      "source": "class:jx.devices.ide.IDEDevice",
+      "target": "class:jx.devices.Bus",
+      "relationship": "extends"
+    },
+    {
+      "source": "class:jx.devices.pci.PCIDevice",
+      "target": "class:jx.devices.Bus",
+      "relationship": "extends"
+    }
+  ],
+  "filesAnalyzed": 3,
+  "filesSkipped": []
+}

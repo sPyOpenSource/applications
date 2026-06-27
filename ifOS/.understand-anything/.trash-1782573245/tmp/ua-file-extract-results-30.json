@@ -1,0 +1,1144 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 25,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "src/jx/net/rpcsvc/nfs/ReadDirRes.ctxt",
+      "language": "ctxt",
+      "fileCategory": "code",
+      "totalLines": 4,
+      "nonEmptyLines": 4,
+      "metrics": {}
+    },
+    {
+      "path": "src/jx/net/rpcsvc/nfs/ReadDirRes.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 10,
+      "nonEmptyLines": 7,
+      "classes": [
+        {
+          "name": "ReadDirRes",
+          "startLine": 8,
+          "endLine": 10,
+          "methods": [],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "ReadDirRes",
+          "line": 8,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/jx/net/rpcsvc/nfs/ReadLinkRes.ctxt",
+      "language": "ctxt",
+      "fileCategory": "code",
+      "totalLines": 4,
+      "nonEmptyLines": 4,
+      "metrics": {}
+    },
+    {
+      "path": "src/jx/net/rpcsvc/nfs/ReadLinkRes.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 10,
+      "nonEmptyLines": 7,
+      "classes": [
+        {
+          "name": "ReadLinkRes",
+          "startLine": 8,
+          "endLine": 10,
+          "methods": [],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "ReadLinkRes",
+          "line": 8,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/jx/net/rpcsvc/nfs/ReadRes.ctxt",
+      "language": "ctxt",
+      "fileCategory": "code",
+      "totalLines": 4,
+      "nonEmptyLines": 4,
+      "metrics": {}
+    },
+    {
+      "path": "src/jx/net/rpcsvc/nfs/ReadRes.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 10,
+      "nonEmptyLines": 7,
+      "classes": [
+        {
+          "name": "ReadRes",
+          "startLine": 8,
+          "endLine": 10,
+          "methods": [],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "ReadRes",
+          "line": 8,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/jx/net/rpcsvc/nfs/SAttr.ctxt",
+      "language": "ctxt",
+      "fileCategory": "code",
+      "totalLines": 4,
+      "nonEmptyLines": 4,
+      "metrics": {}
+    },
+    {
+      "path": "src/jx/net/rpcsvc/nfs/SAttr.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 10,
+      "nonEmptyLines": 7,
+      "classes": [
+        {
+          "name": "SAttr",
+          "startLine": 8,
+          "endLine": 10,
+          "methods": [],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "SAttr",
+          "line": 8,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/jx/net/rpcsvc/nfs/Stat.ctxt",
+      "language": "ctxt",
+      "fileCategory": "code",
+      "totalLines": 4,
+      "nonEmptyLines": 4,
+      "metrics": {}
+    },
+    {
+      "path": "src/jx/net/rpcsvc/nfs/Stat.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 10,
+      "nonEmptyLines": 7,
+      "classes": [
+        {
+          "name": "Stat",
+          "startLine": 8,
+          "endLine": 10,
+          "methods": [],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "Stat",
+          "line": 8,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/jx/net/rpcsvc/nfs/StatFSRes.ctxt",
+      "language": "ctxt",
+      "fileCategory": "code",
+      "totalLines": 4,
+      "nonEmptyLines": 4,
+      "metrics": {}
+    },
+    {
+      "path": "src/jx/net/rpcsvc/nfs/StatFSRes.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 10,
+      "nonEmptyLines": 7,
+      "classes": [
+        {
+          "name": "StatFSRes",
+          "startLine": 8,
+          "endLine": 10,
+          "methods": [],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "StatFSRes",
+          "line": 8,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/jx/net/rpcsvc/package.bluej",
+      "language": "bluej",
+      "fileCategory": "code",
+      "totalLines": 32,
+      "nonEmptyLines": 32,
+      "metrics": {}
+    },
+    {
+      "path": "src/jx/net/TCPSocket.ctxt",
+      "language": "ctxt",
+      "fileCategory": "code",
+      "totalLines": 19,
+      "nonEmptyLines": 19,
+      "metrics": {}
+    },
+    {
+      "path": "src/jx/net/TCPSocket.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 16,
+      "nonEmptyLines": 14,
+      "classes": [
+        {
+          "name": "TCPSocket",
+          "startLine": 6,
+          "endLine": 16,
+          "methods": [
+            "processTCP",
+            "processTCPServer",
+            "processClientSocket",
+            "accept",
+            "close",
+            "open",
+            "readFromInputBuffer",
+            "send"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "TCPSocket",
+          "line": 6,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/jx/net/UDPConsumer.ctxt",
+      "language": "ctxt",
+      "fileCategory": "code",
+      "totalLines": 5,
+      "nonEmptyLines": 5,
+      "metrics": {}
+    },
+    {
+      "path": "src/jx/net/UDPConsumer.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 7,
+      "nonEmptyLines": 5,
+      "classes": [
+        {
+          "name": "UDPConsumer",
+          "startLine": 5,
+          "endLine": 7,
+          "methods": [
+            "processUDP"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "UDPConsumer",
+          "line": 5,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/jx/net/UDPData.ctxt",
+      "language": "ctxt",
+      "fileCategory": "code",
+      "totalLines": 20,
+      "nonEmptyLines": 20,
+      "metrics": {}
+    },
+    {
+      "path": "src/jx/net/UDPData.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 27,
+      "nonEmptyLines": 16,
+      "classes": [
+        {
+          "name": "UDPData",
+          "startLine": 10,
+          "endLine": 27,
+          "methods": [
+            "setMemory",
+            "setSourcePort",
+            "setSourceAddress",
+            "Size",
+            "getOffset",
+            "getMemory",
+            "getSourceAddress",
+            "getSourcePort"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "UDPData",
+          "line": 10,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/jx/net/UDPReceiver.ctxt",
+      "language": "ctxt",
+      "fileCategory": "code",
+      "totalLines": 9,
+      "nonEmptyLines": 9,
+      "metrics": {}
+    },
+    {
+      "path": "src/jx/net/UDPReceiver.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 9,
+      "nonEmptyLines": 7,
+      "classes": [
+        {
+          "name": "UDPReceiver",
+          "startLine": 5,
+          "endLine": 9,
+          "methods": [
+            "receive",
+            "receive",
+            "close"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "UDPReceiver",
+          "line": 5,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/jx/net/UDPSender.ctxt",
+      "language": "ctxt",
+      "fileCategory": "code",
+      "totalLines": 15,
+      "nonEmptyLines": 15,
+      "metrics": {}
+    },
+    {
+      "path": "src/jx/net/UDPSender.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 12,
+      "nonEmptyLines": 10,
+      "classes": [
+        {
+          "name": "UDPSender",
+          "startLine": 5,
+          "endLine": 12,
+          "methods": [
+            "send",
+            "send1",
+            "close",
+            "getLocalPort",
+            "getRemotePort",
+            "getDestination"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "UDPSender",
+          "line": 5,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/jx/net/xdr/Format.ctxt",
+      "language": "ctxt",
+      "fileCategory": "code",
+      "totalLines": 63,
+      "nonEmptyLines": 63,
+      "metrics": {}
+    },
+    {
+      "path": "src/jx/net/xdr/Format.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 285,
+      "nonEmptyLines": 246,
+      "functions": [
+        {
+          "name": "Format",
+          "startLine": 10,
+          "endLine": 10,
+          "params": [
+            "buf",
+            "offset"
+          ]
+        },
+        {
+          "name": "Format",
+          "startLine": 11,
+          "endLine": 11,
+          "params": []
+        },
+        {
+          "name": "init",
+          "startLine": 13,
+          "endLine": 13,
+          "params": [
+            "buf",
+            "offset"
+          ]
+        },
+        {
+          "name": "length",
+          "startLine": 15,
+          "endLine": 15,
+          "params": []
+        },
+        {
+          "name": "writeInt",
+          "startLine": 110,
+          "endLine": 116,
+          "params": [
+            "buf",
+            "d"
+          ]
+        },
+        {
+          "name": "writeShort",
+          "startLine": 118,
+          "endLine": 122,
+          "params": [
+            "buf",
+            "d"
+          ]
+        },
+        {
+          "name": "writeString",
+          "startLine": 124,
+          "endLine": 129,
+          "params": [
+            "buf",
+            "s"
+          ]
+        },
+        {
+          "name": "readInt",
+          "startLine": 131,
+          "endLine": 139,
+          "params": [
+            "buf"
+          ]
+        },
+        {
+          "name": "readShort",
+          "startLine": 141,
+          "endLine": 148,
+          "params": [
+            "buf"
+          ]
+        },
+        {
+          "name": "readByte",
+          "startLine": 151,
+          "endLine": 156,
+          "params": [
+            "buf"
+          ]
+        },
+        {
+          "name": "writeByteArray",
+          "startLine": 158,
+          "endLine": 164,
+          "params": [
+            "buf",
+            "d"
+          ]
+        },
+        {
+          "name": "writeFixByteArray",
+          "startLine": 166,
+          "endLine": 175,
+          "params": [
+            "buf",
+            "d",
+            "l"
+          ]
+        },
+        {
+          "name": "writeIntArray",
+          "startLine": 177,
+          "endLine": 182,
+          "params": [
+            "buf",
+            "d"
+          ]
+        },
+        {
+          "name": "writeShortArray",
+          "startLine": 183,
+          "endLine": 188,
+          "params": [
+            "buf",
+            "d"
+          ]
+        },
+        {
+          "name": "readBoolean",
+          "startLine": 190,
+          "endLine": 193,
+          "params": [
+            "buf"
+          ]
+        },
+        {
+          "name": "readIntArray",
+          "startLine": 195,
+          "endLine": 203,
+          "params": [
+            "buf"
+          ]
+        },
+        {
+          "name": "readShortArray",
+          "startLine": 204,
+          "endLine": 211,
+          "params": [
+            "buf"
+          ]
+        },
+        {
+          "name": "readByteArray",
+          "startLine": 213,
+          "endLine": 222,
+          "params": [
+            "buf"
+          ]
+        },
+        {
+          "name": "readFixByteArray",
+          "startLine": 224,
+          "endLine": 230,
+          "params": [
+            "buf",
+            "l"
+          ]
+        },
+        {
+          "name": "readString",
+          "startLine": 233,
+          "endLine": 260,
+          "params": [
+            "buf"
+          ]
+        },
+        {
+          "name": "lengthByte",
+          "startLine": 266,
+          "endLine": 266,
+          "params": [
+            "d"
+          ]
+        },
+        {
+          "name": "lengthShort",
+          "startLine": 267,
+          "endLine": 267,
+          "params": [
+            "d"
+          ]
+        },
+        {
+          "name": "lengthInt",
+          "startLine": 268,
+          "endLine": 268,
+          "params": [
+            "d"
+          ]
+        },
+        {
+          "name": "lengthIntArray",
+          "startLine": 269,
+          "endLine": 269,
+          "params": [
+            "d"
+          ]
+        },
+        {
+          "name": "lengthShortArray",
+          "startLine": 270,
+          "endLine": 270,
+          "params": [
+            "d"
+          ]
+        },
+        {
+          "name": "lengthByteArray",
+          "startLine": 271,
+          "endLine": 271,
+          "params": [
+            "d"
+          ]
+        },
+        {
+          "name": "lengthFixByteArray",
+          "startLine": 272,
+          "endLine": 272,
+          "params": [
+            "d",
+            "l"
+          ]
+        },
+        {
+          "name": "lengthString",
+          "startLine": 273,
+          "endLine": 279,
+          "params": [
+            "s"
+          ]
+        },
+        {
+          "name": "readByte",
+          "startLine": 281,
+          "endLine": 284,
+          "params": [
+            "buf",
+            "o"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Format",
+          "startLine": 5,
+          "endLine": 285,
+          "methods": [
+            "Format",
+            "Format",
+            "init",
+            "length",
+            "writeInt",
+            "writeShort",
+            "writeString",
+            "readInt",
+            "readShort",
+            "readByte",
+            "writeByteArray",
+            "writeFixByteArray",
+            "writeIntArray",
+            "writeShortArray",
+            "readBoolean",
+            "readIntArray",
+            "readShortArray",
+            "readByteArray",
+            "readFixByteArray",
+            "readString",
+            "lengthByte",
+            "lengthShort",
+            "lengthInt",
+            "lengthIntArray",
+            "lengthShortArray",
+            "lengthByteArray",
+            "lengthFixByteArray",
+            "lengthString",
+            "readByte"
+          ],
+          "properties": [
+            "debug",
+            "buf",
+            "offset"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "length",
+          "line": 15,
+          "isDefault": false
+        },
+        {
+          "name": "writeInt",
+          "line": 110,
+          "isDefault": false
+        },
+        {
+          "name": "writeShort",
+          "line": 118,
+          "isDefault": false
+        },
+        {
+          "name": "writeString",
+          "line": 124,
+          "isDefault": false
+        },
+        {
+          "name": "readInt",
+          "line": 131,
+          "isDefault": false
+        },
+        {
+          "name": "readShort",
+          "line": 141,
+          "isDefault": false
+        },
+        {
+          "name": "readByte",
+          "line": 151,
+          "isDefault": false
+        },
+        {
+          "name": "writeByteArray",
+          "line": 158,
+          "isDefault": false
+        },
+        {
+          "name": "writeFixByteArray",
+          "line": 166,
+          "isDefault": false
+        },
+        {
+          "name": "writeIntArray",
+          "line": 177,
+          "isDefault": false
+        },
+        {
+          "name": "writeShortArray",
+          "line": 183,
+          "isDefault": false
+        },
+        {
+          "name": "readBoolean",
+          "line": 190,
+          "isDefault": false
+        },
+        {
+          "name": "readIntArray",
+          "line": 195,
+          "isDefault": false
+        },
+        {
+          "name": "readShortArray",
+          "line": 204,
+          "isDefault": false
+        },
+        {
+          "name": "readByteArray",
+          "line": 213,
+          "isDefault": false
+        },
+        {
+          "name": "readFixByteArray",
+          "line": 224,
+          "isDefault": false
+        },
+        {
+          "name": "readString",
+          "line": 233,
+          "isDefault": false
+        },
+        {
+          "name": "lengthByte",
+          "line": 266,
+          "isDefault": false
+        },
+        {
+          "name": "lengthShort",
+          "line": 267,
+          "isDefault": false
+        },
+        {
+          "name": "lengthInt",
+          "line": 268,
+          "isDefault": false
+        },
+        {
+          "name": "lengthIntArray",
+          "line": 269,
+          "isDefault": false
+        },
+        {
+          "name": "lengthShortArray",
+          "line": 270,
+          "isDefault": false
+        },
+        {
+          "name": "lengthByteArray",
+          "line": 271,
+          "isDefault": false
+        },
+        {
+          "name": "lengthFixByteArray",
+          "line": 272,
+          "isDefault": false
+        },
+        {
+          "name": "lengthString",
+          "line": 273,
+          "isDefault": false
+        },
+        {
+          "name": "Format",
+          "line": 5,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "Format",
+          "callee": "init",
+          "lineNumber": 10
+        },
+        {
+          "caller": "writeInt",
+          "callee": "buf.setByte",
+          "lineNumber": 111
+        },
+        {
+          "caller": "writeInt",
+          "callee": "buf.setByte",
+          "lineNumber": 112
+        },
+        {
+          "caller": "writeInt",
+          "callee": "buf.setByte",
+          "lineNumber": 113
+        },
+        {
+          "caller": "writeInt",
+          "callee": "buf.setByte",
+          "lineNumber": 114
+        },
+        {
+          "caller": "writeInt",
+          "callee": "buf.advance",
+          "lineNumber": 115
+        },
+        {
+          "caller": "writeShort",
+          "callee": "buf.setByte",
+          "lineNumber": 119
+        },
+        {
+          "caller": "writeShort",
+          "callee": "buf.setByte",
+          "lineNumber": 120
+        },
+        {
+          "caller": "writeShort",
+          "callee": "buf.advance",
+          "lineNumber": 121
+        },
+        {
+          "caller": "writeString",
+          "callee": "s.getBytes",
+          "lineNumber": 125
+        },
+        {
+          "caller": "writeString",
+          "callee": "writeByteArray",
+          "lineNumber": 126
+        },
+        {
+          "caller": "writeString",
+          "callee": "s.length",
+          "lineNumber": 127
+        },
+        {
+          "caller": "writeString",
+          "callee": "buf.advance",
+          "lineNumber": 128
+        },
+        {
+          "caller": "readInt",
+          "callee": "buf.getByte",
+          "lineNumber": 132
+        },
+        {
+          "caller": "readInt",
+          "callee": "buf.getByte",
+          "lineNumber": 133
+        },
+        {
+          "caller": "readInt",
+          "callee": "buf.getByte",
+          "lineNumber": 134
+        },
+        {
+          "caller": "readInt",
+          "callee": "buf.getByte",
+          "lineNumber": 135
+        },
+        {
+          "caller": "readInt",
+          "callee": "buf.advance",
+          "lineNumber": 137
+        },
+        {
+          "caller": "readShort",
+          "callee": "readByte",
+          "lineNumber": 143
+        },
+        {
+          "caller": "readShort",
+          "callee": "readByte",
+          "lineNumber": 144
+        },
+        {
+          "caller": "readShort",
+          "callee": "buf.advance",
+          "lineNumber": 145
+        },
+        {
+          "caller": "readByte",
+          "callee": "readByte",
+          "lineNumber": 152
+        },
+        {
+          "caller": "readByte",
+          "callee": "buf.advance",
+          "lineNumber": 153
+        },
+        {
+          "caller": "writeByteArray",
+          "callee": "writeInt",
+          "lineNumber": 159
+        },
+        {
+          "caller": "writeByteArray",
+          "callee": "buf.setByte",
+          "lineNumber": 161
+        },
+        {
+          "caller": "writeByteArray",
+          "callee": "buf.advance",
+          "lineNumber": 163
+        },
+        {
+          "caller": "writeFixByteArray",
+          "callee": "System.exit",
+          "lineNumber": 169
+        },
+        {
+          "caller": "writeFixByteArray",
+          "callee": "buf.setByte",
+          "lineNumber": 172
+        },
+        {
+          "caller": "writeFixByteArray",
+          "callee": "buf.advance",
+          "lineNumber": 174
+        },
+        {
+          "caller": "writeIntArray",
+          "callee": "writeInt",
+          "lineNumber": 178
+        },
+        {
+          "caller": "writeIntArray",
+          "callee": "writeInt",
+          "lineNumber": 180
+        },
+        {
+          "caller": "writeShortArray",
+          "callee": "writeInt",
+          "lineNumber": 184
+        },
+        {
+          "caller": "writeShortArray",
+          "callee": "writeShort",
+          "lineNumber": 186
+        },
+        {
+          "caller": "readBoolean",
+          "callee": "readInt",
+          "lineNumber": 191
+        },
+        {
+          "caller": "readIntArray",
+          "callee": "readInt",
+          "lineNumber": 196
+        },
+        {
+          "caller": "readIntArray",
+          "callee": "readInt",
+          "lineNumber": 200
+        },
+        {
+          "caller": "readShortArray",
+          "callee": "readInt",
+          "lineNumber": 205
+        },
+        {
+          "caller": "readShortArray",
+          "callee": "readShort",
+          "lineNumber": 208
+        },
+        {
+          "caller": "readByteArray",
+          "callee": "readInt",
+          "lineNumber": 214
+        },
+        {
+          "caller": "readByteArray",
+          "callee": "buf.getByte",
+          "lineNumber": 218
+        },
+        {
+          "caller": "readByteArray",
+          "callee": "buf.advance",
+          "lineNumber": 220
+        },
+        {
+          "caller": "readFixByteArray",
+          "callee": "readByte",
+          "lineNumber": 227
+        },
+        {
+          "caller": "readString",
+          "callee": "readInt",
+          "lineNumber": 234
+        },
+        {
+          "caller": "readString",
+          "callee": "new Error",
+          "lineNumber": 236
+        },
+        {
+          "caller": "readString",
+          "callee": "readByte",
+          "lineNumber": 249
+        },
+        {
+          "caller": "readString",
+          "callee": "buf.advance",
+          "lineNumber": 252
+        },
+        {
+          "caller": "readString",
+          "callee": "buf.advance",
+          "lineNumber": 256
+        },
+        {
+          "caller": "readString",
+          "callee": "new String",
+          "lineNumber": 257
+        },
+        {
+          "caller": "lengthString",
+          "callee": "s.length",
+          "lineNumber": 275
+        },
+        {
+          "caller": "readByte",
+          "callee": "buf.getByte",
+          "lineNumber": 282
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 26,
+        "functionCount": 29,
+        "classCount": 1
+      }
+    }
+  ]
+}

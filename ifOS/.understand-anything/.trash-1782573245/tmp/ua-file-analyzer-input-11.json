@@ -1,0 +1,31 @@
+{
+  "projectRoot": "/Users/xuyi/Source/OS/armOS/lib/jcore/test/ifOS",
+  "batchFiles": [
+    {
+      "path": "src/jx/devices/bio/BlockIO.java",
+      "language": "java",
+      "sizeLines": 44,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/fs/FileSystem.java",
+      "language": "java",
+      "sizeLines": 70,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/fs/buffer/BufferCache.java",
+      "language": "java",
+      "sizeLines": 24,
+      "fileCategory": "code"
+    }
+  ],
+  "batchImportData": {
+    "src/jx/devices/bio/BlockIO.java": [],
+    "src/jx/fs/FileSystem.java": [
+      "src/jx/devices/bio/BlockIO.java",
+      "src/jx/fs/buffer/BufferCache.java"
+    ],
+    "src/jx/fs/buffer/BufferCache.java": []
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "projectRoot": "/Users/xuyi/Source/OS/armOS/lib/jcore/test/ifOS",
+  "batchFiles": [
+    {
+      "path": "alternative/jdk_collections_impl/java/util/AbstractCollection.j",
+      "language": "java",
+      "sizeLines": 345,
+      "fileCategory": "code"
+    },
+    {
+      "path": "alternative/jdk0/java/util/AbstractList.j",
+      "language": "java",
+      "sizeLines": 49,
+      "fileCategory": "code"
+    },
+    {
+      "path": "build.xml",
+      "language": "xml",
+      "sizeLines": 73,
+      "fileCategory": "code"
+    },
+    {
+      "path": "CHANGELOG",
+      "language": "markdown",
+      "sizeLines": 107,
+      "fileCategory": "document"
+    },
+    {
+      "path": "manifest.mf",
+      "language": "properties",
+      "sizeLines": 3,
+      "fileCategory": "script"
+    },
+    {
+      "path": "META",
+      "language": "properties",
+      "sizeLines": 14,
+      "fileCategory": "script"
+    },
+    {
+      "path": "README.rst",
+      "language": "markdown",
+      "sizeLines": 12,
+      "fileCategory": "document"
+    },
+    {
+      "path": "src/java/applet/AppletStub.java",
+      "language": "java",
+      "sizeLines": 86,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/java/applet/AudioClip.java",
+      "language": "java",
+      "sizeLines": 54,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/java/beans/BeanInfo.java",
+      "language": "java",
+      "sizeLines": 170,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/java/beans/Customizer.java",
+      "language": "java",
+      "sizeLines": 75,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/java/beans/DesignMode.java",
+      "language": "java",
+      "sizeLines": 80,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/java/beans/PropertyEditor.java",
+      "language": "java",
+      "sizeLines": 197,
+      "fileCategory": "code"
+    }
+  ],
+  "batchImportData": {
+    "alternative/jdk_collections_impl/java/util/AbstractCollection.j": [],
+    "alternative/jdk0/java/util/AbstractList.j": [],
+    "build.xml": [],
+    "CHANGELOG": [],
+    "manifest.mf": [],
+    "META": [],
+    "README.rst": [],
+    "src/java/applet/AppletStub.java": [],
+    "src/java/applet/AudioClip.java": [],
+    "src/java/beans/BeanInfo.java": [],
+    "src/java/beans/Customizer.java": [],
+    "src/java/beans/DesignMode.java": [],
+    "src/java/beans/PropertyEditor.java": []
+  }
+}

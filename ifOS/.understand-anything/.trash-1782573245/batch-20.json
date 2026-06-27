@@ -1,0 +1,4136 @@
+{
+  "batchIndex": 20,
+  "nodes": [
+    {
+      "id": "file:src/java/security/PrivilegedAction.java",
+      "type": "file",
+      "label": "PrivilegedAction.java",
+      "properties": {
+        "path": "src/java/security/PrivilegedAction.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 53,
+        "nonEmptyLines": 42
+      }
+    },
+    {
+      "id": "class:src/java/security/PrivilegedAction.java::PrivilegedAction",
+      "type": "class",
+      "label": "PrivilegedAction",
+      "properties": {
+        "name": "PrivilegedAction",
+        "startLine": 40,
+        "endLine": 52,
+        "methods": [
+          "run"
+        ],
+        "properties": []
+      }
+    },
+    {
+      "id": "file:src/java/security/PrivilegedExceptionAction.java",
+      "type": "file",
+      "label": "PrivilegedExceptionAction.java",
+      "properties": {
+        "path": "src/java/security/PrivilegedExceptionAction.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 57,
+        "nonEmptyLines": 46
+      }
+    },
+    {
+      "id": "class:src/java/security/PrivilegedExceptionAction.java::PrivilegedExceptionAction",
+      "type": "class",
+      "label": "PrivilegedExceptionAction",
+      "properties": {
+        "name": "PrivilegedExceptionAction",
+        "startLine": 41,
+        "endLine": 56,
+        "methods": [
+          "run"
+        ],
+        "properties": []
+      }
+    },
+    {
+      "id": "file:src/java/security/Signer.java",
+      "type": "file",
+      "label": "Signer.java",
+      "properties": {
+        "path": "src/java/security/Signer.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 139,
+        "nonEmptyLines": 110
+      }
+    },
+    {
+      "id": "class:src/java/security/Signer.java::Signer",
+      "type": "class",
+      "label": "Signer",
+      "properties": {
+        "name": "Signer",
+        "startLine": 38,
+        "endLine": 139,
+        "methods": [
+          "Signer",
+          "Signer",
+          "Signer",
+          "getPrivateKey",
+          "setKeyPair",
+          "toString"
+        ],
+        "properties": [
+          "privateKey"
+        ]
+      }
+    },
+    {
+      "id": "class:src/java/security/Signer.java::getPrivateKey",
+      "type": "class",
+      "label": "getPrivateKey",
+      "properties": {
+        "name": "getPrivateKey",
+        "startLine": 84,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/security/Signer.java::setKeyPair",
+      "type": "class",
+      "label": "setKeyPair",
+      "properties": {
+        "name": "setKeyPair",
+        "startLine": 106,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/security/Signer.java::toString",
+      "type": "class",
+      "label": "toString",
+      "properties": {
+        "name": "toString",
+        "startLine": 134,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "function:src/java/security/Signer.java::Signer",
+      "type": "function",
+      "label": "Signer",
+      "properties": {
+        "name": "Signer",
+        "startLine": 44,
+        "endLine": 45,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/security/Signer.java::Signer",
+      "type": "function",
+      "label": "Signer",
+      "properties": {
+        "name": "Signer",
+        "startLine": 52,
+        "endLine": 55,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/security/Signer.java::Signer",
+      "type": "function",
+      "label": "Signer",
+      "properties": {
+        "name": "Signer",
+        "startLine": 67,
+        "endLine": 71,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/security/Signer.java::getPrivateKey",
+      "type": "function",
+      "label": "getPrivateKey",
+      "properties": {
+        "name": "getPrivateKey",
+        "startLine": 84,
+        "endLine": 91,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/security/Signer.java::setKeyPair",
+      "type": "function",
+      "label": "setKeyPair",
+      "properties": {
+        "name": "setKeyPair",
+        "startLine": 106,
+        "endLine": 127,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/security/Signer.java::toString",
+      "type": "function",
+      "label": "toString",
+      "properties": {
+        "name": "toString",
+        "startLine": 134,
+        "endLine": 138,
+        "signature": ""
+      }
+    },
+    {
+      "id": "file:src/java/security/spec/EncodedKeySpec.java",
+      "type": "file",
+      "label": "EncodedKeySpec.java",
+      "properties": {
+        "path": "src/java/security/spec/EncodedKeySpec.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 74,
+        "nonEmptyLines": 55
+      }
+    },
+    {
+      "id": "class:src/java/security/spec/EncodedKeySpec.java::EncodedKeySpec",
+      "type": "class",
+      "label": "EncodedKeySpec",
+      "properties": {
+        "name": "EncodedKeySpec",
+        "startLine": 38,
+        "endLine": 74,
+        "methods": [
+          "EncodedKeySpec",
+          "getEncoded",
+          "getFormat"
+        ],
+        "properties": [
+          "encodedKey"
+        ]
+      }
+    },
+    {
+      "id": "class:src/java/security/spec/EncodedKeySpec.java::getEncoded",
+      "type": "class",
+      "label": "getEncoded",
+      "properties": {
+        "name": "getEncoded",
+        "startLine": 58,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/security/spec/EncodedKeySpec.java::getFormat",
+      "type": "class",
+      "label": "getFormat",
+      "properties": {
+        "name": "getFormat",
+        "startLine": 72,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "function:src/java/security/spec/EncodedKeySpec.java::EncodedKeySpec",
+      "type": "function",
+      "label": "EncodedKeySpec",
+      "properties": {
+        "name": "EncodedKeySpec",
+        "startLine": 48,
+        "endLine": 51,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/security/spec/EncodedKeySpec.java::getEncoded",
+      "type": "function",
+      "label": "getEncoded",
+      "properties": {
+        "name": "getEncoded",
+        "startLine": 58,
+        "endLine": 61,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/security/spec/EncodedKeySpec.java::getFormat",
+      "type": "function",
+      "label": "getFormat",
+      "properties": {
+        "name": "getFormat",
+        "startLine": 72,
+        "endLine": 72,
+        "signature": ""
+      }
+    },
+    {
+      "id": "file:src/java/security/spec/KeySpec.java",
+      "type": "file",
+      "label": "KeySpec.java",
+      "properties": {
+        "path": "src/java/security/spec/KeySpec.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 39,
+        "nonEmptyLines": 31
+      }
+    },
+    {
+      "id": "class:src/java/security/spec/KeySpec.java::KeySpec",
+      "type": "class",
+      "label": "KeySpec",
+      "properties": {
+        "name": "KeySpec",
+        "startLine": 37,
+        "endLine": 39,
+        "methods": [],
+        "properties": []
+      }
+    },
+    {
+      "id": "file:src/java/security/spec/RSAKeyGenParameterSpec.j",
+      "type": "file",
+      "label": "RSAKeyGenParameterSpec.j",
+      "properties": {
+        "path": "src/java/security/spec/RSAKeyGenParameterSpec.j",
+        "language": "j",
+        "fileCategory": "code",
+        "totalLines": 86,
+        "nonEmptyLines": 68
+      }
+    },
+    {
+      "id": "file:src/java/sql/DatabaseMetaData.java",
+      "type": "file",
+      "label": "DatabaseMetaData.java",
+      "properties": {
+        "path": "src/java/sql/DatabaseMetaData.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 2736,
+        "nonEmptyLines": 2385
+      }
+    },
+    {
+      "id": "class:src/java/sql/DatabaseMetaData.java::DatabaseMetaData",
+      "type": "class",
+      "label": "DatabaseMetaData",
+      "properties": {
+        "name": "DatabaseMetaData",
+        "startLine": 36,
+        "endLine": 2735,
+        "methods": [
+          "allProceduresAreCallable",
+          "allTablesAreSelectable",
+          "getURL",
+          "getUserName",
+          "isReadOnly",
+          "nullsAreSortedHigh",
+          "nullsAreSortedLow",
+          "nullsAreSortedAtStart",
+          "nullsAreSortedAtEnd",
+          "getDatabaseProductName",
+          "getDatabaseProductVersion",
+          "getDriverName",
+          "getDriverVersion",
+          "getDriverMajorVersion",
+          "getDriverMinorVersion",
+          "usesLocalFiles",
+          "usesLocalFilePerTable",
+          "supportsMixedCaseIdentifiers",
+          "storesUpperCaseIdentifiers",
+          "storesLowerCaseIdentifiers",
+          "storesMixedCaseIdentifiers",
+          "supportsMixedCaseQuotedIdentifiers",
+          "storesUpperCaseQuotedIdentifiers",
+          "storesLowerCaseQuotedIdentifiers",
+          "storesMixedCaseQuotedIdentifiers",
+          "getIdentifierQuoteString",
+          "getSQLKeywords",
+          "getNumericFunctions",
+          "getStringFunctions",
+          "getSystemFunctions",
+          "getTimeDateFunctions",
+          "getSearchStringEscape",
+          "getExtraNameCharacters",
+          "supportsAlterTableWithAddColumn",
+          "supportsAlterTableWithDropColumn",
+          "supportsColumnAliasing",
+          "nullPlusNonNullIsNull",
+          "supportsConvert",
+          "supportsConvert",
+          "supportsTableCorrelationNames",
+          "supportsDifferentTableCorrelationNames",
+          "supportsExpressionsInOrderBy",
+          "supportsOrderByUnrelated",
+          "supportsGroupBy",
+          "supportsGroupByUnrelated",
+          "supportsGroupByBeyondSelect",
+          "supportsLikeEscapeClause",
+          "supportsMultipleResultSets",
+          "supportsMultipleTransactions",
+          "supportsNonNullableColumns",
+          "supportsMinimumSQLGrammar",
+          "supportsCoreSQLGrammar",
+          "supportsExtendedSQLGrammar",
+          "supportsANSI92EntryLevelSQL",
+          "supportsANSI92IntermediateSQL",
+          "supportsANSI92FullSQL",
+          "supportsIntegrityEnhancementFacility",
+          "supportsOuterJoins",
+          "supportsFullOuterJoins",
+          "supportsLimitedOuterJoins",
+          "getSchemaTerm",
+          "getProcedureTerm",
+          "getCatalogTerm",
+          "isCatalogAtStart",
+          "getCatalogSeparator",
+          "supportsSchemasInDataManipulation",
+          "supportsSchemasInProcedureCalls",
+          "supportsSchemasInTableDefinitions",
+          "supportsSchemasInIndexDefinitions",
+          "supportsSchemasInPrivilegeDefinitions",
+          "supportsCatalogsInDataManipulation",
+          "supportsCatalogsInProcedureCalls",
+          "supportsCatalogsInTableDefinitions",
+          "supportsCatalogsInIndexDefinitions",
+          "supportsCatalogsInPrivilegeDefinitions",
+          "supportsPositionedDelete",
+          "supportsPositionedUpdate",
+          "supportsSelectForUpdate",
+          "supportsStoredProcedures",
+          "supportsSubqueriesInComparisons",
+          "supportsSubqueriesInExists",
+          "supportsSubqueriesInIns",
+          "supportsSubqueriesInQuantifieds",
+          "supportsCorrelatedSubqueries",
+          "supportsUnion",
+          "supportsUnionAll",
+          "supportsOpenCursorsAcrossCommit",
+          "supportsOpenCursorsAcrossRollback",
+          "supportsOpenStatementsAcrossCommit",
+          "supportsOpenStatementsAcrossRollback",
+          "getMaxBinaryLiteralLength",
+          "getMaxCharLiteralLength",
+          "getMaxColumnNameLength",
+          "getMaxColumnsInGroupBy",
+          "getMaxColumnsInIndex",
+          "getMaxColumnsInOrderBy",
+          "getMaxColumnsInSelect",
+          "getMaxColumnsInTable",
+          "getMaxConnections",
+          "getMaxCursorNameLength",
+          "getMaxIndexLength",
+          "getMaxSchemaNameLength",
+          "getMaxProcedureNameLength",
+          "getMaxCatalogNameLength",
+          "getMaxRowSize",
+          "doesMaxRowSizeIncludeBlobs",
+          "getMaxStatementLength",
+          "getMaxStatements",
+          "getMaxTableNameLength",
+          "getMaxTablesInSelect",
+          "getMaxUserNameLength",
+          "getDefaultTransactionIsolation",
+          "supportsTransactions",
+          "supportsTransactionIsolationLevel",
+          "supportsDataDefinitionAndDataManipulationTransactions",
+          "supportsDataManipulationTransactionsOnly",
+          "dataDefinitionCausesTransactionCommit",
+          "dataDefinitionIgnoredInTransactions",
+          "getProcedures",
+          "getProcedureColumns",
+          "getTables",
+          "getSchemas",
+          "getCatalogs",
+          "getTableTypes",
+          "getColumns",
+          "getColumnPrivileges",
+          "getTablePrivileges",
+          "getBestRowIdentifier",
+          "getVersionColumns",
+          "getPrimaryKeys",
+          "getImportedKeys",
+          "getExportedKeys",
+          "getCrossReference",
+          "getTypeInfo",
+          "getIndexInfo",
+          "supportsResultSetType",
+          "supportsResultSetConcurrency",
+          "ownUpdatesAreVisible",
+          "ownDeletesAreVisible",
+          "ownInsertsAreVisible",
+          "othersUpdatesAreVisible",
+          "othersDeletesAreVisible",
+          "othersInsertsAreVisible",
+          "updatesAreDetected",
+          "deletesAreDetected",
+          "insertsAreDetected",
+          "supportsBatchUpdates",
+          "getUDTs",
+          "getConnection"
+        ],
+        "properties": [
+          "bestRowUnknown",
+          "bestRowNotPseudo",
+          "bestRowPseudo",
+          "bestRowTemporary",
+          "bestRowTransaction",
+          "bestRowSession",
+          "procedureResultUnknown",
+          "procedureNoResult",
+          "procedureReturnsResult",
+          "procedureColumnUnknown",
+          "procedureColumnIn",
+          "procedureColumnInOut",
+          "procedureColumnOut",
+          "procedureColumnReturn",
+          "procedureColumnResult",
+          "procedureNoNulls",
+          "procedureNullable",
+          "procedureNullableUnknown",
+          "columnNoNulls",
+          "columnNullable",
+          "columnNullableUnknown",
+          "versionColumnUnknown",
+          "versionColumnNotPseudo",
+          "versionColumnPseudo",
+          "importedKeyCascade",
+          "importedKeyRestrict",
+          "importedKeySetNull",
+          "importedKeyNoAction",
+          "importedKeySetDefault",
+          "importedKeyInitiallyDeferred",
+          "importedKeyInitiallyImmediate",
+          "importedKeyNotDeferrable",
+          "typeNoNulls",
+          "typeNullable",
+          "typeNullableUnknown",
+          "typePredNone",
+          "typePredChar",
+          "typePredBasic",
+          "typeSearchable",
+          "tableIndexStatistic",
+          "tableIndexClustered",
+          "tableIndexHashed",
+          "tableIndexOther"
+        ]
+      }
+    },
+    {
+      "id": "file:src/java/sql/Driver.java",
+      "type": "file",
+      "label": "Driver.java",
+      "properties": {
+        "path": "src/java/sql/Driver.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 137,
+        "nonEmptyLines": 115
+      }
+    },
+    {
+      "id": "class:src/java/sql/Driver.java::Driver",
+      "type": "class",
+      "label": "Driver",
+      "properties": {
+        "name": "Driver",
+        "startLine": 46,
+        "endLine": 136,
+        "methods": [
+          "getMajorVersion",
+          "getMinorVersion",
+          "jdbcCompliant",
+          "getPropertyInfo",
+          "acceptsURL",
+          "connect"
+        ],
+        "properties": []
+      }
+    },
+    {
+      "id": "file:src/java/sql/Ref.java",
+      "type": "file",
+      "label": "Ref.java",
+      "properties": {
+        "path": "src/java/sql/Ref.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 51,
+        "nonEmptyLines": 40
+      }
+    },
+    {
+      "id": "class:src/java/sql/Ref.java::Ref",
+      "type": "class",
+      "label": "Ref",
+      "properties": {
+        "name": "Ref",
+        "startLine": 36,
+        "endLine": 50,
+        "methods": [
+          "getBaseTypeName"
+        ],
+        "properties": []
+      }
+    },
+    {
+      "id": "file:src/java/sql/ResultSetMetaData.java",
+      "type": "file",
+      "label": "ResultSetMetaData.java",
+      "properties": {
+        "path": "src/java/sql/ResultSetMetaData.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 378,
+        "nonEmptyLines": 323
+      }
+    },
+    {
+      "id": "class:src/java/sql/ResultSetMetaData.java::ResultSetMetaData",
+      "type": "class",
+      "label": "ResultSetMetaData",
+      "properties": {
+        "name": "ResultSetMetaData",
+        "startLine": 38,
+        "endLine": 377,
+        "methods": [
+          "getColumnCount",
+          "isAutoIncrement",
+          "isCaseSensitive",
+          "isSearchable",
+          "isCurrency",
+          "isNullable",
+          "isSigned",
+          "getColumnDisplaySize",
+          "getColumnLabel",
+          "getColumnName",
+          "getSchemaName",
+          "getPrecision",
+          "getScale",
+          "getTableName",
+          "getCatalogName",
+          "getColumnType",
+          "getColumnTypeName",
+          "isReadOnly",
+          "isWritable",
+          "isDefinitelyWritable",
+          "getColumnClassName"
+        ],
+        "properties": [
+          "columnNoNulls",
+          "columnNullable",
+          "columnNullableUnknown"
+        ]
+      }
+    },
+    {
+      "id": "file:src/java/sql/SQLData.java",
+      "type": "file",
+      "label": "SQLData.java",
+      "properties": {
+        "path": "src/java/sql/SQLData.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 74,
+        "nonEmptyLines": 59
+      }
+    },
+    {
+      "id": "class:src/java/sql/SQLData.java::SQLData",
+      "type": "class",
+      "label": "SQLData",
+      "properties": {
+        "name": "SQLData",
+        "startLine": 35,
+        "endLine": 73,
+        "methods": [
+          "getSQLTypeName",
+          "readSQL",
+          "writeSQL"
+        ],
+        "properties": []
+      }
+    },
+    {
+      "id": "file:src/java/sql/Statement.java",
+      "type": "file",
+      "label": "Statement.java",
+      "properties": {
+        "path": "src/java/sql/Statement.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 413,
+        "nonEmptyLines": 348
+      }
+    },
+    {
+      "id": "class:src/java/sql/Statement.java::Statement",
+      "type": "class",
+      "label": "Statement",
+      "properties": {
+        "name": "Statement",
+        "startLine": 35,
+        "endLine": 412,
+        "methods": [
+          "executeQuery",
+          "executeUpdate",
+          "close",
+          "getMaxFieldSize",
+          "setMaxFieldSize",
+          "getMaxRows",
+          "setMaxRows",
+          "setEscapeProcessing",
+          "getQueryTimeout",
+          "setQueryTimeout",
+          "cancel",
+          "getWarnings",
+          "clearWarnings",
+          "setCursorName",
+          "execute",
+          "getResultSet",
+          "getUpdateCount",
+          "getMoreResults",
+          "getFetchDirection",
+          "setFetchDirection",
+          "getFetchSize",
+          "setFetchSize",
+          "getResultSetConcurrency",
+          "getResultSetType",
+          "addBatch",
+          "clearBatch",
+          "executeBatch",
+          "getConnection"
+        ],
+        "properties": []
+      }
+    },
+    {
+      "id": "file:src/java/text/CharacterIterator.java",
+      "type": "file",
+      "label": "CharacterIterator.java",
+      "properties": {
+        "path": "src/java/text/CharacterIterator.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 175,
+        "nonEmptyLines": 141
+      }
+    },
+    {
+      "id": "class:src/java/text/CharacterIterator.java::CharacterIterator",
+      "type": "class",
+      "label": "CharacterIterator",
+      "properties": {
+        "name": "CharacterIterator",
+        "startLine": 41,
+        "endLine": 174,
+        "methods": [
+          "current",
+          "next",
+          "previous",
+          "first",
+          "last",
+          "getIndex",
+          "setIndex",
+          "getBeginIndex",
+          "getEndIndex",
+          "clone"
+        ],
+        "properties": [
+          "DONE"
+        ]
+      }
+    },
+    {
+      "id": "file:src/java/text/DateFormat.java",
+      "type": "file",
+      "label": "DateFormat.java",
+      "properties": {
+        "path": "src/java/text/DateFormat.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 586,
+        "nonEmptyLines": 537
+      }
+    },
+    {
+      "id": "class:src/java/text/DateFormat.java::DateFormat",
+      "type": "class",
+      "label": "DateFormat",
+      "properties": {
+        "name": "DateFormat",
+        "startLine": 52,
+        "endLine": 586,
+        "methods": [
+          "DateFormat",
+          "equals",
+          "clone",
+          "format",
+          "format",
+          "format",
+          "getAvailableLocales",
+          "getCalendar",
+          "computeInstance",
+          "computeInstance",
+          "getDateInstance",
+          "getDateInstance",
+          "getDateInstance",
+          "getDateTimeInstance",
+          "getDateTimeInstance",
+          "getDateTimeInstance",
+          "getInstance",
+          "getNumberFormat",
+          "getTimeInstance",
+          "getTimeInstance",
+          "getTimeInstance",
+          "getTimeZone",
+          "hashCode",
+          "isLenient",
+          "parse",
+          "parse",
+          "parseObject",
+          "setCalendar",
+          "setLenient",
+          "setNumberFormat",
+          "setTimeZone"
+        ],
+        "properties": [
+          "calendar",
+          "numberFormat",
+          "FULL",
+          "LONG",
+          "MEDIUM",
+          "SHORT",
+          "DEFAULT",
+          "ERA_FIELD",
+          "YEAR_FIELD",
+          "MONTH_FIELD",
+          "DATE_FIELD",
+          "HOUR_OF_DAY1_FIELD",
+          "HOUR_OF_DAY0_FIELD",
+          "MINUTE_FIELD",
+          "SECOND_FIELD",
+          "MILLISECOND_FIELD",
+          "DAY_OF_WEEK_FIELD",
+          "DAY_OF_YEAR_FIELD",
+          "DAY_OF_WEEK_IN_MONTH_FIELD",
+          "WEEK_OF_YEAR_FIELD",
+          "WEEK_OF_MONTH_FIELD",
+          "AM_PM_FIELD",
+          "HOUR1_FIELD",
+          "HOUR0_FIELD",
+          "TIMEZONE_FIELD"
+        ]
+      }
+    },
+    {
+      "id": "class:src/java/text/DateFormat.java::FULL",
+      "type": "class",
+      "label": "FULL",
+      "properties": {
+        "name": "FULL",
+        "startLine": 58,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/text/DateFormat.java::LONG",
+      "type": "class",
+      "label": "LONG",
+      "properties": {
+        "name": "LONG",
+        "startLine": 59,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/text/DateFormat.java::MEDIUM",
+      "type": "class",
+      "label": "MEDIUM",
+      "properties": {
+        "name": "MEDIUM",
+        "startLine": 60,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/text/DateFormat.java::SHORT",
+      "type": "class",
+      "label": "SHORT",
+      "properties": {
+        "name": "SHORT",
+        "startLine": 61,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/text/DateFormat.java::DEFAULT",
+      "type": "class",
+      "label": "DEFAULT",
+      "properties": {
+        "name": "DEFAULT",
+        "startLine": 62,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/text/DateFormat.java::ERA_FIELD",
+      "type": "class",
+      "label": "ERA_FIELD",
+      "properties": {
+        "name": "ERA_FIELD",
+        "startLine": 70,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/text/DateFormat.java::YEAR_FIELD",
+      "type": "class",
+      "label": "YEAR_FIELD",
+      "properties": {
+        "name": "YEAR_FIELD",
+        "startLine": 71,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/text/DateFormat.java::MONTH_FIELD",
+      "type": "class",
+      "label": "MONTH_FIELD",
+      "properties": {
+        "name": "MONTH_FIELD",
+        "startLine": 72,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/text/DateFormat.java::DATE_FIELD",
+      "type": "class",
+      "label": "DATE_FIELD",
+      "properties": {
+        "name": "DATE_FIELD",
+        "startLine": 73,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/text/DateFormat.java::HOUR_OF_DAY1_FIELD",
+      "type": "class",
+      "label": "HOUR_OF_DAY1_FIELD",
+      "properties": {
+        "name": "HOUR_OF_DAY1_FIELD",
+        "startLine": 74,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/text/DateFormat.java::HOUR_OF_DAY0_FIELD",
+      "type": "class",
+      "label": "HOUR_OF_DAY0_FIELD",
+      "properties": {
+        "name": "HOUR_OF_DAY0_FIELD",
+        "startLine": 75,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/text/DateFormat.java::MINUTE_FIELD",
+      "type": "class",
+      "label": "MINUTE_FIELD",
+      "properties": {
+        "name": "MINUTE_FIELD",
+        "startLine": 76,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/text/DateFormat.java::SECOND_FIELD",
+      "type": "class",
+      "label": "SECOND_FIELD",
+      "properties": {
+        "name": "SECOND_FIELD",
+        "startLine": 77,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/text/DateFormat.java::MILLISECOND_FIELD",
+      "type": "class",
+      "label": "MILLISECOND_FIELD",
+      "properties": {
+        "name": "MILLISECOND_FIELD",
+        "startLine": 78,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/text/DateFormat.java::DAY_OF_WEEK_FIELD",
+      "type": "class",
+      "label": "DAY_OF_WEEK_FIELD",
+      "properties": {
+        "name": "DAY_OF_WEEK_FIELD",
+        "startLine": 79,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/text/DateFormat.java::DAY_OF_YEAR_FIELD",
+      "type": "class",
+      "label": "DAY_OF_YEAR_FIELD",
+      "properties": {
+        "name": "DAY_OF_YEAR_FIELD",
+        "startLine": 80,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/text/DateFormat.java::DAY_OF_WEEK_IN_MONTH_FIELD",
+      "type": "class",
+      "label": "DAY_OF_WEEK_IN_MONTH_FIELD",
+      "properties": {
+        "name": "DAY_OF_WEEK_IN_MONTH_FIELD",
+        "startLine": 81,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/text/DateFormat.java::WEEK_OF_YEAR_FIELD",
+      "type": "class",
+      "label": "WEEK_OF_YEAR_FIELD",
+      "properties": {
+        "name": "WEEK_OF_YEAR_FIELD",
+        "startLine": 82,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/text/DateFormat.java::WEEK_OF_MONTH_FIELD",
+      "type": "class",
+      "label": "WEEK_OF_MONTH_FIELD",
+      "properties": {
+        "name": "WEEK_OF_MONTH_FIELD",
+        "startLine": 83,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/text/DateFormat.java::AM_PM_FIELD",
+      "type": "class",
+      "label": "AM_PM_FIELD",
+      "properties": {
+        "name": "AM_PM_FIELD",
+        "startLine": 84,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/text/DateFormat.java::HOUR1_FIELD",
+      "type": "class",
+      "label": "HOUR1_FIELD",
+      "properties": {
+        "name": "HOUR1_FIELD",
+        "startLine": 85,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/text/DateFormat.java::HOUR0_FIELD",
+      "type": "class",
+      "label": "HOUR0_FIELD",
+      "properties": {
+        "name": "HOUR0_FIELD",
+        "startLine": 86,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/text/DateFormat.java::TIMEZONE_FIELD",
+      "type": "class",
+      "label": "TIMEZONE_FIELD",
+      "properties": {
+        "name": "TIMEZONE_FIELD",
+        "startLine": 87,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/text/DateFormat.java::equals",
+      "type": "class",
+      "label": "equals",
+      "properties": {
+        "name": "equals",
+        "startLine": 112,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/text/DateFormat.java::clone",
+      "type": "class",
+      "label": "clone",
+      "properties": {
+        "name": "clone",
+        "startLine": 125,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/text/DateFormat.java::format",
+      "type": "class",
+      "label": "format",
+      "properties": {
+        "name": "format",
+        "startLine": 147,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/text/DateFormat.java::getAvailableLocales",
+      "type": "class",
+      "label": "getAvailableLocales",
+      "properties": {
+        "name": "getAvailableLocales",
+        "startLine": 187,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/text/DateFormat.java::getCalendar",
+      "type": "class",
+      "label": "getCalendar",
+      "properties": {
+        "name": "getCalendar",
+        "startLine": 203,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/text/DateFormat.java::getDateInstance",
+      "type": "class",
+      "label": "getDateInstance",
+      "properties": {
+        "name": "getDateInstance",
+        "startLine": 318,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/text/DateFormat.java::getDateTimeInstance",
+      "type": "class",
+      "label": "getDateTimeInstance",
+      "properties": {
+        "name": "getDateTimeInstance",
+        "startLine": 357,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/text/DateFormat.java::getInstance",
+      "type": "class",
+      "label": "getInstance",
+      "properties": {
+        "name": "getInstance",
+        "startLine": 396,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/text/DateFormat.java::getNumberFormat",
+      "type": "class",
+      "label": "getNumberFormat",
+      "properties": {
+        "name": "getNumberFormat",
+        "startLine": 408,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/text/DateFormat.java::getTimeInstance",
+      "type": "class",
+      "label": "getTimeInstance",
+      "properties": {
+        "name": "getTimeInstance",
+        "startLine": 419,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/text/DateFormat.java::getTimeZone",
+      "type": "class",
+      "label": "getTimeZone",
+      "properties": {
+        "name": "getTimeZone",
+        "startLine": 458,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/text/DateFormat.java::hashCode",
+      "type": "class",
+      "label": "hashCode",
+      "properties": {
+        "name": "hashCode",
+        "startLine": 468,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/text/DateFormat.java::isLenient",
+      "type": "class",
+      "label": "isLenient",
+      "properties": {
+        "name": "isLenient",
+        "startLine": 483,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/text/DateFormat.java::parse",
+      "type": "class",
+      "label": "parse",
+      "properties": {
+        "name": "parse",
+        "startLine": 495,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/text/DateFormat.java::parseObject",
+      "type": "class",
+      "label": "parseObject",
+      "properties": {
+        "name": "parseObject",
+        "startLine": 536,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/text/DateFormat.java::setCalendar",
+      "type": "class",
+      "label": "setCalendar",
+      "properties": {
+        "name": "setCalendar",
+        "startLine": 549,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/text/DateFormat.java::setLenient",
+      "type": "class",
+      "label": "setLenient",
+      "properties": {
+        "name": "setLenient",
+        "startLine": 561,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/text/DateFormat.java::setNumberFormat",
+      "type": "class",
+      "label": "setNumberFormat",
+      "properties": {
+        "name": "setNumberFormat",
+        "startLine": 572,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/text/DateFormat.java::setTimeZone",
+      "type": "class",
+      "label": "setTimeZone",
+      "properties": {
+        "name": "setTimeZone",
+        "startLine": 582,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "function:src/java/text/DateFormat.java::DateFormat",
+      "type": "function",
+      "label": "DateFormat",
+      "properties": {
+        "name": "DateFormat",
+        "startLine": 92,
+        "endLine": 94,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/text/DateFormat.java::equals",
+      "type": "function",
+      "label": "equals",
+      "properties": {
+        "name": "equals",
+        "startLine": 112,
+        "endLine": 118,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/text/DateFormat.java::clone",
+      "type": "function",
+      "label": "clone",
+      "properties": {
+        "name": "clone",
+        "startLine": 125,
+        "endLine": 129,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/text/DateFormat.java::format",
+      "type": "function",
+      "label": "format",
+      "properties": {
+        "name": "format",
+        "startLine": 147,
+        "endLine": 153,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/text/DateFormat.java::format",
+      "type": "function",
+      "label": "format",
+      "properties": {
+        "name": "format",
+        "startLine": 160,
+        "endLine": 165,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/text/DateFormat.java::format",
+      "type": "function",
+      "label": "format",
+      "properties": {
+        "name": "format",
+        "startLine": 180,
+        "endLine": 181,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/text/DateFormat.java::getAvailableLocales",
+      "type": "function",
+      "label": "getAvailableLocales",
+      "properties": {
+        "name": "getAvailableLocales",
+        "startLine": 187,
+        "endLine": 193,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/text/DateFormat.java::getCalendar",
+      "type": "function",
+      "label": "getCalendar",
+      "properties": {
+        "name": "getCalendar",
+        "startLine": 203,
+        "endLine": 206,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/text/DateFormat.java::computeInstance",
+      "type": "function",
+      "label": "computeInstance",
+      "properties": {
+        "name": "computeInstance",
+        "startLine": 208,
+        "endLine": 213,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/text/DateFormat.java::computeInstance",
+      "type": "function",
+      "label": "computeInstance",
+      "properties": {
+        "name": "computeInstance",
+        "startLine": 215,
+        "endLine": 310,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/text/DateFormat.java::getDateInstance",
+      "type": "function",
+      "label": "getDateInstance",
+      "properties": {
+        "name": "getDateInstance",
+        "startLine": 318,
+        "endLine": 321,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/text/DateFormat.java::getDateInstance",
+      "type": "function",
+      "label": "getDateInstance",
+      "properties": {
+        "name": "getDateInstance",
+        "startLine": 331,
+        "endLine": 334,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/text/DateFormat.java::getDateInstance",
+      "type": "function",
+      "label": "getDateInstance",
+      "properties": {
+        "name": "getDateInstance",
+        "startLine": 346,
+        "endLine": 349,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/text/DateFormat.java::getDateTimeInstance",
+      "type": "function",
+      "label": "getDateTimeInstance",
+      "properties": {
+        "name": "getDateTimeInstance",
+        "startLine": 357,
+        "endLine": 360,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/text/DateFormat.java::getDateTimeInstance",
+      "type": "function",
+      "label": "getDateTimeInstance",
+      "properties": {
+        "name": "getDateTimeInstance",
+        "startLine": 368,
+        "endLine": 372,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/text/DateFormat.java::getDateTimeInstance",
+      "type": "function",
+      "label": "getDateTimeInstance",
+      "properties": {
+        "name": "getDateTimeInstance",
+        "startLine": 383,
+        "endLine": 388,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/text/DateFormat.java::getInstance",
+      "type": "function",
+      "label": "getInstance",
+      "properties": {
+        "name": "getInstance",
+        "startLine": 396,
+        "endLine": 400,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/text/DateFormat.java::getNumberFormat",
+      "type": "function",
+      "label": "getNumberFormat",
+      "properties": {
+        "name": "getNumberFormat",
+        "startLine": 408,
+        "endLine": 411,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/text/DateFormat.java::getTimeInstance",
+      "type": "function",
+      "label": "getTimeInstance",
+      "properties": {
+        "name": "getTimeInstance",
+        "startLine": 419,
+        "endLine": 422,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/text/DateFormat.java::getTimeInstance",
+      "type": "function",
+      "label": "getTimeInstance",
+      "properties": {
+        "name": "getTimeInstance",
+        "startLine": 432,
+        "endLine": 435,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/text/DateFormat.java::getTimeInstance",
+      "type": "function",
+      "label": "getTimeInstance",
+      "properties": {
+        "name": "getTimeInstance",
+        "startLine": 447,
+        "endLine": 450,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/text/DateFormat.java::getTimeZone",
+      "type": "function",
+      "label": "getTimeZone",
+      "properties": {
+        "name": "getTimeZone",
+        "startLine": 458,
+        "endLine": 461,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/text/DateFormat.java::hashCode",
+      "type": "function",
+      "label": "hashCode",
+      "properties": {
+        "name": "hashCode",
+        "startLine": 468,
+        "endLine": 474,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/text/DateFormat.java::isLenient",
+      "type": "function",
+      "label": "isLenient",
+      "properties": {
+        "name": "isLenient",
+        "startLine": 483,
+        "endLine": 486,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/text/DateFormat.java::parse",
+      "type": "function",
+      "label": "parse",
+      "properties": {
+        "name": "parse",
+        "startLine": 495,
+        "endLine": 507,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/text/DateFormat.java::parse",
+      "type": "function",
+      "label": "parse",
+      "properties": {
+        "name": "parse",
+        "startLine": 522,
+        "endLine": 522,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/text/DateFormat.java::parseObject",
+      "type": "function",
+      "label": "parseObject",
+      "properties": {
+        "name": "parseObject",
+        "startLine": 536,
+        "endLine": 539,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/text/DateFormat.java::setCalendar",
+      "type": "function",
+      "label": "setCalendar",
+      "properties": {
+        "name": "setCalendar",
+        "startLine": 549,
+        "endLine": 552,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/text/DateFormat.java::setLenient",
+      "type": "function",
+      "label": "setLenient",
+      "properties": {
+        "name": "setLenient",
+        "startLine": 561,
+        "endLine": 564,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/text/DateFormat.java::setNumberFormat",
+      "type": "function",
+      "label": "setNumberFormat",
+      "properties": {
+        "name": "setNumberFormat",
+        "startLine": 572,
+        "endLine": 575,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/text/DateFormat.java::setTimeZone",
+      "type": "function",
+      "label": "setTimeZone",
+      "properties": {
+        "name": "setTimeZone",
+        "startLine": 582,
+        "endLine": 585,
+        "signature": ""
+      }
+    },
+    {
+      "id": "file:src/java/util/AbstractCollection.j",
+      "type": "file",
+      "label": "AbstractCollection.j",
+      "properties": {
+        "path": "src/java/util/AbstractCollection.j",
+        "language": "j",
+        "fileCategory": "code",
+        "totalLines": 347,
+        "nonEmptyLines": 325
+      }
+    },
+    {
+      "id": "file:src/java/util/AbstractCollection.java",
+      "type": "file",
+      "label": "AbstractCollection.java",
+      "properties": {
+        "path": "src/java/util/AbstractCollection.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 211,
+        "nonEmptyLines": 204
+      }
+    },
+    {
+      "id": "class:src/java/util/AbstractCollection.java::AbstractCollection",
+      "type": "class",
+      "label": "AbstractCollection",
+      "properties": {
+        "name": "AbstractCollection",
+        "startLine": 3,
+        "endLine": 211,
+        "methods": [
+          "equals",
+          "add",
+          "size",
+          "clear",
+          "isEmpty",
+          "addAll",
+          "contains",
+          "containsAll",
+          "iterator",
+          "remove",
+          "removeAll",
+          "retainAll",
+          "toArray",
+          "toArray",
+          "finishToArray",
+          "hugeCapacity"
+        ],
+        "properties": [
+          "MAX_ARRAY_SIZE"
+        ]
+      }
+    },
+    {
+      "id": "class:src/java/util/AbstractCollection.java::equals",
+      "type": "class",
+      "label": "equals",
+      "properties": {
+        "name": "equals",
+        "startLine": 4,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/util/AbstractCollection.java::add",
+      "type": "class",
+      "label": "add",
+      "properties": {
+        "name": "add",
+        "startLine": 5,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/util/AbstractCollection.java::size",
+      "type": "class",
+      "label": "size",
+      "properties": {
+        "name": "size",
+        "startLine": 9,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/util/AbstractCollection.java::clear",
+      "type": "class",
+      "label": "clear",
+      "properties": {
+        "name": "clear",
+        "startLine": 11,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/util/AbstractCollection.java::isEmpty",
+      "type": "class",
+      "label": "isEmpty",
+      "properties": {
+        "name": "isEmpty",
+        "startLine": 19,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/util/AbstractCollection.java::addAll",
+      "type": "class",
+      "label": "addAll",
+      "properties": {
+        "name": "addAll",
+        "startLine": 23,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/util/AbstractCollection.java::contains",
+      "type": "class",
+      "label": "contains",
+      "properties": {
+        "name": "contains",
+        "startLine": 31,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/util/AbstractCollection.java::containsAll",
+      "type": "class",
+      "label": "containsAll",
+      "properties": {
+        "name": "containsAll",
+        "startLine": 45,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/util/AbstractCollection.java::iterator",
+      "type": "class",
+      "label": "iterator",
+      "properties": {
+        "name": "iterator",
+        "startLine": 52,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/util/AbstractCollection.java::remove",
+      "type": "class",
+      "label": "remove",
+      "properties": {
+        "name": "remove",
+        "startLine": 54,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/util/AbstractCollection.java::removeAll",
+      "type": "class",
+      "label": "removeAll",
+      "properties": {
+        "name": "removeAll",
+        "startLine": 73,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/util/AbstractCollection.java::retainAll",
+      "type": "class",
+      "label": "retainAll",
+      "properties": {
+        "name": "retainAll",
+        "startLine": 85,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/util/AbstractCollection.java::toArray",
+      "type": "class",
+      "label": "toArray",
+      "properties": {
+        "name": "toArray",
+        "startLine": 98,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "function:src/java/util/AbstractCollection.java::equals",
+      "type": "function",
+      "label": "equals",
+      "properties": {
+        "name": "equals",
+        "startLine": 4,
+        "endLine": 4,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/util/AbstractCollection.java::add",
+      "type": "function",
+      "label": "add",
+      "properties": {
+        "name": "add",
+        "startLine": 5,
+        "endLine": 8,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/util/AbstractCollection.java::size",
+      "type": "function",
+      "label": "size",
+      "properties": {
+        "name": "size",
+        "startLine": 9,
+        "endLine": 10,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/util/AbstractCollection.java::clear",
+      "type": "function",
+      "label": "clear",
+      "properties": {
+        "name": "clear",
+        "startLine": 11,
+        "endLine": 18,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/util/AbstractCollection.java::isEmpty",
+      "type": "function",
+      "label": "isEmpty",
+      "properties": {
+        "name": "isEmpty",
+        "startLine": 19,
+        "endLine": 22,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/util/AbstractCollection.java::addAll",
+      "type": "function",
+      "label": "addAll",
+      "properties": {
+        "name": "addAll",
+        "startLine": 23,
+        "endLine": 30,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/util/AbstractCollection.java::contains",
+      "type": "function",
+      "label": "contains",
+      "properties": {
+        "name": "contains",
+        "startLine": 31,
+        "endLine": 44,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/util/AbstractCollection.java::containsAll",
+      "type": "function",
+      "label": "containsAll",
+      "properties": {
+        "name": "containsAll",
+        "startLine": 45,
+        "endLine": 51,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/util/AbstractCollection.java::iterator",
+      "type": "function",
+      "label": "iterator",
+      "properties": {
+        "name": "iterator",
+        "startLine": 52,
+        "endLine": 53,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/util/AbstractCollection.java::remove",
+      "type": "function",
+      "label": "remove",
+      "properties": {
+        "name": "remove",
+        "startLine": 54,
+        "endLine": 72,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/util/AbstractCollection.java::removeAll",
+      "type": "function",
+      "label": "removeAll",
+      "properties": {
+        "name": "removeAll",
+        "startLine": 73,
+        "endLine": 84,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/util/AbstractCollection.java::retainAll",
+      "type": "function",
+      "label": "retainAll",
+      "properties": {
+        "name": "retainAll",
+        "startLine": 85,
+        "endLine": 96,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/util/AbstractCollection.java::toArray",
+      "type": "function",
+      "label": "toArray",
+      "properties": {
+        "name": "toArray",
+        "startLine": 98,
+        "endLine": 109,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/util/AbstractCollection.java::toArray",
+      "type": "function",
+      "label": "toArray",
+      "properties": {
+        "name": "toArray",
+        "startLine": 138,
+        "endLine": 165,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/util/AbstractCollection.java::finishToArray",
+      "type": "function",
+      "label": "finishToArray",
+      "properties": {
+        "name": "finishToArray",
+        "startLine": 185,
+        "endLine": 201,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/util/AbstractCollection.java::hugeCapacity",
+      "type": "function",
+      "label": "hugeCapacity",
+      "properties": {
+        "name": "hugeCapacity",
+        "startLine": 203,
+        "endLine": 210,
+        "signature": ""
+      }
+    },
+    {
+      "id": "file:src/java/util/AbstractList.j",
+      "type": "file",
+      "label": "AbstractList.j",
+      "properties": {
+        "path": "src/java/util/AbstractList.j",
+        "language": "j",
+        "fileCategory": "code",
+        "totalLines": 538,
+        "nonEmptyLines": 470
+      }
+    },
+    {
+      "id": "file:src/java/util/AbstractList.java",
+      "type": "file",
+      "label": "AbstractList.java",
+      "properties": {
+        "path": "src/java/util/AbstractList.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 99,
+        "nonEmptyLines": 83
+      }
+    },
+    {
+      "id": "class:src/java/util/AbstractList.java::AbstractList",
+      "type": "class",
+      "label": "AbstractList",
+      "properties": {
+        "name": "AbstractList",
+        "startLine": 3,
+        "endLine": 99,
+        "methods": [
+          "sort",
+          "add",
+          "add",
+          "iterator",
+          "remove",
+          "get",
+          "listIterator",
+          "listIterator",
+          "indexOf",
+          "lastIndexOf",
+          "set",
+          "subList"
+        ],
+        "properties": [
+          "modCount"
+        ]
+      }
+    },
+    {
+      "id": "class:src/java/util/AbstractList.java::sort",
+      "type": "class",
+      "label": "sort",
+      "properties": {
+        "name": "sort",
+        "startLine": 8,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/util/AbstractList.java::add",
+      "type": "class",
+      "label": "add",
+      "properties": {
+        "name": "add",
+        "startLine": 19,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/util/AbstractList.java::iterator",
+      "type": "class",
+      "label": "iterator",
+      "properties": {
+        "name": "iterator",
+        "startLine": 30,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/util/AbstractList.java::remove",
+      "type": "class",
+      "label": "remove",
+      "properties": {
+        "name": "remove",
+        "startLine": 35,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/util/AbstractList.java::get",
+      "type": "class",
+      "label": "get",
+      "properties": {
+        "name": "get",
+        "startLine": 40,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/util/AbstractList.java::listIterator",
+      "type": "class",
+      "label": "listIterator",
+      "properties": {
+        "name": "listIterator",
+        "startLine": 43,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/util/AbstractList.java::indexOf",
+      "type": "class",
+      "label": "indexOf",
+      "properties": {
+        "name": "indexOf",
+        "startLine": 56,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/util/AbstractList.java::lastIndexOf",
+      "type": "class",
+      "label": "lastIndexOf",
+      "properties": {
+        "name": "lastIndexOf",
+        "startLine": 71,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/util/AbstractList.java::set",
+      "type": "class",
+      "label": "set",
+      "properties": {
+        "name": "set",
+        "startLine": 86,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/util/AbstractList.java::subList",
+      "type": "class",
+      "label": "subList",
+      "properties": {
+        "name": "subList",
+        "startLine": 91,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "function:src/java/util/AbstractList.java::sort",
+      "type": "function",
+      "label": "sort",
+      "properties": {
+        "name": "sort",
+        "startLine": 8,
+        "endLine": 17,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/util/AbstractList.java::add",
+      "type": "function",
+      "label": "add",
+      "properties": {
+        "name": "add",
+        "startLine": 19,
+        "endLine": 23,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/util/AbstractList.java::add",
+      "type": "function",
+      "label": "add",
+      "properties": {
+        "name": "add",
+        "startLine": 25,
+        "endLine": 28,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/util/AbstractList.java::iterator",
+      "type": "function",
+      "label": "iterator",
+      "properties": {
+        "name": "iterator",
+        "startLine": 30,
+        "endLine": 33,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/util/AbstractList.java::remove",
+      "type": "function",
+      "label": "remove",
+      "properties": {
+        "name": "remove",
+        "startLine": 35,
+        "endLine": 38,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/util/AbstractList.java::get",
+      "type": "function",
+      "label": "get",
+      "properties": {
+        "name": "get",
+        "startLine": 40,
+        "endLine": 41,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/util/AbstractList.java::listIterator",
+      "type": "function",
+      "label": "listIterator",
+      "properties": {
+        "name": "listIterator",
+        "startLine": 43,
+        "endLine": 46,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/util/AbstractList.java::listIterator",
+      "type": "function",
+      "label": "listIterator",
+      "properties": {
+        "name": "listIterator",
+        "startLine": 48,
+        "endLine": 54,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/util/AbstractList.java::indexOf",
+      "type": "function",
+      "label": "indexOf",
+      "properties": {
+        "name": "indexOf",
+        "startLine": 56,
+        "endLine": 69,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/util/AbstractList.java::lastIndexOf",
+      "type": "function",
+      "label": "lastIndexOf",
+      "properties": {
+        "name": "lastIndexOf",
+        "startLine": 71,
+        "endLine": 84,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/util/AbstractList.java::set",
+      "type": "function",
+      "label": "set",
+      "properties": {
+        "name": "set",
+        "startLine": 86,
+        "endLine": 89,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/util/AbstractList.java::subList",
+      "type": "function",
+      "label": "subList",
+      "properties": {
+        "name": "subList",
+        "startLine": 91,
+        "endLine": 97,
+        "signature": ""
+      }
+    },
+    {
+      "id": "file:src/java/util/AbstractMap.java",
+      "type": "file",
+      "label": "AbstractMap.java",
+      "properties": {
+        "path": "src/java/util/AbstractMap.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 412,
+        "nonEmptyLines": 359
+      }
+    },
+    {
+      "id": "class:src/java/util/AbstractMap.java::AbstractMap",
+      "type": "class",
+      "label": "AbstractMap",
+      "properties": {
+        "name": "AbstractMap",
+        "startLine": 34,
+        "endLine": 412,
+        "methods": [
+          "clear",
+          "containsKey",
+          "containsValue",
+          "entrySet",
+          "equals",
+          "get",
+          "hashCode",
+          "isEmpty",
+          "keySet",
+          "put",
+          "putAll",
+          "remove",
+          "size",
+          "toString",
+          "values"
+        ],
+        "properties": [
+          "values",
+          "keySet"
+        ]
+      }
+    },
+    {
+      "id": "class:src/java/util/AbstractMap.java::clear",
+      "type": "class",
+      "label": "clear",
+      "properties": {
+        "name": "clear",
+        "startLine": 45,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/util/AbstractMap.java::containsKey",
+      "type": "class",
+      "label": "containsKey",
+      "properties": {
+        "name": "containsKey",
+        "startLine": 50,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/util/AbstractMap.java::containsValue",
+      "type": "class",
+      "label": "containsValue",
+      "properties": {
+        "name": "containsValue",
+        "startLine": 65,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/util/AbstractMap.java::entrySet",
+      "type": "class",
+      "label": "entrySet",
+      "properties": {
+        "name": "entrySet",
+        "startLine": 80,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/util/AbstractMap.java::equals",
+      "type": "class",
+      "label": "equals",
+      "properties": {
+        "name": "equals",
+        "startLine": 82,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/util/AbstractMap.java::get",
+      "type": "class",
+      "label": "get",
+      "properties": {
+        "name": "get",
+        "startLine": 105,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/util/AbstractMap.java::hashCode",
+      "type": "class",
+      "label": "hashCode",
+      "properties": {
+        "name": "hashCode",
+        "startLine": 122,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/util/AbstractMap.java::isEmpty",
+      "type": "class",
+      "label": "isEmpty",
+      "properties": {
+        "name": "isEmpty",
+        "startLine": 134,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/util/AbstractMap.java::keySet",
+      "type": "class",
+      "label": "keySet",
+      "properties": {
+        "name": "keySet",
+        "startLine": 139,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/util/AbstractMap.java::put",
+      "type": "class",
+      "label": "put",
+      "properties": {
+        "name": "put",
+        "startLine": 183,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/util/AbstractMap.java::putAll",
+      "type": "class",
+      "label": "putAll",
+      "properties": {
+        "name": "putAll",
+        "startLine": 188,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/util/AbstractMap.java::remove",
+      "type": "class",
+      "label": "remove",
+      "properties": {
+        "name": "remove",
+        "startLine": 201,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/util/AbstractMap.java::size",
+      "type": "class",
+      "label": "size",
+      "properties": {
+        "name": "size",
+        "startLine": 221,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/util/AbstractMap.java::toString",
+      "type": "class",
+      "label": "toString",
+      "properties": {
+        "name": "toString",
+        "startLine": 226,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/util/AbstractMap.java::values",
+      "type": "class",
+      "label": "values",
+      "properties": {
+        "name": "values",
+        "startLine": 241,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "function:src/java/util/AbstractMap.java::clear",
+      "type": "function",
+      "label": "clear",
+      "properties": {
+        "name": "clear",
+        "startLine": 45,
+        "endLine": 48,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/util/AbstractMap.java::containsKey",
+      "type": "function",
+      "label": "containsKey",
+      "properties": {
+        "name": "containsKey",
+        "startLine": 50,
+        "endLine": 63,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/util/AbstractMap.java::containsValue",
+      "type": "function",
+      "label": "containsValue",
+      "properties": {
+        "name": "containsValue",
+        "startLine": 65,
+        "endLine": 78,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/util/AbstractMap.java::entrySet",
+      "type": "function",
+      "label": "entrySet",
+      "properties": {
+        "name": "entrySet",
+        "startLine": 80,
+        "endLine": 80,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/util/AbstractMap.java::equals",
+      "type": "function",
+      "label": "equals",
+      "properties": {
+        "name": "equals",
+        "startLine": 82,
+        "endLine": 103,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/util/AbstractMap.java::get",
+      "type": "function",
+      "label": "get",
+      "properties": {
+        "name": "get",
+        "startLine": 105,
+        "endLine": 120,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/util/AbstractMap.java::hashCode",
+      "type": "function",
+      "label": "hashCode",
+      "properties": {
+        "name": "hashCode",
+        "startLine": 122,
+        "endLine": 132,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/util/AbstractMap.java::isEmpty",
+      "type": "function",
+      "label": "isEmpty",
+      "properties": {
+        "name": "isEmpty",
+        "startLine": 134,
+        "endLine": 137,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/util/AbstractMap.java::keySet",
+      "type": "function",
+      "label": "keySet",
+      "properties": {
+        "name": "keySet",
+        "startLine": 139,
+        "endLine": 181,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/util/AbstractMap.java::put",
+      "type": "function",
+      "label": "put",
+      "properties": {
+        "name": "put",
+        "startLine": 183,
+        "endLine": 186,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/util/AbstractMap.java::putAll",
+      "type": "function",
+      "label": "putAll",
+      "properties": {
+        "name": "putAll",
+        "startLine": 188,
+        "endLine": 199,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/util/AbstractMap.java::remove",
+      "type": "function",
+      "label": "remove",
+      "properties": {
+        "name": "remove",
+        "startLine": 201,
+        "endLine": 219,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/util/AbstractMap.java::size",
+      "type": "function",
+      "label": "size",
+      "properties": {
+        "name": "size",
+        "startLine": 221,
+        "endLine": 224,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/util/AbstractMap.java::toString",
+      "type": "function",
+      "label": "toString",
+      "properties": {
+        "name": "toString",
+        "startLine": 226,
+        "endLine": 239,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/util/AbstractMap.java::values",
+      "type": "function",
+      "label": "values",
+      "properties": {
+        "name": "values",
+        "startLine": 241,
+        "endLine": 278,
+        "signature": ""
+      }
+    },
+    {
+      "id": "file:src/java/util/AbstractQueue.java",
+      "type": "file",
+      "label": "AbstractQueue.java",
+      "properties": {
+        "path": "src/java/util/AbstractQueue.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 198,
+        "nonEmptyLines": 187
+      }
+    },
+    {
+      "id": "class:src/java/util/AbstractQueue.java::AbstractQueue",
+      "type": "class",
+      "label": "AbstractQueue",
+      "properties": {
+        "name": "AbstractQueue",
+        "startLine": 64,
+        "endLine": 198,
+        "methods": [
+          "AbstractQueue",
+          "add",
+          "offer",
+          "poll",
+          "peek",
+          "remove",
+          "element",
+          "clear",
+          "addAll"
+        ],
+        "properties": []
+      }
+    },
+    {
+      "id": "class:src/java/util/AbstractQueue.java::add",
+      "type": "class",
+      "label": "add",
+      "properties": {
+        "name": "add",
+        "startLine": 94,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/util/AbstractQueue.java::offer",
+      "type": "class",
+      "label": "offer",
+      "properties": {
+        "name": "offer",
+        "startLine": 101,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/util/AbstractQueue.java::poll",
+      "type": "class",
+      "label": "poll",
+      "properties": {
+        "name": "poll",
+        "startLine": 104,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/util/AbstractQueue.java::peek",
+      "type": "class",
+      "label": "peek",
+      "properties": {
+        "name": "peek",
+        "startLine": 105,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/util/AbstractQueue.java::remove",
+      "type": "class",
+      "label": "remove",
+      "properties": {
+        "name": "remove",
+        "startLine": 118,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/util/AbstractQueue.java::element",
+      "type": "class",
+      "label": "element",
+      "properties": {
+        "name": "element",
+        "startLine": 137,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/util/AbstractQueue.java::clear",
+      "type": "class",
+      "label": "clear",
+      "properties": {
+        "name": "clear",
+        "startLine": 152,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/util/AbstractQueue.java::addAll",
+      "type": "class",
+      "label": "addAll",
+      "properties": {
+        "name": "addAll",
+        "startLine": 186,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "function:src/java/util/AbstractQueue.java::AbstractQueue",
+      "type": "function",
+      "label": "AbstractQueue",
+      "properties": {
+        "name": "AbstractQueue",
+        "startLine": 71,
+        "endLine": 72,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/util/AbstractQueue.java::add",
+      "type": "function",
+      "label": "add",
+      "properties": {
+        "name": "add",
+        "startLine": 94,
+        "endLine": 99,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/util/AbstractQueue.java::offer",
+      "type": "function",
+      "label": "offer",
+      "properties": {
+        "name": "offer",
+        "startLine": 101,
+        "endLine": 103,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/util/AbstractQueue.java::poll",
+      "type": "function",
+      "label": "poll",
+      "properties": {
+        "name": "poll",
+        "startLine": 104,
+        "endLine": 104,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/util/AbstractQueue.java::peek",
+      "type": "function",
+      "label": "peek",
+      "properties": {
+        "name": "peek",
+        "startLine": 105,
+        "endLine": 105,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/util/AbstractQueue.java::remove",
+      "type": "function",
+      "label": "remove",
+      "properties": {
+        "name": "remove",
+        "startLine": 118,
+        "endLine": 124,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/util/AbstractQueue.java::element",
+      "type": "function",
+      "label": "element",
+      "properties": {
+        "name": "element",
+        "startLine": 137,
+        "endLine": 143,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/util/AbstractQueue.java::clear",
+      "type": "function",
+      "label": "clear",
+      "properties": {
+        "name": "clear",
+        "startLine": 152,
+        "endLine": 155,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/util/AbstractQueue.java::addAll",
+      "type": "function",
+      "label": "addAll",
+      "properties": {
+        "name": "addAll",
+        "startLine": 186,
+        "endLine": 196,
+        "signature": ""
+      }
+    },
+    {
+      "id": "file:src/java/util/AbstractSequentialList.java",
+      "type": "file",
+      "label": "AbstractSequentialList.java",
+      "properties": {
+        "path": "src/java/util/AbstractSequentialList.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 132,
+        "nonEmptyLines": 115
+      }
+    },
+    {
+      "id": "class:src/java/util/AbstractSequentialList.java::AbstractSequentialList",
+      "type": "class",
+      "label": "AbstractSequentialList",
+      "properties": {
+        "name": "AbstractSequentialList",
+        "startLine": 39,
+        "endLine": 132,
+        "methods": [
+          "listIterator",
+          "add",
+          "addAll",
+          "iterator",
+          "set"
+        ],
+        "properties": []
+      }
+    },
+    {
+      "id": "class:src/java/util/AbstractSequentialList.java::listIterator",
+      "type": "class",
+      "label": "listIterator",
+      "properties": {
+        "name": "listIterator",
+        "startLine": 50,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/util/AbstractSequentialList.java::add",
+      "type": "class",
+      "label": "add",
+      "properties": {
+        "name": "add",
+        "startLine": 63,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/util/AbstractSequentialList.java::addAll",
+      "type": "class",
+      "label": "addAll",
+      "properties": {
+        "name": "addAll",
+        "startLine": 75,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/util/AbstractSequentialList.java::iterator",
+      "type": "class",
+      "label": "iterator",
+      "properties": {
+        "name": "iterator",
+        "startLine": 102,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/util/AbstractSequentialList.java::set",
+      "type": "class",
+      "label": "set",
+      "properties": {
+        "name": "set",
+        "startLine": 118,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "function:src/java/util/AbstractSequentialList.java::listIterator",
+      "type": "function",
+      "label": "listIterator",
+      "properties": {
+        "name": "listIterator",
+        "startLine": 50,
+        "endLine": 50,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/util/AbstractSequentialList.java::add",
+      "type": "function",
+      "label": "add",
+      "properties": {
+        "name": "add",
+        "startLine": 63,
+        "endLine": 67,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/util/AbstractSequentialList.java::addAll",
+      "type": "function",
+      "label": "addAll",
+      "properties": {
+        "name": "addAll",
+        "startLine": 75,
+        "endLine": 84,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/util/AbstractSequentialList.java::iterator",
+      "type": "function",
+      "label": "iterator",
+      "properties": {
+        "name": "iterator",
+        "startLine": 102,
+        "endLine": 105,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/util/AbstractSequentialList.java::set",
+      "type": "function",
+      "label": "set",
+      "properties": {
+        "name": "set",
+        "startLine": 118,
+        "endLine": 127,
+        "signature": ""
+      }
+    },
+    {
+      "id": "file:src/java/util/AbstractSet.java",
+      "type": "file",
+      "label": "AbstractSet.java",
+      "properties": {
+        "path": "src/java/util/AbstractSet.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 104,
+        "nonEmptyLines": 91
+      }
+    },
+    {
+      "id": "class:src/java/util/AbstractSet.java::AbstractSet",
+      "type": "class",
+      "label": "AbstractSet",
+      "properties": {
+        "name": "AbstractSet",
+        "startLine": 39,
+        "endLine": 104,
+        "methods": [
+          "equals",
+          "hashCode",
+          "removeAll"
+        ],
+        "properties": []
+      }
+    },
+    {
+      "id": "class:src/java/util/AbstractSet.java::equals",
+      "type": "class",
+      "label": "equals",
+      "properties": {
+        "name": "equals",
+        "startLine": 52,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/util/AbstractSet.java::hashCode",
+      "type": "class",
+      "label": "hashCode",
+      "properties": {
+        "name": "hashCode",
+        "startLine": 71,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/util/AbstractSet.java::removeAll",
+      "type": "class",
+      "label": "removeAll",
+      "properties": {
+        "name": "removeAll",
+        "startLine": 86,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "function:src/java/util/AbstractSet.java::equals",
+      "type": "function",
+      "label": "equals",
+      "properties": {
+        "name": "equals",
+        "startLine": 52,
+        "endLine": 61,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/util/AbstractSet.java::hashCode",
+      "type": "function",
+      "label": "hashCode",
+      "properties": {
+        "name": "hashCode",
+        "startLine": 71,
+        "endLine": 84,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/util/AbstractSet.java::removeAll",
+      "type": "function",
+      "label": "removeAll",
+      "properties": {
+        "name": "removeAll",
+        "startLine": 86,
+        "endLine": 102,
+        "signature": ""
+      }
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/java/security/PrivilegedAction.java",
+      "target": "class:src/java/security/PrivilegedAction.java::PrivilegedAction",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/PrivilegedExceptionAction.java",
+      "target": "class:src/java/security/PrivilegedExceptionAction.java::PrivilegedExceptionAction",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/Signer.java",
+      "target": "class:src/java/security/Signer.java::Signer",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/Signer.java",
+      "target": "class:src/java/security/Signer.java::getPrivateKey",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/Signer.java",
+      "target": "class:src/java/security/Signer.java::setKeyPair",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/Signer.java",
+      "target": "class:src/java/security/Signer.java::toString",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/Signer.java",
+      "target": "function:src/java/security/Signer.java::Signer",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/Signer.java",
+      "target": "function:src/java/security/Signer.java::Signer",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/Signer.java",
+      "target": "function:src/java/security/Signer.java::Signer",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/Signer.java",
+      "target": "function:src/java/security/Signer.java::getPrivateKey",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/Signer.java",
+      "target": "function:src/java/security/Signer.java::setKeyPair",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/Signer.java",
+      "target": "function:src/java/security/Signer.java::toString",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/spec/EncodedKeySpec.java",
+      "target": "class:src/java/security/spec/EncodedKeySpec.java::EncodedKeySpec",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/spec/EncodedKeySpec.java",
+      "target": "class:src/java/security/spec/EncodedKeySpec.java::getEncoded",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/spec/EncodedKeySpec.java",
+      "target": "class:src/java/security/spec/EncodedKeySpec.java::getFormat",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/spec/EncodedKeySpec.java",
+      "target": "function:src/java/security/spec/EncodedKeySpec.java::EncodedKeySpec",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/spec/EncodedKeySpec.java",
+      "target": "function:src/java/security/spec/EncodedKeySpec.java::getEncoded",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/spec/EncodedKeySpec.java",
+      "target": "function:src/java/security/spec/EncodedKeySpec.java::getFormat",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/spec/KeySpec.java",
+      "target": "class:src/java/security/spec/KeySpec.java::KeySpec",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/sql/DatabaseMetaData.java",
+      "target": "class:src/java/sql/DatabaseMetaData.java::DatabaseMetaData",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/sql/Driver.java",
+      "target": "class:src/java/sql/Driver.java::Driver",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/sql/Ref.java",
+      "target": "class:src/java/sql/Ref.java::Ref",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/sql/ResultSetMetaData.java",
+      "target": "class:src/java/sql/ResultSetMetaData.java::ResultSetMetaData",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/sql/SQLData.java",
+      "target": "class:src/java/sql/SQLData.java::SQLData",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/sql/Statement.java",
+      "target": "class:src/java/sql/Statement.java::Statement",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/text/CharacterIterator.java",
+      "target": "class:src/java/text/CharacterIterator.java::CharacterIterator",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/text/DateFormat.java",
+      "target": "class:src/java/text/DateFormat.java::DateFormat",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/text/DateFormat.java",
+      "target": "class:src/java/text/DateFormat.java::FULL",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/text/DateFormat.java",
+      "target": "class:src/java/text/DateFormat.java::LONG",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/text/DateFormat.java",
+      "target": "class:src/java/text/DateFormat.java::MEDIUM",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/text/DateFormat.java",
+      "target": "class:src/java/text/DateFormat.java::SHORT",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/text/DateFormat.java",
+      "target": "class:src/java/text/DateFormat.java::DEFAULT",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/text/DateFormat.java",
+      "target": "class:src/java/text/DateFormat.java::ERA_FIELD",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/text/DateFormat.java",
+      "target": "class:src/java/text/DateFormat.java::YEAR_FIELD",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/text/DateFormat.java",
+      "target": "class:src/java/text/DateFormat.java::MONTH_FIELD",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/text/DateFormat.java",
+      "target": "class:src/java/text/DateFormat.java::DATE_FIELD",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/text/DateFormat.java",
+      "target": "class:src/java/text/DateFormat.java::HOUR_OF_DAY1_FIELD",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/text/DateFormat.java",
+      "target": "class:src/java/text/DateFormat.java::HOUR_OF_DAY0_FIELD",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/text/DateFormat.java",
+      "target": "class:src/java/text/DateFormat.java::MINUTE_FIELD",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/text/DateFormat.java",
+      "target": "class:src/java/text/DateFormat.java::SECOND_FIELD",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/text/DateFormat.java",
+      "target": "class:src/java/text/DateFormat.java::MILLISECOND_FIELD",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/text/DateFormat.java",
+      "target": "class:src/java/text/DateFormat.java::DAY_OF_WEEK_FIELD",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/text/DateFormat.java",
+      "target": "class:src/java/text/DateFormat.java::DAY_OF_YEAR_FIELD",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/text/DateFormat.java",
+      "target": "class:src/java/text/DateFormat.java::DAY_OF_WEEK_IN_MONTH_FIELD",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/text/DateFormat.java",
+      "target": "class:src/java/text/DateFormat.java::WEEK_OF_YEAR_FIELD",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/text/DateFormat.java",
+      "target": "class:src/java/text/DateFormat.java::WEEK_OF_MONTH_FIELD",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/text/DateFormat.java",
+      "target": "class:src/java/text/DateFormat.java::AM_PM_FIELD",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/text/DateFormat.java",
+      "target": "class:src/java/text/DateFormat.java::HOUR1_FIELD",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/text/DateFormat.java",
+      "target": "class:src/java/text/DateFormat.java::HOUR0_FIELD",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/text/DateFormat.java",
+      "target": "class:src/java/text/DateFormat.java::TIMEZONE_FIELD",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/text/DateFormat.java",
+      "target": "class:src/java/text/DateFormat.java::equals",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/text/DateFormat.java",
+      "target": "class:src/java/text/DateFormat.java::clone",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/text/DateFormat.java",
+      "target": "class:src/java/text/DateFormat.java::format",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/text/DateFormat.java",
+      "target": "class:src/java/text/DateFormat.java::getAvailableLocales",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/text/DateFormat.java",
+      "target": "class:src/java/text/DateFormat.java::getCalendar",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/text/DateFormat.java",
+      "target": "class:src/java/text/DateFormat.java::getDateInstance",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/text/DateFormat.java",
+      "target": "class:src/java/text/DateFormat.java::getDateTimeInstance",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/text/DateFormat.java",
+      "target": "class:src/java/text/DateFormat.java::getInstance",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/text/DateFormat.java",
+      "target": "class:src/java/text/DateFormat.java::getNumberFormat",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/text/DateFormat.java",
+      "target": "class:src/java/text/DateFormat.java::getTimeInstance",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/text/DateFormat.java",
+      "target": "class:src/java/text/DateFormat.java::getTimeZone",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/text/DateFormat.java",
+      "target": "class:src/java/text/DateFormat.java::hashCode",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/text/DateFormat.java",
+      "target": "class:src/java/text/DateFormat.java::isLenient",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/text/DateFormat.java",
+      "target": "class:src/java/text/DateFormat.java::parse",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/text/DateFormat.java",
+      "target": "class:src/java/text/DateFormat.java::parseObject",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/text/DateFormat.java",
+      "target": "class:src/java/text/DateFormat.java::setCalendar",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/text/DateFormat.java",
+      "target": "class:src/java/text/DateFormat.java::setLenient",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/text/DateFormat.java",
+      "target": "class:src/java/text/DateFormat.java::setNumberFormat",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/text/DateFormat.java",
+      "target": "class:src/java/text/DateFormat.java::setTimeZone",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/text/DateFormat.java",
+      "target": "function:src/java/text/DateFormat.java::DateFormat",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/text/DateFormat.java",
+      "target": "function:src/java/text/DateFormat.java::equals",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/text/DateFormat.java",
+      "target": "function:src/java/text/DateFormat.java::clone",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/text/DateFormat.java",
+      "target": "function:src/java/text/DateFormat.java::format",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/text/DateFormat.java",
+      "target": "function:src/java/text/DateFormat.java::format",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/text/DateFormat.java",
+      "target": "function:src/java/text/DateFormat.java::format",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/text/DateFormat.java",
+      "target": "function:src/java/text/DateFormat.java::getAvailableLocales",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/text/DateFormat.java",
+      "target": "function:src/java/text/DateFormat.java::getCalendar",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/text/DateFormat.java",
+      "target": "function:src/java/text/DateFormat.java::computeInstance",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/text/DateFormat.java",
+      "target": "function:src/java/text/DateFormat.java::computeInstance",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/text/DateFormat.java",
+      "target": "function:src/java/text/DateFormat.java::getDateInstance",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/text/DateFormat.java",
+      "target": "function:src/java/text/DateFormat.java::getDateInstance",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/text/DateFormat.java",
+      "target": "function:src/java/text/DateFormat.java::getDateInstance",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/text/DateFormat.java",
+      "target": "function:src/java/text/DateFormat.java::getDateTimeInstance",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/text/DateFormat.java",
+      "target": "function:src/java/text/DateFormat.java::getDateTimeInstance",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/text/DateFormat.java",
+      "target": "function:src/java/text/DateFormat.java::getDateTimeInstance",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/text/DateFormat.java",
+      "target": "function:src/java/text/DateFormat.java::getInstance",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/text/DateFormat.java",
+      "target": "function:src/java/text/DateFormat.java::getNumberFormat",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/text/DateFormat.java",
+      "target": "function:src/java/text/DateFormat.java::getTimeInstance",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/text/DateFormat.java",
+      "target": "function:src/java/text/DateFormat.java::getTimeInstance",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/text/DateFormat.java",
+      "target": "function:src/java/text/DateFormat.java::getTimeInstance",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/text/DateFormat.java",
+      "target": "function:src/java/text/DateFormat.java::getTimeZone",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/text/DateFormat.java",
+      "target": "function:src/java/text/DateFormat.java::hashCode",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/text/DateFormat.java",
+      "target": "function:src/java/text/DateFormat.java::isLenient",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/text/DateFormat.java",
+      "target": "function:src/java/text/DateFormat.java::parse",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/text/DateFormat.java",
+      "target": "function:src/java/text/DateFormat.java::parse",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/text/DateFormat.java",
+      "target": "function:src/java/text/DateFormat.java::parseObject",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/text/DateFormat.java",
+      "target": "function:src/java/text/DateFormat.java::setCalendar",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/text/DateFormat.java",
+      "target": "function:src/java/text/DateFormat.java::setLenient",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/text/DateFormat.java",
+      "target": "function:src/java/text/DateFormat.java::setNumberFormat",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/text/DateFormat.java",
+      "target": "function:src/java/text/DateFormat.java::setTimeZone",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractCollection.java",
+      "target": "class:src/java/util/AbstractCollection.java::AbstractCollection",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractCollection.java",
+      "target": "class:src/java/util/AbstractCollection.java::equals",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractCollection.java",
+      "target": "class:src/java/util/AbstractCollection.java::add",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractCollection.java",
+      "target": "class:src/java/util/AbstractCollection.java::size",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractCollection.java",
+      "target": "class:src/java/util/AbstractCollection.java::clear",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractCollection.java",
+      "target": "class:src/java/util/AbstractCollection.java::isEmpty",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractCollection.java",
+      "target": "class:src/java/util/AbstractCollection.java::addAll",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractCollection.java",
+      "target": "class:src/java/util/AbstractCollection.java::contains",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractCollection.java",
+      "target": "class:src/java/util/AbstractCollection.java::containsAll",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractCollection.java",
+      "target": "class:src/java/util/AbstractCollection.java::iterator",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractCollection.java",
+      "target": "class:src/java/util/AbstractCollection.java::remove",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractCollection.java",
+      "target": "class:src/java/util/AbstractCollection.java::removeAll",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractCollection.java",
+      "target": "class:src/java/util/AbstractCollection.java::retainAll",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractCollection.java",
+      "target": "class:src/java/util/AbstractCollection.java::toArray",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractCollection.java",
+      "target": "function:src/java/util/AbstractCollection.java::equals",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractCollection.java",
+      "target": "function:src/java/util/AbstractCollection.java::add",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractCollection.java",
+      "target": "function:src/java/util/AbstractCollection.java::size",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractCollection.java",
+      "target": "function:src/java/util/AbstractCollection.java::clear",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractCollection.java",
+      "target": "function:src/java/util/AbstractCollection.java::isEmpty",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractCollection.java",
+      "target": "function:src/java/util/AbstractCollection.java::addAll",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractCollection.java",
+      "target": "function:src/java/util/AbstractCollection.java::contains",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractCollection.java",
+      "target": "function:src/java/util/AbstractCollection.java::containsAll",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractCollection.java",
+      "target": "function:src/java/util/AbstractCollection.java::iterator",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractCollection.java",
+      "target": "function:src/java/util/AbstractCollection.java::remove",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractCollection.java",
+      "target": "function:src/java/util/AbstractCollection.java::removeAll",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractCollection.java",
+      "target": "function:src/java/util/AbstractCollection.java::retainAll",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractCollection.java",
+      "target": "function:src/java/util/AbstractCollection.java::toArray",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractCollection.java",
+      "target": "function:src/java/util/AbstractCollection.java::toArray",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractCollection.java",
+      "target": "function:src/java/util/AbstractCollection.java::finishToArray",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractCollection.java",
+      "target": "function:src/java/util/AbstractCollection.java::hugeCapacity",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractList.java",
+      "target": "class:src/java/util/AbstractList.java::AbstractList",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractList.java",
+      "target": "class:src/java/util/AbstractList.java::sort",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractList.java",
+      "target": "class:src/java/util/AbstractList.java::add",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractList.java",
+      "target": "class:src/java/util/AbstractList.java::iterator",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractList.java",
+      "target": "class:src/java/util/AbstractList.java::remove",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractList.java",
+      "target": "class:src/java/util/AbstractList.java::get",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractList.java",
+      "target": "class:src/java/util/AbstractList.java::listIterator",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractList.java",
+      "target": "class:src/java/util/AbstractList.java::indexOf",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractList.java",
+      "target": "class:src/java/util/AbstractList.java::lastIndexOf",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractList.java",
+      "target": "class:src/java/util/AbstractList.java::set",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractList.java",
+      "target": "class:src/java/util/AbstractList.java::subList",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractList.java",
+      "target": "function:src/java/util/AbstractList.java::sort",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractList.java",
+      "target": "function:src/java/util/AbstractList.java::add",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractList.java",
+      "target": "function:src/java/util/AbstractList.java::add",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractList.java",
+      "target": "function:src/java/util/AbstractList.java::iterator",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractList.java",
+      "target": "function:src/java/util/AbstractList.java::remove",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractList.java",
+      "target": "function:src/java/util/AbstractList.java::get",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractList.java",
+      "target": "function:src/java/util/AbstractList.java::listIterator",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractList.java",
+      "target": "function:src/java/util/AbstractList.java::listIterator",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractList.java",
+      "target": "function:src/java/util/AbstractList.java::indexOf",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractList.java",
+      "target": "function:src/java/util/AbstractList.java::lastIndexOf",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractList.java",
+      "target": "function:src/java/util/AbstractList.java::set",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractList.java",
+      "target": "function:src/java/util/AbstractList.java::subList",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractMap.java",
+      "target": "class:src/java/util/AbstractMap.java::AbstractMap",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractMap.java",
+      "target": "class:src/java/util/AbstractMap.java::clear",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractMap.java",
+      "target": "class:src/java/util/AbstractMap.java::containsKey",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractMap.java",
+      "target": "class:src/java/util/AbstractMap.java::containsValue",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractMap.java",
+      "target": "class:src/java/util/AbstractMap.java::entrySet",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractMap.java",
+      "target": "class:src/java/util/AbstractMap.java::equals",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractMap.java",
+      "target": "class:src/java/util/AbstractMap.java::get",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractMap.java",
+      "target": "class:src/java/util/AbstractMap.java::hashCode",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractMap.java",
+      "target": "class:src/java/util/AbstractMap.java::isEmpty",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractMap.java",
+      "target": "class:src/java/util/AbstractMap.java::keySet",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractMap.java",
+      "target": "class:src/java/util/AbstractMap.java::put",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractMap.java",
+      "target": "class:src/java/util/AbstractMap.java::putAll",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractMap.java",
+      "target": "class:src/java/util/AbstractMap.java::remove",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractMap.java",
+      "target": "class:src/java/util/AbstractMap.java::size",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractMap.java",
+      "target": "class:src/java/util/AbstractMap.java::toString",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractMap.java",
+      "target": "class:src/java/util/AbstractMap.java::values",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractMap.java",
+      "target": "function:src/java/util/AbstractMap.java::clear",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractMap.java",
+      "target": "function:src/java/util/AbstractMap.java::containsKey",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractMap.java",
+      "target": "function:src/java/util/AbstractMap.java::containsValue",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractMap.java",
+      "target": "function:src/java/util/AbstractMap.java::entrySet",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractMap.java",
+      "target": "function:src/java/util/AbstractMap.java::equals",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractMap.java",
+      "target": "function:src/java/util/AbstractMap.java::get",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractMap.java",
+      "target": "function:src/java/util/AbstractMap.java::hashCode",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractMap.java",
+      "target": "function:src/java/util/AbstractMap.java::isEmpty",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractMap.java",
+      "target": "function:src/java/util/AbstractMap.java::keySet",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractMap.java",
+      "target": "function:src/java/util/AbstractMap.java::put",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractMap.java",
+      "target": "function:src/java/util/AbstractMap.java::putAll",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractMap.java",
+      "target": "function:src/java/util/AbstractMap.java::remove",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractMap.java",
+      "target": "function:src/java/util/AbstractMap.java::size",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractMap.java",
+      "target": "function:src/java/util/AbstractMap.java::toString",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractMap.java",
+      "target": "function:src/java/util/AbstractMap.java::values",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractQueue.java",
+      "target": "class:src/java/util/AbstractQueue.java::AbstractQueue",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractQueue.java",
+      "target": "class:src/java/util/AbstractQueue.java::add",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractQueue.java",
+      "target": "class:src/java/util/AbstractQueue.java::offer",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractQueue.java",
+      "target": "class:src/java/util/AbstractQueue.java::poll",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractQueue.java",
+      "target": "class:src/java/util/AbstractQueue.java::peek",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractQueue.java",
+      "target": "class:src/java/util/AbstractQueue.java::remove",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractQueue.java",
+      "target": "class:src/java/util/AbstractQueue.java::element",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractQueue.java",
+      "target": "class:src/java/util/AbstractQueue.java::clear",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractQueue.java",
+      "target": "class:src/java/util/AbstractQueue.java::addAll",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractQueue.java",
+      "target": "function:src/java/util/AbstractQueue.java::AbstractQueue",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractQueue.java",
+      "target": "function:src/java/util/AbstractQueue.java::add",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractQueue.java",
+      "target": "function:src/java/util/AbstractQueue.java::offer",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractQueue.java",
+      "target": "function:src/java/util/AbstractQueue.java::poll",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractQueue.java",
+      "target": "function:src/java/util/AbstractQueue.java::peek",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractQueue.java",
+      "target": "function:src/java/util/AbstractQueue.java::remove",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractQueue.java",
+      "target": "function:src/java/util/AbstractQueue.java::element",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractQueue.java",
+      "target": "function:src/java/util/AbstractQueue.java::clear",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractQueue.java",
+      "target": "function:src/java/util/AbstractQueue.java::addAll",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractSequentialList.java",
+      "target": "class:src/java/util/AbstractSequentialList.java::AbstractSequentialList",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractSequentialList.java",
+      "target": "class:src/java/util/AbstractSequentialList.java::listIterator",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractSequentialList.java",
+      "target": "class:src/java/util/AbstractSequentialList.java::add",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractSequentialList.java",
+      "target": "class:src/java/util/AbstractSequentialList.java::addAll",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractSequentialList.java",
+      "target": "class:src/java/util/AbstractSequentialList.java::iterator",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractSequentialList.java",
+      "target": "class:src/java/util/AbstractSequentialList.java::set",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractSequentialList.java",
+      "target": "function:src/java/util/AbstractSequentialList.java::listIterator",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractSequentialList.java",
+      "target": "function:src/java/util/AbstractSequentialList.java::add",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractSequentialList.java",
+      "target": "function:src/java/util/AbstractSequentialList.java::addAll",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractSequentialList.java",
+      "target": "function:src/java/util/AbstractSequentialList.java::iterator",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractSequentialList.java",
+      "target": "function:src/java/util/AbstractSequentialList.java::set",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractSet.java",
+      "target": "class:src/java/util/AbstractSet.java::AbstractSet",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractSet.java",
+      "target": "class:src/java/util/AbstractSet.java::equals",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractSet.java",
+      "target": "class:src/java/util/AbstractSet.java::hashCode",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractSet.java",
+      "target": "class:src/java/util/AbstractSet.java::removeAll",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractSet.java",
+      "target": "function:src/java/util/AbstractSet.java::equals",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractSet.java",
+      "target": "function:src/java/util/AbstractSet.java::hashCode",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/AbstractSet.java",
+      "target": "function:src/java/util/AbstractSet.java::removeAll",
+      "relation": "contains"
+    }
+  ],
+  "nodeCount": 242,
+  "edgeCount": 220
+}

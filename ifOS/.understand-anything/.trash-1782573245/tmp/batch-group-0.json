@@ -1,0 +1,979 @@
+[
+  {
+    "batchIndex": 0,
+    "files": [
+      {
+        "path": "src/gnu/java/io/decode/Decoder.java",
+        "language": "java",
+        "sizeLines": 309,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/gnu/java/io/decode/DecoderEightBitLookup.java",
+        "language": "java",
+        "sizeLines": 145,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/java/io/InputStream.java",
+        "language": "java",
+        "sizeLines": 64,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/java/io/Reader.java",
+        "language": "java",
+        "sizeLines": 241,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/java/lang/ClassLoader.java",
+        "language": "java",
+        "sizeLines": 67,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/java/security/cert/CertificateFactorySpi.java",
+        "language": "java",
+        "sizeLines": 142,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/java/sql/Blob.java",
+        "language": "java",
+        "sizeLines": 119,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/java/sql/CallableStatement.java",
+        "language": "java",
+        "sizeLines": 454,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/java/sql/Clob.java",
+        "language": "java",
+        "sizeLines": 136,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/java/sql/PreparedStatement.java",
+        "language": "java",
+        "sizeLines": 546,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/java/sql/ResultSet.java",
+        "language": "java",
+        "sizeLines": 2006,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/java/sql/SQLInput.java",
+        "language": "java",
+        "sizeLines": 332,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/java/sql/SQLOutput.java",
+        "language": "java",
+        "sizeLines": 331,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/java/util/Calendar.java",
+        "language": "java",
+        "sizeLines": 993,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/java/util/Collection.java",
+        "language": "java",
+        "sizeLines": 239,
+        "fileCategory": "code"
+      }
+    ],
+    "batchImportData": {
+      "src/gnu/java/io/decode/Decoder.java": [
+        "src/java/io/InputStream.java",
+        "src/java/io/Reader.java"
+      ],
+      "src/gnu/java/io/decode/DecoderEightBitLookup.java": [
+        "src/java/io/InputStream.java"
+      ],
+      "src/java/io/InputStream.java": [],
+      "src/java/io/Reader.java": [],
+      "src/java/lang/ClassLoader.java": [
+        "src/java/io/InputStream.java"
+      ],
+      "src/java/security/cert/CertificateFactorySpi.java": [
+        "src/java/io/InputStream.java",
+        "src/java/util/Collection.java"
+      ],
+      "src/java/sql/Blob.java": [
+        "src/java/io/InputStream.java"
+      ],
+      "src/java/sql/CallableStatement.java": [
+        "src/java/io/InputStream.java",
+        "src/java/io/Reader.java",
+        "src/java/util/Calendar.java",
+        "src/java/util/Map.java"
+      ],
+      "src/java/sql/Clob.java": [
+        "src/java/io/InputStream.java",
+        "src/java/io/Reader.java"
+      ],
+      "src/java/sql/PreparedStatement.java": [
+        "src/java/io/InputStream.java",
+        "src/java/io/Reader.java",
+        "src/java/util/Calendar.java"
+      ],
+      "src/java/sql/ResultSet.java": [
+        "src/java/io/InputStream.java",
+        "src/java/io/Reader.java",
+        "src/java/util/Calendar.java",
+        "src/java/util/Map.java"
+      ],
+      "src/java/sql/SQLInput.java": [
+        "src/java/io/InputStream.java",
+        "src/java/io/Reader.java"
+      ],
+      "src/java/sql/SQLOutput.java": [
+        "src/java/io/InputStream.java",
+        "src/java/io/Reader.java"
+      ],
+      "src/java/util/Calendar.java": [],
+      "src/java/util/Collection.java": []
+    },
+    "neighborMap": {
+      "src/java/io/InputStream.java": [
+        {
+          "path": "src/java/security/Certificate.java",
+          "batchIndex": 7,
+          "symbols": [
+            "Certificate"
+          ]
+        },
+        {
+          "path": "src/java/security/KeyStoreSpi.java",
+          "batchIndex": 7,
+          "symbols": [
+            "KeyStoreSpi",
+            "engineGetKey",
+            "engineGetCertificateChain",
+            "engineGetCertificate",
+            "engineGetCreationDate",
+            "engineSetKeyEntry",
+            "engineSetKeyEntry",
+            "engineSetCertificateEntry",
+            "engineDeleteEntry",
+            "engineAliases",
+            "engineContainsAlias",
+            "engineSize",
+            "engineIsKeyEntry",
+            "engineIsCertificateEntry",
+            "engineGetCertificateAlias",
+            "engineStore",
+            "engineLoad",
+            "KeyStoreSpi"
+          ]
+        }
+      ],
+      "src/java/sql/CallableStatement.java": [
+        {
+          "path": "src/java/util/Map.java",
+          "batchIndex": 4,
+          "symbols": [
+            "Map"
+          ]
+        }
+      ],
+      "src/java/sql/ResultSet.java": [
+        {
+          "path": "src/java/util/Map.java",
+          "batchIndex": 4,
+          "symbols": [
+            "Map"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "batchIndex": 1,
+    "files": [
+      {
+        "path": "src/java/lang/Iterable.java",
+        "language": "java",
+        "sizeLines": 103,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/java/nio/Buffer.java",
+        "language": "java",
+        "sizeLines": 548,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/java/util/Iterator.java",
+        "language": "java",
+        "sizeLines": 77,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/java/util/PrimitiveIterator.java",
+        "language": "java",
+        "sizeLines": 305,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/java/util/Spliterator.java",
+        "language": "java",
+        "sizeLines": 832,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/java/util/function/BiConsumer.java",
+        "language": "java",
+        "sizeLines": 75,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/java/util/function/Consumer.java",
+        "language": "java",
+        "sizeLines": 67,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/java/util/function/DoubleConsumer.java",
+        "language": "java",
+        "sizeLines": 67,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/java/util/function/IntConsumer.java",
+        "language": "java",
+        "sizeLines": 67,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/java/util/function/IntUnaryOperator.java",
+        "language": "java",
+        "sizeLines": 95,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/java/util/function/LongConsumer.java",
+        "language": "java",
+        "sizeLines": 67,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/java/util/function/Supplier.java",
+        "language": "java",
+        "sizeLines": 49,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/java/util/stream/IntStream.java",
+        "language": "java",
+        "sizeLines": 929,
+        "fileCategory": "code"
+      }
+    ],
+    "batchImportData": {
+      "src/java/lang/Iterable.java": [
+        "src/java/util/function/Consumer.java",
+        "src/java/util/Iterator.java",
+        "src/java/util/Spliterator.java"
+      ],
+      "src/java/nio/Buffer.java": [
+        "src/java/util/Spliterator.java"
+      ],
+      "src/java/util/Iterator.java": [
+        "src/java/util/function/Consumer.java"
+      ],
+      "src/java/util/PrimitiveIterator.java": [
+        "src/java/util/function/Consumer.java",
+        "src/java/util/function/DoubleConsumer.java",
+        "src/java/util/function/IntConsumer.java",
+        "src/java/util/function/LongConsumer.java"
+      ],
+      "src/java/util/Spliterator.java": [
+        "src/java/util/function/Consumer.java",
+        "src/java/util/function/DoubleConsumer.java",
+        "src/java/util/function/IntConsumer.java",
+        "src/java/util/function/LongConsumer.java"
+      ],
+      "src/java/util/function/BiConsumer.java": [],
+      "src/java/util/function/Consumer.java": [],
+      "src/java/util/function/DoubleConsumer.java": [],
+      "src/java/util/function/IntConsumer.java": [],
+      "src/java/util/function/IntUnaryOperator.java": [],
+      "src/java/util/function/LongConsumer.java": [],
+      "src/java/util/function/Supplier.java": [],
+      "src/java/util/stream/IntStream.java": [
+        "src/java/util/function/BiConsumer.java",
+        "src/java/util/function/Function.java",
+        "src/java/util/function/IntConsumer.java",
+        "src/java/util/function/IntUnaryOperator.java",
+        "src/java/util/function/Supplier.java",
+        "src/java/util/PrimitiveIterator.java",
+        "src/java/util/Spliterator.java"
+      ]
+    },
+    "neighborMap": {
+      "src/java/util/stream/IntStream.java": [
+        {
+          "path": "src/java/util/function/Function.java",
+          "batchIndex": 4,
+          "symbols": [
+            "Function"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "batchIndex": 2,
+    "files": [
+      {
+        "path": "src/java/io/Serializable.java",
+        "language": "java",
+        "sizeLines": 4,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/java/lang/Number.java",
+        "language": "java",
+        "sizeLines": 19,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/java/security/Identity.java",
+        "language": "java",
+        "sizeLines": 358,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/java/security/Key.java",
+        "language": "java",
+        "sizeLines": 97,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/java/security/Permission.java",
+        "language": "java",
+        "sizeLines": 193,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/java/security/Provider.java",
+        "language": "java",
+        "sizeLines": 208,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/java/security/SecureRandomSpi.java",
+        "language": "java",
+        "sizeLines": 75,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/java/text/Collator.java",
+        "language": "java",
+        "sizeLines": 473,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/java/text/Format.java",
+        "language": "java",
+        "sizeLines": 167,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/java/text/NumberFormat.java",
+        "language": "java",
+        "sizeLines": 633,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/java/util/Comparator.java",
+        "language": "java",
+        "sizeLines": 64,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/java/util/ResourceBundle.java",
+        "language": "java",
+        "sizeLines": 450,
+        "fileCategory": "code"
+      }
+    ],
+    "batchImportData": {
+      "src/java/io/Serializable.java": [],
+      "src/java/lang/Number.java": [
+        "src/java/io/Serializable.java"
+      ],
+      "src/java/security/Identity.java": [
+        "src/java/io/Serializable.java"
+      ],
+      "src/java/security/Key.java": [
+        "src/java/io/Serializable.java"
+      ],
+      "src/java/security/Permission.java": [
+        "src/java/io/Serializable.java"
+      ],
+      "src/java/security/Provider.java": [
+        "src/java/io/Serializable.java"
+      ],
+      "src/java/security/SecureRandomSpi.java": [
+        "src/java/io/Serializable.java"
+      ],
+      "src/java/text/Collator.java": [
+        "src/java/io/Serializable.java",
+        "src/java/util/Comparator.java",
+        "src/java/util/ResourceBundle.java"
+      ],
+      "src/java/text/Format.java": [
+        "src/java/io/Serializable.java"
+      ],
+      "src/java/text/NumberFormat.java": [
+        "src/java/io/Serializable.java"
+      ],
+      "src/java/util/Comparator.java": [],
+      "src/java/util/ResourceBundle.java": []
+    },
+    "neighborMap": {
+      "src/java/io/Serializable.java": [
+        {
+          "path": "src/java/lang/Enum.java",
+          "batchIndex": 6,
+          "symbols": [
+            "name",
+            "ordinal",
+            "toString",
+            "equals",
+            "hashCode",
+            "compareTo",
+            "getDeclaringClass",
+            "valueOf",
+            "Enum"
+          ]
+        },
+        {
+          "path": "src/java/security/BasicPermission.java",
+          "batchIndex": 5,
+          "symbols": [
+            "BasicPermission",
+            "BasicPermission",
+            "implies",
+            "equals",
+            "hashCode",
+            "getActions",
+            "newPermissionCollection",
+            "BasicPermission"
+          ]
+        },
+        {
+          "path": "src/java/security/PermissionCollection.java",
+          "batchIndex": 5,
+          "symbols": [
+            "linesep",
+            "PermissionCollection",
+            "isReadOnly",
+            "setReadOnly",
+            "add",
+            "elements",
+            "implies",
+            "toString",
+            "PermissionCollection"
+          ]
+        },
+        {
+          "path": "src/java/text/AttributedCharacterIterator.java",
+          "batchIndex": 4,
+          "symbols": [
+            "AttributedCharacterIterator"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "batchIndex": 3,
+    "files": [
+      {
+        "path": "src/java/lang/invoke/BoundMethodHandle.java",
+        "language": "java",
+        "sizeLines": 324,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/java/security/cert/X509CRLEntry.java",
+        "language": "java",
+        "sizeLines": 166,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/java/security/cert/X509Certificate.java",
+        "language": "java",
+        "sizeLines": 448,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/java/security/cert/X509Extension.java",
+        "language": "java",
+        "sizeLines": 102,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/java/sql/Array.java",
+        "language": "java",
+        "sizeLines": 226,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/java/sql/Connection.java",
+        "language": "java",
+        "sizeLines": 451,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/java/sql/Struct.java",
+        "language": "java",
+        "sizeLines": 80,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/java/text/AttributedCharacterIterator.java",
+        "language": "java",
+        "sizeLines": 332,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/java/util/Map.java",
+        "language": "java",
+        "sizeLines": 58,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/java/util/Set.java",
+        "language": "java",
+        "sizeLines": 51,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/java/util/function/Function.java",
+        "language": "java",
+        "sizeLines": 100,
+        "fileCategory": "code"
+      }
+    ],
+    "batchImportData": {
+      "src/java/lang/invoke/BoundMethodHandle.java": [
+        "src/java/util/function/Function.java",
+        "src/java/util/Map.java"
+      ],
+      "src/java/security/cert/X509CRLEntry.java": [
+        "src/java/util/Set.java"
+      ],
+      "src/java/security/cert/X509Certificate.java": [
+        "src/java/security/Principal.java",
+        "src/java/util/Set.java"
+      ],
+      "src/java/security/cert/X509Extension.java": [
+        "src/java/util/Set.java"
+      ],
+      "src/java/sql/Array.java": [
+        "src/java/util/Map.java"
+      ],
+      "src/java/sql/Connection.java": [
+        "src/java/util/Map.java"
+      ],
+      "src/java/sql/Struct.java": [
+        "src/java/util/Map.java"
+      ],
+      "src/java/text/AttributedCharacterIterator.java": [
+        "src/java/io/Serializable.java",
+        "src/java/util/Map.java",
+        "src/java/util/Set.java"
+      ],
+      "src/java/util/Map.java": [],
+      "src/java/util/Set.java": [],
+      "src/java/util/function/Function.java": []
+    },
+    "neighborMap": {
+      "src/java/security/cert/X509Certificate.java": [
+        {
+          "path": "src/java/security/Principal.java",
+          "batchIndex": 5,
+          "symbols": [
+            "Principal"
+          ]
+        }
+      ],
+      "src/java/text/AttributedCharacterIterator.java": [
+        {
+          "path": "src/java/io/Serializable.java",
+          "batchIndex": 3,
+          "symbols": [
+            "Serializable"
+          ]
+        }
+      ],
+      "src/java/util/Map.java": [
+        {
+          "path": "src/java/sql/CallableStatement.java",
+          "batchIndex": 1,
+          "symbols": [
+            "CallableStatement"
+          ]
+        },
+        {
+          "path": "src/java/sql/ResultSet.java",
+          "batchIndex": 1,
+          "symbols": [
+            "ResultSet"
+          ]
+        }
+      ],
+      "src/java/util/Set.java": [
+        {
+          "path": "src/java/security/cert/X509CRL.java",
+          "batchIndex": 6,
+          "symbols": [
+            "equals",
+            "hashCode",
+            "getEncoded",
+            "verify",
+            "verify",
+            "getVersion",
+            "getIssuerDN",
+            "getThisUpdate",
+            "getNextUpdate",
+            "getRevokedCertificate",
+            "getRevokedCertificates",
+            "getTBSCertList",
+            "getSignature",
+            "getSigAlgName",
+            "getSigAlgOID",
+            "getSigAlgParams",
+            "hasUnsupportedCriticalExtension",
+            "getCriticalExtensionOIDs",
+            "getNonCriticalExtensionOIDs",
+            "getExtensionValue",
+            "X509CRL"
+          ]
+        }
+      ],
+      "src/java/util/function/Function.java": [
+        {
+          "path": "src/java/util/stream/IntStream.java",
+          "batchIndex": 2,
+          "symbols": [
+            "IntStream"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "batchIndex": 4,
+    "files": [
+      {
+        "path": "src/java/applet/AppletContext.java",
+        "language": "java",
+        "sizeLines": 108,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/java/security/BasicPermission.java",
+        "language": "java",
+        "sizeLines": 271,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/java/security/IdentityScope.java",
+        "language": "java",
+        "sizeLines": 208,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/java/security/PermissionCollection.java",
+        "language": "java",
+        "sizeLines": 207,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/java/security/Principal.java",
+        "language": "java",
+        "sizeLines": 85,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/java/security/acl/Acl.java",
+        "language": "java",
+        "sizeLines": 160,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/java/security/acl/AclEntry.java",
+        "language": "java",
+        "sizeLines": 164,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/java/security/acl/Group.java",
+        "language": "java",
+        "sizeLines": 93,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/java/security/acl/Owner.java",
+        "language": "java",
+        "sizeLines": 92,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/java/util/Enumeration.java",
+        "language": "java",
+        "sizeLines": 8,
+        "fileCategory": "code"
+      }
+    ],
+    "batchImportData": {
+      "src/java/applet/AppletContext.java": [
+        "src/java/util/Enumeration.java"
+      ],
+      "src/java/security/BasicPermission.java": [
+        "src/java/io/Serializable.java",
+        "src/java/util/Enumeration.java"
+      ],
+      "src/java/security/IdentityScope.java": [
+        "src/java/util/Enumeration.java"
+      ],
+      "src/java/security/PermissionCollection.java": [
+        "src/java/io/Serializable.java",
+        "src/java/util/Enumeration.java"
+      ],
+      "src/java/security/Principal.java": [],
+      "src/java/security/acl/Acl.java": [
+        "src/java/security/Principal.java",
+        "src/java/util/Enumeration.java"
+      ],
+      "src/java/security/acl/AclEntry.java": [
+        "src/java/security/Principal.java",
+        "src/java/util/Enumeration.java"
+      ],
+      "src/java/security/acl/Group.java": [
+        "src/java/security/Principal.java",
+        "src/java/util/Enumeration.java"
+      ],
+      "src/java/security/acl/Owner.java": [
+        "src/java/security/Principal.java"
+      ],
+      "src/java/util/Enumeration.java": []
+    },
+    "neighborMap": {
+      "src/java/security/BasicPermission.java": [
+        {
+          "path": "src/java/io/Serializable.java",
+          "batchIndex": 3,
+          "symbols": [
+            "Serializable"
+          ]
+        }
+      ],
+      "src/java/security/PermissionCollection.java": [
+        {
+          "path": "src/java/io/Serializable.java",
+          "batchIndex": 3,
+          "symbols": [
+            "Serializable"
+          ]
+        }
+      ],
+      "src/java/security/Principal.java": [
+        {
+          "path": "src/java/security/cert/X509Certificate.java",
+          "batchIndex": 4,
+          "symbols": [
+            "checkValidity",
+            "checkValidity",
+            "getVersion",
+            "getSerialNumber",
+            "getIssuerDN",
+            "getSubjectDN",
+            "getNotBefore",
+            "getNotAfter",
+            "getTBSCertificate",
+            "getSignature",
+            "getSigAlgName",
+            "getSigAlgOID",
+            "getSigAlgParams",
+            "getIssuerUniqueID",
+            "getSubjectUniqueID",
+            "getKeyUsage",
+            "getBasicConstraints",
+            "hasUnsupportedCriticalExtension",
+            "getCriticalExtensionOIDs",
+            "getNonCriticalExtensionOIDs",
+            "getExtensionValue",
+            "X509Certificate"
+          ]
+        },
+        {
+          "path": "src/java/security/cert/X509CRL.java",
+          "batchIndex": 6,
+          "symbols": [
+            "equals",
+            "hashCode",
+            "getEncoded",
+            "verify",
+            "verify",
+            "getVersion",
+            "getIssuerDN",
+            "getThisUpdate",
+            "getNextUpdate",
+            "getRevokedCertificate",
+            "getRevokedCertificates",
+            "getTBSCertList",
+            "getSignature",
+            "getSigAlgName",
+            "getSigAlgOID",
+            "getSigAlgParams",
+            "hasUnsupportedCriticalExtension",
+            "getCriticalExtensionOIDs",
+            "getNonCriticalExtensionOIDs",
+            "getExtensionValue",
+            "X509CRL"
+          ]
+        }
+      ],
+      "src/java/util/Enumeration.java": [
+        {
+          "path": "src/java/security/KeyStoreSpi.java",
+          "batchIndex": 7,
+          "symbols": [
+            "KeyStoreSpi",
+            "engineGetKey",
+            "engineGetCertificateChain",
+            "engineGetCertificate",
+            "engineGetCreationDate",
+            "engineSetKeyEntry",
+            "engineSetKeyEntry",
+            "engineSetCertificateEntry",
+            "engineDeleteEntry",
+            "engineAliases",
+            "engineContainsAlias",
+            "engineSize",
+            "engineIsKeyEntry",
+            "engineIsCertificateEntry",
+            "engineGetCertificateAlias",
+            "engineStore",
+            "engineLoad",
+            "KeyStoreSpi"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "batchIndex": 5,
+    "files": [
+      {
+        "path": "src/java/io/ObjectStreamException.java",
+        "language": "java",
+        "sizeLines": 70,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/java/lang/Enum.java",
+        "language": "java",
+        "sizeLines": 240,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/java/security/PublicKey.java",
+        "language": "java",
+        "sizeLines": 47,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/java/security/cert/Certificate.java",
+        "language": "java",
+        "sizeLines": 237,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/java/security/cert/X509CRL.java",
+        "language": "java",
+        "sizeLines": 377,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/java/security/interfaces/DSAPublicKey.java",
+        "language": "java",
+        "sizeLines": 61,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/java/security/interfaces/RSAPublicKey.java",
+        "language": "java",
+        "sizeLines": 54,
+        "fileCategory": "code"
+      }
+    ],
+    "batchImportData": {
+      "src/java/io/ObjectStreamException.java": [],
+      "src/java/lang/Enum.java": [
+        "src/java/io/ObjectStreamException.java",
+        "src/java/io/Serializable.java"
+      ],
+      "src/java/security/PublicKey.java": [],
+      "src/java/security/cert/Certificate.java": [
+        "src/java/io/ObjectStreamException.java",
+        "src/java/security/PublicKey.java"
+      ],
+      "src/java/security/cert/X509CRL.java": [
+        "src/java/security/Principal.java",
+        "src/java/security/PublicKey.java",
+        "src/java/util/Set.java"
+      ],
+      "src/java/security/interfaces/DSAPublicKey.java": [
+        "src/java/security/PublicKey.java"
+      ],
+      "src/java/security/interfaces/RSAPublicKey.java": [
+        "src/java/security/PublicKey.java"
+      ]
+    },
+    "neighborMap": {
+      "src/java/lang/Enum.java": [
+        {
+          "path": "src/java/io/Serializable.java",
+          "batchIndex": 3,
+          "symbols": [
+            "Serializable"
+          ]
+        }
+      ],
+      "src/java/security/cert/X509CRL.java": [
+        {
+          "path": "src/java/security/Principal.java",
+          "batchIndex": 5,
+          "symbols": [
+            "Principal"
+          ]
+        },
+        {
+          "path": "src/java/util/Set.java",
+          "batchIndex": 4,
+          "symbols": [
+            "Set"
+          ]
+        }
+      ]
+    }
+  }
+]

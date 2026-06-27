@@ -1,0 +1,32 @@
+{
+  "projectRoot": "/Users/xuyi/Source/OS/armOS/lib/jcore/test/ifOS",
+  "batchFiles": [
+    {
+      "path": "src/java/beans/PropertyChangeListener.java",
+      "language": "java",
+      "sizeLines": 49,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/java/beans/VetoableChangeListener.java",
+      "language": "java",
+      "sizeLines": 65,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/java/util/EventListener.java",
+      "language": "java",
+      "sizeLines": 32,
+      "fileCategory": "code"
+    }
+  ],
+  "batchImportData": {
+    "src/java/beans/PropertyChangeListener.java": [
+      "src/java/util/EventListener.java"
+    ],
+    "src/java/beans/VetoableChangeListener.java": [
+      "src/java/util/EventListener.java"
+    ],
+    "src/java/util/EventListener.java": []
+  }
+}

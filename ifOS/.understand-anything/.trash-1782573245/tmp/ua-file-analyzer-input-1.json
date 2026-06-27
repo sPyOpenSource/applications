@@ -1,0 +1,18 @@
+{
+  "projectRoot": "/Users/xuyi/Source/OS/armOS/lib/jcore/test/ifOS",
+  "batchFiles": [
+    {"path": "src/java/lang/Iterable.java", "language": "java", "sizeLines": 103, "fileCategory": "code"},
+    {"path": "src/java/nio/Buffer.java", "language": "java", "sizeLines": 548, "fileCategory": "code"},
+    {"path": "src/java/util/Iterator.java", "language": "java", "sizeLines": 77, "fileCategory": "code"},
+    {"path": "src/java/util/PrimitiveIterator.java", "language": "java", "sizeLines": 305, "fileCategory": "code"},
+    {"path": "src/java/util/Spliterator.java", "language": "java", "sizeLines": 832, "fileCategory": "code"},
+    {"path": "src/java/util/function/BiConsumer.java", "language": "java", "sizeLines": 75, "fileCategory": "code"},
+    {"path": "src/java/util/function/Consumer.java", "language": "java", "sizeLines": 67, "fileCategory": "code"},
+    {"path": "src/java/util/function/DoubleConsumer.java", "language": "java", "sizeLines": 67, "fileCategory": "code"},
+    {"path": "src/java/util/function/IntConsumer.java", "language": "java", "sizeLines": 67, "fileCategory": "code"},
+    {"path": "src/java/util/function/IntUnaryOperator.java", "language": "java", "sizeLines": 95, "fileCategory": "code"},
+    {"path": "src/java/util/function/LongConsumer.java", "language": "java", "sizeLines": 67, "fileCategory": "code"},
+    {"path": "src/java/util/function/Supplier.java", "language": "java", "sizeLines": 49, "fileCategory": "code"},
+    {"path": "src/java/util/stream/IntStream.java", "language": "java", "sizeLines": 929, "fileCategory": "code"}
+  ]
+}

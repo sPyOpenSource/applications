@@ -1,0 +1,89 @@
+{
+  "batchIndex": 15,
+  "nodes": [
+    {
+      "id": "file:src/jx/net/rpc/RPCProc.java",
+      "type": "file",
+      "path": "src/jx/net/rpc/RPCProc.java",
+      "sizeLines": 4,
+      "language": "java",
+      "fileCategory": "code"
+    },
+    {
+      "id": "class:jx.net.rpc.RPCProc",
+      "type": "class",
+      "name": "jx.net.rpc.RPCProc",
+      "startLine": 3,
+      "endLine": 4
+    },
+    {
+      "id": "file:src/jx/net/rpcsvc/mount/MountProc.java",
+      "type": "file",
+      "path": "src/jx/net/rpcsvc/mount/MountProc.java",
+      "sizeLines": 25,
+      "language": "java",
+      "fileCategory": "code"
+    },
+    {
+      "id": "class:jx.net.rpcsvc.mount.MountProc",
+      "type": "class",
+      "name": "jx.net.rpcsvc.mount.MountProc",
+      "startLine": 8,
+      "endLine": 25
+    },
+    {
+      "id": "file:src/jx/net/rpcsvc/nfs/NFSProc.java",
+      "type": "file",
+      "path": "src/jx/net/rpcsvc/nfs/NFSProc.java",
+      "sizeLines": 49,
+      "language": "java",
+      "fileCategory": "code"
+    },
+    {
+      "id": "class:jx.net.rpcsvc.nfs.NFSProc",
+      "type": "class",
+      "name": "jx.net.rpcsvc.nfs.NFSProc",
+      "startLine": 8,
+      "endLine": 49
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/jx/net/rpc/RPCProc.java",
+      "target": "class:jx.net.rpc.RPCProc",
+      "relationship": "contains"
+    },
+    {
+      "source": "file:src/jx/net/rpcsvc/mount/MountProc.java",
+      "target": "class:jx.net.rpcsvc.mount.MountProc",
+      "relationship": "contains"
+    },
+    {
+      "source": "file:src/jx/net/rpcsvc/nfs/NFSProc.java",
+      "target": "class:jx.net.rpcsvc.nfs.NFSProc",
+      "relationship": "contains"
+    },
+    {
+      "source": "file:src/jx/net/rpcsvc/mount/MountProc.java",
+      "target": "file:src/jx/net/rpc/RPCProc.java",
+      "relationship": "imports"
+    },
+    {
+      "source": "file:src/jx/net/rpcsvc/nfs/NFSProc.java",
+      "target": "file:src/jx/net/rpc/RPCProc.java",
+      "relationship": "imports"
+    },
+    {
+      "source": "class:jx.net.rpcsvc.mount.MountProc",
+      "target": "class:jx.net.rpc.RPCProc",
+      "relationship": "extends"
+    },
+    {
+      "source": "class:jx.net.rpcsvc.nfs.NFSProc",
+      "target": "class:jx.net.rpc.RPCProc",
+      "relationship": "extends"
+    }
+  ],
+  "filesAnalyzed": 3,
+  "filesSkipped": []
+}

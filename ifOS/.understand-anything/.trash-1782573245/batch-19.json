@@ -1,0 +1,1491 @@
+{
+  "batchIndex": 19,
+  "nodes": [
+    {
+      "id": "file:src/java/net/ContentHandlerFactory.java",
+      "type": "file",
+      "label": "ContentHandlerFactory.java",
+      "properties": {
+        "path": "src/java/net/ContentHandlerFactory.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 51,
+        "nonEmptyLines": 41
+      }
+    },
+    {
+      "id": "class:src/java/net/ContentHandlerFactory.java::ContentHandlerFactory",
+      "type": "class",
+      "label": "ContentHandlerFactory",
+      "properties": {
+        "name": "ContentHandlerFactory",
+        "startLine": 37,
+        "endLine": 50,
+        "methods": [
+          "createContentHandler"
+        ],
+        "properties": []
+      }
+    },
+    {
+      "id": "file:src/java/net/FileNameMap.java",
+      "type": "file",
+      "label": "FileNameMap.java",
+      "properties": {
+        "path": "src/java/net/FileNameMap.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 51,
+        "nonEmptyLines": 40
+      }
+    },
+    {
+      "id": "class:src/java/net/FileNameMap.java::FileNameMap",
+      "type": "class",
+      "label": "FileNameMap",
+      "properties": {
+        "name": "FileNameMap",
+        "startLine": 36,
+        "endLine": 50,
+        "methods": [
+          "getContentTypeFor"
+        ],
+        "properties": []
+      }
+    },
+    {
+      "id": "file:src/java/net/URLStreamHandlerFactory.java",
+      "type": "file",
+      "label": "URLStreamHandlerFactory.java",
+      "properties": {
+        "path": "src/java/net/URLStreamHandlerFactory.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 51,
+        "nonEmptyLines": 41
+      }
+    },
+    {
+      "id": "class:src/java/net/URLStreamHandlerFactory.java::URLStreamHandlerFactory",
+      "type": "class",
+      "label": "URLStreamHandlerFactory",
+      "properties": {
+        "name": "URLStreamHandlerFactory",
+        "startLine": 36,
+        "endLine": 50,
+        "methods": [
+          "createURLStreamHandler"
+        ],
+        "properties": []
+      }
+    },
+    {
+      "id": "file:src/java/security/acl/Permission.java",
+      "type": "file",
+      "label": "Permission.java",
+      "properties": {
+        "path": "src/java/security/acl/Permission.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 64,
+        "nonEmptyLines": 51
+      }
+    },
+    {
+      "id": "class:src/java/security/acl/Permission.java::Permission",
+      "type": "class",
+      "label": "Permission",
+      "properties": {
+        "name": "Permission",
+        "startLine": 39,
+        "endLine": 63,
+        "methods": [
+          "equals",
+          "toString"
+        ],
+        "properties": []
+      }
+    },
+    {
+      "id": "file:src/java/security/cert/CRL.java",
+      "type": "file",
+      "label": "CRL.java",
+      "properties": {
+        "path": "src/java/security/cert/CRL.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 86,
+        "nonEmptyLines": 65
+      }
+    },
+    {
+      "id": "class:src/java/security/cert/CRL.java::CRL",
+      "type": "class",
+      "label": "CRL",
+      "properties": {
+        "name": "CRL",
+        "startLine": 42,
+        "endLine": 86,
+        "methods": [
+          "CRL",
+          "getType",
+          "toString",
+          "isRevoked"
+        ],
+        "properties": [
+          "type"
+        ]
+      }
+    },
+    {
+      "id": "class:src/java/security/cert/CRL.java::getType",
+      "type": "class",
+      "label": "getType",
+      "properties": {
+        "name": "getType",
+        "startLine": 63,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/security/cert/CRL.java::toString",
+      "type": "class",
+      "label": "toString",
+      "properties": {
+        "name": "toString",
+        "startLine": 72,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/security/cert/CRL.java::isRevoked",
+      "type": "class",
+      "label": "isRevoked",
+      "properties": {
+        "name": "isRevoked",
+        "startLine": 84,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "function:src/java/security/cert/CRL.java::CRL",
+      "type": "function",
+      "label": "CRL",
+      "properties": {
+        "name": "CRL",
+        "startLine": 53,
+        "endLine": 56,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/security/cert/CRL.java::getType",
+      "type": "function",
+      "label": "getType",
+      "properties": {
+        "name": "getType",
+        "startLine": 63,
+        "endLine": 66,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/security/cert/CRL.java::toString",
+      "type": "function",
+      "label": "toString",
+      "properties": {
+        "name": "toString",
+        "startLine": 72,
+        "endLine": 73,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/security/cert/CRL.java::isRevoked",
+      "type": "function",
+      "label": "isRevoked",
+      "properties": {
+        "name": "isRevoked",
+        "startLine": 84,
+        "endLine": 84,
+        "signature": ""
+      }
+    },
+    {
+      "id": "file:src/java/security/cert/Makefile.am",
+      "type": "file",
+      "label": "Makefile.am",
+      "properties": {
+        "path": "src/java/security/cert/Makefile.am",
+        "language": "am",
+        "fileCategory": "code",
+        "totalLines": 19,
+        "nonEmptyLines": 16
+      }
+    },
+    {
+      "id": "file:src/java/security/cert/Makefile.in",
+      "type": "file",
+      "label": "Makefile.in",
+      "properties": {
+        "path": "src/java/security/cert/Makefile.in",
+        "language": "in",
+        "fileCategory": "code",
+        "totalLines": 221,
+        "nonEmptyLines": 181
+      }
+    },
+    {
+      "id": "file:src/java/security/DomainCombiner.java",
+      "type": "file",
+      "label": "DomainCombiner.java",
+      "properties": {
+        "path": "src/java/security/DomainCombiner.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 54,
+        "nonEmptyLines": 43
+      }
+    },
+    {
+      "id": "class:src/java/security/DomainCombiner.java::DomainCombiner",
+      "type": "class",
+      "label": "DomainCombiner",
+      "properties": {
+        "name": "DomainCombiner",
+        "startLine": 42,
+        "endLine": 54,
+        "methods": [
+          "combine"
+        ],
+        "properties": []
+      }
+    },
+    {
+      "id": "file:src/java/security/Guard.java",
+      "type": "file",
+      "label": "Guard.java",
+      "properties": {
+        "path": "src/java/security/Guard.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 54,
+        "nonEmptyLines": 43
+      }
+    },
+    {
+      "id": "class:src/java/security/Guard.java::Guard",
+      "type": "class",
+      "label": "Guard",
+      "properties": {
+        "name": "Guard",
+        "startLine": 38,
+        "endLine": 53,
+        "methods": [
+          "checkGuard"
+        ],
+        "properties": []
+      }
+    },
+    {
+      "id": "file:src/java/security/interfaces/DSAKey.java",
+      "type": "file",
+      "label": "DSAKey.java",
+      "properties": {
+        "path": "src/java/security/interfaces/DSAKey.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 50,
+        "nonEmptyLines": 39
+      }
+    },
+    {
+      "id": "class:src/java/security/interfaces/DSAKey.java::DSAKey",
+      "type": "class",
+      "label": "DSAKey",
+      "properties": {
+        "name": "DSAKey",
+        "startLine": 38,
+        "endLine": 49,
+        "methods": [
+          "getParams"
+        ],
+        "properties": []
+      }
+    },
+    {
+      "id": "file:src/java/security/interfaces/DSAKeyPairGenerator.java",
+      "type": "file",
+      "label": "DSAKeyPairGenerator.java",
+      "properties": {
+        "path": "src/java/security/interfaces/DSAKeyPairGenerator.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 81,
+        "nonEmptyLines": 67
+      }
+    },
+    {
+      "id": "class:src/java/security/interfaces/DSAKeyPairGenerator.java::DSAKeyPairGenerator",
+      "type": "class",
+      "label": "DSAKeyPairGenerator",
+      "properties": {
+        "name": "DSAKeyPairGenerator",
+        "startLine": 44,
+        "endLine": 80,
+        "methods": [
+          "initialize",
+          "initialize"
+        ],
+        "properties": []
+      }
+    },
+    {
+      "id": "file:src/java/security/interfaces/DSAParams.java",
+      "type": "file",
+      "label": "DSAParams.java",
+      "properties": {
+        "path": "src/java/security/interfaces/DSAParams.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 72,
+        "nonEmptyLines": 56
+      }
+    },
+    {
+      "id": "class:src/java/security/interfaces/DSAParams.java::DSAParams",
+      "type": "class",
+      "label": "DSAParams",
+      "properties": {
+        "name": "DSAParams",
+        "startLine": 40,
+        "endLine": 71,
+        "methods": [
+          "getG",
+          "getP",
+          "getQ"
+        ],
+        "properties": []
+      }
+    },
+    {
+      "id": "file:src/java/security/interfaces/RSAKey.java",
+      "type": "file",
+      "label": "RSAKey.java",
+      "properties": {
+        "path": "src/java/security/interfaces/RSAKey.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 45,
+        "nonEmptyLines": 34
+      }
+    },
+    {
+      "id": "class:src/java/security/interfaces/RSAKey.java::RSAKey",
+      "type": "class",
+      "label": "RSAKey",
+      "properties": {
+        "name": "RSAKey",
+        "startLine": 37,
+        "endLine": 45,
+        "methods": [
+          "getModulus"
+        ],
+        "properties": []
+      }
+    },
+    {
+      "id": "file:src/java/security/interfaces/RSAPrivateCrtKey.java",
+      "type": "file",
+      "label": "RSAPrivateCrtKey.java",
+      "properties": {
+        "path": "src/java/security/interfaces/RSAPrivateCrtKey.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 102,
+        "nonEmptyLines": 80
+      }
+    },
+    {
+      "id": "class:src/java/security/interfaces/RSAPrivateCrtKey.java::RSAPrivateCrtKey",
+      "type": "class",
+      "label": "RSAPrivateCrtKey",
+      "properties": {
+        "name": "RSAPrivateCrtKey",
+        "startLine": 40,
+        "endLine": 101,
+        "methods": [
+          "getPublicExponent",
+          "getPrimeP",
+          "getPrimeQ",
+          "getPrimeExponentP",
+          "getPrimeExponentQ",
+          "getCrtCoefficient"
+        ],
+        "properties": []
+      }
+    },
+    {
+      "id": "file:src/java/security/KeyFactorySpi.java",
+      "type": "file",
+      "label": "KeyFactorySpi.java",
+      "properties": {
+        "path": "src/java/security/KeyFactorySpi.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 122,
+        "nonEmptyLines": 90
+      }
+    },
+    {
+      "id": "class:src/java/security/KeyFactorySpi.java::KeyFactorySpi",
+      "type": "class",
+      "label": "KeyFactorySpi",
+      "properties": {
+        "name": "KeyFactorySpi",
+        "startLine": 53,
+        "endLine": 122,
+        "methods": [
+          "KeyFactorySpi",
+          "engineGeneratePublic",
+          "engineGeneratePrivate",
+          "engineGetKeySpec",
+          "engineTranslateKey"
+        ],
+        "properties": []
+      }
+    },
+    {
+      "id": "function:src/java/security/KeyFactorySpi.java::KeyFactorySpi",
+      "type": "function",
+      "label": "KeyFactorySpi",
+      "properties": {
+        "name": "KeyFactorySpi",
+        "startLine": 59,
+        "endLine": 60,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/security/KeyFactorySpi.java::engineGeneratePublic",
+      "type": "function",
+      "label": "engineGeneratePublic",
+      "properties": {
+        "name": "engineGeneratePublic",
+        "startLine": 72,
+        "endLine": 73,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/security/KeyFactorySpi.java::engineGeneratePrivate",
+      "type": "function",
+      "label": "engineGeneratePrivate",
+      "properties": {
+        "name": "engineGeneratePrivate",
+        "startLine": 86,
+        "endLine": 87,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/security/KeyFactorySpi.java::engineGetKeySpec",
+      "type": "function",
+      "label": "engineGetKeySpec",
+      "properties": {
+        "name": "engineGetKeySpec",
+        "startLine": 105,
+        "endLine": 106,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/security/KeyFactorySpi.java::engineTranslateKey",
+      "type": "function",
+      "label": "engineTranslateKey",
+      "properties": {
+        "name": "engineTranslateKey",
+        "startLine": 120,
+        "endLine": 121,
+        "signature": ""
+      }
+    },
+    {
+      "id": "file:src/java/security/MessageDigest.java",
+      "type": "file",
+      "label": "MessageDigest.java",
+      "properties": {
+        "path": "src/java/security/MessageDigest.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 315,
+        "nonEmptyLines": 256
+      }
+    },
+    {
+      "id": "class:src/java/security/MessageDigest.java::MessageDigest",
+      "type": "class",
+      "label": "MessageDigest",
+      "properties": {
+        "name": "MessageDigest",
+        "startLine": 30,
+        "endLine": 315,
+        "methods": [
+          "MessageDigest",
+          "getInstance",
+          "getInstance",
+          "getInstance",
+          "getProvider",
+          "update",
+          "update",
+          "update",
+          "digest",
+          "digest",
+          "digest",
+          "toString",
+          "isEqual",
+          "reset",
+          "getAlgorithm",
+          "getDigestLength",
+          "clone",
+          "digestToString"
+        ],
+        "properties": [
+          "algorithm",
+          "provider",
+          "lastDigest"
+        ]
+      }
+    },
+    {
+      "id": "class:src/java/security/MessageDigest.java::getInstance",
+      "type": "class",
+      "label": "getInstance",
+      "properties": {
+        "name": "getInstance",
+        "startLine": 58,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/security/MessageDigest.java::getProvider",
+      "type": "class",
+      "label": "getProvider",
+      "properties": {
+        "name": "getProvider",
+        "startLine": 136,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/security/MessageDigest.java::update",
+      "type": "class",
+      "label": "update",
+      "properties": {
+        "name": "update",
+        "startLine": 146,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/security/MessageDigest.java::digest",
+      "type": "class",
+      "label": "digest",
+      "properties": {
+        "name": "digest",
+        "startLine": 179,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/security/MessageDigest.java::toString",
+      "type": "class",
+      "label": "toString",
+      "properties": {
+        "name": "toString",
+        "startLine": 217,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/security/MessageDigest.java::isEqual",
+      "type": "class",
+      "label": "isEqual",
+      "properties": {
+        "name": "isEqual",
+        "startLine": 230,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/security/MessageDigest.java::reset",
+      "type": "class",
+      "label": "reset",
+      "properties": {
+        "name": "reset",
+        "startLine": 246,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/security/MessageDigest.java::getAlgorithm",
+      "type": "class",
+      "label": "getAlgorithm",
+      "properties": {
+        "name": "getAlgorithm",
+        "startLine": 257,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/security/MessageDigest.java::getDigestLength",
+      "type": "class",
+      "label": "getDigestLength",
+      "properties": {
+        "name": "getDigestLength",
+        "startLine": 269,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/security/MessageDigest.java::clone",
+      "type": "class",
+      "label": "clone",
+      "properties": {
+        "name": "clone",
+        "startLine": 285,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "function:src/java/security/MessageDigest.java::MessageDigest",
+      "type": "function",
+      "label": "MessageDigest",
+      "properties": {
+        "name": "MessageDigest",
+        "startLine": 42,
+        "endLine": 46,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/security/MessageDigest.java::getInstance",
+      "type": "function",
+      "label": "getInstance",
+      "properties": {
+        "name": "getInstance",
+        "startLine": 58,
+        "endLine": 71,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/security/MessageDigest.java::getInstance",
+      "type": "function",
+      "label": "getInstance",
+      "properties": {
+        "name": "getInstance",
+        "startLine": 88,
+        "endLine": 98,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/security/MessageDigest.java::getInstance",
+      "type": "function",
+      "label": "getInstance",
+      "properties": {
+        "name": "getInstance",
+        "startLine": 100,
+        "endLine": 128,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/security/MessageDigest.java::getProvider",
+      "type": "function",
+      "label": "getProvider",
+      "properties": {
+        "name": "getProvider",
+        "startLine": 136,
+        "endLine": 139,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/security/MessageDigest.java::update",
+      "type": "function",
+      "label": "update",
+      "properties": {
+        "name": "update",
+        "startLine": 146,
+        "endLine": 149,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/security/MessageDigest.java::update",
+      "type": "function",
+      "label": "update",
+      "properties": {
+        "name": "update",
+        "startLine": 159,
+        "endLine": 162,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/security/MessageDigest.java::update",
+      "type": "function",
+      "label": "update",
+      "properties": {
+        "name": "update",
+        "startLine": 169,
+        "endLine": 172,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/security/MessageDigest.java::digest",
+      "type": "function",
+      "label": "digest",
+      "properties": {
+        "name": "digest",
+        "startLine": 179,
+        "endLine": 182,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/security/MessageDigest.java::digest",
+      "type": "function",
+      "label": "digest",
+      "properties": {
+        "name": "digest",
+        "startLine": 193,
+        "endLine": 196,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/security/MessageDigest.java::digest",
+      "type": "function",
+      "label": "digest",
+      "properties": {
+        "name": "digest",
+        "startLine": 206,
+        "endLine": 210,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/security/MessageDigest.java::toString",
+      "type": "function",
+      "label": "toString",
+      "properties": {
+        "name": "toString",
+        "startLine": 217,
+        "endLine": 221,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/security/MessageDigest.java::isEqual",
+      "type": "function",
+      "label": "isEqual",
+      "properties": {
+        "name": "isEqual",
+        "startLine": 230,
+        "endLine": 240,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/security/MessageDigest.java::reset",
+      "type": "function",
+      "label": "reset",
+      "properties": {
+        "name": "reset",
+        "startLine": 246,
+        "endLine": 249,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/security/MessageDigest.java::getAlgorithm",
+      "type": "function",
+      "label": "getAlgorithm",
+      "properties": {
+        "name": "getAlgorithm",
+        "startLine": 257,
+        "endLine": 260,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/security/MessageDigest.java::getDigestLength",
+      "type": "function",
+      "label": "getDigestLength",
+      "properties": {
+        "name": "getDigestLength",
+        "startLine": 269,
+        "endLine": 272,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/security/MessageDigest.java::clone",
+      "type": "function",
+      "label": "clone",
+      "properties": {
+        "name": "clone",
+        "startLine": 285,
+        "endLine": 291,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/security/MessageDigest.java::digestToString",
+      "type": "function",
+      "label": "digestToString",
+      "properties": {
+        "name": "digestToString",
+        "startLine": 293,
+        "endLine": 313,
+        "signature": ""
+      }
+    },
+    {
+      "id": "file:src/java/security/MessageDigestSpi.java",
+      "type": "file",
+      "label": "MessageDigestSpi.java",
+      "properties": {
+        "path": "src/java/security/MessageDigestSpi.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 148,
+        "nonEmptyLines": 116
+      }
+    },
+    {
+      "id": "class:src/java/security/MessageDigestSpi.java::MessageDigestSpi",
+      "type": "class",
+      "label": "MessageDigestSpi",
+      "properties": {
+        "name": "MessageDigestSpi",
+        "startLine": 49,
+        "endLine": 148,
+        "methods": [
+          "MessageDigestSpi",
+          "engineGetDigestLength",
+          "engineUpdate",
+          "engineUpdate",
+          "engineDigest",
+          "engineDigest",
+          "engineReset",
+          "clone"
+        ],
+        "properties": []
+      }
+    },
+    {
+      "id": "class:src/java/security/MessageDigestSpi.java::clone",
+      "type": "class",
+      "label": "clone",
+      "properties": {
+        "name": "clone",
+        "startLine": 140,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "function:src/java/security/MessageDigestSpi.java::MessageDigestSpi",
+      "type": "function",
+      "label": "MessageDigestSpi",
+      "properties": {
+        "name": "MessageDigestSpi",
+        "startLine": 54,
+        "endLine": 54,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/security/MessageDigestSpi.java::engineGetDigestLength",
+      "type": "function",
+      "label": "engineGetDigestLength",
+      "properties": {
+        "name": "engineGetDigestLength",
+        "startLine": 66,
+        "endLine": 69,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/security/MessageDigestSpi.java::engineUpdate",
+      "type": "function",
+      "label": "engineUpdate",
+      "properties": {
+        "name": "engineUpdate",
+        "startLine": 76,
+        "endLine": 76,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/security/MessageDigestSpi.java::engineUpdate",
+      "type": "function",
+      "label": "engineUpdate",
+      "properties": {
+        "name": "engineUpdate",
+        "startLine": 87,
+        "endLine": 87,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/security/MessageDigestSpi.java::engineDigest",
+      "type": "function",
+      "label": "engineDigest",
+      "properties": {
+        "name": "engineDigest",
+        "startLine": 96,
+        "endLine": 96,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/security/MessageDigestSpi.java::engineDigest",
+      "type": "function",
+      "label": "engineDigest",
+      "properties": {
+        "name": "engineDigest",
+        "startLine": 112,
+        "endLine": 124,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/security/MessageDigestSpi.java::engineReset",
+      "type": "function",
+      "label": "engineReset",
+      "properties": {
+        "name": "engineReset",
+        "startLine": 130,
+        "endLine": 130,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/security/MessageDigestSpi.java::clone",
+      "type": "function",
+      "label": "clone",
+      "properties": {
+        "name": "clone",
+        "startLine": 140,
+        "endLine": 146,
+        "signature": ""
+      }
+    },
+    {
+      "id": "file:src/java/security/Policy.java",
+      "type": "file",
+      "label": "Policy.java",
+      "properties": {
+        "path": "src/java/security/Policy.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 146,
+        "nonEmptyLines": 115
+      }
+    },
+    {
+      "id": "class:src/java/security/Policy.java::Policy",
+      "type": "class",
+      "label": "Policy",
+      "properties": {
+        "name": "Policy",
+        "startLine": 73,
+        "endLine": 146,
+        "methods": [
+          "Policy",
+          "getPolicy",
+          "setPolicy",
+          "getPermissions",
+          "refresh"
+        ],
+        "properties": [
+          "currentPolicy"
+        ]
+      }
+    },
+    {
+      "id": "class:src/java/security/Policy.java::getPolicy",
+      "type": "class",
+      "label": "getPolicy",
+      "properties": {
+        "name": "getPolicy",
+        "startLine": 96,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/security/Policy.java::setPolicy",
+      "type": "class",
+      "label": "setPolicy",
+      "properties": {
+        "name": "setPolicy",
+        "startLine": 117,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/security/Policy.java::getPermissions",
+      "type": "class",
+      "label": "getPermissions",
+      "properties": {
+        "name": "getPermissions",
+        "startLine": 139,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/security/Policy.java::refresh",
+      "type": "class",
+      "label": "refresh",
+      "properties": {
+        "name": "refresh",
+        "startLine": 145,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "function:src/java/security/Policy.java::Policy",
+      "type": "function",
+      "label": "Policy",
+      "properties": {
+        "name": "Policy",
+        "startLine": 80,
+        "endLine": 81,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/security/Policy.java::getPolicy",
+      "type": "function",
+      "label": "getPolicy",
+      "properties": {
+        "name": "getPolicy",
+        "startLine": 96,
+        "endLine": 103,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/security/Policy.java::setPolicy",
+      "type": "function",
+      "label": "setPolicy",
+      "properties": {
+        "name": "setPolicy",
+        "startLine": 117,
+        "endLine": 124,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/security/Policy.java::getPermissions",
+      "type": "function",
+      "label": "getPermissions",
+      "properties": {
+        "name": "getPermissions",
+        "startLine": 139,
+        "endLine": 139,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/security/Policy.java::refresh",
+      "type": "function",
+      "label": "refresh",
+      "properties": {
+        "name": "refresh",
+        "startLine": 145,
+        "endLine": 145,
+        "signature": ""
+      }
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/java/net/ContentHandlerFactory.java",
+      "target": "class:src/java/net/ContentHandlerFactory.java::ContentHandlerFactory",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/net/FileNameMap.java",
+      "target": "class:src/java/net/FileNameMap.java::FileNameMap",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/net/URLStreamHandlerFactory.java",
+      "target": "class:src/java/net/URLStreamHandlerFactory.java::URLStreamHandlerFactory",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/acl/Permission.java",
+      "target": "class:src/java/security/acl/Permission.java::Permission",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/cert/CRL.java",
+      "target": "class:src/java/security/cert/CRL.java::CRL",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/cert/CRL.java",
+      "target": "class:src/java/security/cert/CRL.java::getType",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/cert/CRL.java",
+      "target": "class:src/java/security/cert/CRL.java::toString",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/cert/CRL.java",
+      "target": "class:src/java/security/cert/CRL.java::isRevoked",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/cert/CRL.java",
+      "target": "function:src/java/security/cert/CRL.java::CRL",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/cert/CRL.java",
+      "target": "function:src/java/security/cert/CRL.java::getType",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/cert/CRL.java",
+      "target": "function:src/java/security/cert/CRL.java::toString",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/cert/CRL.java",
+      "target": "function:src/java/security/cert/CRL.java::isRevoked",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/DomainCombiner.java",
+      "target": "class:src/java/security/DomainCombiner.java::DomainCombiner",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/Guard.java",
+      "target": "class:src/java/security/Guard.java::Guard",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/interfaces/DSAKey.java",
+      "target": "class:src/java/security/interfaces/DSAKey.java::DSAKey",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/interfaces/DSAKeyPairGenerator.java",
+      "target": "class:src/java/security/interfaces/DSAKeyPairGenerator.java::DSAKeyPairGenerator",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/interfaces/DSAParams.java",
+      "target": "class:src/java/security/interfaces/DSAParams.java::DSAParams",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/interfaces/RSAKey.java",
+      "target": "class:src/java/security/interfaces/RSAKey.java::RSAKey",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/interfaces/RSAPrivateCrtKey.java",
+      "target": "class:src/java/security/interfaces/RSAPrivateCrtKey.java::RSAPrivateCrtKey",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/KeyFactorySpi.java",
+      "target": "class:src/java/security/KeyFactorySpi.java::KeyFactorySpi",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/KeyFactorySpi.java",
+      "target": "function:src/java/security/KeyFactorySpi.java::KeyFactorySpi",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/KeyFactorySpi.java",
+      "target": "function:src/java/security/KeyFactorySpi.java::engineGeneratePublic",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/KeyFactorySpi.java",
+      "target": "function:src/java/security/KeyFactorySpi.java::engineGeneratePrivate",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/KeyFactorySpi.java",
+      "target": "function:src/java/security/KeyFactorySpi.java::engineGetKeySpec",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/KeyFactorySpi.java",
+      "target": "function:src/java/security/KeyFactorySpi.java::engineTranslateKey",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/MessageDigest.java",
+      "target": "class:src/java/security/MessageDigest.java::MessageDigest",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/MessageDigest.java",
+      "target": "class:src/java/security/MessageDigest.java::getInstance",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/MessageDigest.java",
+      "target": "class:src/java/security/MessageDigest.java::getProvider",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/MessageDigest.java",
+      "target": "class:src/java/security/MessageDigest.java::update",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/MessageDigest.java",
+      "target": "class:src/java/security/MessageDigest.java::digest",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/MessageDigest.java",
+      "target": "class:src/java/security/MessageDigest.java::toString",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/MessageDigest.java",
+      "target": "class:src/java/security/MessageDigest.java::isEqual",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/MessageDigest.java",
+      "target": "class:src/java/security/MessageDigest.java::reset",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/MessageDigest.java",
+      "target": "class:src/java/security/MessageDigest.java::getAlgorithm",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/MessageDigest.java",
+      "target": "class:src/java/security/MessageDigest.java::getDigestLength",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/MessageDigest.java",
+      "target": "class:src/java/security/MessageDigest.java::clone",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/MessageDigest.java",
+      "target": "function:src/java/security/MessageDigest.java::MessageDigest",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/MessageDigest.java",
+      "target": "function:src/java/security/MessageDigest.java::getInstance",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/MessageDigest.java",
+      "target": "function:src/java/security/MessageDigest.java::getInstance",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/MessageDigest.java",
+      "target": "function:src/java/security/MessageDigest.java::getInstance",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/MessageDigest.java",
+      "target": "function:src/java/security/MessageDigest.java::getProvider",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/MessageDigest.java",
+      "target": "function:src/java/security/MessageDigest.java::update",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/MessageDigest.java",
+      "target": "function:src/java/security/MessageDigest.java::update",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/MessageDigest.java",
+      "target": "function:src/java/security/MessageDigest.java::update",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/MessageDigest.java",
+      "target": "function:src/java/security/MessageDigest.java::digest",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/MessageDigest.java",
+      "target": "function:src/java/security/MessageDigest.java::digest",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/MessageDigest.java",
+      "target": "function:src/java/security/MessageDigest.java::digest",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/MessageDigest.java",
+      "target": "function:src/java/security/MessageDigest.java::toString",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/MessageDigest.java",
+      "target": "function:src/java/security/MessageDigest.java::isEqual",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/MessageDigest.java",
+      "target": "function:src/java/security/MessageDigest.java::reset",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/MessageDigest.java",
+      "target": "function:src/java/security/MessageDigest.java::getAlgorithm",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/MessageDigest.java",
+      "target": "function:src/java/security/MessageDigest.java::getDigestLength",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/MessageDigest.java",
+      "target": "function:src/java/security/MessageDigest.java::clone",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/MessageDigest.java",
+      "target": "function:src/java/security/MessageDigest.java::digestToString",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/MessageDigestSpi.java",
+      "target": "class:src/java/security/MessageDigestSpi.java::MessageDigestSpi",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/MessageDigestSpi.java",
+      "target": "class:src/java/security/MessageDigestSpi.java::clone",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/MessageDigestSpi.java",
+      "target": "function:src/java/security/MessageDigestSpi.java::MessageDigestSpi",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/MessageDigestSpi.java",
+      "target": "function:src/java/security/MessageDigestSpi.java::engineGetDigestLength",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/MessageDigestSpi.java",
+      "target": "function:src/java/security/MessageDigestSpi.java::engineUpdate",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/MessageDigestSpi.java",
+      "target": "function:src/java/security/MessageDigestSpi.java::engineUpdate",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/MessageDigestSpi.java",
+      "target": "function:src/java/security/MessageDigestSpi.java::engineDigest",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/MessageDigestSpi.java",
+      "target": "function:src/java/security/MessageDigestSpi.java::engineDigest",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/MessageDigestSpi.java",
+      "target": "function:src/java/security/MessageDigestSpi.java::engineReset",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/MessageDigestSpi.java",
+      "target": "function:src/java/security/MessageDigestSpi.java::clone",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/Policy.java",
+      "target": "class:src/java/security/Policy.java::Policy",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/Policy.java",
+      "target": "class:src/java/security/Policy.java::getPolicy",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/Policy.java",
+      "target": "class:src/java/security/Policy.java::setPolicy",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/Policy.java",
+      "target": "class:src/java/security/Policy.java::getPermissions",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/Policy.java",
+      "target": "class:src/java/security/Policy.java::refresh",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/Policy.java",
+      "target": "function:src/java/security/Policy.java::Policy",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/Policy.java",
+      "target": "function:src/java/security/Policy.java::getPolicy",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/Policy.java",
+      "target": "function:src/java/security/Policy.java::setPolicy",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/Policy.java",
+      "target": "function:src/java/security/Policy.java::getPermissions",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/security/Policy.java",
+      "target": "function:src/java/security/Policy.java::refresh",
+      "relation": "contains"
+    }
+  ],
+  "nodeCount": 92,
+  "edgeCount": 74
+}

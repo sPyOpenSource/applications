@@ -1,0 +1,1634 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 25,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "src/java/beans/Visibility.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 74,
+      "nonEmptyLines": 62,
+      "classes": [
+        {
+          "name": "Visibility",
+          "startLine": 45,
+          "endLine": 74,
+          "methods": [
+            "needsGui",
+            "avoidingGui",
+            "dontUseGui",
+            "okToUseGui"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "Visibility",
+          "line": 45,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/io/Closeable.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 33,
+      "nonEmptyLines": 29,
+      "classes": [
+        {
+          "name": "Closeable",
+          "startLine": 15,
+          "endLine": 33,
+          "methods": [
+            "close"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "Closeable",
+          "line": 15,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/io/DataInput.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 19,
+      "nonEmptyLines": 18,
+      "classes": [
+        {
+          "name": "DataInput",
+          "startLine": 3,
+          "endLine": 19,
+          "methods": [
+            "readFully",
+            "readFully",
+            "skipBytes",
+            "readBoolean",
+            "readByte",
+            "readUnsignedByte",
+            "readShort",
+            "readUnsignedShort",
+            "readChar",
+            "readInt",
+            "readLong",
+            "readFloat",
+            "readDouble",
+            "readLine",
+            "readUTF"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "DataInput",
+          "line": 3,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/io/DataOutput.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 18,
+      "nonEmptyLines": 17,
+      "classes": [
+        {
+          "name": "DataOutput",
+          "startLine": 3,
+          "endLine": 18,
+          "methods": [
+            "write",
+            "write",
+            "write",
+            "writeBoolean",
+            "writeByte",
+            "writeShort",
+            "writeChar",
+            "writeInt",
+            "writeLong",
+            "writeFloat",
+            "writeDouble",
+            "writeBytes",
+            "writeChars",
+            "writeUTF"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "DataOutput",
+          "line": 3,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/io/Externalizable.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 94,
+      "nonEmptyLines": 91,
+      "classes": [
+        {
+          "name": "Externalizable",
+          "startLine": 63,
+          "endLine": 94,
+          "methods": [
+            "writeExternal",
+            "readExternal"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "Externalizable",
+          "line": 63,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/io/FilenameFilter.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 58,
+      "nonEmptyLines": 47,
+      "classes": [
+        {
+          "name": "FilenameFilter",
+          "startLine": 42,
+          "endLine": 57,
+          "methods": [
+            "accept"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "FilenameFilter",
+          "line": 42,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/io/ObjectOutput.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 91,
+      "nonEmptyLines": 84,
+      "classes": [
+        {
+          "name": "ObjectOutput",
+          "startLine": 39,
+          "endLine": 91,
+          "methods": [
+            "writeObject",
+            "write",
+            "write",
+            "write",
+            "flush",
+            "close"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "ObjectOutput",
+          "line": 39,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/io/ObjectStreamConstants.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 235,
+      "nonEmptyLines": 199,
+      "classes": [
+        {
+          "name": "ObjectStreamConstants",
+          "startLine": 34,
+          "endLine": 235,
+          "methods": [],
+          "properties": [
+            "STREAM_MAGIC",
+            "STREAM_VERSION",
+            "TC_BASE",
+            "TC_NULL",
+            "TC_REFERENCE",
+            "TC_CLASSDESC",
+            "TC_OBJECT",
+            "TC_STRING",
+            "TC_ARRAY",
+            "TC_CLASS",
+            "TC_BLOCKDATA",
+            "TC_ENDBLOCKDATA",
+            "TC_RESET",
+            "TC_BLOCKDATALONG",
+            "TC_EXCEPTION",
+            "TC_LONGSTRING",
+            "TC_PROXYCLASSDESC",
+            "TC_ENUM",
+            "TC_MAX",
+            "baseWireHandle",
+            "SC_WRITE_METHOD",
+            "SC_BLOCK_DATA",
+            "SC_SERIALIZABLE",
+            "SC_EXTERNALIZABLE",
+            "SC_ENUM",
+            "SUBSTITUTION_PERMISSION",
+            "SUBCLASS_IMPLEMENTATION_PERMISSION",
+            "PROTOCOL_VERSION_1",
+            "PROTOCOL_VERSION_2"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "ObjectStreamConstants",
+          "line": 34,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/io/package.bluej",
+      "language": "bluej",
+      "fileCategory": "code",
+      "totalLines": 114,
+      "nonEmptyLines": 114,
+      "metrics": {}
+    },
+    {
+      "path": "src/java/lang/Appendable.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 121,
+      "nonEmptyLines": 115,
+      "classes": [
+        {
+          "name": "Appendable",
+          "startLine": 51,
+          "endLine": 121,
+          "methods": [
+            "append",
+            "append",
+            "append"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "Appendable",
+          "line": 51,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/lang/AutoCloseable.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 98,
+      "nonEmptyLines": 96,
+      "classes": [
+        {
+          "name": "AutoCloseable",
+          "startLine": 51,
+          "endLine": 98,
+          "methods": [
+            "close"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "AutoCloseable",
+          "line": 51,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/lang/CharSequence.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 110,
+      "nonEmptyLines": 102,
+      "classes": [
+        {
+          "name": "CharSequence",
+          "startLine": 52,
+          "endLine": 110,
+          "methods": [
+            "length",
+            "charAt",
+            "subSequence",
+            "toString"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "CharSequence",
+          "line": 52,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/lang/Cloneable.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 6,
+      "nonEmptyLines": 4,
+      "classes": [
+        {
+          "name": "Cloneable",
+          "startLine": 3,
+          "endLine": 5,
+          "methods": [],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "Cloneable",
+          "line": 3,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/lang/Comparable.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 20,
+      "nonEmptyLines": 17,
+      "classes": [
+        {
+          "name": "Comparable",
+          "startLine": 18,
+          "endLine": 20,
+          "methods": [
+            "compareTo"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "Comparable",
+          "line": 18,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/lang/invoke/AbstractValidatingLambdaMetafactory.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 376,
+      "nonEmptyLines": 350,
+      "functions": [
+        {
+          "name": "AbstractValidatingLambdaMetafactory",
+          "startLine": 107,
+          "endLine": 157,
+          "params": [
+            "caller",
+            "invokedType",
+            "samMethodName",
+            "samMethodType",
+            "implMethod",
+            "instantiatedMethodType",
+            "isSerializable",
+            "markerInterfaces",
+            "additionalBridges"
+          ]
+        },
+        {
+          "name": "buildCallSite",
+          "startLine": 166,
+          "endLine": 167,
+          "params": []
+        },
+        {
+          "name": "validateMetafactoryArgs",
+          "startLine": 173,
+          "endLine": 296,
+          "params": []
+        },
+        {
+          "name": "isAdaptableTo",
+          "startLine": 305,
+          "endLine": 337,
+          "params": [
+            "fromType",
+            "toType",
+            "strict"
+          ]
+        },
+        {
+          "name": "isAdaptableToAsReturn",
+          "startLine": 344,
+          "endLine": 347,
+          "params": [
+            "fromType",
+            "toType"
+          ]
+        },
+        {
+          "name": "isAdaptableToAsReturnStrict",
+          "startLine": 348,
+          "endLine": 351,
+          "params": [
+            "fromType",
+            "toType"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "AbstractValidatingLambdaMetafactory",
+          "startLine": 39,
+          "endLine": 376,
+          "methods": [
+            "AbstractValidatingLambdaMetafactory",
+            "buildCallSite",
+            "validateMetafactoryArgs",
+            "isAdaptableTo",
+            "isAdaptableToAsReturn",
+            "isAdaptableToAsReturnStrict"
+          ],
+          "properties": [
+            "targetClass",
+            "invokedType",
+            "samBase",
+            "samMethodName",
+            "samMethodType",
+            "implMethod",
+            "implInfo",
+            "implKind",
+            "implIsInstanceMethod",
+            "implDefiningClass",
+            "implMethodType",
+            "instantiatedMethodType",
+            "isSerializable",
+            "markerInterfaces",
+            "additionalBridges"
+          ]
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "AbstractValidatingLambdaMetafactory",
+          "callee": "invokedType.returnType",
+          "lineNumber": 125
+        },
+        {
+          "caller": "AbstractValidatingLambdaMetafactory",
+          "callee": "implInfo.getReferenceKind",
+          "lineNumber": 132
+        },
+        {
+          "caller": "AbstractValidatingLambdaMetafactory",
+          "callee": "implInfo.getDeclaringClass",
+          "lineNumber": 137
+        },
+        {
+          "caller": "AbstractValidatingLambdaMetafactory",
+          "callee": "implInfo.getMethodType",
+          "lineNumber": 138
+        },
+        {
+          "caller": "AbstractValidatingLambdaMetafactory",
+          "callee": "samBase.isInterface",
+          "lineNumber": 144
+        },
+        {
+          "caller": "AbstractValidatingLambdaMetafactory",
+          "callee": "new LambdaConversionException",
+          "lineNumber": 145
+        },
+        {
+          "caller": "AbstractValidatingLambdaMetafactory",
+          "callee": "String.format",
+          "lineNumber": 145
+        },
+        {
+          "caller": "AbstractValidatingLambdaMetafactory",
+          "callee": "samBase.getName",
+          "lineNumber": 147
+        },
+        {
+          "caller": "AbstractValidatingLambdaMetafactory",
+          "callee": "c.isInterface",
+          "lineNumber": 151
+        },
+        {
+          "caller": "AbstractValidatingLambdaMetafactory",
+          "callee": "new LambdaConversionException",
+          "lineNumber": 152
+        },
+        {
+          "caller": "AbstractValidatingLambdaMetafactory",
+          "callee": "String.format",
+          "lineNumber": 152
+        },
+        {
+          "caller": "AbstractValidatingLambdaMetafactory",
+          "callee": "c.getName",
+          "lineNumber": 154
+        },
+        {
+          "caller": "validateMetafactoryArgs",
+          "callee": "implMethodType.parameterCount",
+          "lineNumber": 186
+        },
+        {
+          "caller": "validateMetafactoryArgs",
+          "callee": "invokedType.parameterCount",
+          "lineNumber": 188
+        },
+        {
+          "caller": "validateMetafactoryArgs",
+          "callee": "samMethodType.parameterCount",
+          "lineNumber": 189
+        },
+        {
+          "caller": "validateMetafactoryArgs",
+          "callee": "instantiatedMethodType.parameterCount",
+          "lineNumber": 190
+        },
+        {
+          "caller": "validateMetafactoryArgs",
+          "callee": "instantiatedMethodType.parameterType",
+          "lineNumber": 222
+        },
+        {
+          "caller": "validateMetafactoryArgs",
+          "callee": "invokedType.parameterType",
+          "lineNumber": 227
+        },
+        {
+          "caller": "validateMetafactoryArgs",
+          "callee": "implDefiningClass.isAssignableFrom",
+          "lineNumber": 231
+        },
+        {
+          "caller": "validateMetafactoryArgs",
+          "callee": "new LambdaConversionException",
+          "lineNumber": 232
+        },
+        {
+          "caller": "validateMetafactoryArgs",
+          "callee": "String.format",
+          "lineNumber": 233
+        },
+        {
+          "caller": "validateMetafactoryArgs",
+          "callee": "implMethod.type().parameterType",
+          "lineNumber": 237
+        },
+        {
+          "caller": "validateMetafactoryArgs",
+          "callee": "implMethod.type",
+          "lineNumber": 237
+        },
+        {
+          "caller": "validateMetafactoryArgs",
+          "callee": "implReceiverClass.isAssignableFrom",
+          "lineNumber": 238
+        },
+        {
+          "caller": "validateMetafactoryArgs",
+          "callee": "new LambdaConversionException",
+          "lineNumber": 239
+        },
+        {
+          "caller": "validateMetafactoryArgs",
+          "callee": "String.format",
+          "lineNumber": 240
+        },
+        {
+          "caller": "validateMetafactoryArgs",
+          "callee": "implMethodType.parameterType",
+          "lineNumber": 252
+        },
+        {
+          "caller": "validateMetafactoryArgs",
+          "callee": "invokedType.parameterType",
+          "lineNumber": 253
+        },
+        {
+          "caller": "validateMetafactoryArgs",
+          "callee": "implMethodType.parameterType",
+          "lineNumber": 263
+        },
+        {
+          "caller": "validateMetafactoryArgs",
+          "callee": "instantiatedMethodType.parameterType",
+          "lineNumber": 264
+        },
+        {
+          "caller": "validateMetafactoryArgs",
+          "callee": "instantiatedMethodType.returnType",
+          "lineNumber": 273
+        },
+        {
+          "caller": "validateMetafactoryArgs",
+          "callee": "implMethodType.returnType",
+          "lineNumber": 277
+        },
+        {
+          "caller": "validateMetafactoryArgs",
+          "callee": "samMethodType.returnType",
+          "lineNumber": 278
+        },
+        {
+          "caller": "validateMetafactoryArgs",
+          "callee": "isAdaptableToAsReturn",
+          "lineNumber": 279
+        },
+        {
+          "caller": "validateMetafactoryArgs",
+          "callee": "new LambdaConversionException",
+          "lineNumber": 280
+        },
+        {
+          "caller": "validateMetafactoryArgs",
+          "callee": "String.format",
+          "lineNumber": 281
+        },
+        {
+          "caller": "validateMetafactoryArgs",
+          "callee": "isAdaptableToAsReturnStrict",
+          "lineNumber": 284
+        },
+        {
+          "caller": "validateMetafactoryArgs",
+          "callee": "new LambdaConversionException",
+          "lineNumber": 285
+        },
+        {
+          "caller": "validateMetafactoryArgs",
+          "callee": "String.format",
+          "lineNumber": 286
+        },
+        {
+          "caller": "validateMetafactoryArgs",
+          "callee": "isAdaptableToAsReturnStrict",
+          "lineNumber": 290
+        },
+        {
+          "caller": "validateMetafactoryArgs",
+          "callee": "bridgeMT.returnType",
+          "lineNumber": 290
+        },
+        {
+          "caller": "validateMetafactoryArgs",
+          "callee": "new LambdaConversionException",
+          "lineNumber": 291
+        },
+        {
+          "caller": "validateMetafactoryArgs",
+          "callee": "String.format",
+          "lineNumber": 292
+        },
+        {
+          "caller": "validateMetafactoryArgs",
+          "callee": "bridgeMT.returnType",
+          "lineNumber": 293
+        },
+        {
+          "caller": "isAdaptableTo",
+          "callee": "fromType.equals",
+          "lineNumber": 306
+        },
+        {
+          "caller": "isAdaptableTo",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 336
+        },
+        {
+          "caller": "isAdaptableToAsReturn",
+          "callee": "toType.equals",
+          "lineNumber": 345
+        },
+        {
+          "caller": "isAdaptableToAsReturn",
+          "callee": "fromType.equals",
+          "lineNumber": 346
+        },
+        {
+          "caller": "isAdaptableToAsReturn",
+          "callee": "isAdaptableTo",
+          "lineNumber": 346
+        },
+        {
+          "caller": "isAdaptableToAsReturnStrict",
+          "callee": "fromType.equals",
+          "lineNumber": 349
+        },
+        {
+          "caller": "isAdaptableToAsReturnStrict",
+          "callee": "toType.equals",
+          "lineNumber": 349
+        },
+        {
+          "caller": "isAdaptableToAsReturnStrict",
+          "callee": "isAdaptableTo",
+          "lineNumber": 350
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 6,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/lang/invoke/DelegatingMethodHandle.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 155,
+      "nonEmptyLines": 139,
+      "functions": [
+        {
+          "name": "DelegatingMethodHandle",
+          "startLine": 39,
+          "endLine": 41,
+          "params": [
+            "target"
+          ]
+        },
+        {
+          "name": "DelegatingMethodHandle",
+          "startLine": 43,
+          "endLine": 45,
+          "params": [
+            "type",
+            "target"
+          ]
+        },
+        {
+          "name": "DelegatingMethodHandle",
+          "startLine": 47,
+          "endLine": 49,
+          "params": [
+            "type",
+            "form"
+          ]
+        },
+        {
+          "name": "getTarget",
+          "startLine": 52,
+          "endLine": 52,
+          "params": []
+        },
+        {
+          "name": "asTypeUncached",
+          "startLine": 54,
+          "endLine": 54,
+          "params": [
+            "newType"
+          ]
+        },
+        {
+          "name": "internalMemberName",
+          "startLine": 56,
+          "endLine": 58,
+          "params": []
+        },
+        {
+          "name": "isInvokeSpecial",
+          "startLine": 60,
+          "endLine": 62,
+          "params": []
+        },
+        {
+          "name": "internalCallerClass",
+          "startLine": 64,
+          "endLine": 66,
+          "params": []
+        },
+        {
+          "name": "copyWith",
+          "startLine": 68,
+          "endLine": 72,
+          "params": [
+            "mt",
+            "lf"
+          ]
+        },
+        {
+          "name": "internalProperties",
+          "startLine": 74,
+          "endLine": 77,
+          "params": []
+        },
+        {
+          "name": "rebind",
+          "startLine": 79,
+          "endLine": 82,
+          "params": []
+        },
+        {
+          "name": "chooseDelegatingForm",
+          "startLine": 84,
+          "endLine": 88,
+          "params": [
+            "target"
+          ]
+        },
+        {
+          "name": "makeReinvokerForm",
+          "startLine": 90,
+          "endLine": 102,
+          "params": [
+            "target",
+            "whichCache",
+            "constraint",
+            "getTargetFn"
+          ]
+        },
+        {
+          "name": "makeReinvokerForm",
+          "startLine": 104,
+          "endLine": 149,
+          "params": [
+            "target",
+            "whichCache",
+            "constraint",
+            "debugString",
+            "forceInline",
+            "getTargetFn",
+            "preActionFn"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "DelegatingMethodHandle",
+          "startLine": 38,
+          "endLine": 155,
+          "methods": [
+            "DelegatingMethodHandle",
+            "DelegatingMethodHandle",
+            "DelegatingMethodHandle",
+            "getTarget",
+            "asTypeUncached",
+            "internalMemberName",
+            "isInvokeSpecial",
+            "internalCallerClass",
+            "copyWith",
+            "internalProperties",
+            "rebind",
+            "chooseDelegatingForm",
+            "makeReinvokerForm",
+            "makeReinvokerForm"
+          ],
+          "properties": [
+            "NF_getTarget"
+          ]
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "DelegatingMethodHandle",
+          "callee": "target.type",
+          "lineNumber": 40
+        },
+        {
+          "caller": "DelegatingMethodHandle",
+          "callee": "chooseDelegatingForm",
+          "lineNumber": 44
+        },
+        {
+          "caller": "internalMemberName",
+          "callee": "getTarget().internalMemberName",
+          "lineNumber": 57
+        },
+        {
+          "caller": "internalMemberName",
+          "callee": "getTarget",
+          "lineNumber": 57
+        },
+        {
+          "caller": "isInvokeSpecial",
+          "callee": "getTarget().isInvokeSpecial",
+          "lineNumber": 61
+        },
+        {
+          "caller": "isInvokeSpecial",
+          "callee": "getTarget",
+          "lineNumber": 61
+        },
+        {
+          "caller": "internalCallerClass",
+          "callee": "getTarget().internalCallerClass",
+          "lineNumber": 65
+        },
+        {
+          "caller": "internalCallerClass",
+          "callee": "getTarget",
+          "lineNumber": 65
+        },
+        {
+          "caller": "copyWith",
+          "callee": "new Error",
+          "lineNumber": 71
+        },
+        {
+          "caller": "internalProperties",
+          "callee": "getClass().getSimpleName",
+          "lineNumber": 75
+        },
+        {
+          "caller": "internalProperties",
+          "callee": "getClass",
+          "lineNumber": 75
+        },
+        {
+          "caller": "internalProperties",
+          "callee": "getTarget().debugString",
+          "lineNumber": 76
+        },
+        {
+          "caller": "internalProperties",
+          "callee": "getTarget",
+          "lineNumber": 76
+        },
+        {
+          "caller": "rebind",
+          "callee": "getTarget().rebind",
+          "lineNumber": 81
+        },
+        {
+          "caller": "rebind",
+          "callee": "getTarget",
+          "lineNumber": 81
+        },
+        {
+          "caller": "chooseDelegatingForm",
+          "callee": "target.internalForm",
+          "lineNumber": 86
+        },
+        {
+          "caller": "chooseDelegatingForm",
+          "callee": "makeReinvokerForm",
+          "lineNumber": 87
+        },
+        {
+          "caller": "makeReinvokerForm",
+          "callee": "makeReinvokerForm",
+          "lineNumber": 101
+        },
+        {
+          "caller": "makeReinvokerForm",
+          "callee": "target.type().basicType",
+          "lineNumber": 111
+        },
+        {
+          "caller": "makeReinvokerForm",
+          "callee": "target.type",
+          "lineNumber": 111
+        },
+        {
+          "caller": "makeReinvokerForm",
+          "callee": "mtype.parameterCount",
+          "lineNumber": 122
+        },
+        {
+          "caller": "makeReinvokerForm",
+          "callee": "LambdaForm.arguments",
+          "lineNumber": 127
+        },
+        {
+          "caller": "makeReinvokerForm",
+          "callee": "mtype.invokerType",
+          "lineNumber": 127
+        },
+        {
+          "caller": "makeReinvokerForm",
+          "callee": "names[THIS_DMH].withConstraint",
+          "lineNumber": 129
+        },
+        {
+          "caller": "makeReinvokerForm",
+          "callee": "new Error",
+          "lineNumber": 148
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 14,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/lang/invoke/MethodHandle.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 494,
+      "nonEmptyLines": 469,
+      "functions": [
+        {
+          "name": "MethodHandle",
+          "startLine": 423,
+          "endLine": 423,
+          "params": [
+            "mtype",
+            "form"
+          ]
+        },
+        {
+          "name": "type",
+          "startLine": 425,
+          "endLine": 427,
+          "params": []
+        },
+        {
+          "name": "viewAsType",
+          "startLine": 429,
+          "endLine": 431,
+          "params": [
+            "correctType",
+            "b"
+          ]
+        },
+        {
+          "name": "rebind",
+          "startLine": 433,
+          "endLine": 435,
+          "params": []
+        },
+        {
+          "name": "asType",
+          "startLine": 437,
+          "endLine": 439,
+          "params": [
+            "changeParameterType"
+          ]
+        },
+        {
+          "name": "asFixedArity",
+          "startLine": 441,
+          "endLine": 443,
+          "params": []
+        },
+        {
+          "name": "asCollector",
+          "startLine": 445,
+          "endLine": 447,
+          "params": [
+            "arrayType",
+            "i"
+          ]
+        },
+        {
+          "name": "debugString",
+          "startLine": 449,
+          "endLine": 451,
+          "params": []
+        },
+        {
+          "name": "internalForm",
+          "startLine": 453,
+          "endLine": 455,
+          "params": []
+        },
+        {
+          "name": "internalCallerClass",
+          "startLine": 457,
+          "endLine": 459,
+          "params": []
+        },
+        {
+          "name": "isInvokeSpecial",
+          "startLine": 461,
+          "endLine": 463,
+          "params": []
+        },
+        {
+          "name": "internalMemberName",
+          "startLine": 465,
+          "endLine": 467,
+          "params": []
+        },
+        {
+          "name": "withInternalMemberName",
+          "startLine": 469,
+          "endLine": 471,
+          "params": [
+            "method",
+            "b"
+          ]
+        },
+        {
+          "name": "bindTo",
+          "startLine": 473,
+          "endLine": 475,
+          "params": [
+            "unsupportedOperationException"
+          ]
+        },
+        {
+          "name": "asVarargsCollector",
+          "startLine": 477,
+          "endLine": 479,
+          "params": [
+            "aClass"
+          ]
+        },
+        {
+          "name": "invokeWithArguments",
+          "startLine": 481,
+          "endLine": 483,
+          "params": [
+            "av"
+          ]
+        },
+        {
+          "name": "bindTo",
+          "startLine": 485,
+          "endLine": 487,
+          "params": [
+            "vamh"
+          ]
+        },
+        {
+          "name": "asSpreader",
+          "startLine": 489,
+          "endLine": 491,
+          "params": [
+            "aClass",
+            "arity"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "MethodHandle",
+          "startLine": 421,
+          "endLine": 494,
+          "methods": [
+            "MethodHandle",
+            "type",
+            "viewAsType",
+            "rebind",
+            "asType",
+            "asFixedArity",
+            "asCollector",
+            "debugString",
+            "internalForm",
+            "internalCallerClass",
+            "isInvokeSpecial",
+            "internalMemberName",
+            "withInternalMemberName",
+            "bindTo",
+            "asVarargsCollector",
+            "invokeWithArguments",
+            "bindTo",
+            "asSpreader"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "MethodHandle",
+          "line": 423,
+          "isDefault": false
+        },
+        {
+          "name": "MethodHandle",
+          "line": 421,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "type",
+          "callee": "new java.lang.UnsupportedOperationException",
+          "lineNumber": 426
+        },
+        {
+          "caller": "viewAsType",
+          "callee": "new java.lang.UnsupportedOperationException",
+          "lineNumber": 430
+        },
+        {
+          "caller": "rebind",
+          "callee": "new java.lang.UnsupportedOperationException",
+          "lineNumber": 434
+        },
+        {
+          "caller": "asType",
+          "callee": "new java.lang.UnsupportedOperationException",
+          "lineNumber": 438
+        },
+        {
+          "caller": "asFixedArity",
+          "callee": "new java.lang.UnsupportedOperationException",
+          "lineNumber": 442
+        },
+        {
+          "caller": "asCollector",
+          "callee": "new java.lang.UnsupportedOperationException",
+          "lineNumber": 446
+        },
+        {
+          "caller": "debugString",
+          "callee": "new java.lang.UnsupportedOperationException",
+          "lineNumber": 450
+        },
+        {
+          "caller": "internalForm",
+          "callee": "new java.lang.UnsupportedOperationException",
+          "lineNumber": 454
+        },
+        {
+          "caller": "internalCallerClass",
+          "callee": "new java.lang.UnsupportedOperationException",
+          "lineNumber": 458
+        },
+        {
+          "caller": "isInvokeSpecial",
+          "callee": "new java.lang.UnsupportedOperationException",
+          "lineNumber": 462
+        },
+        {
+          "caller": "internalMemberName",
+          "callee": "new java.lang.UnsupportedOperationException",
+          "lineNumber": 466
+        },
+        {
+          "caller": "withInternalMemberName",
+          "callee": "new java.lang.UnsupportedOperationException",
+          "lineNumber": 470
+        },
+        {
+          "caller": "bindTo",
+          "callee": "new java.lang.UnsupportedOperationException",
+          "lineNumber": 474
+        },
+        {
+          "caller": "asVarargsCollector",
+          "callee": "new java.lang.UnsupportedOperationException",
+          "lineNumber": 478
+        },
+        {
+          "caller": "invokeWithArguments",
+          "callee": "new java.lang.UnsupportedOperationException",
+          "lineNumber": 482
+        },
+        {
+          "caller": "bindTo",
+          "callee": "new java.lang.UnsupportedOperationException",
+          "lineNumber": 486
+        },
+        {
+          "caller": "asSpreader",
+          "callee": "new java.lang.UnsupportedOperationException",
+          "lineNumber": 490
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 18,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/lang/invoke/MethodHandleImpl.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 20,
+      "nonEmptyLines": 16,
+      "functions": [
+        {
+          "name": "initStatics",
+          "startLine": 15,
+          "endLine": 17,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "MethodHandleImpl",
+          "startLine": 13,
+          "endLine": 20,
+          "methods": [
+            "initStatics"
+          ],
+          "properties": []
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "initStatics",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 16
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/lang/invoke/MethodHandleInfo.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 28,
+      "nonEmptyLines": 18,
+      "classes": [
+        {
+          "name": "MethodHandleInfo",
+          "startLine": 11,
+          "endLine": 28,
+          "methods": [
+            "getReferenceKind",
+            "getDeclaringClass",
+            "getMethodType",
+            "getName",
+            "reflectAs"
+          ],
+          "properties": [
+            "REF_newInvokeSpecial",
+            "REF_invokeVirtual",
+            "REF_invokeSpecial",
+            "REF_invokeInterface"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "MethodHandleInfo",
+          "line": 11,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/lang/invoke/package.bluej",
+      "language": "bluej",
+      "fileCategory": "code",
+      "totalLines": 80,
+      "nonEmptyLines": 80,
+      "metrics": {}
+    },
+    {
+      "path": "src/java/lang/package.bluej",
+      "language": "bluej",
+      "fileCategory": "code",
+      "totalLines": 105,
+      "nonEmptyLines": 105,
+      "metrics": {}
+    },
+    {
+      "path": "src/java/lang/reflect/Member.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 73,
+      "nonEmptyLines": 64,
+      "classes": [
+        {
+          "name": "Member",
+          "startLine": 19,
+          "endLine": 73,
+          "methods": [
+            "getDeclaringClass",
+            "getName",
+            "getModifiers",
+            "isSynthetic"
+          ],
+          "properties": [
+            "PUBLIC",
+            "DECLARED"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Member",
+          "line": 19,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/lang/reflect/package.bluej",
+      "language": "bluej",
+      "fileCategory": "code",
+      "totalLines": 27,
+      "nonEmptyLines": 27,
+      "metrics": {}
+    },
+    {
+      "path": "src/java/lang/Runnable.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 5,
+      "nonEmptyLines": 4,
+      "classes": [
+        {
+          "name": "Runnable",
+          "startLine": 3,
+          "endLine": 5,
+          "methods": [
+            "run"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "Runnable",
+          "line": 3,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/net/ContentHandler.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 78,
+      "nonEmptyLines": 63,
+      "functions": [
+        {
+          "name": "ContentHandler",
+          "startLine": 54,
+          "endLine": 57,
+          "params": []
+        },
+        {
+          "name": "getContent",
+          "startLine": 74,
+          "endLine": 75,
+          "params": [
+            "urlcon"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "ContentHandler",
+          "startLine": 42,
+          "endLine": 77,
+          "methods": [
+            "ContentHandler",
+            "getContent"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "ContentHandler",
+          "line": 54,
+          "isDefault": false
+        },
+        {
+          "name": "getContent",
+          "line": 74,
+          "isDefault": false
+        },
+        {
+          "name": "ContentHandler",
+          "line": 42,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    }
+  ]
+}

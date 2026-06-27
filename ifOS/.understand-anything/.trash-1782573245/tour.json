@@ -1,0 +1,62 @@
+[
+  {
+    "order": 1,
+    "title": "Project Overview",
+    "description": "ifOS is a Java-based microkernel operating system. This step introduces the project and its high-level structure via the README.",
+    "nodeIds": ["file:README.rst"]
+  },
+  {
+    "order": 2,
+    "title": "Core Kernel (jx.zero)",
+    "description": "The heart of the microkernel, implementing essential services like scheduling, synchronization, class loading, and timer management.",
+    "nodeIds": [
+      "file:src/jx/zero/scheduler/SchedulerPortal.java",
+      "file:src/jx/zero/synch/mutex/BlockingLock.java",
+      "file:src/jx/zero/timer/TimerManager.java",
+      "file:src/jx/zero/classstore/ClassFinder.java"
+    ]
+  },
+  {
+    "order": 3,
+    "title": "Hardware Abstraction (jx.devices)",
+    "description": "This layer handles interaction with hardware devices. It defines a common Device interface and provides specific implementations for keyboard, screen, and PCI devices.",
+    "nodeIds": [
+      "file:src/jx/devices/Device.java",
+      "file:src/jx/devices/Keyboard.java",
+      "file:src/jx/devices/Screen.java",
+      "file:src/jx/devices/pci/PCIDevice.java"
+    ]
+  },
+  {
+    "order": 4,
+    "title": "Filesystem (jx.fs)",
+    "description": "Explore the filesystem implementation, including the hierarchy of filesystem objects and the buffer cache used to optimize disk access.",
+    "nodeIds": [
+      "file:src/jx/fs/FileSystem.java",
+      "file:src/jx/fs/FSObject.java",
+      "file:src/jx/fs/buffer/BufferCache.java",
+      "file:src/jx/fs/Directory.java"
+    ]
+  },
+  {
+    "order": 5,
+    "title": "Networking and RPC (jx.net)",
+    "description": "The networking stack implements IP, TCP/UDP, and Remote Procedure Call (RPC) mechanisms, along with XDR for data encoding.",
+    "nodeIds": [
+      "file:src/jx/net/IPAddress.java",
+      "file:src/jx/net/TCPSocket.java",
+      "file:src/jx/net/rpc/RPCProc.java",
+      "file:src/jx/net/xdr/XDRBuffer.java"
+    ]
+  },
+  {
+    "order": 6,
+    "title": "Java API Stubs (java)",
+    "description": "These files provide the standard Java library interfaces (like io, lang, and net) that applications use to interact with the underlying operating system.",
+    "nodeIds": [
+      "file:src/java/io/InputStream.java",
+      "file:src/java/lang/ClassLoader.java",
+      "file:src/java/net/ContentHandler.java"
+    ]
+  }
+]

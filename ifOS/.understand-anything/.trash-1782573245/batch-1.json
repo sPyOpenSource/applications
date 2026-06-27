@@ -1,0 +1,723 @@
+{
+  "batchIndex": 1,
+  "projectName": "ifOS",
+  "nodes": [
+    {
+      "id": "file:src/java/lang/Iterable.java",
+      "type": "file",
+      "name": "Iterable.java",
+      "filePath": "src/java/lang/Iterable.java",
+      "summary": "Iterable.java - java code file",
+      "tags": [
+        "java",
+        "lang"
+      ],
+      "complexity": "medium",
+      "sizeLines": 103,
+      "language": "java"
+    },
+    {
+      "id": "class:src/java/lang/Iterable.java:Iterable",
+      "type": "class",
+      "name": "Iterable",
+      "filePath": "src/java/lang/Iterable.java",
+      "summary": "Class Iterable with 3 methods",
+      "tags": [
+        "java",
+        "lang"
+      ],
+      "complexity": "low",
+      "methods": 3
+    },
+    {
+      "id": "file:src/java/nio/Buffer.java",
+      "type": "file",
+      "name": "Buffer.java",
+      "filePath": "src/java/nio/Buffer.java",
+      "summary": "Buffer.java - java code file",
+      "tags": [
+        "java",
+        "nio"
+      ],
+      "complexity": "high",
+      "sizeLines": 548,
+      "language": "java"
+    },
+    {
+      "id": "class:src/java/nio/Buffer.java:Buffer",
+      "type": "class",
+      "name": "Buffer",
+      "filePath": "src/java/nio/Buffer.java",
+      "summary": "Class Buffer with 28 methods",
+      "tags": [
+        "java",
+        "nio"
+      ],
+      "complexity": "medium",
+      "methods": 28
+    },
+    {
+      "id": "function:src/java/nio/Buffer.java:Buffer",
+      "type": "function",
+      "name": "Buffer",
+      "filePath": "src/java/nio/Buffer.java",
+      "summary": "Function Buffer",
+      "tags": [
+        "java",
+        "nio"
+      ],
+      "complexity": "low"
+    },
+    {
+      "id": "file:src/java/util/Iterator.java",
+      "type": "file",
+      "name": "Iterator.java",
+      "filePath": "src/java/util/Iterator.java",
+      "summary": "Iterator.java - java code file",
+      "tags": [
+        "java",
+        "util"
+      ],
+      "complexity": "low",
+      "sizeLines": 77,
+      "language": "java"
+    },
+    {
+      "id": "class:src/java/util/Iterator.java:Iterator",
+      "type": "class",
+      "name": "Iterator",
+      "filePath": "src/java/util/Iterator.java",
+      "summary": "Class Iterator with 4 methods",
+      "tags": [
+        "java",
+        "util"
+      ],
+      "complexity": "low",
+      "methods": 4
+    },
+    {
+      "id": "file:src/java/util/PrimitiveIterator.java",
+      "type": "file",
+      "name": "PrimitiveIterator.java",
+      "filePath": "src/java/util/PrimitiveIterator.java",
+      "summary": "PrimitiveIterator.java - java code file",
+      "tags": [
+        "java",
+        "util"
+      ],
+      "complexity": "medium",
+      "sizeLines": 305,
+      "language": "java"
+    },
+    {
+      "id": "class:src/java/util/PrimitiveIterator.java:PrimitiveIterator",
+      "type": "class",
+      "name": "PrimitiveIterator",
+      "filePath": "src/java/util/PrimitiveIterator.java",
+      "summary": "Class PrimitiveIterator with 1 methods",
+      "tags": [
+        "java",
+        "util"
+      ],
+      "complexity": "medium",
+      "methods": 1
+    },
+    {
+      "id": "file:src/java/util/Spliterator.java",
+      "type": "file",
+      "name": "Spliterator.java",
+      "filePath": "src/java/util/Spliterator.java",
+      "summary": "Spliterator.java - java code file",
+      "tags": [
+        "java",
+        "util"
+      ],
+      "complexity": "high",
+      "sizeLines": 832,
+      "language": "java"
+    },
+    {
+      "id": "class:src/java/util/Spliterator.java:Spliterator",
+      "type": "class",
+      "name": "Spliterator",
+      "filePath": "src/java/util/Spliterator.java",
+      "summary": "Class Spliterator with 5 methods",
+      "tags": [
+        "java",
+        "util"
+      ],
+      "complexity": "high",
+      "methods": 5
+    },
+    {
+      "id": "file:src/java/util/function/BiConsumer.java",
+      "type": "file",
+      "name": "BiConsumer.java",
+      "filePath": "src/java/util/function/BiConsumer.java",
+      "summary": "BiConsumer.java - java code file",
+      "tags": [
+        "java",
+        "util",
+        "function"
+      ],
+      "complexity": "low",
+      "sizeLines": 75,
+      "language": "java"
+    },
+    {
+      "id": "class:src/java/util/function/BiConsumer.java:BiConsumer",
+      "type": "class",
+      "name": "BiConsumer",
+      "filePath": "src/java/util/function/BiConsumer.java",
+      "summary": "Class BiConsumer with 2 methods",
+      "tags": [
+        "java",
+        "util",
+        "function"
+      ],
+      "complexity": "low",
+      "methods": 2
+    },
+    {
+      "id": "file:src/java/util/function/Consumer.java",
+      "type": "file",
+      "name": "Consumer.java",
+      "filePath": "src/java/util/function/Consumer.java",
+      "summary": "Consumer.java - java code file",
+      "tags": [
+        "java",
+        "util",
+        "function"
+      ],
+      "complexity": "low",
+      "sizeLines": 67,
+      "language": "java"
+    },
+    {
+      "id": "class:src/java/util/function/Consumer.java:Consumer",
+      "type": "class",
+      "name": "Consumer",
+      "filePath": "src/java/util/function/Consumer.java",
+      "summary": "Class Consumer with 1 methods",
+      "tags": [
+        "java",
+        "util",
+        "function"
+      ],
+      "complexity": "low",
+      "methods": 1
+    },
+    {
+      "id": "file:src/java/util/function/DoubleConsumer.java",
+      "type": "file",
+      "name": "DoubleConsumer.java",
+      "filePath": "src/java/util/function/DoubleConsumer.java",
+      "summary": "DoubleConsumer.java - java code file",
+      "tags": [
+        "java",
+        "util",
+        "function"
+      ],
+      "complexity": "low",
+      "sizeLines": 67,
+      "language": "java"
+    },
+    {
+      "id": "class:src/java/util/function/DoubleConsumer.java:DoubleConsumer",
+      "type": "class",
+      "name": "DoubleConsumer",
+      "filePath": "src/java/util/function/DoubleConsumer.java",
+      "summary": "Class DoubleConsumer with 1 methods",
+      "tags": [
+        "java",
+        "util",
+        "function"
+      ],
+      "complexity": "low",
+      "methods": 1
+    },
+    {
+      "id": "file:src/java/util/function/IntConsumer.java",
+      "type": "file",
+      "name": "IntConsumer.java",
+      "filePath": "src/java/util/function/IntConsumer.java",
+      "summary": "IntConsumer.java - java code file",
+      "tags": [
+        "java",
+        "util",
+        "function"
+      ],
+      "complexity": "low",
+      "sizeLines": 67,
+      "language": "java"
+    },
+    {
+      "id": "class:src/java/util/function/IntConsumer.java:IntConsumer",
+      "type": "class",
+      "name": "IntConsumer",
+      "filePath": "src/java/util/function/IntConsumer.java",
+      "summary": "Class IntConsumer with 1 methods",
+      "tags": [
+        "java",
+        "util",
+        "function"
+      ],
+      "complexity": "low",
+      "methods": 1
+    },
+    {
+      "id": "file:src/java/util/function/IntUnaryOperator.java",
+      "type": "file",
+      "name": "IntUnaryOperator.java",
+      "filePath": "src/java/util/function/IntUnaryOperator.java",
+      "summary": "IntUnaryOperator.java - java code file",
+      "tags": [
+        "java",
+        "util",
+        "function"
+      ],
+      "complexity": "low",
+      "sizeLines": 95,
+      "language": "java"
+    },
+    {
+      "id": "class:src/java/util/function/IntUnaryOperator.java:IntUnaryOperator",
+      "type": "class",
+      "name": "IntUnaryOperator",
+      "filePath": "src/java/util/function/IntUnaryOperator.java",
+      "summary": "Class IntUnaryOperator with 4 methods",
+      "tags": [
+        "java",
+        "util",
+        "function"
+      ],
+      "complexity": "low",
+      "methods": 4
+    },
+    {
+      "id": "file:src/java/util/function/LongConsumer.java",
+      "type": "file",
+      "name": "LongConsumer.java",
+      "filePath": "src/java/util/function/LongConsumer.java",
+      "summary": "LongConsumer.java - java code file",
+      "tags": [
+        "java",
+        "util",
+        "function"
+      ],
+      "complexity": "low",
+      "sizeLines": 67,
+      "language": "java"
+    },
+    {
+      "id": "class:src/java/util/function/LongConsumer.java:LongConsumer",
+      "type": "class",
+      "name": "LongConsumer",
+      "filePath": "src/java/util/function/LongConsumer.java",
+      "summary": "Class LongConsumer with 1 methods",
+      "tags": [
+        "java",
+        "util",
+        "function"
+      ],
+      "complexity": "low",
+      "methods": 1
+    },
+    {
+      "id": "file:src/java/util/function/Supplier.java",
+      "type": "file",
+      "name": "Supplier.java",
+      "filePath": "src/java/util/function/Supplier.java",
+      "summary": "Supplier.java - java code file",
+      "tags": [
+        "java",
+        "util",
+        "function"
+      ],
+      "complexity": "low",
+      "sizeLines": 49,
+      "language": "java"
+    },
+    {
+      "id": "class:src/java/util/function/Supplier.java:Supplier",
+      "type": "class",
+      "name": "Supplier",
+      "filePath": "src/java/util/function/Supplier.java",
+      "summary": "Class Supplier with 1 methods",
+      "tags": [
+        "java",
+        "util",
+        "function"
+      ],
+      "complexity": "low",
+      "methods": 1
+    },
+    {
+      "id": "file:src/java/util/stream/IntStream.java",
+      "type": "file",
+      "name": "IntStream.java",
+      "filePath": "src/java/util/stream/IntStream.java",
+      "summary": "IntStream.java - java code file",
+      "tags": [
+        "java",
+        "util",
+        "stream"
+      ],
+      "complexity": "high",
+      "sizeLines": 929,
+      "language": "java"
+    },
+    {
+      "id": "class:src/java/util/stream/IntStream.java:IntStream",
+      "type": "class",
+      "name": "IntStream",
+      "filePath": "src/java/util/stream/IntStream.java",
+      "summary": "Class IntStream with 44 methods",
+      "tags": [
+        "java",
+        "util",
+        "stream"
+      ],
+      "complexity": "high",
+      "methods": 44
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/java/lang/Iterable.java",
+      "target": "class:src/java/lang/Iterable.java:Iterable",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/lang/Iterable.java",
+      "target": "class:src/java/lang/Iterable.java:Iterable",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/nio/Buffer.java",
+      "target": "class:src/java/nio/Buffer.java:Buffer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/nio/Buffer.java",
+      "target": "class:src/java/nio/Buffer.java:Buffer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/nio/Buffer.java",
+      "target": "function:src/java/nio/Buffer.java:Buffer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/nio/Buffer.java",
+      "target": "function:src/java/nio/Buffer.java:Buffer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/util/Iterator.java",
+      "target": "class:src/java/util/Iterator.java:Iterator",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/util/Iterator.java",
+      "target": "class:src/java/util/Iterator.java:Iterator",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/util/PrimitiveIterator.java",
+      "target": "class:src/java/util/PrimitiveIterator.java:PrimitiveIterator",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/util/PrimitiveIterator.java",
+      "target": "class:src/java/util/PrimitiveIterator.java:PrimitiveIterator",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/util/Spliterator.java",
+      "target": "class:src/java/util/Spliterator.java:Spliterator",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/util/Spliterator.java",
+      "target": "class:src/java/util/Spliterator.java:Spliterator",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/util/function/BiConsumer.java",
+      "target": "class:src/java/util/function/BiConsumer.java:BiConsumer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/util/function/BiConsumer.java",
+      "target": "class:src/java/util/function/BiConsumer.java:BiConsumer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/util/function/Consumer.java",
+      "target": "class:src/java/util/function/Consumer.java:Consumer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/util/function/Consumer.java",
+      "target": "class:src/java/util/function/Consumer.java:Consumer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/util/function/DoubleConsumer.java",
+      "target": "class:src/java/util/function/DoubleConsumer.java:DoubleConsumer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/util/function/DoubleConsumer.java",
+      "target": "class:src/java/util/function/DoubleConsumer.java:DoubleConsumer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/util/function/IntConsumer.java",
+      "target": "class:src/java/util/function/IntConsumer.java:IntConsumer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/util/function/IntConsumer.java",
+      "target": "class:src/java/util/function/IntConsumer.java:IntConsumer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/util/function/IntUnaryOperator.java",
+      "target": "class:src/java/util/function/IntUnaryOperator.java:IntUnaryOperator",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/util/function/IntUnaryOperator.java",
+      "target": "class:src/java/util/function/IntUnaryOperator.java:IntUnaryOperator",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/util/function/LongConsumer.java",
+      "target": "class:src/java/util/function/LongConsumer.java:LongConsumer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/util/function/LongConsumer.java",
+      "target": "class:src/java/util/function/LongConsumer.java:LongConsumer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/util/function/Supplier.java",
+      "target": "class:src/java/util/function/Supplier.java:Supplier",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/util/function/Supplier.java",
+      "target": "class:src/java/util/function/Supplier.java:Supplier",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/util/stream/IntStream.java",
+      "target": "class:src/java/util/stream/IntStream.java:IntStream",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/java/util/stream/IntStream.java",
+      "target": "class:src/java/util/stream/IntStream.java:IntStream",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/java/lang/Iterable.java",
+      "target": "file:src/java/util/function/Consumer.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/java/lang/Iterable.java",
+      "target": "file:src/java/util/Iterator.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/java/lang/Iterable.java",
+      "target": "file:src/java/util/Spliterator.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/java/nio/Buffer.java",
+      "target": "file:src/java/util/Spliterator.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/java/util/Iterator.java",
+      "target": "file:src/java/util/function/Consumer.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/java/util/PrimitiveIterator.java",
+      "target": "file:src/java/util/function/Consumer.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/java/util/PrimitiveIterator.java",
+      "target": "file:src/java/util/function/DoubleConsumer.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/java/util/PrimitiveIterator.java",
+      "target": "file:src/java/util/function/IntConsumer.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/java/util/PrimitiveIterator.java",
+      "target": "file:src/java/util/function/LongConsumer.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/java/util/Spliterator.java",
+      "target": "file:src/java/util/function/Consumer.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/java/util/Spliterator.java",
+      "target": "file:src/java/util/function/DoubleConsumer.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/java/util/Spliterator.java",
+      "target": "file:src/java/util/function/IntConsumer.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/java/util/Spliterator.java",
+      "target": "file:src/java/util/function/LongConsumer.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/java/util/stream/IntStream.java",
+      "target": "file:src/java/util/function/BiConsumer.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/java/util/stream/IntStream.java",
+      "target": "file:src/java/util/function/Function.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/java/util/stream/IntStream.java",
+      "target": "file:src/java/util/function/IntConsumer.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/java/util/stream/IntStream.java",
+      "target": "file:src/java/util/function/IntUnaryOperator.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/java/util/stream/IntStream.java",
+      "target": "file:src/java/util/function/Supplier.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/java/util/stream/IntStream.java",
+      "target": "file:src/java/util/PrimitiveIterator.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/java/util/stream/IntStream.java",
+      "target": "file:src/java/util/Spliterator.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

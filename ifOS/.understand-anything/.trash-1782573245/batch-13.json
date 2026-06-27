@@ -1,0 +1,84 @@
+{
+  "batchIndex": 13,
+  "nodes": [
+    {
+      "id": "file:src/jx/devices/Device.java",
+      "type": "file",
+      "path": "src/jx/devices/Device.java",
+      "sizeLines": 25,
+      "language": "java",
+      "fileCategory": "code"
+    },
+    {
+      "id": "class:jx.devices.Device",
+      "type": "class",
+      "name": "jx.devices.Device",
+      "startLine": 7,
+      "endLine": 25
+    },
+    {
+      "id": "file:src/jx/devices/net/NetworkDevice.java",
+      "type": "file",
+      "path": "src/jx/devices/net/NetworkDevice.java",
+      "sizeLines": 18,
+      "language": "java",
+      "fileCategory": "code"
+    },
+    {
+      "id": "class:jx.devices.net.NetworkDevice",
+      "type": "class",
+      "name": "jx.devices.net.NetworkDevice",
+      "startLine": 7,
+      "endLine": 18
+    },
+    {
+      "id": "file:src/jx/fs/buffer/separator/NonBlockingMemoryConsumer.java",
+      "type": "file",
+      "path": "src/jx/fs/buffer/separator/NonBlockingMemoryConsumer.java",
+      "sizeLines": 19,
+      "language": "java",
+      "fileCategory": "code"
+    },
+    {
+      "id": "class:jx.fs.buffer.separator.NonBlockingMemoryConsumer",
+      "type": "class",
+      "name": "jx.fs.buffer.separator.NonBlockingMemoryConsumer",
+      "startLine": 16,
+      "endLine": 19
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/jx/devices/Device.java",
+      "target": "class:jx.devices.Device",
+      "relationship": "contains"
+    },
+    {
+      "source": "file:src/jx/devices/net/NetworkDevice.java",
+      "target": "class:jx.devices.net.NetworkDevice",
+      "relationship": "contains"
+    },
+    {
+      "source": "file:src/jx/fs/buffer/separator/NonBlockingMemoryConsumer.java",
+      "target": "class:jx.fs.buffer.separator.NonBlockingMemoryConsumer",
+      "relationship": "contains"
+    },
+    {
+      "source": "file:src/jx/devices/net/NetworkDevice.java",
+      "target": "file:src/jx/devices/Device.java",
+      "relationship": "imports"
+    },
+    {
+      "source": "file:src/jx/devices/net/NetworkDevice.java",
+      "target": "file:src/jx/fs/buffer/separator/NonBlockingMemoryConsumer.java",
+      "relationship": "imports"
+    },
+    {
+      "source": "class:jx.devices.net.NetworkDevice",
+      "target": "class:jx.devices.Device",
+      "relationship": "extends"
+    }
+  ],
+  "filesAnalyzed": 3,
+  "filesSkipped": []
+}

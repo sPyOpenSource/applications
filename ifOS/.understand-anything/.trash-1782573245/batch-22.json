@@ -1,0 +1,321 @@
+{
+  "batchIndex": 22,
+  "nodes": [
+    {
+      "id": "file:src/jx/devices/DeviceConfigurationTemplate.java",
+      "type": "file",
+      "label": "DeviceConfigurationTemplate.java",
+      "properties": {
+        "path": "src/jx/devices/DeviceConfigurationTemplate.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 11,
+        "nonEmptyLines": 10
+      }
+    },
+    {
+      "id": "class:src/jx/devices/DeviceConfigurationTemplate.java::DeviceConfigurationTemplate",
+      "type": "class",
+      "label": "DeviceConfigurationTemplate",
+      "properties": {
+        "name": "DeviceConfigurationTemplate",
+        "startLine": 10,
+        "endLine": 11,
+        "methods": [],
+        "properties": []
+      }
+    },
+    {
+      "id": "file:src/jx/devices/DeviceFinder.java",
+      "type": "file",
+      "label": "DeviceFinder.java",
+      "properties": {
+        "path": "src/jx/devices/DeviceFinder.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 7,
+        "nonEmptyLines": 5
+      }
+    },
+    {
+      "id": "class:src/jx/devices/DeviceFinder.java::DeviceFinder",
+      "type": "class",
+      "label": "DeviceFinder",
+      "properties": {
+        "name": "DeviceFinder",
+        "startLine": 5,
+        "endLine": 7,
+        "methods": [
+          "find"
+        ],
+        "properties": []
+      }
+    },
+    {
+      "id": "file:src/jx/devices/framebuffer/ClippingRectangle.java",
+      "type": "file",
+      "label": "ClippingRectangle.java",
+      "properties": {
+        "path": "src/jx/devices/framebuffer/ClippingRectangle.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 10,
+        "nonEmptyLines": 7
+      }
+    },
+    {
+      "id": "class:src/jx/devices/framebuffer/ClippingRectangle.java::ClippingRectangle",
+      "type": "class",
+      "label": "ClippingRectangle",
+      "properties": {
+        "name": "ClippingRectangle",
+        "startLine": 8,
+        "endLine": 10,
+        "methods": [],
+        "properties": []
+      }
+    },
+    {
+      "id": "file:src/jx/devices/framebuffer/ClippingTransformer.java",
+      "type": "file",
+      "label": "ClippingTransformer.java",
+      "properties": {
+        "path": "src/jx/devices/framebuffer/ClippingTransformer.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 5,
+        "nonEmptyLines": 4
+      }
+    },
+    {
+      "id": "class:src/jx/devices/framebuffer/ClippingTransformer.java::ClippingTransformer",
+      "type": "class",
+      "label": "ClippingTransformer",
+      "properties": {
+        "name": "ClippingTransformer",
+        "startLine": 3,
+        "endLine": 5,
+        "methods": [
+          "transformClippings"
+        ],
+        "properties": []
+      }
+    },
+    {
+      "id": "file:src/jx/devices/framebuffer/PackedFramebuffer.java",
+      "type": "file",
+      "label": "PackedFramebuffer.java",
+      "properties": {
+        "path": "src/jx/devices/framebuffer/PackedFramebuffer.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 23,
+        "nonEmptyLines": 18
+      }
+    },
+    {
+      "id": "class:src/jx/devices/framebuffer/PackedFramebuffer.java::PackedFramebuffer",
+      "type": "class",
+      "label": "PackedFramebuffer",
+      "properties": {
+        "name": "PackedFramebuffer",
+        "startLine": 9,
+        "endLine": 23,
+        "methods": [
+          "width",
+          "height",
+          "depth",
+          "startAddress",
+          "scanlineOffset",
+          "pixelOffset",
+          "memObj",
+          "clear",
+          "framebufferType"
+        ],
+        "properties": []
+      }
+    },
+    {
+      "id": "file:src/jx/devices/Keyboard.java",
+      "type": "file",
+      "label": "Keyboard.java",
+      "properties": {
+        "path": "src/jx/devices/Keyboard.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 9,
+        "nonEmptyLines": 7
+      }
+    },
+    {
+      "id": "class:src/jx/devices/Keyboard.java::Keyboard",
+      "type": "class",
+      "label": "Keyboard",
+      "properties": {
+        "name": "Keyboard",
+        "startLine": 5,
+        "endLine": 9,
+        "methods": [
+          "addKeyListener",
+          "getc",
+          "getcode"
+        ],
+        "properties": []
+      }
+    },
+    {
+      "id": "file:src/jx/devices/KeyListener.java",
+      "type": "file",
+      "label": "KeyListener.java",
+      "properties": {
+        "path": "src/jx/devices/KeyListener.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 7,
+        "nonEmptyLines": 5
+      }
+    },
+    {
+      "id": "class:src/jx/devices/KeyListener.java::KeyListener",
+      "type": "class",
+      "label": "KeyListener",
+      "properties": {
+        "name": "KeyListener",
+        "startLine": 5,
+        "endLine": 7,
+        "methods": [
+          "keyPressed"
+        ],
+        "properties": []
+      }
+    },
+    {
+      "id": "file:src/jx/devices/Mouse.java",
+      "type": "file",
+      "label": "Mouse.java",
+      "properties": {
+        "path": "src/jx/devices/Mouse.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 4,
+        "nonEmptyLines": 3
+      }
+    },
+    {
+      "id": "class:src/jx/devices/Mouse.java::Mouse",
+      "type": "class",
+      "label": "Mouse",
+      "properties": {
+        "name": "Mouse",
+        "startLine": 3,
+        "endLine": 4,
+        "methods": [],
+        "properties": []
+      }
+    },
+    {
+      "id": "file:src/jx/devices/net/PacketsProducer.java",
+      "type": "file",
+      "label": "PacketsProducer.java",
+      "properties": {
+        "path": "src/jx/devices/net/PacketsProducer.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 5,
+        "nonEmptyLines": 4
+      }
+    },
+    {
+      "id": "class:src/jx/devices/net/PacketsProducer.java::PacketsProducer",
+      "type": "class",
+      "label": "PacketsProducer",
+      "properties": {
+        "name": "PacketsProducer",
+        "startLine": 3,
+        "endLine": 5,
+        "methods": [
+          "reenablePacketProduction"
+        ],
+        "properties": []
+      }
+    },
+    {
+      "id": "file:src/jx/devices/net/PacketsQueue.java",
+      "type": "file",
+      "label": "PacketsQueue.java",
+      "properties": {
+        "path": "src/jx/devices/net/PacketsQueue.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 4,
+        "nonEmptyLines": 3
+      }
+    },
+    {
+      "id": "class:src/jx/devices/net/PacketsQueue.java::PacketsQueue",
+      "type": "class",
+      "label": "PacketsQueue",
+      "properties": {
+        "name": "PacketsQueue",
+        "startLine": 3,
+        "endLine": 4,
+        "methods": [],
+        "properties": []
+      }
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/jx/devices/DeviceConfigurationTemplate.java",
+      "target": "class:src/jx/devices/DeviceConfigurationTemplate.java::DeviceConfigurationTemplate",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/jx/devices/DeviceFinder.java",
+      "target": "class:src/jx/devices/DeviceFinder.java::DeviceFinder",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/jx/devices/framebuffer/ClippingRectangle.java",
+      "target": "class:src/jx/devices/framebuffer/ClippingRectangle.java::ClippingRectangle",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/jx/devices/framebuffer/ClippingTransformer.java",
+      "target": "class:src/jx/devices/framebuffer/ClippingTransformer.java::ClippingTransformer",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/jx/devices/framebuffer/PackedFramebuffer.java",
+      "target": "class:src/jx/devices/framebuffer/PackedFramebuffer.java::PackedFramebuffer",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/jx/devices/Keyboard.java",
+      "target": "class:src/jx/devices/Keyboard.java::Keyboard",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/jx/devices/KeyListener.java",
+      "target": "class:src/jx/devices/KeyListener.java::KeyListener",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/jx/devices/Mouse.java",
+      "target": "class:src/jx/devices/Mouse.java::Mouse",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/jx/devices/net/PacketsProducer.java",
+      "target": "class:src/jx/devices/net/PacketsProducer.java::PacketsProducer",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/jx/devices/net/PacketsQueue.java",
+      "target": "class:src/jx/devices/net/PacketsQueue.java::PacketsQueue",
+      "relation": "contains"
+    }
+  ],
+  "nodeCount": 20,
+  "edgeCount": 10
+}

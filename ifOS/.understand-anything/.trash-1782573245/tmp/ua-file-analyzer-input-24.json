@@ -1,0 +1,155 @@
+{
+  "projectRoot": "/Users/xuyi/Source/OS/armOS/lib/jcore/test/ifOS",
+  "batchFiles": [
+    {
+      "path": "src/jx/fs/buffer/multithread/package.bluej",
+      "language": "bluej",
+      "sizeLines": 47,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/fs/buffer/package.bluej",
+      "language": "bluej",
+      "sizeLines": 49,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/fs/buffer/separator/MemoryConsumer.ctxt",
+      "language": "ctxt",
+      "sizeLines": 6,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/fs/buffer/separator/MemoryConsumer2.ctxt",
+      "language": "ctxt",
+      "sizeLines": 6,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/fs/buffer/separator/MemoryConsumer2.java",
+      "language": "java",
+      "sizeLines": 18,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/fs/buffer/separator/MemoryProducer.ctxt",
+      "language": "ctxt",
+      "sizeLines": 6,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/fs/buffer/separator/MemoryProducer.java",
+      "language": "java",
+      "sizeLines": 12,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/fs/buffer/separator/NonBlockingMemoryConsumer.ctxt",
+      "language": "ctxt",
+      "sizeLines": 8,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/fs/buffer/separator/package.bluej",
+      "language": "bluej",
+      "sizeLines": 48,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/fs/db/avltree/Comparable.ctxt",
+      "language": "ctxt",
+      "sizeLines": 6,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/fs/db/avltree/Comparable.java",
+      "language": "java",
+      "sizeLines": 21,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/fs/db/avltree/package.bluej",
+      "language": "bluej",
+      "sizeLines": 27,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/fs/db/BufferList.ctxt",
+      "language": "ctxt",
+      "sizeLines": 19,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/fs/db/BufferList.java",
+      "language": "java",
+      "sizeLines": 49,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/fs/db/Database.ctxt",
+      "language": "ctxt",
+      "sizeLines": 33,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/fs/db/Database.java",
+      "language": "java",
+      "sizeLines": 65,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/fs/db/Index.ctxt",
+      "language": "ctxt",
+      "sizeLines": 14,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/fs/db/Index.java",
+      "language": "java",
+      "sizeLines": 32,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/fs/db/IndexInfo.ctxt",
+      "language": "ctxt",
+      "sizeLines": 12,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/fs/db/IndexInfo.java",
+      "language": "java",
+      "sizeLines": 16,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/fs/db/Key.ctxt",
+      "language": "ctxt",
+      "sizeLines": 21,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/fs/db/Key.java",
+      "language": "java",
+      "sizeLines": 19,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/fs/db/package.bluej",
+      "language": "bluej",
+      "sizeLines": 185,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/fs/db/RelationalOperator.ctxt",
+      "language": "ctxt",
+      "sizeLines": 18,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/fs/db/RelationalOperator.java",
+      "language": "java",
+      "sizeLines": 32,
+      "fileCategory": "code"
+    }
+  ]
+}

@@ -1,0 +1,1455 @@
+{
+  "batchIndex": 21,
+  "nodes": [
+    {
+      "id": "file:src/java/util/Deque.java",
+      "type": "file",
+      "label": "Deque.java",
+      "properties": {
+        "path": "src/java/util/Deque.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 584,
+        "nonEmptyLines": 549
+      }
+    },
+    {
+      "id": "class:src/java/util/Deque.java::Deque",
+      "type": "class",
+      "label": "Deque",
+      "properties": {
+        "name": "Deque",
+        "startLine": 193,
+        "endLine": 584,
+        "methods": [
+          "addFirst",
+          "addLast",
+          "offerFirst",
+          "offerLast",
+          "removeFirst",
+          "removeLast",
+          "pollFirst",
+          "pollLast",
+          "getFirst",
+          "getLast",
+          "peekFirst",
+          "peekLast",
+          "removeFirstOccurrence",
+          "removeLastOccurrence",
+          "add",
+          "offer",
+          "remove",
+          "poll",
+          "element",
+          "peek",
+          "push",
+          "pop",
+          "remove",
+          "contains",
+          "size",
+          "iterator",
+          "descendingIterator"
+        ],
+        "properties": []
+      }
+    },
+    {
+      "id": "file:src/java/util/Dictionary.java",
+      "type": "file",
+      "label": "Dictionary.java",
+      "properties": {
+        "path": "src/java/util/Dictionary.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 13,
+        "nonEmptyLines": 11
+      }
+    },
+    {
+      "id": "class:src/java/util/Dictionary.java::Dictionary",
+      "type": "class",
+      "label": "Dictionary",
+      "properties": {
+        "name": "Dictionary",
+        "startLine": 3,
+        "endLine": 12,
+        "methods": [
+          "elements",
+          "get",
+          "isEmpty",
+          "keys",
+          "put",
+          "remove",
+          "size"
+        ],
+        "properties": []
+      }
+    },
+    {
+      "id": "class:src/java/util/Dictionary.java::elements",
+      "type": "class",
+      "label": "elements",
+      "properties": {
+        "name": "elements",
+        "startLine": 5,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/util/Dictionary.java::get",
+      "type": "class",
+      "label": "get",
+      "properties": {
+        "name": "get",
+        "startLine": 6,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/util/Dictionary.java::isEmpty",
+      "type": "class",
+      "label": "isEmpty",
+      "properties": {
+        "name": "isEmpty",
+        "startLine": 7,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/util/Dictionary.java::keys",
+      "type": "class",
+      "label": "keys",
+      "properties": {
+        "name": "keys",
+        "startLine": 8,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/util/Dictionary.java::put",
+      "type": "class",
+      "label": "put",
+      "properties": {
+        "name": "put",
+        "startLine": 9,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/util/Dictionary.java::remove",
+      "type": "class",
+      "label": "remove",
+      "properties": {
+        "name": "remove",
+        "startLine": 10,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/util/Dictionary.java::size",
+      "type": "class",
+      "label": "size",
+      "properties": {
+        "name": "size",
+        "startLine": 11,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "function:src/java/util/Dictionary.java::elements",
+      "type": "function",
+      "label": "elements",
+      "properties": {
+        "name": "elements",
+        "startLine": 5,
+        "endLine": 5,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/util/Dictionary.java::get",
+      "type": "function",
+      "label": "get",
+      "properties": {
+        "name": "get",
+        "startLine": 6,
+        "endLine": 6,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/util/Dictionary.java::isEmpty",
+      "type": "function",
+      "label": "isEmpty",
+      "properties": {
+        "name": "isEmpty",
+        "startLine": 7,
+        "endLine": 7,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/util/Dictionary.java::keys",
+      "type": "function",
+      "label": "keys",
+      "properties": {
+        "name": "keys",
+        "startLine": 8,
+        "endLine": 8,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/util/Dictionary.java::put",
+      "type": "function",
+      "label": "put",
+      "properties": {
+        "name": "put",
+        "startLine": 9,
+        "endLine": 9,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/util/Dictionary.java::remove",
+      "type": "function",
+      "label": "remove",
+      "properties": {
+        "name": "remove",
+        "startLine": 10,
+        "endLine": 10,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/util/Dictionary.java::size",
+      "type": "function",
+      "label": "size",
+      "properties": {
+        "name": "size",
+        "startLine": 11,
+        "endLine": 11,
+        "signature": ""
+      }
+    },
+    {
+      "id": "file:src/java/util/function/BiFunction.java",
+      "type": "file",
+      "label": "BiFunction.java",
+      "properties": {
+        "path": "src/java/util/function/BiFunction.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 72,
+        "nonEmptyLines": 68
+      }
+    },
+    {
+      "id": "class:src/java/util/function/BiFunction.java::BiFunction",
+      "type": "class",
+      "label": "BiFunction",
+      "properties": {
+        "name": "BiFunction",
+        "startLine": 43,
+        "endLine": 72,
+        "methods": [
+          "apply",
+          "andThen"
+        ],
+        "properties": []
+      }
+    },
+    {
+      "id": "file:src/java/util/function/UnaryOperator.java",
+      "type": "file",
+      "label": "UnaryOperator.java",
+      "properties": {
+        "path": "src/java/util/function/UnaryOperator.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 52,
+        "nonEmptyLines": 50
+      }
+    },
+    {
+      "id": "class:src/java/util/function/UnaryOperator.java::UnaryOperator",
+      "type": "class",
+      "label": "UnaryOperator",
+      "properties": {
+        "name": "UnaryOperator",
+        "startLine": 40,
+        "endLine": 52,
+        "methods": [
+          "identity"
+        ],
+        "properties": []
+      }
+    },
+    {
+      "id": "file:src/java/util/LinkedList.j",
+      "type": "file",
+      "label": "LinkedList.j",
+      "properties": {
+        "path": "src/java/util/LinkedList.j",
+        "language": "j",
+        "fileCategory": "code",
+        "totalLines": 677,
+        "nonEmptyLines": 601
+      }
+    },
+    {
+      "id": "file:src/java/util/List.java",
+      "type": "file",
+      "label": "List.java",
+      "properties": {
+        "path": "src/java/util/List.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 357,
+        "nonEmptyLines": 317
+      }
+    },
+    {
+      "id": "class:src/java/util/List.java::List",
+      "type": "class",
+      "label": "List",
+      "properties": {
+        "name": "List",
+        "startLine": 43,
+        "endLine": 357,
+        "methods": [
+          "add",
+          "remove",
+          "size",
+          "get",
+          "sort",
+          "listIterator",
+          "listIterator",
+          "add",
+          "indexOf",
+          "lastIndexOf",
+          "set",
+          "subList"
+        ],
+        "properties": []
+      }
+    },
+    {
+      "id": "file:src/java/util/ListIterator.java",
+      "type": "file",
+      "label": "ListIterator.java",
+      "properties": {
+        "path": "src/java/util/ListIterator.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 147,
+        "nonEmptyLines": 131
+      }
+    },
+    {
+      "id": "class:src/java/util/ListIterator.java::ListIterator",
+      "type": "class",
+      "label": "ListIterator",
+      "properties": {
+        "name": "ListIterator",
+        "startLine": 36,
+        "endLine": 147,
+        "methods": [
+          "hasNext",
+          "hasPrevious",
+          "next",
+          "previous",
+          "nextIndex",
+          "previousIndex",
+          "add",
+          "remove",
+          "set"
+        ],
+        "properties": []
+      }
+    },
+    {
+      "id": "file:src/java/util/ListResourceBundle.java",
+      "type": "file",
+      "label": "ListResourceBundle.java",
+      "properties": {
+        "path": "src/java/util/ListResourceBundle.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 100,
+        "nonEmptyLines": 88
+      }
+    },
+    {
+      "id": "class:src/java/util/ListResourceBundle.java::ListResourceBundle",
+      "type": "class",
+      "label": "ListResourceBundle",
+      "properties": {
+        "name": "ListResourceBundle",
+        "startLine": 45,
+        "endLine": 100,
+        "methods": [
+          "ListResourceBundle",
+          "getContents",
+          "handleGetObject",
+          "getKeys"
+        ],
+        "properties": []
+      }
+    },
+    {
+      "id": "class:src/java/util/ListResourceBundle.java::getKeys",
+      "type": "class",
+      "label": "getKeys",
+      "properties": {
+        "name": "getKeys",
+        "startLine": 83,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "function:src/java/util/ListResourceBundle.java::ListResourceBundle",
+      "type": "function",
+      "label": "ListResourceBundle",
+      "properties": {
+        "name": "ListResourceBundle",
+        "startLine": 50,
+        "endLine": 52,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/util/ListResourceBundle.java::getContents",
+      "type": "function",
+      "label": "getContents",
+      "properties": {
+        "name": "getContents",
+        "startLine": 60,
+        "endLine": 60,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/util/ListResourceBundle.java::handleGetObject",
+      "type": "function",
+      "label": "handleGetObject",
+      "properties": {
+        "name": "handleGetObject",
+        "startLine": 68,
+        "endLine": 77,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/util/ListResourceBundle.java::getKeys",
+      "type": "function",
+      "label": "getKeys",
+      "properties": {
+        "name": "getKeys",
+        "startLine": 83,
+        "endLine": 99,
+        "signature": ""
+      }
+    },
+    {
+      "id": "file:src/java/util/NavigableMap.java",
+      "type": "file",
+      "label": "NavigableMap.java",
+      "properties": {
+        "path": "src/java/util/NavigableMap.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 424,
+        "nonEmptyLines": 401
+      }
+    },
+    {
+      "id": "class:src/java/util/NavigableMap.java::NavigableMap",
+      "type": "class",
+      "label": "NavigableMap",
+      "properties": {
+        "name": "NavigableMap",
+        "startLine": 95,
+        "endLine": 424,
+        "methods": [
+          "lowerEntry",
+          "lowerKey",
+          "floorEntry",
+          "floorKey",
+          "ceilingEntry",
+          "ceilingKey",
+          "higherEntry",
+          "higherKey",
+          "firstEntry",
+          "lastEntry",
+          "pollFirstEntry",
+          "pollLastEntry",
+          "descendingMap",
+          "navigableKeySet",
+          "descendingKeySet",
+          "subMap",
+          "headMap",
+          "tailMap",
+          "subMap",
+          "headMap",
+          "tailMap"
+        ],
+        "properties": []
+      }
+    },
+    {
+      "id": "file:src/java/util/NavigableSet.java",
+      "type": "file",
+      "label": "NavigableSet.java",
+      "properties": {
+        "path": "src/java/util/NavigableSet.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 319,
+        "nonEmptyLines": 302
+      }
+    },
+    {
+      "id": "class:src/java/util/NavigableSet.java::NavigableSet",
+      "type": "class",
+      "label": "NavigableSet",
+      "properties": {
+        "name": "NavigableSet",
+        "startLine": 86,
+        "endLine": 319,
+        "methods": [
+          "lower",
+          "floor",
+          "ceiling",
+          "higher",
+          "pollFirst",
+          "pollLast",
+          "iterator",
+          "descendingSet",
+          "descendingIterator",
+          "subSet",
+          "headSet",
+          "tailSet",
+          "subSet",
+          "headSet",
+          "tailSet"
+        ],
+        "properties": []
+      }
+    },
+    {
+      "id": "file:src/java/util/Queue.java",
+      "type": "file",
+      "label": "Queue.java",
+      "properties": {
+        "path": "src/java/util/Queue.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 218,
+        "nonEmptyLines": 210
+      }
+    },
+    {
+      "id": "class:src/java/util/Queue.java::Queue",
+      "type": "class",
+      "label": "Queue",
+      "properties": {
+        "name": "Queue",
+        "startLine": 144,
+        "endLine": 218,
+        "methods": [
+          "add",
+          "offer",
+          "remove",
+          "poll",
+          "element",
+          "peek"
+        ],
+        "properties": []
+      }
+    },
+    {
+      "id": "file:src/java/util/RandomAccess.java",
+      "type": "file",
+      "label": "RandomAccess.java",
+      "properties": {
+        "path": "src/java/util/RandomAccess.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 64,
+        "nonEmptyLines": 55
+      }
+    },
+    {
+      "id": "class:src/java/util/RandomAccess.java::RandomAccess",
+      "type": "class",
+      "label": "RandomAccess",
+      "properties": {
+        "name": "RandomAccess",
+        "startLine": 61,
+        "endLine": 64,
+        "methods": [],
+        "properties": []
+      }
+    },
+    {
+      "id": "file:src/java/util/SortedMap.java",
+      "type": "file",
+      "label": "SortedMap.java",
+      "properties": {
+        "path": "src/java/util/SortedMap.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 284,
+        "nonEmptyLines": 273
+      }
+    },
+    {
+      "id": "class:src/java/util/SortedMap.java::SortedMap",
+      "type": "class",
+      "label": "SortedMap",
+      "properties": {
+        "name": "SortedMap",
+        "startLine": 113,
+        "endLine": 284,
+        "methods": [
+          "comparator",
+          "subMap",
+          "headMap",
+          "tailMap",
+          "firstKey",
+          "lastKey",
+          "keySet",
+          "values",
+          "entrySet"
+        ],
+        "properties": []
+      }
+    },
+    {
+      "id": "file:src/java/util/SortedSet.java",
+      "type": "file",
+      "label": "SortedSet.java",
+      "properties": {
+        "path": "src/java/util/SortedSet.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 264,
+        "nonEmptyLines": 255
+      }
+    },
+    {
+      "id": "class:src/java/util/SortedSet.java::SortedSet",
+      "type": "class",
+      "label": "SortedSet",
+      "properties": {
+        "name": "SortedSet",
+        "startLine": 108,
+        "endLine": 264,
+        "methods": [
+          "comparator",
+          "subSet",
+          "headSet",
+          "tailSet",
+          "first",
+          "last",
+          "spliterator"
+        ],
+        "properties": []
+      }
+    },
+    {
+      "id": "file:src/java/util/TimeZone.java",
+      "type": "file",
+      "label": "TimeZone.java",
+      "properties": {
+        "path": "src/java/util/TimeZone.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 1096,
+        "nonEmptyLines": 1041
+      }
+    },
+    {
+      "id": "class:src/java/util/TimeZone.java::TimeZone",
+      "type": "class",
+      "label": "TimeZone",
+      "properties": {
+        "name": "TimeZone",
+        "startLine": 48,
+        "endLine": 1096,
+        "methods": [
+          "getOffset",
+          "getRawOffset",
+          "setRawOffset",
+          "getID",
+          "setID",
+          "getDisplayName",
+          "getDisplayName",
+          "getDisplayName",
+          "getDisplayName",
+          "getDefaultDisplayName",
+          "useDaylightTime",
+          "inDaylightTime",
+          "getTimeZone",
+          "getAvailableIDs",
+          "getAvailableIDs",
+          "getDefault",
+          "setDefault",
+          "hasSameRules",
+          "clone"
+        ],
+        "properties": [
+          "SHORT",
+          "LONG",
+          "ID",
+          "defaultZone",
+          "serialVersionUID",
+          "timezones"
+        ]
+      }
+    },
+    {
+      "id": "class:src/java/util/TimeZone.java::SHORT",
+      "type": "class",
+      "label": "SHORT",
+      "properties": {
+        "name": "SHORT",
+        "startLine": 55,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/util/TimeZone.java::LONG",
+      "type": "class",
+      "label": "LONG",
+      "properties": {
+        "name": "LONG",
+        "startLine": 61,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/util/TimeZone.java::getOffset",
+      "type": "class",
+      "label": "getOffset",
+      "properties": {
+        "name": "getOffset",
+        "startLine": 750,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/util/TimeZone.java::getRawOffset",
+      "type": "class",
+      "label": "getRawOffset",
+      "properties": {
+        "name": "getRawOffset",
+        "startLine": 758,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/util/TimeZone.java::setRawOffset",
+      "type": "class",
+      "label": "setRawOffset",
+      "properties": {
+        "name": "setRawOffset",
+        "startLine": 765,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/util/TimeZone.java::getID",
+      "type": "class",
+      "label": "getID",
+      "properties": {
+        "name": "getID",
+        "startLine": 772,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/util/TimeZone.java::setID",
+      "type": "class",
+      "label": "setID",
+      "properties": {
+        "name": "setID",
+        "startLine": 782,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/util/TimeZone.java::getDisplayName",
+      "type": "class",
+      "label": "getDisplayName",
+      "properties": {
+        "name": "getDisplayName",
+        "startLine": 795,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/util/TimeZone.java::useDaylightTime",
+      "type": "class",
+      "label": "useDaylightTime",
+      "properties": {
+        "name": "useDaylightTime",
+        "startLine": 909,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/util/TimeZone.java::inDaylightTime",
+      "type": "class",
+      "label": "inDaylightTime",
+      "properties": {
+        "name": "inDaylightTime",
+        "startLine": 916,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/util/TimeZone.java::getTimeZone",
+      "type": "class",
+      "label": "getTimeZone",
+      "properties": {
+        "name": "getTimeZone",
+        "startLine": 924,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/util/TimeZone.java::getAvailableIDs",
+      "type": "class",
+      "label": "getAvailableIDs",
+      "properties": {
+        "name": "getAvailableIDs",
+        "startLine": 1012,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/util/TimeZone.java::getDefault",
+      "type": "class",
+      "label": "getDefault",
+      "properties": {
+        "name": "getDefault",
+        "startLine": 1059,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/util/TimeZone.java::setDefault",
+      "type": "class",
+      "label": "setDefault",
+      "properties": {
+        "name": "setDefault",
+        "startLine": 1064,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/util/TimeZone.java::hasSameRules",
+      "type": "class",
+      "label": "hasSameRules",
+      "properties": {
+        "name": "hasSameRules",
+        "startLine": 1076,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "class:src/java/util/TimeZone.java::clone",
+      "type": "class",
+      "label": "clone",
+      "properties": {
+        "name": "clone",
+        "startLine": 1085,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "function:src/java/util/TimeZone.java::getOffset",
+      "type": "function",
+      "label": "getOffset",
+      "properties": {
+        "name": "getOffset",
+        "startLine": 750,
+        "endLine": 751,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/util/TimeZone.java::getRawOffset",
+      "type": "function",
+      "label": "getRawOffset",
+      "properties": {
+        "name": "getRawOffset",
+        "startLine": 758,
+        "endLine": 758,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/util/TimeZone.java::setRawOffset",
+      "type": "function",
+      "label": "setRawOffset",
+      "properties": {
+        "name": "setRawOffset",
+        "startLine": 765,
+        "endLine": 765,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/util/TimeZone.java::getID",
+      "type": "function",
+      "label": "getID",
+      "properties": {
+        "name": "getID",
+        "startLine": 772,
+        "endLine": 775,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/util/TimeZone.java::setID",
+      "type": "function",
+      "label": "setID",
+      "properties": {
+        "name": "setID",
+        "startLine": 782,
+        "endLine": 785,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/util/TimeZone.java::getDisplayName",
+      "type": "function",
+      "label": "getDisplayName",
+      "properties": {
+        "name": "getDisplayName",
+        "startLine": 795,
+        "endLine": 798,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/util/TimeZone.java::getDisplayName",
+      "type": "function",
+      "label": "getDisplayName",
+      "properties": {
+        "name": "getDisplayName",
+        "startLine": 810,
+        "endLine": 813,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/util/TimeZone.java::getDisplayName",
+      "type": "function",
+      "label": "getDisplayName",
+      "properties": {
+        "name": "getDisplayName",
+        "startLine": 826,
+        "endLine": 829,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/util/TimeZone.java::getDisplayName",
+      "type": "function",
+      "label": "getDisplayName",
+      "properties": {
+        "name": "getDisplayName",
+        "startLine": 844,
+        "endLine": 879,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/util/TimeZone.java::getDefaultDisplayName",
+      "type": "function",
+      "label": "getDefaultDisplayName",
+      "properties": {
+        "name": "getDefaultDisplayName",
+        "startLine": 881,
+        "endLine": 904,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/util/TimeZone.java::useDaylightTime",
+      "type": "function",
+      "label": "useDaylightTime",
+      "properties": {
+        "name": "useDaylightTime",
+        "startLine": 909,
+        "endLine": 909,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/util/TimeZone.java::inDaylightTime",
+      "type": "function",
+      "label": "inDaylightTime",
+      "properties": {
+        "name": "inDaylightTime",
+        "startLine": 916,
+        "endLine": 916,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/util/TimeZone.java::getTimeZone",
+      "type": "function",
+      "label": "getTimeZone",
+      "properties": {
+        "name": "getTimeZone",
+        "startLine": 924,
+        "endLine": 1002,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/util/TimeZone.java::getAvailableIDs",
+      "type": "function",
+      "label": "getAvailableIDs",
+      "properties": {
+        "name": "getAvailableIDs",
+        "startLine": 1012,
+        "endLine": 1038,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/util/TimeZone.java::getAvailableIDs",
+      "type": "function",
+      "label": "getAvailableIDs",
+      "properties": {
+        "name": "getAvailableIDs",
+        "startLine": 1044,
+        "endLine": 1051,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/util/TimeZone.java::getDefault",
+      "type": "function",
+      "label": "getDefault",
+      "properties": {
+        "name": "getDefault",
+        "startLine": 1059,
+        "endLine": 1062,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/util/TimeZone.java::setDefault",
+      "type": "function",
+      "label": "setDefault",
+      "properties": {
+        "name": "setDefault",
+        "startLine": 1064,
+        "endLine": 1067,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/util/TimeZone.java::hasSameRules",
+      "type": "function",
+      "label": "hasSameRules",
+      "properties": {
+        "name": "hasSameRules",
+        "startLine": 1076,
+        "endLine": 1079,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/util/TimeZone.java::clone",
+      "type": "function",
+      "label": "clone",
+      "properties": {
+        "name": "clone",
+        "startLine": 1085,
+        "endLine": 1095,
+        "signature": ""
+      }
+    },
+    {
+      "id": "file:src/jx/devices/DeviceConfiguration.java",
+      "type": "file",
+      "label": "DeviceConfiguration.java",
+      "properties": {
+        "path": "src/jx/devices/DeviceConfiguration.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 4,
+        "nonEmptyLines": 3
+      }
+    },
+    {
+      "id": "class:src/jx/devices/DeviceConfiguration.java::DeviceConfiguration",
+      "type": "class",
+      "label": "DeviceConfiguration",
+      "properties": {
+        "name": "DeviceConfiguration",
+        "startLine": 3,
+        "endLine": 4,
+        "methods": [],
+        "properties": []
+      }
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/java/util/Deque.java",
+      "target": "class:src/java/util/Deque.java::Deque",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/Dictionary.java",
+      "target": "class:src/java/util/Dictionary.java::Dictionary",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/Dictionary.java",
+      "target": "class:src/java/util/Dictionary.java::elements",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/Dictionary.java",
+      "target": "class:src/java/util/Dictionary.java::get",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/Dictionary.java",
+      "target": "class:src/java/util/Dictionary.java::isEmpty",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/Dictionary.java",
+      "target": "class:src/java/util/Dictionary.java::keys",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/Dictionary.java",
+      "target": "class:src/java/util/Dictionary.java::put",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/Dictionary.java",
+      "target": "class:src/java/util/Dictionary.java::remove",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/Dictionary.java",
+      "target": "class:src/java/util/Dictionary.java::size",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/Dictionary.java",
+      "target": "function:src/java/util/Dictionary.java::elements",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/Dictionary.java",
+      "target": "function:src/java/util/Dictionary.java::get",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/Dictionary.java",
+      "target": "function:src/java/util/Dictionary.java::isEmpty",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/Dictionary.java",
+      "target": "function:src/java/util/Dictionary.java::keys",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/Dictionary.java",
+      "target": "function:src/java/util/Dictionary.java::put",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/Dictionary.java",
+      "target": "function:src/java/util/Dictionary.java::remove",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/Dictionary.java",
+      "target": "function:src/java/util/Dictionary.java::size",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/function/BiFunction.java",
+      "target": "class:src/java/util/function/BiFunction.java::BiFunction",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/function/UnaryOperator.java",
+      "target": "class:src/java/util/function/UnaryOperator.java::UnaryOperator",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/List.java",
+      "target": "class:src/java/util/List.java::List",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/ListIterator.java",
+      "target": "class:src/java/util/ListIterator.java::ListIterator",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/ListResourceBundle.java",
+      "target": "class:src/java/util/ListResourceBundle.java::ListResourceBundle",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/ListResourceBundle.java",
+      "target": "class:src/java/util/ListResourceBundle.java::getKeys",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/ListResourceBundle.java",
+      "target": "function:src/java/util/ListResourceBundle.java::ListResourceBundle",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/ListResourceBundle.java",
+      "target": "function:src/java/util/ListResourceBundle.java::getContents",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/ListResourceBundle.java",
+      "target": "function:src/java/util/ListResourceBundle.java::handleGetObject",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/ListResourceBundle.java",
+      "target": "function:src/java/util/ListResourceBundle.java::getKeys",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/NavigableMap.java",
+      "target": "class:src/java/util/NavigableMap.java::NavigableMap",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/NavigableSet.java",
+      "target": "class:src/java/util/NavigableSet.java::NavigableSet",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/Queue.java",
+      "target": "class:src/java/util/Queue.java::Queue",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/RandomAccess.java",
+      "target": "class:src/java/util/RandomAccess.java::RandomAccess",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/SortedMap.java",
+      "target": "class:src/java/util/SortedMap.java::SortedMap",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/SortedSet.java",
+      "target": "class:src/java/util/SortedSet.java::SortedSet",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/TimeZone.java",
+      "target": "class:src/java/util/TimeZone.java::TimeZone",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/TimeZone.java",
+      "target": "class:src/java/util/TimeZone.java::SHORT",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/TimeZone.java",
+      "target": "class:src/java/util/TimeZone.java::LONG",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/TimeZone.java",
+      "target": "class:src/java/util/TimeZone.java::getOffset",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/TimeZone.java",
+      "target": "class:src/java/util/TimeZone.java::getRawOffset",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/TimeZone.java",
+      "target": "class:src/java/util/TimeZone.java::setRawOffset",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/TimeZone.java",
+      "target": "class:src/java/util/TimeZone.java::getID",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/TimeZone.java",
+      "target": "class:src/java/util/TimeZone.java::setID",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/TimeZone.java",
+      "target": "class:src/java/util/TimeZone.java::getDisplayName",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/TimeZone.java",
+      "target": "class:src/java/util/TimeZone.java::useDaylightTime",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/TimeZone.java",
+      "target": "class:src/java/util/TimeZone.java::inDaylightTime",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/TimeZone.java",
+      "target": "class:src/java/util/TimeZone.java::getTimeZone",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/TimeZone.java",
+      "target": "class:src/java/util/TimeZone.java::getAvailableIDs",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/TimeZone.java",
+      "target": "class:src/java/util/TimeZone.java::getDefault",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/TimeZone.java",
+      "target": "class:src/java/util/TimeZone.java::setDefault",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/TimeZone.java",
+      "target": "class:src/java/util/TimeZone.java::hasSameRules",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/TimeZone.java",
+      "target": "class:src/java/util/TimeZone.java::clone",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/TimeZone.java",
+      "target": "function:src/java/util/TimeZone.java::getOffset",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/TimeZone.java",
+      "target": "function:src/java/util/TimeZone.java::getRawOffset",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/TimeZone.java",
+      "target": "function:src/java/util/TimeZone.java::setRawOffset",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/TimeZone.java",
+      "target": "function:src/java/util/TimeZone.java::getID",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/TimeZone.java",
+      "target": "function:src/java/util/TimeZone.java::setID",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/TimeZone.java",
+      "target": "function:src/java/util/TimeZone.java::getDisplayName",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/TimeZone.java",
+      "target": "function:src/java/util/TimeZone.java::getDisplayName",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/TimeZone.java",
+      "target": "function:src/java/util/TimeZone.java::getDisplayName",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/TimeZone.java",
+      "target": "function:src/java/util/TimeZone.java::getDisplayName",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/TimeZone.java",
+      "target": "function:src/java/util/TimeZone.java::getDefaultDisplayName",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/TimeZone.java",
+      "target": "function:src/java/util/TimeZone.java::useDaylightTime",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/TimeZone.java",
+      "target": "function:src/java/util/TimeZone.java::inDaylightTime",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/TimeZone.java",
+      "target": "function:src/java/util/TimeZone.java::getTimeZone",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/TimeZone.java",
+      "target": "function:src/java/util/TimeZone.java::getAvailableIDs",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/TimeZone.java",
+      "target": "function:src/java/util/TimeZone.java::getAvailableIDs",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/TimeZone.java",
+      "target": "function:src/java/util/TimeZone.java::getDefault",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/TimeZone.java",
+      "target": "function:src/java/util/TimeZone.java::setDefault",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/TimeZone.java",
+      "target": "function:src/java/util/TimeZone.java::hasSameRules",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/util/TimeZone.java",
+      "target": "function:src/java/util/TimeZone.java::clone",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/jx/devices/DeviceConfiguration.java",
+      "target": "class:src/jx/devices/DeviceConfiguration.java::DeviceConfiguration",
+      "relation": "contains"
+    }
+  ],
+  "nodeCount": 85,
+  "edgeCount": 69
+}

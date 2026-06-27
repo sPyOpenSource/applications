@@ -1,0 +1,155 @@
+{
+  "projectRoot": "/Users/xuyi/Source/OS/armOS/lib/jcore/test/ifOS",
+  "batchFiles": [
+    {
+      "path": "src/jx/net/rpc/RPCWriter.java",
+      "language": "java",
+      "sizeLines": 5,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/net/rpcsvc/mount/Exports.ctxt",
+      "language": "ctxt",
+      "sizeLines": 4,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/net/rpcsvc/mount/Exports.java",
+      "language": "java",
+      "sizeLines": 10,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/net/rpcsvc/mount/FHStatus.ctxt",
+      "language": "ctxt",
+      "sizeLines": 4,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/net/rpcsvc/mount/FHStatus.java",
+      "language": "java",
+      "sizeLines": 10,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/net/rpcsvc/mount/MountList.ctxt",
+      "language": "ctxt",
+      "sizeLines": 4,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/net/rpcsvc/mount/MountList.java",
+      "language": "java",
+      "sizeLines": 10,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/net/rpcsvc/mount/MountProc.ctxt",
+      "language": "ctxt",
+      "sizeLines": 16,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/net/rpcsvc/mount/package.bluej",
+      "language": "bluej",
+      "sizeLines": 57,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/net/rpcsvc/nfs/AttrStat.ctxt",
+      "language": "ctxt",
+      "sizeLines": 4,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/net/rpcsvc/nfs/AttrStat.java",
+      "language": "java",
+      "sizeLines": 10,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/net/rpcsvc/nfs/DirOpRes.ctxt",
+      "language": "ctxt",
+      "sizeLines": 4,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/net/rpcsvc/nfs/DirOpRes.java",
+      "language": "java",
+      "sizeLines": 10,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/net/rpcsvc/nfs/DirPath.ctxt",
+      "language": "ctxt",
+      "sizeLines": 4,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/net/rpcsvc/nfs/DirPath.java",
+      "language": "java",
+      "sizeLines": 10,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/net/rpcsvc/nfs/FHandle.ctxt",
+      "language": "ctxt",
+      "sizeLines": 4,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/net/rpcsvc/nfs/FHandle.java",
+      "language": "java",
+      "sizeLines": 10,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/net/rpcsvc/nfs/Name.ctxt",
+      "language": "ctxt",
+      "sizeLines": 4,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/net/rpcsvc/nfs/Name.java",
+      "language": "java",
+      "sizeLines": 10,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/net/rpcsvc/nfs/NFSCookie.ctxt",
+      "language": "ctxt",
+      "sizeLines": 4,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/net/rpcsvc/nfs/NFSCookie.java",
+      "language": "java",
+      "sizeLines": 10,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/net/rpcsvc/nfs/NFSData.ctxt",
+      "language": "ctxt",
+      "sizeLines": 4,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/net/rpcsvc/nfs/NFSData.java",
+      "language": "java",
+      "sizeLines": 10,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/net/rpcsvc/nfs/NFSProc.ctxt",
+      "language": "ctxt",
+      "sizeLines": 40,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/net/rpcsvc/nfs/package.bluej",
+      "language": "bluej",
+      "sizeLines": 157,
+      "fileCategory": "code"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "status": "incomplete",
+  "critical_issues": [
+    {
+      "type": "missing_nodes",
+      "description": "The following files are missing from the assembled graph despite existing on disk and being mentioned in batch files: src/jx/fs/db/types/TypeManager.java, src/jx/fs/db/types/DbConverter.java",
+      "impact": "Leads to missing import edges."
+    },
+    {
+      "type": "missing_edges",
+      "description": "Two import edges are missing from the graph: src/jx/fs/db/Database.java -> src/jx/fs/db/types/TypeManager.java and src/jx/fs/db/TupleDescriptor.java -> src/jx/fs/db/types/DbConverter.java",
+      "impact": "Incomplete dependency graph."
+    }
+  ],
+  "verification_stats": {
+    "expected_import_edges": 125,
+    "actual_import_edges": 123,
+    "missing_import_edges": 2
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "projectRoot": "/Users/xuyi/Source/OS/armOS/lib/jcore/test/ifOS",
+  "batchFiles": [
+    {
+      "path": "src/java/security/PrivateKey.java",
+      "language": "java",
+      "sizeLines": 47,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/java/security/interfaces/DSAPrivateKey.java",
+      "language": "java",
+      "sizeLines": 61,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/java/security/interfaces/RSAPrivateKey.java",
+      "language": "java",
+      "sizeLines": 54,
+      "fileCategory": "code"
+    }
+  ],
+  "batchImportData": {
+    "src/java/security/PrivateKey.java": [],
+    "src/java/security/interfaces/DSAPrivateKey.java": [
+      "src/java/security/PrivateKey.java"
+    ],
+    "src/java/security/interfaces/RSAPrivateKey.java": [
+      "src/java/security/PrivateKey.java"
+    ]
+  }
+}

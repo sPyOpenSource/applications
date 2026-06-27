@@ -1,0 +1,809 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 6,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "src/java/security/AlgorithmParameterGeneratorSpi.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 81,
+      "nonEmptyLines": 61,
+      "functions": [
+        {
+          "name": "AlgorithmParameterGeneratorSpi",
+          "startLine": 46,
+          "endLine": 47,
+          "params": []
+        },
+        {
+          "name": "engineInit",
+          "startLine": 56,
+          "endLine": 56,
+          "params": [
+            "size",
+            "random"
+          ]
+        },
+        {
+          "name": "engineInit",
+          "startLine": 71,
+          "endLine": 71,
+          "params": [
+            "genParamSpec",
+            "random"
+          ]
+        },
+        {
+          "name": "engineGenerateParameters",
+          "startLine": 79,
+          "endLine": 79,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "AlgorithmParameterGeneratorSpi",
+          "startLine": 40,
+          "endLine": 81,
+          "methods": [
+            "AlgorithmParameterGeneratorSpi",
+            "engineInit",
+            "engineInit",
+            "engineGenerateParameters"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "AlgorithmParameterGeneratorSpi",
+          "line": 46,
+          "isDefault": false
+        },
+        {
+          "name": "AlgorithmParameterGeneratorSpi",
+          "line": 40,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 2,
+        "functionCount": 4,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/security/AlgorithmParametersSpi.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 131,
+      "nonEmptyLines": 98,
+      "functions": [
+        {
+          "name": "AlgorithmParametersSpi",
+          "startLine": 47,
+          "endLine": 48,
+          "params": []
+        },
+        {
+          "name": "engineInit",
+          "startLine": 58,
+          "endLine": 58,
+          "params": [
+            "paramSpec"
+          ]
+        },
+        {
+          "name": "engineInit",
+          "startLine": 72,
+          "endLine": 72,
+          "params": [
+            "params"
+          ]
+        },
+        {
+          "name": "engineInit",
+          "startLine": 87,
+          "endLine": 87,
+          "params": [
+            "params",
+            "format"
+          ]
+        },
+        {
+          "name": "engineGetParameterSpec",
+          "startLine": 101,
+          "endLine": 101,
+          "params": [
+            "paramSpec"
+          ]
+        },
+        {
+          "name": "engineGetEncoded",
+          "startLine": 111,
+          "endLine": 111,
+          "params": []
+        },
+        {
+          "name": "engineGetEncoded",
+          "startLine": 122,
+          "endLine": 122,
+          "params": [
+            "format"
+          ]
+        },
+        {
+          "name": "engineToString",
+          "startLine": 130,
+          "endLine": 130,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "AlgorithmParametersSpi",
+          "startLine": 41,
+          "endLine": 131,
+          "methods": [
+            "AlgorithmParametersSpi",
+            "engineInit",
+            "engineInit",
+            "engineInit",
+            "engineGetParameterSpec",
+            "engineGetEncoded",
+            "engineGetEncoded",
+            "engineToString"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "AlgorithmParametersSpi",
+          "line": 47,
+          "isDefault": false
+        },
+        {
+          "name": "AlgorithmParametersSpi",
+          "line": 41,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 2,
+        "functionCount": 8,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/security/KeyPairGenerator.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 242,
+      "nonEmptyLines": 195,
+      "functions": [
+        {
+          "name": "KeyPairGenerator",
+          "startLine": 53,
+          "endLine": 57,
+          "params": [
+            "algorithm"
+          ]
+        },
+        {
+          "name": "getAlgorithm",
+          "startLine": 64,
+          "endLine": 67,
+          "params": []
+        },
+        {
+          "name": "getInstance",
+          "startLine": 79,
+          "endLine": 92,
+          "params": [
+            "algorithm"
+          ]
+        },
+        {
+          "name": "getInstance",
+          "startLine": 106,
+          "endLine": 114,
+          "params": [
+            "algorithm",
+            "provider"
+          ]
+        },
+        {
+          "name": "getInstance",
+          "startLine": 116,
+          "endLine": 141,
+          "params": [
+            "classname",
+            "algorithm",
+            "provider"
+          ]
+        },
+        {
+          "name": "getProvider",
+          "startLine": 148,
+          "endLine": 151,
+          "params": []
+        },
+        {
+          "name": "initialize",
+          "startLine": 160,
+          "endLine": 163,
+          "params": [
+            "keysize"
+          ]
+        },
+        {
+          "name": "initialize",
+          "startLine": 174,
+          "endLine": 177,
+          "params": [
+            "keysize",
+            "random"
+          ]
+        },
+        {
+          "name": "initialize",
+          "startLine": 189,
+          "endLine": 192,
+          "params": [
+            "params"
+          ]
+        },
+        {
+          "name": "initialize",
+          "startLine": 203,
+          "endLine": 206,
+          "params": [
+            "params",
+            "random"
+          ]
+        },
+        {
+          "name": "genKeyPair",
+          "startLine": 217,
+          "endLine": 226,
+          "params": []
+        },
+        {
+          "name": "generateKeyPair",
+          "startLine": 237,
+          "endLine": 240,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "KeyPairGenerator",
+          "startLine": 42,
+          "endLine": 242,
+          "methods": [
+            "KeyPairGenerator",
+            "getAlgorithm",
+            "getInstance",
+            "getInstance",
+            "getInstance",
+            "getProvider",
+            "initialize",
+            "initialize",
+            "initialize",
+            "initialize",
+            "genKeyPair",
+            "generateKeyPair"
+          ],
+          "properties": [
+            "provider",
+            "algorithm"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "getAlgorithm",
+          "line": 64,
+          "isDefault": false
+        },
+        {
+          "name": "getInstance",
+          "line": 79,
+          "isDefault": false
+        },
+        {
+          "name": "getInstance",
+          "line": 106,
+          "isDefault": false
+        },
+        {
+          "name": "getProvider",
+          "line": 148,
+          "isDefault": false
+        },
+        {
+          "name": "initialize",
+          "line": 160,
+          "isDefault": false
+        },
+        {
+          "name": "initialize",
+          "line": 174,
+          "isDefault": false
+        },
+        {
+          "name": "initialize",
+          "line": 189,
+          "isDefault": false
+        },
+        {
+          "name": "initialize",
+          "line": 203,
+          "isDefault": false
+        },
+        {
+          "name": "genKeyPair",
+          "line": 217,
+          "isDefault": false
+        },
+        {
+          "name": "generateKeyPair",
+          "line": 237,
+          "isDefault": false
+        },
+        {
+          "name": "KeyPairGenerator",
+          "line": 42,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "getInstance",
+          "callee": "Security.getProviders",
+          "lineNumber": 81
+        },
+        {
+          "caller": "getInstance",
+          "callee": "p[i].getProperty",
+          "lineNumber": 85
+        },
+        {
+          "caller": "getInstance",
+          "callee": "getInstance",
+          "lineNumber": 87
+        },
+        {
+          "caller": "getInstance",
+          "callee": "new NoSuchAlgorithmException",
+          "lineNumber": 90
+        },
+        {
+          "caller": "getInstance",
+          "callee": "Security.getProvider",
+          "lineNumber": 108
+        },
+        {
+          "caller": "getInstance",
+          "callee": "new NoSuchProviderException",
+          "lineNumber": 110
+        },
+        {
+          "caller": "getInstance",
+          "callee": "getInstance",
+          "lineNumber": 112
+        },
+        {
+          "caller": "getInstance",
+          "callee": "p.getProperty",
+          "lineNumber": 112
+        },
+        {
+          "caller": "getInstance",
+          "callee": "Class.forName( classname ).newInstance",
+          "lineNumber": 122
+        },
+        {
+          "caller": "getInstance",
+          "callee": "Class.forName",
+          "lineNumber": 122
+        },
+        {
+          "caller": "getInstance",
+          "callee": "new NoSuchAlgorithmException",
+          "lineNumber": 135
+        },
+        {
+          "caller": "getInstance",
+          "callee": "new NoSuchAlgorithmException",
+          "lineNumber": 137
+        },
+        {
+          "caller": "getInstance",
+          "callee": "new NoSuchAlgorithmException",
+          "lineNumber": 139
+        },
+        {
+          "caller": "initialize",
+          "callee": "initialize",
+          "lineNumber": 162
+        },
+        {
+          "caller": "initialize",
+          "callee": "new SecureRandom",
+          "lineNumber": 162
+        },
+        {
+          "caller": "initialize",
+          "callee": "initialize",
+          "lineNumber": 176
+        },
+        {
+          "caller": "initialize",
+          "callee": "initialize",
+          "lineNumber": 191
+        },
+        {
+          "caller": "initialize",
+          "callee": "new SecureRandom",
+          "lineNumber": 191
+        },
+        {
+          "caller": "initialize",
+          "callee": "super.initialize",
+          "lineNumber": 205
+        },
+        {
+          "caller": "genKeyPair",
+          "callee": "getInstance(\"DSA\", \"GNU\").generateKeyPair",
+          "lineNumber": 220
+        },
+        {
+          "caller": "genKeyPair",
+          "callee": "getInstance",
+          "lineNumber": 220
+        },
+        {
+          "caller": "genKeyPair",
+          "callee": "System.err.println",
+          "lineNumber": 222
+        },
+        {
+          "caller": "genKeyPair",
+          "callee": "e.printStackTrace",
+          "lineNumber": 223
+        },
+        {
+          "caller": "generateKeyPair",
+          "callee": "generateKeyPair",
+          "lineNumber": 239
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 11,
+        "functionCount": 12,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/security/KeyPairGeneratorSpi.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 84,
+      "nonEmptyLines": 64,
+      "functions": [
+        {
+          "name": "KeyPairGeneratorSpi",
+          "startLine": 43,
+          "endLine": 44,
+          "params": []
+        },
+        {
+          "name": "initialize",
+          "startLine": 54,
+          "endLine": 54,
+          "params": [
+            "keysize",
+            "random"
+          ]
+        },
+        {
+          "name": "initialize",
+          "startLine": 70,
+          "endLine": 73,
+          "params": [
+            "params",
+            "random"
+          ]
+        },
+        {
+          "name": "generateKeyPair",
+          "startLine": 82,
+          "endLine": 82,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "KeyPairGeneratorSpi",
+          "startLine": 37,
+          "endLine": 84,
+          "methods": [
+            "KeyPairGeneratorSpi",
+            "initialize",
+            "initialize",
+            "generateKeyPair"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "KeyPairGeneratorSpi",
+          "line": 43,
+          "isDefault": false
+        },
+        {
+          "name": "initialize",
+          "line": 54,
+          "isDefault": false
+        },
+        {
+          "name": "initialize",
+          "line": 70,
+          "isDefault": false
+        },
+        {
+          "name": "generateKeyPair",
+          "line": 82,
+          "isDefault": false
+        },
+        {
+          "name": "KeyPairGeneratorSpi",
+          "line": 37,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "initialize",
+          "callee": "new java.lang.UnsupportedOperationException",
+          "lineNumber": 72
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 5,
+        "functionCount": 4,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/security/SignatureSpi.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 248,
+      "nonEmptyLines": 186,
+      "functions": [
+        {
+          "name": "SignatureSpi",
+          "startLine": 52,
+          "endLine": 55,
+          "params": []
+        },
+        {
+          "name": "engineInitVerify",
+          "startLine": 65,
+          "endLine": 66,
+          "params": [
+            "publicKey"
+          ]
+        },
+        {
+          "name": "engineInitSign",
+          "startLine": 76,
+          "endLine": 77,
+          "params": [
+            "privateKey"
+          ]
+        },
+        {
+          "name": "engineInitSign",
+          "startLine": 92,
+          "endLine": 97,
+          "params": [
+            "privateKey",
+            "random"
+          ]
+        },
+        {
+          "name": "engineUpdate",
+          "startLine": 107,
+          "endLine": 108,
+          "params": [
+            "b"
+          ]
+        },
+        {
+          "name": "engineUpdate",
+          "startLine": 120,
+          "endLine": 121,
+          "params": [
+            "b",
+            "off",
+            "len"
+          ]
+        },
+        {
+          "name": "engineSign",
+          "startLine": 132,
+          "endLine": 132,
+          "params": []
+        },
+        {
+          "name": "engineSign",
+          "startLine": 159,
+          "endLine": 170,
+          "params": [
+            "outbuf",
+            "offset",
+            "len"
+          ]
+        },
+        {
+          "name": "engineVerify",
+          "startLine": 182,
+          "endLine": 183,
+          "params": [
+            "sigBytes"
+          ]
+        },
+        {
+          "name": "engineSetParameter",
+          "startLine": 197,
+          "endLine": 198,
+          "params": [
+            "param",
+            "value"
+          ]
+        },
+        {
+          "name": "engineSetParameter",
+          "startLine": 214,
+          "endLine": 218,
+          "params": [
+            "params"
+          ]
+        },
+        {
+          "name": "engineGetParameter",
+          "startLine": 231,
+          "endLine": 232,
+          "params": [
+            "param"
+          ]
+        },
+        {
+          "name": "clone",
+          "startLine": 242,
+          "endLine": 246,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "SignatureSpi",
+          "startLine": 41,
+          "endLine": 247,
+          "methods": [
+            "SignatureSpi",
+            "engineInitVerify",
+            "engineInitSign",
+            "engineInitSign",
+            "engineUpdate",
+            "engineUpdate",
+            "engineSign",
+            "engineSign",
+            "engineVerify",
+            "engineSetParameter",
+            "engineSetParameter",
+            "engineGetParameter",
+            "clone"
+          ],
+          "properties": [
+            "appRandom"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "SignatureSpi",
+          "line": 52,
+          "isDefault": false
+        },
+        {
+          "name": "clone",
+          "line": 242,
+          "isDefault": false
+        },
+        {
+          "name": "SignatureSpi",
+          "line": 41,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "engineInitSign",
+          "callee": "engineInitSign",
+          "lineNumber": 96
+        },
+        {
+          "caller": "engineSign",
+          "callee": "engineSign",
+          "lineNumber": 162
+        },
+        {
+          "caller": "engineSign",
+          "callee": "new SignatureException",
+          "lineNumber": 165
+        },
+        {
+          "caller": "engineSign",
+          "callee": "System.arraycopy",
+          "lineNumber": 167
+        },
+        {
+          "caller": "engineSetParameter",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 217
+        },
+        {
+          "caller": "clone",
+          "callee": "new CloneNotSupportedException",
+          "lineNumber": 245
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 3,
+        "functionCount": 13,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/security/spec/AlgorithmParameterSpec.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 41,
+      "nonEmptyLines": 31,
+      "classes": [
+        {
+          "name": "AlgorithmParameterSpec",
+          "startLine": 39,
+          "endLine": 41,
+          "methods": [],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "AlgorithmParameterSpec",
+          "line": 39,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    }
+  ]
+}

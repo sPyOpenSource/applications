@@ -1,0 +1,971 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 10,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "src/java/applet/AppletContext.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 108,
+      "nonEmptyLines": 92,
+      "classes": [
+        {
+          "name": "AppletContext",
+          "startLine": 41,
+          "endLine": 108,
+          "methods": [
+            "getAudioClip",
+            "getImage",
+            "getApplet",
+            "getApplets",
+            "showDocument",
+            "showDocument",
+            "showStatus"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "AppletContext",
+          "line": 41,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/security/BasicPermission.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 271,
+      "nonEmptyLines": 230,
+      "functions": [
+        {
+          "name": "BasicPermission",
+          "startLine": 73,
+          "endLine": 86,
+          "params": [
+            "name"
+          ]
+        },
+        {
+          "name": "BasicPermission",
+          "startLine": 102,
+          "endLine": 107,
+          "params": [
+            "name",
+            "actions"
+          ]
+        },
+        {
+          "name": "implies",
+          "startLine": 127,
+          "endLine": 145,
+          "params": [
+            "perm"
+          ]
+        },
+        {
+          "name": "equals",
+          "startLine": 163,
+          "endLine": 173,
+          "params": [
+            "obj"
+          ]
+        },
+        {
+          "name": "hashCode",
+          "startLine": 184,
+          "endLine": 188,
+          "params": []
+        },
+        {
+          "name": "getActions",
+          "startLine": 199,
+          "endLine": 203,
+          "params": []
+        },
+        {
+          "name": "newPermissionCollection",
+          "startLine": 217,
+          "endLine": 270,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "BasicPermission",
+          "startLine": 54,
+          "endLine": 271,
+          "methods": [
+            "BasicPermission",
+            "BasicPermission",
+            "implies",
+            "equals",
+            "hashCode",
+            "getActions",
+            "newPermissionCollection"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "BasicPermission",
+          "line": 73,
+          "isDefault": false
+        },
+        {
+          "name": "BasicPermission",
+          "line": 102,
+          "isDefault": false
+        },
+        {
+          "name": "implies",
+          "line": 127,
+          "isDefault": false
+        },
+        {
+          "name": "equals",
+          "line": 163,
+          "isDefault": false
+        },
+        {
+          "name": "hashCode",
+          "line": 184,
+          "isDefault": false
+        },
+        {
+          "name": "getActions",
+          "line": 199,
+          "isDefault": false
+        },
+        {
+          "name": "newPermissionCollection",
+          "line": 217,
+          "isDefault": false
+        },
+        {
+          "name": "BasicPermission",
+          "line": 54,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "BasicPermission",
+          "callee": "name.indexOf",
+          "lineNumber": 78
+        },
+        {
+          "caller": "BasicPermission",
+          "callee": "name.endsWith",
+          "lineNumber": 80
+        },
+        {
+          "caller": "BasicPermission",
+          "callee": "name.equals",
+          "lineNumber": 80
+        },
+        {
+          "caller": "BasicPermission",
+          "callee": "new IllegalArgumentException",
+          "lineNumber": 81
+        },
+        {
+          "caller": "BasicPermission",
+          "callee": "name.indexOf",
+          "lineNumber": 83
+        },
+        {
+          "caller": "BasicPermission",
+          "callee": "name.lastIndexOf",
+          "lineNumber": 83
+        },
+        {
+          "caller": "BasicPermission",
+          "callee": "new IllegalArgumentException",
+          "lineNumber": 84
+        },
+        {
+          "caller": "implies",
+          "callee": "perm.getName",
+          "lineNumber": 133
+        },
+        {
+          "caller": "implies",
+          "callee": "getName",
+          "lineNumber": 134
+        },
+        {
+          "caller": "implies",
+          "callee": "name.equals",
+          "lineNumber": 136
+        },
+        {
+          "caller": "implies",
+          "callee": "name.length",
+          "lineNumber": 139
+        },
+        {
+          "caller": "implies",
+          "callee": "name.charAt",
+          "lineNumber": 140
+        },
+        {
+          "caller": "implies",
+          "callee": "otherName.startsWith",
+          "lineNumber": 141
+        },
+        {
+          "caller": "implies",
+          "callee": "name.substring",
+          "lineNumber": 141
+        },
+        {
+          "caller": "equals",
+          "callee": "getName().equals",
+          "lineNumber": 169
+        },
+        {
+          "caller": "equals",
+          "callee": "getName",
+          "lineNumber": 169
+        },
+        {
+          "caller": "equals",
+          "callee": "((BasicPermission)obj).getName",
+          "lineNumber": 169
+        },
+        {
+          "caller": "hashCode",
+          "callee": "getName().hashCode",
+          "lineNumber": 187
+        },
+        {
+          "caller": "hashCode",
+          "callee": "getName",
+          "lineNumber": 187
+        },
+        {
+          "caller": "newPermissionCollection",
+          "callee": "new PermissionCollection",
+          "lineNumber": 220
+        },
+        {
+          "caller": "newPermissionCollection",
+          "callee": "new Hashtable",
+          "lineNumber": 222
+        },
+        {
+          "caller": "add",
+          "callee": "isReadOnly",
+          "lineNumber": 227
+        },
+        {
+          "caller": "add",
+          "callee": "new IllegalStateException",
+          "lineNumber": 228
+        },
+        {
+          "caller": "add",
+          "callee": "bp.getName",
+          "lineNumber": 231
+        },
+        {
+          "caller": "add",
+          "callee": "name.equals",
+          "lineNumber": 232
+        },
+        {
+          "caller": "add",
+          "callee": "permissions.put",
+          "lineNumber": 234
+        },
+        {
+          "caller": "implies",
+          "callee": "toImply.getName",
+          "lineNumber": 246
+        },
+        {
+          "caller": "implies",
+          "callee": "name.equals",
+          "lineNumber": 247
+        },
+        {
+          "caller": "implies",
+          "callee": "name.length",
+          "lineNumber": 250
+        },
+        {
+          "caller": "implies",
+          "callee": "name.endsWith",
+          "lineNumber": 251
+        },
+        {
+          "caller": "implies",
+          "callee": "permissions.get",
+          "lineNumber": 255
+        },
+        {
+          "caller": "implies",
+          "callee": "name.lastIndexOf",
+          "lineNumber": 258
+        },
+        {
+          "caller": "implies",
+          "callee": "name.substring",
+          "lineNumber": 261
+        },
+        {
+          "caller": "elements",
+          "callee": "permissions.elements",
+          "lineNumber": 267
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 8,
+        "functionCount": 7,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/security/IdentityScope.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 208,
+      "nonEmptyLines": 161,
+      "functions": [
+        {
+          "name": "IdentityScope",
+          "startLine": 58,
+          "endLine": 61,
+          "params": []
+        },
+        {
+          "name": "IdentityScope",
+          "startLine": 69,
+          "endLine": 72,
+          "params": [
+            "name"
+          ]
+        },
+        {
+          "name": "IdentityScope",
+          "startLine": 84,
+          "endLine": 88,
+          "params": [
+            "name",
+            "scope"
+          ]
+        },
+        {
+          "name": "getSystemScope",
+          "startLine": 93,
+          "endLine": 101,
+          "params": []
+        },
+        {
+          "name": "setSystemScope",
+          "startLine": 114,
+          "endLine": 121,
+          "params": [
+            "scope"
+          ]
+        },
+        {
+          "name": "size",
+          "startLine": 128,
+          "endLine": 128,
+          "params": []
+        },
+        {
+          "name": "getIdentity",
+          "startLine": 139,
+          "endLine": 139,
+          "params": [
+            "name"
+          ]
+        },
+        {
+          "name": "getIdentity",
+          "startLine": 150,
+          "endLine": 153,
+          "params": [
+            "principal"
+          ]
+        },
+        {
+          "name": "getIdentity",
+          "startLine": 164,
+          "endLine": 164,
+          "params": [
+            "key"
+          ]
+        },
+        {
+          "name": "addIdentity",
+          "startLine": 175,
+          "endLine": 176,
+          "params": [
+            "identity"
+          ]
+        },
+        {
+          "name": "removeIdentity",
+          "startLine": 186,
+          "endLine": 187,
+          "params": [
+            "identity"
+          ]
+        },
+        {
+          "name": "identities",
+          "startLine": 194,
+          "endLine": 194,
+          "params": []
+        },
+        {
+          "name": "toString",
+          "startLine": 202,
+          "endLine": 207,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "IdentityScope",
+          "startLine": 51,
+          "endLine": 208,
+          "methods": [
+            "IdentityScope",
+            "IdentityScope",
+            "IdentityScope",
+            "getSystemScope",
+            "setSystemScope",
+            "size",
+            "getIdentity",
+            "getIdentity",
+            "getIdentity",
+            "addIdentity",
+            "removeIdentity",
+            "identities",
+            "toString"
+          ],
+          "properties": [
+            "systemScope"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "IdentityScope",
+          "line": 69,
+          "isDefault": false
+        },
+        {
+          "name": "IdentityScope",
+          "line": 84,
+          "isDefault": false
+        },
+        {
+          "name": "getSystemScope",
+          "line": 93,
+          "isDefault": false
+        },
+        {
+          "name": "size",
+          "line": 128,
+          "isDefault": false
+        },
+        {
+          "name": "getIdentity",
+          "line": 139,
+          "isDefault": false
+        },
+        {
+          "name": "getIdentity",
+          "line": 150,
+          "isDefault": false
+        },
+        {
+          "name": "getIdentity",
+          "line": 164,
+          "isDefault": false
+        },
+        {
+          "name": "addIdentity",
+          "line": 175,
+          "isDefault": false
+        },
+        {
+          "name": "removeIdentity",
+          "line": 186,
+          "isDefault": false
+        },
+        {
+          "name": "identities",
+          "line": 194,
+          "isDefault": false
+        },
+        {
+          "name": "toString",
+          "line": 202,
+          "isDefault": false
+        },
+        {
+          "name": "IdentityScope",
+          "line": 51,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "setSystemScope",
+          "callee": "System.getSecurityManager",
+          "lineNumber": 116
+        },
+        {
+          "caller": "setSystemScope",
+          "callee": "sm.checkSecurityAccess",
+          "lineNumber": 118
+        },
+        {
+          "caller": "getIdentity",
+          "callee": "getIdentity",
+          "lineNumber": 152
+        },
+        {
+          "caller": "getIdentity",
+          "callee": "principal.getName",
+          "lineNumber": 152
+        },
+        {
+          "caller": "toString",
+          "callee": "super.getName",
+          "lineNumber": 205
+        },
+        {
+          "caller": "toString",
+          "callee": "super.getScope().getName",
+          "lineNumber": 205
+        },
+        {
+          "caller": "toString",
+          "callee": "super.getScope",
+          "lineNumber": 205
+        },
+        {
+          "caller": "toString",
+          "callee": "size",
+          "lineNumber": 206
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 12,
+        "functionCount": 13,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/security/PermissionCollection.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 207,
+      "nonEmptyLines": 171,
+      "functions": [
+        {
+          "name": "PermissionCollection",
+          "startLine": 104,
+          "endLine": 108,
+          "params": []
+        },
+        {
+          "name": "isReadOnly",
+          "startLine": 122,
+          "endLine": 126,
+          "params": []
+        },
+        {
+          "name": "setReadOnly",
+          "startLine": 135,
+          "endLine": 139,
+          "params": []
+        },
+        {
+          "name": "add",
+          "startLine": 151,
+          "endLine": 152,
+          "params": [
+            "perm"
+          ]
+        },
+        {
+          "name": "elements",
+          "startLine": 162,
+          "endLine": 163,
+          "params": []
+        },
+        {
+          "name": "implies",
+          "startLine": 175,
+          "endLine": 176,
+          "params": [
+            "perm"
+          ]
+        },
+        {
+          "name": "toString",
+          "startLine": 188,
+          "endLine": 204,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "PermissionCollection",
+          "startLine": 64,
+          "endLine": 206,
+          "methods": [
+            "PermissionCollection",
+            "isReadOnly",
+            "setReadOnly",
+            "add",
+            "elements",
+            "implies",
+            "toString"
+          ],
+          "properties": [
+            "linesep",
+            "readOnly"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "linesep",
+          "line": 73,
+          "isDefault": false
+        },
+        {
+          "name": "PermissionCollection",
+          "line": 104,
+          "isDefault": false
+        },
+        {
+          "name": "isReadOnly",
+          "line": 122,
+          "isDefault": false
+        },
+        {
+          "name": "setReadOnly",
+          "line": 135,
+          "isDefault": false
+        },
+        {
+          "name": "add",
+          "line": 151,
+          "isDefault": false
+        },
+        {
+          "name": "elements",
+          "line": 162,
+          "isDefault": false
+        },
+        {
+          "name": "implies",
+          "line": 175,
+          "isDefault": false
+        },
+        {
+          "name": "toString",
+          "line": 188,
+          "isDefault": false
+        },
+        {
+          "name": "PermissionCollection",
+          "line": 64,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "toString",
+          "callee": "new StringBuffer",
+          "lineNumber": 191
+        },
+        {
+          "caller": "toString",
+          "callee": "sb.append",
+          "lineNumber": 193
+        },
+        {
+          "caller": "toString",
+          "callee": "super.toString",
+          "lineNumber": 193
+        },
+        {
+          "caller": "toString",
+          "callee": "elements",
+          "lineNumber": 194
+        },
+        {
+          "caller": "toString",
+          "callee": "e.hasMoreElements",
+          "lineNumber": 195
+        },
+        {
+          "caller": "toString",
+          "callee": "e.nextElement",
+          "lineNumber": 197
+        },
+        {
+          "caller": "toString",
+          "callee": "sb.append",
+          "lineNumber": 199
+        },
+        {
+          "caller": "toString",
+          "callee": "((Permission)obj).toString",
+          "lineNumber": 199
+        },
+        {
+          "caller": "toString",
+          "callee": "sb.append",
+          "lineNumber": 202
+        },
+        {
+          "caller": "toString",
+          "callee": "sb.toString",
+          "lineNumber": 203
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 9,
+        "functionCount": 7,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/security/Principal.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 85,
+      "nonEmptyLines": 68,
+      "classes": [
+        {
+          "name": "Principal",
+          "startLine": 38,
+          "endLine": 84,
+          "methods": [
+            "getName",
+            "equals",
+            "hashCode",
+            "toString"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "Principal",
+          "line": 38,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/security/acl/Acl.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 160,
+      "nonEmptyLines": 135,
+      "classes": [
+        {
+          "name": "Acl",
+          "startLine": 54,
+          "endLine": 160,
+          "methods": [
+            "getName",
+            "setName",
+            "addEntry",
+            "removeEntry",
+            "entries",
+            "checkPermission",
+            "getPermissions",
+            "toString"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "Acl",
+          "line": 54,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/security/acl/AclEntry.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 164,
+      "nonEmptyLines": 134,
+      "classes": [
+        {
+          "name": "AclEntry",
+          "startLine": 48,
+          "endLine": 163,
+          "methods": [
+            "getPrincipal",
+            "setPrincipal",
+            "setNegativePermissions",
+            "isNegative",
+            "addPermission",
+            "removePermission",
+            "checkPermission",
+            "permissions",
+            "toString",
+            "clone"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "AclEntry",
+          "line": 48,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/security/acl/Group.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 93,
+      "nonEmptyLines": 75,
+      "classes": [
+        {
+          "name": "Group",
+          "startLine": 43,
+          "endLine": 92,
+          "methods": [
+            "addMember",
+            "removeMember",
+            "isMember",
+            "members"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "Group",
+          "line": 43,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/security/acl/Owner.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 92,
+      "nonEmptyLines": 77,
+      "classes": [
+        {
+          "name": "Owner",
+          "startLine": 44,
+          "endLine": 92,
+          "methods": [
+            "addOwner",
+            "deleteOwner",
+            "isOwner"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "Owner",
+          "line": 44,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/java/util/Enumeration.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 8,
+      "nonEmptyLines": 6,
+      "classes": [
+        {
+          "name": "Enumeration",
+          "startLine": 3,
+          "endLine": 7,
+          "methods": [
+            "hasMoreElements",
+            "nextElement"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "Enumeration",
+          "line": 3,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    }
+  ]
+}

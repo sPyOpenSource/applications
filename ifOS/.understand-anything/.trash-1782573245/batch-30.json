@@ -1,0 +1,1159 @@
+{
+  "batchIndex": 30,
+  "nodes": [
+    {
+      "id": "file:src/jx/net/rpcsvc/nfs/ReadDirRes.java",
+      "label": "src/jx/net/rpcsvc/nfs/ReadDirRes.java",
+      "type": "file",
+      "properties": {
+        "path": "src/jx/net/rpcsvc/nfs/ReadDirRes.java",
+        "language": "java",
+        "category": "code",
+        "totalLines": 10,
+        "nonEmptyLines": 7
+      }
+    },
+    {
+      "id": "class:src/jx/net/rpcsvc/nfs/ReadDirRes.java::ReadDirRes",
+      "label": "ReadDirRes (src/jx/net/rpcsvc/nfs/ReadDirRes.java)",
+      "type": "class",
+      "properties": {
+        "name": "ReadDirRes",
+        "startLine": 8,
+        "endLine": 10
+      }
+    },
+    {
+      "id": "file:src/jx/net/rpcsvc/nfs/ReadLinkRes.java",
+      "label": "src/jx/net/rpcsvc/nfs/ReadLinkRes.java",
+      "type": "file",
+      "properties": {
+        "path": "src/jx/net/rpcsvc/nfs/ReadLinkRes.java",
+        "language": "java",
+        "category": "code",
+        "totalLines": 10,
+        "nonEmptyLines": 7
+      }
+    },
+    {
+      "id": "class:src/jx/net/rpcsvc/nfs/ReadLinkRes.java::ReadLinkRes",
+      "label": "ReadLinkRes (src/jx/net/rpcsvc/nfs/ReadLinkRes.java)",
+      "type": "class",
+      "properties": {
+        "name": "ReadLinkRes",
+        "startLine": 8,
+        "endLine": 10
+      }
+    },
+    {
+      "id": "file:src/jx/net/rpcsvc/nfs/ReadRes.java",
+      "label": "src/jx/net/rpcsvc/nfs/ReadRes.java",
+      "type": "file",
+      "properties": {
+        "path": "src/jx/net/rpcsvc/nfs/ReadRes.java",
+        "language": "java",
+        "category": "code",
+        "totalLines": 10,
+        "nonEmptyLines": 7
+      }
+    },
+    {
+      "id": "class:src/jx/net/rpcsvc/nfs/ReadRes.java::ReadRes",
+      "label": "ReadRes (src/jx/net/rpcsvc/nfs/ReadRes.java)",
+      "type": "class",
+      "properties": {
+        "name": "ReadRes",
+        "startLine": 8,
+        "endLine": 10
+      }
+    },
+    {
+      "id": "file:src/jx/net/rpcsvc/nfs/SAttr.java",
+      "label": "src/jx/net/rpcsvc/nfs/SAttr.java",
+      "type": "file",
+      "properties": {
+        "path": "src/jx/net/rpcsvc/nfs/SAttr.java",
+        "language": "java",
+        "category": "code",
+        "totalLines": 10,
+        "nonEmptyLines": 7
+      }
+    },
+    {
+      "id": "class:src/jx/net/rpcsvc/nfs/SAttr.java::SAttr",
+      "label": "SAttr (src/jx/net/rpcsvc/nfs/SAttr.java)",
+      "type": "class",
+      "properties": {
+        "name": "SAttr",
+        "startLine": 8,
+        "endLine": 10
+      }
+    },
+    {
+      "id": "file:src/jx/net/rpcsvc/nfs/Stat.java",
+      "label": "src/jx/net/rpcsvc/nfs/Stat.java",
+      "type": "file",
+      "properties": {
+        "path": "src/jx/net/rpcsvc/nfs/Stat.java",
+        "language": "java",
+        "category": "code",
+        "totalLines": 10,
+        "nonEmptyLines": 7
+      }
+    },
+    {
+      "id": "class:src/jx/net/rpcsvc/nfs/Stat.java::Stat",
+      "label": "Stat (src/jx/net/rpcsvc/nfs/Stat.java)",
+      "type": "class",
+      "properties": {
+        "name": "Stat",
+        "startLine": 8,
+        "endLine": 10
+      }
+    },
+    {
+      "id": "file:src/jx/net/rpcsvc/nfs/StatFSRes.java",
+      "label": "src/jx/net/rpcsvc/nfs/StatFSRes.java",
+      "type": "file",
+      "properties": {
+        "path": "src/jx/net/rpcsvc/nfs/StatFSRes.java",
+        "language": "java",
+        "category": "code",
+        "totalLines": 10,
+        "nonEmptyLines": 7
+      }
+    },
+    {
+      "id": "class:src/jx/net/rpcsvc/nfs/StatFSRes.java::StatFSRes",
+      "label": "StatFSRes (src/jx/net/rpcsvc/nfs/StatFSRes.java)",
+      "type": "class",
+      "properties": {
+        "name": "StatFSRes",
+        "startLine": 8,
+        "endLine": 10
+      }
+    },
+    {
+      "id": "file:src/jx/net/TCPSocket.java",
+      "label": "src/jx/net/TCPSocket.java",
+      "type": "file",
+      "properties": {
+        "path": "src/jx/net/TCPSocket.java",
+        "language": "java",
+        "category": "code",
+        "totalLines": 16,
+        "nonEmptyLines": 14
+      }
+    },
+    {
+      "id": "class:src/jx/net/TCPSocket.java::TCPSocket",
+      "label": "TCPSocket (src/jx/net/TCPSocket.java)",
+      "type": "class",
+      "properties": {
+        "name": "TCPSocket",
+        "startLine": 6,
+        "endLine": 16,
+        "methods": [
+          "processTCP",
+          "processTCPServer",
+          "processClientSocket",
+          "accept",
+          "close",
+          "open",
+          "readFromInputBuffer",
+          "send"
+        ]
+      }
+    },
+    {
+      "id": "file:src/jx/net/UDPConsumer.java",
+      "label": "src/jx/net/UDPConsumer.java",
+      "type": "file",
+      "properties": {
+        "path": "src/jx/net/UDPConsumer.java",
+        "language": "java",
+        "category": "code",
+        "totalLines": 7,
+        "nonEmptyLines": 5
+      }
+    },
+    {
+      "id": "class:src/jx/net/UDPConsumer.java::UDPConsumer",
+      "label": "UDPConsumer (src/jx/net/UDPConsumer.java)",
+      "type": "class",
+      "properties": {
+        "name": "UDPConsumer",
+        "startLine": 5,
+        "endLine": 7,
+        "methods": [
+          "processUDP"
+        ]
+      }
+    },
+    {
+      "id": "file:src/jx/net/UDPData.java",
+      "label": "src/jx/net/UDPData.java",
+      "type": "file",
+      "properties": {
+        "path": "src/jx/net/UDPData.java",
+        "language": "java",
+        "category": "code",
+        "totalLines": 27,
+        "nonEmptyLines": 16
+      }
+    },
+    {
+      "id": "class:src/jx/net/UDPData.java::UDPData",
+      "label": "UDPData (src/jx/net/UDPData.java)",
+      "type": "class",
+      "properties": {
+        "name": "UDPData",
+        "startLine": 10,
+        "endLine": 27,
+        "methods": [
+          "setMemory",
+          "setSourcePort",
+          "setSourceAddress",
+          "Size",
+          "getOffset",
+          "getMemory",
+          "getSourceAddress",
+          "getSourcePort"
+        ]
+      }
+    },
+    {
+      "id": "file:src/jx/net/UDPReceiver.java",
+      "label": "src/jx/net/UDPReceiver.java",
+      "type": "file",
+      "properties": {
+        "path": "src/jx/net/UDPReceiver.java",
+        "language": "java",
+        "category": "code",
+        "totalLines": 9,
+        "nonEmptyLines": 7
+      }
+    },
+    {
+      "id": "class:src/jx/net/UDPReceiver.java::UDPReceiver",
+      "label": "UDPReceiver (src/jx/net/UDPReceiver.java)",
+      "type": "class",
+      "properties": {
+        "name": "UDPReceiver",
+        "startLine": 5,
+        "endLine": 9,
+        "methods": [
+          "receive",
+          "receive",
+          "close"
+        ]
+      }
+    },
+    {
+      "id": "file:src/jx/net/UDPSender.java",
+      "label": "src/jx/net/UDPSender.java",
+      "type": "file",
+      "properties": {
+        "path": "src/jx/net/UDPSender.java",
+        "language": "java",
+        "category": "code",
+        "totalLines": 12,
+        "nonEmptyLines": 10
+      }
+    },
+    {
+      "id": "class:src/jx/net/UDPSender.java::UDPSender",
+      "label": "UDPSender (src/jx/net/UDPSender.java)",
+      "type": "class",
+      "properties": {
+        "name": "UDPSender",
+        "startLine": 5,
+        "endLine": 12,
+        "methods": [
+          "send",
+          "send1",
+          "close",
+          "getLocalPort",
+          "getRemotePort",
+          "getDestination"
+        ]
+      }
+    },
+    {
+      "id": "file:src/jx/net/xdr/Format.java",
+      "label": "src/jx/net/xdr/Format.java",
+      "type": "file",
+      "properties": {
+        "path": "src/jx/net/xdr/Format.java",
+        "language": "java",
+        "category": "code",
+        "totalLines": 285,
+        "nonEmptyLines": 246
+      }
+    },
+    {
+      "id": "class:src/jx/net/xdr/Format.java::Format",
+      "label": "Format (src/jx/net/xdr/Format.java)",
+      "type": "class",
+      "properties": {
+        "name": "Format",
+        "startLine": 5,
+        "endLine": 285,
+        "methods": [
+          "Format",
+          "Format",
+          "init",
+          "length",
+          "writeInt",
+          "writeShort",
+          "writeString",
+          "readInt",
+          "readShort",
+          "readByte",
+          "writeByteArray",
+          "writeFixByteArray",
+          "writeIntArray",
+          "writeShortArray",
+          "readBoolean",
+          "readIntArray",
+          "readShortArray",
+          "readByteArray",
+          "readFixByteArray",
+          "readString",
+          "lengthByte",
+          "lengthShort",
+          "lengthInt",
+          "lengthIntArray",
+          "lengthShortArray",
+          "lengthByteArray",
+          "lengthFixByteArray",
+          "lengthString",
+          "readByte"
+        ],
+        "properties": [
+          "debug",
+          "buf",
+          "offset"
+        ]
+      }
+    },
+    {
+      "id": "function:src/jx/net/xdr/Format.java::Format",
+      "label": "Format (src/jx/net/xdr/Format.java)",
+      "type": "function",
+      "properties": {
+        "name": "Format",
+        "startLine": 10,
+        "endLine": 10,
+        "params": [
+          "buf",
+          "offset"
+        ]
+      }
+    },
+    {
+      "id": "function:src/jx/net/xdr/Format.java::init",
+      "label": "init (src/jx/net/xdr/Format.java)",
+      "type": "function",
+      "properties": {
+        "name": "init",
+        "startLine": 13,
+        "endLine": 13,
+        "params": [
+          "buf",
+          "offset"
+        ]
+      }
+    },
+    {
+      "id": "function:src/jx/net/xdr/Format.java::length",
+      "label": "length (src/jx/net/xdr/Format.java)",
+      "type": "function",
+      "properties": {
+        "name": "length",
+        "startLine": 15,
+        "endLine": 15
+      }
+    },
+    {
+      "id": "function:src/jx/net/xdr/Format.java::writeInt",
+      "label": "writeInt (src/jx/net/xdr/Format.java)",
+      "type": "function",
+      "properties": {
+        "name": "writeInt",
+        "startLine": 110,
+        "endLine": 116,
+        "params": [
+          "buf",
+          "d"
+        ]
+      }
+    },
+    {
+      "id": "function:src/jx/net/xdr/Format.java::writeShort",
+      "label": "writeShort (src/jx/net/xdr/Format.java)",
+      "type": "function",
+      "properties": {
+        "name": "writeShort",
+        "startLine": 118,
+        "endLine": 122,
+        "params": [
+          "buf",
+          "d"
+        ]
+      }
+    },
+    {
+      "id": "function:src/jx/net/xdr/Format.java::writeString",
+      "label": "writeString (src/jx/net/xdr/Format.java)",
+      "type": "function",
+      "properties": {
+        "name": "writeString",
+        "startLine": 124,
+        "endLine": 129,
+        "params": [
+          "buf",
+          "s"
+        ]
+      }
+    },
+    {
+      "id": "function:src/jx/net/xdr/Format.java::readInt",
+      "label": "readInt (src/jx/net/xdr/Format.java)",
+      "type": "function",
+      "properties": {
+        "name": "readInt",
+        "startLine": 131,
+        "endLine": 139,
+        "params": [
+          "buf"
+        ]
+      }
+    },
+    {
+      "id": "function:src/jx/net/xdr/Format.java::readShort",
+      "label": "readShort (src/jx/net/xdr/Format.java)",
+      "type": "function",
+      "properties": {
+        "name": "readShort",
+        "startLine": 141,
+        "endLine": 148,
+        "params": [
+          "buf"
+        ]
+      }
+    },
+    {
+      "id": "function:src/jx/net/xdr/Format.java::readByte",
+      "label": "readByte (src/jx/net/xdr/Format.java)",
+      "type": "function",
+      "properties": {
+        "name": "readByte",
+        "startLine": 151,
+        "endLine": 156,
+        "params": [
+          "buf"
+        ]
+      }
+    },
+    {
+      "id": "function:src/jx/net/xdr/Format.java::writeByteArray",
+      "label": "writeByteArray (src/jx/net/xdr/Format.java)",
+      "type": "function",
+      "properties": {
+        "name": "writeByteArray",
+        "startLine": 158,
+        "endLine": 164,
+        "params": [
+          "buf",
+          "d"
+        ]
+      }
+    },
+    {
+      "id": "function:src/jx/net/xdr/Format.java::writeFixByteArray",
+      "label": "writeFixByteArray (src/jx/net/xdr/Format.java)",
+      "type": "function",
+      "properties": {
+        "name": "writeFixByteArray",
+        "startLine": 166,
+        "endLine": 175,
+        "params": [
+          "buf",
+          "d",
+          "l"
+        ]
+      }
+    },
+    {
+      "id": "function:src/jx/net/xdr/Format.java::writeIntArray",
+      "label": "writeIntArray (src/jx/net/xdr/Format.java)",
+      "type": "function",
+      "properties": {
+        "name": "writeIntArray",
+        "startLine": 177,
+        "endLine": 182,
+        "params": [
+          "buf",
+          "d"
+        ]
+      }
+    },
+    {
+      "id": "function:src/jx/net/xdr/Format.java::writeShortArray",
+      "label": "writeShortArray (src/jx/net/xdr/Format.java)",
+      "type": "function",
+      "properties": {
+        "name": "writeShortArray",
+        "startLine": 183,
+        "endLine": 188,
+        "params": [
+          "buf",
+          "d"
+        ]
+      }
+    },
+    {
+      "id": "function:src/jx/net/xdr/Format.java::readBoolean",
+      "label": "readBoolean (src/jx/net/xdr/Format.java)",
+      "type": "function",
+      "properties": {
+        "name": "readBoolean",
+        "startLine": 190,
+        "endLine": 193,
+        "params": [
+          "buf"
+        ]
+      }
+    },
+    {
+      "id": "function:src/jx/net/xdr/Format.java::readIntArray",
+      "label": "readIntArray (src/jx/net/xdr/Format.java)",
+      "type": "function",
+      "properties": {
+        "name": "readIntArray",
+        "startLine": 195,
+        "endLine": 203,
+        "params": [
+          "buf"
+        ]
+      }
+    },
+    {
+      "id": "function:src/jx/net/xdr/Format.java::readShortArray",
+      "label": "readShortArray (src/jx/net/xdr/Format.java)",
+      "type": "function",
+      "properties": {
+        "name": "readShortArray",
+        "startLine": 204,
+        "endLine": 211,
+        "params": [
+          "buf"
+        ]
+      }
+    },
+    {
+      "id": "function:src/jx/net/xdr/Format.java::readByteArray",
+      "label": "readByteArray (src/jx/net/xdr/Format.java)",
+      "type": "function",
+      "properties": {
+        "name": "readByteArray",
+        "startLine": 213,
+        "endLine": 222,
+        "params": [
+          "buf"
+        ]
+      }
+    },
+    {
+      "id": "function:src/jx/net/xdr/Format.java::readFixByteArray",
+      "label": "readFixByteArray (src/jx/net/xdr/Format.java)",
+      "type": "function",
+      "properties": {
+        "name": "readFixByteArray",
+        "startLine": 224,
+        "endLine": 230,
+        "params": [
+          "buf",
+          "l"
+        ]
+      }
+    },
+    {
+      "id": "function:src/jx/net/xdr/Format.java::readString",
+      "label": "readString (src/jx/net/xdr/Format.java)",
+      "type": "function",
+      "properties": {
+        "name": "readString",
+        "startLine": 233,
+        "endLine": 260,
+        "params": [
+          "buf"
+        ]
+      }
+    },
+    {
+      "id": "function:src/jx/net/xdr/Format.java::lengthByte",
+      "label": "lengthByte (src/jx/net/xdr/Format.java)",
+      "type": "function",
+      "properties": {
+        "name": "lengthByte",
+        "startLine": 266,
+        "endLine": 266,
+        "params": [
+          "d"
+        ]
+      }
+    },
+    {
+      "id": "function:src/jx/net/xdr/Format.java::lengthShort",
+      "label": "lengthShort (src/jx/net/xdr/Format.java)",
+      "type": "function",
+      "properties": {
+        "name": "lengthShort",
+        "startLine": 267,
+        "endLine": 267,
+        "params": [
+          "d"
+        ]
+      }
+    },
+    {
+      "id": "function:src/jx/net/xdr/Format.java::lengthInt",
+      "label": "lengthInt (src/jx/net/xdr/Format.java)",
+      "type": "function",
+      "properties": {
+        "name": "lengthInt",
+        "startLine": 268,
+        "endLine": 268,
+        "params": [
+          "d"
+        ]
+      }
+    },
+    {
+      "id": "function:src/jx/net/xdr/Format.java::lengthIntArray",
+      "label": "lengthIntArray (src/jx/net/xdr/Format.java)",
+      "type": "function",
+      "properties": {
+        "name": "lengthIntArray",
+        "startLine": 269,
+        "endLine": 269,
+        "params": [
+          "d"
+        ]
+      }
+    },
+    {
+      "id": "function:src/jx/net/xdr/Format.java::lengthShortArray",
+      "label": "lengthShortArray (src/jx/net/xdr/Format.java)",
+      "type": "function",
+      "properties": {
+        "name": "lengthShortArray",
+        "startLine": 270,
+        "endLine": 270,
+        "params": [
+          "d"
+        ]
+      }
+    },
+    {
+      "id": "function:src/jx/net/xdr/Format.java::lengthByteArray",
+      "label": "lengthByteArray (src/jx/net/xdr/Format.java)",
+      "type": "function",
+      "properties": {
+        "name": "lengthByteArray",
+        "startLine": 271,
+        "endLine": 271,
+        "params": [
+          "d"
+        ]
+      }
+    },
+    {
+      "id": "function:src/jx/net/xdr/Format.java::lengthFixByteArray",
+      "label": "lengthFixByteArray (src/jx/net/xdr/Format.java)",
+      "type": "function",
+      "properties": {
+        "name": "lengthFixByteArray",
+        "startLine": 272,
+        "endLine": 272,
+        "params": [
+          "d",
+          "l"
+        ]
+      }
+    },
+    {
+      "id": "function:src/jx/net/xdr/Format.java::lengthString",
+      "label": "lengthString (src/jx/net/xdr/Format.java)",
+      "type": "function",
+      "properties": {
+        "name": "lengthString",
+        "startLine": 273,
+        "endLine": 279,
+        "params": [
+          "s"
+        ]
+      }
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/jx/net/rpcsvc/nfs/ReadDirRes.java",
+      "target": "class:src/jx/net/rpcsvc/nfs/ReadDirRes.java::ReadDirRes",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/net/rpcsvc/nfs/ReadDirRes.java",
+      "target": "class:src/jx/net/rpcsvc/nfs/ReadDirRes.java::ReadDirRes",
+      "label": "exports",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/jx/net/rpcsvc/nfs/ReadLinkRes.java",
+      "target": "class:src/jx/net/rpcsvc/nfs/ReadLinkRes.java::ReadLinkRes",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/net/rpcsvc/nfs/ReadLinkRes.java",
+      "target": "class:src/jx/net/rpcsvc/nfs/ReadLinkRes.java::ReadLinkRes",
+      "label": "exports",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/jx/net/rpcsvc/nfs/ReadLinkRes.java",
+      "target": "file:src/jx/net/rpcsvc/nfs/ReadDirRes.java",
+      "label": "related",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/jx/net/rpcsvc/nfs/ReadRes.java",
+      "target": "class:src/jx/net/rpcsvc/nfs/ReadRes.java::ReadRes",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/net/rpcsvc/nfs/ReadRes.java",
+      "target": "class:src/jx/net/rpcsvc/nfs/ReadRes.java::ReadRes",
+      "label": "exports",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/jx/net/rpcsvc/nfs/ReadRes.java",
+      "target": "file:src/jx/net/rpcsvc/nfs/ReadDirRes.java",
+      "label": "related",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/jx/net/rpcsvc/nfs/ReadRes.java",
+      "target": "file:src/jx/net/rpcsvc/nfs/ReadLinkRes.java",
+      "label": "related",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/jx/net/rpcsvc/nfs/SAttr.java",
+      "target": "class:src/jx/net/rpcsvc/nfs/SAttr.java::SAttr",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/net/rpcsvc/nfs/SAttr.java",
+      "target": "class:src/jx/net/rpcsvc/nfs/SAttr.java::SAttr",
+      "label": "exports",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/jx/net/rpcsvc/nfs/SAttr.java",
+      "target": "file:src/jx/net/rpcsvc/nfs/ReadDirRes.java",
+      "label": "related",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/jx/net/rpcsvc/nfs/SAttr.java",
+      "target": "file:src/jx/net/rpcsvc/nfs/ReadLinkRes.java",
+      "label": "related",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/jx/net/rpcsvc/nfs/SAttr.java",
+      "target": "file:src/jx/net/rpcsvc/nfs/ReadRes.java",
+      "label": "related",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/jx/net/rpcsvc/nfs/Stat.java",
+      "target": "class:src/jx/net/rpcsvc/nfs/Stat.java::Stat",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/net/rpcsvc/nfs/Stat.java",
+      "target": "class:src/jx/net/rpcsvc/nfs/Stat.java::Stat",
+      "label": "exports",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/jx/net/rpcsvc/nfs/Stat.java",
+      "target": "file:src/jx/net/rpcsvc/nfs/ReadDirRes.java",
+      "label": "related",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/jx/net/rpcsvc/nfs/Stat.java",
+      "target": "file:src/jx/net/rpcsvc/nfs/ReadLinkRes.java",
+      "label": "related",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/jx/net/rpcsvc/nfs/Stat.java",
+      "target": "file:src/jx/net/rpcsvc/nfs/ReadRes.java",
+      "label": "related",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/jx/net/rpcsvc/nfs/Stat.java",
+      "target": "file:src/jx/net/rpcsvc/nfs/SAttr.java",
+      "label": "related",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/jx/net/rpcsvc/nfs/StatFSRes.java",
+      "target": "class:src/jx/net/rpcsvc/nfs/StatFSRes.java::StatFSRes",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/net/rpcsvc/nfs/StatFSRes.java",
+      "target": "class:src/jx/net/rpcsvc/nfs/StatFSRes.java::StatFSRes",
+      "label": "exports",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/jx/net/rpcsvc/nfs/StatFSRes.java",
+      "target": "file:src/jx/net/rpcsvc/nfs/ReadDirRes.java",
+      "label": "related",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/jx/net/rpcsvc/nfs/StatFSRes.java",
+      "target": "file:src/jx/net/rpcsvc/nfs/ReadLinkRes.java",
+      "label": "related",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/jx/net/rpcsvc/nfs/StatFSRes.java",
+      "target": "file:src/jx/net/rpcsvc/nfs/ReadRes.java",
+      "label": "related",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/jx/net/rpcsvc/nfs/StatFSRes.java",
+      "target": "file:src/jx/net/rpcsvc/nfs/SAttr.java",
+      "label": "related",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/jx/net/rpcsvc/nfs/StatFSRes.java",
+      "target": "file:src/jx/net/rpcsvc/nfs/Stat.java",
+      "label": "related",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/jx/net/TCPSocket.java",
+      "target": "class:src/jx/net/TCPSocket.java::TCPSocket",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/net/TCPSocket.java",
+      "target": "class:src/jx/net/TCPSocket.java::TCPSocket",
+      "label": "exports",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/jx/net/UDPConsumer.java",
+      "target": "class:src/jx/net/UDPConsumer.java::UDPConsumer",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/net/UDPConsumer.java",
+      "target": "class:src/jx/net/UDPConsumer.java::UDPConsumer",
+      "label": "exports",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/jx/net/UDPConsumer.java",
+      "target": "file:src/jx/net/TCPSocket.java",
+      "label": "related",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/jx/net/UDPData.java",
+      "target": "class:src/jx/net/UDPData.java::UDPData",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/net/UDPData.java",
+      "target": "class:src/jx/net/UDPData.java::UDPData",
+      "label": "exports",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/jx/net/UDPData.java",
+      "target": "file:src/jx/net/TCPSocket.java",
+      "label": "related",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/jx/net/UDPData.java",
+      "target": "file:src/jx/net/UDPConsumer.java",
+      "label": "related",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/jx/net/UDPReceiver.java",
+      "target": "class:src/jx/net/UDPReceiver.java::UDPReceiver",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/net/UDPReceiver.java",
+      "target": "class:src/jx/net/UDPReceiver.java::UDPReceiver",
+      "label": "exports",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/jx/net/UDPReceiver.java",
+      "target": "file:src/jx/net/TCPSocket.java",
+      "label": "related",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/jx/net/UDPReceiver.java",
+      "target": "file:src/jx/net/UDPConsumer.java",
+      "label": "related",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/jx/net/UDPReceiver.java",
+      "target": "file:src/jx/net/UDPData.java",
+      "label": "related",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/jx/net/UDPSender.java",
+      "target": "class:src/jx/net/UDPSender.java::UDPSender",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/net/UDPSender.java",
+      "target": "class:src/jx/net/UDPSender.java::UDPSender",
+      "label": "exports",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/jx/net/UDPSender.java",
+      "target": "file:src/jx/net/TCPSocket.java",
+      "label": "related",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/jx/net/UDPSender.java",
+      "target": "file:src/jx/net/UDPConsumer.java",
+      "label": "related",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/jx/net/UDPSender.java",
+      "target": "file:src/jx/net/UDPData.java",
+      "label": "related",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/jx/net/UDPSender.java",
+      "target": "file:src/jx/net/UDPReceiver.java",
+      "label": "related",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/jx/net/xdr/Format.java",
+      "target": "class:src/jx/net/xdr/Format.java::Format",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/net/xdr/Format.java",
+      "target": "class:src/jx/net/xdr/Format.java::Format",
+      "label": "exports",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/jx/net/xdr/Format.java",
+      "target": "function:src/jx/net/xdr/Format.java::Format",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/net/xdr/Format.java",
+      "target": "function:src/jx/net/xdr/Format.java::init",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/net/xdr/Format.java",
+      "target": "function:src/jx/net/xdr/Format.java::length",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/net/xdr/Format.java",
+      "target": "function:src/jx/net/xdr/Format.java::writeInt",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/net/xdr/Format.java",
+      "target": "function:src/jx/net/xdr/Format.java::writeShort",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/net/xdr/Format.java",
+      "target": "function:src/jx/net/xdr/Format.java::writeString",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/net/xdr/Format.java",
+      "target": "function:src/jx/net/xdr/Format.java::readInt",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/net/xdr/Format.java",
+      "target": "function:src/jx/net/xdr/Format.java::readShort",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/net/xdr/Format.java",
+      "target": "function:src/jx/net/xdr/Format.java::readByte",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/net/xdr/Format.java",
+      "target": "function:src/jx/net/xdr/Format.java::writeByteArray",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/net/xdr/Format.java",
+      "target": "function:src/jx/net/xdr/Format.java::writeFixByteArray",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/net/xdr/Format.java",
+      "target": "function:src/jx/net/xdr/Format.java::writeIntArray",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/net/xdr/Format.java",
+      "target": "function:src/jx/net/xdr/Format.java::writeShortArray",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/net/xdr/Format.java",
+      "target": "function:src/jx/net/xdr/Format.java::readBoolean",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/net/xdr/Format.java",
+      "target": "function:src/jx/net/xdr/Format.java::readIntArray",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/net/xdr/Format.java",
+      "target": "function:src/jx/net/xdr/Format.java::readShortArray",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/net/xdr/Format.java",
+      "target": "function:src/jx/net/xdr/Format.java::readByteArray",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/net/xdr/Format.java",
+      "target": "function:src/jx/net/xdr/Format.java::readFixByteArray",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/net/xdr/Format.java",
+      "target": "function:src/jx/net/xdr/Format.java::readString",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/net/xdr/Format.java",
+      "target": "function:src/jx/net/xdr/Format.java::lengthByte",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/net/xdr/Format.java",
+      "target": "function:src/jx/net/xdr/Format.java::lengthShort",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/net/xdr/Format.java",
+      "target": "function:src/jx/net/xdr/Format.java::lengthInt",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/net/xdr/Format.java",
+      "target": "function:src/jx/net/xdr/Format.java::lengthIntArray",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/net/xdr/Format.java",
+      "target": "function:src/jx/net/xdr/Format.java::lengthShortArray",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/net/xdr/Format.java",
+      "target": "function:src/jx/net/xdr/Format.java::lengthByteArray",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/net/xdr/Format.java",
+      "target": "function:src/jx/net/xdr/Format.java::lengthFixByteArray",
+      "label": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/net/xdr/Format.java",
+      "target": "function:src/jx/net/xdr/Format.java::lengthString",
+      "label": "contains",
+      "weight": 1.0
+    }
+  ]
+}

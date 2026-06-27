@@ -1,0 +1,318 @@
+[
+  {
+    "batchIndex": 6,
+    "files": [
+      {
+        "path": "src/gnu/java/io/encode/Encoder.java",
+        "language": "java",
+        "sizeLines": 343,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/gnu/java/io/encode/EncoderEightBitLookup.java",
+        "language": "java",
+        "sizeLines": 187,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/java/io/OutputStream.java",
+        "language": "java",
+        "sizeLines": 31,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/java/io/Writer.java",
+        "language": "java",
+        "sizeLines": 205,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/java/security/Certificate.java",
+        "language": "java",
+        "sizeLines": 134,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/java/security/KeyStoreSpi.java",
+        "language": "java",
+        "sizeLines": 254,
+        "fileCategory": "code"
+      }
+    ],
+    "batchImportData": {
+      "src/gnu/java/io/encode/Encoder.java": [
+        "src/java/io/OutputStream.java",
+        "src/java/io/Writer.java"
+      ],
+      "src/gnu/java/io/encode/EncoderEightBitLookup.java": [
+        "src/java/io/OutputStream.java"
+      ],
+      "src/java/io/OutputStream.java": [],
+      "src/java/io/Writer.java": [],
+      "src/java/security/Certificate.java": [
+        "src/java/io/InputStream.java",
+        "src/java/io/OutputStream.java"
+      ],
+      "src/java/security/KeyStoreSpi.java": [
+        "src/java/io/InputStream.java",
+        "src/java/io/OutputStream.java",
+        "src/java/util/Enumeration.java"
+      ]
+    },
+    "neighborMap": {
+      "src/java/security/Certificate.java": [
+        {
+          "path": "src/java/io/InputStream.java",
+          "batchIndex": 1,
+          "symbols": [
+            "available",
+            "close",
+            "markSupported",
+            "mark",
+            "read",
+            "read",
+            "read",
+            "reset",
+            "skip",
+            "InputStream",
+            "InputStream"
+          ]
+        }
+      ],
+      "src/java/security/KeyStoreSpi.java": [
+        {
+          "path": "src/java/io/InputStream.java",
+          "batchIndex": 1,
+          "symbols": [
+            "available",
+            "close",
+            "markSupported",
+            "mark",
+            "read",
+            "read",
+            "read",
+            "reset",
+            "skip",
+            "InputStream",
+            "InputStream"
+          ]
+        },
+        {
+          "path": "src/java/util/Enumeration.java",
+          "batchIndex": 5,
+          "symbols": [
+            "Enumeration"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "batchIndex": 7,
+    "files": [
+      {
+        "path": "src/java/security/AlgorithmParameterGeneratorSpi.java",
+        "language": "java",
+        "sizeLines": 81,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/java/security/AlgorithmParametersSpi.java",
+        "language": "java",
+        "sizeLines": 131,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/java/security/KeyPairGenerator.java",
+        "language": "java",
+        "sizeLines": 241,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/java/security/KeyPairGeneratorSpi.java",
+        "language": "java",
+        "sizeLines": 84,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/java/security/SignatureSpi.java",
+        "language": "java",
+        "sizeLines": 248,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/java/security/spec/AlgorithmParameterSpec.java",
+        "language": "java",
+        "sizeLines": 41,
+        "fileCategory": "code"
+      }
+    ],
+    "batchImportData": {
+      "src/java/security/AlgorithmParameterGeneratorSpi.java": [
+        "src/java/security/spec/AlgorithmParameterSpec.java"
+      ],
+      "src/java/security/AlgorithmParametersSpi.java": [
+        "src/java/security/spec/AlgorithmParameterSpec.java"
+      ],
+      "src/java/security/KeyPairGenerator.java": [
+        "src/java/security/spec/AlgorithmParameterSpec.java"
+      ],
+      "src/java/security/KeyPairGeneratorSpi.java": [
+        "src/java/security/spec/AlgorithmParameterSpec.java"
+      ],
+      "src/java/security/SignatureSpi.java": [
+        "src/java/security/spec/AlgorithmParameterSpec.java"
+      ],
+      "src/java/security/spec/AlgorithmParameterSpec.java": []
+    },
+    "neighborMap": {}
+  },
+  {
+    "batchIndex": 8,
+    "files": [
+      {
+        "path": "src/jx/zero/ByteCode.java",
+        "language": "java",
+        "sizeLines": 340,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/jx/zero/classfile/MethodSource.java",
+        "language": "java",
+        "sizeLines": 30,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/jx/zero/verifier/VerifierInterface.java",
+        "language": "java",
+        "sizeLines": 17,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/jx/zero/verifier/wcet/ExecutionTime.java",
+        "language": "java",
+        "sizeLines": 26,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/jx/zero/verifier/wcet/ValueProvider.java",
+        "language": "java",
+        "sizeLines": 69,
+        "fileCategory": "code"
+      }
+    ],
+    "batchImportData": {
+      "src/jx/zero/ByteCode.java": [],
+      "src/jx/zero/classfile/MethodSource.java": [],
+      "src/jx/zero/verifier/VerifierInterface.java": [
+        "src/jx/zero/ByteCode.java",
+        "src/jx/zero/classfile/MethodSource.java"
+      ],
+      "src/jx/zero/verifier/wcet/ExecutionTime.java": [
+        "src/jx/zero/ByteCode.java"
+      ],
+      "src/jx/zero/verifier/wcet/ValueProvider.java": [
+        "src/jx/zero/ByteCode.java"
+      ]
+    },
+    "neighborMap": {}
+  },
+  {
+    "batchIndex": 9,
+    "files": [
+      {
+        "path": "src/java/beans/PropertyChangeListener.java",
+        "language": "java",
+        "sizeLines": 49,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/java/beans/VetoableChangeListener.java",
+        "language": "java",
+        "sizeLines": 65,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/java/util/EventListener.java",
+        "language": "java",
+        "sizeLines": 32,
+        "fileCategory": "code"
+      }
+    ],
+    "batchImportData": {
+      "src/java/beans/PropertyChangeListener.java": [
+        "src/java/util/EventListener.java"
+      ],
+      "src/java/beans/VetoableChangeListener.java": [
+        "src/java/util/EventListener.java"
+      ],
+      "src/java/util/EventListener.java": []
+    },
+    "neighborMap": {}
+  },
+  {
+    "batchIndex": 10,
+    "files": [
+      {
+        "path": "src/java/security/PrivateKey.java",
+        "language": "java",
+        "sizeLines": 47,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/java/security/interfaces/DSAPrivateKey.java",
+        "language": "java",
+        "sizeLines": 61,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/java/security/interfaces/RSAPrivateKey.java",
+        "language": "java",
+        "sizeLines": 54,
+        "fileCategory": "code"
+      }
+    ],
+    "batchImportData": {
+      "src/java/security/PrivateKey.java": [],
+      "src/java/security/interfaces/DSAPrivateKey.java": [
+        "src/java/security/PrivateKey.java"
+      ],
+      "src/java/security/interfaces/RSAPrivateKey.java": [
+        "src/java/security/PrivateKey.java"
+      ]
+    },
+    "neighborMap": {}
+  },
+  {
+    "batchIndex": 11,
+    "files": [
+      {
+        "path": "src/jx/devices/bio/BlockIO.java",
+        "language": "java",
+        "sizeLines": 44,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/jx/fs/FileSystem.java",
+        "language": "java",
+        "sizeLines": 70,
+        "fileCategory": "code"
+      },
+      {
+        "path": "src/jx/fs/buffer/BufferCache.java",
+        "language": "java",
+        "sizeLines": 24,
+        "fileCategory": "code"
+      }
+    ],
+    "batchImportData": {
+      "src/jx/devices/bio/BlockIO.java": [],
+      "src/jx/fs/FileSystem.java": [
+        "src/jx/devices/bio/BlockIO.java",
+        "src/jx/fs/buffer/BufferCache.java"
+      ],
+      "src/jx/fs/buffer/BufferCache.java": []
+    },
+    "neighborMap": {}
+  }
+]

@@ -1,0 +1,40 @@
+{
+  "batchIndex": 16,
+  "nodes": [
+    {
+      "id": "config:nbproject/build-impl.xml",
+      "type": "config",
+      "path": "nbproject/build-impl.xml",
+      "sizeLines": 1817,
+      "language": "xml",
+      "fileCategory": "config"
+    },
+    {
+      "id": "config:nbproject/genfiles.properties",
+      "type": "config",
+      "path": "nbproject/genfiles.properties",
+      "sizeLines": 8,
+      "language": "properties",
+      "fileCategory": "config"
+    },
+    {
+      "id": "config:nbproject/project.properties",
+      "type": "config",
+      "path": "nbproject/project.properties",
+      "sizeLines": 105,
+      "language": "properties",
+      "fileCategory": "config"
+    },
+    {
+      "id": "config:nbproject/project.xml",
+      "type": "config",
+      "path": "nbproject/project.xml",
+      "sizeLines": 26,
+      "language": "xml",
+      "fileCategory": "config"
+    }
+  ],
+  "edges": [],
+  "filesAnalyzed": 4,
+  "filesSkipped": []
+}

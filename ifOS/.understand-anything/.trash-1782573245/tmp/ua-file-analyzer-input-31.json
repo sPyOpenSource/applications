@@ -1,0 +1,155 @@
+{
+  "projectRoot": "/Users/xuyi/Source/OS/armOS/lib/jcore/test/ifOS",
+  "batchFiles": [
+    {
+      "path": "src/jx/net/xdr/FormatMem.ctxt",
+      "language": "ctxt",
+      "sizeLines": 60,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/net/xdr/FormatMem.java",
+      "language": "java",
+      "sizeLines": 285,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/net/xdr/package.bluej",
+      "language": "bluej",
+      "sizeLines": 44,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/net/xdr/XDRBuffer.ctxt",
+      "language": "ctxt",
+      "sizeLines": 11,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/net/xdr/XDRBuffer.java",
+      "language": "java",
+      "sizeLines": 8,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/package.bluej",
+      "language": "bluej",
+      "sizeLines": 44,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/README.TXT",
+      "language": "txt",
+      "sizeLines": 0,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "src/jx/zero/ByteCode.ctxt",
+      "language": "ctxt",
+      "sizeLines": 26,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/zero/ByteCodeTranslater.ctxt",
+      "language": "ctxt",
+      "sizeLines": 5,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/zero/ByteCodeTranslater.java",
+      "language": "java",
+      "sizeLines": 6,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/zero/classfile/ClassSource.ctxt",
+      "language": "ctxt",
+      "sizeLines": 64,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/zero/classfile/ClassSource.java",
+      "language": "java",
+      "sizeLines": 56,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/zero/classfile/ConstantPool.ctxt",
+      "language": "ctxt",
+      "sizeLines": 6,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/zero/classfile/ConstantPool.java",
+      "language": "java",
+      "sizeLines": 12,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/zero/classfile/datatypes/BasicTypeDescriptor.ctxt",
+      "language": "ctxt",
+      "sizeLines": 4,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/zero/classfile/datatypes/BasicTypeDescriptor.java",
+      "language": "java",
+      "sizeLines": 21,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/zero/classfile/datatypes/BCBasicDatatype.ctxt",
+      "language": "ctxt",
+      "sizeLines": 30,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/zero/classfile/datatypes/BCBasicDatatype.java",
+      "language": "java",
+      "sizeLines": 185,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/zero/classfile/datatypes/BCFloatDatatype.ctxt",
+      "language": "ctxt",
+      "sizeLines": 5,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/zero/classfile/datatypes/BCFloatDatatype.java",
+      "language": "java",
+      "sizeLines": 6,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/zero/classfile/datatypes/BCIntegerDatatype.ctxt",
+      "language": "ctxt",
+      "sizeLines": 11,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/zero/classfile/datatypes/BCIntegerDatatype.java",
+      "language": "java",
+      "sizeLines": 37,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/zero/classfile/datatypes/BCNumericDatatype.ctxt",
+      "language": "ctxt",
+      "sizeLines": 7,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/zero/classfile/datatypes/BCNumericDatatype.java",
+      "language": "java",
+      "sizeLines": 24,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/zero/classfile/datatypes/package.bluej",
+      "language": "bluej",
+      "sizeLines": 61,
+      "fileCategory": "code"
+    }
+  ]
+}

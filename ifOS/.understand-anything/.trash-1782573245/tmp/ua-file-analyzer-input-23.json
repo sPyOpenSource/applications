@@ -1,0 +1,156 @@
+{
+  "projectRoot": "/Users/xuyi/Source/OS/armOS/lib/jcore/test/ifOS",
+  "batchFiles": [
+    {
+      "path": "src/jx/devices/net/PacketsQueueConsumer.java",
+      "language": "java",
+      "sizeLines": 15,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/devices/net/PacketsQueueProducer.ctxt",
+      "language": "ctxt",
+      "sizeLines": 9,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/devices/net/PacketsQueueProducer.java",
+      "language": "java",
+      "sizeLines": 9,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/devices/package.bluej",
+      "language": "bluej",
+      "sizeLines": 122,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/devices/pci/package.bluej",
+      "language": "bluej",
+      "sizeLines": 64,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/devices/pci/PCI.ctxt",
+      "language": "ctxt",
+      "sizeLines": 4,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/devices/pci/PCI.java",
+      "language": "java",
+      "sizeLines": 156,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/devices/pci/PCIAccess.ctxt",
+      "language": "ctxt",
+      "sizeLines": 17,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/devices/pci/PCIAccess.java",
+      "language": "java",
+      "sizeLines": 17,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/devices/pci/PCIAddress.ctxt",
+      "language": "ctxt",
+      "sizeLines": 10,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/devices/pci/PCIAddress.java",
+      "language": "java",
+      "sizeLines": 12,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/devices/pci/PCICap.ctxt",
+      "language": "ctxt",
+      "sizeLines": 3,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/devices/pci/PCICap.java",
+      "language": "java",
+      "sizeLines": 21,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/devices/pci/PCIDevice.ctxt",
+      "language": "ctxt",
+      "sizeLines": 46,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/devices/Screen.ctxt",
+      "language": "ctxt",
+      "sizeLines": 15,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/devices/Screen.java",
+      "language": "java",
+      "sizeLines": 13,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/fs/buffer/BufferCache.ctxt",
+      "language": "ctxt",
+      "sizeLines": 18,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/fs/buffer/BufferHead.ctxt",
+      "language": "ctxt",
+      "sizeLines": 22,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/fs/buffer/BufferHead.java",
+      "language": "java",
+      "sizeLines": 45,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/fs/buffer/multithread/Buffer.ctxt",
+      "language": "ctxt",
+      "sizeLines": 4,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/fs/buffer/multithread/Buffer.java",
+      "language": "java",
+      "sizeLines": 10,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/fs/buffer/multithread/BufferConsumer.ctxt",
+      "language": "ctxt",
+      "sizeLines": 6,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/fs/buffer/multithread/BufferConsumer.java",
+      "language": "java",
+      "sizeLines": 8,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/fs/buffer/multithread/BufferProducer.ctxt",
+      "language": "ctxt",
+      "sizeLines": 6,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/jx/fs/buffer/multithread/BufferProducer.java",
+      "language": "java",
+      "sizeLines": 8,
+      "fileCategory": "code"
+    }
+  ],
+  "batchImportData": {}
+}

@@ -1,0 +1,1467 @@
+{
+  "batchIndex": 18,
+  "nodes": [
+    {
+      "id": "file:src/java/beans/Visibility.java",
+      "type": "file",
+      "label": "Visibility.java",
+      "properties": {
+        "path": "src/java/beans/Visibility.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 74,
+        "nonEmptyLines": 62
+      }
+    },
+    {
+      "id": "class:src/java/beans/Visibility.java::Visibility",
+      "type": "class",
+      "label": "Visibility",
+      "properties": {
+        "name": "Visibility",
+        "startLine": 45,
+        "endLine": 74,
+        "methods": [
+          "needsGui",
+          "avoidingGui",
+          "dontUseGui",
+          "okToUseGui"
+        ],
+        "properties": []
+      }
+    },
+    {
+      "id": "file:src/java/io/Closeable.java",
+      "type": "file",
+      "label": "Closeable.java",
+      "properties": {
+        "path": "src/java/io/Closeable.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 33,
+        "nonEmptyLines": 29
+      }
+    },
+    {
+      "id": "class:src/java/io/Closeable.java::Closeable",
+      "type": "class",
+      "label": "Closeable",
+      "properties": {
+        "name": "Closeable",
+        "startLine": 15,
+        "endLine": 33,
+        "methods": [
+          "close"
+        ],
+        "properties": []
+      }
+    },
+    {
+      "id": "file:src/java/io/DataInput.java",
+      "type": "file",
+      "label": "DataInput.java",
+      "properties": {
+        "path": "src/java/io/DataInput.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 19,
+        "nonEmptyLines": 18
+      }
+    },
+    {
+      "id": "class:src/java/io/DataInput.java::DataInput",
+      "type": "class",
+      "label": "DataInput",
+      "properties": {
+        "name": "DataInput",
+        "startLine": 3,
+        "endLine": 19,
+        "methods": [
+          "readFully",
+          "readFully",
+          "skipBytes",
+          "readBoolean",
+          "readByte",
+          "readUnsignedByte",
+          "readShort",
+          "readUnsignedShort",
+          "readChar",
+          "readInt",
+          "readLong",
+          "readFloat",
+          "readDouble",
+          "readLine",
+          "readUTF"
+        ],
+        "properties": []
+      }
+    },
+    {
+      "id": "file:src/java/io/DataOutput.java",
+      "type": "file",
+      "label": "DataOutput.java",
+      "properties": {
+        "path": "src/java/io/DataOutput.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 18,
+        "nonEmptyLines": 17
+      }
+    },
+    {
+      "id": "class:src/java/io/DataOutput.java::DataOutput",
+      "type": "class",
+      "label": "DataOutput",
+      "properties": {
+        "name": "DataOutput",
+        "startLine": 3,
+        "endLine": 18,
+        "methods": [
+          "write",
+          "write",
+          "write",
+          "writeBoolean",
+          "writeByte",
+          "writeShort",
+          "writeChar",
+          "writeInt",
+          "writeLong",
+          "writeFloat",
+          "writeDouble",
+          "writeBytes",
+          "writeChars",
+          "writeUTF"
+        ],
+        "properties": []
+      }
+    },
+    {
+      "id": "file:src/java/io/Externalizable.java",
+      "type": "file",
+      "label": "Externalizable.java",
+      "properties": {
+        "path": "src/java/io/Externalizable.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 94,
+        "nonEmptyLines": 91
+      }
+    },
+    {
+      "id": "class:src/java/io/Externalizable.java::Externalizable",
+      "type": "class",
+      "label": "Externalizable",
+      "properties": {
+        "name": "Externalizable",
+        "startLine": 63,
+        "endLine": 94,
+        "methods": [
+          "writeExternal",
+          "readExternal"
+        ],
+        "properties": []
+      }
+    },
+    {
+      "id": "file:src/java/io/FilenameFilter.java",
+      "type": "file",
+      "label": "FilenameFilter.java",
+      "properties": {
+        "path": "src/java/io/FilenameFilter.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 58,
+        "nonEmptyLines": 47
+      }
+    },
+    {
+      "id": "class:src/java/io/FilenameFilter.java::FilenameFilter",
+      "type": "class",
+      "label": "FilenameFilter",
+      "properties": {
+        "name": "FilenameFilter",
+        "startLine": 42,
+        "endLine": 57,
+        "methods": [
+          "accept"
+        ],
+        "properties": []
+      }
+    },
+    {
+      "id": "file:src/java/io/ObjectOutput.java",
+      "type": "file",
+      "label": "ObjectOutput.java",
+      "properties": {
+        "path": "src/java/io/ObjectOutput.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 91,
+        "nonEmptyLines": 84
+      }
+    },
+    {
+      "id": "class:src/java/io/ObjectOutput.java::ObjectOutput",
+      "type": "class",
+      "label": "ObjectOutput",
+      "properties": {
+        "name": "ObjectOutput",
+        "startLine": 39,
+        "endLine": 91,
+        "methods": [
+          "writeObject",
+          "write",
+          "write",
+          "write",
+          "flush",
+          "close"
+        ],
+        "properties": []
+      }
+    },
+    {
+      "id": "file:src/java/io/ObjectStreamConstants.java",
+      "type": "file",
+      "label": "ObjectStreamConstants.java",
+      "properties": {
+        "path": "src/java/io/ObjectStreamConstants.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 235,
+        "nonEmptyLines": 199
+      }
+    },
+    {
+      "id": "class:src/java/io/ObjectStreamConstants.java::ObjectStreamConstants",
+      "type": "class",
+      "label": "ObjectStreamConstants",
+      "properties": {
+        "name": "ObjectStreamConstants",
+        "startLine": 34,
+        "endLine": 235,
+        "methods": [],
+        "properties": [
+          "STREAM_MAGIC",
+          "STREAM_VERSION",
+          "TC_BASE",
+          "TC_NULL",
+          "TC_REFERENCE",
+          "TC_CLASSDESC",
+          "TC_OBJECT",
+          "TC_STRING",
+          "TC_ARRAY",
+          "TC_CLASS",
+          "TC_BLOCKDATA",
+          "TC_ENDBLOCKDATA",
+          "TC_RESET",
+          "TC_BLOCKDATALONG",
+          "TC_EXCEPTION",
+          "TC_LONGSTRING",
+          "TC_PROXYCLASSDESC",
+          "TC_ENUM",
+          "TC_MAX",
+          "baseWireHandle",
+          "SC_WRITE_METHOD",
+          "SC_BLOCK_DATA",
+          "SC_SERIALIZABLE",
+          "SC_EXTERNALIZABLE",
+          "SC_ENUM",
+          "SUBSTITUTION_PERMISSION",
+          "SUBCLASS_IMPLEMENTATION_PERMISSION",
+          "PROTOCOL_VERSION_1",
+          "PROTOCOL_VERSION_2"
+        ]
+      }
+    },
+    {
+      "id": "file:src/java/lang/Appendable.java",
+      "type": "file",
+      "label": "Appendable.java",
+      "properties": {
+        "path": "src/java/lang/Appendable.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 121,
+        "nonEmptyLines": 115
+      }
+    },
+    {
+      "id": "class:src/java/lang/Appendable.java::Appendable",
+      "type": "class",
+      "label": "Appendable",
+      "properties": {
+        "name": "Appendable",
+        "startLine": 51,
+        "endLine": 121,
+        "methods": [
+          "append",
+          "append",
+          "append"
+        ],
+        "properties": []
+      }
+    },
+    {
+      "id": "file:src/java/lang/AutoCloseable.java",
+      "type": "file",
+      "label": "AutoCloseable.java",
+      "properties": {
+        "path": "src/java/lang/AutoCloseable.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 98,
+        "nonEmptyLines": 96
+      }
+    },
+    {
+      "id": "class:src/java/lang/AutoCloseable.java::AutoCloseable",
+      "type": "class",
+      "label": "AutoCloseable",
+      "properties": {
+        "name": "AutoCloseable",
+        "startLine": 51,
+        "endLine": 98,
+        "methods": [
+          "close"
+        ],
+        "properties": []
+      }
+    },
+    {
+      "id": "file:src/java/lang/CharSequence.java",
+      "type": "file",
+      "label": "CharSequence.java",
+      "properties": {
+        "path": "src/java/lang/CharSequence.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 110,
+        "nonEmptyLines": 102
+      }
+    },
+    {
+      "id": "class:src/java/lang/CharSequence.java::CharSequence",
+      "type": "class",
+      "label": "CharSequence",
+      "properties": {
+        "name": "CharSequence",
+        "startLine": 52,
+        "endLine": 110,
+        "methods": [
+          "length",
+          "charAt",
+          "subSequence",
+          "toString"
+        ],
+        "properties": []
+      }
+    },
+    {
+      "id": "file:src/java/lang/Cloneable.java",
+      "type": "file",
+      "label": "Cloneable.java",
+      "properties": {
+        "path": "src/java/lang/Cloneable.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 6,
+        "nonEmptyLines": 4
+      }
+    },
+    {
+      "id": "class:src/java/lang/Cloneable.java::Cloneable",
+      "type": "class",
+      "label": "Cloneable",
+      "properties": {
+        "name": "Cloneable",
+        "startLine": 3,
+        "endLine": 5,
+        "methods": [],
+        "properties": []
+      }
+    },
+    {
+      "id": "file:src/java/lang/Comparable.java",
+      "type": "file",
+      "label": "Comparable.java",
+      "properties": {
+        "path": "src/java/lang/Comparable.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 20,
+        "nonEmptyLines": 17
+      }
+    },
+    {
+      "id": "class:src/java/lang/Comparable.java::Comparable",
+      "type": "class",
+      "label": "Comparable",
+      "properties": {
+        "name": "Comparable",
+        "startLine": 18,
+        "endLine": 20,
+        "methods": [
+          "compareTo"
+        ],
+        "properties": []
+      }
+    },
+    {
+      "id": "file:src/java/lang/invoke/AbstractValidatingLambdaMetafactory.java",
+      "type": "file",
+      "label": "AbstractValidatingLambdaMetafactory.java",
+      "properties": {
+        "path": "src/java/lang/invoke/AbstractValidatingLambdaMetafactory.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 376,
+        "nonEmptyLines": 350
+      }
+    },
+    {
+      "id": "class:src/java/lang/invoke/AbstractValidatingLambdaMetafactory.java::AbstractValidatingLambdaMetafactory",
+      "type": "class",
+      "label": "AbstractValidatingLambdaMetafactory",
+      "properties": {
+        "name": "AbstractValidatingLambdaMetafactory",
+        "startLine": 39,
+        "endLine": 376,
+        "methods": [
+          "AbstractValidatingLambdaMetafactory",
+          "buildCallSite",
+          "validateMetafactoryArgs",
+          "isAdaptableTo",
+          "isAdaptableToAsReturn",
+          "isAdaptableToAsReturnStrict"
+        ],
+        "properties": [
+          "targetClass",
+          "invokedType",
+          "samBase",
+          "samMethodName",
+          "samMethodType",
+          "implMethod",
+          "implInfo",
+          "implKind",
+          "implIsInstanceMethod",
+          "implDefiningClass",
+          "implMethodType",
+          "instantiatedMethodType",
+          "isSerializable",
+          "markerInterfaces",
+          "additionalBridges"
+        ]
+      }
+    },
+    {
+      "id": "function:src/java/lang/invoke/AbstractValidatingLambdaMetafactory.java::AbstractValidatingLambdaMetafactory",
+      "type": "function",
+      "label": "AbstractValidatingLambdaMetafactory",
+      "properties": {
+        "name": "AbstractValidatingLambdaMetafactory",
+        "startLine": 107,
+        "endLine": 157,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/lang/invoke/AbstractValidatingLambdaMetafactory.java::buildCallSite",
+      "type": "function",
+      "label": "buildCallSite",
+      "properties": {
+        "name": "buildCallSite",
+        "startLine": 166,
+        "endLine": 167,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/lang/invoke/AbstractValidatingLambdaMetafactory.java::validateMetafactoryArgs",
+      "type": "function",
+      "label": "validateMetafactoryArgs",
+      "properties": {
+        "name": "validateMetafactoryArgs",
+        "startLine": 173,
+        "endLine": 296,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/lang/invoke/AbstractValidatingLambdaMetafactory.java::isAdaptableTo",
+      "type": "function",
+      "label": "isAdaptableTo",
+      "properties": {
+        "name": "isAdaptableTo",
+        "startLine": 305,
+        "endLine": 337,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/lang/invoke/AbstractValidatingLambdaMetafactory.java::isAdaptableToAsReturn",
+      "type": "function",
+      "label": "isAdaptableToAsReturn",
+      "properties": {
+        "name": "isAdaptableToAsReturn",
+        "startLine": 344,
+        "endLine": 347,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/lang/invoke/AbstractValidatingLambdaMetafactory.java::isAdaptableToAsReturnStrict",
+      "type": "function",
+      "label": "isAdaptableToAsReturnStrict",
+      "properties": {
+        "name": "isAdaptableToAsReturnStrict",
+        "startLine": 348,
+        "endLine": 351,
+        "signature": ""
+      }
+    },
+    {
+      "id": "file:src/java/lang/invoke/DelegatingMethodHandle.java",
+      "type": "file",
+      "label": "DelegatingMethodHandle.java",
+      "properties": {
+        "path": "src/java/lang/invoke/DelegatingMethodHandle.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 155,
+        "nonEmptyLines": 139
+      }
+    },
+    {
+      "id": "class:src/java/lang/invoke/DelegatingMethodHandle.java::DelegatingMethodHandle",
+      "type": "class",
+      "label": "DelegatingMethodHandle",
+      "properties": {
+        "name": "DelegatingMethodHandle",
+        "startLine": 38,
+        "endLine": 155,
+        "methods": [
+          "DelegatingMethodHandle",
+          "DelegatingMethodHandle",
+          "DelegatingMethodHandle",
+          "getTarget",
+          "asTypeUncached",
+          "internalMemberName",
+          "isInvokeSpecial",
+          "internalCallerClass",
+          "copyWith",
+          "internalProperties",
+          "rebind",
+          "chooseDelegatingForm",
+          "makeReinvokerForm",
+          "makeReinvokerForm"
+        ],
+        "properties": [
+          "NF_getTarget"
+        ]
+      }
+    },
+    {
+      "id": "function:src/java/lang/invoke/DelegatingMethodHandle.java::DelegatingMethodHandle",
+      "type": "function",
+      "label": "DelegatingMethodHandle",
+      "properties": {
+        "name": "DelegatingMethodHandle",
+        "startLine": 39,
+        "endLine": 41,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/lang/invoke/DelegatingMethodHandle.java::DelegatingMethodHandle",
+      "type": "function",
+      "label": "DelegatingMethodHandle",
+      "properties": {
+        "name": "DelegatingMethodHandle",
+        "startLine": 43,
+        "endLine": 45,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/lang/invoke/DelegatingMethodHandle.java::DelegatingMethodHandle",
+      "type": "function",
+      "label": "DelegatingMethodHandle",
+      "properties": {
+        "name": "DelegatingMethodHandle",
+        "startLine": 47,
+        "endLine": 49,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/lang/invoke/DelegatingMethodHandle.java::getTarget",
+      "type": "function",
+      "label": "getTarget",
+      "properties": {
+        "name": "getTarget",
+        "startLine": 52,
+        "endLine": 52,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/lang/invoke/DelegatingMethodHandle.java::asTypeUncached",
+      "type": "function",
+      "label": "asTypeUncached",
+      "properties": {
+        "name": "asTypeUncached",
+        "startLine": 54,
+        "endLine": 54,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/lang/invoke/DelegatingMethodHandle.java::internalMemberName",
+      "type": "function",
+      "label": "internalMemberName",
+      "properties": {
+        "name": "internalMemberName",
+        "startLine": 56,
+        "endLine": 58,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/lang/invoke/DelegatingMethodHandle.java::isInvokeSpecial",
+      "type": "function",
+      "label": "isInvokeSpecial",
+      "properties": {
+        "name": "isInvokeSpecial",
+        "startLine": 60,
+        "endLine": 62,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/lang/invoke/DelegatingMethodHandle.java::internalCallerClass",
+      "type": "function",
+      "label": "internalCallerClass",
+      "properties": {
+        "name": "internalCallerClass",
+        "startLine": 64,
+        "endLine": 66,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/lang/invoke/DelegatingMethodHandle.java::copyWith",
+      "type": "function",
+      "label": "copyWith",
+      "properties": {
+        "name": "copyWith",
+        "startLine": 68,
+        "endLine": 72,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/lang/invoke/DelegatingMethodHandle.java::internalProperties",
+      "type": "function",
+      "label": "internalProperties",
+      "properties": {
+        "name": "internalProperties",
+        "startLine": 74,
+        "endLine": 77,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/lang/invoke/DelegatingMethodHandle.java::rebind",
+      "type": "function",
+      "label": "rebind",
+      "properties": {
+        "name": "rebind",
+        "startLine": 79,
+        "endLine": 82,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/lang/invoke/DelegatingMethodHandle.java::chooseDelegatingForm",
+      "type": "function",
+      "label": "chooseDelegatingForm",
+      "properties": {
+        "name": "chooseDelegatingForm",
+        "startLine": 84,
+        "endLine": 88,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/lang/invoke/DelegatingMethodHandle.java::makeReinvokerForm",
+      "type": "function",
+      "label": "makeReinvokerForm",
+      "properties": {
+        "name": "makeReinvokerForm",
+        "startLine": 90,
+        "endLine": 102,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/lang/invoke/DelegatingMethodHandle.java::makeReinvokerForm",
+      "type": "function",
+      "label": "makeReinvokerForm",
+      "properties": {
+        "name": "makeReinvokerForm",
+        "startLine": 104,
+        "endLine": 149,
+        "signature": ""
+      }
+    },
+    {
+      "id": "file:src/java/lang/invoke/MethodHandle.java",
+      "type": "file",
+      "label": "MethodHandle.java",
+      "properties": {
+        "path": "src/java/lang/invoke/MethodHandle.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 494,
+        "nonEmptyLines": 469
+      }
+    },
+    {
+      "id": "class:src/java/lang/invoke/MethodHandle.java::MethodHandle",
+      "type": "class",
+      "label": "MethodHandle",
+      "properties": {
+        "name": "MethodHandle",
+        "startLine": 421,
+        "endLine": 494,
+        "methods": [
+          "MethodHandle",
+          "type",
+          "viewAsType",
+          "rebind",
+          "asType",
+          "asFixedArity",
+          "asCollector",
+          "debugString",
+          "internalForm",
+          "internalCallerClass",
+          "isInvokeSpecial",
+          "internalMemberName",
+          "withInternalMemberName",
+          "bindTo",
+          "asVarargsCollector",
+          "invokeWithArguments",
+          "bindTo",
+          "asSpreader"
+        ],
+        "properties": []
+      }
+    },
+    {
+      "id": "function:src/java/lang/invoke/MethodHandle.java::MethodHandle",
+      "type": "function",
+      "label": "MethodHandle",
+      "properties": {
+        "name": "MethodHandle",
+        "startLine": 423,
+        "endLine": 423,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/lang/invoke/MethodHandle.java::type",
+      "type": "function",
+      "label": "type",
+      "properties": {
+        "name": "type",
+        "startLine": 425,
+        "endLine": 427,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/lang/invoke/MethodHandle.java::viewAsType",
+      "type": "function",
+      "label": "viewAsType",
+      "properties": {
+        "name": "viewAsType",
+        "startLine": 429,
+        "endLine": 431,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/lang/invoke/MethodHandle.java::rebind",
+      "type": "function",
+      "label": "rebind",
+      "properties": {
+        "name": "rebind",
+        "startLine": 433,
+        "endLine": 435,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/lang/invoke/MethodHandle.java::asType",
+      "type": "function",
+      "label": "asType",
+      "properties": {
+        "name": "asType",
+        "startLine": 437,
+        "endLine": 439,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/lang/invoke/MethodHandle.java::asFixedArity",
+      "type": "function",
+      "label": "asFixedArity",
+      "properties": {
+        "name": "asFixedArity",
+        "startLine": 441,
+        "endLine": 443,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/lang/invoke/MethodHandle.java::asCollector",
+      "type": "function",
+      "label": "asCollector",
+      "properties": {
+        "name": "asCollector",
+        "startLine": 445,
+        "endLine": 447,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/lang/invoke/MethodHandle.java::debugString",
+      "type": "function",
+      "label": "debugString",
+      "properties": {
+        "name": "debugString",
+        "startLine": 449,
+        "endLine": 451,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/lang/invoke/MethodHandle.java::internalForm",
+      "type": "function",
+      "label": "internalForm",
+      "properties": {
+        "name": "internalForm",
+        "startLine": 453,
+        "endLine": 455,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/lang/invoke/MethodHandle.java::internalCallerClass",
+      "type": "function",
+      "label": "internalCallerClass",
+      "properties": {
+        "name": "internalCallerClass",
+        "startLine": 457,
+        "endLine": 459,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/lang/invoke/MethodHandle.java::isInvokeSpecial",
+      "type": "function",
+      "label": "isInvokeSpecial",
+      "properties": {
+        "name": "isInvokeSpecial",
+        "startLine": 461,
+        "endLine": 463,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/lang/invoke/MethodHandle.java::internalMemberName",
+      "type": "function",
+      "label": "internalMemberName",
+      "properties": {
+        "name": "internalMemberName",
+        "startLine": 465,
+        "endLine": 467,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/lang/invoke/MethodHandle.java::withInternalMemberName",
+      "type": "function",
+      "label": "withInternalMemberName",
+      "properties": {
+        "name": "withInternalMemberName",
+        "startLine": 469,
+        "endLine": 471,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/lang/invoke/MethodHandle.java::bindTo",
+      "type": "function",
+      "label": "bindTo",
+      "properties": {
+        "name": "bindTo",
+        "startLine": 473,
+        "endLine": 475,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/lang/invoke/MethodHandle.java::asVarargsCollector",
+      "type": "function",
+      "label": "asVarargsCollector",
+      "properties": {
+        "name": "asVarargsCollector",
+        "startLine": 477,
+        "endLine": 479,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/lang/invoke/MethodHandle.java::invokeWithArguments",
+      "type": "function",
+      "label": "invokeWithArguments",
+      "properties": {
+        "name": "invokeWithArguments",
+        "startLine": 481,
+        "endLine": 483,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/lang/invoke/MethodHandle.java::bindTo",
+      "type": "function",
+      "label": "bindTo",
+      "properties": {
+        "name": "bindTo",
+        "startLine": 485,
+        "endLine": 487,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/lang/invoke/MethodHandle.java::asSpreader",
+      "type": "function",
+      "label": "asSpreader",
+      "properties": {
+        "name": "asSpreader",
+        "startLine": 489,
+        "endLine": 491,
+        "signature": ""
+      }
+    },
+    {
+      "id": "file:src/java/lang/invoke/MethodHandleImpl.java",
+      "type": "file",
+      "label": "MethodHandleImpl.java",
+      "properties": {
+        "path": "src/java/lang/invoke/MethodHandleImpl.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 20,
+        "nonEmptyLines": 16
+      }
+    },
+    {
+      "id": "class:src/java/lang/invoke/MethodHandleImpl.java::MethodHandleImpl",
+      "type": "class",
+      "label": "MethodHandleImpl",
+      "properties": {
+        "name": "MethodHandleImpl",
+        "startLine": 13,
+        "endLine": 20,
+        "methods": [
+          "initStatics"
+        ],
+        "properties": []
+      }
+    },
+    {
+      "id": "function:src/java/lang/invoke/MethodHandleImpl.java::initStatics",
+      "type": "function",
+      "label": "initStatics",
+      "properties": {
+        "name": "initStatics",
+        "startLine": 15,
+        "endLine": 17,
+        "signature": ""
+      }
+    },
+    {
+      "id": "file:src/java/lang/invoke/MethodHandleInfo.java",
+      "type": "file",
+      "label": "MethodHandleInfo.java",
+      "properties": {
+        "path": "src/java/lang/invoke/MethodHandleInfo.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 28,
+        "nonEmptyLines": 18
+      }
+    },
+    {
+      "id": "class:src/java/lang/invoke/MethodHandleInfo.java::MethodHandleInfo",
+      "type": "class",
+      "label": "MethodHandleInfo",
+      "properties": {
+        "name": "MethodHandleInfo",
+        "startLine": 11,
+        "endLine": 28,
+        "methods": [
+          "getReferenceKind",
+          "getDeclaringClass",
+          "getMethodType",
+          "getName",
+          "reflectAs"
+        ],
+        "properties": [
+          "REF_newInvokeSpecial",
+          "REF_invokeVirtual",
+          "REF_invokeSpecial",
+          "REF_invokeInterface"
+        ]
+      }
+    },
+    {
+      "id": "file:src/java/lang/reflect/Member.java",
+      "type": "file",
+      "label": "Member.java",
+      "properties": {
+        "path": "src/java/lang/reflect/Member.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 73,
+        "nonEmptyLines": 64
+      }
+    },
+    {
+      "id": "class:src/java/lang/reflect/Member.java::Member",
+      "type": "class",
+      "label": "Member",
+      "properties": {
+        "name": "Member",
+        "startLine": 19,
+        "endLine": 73,
+        "methods": [
+          "getDeclaringClass",
+          "getName",
+          "getModifiers",
+          "isSynthetic"
+        ],
+        "properties": [
+          "PUBLIC",
+          "DECLARED"
+        ]
+      }
+    },
+    {
+      "id": "file:src/java/lang/Runnable.java",
+      "type": "file",
+      "label": "Runnable.java",
+      "properties": {
+        "path": "src/java/lang/Runnable.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 5,
+        "nonEmptyLines": 4
+      }
+    },
+    {
+      "id": "class:src/java/lang/Runnable.java::Runnable",
+      "type": "class",
+      "label": "Runnable",
+      "properties": {
+        "name": "Runnable",
+        "startLine": 3,
+        "endLine": 5,
+        "methods": [
+          "run"
+        ],
+        "properties": []
+      }
+    },
+    {
+      "id": "file:src/java/net/ContentHandler.java",
+      "type": "file",
+      "label": "ContentHandler.java",
+      "properties": {
+        "path": "src/java/net/ContentHandler.java",
+        "language": "java",
+        "fileCategory": "code",
+        "totalLines": 78,
+        "nonEmptyLines": 63
+      }
+    },
+    {
+      "id": "class:src/java/net/ContentHandler.java::ContentHandler",
+      "type": "class",
+      "label": "ContentHandler",
+      "properties": {
+        "name": "ContentHandler",
+        "startLine": 42,
+        "endLine": 77,
+        "methods": [
+          "ContentHandler",
+          "getContent"
+        ],
+        "properties": []
+      }
+    },
+    {
+      "id": "class:src/java/net/ContentHandler.java::getContent",
+      "type": "class",
+      "label": "getContent",
+      "properties": {
+        "name": "getContent",
+        "startLine": 74,
+        "isDefault": false
+      }
+    },
+    {
+      "id": "function:src/java/net/ContentHandler.java::ContentHandler",
+      "type": "function",
+      "label": "ContentHandler",
+      "properties": {
+        "name": "ContentHandler",
+        "startLine": 54,
+        "endLine": 57,
+        "signature": ""
+      }
+    },
+    {
+      "id": "function:src/java/net/ContentHandler.java::getContent",
+      "type": "function",
+      "label": "getContent",
+      "properties": {
+        "name": "getContent",
+        "startLine": 74,
+        "endLine": 75,
+        "signature": ""
+      }
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/java/beans/Visibility.java",
+      "target": "class:src/java/beans/Visibility.java::Visibility",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/io/Closeable.java",
+      "target": "class:src/java/io/Closeable.java::Closeable",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/io/DataInput.java",
+      "target": "class:src/java/io/DataInput.java::DataInput",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/io/DataOutput.java",
+      "target": "class:src/java/io/DataOutput.java::DataOutput",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/io/Externalizable.java",
+      "target": "class:src/java/io/Externalizable.java::Externalizable",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/io/FilenameFilter.java",
+      "target": "class:src/java/io/FilenameFilter.java::FilenameFilter",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/io/ObjectOutput.java",
+      "target": "class:src/java/io/ObjectOutput.java::ObjectOutput",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/io/ObjectStreamConstants.java",
+      "target": "class:src/java/io/ObjectStreamConstants.java::ObjectStreamConstants",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/lang/Appendable.java",
+      "target": "class:src/java/lang/Appendable.java::Appendable",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/lang/AutoCloseable.java",
+      "target": "class:src/java/lang/AutoCloseable.java::AutoCloseable",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/lang/CharSequence.java",
+      "target": "class:src/java/lang/CharSequence.java::CharSequence",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/lang/Cloneable.java",
+      "target": "class:src/java/lang/Cloneable.java::Cloneable",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/lang/Comparable.java",
+      "target": "class:src/java/lang/Comparable.java::Comparable",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/lang/invoke/AbstractValidatingLambdaMetafactory.java",
+      "target": "class:src/java/lang/invoke/AbstractValidatingLambdaMetafactory.java::AbstractValidatingLambdaMetafactory",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/lang/invoke/AbstractValidatingLambdaMetafactory.java",
+      "target": "function:src/java/lang/invoke/AbstractValidatingLambdaMetafactory.java::AbstractValidatingLambdaMetafactory",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/lang/invoke/AbstractValidatingLambdaMetafactory.java",
+      "target": "function:src/java/lang/invoke/AbstractValidatingLambdaMetafactory.java::buildCallSite",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/lang/invoke/AbstractValidatingLambdaMetafactory.java",
+      "target": "function:src/java/lang/invoke/AbstractValidatingLambdaMetafactory.java::validateMetafactoryArgs",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/lang/invoke/AbstractValidatingLambdaMetafactory.java",
+      "target": "function:src/java/lang/invoke/AbstractValidatingLambdaMetafactory.java::isAdaptableTo",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/lang/invoke/AbstractValidatingLambdaMetafactory.java",
+      "target": "function:src/java/lang/invoke/AbstractValidatingLambdaMetafactory.java::isAdaptableToAsReturn",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/lang/invoke/AbstractValidatingLambdaMetafactory.java",
+      "target": "function:src/java/lang/invoke/AbstractValidatingLambdaMetafactory.java::isAdaptableToAsReturnStrict",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/lang/invoke/DelegatingMethodHandle.java",
+      "target": "class:src/java/lang/invoke/DelegatingMethodHandle.java::DelegatingMethodHandle",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/lang/invoke/DelegatingMethodHandle.java",
+      "target": "function:src/java/lang/invoke/DelegatingMethodHandle.java::DelegatingMethodHandle",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/lang/invoke/DelegatingMethodHandle.java",
+      "target": "function:src/java/lang/invoke/DelegatingMethodHandle.java::DelegatingMethodHandle",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/lang/invoke/DelegatingMethodHandle.java",
+      "target": "function:src/java/lang/invoke/DelegatingMethodHandle.java::DelegatingMethodHandle",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/lang/invoke/DelegatingMethodHandle.java",
+      "target": "function:src/java/lang/invoke/DelegatingMethodHandle.java::getTarget",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/lang/invoke/DelegatingMethodHandle.java",
+      "target": "function:src/java/lang/invoke/DelegatingMethodHandle.java::asTypeUncached",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/lang/invoke/DelegatingMethodHandle.java",
+      "target": "function:src/java/lang/invoke/DelegatingMethodHandle.java::internalMemberName",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/lang/invoke/DelegatingMethodHandle.java",
+      "target": "function:src/java/lang/invoke/DelegatingMethodHandle.java::isInvokeSpecial",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/lang/invoke/DelegatingMethodHandle.java",
+      "target": "function:src/java/lang/invoke/DelegatingMethodHandle.java::internalCallerClass",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/lang/invoke/DelegatingMethodHandle.java",
+      "target": "function:src/java/lang/invoke/DelegatingMethodHandle.java::copyWith",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/lang/invoke/DelegatingMethodHandle.java",
+      "target": "function:src/java/lang/invoke/DelegatingMethodHandle.java::internalProperties",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/lang/invoke/DelegatingMethodHandle.java",
+      "target": "function:src/java/lang/invoke/DelegatingMethodHandle.java::rebind",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/lang/invoke/DelegatingMethodHandle.java",
+      "target": "function:src/java/lang/invoke/DelegatingMethodHandle.java::chooseDelegatingForm",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/lang/invoke/DelegatingMethodHandle.java",
+      "target": "function:src/java/lang/invoke/DelegatingMethodHandle.java::makeReinvokerForm",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/lang/invoke/DelegatingMethodHandle.java",
+      "target": "function:src/java/lang/invoke/DelegatingMethodHandle.java::makeReinvokerForm",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/lang/invoke/MethodHandle.java",
+      "target": "class:src/java/lang/invoke/MethodHandle.java::MethodHandle",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/lang/invoke/MethodHandle.java",
+      "target": "function:src/java/lang/invoke/MethodHandle.java::MethodHandle",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/lang/invoke/MethodHandle.java",
+      "target": "function:src/java/lang/invoke/MethodHandle.java::type",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/lang/invoke/MethodHandle.java",
+      "target": "function:src/java/lang/invoke/MethodHandle.java::viewAsType",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/lang/invoke/MethodHandle.java",
+      "target": "function:src/java/lang/invoke/MethodHandle.java::rebind",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/lang/invoke/MethodHandle.java",
+      "target": "function:src/java/lang/invoke/MethodHandle.java::asType",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/lang/invoke/MethodHandle.java",
+      "target": "function:src/java/lang/invoke/MethodHandle.java::asFixedArity",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/lang/invoke/MethodHandle.java",
+      "target": "function:src/java/lang/invoke/MethodHandle.java::asCollector",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/lang/invoke/MethodHandle.java",
+      "target": "function:src/java/lang/invoke/MethodHandle.java::debugString",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/lang/invoke/MethodHandle.java",
+      "target": "function:src/java/lang/invoke/MethodHandle.java::internalForm",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/lang/invoke/MethodHandle.java",
+      "target": "function:src/java/lang/invoke/MethodHandle.java::internalCallerClass",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/lang/invoke/MethodHandle.java",
+      "target": "function:src/java/lang/invoke/MethodHandle.java::isInvokeSpecial",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/lang/invoke/MethodHandle.java",
+      "target": "function:src/java/lang/invoke/MethodHandle.java::internalMemberName",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/lang/invoke/MethodHandle.java",
+      "target": "function:src/java/lang/invoke/MethodHandle.java::withInternalMemberName",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/lang/invoke/MethodHandle.java",
+      "target": "function:src/java/lang/invoke/MethodHandle.java::bindTo",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/lang/invoke/MethodHandle.java",
+      "target": "function:src/java/lang/invoke/MethodHandle.java::asVarargsCollector",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/lang/invoke/MethodHandle.java",
+      "target": "function:src/java/lang/invoke/MethodHandle.java::invokeWithArguments",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/lang/invoke/MethodHandle.java",
+      "target": "function:src/java/lang/invoke/MethodHandle.java::bindTo",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/lang/invoke/MethodHandle.java",
+      "target": "function:src/java/lang/invoke/MethodHandle.java::asSpreader",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/lang/invoke/MethodHandleImpl.java",
+      "target": "class:src/java/lang/invoke/MethodHandleImpl.java::MethodHandleImpl",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/lang/invoke/MethodHandleImpl.java",
+      "target": "function:src/java/lang/invoke/MethodHandleImpl.java::initStatics",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/lang/invoke/MethodHandleInfo.java",
+      "target": "class:src/java/lang/invoke/MethodHandleInfo.java::MethodHandleInfo",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/lang/reflect/Member.java",
+      "target": "class:src/java/lang/reflect/Member.java::Member",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/lang/Runnable.java",
+      "target": "class:src/java/lang/Runnable.java::Runnable",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/net/ContentHandler.java",
+      "target": "class:src/java/net/ContentHandler.java::ContentHandler",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/net/ContentHandler.java",
+      "target": "class:src/java/net/ContentHandler.java::getContent",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/net/ContentHandler.java",
+      "target": "function:src/java/net/ContentHandler.java::ContentHandler",
+      "relation": "contains"
+    },
+    {
+      "source": "file:src/java/net/ContentHandler.java",
+      "target": "function:src/java/net/ContentHandler.java::getContent",
+      "relation": "contains"
+    }
+  ],
+  "nodeCount": 84,
+  "edgeCount": 63
+}

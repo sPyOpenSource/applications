@@ -1,0 +1,524 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 25,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "src/jx/fs/db/RelationScan.ctxt",
+      "language": "ctxt",
+      "fileCategory": "code",
+      "totalLines": 19,
+      "nonEmptyLines": 19,
+      "metrics": {}
+    },
+    {
+      "path": "src/jx/fs/db/RelationScan.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 44,
+      "nonEmptyLines": 37,
+      "classes": [
+        {
+          "name": "RelationScan",
+          "startLine": 13,
+          "endLine": 44,
+          "methods": [
+            "getCurrentKey",
+            "getCurrentSetNum",
+            "findKey",
+            "getIndexInfo",
+            "getIndexKeyPos"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "RelationScan",
+          "line": 13,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/jx/fs/db/SetNumberReader.ctxt",
+      "language": "ctxt",
+      "fileCategory": "code",
+      "totalLines": 13,
+      "nonEmptyLines": 13,
+      "metrics": {}
+    },
+    {
+      "path": "src/jx/fs/db/SetNumberReader.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 31,
+      "nonEmptyLines": 29,
+      "classes": [
+        {
+          "name": "SetNumberReader",
+          "startLine": 14,
+          "endLine": 31,
+          "methods": [
+            "getPageNumber",
+            "getTidNumber",
+            "getSetNumber"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "SetNumberReader",
+          "line": 14,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/jx/fs/db/systembuffer/package.bluej",
+      "language": "bluej",
+      "fileCategory": "code",
+      "totalLines": 26,
+      "nonEmptyLines": 26,
+      "metrics": {}
+    },
+    {
+      "path": "src/jx/fs/db/systembuffer/strategy/package.bluej",
+      "language": "bluej",
+      "fileCategory": "code",
+      "totalLines": 37,
+      "nonEmptyLines": 37,
+      "metrics": {}
+    },
+    {
+      "path": "src/jx/fs/db/systembuffer/strategy/PageStrategy.ctxt",
+      "language": "ctxt",
+      "fileCategory": "code",
+      "totalLines": 31,
+      "nonEmptyLines": 31,
+      "metrics": {}
+    },
+    {
+      "path": "src/jx/fs/db/systembuffer/strategy/PageStrategy.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 78,
+      "nonEmptyLines": 74,
+      "classes": [
+        {
+          "name": "PageStrategy",
+          "startLine": 6,
+          "endLine": 78,
+          "methods": [
+            "fix",
+            "unfix",
+            "setDirty",
+            "pageIn",
+            "pageOut",
+            "copy",
+            "getBestForPageout",
+            "getPageRecord",
+            "getPagesAllocated"
+          ],
+          "properties": [
+            "ERR_ALL_PAGES_FIXED",
+            "ERR_INVALID_PAGE_NUM",
+            "ERR_PAGE_EXISTS",
+            "ERR_PAGE_NOT_FIXED",
+            "ERR_EMPTY_BUFFER",
+            "ERR_INVALID_FIX"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "PageStrategy",
+          "line": 6,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/jx/fs/db/systembuffer/strategy/PageStrategyRecord.ctxt",
+      "language": "ctxt",
+      "fileCategory": "code",
+      "totalLines": 16,
+      "nonEmptyLines": 16,
+      "metrics": {}
+    },
+    {
+      "path": "src/jx/fs/db/systembuffer/strategy/PageStrategyRecord.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 22,
+      "nonEmptyLines": 21,
+      "classes": [
+        {
+          "name": "PageStrategyRecord",
+          "startLine": 5,
+          "endLine": 22,
+          "methods": [
+            "getFixCnt",
+            "getDirtyFlag",
+            "getPageNum",
+            "getPage"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "PageStrategyRecord",
+          "line": 5,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/jx/fs/db/Table.ctxt",
+      "language": "ctxt",
+      "fileCategory": "code",
+      "totalLines": 24,
+      "nonEmptyLines": 24,
+      "metrics": {}
+    },
+    {
+      "path": "src/jx/fs/db/Table.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 43,
+      "nonEmptyLines": 36,
+      "classes": [
+        {
+          "name": "Table",
+          "startLine": 3,
+          "endLine": 43,
+          "methods": [
+            "createIndex",
+            "createTuple",
+            "modifyTuple",
+            "deleteTuple",
+            "readTuple",
+            "getTupleDescriptor",
+            "getName",
+            "getAllTableIndexes"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "Table",
+          "line": 3,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/jx/fs/db/TupleDescriptor.ctxt",
+      "language": "ctxt",
+      "fileCategory": "code",
+      "totalLines": 21,
+      "nonEmptyLines": 21,
+      "metrics": {}
+    },
+    {
+      "path": "src/jx/fs/db/TupleDescriptor.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 31,
+      "nonEmptyLines": 26,
+      "classes": [
+        {
+          "name": "TupleDescriptor",
+          "startLine": 16,
+          "endLine": 31,
+          "methods": [
+            "getCount",
+            "getSegNum",
+            "getRelId",
+            "getAttrSize",
+            "getTupleSize",
+            "getType",
+            "getName",
+            "getFieldOffset",
+            "getConverter"
+          ],
+          "properties": [
+            "ERR_WRONG_OFFSET",
+            "ERR_TD_NOT_INITIALIZED",
+            "ERR_INVALID_IID",
+            "ERR_WRONG_OFFSET_DIM"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "TupleDescriptor",
+          "line": 16,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/jx/fs/db/TupleReader.ctxt",
+      "language": "ctxt",
+      "fileCategory": "code",
+      "totalLines": 25,
+      "nonEmptyLines": 25,
+      "metrics": {}
+    },
+    {
+      "path": "src/jx/fs/db/TupleReader.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 51,
+      "nonEmptyLines": 46,
+      "classes": [
+        {
+          "name": "TupleReader",
+          "startLine": 13,
+          "endLine": 51,
+          "methods": [
+            "getTd",
+            "getSetNumReader",
+            "getField",
+            "getField",
+            "getBytes",
+            "dump",
+            "close"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "TupleReader",
+          "line": 13,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/jx/fs/db/TupleWriter.ctxt",
+      "language": "ctxt",
+      "fileCategory": "code",
+      "totalLines": 15,
+      "nonEmptyLines": 15,
+      "metrics": {}
+    },
+    {
+      "path": "src/jx/fs/db/TupleWriter.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 34,
+      "nonEmptyLines": 29,
+      "classes": [
+        {
+          "name": "TupleWriter",
+          "startLine": 13,
+          "endLine": 34,
+          "methods": [
+            "setField",
+            "setField",
+            "getReader",
+            "close"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "TupleWriter",
+          "line": 13,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/jx/fs/db/types/DbComparator.ctxt",
+      "language": "ctxt",
+      "fileCategory": "code",
+      "totalLines": 7,
+      "nonEmptyLines": 7,
+      "metrics": {}
+    },
+    {
+      "path": "src/jx/fs/db/types/DbComparator.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 8,
+      "nonEmptyLines": 6,
+      "classes": [
+        {
+          "name": "DbComparator",
+          "startLine": 4,
+          "endLine": 8,
+          "methods": [
+            "compare",
+            "compare"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "DbComparator",
+          "line": 4,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/jx/fs/db/types/DbConverter.ctxt",
+      "language": "ctxt",
+      "fileCategory": "code",
+      "totalLines": 8,
+      "nonEmptyLines": 8,
+      "metrics": {}
+    },
+    {
+      "path": "src/jx/fs/db/types/DbConverter.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 15,
+      "nonEmptyLines": 13,
+      "classes": [
+        {
+          "name": "DbConverter",
+          "startLine": 12,
+          "endLine": 15,
+          "methods": [
+            "convert",
+            "revert"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "DbConverter",
+          "line": 12,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/jx/fs/db/types/package.bluej",
+      "language": "bluej",
+      "fileCategory": "code",
+      "totalLines": 47,
+      "nonEmptyLines": 47,
+      "metrics": {}
+    },
+    {
+      "path": "src/jx/fs/db/types/TypeManager.ctxt",
+      "language": "ctxt",
+      "fileCategory": "code",
+      "totalLines": 13,
+      "nonEmptyLines": 13,
+      "metrics": {}
+    },
+    {
+      "path": "src/jx/fs/db/types/TypeManager.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 35,
+      "nonEmptyLines": 23,
+      "classes": [
+        {
+          "name": "TypeManager",
+          "startLine": 4,
+          "endLine": 35,
+          "methods": [
+            "getComparator",
+            "getConverter",
+            "getTypeInfos",
+            "getTypeName"
+          ],
+          "properties": [
+            "ERR_UNSUPPORTED_DID",
+            "DATP_DID_INT",
+            "DATP_DID_STR",
+            "DATP_DNAME_INT",
+            "DATP_DNAME_STR"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "TypeManager",
+          "line": 4,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    }
+  ]
+}
