@@ -325,6 +325,13 @@ public class MCS51 implements MCS51Constants, jCPU.iCPU
                 }
 	}
 
+        private volatile boolean running;
+
+        public void stopSimulation()
+        {
+                running = false;
+        }
+
 	/**
 	 * Add a new emulation listeners
 	 *
@@ -1489,22 +1496,27 @@ public class MCS51 implements MCS51Constants, jCPU.iCPU
 		long now;
 		int elapsed;
 		int sleepCounter = 0;
-		final int running = 10;
+		final int runMs = 10;
 		final int statistics = 5000;
 
 		if (limit != -1){
 			breakPoint[limit] = true;
 		}
 		
-		// Cycle for ms
-		int cyclems = (oscillator * running) / 1000;
+		running = true;
 
-		while (true){
+		// Cycle for ms
+		int cyclems = (oscillator * runMs) / 1000;
+
+		while (running){
 			// Run running ms
 			int cycle = cyclems;
 			int count;
 
 			do{
+				if (!running){
+					break;
+				}
 				count = execute();
 				clock += count;
 				cycle -= count;
@@ -1515,13 +1527,13 @@ public class MCS51 implements MCS51Constants, jCPU.iCPU
                                         }
 					throw new InterruptedException("Break point at " + Hex.bin2word(pc));
 				}
-			} while (cycle > 0);
+			} while (cycle > 0 && running);
 
 			checkRunQueue();
 
 			now = System.currentTimeMillis();
 			realTime  = now - startTime;
-			emulatedTime += running;
+			emulatedTime += runMs;
 			elapsed = (int)(now - statTime);
 			
 			if (elapsed >= statistics){
@@ -1545,7 +1557,7 @@ public class MCS51 implements MCS51Constants, jCPU.iCPU
 			}
 			
 			int delay = (int)(emulatedTime - realTime);
-			if (delay > running){
+			if (delay > runMs){
 				startTime = now+delay;
 				sleepCounter += delay;
 				emulatedTime = 0;
