@@ -43,3 +43,32 @@ Base class for 8051 instruction implementations. Contains the instruction decode
 
 **MCS51** (`src/j51/intel/MCS51.java`):
 The 8051 CPU core — translates incoming opcodes to `AbstractOpcode` instances via an array-based dispatch table (`opcodes[256]`). This is the 8051 equivalent of `IsaSim.step()`'s switch statement.
+
+## SFR (Special Function Register)
+
+**SFR (Special Function Register)**:
+A byte-wide register in the 8051's direct-addressable space at 0x80–0xFF. Each SFR is wired to a specific hardware unit: ACC (accumulator), P0–P3 (IO ports), TCON/TMOD (timers), SCON/SBUF (serial), IE (interrupts). Peripherals in the simulator monitor SFR writes via listener callbacks.
+
+**SfrWriteListener** (`src/j51/intel/SfrWriteListener.java`):
+Interface peripherals implement to receive SFR write notifications. Single method: `sfrWrite(int register, int value)`. Register with `cpu.addSfrWriteListener(sfrAddress, this)`.
+
+**SfrReadListener** (`src/j51/intel/SfrReadListener.java`):
+Interface peripherals implement to service SFR read requests. Single method: `int sfrRead(int register)`. Register with `cpu.addSfrReadListener(sfrAddress, this)`.
+
+**MemoryWriteListenerSfr** (`src/j51/intel/MemoryWriteListenerSfr.java`):
+Adapter that converts the low-level `MemoryWriteListener.writeMemory(addr, newVal, oldVal)` to the simpler `SfrWriteListener.sfrWrite(reg, val)`. Registered internally by `addSfrWriteListener()`.
+
+**MemoryReadListenerSfr** (`src/j51/intel/MemoryReadListenerSfr.java`):
+Same adapter pattern for reads. Registered internally by `addSfrReadListener()`.
+
+**VolatileMemory** (`src/j51/device/VolatileMemory.java`):
+Array-backed memory implementation. Its `write()` method updates the byte then iterates `MemoryByte.mw[]` (write listener array). This is where the listener dispatch happens — the hot path between CPU instructions and peripheral callbacks.
+
+**SfrPage** (`src/j51/intel/SfrPage.java`):
+A 256-byte page of SFR memory (extends `VolatileMemory`). The 8051 may have multiple SFR pages (bank switching), accessed as `SfrRegister` objects. Default is page 0.
+
+**SfrRegister** (`src/j51/intel/SfrRegister.java`):
+A single SFR slot (extends `MemoryByte`). Holds the register value, its name, and a list of `InterruptSource` objects that trigger when this register is written. One SfrRegister exists for each of the 256 possible SFR addresses.
+
+**SFR paging**:
+An 8051 extension where multiple banks of SFRs exist, switched via a bank-select register. The CPU tracks `sfrCurrent` — the active `SfrPage`. Some derivatives use this to double the available SFR space.

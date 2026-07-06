@@ -117,6 +117,10 @@ public class MCS51 implements MCS51Constants, jCPU.iCPU
 	
 	// Vector with performance client
 	private FastArray<MCS51Performance> performance = new FastArray<>();
+	
+	// Xdata write/read listeners
+	private FastArray<XdataWriteListener> xdataWriteListeners = new FastArray<>();
+	private FastArray<XdataReadListener> xdataReadListeners = new FastArray<>();
 
 	// Current serving interrupt
 	private InterruptSource currentInterrupt = null;
@@ -709,6 +713,16 @@ public class MCS51 implements MCS51Constants, jCPU.iCPU
 		addSfrMemoryWriteListener(sfr, new MemoryWriteListenerSfr(listener));
 	}
 	
+	public void addXdataWriteListener(XdataWriteListener l)
+	{
+		xdataWriteListeners.add(l);
+	}
+
+	public void addXdataReadListener(XdataReadListener l)
+	{
+		xdataReadListeners.add(l);
+	}
+
 	public int getPeripheralsCount()
 	{
 		return peripherals.size();
@@ -1228,6 +1242,13 @@ public class MCS51 implements MCS51Constants, jCPU.iCPU
         @Override
 	public int xdata(int add)
 	{
+		if (xdataReadListeners.size() > 0) {
+			int[] val = new int[1];
+			for (int i = xdataReadListeners.size() - 1; i >= 0; i--) {
+				if (xdataReadListeners.get(i).xdataRead(add, val))
+					return val[0];
+			}
+		}
 		int value = xdata[add & 0xffff] & 0xff;
 
 		return value;
@@ -1236,6 +1257,12 @@ public class MCS51 implements MCS51Constants, jCPU.iCPU
         @Override
 	public void xdata(int add,int value)
 	{
+		if (xdataWriteListeners.size() > 0) {
+			for (int i = xdataWriteListeners.size() - 1; i >= 0; i--) {
+				if (xdataWriteListeners.get(i).xdataWrite(add, value))
+					return;
+			}
+		}
 		xdata[add] = (byte)value;
 	}
 

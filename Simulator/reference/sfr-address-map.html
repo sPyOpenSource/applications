@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SFR Address Map &amp; Listener Architecture</title>
+<link rel="stylesheet" href="../assets/lesson.css">
+<style>
+.sfr-grid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 2px;
+  margin: 1.2rem 0;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+}
+.sfr-grid .header {
+  font-weight: 700;
+  text-align: center;
+  padding: 4px;
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  font-size: 0.65rem;
+  color: var(--text-muted);
+}
+.sfr-grid .cell {
+  text-align: center;
+  padding: 4px 2px;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  background: var(--code-bg);
+  line-height: 1.3;
+}
+.sfr-grid .cell .sym { font-weight: 700; font-size: 0.68rem; }
+.sfr-grid .cell .addr { font-size: 0.6rem; color: var(--text-muted); }
+.sfr-grid .cell.used { background: var(--accent-light); border-color: var(--accent); }
+.sfr-grid .cell.bitaddr { background: var(--green-bg); border-color: var(--green); }
+.sfr-grid .cell.custom { background: var(--amber-bg); border-color: var(--amber); }
+
+.flow-table td:first-child { font-family: var(--mono); font-size: 0.82rem; white-space: nowrap; }
+</style>
+</head>
+<body>
+
+<div class="lesson-header">
+  <span class="lesson-number">Reference</span>
+  <h1>SFR Address Map &amp; Listener Architecture</h1>
+  <p class="subtitle">Quick reference for 8051 Special Function Registers in the J51 simulator</p>
+</div>
+
+<h2 id="sfr-map">8051 SFR Address Map (0x80–0xFF)</h2>
+
+<p>Cells with <span style="background:var(--green-bg);padding:0.1em 0.4em;border-radius:3px;">green</span> background are <strong>bit-addressable</strong> (address ends in 0x0 or 0x8). Yellow cells are custom SFRs defined by codebase peripherals.</p>
+
+<div class="sfr-grid">
+  <div></div>
+  <div class="header">+0</div>
+  <div class="header">+1</div>
+  <div class="header">+2</div>
+  <div class="header">+3</div>
+  <div class="header">+4</div>
+  <div class="header">+5</div>
+  <div class="header">+6</div>
+  <div class="header">+7</div>
+
+  <div class="header">0x8</div>
+  <div class="cell bitaddr"><div class="sym">P0</div><div class="addr">0x80</div></div>
+  <div class="cell used"><div class="sym">SP</div><div class="addr">0x81</div></div>
+  <div class="cell used"><div class="sym">DPL</div><div class="addr">0x82</div></div>
+  <div class="cell used"><div class="sym">DPH</div><div class="addr">0x83</div></div>
+  <div class="cell used"><div class="sym">P0M1</div><div class="addr">0x84</div></div>
+  <div class="cell used"><div class="sym">P0M2</div><div class="addr">0x85</div></div>
+  <div class="cell"><div class="addr">0x86</div></div>
+  <div class="cell"><div class="addr">0x87</div></div>
+
+  <div class="header">0x9</div>
+  <div class="cell bitaddr"><div class="sym">P1</div><div class="addr">0x90</div></div>
+  <div class="cell used"><div class="sym">P1M1</div><div class="addr">0x91</div></div>
+  <div class="cell used"><div class="sym">P1M2</div><div class="addr">0x92</div></div>
+  <div class="cell"><div class="addr">0x93</div></div>
+  <div class="cell"><div class="addr">0x94</div></div>
+  <div class="cell"><div class="addr">0x95</div></div>
+  <div class="cell"><div class="addr">0x96</div></div>
+  <div class="cell"><div class="addr">0x97</div></div>
+
+  <div class="header">0xA</div>
+  <div class="cell bitaddr"><div class="sym">P2</div><div class="addr">0xA0</div></div>
+  <div class="cell"><div class="addr">0xA1</div></div>
+  <div class="cell"><div class="addr">0xA2</div></div>
+  <div class="cell"><div class="addr">0xA3</div></div>
+  <div class="cell used"><div class="sym">P2M1</div><div class="addr">0xA4</div></div>
+  <div class="cell used"><div class="sym">P2M2</div><div class="addr">0xA5</div></div>
+  <div class="cell"><div class="addr">0xA6</div></div>
+  <div class="cell"><div class="addr">0xA7</div></div>
+
+  <div class="header">0xB</div>
+  <div class="cell bitaddr"><div class="sym">P3</div><div class="addr">0xB0</div></div>
+  <div class="cell used"><div class="sym">P3M1</div><div class="addr">0xB1</div></div>
+  <div class="cell used"><div class="sym">P3M2</div><div class="addr">0xB2</div></div>
+  <div class="cell"><div class="addr">0xB3</div></div>
+  <div class="cell"><div class="addr">0xB4</div></div>
+  <div class="cell"><div class="addr">0xB5</div></div>
+  <div class="cell"><div class="addr">0xB6</div></div>
+  <div class="cell"><div class="addr">0xB7</div></div>
+
+  <div class="header">0xC</div>
+  <div class="cell"><div class="addr">0xC0</div></div>
+  <div class="cell"><div class="addr">0xC1</div></div>
+  <div class="cell"><div class="addr">0xC2</div></div>
+  <div class="cell"><div class="addr">0xC3</div></div>
+  <div class="cell"><div class="addr">0xC4</div></div>
+  <div class="cell"><div class="addr">0xC5</div></div>
+  <div class="cell"><div class="addr">0xC6</div></div>
+  <div class="cell"><div class="addr">0xC7</div></div>
+
+  <div class="header">0xD</div>
+  <div class="cell used"><div class="addr">0xD0</div></div>
+  <div class="cell"><div class="addr">0xD1</div></div>
+  <div class="cell"><div class="addr">0xD2</div></div>
+  <div class="cell"><div class="addr">0xD3</div></div>
+  <div class="cell"><div class="addr">0xD4</div></div>
+  <div class="cell"><div class="addr">0xD5</div></div>
+  <div class="cell"><div class="addr">0xD6</div></div>
+  <div class="cell"><div class="addr">0xD7</div></div>
+
+  <div class="header">0xE</div>
+  <div class="cell bitaddr"><div class="sym">ACC</div><div class="addr">0xE0</div></div>
+  <div class="cell"><div class="addr">0xE1</div></div>
+  <div class="cell"><div class="addr">0xE2</div></div>
+  <div class="cell"><div class="addr">0xE3</div></div>
+  <div class="cell"><div class="addr">0xE4</div></div>
+  <div class="cell"><div class="addr">0xE5</div></div>
+  <div class="cell"><div class="addr">0xE6</div></div>
+  <div class="cell"><div class="addr">0xE7</div></div>
+
+  <div class="header">0xF</div>
+  <div class="cell used"><div class="sym">B</div><div class="addr">0xF0</div></div>
+  <div class="cell"><div class="addr">0xF1</div></div>
+  <div class="cell"><div class="addr">0xF2</div></div>
+  <div class="cell"><div class="addr">0xF3</div></div>
+  <div class="cell"><div class="addr">0xF4</div></div>
+  <div class="cell"><div class="addr">0xF5</div></div>
+  <div class="cell"><div class="addr">0xF6</div></div>
+  <div class="cell"><div class="addr">0xF7</div></div>
+</div>
+
+<div class="sfr-grid" style="grid-template-columns: repeat(4, 1fr); margin-top: 0;">
+  <div></div>
+  <div class="header">+0</div>
+  <div class="header">+4</div>
+  <div class="header">+8</div>
+  <div class="header">+C</div>
+
+  <div class="header">0x8</div>
+  <div class="cell bitaddr"><div class="sym">TCON</div><div class="addr">0x88</div></div>
+  <div class="cell used"><div class="sym">TMOD</div><div class="addr">0x89</div></div>
+  <div class="cell used"><div class="sym">TL0</div><div class="addr">0x8A</div></div>
+  <div class="cell used"><div class="sym">TL1</div><div class="addr">0x8B</div></div>
+  <div class="cell used"><div class="sym">TH0</div><div class="addr">0x8C</div></div>
+  <div class="cell used"><div class="sym">TH1</div><div class="addr">0x8D</div></div>
+
+  <div class="header">0x9</div>
+  <div class="cell bitaddr"><div class="sym">SCON</div><div class="addr">0x98</div></div>
+  <div class="cell used"><div class="sym">SBUF</div><div class="addr">0x99</div></div>
+
+  <div class="header">0xA</div>
+  <div class="cell bitaddr"><div class="sym">IE</div><div class="addr">0xA8</div></div>
+
+  <div class="header">0xD</div>
+  <div class="cell bitaddr"><div class="sym">PSW</div><div class="addr">0xD0</div></div>
+</div>
+
+<h2 id="register-api">MCS51 SFR API</h2>
+
+<table>
+  <tr><th>Method</th><th>Signature</th><th>Purpose</th></tr>
+  <tr><td><code>sfr()</code></td><td><code>int sfr(int add)</code></td><td>Read SFR value</td></tr>
+  <tr><td><code>sfr()</code></td><td><code>void sfr(int add, int value)</code></td><td>Write SFR value + trigger interrupt check</td></tr>
+  <tr><td><code>sfrIsSet()</code></td><td><code>boolean sfrIsSet(int add, int mask)</code></td><td>Test bit(s)</td></tr>
+  <tr><td><code>sfrSet()</code></td><td><code>void sfrSet(int add, int mask)</code></td><td>Set bit(s)</td></tr>
+  <tr><td><code>sfrReset()</code></td><td><code>void sfrReset(int add, int mask)</code></td><td>Clear bit(s)</td></tr>
+  <tr><td><code>sfr16()</code></td><td><code>int sfr16(int hi, int low)</code></td><td>Read 16-bit (big-endian)</td></tr>
+  <tr><td><code>sfr16()</code></td><td><code>void sfr16(int value, int hi, int low)</code></td><td>Write 16-bit</td></tr>
+</table>
+
+<h2 id="listener-api">Listener Registration</h2>
+
+<table>
+  <tr><th>CPU method</th><th>Peripheral interface</th><th>Listener method</th></tr>
+  <tr><td><code>addSfrWriteListener(sfr, listener)</code></td><td><code>SfrWriteListener</code></td><td><code>sfrWrite(int register, int value)</code></td></tr>
+  <tr><td><code>addSfrReadListener(sfr, listener)</code></td><td><code>SfrReadListener</code></td><td><code>int sfrRead(int register)</code></td></tr>
+  <tr><td><code>addSfrMemoryWriteListener(sfr, listener)</code></td><td><code>MemoryWriteListener</code></td><td><code>writeMemory(int addr, int newVal, int oldVal)</code></td></tr>
+  <tr><td><code>addSfrMemoryReadListener(sfr, listener)</code></td><td><code>MemoryReadListener</code></td><td><code>int readMemory(int addr, int value)</code></td></tr>
+</table>
+
+<h2 id="adapter-chain">Listener Adapter Chain</h2>
+
+<pre><code>Peripheral (SfrWriteListener)
+    ↑ sfrWrite(register, value)
+MemoryWriteListenerSfr (adapter)
+    ↑ writeMemory(address, newValue, oldValue)
+MemoryByte.mw[] (FastArray&lt;MemoryWriteListener&gt;)
+    ↑ iterated by
+VolatileMemory.write(address, newValue)
+    ↑ called by
+MCS51.sfr(int add, int value)     // high-level
+    ↑ called by
+MCS51.setDirect(address, value)   // instruction execution</code></pre>
+
+<h2 id="peripheral-skeleton">Peripheral Skeleton</h2>
+
+<pre><code>class MyPeripheral extends JPanel
+    implements MCS51Peripheral, SfrWriteListener {
+
+    private MCS51 cpu;
+
+    @Override
+    public void registerCpu(MCS51 cpu) {
+        this.cpu = cpu;
+        cpu.addSfrWriteListener(MY_ADDR, this);
+    }
+
+    @Override
+    public void sfrWrite(int register, int value) {
+        // handle the write
+    }
+}</code></pre>
+
+<p>Register in CPU class:</p>
+<pre><code>addPeripheral(new MyPeripheral());</code></pre>
+
+<h2 id="file-locations">Key File Locations</h2>
+
+<table>
+  <tr><th>File</th><th>Role</th></tr>
+  <tr><td><code>src/j51/intel/MCS51Constants.java</code></td><td>SFR address constants</td></tr>
+  <tr><td><code>src/j51/intel/MCS51.java</code></td><td><code>sfr()</code>, <code>addSfrWriteListener()</code>, etc.</td></tr>
+  <tr><td><code>src/j51/intel/SfrPage.java</code></td><td>SFR memory page (extends VolatileMemory)</td></tr>
+  <tr><td><code>src/j51/intel/SfrRegister.java</code></td><td>Single SFR slot (extends MemoryByte)</td></tr>
+  <tr><td><code>src/j51/intel/MemoryByte.java</code></td><td>Value + listener arrays + busy flags</td></tr>
+  <tr><td><code>src/j51/device/VolatileMemory.java</code></td><td>Read/write dispatch with listener iteration</td></tr>
+  <tr><td><code>src/j51/intel/MemoryWriteListenerSfr.java</code></td><td>Adapter: MemoryWriteListener → SfrWriteListener</td></tr>
+  <tr><td><code>src/j51/intel/MemoryReadListenerSfr.java</code></td><td>Adapter: MemoryReadListener → SfrReadListener</td></tr>
+  <tr><td><code>src/j51/intel/SfrWriteListener.java</code></td><td>Interface: <code>sfrWrite(int, int)</code></td></tr>
+  <tr><td><code>src/j51/intel/SfrReadListener.java</code></td><td>Interface: <code>int sfrRead(int)</code></td></tr>
+</table>
+
+<div class="lesson-footer">
+  <p><strong>See also:</strong> <a href="../lessons/0002-special-function-registers.html">Lesson 2: Special Function Registers</a> (with walkthroughs).<br>
+  <em>Ask your instructor about the adapter pattern, interrupt sources, or how SFR paging works.</em></p>
+</div>
+
+</body>
+</html>

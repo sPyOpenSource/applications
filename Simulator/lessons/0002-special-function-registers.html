@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 2: Special Function Registers in the 8051 Simulator</title>
+<link rel="stylesheet" href="../assets/lesson.css">
+<style>
+.sfr-layout {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  margin: 1rem 0;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+}
+.sfr-cell {
+  width: 2.6rem;
+  height: 2.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  background: var(--code-bg);
+  line-height: 1.2;
+}
+.sfr-cell .addr { font-size: 0.6rem; color: var(--text-muted); }
+.sfr-cell .name { font-weight: 700; font-size: 0.7rem; }
+.sfr-cell.used { background: var(--accent-light); border-color: var(--accent); }
+.sfr-cell.bit-addr { background: var(--green-bg); border-color: var(--green); }
+.sfr-cell.periph { background: var(--amber-bg); border-color: var(--amber); }
+
+.diagram-flow {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 1rem 0;
+  flex-wrap: wrap;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+}
+.diagram-flow .box {
+  border: 2px solid var(--accent);
+  border-radius: 6px;
+  padding: 0.5rem 0.8rem;
+  background: var(--accent-light);
+  text-align: center;
+  min-width: 80px;
+}
+.diagram-flow .arrow {
+  color: var(--text-muted);
+  font-size: 1.2rem;
+}
+.diagram-flow .box.small { font-size: 0.72rem; padding: 0.3rem 0.5rem; }
+</style>
+</head>
+<body>
+
+<div class="lesson-header">
+  <span class="lesson-number">Lesson 2 / 7</span>
+  <h1>Special Function Registers</h1>
+  <p class="subtitle">How the J51 simulator implements SFRs — the communication backbone between CPU and peripherals</p>
+</div>
+<p class="filename">src/j51/intel/MCS51Constants.java &rarr; MCS51.java &rarr; peripheral listeners</p>
+
+<h2 id="motivation">Motivation</h2>
+
+<p>The <code>G128x64</code> graphics LCD, the <code>Uart</code> serial port, the <code>LCD2x16</code> character display, and every port pin in the J51 simulator all talk to the CPU the same way: through <strong>Special Function Registers</strong>. Understanding SFRs is the key to adding any new peripheral — a VGA console, a keypad, an I²C bus — or debugging why an existing one doesn't respond.</p>
+
+<h2 id="what">What is an SFR?</h2>
+
+<p>The 8051 reserves addresses <strong>0x80–0xFF</strong> in its direct-addressing space for Special Function Registers. These are not RAM — each SFR is a dedicated control/status register wired to a specific hardware unit:</p>
+
+<table>
+  <tr><th>Address</th><th>Symbol</th><th>Purpose</th></tr>
+  <tr><td>0x80</td><td><code>P0</code></td><td>Port 0 latch</td></tr>
+  <tr><td>0x81</td><td><code>SP</code></td><td>Stack pointer</td></tr>
+  <tr><td>0x82–0x83</td><td><code>DPL, DPH</code></td><td>Data pointer (low/high)</td></tr>
+  <tr><td>0x88</td><td><code>TCON</code></td><td>Timer control</td></tr>
+  <tr><td>0x89</td><td><code>TMOD</code></td><td>Timer mode</td></tr>
+  <tr><td>0x8A–0x8D</td><td><code>TL0, TL1, TH0, TH1</code></td><td>Timer values</td></tr>
+  <tr><td>0x98</td><td><code>SCON</code></td><td>Serial control</td></tr>
+  <tr><td>0x99</td><td><code>SBUF</code></td><td>Serial data buffer</td></tr>
+  <tr><td>0xA0</td><td><code>P2</code></td><td>Port 2 latch</td></tr>
+  <tr><td>0xA8</td><td><code>IE</code></td><td>Interrupt enable</td></tr>
+  <tr><td>0xB0</td><td><code>P3</code></td><td>Port 3 latch</td></tr>
+  <tr><td>0xD0</td><td><code>PSW</code></td><td>Program status word</td></tr>
+  <tr><td>0xE0</td><td><code>ACC</code></td><td>Accumulator</td></tr>
+  <tr><td>0xF0</td><td><code>B</code></td><td>B register</td></tr>
+</table>
+
+<p>These are the hardware-defined ones. User peripherals can <strong>add their own virtual SFRs</strong> at unused addresses — that's exactly what <code>G128x64</code> does with <code>ADDL=0xFD</code>, <code>ADDH=0xFE</code>, <code>DATA=0xFF</code>.</p>
+
+<h2 id="architecture">SFR Architecture in J51</h2>
+
+<p>The SFR subsystem is a four-layer stack:</p>
+
+<div class="diagram-flow">
+  <div class="box">MCS51Constants<br><span style="font-size:0.7rem;color:var(--text-secondary)">address constants</span></div>
+  <span class="arrow">→</span>
+  <div class="box">MCS51.sfrCurrent<br><span style="font-size:0.7rem;color:var(--text-secondary)">active SfrPage</span></div>
+  <span class="arrow">→</span>
+  <div class="box">SfrPage<br><span style="font-size:0.7rem;color:var(--text-secondary)">256× SfrRegister</span></div>
+  <span class="arrow">→</span>
+  <div class="box">SfrRegister<br><span style="font-size:0.7rem;color:var(--text-secondary)">MemoryByte + listeners</span></div>
+</div>
+
+<h3>Layer 1: Address constants</h3>
+
+<p><code>MCS51Constants.java</code> is a plain interface with <code>static final int</code> constants for every standard SFR address. This is what peripherals import when they refer to <code>SBUF</code> or <code>SCON</code> or <code>P0</code>. Custom peripherals define their own constants (like <code>ADDL = 0xFD</code>).</p>
+
+<h3>Layer 2: VolatileMemory &amp; the write listener chain</h3>
+
+<p><code>VolatileMemory</code> (<code>src/j51/device/VolatileMemory.java</code>) manages an array of <code>MemoryByte</code> objects. Its <code>write(address, newValue)</code> method is the hot path — every SFR write flows through it:</p>
+
+<pre><code>// VolatileMemory.java:185
+public void write(int address, int newValue) {
+    MemoryByte b = memory[address];
+    int oldValue = b.value;
+    b.value = newValue;
+
+    if (writeListener && b.mw != null) {         // any listeners?
+        if (!b.writeBusy) {
+            b.writeBusy = true;
+            for (int i = b.mw.size(); --i >= 0; ) {
+                b.mw.get(i).writeMemory(address, newValue, oldValue);
+            }
+            b.writeBusy = false;
+        }
+    }
+}</code></pre>
+
+<p>Key details:</p>
+<ul>
+  <li><code>b.mw</code> is a <code>FastArray&lt;MemoryWriteListener&gt;</code> &mdash; lazily created when the first listener registers</li>
+  <li>The <code>writeBusy</code> flag prevents recursive listener calls</li>
+  <li><code>writeListener</code> can be globally disabled (used during reset to batch initialisation without triggering side-effects)</li>
+  <li>Listeners iterate in <strong>reverse</strong> order (<code>--i >= 0</code>) &mdash; so the last-registered listener fires first</li>
+</ul>
+
+<h3>Layer 3: SfrPage</h3>
+
+<p><code>SfrPage extends VolatileMemory</code> with a fixed 256-byte size. Its constructor creates a <code>SfrRegister</code> for each address:</p>
+
+<pre><code>// SfrPage.java:22
+public SfrPage(int page) {
+    super("SFR", 256);
+    this.page = page;
+    for (int i = 0; i &lt; 256; i++)
+        setMemory(i, new SfrRegister(i));
+    setPresent(0, 256);
+}</code></pre>
+
+<p>The <em>page</em> concept (constructor parameter <code>page</code>) supports the 8051's SFR paging extension — some modern 8051 derivatives have multiple SFR pages switched via a bank-select register. The default is page 0.</p>
+
+<h3>Layer 4: MCS51 convenience API</h3>
+
+<p>Rather than calling <code>sfrCurrent.write()</code> directly, the CPU exposes a cleaner interface:</p>
+
+<pre><code>// MCS51.java:1273
+public int sfr(int add) {
+    return sfrCurrent.read(add);
+}
+
+// MCS51.java:1304
+public void sfr(int add, int value) {
+    sfrCurrent.write(add, value);
+    // ... then check for interrupt conditions
+}
+</code></pre>
+
+<p>And bit-level helpers that compile to the same <code>sfr()</code> calls:</p>
+
+<pre><code>sfrIsSet(addr, mask)   // → (sfr(addr) & mask) == mask
+sfrSet(addr, mask)     // → sfr(addr, sfr(addr) | mask)
+sfrReset(addr, mask)   // → sfr(addr, sfr(addr) & ~mask)</code></pre>
+
+<h2 id="listener-chain">The Listener Chain</h2>
+
+<p>The peripheral doesn't talk to <code>MemoryByte</code> or <code>VolatileMemory</code> directly. It talks through adapters:</p>
+
+<div class="diagram-flow">
+  <div class="box small">Peripheral<br><span style="font-size:0.65rem">SfrWriteListener</span></div>
+  <span class="arrow">←</span>
+  <div class="box small">MemoryWriteListenerSfr<br><span style="font-size:0.65rem">adapter</span></div>
+  <span class="arrow">←</span>
+  <div class="box small">MemoryByte.mw[]</div>
+  <span class="arrow">←</span>
+  <div class="box small">VolatileMemory<br><span style="font-size:0.65rem">.write()</span></div>
+</div>
+
+<p>When a peripheral calls <code>cpu.addSfrWriteListener(addr, this)</code>:</p>
+
+<pre><code>// MCS51.java:707
+public void addSfrWriteListener(int sfr, SfrWriteListener listener) {
+    addSfrMemoryWriteListener(sfr, new MemoryWriteListenerSfr(listener));
+}
+
+// The adapter is trivial — it just bridges interfaces:
+// MemoryWriteListenerSfr (src/j51/intel/MemoryWriteListenerSfr.java)
+public class MemoryWriteListenerSfr implements MemoryWriteListener {
+    SfrWriteListener l;
+    MemoryWriteListenerSfr(SfrWriteListener l) { this.l = l; }
+    public void writeMemory(int address, int newValue, int oldValue) {
+        l.sfrWrite(address, newValue);
+    }
+}</code></pre>
+
+<p>This adapter pattern separates the low-level <code>MemoryWriteListener</code> (which receives all memory writes including old value) from the high-level <code>SfrWriteListener</code> (which receives just the register and new value). Most peripherals only need the high-level interface.</p>
+
+<div class="callout callout-info">
+  <div class="callout-label">Why the adapter?</div>
+  <p>The <code>MemoryWriteListener</code> interface is more general — it receives <code>(address, newValue, oldValue)</code> and could be used for non-SFR memory monitoring. The <code>MemoryWriteListenerSfr</code> adapter narrows this to the simpler <code>sfrWrite(register, value)</code> signature that most peripherals want. The same pattern exists for reads: <code>MemoryReadListenerSfr</code> &rarr; <code>SfrReadListener</code>.</p>
+</div>
+
+<h2 id="example-uart">Walkthrough: UART peripheral</h2>
+
+<p>Open <code>src/j51/device/Uart.java</code>. The UART registers for two SFR addresses and one interrupt:</p>
+
+<pre><code>// Uart.java:44
+public void registerCpu(MCS51 cpu) {
+    this.cpu = cpu;
+    cpu.addSfrWriteListener(MCS51Constants.SBUF, this);  // 0x99 — data out
+    cpu.addSfrReadListener(MCS51Constants.SBUF, this);   // 0x99 — data in
+    cpu.addInterruptSource(MCS51Constants.IE, this, "UART0");
+    cpu.addInterruptSource(MCS51Constants.SCON, this, "UART0");
+    cpu.addResetListener(this);
+}</code></pre>
+
+<p>When the 8051 program executes <code>MOV SBUF, A</code> (which writes to address <code>0x99</code>), the call chain is:</p>
+
+<ol>
+  <li><strong>CPU executes</strong> the MOV instruction → calls <code>sfr(0x99, value)</code></li>
+  <li><strong><code>sfr()</code></strong> calls <code>sfrCurrent.write(0x99, value)</code> (VolatileMemory.write)</li>
+  <li><strong>VolatileMemory</strong> updates the byte value, then iterates <code>memory[0x99].mw</code></li>
+  <li><strong>MemoryWriteListenerSfr</strong> receives <code>writeMemory(0x99, value, oldValue)</code></li>
+  <li><strong>Uart.sfrWrite(0x99, value)</strong> fires → calls <code>sendChar(value)</code> and sets the TI flag</li>
+</ol>
+
+<h2 id="example-g128x64">Walkthrough: G128x64 graphics LCD</h2>
+
+<p>Open <code>src/j51/test/x86.java</code>. This peripheral uses <strong>three</strong> custom SFR addresses:</p>
+
+<pre><code>class G128x64 extends j51.device.lcd.GLcd
+    implements MCS51Peripheral, SfrWriteListener, SfrReadListener {
+
+    private final int ADDL = 0xFD;   // address low byte
+    private final int ADDH = 0xFE;   // address high byte
+    private final int DATA = 0xFF;   // data byte
+
+    private int address = 0;          // current pixel position
+    private MCS51 cpu;
+
+    public void registerCpu(MCS51 cpu) {
+        this.cpu = cpu;
+        cpu.addSfrWriteListener(ADDL, this);
+        cpu.addSfrWriteListener(ADDH, this);
+        cpu.addSfrWriteListener(DATA, this);
+        cpu.addSfrReadListener(DATA, this);
+    }
+
+    public void sfrWrite(int r, int v) {
+        switch (r) {
+            case ADDL: address = (address &amp; 0xFF00) | (v &amp; 0xFF); break;
+            case ADDH: address = (address &amp; 0x00FF) | (v &lt;&lt; 8);  break;
+            case DATA: setMemory(address, (byte)(v &amp; 0xFF));       break;
+        }
+    }
+
+    public int sfrRead(int r) {
+        return getMemory(address) &amp; 0xFF;  // read back from pixel RAM
+    }
+}</code></pre>
+
+<p>The 8051 program sends a byte to the LCD by writing three SFRs: <code>MOV ADDL, #low(addr)</code>, <code>MOV ADDH, #high(addr)</code>, <code>MOV DATA, #byte</code>. Each SFR write triggers the corresponding <code>sfrWrite()</code> callback.</p>
+
+<h2 id="full-peripheral-pattern">The General Pattern</h2>
+
+<p>Every GUI-visible peripheral in J51 follows the same skeleton:</p>
+
+<pre><code>class MyPeripheral extends JPanel     // (or JComponent)
+    implements MCS51Peripheral,        // required for addPeripheral()
+               SfrWriteListener,       // ← handle inbound data
+               SfrReadListener {       // ← provide outbound data (optional)
+
+    private MCS51 cpu;
+
+    public void registerCpu(MCS51 cpu) {
+        this.cpu = cpu;
+        cpu.addSfrWriteListener(ADDR1, this);
+        cpu.addSfrWriteListener(ADDR2, this);
+        // optional:
+        cpu.addSfrReadListener(ADDR1, this);
+        cpu.addResetListener(this);
+        cpu.addUpdatableComponent(this);  // for periodic repaint
+    }
+
+    public void sfrWrite(int register, int value) {
+        // react: update state, buffer data, trigger redraw
+    }
+
+    public int sfrRead(int register) {
+        return someValue;  // return data to the CPU
+    }
+}</code></pre>
+
+<p>Then in the CPU subclass constructor:</p>
+<pre><code>addPeripheral(new MyPeripheral());</code></pre>
+
+<p>The <code>addPeripheral()</code> method calls <code>registerCpu(this)</code> automatically, so the peripheral is fully wired on construction.</p>
+
+<h2 id="exercise">Exercise: trace a port write</h2>
+
+<div class="exercise">
+  <h3>Exercise</h3>
+  <p>The 8051 instruction <code>MOV P1, #0xAA</code> writes <code>0xAA</code> to SFR address <code>0x90</code> (<code>P1</code>). Open these files and trace the call chain:</p>
+  <ol>
+    <li>Open <code>src/j51/intel/MCS51.java</code>. Search for <code>setDirect</code>. What does it call for addresses &ge; 128?</li>
+    <li>Open <code>src/j51/swing/JPort.java</code>. Search for <code>MCS51Port</code>'s <code>registerCpu()</code>. Which SFR addresses does it listen on?</li>
+    <li>Open <code>src/j51/intel/MCS51Constants.java</code>. What are the constant values for <code>P0</code>, <code>P1</code>, <code>P2</code>, <code>P3</code>?</li>
+    <li>Based on the answer to (2), which port listener fires when <code>MOV P1, #0xAA</code> executes?</li>
+    <li>The listener calls <code>sfrWrite()</code> on a <code>BytePort</code>. What does <code>BytePort.sfrWrite()</code> do with the value?</li>
+  </ol>
+  <p><em>Hint: start at <code>MCS51Constants.java</code> for the address values, then <code>JPort.java</code> line 97 for which SFR each port uses.</em></p>
+</div>
+
+<details>
+  <summary>Reveal answer</summary>
+  <ol>
+    <li><code>setDirect</code> at line 865 checks <code>add &gt;= 128</code>, and calls <code>sfr(add, value)</code> — which calls <code>sfrCurrent.write(add, value)</code>.</li>
+    <li><code>MCS51Port.registerCpu()</code> at line 129 calls <code>cpu.addSfrWriteListener(P0, this)</code> through <code>cpu.addSfrWriteListener(P3, this)</code> (four ports, one constant per port). Each port's SFR is set via <code>setSfr()</code> on the inner BytePort.</li>
+    <li><code>P0=0x80</code>, <code>P1=0x90</code>, <code>P2=0xA0</code>, <code>P3=0xB0</code>.</li>
+    <li>Port 1 (<code>MCS51Port</code> with <code>sfr = P1 = 0x90</code>). The <code>BytePort.sfrWrite(0x90, 0xAA)</code> fires.</li>
+    <li><code>BytePort.sfrWrite()</code> at line 53 calls <code>setValue(value)</code>, which updates the JBitField visual — the individual bit checkboxes in the Peripheral panel change to match the bits of <code>0xAA</code>.</li>
+  </ol>
+</details>
+
+<h2 id="contrast-risc-v">Contrast: RISC-V vs 8051</h2>
+
+<p>The RISC-V simulator has no SFRs. Its peripherals connect through memory-mapped IO (a dedicated address range in the flat 32-bit address space) or through ECALL-based system calls. The J51 8051 simulator uses SFRs because the 8051 architecture has no concept of memory-mapped peripherals — all IO goes through the <code>MOV</code> instruction to the SFR address space <code>0x80–0xFF</code>.</p>
+
+<p>This makes the 8051 model <strong>tighter</strong>: every IO operation is an explicit write to a named register. The listener chain ensures that the timing and ordering of peripheral updates matches the real hardware cycle-by-cycle.</p>
+
+<nav class="lesson-nav">
+  <span><a href="0001-fetch-decode-execute-riscv.html" class="prev">Fetch-Decode-Execute (RISC-V)</a></span>
+  <span><em>Next: <a href="../reference/sfr-address-map.html">SFR Address Map &amp; Listener Architecture</a> (reference)</em></span>
+</nav>
+
+<div class="lesson-footer">
+  <p><strong>Primary source:</strong> Intel 8051 Microcontroller Instruction Set Manual — SFR address map, Chapter 2.<br>
+  <strong>Code anchors:</strong> <code>MCS51Constants.java</code> (address definitions), <code>VolatileMemory.java:185</code> (listener dispatch), <code>Uart.java:44</code> (peripheral registration), <code>G128x64</code> in <code>x86.java</code> (custom SFR protocol).<br>
+  <em>Ask your instructor follow-up questions — about the listener chain, how reset disables write listeners, or how SFR paging works across silicon revisions.</em></p>
+</div>
+
+</body>
+</html>

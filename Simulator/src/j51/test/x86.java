@@ -75,9 +75,9 @@ class G128x64 extends j51.device.lcd.GLcd implements MCS51Peripheral,
 	}
 }
 
-public class Test extends jx.disass.x86
+public class x86 extends jx.disass.x86
 {
-	public Test() throws Exception
+	public x86() throws Exception
 	{
 		setOscillator(11184000);
 		addPeripheral(new G128x64());

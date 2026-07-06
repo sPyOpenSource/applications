@@ -18,6 +18,9 @@
 
 package sjc.emulation;
 
+import j51.intel.MCS51;
+import j51.intel.MCS51Peripheral;
+
 
 /**
  * Device driver for text VGA screen
@@ -27,7 +30,7 @@ package sjc.emulation;
  *  version 060608 initial version
  * 
  */
-public class BasicVGA extends AddressRange {
+public class BasicVGA extends AddressRange implements MCS51Peripheral {
   private final static int BASE = 0xB8000;
   private final static int width = 80, height = 25;
   
@@ -73,18 +76,26 @@ public class BasicVGA extends AddressRange {
     outDrv.redraw(x, y);
   }
   
+  @Override
   public void write16(int address, short v) {
     write8(address, (byte)v);
     write8(address+1, (byte)(v>>>8));
   }
   
+  @Override
   public void write32(int address, int v) {
     write16(address, (short)v);
     write16(address+2, (short)(v>>>16));
   }
   
+  @Override
   public void write64(int address, long v) {
     write32(address, (int)v);
     write32(address+4, (int)(v>>>32));
   }
+
+    @Override
+    public void registerCpu(MCS51 cpu) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }
