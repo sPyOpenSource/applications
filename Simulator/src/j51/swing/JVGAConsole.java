@@ -2,6 +2,7 @@ package j51.swing;
 
 import j51.intel.*;
 import java.awt.*;
+import java.awt.image.*;
 import javax.swing.*;
 
 public class JVGAConsole extends JComponent implements MCS51Peripheral, XdataWriteListener {
@@ -9,12 +10,22 @@ public class JVGAConsole extends JComponent implements MCS51Peripheral, XdataWri
   private static final int BASE = 0xB8000;
   private static final int WIDTH = 80, HEIGHT = 25, CHAR_W = 8, CHAR_H = 16;
 
+  private static final int GFX_BASE = 0xA0000;
+  private static final int GFX_W = 320, GFX_H = 200, MODE_REG = 0xBFFFC;
+
   private final char[][] txt = new char[HEIGHT][WIDTH];
   private final int[][] colFG = new int[HEIGHT][WIDTH];
   private final int[][] colBG = new int[HEIGHT][WIDTH];
   private final Color[] colTable = new Color[16];
 
-  private Image backImage;
+  private final int[] pixels = new int[GFX_W * GFX_H];
+  private final int[] palette = new int[256];
+
+  private BufferedImage backImage;
+  private BufferedImage gfxImg;
+  private final int[] rowBuf = new int[GFX_W];
+
+  private int mode = 0;
 
   private static final byte[] F8x16 = {
     (byte)0x00,(byte)0x00,(byte)0x00,(byte)0x00,(byte)0x00,(byte)0x00,(byte)0x00,(byte)0x00,
@@ -549,6 +560,15 @@ public class JVGAConsole extends JComponent implements MCS51Peripheral, XdataWri
     colTable[13] = new Color(0xFF00FF);
     colTable[14] = new Color(0xFFFF00);
     colTable[15] = new Color(0xFFFFFF);
+    for (int i = 0; i < 16; i++)
+      palette[i] = colTable[i].getRGB();
+    int idx = 16;
+    for (int r = 0; r < 6; r++)
+      for (int g = 0; g < 6; g++)
+        for (int b = 0; b < 6; b++)
+          palette[idx++] = (r * 51) << 16 | (g * 51) << 8 | (b * 51);
+    for (int i = 0; i < 24; i++)
+      palette[idx++] = (i * 11) << 16 | (i * 11) << 8 | (i * 11);
     for (int y = 0; y < HEIGHT; y++) {
       for (int x = 0; x < WIDTH; x++) {
         txt[y][x] = ' ';
@@ -564,6 +584,16 @@ public class JVGAConsole extends JComponent implements MCS51Peripheral, XdataWri
 
   @Override
   public boolean xdataWrite(int address, int value) {
+    if (address == MODE_REG) {
+      mode = value & 1;
+      repaint();
+      return true;
+    }
+    if (address >= GFX_BASE && address < GFX_BASE + pixels.length) {
+      pixels[address - GFX_BASE] = value & 0xFF;
+      repaint();
+      return true;
+    }
     if (address < BASE || address >= BASE + WIDTH * HEIGHT * 2)
       return false;
     int off = address - BASE;
@@ -575,6 +605,7 @@ public class JVGAConsole extends JComponent implements MCS51Peripheral, XdataWri
       colFG[y][x] = value & 0x0F;
       colBG[y][x] = (value >> 4) & 0x0F;
     }
+    backImage = null;
     repaint();
     return true;
   }
@@ -586,12 +617,30 @@ public class JVGAConsole extends JComponent implements MCS51Peripheral, XdataWri
 
   @Override
   public void paint(Graphics g) {
-    Dimension size = super.getSize();
-    if (backImage == null || backImage.getWidth(null) != size.width || backImage.getHeight(null) != size.height) {
-      backImage = createImage(size.width, size.height);
-      redrawAll(backImage.getGraphics());
+    if (mode == 0) {
+      Dimension size = super.getSize();
+      if (backImage == null || backImage.getWidth() != size.width || backImage.getHeight() != size.height) {
+        int w = Math.max(size.width, 1);
+        int h = Math.max(size.height, 1);
+        backImage = new BufferedImage(w, h, BufferedImage.TYPE_INT_RGB);
+        redrawAll(backImage.getGraphics());
+      }
+      g.drawImage(backImage, 0, 0, this);
+    } else {
+      if (gfxImg == null)
+        gfxImg = new BufferedImage(GFX_W, GFX_H, BufferedImage.TYPE_INT_RGB);
+      paintGfx(g);
     }
-    g.drawImage(backImage, 0, 0, this);
+  }
+
+  private void paintGfx(Graphics g) {
+    for (int y = 0; y < GFX_H; y++) {
+      int off = y * GFX_W;
+      for (int x = 0; x < GFX_W; x++)
+        rowBuf[x] = palette[pixels[off + x] & 0xFF];
+      gfxImg.setRGB(0, y, GFX_W, 1, rowBuf, 0, 0);
+    }
+    g.drawImage(gfxImg, 0, 0, this);
   }
 
   private void redrawAll(Graphics g) {
