@@ -1,8 +1,8 @@
 
-package BigIntegers;
+package math.BigIntegers;
 
-import static BigIntegers.LargeInteger.getEnd;
-import static BigIntegers.StaticFunctions.BigIntToBigNbr;
+import static math.BigIntegers.LargeInteger.getEnd;
+import static math.BigIntegers.StaticFunctions.BigIntToBigNbr;
 import static calculator.largemodel.Divide.DivBigNbrByLong;
 import static calculator.largemodel.Remainder.RemDivBigNbrByLong;
 import java.math.BigInteger;

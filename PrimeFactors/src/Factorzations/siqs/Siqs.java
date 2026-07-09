@@ -10,10 +10,10 @@
 // 
 package Factorzations.siqs;
 
-import BigIntegers.AprtCleInteger;
-import static BigIntegers.FactorInteger.DosALa31;
-import static BigIntegers.StaticFunctions.BigIntToBigNbr;
-import static BigIntegers.StaticFunctions.BigNbrToBigInt;
+import math.BigIntegers.AprtCleInteger;
+import static math.BigIntegers.FactorInteger.DosALa31;
+import static math.BigIntegers.StaticFunctions.BigIntToBigNbr;
+import static math.BigIntegers.StaticFunctions.BigNbrToBigInt;
 
 import static calculator.largemodel.Multiply.MultBigNbrByLong;
 import static calculator.largemodel.Remainder.RemDivBigNbrByLong;

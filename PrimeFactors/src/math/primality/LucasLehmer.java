@@ -1,5 +1,5 @@
 
-package ecm.PrimeTest;
+package math.primality;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -11,7 +11,7 @@ import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JProgressBar;
-import utilities.Zeef;
+import math.util.Zeef;
 
 /**
  *

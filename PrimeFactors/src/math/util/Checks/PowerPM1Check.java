@@ -1,7 +1,7 @@
 
-package ecm.Checks;
+package math.util.Checks;
 
-import BigIntegers.ECMBigInteger;
+import math.BigIntegers.ECMBigInteger;
 import java.math.BigInteger;
 import java.util.HashMap;
 

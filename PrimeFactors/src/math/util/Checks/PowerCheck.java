@@ -1,8 +1,8 @@
 
-package ecm.Checks;
+package math.util.Checks;
 
 import static Factorzations.ecm.StaticFunctions.modPow;
-import BigIntegers.ECMBigInteger;
+import math.BigIntegers.ECMBigInteger;
 import java.math.BigInteger;
 
 /**

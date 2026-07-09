@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Performance Tuning — Quadratic Sieve</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+<h1>Performance Tuning the Quadratic Sieve</h1>
+<p class="lesson-meta">
+  Reference · bottlenecks ranked by impact
+</p>
+
+<p>
+  This codebase's SIQS implementation works correctly but has several
+  performance problems that limit it to small inputs (~40 bits). Here are
+  the bottlenecks, ordered from most to least impactful.
+</p>
+
+<h2>1. Single-threaded execution</h2>
+<div class="code-ann">
+  <span class="line-ref">QuadraticSieve.java:36</span>
+  <span class="explanation">
+    <code>private final int threadCount = 1;</code> with a comment
+    <code>"not working on mac"</code>. The entire outer loop
+    (<code>execute()</code>) is designed for N threads each sieving
+    independent ranges, but only 1 runs. Fixing this gives an ×N
+    speedup (usually 4–8 on modern hardware).
+  </span>
+</div>
+
+<p><strong>The fix.</strong> The shared collections <code>bSmoothVectors</code>
+and <code>bigPrimesList</code> are accessed inside <code>synchronized(this)</code>
+blocks, so the locking already exists. The real issue is probably thread-safety
+in <code>BigPrimesList.add()</code> which uses <code>HashMap</code> and
+<code>LinkedList</code> — unsynchronized. Use
+<code>ConcurrentHashMap</code> or synchronize the method. Then set:
+</p>
+
+<pre><code>private final int threadCount = Runtime.getRuntime().availableProcessors();</code></pre>
+
+<h2>2. Unbounded y in testSolution</h2>
+<div class="code-ann">
+  <span class="line-ref">QuadraticSieve.java:236–251</span>
+  <span class="explanation">
+    <code>y = y.multiply(savedY)</code> — no <code>.mod(N)</code>!
+    The product grows to n<sup>5000</sup> (millions of bits), then
+    <code>y.sqrt()</code> on line 253 must operate on that monster.
+    This alone can make the algorithm hang for minutes.
+  </span>
+</div>
+
+<p><strong>The fix.</strong> Compute y modulo N, the same way x is handled:</p>
+
+<pre><code>y = y.multiply(savedY).mod(N);
+// ...
+// Instead of y.sqrt(), compute the square root mod N.
+// For the quadratic sieve, y should be a perfect square
+// (since all exponents are even). Compute it modulo N:
+BigInteger z2 = y.add(x).mod(N);
+BigInteger gcd = N.gcd(z2);
+</code></pre>
+
+<p>Actually, the full fix: y is the product of all g(a_i) for the
+dependency set. Since we know this product is a perfect square (by
+construction of the dependency), we can track its square root instead:</p>
+
+<pre><code>BigInteger y_root = BigInteger.ONE;
+for (...) {
+    y_root = y_root.multiply(savedY.sqrt()).mod(N);
+    // where savedY is guaranteed square in context
+}</code></pre>
+
+<h2>3. Array allocation in hot loop</h2>
+<div class="code-ann">
+  <span class="line-ref">QuadraticSieve.java:146–150</span>
+  <span class="explanation">
+    <code>sieve()</code> creates <code>logs</code>, <code>trueLogs</code>,
+    and <code>vectors</code> arrays for every call. Called 10,000 times
+    per batch with sieveVectorBound ≈ 48,611 — that's ~16 GB of array
+    allocations per batch. Massive GC churn.
+  </span>
+</div>
+
+<p><strong>The fix.</strong> Pre-allocate once and reuse:</p>
+
+<pre><code>private double[] logs, trueLogs;
+private VectorData[] vectors;
+
+// In constructor or init:
+logs = new double[sieveVectorBound];
+trueLogs = new double[sieveVectorBound];
+vectors = new VectorData[sieveVectorBound];
+
+// In sieve(), just zero them:
+Arrays.fill(logs, 0.0);
+Arrays.fill(trueLogs, 0.0);
+Arrays.fill(vectors, null);
+</code></pre>
+
+<h2>4. Wheel objects allocated every batch</h2>
+<div class="code-ann">
+  <span class="line-ref">QuadraticSieve.java:138–144</span>
+  <span class="explanation">
+    <code>initSieveWheels(position)</code> creates 5000 new Wheel
+    objects every 10,000 iterations. Each Wheel computes the Tonelli–Shanks
+    modular square root in its constructor (line 26). That's 50 million
+    Tonelli–Shanks calls for a full run.
+  </span>
+</div>
+
+<p><strong>The fix.</strong> The wheel's starting offset changes with each
+polynomial re-initialization (the <code>root</code> shifts). But the
+<strong>prime-specific</strong> data (the two solutions from Tonelli–Shanks)
+is invariant — only the offset relative to the current root changes. Create
+wheels once and recompute just the offset, not the full square root.</p>
+
+<h2>5. Gaussian elimination is O(n³)</h2>
+<div class="code-ann">
+  <span class="line-ref">BitMatrix.java:37–58</span>
+  <span class="explanation">
+    The double loop processes all rows for every column. With
+    B_SMOOTH = 5000, that's 125 billion XOR iterations in the worst case.
+    Each XOR operates on BitSets of length ~5000, so each is ~625 byte
+    operations — ~78 GB of memory operations.
+  </span>
+</div>
+
+<p>The biggest win here: use <strong>sparse elimination</strong>.
+Each relation has a very small number of non-zero entries (typically 5–10
+small primes divide g(x)). The matrix is <em>extremely</em> sparse, but
+the code represents it as dense BitSets. Better approaches:</p>
+
+<ul>
+  <li>
+    <strong>Markowitz pivot selection</strong> — pivot on the sparsest
+    rows/columns first to minimize fill-in
+  </li>
+  <li>
+    <strong>Block Lanczos method</strong> — the standard for large QS
+    post-processing; O(n²) or better for sparse matrices
+  </li>
+  <li>
+    <strong>Structured Gaussian elimination</strong> — separate the
+    matrix into dense and sparse parts, eliminate the sparse part first
+  </li>
+</ul>
+
+<h2>6. baseLog computed incorrectly for small positions</h2>
+<div class="code-ann">
+  <span class="line-ref">QuadraticSieve.java:133–136</span>
+  <span class="explanation">
+    <code>calculateBaseLog(position)</code> returns
+    <code>Math.log(position × (position + double2Root))</code>.
+    For position = 0, this gives log(0) = -Infinity. For small
+    positions, the approximation g(x) ≈ position² + 2·root·position
+    has a significant error because root² − N is not exactly 0.
+  </span>
+</div>
+
+<p><strong>The fix.</strong> Use the exact formula via BigInteger
+for positions near zero, falling back to the approximation for large
+positions where it's safe:</p>
+
+<pre><code>private double calculateBaseLog(double position) {
+    if (position &lt; SOME_THRESHOLD) {
+        BigInteger exact = root.add(BigInteger.valueOf((long)position))
+            .pow(2).subtract(N);
+        return Math.log(exact.doubleValue());
+    }
+    return Math.log(position * (position + double2Root));
+}
+</code></pre>
+
+<h2>7. tryToSolve called repeatedly</h2>
+<div class="code-ann">
+  <span class="line-ref">QuadraticSieve.java:88</span>
+  <span class="explanation">
+    <code>isReadyToBeSolved()</code> is checked after every sieve
+    call (every position). Once triggered, it calls
+    <code>tryToSolve()</code> which rebuilds the matrix from scratch
+    and re-does the full O(n³) elimination. If the dependency
+    doesn't yield a factor, this happens again with one more row.
+  </span>
+</div>
+
+<p><strong>The fix.</strong> Cache the reduced matrix. When a new relation
+arrives, use it as an additional constraint on the existing reduced matrix
+instead of recomputing from scratch. This is a standard technique in QS
+implementations.</p>
+
+<h2>8. Sieve interval is too small</h2>
+<div class="code-ann">
+  <span class="line-ref">QuadraticSieve.java:51</span>
+  <span class="explanation">
+    <code>sieveVectorBound = highestPrime.intValue()</code> — the
+    sieve interval equals the largest factor-base prime (~48,611 for
+    B_SMOOTH = 5000). Standard QS uses an interval of ~10⁵ to ~10⁶
+    values. A larger interval means more candidates per batch and
+    better cache utilization.
+  </span>
+</div>
+
+<p>The optimal sieve interval is a trade-off: larger intervals amortize the
+wheel setup cost but increase memory pressure. A common heuristic is
+interval = highestPrime × 10–100.</p>
+
+<h2>Prioritised Action List</h2>
+
+<table>
+  <tr><th>#</th><th>Fix</th><th>Expected speedup</th><th>Effort</th></tr>
+  <tr>
+    <td>1</td>
+    <td>Enable multi-threading</td>
+    <td>4–8×</td>
+    <td>Low (synchronize BigPrimesList)</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>Fix unbounded y in testSolution</td>
+    <td>Avoids hangs on any non-trivial input</td>
+    <td>Low</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>Reuse arrays in sieve()</td>
+    <td>2–5× (reduces GC pause time)</td>
+    <td>Low</td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>Reuse Wheel objects</td>
+    <td>1.5–3× (eliminates Tonelli–Shanks recomputation)</td>
+    <td>Medium</td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td>Sparse linear algebra</td>
+    <td>10–100× for large inputs</td>
+    <td>High</td>
+  </tr>
+  <tr>
+    <td>6</td>
+    <td>Fix baseLog for small positions</td>
+    <td>Correctness, avoids missed relations</td>
+    <td>Low</td>
+  </tr>
+  <tr>
+    <td>7</td>
+    <td>Cache reduced matrix</td>
+    <td>Avoids repeated O(n³) runs</td>
+    <td>Medium</td>
+  </tr>
+  <tr>
+    <td>8</td>
+    <td>Increase sieve interval</td>
+    <td>1.5–2×</td>
+    <td>Low</td>
+  </tr>
+</table>
+
+<h2>Further Reading</h2>
+
+<ul>
+  <li>
+    Contini, S. (1997).
+    <a href="https://web.archive.org/web/20150405063620/http://www.crypto-world.com/documents/contini_siqs.pdf">
+      Factoring Integers with the Self-Initializing Quadratic Sieve</a>.
+    Chapter 5: Implementation Issues.
+  </li>
+  <li>
+    Crandall & Pomerance (2005). <em>Prime Numbers</em>, §6.1.
+    Detailed analysis of optimal parameter selection.
+  </li>
+  <li>
+    <a href="https://sourceforge.net/projects/msieve/">msieve</a> —
+    Jason Papadopoulos's implementation. Reference for sparse
+    elimination and Block Lanczos.
+  </li>
+</ul>
+
+</body>
+</html>

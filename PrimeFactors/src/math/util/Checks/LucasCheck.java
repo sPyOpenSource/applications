@@ -1,7 +1,7 @@
 
-package ecm.Checks;
+package math.util.Checks;
 
-import BigIntegers.AprtCleInteger;
+import math.BigIntegers.AprtCleInteger;
 import java.math.BigInteger;
 
 /**

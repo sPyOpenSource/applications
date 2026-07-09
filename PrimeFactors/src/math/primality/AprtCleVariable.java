@@ -1,7 +1,7 @@
 
-package ecm.PrimeTest;
+package math.primality;
 
-import static BigIntegers.FactorInteger.NLen;
+import static math.BigIntegers.FactorInteger.NLen;
 
 /**
  *

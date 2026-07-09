@@ -1,9 +1,9 @@
 
-package BigIntegers;
+package math.BigIntegers;
 
-import static BigIntegers.FactorInteger.MaxUInt;
-import static BigIntegers.MontgomeryInteger.dDosALa31;
-import static BigIntegers.MontgomeryInteger.dDosALa62;
+import static math.BigIntegers.FactorInteger.MaxUInt;
+import static math.BigIntegers.MontgomeryInteger.dDosALa31;
+import static math.BigIntegers.MontgomeryInteger.dDosALa62;
 import java.math.BigInteger;
 
 /**

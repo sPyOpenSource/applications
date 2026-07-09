@@ -1,9 +1,9 @@
 
 package Factorzations;
 
-import BigIntegers.AprtCleInteger;
-import BigIntegers.LargeInteger;
-import static BigIntegers.LargeInteger.isPrime;
+import math.BigIntegers.AprtCleInteger;
+import math.BigIntegers.LargeInteger;
+import static math.BigIntegers.LargeInteger.isPrime;
 import Factorzations.ecm.ECM;
 import Factorzations.siqs.Siqs;
 import static Factorzations.siqs.StaticFunctions.isProbablePrime;
@@ -18,16 +18,16 @@ import calculator.largemodel.Power;
 import calculator.largemodel.Remainder;
 import calculator.largemodel.Subtract;
 
-import static BigIntegers.FactorInteger.TYP_AURIF;
-import static BigIntegers.FactorInteger.TYP_EC;
-import static BigIntegers.FactorInteger.TYP_LEHMAN;
-import static BigIntegers.FactorInteger.TYP_SIQS;
+import static math.BigIntegers.FactorInteger.TYP_AURIF;
+import static math.BigIntegers.FactorInteger.TYP_EC;
+import static math.BigIntegers.FactorInteger.TYP_LEHMAN;
+import static math.BigIntegers.FactorInteger.TYP_SIQS;
 
-import ecm.Checks.FibonacciCheck;
-import ecm.Checks.LucasCheck;
-import ecm.Checks.PowerCheck;
-import ecm.Checks.PowerPM1Check;
-import ecm.PrimeTest.AprtCle;
+import math.util.Checks.FibonacciCheck;
+import math.util.Checks.LucasCheck;
+import math.util.Checks.PowerCheck;
+import math.util.Checks.PowerPM1Check;
+import math.primality.AprtCle;
 
 import java.math.BigInteger;
 import java.util.logging.Level;

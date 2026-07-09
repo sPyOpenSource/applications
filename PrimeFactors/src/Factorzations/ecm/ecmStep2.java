@@ -1,12 +1,12 @@
 
 package Factorzations.ecm;
 
-import BigIntegers.AprtCleInteger;
-import static BigIntegers.FactorInteger.NLen;
-import static BigIntegers.StaticFunctions.BigNbrAreEqual;
-import static BigIntegers.StaticFunctions.BigNbrIsZero;
-import ecm.BigIntegers.GCD;
-import static ecm.BigIntegers.ModInv.ModInvBigNbr;
+import math.BigIntegers.AprtCleInteger;
+import static math.BigIntegers.FactorInteger.NLen;
+import static math.BigIntegers.StaticFunctions.BigNbrAreEqual;
+import static math.BigIntegers.StaticFunctions.BigNbrIsZero;
+import math.BigIntegers.ecm.GCD;
+import static math.BigIntegers.ecm.ModInv.ModInvBigNbr;
 
 /**
  * small prime order

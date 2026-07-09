@@ -1,17 +1,17 @@
 
-package ecm.PrimeTest;
+package math.primality;
 
-import BigIntegers.AprtCleInteger;
+import math.BigIntegers.AprtCleInteger;
 import static Factorzations.ecm.StaticFunctions.MultBigNbrByLongModN;
 
-import static BigIntegers.StaticFunctions.AddBigNbrModN;
-import static BigIntegers.StaticFunctions.BigNbrAreEqual;
-import static BigIntegers.StaticFunctions.BigNbrIsZero;
+import static math.BigIntegers.StaticFunctions.AddBigNbrModN;
+import static math.BigIntegers.StaticFunctions.BigNbrAreEqual;
+import static math.BigIntegers.StaticFunctions.BigNbrIsZero;
 
 import static calculator.largemodel.Divide.DivBigNbrByLong;
 import static calculator.largemodel.Multiply.MultBigNbrByLong;
-import static ecm.PrimeTest.AprtCleVariable.LEVELmax;
-import static ecm.PrimeTest.AprtCleVariable.PWmax;
+import static math.primality.AprtCleVariable.LEVELmax;
+import static math.primality.AprtCleVariable.PWmax;
 
 /**
  *

@@ -1,15 +1,15 @@
 
-package ecm.PrimeTest;
+package math.primality;
 
 import static Factorzations.ecm.StaticFunctions.LongToBigNbr;
 import static Factorzations.ecm.StaticFunctions.MultBigNbrByLongModN;
 
-import static BigIntegers.StaticFunctions.AddBigNbrModN;
-import static BigIntegers.StaticFunctions.BigNbrIsZero;
-import static BigIntegers.StaticFunctions.MultBigNbrModN;
-import static BigIntegers.MontgomeryInteger.dDosALa31;
-import static BigIntegers.MontgomeryInteger.dDosALa62;
-import BigIntegers.AprtCleInteger;
+import static math.BigIntegers.StaticFunctions.AddBigNbrModN;
+import static math.BigIntegers.StaticFunctions.BigNbrIsZero;
+import static math.BigIntegers.StaticFunctions.MultBigNbrModN;
+import static math.BigIntegers.MontgomeryInteger.dDosALa31;
+import static math.BigIntegers.MontgomeryInteger.dDosALa62;
+import math.BigIntegers.AprtCleInteger;
 
 /**
  *

@@ -1,7 +1,7 @@
 
 package Factorzations;
 
-import static BigIntegers.FactorInteger.BigInt3;
+import static math.BigIntegers.FactorInteger.BigInt3;
 import java.math.BigInteger;
 
 /**

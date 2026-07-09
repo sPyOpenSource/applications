@@ -1,8 +1,8 @@
 
-package ecm.BigIntegers;
+package math.BigIntegers.ecm;
 
-import static BigIntegers.FactorInteger.NLen;
-import BigIntegers.StaticFunctions;
+import static math.BigIntegers.FactorInteger.NLen;
+import math.BigIntegers.StaticFunctions;
 import static calculator.largemodel.Add.AddBigNbr32;
 import static calculator.largemodel.Subtract.SubtractBigNbr32;
 

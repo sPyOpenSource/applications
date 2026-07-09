@@ -1,5 +1,5 @@
 
-package utilities;
+package math.util;
 
 /** This class implements a counter in which the bits are reversed.
  *  It is constructed with a mask, which should contain a single

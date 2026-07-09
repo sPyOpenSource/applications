@@ -1,16 +1,16 @@
 
-package BigIntegers;
+package math.BigIntegers;
 
-import static BigIntegers.FactorInteger.NLen;
-import static BigIntegers.StaticFunctions.BigNbrIsZero;
+import static math.BigIntegers.FactorInteger.NLen;
+import static math.BigIntegers.StaticFunctions.BigNbrIsZero;
 import static Factorzations.ecm.StaticFunctions.MultBigNbrByLongModN;
 import static Factorzations.ecm.StaticFunctions.SubtractBigNbrModN;
 
 import static calculator.largemodel.Add.AddBigNbr;
 import static calculator.largemodel.Multiply.MultBigNbr;
 import static calculator.largemodel.Subtract.SubtractBigNbr;
-import static ecm.BigIntegers.GCD.GcdBigNbr;
-import ecm.PrimeTest.AprtCleVariable;
+import static math.BigIntegers.ecm.GCD.GcdBigNbr;
+import math.primality.AprtCleVariable;
 import java.math.BigInteger;
 
 /**

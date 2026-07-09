@@ -1,12 +1,12 @@
 package Factorzations.ecm;
 
-import static BigIntegers.FactorInteger.MaxUInt;
+import static math.BigIntegers.FactorInteger.MaxUInt;
 
 /**
  *
  * @author xuyi
  */
-public class StaticFunctions extends BigIntegers.StaticFunctions {
+public class StaticFunctions extends math.BigIntegers.StaticFunctions {
     public static long modPow(long NbrMod, long Expon, long currentPrime){
         long Power = 1;
         long Square = NbrMod;

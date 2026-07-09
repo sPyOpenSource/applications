@@ -1,7 +1,7 @@
 
 package Factorzations.siqs;
 
-import BigIntegers.AprtCleInteger;
+import math.BigIntegers.AprtCleInteger;
 import static Factorzations.ecm.StaticFunctions.LongToBigNbr;
 import static Factorzations.ecm.StaticFunctions.MultBigNbrByLongModN;
 import static Factorzations.ecm.StaticFunctions.SubtractBigNbrModN;
@@ -15,8 +15,8 @@ import static Factorzations.siqs.Siqs.TestNbr1;
 import static Factorzations.siqs.Relation.matrixB;
 import static Factorzations.siqs.Relation.nbrPrimes1;
 import static calculator.largemodel.Subtract.SubtractBigNbr;
-import static BigIntegers.StaticFunctions.MultBigNbrModN;
-import static ecm.BigIntegers.GCD.GcdBigNbr;
+import static math.BigIntegers.StaticFunctions.MultBigNbrModN;
+import static math.BigIntegers.ecm.GCD.GcdBigNbr;
 
 /**
  *

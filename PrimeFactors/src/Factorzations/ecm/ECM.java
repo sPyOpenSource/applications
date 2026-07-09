@@ -1,9 +1,9 @@
 
 package Factorzations.ecm;
 
-import BigIntegers.AprtCleInteger;
-import static BigIntegers.StaticFunctions.BigIntToBigNbr;
-import static BigIntegers.StaticFunctions.BigNbrAreEqual;
+import math.BigIntegers.AprtCleInteger;
+import static math.BigIntegers.StaticFunctions.BigIntToBigNbr;
+import static math.BigIntegers.StaticFunctions.BigNbrAreEqual;
 import Factorzations.Lehman;
 import static Factorzations.ecm.ecmStep0.limits;
 

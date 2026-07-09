@@ -1,7 +1,7 @@
 
-package ecm.BigIntegers;
+package math.BigIntegers.ecm;
 
-import static BigIntegers.FactorInteger.NLen;
+import static math.BigIntegers.FactorInteger.NLen;
 import static calculator.largemodel.Add.AddBigNbr;
 import static calculator.largemodel.ChangeSigns.ChSignBigNbr;
 import static calculator.largemodel.Divide.DivBigNbrByLong;

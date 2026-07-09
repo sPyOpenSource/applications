@@ -4,8 +4,8 @@ package Factorzations.siqs;
 import static Factorzations.ecm.StaticFunctions.LongToBigNbr;
 import static Factorzations.ecm.StaticFunctions.MultBigNbrByLongModN;
 
-import static BigIntegers.StaticFunctions.AddBigNbrModN;
-import static BigIntegers.StaticFunctions.MultBigNbrModN;
+import static math.BigIntegers.StaticFunctions.AddBigNbrModN;
+import static math.BigIntegers.StaticFunctions.MultBigNbrModN;
 
 import static calculator.largemodel.Add.AddBigNbr;
 import static calculator.largemodel.ChangeSigns.ChSignBigNbr;
@@ -25,7 +25,7 @@ import static Factorzations.siqs.Siqs.nbrFactorsA;
 import static Factorzations.siqs.Siqs.vectLeftHandSide;
 
 import com.gazman.factor.VectorData;
-import ecm.BigIntegers.ModInv;
+import math.BigIntegers.ecm.ModInv;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;

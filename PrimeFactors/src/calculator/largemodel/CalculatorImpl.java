@@ -10,7 +10,7 @@ import calculator.CalculatorUI;
 import calculator.ConvertBase;
 import calculator.EmptyDequeException;
 import calculator.EncodedOperation;
-import BigIntegers.LargeInteger;
+import math.BigIntegers.LargeInteger;
 import calculator.Operation;
 import calculator.Deque;
 import calculator.javamodel.ClearStack;

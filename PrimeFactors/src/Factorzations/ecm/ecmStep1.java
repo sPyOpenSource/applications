@@ -1,11 +1,11 @@
  
 package Factorzations.ecm;
 
-import BigIntegers.AprtCleInteger;
-import static BigIntegers.FactorInteger.NLen;
-import static BigIntegers.StaticFunctions.BigNbrAreEqual;
-import static BigIntegers.StaticFunctions.BigNbrIsZero;
-import static ecm.BigIntegers.GCD.GcdBigNbr;
+import math.BigIntegers.AprtCleInteger;
+import static math.BigIntegers.FactorInteger.NLen;
+import static math.BigIntegers.StaticFunctions.BigNbrAreEqual;
+import static math.BigIntegers.StaticFunctions.BigNbrIsZero;
+import static math.BigIntegers.ecm.GCD.GcdBigNbr;
 
 /**
  * neutral element

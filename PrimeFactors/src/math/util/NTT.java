@@ -1,5 +1,5 @@
 
-package utilities;
+package math.util;
 
 /* 
  * Number-theoretic transform library (Java)

@@ -3,14 +3,14 @@
  *
  * Copyright (c) 2001 Rod Howell, All Rights Reserved.
  */
-package BigIntegers;
+package math.BigIntegers;
 
-import static BigIntegers.StaticFunctions.BigIntToBigNbr;
+import static math.BigIntegers.StaticFunctions.BigIntToBigNbr;
 import java.math.BigInteger;
-import utilities.BitReverseCounter;
-import utilities.FFT;
-import static utilities.FFT.roots;
-import utilities.NTT;
+import math.util.BitReverseCounter;
+import math.util.FFT;
+import static math.util.FFT.roots;
+import math.util.NTT;
 
 /**
  * A class which implements aribitrary-precision integer arithmetic.

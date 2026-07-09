@@ -1,7 +1,7 @@
 
-package BigIntegers;
+package math.BigIntegers;
 
-import static BigIntegers.StaticFunctions.BigNbrToBigInt;
+import static math.BigIntegers.StaticFunctions.BigNbrToBigInt;
 
 /**
  * Example: Curve25519

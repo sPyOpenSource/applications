@@ -1,5 +1,5 @@
 
-package BigIntegers;
+package math.BigIntegers;
 
 import static Factorzations.ecm.StaticFunctions.Cos;
 import static Factorzations.siqs.StaticFunctions.JacobiSymbol;

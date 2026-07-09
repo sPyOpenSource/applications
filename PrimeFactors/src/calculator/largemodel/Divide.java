@@ -6,7 +6,7 @@
 
 package calculator.largemodel;
 
-import BigIntegers.LargeInteger;
+import math.BigIntegers.LargeInteger;
 import calculator.EncodedOperation;
 import static calculator.largemodel.ChangeSigns.ChSignBigNbr;
 

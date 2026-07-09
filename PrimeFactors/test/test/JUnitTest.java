@@ -1,10 +1,10 @@
 
 package test;
 
-import BigIntegers.AprtCleInteger;
-import static BigIntegers.ECMBigInteger.Moebius;
-import static BigIntegers.ECMBigInteger.Totient;
-import BigIntegers.LargeInteger;
+import math.BigIntegers.AprtCleInteger;
+import static math.BigIntegers.ECMBigInteger.Moebius;
+import static math.BigIntegers.ECMBigInteger.Totient;
+import math.BigIntegers.LargeInteger;
 import Factorzations.Classical;
 import Factorzations.Lehman;
 import Factorzations.ecm.ECM;
@@ -19,13 +19,13 @@ import static Factorzations.ecm.StaticFunctions.modPow;
 import com.gazman.factor.VectorData;
 import com.gazman.factor.matrix.BitMatrix;
 
-import ecm.PrimeTest.AprtCle;
-import ecm.BigIntegers.ModInv;
-import ecm.Checks.PowerPM1Check;
-import ecm.BigIntegers.GCD;
-import ecm.Checks.FibonacciCheck;
-import ecm.Checks.LucasCheck;
-import ecm.Checks.PowerCheck;
+import math.primality.AprtCle;
+import math.BigIntegers.ecm.ModInv;
+import math.util.Checks.PowerPM1Check;
+import math.BigIntegers.ecm.GCD;
+import math.util.Checks.FibonacciCheck;
+import math.util.Checks.LucasCheck;
+import math.util.Checks.PowerCheck;
 
 import java.util.Random;
 import java.math.BigInteger;
@@ -37,8 +37,8 @@ import junit.framework.TestCase;
 import static junit.framework.TestCase.assertEquals;
 import static org.junit.Assert.assertArrayEquals;
 import org.junit.Test;
-import utilities.FFT;
-import utilities.NTT;
+import math.util.FFT;
+import math.util.NTT;
 
 /**
  *

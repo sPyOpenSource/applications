@@ -6,8 +6,8 @@
 
 package calculator.largemodel;
 
-import static BigIntegers.FactorInteger.MaxUInt;
-import BigIntegers.LargeInteger;
+import static math.BigIntegers.FactorInteger.MaxUInt;
+import math.BigIntegers.LargeInteger;
 import calculator.EncodedOperation;
 
 /**
