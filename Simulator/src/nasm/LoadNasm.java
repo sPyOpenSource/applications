@@ -640,7 +640,7 @@ public class LoadNasm extends DepthFirstAdapter {
         Operand destination = operand;
         node.getAcr().apply(this);
         Operand source = label;
-        inst = new Or(lineLabel, destination, source, "");
+        inst = new And(lineLabel, destination, source, "");
         outAAndInst(node);
     }
 

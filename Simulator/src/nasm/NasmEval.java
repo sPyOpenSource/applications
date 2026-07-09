@@ -4,98 +4,75 @@ import java.io.FileNotFoundException;
 import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.HashMap;
+import jCPU.x86.X86Core;
 import nasm.expr.*;
 import nasm.inst.*;
 import util.Memory;
 
-/*
- * This class emulates pre-nasm and nasm code for x86-64 architecture.
- * It handles only integers on 4 bytes and have unlimited register.
- */
 public class NasmEval implements NasmVisitor<Integer>{
     private final Nasm code;
     private int dataSize = 0;
 
     private final int regNb;
     private final HashMap<String, Integer> labelToAddress;
-    private final Memory memory;
+    private final X86Core core;
     private boolean stop;
     private final ArrayList<Integer> output;
 
-    // registers
-    private final int[] registers;
-    
-    private int ebp;
-    private int eip = 0;
-    private int eax = 0; 
-    private int ebx = 0; 
-    private int ecx = 0; 
-    private int edx = 0; 
-    
-    //flags
-    // Carry Flag -> not used
-    private final boolean CF = false;
-    // Parity Flag -> not used
-    private final boolean PF = false;
-    // Zero Flag
-    private boolean ZF = false;
-    // Sign Flag
-    private boolean SF = false;
-    // Overflow Flag -> not used
-    private final boolean OF = false;
-	
     private final int verboseLevel;
 
-    public NasmEval(Nasm code, int stackSize, int verboseLevel){
+    public NasmEval(Nasm code, X86Core core, int stackSize, int verboseLevel){
         this.code = code;
+        this.core = core;
 	this.verboseLevel = verboseLevel;
 	regNb = this.code.getTempCounter();
-        registers = new int[regNb + 1];
-        eip = 0;
         stop = false;
 
         output = new ArrayList<>();
 	labelToAddress = new HashMap<>();
 
 	associateLabelToAddress();
-       	memory = new Memory(dataSize, stackSize);
-	
-        /*while(!stop && eip < code.sectionText.size()){
-	    execute();
-        }*/
-	//	displayOutput();
+       	core.setReg(X86Core.REG_ESP, core.getReg(X86Core.REG_ESP) - stackSize * 4);
     }
-    
+
+    public boolean isStopped() {
+        return stop;
+    }
+
     public void execute(){
-        NasmInst inst = this.code.sectionText.get(eip);
+        NasmInst inst = this.code.sectionText.get(core.getPC());
         if(verboseLevel > 0){
             System.out.println("--------------------------------------");
-
             PrintGlobalVariables();
-            //		System.out.println("eip = " + eip + "\tesp = " + memory.getTopInt() + "\t ebp = " + ebp);
-            System.out.println("eip = " + eip + "\tesp = " + memory.esp + "\t ebp = " + ebp);
-            System.out.println("eax = " + eax + "\tebx = " + ebx + "\tecx = " + ecx + "\tedx = " + edx);
-            System.out.println("CF = " + CF + "\tPF = " + PF + "\tZF = " + ZF + "\tSF = " + SF + "\tOF = " + OF);
+            System.out.println("eip = " + core.getPC() + "\tesp = " + core.getReg(X86Core.REG_ESP) + "\t ebp = " + core.getReg(X86Core.REG_EBP));
+            System.out.println("eax = " + core.getReg(X86Core.REG_EAX) + "\tebx = " + core.getReg(X86Core.REG_EBX) + "\tecx = " + core.getReg(X86Core.REG_ECX) + "\tedx = " + core.getReg(X86Core.REG_EDX));
+            System.out.println("CF = " + core.getFlag(X86Core.FLAG_CF) + "\tPF = " + core.getFlag(X86Core.FLAG_PF) + "\tZF = " + core.getFlag(X86Core.FLAG_ZF) + "\tSF = " + core.getFlag(X86Core.FLAG_SF) + "\tOF = " + core.getFlag(X86Core.FLAG_OF));
             printRegisters();
             System.out.print("PILE : \t");
-            memory.printStack();
+            printStack();
             System.out.println(inst);
         }
-        eip = inst.accept(this);
+        core.setPC(inst.accept(this));
     }
-    
+
+    private void printStack() {
+        int ss = core.getReg(X86Core.REG_ESP);
+        for (int addr = ss + 12; addr > core.getReg(X86Core.REG_ESP); addr -= 4) {
+            System.out.print(core.readMem32(addr) + " ");
+        }
+        System.out.println();
+    }
+
     public void PrintGlobalVariables(){
         for (HashMap.Entry<String, Integer> e : labelToAddress.entrySet()){
-	    //   	System.out.println("[" + e.getValue() + "]\t" + e.getKey() + " = " + memory.readInt(e.getValue()));
-            System.out.println(e.getKey() + " = " + memory.readInt(e.getValue()) + " adr: " + e.getValue());
+            System.out.println(e.getKey() + " = " + core.readMem32(e.getValue()) + " adr: " + e.getValue());
         }
     }
-	
+
     public void printRegisters(){
 	for(int i = 0; i < regNb; i++){
-	    System.out.print("r" + i + ":" + registers[i] + "\t");
+	    System.out.print("r" + i + ":" + core.getReg(X86Core.REG_VIRTUAL_BASE + i) + "\t");
 	}
-	//	System.out.println();
     }
 
     public void displayOutput(){
@@ -111,18 +88,15 @@ public class NasmEval implements NasmVisitor<Integer>{
 
     private void associateLabelToAddress(){
         var instructions = code.sectionText;
-	// associate labels to line numbers
         for(int lineNb = 0; lineNb <instructions.size(); lineNb++){
             if(instructions.get(lineNb).label != null) {
                 var label = (Label)instructions.get(lineNb).label;
                 labelToAddress.put(label.val, lineNb);
             }
         }
-	// compute addresses of global variables and associate them to labels
 	for(int i = 0; i < code.sectionBss.size(); i++){
 	    PseudoInst pseudoInst = this.code.sectionBss.get(i);
 	    labelToAddress.put(pseudoInst.label.val, dataSize);
-	    //	    System.out.println("var :" + pseudoInst.label.val + " address = " + dataSize);
 	    dataSize += pseudoInst.nb * pseudoInst.sizeInBytes;
 	}
     }
@@ -134,10 +108,10 @@ public class NasmEval implements NasmVisitor<Integer>{
 	else if(dest instanceof NasmRegister nasmRegister)
 	    copy(nasmRegister, value);
     }
-    
+
     private void copy(NasmAddress dest, int value){
 	int address = dest.val.accept(this);
-	memory.writeInt(address, value);
+	core.writeMem32(address, value);
     }
 
     private void copy(NasmRegister dest, int value){
@@ -146,66 +120,50 @@ public class NasmEval implements NasmVisitor<Integer>{
 
     /*------------------------------------------*/
 
-    // return value stored in regiter
     private int readFromRegister(NasmRegister reg){
 	if(reg.color == Nasm.REG_EAX)
-	    return eax;
+	    return core.getReg(X86Core.REG_EAX);
 	if (reg.color == Nasm.REG_EBX)
-	    return ebx;
+	    return core.getReg(X86Core.REG_EBX);
 	if (reg.color == Nasm.REG_ECX)
-	    return ecx;
+	    return core.getReg(X86Core.REG_ECX);
 	if (reg.color == Nasm.REG_EDX)
-	    return edx;
+	    return core.getReg(X86Core.REG_EDX);
 	if (reg.color == Nasm.REG_ESP)
-	    return memory.esp;
+	    return core.getReg(X86Core.REG_ESP);
 	if (reg.color == Nasm.REG_EBP)
-	    return ebp;
+	    return core.getReg(X86Core.REG_EBP);
 	else
-	    return registers[reg.val];
-
+	    return core.getReg(X86Core.REG_VIRTUAL_BASE + reg.val);
     }
-    
-    // write in a register
+
     private void writeToRegister(NasmRegister reg, int value){
 	if(reg.color == Nasm.REG_EAX)
-	    eax = value;
+	    core.setReg(X86Core.REG_EAX, value);
 	else if (reg.color == Nasm.REG_EBX)
-	    ebx = value;
+	    core.setReg(X86Core.REG_EBX, value);
 	else if (reg.color == Nasm.REG_ECX)
-	    ecx = value;
+	    core.setReg(X86Core.REG_ECX, value);
 	else if (reg.color == Nasm.REG_EDX)
-	    edx = value;
+	    core.setReg(X86Core.REG_EDX, value);
 	else if (reg.color == Nasm.REG_ESP)
-	    memory.esp = value;
+	    core.setReg(X86Core.REG_ESP, value);
 	else if (reg.color == Nasm.REG_EBP)
-	    ebp = value;
+	    core.setReg(X86Core.REG_EBP, value);
 	else
-	    registers[reg.val] = value;
+	    core.setReg(X86Core.REG_VIRTUAL_BASE + reg.val, value);
     }
 
     /* visit address -> return the value stored at this address */
     @Override
     public Integer visit(NasmAddress adr) {
-	return memory.readInt(adr.val.accept(this));
+	return core.readMem32(adr.val.accept(this));
     }
 
     /* visit register -> return the value stored in the register */
     @Override
     public Integer visit(NasmRegister operand) {
-	if(operand.color == Nasm.REG_EAX)
-	    return eax;
-	if (operand.color == Nasm.REG_EBX)
-	    return ebx;
-	if (operand.color == Nasm.REG_ECX)
-	    return ecx;
-	if (operand.color == Nasm.REG_EDX)
-	    return edx;
-	if (operand.color == Nasm.REG_ESP)
-	    return memory.esp;
-	if (operand.color == Nasm.REG_EBP)
-	    return ebp;
-	else
-	    return registers[operand.val];
+	return readFromRegister(operand);
     }
 
     /* visit constant -> return value of the constant */
@@ -225,67 +183,67 @@ public class NasmEval implements NasmVisitor<Integer>{
 
     /* visiting an instruction returns new value of eip */
     /* arithmetic operations */
-    
+
     @Override
     public Integer visit(Add inst) {
 	copy(inst.destination, inst.source.accept(this) + inst.destination.accept(this));
-        return eip + 1;
+        return core.getPC() + 1;
     }
 
     @Override
     public Integer visit(Sub inst) {
         copy(inst.destination, inst.destination.accept(this) - inst.source.accept(this));
-	return eip + 1;
+	return core.getPC() + 1;
     }
 
     @Override
     public Integer visit(Mul inst) {
         copy(inst.destination, inst.source.accept(this) * inst.destination.accept(this));
-	return eip + 1;
+	return core.getPC() + 1;
     }
 
     @Override
     public Integer visit(Div inst) {
         var divisor  = inst.source.accept(this);
-        var temp = eax;
-        eax = temp / divisor;
-        edx = temp % divisor;
-	return eip + 1;
+        var temp = core.getReg(X86Core.REG_EAX);
+        core.setReg(X86Core.REG_EAX, temp / divisor);
+        core.setReg(X86Core.REG_EDX, temp % divisor);
+	return core.getPC() + 1;
     }
 
     /* logical operations */
     @Override
     public Integer visit(Or inst) {
         copy(inst.destination, inst.source.accept(this) | inst.destination.accept(this));
-        return eip + 1;
+        return core.getPC() + 1;
     }
 
     @Override
     public Integer visit(Not inst) {
         copy(inst.destination, ~ inst.destination.accept(this));
-        return eip + 1;
+        return core.getPC() + 1;
     }
 
     @Override
     public Integer visit(Xor inst) {
         copy(inst.destination, inst.source.accept(this) ^ inst.destination.accept(this));
-	return eip + 1;
+	return core.getPC() + 1;
     }
 
     @Override
     public Integer visit(And inst) {
         copy(inst.destination, inst.source.accept(this) & inst.destination.accept(this));
-	return eip + 1;
+	return core.getPC() + 1;
     }
 
     /* function call */
     @Override
     public Integer visit(Call inst) {
         if(inst.address instanceof Label && ((Label)inst.address).val.equals("iprintLF")){
-            output.add(eax);
-	    return eip + 1;
+            output.add(core.getReg(X86Core.REG_EAX));
+	    return core.getPC() + 1;
 	}
-	memory.pushInt(eip);
+	core.push32(core.getPC());
 	return inst.address.accept(this);
     }
 
@@ -294,40 +252,40 @@ public class NasmEval implements NasmVisitor<Integer>{
     public Integer visit(Cmp inst) {
         int valSrc = inst.source.accept(this);
         int valDest = inst.destination.accept(this);
-        ZF = (valDest == valSrc);
-	SF = (valDest < valSrc);
-        return eip + 1;
+        core.setFlag(X86Core.FLAG_ZF, valDest == valSrc);
+	core.setFlag(X86Core.FLAG_SF, valDest < valSrc);
+        return core.getPC() + 1;
     }
-    
+
     /* jumps */
     @Override
     public Integer visit(Je inst) {
-        return (ZF)? inst.address.accept(this) : eip + 1;
+        return core.getFlag(X86Core.FLAG_ZF) ? inst.address.accept(this) : core.getPC() + 1;
     }
 
     @Override
     public Integer visit(Jle inst) {
-        return (ZF || SF)? inst.address.accept(this) : eip + 1;
+        return (core.getFlag(X86Core.FLAG_ZF) || core.getFlag(X86Core.FLAG_SF)) ? inst.address.accept(this) : core.getPC() + 1;
     }
 
     @Override
     public Integer visit(Jne inst) {
-        return (!ZF)? inst.address.accept(this) : eip + 1;
+        return (!core.getFlag(X86Core.FLAG_ZF)) ? inst.address.accept(this) : core.getPC() + 1;
     }
 
     @Override
     public Integer visit(Jge inst) {
-        return (ZF || !SF)? inst.address.accept(this) : eip + 1;
+        return (core.getFlag(X86Core.FLAG_ZF) || !core.getFlag(X86Core.FLAG_SF)) ? inst.address.accept(this) : core.getPC() + 1;
     }
 
     @Override
     public Integer visit(Jl inst) {
-	return (!ZF && SF)? inst.address.accept(this) : eip + 1;
+	return (!core.getFlag(X86Core.FLAG_ZF) && core.getFlag(X86Core.FLAG_SF)) ? inst.address.accept(this) : core.getPC() + 1;
     }
 
     @Override
     public Integer visit(Jg inst) {
-        return (!ZF || SF)? inst.address.accept(this) : eip + 1;
+        return (!core.getFlag(X86Core.FLAG_ZF) || core.getFlag(X86Core.FLAG_SF)) ? inst.address.accept(this) : core.getPC() + 1;
     }
 
     @Override
@@ -337,32 +295,32 @@ public class NasmEval implements NasmVisitor<Integer>{
 
     @Override
     public Integer visit(Pop inst) {
-        copy(inst.destination, memory.popInt());
-	return eip + 1;
+        copy(inst.destination, core.pop32());
+	return core.getPC() + 1;
     }
 
     @Override
     public Integer visit(Push inst) {
-        memory.pushInt(inst.source.accept(this));
-        return eip + 1;
+        core.push32(inst.source.accept(this));
+        return core.getPC() + 1;
     }
 
     @Override
     public Integer visit(Ret inst) {
-        return memory.popInt() + 1;
+        return core.pop32() + 1;
     }
 
     @Override
     public Integer visit(Mov inst) {
         copy(inst.destination, inst.source.accept(this));
-	return eip + 1;
+	return core.getPC() + 1;
     }
 
     @Override
     public Integer visit(Int inst) {
-        if(eax == 1)
+        if(core.getReg(X86Core.REG_EAX) == 1)
             stop = true;
-        return eip + 1;
+        return core.getPC() + 1;
     }
 
     @Override
@@ -372,7 +330,7 @@ public class NasmEval implements NasmVisitor<Integer>{
 
     @Override
     public Integer visit(Empty inst) {
-        return eip + 1;
+        return core.getPC() + 1;
     }
 
     @Override
@@ -387,9 +345,9 @@ public class NasmEval implements NasmVisitor<Integer>{
     public Integer visit(Rest pseudoInst){return 0;}
 
     /* visit expression -> returns an address */
-    
+
     @Override
-    public Integer visit(NasmExp exp) { /* c'est moche, il faudrait modifier ça !! */
+    public Integer visit(NasmExp exp) {
 	if(exp instanceof Label label)
 	    return label.accept(this);
 
@@ -408,7 +366,6 @@ public class NasmEval implements NasmVisitor<Integer>{
 	if(exp instanceof ExpMinus expMinus)
 	    return expMinus.accept(this);
 
-	//	if(exp instanceof NasmExpTimes)
 	    return ((ExpTimes)exp).accept(this);
     }
     @Override
@@ -420,11 +377,11 @@ public class NasmEval implements NasmVisitor<Integer>{
 
     @Override
     public Integer visit(Equ pseudoInst) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
     public Integer visit(Org pseudoInst) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 }
