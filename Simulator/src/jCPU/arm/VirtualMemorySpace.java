@@ -9,7 +9,7 @@ import java.util.logging.Logger;
 public final class VirtualMemorySpace  implements iMemory {
 	private final PhysicalMemorySpace mem;
 	private final Debugger debugger;
-	private final java.util.Map<Integer, Peripheral> mmioMap = new java.util.HashMap<>();
+	private final java.util.Map<Integer, Peripheral> mmioMap = new java.util.concurrent.ConcurrentHashMap<>();
 	private int lastAccessAddress, lastAccessWidth;
 	private boolean lastAccessWasStore;
 	public int getLastAccessAddress() { return lastAccessAddress; }
@@ -26,8 +26,9 @@ public final class VirtualMemorySpace  implements iMemory {
 		if(debugger != null) debugger.onReadMemory(address, 1, false);
 		
 		lastAccessAddress = address; lastAccessWidth = 0; lastAccessWasStore = false;
-		if (mmioMap.containsKey(address)) {
-			return mmioMap.get(address).read(0);
+		Peripheral p = mmioMap.get(address);
+		if (p != null) {
+			return p.read(0);
 		}
 		return mem.readByte(address & 0xFFFFFFFFL);
 	}
@@ -35,8 +36,9 @@ public final class VirtualMemorySpace  implements iMemory {
 		if(debugger != null) debugger.onWriteMemory(address, 2, false, value);
 		
 		lastAccessAddress = address; lastAccessWidth = 0; lastAccessWasStore = true;
-		if (mmioMap.containsKey(address)) {
-			mmioMap.get(address).write(0, value);
+		Peripheral p = mmioMap.get(address);
+		if (p != null) {
+			p.write(0, value);
 			return;
 		}
 		mem.writeByte(address & 0xFFFFFFFFL, value);
@@ -45,6 +47,13 @@ public final class VirtualMemorySpace  implements iMemory {
 		if(debugger!=null) debugger.onReadMemory(address, 2, bigEndian);
 		
 		lastAccessAddress = address; lastAccessWidth = 1; lastAccessWasStore = false;
+		Peripheral p = mmioMap.get(address);
+		if (p != null) {
+			byte b0 = p.read(0);
+			byte b1 = p.read(1);
+			if (bigEndian) return (short)((b0 << 8) | (b1 & 0xFF));
+			else return (short)((b0 & 0xFF) | (b1 << 8));
+		}
 		if((address&1) != 0) {
 			if(strictAlign) throw new AlignmentException();
 			else if(bigEndian) return (short)((mem.readByte(address&0xFFFFFFFFL)<<8)|(mem.readByte(address+1&0xFFFFFFFFL)&0xFF));
@@ -56,6 +65,17 @@ public final class VirtualMemorySpace  implements iMemory {
 		if(debugger!=null) debugger.onWriteMemory(address, 2, bigEndian, value);
 		
 		lastAccessAddress = address; lastAccessWidth = 1; lastAccessWasStore = true;
+		Peripheral p = mmioMap.get(address);
+		if (p != null) {
+			if (bigEndian) {
+				p.write(0, (byte)(value >> 8));
+				p.write(1, (byte)value);
+			} else {
+				p.write(0, (byte)value);
+				p.write(1, (byte)(value >> 8));
+			}
+			return;
+		}
 		if((address&1) != 0) {
 			if(strictAlign) throw new AlignmentException();
 			else if(bigEndian) {
@@ -72,6 +92,15 @@ public final class VirtualMemorySpace  implements iMemory {
 		if(debugger!=null) debugger.onReadMemory(address, 4, bigEndian);
 		
 		lastAccessAddress = address; lastAccessWidth = 2; lastAccessWasStore = false;
+		Peripheral p = mmioMap.get(address);
+		if (p != null) {
+			byte b0 = p.read(0);
+			byte b1 = p.read(1);
+			byte b2 = p.read(2);
+			byte b3 = p.read(3);
+			if (bigEndian) return (int)((b0 << 24) | ((b1 & 0xFF) << 16) | ((b2 & 0xFF) << 8) | (b3 & 0xFF));
+			else return (int)((b0 & 0xFF) | ((b1 & 0xFF) << 8) | ((b2 & 0xFF) << 16) | (b3 << 24));
+		}
 		if((address&3) != 0) {
 			if(strictAlign) throw new AlignmentException();
 			else if(bigEndian) return (int)((mem.readByte(address&0xFFFFFFFFL)<<24)|((mem.readByte(address+1&0xFFFFFFFFL)&0xFF)<<16)|((mem.readByte(address+2&0xFFFFFFFFL)&0xFF)<<8)|(mem.readByte(address+3&0xFFFFFFFFL)&0xFF));
@@ -83,6 +112,21 @@ public final class VirtualMemorySpace  implements iMemory {
 		if(debugger!=null) debugger.onWriteMemory(address, 4, bigEndian, value);
 		
 		lastAccessAddress = address; lastAccessWidth = 2; lastAccessWasStore = true;
+		Peripheral p = mmioMap.get(address);
+		if (p != null) {
+			if (bigEndian) {
+				p.write(0, (byte)(value >> 24));
+				p.write(1, (byte)(value >> 16));
+				p.write(2, (byte)(value >> 8));
+				p.write(3, (byte)value);
+			} else {
+				p.write(0, (byte)value);
+				p.write(1, (byte)(value >> 8));
+				p.write(2, (byte)(value >> 16));
+				p.write(3, (byte)(value >> 24));
+			}
+			return;
+		}
 		if((address&3) != 0) {
 			if(strictAlign) throw new AlignmentException();
 			else if(bigEndian) {
@@ -100,6 +144,19 @@ public final class VirtualMemorySpace  implements iMemory {
 		else mem.writeInt(address & 0xFFFFFFFFL, value, bigEndian);
 	}
 	public final long readLong(int address, boolean strictAlign, boolean bigEndian) throws AlignmentException, BusErrorException, EscapeRetryException {
+		if(debugger!=null) debugger.onReadMemory(address, 8, bigEndian);
+		
+		lastAccessAddress = address; lastAccessWidth = 3; lastAccessWasStore = false;
+		Peripheral p = mmioMap.get(address);
+		if (p != null) {
+			long result = 0;
+			for (int i = 0; i < 8; i++) {
+				long b = p.read(i) & 0xFFL;
+				if (bigEndian) result = (result << 8) | b;
+				else result |= (b << (i * 8));
+			}
+			return result;
+		}
 		int first, second;
 		first = readInt(address, strictAlign, bigEndian);
 		second = readInt(address+4, strictAlign, bigEndian);
@@ -107,6 +164,17 @@ public final class VirtualMemorySpace  implements iMemory {
 		else return ((long)second << 32) | (first & 0xFFFFFFFFL);
 	}
 	public final void writeLong(int address, long value, boolean strictAlign, boolean bigEndian) throws AlignmentException, BusErrorException, EscapeRetryException {
+		if(debugger!=null) debugger.onWriteMemory(address, 8, bigEndian, value);
+		
+		lastAccessAddress = address; lastAccessWidth = 3; lastAccessWasStore = true;
+		Peripheral p = mmioMap.get(address);
+		if (p != null) {
+			for (int i = 0; i < 8; i++) {
+				if (bigEndian) p.write(i, (byte)(value >> (56 - i * 8)));
+				else p.write(i, (byte)(value >> (i * 8)));
+			}
+			return;
+		}
 		if(bigEndian) {
 			writeInt(address, (int)(value >> 32L), strictAlign, bigEndian);
 			writeInt(address+4, (int)value, strictAlign, bigEndian);
@@ -114,6 +182,7 @@ public final class VirtualMemorySpace  implements iMemory {
 			writeInt(address, (int)value, strictAlign, bigEndian);
 			writeInt(address+4, (int)(value >> 32L), strictAlign, bigEndian);
 		}
+		lastAccessAddress = address; lastAccessWidth = 3; lastAccessWasStore = true;
 	}
 
     @Override
@@ -192,26 +261,44 @@ public final class VirtualMemorySpace  implements iMemory {
 
     @Override
     public int read32(int aAddr) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        try {
+            return readInt(aAddr, false, false);
+        } catch (AlignmentException | BusErrorException | EscapeRetryException ex) {
+            Logger.getLogger(VirtualMemorySpace.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return 0;
     }
 
     @Override
     public void write32(int aAddr, int aValue) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        try {
+            writeInt(aAddr, aValue, false, false);
+        } catch (AlignmentException | BusErrorException | EscapeRetryException ex) {
+            Logger.getLogger(VirtualMemorySpace.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @Override
     public void write16(int aAddr, short aValue) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        try {
+            writeShort(aAddr, aValue, false, false);
+        } catch (AlignmentException | BusErrorException | EscapeRetryException ex) {
+            Logger.getLogger(VirtualMemorySpace.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @Override
     public short read16(int aAddr) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        try {
+            return readShort(aAddr, false, false);
+        } catch (AlignmentException | BusErrorException | EscapeRetryException ex) {
+            Logger.getLogger(VirtualMemorySpace.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return 0;
     }
 
     @Override
     public boolean containsKey(int addr) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return mmioMap.containsKey(addr);
     }
 }
