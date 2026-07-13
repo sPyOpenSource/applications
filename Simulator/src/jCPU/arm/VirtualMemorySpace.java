@@ -9,6 +9,7 @@ import java.util.logging.Logger;
 public final class VirtualMemorySpace  implements iMemory {
 	private final PhysicalMemorySpace mem;
 	private final Debugger debugger;
+	private final java.util.Map<Integer, Peripheral> mmioMap = new java.util.HashMap<>();
 	private int lastAccessAddress, lastAccessWidth;
 	private boolean lastAccessWasStore;
 	public int getLastAccessAddress() { return lastAccessAddress; }
@@ -18,16 +19,26 @@ public final class VirtualMemorySpace  implements iMemory {
 		this.mem = mem;
 		this.debugger = debugger;
 	}
+	public void registerPeripheral(int address, Peripheral p) {
+		mmioMap.put(address, p);
+	}
 	public final byte readByte(int address) throws BusErrorException, EscapeRetryException {
 		if(debugger != null) debugger.onReadMemory(address, 1, false);
 		
 		lastAccessAddress = address; lastAccessWidth = 0; lastAccessWasStore = false;
+		if (mmioMap.containsKey(address)) {
+			return mmioMap.get(address).read(0);
+		}
 		return mem.readByte(address & 0xFFFFFFFFL);
 	}
 	public final void writeByte(int address, byte value) throws BusErrorException, EscapeRetryException {
 		if(debugger != null) debugger.onWriteMemory(address, 2, false, value);
 		
 		lastAccessAddress = address; lastAccessWidth = 0; lastAccessWasStore = true;
+		if (mmioMap.containsKey(address)) {
+			mmioMap.get(address).write(0, value);
+			return;
+		}
 		mem.writeByte(address & 0xFFFFFFFFL, value);
 	}
 	public final short readShort(int address, boolean strictAlign, boolean bigEndian) throws AlignmentException, BusErrorException, EscapeRetryException {
