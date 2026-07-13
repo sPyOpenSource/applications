@@ -160,6 +160,7 @@ public final class VirtualMemorySpace  implements iMemory {
 		int first, second;
 		first = readInt(address, strictAlign, bigEndian);
 		second = readInt(address+4, strictAlign, bigEndian);
+		lastAccessAddress = address; lastAccessWidth = 3; lastAccessWasStore = false;
 		if(bigEndian) return ((long)first << 32) | (second & 0xFFFFFFFFL);
 		else return ((long)second << 32) | (first & 0xFFFFFFFFL);
 	}

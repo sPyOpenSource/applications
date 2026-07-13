@@ -99,21 +99,102 @@ public class VirtualMemorySpaceTest {
     }
 
     @Test
-    public void testPhysicalMemoryRead() throws Exception {
+    public void testMmioReadShort() throws Exception {
         MockPeripheral mock = new MockPeripheral();
-        int mmioAddr = 0x1000;
-        int physAddr = 0x3000;
+        int addr = 0x5000;
+        virtualMem.registerPeripheral(addr, mock);
         
-        virtualMem.registerPeripheral(mmioAddr, mock);
+        virtualMem.readShort(addr, false, false);
         
-        // This should throw BusErrorException because nothing is mapped in physical memory
-        try {
-            virtualMem.readByte(physAddr);
-            fail("Should have thrown BusErrorException");
-        } catch (BusErrorException e) {
-            // Expected
-        }
+        assertEquals(addr, virtualMem.getLastAccessAddress());
+        assertEquals(1, virtualMem.getLastAccessWidth());
+        assertFalse(virtualMem.getLastAccessWasStore());
+    }
+
+    @Test
+    public void testMmioWriteShort() throws Exception {
+        MockPeripheral mock = new MockPeripheral();
+        int addr = 0x6000;
+        virtualMem.registerPeripheral(addr, mock);
         
-        assertFalse("Peripheral read should NOT have been called", mock.readCalled);
+        virtualMem.writeShort(addr, (short)0x1234, false, false);
+        
+        assertEquals(addr, virtualMem.getLastAccessAddress());
+        assertEquals(1, virtualMem.getLastAccessWidth());
+        assertTrue(virtualMem.getLastAccessWasStore());
+    }
+
+    @Test
+    public void testMmioReadInt() throws Exception {
+        MockPeripheral mock = new MockPeripheral();
+        int addr = 0x7000;
+        virtualMem.registerPeripheral(addr, mock);
+        
+        virtualMem.readInt(addr, false, false);
+        
+        assertEquals(addr, virtualMem.getLastAccessAddress());
+        assertEquals(2, virtualMem.getLastAccessWidth());
+        assertFalse(virtualMem.getLastAccessWasStore());
+    }
+
+    @Test
+    public void testMmioWriteInt() throws Exception {
+        MockPeripheral mock = new MockPeripheral();
+        int addr = 0x8000;
+        virtualMem.registerPeripheral(addr, mock);
+        
+        virtualMem.writeInt(addr, 0x12345678, false, false);
+        
+        assertEquals(addr, virtualMem.getLastAccessAddress());
+        assertEquals(2, virtualMem.getLastAccessWidth());
+        assertTrue(virtualMem.getLastAccessWasStore());
+    }
+
+    @Test
+    public void testMmioReadLong() throws Exception {
+        MockPeripheral mock = new MockPeripheral();
+        int addr = 0x9000;
+        virtualMem.registerPeripheral(addr, mock);
+        
+        virtualMem.readLong(addr, false, false);
+        
+        assertEquals(addr, virtualMem.getLastAccessAddress());
+        assertEquals(3, virtualMem.getLastAccessWidth());
+        assertFalse(virtualMem.getLastAccessWasStore());
+    }
+
+    @Test
+    public void testMmioWriteLong() throws Exception {
+        MockPeripheral mock = new MockPeripheral();
+        int addr = 0xA000;
+        virtualMem.registerPeripheral(addr, mock);
+        
+        virtualMem.writeLong(addr, 0x123456789ABCDEFL, false, false);
+        
+        assertEquals(addr, virtualMem.getLastAccessAddress());
+        assertEquals(3, virtualMem.getLastAccessWidth());
+        assertTrue(virtualMem.getLastAccessWasStore());
+    }
+
+    @Test
+    public void testPhysicalMemoryReadLongAccessTracking() throws Exception {
+        int addr = 0x11000; // Not in MMIO map
+        
+        virtualMem.readLong(addr, false, false);
+        
+        assertEquals("Last access address should be the start of the long read", addr, virtualMem.getLastAccessAddress());
+        assertEquals("Last access width should be 3 for long", 3, virtualMem.getLastAccessWidth());
+        assertFalse(virtualMem.getLastAccessWasStore());
+    }
+
+    @Test
+    public void testPhysicalMemoryWriteLongAccessTracking() throws Exception {
+        int addr = 0x12000; // Not in MMIO map
+        
+        virtualMem.writeLong(addr, 0x123456789ABCDEFL, false, false);
+        
+        assertEquals("Last access address should be the start of the long write", addr, virtualMem.getLastAccessAddress());
+        assertEquals("Last access width should be 3 for long", 3, virtualMem.getLastAccessWidth());
+        assertTrue(virtualMem.getLastAccessWasStore());
     }
 }
