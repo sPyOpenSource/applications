@@ -4,6 +4,7 @@ package jCPU.JVM;
 import static jCPU.JVM.ByteCode.findOpCode;
 import jCPU.JVM.vm.LocalVariables;
 import jCPU.JVM.vm.SimpleMethodPool;
+import jCPU.iCPU;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -20,7 +21,7 @@ import jx.disass.Disassembler;
  *
  * @author X. Wang
  */
-public class CPU extends jCPU.MCS51.CPU {
+public class CPU implements iCPU {
     public BytecodeVisitor handler;
     public char[] opCode;
     
@@ -76,7 +77,7 @@ public class CPU extends jCPU.MCS51.CPU {
     }
     
     @Override
-    public int step()
+    public int step() throws Exception
     {
         if (!run){
             System.exit(1);

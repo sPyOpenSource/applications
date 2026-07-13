@@ -18,9 +18,13 @@
 
 package jCPU.ssa;
 
+import jCPU.iCPU;
 import sjc.real.Real;
 import sjc.backend.ssa.SSADef;
 import sjc.emulation.Emulator;
+import static sjc.emulation.Emulator.toDecString;
+import static sjc.emulation.Emulator.toHexString;
+import static sjc.emulation.Emulator.toLongHexString;
 import sjc.emulation.MethodDisassembly;
 import sjc.emulation.Mnemonic;
 import sjc.emulation.cond.StackCond;
@@ -56,7 +60,7 @@ import sjc.emulation.cond.StackCond;
  *  version 060613 several bugfixes
  *  version 060608 initial version
  */
-public class SSAEmul extends Emulator {
+public class SSAEmul implements iCPU {
   
   private final static int INIT_STACK_VALUE = 0x9BFF8;
   private final Real real;
@@ -201,7 +205,7 @@ public class SSAEmul extends Emulator {
   public boolean initArchitecture(int cd, int si) {
     int cnt;
     if ((relocBytes!=4 && relocBytes!=8) || stackClearBits!=(relocBytes-1)) {
-      out.print("Invalid reloc length or mask for stack alignment");
+      System.out.print("Invalid reloc length or mask for stack alignment");
       return false;
     }
     // setting basic information
@@ -232,7 +236,7 @@ public class SSAEmul extends Emulator {
   private Register getRegister(int regNo, int size, boolean forWrite) {
     Register r;
     if (regNo<1) {
-      out.print("Access to invalid register ");
+      System.out.print("Access to invalid register ");
       return null;
     }
     if (regNo<SSADef.R_GPRS) {
@@ -243,11 +247,11 @@ public class SSAEmul extends Emulator {
     // to keep physical index low, there is a sliding window
     else {
       if (curRegStartOff==0) {
-        out.print("Access to getRegister with invalid curRegStartOff ");
+        System.out.print("Access to getRegister with invalid curRegStartOff ");
         return null;
       }
       if (regNo-curRegStartOff<0) {
-        out.print("invalid curRegStartOff ");
+        System.out.print("invalid curRegStartOff ");
         return null;
       }
       r=regs[regNo-curRegStartOff];
@@ -256,15 +260,15 @@ public class SSAEmul extends Emulator {
     if (r.size==0 && forWrite) r.size=size;
     // otherwise sizes have to match, only exception is single pointer access of double pointer register
     else if (r.size!=size && size!=0 && (size!=-1 || r.size!=-2)) {
-      out.print("Invalid size of register ");
-      out.print(regNo);
-      out.print(" (");
-      out.print(r.size);
-      out.print(" instead of ");
-      out.print(size);
-      out.print(") ");
-      out.print(", curRegStartOff==");
-      out.println(curRegStartOff);
+      System.out.print("Invalid size of register ");
+      System.out.print(regNo);
+      System.out.print(" (");
+      System.out.print(r.size);
+      System.out.print(" instead of ");
+      System.out.print(size);
+      System.out.print(") ");
+      System.out.print(", curRegStartOff==");
+      System.out.println(curRegStartOff);
       return null;
     }
     return r;
@@ -292,7 +296,7 @@ public class SSAEmul extends Emulator {
     Register base, stck;
     if ((base=getRegister(SSADef.R_BASE, -1, false))==null || 
         (stck=getRegister(SSADef.R_STCK, -1, false))==null) {
-      out.println("in insEnter");
+      System.out.println("in insEnter");
       return false;
     }
     insPush(SSADef.R_BASE, -1);
@@ -303,7 +307,7 @@ public class SSAEmul extends Emulator {
       case 3: imI-=4; write32(false, stck.ptr-=4, 0); break;
       case 7: imI-=8; write64(false, stck.ptr-=8, 0l); break;
       default:
-        out.println("invalid stackClearBits in insEnter");
+        System.out.println("invalid stackClearBits in insEnter");
         return false;
     }
     if (!inline) { //reset window functionality for register for real procedure call
@@ -348,7 +352,7 @@ public class SSAEmul extends Emulator {
   private boolean insLeave(int imI, int para, boolean inline) {
     Register stck;
     if ((stck=getRegister(SSADef.R_STCK, -1, false))==null) {
-      out.println("in insLeave");
+      System.out.println("in insLeave");
       return false;
     }
     stck.ptr+=imI;
@@ -376,7 +380,7 @@ public class SSAEmul extends Emulator {
   private boolean insLoadImI(int reg0, int size, int para) {
     Register reg;
     if ((reg=getRegister(reg0, size, true))==null) {
-      out.println("in insLoadImI");
+      System.out.println("in insLoadImI");
       return false;
     }
     switch (size) {
@@ -390,7 +394,7 @@ public class SSAEmul extends Emulator {
         reg.value32=para;
         break;
       default:
-        out.println("Invalid size for insLoadImI");
+        System.out.println("Invalid size for insLoadImI");
         return false;
     }
     return true;
@@ -405,7 +409,7 @@ public class SSAEmul extends Emulator {
   private boolean insLoadImL(int reg0, int size, long imL) {
     Register reg;
     if ((reg=getRegister(reg0, size, true))==null) {
-      out.println("in inLoadImL");
+      System.out.println("in inLoadImL");
       return false;
     }
     reg.value64=imL;
@@ -415,7 +419,7 @@ public class SSAEmul extends Emulator {
   private boolean insLoadImP(int reg0, int imP) {
     Register reg;
     if ((reg=getRegister(reg0, -1, true))==null) {
-      out.println("in insLoadImI");
+      System.out.println("in insLoadImI");
       return false;
     }
     reg.ptr=imP;
@@ -432,7 +436,7 @@ public class SSAEmul extends Emulator {
   private boolean insLoadNP(int reg0, int size) {
     Register reg;
     if ((reg=getRegister(reg0, size, true))==null) {
-      out.println("in inLoadNP");
+      System.out.println("in inLoadNP");
       return false;
     }
     reg.ptr=0;
@@ -451,7 +455,7 @@ public class SSAEmul extends Emulator {
   private boolean insLoadAddr(int reg0, int reg1, int rela) {
     Register r0, r1;
     if ((r0=getRegister(reg0, -1, true))==null || (r1=getRegister(reg1, -1, false))==null) {
-      out.println("in insLoadAddr");
+      System.out.println("in insLoadAddr");
       return false;
     }
     // because of return address and additional push&pop in insEnter/-Leave
@@ -476,11 +480,11 @@ public class SSAEmul extends Emulator {
     Register r0, r1;
     int addr;
     if ((r0=getRegister(reg0, size, true))==null || (r1=getRegister(reg1, -1, false))==null) {
-      out.println("in insLoadVal");
-      out.println("Registers are ");
-      out.print(reg0);
-      out.print(" and ");
-      out.println(reg1);
+      System.out.println("in insLoadVal");
+      System.out.println("Registers are ");
+      System.out.print(reg0);
+      System.out.print(" and ");
+      System.out.println(reg1);
       return false;
     }
     addr=r1.ptr;
@@ -507,7 +511,7 @@ public class SSAEmul extends Emulator {
         r0.ptr=read32(false, addr);
         break;
       default:
-        out.println("Invalid size for insLoadVal");
+        System.out.println("Invalid size for insLoadVal");
         return false;
     }
     return true;
@@ -525,7 +529,7 @@ public class SSAEmul extends Emulator {
   private boolean insConv(int reg0, int reg1, int size, int para) {
     Register r0, r1;
     if ((r0=getRegister(reg0, size, true))==null || (r1=getRegister(reg1, para, false))==null) {
-      out.println("in insConv");
+      System.out.println("in insConv");
       return false;
     }
     // determine all conversion possibilities
@@ -554,7 +558,7 @@ public class SSAEmul extends Emulator {
             r0.value8=(byte)r1.ptr;
             break;
           default:
-            out.println("Invalid source size for byte destination insConv");
+            System.out.println("Invalid source size for byte destination insConv");
             return false;
         }
         break;
@@ -582,7 +586,7 @@ public class SSAEmul extends Emulator {
             r0.value16=(short)r1.ptr;
             break;
           default:
-            out.println("Invalid source size for short/char destination insConv");
+            System.out.println("Invalid source size for short/char destination insConv");
             return false;
         }
         break;
@@ -613,7 +617,7 @@ public class SSAEmul extends Emulator {
             r0.value32=r1.ptr;
             break;
           default:
-            out.println("Invalid source size for int destination insConv");
+            System.out.println("Invalid source size for int destination insConv");
             return false;
         }
         break;
@@ -641,7 +645,7 @@ public class SSAEmul extends Emulator {
             r0.value32=real.buildFloatFromDouble(r1.value64);
             break;
           default:
-            out.println("Invalid source size for float destination insConv");
+            System.out.println("Invalid source size for float destination insConv");
             return false;
         }
         break;
@@ -672,7 +676,7 @@ public class SSAEmul extends Emulator {
             r0.value64=(long)r1.ptr&0xFFFFFFFFl;
             break;
           default:
-            out.println("Invalid source size for long destination insConv");
+            System.out.println("Invalid source size for long destination insConv");
             return false;
         }
         break;
@@ -700,7 +704,7 @@ public class SSAEmul extends Emulator {
             r0.value64=r1.value64;
             break;
           default:
-            out.println("Invalid source size for double destination insConv");
+            System.out.println("Invalid source size for double destination insConv");
             return false;
         }
         break;
@@ -710,7 +714,7 @@ public class SSAEmul extends Emulator {
           r0.upperPtr=r1.upperPtr;
           break;
         }
-        out.println("Invalid source size for dPtr destination insConv");
+        System.out.println("Invalid source size for dPtr destination insConv");
         return false;
       case -1:
         switch (r1.size) {
@@ -730,12 +734,12 @@ public class SSAEmul extends Emulator {
             r0.ptr=r1.ptr;
             break;
           default:
-            out.println("Invalid source size for ptr destination insConv");
+            System.out.println("Invalid source size for ptr destination insConv");
             return false;
         }
         break;
       default:
-        out.println("Invalid destination size for insConv");
+        System.out.println("Invalid destination size for insConv");
         return false;
     }
     return true;
@@ -751,10 +755,10 @@ public class SSAEmul extends Emulator {
   private boolean insCopy(int reg0, int reg1, int size) {
     Register r0, r1;
     if ((r0=getRegister(reg0, size, true))==null || (r1=getRegister(reg1, size, false))==null) {
-      out.print("in insCopy to ");
-      out.print(reg0);
-      out.print(" from ");
-      out.println(reg1);
+      System.out.print("in insCopy to ");
+      System.out.print(reg0);
+      System.out.print(" from ");
+      System.out.println(reg1);
       return false;
     }
     switch (size) {
@@ -777,7 +781,7 @@ public class SSAEmul extends Emulator {
         r0.ptr=r1.ptr;
         break;
       default:
-        out.println("Invalid size for insCopy");
+        System.out.println("Invalid size for insCopy");
         return false;
     }
     return true;
@@ -794,7 +798,7 @@ public class SSAEmul extends Emulator {
   private boolean insPushImI(int size, int imI) {
     Register stck;
     if ((stck=getRegister(SSADef.R_STCK, -1, false))==null) {
-      out.println("in insPushImI");
+      System.out.println("in insPushImI");
       return false;
     }
     if (size==5) stck.ptr=(stck.ptr-4) & ~stackClearBits;
@@ -810,7 +814,7 @@ public class SSAEmul extends Emulator {
         write32(false, stck.ptr, imI);
         break;
       default:
-        out.println("Invalid size for insPushImI");
+        System.out.println("Invalid size for insPushImI");
         return false;
     }
     return true;
@@ -826,7 +830,7 @@ public class SSAEmul extends Emulator {
   private boolean insPushImL(long imL) {
     Register stck;
     if ((stck=getRegister(SSADef.R_STCK, -1, false))==null) {
-      out.println("in insPushImL");
+      System.out.println("in insPushImL");
       return false;
     }
     stck.ptr=(stck.ptr-8) & ~stackClearBits;
@@ -844,7 +848,7 @@ public class SSAEmul extends Emulator {
   private boolean insPushNP() {
     Register stck;
     if ((stck=getRegister(SSADef.R_STCK, -1, false))==null) {
-      out.println("in insPushNP");
+      System.out.println("in insPushNP");
       return false;
     }
     stck.ptr=(stck.ptr-relocBytes) & ~stackClearBits;
@@ -863,7 +867,7 @@ public class SSAEmul extends Emulator {
   private boolean insPush(int reg0, int size) {
     Register stck, r0;
     if ((stck=getRegister(SSADef.R_STCK, -1, false))==null || (r0=getRegister(reg0, size, false))==null) {
-      out.println("in insPush");
+      System.out.println("in insPush");
       return false;
     }
     // reserve place on the stack
@@ -894,7 +898,7 @@ public class SSAEmul extends Emulator {
         write32(false, stck.ptr, r0.ptr);
         break;
       default:
-        out.println("Invalid size for insPush");
+        System.out.println("Invalid size for insPush");
         return false;
     }
     return true;
@@ -911,7 +915,7 @@ public class SSAEmul extends Emulator {
   private boolean insPop(int reg0, int size) {
     Register r0, stck;
     if ((r0=getRegister(reg0, size, true))==null || (stck=getRegister(SSADef.R_STCK, -1, false))==null) {
-      out.println("in insPop");
+      System.out.println("in insPop");
       return false;
     }
     switch (size) {
@@ -934,7 +938,7 @@ public class SSAEmul extends Emulator {
         r0.ptr=read32(false, stck.ptr);
         break;
       default:
-        out.println("Invalid size for insPop");
+        System.out.println("Invalid size for insPop");
         return false;
     }
     // set new pointer position
@@ -957,14 +961,14 @@ public class SSAEmul extends Emulator {
   private boolean insSave(int reg0, int size, int para) {
     if (para==0) {
       if (getRegister(reg0, size, false)==null) {
-        out.println("in insSave");
+        System.out.println("in insSave");
         return false;
       }
       return true;
     }
     if (para==1)
       return insPush(reg0, size);
-    out.println("Unknown parameter for insSave");
+    System.out.println("Unknown parameter for insSave");
     return false;
   }
   
@@ -980,7 +984,7 @@ public class SSAEmul extends Emulator {
       return insAllocReg(reg0, size, true);
     if (para==1)
       return insPop(reg0, size);
-    out.println("Unknown parameter for insRest");
+    System.out.println("Unknown parameter for insRest");
     return false;
   }
 
@@ -995,7 +999,7 @@ public class SSAEmul extends Emulator {
   private boolean insAssign(int reg0, int reg1, int size) {
     Register r0, r1;
     if ((r0=getRegister(reg0, -1, false))==null || (r1=getRegister(reg1, size, false))==null) {
-      out.println("in insAssign");
+      System.out.println("in insAssign");
       return false;
     }
     switch (size) {
@@ -1018,7 +1022,7 @@ public class SSAEmul extends Emulator {
         write32(false, r0.ptr, r1.ptr);
         break;
       default:
-        out.println("Invalid size for insAssign");
+        System.out.println("Invalid size for insAssign");
         return false;
     }
     return true;
@@ -1037,7 +1041,7 @@ public class SSAEmul extends Emulator {
     Register r0, r1, r2;
     if ((r0=getRegister(reg0, size, true))==null || (r1=getRegister(reg1, size, false))==null
         || (r2=getRegister(reg2, size, false))==null) {
-      out.println("in insAnd");
+      System.out.println("in insAnd");
       return false;
     }
     switch (size) {
@@ -1054,7 +1058,7 @@ public class SSAEmul extends Emulator {
         r0.value64=r1.value64&r2.value64;
         break;
       default:
-        out.println("Invalid type for insAnd");
+        System.out.println("Invalid type for insAnd");
         return false;
     }
     return true;
@@ -1073,7 +1077,7 @@ public class SSAEmul extends Emulator {
     Register r0, r1, r2;
     if ((r0=getRegister(reg0, size, true))==null || (r1=getRegister(reg1, size, false))==null
         || (r2=getRegister(reg2, size, false))==null) {
-      out.println("in insXor");
+      System.out.println("in insXor");
       return false;
     }
     switch (size) {
@@ -1090,7 +1094,7 @@ public class SSAEmul extends Emulator {
         r0.value64=r1.value64^r2.value64;
         break;
       default:
-        out.println("Invalid type for insXor");
+        System.out.println("Invalid type for insXor");
         return false;
     }
     return true;
@@ -1109,7 +1113,7 @@ public class SSAEmul extends Emulator {
     Register r0, r1, r2;
     if ((r0=getRegister(reg0, size, true))==null || (r1=getRegister(reg1, size, false))==null
         || (r2=getRegister(reg2, size, false))==null) {
-      out.println("in insOr");
+      System.out.println("in insOr");
       return false;
     }
     switch (size) {
@@ -1126,7 +1130,7 @@ public class SSAEmul extends Emulator {
         r0.value64=r1.value64|r2.value64;
         break;
       default:
-        out.println("Invalid type for insOr");
+        System.out.println("Invalid type for insOr");
         return false;
     }
     return true;
@@ -1145,7 +1149,7 @@ public class SSAEmul extends Emulator {
     Register r0, r1, r2;
     if ((r0=getRegister(reg0, size, true))==null || (r1=getRegister(reg1, size, false))==null
         || (r2=getRegister(reg2, size, false))==null) {
-      out.println("in insAdd");
+      System.out.println("in insAdd");
       return false;
     }
     switch (size) {
@@ -1168,7 +1172,7 @@ public class SSAEmul extends Emulator {
         r0.value64=real.binOpDouble(r1.value64, r2.value64, Real.A_PLUS);
         break;
       default:
-        out.println("Invalid type for insAdd");
+        System.out.println("Invalid type for insAdd");
         return false;        
     }
     return true;
@@ -1187,7 +1191,7 @@ public class SSAEmul extends Emulator {
     Register r0, r1, r2;
     if ((r0=getRegister(reg0, size, true))==null || (r1=getRegister(reg1, size, false))==null
         || (r2=getRegister(reg2, size, false))==null) {
-      out.println("in insSub");
+      System.out.println("in insSub");
       return false;
     }
     switch (size) {
@@ -1210,7 +1214,7 @@ public class SSAEmul extends Emulator {
         r0.value64=real.binOpDouble(r1.value64, r2.value64, Real.A_MINUS);
         break;
       default:
-        out.println("Invalid type for insSub");
+        System.out.println("Invalid type for insSub");
         return false;        
     }
     return true;
@@ -1229,7 +1233,7 @@ public class SSAEmul extends Emulator {
     Register r0, r1, r2;
     if ((r0=getRegister(reg0, size, true))==null || (r1=getRegister(reg1, size, false))==null
         || (r2=getRegister(reg2, size, false))==null) {
-      out.println("in insMul");
+      System.out.println("in insMul");
       return false;
     }
     switch (size) {
@@ -1252,7 +1256,7 @@ public class SSAEmul extends Emulator {
         r0.value64=real.binOpDouble(r1.value64, r2.value64, Real.A_MUL);
         break;
       default:
-        out.println("Invalid type for insMul");
+        System.out.println("Invalid type for insMul");
         return false;        
     }
     return true;
@@ -1271,7 +1275,7 @@ public class SSAEmul extends Emulator {
     Register r0, r1, r2;
     if ((r0=getRegister(reg0, size, true))==null || (r1=getRegister(reg1, size, false))==null
         || (r2=getRegister(reg2, size, false))==null) {
-      out.println("in insDiv");
+      System.out.println("in insDiv");
       return false;
     }
     switch (size) {
@@ -1294,7 +1298,7 @@ public class SSAEmul extends Emulator {
         r0.value64=real.binOpDouble(r1.value64, r2.value64, Real.A_DIV);
         break;
       default:
-        out.println("Invalid type for insDiv");
+        System.out.println("Invalid type for insDiv");
         return false;        
     }
     return true;
@@ -1313,7 +1317,7 @@ public class SSAEmul extends Emulator {
     Register r0, r1, r2;
     if ((r0=getRegister(reg0, size, true))==null || (r1=getRegister(reg1, size, false))==null
         || (r2=getRegister(reg2, size, false))==null) {
-      out.println("in insMod");
+      System.out.println("in insMod");
       return false;
     }
     switch (size) {
@@ -1330,7 +1334,7 @@ public class SSAEmul extends Emulator {
         r0.value64=r1.value64%r2.value64;
         break;
       default:
-        out.println("Invalid type for insMod");
+        System.out.println("Invalid type for insMod");
         return false;        
     }
     return true;
@@ -1349,7 +1353,7 @@ public class SSAEmul extends Emulator {
     Register r0, r1, r2;
     if ((r0=getRegister(reg0, size, true))==null || (r1=getRegister(reg1, size, false))==null
         || (r2=getRegister(reg2, 4, false))==null) {
-      out.println("in insShL");
+      System.out.println("in insShL");
       return false;
     }
     switch (size) {
@@ -1366,7 +1370,7 @@ public class SSAEmul extends Emulator {
         r0.value64=r1.value64<<r2.value32;
         break;
       default:
-        out.println("Invalid type for insShL");
+        System.out.println("Invalid type for insShL");
         return false;        
     }
     return true;
@@ -1385,7 +1389,7 @@ public class SSAEmul extends Emulator {
     Register r0, r1, r2;
     if ((r0=getRegister(reg0, size, true))==null || (r1=getRegister(reg1, size, false))==null
         || (r2=getRegister(reg2, 4, false))==null) {
-      out.println("in insShRL");
+      System.out.println("in insShRL");
       return false;
     }
     switch (size) {
@@ -1402,7 +1406,7 @@ public class SSAEmul extends Emulator {
         r0.value64=r1.value64>>>r2.value32;
         break;
       default:
-        out.println("Invalid type for insShRL");
+        System.out.println("Invalid type for insShRL");
         return false;        
     }
     return true;
@@ -1422,7 +1426,7 @@ public class SSAEmul extends Emulator {
     Register r0, r1, r2;
     if ((r0=getRegister(reg0, size, true))==null || (r1=getRegister(reg1, size, false))==null
         || (r2=getRegister(reg2, 4, false))==null) {
-      out.println("in insShRA");
+      System.out.println("in insShRA");
       return false;
     }
     switch (size) {
@@ -1439,7 +1443,7 @@ public class SSAEmul extends Emulator {
         r0.value64=r1.value64>>r2.value32;
         break;
       default:
-        out.println("Invalid type for insShRA");
+        System.out.println("Invalid type for insShRA");
         return false;        
     }
     return true;
@@ -1456,7 +1460,7 @@ public class SSAEmul extends Emulator {
   private boolean insNot(int reg0, int reg1, int size) {
     Register r0, r1;
     if ((r0=getRegister(reg0, size, true))==null || (r1=getRegister(reg1, size, false))==null) {
-      out.println("in insNot");
+      System.out.println("in insNot");
       return false;
     }
     switch (size) {
@@ -1473,7 +1477,7 @@ public class SSAEmul extends Emulator {
         r0.value64=~r0.value64;
         break;
       default:
-        out.println("Invalid type for insNot");
+        System.out.println("Invalid type for insNot");
         return false;        
     }
     return true;
@@ -1490,7 +1494,7 @@ public class SSAEmul extends Emulator {
   private boolean insNeg(int reg0, int reg1, int size) {
     Register r0, r1;
     if ((r0=getRegister(reg0, size, true))==null || (r1=getRegister(reg1, size, false))==null) {
-      out.println("in insNeg");
+      System.out.println("in insNeg");
       return false;
     }
     switch (size) {
@@ -1513,7 +1517,7 @@ public class SSAEmul extends Emulator {
         r0.value64=real.negateDouble(r1.value64);
         break;
       default:
-        out.println("Invalid type for insNeg");
+        System.out.println("Invalid type for insNeg");
         return false;        
     }
     return true;
@@ -1530,7 +1534,7 @@ public class SSAEmul extends Emulator {
   private boolean insBinV(int reg0, int reg1) {
     Register r0, r1;
     if ((r0=getRegister(reg0, 1, true))==null || (r1=getRegister(reg1, 1, false))==null) {
-      out.println("in insNot");
+      System.out.println("in insNot");
       return false;
     }
     if ((int)r1.value8==0)
@@ -1550,7 +1554,7 @@ public class SSAEmul extends Emulator {
   private boolean insIncMem(int reg0, int size) {
     Register r0;
     if ((r0=getRegister(reg0, -1, false))==null) {
-      out.println("in insIncMem");
+      System.out.println("in insIncMem");
       return false;
     }
     switch (size) {
@@ -1567,7 +1571,7 @@ public class SSAEmul extends Emulator {
         write64(false, r0.ptr, read64(false, r0.ptr)+1l);
         break;
       default:
-        out.println("Invalid size for insIncMem");
+        System.out.println("Invalid size for insIncMem");
         return false;
     }
     return true;
@@ -1583,7 +1587,7 @@ public class SSAEmul extends Emulator {
   private boolean insDecMem(int reg0, int size) {
     Register r0;
     if ((r0=getRegister(reg0, -1, false))==null) {
-      out.println("in insIncMem");
+      System.out.println("in insIncMem");
       return false;
     }
     switch (size) {
@@ -1600,7 +1604,7 @@ public class SSAEmul extends Emulator {
         write64(false, r0.ptr, read64(false, r0.ptr)-1l);
         break;
       default:
-        out.println("Invalid size for insDecMem");
+        System.out.println("Invalid size for insDecMem");
         return false;
     }
     return true;
@@ -1618,7 +1622,7 @@ public class SSAEmul extends Emulator {
     Register stck, cReg;
     if ((stck=getRegister(SSADef.R_STCK, -1, false))==null
         || (cReg=getRegister(reg0, -1, false))==null) {
-      out.println("in insCall");
+      System.out.println("in insCall");
       return false;
     }
     stck.ptr = (stck.ptr - relocBytes) & ~stackClearBits;
@@ -1631,7 +1635,7 @@ public class SSAEmul extends Emulator {
   private boolean insCallImP(int imP) {
     Register stck;
     if ((stck=getRegister(SSADef.R_STCK, -1, false))==null) {
-      out.println("in insCallImP");
+      System.out.println("in insCallImP");
       return false;
     }
     stck.ptr=(stck.ptr-relocBytes) & ~stackClearBits;
@@ -1653,7 +1657,7 @@ public class SSAEmul extends Emulator {
     Register r0, stck, sreg1;
     if ((r0=getRegister(reg0, -2, false))==null || (stck=getRegister(SSADef.R_STCK, -1, false))==null
         || (sreg1=getRegister(SSADef.R_CLSS, -1, false))==null) {
-      out.println("in insCallInd");
+      System.out.println("in insCallInd");
       return false;
     }
     stck.ptr = (stck.ptr - relocBytes) & ~stackClearBits;
@@ -1674,7 +1678,7 @@ public class SSAEmul extends Emulator {
   private boolean insCmp(int reg0, int reg1, int size, int para) {
     Register r0, r1;
     if ((r0=getRegister(reg0, size, false))==null || (r1=getRegister(reg1, size, false))==null) {
-      out.println("in insCmp");
+      System.out.println("in insCmp");
       return false;
     }
     switch (size) {
@@ -1711,7 +1715,7 @@ public class SSAEmul extends Emulator {
         cmpEqual=r0.ptr==r1.ptr; //pointers may only be check to be equal or not
         break;
       default:
-        out.println("Invalid size for insCmp");
+        System.out.println("Invalid size for insCmp");
         return false;
     }
     return true;
@@ -1728,11 +1732,11 @@ public class SSAEmul extends Emulator {
   private boolean insOut(int reg0, int reg1, int size, int memLoc) {
     Register r0, r1;
     if ((r0=getRegister(reg0, -1, false))==null || (r1=getRegister(reg1, size, false))==null) {
-      out.println("in insOut");
+      System.out.println("in insOut");
       return false;
     }
     if (memLoc!=0) {
-      out.println("Invalid memory location for insOut");
+      System.out.println("Invalid memory location for insOut");
       return false;
     }
     switch (size) {
@@ -1749,7 +1753,7 @@ public class SSAEmul extends Emulator {
         write64(true, r0.ptr, r1.value64);
         break;
       default:
-        out.println("Invalid size for insOut");
+        System.out.println("Invalid size for insOut");
         return false;
     }
     return true;
@@ -1766,11 +1770,11 @@ public class SSAEmul extends Emulator {
   private boolean insIn(int reg0, int reg1, int size, int memLoc) {
     Register r0, r1;
     if ((r0=getRegister(reg0, size, true))==null || (r1=getRegister(reg1, -1, false))==null) {
-      out.println("in insIn");
+      System.out.println("in insIn");
       return false;
     }
     if (memLoc!=0) {
-      out.println("Invalid memory location for insIn");
+      System.out.println("Invalid memory location for insIn");
       return false;
     }
     switch (size) {
@@ -1787,7 +1791,7 @@ public class SSAEmul extends Emulator {
         r0.value64=read64(true, r1.ptr);
         break;
       default:
-        out.println("Invalid size for insIn");
+        System.out.println("Invalid size for insIn");
         return false;
     }
     return true;
@@ -1831,7 +1835,7 @@ public class SSAEmul extends Emulator {
         jump=cmpBound;
         break;
       default:
-        out.println("Invalid parameter for insJump");
+        System.out.println("Invalid parameter for insJump");
         return false;
     }
     if (jump) {
@@ -1862,7 +1866,7 @@ public class SSAEmul extends Emulator {
   private boolean insBound(int reg0, int reg1, int rela) {
     Register r0, r1;
     if ((r0=getRegister(reg0, -1, false))==null || (r1=getRegister(reg1, 4, false))==null) {
-      out.println("in insBound");
+      System.out.println("in insBound");
       return false;
     }
     cmpBound=(r1.value32>=0 && r1.value32<read32(false, r0.ptr+rela));
@@ -1884,7 +1888,7 @@ public class SSAEmul extends Emulator {
     if ((r0=getRegister(reg0, -1, true))==null
         || (r1=getRegister(reg1, -1, false))==null
         || (r2=getRegister(reg2, 4, false))==null) {
-      out.println("in insDeref");
+      System.out.println("in insDeref");
       return false;
     }
     r0.ptr=r1.ptr+rela+r2.value32*para;
@@ -1902,7 +1906,7 @@ public class SSAEmul extends Emulator {
 
     if ((r0=getRegister(reg0, -2, true))==null
         || (sreg5=getRegister(SSADef.R_PRIR, -1, false))==null) {
-      out.println("in insMovemap");
+      System.out.println("in insMovemap");
       return false;
     }
     r0.upperPtr=sreg5.ptr;
@@ -1920,10 +1924,10 @@ public class SSAEmul extends Emulator {
     int cnt;
     if (curRegStartOff==0) curRegStartOff=reg0;
     else if (reg0<curRegStartOff) {
-      out.print("Compiler error in allocation strategy (reuse), reg would be ");
-      out.println(reg0);
-      out.print("curRegStartOff: ");
-      out.println(curRegStartOff);
+      System.out.print("Compiler error in allocation strategy (reuse), reg would be ");
+      System.out.println(reg0);
+      System.out.print("curRegStartOff: ");
+      System.out.println(curRegStartOff);
       return false;
     }
     else if (reg0-curRegStartOff>=regs.length) {
@@ -1938,10 +1942,10 @@ public class SSAEmul extends Emulator {
     }
     // register enumeration has to be incremental if not restoring a defined register
     if (!restore && lastAllocRegIndex!=0 && lastAllocRegIndex>=reg0) {
-      out.print("Compiler error in allocation strategy (index), reg would be ");
-      out.println(reg0);
-      out.print("curRegStartOff: ");
-      out.println(curRegStartOff);
+      System.out.print("Compiler error in allocation strategy (index), reg would be ");
+      System.out.println(reg0);
+      System.out.print("curRegStartOff: ");
+      System.out.println(curRegStartOff);
       return false;
     }
     // access with physical offset
@@ -1962,7 +1966,7 @@ public class SSAEmul extends Emulator {
     int cnt;
     Register r;
     if ((r=getRegister(reg0, 0, false))==null) {
-      out.println("in insKillReg");
+      System.out.println("in insKillReg");
       return false;
     }
     r.size=0;
@@ -1971,10 +1975,10 @@ public class SSAEmul extends Emulator {
     if (reg0==curRegStartOff) {
       for (cnt=curRegStartOff; cnt<=lastAllocRegIndex; cnt++) {
         if (getRegister(cnt, 0, false).size!=0) {
-          out.print("register ");
-          out.print(reg0);
-          out.print(" is killed invalidly instead of");
-          out.println(cnt);
+          System.out.print("register ");
+          System.out.print(reg0);
+          System.out.print(" is killed invalidly instead of");
+          System.out.println(cnt);
           return false;
         }
       }
@@ -1986,7 +1990,7 @@ public class SSAEmul extends Emulator {
   private boolean insKillOJmp(int reg0) {
     if (killRegOnJmp1!=0) {
       if (killRegOnJmp2!=0) {
-        out.println("Compiler error in using KillOJmp");
+        System.out.println("Compiler error in using KillOJmp");
         return false;
       }
       killRegOnJmp2=reg0;
@@ -2017,8 +2021,8 @@ public class SSAEmul extends Emulator {
    */
   private boolean insException(int nr) {
     switch (nr) {
-      case 1: out.println("Index out of bounds"); break;
-      default: out.println("Unknown exception");
+      case 1: System.out.println("Index out of bounds"); break;
+      default: System.out.println("Unknown exception");
     }
     return false;
   }
@@ -2034,7 +2038,7 @@ public class SSAEmul extends Emulator {
     int tf;
     Register r0;
     if ((r0=getRegister(reg0, 0, false))==null) {
-      out.println("in insThrowFrameBuild");
+      System.out.println("in insThrowFrameBuild");
       return false;
     }
     //build throw frame and enter current throw frame address in global throw frame variable
@@ -2072,7 +2076,7 @@ public class SSAEmul extends Emulator {
   private boolean insThrowFrameReset(int reg0, int tbo) {
     Register r0;
     if ((r0=getRegister(reg0, 0, false))==null) {
-      out.println("in insThrowFrameReset");
+      System.out.println("in insThrowFrameReset");
       return false;
     }
     //copy global throw frame address from current throw frame to global address variable
@@ -2089,7 +2093,7 @@ public class SSAEmul extends Emulator {
   private boolean insStackExtremeCheck(int reg0) {
     Register r0;
     if ((r0=getRegister(reg0, 0, false))==null) {
-      out.println("in insStackExtremeCheck");
+      System.out.println("in insStackExtremeCheck");
       return false;
     }
     cmpBound=(r0.value32>=sReg[SSADef.R_STCK].ptr); //do not check stack current method's requirements in emulator
@@ -2106,9 +2110,9 @@ public class SSAEmul extends Emulator {
         read32(false, sReg[SSADef.R_BASE].ptr+paramOffsetNormal));
     //initialize sRegs
     currentIP=read32(false, globalThrowFrameVariable+relocBytes);
-    out.print("throwable jumps to 0x");
+    System.out.print("throwable jumps to 0x");
     out.printHexFix(currentIP, 8);
-    out.println();
+    System.out.println();
     sReg[SSADef.R_CLSS].ptr=read32(false, globalThrowFrameVariable+8);
     sReg[SSADef.R_INST].ptr=read32(false, globalThrowFrameVariable+12);
     sReg[SSADef.R_BASE].ptr=read32(false, globalThrowFrameVariable+16);
@@ -2173,12 +2177,12 @@ public class SSAEmul extends Emulator {
       }*/
     }
     if (opcode==(0xFF&SSADef.I_INLINE)) { //MAGIC.inline
-      out.print("Skipping inline code ");
+      System.out.print("Skipping inline code ");
       while (param-->0) {
-        out.print((int)readByte()&0xFF); //skip bytes
-        out.print(' ');
+        System.out.print((int)readByte()&0xFF); //skip bytes
+        System.out.print(' ');
       }
-      out.println();
+      System.out.println();
       endlessLoopHint=currentIP;
     } else {
       if (opcode==(0xFF&SSADef.I_JUMP)) {
@@ -2391,7 +2395,7 @@ public class SSAEmul extends Emulator {
               success=insException(iPar1);
               break;
             case 0xFF&SSADef.I_IVOF:
-              out.println("Skipping inline var offset");
+              System.out.println("Skipping inline var offset");
               break;
             case 0xFF&SSADef.I_TFBUILD:
               success=insThrowFrameBuild(reg0, iPar1, iPar2);
@@ -2409,19 +2413,19 @@ public class SSAEmul extends Emulator {
               success=insStackExtremeCheck(reg0);
               break;
             default:
-              out.print("unknown opcode: ");
-              out.println(opcode);
+              System.out.print("unknown opcode: ");
+              System.out.println(opcode);
               success=false;
           }
           endlessLoopHint=currentIP;
         }
       }
       if (!success) {
-        out.println("Error during opcode emulation");
-        out.print("Opcode was ");
-        out.print(opcode);
-        out.print(", next instruction would be at ");
-        out.println(toHexString(currentIP));
+        System.out.println("Error during opcode emulation");
+        System.out.print("Opcode was ");
+        System.out.print(opcode);
+        System.out.print(", next instruction would be at ");
+        System.out.println(toHexString(currentIP));
         return false;
       }
     }
@@ -2778,18 +2782,18 @@ public class SSAEmul extends Emulator {
               mn=new Mnemonic(tempIP, "stlchk   ", pars, isJumpDest);
               break;
             default:
-              out.print("unknown opcode: ");
-              out.print(opcode);
-              out.print(", next instruction would be at ");
-              out.println(toHexString(currentIP));
+              System.out.print("unknown opcode: ");
+              System.out.print(opcode);
+              System.out.print(", next instruction would be at ");
+              System.out.println(toHexString(currentIP));
               //success = false;
           }
         }
         if (!success) {
-          out.print("Error during opcode disassembly starting at ");
-          out.println(toHexString(startIP));
-          out.print("Opcode was ");
-          out.println(opcode);
+          System.out.print("Error during opcode disassembly starting at ");
+          System.out.println(toHexString(startIP));
+          System.out.print("Opcode was ");
+          System.out.println(opcode);
           return null;
         }
       }

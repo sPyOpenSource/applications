@@ -1,12 +1,12 @@
 package jCPU.Wasm;
 
-import jCPU.MCS51.CPU;
+import jCPU.iCPU;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Arrays;
 
-public class WasmSim extends CPU {
+public class WasmSim implements iCPU {
     private WasmModule module;
     private WasmRuntime runtime;
     private boolean running = false;

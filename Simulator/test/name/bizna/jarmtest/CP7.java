@@ -1,12 +1,6 @@
 package name.bizna.jarmtest;
 
-import name.bizna.jarm.AlignmentException;
-import name.bizna.jarm.BusErrorException;
-import name.bizna.jarm.CPU;
-import name.bizna.jarm.EscapeCompleteException;
-import name.bizna.jarm.EscapeRetryException;
-import name.bizna.jarm.SaneCoprocessor;
-import name.bizna.jarm.UndefinedException;
+import jCPU.arm.*;
 
 public class CP7 extends SaneCoprocessor {
 	

@@ -8,6 +8,18 @@ package jCPU.RiscV;
  * @author Hans Jakob Damsgaard (hansjakobdamsgaard@gmail.com)
  */
 
+import static jCPU.RiscV.RVConstants.AUIPC_MASK;
+import static jCPU.RiscV.RVConstants.BRANCH_MASK;
+import static jCPU.RiscV.RVConstants.CSR_MASK;
+import static jCPU.RiscV.RVConstants.FENCE_MASK;
+import static jCPU.RiscV.RVConstants.JALR_MASK;
+import static jCPU.RiscV.RVConstants.JAL_MASK;
+import static jCPU.RiscV.RVConstants.LOAD_MASK;
+import static jCPU.RiscV.RVConstants.LUI_MASK;
+import static jCPU.RiscV.RVConstants.OP_IMM_MASK;
+import static jCPU.RiscV.RVConstants.OP_MASK;
+import static jCPU.RiscV.RVConstants.STORE_MASK;
+import jCPU.iCPU;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.DataInputStream;
@@ -18,7 +30,7 @@ import java.nio.ByteBuffer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class IsaSim extends Decoder {
+public class IsaSim implements iCPU {
     // Insert path to binary file containing RISC-V instructions
     public final static String FILEPATH = "tests/task3/loop.bin";
 
@@ -40,6 +52,7 @@ public class IsaSim extends Decoder {
     boolean offsetPC = false, breakProgram = false; // For determining next pc value
     int cc = 0; // Clock cycle counter
     private boolean running = false;
+    private Decoder decoder = new Decoder();
 
     public IsaSim() {
         System.out.println("RISC-V World!");
@@ -57,7 +70,7 @@ public class IsaSim extends Decoder {
     public void go(int limit) throws Exception{
         while(true){
             RVInstruction ins = new RVInstruction(code.read16(pc));
-            decode_riscv_binary(ins);
+            decoder.decode_riscv_binary(ins);
             step();
         }
     }

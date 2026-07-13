@@ -1,6 +1,8 @@
 
 package jCPU;
 
+import jCPU.MCS51.MCS51Performance;
+
 /**
  *
  * @author X. Wang
@@ -79,4 +81,36 @@ public interface iCPU {
     public int sfr(int add);
     
     public int getSfrXdataHi();
+
+    public void addPerformanceListener(MCS51Performance p);
+
+    public int getCodeSize();
+
+    public void code(int i, int i0);
+
+    public void reset();
+
+    public void setEmulation(boolean mode);
+
+    public void setCodeName(int address, String label);
+
+    public int getInterruptCount();
+
+    public InterruptStatistic getInterruptAt(int i);
+
+    public long getExecutionCounter(int i);
+
+    public String getDecodeAt(int i);
+
+    public long getOpcodeCounter(int i);
+
+    public String getOpcodeDescription(int i);
+
+    public void stopSimulation();
+
+    public void pass() throws Exception;
+
+    public int step() throws Exception;
+
+    public void go(int i) throws Exception;
 }

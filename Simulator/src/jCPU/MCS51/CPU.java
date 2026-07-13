@@ -3,6 +3,7 @@
  */
 package jCPU.MCS51;
 
+import j51.GUI;
 import j51.intel.graph.RESERVED;
 import j51.util.*;
 import j51.swing.*;

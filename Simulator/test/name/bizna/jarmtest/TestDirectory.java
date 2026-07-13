@@ -10,13 +10,7 @@ import java.nio.ByteOrder;
 import java.util.ArrayList;
 import java.util.List;
 
-import name.bizna.jarm.AlignmentException;
-import name.bizna.jarm.BusErrorException;
-import name.bizna.jarm.ByteArrayRegion;
-import name.bizna.jarm.CPU;
-import name.bizna.jarm.PhysicalMemorySpace;
-import name.bizna.jarm.UndefinedException;
-import name.bizna.jarm.UnimplementedInstructionException;
+import jCPU.arm.*;
 import name.bizna.jarmtest.TestSpec.InvalidSpecException;
 
 public class TestDirectory {

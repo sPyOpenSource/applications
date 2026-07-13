@@ -3,7 +3,7 @@ package name.bizna.jarmtest;
 import java.util.HashMap;
 import java.util.Map;
 
-import name.bizna.jarm.CPU;
+import jCPU.arm.CPU;
 
 abstract class LValue extends RValue {
 	private static class RegisterAccessor extends LValue {

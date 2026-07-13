@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.junit.*;
-import name.bizna.jarm.CPU;
+import jCPU.arm.CPU;
 import static org.junit.Assert.assertEquals;
 
 public class JarmTest {

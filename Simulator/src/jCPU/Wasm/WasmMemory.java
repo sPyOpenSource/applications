@@ -6,7 +6,7 @@ import java.util.Map;
 public class WasmMemory {
     private final Map<Integer, Byte> memory = new HashMap<>();
     private int minPages;
-    private int maxPages;
+    private final int maxPages;
     private static final int PAGE_SIZE = 65536;
 
     public WasmMemory(int minPages, int maxPages) {

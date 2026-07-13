@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import name.bizna.jarm.CPU;
+import jCPU.arm.CPU;
 
 public class TestThread extends Thread {
 	private final List<TestDirectory> list;

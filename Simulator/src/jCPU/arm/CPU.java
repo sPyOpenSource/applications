@@ -4,7 +4,7 @@ import java.io.PrintStream;
 import java.util.HashMap;
 import java.util.TreeSet;
 
-public final class CPU  extends nl.lxtreme.arm.CPU implements ARMConstants {
+public final class CPU extends nl.lxtreme.arm.CPU implements ARMConstants {
 	/*** CONSTANTS ***/
 	/* processor modes; HYP is PL2, USER is PL0, all others are PL1 (B1-1139) */
 	public static enum ProcessorMode {

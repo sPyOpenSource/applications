@@ -43,6 +43,7 @@ public class X86Core implements iCPU {
         reset();
     }
 
+    @Override
     public void reset() {
         for (int i = 0; i < REG_COUNT; i++) {
             regs[i] = 0;
@@ -123,6 +124,7 @@ public class X86Core implements iCPU {
         writeMem8(addr + 3, (value >> 24) & 0xFF);
     }
 
+    @Override
     public int step() throws Exception {
         if (executor != null) {
             return executor.step(this);
@@ -130,12 +132,14 @@ public class X86Core implements iCPU {
         return 0;
     }
 
+    @Override
     public void go(int limit) throws Exception {
         for (int i = 0; i < limit; i++) {
             if (step() == 0) break;
         }
     }
 
+    @Override
     public String getDecodeAt(int pc) {
         if (executor != null) {
             return executor.getDecodeAt(this, pc);

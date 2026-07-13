@@ -11,7 +11,7 @@ import java.util.regex.MatchResult;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import name.bizna.jarm.CPU;
+import jCPU.arm.CPU;
 
 public class TestSpec {
 	public static class InvalidSpecException extends Exception {
