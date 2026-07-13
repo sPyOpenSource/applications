@@ -34,9 +34,9 @@ public class JPeripheral extends J51Panel
 		{
 			MCS51Peripheral p = cpu.getPeripheralAt(i);
 			
-			if (p instanceof Component)
+			if (p instanceof Component component)
 			{
-				add((Component)p, g);
+				add(component, g);
 				g.gridy++;
 			}
 		}
