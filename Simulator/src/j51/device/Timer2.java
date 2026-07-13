@@ -5,7 +5,11 @@
 
 package j51.device;
 
-import j51.intel.*;
+import jCPU.AbstractInterruptSource;
+import jCPU.MCS51.CPU;
+import jCPU.MCS51.MCS51Peripheral;
+import jCPU.MachineCyclesListener;
+
 
 /**
  *
@@ -16,7 +20,7 @@ import j51.intel.*;
  */
 public class Timer2 extends AbstractInterruptSource implements MCS51Peripheral , MachineCyclesListener
 {
-	MCS51 cpu;
+	CPU cpu;
 
 	static public final int T2CON		= 0xc8;
 	static public final int T2CON_TF2	= 0x80;
@@ -43,7 +47,7 @@ public class Timer2 extends AbstractInterruptSource implements MCS51Peripheral ,
 
 	}
 
-	public void registerCpu(MCS51 cpu)
+	public void registerCpu(CPU cpu)
 	{
 		this.cpu = cpu;
 

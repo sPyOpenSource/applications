@@ -1,7 +1,7 @@
 package jCPU.x86;
 
 import jCPU.iCPU;
-import j51.intel.CallListener;
+import jCPU.CallListener;
 
 import java.util.HashMap;
 import java.util.Map;

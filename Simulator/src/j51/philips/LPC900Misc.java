@@ -3,13 +3,14 @@
  */
 package j51.philips;
 
-import j51.intel.*;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
 import j51.util.Logger;
 import j51.swing.*;
+import jCPU.MCS51.CPU;
+import jCPU.MCS51.MCS51Peripheral;
 
 /**
  * LPC900 misc register
@@ -41,7 +42,7 @@ public class LPC900Misc extends JPanel implements MCS51Peripheral
 		add(boots,g);
 	}
 
-	public void registerCpu(MCS51 _cpu)
+	public void registerCpu(CPU _cpu)
 	{
 		this.cpu = (LPC900)_cpu;
 

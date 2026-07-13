@@ -18,9 +18,9 @@
 
 package sjc.emulation;
 
+import jCPU.ssa.SSAEmul;
 import sjc.osio.TextPrinter;
 import sjc.real.EmulReal;
-import sjc.emulation.ssa.SSAEmul;
 
 /**
  * Factory for obtaining instances of Emulator

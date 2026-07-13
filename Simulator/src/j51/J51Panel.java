@@ -5,8 +5,8 @@ package j51;
 
 import java.awt.*;
 import javax.swing.*;
-import j51.intel.*;
 import j51.swing.JFactory;
+import jCPU.MCS51.CPU;
 
 /**
  *
@@ -17,7 +17,7 @@ import j51.swing.JFactory;
  */
 public class J51Panel extends JPanel
 {
-	protected MCS51 cpu;
+	protected CPU cpu;
 	private String title;
 
 	public J51Panel(String title)
@@ -44,7 +44,7 @@ public class J51Panel extends JPanel
 		return title;
 	}
 
-	public void setCpu(MCS51 cpu)
+	public void setCpu(CPU cpu)
 	{
 		this.cpu = cpu;
 	}

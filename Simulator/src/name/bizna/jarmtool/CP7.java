@@ -7,14 +7,14 @@ import java.io.InputStream;
 import java.io.PrintStream;
 import java.io.RandomAccessFile;
 
-import name.bizna.jarm.AlignmentException;
-import name.bizna.jarm.BusErrorException;
-import name.bizna.jarm.CPU;
-import name.bizna.jarm.EscapeCompleteException;
-import name.bizna.jarm.EscapeRetryException;
-import name.bizna.jarm.SaneCoprocessor;
-import name.bizna.jarm.UndefinedException;
-import name.bizna.jarm.VirtualMemorySpace;
+import jCPU.arm.AlignmentException;
+import jCPU.arm.BusErrorException;
+import jCPU.arm.CPU;
+import jCPU.arm.EscapeCompleteException;
+import jCPU.arm.EscapeRetryException;
+import jCPU.arm.SaneCoprocessor;
+import jCPU.arm.UndefinedException;
+import jCPU.arm.VirtualMemorySpace;
 
 public class CP7 extends SaneCoprocessor {
 	

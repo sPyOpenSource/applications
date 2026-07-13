@@ -3,10 +3,10 @@
  */
 package j51.atmel;
 
-import j51.intel.*;
 import j51.device.i2c.*;
 import j51.util.Logger;
 import j51.util.Hex;
+import jCPU.PersistentMemory;
 
 /**
  * Base class for ATMEL 24C16 EEPROM at I2C Address A0.

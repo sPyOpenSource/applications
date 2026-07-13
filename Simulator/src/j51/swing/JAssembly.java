@@ -9,9 +9,9 @@ import javax.swing.*;
 import javax.swing.table.*;
 
 import j51.util.Hex;
-import j51.intel.*;
 import j51.util.FastArray;
 import j51.J51Panel;
+import jCPU.MCS51.CPU;
 
 /**
  *
@@ -218,7 +218,7 @@ public class JAssembly extends J51Panel
 	}
 
         @Override
-	public void setCpu(MCS51 cpu)
+	public void setCpu(CPU cpu)
 	{
 		super.setCpu(cpu);
 		createTable();

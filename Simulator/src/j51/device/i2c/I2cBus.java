@@ -4,12 +4,15 @@
 package j51.device.i2c;
 
 import java.util.Vector;
+import java.util.logging.Level;
 
 import j51.util.Logger;
 import j51.util.Hex;
-import j51.intel.OpenCollectorMemoryBit;
-import j51.intel.MCS51;
-import java.util.logging.Level;
+import jCPU.MCS51.CPU;
+import jCPU.MCS51.MCS51Peripheral;
+import jCPU.OpenCollectorMemoryBit;
+import jCPU.ResetListener;
+import jCPU.iCPU;
 
 /**
  * I2C Bus manager. This peripheral manage all the operation between
@@ -33,7 +36,7 @@ import java.util.logging.Level;
  *
  * @see I2cSlave
  */
-public class I2cBus implements jCPU.MemoryWriteListener,j51.intel.MCS51Peripheral,j51.intel.ResetListener
+public class I2cBus implements jCPU.MemoryWriteListener,MCS51Peripheral,ResetListener
 {
 	private static final Logger log = Logger.getLogger(I2cBus.class);
 
@@ -65,7 +68,7 @@ public class I2cBus implements jCPU.MemoryWriteListener,j51.intel.MCS51Periphera
 		setSda(_sda);
 	}
 
-	public void registerCpu(MCS51 cpu)
+	public void registerCpu(CPU cpu)
 	{
 		cpu.addResetListener(this);
 	}
@@ -94,7 +97,7 @@ public class I2cBus implements jCPU.MemoryWriteListener,j51.intel.MCS51Periphera
 	}
 
 
-	public void reset(MCS51 cpu)
+	public void reset(CPU cpu)
 	{
 		SDA.set(true);
 		SCL.set(true);

@@ -182,10 +182,3 @@ class JType {
         return 1;
     }
 }
-
-class JObject {
-    public static JObject fromHandle(int handle) {
-        // Placeholder for actual implementation
-        return new JObject();
-    }
-}

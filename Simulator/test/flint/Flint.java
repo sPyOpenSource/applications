@@ -185,8 +185,7 @@ public class Flint {
 
 // Placeholder classes to match C++ code references
 class FDbg {
-
-    FDbg checkStop(FExec.FExec aThis) {
+    FDbg checkStop(FExec aThis) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }

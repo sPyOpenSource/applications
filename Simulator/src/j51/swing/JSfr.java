@@ -2,8 +2,8 @@
 package j51.swing;
 
 import j51.J51Panel;
-import j51.intel.MCS51;
 import j51.util.Hex;
+import jCPU.MCS51.CPU;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import javax.swing.JLabel;
@@ -43,7 +43,7 @@ public class JSfr extends J51Panel
 	}
 	
         @Override
-	public void setCpu(MCS51 cpu)
+	public void setCpu(CPU cpu)
 	{
 		super.setCpu(cpu);
 		for (int i = 0 ; i < 128 ; i++)

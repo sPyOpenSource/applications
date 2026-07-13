@@ -4,8 +4,14 @@
 
 package j51.device;
 
-import j51.intel.*;
 import j51.util.Hex;
+import jCPU.AbstractInterruptSource;
+import jCPU.MCS51.CPU;
+import jCPU.MCS51.MCS51Constants;
+import jCPU.MCS51.MCS51Peripheral;
+import jCPU.MachineCyclesListener;
+import jCPU.MCS51.SfrReadListener;
+import jCPU.MCS51.SfrWriteListener;
 
 /**
  * 
@@ -23,7 +29,7 @@ public class Timer implements MCS51Peripheral,MachineCyclesListener,MCS51Constan
 	 */
 	class SingleTimer extends AbstractInterruptSource implements MCS51Constants
 	{
-		private MCS51 cpu;
+		private CPU cpu;
 		private int tconShift;
 		private int tmodShift;
 		private int TH;
@@ -48,7 +54,7 @@ public class Timer implements MCS51Peripheral,MachineCyclesListener,MCS51Constan
 		}
 
 
-		void registerCpu(MCS51 cpu)
+		void registerCpu(CPU cpu)
 		{
 			this.cpu = cpu;
 			cpu.addInterruptSource(MCS51Constants.IE,this,"TIMER"+timer);
@@ -191,11 +197,11 @@ public class Timer implements MCS51Peripheral,MachineCyclesListener,MCS51Constan
 		}
 	}
 	
-	private MCS51 cpu;
+	private CPU cpu;
 	private SingleTimer timer0 = new SingleTimer(0);
 	private SingleTimer timer1 = new SingleTimer(1);
 	
-	public void registerCpu(MCS51 cpu)
+	public void registerCpu(CPU cpu)
 	{
 		this.cpu = cpu;
 		cpu.addMachineCycleListener(this);

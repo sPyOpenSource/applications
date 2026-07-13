@@ -3,9 +3,12 @@
  */
 package j51.philips;
 
-import j51.intel.*;
 import j51.swing.JUart;
 import j51.util.Logger;
+import jCPU.MCS51.CPU;
+import jCPU.FlashCode;
+import jCPU.PersistentMemory;
+import jCPU.MCS51.SfrWriteListener;
 import jCPU.MemoryReadListener;
 import jCPU.MemoryWriteListener;
 import jCPU.iMemory;
@@ -29,7 +32,7 @@ import jCPU.iMemory;
  *	Added constructor with code size.
  * 
  */
-public class LPC900 extends MCS51 implements SfrWriteListener, LPC900Constants,
+public class LPC900 extends CPU implements SfrWriteListener, LPC900Constants,
 			MemoryReadListener, MemoryWriteListener
 {
 	private static Logger log = Logger.getLogger(LPC900.class);

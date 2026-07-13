@@ -1,5 +1,6 @@
 package jx.disass;
 
+import jCPU.MCS51.CPU;
 import java.io.PrintStream;
 import java.sql.Ref;
 import java.util.ArrayList;
@@ -9,7 +10,7 @@ import jx.compiler.backend.Reg;
 import jx.compiler.symbols.SymbolTableEntryBase;
 import jx.compiler.symbols.UnresolvedJump;
 
-public class x86 extends j51.intel.MCS51 implements Visitor {
+public class x86 extends CPU implements Visitor {
     static String[] sreg_mod01_rm32   = {"DS", "DS", "DS", "DS", "??", "SS", "DS", "DS"};
     static String[] sreg_mod10_rm32   = {"DS", "DS", "DS", "DS", "??", "SS", "DS", "DS"};
     static String[] sreg_mod00_base32 = {"DS", "DS", "DS", "DS", "SS", "DS", "DS", "DS"};

@@ -3,13 +3,17 @@
  */
 package j51.swing;
 
-import j51.intel.*;
+import jCPU.MCS51.CPU;
+import jCPU.MCS51.MCS51Constants;
+import jCPU.MCS51.MCS51Peripheral;
+import jCPU.ResetListener;
+import jCPU.MCS51.SfrWriteListener;
 import java.awt.*;
 import javax.swing.*;
 
 class BytePort extends JBitField implements SfrWriteListener,MCS51Peripheral,ResetListener
 {
-	private MCS51 cpu;
+	private CPU cpu;
 	private int sfr = -1;
 	private int disableMask;
 
@@ -25,7 +29,7 @@ class BytePort extends JBitField implements SfrWriteListener,MCS51Peripheral,Res
 	}
 
         @Override
-	public void reset(MCS51 cpu)
+	public void reset(CPU cpu)
 	{
 		setValue(0);
 	}
@@ -56,7 +60,7 @@ class BytePort extends JBitField implements SfrWriteListener,MCS51Peripheral,Res
 	}
 
         @Override
-	public void registerCpu(MCS51 cpu)
+	public void registerCpu(CPU cpu)
 	{
 		this.cpu = cpu;
 		
@@ -76,7 +80,7 @@ class MCS51Port extends JPanel implements MCS51Peripheral,SfrWriteListener
 	private final BytePort	m1;
 	private final BytePort	m2;
 	private final BytePort	p;
-	private MCS51		cpu;
+	private CPU		cpu;
 	
 	public MCS51Port(int port)
 	{
@@ -99,7 +103,7 @@ class MCS51Port extends JPanel implements MCS51Peripheral,SfrWriteListener
 	}
 
         @Override
-	public void registerCpu(MCS51 cpu)
+	public void registerCpu(CPU cpu)
 	{
 		this.cpu = cpu;
 		m1.registerCpu(cpu);
@@ -213,7 +217,7 @@ public class JPort extends JPanel implements MCS51Peripheral,MCS51Constants
 	}
 	
         @Override
-	public void registerCpu(MCS51 cpu)
+	public void registerCpu(CPU cpu)
 	{
             for (MCS51Port port : ports) {
                 port.registerCpu(cpu);

@@ -3,10 +3,10 @@
  */
 package j51.philips.diseqc;
 
-import j51.intel.*;
 import j51.philips.*;
 import j51.atmel.Atmel24C16;
 import j51.device.i2c.I2cBus;
+import jCPU.OpenCollectorMemoryBit;
 
 
 /**

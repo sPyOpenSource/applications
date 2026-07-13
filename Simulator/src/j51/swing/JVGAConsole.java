@@ -1,6 +1,8 @@
 package j51.swing;
 
-import j51.intel.*;
+import jCPU.MCS51.CPU;
+import jCPU.MCS51.MCS51Peripheral;
+import jCPU.MCS51.XdataWriteListener;
 import java.awt.*;
 import java.awt.image.*;
 import javax.swing.*;
@@ -578,7 +580,7 @@ public class JVGAConsole extends JComponent implements MCS51Peripheral, XdataWri
   }
 
   @Override
-  public void registerCpu(MCS51 cpu) {
+  public void registerCpu(CPU cpu) {
     cpu.addXdataWriteListener(this);
   }
 

@@ -4,9 +4,10 @@
 package j51.cmon51;
 
 import j51.device.Timer;
-import j51.intel.*;
 import j51.swing.JPort;
 import j51.swing.JUartTA;
+import jCPU.MCS51.CPU;
+import jCPU.FlashCode;
 
 /**
  * 
@@ -20,7 +21,7 @@ import j51.swing.JUartTA;
  * @since 1.03
  */
 
-public class Mon51 extends MCS51
+public class Mon51 extends CPU
 {
 	class CodeMon51 extends FlashCode
 	{

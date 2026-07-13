@@ -3,7 +3,13 @@
  */
 package j51.philips;
 
-import j51.intel.*;
+import jCPU.AbstractInterruptSource;
+import jCPU.AsyncTimerListener;
+import jCPU.MCS51.CPU;
+import jCPU.MCS51.MCS51Constants;
+import jCPU.MCS51.MCS51Peripheral;
+import jCPU.ResetListener;
+import jCPU.MCS51.SfrWriteListener;
 
 /**
  * Watch Dog for LPX9xx series.
@@ -26,35 +32,35 @@ ResetListener,SfrWriteListener,AsyncTimerListener
 		super(0x53);
 	}
 
-	public void registerCpu(MCS51 _cpu)
+	public void registerCpu(CPU _cpu)
 	{
 		this.cpu = (LPC900)_cpu;
 
-		cpu.setSfrName(WDCON,  "WDCON");
-		cpu.setSfrName(WDFEED1,"WDFEED1");
-		cpu.setSfrName(WDFEED2,"WDFEED2");
-		cpu.setSfrName(WDL,    "WDL");
+		cpu.setSfrName(WDCON,   "WDCON");
+		cpu.setSfrName(WDFEED1, "WDFEED1");
+		cpu.setSfrName(WDFEED2, "WDFEED2");
+		cpu.setSfrName(WDL,     "WDL");
 
-		cpu.addSfrWriteListener(WDCON,this);
-		cpu.addSfrWriteListener(WDFEED1,this);
-		cpu.addSfrWriteListener(WDFEED2,this);
+		cpu.addSfrWriteListener(WDCON, this);
+		cpu.addSfrWriteListener(WDFEED1, this);
+		cpu.addSfrWriteListener(WDFEED2, this);
 
-		cpu.addInterruptSource(MCS51Constants.IE,this);
-		cpu.addInterruptSource(WDCON,this);
+		cpu.addInterruptSource(MCS51Constants.IE, this);
+		cpu.addInterruptSource(WDCON, this);
 
 		cpu.addResetListener(this);
 	}
 
-	public void reset(MCS51 _cpu)
+	public void reset(CPU _cpu)
 	{
 		running = feed = false;
-		cpu.sfr(WDL,0xFF);
-		cpu.sfr(WDCON,0xE7);
+		cpu.sfr(WDL, 0xFF);
+		cpu.sfr(WDCON, 0xE7);
 		wdl = 0xff;
 
 		// Call the write listener because under reset is not
 		// called but the WD must be enabled any way !!!
-		sfrWrite(WDCON,0xE7);
+		sfrWrite(WDCON, 0xE7);
 	}
 
 	public void sfrWrite(int r,int v)
@@ -97,12 +103,10 @@ ResetListener,SfrWriteListener,AsyncTimerListener
 	}
 
 
+        @Override
 	public boolean interruptCondition()
 	{
-		if ((cpu.sfr(MCS51Constants.IE) & IE_WD) != 0 && (cpu.sfr(WDCON) & WDCON_WDTOF) != 0)
-			return true;
-
-		return false;
+		return (cpu.sfr(MCS51Constants.IE) & IE_WD) != 0 && (cpu.sfr(WDCON) & WDCON_WDTOF) != 0;
 	}
 
 
@@ -133,7 +137,7 @@ ResetListener,SfrWriteListener,AsyncTimerListener
 		cpu.addAsyncTimerListener(timer,this);
 	}
 
-	public void expired(MCS51 _cpu) throws Exception
+	public void expired(CPU _cpu) throws Exception
 	{
 		running = false;
 
@@ -155,4 +159,3 @@ ResetListener,SfrWriteListener,AsyncTimerListener
 		addTimer();
 	}
 }
-

@@ -7,8 +7,14 @@ import j51.device.JLed;
 import java.awt.*;
 import javax.swing.*;
 
-import j51.intel.*;
 import j51.swing.*;
+import jCPU.AsyncTimerListener;
+import jCPU.MCS51.CPU;
+import jCPU.MCS51.EmulationListener;
+import jCPU.MCS51.MCS51Constants;
+import jCPU.MCS51.MCS51Peripheral;
+import jCPU.ResetListener;
+import jCPU.MCS51.SfrWriteListener;
 import jCPU.MemoryReadListener;
 
 /**
@@ -25,7 +31,7 @@ public class DiseqcPeripheral extends JPanel implements MCS51Peripheral,
 	private final int MIN = -900;
 	private final int MAX =  900;
 
-	private MCS51 cpu;
+	private CPU cpu;
 	private JLed ledw = new JLed("West",Color.green);
 	private JLed lede = new JLed("East",Color.green);
 	private JLed led  = new JLed("Status",Color.blue);
@@ -47,7 +53,7 @@ public class DiseqcPeripheral extends JPanel implements MCS51Peripheral,
 
 		GridBagConstraints g = new GridBagConstraints();
 		g.gridx = 0; g.gridy = 0;g.gridwidth = 1;g.gridheight = 1;
-		g.anchor = g.CENTER; g.fill = g.NONE; g.insets=new Insets(2,2,2,2);
+		g.anchor = GridBagConstraints.CENTER; g.fill = GridBagConstraints.NONE; g.insets=new Insets(2,2,2,2);
 
 
 
@@ -88,7 +94,7 @@ public class DiseqcPeripheral extends JPanel implements MCS51Peripheral,
 
 	}
 
-	public void reset(MCS51 _cpu)
+	public void reset(CPU _cpu)
 	{
 		Diseqc cpu = (Diseqc)_cpu;
 
@@ -154,7 +160,7 @@ public class DiseqcPeripheral extends JPanel implements MCS51Peripheral,
 	}
 
 
-	public void expired(MCS51 c)
+	public void expired(CPU c)
 	{
 
 		class EndPulse implements AsyncTimerListener
@@ -166,7 +172,7 @@ public class DiseqcPeripheral extends JPanel implements MCS51Peripheral,
 				this.direction = direction;
 			}
 
-			public void expired(MCS51 c1)
+			public void expired(CPU c1)
 			{
 				motorPosition += direction;
 				m.setPosition(motorPosition);
@@ -209,6 +215,7 @@ public class DiseqcPeripheral extends JPanel implements MCS51Peripheral,
 	}
 
 
+        @Override
 	public void setEmulation(boolean mode)
 	{
 		if (mode)
@@ -221,7 +228,7 @@ public class DiseqcPeripheral extends JPanel implements MCS51Peripheral,
 		sDelay.setEnabled(!mode);
 	}
 	
-	public void registerCpu(MCS51 cpu)
+	public void registerCpu(CPU cpu)
 	{
 		this.cpu = cpu;
 		cpu.addSfrWriteListener(MCS51Constants.P0,this);

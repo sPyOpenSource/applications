@@ -3,8 +3,10 @@
  */
 package j51.philips;
 
-import j51.intel.*;
 import j51.swing.JPort;
+import jCPU.MCS51.CPU;
+import jCPU.MCS51.MCS51Constants;
+import jCPU.ResetListener;
 
 /**
  * LPC900 standard ports.
@@ -22,22 +24,21 @@ public class LPC900Ports extends JPort implements ResetListener
 
 	}
 
-	public void registerCpu(MCS51 cpu)
+	public void registerCpu(CPU cpu)
 	{
 		super.registerCpu(cpu);
 		cpu.addResetListener(this);
 	}
 
-	public void reset(MCS51 cpu)
+	public void reset(CPU cpu)
 	{
 		// In the LPC900 default port is Input
-		cpu.sfr(MCS51Constants.P0M1,0xff);
-		cpu.sfr(MCS51Constants.P0M2,0x00);
-		cpu.sfr(MCS51Constants.P1M1,0xff);
-		cpu.sfr(MCS51Constants.P1M2,0x00);
-		cpu.sfr(MCS51Constants.P2M1,0xff);
-		cpu.sfr(MCS51Constants.P2M2,0x00);
+		cpu.sfr(MCS51Constants.P0M1, 0xff);
+		cpu.sfr(MCS51Constants.P0M2, 0x00);
+		cpu.sfr(MCS51Constants.P1M1, 0xff);
+		cpu.sfr(MCS51Constants.P1M2, 0x00);
+		cpu.sfr(MCS51Constants.P2M1, 0xff);
+		cpu.sfr(MCS51Constants.P2M2, 0x00);
 	}
 
 }
-

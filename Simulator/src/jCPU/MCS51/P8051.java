@@ -1,0 +1,34 @@
+/**
+ * $Id: P8051.java 45 2010-06-22 20:53:26Z mviara $
+ *
+ */
+package jCPU.MCS51;
+
+import j51.device.Timer;
+import j51.swing.JPort;
+import j51.swing.JUartTA;
+import j51.swing.JVGAConsole;
+
+/**
+ *
+ * Standard 8051 microprocessor. With all peripheral.
+ *
+ * @author Mario Viara
+ * @version 1.00
+ */
+public class P8051 extends CPU
+{
+	public P8051() throws Exception
+	{
+		addPeripheral(new Timer());
+		addPeripheral(new JPort(4));
+		addPeripheral(new JUartTA());
+		addPeripheral(new JVGAConsole());
+	}
+
+        @Override
+	public String toString()
+	{
+		return "Intel 8051  $Id: P8051.java 45 2010-06-22 20:53:26Z mviara $";
+	}
+}

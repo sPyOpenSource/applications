@@ -3,10 +3,10 @@
  */
 package j51.device;
 
-import j51.intel.MemoryByte;
 import j51.util.Hex;
 import j51.util.Logger;
 import j51.util.FastArray;
+import jCPU.MemoryByte;
 import jCPU.MemoryReadListener;
 import jCPU.MemoryWriteListener;
 import jCPU.iMemory;

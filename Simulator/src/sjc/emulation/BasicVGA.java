@@ -18,8 +18,8 @@
 
 package sjc.emulation;
 
-import j51.intel.MCS51;
-import j51.intel.MCS51Peripheral;
+import jCPU.MCS51.CPU;
+import jCPU.MCS51.MCS51Peripheral;
 
 
 /**
@@ -95,7 +95,7 @@ public class BasicVGA extends AddressRange implements MCS51Peripheral {
   }
 
     @Override
-    public void registerCpu(MCS51 cpu) {
+    public void registerCpu(CPU cpu) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }

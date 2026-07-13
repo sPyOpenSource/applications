@@ -2,8 +2,8 @@
 package j51.swing;
 
 import j51.J51Panel;
-import j51.intel.MCS51;
-import j51.intel.MCS51Peripheral;
+import jCPU.MCS51.CPU;
+import jCPU.MCS51.MCS51Peripheral;
 import java.awt.Component;
 import java.awt.GridBagConstraints;
 
@@ -19,7 +19,7 @@ public class JPeripheral extends J51Panel
 	}
 
         @Override
-	public void setCpu(MCS51 cpu)
+	public void setCpu(CPU cpu)
 	{
 		super.setCpu(cpu);
 		removeAll();

@@ -4,7 +4,9 @@
 
 package j51.silabs;
 
-import j51.intel.*;
+import jCPU.MCS51.CPU;
+import jCPU.FlashCode;
+import jCPU.PersistentMemory;
 
 interface C8051F120Constants
 {
@@ -23,7 +25,7 @@ interface C8051F120Constants
  * @version 1.00
  * 
  */
-public class C8051F120 extends MCS51 implements C8051F120Constants
+public class C8051F120 extends CPU implements C8051F120Constants
 {
     
 	private final FlashCode		flash;

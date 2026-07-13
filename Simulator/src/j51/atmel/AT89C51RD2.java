@@ -5,8 +5,12 @@ package j51.atmel;
 
 import j51.device.Timer;
 import j51.device.Timer2;
-import j51.intel.*;
 import j51.util.Hex;
+import jCPU.CallListener;
+import jCPU.MCS51.CPU;
+import jCPU.FlashCode;
+import jCPU.MCS51.SfrWriteListener;
+import jCPU.iCPU;
 
 
 /**
@@ -19,7 +23,7 @@ import j51.util.Hex;
  * 1.01	Added name for SFR.
  *
  */
-public class AT89C51RD2 extends MCS51 implements AT89C51RD2Constants,
+public class AT89C51RD2 extends CPU implements AT89C51RD2Constants,
 						SfrWriteListener,
 						CallListener
 {
@@ -44,7 +48,8 @@ public class AT89C51RD2 extends MCS51 implements AT89C51RD2Constants,
 	/**
 	 * EEPROM API
 	 */
-	public void call(MCS51 _cpu,int pc) throws Exception
+        @Override
+	public void call(iCPU _cpu, int pc) throws Exception
 	{
 
 		switch (r(1))
@@ -54,15 +59,16 @@ public class AT89C51RD2 extends MCS51 implements AT89C51RD2Constants,
 				int source = getDptr(1);
 
 				for (int i = 0 ; i < acc() ; i++)
-					code(dest+i,xdata(source+i));
+					code(dest + i, xdata(source + i));
 				acc(0);
 				break;
 			default:
-				throw new Exception("API R1 "+r(1)+" A = "+acc()+" DPTR0 = "+Hex.bin2word(getDptr(0))+" DPTR1 = "+Hex.bin2word(getDptr(1)));
+				throw new Exception("API R1 " + r(1) + " A = " + acc() + " DPTR0 = " + Hex.bin2word(getDptr(0)) + " DPTR1 = " + Hex.bin2word(getDptr(1)));
 				
 		}
 	}
 	
+        @Override
 	public void sfrWrite(int r,int v)
 	{
 		switch (r)

@@ -9,6 +9,11 @@ public class JObject extends ListNode {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
+    public static JObject fromHandle(int handle) {
+        // Placeholder for actual implementation
+        return new JObject();
+    }
+    
     private int size;
     private byte prot = 0x02;
     private JClass type;
@@ -91,4 +96,5 @@ public class JObject extends ListNode {
             super.finalize();
         }
     }
+    
 }

@@ -12,11 +12,13 @@ import javax.swing.tree.*;
 import assets.Assets;
 
 import j51.util.*;
-import j51.intel.*;
 import j51.swing.*;
 
 import java.awt.datatransfer.StringSelection;
-import jCPU.JavaVM.ByteCode;
+import jCPU.JVM.ByteCode;
+import jCPU.MCS51.CPU;
+import jCPU.InterruptStatistic;
+import jCPU.MCS51.MCS51Performance;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
@@ -66,7 +68,7 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 	private final JTextArea messages;
 
 	private JToolBar toolBar = new JToolBar();
-	private MCS51 cpu;
+	private CPU cpu;
 	private JFileChooser fc = null;
 	private JButton buttonStop;
 	private AbstractAction actionDebugTrace;
@@ -193,7 +195,7 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 				try{
 					Class c = Class.forName(name);
 					setProgress("Loading class");
-					MCS51 newCpu = (MCS51)c.newInstance();
+					CPU newCpu = (CPU)c.newInstance();
 					info.reset.setValue(0);
 					GUI.this.cpu = newCpu;
 					setProgress("Reset cpu");
@@ -244,7 +246,7 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 		avgCpuUsage = 0;
 	}
 
-	public void setCpu(MCS51 cpu)
+	public void setCpu(CPU cpu)
 	{
 		info.reset.setValue(0);
 

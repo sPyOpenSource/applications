@@ -9,13 +9,13 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.logging.Level;
 
-import name.bizna.jarm.AlignmentException;
-import name.bizna.jarm.BusErrorException;
-import name.bizna.jarm.ByteArrayRegion;
-import name.bizna.jarm.CPU;
-import name.bizna.jarm.EscapeCompleteException;
-import name.bizna.jarm.EscapeRetryException;
-import name.bizna.jarm.UndefinedException;
+import jCPU.arm.AlignmentException;
+import jCPU.arm.BusErrorException;
+import jCPU.arm.ByteArrayRegion;
+import jCPU.arm.CPU;
+import jCPU.arm.EscapeCompleteException;
+import jCPU.arm.EscapeRetryException;
+import jCPU.arm.UndefinedException;
 
 public class JarmTool {
 	private static final int MAX_PROGRAM_SPACE = 0x40000000;

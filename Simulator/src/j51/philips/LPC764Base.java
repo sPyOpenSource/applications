@@ -4,8 +4,12 @@
 
 package j51.philips;
 
-import j51.intel.*;
 import j51.swing.JUart;
+import jCPU.MCS51.CPU;
+import jCPU.Code;
+import jCPU.FlashCode;
+import jCPU.PersistentMemory;
+import jCPU.MCS51.SfrWriteListener;
 import jCPU.MemoryReadListener;
 import jCPU.MemoryWriteListener;
 
@@ -22,7 +26,7 @@ import jCPU.MemoryWriteListener;
  * @author Mario Viara
  * @version 1.00
  */
-public class LPC764Base extends MCS51 implements LPC764Constants , SfrWriteListener, MemoryReadListener, MemoryWriteListener
+public class LPC764Base extends CPU implements LPC764Constants , SfrWriteListener, MemoryReadListener, MemoryWriteListener
 {
 	private PersistentMemory eeprom;
 

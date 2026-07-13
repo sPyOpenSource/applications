@@ -1,11 +1,11 @@
 package nasm;
 
-import j51.intel.MCS51;
+import jCPU.MCS51.CPU;
 import java.io.IOException;
 import jCPU.x86.X86Core;
 import nasm.inst.NasmInst;
 
-public class NasmVM extends MCS51 {
+public class NasmVM extends CPU {
     private final int verboseLevel = 0;
     private final int stackSize = 10000;
     private final X86Core core;

@@ -19,7 +19,10 @@
  */
 package j51.test;
 
-import j51.intel.*;
+import jCPU.MCS51.CPU;
+import jCPU.MCS51.MCS51Peripheral;
+import jCPU.MCS51.SfrReadListener;
+import jCPU.MCS51.SfrWriteListener;
 
 
 class G128x64 extends j51.device.lcd.GLcd implements MCS51Peripheral,
@@ -30,7 +33,7 @@ class G128x64 extends j51.device.lcd.GLcd implements MCS51Peripheral,
 	private final int ADDH = 0xfe;
 	private final int DATA = 0xff;
 	
-	MCS51 cpu;
+	CPU cpu;
 	private int address = 0;
 	
 	public G128x64()
@@ -39,7 +42,7 @@ class G128x64 extends j51.device.lcd.GLcd implements MCS51Peripheral,
 	}
 
         @Override
-	public void registerCpu(MCS51 cpu)
+	public void registerCpu(CPU cpu)
 	{
 		this.cpu = cpu;
 		cpu.addSfrWriteListener(ADDL,this);

@@ -4,8 +4,11 @@
 
 package j51.philips.keil;
 
-import j51.intel.*;
 import j51.swing.*;
+import jCPU.MCS51.CPU;
+import jCPU.MCS51.MCS51Constants;
+import jCPU.MCS51.MCS51Peripheral;
+import jCPU.MCS51.SfrWriteListener;
 
 import java.awt.*;
 import javax.swing.*;
@@ -75,7 +78,7 @@ class MCB900Port extends JPanel implements MCS51Peripheral, SfrWriteListener,Upd
 	}
 	
         @Override
-	public void registerCpu(MCS51 cpu)
+	public void registerCpu(CPU cpu)
 	{
 		cpu.addSfrWriteListener(MCS51Constants.P2,this);
 		cpu.addUpdatableComponent(this);

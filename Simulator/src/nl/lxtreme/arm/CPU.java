@@ -5,18 +5,13 @@
  */
 package nl.lxtreme.arm;
 
-import java.io.File;
-import java.io.IOException;
 import java.util.*;
-
 import nl.lxtreme.arm.memory.*;
-import nl.lxtreme.binutils.elf.Elf;
-import nl.lxtreme.binutils.elf.ProgramHeader;
 
 /**
  * Provides a simplistic version of an ARM-core.
  */
-public class CPU extends j51.intel.MCS51
+public class CPU extends jCPU.MCS51.CPU
 {
   // VARIABLES
   private final int[] gpr;

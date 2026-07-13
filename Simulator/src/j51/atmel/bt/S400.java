@@ -4,14 +4,16 @@
 
 package j51.atmel.bt;
 
-import j51.intel.*;
 import j51.atmel.*;
 import j51.swing.JUart;
+import jCPU.MCS51.CPU;
+import jCPU.MCS51.MCS51Peripheral;
+import jCPU.MCS51.SfrWriteListener;
 
 
 class LCD2x16 extends j51.device.lcd.JLcd implements MCS51Peripheral, j51.atmel.AT89C51RD2Constants, SfrWriteListener
 {
-	MCS51 cpu;
+	CPU cpu;
 	int oldP5;
 
 	public final int DISPLAY_RS =	0x01;
@@ -25,7 +27,7 @@ class LCD2x16 extends j51.device.lcd.JLcd implements MCS51Peripheral, j51.atmel.
 	}
 
         @Override
-	public void registerCpu(MCS51 cpu)
+	public void registerCpu(CPU cpu)
 	{
 		this.cpu = cpu;
 

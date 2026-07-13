@@ -8,7 +8,7 @@ package jCPU.RiscV;
  * @author Hans Jakob Damsgaard (hansjakobdamsgaard@gmail.com)
  */
 
-import j51.intel.Code;
+import jCPU.Code;
 import jCPU.MemoryReadListener;
 import jCPU.MemoryWriteListener;
 

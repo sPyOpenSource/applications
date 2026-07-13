@@ -3,10 +3,17 @@
  */
 package j51.device;
 
-import j51.intel.*;
 import java.awt.*;
 import javax.swing.*;
 import j51.swing.*;
+import jCPU.MCS51.CPU;
+import jCPU.InterruptSource;
+import jCPU.MCS51.MCS51Constants;
+import jCPU.MCS51.MCS51Peripheral;
+import jCPU.ResetListener;
+import jCPU.MCS51.SfrReadListener;
+import jCPU.MCS51.SfrWriteListener;
+import jCPU.iCPU;
 
 
 /**
@@ -23,7 +30,7 @@ public class Uart extends JPanel implements MCS51Peripheral,
 {
 	private int sbuf = '?';
 	private boolean sbufReaded;
-	protected MCS51 cpu;
+	protected CPU cpu;
 	private final byte inBuffer[] = new byte[1024*1024];
 	int inPs,inPl;
 	
@@ -35,13 +42,13 @@ public class Uart extends JPanel implements MCS51Peripheral,
 
 	}
 
-	public void reset(MCS51 cpu)
+	public void reset(CPU cpu)
 	{
 		inPs = inPl = 0;
 		sbufReaded = true;
 	}
 	
-	public void registerCpu(MCS51 cpu)
+	public void registerCpu(CPU cpu)
 	{
 		this.cpu = cpu;
 		cpu.addSfrWriteListener(MCS51Constants.SBUF,this);
