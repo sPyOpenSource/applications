@@ -33,7 +33,7 @@ public final class VirtualMemorySpace  implements iMemory {
 		return mem.readByte(address & 0xFFFFFFFFL);
 	}
 	public final void writeByte(int address, byte value) throws BusErrorException, EscapeRetryException {
-		if(debugger != null) debugger.onWriteMemory(address, 2, false, value);
+		if(debugger != null) debugger.onWriteMemory(address, 1, false, value);
 		
 		lastAccessAddress = address; lastAccessWidth = 0; lastAccessWasStore = true;
 		Peripheral p = mmioMap.get(address);
@@ -51,8 +51,8 @@ public final class VirtualMemorySpace  implements iMemory {
 		if (p != null) {
 			byte b0 = p.read(0);
 			byte b1 = p.read(1);
-			if (bigEndian) return (short)((b0 << 8) | (b1 & 0xFF));
-			else return (short)((b0 & 0xFF) | (b1 << 8));
+			if (bigEndian) return (short)(((b0 & 0xFF) << 8) | (b1 & 0xFF));
+			else return (short)((b0 & 0xFF) | ((b1 & 0xFF) << 8));
 		}
 		if((address&1) != 0) {
 			if(strictAlign) throw new AlignmentException();
@@ -98,13 +98,13 @@ public final class VirtualMemorySpace  implements iMemory {
 			byte b1 = p.read(1);
 			byte b2 = p.read(2);
 			byte b3 = p.read(3);
-			if (bigEndian) return (int)((b0 << 24) | ((b1 & 0xFF) << 16) | ((b2 & 0xFF) << 8) | (b3 & 0xFF));
-			else return (int)((b0 & 0xFF) | ((b1 & 0xFF) << 8) | ((b2 & 0xFF) << 16) | (b3 << 24));
+			if (bigEndian) return (int)(((b0 & 0xFF) << 24) | ((b1 & 0xFF) << 16) | ((b2 & 0xFF) << 8) | (b3 & 0xFF));
+			else return (int)((b0 & 0xFF) | ((b1 & 0xFF) << 8) | ((b2 & 0xFF) << 16) | ((b3 & 0xFF) << 24));
 		}
 		if((address&3) != 0) {
 			if(strictAlign) throw new AlignmentException();
-			else if(bigEndian) return (int)((mem.readByte(address&0xFFFFFFFFL)<<24)|((mem.readByte(address+1&0xFFFFFFFFL)&0xFF)<<16)|((mem.readByte(address+2&0xFFFFFFFFL)&0xFF)<<8)|(mem.readByte(address+3&0xFFFFFFFFL)&0xFF));
-			else return (int)((mem.readByte(address&0xFFFFFFFFL)&0xFF)|((mem.readByte(address+1&0xFFFFFFFFL)&0xFF)<<8)|((mem.readByte(address+2&0xFFFFFFFFL)&0xFF)<<16)|(mem.readByte(address+3&0xFFFFFFFFL)<<24));
+			else if(bigEndian) return (int)(((mem.readByte(address&0xFFFFFFFFL)&0xFF)<<24)|((mem.readByte(address+1&0xFFFFFFFFL)&0xFF)<<16)|((mem.readByte(address+2&0xFFFFFFFFL)&0xFF)<<8)|(mem.readByte(address+3&0xFFFFFFFFL)&0xFF));
+			else return (int)((mem.readByte(address&0xFFFFFFFFL)&0xFF)|((mem.readByte(address+1&0xFFFFFFFFL)&0xFF)<<8)|((mem.readByte(address+2&0xFFFFFFFFL)&0xFF)<<16)|((mem.readByte(address+3&0xFFFFFFFFL)&0xFF)<<24));
 		}
 		else return mem.readInt(address & 0xFFFFFFFFL, bigEndian);
 	}

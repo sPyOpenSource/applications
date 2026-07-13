@@ -56,7 +56,7 @@ public class VirtualMemorySpaceTest {
         virtualMem.writeByte(addr, (byte) 0x77);
         
         assertTrue("Peripheral write should have been called", mock.writeCalled);
-        assertEquals((byte)0x77, mock.writeVals.get(0));
+        assertEquals((Byte) (byte)0x77, mock.writeVals.get(0));
     }
 
     @Test
@@ -69,10 +69,10 @@ public class VirtualMemorySpaceTest {
         virtualMem.writeInt(addr, 0x12345678, false, false);
         
         assertTrue("Peripheral write should have been called", mock.writeCalled);
-        assertEquals((byte)0x78, mock.writeVals.get(0));
-        assertEquals((byte)0x56, mock.writeVals.get(1));
-        assertEquals((byte)0x34, mock.writeVals.get(2));
-        assertEquals((byte)0x12, mock.writeVals.get(3));
+        assertEquals((Byte) (byte)0x78, mock.writeVals.get(0));
+        assertEquals((Byte) (byte)0x56, mock.writeVals.get(1));
+        assertEquals((Byte) (byte)0x34, mock.writeVals.get(2));
+        assertEquals((Byte) (byte)0x12, mock.writeVals.get(3));
     }
 
     @Test
@@ -185,6 +185,19 @@ public class VirtualMemorySpaceTest {
         assertEquals("Last access address should be the start of the long read", addr, virtualMem.getLastAccessAddress());
         assertEquals("Last access width should be 3 for long", 3, virtualMem.getLastAccessWidth());
         assertFalse(virtualMem.getLastAccessWasStore());
+    }
+
+    @Test
+    public void testContainsKey() throws Exception {
+        int registeredAddr = 0xB000;
+        int unregisteredAddr = 0xC000;
+
+        assertFalse("Address should not be registered yet", virtualMem.containsKey(registeredAddr));
+
+        virtualMem.registerPeripheral(registeredAddr, new MockPeripheral());
+
+        assertTrue("Address should be registered now", virtualMem.containsKey(registeredAddr));
+        assertFalse("Other address should not be registered", virtualMem.containsKey(unregisteredAddr));
     }
 
     @Test
