@@ -3,7 +3,6 @@
  */
 package jCPU.MCS51;
 
-import j51.GUI;
 import j51.intel.graph.RESERVED;
 import j51.util.*;
 import j51.swing.*;
@@ -1720,6 +1719,7 @@ public class CPU implements MCS51Constants, jCPU.iCPU
 		breakPoint[pc] = mode;
 	}
 
+        @Override
 	public String getDecodeAt(int pc)
 	{
 		Opcode o = opcodes[code(pc)];
@@ -1732,12 +1732,14 @@ public class CPU implements MCS51Constants, jCPU.iCPU
 		return o.getDescription();
 	}
 
+        @Override
 	public int getLengthAt(int pc)
 	{
 		Opcode o = opcodes[code(pc)];
 		return o.getLength();
 	}
 	
+        @Override
 	public void setOscillator(int oscillator)
 	{
 		if (oscillator != this.oscillator){
@@ -1746,22 +1748,26 @@ public class CPU implements MCS51Constants, jCPU.iCPU
 		}
 	}
 	
+        @Override
 	public int getOscillator()
 	{
 		return oscillator;
 	}
 
+        @Override
 	public long clock()
 	{
 		return clock;
 	}
 
 
+        @Override
 	public void machineCycle(int n)
 	{
 		machineCycle = n;
 	}
 	
+        @Override
 	public int machineCycle()
 	{
 		return machineCycle;

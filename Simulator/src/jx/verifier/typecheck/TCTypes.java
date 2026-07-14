@@ -6,7 +6,7 @@ import jx.verifier.CharIter;
 import java.util.Vector;
 import jx.classfile.ClassData;
 
-public class TCTypes {
+public class TCTypes implements jx.zero.verifier.typecheck.TCTypes {
 
     //ANY and ANY_REF are used for Bytecodes that operate on values of any type, like pop
     //they must not be pushed onto the stack or saved in the loval variables!!!
@@ -172,7 +172,7 @@ public class TCTypes {
 	    }
 	    if (className.toString().equals(TCObjectTypes.objectString))
 		return T_OBJECT;
-	    ClassData actClass = TCObjectTypes.getClassFinder().findClass(className.toString());
+	    ClassData actClass = (ClassData) TCObjectTypes.getClassFinder().findClass(className.toString());
 	    if (actClass == null || !actClass.isInterface()) 
 		return new TCObjectTypes(className.toString());
 	    else 

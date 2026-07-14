@@ -4,7 +4,7 @@ package flint;
 import jx.classfile.FieldData;
 
 
-public class JClass {
+public class JClass extends JObject {
     private static class InternalData {
         FieldData fields;
         String typeName;
@@ -14,6 +14,7 @@ public class JClass {
     private InternalData data;
 
     public JClass(String typeName, ClassLoader loader) {
+        super();
         this.data = new InternalData();
         this.data.typeName = typeName;
         this.data.classLoader = loader;

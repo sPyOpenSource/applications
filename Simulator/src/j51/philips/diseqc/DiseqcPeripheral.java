@@ -16,6 +16,7 @@ import jCPU.MCS51.MCS51Peripheral;
 import jCPU.ResetListener;
 import jCPU.MCS51.SfrWriteListener;
 import jCPU.MemoryReadListener;
+import jCPU.iCPU;
 
 /**
  * Diseqc peripheral.
@@ -94,7 +95,7 @@ public class DiseqcPeripheral extends JPanel implements MCS51Peripheral,
 
 	}
 
-	public void reset(CPU _cpu)
+	public void reset(iCPU _cpu)
 	{
 		Diseqc cpu = (Diseqc)_cpu;
 

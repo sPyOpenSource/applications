@@ -2,6 +2,7 @@
 package j51.swing;
 
 import jCPU.MCS51.CPU;
+import jCPU.iCPU;
 import javax.swing.JComponent;
 
 import java.awt.Color;
@@ -29,7 +30,7 @@ public class JCode extends JData
 	}
 
         @Override
-	public void setCpu(CPU cpu)
+	public void setCpu(iCPU cpu)
 	{
 		super.setCpu(cpu);
 		setTop(cpu.getCodeSize());

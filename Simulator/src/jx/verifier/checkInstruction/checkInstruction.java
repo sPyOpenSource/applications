@@ -4,9 +4,9 @@ import java.util.Vector;
 import jx.verifier.VerifyException;
 import jx.verifier.bytecode.BCLinkList;
 import jx.zero.ByteCode;
-import jx.zero.classfile.ConstantPool;
-import jx.zero.classfile.MethodSource;
-import jx.zero.classfile.VerifyResult;
+import jx.classfile.constantpool.ConstantPool;
+import jx.classfile.MethodSource;
+import jx.classfile.VerifyResult;
 
 public class checkInstruction {
 

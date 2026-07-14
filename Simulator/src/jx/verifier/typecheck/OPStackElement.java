@@ -2,7 +2,7 @@ package jx.verifier.typecheck;
 
 import jx.verifier.bytecode.*;
 import jx.verifier.VerifyException;
-import jx.verifier.JVMOPStackElement;
+import jx.zero.verifier.JVMOPStackElement;
 import java.util.Vector;
 
 public class OPStackElement extends JVMOPStackElement{
@@ -28,7 +28,7 @@ public class OPStackElement extends JVMOPStackElement{
     //merges the two StackElements. Has to return a NEW(!) JVMOPStackElement (even if this
     //and other were the same!), whose prev pointer must be null! 
     //throws Exception if not mergeable
-    public JVMOPStackElement merge(JVMOPStackElement otherElm) throws VerifyException {
+    public JVMOPStackElement merge(JVMOPStackElement otherElm) {
 	OPStackElement other = (OPStackElement) otherElm;
 	TCTypes mergedType =null;
 	try {

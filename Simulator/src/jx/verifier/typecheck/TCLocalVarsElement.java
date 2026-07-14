@@ -2,7 +2,7 @@ package jx.verifier.typecheck;
 
 import jx.verifier.bytecode.*;
 import jx.verifier.VerifyException;
-import jx.verifier.JVMLocalVarsElement;
+import jx.zero.verifier.JVMLocalVarsElement;
 import java.util.Vector;
 
 
@@ -22,8 +22,7 @@ public class TCLocalVarsElement extends JVMLocalVarsElement{
     //if merging changes the data of the Element, 
     //a NEW(!) JVMLocalVarsElement should be returned (i.e. merge should not change this or
     // other!).
-    public JVMLocalVarsElement merge(JVMLocalVarsElement other) 
-	throws VerifyException {
+    public JVMLocalVarsElement merge(JVMLocalVarsElement other) {
 	TCLocalVarsElement otherVar = (TCLocalVarsElement) other;
 	if (otherVar == null) {
 	    return new TCLocalVarsElement(TCTypes.T_UNKNOWN, -1);

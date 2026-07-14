@@ -10,6 +10,7 @@ import jCPU.MCS51.MCS51Constants;
 import jCPU.MCS51.MCS51Peripheral;
 import jCPU.ResetListener;
 import jCPU.MCS51.SfrWriteListener;
+import jCPU.iCPU;
 
 /**
  * Watch Dog for LPX9xx series.
@@ -51,7 +52,7 @@ ResetListener,SfrWriteListener,AsyncTimerListener
 		cpu.addResetListener(this);
 	}
 
-	public void reset(CPU _cpu)
+	public void reset(iCPU _cpu)
 	{
 		running = feed = false;
 		cpu.sfr(WDL, 0xFF);

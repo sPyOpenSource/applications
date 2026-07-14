@@ -74,7 +74,7 @@ class JInt8Array extends JArray {
         return size;
     }
 
-    public byte[] getData() {
+    public byte[] getByteData() {
         byte[] arr = new byte[size];
         data.position(0);
         data.get(arr);
@@ -88,7 +88,7 @@ class JInt16Array extends JArray {
         return size / 2;
     }
 
-    public short[] getData() {
+    public short[] getShortData() {
         short[] arr = new short[size / 2];
         data.asShortBuffer().get(arr);
         return arr;
@@ -96,7 +96,7 @@ class JInt16Array extends JArray {
 }
 
 class JUInt16Array extends JArray {
-    public char[] getData() {
+    public char[] getCharData() {
         char[] arr = new char[size / 2];
         data.asCharBuffer().get(arr);
         return arr;
@@ -109,7 +109,7 @@ class JInt32Array extends JArray {
         return size / 4;
     }
 
-    public int[] getData() {
+    public int[] getIntData() {
         int[] arr = new int[size / 4];
         data.asIntBuffer().get(arr);
         return arr;
@@ -122,7 +122,7 @@ class JFloatArray extends JArray {
         return size / 4;
     }
 
-    public float[] getData() {
+    public float[] getFloatData() {
         float[] arr = new float[size / 4];
         data.asFloatBuffer().get(arr);
         return arr;
@@ -135,7 +135,7 @@ class JInt64Array extends JArray {
         return size / 8;
     }
 
-    public long[] getData() {
+    public long[] getLongData() {
         long[] arr = new long[size / 8];
         data.asLongBuffer().get(arr);
         return arr;
@@ -148,7 +148,7 @@ class JDoubleArray extends JArray {
         return size / 8;
     }
 
-    public double[] getData() {
+    public double[] getDoubleData() {
         double[] arr = new double[size / 8];
         data.asDoubleBuffer().get(arr);
         return arr;
@@ -161,9 +161,7 @@ class JObjectArray extends JArray {
         return size / 4;
     }
 
-    public JObject[] getData() {
-        // Assuming JObject references are stored as int handles or pointers,
-        // this needs to be adapted based on actual implementation.
+    public JObject[] getObjData() {
         int count = size / 4;
         JObject[] arr = new JObject[count];
         IntBuffer intBuf = data.asIntBuffer();

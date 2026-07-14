@@ -6,11 +6,12 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import jx.classfile.MethodData;
+import jx.classfile.ExceptionHandlerData;
 
 public class FExec extends ListNode {
 
     // --- Fields ---
-    private List<Integer> stack;
+    private List<Object> stack;
     private int stackLength;
     private int[] code;
     private long[] locals;
@@ -24,6 +25,7 @@ public class FExec extends ListNode {
     private int pc;
     private MethodData method;
     private boolean terminated;
+    ClassLoader loader;
 
     // --- Constants ---
     private static final int FLOAT_NAN = 0x7FC00000;
@@ -258,6 +260,8 @@ public class FExec extends ListNode {
         "[Z", "[C", "[F", "[D", "[B", "[S", "[I", "[J"
     };
 
+    private static final int[] opcodeLabels = new int[256];
+
     // --- Constructor ---
     public FExec(JThread owner, int stackSize) {
         super();
@@ -276,6 +280,7 @@ public class FExec extends ListNode {
         this.ownerThread = owner;
         this.excp = null;
         this.terminated = false;
+        this.loader = null;
     }
 
     // --- Stack Operations ---
@@ -327,36 +332,36 @@ public class FExec extends ListNode {
     }
 
     public int stackPopInt32() {
-        int value = stack.get(sp);
+        int value = (int) stack.get(sp);
         sp--;
         return value;
     }
 
     public long stackPopInt64() {
-        int low = stack.get(sp);
+        int low = (int) stack.get(sp);
         sp--;
-        int high = stack.get(sp);
+        int high = (int) stack.get(sp);
         sp--;
         return ((long) high << 32) | (low & 0xFFFFFFFFL);
     }
 
     public float stackPopFloat() {
-        int intBits = stack.get(sp);
+        int intBits = (int) stack.get(sp);
         sp--;
         return Float.intBitsToFloat(intBits);
     }
 
     public double stackPopDouble() {
-        int low = stack.get(sp);
+        int low = (int) stack.get(sp);
         sp--;
-        int high = stack.get(sp);
+        int high = (int) stack.get(sp);
         sp--;
         long longBits = ((long) high << 32) | (low & 0xFFFFFFFFL);
         return Double.longBitsToDouble(longBits);
     }
 
     public JObject stackPopObject() {
-        int objRef = stack.get(sp);
+        int objRef = (int) stack.get(sp);
         sp--;
         return JObject.fromRef(objRef);
     }
@@ -365,10 +370,10 @@ public class FExec extends ListNode {
 
     public int getStackTrace(VmStackFrame stackTrace, int traceSp) {
         if (traceSp < END_OF_STACK) return -1;
-        int tracePc = stack.get(traceSp - 2);
+        int tracePc = (int) stack.get(traceSp - 2);
         MethodData traceMethod = (MethodData) (Object) stack.get(traceSp - 3);
-        stackTrace.init(tracePc, stack.get(traceSp), traceMethod);
-        return stack.get(traceSp);
+        stackTrace.init(tracePc, (int) stack.get(traceSp), traceMethod);
+        return (int) stack.get(traceSp);
     }
 
     public boolean getStackTrace(int index, VmStackFrame stackTrace, AtomicInteger isEndStack) {
@@ -402,8 +407,8 @@ public class FExec extends ListNode {
     public boolean readLocal(int stackIndex, int localIndex, AtomicLong value) {
         VmStackFrame stackTrace = new VmStackFrame();
         if (!getStackTrace(stackIndex, stackTrace, null)) return false;
-        int low = stack.get(stackTrace.baseSp + 1 + localIndex);
-        int high = stack.get(stackTrace.baseSp + 2 + localIndex);
+        int low = (int) stack.get(stackTrace.baseSp + 1 + localIndex);
+        int high = (int) stack.get(stackTrace.baseSp + 2 + localIndex);
         long val = ((long) high << 32) | (low & 0xFFFFFFFFL);
         value.set(val);
         return true;
@@ -486,20 +491,20 @@ public class FExec extends ListNode {
             }
 
             boolean reenter = false;
-            int exceptionLength = traceMethod.getExceptionLength();
+            int exceptionLength = traceMethod.getCode().getExceptionTableLength();
             for (int i = 0; i < exceptionLength; i++) {
-                ExceptionTable exception = traceMethod.getException(i);
-                if (exception.startPc <= tracePc && tracePc < exception.endPc) {
+                ExceptionHandlerData exception = traceMethod.getCode().getExceptionHandlers()[i];
+                if (exception.getStartBCIndex() <= tracePc && tracePc < exception.getEndBCIndex()) {
                     boolean isMatch = false;
-                    if (exception.catchType == 0) {
+                    if (exception.getCatchTypeCPIndex() == 0) {
                         isMatch = true;
                     } else {
-                        JClass catchType = traceMethod.loader.getConstClass(this, exception.catchType);
+                        JClass catchType = loader.getConstClass(this, exception.getCatchTypeCPIndex());
                         if (catchType == null) {
                             while (startSp > traceStartSp) restoreContext();
                             code = this.code;
-                            sp = startSp + traceMethod.getMaxLocals();
-                            pc = exception.handlerPc;
+                            sp = startSp + traceMethod.getCode().getNumLocalVariables();
+                            pc = exception.getHandlerBCIndex();
                             reenter = true;
                             break;
                         }
@@ -507,8 +512,8 @@ public class FExec extends ListNode {
                         if (!isMatch && excp != obj) {
                             while (startSp > traceStartSp) restoreContext();
                             code = this.code;
-                            sp = startSp + traceMethod.getMaxLocals();
-                            pc = exception.handlerPc;
+                            sp = startSp + traceMethod.getCode().getNumLocalVariables();
+                            pc = exception.getHandlerBCIndex();
                             reenter = true;
                             break;
                         }
@@ -516,8 +521,8 @@ public class FExec extends ListNode {
                     if (isMatch) {
                         while (startSp > traceStartSp) restoreContext();
                         code = this.code;
-                        sp = startSp + traceMethod.getMaxLocals();
-                        pc = exception.handlerPc;
+                        sp = startSp + traceMethod.getCode().getNumLocalVariables();
+                        pc = exception.getHandlerBCIndex();
                         stackPushObject((JObject) obj);
                         excp = null;
                         return;
@@ -534,8 +539,8 @@ public class FExec extends ListNode {
                 return;
             }
             traceMethod = (MethodData) stack.get(traceStartSp - 3);
-            tracePc = stack.get(traceStartSp - 2);
-            traceStartSp = stack.get(traceStartSp);
+            tracePc = (int) stack.get(traceStartSp - 2);
+            traceStartSp = (int) stack.get(traceStartSp);
             if (tracePc == INVALID_PC) return;
         }
     }
@@ -548,8 +553,8 @@ public class FExec extends ListNode {
         int[] code = this.code;
 
         // Check if the class needs static initialization
-        if (method.loader.getStaticInitStatus() == StaticInitStatus.UNINITIALIZED) {
-            invokeStaticCtor(method.loader);
+        if (loader.getStaticInitStatus() == StaticInitStatus.UNINITIALIZED) {
+            invokeStaticCtor(loader);
             if (excp != null) { exceptionHandler(); return; }
             code = this.code;
         }
@@ -650,7 +655,6 @@ public class FExec extends ListNode {
             // --- Load Constants from Pool ---
             case OP_LDC: {
                 int poolIndex = code[pc + 1];
-                ClassLoader loader = method.loader;
                 switch (loader.getConstPoolTag(poolIndex)) {
                     case CONST_INTEGER:
                         stackPushInt32(loader.getConstInteger(poolIndex));
@@ -694,7 +698,6 @@ public class FExec extends ListNode {
 
             case OP_LDC_W: {
                 int poolIndex = readInt16(code, pc + 1);
-                ClassLoader loader = method.loader;
                 switch (loader.getConstPoolTag(poolIndex)) {
                     case CONST_INTEGER:
                         stackPushInt32(loader.getConstInteger(poolIndex));
@@ -736,7 +739,6 @@ public class FExec extends ListNode {
 
             case OP_LDC2_W: {
                 int poolIndex = readInt16(code, pc + 1);
-                ClassLoader loader = method.loader;
                 switch (loader.getConstPoolTag(poolIndex)) {
                     case CONST_LONG:
                         stackPushInt64(loader.getConstLong(poolIndex));
@@ -853,9 +855,9 @@ public class FExec extends ListNode {
                     exceptionHandler();
                     continue mainLoop;
                 }
-                if (index < 0 || index >= (obj.size / Integer.BYTES)) {
+                if (index < 0 || index >= (obj.getSize() / Integer.BYTES)) {
                     JClass excpCls = Flint.findClass(this, "java/lang/ArrayIndexOutOfBoundsException");
-                    throwNew(excpCls, "Index %d out of bounds for length %d", index, obj.size / Integer.BYTES);
+                    throwNew(excpCls, "Index %d out of bounds for length %d", index, obj.getSize() / Integer.BYTES);
                     exceptionHandler();
                     continue mainLoop;
                 }
@@ -874,9 +876,9 @@ public class FExec extends ListNode {
                     exceptionHandler();
                     continue mainLoop;
                 }
-                if (index < 0 || index >= (obj.size / Long.BYTES)) {
+                if (index < 0 || index >= (obj.getSize() / Long.BYTES)) {
                     JClass excpCls = Flint.findClass(this, "java/lang/ArrayIndexOutOfBoundsException");
-                    throwNew(excpCls, "Index %d out of bounds for length %d", index, obj.size / Long.BYTES);
+                    throwNew(excpCls, "Index %d out of bounds for length %d", index, obj.getSize() / Long.BYTES);
                     exceptionHandler();
                     continue mainLoop;
                 }
@@ -894,9 +896,9 @@ public class FExec extends ListNode {
                     exceptionHandler();
                     continue mainLoop;
                 }
-                if (index < 0 || index >= (obj.size / Integer.BYTES)) {
+                if (index < 0 || index >= (obj.getSize() / Integer.BYTES)) {
                     JClass excpCls = Flint.findClass(this, "java/lang/ArrayIndexOutOfBoundsException");
-                    throwNew(excpCls, "Index %d out of bounds for length %d", index, obj.size / Integer.BYTES);
+                    throwNew(excpCls, "Index %d out of bounds for length %d", index, obj.getSize() / Integer.BYTES);
                     exceptionHandler();
                     continue mainLoop;
                 }
@@ -914,9 +916,9 @@ public class FExec extends ListNode {
                     exceptionHandler();
                     continue mainLoop;
                 }
-                if (index < 0 || index >= obj.size) {
+                if (index < 0 || index >= obj.getSize()) {
                     JClass excpCls = Flint.findClass(this, "java/lang/ArrayIndexOutOfBoundsException");
-                    throwNew(excpCls, "Index %d out of bounds for length %d", index, obj.size);
+                    throwNew(excpCls, "Index %d out of bounds for length %d", index, obj.getSize());
                     exceptionHandler();
                     continue mainLoop;
                 }
@@ -935,9 +937,9 @@ public class FExec extends ListNode {
                     exceptionHandler();
                     continue mainLoop;
                 }
-                if (index < 0 || index >= (obj.size / Short.BYTES)) {
+                if (index < 0 || index >= (obj.getSize() / Short.BYTES)) {
                     JClass excpCls = Flint.findClass(this, "java/lang/ArrayIndexOutOfBoundsException");
-                    throwNew(excpCls, "Index %d out of bounds for length %d", index, obj.size / Short.BYTES);
+                    throwNew(excpCls, "Index %d out of bounds for length %d", index, obj.getSize() / Short.BYTES);
                     exceptionHandler();
                     continue mainLoop;
                 }
@@ -1051,9 +1053,9 @@ public class FExec extends ListNode {
                     exceptionHandler();
                     continue mainLoop;
                 }
-                if (index < 0 || index >= (obj.size / Integer.BYTES)) {
+                if (index < 0 || index >= (obj.getSize() / Integer.BYTES)) {
                     JClass excpCls = Flint.findClass(this, "java/lang/ArrayIndexOutOfBoundsException");
-                    throwNew(excpCls, "Index %d out of bounds for length %d", index, obj.size / Integer.BYTES);
+                    throwNew(excpCls, "Index %d out of bounds for length %d", index, obj.getSize() / Integer.BYTES);
                     exceptionHandler();
                     continue mainLoop;
                 }
@@ -1073,9 +1075,9 @@ public class FExec extends ListNode {
                     exceptionHandler();
                     continue mainLoop;
                 }
-                if (index < 0 || index >= (obj.size / Long.BYTES)) {
+                if (index < 0 || index >= (obj.getSize() / Long.BYTES)) {
                     JClass excpCls = Flint.findClass(this, "java/lang/ArrayIndexOutOfBoundsException");
-                    throwNew(excpCls, "Index %d out of bounds for length %d", index, obj.size / Long.BYTES);
+                    throwNew(excpCls, "Index %d out of bounds for length %d", index, obj.getSize() / Long.BYTES);
                     exceptionHandler();
                     continue mainLoop;
                 }
@@ -1094,9 +1096,9 @@ public class FExec extends ListNode {
                     exceptionHandler();
                     continue mainLoop;
                 }
-                if (index < 0 || index >= obj.size) {
+                if (index < 0 || index >= obj.getSize()) {
                     JClass excpCls = Flint.findClass(this, "java/lang/ArrayIndexOutOfBoundsException");
-                    throwNew(excpCls, "Index %d out of bounds for length %d", index, obj.size);
+                    throwNew(excpCls, "Index %d out of bounds for length %d", index, obj.getSize());
                     exceptionHandler();
                     continue mainLoop;
                 }
@@ -1116,9 +1118,9 @@ public class FExec extends ListNode {
                     exceptionHandler();
                     continue mainLoop;
                 }
-                if (index < 0 || index >= (obj.size / Short.BYTES)) {
+                if (index < 0 || index >= (obj.getSize() / Short.BYTES)) {
                     JClass excpCls = Flint.findClass(this, "java/lang/ArrayIndexOutOfBoundsException");
-                    throwNew(excpCls, "Index %d out of bounds for length %d", index, obj.size / Short.BYTES);
+                    throwNew(excpCls, "Index %d out of bounds for length %d", index, obj.getSize() / Short.BYTES);
                     exceptionHandler();
                     continue mainLoop;
                 }
@@ -1139,15 +1141,15 @@ public class FExec extends ListNode {
                 break;
 
             case OP_DUP: {
-                int value = stack.get(sp);
+        int value = (int) stack.get(sp);
                 stackPushInt32(value);
                 pc++;
                 break;
             }
 
             case OP_DUP_X1: {
-                int value2 = stack.get(sp - 1);
-                int value1 = stack.get(sp);
+                int value2 = (int) stack.get(sp - 1);
+                int value1 = (int) stack.get(sp);
                 stack.set(sp + 1, value1);
                 stack.set(sp, value2);
                 stack.set(sp - 1, value1);
@@ -1156,9 +1158,9 @@ public class FExec extends ListNode {
             }
 
             case OP_DUP_X2: {
-                int value3 = stack.get(sp - 2);
-                int value2 = stack.get(sp - 1);
-                int value1 = stack.get(sp);
+                int value3 = (int) stack.get(sp - 2);
+                int value2 = (int) stack.get(sp - 1);
+                int value1 = (int) stack.get(sp);
                 stack.set(sp + 1, value1);
                 stack.set(sp, value2);
                 stack.set(sp - 1, value3);
@@ -1168,8 +1170,8 @@ public class FExec extends ListNode {
             }
 
             case OP_DUP2: {
-                int value2 = stack.get(sp - 1);
-                int value1 = stack.get(sp);
+                int value2 = (int) stack.get(sp - 1);
+                int value1 = (int) stack.get(sp);
                 stackPushInt32(value2);
                 stackPushInt32(value1);
                 pc++;
@@ -1177,9 +1179,9 @@ public class FExec extends ListNode {
             }
 
             case OP_DUP2_X1: {
-                int value3 = stack.get(sp - 2);
-                int value2 = stack.get(sp - 1);
-                int value1 = stack.get(sp);
+                int value3 = (int) stack.get(sp - 2);
+                int value2 = (int) stack.get(sp - 1);
+                int value1 = (int) stack.get(sp);
                 stack.set(sp + 1, value2);
                 stack.set(sp, value1);
                 stack.set(sp - 1, value3);
@@ -1190,10 +1192,10 @@ public class FExec extends ListNode {
             }
 
             case OP_DUP2_X2: {
-                int value4 = stack.get(sp - 3);
-                int value3 = stack.get(sp - 2);
-                int value2 = stack.get(sp - 1);
-                int value1 = stack.get(sp);
+                int value4 = (int) stack.get(sp - 3);
+                int value3 = (int) stack.get(sp - 2);
+                int value2 = (int) stack.get(sp - 1);
+                int value1 = (int) stack.get(sp);
                 stack.set(sp + 1, value2);
                 stack.set(sp, value1);
                 stack.set(sp - 1, value3);
@@ -1388,7 +1390,7 @@ public class FExec extends ListNode {
             }
 
             case OP_INEG:
-                stack.set(sp, -stack.get(sp));
+                stack.set(sp, -(int) stack.get(sp));
                 pc++;
                 break;
 
@@ -1575,13 +1577,13 @@ public class FExec extends ListNode {
                 break;
 
             case OP_I2B:
-                stack.set(sp, (int) ((byte) stack.get(sp).intValue()));
+                stack.set(sp, (int) ((byte) (int) stack.get(sp)));
                 pc++;
                 break;
 
             case OP_I2C:
             case OP_I2S:
-                stack.set(sp, (int) ((short) stack.get(sp).intValue()));
+                stack.set(sp, (int) ((short) (int) stack.get(sp)));
                 pc++;
                 break;
 
@@ -1801,7 +1803,7 @@ public class FExec extends ListNode {
 
             // --- Field Access ---
             case OP_GETSTATIC: {
-                ConstField constField = method.loader.getConstField(this, readInt16(code, pc + 1));
+                ConstField constField = loader.getConstField(this, readInt16(code, pc + 1));
                 if (constField == null) { exceptionHandler(); continue mainLoop; }
                 ClassLoader clsLoader = constField.loader;
                 if (clsLoader == null) {
@@ -1841,7 +1843,7 @@ public class FExec extends ListNode {
             }
 
             case OP_PUTSTATIC: {
-                ConstField constField = method.loader.getConstField(this, readInt16(code, pc + 1));
+                ConstField constField = loader.getConstField(this, readInt16(code, pc + 1));
                 if (constField == null) { exceptionHandler(); continue mainLoop; }
                 ClassLoader clsLoader = constField.loader;
                 if (clsLoader == null) {
@@ -1889,7 +1891,7 @@ public class FExec extends ListNode {
             }
 
             case OP_GETFIELD: {
-                ConstField constField = method.loader.getConstField(this, readInt16(code, pc + 1));
+                ConstField constField = loader.getConstField(this, readInt16(code, pc + 1));
                 if (constField == null) { exceptionHandler(); continue mainLoop; }
                 JObject obj = stackPopObject();
                 if (obj == null) {
@@ -1919,7 +1921,7 @@ public class FExec extends ListNode {
             }
 
             case OP_PUTFIELD: {
-                ConstField constField = method.loader.getConstField(this, readInt16(code, pc + 1));
+                ConstField constField = loader.getConstField(this, readInt16(code, pc + 1));
                 if (constField == null) { exceptionHandler(); continue mainLoop; }
                 switch (constField.nameAndType.desc.charAt(0)) {
                     case 'Z':
@@ -2008,7 +2010,7 @@ public class FExec extends ListNode {
 
             // --- Method Invocation ---
             case OP_INVOKEVIRTUAL: {
-                ConstMethod constMethod = method.loader.getConstMethod(this, readInt16(code, pc + 1));
+                ConstMethod constMethod = loader.getConstMethod(this, readInt16(code, pc + 1));
                 if (constMethod == null) { exceptionHandler(); continue mainLoop; }
                 invokeVirtual(constMethod);
                 if (excp != null) { exceptionHandler(); continue mainLoop; }
@@ -2017,7 +2019,7 @@ public class FExec extends ListNode {
             }
 
             case OP_INVOKESPECIAL: {
-                ConstMethod constMethod = method.loader.getConstMethod(this, readInt16(code, pc + 1));
+                ConstMethod constMethod = loader.getConstMethod(this, readInt16(code, pc + 1));
                 if (constMethod == null) { exceptionHandler(); continue mainLoop; }
                 invokeSpecial(constMethod);
                 if (excp != null) { exceptionHandler(); continue mainLoop; }
@@ -2026,7 +2028,7 @@ public class FExec extends ListNode {
             }
 
             case OP_INVOKESTATIC: {
-                ConstMethod constMethod = method.loader.getConstMethod(this, readInt16(code, pc + 1));
+                ConstMethod constMethod = loader.getConstMethod(this, readInt16(code, pc + 1));
                 if (constMethod == null) { exceptionHandler(); continue mainLoop; }
                 invokeStatic(constMethod);
                 if (excp != null) { exceptionHandler(); continue mainLoop; }
@@ -2035,7 +2037,7 @@ public class FExec extends ListNode {
             }
 
             case OP_INVOKEINTERFACE: {
-                Object interfaceMethod = method.loader.getConstInterfaceMethod(this, readInt16(code, pc + 1));
+                Object interfaceMethod = loader.getConstInterfaceMethod(this, readInt16(code, pc + 1));
                 if (interfaceMethod == null) { exceptionHandler(); continue mainLoop; }
                 int count = code[pc + 3];
                 invokeInterface(interfaceMethod, count);
@@ -2053,7 +2055,7 @@ public class FExec extends ListNode {
 
             // --- Object Creation ---
             case OP_NEW: {
-                JClass cls = method.loader.getConstClass(this, readInt16(code, pc + 1));
+                JClass cls = loader.getConstClass(this, readInt16(code, pc + 1));
                 JObject obj = Flint.newObject(this, cls);
                 if (obj == null) { exceptionHandler(); continue mainLoop; }
                 stackPushObject(obj);
@@ -2087,7 +2089,7 @@ public class FExec extends ListNode {
                     exceptionHandler();
                     continue mainLoop;
                 }
-                JClass cls = method.loader.getConstClass(this, readInt16(code, pc + 1));
+                JClass cls = loader.getConstClass(this, readInt16(code, pc + 1));
                 if (cls == null) { exceptionHandler(); continue mainLoop; }
                 cls = Flint.findClassOfArray(this, cls.getTypeName(), 1);
                 JObject array = Flint.newArray(this, cls, count);
@@ -2106,7 +2108,7 @@ public class FExec extends ListNode {
                     exceptionHandler();
                     continue mainLoop;
                 }
-                stackPushInt32(obj.size / obj.type.componentSize());
+                stackPushInt32(obj.getSize() / obj.getType().componentSize());
                 pc++;
                 break;
             }
@@ -2124,9 +2126,9 @@ public class FExec extends ListNode {
 
             // --- Type Checking ---
             case OP_CHECKCAST: {
-                JObject obj = JObject.fromRef(stack.get(sp));
+                JObject obj = JObject.fromRef((int) stack.get(sp));
                 if (obj != null) {
-                    JClass catchType = method.loader.getConstClass(this, readInt16(code, pc + 1));
+                    JClass catchType = loader.getConstClass(this, readInt16(code, pc + 1));
                     boolean isIns = Flint.isInstanceof(this, obj, catchType);
                     if (!isIns) {
                         if (excp == null) {
@@ -2144,7 +2146,7 @@ public class FExec extends ListNode {
 
             case OP_INSTANCEOF: {
                 JObject obj = stackPopObject();
-                JClass type = method.loader.getConstClass(this, readInt16(code, pc + 1));
+                JClass type = loader.getConstClass(this, readInt16(code, pc + 1));
                 boolean isIns = Flint.isInstanceof(this, obj, type);
                 if (isIns) {
                     stackPushInt32(1);
@@ -2158,7 +2160,7 @@ public class FExec extends ListNode {
 
             // --- Synchronization ---
             case OP_MONITORENTER: {
-                JObject obj = JObject.fromRef(stack.get(sp));
+                JObject obj = JObject.fromRef((int) stack.get(sp));
                 if (obj == null) {
                     throwNew(Flint.findClass(this, "java/lang/NullPointerException"),
                             "Cannot enter synchronized block by null object");
@@ -2248,10 +2250,10 @@ public class FExec extends ListNode {
 
             // --- Multi-dimensional Array ---
             case OP_MULTIANEWARRAY: {
-                JClass cls = method.loader.getConstClass(this, readInt16(code, pc + 1));
+                JClass cls = loader.getConstClass(this, readInt16(code, pc + 1));
                 int dimensions = code[pc + 3];
                 for (int i = 0; i < dimensions; i++) {
-                    if (stack.get(sp - dimensions + 1 + i) < 0) {
+                    if ((int) stack.get(sp - dimensions + 1 + i) < 0) {
                         throwNew(Flint.findClass(this, "java/lang/NegativeArraySizeException"),
                                 "Size of the array is a negative number");
                         exceptionHandler();
@@ -2259,7 +2261,7 @@ public class FExec extends ListNode {
                     }
                 }
                 JObject array = Flint.newMultiArray(this, cls,
-                        stack.get(sp - dimensions + 1), dimensions);
+                        (int) stack.get(sp - dimensions + 1), dimensions);
                 if (array == null) { exceptionHandler(); continue mainLoop; }
                 sp -= dimensions;
                 stackPushObject(array);
@@ -2347,6 +2349,20 @@ public class FExec extends ListNode {
     public int getLr() { return lr; }
     public void setLr(int lr) { this.lr = lr; }
     public int getPeakSp() { return peakSp; }
+
+    // --- Exception Throwing ---
+
+    public void throwNew(JClass excpCls) {
+        if (excpCls != null) {
+            excp = excpCls;
+        }
+    }
+
+    public void throwNew(JClass excpCls, String fmt, Object... args) {
+        if (excpCls != null) {
+            excp = excpCls;
+        }
+    }
 }
 
 // --- Placeholder Types (to be implemented fully) ---

@@ -7,6 +7,7 @@ import j51.swing.JPort;
 import jCPU.MCS51.CPU;
 import jCPU.MCS51.MCS51Constants;
 import jCPU.ResetListener;
+import jCPU.iCPU;
 
 /**
  * LPC900 standard ports.
@@ -30,7 +31,7 @@ public class LPC900Ports extends JPort implements ResetListener
 		cpu.addResetListener(this);
 	}
 
-	public void reset(CPU cpu)
+	public void reset(iCPU cpu)
 	{
 		// In the LPC900 default port is Input
 		cpu.sfr(MCS51Constants.P0M1, 0xff);

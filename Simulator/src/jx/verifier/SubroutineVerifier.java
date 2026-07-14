@@ -1,7 +1,7 @@
 package jx.verifier;
 
 import java.util.Vector;
-import jx.zero.ByteCode;
+import jx.verifier.bytecode.ByteCode;
 import jx.zero.classfile.*;
 import jx.zero.verifier.VerifierInterface;
 

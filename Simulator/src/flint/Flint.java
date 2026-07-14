@@ -113,7 +113,7 @@ public class Flint {
                 if (excpCls != null)
                     ctx.throwNew(excpCls);
                 else
-                    ctx.excp = (JThrowable) ((int) outOfMemoryErrorTypeName.hashCode() | 0x01);
+                    ctx.excp = Integer.valueOf(outOfMemoryErrorTypeName.hashCode() | 0x01);
             }
         } else {
             updateHeapRegion(p);
@@ -134,7 +134,7 @@ public class Flint {
                 if (excpCls != null)
                     ctx.throwNew(excpCls);
                 else
-                    ctx.excp = (JThrowable) ((int) outOfMemoryErrorTypeName.hashCode() | 0x01);
+                    ctx.excp = Integer.valueOf(outOfMemoryErrorTypeName.hashCode() | 0x01);
             }
         } else
             updateHeapRegion(p);
@@ -181,12 +181,56 @@ public class Flint {
     static boolean isObject(int val) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+
+    public static ClassLoader findLoader(FExec ctx, String className) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    public static JClass findClassOfArray(FExec ctx, String typeName, int dimensions) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    public static JObject newObject(FExec ctx, JClass cls) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    public static JObject newArray(FExec ctx, JClass cls, int count) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    public static JObject newMultiArray(FExec ctx, JClass cls, int dimensions, int count) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    public static boolean isInstanceof(FExec ctx, Object obj, JClass type) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    public static void terminateRequest() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    public static void freeExecution(FExec exec) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 }
 
 // Placeholder classes to match C++ code references
 class FDbg {
     FDbg checkStop(FExec aThis) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+    boolean exceptionIsEnabled() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+    void caughtException(FExec exec) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+    void hitBreakpoint(FExec exec) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+    int getSavedOpcode(int pc, Object method) {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 }
 class JClassDictNode {}
@@ -194,16 +238,70 @@ class Utf8DictNode {}
 class JStringDictNode {}
 
 class ClassLoader {
+    int monitorOwnId = 0;
+
     JClass getNestHost(FExec ctx) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     int getNestMembersCount() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     JClass getNestMember(FExec ctx, int index) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    int getConstPoolTag(int index) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    int getConstInteger(int index) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    float getConstFloat(int index) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    long getConstLong(int index) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    double getConstDouble(int index) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    JString getConstString(FExec ctx, int index) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    JClass getConstClass(FExec ctx, int index) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    ConstField getConstField(FExec ctx, int index) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    ConstMethod getConstMethod(FExec ctx, int index) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    Object getConstInterfaceMethod(FExec ctx, int index) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    StaticInitStatus getStaticInitStatus() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    FieldValue getStaticField(FExec ctx, ConstField field) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    String getName() {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 }
 
@@ -212,5 +310,9 @@ class FlintAPI {
         static Object malloc(int size) { return new byte[size]; }
         static Object realloc(Object p, int size) { return new byte[size]; }
         static void free(Object p) {}
+    }
+    static class Thread {
+        static void yield() {}
+        static void terminate(int code) {}
     }
 }

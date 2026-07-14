@@ -1,7 +1,7 @@
 
 package j51.swing;
 
-import jCPU.MCS51.CPU;
+import jCPU.iCPU;
 
 /**
  *
@@ -25,7 +25,7 @@ public class JXdata extends JData
 	}
 
         @Override
-	public void setCpu(CPU cpu)
+	public void setCpu(iCPU cpu)
 	{
 		super.setCpu(cpu);
 		setTop(cpu.getXdataSize());

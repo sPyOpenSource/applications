@@ -2,7 +2,7 @@ package jx.verifier;
 
 import jx.verifier.bytecode.*;
 
-public class VerifyException extends Exception {
+public class VerifyException extends RuntimeException {
     public String className;
     public String methodName;
     public int bcAddr;

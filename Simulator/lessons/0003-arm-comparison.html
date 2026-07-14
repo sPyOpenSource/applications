@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lesson 0003: Comparing ARM Implementations</title>
+    <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+    <header>
+        <h1>Comparing ARM Implementations: JARM vs. lxtreme ARM9</h1>
+        <nav>
+            <a href="0001-fetch-decode-execute-riscv.html">← RISC-V Cycle</a> | 
+            <a href="0002-special-function-registers.html">SFRs</a> | 
+            <a href="0004-placeholder.html">Next Lesson →</a>
+        </nav>
+    </header>
+
+    <section class="mission-grounding">
+        <p><strong>Mission Grounding:</strong> To maintain and extend armOS, you must understand the different levels of fidelity in its simulators. Comparing the two ARM implementations reveals the jump from a "simplistic core" to a "full system emulator."</p>
+    </section>
+
+    <section class="content">
+        <h2>The Relationship</h2>
+        <p>The first surprising discovery is that they are not completely independent. <code>jCPU.arm.CPU</code> (JARM) actually <strong>extends</strong> <code>nl.lxtreme.arm.CPU</code>.</p>
+        <pre><code>// src/jCPU/arm/CPU.java:7
+public final class CPU extends nl.lxtreme.arm.CPU implements ARMConstants {</code></pre>
+        <p>JARM uses the lxtreme ARM9 as a base and layers full-system complexity on top of it.</p>
+
+        <h2>Architectural Comparison</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Feature</th>
+                    <th>lxtreme ARM9</th>
+                    <th>JARM</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Scope</strong></td>
+                    <td>Simplistic ARM core</td>
+                    <td>Full ARM system emulator</td>
+                </tr>
+                <tr>
+                    <td><strong>Processor Modes</strong></td>
+                    <td>Basic (implied)</td>
+                    <td>Full (USER, SYSTEM, HYP, FIQ, IRQ, SVC, ABRT, UND, MON)</td>
+                </tr>
+                <tr>
+                    <td><strong>Registers</strong></td>
+                    <td>Flat GPR array (16 regs)</td>
+                    <td>Banked registers (SP, LR, SPSR per mode)</td>
+                </tr>
+                <tr>
+                    <td><strong>Memory</strong></td>
+                    <td>Simple <code>Memory</code> interface</td>
+                    <td><code>PhysicalMemorySpace</code> &amp; <code>VirtualMemorySpace</code> (MMU)</td>
+                </tr>
+                <tr>
+                    <td><strong>Coprocessors</strong></td>
+                    <td>None</td>
+                    <td>CP15 (System Control), FPU (VFPv3)</td>
+                </tr>
+                <tr>
+                    <td><strong>Execution</strong></td>
+                    <td>Simple <code>step()</code></td>
+                    <td>Cycle-budgeted <code>execute(budget)</code></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>Key Divergences</h2>
+        <h3>1. Memory &amp; MMU</h3>
+        <p>While the lxtreme version reads directly from a memory object, JARM implements a virtual memory system. This allows JARM to simulate page tables and translation, essential for running OS kernels.</p>
+
+        <h3>2. The Control Plane (CP15)</h3>
+        <p>JARM implements <code>CP15.java</code>, which handles system control. This is where the "wisdom" of the CPU resides—controlling the MMU, cache settings, and processor configuration.</p>
+
+        <h3>3. Execution Fidelity</h3>
+        <p>JARM's <code>execute(int budget)</code> method implements a "debt" system for cycles, allowing for more accurate simulation of instruction timing and interrupt latency compared to the lxtreme's simple step-through approach.</p>
+    </section>
+
+    <section class="verification">
+        <h2>Quick Check</h2>
+        <div class="quiz">
+            <p>If you need to implement a feature that relies on the ARM Memory Management Unit (MMU), which class should you primarily modify?</p>
+            <button onclick="checkAnswer(this, 'VirtualMemorySpace')">nl.lxtreme.arm.Memory</button>
+            <button onclick="checkAnswer(this, 'VirtualMemorySpace')">jCPU.arm.VirtualMemorySpace</button>
+            <button onclick="checkAnswer(this, 'VirtualMemorySpace')">jCPU.arm.CPU</button>
+            <p class="feedback"></p>
+        </div>
+    </section>
+
+    <footer>
+        <p><strong>Primary Source:</strong> <a href="https://developer.arm.com/documentation/ddi0406/latest/">ARM Architecture Reference Manual (ARMv7-A)</a></p>
+        <p><em>Questions? Ask your teacher (opencode) about banked registers or the VirtualMemorySpace implementation.</em></p>
+    </footer>
+
+    <script>
+        function checkAnswer(btn, correct) {
+            const feedback = btn.parentElement.querySelector('.feedback');
+            if (btn.innerText === correct) {
+                feedback.innerText = "Correct! JARM's VirtualMemorySpace handles the MMU logic.";
+                feedback.style.color = "green";
+            } else {
+                feedback.innerText = "Try again. Remember which implementation supports Virtual Memory.";
+                feedback.style.color = "red";
+            }
+        }
+    </script>
+</body>
+</html>

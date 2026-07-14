@@ -2,6 +2,7 @@ package jx.verifier.wcet;
 
 import jx.verifier.bytecode.*;
 import jx.verifier.*;
+import jx.zero.verifier.JVMLocalVarsElement;
 import java.util.Vector;
 
 

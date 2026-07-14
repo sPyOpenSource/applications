@@ -1,6 +1,7 @@
 
 package jCPU;
 
+import j51.swing.JInfo;
 import jCPU.MCS51.MCS51Performance;
 
 /**
@@ -8,109 +9,149 @@ import jCPU.MCS51.MCS51Performance;
  * @author X. Wang
  */
 public interface iCPU {
-    int code(int i);
+    default int code(int i) { return 0; }
 
-    public String getCodeName(int i);
+    default String getCodeName(int i) { return ""; }
 
-    public String getBitName(int code);
+    default String getBitName(int code) { return ""; }
 
-    public String getDirectName(int r);
+    default String getDirectName(int r) { return ""; }
 
-    public int acc();
+    default int acc() { return 0; }
 
-    public int r(int i);
+    default int r(int i) { return 0; }
 
-    public int code16(int i);
+    default int code16(int i) { return 0; }
 
-    public CallListener getCallListener(int address);
+    default CallListener getCallListener(int address) { return null; }
 
-    public void pushw(int i)  throws Exception;
+    default void pushw(int i) throws Exception {}
 
-    public void pc(int address);
+    default void pc(int address) {}
 
-    public void acc(int i);
+    default void acc(int i) {}
 
-    public void idata(int add, int acc);
+    default void idata(int add, int acc) {}
 
-    public int getDirectCODE(int i);
+    default int getDirectCODE(int i) { return 0; }
 
-    public int getDirect(int add);
+    default int getDirect(int add) { return 0; }
 
-    public void setDirect(int add, int i);
+    default void setDirect(int add, int i) {}
 
-    public boolean getBit(int code);
+    default boolean getBit(int code) { return false; }
 
-    public boolean cy();
+    default boolean cy() { return false; }
 
-    public void cy(boolean b);
+    default void cy(boolean b) {}
 
-    public int idata(int r);
+    default int idata(int r) { return 0; }
 
-    public void setBit(int code, boolean b);
+    default void setBit(int code, boolean b) {}
 
-    public boolean ac();
+    default boolean ac() { return false; }
 
-    public void r(int r, int tmp);
+    default void r(int r, int tmp) {}
 
-    public int b();
+    default int b() { return 0; }
 
-    public void b(int i);
+    default void b(int i) {}
 
-    public void ov(boolean b);
+    default void ov(boolean b) {}
 
-    public int dptr();
+    default int dptr() { return 0; }
 
-    public void dptr(int i);
+    default void dptr(int i) {}
 
-    public boolean getBitCODE(int i);
+    default boolean getBitCODE(int i) { return false; }
 
-    public int popw() throws Exception;
+    default int popw() throws Exception { return 0; }
 
-    public void eoi();
+    default void eoi() {}
 
-    public void xdata(int offset, int acc);
+    default void xdata(int offset, int acc) {}
 
-    public int pop() throws Exception;
+    default int pop() throws Exception { return 0; }
 
-    public int xdata(int dptr);
+    default int xdata(int dptr) { return 0; }
 
-    public void push(int directCODE) throws Exception;
+    default void push(int directCODE) throws Exception {}
 
-    public void ac(boolean op);
-    
-    public int sfr(int add);
-    
-    public int getSfrXdataHi();
+    default void ac(boolean op) {}
 
-    public void addPerformanceListener(MCS51Performance p);
+    default int sfr(int add) { return 0; }
 
-    public int getCodeSize();
+    default int getSfrXdataHi() { return 0; }
 
-    public void code(int i, int i0);
+    default void addPerformanceListener(MCS51Performance p) {}
 
-    public void reset();
+    default int getCodeSize() { return 0; }
 
-    public void setEmulation(boolean mode);
+    default void code(int i, int i0) {}
 
-    public void setCodeName(int address, String label);
+    default void reset() {}
 
-    public int getInterruptCount();
+    default void setEmulation(boolean mode) {}
 
-    public InterruptStatistic getInterruptAt(int i);
+    default void setCodeName(int address, String label) {}
 
-    public long getExecutionCounter(int i);
+    default int getInterruptCount() { return 0; }
+
+    default InterruptStatistic getInterruptAt(int i) { return null; }
+
+    default long getExecutionCounter(int i) { return 0; }
 
     public String getDecodeAt(int i);
 
-    public long getOpcodeCounter(int i);
+    default long getOpcodeCounter(int i) { return 0; }
 
-    public String getOpcodeDescription(int i);
+    default String getOpcodeDescription(int i) { return ""; }
 
-    public void stopSimulation();
+    default void stopSimulation() {}
 
-    public void pass() throws Exception;
+    default void pass() throws Exception {}
 
     public int step() throws Exception;
 
     public void go(int i) throws Exception;
+
+    default int getLengthAt(int pc) { return 1; }
+
+    public void setBreakPoint(int pc, boolean b);
+
+    public int pc();
+
+    public void setOscillator(int value);
+
+    public void machineCycle(int i);
+
+    public long clock();
+
+    public int getOscillator();
+
+    public int machineCycle();
+
+    public void sp(int value);
+
+    public void dpl(int value);
+
+    public void dph(int value);
+
+    public int sp();
+
+    public int dpl();
+
+    public int dph();
+
+    public int psw();
+
+    public void psw(int value);
+
+    public int getXdataSize();
+
+    default String getSfrName(int i) { return ""; }
+
+    default void addResetListener(ResetListener aThis) {}
+
+    default void sfr(int P0M1, int i) {}
 }

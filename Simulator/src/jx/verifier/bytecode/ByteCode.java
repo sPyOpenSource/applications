@@ -259,4 +259,8 @@ public class ByteCode implements jx.zero.ByteCode {
         svCheckCount = i;
     }
 
+    public JVMState beforeState() { return beforeState; }
+    public void beforeState(JVMState state) { this.beforeState = state; }
+    public JVMState getBeforeState() { return beforeState; }
+
 }

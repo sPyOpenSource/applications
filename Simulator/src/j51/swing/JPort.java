@@ -8,6 +8,7 @@ import jCPU.MCS51.MCS51Constants;
 import jCPU.MCS51.MCS51Peripheral;
 import jCPU.ResetListener;
 import jCPU.MCS51.SfrWriteListener;
+import jCPU.iCPU;
 import java.awt.*;
 import javax.swing.*;
 
@@ -29,7 +30,7 @@ class BytePort extends JBitField implements SfrWriteListener,MCS51Peripheral,Res
 	}
 
         @Override
-	public void reset(CPU cpu)
+	public void reset(iCPU cpu)
 	{
 		setValue(0);
 	}

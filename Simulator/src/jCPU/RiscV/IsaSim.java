@@ -53,9 +53,12 @@ public class IsaSim implements iCPU {
     int cc = 0; // Clock cycle counter
     private boolean running = false;
     private Decoder decoder = new Decoder();
+    protected int pc;
+    protected Memory code;
 
     public IsaSim() {
         System.out.println("RISC-V World!");
+        code = new Memory();
         //code = new Memory();
         /*try {
             code.readBinary(FILEPATH, INITIAL_PC); // Read instructions into memory

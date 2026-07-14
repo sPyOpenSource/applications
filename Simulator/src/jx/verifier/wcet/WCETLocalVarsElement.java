@@ -2,6 +2,7 @@ package jx.verifier.wcet;
 
 import jx.verifier.bytecode.*;
 import jx.verifier.*;
+import jx.zero.verifier.JVMLocalVarsElement;
 import java.util.Vector;
 
 //Class is defined abstract, because it does not hold any information yet!
@@ -14,8 +15,7 @@ public class WCETLocalVarsElement extends JVMLocalVarsElement {
     //if merging changes the data of the Element, 
     //a NEW(!) JVMLocalVarsElement should be returned (i.e. merge should not change this or
     // other!).
-    public JVMLocalVarsElement merge(JVMLocalVarsElement other) 
-	throws VerifyException {
+    public JVMLocalVarsElement merge(JVMLocalVarsElement other) {
 	//Erst mal gar nichts machen; evtl ein ...
 	//FEHLER
 	return this;

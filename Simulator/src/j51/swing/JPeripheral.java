@@ -4,6 +4,7 @@ package j51.swing;
 import j51.J51Panel;
 import jCPU.MCS51.CPU;
 import jCPU.MCS51.MCS51Peripheral;
+import jCPU.iCPU;
 import java.awt.Component;
 import java.awt.GridBagConstraints;
 
@@ -19,10 +20,11 @@ public class JPeripheral extends J51Panel
 	}
 
         @Override
-	public void setCpu(CPU cpu)
+	public void setCpu(iCPU cpu)
 	{
 		super.setCpu(cpu);
 		removeAll();
+		if (!(cpu instanceof CPU mcs51)) return;
 		GridBagConstraints g = new GridBagConstraints();
 		g.gridx = 0; 
                 g.gridy = 0;
@@ -30,9 +32,9 @@ public class JPeripheral extends J51Panel
                 g.gridheight = 1;
 		g.anchor = GridBagConstraints.CENTER; 
                 g.fill = GridBagConstraints.BOTH;
-		for (int i = 0 ; i < cpu.getPeripheralsCount() ; i++)
+		for (int i = 0 ; i < mcs51.getPeripheralsCount() ; i++)
 		{
-			MCS51Peripheral p = cpu.getPeripheralAt(i);
+			MCS51Peripheral p = mcs51.getPeripheralAt(i);
 			
 			if (p instanceof Component component)
 			{

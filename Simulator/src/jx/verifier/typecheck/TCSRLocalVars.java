@@ -2,6 +2,7 @@ package jx.verifier.typecheck;
 
 import jx.verifier.bytecode.*;
 import jx.verifier.*;
+import jx.zero.verifier.JVMLocalVarsElement;
 import java.util.Vector;
 import jx.zero.verifier.typecheck.TCLocalVarsInterface;
 

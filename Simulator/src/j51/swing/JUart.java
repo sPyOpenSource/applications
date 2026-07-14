@@ -5,6 +5,7 @@ package j51.swing;
 
 import j51.device.Uart;
 import jCPU.MCS51.CPU;
+import jCPU.iCPU;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -76,7 +77,7 @@ public class JUart extends Uart implements KeyListener
 	}
 
         @Override
-	public void reset(CPU cpu)
+	public void reset(iCPU cpu)
 	{
 		super.reset(cpu);
 		textArea.setText("");

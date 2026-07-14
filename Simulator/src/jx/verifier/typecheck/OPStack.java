@@ -3,7 +3,7 @@ package jx.verifier.typecheck;
 import jx.verifier.bytecode.*;
 import jx.verifier.VerifyException;
 import jx.verifier.JVMOPStack;
-import jx.verifier.JVMOPStackElement;
+import jx.zero.verifier.JVMOPStackElement;
 import java.util.Vector;
 
 

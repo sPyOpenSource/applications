@@ -3,8 +3,6 @@
  */
 package jCPU;
 
-import jCPU.MCS51.CPU;
-
 /**
  * Interface for listener waiting reset cycle of the main cpu.
  *
@@ -16,5 +14,5 @@ public interface ResetListener
 	/**
 	 * Called when the main cpu is reset.
 	 */
-	public void reset(CPU cpu);
+	public void reset(iCPU cpu);
 }

@@ -22,6 +22,7 @@ import jCPU.iCPU;
 import sjc.real.Real;
 import sjc.backend.ssa.SSADef;
 import sjc.emulation.Emulator;
+import jCPU.CallListener;
 import static sjc.emulation.Emulator.toDecString;
 import static sjc.emulation.Emulator.toHexString;
 import static sjc.emulation.Emulator.toLongHexString;
@@ -60,7 +61,7 @@ import sjc.emulation.cond.StackCond;
  *  version 060613 several bugfixes
  *  version 060608 initial version
  */
-public class SSAEmul implements iCPU {
+public class SSAEmul extends Emulator implements iCPU {
   
   private final static int INIT_STACK_VALUE = 0x9BFF8;
   private final Real real;
@@ -72,6 +73,33 @@ public class SSAEmul implements iCPU {
   public SSAEmul(Real ir) {
     real = ir;
   }
+  
+  @Override
+  public void go(int i) throws Exception {}
+
+  @Override
+  public int getCodeSize() { return 0; }
+
+  @Override
+  public int code(int i) { return 0; }
+
+  @Override
+  public String getCodeName(int i) { return ""; }
+
+  @Override
+  public String getBitName(int code) { return ""; }
+
+  @Override
+  public String getDirectName(int r) { return ""; }
+
+  @Override
+  public int code16(int i) { return 0; }
+
+  @Override
+  public CallListener getCallListener(int address) { return null; }
+
+  @Override
+  public String getDecodeAt(int i) { return ""; }
   
   /**
    * Method to decode a jump
@@ -201,7 +229,6 @@ public class SSAEmul implements iCPU {
   /**
    * @see Emulator#initArchitecture(int, int, int, int)
    */
-  @Override
   public boolean initArchitecture(int cd, int si) {
     int cnt;
     if ((relocBytes!=4 && relocBytes!=8) || stackClearBits!=(relocBytes-1)) {
@@ -2162,6 +2189,8 @@ public class SSAEmul implements iCPU {
    * over
    */
   @Override
+  public int step() { return 0; }
+
   public boolean step(boolean into) {
     int param=0, opcode=0, reg0=0, reg1=0, reg2=0, iPar1=0, iPar2=0;
     boolean success=true;

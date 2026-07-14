@@ -134,7 +134,7 @@ public class TCObjectTypes extends TCTypes {
 	    return false;
 	}
 	String cName = this.className;
-	ClassData actClass = classFinder.findClass(this.className);
+	ClassData actClass = (ClassData) classFinder.findClass(this.className);
 	if (actClass == null) {
 	    throw new Error ("Class " + cName + " needed by Verifier not found!");
 	}
@@ -173,7 +173,7 @@ public class TCObjectTypes extends TCTypes {
 	     ) {
 	    String iName = (String)enume.nextElement();
 	    do {
-		actClass = classFinder.findClass(cName);
+	    actClass = (ClassData) classFinder.findClass(cName);
 		if (actClass == null) {
 		    throw new Error ("Class " + cName + " needed by Verifier not found!");
 		}
@@ -201,7 +201,7 @@ public class TCObjectTypes extends TCTypes {
 	}
 	ClassData subInterface = null;
 	for (int i = 0; i < interfaces.length; i++) {
-	    subInterface = classFinder.findClass(interfaces[i]);
+		subInterface = (ClassData) classFinder.findClass(interfaces[i]);
 	    if (subInterface == null) {
 		throw new Error("Interface " + interfaces[i] + " not found!");
 	    }

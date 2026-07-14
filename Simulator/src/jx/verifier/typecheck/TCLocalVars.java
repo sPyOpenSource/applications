@@ -3,7 +3,7 @@ package jx.verifier.typecheck;
 import jx.verifier.bytecode.*;
 import jx.verifier.VerifyException;
 import jx.verifier.JVMLocalVars;
-import jx.verifier.JVMLocalVarsElement;
+import jx.zero.verifier.JVMLocalVarsElement;
 import jx.verifier.JVMSRLocalVars;
 import jx.zero.verifier.typecheck.TCLocalVarsInterface;
 

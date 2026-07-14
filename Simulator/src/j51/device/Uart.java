@@ -42,7 +42,7 @@ public class Uart extends JPanel implements MCS51Peripheral,
 
 	}
 
-	public void reset(CPU cpu)
+	public void reset(iCPU cpu)
 	{
 		inPs = inPl = 0;
 		sbufReaded = true;

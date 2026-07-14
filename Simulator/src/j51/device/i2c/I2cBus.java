@@ -97,7 +97,7 @@ public class I2cBus implements jCPU.MemoryWriteListener,MCS51Peripheral,ResetLis
 	}
 
 
-	public void reset(CPU cpu)
+	public void reset(iCPU cpu)
 	{
 		SDA.set(true);
 		SCL.set(true);

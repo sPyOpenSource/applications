@@ -5,7 +5,7 @@ import jx.verifier.CharIter;
 
 import java.util.Vector;
 
-public class NPAValue {
+public class NPAValue implements jx.zero.verifier.npa.NPAValue {
     //everything we don't know anything about
     static public final int OTHER = 0;
     //reference that is known to be null

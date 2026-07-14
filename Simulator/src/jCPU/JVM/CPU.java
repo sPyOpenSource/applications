@@ -36,6 +36,8 @@ public class CPU implements iCPU {
     private VmStackFrame stack;
     private LocalVariables localVariables;
 
+    protected int pc;
+
     public CPU(VmStackFrame stack, LocalVariables localVariables, SimpleMethodPool simpleMethodPool) {
         this.stack = stack;
         this.localVariables = localVariables;

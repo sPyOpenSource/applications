@@ -5,9 +5,9 @@
  */
 package nl.lxtreme.arm;
 
-import j51.GUI;
 import jCPU.CallListener;
 import jCPU.InterruptStatistic;
+import jCPU.MCS51.MCS51Performance;
 import jCPU.iCPU;
 import java.util.*;
 import nl.lxtreme.arm.memory.*;
@@ -25,6 +25,7 @@ public class CPU implements iCPU
   private boolean finished;
   private boolean running = false;
   private int entryPoint; // initial PC value
+  private Memory code;
 
   private final List<Integer> breakpoints;
 
@@ -165,7 +166,6 @@ this.code = memory;*/
         return gpr[r];
     }
         
-    @Override
     public void setBreakPoint(int pc, boolean mode)
     {
 	if (mode){
@@ -185,7 +185,6 @@ this.code = memory;*/
     if (!breakFind(address))
     {
       this.breakpoints.add(address);
-      super.setBreakPoint(address, true);
     }
   }
 
@@ -332,7 +331,7 @@ this.code = memory;*/
     }
 
     /* Remove thumb bit */
-    //int pc = this.gpr[15] & ~1;
+    int pc = this.gpr[15] & ~1;
 
     /* Check breakpoint */
     ret = breakFind(pc);
@@ -2847,5 +2846,95 @@ if(running)
     @Override
     public void pass() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void addPerformanceListener(MCS51Performance p) {
+        iCPU.super.addPerformanceListener(p); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+    }
+
+    @Override
+    public int pc() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void setOscillator(int value) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void machineCycle(int i) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public long clock() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public int getOscillator() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public int machineCycle() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void sp(int value) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void dpl(int value) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void dph(int value) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public int sp() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public int dpl() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public int dph() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public int psw() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void psw(int value) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public int getXdataSize() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public String getSfrName(int i) {
+        return iCPU.super.getSfrName(i); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+    }
+
+    @Override
+    public void sfr(int P0M1, int i) {
+        iCPU.super.sfr(P0M1, i); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
     }
 }

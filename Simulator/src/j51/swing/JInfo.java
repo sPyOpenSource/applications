@@ -10,15 +10,16 @@
 package j51.swing;
 
 import j51.J51Panel;
+import jCPU.MCS51.CPU;
 import java.awt.*;
 import java.text.*;
 import java.beans.*;
 
 import javax.swing.*;
 import javax.swing.event.*;
-import jCPU.MCS51.CPU;
 import jCPU.MCS51.MCS51Performance;
 import jCPU.ResetListener;
+import jCPU.iCPU;
 
 class Block extends JComponent
 {
@@ -190,7 +191,7 @@ public class JInfo extends J51Panel implements MCS51Performance,ResetListener
 	}
 
         @Override
-	public void reset(CPU cpu)
+	public void reset(iCPU cpu)
 	{
 		minCpuUsage = 100;
 		maxCpuUsage = 0;
@@ -207,7 +208,7 @@ public class JInfo extends J51Panel implements MCS51Performance,ResetListener
 	}
 	
         @Override
-	public void setCpu(CPU cpu)
+	public void setCpu(iCPU cpu)
 	{
 		super.setCpu(cpu);
 		reset(cpu);

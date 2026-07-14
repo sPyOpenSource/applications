@@ -2,12 +2,12 @@ package jx.verifier.npa;
 
 import jx.verifier.bytecode.*;
 import jx.verifier.*;
+import jx.zero.verifier.JVMLocalVarsElement;
 import java.util.Vector;
 
 public class NPALocalVarsElement extends JVMLocalVarsElement {
     
-    public JVMLocalVarsElement merge(JVMLocalVarsElement other) 
-	throws VerifyException {
+    public JVMLocalVarsElement merge(JVMLocalVarsElement other) {
 	NPAValue mergedType = type.merge(((NPALocalVarsElement)other).getType());
 	if (mergedType != type) {
 	    return new NPALocalVarsElement(mergedType, -1);
