@@ -62,6 +62,7 @@ public class X86BinaryExecutor implements X86Core.iExecutor {
             case 0xF4: case 0xF5: case 0xF8: case 0xF9:
             case 0xFA: case 0xFB: case 0xFC: case 0xFD:
             case 0xCC:
+            case 0xEC: case 0xED: case 0xEE: case 0xEF:
                 return 1;
             case 0x6C: case 0x6D: case 0x6E: case 0x6F:
                 return 1;
@@ -449,6 +450,30 @@ public class X86BinaryExecutor implements X86Core.iExecutor {
 
             // HLT
             case 0xF4: break;
+
+            // IN AL, DX
+            case 0xEC: {
+                int dx = core.getReg(REG_EDX) & 0xFFFF;
+                core.setReg(REG_EAX, (core.getReg(REG_EAX) & ~0xFF) | (core.readPort(dx) & 0xFF));
+            } break;
+            // IN AX, DX
+            case 0xED: {
+                int dx = core.getReg(REG_EDX) & 0xFFFF;
+                int al = core.readPort(dx) & 0xFF;
+                int ah = core.readPort(dx + 1) & 0xFF;
+                core.setReg(REG_EAX, (core.getReg(REG_EAX) & ~0xFFFF) | (ah << 8) | al);
+            } break;
+            // OUT DX, AL
+            case 0xEE: {
+                int dx = core.getReg(REG_EDX) & 0xFFFF;
+                core.writePort(dx, (byte)(core.getReg(REG_EAX) & 0xFF));
+            } break;
+            // OUT DX, AX
+            case 0xEF: {
+                int dx = core.getReg(REG_EDX) & 0xFFFF;
+                core.writePort(dx, (byte)(core.getReg(REG_EAX) & 0xFF));
+                core.writePort(dx + 1, (byte)((core.getReg(REG_EAX) >> 8) & 0xFF));
+            } break;
 
             // INT
             case 0xCD: break;

@@ -30,6 +30,7 @@ public class X86Core implements iCPU {
     private int flags = 0;
     private final int memSize;
     private final Map<Integer, Byte> memory = new HashMap<>();
+    private final Map<Integer, X86Peripheral> ioPorts = new HashMap<>();
     private iExecutor executor;
     private int pc = 0;
 
@@ -122,6 +123,21 @@ public class X86Core implements iCPU {
         writeMem8(addr + 1, (value >> 8) & 0xFF);
         writeMem8(addr + 2, (value >> 16) & 0xFF);
         writeMem8(addr + 3, (value >> 24) & 0xFF);
+    }
+
+    public void registerPort(int port, X86Peripheral peripheral) {
+        ioPorts.put(port, peripheral);
+    }
+
+    public byte readPort(int port) {
+        X86Peripheral p = ioPorts.get(port);
+        if (p != null) return p.readPort(port);
+        return 0;
+    }
+
+    public void writePort(int port, byte value) {
+        X86Peripheral p = ioPorts.get(port);
+        if (p != null) p.writePort(port, value);
     }
 
     @Override

@@ -182,10 +182,10 @@ public class i8086 implements X86Core.iExecutor {
             case 0xE9: jmp_rel16(core, pc); break;
             case 0xEB: jmp_rel8(core, pc); break;
 
-            case 0xEC: core.setReg(REG_EAX, (core.getReg(REG_EAX) & ~0xFF) | (core.readMem8(core.getReg(REG_EDX)) & 0xFF)); break;
-            case 0xED: core.setReg(REG_EAX, core.readMem32(core.getReg(REG_EDX))); break;
-            case 0xEE: core.writeMem8(core.getReg(REG_EDX), core.getReg(REG_EAX) & 0xFF); break;
-            case 0xEF: core.writeMem32(core.getReg(REG_EDX), core.getReg(REG_EAX)); break;
+            case 0xEC: { int dx = core.getReg(REG_EDX) & 0xFFFF; core.setReg(REG_EAX, (core.getReg(REG_EAX) & ~0xFF) | (core.readPort(dx) & 0xFF)); } break;
+            case 0xED: { int dx = core.getReg(REG_EDX) & 0xFFFF; int al = core.readPort(dx) & 0xFF; int ah = core.readPort(dx + 1) & 0xFF; core.setReg(REG_EAX, (core.getReg(REG_EAX) & ~0xFFFF) | (ah << 8) | al); } break;
+            case 0xEE: { int dx = core.getReg(REG_EDX) & 0xFFFF; core.writePort(dx, (byte)(core.getReg(REG_EAX) & 0xFF)); } break;
+            case 0xEF: { int dx = core.getReg(REG_EDX) & 0xFFFF; core.writePort(dx, (byte)(core.getReg(REG_EAX) & 0xFF)); core.writePort(dx + 1, (byte)((core.getReg(REG_EAX) >> 8) & 0xFF)); } break;
 
             case 0xF4: break;
 

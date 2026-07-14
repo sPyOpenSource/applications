@@ -3,6 +3,8 @@ package nasm;
 import jCPU.MCS51.CPU;
 import java.io.IOException;
 import jCPU.x86.X86Core;
+import jCPU.x86.X86VgaPeripheral;
+import jCPU.x86.X86UartPeripheral;
 import nasm.inst.NasmInst;
 
 public class NasmVM extends CPU {
@@ -18,6 +20,14 @@ public class NasmVM extends CPU {
 
     public NasmVM(int memSize){
         core = new X86Core(memSize);
+        X86VgaPeripheral vga = new X86VgaPeripheral();
+        for (int port = 0x3C0; port <= 0x3DA; port++) {
+            core.registerPort(port, vga);
+        }
+        X86UartPeripheral uart = new X86UartPeripheral();
+        for (int port = 0x3F8; port <= 0x3FF; port++) {
+            core.registerPort(port, uart);
+        }
     }
 
     public X86Core getCore() {

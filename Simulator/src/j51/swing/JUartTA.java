@@ -10,7 +10,7 @@ import javax.swing.*;
 
 import de.mud.terminal.SwingTerminal;
 import de.mud.terminal.vt320;
-import j51.GUI;
+import jCPU.GUI;
 import j51.device.Uart;
 
 /**

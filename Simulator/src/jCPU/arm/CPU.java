@@ -314,6 +314,7 @@ public final class CPU extends nl.lxtreme.arm.CPU implements ARMConstants {
 		if(enableUart) {
 			vm.registerPeripheral(0x10000000, new UartPeripheral());
 		}
+		vm.registerPeripheral(VgaPeripheral.VGA_BASE, new VgaPeripheral());
 		
 		coprocessors[10] = new FPU(this);
 		coprocessors[11] = coprocessors[10];
