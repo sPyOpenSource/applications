@@ -30,7 +30,7 @@ public class CpuBugFixTest {
         after.removeAll(before);
 
         long uartThreads = after.stream()
-                .filter(t -> t.getName().contains("Thread-") || t.getState() == Thread.State.RUNNABLE)
+                .filter(t -> t.getName().contains("UartReader") || t.getName().contains("Thread-"))
                 .count();
 
         assertTrue("Should not create multiple UART reader threads per CPU instance, found " + uartThreads + " new threads",

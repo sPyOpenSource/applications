@@ -17,9 +17,8 @@ public class UartPeripheral implements Peripheral {
             try (BufferedReader reader = new BufferedReader(new InputStreamReader(in))) {
                 while (true) {
                     int c = reader.read();
-                    if (c != -1) {
-                        inputBuffer.add((byte) c);
-                    }
+                    if (c == -1) break;
+                    inputBuffer.add((byte) c);
                 }
             } catch (Exception e) {
                 System.err.println("UART reader error: " + e.getMessage());
