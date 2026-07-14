@@ -387,6 +387,7 @@ public final class CPU extends nl.lxtreme.arm.CPU implements ARMConstants {
 	/**
 	 * Fetch and execute a single instruction
 	 */
+	@Override
 	public int execute() throws BusErrorException, AlignmentException, UndefinedException, EscapeRetryException, EscapeCompleteException {
 		if(!haveReset) throw new FatalException("execute() called without first calling reset()");
 		if((cpsr & CPSR_BIT_F) == 0 && haveFIQ()) generateFIQException();
