@@ -273,7 +273,7 @@ public final class CPU extends nl.lxtreme.arm.CPU implements ARMConstants {
 		instructionWriteByte(address, value, isPrivileged());
 	}
 	public short instructionReadHalfword(int address) throws BusErrorException, AlignmentException, EscapeRetryException, EscapeCompleteException {
-		return instructionReadHalfword(address);
+		return instructionReadHalfword(address, isPrivileged());
 	}
 	public void instructionWriteHalfword(int address, short value) throws BusErrorException, AlignmentException, EscapeRetryException, EscapeCompleteException {
 		instructionWriteHalfword(address, value, isPrivileged());
@@ -305,11 +305,15 @@ public final class CPU extends nl.lxtreme.arm.CPU implements ARMConstants {
 	CP15 cp15;
 	public boolean inStrictAlignMode() { return (cp15.SCTLR & (1<<CP15.SCTLR_BIT_A)) != 0; }
 	/*** INITIALIZATION ***/
-	public CPU() { this(null); }
-	public CPU(Debugger debugger) {
+	public CPU() { this(null, true); }
+	public CPU(Debugger debugger) { this(debugger, true); }
+	public CPU(boolean enableUart) { this(null, enableUart); }
+	public CPU(Debugger debugger, boolean enableUart) {
 		this.debugger = debugger;
 		vm = new VirtualMemorySpace(mem, debugger);
-		vm.registerPeripheral(0x10000000, new UartPeripheral());
+		if(enableUart) {
+			vm.registerPeripheral(0x10000000, new UartPeripheral());
+		}
 		
 		coprocessors[10] = new FPU(this);
 		coprocessors[11] = coprocessors[10];
@@ -387,11 +391,10 @@ public final class CPU extends nl.lxtreme.arm.CPU implements ARMConstants {
 	/**
 	 * Fetch and execute a single instruction
 	 */
-	@Override
 	public int execute() throws BusErrorException, AlignmentException, UndefinedException, EscapeRetryException, EscapeCompleteException {
 		if(!haveReset) throw new FatalException("execute() called without first calling reset()");
-		if((cpsr & CPSR_BIT_F) == 0 && haveFIQ()) generateFIQException();
-		if((cpsr & CPSR_BIT_I) == 0 && haveIRQ()) generateIRQException();
+		if((cpsr & (1 << CPSR_BIT_F)) == 0 && haveFIQ()) generateFIQException();
+		if((cpsr & (1 << CPSR_BIT_I)) == 0 && haveIRQ()) generateIRQException();
 		
 		if(debugger != null) debugger.onInstruction(this, pc);
 		
