@@ -309,6 +309,7 @@ public final class CPU extends nl.lxtreme.arm.CPU implements ARMConstants {
 	public CPU(Debugger debugger) {
 		this.debugger = debugger;
 		vm = new VirtualMemorySpace(mem, debugger);
+		vm.registerPeripheral(0x10000000, new UartPeripheral());
 		
 		coprocessors[10] = new FPU(this);
 		coprocessors[11] = coprocessors[10];
@@ -386,7 +387,6 @@ public final class CPU extends nl.lxtreme.arm.CPU implements ARMConstants {
 	/**
 	 * Fetch and execute a single instruction
 	 */
-        @Override
 	public int execute() throws BusErrorException, AlignmentException, UndefinedException, EscapeRetryException, EscapeCompleteException {
 		if(!haveReset) throw new FatalException("execute() called without first calling reset()");
 		if((cpsr & CPSR_BIT_F) == 0 && haveFIQ()) generateFIQException();
