@@ -1,7 +1,7 @@
 /**
  * $Id: J51.java 70 2010-07-01 09:57:00Z mviara $
  */
-package j51;
+package jCPU;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -10,6 +10,7 @@ import java.io.*;
 import javax.swing.*;
 import javax.swing.tree.*;
 import assets.Assets;
+import j51.J51Panel;
 
 import j51.util.*;
 import j51.swing.*;
@@ -17,9 +18,7 @@ import j51.swing.*;
 import java.awt.datatransfer.StringSelection;
 import jCPU.JVM.ByteCode;
 import jCPU.MCS51.CPU;
-import jCPU.InterruptStatistic;
 import jCPU.MCS51.MCS51Performance;
-import jCPU.iCPU;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 

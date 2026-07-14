@@ -2,6 +2,7 @@ package flint;
 
 import java.io.ByteArrayInputStream;
 import java.io.DataInputStream;
+import java.io.IOException;
 import java.util.Arrays;
 import jx.classfile.FieldData;
 
@@ -42,7 +43,7 @@ public class JObject extends ListNode {
         return type.getTypeName();
     }
 
-    private static FieldData newFieldData(byte[] rawData) {
+    private static FieldData newFieldData(byte[] rawData) throws IOException {
         return new FieldData(null, new DataInputStream(new ByteArrayInputStream(rawData)), null);
     }
 
