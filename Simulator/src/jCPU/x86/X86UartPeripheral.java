@@ -1,11 +1,12 @@
 package jCPU.x86;
 
+import jCPU.Peripheral;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.InputStream;
 
-public class X86UartPeripheral implements X86Peripheral {
+public class X86UartPeripheral implements Peripheral {
     private static final int COM1_BASE = 0x3F8;
     private final ConcurrentLinkedQueue<Byte> inputBuffer = new ConcurrentLinkedQueue<>();
     private final int basePort;
@@ -32,7 +33,7 @@ public class X86UartPeripheral implements X86Peripheral {
     }
 
     @Override
-    public byte readPort(int port) {
+    public byte read(int port) {
         int offset = port - basePort;
         switch (offset) {
             case 0: // Receive buffer
@@ -46,7 +47,7 @@ public class X86UartPeripheral implements X86Peripheral {
     }
 
     @Override
-    public void writePort(int port, byte value) {
+    public void write(int port, byte value) {
         int offset = port - basePort;
         if (offset == 0) { // Transmit buffer
             System.out.print((char) value);

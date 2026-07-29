@@ -12,7 +12,7 @@ public class JXdata extends JData
     
 	public JXdata()
 	{
-		super("Xdata",0,0x10000);
+		super("Xdata", 0, 0x10000);
 	}
 
         @Override

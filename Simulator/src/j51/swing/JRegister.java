@@ -1,7 +1,6 @@
 
 package j51.swing;
 
-import j51.J51Panel;
 import java.awt.GridBagConstraints;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

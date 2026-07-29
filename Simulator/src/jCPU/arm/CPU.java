@@ -1,5 +1,6 @@
 package jCPU.arm;
 
+import j51.swing.VgaPeripheral;
 import java.io.PrintStream;
 import java.util.HashMap;
 import java.util.TreeSet;

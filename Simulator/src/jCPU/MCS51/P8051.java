@@ -7,7 +7,6 @@ package jCPU.MCS51;
 import j51.device.Timer;
 import j51.swing.JPort;
 import j51.swing.JUartTA;
-import j51.swing.JVGAConsole;
 
 /**
  *
@@ -23,7 +22,7 @@ public class P8051 extends CPU
 		addPeripheral(new Timer());
 		addPeripheral(new JPort(4));
 		addPeripheral(new JUartTA());
-		addPeripheral(new JVGAConsole());
+		addPeripheral(new MCS51JVGAConsole());
 	}
 
         @Override

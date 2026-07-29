@@ -2,6 +2,7 @@ package jCPU.x86;
 
 import jCPU.iCPU;
 import jCPU.CallListener;
+import jCPU.Peripheral;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -30,7 +31,7 @@ public class X86Core implements iCPU {
     private int flags = 0;
     private final int memSize;
     private final Map<Integer, Byte> memory = new HashMap<>();
-    private final Map<Integer, X86Peripheral> ioPorts = new HashMap<>();
+    private final Map<Integer, Peripheral> ioPorts = new HashMap<>();
     private iExecutor executor;
     private int pc = 0;
 
@@ -125,19 +126,19 @@ public class X86Core implements iCPU {
         writeMem8(addr + 3, (value >> 24) & 0xFF);
     }
 
-    public void registerPort(int port, X86Peripheral peripheral) {
+    public void registerPort(int port, Peripheral peripheral) {
         ioPorts.put(port, peripheral);
     }
 
     public byte readPort(int port) {
-        X86Peripheral p = ioPorts.get(port);
-        if (p != null) return p.readPort(port);
+        Peripheral p = ioPorts.get(port);
+        if (p != null) return p.read(port);
         return 0;
     }
 
     public void writePort(int port, byte value) {
-        X86Peripheral p = ioPorts.get(port);
-        if (p != null) p.writePort(port, value);
+        Peripheral p = ioPorts.get(port);
+        if (p != null) p.write(port, value);
     }
 
     @Override

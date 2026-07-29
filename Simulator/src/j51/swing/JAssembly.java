@@ -10,8 +10,6 @@ import javax.swing.table.*;
 
 import j51.util.Hex;
 import j51.util.FastArray;
-import j51.J51Panel;
-import jCPU.MCS51.CPU;
 import jCPU.iCPU;
 
 /**

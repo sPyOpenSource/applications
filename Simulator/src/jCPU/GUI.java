@@ -10,7 +10,7 @@ import java.io.*;
 import javax.swing.*;
 import javax.swing.tree.*;
 import assets.Assets;
-import j51.J51Panel;
+import j51.swing.J51Panel;
 
 import j51.util.*;
 import j51.swing.*;

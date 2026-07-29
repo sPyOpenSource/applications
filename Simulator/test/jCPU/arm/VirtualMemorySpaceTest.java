@@ -1,5 +1,6 @@
 package jCPU.arm;
 
+import jCPU.Peripheral;
 import static org.junit.Assert.*;
 import org.junit.*;
 

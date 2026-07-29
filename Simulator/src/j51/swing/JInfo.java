@@ -9,8 +9,6 @@
  */
 package j51.swing;
 
-import j51.J51Panel;
-import jCPU.MCS51.CPU;
 import java.awt.*;
 import java.text.*;
 import java.beans.*;

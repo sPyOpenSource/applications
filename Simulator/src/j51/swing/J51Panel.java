@@ -1,11 +1,10 @@
 /**
  * $Id: J51Panel.java 62 2010-06-29 22:06:12Z mviara $
  */
-package j51;
+package j51.swing;
 
 import java.awt.*;
 import javax.swing.*;
-import j51.swing.JFactory;
 import jCPU.iCPU;
 
 /**

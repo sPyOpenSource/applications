@@ -1,9 +1,7 @@
 
 package j51.swing;
 
-import j51.J51Panel;
 import j51.util.Hex;
-import jCPU.MCS51.CPU;
 import jCPU.iCPU;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;

@@ -2,6 +2,7 @@ package jCPU.arm;
 
 import jCPU.MemoryReadListener;
 import jCPU.MemoryWriteListener;
+import jCPU.Peripheral;
 import jCPU.iMemory;
 import java.util.logging.Level;
 import java.util.logging.Logger;

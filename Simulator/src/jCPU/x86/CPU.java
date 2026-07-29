@@ -17,14 +17,14 @@
  *
  * 
  */
-package j51.test;
+package jCPU.x86;
 
-import j51.intel.*;
-import j51.util.Hex;
-import j51.atmel.*;
+import jCPU.MCS51.MCS51Peripheral;
+import jCPU.MCS51.SfrReadListener;
+import jCPU.MCS51.SfrWriteListener;
 
 
-class G128x64 extends j51.lcd.GLcd implements MCS51Peripheral,
+class G128x64 extends j51.device.lcd.GLcd implements MCS51Peripheral,
 					      SfrWriteListener,
 					      SfrReadListener
 {
@@ -32,15 +32,16 @@ class G128x64 extends j51.lcd.GLcd implements MCS51Peripheral,
 	private final int ADDH = 0xfe;
 	private final int DATA = 0xff;
 	
-	MCS51 cpu;
+	jCPU.MCS51.CPU cpu;
 	private int address = 0;
 	
 	public G128x64()
 	{
-		super(128,64,2);
+		super(128, 64, 2);
 	}
 
-	public void registerCpu(MCS51 cpu)
+        @Override
+	public void registerCpu(jCPU.MCS51.CPU cpu)
 	{
 		this.cpu = cpu;
 		cpu.addSfrWriteListener(ADDL,this);
@@ -50,6 +51,7 @@ class G128x64 extends j51.lcd.GLcd implements MCS51Peripheral,
 		cpu.addSfrReadListener(DATA,this);
 	}
 
+        @Override
 	public void sfrWrite(int r,int v)
 	{
 		switch (r)
@@ -68,21 +70,18 @@ class G128x64 extends j51.lcd.GLcd implements MCS51Peripheral,
 		}
 	}
 
+        @Override
 	public int sfrRead(int r)
 	{
 		return getMemory(address) & 0xff;
 	}
 }
 
-public class Test extends j51.intel.P8051
+public class CPU extends jx.disass.x86
 {
-	public Test() throws Exception
+	public CPU() throws Exception
 	{
 		setOscillator(11184000);
 		addPeripheral(new G128x64());
-
-	}
-	
+        }
 }
-
-

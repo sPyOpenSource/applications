@@ -1,5 +1,6 @@
 package jCPU.arm;
 
+import jCPU.Peripheral;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

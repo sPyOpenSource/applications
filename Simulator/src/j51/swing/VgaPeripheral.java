@@ -1,15 +1,18 @@
-package jCPU.x86;
+package j51.swing;
 
 import static jCPU.MCS51.MCS51JVGAConsole.F8x16;
-import j51.swing.JVGAConsole;
 import jCPU.Peripheral;
 import java.awt.*;
 import java.awt.image.*;
 import javax.swing.*;
 
-public class X86VgaPeripheral implements Peripheral {
-    public static final int VGA_MEM_BASE = 0xB8000;
-    private static final int VGA_PORT_BASE = 0x3C0;
+public class VgaPeripheral implements Peripheral {
+
+    public static final int VGA_BASE = 0x50000000;
+    private static final int TEXT_OFFSET = 0x00000;
+    private static final int GFX_OFFSET = 0x10000;
+    private static final int MODE_OFFSET = 0x20000;
+
     private static final int WIDTH = 80, HEIGHT = 25, CHAR_W = 8, CHAR_H = 16;
     private static final int GFX_W = 320, GFX_H = 200;
 
@@ -25,16 +28,10 @@ public class X86VgaPeripheral implements Peripheral {
     private BufferedImage gfxImg;
     private final int[] rowBuf = new int[GFX_W];
 
-    private final int mode = 0;
-    private final int miscReg = 0;
-    private int seqRegIdx = 0;
-    private int crtRegIdx = 0;
-    private int gfxRegIdx = 0;
-    private int attRegIdx = 0;
-
+    private int mode = 0;
     private final JVGAConsole display;
 
-    public X86VgaPeripheral() {
+    public VgaPeripheral() {
         colTable[0] = new Color(0x000000);
         colTable[1] = new Color(0x00007F);
         colTable[2] = new Color(0x007F00);
@@ -73,51 +70,51 @@ public class X86VgaPeripheral implements Peripheral {
         return display;
     }
 
-    public void writeMemory(int addr, int value) {
-        if (addr < VGA_MEM_BASE || addr >= VGA_MEM_BASE + WIDTH * HEIGHT * 2) return;
-        int offset = addr - VGA_MEM_BASE;
-        int x = (offset / 2) % WIDTH;
-        int y = (offset / 2) / WIDTH;
-        if ((offset & 1) == 0) {
+    @Override
+    public byte read(int offset) {
+        if (offset >= TEXT_OFFSET && offset < TEXT_OFFSET + WIDTH * HEIGHT * 2) {
+            int off = offset - TEXT_OFFSET;
+            int x = (off / 2) % WIDTH;
+            int y = (off / 2) / WIDTH;
+            if ((off & 1) == 0) {
+                return (byte) txt[y][x];
+            } else {
+                return (byte) ((colFG[y][x] & 0x0F) | ((colBG[y][x] & 0x0F) << 4));
+            }
+        }
+        if (offset >= GFX_OFFSET && offset < GFX_OFFSET + pixels.length) {
+            return (byte) (pixels[offset - GFX_OFFSET] & 0xFF);
+        }
+        if (offset == MODE_OFFSET) {
+            return (byte) mode;
+        }
+        return 0;
+    }
+
+    @Override
+    public void write(int offset, byte value) {
+        if (offset == MODE_OFFSET) {
+            mode = value & 1;
+            display.repaint();
+            return;
+        }
+        if (offset >= GFX_OFFSET && offset < GFX_OFFSET + pixels.length) {
+            pixels[offset - GFX_OFFSET] = value & 0xFF;
+            display.repaint();
+            return;
+        }
+        if (offset < TEXT_OFFSET || offset >= TEXT_OFFSET + WIDTH * HEIGHT * 2)
+            return;
+        int off = offset - TEXT_OFFSET;
+        int x = (off / 2) % WIDTH;
+        int y = (off / 2) / WIDTH;
+        if ((off & 1) == 0) {
             txt[y][x] = (char) (value & 0xFF);
         } else {
             colFG[y][x] = value & 0x0F;
             colBG[y][x] = (value >> 4) & 0x0F;
         }
         display.repaint();
-    }
-
-    public int readMemory(int addr) {
-        if (addr < VGA_MEM_BASE || addr >= VGA_MEM_BASE + WIDTH * HEIGHT * 2) return 0;
-        int offset = addr - VGA_MEM_BASE;
-        int x = (offset / 2) % WIDTH;
-        int y = (offset / 2) / WIDTH;
-        if ((offset & 1) == 0) {
-            return txt[y][x] & 0xFF;
-        } else {
-            return (colFG[y][x] & 0x0F) | ((colBG[y][x] & 0x0F) << 4);
-        }
-    }
-
-    @Override
-    public byte read(int port) {
-        int offset = port - VGA_PORT_BASE;
-        switch (offset) {
-            case 0x0A: return (byte) 0; // Input Status 1 (dummy)
-            case 0x05: return (byte) 0x20; // Feature Control
-            default: return 0;
-        }
-    }
-
-    @Override
-    public void write(int port, byte value) {
-        int offset = port - VGA_PORT_BASE;
-        switch (offset) {
-            case 0x02: attRegIdx = value & 0x1F; break;
-            case 0x04: seqRegIdx = value & 0x07; break;
-            case 0x0E: crtRegIdx = value & 0x1F; break;
-            case 0x0A: gfxRegIdx = value & 0x0F; break;
-        }
     }
 
     public void paint(Graphics g) {

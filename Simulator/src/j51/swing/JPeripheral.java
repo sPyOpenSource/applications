@@ -1,7 +1,6 @@
 
 package j51.swing;
 
-import j51.J51Panel;
 import jCPU.MCS51.CPU;
 import jCPU.MCS51.MCS51Peripheral;
 import jCPU.iCPU;

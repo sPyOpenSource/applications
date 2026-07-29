@@ -1,7 +1,6 @@
 
 package jCPU;
 
-import j51.swing.JInfo;
 import jCPU.MCS51.MCS51Performance;
 
 /**
@@ -117,37 +116,37 @@ public interface iCPU {
 
     default int getLengthAt(int pc) { return 1; }
 
-    public void setBreakPoint(int pc, boolean b);
+    default void setBreakPoint(int pc, boolean b) {}
 
-    public int pc();
+    default int pc() { return 0; }
 
-    public void setOscillator(int value);
+    default void setOscillator(int value) {}
 
-    public void machineCycle(int i);
+    default void machineCycle(int i) {}
 
-    public long clock();
+    default long clock() { return 0; }
 
-    public int getOscillator();
+    default int getOscillator() { return 0; }
 
-    public int machineCycle();
+    default int machineCycle() { return 0; }
 
-    public void sp(int value);
+    default void sp(int value) {}
 
-    public void dpl(int value);
+    default void dpl(int value) {}
 
-    public void dph(int value);
+    default void dph(int value) {}
 
-    public int sp();
+    default int sp() { return 0; }
 
-    public int dpl();
+    default int dpl() { return 0; }
 
-    public int dph();
+    default int dph() { return 0; }
 
-    public int psw();
+    default int psw() { return 0; }
 
-    public void psw(int value);
+    default void psw(int value) {}
 
-    public int getXdataSize();
+    default int getXdataSize() { return 0; }
 
     default String getSfrName(int i) { return ""; }
 

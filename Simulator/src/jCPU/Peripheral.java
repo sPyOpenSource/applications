@@ -1,4 +1,4 @@
-package jCPU.arm;
+package jCPU;
 
 public interface Peripheral {
     byte read(int offset);
