@@ -27,6 +27,7 @@ public class MCS51JVGAConsole extends JVGAConsole implements MCS51Peripheral, Xd
   private int mode = 0;
 
   public MCS51JVGAConsole() {
+    super(null);
     setPreferredSize(new Dimension(WIDTH * CHAR_W, HEIGHT * CHAR_H));
     colTable[0] = new Color(0x000000);
     colTable[1] = new Color(0x00007F);

@@ -226,31 +226,34 @@ public class SSAEmul extends Emulator implements iCPU {
    */
   private int globalThrowFrameVariable;
   
-  /**
-   * @see Emulator#initArchitecture(int, int, int, int)
-   */
+    /**
+     * @param cd
+     * @param si
+     * @see Emulator#initArchitecture(int, int, int, int)
+     */
+  @Override
   public boolean initArchitecture(int cd, int si) {
     int cnt;
-    if ((relocBytes!=4 && relocBytes!=8) || stackClearBits!=(relocBytes-1)) {
+    if ((relocBytes != 4 && relocBytes != 8) || stackClearBits != (relocBytes - 1)) {
       System.out.print("Invalid reloc length or mask for stack alignment");
       return false;
     }
     // setting basic information
-    currentIP=si;
+    currentIP = si;
     // initializing special registers
     sReg = new Register[SSADef.R_GPRS];
     for (cnt = 0; cnt < sReg.length; cnt++) {
       sReg[cnt] = new Register();
       sReg[cnt].size = -1;
     }
-    sReg[SSADef.R_STCK].ptr=INIT_STACK_VALUE;
-    sReg[SSADef.R_CLSS].ptr=cd;
+    sReg[SSADef.R_STCK].ptr = INIT_STACK_VALUE;
+    sReg[SSADef.R_CLSS].ptr = cd;
     regs = new Register[128];
-    for (cnt=0; cnt < regs.length; cnt++)
-      regs[cnt]=new Register();
+    for (cnt = 0; cnt < regs.length; cnt++)
+      regs[cnt] = new Register();
     // initialize instance variables
-    paramOffsetNormal=2*((relocBytes+stackClearBits) & ~stackClearBits);
-    paramOffsetInline=(relocBytes+stackClearBits) & ~stackClearBits;
+    paramOffsetNormal = 2 * ((relocBytes + stackClearBits) & ~stackClearBits);
+    paramOffsetInline = (relocBytes + stackClearBits) & ~stackClearBits;
     // everything ok
     return true;
   }
@@ -262,31 +265,31 @@ public class SSAEmul extends Emulator implements iCPU {
    */
   private Register getRegister(int regNo, int size, boolean forWrite) {
     Register r;
-    if (regNo<1) {
+    if (regNo < 1) {
       System.out.print("Access to invalid register ");
       return null;
     }
-    if (regNo<SSADef.R_GPRS) {
-      r=sReg[regNo];
+    if (regNo < SSADef.R_GPRS) {
+      r = sReg[regNo];
       //primary result register may contain any size, set to required one
-      if (regNo==SSADef.R_PRIR) r.size=size;
+      if (regNo == SSADef.R_PRIR) r.size = size;
     }
     // to keep physical index low, there is a sliding window
     else {
-      if (curRegStartOff==0) {
+      if (curRegStartOff == 0) {
         System.out.print("Access to getRegister with invalid curRegStartOff ");
         return null;
       }
-      if (regNo-curRegStartOff<0) {
+      if (regNo - curRegStartOff < 0) {
         System.out.print("invalid curRegStartOff ");
         return null;
       }
-      r=regs[regNo-curRegStartOff];
+      r = regs[regNo - curRegStartOff];
     }
     // if this is the first write to a register after a call, the type is implicitly set
-    if (r.size==0 && forWrite) r.size=size;
+    if (r.size == 0 && forWrite) r.size = size;
     // otherwise sizes have to match, only exception is single pointer access of double pointer register
-    else if (r.size!=size && size!=0 && (size!=-1 || r.size!=-2)) {
+    else if (r.size != size && size != 0 && (size != -1 || r.size != -2)) {
       System.out.print("Invalid size of register ");
       System.out.print(regNo);
       System.out.print(" (");
@@ -321,26 +324,26 @@ public class SSAEmul extends Emulator implements iCPU {
    */
   private boolean insEnter(int imI, int para, boolean inline) {
     Register base, stck;
-    if ((base=getRegister(SSADef.R_BASE, -1, false))==null || 
-        (stck=getRegister(SSADef.R_STCK, -1, false))==null) {
+    if ((base = getRegister(SSADef.R_BASE, -1, false)) == null || 
+        (stck = getRegister(SSADef.R_STCK, -1, false)) == null) {
       System.out.println("in insEnter");
       return false;
     }
     insPush(SSADef.R_BASE, -1);
-    base.ptr=stck.ptr;
-    while (imI>0) switch (stackClearBits) { //allocate space and clear memory
+    base.ptr = stck.ptr;
+    while (imI > 0) switch (stackClearBits) { //allocate space and clear memory
       case 0: imI--;  write8(false, --stck.ptr, (byte)0); break;
-      case 1: imI-=2; write16(false, stck.ptr-=2, (short)0); break;
-      case 3: imI-=4; write32(false, stck.ptr-=4, 0); break;
-      case 7: imI-=8; write64(false, stck.ptr-=8, 0l); break;
+      case 1: imI -= 2; write16(false, stck.ptr -= 2, (short)0); break;
+      case 3: imI -= 4; write32(false, stck.ptr -= 4, 0); break;
+      case 7: imI -= 8; write64(false, stck.ptr -= 8, 0l); break;
       default:
         System.out.println("invalid stackClearBits in insEnter");
         return false;
     }
     if (!inline) { //reset window functionality for register for real procedure call
-      lastAllocRegIndex=0;
-      curRegStartOff=0;
-      curInlineLevel=0;
+      lastAllocRegIndex = 0;
+      curRegStartOff = 0;
+      curInlineLevel = 0;
     }
     else curInlineLevel++;
     return true;
@@ -359,10 +362,9 @@ public class SSAEmul extends Emulator implements iCPU {
   }
   
   private void resetRegisters() {
-    int cnt;
-    for (cnt=0; cnt<highestUsedRegEntry; cnt++)
-      regs[cnt].size=0;
-    killRegOnJmp1=killRegOnJmp2=lastAllocRegIndex=curRegStartOff=curInlineLevel=highestUsedRegEntry=0;
+    for (int cnt = 0; cnt < highestUsedRegEntry; cnt++)
+      regs[cnt].size = 0;
+    killRegOnJmp1 = killRegOnJmp2 = lastAllocRegIndex = curRegStartOff = curInlineLevel = highestUsedRegEntry = 0;
   }
   
   /**
@@ -378,19 +380,19 @@ public class SSAEmul extends Emulator implements iCPU {
    */
   private boolean insLeave(int imI, int para, boolean inline) {
     Register stck;
-    if ((stck=getRegister(SSADef.R_STCK, -1, false))==null) {
+    if ((stck = getRegister(SSADef.R_STCK, -1, false)) == null) {
       System.out.println("in insLeave");
       return false;
     }
-    stck.ptr+=imI;
+    stck.ptr += imI;
     insPop(SSADef.R_BASE, -1);
     if (inline) {
-      stck.ptr+=para; //remove parameters and fake address
+      stck.ptr += para; //remove parameters and fake address
       curInlineLevel--;
     }
     else { //clean up completely and reset window functionality for register
-      currentIP=read32(false, stck.ptr);
-      stck.ptr+=relocBytes+para;
+      currentIP = read32(false, stck.ptr);
+      stck.ptr += relocBytes + para;
       resetRegisters();
     }
     return true;
@@ -406,19 +408,19 @@ public class SSAEmul extends Emulator implements iCPU {
    */
   private boolean insLoadImI(int reg0, int size, int para) {
     Register reg;
-    if ((reg=getRegister(reg0, size, true))==null) {
+    if ((reg = getRegister(reg0, size, true)) == null) {
       System.out.println("in insLoadImI");
       return false;
     }
     switch (size) {
       case 1:
-        reg.value8=(byte)para;
+        reg.value8 = (byte)para;
         break;
       case 2: case 3:
-        reg.value16=(short)para;
+        reg.value16 = (short)para;
         break;
       case 4: case 5:
-        reg.value32=para;
+        reg.value32 = para;
         break;
       default:
         System.out.println("Invalid size for insLoadImI");

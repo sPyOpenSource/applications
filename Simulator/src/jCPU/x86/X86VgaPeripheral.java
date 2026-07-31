@@ -2,12 +2,12 @@ package jCPU.x86;
 
 import static jCPU.MCS51.MCS51JVGAConsole.F8x16;
 import j51.swing.JVGAConsole;
-import jCPU.Peripheral;
+import j51.swing.VgaPeripheral;
 import java.awt.*;
 import java.awt.image.*;
 import javax.swing.*;
 
-public class X86VgaPeripheral implements Peripheral {
+public class X86VgaPeripheral extends VgaPeripheral {
     public static final int VGA_MEM_BASE = 0xB8000;
     private static final int VGA_PORT_BASE = 0x3C0;
     private static final int WIDTH = 80, HEIGHT = 25, CHAR_W = 8, CHAR_H = 16;
@@ -69,6 +69,7 @@ public class X86VgaPeripheral implements Peripheral {
         display = new JVGAConsole(this);
     }
 
+    @Override
     public JComponent getDisplay() {
         return display;
     }
@@ -120,6 +121,7 @@ public class X86VgaPeripheral implements Peripheral {
         }
     }
 
+    @Override
     public void paint(Graphics g) {
         if (mode == 0) {
             Dimension size = display.getSize();
