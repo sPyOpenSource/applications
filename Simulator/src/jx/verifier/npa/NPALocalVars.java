@@ -2,7 +2,6 @@ package jx.verifier.npa;
 
 import jx.verifier.*;
 import jx.zero.verifier.JVMLocalVarsElement;
-import jx.zero.verifier.npa.NPALocalVarsInterface;
 
 public class NPALocalVars extends JVMLocalVars implements NPALocalVarsInterface {
     //returns new SRLvars, with same content in lVars as this.

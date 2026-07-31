@@ -1,6 +1,6 @@
 package jx.verifier;
 
-import jx.zero.classstore.ClassFinder;
+import jx.classstore.ClassFinder;
 import jx.classfile.*;
 import jx.verifier.typecheck.*;
 import jx.verifier.npa.NullPointerAnalysis;

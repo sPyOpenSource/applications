@@ -2,7 +2,7 @@ package jx.verifier.typecheck;
 
 import jx.verifier.VerifyException;
 import jx.verifier.bytecode.*;
-import jx.zero.classstore.ClassFinder;
+import jx.classstore.ClassFinder;
 import jx.classfile.ClassData;
 import jx.classfile.MethodData;
 import jx.classfile.FieldData;

@@ -4,7 +4,6 @@ import jx.verifier.bytecode.*;
 import jx.verifier.*;
 import jx.zero.verifier.JVMLocalVarsElement;
 import java.util.Vector;
-import jx.zero.verifier.typecheck.TCLocalVarsInterface;
 
 
 /* Local Variables for verifying Subroutines (jsr ... ret)

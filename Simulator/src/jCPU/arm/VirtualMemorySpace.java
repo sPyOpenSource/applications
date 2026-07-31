@@ -7,15 +7,17 @@ import jCPU.iMemory;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public final class VirtualMemorySpace  implements iMemory {
+public final class VirtualMemorySpace implements iMemory {
 	private final PhysicalMemorySpace mem;
 	private final Debugger debugger;
 	private final java.util.Map<Integer, Peripheral> mmioMap = new java.util.concurrent.ConcurrentHashMap<>();
 	private int lastAccessAddress, lastAccessWidth;
 	private boolean lastAccessWasStore;
+        
 	public int getLastAccessAddress() { return lastAccessAddress; }
 	public int getLastAccessWidth() { return lastAccessWidth; }
 	public boolean getLastAccessWasStore() { return lastAccessWasStore; }
+        
 	VirtualMemorySpace(PhysicalMemorySpace mem, Debugger debugger) {
 		this.mem = mem;
 		this.debugger = debugger;

@@ -2,8 +2,8 @@ package jx.verifier.npa;
 
 import jx.verifier.*;
 import jx.verifier.bytecode.*;
-import jx.zero.verifier.VerifierInterface;
-import jx.zero.verifier.npa.NPALocalVarsInterface;
+import jx.verifier.VerifierInterface;
+import jx.zero.verifier.JVMOPStackElement;
 
 public class NPAState extends JVMState {
     public NPAStack NPAgetStack() { return (NPAStack) getStack();}

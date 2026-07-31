@@ -4,6 +4,7 @@ import jx.verifier.bytecode.*;
 import jx.verifier.*;
 import jx.classfile.constantpool.*;
 import jx.verifier.typecheck.TCTypes;
+import jx.zero.verifier.JVMOPStackElement;
 
 public final class NPABCEffect {
     

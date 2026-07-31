@@ -2,7 +2,7 @@ package jx.verifier.typecheck;
 
 import jx.classfile.*;
 import jx.classfile.constantpool.*;
-import jx.zero.classstore.ClassFinder;
+import jx.classstore.ClassFinder;
 import jx.verifier.*;
 
 public class TypeCheck {

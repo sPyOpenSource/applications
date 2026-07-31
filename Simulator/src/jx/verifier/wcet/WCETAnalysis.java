@@ -3,7 +3,7 @@ package jx.verifier.wcet;
 
 import jx.classfile.*;
 import jx.classfile.constantpool.*;
-import jx.zero.classstore.ClassFinder;
+import jx.classstore.ClassFinder;
 import jx.verifier.bytecode.*;
 import jx.verifier.*;
 //FEHLER debug

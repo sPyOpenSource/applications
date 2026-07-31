@@ -4,7 +4,6 @@ import jx.verifier.JVMLocalVars;
 import jx.verifier.JVMSRLocalVars;
 import jx.verifier.VerifyException;
 import jx.zero.verifier.*;
-import jx.zero.verifier.npa.NPALocalVarsInterface;
 
 
 /* Local Variables for verifying Subroutines (jsr ... ret)

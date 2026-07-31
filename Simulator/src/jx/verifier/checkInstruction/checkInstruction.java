@@ -3,7 +3,7 @@ package jx.verifier.checkInstruction;
 import java.util.Vector;
 import jx.verifier.VerifyException;
 import jx.verifier.bytecode.BCLinkList;
-import jx.zero.ByteCode;
+import jx.verifier.bytecode.ByteCode;
 import jx.classfile.constantpool.ConstantPool;
 import jx.classfile.MethodSource;
 import jx.classfile.VerifyResult;
@@ -25,7 +25,7 @@ public class checkInstruction {
 	for (int i = 0; i < opCodes.length; i++) {
 	    for (ByteCode actBc = code.getFirst(); 
 		 actBc != null; 
-		 actBc = actBc.getNext()) {
+		 actBc = actBc.next) {
 		if (actBc.getOpCode() == opCodes[i]){
 		    result.addElement(opCodes[i]);
 		}

@@ -4,7 +4,7 @@ import jx.verifier.bytecode.*;
 import jx.verifier.*;
 import java.util.Vector;
 import java.util.Enumeration;
-import jx.zero.verifier.VerifierInterface;
+import jx.verifier.VerifierInterface;
 
 public class OpenIfList {
     private Vector list;

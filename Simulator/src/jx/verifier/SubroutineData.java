@@ -2,7 +2,7 @@ package jx.verifier;
 
 import java.util.Vector;
 import jx.verifier.bytecode.BCBranch;
-import jx.zero.ByteCode;
+import jx.verifier.bytecode.ByteCode;
 
 /** Class to hold data for one Subroutine.
  * each instance has a Vector of callers that call this subroutine, the JVMState just before the first instruction of the subroutine and the state just before the ret instruction.<br>
@@ -69,31 +69,31 @@ public class SubroutineData  {
     public void updateCallerStates() throws VerifyException {
 	for (int i = 0; i < jsrs.size(); i++) {
 	    ByteCode actJsr = (ByteCode) jsrs.elementAt(i);
-	    ByteCode nextBC = actJsr.getNext();
+	    ByteCode nextBC = actJsr.next;
 	    //merge afterState and nextBC.beforeState - normal merge for stack,
 	    //apply for lVars.
-	    if(actJsr.beforeState() == null)
+	    if(actJsr.beforeState == null)
 		continue;
 	    boolean checkAgain;
-	    if (nextBC.beforeState() == null) {
+	    if (nextBC.beforeState == null) {
 		//if the next bc after the jsr has no state yet generate new one:
 		//the state is mainly the afterstate of this sr, and the srlVars are applied
 		//to the lvars of the jsr-state
 		checkAgain = true;
-		nextBC.beforeState(afterState.copy());
-		nextBC.beforeState().setNextBC(nextBC);
-		nextBC.beforeState().setlVars(actJsr.beforeState().getlVars());
-		((JVMSRLocalVars)afterState.getlVars()).apply(nextBC.beforeState().getlVars());
+		nextBC.beforeState = afterState.copy();
+		nextBC.beforeState.setNextBC(nextBC);
+		nextBC.beforeState.setlVars(actJsr.beforeState.getlVars());
+		((JVMSRLocalVars)afterState.getlVars()).apply(nextBC.beforeState.getlVars());
 	    } else {
 		checkAgain = 
-		    nextBC.beforeState().getStack().merge(afterState.getStack());
+		    nextBC.beforeState.getStack().merge(afterState.getStack());
 		checkAgain = checkAgain | 
-		    ((JVMSRLocalVars)afterState.getlVars()).apply(nextBC.beforeState().getlVars());
+		    ((JVMSRLocalVars)afterState.getlVars()).apply(nextBC.beforeState.getlVars());
 		
 	    }
 	    if (checkAgain) {
 		    //merging changed stack or local Variables --> reverify
-		nextBC.beforeState().getMv().checkBC(nextBC);
+		nextBC.beforeState.getMv().checkBC(nextBC);
 	    }
 	}
     }

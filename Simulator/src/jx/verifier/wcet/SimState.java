@@ -2,7 +2,7 @@ package jx.verifier.wcet;
 
 import jx.classfile.*;
 import jx.classfile.constantpool.*;
-import jx.zero.classstore.ClassFinder;
+import jx.classstore.ClassFinder;
 import jx.verifier.bytecode.*;
 import jx.verifier.*;
 import jx.zero.verifier.wcet.ExecutionTime;
@@ -538,7 +538,7 @@ public class SimState {
 		    eTime.add(methodETime);
 		    timeExceeded = eTime.limitExceeded();
 		} else {
-		    jx.zero.classstore.ClassData otherClass = classFinder.findClass(className);
+		    ClassData otherClass = classFinder.findClass(className);
 		    if (otherClass == null) 
 			throw new Error("Internal Error: Class not found: " +
 					className );

@@ -2,6 +2,7 @@ package jx.verifier.npa;
 
 import jx.verifier.bytecode.*;
 import jx.verifier.*;
+import jx.zero.verifier.JVMOPStackElement;
 import java.util.Vector;
 
 

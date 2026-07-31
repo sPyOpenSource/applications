@@ -4,9 +4,9 @@ import java.util.Vector;
 import java.util.Enumeration;
 import jx.verifier.Verifier;
 import jx.verifier.VerifyException;
-import jx.zero.classfile.ConstantPool;
-import jx.zero.classfile.ExceptionHandlerData;
-import jx.zero.classfile.MethodSource;
+import jx.classfile.constantpool.ConstantPool;
+import jx.classfile.ExceptionHandlerData;
+import jx.classfile.MethodSource;
 
 public class BCLinkList {
     private ByteCode first;

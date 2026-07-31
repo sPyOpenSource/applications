@@ -1,10 +1,10 @@
 package jx.verifier;
 
 import java.util.Vector;
-import jx.zero.classfile.*;
+import jx.classfile.*;
+import jx.classfile.constantpool.*;
 import jx.verifier.bytecode.BCLinkList;
-import jx.zero.ByteCode;
-import jx.zero.verifier.VerifierInterface;
+import jx.verifier.bytecode.ByteCode;
 
 /** Class for verification of one method.
  * The class has a checkqueue which contains all bytecodes that should be checked.
@@ -95,9 +95,9 @@ public class MethodVerifier implements VerifierInterface {
 
 	checkQueue = new Vector();
 	ByteCode actBC = code.getFirst();
-	actBC.beforeState(initialState.copy());
+	actBC.beforeState = initialState.copy();
 	//make sure the state starts at actBC
-	actBC.getBeforeState().setNextBC(actBC);
+	actBC.beforeState.setNextBC(actBC);
 
 	//Initialize subroutines
 	srs = new Subroutines();
@@ -116,7 +116,7 @@ public class MethodVerifier implements VerifierInterface {
      * @exception VerifyException if verification fails for some bytecode/state.
      */
     public void continueChecks() throws VerifyException{
-	jx.zero.ByteCode actBC;
+	ByteCode actBC;
 	while (!checkQueue.isEmpty()) {
 	    //Check Queue must be LIFO!!!
 	    //FEHLER stimmt das: 
@@ -126,7 +126,7 @@ public class MethodVerifier implements VerifierInterface {
 	    actBC.mvCheckCount(0);
 	    try {//FEHLER debug
 	    try {
-		actBC.beforeState().executeNextBC();
+		actBC.beforeState.executeNextBC();
 	    } catch(Exception e) {
 		/*e.methodName = method.getMethodName();
 		e.className = className;

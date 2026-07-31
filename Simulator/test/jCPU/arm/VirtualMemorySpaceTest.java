@@ -11,6 +11,7 @@ public class VirtualMemorySpaceTest {
     @Before
     public void setUp() {
         physicalMem = new PhysicalMemorySpace();
+        physicalMem.mapRegion(0x10000, new ByteArrayRegion(0x10000));
         virtualMem = new VirtualMemorySpace(physicalMem, null);
     }
 

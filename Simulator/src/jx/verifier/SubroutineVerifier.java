@@ -2,8 +2,7 @@ package jx.verifier;
 
 import java.util.Vector;
 import jx.verifier.bytecode.ByteCode;
-import jx.zero.classfile.*;
-import jx.zero.verifier.VerifierInterface;
+import jx.classfile.*;
 
 /**Class for verification of a subroutine within a method.
  * 
@@ -66,8 +65,8 @@ public class SubroutineVerifier implements VerifierInterface {
 	Verifier.stdPrintln(1,"Now Verifying subroutine starting at " + Integer.toHexString(srBegin.getAddress()));
 	checkQueue = new Vector();
 	ByteCode actBC = srBegin;
-	actBC.beforeState(beginState);
-	actBC.beforeState().setMv(this);
+	actBC.beforeState = beginState;
+	actBC.beforeState.setMv(this);
 
 	checkBC(actBC);
 	while (!checkQueue.isEmpty()) {
@@ -79,12 +78,12 @@ public class SubroutineVerifier implements VerifierInterface {
 	    
 	    if (actBC.getOpCode() == ByteCode.RET) {
 		if (srData.finalState == null) {
-		    srData.finalState = actBC.beforeState();
+		    srData.finalState = actBC.beforeState;
 		} else {
-		    srData.finalState.merge(actBC.beforeState());
+		    srData.finalState.merge(actBC.beforeState);
 		}
 	    } else try {  //bc!=ret
-		actBC.beforeState().executeNextBC();
+		actBC.beforeState.executeNextBC();
 	    } catch(VerifyException e) {
 		e.srBCode = e.bCode; //the JVMState of the calling jsr instruction will set bCode to jsr so save real bcode in srBCode!
 		e.append("in subroutine beginning at " + 
