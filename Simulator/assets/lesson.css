@@ -223,6 +223,92 @@ tr:nth-child(even) td { background: var(--code-bg); }
   letter-spacing: 0.02em;
 }
 
+/* ── Flow / pipeline diagrams ──────────────────────────── */
+
+.diagram-flow {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 1rem 0;
+  flex-wrap: wrap;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+}
+
+.diagram-flow .box {
+  border: 2px solid var(--accent);
+  border-radius: 6px;
+  padding: 0.5rem 0.8rem;
+  background: var(--accent-light);
+  text-align: center;
+  min-width: 80px;
+}
+
+.diagram-flow .box.small { font-size: 0.72rem; padding: 0.3rem 0.5rem; }
+.diagram-flow .arrow { color: var(--text-muted); font-size: 1.2rem; }
+
+/* ── Quiz widget ───────────────────────────────────────── */
+
+.quiz {
+  border: 2px solid var(--accent);
+  border-radius: 8px;
+  padding: 1rem 1.2rem;
+  margin: 1.5rem 0;
+  background: var(--accent-light);
+}
+
+.quiz .quiz-question {
+  font-family: var(--sans);
+  font-weight: 700;
+  margin: 0 0 0.6rem;
+}
+
+.quiz button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  margin: 0.35rem 0;
+  padding: 0.45rem 0.7rem;
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.quiz button:hover:not(:disabled) {
+  border-color: var(--accent);
+  background: var(--accent-light);
+}
+
+.quiz button:disabled { cursor: default; }
+
+.quiz button.quiz-wrong {
+  border-color: var(--red);
+  background: var(--red-bg);
+  color: var(--red);
+}
+
+.quiz button.quiz-correct {
+  border-color: var(--green);
+  background: var(--green-bg);
+  color: var(--green);
+}
+
+.quiz .feedback {
+  margin: 0.6rem 0 0;
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  min-height: 1.2em;
+  color: var(--green);
+}
+
+.quiz .feedback.quiz-feedback-wrong { color: var(--red); }
+
 /* ── Bit-field diagrams (instruction formats) ──────────── */
 
 .bit-diagram {

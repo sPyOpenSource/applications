@@ -17,6 +17,12 @@
 - [Patterson & Hennessy — *Computer Organization and Design: RISC-V Edition*](https://www.elsevier.com/books/computer-organization-and-design-risc-v-edition/patterson/978-0-12-820331-6)
   The definitive textbook on single-cycle and multi-cycle processor design. The RISC-V simulator in this codebase is essentially a software implementation of the single-cycle datapath from Chapters 4–5. Use for: building the mental model of fetch→decode→execute→memory→writeback.
 
+- [JVM Specification, §4.10 *Verification of class files*](https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-4.html#jvms-4.10)
+  The canonical rules for bytecode verification. The `jx.verifier` package implements exactly this abstract-interpretation discipline: merging operand stacks of equal depth, type joining at control-flow merges, and JSR/RET subroutines. Use for: the "what" behind the verifier; the code is the "how."
+
+- [Golm, Felser, Wawersich & Kleinöder — *The JX Operating System* (USENIX ATC 2002)](https://www.usenix.org/conference/usenix-2002-annual-technical-conference/jx-operating-system)
+  The research paper describing the JX OS model that armOS's JVM follows: Java bytecode verified statically and run natively in supervisor context, with bytecode verification — not hardware — as the trust boundary. Use for: understanding *why* the verifier exists and what it must prove.
+
 ## Wisdom (Communities)
 
 - [r/EmuDev](https://reddit.com/r/EmuDev)
@@ -28,3 +34,4 @@
 ## Gaps
 
 - No known high-quality resource specifically about the ARM9/Thumb decode methodology used in `nl/lxtreme/arm/CPU.java`. The ARM ARM covers what, but not how to implement. The code itself is the best source for the "how."
+- No single doc that ties the verifier's abstract-interpretation engine (`MethodVerifier`/`JVMState`) to how the WCET analysis builds and bounds its control-flow graphs. The `wcet/` package and `BCStackEffect.java` are the ground truth.

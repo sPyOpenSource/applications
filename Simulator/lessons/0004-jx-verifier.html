@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 4: The Bytecode Verifier — armOS's Trust Boundary</title>
+<link rel="stylesheet" href="../assets/lesson.css">
+<script src="../assets/quiz.js"></script>
+</head>
+<body>
+
+<div class="lesson-header">
+  <span class="lesson-number">Lesson 4</span>
+  <h1>The Bytecode Verifier</h1>
+  <p class="subtitle">How <code>jx.verifier</code> proves a class is safe to run natively — before armOS ever executes it</p>
+</div>
+<p class="filename">src/jx/verifier/ → entry point <code>Verifier.java</code></p>
+
+<h2 id="motivation">Why armOS needs a verifier</h2>
+
+<p>The four simulators you've studied so far <em>interpret</em> instructions at runtime. The JVM in this codebase does something different: it takes <strong>Java bytecode</strong> and — following the JX OS model — prepares it to run as native code in supervisor context. There is no OS underneath to catch a type error with a segfault; <em>type safety is the security boundary</em>. Untrusted programs must be proven safe <strong>statically</strong>, before execution.</p>
+
+<p>That proof is the job of <code>jx.verifier</code>. If you ever add a new opcode to the JVM, this package is what decides which bytecode is <em>allowed</em> to reach your interpreter. It is the gatekeeper.</p>
+
+<h2 id="pipeline">The verification pipeline</h2>
+
+<div class="diagram-flow">
+  <div class="box small">ClassFinder<br><span style="font-size:0.65rem">reads .class files</span></div>
+  <span class="arrow">→</span>
+  <div class="box small">Verifier<br><span style="font-size:0.65rem">orchestrator</span></div>
+  <span class="arrow">→</span>
+  <div class="box small">ClassTree<br><span style="font-size:0.65rem">inheritance hierarchy</span></div>
+  <span class="arrow">→</span>
+  <div class="box small">per class<br><span style="font-size:0.65rem">TypeCheck.verify</span></div>
+  <span class="arrow">→</span>
+  <div class="box small">per method<br><span style="font-size:0.65rem">4 analyses</span></div>
+</div>
+
+<p>Constructing a <code>Verifier</code> immediately starts verification (<code>Verifier.java:28</code>). The order matters:</p>
+
+<pre><code>// Verifier.java:45 — build the class hierarchy
+ClassTree classTree = new ClassTree(classFinder, vClasses);
+// Verifier.java:50 — initialize the type system (class loader hookup)
+TypeCheck.init(classFinder);
+
+// then, per class (Verifier.java:58) and per method (Verifier.java:70):
+TypeCheck.verifyMethod(...)        // ← the type verifier
+NullPointerAnalysis.verifyMethod(...)
+FinalAndLeafAnalysis.verifyMethod(...)
+WCETAnalysis.verifyMethod(...)</code></pre>
+
+<p>The <code>ClassTree</code> is built lazily by walking superclasses recursively (<code>ClassTree.java:45</code>); the class-level pass rejects a <code>final</code> method that a subclass has overridden (<code>TypeCheck.java:36</code>).</p>
+
+<h2 id="four-analyses">Four analyses, one engine</h2>
+
+<table>
+  <tr><th>Analysis</th><th>Package</th><th>Question it answers</th><th>Abstract value</th></tr>
+  <tr><td><code>TypeCheck</code></td><td>typecheck/</td><td>Is this bytecode type-safe?</td><td><code>TCTypes</code> (types)</td></tr>
+  <tr><td><code>NullPointerAnalysis</code></td><td>npa/</td><td>Can we prove this deref is non-null?</td><td><code>NPAValue</code> (NULL / NONNULL)</td></tr>
+  <tr><td><code>FinalAndLeafAnalysis</code></td><td>fla/</td><td>Is this method final / leaf?</td><td>boolean flags</td></tr>
+  <tr><td><code>WCETAnalysis</code></td><td>wcet/</td><td>Does this method exceed a time budget?</td><td>WCET cost state</td></tr>
+</table>
+
+<p>FLA and WCET exist because this isn't just a sandbox — it's a <em>real-time</em> OS. FLA flags methods the compiler can inline safely (<code>FinalAndLeafAnalysis.java:22</code>). WCET computes worst-case execution time and can fail verification if a method provably exceeds the budget, throwing <code>TimeLimitExceededException</code> at runtime (<code>WCETAnalysis.java:17</code>).</p>
+
+<h2 id="engine">The engine: abstract interpretation</h2>
+
+<p>All four analyses share one workhorse: <code>MethodVerifier</code>. It treats each method as a control-flow graph and <strong>simulates</strong> it using abstract values instead of concrete ones — this is abstract interpretation.</p>
+
+<p>The pipeline inside <code>MethodVerifier</code>:</p>
+
+<div class="step-card">
+  <h3>Parse</h3>
+  <p><code>new BCLinkList(method, cPool)</code> (<code>MethodVerifier.java:64</code>) turns the raw bytes into a doubly-linked list of <code>ByteCode</code> objects. Opcodes with operands get specialized subclasses — <code>BCBranch</code>, <code>BCMultiBranch</code>, <code>BCCPArgOp</code> (constant-pool operands), <code>BCWideOp</code> (<code>ByteCode.java:135</code>). Each node links its <code>targets</code> and <code>sources</code> (<code>ByteCode.java:200</code>) — the CFG edges.</p>
+</div>
+
+<div class="step-card">
+  <h3>Seed</h3>
+  <p><code>runChecks()</code> (<code>MethodVerifier.java:91</code>) stamps the first bytecode with a copy of the initial abstract state (operand stack + local vars derived from the method signature), registers all JSR subroutines, then pushes it onto the worklist.</p>
+</div>
+
+<div class="step-card">
+  <h3>Iterate to fixed point</h3>
+  <p><code>continueChecks()</code> (<code>MethodVerifier.java:118</code>) pops bytecodes off the <strong>LIFO</strong> check queue. Each pop simulates one instruction's effect on its <code>beforeState</code> — the abstract state flowing <em>into</em> that bytecode. The resulting states are merged into each successor's <code>beforeState</code>. If the merge <em>changed</em> a successor, that successor is re-queued and re-analyzed. The queue drains only when every state has stabilized — a fixed-point computation.</p>
+</div>
+
+<p>The LIFO order is deliberate: it finishes one control-flow branch before starting another, which keeps JSR subroutine verification from running twice (<code>MethodVerifier.java:115</code>).</p>
+
+<h3>What a "simulation" does</h3>
+
+<p>The heart of the engine is <code>JVMState.executeNextBC()</code> (<code>JVMState.java:71</code>). In order it:</p>
+
+<ol>
+  <li><strong>Copies</strong> the state — analyses are purely static, they never mutate shared state.</li>
+  <li><strong>Handles JSR</strong> — if the next bytecode is <code>JSR</code>/<code>JSR_W</code>, the subroutine is verified separately and its result state merged into all <code>RET</code> targets (<code>JVMState.java:85</code>).</li>
+  <li><strong>Simulates exceptions</strong> — for each exception handler protecting this bytecode, it computes the state you'd land in if the instruction threw: stack cleared, exception object pushed, <code>nextBC</code> = handler (<code>JVMState.java:93</code>, <code>TCState.java:25</code>).</li>
+  <li><strong>Simulates the instruction</strong> via <code>doExecuteNextBC()</code> — the analysis-specific part (for TypeCheck this is <code>BCStackEffect.simulateBC</code>, a 1,100-line table-driven switch over all opcodes, <code>TCState.java:18</code>).</li>
+  <li><strong>Merges</strong> the result states into successors and re-queues any whose state changed (<code>JVMState.java:114</code>).</li>
+</ol>
+
+<h2 id="merge">The merge operator — where safety is decided</h2>
+
+<p>Verification is a <strong>dataflow analysis</strong>, and <code>merge</code> is its "join" operation. When two control-flow paths meet at a bytecode, their abstract states must be combined:</p>
+
+<pre><code>// JVMState.java:174 — the join is stack ∧ locals
+retval = stack.merge(mergeState.getStack())
+       | lVars.merge(mergeState.getlVars());</code></pre>
+
+<p>The rules encode the JVM's type discipline:</p>
+
+<ul>
+  <li><strong>Stack depth must agree.</strong> If two paths arrive with different operand-stack sizes, that's a <code>VerifyException</code> — <em>"Stacks of different size"</em> (<code>JVMOPStack.java:124</code>). This is the classic "merged stack heights must match" rule.</li>
+  <li><strong>Types merge upward.</strong> Two different object types merge to their <strong>first common superclass</strong>, or <code>T_OBJECT</code> (java/lang/Object) if there is none (<code>TCObjectTypes.java:239</code>).</li>
+  <li><strong><code>null</code> merges into anything</strong> — the null type is compatible with every object type (<code>TCObjectTypes.java:232</code>).</li>
+  <li><strong>Return true if anything changed</strong> — the signal that re-analysis is needed. This is what makes the worklist loop terminate with a precise, safe answer.</li>
+</ul>
+
+<div class="callout callout-info">
+  <div class="callout-label">Why re-verify on change?</div>
+  <p>Suppose an <code>if</code> merges <code>Object</code> into a path that had <code>String</code>. The successor's locals are now less precise. That less-precise state could change the outcome of instructions <em>after</em> the merge point — e.g. a <code>CHECKCAST</code> or an <code>INVOKEVIRTUAL</code>. So every affected successor must be re-simulated until nothing changes. That's the fixed point.</p>
+</div>
+
+<h2 id="parameterization">The design insight: the engine is a framework</h2>
+
+<p>Here's the part worth remembering. <code>JVMState</code> is <strong>abstract</strong>. Each analysis plugs in its own subclass and its own stack/local-variable element types, and the whole worklist machinery is reused:</p>
+
+<table>
+  <tr><th>Analysis</th><th>State subclass</th><th>Stack element</th><th>Instantiates</th></tr>
+  <tr><td>TypeCheck</td><td><code>TCState</code></td><td><code>TCTypes</code></td><td><code>TypeCheck.java:22</code></td></tr>
+  <tr><td>NPA</td><td><code>NPAState</code></td><td><code>NPAValue</code></td><td><code>NullPointerAnalysis.java:16</code></td></tr>
+  <tr><td>WCET</td><td><code>WCETState</code></td><td><code>WCETStackElement</code></td><td><code>WCETAnalysis.java:33</code></td></tr>
+</table>
+
+<p>Notice how symmetric the three entry points are — each builds a <code>MethodVerifier</code>, sets a different initial state, and calls <code>runChecks()</code>. NPA even reuses the exact <code>beforeState</code> values TypeCheck computed, walking them afterward to mark dereference sites as provably non-null (<code>NullPointerAnalysis.java:119</code>).</p>
+
+<p><strong>Adding a fourth analysis</strong> = subclass <code>JVMState</code>, define how stack elements merge, register the call in <code>Verifier</code>, and optionally gate it behind a <code>VerifierOptions</code> flag (<code>VerifierOptions.java</code>). The CFG, worklist, subroutines, and exception edges come for free.</p>
+
+<h2 id="subroutines">The legacy wrinkle: JSR/RET</h2>
+
+<p>Older JVMs allowed <code>JSR</code>/<code>RET</code> subroutines — code that pushes a return address and is jumped to multiple times. Naively verifying these breaks, because the locals hold a "return address" that differs per call site. This codebase handles it with a dedicated <code>SubroutineVerifier</code> that runs a <em>second</em> mini-worklist per subroutine and merges its final state back into every RET target (<code>SubroutineVerifier.java:64</code>, <code>:79</code>). The return address itself is an abstract type, <code>TCRAType</code>, tagged with the subroutine's start address (<code>TCState.java:42</code>).</p>
+
+<p>This is the signature of a pre-<em>StackMapTable</em> (pre-Java-6) style verifier. Modern JVMs ditched JSR/RET verification by banning the instructions — a nice example of the JVM simplifying its own spec rather than the verifier.</p>
+
+<h2 id="exercise">Exercise: trace the engine</h2>
+
+<div class="exercise">
+  <h3>Exercise</h3>
+  <p>Open the files and answer from the code — don't rely on this lesson.</p>
+  <ol>
+    <li><code>MethodVerifier.java</code> — is the check queue FIFO or LIFO? Which method proves it?</li>
+    <li><code>JVMState.java</code> — list the three things <code>executeNextBC()</code> does <em>before</em> simulating the instruction itself.</li>
+    <li><code>JVMOPStack.java</code> — what happens if two merging stacks have different <code>count</code>s?</li>
+    <li><code>TCObjectTypes.java</code> — what does merging two unrelated classes produce?</li>
+    <li><code>NullPointerAnalysis.java</code> — what two values can <code>NPAValue</code> hold, and what does it do when it finds a <code>NULL</code> deref?</li>
+  </ol>
+</div>
+
+<details>
+  <summary>Reveal answer</summary>
+  <ol>
+    <li>LIFO — <code>continueChecks()</code> pops <code>checkQueue.lastElement()</code> (<code>MethodVerifier.java:124</code>), and the comment at line 115 warns it must stay LIFO.</li>
+    <li>Copy the state, check for JSR (subroutine call), then simulate exceptions for every <code>eHandler</code> (<code>JVMState.java:72</code>, <code>:85</code>, <code>:93</code>).</li>
+    <li><code>VerifyException</code> — "Stacks of different size!" (<code>JVMOPStack.java:124</code>).</li>
+    <li>Their first common superclass, or <code>T_OBJECT</code> if none exists (<code>TCObjectTypes.java:239</code>).</li>
+    <li><code>NULL</code> and <code>NONNULL</code> (<code>NPAValue.java:12</code>). On a <code>NULL</code> deref it prints "Warning - op on null reference" and leaves the runtime null-check in place; <code>NONNULL</code> sites are recorded so the check can be eliminated (<code>NullPointerAnalysis.java:119</code>).</li>
+  </ol>
+</details>
+
+<h2 id="quiz">Quick check</h2>
+
+<div class="quiz" data-right="Correct!" data-wrong="Not quite — try again.">
+  <p class="quiz-question">Which class orchestrates all four method analyses?</p>
+  <button data-value="Verifier" onclick="checkAnswer(this, 'Verifier')">Verifier</button>
+  <button data-value="TypeCheck" onclick="checkAnswer(this, 'Verifier')">TypeCheck</button>
+  <button data-value="ClassTree" onclick="checkAnswer(this, 'Verifier')">ClassTree</button>
+  <button data-value="MethodVerifier" onclick="checkAnswer(this, 'Verifier')">MethodVerifier</button>
+  <p class="feedback"></p>
+</div>
+
+<div class="quiz" data-right="Correct!" data-wrong="Not quite — try again.">
+  <p class="quiz-question">When a merge changes a successor's state, what does the engine do?</p>
+  <button data-value="re" onclick="checkAnswer(this, 're')">discards it</button>
+  <button data-value="re" onclick="checkAnswer(this, 're')">throws error</button>
+  <button data-value="re" onclick="checkAnswer(this, 're')">re-queues it</button>
+  <button data-value="re" onclick="checkAnswer(this, 're')">copies it</button>
+  <p class="feedback"></p>
+</div>
+
+<div class="quiz" data-right="Correct!" data-wrong="Not quite — try again.">
+  <p class="quiz-question">Two unrelated object types on a merged stack become…?</p>
+  <button data-value="T_OBJECT" onclick="checkAnswer(this, 'T_OBJECT')">T_OBJECT</button>
+  <button data-value="T_OBJECT" onclick="checkAnswer(this, 'T_OBJECT')">a VerifyException</button>
+  <button data-value="T_OBJECT" onclick="checkAnswer(this, 'T_OBJECT')">the first operand</button>
+  <button data-value="T_OBJECT" onclick="checkAnswer(this, 'T_OBJECT')">java/lang/Object</button>
+  <p class="feedback"></p>
+</div>
+
+<nav class="lesson-nav">
+  <span><a href="0003-arm-comparison.html" class="prev">ARM Comparison</a></span>
+  <span><em>Next: <a href="../reference/bytecode-verifier.html">Bytecode Verifier Reference</a></em></span>
+</nav>
+
+<div class="lesson-footer">
+  <p><strong>Primary source:</strong> JVM Specification, §4.10 <em>Verification of class files</em> — the abstract-interpretation rules this package implements.<br>
+  <strong>Recommended reading:</strong> Golm, Felser, Wawersich &amp; Kleinöder, <em>The JX Operating System</em> (USENIX ATC 2002) — explains why bytecode verification, not hardware, is JX's trust boundary.<br>
+  <strong>Code anchors:</strong> <code>Verifier.java:28</code> (orchestration), <code>MethodVerifier.java:118</code> (worklist loop), <code>JVMState.java:71</code> (simulation), <code>JVMOPStack.java:117</code> (merge), <code>TCObjectTypes.java:217</code> (type join), <code>NullPointerAnalysis.java:119</code> (results).<br>
+  <em>Ask your instructor follow-up questions — about how the JSR/RET rule interacts with exception handlers, how WCET builds its control-flow graph, or how NPA's results are consumed by the JIT compiler.</em></p>
+</div>
+
+</body>
+</html>

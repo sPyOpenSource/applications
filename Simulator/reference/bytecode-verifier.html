@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reference: jx.verifier — Bytecode Verifier Architecture</title>
+<link rel="stylesheet" href="../assets/lesson.css">
+</head>
+<body>
+
+<div class="lesson-header">
+  <span class="lesson-number">Reference</span>
+  <h1>Bytecode Verifier Architecture</h1>
+  <p class="subtitle">Compressed map of <code>src/jx/verifier/</code> — the abstract-interpretation engine that gates the armOS JVM</p>
+</div>
+<p class="filename">Lesson: <a href="../lessons/0004-jx-verifier.html">0004-jx-verifier.html</a> · Package: <code>src/jx/verifier/</code></p>
+
+<h2 id="pipeline">Pipeline</h2>
+
+<pre><code>ClassFinder (class loading)
+   └─ Verifier (orchestrator, Verifier.java:28)
+        ├─ ClassTree      — inheritance hierarchy, lazy superclass walk
+        ├─ TypeCheck.init — hooks the class finder into the type system
+        ├─ per class: TypeCheck.verify → rejects overridden final methods
+        └─ per method: 4 analyses, all driven by MethodVerifier:
+             TypeCheck  → types (TCState / TCTypes / BCStackEffect)
+             NPA        → nullness (NPAState / NPAValue)
+             FLA        → final/leaf flags (FLAResult)
+             WCET       → worst-case execution time (WCETState)</code></pre>
+
+<h2 id="core-classes">Core classes</h2>
+
+<table>
+  <tr><th>Class</th><th>Role</th><th>Key anchor</th></tr>
+  <tr><td><code>Verifier</code></td><td>Entry point; builds ClassTree; calls each analysis per class/method</td><td>Verifier.java:28</td></tr>
+  <tr><td><code>VerifierInterface</code></td><td>Contract implemented by MethodVerifier &amp; SubroutineVerifier</td><td>VerifierInterface.java:6</td></tr>
+  <tr><td><code>MethodVerifier</code></td><td>Worklist engine for one method: BCLinkList + LIFO checkQueue</td><td>MethodVerifier.java:118</td></tr>
+  <tr><td><code>SubroutineVerifier</code></td><td>Second mini-worklist for each JSR/RET subroutine</td><td>SubroutineVerifier.java:64</td></tr>
+  <tr><td><code>JVMState</code></td><td>Abstract state = operand stack + locals + nextBC; merge() is the dataflow join</td><td>JVMState.java:71, :169</td></tr>
+  <tr><td><code>JVMOPStack</code></td><td>Linked-list operand stack; merge requires equal depth</td><td>JVMOPStack.java:117</td></tr>
+  <tr><td><code>JVMLocalVars</code></td><td>Local-variable array with its own merge</td><td>JVMLocalVars.java</td></tr>
+  <tr><td><code>ByteCode</code></td><td>CFG node: opcode, args, targets, sources, eHandlers, beforeState</td><td>ByteCode.java:200</td></tr>
+  <tr><td><code>BCLinkList</code></td><td>Parses method bytes → linked ByteCode list; detects bad branch targets</td><td>MethodVerifier.java:64</td></tr>
+  <tr><td><code>ClassTree(Element)</code></td><td>Hierarchy for common-superclass lookup &amp; final-method checks</td><td>ClassTree.java:45</td></tr>
+  <tr><td><code>VerifyException</code></td><td>Failure signal; carries the offending state/bytecode</td><td>VerifyException.java</td></tr>
+</table>
+
+<h2 id="bytecode-model">Bytecode model</h2>
+
+<p><code>ByteCode</code> subclasses selected by opcode in <code>newByteCode</code> (ByteCode.java:125):</p>
+
+<ul>
+  <li><code>BCBranch</code> — if/if_icmp/if_acmp, goto, jsr, ret</li>
+  <li><code>BCMultiBranch</code> — tableswitch, lookupswitch</li>
+  <li><code>BCCPArgOp</code> — anything reading the constant pool (new, getfield, invoke*, ldc, checkcast…)</li>
+  <li><code>BCWideOp</code> — wide-form local-variable ops</li>
+  <li>plain <code>ByteCode</code> — everything else</li>
+</ul>
+
+<p>Terminal ops (returns, <code>athrow</code>) get zero targets (<code>linkTargets</code>, ByteCode.java:200); every other op targets its fall-through successor plus branch targets.</p>
+
+<h2 id="worklist">The worklist algorithm</h2>
+
+<pre><code>runChecks():
+  stamp first BC with initialState.copy()      # signature-derived state
+  srs.registerSrs(code)                        # find JSR/RET subroutines
+  checkBC(firstBC); continueChecks()
+
+continueChecks():                              # LIFO queue
+  while queue not empty:
+    bc = queue.popLast()
+    bc.beforeState.executeNextBC()
+
+executeNextBC():                               # JVMState.java:71
+  tmp = this.copy()
+  if nextBC is JSR/JSR_W:                      # subroutine call edge
+      srs.transformState(tmp, nextBC); return
+  for eh in nextBC.eHandlers:                  # exception edges
+      eh.simulateException(this)               #   → exceptionThrown():
+                                                #     clear stack, push eName, nextBC=handler
+  targetStates = tmp.doExecuteNextBC()         # analysis-specific simulation
+  for each successor s with incoming state st:
+      if s.beforeState == null: s.beforeState = st; checkBC(s)
+      elif s.beforeState.merge(st) changed:    # dataflow join
+          checkBC(s)                           # re-analyze
+  # queue drains ⇔ fixed point reached</code></pre>
+
+<h2 id="merge-rules">Merge rules (the join)</h2>
+
+<ul>
+  <li><strong>Stack depth must match</strong> across paths — else <code>VerifyException</code> "Stacks of different size" (JVMOPStack.java:124).</li>
+  <li><strong>Object types merge to first common superclass</strong> (via ClassTree), or <code>T_OBJECT</code> if none (TCObjectTypes.java:239).</li>
+  <li><strong><code>null</code> merges into any object type</strong> (TCObjectTypes.java:232).</li>
+  <li><strong>Primitive types must be identical</strong>, else exception.</li>
+  <li><strong>Merge returns <code>true</code> if anything changed</strong> → successor re-queued. This loop is the fixed-point iteration.</li>
+</ul>
+
+<h2 id="state-subclasses">Analysis state subclasses</h2>
+
+<table>
+  <tr><th>Analysis</th><th>State</th><th>Stack elem</th><th>Simulation</th><th>Output</th></tr>
+  <tr><td>TypeCheck</td><td><code>TCState</code></td><td><code>TCTypes</code> / <code>TCObjectTypes</code> / <code>TCRAType</code></td><td><code>BCStackEffect.simulateBC</code> (table-driven, ~1100 lines)</td><td>— (pass/fail)</td></tr>
+  <tr><td>NPA</td><td><code>NPAState</code></td><td><code>NPAValue</code> (NULL/NONNULL)</td><td>NPA-specific effect rules</td><td><code>NPAResult</code> — deref sites provably non-null</td></tr>
+  <tr><td>WCET</td><td><code>WCETState</code></td><td><code>WCETStackElement</code></td><td>per-op cost, CFG-based path bounds</td><td>time bound or <code>TimeLimitExceededException</code></td></tr>
+  <tr><td>FLA</td><td>— (no state)</td><td>—</td><td>scans for invoke opcodes</td><td><code>FLAResult</code> — isLeaf / isSystemFinal</td></tr>
+</table>
+
+<h2 id="subroutines">JSR/RET subroutines</h2>
+
+<ul>
+  <li>Found by <code>Subroutines.registerSrs</code> (pre-pass over the CFG).</li>
+  <li>Each subroutine verified by its own <code>SubroutineVerifier</code> worklist; <code>RET</code> bytecodes merge their states into <code>SubroutineData.finalState</code> (SubroutineVerifier.java:79).</li>
+  <li>Return addresses are abstract values — <code>TCRAType</code> — tagged with the subroutine start address (TCState.java:42).</li>
+  <li>The calling <code>JSR</code> edge merges <code>finalState</code> into every RET target (<code>Subroutines.transformState</code>).</li>
+  <li>This is the pre-Java-6 (pre-StackMapTable) verifier style; modern JVMs ban JSR/RET.</li>
+</ul>
+
+<h2 id="glossary">Glossary</h2>
+
+<dl>
+  <dt><strong>beforeState</strong></dt><dd>Abstract JVM state flowing <em>into</em> a bytecode; the per-node lattice value of the dataflow analysis (ByteCode.java:13).</dd>
+  <dt><strong>checkQueue / worklist</strong></dt><dd>LIFO set of bytecodes awaiting (re-)analysis; LIFO order prevents double subroutine analysis (MethodVerifier.java:115).</dd>
+  <dt><strong>merge / join</strong></dt><dd>Combining abstract states at a CFG merge point; returns true on change to drive re-analysis (JVMState.java:169).</dd>
+  <dt><strong>fixed point</strong></dt><dd>Queue empty ⇔ every state stable ⇔ verification complete.</dd>
+  <dt><strong>abstract interpretation</strong></dt><dd>Executing the method on abstract values (types, nullness, cost) instead of concrete ones.</dd>
+  <dt><strong>JSR subroutine</strong></dt><dd>Legacy code-sharing block via <code>jsr</code>/<code>ret</code>; verified separately because return addresses make locals polymorphic.</dd>
+  <dt><strong>exception edge</strong></dt><dd>State transition to a handler: stack cleared, exception type pushed (TCState.java:25).</dd>
+</dl>
+
+<p class="filename"><em>Keep this map open while reading the next lesson. If you can't name the state subclass for an analysis from memory, revisit §State subclasses.</em></p>
+
+</body>
+</html>
