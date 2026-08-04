@@ -214,9 +214,13 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 					messages(cpu.toString());
 					setProgress("Garbage collection");
 					System.gc();
-				} catch (ClassNotFoundException | IllegalAccessException | InstantiationException ex) {
-					messages(ex);
-					ex.printStackTrace(System.out);
+				} catch (ClassNotFoundException ex) {
+					showError("Failed to load " + name + " simulator: class not found. Check j51.conf.", ex);
+				} catch (InstantiationException | IllegalAccessException ex) {
+					showError("Failed to instantiate " + name + ": " + ex.getMessage() +
+							". Ensure class implements iCPU and has public no-arg constructor.", ex);
+				} catch (Exception ex) {
+					showError("Failed to initialize " + name + ": " + ex.getMessage(), ex);
 				}
 
 			}
@@ -290,6 +294,14 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 			messages.append(msg + "\n");
 			messages.setCaretPosition(messages.getDocument().getLength());
 		});
+	}
+
+	private void showError(String userMessage, Exception ex) {
+		messages("[ERROR] " + userMessage);
+		if (ex != null) {
+			Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, userMessage, ex);
+			ex.printStackTrace(System.out);
+		}
 	}
 
 	private void emulation(boolean mode)
@@ -495,65 +507,69 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 
 	private void loadHex(String name) throws Exception
 	{
-		BufferedReader rd;
-		java.util.List<String> lines = new java.util.ArrayList<>();
+		try {
+			BufferedReader rd;
+			java.util.List<String> lines = new java.util.ArrayList<>();
 
-		if(name.endsWith("json")) {
-			JSONObject object = parseJSONFile(name);
-			Iterator<String> it = object.keys();
-			java.util.List array = ((JSONArray)object.get("demo.main")).toList();
-			for(Object o : array){
-				lines.add(":" + (String)o);
+			if(name.endsWith("json")) {
+				JSONObject object = parseJSONFile(name);
+				Iterator<String> it = object.keys();
+				java.util.List array = ((JSONArray)object.get("demo.main")).toList();
+				for(Object o : array){
+					lines.add(":" + (String)o);
+				}
+			} else {
+				rd = new BufferedReader(new FileReader(name));
+				String line;
+				while((line = rd.readLine()) != null){
+					lines.add(line);
+				}
+				rd.close();
 			}
-		} else {
-			rd = new BufferedReader(new FileReader(name));
-			String line;
-			while((line = rd.readLine()) != null){
-				lines.add(line);
+
+			int start = 0x10000;
+			int end = 0;
+
+			for (String line : lines){
+				if (!line.startsWith(":")){
+					throw new Exception(name + " is not a valid intel file");
+				}
+
+				int lenData = Hex.getByte(line, 1);
+				int address = Hex.getWord(line, 3);
+				int type    = Hex.getByte(line, 7);
+
+				int chksum = lenData + address / 256 + address + type;
+
+				for (int i = 0 ; i < lenData + 1; i++){
+					chksum += Hex.getByte(line, 9 + i * 2);
+				}
+				chksum &= 0xff;
+
+				if (chksum != 0){
+					throw new Exception("Invalid chksum " + Hex.bin2byte(chksum) + " in " + line);
+				}
+
+				if (type == 1)
+					break;
+				if (type == 3)
+					continue;
+
+				if (type != 0)
+					throw new Exception("Unsupported record type " + type);
+
+				if (address < start)
+					start = address;
+				if (address + lenData - 1 > end)
+					end = address + lenData - 1;
+				for (int i = 0 ; i < lenData ; i++){
+					cpu.code(address + i, Hex.getByte(line, 9 + i * 2));
+				}
 			}
-			rd.close();
+			messages(" loaded at " + Hex.bin2word(start) + "-" + Hex.bin2word(end));
+		} catch (Exception ex) {
+			throw new Exception("Failed to load " + name + " as Intel HEX: " + ex.getMessage(), ex);
 		}
-
-		int start = 0x10000;
-		int end = 0;
-
-		for (String line : lines){
-			if (!line.startsWith(":")){
-				throw new Exception(name + " is not a valid intel file");
-			}
-
-			int lenData = Hex.getByte(line, 1);
-			int address = Hex.getWord(line, 3);
-			int type    = Hex.getByte(line, 7);
-
-			int chksum = lenData + address / 256 + address + type;
-
-			for (int i = 0 ; i < lenData + 1; i++){
-				chksum += Hex.getByte(line, 9 + i * 2);
-			}
-			chksum &= 0xff;
-
-			if (chksum != 0){
-				throw new Exception("Invalid chksum " + Hex.bin2byte(chksum) + " in " + line);
-			}
-
-			if (type == 1)
-				break;
-			if (type == 3)
-				continue;
-
-			if (type != 0)
-				throw new Exception("Unsupported record type " + type);
-
-			if (address < start)
-				start = address;
-			if (address + lenData - 1 > end)
-				end = address + lenData - 1;
-			for (int i = 0 ; i < lenData ; i++){
-				cpu.code(address + i, Hex.getByte(line, 9 + i * 2));
-			}
-		}
-		messages(" loaded at " + Hex.bin2word(start) + "-" + Hex.bin2word(end));
 
 		int pos = name.indexOf('.');
 		if (pos != -1){
@@ -580,101 +596,121 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 
 	private void loadBin(String path) throws Exception
 	{
-		File file = new File(path);
-		Elf elf = new Elf(file);
-		Memory m = new Memory();
-		for (ProgramHeader ph : elf.programHeaders){
-			int size = (int) ph.segmentMemorySize;
-			if (size <= 0){
-				continue;
+		try {
+			File file = new File(path);
+			Elf elf = new Elf(file);
+			Memory m = new Memory();
+			for (ProgramHeader ph : elf.programHeaders){
+				int size = (int) ph.segmentMemorySize;
+				if (size <= 0){
+					continue;
+				}
+				Chunk chunk = m.create(ph.virtualAddress, size);
+				chunk.data = elf.getSegment(ph);
 			}
-			Chunk chunk = m.create(ph.virtualAddress, size);
-			chunk.data = elf.getSegment(ph);
-		}
-		for(int i = 0; i < 0x10000; i++){
-			cpu.code(i, m.read((int)(i + elf.header.entryPoint)));
+			for(int i = 0; i < 0x10000; i++){
+				cpu.code(i, m.read((int)(i + elf.header.entryPoint)));
+			}
+		} catch (Exception ex) {
+			throw new IOException("Invalid ELF binary " + path + ": " + ex.getMessage(), ex);
 		}
 	}
 
 	private void loadRawBin(String path) throws Exception
 	{
-		File file = new File(path);
-		FileInputStream fis = new FileInputStream(file);
-		byte[] code = fis.readAllBytes();
-		for(int i = 0; i < code.length; i++){
-			cpu.code(i, code[i + 0x1000 * 0]);
-			if(i == 0x10000 - 1) break;
+		try {
+			File file = new File(path);
+			FileInputStream fis = new FileInputStream(file);
+			byte[] code = fis.readAllBytes();
+			for(int i = 0; i < code.length; i++){
+				cpu.code(i, code[i + 0x1000 * 0]);
+				if(i == 0x10000 - 1) break;
+			}
+		} catch (Exception ex) {
+			throw new IOException("Failed to load raw binary " + path + ": " + ex.getMessage(), ex);
 		}
 	}
 
 	private void loadClass(String path) throws Exception
 	{
-		File file = new File(path);
-		InputStream is = new FileInputStream(file);
-		ClassData data = new ClassData(new DataInputStream(is));
-		ByteCode.cp = data.getConstantPool();
-		for(MethodData method:data.getMethodData()){
-			if("main".equals(method.getName())){
-				byte[] code = method.getCode().getBytecode();
-				for(int i = 0; i < code.length; i++){
-					cpu.code(i, code[i]);
+		try {
+			File file = new File(path);
+			InputStream is = new FileInputStream(file);
+			ClassData data = new ClassData(new DataInputStream(is));
+			ByteCode.cp = data.getConstantPool();
+			for(MethodData method:data.getMethodData()){
+				if("main".equals(method.getName())){
+					byte[] code = method.getCode().getBytecode();
+					for(int i = 0; i < code.length; i++){
+						cpu.code(i, code[i]);
+					}
 				}
 			}
+		} catch (Exception ex) {
+			throw new Exception("Failed to load Java class " + path + ": " + ex.getMessage(), ex);
 		}
 	}
 
 	private void loadJar(String path) throws Exception
 	{
-		JarFile jar = new JarFile(path);
-		Enumeration<JarEntry> entries = jar.entries();
-		String main = null;
-		while (entries.hasMoreElements()) {
-			JarEntry entry = entries.nextElement();
-			String name = entry.getName();
-			if(name.equals("META-INF/MANIFEST.MF")){
-				try (InputStream is = jar.getInputStream(entry)) {
-					BufferedReader reader = new BufferedReader(new InputStreamReader(is));
-					while(reader.ready()){
-						String line = reader.readLine();
-						if(line.startsWith("Main-Class")){
-							main = line.split(":")[1].strip().replace(".", "/") + ".class";
-						}
-					}
-				}
-			}
-			if (main != null){
-				if(name.endsWith(main)){
-					ClassData data = new ClassData(new DataInputStream(jar.getInputStream(entry)));
-					ByteCode.cp = data.getConstantPool();
-					for(MethodData method:data.getMethodData()){
-						if("main".equals(method.getName())){
-							byte[] code = method.getCode().getBytecode();
-							for(int i = 0; i < code.length; i++){
-								cpu.code(i, code[i]);
+		try {
+			JarFile jar = new JarFile(path);
+			Enumeration<JarEntry> entries = jar.entries();
+			String main = null;
+			while (entries.hasMoreElements()) {
+				JarEntry entry = entries.nextElement();
+				String name = entry.getName();
+				if(name.equals("META-INF/MANIFEST.MF")){
+					try (InputStream is = jar.getInputStream(entry)) {
+						BufferedReader reader = new BufferedReader(new InputStreamReader(is));
+						while(reader.ready()){
+							String line = reader.readLine();
+							if(line.startsWith("Main-Class")){
+								main = line.split(":")[1].strip().replace(".", "/") + ".class";
 							}
 						}
 					}
-					break;
+				}
+				if (main != null){
+					if(name.endsWith(main)){
+						ClassData data = new ClassData(new DataInputStream(jar.getInputStream(entry)));
+						ByteCode.cp = data.getConstantPool();
+						for(MethodData method:data.getMethodData()){
+							if("main".equals(method.getName())){
+								byte[] code = method.getCode().getBytecode();
+								for(int i = 0; i < code.length; i++){
+									cpu.code(i, code[i]);
+								}
+							}
+						}
+						break;
+					}
 				}
 			}
+		} catch (Exception ex) {
+			throw new Exception("Failed to load JAR " + path + ": " + ex.getMessage(), ex);
 		}
 	}
 
 	private void loadJll(String path) throws Exception
 	{
-		ExtendedDataInputStream stream = new ExtendedDataInputStream(new FileInputStream(path));
-		CodeFile file = new CodeFile(null, null);
-		java.util.ArrayList<CompiledClass> allClasses = file.read(stream);
-		file.size();
-		mainloop: for(CompiledClass clazz:allClasses){
-			for(CompiledMethod method:clazz.getMethods()){
-				byte[] code = method.getCode();
-				if(code == null) continue;
-				for(int i = 0; i < code.length; i++){
-					cpu.code(i, code[i]);
+		try {
+			ExtendedDataInputStream stream = new ExtendedDataInputStream(new FileInputStream(path));
+			CodeFile file = new CodeFile(null, null);
+			java.util.ArrayList<CompiledClass> allClasses = file.read(stream);
+			file.size();
+			mainloop: for(CompiledClass clazz:allClasses){
+				for(CompiledMethod method:clazz.getMethods()){
+					byte[] code = method.getCode();
+					if(code == null) continue;
+					for(int i = 0; i < code.length; i++){
+						cpu.code(i, code[i]);
+					}
+					break mainloop;
 				}
-				break mainloop;
 			}
+		} catch (Exception ex) {
+			throw new Exception("Failed to load JLL file " + path + ": " + ex.getMessage(), ex);
 		}
 	}
 
@@ -692,27 +728,37 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 				tryLoadFile(path);
 				updatePanel(true);
 			}
+		} catch (FileNotFoundException ex) {
+			showError("File not found: " + ex.getMessage(), ex);
+		} catch (IllegalArgumentException ex) {
+			showError(ex.getMessage(), ex);
 		} catch (Exception ex) {
-			messages(ex);
+			showError("Failed to load file: " + ex.getMessage(), ex);
 		}
 	}
 
 	private void tryLoadFile(String path) throws Exception
 	{
-		if(path.endsWith("hex") || path.endsWith("json")){
+		String lower = path.toLowerCase();
+		if (lower.endsWith(".hex") || lower.endsWith(".json")) {
 			loadHex(path);
-		} else if(path.endsWith("bin") || !path.contains(".")){
+		} else if (lower.endsWith(".bin") || !path.contains(".")) {
 			try {
 				loadBin(path);
-			} catch (IOException ex){
+			} catch (IOException ex) {
+				messages("ELF load failed: " + ex.getMessage() + ". Trying raw binary...");
 				loadRawBin(path);
 			}
-		} else if(path.endsWith("class")){
+		} else if (lower.endsWith(".class")) {
 			loadClass(path);
-		} else if(path.endsWith("jar")){
+		} else if (lower.endsWith(".jar")) {
 			loadJar(path);
-		} else if(path.endsWith("jll")){
+		} else if (lower.endsWith(".jll")) {
 			loadJll(path);
+		} else {
+			String ext = path.contains(".") ? path.substring(path.lastIndexOf(".")) : "(no extension)";
+			throw new IllegalArgumentException("Unsupported file format: " + ext +
+				". Supported: .hex, .json, .bin, .class, .jar, .jll");
 		}
 	}
 
@@ -766,8 +812,10 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 						loadBin(path);
 						updatePanel(true);
 					}
+				} catch (FileNotFoundException ex) {
+					showError("File not found", ex);
 				} catch (Exception ex) {
-					messages(ex);
+					showError("Failed to load ELF binary: " + ex.getMessage(), ex);
 				}
 			}
 		};
@@ -790,8 +838,10 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 						loadClass(path);
 						updatePanel(true);
 					}
+				} catch (FileNotFoundException ex) {
+					showError("File not found", ex);
 				} catch (Exception ex) {
-					messages(ex);
+					showError("Failed to load Java class: " + ex.getMessage(), ex);
 				}
 			}
 		};
@@ -814,8 +864,10 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 						loadJar(path);
 						updatePanel(true);
 					}
+				} catch (FileNotFoundException ex) {
+					showError("File not found", ex);
 				} catch (Exception ex) {
-					messages(ex);
+					showError("Failed to load JAR: " + ex.getMessage(), ex);
 				}
 			}
 		};
@@ -838,8 +890,10 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 						loadJll(path);
 						updatePanel(true);
 					}
+				} catch (FileNotFoundException ex) {
+					showError("File not found", ex);
 				} catch (Exception ex) {
-					messages(ex);
+					showError("Failed to load JLL: " + ex.getMessage(), ex);
 				}
 			}
 		};
@@ -1189,12 +1243,16 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 			@Override
 			public void actionPerformed(ActionEvent e)
 			{
+				if (cpu == null) {
+					showError("No simulator loaded. Select a CPU from the CPU menu first.", null);
+					return;
+				}
 				try
 				{
 					cpu.step();
 					updatePanel(false);
 				} catch (Exception ex) {
-					messages(ex);
+					showError("Failed to execute step: " + ex.getMessage(), ex);
 				}
 			}
 		};
@@ -1205,13 +1263,19 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 			@Override
 			public void actionPerformed(ActionEvent e)
 			{
+				if (cpu == null) {
+					showError("No simulator loaded. Select a CPU from the CPU menu first.", null);
+					return;
+				}
 				thread = new Thread(() -> {
 					messages("Simulating ....");
 					try
 					{
 						cpu.go(-1);
+					} catch (InterruptedException ex) {
+						// Normal stop, not an error
 					} catch (Exception ex) {
-						messages(ex);
+						GUI.this.showError("Simulation failed: " + ex.getMessage(), ex);
 					}
 
 
@@ -1234,13 +1298,19 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 			@Override
 			public void actionPerformed(ActionEvent e)
 			{
+				if (cpu == null) {
+					showError("No simulator loaded. Select a CPU from the CPU menu first.", null);
+					return;
+				}
 				thread = new Thread(() -> {
 					messages("Emulating ....");
 					try
 					{
 						cpu.pass();
+					} catch (InterruptedException ex) {
+						// Normal stop, not an error
 					} catch (Exception ex) {
-						messages(ex);
+						GUI.this.showError("Step over failed: " + ex.getMessage(), ex);
 					}
 
 					SwingUtilities.invokeLater(() -> {
