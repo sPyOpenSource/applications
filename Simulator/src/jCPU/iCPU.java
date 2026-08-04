@@ -126,7 +126,7 @@ public interface iCPU {
 
     default long clock() { return 0; }
 
-    default int getOscillator() { return 0; }
+    default int getOscillator() { return 1; }
 
     default int machineCycle() { return 0; }
 

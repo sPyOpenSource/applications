@@ -3,10 +3,6 @@ package java.lang;
 import java.io.InputStream;
 
 public abstract class ClassLoader {
-
-    public static InputStream getSystemResourceAsStream(String string) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
     
     protected ClassLoader() throws SecurityException {
         throw new Error("NOT IMPLEMENTED");
@@ -61,7 +57,4 @@ public abstract class ClassLoader {
 	}
     */
 
-    public InputStream getResourceAsStream(String string) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }

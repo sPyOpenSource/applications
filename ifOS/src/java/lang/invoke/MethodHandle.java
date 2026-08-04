@@ -490,5 +490,4 @@ public abstract class MethodHandle {
         throw new java.lang.UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
-    
 }
