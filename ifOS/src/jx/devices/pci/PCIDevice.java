@@ -6,7 +6,9 @@ import jx.devices.Bus;
 /**
  *
  * @author xuyi
+ * @deprecated Extend {@link AbstractDevice} and implement {@link PciCapable} instead.
  */
+@Deprecated
 public interface PCIDevice extends Bus {
 
     public short getDeviceID();

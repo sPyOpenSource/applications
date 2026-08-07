@@ -4,6 +4,10 @@ import jx.zero.*;
 import jx.fs.buffer.separator.NonBlockingMemoryConsumer;
 import jx.devices.Device;
 
+/**
+ * @deprecated Extend {@link jx.devices.net.AbstractNetworkDevice} instead of implementing this interface.
+ */
+@Deprecated
 public interface NetworkDevice extends Device, Portal {
     public static final int RECEIVE_MODE_INDIVIDUAL = 1;
     public static final int RECEIVE_MODE_PROMISCOUS = 2;

@@ -1,5 +1,9 @@
 package jx.fs;
 
+/**
+ * @deprecated Extend {@link jx.fs.AbstractFileSystem} instead of implementing this interface.
+ */
+@Deprecated
 public interface FileSystemInterface extends jx.zero.Portal {
     public String     getName();
     public Permission getDefaultPermission();

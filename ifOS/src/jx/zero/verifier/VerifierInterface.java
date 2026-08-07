@@ -3,6 +3,10 @@ package jx.zero.verifier;
 import jx.zero.ByteCode;
 import jx.zero.classfile.MethodSource;
 
+/**
+ * @deprecated Extend {@link jx.zero.verifier.AbstractVerifier} instead of implementing this interface.
+ */
+@Deprecated
 public interface VerifierInterface {
     public void runChecks();
     public void checkBC(ByteCode e);

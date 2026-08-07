@@ -1,5 +1,9 @@
 package jx.zero.verifier.npa;
 
+/**
+ * @deprecated Implement {@link jx.zero.verifier.LocalVarsStrategy} instead.
+ */
+@Deprecated
 public interface NPALocalVarsInterface {
     public void write(int index, NPAValue type, int bcAddr);
     public NPAValue NPAread(int index);
