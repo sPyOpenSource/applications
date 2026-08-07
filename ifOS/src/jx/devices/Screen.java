@@ -3,6 +3,12 @@ package jx.devices;
 import jx.zero.DeviceMemory;
 import jx.zero.Portal;
 
+/**
+ * Screen (display) device interface.
+ *
+ * <p>Composition note: do not implement this interface directly. Expose a {@code Screen}
+ * via {@link DisplayCapable#getScreen()} on an {@link AbstractDevice} subclass.</p>
+ */
 public interface Screen extends Portal {
     public int getWidth();
     public int getHeight();

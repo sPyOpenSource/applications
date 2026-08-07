@@ -5,6 +5,8 @@ import jx.zero.Portal;
 
 /**
  * Access to a block device.
+ * <p>Composition note: do not implement this interface directly. Expose a {@code BlockIO}
+ * via {@link jx.devices.BlockIOCapable#getBlockIO()} on an {@link jx.devices.AbstractDevice} subclass.</p>
  * @author Michael Golm
  */
 public interface BlockIO extends Portal {
