@@ -1,127 +1,150 @@
-# Architectural Cleanup: Abstract Base Refactor
+# Architectural Cleanup: Abstract Base Refactor (Revised)
 
-**Date:** 2026-08-07
-**Project:** ifOS (Java Microkernel OS)
+**Date:** 2026-08-07 (revised after codebase audit)
+**Project:** ifOS (JX OS API/Specification Layer)
 **Status:** Approved for Implementation
 
 ---
 
-## 1. Problem Statement
+## 1. Corrected Context
 
-The `ifOS` codebase currently relies on a massive hierarchy of interfaces (100+ in `src/jx` alone) with very few concrete implementations (~11 `public class` files). This "Interface Forest" creates:
+A codebase audit corrected two assumptions of the original design:
 
-- **High Cognitive Load:** Developers must navigate 3-4 interface layers (`PCIDevice` → `Bus` → `Device` → `Portal`) to understand a single type.
-- **Zero Reuse:** Most interfaces have exactly zero or one implementations, making the abstraction purely theoretical.
-- **Maintenance Burden:** Adding cross-cutting concerns (logging, metrics, validation) requires touching multiple interface files or creating yet another interface layer.
-- **Rigidity:** Java's single-inheritance-for-classes vs multiple-inheritance-for-interfaces forces awkward `extends Portal` chains that don't model the domain well.
+1. **ifOS is an API/specification module, not a self-contained kernel module.**
+   - The three target subsystems (`src/jx/devices`, `src/jx/fs`, `src/jx/zero/verifier`) contain **77 interface files and zero concrete classes**.
+   - **220 files** across 7 sibling projects (`APP`, `FS`, `GUI`, `HCI`, `NET`, `Simulator`, `WM`) import `jx.devices`, `jx.fs`, or `jx.zero.verifier`.
+   - **~45 files** in those projects directly `implements` the interfaces in scope (e.g. `NET/src/jx/net/devices/lance/Lance.java` → `NetworkDevice`, `Simulator/src/jx/verifier/MethodVerifier.java` → `VerifierInterface`, `WM/src/jx/keyboard/KeyboardImpl.java` → `Keyboard`, `FS/src/bioide/Drive.java` → `BlockIO`).
+2. **Deleting interfaces is not possible in this module alone.** Removing `Bus`, `PCIDevice`, `FileSystemInterface`, etc. breaks compilation of the sibling projects. The "~11 concrete classes" of the original plan do not exist in-tree; they live in sibling projects.
 
-## 2. Design Goals
+**Build:** the module compiles standalone via its existing ant build into `dist/ifOS.jar`. It has no test suite.
 
-1.  **Reduce File Count:** Target 60-70% reduction in `.java` files in `src/jx/devices`, `src/jx/fs`, `src/jx/zero/verifier`.
-2.  **Shallow Hierarchy:** Max depth of 2 (Abstract Base → Concrete Class).
-3.  **Single Source of Truth:** Shared logic lives in one abstract class, not scattered across default methods in interfaces.
-4.  **Capability Composition:** Replace "Is-A" inheritance with "Has-A" capability interfaces for orthogonal concerns (BlockIO, Display, Input).
+## 2. Problem Statement (unchanged)
 
-## 3. Solution: Abstract Base Architecture
+The `ifOS` codebase relies on a massive hierarchy of interfaces (100+ in `src/jx` alone) with very few in-tree implementations. This "Interface Forest" creates:
 
-### 3.1 Core Principles
+- **High Cognitive Load:** New implementers must satisfy 3-4 interface layers (`Device` → `Bus` → `PCIDevice` → `Portal`) to implement one device.
+- **Rigidity:** Java's single-inheritance-for-classes vs multiple-inheritance-for-interfaces forces awkward `extends Portal`/`extends Bus` chains that don't model the domain.
+- **No Composition:** Cross-cutting concerns (block I/O, input, display) are modeled as "is-a" inheritance instead of "has-a" capabilities.
 
-1.  **One Abstract Base per Subsystem:** Each major domain gets exactly one abstract class.
-2.  **Interfaces for Capabilities Only:** Interfaces are retained only for mixin-style capabilities (e.g., `BlockIOCapable`) or standard Java contracts (`AutoCloseable`).
-3.  **Protected State in Base:** Shared fields (ID, config, logger) live in the abstract base as `protected`.
-4.  **Default Behavior in Base:** Common boilerplate (validation, resource tracking) implemented as `protected` helpers in the base class.
+## 3. Design Goals (revised)
 
-### 3.2 Target Hierarchies
+1.  **Flatten the implementer contract:** New device/fs/verifier implementations target **one abstract base + capability interfaces**, not a 4-deep `implements` chain. New code reaches depth ≤ 2 (`AbstractDevice` → concrete class).
+2.  **Capability composition:** Replace "Is-A" inheritance with "Has-A" capability interfaces for orthogonal concerns (PCI, BlockIO, Input, Display).
+3.  **Backward compatibility:** All 220 consumer files in sibling projects keep compiling **unchanged**. No interface is deleted and no existing public signature changes.
+4.  **Deprecate, don't delete:** Legacy hierarchy interfaces are marked `@Deprecated` with migration pointers, signaling the new pattern without breaking anyone.
+5.  **Precondition for future deletion:** Once sibling implementations migrate (a separate, later cross-project plan), the deprecated interfaces can be deleted. That deletion is **explicitly out of scope** for this plan.
 
-#### A. Device Subsystem (`jx.devices`)
+## 4. Solution: Abstract Base Architecture (additive, backward-compatible)
 
-| Current | New |
-|---------|-----|
-| `Device` → `Bus` → `PCIDevice` / `IDEDevice` | `abstract class AbstractDevice` implements `AutoCloseable`<br>`PCIDevice extends AbstractDevice`<br>`IDEDevice extends AbstractDevice` |
-| `NetworkDevice` (extends `Device`, `Portal`) | `abstract class AbstractNetworkDevice extends AbstractDevice` |
-| `BlockIO`, `Keyboard`, `Mouse`, `Screen` (extend `Portal`) | **Capability Interfaces:**<br>`interface BlockIOCapable { BlockIO getBlockIO(); }`<br>`interface InputCapable { Keyboard getKeyboard(); Mouse getMouse(); }`<br>`interface DisplayCapable { Screen getScreen(); }` |
-| `DeviceFinder` | Keep as Interface (Factory pattern) |
-| `DeviceConfiguration` / `Template` | Keep as Records/Classes (Data) |
+### 4.1 Core Principles
 
-**Key Change:** `Bus` is removed as a type. PCI/IDE configuration becomes a capability of a Device.
+1.  **One Abstract Base per Subsystem:** Each major domain gets exactly one abstract class that new implementations extend.
+2.  **Abstract bases implement their legacy interfaces:** e.g. `AbstractDevice implements Device` — so a migrated device still passes `instanceof Device` and can be handed to consumers typed against the old API.
+3.  **Interfaces for Capabilities Only:** New interfaces exist only for mixin-style capabilities (`PciCapable`, `BlockIOCapable`, `InputCapable`, `DisplayCapable`) or standard contracts (`AutoCloseable`).
+4.  **Protected State in Base:** Shared fields (`deviceId`, `config`, verifier state) live in the abstract base as `protected`.
+5.  **Template Lifecycle in Base:** Shared lifecycle (`open` → `init`, `close`) implemented in the base; subclasses override narrow hooks.
+6.  **Bridge code suppresses deprecation warnings:** New classes that intentionally implement deprecated legacy interfaces carry `@SuppressWarnings("deprecation")` with a comment.
 
-#### B. Filesystem Subsystem (`jx.fs`)
+### 4.2 New API Surface (10 files)
 
-| Current | New |
-|---------|-----|
-| `FileSystemInterface` (extends `Portal`) | `abstract class AbstractFileSystem` implements `AutoCloseable` |
-| `FSObject`, `Directory`, `File`, `Node` | `abstract class AbstractFSObject` → `AbstractDirectory`, `AbstractFile` |
-| `BufferCache`, `BufferHead`, `Buffer` | Package-private implementation classes |
+All new files are additive. Nothing existing is modified except the deprecation annotations in 4.4.
 
-#### C. Verifier Subsystem (`jx.zero.verifier`)
+**Capability Interfaces** (`src/jx/devices/`):
 
-| Current | New |
-|---------|-----|
-| `VerifierInterface`, `NPALocalVarsInterface`, `TCLocalVarsInterface` | `abstract class AbstractVerifier` + Strategy Interfaces:<br>`interface LocalVarsStrategy { ... }`<br>`interface TypeCheckStrategy { ... }` |
-
-### 3.3 Capability Interface Pattern
-
-Instead of:
 ```java
-public interface PCIDevice extends Bus { ... }
-public class MyPCIDevice implements PCIDevice { ... }
+public interface PciCapable      { PCIAccess getPciAccess(); }
+public interface BlockIOCapable  { BlockIO   getBlockIO(); }
+public interface InputCapable    { Keyboard  getKeyboard(); Mouse getMouse(); }
+public interface DisplayCapable  { Screen    getScreen(); }
 ```
 
-We use:
+**Abstract Bases:**
+
+| File | Extends / Implements | Purpose |
+|------|----------------------|---------|
+| `src/jx/devices/AbstractDevice.java` | `implements Device, AutoCloseable` | Base for all devices. `protected final int deviceId`, `protected DeviceConfiguration config`; template `open()` → `validateConfig()` + `init()`; default `close()`; `getId()`; abstract `getSupportedConfigurations()`. |
+| `src/jx/devices/net/AbstractNetworkDevice.java` | `extends AbstractDevice implements NetworkDevice` | Base for NICs. Hosts `RECEIVE_MODE_*` constants; inherits device lifecycle. |
+| `src/jx/fs/AbstractFileSystem.java` | `implements FileSystemInterface, AutoCloseable` | Base for filesystems. Default `close()` delegates to `unmount()`; rest of `FileSystemInterface` abstract. |
+| `src/jx/zero/verifier/AbstractVerifier.java` | `implements VerifierInterface` | Base for bytecode verifiers. Holds `protected MethodSource method`, `protected Subroutines srs`, `protected Object parameter`; template `runChecks()` → `checkBC()` loop → `endChecks()`. |
+| `src/jx/zero/verifier/LocalVarsStrategy.java` | interface | Replaces `NPALocalVarsInterface`: `void write(int index, NPAValue type, int bcAddr); NPAValue read(int index); void setValue(NPAValue value, int newVal);` |
+| `src/jx/zero/verifier/TypeCheckStrategy.java` | interface | Replaces `TCLocalVarsInterface`: `void write(int index, TCTypes type, int bcAddr); TCTypes read(int index, TCTypes type);` |
+
+All abstract bases that implement a deprecated legacy interface carry `@SuppressWarnings("deprecation")`.
+
+### 4.3 Target Implementation Patterns
+
+**Before (implementer burden):**
 ```java
-public abstract class AbstractDevice implements AutoCloseable {
-    protected final int deviceId;
-    protected DeviceConfiguration config;
-    // Shared logic: open(), close(), validateConfig(), getLogger()
-}
-
-public interface PciCapable {
-    PCIAccess getPciAccess();
-    PCIDevice getPciDevice();
-}
-
-public class MyPCIDevice extends AbstractDevice implements PciCapable {
-    // Implements getPciAccess(), inherits open()/close()
+public class MyPCIDevice implements Device, Bus, PCIDevice, Portal {
+    public DeviceConfigurationTemplate[] getSupportedConfigurations() { ... }
+    public void open(DeviceConfiguration conf) { ... }
+    public void close() { ... }
+    public int getId() { ... }
+    public Device getChild(int index) { ... }
+    // ... 20+ PCIDevice methods
 }
 ```
 
-**Benefits:**
-- A device can be `PciCapable` AND `BlockIOCapable` without inheritance conflicts.
-- New capabilities added without touching the base hierarchy.
-- Clear separation: "What it IS" (AbstractDevice) vs "What it CAN DO" (Capabilities).
+**After:**
+```java
+public class MyPCIDevice extends AbstractDevice implements PciCapable, BlockIOCapable {
+    public MyPCIDevice() { super(0); }
+    protected void init(DeviceConfiguration conf) { /* real setup */ }
+    public DeviceConfigurationTemplate[] getSupportedConfigurations() { ... }
+    public PCIAccess getPciAccess() { ... }
+    public BlockIO getBlockIO() { ... }
+}
+```
 
-## 4. Migration Plan
+### 4.4 Deprecation of Legacy Interfaces
 
-### Phase 1: Create Abstract Bases (Non-Breaking)
-1. Add `AbstractDevice`, `AbstractFileSystem`, `AbstractVerifier` alongside existing interfaces.
-2. Populate with `protected` constructors, shared fields, and `protected` helper methods.
-3. Add Capability Interfaces (`PciCapable`, `BlockIOCapable`, etc.).
+Exactly these 9 hierarchy interfaces get `@Deprecated` + a `@deprecated` javadoc tag naming the replacement:
 
-### Phase 2: Refactor Implementations (Breaking)
-1. Update the ~11 concrete classes to `extends AbstractDevice` (or respective base).
-2. Implement required Capability Interfaces.
-3. Remove `implements Bus`, `implements PCIDevice`, etc.
+| Legacy interface | Replace with |
+|------------------|--------------|
+| `jx.devices.Device` | `AbstractDevice` |
+| `jx.devices.Bus` | `AbstractDevice` + capability interfaces |
+| `jx.devices.ide.IDEDevice` | `AbstractDevice` + `PciCapable` / `BlockIOCapable` |
+| `jx.devices.net.NetworkDevice` | `AbstractNetworkDevice` |
+| `jx.devices.pci.PCIDevice` | `AbstractDevice` + `PciCapable` |
+| `jx.fs.FileSystemInterface` | `AbstractFileSystem` |
+| `jx.zero.verifier.VerifierInterface` | `AbstractVerifier` |
+| `jx.zero.verifier.npa.NPALocalVarsInterface` | `LocalVarsStrategy` |
+| `jx.zero.verifier.typecheck.TCLocalVarsInterface` | `TypeCheckStrategy` |
 
-### Phase 3: Cleanup
-1. Delete unused interface files (`Bus.java`, `PCIDevice.java` (interface), `BlockIO.java` (interface), `Portal.java` if unused).
-2. Update method signatures in `DeviceFinder`, `VolumeManager`, etc., to accept Abstract Bases or Capability Interfaces.
-3. Run full build/test cycle.
+The following leaf types remain **canonical value types and are NOT deprecated** (they are the return types of the capability interfaces). They get a javadoc paragraph describing the new composition pattern instead:
+`jx.devices.bio.BlockIO`, `jx.devices.Keyboard`, `jx.devices.Mouse`, `jx.devices.Screen`.
 
-## 5. Risk Assessment
+**Explicitly out of scope (untouched):** `jx.fs.db.*`, `jx.fs.buffer.*`, `jx.fs.{Node,FS,FileSystem,StatFS,FSAttribute,Permission,VolumeManager}`, `jx.devices.{DeviceFinder,KeyListener,DeviceConfiguration,DeviceConfigurationTemplate}`, `jx.devices.pci.{PCI,PCIAccess,PCIAddress,PCICap}`, `jx.devices.framebuffer.*`.
+
+## 5. Migration Plan
+
+| Phase | Scope | Breaking? | Deliverable |
+|-------|-------|-----------|-------------|
+| 1. Capabilities | Add `PciCapable`, `BlockIOCapable`, `InputCapable`, `DisplayCapable` | No | 4 new interfaces; build green |
+| 2. Abstract Bases | Add `AbstractDevice`, `AbstractNetworkDevice`, `AbstractFileSystem`, `AbstractVerifier` + 2 strategy interfaces | No | 6 new classes; build green |
+| 3. Deprecate | Add `@Deprecated` + `@deprecated` javadoc to 9 legacy interfaces; composition notes to 4 leaf interfaces | No | Build green (deprecation warnings expected) |
+| 4. Document | Migration guide with full code examples | No | `docs/superpowers/` guide |
+| 5. Future work | Migrate ~45 sibling implementations; delete deprecated interfaces; investigate `Node`/`FS` consolidation | Yes | **Not in this plan** |
+
+## 6. Risk Assessment (updated)
 
 | Risk | Likelihood | Impact | Mitigation |
 |------|------------|--------|------------|
-| Breaking external consumers | Low | High | This is an internal kernel module; no external API consumers identified. |
-| Missing an implementation | Low | Medium | Only ~11 concrete classes exist; manual audit is trivial. |
-| Abstract Base becomes "God Class" | Medium | Medium | Strict rule: Base only holds *shared* logic. Capabilities stay in interfaces. |
+| Breaking 220 sibling consumers | Low | High | Additive-only scope; no signature changes; explicit "no sibling source change" rule; build gate. |
+| Deprecation-warning noise in sibling builds | Medium | Low | Warnings are the intended migration signal; only new bridge code suppresses them (`@SuppressWarnings`). |
+| Abstract base becomes "God Class" | Medium | Medium | Rule: base holds only *shared* state + lifecycle template; orthogonal concerns live in capability interfaces. |
+| javac rejects implementing a deprecated interface | Low | High | javac allows it (warning only); verified by the build gate in every phase. |
 
-## 6. Success Criteria
+## 7. Success Criteria
 
-- [ ] File count in `src/jx` reduced by ≥ 60%.
-- [ ] Maximum inheritance depth = 2.
-- [ ] Zero interfaces with only one implementation.
-- [ ] All existing tests (if any) pass.
-- [ ] New device can be added by extending one class + implementing 1-2 capabilities.
+- [ ] `ant` build produces `dist/ifOS.jar` with **zero errors**.
+- [ ] Exactly 10 new API files added; no existing public signature changed (annotations/doc only).
+- [ ] All 9 listed legacy interfaces carry `@Deprecated` + `@deprecated` javadoc with the replacement pointer (**100% coverage of the listed set**).
+- [ ] `BlockIO`, `Keyboard`, `Mouse`, `Screen` carry the composition-pattern javadoc note.
+- [ ] Abstract bases satisfy their legacy interfaces (`new MyPCIDevice() instanceof Device` holds).
+- [ ] Migration guide contains ≥ 1 complete, compilable-style code example of `extends AbstractDevice` + capabilities.
+- [ ] Zero changes to any file outside `src/jx` (verified by `git status` of the enclosing `test/` repo).
 
 ---
 
