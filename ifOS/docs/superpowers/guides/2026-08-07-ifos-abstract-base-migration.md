@@ -1,13 +1,14 @@
 # ifOS Abstract Base Migration Guide
 
 **Date:** 2026-08-07
-**Applies to:** implementers in `APP`, `FS`, `GUI`, `HCI`, `NET`, `Simulator`, `WM` that `implements` `jx.devices.*`, `jx.fs.*`, or `jx.zero.verifier.*`.
+**Applies to:** implementers in `APP`, `FS`, `GUI`, `HCI`, `NET`, `Simulator`, `WM` that `implement` `jx.devices.*`, `jx.fs.*`, or `jx.zero.verifier.*`.
 
 ## Why this exists
 
-`ifOS` is the API/specification module. Its legacy interface forest
-(`Device` -> `Bus` -> `PCIDevice` -> `Portal`) forced new implementations to
-satisfy a 4-deep `implements` chain. The new API is:
+`ifOS` is the API/specification module. Its legacy interface forest — a deep
+`implements` chain (`Device` -> `Bus` -> `PCIDevice`), plus the separate
+`Portal` marker — forced new implementations to satisfy many interfaces at
+once. The new API is:
 
 - **one abstract base per subsystem** — the "what it IS" layer;
 - **capability interfaces** — the "what it CAN DO" layer, composable and orthogonal.
@@ -70,7 +71,11 @@ public class MyPCIDevice extends AbstractDevice implements PciCapable, BlockIOCa
 ```
 
 Because `AbstractDevice` implements `Device`, the migrated instance still
-passes `instanceof Device` and can be handed to code typed against the old API.
+passes `instanceof Device`, so code typed against `Device` keeps working.
+It is NOT `instanceof Bus`, `PCIDevice`, or `Portal` — the base implements
+only `Device`; `Portal` is a separate marker — so code typed against those
+must be retyped (e.g. a `PCIDevice` consumer loses
+`getAddress()`/`getInterruptLine()`/`getChild()`).
 
 ## Migration steps for an existing implementation
 
@@ -78,11 +83,32 @@ passes `instanceof Device` and can be handed to code typed against the old API.
    `AbstractNetworkDevice` / `AbstractFileSystem` / `AbstractVerifier`).
 2. Move the body of your `open(...)` method into `protected void init(DeviceConfiguration conf)`.
 3. Delete your `getId()`/`close()` if they only returned a stored id / released a
-   field — the base provides them. Keep a custom `close()` if you release
-   OS resources.
+   field — the base provides them. Note that `super(config)` leaves `deviceId = 0`;
+   if your old `getId()` returned a real stored id, pass it via `super(id)` (the
+   `DeviceConfiguration` overload keeps 0). To release OS resources, override
+   `protected void deinit()` instead of `close()` — the base `close()` calls
+   `deinit()` and then releases `config`. If you must override `close()`, call
+   `super.close()` so the config release is not silently skipped.
 4. Add capability interfaces (`implements PciCapable, ...`) and implement
    their accessor methods.
 5. Compile. Fix any missing override that the base leaves abstract.
+
+### Verifier and filesystem implementers
+
+`AbstractVerifier` implements `VerifierInterface` and now provides
+`runChecks()`, `getMethod()`, `getSrs()`, and `getParameter()` as concrete;
+a legacy implementer should delete its copies. It adds a new abstract
+`getByteCodes()` that must be implemented. The base `runChecks()` invokes
+`endChecks()` via `try`/`finally`, so `endChecks()` always runs, even on
+abnormal exit.
+
+`LocalVarsStrategy` (replaces `NPALocalVarsInterface`) renames `NPAread` to
+`read`. `TypeCheckStrategy` (replaces `TCLocalVarsInterface`) keeps
+`write`/`read`.
+
+`AbstractFileSystem` (replaces `FileSystemInterface`) still requires
+`mount()`/`unmount()`; its `close()` now throws `Exception` and delegates to
+`unmount()`.
 
 ## Deprecation map (9 interfaces)
 
@@ -97,6 +123,10 @@ passes `instanceof Device` and can be handed to code typed against the old API.
 | `jx.zero.verifier.VerifierInterface` | `AbstractVerifier` |
 | `jx.zero.verifier.npa.NPALocalVarsInterface` | `LocalVarsStrategy` |
 | `jx.zero.verifier.typecheck.TCLocalVarsInterface` | `TypeCheckStrategy` |
+
+No capability interface supplies `getChild(int)`, so a migrated bus/bridge
+that served `Bus` consumers has no equivalent — plan such consumers
+accordingly.
 
 ## Not deprecated, not in scope
 
