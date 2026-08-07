@@ -30,6 +30,14 @@ public abstract class AbstractFileSystem implements FileSystemInterface, AutoClo
 
     /**
      * Closes the filesystem by unmounting it.
+     *
+     * <p>Subclasses must make {@code unmount()} safe to call even if
+     * {@link #mount()}
+     * was never invoked and idempotent for repeated calls, since callers
+     * using try-with-resources may close more than once.
+     *
+     * <p>Declares {@code Exception} (stricter than the usual
+     * {@code close()}), matching the legacy {@code FileSystemInterface}.
      */
     public void close() throws Exception {
         unmount();
