@@ -10,7 +10,7 @@ import jx.zero.Memory;
  * auf die IDE-Controller dar.
  * Diese Version setzt Zugriffe auf eine Festplatte in Lese- und Schreiboperationen auf eine Datei um; der Name der Datei entspricht dem
  * Partitionsnamen.
- * @deprecated Extend {@link AbstractDevice} and compose {@link PciCapable} / {@link BlockIOCapable} instead.
+ * @deprecated Extend {@link jx.devices.AbstractDevice} and compose {@link jx.devices.PciCapable} / {@link jx.devices.BlockIOCapable} instead.
  */
 @Deprecated
 public interface IDEDevice extends Bus, Portal {
