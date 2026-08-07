@@ -11,7 +11,7 @@ import jx.zero.classfile.MethodSource;
  * iterate the bytecodes from {@link #getByteCodes()}, call
  * {@link #checkBC(ByteCode)} for each, then call {@link #endChecks()}.
  *
- * <p>Implements the legacy {@code VerifierInterface} for backward
+ * <p>Implements the legacy {@link VerifierInterface} for backward
  * compatibility.
  */
 // implements deprecated VerifierInterface for backward compatibility
@@ -53,17 +53,23 @@ public abstract class AbstractVerifier implements VerifierInterface {
 
     /**
      * Runs the full check lifecycle: checks every bytecode from
-     * {@link #getByteCodes()} and then calls {@link #endChecks()}.
+     * {@link #getByteCodes()} and then calls {@link #endChecks()}, which
+     * runs even if a check throws.
      */
     public final void runChecks() {
-        for (ByteCode code : getByteCodes()) {
-            checkBC(code);
+        try {
+            for (ByteCode code : getByteCodes()) {
+                checkBC(code);
+            }
+        } finally {
+            endChecks();
         }
-        endChecks();
     }
 
     /**
      * Returns the bytecodes of the method to verify.
+     *
+     * <p>Must not return {@code null}; an empty array is allowed.
      */
     protected abstract ByteCode[] getByteCodes();
 
