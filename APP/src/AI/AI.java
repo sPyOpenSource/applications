@@ -31,13 +31,14 @@ public final class AI
     
     /**
      * Constructor for objects of class AI
+     * @param naming
      */
     public AI(Naming naming)
     {
         Debug.out = new DebugPrintStream(new DebugOutputStream((DebugChannel) InitialNaming.getInitialNaming().lookup("DebugChannel0")));
         IO = new AIIO(naming);
         log = new AILogic(IO.getMemory());
-        NetInit.init(IO.getMemory().getInitialNaming(), new String[]{"NET"});
+        //NetInit.init(IO.getMemory().getInitialNaming(), new String[]{"NET"});
 int j = 0;
         PCIAccess pci = (PCIAccess)IO.getMemory().getInitialNaming().lookup("PCIAccess");
         for(int i = 0; i < pci.getNumberOfDevices(); i++){
@@ -75,7 +76,7 @@ int j = 0;
     public static void init(Naming naming) throws Exception {
         AI instance = new AI(naming);
         instance.start();
-        jx.init.Main.main(new String[] {"boot.rc"});
+        //jx.init.Main.main(new String[] {"boot.rc"});
     }
     
     public static void main(String[] args){

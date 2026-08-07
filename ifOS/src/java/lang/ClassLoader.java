@@ -17,12 +17,11 @@ public abstract class ClassLoader {
     /*
         public URL getResource(String name) {
 	    throw new Error("NOT IMPLEMENTED");
-	    }
+	    }*/
 
 	public InputStream getResourceAsStream(String name) {
 	    throw new Error("NOT IMPLEMENTED");
 	}
-    */
 
     protected final Class defineClass(byte[] data, int offset, int len) throws ClassFormatError {
         throw new Error("NOT IMPLEMENTED");
@@ -48,13 +47,12 @@ public abstract class ClassLoader {
         throw new Error("NOT IMPLEMENTED");
     }
 
-    /*	public static final URL getSystemResource(String name) {
+    /*public static final URL getSystemResource(String name) {
 	    throw new Error("NOT IMPLEMENTED");
-	    }
+	    }*/
 
 	public static final InputStream getSystemResourceAsStream(String name) {
 	    throw new Error("NOT IMPLEMENTED");
 	}
-    */
 
 }

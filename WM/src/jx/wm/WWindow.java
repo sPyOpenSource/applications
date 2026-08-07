@@ -44,7 +44,7 @@ public class WWindow implements Runnable
 			m_cWindow.show (true);
 		} else {
 			m_cWindow.show (false);
-			m_cThread.stop ();
+			//m_cThread.stop ();
 		}
 	}
         
