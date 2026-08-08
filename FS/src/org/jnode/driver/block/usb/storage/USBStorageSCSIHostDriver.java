@@ -30,11 +30,13 @@ import jx.zero.MemoryManager;
 
 import org.jnode.driver.bus.scsi.CDB;
 import org.jnode.driver.bus.scsi.SCSIDevice;
-//import org.jnode.driver.bus.scsi.SCSIException;
+import org.jnode.driver.bus.scsi.SCSIException;
 import org.jnode.driver.bus.scsi.SCSIHostControllerAPI;
 import org.jnode.driver.bus.scsi.cdb.spc.CDBInquiry;
+import org.jnode.driver.bus.scsi.cdb.spc.CDBRequestSense;
 import org.jnode.driver.bus.scsi.cdb.spc.CDBTestUnitReady;
 import org.jnode.driver.bus.scsi.cdb.spc.InquiryData;
+import org.jnode.driver.bus.scsi.cdb.spc.SenseData;
 
 import org.jnode.driver.bus.usb.USBConfiguration;
 import org.jnode.driver.bus.usb.USBDataPipe;
@@ -72,7 +74,7 @@ public class USBStorageSCSIHostDriver
     public USBStorageSCSIHostDriver() {
     }
 
-    protected void startDevice(USBDevice usbDevice) throws Exception {
+    public void startDevice(USBDevice usbDevice) throws Exception {
         try {
             //USBDevice usbDevice = (USBDevice) getDevice();
             USBConfiguration conf = usbDevice.getConfiguration(0);
@@ -113,7 +115,11 @@ public class USBStorageSCSIHostDriver
 
     }
 
-    protected void stopDevice() throws Exception {
+    public USBStorageSCSIDevice getScsiDevice() {
+        return scsiDevice;
+    }
+
+    public void stopDevice() throws Exception {
         //final Device dev = getDevice();
 
         // Unregister the SCSI device that we host
@@ -180,8 +186,18 @@ public class USBStorageSCSIHostDriver
             throws Exception, InterruptedException {
             //log.debug("*** execute command ***");
             ITransport t = storageDeviceData.getTransport();
-            t.transport(cdb, timeout);
-            return 0;
+            try {
+                t.transport(cdb, data, dataOffset, timeout);
+                return 0;
+            } catch (SCSICommandFailedException e) {
+                // Don't auto-request sense when REQUEST SENSE itself fails
+                if (cdb instanceof CDBRequestSense) {
+                    throw new SCSIException("REQUEST SENSE failed, CSW status: 0x"
+                        + NumberUtils.hex(e.getStatus(), 2));
+                }
+                SenseData sense = this.requestSense();
+                throw new SCSIException("SCSI command failed", sense);
+            }
         }
 
         protected final void testUnit() throws Exception, InterruptedException {
@@ -194,7 +210,7 @@ public class USBStorageSCSIHostDriver
          * Execute an INQUIRY command.
          *
          * @throws SCSIException
-         * @throws TimeoutException
+         * @throws Exception
          * @throws InterruptedException
          */
         protected final void inquiry() throws Exception,
@@ -204,7 +220,7 @@ public class USBStorageSCSIHostDriver
             final Memory inqData = rm.alloc(96);
 
             ITransport t = storageDeviceData.getTransport();
-            t.transport(new CDBInquiry(inqData.size()), 50000);
+            t.transport(new CDBInquiry(inqData.size()), inqData, 0, 50000);
 
             inquiryResult = new InquiryData(inqData);
             //log.debug("INQUIRY Data : " + inquiryResult.toString());

@@ -45,6 +45,22 @@ public class CSW extends USBPacket {
         setByte(12, status);
     }
 
+    public int getSignature() {
+        return getByte(0) | (getByte(1) << 8) | (getByte(2) << 16) | (getByte(3) << 24);
+    }
+
+    public int getTag() {
+        return getByte(4) | (getByte(5) << 8) | (getByte(6) << 16) | (getByte(7) << 24);
+    }
+
+    public int getResidue() {
+        return getByte(8) | (getByte(9) << 8) | (getByte(10) << 16) | (getByte(11) << 24);
+    }
+
+    public int getStatus() {
+        return getByte(12);
+    }
+
     @Override
     public String toString() {
         StringBuffer sb = new StringBuffer();

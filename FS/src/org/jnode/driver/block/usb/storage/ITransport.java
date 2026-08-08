@@ -20,15 +20,18 @@
  
 package org.jnode.driver.block.usb.storage;
 
+import jx.zero.Memory;
 import org.jnode.driver.bus.scsi.CDB;
 import org.jnode.driver.bus.usb.USBException;
 
 public interface ITransport {
     /**
      * @param cdb
+     * @param data
+     * @param dataOffset
      * @param timeout
      */
-    public void transport(CDB cdb, long timeout);
+    public void transport(CDB cdb, Memory data, int dataOffset, long timeout) throws USBException;
 
     /**
      * @throws USBException

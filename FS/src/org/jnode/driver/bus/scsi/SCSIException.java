@@ -22,6 +22,8 @@ package org.jnode.driver.bus.scsi;
 
 import java.io.IOException;
 
+import org.jnode.driver.bus.scsi.cdb.spc.SenseData;
+
 
 /**
  * @author Ewout Prangsma (epr@users.sourceforge.net)
@@ -29,6 +31,8 @@ import java.io.IOException;
 public class SCSIException extends IOException {
 
     private static final long serialVersionUID = 1L;
+
+    private SenseData senseData;
 
     /**
      *
@@ -59,6 +63,22 @@ public class SCSIException extends IOException {
      */
     public SCSIException(String message) {
         super(message);
+    }
+
+    /**
+     * @param message
+     * @param senseData
+     */
+    public SCSIException(String message, SenseData senseData) {
+        super(message);
+        this.senseData = senseData;
+    }
+
+    /**
+     * Gets the sense data, if any.
+     */
+    public final SenseData getSenseData() {
+        return senseData;
     }
 
 }

@@ -1,0 +1,30 @@
+{
+  "issues": [],
+  "warnings": [
+    "Node 'file:manifest.mf' has no edges (orphan)",
+    "Node 'document:README.rst' has no edges (orphan)"
+  ],
+  "stats": {
+    "totalNodes": 387,
+    "totalEdges": 728,
+    "totalLayers": 13,
+    "tourSteps": 12,
+    "nodeTypes": {
+      "file": 60,
+      "class": 60,
+      "function": 261,
+      "config": 5,
+      "document": 1
+    },
+    "edgeTypes": {
+      "imports": 3,
+      "contains": 560,
+      "related": 143,
+      "calls": 3,
+      "uses": 6,
+      "configures": 5,
+      "inherits": 1,
+      "tested_by": 7
+    }
+  }
+}

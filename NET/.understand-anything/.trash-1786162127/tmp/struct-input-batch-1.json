@@ -1,0 +1,31 @@
+{
+ "projectRoot": "/Users/xuyi/Source/OS/armOS/lib/jcore/test/NET",
+ "batchFiles": [
+  {
+   "path": "src/jx/net/devices/lance/LanceFinder.java",
+   "language": "java",
+   "sizeLines": 75,
+   "fileCategory": "code"
+  },
+  {
+   "path": "src/org/jnode/driver/net/lance/LanceDriver.java",
+   "language": "java",
+   "sizeLines": 163,
+   "fileCategory": "code"
+  },
+  {
+   "path": "src/org/jnode/driver/net/lance/LanceFlags.java",
+   "language": "java",
+   "sizeLines": 111,
+   "fileCategory": "code"
+  }
+ ],
+ "batchImportData": {
+  "src/jx/net/devices/lance/LanceFinder.java": [
+   "src/org/jnode/driver/net/lance/LanceDriver.java",
+   "src/org/jnode/driver/net/lance/LanceFlags.java"
+  ],
+  "src/org/jnode/driver/net/lance/LanceDriver.java": [],
+  "src/org/jnode/driver/net/lance/LanceFlags.java": []
+ }
+}

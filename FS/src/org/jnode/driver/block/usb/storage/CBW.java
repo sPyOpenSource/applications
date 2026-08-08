@@ -51,7 +51,7 @@ public class CBW extends USBPacket {
     }
 
     public void setLength(byte length) {
-        setByte(14, (length & 0x07));
+        setByte(14, length);
     }
 
     public void setCdb(Memory cdb) {

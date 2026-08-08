@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reference: SCSI Commands for Mass Storage</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <a href="../lessons/0001-usb-mass-storage-architecture.html">← Lesson 1</a>
+</nav>
+
+<h1>SCSI Command Quick Reference</h1>
+
+<p class="tag">Reference</p>
+<p class="tag">SBC-3</p>
+<p class="tag">SPC-4</p>
+
+<h2>Command Format</h2>
+
+<p>All commands use the <strong>Command Descriptor Block (CDB)</strong> — typically 10 or 16 bytes. The first byte is the <strong>opcode</strong>.</p>
+
+<pre><code>/* 10-byte CDB layout (most common for mass storage) */
+struct scsi_cdb10 {
+  uint8_t  opcode;        // Command code
+  uint8_t  lun_flags;     // LUN (bits 5-7) + flags
+  uint8_t  lba[4];        // Logical Block Address (big-endian)
+  uint8_t  reserved;
+  uint8_t  xfer_len[2];   // Transfer length in blocks (big-endian)
+  uint8_t  control;       // Control byte
+} __attribute__((packed));</code></pre>
+
+<h2>Essential Commands</h2>
+
+<h3>INQUIRY (0x12) — <em>SPC-4 §6.4</em></h3>
+<pre><code>/* CDB */
+{ 0x12, 0x00, 0x00, 0x00, alloc_len, 0x00 }
+
+/* Response (standard INQUIRY data, 36+ bytes) */
+struct inquiry_response {
+  uint8_t  peripheral_type;    // 0x00 = direct access (block device)
+  uint8_t  rmb : 1;            // Removable media bit
+  uint8_t  version : 7;
+  uint8_t  response_format;    // 0x02 = SPC-2+
+  uint8_t  additional_length;  // n-4
+  uint8_t  sccs : 1;           // SCCS
+  uint8_t  acc : 1;            // Access controls
+  uint8_t  tpgs : 2;           // Target port group support
+  uint8_t  three_p : 1;        // 3rd party copy
+  uint8_t  protect : 1;        // Protection info
+  uint8_t  cmdque : 1;         // Command queuing
+  uint8_t  vs : 2;             // Vendor specific
+  uint8_t  vendor_id[8];       // "VENDOR  "
+  uint8_t  product_id[16];     // "PRODUCT ID     "
+  uint8_t  product_rev[4];     // "1.00"
+} __attribute__((packed));</code></pre>
+
+<h3>REQUEST SENSE (0x03) — <em>SPC-4 §6.34</em></h3>
+<pre><code>/* CDB */
+{ 0x03, 0x00, 0x00, 0x00, alloc_len, 0x00 }
+
+/* Response (fixed format, 18+ bytes) */
+struct sense_data {
+  uint8_t  response_code : 7;  // 0x70 = current, 0x71 = deferred
+  uint8_t  valid : 1;
+  uint8_t  reserved[4];
+  uint8_t  additional_length;  // n-7
+  uint8_t  sense_key : 4;      // 0=No Sense, 2=Not Ready, 3=Medium Error, 5=Illegal Request, 6=Unit Attention
+  uint8_t  reserved2 : 1;
+  uint8_t  ili : 1;            // Incorrect Length Indicator
+  uint8_t  eom : 1;            // End of Medium
+  uint8_t  filemark : 1;
+  uint8_t  information[4];     // Valid if valid=1
+  uint8_t  add_sense_len;
+  uint8_t  cmd_specific_info[4];
+  uint8_t  asc;                // Additional Sense Code
+  uint8_t  ascq;               // ASC Qualifier
+} __attribute__((packed));</code></pre>
+
+<h4>Common Sense Key / ASC / ASCQ Combinations</h4>
+
+| Sense Key | ASC | ASCQ | Meaning |
+|-----------|-----|------|---------|
+| 0x02 (Not Ready) | 0x3A | 0x00 | Medium not present |
+| 0x02 (Not Ready) | 0x04 | 0x01 | Becoming ready |
+| 0x06 (Unit Attention) | 0x28 | 0x00 | Medium may have changed |
+| 0x06 (Unit Attention) | 0x29 | 0x00 | Power on / reset occurred |
+| 0x05 (Illegal Request) | 0x20 | 0x00 | Invalid command opcode |
+| 0x05 (Illegal Request) | 0x24 | 0x00 | Invalid field in CDB |
+| 0x03 (Medium Error) | 0x11 | 0x00 | Unrecovered read error |
+
+<h3>TEST UNIT READY (0x00) — <em>SPC-4 §6.37</em></h3>
+<pre><code>/* CDB */
+{ 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 }
+
+/* Response: No data. Status only. */
+/* Good status (0x00) = ready. Check Condition = not ready (send REQUEST SENSE) */</code></pre>
+
+<h3>READ CAPACITY (10) (0x25) — <em>SBC-3 §5.23</em></h3>
+<pre><code>/* CDB */
+{ 0x25, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 }
+
+/* Response (8 bytes) */
+struct read_capacity10_response {
+  uint8_t  last_lba[4];      // Max LBA (big-endian). Total sectors = last_lba + 1
+  uint8_t  block_size[4];    // Bytes per sector (big-endian), typically 512 or 4096
+} __attribute__((packed));</code></pre>
+
+<h3>READ (10) (0x28) — <em>SBC-3 §5.17</em></h3>
+<pre><code>/* CDB */
+{ 0x28, flags, lba[4], 0x00, xfer_len[2], 0x00 }
+
+/* flags: bit 1 = DPO (disable page out), bit 0 = FUA (force unit access) */
+/* xfer_len: number of blocks to read (0 = 65536 blocks) */
+/* Data phase: IN, xfer_len * block_size bytes */</code></pre>
+
+<h3>WRITE (10) (0x2A) — <em>SBC-3 §5.40</em></h3>
+<pre><code>/* CDB */
+{ 0x2A, flags, lba[4], 0x00, xfer_len[2], 0x00 }
+
+/* flags: bit 1 = DPO, bit 0 = FUA */
+/* xfer_len: number of blocks to write */
+/* Data phase: OUT, xfer_len * block_size bytes */</code></pre>
+
+<h3>SYNCHRONIZE CACHE (10) (0x35) — <em>SBC-3 §5.36</em></h3>
+<pre><code>/* CDB */
+{ 0x35, flags, lba[4], 0x00, xfer_len[2], 0x00 }
+
+/* Immediate bit (bit 0 of byte 1): if 1, return immediately without waiting */
+/* Flushes write cache to media. Call before eject/unmount. */</code></pre>
+
+<h2>Mode Sense / Select (Optional but Useful)</h2>
+
+<h3>MODE SENSE (6) (0x1A) — <em>SPC-4 §6.10</em></h3>
+<pre><code>/* CDB */
+{ 0x1A, 0x00, page_code, 0x00, alloc_len, 0x00 }
+
+/* Key pages:
+   0x3F = all pages
+   0x03 = Format Device page (block size, etc.)
+   0x08 = Caching page (write cache enable)
+   0x1C = Informational Exceptions Control page */</code></pre>
+
+<h3>MODE SELECT (6) (0x15) — <em>SPC-4 §6.9</em></h3>
+<pre><code>/* CDB */
+{ 0x15, pf_bit, 0x00, 0x00, param_len, 0x00 }
+
+/* pf_bit (bit 4 of byte 1): 1 = page format (required) */</code></pre>
+
+<h2>Error Handling Flow</h2>
+
+<pre><code>send_scsi_command(cdb, data, direction):
+  status = bot_transfer(cdb, data, direction)
+  if status == GOOD:
+    return SUCCESS
+  if status == CHECK_CONDITION:
+    sense = request_sense()
+    if sense.sense_key == UNIT_ATTENTION and sense.asc == 0x28:
+      // Media changed - re-read capacity
+      return MEDIA_CHANGED
+    if sense.sense_key == NOT_READY and sense.asc == 0x3A:
+      return NO_MEDIA
+    // Log sense.key, sense.asc, sense.ascq for debugging
+    return SCSI_ERROR(sense)
+  return TRANSPORT_ERROR</code></pre>
+
+<hr>
+<div class="footer">
+  <p>Source: <a href="https://www.t10.org/members/w_spc4.htm" target="_blank">SPC-4</a> • <a href="https://www.t10.org/members/w_sbc3.htm" target="_blank">SBC-3</a> • <a href="https://github.com/hathach/tinyusb/blob/master/src/class/msc/msc_host.c" target="_blank">TinyUSB reference</a></p>
+</div>
+
+</body>
+</html>

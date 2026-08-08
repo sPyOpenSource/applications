@@ -1,0 +1,5125 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 25,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "src/org/jnode/driver/net/lance/DWordIOAccess.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 68,
+      "nonEmptyLines": 58,
+      "functions": [
+        {
+          "name": "DWordIOAccess",
+          "startLine": 30,
+          "endLine": 32,
+          "params": [
+            "io",
+            "iobase"
+          ]
+        },
+        {
+          "name": "getType",
+          "startLine": 34,
+          "endLine": 37,
+          "params": []
+        },
+        {
+          "name": "reset",
+          "startLine": 39,
+          "endLine": 43,
+          "params": []
+        },
+        {
+          "name": "getCSR",
+          "startLine": 45,
+          "endLine": 49,
+          "params": [
+            "csrnr"
+          ]
+        },
+        {
+          "name": "setCSR",
+          "startLine": 51,
+          "endLine": 55,
+          "params": [
+            "csrnr",
+            "value"
+          ]
+        },
+        {
+          "name": "getBCR",
+          "startLine": 57,
+          "endLine": 61,
+          "params": [
+            "bcrnr"
+          ]
+        },
+        {
+          "name": "setBCR",
+          "startLine": 63,
+          "endLine": 67,
+          "params": [
+            "bcrnr",
+            "value"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "DWordIOAccess",
+          "startLine": 28,
+          "endLine": 68,
+          "methods": [
+            "DWordIOAccess",
+            "getType",
+            "reset",
+            "getCSR",
+            "setCSR",
+            "getBCR",
+            "setBCR"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "DWordIOAccess",
+          "line": 30,
+          "isDefault": false
+        },
+        {
+          "name": "getType",
+          "line": 34,
+          "isDefault": false
+        },
+        {
+          "name": "reset",
+          "line": 39,
+          "isDefault": false
+        },
+        {
+          "name": "getCSR",
+          "line": 45,
+          "isDefault": false
+        },
+        {
+          "name": "setCSR",
+          "line": 51,
+          "isDefault": false
+        },
+        {
+          "name": "getBCR",
+          "line": 57,
+          "isDefault": false
+        },
+        {
+          "name": "setBCR",
+          "line": 63,
+          "isDefault": false
+        },
+        {
+          "name": "DWordIOAccess",
+          "line": 28,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "reset",
+          "callee": "io.inl",
+          "lineNumber": 42
+        },
+        {
+          "caller": "getCSR",
+          "callee": "io.outl",
+          "lineNumber": 47
+        },
+        {
+          "caller": "getCSR",
+          "callee": "io.inl",
+          "lineNumber": 48
+        },
+        {
+          "caller": "setCSR",
+          "callee": "io.outl",
+          "lineNumber": 53
+        },
+        {
+          "caller": "setCSR",
+          "callee": "io.outl",
+          "lineNumber": 54
+        },
+        {
+          "caller": "getBCR",
+          "callee": "io.outl",
+          "lineNumber": 59
+        },
+        {
+          "caller": "getBCR",
+          "callee": "io.inl",
+          "lineNumber": 60
+        },
+        {
+          "caller": "setBCR",
+          "callee": "io.outl",
+          "lineNumber": 65
+        },
+        {
+          "caller": "setBCR",
+          "callee": "io.outl",
+          "lineNumber": 66
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 8,
+        "functionCount": 7,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/org/jnode/driver/net/lance/InitializationBlock32Bit.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 78,
+      "nonEmptyLines": 70,
+      "functions": [
+        {
+          "name": "InitializationBlock32Bit",
+          "startLine": 34,
+          "endLine": 58,
+          "params": [
+            "mem",
+            "mode",
+            "physicalAddr",
+            "rxRing",
+            "txRing",
+            "logicalAddr"
+          ]
+        },
+        {
+          "name": "getEncodedRingLength",
+          "startLine": 60,
+          "endLine": 67,
+          "params": [
+            "ringLength"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "InitializationBlock32Bit",
+          "startLine": 29,
+          "endLine": 78,
+          "methods": [
+            "InitializationBlock32Bit",
+            "getEncodedRingLength"
+          ],
+          "properties": [
+            "INIT_BLOCK_SIZE",
+            "mem"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "INIT_BLOCK_SIZE",
+          "line": 30,
+          "isDefault": false
+        },
+        {
+          "name": "InitializationBlock32Bit",
+          "line": 34,
+          "isDefault": false
+        },
+        {
+          "name": "InitializationBlock32Bit",
+          "line": 29,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "InitializationBlock32Bit",
+          "callee": "mem.set16",
+          "lineNumber": 40
+        },
+        {
+          "caller": "InitializationBlock32Bit",
+          "callee": "mem.set8",
+          "lineNumber": 41
+        },
+        {
+          "caller": "InitializationBlock32Bit",
+          "callee": "getEncodedRingLength",
+          "lineNumber": 41
+        },
+        {
+          "caller": "InitializationBlock32Bit",
+          "callee": "rxRing.getLength",
+          "lineNumber": 41
+        },
+        {
+          "caller": "InitializationBlock32Bit",
+          "callee": "mem.set8",
+          "lineNumber": 42
+        },
+        {
+          "caller": "InitializationBlock32Bit",
+          "callee": "getEncodedRingLength",
+          "lineNumber": 42
+        },
+        {
+          "caller": "InitializationBlock32Bit",
+          "callee": "txRing.getLength",
+          "lineNumber": 42
+        },
+        {
+          "caller": "InitializationBlock32Bit",
+          "callee": "mem.set8",
+          "lineNumber": 43
+        },
+        {
+          "caller": "InitializationBlock32Bit",
+          "callee": "physicalAddr.get",
+          "lineNumber": 43
+        },
+        {
+          "caller": "InitializationBlock32Bit",
+          "callee": "mem.set8",
+          "lineNumber": 44
+        },
+        {
+          "caller": "InitializationBlock32Bit",
+          "callee": "physicalAddr.get",
+          "lineNumber": 44
+        },
+        {
+          "caller": "InitializationBlock32Bit",
+          "callee": "mem.set8",
+          "lineNumber": 45
+        },
+        {
+          "caller": "InitializationBlock32Bit",
+          "callee": "physicalAddr.get",
+          "lineNumber": 45
+        },
+        {
+          "caller": "InitializationBlock32Bit",
+          "callee": "mem.set8",
+          "lineNumber": 46
+        },
+        {
+          "caller": "InitializationBlock32Bit",
+          "callee": "physicalAddr.get",
+          "lineNumber": 46
+        },
+        {
+          "caller": "InitializationBlock32Bit",
+          "callee": "mem.set8",
+          "lineNumber": 47
+        },
+        {
+          "caller": "InitializationBlock32Bit",
+          "callee": "physicalAddr.get",
+          "lineNumber": 47
+        },
+        {
+          "caller": "InitializationBlock32Bit",
+          "callee": "mem.set8",
+          "lineNumber": 48
+        },
+        {
+          "caller": "InitializationBlock32Bit",
+          "callee": "physicalAddr.get",
+          "lineNumber": 48
+        },
+        {
+          "caller": "InitializationBlock32Bit",
+          "callee": "mem.set32",
+          "lineNumber": 49
+        },
+        {
+          "caller": "InitializationBlock32Bit",
+          "callee": "mem.set32",
+          "lineNumber": 50
+        },
+        {
+          "caller": "InitializationBlock32Bit",
+          "callee": "mem.set32",
+          "lineNumber": 51
+        },
+        {
+          "caller": "InitializationBlock32Bit",
+          "callee": "rxRing.getAddressAs32",
+          "lineNumber": 51
+        },
+        {
+          "caller": "InitializationBlock32Bit",
+          "callee": "mem.set32",
+          "lineNumber": 52
+        },
+        {
+          "caller": "InitializationBlock32Bit",
+          "callee": "txRing.getAddressAs32",
+          "lineNumber": 52
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/org/jnode/driver/net/lance/IOAccess.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 75,
+      "nonEmptyLines": 65,
+      "functions": [
+        {
+          "name": "IOAccess",
+          "startLine": 32,
+          "endLine": 35,
+          "params": [
+            "io",
+            "iobase"
+          ]
+        },
+        {
+          "name": "getType",
+          "startLine": 37,
+          "endLine": 37,
+          "params": []
+        },
+        {
+          "name": "reset",
+          "startLine": 42,
+          "endLine": 42,
+          "params": []
+        },
+        {
+          "name": "getCSR",
+          "startLine": 50,
+          "endLine": 50,
+          "params": [
+            "csrnr"
+          ]
+        },
+        {
+          "name": "setCSR",
+          "startLine": 58,
+          "endLine": 58,
+          "params": [
+            "csrnr",
+            "value"
+          ]
+        },
+        {
+          "name": "getBCR",
+          "startLine": 66,
+          "endLine": 66,
+          "params": [
+            "bcrnr"
+          ]
+        },
+        {
+          "name": "setBCR",
+          "startLine": 74,
+          "endLine": 74,
+          "params": [
+            "bcrnr",
+            "value"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "IOAccess",
+          "startLine": 28,
+          "endLine": 75,
+          "methods": [
+            "IOAccess",
+            "getType",
+            "reset",
+            "getCSR",
+            "setCSR",
+            "getBCR",
+            "setBCR"
+          ],
+          "properties": [
+            "io",
+            "iobase"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "IOAccess",
+          "line": 32,
+          "isDefault": false
+        },
+        {
+          "name": "getType",
+          "line": 37,
+          "isDefault": false
+        },
+        {
+          "name": "reset",
+          "line": 42,
+          "isDefault": false
+        },
+        {
+          "name": "getCSR",
+          "line": 50,
+          "isDefault": false
+        },
+        {
+          "name": "setCSR",
+          "line": 58,
+          "isDefault": false
+        },
+        {
+          "name": "getBCR",
+          "line": 66,
+          "isDefault": false
+        },
+        {
+          "name": "setBCR",
+          "line": 74,
+          "isDefault": false
+        },
+        {
+          "name": "IOAccess",
+          "line": 28,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 8,
+        "functionCount": 7,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/org/jnode/driver/net/lance/LanceConstants.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 131,
+      "nonEmptyLines": 120,
+      "classes": [
+        {
+          "name": "LanceConstants",
+          "startLine": 26,
+          "endLine": 131,
+          "methods": [],
+          "properties": [
+            "R_ETH_ADDR_OFFSET",
+            "WIO_RDP",
+            "WIO_RAP",
+            "WIO_RESET",
+            "WIO_BDP",
+            "DWIO_RDP",
+            "DWIO_RAP",
+            "DWIO_RESET",
+            "DWIO_BDP",
+            "CSR0_INIT",
+            "CSR0_STRT",
+            "CSR0_STOP",
+            "CSR0_TDMD",
+            "CSR0_TXON",
+            "CSR0_RXON",
+            "CSR0_IENA",
+            "CSR0_INTR",
+            "CSR0_IDON",
+            "CSR0_TINT",
+            "CSR0_RINT",
+            "CSR0_MERR",
+            "CSR0_MISS",
+            "CSR0_CERR",
+            "CSR0_BABL",
+            "CSR0_ERR",
+            "CSR3_BSWP",
+            "CSR3_EMBA",
+            "CSR3_DXMT2PD",
+            "CSR3_LAPPEN",
+            "CSR3_DXSUFLO",
+            "CSR3_IDONM",
+            "CSR3_TINTM",
+            "CSR3_RINTM",
+            "CSR3_MERRM",
+            "CSR3_MISSM",
+            "CSR3_BABLM",
+            "CSR4_JABM",
+            "CSR4_JAB",
+            "CSR4_TXSTRTM",
+            "CSR4_TXSTRT",
+            "CSR4_RCVCCOM",
+            "CSR4_RCVCCO",
+            "CSR4_UINT",
+            "CSR4_UINTCMD",
+            "CSR4_MFCOM",
+            "CSR4_MFCO",
+            "CSR4_ASTRP_RCV",
+            "CSR4_APAD_XMT",
+            "CSR4_DPOLL",
+            "CSR4_TIMER",
+            "CSR4_DMAPLUS",
+            "CSR4_EN124",
+            "CSR5_SPND",
+            "CSR5_MPMODE",
+            "CSR5_MPEN",
+            "CSR5_MPINTE",
+            "CSR5_MPINT",
+            "CSR5_MPPLBA",
+            "CSR5_EXDINTE",
+            "CSR5_EXDINT",
+            "CSR5_SLPINTE",
+            "CSR5_SLPINT",
+            "CSR5_SINTE",
+            "CSR5_SINT",
+            "CSR5_LTINTEN",
+            "CSR5_TOKINTD",
+            "CSR15_DRX",
+            "CSR15_DTX",
+            "CSR15_LOOP",
+            "CSR15_DXMTFCS",
+            "CSR15_FCOLL",
+            "CSR15_DRTY",
+            "CSR15_INTL",
+            "CSR15_PROM",
+            "BCR2_XMAUSEL",
+            "BCR2_ASEL",
+            "BCR2_AWAKE",
+            "BCR2_EADISEL",
+            "BCR2_DXCVRPOL",
+            "BCR2_DXCVRCTL",
+            "BCR2_INTLEVEL",
+            "BCR2_APROMWE",
+            "BCR2_TMAULOOP",
+            "BCR9_FDEN"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "LanceConstants",
+          "line": 26,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/org/jnode/driver/net/lance/LanceCore.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 468,
+      "nonEmptyLines": 400,
+      "functions": [
+        {
+          "name": "LanceCore",
+          "startLine": 104,
+          "endLine": 162,
+          "params": [
+            "driver",
+            "device",
+            "flags",
+            "irq",
+            "ports",
+            "rm"
+          ]
+        },
+        {
+          "name": "getIOAccess",
+          "startLine": 164,
+          "endLine": 184,
+          "params": []
+        },
+        {
+          "name": "initialize",
+          "startLine": 189,
+          "endLine": 215,
+          "params": []
+        },
+        {
+          "name": "disable",
+          "startLine": 220,
+          "endLine": 223,
+          "params": []
+        },
+        {
+          "name": "release",
+          "startLine": 228,
+          "endLine": 231,
+          "params": []
+        },
+        {
+          "name": "getHwAddress",
+          "startLine": 237,
+          "endLine": 239,
+          "params": []
+        },
+        {
+          "name": "loadHWAddress",
+          "startLine": 244,
+          "endLine": 256,
+          "params": []
+        },
+        {
+          "name": "setFlags",
+          "startLine": 258,
+          "endLine": 263,
+          "params": []
+        },
+        {
+          "name": "transmit",
+          "startLine": 271,
+          "endLine": 286,
+          "params": [
+            "buf"
+          ]
+        },
+        {
+          "name": "interrupt",
+          "startLine": 291,
+          "endLine": 415,
+          "params": []
+        },
+        {
+          "name": "rxProcess",
+          "startLine": 417,
+          "endLine": 431,
+          "params": []
+        },
+        {
+          "name": "dumpDebugInfo",
+          "startLine": 447,
+          "endLine": 467,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "LanceCore",
+          "startLine": 51,
+          "endLine": 468,
+          "methods": [
+            "LanceCore",
+            "getIOAccess",
+            "initialize",
+            "disable",
+            "release",
+            "getHwAddress",
+            "loadHWAddress",
+            "setFlags",
+            "transmit",
+            "interrupt",
+            "rxProcess",
+            "dumpDebugInfo"
+          ],
+          "properties": [
+            "RX_DESCRIPTOR_LENGTH",
+            "TX_DESCRIPTOR_LENGTH",
+            "driver",
+            "iobase",
+            "ioResource",
+            "io",
+            "irq",
+            "hwAddress",
+            "flags",
+            "bufferManager"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "LanceCore",
+          "line": 104,
+          "isDefault": false
+        },
+        {
+          "name": "initialize",
+          "line": 189,
+          "isDefault": false
+        },
+        {
+          "name": "disable",
+          "line": 220,
+          "isDefault": false
+        },
+        {
+          "name": "release",
+          "line": 228,
+          "isDefault": false
+        },
+        {
+          "name": "getHwAddress",
+          "line": 237,
+          "isDefault": false
+        },
+        {
+          "name": "transmit",
+          "line": 271,
+          "isDefault": false
+        },
+        {
+          "name": "interrupt",
+          "line": 291,
+          "isDefault": false
+        },
+        {
+          "name": "LanceCore",
+          "line": 51,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "LanceCore",
+          "callee": "device.getInterruptLine",
+          "lineNumber": 109
+        },
+        {
+          "caller": "LanceCore",
+          "callee": "device.getBaseAddress",
+          "lineNumber": 120
+        },
+        {
+          "caller": "LanceCore",
+          "callee": "AIZeroLogic.createIRQ",
+          "lineNumber": 130
+        },
+        {
+          "caller": "LanceCore",
+          "callee": "IRQHandler.first",
+          "lineNumber": 131
+        },
+        {
+          "caller": "LanceCore",
+          "callee": "this.irq.installFirstLevelHandler",
+          "lineNumber": 132
+        },
+        {
+          "caller": "LanceCore",
+          "callee": "new IRQHandler",
+          "lineNumber": 132
+        },
+        {
+          "caller": "LanceCore",
+          "callee": "this.irq.enableIRQ",
+          "lineNumber": 133
+        },
+        {
+          "caller": "LanceCore",
+          "callee": "System.out.println",
+          "lineNumber": 134
+        },
+        {
+          "caller": "LanceCore",
+          "callee": "getIOAccess",
+          "lineNumber": 145
+        },
+        {
+          "caller": "LanceCore",
+          "callee": "setFlags",
+          "lineNumber": 148
+        },
+        {
+          "caller": "LanceCore",
+          "callee": "loadHWAddress",
+          "lineNumber": 150
+        },
+        {
+          "caller": "LanceCore",
+          "callee": "new BufferManager",
+          "lineNumber": 156
+        },
+        {
+          "caller": "LanceCore",
+          "callee": "device.setCommand",
+          "lineNumber": 161
+        },
+        {
+          "caller": "LanceCore",
+          "callee": "device.getCommand",
+          "lineNumber": 161
+        },
+        {
+          "caller": "getIOAccess",
+          "callee": "ioResource.inw",
+          "lineNumber": 166
+        },
+        {
+          "caller": "getIOAccess",
+          "callee": "ioResource.outw",
+          "lineNumber": 167
+        },
+        {
+          "caller": "getIOAccess",
+          "callee": "ioResource.inw",
+          "lineNumber": 168
+        },
+        {
+          "caller": "getIOAccess",
+          "callee": "ioResource.outw",
+          "lineNumber": 169
+        },
+        {
+          "caller": "getIOAccess",
+          "callee": "ioResource.inw",
+          "lineNumber": 170
+        },
+        {
+          "caller": "getIOAccess",
+          "callee": "new WordIOAccess",
+          "lineNumber": 171
+        },
+        {
+          "caller": "getIOAccess",
+          "callee": "ioResource.inl",
+          "lineNumber": 175
+        },
+        {
+          "caller": "getIOAccess",
+          "callee": "ioResource.outl",
+          "lineNumber": 176
+        },
+        {
+          "caller": "getIOAccess",
+          "callee": "ioResource.inl",
+          "lineNumber": 177
+        },
+        {
+          "caller": "getIOAccess",
+          "callee": "ioResource.outl",
+          "lineNumber": 178
+        },
+        {
+          "caller": "getIOAccess",
+          "callee": "ioResource.inl",
+          "lineNumber": 179
+        },
+        {
+          "caller": "getIOAccess",
+          "callee": "new DWordIOAccess",
+          "lineNumber": 180
+        },
+        {
+          "caller": "initialize",
+          "callee": "io.setBCR",
+          "lineNumber": 190
+        },
+        {
+          "caller": "initialize",
+          "callee": "io.reset",
+          "lineNumber": 193
+        },
+        {
+          "caller": "initialize",
+          "callee": "bufferManager.getInitDataAddressAs32Bit",
+          "lineNumber": 207
+        },
+        {
+          "caller": "initialize",
+          "callee": "io.setCSR",
+          "lineNumber": 208
+        },
+        {
+          "caller": "initialize",
+          "callee": "io.setCSR",
+          "lineNumber": 209
+        },
+        {
+          "caller": "initialize",
+          "callee": "io.setCSR",
+          "lineNumber": 210
+        },
+        {
+          "caller": "initialize",
+          "callee": "io.setCSR",
+          "lineNumber": 211
+        },
+        {
+          "caller": "initialize",
+          "callee": "io.getCSR",
+          "lineNumber": 211
+        },
+        {
+          "caller": "initialize",
+          "callee": "io.setCSR",
+          "lineNumber": 214
+        },
+        {
+          "caller": "disable",
+          "callee": "io.reset",
+          "lineNumber": 221
+        },
+        {
+          "caller": "disable",
+          "callee": "io.setCSR",
+          "lineNumber": 222
+        },
+        {
+          "caller": "loadHWAddress",
+          "callee": "ioResource.inb",
+          "lineNumber": 247
+        },
+        {
+          "caller": "loadHWAddress",
+          "callee": "new EthernetAdress",
+          "lineNumber": 250
+        },
+        {
+          "caller": "loadHWAddress",
+          "callee": "Debug.out.println",
+          "lineNumber": 252
+        },
+        {
+          "caller": "loadHWAddress",
+          "callee": "ex.getMessage",
+          "lineNumber": 252
+        },
+        {
+          "caller": "setFlags",
+          "callee": "io.getCSR",
+          "lineNumber": 259
+        },
+        {
+          "caller": "setFlags",
+          "callee": "io.getCSR",
+          "lineNumber": 259
+        },
+        {
+          "caller": "setFlags",
+          "callee": "flags.setForVersion",
+          "lineNumber": 262
+        },
+        {
+          "caller": "transmit",
+          "callee": "hwAddress.writeTo",
+          "lineNumber": 274
+        },
+        {
+          "caller": "transmit",
+          "callee": "bufferManager.transmit",
+          "lineNumber": 280
+        },
+        {
+          "caller": "transmit",
+          "callee": "io.setCSR",
+          "lineNumber": 283
+        },
+        {
+          "caller": "interrupt",
+          "callee": "io.getCSR",
+          "lineNumber": 300
+        },
+        {
+          "caller": "interrupt",
+          "callee": "io.getCSR",
+          "lineNumber": 302
+        },
+        {
+          "caller": "interrupt",
+          "callee": "io.getCSR",
+          "lineNumber": 303
+        },
+        {
+          "caller": "interrupt",
+          "callee": "io.getCSR",
+          "lineNumber": 304
+        },
+        {
+          "caller": "interrupt",
+          "callee": "Debug.out.println",
+          "lineNumber": 307
+        },
+        {
+          "caller": "interrupt",
+          "callee": "Debug.out.println",
+          "lineNumber": 310
+        },
+        {
+          "caller": "interrupt",
+          "callee": "io.setCSR",
+          "lineNumber": 312
+        },
+        {
+          "caller": "interrupt",
+          "callee": "io.setCSR",
+          "lineNumber": 313
+        },
+        {
+          "caller": "interrupt",
+          "callee": "io.setCSR",
+          "lineNumber": 314
+        },
+        {
+          "caller": "interrupt",
+          "callee": "io.setCSR",
+          "lineNumber": 321
+        },
+        {
+          "caller": "interrupt",
+          "callee": "io.setCSR",
+          "lineNumber": 325
+        },
+        {
+          "caller": "interrupt",
+          "callee": "Debug.out.println",
+          "lineNumber": 335
+        },
+        {
+          "caller": "interrupt",
+          "callee": "rxProcess",
+          "lineNumber": 336
+        },
+        {
+          "caller": "rxProcess",
+          "callee": "bufferManager.getPacket",
+          "lineNumber": 420
+        },
+        {
+          "caller": "rxProcess",
+          "callee": "driver.onReceive",
+          "lineNumber": 423
+        },
+        {
+          "caller": "dumpDebugInfo",
+          "callee": "io.setCSR",
+          "lineNumber": 452
+        },
+        {
+          "caller": "dumpDebugInfo",
+          "callee": "io.getCSR",
+          "lineNumber": 461
+        },
+        {
+          "caller": "dumpDebugInfo",
+          "callee": "Debug.out.println",
+          "lineNumber": 462
+        },
+        {
+          "caller": "dumpDebugInfo",
+          "callee": "io.setCSR",
+          "lineNumber": 466
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 8,
+        "functionCount": 12,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/org/jnode/driver/net/lance/RxDescriptor.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 60,
+      "nonEmptyLines": 52,
+      "functions": [
+        {
+          "name": "RxDescriptor",
+          "startLine": 36,
+          "endLine": 40,
+          "params": [
+            "mem",
+            "offset",
+            "dataBufferOffset"
+          ]
+        },
+        {
+          "name": "clearStatus",
+          "startLine": 42,
+          "endLine": 44,
+          "params": []
+        },
+        {
+          "name": "getMessageByteCount",
+          "startLine": 46,
+          "endLine": 50,
+          "params": []
+        },
+        {
+          "name": "getDataBuffer",
+          "startLine": 52,
+          "endLine": 59,
+          "params": [
+            "memMgr"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "RxDescriptor",
+          "startLine": 30,
+          "endLine": 60,
+          "methods": [
+            "RxDescriptor",
+            "clearStatus",
+            "getMessageByteCount",
+            "getDataBuffer"
+          ],
+          "properties": [
+            "STATUS_FRAM",
+            "STATUS_OFLO",
+            "STATUS_CRC",
+            "STATUS_BUFF"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "STATUS_FRAM",
+          "line": 31,
+          "isDefault": false
+        },
+        {
+          "name": "STATUS_OFLO",
+          "line": 32,
+          "isDefault": false
+        },
+        {
+          "name": "STATUS_CRC",
+          "line": 33,
+          "isDefault": false
+        },
+        {
+          "name": "STATUS_BUFF",
+          "line": 34,
+          "isDefault": false
+        },
+        {
+          "name": "RxDescriptor",
+          "line": 36,
+          "isDefault": false
+        },
+        {
+          "name": "clearStatus",
+          "line": 42,
+          "isDefault": false
+        },
+        {
+          "name": "getMessageByteCount",
+          "line": 46,
+          "isDefault": false
+        },
+        {
+          "name": "getDataBuffer",
+          "line": 52,
+          "isDefault": false
+        },
+        {
+          "name": "RxDescriptor",
+          "line": 30,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "RxDescriptor",
+          "callee": "setOwnerSelf",
+          "lineNumber": 39
+        },
+        {
+          "caller": "clearStatus",
+          "callee": "mem.set16",
+          "lineNumber": 43
+        },
+        {
+          "caller": "getMessageByteCount",
+          "callee": "mem.get16",
+          "lineNumber": 49
+        },
+        {
+          "caller": "getDataBuffer",
+          "callee": "memMgr.alloc",
+          "lineNumber": 55
+        },
+        {
+          "caller": "getDataBuffer",
+          "callee": "getMessageByteCount",
+          "lineNumber": 55
+        },
+        {
+          "caller": "getDataBuffer",
+          "callee": "skbuf.copyFromMemory",
+          "lineNumber": 57
+        },
+        {
+          "caller": "getDataBuffer",
+          "callee": "skbuf.size",
+          "lineNumber": 57
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 9,
+        "functionCount": 4,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/org/jnode/driver/net/lance/RxDescriptorRing.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 106,
+      "nonEmptyLines": 98,
+      "functions": [
+        {
+          "name": "RxDescriptorRing",
+          "startLine": 35,
+          "endLine": 45,
+          "params": [
+            "mem",
+            "offset",
+            "length",
+            "dataBufferOffset"
+          ]
+        },
+        {
+          "name": "getPacket",
+          "startLine": 47,
+          "endLine": 97,
+          "params": [
+            "memMgr"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "RxDescriptorRing",
+          "startLine": 30,
+          "endLine": 106,
+          "methods": [
+            "RxDescriptorRing",
+            "getPacket"
+          ],
+          "properties": [
+            "rxDescriptors"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "RxDescriptorRing",
+          "line": 35,
+          "isDefault": false
+        },
+        {
+          "name": "getPacket",
+          "line": 47,
+          "isDefault": false
+        },
+        {
+          "name": "RxDescriptorRing",
+          "line": 30,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "RxDescriptorRing",
+          "callee": "Debug.out.println",
+          "lineNumber": 37
+        },
+        {
+          "caller": "RxDescriptorRing",
+          "callee": "new RxDescriptor",
+          "lineNumber": 40
+        },
+        {
+          "caller": "getPacket",
+          "callee": "des.getStatus",
+          "lineNumber": 51
+        },
+        {
+          "caller": "getPacket",
+          "callee": "des.clearStatus",
+          "lineNumber": 74
+        },
+        {
+          "caller": "getPacket",
+          "callee": "des.getDataBuffer",
+          "lineNumber": 81
+        },
+        {
+          "caller": "getPacket",
+          "callee": "des.clearStatus",
+          "lineNumber": 85
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/org/jnode/driver/net/lance/TxDescriptor.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 53,
+      "nonEmptyLines": 47,
+      "functions": [
+        {
+          "name": "TxDescriptor",
+          "startLine": 29,
+          "endLine": 33,
+          "params": [
+            "mem",
+            "offset",
+            "dataBufferOffset"
+          ]
+        },
+        {
+          "name": "transmit",
+          "startLine": 35,
+          "endLine": 48,
+          "params": [
+            "skbuf"
+          ]
+        },
+        {
+          "name": "setByteCount",
+          "startLine": 50,
+          "endLine": 52,
+          "params": [
+            "bcnt"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "TxDescriptor",
+          "startLine": 28,
+          "endLine": 53,
+          "methods": [
+            "TxDescriptor",
+            "transmit",
+            "setByteCount"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "TxDescriptor",
+          "line": 29,
+          "isDefault": false
+        },
+        {
+          "name": "transmit",
+          "line": 35,
+          "isDefault": false
+        },
+        {
+          "name": "TxDescriptor",
+          "line": 28,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "TxDescriptor",
+          "callee": "setOwnerSelf",
+          "lineNumber": 32
+        },
+        {
+          "caller": "transmit",
+          "callee": "mem.copyFromMemory",
+          "lineNumber": 37
+        },
+        {
+          "caller": "transmit",
+          "callee": "skbuf.size",
+          "lineNumber": 37
+        },
+        {
+          "caller": "transmit",
+          "callee": "setStatus",
+          "lineNumber": 38
+        },
+        {
+          "caller": "transmit",
+          "callee": "setByteCount",
+          "lineNumber": 39
+        },
+        {
+          "caller": "transmit",
+          "callee": "skbuf.size",
+          "lineNumber": 39
+        },
+        {
+          "caller": "setByteCount",
+          "callee": "mem.set16",
+          "lineNumber": 51
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/org/jnode/driver/net/lance/TxDescriptorRing.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 81,
+      "nonEmptyLines": 71,
+      "functions": [
+        {
+          "name": "TxDescriptorRing",
+          "startLine": 34,
+          "endLine": 51,
+          "params": [
+            "mem",
+            "offset",
+            "length",
+            "dataBufferOffset"
+          ]
+        },
+        {
+          "name": "transmit",
+          "startLine": 53,
+          "endLine": 64,
+          "params": [
+            "skbuf"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "TxDescriptorRing",
+          "startLine": 29,
+          "endLine": 81,
+          "methods": [
+            "TxDescriptorRing",
+            "transmit"
+          ],
+          "properties": [
+            "txDescriptors"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "TxDescriptorRing",
+          "line": 34,
+          "isDefault": false
+        },
+        {
+          "name": "transmit",
+          "line": 53,
+          "isDefault": false
+        },
+        {
+          "name": "TxDescriptorRing",
+          "line": 29,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "TxDescriptorRing",
+          "callee": "Debug.out.println",
+          "lineNumber": 43
+        },
+        {
+          "caller": "TxDescriptorRing",
+          "callee": "new TxDescriptor",
+          "lineNumber": 46
+        },
+        {
+          "caller": "transmit",
+          "callee": "des.isOwnerSelf",
+          "lineNumber": 55
+        },
+        {
+          "caller": "transmit",
+          "callee": "des.transmit",
+          "lineNumber": 56
+        },
+        {
+          "caller": "transmit",
+          "callee": "Debug.out.println",
+          "lineNumber": 60
+        },
+        {
+          "caller": "transmit",
+          "callee": "skbuf.size",
+          "lineNumber": 60
+        },
+        {
+          "caller": "transmit",
+          "callee": "Debug.out.println",
+          "lineNumber": 62
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/org/jnode/driver/net/lance/WordIOAccess.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 67,
+      "nonEmptyLines": 58,
+      "functions": [
+        {
+          "name": "WordIOAccess",
+          "startLine": 29,
+          "endLine": 31,
+          "params": [
+            "io",
+            "iobase"
+          ]
+        },
+        {
+          "name": "getType",
+          "startLine": 33,
+          "endLine": 36,
+          "params": []
+        },
+        {
+          "name": "reset",
+          "startLine": 38,
+          "endLine": 42,
+          "params": []
+        },
+        {
+          "name": "getCSR",
+          "startLine": 44,
+          "endLine": 48,
+          "params": [
+            "csrnr"
+          ]
+        },
+        {
+          "name": "setCSR",
+          "startLine": 50,
+          "endLine": 54,
+          "params": [
+            "csrnr",
+            "value"
+          ]
+        },
+        {
+          "name": "getBCR",
+          "startLine": 56,
+          "endLine": 60,
+          "params": [
+            "bcrnr"
+          ]
+        },
+        {
+          "name": "setBCR",
+          "startLine": 62,
+          "endLine": 66,
+          "params": [
+            "bcrnr",
+            "value"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "WordIOAccess",
+          "startLine": 28,
+          "endLine": 67,
+          "methods": [
+            "WordIOAccess",
+            "getType",
+            "reset",
+            "getCSR",
+            "setCSR",
+            "getBCR",
+            "setBCR"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "WordIOAccess",
+          "line": 29,
+          "isDefault": false
+        },
+        {
+          "name": "getType",
+          "line": 33,
+          "isDefault": false
+        },
+        {
+          "name": "reset",
+          "line": 38,
+          "isDefault": false
+        },
+        {
+          "name": "getCSR",
+          "line": 44,
+          "isDefault": false
+        },
+        {
+          "name": "setCSR",
+          "line": 50,
+          "isDefault": false
+        },
+        {
+          "name": "getBCR",
+          "line": 56,
+          "isDefault": false
+        },
+        {
+          "name": "setBCR",
+          "line": 62,
+          "isDefault": false
+        },
+        {
+          "name": "WordIOAccess",
+          "line": 28,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "reset",
+          "callee": "io.inw",
+          "lineNumber": 41
+        },
+        {
+          "caller": "getCSR",
+          "callee": "io.outw",
+          "lineNumber": 46
+        },
+        {
+          "caller": "getCSR",
+          "callee": "io.inw",
+          "lineNumber": 47
+        },
+        {
+          "caller": "setCSR",
+          "callee": "io.outw",
+          "lineNumber": 52
+        },
+        {
+          "caller": "setCSR",
+          "callee": "io.outw",
+          "lineNumber": 53
+        },
+        {
+          "caller": "getBCR",
+          "callee": "io.outw",
+          "lineNumber": 58
+        },
+        {
+          "caller": "getBCR",
+          "callee": "io.inw",
+          "lineNumber": 59
+        },
+        {
+          "caller": "setBCR",
+          "callee": "io.outw",
+          "lineNumber": 64
+        },
+        {
+          "caller": "setBCR",
+          "callee": "io.outw",
+          "lineNumber": 65
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 8,
+        "functionCount": 7,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/org/jnode/net/ipv4/dhcp/AbstractDHCPClient.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 170,
+      "nonEmptyLines": 155,
+      "functions": [
+        {
+          "name": "AbstractDHCPClient",
+          "startLine": 43,
+          "endLine": 45,
+          "params": [
+            "net",
+            "hwaddr"
+          ]
+        },
+        {
+          "name": "createRequestPacket",
+          "startLine": 54,
+          "endLine": 57,
+          "params": [
+            "hdr"
+          ]
+        },
+        {
+          "name": "processResponse",
+          "startLine": 60,
+          "endLine": 130,
+          "params": [
+            "transactionID",
+            "packet",
+            "socket"
+          ]
+        },
+        {
+          "name": "doConfigure",
+          "startLine": 132,
+          "endLine": 169,
+          "params": [
+            "msg"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "AbstractDHCPClient",
+          "startLine": 41,
+          "endLine": 170,
+          "methods": [
+            "AbstractDHCPClient",
+            "createRequestPacket",
+            "processResponse",
+            "doConfigure"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "AbstractDHCPClient",
+          "line": 43,
+          "isDefault": false
+        },
+        {
+          "name": "createRequestPacket",
+          "line": 54,
+          "isDefault": false
+        },
+        {
+          "name": "processResponse",
+          "line": 60,
+          "isDefault": false
+        },
+        {
+          "name": "AbstractDHCPClient",
+          "line": 41,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "createRequestPacket",
+          "callee": "new DHCPMessage",
+          "lineNumber": 55
+        },
+        {
+          "caller": "createRequestPacket",
+          "callee": "msg.toDatagramPacket",
+          "lineNumber": 56
+        },
+        {
+          "caller": "processResponse",
+          "callee": "new DHCPMessage",
+          "lineNumber": 61
+        },
+        {
+          "caller": "processResponse",
+          "callee": "msg.getHeader",
+          "lineNumber": 62
+        },
+        {
+          "caller": "processResponse",
+          "callee": "Debug.out.println",
+          "lineNumber": 63
+        },
+        {
+          "caller": "processResponse",
+          "callee": "hdr.getOpcode",
+          "lineNumber": 64
+        },
+        {
+          "caller": "processResponse",
+          "callee": "hdr.getTransactionID",
+          "lineNumber": 68
+        },
+        {
+          "caller": "processResponse",
+          "callee": "msg.getMessageType",
+          "lineNumber": 101
+        },
+        {
+          "caller": "processResponse",
+          "callee": "Debug.out.println",
+          "lineNumber": 103
+        },
+        {
+          "caller": "processResponse",
+          "callee": "msg.getOption",
+          "lineNumber": 104
+        },
+        {
+          "caller": "processResponse",
+          "callee": "hdr.getYiaddr().getBytes",
+          "lineNumber": 105
+        },
+        {
+          "caller": "processResponse",
+          "callee": "hdr.getYiaddr",
+          "lineNumber": 105
+        },
+        {
+          "caller": "processResponse",
+          "callee": "Debug.out.println",
+          "lineNumber": 106
+        },
+        {
+          "caller": "processResponse",
+          "callee": "hdr.getYiaddr",
+          "lineNumber": 107
+        },
+        {
+          "caller": "processResponse",
+          "callee": "new BOOTPFormat",
+          "lineNumber": 108
+        },
+        {
+          "caller": "processResponse",
+          "callee": "hdr.getClientIPAddress",
+          "lineNumber": 110
+        },
+        {
+          "caller": "processResponse",
+          "callee": "hdr.getClientHwAddress",
+          "lineNumber": 110
+        },
+        {
+          "caller": "processResponse",
+          "callee": "net.getUDPBuffer",
+          "lineNumber": 111
+        },
+        {
+          "caller": "processResponse",
+          "callee": "Debug.out.println",
+          "lineNumber": 113
+        },
+        {
+          "caller": "processResponse",
+          "callee": "new DHCPMessage",
+          "lineNumber": 114
+        },
+        {
+          "caller": "processResponse",
+          "callee": "msg.setOption",
+          "lineNumber": 115
+        },
+        {
+          "caller": "processResponse",
+          "callee": "msg.setOption",
+          "lineNumber": 116
+        },
+        {
+          "caller": "processResponse",
+          "callee": "Debug.out.println",
+          "lineNumber": 117
+        },
+        {
+          "caller": "processResponse",
+          "callee": "msg.toDatagramPacket",
+          "lineNumber": 118
+        },
+        {
+          "caller": "processResponse",
+          "callee": "packet1.setAddress",
+          "lineNumber": 119
+        },
+        {
+          "caller": "processResponse",
+          "callee": "packet1.setPort",
+          "lineNumber": 120
+        },
+        {
+          "caller": "processResponse",
+          "callee": "socket.send",
+          "lineNumber": 121
+        },
+        {
+          "caller": "processResponse",
+          "callee": "doConfigure",
+          "lineNumber": 124
+        },
+        {
+          "caller": "doConfigure",
+          "callee": "msg.getHeader",
+          "lineNumber": 134
+        },
+        {
+          "caller": "doConfigure",
+          "callee": "hdr.getServerIPAddress",
+          "lineNumber": 137
+        },
+        {
+          "caller": "doConfigure",
+          "callee": "serverAddr.and",
+          "lineNumber": 138
+        },
+        {
+          "caller": "doConfigure",
+          "callee": "serverAddr.getDefaultSubnetmask",
+          "lineNumber": 138
+        },
+        {
+          "caller": "doConfigure",
+          "callee": "hdr.getGatewayIPAddress().toInetAddress().isAnyLocalAddress",
+          "lineNumber": 140
+        },
+        {
+          "caller": "doConfigure",
+          "callee": "hdr.getGatewayIPAddress().toInetAddress",
+          "lineNumber": 140
+        },
+        {
+          "caller": "doConfigure",
+          "callee": "hdr.getGatewayIPAddress",
+          "lineNumber": 140
+        },
+        {
+          "caller": "doConfigure",
+          "callee": "msg.getOption",
+          "lineNumber": 147
+        },
+        {
+          "caller": "doConfigure",
+          "callee": "new IPv4Address",
+          "lineNumber": 149
+        },
+        {
+          "caller": "doConfigure",
+          "callee": "msg.getOption",
+          "lineNumber": 155
+        },
+        {
+          "caller": "doConfigure",
+          "callee": "new IPv4Address",
+          "lineNumber": 158
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 4,
+        "functionCount": 4,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/org/jnode/net/ipv4/dhcp/DHCPClient.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 150,
+      "nonEmptyLines": 134,
+      "functions": [
+        {
+          "name": "DHCPClient",
+          "startLine": 37,
+          "endLine": 39,
+          "params": [
+            "net",
+            "hwaddr"
+          ]
+        },
+        {
+          "name": "doConfigure",
+          "startLine": 83,
+          "endLine": 149,
+          "params": [
+            "msg"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "DHCPClient",
+          "startLine": 35,
+          "endLine": 150,
+          "methods": [
+            "DHCPClient",
+            "doConfigure"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "DHCPClient",
+          "line": 37,
+          "isDefault": false
+        },
+        {
+          "name": "DHCPClient",
+          "line": 35,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "doConfigure",
+          "callee": "super.doConfigure",
+          "lineNumber": 85
+        },
+        {
+          "caller": "doConfigure",
+          "callee": "msg.getHeader",
+          "lineNumber": 93
+        },
+        {
+          "caller": "doConfigure",
+          "callee": "hdr.getServerIPAddress",
+          "lineNumber": 97
+        },
+        {
+          "caller": "doConfigure",
+          "callee": "serverAddr.and",
+          "lineNumber": 98
+        },
+        {
+          "caller": "doConfigure",
+          "callee": "serverAddr.getDefaultSubnetmask",
+          "lineNumber": 98
+        },
+        {
+          "caller": "doConfigure",
+          "callee": "hdr.getGatewayIPAddress().toInetAddress().isAnyLocalAddress",
+          "lineNumber": 100
+        },
+        {
+          "caller": "doConfigure",
+          "callee": "hdr.getGatewayIPAddress().toInetAddress",
+          "lineNumber": 100
+        },
+        {
+          "caller": "doConfigure",
+          "callee": "hdr.getGatewayIPAddress",
+          "lineNumber": 100
+        },
+        {
+          "caller": "doConfigure",
+          "callee": "msg.getOption",
+          "lineNumber": 107
+        },
+        {
+          "caller": "doConfigure",
+          "callee": "new IPv4Address",
+          "lineNumber": 109
+        },
+        {
+          "caller": "doConfigure",
+          "callee": "msg.getOption",
+          "lineNumber": 115
+        },
+        {
+          "caller": "doConfigure",
+          "callee": "new IPv4Address",
+          "lineNumber": 118
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/org/jnode/net/ipv4/dhcp/DHCPMessage.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 322,
+      "nonEmptyLines": 256,
+      "functions": [
+        {
+          "name": "DHCPMessage",
+          "startLine": 174,
+          "endLine": 176,
+          "params": [
+            "hdr"
+          ]
+        },
+        {
+          "name": "DHCPMessage",
+          "startLine": 178,
+          "endLine": 181,
+          "params": [
+            "hdr",
+            "msgType"
+          ]
+        },
+        {
+          "name": "DHCPMessage",
+          "startLine": 183,
+          "endLine": 203,
+          "params": [
+            "skbuf"
+          ]
+        },
+        {
+          "name": "getHeader",
+          "startLine": 209,
+          "endLine": 211,
+          "params": []
+        },
+        {
+          "name": "setMessageType",
+          "startLine": 213,
+          "endLine": 215,
+          "params": [
+            "value"
+          ]
+        },
+        {
+          "name": "getMessageType",
+          "startLine": 217,
+          "endLine": 219,
+          "params": []
+        },
+        {
+          "name": "setOption",
+          "startLine": 226,
+          "endLine": 233,
+          "params": [
+            "code",
+            "value"
+          ]
+        },
+        {
+          "name": "setOption16",
+          "startLine": 240,
+          "endLine": 243,
+          "params": [
+            "code",
+            "value"
+          ]
+        },
+        {
+          "name": "setOption",
+          "startLine": 250,
+          "endLine": 256,
+          "params": [
+            "code",
+            "value"
+          ]
+        },
+        {
+          "name": "setOption",
+          "startLine": 263,
+          "endLine": 265,
+          "params": [
+            "code",
+            "value"
+          ]
+        },
+        {
+          "name": "getOption",
+          "startLine": 272,
+          "endLine": 277,
+          "params": [
+            "code"
+          ]
+        },
+        {
+          "name": "toDatagramPacket",
+          "startLine": 283,
+          "endLine": 321,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "DHCPMessage",
+          "startLine": 41,
+          "endLine": 322,
+          "methods": [
+            "DHCPMessage",
+            "DHCPMessage",
+            "DHCPMessage",
+            "getHeader",
+            "setMessageType",
+            "getMessageType",
+            "setOption",
+            "setOption16",
+            "setOption",
+            "setOption",
+            "getOption",
+            "toDatagramPacket"
+          ],
+          "properties": [
+            "OPTIONS_SIZE",
+            "SIZE",
+            "PAD_OPTION",
+            "SUBNET_MASK_OPTION",
+            "TIME_OFFSET_OPTION",
+            "ROUTER_OPTION",
+            "TIME_SERVER_OPTION",
+            "NAME_SERVER_OPTION",
+            "DNS_OPTION",
+            "LOG_SERVER_OPTION",
+            "COOKIE_SERVER_OPTION",
+            "LPR_SERVER_OPTION",
+            "HOST_NAME_OPTION",
+            "DOMAIN_NAME_OPTION",
+            "TTL_OPTION",
+            "REQUESTED_IP_ADDRESS_OPTION",
+            "LEASE_TIME_OPTION",
+            "OPTION_OVERLOAD_OPTION",
+            "FILE_OVERLOAD",
+            "SNAME_OVERLOAD",
+            "BOTH_OVERLOAD",
+            "MESSAGE_TYPE_OPTION",
+            "SERVER_IDENTIFIER_OPTION",
+            "MESSAGE_OPTION",
+            "MAX_PACKET_SIZE_OPTION",
+            "MIN_PACKET_SIZE",
+            "RENEWAL_TIME_OPTION",
+            "REBINDING_TIME_OPTION",
+            "CLIENT_IDENTIFIER_OPTION",
+            "TFTP_SERVER_OPTION",
+            "SMTP_SERVER_OPTION",
+            "POP3_SERVER_OPTION",
+            "NNTP_SERVER_OPTION",
+            "WWW_SERVER_OPTION",
+            "FINGER_SERVER_OPTION",
+            "IRC_SERVER_OPTION",
+            "PLUGIN_LOADER_OPTION",
+            "END_OPTION",
+            "DHCPDISCOVER",
+            "DHCPOFFER",
+            "DHCPREQUEST",
+            "DHCPDECLINE",
+            "DHCPACK",
+            "DHCPNAK",
+            "DHCPRELEASE",
+            "DHCPINFORM",
+            "header",
+            "messageType",
+            "options"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "OPTIONS_SIZE",
+          "line": 43,
+          "isDefault": false
+        },
+        {
+          "name": "SIZE",
+          "line": 45,
+          "isDefault": false
+        },
+        {
+          "name": "PAD_OPTION",
+          "line": 48,
+          "isDefault": false
+        },
+        {
+          "name": "SUBNET_MASK_OPTION",
+          "line": 51,
+          "isDefault": false
+        },
+        {
+          "name": "TIME_OFFSET_OPTION",
+          "line": 54,
+          "isDefault": false
+        },
+        {
+          "name": "ROUTER_OPTION",
+          "line": 57,
+          "isDefault": false
+        },
+        {
+          "name": "TIME_SERVER_OPTION",
+          "line": 60,
+          "isDefault": false
+        },
+        {
+          "name": "NAME_SERVER_OPTION",
+          "line": 63,
+          "isDefault": false
+        },
+        {
+          "name": "DNS_OPTION",
+          "line": 66,
+          "isDefault": false
+        },
+        {
+          "name": "LOG_SERVER_OPTION",
+          "line": 69,
+          "isDefault": false
+        },
+        {
+          "name": "COOKIE_SERVER_OPTION",
+          "line": 72,
+          "isDefault": false
+        },
+        {
+          "name": "LPR_SERVER_OPTION",
+          "line": 75,
+          "isDefault": false
+        },
+        {
+          "name": "HOST_NAME_OPTION",
+          "line": 78,
+          "isDefault": false
+        },
+        {
+          "name": "DOMAIN_NAME_OPTION",
+          "line": 81,
+          "isDefault": false
+        },
+        {
+          "name": "TTL_OPTION",
+          "line": 84,
+          "isDefault": false
+        },
+        {
+          "name": "REQUESTED_IP_ADDRESS_OPTION",
+          "line": 87,
+          "isDefault": false
+        },
+        {
+          "name": "LEASE_TIME_OPTION",
+          "line": 90,
+          "isDefault": false
+        },
+        {
+          "name": "OPTION_OVERLOAD_OPTION",
+          "line": 93,
+          "isDefault": false
+        },
+        {
+          "name": "FILE_OVERLOAD",
+          "line": 95,
+          "isDefault": false
+        },
+        {
+          "name": "SNAME_OVERLOAD",
+          "line": 97,
+          "isDefault": false
+        },
+        {
+          "name": "BOTH_OVERLOAD",
+          "line": 99,
+          "isDefault": false
+        },
+        {
+          "name": "MESSAGE_TYPE_OPTION",
+          "line": 102,
+          "isDefault": false
+        },
+        {
+          "name": "SERVER_IDENTIFIER_OPTION",
+          "line": 105,
+          "isDefault": false
+        },
+        {
+          "name": "MESSAGE_OPTION",
+          "line": 108,
+          "isDefault": false
+        },
+        {
+          "name": "MAX_PACKET_SIZE_OPTION",
+          "line": 111,
+          "isDefault": false
+        },
+        {
+          "name": "MIN_PACKET_SIZE",
+          "line": 113,
+          "isDefault": false
+        },
+        {
+          "name": "RENEWAL_TIME_OPTION",
+          "line": 116,
+          "isDefault": false
+        },
+        {
+          "name": "REBINDING_TIME_OPTION",
+          "line": 119,
+          "isDefault": false
+        },
+        {
+          "name": "CLIENT_IDENTIFIER_OPTION",
+          "line": 121,
+          "isDefault": false
+        },
+        {
+          "name": "TFTP_SERVER_OPTION",
+          "line": 123,
+          "isDefault": false
+        },
+        {
+          "name": "SMTP_SERVER_OPTION",
+          "line": 126,
+          "isDefault": false
+        },
+        {
+          "name": "POP3_SERVER_OPTION",
+          "line": 129,
+          "isDefault": false
+        },
+        {
+          "name": "NNTP_SERVER_OPTION",
+          "line": 132,
+          "isDefault": false
+        },
+        {
+          "name": "WWW_SERVER_OPTION",
+          "line": 135,
+          "isDefault": false
+        },
+        {
+          "name": "FINGER_SERVER_OPTION",
+          "line": 138,
+          "isDefault": false
+        },
+        {
+          "name": "IRC_SERVER_OPTION",
+          "line": 141,
+          "isDefault": false
+        },
+        {
+          "name": "PLUGIN_LOADER_OPTION",
+          "line": 144,
+          "isDefault": false
+        },
+        {
+          "name": "END_OPTION",
+          "line": 146,
+          "isDefault": false
+        },
+        {
+          "name": "DHCPDISCOVER",
+          "line": 149,
+          "isDefault": false
+        },
+        {
+          "name": "DHCPOFFER",
+          "line": 151,
+          "isDefault": false
+        },
+        {
+          "name": "DHCPREQUEST",
+          "line": 153,
+          "isDefault": false
+        },
+        {
+          "name": "DHCPDECLINE",
+          "line": 155,
+          "isDefault": false
+        },
+        {
+          "name": "DHCPACK",
+          "line": 157,
+          "isDefault": false
+        },
+        {
+          "name": "DHCPNAK",
+          "line": 159,
+          "isDefault": false
+        },
+        {
+          "name": "DHCPRELEASE",
+          "line": 161,
+          "isDefault": false
+        },
+        {
+          "name": "DHCPINFORM",
+          "line": 163,
+          "isDefault": false
+        },
+        {
+          "name": "DHCPMessage",
+          "line": 178,
+          "isDefault": false
+        },
+        {
+          "name": "DHCPMessage",
+          "line": 183,
+          "isDefault": false
+        },
+        {
+          "name": "getHeader",
+          "line": 209,
+          "isDefault": false
+        },
+        {
+          "name": "setMessageType",
+          "line": 213,
+          "isDefault": false
+        },
+        {
+          "name": "getMessageType",
+          "line": 217,
+          "isDefault": false
+        },
+        {
+          "name": "setOption",
+          "line": 226,
+          "isDefault": false
+        },
+        {
+          "name": "setOption16",
+          "line": 240,
+          "isDefault": false
+        },
+        {
+          "name": "setOption",
+          "line": 250,
+          "isDefault": false
+        },
+        {
+          "name": "setOption",
+          "line": 263,
+          "isDefault": false
+        },
+        {
+          "name": "getOption",
+          "line": 272,
+          "isDefault": false
+        },
+        {
+          "name": "toDatagramPacket",
+          "line": 283,
+          "isDefault": false
+        },
+        {
+          "name": "DHCPMessage",
+          "line": 41,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "DHCPMessage",
+          "callee": "new BOOTPFormat",
+          "lineNumber": 184
+        },
+        {
+          "caller": "DHCPMessage",
+          "callee": "skbuf.get8",
+          "lineNumber": 186
+        },
+        {
+          "caller": "DHCPMessage",
+          "callee": "Debug.out.println",
+          "lineNumber": 188
+        },
+        {
+          "caller": "DHCPMessage",
+          "callee": "skbuf.get8",
+          "lineNumber": 192
+        },
+        {
+          "caller": "DHCPMessage",
+          "callee": "skbuf.get8",
+          "lineNumber": 196
+        },
+        {
+          "caller": "DHCPMessage",
+          "callee": "setOption",
+          "lineNumber": 198
+        },
+        {
+          "caller": "DHCPMessage",
+          "callee": "skbuf.get8",
+          "lineNumber": 201
+        },
+        {
+          "caller": "setOption",
+          "callee": "Debug.out.println",
+          "lineNumber": 230
+        },
+        {
+          "caller": "setOption16",
+          "callee": "setOption",
+          "lineNumber": 242
+        },
+        {
+          "caller": "setOption",
+          "callee": "setOption",
+          "lineNumber": 252
+        },
+        {
+          "caller": "setOption",
+          "callee": "value.getBytes",
+          "lineNumber": 252
+        },
+        {
+          "caller": "setOption",
+          "callee": "new RuntimeException",
+          "lineNumber": 254
+        },
+        {
+          "caller": "setOption",
+          "callee": "setOption",
+          "lineNumber": 264
+        },
+        {
+          "caller": "setOption",
+          "callee": "value.getAddress",
+          "lineNumber": 264
+        },
+        {
+          "caller": "toDatagramPacket",
+          "callee": "Debug.out.println",
+          "lineNumber": 284
+        },
+        {
+          "caller": "toDatagramPacket",
+          "callee": "header.getMemory",
+          "lineNumber": 285
+        },
+        {
+          "caller": "toDatagramPacket",
+          "callee": "skbuf.set8",
+          "lineNumber": 289
+        },
+        {
+          "caller": "toDatagramPacket",
+          "callee": "skbuf.set8",
+          "lineNumber": 290
+        },
+        {
+          "caller": "toDatagramPacket",
+          "callee": "skbuf.set8",
+          "lineNumber": 291
+        },
+        {
+          "caller": "toDatagramPacket",
+          "callee": "skbuf.set8",
+          "lineNumber": 292
+        },
+        {
+          "caller": "toDatagramPacket",
+          "callee": "skbuf.set8",
+          "lineNumber": 294
+        },
+        {
+          "caller": "toDatagramPacket",
+          "callee": "skbuf.set8",
+          "lineNumber": 295
+        },
+        {
+          "caller": "toDatagramPacket",
+          "callee": "skbuf.set8",
+          "lineNumber": 296
+        },
+        {
+          "caller": "toDatagramPacket",
+          "callee": "Debug.out.println",
+          "lineNumber": 303
+        },
+        {
+          "caller": "toDatagramPacket",
+          "callee": "skbuf.set8",
+          "lineNumber": 304
+        },
+        {
+          "caller": "toDatagramPacket",
+          "callee": "skbuf.set8",
+          "lineNumber": 305
+        },
+        {
+          "caller": "toDatagramPacket",
+          "callee": "skbuf.copyFromByteArray",
+          "lineNumber": 306
+        },
+        {
+          "caller": "toDatagramPacket",
+          "callee": "skbuf.set8",
+          "lineNumber": 310
+        },
+        {
+          "caller": "toDatagramPacket",
+          "callee": "skbuf.size",
+          "lineNumber": 313
+        },
+        {
+          "caller": "toDatagramPacket",
+          "callee": "skbuf.copyToByteArray",
+          "lineNumber": 314
+        },
+        {
+          "caller": "toDatagramPacket",
+          "callee": "new DatagramPacket",
+          "lineNumber": 316
+        },
+        {
+          "caller": "toDatagramPacket",
+          "callee": "InetAddress.getByName",
+          "lineNumber": 316
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 58,
+        "functionCount": 12,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/test/minitcp/Main.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 49,
+      "nonEmptyLines": 40,
+      "functions": [
+        {
+          "name": "main",
+          "startLine": 7,
+          "endLine": 9,
+          "params": [
+            "args"
+          ]
+        },
+        {
+          "name": "Main",
+          "startLine": 11,
+          "endLine": 48,
+          "params": [
+            "args"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Main",
+          "startLine": 6,
+          "endLine": 49,
+          "methods": [
+            "main",
+            "Main"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "main",
+          "line": 7,
+          "isDefault": false
+        },
+        {
+          "name": "Main",
+          "line": 11,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "main",
+          "callee": "new Main",
+          "lineNumber": 8
+        },
+        {
+          "caller": "Main",
+          "callee": "InitialNaming.getInitialNaming",
+          "lineNumber": 12
+        },
+        {
+          "caller": "Main",
+          "callee": "new ServerSocket",
+          "lineNumber": 26
+        },
+        {
+          "caller": "Main",
+          "callee": "naming.lookup",
+          "lineNumber": 29
+        },
+        {
+          "caller": "Main",
+          "callee": "naming.lookup",
+          "lineNumber": 30
+        },
+        {
+          "caller": "Main",
+          "callee": "Thread.yield",
+          "lineNumber": 31
+        },
+        {
+          "caller": "Main",
+          "callee": "memMgr.getTotalFreeMemory",
+          "lineNumber": 32
+        },
+        {
+          "caller": "Main",
+          "callee": "ssock.accept",
+          "lineNumber": 36
+        },
+        {
+          "caller": "Main",
+          "callee": "DomainStarter.createDomain",
+          "lineNumber": 38
+        },
+        {
+          "caller": "Main",
+          "callee": "Thread.yield",
+          "lineNumber": 42
+        },
+        {
+          "caller": "Main",
+          "callee": "Debug.out.println",
+          "lineNumber": 43
+        },
+        {
+          "caller": "Main",
+          "callee": "memMgr.getTotalFreeMemory",
+          "lineNumber": 44
+        },
+        {
+          "caller": "Main",
+          "callee": "Debug.out.println",
+          "lineNumber": 45
+        },
+        {
+          "caller": "Main",
+          "callee": "Debug.out.println",
+          "lineNumber": 46
+        },
+        {
+          "caller": "Main",
+          "callee": "Thread.yield",
+          "lineNumber": 47
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/test/minitcp/MiniServerDomain.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 18,
+      "nonEmptyLines": 15,
+      "functions": [
+        {
+          "name": "init",
+          "startLine": 10,
+          "endLine": 17,
+          "params": [
+            "naming",
+            "argv",
+            "objs"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "MiniServerDomain",
+          "startLine": 8,
+          "endLine": 18,
+          "methods": [
+            "init"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "init",
+          "line": 10,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "init",
+          "callee": "new DebugPrintStream",
+          "lineNumber": 11
+        },
+        {
+          "caller": "init",
+          "callee": "new DebugOutputStream",
+          "lineNumber": 11
+        },
+        {
+          "caller": "init",
+          "callee": "naming.lookup",
+          "lineNumber": 11
+        },
+        {
+          "caller": "init",
+          "callee": "sock.getOutputStream",
+          "lineNumber": 13
+        },
+        {
+          "caller": "init",
+          "callee": "Thread.yield",
+          "lineNumber": 15
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/test/net/Main.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 205,
+      "nonEmptyLines": 165,
+      "functions": [
+        {
+          "name": "test",
+          "startLine": 18,
+          "endLine": 21,
+          "params": [
+            "naming"
+          ]
+        },
+        {
+          "name": "Main",
+          "startLine": 29,
+          "endLine": 33,
+          "params": [
+            "naming"
+          ]
+        },
+        {
+          "name": "init3com",
+          "startLine": 35,
+          "endLine": 59,
+          "params": [
+            "naming"
+          ]
+        },
+        {
+          "name": "simpletest",
+          "startLine": 62,
+          "endLine": 72,
+          "params": [
+            "net"
+          ]
+        },
+        {
+          "name": "dotest",
+          "startLine": 75,
+          "endLine": 182,
+          "params": [
+            "nic"
+          ]
+        },
+        {
+          "name": "main",
+          "startLine": 187,
+          "endLine": 204,
+          "params": [
+            "args"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Main",
+          "startLine": 17,
+          "endLine": 183,
+          "methods": [
+            "test",
+            "Main",
+            "init3com",
+            "simpletest",
+            "dotest"
+          ],
+          "properties": [
+            "net",
+            "memMgr",
+            "profiler",
+            "naming"
+          ]
+        },
+        {
+          "name": "StartNetworkProtocols",
+          "startLine": 185,
+          "endLine": 205,
+          "methods": [
+            "main"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "test",
+          "line": 18,
+          "isDefault": false
+        },
+        {
+          "name": "Main",
+          "line": 17,
+          "isDefault": false
+        },
+        {
+          "name": "main",
+          "line": 187,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "test",
+          "callee": "new Main",
+          "lineNumber": 19
+        },
+        {
+          "caller": "Main",
+          "callee": "naming.lookup",
+          "lineNumber": 31
+        },
+        {
+          "caller": "Main",
+          "callee": "naming.lookup",
+          "lineNumber": 32
+        },
+        {
+          "caller": "init3com",
+          "callee": "LookupHelper.waitUntilPortalAvailable",
+          "lineNumber": 36
+        },
+        {
+          "caller": "init3com",
+          "callee": "Debug.out.println",
+          "lineNumber": 38
+        },
+        {
+          "caller": "init3com",
+          "callee": "LookupHelper.waitUntilPortalAvailable",
+          "lineNumber": 39
+        },
+        {
+          "caller": "init3com",
+          "callee": "Debug.out.println",
+          "lineNumber": 41
+        },
+        {
+          "caller": "init3com",
+          "callee": "new ComInit",
+          "lineNumber": 42
+        },
+        {
+          "caller": "init3com",
+          "callee": "com.findDevice",
+          "lineNumber": 43
+        },
+        {
+          "caller": "init3com",
+          "callee": "nic.NicOpen",
+          "lineNumber": 48
+        },
+        {
+          "caller": "init3com",
+          "callee": "new Error",
+          "lineNumber": 49
+        },
+        {
+          "caller": "init3com",
+          "callee": "nic.NICSetReceiveMode",
+          "lineNumber": 52
+        },
+        {
+          "caller": "init3com",
+          "callee": "nic.unmaskInterrupts",
+          "lineNumber": 53
+        },
+        {
+          "caller": "init3com",
+          "callee": "System.out.print",
+          "lineNumber": 55
+        },
+        {
+          "caller": "init3com",
+          "callee": "Dump.xdump",
+          "lineNumber": 56
+        },
+        {
+          "caller": "init3com",
+          "callee": "nic.getMACAddress",
+          "lineNumber": 56
+        },
+        {
+          "caller": "simpletest",
+          "callee": "net.getUDPSender",
+          "lineNumber": 64
+        },
+        {
+          "caller": "simpletest",
+          "callee": "new IPv4Address",
+          "lineNumber": 64
+        },
+        {
+          "caller": "simpletest",
+          "callee": "Integer.parseInt",
+          "lineNumber": 64
+        },
+        {
+          "caller": "simpletest",
+          "callee": "net.getUDPBuffer",
+          "lineNumber": 65
+        },
+        {
+          "caller": "simpletest",
+          "callee": "buf.set8",
+          "lineNumber": 67
+        },
+        {
+          "caller": "simpletest",
+          "callee": "u.send",
+          "lineNumber": 70
+        },
+        {
+          "caller": "dotest",
+          "callee": "LookupHelper.waitUntilPortalAvailable",
+          "lineNumber": 76
+        },
+        {
+          "caller": "dotest",
+          "callee": "System.out.print",
+          "lineNumber": 78
+        },
+        {
+          "caller": "main",
+          "callee": "InitialNaming.getInitialNaming",
+          "lineNumber": 188
+        },
+        {
+          "caller": "main",
+          "callee": "LookupHelper.waitUntilPortalAvailable",
+          "lineNumber": 189
+        },
+        {
+          "caller": "main",
+          "callee": "naming.lookup",
+          "lineNumber": 191
+        },
+        {
+          "caller": "main",
+          "callee": "memMgr.alloc",
+          "lineNumber": 195
+        },
+        {
+          "caller": "main",
+          "callee": "LookupHelper.waitUntilPortalAvailable",
+          "lineNumber": 197
+        },
+        {
+          "caller": "main",
+          "callee": "new jx.netmanager.NetInit",
+          "lineNumber": 200
+        },
+        {
+          "caller": "main",
+          "callee": "naming.registerPortal",
+          "lineNumber": 201
+        },
+        {
+          "caller": "main",
+          "callee": "new Error",
+          "lineNumber": 202
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 6,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "src/test/net/StartIPTest.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 46,
+      "nonEmptyLines": 37,
+      "functions": [
+        {
+          "name": "main",
+          "startLine": 14,
+          "endLine": 45,
+          "params": [
+            "args"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "StartIPTest",
+          "startLine": 12,
+          "endLine": 46,
+          "methods": [
+            "main"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "main",
+          "line": 14,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "main",
+          "callee": "InitialNaming.getInitialNaming",
+          "lineNumber": 15
+        },
+        {
+          "caller": "main",
+          "callee": "LookupHelper.waitUntilPortalAvailable",
+          "lineNumber": 16
+        },
+        {
+          "caller": "main",
+          "callee": "LookupHelper.waitUntilPortalAvailable",
+          "lineNumber": 17
+        },
+        {
+          "caller": "main",
+          "callee": "net.getIPSender",
+          "lineNumber": 21
+        },
+        {
+          "caller": "main",
+          "callee": "new IPv4Address",
+          "lineNumber": 21
+        },
+        {
+          "caller": "main",
+          "callee": "memoryManager.alloc",
+          "lineNumber": 23
+        },
+        {
+          "caller": "main",
+          "callee": "buf.set8",
+          "lineNumber": 25
+        },
+        {
+          "caller": "main",
+          "callee": "u.send",
+          "lineNumber": 27
+        },
+        {
+          "caller": "main",
+          "callee": "net.getIPBuffer",
+          "lineNumber": 32
+        },
+        {
+          "caller": "main",
+          "callee": "net.getIPReceiver",
+          "lineNumber": 34
+        },
+        {
+          "caller": "main",
+          "callee": "net.getIPBuffer",
+          "lineNumber": 37
+        },
+        {
+          "caller": "main",
+          "callee": "iprec.receive",
+          "lineNumber": 38
+        },
+        {
+          "caller": "main",
+          "callee": "ipdata.getMemory",
+          "lineNumber": 39
+        },
+        {
+          "caller": "main",
+          "callee": "Debug.out.println",
+          "lineNumber": 40
+        },
+        {
+          "caller": "main",
+          "callee": "ipdata.Size",
+          "lineNumber": 40
+        },
+        {
+          "caller": "main",
+          "callee": "Dump.xdump1",
+          "lineNumber": 41
+        },
+        {
+          "caller": "main",
+          "callee": "ipdata.getOffset",
+          "lineNumber": 41
+        },
+        {
+          "caller": "main",
+          "callee": "ipdata.Size",
+          "lineNumber": 41
+        },
+        {
+          "caller": "main",
+          "callee": "new Error",
+          "lineNumber": 44
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/test/net/StartNICTest.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 39,
+      "nonEmptyLines": 29,
+      "functions": [
+        {
+          "name": "main",
+          "startLine": 10,
+          "endLine": 38,
+          "params": [
+            "args"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "StartNICTest",
+          "startLine": 8,
+          "endLine": 39,
+          "methods": [
+            "main"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "main",
+          "line": 10,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "main",
+          "callee": "InitialNaming.getInitialNaming",
+          "lineNumber": 11
+        },
+        {
+          "caller": "main",
+          "callee": "naming.lookup",
+          "lineNumber": 12
+        },
+        {
+          "caller": "main",
+          "callee": "naming.lookup",
+          "lineNumber": 13
+        },
+        {
+          "caller": "main",
+          "callee": "LookupHelper.waitUntilPortalAvailable",
+          "lineNumber": 14
+        },
+        {
+          "caller": "main",
+          "callee": "LookupHelper.waitUntilPortalAvailable",
+          "lineNumber": 15
+        },
+        {
+          "caller": "main",
+          "callee": "memMgr.alloc",
+          "lineNumber": 18
+        },
+        {
+          "caller": "main",
+          "callee": "Debug.out.println",
+          "lineNumber": 20
+        },
+        {
+          "caller": "main",
+          "callee": "timerManager.unblockInMillis",
+          "lineNumber": 22
+        },
+        {
+          "caller": "main",
+          "callee": "cpuManager.getCPUState",
+          "lineNumber": 22
+        },
+        {
+          "caller": "main",
+          "callee": "cpuManager.block",
+          "lineNumber": 23
+        },
+        {
+          "caller": "main",
+          "callee": "buf.set8",
+          "lineNumber": 27
+        },
+        {
+          "caller": "main",
+          "callee": "buf.set8",
+          "lineNumber": 30
+        },
+        {
+          "caller": "main",
+          "callee": "Debug.out.println",
+          "lineNumber": 33
+        },
+        {
+          "caller": "main",
+          "callee": "nic.transmit1",
+          "lineNumber": 36
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/test/net/StartTCPTest.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 154,
+      "nonEmptyLines": 145,
+      "functions": [
+        {
+          "name": "main",
+          "startLine": 17,
+          "endLine": 153,
+          "params": [
+            "args"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "StartTCPTest",
+          "startLine": 14,
+          "endLine": 154,
+          "methods": [
+            "main"
+          ],
+          "properties": [
+            "verbose"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "verbose",
+          "line": 15,
+          "isDefault": false
+        },
+        {
+          "name": "main",
+          "line": 17,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "main",
+          "callee": "InitialNaming.getInitialNaming",
+          "lineNumber": 18
+        },
+        {
+          "caller": "main",
+          "callee": "LookupHelper.waitUntilPortalAvailable",
+          "lineNumber": 19
+        },
+        {
+          "caller": "main",
+          "callee": "LookupHelper.waitUntilPortalAvailable",
+          "lineNumber": 20
+        },
+        {
+          "caller": "main",
+          "callee": "Integer.parseInt",
+          "lineNumber": 25
+        },
+        {
+          "caller": "main",
+          "callee": "net.getTCPBuffer",
+          "lineNumber": 31
+        },
+        {
+          "caller": "main",
+          "callee": "net.getTCPSocket",
+          "lineNumber": 33
+        },
+        {
+          "caller": "main",
+          "callee": "new IPv4Address",
+          "lineNumber": 33
+        },
+        {
+          "caller": "main",
+          "callee": "sock.open",
+          "lineNumber": 34
+        },
+        {
+          "caller": "main",
+          "callee": "new IPv4Address",
+          "lineNumber": 34
+        },
+        {
+          "caller": "main",
+          "callee": "sock.send",
+          "lineNumber": 39
+        },
+        {
+          "caller": "main",
+          "callee": "new Socket",
+          "lineNumber": 41
+        },
+        {
+          "caller": "main",
+          "callee": "new IPv4Address(\"192.168.34.2\").toString",
+          "lineNumber": 41
+        },
+        {
+          "caller": "main",
+          "callee": "new IPv4Address",
+          "lineNumber": 41
+        },
+        {
+          "caller": "main",
+          "callee": "Debug.out.println",
+          "lineNumber": 42
+        },
+        {
+          "caller": "main",
+          "callee": "sock.getOutputStream",
+          "lineNumber": 43
+        },
+        {
+          "caller": "main",
+          "callee": "ops.write",
+          "lineNumber": 45
+        },
+        {
+          "caller": "main",
+          "callee": "Debug.out.println",
+          "lineNumber": 46
+        },
+        {
+          "caller": "main",
+          "callee": "ops.flush",
+          "lineNumber": 47
+        },
+        {
+          "caller": "main",
+          "callee": "Debug.out.println",
+          "lineNumber": 48
+        },
+        {
+          "caller": "main",
+          "callee": "sock.close",
+          "lineNumber": 49
+        },
+        {
+          "caller": "main",
+          "callee": "Debug.out.println",
+          "lineNumber": 50
+        },
+        {
+          "caller": "main",
+          "callee": "net.getTCPBuffer",
+          "lineNumber": 54
+        },
+        {
+          "caller": "main",
+          "callee": "net.getTCPSocket",
+          "lineNumber": 56
+        },
+        {
+          "caller": "main",
+          "callee": "new IPv4Address",
+          "lineNumber": 56
+        },
+        {
+          "caller": "main",
+          "callee": "net.getTCPBuffer",
+          "lineNumber": 60
+        },
+        {
+          "caller": "main",
+          "callee": "sock.accept",
+          "lineNumber": 61
+        },
+        {
+          "caller": "main",
+          "callee": "Debug.out.println",
+          "lineNumber": 63
+        },
+        {
+          "caller": "main",
+          "callee": "sock.readFromInputBuffer",
+          "lineNumber": 63
+        },
+        {
+          "caller": "main",
+          "callee": "new ServerSocket",
+          "lineNumber": 66
+        },
+        {
+          "caller": "main",
+          "callee": "servSock.accept",
+          "lineNumber": 68
+        },
+        {
+          "caller": "main",
+          "callee": "Debug.out.println",
+          "lineNumber": 69
+        },
+        {
+          "caller": "main",
+          "callee": "new Thread (\"receiver\"){\n\t\t\tpublic void run() {\n\t\t\t    try {\n\t\t\t\tInputStream ips = sock.getInputStream();\n\t\t\t\tif (verbose) {\n\t\t\t\tfor (char c=0; true; c=(char)ips.read())\n\t\t\t\t    Debug.out.println(\"received: \"+c);\n\t\t\t\t}\n\t\t\t    } catch (Exception e){\n\t\t\t\tthrow new Error(e.getMessage());\n\t\t\t    }\n\t\t\t}\n\t\t    }.start",
+          "lineNumber": 70
+        },
+        {
+          "caller": "main",
+          "callee": "new Thread",
+          "lineNumber": 70
+        },
+        {
+          "caller": "run",
+          "callee": "sock.getInputStream",
+          "lineNumber": 73
+        },
+        {
+          "caller": "run",
+          "callee": "ips.read",
+          "lineNumber": 75
+        },
+        {
+          "caller": "run",
+          "callee": "Debug.out.println",
+          "lineNumber": 76
+        },
+        {
+          "caller": "run",
+          "callee": "new Error",
+          "lineNumber": 79
+        },
+        {
+          "caller": "run",
+          "callee": "e.getMessage",
+          "lineNumber": 79
+        },
+        {
+          "caller": "main",
+          "callee": "new ServerSocket",
+          "lineNumber": 86
+        },
+        {
+          "caller": "main",
+          "callee": "servSock.accept",
+          "lineNumber": 87
+        },
+        {
+          "caller": "main",
+          "callee": "sock.getInputStream",
+          "lineNumber": 88
+        },
+        {
+          "caller": "main",
+          "callee": "sock.getOutputStream",
+          "lineNumber": 89
+        },
+        {
+          "caller": "main",
+          "callee": "ops.write",
+          "lineNumber": 103
+        },
+        {
+          "caller": "main",
+          "callee": "ops.flush",
+          "lineNumber": 104
+        },
+        {
+          "caller": "main",
+          "callee": "new ServerSocket",
+          "lineNumber": 109
+        },
+        {
+          "caller": "main",
+          "callee": "naming.lookup",
+          "lineNumber": 110
+        },
+        {
+          "caller": "main",
+          "callee": "Thread.yield",
+          "lineNumber": 111
+        },
+        {
+          "caller": "main",
+          "callee": "memMgr.getTotalFreeMemory",
+          "lineNumber": 112
+        },
+        {
+          "caller": "main",
+          "callee": "servSock.accept",
+          "lineNumber": 114
+        },
+        {
+          "caller": "main",
+          "callee": "memMgr.getTotalFreeMemory",
+          "lineNumber": 115
+        },
+        {
+          "caller": "main",
+          "callee": "Debug.out.println",
+          "lineNumber": 116
+        },
+        {
+          "caller": "main",
+          "callee": "Debug.out.println",
+          "lineNumber": 117
+        },
+        {
+          "caller": "main",
+          "callee": "DomainStarter.createDomain",
+          "lineNumber": 127
+        },
+        {
+          "caller": "main",
+          "callee": "new ServerSocket",
+          "lineNumber": 131
+        },
+        {
+          "caller": "main",
+          "callee": "naming.lookup",
+          "lineNumber": 132
+        },
+        {
+          "caller": "main",
+          "callee": "Thread.yield",
+          "lineNumber": 133
+        },
+        {
+          "caller": "main",
+          "callee": "memMgr.getTotalFreeMemory",
+          "lineNumber": 134
+        },
+        {
+          "caller": "main",
+          "callee": "servSock.accept",
+          "lineNumber": 136
+        },
+        {
+          "caller": "main",
+          "callee": "memMgr.getTotalFreeMemory",
+          "lineNumber": 137
+        },
+        {
+          "caller": "main",
+          "callee": "Debug.out.println",
+          "lineNumber": 138
+        },
+        {
+          "caller": "main",
+          "callee": "Debug.out.println",
+          "lineNumber": 139
+        },
+        {
+          "caller": "main",
+          "callee": "DomainStarter.createDomain",
+          "lineNumber": 149
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/test/net/StartTest.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 36,
+      "nonEmptyLines": 30,
+      "functions": [
+        {
+          "name": "main",
+          "startLine": 11,
+          "endLine": 34,
+          "params": [
+            "args"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "StartTest",
+          "startLine": 9,
+          "endLine": 36,
+          "methods": [
+            "main"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "main",
+          "line": 11,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "main",
+          "callee": "InitialNaming.getInitialNaming",
+          "lineNumber": 12
+        },
+        {
+          "caller": "main",
+          "callee": "LookupHelper.waitUntilPortalAvailable",
+          "lineNumber": 13
+        },
+        {
+          "caller": "main",
+          "callee": "LookupHelper.waitUntilPortalAvailable",
+          "lineNumber": 14
+        },
+        {
+          "caller": "main",
+          "callee": "net.getUDPSender",
+          "lineNumber": 18
+        },
+        {
+          "caller": "main",
+          "callee": "new IPv4Address",
+          "lineNumber": 18
+        },
+        {
+          "caller": "main",
+          "callee": "Integer.parseInt",
+          "lineNumber": 18
+        },
+        {
+          "caller": "main",
+          "callee": "memoryManager.alloc",
+          "lineNumber": 20
+        },
+        {
+          "caller": "main",
+          "callee": "buf.set8",
+          "lineNumber": 26
+        },
+        {
+          "caller": "main",
+          "callee": "u.send1",
+          "lineNumber": 29
+        },
+        {
+          "caller": "main",
+          "callee": "Thread.yield",
+          "lineNumber": 31
+        },
+        {
+          "caller": "main",
+          "callee": "new Error",
+          "lineNumber": 33
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/test/net/TCPWebWorker.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 181,
+      "nonEmptyLines": 161,
+      "functions": [
+        {
+          "name": "init",
+          "startLine": 26,
+          "endLine": 34,
+          "params": [
+            "naming",
+            "argv",
+            "objs"
+          ]
+        },
+        {
+          "name": "processRequest",
+          "startLine": 36,
+          "endLine": 38,
+          "params": [
+            "sock",
+            "fs"
+          ]
+        },
+        {
+          "name": "TCPWebWorker",
+          "startLine": 40,
+          "endLine": 90,
+          "params": [
+            "sock",
+            "fs"
+          ]
+        },
+        {
+          "name": "readFile",
+          "startLine": 92,
+          "endLine": 110,
+          "params": [
+            "name"
+          ]
+        },
+        {
+          "name": "parse",
+          "startLine": 112,
+          "endLine": 148,
+          "params": [
+            "fromClient"
+          ]
+        },
+        {
+          "name": "constructHeader",
+          "startLine": 149,
+          "endLine": 157,
+          "params": [
+            "fileName",
+            "fileType",
+            "fileLength"
+          ]
+        },
+        {
+          "name": "constructHeader",
+          "startLine": 159,
+          "endLine": 164,
+          "params": [
+            "fileName",
+            "fileLength"
+          ]
+        },
+        {
+          "name": "constructErrorHeader",
+          "startLine": 166,
+          "endLine": 170,
+          "params": []
+        },
+        {
+          "name": "getProperty_DefaultFile",
+          "startLine": 172,
+          "endLine": 174,
+          "params": []
+        },
+        {
+          "name": "getProperty_MimeTypes",
+          "startLine": 176,
+          "endLine": 180,
+          "params": [
+            "fileType"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "TCPWebWorker",
+          "startLine": 14,
+          "endLine": 181,
+          "methods": [
+            "init",
+            "processRequest",
+            "TCPWebWorker",
+            "readFile",
+            "parse",
+            "constructHeader",
+            "constructHeader",
+            "constructErrorHeader",
+            "getProperty_DefaultFile",
+            "getProperty_MimeTypes"
+          ],
+          "properties": [
+            "debug",
+            "METHOD_UNDEF",
+            "METHOD_GET",
+            "METHOD_POST",
+            "method",
+            "contentsLength",
+            "memoryManager",
+            "buffer1",
+            "buffer2",
+            "fs"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "init",
+          "line": 26,
+          "isDefault": false
+        },
+        {
+          "name": "processRequest",
+          "line": 36,
+          "isDefault": false
+        },
+        {
+          "name": "constructHeader",
+          "line": 149,
+          "isDefault": false
+        },
+        {
+          "name": "constructHeader",
+          "line": 159,
+          "isDefault": false
+        },
+        {
+          "name": "constructErrorHeader",
+          "line": 166,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "init",
+          "callee": "new DebugPrintStream",
+          "lineNumber": 27
+        },
+        {
+          "caller": "init",
+          "callee": "new DebugOutputStream",
+          "lineNumber": 27
+        },
+        {
+          "caller": "init",
+          "callee": "naming.lookup",
+          "lineNumber": 27
+        },
+        {
+          "caller": "init",
+          "callee": "processRequest",
+          "lineNumber": 30
+        },
+        {
+          "caller": "init",
+          "callee": "naming.lookup",
+          "lineNumber": 32
+        },
+        {
+          "caller": "init",
+          "callee": "domainManager.terminateCaller",
+          "lineNumber": 33
+        },
+        {
+          "caller": "processRequest",
+          "callee": "new TCPWebWorker",
+          "lineNumber": 37
+        },
+        {
+          "caller": "TCPWebWorker",
+          "callee": "InitialNaming.getInitialNaming().lookup",
+          "lineNumber": 43
+        },
+        {
+          "caller": "TCPWebWorker",
+          "callee": "InitialNaming.getInitialNaming",
+          "lineNumber": 43
+        },
+        {
+          "caller": "TCPWebWorker",
+          "callee": "memoryManager.alloc",
+          "lineNumber": 44
+        },
+        {
+          "caller": "TCPWebWorker",
+          "callee": "memoryManager.alloc",
+          "lineNumber": 45
+        },
+        {
+          "caller": "TCPWebWorker",
+          "callee": "sock.getOutputStream",
+          "lineNumber": 47
+        },
+        {
+          "caller": "TCPWebWorker",
+          "callee": "new DataInputStream",
+          "lineNumber": 48
+        },
+        {
+          "caller": "TCPWebWorker",
+          "callee": "sock.getInputStream",
+          "lineNumber": 48
+        },
+        {
+          "caller": "TCPWebWorker",
+          "callee": "parse",
+          "lineNumber": 49
+        },
+        {
+          "caller": "TCPWebWorker",
+          "callee": "Debug.out.println",
+          "lineNumber": 50
+        },
+        {
+          "caller": "TCPWebWorker",
+          "callee": "ostream.write",
+          "lineNumber": 57
+        },
+        {
+          "caller": "TCPWebWorker",
+          "callee": "constructHeader(file, 1024 * 1024).getBytes",
+          "lineNumber": 57
+        },
+        {
+          "caller": "TCPWebWorker",
+          "callee": "constructHeader",
+          "lineNumber": 57
+        },
+        {
+          "caller": "TCPWebWorker",
+          "callee": "ostream.write",
+          "lineNumber": 59
+        },
+        {
+          "caller": "TCPWebWorker",
+          "callee": "ostream.write",
+          "lineNumber": 67
+        },
+        {
+          "caller": "TCPWebWorker",
+          "callee": "constructHeader(file, 1024).getBytes",
+          "lineNumber": 67
+        },
+        {
+          "caller": "TCPWebWorker",
+          "callee": "constructHeader",
+          "lineNumber": 67
+        },
+        {
+          "caller": "TCPWebWorker",
+          "callee": "ostream.write",
+          "lineNumber": 68
+        },
+        {
+          "caller": "TCPWebWorker",
+          "callee": "ostream.write",
+          "lineNumber": 75
+        },
+        {
+          "caller": "TCPWebWorker",
+          "callee": "constructHeader(file, 1).getBytes",
+          "lineNumber": 75
+        },
+        {
+          "caller": "TCPWebWorker",
+          "callee": "constructHeader",
+          "lineNumber": 75
+        },
+        {
+          "caller": "TCPWebWorker",
+          "callee": "ostream.write",
+          "lineNumber": 76
+        },
+        {
+          "caller": "TCPWebWorker",
+          "callee": "readFile",
+          "lineNumber": 81
+        },
+        {
+          "caller": "TCPWebWorker",
+          "callee": "ostream.write",
+          "lineNumber": 82
+        },
+        {
+          "caller": "TCPWebWorker",
+          "callee": "constructHeader(file, data.length).getBytes",
+          "lineNumber": 82
+        },
+        {
+          "caller": "TCPWebWorker",
+          "callee": "constructHeader",
+          "lineNumber": 82
+        },
+        {
+          "caller": "TCPWebWorker",
+          "callee": "ostream.write",
+          "lineNumber": 83
+        },
+        {
+          "caller": "TCPWebWorker",
+          "callee": "Debug.out.println",
+          "lineNumber": 84
+        },
+        {
+          "caller": "TCPWebWorker",
+          "callee": "ostream.flush",
+          "lineNumber": 88
+        },
+        {
+          "caller": "TCPWebWorker",
+          "callee": "sock.close",
+          "lineNumber": 89
+        },
+        {
+          "caller": "readFile",
+          "callee": "fs.lookup",
+          "lineNumber": 94
+        },
+        {
+          "caller": "readFile",
+          "callee": "inode.getLength",
+          "lineNumber": 95
+        },
+        {
+          "caller": "readFile",
+          "callee": "Debug.out.println",
+          "lineNumber": 96
+        },
+        {
+          "caller": "readFile",
+          "callee": "inode.read",
+          "lineNumber": 97
+        },
+        {
+          "caller": "readFile",
+          "callee": "inode.read",
+          "lineNumber": 98
+        },
+        {
+          "caller": "readFile",
+          "callee": "buffer1.copyToByteArray",
+          "lineNumber": 100
+        },
+        {
+          "caller": "readFile",
+          "callee": "buffer2.copyToByteArray",
+          "lineNumber": 101
+        },
+        {
+          "caller": "readFile",
+          "callee": "Debug.out.print",
+          "lineNumber": 103
+        },
+        {
+          "caller": "readFile",
+          "callee": "Debug.out.println",
+          "lineNumber": 107
+        },
+        {
+          "caller": "readFile",
+          "callee": "ex.getMessage",
+          "lineNumber": 107
+        },
+        {
+          "caller": "readFile",
+          "callee": "constructErrorHeader().getBytes",
+          "lineNumber": 108
+        },
+        {
+          "caller": "readFile",
+          "callee": "constructErrorHeader",
+          "lineNumber": 108
+        },
+        {
+          "caller": "parse",
+          "callee": "(line = fromClient.readLine()).equals",
+          "lineNumber": 116
+        },
+        {
+          "caller": "parse",
+          "callee": "fromClient.readLine",
+          "lineNumber": 116
+        },
+        {
+          "caller": "parse",
+          "callee": "Debug.out.println",
+          "lineNumber": 117
+        },
+        {
+          "caller": "parse",
+          "callee": "new StringTokenizer",
+          "lineNumber": 118
+        },
+        {
+          "caller": "parse",
+          "callee": "tokenizer.hasMoreTokens",
+          "lineNumber": 119
+        },
+        {
+          "caller": "parse",
+          "callee": "tokenizer.nextToken",
+          "lineNumber": 120
+        },
+        {
+          "caller": "parse",
+          "callee": "tokenizer.nextToken",
+          "lineNumber": 124
+        },
+        {
+          "caller": "parse",
+          "callee": "fileName.endsWith",
+          "lineNumber": 125
+        },
+        {
+          "caller": "parse",
+          "callee": "getProperty_DefaultFile",
+          "lineNumber": 126
+        },
+        {
+          "caller": "parse",
+          "callee": "fileName.substring",
+          "lineNumber": 128
+        },
+        {
+          "caller": "parse",
+          "callee": "tokenizer.nextToken",
+          "lineNumber": 132
+        },
+        {
+          "caller": "parse",
+          "callee": "fileName.substring",
+          "lineNumber": 133
+        },
+        {
+          "caller": "parse",
+          "callee": "Debug.out.println",
+          "lineNumber": 134
+        },
+        {
+          "caller": "parse",
+          "callee": "Integer.parseInt",
+          "lineNumber": 137
+        },
+        {
+          "caller": "parse",
+          "callee": "tokenizer.nextToken",
+          "lineNumber": 137
+        },
+        {
+          "caller": "parse",
+          "callee": "e.printStackTrace",
+          "lineNumber": 145
+        },
+        {
+          "caller": "constructHeader",
+          "callee": "fileName.substring",
+          "lineNumber": 161
+        },
+        {
+          "caller": "constructHeader",
+          "callee": "fileName.lastIndexOf",
+          "lineNumber": 161
+        },
+        {
+          "caller": "constructHeader",
+          "callee": "fileName.length",
+          "lineNumber": 161
+        },
+        {
+          "caller": "constructHeader",
+          "callee": "getProperty_MimeTypes",
+          "lineNumber": 162
+        },
+        {
+          "caller": "constructHeader",
+          "callee": "constructHeader",
+          "lineNumber": 163
+        },
+        {
+          "caller": "getProperty_MimeTypes",
+          "callee": "fileType.equals",
+          "lineNumber": 177
+        },
+        {
+          "caller": "getProperty_MimeTypes",
+          "callee": "fileType.equals",
+          "lineNumber": 178
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 5,
+        "functionCount": 10,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/test/net/TCPWorker.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 22,
+      "nonEmptyLines": 19,
+      "functions": [
+        {
+          "name": "init",
+          "startLine": 10,
+          "endLine": 21,
+          "params": [
+            "naming",
+            "argv",
+            "portals"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "TCPWorker",
+          "startLine": 9,
+          "endLine": 22,
+          "methods": [
+            "init"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "init",
+          "line": 10,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "init",
+          "callee": "new DebugPrintStream",
+          "lineNumber": 11
+        },
+        {
+          "caller": "init",
+          "callee": "new DebugOutputStream",
+          "lineNumber": 11
+        },
+        {
+          "caller": "init",
+          "callee": "naming.lookup",
+          "lineNumber": 11
+        },
+        {
+          "caller": "init",
+          "callee": "sock.getInputStream",
+          "lineNumber": 13
+        },
+        {
+          "caller": "init",
+          "callee": "ips.read",
+          "lineNumber": 14
+        },
+        {
+          "caller": "init",
+          "callee": "Debug.out.println",
+          "lineNumber": 15
+        },
+        {
+          "caller": "init",
+          "callee": "naming.lookup",
+          "lineNumber": 17
+        },
+        {
+          "caller": "init",
+          "callee": "domainManager.terminateCaller",
+          "lineNumber": 18
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/test/net/WebServer.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 148,
+      "nonEmptyLines": 127,
+      "functions": [
+        {
+          "name": "main",
+          "startLine": 23,
+          "endLine": 25,
+          "params": [
+            "args"
+          ]
+        },
+        {
+          "name": "usage",
+          "startLine": 27,
+          "endLine": 29,
+          "params": []
+        },
+        {
+          "name": "WebServer",
+          "startLine": 31,
+          "endLine": 105,
+          "params": [
+            "args"
+          ]
+        },
+        {
+          "name": "createFile",
+          "startLine": 107,
+          "endLine": 114,
+          "params": [
+            "fs",
+            "name",
+            "contents"
+          ]
+        },
+        {
+          "name": "startWorkerThread",
+          "startLine": 116,
+          "endLine": 127,
+          "params": [
+            "sock"
+          ]
+        },
+        {
+          "name": "startWorkerDomain",
+          "startLine": 129,
+          "endLine": 146,
+          "params": [
+            "sock"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "WebServer",
+          "startLine": 11,
+          "endLine": 148,
+          "methods": [
+            "main",
+            "usage",
+            "WebServer",
+            "createFile",
+            "startWorkerThread",
+            "startWorkerDomain"
+          ],
+          "properties": [
+            "debug",
+            "net",
+            "fileBuf",
+            "fbytes",
+            "buffer",
+            "naming",
+            "fs"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "main",
+          "line": 23,
+          "isDefault": false
+        },
+        {
+          "name": "WebServer",
+          "line": 31,
+          "isDefault": false
+        },
+        {
+          "name": "WebServer",
+          "line": 11,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "main",
+          "callee": "new WebServer",
+          "lineNumber": 24
+        },
+        {
+          "caller": "usage",
+          "callee": "Debug.out.println",
+          "lineNumber": 28
+        },
+        {
+          "caller": "WebServer",
+          "callee": "Integer.parseInt",
+          "lineNumber": 52
+        },
+        {
+          "caller": "WebServer",
+          "callee": "Debug.out.println",
+          "lineNumber": 59
+        },
+        {
+          "caller": "WebServer",
+          "callee": "Debug.out.println",
+          "lineNumber": 65
+        },
+        {
+          "caller": "WebServer",
+          "callee": "LookupHelper.waitUntilPortalAvailable",
+          "lineNumber": 66
+        },
+        {
+          "caller": "WebServer",
+          "callee": "InitialNaming.getInitialNaming().lookup",
+          "lineNumber": 69
+        },
+        {
+          "caller": "WebServer",
+          "callee": "InitialNaming.getInitialNaming",
+          "lineNumber": 69
+        },
+        {
+          "caller": "WebServer",
+          "callee": "memoryManager.alloc",
+          "lineNumber": 70
+        },
+        {
+          "caller": "WebServer",
+          "callee": "createFile",
+          "lineNumber": 74
+        },
+        {
+          "caller": "WebServer",
+          "callee": "createFile",
+          "lineNumber": 79
+        },
+        {
+          "caller": "WebServer",
+          "callee": "new ServerSocket",
+          "lineNumber": 86
+        },
+        {
+          "caller": "WebServer",
+          "callee": "Debug.out.println",
+          "lineNumber": 88
+        },
+        {
+          "caller": "WebServer",
+          "callee": "Debug.out.println",
+          "lineNumber": 89
+        },
+        {
+          "caller": "WebServer",
+          "callee": "Debug.out.println",
+          "lineNumber": 93
+        },
+        {
+          "caller": "WebServer",
+          "callee": "ssock.accept",
+          "lineNumber": 95
+        },
+        {
+          "caller": "WebServer",
+          "callee": "Debug.out.println",
+          "lineNumber": 96
+        },
+        {
+          "caller": "WebServer",
+          "callee": "startWorkerThread",
+          "lineNumber": 98
+        },
+        {
+          "caller": "WebServer",
+          "callee": "startWorkerDomain",
+          "lineNumber": 100
+        },
+        {
+          "caller": "createFile",
+          "callee": "fs.create",
+          "lineNumber": 108
+        },
+        {
+          "caller": "createFile",
+          "callee": "fs.lookup",
+          "lineNumber": 109
+        },
+        {
+          "caller": "createFile",
+          "callee": "contents.getBytes",
+          "lineNumber": 110
+        },
+        {
+          "caller": "createFile",
+          "callee": "buffer.copyFromByteArray",
+          "lineNumber": 111
+        },
+        {
+          "caller": "createFile",
+          "callee": "inode.write",
+          "lineNumber": 112
+        },
+        {
+          "caller": "createFile",
+          "callee": "inode.decUseCount",
+          "lineNumber": 113
+        },
+        {
+          "caller": "startWorkerThread",
+          "callee": "new Thread (\"WebWorker\"){\n            @Override\n            public void run() {\n                try {\n                    TCPWebWorker.processRequest(sock, fs);\n                } catch(Exception e) {\n                    //throw new Error();\n                }\n            }\n        }.start",
+          "lineNumber": 117
+        },
+        {
+          "caller": "startWorkerThread",
+          "callee": "new Thread",
+          "lineNumber": 117
+        },
+        {
+          "caller": "run",
+          "callee": "TCPWebWorker.processRequest",
+          "lineNumber": 121
+        },
+        {
+          "caller": "startWorkerDomain",
+          "callee": "DomainStarter.createDomain",
+          "lineNumber": 141
+        },
+        {
+          "caller": "startWorkerDomain",
+          "callee": "DomainStarter.createDomain",
+          "lineNumber": 144
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 6,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "test/nfs/DummyClock.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 16,
+      "nonEmptyLines": 14,
+      "functions": [
+        {
+          "name": "getTimeInMillis",
+          "startLine": 7,
+          "endLine": 7,
+          "params": []
+        },
+        {
+          "name": "getTicks",
+          "startLine": 8,
+          "endLine": 8,
+          "params": []
+        },
+        {
+          "name": "getTicks_low",
+          "startLine": 9,
+          "endLine": 9,
+          "params": []
+        },
+        {
+          "name": "getTicks_high",
+          "startLine": 10,
+          "endLine": 10,
+          "params": []
+        },
+        {
+          "name": "getCycles",
+          "startLine": 11,
+          "endLine": 11,
+          "params": [
+            "c"
+          ]
+        },
+        {
+          "name": "subtract",
+          "startLine": 12,
+          "endLine": 12,
+          "params": [
+            "result",
+            "a",
+            "b"
+          ]
+        },
+        {
+          "name": "toMicroSec",
+          "startLine": 13,
+          "endLine": 13,
+          "params": [
+            "c"
+          ]
+        },
+        {
+          "name": "toNanoSec",
+          "startLine": 14,
+          "endLine": 14,
+          "params": [
+            "c"
+          ]
+        },
+        {
+          "name": "toMilliSec",
+          "startLine": 15,
+          "endLine": 15,
+          "params": [
+            "c"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "DummyClock",
+          "startLine": 5,
+          "endLine": 16,
+          "methods": [
+            "getTimeInMillis",
+            "getTicks",
+            "getTicks_low",
+            "getTicks_high",
+            "getCycles",
+            "subtract",
+            "toMicroSec",
+            "toNanoSec",
+            "toMilliSec"
+          ],
+          "properties": [
+            "t"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "getTimeInMillis",
+          "line": 7,
+          "isDefault": false
+        },
+        {
+          "name": "getTicks",
+          "line": 8,
+          "isDefault": false
+        },
+        {
+          "name": "getTicks_low",
+          "line": 9,
+          "isDefault": false
+        },
+        {
+          "name": "getTicks_high",
+          "line": 10,
+          "isDefault": false
+        },
+        {
+          "name": "getCycles",
+          "line": 11,
+          "isDefault": false
+        },
+        {
+          "name": "subtract",
+          "line": 12,
+          "isDefault": false
+        },
+        {
+          "name": "toMicroSec",
+          "line": 13,
+          "isDefault": false
+        },
+        {
+          "name": "toNanoSec",
+          "line": 14,
+          "isDefault": false
+        },
+        {
+          "name": "toMilliSec",
+          "line": 15,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 9,
+        "functionCount": 9,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "test/nfs/LoadGenerator.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 46,
+      "nonEmptyLines": 40,
+      "functions": [
+        {
+          "name": "init",
+          "startLine": 10,
+          "endLine": 16,
+          "params": [
+            "naming"
+          ]
+        },
+        {
+          "name": "LoadGenerator",
+          "startLine": 19,
+          "endLine": 35,
+          "params": []
+        },
+        {
+          "name": "run",
+          "startLine": 37,
+          "endLine": 45,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "LoadGenerator",
+          "startLine": 6,
+          "endLine": 46,
+          "methods": [
+            "init",
+            "LoadGenerator",
+            "run"
+          ],
+          "properties": [
+            "cpuManager",
+            "ende"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "init",
+          "line": 10,
+          "isDefault": false
+        },
+        {
+          "name": "LoadGenerator",
+          "line": 19,
+          "isDefault": false
+        },
+        {
+          "name": "run",
+          "line": 37,
+          "isDefault": false
+        },
+        {
+          "name": "LoadGenerator",
+          "line": 6,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "init",
+          "callee": "naming.lookup",
+          "lineNumber": 11
+        },
+        {
+          "caller": "init",
+          "callee": "naming.lookup",
+          "lineNumber": 12
+        },
+        {
+          "caller": "init",
+          "callee": "new DebugPrintStream",
+          "lineNumber": 13
+        },
+        {
+          "caller": "init",
+          "callee": "new DebugOutputStream",
+          "lineNumber": 13
+        },
+        {
+          "caller": "init",
+          "callee": "Debug.out.println",
+          "lineNumber": 14
+        },
+        {
+          "caller": "init",
+          "callee": "new LoadGenerator",
+          "lineNumber": 15
+        },
+        {
+          "caller": "LoadGenerator",
+          "callee": "Debug.out.println",
+          "lineNumber": 20
+        },
+        {
+          "caller": "LoadGenerator",
+          "callee": "cpuManager.sleep",
+          "lineNumber": 24
+        },
+        {
+          "caller": "LoadGenerator",
+          "callee": "cpuManager.sleep",
+          "lineNumber": 26
+        },
+        {
+          "caller": "LoadGenerator",
+          "callee": "(allMyThreads[thr++]=new Thread(this, \"Load\"+thr)).start",
+          "lineNumber": 28
+        },
+        {
+          "caller": "LoadGenerator",
+          "callee": "new Thread",
+          "lineNumber": 28
+        },
+        {
+          "caller": "LoadGenerator",
+          "callee": "Debug.out.println",
+          "lineNumber": 29
+        },
+        {
+          "caller": "LoadGenerator",
+          "callee": "cpuManager.sleep",
+          "lineNumber": 31
+        },
+        {
+          "caller": "run",
+          "callee": "cpuManager.sleep",
+          "lineNumber": 42
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 4,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    }
+  ]
+}

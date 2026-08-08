@@ -1,0 +1,494 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/jx/net/devices/lance/LanceFinder.java",
+      "type": "file",
+      "name": "LanceFinder.java",
+      "filePath": "src/jx/net/devices/lance/LanceFinder.java",
+      "summary": "DeviceFinder implementation that locates AMD Lance/PCnet NICs on the PCI bus. It looks up core system services (Ports, IRQ, MemoryManager, CPUManager) via Naming, polls for the PCIAccess access point, and scans PCI network-class devices for the AMD vendor ID 0x1022 with device ID 0x2000 (Am79C970).",
+      "tags": ["lance", "pci", "nic", "device-finder", "amd", "ethernet"],
+      "complexity": "moderate",
+      "languageNotes": "Wildcard imports (jx.zero.*, jx.devices.pci.*); imports LanceDriver and LanceFlags from org.jnode.driver.net.lance."
+    },
+    {
+      "id": "class:src/jx/net/devices/lance/LanceFinder.java:LanceFinder",
+      "type": "class",
+      "name": "LanceFinder",
+      "filePath": "src/jx/net/devices/lance/LanceFinder.java",
+      "summary": "Implements DeviceFinder to discover AMD PCnet Ethernet controllers. Defines NIC vendor/device ID constants, holds references to system services, and both finds and instantiates LanceDriver objects for supported NICs.",
+      "tags": ["lance", "pci", "nic", "device-finder", "amd"],
+      "complexity": "moderate",
+      "languageNotes": "Implements jx.devices.DeviceFinder (external, not project-internal)."
+    },
+    {
+      "id": "function:src/jx/net/devices/lance/LanceFinder.java:find",
+      "type": "function",
+      "name": "find",
+      "filePath": "src/jx/net/devices/lance/LanceFinder.java",
+      "summary": "DeviceFinder.find entry point. Looks up Ports, IRQ, MemoryManager and CPUManager from Naming, then busy-waits (with Thread.yield) until the PCIAccess access point is available, and delegates to findDevice.",
+      "tags": ["find", "naming", "pci", "lookup", "spin-wait"],
+      "complexity": "moderate",
+      "languageNotes": "Overrides DeviceFinder.find; Debug.out used for logging."
+    },
+    {
+      "id": "function:src/jx/net/devices/lance/LanceFinder.java:findDevice",
+      "type": "function",
+      "name": "findDevice",
+      "filePath": "src/jx/net/devices/lance/LanceFinder.java",
+      "summary": "Queries the PCI bus for network-class devices and filters for the AMD vendor ID, accepting device ID 0x2000 (Am79C970). For a supported NIC it allocates 10 frame buffers and returns an array containing a new LanceDriver configured with a LanceFlags('test') instance.",
+      "tags": ["pci", "scan", "amd", "lance-driver", "buffers"],
+      "complexity": "moderate",
+      "languageNotes": "Uses AdapterLimits.ETHERNET_MAXIMUM_FRAME_SIZE from metaxa.os.devices.net for buffer sizing."
+    },
+    {
+      "id": "file:src/org/jnode/driver/net/lance/LanceDriver.java",
+      "type": "file",
+      "name": "LanceDriver.java",
+      "filePath": "src/org/jnode/driver/net/lance/LanceDriver.java",
+      "summary": "NetworkDevice implementation driving the AMD Lance/PCnet NIC. Wraps a LanceCore, creates CPU events for interrupt/send/receive, manages a MultiThreadBufferList of usable buffers, and exposes transmit, transmit1, getMACAddress, getMTU, consumer registration, and open/close lifecycle methods.",
+      "tags": ["lance", "network-device", "driver", "pci", "ethernet", "dma"],
+      "complexity": "complex",
+      "languageNotes": "Implements jx.devices.net.NetworkDevice (external interface). Several methods are stubs throwing UnsupportedOperationException."
+    },
+    {
+      "id": "class:src/org/jnode/driver/net/lance/LanceDriver.java:LanceDriver",
+      "type": "class",
+      "name": "LanceDriver",
+      "filePath": "src/org/jnode/driver/net/lance/LanceDriver.java",
+      "summary": "Public driver class implementing NetworkDevice for the AMD Lance/PCnet NIC. Holds a LanceCore device core, event ids for interrupt/send/receive, a usable-buffer list, and an ethernet consumer for receive callbacks.",
+      "tags": ["lance", "driver", "network-device", "buffer-list", "events"],
+      "complexity": "complex",
+      "languageNotes": "Implements jx.devices.net.NetworkDevice (external)."
+    },
+    {
+      "id": "function:src/org/jnode/driver/net/lance/LanceDriver.java:LanceDriver",
+      "type": "function",
+      "name": "LanceDriver",
+      "filePath": "src/org/jnode/driver/net/lance/LanceDriver.java",
+      "summary": "Constructor. Stores MemoryManager/CPUManager, builds the LanceCore via newCore, creates 'Lanceinterrupt'/'LanceSnd'/'LanceRcv' CPU events, and wraps the supplied buffers in a MultiThreadBufferList2 with recording enabled.",
+      "tags": ["constructor", "core", "events", "buffers"],
+      "complexity": "moderate",
+      "languageNotes": "Takes LanceFlags (from this batch) and jx.zero service interfaces."
+    },
+    {
+      "id": "function:src/org/jnode/driver/net/lance/LanceDriver.java:newCore",
+      "type": "function",
+      "name": "newCore",
+      "filePath": "src/org/jnode/driver/net/lance/LanceDriver.java",
+      "summary": "Factory method creating the LanceCore for this driver, passing the driver, device, flags, irq, ports and memory manager. Protected so subclasses can override core creation.",
+      "tags": ["factory", "lance-core", "device-core"],
+      "complexity": "simple",
+      "languageNotes": "Target LanceCore is in the project but outside this batch; no edge emitted."
+    },
+    {
+      "id": "function:src/org/jnode/driver/net/lance/LanceDriver.java:setReceiveMode",
+      "type": "function",
+      "name": "setReceiveMode",
+      "filePath": "src/org/jnode/driver/net/lance/LanceDriver.java",
+      "summary": "NetworkDevice.setReceiveMode override that is currently an empty stub (receive mode handling not implemented).",
+      "tags": ["stub", "receive-mode"],
+      "complexity": "simple",
+      "languageNotes": "Empty body; original UnsupportedOperationException commented out."
+    },
+    {
+      "id": "function:src/org/jnode/driver/net/lance/LanceDriver.java:transmit",
+      "type": "function",
+      "name": "transmit",
+      "filePath": "src/org/jnode/driver/net/lance/LanceDriver.java",
+      "summary": "Transmits a memory buffer by delegating to abstractDeviceCore.transmit, swallowing InterruptedException, and always returning null.",
+      "tags": ["transmit", "send", "core"],
+      "complexity": "simple",
+      "languageNotes": "Delegates to LanceCore (outside batch)."
+    },
+    {
+      "id": "function:src/org/jnode/driver/net/lance/LanceDriver.java:transmit1",
+      "type": "function",
+      "name": "transmit1",
+      "filePath": "src/org/jnode/driver/net/lance/LanceDriver.java",
+      "summary": "Transmits a region of a buffer with offset/size handling. Records the event_snd event, undocks a buffer from usableBufs (returning buf1 if none available), copies the payload into a freshly allocated buffer, and delegates the copy to abstractDeviceCore.transmit.",
+      "tags": ["transmit", "send", "buffer-pool", "copy"],
+      "complexity": "moderate",
+      "languageNotes": "Uses MultiThreadBufferList2/Buffer2 from jx.buffer.multithread."
+    },
+    {
+      "id": "function:src/org/jnode/driver/net/lance/LanceDriver.java:getMACAddress",
+      "type": "function",
+      "name": "getMACAddress",
+      "filePath": "src/org/jnode/driver/net/lance/LanceDriver.java",
+      "summary": "Returns the MAC address bytes from the underlying LanceCore hardware address.",
+      "tags": ["mac", "hardware-address"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/org/jnode/driver/net/lance/LanceDriver.java:getMTU",
+      "type": "function",
+      "name": "getMTU",
+      "filePath": "src/org/jnode/driver/net/lance/LanceDriver.java",
+      "summary": "Returns the Ethernet MTU, a constant ETH_DATA_LEN of 1500 octets.",
+      "tags": ["mtu", "ethernet"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/org/jnode/driver/net/lance/LanceDriver.java:registerNonBlockingConsumer",
+      "type": "function",
+      "name": "registerNonBlockingConsumer",
+      "filePath": "src/org/jnode/driver/net/lance/LanceDriver.java",
+      "summary": "Registers a single NonBlockingMemoryConsumer for receive callbacks, throwing an Error if a consumer is already registered.",
+      "tags": ["consumer", "receive", "register"],
+      "complexity": "simple",
+      "languageNotes": "Uses jx.fs.buffer.separator.NonBlockingMemoryConsumer (external)."
+    },
+    {
+      "id": "function:src/org/jnode/driver/net/lance/LanceDriver.java:getSupportedConfigurations",
+      "type": "function",
+      "name": "getSupportedConfigurations",
+      "filePath": "src/org/jnode/driver/net/lance/LanceDriver.java",
+      "summary": "NetworkDevice.getSupportedConfigurations stub that always throws UnsupportedOperationException.",
+      "tags": ["stub", "unsupported"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/org/jnode/driver/net/lance/LanceDriver.java:open",
+      "type": "function",
+      "name": "open",
+      "filePath": "src/org/jnode/driver/net/lance/LanceDriver.java",
+      "summary": "Opens the device by calling abstractDeviceCore.initialize().",
+      "tags": ["open", "initialize", "core"],
+      "complexity": "simple",
+      "languageNotes": "Delegates to LanceCore (outside batch)."
+    },
+    {
+      "id": "function:src/org/jnode/driver/net/lance/LanceDriver.java:close",
+      "type": "function",
+      "name": "close",
+      "filePath": "src/org/jnode/driver/net/lance/LanceDriver.java",
+      "summary": "NetworkDevice.close stub with an empty body; close behavior not implemented.",
+      "tags": ["stub", "close"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/org/jnode/driver/net/lance/LanceDriver.java:onReceive",
+      "type": "function",
+      "name": "onReceive",
+      "filePath": "src/org/jnode/driver/net/lance/LanceDriver.java",
+      "summary": "Receive callback: hands the received memory buffer to the registered etherConsumer via processMemory and kicks the consumer thread.",
+      "tags": ["receive", "callback", "consumer"],
+      "complexity": "simple",
+      "languageNotes": "Invokes methods on NonBlockingMemoryConsumer (external)."
+    },
+    {
+      "id": "function:src/org/jnode/driver/net/lance/LanceDriver.java:getId",
+      "type": "function",
+      "name": "getId",
+      "filePath": "src/org/jnode/driver/net/lance/LanceDriver.java",
+      "summary": "NetworkDevice.getId stub that always throws UnsupportedOperationException.",
+      "tags": ["stub", "unsupported"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/org/jnode/driver/net/lance/LanceFlags.java",
+      "type": "file",
+      "name": "LanceFlags.java",
+      "filePath": "src/org/jnode/driver/net/lance/LanceFlags.java",
+      "summary": "Configuration flags container for the Lance/PCnet driver. Holds the device name, chip name, full-duplex, auto-select and must-unreset settings, with setForVersion mapping chip version codes to human-readable PCnet chip names.",
+      "tags": ["lance", "config", "flags", "chip-version", "pcncet"],
+      "complexity": "simple",
+      "languageNotes": "Simple data class with getters; a version of it exists in original JNode core."
+    },
+    {
+      "id": "class:src/org/jnode/driver/net/lance/LanceFlags.java:LanceFlags",
+      "type": "class",
+      "name": "LanceFlags",
+      "filePath": "src/org/jnode/driver/net/lance/LanceFlags.java",
+      "summary": "Immutable-ish flag holder for the Lance NIC driver: name, chip name, fullDuplex, autoSelectEnabled, mustUnreset. Only setForVersion mutates chipName/fullDuplex based on chip version.",
+      "tags": ["lance", "flags", "config"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/org/jnode/driver/net/lance/LanceFlags.java:LanceFlags",
+      "type": "function",
+      "name": "LanceFlags",
+      "filePath": "src/org/jnode/driver/net/lance/LanceFlags.java",
+      "summary": "Constructor initializing name to the given string, chipName to 'Unknown', and fullDuplex/autoSelectEnabled/mustUnreset to false.",
+      "tags": ["constructor", "init"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/org/jnode/driver/net/lance/LanceFlags.java:setForVersion",
+      "type": "function",
+      "name": "setForVersion",
+      "filePath": "src/org/jnode/driver/net/lance/LanceFlags.java",
+      "summary": "Maps a chip version integer to a PCnet chip name and full-duplex flag (0x2420-0x2627 range), defaulting to 'no device !' for unknown versions. Comments note the flags are incomplete and unused by LanceCore.",
+      "tags": ["chip-version", "pcncet", "full-duplex"],
+      "complexity": "moderate",
+      "languageNotes": "Large switch statement over chip version codes."
+    },
+    {
+      "id": "function:src/org/jnode/driver/net/lance/LanceFlags.java:getName",
+      "type": "function",
+      "name": "getName",
+      "filePath": "src/org/jnode/driver/net/lance/LanceFlags.java",
+      "summary": "Returns the device name string.",
+      "tags": ["getter", "name"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/org/jnode/driver/net/lance/LanceFlags.java:getChipName",
+      "type": "function",
+      "name": "getChipName",
+      "filePath": "src/org/jnode/driver/net/lance/LanceFlags.java",
+      "summary": "Returns the chip name string.",
+      "tags": ["getter", "chip-name"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/org/jnode/driver/net/lance/LanceFlags.java:isFullDuplex",
+      "type": "function",
+      "name": "isFullDuplex",
+      "filePath": "src/org/jnode/driver/net/lance/LanceFlags.java",
+      "summary": "Returns whether full-duplex mode is enabled.",
+      "tags": ["getter", "full-duplex"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/org/jnode/driver/net/lance/LanceFlags.java:isAutoSelectEnabled",
+      "type": "function",
+      "name": "isAutoSelectEnabled",
+      "filePath": "src/org/jnode/driver/net/lance/LanceFlags.java",
+      "summary": "Returns whether auto-select is enabled.",
+      "tags": ["getter", "auto-select"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/org/jnode/driver/net/lance/LanceFlags.java:isMustUnreset",
+      "type": "function",
+      "name": "isMustUnreset",
+      "filePath": "src/org/jnode/driver/net/lance/LanceFlags.java",
+      "summary": "Returns whether the device must be unreset.",
+      "tags": ["getter", "unreset"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/jx/net/devices/lance/LanceFinder.java",
+      "target": "file:src/org/jnode/driver/net/lance/LanceDriver.java",
+      "type": "imports",
+      "weight": 0.7,
+      "detail": "import org.jnode.driver.net.lance.LanceDriver"
+    },
+    {
+      "source": "file:src/jx/net/devices/lance/LanceFinder.java",
+      "target": "file:src/org/jnode/driver/net/lance/LanceFlags.java",
+      "type": "imports",
+      "weight": 0.7,
+      "detail": "import org.jnode.driver.net.lance.LanceFlags"
+    },
+    {
+      "source": "file:src/jx/net/devices/lance/LanceFinder.java",
+      "target": "class:src/jx/net/devices/lance/LanceFinder.java:LanceFinder",
+      "type": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/org/jnode/driver/net/lance/LanceDriver.java",
+      "target": "class:src/org/jnode/driver/net/lance/LanceDriver.java:LanceDriver",
+      "type": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/org/jnode/driver/net/lance/LanceFlags.java",
+      "target": "class:src/org/jnode/driver/net/lance/LanceFlags.java:LanceFlags",
+      "type": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "class:src/jx/net/devices/lance/LanceFinder.java:LanceFinder",
+      "target": "function:src/jx/net/devices/lance/LanceFinder.java:find",
+      "type": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "class:src/jx/net/devices/lance/LanceFinder.java:LanceFinder",
+      "target": "function:src/jx/net/devices/lance/LanceFinder.java:findDevice",
+      "type": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "class:src/org/jnode/driver/net/lance/LanceDriver.java:LanceDriver",
+      "target": "function:src/org/jnode/driver/net/lance/LanceDriver.java:LanceDriver",
+      "type": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "class:src/org/jnode/driver/net/lance/LanceDriver.java:LanceDriver",
+      "target": "function:src/org/jnode/driver/net/lance/LanceDriver.java:newCore",
+      "type": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "class:src/org/jnode/driver/net/lance/LanceDriver.java:LanceDriver",
+      "target": "function:src/org/jnode/driver/net/lance/LanceDriver.java:setReceiveMode",
+      "type": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "class:src/org/jnode/driver/net/lance/LanceDriver.java:LanceDriver",
+      "target": "function:src/org/jnode/driver/net/lance/LanceDriver.java:transmit",
+      "type": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "class:src/org/jnode/driver/net/lance/LanceDriver.java:LanceDriver",
+      "target": "function:src/org/jnode/driver/net/lance/LanceDriver.java:transmit1",
+      "type": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "class:src/org/jnode/driver/net/lance/LanceDriver.java:LanceDriver",
+      "target": "function:src/org/jnode/driver/net/lance/LanceDriver.java:getMACAddress",
+      "type": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "class:src/org/jnode/driver/net/lance/LanceDriver.java:LanceDriver",
+      "target": "function:src/org/jnode/driver/net/lance/LanceDriver.java:getMTU",
+      "type": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "class:src/org/jnode/driver/net/lance/LanceDriver.java:LanceDriver",
+      "target": "function:src/org/jnode/driver/net/lance/LanceDriver.java:registerNonBlockingConsumer",
+      "type": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "class:src/org/jnode/driver/net/lance/LanceDriver.java:LanceDriver",
+      "target": "function:src/org/jnode/driver/net/lance/LanceDriver.java:getSupportedConfigurations",
+      "type": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "class:src/org/jnode/driver/net/lance/LanceDriver.java:LanceDriver",
+      "target": "function:src/org/jnode/driver/net/lance/LanceDriver.java:open",
+      "type": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "class:src/org/jnode/driver/net/lance/LanceDriver.java:LanceDriver",
+      "target": "function:src/org/jnode/driver/net/lance/LanceDriver.java:close",
+      "type": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "class:src/org/jnode/driver/net/lance/LanceDriver.java:LanceDriver",
+      "target": "function:src/org/jnode/driver/net/lance/LanceDriver.java:onReceive",
+      "type": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "class:src/org/jnode/driver/net/lance/LanceDriver.java:LanceDriver",
+      "target": "function:src/org/jnode/driver/net/lance/LanceDriver.java:getId",
+      "type": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "class:src/org/jnode/driver/net/lance/LanceFlags.java:LanceFlags",
+      "target": "function:src/org/jnode/driver/net/lance/LanceFlags.java:LanceFlags",
+      "type": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "class:src/org/jnode/driver/net/lance/LanceFlags.java:LanceFlags",
+      "target": "function:src/org/jnode/driver/net/lance/LanceFlags.java:setForVersion",
+      "type": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "class:src/org/jnode/driver/net/lance/LanceFlags.java:LanceFlags",
+      "target": "function:src/org/jnode/driver/net/lance/LanceFlags.java:getName",
+      "type": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "class:src/org/jnode/driver/net/lance/LanceFlags.java:LanceFlags",
+      "target": "function:src/org/jnode/driver/net/lance/LanceFlags.java:getChipName",
+      "type": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "class:src/org/jnode/driver/net/lance/LanceFlags.java:LanceFlags",
+      "target": "function:src/org/jnode/driver/net/lance/LanceFlags.java:isFullDuplex",
+      "type": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "class:src/org/jnode/driver/net/lance/LanceFlags.java:LanceFlags",
+      "target": "function:src/org/jnode/driver/net/lance/LanceFlags.java:isAutoSelectEnabled",
+      "type": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "class:src/org/jnode/driver/net/lance/LanceFlags.java:LanceFlags",
+      "target": "function:src/org/jnode/driver/net/lance/LanceFlags.java:isMustUnreset",
+      "type": "contains",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/jx/net/devices/lance/LanceFinder.java",
+      "target": "file:src/org/jnode/driver/net/lance/LanceDriver.java",
+      "type": "related",
+      "weight": 0.5,
+      "detail": "Same lance/PCnet NIC subsystem"
+    },
+    {
+      "source": "file:src/jx/net/devices/lance/LanceFinder.java",
+      "target": "file:src/org/jnode/driver/net/lance/LanceFlags.java",
+      "type": "related",
+      "weight": 0.5,
+      "detail": "Same lance/PCnet NIC subsystem"
+    },
+    {
+      "source": "file:src/org/jnode/driver/net/lance/LanceDriver.java",
+      "target": "file:src/org/jnode/driver/net/lance/LanceFlags.java",
+      "type": "related",
+      "weight": 0.5,
+      "detail": "Same lance/PCnet NIC subsystem"
+    },
+    {
+      "source": "function:src/jx/net/devices/lance/LanceFinder.java:find",
+      "target": "function:src/jx/net/devices/lance/LanceFinder.java:findDevice",
+      "type": "calls",
+      "weight": 0.8,
+      "detail": "find() returns findDevice(bus)"
+    },
+    {
+      "source": "function:src/jx/net/devices/lance/LanceFinder.java:findDevice",
+      "target": "function:src/org/jnode/driver/net/lance/LanceDriver.java:LanceDriver",
+      "type": "calls",
+      "weight": 0.8,
+      "detail": "new LanceDriver(...) for supported Am79C970 NICs"
+    },
+    {
+      "source": "function:src/jx/net/devices/lance/LanceFinder.java:findDevice",
+      "target": "class:src/org/jnode/driver/net/lance/LanceFlags.java:LanceFlags",
+      "type": "uses",
+      "weight": 0.6,
+      "detail": "new LanceFlags(\"test\") passed to LanceDriver constructor"
+    },
+    {
+      "source": "function:src/org/jnode/driver/net/lance/LanceDriver.java:LanceDriver",
+      "target": "function:src/org/jnode/driver/net/lance/LanceDriver.java:newCore",
+      "type": "calls",
+      "weight": 0.8,
+      "detail": "Constructor builds core via newCore(device, flags, irq, ports, rm)"
+    },
+    {
+      "source": "class:src/org/jnode/driver/net/lance/LanceDriver.java:LanceDriver",
+      "target": "class:src/org/jnode/driver/net/lance/LanceFlags.java:LanceFlags",
+      "type": "uses",
+      "weight": 0.6,
+      "detail": "LanceFlags used as parameter type in constructor and newCore"
+    }
+  ]
+}

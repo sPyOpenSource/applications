@@ -1,0 +1,137 @@
+{
+  "nodes": [
+    {
+      "id": "config:nbproject/build-impl.xml",
+      "type": "config",
+      "name": "build-impl.xml",
+      "filePath": "nbproject/build-impl.xml",
+      "summary": "NetBeans-generated Ant build implementation containing macrodefs and targets for initialization, compilation (with module/processor support), JAR creation, execution, debugging, Javadoc generation, test compilation/execution (JUnit 4 and TestNG), profiling, and cleanup. Defines the complete build lifecycle for the testNET project.",
+      "tags": ["ant", "build", "netbeans", "compilation", "testing", "junit", "testng"],
+      "complexity": "complex",
+      "languageNotes": "XML with Ant macros and NetBeans-specific namespaces; generated from project.xml — do not edit directly"
+    },
+    {
+      "id": "config:nbproject/genfiles.properties",
+      "type": "config",
+      "name": "genfiles.properties",
+      "filePath": "nbproject/genfiles.properties",
+      "summary": "Tracks CRC32 checksums of generated files (build.xml, build-impl.xml data/script/stylesheet) to detect when NetBeans should regenerate build-impl.xml from project.xml.",
+      "tags": ["netbeans", "generated-files", "checksum", "regeneration"],
+      "complexity": "simple",
+      "languageNotes": "Java properties file with CRC32 hashes"
+    },
+    {
+      "id": "config:nbproject/project.properties",
+      "type": "config",
+      "name": "project.properties",
+      "filePath": "nbproject/project.properties",
+      "summary": "Main NetBeans project configuration defining source/test directories, Java 1.8 target, classpath references to five external JARs (AIZero, ifOS, OS, Zero, testFS), main class AI.Models.CPU, output JAR at dist/testNET.jar, and JUnit 4 as test framework.",
+      "tags": ["netbeans", "project-config", "classpath", "java8", "junit", "external-dependencies"],
+      "complexity": "moderate",
+      "languageNotes": "Java properties file; references external projects via relative paths"
+    },
+    {
+      "id": "config:nbproject/project.xml",
+      "type": "config",
+      "name": "project.xml",
+      "filePath": "nbproject/project.xml",
+      "summary": "NetBeans project metadata declaring project type (j2seproject), source root (src.dir), test root (test.src.dir), and five external project references (AIZero, OS, Zero, ifOS, testFS) as JAR dependencies with build/clean targets.",
+      "tags": ["netbeans", "project-metadata", "source-roots", "test-roots", "external-references"],
+      "complexity": "simple",
+      "languageNotes": "XML with NetBeans project namespace"
+    }
+  ],
+  "edges": [
+    {
+      "source": "config:nbproject/build-impl.xml",
+      "target": "config:nbproject/project.properties",
+      "type": "configures",
+      "weight": 0.6,
+      "detail": "build-impl.xml loads project.properties for build configuration (javac.classpath, src.dir, dist.jar, etc.)"
+    },
+    {
+      "source": "config:nbproject/build-impl.xml",
+      "target": "config:nbproject/project.xml",
+      "type": "configures",
+      "weight": 0.6,
+      "detail": "build-impl.xml is generated from project.xml per the header comment"
+    },
+    {
+      "source": "config:nbproject/project.properties",
+      "target": "config:nbproject/project.xml",
+      "type": "configures",
+      "weight": 0.6,
+      "detail": "project.properties expands references declared in project.xml (e.g., reference.ifOS.jar)"
+    },
+    {
+      "source": "config:nbproject/genfiles.properties",
+      "target": "config:nbproject/build-impl.xml",
+      "type": "configures",
+      "weight": 0.6,
+      "detail": "genfiles.properties tracks build-impl.xml checksums for regeneration"
+    },
+    {
+      "source": "config:nbproject/project.properties",
+      "target": "config:dist/testNET.jar",
+      "type": "configures",
+      "weight": 0.6,
+      "detail": "Defines dist.jar output path and main class AI.Models.CPU"
+    },
+    {
+      "source": "config:nbproject/build-impl.xml",
+      "target": "config:dist/testNET.jar",
+      "type": "configures",
+      "weight": 0.6,
+      "detail": "Contains jar target that produces the output JAR"
+    },
+    {
+      "source": "config:nbproject/build-impl.xml",
+      "target": "config:src",
+      "type": "configures",
+      "weight": 0.6,
+      "detail": "Compiles sources from src.dir (defined in project.properties)"
+    },
+    {
+      "source": "config:nbproject/build-impl.xml",
+      "target": "config:test",
+      "type": "configures",
+      "weight": 0.6,
+      "detail": "Compiles and runs tests from test.src.dir using JUnit 4/TestNG"
+    },
+    {
+      "source": "config:nbproject/project.xml",
+      "target": "config:nbproject/build-impl.xml",
+      "type": "related",
+      "weight": 0.5,
+      "detail": "Project metadata source for generated build implementation"
+    },
+    {
+      "source": "config:nbproject/project.xml",
+      "target": "config:nbproject/project.properties",
+      "type": "related",
+      "weight": 0.5,
+      "detail": "Project properties expand external references declared in project.xml"
+    },
+    {
+      "source": "config:nbproject/project.xml",
+      "target": "config:nbproject/genfiles.properties",
+      "type": "related",
+      "weight": 0.5,
+      "detail": "All part of NetBeans project configuration subsystem"
+    },
+    {
+      "source": "config:nbproject/project.properties",
+      "target": "config:nbproject/genfiles.properties",
+      "type": "related",
+      "weight": 0.5,
+      "detail": "Both are NetBeans project configuration files"
+    },
+    {
+      "source": "config:nbproject/build-impl.xml",
+      "target": "config:nbproject/genfiles.properties",
+      "type": "related",
+      "weight": 0.5,
+      "detail": "Generated build implementation tracked by genfiles.properties"
+    }
+  ]
+}

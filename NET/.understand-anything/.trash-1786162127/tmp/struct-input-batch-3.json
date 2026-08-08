@@ -1,0 +1,184 @@
+{
+ "projectRoot": "/Users/xuyi/Source/OS/armOS/lib/jcore/test/NET",
+ "batchFiles": [
+  {
+   "path": "build.xml",
+   "language": "xml",
+   "sizeLines": 73,
+   "fileCategory": "config"
+  },
+  {
+   "path": "manifest.mf",
+   "language": "mf",
+   "sizeLines": 3,
+   "fileCategory": "code"
+  },
+  {
+   "path": "packages/test_audit/test/audit/Dump.java",
+   "language": "java",
+   "sizeLines": 23,
+   "fileCategory": "code"
+  },
+  {
+   "path": "packages/test_audit/test/audit/Main.java",
+   "language": "java",
+   "sizeLines": 43,
+   "fileCategory": "code"
+  },
+  {
+   "path": "packages/test_credential/test/credential/Main.java",
+   "language": "java",
+   "sizeLines": 6,
+   "fileCategory": "code"
+  },
+  {
+   "path": "packages/test_fs_user/test/fsuser/CreateRemove.java",
+   "language": "java",
+   "sizeLines": 48,
+   "fileCategory": "code"
+  },
+  {
+   "path": "packages/test_fs_user/test/fsuser/IOZONE.java",
+   "language": "java",
+   "sizeLines": 438,
+   "fileCategory": "code"
+  },
+  {
+   "path": "packages/test_fsmulti/test/fsmulti/Main.java",
+   "language": "java",
+   "sizeLines": 82,
+   "fileCategory": "code"
+  },
+  {
+   "path": "packages/test_jdk_fs/test/jdkfs/IOZONE.java",
+   "language": "java",
+   "sizeLines": 487,
+   "fileCategory": "code"
+  },
+  {
+   "path": "packages/test_jdk_fs/test/jdkfs/Main.java",
+   "language": "java",
+   "sizeLines": 10,
+   "fileCategory": "code"
+  },
+  {
+   "path": "packages/test_jdk_net/test/jdknet/UDPReceiver.java",
+   "language": "java",
+   "sizeLines": 60,
+   "fileCategory": "code"
+  },
+  {
+   "path": "packages/test_jdk_net/test/jdknet/UDPTestSender.java",
+   "language": "java",
+   "sizeLines": 82,
+   "fileCategory": "code"
+  },
+  {
+   "path": "README.rst",
+   "language": "markdown",
+   "sizeLines": 12,
+   "fileCategory": "docs"
+  },
+  {
+   "path": "src/AI/AIInput.java",
+   "language": "java",
+   "sizeLines": 71,
+   "fileCategory": "code"
+  },
+  {
+   "path": "src/AI/AIOutput.java",
+   "language": "java",
+   "sizeLines": 56,
+   "fileCategory": "code"
+  },
+  {
+   "path": "src/jx/net/devices/lance/Lance.java",
+   "language": "java",
+   "sizeLines": 38,
+   "fileCategory": "code"
+  },
+  {
+   "path": "src/jx/net/protocols/StartNetworkProtocols.java",
+   "language": "java",
+   "sizeLines": 40,
+   "fileCategory": "code"
+  },
+  {
+   "path": "src/jx/netmanager/IPReceiver.java",
+   "language": "java",
+   "sizeLines": 111,
+   "fileCategory": "code"
+  },
+  {
+   "path": "src/jx/netmanager/IPSender.java",
+   "language": "java",
+   "sizeLines": 59,
+   "fileCategory": "code"
+  },
+  {
+   "path": "src/jx/netmanager/NetInit.java",
+   "language": "java",
+   "sizeLines": 289,
+   "fileCategory": "code"
+  },
+  {
+   "path": "src/jx/netmanager/UDPReceiver.java",
+   "language": "java",
+   "sizeLines": 172,
+   "fileCategory": "code"
+  },
+  {
+   "path": "src/jx/netmanager/UDPSender.java",
+   "language": "java",
+   "sizeLines": 60,
+   "fileCategory": "code"
+  },
+  {
+   "path": "src/org/jnode/driver/net/lance/BufferManager.java",
+   "language": "java",
+   "sizeLines": 100,
+   "fileCategory": "code"
+  },
+  {
+   "path": "src/org/jnode/driver/net/lance/Descriptor.java",
+   "language": "java",
+   "sizeLines": 96,
+   "fileCategory": "code"
+  },
+  {
+   "path": "src/org/jnode/driver/net/lance/DescriptorRing.java",
+   "language": "java",
+   "sizeLines": 51,
+   "fileCategory": "code"
+  }
+ ],
+ "batchImportData": {
+  "build.xml": [],
+  "manifest.mf": [],
+  "packages/test_audit/test/audit/Dump.java": [],
+  "packages/test_audit/test/audit/Main.java": [],
+  "packages/test_credential/test/credential/Main.java": [],
+  "packages/test_fs_user/test/fsuser/CreateRemove.java": [],
+  "packages/test_fs_user/test/fsuser/IOZONE.java": [],
+  "packages/test_fsmulti/test/fsmulti/Main.java": [],
+  "packages/test_jdk_fs/test/jdkfs/IOZONE.java": [],
+  "packages/test_jdk_fs/test/jdkfs/Main.java": [],
+  "packages/test_jdk_net/test/jdknet/UDPReceiver.java": [],
+  "packages/test_jdk_net/test/jdknet/UDPTestSender.java": [],
+  "README.rst": [],
+  "src/AI/AIInput.java": [],
+  "src/AI/AIOutput.java": [],
+  "src/jx/net/devices/lance/Lance.java": [],
+  "src/jx/net/protocols/StartNetworkProtocols.java": [],
+  "src/jx/netmanager/IPReceiver.java": [],
+  "src/jx/netmanager/IPSender.java": [],
+  "src/jx/netmanager/NetInit.java": [
+   "src/org/jnode/net/ipv4/dhcp/DHCPClient.java"
+  ],
+  "src/jx/netmanager/UDPReceiver.java": [],
+  "src/jx/netmanager/UDPSender.java": [],
+  "src/org/jnode/driver/net/lance/BufferManager.java": [],
+  "src/org/jnode/driver/net/lance/Descriptor.java": [],
+  "src/org/jnode/driver/net/lance/DescriptorRing.java": []
+ }
+}

@@ -1,0 +1,998 @@
+{
+  "schemaVersion": 1,
+  "algorithm": "louvain",
+  "totalFiles": 66,
+  "totalBatches": 5,
+  "exportsByPath": {
+    "manifest.mf": [],
+    "packages/test_audit/test/audit/Dump.java": [
+      "main",
+      "Dump"
+    ],
+    "packages/test_audit/test/audit/Main.java": [
+      "main",
+      "Main"
+    ],
+    "packages/test_credential/test/credential/Main.java": [
+      "main"
+    ],
+    "packages/test_fs_user/test/fsuser/CreateRemove.java": [
+      "main",
+      "CreateRemove"
+    ],
+    "packages/test_fs_user/test/fsuser/IOZONE.java": [
+      "IOZONE_MAX_FILESIZE",
+      "main",
+      "IOZONE",
+      "IOZONE"
+    ],
+    "packages/test_fsmulti/test/fsmulti/Main.java": [
+      "main",
+      "Main"
+    ],
+    "packages/test_jdk_fs/test/jdkfs/IOZONE.java": [
+      "IOZONE_MAX_FILESIZE",
+      "main",
+      "IOZONE",
+      "IOZONE"
+    ],
+    "packages/test_jdk_fs/test/jdkfs/Main.java": [
+      "main",
+      "Main"
+    ],
+    "packages/test_jdk_net/test/jdknet/UDPReceiver.java": [
+      "main",
+      "UDPReceiver"
+    ],
+    "packages/test_jdk_net/test/jdknet/UDPTestSender.java": [
+      "main",
+      "UDPTestSender"
+    ],
+    "src/AI/AIInput.java": [
+      "AIInput",
+      "AIInput"
+    ],
+    "src/AI/AIOutput.java": [
+      "AIOutput",
+      "getOut",
+      "AIOutput"
+    ],
+    "src/jx/net/devices/lance/Lance.java": [
+      "getSupportedConfigurations",
+      "open",
+      "close",
+      "setReceiveMode",
+      "transmit",
+      "transmit1",
+      "getMACAddress",
+      "getMTU",
+      "registerNonBlockingConsumer",
+      "getId"
+    ],
+    "src/jx/net/devices/lance/LanceFinder.java": [
+      "find",
+      "findDevice",
+      "LanceFinder"
+    ],
+    "src/jx/net/protocols/StartNetworkProtocols.java": [
+      "main",
+      "StartNetworkProtocols"
+    ],
+    "src/jx/netmanager/IPReceiver.java": [
+      "IPReceiver",
+      "IPReceiver",
+      "receive",
+      "receive",
+      "close"
+    ],
+    "src/jx/netmanager/IPSender.java": [
+      "send",
+      "send",
+      "close",
+      "getDestination"
+    ],
+    "src/jx/netmanager/NetInit.java": [
+      "NetInit",
+      "NetInit",
+      "getTCP",
+      "getTCPSocket",
+      "getUDPReceiver",
+      "getUDPSender",
+      "getIPReceiver",
+      "getIPReceiver",
+      "getIPSender",
+      "getTCPBuffer",
+      "getUDPBuffer",
+      "getTCPBuffer",
+      "getUDPBuffer",
+      "getIPBuffer",
+      "getIPBuffer",
+      "getLocalAddress",
+      "init",
+      "NetInit"
+    ],
+    "src/jx/netmanager/UDPReceiver.java": [
+      "UDPReceiver",
+      "receive",
+      "receive",
+      "close"
+    ],
+    "src/jx/netmanager/UDPSender.java": [
+      "send1",
+      "send",
+      "close",
+      "getLocalPort",
+      "getRemotePort",
+      "getDestination"
+    ],
+    "src/org/jnode/driver/net/lance/BufferManager.java": [
+      "DATA_BUFFER_SIZE",
+      "BufferManager",
+      "getInitDataAddressAs32Bit",
+      "transmit",
+      "getPacket",
+      "BufferManager"
+    ],
+    "src/org/jnode/driver/net/lance/Descriptor.java": [
+      "MESSAGE_DESCRIPTOR_SIZE",
+      "STATUS",
+      "STATUS_OWN",
+      "STATUS_ERR",
+      "STATUS_STP",
+      "STATUS_ENP",
+      "STATUS_BPE",
+      "BCNT",
+      "Descriptor",
+      "isOwnerSelf",
+      "setOwnerSelf",
+      "getStatus",
+      "setStatus",
+      "Descriptor"
+    ],
+    "src/org/jnode/driver/net/lance/DescriptorRing.java": [
+      "DescriptorRing",
+      "getSize",
+      "getLength",
+      "getAddressAs32",
+      "DescriptorRing"
+    ],
+    "src/org/jnode/driver/net/lance/DWordIOAccess.java": [
+      "DWordIOAccess",
+      "getType",
+      "reset",
+      "getCSR",
+      "setCSR",
+      "getBCR",
+      "setBCR",
+      "DWordIOAccess"
+    ],
+    "src/org/jnode/driver/net/lance/InitializationBlock32Bit.java": [
+      "INIT_BLOCK_SIZE",
+      "InitializationBlock32Bit",
+      "InitializationBlock32Bit"
+    ],
+    "src/org/jnode/driver/net/lance/IOAccess.java": [
+      "IOAccess",
+      "getType",
+      "reset",
+      "getCSR",
+      "setCSR",
+      "getBCR",
+      "setBCR",
+      "IOAccess"
+    ],
+    "src/org/jnode/driver/net/lance/LanceConstants.java": [
+      "LanceConstants"
+    ],
+    "src/org/jnode/driver/net/lance/LanceCore.java": [
+      "LanceCore",
+      "initialize",
+      "disable",
+      "release",
+      "getHwAddress",
+      "transmit",
+      "interrupt",
+      "LanceCore"
+    ],
+    "src/org/jnode/driver/net/lance/LanceDriver.java": [
+      "ETH_DATA_LEN",
+      "LanceDriver",
+      "setReceiveMode",
+      "transmit",
+      "transmit1",
+      "getMACAddress",
+      "getMTU",
+      "registerNonBlockingConsumer",
+      "getSupportedConfigurations",
+      "open",
+      "close",
+      "getId",
+      "LanceDriver"
+    ],
+    "src/org/jnode/driver/net/lance/LanceFlags.java": [
+      "LanceFlags",
+      "setForVersion",
+      "getName",
+      "getChipName",
+      "isFullDuplex",
+      "isAutoSelectEnabled",
+      "isMustUnreset",
+      "LanceFlags"
+    ],
+    "src/org/jnode/driver/net/lance/RxDescriptor.java": [
+      "STATUS_FRAM",
+      "STATUS_OFLO",
+      "STATUS_CRC",
+      "STATUS_BUFF",
+      "RxDescriptor",
+      "clearStatus",
+      "getMessageByteCount",
+      "getDataBuffer",
+      "RxDescriptor"
+    ],
+    "src/org/jnode/driver/net/lance/RxDescriptorRing.java": [
+      "RxDescriptorRing",
+      "getPacket",
+      "RxDescriptorRing"
+    ],
+    "src/org/jnode/driver/net/lance/TxDescriptor.java": [
+      "TxDescriptor",
+      "transmit",
+      "TxDescriptor"
+    ],
+    "src/org/jnode/driver/net/lance/TxDescriptorRing.java": [
+      "TxDescriptorRing",
+      "transmit",
+      "TxDescriptorRing"
+    ],
+    "src/org/jnode/driver/net/lance/WordIOAccess.java": [
+      "WordIOAccess",
+      "getType",
+      "reset",
+      "getCSR",
+      "setCSR",
+      "getBCR",
+      "setBCR",
+      "WordIOAccess"
+    ],
+    "src/org/jnode/net/ipv4/dhcp/AbstractDHCPClient.java": [
+      "AbstractDHCPClient",
+      "createRequestPacket",
+      "processResponse",
+      "AbstractDHCPClient"
+    ],
+    "src/org/jnode/net/ipv4/dhcp/DHCPClient.java": [
+      "DHCPClient",
+      "DHCPClient"
+    ],
+    "src/org/jnode/net/ipv4/dhcp/DHCPMessage.java": [
+      "OPTIONS_SIZE",
+      "SIZE",
+      "PAD_OPTION",
+      "SUBNET_MASK_OPTION",
+      "TIME_OFFSET_OPTION",
+      "ROUTER_OPTION",
+      "TIME_SERVER_OPTION",
+      "NAME_SERVER_OPTION",
+      "DNS_OPTION",
+      "LOG_SERVER_OPTION",
+      "COOKIE_SERVER_OPTION",
+      "LPR_SERVER_OPTION",
+      "HOST_NAME_OPTION",
+      "DOMAIN_NAME_OPTION",
+      "TTL_OPTION",
+      "REQUESTED_IP_ADDRESS_OPTION",
+      "LEASE_TIME_OPTION",
+      "OPTION_OVERLOAD_OPTION",
+      "FILE_OVERLOAD",
+      "SNAME_OVERLOAD",
+      "BOTH_OVERLOAD",
+      "MESSAGE_TYPE_OPTION",
+      "SERVER_IDENTIFIER_OPTION",
+      "MESSAGE_OPTION",
+      "MAX_PACKET_SIZE_OPTION",
+      "MIN_PACKET_SIZE",
+      "RENEWAL_TIME_OPTION",
+      "REBINDING_TIME_OPTION",
+      "CLIENT_IDENTIFIER_OPTION",
+      "TFTP_SERVER_OPTION",
+      "SMTP_SERVER_OPTION",
+      "POP3_SERVER_OPTION",
+      "NNTP_SERVER_OPTION",
+      "WWW_SERVER_OPTION",
+      "FINGER_SERVER_OPTION",
+      "IRC_SERVER_OPTION",
+      "PLUGIN_LOADER_OPTION",
+      "END_OPTION",
+      "DHCPDISCOVER",
+      "DHCPOFFER",
+      "DHCPREQUEST",
+      "DHCPDECLINE",
+      "DHCPACK",
+      "DHCPNAK",
+      "DHCPRELEASE",
+      "DHCPINFORM",
+      "DHCPMessage",
+      "DHCPMessage",
+      "getHeader",
+      "setMessageType",
+      "getMessageType",
+      "setOption",
+      "setOption16",
+      "setOption",
+      "setOption",
+      "getOption",
+      "toDatagramPacket",
+      "DHCPMessage"
+    ],
+    "src/test/minitcp/Main.java": [
+      "main",
+      "Main"
+    ],
+    "src/test/minitcp/MiniServerDomain.java": [
+      "init"
+    ],
+    "src/test/net/Main.java": [
+      "test",
+      "Main",
+      "main"
+    ],
+    "src/test/net/StartIPTest.java": [
+      "main"
+    ],
+    "src/test/net/StartNICTest.java": [
+      "main"
+    ],
+    "src/test/net/StartTCPTest.java": [
+      "verbose",
+      "main"
+    ],
+    "src/test/net/StartTest.java": [
+      "main"
+    ],
+    "src/test/net/TCPWebWorker.java": [
+      "init",
+      "processRequest",
+      "constructHeader",
+      "constructHeader",
+      "constructErrorHeader"
+    ],
+    "src/test/net/TCPWorker.java": [
+      "init"
+    ],
+    "src/test/net/WebServer.java": [
+      "main",
+      "WebServer",
+      "WebServer"
+    ],
+    "test/nfs/DummyClock.java": [
+      "getTimeInMillis",
+      "getTicks",
+      "getTicks_low",
+      "getTicks_high",
+      "getCycles",
+      "subtract",
+      "toMicroSec",
+      "toNanoSec",
+      "toMilliSec"
+    ],
+    "test/nfs/LoadGenerator.java": [
+      "init",
+      "LoadGenerator",
+      "run",
+      "LoadGenerator"
+    ],
+    "test/nfs/Main.java": [
+      "Main"
+    ],
+    "test/nfs/MountProc_Skel.java": [
+      "MountProc_Skel",
+      "MountProc_Skel"
+    ],
+    "test/nfs/MountProc_Stub.java": [
+      "MountProc_Stub",
+      "nullproc",
+      "mnt",
+      "dump",
+      "umnt",
+      "umntall",
+      "export",
+      "MountProc_Stub"
+    ],
+    "test/nfs/NFSClient.java": [
+      "NFSClient"
+    ],
+    "test/nfs/NFSDomain.java": [
+      "init",
+      "main",
+      "NFSDomain"
+    ],
+    "test/nfs/NFSProc_Skel.java": [
+      "NFSProc_Skel",
+      "NFSProc_Skel"
+    ],
+    "test/nfs/NFSProc_Stub.java": [
+      "NFSProc_Stub",
+      "nullproc",
+      "getattr",
+      "setattr",
+      "root",
+      "lookup",
+      "readlink",
+      "read",
+      "writeCache",
+      "write",
+      "create",
+      "remove",
+      "rename",
+      "link",
+      "symlink",
+      "mkdir",
+      "rmdir",
+      "readdir",
+      "statfs",
+      "NFSProc_Stub"
+    ],
+    "test/nfs/RPCBind_Skel.java": [
+      "RPCBind_Skel",
+      "RPCBind_Skel"
+    ],
+    "test/test/JUnitTest.java": [
+      "testIncomingMessages",
+      "testOutgoingMessages2ArduinoDequeLast",
+      "testConfiguresGetLast",
+      "testEmotions",
+      "testLogpath",
+      "testCPU",
+      "testByteCode",
+      "JUnitTest"
+    ]
+  },
+  "batches": [
+    {
+      "batchIndex": 1,
+      "files": [
+        {
+          "path": "src/jx/net/devices/lance/LanceFinder.java",
+          "language": "java",
+          "sizeLines": 75,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/org/jnode/driver/net/lance/LanceDriver.java",
+          "language": "java",
+          "sizeLines": 163,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/org/jnode/driver/net/lance/LanceFlags.java",
+          "language": "java",
+          "sizeLines": 111,
+          "fileCategory": "code"
+        }
+      ],
+      "batchImportData": {
+        "src/jx/net/devices/lance/LanceFinder.java": [
+          "src/org/jnode/driver/net/lance/LanceDriver.java",
+          "src/org/jnode/driver/net/lance/LanceFlags.java"
+        ],
+        "src/org/jnode/driver/net/lance/LanceDriver.java": [],
+        "src/org/jnode/driver/net/lance/LanceFlags.java": []
+      },
+      "neighborMap": {}
+    },
+    {
+      "batchIndex": 2,
+      "files": [
+        {
+          "path": "nbproject/build-impl.xml",
+          "language": "xml",
+          "sizeLines": 1861,
+          "fileCategory": "config"
+        },
+        {
+          "path": "nbproject/genfiles.properties",
+          "language": "properties",
+          "sizeLines": 8,
+          "fileCategory": "config"
+        },
+        {
+          "path": "nbproject/project.properties",
+          "language": "properties",
+          "sizeLines": 115,
+          "fileCategory": "config"
+        },
+        {
+          "path": "nbproject/project.xml",
+          "language": "xml",
+          "sizeLines": 57,
+          "fileCategory": "config"
+        }
+      ],
+      "batchImportData": {
+        "nbproject/build-impl.xml": [],
+        "nbproject/genfiles.properties": [],
+        "nbproject/project.properties": [],
+        "nbproject/project.xml": []
+      },
+      "neighborMap": {}
+    },
+    {
+      "batchIndex": 3,
+      "files": [
+        {
+          "path": "build.xml",
+          "language": "xml",
+          "sizeLines": 73,
+          "fileCategory": "config"
+        },
+        {
+          "path": "manifest.mf",
+          "language": "mf",
+          "sizeLines": 3,
+          "fileCategory": "code"
+        },
+        {
+          "path": "packages/test_audit/test/audit/Dump.java",
+          "language": "java",
+          "sizeLines": 23,
+          "fileCategory": "code"
+        },
+        {
+          "path": "packages/test_audit/test/audit/Main.java",
+          "language": "java",
+          "sizeLines": 43,
+          "fileCategory": "code"
+        },
+        {
+          "path": "packages/test_credential/test/credential/Main.java",
+          "language": "java",
+          "sizeLines": 6,
+          "fileCategory": "code"
+        },
+        {
+          "path": "packages/test_fs_user/test/fsuser/CreateRemove.java",
+          "language": "java",
+          "sizeLines": 48,
+          "fileCategory": "code"
+        },
+        {
+          "path": "packages/test_fs_user/test/fsuser/IOZONE.java",
+          "language": "java",
+          "sizeLines": 438,
+          "fileCategory": "code"
+        },
+        {
+          "path": "packages/test_fsmulti/test/fsmulti/Main.java",
+          "language": "java",
+          "sizeLines": 82,
+          "fileCategory": "code"
+        },
+        {
+          "path": "packages/test_jdk_fs/test/jdkfs/IOZONE.java",
+          "language": "java",
+          "sizeLines": 487,
+          "fileCategory": "code"
+        },
+        {
+          "path": "packages/test_jdk_fs/test/jdkfs/Main.java",
+          "language": "java",
+          "sizeLines": 10,
+          "fileCategory": "code"
+        },
+        {
+          "path": "packages/test_jdk_net/test/jdknet/UDPReceiver.java",
+          "language": "java",
+          "sizeLines": 60,
+          "fileCategory": "code"
+        },
+        {
+          "path": "packages/test_jdk_net/test/jdknet/UDPTestSender.java",
+          "language": "java",
+          "sizeLines": 82,
+          "fileCategory": "code"
+        },
+        {
+          "path": "README.rst",
+          "language": "markdown",
+          "sizeLines": 12,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "src/AI/AIInput.java",
+          "language": "java",
+          "sizeLines": 71,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/AI/AIOutput.java",
+          "language": "java",
+          "sizeLines": 56,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/devices/lance/Lance.java",
+          "language": "java",
+          "sizeLines": 38,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/net/protocols/StartNetworkProtocols.java",
+          "language": "java",
+          "sizeLines": 40,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/netmanager/IPReceiver.java",
+          "language": "java",
+          "sizeLines": 111,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/netmanager/IPSender.java",
+          "language": "java",
+          "sizeLines": 59,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/netmanager/NetInit.java",
+          "language": "java",
+          "sizeLines": 289,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/netmanager/UDPReceiver.java",
+          "language": "java",
+          "sizeLines": 172,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/jx/netmanager/UDPSender.java",
+          "language": "java",
+          "sizeLines": 60,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/org/jnode/driver/net/lance/BufferManager.java",
+          "language": "java",
+          "sizeLines": 100,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/org/jnode/driver/net/lance/Descriptor.java",
+          "language": "java",
+          "sizeLines": 96,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/org/jnode/driver/net/lance/DescriptorRing.java",
+          "language": "java",
+          "sizeLines": 51,
+          "fileCategory": "code"
+        }
+      ],
+      "batchImportData": {
+        "build.xml": [],
+        "manifest.mf": [],
+        "packages/test_audit/test/audit/Dump.java": [],
+        "packages/test_audit/test/audit/Main.java": [],
+        "packages/test_credential/test/credential/Main.java": [],
+        "packages/test_fs_user/test/fsuser/CreateRemove.java": [],
+        "packages/test_fs_user/test/fsuser/IOZONE.java": [],
+        "packages/test_fsmulti/test/fsmulti/Main.java": [],
+        "packages/test_jdk_fs/test/jdkfs/IOZONE.java": [],
+        "packages/test_jdk_fs/test/jdkfs/Main.java": [],
+        "packages/test_jdk_net/test/jdknet/UDPReceiver.java": [],
+        "packages/test_jdk_net/test/jdknet/UDPTestSender.java": [],
+        "README.rst": [],
+        "src/AI/AIInput.java": [],
+        "src/AI/AIOutput.java": [],
+        "src/jx/net/devices/lance/Lance.java": [],
+        "src/jx/net/protocols/StartNetworkProtocols.java": [],
+        "src/jx/netmanager/IPReceiver.java": [],
+        "src/jx/netmanager/IPSender.java": [],
+        "src/jx/netmanager/NetInit.java": [
+          "src/org/jnode/net/ipv4/dhcp/DHCPClient.java"
+        ],
+        "src/jx/netmanager/UDPReceiver.java": [],
+        "src/jx/netmanager/UDPSender.java": [],
+        "src/org/jnode/driver/net/lance/BufferManager.java": [],
+        "src/org/jnode/driver/net/lance/Descriptor.java": [],
+        "src/org/jnode/driver/net/lance/DescriptorRing.java": []
+      },
+      "neighborMap": {
+        "src/jx/netmanager/NetInit.java": [
+          {
+            "path": "src/org/jnode/net/ipv4/dhcp/DHCPClient.java",
+            "batchIndex": 4,
+            "symbols": [
+              "DHCPClient",
+              "DHCPClient"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "batchIndex": 4,
+      "files": [
+        {
+          "path": "src/org/jnode/driver/net/lance/DWordIOAccess.java",
+          "language": "java",
+          "sizeLines": 68,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/org/jnode/driver/net/lance/InitializationBlock32Bit.java",
+          "language": "java",
+          "sizeLines": 78,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/org/jnode/driver/net/lance/IOAccess.java",
+          "language": "java",
+          "sizeLines": 75,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/org/jnode/driver/net/lance/LanceConstants.java",
+          "language": "java",
+          "sizeLines": 131,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/org/jnode/driver/net/lance/LanceCore.java",
+          "language": "java",
+          "sizeLines": 468,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/org/jnode/driver/net/lance/RxDescriptor.java",
+          "language": "java",
+          "sizeLines": 60,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/org/jnode/driver/net/lance/RxDescriptorRing.java",
+          "language": "java",
+          "sizeLines": 106,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/org/jnode/driver/net/lance/TxDescriptor.java",
+          "language": "java",
+          "sizeLines": 53,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/org/jnode/driver/net/lance/TxDescriptorRing.java",
+          "language": "java",
+          "sizeLines": 81,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/org/jnode/driver/net/lance/WordIOAccess.java",
+          "language": "java",
+          "sizeLines": 67,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/org/jnode/net/ipv4/dhcp/AbstractDHCPClient.java",
+          "language": "java",
+          "sizeLines": 170,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/org/jnode/net/ipv4/dhcp/DHCPClient.java",
+          "language": "java",
+          "sizeLines": 150,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/org/jnode/net/ipv4/dhcp/DHCPMessage.java",
+          "language": "java",
+          "sizeLines": 322,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/test/minitcp/Main.java",
+          "language": "java",
+          "sizeLines": 49,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/test/minitcp/MiniServerDomain.java",
+          "language": "java",
+          "sizeLines": 18,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/test/net/Main.java",
+          "language": "java",
+          "sizeLines": 205,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/test/net/StartIPTest.java",
+          "language": "java",
+          "sizeLines": 46,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/test/net/StartNICTest.java",
+          "language": "java",
+          "sizeLines": 39,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/test/net/StartTCPTest.java",
+          "language": "java",
+          "sizeLines": 154,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/test/net/StartTest.java",
+          "language": "java",
+          "sizeLines": 36,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/test/net/TCPWebWorker.java",
+          "language": "java",
+          "sizeLines": 181,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/test/net/TCPWorker.java",
+          "language": "java",
+          "sizeLines": 22,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/test/net/WebServer.java",
+          "language": "java",
+          "sizeLines": 148,
+          "fileCategory": "code"
+        },
+        {
+          "path": "test/nfs/DummyClock.java",
+          "language": "java",
+          "sizeLines": 16,
+          "fileCategory": "code"
+        },
+        {
+          "path": "test/nfs/LoadGenerator.java",
+          "language": "java",
+          "sizeLines": 46,
+          "fileCategory": "code"
+        }
+      ],
+      "batchImportData": {
+        "src/org/jnode/driver/net/lance/DWordIOAccess.java": [],
+        "src/org/jnode/driver/net/lance/InitializationBlock32Bit.java": [],
+        "src/org/jnode/driver/net/lance/IOAccess.java": [],
+        "src/org/jnode/driver/net/lance/LanceConstants.java": [],
+        "src/org/jnode/driver/net/lance/LanceCore.java": [],
+        "src/org/jnode/driver/net/lance/RxDescriptor.java": [],
+        "src/org/jnode/driver/net/lance/RxDescriptorRing.java": [],
+        "src/org/jnode/driver/net/lance/TxDescriptor.java": [],
+        "src/org/jnode/driver/net/lance/TxDescriptorRing.java": [],
+        "src/org/jnode/driver/net/lance/WordIOAccess.java": [],
+        "src/org/jnode/net/ipv4/dhcp/AbstractDHCPClient.java": [],
+        "src/org/jnode/net/ipv4/dhcp/DHCPClient.java": [],
+        "src/org/jnode/net/ipv4/dhcp/DHCPMessage.java": [],
+        "src/test/minitcp/Main.java": [],
+        "src/test/minitcp/MiniServerDomain.java": [],
+        "src/test/net/Main.java": [],
+        "src/test/net/StartIPTest.java": [],
+        "src/test/net/StartNICTest.java": [],
+        "src/test/net/StartTCPTest.java": [],
+        "src/test/net/StartTest.java": [],
+        "src/test/net/TCPWebWorker.java": [],
+        "src/test/net/TCPWorker.java": [],
+        "src/test/net/WebServer.java": [],
+        "test/nfs/DummyClock.java": [],
+        "test/nfs/LoadGenerator.java": []
+      },
+      "neighborMap": {
+        "src/org/jnode/net/ipv4/dhcp/DHCPClient.java": [
+          {
+            "path": "src/jx/netmanager/NetInit.java",
+            "batchIndex": 3,
+            "symbols": [
+              "NetInit",
+              "NetInit",
+              "getTCP",
+              "getTCPSocket",
+              "getUDPReceiver",
+              "getUDPSender",
+              "getIPReceiver",
+              "getIPReceiver",
+              "getIPSender",
+              "getTCPBuffer",
+              "getUDPBuffer",
+              "getTCPBuffer",
+              "getUDPBuffer",
+              "getIPBuffer",
+              "getIPBuffer",
+              "getLocalAddress",
+              "init",
+              "NetInit"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "batchIndex": 5,
+      "files": [
+        {
+          "path": "test/nfs/Main.java",
+          "language": "java",
+          "sizeLines": 9,
+          "fileCategory": "code"
+        },
+        {
+          "path": "test/nfs/MountProc_Skel.java",
+          "language": "java",
+          "sizeLines": 19,
+          "fileCategory": "code"
+        },
+        {
+          "path": "test/nfs/MountProc_Stub.java",
+          "language": "java",
+          "sizeLines": 54,
+          "fileCategory": "code"
+        },
+        {
+          "path": "test/nfs/NFSClient.java",
+          "language": "java",
+          "sizeLines": 69,
+          "fileCategory": "code"
+        },
+        {
+          "path": "test/nfs/NFSDomain.java",
+          "language": "java",
+          "sizeLines": 79,
+          "fileCategory": "code"
+        },
+        {
+          "path": "test/nfs/NFSProc_Skel.java",
+          "language": "java",
+          "sizeLines": 19,
+          "fileCategory": "code"
+        },
+        {
+          "path": "test/nfs/NFSProc_Stub.java",
+          "language": "java",
+          "sizeLines": 128,
+          "fileCategory": "code"
+        },
+        {
+          "path": "test/nfs/RPCBind_Skel.java",
+          "language": "java",
+          "sizeLines": 19,
+          "fileCategory": "code"
+        },
+        {
+          "path": "test/test/JUnitTest.java",
+          "language": "java",
+          "sizeLines": 78,
+          "fileCategory": "code"
+        }
+      ],
+      "batchImportData": {
+        "test/nfs/Main.java": [],
+        "test/nfs/MountProc_Skel.java": [],
+        "test/nfs/MountProc_Stub.java": [],
+        "test/nfs/NFSClient.java": [],
+        "test/nfs/NFSDomain.java": [],
+        "test/nfs/NFSProc_Skel.java": [],
+        "test/nfs/NFSProc_Stub.java": [],
+        "test/nfs/RPCBind_Skel.java": [],
+        "test/test/JUnitTest.java": []
+      },
+      "neighborMap": {}
+    }
+  ]
+}

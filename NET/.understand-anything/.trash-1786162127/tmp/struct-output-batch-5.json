@@ -1,0 +1,1454 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 9,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "test/nfs/Main.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 9,
+      "nonEmptyLines": 6,
+      "classes": [
+        {
+          "name": "Main",
+          "startLine": 3,
+          "endLine": 7,
+          "methods": [],
+          "properties": [
+            "RPC_LOCALPORT",
+            "testClient",
+            "EXT2FS_BLOCKSIZE"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Main",
+          "line": 3,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "test/nfs/MountProc_Skel.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 19,
+      "nonEmptyLines": 15,
+      "functions": [
+        {
+          "name": "MountProc_Skel",
+          "startLine": 16,
+          "endLine": 17,
+          "params": [
+            "rpc",
+            "mountPort",
+            "mountImpl"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "MountProc_Skel",
+          "startLine": 14,
+          "endLine": 19,
+          "methods": [
+            "MountProc_Skel"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "MountProc_Skel",
+          "line": 16,
+          "isDefault": false
+        },
+        {
+          "name": "MountProc_Skel",
+          "line": 14,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "test/nfs/MountProc_Stub.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 54,
+      "nonEmptyLines": 44,
+      "functions": [
+        {
+          "name": "MountProc_Stub",
+          "startLine": 21,
+          "endLine": 22,
+          "params": [
+            "rpc",
+            "rpcHost"
+          ]
+        },
+        {
+          "name": "nullproc",
+          "startLine": 24,
+          "endLine": 27,
+          "params": []
+        },
+        {
+          "name": "mnt",
+          "startLine": 29,
+          "endLine": 32,
+          "params": [
+            "d"
+          ]
+        },
+        {
+          "name": "dump",
+          "startLine": 34,
+          "endLine": 37,
+          "params": []
+        },
+        {
+          "name": "umnt",
+          "startLine": 39,
+          "endLine": 42,
+          "params": [
+            "d"
+          ]
+        },
+        {
+          "name": "umntall",
+          "startLine": 44,
+          "endLine": 47,
+          "params": []
+        },
+        {
+          "name": "export",
+          "startLine": 49,
+          "endLine": 52,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "MountProc_Stub",
+          "startLine": 19,
+          "endLine": 54,
+          "methods": [
+            "MountProc_Stub",
+            "nullproc",
+            "mnt",
+            "dump",
+            "umnt",
+            "umntall",
+            "export"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "MountProc_Stub",
+          "line": 21,
+          "isDefault": false
+        },
+        {
+          "name": "nullproc",
+          "line": 24,
+          "isDefault": false
+        },
+        {
+          "name": "mnt",
+          "line": 29,
+          "isDefault": false
+        },
+        {
+          "name": "dump",
+          "line": 34,
+          "isDefault": false
+        },
+        {
+          "name": "umnt",
+          "line": 39,
+          "isDefault": false
+        },
+        {
+          "name": "umntall",
+          "line": 44,
+          "isDefault": false
+        },
+        {
+          "name": "export",
+          "line": 49,
+          "isDefault": false
+        },
+        {
+          "name": "MountProc_Stub",
+          "line": 19,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "nullproc",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 26
+        },
+        {
+          "caller": "mnt",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 31
+        },
+        {
+          "caller": "dump",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 36
+        },
+        {
+          "caller": "umnt",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 41
+        },
+        {
+          "caller": "umntall",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 46
+        },
+        {
+          "caller": "export",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 51
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 8,
+        "functionCount": 7,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "test/nfs/NFSClient.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 69,
+      "nonEmptyLines": 54,
+      "functions": [
+        {
+          "name": "NFSClient",
+          "startLine": 23,
+          "endLine": 68,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "NFSClient",
+          "startLine": 19,
+          "endLine": 69,
+          "methods": [
+            "NFSClient"
+          ],
+          "properties": [
+            "RPC_LOCALPORT",
+            "EXT2FS_BLOCKSIZE"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "NFSClient",
+          "line": 19,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "NFSClient",
+          "callee": "InitialNaming.getInitialNaming",
+          "lineNumber": 24
+        },
+        {
+          "caller": "NFSClient",
+          "callee": "naming.lookup",
+          "lineNumber": 25
+        },
+        {
+          "caller": "NFSClient",
+          "callee": "naming.lookup",
+          "lineNumber": 26
+        },
+        {
+          "caller": "NFSClient",
+          "callee": "naming.lookup",
+          "lineNumber": 29
+        },
+        {
+          "caller": "NFSClient",
+          "callee": "new RPC",
+          "lineNumber": 32
+        },
+        {
+          "caller": "NFSClient",
+          "callee": "new IPv4Address",
+          "lineNumber": 35
+        },
+        {
+          "caller": "NFSClient",
+          "callee": "new MountProc_Stub",
+          "lineNumber": 36
+        },
+        {
+          "caller": "NFSClient",
+          "callee": "mount.mnt",
+          "lineNumber": 39
+        },
+        {
+          "caller": "NFSClient",
+          "callee": "new DirPath",
+          "lineNumber": 39
+        },
+        {
+          "caller": "NFSClient",
+          "callee": "new Error",
+          "lineNumber": 41
+        },
+        {
+          "caller": "NFSClient",
+          "callee": "new NFSProc_Stub",
+          "lineNumber": 48
+        },
+        {
+          "caller": "NFSClient",
+          "callee": "new AuthUnix",
+          "lineNumber": 49
+        },
+        {
+          "caller": "NFSClient",
+          "callee": "netinstance.getLocalAddress().getHostName",
+          "lineNumber": 49
+        },
+        {
+          "caller": "NFSClient",
+          "callee": "netinstance.getLocalAddress",
+          "lineNumber": 49
+        },
+        {
+          "caller": "NFSClient",
+          "callee": "new AuthNone",
+          "lineNumber": 50
+        },
+        {
+          "caller": "NFSClient",
+          "callee": "((NFSProc_Stub)nfs).setAuth",
+          "lineNumber": 51
+        },
+        {
+          "caller": "NFSClient",
+          "callee": "nfs.getattr",
+          "lineNumber": 54
+        },
+        {
+          "caller": "NFSClient",
+          "callee": "new Error",
+          "lineNumber": 56
+        },
+        {
+          "caller": "NFSClient",
+          "callee": "Debug.out.println",
+          "lineNumber": 60
+        },
+        {
+          "caller": "NFSClient",
+          "callee": "Debug.out.println",
+          "lineNumber": 61
+        },
+        {
+          "caller": "NFSClient",
+          "callee": "Debug.out.println",
+          "lineNumber": 62
+        },
+        {
+          "caller": "NFSClient",
+          "callee": "Debug.out.println",
+          "lineNumber": 63
+        },
+        {
+          "caller": "NFSClient",
+          "callee": "Debug.out.println",
+          "lineNumber": 64
+        },
+        {
+          "caller": "NFSClient",
+          "callee": "new Error",
+          "lineNumber": 66
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "test/nfs/NFSDomain.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 79,
+      "nonEmptyLines": 67,
+      "functions": [
+        {
+          "name": "init",
+          "startLine": 22,
+          "endLine": 28,
+          "params": [
+            "naming",
+            "args"
+          ]
+        },
+        {
+          "name": "main",
+          "startLine": 29,
+          "endLine": 32,
+          "params": [
+            "args"
+          ]
+        },
+        {
+          "name": "NFSDomain",
+          "startLine": 34,
+          "endLine": 78,
+          "params": [
+            "naming",
+            "args"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "NFSDomain",
+          "startLine": 18,
+          "endLine": 79,
+          "methods": [
+            "init",
+            "main",
+            "NFSDomain"
+          ],
+          "properties": [
+            "RPC_LOCALPORT",
+            "EXT2FS_BLOCKSIZE"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "init",
+          "line": 22,
+          "isDefault": false
+        },
+        {
+          "name": "main",
+          "line": 29,
+          "isDefault": false
+        },
+        {
+          "name": "NFSDomain",
+          "line": 18,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "init",
+          "callee": "naming.lookup",
+          "lineNumber": 23
+        },
+        {
+          "caller": "init",
+          "callee": "naming.lookup",
+          "lineNumber": 24
+        },
+        {
+          "caller": "init",
+          "callee": "new DebugPrintStream",
+          "lineNumber": 25
+        },
+        {
+          "caller": "init",
+          "callee": "new DebugOutputStream",
+          "lineNumber": 25
+        },
+        {
+          "caller": "init",
+          "callee": "Debug.out.println",
+          "lineNumber": 26
+        },
+        {
+          "caller": "init",
+          "callee": "new NFSDomain",
+          "lineNumber": 27
+        },
+        {
+          "caller": "main",
+          "callee": "InitialNaming.getInitialNaming",
+          "lineNumber": 30
+        },
+        {
+          "caller": "main",
+          "callee": "new NFSDomain",
+          "lineNumber": 31
+        },
+        {
+          "caller": "NFSDomain",
+          "callee": "naming.lookup",
+          "lineNumber": 38
+        },
+        {
+          "caller": "NFSDomain",
+          "callee": "naming.lookup",
+          "lineNumber": 39
+        },
+        {
+          "caller": "NFSDomain",
+          "callee": "LookupHelper.waitUntilPortalAvailable",
+          "lineNumber": 41
+        },
+        {
+          "caller": "NFSDomain",
+          "callee": "new RPC",
+          "lineNumber": 43
+        },
+        {
+          "caller": "NFSDomain",
+          "callee": "new Error",
+          "lineNumber": 44
+        },
+        {
+          "caller": "NFSDomain",
+          "callee": "LookupHelper.waitUntilPortalAvailable",
+          "lineNumber": 46
+        },
+        {
+          "caller": "NFSDomain",
+          "callee": "new Error",
+          "lineNumber": 47
+        },
+        {
+          "caller": "NFSDomain",
+          "callee": "new NFSProc_Impl",
+          "lineNumber": 49
+        },
+        {
+          "caller": "NFSDomain",
+          "callee": "new MountProc_Impl",
+          "lineNumber": 50
+        },
+        {
+          "caller": "NFSDomain",
+          "callee": "new RPCBind_Impl",
+          "lineNumber": 53
+        },
+        {
+          "caller": "NFSDomain",
+          "callee": "bind.registerService",
+          "lineNumber": 56
+        },
+        {
+          "caller": "NFSDomain",
+          "callee": "bind.registerService",
+          "lineNumber": 57
+        },
+        {
+          "caller": "NFSDomain",
+          "callee": "new Thread(\"MountProc\") {\n                    @Override\n\t\t    public void run() {\n\t\t\tnew MountProc_Skel(rpc, mountPort, mountImpl);\n\t\t    }\n\t\t}.start",
+          "lineNumber": 58
+        },
+        {
+          "caller": "NFSDomain",
+          "callee": "new Thread",
+          "lineNumber": 58
+        },
+        {
+          "caller": "run",
+          "callee": "new MountProc_Skel",
+          "lineNumber": 61
+        },
+        {
+          "caller": "NFSDomain",
+          "callee": "new Thread(\"NFSProc\") {\n                    @Override\n\t\t    public void run() {\n\t\t\tnew NFSProc_Skel(rpc, nfsPort, nfsImpl);\n\t\t    }\n\t\t}.start",
+          "lineNumber": 64
+        },
+        {
+          "caller": "NFSDomain",
+          "callee": "new Thread",
+          "lineNumber": 64
+        },
+        {
+          "caller": "run",
+          "callee": "new NFSProc_Skel",
+          "lineNumber": 67
+        },
+        {
+          "caller": "NFSDomain",
+          "callee": "new Thread(\"RPCBind\") {\n\t\t    public void run() {\n\t\t\tnew RPCBind_Skel(rpc, 111, bind);\n\t\t    }\n\t\t}.start",
+          "lineNumber": 70
+        },
+        {
+          "caller": "NFSDomain",
+          "callee": "new Thread",
+          "lineNumber": 70
+        },
+        {
+          "caller": "run",
+          "callee": "new RPCBind_Skel",
+          "lineNumber": 72
+        },
+        {
+          "caller": "NFSDomain",
+          "callee": "new Error",
+          "lineNumber": 76
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "test/nfs/NFSProc_Skel.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 19,
+      "nonEmptyLines": 15,
+      "functions": [
+        {
+          "name": "NFSProc_Skel",
+          "startLine": 16,
+          "endLine": 17,
+          "params": [
+            "rpc",
+            "nfsPort",
+            "nfsImpl"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "NFSProc_Skel",
+          "startLine": 14,
+          "endLine": 19,
+          "methods": [
+            "NFSProc_Skel"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "NFSProc_Skel",
+          "line": 16,
+          "isDefault": false
+        },
+        {
+          "name": "NFSProc_Skel",
+          "line": 14,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "test/nfs/NFSProc_Stub.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 128,
+      "nonEmptyLines": 105,
+      "functions": [
+        {
+          "name": "NFSProc_Stub",
+          "startLine": 31,
+          "endLine": 32,
+          "params": [
+            "rpc",
+            "rpcHost"
+          ]
+        },
+        {
+          "name": "setAuth",
+          "startLine": 34,
+          "endLine": 36,
+          "params": [
+            "a",
+            "ct"
+          ]
+        },
+        {
+          "name": "nullproc",
+          "startLine": 38,
+          "endLine": 41,
+          "params": []
+        },
+        {
+          "name": "getattr",
+          "startLine": 43,
+          "endLine": 46,
+          "params": [
+            "a"
+          ]
+        },
+        {
+          "name": "setattr",
+          "startLine": 48,
+          "endLine": 51,
+          "params": [
+            "file",
+            "attributes"
+          ]
+        },
+        {
+          "name": "root",
+          "startLine": 53,
+          "endLine": 56,
+          "params": []
+        },
+        {
+          "name": "lookup",
+          "startLine": 58,
+          "endLine": 61,
+          "params": [
+            "dir",
+            "name"
+          ]
+        },
+        {
+          "name": "readlink",
+          "startLine": 63,
+          "endLine": 66,
+          "params": [
+            "a"
+          ]
+        },
+        {
+          "name": "read",
+          "startLine": 68,
+          "endLine": 71,
+          "params": [
+            "file",
+            "offset",
+            "count",
+            "totalcount"
+          ]
+        },
+        {
+          "name": "writeCache",
+          "startLine": 73,
+          "endLine": 76,
+          "params": []
+        },
+        {
+          "name": "write",
+          "startLine": 78,
+          "endLine": 81,
+          "params": [
+            "file",
+            "beginoffset",
+            "offset",
+            "totalcount",
+            "data"
+          ]
+        },
+        {
+          "name": "create",
+          "startLine": 83,
+          "endLine": 86,
+          "params": [
+            "dir",
+            "name",
+            "attributes"
+          ]
+        },
+        {
+          "name": "remove",
+          "startLine": 88,
+          "endLine": 91,
+          "params": [
+            "dir",
+            "name"
+          ]
+        },
+        {
+          "name": "rename",
+          "startLine": 93,
+          "endLine": 96,
+          "params": [
+            "fromDir",
+            "fromName",
+            "toDir",
+            "toName"
+          ]
+        },
+        {
+          "name": "link",
+          "startLine": 98,
+          "endLine": 101,
+          "params": [
+            "from",
+            "toDir",
+            "toName"
+          ]
+        },
+        {
+          "name": "symlink",
+          "startLine": 103,
+          "endLine": 106,
+          "params": [
+            "fromDir",
+            "fromName",
+            "to",
+            "attributes"
+          ]
+        },
+        {
+          "name": "mkdir",
+          "startLine": 108,
+          "endLine": 111,
+          "params": [
+            "dir",
+            "name",
+            "attributes"
+          ]
+        },
+        {
+          "name": "rmdir",
+          "startLine": 113,
+          "endLine": 116,
+          "params": [
+            "dir",
+            "name"
+          ]
+        },
+        {
+          "name": "readdir",
+          "startLine": 118,
+          "endLine": 121,
+          "params": [
+            "dir",
+            "cookie",
+            "count"
+          ]
+        },
+        {
+          "name": "statfs",
+          "startLine": 123,
+          "endLine": 126,
+          "params": [
+            "dir"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "NFSProc_Stub",
+          "startLine": 29,
+          "endLine": 128,
+          "methods": [
+            "NFSProc_Stub",
+            "setAuth",
+            "nullproc",
+            "getattr",
+            "setattr",
+            "root",
+            "lookup",
+            "readlink",
+            "read",
+            "writeCache",
+            "write",
+            "create",
+            "remove",
+            "rename",
+            "link",
+            "symlink",
+            "mkdir",
+            "rmdir",
+            "readdir",
+            "statfs"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "NFSProc_Stub",
+          "line": 31,
+          "isDefault": false
+        },
+        {
+          "name": "nullproc",
+          "line": 38,
+          "isDefault": false
+        },
+        {
+          "name": "getattr",
+          "line": 43,
+          "isDefault": false
+        },
+        {
+          "name": "setattr",
+          "line": 48,
+          "isDefault": false
+        },
+        {
+          "name": "root",
+          "line": 53,
+          "isDefault": false
+        },
+        {
+          "name": "lookup",
+          "line": 58,
+          "isDefault": false
+        },
+        {
+          "name": "readlink",
+          "line": 63,
+          "isDefault": false
+        },
+        {
+          "name": "read",
+          "line": 68,
+          "isDefault": false
+        },
+        {
+          "name": "writeCache",
+          "line": 73,
+          "isDefault": false
+        },
+        {
+          "name": "write",
+          "line": 78,
+          "isDefault": false
+        },
+        {
+          "name": "create",
+          "line": 83,
+          "isDefault": false
+        },
+        {
+          "name": "remove",
+          "line": 88,
+          "isDefault": false
+        },
+        {
+          "name": "rename",
+          "line": 93,
+          "isDefault": false
+        },
+        {
+          "name": "link",
+          "line": 98,
+          "isDefault": false
+        },
+        {
+          "name": "symlink",
+          "line": 103,
+          "isDefault": false
+        },
+        {
+          "name": "mkdir",
+          "line": 108,
+          "isDefault": false
+        },
+        {
+          "name": "rmdir",
+          "line": 113,
+          "isDefault": false
+        },
+        {
+          "name": "readdir",
+          "line": 118,
+          "isDefault": false
+        },
+        {
+          "name": "statfs",
+          "line": 123,
+          "isDefault": false
+        },
+        {
+          "name": "NFSProc_Stub",
+          "line": 29,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "setAuth",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 35
+        },
+        {
+          "caller": "nullproc",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 40
+        },
+        {
+          "caller": "getattr",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 45
+        },
+        {
+          "caller": "setattr",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 50
+        },
+        {
+          "caller": "root",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 55
+        },
+        {
+          "caller": "lookup",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 60
+        },
+        {
+          "caller": "readlink",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 65
+        },
+        {
+          "caller": "read",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 70
+        },
+        {
+          "caller": "writeCache",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 75
+        },
+        {
+          "caller": "write",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 80
+        },
+        {
+          "caller": "create",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 85
+        },
+        {
+          "caller": "remove",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 90
+        },
+        {
+          "caller": "rename",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 95
+        },
+        {
+          "caller": "link",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 100
+        },
+        {
+          "caller": "symlink",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 105
+        },
+        {
+          "caller": "mkdir",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 110
+        },
+        {
+          "caller": "rmdir",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 115
+        },
+        {
+          "caller": "readdir",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 120
+        },
+        {
+          "caller": "statfs",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 125
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 20,
+        "functionCount": 20,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "test/nfs/RPCBind_Skel.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 19,
+      "nonEmptyLines": 15,
+      "functions": [
+        {
+          "name": "RPCBind_Skel",
+          "startLine": 16,
+          "endLine": 17,
+          "params": [
+            "rpc",
+            "i",
+            "bind"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "RPCBind_Skel",
+          "startLine": 14,
+          "endLine": 19,
+          "methods": [
+            "RPCBind_Skel"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "RPCBind_Skel",
+          "line": 16,
+          "isDefault": false
+        },
+        {
+          "name": "RPCBind_Skel",
+          "line": 14,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "test/test/JUnitTest.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 78,
+      "nonEmptyLines": 67,
+      "functions": [
+        {
+          "name": "testIncomingMessages",
+          "startLine": 24,
+          "endLine": 29,
+          "params": []
+        },
+        {
+          "name": "testOutgoingMessages2ArduinoDequeLast",
+          "startLine": 31,
+          "endLine": 36,
+          "params": []
+        },
+        {
+          "name": "testConfiguresGetLast",
+          "startLine": 38,
+          "endLine": 43,
+          "params": []
+        },
+        {
+          "name": "testEmotions",
+          "startLine": 45,
+          "endLine": 50,
+          "params": []
+        },
+        {
+          "name": "testLogpath",
+          "startLine": 52,
+          "endLine": 58,
+          "params": []
+        },
+        {
+          "name": "testCPU",
+          "startLine": 60,
+          "endLine": 72,
+          "params": []
+        },
+        {
+          "name": "testByteCode",
+          "startLine": 74,
+          "endLine": 77,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "JUnitTest",
+          "startLine": 21,
+          "endLine": 78,
+          "methods": [
+            "testIncomingMessages",
+            "testOutgoingMessages2ArduinoDequeLast",
+            "testConfiguresGetLast",
+            "testEmotions",
+            "testLogpath",
+            "testCPU",
+            "testByteCode"
+          ],
+          "properties": [
+            "MEMORY"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "testIncomingMessages",
+          "line": 24,
+          "isDefault": false
+        },
+        {
+          "name": "testOutgoingMessages2ArduinoDequeLast",
+          "line": 31,
+          "isDefault": false
+        },
+        {
+          "name": "testConfiguresGetLast",
+          "line": 38,
+          "isDefault": false
+        },
+        {
+          "name": "testEmotions",
+          "line": 45,
+          "isDefault": false
+        },
+        {
+          "name": "testLogpath",
+          "line": 52,
+          "isDefault": false
+        },
+        {
+          "name": "testCPU",
+          "line": 60,
+          "isDefault": false
+        },
+        {
+          "name": "testByteCode",
+          "line": 74,
+          "isDefault": false
+        },
+        {
+          "name": "JUnitTest",
+          "line": 21,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "testIncomingMessages",
+          "callee": "System.out.println",
+          "lineNumber": 26
+        },
+        {
+          "caller": "testIncomingMessages",
+          "callee": "MEMORY.add",
+          "lineNumber": 27
+        },
+        {
+          "caller": "testIncomingMessages",
+          "callee": "new InfoZero",
+          "lineNumber": 27
+        },
+        {
+          "caller": "testIncomingMessages",
+          "callee": "assertEquals",
+          "lineNumber": 28
+        },
+        {
+          "caller": "testIncomingMessages",
+          "callee": "MEMORY.dequeFirst(\"incomingMessages\").getPayload",
+          "lineNumber": 28
+        },
+        {
+          "caller": "testIncomingMessages",
+          "callee": "MEMORY.dequeFirst",
+          "lineNumber": 28
+        },
+        {
+          "caller": "testOutgoingMessages2ArduinoDequeLast",
+          "callee": "System.out.println",
+          "lineNumber": 33
+        },
+        {
+          "caller": "testOutgoingMessages2ArduinoDequeLast",
+          "callee": "MEMORY.add",
+          "lineNumber": 34
+        },
+        {
+          "caller": "testOutgoingMessages2ArduinoDequeLast",
+          "callee": "new InfoZero",
+          "lineNumber": 34
+        },
+        {
+          "caller": "testOutgoingMessages2ArduinoDequeLast",
+          "callee": "assertEquals",
+          "lineNumber": 35
+        },
+        {
+          "caller": "testOutgoingMessages2ArduinoDequeLast",
+          "callee": "MEMORY.dequeLast(\"outgoingMessages2Arduino\").getPayload",
+          "lineNumber": 35
+        },
+        {
+          "caller": "testOutgoingMessages2ArduinoDequeLast",
+          "callee": "MEMORY.dequeLast",
+          "lineNumber": 35
+        },
+        {
+          "caller": "testConfiguresGetLast",
+          "callee": "System.out.println",
+          "lineNumber": 40
+        },
+        {
+          "caller": "testConfiguresGetLast",
+          "callee": "MEMORY.add",
+          "lineNumber": 41
+        },
+        {
+          "caller": "testConfiguresGetLast",
+          "callee": "new InfoZero",
+          "lineNumber": 41
+        },
+        {
+          "caller": "testConfiguresGetLast",
+          "callee": "assertEquals",
+          "lineNumber": 42
+        },
+        {
+          "caller": "testConfiguresGetLast",
+          "callee": "MEMORY.dequeLast(\"configures\").getPayload",
+          "lineNumber": 42
+        },
+        {
+          "caller": "testConfiguresGetLast",
+          "callee": "MEMORY.dequeLast",
+          "lineNumber": 42
+        },
+        {
+          "caller": "testEmotions",
+          "callee": "System.out.println",
+          "lineNumber": 47
+        },
+        {
+          "caller": "testEmotions",
+          "callee": "MEMORY.addEmotion",
+          "lineNumber": 48
+        },
+        {
+          "caller": "testEmotions",
+          "callee": "assertEquals",
+          "lineNumber": 49
+        },
+        {
+          "caller": "testEmotions",
+          "callee": "MEMORY.getEmotion",
+          "lineNumber": 49
+        },
+        {
+          "caller": "testLogpath",
+          "callee": "System.out.println",
+          "lineNumber": 54
+        },
+        {
+          "caller": "testLogpath",
+          "callee": "assertEquals",
+          "lineNumber": 55
+        },
+        {
+          "caller": "testLogpath",
+          "callee": "MEMORY.getLogPath",
+          "lineNumber": 55
+        },
+        {
+          "caller": "testLogpath",
+          "callee": "MEMORY.setLogPath",
+          "lineNumber": 56
+        },
+        {
+          "caller": "testLogpath",
+          "callee": "assertEquals",
+          "lineNumber": 57
+        },
+        {
+          "caller": "testLogpath",
+          "callee": "MEMORY.getLogPath",
+          "lineNumber": 57
+        },
+        {
+          "caller": "testCPU",
+          "callee": "System.out.println",
+          "lineNumber": 63
+        },
+        {
+          "caller": "testCPU",
+          "callee": "Paths.get",
+          "lineNumber": 64
+        },
+        {
+          "caller": "testCPU",
+          "callee": "Files.readAllBytes",
+          "lineNumber": 65
+        },
+        {
+          "caller": "testCPU",
+          "callee": "System.out.println",
+          "lineNumber": 67
+        },
+        {
+          "caller": "testCPU",
+          "callee": "Logger.getLogger(JUnitTest.class.getName()).log",
+          "lineNumber": 70
+        },
+        {
+          "caller": "testCPU",
+          "callee": "Logger.getLogger",
+          "lineNumber": 70
+        },
+        {
+          "caller": "testCPU",
+          "callee": "JUnitTest.class.getName",
+          "lineNumber": 70
+        },
+        {
+          "caller": "testByteCode",
+          "callee": "System.out.println",
+          "lineNumber": 76
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 8,
+        "functionCount": 7,
+        "classCount": 1
+      }
+    }
+  ]
+}

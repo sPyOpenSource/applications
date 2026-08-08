@@ -1,0 +1,69 @@
+{
+  "issues": [
+    {
+      "severity": "medium",
+      "category": "data-quality",
+      "description": "Missing languageNotes field on ~200+ class/function nodes from batches 4 and 5 (Lance driver core, NFS/RPC test components). Batch 1 and 2 nodes have languageNotes populated; later batches lack this field entirely.",
+      "affected_nodes": "All class and function nodes from batch-4.json (Lance driver core: DWordIOAccess, IOAccess, LanceCore, descriptors, rings) and batch-5.java (NFS/RPC test components)",
+      "recommendation": "Re-run batch extraction with consistent field population for languageNotes across all batches"
+    },
+    {
+      "severity": "medium",
+      "category": "tested-by-linker",
+      "description": "Tested-by linker produced incorrect edge directionality: 7 tested_by edges point FROM test files (test/nfs/*) TO a test file (test/test/JUnitTest.java), and the source test files were tagged 'tested' instead of identifying actual production code under test.",
+      "affected_edges": [
+        "file:test/nfs/NFSClient.java -> file:test/test/JUnitTest.java",
+        "file:test/nfs/NFSDomain.java -> file:test/test/JUnitTest.java",
+        "file:test/nfs/NFSProc_Stub.java -> file:test/test/JUnitTest.java",
+        "file:test/nfs/NFSProc_Skel.java -> file:test/test/JUnitTest.java",
+        "file:test/nfs/MountProc_Stub.java -> file:test/test/JUnitTest.java",
+        "file:test/nfs/MountProc_Skel.java -> file:test/test/JUnitTest.java",
+        "file:test/nfs/RPCBind_Skel.java -> file:test/test/JUnitTest.java"
+      ],
+      "recommendation": "Fix tested-by linker logic to correctly identify production→test relationships based on path conventions (src/ vs test/)"
+    },
+    {
+      "severity": "low",
+      "category": "merge-dropped-edges",
+      "description": "4 configures edges dropped during merge because target virtual config nodes don't exist as file nodes: config:dist/testNET.jar, config:src, config:test. These are build-system virtual paths referenced in NetBeans config but not actual files.",
+      "dropped_edges": [
+        "config:nbproject/project.properties -> config:dist/testNET.jar",
+        "config:nbproject/build-impl.xml -> config:dist/testNET.jar",
+        "config:nbproject/build-impl.xml -> config:src",
+        "config:nbproject/build-impl.xml -> config:test"
+      ],
+      "recommendation": "Consider adding virtual config nodes for build outputs (dist/), source roots (src/), and test roots (test/) if semantically valuable for layer assignment"
+    }
+  ],
+  "warnings": [
+    {
+      "category": "batch-duplicates",
+      "description": "Batch files contained significant internal duplicate node IDs (e.g., 'Method main' and 'Function main' both generating function:...:main). Merge script removed 267 duplicates (kept last), which may have discarded richer metadata from earlier duplicates.",
+      "example": "batch-3.json has duplicate function:packages/test_fs_user/test/fsuser/IOZONE.java:main (once as 'Method main', once as 'Function main')"
+    },
+    {
+      "category": "summary-quality",
+      "description": "Many class/function nodes from batches 3-5 have minimal summaries ('Class X', 'Function X') compared to rich summaries in batch 1 (e.g., LanceFinder.findDevice has detailed PCI scanning description). This reduces graph utility for understanding.",
+      "affected_batches": "batch-3 (packages tests), batch-4 (Lance driver core), batch-5 (NFS/RPC tests)"
+    },
+    {
+      "category": "config-node-count",
+      "description": "Only 5 config nodes exist (build.xml, nbproject/*), but scan-result shows manifest.mf as 'code' category. Assembled graph correctly has it as file:manifest.mf (type file). This is consistent but worth noting for layer assignment."
+    }
+  ],
+  "suggestions": [
+    {
+      "category": "layer-readiness",
+      "description": "All 66 file-level nodes (5 config, 1 document, 60 file) are present and have filePath for layer assignment. Recommend layer mapping: config/* → build, src/jx/net/* → network, src/org/jnode/driver/net/lance/* → driver, src/jx/netmanager/* → netmanager, src/org/jnode/net/ipv4/dhcp/* → dhcp, src/test/* → test-integration, test/* → test-unit, packages/test_* → test-packages"
+    },
+    {
+      "category": "cross-batch-imports",
+      "description": "Cross-batch imports (3 edges) are accurate per import map: LanceFinder.java imports LanceDriver.java and LanceFlags.java; NetInit.java imports DHCPClient.java. No missing or spurious import edges detected."
+    },
+    {
+      "category": "graph-structure",
+      "description": "Graph is structurally sound: 387 unique nodes (no duplicate IDs), 728 unique edges (no duplicate edges), all edge sources/targets reference existing nodes. Contains/containment hierarchy is complete for all file→class→function chains."
+    }
+  ],
+  "summary": "Assembled graph (387 nodes, 728 edges) is structurally valid with complete file coverage (66/66 source files), all required node fields present, and all edges referencing valid nodes. Cross-batch imports are correct. Main quality issues: missing languageNotes on ~200 nodes from later batches, incorrect tested-by edge directionality (test→test instead of production→test), and minimal summaries on auto-extracted nodes. 4 config edges dropped due to missing virtual config targets (expected). Graph ready for layer assignment with minor data quality fixes recommended."
+}

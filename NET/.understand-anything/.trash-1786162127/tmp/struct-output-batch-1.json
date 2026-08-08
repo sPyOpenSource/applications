@@ -1,0 +1,662 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 3,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "src/jx/net/devices/lance/LanceFinder.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 75,
+      "nonEmptyLines": 69,
+      "functions": [
+        {
+          "name": "find",
+          "startLine": 22,
+          "endLine": 42,
+          "params": [
+            "naming"
+          ]
+        },
+        {
+          "name": "findDevice",
+          "startLine": 44,
+          "endLine": 74,
+          "params": [
+            "pci"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "LanceFinder",
+          "startLine": 12,
+          "endLine": 75,
+          "methods": [
+            "find",
+            "findDevice"
+          ],
+          "properties": [
+            "NIC_VENDOR_ID",
+            "NIC_PCI_DEVICE_ID_Am79C970",
+            "DESCRIPTION",
+            "ports",
+            "irq",
+            "rm",
+            "cpuManager"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "find",
+          "line": 22,
+          "isDefault": false
+        },
+        {
+          "name": "findDevice",
+          "line": 44,
+          "isDefault": false
+        },
+        {
+          "name": "LanceFinder",
+          "line": 12,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "find",
+          "callee": "naming.lookup",
+          "lineNumber": 24
+        },
+        {
+          "caller": "find",
+          "callee": "naming.lookup",
+          "lineNumber": 25
+        },
+        {
+          "caller": "find",
+          "callee": "naming.lookup",
+          "lineNumber": 26
+        },
+        {
+          "caller": "find",
+          "callee": "naming.lookup",
+          "lineNumber": 27
+        },
+        {
+          "caller": "find",
+          "callee": "Debug.out.println",
+          "lineNumber": 28
+        },
+        {
+          "caller": "find",
+          "callee": "naming.lookup",
+          "lineNumber": 32
+        },
+        {
+          "caller": "find",
+          "callee": "Debug.out.println",
+          "lineNumber": 34
+        },
+        {
+          "caller": "find",
+          "callee": "Thread.yield",
+          "lineNumber": 36
+        },
+        {
+          "caller": "find",
+          "callee": "findDevice",
+          "lineNumber": 41
+        },
+        {
+          "caller": "findDevice",
+          "callee": "pci.getDevicesByClass",
+          "lineNumber": 49
+        },
+        {
+          "caller": "findDevice",
+          "callee": "Debug.out.println",
+          "lineNumber": 51
+        },
+        {
+          "caller": "findDevice",
+          "callee": "devInfo1.getDeviceID",
+          "lineNumber": 56
+        },
+        {
+          "caller": "findDevice",
+          "callee": "devInfo1.getVendorID",
+          "lineNumber": 57
+        },
+        {
+          "caller": "findDevice",
+          "callee": "Debug.out.println",
+          "lineNumber": 58
+        },
+        {
+          "caller": "findDevice",
+          "callee": "Integer.toHexString",
+          "lineNumber": 58
+        },
+        {
+          "caller": "findDevice",
+          "callee": "Integer.toHexString",
+          "lineNumber": 58
+        },
+        {
+          "caller": "findDevice",
+          "callee": "Debug.out.println",
+          "lineNumber": 62
+        },
+        {
+          "caller": "findDevice",
+          "callee": "rm.alloc",
+          "lineNumber": 65
+        },
+        {
+          "caller": "findDevice",
+          "callee": "new LanceDriver",
+          "lineNumber": 67
+        },
+        {
+          "caller": "findDevice",
+          "callee": "new LanceFlags",
+          "lineNumber": 67
+        },
+        {
+          "caller": "findDevice",
+          "callee": "Debug.out.println",
+          "lineNumber": 69
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 3,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/org/jnode/driver/net/lance/LanceDriver.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 163,
+      "nonEmptyLines": 145,
+      "functions": [
+        {
+          "name": "LanceDriver",
+          "startLine": 58,
+          "endLine": 68,
+          "params": [
+            "device",
+            "flags",
+            "irq",
+            "ports",
+            "rm",
+            "cpuManager",
+            "bufs"
+          ]
+        },
+        {
+          "name": "newCore",
+          "startLine": 79,
+          "endLine": 81,
+          "params": [
+            "device",
+            "flags",
+            "irq",
+            "ports",
+            "rm"
+          ]
+        },
+        {
+          "name": "setReceiveMode",
+          "startLine": 83,
+          "endLine": 86,
+          "params": [
+            "mode"
+          ]
+        },
+        {
+          "name": "transmit",
+          "startLine": 88,
+          "endLine": 96,
+          "params": [
+            "buf"
+          ]
+        },
+        {
+          "name": "transmit1",
+          "startLine": 98,
+          "endLine": 118,
+          "params": [
+            "buf1",
+            "offset",
+            "size"
+          ]
+        },
+        {
+          "name": "getMACAddress",
+          "startLine": 120,
+          "endLine": 123,
+          "params": []
+        },
+        {
+          "name": "getMTU",
+          "startLine": 125,
+          "endLine": 128,
+          "params": []
+        },
+        {
+          "name": "registerNonBlockingConsumer",
+          "startLine": 130,
+          "endLine": 137,
+          "params": [
+            "consumer"
+          ]
+        },
+        {
+          "name": "getSupportedConfigurations",
+          "startLine": 139,
+          "endLine": 142,
+          "params": []
+        },
+        {
+          "name": "open",
+          "startLine": 144,
+          "endLine": 147,
+          "params": [
+            "conf"
+          ]
+        },
+        {
+          "name": "close",
+          "startLine": 149,
+          "endLine": 152,
+          "params": []
+        },
+        {
+          "name": "onReceive",
+          "startLine": 154,
+          "endLine": 157,
+          "params": [
+            "skbuf"
+          ]
+        },
+        {
+          "name": "getId",
+          "startLine": 159,
+          "endLine": 162,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "LanceDriver",
+          "startLine": 42,
+          "endLine": 163,
+          "methods": [
+            "LanceDriver",
+            "newCore",
+            "setReceiveMode",
+            "transmit",
+            "transmit1",
+            "getMACAddress",
+            "getMTU",
+            "registerNonBlockingConsumer",
+            "getSupportedConfigurations",
+            "open",
+            "close",
+            "onReceive",
+            "getId"
+          ],
+          "properties": [
+            "abstractDeviceCore",
+            "debugSend",
+            "etherConsumer",
+            "ETH_DATA_LEN",
+            "rm",
+            "cpuManager",
+            "event_interrupt",
+            "event_snd",
+            "event_rcv",
+            "usableBufs"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "ETH_DATA_LEN",
+          "line": 50,
+          "isDefault": false
+        },
+        {
+          "name": "LanceDriver",
+          "line": 58,
+          "isDefault": false
+        },
+        {
+          "name": "setReceiveMode",
+          "line": 83,
+          "isDefault": false
+        },
+        {
+          "name": "transmit",
+          "line": 88,
+          "isDefault": false
+        },
+        {
+          "name": "transmit1",
+          "line": 98,
+          "isDefault": false
+        },
+        {
+          "name": "getMACAddress",
+          "line": 120,
+          "isDefault": false
+        },
+        {
+          "name": "getMTU",
+          "line": 125,
+          "isDefault": false
+        },
+        {
+          "name": "registerNonBlockingConsumer",
+          "line": 130,
+          "isDefault": false
+        },
+        {
+          "name": "getSupportedConfigurations",
+          "line": 139,
+          "isDefault": false
+        },
+        {
+          "name": "open",
+          "line": 144,
+          "isDefault": false
+        },
+        {
+          "name": "close",
+          "line": 149,
+          "isDefault": false
+        },
+        {
+          "name": "getId",
+          "line": 159,
+          "isDefault": false
+        },
+        {
+          "name": "LanceDriver",
+          "line": 42,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "LanceDriver",
+          "callee": "newCore",
+          "lineNumber": 62
+        },
+        {
+          "caller": "LanceDriver",
+          "callee": "cpuManager.createNewEvent",
+          "lineNumber": 63
+        },
+        {
+          "caller": "LanceDriver",
+          "callee": "cpuManager.createNewEvent",
+          "lineNumber": 64
+        },
+        {
+          "caller": "LanceDriver",
+          "callee": "cpuManager.createNewEvent",
+          "lineNumber": 65
+        },
+        {
+          "caller": "LanceDriver",
+          "callee": "new MultiThreadBufferList2",
+          "lineNumber": 66
+        },
+        {
+          "caller": "LanceDriver",
+          "callee": "this.usableBufs.enableRecording",
+          "lineNumber": 67
+        },
+        {
+          "caller": "newCore",
+          "callee": "new LanceCore",
+          "lineNumber": 80
+        },
+        {
+          "caller": "transmit",
+          "callee": "abstractDeviceCore.transmit",
+          "lineNumber": 91
+        },
+        {
+          "caller": "transmit1",
+          "callee": "cpuManager.recordEvent",
+          "lineNumber": 100
+        },
+        {
+          "caller": "transmit1",
+          "callee": "usableBufs.nonblockingUndockFirstElement",
+          "lineNumber": 101
+        },
+        {
+          "caller": "transmit1",
+          "callee": "Debug.out.println",
+          "lineNumber": 103
+        },
+        {
+          "caller": "transmit1",
+          "callee": "h.getRawData",
+          "lineNumber": 106
+        },
+        {
+          "caller": "transmit1",
+          "callee": "buf2.isValid",
+          "lineNumber": 107
+        },
+        {
+          "caller": "transmit1",
+          "callee": "new Error",
+          "lineNumber": 108
+        },
+        {
+          "caller": "transmit1",
+          "callee": "rm.alloc",
+          "lineNumber": 110
+        },
+        {
+          "caller": "transmit1",
+          "callee": "buf.copyFromMemory",
+          "lineNumber": 111
+        },
+        {
+          "caller": "transmit1",
+          "callee": "abstractDeviceCore.transmit",
+          "lineNumber": 113
+        },
+        {
+          "caller": "getMACAddress",
+          "callee": "abstractDeviceCore.getHwAddress().get_Addr",
+          "lineNumber": 122
+        },
+        {
+          "caller": "getMACAddress",
+          "callee": "abstractDeviceCore.getHwAddress",
+          "lineNumber": 122
+        },
+        {
+          "caller": "registerNonBlockingConsumer",
+          "callee": "new Error",
+          "lineNumber": 133
+        },
+        {
+          "caller": "getSupportedConfigurations",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 141
+        },
+        {
+          "caller": "open",
+          "callee": "abstractDeviceCore.initialize",
+          "lineNumber": 146
+        },
+        {
+          "caller": "onReceive",
+          "callee": "etherConsumer.processMemory",
+          "lineNumber": 155
+        },
+        {
+          "caller": "onReceive",
+          "callee": "skbuf.size",
+          "lineNumber": 155
+        },
+        {
+          "caller": "onReceive",
+          "callee": "etherConsumer.EtherQueueConsumerThread",
+          "lineNumber": 156
+        },
+        {
+          "caller": "getId",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 161
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 13,
+        "functionCount": 13,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/org/jnode/driver/net/lance/LanceFlags.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 111,
+      "nonEmptyLines": 100,
+      "functions": [
+        {
+          "name": "LanceFlags",
+          "startLine": 42,
+          "endLine": 48,
+          "params": [
+            "name"
+          ]
+        },
+        {
+          "name": "setForVersion",
+          "startLine": 50,
+          "endLine": 86,
+          "params": [
+            "chipVersion"
+          ]
+        },
+        {
+          "name": "getName",
+          "startLine": 92,
+          "endLine": 94,
+          "params": []
+        },
+        {
+          "name": "getChipName",
+          "startLine": 96,
+          "endLine": 98,
+          "params": []
+        },
+        {
+          "name": "isFullDuplex",
+          "startLine": 100,
+          "endLine": 102,
+          "params": []
+        },
+        {
+          "name": "isAutoSelectEnabled",
+          "startLine": 104,
+          "endLine": 106,
+          "params": []
+        },
+        {
+          "name": "isMustUnreset",
+          "startLine": 108,
+          "endLine": 110,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "LanceFlags",
+          "startLine": 26,
+          "endLine": 111,
+          "methods": [
+            "LanceFlags",
+            "setForVersion",
+            "getName",
+            "getChipName",
+            "isFullDuplex",
+            "isAutoSelectEnabled",
+            "isMustUnreset"
+          ],
+          "properties": [
+            "name",
+            "chipName",
+            "fullDuplex",
+            "autoSelectEnabled",
+            "mustUnreset"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "LanceFlags",
+          "line": 42,
+          "isDefault": false
+        },
+        {
+          "name": "setForVersion",
+          "line": 50,
+          "isDefault": false
+        },
+        {
+          "name": "getName",
+          "line": 92,
+          "isDefault": false
+        },
+        {
+          "name": "getChipName",
+          "line": 96,
+          "isDefault": false
+        },
+        {
+          "name": "isFullDuplex",
+          "line": 100,
+          "isDefault": false
+        },
+        {
+          "name": "isAutoSelectEnabled",
+          "line": 104,
+          "isDefault": false
+        },
+        {
+          "name": "isMustUnreset",
+          "line": 108,
+          "isDefault": false
+        },
+        {
+          "name": "LanceFlags",
+          "line": 26,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 8,
+        "functionCount": 7,
+        "classCount": 1
+      }
+    }
+  ]
+}

@@ -12,8 +12,13 @@ import jx.zero.debug.DebugChannel;
 import jx.zero.debug.DebugOutputStream;
 import jx.zero.debug.DebugPrintStream;
 
+import org.jnode.driver.block.usb.storage.scsi.USBStorageMount;
 import org.jnode.driver.bus.usb.USBHubMonitor;
 import org.jnode.driver.bus.usb.uhci.UHCIDriver;
+
+import test.fs.MediaChangeTest;
+import test.fs.LargeFileTest;
+import test.fs.USBMassStorageTest;
 
 /**
  * This is a class initialize an artificial intelligence service.
@@ -45,7 +50,10 @@ int j = 0;
             PCIDevice dev = pci.getDeviceAt(i);
             if(PCICodes.lookupClass(dev.getClassCode()).startsWith("USB")){
                 UHCIDriver driver = new UHCIDriver(dev, log.getSM());
-                monitors[j++] = new USBHubMonitor(dev, driver.getAPI(), log.getSM());
+                USBHubMonitor monitor = new USBHubMonitor(dev, driver.getAPI(), log.getSM());
+                // Wire USB mass storage devices: on attach, mount a FatFileSystem
+                monitor.addAttachListener(new USBStorageMount());
+                monitors[j++] = monitor;
             }
         }
 
@@ -66,6 +74,27 @@ int j = 0;
     {
         logThread.start();
         IO.start();
+        // Verify the USB mass storage mount (waits for the USBFS portal)
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                USBMassStorageTest.main(null);
+            }
+        }, "USBMassStorageTest").start();
+        // Media change / eject/insert test
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                MediaChangeTest.main(null);
+            }
+        }, "MediaChangeTest").start();
+        // Large file / multi-sector transfer test
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                LargeFileTest.main(null);
+            }
+        }, "LargeFileTest").start();
         System.out.println("AI running...");
     }
     

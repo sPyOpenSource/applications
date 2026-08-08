@@ -27,6 +27,7 @@ import org.jnode.driver.bus.scsi.CDB;
 import org.jnode.driver.bus.scsi.SCSIConstants;
 import org.jnode.driver.bus.scsi.SCSIDevice;
 import org.jnode.driver.bus.scsi.SCSIException;
+import org.jnode.driver.bus.scsi.cdb.spc.CDBModeSense6;
 //import org.jnode.util.TimeoutException;
 
 /**
@@ -57,17 +58,71 @@ public class MMCUtils {
      * @param dev
      * @param lba
      * @param nrBlocks
+     * @param blockSize
      * @param data
      * @param dataOffset
      * @throws SCSIException
      * @throws TimeoutException
      * @throws InterruptedException
      */
-    public static void readData(SCSIDevice dev, int lba, int nrBlocks,
+    public static void readData(SCSIDevice dev, int lba, int nrBlocks, int blockSize,
                                 Memory data, int dataOffset) throws SCSIException,
         Exception, InterruptedException {
-        final CDB cdb = new CDBRead10(lba, nrBlocks);
+        final CDB cdb = new CDBRead10(lba, nrBlocks, blockSize);
         dev.executeCommand(cdb, data, dataOffset, SCSIConstants.GROUP1_TIMEOUT);
+    }
+
+    /**
+     * Write data to the given device.
+     *
+     * @param dev
+     * @param lba
+     * @param nrBlocks
+     * @param blockSize
+     * @param data
+     * @param dataOffset
+     * @throws SCSIException
+     * @throws TimeoutException
+     * @throws InterruptedException
+     */
+    public static void writeData(SCSIDevice dev, int lba, int nrBlocks, int blockSize,
+                                 Memory data, int dataOffset) throws SCSIException,
+        Exception, InterruptedException {
+        final CDB cdb = new CDBWrite10(lba, nrBlocks, blockSize);
+        dev.executeCommand(cdb, data, dataOffset, SCSIConstants.GROUP1_TIMEOUT);
+    }
+
+    /**
+     * Ensure that the device's cache is flushed to the medium.
+     *
+     * @param dev
+     * @throws SCSIException
+     * @throws TimeoutException
+     * @throws InterruptedException
+     */
+    public static void synchronizeCache(SCSIDevice dev) throws SCSIException, Exception,
+        InterruptedException {
+        final CDB cdb = new CDBSynchronizeCache10();
+        dev.executeCommand(cdb, null, 0, SCSIConstants.GROUP1_TIMEOUT);
+    }
+
+    /**
+     * Read a mode page from the given device.
+     *
+     * @param dev
+     * @param pageCode
+     * @return the parsed mode page data
+     * @throws SCSIException
+     * @throws TimeoutException
+     * @throws InterruptedException
+     */
+    public static ModePageData modeSense(SCSIDevice dev, int pageCode)
+        throws SCSIException, Exception, InterruptedException {
+        MemoryManager rm = (MemoryManager)InitialNaming.getInitialNaming().lookup("MemoryManager");
+        final Memory data = rm.alloc(ModePageData.DEFAULT_LENGTH);
+        final CDB cdb = new CDBModeSense6(pageCode, data.size());
+        dev.executeCommand(cdb, data, 0, SCSIConstants.GROUP1_TIMEOUT);
+        return new ModePageData(data);
     }
 
     /**

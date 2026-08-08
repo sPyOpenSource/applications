@@ -63,7 +63,7 @@ public class SCSIBuffer {
      * @param v
      */
     public final void setInt8(int offset, int v) {
-        //setInt8(buffer, offset, v);
+        buffer.set8(offset, (byte) v);
     }
 
     /**
@@ -74,7 +74,7 @@ public class SCSIBuffer {
      * @return the byte
      */
     public final int getUInt8(int offset) {
-        return 0;//getUInt8(buffer, offset);
+        return (buffer.get8(offset) & 0xFF);
     }
 
     /**
@@ -84,7 +84,8 @@ public class SCSIBuffer {
      * @param v
      */
     public final void setInt16(int offset, int v) {
-        //setInt16(buffer, offset, v);
+        buffer.set8(offset, (byte) (v >>> 8));
+        buffer.set8(offset + 1, (byte) v);
     }
 
     /**
@@ -95,7 +96,8 @@ public class SCSIBuffer {
      * @return the data
      */
     public final int getUInt16(int offset) {
-        return 0;//getUInt16(buffer, offset);
+        return ((buffer.get8(offset) & 0xFF) << 8) |
+                (buffer.get8(offset + 1) & 0xFF);
     }
 
     /**
@@ -105,7 +107,10 @@ public class SCSIBuffer {
      * @param v
      */
     public final void setInt32(int offset, int v) {
-        //setInt32(buffer, offset, v);
+        buffer.set8(offset, (byte) (v >>> 24));
+        buffer.set8(offset + 1, (byte) (v >>> 16));
+        buffer.set8(offset + 2, (byte) (v >>> 8));
+        buffer.set8(offset + 3, (byte) v);
     }
 
     /**
@@ -116,7 +121,10 @@ public class SCSIBuffer {
      * @return the data
      */
     public final int getInt32(int offset) {
-        return 0;//getInt32(buffer, offset);
+        return ((buffer.get8(offset) & 0xFF) << 24) |
+                ((buffer.get8(offset + 1) & 0xFF) << 16) |
+                ((buffer.get8(offset + 2) & 0xFF) << 8) |
+                (buffer.get8(offset + 3) & 0xFF);
     }
 
     /**
@@ -128,11 +136,15 @@ public class SCSIBuffer {
      * @return the string
      */
     public final String getASCII(int offset, int length) {
-        //try {
-            return "";//new String(buffer, offset, length, "US-ASCII").trim();
-        //} catch (UnsupportedEncodingException ex) {
-            //throw new RuntimeException(ex);
-        //}
+        try {
+            byte[] bytes = new byte[length];
+            for (int i = 0; i < length; i++) {
+                bytes[i] = buffer.get8(offset + i);
+            }
+            return new String(bytes, "US-ASCII").trim();
+        } catch (UnsupportedEncodingException ex) {
+            throw new RuntimeException(ex);
+        }
     }
 
     /**

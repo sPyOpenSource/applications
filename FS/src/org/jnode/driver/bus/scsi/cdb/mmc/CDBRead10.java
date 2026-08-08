@@ -31,22 +31,27 @@ import org.jnode.driver.bus.scsi.CDB;
  */
 public class CDBRead10 extends CDB {
 
+    private final int nrBlocks;
+    private final int blockSize;
+
     /**
      * Initialize this instance.
      *
-     * @param lba      Logical block address of first block that will be read.
-     * @param nrBlocks The number of blocks that will be read.
+     * @param lba       Logical block address of first block that will be read.
+     * @param nrBlocks  The number of blocks that will be read.
+     * @param blockSize The size of a single block in bytes.
      */
-    public CDBRead10(int lba, int nrBlocks) {
+    public CDBRead10(int lba, int nrBlocks, int blockSize) {
         super(10, 0x28);
+        this.nrBlocks = nrBlocks;
+        this.blockSize = blockSize;
         setInt32(2, lba);
         setInt16(7, nrBlocks);
     }
 
     @Override
     public int getDataTransfertCount() {
-        // TODO Auto-generated method stub
-        return 0;
+        return nrBlocks * blockSize;
     }
 
 }

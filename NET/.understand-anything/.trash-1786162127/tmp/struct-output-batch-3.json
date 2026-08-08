@@ -1,0 +1,5009 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 25,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "build.xml",
+      "language": "xml",
+      "fileCategory": "config",
+      "totalLines": 73,
+      "nonEmptyLines": 60,
+      "metrics": {}
+    },
+    {
+      "path": "manifest.mf",
+      "language": "mf",
+      "fileCategory": "code",
+      "totalLines": 3,
+      "nonEmptyLines": 2,
+      "metrics": {}
+    },
+    {
+      "path": "packages/test_audit/test/audit/Dump.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 23,
+      "nonEmptyLines": 18,
+      "functions": [
+        {
+          "name": "main",
+          "startLine": 8,
+          "endLine": 22,
+          "params": [
+            "args"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Dump",
+          "startLine": 7,
+          "endLine": 23,
+          "methods": [
+            "main"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "main",
+          "line": 8,
+          "isDefault": false
+        },
+        {
+          "name": "Dump",
+          "line": 7,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "main",
+          "callee": "InitialNaming.getInitialNaming",
+          "lineNumber": 9
+        },
+        {
+          "caller": "main",
+          "callee": "Debug.out.println",
+          "lineNumber": 13
+        },
+        {
+          "caller": "main",
+          "callee": "naming.lookup",
+          "lineNumber": 14
+        },
+        {
+          "caller": "main",
+          "callee": "naming.lookup",
+          "lineNumber": 15
+        },
+        {
+          "caller": "main",
+          "callee": "cpuManager.yield",
+          "lineNumber": 15
+        },
+        {
+          "caller": "main",
+          "callee": "new AuditStore",
+          "lineNumber": 19
+        },
+        {
+          "caller": "main",
+          "callee": "Debug.out.println",
+          "lineNumber": 20
+        },
+        {
+          "caller": "main",
+          "callee": "audits.dump",
+          "lineNumber": 21
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "packages/test_audit/test/audit/Main.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 43,
+      "nonEmptyLines": 35,
+      "functions": [
+        {
+          "name": "main",
+          "startLine": 8,
+          "endLine": 42,
+          "params": [
+            "args"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Main",
+          "startLine": 7,
+          "endLine": 43,
+          "methods": [
+            "main"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "main",
+          "line": 8,
+          "isDefault": false
+        },
+        {
+          "name": "Main",
+          "line": 7,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "main",
+          "callee": "InitialNaming.getInitialNaming",
+          "lineNumber": 9
+        },
+        {
+          "caller": "main",
+          "callee": "LookupHelper.waitUntilPortalAvailable",
+          "lineNumber": 17
+        },
+        {
+          "caller": "main",
+          "callee": "new CycleTime",
+          "lineNumber": 19
+        },
+        {
+          "caller": "main",
+          "callee": "new CycleTime",
+          "lineNumber": 20
+        },
+        {
+          "caller": "main",
+          "callee": "new CycleTime",
+          "lineNumber": 21
+        },
+        {
+          "caller": "main",
+          "callee": "new AuditStore",
+          "lineNumber": 23
+        },
+        {
+          "caller": "main",
+          "callee": "InitialNaming.getInitialNaming().lookup",
+          "lineNumber": 31
+        },
+        {
+          "caller": "main",
+          "callee": "InitialNaming.getInitialNaming",
+          "lineNumber": 31
+        },
+        {
+          "caller": "main",
+          "callee": "clock.getCycles",
+          "lineNumber": 32
+        },
+        {
+          "caller": "main",
+          "callee": "audits.writeAuditLog",
+          "lineNumber": 34
+        },
+        {
+          "caller": "main",
+          "callee": "clock.getCycles",
+          "lineNumber": 36
+        },
+        {
+          "caller": "main",
+          "callee": "clock.subtract",
+          "lineNumber": 37
+        },
+        {
+          "caller": "main",
+          "callee": "clock.toMicroSec",
+          "lineNumber": 38
+        },
+        {
+          "caller": "main",
+          "callee": "Debug.out.println",
+          "lineNumber": 41
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "packages/test_credential/test/credential/Main.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 6,
+      "nonEmptyLines": 5,
+      "functions": [
+        {
+          "name": "main",
+          "startLine": 4,
+          "endLine": 5,
+          "params": [
+            "args"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Main",
+          "startLine": 3,
+          "endLine": 6,
+          "methods": [
+            "main"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "main",
+          "line": 4,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "packages/test_fs_user/test/fsuser/CreateRemove.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 48,
+      "nonEmptyLines": 40,
+      "functions": [
+        {
+          "name": "main",
+          "startLine": 16,
+          "endLine": 46,
+          "params": [
+            "args"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "CreateRemove",
+          "startLine": 13,
+          "endLine": 48,
+          "methods": [
+            "main"
+          ],
+          "properties": [
+            "MAXBUFFERSIZE"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "main",
+          "line": 16,
+          "isDefault": false
+        },
+        {
+          "name": "CreateRemove",
+          "line": 13,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "main",
+          "callee": "InitialNaming.getInitialNaming().lookup",
+          "lineNumber": 18
+        },
+        {
+          "caller": "main",
+          "callee": "InitialNaming.getInitialNaming",
+          "lineNumber": 18
+        },
+        {
+          "caller": "main",
+          "callee": "memMgr.allocAligned",
+          "lineNumber": 19
+        },
+        {
+          "caller": "main",
+          "callee": "ExtendedFileSystemInterface.getExtFileSystemInterface",
+          "lineNumber": 21
+        },
+        {
+          "caller": "main",
+          "callee": "fs.create",
+          "lineNumber": 22
+        },
+        {
+          "caller": "main",
+          "callee": "fs.create",
+          "lineNumber": 23
+        },
+        {
+          "caller": "main",
+          "callee": "fs.create",
+          "lineNumber": 24
+        },
+        {
+          "caller": "main",
+          "callee": "fs.create",
+          "lineNumber": 25
+        },
+        {
+          "caller": "main",
+          "callee": "fs.create",
+          "lineNumber": 26
+        },
+        {
+          "caller": "main",
+          "callee": "fs.unmount",
+          "lineNumber": 27
+        },
+        {
+          "caller": "main",
+          "callee": "Debug.out.println",
+          "lineNumber": 45
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "packages/test_fs_user/test/fsuser/IOZONE.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 438,
+      "nonEmptyLines": 364,
+      "functions": [
+        {
+          "name": "main",
+          "startLine": 61,
+          "endLine": 63,
+          "params": [
+            "args"
+          ]
+        },
+        {
+          "name": "IOZONE",
+          "startLine": 79,
+          "endLine": 135,
+          "params": [
+            "filename",
+            "minFileSizeKB",
+            "maxFileSizeKB",
+            "minRecSizeB",
+            "maxRecSizeB"
+          ]
+        },
+        {
+          "name": "autoTest",
+          "startLine": 138,
+          "endLine": 200,
+          "params": []
+        },
+        {
+          "name": "begin",
+          "startLine": 202,
+          "endLine": 212,
+          "params": [
+            "kilobytes",
+            "reclen"
+          ]
+        },
+        {
+          "name": "readPerfTest",
+          "startLine": 214,
+          "endLine": 272,
+          "params": [
+            "kilo",
+            "reclen"
+          ]
+        },
+        {
+          "name": "writePerfTest",
+          "startLine": 274,
+          "endLine": 326,
+          "params": [
+            "kilo",
+            "reclen"
+          ]
+        },
+        {
+          "name": "storeValue",
+          "startLine": 328,
+          "endLine": 345,
+          "params": [
+            "value"
+          ]
+        },
+        {
+          "name": "dumpBinary",
+          "startLine": 347,
+          "endLine": 365,
+          "params": [
+            "name"
+          ]
+        },
+        {
+          "name": "dumpReport",
+          "startLine": 372,
+          "endLine": 394,
+          "params": [
+            "who"
+          ]
+        },
+        {
+          "name": "dumpExcel",
+          "startLine": 399,
+          "endLine": 413,
+          "params": []
+        },
+        {
+          "name": "alignString",
+          "startLine": 415,
+          "endLine": 421,
+          "params": [
+            "value",
+            "length"
+          ]
+        },
+        {
+          "name": "getTime",
+          "startLine": 423,
+          "endLine": 425,
+          "params": []
+        },
+        {
+          "name": "fileopen",
+          "startLine": 428,
+          "endLine": 436,
+          "params": [
+            "path"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "IOZONE",
+          "startLine": 18,
+          "endLine": 438,
+          "methods": [
+            "main",
+            "IOZONE",
+            "autoTest",
+            "begin",
+            "readPerfTest",
+            "writePerfTest",
+            "storeValue",
+            "dumpBinary",
+            "dumpReport",
+            "dumpExcel",
+            "alignString",
+            "getTime",
+            "fileopen"
+          ],
+          "properties": [
+            "LARGE_REC",
+            "KILOBYTES",
+            "RECLEN",
+            "FILESIZE",
+            "NUMRECS",
+            "MAXBUFFERSIZE",
+            "MINBUFFERSIZE",
+            "MAX_X",
+            "MAX_Y",
+            "KILOBYTES_START",
+            "KILOBYTES_END",
+            "RECLEN_START",
+            "RECLEN_END",
+            "MULTIPLIER",
+            "CROSSOVER",
+            "MINIMAL_MICROS",
+            "clock",
+            "current_x",
+            "current_y",
+            "max_x",
+            "max_y",
+            "report_array",
+            "cancel_store",
+            "buffer",
+            "filename",
+            "file",
+            "out",
+            "IOZONE_MAX_FILESIZE",
+            "doDumpBinary",
+            "rereadtime",
+            "nreread"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "IOZONE_MAX_FILESIZE",
+          "line": 53,
+          "isDefault": false
+        },
+        {
+          "name": "main",
+          "line": 61,
+          "isDefault": false
+        },
+        {
+          "name": "IOZONE",
+          "line": 79,
+          "isDefault": false
+        },
+        {
+          "name": "IOZONE",
+          "line": 18,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "main",
+          "callee": "new IOZONE",
+          "lineNumber": 62
+        },
+        {
+          "caller": "IOZONE",
+          "callee": "out.println",
+          "lineNumber": 102
+        },
+        {
+          "caller": "IOZONE",
+          "callee": "((CPUManager)InitialNaming.getInitialNaming().lookup(\"CPUManager\")).yield",
+          "lineNumber": 103
+        },
+        {
+          "caller": "IOZONE",
+          "callee": "InitialNaming.getInitialNaming().lookup",
+          "lineNumber": 103
+        },
+        {
+          "caller": "IOZONE",
+          "callee": "InitialNaming.getInitialNaming",
+          "lineNumber": 103
+        },
+        {
+          "caller": "IOZONE",
+          "callee": "out.println",
+          "lineNumber": 104
+        },
+        {
+          "caller": "IOZONE",
+          "callee": "InitialNaming.getInitialNaming().lookup",
+          "lineNumber": 106
+        },
+        {
+          "caller": "IOZONE",
+          "callee": "InitialNaming.getInitialNaming",
+          "lineNumber": 106
+        },
+        {
+          "caller": "IOZONE",
+          "callee": "InitialNaming.getInitialNaming().lookup",
+          "lineNumber": 108
+        },
+        {
+          "caller": "IOZONE",
+          "callee": "InitialNaming.getInitialNaming",
+          "lineNumber": 108
+        },
+        {
+          "caller": "IOZONE",
+          "callee": "memMgr.allocAligned",
+          "lineNumber": 109
+        },
+        {
+          "caller": "IOZONE",
+          "callee": "out.println",
+          "lineNumber": 114
+        },
+        {
+          "caller": "IOZONE",
+          "callee": "out.println",
+          "lineNumber": 115
+        },
+        {
+          "caller": "IOZONE",
+          "callee": "fileopen",
+          "lineNumber": 117
+        },
+        {
+          "caller": "IOZONE",
+          "callee": "out.println",
+          "lineNumber": 120
+        },
+        {
+          "caller": "IOZONE",
+          "callee": "out.println",
+          "lineNumber": 121
+        },
+        {
+          "caller": "IOZONE",
+          "callee": "autoTest",
+          "lineNumber": 122
+        },
+        {
+          "caller": "IOZONE",
+          "callee": "((CPUManager)InitialNaming.getInitialNaming().lookup(\"CPUManager\")).yield",
+          "lineNumber": 123
+        },
+        {
+          "caller": "IOZONE",
+          "callee": "InitialNaming.getInitialNaming().lookup",
+          "lineNumber": 123
+        },
+        {
+          "caller": "IOZONE",
+          "callee": "InitialNaming.getInitialNaming",
+          "lineNumber": 123
+        },
+        {
+          "caller": "IOZONE",
+          "callee": "dumpBinary",
+          "lineNumber": 126
+        },
+        {
+          "caller": "IOZONE",
+          "callee": "new Error",
+          "lineNumber": 127
+        },
+        {
+          "caller": "IOZONE",
+          "callee": "out.println",
+          "lineNumber": 130
+        },
+        {
+          "caller": "autoTest",
+          "callee": "InitialNaming.getInitialNaming().lookup",
+          "lineNumber": 148
+        },
+        {
+          "caller": "autoTest",
+          "callee": "InitialNaming.getInitialNaming",
+          "lineNumber": 148
+        },
+        {
+          "caller": "autoTest",
+          "callee": "profiler.startSampling",
+          "lineNumber": 149
+        },
+        {
+          "caller": "autoTest",
+          "callee": "storeValue",
+          "lineNumber": 178
+        },
+        {
+          "caller": "autoTest",
+          "callee": "storeValue",
+          "lineNumber": 179
+        },
+        {
+          "caller": "autoTest",
+          "callee": "storeValue",
+          "lineNumber": 181
+        },
+        {
+          "caller": "autoTest",
+          "callee": "begin",
+          "lineNumber": 193
+        },
+        {
+          "caller": "begin",
+          "callee": "storeValue",
+          "lineNumber": 203
+        },
+        {
+          "caller": "begin",
+          "callee": "storeValue",
+          "lineNumber": 204
+        },
+        {
+          "caller": "begin",
+          "callee": "out.print",
+          "lineNumber": 206
+        },
+        {
+          "caller": "begin",
+          "callee": "alignString",
+          "lineNumber": 206
+        },
+        {
+          "caller": "begin",
+          "callee": "Integer.toString",
+          "lineNumber": 206
+        },
+        {
+          "caller": "begin",
+          "callee": "alignString",
+          "lineNumber": 206
+        },
+        {
+          "caller": "begin",
+          "callee": "Integer.toString",
+          "lineNumber": 206
+        },
+        {
+          "caller": "begin",
+          "callee": "writePerfTest",
+          "lineNumber": 208
+        },
+        {
+          "caller": "begin",
+          "callee": "readPerfTest",
+          "lineNumber": 209
+        },
+        {
+          "caller": "begin",
+          "callee": "out.println",
+          "lineNumber": 211
+        },
+        {
+          "caller": "readPerfTest",
+          "callee": "InitialNaming.getInitialNaming().lookup",
+          "lineNumber": 215
+        },
+        {
+          "caller": "readPerfTest",
+          "callee": "InitialNaming.getInitialNaming",
+          "lineNumber": 215
+        },
+        {
+          "caller": "readPerfTest",
+          "callee": "new CycleTime",
+          "lineNumber": 216
+        },
+        {
+          "caller": "readPerfTest",
+          "callee": "new CycleTime",
+          "lineNumber": 217
+        },
+        {
+          "caller": "readPerfTest",
+          "callee": "new CycleTime",
+          "lineNumber": 218
+        },
+        {
+          "caller": "readPerfTest",
+          "callee": "clock.getCycles",
+          "lineNumber": 233
+        },
+        {
+          "caller": "readPerfTest",
+          "callee": "file.read",
+          "lineNumber": 236
+        },
+        {
+          "caller": "readPerfTest",
+          "callee": "new Error",
+          "lineNumber": 237
+        },
+        {
+          "caller": "readPerfTest",
+          "callee": "clock.getCycles",
+          "lineNumber": 240
+        },
+        {
+          "caller": "readPerfTest",
+          "callee": "clock.subtract",
+          "lineNumber": 241
+        },
+        {
+          "caller": "readPerfTest",
+          "callee": "clock.toMicroSec",
+          "lineNumber": 243
+        },
+        {
+          "caller": "readPerfTest",
+          "callee": "out.print",
+          "lineNumber": 265
+        },
+        {
+          "caller": "readPerfTest",
+          "callee": "alignString",
+          "lineNumber": 265
+        },
+        {
+          "caller": "readPerfTest",
+          "callee": "Integer.toString",
+          "lineNumber": 265
+        },
+        {
+          "caller": "readPerfTest",
+          "callee": "alignString",
+          "lineNumber": 265
+        },
+        {
+          "caller": "readPerfTest",
+          "callee": "Integer.toString",
+          "lineNumber": 265
+        },
+        {
+          "caller": "readPerfTest",
+          "callee": "storeValue",
+          "lineNumber": 266
+        },
+        {
+          "caller": "readPerfTest",
+          "callee": "storeValue",
+          "lineNumber": 267
+        },
+        {
+          "caller": "readPerfTest",
+          "callee": "out.println",
+          "lineNumber": 270
+        },
+        {
+          "caller": "readPerfTest",
+          "callee": "new Error",
+          "lineNumber": 270
+        },
+        {
+          "caller": "writePerfTest",
+          "callee": "InitialNaming.getInitialNaming().lookup",
+          "lineNumber": 276
+        },
+        {
+          "caller": "writePerfTest",
+          "callee": "InitialNaming.getInitialNaming",
+          "lineNumber": 276
+        },
+        {
+          "caller": "writePerfTest",
+          "callee": "new CycleTime",
+          "lineNumber": 277
+        },
+        {
+          "caller": "writePerfTest",
+          "callee": "new CycleTime",
+          "lineNumber": 278
+        },
+        {
+          "caller": "writePerfTest",
+          "callee": "new CycleTime",
+          "lineNumber": 279
+        },
+        {
+          "caller": "writePerfTest",
+          "callee": "clock.getCycles",
+          "lineNumber": 294
+        },
+        {
+          "caller": "writePerfTest",
+          "callee": "file.write",
+          "lineNumber": 296
+        },
+        {
+          "caller": "writePerfTest",
+          "callee": "new Error",
+          "lineNumber": 297
+        },
+        {
+          "caller": "writePerfTest",
+          "callee": "clock.getCycles",
+          "lineNumber": 299
+        },
+        {
+          "caller": "writePerfTest",
+          "callee": "clock.subtract",
+          "lineNumber": 300
+        },
+        {
+          "caller": "writePerfTest",
+          "callee": "clock.toMicroSec",
+          "lineNumber": 302
+        },
+        {
+          "caller": "writePerfTest",
+          "callee": "out.print",
+          "lineNumber": 319
+        },
+        {
+          "caller": "writePerfTest",
+          "callee": "alignString",
+          "lineNumber": 319
+        },
+        {
+          "caller": "writePerfTest",
+          "callee": "Integer.toString",
+          "lineNumber": 319
+        },
+        {
+          "caller": "writePerfTest",
+          "callee": "alignString",
+          "lineNumber": 319
+        },
+        {
+          "caller": "writePerfTest",
+          "callee": "Integer.toString",
+          "lineNumber": 319
+        },
+        {
+          "caller": "writePerfTest",
+          "callee": "storeValue",
+          "lineNumber": 320
+        },
+        {
+          "caller": "writePerfTest",
+          "callee": "storeValue",
+          "lineNumber": 321
+        },
+        {
+          "caller": "writePerfTest",
+          "callee": "out.println",
+          "lineNumber": 323
+        },
+        {
+          "caller": "writePerfTest",
+          "callee": "new Error",
+          "lineNumber": 324
+        },
+        {
+          "caller": "storeValue",
+          "callee": "out.println",
+          "lineNumber": 338
+        },
+        {
+          "caller": "storeValue",
+          "callee": "out.println",
+          "lineNumber": 340
+        },
+        {
+          "caller": "storeValue",
+          "callee": "Debug.out.println",
+          "lineNumber": 342
+        },
+        {
+          "caller": "dumpBinary",
+          "callee": "InitialNaming.getInitialNaming().lookup",
+          "lineNumber": 348
+        },
+        {
+          "caller": "dumpBinary",
+          "callee": "InitialNaming.getInitialNaming",
+          "lineNumber": 348
+        },
+        {
+          "caller": "dumpBinary",
+          "callee": "memoryManager.alloc",
+          "lineNumber": 349
+        },
+        {
+          "caller": "dumpBinary",
+          "callee": "new MemoryOutputStream",
+          "lineNumber": 350
+        },
+        {
+          "caller": "dumpBinary",
+          "callee": "new LittleEndianOutputStream",
+          "lineNumber": 351
+        },
+        {
+          "caller": "dumpBinary",
+          "callee": "out.writeInt",
+          "lineNumber": 352
+        },
+        {
+          "caller": "dumpBinary",
+          "callee": "out.writeInt",
+          "lineNumber": 353
+        },
+        {
+          "caller": "dumpBinary",
+          "callee": "out.writeInt",
+          "lineNumber": 354
+        },
+        {
+          "caller": "dumpBinary",
+          "callee": "out.writeInt",
+          "lineNumber": 355
+        },
+        {
+          "caller": "dumpBinary",
+          "callee": "out.writeInt",
+          "lineNumber": 359
+        },
+        {
+          "caller": "dumpBinary",
+          "callee": "new Error",
+          "lineNumber": 362
+        },
+        {
+          "caller": "dumpBinary",
+          "callee": "InitialNaming.getInitialNaming().lookup",
+          "lineNumber": 363
+        },
+        {
+          "caller": "dumpBinary",
+          "callee": "InitialNaming.getInitialNaming",
+          "lineNumber": 363
+        },
+        {
+          "caller": "dumpBinary",
+          "callee": "deb.sendBinary",
+          "lineNumber": 364
+        },
+        {
+          "caller": "dumpReport",
+          "callee": "out.print",
+          "lineNumber": 376
+        },
+        {
+          "caller": "dumpReport",
+          "callee": "out.print",
+          "lineNumber": 378
+        },
+        {
+          "caller": "dumpReport",
+          "callee": "out.println",
+          "lineNumber": 380
+        },
+        {
+          "caller": "dumpReport",
+          "callee": "out.print",
+          "lineNumber": 383
+        },
+        {
+          "caller": "dumpReport",
+          "callee": "out.println",
+          "lineNumber": 387
+        },
+        {
+          "caller": "dumpReport",
+          "callee": "out.print",
+          "lineNumber": 389
+        },
+        {
+          "caller": "dumpReport",
+          "callee": "out.print",
+          "lineNumber": 391
+        },
+        {
+          "caller": "dumpReport",
+          "callee": "out.println",
+          "lineNumber": 393
+        },
+        {
+          "caller": "dumpExcel",
+          "callee": "out.println",
+          "lineNumber": 400
+        },
+        {
+          "caller": "dumpExcel",
+          "callee": "out.println",
+          "lineNumber": 401
+        },
+        {
+          "caller": "dumpExcel",
+          "callee": "dumpReport",
+          "lineNumber": 402
+        },
+        {
+          "caller": "dumpExcel",
+          "callee": "out.println",
+          "lineNumber": 403
+        },
+        {
+          "caller": "dumpExcel",
+          "callee": "out.println",
+          "lineNumber": 404
+        },
+        {
+          "caller": "dumpExcel",
+          "callee": "dumpReport",
+          "lineNumber": 405
+        },
+        {
+          "caller": "dumpExcel",
+          "callee": "out.println",
+          "lineNumber": 406
+        },
+        {
+          "caller": "dumpExcel",
+          "callee": "out.println",
+          "lineNumber": 407
+        },
+        {
+          "caller": "dumpExcel",
+          "callee": "dumpReport",
+          "lineNumber": 408
+        },
+        {
+          "caller": "dumpExcel",
+          "callee": "out.println",
+          "lineNumber": 409
+        },
+        {
+          "caller": "dumpExcel",
+          "callee": "out.println",
+          "lineNumber": 410
+        },
+        {
+          "caller": "dumpExcel",
+          "callee": "dumpReport",
+          "lineNumber": 411
+        },
+        {
+          "caller": "dumpExcel",
+          "callee": "out.println",
+          "lineNumber": 412
+        },
+        {
+          "caller": "alignString",
+          "callee": "new String",
+          "lineNumber": 416
+        },
+        {
+          "caller": "alignString",
+          "callee": "value.length",
+          "lineNumber": 417
+        },
+        {
+          "caller": "getTime",
+          "callee": "System.currentTimeMillis",
+          "lineNumber": 424
+        },
+        {
+          "caller": "fileopen",
+          "callee": "ExtendedFileSystemInterface.getExtFileSystemInterface",
+          "lineNumber": 431
+        },
+        {
+          "caller": "fileopen",
+          "callee": "fs.openRW",
+          "lineNumber": 432
+        },
+        {
+          "caller": "fileopen",
+          "callee": "fs.create",
+          "lineNumber": 433
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 4,
+        "functionCount": 13,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "packages/test_fsmulti/test/fsmulti/Main.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 82,
+      "nonEmptyLines": 66,
+      "functions": [
+        {
+          "name": "main",
+          "startLine": 16,
+          "endLine": 18,
+          "params": [
+            "args"
+          ]
+        },
+        {
+          "name": "Main",
+          "startLine": 20,
+          "endLine": 34,
+          "params": [
+            "args"
+          ]
+        },
+        {
+          "name": "test0",
+          "startLine": 36,
+          "endLine": 43,
+          "params": []
+        },
+        {
+          "name": "test1",
+          "startLine": 45,
+          "endLine": 69,
+          "params": []
+        },
+        {
+          "name": "createFile",
+          "startLine": 71,
+          "endLine": 80,
+          "params": [
+            "fs",
+            "name",
+            "contents"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Main",
+          "startLine": 10,
+          "endLine": 82,
+          "methods": [
+            "main",
+            "Main",
+            "test0",
+            "test1",
+            "createFile"
+          ],
+          "properties": [
+            "fs",
+            "naming",
+            "buffer"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "main",
+          "line": 16,
+          "isDefault": false
+        },
+        {
+          "name": "Main",
+          "line": 20,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "main",
+          "callee": "new Main",
+          "lineNumber": 17
+        },
+        {
+          "caller": "Main",
+          "callee": "LookupHelper.waitUntilPortalAvailable",
+          "lineNumber": 22
+        },
+        {
+          "caller": "Main",
+          "callee": "LookupHelper.waitUntilPortalAvailable",
+          "lineNumber": 23
+        },
+        {
+          "caller": "Main",
+          "callee": "new Error",
+          "lineNumber": 24
+        },
+        {
+          "caller": "Main",
+          "callee": "InitialNaming.getInitialNaming().lookup",
+          "lineNumber": 27
+        },
+        {
+          "caller": "Main",
+          "callee": "InitialNaming.getInitialNaming",
+          "lineNumber": 27
+        },
+        {
+          "caller": "Main",
+          "callee": "memoryManager.alloc",
+          "lineNumber": 28
+        },
+        {
+          "caller": "Main",
+          "callee": "test1",
+          "lineNumber": 30
+        },
+        {
+          "caller": "Main",
+          "callee": "jfs.release",
+          "lineNumber": 32
+        },
+        {
+          "caller": "test0",
+          "callee": "createFile",
+          "lineNumber": 38
+        },
+        {
+          "caller": "test1",
+          "callee": "new Thread",
+          "lineNumber": 49
+        },
+        {
+          "caller": "run",
+          "callee": "fs.create",
+          "lineNumber": 53
+        },
+        {
+          "caller": "run",
+          "callee": "fs.lookup",
+          "lineNumber": 54
+        },
+        {
+          "caller": "run",
+          "callee": "inode.write",
+          "lineNumber": 55
+        },
+        {
+          "caller": "run",
+          "callee": "inode.read",
+          "lineNumber": 57
+        },
+        {
+          "caller": "run",
+          "callee": "inode.decUseCount",
+          "lineNumber": 59
+        },
+        {
+          "caller": "run",
+          "callee": "new Error",
+          "lineNumber": 60
+        },
+        {
+          "caller": "test1",
+          "callee": "threads[i].start",
+          "lineNumber": 63
+        },
+        {
+          "caller": "test1",
+          "callee": "threads[i].join",
+          "lineNumber": 66
+        },
+        {
+          "caller": "createFile",
+          "callee": "fs.create",
+          "lineNumber": 72
+        },
+        {
+          "caller": "createFile",
+          "callee": "fs.lookup",
+          "lineNumber": 74
+        },
+        {
+          "caller": "createFile",
+          "callee": "contents.getBytes",
+          "lineNumber": 75
+        },
+        {
+          "caller": "createFile",
+          "callee": "buffer.copyFromByteArray",
+          "lineNumber": 76
+        },
+        {
+          "caller": "createFile",
+          "callee": "inode.write",
+          "lineNumber": 77
+        },
+        {
+          "caller": "createFile",
+          "callee": "inode.decUseCount",
+          "lineNumber": 78
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 5,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "packages/test_jdk_fs/test/jdkfs/IOZONE.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 487,
+      "nonEmptyLines": 405,
+      "functions": [
+        {
+          "name": "main",
+          "startLine": 58,
+          "endLine": 60,
+          "params": [
+            "args"
+          ]
+        },
+        {
+          "name": "IOZONE",
+          "startLine": 76,
+          "endLine": 110,
+          "params": [
+            "filename",
+            "minFileSizeKB",
+            "maxFileSizeKB",
+            "minRecSizeB",
+            "maxRecSizeB"
+          ]
+        },
+        {
+          "name": "autoTest",
+          "startLine": 113,
+          "endLine": 173,
+          "params": []
+        },
+        {
+          "name": "begin",
+          "startLine": 175,
+          "endLine": 185,
+          "params": [
+            "kilobytes",
+            "reclen"
+          ]
+        },
+        {
+          "name": "readPerfTest",
+          "startLine": 241,
+          "endLine": 296,
+          "params": [
+            "kilo",
+            "reclen"
+          ]
+        },
+        {
+          "name": "writePerfTest",
+          "startLine": 342,
+          "endLine": 398,
+          "params": [
+            "kilo",
+            "reclen"
+          ]
+        },
+        {
+          "name": "storeValue",
+          "startLine": 415,
+          "endLine": 426,
+          "params": [
+            "value"
+          ]
+        },
+        {
+          "name": "dumpReport",
+          "startLine": 433,
+          "endLine": 455,
+          "params": [
+            "who"
+          ]
+        },
+        {
+          "name": "dumpExcel",
+          "startLine": 460,
+          "endLine": 474,
+          "params": []
+        },
+        {
+          "name": "alignString",
+          "startLine": 476,
+          "endLine": 482,
+          "params": [
+            "value",
+            "length"
+          ]
+        },
+        {
+          "name": "getTime",
+          "startLine": 484,
+          "endLine": 486,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "IOZONE",
+          "startLine": 19,
+          "endLine": 487,
+          "methods": [
+            "main",
+            "IOZONE",
+            "autoTest",
+            "begin",
+            "readPerfTest",
+            "writePerfTest",
+            "storeValue",
+            "dumpReport",
+            "dumpExcel",
+            "alignString",
+            "getTime"
+          ],
+          "properties": [
+            "sample",
+            "profiler",
+            "LARGE_REC",
+            "KILOBYTES",
+            "RECLEN",
+            "FILESIZE",
+            "NUMRECS",
+            "MAXBUFFERSIZE",
+            "MINBUFFERSIZE",
+            "MAX_X",
+            "MAX_Y",
+            "KILOBYTES_START",
+            "KILOBYTES_END",
+            "RECLEN_START",
+            "RECLEN_END",
+            "MULTIPLIER",
+            "CROSSOVER",
+            "MINIMAL_MICROS",
+            "clock",
+            "current_x",
+            "current_y",
+            "max_x",
+            "max_y",
+            "report_array",
+            "buffer",
+            "out",
+            "filename",
+            "IOZONE_MAX_FILESIZE"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "IOZONE_MAX_FILESIZE",
+          "line": 56,
+          "isDefault": false
+        },
+        {
+          "name": "main",
+          "line": 58,
+          "isDefault": false
+        },
+        {
+          "name": "IOZONE",
+          "line": 76,
+          "isDefault": false
+        },
+        {
+          "name": "IOZONE",
+          "line": 19,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "main",
+          "callee": "new IOZONE",
+          "lineNumber": 59
+        },
+        {
+          "caller": "IOZONE",
+          "callee": "out.println",
+          "lineNumber": 89
+        },
+        {
+          "caller": "IOZONE",
+          "callee": "((CPUManager)InitialNaming.getInitialNaming().lookup(\"CPUManager\")).yield",
+          "lineNumber": 90
+        },
+        {
+          "caller": "IOZONE",
+          "callee": "InitialNaming.getInitialNaming().lookup",
+          "lineNumber": 90
+        },
+        {
+          "caller": "IOZONE",
+          "callee": "InitialNaming.getInitialNaming",
+          "lineNumber": 90
+        },
+        {
+          "caller": "IOZONE",
+          "callee": "out.println",
+          "lineNumber": 91
+        },
+        {
+          "caller": "IOZONE",
+          "callee": "InitialNaming.getInitialNaming().lookup",
+          "lineNumber": 93
+        },
+        {
+          "caller": "IOZONE",
+          "callee": "InitialNaming.getInitialNaming",
+          "lineNumber": 93
+        },
+        {
+          "caller": "IOZONE",
+          "callee": "InitialNaming.getInitialNaming().lookup",
+          "lineNumber": 95
+        },
+        {
+          "caller": "IOZONE",
+          "callee": "InitialNaming.getInitialNaming",
+          "lineNumber": 95
+        },
+        {
+          "caller": "IOZONE",
+          "callee": "out.println",
+          "lineNumber": 101
+        },
+        {
+          "caller": "IOZONE",
+          "callee": "out.println",
+          "lineNumber": 102
+        },
+        {
+          "caller": "IOZONE",
+          "callee": "out.println",
+          "lineNumber": 103
+        },
+        {
+          "caller": "IOZONE",
+          "callee": "autoTest",
+          "lineNumber": 104
+        },
+        {
+          "caller": "IOZONE",
+          "callee": "out.println",
+          "lineNumber": 105
+        },
+        {
+          "caller": "IOZONE",
+          "callee": "((CPUManager)InitialNaming.getInitialNaming().lookup(\"CPUManager\")).yield",
+          "lineNumber": 106
+        },
+        {
+          "caller": "IOZONE",
+          "callee": "InitialNaming.getInitialNaming().lookup",
+          "lineNumber": 106
+        },
+        {
+          "caller": "IOZONE",
+          "callee": "InitialNaming.getInitialNaming",
+          "lineNumber": 106
+        },
+        {
+          "caller": "IOZONE",
+          "callee": "out.println",
+          "lineNumber": 107
+        },
+        {
+          "caller": "autoTest",
+          "callee": "storeValue",
+          "lineNumber": 151
+        },
+        {
+          "caller": "autoTest",
+          "callee": "storeValue",
+          "lineNumber": 152
+        },
+        {
+          "caller": "autoTest",
+          "callee": "storeValue",
+          "lineNumber": 154
+        },
+        {
+          "caller": "autoTest",
+          "callee": "begin",
+          "lineNumber": 166
+        },
+        {
+          "caller": "begin",
+          "callee": "out.print",
+          "lineNumber": 179
+        },
+        {
+          "caller": "begin",
+          "callee": "alignString",
+          "lineNumber": 179
+        },
+        {
+          "caller": "begin",
+          "callee": "Integer.toString",
+          "lineNumber": 179
+        },
+        {
+          "caller": "begin",
+          "callee": "alignString",
+          "lineNumber": 179
+        },
+        {
+          "caller": "begin",
+          "callee": "Integer.toString",
+          "lineNumber": 179
+        },
+        {
+          "caller": "begin",
+          "callee": "writePerfTest",
+          "lineNumber": 181
+        },
+        {
+          "caller": "begin",
+          "callee": "readPerfTest",
+          "lineNumber": 182
+        },
+        {
+          "caller": "begin",
+          "callee": "out.println",
+          "lineNumber": 184
+        },
+        {
+          "caller": "readPerfTest",
+          "callee": "InitialNaming.getInitialNaming().lookup",
+          "lineNumber": 242
+        },
+        {
+          "caller": "readPerfTest",
+          "callee": "InitialNaming.getInitialNaming",
+          "lineNumber": 242
+        },
+        {
+          "caller": "readPerfTest",
+          "callee": "new CycleTime",
+          "lineNumber": 243
+        },
+        {
+          "caller": "readPerfTest",
+          "callee": "new CycleTime",
+          "lineNumber": 244
+        },
+        {
+          "caller": "readPerfTest",
+          "callee": "new CycleTime",
+          "lineNumber": 245
+        },
+        {
+          "caller": "readPerfTest",
+          "callee": "new RandomAccessFile",
+          "lineNumber": 256
+        },
+        {
+          "caller": "readPerfTest",
+          "callee": "profiler.startSampling",
+          "lineNumber": 258
+        },
+        {
+          "caller": "readPerfTest",
+          "callee": "file.seek",
+          "lineNumber": 261
+        },
+        {
+          "caller": "readPerfTest",
+          "callee": "clock.getCycles",
+          "lineNumber": 263
+        },
+        {
+          "caller": "readPerfTest",
+          "callee": "file.read",
+          "lineNumber": 266
+        },
+        {
+          "caller": "readPerfTest",
+          "callee": "clock.getCycles",
+          "lineNumber": 268
+        },
+        {
+          "caller": "readPerfTest",
+          "callee": "clock.subtract",
+          "lineNumber": 269
+        },
+        {
+          "caller": "readPerfTest",
+          "callee": "clock.toMicroSec",
+          "lineNumber": 271
+        },
+        {
+          "caller": "readPerfTest",
+          "callee": "profiler.stopSampling",
+          "lineNumber": 277
+        },
+        {
+          "caller": "readPerfTest",
+          "callee": "file.close",
+          "lineNumber": 279
+        },
+        {
+          "caller": "readPerfTest",
+          "callee": "out.print",
+          "lineNumber": 289
+        },
+        {
+          "caller": "readPerfTest",
+          "callee": "alignString",
+          "lineNumber": 289
+        },
+        {
+          "caller": "readPerfTest",
+          "callee": "Integer.toString",
+          "lineNumber": 289
+        },
+        {
+          "caller": "readPerfTest",
+          "callee": "alignString",
+          "lineNumber": 289
+        },
+        {
+          "caller": "readPerfTest",
+          "callee": "Integer.toString",
+          "lineNumber": 289
+        },
+        {
+          "caller": "readPerfTest",
+          "callee": "storeValue",
+          "lineNumber": 290
+        },
+        {
+          "caller": "readPerfTest",
+          "callee": "storeValue",
+          "lineNumber": 291
+        },
+        {
+          "caller": "readPerfTest",
+          "callee": "out.println",
+          "lineNumber": 294
+        },
+        {
+          "caller": "readPerfTest",
+          "callee": "new Error",
+          "lineNumber": 294
+        },
+        {
+          "caller": "writePerfTest",
+          "callee": "InitialNaming.getInitialNaming().lookup",
+          "lineNumber": 344
+        },
+        {
+          "caller": "writePerfTest",
+          "callee": "InitialNaming.getInitialNaming",
+          "lineNumber": 344
+        },
+        {
+          "caller": "writePerfTest",
+          "callee": "new CycleTime",
+          "lineNumber": 345
+        },
+        {
+          "caller": "writePerfTest",
+          "callee": "new CycleTime",
+          "lineNumber": 346
+        },
+        {
+          "caller": "writePerfTest",
+          "callee": "new CycleTime",
+          "lineNumber": 347
+        },
+        {
+          "caller": "writePerfTest",
+          "callee": "new RandomAccessFile",
+          "lineNumber": 359
+        },
+        {
+          "caller": "writePerfTest",
+          "callee": "profiler.startSampling",
+          "lineNumber": 361
+        },
+        {
+          "caller": "writePerfTest",
+          "callee": "file.seek",
+          "lineNumber": 364
+        },
+        {
+          "caller": "writePerfTest",
+          "callee": "clock.getCycles",
+          "lineNumber": 365
+        },
+        {
+          "caller": "writePerfTest",
+          "callee": "file.write",
+          "lineNumber": 367
+        },
+        {
+          "caller": "writePerfTest",
+          "callee": "clock.getCycles",
+          "lineNumber": 369
+        },
+        {
+          "caller": "writePerfTest",
+          "callee": "clock.subtract",
+          "lineNumber": 370
+        },
+        {
+          "caller": "writePerfTest",
+          "callee": "clock.toMicroSec",
+          "lineNumber": 372
+        },
+        {
+          "caller": "writePerfTest",
+          "callee": "profiler.stopSampling",
+          "lineNumber": 378
+        },
+        {
+          "caller": "writePerfTest",
+          "callee": "file.close",
+          "lineNumber": 380
+        },
+        {
+          "caller": "writePerfTest",
+          "callee": "out.print",
+          "lineNumber": 391
+        },
+        {
+          "caller": "writePerfTest",
+          "callee": "alignString",
+          "lineNumber": 391
+        },
+        {
+          "caller": "writePerfTest",
+          "callee": "Integer.toString",
+          "lineNumber": 391
+        },
+        {
+          "caller": "writePerfTest",
+          "callee": "alignString",
+          "lineNumber": 391
+        },
+        {
+          "caller": "writePerfTest",
+          "callee": "Integer.toString",
+          "lineNumber": 391
+        },
+        {
+          "caller": "writePerfTest",
+          "callee": "out.println",
+          "lineNumber": 395
+        },
+        {
+          "caller": "writePerfTest",
+          "callee": "new Error",
+          "lineNumber": 396
+        },
+        {
+          "caller": "storeValue",
+          "callee": "out.println",
+          "lineNumber": 423
+        },
+        {
+          "caller": "storeValue",
+          "callee": "out.println",
+          "lineNumber": 425
+        },
+        {
+          "caller": "dumpReport",
+          "callee": "out.print",
+          "lineNumber": 437
+        },
+        {
+          "caller": "dumpReport",
+          "callee": "out.print",
+          "lineNumber": 439
+        },
+        {
+          "caller": "dumpReport",
+          "callee": "out.println",
+          "lineNumber": 441
+        },
+        {
+          "caller": "dumpReport",
+          "callee": "out.print",
+          "lineNumber": 444
+        },
+        {
+          "caller": "dumpReport",
+          "callee": "out.println",
+          "lineNumber": 448
+        },
+        {
+          "caller": "dumpReport",
+          "callee": "out.print",
+          "lineNumber": 450
+        },
+        {
+          "caller": "dumpReport",
+          "callee": "out.print",
+          "lineNumber": 452
+        },
+        {
+          "caller": "dumpReport",
+          "callee": "out.println",
+          "lineNumber": 454
+        },
+        {
+          "caller": "dumpExcel",
+          "callee": "out.println",
+          "lineNumber": 461
+        },
+        {
+          "caller": "dumpExcel",
+          "callee": "out.println",
+          "lineNumber": 462
+        },
+        {
+          "caller": "dumpExcel",
+          "callee": "dumpReport",
+          "lineNumber": 463
+        },
+        {
+          "caller": "dumpExcel",
+          "callee": "out.println",
+          "lineNumber": 464
+        },
+        {
+          "caller": "dumpExcel",
+          "callee": "out.println",
+          "lineNumber": 465
+        },
+        {
+          "caller": "dumpExcel",
+          "callee": "dumpReport",
+          "lineNumber": 466
+        },
+        {
+          "caller": "dumpExcel",
+          "callee": "out.println",
+          "lineNumber": 467
+        },
+        {
+          "caller": "dumpExcel",
+          "callee": "out.println",
+          "lineNumber": 468
+        },
+        {
+          "caller": "dumpExcel",
+          "callee": "dumpReport",
+          "lineNumber": 469
+        },
+        {
+          "caller": "dumpExcel",
+          "callee": "out.println",
+          "lineNumber": 470
+        },
+        {
+          "caller": "dumpExcel",
+          "callee": "out.println",
+          "lineNumber": 471
+        },
+        {
+          "caller": "dumpExcel",
+          "callee": "dumpReport",
+          "lineNumber": 472
+        },
+        {
+          "caller": "dumpExcel",
+          "callee": "out.println",
+          "lineNumber": 473
+        },
+        {
+          "caller": "alignString",
+          "callee": "new String",
+          "lineNumber": 477
+        },
+        {
+          "caller": "alignString",
+          "callee": "value.length",
+          "lineNumber": 478
+        },
+        {
+          "caller": "getTime",
+          "callee": "System.currentTimeMillis",
+          "lineNumber": 485
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 4,
+        "functionCount": 11,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "packages/test_jdk_fs/test/jdkfs/Main.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 10,
+      "nonEmptyLines": 9,
+      "functions": [
+        {
+          "name": "main",
+          "startLine": 4,
+          "endLine": 9,
+          "params": [
+            "args"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Main",
+          "startLine": 3,
+          "endLine": 10,
+          "methods": [
+            "main"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "main",
+          "line": 4,
+          "isDefault": false
+        },
+        {
+          "name": "Main",
+          "line": 3,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "main",
+          "callee": "System.out.println",
+          "lineNumber": 5
+        },
+        {
+          "caller": "main",
+          "callee": "System.out.println",
+          "lineNumber": 7
+        },
+        {
+          "caller": "main",
+          "callee": "new IOZONE",
+          "lineNumber": 8
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "packages/test_jdk_net/test/jdknet/UDPReceiver.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 60,
+      "nonEmptyLines": 46,
+      "functions": [
+        {
+          "name": "main",
+          "startLine": 9,
+          "endLine": 50,
+          "params": [
+            "args"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "UDPReceiver",
+          "startLine": 8,
+          "endLine": 51,
+          "methods": [
+            "main"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "main",
+          "line": 9,
+          "isDefault": false
+        },
+        {
+          "name": "UDPReceiver",
+          "line": 8,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "main",
+          "callee": "new Object",
+          "lineNumber": 16
+        },
+        {
+          "caller": "main",
+          "callee": "Debug.out.println",
+          "lineNumber": 19
+        },
+        {
+          "caller": "main",
+          "callee": "new Integer(args[0]).intValue",
+          "lineNumber": 20
+        },
+        {
+          "caller": "main",
+          "callee": "new Integer",
+          "lineNumber": 20
+        },
+        {
+          "caller": "main",
+          "callee": "Debug.out.println",
+          "lineNumber": 26
+        },
+        {
+          "caller": "main",
+          "callee": "new DatagramSocket",
+          "lineNumber": 29
+        },
+        {
+          "caller": "main",
+          "callee": "Debug.out.println",
+          "lineNumber": 32
+        },
+        {
+          "caller": "main",
+          "callee": "System.exit",
+          "lineNumber": 33
+        },
+        {
+          "caller": "main",
+          "callee": "new DatagramPacket",
+          "lineNumber": 37
+        },
+        {
+          "caller": "main",
+          "callee": "Debug.out.println",
+          "lineNumber": 38
+        },
+        {
+          "caller": "main",
+          "callee": "socket.receive",
+          "lineNumber": 40
+        },
+        {
+          "caller": "main",
+          "callee": "Debug.out.println",
+          "lineNumber": 41
+        },
+        {
+          "caller": "main",
+          "callee": "Debug.out.println",
+          "lineNumber": 44
+        },
+        {
+          "caller": "main",
+          "callee": "Debug.out.println",
+          "lineNumber": 46
+        },
+        {
+          "caller": "main",
+          "callee": "toReceive.getAddress",
+          "lineNumber": 46
+        },
+        {
+          "caller": "main",
+          "callee": "Debug.out.println",
+          "lineNumber": 47
+        },
+        {
+          "caller": "main",
+          "callee": "toReceive.getLength",
+          "lineNumber": 47
+        },
+        {
+          "caller": "main",
+          "callee": "Debug.out.println",
+          "lineNumber": 48
+        },
+        {
+          "caller": "main",
+          "callee": "toReceive.getPort",
+          "lineNumber": 48
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "packages/test_jdk_net/test/jdknet/UDPTestSender.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 82,
+      "nonEmptyLines": 63,
+      "functions": [
+        {
+          "name": "main",
+          "startLine": 6,
+          "endLine": 68,
+          "params": [
+            "args"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "UDPTestSender",
+          "startLine": 5,
+          "endLine": 69,
+          "methods": [
+            "main"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "main",
+          "line": 6,
+          "isDefault": false
+        },
+        {
+          "name": "UDPTestSender",
+          "line": 5,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "main",
+          "callee": "new Object",
+          "lineNumber": 12
+        },
+        {
+          "caller": "main",
+          "callee": "System.out.println",
+          "lineNumber": 16
+        },
+        {
+          "caller": "main",
+          "callee": "System.out.println",
+          "lineNumber": 25
+        },
+        {
+          "caller": "main",
+          "callee": "new DatagramSocket",
+          "lineNumber": 32
+        },
+        {
+          "caller": "main",
+          "callee": "System.out.println",
+          "lineNumber": 35
+        },
+        {
+          "caller": "main",
+          "callee": "System.exit",
+          "lineNumber": 36
+        },
+        {
+          "caller": "main",
+          "callee": "InetAddress.getByName",
+          "lineNumber": 39
+        },
+        {
+          "caller": "main",
+          "callee": "System.out.println",
+          "lineNumber": 40
+        },
+        {
+          "caller": "main",
+          "callee": "System.out.println",
+          "lineNumber": 43
+        },
+        {
+          "caller": "main",
+          "callee": "System.exit",
+          "lineNumber": 44
+        },
+        {
+          "caller": "main",
+          "callee": "System.out.println",
+          "lineNumber": 48
+        },
+        {
+          "caller": "main",
+          "callee": "System.out.println",
+          "lineNumber": 50
+        },
+        {
+          "caller": "main",
+          "callee": "new DatagramPacket",
+          "lineNumber": 51
+        },
+        {
+          "caller": "main",
+          "callee": "Thread.sleep",
+          "lineNumber": 54
+        },
+        {
+          "caller": "main",
+          "callee": "System.out.println",
+          "lineNumber": 57
+        },
+        {
+          "caller": "main",
+          "callee": "socket.send",
+          "lineNumber": 61
+        },
+        {
+          "caller": "main",
+          "callee": "System.out.println",
+          "lineNumber": 64
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "README.rst",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 12,
+      "nonEmptyLines": 8,
+      "metrics": {}
+    },
+    {
+      "path": "src/AI/AIInput.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 72,
+      "nonEmptyLines": 67,
+      "functions": [
+        {
+          "name": "AIInput",
+          "startLine": 21,
+          "endLine": 35,
+          "params": [
+            "mem"
+          ]
+        },
+        {
+          "name": "ReadMessageFromArduino",
+          "startLine": 37,
+          "endLine": 43,
+          "params": []
+        },
+        {
+          "name": "setup",
+          "startLine": 45,
+          "endLine": 71,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "AIInput",
+          "startLine": 10,
+          "endLine": 72,
+          "methods": [
+            "AIInput",
+            "ReadMessageFromArduino",
+            "setup"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "AIInput",
+          "line": 21,
+          "isDefault": false
+        },
+        {
+          "name": "AIInput",
+          "line": 10,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/AI/AIOutput.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 57,
+      "nonEmptyLines": 50,
+      "functions": [
+        {
+          "name": "AIOutput",
+          "startLine": 24,
+          "endLine": 35,
+          "params": [
+            "mem"
+          ]
+        },
+        {
+          "name": "getOut",
+          "startLine": 37,
+          "endLine": 39,
+          "params": []
+        },
+        {
+          "name": "Send",
+          "startLine": 41,
+          "endLine": 51,
+          "params": []
+        },
+        {
+          "name": "loop",
+          "startLine": 53,
+          "endLine": 56,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "AIOutput",
+          "startLine": 15,
+          "endLine": 57,
+          "methods": [
+            "AIOutput",
+            "getOut",
+            "Send",
+            "loop"
+          ],
+          "properties": [
+            "out"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "AIOutput",
+          "line": 24,
+          "isDefault": false
+        },
+        {
+          "name": "getOut",
+          "line": 37,
+          "isDefault": false
+        },
+        {
+          "name": "AIOutput",
+          "line": 15,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "AIOutput",
+          "callee": "new DebugOutputStream",
+          "lineNumber": 27
+        },
+        {
+          "caller": "AIOutput",
+          "callee": "InitialNaming.getInitialNaming().lookup",
+          "lineNumber": 27
+        },
+        {
+          "caller": "AIOutput",
+          "callee": "InitialNaming.getInitialNaming",
+          "lineNumber": 27
+        },
+        {
+          "caller": "AIOutput",
+          "callee": "new DebugPrintStream",
+          "lineNumber": 28
+        },
+        {
+          "caller": "loop",
+          "callee": "Send",
+          "lineNumber": 55
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 4,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/jx/net/devices/lance/Lance.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 38,
+      "nonEmptyLines": 33,
+      "functions": [
+        {
+          "name": "Lance",
+          "startLine": 11,
+          "endLine": 11,
+          "params": [
+            "dev"
+          ]
+        },
+        {
+          "name": "getSupportedConfigurations",
+          "startLine": 12,
+          "endLine": 15,
+          "params": []
+        },
+        {
+          "name": "open",
+          "startLine": 17,
+          "endLine": 18,
+          "params": [
+            "conf"
+          ]
+        },
+        {
+          "name": "close",
+          "startLine": 19,
+          "endLine": 20,
+          "params": []
+        },
+        {
+          "name": "setReceiveMode",
+          "startLine": 21,
+          "endLine": 22,
+          "params": [
+            "mode"
+          ]
+        },
+        {
+          "name": "transmit",
+          "startLine": 23,
+          "endLine": 24,
+          "params": [
+            "buf"
+          ]
+        },
+        {
+          "name": "transmit1",
+          "startLine": 25,
+          "endLine": 26,
+          "params": [
+            "buf",
+            "offset",
+            "size"
+          ]
+        },
+        {
+          "name": "getMACAddress",
+          "startLine": 27,
+          "endLine": 28,
+          "params": []
+        },
+        {
+          "name": "getMTU",
+          "startLine": 29,
+          "endLine": 30,
+          "params": []
+        },
+        {
+          "name": "registerNonBlockingConsumer",
+          "startLine": 31,
+          "endLine": 32,
+          "params": [
+            "consumer"
+          ]
+        },
+        {
+          "name": "getId",
+          "startLine": 34,
+          "endLine": 37,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "Lance",
+          "startLine": 10,
+          "endLine": 38,
+          "methods": [
+            "Lance",
+            "getSupportedConfigurations",
+            "open",
+            "close",
+            "setReceiveMode",
+            "transmit",
+            "transmit1",
+            "getMACAddress",
+            "getMTU",
+            "registerNonBlockingConsumer",
+            "getId"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "getSupportedConfigurations",
+          "line": 12,
+          "isDefault": false
+        },
+        {
+          "name": "open",
+          "line": 17,
+          "isDefault": false
+        },
+        {
+          "name": "close",
+          "line": 19,
+          "isDefault": false
+        },
+        {
+          "name": "setReceiveMode",
+          "line": 21,
+          "isDefault": false
+        },
+        {
+          "name": "transmit",
+          "line": 23,
+          "isDefault": false
+        },
+        {
+          "name": "transmit1",
+          "line": 25,
+          "isDefault": false
+        },
+        {
+          "name": "getMACAddress",
+          "line": 27,
+          "isDefault": false
+        },
+        {
+          "name": "getMTU",
+          "line": 29,
+          "isDefault": false
+        },
+        {
+          "name": "registerNonBlockingConsumer",
+          "line": 31,
+          "isDefault": false
+        },
+        {
+          "name": "getId",
+          "line": 34,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "registerNonBlockingConsumer",
+          "callee": "new Error",
+          "lineNumber": 32
+        },
+        {
+          "caller": "getId",
+          "callee": "new UnsupportedOperationException",
+          "lineNumber": 36
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 10,
+        "functionCount": 11,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/jx/net/protocols/StartNetworkProtocols.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 40,
+      "nonEmptyLines": 34,
+      "functions": [
+        {
+          "name": "main",
+          "startLine": 20,
+          "endLine": 39,
+          "params": [
+            "args"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "StartNetworkProtocols",
+          "startLine": 11,
+          "endLine": 40,
+          "methods": [
+            "main"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "main",
+          "line": 20,
+          "isDefault": false
+        },
+        {
+          "name": "StartNetworkProtocols",
+          "line": 11,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "main",
+          "callee": "InitialNaming.getInitialNaming",
+          "lineNumber": 21
+        },
+        {
+          "caller": "main",
+          "callee": "LookupHelper.waitUntilPortalAvailable",
+          "lineNumber": 23
+        },
+        {
+          "caller": "main",
+          "callee": "naming.lookup",
+          "lineNumber": 25
+        },
+        {
+          "caller": "main",
+          "callee": "memMgr.alloc",
+          "lineNumber": 29
+        },
+        {
+          "caller": "main",
+          "callee": "LookupHelper.waitUntilPortalAvailable",
+          "lineNumber": 31
+        },
+        {
+          "caller": "main",
+          "callee": "new IPv4Address",
+          "lineNumber": 34
+        },
+        {
+          "caller": "main",
+          "callee": "new jx.netmanager.NetInit",
+          "lineNumber": 36
+        },
+        {
+          "caller": "main",
+          "callee": "naming.registerPortal",
+          "lineNumber": 37
+        },
+        {
+          "caller": "main",
+          "callee": "naming.registerPortal",
+          "lineNumber": 38
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/jx/netmanager/IPReceiver.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 111,
+      "nonEmptyLines": 96,
+      "functions": [
+        {
+          "name": "IPReceiver",
+          "startLine": 22,
+          "endLine": 46,
+          "params": [
+            "net",
+            "bufs"
+          ]
+        },
+        {
+          "name": "IPReceiver",
+          "startLine": 48,
+          "endLine": 71,
+          "params": [
+            "net",
+            "bufs",
+            "proto"
+          ]
+        },
+        {
+          "name": "receive",
+          "startLine": 73,
+          "endLine": 94,
+          "params": [
+            "buf",
+            "timeoutMillis"
+          ]
+        },
+        {
+          "name": "receive",
+          "startLine": 96,
+          "endLine": 104,
+          "params": [
+            "buf"
+          ]
+        },
+        {
+          "name": "close",
+          "startLine": 106,
+          "endLine": 109,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "IPReceiver",
+          "startLine": 12,
+          "endLine": 111,
+          "methods": [
+            "IPReceiver",
+            "IPReceiver",
+            "receive",
+            "receive",
+            "close"
+          ],
+          "properties": [
+            "etherLayer",
+            "ipSender",
+            "cpuManager",
+            "consumer",
+            "net",
+            "usableBufs",
+            "filledBufs"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "IPReceiver",
+          "line": 22,
+          "isDefault": false
+        },
+        {
+          "name": "IPReceiver",
+          "line": 48,
+          "isDefault": false
+        },
+        {
+          "name": "receive",
+          "line": 73,
+          "isDefault": false
+        },
+        {
+          "name": "receive",
+          "line": 96,
+          "isDefault": false
+        },
+        {
+          "name": "close",
+          "line": 106,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "IPReceiver",
+          "callee": "new MultiThreadBufferList",
+          "lineNumber": 24
+        },
+        {
+          "caller": "IPReceiver",
+          "callee": "this.usableBufs.enableRecording",
+          "lineNumber": 25
+        },
+        {
+          "caller": "IPReceiver",
+          "callee": "new MultiThreadBufferList",
+          "lineNumber": 26
+        },
+        {
+          "caller": "IPReceiver",
+          "callee": "this.filledBufs.enableRecording",
+          "lineNumber": 27
+        },
+        {
+          "caller": "IPReceiver",
+          "callee": "new IPConsumer",
+          "lineNumber": 29
+        },
+        {
+          "caller": "processIP",
+          "callee": "usableBufs.nonblockingUndockFirstElement",
+          "lineNumber": 32
+        },
+        {
+          "caller": "processIP",
+          "callee": "Debug.out.println",
+          "lineNumber": 34
+        },
+        {
+          "caller": "processIP",
+          "callee": "buf.getMemory",
+          "lineNumber": 35
+        },
+        {
+          "caller": "processIP",
+          "callee": "h.getData",
+          "lineNumber": 37
+        },
+        {
+          "caller": "processIP",
+          "callee": "h.setData",
+          "lineNumber": 38
+        },
+        {
+          "caller": "processIP",
+          "callee": "buf.getMemory",
+          "lineNumber": 38
+        },
+        {
+          "caller": "processIP",
+          "callee": "h.setMoreData",
+          "lineNumber": 39
+        },
+        {
+          "caller": "processIP",
+          "callee": "filledBufs.appendElement",
+          "lineNumber": 40
+        },
+        {
+          "caller": "IPReceiver",
+          "callee": "net.ip.registerIPConsumer",
+          "lineNumber": 45
+        },
+        {
+          "caller": "IPReceiver",
+          "callee": "new MultiThreadBufferList",
+          "lineNumber": 50
+        },
+        {
+          "caller": "IPReceiver",
+          "callee": "new MultiThreadBufferList",
+          "lineNumber": 51
+        },
+        {
+          "caller": "IPReceiver",
+          "callee": "new IPConsumer",
+          "lineNumber": 53
+        },
+        {
+          "caller": "processIP",
+          "callee": "Debug.out.println",
+          "lineNumber": 56
+        },
+        {
+          "caller": "processIP",
+          "callee": "usableBufs.nonblockingUndockFirstElement",
+          "lineNumber": 57
+        },
+        {
+          "caller": "processIP",
+          "callee": "Debug.out.println",
+          "lineNumber": 59
+        },
+        {
+          "caller": "processIP",
+          "callee": "buf.getMemory",
+          "lineNumber": 60
+        },
+        {
+          "caller": "processIP",
+          "callee": "h.getData",
+          "lineNumber": 62
+        },
+        {
+          "caller": "processIP",
+          "callee": "h.setData",
+          "lineNumber": 63
+        },
+        {
+          "caller": "processIP",
+          "callee": "buf.getMemory",
+          "lineNumber": 63
+        },
+        {
+          "caller": "processIP",
+          "callee": "h.setMoreData",
+          "lineNumber": 64
+        },
+        {
+          "caller": "processIP",
+          "callee": "filledBufs.appendElement",
+          "lineNumber": 65
+        },
+        {
+          "caller": "IPReceiver",
+          "callee": "net.ip.registerConsumer",
+          "lineNumber": 70
+        },
+        {
+          "caller": "receive",
+          "callee": "InitialNaming.getInitialNaming().lookup",
+          "lineNumber": 75
+        },
+        {
+          "caller": "receive",
+          "callee": "InitialNaming.getInitialNaming",
+          "lineNumber": 75
+        },
+        {
+          "caller": "receive",
+          "callee": "new CycleTime",
+          "lineNumber": 77
+        },
+        {
+          "caller": "receive",
+          "callee": "new CycleTime",
+          "lineNumber": 78
+        },
+        {
+          "caller": "receive",
+          "callee": "new CycleTime",
+          "lineNumber": 79
+        },
+        {
+          "caller": "receive",
+          "callee": "clock.getCycles",
+          "lineNumber": 80
+        },
+        {
+          "caller": "receive",
+          "callee": "clock.getCycles",
+          "lineNumber": 82
+        },
+        {
+          "caller": "receive",
+          "callee": "clock.subtract",
+          "lineNumber": 83
+        },
+        {
+          "caller": "receive",
+          "callee": "clock.toMilliSec",
+          "lineNumber": 84
+        },
+        {
+          "caller": "receive",
+          "callee": "filledBufs.nonblockingUndockFirstElement",
+          "lineNumber": 86
+        },
+        {
+          "caller": "receive",
+          "callee": "Thread.yield",
+          "lineNumber": 87
+        },
+        {
+          "caller": "receive",
+          "callee": "h.getMoreData",
+          "lineNumber": 89
+        },
+        {
+          "caller": "receive",
+          "callee": "buf.revoke",
+          "lineNumber": 90
+        },
+        {
+          "caller": "receive",
+          "callee": "h.setData",
+          "lineNumber": 91
+        },
+        {
+          "caller": "receive",
+          "callee": "usableBufs.appendElement",
+          "lineNumber": 92
+        },
+        {
+          "caller": "receive",
+          "callee": "filledBufs.undockFirstElement",
+          "lineNumber": 98
+        },
+        {
+          "caller": "receive",
+          "callee": "h.getMoreData",
+          "lineNumber": 99
+        },
+        {
+          "caller": "receive",
+          "callee": "buf.revoke",
+          "lineNumber": 100
+        },
+        {
+          "caller": "receive",
+          "callee": "h.setData",
+          "lineNumber": 101
+        },
+        {
+          "caller": "receive",
+          "callee": "usableBufs.appendElement",
+          "lineNumber": 102
+        },
+        {
+          "caller": "close",
+          "callee": "net.ip.unregisterIPConsumer",
+          "lineNumber": 108
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 5,
+        "functionCount": 5,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/jx/netmanager/IPSender.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 59,
+      "nonEmptyLines": 47,
+      "functions": [
+        {
+          "name": "IPSender",
+          "startLine": 31,
+          "endLine": 39,
+          "params": [
+            "net",
+            "dst",
+            "id"
+          ]
+        },
+        {
+          "name": "send",
+          "startLine": 42,
+          "endLine": 45,
+          "params": [
+            "m",
+            "offset",
+            "size"
+          ]
+        },
+        {
+          "name": "send",
+          "startLine": 47,
+          "endLine": 50,
+          "params": [
+            "m"
+          ]
+        },
+        {
+          "name": "close",
+          "startLine": 52,
+          "endLine": 54,
+          "params": []
+        },
+        {
+          "name": "getDestination",
+          "startLine": 56,
+          "endLine": 57,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "IPSender",
+          "startLine": 13,
+          "endLine": 59,
+          "methods": [
+            "IPSender",
+            "send",
+            "send",
+            "close",
+            "getDestination"
+          ],
+          "properties": [
+            "etherLayer",
+            "ipSender",
+            "ipSender1",
+            "dst"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "send",
+          "line": 42,
+          "isDefault": false
+        },
+        {
+          "name": "send",
+          "line": 47,
+          "isDefault": false
+        },
+        {
+          "name": "close",
+          "line": 52,
+          "isDefault": false
+        },
+        {
+          "name": "getDestination",
+          "line": 56,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "IPSender",
+          "callee": "net.arp.lookup",
+          "lineNumber": 33
+        },
+        {
+          "caller": "IPSender",
+          "callee": "net.ether.getTransmitter",
+          "lineNumber": 34
+        },
+        {
+          "caller": "IPSender",
+          "callee": "net.ip.getTransmitter",
+          "lineNumber": 35
+        },
+        {
+          "caller": "IPSender",
+          "callee": "net.ether.getTransmitter1",
+          "lineNumber": 37
+        },
+        {
+          "caller": "IPSender",
+          "callee": "net.ip.getTransmitter1",
+          "lineNumber": 38
+        },
+        {
+          "caller": "send",
+          "callee": "ipSender1.processMemory",
+          "lineNumber": 44
+        },
+        {
+          "caller": "send",
+          "callee": "ipSender.processMemory",
+          "lineNumber": 49
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 4,
+        "functionCount": 5,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/jx/netmanager/NetInit.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 289,
+      "nonEmptyLines": 241,
+      "functions": [
+        {
+          "name": "NetInit",
+          "startLine": 61,
+          "endLine": 63,
+          "params": [
+            "nic",
+            "timerManager",
+            "bufs"
+          ]
+        },
+        {
+          "name": "NetInit",
+          "startLine": 65,
+          "endLine": 134,
+          "params": [
+            "nic",
+            "timerManager",
+            "bufs",
+            "myAddress"
+          ]
+        },
+        {
+          "name": "getTCP",
+          "startLine": 136,
+          "endLine": 138,
+          "params": []
+        },
+        {
+          "name": "getTCPSocket",
+          "startLine": 140,
+          "endLine": 143,
+          "params": [
+            "port",
+            "ip",
+            "bufs"
+          ]
+        },
+        {
+          "name": "getUDPReceiver",
+          "startLine": 145,
+          "endLine": 148,
+          "params": [
+            "port",
+            "bufs"
+          ]
+        },
+        {
+          "name": "getUDPSender",
+          "startLine": 150,
+          "endLine": 158,
+          "params": [
+            "localPort",
+            "dst",
+            "remotePort"
+          ]
+        },
+        {
+          "name": "getIPReceiver",
+          "startLine": 160,
+          "endLine": 163,
+          "params": [
+            "bufs"
+          ]
+        },
+        {
+          "name": "getIPReceiver",
+          "startLine": 165,
+          "endLine": 168,
+          "params": [
+            "bufs",
+            "proto"
+          ]
+        },
+        {
+          "name": "getIPSender",
+          "startLine": 176,
+          "endLine": 184,
+          "params": [
+            "dst",
+            "id"
+          ]
+        },
+        {
+          "name": "getTCPBuffer",
+          "startLine": 186,
+          "endLine": 189,
+          "params": []
+        },
+        {
+          "name": "getUDPBuffer",
+          "startLine": 191,
+          "endLine": 194,
+          "params": []
+        },
+        {
+          "name": "getTCPBuffer",
+          "startLine": 201,
+          "endLine": 204,
+          "params": [
+            "size"
+          ]
+        },
+        {
+          "name": "getUDPBuffer",
+          "startLine": 212,
+          "endLine": 221,
+          "params": [
+            "size"
+          ]
+        },
+        {
+          "name": "getIPBuffer",
+          "startLine": 224,
+          "endLine": 227,
+          "params": []
+        },
+        {
+          "name": "getIPBuffer",
+          "startLine": 229,
+          "endLine": 238,
+          "params": [
+            "size"
+          ]
+        },
+        {
+          "name": "getLocalAddress",
+          "startLine": 241,
+          "endLine": 244,
+          "params": []
+        },
+        {
+          "name": "init",
+          "startLine": 247,
+          "endLine": 288,
+          "params": [
+            "naming",
+            "args"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "NetInit",
+          "startLine": 44,
+          "endLine": 289,
+          "methods": [
+            "NetInit",
+            "NetInit",
+            "getTCP",
+            "getTCPSocket",
+            "getUDPReceiver",
+            "getUDPSender",
+            "getIPReceiver",
+            "getIPReceiver",
+            "getIPSender",
+            "getTCPBuffer",
+            "getUDPBuffer",
+            "getTCPBuffer",
+            "getUDPBuffer",
+            "getIPBuffer",
+            "getIPBuffer",
+            "getLocalAddress",
+            "init"
+          ],
+          "properties": [
+            "tcp",
+            "udp",
+            "icmp",
+            "ip",
+            "arp",
+            "localAddress",
+            "ether",
+            "memMgr",
+            "cpuManager"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "NetInit",
+          "line": 61,
+          "isDefault": false
+        },
+        {
+          "name": "NetInit",
+          "line": 65,
+          "isDefault": false
+        },
+        {
+          "name": "getTCP",
+          "line": 136,
+          "isDefault": false
+        },
+        {
+          "name": "getTCPSocket",
+          "line": 140,
+          "isDefault": false
+        },
+        {
+          "name": "getUDPReceiver",
+          "line": 145,
+          "isDefault": false
+        },
+        {
+          "name": "getUDPSender",
+          "line": 150,
+          "isDefault": false
+        },
+        {
+          "name": "getIPReceiver",
+          "line": 160,
+          "isDefault": false
+        },
+        {
+          "name": "getIPReceiver",
+          "line": 165,
+          "isDefault": false
+        },
+        {
+          "name": "getIPSender",
+          "line": 176,
+          "isDefault": false
+        },
+        {
+          "name": "getTCPBuffer",
+          "line": 186,
+          "isDefault": false
+        },
+        {
+          "name": "getUDPBuffer",
+          "line": 191,
+          "isDefault": false
+        },
+        {
+          "name": "getTCPBuffer",
+          "line": 201,
+          "isDefault": false
+        },
+        {
+          "name": "getUDPBuffer",
+          "line": 212,
+          "isDefault": false
+        },
+        {
+          "name": "getIPBuffer",
+          "line": 224,
+          "isDefault": false
+        },
+        {
+          "name": "getIPBuffer",
+          "line": 229,
+          "isDefault": false
+        },
+        {
+          "name": "getLocalAddress",
+          "line": 241,
+          "isDefault": false
+        },
+        {
+          "name": "init",
+          "line": 247,
+          "isDefault": false
+        },
+        {
+          "name": "NetInit",
+          "line": 44,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "NetInit",
+          "callee": "new Ether",
+          "lineNumber": 67
+        },
+        {
+          "caller": "NetInit",
+          "callee": "nic.getMACAddress",
+          "lineNumber": 67
+        },
+        {
+          "caller": "NetInit",
+          "callee": "nic.registerNonBlockingConsumer",
+          "lineNumber": 68
+        },
+        {
+          "caller": "NetInit",
+          "callee": "ether.getNonBlockingReceiver",
+          "lineNumber": 68
+        },
+        {
+          "caller": "NetInit",
+          "callee": "new ARP",
+          "lineNumber": 70
+        },
+        {
+          "caller": "NetInit",
+          "callee": "Debug.out.println",
+          "lineNumber": 71
+        },
+        {
+          "caller": "NetInit",
+          "callee": "new IP",
+          "lineNumber": 72
+        },
+        {
+          "caller": "NetInit",
+          "callee": "new ICMP",
+          "lineNumber": 73
+        },
+        {
+          "caller": "NetInit",
+          "callee": "icmp.register",
+          "lineNumber": 74
+        },
+        {
+          "caller": "NetInit",
+          "callee": "new UDP",
+          "lineNumber": 76
+        },
+        {
+          "caller": "NetInit",
+          "callee": "new TCP",
+          "lineNumber": 77
+        },
+        {
+          "caller": "NetInit",
+          "callee": "ether.registerConsumerEther",
+          "lineNumber": 80
+        },
+        {
+          "caller": "NetInit",
+          "callee": "Debug.out.println",
+          "lineNumber": 81
+        },
+        {
+          "caller": "NetInit",
+          "callee": "new Error",
+          "lineNumber": 82
+        },
+        {
+          "caller": "NetInit",
+          "callee": "Debug.out.println",
+          "lineNumber": 86
+        },
+        {
+          "caller": "NetInit",
+          "callee": "cpuManager.yield",
+          "lineNumber": 89
+        },
+        {
+          "caller": "NetInit",
+          "callee": "nic.open",
+          "lineNumber": 93
+        },
+        {
+          "caller": "NetInit",
+          "callee": "new DHCPClient",
+          "lineNumber": 95
+        },
+        {
+          "caller": "NetInit",
+          "callee": "ether.getMacAddress",
+          "lineNumber": 95
+        },
+        {
+          "caller": "NetInit",
+          "callee": "new BOOTPFormat",
+          "lineNumber": 96
+        },
+        {
+          "caller": "NetInit",
+          "callee": "getUDPBuffer",
+          "lineNumber": 96
+        },
+        {
+          "caller": "NetInit",
+          "callee": "hdr.insertOp",
+          "lineNumber": 97
+        },
+        {
+          "caller": "NetInit",
+          "callee": "hdr.insertHtype",
+          "lineNumber": 98
+        },
+        {
+          "caller": "NetInit",
+          "callee": "hdr.insertHlen",
+          "lineNumber": 99
+        },
+        {
+          "caller": "NetInit",
+          "callee": "hdr.insertXid",
+          "lineNumber": 101
+        },
+        {
+          "caller": "NetInit",
+          "callee": "hdr.insertHwaddr",
+          "lineNumber": 102
+        },
+        {
+          "caller": "NetInit",
+          "callee": "ether.getMacAddress",
+          "lineNumber": 102
+        },
+        {
+          "caller": "NetInit",
+          "callee": "dhcp.createRequestPacket",
+          "lineNumber": 103
+        },
+        {
+          "caller": "NetInit",
+          "callee": "InitialNaming.getInitialNaming().registerPortal",
+          "lineNumber": 104
+        },
+        {
+          "caller": "NetInit",
+          "callee": "InitialNaming.getInitialNaming",
+          "lineNumber": 104
+        },
+        {
+          "caller": "NetInit",
+          "callee": "new DatagramSocket",
+          "lineNumber": 105
+        },
+        {
+          "caller": "NetInit",
+          "callee": "clientSocket.send",
+          "lineNumber": 107
+        },
+        {
+          "caller": "NetInit",
+          "callee": "Debug.out.println",
+          "lineNumber": 108
+        },
+        {
+          "caller": "NetInit",
+          "callee": "new DatagramPacket",
+          "lineNumber": 110
+        },
+        {
+          "caller": "NetInit",
+          "callee": "clientSocket.setSoTimeout",
+          "lineNumber": 111
+        },
+        {
+          "caller": "NetInit",
+          "callee": "clientSocket.receive",
+          "lineNumber": 113
+        },
+        {
+          "caller": "NetInit",
+          "callee": "new IPv4Address",
+          "lineNumber": 115
+        },
+        {
+          "caller": "NetInit",
+          "callee": "Debug.out.println",
+          "lineNumber": 118
+        },
+        {
+          "caller": "NetInit",
+          "callee": "getUDPBuffer",
+          "lineNumber": 119
+        },
+        {
+          "caller": "NetInit",
+          "callee": "buf.copyFromByteArray",
+          "lineNumber": 120
+        },
+        {
+          "caller": "NetInit",
+          "callee": "receivePacket.getData",
+          "lineNumber": 120
+        },
+        {
+          "caller": "NetInit",
+          "callee": "buf.size",
+          "lineNumber": 120
+        },
+        {
+          "caller": "NetInit",
+          "callee": "Debug.out.println",
+          "lineNumber": 121
+        },
+        {
+          "caller": "NetInit",
+          "callee": "dhcp.processResponse",
+          "lineNumber": 122
+        },
+        {
+          "caller": "NetInit",
+          "callee": "Debug.out.println",
+          "lineNumber": 126
+        },
+        {
+          "caller": "NetInit",
+          "callee": "localAddress.toString",
+          "lineNumber": 126
+        },
+        {
+          "caller": "NetInit",
+          "callee": "ip.changeSourceAddress",
+          "lineNumber": 127
+        },
+        {
+          "caller": "NetInit",
+          "callee": "arp.register",
+          "lineNumber": 129
+        },
+        {
+          "caller": "NetInit",
+          "callee": "ip.setAddressResolution",
+          "lineNumber": 130
+        },
+        {
+          "caller": "NetInit",
+          "callee": "ether.registerConsumer",
+          "lineNumber": 131
+        },
+        {
+          "caller": "NetInit",
+          "callee": "ip.registerConsumer",
+          "lineNumber": 132
+        },
+        {
+          "caller": "NetInit",
+          "callee": "ether.registerConsumer",
+          "lineNumber": 133
+        },
+        {
+          "caller": "getTCPSocket",
+          "callee": "new TCPSocket",
+          "lineNumber": 142
+        },
+        {
+          "caller": "getUDPReceiver",
+          "callee": "new UDPReceiver",
+          "lineNumber": 147
+        },
+        {
+          "caller": "getUDPSender",
+          "callee": "new UDPSender",
+          "lineNumber": 153
+        },
+        {
+          "caller": "getIPReceiver",
+          "callee": "new IPReceiver",
+          "lineNumber": 162
+        },
+        {
+          "caller": "getIPReceiver",
+          "callee": "new IPReceiver",
+          "lineNumber": 167
+        },
+        {
+          "caller": "getIPSender",
+          "callee": "new IPSender",
+          "lineNumber": 179
+        },
+        {
+          "caller": "getTCPBuffer",
+          "callee": "memMgr.alloc",
+          "lineNumber": 188
+        },
+        {
+          "caller": "getUDPBuffer",
+          "callee": "memMgr.alloc",
+          "lineNumber": 193
+        },
+        {
+          "caller": "getTCPBuffer",
+          "callee": "getIPBuffer",
+          "lineNumber": 202
+        },
+        {
+          "caller": "getUDPBuffer",
+          "callee": "memMgr.alloc",
+          "lineNumber": 214
+        },
+        {
+          "caller": "getIPBuffer",
+          "callee": "getIPBuffer",
+          "lineNumber": 226
+        },
+        {
+          "caller": "getIPBuffer",
+          "callee": "memMgr.alloc",
+          "lineNumber": 231
+        },
+        {
+          "caller": "getIPBuffer",
+          "callee": "buf.split3",
+          "lineNumber": 233
+        },
+        {
+          "caller": "getIPBuffer",
+          "callee": "arr[0].split2",
+          "lineNumber": 235
+        },
+        {
+          "caller": "init",
+          "callee": "naming.lookup",
+          "lineNumber": 248
+        },
+        {
+          "caller": "init",
+          "callee": "LookupHelper.waitUntilPortalAvailable",
+          "lineNumber": 250
+        },
+        {
+          "caller": "init",
+          "callee": "LookupHelper.waitUntilPortalAvailable",
+          "lineNumber": 254
+        },
+        {
+          "caller": "init",
+          "callee": "Debug.out.println",
+          "lineNumber": 256
+        },
+        {
+          "caller": "init",
+          "callee": "new LanceFinder",
+          "lineNumber": 261
+        },
+        {
+          "caller": "init",
+          "callee": "finder.find",
+          "lineNumber": 266
+        },
+        {
+          "caller": "init",
+          "callee": "nic.setReceiveMode",
+          "lineNumber": 272
+        },
+        {
+          "caller": "init",
+          "callee": "Debug.out.print",
+          "lineNumber": 274
+        },
+        {
+          "caller": "init",
+          "callee": "Dump.xdump",
+          "lineNumber": 275
+        },
+        {
+          "caller": "init",
+          "callee": "nic.getMACAddress",
+          "lineNumber": 275
+        },
+        {
+          "caller": "init",
+          "callee": "memMgr.alloc",
+          "lineNumber": 281
+        },
+        {
+          "caller": "init",
+          "callee": "new jx.netmanager.NetInit",
+          "lineNumber": 283
+        },
+        {
+          "caller": "init",
+          "callee": "naming.registerPortal",
+          "lineNumber": 284
+        },
+        {
+          "caller": "init",
+          "callee": "new Error",
+          "lineNumber": 286
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 18,
+        "functionCount": 17,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/jx/netmanager/UDPReceiver.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 172,
+      "nonEmptyLines": 155,
+      "functions": [
+        {
+          "name": "UDPReceiver",
+          "startLine": 23,
+          "endLine": 75,
+          "params": [
+            "net",
+            "localPort",
+            "bufs",
+            "avoidSplitting"
+          ]
+        },
+        {
+          "name": "receive",
+          "startLine": 102,
+          "endLine": 127,
+          "params": [
+            "buf",
+            "timeoutMillis"
+          ]
+        },
+        {
+          "name": "receive",
+          "startLine": 129,
+          "endLine": 151,
+          "params": [
+            "buf"
+          ]
+        },
+        {
+          "name": "close",
+          "startLine": 167,
+          "endLine": 170,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "UDPReceiver",
+          "startLine": 12,
+          "endLine": 172,
+          "methods": [
+            "UDPReceiver",
+            "receive",
+            "receive",
+            "close"
+          ],
+          "properties": [
+            "ipLayer",
+            "udpSender",
+            "cpuManager",
+            "consumer",
+            "port",
+            "net",
+            "usableBufs",
+            "filledBufs"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "UDPReceiver",
+          "line": 23,
+          "isDefault": false
+        },
+        {
+          "name": "receive",
+          "line": 102,
+          "isDefault": false
+        },
+        {
+          "name": "receive",
+          "line": 129,
+          "isDefault": false
+        },
+        {
+          "name": "close",
+          "line": 167,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "UDPReceiver",
+          "callee": "new MultiThreadBufferList",
+          "lineNumber": 25
+        },
+        {
+          "caller": "UDPReceiver",
+          "callee": "this.usableBufs.setListName",
+          "lineNumber": 26
+        },
+        {
+          "caller": "UDPReceiver",
+          "callee": "this.usableBufs.enableRecording",
+          "lineNumber": 27
+        },
+        {
+          "caller": "UDPReceiver",
+          "callee": "new MultiThreadBufferList",
+          "lineNumber": 28
+        },
+        {
+          "caller": "UDPReceiver",
+          "callee": "this.filledBufs.setListName",
+          "lineNumber": 29
+        },
+        {
+          "caller": "UDPReceiver",
+          "callee": "this.filledBufs.enableRecording",
+          "lineNumber": 30
+        },
+        {
+          "caller": "UDPReceiver",
+          "callee": "filledBufs.requireMoredata",
+          "lineNumber": 33
+        },
+        {
+          "caller": "UDPReceiver",
+          "callee": "new UDPConsumer",
+          "lineNumber": 54
+        },
+        {
+          "caller": "processUDP",
+          "callee": "usableBufs.nonblockingUndockFirstElement",
+          "lineNumber": 57
+        },
+        {
+          "caller": "processUDP",
+          "callee": "Debug.out.println",
+          "lineNumber": 59
+        },
+        {
+          "caller": "processUDP",
+          "callee": "buf.getMemory",
+          "lineNumber": 60
+        },
+        {
+          "caller": "processUDP",
+          "callee": "h.getData",
+          "lineNumber": 62
+        },
+        {
+          "caller": "processUDP",
+          "callee": "in.revoke",
+          "lineNumber": 63
+        },
+        {
+          "caller": "processUDP",
+          "callee": "h.setData",
+          "lineNumber": 64
+        },
+        {
+          "caller": "processUDP",
+          "callee": "buf.getMemory",
+          "lineNumber": 64
+        },
+        {
+          "caller": "processUDP",
+          "callee": "h.setMoreData",
+          "lineNumber": 65
+        },
+        {
+          "caller": "processUDP",
+          "callee": "filledBufs.appendElement",
+          "lineNumber": 66
+        },
+        {
+          "caller": "UDPReceiver",
+          "callee": "net.udp.registerUDPConsumer",
+          "lineNumber": 70
+        },
+        {
+          "caller": "receive",
+          "callee": "InitialNaming.getInitialNaming().lookup",
+          "lineNumber": 104
+        },
+        {
+          "caller": "receive",
+          "callee": "InitialNaming.getInitialNaming",
+          "lineNumber": 104
+        },
+        {
+          "caller": "receive",
+          "callee": "new CycleTime",
+          "lineNumber": 106
+        },
+        {
+          "caller": "receive",
+          "callee": "new CycleTime",
+          "lineNumber": 107
+        },
+        {
+          "caller": "receive",
+          "callee": "new CycleTime",
+          "lineNumber": 108
+        },
+        {
+          "caller": "receive",
+          "callee": "clock.getCycles",
+          "lineNumber": 109
+        },
+        {
+          "caller": "receive",
+          "callee": "clock.getCycles",
+          "lineNumber": 111
+        },
+        {
+          "caller": "receive",
+          "callee": "clock.subtract",
+          "lineNumber": 112
+        },
+        {
+          "caller": "receive",
+          "callee": "clock.toMilliSec",
+          "lineNumber": 113
+        },
+        {
+          "caller": "receive",
+          "callee": "Thread.yield",
+          "lineNumber": 114
+        },
+        {
+          "caller": "receive",
+          "callee": "filledBufs.getLast().getData",
+          "lineNumber": 117
+        },
+        {
+          "caller": "receive",
+          "callee": "filledBufs.getLast",
+          "lineNumber": 117
+        },
+        {
+          "caller": "receive",
+          "callee": "Thread.yield",
+          "lineNumber": 118
+        },
+        {
+          "caller": "receive",
+          "callee": "buf.copyFromMemory",
+          "lineNumber": 125
+        },
+        {
+          "caller": "receive",
+          "callee": "h.size",
+          "lineNumber": 125
+        },
+        {
+          "caller": "receive",
+          "callee": "new UDPDataImpl",
+          "lineNumber": 126
+        },
+        {
+          "caller": "receive",
+          "callee": "filledBufs.getLast().getData",
+          "lineNumber": 131
+        },
+        {
+          "caller": "receive",
+          "callee": "filledBufs.getLast",
+          "lineNumber": 131
+        },
+        {
+          "caller": "receive",
+          "callee": "filledBufs.getLast().getData",
+          "lineNumber": 133
+        },
+        {
+          "caller": "receive",
+          "callee": "filledBufs.getLast",
+          "lineNumber": 133
+        },
+        {
+          "caller": "receive",
+          "callee": "Debug.out.println",
+          "lineNumber": 135
+        },
+        {
+          "caller": "receive",
+          "callee": "h.size",
+          "lineNumber": 135
+        },
+        {
+          "caller": "receive",
+          "callee": "buf.copyFromMemory",
+          "lineNumber": 136
+        },
+        {
+          "caller": "receive",
+          "callee": "h.size",
+          "lineNumber": 136
+        },
+        {
+          "caller": "receive",
+          "callee": "Debug.out.println",
+          "lineNumber": 140
+        },
+        {
+          "caller": "close",
+          "callee": "net.udp.unregisterUDPConsumer",
+          "lineNumber": 169
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 4,
+        "functionCount": 4,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/jx/netmanager/UDPSender.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 60,
+      "nonEmptyLines": 49,
+      "functions": [
+        {
+          "name": "UDPSender",
+          "startLine": 21,
+          "endLine": 34,
+          "params": [
+            "net",
+            "localPort",
+            "dst",
+            "remotePort"
+          ]
+        },
+        {
+          "name": "send1",
+          "startLine": 36,
+          "endLine": 39,
+          "params": [
+            "m",
+            "offset",
+            "size"
+          ]
+        },
+        {
+          "name": "send",
+          "startLine": 41,
+          "endLine": 45,
+          "params": [
+            "m"
+          ]
+        },
+        {
+          "name": "close",
+          "startLine": 47,
+          "endLine": 49,
+          "params": []
+        },
+        {
+          "name": "getLocalPort",
+          "startLine": 51,
+          "endLine": 52,
+          "params": []
+        },
+        {
+          "name": "getRemotePort",
+          "startLine": 54,
+          "endLine": 55,
+          "params": []
+        },
+        {
+          "name": "getDestination",
+          "startLine": 57,
+          "endLine": 58,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "UDPSender",
+          "startLine": 14,
+          "endLine": 60,
+          "methods": [
+            "UDPSender",
+            "send1",
+            "send",
+            "close",
+            "getLocalPort",
+            "getRemotePort",
+            "getDestination"
+          ],
+          "properties": [
+            "udpSender",
+            "udpSender1",
+            "localPort",
+            "dst",
+            "remotePort"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "send1",
+          "line": 36,
+          "isDefault": false
+        },
+        {
+          "name": "send",
+          "line": 41,
+          "isDefault": false
+        },
+        {
+          "name": "close",
+          "line": 47,
+          "isDefault": false
+        },
+        {
+          "name": "getLocalPort",
+          "line": 51,
+          "isDefault": false
+        },
+        {
+          "name": "getRemotePort",
+          "line": 54,
+          "isDefault": false
+        },
+        {
+          "name": "getDestination",
+          "line": 57,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "UDPSender",
+          "callee": "net.arp.lookup",
+          "lineNumber": 26
+        },
+        {
+          "caller": "UDPSender",
+          "callee": "net.ether.getTransmitter",
+          "lineNumber": 27
+        },
+        {
+          "caller": "UDPSender",
+          "callee": "net.ip.getTransmitter",
+          "lineNumber": 28
+        },
+        {
+          "caller": "UDPSender",
+          "callee": "net.udp.getTransmitter",
+          "lineNumber": 29
+        },
+        {
+          "caller": "UDPSender",
+          "callee": "net.ether.getTransmitter1",
+          "lineNumber": 31
+        },
+        {
+          "caller": "UDPSender",
+          "callee": "net.ip.getTransmitter1",
+          "lineNumber": 32
+        },
+        {
+          "caller": "UDPSender",
+          "callee": "net.udp.getTransmitter1",
+          "lineNumber": 33
+        },
+        {
+          "caller": "send1",
+          "callee": "udpSender1.processMemory",
+          "lineNumber": 38
+        },
+        {
+          "caller": "send",
+          "callee": "udpSender.processMemory",
+          "lineNumber": 44
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 6,
+        "functionCount": 7,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/org/jnode/driver/net/lance/BufferManager.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 100,
+      "nonEmptyLines": 88,
+      "functions": [
+        {
+          "name": "BufferManager",
+          "startLine": 46,
+          "endLine": 73,
+          "params": [
+            "rm",
+            "rxRingLength",
+            "txRingLength",
+            "mode",
+            "physicalAddr",
+            "logicalAddr"
+          ]
+        },
+        {
+          "name": "getInitDataAddressAs32Bit",
+          "startLine": 79,
+          "endLine": 81,
+          "params": []
+        },
+        {
+          "name": "transmit",
+          "startLine": 83,
+          "endLine": 89,
+          "params": [
+            "buf"
+          ]
+        },
+        {
+          "name": "getPacket",
+          "startLine": 91,
+          "endLine": 93,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "BufferManager",
+          "startLine": 31,
+          "endLine": 100,
+          "methods": [
+            "BufferManager",
+            "getInitDataAddressAs32Bit",
+            "transmit",
+            "getPacket"
+          ],
+          "properties": [
+            "DATA_BUFFER_SIZE",
+            "mem",
+            "rm",
+            "initBlock",
+            "rxRing",
+            "txRing",
+            "size"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "DATA_BUFFER_SIZE",
+          "line": 32,
+          "isDefault": false
+        },
+        {
+          "name": "BufferManager",
+          "line": 46,
+          "isDefault": false
+        },
+        {
+          "name": "getInitDataAddressAs32Bit",
+          "line": 79,
+          "isDefault": false
+        },
+        {
+          "name": "transmit",
+          "line": 83,
+          "isDefault": false
+        },
+        {
+          "name": "getPacket",
+          "line": 91,
+          "isDefault": false
+        },
+        {
+          "name": "BufferManager",
+          "line": 31,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "BufferManager",
+          "callee": "rm.allocAligned",
+          "lineNumber": 65
+        },
+        {
+          "caller": "BufferManager",
+          "callee": "new RxDescriptorRing",
+          "lineNumber": 66
+        },
+        {
+          "caller": "BufferManager",
+          "callee": "new TxDescriptorRing",
+          "lineNumber": 68
+        },
+        {
+          "caller": "BufferManager",
+          "callee": "rm.alloc",
+          "lineNumber": 70
+        },
+        {
+          "caller": "BufferManager",
+          "callee": "new InitializationBlock32Bit",
+          "lineNumber": 71
+        },
+        {
+          "caller": "getInitDataAddressAs32Bit",
+          "callee": "mem.getStartAddress",
+          "lineNumber": 80
+        },
+        {
+          "caller": "transmit",
+          "callee": "buf.size",
+          "lineNumber": 84
+        },
+        {
+          "caller": "transmit",
+          "callee": "Debug.out.println",
+          "lineNumber": 86
+        },
+        {
+          "caller": "transmit",
+          "callee": "txRing.transmit",
+          "lineNumber": 88
+        },
+        {
+          "caller": "getPacket",
+          "callee": "rxRing.getPacket",
+          "lineNumber": 92
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 6,
+        "functionCount": 4,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/org/jnode/driver/net/lance/Descriptor.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 96,
+      "nonEmptyLines": 80,
+      "functions": [
+        {
+          "name": "Descriptor",
+          "startLine": 47,
+          "endLine": 68,
+          "params": [
+            "mem",
+            "offset",
+            "dataBufferOffset"
+          ]
+        },
+        {
+          "name": "isOwnerSelf",
+          "startLine": 70,
+          "endLine": 72,
+          "params": []
+        },
+        {
+          "name": "setOwnerSelf",
+          "startLine": 74,
+          "endLine": 80,
+          "params": [
+            "self"
+          ]
+        },
+        {
+          "name": "getStatus",
+          "startLine": 82,
+          "endLine": 84,
+          "params": []
+        },
+        {
+          "name": "setStatus",
+          "startLine": 86,
+          "endLine": 88,
+          "params": [
+            "status"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Descriptor",
+          "startLine": 29,
+          "endLine": 96,
+          "methods": [
+            "Descriptor",
+            "isOwnerSelf",
+            "setOwnerSelf",
+            "getStatus",
+            "setStatus"
+          ],
+          "properties": [
+            "MESSAGE_DESCRIPTOR_SIZE",
+            "STATUS",
+            "STATUS_OWN",
+            "STATUS_ERR",
+            "STATUS_STP",
+            "STATUS_ENP",
+            "STATUS_BPE",
+            "BCNT",
+            "mem",
+            "offset",
+            "dataBufferOffset"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "MESSAGE_DESCRIPTOR_SIZE",
+          "line": 30,
+          "isDefault": false
+        },
+        {
+          "name": "STATUS",
+          "line": 31,
+          "isDefault": false
+        },
+        {
+          "name": "STATUS_OWN",
+          "line": 32,
+          "isDefault": false
+        },
+        {
+          "name": "STATUS_ERR",
+          "line": 33,
+          "isDefault": false
+        },
+        {
+          "name": "STATUS_STP",
+          "line": 34,
+          "isDefault": false
+        },
+        {
+          "name": "STATUS_ENP",
+          "line": 35,
+          "isDefault": false
+        },
+        {
+          "name": "STATUS_BPE",
+          "line": 36,
+          "isDefault": false
+        },
+        {
+          "name": "BCNT",
+          "line": 37,
+          "isDefault": false
+        },
+        {
+          "name": "Descriptor",
+          "line": 47,
+          "isDefault": false
+        },
+        {
+          "name": "isOwnerSelf",
+          "line": 70,
+          "isDefault": false
+        },
+        {
+          "name": "setOwnerSelf",
+          "line": 74,
+          "isDefault": false
+        },
+        {
+          "name": "getStatus",
+          "line": 82,
+          "isDefault": false
+        },
+        {
+          "name": "setStatus",
+          "line": 86,
+          "isDefault": false
+        },
+        {
+          "name": "Descriptor",
+          "line": 29,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "Descriptor",
+          "callee": "mem.getStartAddress",
+          "lineNumber": 58
+        },
+        {
+          "caller": "Descriptor",
+          "callee": "Debug.out.println",
+          "lineNumber": 59
+        },
+        {
+          "caller": "Descriptor",
+          "callee": "mem.set32",
+          "lineNumber": 60
+        },
+        {
+          "caller": "Descriptor",
+          "callee": "mem.set16",
+          "lineNumber": 61
+        },
+        {
+          "caller": "Descriptor",
+          "callee": "mem.set16",
+          "lineNumber": 62
+        },
+        {
+          "caller": "Descriptor",
+          "callee": "mem.set32",
+          "lineNumber": 63
+        },
+        {
+          "caller": "Descriptor",
+          "callee": "mem.set32",
+          "lineNumber": 64
+        },
+        {
+          "caller": "isOwnerSelf",
+          "callee": "mem.get16",
+          "lineNumber": 71
+        },
+        {
+          "caller": "setOwnerSelf",
+          "callee": "mem.set16",
+          "lineNumber": 76
+        },
+        {
+          "caller": "setOwnerSelf",
+          "callee": "mem.get16",
+          "lineNumber": 76
+        },
+        {
+          "caller": "setOwnerSelf",
+          "callee": "mem.set16",
+          "lineNumber": 78
+        },
+        {
+          "caller": "setOwnerSelf",
+          "callee": "mem.get16",
+          "lineNumber": 78
+        },
+        {
+          "caller": "getStatus",
+          "callee": "mem.get16",
+          "lineNumber": 83
+        },
+        {
+          "caller": "setStatus",
+          "callee": "mem.set16",
+          "lineNumber": 87
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 14,
+        "functionCount": 5,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/org/jnode/driver/net/lance/DescriptorRing.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 51,
+      "nonEmptyLines": 44,
+      "functions": [
+        {
+          "name": "DescriptorRing",
+          "startLine": 34,
+          "endLine": 38,
+          "params": [
+            "mem",
+            "offset",
+            "length"
+          ]
+        },
+        {
+          "name": "getSize",
+          "startLine": 40,
+          "endLine": 42,
+          "params": []
+        },
+        {
+          "name": "getLength",
+          "startLine": 44,
+          "endLine": 46,
+          "params": []
+        },
+        {
+          "name": "getAddressAs32",
+          "startLine": 48,
+          "endLine": 50,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "DescriptorRing",
+          "startLine": 28,
+          "endLine": 51,
+          "methods": [
+            "DescriptorRing",
+            "getSize",
+            "getLength",
+            "getAddressAs32"
+          ],
+          "properties": [
+            "mem",
+            "offset",
+            "length",
+            "currentDescriptor"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "DescriptorRing",
+          "line": 34,
+          "isDefault": false
+        },
+        {
+          "name": "getSize",
+          "line": 40,
+          "isDefault": false
+        },
+        {
+          "name": "getLength",
+          "line": 44,
+          "isDefault": false
+        },
+        {
+          "name": "getAddressAs32",
+          "line": 48,
+          "isDefault": false
+        },
+        {
+          "name": "DescriptorRing",
+          "line": 28,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "getAddressAs32",
+          "callee": "mem.getStartAddress",
+          "lineNumber": 49
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 5,
+        "functionCount": 4,
+        "classCount": 1
+      }
+    }
+  ]
+}

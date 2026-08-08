@@ -1,0 +1,5175 @@
+{
+ "nodes": [
+  {
+   "id": "file:src/org/jnode/driver/net/lance/DWordIOAccess.java",
+   "type": "file",
+   "name": "DWordIOAccess.java",
+   "filePath": "src/org/jnode/driver/net/lance/DWordIOAccess.java",
+   "summary": "Lance/PCnet NIC driver core components (descriptors, rings, buffer management, IO access).",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "moderate",
+   "languageNotes": "Java source"
+  },
+  {
+   "id": "class:src/org/jnode/driver/net/lance/DWordIOAccess.java:DWordIOAccess",
+   "type": "class",
+   "name": "DWordIOAccess",
+   "filePath": "src/org/jnode/driver/net/lance/DWordIOAccess.java",
+   "summary": "Class DWordIOAccess in src/org/jnode/driver/net/lance/DWordIOAccess.java",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "function:src/org/jnode/driver/net/lance/DWordIOAccess.java:DWordIOAccess",
+   "type": "function",
+   "name": "DWordIOAccess",
+   "filePath": "src/org/jnode/driver/net/lance/DWordIOAccess.java",
+   "summary": "Method DWordIOAccess in DWordIOAccess",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/driver/net/lance/DWordIOAccess.java:getType",
+   "type": "function",
+   "name": "getType",
+   "filePath": "src/org/jnode/driver/net/lance/DWordIOAccess.java",
+   "summary": "Method getType in DWordIOAccess",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/driver/net/lance/DWordIOAccess.java:reset",
+   "type": "function",
+   "name": "reset",
+   "filePath": "src/org/jnode/driver/net/lance/DWordIOAccess.java",
+   "summary": "Method reset in DWordIOAccess",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/driver/net/lance/DWordIOAccess.java:getCSR",
+   "type": "function",
+   "name": "getCSR",
+   "filePath": "src/org/jnode/driver/net/lance/DWordIOAccess.java",
+   "summary": "Method getCSR in DWordIOAccess",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/driver/net/lance/DWordIOAccess.java:setCSR",
+   "type": "function",
+   "name": "setCSR",
+   "filePath": "src/org/jnode/driver/net/lance/DWordIOAccess.java",
+   "summary": "Method setCSR in DWordIOAccess",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/driver/net/lance/DWordIOAccess.java:getBCR",
+   "type": "function",
+   "name": "getBCR",
+   "filePath": "src/org/jnode/driver/net/lance/DWordIOAccess.java",
+   "summary": "Method getBCR in DWordIOAccess",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/driver/net/lance/DWordIOAccess.java:setBCR",
+   "type": "function",
+   "name": "setBCR",
+   "filePath": "src/org/jnode/driver/net/lance/DWordIOAccess.java",
+   "summary": "Method setBCR in DWordIOAccess",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/driver/net/lance/DWordIOAccess.java:DWordIOAccess",
+   "type": "function",
+   "name": "DWordIOAccess",
+   "filePath": "src/org/jnode/driver/net/lance/DWordIOAccess.java",
+   "summary": "Function DWordIOAccess",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/driver/net/lance/DWordIOAccess.java:getType",
+   "type": "function",
+   "name": "getType",
+   "filePath": "src/org/jnode/driver/net/lance/DWordIOAccess.java",
+   "summary": "Function getType",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/driver/net/lance/DWordIOAccess.java:reset",
+   "type": "function",
+   "name": "reset",
+   "filePath": "src/org/jnode/driver/net/lance/DWordIOAccess.java",
+   "summary": "Function reset",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/driver/net/lance/DWordIOAccess.java:getCSR",
+   "type": "function",
+   "name": "getCSR",
+   "filePath": "src/org/jnode/driver/net/lance/DWordIOAccess.java",
+   "summary": "Function getCSR",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/driver/net/lance/DWordIOAccess.java:setCSR",
+   "type": "function",
+   "name": "setCSR",
+   "filePath": "src/org/jnode/driver/net/lance/DWordIOAccess.java",
+   "summary": "Function setCSR",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/driver/net/lance/DWordIOAccess.java:getBCR",
+   "type": "function",
+   "name": "getBCR",
+   "filePath": "src/org/jnode/driver/net/lance/DWordIOAccess.java",
+   "summary": "Function getBCR",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/driver/net/lance/DWordIOAccess.java:setBCR",
+   "type": "function",
+   "name": "setBCR",
+   "filePath": "src/org/jnode/driver/net/lance/DWordIOAccess.java",
+   "summary": "Function setBCR",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "file:src/org/jnode/driver/net/lance/InitializationBlock32Bit.java",
+   "type": "file",
+   "name": "InitializationBlock32Bit.java",
+   "filePath": "src/org/jnode/driver/net/lance/InitializationBlock32Bit.java",
+   "summary": "Lance/PCnet NIC driver core components (descriptors, rings, buffer management, IO access).",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "moderate",
+   "languageNotes": "Java source"
+  },
+  {
+   "id": "class:src/org/jnode/driver/net/lance/InitializationBlock32Bit.java:InitializationBlock32Bit",
+   "type": "class",
+   "name": "InitializationBlock32Bit",
+   "filePath": "src/org/jnode/driver/net/lance/InitializationBlock32Bit.java",
+   "summary": "Class InitializationBlock32Bit in src/org/jnode/driver/net/lance/InitializationBlock32Bit.java",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "function:src/org/jnode/driver/net/lance/InitializationBlock32Bit.java:InitializationBlock32Bit",
+   "type": "function",
+   "name": "InitializationBlock32Bit",
+   "filePath": "src/org/jnode/driver/net/lance/InitializationBlock32Bit.java",
+   "summary": "Method InitializationBlock32Bit in InitializationBlock32Bit",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/driver/net/lance/InitializationBlock32Bit.java:getEncodedRingLength",
+   "type": "function",
+   "name": "getEncodedRingLength",
+   "filePath": "src/org/jnode/driver/net/lance/InitializationBlock32Bit.java",
+   "summary": "Method getEncodedRingLength in InitializationBlock32Bit",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/driver/net/lance/InitializationBlock32Bit.java:InitializationBlock32Bit",
+   "type": "function",
+   "name": "InitializationBlock32Bit",
+   "filePath": "src/org/jnode/driver/net/lance/InitializationBlock32Bit.java",
+   "summary": "Function InitializationBlock32Bit",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/driver/net/lance/InitializationBlock32Bit.java:getEncodedRingLength",
+   "type": "function",
+   "name": "getEncodedRingLength",
+   "filePath": "src/org/jnode/driver/net/lance/InitializationBlock32Bit.java",
+   "summary": "Function getEncodedRingLength",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "file:src/org/jnode/driver/net/lance/IOAccess.java",
+   "type": "file",
+   "name": "IOAccess.java",
+   "filePath": "src/org/jnode/driver/net/lance/IOAccess.java",
+   "summary": "Lance/PCnet NIC driver core components (descriptors, rings, buffer management, IO access).",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "moderate",
+   "languageNotes": "Java source"
+  },
+  {
+   "id": "class:src/org/jnode/driver/net/lance/IOAccess.java:IOAccess",
+   "type": "class",
+   "name": "IOAccess",
+   "filePath": "src/org/jnode/driver/net/lance/IOAccess.java",
+   "summary": "Class IOAccess in src/org/jnode/driver/net/lance/IOAccess.java",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "function:src/org/jnode/driver/net/lance/IOAccess.java:IOAccess",
+   "type": "function",
+   "name": "IOAccess",
+   "filePath": "src/org/jnode/driver/net/lance/IOAccess.java",
+   "summary": "Method IOAccess in IOAccess",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/driver/net/lance/IOAccess.java:getType",
+   "type": "function",
+   "name": "getType",
+   "filePath": "src/org/jnode/driver/net/lance/IOAccess.java",
+   "summary": "Method getType in IOAccess",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/driver/net/lance/IOAccess.java:reset",
+   "type": "function",
+   "name": "reset",
+   "filePath": "src/org/jnode/driver/net/lance/IOAccess.java",
+   "summary": "Method reset in IOAccess",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/driver/net/lance/IOAccess.java:getCSR",
+   "type": "function",
+   "name": "getCSR",
+   "filePath": "src/org/jnode/driver/net/lance/IOAccess.java",
+   "summary": "Method getCSR in IOAccess",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/driver/net/lance/IOAccess.java:setCSR",
+   "type": "function",
+   "name": "setCSR",
+   "filePath": "src/org/jnode/driver/net/lance/IOAccess.java",
+   "summary": "Method setCSR in IOAccess",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/driver/net/lance/IOAccess.java:getBCR",
+   "type": "function",
+   "name": "getBCR",
+   "filePath": "src/org/jnode/driver/net/lance/IOAccess.java",
+   "summary": "Method getBCR in IOAccess",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/driver/net/lance/IOAccess.java:setBCR",
+   "type": "function",
+   "name": "setBCR",
+   "filePath": "src/org/jnode/driver/net/lance/IOAccess.java",
+   "summary": "Method setBCR in IOAccess",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/driver/net/lance/IOAccess.java:IOAccess",
+   "type": "function",
+   "name": "IOAccess",
+   "filePath": "src/org/jnode/driver/net/lance/IOAccess.java",
+   "summary": "Function IOAccess",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/driver/net/lance/IOAccess.java:getType",
+   "type": "function",
+   "name": "getType",
+   "filePath": "src/org/jnode/driver/net/lance/IOAccess.java",
+   "summary": "Function getType",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/driver/net/lance/IOAccess.java:reset",
+   "type": "function",
+   "name": "reset",
+   "filePath": "src/org/jnode/driver/net/lance/IOAccess.java",
+   "summary": "Function reset",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/driver/net/lance/IOAccess.java:getCSR",
+   "type": "function",
+   "name": "getCSR",
+   "filePath": "src/org/jnode/driver/net/lance/IOAccess.java",
+   "summary": "Function getCSR",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/driver/net/lance/IOAccess.java:setCSR",
+   "type": "function",
+   "name": "setCSR",
+   "filePath": "src/org/jnode/driver/net/lance/IOAccess.java",
+   "summary": "Function setCSR",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/driver/net/lance/IOAccess.java:getBCR",
+   "type": "function",
+   "name": "getBCR",
+   "filePath": "src/org/jnode/driver/net/lance/IOAccess.java",
+   "summary": "Function getBCR",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/driver/net/lance/IOAccess.java:setBCR",
+   "type": "function",
+   "name": "setBCR",
+   "filePath": "src/org/jnode/driver/net/lance/IOAccess.java",
+   "summary": "Function setBCR",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "file:src/org/jnode/driver/net/lance/LanceConstants.java",
+   "type": "file",
+   "name": "LanceConstants.java",
+   "filePath": "src/org/jnode/driver/net/lance/LanceConstants.java",
+   "summary": "Lance/PCnet NIC driver core components (descriptors, rings, buffer management, IO access).",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "moderate",
+   "languageNotes": "Java source"
+  },
+  {
+   "id": "class:src/org/jnode/driver/net/lance/LanceConstants.java:LanceConstants",
+   "type": "class",
+   "name": "LanceConstants",
+   "filePath": "src/org/jnode/driver/net/lance/LanceConstants.java",
+   "summary": "Class LanceConstants in src/org/jnode/driver/net/lance/LanceConstants.java",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "file:src/org/jnode/driver/net/lance/LanceCore.java",
+   "type": "file",
+   "name": "LanceCore.java",
+   "filePath": "src/org/jnode/driver/net/lance/LanceCore.java",
+   "summary": "Lance/PCnet NIC driver core components (descriptors, rings, buffer management, IO access).",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "moderate",
+   "languageNotes": "Java source"
+  },
+  {
+   "id": "class:src/org/jnode/driver/net/lance/LanceCore.java:LanceCore",
+   "type": "class",
+   "name": "LanceCore",
+   "filePath": "src/org/jnode/driver/net/lance/LanceCore.java",
+   "summary": "Class LanceCore in src/org/jnode/driver/net/lance/LanceCore.java",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "function:src/org/jnode/driver/net/lance/LanceCore.java:LanceCore",
+   "type": "function",
+   "name": "LanceCore",
+   "filePath": "src/org/jnode/driver/net/lance/LanceCore.java",
+   "summary": "Method LanceCore in LanceCore",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/driver/net/lance/LanceCore.java:getIOAccess",
+   "type": "function",
+   "name": "getIOAccess",
+   "filePath": "src/org/jnode/driver/net/lance/LanceCore.java",
+   "summary": "Method getIOAccess in LanceCore",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/driver/net/lance/LanceCore.java:initialize",
+   "type": "function",
+   "name": "initialize",
+   "filePath": "src/org/jnode/driver/net/lance/LanceCore.java",
+   "summary": "Method initialize in LanceCore",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/driver/net/lance/LanceCore.java:disable",
+   "type": "function",
+   "name": "disable",
+   "filePath": "src/org/jnode/driver/net/lance/LanceCore.java",
+   "summary": "Method disable in LanceCore",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/driver/net/lance/LanceCore.java:release",
+   "type": "function",
+   "name": "release",
+   "filePath": "src/org/jnode/driver/net/lance/LanceCore.java",
+   "summary": "Method release in LanceCore",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/driver/net/lance/LanceCore.java:getHwAddress",
+   "type": "function",
+   "name": "getHwAddress",
+   "filePath": "src/org/jnode/driver/net/lance/LanceCore.java",
+   "summary": "Method getHwAddress in LanceCore",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/driver/net/lance/LanceCore.java:loadHWAddress",
+   "type": "function",
+   "name": "loadHWAddress",
+   "filePath": "src/org/jnode/driver/net/lance/LanceCore.java",
+   "summary": "Method loadHWAddress in LanceCore",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/driver/net/lance/LanceCore.java:setFlags",
+   "type": "function",
+   "name": "setFlags",
+   "filePath": "src/org/jnode/driver/net/lance/LanceCore.java",
+   "summary": "Method setFlags in LanceCore",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/driver/net/lance/LanceCore.java:transmit",
+   "type": "function",
+   "name": "transmit",
+   "filePath": "src/org/jnode/driver/net/lance/LanceCore.java",
+   "summary": "Method transmit in LanceCore",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/driver/net/lance/LanceCore.java:interrupt",
+   "type": "function",
+   "name": "interrupt",
+   "filePath": "src/org/jnode/driver/net/lance/LanceCore.java",
+   "summary": "Method interrupt in LanceCore",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/driver/net/lance/LanceCore.java:rxProcess",
+   "type": "function",
+   "name": "rxProcess",
+   "filePath": "src/org/jnode/driver/net/lance/LanceCore.java",
+   "summary": "Method rxProcess in LanceCore",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/driver/net/lance/LanceCore.java:dumpDebugInfo",
+   "type": "function",
+   "name": "dumpDebugInfo",
+   "filePath": "src/org/jnode/driver/net/lance/LanceCore.java",
+   "summary": "Method dumpDebugInfo in LanceCore",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/driver/net/lance/LanceCore.java:LanceCore",
+   "type": "function",
+   "name": "LanceCore",
+   "filePath": "src/org/jnode/driver/net/lance/LanceCore.java",
+   "summary": "Function LanceCore",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/driver/net/lance/LanceCore.java:getIOAccess",
+   "type": "function",
+   "name": "getIOAccess",
+   "filePath": "src/org/jnode/driver/net/lance/LanceCore.java",
+   "summary": "Function getIOAccess",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/driver/net/lance/LanceCore.java:initialize",
+   "type": "function",
+   "name": "initialize",
+   "filePath": "src/org/jnode/driver/net/lance/LanceCore.java",
+   "summary": "Function initialize",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/driver/net/lance/LanceCore.java:disable",
+   "type": "function",
+   "name": "disable",
+   "filePath": "src/org/jnode/driver/net/lance/LanceCore.java",
+   "summary": "Function disable",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/driver/net/lance/LanceCore.java:release",
+   "type": "function",
+   "name": "release",
+   "filePath": "src/org/jnode/driver/net/lance/LanceCore.java",
+   "summary": "Function release",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/driver/net/lance/LanceCore.java:getHwAddress",
+   "type": "function",
+   "name": "getHwAddress",
+   "filePath": "src/org/jnode/driver/net/lance/LanceCore.java",
+   "summary": "Function getHwAddress",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/driver/net/lance/LanceCore.java:loadHWAddress",
+   "type": "function",
+   "name": "loadHWAddress",
+   "filePath": "src/org/jnode/driver/net/lance/LanceCore.java",
+   "summary": "Function loadHWAddress",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/driver/net/lance/LanceCore.java:setFlags",
+   "type": "function",
+   "name": "setFlags",
+   "filePath": "src/org/jnode/driver/net/lance/LanceCore.java",
+   "summary": "Function setFlags",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/driver/net/lance/LanceCore.java:transmit",
+   "type": "function",
+   "name": "transmit",
+   "filePath": "src/org/jnode/driver/net/lance/LanceCore.java",
+   "summary": "Function transmit",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/driver/net/lance/LanceCore.java:interrupt",
+   "type": "function",
+   "name": "interrupt",
+   "filePath": "src/org/jnode/driver/net/lance/LanceCore.java",
+   "summary": "Function interrupt",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/driver/net/lance/LanceCore.java:rxProcess",
+   "type": "function",
+   "name": "rxProcess",
+   "filePath": "src/org/jnode/driver/net/lance/LanceCore.java",
+   "summary": "Function rxProcess",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/driver/net/lance/LanceCore.java:dumpDebugInfo",
+   "type": "function",
+   "name": "dumpDebugInfo",
+   "filePath": "src/org/jnode/driver/net/lance/LanceCore.java",
+   "summary": "Function dumpDebugInfo",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "file:src/org/jnode/driver/net/lance/RxDescriptor.java",
+   "type": "file",
+   "name": "RxDescriptor.java",
+   "filePath": "src/org/jnode/driver/net/lance/RxDescriptor.java",
+   "summary": "Lance/PCnet NIC driver core components (descriptors, rings, buffer management, IO access).",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "moderate",
+   "languageNotes": "Java source"
+  },
+  {
+   "id": "class:src/org/jnode/driver/net/lance/RxDescriptor.java:RxDescriptor",
+   "type": "class",
+   "name": "RxDescriptor",
+   "filePath": "src/org/jnode/driver/net/lance/RxDescriptor.java",
+   "summary": "Class RxDescriptor in src/org/jnode/driver/net/lance/RxDescriptor.java",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "function:src/org/jnode/driver/net/lance/RxDescriptor.java:RxDescriptor",
+   "type": "function",
+   "name": "RxDescriptor",
+   "filePath": "src/org/jnode/driver/net/lance/RxDescriptor.java",
+   "summary": "Method RxDescriptor in RxDescriptor",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/driver/net/lance/RxDescriptor.java:clearStatus",
+   "type": "function",
+   "name": "clearStatus",
+   "filePath": "src/org/jnode/driver/net/lance/RxDescriptor.java",
+   "summary": "Method clearStatus in RxDescriptor",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/driver/net/lance/RxDescriptor.java:getMessageByteCount",
+   "type": "function",
+   "name": "getMessageByteCount",
+   "filePath": "src/org/jnode/driver/net/lance/RxDescriptor.java",
+   "summary": "Method getMessageByteCount in RxDescriptor",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/driver/net/lance/RxDescriptor.java:getDataBuffer",
+   "type": "function",
+   "name": "getDataBuffer",
+   "filePath": "src/org/jnode/driver/net/lance/RxDescriptor.java",
+   "summary": "Method getDataBuffer in RxDescriptor",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/driver/net/lance/RxDescriptor.java:RxDescriptor",
+   "type": "function",
+   "name": "RxDescriptor",
+   "filePath": "src/org/jnode/driver/net/lance/RxDescriptor.java",
+   "summary": "Function RxDescriptor",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/driver/net/lance/RxDescriptor.java:clearStatus",
+   "type": "function",
+   "name": "clearStatus",
+   "filePath": "src/org/jnode/driver/net/lance/RxDescriptor.java",
+   "summary": "Function clearStatus",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/driver/net/lance/RxDescriptor.java:getMessageByteCount",
+   "type": "function",
+   "name": "getMessageByteCount",
+   "filePath": "src/org/jnode/driver/net/lance/RxDescriptor.java",
+   "summary": "Function getMessageByteCount",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/driver/net/lance/RxDescriptor.java:getDataBuffer",
+   "type": "function",
+   "name": "getDataBuffer",
+   "filePath": "src/org/jnode/driver/net/lance/RxDescriptor.java",
+   "summary": "Function getDataBuffer",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "file:src/org/jnode/driver/net/lance/RxDescriptorRing.java",
+   "type": "file",
+   "name": "RxDescriptorRing.java",
+   "filePath": "src/org/jnode/driver/net/lance/RxDescriptorRing.java",
+   "summary": "Lance/PCnet NIC driver core components (descriptors, rings, buffer management, IO access).",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "moderate",
+   "languageNotes": "Java source"
+  },
+  {
+   "id": "class:src/org/jnode/driver/net/lance/RxDescriptorRing.java:RxDescriptorRing",
+   "type": "class",
+   "name": "RxDescriptorRing",
+   "filePath": "src/org/jnode/driver/net/lance/RxDescriptorRing.java",
+   "summary": "Class RxDescriptorRing in src/org/jnode/driver/net/lance/RxDescriptorRing.java",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "function:src/org/jnode/driver/net/lance/RxDescriptorRing.java:RxDescriptorRing",
+   "type": "function",
+   "name": "RxDescriptorRing",
+   "filePath": "src/org/jnode/driver/net/lance/RxDescriptorRing.java",
+   "summary": "Method RxDescriptorRing in RxDescriptorRing",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/driver/net/lance/RxDescriptorRing.java:getPacket",
+   "type": "function",
+   "name": "getPacket",
+   "filePath": "src/org/jnode/driver/net/lance/RxDescriptorRing.java",
+   "summary": "Method getPacket in RxDescriptorRing",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/driver/net/lance/RxDescriptorRing.java:RxDescriptorRing",
+   "type": "function",
+   "name": "RxDescriptorRing",
+   "filePath": "src/org/jnode/driver/net/lance/RxDescriptorRing.java",
+   "summary": "Function RxDescriptorRing",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/driver/net/lance/RxDescriptorRing.java:getPacket",
+   "type": "function",
+   "name": "getPacket",
+   "filePath": "src/org/jnode/driver/net/lance/RxDescriptorRing.java",
+   "summary": "Function getPacket",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "file:src/org/jnode/driver/net/lance/TxDescriptor.java",
+   "type": "file",
+   "name": "TxDescriptor.java",
+   "filePath": "src/org/jnode/driver/net/lance/TxDescriptor.java",
+   "summary": "Lance/PCnet NIC driver core components (descriptors, rings, buffer management, IO access).",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "moderate",
+   "languageNotes": "Java source"
+  },
+  {
+   "id": "class:src/org/jnode/driver/net/lance/TxDescriptor.java:TxDescriptor",
+   "type": "class",
+   "name": "TxDescriptor",
+   "filePath": "src/org/jnode/driver/net/lance/TxDescriptor.java",
+   "summary": "Class TxDescriptor in src/org/jnode/driver/net/lance/TxDescriptor.java",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "function:src/org/jnode/driver/net/lance/TxDescriptor.java:TxDescriptor",
+   "type": "function",
+   "name": "TxDescriptor",
+   "filePath": "src/org/jnode/driver/net/lance/TxDescriptor.java",
+   "summary": "Method TxDescriptor in TxDescriptor",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/driver/net/lance/TxDescriptor.java:transmit",
+   "type": "function",
+   "name": "transmit",
+   "filePath": "src/org/jnode/driver/net/lance/TxDescriptor.java",
+   "summary": "Method transmit in TxDescriptor",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/driver/net/lance/TxDescriptor.java:setByteCount",
+   "type": "function",
+   "name": "setByteCount",
+   "filePath": "src/org/jnode/driver/net/lance/TxDescriptor.java",
+   "summary": "Method setByteCount in TxDescriptor",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/driver/net/lance/TxDescriptor.java:TxDescriptor",
+   "type": "function",
+   "name": "TxDescriptor",
+   "filePath": "src/org/jnode/driver/net/lance/TxDescriptor.java",
+   "summary": "Function TxDescriptor",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/driver/net/lance/TxDescriptor.java:transmit",
+   "type": "function",
+   "name": "transmit",
+   "filePath": "src/org/jnode/driver/net/lance/TxDescriptor.java",
+   "summary": "Function transmit",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/driver/net/lance/TxDescriptor.java:setByteCount",
+   "type": "function",
+   "name": "setByteCount",
+   "filePath": "src/org/jnode/driver/net/lance/TxDescriptor.java",
+   "summary": "Function setByteCount",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "file:src/org/jnode/driver/net/lance/TxDescriptorRing.java",
+   "type": "file",
+   "name": "TxDescriptorRing.java",
+   "filePath": "src/org/jnode/driver/net/lance/TxDescriptorRing.java",
+   "summary": "Lance/PCnet NIC driver core components (descriptors, rings, buffer management, IO access).",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "moderate",
+   "languageNotes": "Java source"
+  },
+  {
+   "id": "class:src/org/jnode/driver/net/lance/TxDescriptorRing.java:TxDescriptorRing",
+   "type": "class",
+   "name": "TxDescriptorRing",
+   "filePath": "src/org/jnode/driver/net/lance/TxDescriptorRing.java",
+   "summary": "Class TxDescriptorRing in src/org/jnode/driver/net/lance/TxDescriptorRing.java",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "function:src/org/jnode/driver/net/lance/TxDescriptorRing.java:TxDescriptorRing",
+   "type": "function",
+   "name": "TxDescriptorRing",
+   "filePath": "src/org/jnode/driver/net/lance/TxDescriptorRing.java",
+   "summary": "Method TxDescriptorRing in TxDescriptorRing",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/driver/net/lance/TxDescriptorRing.java:transmit",
+   "type": "function",
+   "name": "transmit",
+   "filePath": "src/org/jnode/driver/net/lance/TxDescriptorRing.java",
+   "summary": "Method transmit in TxDescriptorRing",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/driver/net/lance/TxDescriptorRing.java:TxDescriptorRing",
+   "type": "function",
+   "name": "TxDescriptorRing",
+   "filePath": "src/org/jnode/driver/net/lance/TxDescriptorRing.java",
+   "summary": "Function TxDescriptorRing",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/driver/net/lance/TxDescriptorRing.java:transmit",
+   "type": "function",
+   "name": "transmit",
+   "filePath": "src/org/jnode/driver/net/lance/TxDescriptorRing.java",
+   "summary": "Function transmit",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "file:src/org/jnode/driver/net/lance/WordIOAccess.java",
+   "type": "file",
+   "name": "WordIOAccess.java",
+   "filePath": "src/org/jnode/driver/net/lance/WordIOAccess.java",
+   "summary": "Lance/PCnet NIC driver core components (descriptors, rings, buffer management, IO access).",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "moderate",
+   "languageNotes": "Java source"
+  },
+  {
+   "id": "class:src/org/jnode/driver/net/lance/WordIOAccess.java:WordIOAccess",
+   "type": "class",
+   "name": "WordIOAccess",
+   "filePath": "src/org/jnode/driver/net/lance/WordIOAccess.java",
+   "summary": "Class WordIOAccess in src/org/jnode/driver/net/lance/WordIOAccess.java",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "function:src/org/jnode/driver/net/lance/WordIOAccess.java:WordIOAccess",
+   "type": "function",
+   "name": "WordIOAccess",
+   "filePath": "src/org/jnode/driver/net/lance/WordIOAccess.java",
+   "summary": "Method WordIOAccess in WordIOAccess",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/driver/net/lance/WordIOAccess.java:getType",
+   "type": "function",
+   "name": "getType",
+   "filePath": "src/org/jnode/driver/net/lance/WordIOAccess.java",
+   "summary": "Method getType in WordIOAccess",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/driver/net/lance/WordIOAccess.java:reset",
+   "type": "function",
+   "name": "reset",
+   "filePath": "src/org/jnode/driver/net/lance/WordIOAccess.java",
+   "summary": "Method reset in WordIOAccess",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/driver/net/lance/WordIOAccess.java:getCSR",
+   "type": "function",
+   "name": "getCSR",
+   "filePath": "src/org/jnode/driver/net/lance/WordIOAccess.java",
+   "summary": "Method getCSR in WordIOAccess",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/driver/net/lance/WordIOAccess.java:setCSR",
+   "type": "function",
+   "name": "setCSR",
+   "filePath": "src/org/jnode/driver/net/lance/WordIOAccess.java",
+   "summary": "Method setCSR in WordIOAccess",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/driver/net/lance/WordIOAccess.java:getBCR",
+   "type": "function",
+   "name": "getBCR",
+   "filePath": "src/org/jnode/driver/net/lance/WordIOAccess.java",
+   "summary": "Method getBCR in WordIOAccess",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/driver/net/lance/WordIOAccess.java:setBCR",
+   "type": "function",
+   "name": "setBCR",
+   "filePath": "src/org/jnode/driver/net/lance/WordIOAccess.java",
+   "summary": "Method setBCR in WordIOAccess",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/driver/net/lance/WordIOAccess.java:WordIOAccess",
+   "type": "function",
+   "name": "WordIOAccess",
+   "filePath": "src/org/jnode/driver/net/lance/WordIOAccess.java",
+   "summary": "Function WordIOAccess",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/driver/net/lance/WordIOAccess.java:getType",
+   "type": "function",
+   "name": "getType",
+   "filePath": "src/org/jnode/driver/net/lance/WordIOAccess.java",
+   "summary": "Function getType",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/driver/net/lance/WordIOAccess.java:reset",
+   "type": "function",
+   "name": "reset",
+   "filePath": "src/org/jnode/driver/net/lance/WordIOAccess.java",
+   "summary": "Function reset",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/driver/net/lance/WordIOAccess.java:getCSR",
+   "type": "function",
+   "name": "getCSR",
+   "filePath": "src/org/jnode/driver/net/lance/WordIOAccess.java",
+   "summary": "Function getCSR",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/driver/net/lance/WordIOAccess.java:setCSR",
+   "type": "function",
+   "name": "setCSR",
+   "filePath": "src/org/jnode/driver/net/lance/WordIOAccess.java",
+   "summary": "Function setCSR",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/driver/net/lance/WordIOAccess.java:getBCR",
+   "type": "function",
+   "name": "getBCR",
+   "filePath": "src/org/jnode/driver/net/lance/WordIOAccess.java",
+   "summary": "Function getBCR",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/driver/net/lance/WordIOAccess.java:setBCR",
+   "type": "function",
+   "name": "setBCR",
+   "filePath": "src/org/jnode/driver/net/lance/WordIOAccess.java",
+   "summary": "Function setBCR",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "file:src/org/jnode/net/ipv4/dhcp/AbstractDHCPClient.java",
+   "type": "file",
+   "name": "AbstractDHCPClient.java",
+   "filePath": "src/org/jnode/net/ipv4/dhcp/AbstractDHCPClient.java",
+   "summary": "DHCP client implementation for IPv4 networking in JNode OS.",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "moderate",
+   "languageNotes": "Java source"
+  },
+  {
+   "id": "class:src/org/jnode/net/ipv4/dhcp/AbstractDHCPClient.java:AbstractDHCPClient",
+   "type": "class",
+   "name": "AbstractDHCPClient",
+   "filePath": "src/org/jnode/net/ipv4/dhcp/AbstractDHCPClient.java",
+   "summary": "Class AbstractDHCPClient in src/org/jnode/net/ipv4/dhcp/AbstractDHCPClient.java",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "function:src/org/jnode/net/ipv4/dhcp/AbstractDHCPClient.java:AbstractDHCPClient",
+   "type": "function",
+   "name": "AbstractDHCPClient",
+   "filePath": "src/org/jnode/net/ipv4/dhcp/AbstractDHCPClient.java",
+   "summary": "Method AbstractDHCPClient in AbstractDHCPClient",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/net/ipv4/dhcp/AbstractDHCPClient.java:createRequestPacket",
+   "type": "function",
+   "name": "createRequestPacket",
+   "filePath": "src/org/jnode/net/ipv4/dhcp/AbstractDHCPClient.java",
+   "summary": "Method createRequestPacket in AbstractDHCPClient",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/net/ipv4/dhcp/AbstractDHCPClient.java:processResponse",
+   "type": "function",
+   "name": "processResponse",
+   "filePath": "src/org/jnode/net/ipv4/dhcp/AbstractDHCPClient.java",
+   "summary": "Method processResponse in AbstractDHCPClient",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/net/ipv4/dhcp/AbstractDHCPClient.java:doConfigure",
+   "type": "function",
+   "name": "doConfigure",
+   "filePath": "src/org/jnode/net/ipv4/dhcp/AbstractDHCPClient.java",
+   "summary": "Method doConfigure in AbstractDHCPClient",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/net/ipv4/dhcp/AbstractDHCPClient.java:AbstractDHCPClient",
+   "type": "function",
+   "name": "AbstractDHCPClient",
+   "filePath": "src/org/jnode/net/ipv4/dhcp/AbstractDHCPClient.java",
+   "summary": "Function AbstractDHCPClient",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/net/ipv4/dhcp/AbstractDHCPClient.java:createRequestPacket",
+   "type": "function",
+   "name": "createRequestPacket",
+   "filePath": "src/org/jnode/net/ipv4/dhcp/AbstractDHCPClient.java",
+   "summary": "Function createRequestPacket",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/net/ipv4/dhcp/AbstractDHCPClient.java:processResponse",
+   "type": "function",
+   "name": "processResponse",
+   "filePath": "src/org/jnode/net/ipv4/dhcp/AbstractDHCPClient.java",
+   "summary": "Function processResponse",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/net/ipv4/dhcp/AbstractDHCPClient.java:doConfigure",
+   "type": "function",
+   "name": "doConfigure",
+   "filePath": "src/org/jnode/net/ipv4/dhcp/AbstractDHCPClient.java",
+   "summary": "Function doConfigure",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "file:src/org/jnode/net/ipv4/dhcp/DHCPClient.java",
+   "type": "file",
+   "name": "DHCPClient.java",
+   "filePath": "src/org/jnode/net/ipv4/dhcp/DHCPClient.java",
+   "summary": "DHCP client implementation for IPv4 networking in JNode OS.",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "moderate",
+   "languageNotes": "Java source"
+  },
+  {
+   "id": "class:src/org/jnode/net/ipv4/dhcp/DHCPClient.java:DHCPClient",
+   "type": "class",
+   "name": "DHCPClient",
+   "filePath": "src/org/jnode/net/ipv4/dhcp/DHCPClient.java",
+   "summary": "Class DHCPClient in src/org/jnode/net/ipv4/dhcp/DHCPClient.java",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "function:src/org/jnode/net/ipv4/dhcp/DHCPClient.java:DHCPClient",
+   "type": "function",
+   "name": "DHCPClient",
+   "filePath": "src/org/jnode/net/ipv4/dhcp/DHCPClient.java",
+   "summary": "Method DHCPClient in DHCPClient",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/net/ipv4/dhcp/DHCPClient.java:doConfigure",
+   "type": "function",
+   "name": "doConfigure",
+   "filePath": "src/org/jnode/net/ipv4/dhcp/DHCPClient.java",
+   "summary": "Method doConfigure in DHCPClient",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/net/ipv4/dhcp/DHCPClient.java:DHCPClient",
+   "type": "function",
+   "name": "DHCPClient",
+   "filePath": "src/org/jnode/net/ipv4/dhcp/DHCPClient.java",
+   "summary": "Function DHCPClient",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/net/ipv4/dhcp/DHCPClient.java:doConfigure",
+   "type": "function",
+   "name": "doConfigure",
+   "filePath": "src/org/jnode/net/ipv4/dhcp/DHCPClient.java",
+   "summary": "Function doConfigure",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "file:src/org/jnode/net/ipv4/dhcp/DHCPMessage.java",
+   "type": "file",
+   "name": "DHCPMessage.java",
+   "filePath": "src/org/jnode/net/ipv4/dhcp/DHCPMessage.java",
+   "summary": "DHCP client implementation for IPv4 networking in JNode OS.",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "moderate",
+   "languageNotes": "Java source"
+  },
+  {
+   "id": "class:src/org/jnode/net/ipv4/dhcp/DHCPMessage.java:DHCPMessage",
+   "type": "class",
+   "name": "DHCPMessage",
+   "filePath": "src/org/jnode/net/ipv4/dhcp/DHCPMessage.java",
+   "summary": "Class DHCPMessage in src/org/jnode/net/ipv4/dhcp/DHCPMessage.java",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "function:src/org/jnode/net/ipv4/dhcp/DHCPMessage.java:DHCPMessage",
+   "type": "function",
+   "name": "DHCPMessage",
+   "filePath": "src/org/jnode/net/ipv4/dhcp/DHCPMessage.java",
+   "summary": "Method DHCPMessage in DHCPMessage",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/net/ipv4/dhcp/DHCPMessage.java:DHCPMessage",
+   "type": "function",
+   "name": "DHCPMessage",
+   "filePath": "src/org/jnode/net/ipv4/dhcp/DHCPMessage.java",
+   "summary": "Method DHCPMessage in DHCPMessage",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/net/ipv4/dhcp/DHCPMessage.java:DHCPMessage",
+   "type": "function",
+   "name": "DHCPMessage",
+   "filePath": "src/org/jnode/net/ipv4/dhcp/DHCPMessage.java",
+   "summary": "Method DHCPMessage in DHCPMessage",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/net/ipv4/dhcp/DHCPMessage.java:getHeader",
+   "type": "function",
+   "name": "getHeader",
+   "filePath": "src/org/jnode/net/ipv4/dhcp/DHCPMessage.java",
+   "summary": "Method getHeader in DHCPMessage",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/net/ipv4/dhcp/DHCPMessage.java:setMessageType",
+   "type": "function",
+   "name": "setMessageType",
+   "filePath": "src/org/jnode/net/ipv4/dhcp/DHCPMessage.java",
+   "summary": "Method setMessageType in DHCPMessage",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/net/ipv4/dhcp/DHCPMessage.java:getMessageType",
+   "type": "function",
+   "name": "getMessageType",
+   "filePath": "src/org/jnode/net/ipv4/dhcp/DHCPMessage.java",
+   "summary": "Method getMessageType in DHCPMessage",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/net/ipv4/dhcp/DHCPMessage.java:setOption",
+   "type": "function",
+   "name": "setOption",
+   "filePath": "src/org/jnode/net/ipv4/dhcp/DHCPMessage.java",
+   "summary": "Method setOption in DHCPMessage",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/net/ipv4/dhcp/DHCPMessage.java:setOption16",
+   "type": "function",
+   "name": "setOption16",
+   "filePath": "src/org/jnode/net/ipv4/dhcp/DHCPMessage.java",
+   "summary": "Method setOption16 in DHCPMessage",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/net/ipv4/dhcp/DHCPMessage.java:setOption",
+   "type": "function",
+   "name": "setOption",
+   "filePath": "src/org/jnode/net/ipv4/dhcp/DHCPMessage.java",
+   "summary": "Method setOption in DHCPMessage",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/net/ipv4/dhcp/DHCPMessage.java:setOption",
+   "type": "function",
+   "name": "setOption",
+   "filePath": "src/org/jnode/net/ipv4/dhcp/DHCPMessage.java",
+   "summary": "Method setOption in DHCPMessage",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/net/ipv4/dhcp/DHCPMessage.java:getOption",
+   "type": "function",
+   "name": "getOption",
+   "filePath": "src/org/jnode/net/ipv4/dhcp/DHCPMessage.java",
+   "summary": "Method getOption in DHCPMessage",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/net/ipv4/dhcp/DHCPMessage.java:toDatagramPacket",
+   "type": "function",
+   "name": "toDatagramPacket",
+   "filePath": "src/org/jnode/net/ipv4/dhcp/DHCPMessage.java",
+   "summary": "Method toDatagramPacket in DHCPMessage",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/net/ipv4/dhcp/DHCPMessage.java:DHCPMessage",
+   "type": "function",
+   "name": "DHCPMessage",
+   "filePath": "src/org/jnode/net/ipv4/dhcp/DHCPMessage.java",
+   "summary": "Function DHCPMessage",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/net/ipv4/dhcp/DHCPMessage.java:DHCPMessage",
+   "type": "function",
+   "name": "DHCPMessage",
+   "filePath": "src/org/jnode/net/ipv4/dhcp/DHCPMessage.java",
+   "summary": "Function DHCPMessage",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/net/ipv4/dhcp/DHCPMessage.java:DHCPMessage",
+   "type": "function",
+   "name": "DHCPMessage",
+   "filePath": "src/org/jnode/net/ipv4/dhcp/DHCPMessage.java",
+   "summary": "Function DHCPMessage",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/net/ipv4/dhcp/DHCPMessage.java:getHeader",
+   "type": "function",
+   "name": "getHeader",
+   "filePath": "src/org/jnode/net/ipv4/dhcp/DHCPMessage.java",
+   "summary": "Function getHeader",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/net/ipv4/dhcp/DHCPMessage.java:setMessageType",
+   "type": "function",
+   "name": "setMessageType",
+   "filePath": "src/org/jnode/net/ipv4/dhcp/DHCPMessage.java",
+   "summary": "Function setMessageType",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/net/ipv4/dhcp/DHCPMessage.java:getMessageType",
+   "type": "function",
+   "name": "getMessageType",
+   "filePath": "src/org/jnode/net/ipv4/dhcp/DHCPMessage.java",
+   "summary": "Function getMessageType",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/net/ipv4/dhcp/DHCPMessage.java:setOption",
+   "type": "function",
+   "name": "setOption",
+   "filePath": "src/org/jnode/net/ipv4/dhcp/DHCPMessage.java",
+   "summary": "Function setOption",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/net/ipv4/dhcp/DHCPMessage.java:setOption16",
+   "type": "function",
+   "name": "setOption16",
+   "filePath": "src/org/jnode/net/ipv4/dhcp/DHCPMessage.java",
+   "summary": "Function setOption16",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/net/ipv4/dhcp/DHCPMessage.java:setOption",
+   "type": "function",
+   "name": "setOption",
+   "filePath": "src/org/jnode/net/ipv4/dhcp/DHCPMessage.java",
+   "summary": "Function setOption",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/net/ipv4/dhcp/DHCPMessage.java:setOption",
+   "type": "function",
+   "name": "setOption",
+   "filePath": "src/org/jnode/net/ipv4/dhcp/DHCPMessage.java",
+   "summary": "Function setOption",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/net/ipv4/dhcp/DHCPMessage.java:getOption",
+   "type": "function",
+   "name": "getOption",
+   "filePath": "src/org/jnode/net/ipv4/dhcp/DHCPMessage.java",
+   "summary": "Function getOption",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/org/jnode/net/ipv4/dhcp/DHCPMessage.java:toDatagramPacket",
+   "type": "function",
+   "name": "toDatagramPacket",
+   "filePath": "src/org/jnode/net/ipv4/dhcp/DHCPMessage.java",
+   "summary": "Function toDatagramPacket",
+   "tags": [
+    "java",
+    "org"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "file:src/test/minitcp/Main.java",
+   "type": "file",
+   "name": "Main.java",
+   "filePath": "src/test/minitcp/Main.java",
+   "summary": "Minimal TCP server test domain and entry point.",
+   "tags": [
+    "java",
+    "test"
+   ],
+   "complexity": "moderate",
+   "languageNotes": "Java source"
+  },
+  {
+   "id": "class:src/test/minitcp/Main.java:Main",
+   "type": "class",
+   "name": "Main",
+   "filePath": "src/test/minitcp/Main.java",
+   "summary": "Class Main in src/test/minitcp/Main.java",
+   "tags": [
+    "java",
+    "test"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "function:src/test/minitcp/Main.java:main",
+   "type": "function",
+   "name": "main",
+   "filePath": "src/test/minitcp/Main.java",
+   "summary": "Method main in Main",
+   "tags": [
+    "java",
+    "test"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/test/minitcp/Main.java:Main",
+   "type": "function",
+   "name": "Main",
+   "filePath": "src/test/minitcp/Main.java",
+   "summary": "Method Main in Main",
+   "tags": [
+    "java",
+    "test"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/test/minitcp/Main.java:main",
+   "type": "function",
+   "name": "main",
+   "filePath": "src/test/minitcp/Main.java",
+   "summary": "Function main",
+   "tags": [
+    "java",
+    "test"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/test/minitcp/Main.java:Main",
+   "type": "function",
+   "name": "Main",
+   "filePath": "src/test/minitcp/Main.java",
+   "summary": "Function Main",
+   "tags": [
+    "java",
+    "test"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "file:src/test/minitcp/MiniServerDomain.java",
+   "type": "file",
+   "name": "MiniServerDomain.java",
+   "filePath": "src/test/minitcp/MiniServerDomain.java",
+   "summary": "Minimal TCP server test domain and entry point.",
+   "tags": [
+    "java",
+    "test"
+   ],
+   "complexity": "moderate",
+   "languageNotes": "Java source"
+  },
+  {
+   "id": "class:src/test/minitcp/MiniServerDomain.java:MiniServerDomain",
+   "type": "class",
+   "name": "MiniServerDomain",
+   "filePath": "src/test/minitcp/MiniServerDomain.java",
+   "summary": "Class MiniServerDomain in src/test/minitcp/MiniServerDomain.java",
+   "tags": [
+    "java",
+    "test"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "function:src/test/minitcp/MiniServerDomain.java:init",
+   "type": "function",
+   "name": "init",
+   "filePath": "src/test/minitcp/MiniServerDomain.java",
+   "summary": "Method init in MiniServerDomain",
+   "tags": [
+    "java",
+    "test"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/test/minitcp/MiniServerDomain.java:init",
+   "type": "function",
+   "name": "init",
+   "filePath": "src/test/minitcp/MiniServerDomain.java",
+   "summary": "Function init",
+   "tags": [
+    "java",
+    "test"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "file:src/test/net/Main.java",
+   "type": "file",
+   "name": "Main.java",
+   "filePath": "src/test/net/Main.java",
+   "summary": "TCP/IP networking test programs (WebServer, TCP workers, IP/TCP start tests).",
+   "tags": [
+    "java",
+    "test"
+   ],
+   "complexity": "moderate",
+   "languageNotes": "Java source"
+  },
+  {
+   "id": "class:src/test/net/Main.java:Main",
+   "type": "class",
+   "name": "Main",
+   "filePath": "src/test/net/Main.java",
+   "summary": "Class Main in src/test/net/Main.java",
+   "tags": [
+    "java",
+    "test"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "function:src/test/net/Main.java:test",
+   "type": "function",
+   "name": "test",
+   "filePath": "src/test/net/Main.java",
+   "summary": "Method test in Main",
+   "tags": [
+    "java",
+    "test"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/test/net/Main.java:Main",
+   "type": "function",
+   "name": "Main",
+   "filePath": "src/test/net/Main.java",
+   "summary": "Method Main in Main",
+   "tags": [
+    "java",
+    "test"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/test/net/Main.java:init3com",
+   "type": "function",
+   "name": "init3com",
+   "filePath": "src/test/net/Main.java",
+   "summary": "Method init3com in Main",
+   "tags": [
+    "java",
+    "test"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/test/net/Main.java:simpletest",
+   "type": "function",
+   "name": "simpletest",
+   "filePath": "src/test/net/Main.java",
+   "summary": "Method simpletest in Main",
+   "tags": [
+    "java",
+    "test"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/test/net/Main.java:dotest",
+   "type": "function",
+   "name": "dotest",
+   "filePath": "src/test/net/Main.java",
+   "summary": "Method dotest in Main",
+   "tags": [
+    "java",
+    "test"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "class:src/test/net/Main.java:StartNetworkProtocols",
+   "type": "class",
+   "name": "StartNetworkProtocols",
+   "filePath": "src/test/net/Main.java",
+   "summary": "Class StartNetworkProtocols in src/test/net/Main.java",
+   "tags": [
+    "java",
+    "test"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "function:src/test/net/Main.java:main",
+   "type": "function",
+   "name": "main",
+   "filePath": "src/test/net/Main.java",
+   "summary": "Method main in StartNetworkProtocols",
+   "tags": [
+    "java",
+    "test"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/test/net/Main.java:test",
+   "type": "function",
+   "name": "test",
+   "filePath": "src/test/net/Main.java",
+   "summary": "Function test",
+   "tags": [
+    "java",
+    "test"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/test/net/Main.java:Main",
+   "type": "function",
+   "name": "Main",
+   "filePath": "src/test/net/Main.java",
+   "summary": "Function Main",
+   "tags": [
+    "java",
+    "test"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/test/net/Main.java:init3com",
+   "type": "function",
+   "name": "init3com",
+   "filePath": "src/test/net/Main.java",
+   "summary": "Function init3com",
+   "tags": [
+    "java",
+    "test"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/test/net/Main.java:simpletest",
+   "type": "function",
+   "name": "simpletest",
+   "filePath": "src/test/net/Main.java",
+   "summary": "Function simpletest",
+   "tags": [
+    "java",
+    "test"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/test/net/Main.java:dotest",
+   "type": "function",
+   "name": "dotest",
+   "filePath": "src/test/net/Main.java",
+   "summary": "Function dotest",
+   "tags": [
+    "java",
+    "test"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/test/net/Main.java:main",
+   "type": "function",
+   "name": "main",
+   "filePath": "src/test/net/Main.java",
+   "summary": "Function main",
+   "tags": [
+    "java",
+    "test"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "file:src/test/net/StartIPTest.java",
+   "type": "file",
+   "name": "StartIPTest.java",
+   "filePath": "src/test/net/StartIPTest.java",
+   "summary": "TCP/IP networking test programs (WebServer, TCP workers, IP/TCP start tests).",
+   "tags": [
+    "java",
+    "test"
+   ],
+   "complexity": "moderate",
+   "languageNotes": "Java source"
+  },
+  {
+   "id": "class:src/test/net/StartIPTest.java:StartIPTest",
+   "type": "class",
+   "name": "StartIPTest",
+   "filePath": "src/test/net/StartIPTest.java",
+   "summary": "Class StartIPTest in src/test/net/StartIPTest.java",
+   "tags": [
+    "java",
+    "test"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "function:src/test/net/StartIPTest.java:main",
+   "type": "function",
+   "name": "main",
+   "filePath": "src/test/net/StartIPTest.java",
+   "summary": "Method main in StartIPTest",
+   "tags": [
+    "java",
+    "test"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/test/net/StartIPTest.java:main",
+   "type": "function",
+   "name": "main",
+   "filePath": "src/test/net/StartIPTest.java",
+   "summary": "Function main",
+   "tags": [
+    "java",
+    "test"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "file:src/test/net/StartNICTest.java",
+   "type": "file",
+   "name": "StartNICTest.java",
+   "filePath": "src/test/net/StartNICTest.java",
+   "summary": "TCP/IP networking test programs (WebServer, TCP workers, IP/TCP start tests).",
+   "tags": [
+    "java",
+    "test"
+   ],
+   "complexity": "moderate",
+   "languageNotes": "Java source"
+  },
+  {
+   "id": "class:src/test/net/StartNICTest.java:StartNICTest",
+   "type": "class",
+   "name": "StartNICTest",
+   "filePath": "src/test/net/StartNICTest.java",
+   "summary": "Class StartNICTest in src/test/net/StartNICTest.java",
+   "tags": [
+    "java",
+    "test"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "function:src/test/net/StartNICTest.java:main",
+   "type": "function",
+   "name": "main",
+   "filePath": "src/test/net/StartNICTest.java",
+   "summary": "Method main in StartNICTest",
+   "tags": [
+    "java",
+    "test"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/test/net/StartNICTest.java:main",
+   "type": "function",
+   "name": "main",
+   "filePath": "src/test/net/StartNICTest.java",
+   "summary": "Function main",
+   "tags": [
+    "java",
+    "test"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "file:src/test/net/StartTCPTest.java",
+   "type": "file",
+   "name": "StartTCPTest.java",
+   "filePath": "src/test/net/StartTCPTest.java",
+   "summary": "TCP/IP networking test programs (WebServer, TCP workers, IP/TCP start tests).",
+   "tags": [
+    "java",
+    "test"
+   ],
+   "complexity": "moderate",
+   "languageNotes": "Java source"
+  },
+  {
+   "id": "class:src/test/net/StartTCPTest.java:StartTCPTest",
+   "type": "class",
+   "name": "StartTCPTest",
+   "filePath": "src/test/net/StartTCPTest.java",
+   "summary": "Class StartTCPTest in src/test/net/StartTCPTest.java",
+   "tags": [
+    "java",
+    "test"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "function:src/test/net/StartTCPTest.java:main",
+   "type": "function",
+   "name": "main",
+   "filePath": "src/test/net/StartTCPTest.java",
+   "summary": "Method main in StartTCPTest",
+   "tags": [
+    "java",
+    "test"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/test/net/StartTCPTest.java:main",
+   "type": "function",
+   "name": "main",
+   "filePath": "src/test/net/StartTCPTest.java",
+   "summary": "Function main",
+   "tags": [
+    "java",
+    "test"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "file:src/test/net/StartTest.java",
+   "type": "file",
+   "name": "StartTest.java",
+   "filePath": "src/test/net/StartTest.java",
+   "summary": "TCP/IP networking test programs (WebServer, TCP workers, IP/TCP start tests).",
+   "tags": [
+    "java",
+    "test"
+   ],
+   "complexity": "moderate",
+   "languageNotes": "Java source"
+  },
+  {
+   "id": "class:src/test/net/StartTest.java:StartTest",
+   "type": "class",
+   "name": "StartTest",
+   "filePath": "src/test/net/StartTest.java",
+   "summary": "Class StartTest in src/test/net/StartTest.java",
+   "tags": [
+    "java",
+    "test"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "function:src/test/net/StartTest.java:main",
+   "type": "function",
+   "name": "main",
+   "filePath": "src/test/net/StartTest.java",
+   "summary": "Method main in StartTest",
+   "tags": [
+    "java",
+    "test"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/test/net/StartTest.java:main",
+   "type": "function",
+   "name": "main",
+   "filePath": "src/test/net/StartTest.java",
+   "summary": "Function main",
+   "tags": [
+    "java",
+    "test"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "file:src/test/net/TCPWebWorker.java",
+   "type": "file",
+   "name": "TCPWebWorker.java",
+   "filePath": "src/test/net/TCPWebWorker.java",
+   "summary": "TCP/IP networking test programs (WebServer, TCP workers, IP/TCP start tests).",
+   "tags": [
+    "java",
+    "test"
+   ],
+   "complexity": "moderate",
+   "languageNotes": "Java source"
+  },
+  {
+   "id": "class:src/test/net/TCPWebWorker.java:TCPWebWorker",
+   "type": "class",
+   "name": "TCPWebWorker",
+   "filePath": "src/test/net/TCPWebWorker.java",
+   "summary": "Class TCPWebWorker in src/test/net/TCPWebWorker.java",
+   "tags": [
+    "java",
+    "test"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "function:src/test/net/TCPWebWorker.java:init",
+   "type": "function",
+   "name": "init",
+   "filePath": "src/test/net/TCPWebWorker.java",
+   "summary": "Method init in TCPWebWorker",
+   "tags": [
+    "java",
+    "test"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/test/net/TCPWebWorker.java:processRequest",
+   "type": "function",
+   "name": "processRequest",
+   "filePath": "src/test/net/TCPWebWorker.java",
+   "summary": "Method processRequest in TCPWebWorker",
+   "tags": [
+    "java",
+    "test"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/test/net/TCPWebWorker.java:TCPWebWorker",
+   "type": "function",
+   "name": "TCPWebWorker",
+   "filePath": "src/test/net/TCPWebWorker.java",
+   "summary": "Method TCPWebWorker in TCPWebWorker",
+   "tags": [
+    "java",
+    "test"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/test/net/TCPWebWorker.java:readFile",
+   "type": "function",
+   "name": "readFile",
+   "filePath": "src/test/net/TCPWebWorker.java",
+   "summary": "Method readFile in TCPWebWorker",
+   "tags": [
+    "java",
+    "test"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/test/net/TCPWebWorker.java:parse",
+   "type": "function",
+   "name": "parse",
+   "filePath": "src/test/net/TCPWebWorker.java",
+   "summary": "Method parse in TCPWebWorker",
+   "tags": [
+    "java",
+    "test"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/test/net/TCPWebWorker.java:constructHeader",
+   "type": "function",
+   "name": "constructHeader",
+   "filePath": "src/test/net/TCPWebWorker.java",
+   "summary": "Method constructHeader in TCPWebWorker",
+   "tags": [
+    "java",
+    "test"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/test/net/TCPWebWorker.java:constructHeader",
+   "type": "function",
+   "name": "constructHeader",
+   "filePath": "src/test/net/TCPWebWorker.java",
+   "summary": "Method constructHeader in TCPWebWorker",
+   "tags": [
+    "java",
+    "test"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/test/net/TCPWebWorker.java:constructErrorHeader",
+   "type": "function",
+   "name": "constructErrorHeader",
+   "filePath": "src/test/net/TCPWebWorker.java",
+   "summary": "Method constructErrorHeader in TCPWebWorker",
+   "tags": [
+    "java",
+    "test"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/test/net/TCPWebWorker.java:getProperty_DefaultFile",
+   "type": "function",
+   "name": "getProperty_DefaultFile",
+   "filePath": "src/test/net/TCPWebWorker.java",
+   "summary": "Method getProperty_DefaultFile in TCPWebWorker",
+   "tags": [
+    "java",
+    "test"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/test/net/TCPWebWorker.java:getProperty_MimeTypes",
+   "type": "function",
+   "name": "getProperty_MimeTypes",
+   "filePath": "src/test/net/TCPWebWorker.java",
+   "summary": "Method getProperty_MimeTypes in TCPWebWorker",
+   "tags": [
+    "java",
+    "test"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/test/net/TCPWebWorker.java:init",
+   "type": "function",
+   "name": "init",
+   "filePath": "src/test/net/TCPWebWorker.java",
+   "summary": "Function init",
+   "tags": [
+    "java",
+    "test"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/test/net/TCPWebWorker.java:processRequest",
+   "type": "function",
+   "name": "processRequest",
+   "filePath": "src/test/net/TCPWebWorker.java",
+   "summary": "Function processRequest",
+   "tags": [
+    "java",
+    "test"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/test/net/TCPWebWorker.java:TCPWebWorker",
+   "type": "function",
+   "name": "TCPWebWorker",
+   "filePath": "src/test/net/TCPWebWorker.java",
+   "summary": "Function TCPWebWorker",
+   "tags": [
+    "java",
+    "test"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/test/net/TCPWebWorker.java:readFile",
+   "type": "function",
+   "name": "readFile",
+   "filePath": "src/test/net/TCPWebWorker.java",
+   "summary": "Function readFile",
+   "tags": [
+    "java",
+    "test"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/test/net/TCPWebWorker.java:parse",
+   "type": "function",
+   "name": "parse",
+   "filePath": "src/test/net/TCPWebWorker.java",
+   "summary": "Function parse",
+   "tags": [
+    "java",
+    "test"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/test/net/TCPWebWorker.java:constructHeader",
+   "type": "function",
+   "name": "constructHeader",
+   "filePath": "src/test/net/TCPWebWorker.java",
+   "summary": "Function constructHeader",
+   "tags": [
+    "java",
+    "test"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/test/net/TCPWebWorker.java:constructHeader",
+   "type": "function",
+   "name": "constructHeader",
+   "filePath": "src/test/net/TCPWebWorker.java",
+   "summary": "Function constructHeader",
+   "tags": [
+    "java",
+    "test"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/test/net/TCPWebWorker.java:constructErrorHeader",
+   "type": "function",
+   "name": "constructErrorHeader",
+   "filePath": "src/test/net/TCPWebWorker.java",
+   "summary": "Function constructErrorHeader",
+   "tags": [
+    "java",
+    "test"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/test/net/TCPWebWorker.java:getProperty_DefaultFile",
+   "type": "function",
+   "name": "getProperty_DefaultFile",
+   "filePath": "src/test/net/TCPWebWorker.java",
+   "summary": "Function getProperty_DefaultFile",
+   "tags": [
+    "java",
+    "test"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/test/net/TCPWebWorker.java:getProperty_MimeTypes",
+   "type": "function",
+   "name": "getProperty_MimeTypes",
+   "filePath": "src/test/net/TCPWebWorker.java",
+   "summary": "Function getProperty_MimeTypes",
+   "tags": [
+    "java",
+    "test"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "file:src/test/net/TCPWorker.java",
+   "type": "file",
+   "name": "TCPWorker.java",
+   "filePath": "src/test/net/TCPWorker.java",
+   "summary": "TCP/IP networking test programs (WebServer, TCP workers, IP/TCP start tests).",
+   "tags": [
+    "java",
+    "test"
+   ],
+   "complexity": "moderate",
+   "languageNotes": "Java source"
+  },
+  {
+   "id": "class:src/test/net/TCPWorker.java:TCPWorker",
+   "type": "class",
+   "name": "TCPWorker",
+   "filePath": "src/test/net/TCPWorker.java",
+   "summary": "Class TCPWorker in src/test/net/TCPWorker.java",
+   "tags": [
+    "java",
+    "test"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "function:src/test/net/TCPWorker.java:init",
+   "type": "function",
+   "name": "init",
+   "filePath": "src/test/net/TCPWorker.java",
+   "summary": "Method init in TCPWorker",
+   "tags": [
+    "java",
+    "test"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/test/net/TCPWorker.java:init",
+   "type": "function",
+   "name": "init",
+   "filePath": "src/test/net/TCPWorker.java",
+   "summary": "Function init",
+   "tags": [
+    "java",
+    "test"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "file:src/test/net/WebServer.java",
+   "type": "file",
+   "name": "WebServer.java",
+   "filePath": "src/test/net/WebServer.java",
+   "summary": "TCP/IP networking test programs (WebServer, TCP workers, IP/TCP start tests).",
+   "tags": [
+    "java",
+    "test"
+   ],
+   "complexity": "moderate",
+   "languageNotes": "Java source"
+  },
+  {
+   "id": "class:src/test/net/WebServer.java:WebServer",
+   "type": "class",
+   "name": "WebServer",
+   "filePath": "src/test/net/WebServer.java",
+   "summary": "Class WebServer in src/test/net/WebServer.java",
+   "tags": [
+    "java",
+    "test"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "function:src/test/net/WebServer.java:main",
+   "type": "function",
+   "name": "main",
+   "filePath": "src/test/net/WebServer.java",
+   "summary": "Method main in WebServer",
+   "tags": [
+    "java",
+    "test"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/test/net/WebServer.java:usage",
+   "type": "function",
+   "name": "usage",
+   "filePath": "src/test/net/WebServer.java",
+   "summary": "Method usage in WebServer",
+   "tags": [
+    "java",
+    "test"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/test/net/WebServer.java:WebServer",
+   "type": "function",
+   "name": "WebServer",
+   "filePath": "src/test/net/WebServer.java",
+   "summary": "Method WebServer in WebServer",
+   "tags": [
+    "java",
+    "test"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/test/net/WebServer.java:createFile",
+   "type": "function",
+   "name": "createFile",
+   "filePath": "src/test/net/WebServer.java",
+   "summary": "Method createFile in WebServer",
+   "tags": [
+    "java",
+    "test"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/test/net/WebServer.java:startWorkerThread",
+   "type": "function",
+   "name": "startWorkerThread",
+   "filePath": "src/test/net/WebServer.java",
+   "summary": "Method startWorkerThread in WebServer",
+   "tags": [
+    "java",
+    "test"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/test/net/WebServer.java:startWorkerDomain",
+   "type": "function",
+   "name": "startWorkerDomain",
+   "filePath": "src/test/net/WebServer.java",
+   "summary": "Method startWorkerDomain in WebServer",
+   "tags": [
+    "java",
+    "test"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/test/net/WebServer.java:main",
+   "type": "function",
+   "name": "main",
+   "filePath": "src/test/net/WebServer.java",
+   "summary": "Function main",
+   "tags": [
+    "java",
+    "test"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/test/net/WebServer.java:usage",
+   "type": "function",
+   "name": "usage",
+   "filePath": "src/test/net/WebServer.java",
+   "summary": "Function usage",
+   "tags": [
+    "java",
+    "test"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/test/net/WebServer.java:WebServer",
+   "type": "function",
+   "name": "WebServer",
+   "filePath": "src/test/net/WebServer.java",
+   "summary": "Function WebServer",
+   "tags": [
+    "java",
+    "test"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/test/net/WebServer.java:createFile",
+   "type": "function",
+   "name": "createFile",
+   "filePath": "src/test/net/WebServer.java",
+   "summary": "Function createFile",
+   "tags": [
+    "java",
+    "test"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/test/net/WebServer.java:startWorkerThread",
+   "type": "function",
+   "name": "startWorkerThread",
+   "filePath": "src/test/net/WebServer.java",
+   "summary": "Function startWorkerThread",
+   "tags": [
+    "java",
+    "test"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:src/test/net/WebServer.java:startWorkerDomain",
+   "type": "function",
+   "name": "startWorkerDomain",
+   "filePath": "src/test/net/WebServer.java",
+   "summary": "Function startWorkerDomain",
+   "tags": [
+    "java",
+    "test"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "file:test/nfs/DummyClock.java",
+   "type": "file",
+   "name": "DummyClock.java",
+   "filePath": "test/nfs/DummyClock.java",
+   "summary": "NFS test utilities (dummy clock, load generator).",
+   "tags": [
+    "java",
+    "nfs"
+   ],
+   "complexity": "moderate",
+   "languageNotes": "Java source"
+  },
+  {
+   "id": "class:test/nfs/DummyClock.java:DummyClock",
+   "type": "class",
+   "name": "DummyClock",
+   "filePath": "test/nfs/DummyClock.java",
+   "summary": "Class DummyClock in test/nfs/DummyClock.java",
+   "tags": [
+    "java",
+    "nfs"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "function:test/nfs/DummyClock.java:getTimeInMillis",
+   "type": "function",
+   "name": "getTimeInMillis",
+   "filePath": "test/nfs/DummyClock.java",
+   "summary": "Method getTimeInMillis in DummyClock",
+   "tags": [
+    "java",
+    "nfs"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:test/nfs/DummyClock.java:getTicks",
+   "type": "function",
+   "name": "getTicks",
+   "filePath": "test/nfs/DummyClock.java",
+   "summary": "Method getTicks in DummyClock",
+   "tags": [
+    "java",
+    "nfs"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:test/nfs/DummyClock.java:getTicks_low",
+   "type": "function",
+   "name": "getTicks_low",
+   "filePath": "test/nfs/DummyClock.java",
+   "summary": "Method getTicks_low in DummyClock",
+   "tags": [
+    "java",
+    "nfs"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:test/nfs/DummyClock.java:getTicks_high",
+   "type": "function",
+   "name": "getTicks_high",
+   "filePath": "test/nfs/DummyClock.java",
+   "summary": "Method getTicks_high in DummyClock",
+   "tags": [
+    "java",
+    "nfs"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:test/nfs/DummyClock.java:getCycles",
+   "type": "function",
+   "name": "getCycles",
+   "filePath": "test/nfs/DummyClock.java",
+   "summary": "Method getCycles in DummyClock",
+   "tags": [
+    "java",
+    "nfs"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:test/nfs/DummyClock.java:subtract",
+   "type": "function",
+   "name": "subtract",
+   "filePath": "test/nfs/DummyClock.java",
+   "summary": "Method subtract in DummyClock",
+   "tags": [
+    "java",
+    "nfs"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:test/nfs/DummyClock.java:toMicroSec",
+   "type": "function",
+   "name": "toMicroSec",
+   "filePath": "test/nfs/DummyClock.java",
+   "summary": "Method toMicroSec in DummyClock",
+   "tags": [
+    "java",
+    "nfs"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:test/nfs/DummyClock.java:toNanoSec",
+   "type": "function",
+   "name": "toNanoSec",
+   "filePath": "test/nfs/DummyClock.java",
+   "summary": "Method toNanoSec in DummyClock",
+   "tags": [
+    "java",
+    "nfs"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:test/nfs/DummyClock.java:toMilliSec",
+   "type": "function",
+   "name": "toMilliSec",
+   "filePath": "test/nfs/DummyClock.java",
+   "summary": "Method toMilliSec in DummyClock",
+   "tags": [
+    "java",
+    "nfs"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:test/nfs/DummyClock.java:getTimeInMillis",
+   "type": "function",
+   "name": "getTimeInMillis",
+   "filePath": "test/nfs/DummyClock.java",
+   "summary": "Function getTimeInMillis",
+   "tags": [
+    "java",
+    "nfs"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:test/nfs/DummyClock.java:getTicks",
+   "type": "function",
+   "name": "getTicks",
+   "filePath": "test/nfs/DummyClock.java",
+   "summary": "Function getTicks",
+   "tags": [
+    "java",
+    "nfs"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:test/nfs/DummyClock.java:getTicks_low",
+   "type": "function",
+   "name": "getTicks_low",
+   "filePath": "test/nfs/DummyClock.java",
+   "summary": "Function getTicks_low",
+   "tags": [
+    "java",
+    "nfs"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:test/nfs/DummyClock.java:getTicks_high",
+   "type": "function",
+   "name": "getTicks_high",
+   "filePath": "test/nfs/DummyClock.java",
+   "summary": "Function getTicks_high",
+   "tags": [
+    "java",
+    "nfs"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:test/nfs/DummyClock.java:getCycles",
+   "type": "function",
+   "name": "getCycles",
+   "filePath": "test/nfs/DummyClock.java",
+   "summary": "Function getCycles",
+   "tags": [
+    "java",
+    "nfs"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:test/nfs/DummyClock.java:subtract",
+   "type": "function",
+   "name": "subtract",
+   "filePath": "test/nfs/DummyClock.java",
+   "summary": "Function subtract",
+   "tags": [
+    "java",
+    "nfs"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:test/nfs/DummyClock.java:toMicroSec",
+   "type": "function",
+   "name": "toMicroSec",
+   "filePath": "test/nfs/DummyClock.java",
+   "summary": "Function toMicroSec",
+   "tags": [
+    "java",
+    "nfs"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:test/nfs/DummyClock.java:toNanoSec",
+   "type": "function",
+   "name": "toNanoSec",
+   "filePath": "test/nfs/DummyClock.java",
+   "summary": "Function toNanoSec",
+   "tags": [
+    "java",
+    "nfs"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:test/nfs/DummyClock.java:toMilliSec",
+   "type": "function",
+   "name": "toMilliSec",
+   "filePath": "test/nfs/DummyClock.java",
+   "summary": "Function toMilliSec",
+   "tags": [
+    "java",
+    "nfs"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "file:test/nfs/LoadGenerator.java",
+   "type": "file",
+   "name": "LoadGenerator.java",
+   "filePath": "test/nfs/LoadGenerator.java",
+   "summary": "NFS test utilities (dummy clock, load generator).",
+   "tags": [
+    "java",
+    "nfs"
+   ],
+   "complexity": "moderate",
+   "languageNotes": "Java source"
+  },
+  {
+   "id": "class:test/nfs/LoadGenerator.java:LoadGenerator",
+   "type": "class",
+   "name": "LoadGenerator",
+   "filePath": "test/nfs/LoadGenerator.java",
+   "summary": "Class LoadGenerator in test/nfs/LoadGenerator.java",
+   "tags": [
+    "java",
+    "nfs"
+   ],
+   "complexity": "moderate"
+  },
+  {
+   "id": "function:test/nfs/LoadGenerator.java:init",
+   "type": "function",
+   "name": "init",
+   "filePath": "test/nfs/LoadGenerator.java",
+   "summary": "Method init in LoadGenerator",
+   "tags": [
+    "java",
+    "nfs"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:test/nfs/LoadGenerator.java:LoadGenerator",
+   "type": "function",
+   "name": "LoadGenerator",
+   "filePath": "test/nfs/LoadGenerator.java",
+   "summary": "Method LoadGenerator in LoadGenerator",
+   "tags": [
+    "java",
+    "nfs"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:test/nfs/LoadGenerator.java:run",
+   "type": "function",
+   "name": "run",
+   "filePath": "test/nfs/LoadGenerator.java",
+   "summary": "Method run in LoadGenerator",
+   "tags": [
+    "java",
+    "nfs"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:test/nfs/LoadGenerator.java:init",
+   "type": "function",
+   "name": "init",
+   "filePath": "test/nfs/LoadGenerator.java",
+   "summary": "Function init",
+   "tags": [
+    "java",
+    "nfs"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:test/nfs/LoadGenerator.java:LoadGenerator",
+   "type": "function",
+   "name": "LoadGenerator",
+   "filePath": "test/nfs/LoadGenerator.java",
+   "summary": "Function LoadGenerator",
+   "tags": [
+    "java",
+    "nfs"
+   ],
+   "complexity": "simple"
+  },
+  {
+   "id": "function:test/nfs/LoadGenerator.java:run",
+   "type": "function",
+   "name": "run",
+   "filePath": "test/nfs/LoadGenerator.java",
+   "summary": "Function run",
+   "tags": [
+    "java",
+    "nfs"
+   ],
+   "complexity": "simple"
+  }
+ ],
+ "edges": [
+  {
+   "source": "file:src/org/jnode/driver/net/lance/DWordIOAccess.java",
+   "target": "class:src/org/jnode/driver/net/lance/DWordIOAccess.java:DWordIOAccess",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:src/org/jnode/driver/net/lance/DWordIOAccess.java:DWordIOAccess",
+   "target": "function:src/org/jnode/driver/net/lance/DWordIOAccess.java:DWordIOAccess",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:src/org/jnode/driver/net/lance/DWordIOAccess.java:DWordIOAccess",
+   "target": "function:src/org/jnode/driver/net/lance/DWordIOAccess.java:getType",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:src/org/jnode/driver/net/lance/DWordIOAccess.java:DWordIOAccess",
+   "target": "function:src/org/jnode/driver/net/lance/DWordIOAccess.java:reset",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:src/org/jnode/driver/net/lance/DWordIOAccess.java:DWordIOAccess",
+   "target": "function:src/org/jnode/driver/net/lance/DWordIOAccess.java:getCSR",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:src/org/jnode/driver/net/lance/DWordIOAccess.java:DWordIOAccess",
+   "target": "function:src/org/jnode/driver/net/lance/DWordIOAccess.java:setCSR",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:src/org/jnode/driver/net/lance/DWordIOAccess.java:DWordIOAccess",
+   "target": "function:src/org/jnode/driver/net/lance/DWordIOAccess.java:getBCR",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:src/org/jnode/driver/net/lance/DWordIOAccess.java:DWordIOAccess",
+   "target": "function:src/org/jnode/driver/net/lance/DWordIOAccess.java:setBCR",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/DWordIOAccess.java",
+   "target": "function:src/org/jnode/driver/net/lance/DWordIOAccess.java:DWordIOAccess",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/DWordIOAccess.java",
+   "target": "function:src/org/jnode/driver/net/lance/DWordIOAccess.java:getType",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/DWordIOAccess.java",
+   "target": "function:src/org/jnode/driver/net/lance/DWordIOAccess.java:reset",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/DWordIOAccess.java",
+   "target": "function:src/org/jnode/driver/net/lance/DWordIOAccess.java:getCSR",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/DWordIOAccess.java",
+   "target": "function:src/org/jnode/driver/net/lance/DWordIOAccess.java:setCSR",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/DWordIOAccess.java",
+   "target": "function:src/org/jnode/driver/net/lance/DWordIOAccess.java:getBCR",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/DWordIOAccess.java",
+   "target": "function:src/org/jnode/driver/net/lance/DWordIOAccess.java:setBCR",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/InitializationBlock32Bit.java",
+   "target": "class:src/org/jnode/driver/net/lance/InitializationBlock32Bit.java:InitializationBlock32Bit",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:src/org/jnode/driver/net/lance/InitializationBlock32Bit.java:InitializationBlock32Bit",
+   "target": "function:src/org/jnode/driver/net/lance/InitializationBlock32Bit.java:InitializationBlock32Bit",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:src/org/jnode/driver/net/lance/InitializationBlock32Bit.java:InitializationBlock32Bit",
+   "target": "function:src/org/jnode/driver/net/lance/InitializationBlock32Bit.java:getEncodedRingLength",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/InitializationBlock32Bit.java",
+   "target": "function:src/org/jnode/driver/net/lance/InitializationBlock32Bit.java:InitializationBlock32Bit",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/InitializationBlock32Bit.java",
+   "target": "function:src/org/jnode/driver/net/lance/InitializationBlock32Bit.java:getEncodedRingLength",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/IOAccess.java",
+   "target": "class:src/org/jnode/driver/net/lance/IOAccess.java:IOAccess",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:src/org/jnode/driver/net/lance/IOAccess.java:IOAccess",
+   "target": "function:src/org/jnode/driver/net/lance/IOAccess.java:IOAccess",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:src/org/jnode/driver/net/lance/IOAccess.java:IOAccess",
+   "target": "function:src/org/jnode/driver/net/lance/IOAccess.java:getType",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:src/org/jnode/driver/net/lance/IOAccess.java:IOAccess",
+   "target": "function:src/org/jnode/driver/net/lance/IOAccess.java:reset",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:src/org/jnode/driver/net/lance/IOAccess.java:IOAccess",
+   "target": "function:src/org/jnode/driver/net/lance/IOAccess.java:getCSR",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:src/org/jnode/driver/net/lance/IOAccess.java:IOAccess",
+   "target": "function:src/org/jnode/driver/net/lance/IOAccess.java:setCSR",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:src/org/jnode/driver/net/lance/IOAccess.java:IOAccess",
+   "target": "function:src/org/jnode/driver/net/lance/IOAccess.java:getBCR",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:src/org/jnode/driver/net/lance/IOAccess.java:IOAccess",
+   "target": "function:src/org/jnode/driver/net/lance/IOAccess.java:setBCR",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/IOAccess.java",
+   "target": "function:src/org/jnode/driver/net/lance/IOAccess.java:IOAccess",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/IOAccess.java",
+   "target": "function:src/org/jnode/driver/net/lance/IOAccess.java:getType",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/IOAccess.java",
+   "target": "function:src/org/jnode/driver/net/lance/IOAccess.java:reset",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/IOAccess.java",
+   "target": "function:src/org/jnode/driver/net/lance/IOAccess.java:getCSR",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/IOAccess.java",
+   "target": "function:src/org/jnode/driver/net/lance/IOAccess.java:setCSR",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/IOAccess.java",
+   "target": "function:src/org/jnode/driver/net/lance/IOAccess.java:getBCR",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/IOAccess.java",
+   "target": "function:src/org/jnode/driver/net/lance/IOAccess.java:setBCR",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/LanceConstants.java",
+   "target": "class:src/org/jnode/driver/net/lance/LanceConstants.java:LanceConstants",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/LanceCore.java",
+   "target": "class:src/org/jnode/driver/net/lance/LanceCore.java:LanceCore",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:src/org/jnode/driver/net/lance/LanceCore.java:LanceCore",
+   "target": "function:src/org/jnode/driver/net/lance/LanceCore.java:LanceCore",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:src/org/jnode/driver/net/lance/LanceCore.java:LanceCore",
+   "target": "function:src/org/jnode/driver/net/lance/LanceCore.java:getIOAccess",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:src/org/jnode/driver/net/lance/LanceCore.java:LanceCore",
+   "target": "function:src/org/jnode/driver/net/lance/LanceCore.java:initialize",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:src/org/jnode/driver/net/lance/LanceCore.java:LanceCore",
+   "target": "function:src/org/jnode/driver/net/lance/LanceCore.java:disable",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:src/org/jnode/driver/net/lance/LanceCore.java:LanceCore",
+   "target": "function:src/org/jnode/driver/net/lance/LanceCore.java:release",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:src/org/jnode/driver/net/lance/LanceCore.java:LanceCore",
+   "target": "function:src/org/jnode/driver/net/lance/LanceCore.java:getHwAddress",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:src/org/jnode/driver/net/lance/LanceCore.java:LanceCore",
+   "target": "function:src/org/jnode/driver/net/lance/LanceCore.java:loadHWAddress",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:src/org/jnode/driver/net/lance/LanceCore.java:LanceCore",
+   "target": "function:src/org/jnode/driver/net/lance/LanceCore.java:setFlags",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:src/org/jnode/driver/net/lance/LanceCore.java:LanceCore",
+   "target": "function:src/org/jnode/driver/net/lance/LanceCore.java:transmit",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:src/org/jnode/driver/net/lance/LanceCore.java:LanceCore",
+   "target": "function:src/org/jnode/driver/net/lance/LanceCore.java:interrupt",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:src/org/jnode/driver/net/lance/LanceCore.java:LanceCore",
+   "target": "function:src/org/jnode/driver/net/lance/LanceCore.java:rxProcess",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:src/org/jnode/driver/net/lance/LanceCore.java:LanceCore",
+   "target": "function:src/org/jnode/driver/net/lance/LanceCore.java:dumpDebugInfo",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/LanceCore.java",
+   "target": "function:src/org/jnode/driver/net/lance/LanceCore.java:LanceCore",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/LanceCore.java",
+   "target": "function:src/org/jnode/driver/net/lance/LanceCore.java:getIOAccess",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/LanceCore.java",
+   "target": "function:src/org/jnode/driver/net/lance/LanceCore.java:initialize",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/LanceCore.java",
+   "target": "function:src/org/jnode/driver/net/lance/LanceCore.java:disable",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/LanceCore.java",
+   "target": "function:src/org/jnode/driver/net/lance/LanceCore.java:release",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/LanceCore.java",
+   "target": "function:src/org/jnode/driver/net/lance/LanceCore.java:getHwAddress",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/LanceCore.java",
+   "target": "function:src/org/jnode/driver/net/lance/LanceCore.java:loadHWAddress",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/LanceCore.java",
+   "target": "function:src/org/jnode/driver/net/lance/LanceCore.java:setFlags",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/LanceCore.java",
+   "target": "function:src/org/jnode/driver/net/lance/LanceCore.java:transmit",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/LanceCore.java",
+   "target": "function:src/org/jnode/driver/net/lance/LanceCore.java:interrupt",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/LanceCore.java",
+   "target": "function:src/org/jnode/driver/net/lance/LanceCore.java:rxProcess",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/LanceCore.java",
+   "target": "function:src/org/jnode/driver/net/lance/LanceCore.java:dumpDebugInfo",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/RxDescriptor.java",
+   "target": "class:src/org/jnode/driver/net/lance/RxDescriptor.java:RxDescriptor",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:src/org/jnode/driver/net/lance/RxDescriptor.java:RxDescriptor",
+   "target": "function:src/org/jnode/driver/net/lance/RxDescriptor.java:RxDescriptor",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:src/org/jnode/driver/net/lance/RxDescriptor.java:RxDescriptor",
+   "target": "function:src/org/jnode/driver/net/lance/RxDescriptor.java:clearStatus",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:src/org/jnode/driver/net/lance/RxDescriptor.java:RxDescriptor",
+   "target": "function:src/org/jnode/driver/net/lance/RxDescriptor.java:getMessageByteCount",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:src/org/jnode/driver/net/lance/RxDescriptor.java:RxDescriptor",
+   "target": "function:src/org/jnode/driver/net/lance/RxDescriptor.java:getDataBuffer",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/RxDescriptor.java",
+   "target": "function:src/org/jnode/driver/net/lance/RxDescriptor.java:RxDescriptor",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/RxDescriptor.java",
+   "target": "function:src/org/jnode/driver/net/lance/RxDescriptor.java:clearStatus",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/RxDescriptor.java",
+   "target": "function:src/org/jnode/driver/net/lance/RxDescriptor.java:getMessageByteCount",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/RxDescriptor.java",
+   "target": "function:src/org/jnode/driver/net/lance/RxDescriptor.java:getDataBuffer",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/RxDescriptorRing.java",
+   "target": "class:src/org/jnode/driver/net/lance/RxDescriptorRing.java:RxDescriptorRing",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:src/org/jnode/driver/net/lance/RxDescriptorRing.java:RxDescriptorRing",
+   "target": "function:src/org/jnode/driver/net/lance/RxDescriptorRing.java:RxDescriptorRing",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:src/org/jnode/driver/net/lance/RxDescriptorRing.java:RxDescriptorRing",
+   "target": "function:src/org/jnode/driver/net/lance/RxDescriptorRing.java:getPacket",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/RxDescriptorRing.java",
+   "target": "function:src/org/jnode/driver/net/lance/RxDescriptorRing.java:RxDescriptorRing",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/RxDescriptorRing.java",
+   "target": "function:src/org/jnode/driver/net/lance/RxDescriptorRing.java:getPacket",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/TxDescriptor.java",
+   "target": "class:src/org/jnode/driver/net/lance/TxDescriptor.java:TxDescriptor",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:src/org/jnode/driver/net/lance/TxDescriptor.java:TxDescriptor",
+   "target": "function:src/org/jnode/driver/net/lance/TxDescriptor.java:TxDescriptor",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:src/org/jnode/driver/net/lance/TxDescriptor.java:TxDescriptor",
+   "target": "function:src/org/jnode/driver/net/lance/TxDescriptor.java:transmit",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:src/org/jnode/driver/net/lance/TxDescriptor.java:TxDescriptor",
+   "target": "function:src/org/jnode/driver/net/lance/TxDescriptor.java:setByteCount",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/TxDescriptor.java",
+   "target": "function:src/org/jnode/driver/net/lance/TxDescriptor.java:TxDescriptor",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/TxDescriptor.java",
+   "target": "function:src/org/jnode/driver/net/lance/TxDescriptor.java:transmit",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/TxDescriptor.java",
+   "target": "function:src/org/jnode/driver/net/lance/TxDescriptor.java:setByteCount",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/TxDescriptorRing.java",
+   "target": "class:src/org/jnode/driver/net/lance/TxDescriptorRing.java:TxDescriptorRing",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:src/org/jnode/driver/net/lance/TxDescriptorRing.java:TxDescriptorRing",
+   "target": "function:src/org/jnode/driver/net/lance/TxDescriptorRing.java:TxDescriptorRing",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:src/org/jnode/driver/net/lance/TxDescriptorRing.java:TxDescriptorRing",
+   "target": "function:src/org/jnode/driver/net/lance/TxDescriptorRing.java:transmit",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/TxDescriptorRing.java",
+   "target": "function:src/org/jnode/driver/net/lance/TxDescriptorRing.java:TxDescriptorRing",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/TxDescriptorRing.java",
+   "target": "function:src/org/jnode/driver/net/lance/TxDescriptorRing.java:transmit",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/WordIOAccess.java",
+   "target": "class:src/org/jnode/driver/net/lance/WordIOAccess.java:WordIOAccess",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:src/org/jnode/driver/net/lance/WordIOAccess.java:WordIOAccess",
+   "target": "function:src/org/jnode/driver/net/lance/WordIOAccess.java:WordIOAccess",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:src/org/jnode/driver/net/lance/WordIOAccess.java:WordIOAccess",
+   "target": "function:src/org/jnode/driver/net/lance/WordIOAccess.java:getType",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:src/org/jnode/driver/net/lance/WordIOAccess.java:WordIOAccess",
+   "target": "function:src/org/jnode/driver/net/lance/WordIOAccess.java:reset",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:src/org/jnode/driver/net/lance/WordIOAccess.java:WordIOAccess",
+   "target": "function:src/org/jnode/driver/net/lance/WordIOAccess.java:getCSR",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:src/org/jnode/driver/net/lance/WordIOAccess.java:WordIOAccess",
+   "target": "function:src/org/jnode/driver/net/lance/WordIOAccess.java:setCSR",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:src/org/jnode/driver/net/lance/WordIOAccess.java:WordIOAccess",
+   "target": "function:src/org/jnode/driver/net/lance/WordIOAccess.java:getBCR",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:src/org/jnode/driver/net/lance/WordIOAccess.java:WordIOAccess",
+   "target": "function:src/org/jnode/driver/net/lance/WordIOAccess.java:setBCR",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/WordIOAccess.java",
+   "target": "function:src/org/jnode/driver/net/lance/WordIOAccess.java:WordIOAccess",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/WordIOAccess.java",
+   "target": "function:src/org/jnode/driver/net/lance/WordIOAccess.java:getType",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/WordIOAccess.java",
+   "target": "function:src/org/jnode/driver/net/lance/WordIOAccess.java:reset",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/WordIOAccess.java",
+   "target": "function:src/org/jnode/driver/net/lance/WordIOAccess.java:getCSR",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/WordIOAccess.java",
+   "target": "function:src/org/jnode/driver/net/lance/WordIOAccess.java:setCSR",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/WordIOAccess.java",
+   "target": "function:src/org/jnode/driver/net/lance/WordIOAccess.java:getBCR",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/WordIOAccess.java",
+   "target": "function:src/org/jnode/driver/net/lance/WordIOAccess.java:setBCR",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/org/jnode/net/ipv4/dhcp/AbstractDHCPClient.java",
+   "target": "class:src/org/jnode/net/ipv4/dhcp/AbstractDHCPClient.java:AbstractDHCPClient",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:src/org/jnode/net/ipv4/dhcp/AbstractDHCPClient.java:AbstractDHCPClient",
+   "target": "function:src/org/jnode/net/ipv4/dhcp/AbstractDHCPClient.java:AbstractDHCPClient",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:src/org/jnode/net/ipv4/dhcp/AbstractDHCPClient.java:AbstractDHCPClient",
+   "target": "function:src/org/jnode/net/ipv4/dhcp/AbstractDHCPClient.java:createRequestPacket",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:src/org/jnode/net/ipv4/dhcp/AbstractDHCPClient.java:AbstractDHCPClient",
+   "target": "function:src/org/jnode/net/ipv4/dhcp/AbstractDHCPClient.java:processResponse",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:src/org/jnode/net/ipv4/dhcp/AbstractDHCPClient.java:AbstractDHCPClient",
+   "target": "function:src/org/jnode/net/ipv4/dhcp/AbstractDHCPClient.java:doConfigure",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/org/jnode/net/ipv4/dhcp/AbstractDHCPClient.java",
+   "target": "function:src/org/jnode/net/ipv4/dhcp/AbstractDHCPClient.java:AbstractDHCPClient",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/org/jnode/net/ipv4/dhcp/AbstractDHCPClient.java",
+   "target": "function:src/org/jnode/net/ipv4/dhcp/AbstractDHCPClient.java:createRequestPacket",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/org/jnode/net/ipv4/dhcp/AbstractDHCPClient.java",
+   "target": "function:src/org/jnode/net/ipv4/dhcp/AbstractDHCPClient.java:processResponse",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/org/jnode/net/ipv4/dhcp/AbstractDHCPClient.java",
+   "target": "function:src/org/jnode/net/ipv4/dhcp/AbstractDHCPClient.java:doConfigure",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/org/jnode/net/ipv4/dhcp/DHCPClient.java",
+   "target": "class:src/org/jnode/net/ipv4/dhcp/DHCPClient.java:DHCPClient",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:src/org/jnode/net/ipv4/dhcp/DHCPClient.java:DHCPClient",
+   "target": "function:src/org/jnode/net/ipv4/dhcp/DHCPClient.java:DHCPClient",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:src/org/jnode/net/ipv4/dhcp/DHCPClient.java:DHCPClient",
+   "target": "function:src/org/jnode/net/ipv4/dhcp/DHCPClient.java:doConfigure",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/org/jnode/net/ipv4/dhcp/DHCPClient.java",
+   "target": "function:src/org/jnode/net/ipv4/dhcp/DHCPClient.java:DHCPClient",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/org/jnode/net/ipv4/dhcp/DHCPClient.java",
+   "target": "function:src/org/jnode/net/ipv4/dhcp/DHCPClient.java:doConfigure",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/org/jnode/net/ipv4/dhcp/DHCPMessage.java",
+   "target": "class:src/org/jnode/net/ipv4/dhcp/DHCPMessage.java:DHCPMessage",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:src/org/jnode/net/ipv4/dhcp/DHCPMessage.java:DHCPMessage",
+   "target": "function:src/org/jnode/net/ipv4/dhcp/DHCPMessage.java:DHCPMessage",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:src/org/jnode/net/ipv4/dhcp/DHCPMessage.java:DHCPMessage",
+   "target": "function:src/org/jnode/net/ipv4/dhcp/DHCPMessage.java:DHCPMessage",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:src/org/jnode/net/ipv4/dhcp/DHCPMessage.java:DHCPMessage",
+   "target": "function:src/org/jnode/net/ipv4/dhcp/DHCPMessage.java:DHCPMessage",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:src/org/jnode/net/ipv4/dhcp/DHCPMessage.java:DHCPMessage",
+   "target": "function:src/org/jnode/net/ipv4/dhcp/DHCPMessage.java:getHeader",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:src/org/jnode/net/ipv4/dhcp/DHCPMessage.java:DHCPMessage",
+   "target": "function:src/org/jnode/net/ipv4/dhcp/DHCPMessage.java:setMessageType",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:src/org/jnode/net/ipv4/dhcp/DHCPMessage.java:DHCPMessage",
+   "target": "function:src/org/jnode/net/ipv4/dhcp/DHCPMessage.java:getMessageType",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:src/org/jnode/net/ipv4/dhcp/DHCPMessage.java:DHCPMessage",
+   "target": "function:src/org/jnode/net/ipv4/dhcp/DHCPMessage.java:setOption",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:src/org/jnode/net/ipv4/dhcp/DHCPMessage.java:DHCPMessage",
+   "target": "function:src/org/jnode/net/ipv4/dhcp/DHCPMessage.java:setOption16",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:src/org/jnode/net/ipv4/dhcp/DHCPMessage.java:DHCPMessage",
+   "target": "function:src/org/jnode/net/ipv4/dhcp/DHCPMessage.java:setOption",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:src/org/jnode/net/ipv4/dhcp/DHCPMessage.java:DHCPMessage",
+   "target": "function:src/org/jnode/net/ipv4/dhcp/DHCPMessage.java:setOption",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:src/org/jnode/net/ipv4/dhcp/DHCPMessage.java:DHCPMessage",
+   "target": "function:src/org/jnode/net/ipv4/dhcp/DHCPMessage.java:getOption",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:src/org/jnode/net/ipv4/dhcp/DHCPMessage.java:DHCPMessage",
+   "target": "function:src/org/jnode/net/ipv4/dhcp/DHCPMessage.java:toDatagramPacket",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/org/jnode/net/ipv4/dhcp/DHCPMessage.java",
+   "target": "function:src/org/jnode/net/ipv4/dhcp/DHCPMessage.java:DHCPMessage",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/org/jnode/net/ipv4/dhcp/DHCPMessage.java",
+   "target": "function:src/org/jnode/net/ipv4/dhcp/DHCPMessage.java:DHCPMessage",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/org/jnode/net/ipv4/dhcp/DHCPMessage.java",
+   "target": "function:src/org/jnode/net/ipv4/dhcp/DHCPMessage.java:DHCPMessage",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/org/jnode/net/ipv4/dhcp/DHCPMessage.java",
+   "target": "function:src/org/jnode/net/ipv4/dhcp/DHCPMessage.java:getHeader",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/org/jnode/net/ipv4/dhcp/DHCPMessage.java",
+   "target": "function:src/org/jnode/net/ipv4/dhcp/DHCPMessage.java:setMessageType",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/org/jnode/net/ipv4/dhcp/DHCPMessage.java",
+   "target": "function:src/org/jnode/net/ipv4/dhcp/DHCPMessage.java:getMessageType",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/org/jnode/net/ipv4/dhcp/DHCPMessage.java",
+   "target": "function:src/org/jnode/net/ipv4/dhcp/DHCPMessage.java:setOption",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/org/jnode/net/ipv4/dhcp/DHCPMessage.java",
+   "target": "function:src/org/jnode/net/ipv4/dhcp/DHCPMessage.java:setOption16",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/org/jnode/net/ipv4/dhcp/DHCPMessage.java",
+   "target": "function:src/org/jnode/net/ipv4/dhcp/DHCPMessage.java:setOption",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/org/jnode/net/ipv4/dhcp/DHCPMessage.java",
+   "target": "function:src/org/jnode/net/ipv4/dhcp/DHCPMessage.java:setOption",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/org/jnode/net/ipv4/dhcp/DHCPMessage.java",
+   "target": "function:src/org/jnode/net/ipv4/dhcp/DHCPMessage.java:getOption",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/org/jnode/net/ipv4/dhcp/DHCPMessage.java",
+   "target": "function:src/org/jnode/net/ipv4/dhcp/DHCPMessage.java:toDatagramPacket",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/test/minitcp/Main.java",
+   "target": "class:src/test/minitcp/Main.java:Main",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:src/test/minitcp/Main.java:Main",
+   "target": "function:src/test/minitcp/Main.java:main",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:src/test/minitcp/Main.java:Main",
+   "target": "function:src/test/minitcp/Main.java:Main",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/test/minitcp/Main.java",
+   "target": "function:src/test/minitcp/Main.java:main",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/test/minitcp/Main.java",
+   "target": "function:src/test/minitcp/Main.java:Main",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/test/minitcp/MiniServerDomain.java",
+   "target": "class:src/test/minitcp/MiniServerDomain.java:MiniServerDomain",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:src/test/minitcp/MiniServerDomain.java:MiniServerDomain",
+   "target": "function:src/test/minitcp/MiniServerDomain.java:init",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/test/minitcp/MiniServerDomain.java",
+   "target": "function:src/test/minitcp/MiniServerDomain.java:init",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/test/net/Main.java",
+   "target": "class:src/test/net/Main.java:Main",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:src/test/net/Main.java:Main",
+   "target": "function:src/test/net/Main.java:test",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:src/test/net/Main.java:Main",
+   "target": "function:src/test/net/Main.java:Main",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:src/test/net/Main.java:Main",
+   "target": "function:src/test/net/Main.java:init3com",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:src/test/net/Main.java:Main",
+   "target": "function:src/test/net/Main.java:simpletest",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:src/test/net/Main.java:Main",
+   "target": "function:src/test/net/Main.java:dotest",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/test/net/Main.java",
+   "target": "class:src/test/net/Main.java:StartNetworkProtocols",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:src/test/net/Main.java:StartNetworkProtocols",
+   "target": "function:src/test/net/Main.java:main",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/test/net/Main.java",
+   "target": "function:src/test/net/Main.java:test",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/test/net/Main.java",
+   "target": "function:src/test/net/Main.java:Main",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/test/net/Main.java",
+   "target": "function:src/test/net/Main.java:init3com",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/test/net/Main.java",
+   "target": "function:src/test/net/Main.java:simpletest",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/test/net/Main.java",
+   "target": "function:src/test/net/Main.java:dotest",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/test/net/Main.java",
+   "target": "function:src/test/net/Main.java:main",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/test/net/StartIPTest.java",
+   "target": "class:src/test/net/StartIPTest.java:StartIPTest",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:src/test/net/StartIPTest.java:StartIPTest",
+   "target": "function:src/test/net/StartIPTest.java:main",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/test/net/StartIPTest.java",
+   "target": "function:src/test/net/StartIPTest.java:main",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/test/net/StartNICTest.java",
+   "target": "class:src/test/net/StartNICTest.java:StartNICTest",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:src/test/net/StartNICTest.java:StartNICTest",
+   "target": "function:src/test/net/StartNICTest.java:main",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/test/net/StartNICTest.java",
+   "target": "function:src/test/net/StartNICTest.java:main",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/test/net/StartTCPTest.java",
+   "target": "class:src/test/net/StartTCPTest.java:StartTCPTest",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:src/test/net/StartTCPTest.java:StartTCPTest",
+   "target": "function:src/test/net/StartTCPTest.java:main",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/test/net/StartTCPTest.java",
+   "target": "function:src/test/net/StartTCPTest.java:main",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/test/net/StartTest.java",
+   "target": "class:src/test/net/StartTest.java:StartTest",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:src/test/net/StartTest.java:StartTest",
+   "target": "function:src/test/net/StartTest.java:main",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/test/net/StartTest.java",
+   "target": "function:src/test/net/StartTest.java:main",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/test/net/TCPWebWorker.java",
+   "target": "class:src/test/net/TCPWebWorker.java:TCPWebWorker",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:src/test/net/TCPWebWorker.java:TCPWebWorker",
+   "target": "function:src/test/net/TCPWebWorker.java:init",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:src/test/net/TCPWebWorker.java:TCPWebWorker",
+   "target": "function:src/test/net/TCPWebWorker.java:processRequest",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:src/test/net/TCPWebWorker.java:TCPWebWorker",
+   "target": "function:src/test/net/TCPWebWorker.java:TCPWebWorker",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:src/test/net/TCPWebWorker.java:TCPWebWorker",
+   "target": "function:src/test/net/TCPWebWorker.java:readFile",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:src/test/net/TCPWebWorker.java:TCPWebWorker",
+   "target": "function:src/test/net/TCPWebWorker.java:parse",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:src/test/net/TCPWebWorker.java:TCPWebWorker",
+   "target": "function:src/test/net/TCPWebWorker.java:constructHeader",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:src/test/net/TCPWebWorker.java:TCPWebWorker",
+   "target": "function:src/test/net/TCPWebWorker.java:constructHeader",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:src/test/net/TCPWebWorker.java:TCPWebWorker",
+   "target": "function:src/test/net/TCPWebWorker.java:constructErrorHeader",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:src/test/net/TCPWebWorker.java:TCPWebWorker",
+   "target": "function:src/test/net/TCPWebWorker.java:getProperty_DefaultFile",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:src/test/net/TCPWebWorker.java:TCPWebWorker",
+   "target": "function:src/test/net/TCPWebWorker.java:getProperty_MimeTypes",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/test/net/TCPWebWorker.java",
+   "target": "function:src/test/net/TCPWebWorker.java:init",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/test/net/TCPWebWorker.java",
+   "target": "function:src/test/net/TCPWebWorker.java:processRequest",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/test/net/TCPWebWorker.java",
+   "target": "function:src/test/net/TCPWebWorker.java:TCPWebWorker",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/test/net/TCPWebWorker.java",
+   "target": "function:src/test/net/TCPWebWorker.java:readFile",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/test/net/TCPWebWorker.java",
+   "target": "function:src/test/net/TCPWebWorker.java:parse",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/test/net/TCPWebWorker.java",
+   "target": "function:src/test/net/TCPWebWorker.java:constructHeader",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/test/net/TCPWebWorker.java",
+   "target": "function:src/test/net/TCPWebWorker.java:constructHeader",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/test/net/TCPWebWorker.java",
+   "target": "function:src/test/net/TCPWebWorker.java:constructErrorHeader",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/test/net/TCPWebWorker.java",
+   "target": "function:src/test/net/TCPWebWorker.java:getProperty_DefaultFile",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/test/net/TCPWebWorker.java",
+   "target": "function:src/test/net/TCPWebWorker.java:getProperty_MimeTypes",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/test/net/TCPWorker.java",
+   "target": "class:src/test/net/TCPWorker.java:TCPWorker",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:src/test/net/TCPWorker.java:TCPWorker",
+   "target": "function:src/test/net/TCPWorker.java:init",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/test/net/TCPWorker.java",
+   "target": "function:src/test/net/TCPWorker.java:init",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/test/net/WebServer.java",
+   "target": "class:src/test/net/WebServer.java:WebServer",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:src/test/net/WebServer.java:WebServer",
+   "target": "function:src/test/net/WebServer.java:main",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:src/test/net/WebServer.java:WebServer",
+   "target": "function:src/test/net/WebServer.java:usage",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:src/test/net/WebServer.java:WebServer",
+   "target": "function:src/test/net/WebServer.java:WebServer",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:src/test/net/WebServer.java:WebServer",
+   "target": "function:src/test/net/WebServer.java:createFile",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:src/test/net/WebServer.java:WebServer",
+   "target": "function:src/test/net/WebServer.java:startWorkerThread",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:src/test/net/WebServer.java:WebServer",
+   "target": "function:src/test/net/WebServer.java:startWorkerDomain",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/test/net/WebServer.java",
+   "target": "function:src/test/net/WebServer.java:main",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/test/net/WebServer.java",
+   "target": "function:src/test/net/WebServer.java:usage",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/test/net/WebServer.java",
+   "target": "function:src/test/net/WebServer.java:WebServer",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/test/net/WebServer.java",
+   "target": "function:src/test/net/WebServer.java:createFile",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/test/net/WebServer.java",
+   "target": "function:src/test/net/WebServer.java:startWorkerThread",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/test/net/WebServer.java",
+   "target": "function:src/test/net/WebServer.java:startWorkerDomain",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:test/nfs/DummyClock.java",
+   "target": "class:test/nfs/DummyClock.java:DummyClock",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:test/nfs/DummyClock.java:DummyClock",
+   "target": "function:test/nfs/DummyClock.java:getTimeInMillis",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:test/nfs/DummyClock.java:DummyClock",
+   "target": "function:test/nfs/DummyClock.java:getTicks",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:test/nfs/DummyClock.java:DummyClock",
+   "target": "function:test/nfs/DummyClock.java:getTicks_low",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:test/nfs/DummyClock.java:DummyClock",
+   "target": "function:test/nfs/DummyClock.java:getTicks_high",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:test/nfs/DummyClock.java:DummyClock",
+   "target": "function:test/nfs/DummyClock.java:getCycles",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:test/nfs/DummyClock.java:DummyClock",
+   "target": "function:test/nfs/DummyClock.java:subtract",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:test/nfs/DummyClock.java:DummyClock",
+   "target": "function:test/nfs/DummyClock.java:toMicroSec",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:test/nfs/DummyClock.java:DummyClock",
+   "target": "function:test/nfs/DummyClock.java:toNanoSec",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:test/nfs/DummyClock.java:DummyClock",
+   "target": "function:test/nfs/DummyClock.java:toMilliSec",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:test/nfs/DummyClock.java",
+   "target": "function:test/nfs/DummyClock.java:getTimeInMillis",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:test/nfs/DummyClock.java",
+   "target": "function:test/nfs/DummyClock.java:getTicks",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:test/nfs/DummyClock.java",
+   "target": "function:test/nfs/DummyClock.java:getTicks_low",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:test/nfs/DummyClock.java",
+   "target": "function:test/nfs/DummyClock.java:getTicks_high",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:test/nfs/DummyClock.java",
+   "target": "function:test/nfs/DummyClock.java:getCycles",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:test/nfs/DummyClock.java",
+   "target": "function:test/nfs/DummyClock.java:subtract",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:test/nfs/DummyClock.java",
+   "target": "function:test/nfs/DummyClock.java:toMicroSec",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:test/nfs/DummyClock.java",
+   "target": "function:test/nfs/DummyClock.java:toNanoSec",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:test/nfs/DummyClock.java",
+   "target": "function:test/nfs/DummyClock.java:toMilliSec",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:test/nfs/LoadGenerator.java",
+   "target": "class:test/nfs/LoadGenerator.java:LoadGenerator",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:test/nfs/LoadGenerator.java:LoadGenerator",
+   "target": "function:test/nfs/LoadGenerator.java:init",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:test/nfs/LoadGenerator.java:LoadGenerator",
+   "target": "function:test/nfs/LoadGenerator.java:LoadGenerator",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "class:test/nfs/LoadGenerator.java:LoadGenerator",
+   "target": "function:test/nfs/LoadGenerator.java:run",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:test/nfs/LoadGenerator.java",
+   "target": "function:test/nfs/LoadGenerator.java:init",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:test/nfs/LoadGenerator.java",
+   "target": "function:test/nfs/LoadGenerator.java:LoadGenerator",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:test/nfs/LoadGenerator.java",
+   "target": "function:test/nfs/LoadGenerator.java:run",
+   "type": "contains",
+   "weight": 1
+  },
+  {
+   "source": "file:src/org/jnode/net/ipv4/dhcp/DHCPClient.java",
+   "target": "file:src/jx/netmanager/NetInit.java",
+   "type": "uses",
+   "weight": 0.6,
+   "detail": "cross-batch reference to NetInit"
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/DWordIOAccess.java",
+   "target": "file:src/org/jnode/driver/net/lance/InitializationBlock32Bit.java",
+   "type": "related",
+   "weight": 0.5,
+   "detail": "same subsystem: lance_core"
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/DWordIOAccess.java",
+   "target": "file:src/org/jnode/driver/net/lance/IOAccess.java",
+   "type": "related",
+   "weight": 0.5,
+   "detail": "same subsystem: lance_core"
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/DWordIOAccess.java",
+   "target": "file:src/org/jnode/driver/net/lance/LanceConstants.java",
+   "type": "related",
+   "weight": 0.5,
+   "detail": "same subsystem: lance_core"
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/DWordIOAccess.java",
+   "target": "file:src/org/jnode/driver/net/lance/LanceCore.java",
+   "type": "related",
+   "weight": 0.5,
+   "detail": "same subsystem: lance_core"
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/DWordIOAccess.java",
+   "target": "file:src/org/jnode/driver/net/lance/RxDescriptor.java",
+   "type": "related",
+   "weight": 0.5,
+   "detail": "same subsystem: lance_core"
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/DWordIOAccess.java",
+   "target": "file:src/org/jnode/driver/net/lance/RxDescriptorRing.java",
+   "type": "related",
+   "weight": 0.5,
+   "detail": "same subsystem: lance_core"
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/DWordIOAccess.java",
+   "target": "file:src/org/jnode/driver/net/lance/TxDescriptor.java",
+   "type": "related",
+   "weight": 0.5,
+   "detail": "same subsystem: lance_core"
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/DWordIOAccess.java",
+   "target": "file:src/org/jnode/driver/net/lance/TxDescriptorRing.java",
+   "type": "related",
+   "weight": 0.5,
+   "detail": "same subsystem: lance_core"
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/DWordIOAccess.java",
+   "target": "file:src/org/jnode/driver/net/lance/WordIOAccess.java",
+   "type": "related",
+   "weight": 0.5,
+   "detail": "same subsystem: lance_core"
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/InitializationBlock32Bit.java",
+   "target": "file:src/org/jnode/driver/net/lance/IOAccess.java",
+   "type": "related",
+   "weight": 0.5,
+   "detail": "same subsystem: lance_core"
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/InitializationBlock32Bit.java",
+   "target": "file:src/org/jnode/driver/net/lance/LanceConstants.java",
+   "type": "related",
+   "weight": 0.5,
+   "detail": "same subsystem: lance_core"
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/InitializationBlock32Bit.java",
+   "target": "file:src/org/jnode/driver/net/lance/LanceCore.java",
+   "type": "related",
+   "weight": 0.5,
+   "detail": "same subsystem: lance_core"
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/InitializationBlock32Bit.java",
+   "target": "file:src/org/jnode/driver/net/lance/RxDescriptor.java",
+   "type": "related",
+   "weight": 0.5,
+   "detail": "same subsystem: lance_core"
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/InitializationBlock32Bit.java",
+   "target": "file:src/org/jnode/driver/net/lance/RxDescriptorRing.java",
+   "type": "related",
+   "weight": 0.5,
+   "detail": "same subsystem: lance_core"
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/InitializationBlock32Bit.java",
+   "target": "file:src/org/jnode/driver/net/lance/TxDescriptor.java",
+   "type": "related",
+   "weight": 0.5,
+   "detail": "same subsystem: lance_core"
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/InitializationBlock32Bit.java",
+   "target": "file:src/org/jnode/driver/net/lance/TxDescriptorRing.java",
+   "type": "related",
+   "weight": 0.5,
+   "detail": "same subsystem: lance_core"
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/InitializationBlock32Bit.java",
+   "target": "file:src/org/jnode/driver/net/lance/WordIOAccess.java",
+   "type": "related",
+   "weight": 0.5,
+   "detail": "same subsystem: lance_core"
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/IOAccess.java",
+   "target": "file:src/org/jnode/driver/net/lance/LanceConstants.java",
+   "type": "related",
+   "weight": 0.5,
+   "detail": "same subsystem: lance_core"
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/IOAccess.java",
+   "target": "file:src/org/jnode/driver/net/lance/LanceCore.java",
+   "type": "related",
+   "weight": 0.5,
+   "detail": "same subsystem: lance_core"
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/IOAccess.java",
+   "target": "file:src/org/jnode/driver/net/lance/RxDescriptor.java",
+   "type": "related",
+   "weight": 0.5,
+   "detail": "same subsystem: lance_core"
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/IOAccess.java",
+   "target": "file:src/org/jnode/driver/net/lance/RxDescriptorRing.java",
+   "type": "related",
+   "weight": 0.5,
+   "detail": "same subsystem: lance_core"
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/IOAccess.java",
+   "target": "file:src/org/jnode/driver/net/lance/TxDescriptor.java",
+   "type": "related",
+   "weight": 0.5,
+   "detail": "same subsystem: lance_core"
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/IOAccess.java",
+   "target": "file:src/org/jnode/driver/net/lance/TxDescriptorRing.java",
+   "type": "related",
+   "weight": 0.5,
+   "detail": "same subsystem: lance_core"
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/IOAccess.java",
+   "target": "file:src/org/jnode/driver/net/lance/WordIOAccess.java",
+   "type": "related",
+   "weight": 0.5,
+   "detail": "same subsystem: lance_core"
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/LanceConstants.java",
+   "target": "file:src/org/jnode/driver/net/lance/LanceCore.java",
+   "type": "related",
+   "weight": 0.5,
+   "detail": "same subsystem: lance_core"
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/LanceConstants.java",
+   "target": "file:src/org/jnode/driver/net/lance/RxDescriptor.java",
+   "type": "related",
+   "weight": 0.5,
+   "detail": "same subsystem: lance_core"
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/LanceConstants.java",
+   "target": "file:src/org/jnode/driver/net/lance/RxDescriptorRing.java",
+   "type": "related",
+   "weight": 0.5,
+   "detail": "same subsystem: lance_core"
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/LanceConstants.java",
+   "target": "file:src/org/jnode/driver/net/lance/TxDescriptor.java",
+   "type": "related",
+   "weight": 0.5,
+   "detail": "same subsystem: lance_core"
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/LanceConstants.java",
+   "target": "file:src/org/jnode/driver/net/lance/TxDescriptorRing.java",
+   "type": "related",
+   "weight": 0.5,
+   "detail": "same subsystem: lance_core"
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/LanceConstants.java",
+   "target": "file:src/org/jnode/driver/net/lance/WordIOAccess.java",
+   "type": "related",
+   "weight": 0.5,
+   "detail": "same subsystem: lance_core"
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/LanceCore.java",
+   "target": "file:src/org/jnode/driver/net/lance/RxDescriptor.java",
+   "type": "related",
+   "weight": 0.5,
+   "detail": "same subsystem: lance_core"
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/LanceCore.java",
+   "target": "file:src/org/jnode/driver/net/lance/RxDescriptorRing.java",
+   "type": "related",
+   "weight": 0.5,
+   "detail": "same subsystem: lance_core"
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/LanceCore.java",
+   "target": "file:src/org/jnode/driver/net/lance/TxDescriptor.java",
+   "type": "related",
+   "weight": 0.5,
+   "detail": "same subsystem: lance_core"
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/LanceCore.java",
+   "target": "file:src/org/jnode/driver/net/lance/TxDescriptorRing.java",
+   "type": "related",
+   "weight": 0.5,
+   "detail": "same subsystem: lance_core"
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/LanceCore.java",
+   "target": "file:src/org/jnode/driver/net/lance/WordIOAccess.java",
+   "type": "related",
+   "weight": 0.5,
+   "detail": "same subsystem: lance_core"
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/RxDescriptor.java",
+   "target": "file:src/org/jnode/driver/net/lance/RxDescriptorRing.java",
+   "type": "related",
+   "weight": 0.5,
+   "detail": "same subsystem: lance_core"
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/RxDescriptor.java",
+   "target": "file:src/org/jnode/driver/net/lance/TxDescriptor.java",
+   "type": "related",
+   "weight": 0.5,
+   "detail": "same subsystem: lance_core"
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/RxDescriptor.java",
+   "target": "file:src/org/jnode/driver/net/lance/TxDescriptorRing.java",
+   "type": "related",
+   "weight": 0.5,
+   "detail": "same subsystem: lance_core"
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/RxDescriptor.java",
+   "target": "file:src/org/jnode/driver/net/lance/WordIOAccess.java",
+   "type": "related",
+   "weight": 0.5,
+   "detail": "same subsystem: lance_core"
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/RxDescriptorRing.java",
+   "target": "file:src/org/jnode/driver/net/lance/TxDescriptor.java",
+   "type": "related",
+   "weight": 0.5,
+   "detail": "same subsystem: lance_core"
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/RxDescriptorRing.java",
+   "target": "file:src/org/jnode/driver/net/lance/TxDescriptorRing.java",
+   "type": "related",
+   "weight": 0.5,
+   "detail": "same subsystem: lance_core"
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/RxDescriptorRing.java",
+   "target": "file:src/org/jnode/driver/net/lance/WordIOAccess.java",
+   "type": "related",
+   "weight": 0.5,
+   "detail": "same subsystem: lance_core"
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/TxDescriptor.java",
+   "target": "file:src/org/jnode/driver/net/lance/TxDescriptorRing.java",
+   "type": "related",
+   "weight": 0.5,
+   "detail": "same subsystem: lance_core"
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/TxDescriptor.java",
+   "target": "file:src/org/jnode/driver/net/lance/WordIOAccess.java",
+   "type": "related",
+   "weight": 0.5,
+   "detail": "same subsystem: lance_core"
+  },
+  {
+   "source": "file:src/org/jnode/driver/net/lance/TxDescriptorRing.java",
+   "target": "file:src/org/jnode/driver/net/lance/WordIOAccess.java",
+   "type": "related",
+   "weight": 0.5,
+   "detail": "same subsystem: lance_core"
+  },
+  {
+   "source": "file:src/org/jnode/net/ipv4/dhcp/AbstractDHCPClient.java",
+   "target": "file:src/org/jnode/net/ipv4/dhcp/DHCPClient.java",
+   "type": "related",
+   "weight": 0.5,
+   "detail": "same subsystem: dhcp"
+  },
+  {
+   "source": "file:src/org/jnode/net/ipv4/dhcp/AbstractDHCPClient.java",
+   "target": "file:src/org/jnode/net/ipv4/dhcp/DHCPMessage.java",
+   "type": "related",
+   "weight": 0.5,
+   "detail": "same subsystem: dhcp"
+  },
+  {
+   "source": "file:src/org/jnode/net/ipv4/dhcp/DHCPClient.java",
+   "target": "file:src/org/jnode/net/ipv4/dhcp/DHCPMessage.java",
+   "type": "related",
+   "weight": 0.5,
+   "detail": "same subsystem: dhcp"
+  },
+  {
+   "source": "file:src/test/minitcp/Main.java",
+   "target": "file:src/test/minitcp/MiniServerDomain.java",
+   "type": "related",
+   "weight": 0.5,
+   "detail": "same subsystem: minitcp"
+  },
+  {
+   "source": "file:src/test/net/Main.java",
+   "target": "file:src/test/net/StartIPTest.java",
+   "type": "related",
+   "weight": 0.5,
+   "detail": "same subsystem: tcp_tests"
+  },
+  {
+   "source": "file:src/test/net/Main.java",
+   "target": "file:src/test/net/StartNICTest.java",
+   "type": "related",
+   "weight": 0.5,
+   "detail": "same subsystem: tcp_tests"
+  },
+  {
+   "source": "file:src/test/net/Main.java",
+   "target": "file:src/test/net/StartTCPTest.java",
+   "type": "related",
+   "weight": 0.5,
+   "detail": "same subsystem: tcp_tests"
+  },
+  {
+   "source": "file:src/test/net/Main.java",
+   "target": "file:src/test/net/StartTest.java",
+   "type": "related",
+   "weight": 0.5,
+   "detail": "same subsystem: tcp_tests"
+  },
+  {
+   "source": "file:src/test/net/Main.java",
+   "target": "file:src/test/net/TCPWebWorker.java",
+   "type": "related",
+   "weight": 0.5,
+   "detail": "same subsystem: tcp_tests"
+  },
+  {
+   "source": "file:src/test/net/Main.java",
+   "target": "file:src/test/net/TCPWorker.java",
+   "type": "related",
+   "weight": 0.5,
+   "detail": "same subsystem: tcp_tests"
+  },
+  {
+   "source": "file:src/test/net/Main.java",
+   "target": "file:src/test/net/WebServer.java",
+   "type": "related",
+   "weight": 0.5,
+   "detail": "same subsystem: tcp_tests"
+  },
+  {
+   "source": "file:src/test/net/StartIPTest.java",
+   "target": "file:src/test/net/StartNICTest.java",
+   "type": "related",
+   "weight": 0.5,
+   "detail": "same subsystem: tcp_tests"
+  },
+  {
+   "source": "file:src/test/net/StartIPTest.java",
+   "target": "file:src/test/net/StartTCPTest.java",
+   "type": "related",
+   "weight": 0.5,
+   "detail": "same subsystem: tcp_tests"
+  },
+  {
+   "source": "file:src/test/net/StartIPTest.java",
+   "target": "file:src/test/net/StartTest.java",
+   "type": "related",
+   "weight": 0.5,
+   "detail": "same subsystem: tcp_tests"
+  },
+  {
+   "source": "file:src/test/net/StartIPTest.java",
+   "target": "file:src/test/net/TCPWebWorker.java",
+   "type": "related",
+   "weight": 0.5,
+   "detail": "same subsystem: tcp_tests"
+  },
+  {
+   "source": "file:src/test/net/StartIPTest.java",
+   "target": "file:src/test/net/TCPWorker.java",
+   "type": "related",
+   "weight": 0.5,
+   "detail": "same subsystem: tcp_tests"
+  },
+  {
+   "source": "file:src/test/net/StartIPTest.java",
+   "target": "file:src/test/net/WebServer.java",
+   "type": "related",
+   "weight": 0.5,
+   "detail": "same subsystem: tcp_tests"
+  },
+  {
+   "source": "file:src/test/net/StartNICTest.java",
+   "target": "file:src/test/net/StartTCPTest.java",
+   "type": "related",
+   "weight": 0.5,
+   "detail": "same subsystem: tcp_tests"
+  },
+  {
+   "source": "file:src/test/net/StartNICTest.java",
+   "target": "file:src/test/net/StartTest.java",
+   "type": "related",
+   "weight": 0.5,
+   "detail": "same subsystem: tcp_tests"
+  },
+  {
+   "source": "file:src/test/net/StartNICTest.java",
+   "target": "file:src/test/net/TCPWebWorker.java",
+   "type": "related",
+   "weight": 0.5,
+   "detail": "same subsystem: tcp_tests"
+  },
+  {
+   "source": "file:src/test/net/StartNICTest.java",
+   "target": "file:src/test/net/TCPWorker.java",
+   "type": "related",
+   "weight": 0.5,
+   "detail": "same subsystem: tcp_tests"
+  },
+  {
+   "source": "file:src/test/net/StartNICTest.java",
+   "target": "file:src/test/net/WebServer.java",
+   "type": "related",
+   "weight": 0.5,
+   "detail": "same subsystem: tcp_tests"
+  },
+  {
+   "source": "file:src/test/net/StartTCPTest.java",
+   "target": "file:src/test/net/StartTest.java",
+   "type": "related",
+   "weight": 0.5,
+   "detail": "same subsystem: tcp_tests"
+  },
+  {
+   "source": "file:src/test/net/StartTCPTest.java",
+   "target": "file:src/test/net/TCPWebWorker.java",
+   "type": "related",
+   "weight": 0.5,
+   "detail": "same subsystem: tcp_tests"
+  },
+  {
+   "source": "file:src/test/net/StartTCPTest.java",
+   "target": "file:src/test/net/TCPWorker.java",
+   "type": "related",
+   "weight": 0.5,
+   "detail": "same subsystem: tcp_tests"
+  },
+  {
+   "source": "file:src/test/net/StartTCPTest.java",
+   "target": "file:src/test/net/WebServer.java",
+   "type": "related",
+   "weight": 0.5,
+   "detail": "same subsystem: tcp_tests"
+  },
+  {
+   "source": "file:src/test/net/StartTest.java",
+   "target": "file:src/test/net/TCPWebWorker.java",
+   "type": "related",
+   "weight": 0.5,
+   "detail": "same subsystem: tcp_tests"
+  },
+  {
+   "source": "file:src/test/net/StartTest.java",
+   "target": "file:src/test/net/TCPWorker.java",
+   "type": "related",
+   "weight": 0.5,
+   "detail": "same subsystem: tcp_tests"
+  },
+  {
+   "source": "file:src/test/net/StartTest.java",
+   "target": "file:src/test/net/WebServer.java",
+   "type": "related",
+   "weight": 0.5,
+   "detail": "same subsystem: tcp_tests"
+  },
+  {
+   "source": "file:src/test/net/TCPWebWorker.java",
+   "target": "file:src/test/net/TCPWorker.java",
+   "type": "related",
+   "weight": 0.5,
+   "detail": "same subsystem: tcp_tests"
+  },
+  {
+   "source": "file:src/test/net/TCPWebWorker.java",
+   "target": "file:src/test/net/WebServer.java",
+   "type": "related",
+   "weight": 0.5,
+   "detail": "same subsystem: tcp_tests"
+  },
+  {
+   "source": "file:src/test/net/TCPWorker.java",
+   "target": "file:src/test/net/WebServer.java",
+   "type": "related",
+   "weight": 0.5,
+   "detail": "same subsystem: tcp_tests"
+  },
+  {
+   "source": "file:test/nfs/DummyClock.java",
+   "target": "file:test/nfs/LoadGenerator.java",
+   "type": "related",
+   "weight": 0.5,
+   "detail": "same subsystem: nfs_utils"
+  },
+  {
+   "source": "file:src/org/jnode/net/ipv4/dhcp/AbstractDHCPClient.java",
+   "target": "file:src/org/jnode/net/ipv4/dhcp/DHCPClient.java",
+   "type": "inherits",
+   "weight": 0.9,
+   "detail": "DHCPClient extends AbstractDHCPClient"
+  }
+ ]
+}

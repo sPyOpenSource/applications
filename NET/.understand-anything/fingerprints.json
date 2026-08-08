@@ -1,0 +1,6556 @@
+{
+  "version": "1.0.0",
+  "gitCommitHash": "f1cc65fbc7fe7fa57f19026518be4b5117642b98",
+  "generatedAt": "2026-08-08T04:08:31.060Z",
+  "files": {
+    "build.xml": {
+      "filePath": "build.xml",
+      "contentHash": "1c49710f6737c22a9efb24e096d65917f9c976a1ee841250ece0f584fb053f5f",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 74,
+      "hasStructuralAnalysis": false
+    },
+    "manifest.mf": {
+      "filePath": "manifest.mf",
+      "contentHash": "aba13eb4e4d2c16f718c4db49e8fd5812a0064e0b12c52e147979240abd019a0",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 4,
+      "hasStructuralAnalysis": false
+    },
+    "nbproject/build-impl.xml": {
+      "filePath": "nbproject/build-impl.xml",
+      "contentHash": "6124594a72ea113efb6f94c659e8fa8079ecb45bdb16cb015f12eaff37a00094",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1862,
+      "hasStructuralAnalysis": false
+    },
+    "nbproject/genfiles.properties": {
+      "filePath": "nbproject/genfiles.properties",
+      "contentHash": "51a012cdbec37a79fb4f97e5bd0279c6ff0f7a96457ef5df3880c837f1c1432f",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 9,
+      "hasStructuralAnalysis": false
+    },
+    "nbproject/project.properties": {
+      "filePath": "nbproject/project.properties",
+      "contentHash": "e4b11f927cd5779807de9140228b37b843da71f05ffcbcdc98d26b014f7d0324",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 116,
+      "hasStructuralAnalysis": false
+    },
+    "nbproject/project.xml": {
+      "filePath": "nbproject/project.xml",
+      "contentHash": "0614d6db53a058e4c0a06cadc05b0d2143068cdbf9716b884e781f504b29b9e4",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 58,
+      "hasStructuralAnalysis": false
+    },
+    "packages/test_audit/test/audit/Dump.java": {
+      "filePath": "packages/test_audit/test/audit/Dump.java",
+      "contentHash": "830f814fcffadd5a5ad9bbdaf3d50498cbb6d1d2c21b7a723d1a93b618e86b94",
+      "functions": [
+        {
+          "name": "main",
+          "params": [
+            "args"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 15
+        }
+      ],
+      "classes": [
+        {
+          "name": "Dump",
+          "methods": [
+            "main"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 17
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.zero",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.bio",
+          "specifiers": [
+            "*"
+          ]
+        }
+      ],
+      "exports": [
+        "main",
+        "Dump"
+      ],
+      "totalLines": 24,
+      "hasStructuralAnalysis": true
+    },
+    "packages/test_audit/test/audit/Main.java": {
+      "filePath": "packages/test_audit/test/audit/Main.java",
+      "contentHash": "55a280fad819d449bedd8438f984c649c32c928909ffc2286ab0c629ff66c45a",
+      "functions": [
+        {
+          "name": "main",
+          "params": [
+            "args"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 35
+        }
+      ],
+      "classes": [
+        {
+          "name": "Main",
+          "methods": [
+            "main"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 37
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.zero",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.bio",
+          "specifiers": [
+            "*"
+          ]
+        }
+      ],
+      "exports": [
+        "main",
+        "Main"
+      ],
+      "totalLines": 44,
+      "hasStructuralAnalysis": true
+    },
+    "packages/test_credential/test/credential/Main.java": {
+      "filePath": "packages/test_credential/test/credential/Main.java",
+      "contentHash": "a08956331b72aea822318d77e3b53ed3469db7447a6ff5fbd8f3a3c25e0bbd06",
+      "functions": [
+        {
+          "name": "main",
+          "params": [
+            "args"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 2
+        }
+      ],
+      "classes": [
+        {
+          "name": "Main",
+          "methods": [
+            "main"
+          ],
+          "properties": [],
+          "exported": false,
+          "lineCount": 4
+        }
+      ],
+      "imports": [],
+      "exports": [
+        "main"
+      ],
+      "totalLines": 7,
+      "hasStructuralAnalysis": true
+    },
+    "packages/test_fs_user/test/fsuser/CreateRemove.java": {
+      "filePath": "packages/test_fs_user/test/fsuser/CreateRemove.java",
+      "contentHash": "71b59a1ca2c58d5a27782ed3610631d252842d2b12ecc4082b7508eb18250810",
+      "functions": [
+        {
+          "name": "main",
+          "params": [
+            "args"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 31
+        }
+      ],
+      "classes": [
+        {
+          "name": "CreateRemove",
+          "methods": [
+            "main"
+          ],
+          "properties": [
+            "MAXBUFFERSIZE"
+          ],
+          "exported": true,
+          "lineCount": 36
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.fs",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.zero",
+          "specifiers": [
+            "*"
+          ]
+        }
+      ],
+      "exports": [
+        "main",
+        "CreateRemove"
+      ],
+      "totalLines": 49,
+      "hasStructuralAnalysis": true
+    },
+    "packages/test_fs_user/test/fsuser/IOZONE.java": {
+      "filePath": "packages/test_fs_user/test/fsuser/IOZONE.java",
+      "contentHash": "4827a63dd0ae9eda8f81ccbf12e93146b1b5722bcdd4b799e48c43ebebe70f3f",
+      "functions": [
+        {
+          "name": "main",
+          "params": [
+            "args"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "IOZONE",
+          "params": [
+            "filename",
+            "minFileSizeKB",
+            "maxFileSizeKB",
+            "minRecSizeB",
+            "maxRecSizeB"
+          ],
+          "exported": true,
+          "lineCount": 57
+        },
+        {
+          "name": "autoTest",
+          "params": [],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 63
+        },
+        {
+          "name": "begin",
+          "params": [
+            "kilobytes",
+            "reclen"
+          ],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 11
+        },
+        {
+          "name": "readPerfTest",
+          "params": [
+            "kilo",
+            "reclen"
+          ],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 59
+        },
+        {
+          "name": "writePerfTest",
+          "params": [
+            "kilo",
+            "reclen"
+          ],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 53
+        },
+        {
+          "name": "storeValue",
+          "params": [
+            "value"
+          ],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 18
+        },
+        {
+          "name": "dumpBinary",
+          "params": [
+            "name"
+          ],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 19
+        },
+        {
+          "name": "dumpReport",
+          "params": [
+            "who"
+          ],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 23
+        },
+        {
+          "name": "dumpExcel",
+          "params": [],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 15
+        },
+        {
+          "name": "alignString",
+          "params": [
+            "value",
+            "length"
+          ],
+          "returnType": "String",
+          "exported": false,
+          "lineCount": 7
+        },
+        {
+          "name": "getTime",
+          "params": [],
+          "returnType": "long",
+          "exported": false,
+          "lineCount": 3
+        },
+        {
+          "name": "fileopen",
+          "params": [
+            "path"
+          ],
+          "returnType": "RegularFile",
+          "exported": false,
+          "lineCount": 9
+        }
+      ],
+      "classes": [
+        {
+          "name": "IOZONE",
+          "methods": [
+            "main",
+            "IOZONE",
+            "autoTest",
+            "begin",
+            "readPerfTest",
+            "writePerfTest",
+            "storeValue",
+            "dumpBinary",
+            "dumpReport",
+            "dumpExcel",
+            "alignString",
+            "getTime",
+            "fileopen"
+          ],
+          "properties": [
+            "LARGE_REC",
+            "KILOBYTES",
+            "RECLEN",
+            "FILESIZE",
+            "NUMRECS",
+            "MAXBUFFERSIZE",
+            "MINBUFFERSIZE",
+            "MAX_X",
+            "MAX_Y",
+            "KILOBYTES_START",
+            "KILOBYTES_END",
+            "RECLEN_START",
+            "RECLEN_END",
+            "MULTIPLIER",
+            "CROSSOVER",
+            "MINIMAL_MICROS",
+            "clock",
+            "current_x",
+            "current_y",
+            "max_x",
+            "max_y",
+            "report_array",
+            "cancel_store",
+            "buffer",
+            "filename",
+            "file",
+            "out",
+            "IOZONE_MAX_FILESIZE",
+            "doDumpBinary",
+            "rereadtime",
+            "nreread"
+          ],
+          "exported": true,
+          "lineCount": 421
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.fs",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.zero",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "java.io.IOException",
+          "specifiers": [
+            "IOException"
+          ]
+        },
+        {
+          "source": "jx.zero.memory",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.formats",
+          "specifiers": [
+            "*"
+          ]
+        }
+      ],
+      "exports": [
+        "IOZONE_MAX_FILESIZE",
+        "main",
+        "IOZONE",
+        "IOZONE"
+      ],
+      "totalLines": 439,
+      "hasStructuralAnalysis": true
+    },
+    "packages/test_fsmulti/test/fsmulti/Main.java": {
+      "filePath": "packages/test_fsmulti/test/fsmulti/Main.java",
+      "contentHash": "de4f73d0d7cbdfad5a7e1dd54a205b553e31c774a1a1c24f043fd5379452141a",
+      "functions": [
+        {
+          "name": "main",
+          "params": [
+            "args"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "Main",
+          "params": [
+            "args"
+          ],
+          "exported": true,
+          "lineCount": 15
+        },
+        {
+          "name": "test0",
+          "params": [],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 8
+        },
+        {
+          "name": "test1",
+          "params": [],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 25
+        },
+        {
+          "name": "createFile",
+          "params": [
+            "fs",
+            "name",
+            "contents"
+          ],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 10
+        }
+      ],
+      "classes": [
+        {
+          "name": "Main",
+          "methods": [
+            "main",
+            "Main",
+            "test0",
+            "test1",
+            "createFile"
+          ],
+          "properties": [
+            "fs",
+            "naming",
+            "buffer"
+          ],
+          "exported": true,
+          "lineCount": 73
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.fs",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.zero",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.zero.debug",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "java.io.OutputStream",
+          "specifiers": [
+            "OutputStream"
+          ]
+        },
+        {
+          "source": "java.io.InputStream",
+          "specifiers": [
+            "InputStream"
+          ]
+        },
+        {
+          "source": "java.io.DataInputStream",
+          "specifiers": [
+            "DataInputStream"
+          ]
+        }
+      ],
+      "exports": [
+        "main",
+        "Main"
+      ],
+      "totalLines": 83,
+      "hasStructuralAnalysis": true
+    },
+    "packages/test_jdk_fs/test/jdkfs/IOZONE.java": {
+      "filePath": "packages/test_jdk_fs/test/jdkfs/IOZONE.java",
+      "contentHash": "2cb21f897809bc0b0658114901f695f4d8ee17568b977b42c0b06d1d2fa1c51d",
+      "functions": [
+        {
+          "name": "main",
+          "params": [
+            "args"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "IOZONE",
+          "params": [
+            "filename",
+            "minFileSizeKB",
+            "maxFileSizeKB",
+            "minRecSizeB",
+            "maxRecSizeB"
+          ],
+          "exported": true,
+          "lineCount": 35
+        },
+        {
+          "name": "autoTest",
+          "params": [],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 61
+        },
+        {
+          "name": "begin",
+          "params": [
+            "kilobytes",
+            "reclen"
+          ],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 11
+        },
+        {
+          "name": "readPerfTest",
+          "params": [
+            "kilo",
+            "reclen"
+          ],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 56
+        },
+        {
+          "name": "writePerfTest",
+          "params": [
+            "kilo",
+            "reclen"
+          ],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 57
+        },
+        {
+          "name": "storeValue",
+          "params": [
+            "value"
+          ],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 12
+        },
+        {
+          "name": "dumpReport",
+          "params": [
+            "who"
+          ],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 23
+        },
+        {
+          "name": "dumpExcel",
+          "params": [],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 15
+        },
+        {
+          "name": "alignString",
+          "params": [
+            "value",
+            "length"
+          ],
+          "returnType": "String",
+          "exported": false,
+          "lineCount": 7
+        },
+        {
+          "name": "getTime",
+          "params": [],
+          "returnType": "long",
+          "exported": false,
+          "lineCount": 3
+        }
+      ],
+      "classes": [
+        {
+          "name": "IOZONE",
+          "methods": [
+            "main",
+            "IOZONE",
+            "autoTest",
+            "begin",
+            "readPerfTest",
+            "writePerfTest",
+            "storeValue",
+            "dumpReport",
+            "dumpExcel",
+            "alignString",
+            "getTime"
+          ],
+          "properties": [
+            "sample",
+            "profiler",
+            "LARGE_REC",
+            "KILOBYTES",
+            "RECLEN",
+            "FILESIZE",
+            "NUMRECS",
+            "MAXBUFFERSIZE",
+            "MINBUFFERSIZE",
+            "MAX_X",
+            "MAX_Y",
+            "KILOBYTES_START",
+            "KILOBYTES_END",
+            "RECLEN_START",
+            "RECLEN_END",
+            "MULTIPLIER",
+            "CROSSOVER",
+            "MINIMAL_MICROS",
+            "clock",
+            "current_x",
+            "current_y",
+            "max_x",
+            "max_y",
+            "report_array",
+            "buffer",
+            "out",
+            "filename",
+            "IOZONE_MAX_FILESIZE"
+          ],
+          "exported": true,
+          "lineCount": 469
+        }
+      ],
+      "imports": [
+        {
+          "source": "java.io",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.zero.Clock",
+          "specifiers": [
+            "Clock"
+          ]
+        },
+        {
+          "source": "jx.zero.CycleTime",
+          "specifiers": [
+            "CycleTime"
+          ]
+        },
+        {
+          "source": "jx.zero.InitialNaming",
+          "specifiers": [
+            "InitialNaming"
+          ]
+        },
+        {
+          "source": "jx.zero.CPUManager",
+          "specifiers": [
+            "CPUManager"
+          ]
+        },
+        {
+          "source": "jx.zero.Profiler",
+          "specifiers": [
+            "Profiler"
+          ]
+        }
+      ],
+      "exports": [
+        "IOZONE_MAX_FILESIZE",
+        "main",
+        "IOZONE",
+        "IOZONE"
+      ],
+      "totalLines": 488,
+      "hasStructuralAnalysis": true
+    },
+    "packages/test_jdk_fs/test/jdkfs/Main.java": {
+      "filePath": "packages/test_jdk_fs/test/jdkfs/Main.java",
+      "contentHash": "20f0f3517ed16cc9c3aea71d6403da1486ed9e53d5e8cd548edcd0f6a78663ce",
+      "functions": [
+        {
+          "name": "main",
+          "params": [
+            "args"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 6
+        }
+      ],
+      "classes": [
+        {
+          "name": "Main",
+          "methods": [
+            "main"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 8
+        }
+      ],
+      "imports": [],
+      "exports": [
+        "main",
+        "Main"
+      ],
+      "totalLines": 11,
+      "hasStructuralAnalysis": true
+    },
+    "packages/test_jdk_net/test/jdknet/UDPReceiver.java": {
+      "filePath": "packages/test_jdk_net/test/jdknet/UDPReceiver.java",
+      "contentHash": "9414a401f821f3dafdc89511650e193bd159ec92438fcfd3c208952bc22b6b57",
+      "functions": [
+        {
+          "name": "main",
+          "params": [
+            "args"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 42
+        }
+      ],
+      "classes": [
+        {
+          "name": "UDPReceiver",
+          "methods": [
+            "main"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 44
+        }
+      ],
+      "imports": [
+        {
+          "source": "java.net",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "java.io",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "java.lang",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.zero",
+          "specifiers": [
+            "*"
+          ]
+        }
+      ],
+      "exports": [
+        "main",
+        "UDPReceiver"
+      ],
+      "totalLines": 61,
+      "hasStructuralAnalysis": true
+    },
+    "packages/test_jdk_net/test/jdknet/UDPTestSender.java": {
+      "filePath": "packages/test_jdk_net/test/jdknet/UDPTestSender.java",
+      "contentHash": "3e388b25ddf25dc8cfc8d0c931d1687723ca8abeab37d4d225474ff042f52e5e",
+      "functions": [
+        {
+          "name": "main",
+          "params": [
+            "args"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 63
+        }
+      ],
+      "classes": [
+        {
+          "name": "UDPTestSender",
+          "methods": [
+            "main"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 65
+        }
+      ],
+      "imports": [
+        {
+          "source": "java.net",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "java.io",
+          "specifiers": [
+            "*"
+          ]
+        }
+      ],
+      "exports": [
+        "main",
+        "UDPTestSender"
+      ],
+      "totalLines": 83,
+      "hasStructuralAnalysis": true
+    },
+    "README.rst": {
+      "filePath": "README.rst",
+      "contentHash": "a4e606a46c0d5c46030346a6a7a1acf32b8ffc08878f66bd46c40fbeab767186",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 13,
+      "hasStructuralAnalysis": false
+    },
+    "src/AI/AIInput.java": {
+      "filePath": "src/AI/AIInput.java",
+      "contentHash": "b048596e84d282c0529e47b88faaaaa8a2f8880f718c79dfc7dfed8be89c095b",
+      "functions": [
+        {
+          "name": "AIInput",
+          "params": [
+            "mem"
+          ],
+          "exported": true,
+          "lineCount": 15
+        },
+        {
+          "name": "ReadMessageFromArduino",
+          "params": [],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 7
+        },
+        {
+          "name": "setup",
+          "params": [],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 27
+        }
+      ],
+      "classes": [
+        {
+          "name": "AIInput",
+          "methods": [
+            "AIInput",
+            "ReadMessageFromArduino",
+            "setup"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 63
+        }
+      ],
+      "imports": [],
+      "exports": [
+        "AIInput",
+        "AIInput"
+      ],
+      "totalLines": 72,
+      "hasStructuralAnalysis": true
+    },
+    "src/AI/AIOutput.java": {
+      "filePath": "src/AI/AIOutput.java",
+      "contentHash": "c4fd2924c7061375eea6b7d233968a8d8e8f3576ed015df20d3aa9895d0b5d79",
+      "functions": [
+        {
+          "name": "AIOutput",
+          "params": [
+            "mem"
+          ],
+          "exported": true,
+          "lineCount": 12
+        },
+        {
+          "name": "getOut",
+          "params": [],
+          "returnType": "DebugOutputStream",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "Send",
+          "params": [],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 11
+        },
+        {
+          "name": "loop",
+          "params": [],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 4
+        }
+      ],
+      "classes": [
+        {
+          "name": "AIOutput",
+          "methods": [
+            "AIOutput",
+            "getOut",
+            "Send",
+            "loop"
+          ],
+          "properties": [
+            "out"
+          ],
+          "exported": true,
+          "lineCount": 43
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.zero.Debug",
+          "specifiers": [
+            "Debug"
+          ]
+        },
+        {
+          "source": "jx.zero.InitialNaming",
+          "specifiers": [
+            "InitialNaming"
+          ]
+        },
+        {
+          "source": "jx.zero.debug.DebugChannel",
+          "specifiers": [
+            "DebugChannel"
+          ]
+        },
+        {
+          "source": "jx.zero.debug.DebugOutputStream",
+          "specifiers": [
+            "DebugOutputStream"
+          ]
+        },
+        {
+          "source": "jx.zero.debug.DebugPrintStream",
+          "specifiers": [
+            "DebugPrintStream"
+          ]
+        }
+      ],
+      "exports": [
+        "AIOutput",
+        "getOut",
+        "AIOutput"
+      ],
+      "totalLines": 57,
+      "hasStructuralAnalysis": true
+    },
+    "src/jx/net/devices/lance/Lance.java": {
+      "filePath": "src/jx/net/devices/lance/Lance.java",
+      "contentHash": "456e9f79b55c3d12162462eca1e55db621285936979006b8ff4f02103b52878e",
+      "functions": [
+        {
+          "name": "Lance",
+          "params": [
+            "dev"
+          ],
+          "exported": false,
+          "lineCount": 1
+        },
+        {
+          "name": "getSupportedConfigurations",
+          "params": [],
+          "returnType": "DeviceConfigurationTemplate[]",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "open",
+          "params": [
+            "conf"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 2
+        },
+        {
+          "name": "close",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 2
+        },
+        {
+          "name": "setReceiveMode",
+          "params": [
+            "mode"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 2
+        },
+        {
+          "name": "transmit",
+          "params": [
+            "buf"
+          ],
+          "returnType": "Memory",
+          "exported": true,
+          "lineCount": 2
+        },
+        {
+          "name": "transmit1",
+          "params": [
+            "buf",
+            "offset",
+            "size"
+          ],
+          "returnType": "Memory",
+          "exported": true,
+          "lineCount": 2
+        },
+        {
+          "name": "getMACAddress",
+          "params": [],
+          "returnType": "byte[]",
+          "exported": true,
+          "lineCount": 2
+        },
+        {
+          "name": "getMTU",
+          "params": [],
+          "returnType": "int",
+          "exported": true,
+          "lineCount": 2
+        },
+        {
+          "name": "registerNonBlockingConsumer",
+          "params": [
+            "consumer"
+          ],
+          "returnType": "boolean",
+          "exported": true,
+          "lineCount": 2
+        },
+        {
+          "name": "getId",
+          "params": [],
+          "returnType": "int",
+          "exported": true,
+          "lineCount": 4
+        }
+      ],
+      "classes": [
+        {
+          "name": "Lance",
+          "methods": [
+            "Lance",
+            "getSupportedConfigurations",
+            "open",
+            "close",
+            "setReceiveMode",
+            "transmit",
+            "transmit1",
+            "getMACAddress",
+            "getMTU",
+            "registerNonBlockingConsumer",
+            "getId"
+          ],
+          "properties": [],
+          "exported": false,
+          "lineCount": 29
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.devices.net.NetworkDevice",
+          "specifiers": [
+            "NetworkDevice"
+          ]
+        },
+        {
+          "source": "jx.zero",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.devices.pci",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.devices",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.fs.buffer.separator",
+          "specifiers": [
+            "*"
+          ]
+        }
+      ],
+      "exports": [
+        "getSupportedConfigurations",
+        "open",
+        "close",
+        "setReceiveMode",
+        "transmit",
+        "transmit1",
+        "getMACAddress",
+        "getMTU",
+        "registerNonBlockingConsumer",
+        "getId"
+      ],
+      "totalLines": 39,
+      "hasStructuralAnalysis": true
+    },
+    "src/jx/net/devices/lance/LanceFinder.java": {
+      "filePath": "src/jx/net/devices/lance/LanceFinder.java",
+      "contentHash": "2f14cb8124871c2c791ea697c1a8fd349aa3ea59c6169de4475d3fcc483bc02b",
+      "functions": [
+        {
+          "name": "find",
+          "params": [
+            "naming"
+          ],
+          "returnType": "Device[]",
+          "exported": true,
+          "lineCount": 21
+        },
+        {
+          "name": "findDevice",
+          "params": [
+            "pci"
+          ],
+          "returnType": "LanceDriver[]",
+          "exported": true,
+          "lineCount": 31
+        }
+      ],
+      "classes": [
+        {
+          "name": "LanceFinder",
+          "methods": [
+            "find",
+            "findDevice"
+          ],
+          "properties": [
+            "NIC_VENDOR_ID",
+            "NIC_PCI_DEVICE_ID_Am79C970",
+            "DESCRIPTION",
+            "ports",
+            "irq",
+            "rm",
+            "cpuManager"
+          ],
+          "exported": true,
+          "lineCount": 64
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.devices.DeviceFinder",
+          "specifiers": [
+            "DeviceFinder"
+          ]
+        },
+        {
+          "source": "jx.devices.Device",
+          "specifiers": [
+            "Device"
+          ]
+        },
+        {
+          "source": "jx.zero",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.devices.pci",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "metaxa.os.devices.net.AdapterLimits",
+          "specifiers": [
+            "AdapterLimits"
+          ]
+        },
+        {
+          "source": "org.jnode.driver.net.lance.LanceDriver",
+          "specifiers": [
+            "LanceDriver"
+          ]
+        },
+        {
+          "source": "org.jnode.driver.net.lance.LanceFlags",
+          "specifiers": [
+            "LanceFlags"
+          ]
+        }
+      ],
+      "exports": [
+        "find",
+        "findDevice",
+        "LanceFinder"
+      ],
+      "totalLines": 76,
+      "hasStructuralAnalysis": true
+    },
+    "src/jx/net/protocols/StartNetworkProtocols.java": {
+      "filePath": "src/jx/net/protocols/StartNetworkProtocols.java",
+      "contentHash": "cd747f99bfd98e865a8d794197b1cbf5efbfc2553fcf44e2334382156413bd4f",
+      "functions": [
+        {
+          "name": "main",
+          "params": [
+            "args"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 20
+        }
+      ],
+      "classes": [
+        {
+          "name": "StartNetworkProtocols",
+          "methods": [
+            "main"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 30
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.zero",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.timer.TimerManager",
+          "specifiers": [
+            "TimerManager"
+          ]
+        },
+        {
+          "source": "jx.net.IPv4Address",
+          "specifiers": [
+            "IPv4Address"
+          ]
+        },
+        {
+          "source": "jx.net.NetInit",
+          "specifiers": [
+            "NetInit"
+          ]
+        },
+        {
+          "source": "jx.devices.net",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.net.IPAddress",
+          "specifiers": [
+            "IPAddress"
+          ]
+        }
+      ],
+      "exports": [
+        "main",
+        "StartNetworkProtocols"
+      ],
+      "totalLines": 41,
+      "hasStructuralAnalysis": true
+    },
+    "src/jx/netmanager/IPReceiver.java": {
+      "filePath": "src/jx/netmanager/IPReceiver.java",
+      "contentHash": "dd8810f691bd74ad40e96e90e276586cbc434e8a9a3e4f236a1308c2c0d6ed6d",
+      "functions": [
+        {
+          "name": "IPReceiver",
+          "params": [
+            "net",
+            "bufs"
+          ],
+          "exported": true,
+          "lineCount": 25
+        },
+        {
+          "name": "IPReceiver",
+          "params": [
+            "net",
+            "bufs",
+            "proto"
+          ],
+          "exported": true,
+          "lineCount": 24
+        },
+        {
+          "name": "receive",
+          "params": [
+            "buf",
+            "timeoutMillis"
+          ],
+          "returnType": "IPData",
+          "exported": true,
+          "lineCount": 22
+        },
+        {
+          "name": "receive",
+          "params": [
+            "buf"
+          ],
+          "returnType": "IPData",
+          "exported": true,
+          "lineCount": 9
+        },
+        {
+          "name": "close",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 4
+        }
+      ],
+      "classes": [
+        {
+          "name": "IPReceiver",
+          "methods": [
+            "IPReceiver",
+            "IPReceiver",
+            "receive",
+            "receive",
+            "close"
+          ],
+          "properties": [
+            "etherLayer",
+            "ipSender",
+            "cpuManager",
+            "consumer",
+            "net",
+            "usableBufs",
+            "filledBufs"
+          ],
+          "exported": true,
+          "lineCount": 100
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.zero",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.net.PacketsConsumer",
+          "specifiers": [
+            "PacketsConsumer"
+          ]
+        },
+        {
+          "source": "jx.net.IPData",
+          "specifiers": [
+            "IPData"
+          ]
+        },
+        {
+          "source": "jx.net.IPConsumer",
+          "specifiers": [
+            "IPConsumer"
+          ]
+        },
+        {
+          "source": "jx.buffer.multithread.MultiThreadBufferList",
+          "specifiers": [
+            "MultiThreadBufferList"
+          ]
+        },
+        {
+          "source": "jx.buffer.multithread.Buffer",
+          "specifiers": [
+            "Buffer"
+          ]
+        }
+      ],
+      "exports": [
+        "IPReceiver",
+        "IPReceiver",
+        "receive",
+        "receive",
+        "close"
+      ],
+      "totalLines": 112,
+      "hasStructuralAnalysis": true
+    },
+    "src/jx/netmanager/IPSender.java": {
+      "filePath": "src/jx/netmanager/IPSender.java",
+      "contentHash": "df35e42805ecb99675f565e35ee3ec38dea83ffc0646b94294fcca319816555e",
+      "functions": [
+        {
+          "name": "IPSender",
+          "params": [
+            "net",
+            "dst",
+            "id"
+          ],
+          "exported": false,
+          "lineCount": 9
+        },
+        {
+          "name": "send",
+          "params": [
+            "m",
+            "offset",
+            "size"
+          ],
+          "returnType": "Memory",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "send",
+          "params": [
+            "m"
+          ],
+          "returnType": "Memory",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "close",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "getDestination",
+          "params": [],
+          "returnType": "IPAddress",
+          "exported": true,
+          "lineCount": 2
+        }
+      ],
+      "classes": [
+        {
+          "name": "IPSender",
+          "methods": [
+            "IPSender",
+            "send",
+            "send",
+            "close",
+            "getDestination"
+          ],
+          "properties": [
+            "etherLayer",
+            "ipSender",
+            "ipSender1",
+            "dst"
+          ],
+          "exported": false,
+          "lineCount": 47
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.zero",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.net.PacketsConsumer",
+          "specifiers": [
+            "PacketsConsumer"
+          ]
+        },
+        {
+          "source": "jx.net.PacketsConsumer1",
+          "specifiers": [
+            "PacketsConsumer1"
+          ]
+        },
+        {
+          "source": "jx.net.IPAddress",
+          "specifiers": [
+            "IPAddress"
+          ]
+        },
+        {
+          "source": "jx.net.UnknownAddressException",
+          "specifiers": [
+            "UnknownAddressException"
+          ]
+        }
+      ],
+      "exports": [
+        "send",
+        "send",
+        "close",
+        "getDestination"
+      ],
+      "totalLines": 60,
+      "hasStructuralAnalysis": true
+    },
+    "src/jx/netmanager/NetInit.java": {
+      "filePath": "src/jx/netmanager/NetInit.java",
+      "contentHash": "a34e1dafce71299e80b97e0374ad940f086a9907314e553bb2a87119a40a3a3e",
+      "functions": [
+        {
+          "name": "NetInit",
+          "params": [
+            "nic",
+            "timerManager",
+            "bufs"
+          ],
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "NetInit",
+          "params": [
+            "nic",
+            "timerManager",
+            "bufs",
+            "myAddress"
+          ],
+          "exported": true,
+          "lineCount": 70
+        },
+        {
+          "name": "getTCP",
+          "params": [],
+          "returnType": "jx.net.protocol.tcp.TCP",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "getTCPSocket",
+          "params": [
+            "port",
+            "ip",
+            "bufs"
+          ],
+          "returnType": "jx.net.TCPSocket",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "getUDPReceiver",
+          "params": [
+            "port",
+            "bufs"
+          ],
+          "returnType": "jx.net.UDPReceiver",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "getUDPSender",
+          "params": [
+            "localPort",
+            "dst",
+            "remotePort"
+          ],
+          "returnType": "jx.net.UDPSender",
+          "exported": true,
+          "lineCount": 9
+        },
+        {
+          "name": "getIPReceiver",
+          "params": [
+            "bufs"
+          ],
+          "returnType": "jx.net.IPReceiver",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "getIPReceiver",
+          "params": [
+            "bufs",
+            "proto"
+          ],
+          "returnType": "jx.net.IPReceiver",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "getIPSender",
+          "params": [
+            "dst",
+            "id"
+          ],
+          "returnType": "jx.net.IPSender",
+          "exported": true,
+          "lineCount": 9
+        },
+        {
+          "name": "getTCPBuffer",
+          "params": [],
+          "returnType": "Memory",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "getUDPBuffer",
+          "params": [],
+          "returnType": "Memory",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "getTCPBuffer",
+          "params": [
+            "size"
+          ],
+          "returnType": "Memory",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "getUDPBuffer",
+          "params": [
+            "size"
+          ],
+          "returnType": "Memory",
+          "exported": true,
+          "lineCount": 10
+        },
+        {
+          "name": "getIPBuffer",
+          "params": [],
+          "returnType": "Memory",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "getIPBuffer",
+          "params": [
+            "size"
+          ],
+          "returnType": "Memory",
+          "exported": true,
+          "lineCount": 10
+        },
+        {
+          "name": "getLocalAddress",
+          "params": [],
+          "returnType": "IPAddress",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "init",
+          "params": [
+            "naming",
+            "args"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 42
+        }
+      ],
+      "classes": [
+        {
+          "name": "NetInit",
+          "methods": [
+            "NetInit",
+            "NetInit",
+            "getTCP",
+            "getTCPSocket",
+            "getUDPReceiver",
+            "getUDPSender",
+            "getIPReceiver",
+            "getIPReceiver",
+            "getIPSender",
+            "getTCPBuffer",
+            "getUDPBuffer",
+            "getTCPBuffer",
+            "getUDPBuffer",
+            "getIPBuffer",
+            "getIPBuffer",
+            "getLocalAddress",
+            "init"
+          ],
+          "properties": [
+            "tcp",
+            "udp",
+            "icmp",
+            "ip",
+            "arp",
+            "localAddress",
+            "ether",
+            "memMgr",
+            "cpuManager"
+          ],
+          "exported": true,
+          "lineCount": 246
+        }
+      ],
+      "imports": [
+        {
+          "source": "java.io.IOException",
+          "specifiers": [
+            "IOException"
+          ]
+        },
+        {
+          "source": "java.net.DatagramPacket",
+          "specifiers": [
+            "DatagramPacket"
+          ]
+        },
+        {
+          "source": "java.net.DatagramSocket",
+          "specifiers": [
+            "DatagramSocket"
+          ]
+        },
+        {
+          "source": "java.net.SocketTimeoutException",
+          "specifiers": [
+            "SocketTimeoutException"
+          ]
+        },
+        {
+          "source": "java.util.logging.Level",
+          "specifiers": [
+            "Level"
+          ]
+        },
+        {
+          "source": "java.util.logging.Logger",
+          "specifiers": [
+            "Logger"
+          ]
+        },
+        {
+          "source": "jx.net.protocol.ether",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.net.protocol.ip",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.net.protocol.arp",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.net.protocol.udp.UDP",
+          "specifiers": [
+            "UDP"
+          ]
+        },
+        {
+          "source": "jx.net.protocol.bootp",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.net.protocol.tcp",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.net.IPAddress",
+          "specifiers": [
+            "IPAddress"
+          ]
+        },
+        {
+          "source": "jx.net.UnknownAddressException",
+          "specifiers": [
+            "UnknownAddressException"
+          ]
+        },
+        {
+          "source": "jx.net.IPProducer",
+          "specifiers": [
+            "IPProducer"
+          ]
+        },
+        {
+          "source": "jx.net.EtherProducer",
+          "specifiers": [
+            "EtherProducer"
+          ]
+        },
+        {
+          "source": "jx.devices.net.NetworkDevice",
+          "specifiers": [
+            "NetworkDevice"
+          ]
+        },
+        {
+          "source": "jx.devices.pci.PCIAccess",
+          "specifiers": [
+            "PCIAccess"
+          ]
+        },
+        {
+          "source": "jx.net.IPv4Address",
+          "specifiers": [
+            "IPv4Address"
+          ]
+        },
+        {
+          "source": "jx.zero.Memory",
+          "specifiers": [
+            "Memory"
+          ]
+        },
+        {
+          "source": "jx.zero.MemoryManager",
+          "specifiers": [
+            "MemoryManager"
+          ]
+        },
+        {
+          "source": "jx.zero.InitialNaming",
+          "specifiers": [
+            "InitialNaming"
+          ]
+        },
+        {
+          "source": "jx.zero.Service",
+          "specifiers": [
+            "Service"
+          ]
+        },
+        {
+          "source": "jx.zero",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.zero.debug.Dump",
+          "specifiers": [
+            "Dump"
+          ]
+        },
+        {
+          "source": "jx.timer.TimerManager",
+          "specifiers": [
+            "TimerManager"
+          ]
+        },
+        {
+          "source": "jx.net.devices.lance",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.net.protocol.icmp.ICMP",
+          "specifiers": [
+            "ICMP"
+          ]
+        },
+        {
+          "source": "org.jnode.net.ipv4.dhcp.DHCPClient",
+          "specifiers": [
+            "DHCPClient"
+          ]
+        }
+      ],
+      "exports": [
+        "NetInit",
+        "NetInit",
+        "getTCP",
+        "getTCPSocket",
+        "getUDPReceiver",
+        "getUDPSender",
+        "getIPReceiver",
+        "getIPReceiver",
+        "getIPSender",
+        "getTCPBuffer",
+        "getUDPBuffer",
+        "getTCPBuffer",
+        "getUDPBuffer",
+        "getIPBuffer",
+        "getIPBuffer",
+        "getLocalAddress",
+        "init",
+        "NetInit"
+      ],
+      "totalLines": 290,
+      "hasStructuralAnalysis": true
+    },
+    "src/jx/netmanager/UDPReceiver.java": {
+      "filePath": "src/jx/netmanager/UDPReceiver.java",
+      "contentHash": "880a73a4f6136d7cdb7bf7e326c7bc95c58885ba5e2b99e561f0d09cf3171919",
+      "functions": [
+        {
+          "name": "UDPReceiver",
+          "params": [
+            "net",
+            "localPort",
+            "bufs",
+            "avoidSplitting"
+          ],
+          "exported": true,
+          "lineCount": 53
+        },
+        {
+          "name": "receive",
+          "params": [
+            "buf",
+            "timeoutMillis"
+          ],
+          "returnType": "UDPData",
+          "exported": true,
+          "lineCount": 26
+        },
+        {
+          "name": "receive",
+          "params": [
+            "buf"
+          ],
+          "returnType": "UDPData",
+          "exported": true,
+          "lineCount": 23
+        },
+        {
+          "name": "close",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 4
+        }
+      ],
+      "classes": [
+        {
+          "name": "UDPReceiver",
+          "methods": [
+            "UDPReceiver",
+            "receive",
+            "receive",
+            "close"
+          ],
+          "properties": [
+            "ipLayer",
+            "udpSender",
+            "cpuManager",
+            "consumer",
+            "port",
+            "net",
+            "usableBufs",
+            "filledBufs"
+          ],
+          "exported": true,
+          "lineCount": 161
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.zero",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.net.PacketsConsumer",
+          "specifiers": [
+            "PacketsConsumer"
+          ]
+        },
+        {
+          "source": "jx.net.UDPData",
+          "specifiers": [
+            "UDPData"
+          ]
+        },
+        {
+          "source": "jx.net.UDPConsumer",
+          "specifiers": [
+            "UDPConsumer"
+          ]
+        },
+        {
+          "source": "jx.buffer.multithread.MultiThreadBufferList",
+          "specifiers": [
+            "MultiThreadBufferList"
+          ]
+        },
+        {
+          "source": "jx.buffer.multithread.Buffer",
+          "specifiers": [
+            "Buffer"
+          ]
+        },
+        {
+          "source": "jx.net.UDPDataImpl",
+          "specifiers": [
+            "UDPDataImpl"
+          ]
+        }
+      ],
+      "exports": [
+        "UDPReceiver",
+        "receive",
+        "receive",
+        "close"
+      ],
+      "totalLines": 173,
+      "hasStructuralAnalysis": true
+    },
+    "src/jx/netmanager/UDPSender.java": {
+      "filePath": "src/jx/netmanager/UDPSender.java",
+      "contentHash": "4dde7dec86201c5078fe1480406cf694bdea804e521662a8c9560fb6df5fd374",
+      "functions": [
+        {
+          "name": "UDPSender",
+          "params": [
+            "net",
+            "localPort",
+            "dst",
+            "remotePort"
+          ],
+          "exported": false,
+          "lineCount": 14
+        },
+        {
+          "name": "send1",
+          "params": [
+            "m",
+            "offset",
+            "size"
+          ],
+          "returnType": "Memory",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "send",
+          "params": [
+            "m"
+          ],
+          "returnType": "Memory",
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "close",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "getLocalPort",
+          "params": [],
+          "returnType": "int",
+          "exported": true,
+          "lineCount": 2
+        },
+        {
+          "name": "getRemotePort",
+          "params": [],
+          "returnType": "int",
+          "exported": true,
+          "lineCount": 2
+        },
+        {
+          "name": "getDestination",
+          "params": [],
+          "returnType": "IPAddress",
+          "exported": true,
+          "lineCount": 2
+        }
+      ],
+      "classes": [
+        {
+          "name": "UDPSender",
+          "methods": [
+            "UDPSender",
+            "send1",
+            "send",
+            "close",
+            "getLocalPort",
+            "getRemotePort",
+            "getDestination"
+          ],
+          "properties": [
+            "udpSender",
+            "udpSender1",
+            "localPort",
+            "dst",
+            "remotePort"
+          ],
+          "exported": false,
+          "lineCount": 47
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.zero",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.net.PacketsConsumer",
+          "specifiers": [
+            "PacketsConsumer"
+          ]
+        },
+        {
+          "source": "jx.net.PacketsConsumer1",
+          "specifiers": [
+            "PacketsConsumer1"
+          ]
+        },
+        {
+          "source": "jx.net.IPAddress",
+          "specifiers": [
+            "IPAddress"
+          ]
+        },
+        {
+          "source": "jx.net.UnknownAddressException",
+          "specifiers": [
+            "UnknownAddressException"
+          ]
+        },
+        {
+          "source": "jx.net.protocol.ip.IP",
+          "specifiers": [
+            "IP"
+          ]
+        }
+      ],
+      "exports": [
+        "send1",
+        "send",
+        "close",
+        "getLocalPort",
+        "getRemotePort",
+        "getDestination"
+      ],
+      "totalLines": 61,
+      "hasStructuralAnalysis": true
+    },
+    "src/org/jnode/driver/net/lance/BufferManager.java": {
+      "filePath": "src/org/jnode/driver/net/lance/BufferManager.java",
+      "contentHash": "8bf798b563772a951f8170751aeb2c9c22836cad1a7f8f3d62e3e16d0c621d63",
+      "functions": [
+        {
+          "name": "BufferManager",
+          "params": [
+            "rm",
+            "rxRingLength",
+            "txRingLength",
+            "mode",
+            "physicalAddr",
+            "logicalAddr"
+          ],
+          "exported": true,
+          "lineCount": 28
+        },
+        {
+          "name": "getInitDataAddressAs32Bit",
+          "params": [],
+          "returnType": "int",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "transmit",
+          "params": [
+            "buf"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 7
+        },
+        {
+          "name": "getPacket",
+          "params": [],
+          "returnType": "Memory",
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "classes": [
+        {
+          "name": "BufferManager",
+          "methods": [
+            "BufferManager",
+            "getInitDataAddressAs32Bit",
+            "transmit",
+            "getPacket"
+          ],
+          "properties": [
+            "DATA_BUFFER_SIZE",
+            "mem",
+            "rm",
+            "initBlock",
+            "rxRing",
+            "txRing",
+            "size"
+          ],
+          "exported": true,
+          "lineCount": 70
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.zero.Debug",
+          "specifiers": [
+            "Debug"
+          ]
+        },
+        {
+          "source": "jx.zero.Memory",
+          "specifiers": [
+            "Memory"
+          ]
+        },
+        {
+          "source": "jx.zero.MemoryManager",
+          "specifiers": [
+            "MemoryManager"
+          ]
+        },
+        {
+          "source": "metaxa.os.devices.net.EthernetAdress",
+          "specifiers": [
+            "EthernetAdress"
+          ]
+        }
+      ],
+      "exports": [
+        "DATA_BUFFER_SIZE",
+        "BufferManager",
+        "getInitDataAddressAs32Bit",
+        "transmit",
+        "getPacket",
+        "BufferManager"
+      ],
+      "totalLines": 101,
+      "hasStructuralAnalysis": true
+    },
+    "src/org/jnode/driver/net/lance/Descriptor.java": {
+      "filePath": "src/org/jnode/driver/net/lance/Descriptor.java",
+      "contentHash": "96cac67eba83cd2e480aeebb8f48fba127c1bcae277777925d92321ca9fc70d7",
+      "functions": [
+        {
+          "name": "Descriptor",
+          "params": [
+            "mem",
+            "offset",
+            "dataBufferOffset"
+          ],
+          "exported": true,
+          "lineCount": 22
+        },
+        {
+          "name": "isOwnerSelf",
+          "params": [],
+          "returnType": "boolean",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "setOwnerSelf",
+          "params": [
+            "self"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 7
+        },
+        {
+          "name": "getStatus",
+          "params": [],
+          "returnType": "short",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "setStatus",
+          "params": [
+            "status"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "classes": [
+        {
+          "name": "Descriptor",
+          "methods": [
+            "Descriptor",
+            "isOwnerSelf",
+            "setOwnerSelf",
+            "getStatus",
+            "setStatus"
+          ],
+          "properties": [
+            "MESSAGE_DESCRIPTOR_SIZE",
+            "STATUS",
+            "STATUS_OWN",
+            "STATUS_ERR",
+            "STATUS_STP",
+            "STATUS_ENP",
+            "STATUS_BPE",
+            "BCNT",
+            "mem",
+            "offset",
+            "dataBufferOffset"
+          ],
+          "exported": true,
+          "lineCount": 68
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.zero.Debug",
+          "specifiers": [
+            "Debug"
+          ]
+        },
+        {
+          "source": "jx.zero.Memory",
+          "specifiers": [
+            "Memory"
+          ]
+        }
+      ],
+      "exports": [
+        "MESSAGE_DESCRIPTOR_SIZE",
+        "STATUS",
+        "STATUS_OWN",
+        "STATUS_ERR",
+        "STATUS_STP",
+        "STATUS_ENP",
+        "STATUS_BPE",
+        "BCNT",
+        "Descriptor",
+        "isOwnerSelf",
+        "setOwnerSelf",
+        "getStatus",
+        "setStatus",
+        "Descriptor"
+      ],
+      "totalLines": 97,
+      "hasStructuralAnalysis": true
+    },
+    "src/org/jnode/driver/net/lance/DescriptorRing.java": {
+      "filePath": "src/org/jnode/driver/net/lance/DescriptorRing.java",
+      "contentHash": "c684374e394cc9e265ae0594de4aeb7cbe39c9173453769be03b340d452aa342",
+      "functions": [
+        {
+          "name": "DescriptorRing",
+          "params": [
+            "mem",
+            "offset",
+            "length"
+          ],
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "getSize",
+          "params": [],
+          "returnType": "int",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "getLength",
+          "params": [],
+          "returnType": "int",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "getAddressAs32",
+          "params": [],
+          "returnType": "int",
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "classes": [
+        {
+          "name": "DescriptorRing",
+          "methods": [
+            "DescriptorRing",
+            "getSize",
+            "getLength",
+            "getAddressAs32"
+          ],
+          "properties": [
+            "mem",
+            "offset",
+            "length",
+            "currentDescriptor"
+          ],
+          "exported": true,
+          "lineCount": 24
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.zero.Memory",
+          "specifiers": [
+            "Memory"
+          ]
+        }
+      ],
+      "exports": [
+        "DescriptorRing",
+        "getSize",
+        "getLength",
+        "getAddressAs32",
+        "DescriptorRing"
+      ],
+      "totalLines": 52,
+      "hasStructuralAnalysis": true
+    },
+    "src/org/jnode/driver/net/lance/DWordIOAccess.java": {
+      "filePath": "src/org/jnode/driver/net/lance/DWordIOAccess.java",
+      "contentHash": "37953f8bb5344b6ebf688295f1e48859072db42618398382fe533d7a6b09e989",
+      "functions": [
+        {
+          "name": "DWordIOAccess",
+          "params": [
+            "io",
+            "iobase"
+          ],
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "getType",
+          "params": [],
+          "returnType": "String",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "reset",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "getCSR",
+          "params": [
+            "csrnr"
+          ],
+          "returnType": "int",
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "setCSR",
+          "params": [
+            "csrnr",
+            "value"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "getBCR",
+          "params": [
+            "bcrnr"
+          ],
+          "returnType": "int",
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "setBCR",
+          "params": [
+            "bcrnr",
+            "value"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 5
+        }
+      ],
+      "classes": [
+        {
+          "name": "DWordIOAccess",
+          "methods": [
+            "DWordIOAccess",
+            "getType",
+            "reset",
+            "getCSR",
+            "setCSR",
+            "getBCR",
+            "setBCR"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 41
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.zero.Ports",
+          "specifiers": [
+            "Ports"
+          ]
+        }
+      ],
+      "exports": [
+        "DWordIOAccess",
+        "getType",
+        "reset",
+        "getCSR",
+        "setCSR",
+        "getBCR",
+        "setBCR",
+        "DWordIOAccess"
+      ],
+      "totalLines": 69,
+      "hasStructuralAnalysis": true
+    },
+    "src/org/jnode/driver/net/lance/InitializationBlock32Bit.java": {
+      "filePath": "src/org/jnode/driver/net/lance/InitializationBlock32Bit.java",
+      "contentHash": "ae976925ad54b8a7495715e8efd8b51947b6912d13fad7907dad5baac81b85fa",
+      "functions": [
+        {
+          "name": "InitializationBlock32Bit",
+          "params": [
+            "mem",
+            "mode",
+            "physicalAddr",
+            "rxRing",
+            "txRing",
+            "logicalAddr"
+          ],
+          "exported": true,
+          "lineCount": 25
+        },
+        {
+          "name": "getEncodedRingLength",
+          "params": [
+            "ringLength"
+          ],
+          "returnType": "byte",
+          "exported": false,
+          "lineCount": 8
+        }
+      ],
+      "classes": [
+        {
+          "name": "InitializationBlock32Bit",
+          "methods": [
+            "InitializationBlock32Bit",
+            "getEncodedRingLength"
+          ],
+          "properties": [
+            "INIT_BLOCK_SIZE",
+            "mem"
+          ],
+          "exported": true,
+          "lineCount": 50
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.zero.Memory",
+          "specifiers": [
+            "Memory"
+          ]
+        },
+        {
+          "source": "metaxa.os.devices.net.EthernetAdress",
+          "specifiers": [
+            "EthernetAdress"
+          ]
+        }
+      ],
+      "exports": [
+        "INIT_BLOCK_SIZE",
+        "InitializationBlock32Bit",
+        "InitializationBlock32Bit"
+      ],
+      "totalLines": 79,
+      "hasStructuralAnalysis": true
+    },
+    "src/org/jnode/driver/net/lance/IOAccess.java": {
+      "filePath": "src/org/jnode/driver/net/lance/IOAccess.java",
+      "contentHash": "24040b740e8d9e1ca96907510707aab613f0635de5b6e774ceda431fc323f98b",
+      "functions": [
+        {
+          "name": "IOAccess",
+          "params": [
+            "io",
+            "iobase"
+          ],
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "getType",
+          "params": [],
+          "returnType": "String",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "reset",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "getCSR",
+          "params": [
+            "csrnr"
+          ],
+          "returnType": "int",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "setCSR",
+          "params": [
+            "csrnr",
+            "value"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "getBCR",
+          "params": [
+            "bcrnr"
+          ],
+          "returnType": "int",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "setBCR",
+          "params": [
+            "bcrnr",
+            "value"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [
+        {
+          "name": "IOAccess",
+          "methods": [
+            "IOAccess",
+            "getType",
+            "reset",
+            "getCSR",
+            "setCSR",
+            "getBCR",
+            "setBCR"
+          ],
+          "properties": [
+            "io",
+            "iobase"
+          ],
+          "exported": true,
+          "lineCount": 48
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.zero.Ports",
+          "specifiers": [
+            "Ports"
+          ]
+        }
+      ],
+      "exports": [
+        "IOAccess",
+        "getType",
+        "reset",
+        "getCSR",
+        "setCSR",
+        "getBCR",
+        "setBCR",
+        "IOAccess"
+      ],
+      "totalLines": 76,
+      "hasStructuralAnalysis": true
+    },
+    "src/org/jnode/driver/net/lance/LanceConstants.java": {
+      "filePath": "src/org/jnode/driver/net/lance/LanceConstants.java",
+      "contentHash": "33323dcf904aeeac75f903db110deef4dd20edfc6f5179be57cada9f1f2832ba",
+      "functions": [],
+      "classes": [
+        {
+          "name": "LanceConstants",
+          "methods": [],
+          "properties": [
+            "R_ETH_ADDR_OFFSET",
+            "WIO_RDP",
+            "WIO_RAP",
+            "WIO_RESET",
+            "WIO_BDP",
+            "DWIO_RDP",
+            "DWIO_RAP",
+            "DWIO_RESET",
+            "DWIO_BDP",
+            "CSR0_INIT",
+            "CSR0_STRT",
+            "CSR0_STOP",
+            "CSR0_TDMD",
+            "CSR0_TXON",
+            "CSR0_RXON",
+            "CSR0_IENA",
+            "CSR0_INTR",
+            "CSR0_IDON",
+            "CSR0_TINT",
+            "CSR0_RINT",
+            "CSR0_MERR",
+            "CSR0_MISS",
+            "CSR0_CERR",
+            "CSR0_BABL",
+            "CSR0_ERR",
+            "CSR3_BSWP",
+            "CSR3_EMBA",
+            "CSR3_DXMT2PD",
+            "CSR3_LAPPEN",
+            "CSR3_DXSUFLO",
+            "CSR3_IDONM",
+            "CSR3_TINTM",
+            "CSR3_RINTM",
+            "CSR3_MERRM",
+            "CSR3_MISSM",
+            "CSR3_BABLM",
+            "CSR4_JABM",
+            "CSR4_JAB",
+            "CSR4_TXSTRTM",
+            "CSR4_TXSTRT",
+            "CSR4_RCVCCOM",
+            "CSR4_RCVCCO",
+            "CSR4_UINT",
+            "CSR4_UINTCMD",
+            "CSR4_MFCOM",
+            "CSR4_MFCO",
+            "CSR4_ASTRP_RCV",
+            "CSR4_APAD_XMT",
+            "CSR4_DPOLL",
+            "CSR4_TIMER",
+            "CSR4_DMAPLUS",
+            "CSR4_EN124",
+            "CSR5_SPND",
+            "CSR5_MPMODE",
+            "CSR5_MPEN",
+            "CSR5_MPINTE",
+            "CSR5_MPINT",
+            "CSR5_MPPLBA",
+            "CSR5_EXDINTE",
+            "CSR5_EXDINT",
+            "CSR5_SLPINTE",
+            "CSR5_SLPINT",
+            "CSR5_SINTE",
+            "CSR5_SINT",
+            "CSR5_LTINTEN",
+            "CSR5_TOKINTD",
+            "CSR15_DRX",
+            "CSR15_DTX",
+            "CSR15_LOOP",
+            "CSR15_DXMTFCS",
+            "CSR15_FCOLL",
+            "CSR15_DRTY",
+            "CSR15_INTL",
+            "CSR15_PROM",
+            "BCR2_XMAUSEL",
+            "BCR2_ASEL",
+            "BCR2_AWAKE",
+            "BCR2_EADISEL",
+            "BCR2_DXCVRPOL",
+            "BCR2_DXCVRCTL",
+            "BCR2_INTLEVEL",
+            "BCR2_APROMWE",
+            "BCR2_TMAULOOP",
+            "BCR9_FDEN"
+          ],
+          "exported": true,
+          "lineCount": 106
+        }
+      ],
+      "imports": [],
+      "exports": [
+        "LanceConstants"
+      ],
+      "totalLines": 132,
+      "hasStructuralAnalysis": true
+    },
+    "src/org/jnode/driver/net/lance/LanceCore.java": {
+      "filePath": "src/org/jnode/driver/net/lance/LanceCore.java",
+      "contentHash": "58a7529c3ea0c9299dfa8d314e06528e10cc094c062a386ec1019388f48871c5",
+      "functions": [
+        {
+          "name": "LanceCore",
+          "params": [
+            "driver",
+            "device",
+            "flags",
+            "irq",
+            "ports",
+            "rm"
+          ],
+          "exported": true,
+          "lineCount": 59
+        },
+        {
+          "name": "getIOAccess",
+          "params": [],
+          "returnType": "IOAccess",
+          "exported": false,
+          "lineCount": 21
+        },
+        {
+          "name": "initialize",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 27
+        },
+        {
+          "name": "disable",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "release",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "getHwAddress",
+          "params": [],
+          "returnType": "EthernetAdress",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "loadHWAddress",
+          "params": [],
+          "returnType": "EthernetAdress",
+          "exported": false,
+          "lineCount": 13
+        },
+        {
+          "name": "setFlags",
+          "params": [],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 6
+        },
+        {
+          "name": "transmit",
+          "params": [
+            "buf"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 16
+        },
+        {
+          "name": "interrupt",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 125
+        },
+        {
+          "name": "rxProcess",
+          "params": [],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 15
+        },
+        {
+          "name": "dumpDebugInfo",
+          "params": [],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 21
+        }
+      ],
+      "classes": [
+        {
+          "name": "LanceCore",
+          "methods": [
+            "LanceCore",
+            "getIOAccess",
+            "initialize",
+            "disable",
+            "release",
+            "getHwAddress",
+            "loadHWAddress",
+            "setFlags",
+            "transmit",
+            "interrupt",
+            "rxProcess",
+            "dumpDebugInfo"
+          ],
+          "properties": [
+            "RX_DESCRIPTOR_LENGTH",
+            "TX_DESCRIPTOR_LENGTH",
+            "driver",
+            "iobase",
+            "ioResource",
+            "io",
+            "irq",
+            "hwAddress",
+            "flags",
+            "bufferManager"
+          ],
+          "exported": true,
+          "lineCount": 418
+        }
+      ],
+      "imports": [
+        {
+          "source": "AI.AIZeroLogic",
+          "specifiers": [
+            "AIZeroLogic"
+          ]
+        },
+        {
+          "source": "AI.Models.IRQHandler",
+          "specifiers": [
+            "IRQHandler"
+          ]
+        },
+        {
+          "source": "jx.devices.pci.PCIDevice",
+          "specifiers": [
+            "PCIDevice"
+          ]
+        },
+        {
+          "source": "jx.zero.Debug",
+          "specifiers": [
+            "Debug"
+          ]
+        },
+        {
+          "source": "jx.zero.FirstLevelIrqHandler",
+          "specifiers": [
+            "FirstLevelIrqHandler"
+          ]
+        },
+        {
+          "source": "jx.zero.IRQ",
+          "specifiers": [
+            "IRQ"
+          ]
+        },
+        {
+          "source": "jx.zero.Memory",
+          "specifiers": [
+            "Memory"
+          ]
+        },
+        {
+          "source": "jx.zero.MemoryManager",
+          "specifiers": [
+            "MemoryManager"
+          ]
+        },
+        {
+          "source": "jx.zero.Ports",
+          "specifiers": [
+            "Ports"
+          ]
+        },
+        {
+          "source": "metaxa.os.devices.net.EthernetAdress",
+          "specifiers": [
+            "EthernetAdress"
+          ]
+        },
+        {
+          "source": "metaxa.os.devices.net.WrongEthernetAdressFormat",
+          "specifiers": [
+            "WrongEthernetAdressFormat"
+          ]
+        }
+      ],
+      "exports": [
+        "LanceCore",
+        "initialize",
+        "disable",
+        "release",
+        "getHwAddress",
+        "transmit",
+        "interrupt",
+        "LanceCore"
+      ],
+      "totalLines": 469,
+      "hasStructuralAnalysis": true
+    },
+    "src/org/jnode/driver/net/lance/LanceDriver.java": {
+      "filePath": "src/org/jnode/driver/net/lance/LanceDriver.java",
+      "contentHash": "ae624c3f0b0c2694f1dd2c8bfd4a482903cdf3e41f9de7b8f4ad4cc8af8fad1d",
+      "functions": [
+        {
+          "name": "LanceDriver",
+          "params": [
+            "device",
+            "flags",
+            "irq",
+            "ports",
+            "rm",
+            "cpuManager",
+            "bufs"
+          ],
+          "exported": true,
+          "lineCount": 11
+        },
+        {
+          "name": "newCore",
+          "params": [
+            "device",
+            "flags",
+            "irq",
+            "ports",
+            "rm"
+          ],
+          "returnType": "LanceCore",
+          "exported": false,
+          "lineCount": 3
+        },
+        {
+          "name": "setReceiveMode",
+          "params": [
+            "mode"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "transmit",
+          "params": [
+            "buf"
+          ],
+          "returnType": "Memory",
+          "exported": true,
+          "lineCount": 9
+        },
+        {
+          "name": "transmit1",
+          "params": [
+            "buf1",
+            "offset",
+            "size"
+          ],
+          "returnType": "Memory",
+          "exported": true,
+          "lineCount": 21
+        },
+        {
+          "name": "getMACAddress",
+          "params": [],
+          "returnType": "byte[]",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "getMTU",
+          "params": [],
+          "returnType": "int",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "registerNonBlockingConsumer",
+          "params": [
+            "consumer"
+          ],
+          "returnType": "boolean",
+          "exported": true,
+          "lineCount": 8
+        },
+        {
+          "name": "getSupportedConfigurations",
+          "params": [],
+          "returnType": "DeviceConfigurationTemplate[]",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "open",
+          "params": [
+            "conf"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "close",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "onReceive",
+          "params": [
+            "skbuf"
+          ],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 4
+        },
+        {
+          "name": "getId",
+          "params": [],
+          "returnType": "int",
+          "exported": true,
+          "lineCount": 4
+        }
+      ],
+      "classes": [
+        {
+          "name": "LanceDriver",
+          "methods": [
+            "LanceDriver",
+            "newCore",
+            "setReceiveMode",
+            "transmit",
+            "transmit1",
+            "getMACAddress",
+            "getMTU",
+            "registerNonBlockingConsumer",
+            "getSupportedConfigurations",
+            "open",
+            "close",
+            "onReceive",
+            "getId"
+          ],
+          "properties": [
+            "abstractDeviceCore",
+            "debugSend",
+            "etherConsumer",
+            "ETH_DATA_LEN",
+            "rm",
+            "cpuManager",
+            "event_interrupt",
+            "event_snd",
+            "event_rcv",
+            "usableBufs"
+          ],
+          "exported": true,
+          "lineCount": 122
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.buffer.multithread.Buffer2",
+          "specifiers": [
+            "Buffer2"
+          ]
+        },
+        {
+          "source": "jx.buffer.multithread.MultiThreadBufferList",
+          "specifiers": [
+            "MultiThreadBufferList"
+          ]
+        },
+        {
+          "source": "jx.buffer.multithread.MultiThreadBufferList2",
+          "specifiers": [
+            "MultiThreadBufferList2"
+          ]
+        },
+        {
+          "source": "jx.fs.buffer.separator.NonBlockingMemoryConsumer",
+          "specifiers": [
+            "NonBlockingMemoryConsumer"
+          ]
+        },
+        {
+          "source": "jx.devices.DeviceConfiguration",
+          "specifiers": [
+            "DeviceConfiguration"
+          ]
+        },
+        {
+          "source": "jx.devices.DeviceConfigurationTemplate",
+          "specifiers": [
+            "DeviceConfigurationTemplate"
+          ]
+        },
+        {
+          "source": "jx.devices.net.NetworkDevice",
+          "specifiers": [
+            "NetworkDevice"
+          ]
+        },
+        {
+          "source": "jx.devices.pci.PCIDevice",
+          "specifiers": [
+            "PCIDevice"
+          ]
+        },
+        {
+          "source": "jx.zero.CPUManager",
+          "specifiers": [
+            "CPUManager"
+          ]
+        },
+        {
+          "source": "jx.zero.Debug",
+          "specifiers": [
+            "Debug"
+          ]
+        },
+        {
+          "source": "jx.zero.IRQ",
+          "specifiers": [
+            "IRQ"
+          ]
+        },
+        {
+          "source": "jx.zero.Memory",
+          "specifiers": [
+            "Memory"
+          ]
+        },
+        {
+          "source": "jx.zero.MemoryManager",
+          "specifiers": [
+            "MemoryManager"
+          ]
+        },
+        {
+          "source": "jx.zero.Ports",
+          "specifiers": [
+            "Ports"
+          ]
+        }
+      ],
+      "exports": [
+        "ETH_DATA_LEN",
+        "LanceDriver",
+        "setReceiveMode",
+        "transmit",
+        "transmit1",
+        "getMACAddress",
+        "getMTU",
+        "registerNonBlockingConsumer",
+        "getSupportedConfigurations",
+        "open",
+        "close",
+        "getId",
+        "LanceDriver"
+      ],
+      "totalLines": 164,
+      "hasStructuralAnalysis": true
+    },
+    "src/org/jnode/driver/net/lance/LanceFlags.java": {
+      "filePath": "src/org/jnode/driver/net/lance/LanceFlags.java",
+      "contentHash": "a652df457cee56f51ef300d3cc89c199eef5dde434b97a9398463ef7855f6b9f",
+      "functions": [
+        {
+          "name": "LanceFlags",
+          "params": [
+            "name"
+          ],
+          "exported": true,
+          "lineCount": 7
+        },
+        {
+          "name": "setForVersion",
+          "params": [
+            "chipVersion"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 37
+        },
+        {
+          "name": "getName",
+          "params": [],
+          "returnType": "String",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "getChipName",
+          "params": [],
+          "returnType": "String",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "isFullDuplex",
+          "params": [],
+          "returnType": "boolean",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "isAutoSelectEnabled",
+          "params": [],
+          "returnType": "boolean",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "isMustUnreset",
+          "params": [],
+          "returnType": "boolean",
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "classes": [
+        {
+          "name": "LanceFlags",
+          "methods": [
+            "LanceFlags",
+            "setForVersion",
+            "getName",
+            "getChipName",
+            "isFullDuplex",
+            "isAutoSelectEnabled",
+            "isMustUnreset"
+          ],
+          "properties": [
+            "name",
+            "chipName",
+            "fullDuplex",
+            "autoSelectEnabled",
+            "mustUnreset"
+          ],
+          "exported": true,
+          "lineCount": 86
+        }
+      ],
+      "imports": [],
+      "exports": [
+        "LanceFlags",
+        "setForVersion",
+        "getName",
+        "getChipName",
+        "isFullDuplex",
+        "isAutoSelectEnabled",
+        "isMustUnreset",
+        "LanceFlags"
+      ],
+      "totalLines": 112,
+      "hasStructuralAnalysis": true
+    },
+    "src/org/jnode/driver/net/lance/RxDescriptor.java": {
+      "filePath": "src/org/jnode/driver/net/lance/RxDescriptor.java",
+      "contentHash": "4c228adf2826f6e959bfdb2f23874579b50454fa24ab14de997e659bad6a33c2",
+      "functions": [
+        {
+          "name": "RxDescriptor",
+          "params": [
+            "mem",
+            "offset",
+            "dataBufferOffset"
+          ],
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "clearStatus",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "getMessageByteCount",
+          "params": [],
+          "returnType": "short",
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "getDataBuffer",
+          "params": [
+            "memMgr"
+          ],
+          "returnType": "Memory",
+          "exported": true,
+          "lineCount": 8
+        }
+      ],
+      "classes": [
+        {
+          "name": "RxDescriptor",
+          "methods": [
+            "RxDescriptor",
+            "clearStatus",
+            "getMessageByteCount",
+            "getDataBuffer"
+          ],
+          "properties": [
+            "STATUS_FRAM",
+            "STATUS_OFLO",
+            "STATUS_CRC",
+            "STATUS_BUFF"
+          ],
+          "exported": true,
+          "lineCount": 31
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.zero.Debug",
+          "specifiers": [
+            "Debug"
+          ]
+        },
+        {
+          "source": "jx.zero.Memory",
+          "specifiers": [
+            "Memory"
+          ]
+        },
+        {
+          "source": "jx.zero.MemoryManager",
+          "specifiers": [
+            "MemoryManager"
+          ]
+        }
+      ],
+      "exports": [
+        "STATUS_FRAM",
+        "STATUS_OFLO",
+        "STATUS_CRC",
+        "STATUS_BUFF",
+        "RxDescriptor",
+        "clearStatus",
+        "getMessageByteCount",
+        "getDataBuffer",
+        "RxDescriptor"
+      ],
+      "totalLines": 61,
+      "hasStructuralAnalysis": true
+    },
+    "src/org/jnode/driver/net/lance/RxDescriptorRing.java": {
+      "filePath": "src/org/jnode/driver/net/lance/RxDescriptorRing.java",
+      "contentHash": "dac9b4f0eb3eade2b26830387071d033f1057cfa37f0041f016ea5c2d35f7b3d",
+      "functions": [
+        {
+          "name": "RxDescriptorRing",
+          "params": [
+            "mem",
+            "offset",
+            "length",
+            "dataBufferOffset"
+          ],
+          "exported": true,
+          "lineCount": 11
+        },
+        {
+          "name": "getPacket",
+          "params": [
+            "memMgr"
+          ],
+          "returnType": "Memory",
+          "exported": true,
+          "lineCount": 51
+        }
+      ],
+      "classes": [
+        {
+          "name": "RxDescriptorRing",
+          "methods": [
+            "RxDescriptorRing",
+            "getPacket"
+          ],
+          "properties": [
+            "rxDescriptors"
+          ],
+          "exported": true,
+          "lineCount": 77
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.zero.Debug",
+          "specifiers": [
+            "Debug"
+          ]
+        },
+        {
+          "source": "jx.zero.Memory",
+          "specifiers": [
+            "Memory"
+          ]
+        },
+        {
+          "source": "jx.zero.MemoryManager",
+          "specifiers": [
+            "MemoryManager"
+          ]
+        }
+      ],
+      "exports": [
+        "RxDescriptorRing",
+        "getPacket",
+        "RxDescriptorRing"
+      ],
+      "totalLines": 107,
+      "hasStructuralAnalysis": true
+    },
+    "src/org/jnode/driver/net/lance/TxDescriptor.java": {
+      "filePath": "src/org/jnode/driver/net/lance/TxDescriptor.java",
+      "contentHash": "4a432ec23c3987c018e96f03ea0f30677995122c5f3f479cc5d36d6ccb4126fe",
+      "functions": [
+        {
+          "name": "TxDescriptor",
+          "params": [
+            "mem",
+            "offset",
+            "dataBufferOffset"
+          ],
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "transmit",
+          "params": [
+            "skbuf"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 14
+        },
+        {
+          "name": "setByteCount",
+          "params": [
+            "bcnt"
+          ],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 3
+        }
+      ],
+      "classes": [
+        {
+          "name": "TxDescriptor",
+          "methods": [
+            "TxDescriptor",
+            "transmit",
+            "setByteCount"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 26
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.zero.Memory",
+          "specifiers": [
+            "Memory"
+          ]
+        }
+      ],
+      "exports": [
+        "TxDescriptor",
+        "transmit",
+        "TxDescriptor"
+      ],
+      "totalLines": 54,
+      "hasStructuralAnalysis": true
+    },
+    "src/org/jnode/driver/net/lance/TxDescriptorRing.java": {
+      "filePath": "src/org/jnode/driver/net/lance/TxDescriptorRing.java",
+      "contentHash": "80a4523dd25ae3a6b63faa46fa3f92bd3d401f2c992652465d2545748a093496",
+      "functions": [
+        {
+          "name": "TxDescriptorRing",
+          "params": [
+            "mem",
+            "offset",
+            "length",
+            "dataBufferOffset"
+          ],
+          "exported": true,
+          "lineCount": 18
+        },
+        {
+          "name": "transmit",
+          "params": [
+            "skbuf"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 12
+        }
+      ],
+      "classes": [
+        {
+          "name": "TxDescriptorRing",
+          "methods": [
+            "TxDescriptorRing",
+            "transmit"
+          ],
+          "properties": [
+            "txDescriptors"
+          ],
+          "exported": true,
+          "lineCount": 53
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.zero.Debug",
+          "specifiers": [
+            "Debug"
+          ]
+        },
+        {
+          "source": "jx.zero.Memory",
+          "specifiers": [
+            "Memory"
+          ]
+        }
+      ],
+      "exports": [
+        "TxDescriptorRing",
+        "transmit",
+        "TxDescriptorRing"
+      ],
+      "totalLines": 82,
+      "hasStructuralAnalysis": true
+    },
+    "src/org/jnode/driver/net/lance/WordIOAccess.java": {
+      "filePath": "src/org/jnode/driver/net/lance/WordIOAccess.java",
+      "contentHash": "96bf34df30a0de5a6afcecb58e68f5b70a62a3229ff777f66402bf6a53c7c1ae",
+      "functions": [
+        {
+          "name": "WordIOAccess",
+          "params": [
+            "io",
+            "iobase"
+          ],
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "getType",
+          "params": [],
+          "returnType": "String",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "reset",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "getCSR",
+          "params": [
+            "csrnr"
+          ],
+          "returnType": "int",
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "setCSR",
+          "params": [
+            "csrnr",
+            "value"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "getBCR",
+          "params": [
+            "bcrnr"
+          ],
+          "returnType": "int",
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "setBCR",
+          "params": [
+            "bcrnr",
+            "value"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 5
+        }
+      ],
+      "classes": [
+        {
+          "name": "WordIOAccess",
+          "methods": [
+            "WordIOAccess",
+            "getType",
+            "reset",
+            "getCSR",
+            "setCSR",
+            "getBCR",
+            "setBCR"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 40
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.zero.Ports",
+          "specifiers": [
+            "Ports"
+          ]
+        }
+      ],
+      "exports": [
+        "WordIOAccess",
+        "getType",
+        "reset",
+        "getCSR",
+        "setCSR",
+        "getBCR",
+        "setBCR",
+        "WordIOAccess"
+      ],
+      "totalLines": 68,
+      "hasStructuralAnalysis": true
+    },
+    "src/org/jnode/net/ipv4/dhcp/AbstractDHCPClient.java": {
+      "filePath": "src/org/jnode/net/ipv4/dhcp/AbstractDHCPClient.java",
+      "contentHash": "5d79f71e081e7eb81a2d326cc0b65993e453baeaf426b268e3f7af879fff52de",
+      "functions": [
+        {
+          "name": "AbstractDHCPClient",
+          "params": [
+            "net",
+            "hwaddr"
+          ],
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "createRequestPacket",
+          "params": [
+            "hdr"
+          ],
+          "returnType": "DatagramPacket",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "processResponse",
+          "params": [
+            "transactionID",
+            "packet",
+            "socket"
+          ],
+          "returnType": "IPAddress",
+          "exported": true,
+          "lineCount": 71
+        },
+        {
+          "name": "doConfigure",
+          "params": [
+            "msg"
+          ],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 38
+        }
+      ],
+      "classes": [
+        {
+          "name": "AbstractDHCPClient",
+          "methods": [
+            "AbstractDHCPClient",
+            "createRequestPacket",
+            "processResponse",
+            "doConfigure"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 130
+        }
+      ],
+      "imports": [
+        {
+          "source": "java.io.IOException",
+          "specifiers": [
+            "IOException"
+          ]
+        },
+        {
+          "source": "java.net.DatagramPacket",
+          "specifiers": [
+            "DatagramPacket"
+          ]
+        },
+        {
+          "source": "java.net.DatagramSocket",
+          "specifiers": [
+            "DatagramSocket"
+          ]
+        },
+        {
+          "source": "jx.net.IPAddress",
+          "specifiers": [
+            "IPAddress"
+          ]
+        },
+        {
+          "source": "jx.net.IPv4Address",
+          "specifiers": [
+            "IPv4Address"
+          ]
+        },
+        {
+          "source": "jx.net.NetInit",
+          "specifiers": [
+            "NetInit"
+          ]
+        },
+        {
+          "source": "jx.net.protocol.bootp.BOOTP",
+          "specifiers": [
+            "BOOTP"
+          ]
+        },
+        {
+          "source": "jx.net.protocol.bootp.BOOTPFormat",
+          "specifiers": [
+            "BOOTPFormat"
+          ]
+        },
+        {
+          "source": "jx.zero.Debug",
+          "specifiers": [
+            "Debug"
+          ]
+        },
+        {
+          "source": "jx.zero.Memory",
+          "specifiers": [
+            "Memory"
+          ]
+        }
+      ],
+      "exports": [
+        "AbstractDHCPClient",
+        "createRequestPacket",
+        "processResponse",
+        "AbstractDHCPClient"
+      ],
+      "totalLines": 171,
+      "hasStructuralAnalysis": true
+    },
+    "src/org/jnode/net/ipv4/dhcp/DHCPClient.java": {
+      "filePath": "src/org/jnode/net/ipv4/dhcp/DHCPClient.java",
+      "contentHash": "8ba7c0e6f1930a89a3251e12a1214c55ef7e5e508e7c8ad5d1fb050b1f513954",
+      "functions": [
+        {
+          "name": "DHCPClient",
+          "params": [
+            "net",
+            "hwaddr"
+          ],
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "doConfigure",
+          "params": [
+            "msg"
+          ],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 67
+        }
+      ],
+      "classes": [
+        {
+          "name": "DHCPClient",
+          "methods": [
+            "DHCPClient",
+            "doConfigure"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 116
+        }
+      ],
+      "imports": [
+        {
+          "source": "java.io.IOException",
+          "specifiers": [
+            "IOException"
+          ]
+        },
+        {
+          "source": "jx.net.IPAddress",
+          "specifiers": [
+            "IPAddress"
+          ]
+        },
+        {
+          "source": "jx.net.IPv4Address",
+          "specifiers": [
+            "IPv4Address"
+          ]
+        },
+        {
+          "source": "jx.net.NetInit",
+          "specifiers": [
+            "NetInit"
+          ]
+        },
+        {
+          "source": "jx.net.protocol.bootp.BOOTPFormat",
+          "specifiers": [
+            "BOOTPFormat"
+          ]
+        }
+      ],
+      "exports": [
+        "DHCPClient",
+        "DHCPClient"
+      ],
+      "totalLines": 151,
+      "hasStructuralAnalysis": true
+    },
+    "src/org/jnode/net/ipv4/dhcp/DHCPMessage.java": {
+      "filePath": "src/org/jnode/net/ipv4/dhcp/DHCPMessage.java",
+      "contentHash": "8cf13e7899715061880929f38a5b429f7ebb86dec339810a29a132ab06d46cc6",
+      "functions": [
+        {
+          "name": "DHCPMessage",
+          "params": [
+            "hdr"
+          ],
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "DHCPMessage",
+          "params": [
+            "hdr",
+            "msgType"
+          ],
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "DHCPMessage",
+          "params": [
+            "skbuf"
+          ],
+          "exported": true,
+          "lineCount": 21
+        },
+        {
+          "name": "getHeader",
+          "params": [],
+          "returnType": "BOOTPFormat",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "setMessageType",
+          "params": [
+            "value"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "getMessageType",
+          "params": [],
+          "returnType": "int",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "setOption",
+          "params": [
+            "code",
+            "value"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 8
+        },
+        {
+          "name": "setOption16",
+          "params": [
+            "code",
+            "value"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "setOption",
+          "params": [
+            "code",
+            "value"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 7
+        },
+        {
+          "name": "setOption",
+          "params": [
+            "code",
+            "value"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "getOption",
+          "params": [
+            "code"
+          ],
+          "returnType": "byte[]",
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "toDatagramPacket",
+          "params": [],
+          "returnType": "DatagramPacket",
+          "exported": true,
+          "lineCount": 39
+        }
+      ],
+      "classes": [
+        {
+          "name": "DHCPMessage",
+          "methods": [
+            "DHCPMessage",
+            "DHCPMessage",
+            "DHCPMessage",
+            "getHeader",
+            "setMessageType",
+            "getMessageType",
+            "setOption",
+            "setOption16",
+            "setOption",
+            "setOption",
+            "getOption",
+            "toDatagramPacket"
+          ],
+          "properties": [
+            "OPTIONS_SIZE",
+            "SIZE",
+            "PAD_OPTION",
+            "SUBNET_MASK_OPTION",
+            "TIME_OFFSET_OPTION",
+            "ROUTER_OPTION",
+            "TIME_SERVER_OPTION",
+            "NAME_SERVER_OPTION",
+            "DNS_OPTION",
+            "LOG_SERVER_OPTION",
+            "COOKIE_SERVER_OPTION",
+            "LPR_SERVER_OPTION",
+            "HOST_NAME_OPTION",
+            "DOMAIN_NAME_OPTION",
+            "TTL_OPTION",
+            "REQUESTED_IP_ADDRESS_OPTION",
+            "LEASE_TIME_OPTION",
+            "OPTION_OVERLOAD_OPTION",
+            "FILE_OVERLOAD",
+            "SNAME_OVERLOAD",
+            "BOTH_OVERLOAD",
+            "MESSAGE_TYPE_OPTION",
+            "SERVER_IDENTIFIER_OPTION",
+            "MESSAGE_OPTION",
+            "MAX_PACKET_SIZE_OPTION",
+            "MIN_PACKET_SIZE",
+            "RENEWAL_TIME_OPTION",
+            "REBINDING_TIME_OPTION",
+            "CLIENT_IDENTIFIER_OPTION",
+            "TFTP_SERVER_OPTION",
+            "SMTP_SERVER_OPTION",
+            "POP3_SERVER_OPTION",
+            "NNTP_SERVER_OPTION",
+            "WWW_SERVER_OPTION",
+            "FINGER_SERVER_OPTION",
+            "IRC_SERVER_OPTION",
+            "PLUGIN_LOADER_OPTION",
+            "END_OPTION",
+            "DHCPDISCOVER",
+            "DHCPOFFER",
+            "DHCPREQUEST",
+            "DHCPDECLINE",
+            "DHCPACK",
+            "DHCPNAK",
+            "DHCPRELEASE",
+            "DHCPINFORM",
+            "header",
+            "messageType",
+            "options"
+          ],
+          "exported": true,
+          "lineCount": 282
+        }
+      ],
+      "imports": [
+        {
+          "source": "java.io.UnsupportedEncodingException",
+          "specifiers": [
+            "UnsupportedEncodingException"
+          ]
+        },
+        {
+          "source": "java.net.DatagramPacket",
+          "specifiers": [
+            "DatagramPacket"
+          ]
+        },
+        {
+          "source": "java.net.Inet4Address",
+          "specifiers": [
+            "Inet4Address"
+          ]
+        },
+        {
+          "source": "java.net.InetAddress",
+          "specifiers": [
+            "InetAddress"
+          ]
+        },
+        {
+          "source": "java.net.UnknownHostException",
+          "specifiers": [
+            "UnknownHostException"
+          ]
+        },
+        {
+          "source": "java.util.Enumeration",
+          "specifiers": [
+            "Enumeration"
+          ]
+        },
+        {
+          "source": "java.util.HashMap",
+          "specifiers": [
+            "HashMap"
+          ]
+        },
+        {
+          "source": "java.util.Hashtable",
+          "specifiers": [
+            "Hashtable"
+          ]
+        },
+        {
+          "source": "java.util.Map",
+          "specifiers": [
+            "Map"
+          ]
+        },
+        {
+          "source": "jx.net.protocol.bootp.BOOTPFormat",
+          "specifiers": [
+            "BOOTPFormat"
+          ]
+        },
+        {
+          "source": "jx.zero.Debug",
+          "specifiers": [
+            "Debug"
+          ]
+        },
+        {
+          "source": "jx.zero.Memory",
+          "specifiers": [
+            "Memory"
+          ]
+        }
+      ],
+      "exports": [
+        "OPTIONS_SIZE",
+        "SIZE",
+        "PAD_OPTION",
+        "SUBNET_MASK_OPTION",
+        "TIME_OFFSET_OPTION",
+        "ROUTER_OPTION",
+        "TIME_SERVER_OPTION",
+        "NAME_SERVER_OPTION",
+        "DNS_OPTION",
+        "LOG_SERVER_OPTION",
+        "COOKIE_SERVER_OPTION",
+        "LPR_SERVER_OPTION",
+        "HOST_NAME_OPTION",
+        "DOMAIN_NAME_OPTION",
+        "TTL_OPTION",
+        "REQUESTED_IP_ADDRESS_OPTION",
+        "LEASE_TIME_OPTION",
+        "OPTION_OVERLOAD_OPTION",
+        "FILE_OVERLOAD",
+        "SNAME_OVERLOAD",
+        "BOTH_OVERLOAD",
+        "MESSAGE_TYPE_OPTION",
+        "SERVER_IDENTIFIER_OPTION",
+        "MESSAGE_OPTION",
+        "MAX_PACKET_SIZE_OPTION",
+        "MIN_PACKET_SIZE",
+        "RENEWAL_TIME_OPTION",
+        "REBINDING_TIME_OPTION",
+        "CLIENT_IDENTIFIER_OPTION",
+        "TFTP_SERVER_OPTION",
+        "SMTP_SERVER_OPTION",
+        "POP3_SERVER_OPTION",
+        "NNTP_SERVER_OPTION",
+        "WWW_SERVER_OPTION",
+        "FINGER_SERVER_OPTION",
+        "IRC_SERVER_OPTION",
+        "PLUGIN_LOADER_OPTION",
+        "END_OPTION",
+        "DHCPDISCOVER",
+        "DHCPOFFER",
+        "DHCPREQUEST",
+        "DHCPDECLINE",
+        "DHCPACK",
+        "DHCPNAK",
+        "DHCPRELEASE",
+        "DHCPINFORM",
+        "DHCPMessage",
+        "DHCPMessage",
+        "getHeader",
+        "setMessageType",
+        "getMessageType",
+        "setOption",
+        "setOption16",
+        "setOption",
+        "setOption",
+        "getOption",
+        "toDatagramPacket",
+        "DHCPMessage"
+      ],
+      "totalLines": 323,
+      "hasStructuralAnalysis": true
+    },
+    "src/test/minitcp/Main.java": {
+      "filePath": "src/test/minitcp/Main.java",
+      "contentHash": "f42b547c7f65298eff30695de14a0ae80cdbf03e2b723640367da92429e18185",
+      "functions": [
+        {
+          "name": "main",
+          "params": [
+            "args"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "Main",
+          "params": [
+            "args"
+          ],
+          "exported": true,
+          "lineCount": 38
+        }
+      ],
+      "classes": [
+        {
+          "name": "Main",
+          "methods": [
+            "main",
+            "Main"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 44
+        }
+      ],
+      "imports": [
+        {
+          "source": "java.net",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.zero",
+          "specifiers": [
+            "*"
+          ]
+        }
+      ],
+      "exports": [
+        "main",
+        "Main"
+      ],
+      "totalLines": 50,
+      "hasStructuralAnalysis": true
+    },
+    "src/test/minitcp/MiniServerDomain.java": {
+      "filePath": "src/test/minitcp/MiniServerDomain.java",
+      "contentHash": "76d71240d47d54ac7d9455c3a62834e303057a90771bba32c2c3e97bdf13fc36",
+      "functions": [
+        {
+          "name": "init",
+          "params": [
+            "naming",
+            "argv",
+            "objs"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 8
+        }
+      ],
+      "classes": [
+        {
+          "name": "MiniServerDomain",
+          "methods": [
+            "init"
+          ],
+          "properties": [],
+          "exported": false,
+          "lineCount": 11
+        }
+      ],
+      "imports": [
+        {
+          "source": "java.net",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "java.io",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.zero",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.zero.debug",
+          "specifiers": [
+            "*"
+          ]
+        }
+      ],
+      "exports": [
+        "init"
+      ],
+      "totalLines": 19,
+      "hasStructuralAnalysis": true
+    },
+    "src/test/net/Main.java": {
+      "filePath": "src/test/net/Main.java",
+      "contentHash": "b9e8665ba23ce5681d3c872b45decd53d3501369283e88fd9609f26b7ee6aeaf",
+      "functions": [
+        {
+          "name": "test",
+          "params": [
+            "naming"
+          ],
+          "returnType": "boolean",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "Main",
+          "params": [
+            "naming"
+          ],
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "init3com",
+          "params": [
+            "naming"
+          ],
+          "returnType": "D3C905",
+          "exported": false,
+          "lineCount": 25
+        },
+        {
+          "name": "simpletest",
+          "params": [
+            "net"
+          ],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 11
+        },
+        {
+          "name": "dotest",
+          "params": [
+            "nic"
+          ],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 108
+        },
+        {
+          "name": "main",
+          "params": [
+            "args"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 18
+        }
+      ],
+      "classes": [
+        {
+          "name": "Main",
+          "methods": [
+            "test",
+            "Main",
+            "init3com",
+            "simpletest",
+            "dotest"
+          ],
+          "properties": [
+            "net",
+            "memMgr",
+            "profiler",
+            "naming"
+          ],
+          "exported": true,
+          "lineCount": 167
+        },
+        {
+          "name": "StartNetworkProtocols",
+          "methods": [
+            "main"
+          ],
+          "properties": [],
+          "exported": false,
+          "lineCount": 21
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.zero",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.zero.debug.Dump",
+          "specifiers": [
+            "Dump"
+          ]
+        },
+        {
+          "source": "jx.timer",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.devices.pci",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.devices.net",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.net.IPAddress",
+          "specifiers": [
+            "IPAddress"
+          ]
+        },
+        {
+          "source": "jx.net.IPv4Address",
+          "specifiers": [
+            "IPv4Address"
+          ]
+        },
+        {
+          "source": "jx.net.NetInit",
+          "specifiers": [
+            "NetInit"
+          ]
+        },
+        {
+          "source": "jx.net.UDPSender",
+          "specifiers": [
+            "UDPSender"
+          ]
+        },
+        {
+          "source": "metaxa.os.devices.net.D3C905",
+          "specifiers": [
+            "D3C905"
+          ]
+        },
+        {
+          "source": "metaxa.os.devices.net.ComInit",
+          "specifiers": [
+            "ComInit"
+          ]
+        }
+      ],
+      "exports": [
+        "test",
+        "Main",
+        "main"
+      ],
+      "totalLines": 206,
+      "hasStructuralAnalysis": true
+    },
+    "src/test/net/StartIPTest.java": {
+      "filePath": "src/test/net/StartIPTest.java",
+      "contentHash": "deca226146ed769125d960c8bdde51b73efe4a21ece86f4a7dc7f6ec8ba55549",
+      "functions": [
+        {
+          "name": "main",
+          "params": [
+            "args"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 32
+        }
+      ],
+      "classes": [
+        {
+          "name": "StartIPTest",
+          "methods": [
+            "main"
+          ],
+          "properties": [],
+          "exported": false,
+          "lineCount": 35
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.zero",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.net.NetInit",
+          "specifiers": [
+            "NetInit"
+          ]
+        },
+        {
+          "source": "jx.net.IPData",
+          "specifiers": [
+            "IPData"
+          ]
+        },
+        {
+          "source": "jx.net.IPSender",
+          "specifiers": [
+            "IPSender"
+          ]
+        },
+        {
+          "source": "jx.net.IPReceiver",
+          "specifiers": [
+            "IPReceiver"
+          ]
+        },
+        {
+          "source": "jx.net.IPv4Address",
+          "specifiers": [
+            "IPv4Address"
+          ]
+        },
+        {
+          "source": "jx.zero.debug.Dump",
+          "specifiers": [
+            "Dump"
+          ]
+        }
+      ],
+      "exports": [
+        "main"
+      ],
+      "totalLines": 47,
+      "hasStructuralAnalysis": true
+    },
+    "src/test/net/StartNICTest.java": {
+      "filePath": "src/test/net/StartNICTest.java",
+      "contentHash": "9520cafdf313c3a9b2a29fab7d04f74a4e5ca3e717b701ba6440b8db58a28d49",
+      "functions": [
+        {
+          "name": "main",
+          "params": [
+            "args"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 29
+        }
+      ],
+      "classes": [
+        {
+          "name": "StartNICTest",
+          "methods": [
+            "main"
+          ],
+          "properties": [],
+          "exported": false,
+          "lineCount": 32
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.zero",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.devices.net.NetworkDevice",
+          "specifiers": [
+            "NetworkDevice"
+          ]
+        },
+        {
+          "source": "jx.timer.TimerManager",
+          "specifiers": [
+            "TimerManager"
+          ]
+        }
+      ],
+      "exports": [
+        "main"
+      ],
+      "totalLines": 40,
+      "hasStructuralAnalysis": true
+    },
+    "src/test/net/StartTCPTest.java": {
+      "filePath": "src/test/net/StartTCPTest.java",
+      "contentHash": "b2cdfb1c17ba689c18d16191d3bc34d13f4a750215e8d3d3cb6e97f72542a65d",
+      "functions": [
+        {
+          "name": "main",
+          "params": [
+            "args"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 137
+        }
+      ],
+      "classes": [
+        {
+          "name": "StartTCPTest",
+          "methods": [
+            "main"
+          ],
+          "properties": [
+            "verbose"
+          ],
+          "exported": false,
+          "lineCount": 141
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.zero",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.net.NetInit",
+          "specifiers": [
+            "NetInit"
+          ]
+        },
+        {
+          "source": "jx.net.TCPSocket",
+          "specifiers": [
+            "TCPSocket"
+          ]
+        },
+        {
+          "source": "jx.net.IPv4Address",
+          "specifiers": [
+            "IPv4Address"
+          ]
+        },
+        {
+          "source": "java.io.InputStream",
+          "specifiers": [
+            "InputStream"
+          ]
+        },
+        {
+          "source": "java.io.OutputStream",
+          "specifiers": [
+            "OutputStream"
+          ]
+        },
+        {
+          "source": "java.net.Socket",
+          "specifiers": [
+            "Socket"
+          ]
+        },
+        {
+          "source": "java.net.ServerSocket",
+          "specifiers": [
+            "ServerSocket"
+          ]
+        }
+      ],
+      "exports": [
+        "verbose",
+        "main"
+      ],
+      "totalLines": 155,
+      "hasStructuralAnalysis": true
+    },
+    "src/test/net/StartTest.java": {
+      "filePath": "src/test/net/StartTest.java",
+      "contentHash": "57e3d4bb8be3e4d462a344c8882c6f51e95e46225077cc604f9f500a72f9847d",
+      "functions": [
+        {
+          "name": "main",
+          "params": [
+            "args"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 24
+        }
+      ],
+      "classes": [
+        {
+          "name": "StartTest",
+          "methods": [
+            "main"
+          ],
+          "properties": [],
+          "exported": false,
+          "lineCount": 28
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.zero",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.net.NetInit",
+          "specifiers": [
+            "NetInit"
+          ]
+        },
+        {
+          "source": "jx.net.UDPSender",
+          "specifiers": [
+            "UDPSender"
+          ]
+        },
+        {
+          "source": "jx.net.IPv4Address",
+          "specifiers": [
+            "IPv4Address"
+          ]
+        }
+      ],
+      "exports": [
+        "main"
+      ],
+      "totalLines": 37,
+      "hasStructuralAnalysis": true
+    },
+    "src/test/net/TCPWebWorker.java": {
+      "filePath": "src/test/net/TCPWebWorker.java",
+      "contentHash": "ffc5ee6b9c782506618e8ab3f8d979d35766fd59ab1256ce2bd23fb17c6ebb2d",
+      "functions": [
+        {
+          "name": "init",
+          "params": [
+            "naming",
+            "argv",
+            "objs"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 9
+        },
+        {
+          "name": "processRequest",
+          "params": [
+            "sock",
+            "fs"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "TCPWebWorker",
+          "params": [
+            "sock",
+            "fs"
+          ],
+          "exported": false,
+          "lineCount": 51
+        },
+        {
+          "name": "readFile",
+          "params": [
+            "name"
+          ],
+          "returnType": "byte[]",
+          "exported": false,
+          "lineCount": 19
+        },
+        {
+          "name": "parse",
+          "params": [
+            "fromClient"
+          ],
+          "returnType": "String",
+          "exported": false,
+          "lineCount": 37
+        },
+        {
+          "name": "constructHeader",
+          "params": [
+            "fileName",
+            "fileType",
+            "fileLength"
+          ],
+          "returnType": "String",
+          "exported": true,
+          "lineCount": 9
+        },
+        {
+          "name": "constructHeader",
+          "params": [
+            "fileName",
+            "fileLength"
+          ],
+          "returnType": "String",
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "constructErrorHeader",
+          "params": [],
+          "returnType": "String",
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "getProperty_DefaultFile",
+          "params": [],
+          "returnType": "String",
+          "exported": false,
+          "lineCount": 3
+        },
+        {
+          "name": "getProperty_MimeTypes",
+          "params": [
+            "fileType"
+          ],
+          "returnType": "String",
+          "exported": false,
+          "lineCount": 5
+        }
+      ],
+      "classes": [
+        {
+          "name": "TCPWebWorker",
+          "methods": [
+            "init",
+            "processRequest",
+            "TCPWebWorker",
+            "readFile",
+            "parse",
+            "constructHeader",
+            "constructHeader",
+            "constructErrorHeader",
+            "getProperty_DefaultFile",
+            "getProperty_MimeTypes"
+          ],
+          "properties": [
+            "debug",
+            "METHOD_UNDEF",
+            "METHOD_GET",
+            "METHOD_POST",
+            "method",
+            "contentsLength",
+            "memoryManager",
+            "buffer1",
+            "buffer2",
+            "fs"
+          ],
+          "exported": false,
+          "lineCount": 168
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.zero",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.zero.debug",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "java.io.OutputStream",
+          "specifiers": [
+            "OutputStream"
+          ]
+        },
+        {
+          "source": "java.io.DataInputStream",
+          "specifiers": [
+            "DataInputStream"
+          ]
+        },
+        {
+          "source": "java.io.IOException",
+          "specifiers": [
+            "IOException"
+          ]
+        },
+        {
+          "source": "java.net.Socket",
+          "specifiers": [
+            "Socket"
+          ]
+        },
+        {
+          "source": "jx.fs",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "java.util",
+          "specifiers": [
+            "*"
+          ]
+        }
+      ],
+      "exports": [
+        "init",
+        "processRequest",
+        "constructHeader",
+        "constructHeader",
+        "constructErrorHeader"
+      ],
+      "totalLines": 182,
+      "hasStructuralAnalysis": true
+    },
+    "src/test/net/TCPWorker.java": {
+      "filePath": "src/test/net/TCPWorker.java",
+      "contentHash": "b709776fe00b8ea3c4df137b95d85c8aa150da1f2fdfe9f1325b8380bb678bfb",
+      "functions": [
+        {
+          "name": "init",
+          "params": [
+            "naming",
+            "argv",
+            "portals"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 12
+        }
+      ],
+      "classes": [
+        {
+          "name": "TCPWorker",
+          "methods": [
+            "init"
+          ],
+          "properties": [],
+          "exported": false,
+          "lineCount": 14
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.zero",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.zero.debug",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "java.io.InputStream",
+          "specifiers": [
+            "InputStream"
+          ]
+        },
+        {
+          "source": "java.net.Socket",
+          "specifiers": [
+            "Socket"
+          ]
+        }
+      ],
+      "exports": [
+        "init"
+      ],
+      "totalLines": 23,
+      "hasStructuralAnalysis": true
+    },
+    "src/test/net/WebServer.java": {
+      "filePath": "src/test/net/WebServer.java",
+      "contentHash": "dacbb2dfa78d915cbd69802772c26e169ce423785952ee131833ce00d9f80c72",
+      "functions": [
+        {
+          "name": "main",
+          "params": [
+            "args"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "usage",
+          "params": [],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 3
+        },
+        {
+          "name": "WebServer",
+          "params": [
+            "args"
+          ],
+          "exported": true,
+          "lineCount": 75
+        },
+        {
+          "name": "createFile",
+          "params": [
+            "fs",
+            "name",
+            "contents"
+          ],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 8
+        },
+        {
+          "name": "startWorkerThread",
+          "params": [
+            "sock"
+          ],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 12
+        },
+        {
+          "name": "startWorkerDomain",
+          "params": [
+            "sock"
+          ],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 18
+        }
+      ],
+      "classes": [
+        {
+          "name": "WebServer",
+          "methods": [
+            "main",
+            "usage",
+            "WebServer",
+            "createFile",
+            "startWorkerThread",
+            "startWorkerDomain"
+          ],
+          "properties": [
+            "debug",
+            "net",
+            "fileBuf",
+            "fbytes",
+            "buffer",
+            "naming",
+            "fs"
+          ],
+          "exported": true,
+          "lineCount": 138
+        }
+      ],
+      "imports": [
+        {
+          "source": "java.io.IOException",
+          "specifiers": [
+            "IOException"
+          ]
+        },
+        {
+          "source": "jx.zero",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.net.NetInit",
+          "specifiers": [
+            "NetInit"
+          ]
+        },
+        {
+          "source": "java.net.Socket",
+          "specifiers": [
+            "Socket"
+          ]
+        },
+        {
+          "source": "java.net.ServerSocket",
+          "specifiers": [
+            "ServerSocket"
+          ]
+        },
+        {
+          "source": "jx.fs",
+          "specifiers": [
+            "*"
+          ]
+        }
+      ],
+      "exports": [
+        "main",
+        "WebServer",
+        "WebServer"
+      ],
+      "totalLines": 149,
+      "hasStructuralAnalysis": true
+    },
+    "test/nfs/DummyClock.java": {
+      "filePath": "test/nfs/DummyClock.java",
+      "contentHash": "8053a91e1f1d2ccc24a3adbc794860656dfbff2d83aa90b6bbf65c0cdac4497d",
+      "functions": [
+        {
+          "name": "getTimeInMillis",
+          "params": [],
+          "returnType": "int",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "getTicks",
+          "params": [],
+          "returnType": "long",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "getTicks_low",
+          "params": [],
+          "returnType": "int",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "getTicks_high",
+          "params": [],
+          "returnType": "int",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "getCycles",
+          "params": [
+            "c"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "subtract",
+          "params": [
+            "result",
+            "a",
+            "b"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "toMicroSec",
+          "params": [
+            "c"
+          ],
+          "returnType": "int",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "toNanoSec",
+          "params": [
+            "c"
+          ],
+          "returnType": "int",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "toMilliSec",
+          "params": [
+            "c"
+          ],
+          "returnType": "int",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [
+        {
+          "name": "DummyClock",
+          "methods": [
+            "getTimeInMillis",
+            "getTicks",
+            "getTicks_low",
+            "getTicks_high",
+            "getCycles",
+            "subtract",
+            "toMicroSec",
+            "toNanoSec",
+            "toMilliSec"
+          ],
+          "properties": [
+            "t"
+          ],
+          "exported": false,
+          "lineCount": 12
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.zero",
+          "specifiers": [
+            "*"
+          ]
+        }
+      ],
+      "exports": [
+        "getTimeInMillis",
+        "getTicks",
+        "getTicks_low",
+        "getTicks_high",
+        "getCycles",
+        "subtract",
+        "toMicroSec",
+        "toNanoSec",
+        "toMilliSec"
+      ],
+      "totalLines": 17,
+      "hasStructuralAnalysis": true
+    },
+    "test/nfs/LoadGenerator.java": {
+      "filePath": "test/nfs/LoadGenerator.java",
+      "contentHash": "9deff64ae22a022d5329783f054fca20cd6a0ce1609658d1404b84e705405172",
+      "functions": [
+        {
+          "name": "init",
+          "params": [
+            "naming"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 7
+        },
+        {
+          "name": "LoadGenerator",
+          "params": [],
+          "exported": true,
+          "lineCount": 17
+        },
+        {
+          "name": "run",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 9
+        }
+      ],
+      "classes": [
+        {
+          "name": "LoadGenerator",
+          "methods": [
+            "init",
+            "LoadGenerator",
+            "run"
+          ],
+          "properties": [
+            "cpuManager",
+            "ende"
+          ],
+          "exported": true,
+          "lineCount": 41
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.zero",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.zero.debug",
+          "specifiers": [
+            "*"
+          ]
+        }
+      ],
+      "exports": [
+        "init",
+        "LoadGenerator",
+        "run",
+        "LoadGenerator"
+      ],
+      "totalLines": 47,
+      "hasStructuralAnalysis": true
+    },
+    "test/nfs/Main.java": {
+      "filePath": "test/nfs/Main.java",
+      "contentHash": "3c439cbe1fb48ddfb6e81c5fe6a07d61936f808adf13a9c7f722ce166eb281bd",
+      "functions": [],
+      "classes": [
+        {
+          "name": "Main",
+          "methods": [],
+          "properties": [
+            "RPC_LOCALPORT",
+            "testClient",
+            "EXT2FS_BLOCKSIZE"
+          ],
+          "exported": true,
+          "lineCount": 5
+        }
+      ],
+      "imports": [],
+      "exports": [
+        "Main"
+      ],
+      "totalLines": 10,
+      "hasStructuralAnalysis": true
+    },
+    "test/nfs/MountProc_Skel.java": {
+      "filePath": "test/nfs/MountProc_Skel.java",
+      "contentHash": "efb211094d97c6cfd0f5ce670d598b7d6da16766622a7ea8b81c02743df12639",
+      "functions": [
+        {
+          "name": "MountProc_Skel",
+          "params": [
+            "rpc",
+            "mountPort",
+            "mountImpl"
+          ],
+          "exported": true,
+          "lineCount": 2
+        }
+      ],
+      "classes": [
+        {
+          "name": "MountProc_Skel",
+          "methods": [
+            "MountProc_Skel"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 6
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.rpc.RPC",
+          "specifiers": [
+            "RPC"
+          ]
+        },
+        {
+          "source": "jx.rpcsvc.mount1.MountProc_Impl",
+          "specifiers": [
+            "MountProc_Impl"
+          ]
+        }
+      ],
+      "exports": [
+        "MountProc_Skel",
+        "MountProc_Skel"
+      ],
+      "totalLines": 20,
+      "hasStructuralAnalysis": true
+    },
+    "test/nfs/MountProc_Stub.java": {
+      "filePath": "test/nfs/MountProc_Stub.java",
+      "contentHash": "cc78eeb82af16c0c20278a9242c0620d7a5a59dbd9471835e9ff6e49437d839c",
+      "functions": [
+        {
+          "name": "MountProc_Stub",
+          "params": [
+            "rpc",
+            "rpcHost"
+          ],
+          "exported": true,
+          "lineCount": 2
+        },
+        {
+          "name": "nullproc",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "mnt",
+          "params": [
+            "d"
+          ],
+          "returnType": "FHStatus",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "dump",
+          "params": [],
+          "returnType": "MountList",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "umnt",
+          "params": [
+            "d"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "umntall",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "export",
+          "params": [],
+          "returnType": "Exports",
+          "exported": true,
+          "lineCount": 4
+        }
+      ],
+      "classes": [
+        {
+          "name": "MountProc_Stub",
+          "methods": [
+            "MountProc_Stub",
+            "nullproc",
+            "mnt",
+            "dump",
+            "umnt",
+            "umntall",
+            "export"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 36
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.net.IPAddress",
+          "specifiers": [
+            "IPAddress"
+          ]
+        },
+        {
+          "source": "jx.rpc.RPC",
+          "specifiers": [
+            "RPC"
+          ]
+        },
+        {
+          "source": "jx.rpcsvc.mount1.Exports",
+          "specifiers": [
+            "Exports"
+          ]
+        },
+        {
+          "source": "jx.rpcsvc.mount1.FHStatus",
+          "specifiers": [
+            "FHStatus"
+          ]
+        },
+        {
+          "source": "jx.rpcsvc.mount1.MountList",
+          "specifiers": [
+            "MountList"
+          ]
+        },
+        {
+          "source": "jx.rpcsvc.mount1.MountProc",
+          "specifiers": [
+            "MountProc"
+          ]
+        },
+        {
+          "source": "jx.rpcsvc.nfs2.DirPath",
+          "specifiers": [
+            "DirPath"
+          ]
+        }
+      ],
+      "exports": [
+        "MountProc_Stub",
+        "nullproc",
+        "mnt",
+        "dump",
+        "umnt",
+        "umntall",
+        "export",
+        "MountProc_Stub"
+      ],
+      "totalLines": 55,
+      "hasStructuralAnalysis": true
+    },
+    "test/nfs/NFSClient.java": {
+      "filePath": "test/nfs/NFSClient.java",
+      "contentHash": "0f8d1bbd2582d4544b900dd9226e3aff17b256b33a0e22a548aaf02d0d4b908d",
+      "functions": [
+        {
+          "name": "NFSClient",
+          "params": [],
+          "exported": true,
+          "lineCount": 46
+        }
+      ],
+      "classes": [
+        {
+          "name": "NFSClient",
+          "methods": [
+            "NFSClient"
+          ],
+          "properties": [
+            "RPC_LOCALPORT",
+            "EXT2FS_BLOCKSIZE"
+          ],
+          "exported": true,
+          "lineCount": 51
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.zero",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.net.NetInit",
+          "specifiers": [
+            "NetInit"
+          ]
+        },
+        {
+          "source": "jx.net.IPAddress",
+          "specifiers": [
+            "IPAddress"
+          ]
+        },
+        {
+          "source": "jx.net.IPv4Address",
+          "specifiers": [
+            "IPv4Address"
+          ]
+        },
+        {
+          "source": "jx.rpcsvc.mount1",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.rpc.RPC",
+          "specifiers": [
+            "RPC"
+          ]
+        },
+        {
+          "source": "jx.rpc",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.rpcsvc.nfs2.AttrStat",
+          "specifiers": [
+            "AttrStat"
+          ]
+        },
+        {
+          "source": "jx.rpcsvc.nfs2.AttrStatOK",
+          "specifiers": [
+            "AttrStatOK"
+          ]
+        },
+        {
+          "source": "jx.rpcsvc.nfs2.DirPath",
+          "specifiers": [
+            "DirPath"
+          ]
+        },
+        {
+          "source": "jx.rpcsvc.nfs2.FAttr",
+          "specifiers": [
+            "FAttr"
+          ]
+        },
+        {
+          "source": "jx.rpcsvc.nfs2.FHandle",
+          "specifiers": [
+            "FHandle"
+          ]
+        },
+        {
+          "source": "jx.rpcsvc.nfs2.NFSProc",
+          "specifiers": [
+            "NFSProc"
+          ]
+        }
+      ],
+      "exports": [
+        "NFSClient"
+      ],
+      "totalLines": 70,
+      "hasStructuralAnalysis": true
+    },
+    "test/nfs/NFSDomain.java": {
+      "filePath": "test/nfs/NFSDomain.java",
+      "contentHash": "f1bdcb1a7d7344325c34006168de462b38bdf35100d92ba582ade25de84e7a3b",
+      "functions": [
+        {
+          "name": "init",
+          "params": [
+            "naming",
+            "args"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 7
+        },
+        {
+          "name": "main",
+          "params": [
+            "args"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "NFSDomain",
+          "params": [
+            "naming",
+            "args"
+          ],
+          "exported": true,
+          "lineCount": 45
+        }
+      ],
+      "classes": [
+        {
+          "name": "NFSDomain",
+          "methods": [
+            "init",
+            "main",
+            "NFSDomain"
+          ],
+          "properties": [
+            "RPC_LOCALPORT",
+            "EXT2FS_BLOCKSIZE"
+          ],
+          "exported": true,
+          "lineCount": 62
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.zero",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.zero.debug",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.net.NetInit",
+          "specifiers": [
+            "NetInit"
+          ]
+        },
+        {
+          "source": "jx.rpc.RPC",
+          "specifiers": [
+            "RPC"
+          ]
+        },
+        {
+          "source": "jx.fs.FS",
+          "specifiers": [
+            "FS"
+          ]
+        },
+        {
+          "source": "jx.rpc.RPCInitException",
+          "specifiers": [
+            "RPCInitException"
+          ]
+        },
+        {
+          "source": "jx.rpcsvc.bind2",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "jx.rpcsvc.mount1.MountProc",
+          "specifiers": [
+            "MountProc"
+          ]
+        },
+        {
+          "source": "jx.rpcsvc.mount1.MountProc_Impl",
+          "specifiers": [
+            "MountProc_Impl"
+          ]
+        },
+        {
+          "source": "jx.rpcsvc.nfs2.NFSProc",
+          "specifiers": [
+            "NFSProc"
+          ]
+        },
+        {
+          "source": "jx.rpcsvc.nfs2.NFSProc_Impl",
+          "specifiers": [
+            "NFSProc_Impl"
+          ]
+        }
+      ],
+      "exports": [
+        "init",
+        "main",
+        "NFSDomain"
+      ],
+      "totalLines": 80,
+      "hasStructuralAnalysis": true
+    },
+    "test/nfs/NFSProc_Skel.java": {
+      "filePath": "test/nfs/NFSProc_Skel.java",
+      "contentHash": "520a2350fbfdf6594c3ce09a8d1e936d858bfe383432f0fd0c181cf3fac18586",
+      "functions": [
+        {
+          "name": "NFSProc_Skel",
+          "params": [
+            "rpc",
+            "nfsPort",
+            "nfsImpl"
+          ],
+          "exported": true,
+          "lineCount": 2
+        }
+      ],
+      "classes": [
+        {
+          "name": "NFSProc_Skel",
+          "methods": [
+            "NFSProc_Skel"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 6
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.rpc.RPC",
+          "specifiers": [
+            "RPC"
+          ]
+        },
+        {
+          "source": "jx.rpcsvc.nfs2.NFSProc_Impl",
+          "specifiers": [
+            "NFSProc_Impl"
+          ]
+        }
+      ],
+      "exports": [
+        "NFSProc_Skel",
+        "NFSProc_Skel"
+      ],
+      "totalLines": 20,
+      "hasStructuralAnalysis": true
+    },
+    "test/nfs/NFSProc_Stub.java": {
+      "filePath": "test/nfs/NFSProc_Stub.java",
+      "contentHash": "9c96d2bac1db6db118310878cd5c0cce8cacae939c5c0a43bccddc4e64ac4dc0",
+      "functions": [
+        {
+          "name": "NFSProc_Stub",
+          "params": [
+            "rpc",
+            "rpcHost"
+          ],
+          "exported": true,
+          "lineCount": 2
+        },
+        {
+          "name": "setAuth",
+          "params": [
+            "a",
+            "ct"
+          ],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 3
+        },
+        {
+          "name": "nullproc",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "getattr",
+          "params": [
+            "a"
+          ],
+          "returnType": "AttrStat",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "setattr",
+          "params": [
+            "file",
+            "attributes"
+          ],
+          "returnType": "AttrStat",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "root",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "lookup",
+          "params": [
+            "dir",
+            "name"
+          ],
+          "returnType": "DirOpRes",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "readlink",
+          "params": [
+            "a"
+          ],
+          "returnType": "ReadLinkRes",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "read",
+          "params": [
+            "file",
+            "offset",
+            "count",
+            "totalcount"
+          ],
+          "returnType": "ReadRes",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "writeCache",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "write",
+          "params": [
+            "file",
+            "beginoffset",
+            "offset",
+            "totalcount",
+            "data"
+          ],
+          "returnType": "AttrStat",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "create",
+          "params": [
+            "dir",
+            "name",
+            "attributes"
+          ],
+          "returnType": "DirOpRes",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "remove",
+          "params": [
+            "dir",
+            "name"
+          ],
+          "returnType": "Stat",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "rename",
+          "params": [
+            "fromDir",
+            "fromName",
+            "toDir",
+            "toName"
+          ],
+          "returnType": "Stat",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "link",
+          "params": [
+            "from",
+            "toDir",
+            "toName"
+          ],
+          "returnType": "Stat",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "symlink",
+          "params": [
+            "fromDir",
+            "fromName",
+            "to",
+            "attributes"
+          ],
+          "returnType": "Stat",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "mkdir",
+          "params": [
+            "dir",
+            "name",
+            "attributes"
+          ],
+          "returnType": "DirOpRes",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "rmdir",
+          "params": [
+            "dir",
+            "name"
+          ],
+          "returnType": "Stat",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "readdir",
+          "params": [
+            "dir",
+            "cookie",
+            "count"
+          ],
+          "returnType": "ReadDirRes",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "statfs",
+          "params": [
+            "dir"
+          ],
+          "returnType": "StatFSRes",
+          "exported": true,
+          "lineCount": 4
+        }
+      ],
+      "classes": [
+        {
+          "name": "NFSProc_Stub",
+          "methods": [
+            "NFSProc_Stub",
+            "setAuth",
+            "nullproc",
+            "getattr",
+            "setattr",
+            "root",
+            "lookup",
+            "readlink",
+            "read",
+            "writeCache",
+            "write",
+            "create",
+            "remove",
+            "rename",
+            "link",
+            "symlink",
+            "mkdir",
+            "rmdir",
+            "readdir",
+            "statfs"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 100
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.net.IPAddress",
+          "specifiers": [
+            "IPAddress"
+          ]
+        },
+        {
+          "source": "jx.rpc.Auth",
+          "specifiers": [
+            "Auth"
+          ]
+        },
+        {
+          "source": "jx.rpc.RPC",
+          "specifiers": [
+            "RPC"
+          ]
+        },
+        {
+          "source": "jx.rpcsvc.nfs2.AttrStat",
+          "specifiers": [
+            "AttrStat"
+          ]
+        },
+        {
+          "source": "jx.rpcsvc.nfs2.DirOpRes",
+          "specifiers": [
+            "DirOpRes"
+          ]
+        },
+        {
+          "source": "jx.rpcsvc.nfs2.DirPath",
+          "specifiers": [
+            "DirPath"
+          ]
+        },
+        {
+          "source": "jx.rpcsvc.nfs2.FHandle",
+          "specifiers": [
+            "FHandle"
+          ]
+        },
+        {
+          "source": "jx.rpcsvc.nfs2.NFSCookie",
+          "specifiers": [
+            "NFSCookie"
+          ]
+        },
+        {
+          "source": "jx.rpcsvc.nfs2.NFSData",
+          "specifiers": [
+            "NFSData"
+          ]
+        },
+        {
+          "source": "jx.rpcsvc.nfs2.NFSProc",
+          "specifiers": [
+            "NFSProc"
+          ]
+        },
+        {
+          "source": "jx.rpcsvc.nfs2.Name",
+          "specifiers": [
+            "Name"
+          ]
+        },
+        {
+          "source": "jx.rpcsvc.nfs2.ReadDirRes",
+          "specifiers": [
+            "ReadDirRes"
+          ]
+        },
+        {
+          "source": "jx.rpcsvc.nfs2.ReadLinkRes",
+          "specifiers": [
+            "ReadLinkRes"
+          ]
+        },
+        {
+          "source": "jx.rpcsvc.nfs2.ReadRes",
+          "specifiers": [
+            "ReadRes"
+          ]
+        },
+        {
+          "source": "jx.rpcsvc.nfs2.SAttr",
+          "specifiers": [
+            "SAttr"
+          ]
+        },
+        {
+          "source": "jx.rpcsvc.nfs2.Stat",
+          "specifiers": [
+            "Stat"
+          ]
+        },
+        {
+          "source": "jx.rpcsvc.nfs2.StatFSRes",
+          "specifiers": [
+            "StatFSRes"
+          ]
+        }
+      ],
+      "exports": [
+        "NFSProc_Stub",
+        "nullproc",
+        "getattr",
+        "setattr",
+        "root",
+        "lookup",
+        "readlink",
+        "read",
+        "writeCache",
+        "write",
+        "create",
+        "remove",
+        "rename",
+        "link",
+        "symlink",
+        "mkdir",
+        "rmdir",
+        "readdir",
+        "statfs",
+        "NFSProc_Stub"
+      ],
+      "totalLines": 129,
+      "hasStructuralAnalysis": true
+    },
+    "test/nfs/RPCBind_Skel.java": {
+      "filePath": "test/nfs/RPCBind_Skel.java",
+      "contentHash": "ae536f84fae38f3a3aa30455fe67b9182cb607def25846204380da6fbc01ce07",
+      "functions": [
+        {
+          "name": "RPCBind_Skel",
+          "params": [
+            "rpc",
+            "i",
+            "bind"
+          ],
+          "exported": true,
+          "lineCount": 2
+        }
+      ],
+      "classes": [
+        {
+          "name": "RPCBind_Skel",
+          "methods": [
+            "RPCBind_Skel"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 6
+        }
+      ],
+      "imports": [
+        {
+          "source": "jx.rpc.RPC",
+          "specifiers": [
+            "RPC"
+          ]
+        },
+        {
+          "source": "jx.rpcsvc.bind2.RPCBind_Impl",
+          "specifiers": [
+            "RPCBind_Impl"
+          ]
+        }
+      ],
+      "exports": [
+        "RPCBind_Skel",
+        "RPCBind_Skel"
+      ],
+      "totalLines": 20,
+      "hasStructuralAnalysis": true
+    },
+    "test/test/JUnitTest.java": {
+      "filePath": "test/test/JUnitTest.java",
+      "contentHash": "a1f2b02c5bcceb94887d3c8ac203add5ef8161168eab5ceced51144204d068e6",
+      "functions": [
+        {
+          "name": "testIncomingMessages",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "testOutgoingMessages2ArduinoDequeLast",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "testConfiguresGetLast",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "testEmotions",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "testLogpath",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 7
+        },
+        {
+          "name": "testCPU",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 13
+        },
+        {
+          "name": "testByteCode",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 4
+        }
+      ],
+      "classes": [
+        {
+          "name": "JUnitTest",
+          "methods": [
+            "testIncomingMessages",
+            "testOutgoingMessages2ArduinoDequeLast",
+            "testConfiguresGetLast",
+            "testEmotions",
+            "testLogpath",
+            "testCPU",
+            "testByteCode"
+          ],
+          "properties": [
+            "MEMORY"
+          ],
+          "exported": true,
+          "lineCount": 58
+        }
+      ],
+      "imports": [
+        {
+          "source": "AI.AIMemory",
+          "specifiers": [
+            "AIMemory"
+          ]
+        },
+        {
+          "source": "AI.Models.InfoZero",
+          "specifiers": [
+            "InfoZero"
+          ]
+        },
+        {
+          "source": "java.io.IOException",
+          "specifiers": [
+            "IOException"
+          ]
+        },
+        {
+          "source": "java.nio.file.Files",
+          "specifiers": [
+            "Files"
+          ]
+        },
+        {
+          "source": "java.nio.file.Path",
+          "specifiers": [
+            "Path"
+          ]
+        },
+        {
+          "source": "java.nio.file.Paths",
+          "specifiers": [
+            "Paths"
+          ]
+        },
+        {
+          "source": "java.util.logging.Level",
+          "specifiers": [
+            "Level"
+          ]
+        },
+        {
+          "source": "java.util.logging.Logger",
+          "specifiers": [
+            "Logger"
+          ]
+        },
+        {
+          "source": "junit.framework.TestCase",
+          "specifiers": [
+            "TestCase"
+          ]
+        },
+        {
+          "source": "junit.framework.TestCase.assertEquals",
+          "specifiers": [
+            "assertEquals"
+          ]
+        },
+        {
+          "source": "org.junit.Test",
+          "specifiers": [
+            "Test"
+          ]
+        }
+      ],
+      "exports": [
+        "testIncomingMessages",
+        "testOutgoingMessages2ArduinoDequeLast",
+        "testConfiguresGetLast",
+        "testEmotions",
+        "testLogpath",
+        "testCPU",
+        "testByteCode",
+        "JUnitTest"
+      ],
+      "totalLines": 79,
+      "hasStructuralAnalysis": true
+    }
+  }
+}

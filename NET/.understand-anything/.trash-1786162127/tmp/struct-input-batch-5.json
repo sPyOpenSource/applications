@@ -1,0 +1,70 @@
+{
+ "projectRoot": "/Users/xuyi/Source/OS/armOS/lib/jcore/test/NET",
+ "batchFiles": [
+  {
+   "path": "test/nfs/Main.java",
+   "language": "java",
+   "sizeLines": 9,
+   "fileCategory": "code"
+  },
+  {
+   "path": "test/nfs/MountProc_Skel.java",
+   "language": "java",
+   "sizeLines": 19,
+   "fileCategory": "code"
+  },
+  {
+   "path": "test/nfs/MountProc_Stub.java",
+   "language": "java",
+   "sizeLines": 54,
+   "fileCategory": "code"
+  },
+  {
+   "path": "test/nfs/NFSClient.java",
+   "language": "java",
+   "sizeLines": 69,
+   "fileCategory": "code"
+  },
+  {
+   "path": "test/nfs/NFSDomain.java",
+   "language": "java",
+   "sizeLines": 79,
+   "fileCategory": "code"
+  },
+  {
+   "path": "test/nfs/NFSProc_Skel.java",
+   "language": "java",
+   "sizeLines": 19,
+   "fileCategory": "code"
+  },
+  {
+   "path": "test/nfs/NFSProc_Stub.java",
+   "language": "java",
+   "sizeLines": 128,
+   "fileCategory": "code"
+  },
+  {
+   "path": "test/nfs/RPCBind_Skel.java",
+   "language": "java",
+   "sizeLines": 19,
+   "fileCategory": "code"
+  },
+  {
+   "path": "test/test/JUnitTest.java",
+   "language": "java",
+   "sizeLines": 78,
+   "fileCategory": "code"
+  }
+ ],
+ "batchImportData": {
+  "test/nfs/Main.java": [],
+  "test/nfs/MountProc_Skel.java": [],
+  "test/nfs/MountProc_Stub.java": [],
+  "test/nfs/NFSClient.java": [],
+  "test/nfs/NFSDomain.java": [],
+  "test/nfs/NFSProc_Skel.java": [],
+  "test/nfs/NFSProc_Stub.java": [],
+  "test/nfs/RPCBind_Skel.java": [],
+  "test/test/JUnitTest.java": []
+ }
+}

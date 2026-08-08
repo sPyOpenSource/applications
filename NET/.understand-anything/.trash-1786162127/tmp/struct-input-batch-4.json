@@ -1,0 +1,182 @@
+{
+ "projectRoot": "/Users/xuyi/Source/OS/armOS/lib/jcore/test/NET",
+ "batchFiles": [
+  {
+   "path": "src/org/jnode/driver/net/lance/DWordIOAccess.java",
+   "language": "java",
+   "sizeLines": 68,
+   "fileCategory": "code"
+  },
+  {
+   "path": "src/org/jnode/driver/net/lance/InitializationBlock32Bit.java",
+   "language": "java",
+   "sizeLines": 78,
+   "fileCategory": "code"
+  },
+  {
+   "path": "src/org/jnode/driver/net/lance/IOAccess.java",
+   "language": "java",
+   "sizeLines": 75,
+   "fileCategory": "code"
+  },
+  {
+   "path": "src/org/jnode/driver/net/lance/LanceConstants.java",
+   "language": "java",
+   "sizeLines": 131,
+   "fileCategory": "code"
+  },
+  {
+   "path": "src/org/jnode/driver/net/lance/LanceCore.java",
+   "language": "java",
+   "sizeLines": 468,
+   "fileCategory": "code"
+  },
+  {
+   "path": "src/org/jnode/driver/net/lance/RxDescriptor.java",
+   "language": "java",
+   "sizeLines": 60,
+   "fileCategory": "code"
+  },
+  {
+   "path": "src/org/jnode/driver/net/lance/RxDescriptorRing.java",
+   "language": "java",
+   "sizeLines": 106,
+   "fileCategory": "code"
+  },
+  {
+   "path": "src/org/jnode/driver/net/lance/TxDescriptor.java",
+   "language": "java",
+   "sizeLines": 53,
+   "fileCategory": "code"
+  },
+  {
+   "path": "src/org/jnode/driver/net/lance/TxDescriptorRing.java",
+   "language": "java",
+   "sizeLines": 81,
+   "fileCategory": "code"
+  },
+  {
+   "path": "src/org/jnode/driver/net/lance/WordIOAccess.java",
+   "language": "java",
+   "sizeLines": 67,
+   "fileCategory": "code"
+  },
+  {
+   "path": "src/org/jnode/net/ipv4/dhcp/AbstractDHCPClient.java",
+   "language": "java",
+   "sizeLines": 170,
+   "fileCategory": "code"
+  },
+  {
+   "path": "src/org/jnode/net/ipv4/dhcp/DHCPClient.java",
+   "language": "java",
+   "sizeLines": 150,
+   "fileCategory": "code"
+  },
+  {
+   "path": "src/org/jnode/net/ipv4/dhcp/DHCPMessage.java",
+   "language": "java",
+   "sizeLines": 322,
+   "fileCategory": "code"
+  },
+  {
+   "path": "src/test/minitcp/Main.java",
+   "language": "java",
+   "sizeLines": 49,
+   "fileCategory": "code"
+  },
+  {
+   "path": "src/test/minitcp/MiniServerDomain.java",
+   "language": "java",
+   "sizeLines": 18,
+   "fileCategory": "code"
+  },
+  {
+   "path": "src/test/net/Main.java",
+   "language": "java",
+   "sizeLines": 205,
+   "fileCategory": "code"
+  },
+  {
+   "path": "src/test/net/StartIPTest.java",
+   "language": "java",
+   "sizeLines": 46,
+   "fileCategory": "code"
+  },
+  {
+   "path": "src/test/net/StartNICTest.java",
+   "language": "java",
+   "sizeLines": 39,
+   "fileCategory": "code"
+  },
+  {
+   "path": "src/test/net/StartTCPTest.java",
+   "language": "java",
+   "sizeLines": 154,
+   "fileCategory": "code"
+  },
+  {
+   "path": "src/test/net/StartTest.java",
+   "language": "java",
+   "sizeLines": 36,
+   "fileCategory": "code"
+  },
+  {
+   "path": "src/test/net/TCPWebWorker.java",
+   "language": "java",
+   "sizeLines": 181,
+   "fileCategory": "code"
+  },
+  {
+   "path": "src/test/net/TCPWorker.java",
+   "language": "java",
+   "sizeLines": 22,
+   "fileCategory": "code"
+  },
+  {
+   "path": "src/test/net/WebServer.java",
+   "language": "java",
+   "sizeLines": 148,
+   "fileCategory": "code"
+  },
+  {
+   "path": "test/nfs/DummyClock.java",
+   "language": "java",
+   "sizeLines": 16,
+   "fileCategory": "code"
+  },
+  {
+   "path": "test/nfs/LoadGenerator.java",
+   "language": "java",
+   "sizeLines": 46,
+   "fileCategory": "code"
+  }
+ ],
+ "batchImportData": {
+  "src/org/jnode/driver/net/lance/DWordIOAccess.java": [],
+  "src/org/jnode/driver/net/lance/InitializationBlock32Bit.java": [],
+  "src/org/jnode/driver/net/lance/IOAccess.java": [],
+  "src/org/jnode/driver/net/lance/LanceConstants.java": [],
+  "src/org/jnode/driver/net/lance/LanceCore.java": [],
+  "src/org/jnode/driver/net/lance/RxDescriptor.java": [],
+  "src/org/jnode/driver/net/lance/RxDescriptorRing.java": [],
+  "src/org/jnode/driver/net/lance/TxDescriptor.java": [],
+  "src/org/jnode/driver/net/lance/TxDescriptorRing.java": [],
+  "src/org/jnode/driver/net/lance/WordIOAccess.java": [],
+  "src/org/jnode/net/ipv4/dhcp/AbstractDHCPClient.java": [],
+  "src/org/jnode/net/ipv4/dhcp/DHCPClient.java": [],
+  "src/org/jnode/net/ipv4/dhcp/DHCPMessage.java": [],
+  "src/test/minitcp/Main.java": [],
+  "src/test/minitcp/MiniServerDomain.java": [],
+  "src/test/net/Main.java": [],
+  "src/test/net/StartIPTest.java": [],
+  "src/test/net/StartNICTest.java": [],
+  "src/test/net/StartTCPTest.java": [],
+  "src/test/net/StartTest.java": [],
+  "src/test/net/TCPWebWorker.java": [],
+  "src/test/net/TCPWorker.java": [],
+  "src/test/net/WebServer.java": [],
+  "test/nfs/DummyClock.java": [],
+  "test/nfs/LoadGenerator.java": []
+ }
+}

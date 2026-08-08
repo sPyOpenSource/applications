@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 1: USB Mass Storage Architecture</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <a href="#">← Mission</a>
+  <a href="0002-bulk-only-transport.html">Lesson 2 →</a>
+</nav>
+
+<h1>USB Mass Storage Architecture</h1>
+
+<p class="tag">Conceptual</p>
+<p class="tag">Host-side</p>
+<p class="tag">Prerequisite</p>
+
+<h2>The Big Picture</h2>
+
+<p>When you plug in a USB flash drive, your OS sees a <strong>block device</strong> — something you can read/write in fixed-size sectors (usually 512 or 4096 bytes). But USB itself doesn't speak "blocks." It speaks <strong>bulk endpoints</strong>.</p>
+
+<p>USB Mass Storage Class (MSC) bridges this gap. It defines how to tunnel <strong>SCSI commands</strong> over USB bulk endpoints.</p>
+
+<blockquote>
+  <strong>Key insight:</strong> MSC is a <em>protocol adapter</em>. It takes SCSI commands (designed for parallel SCSI buses) and transports them over USB bulk pipes.
+</blockquote>
+
+<h2>Three Layers</h2>
+
+<pre><code>┌─────────────────────────────────────┐
+│        File System (FAT/exFAT)      │  ← You implement this
+│   Logical blocks (LBAs), clusters   │
+├─────────────────────────────────────┤
+│      Block Device Driver (You)      │  ← Translates FS ops → SCSI
+│   READ(10), WRITE(10), INQUIRY...   │
+├─────────────────────────────────────┤
+│    USB Mass Storage Class (MSC)     │  ← Bulk-Only Transport (BOT)
+│   CBW → Data → CSW handshake        │
+├─────────────────────────────────────┤
+│         USB Bulk Endpoints          │  ← USB 2.0 Chapter 9
+│   EP OUT (host→dev), EP IN (dev→host)│
+└─────────────────────────────────────┘</code></pre>
+
+<h2>What You Need to Implement</h2>
+
+<p>As a USB <strong>host</strong> implementing a file system, you own the "Block Device Driver" layer. Your job:</p>
+
+<ol>
+  <li><strong>Enumerate</strong> the device, find the MSC interface (class 0x08, subclass 0x06, protocol 0x50)</li>
+  <li><strong>Claim</strong> the bulk IN and bulk OUT endpoints</li>
+  <li><strong>Implement BOT</strong>: wrap SCSI commands in Command Block Wrappers (CBW), send data, receive Command Status Wrappers (CSW)</li>
+  <li><strong>Implement SCSI commands</strong>: INQUIRY, REQUEST SENSE, TEST UNIT READY, READ CAPACITY, READ(10), WRITE(10), SYNCHRONIZE CACHE</li>
+  <li><strong>Present a block interface</strong> to your file system: <code>read_blocks(lba, count, buf)</code>, <code>write_blocks(lba, count, buf)</code></li>
+</ol>
+
+<h2>The SCSI Commands You'll Use</h2>
+
+<table style="width:100%; border-collapse:collapse; margin:1rem 0;">
+  <thead>
+    <tr style="border-bottom:2px solid var(--border);">
+      <th style="text-align:left; padding:0.5rem;">Command</th>
+      <th style="text-align:left; padding:0.5rem;">Opcode</th>
+      <th style="text-align:left; padding:0.5rem;">Purpose</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="border-bottom:1px solid var(--border);">
+      <td style="padding:0.5rem;"><code>INQUIRY</code></td>
+      <td style="padding:0.5rem;"><code>0x12</code></td>
+      <td style="padding:0.5rem;">Identify device, get vendor/product strings</td>
+    </tr>
+    <tr style="border-bottom:1px solid var(--border);">
+      <td style="padding:0.5rem;"><code>REQUEST SENSE</code></td>
+      <td style="padding:0.5rem;"><code>0x03</code></td>
+      <td style="padding:0.5rem;">Get error details after a failed command</td>
+    </tr>
+    <tr style="border-bottom:1px solid var(--border);">
+      <td style="padding:0.5rem;"><code>TEST UNIT READY</code></td>
+      <td style="padding:0.5rem;"><code>0x00</code></td>
+      <td style="padding:0.5rem;">Check if media is present and ready</td>
+    </tr>
+    <tr style="border-bottom:1px solid var(--border);">
+      <td style="padding:0.5rem;"><code>READ CAPACITY(10)</code></td>
+      <td style="padding:0.5rem;"><code>0x25</code></td>
+      <td style="padding:0.5rem;">Get sector count and sector size</td>
+    </tr>
+    <tr style="border-bottom:1px solid var(--border);">
+      <td style="padding:0.5rem;"><code>READ(10)</code></td>
+      <td style="padding:0.5rem;"><code>0x28</code></td>
+      <td style="padding:0.5rem;">Read sectors (LBA + count)</td>
+    </tr>
+    <tr style="border-bottom:1px solid var(--border);">
+      <td style="padding:0.5rem;"><code>WRITE(10)</code></td>
+      <td style="padding:0.5rem;"><code>0x2A</code></td>
+      <td style="padding:0.5rem;">Write sectors (LBA + count)</td>
+    </tr>
+    <tr style="border-bottom:1px solid var(--border);">
+      <td style="padding:0.5rem;"><code>SYNCHRONIZE CACHE(10)</code></td>
+      <td style="padding:0.5rem;"><code>0x35</code></td>
+      <td style="padding:0.5rem;">Flush device write cache</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>Primary Source</h2>
+
+<p>Read <strong>USB Mass Storage Class Specification v1.0</strong>, sections 1–3 (overview, interface, protocol). Focus on Bulk-Only Transport (BOT).</p>
+<ul>
+  <li><a href="https://www.usb.org/document-library/mass-storage-class-specification-10" target="_blank">Official USB MSC Spec</a></li>
+</ul>
+
+<h2>Reference Implementations to Study</h2>
+
+<ul>
+  <li><a href="https://elixir.bootlin.com/linux/latest/source/drivers/usb/storage/transport.c" target="_blank">Linux `transport.c`</a> — BOT state machine</li>
+  <li><a href="https://github.com/hathach/tinyusb/blob/master/src/class/msc/msc_host.c" target="_blank">TinyUSB `msc_host.c`</a> — Clean embedded host implementation</li>
+</ul>
+
+<div class="quiz">
+  <p>What is the role of Bulk-Only Transport (BOT) in USB Mass Storage?</p>
+  <button class="quiz-option" onclick="checkAnswer(this, false)">A) It defines the SCSI command set for mass storage devices</button>
+  <button class="quiz-option" onclick="checkAnswer(this, true)">B) It defines how to tunnel SCSI commands over USB bulk endpoints</button>
+  <button class="quiz-option" onclick="checkAnswer(this, false)">C) It manages the file system on the storage device</button>
+  <button class="quiz-option" onclick="checkAnswer(this, false)">D) It handles USB enumeration and device configuration</button>
+  <div class="quiz-feedback" id="q1-feedback"></div>
+</div>
+
+<div class="quiz">
+  <p>Which SCSI command would you use to discover the total number of sectors on a USB mass storage device?</p>
+  <button class="quiz-option" onclick="checkAnswer(this, false)">A) READ(10)</button>
+  <button class="quiz-option" onclick="checkAnswer(this, false)">B) INQUIRY</button>
+  <button class="quiz-option" onclick="checkAnswer(this, true)">C) READ CAPACITY(10)</button>
+  <button class="quiz-option" onclick="checkAnswer(this, false)">D) TEST UNIT READY</button>
+  <div class="quiz-feedback" id="q2-feedback"></div>
+</div>
+
+<script>
+function checkAnswer(btn, isCorrect) {
+  const feedback = btn.parentElement.querySelector('.quiz-feedback');
+  const options = btn.parentElement.querySelectorAll('.quiz-option');
+  options.forEach(o => o.disabled = true);
+  if (isCorrect) {
+    btn.classList.add('correct');
+    feedback.textContent = '✓ Correct. BOT is the protocol adapter between SCSI and USB bulk pipes.';
+    feedback.style.color = 'var(--correct)';
+  } else {
+    btn.classList.add('wrong');
+    const correctBtn = Array.from(options).find(o => o.onclick.toString().includes('true'));
+    correctBtn.classList.add('correct');
+    feedback.textContent = '✗ Incorrect. BOT wraps SCSI commands (in CBW) and transports them over bulk endpoints.';
+    feedback.style.color = 'var(--wrong)';
+  }
+  feedback.classList.add('show');
+}
+</script>
+
+<hr>
+<div class="footer">
+  <p>Next: <a href="0002-bulk-only-transport.html">Lesson 2 — Bulk-Only Transport Protocol</a></p>
+  <p>Questions? Ask your teacher agent.</p>
+</div>
+
+</body>
+</html>
