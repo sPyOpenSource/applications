@@ -78,7 +78,7 @@ public final class JSLexer {
     private void punctOrOp() {
         int l = line, co = col;
         String[] ops = {"==", "!=", "<=", ">=", "&&", "||", "++", "--", "+=", "-=", "*=", "/=", "%="};
-        for (String o : ops) if (src.startsWith(o, p)) { add("op", o, l, co); return; }
+        for (String o : ops) if (src.startsWith(o, p)) { add("op", o, l, co); p += o.length(); col += o.length(); return; }
         char c = src.charAt(p);
         if ("+-*/%<>=!".indexOf(c) >= 0) add("op", String.valueOf(c), l, co);
         else if ("(){}[],.;:".indexOf(c) >= 0) add("punc", String.valueOf(c), l, co);
