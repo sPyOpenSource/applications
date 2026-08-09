@@ -297,6 +297,7 @@ public final class JSParser {
             }
             if ("null".equals(t.text)) { advance(); return new JSNull(t.line); }
             if ("undefined".equals(t.text)) { advance(); return new JSUndefined(t.line); }
+            if ("function".equals(t.text)) return functionExpr();
         }
         if (t.kind.equals("id")) {
             advance(); return new JSIdent(t.line, t.text);
@@ -304,6 +305,22 @@ public final class JSParser {
         if (at("{")) return objectLit();
         if (at("[")) return arrayLit();
         throw new InterpreterException("Unexpected token '" + t.text + "' at line " + t.line);
+    }
+
+    private JSExpr functionExpr() {
+        int startLine = cur().line;
+        advancePast("function");
+        advancePast("(");
+        String[] params = new String[0];
+        if (!at(")")) {
+            List<String> p = new ArrayList<>();
+            p.add(expectKind("id").text);
+            while (match(",")) p.add(expectKind("id").text);
+            params = p.toArray(new String[0]);
+        }
+        advancePast(")");
+        JSBlock body = (JSBlock) block();
+        return new JSFunctionExpr(startLine, params, body);
     }
 
     private JSExpr objectLit() {
