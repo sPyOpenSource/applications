@@ -1,24 +1,24 @@
-# Mission: Understanding the armOS Simulator Suite
+# Mission: Understand JavaScript & Python Engine Internals
 
-## Why
+## Goal
+Understand how production-grade JavaScript engines (V8, SpiderMonkey, JavaScriptCore) and Python engines (CPython, PyPy) work internally — from parsing to execution to optimization.
 
-You maintain armOS, which contains four processor simulators (RISC-V, 8051, ARM, x86 NASM) alongside a Java VM interpreter. To extend, debug, and port this code with confidence, you need a mental model of how each simulator works — how they fetch-decode-execute, model memory, handle interrupts, and interface with peripherals. Surface-level reading of files hasn't built that model.
+## Why This Matters
+- Debugging performance issues requires understanding engine internals
+- Writing performant code benefits from knowing optimization triggers
+- Security research requires understanding engine attack surfaces
+- Language design decisions become clearer with implementation context
 
-## Success looks like
+## Learning Path
+1. **Foundations**: Interpreter architectures (tree-walking → bytecode → JIT)
+2. **V8 Deep Dive**: Ignition interpreter, TurboFan compiler, hidden classes, inline caching
+3. **SpiderMonkey**: Baseline interpreter, IonMonkey, type inference
+4. **CPython Internals**: Bytecode VM, reference counting, GIL, memory allocator
+5. **PyPy/JIT**: Meta-tracing JIT, RPython
+6. **Advanced Topics**: GC strategies, inline caching, speculative optimization, WebAssembly
 
-- You can trace a RISC-V instruction through the full fetch→decode→execute→writeback cycle in `IsaSim.java`
-- You can explain how the 8051 opcode dispatch table (`MCS51.java` → 94 instruction classes) works without opening the file
-- You can compare the ARM CPU in JARM vs the lxtreme ARM9 and say which parts are shared and which diverge
-- You can add a new instruction to any of the simulators and know exactly which files to touch
-
-## Constraints
-
-- This is the actual codebase — lessons are grounded in real files, not toy examples
-- You know Java well; no time wasted on language basics
-- Lessons should be scannable in 10–15 minutes
-
-## Out of scope
-
-- Writing a new simulator from scratch
-- Formal verification or pipelining theory
-- Performance optimisation of the existing code
+## Success Criteria
+- Can explain the full pipeline from source to machine code in V8
+- Can identify optimization opportunities from engine perspective
+- Can read engine source code to debug issues
+- Can articulate trade-offs between different engine designs

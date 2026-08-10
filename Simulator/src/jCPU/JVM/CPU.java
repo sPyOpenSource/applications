@@ -1,6 +1,7 @@
 
 package jCPU.JVM;
 
+import flint.FExec;
 import static jCPU.JVM.ByteCode.findOpCode;
 import jCPU.JVM.vm.LocalVariables;
 import jCPU.JVM.vm.SimpleMethodPool;
@@ -35,6 +36,7 @@ public class CPU implements iCPU {
     private SimpleMethodPool simpleMethodPool;
     private VmStackFrame stack;
     private LocalVariables localVariables;
+    private FExec vm = new FExec(new Thread(), 1000);
 
     protected int pc;
 
@@ -97,6 +99,8 @@ public class CPU implements iCPU {
             } catch (Exception ex) {
                 Logger.getLogger(CPU.class.getName()).log(Level.SEVERE, null, ex);
             }
+        } else {
+            vm.exec(true);
         }
         pc += findOpCode((char)code(pc)).getLength();
         return 0;

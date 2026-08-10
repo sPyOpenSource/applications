@@ -59,7 +59,7 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 	private static GUI instance = null;
 	private final J51Panel peripheral;
 	private final JRegister register;
-	private final JAssembly assembly;
+        private final JAssembly assembly;
 	private final JSfr sfr;
 	private final JIdata idata;
 	private final JXdata xdata;
@@ -374,17 +374,15 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 	private java.util.List<String> readCpuConfig()
 	{
 		java.util.List<String> cpus = new java.util.ArrayList<>();
-		try {
-			BufferedReader rd = new BufferedReader(new FileReader("j51.conf"));
-			String line;
-			while ((line = rd.readLine()) != null){
-				if (line.startsWith("#"))
-					continue;
-				if (line.length() < 3)
-					continue;
-				cpus.add(line);
-			}
-			rd.close();
+                try (BufferedReader rd = new BufferedReader(new FileReader("j51.conf"))) {
+                    String line;
+                    while ((line = rd.readLine()) != null){
+                        if (line.startsWith("#"))
+                            continue;
+                        if (line.length() < 3)
+                            continue;
+                        cpus.add(line);
+                    }
 		} catch (IOException ex) {
 			Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
 		}
@@ -576,19 +574,17 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 			name = name.substring(0, pos) + ".map";
 		}
 
-		try{
-			BufferedReader mapRd = new BufferedReader(new FileReader(name));
-			String line;
-			while ((line = mapRd.readLine()) != null){
-				line = line.trim();
-				if (line.startsWith("0C:")){
-					int address = Hex.getWord(line, 3);
-					String label = line.substring(7);
-					label = label.trim();
-					cpu.setCodeName(address, label);
-				}
-			}
-			mapRd.close();
+                try (BufferedReader mapRd = new BufferedReader(new FileReader(name))) {
+                    String line;
+                    while ((line = mapRd.readLine()) != null){
+                        line = line.trim();
+                        if (line.startsWith("0C:")){
+                            int address = Hex.getWord(line, 3);
+                            String label = line.substring(7);
+                            label = label.trim();
+                            cpu.setCodeName(address, label);
+                        }
+                    }
 		} catch (Exception ex) {
 			Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
 		}
@@ -611,7 +607,7 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 			for(int i = 0; i < 0x10000; i++){
 				cpu.code(i, m.read((int)(i + elf.header.entryPoint)));
 			}
-		} catch (Exception ex) {
+		} catch (IOException ex) {
 			throw new IOException("Invalid ELF binary " + path + ": " + ex.getMessage(), ex);
 		}
 	}
@@ -626,7 +622,7 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 				cpu.code(i, code[i + 0x1000 * 0]);
 				if(i == 0x10000 - 1) break;
 			}
-		} catch (Exception ex) {
+		} catch (IOException ex) {
 			throw new IOException("Failed to load raw binary " + path + ": " + ex.getMessage(), ex);
 		}
 	}
@@ -646,7 +642,7 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 					}
 				}
 			}
-		} catch (Exception ex) {
+		} catch (IOException ex) {
 			throw new Exception("Failed to load Java class " + path + ": " + ex.getMessage(), ex);
 		}
 	}
@@ -687,7 +683,7 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 					}
 				}
 			}
-		} catch (Exception ex) {
+		} catch (IOException ex) {
 			throw new Exception("Failed to load JAR " + path + ": " + ex.getMessage(), ex);
 		}
 	}
@@ -1056,7 +1052,7 @@ public class GUI extends JFrame implements MCS51Performance, ActionListener
 					}
 					messages("Exported to " + csvPath);
 				}
-			} catch (Exception ex) {
+			} catch (HeadlessException | IOException ex) {
 				messages(ex);
 			}
 		});

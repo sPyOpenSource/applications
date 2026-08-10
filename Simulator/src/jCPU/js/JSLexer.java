@@ -1,6 +1,6 @@
 package jCPU.js;
 
-import jCPU.common.InterpreterException;
+import common.InterpreterException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;

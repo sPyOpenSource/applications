@@ -1,6 +1,6 @@
 package jCPU.js;
 
-import jCPU.common.InterpreterException;
+import common.InterpreterException;
 import org.junit.Test;
 import java.util.List;
 import static org.junit.Assert.*;

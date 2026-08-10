@@ -82,6 +82,6 @@ public class CPU extends jx.disass.x86
 	public CPU() throws Exception
 	{
 		setOscillator(11184000);
-		addPeripheral(new G128x64());
+		//addPeripheral(new G128x64());
         }
 }

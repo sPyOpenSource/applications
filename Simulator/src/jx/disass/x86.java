@@ -1,6 +1,6 @@
 package jx.disass;
 
-import jCPU.MCS51.CPU;
+import jCPU.iCPU;
 import java.io.PrintStream;
 import java.sql.Ref;
 import java.util.ArrayList;
@@ -10,7 +10,7 @@ import jx.compiler.backend.Reg;
 import jx.compiler.symbols.SymbolTableEntryBase;
 import jx.compiler.symbols.UnresolvedJump;
 
-public class x86 extends CPU implements Visitor {
+public class x86 implements iCPU, Visitor {
     static String[] sreg_mod01_rm32   = {"DS", "DS", "DS", "DS", "??", "SS", "DS", "DS"};
     static String[] sreg_mod10_rm32   = {"DS", "DS", "DS", "DS", "??", "SS", "DS", "DS"};
     static String[] sreg_mod00_base32 = {"DS", "DS", "DS", "DS", "SS", "DS", "DS", "DS"};
@@ -870,6 +870,16 @@ public class x86 extends CPU implements Visitor {
 
     @Override
     public ArrayList getInstructionTable() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public int step() throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void go(int i) throws Exception {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }

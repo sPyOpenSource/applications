@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DMA Quick Reference</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <article class="lesson">
+    <header>
+      <h1>DMA Quick Reference for USB Host Drivers</h1>
+    </header>
+
+    <section>
+      <h2>Address Types</h2>
+      <table>
+        <thead><tr><th>Type</th><th>Symbol</th><th>Who Uses</th><th>Conversion</th></tr></thead>
+        <tbody>
+          <tr><td>Virtual</td><td>VA</td><td>Driver code</td><td>—</td></tr>
+          <tr><td>Physical</td><td>PA</td><td>MMU</td><td>virt_to_phys(VA)</td></tr>
+          <tr><td>Bus/DMA</td><td>DMA_ADDR</td><td>Controller</td><td>dma_map_single()</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Allocation Cheatsheet</h2>
+      <table>
+        <thead><tr><th>Use Case</th><th>Linux API</th><th>Bare Metal</th><th>Lifetime</th></tr></thead>
+        <tbody>
+          <tr><td>TD/QH rings</td><td>dma_alloc_coherent</td><td>dma_alloc_coherent / reserved pool</td><td>Driver lifetime</td></tr>
+          <tr><td>Frame List</td><td>dma_alloc_coherent</td><td>dma_alloc_coherent</td><td>Driver lifetime</td></tr>
+          <tr><td>Data buffers (CBW/CSW/data)</td><td>dma_map_single / unmap</td><td>dma_map_single / unmap</td><td>Per transfer</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Alignment Requirements (UHCI)</h2>
+      <ul>
+        <li>Transfer Descriptor (TD): 16-byte alignment, 32 bytes</li>
+        <li>Queue Head (QH): 32-byte alignment, 32 bytes</li>
+        <li>Frame List: 4KB alignment, 4KB (1024 × 4 bytes)</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>DMA Direction Flags</h2>
+      <table>
+        <thead><tr><th>Flag</th><th>Use When</th><th>Cache Op</th></tr></thead>
+        <tbody>
+          <tr><td>DMA_TO_DEVICE</td><td>TX (CBW, data OUT)</td><td>Clean before</td></tr>
+          <tr><td>DMA_FROM_DEVICE</td><td>RX (data IN, CSW)</td><td>Invalidate after</td></tr>
+          <tr><td>DMA_BIDIRECTIONAL</td><td>Both directions</td><td>Both</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Bare Metal Cache Ops (ARM Cortex-M)</h2>
+      <pre><code>// Before DMA_TO_DEVICE (TX)
+SCB_CleanDCache_by_Addr((uint32_t*)buf, len);
+
+// After DMA_FROM_DEVICE (RX)
+SCB_InvalidateDCache_by_Addr((uint32_t*)buf, len);
+
+// For DMA_BIDIRECTIONAL
+SCB_CleanInvalidateDCache_by_Addr((uint32_t*)buf, len);</code></pre>
+    </section>
+
+    <section>
+      <h2>Common Bugs Checklist</h2>
+      <ul>
+        <li>☐ Using malloc/kmalloc instead of dma_alloc_coherent for TD/QH</li>
+        <li>☐ Missing dma_map_single before submitting buffer to controller</li>
+        <li>☐ Missing dma_unmap_single after completion</li>
+        <li>☐ Wrong DMA direction flag</li>
+        <li>☐ Missing cache clean/invalidate on bare metal</li>
+        <li>☐ Wrong alignment (TD=16B, QH=32B, Frame List=4KB)</li>
+        <li>☐ Using virtual address where DMA address required</li>
+        <li>☐ Buffer crosses 64KB boundary (some controllers)</li>
+        <li>☐ Buffer in non-DMA-accessible memory region</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Debug Output Interpretation</h2>
+      <pre>DEBUG createTDs: dataBuffer size=31 start=0x13DB2000
+DEBUG createTDs: pipe.rm=<jx/zero/MemoryManager>
+TD created=TD[00000001, 39800000, 03C08169, 13DB2000->null]</pre>
+      <ul>
+        <li><code>start=0x13DB2000</code> — virtual address of data buffer</li>
+        <li><code>0x13DB2000</code> in TD field 3 — buffer pointer (should be DMA address)</li>
+        <li><code>->null</code> — link pointer (end of chain)</li>
+      </ul>
+    </section>
+  </article>
+</body>
+</html>

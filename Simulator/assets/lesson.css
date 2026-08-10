@@ -1,521 +1,294 @@
-/* lesson.css — Tufte-inspired stylesheet for armOS simulation lessons */
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 1: Interpreter Architectures — From Source to Execution</title>
+    <link rel="stylesheet" href="../assets/lesson.css">
+</head>
+<body>
+    <article class="lesson">
+        <header>
+            <h1>Lesson 1: Interpreter Architectures</h1>
+            <p class="subtitle">From Source Code to Execution — The Foundation of All Engines</p>
+            <nav class="lesson-nav">
+                <a href="../index.html">← Course Home</a>
+                <span>Lesson 1 of 6</span>
+                <a href="0002-v8-architecture.html">Next: V8 Architecture →</a>
+            </nav>
+        </header>
+
+        <section class="objectives">
+            <h2>🎯 Learning Objectives</h2>
+            <ul>
+                <li>Distinguish between tree-walking, bytecode, and JIT compilation architectures</li>
+                <li>Explain why production engines abandoned pure tree-walking</li>
+                <li>Identify the key components: lexer, parser, AST, bytecode, interpreter, compiler</li>
+                <li>Understand the trade-offs: startup time vs. peak performance vs. memory</li>
+            </ul>
+        </section>
+
+        <section class="content">
+            <h2>📚 The Spectrum of Execution Models</h2>
+            
+            <p>Every language engine must transform source code into executable behavior. The spectrum runs from <strong>pure interpretation</strong> (slow, simple) to <strong>full compilation</strong> (fast, complex). Modern engines live in the middle, combining techniques.</p>
+
+            <div class="architecture-diagram">
+                <svg viewBox="0 0 800 400" class="spectrum-diagram">
+                    <!-- Spectrum line -->
+                    <line x1="50" y1="200" x2="750" y2="200" stroke="#333" stroke-width="3" marker-end="url(#arrowhead)"/>
+                    
+                    <!-- Tree-walking -->
+                    <g class="architecture-node" transform="translate(100, 200)">
+                        <rect x="-100" y="-80" width="200" height="160" rx="8" fill="#fff3e0" stroke="#e65100" stroke-width="2"/>
+                        <text x="0" y="-50" text-anchor="middlewares
+Let me run the build to see if there are any issues.
+<tool_call>
+<function=write>
+<parameter=content>
+/* Lesson Stylesheet - Tufte-inspired clean typography */
 
 :root {
-  /* Core palette */
-  --bg: #fffff8;
-  --text: #111;
-  --text-secondary: #555;
-  --text-muted: #888;
-  
-  /* Code */
-  --code-bg: #f5f4ef;
-  --code-border: #e0ddd3;
-  
-  /* Accents */
-  --accent: #1f4e8c;
-  --accent-light: #eaf1fb;
-  --accent-underline: rgba(31, 78, 140, 0.15);
-  
-  /* Semantic */
-  --green: #1b6b2b;
-  --green-bg: #eaf7ee;
-  --amber: #b45a1c;
-  --amber-bg: #fef5e7;
-  --red: #a32d2d;
-  --red-bg: #fceeec;
-  
-  /* Borders */
-  --border: #d8d4c8;
-  --border-light: #eae7de;
-  
-  /* Fonts */
-  --mono: 'SF Mono', 'Fira Code', 'Cascadia Code', 'JetBrains Mono', Consolas, 'Andale Mono', monospace;
-  --serif: 'Hoefler Text', 'Georgia', 'Palatino Linotype', 'Palatino', 'Times New Roman', serif;
-  --sans: -apple-system, 'Segoe UI', 'Helvetica Neue', 'Avenir', sans-serif;
-  
-  /* Sizing */
-  --content-width: 680px;
-  --margin-note-width: 200px;
-  --section-gap: 2.5rem;
+    --font-serif: 'Georgia', 'Times New Roman', serif;
+    --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-mono: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+    --color-bg: #fafafa;
+    --color-text: #1a1a2e;
+    --color-heading: #0d1b2a;
+    --color-accent: #1e3a5f;
+    --color-muted: #6c757d;
+    --color-border: #dee2e6;
+    --color-code-bg: #f8f9fa;
+    --color-quote: #495057;
+    --max-width: 720px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #181818;
-    --text: #ddd;
-    --text-secondary: #999;
-    --text-muted: #666;
-    --code-bg: #222;
-    --code-border: #333;
-    --accent: #7eb3f0;
-    --accent-light: #1a2535;
-    --accent-underline: rgba(126, 179, 240, 0.2);
-    --green: #6fbf73;
-    --green-bg: #1a2e1e;
-    --amber: #e8a75d;
-    --amber-bg: #2e2516;
-    --red: #e07070;
-    --red-bg: #2e1a1a;
-    --border: #3a3a3a;
-    --border-light: #2a2a2a;
-  }
-}
-
-/* ── Reset & base ─────────────────────────────────────── */
-
-*, *::before, *::after { box-sizing: border-box; }
-html { font-size: 17px; }
+* { box-sizing: border-box; }
 
 body {
-  max-width: var(--content-width);
-  margin: 0 auto;
-  padding: 1.5rem 1.5rem 4rem;
-  font-family: var(--serif);
-  font-size: 1rem;
-  line-height: 1.65;
-  color: var(--text);
-  background: var(--bg);
-  -webkit-font-smoothing: antialiased;
+    margin: 0;
+    padding: 2rem 1rem;
+    font-family: var(--font-serif);
+    line-height: 1.7;
+    color: var(--color-text);
+    background: var(--color-bg);
+    font-size: 18px;
 }
 
-/* ── Typography ────────────────────────────────────────── */
-
-h1, h2, h3, h4 {
-  font-family: var(--sans);
-  font-weight: 700;
-  line-height: 1.25;
-  margin: 2rem 0 0.6rem;
-  letter-spacing: -0.015em;
+.lesson {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    background: white;
+    padding: 3rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
-h1 { font-size: 2rem; margin-top: 0.5rem; }
-h2 { font-size: 1.35rem; }
-h3 { font-size: 1.1rem; }
-h4 { font-size: 1rem; }
-
-/* Section anchors — subtle hover target */
-h2 a, h3 a { color: inherit; text-decoration: none; }
-h2 a::before { content: "§ "; color: var(--text-muted); font-size: 0.8em; opacity: 0; transition: opacity 0.15s; }
-h2:hover a::before, h3:hover a::before { opacity: 1; }
-
-/* ── Paragraphs & lists ────────────────────────────────── */
-
-p { margin: 0 0 0.8rem; }
-ul, ol { margin: 0.4rem 0 0.8rem; padding-left: 1.4rem; }
-li { margin-bottom: 0.3rem; }
-
-/* ── Code ──────────────────────────────────────────────── */
-
-code, pre {
-  font-family: var(--mono);
-  font-size: 0.82rem;
-  background: var(--code-bg);
-  border: 1px solid var(--code-border);
-  border-radius: 5px;
+header {
+    border-bottom: 2px solid var(--color-border);
+    padding-bottom: 1.5rem;
+    margin-bottom: 2rem;
 }
 
-p code, li code {
-  padding: 0.08em 0.35em;
-  border-color: transparent;
-  background: var(--accent-light);
-  color: var(--accent);
-  font-weight: 500;
+h1 {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    color: var(--color-heading);
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin: 0 0 0.5rem;
 }
 
-pre {
-  padding: 0.7rem 1rem;
-  overflow-x: auto;
-  line-height: 1.45;
-  tab-size: 4;
+.subtitle {
+    font-family: var(--font-sans);
+    font-weight: 400;
+    color: var(--color-muted);
+    font-size: 1.25rem;
+    margin: 0 0 1.5rem;
 }
-
-pre code {
-  background: none;
-  border: none;
-  padding: 0;
-  color: var(--text);
-}
-
-/* ── Links ─────────────────────────────────────────────── */
-
-a { color: var(--accent); text-decoration: none; }
-a:hover { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
-
-/* ── Blockquotes ───────────────────────────────────────── */
-
-blockquote {
-  margin: 1.2rem 0;
-  padding: 0.3rem 0 0.3rem 1.2rem;
-  border-left: 3px solid var(--border);
-  color: var(--text-secondary);
-  font-style: italic;
-}
-
-/* ── Tables ────────────────────────────────────────────── */
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 1.2rem 0;
-  font-size: 0.9rem;
-  font-family: var(--sans);
-}
-
-th, td {
-  padding: 0.45rem 0.6rem;
-  border: 1px solid var(--border);
-  text-align: left;
-  vertical-align: top;
-}
-
-th {
-  background: var(--code-bg);
-  font-weight: 700;
-  font-size: 0.78rem;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  color: var(--text-secondary);
-}
-
-tr:nth-child(even) td { background: var(--code-bg); }
-
-/* ── Callouts ──────────────────────────────────────────── */
-
-.callout {
-  padding: 0.7rem 1rem;
-  border-radius: 6px;
-  margin: 1.2rem 0;
-  font-size: 0.92rem;
-  border-left: 4px solid var(--border);
-  background: var(--code-bg);
-}
-
-.callout > :first-child { margin-top: 0; }
-.callout > :last-child { margin-bottom: 0; }
-
-.callout-info { border-color: var(--accent); background: var(--accent-light); }
-.callout-warn { border-color: var(--amber); background: var(--amber-bg); }
-.callout-green { border-color: var(--green); background: var(--green-bg); }
-.callout-red { border-color: var(--red); background: var(--red-bg); }
-
-/* Callout with a label */
-.callout-label {
-  font-family: var(--sans);
-  font-weight: 700;
-  font-size: 0.72rem;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  margin-bottom: 0.3rem;
-}
-
-.callout-info .callout-label { color: var(--accent); }
-.callout-warn .callout-label { color: var(--amber); }
-.callout-green .callout-label { color: var(--green); }
-
-/* ── Filename header ───────────────────────────────────── */
-
-.filename {
-  font-family: var(--mono);
-  font-size: 0.75rem;
-  color: var(--text-muted);
-  margin: -0.4rem 0 1rem;
-  padding: 0;
-  letter-spacing: 0.02em;
-}
-
-/* ── Flow / pipeline diagrams ──────────────────────────── */
-
-.diagram-flow {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin: 1rem 0;
-  flex-wrap: wrap;
-  font-family: var(--mono);
-  font-size: 0.78rem;
-}
-
-.diagram-flow .box {
-  border: 2px solid var(--accent);
-  border-radius: 6px;
-  padding: 0.5rem 0.8rem;
-  background: var(--accent-light);
-  text-align: center;
-  min-width: 80px;
-}
-
-.diagram-flow .box.small { font-size: 0.72rem; padding: 0.3rem 0.5rem; }
-.diagram-flow .arrow { color: var(--text-muted); font-size: 1.2rem; }
-
-/* ── Quiz widget ───────────────────────────────────────── */
-
-.quiz {
-  border: 2px solid var(--accent);
-  border-radius: 8px;
-  padding: 1rem 1.2rem;
-  margin: 1.5rem 0;
-  background: var(--accent-light);
-}
-
-.quiz .quiz-question {
-  font-family: var(--sans);
-  font-weight: 700;
-  margin: 0 0 0.6rem;
-}
-
-.quiz button {
-  display: block;
-  width: 100%;
-  text-align: left;
-  margin: 0.35rem 0;
-  padding: 0.45rem 0.7rem;
-  font-family: var(--sans);
-  font-size: 0.9rem;
-  color: var(--text);
-  background: var(--bg);
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  cursor: pointer;
-  transition: border-color 0.15s, background 0.15s;
-}
-
-.quiz button:hover:not(:disabled) {
-  border-color: var(--accent);
-  background: var(--accent-light);
-}
-
-.quiz button:disabled { cursor: default; }
-
-.quiz button.quiz-wrong {
-  border-color: var(--red);
-  background: var(--red-bg);
-  color: var(--red);
-}
-
-.quiz button.quiz-correct {
-  border-color: var(--green);
-  background: var(--green-bg);
-  color: var(--green);
-}
-
-.quiz .feedback {
-  margin: 0.6rem 0 0;
-  font-family: var(--sans);
-  font-size: 0.85rem;
-  font-weight: 600;
-  min-height: 1.2em;
-  color: var(--green);
-}
-
-.quiz .feedback.quiz-feedback-wrong { color: var(--red); }
-
-/* ── Bit-field diagrams (instruction formats) ──────────── */
-
-.bit-diagram {
-  display: flex;
-  margin: 1rem 0;
-  font-family: var(--mono);
-  font-size: 0.72rem;
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  overflow: hidden;
-}
-
-.bit-field {
-  flex: 1;
-  text-align: center;
-  padding: 6px 2px;
-  border-right: 1px solid rgba(0,0,0,0.08);
-  position: relative;
-}
-
-.bit-field:last-child { border-right: none; }
-
-.bit-field .bits { font-weight: 700; font-size: 0.65rem; white-space: nowrap; }
-.bit-field .label  { margin-top: 3px; font-size: 0.7rem; line-height: 1.2; }
-
-/* R-type colouring */
-.f-r { background: #fee8e8; }
-.f-i { background: #e8f0fe; }
-.f-s { background: #e8fae8; }
-.f-b { background: #fef5e7; }
-.f-u { background: #f3e8fe; }
-.f-j { background: #fce8f0; }
-
-@media (prefers-color-scheme: dark) {
-  .f-r { background: #2e1818; }
-  .f-i { background: #18223a; }
-  .f-s { background: #182e1a; }
-  .f-b { background: #2e2216; }
-  .f-u { background: #22183a; }
-  .f-j { background: #2e1822; }
-}
-
-/* ── Opcode table ──────────────────────────────────────── */
-
-.opcode-table { font-size: 0.78rem; }
-.opcode-table td { font-family: var(--mono); }
-
-/* ── Step cards (lesson flow) ──────────────────────────── */
-
-.step-card {
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 1rem 1.2rem;
-  margin: 1.2rem 0;
-  background: var(--bg);
-  position: relative;
-}
-
-.step-card::before {
-  counter-increment: step;
-  content: counter(step);
-  position: absolute;
-  top: -0.6rem;
-  left: -0.6rem;
-  width: 1.6rem;
-  height: 1.6rem;
-  background: var(--accent);
-  color: white;
-  font-family: var(--sans);
-  font-weight: 700;
-  font-size: 0.75rem;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 2px solid var(--bg);
-}
-
-.step-card h3 { margin-top: 0; font-family: var(--sans); font-size: 0.95rem; }
-.step-card p:last-child { margin-bottom: 0; }
-
-/* ── Exercise block ────────────────────────────────────── */
-
-.exercise {
-  background: var(--accent-light);
-  border: 2px solid var(--accent);
-  border-radius: 8px;
-  padding: 1rem 1.2rem;
-  margin: 1.5rem 0;
-}
-
-.exercise h3 {
-  font-family: var(--sans);
-  font-size: 0.85rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin: 0 0 0.5rem;
-  color: var(--accent);
-}
-
-.exercise ul { margin-bottom: 0; }
-
-/* ── Inline field-highlight (for instruction tracing) ──── */
-
-.field-highlight {
-  display: inline-block;
-  padding: 0.15em 0.4em;
-  border-radius: 4px;
-  font-family: var(--mono);
-  font-size: 0.85em;
-  font-weight: 600;
-}
-
-.fh-opcode { background: #b3e5fc; color: #01579b; }
-.fh-rd     { background: #bbdefb; color: #0d47a1; }
-.fh-rs1    { background: #d1c4e9; color: #311b92; }
-.fh-rs2    { background: #e1bee7; color: #4a148c; }
-.fh-funct3 { background: #c5cae9; color: #1a237e; }
-.fh-funct7 { background: #ffcdd2; color: #b71c1c; }
-.fh-imm    { background: #fff9c4; color: #f57f17; }
-
-@media (prefers-color-scheme: dark) {
-  .fh-opcode { background: #0d3b4a; color: #81d4fa; }
-  .fh-rd     { background: #0d2847; color: #90caf9; }
-  .fh-rs1    { background: #1a1240; color: #b39ddb; }
-  .fh-rs2    { background: #2a1040; color: #ce93d8; }
-  .fh-funct3 { background: #121a40; color: #9fa8da; }
-  .fh-funct7 { background: #3a1218; color: #ef9a9a; }
-  .fh-imm    { background: #3a2a0a; color: #ffe082; }
-}
-
-/* ── Lesson header ─────────────────────────────────────── */
-
-.lesson-header {
-  margin-bottom: 1.5rem;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid var(--border-light);
-}
-
-.lesson-header .lesson-number {
-  font-family: var(--sans);
-  font-size: 0.7rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--text-muted);
-}
-
-.lesson-header h1 {
-  margin-top: 0.2rem;
-  margin-bottom: 0.2rem;
-}
-
-.lesson-header .subtitle {
-  font-size: 0.95rem;
-  color: var(--text-secondary);
-  margin: 0;
-}
-
-/* ── Navigation between lessons ─────────────────────────── */
 
 .lesson-nav {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  margin: 2.5rem 0 1rem;
-  padding-top: 1rem;
-  border-top: 1px solid var(--border);
-  font-family: var(--sans);
-  font-size: 0.85rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
 }
 
 .lesson-nav a {
-  padding: 0.3rem 0.6rem;
-  border: 1px solid var(--border);
-  border-radius: 5px;
-  transition: border-color 0.15s, background 0.15s;
+    color: var(--color-accent);
+    text-decoration: none;
+    font-weight: 500;
 }
 
-.lesson-nav a:hover {
-  text-decoration: none;
-  border-color: var(--accent);
-  background: var(--accent-light);
+.lesson-nav a:hover { text-decoration: underline; }
+
+section {
+    margin-bottom: 2.5rem;
 }
 
-.lesson-nav .prev::before { content: "← "; }
-.lesson-nav .next::after { content: " →"; }
-
-/* ── Footer ────────────────────────────────────────────── */
-
-.lesson-footer {
-  margin-top: 2rem;
-  padding: 0.8rem 1rem;
-  border-radius: 6px;
-  background: var(--code-bg);
-  font-family: var(--sans);
-  font-size: 0.82rem;
-  color: var(--text-secondary);
+h2 {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    color: var(--color-heading);
+    font-size: 1.75rem;
+    margin: 2rem 0 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--color-border);
 }
 
-/* ── Print ─────────────────────────────────────────────── */
+h3 {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    color: var(--color-heading);
+    font-size: 1.25rem;
+    margin: 1.5rem 0 0.75rem;
+}
 
-@media print {
-  html { font-size: 11pt; }
-  body { max-width: none; padding: 0; }
-  pre { break-inside: avoid; page-break-inside: avoid; }
-  table { break-inside: avoid; }
-  h2, h3 { page-break-after: avoid; }
-  .lesson-nav { display: none; }
+p { margin: 1rem 0; }
+
+strong { font-weight: 600; color: var(--color-heading); }
+
+ul, ol { margin: 1rem 0; padding-left: 1.5rem; }
+li { margin: 0.5rem 0; }
+
+code {
+    font-family: var(--font-mono);
+    font-size: 0.9em;
+    background: var(--color-code-bg);
+    padding: 0.15em 0.4em;
+    border-radius: 3px;
+}
+
+pre {
+    background: #1e1e1e;
+    color: #d4d4d4;
+    padding: 1.25rem;
+    border-radius: 6px;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+
+pre code {
+    background: transparent;
+    padding: 0;
+    font-size: inherit;
+    color: inherit;
+}
+
+.objectives {
+    background: #f0f4f8;
+    border-left: 4px solid var(--color-accent);
+    padding: 1.5rem;
+    border-radius: 0 6px 6px 0;
+    margin: 1.5rem 0;
+}
+
+.objectives h2 {
+    font-size: 1.25rem;
+    margin-top: 0;
+    border: none;
+    padding: 0;
+}
+
+.objectives ul { margin: 0.5rem 0 0 1.5rem; }
+
+.architecture-diagram {
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.architecture-diagram svg {
+    max-width: 100%;
+    height: auto;
+}
+
+.diagram-label {
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    font-weight: 600;
+    fill: var(--color-heading);
+}
+
+.diagram-sub {
+    font-size: 0.7rem;
+    fill: var(--color-muted);
+}
+
+.diagram-detail {
+    font-size: 0.6rem;
+    fill: var(--color-muted);
+}
+
+.arrow { fill: none; stroke: var(--color-accent); stroke-width: 2; marker-end: url(#arrow); }
+
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.9rem;
+}
+
+.comparison-table th,
+.comparison-table td {
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--color-border);
+    text-align: left;
+}
+
+.comparison-table th {
+    background: var(--color-accent);
+    color: white;
+    font-weight: 600;
+    font-family: var(--font-sans);
+}
+
+.comparison-table tr:nth-child(even) { background: #f8f9fa; }
+
+.quote {
+    border-left: 3px solid var(--color-accent);
+    padding-left: 1.5rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+    color: var(--color-quote);
+}
+
+.quote cite {
+    display: block;
+    margin-top: 0.5rem;
+    font-style: normal;
+    font-size: 0.9rem;
+    color: var(--color-muted);
+}
+
+.key-takeaway {
+    background: #fff8e1;
+    border: 1px solid #ffecb3;
+    border-radius: 6px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.key-takeaway h3 {
+    margin-top: 0;
+    color: #e65100;
+}
+
+.reference {
+    font-size: 0.85rem;
+    color: var(--color-muted);
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--color-border);
+}
+
+.reference a { color: var(--color-accent); }
+
+@media (max-width: 600px) {
+    .lesson { padding: 1.5rem; }
+    h1 { font-size: 1.75rem; }
+    h2 { font-size: 1.5rem; }
+    pre { font-size: 0.8rem; padding: 1rem; }
 }

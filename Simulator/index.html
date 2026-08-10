@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Engine Internals Course</title>
+    <link rel="stylesheet" href="assets/lesson.css">
+</head>
+<body>
+    <article class="lesson">
+        <header>
+            <h1>Engine Internals Course</h1>
+            <p class="subtitle">Understanding JavaScript & Python Engine Internals</p>
+        </header>
+
+        <section class="objectives">
+            <h2>📚 Course Overview</h2>
+            <p>This course takes you from interpreter fundamentals to production engine internals. Each lesson builds on the previous one.</p>
+        </section>
+
+        <section class="content">
+            <h2>📖 Lessons</h2>
+            <ol>
+                <li>
+                    <a href="lessons/0001-interpreter-architectures.html"><strong>Interpreter Architectures</strong></a>
+                    <p>Tree-walking → Bytecode VM → JIT Compilation. The spectrum of execution models and why modern engines combine all three.</p>
+                </li>
+                <li>
+                    <a href="lessons/0002-v8-architecture.html"><strong>V8 Architecture Deep Dive</strong></a>
+                    <p>Ignition interpreter, TurboFan compiler, hidden classes, inline caching, deoptimization, Orinoco GC.</p>
+                </li>
+                <li>
+                    <a href="lessons/0003-spidermonkey.html"><strong>SpiderMonkey & JavaScriptCore</strong></a>
+                    <p>Baseline interpreter, IonMonkey/WarpBuilder, type inference, incremental GC.</p>
+                </li>
+                <li>
+                    <a href="lessons/0004-cpython-internals.html"><strong>CPython Internals</strong></a>
+                    <p>Bytecode VM (ceval.c), reference counting + generational GC, GIL, memory allocator, frames.</p>
+                </li>
+                <li>
+                    <a href="lessons/0005-pypy-jit.html"><strong>PyPy & Meta-Tracing JIT</strong></a>
+                    <p>RPython, meta-tracing, how PyPy's JIT differs from V8's approach.</p>
+                </li>
+                <li>
+                    <a href="lessons/0006-advanced-topics.html"><strong>Advanced Topics</strong></a>
+                    <li>Inline caching, polymorphic inline caches, speculative optimization</li>
+                    <li>Deoptimization / On-Stack Replacement (OSR)</li>
+                    <li>WebAssembly integration, WASM GC, SIMD</li>
+                    <li>Security: JIT spraying, type confusion, Spectre mitigations</li>
+                </li>
+            </ol>
+
+            <h2>📖 Recommended Primary Sources</h2>
+            <ul>
+                <li><a href="https://v8.dev/blog" target="_blank">V8 Blog</a> — Official deep dives on every major component</li>
+                <li><a href="https://github.com/v8/v8" target="_blank">V8 Source</a> — Read the actual implementation</li>
+                <li><a href="https://spidermonkey.dev/" target="_blank">SpiderMonkey Internals</a> — Mozilla's engine docs</li>
+                <li><a href="https://github.com/python/cpython" target="_blank">CPython Source</a> — ceval.c, Objects/, Python/</li>
+                <li><a href="https://craftinginterpreters.com/" target="_blank">Crafting Interpreters</a> — The best pedagogical resource</li>
+            </ul>
+        </section>
+
+        <footer class="lesson-nav">
+            <span>Engine Internals Course</span>
+            <a href="lessons/0001-interpreter-architectures.html">Start Learning →</a>
+        </footer>
+    </article>
+</body>
+</html>

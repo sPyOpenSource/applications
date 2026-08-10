@@ -82,7 +82,7 @@ int j = 0;
             }
         }, "USBMassStorageTest").start();
         // Media change / eject/insert test
-        new Thread(new Runnable() {
+        /*new Thread(new Runnable() {
             @Override
             public void run() {
                 MediaChangeTest.main(null);
@@ -94,7 +94,7 @@ int j = 0;
             public void run() {
                 LargeFileTest.main(null);
             }
-        }, "LargeFileTest").start();
+        }, "LargeFileTest").start();*/
         System.out.println("AI running...");
     }
     
@@ -105,7 +105,7 @@ int j = 0;
     public static void init(Naming naming) throws Exception {
         AI instance = new AI(naming);
         instance.start();
-        //jx.init.Main.main(new String[] {"boot.rc"});
+        jx.init.Main.main(new String[] {"boot.rc"});
     }
     
     public static void main(String[] args){

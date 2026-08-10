@@ -20,7 +20,7 @@ public class FExec extends ListNode {
     private int sp;
     private int startSp;
     private int peakSp;
-    private JThread ownerThread;
+    private Thread ownerThread;
     public Object excp;
     private int pc;
     private MethodData method;
@@ -263,7 +263,7 @@ public class FExec extends ListNode {
     private static final int[] opcodeLabels = new int[256];
 
     // --- Constructor ---
-    public FExec(JThread owner, int stackSize) {
+    public FExec(Thread owner, int stackSize) {
         super();
         this.stackLength = stackSize / Integer.BYTES;
         this.stack = new ArrayList<>(stackLength);
@@ -547,7 +547,7 @@ public class FExec extends ListNode {
 
     // --- Main Execution Loop ---
 
-    void exec(boolean initOpcodeLabels) {
+    public void exec(boolean initOpcodeLabels) {
         FDbg dbg = Flint.getDebugger();
         if (initOpcodeLabels) opcodes = opcodeLabels;
         int[] code = this.code;
@@ -2368,9 +2368,6 @@ public class FExec extends ListNode {
 // --- Placeholder Types (to be implemented fully) ---
 
 class ListNode {
-}
-
-class JThread {
 }
 
 class StaticInitStatus {

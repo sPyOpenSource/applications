@@ -1,13 +1,13 @@
 package nasm;
 
-import jCPU.MCS51.CPU;
+import jCPU.iCPU;
 import java.io.IOException;
 import jCPU.x86.X86Core;
 import jCPU.x86.X86VgaPeripheral;
 import jCPU.x86.X86UartPeripheral;
 import nasm.inst.NasmInst;
 
-public class NasmVM extends CPU {
+public class NasmVM implements iCPU {
     private final int verboseLevel = 0;
     private final int stackSize = 10000;
     private final X86Core core;
@@ -93,8 +93,13 @@ public class NasmVM extends CPU {
 		System.exit(1);
 	    }
 	    var vm = new NasmVM();
-	} catch(Exception e) {
+	} catch(NumberFormatException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public void go(int i) throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }

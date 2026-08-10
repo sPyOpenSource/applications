@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 0001: DMA for USB Mass Storage</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <article class="lesson">
+    <header>
+      <h1>Lesson 0001: DMA (Direct Memory Access) for USB Mass Storage</h1>
+      <p class="lesson-meta">Mission: USB Mass Storage for File System Implementation | Zone: Controller-side DMA for UHCI/EHCI/xHCI</p>
+    </header>
+
+    <section class="objectives">
+      <h2>Learning Objectives</h2>
+      <ul>
+        <li>Explain why DMA is required for USB host controllers</li>
+        <li>Distinguish between virtual, physical, and bus (DMA) addresses</li>
+        <li>Describe the descriptor ring / TD (Transfer Descriptor) lifecycle in UHCI</li>
+        <li>Identify the memory requirements for DMA buffers (alignment, physical contiguity, cache coherency)</li>
+        <li>Spot common DMA bugs in USB host driver code</li>
+      </ul>
+    </section>
+
+    <section class="concept">
+      <h2>Why DMA Matters for USB Host</h2>
+      <p>Your USB host controller (UHCI, EHCI, xHCI) is a bus master. It reads and writes system memory <strong>without CPU involvement</strong>. When you submit a CBW (Command Block Wrapper) or data phase for a SCSI READ(10)/WRITE(10):</p>
+      
+      <div class="flow">
+        <div class="step">CPU builds TD (Transfer Descriptor) in memory</div>
+        <div class="arrow">→</div>
+        <div class="step">CPU writes TD address to controller register</div>
+        <div class="arrow">→</div>
+        <div class="step">Controller DMA-reads TD from RAM</div>
+        <div class="arrow">→</div>
+        <div class="step">Controller DMA-reads/writes data buffer</div>
+        <div class="arrow">→</div>
+        <div class="step">Controller writes completion status back to TD</div>
+        <div class="arrow">→</div>
+        <div class="step">CPU polls/interrupts, reads TD status</div>
+      </div>
+
+      <p><strong>Key insight:</strong> The controller sees <em>physical addresses</em>. Your C code works with <em>virtual addresses</em>. The memory must be:</p>
+      <ul>
+        <li><strong>Physically contiguous</strong> (controller DMA can't follow page tables)</li>
+        <li><strong>DMA-accessible</strong> (some SoCs restrict DMA to certain RAM regions)</li>
+        <li><strong>Cache-coherent</strong> (CPU cache vs. DMA writes must be synchronized)</li>
+        <li><strong>Properly aligned</strong> (e.g., 64-byte alignment for UHCI TDs/QHs)</li>
+      </ul>
+    </section>
+
+    <section class="concept">
+      <h2>Address Spaces You Must Track</h2>
+      <table>
+        <thead>
+          <tr><th>Address Type</th><th>Used By</th><th>Example</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Virtual (VA)</td><td>Your C driver code</td><td><code>uint8_t *buf = kmalloc(512);</code></td></tr>
+          <tr><td>Physical (PA)</td><td>CPU MMU, DMA mapping</td><td><code>virt_to_phys(buf)</code></td></tr>
+          <tr><td>Bus / DMA (DMA_ADDR)</td><td>USB controller</td><td><code>dma_map_single(dev, buf, 512, DMA_TO_DEVICE)</code></td></tr>
+        </tbody>
+      </table>
+      <p class="note"><strong>On simple embedded systems without MMU:</strong> VA = PA = DMA_ADDR, but alignment and cache rules still apply.</p>
+    </section>
+
+    <section class="concept">
+      <h2>UHCI TD / QH Allocation Pattern</h2>
+      <p>In your UHCI driver, the TD (Transfer Descriptor) and QH (Queue Head) structures must live in DMA-accessible memory. The typical pattern:</p>
+      <pre><code>// Allocate 32 bytes, 16-byte aligned for TD
+td = dma_alloc_coherent(udev->dev, sizeof(struct uhci_td), &td_dma, GFP_KERNEL);
+if (!td) return -ENOMEM;
+
+// Build TD in CPU-accessible memory
+td->token = cpu_to_le32(...);
+td->buffer = cpu_to_le32(data_dma);
+td->link = cpu_to_le32(next_td_dma | 0x2); // QH link
+
+// Write to hardware
+writel(td_dma, io_regs + FRAME_LIST_BASE);</code></pre>
+      <p class="warning"><strong>Common bug:</strong> Using <code>kmalloc</code>/<code>malloc</code> instead of <code>dma_alloc_coherent</code>. The buffer may not be physically contiguous or DMA-accessible.</p>
+    </section>
+
+    <section class="concept">
+      <h2>Data Buffer DMA Mapping</h2>
+      <p>For the actual data buffers (CBW, data phase, CSW), you typically use <em>streaming DMA mapping</em> because buffers are reused and may be larger than a page:</p>
+      <pre><code>// Before submitting to controller
+data_dma = dma_map_single(udev->dev, buf, len, DMA_TO_DEVICE);
+if (dma_mapping_error(udev->dev, data_dma)) return -EIO;
+
+// Submit to controller (write data_dma into TD)
+
+// After completion
+dma_unmap_single(udev->dev, data_dma, len, DMA_TO_DEVICE);</code></pre>
+      <p>For bidirectional or receive buffers, use <code>DMA_FROM_DEVICE</code> or <code>DMA_BIDIRECTIONAL</code>.</p>
+    </section>
+
+    <section class="concept">
+      <h2>Cache Coherency</h2>
+      <p>If your CPU has a data cache (Cortex-M7, Cortex-A, etc.):</p>
+      <ul>
+        <li><strong>Before DMA_TO_DEVICE:</strong> Clean cache (write-back) so DMA sees latest data</li>
+        <li><strong>After DMA_FROM_DEVICE:</strong> Invalidate cache so CPU reads fresh data from RAM</li>
+      </ul>
+      <p><code>dma_map_single</code> / <code>dma_unmap_single</code> handle this automatically on Linux. On bare metal:</p>
+      <pre><code>// Before giving buffer to controller (TX)
+SCB_CleanDCache_by_Addr(buf, len);
+
+// After controller writes to buffer (RX)
+SCB_InvalidateDCache_by_Addr(buf, len);</code></pre>
+    </section>
+
+    <section class="quiz">
+      <h2>Check Your Understanding</h2>
+      <form id="quiz">
+        <div class="question">
+          <p>1. Your UHCI driver allocates a Transfer Descriptor with <code>malloc(32)</code>. The TD appears correct in memory, but the controller never processes it. What's the most likely cause?</p>
+          <label><input type="radio" name="q1" value="a"> A) The TD structure fields are wrong</label>
+          <label><input type="radio" name="q1" value="b"> B) <code>malloc</code> returns virtual memory that may not be physically contiguous or DMA-accessible</label>
+          <label><input type="radio" name="q1" value="c"> C) The TD link pointer is not set</label>
+          <label><input type="radio" name="q1" value="d"> D) The controller needs a 64-byte TD, not 32</label>
+        </div>
+
+        <div class="question">
+          <p>2. You're submitting a 512-byte data buffer for a SCSI WRITE(10). The buffer is allocated with <code>kmalloc(512)</code>. Before giving the buffer address to the controller, you must:</p>
+          <label><input type="radio" name="q2" value="a"> A) Nothing, <code>kmalloc</code> returns DMA-ready memory</label>
+          <label><input type="radio" name="q2" value="b"> B) Call <code>dma_map_single(dev, buf, 512, DMA_TO_DEVICE)</code> to get the DMA address</label>
+          <label><input type="radio" name="q2" value="c"> C) Zero the buffer first</label>
+          <label><input type="radio" name="q2" value="d"> D) Align the buffer to 4KB</label>
+        </div>
+
+        <div class="question">
+          <p>3. After the controller completes a DMA read (DMA_FROM_DEVICE) into your buffer, the CPU reads stale data. On a Cortex-M7 with data cache, you need to:</p>
+          <label><input type="radio" name="q3" value="a"> A) Call <code>dma_unmap_single</code> only</label>
+          <label><input type="radio" name="q3" value="b"> B) Invalidate the cache for that buffer region</label>
+          <label><input type="radio" name="q3" value="c"> C) Clean the cache for that buffer region</label>
+          <label><input type="radio" name="q3" value="d"> D) Disable the cache entirely</label>
+        </div>
+
+        <div class="question">
+          <p>4. The UHCI Frame List must be 4KB-aligned because:</p>
+          <label><input type="radio" name="q4" value="a"> A) The controller uses it as a page table</label>
+          <label><input type="radio" name="q4" value="b"> B) The controller indexes it with frame number × 4 bytes; alignment simplifies hardware</label>
+          <label><input type="radio" name="q4" value="c"> C) It's a requirement of the USB 2.0 spec</label>
+          <label><input type="radio" name="q4" value="d"> D) It must fit in a single cache line</label>
+        </div>
+
+        <button type="submit">Submit</button>
+      </form>
+      <div id="results" class="hidden"></div>
+    </section>
+
+    <section class="practice">
+      <h2>Hands-On: Audit Your UHCI Driver</h2>
+      <ol>
+        <li>Find where TDs/QHs are allocated. Are they using <code>dma_alloc_coherent</code> (or your platform equivalent)?</li>
+        <li>Find where data buffers are passed to the controller. Is <code>dma_map_single</code> called before submission and <code>dma_unmap_single</code> after completion?</li>
+        <li>Check alignment requirements: UHCI TD = 16 bytes, QH = 32 bytes, Frame List = 4KB.</li>
+        <li>If bare metal: verify cache clean/invalidate around DMA operations.</li>
+      </ol>
+    </section>
+
+    <footer>
+      <p><strong>Primary Source:</strong> <a href="https://www.intel.com/content/dam/www/public/us/en/documents/technical-specifications/universal-serial-bus-uhr-uhci-spec.pdf" target="_blank">UHCI Specification (Intel)</a> — Sections 4 (Data Structures) and 5 (Operational Model)</p>
+      <p><strong>Next Lesson:</strong> UHCI Transfer Descriptor Ring Management</p>
+      <p>Questions? Ask the agent about any unclear concepts.</p>
+    </footer>
+  </article>
+
+  <script src="../assets/quiz.js"></script>
+</body>
+</html>

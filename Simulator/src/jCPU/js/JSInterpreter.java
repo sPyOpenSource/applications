@@ -1,6 +1,6 @@
 package jCPU.js;
 
-import jCPU.common.*;
+import common.*;
 import jCPU.js.ast.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -49,7 +49,7 @@ public class JSInterpreter extends InterpreterBase implements jCPU.iCPU {
             java.lang.reflect.Field f = v.getClass().getDeclaredField("func");
             f.setAccessible(true);
             return (JSFunction) f.get(v);
-        } catch (Exception ex) {
+        } catch (IllegalAccessException | IllegalArgumentException | NoSuchFieldException ex) {
             return null;
         }
     }
@@ -81,17 +81,17 @@ public class JSInterpreter extends InterpreterBase implements jCPU.iCPU {
     // ---- core eval ----
 
     private Completion execStmt(JSStmt s, JSEnvironment env) {
-        if (s instanceof JSVarDecl) return execVar((JSVarDecl) s, env);
-        if (s instanceof JSExprStmt) return execExprStmt((JSExprStmt) s, env);
-        if (s instanceof JSBlock) return execBlock((JSBlock) s, env);
-        if (s instanceof JSIfStmt) return execIf((JSIfStmt) s, env);
-        if (s instanceof JSWhileStmt) return execWhile((JSWhileStmt) s, env);
-        if (s instanceof JSForStmt) return execFor((JSForStmt) s, env);
-        if (s instanceof JSFunctionDecl) return execFuncDecl((JSFunctionDecl) s, env);
-        if (s instanceof JSReturnStmt) return Completion.returned(evalExpr(((JSReturnStmt) s).value, env));
+        if (s instanceof JSVarDecl jSVarDecl) return execVar(jSVarDecl, env);
+        if (s instanceof JSExprStmt jSExprStmt) return execExprStmt(jSExprStmt, env);
+        if (s instanceof JSBlock jSBlock) return execBlock(jSBlock, env);
+        if (s instanceof JSIfStmt jSIfStmt) return execIf(jSIfStmt, env);
+        if (s instanceof JSWhileStmt jSWhileStmt) return execWhile(jSWhileStmt, env);
+        if (s instanceof JSForStmt jSForStmt) return execFor(jSForStmt, env);
+        if (s instanceof JSFunctionDecl jSFunctionDecl) return execFuncDecl(jSFunctionDecl, env);
+        if (s instanceof JSReturnStmt jSReturnStmt) return Completion.returned(evalExpr(jSReturnStmt.value, env));
         if (s instanceof JSBreakStmt) throw new InterpreterException("break outside loop", (int) steps, s.line);
         if (s instanceof JSContinueStmt) throw new InterpreterException("continue outside loop", (int) steps, s.line);
-        if (s instanceof JSTryStmt) return execTry((JSTryStmt) s, env);
+        if (s instanceof JSTryStmt jSTryStmt) return execTry(jSTryStmt, env);
         throw new InterpreterException("Unsupported statement", (int) steps, s.line);
     }
 
@@ -160,25 +160,25 @@ public class JSInterpreter extends InterpreterBase implements jCPU.iCPU {
 
     private JSValue evalExpr(JSExpr e, JSEnvironment env) {
         if (e == null) return JSValue.UNDEFINED;
-        if (e instanceof JSNumber) return new JSValue.Num(((JSNumber) e).v);
-        if (e instanceof JSString) return new JSValue.Str(((JSString) e).v);
-        if (e instanceof JSBool) return new JSValue.Bool(((JSBool) e).v);
+        if (e instanceof JSNumber jSNumber) return new JSValue.Num(jSNumber.v);
+        if (e instanceof JSString jSString) return new JSValue.Str(jSString.v);
+        if (e instanceof JSBool jSBool) return new JSValue.Bool(jSBool.v);
         if (e instanceof JSNull) return JSValue.NULL;
         if (e instanceof JSUndefined) return JSValue.UNDEFINED;
-        if (e instanceof JSIdent) return env.lookup(((JSIdent) e).name);
-        if (e instanceof JSBinary) return evalBinary((JSBinary) e, env);
-        if (e instanceof JSLogical) return evalLogical((JSLogical) e, env);
-        if (e instanceof JSUnary) return evalUnary((JSUnary) e, env);
-        if (e instanceof JSAssign) return evalAssign((JSAssign) e, env);
-        if (e instanceof JSCall) return evalCall((JSCall) e, env);
-        if (e instanceof JSMember) return evalMember((JSMember) e, env);
-        if (e instanceof JSIndex) return evalIndex((JSIndex) e, env);
-        if (e instanceof JSObjectLit) return evalObjectLit((JSObjectLit) e, env);
-        if (e instanceof JSArrayLit) return evalArrayLit((JSArrayLit) e, env);
-        if (e instanceof JSFunctionExpr) return evalFunctionExpr((JSFunctionExpr) e, env);
-        if (e instanceof JSConditional) {
-            JSValue c = evalExpr(((JSConditional) e).cond, env);
-            return isTruthy(c) ? evalExpr(((JSConditional) e).thenE, env) : evalExpr(((JSConditional) e).elseE, env);
+        if (e instanceof JSIdent jSIdent) return env.lookup(jSIdent.name);
+        if (e instanceof JSBinary jSBinary) return evalBinary(jSBinary, env);
+        if (e instanceof JSLogical jSLogical) return evalLogical(jSLogical, env);
+        if (e instanceof JSUnary jSUnary) return evalUnary(jSUnary, env);
+        if (e instanceof JSAssign jSAssign) return evalAssign(jSAssign, env);
+        if (e instanceof JSCall jSCall) return evalCall(jSCall, env);
+        if (e instanceof JSMember jSMember) return evalMember(jSMember, env);
+        if (e instanceof JSIndex jSIndex) return evalIndex(jSIndex, env);
+        if (e instanceof JSObjectLit jSObjectLit) return evalObjectLit(jSObjectLit, env);
+        if (e instanceof JSArrayLit jSArrayLit) return evalArrayLit(jSArrayLit, env);
+        if (e instanceof JSFunctionExpr jSFunctionExpr) return evalFunctionExpr(jSFunctionExpr, env);
+        if (e instanceof JSConditional jSConditional) {
+            JSValue c = evalExpr(jSConditional.cond, env);
+            return isTruthy(c) ? evalExpr(jSConditional.thenE, env) : evalExpr(jSConditional.elseE, env);
         }
         return JSValue.UNDEFINED;
     }
@@ -285,14 +285,14 @@ public class JSInterpreter extends InterpreterBase implements jCPU.iCPU {
 
     private JSValue evalMember(JSMember e, JSEnvironment env) {
         JSValue o = evalExpr(e.obj, env);
-        if (o instanceof JSValue.Obj) return ((JSValue.Obj) o).get(e.prop);
+        if (o instanceof JSValue.Obj obj) return obj.get(e.prop);
         return JSValue.UNDEFINED;
     }
 
     private JSValue evalIndex(JSIndex e, JSEnvironment env) {
         JSValue o = evalExpr(e.obj, env);
         JSValue k = evalExpr(e.index, env);
-        if (o instanceof JSValue.Obj) return ((JSValue.Obj) o).get(k.toString());
+        if (o instanceof JSValue.Obj obj) return obj.get(k.toString());
         return JSValue.UNDEFINED;
     }
 
@@ -320,7 +320,7 @@ public class JSInterpreter extends InterpreterBase implements jCPU.iCPU {
             if (!args.isEmpty()) {
                 JSValue v = args.get(0);
                 if (v instanceof JSValue.Str) return new JSValue.Num(v.toString().length());
-                if (v instanceof JSValue.Obj) return new JSValue.Num(((JSValue.Obj) v).props.size());
+                if (v instanceof JSValue.Obj obj) return new JSValue.Num(obj.props.size());
             }
             return new JSValue.Num(0);
         }
@@ -333,8 +333,8 @@ public class JSInterpreter extends InterpreterBase implements jCPU.iCPU {
 
     private boolean isTruthy(JSValue v) {
         if (v == JSValue.NULL || v == JSValue.UNDEFINED) return false;
-        if (v instanceof JSValue.Bool) return ((JSValue.Bool) v).b;
-        if (v instanceof JSValue.Num) return ((JSValue.Num) v).v != 0;
+        if (v instanceof JSValue.Bool bool) return bool.b;
+        if (v instanceof JSValue.Num num) return num.v != 0;
         if (v instanceof JSValue.Str) return !v.toString().isEmpty();
         return true;
     }
