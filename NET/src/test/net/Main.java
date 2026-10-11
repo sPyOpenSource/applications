@@ -183,7 +183,6 @@ public class Main {
 }
 
 class StartNetworkProtocols {
-    
     public static void main(String[] args) {
 	Naming naming = InitialNaming.getInitialNaming();
 	NetworkDevice nic = (NetworkDevice)LookupHelper.waitUntilPortalAvailable(naming, args[0]);

@@ -1,0 +1,74 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 4,
+  "filesSkipped": [],
+  "nodes": [
+    {
+      "id": "config:nbproject/build-impl.xml",
+      "type": "config",
+      "name": "build-impl.xml",
+      "filePath": "nbproject/build-impl.xml",
+      "summary": "config: nbproject/build-impl.xml",
+      "tags": [
+        "config"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:nbproject/genfiles.properties",
+      "type": "config",
+      "name": "genfiles.properties",
+      "filePath": "nbproject/genfiles.properties",
+      "summary": "config: nbproject/genfiles.properties",
+      "tags": [
+        "config"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:nbproject/project.properties",
+      "type": "config",
+      "name": "project.properties",
+      "filePath": "nbproject/project.properties",
+      "summary": "config: nbproject/project.properties",
+      "tags": [
+        "config"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:nbproject/project.xml",
+      "type": "config",
+      "name": "project.xml",
+      "filePath": "nbproject/project.xml",
+      "summary": "config: nbproject/project.xml",
+      "tags": [
+        "config"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [],
+  "results": [
+    {
+      "path": "nbproject/build-impl.xml",
+      "totalLines": 1825,
+      "nonEmptyLines": 1822
+    },
+    {
+      "path": "nbproject/genfiles.properties",
+      "totalLines": 8,
+      "nonEmptyLines": 8
+    },
+    {
+      "path": "nbproject/project.properties",
+      "totalLines": 107,
+      "nonEmptyLines": 107
+    },
+    {
+      "path": "nbproject/project.xml",
+      "totalLines": 41,
+      "nonEmptyLines": 41
+    }
+  ]
+}

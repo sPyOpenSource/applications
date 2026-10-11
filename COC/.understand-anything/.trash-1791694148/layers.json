@@ -1,0 +1,84 @@
+[
+  {
+    "id": "layer:project-root",
+    "name": "Project Root",
+    "description": "Root level files",
+    "nodeIds": [
+      "config:build.xml",
+      "document:README.md"
+    ]
+  },
+  {
+    "id": "layer:source",
+    "name": "Source (src)",
+    "description": "Application source",
+    "nodeIds": [
+      "file:src/.DS_Store",
+      "file:src/com/coc/GUI.java",
+      "file:src/com/coc/package.bluej",
+      "file:src/com/package.bluej",
+      "file:src/controller/attack/ArcherBalloonAttack.java",
+      "file:src/controller/attack/DefBalloonAttack.java",
+      "file:src/controller/attack/DragonAttack.java",
+      "file:src/controller/attack/GoblinBalloonAttack.java",
+      "file:src/controller/attack/package.bluej",
+      "file:src/controller/attack/PandaAttack.java",
+      "file:src/controller/CheckResultAttack.java",
+      "file:src/controller/defense/ArcherTowerDefense.java",
+      "file:src/controller/defense/InfernoTowerDefense.java",
+      "file:src/controller/defense/package.bluej",
+      "file:src/controller/defense/TeslaDefense.java",
+      "file:src/controller/LogInController.java",
+      "file:src/controller/package.bluej",
+      "file:src/controller/SignUpController.java",
+      "file:src/model/data/LoadData.java",
+      "file:src/model/data/package.bluej",
+      "file:src/model/data/SaveData.java",
+      "file:src/model/data/UpdateData.java",
+      "file:src/model/IdPlayerException.java",
+      "file:src/model/Map/MapLoader.java",
+      "file:src/model/Map/package.bluej",
+      "file:src/model/package.bluej",
+      "file:src/model/Player.java",
+      "file:src/module-info.java",
+      "file:src/package.bluej",
+      "document:src/README.TXT",
+      "document:src/style.css",
+      "file:src/view/Battle.java",
+      "file:src/view/LogIn.java",
+      "file:src/view/package.bluej",
+      "file:src/view/PlayerPanel.java",
+      "file:src/view/SearchOpponents.java",
+      "file:src/view/SignUp.java"
+    ]
+  },
+  {
+    "id": "layer:nbproject",
+    "name": "NetBeans Config",
+    "description": "NetBeans project files",
+    "nodeIds": [
+      "config:nbproject/build-impl.xml",
+      "config:nbproject/genfiles.properties",
+      "config:nbproject/project.properties",
+      "config:nbproject/project.xml"
+    ]
+  },
+  {
+    "id": "layer:test",
+    "name": "Tests",
+    "description": "Test files",
+    "nodeIds": [
+      "file:test/test/testClass.java"
+    ]
+  },
+  {
+    "id": "layer:misc",
+    "name": "Misc",
+    "description": "Other files",
+    "nodeIds": [
+      "file:.DS_Store",
+      "file:.understand-anything/.understandignore",
+      "config:.understand-anything/config.json"
+    ]
+  }
+]

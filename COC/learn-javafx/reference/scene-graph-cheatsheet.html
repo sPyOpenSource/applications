@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scene Graph Cheatsheet — COC Course</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <a href="../lessons/0001-scene-graph.html">Lesson 1: The Scene Graph</a>
+  <span>·</span>
+  <a href="javafx-glossary.html">Glossary</a>
+</nav>
+
+<h1>Scene Graph Cheatsheet</h1>
+<p class="lead">Quick reference for building and reading a screen. Print me.</p>
+
+<h2>The window stack (outer → inner)</h2>
+<pre class="tree">Stage  "Log in"          ← OS window (title, size, position)
+└── Scene (400 × 300)     ← canvas: one root + size + stylesheets
+    └── root Node         ← start of the scene graph
+        └── ...children   ← branch or leaf nodes</pre>
+
+<h2>Layout panes — how children are positioned</h2>
+<table class="grid">
+  <tr><th>Pane</th><th>Positions children by…</th><th>Use when</th></tr>
+  <tr><td><code>BorderPane</code></td><td>5 regions: top / bottom / left / right / center</td><td>App shell with fixed edges + a flexible center</td></tr>
+  <tr><td><code>VBox</code> / <code>HBox</code></td><td>Single column / row; <code>spacing</code>, <code>padding</code>, <code>alignment</code></td><td>Stacking a few controls (forms, toolbars)</td></tr>
+  <tr><td><code>StackPane</code></td><td>Layers children back-to-front (centered)</td><td>Overlays: HUD on top of a map</td></tr>
+  <tr><td><code>AnchorPane</code></td><td>Anchors edges to offsets; else keeps top/left</td><td>Absolute control, resizable edges</td></tr>
+  <tr><td><code>GridPane</code></td><td>Rows × columns with optional spans</td><td>Aligned forms / grids</td></tr>
+  <tr><td><code>FlowPane</code> / <code>TilePane</code></td><td>Wrap at boundary; uniform tiles for <code>TilePane</code></td><td>Wrapping rows of items</td></tr>
+  <tr><td><code>Pane</code></td><td>No layout — children sit at their own <code>setX/setY</code></td><td>Absolute positioning (what this project often does)</td></tr>
+</table>
+
+<h2>Common nodes in this project</h2>
+<table class="grid">
+  <tr><th>Class</th><th>Kind</th><th>Seen in</th></tr>
+  <tr><td><code>BorderPane</code></td><td>branch (layout)</td><td><code>LogIn</code> root</td></tr>
+  <tr><td><code>AnchorPane</code></td><td>branch (layout)</td><td><code>PlayerPanel</code>, <code>Battle</code> (from the map view)</td></tr>
+  <tr><td><code>VBox</code>, <code>HBox</code></td><td>branch (layout)</td><td><code>LogIn.vBoxFields()</code></td></tr>
+  <tr><td><code>ImageView</code></td><td>leaf</td><td>troop icons, backgrounds, buttons-as-images</td></tr>
+  <tr><td><code>Text</code></td><td>leaf</td><td>labels (<code>id="text"</code>)</td></tr>
+  <tr><td><code>Rectangle</code></td><td>leaf</td><td>the translucent bar in <code>Battle</code></td></tr>
+  <tr><td><code>MediaView</code></td><td>leaf</td><td>background music players</td></tr>
+</table>
+
+<h2>Two ways this project lays things out</h2>
+<table class="grid">
+  <tr><th>Auto layout</th><th>Absolute positioning</th></tr>
+  <tr>
+    <td><code>VBox v = new VBox();</code><br><code>v.setSpacing(15);</code><br><code>v.setAlignment(Pos.CENTER);</code><br><code>v.setPadding(new Insets(20));</code></td>
+    <td><code>img.setX(20);</code><br><code>img.setY(620);</code><br><code>img.setFitWidth(100);</code><br><code>img.setFitHeight(100);</code></td>
+  </tr>
+</table>
+<p class="sidenote">Prefer auto layout for the redesign: it survives font/scale changes; pixels don't.</p>
+
+<h2>The project's screen pattern (the quirk)</h2>
+<pre class="tree">// every screen is its own Application subclass, opened manually:
+new SignUp(players).start(new Stage());
+stage.close();</pre>
+<p class="sidenote">A real app has one <code>Application</code> launched by <code>launch()</code>. Here each screen is one — a smell to fix in the redesign.</p>
+
+<div class="footer">
+  <p><strong>Sources:</strong> <a href="https://docs.oracle.com/javafx/2/layout/builtin_layouts.htm">Oracle — Built-in Layout Panes</a> · <a href="https://openjfx.io/javadoc/21/javafx.graphics/javafx/scene/Node.html">OpenJFX — Node</a></p>
+</div>
+
+</body>
+</html>

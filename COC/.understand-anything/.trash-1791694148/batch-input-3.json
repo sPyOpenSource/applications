@@ -1,0 +1,133 @@
+{
+  "projectRoot": "/Users/xuyi/Source/OS/armOS/lib/jcore/test/COC",
+  "batchFiles": [
+    {
+      "path": "src/model/data/SaveData.java",
+      "language": "java",
+      "sizeLines": 33,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/model/data/UpdateData.java",
+      "language": "java",
+      "sizeLines": 33,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/model/IdPlayerException.java",
+      "language": "java",
+      "sizeLines": 7,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/model/Map/MapLoader.java",
+      "language": "java",
+      "sizeLines": 91,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/model/Map/package.bluej",
+      "language": "bluej",
+      "sizeLines": 55,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/model/package.bluej",
+      "language": "bluej",
+      "sizeLines": 65,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/model/Player.java",
+      "language": "java",
+      "sizeLines": 57,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/module-info.java",
+      "language": "java",
+      "sizeLines": 17,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/package.bluej",
+      "language": "bluej",
+      "sizeLines": 55,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/README.TXT",
+      "language": "txt",
+      "sizeLines": 0,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "src/style.css",
+      "language": "css",
+      "sizeLines": 34,
+      "fileCategory": "markup"
+    },
+    {
+      "path": "src/view/Battle.java",
+      "language": "java",
+      "sizeLines": 237,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/view/LogIn.java",
+      "language": "java",
+      "sizeLines": 111,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/view/package.bluej",
+      "language": "bluej",
+      "sizeLines": 76,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/view/PlayerPanel.java",
+      "language": "java",
+      "sizeLines": 235,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/view/SearchOpponents.java",
+      "language": "java",
+      "sizeLines": 249,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/view/SignUp.java",
+      "language": "java",
+      "sizeLines": 187,
+      "fileCategory": "code"
+    },
+    {
+      "path": "test/test/testClass.java",
+      "language": "java",
+      "sizeLines": 20,
+      "fileCategory": "code"
+    }
+  ],
+  "batchImportData": {
+    "src/model/data/SaveData.java": [],
+    "src/model/data/UpdateData.java": [],
+    "src/model/IdPlayerException.java": [],
+    "src/model/Map/MapLoader.java": [],
+    "src/model/Map/package.bluej": [],
+    "src/model/package.bluej": [],
+    "src/model/Player.java": [],
+    "src/module-info.java": [],
+    "src/package.bluej": [],
+    "src/README.TXT": [],
+    "src/style.css": [],
+    "src/view/Battle.java": [],
+    "src/view/LogIn.java": [],
+    "src/view/package.bluej": [],
+    "src/view/PlayerPanel.java": [],
+    "src/view/SearchOpponents.java": [],
+    "src/view/SignUp.java": [],
+    "test/test/testClass.java": []
+  }
+}

@@ -1,0 +1,298 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 18,
+  "filesSkipped": [],
+  "nodes": [
+    {
+      "id": "file:src/model/data/SaveData.java",
+      "type": "file",
+      "name": "SaveData.java",
+      "filePath": "src/model/data/SaveData.java",
+      "summary": "java file: src/model/data/SaveData.java",
+      "tags": [
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/model/data/UpdateData.java",
+      "type": "file",
+      "name": "UpdateData.java",
+      "filePath": "src/model/data/UpdateData.java",
+      "summary": "java file: src/model/data/UpdateData.java",
+      "tags": [
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/model/IdPlayerException.java",
+      "type": "file",
+      "name": "IdPlayerException.java",
+      "filePath": "src/model/IdPlayerException.java",
+      "summary": "java file: src/model/IdPlayerException.java",
+      "tags": [
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/model/Map/MapLoader.java",
+      "type": "file",
+      "name": "MapLoader.java",
+      "filePath": "src/model/Map/MapLoader.java",
+      "summary": "java file: src/model/Map/MapLoader.java",
+      "tags": [
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/model/Map/package.bluej",
+      "type": "file",
+      "name": "package.bluej",
+      "filePath": "src/model/Map/package.bluej",
+      "summary": "bluej file: src/model/Map/package.bluej",
+      "tags": [
+        "bluej"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/model/package.bluej",
+      "type": "file",
+      "name": "package.bluej",
+      "filePath": "src/model/package.bluej",
+      "summary": "bluej file: src/model/package.bluej",
+      "tags": [
+        "bluej"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/model/Player.java",
+      "type": "file",
+      "name": "Player.java",
+      "filePath": "src/model/Player.java",
+      "summary": "java file: src/model/Player.java",
+      "tags": [
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/module-info.java",
+      "type": "file",
+      "name": "module-info.java",
+      "filePath": "src/module-info.java",
+      "summary": "java file: src/module-info.java",
+      "tags": [
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/package.bluej",
+      "type": "file",
+      "name": "package.bluej",
+      "filePath": "src/package.bluej",
+      "summary": "bluej file: src/package.bluej",
+      "tags": [
+        "bluej"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:src/README.TXT",
+      "type": "document",
+      "name": "README.TXT",
+      "filePath": "src/README.TXT",
+      "summary": "document: src/README.TXT",
+      "tags": [
+        "document"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:src/style.css",
+      "type": "document",
+      "name": "style.css",
+      "filePath": "src/style.css",
+      "summary": "document: src/style.css",
+      "tags": [
+        "document"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/view/Battle.java",
+      "type": "file",
+      "name": "Battle.java",
+      "filePath": "src/view/Battle.java",
+      "summary": "java file: src/view/Battle.java",
+      "tags": [
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/view/LogIn.java",
+      "type": "file",
+      "name": "LogIn.java",
+      "filePath": "src/view/LogIn.java",
+      "summary": "java file: src/view/LogIn.java",
+      "tags": [
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/view/package.bluej",
+      "type": "file",
+      "name": "package.bluej",
+      "filePath": "src/view/package.bluej",
+      "summary": "bluej file: src/view/package.bluej",
+      "tags": [
+        "bluej"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/view/PlayerPanel.java",
+      "type": "file",
+      "name": "PlayerPanel.java",
+      "filePath": "src/view/PlayerPanel.java",
+      "summary": "java file: src/view/PlayerPanel.java",
+      "tags": [
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/view/SearchOpponents.java",
+      "type": "file",
+      "name": "SearchOpponents.java",
+      "filePath": "src/view/SearchOpponents.java",
+      "summary": "java file: src/view/SearchOpponents.java",
+      "tags": [
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/view/SignUp.java",
+      "type": "file",
+      "name": "SignUp.java",
+      "filePath": "src/view/SignUp.java",
+      "summary": "java file: src/view/SignUp.java",
+      "tags": [
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:test/test/testClass.java",
+      "type": "file",
+      "name": "testClass.java",
+      "filePath": "test/test/testClass.java",
+      "summary": "java file: test/test/testClass.java",
+      "tags": [
+        "java"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [],
+  "results": [
+    {
+      "path": "src/model/data/SaveData.java",
+      "totalLines": 33,
+      "nonEmptyLines": 27
+    },
+    {
+      "path": "src/model/data/UpdateData.java",
+      "totalLines": 33,
+      "nonEmptyLines": 26
+    },
+    {
+      "path": "src/model/IdPlayerException.java",
+      "totalLines": 7,
+      "nonEmptyLines": 6
+    },
+    {
+      "path": "src/model/Map/MapLoader.java",
+      "totalLines": 91,
+      "nonEmptyLines": 83
+    },
+    {
+      "path": "src/model/Map/package.bluej",
+      "totalLines": 55,
+      "nonEmptyLines": 55
+    },
+    {
+      "path": "src/model/package.bluej",
+      "totalLines": 65,
+      "nonEmptyLines": 65
+    },
+    {
+      "path": "src/model/Player.java",
+      "totalLines": 57,
+      "nonEmptyLines": 45
+    },
+    {
+      "path": "src/module-info.java",
+      "totalLines": 18,
+      "nonEmptyLines": 17
+    },
+    {
+      "path": "src/package.bluej",
+      "totalLines": 55,
+      "nonEmptyLines": 55
+    },
+    {
+      "path": "src/README.TXT",
+      "totalLines": 1,
+      "nonEmptyLines": 0
+    },
+    {
+      "path": "src/style.css",
+      "totalLines": 35,
+      "nonEmptyLines": 33
+    },
+    {
+      "path": "src/view/Battle.java",
+      "totalLines": 237,
+      "nonEmptyLines": 214
+    },
+    {
+      "path": "src/view/LogIn.java",
+      "totalLines": 111,
+      "nonEmptyLines": 98
+    },
+    {
+      "path": "src/view/package.bluej",
+      "totalLines": 76,
+      "nonEmptyLines": 76
+    },
+    {
+      "path": "src/view/PlayerPanel.java",
+      "totalLines": 235,
+      "nonEmptyLines": 212
+    },
+    {
+      "path": "src/view/SearchOpponents.java",
+      "totalLines": 249,
+      "nonEmptyLines": 220
+    },
+    {
+      "path": "src/view/SignUp.java",
+      "totalLines": 187,
+      "nonEmptyLines": 168
+    },
+    {
+      "path": "test/test/testClass.java",
+      "totalLines": 20,
+      "nonEmptyLines": 18
+    }
+  ]
+}

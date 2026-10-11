@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JavaFX Glossary — COC Course</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <a href="../lessons/0001-scene-graph.html">Lesson 1: The Scene Graph</a>
+  <span>·</span>
+  <a href="scene-graph-cheatsheet.html">Cheatsheet</a>
+</nav>
+
+<h1>JavaFX Glossary</h1>
+<p class="lead">The shared vocabulary for this course. Every lesson uses these terms in exactly this sense.</p>
+
+<table class="grid">
+  <tr><th>Term</th><th>Meaning</th></tr>
+  <tr>
+    <td><code>Application</code></td>
+    <td>The entry-point base class. You override <code>start(Stage)</code>; the framework calls it. One per launched app, via <code>launch()</code>.</td>
+  </tr>
+  <tr>
+    <td><strong>Stage</strong></td>
+    <td>The top-level OS <em>window</em> — title bar, position, size. The outermost layer. <a href="https://openjfx.io/javadoc/21/javafx.graphics/javafx/stage/Stage.html">docs</a></td>
+  </tr>
+  <tr>
+    <td><strong>Scene</strong></td>
+    <td>The <em>canvas</em> inside a Stage. Holds exactly one root node, plus width/height, fill, and stylesheets. <a href="https://openjfx.io/javadoc/21/javafx.graphics/javafx/scene/Scene.html">docs</a></td>
+  </tr>
+  <tr>
+    <td><strong>Scene graph</strong></td>
+    <td>The tree of nodes rooted at the Scene's root: the whole visual structure of a screen.</td>
+  </tr>
+  <tr>
+    <td><strong>Node</strong></td>
+    <td>Base class for every visual item. Either a <em>leaf</em> or a <em>branch</em>. <a href="https://openjfx.io/javadoc/21/javafx.graphics/javafx/scene/Node.html">docs</a></td>
+  </tr>
+  <tr>
+    <td><strong>Branch node</strong></td>
+    <td>A <code>Parent</code>: can hold children. Includes layout panes, <code>Group</code>, and controls.</td>
+  </tr>
+  <tr>
+    <td><strong>Leaf node</strong></td>
+    <td>No children: <code>ImageView</code>, <code>Text</code>, <code>Rectangle</code>, <code>MediaView</code>, shapes.</td>
+  </tr>
+  <tr>
+    <td><strong>Root node</strong></td>
+    <td>The single parentless node attached to a Scene.</td>
+  </tr>
+  <tr>
+    <td><strong>Layout pane</strong></td>
+    <td>A <code>Pane</code> subclass that <em>positions</em> its children: <code>AnchorPane</code>, <code>BorderPane</code>, <code>VBox</code>, <code>HBox</code>, <code>StackPane</code>, <code>GridPane</code>, <code>FlowPane</code>, <code>TilePane</code>.</td>
+  </tr>
+  <tr>
+    <td><strong>Control</strong></td>
+    <td>A ready-made, skinnable widget: <code>Button</code>, <code>TextField</code>, <code>Label</code>, …</td>
+  </tr>
+  <tr>
+    <td><code>getChildren()</code></td>
+    <td>The <code>ObservableList</code> of a Parent's child nodes. Mutating it mutates the scene graph live.</td>
+  </tr>
+  <tr>
+    <td><code>id</code> / <code>styleClass</code></td>
+    <td>CSS hooks on a node. <code>id</code> is unique (<code>#text</code>); <code>styleClass</code> is reusable (<code>.button</code>).</td>
+  </tr>
+  <tr>
+    <td><strong>Stylesheet</strong></td>
+    <td>A CSS file attached to a Scene or Parent via <code>getStylesheets().add(...)</code>.</td>
+  </tr>
+  <tr>
+    <td><strong>FXML</strong></td>
+    <td>XML markup for building a scene graph declaratively. This project does <em>not</em> use it — everything is built in Java.</td>
+  </tr>
+</table>
+
+<div class="footer">
+  <p>Stuck on a term? Ask your teacher — that's me.</p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,3555 @@
+{
+  "version": "1.0.0",
+  "gitCommitHash": "1a6b2208ba2ac44d4590033f5fa389b0912b8b61",
+  "generatedAt": "2026-10-11T04:43:59.794Z",
+  "files": {
+    ".DS_Store": {
+      "filePath": ".DS_Store",
+      "contentHash": "4c07c3fa8a1dfcbd21d8f3b438f844165168552fcdca3c7a8851f849b00d071d",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 3,
+      "hasStructuralAnalysis": false
+    },
+    ".understand-anything/.understandignore": {
+      "filePath": ".understand-anything/.understandignore",
+      "contentHash": "20acf60c1bc8a06bea650281199ea2fd9eb11b597d02fee0d1429285c94eab08",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 35,
+      "hasStructuralAnalysis": false
+    },
+    ".understand-anything/config.json": {
+      "filePath": ".understand-anything/config.json",
+      "contentHash": "e6e1895a8e3cb71f76daebccd84c4fc9877d8a88fb75e476ca22a320e69d4995",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 2,
+      "hasStructuralAnalysis": true
+    },
+    "build.xml": {
+      "filePath": "build.xml",
+      "contentHash": "b0cc08f0dd5a04c5e7b60b65d794e33792ed8143d4df009c137682e0abe62352",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 74,
+      "hasStructuralAnalysis": false
+    },
+    "nbproject/build-impl.xml": {
+      "filePath": "nbproject/build-impl.xml",
+      "contentHash": "4e13ce3a4bd990ef283e4c19a4edab6bbfef5ceb209754a137e0e3e294fd1bff",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1826,
+      "hasStructuralAnalysis": false
+    },
+    "nbproject/genfiles.properties": {
+      "filePath": "nbproject/genfiles.properties",
+      "contentHash": "43d4f4560161ac59c1134f485f8ca10c23c961a15a8921a20c0aaf5159cc0b3b",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 9,
+      "hasStructuralAnalysis": false
+    },
+    "nbproject/project.properties": {
+      "filePath": "nbproject/project.properties",
+      "contentHash": "928691afebe0220ace835b21c277e8a551e812d16c90de0654811406c5d5fffc",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 108,
+      "hasStructuralAnalysis": false
+    },
+    "nbproject/project.xml": {
+      "filePath": "nbproject/project.xml",
+      "contentHash": "890a8515920763b9ec41153168e979ecc2c124f9dffe2ed97c0418db18fe4441",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 42,
+      "hasStructuralAnalysis": false
+    },
+    "README.md": {
+      "filePath": "README.md",
+      "contentHash": "49a742e9bd14e3e4aa0cbcc8a281b672ed3f77c51ab85483b4dc8e5fe907df07",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 15,
+      "hasStructuralAnalysis": true
+    },
+    "src/.DS_Store": {
+      "filePath": "src/.DS_Store",
+      "contentHash": "ee40efa28031437b9ff22d89b4ae7ca8a81c6439c9c692d9ef18b561b1d12efa",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 7,
+      "hasStructuralAnalysis": false
+    },
+    "src/com/coc/GUI.java": {
+      "filePath": "src/com/coc/GUI.java",
+      "contentHash": "5f1e3c8cf5e15e5150b84e0113854bf89a28995ccf5d9abb8bf5421049c60363",
+      "functions": [
+        {
+          "name": "start",
+          "params": [
+            "stage"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 10
+        },
+        {
+          "name": "main",
+          "params": [
+            "args"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "classes": [
+        {
+          "name": "GUI",
+          "methods": [
+            "start",
+            "main"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 16
+        }
+      ],
+      "imports": [
+        {
+          "source": "controller.LogInController",
+          "specifiers": [
+            "LogInController"
+          ]
+        },
+        {
+          "source": "javafx.application.Application",
+          "specifiers": [
+            "Application"
+          ]
+        },
+        {
+          "source": "javafx.stage.Stage",
+          "specifiers": [
+            "Stage"
+          ]
+        },
+        {
+          "source": "model.Player",
+          "specifiers": [
+            "Player"
+          ]
+        },
+        {
+          "source": "model.data.LoadData",
+          "specifiers": [
+            "LoadData"
+          ]
+        }
+      ],
+      "exports": [
+        "start",
+        "main",
+        "GUI"
+      ],
+      "totalLines": 27,
+      "hasStructuralAnalysis": true
+    },
+    "src/com/coc/package.bluej": {
+      "filePath": "src/com/coc/package.bluej",
+      "contentHash": "1911a1724adab0bd47ba72e74a8987ad8e622a0e60b39809de5212b94b3c5c48",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 28,
+      "hasStructuralAnalysis": false
+    },
+    "src/com/package.bluej": {
+      "filePath": "src/com/package.bluej",
+      "contentHash": "78fa8ca3be97475486491a18f7a7cf3882f84c36a2664b416c4e40baf59e5a3b",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 27,
+      "hasStructuralAnalysis": false
+    },
+    "src/controller/attack/ArcherBalloonAttack.java": {
+      "filePath": "src/controller/attack/ArcherBalloonAttack.java",
+      "contentHash": "7ddf1816a147b2ae0f4afcb2636ff122f472eb1954c232a706f7eb56bc9ec56f",
+      "functions": [
+        {
+          "name": "ArcherBalloonAttack",
+          "params": [
+            "x",
+            "y",
+            "root",
+            "map"
+          ],
+          "exported": true,
+          "lineCount": 9
+        },
+        {
+          "name": "run",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 40
+        },
+        {
+          "name": "moveToward",
+          "params": [],
+          "returnType": "EntityBuilding",
+          "exported": false,
+          "lineCount": 64
+        },
+        {
+          "name": "attack",
+          "params": [
+            "building"
+          ],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 70
+        },
+        {
+          "name": "myNotify",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "distance",
+          "params": [
+            "x1",
+            "y1",
+            "x2",
+            "y2"
+          ],
+          "returnType": "double",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "nearestPointOnCircle",
+          "params": [
+            "cx",
+            "cy",
+            "r",
+            "x",
+            "y"
+          ],
+          "returnType": "double[]",
+          "exported": true,
+          "lineCount": 30
+        }
+      ],
+      "classes": [
+        {
+          "name": "ArcherBalloonAttack",
+          "methods": [
+            "ArcherBalloonAttack",
+            "run",
+            "moveToward",
+            "attack",
+            "myNotify",
+            "distance",
+            "nearestPointOnCircle"
+          ],
+          "properties": [
+            "assets",
+            "root",
+            "viewBalloon",
+            "archerBalloon",
+            "map",
+            "insideRadius",
+            "widthLowe",
+            "nearestPointLineTo"
+          ],
+          "exported": true,
+          "lineCount": 237
+        }
+      ],
+      "imports": [
+        {
+          "source": "javafx.animation.PathTransition",
+          "specifiers": [
+            "PathTransition"
+          ]
+        },
+        {
+          "source": "javafx.application.Platform",
+          "specifiers": [
+            "Platform"
+          ]
+        },
+        {
+          "source": "javafx.util.Duration",
+          "specifiers": [
+            "Duration"
+          ]
+        },
+        {
+          "source": "assets.Assets",
+          "specifiers": [
+            "Assets"
+          ]
+        },
+        {
+          "source": "javafx.scene.image.ImageView",
+          "specifiers": [
+            "ImageView"
+          ]
+        },
+        {
+          "source": "javafx.scene.layout.AnchorPane",
+          "specifiers": [
+            "AnchorPane"
+          ]
+        },
+        {
+          "source": "javafx.scene.media.Media",
+          "specifiers": [
+            "Media"
+          ]
+        },
+        {
+          "source": "javafx.scene.media.MediaPlayer",
+          "specifiers": [
+            "MediaPlayer"
+          ]
+        },
+        {
+          "source": "javafx.scene.media.MediaView",
+          "specifiers": [
+            "MediaView"
+          ]
+        },
+        {
+          "source": "javafx.scene.paint.Color",
+          "specifiers": [
+            "Color"
+          ]
+        },
+        {
+          "source": "javafx.scene.shape.Circle",
+          "specifiers": [
+            "Circle"
+          ]
+        },
+        {
+          "source": "javafx.scene.shape.LineTo",
+          "specifiers": [
+            "LineTo"
+          ]
+        },
+        {
+          "source": "javafx.scene.shape.MoveTo",
+          "specifiers": [
+            "MoveTo"
+          ]
+        },
+        {
+          "source": "javafx.scene.shape.Path",
+          "specifiers": [
+            "Path"
+          ]
+        },
+        {
+          "source": "cr0s.javara.render.map.Map",
+          "specifiers": [
+            "Map"
+          ]
+        },
+        {
+          "source": "cr0s.javara.entity.Entity",
+          "specifiers": [
+            "Entity"
+          ]
+        },
+        {
+          "source": "cr0s.javara.entity.MobileEntity",
+          "specifiers": [
+            "MobileEntity"
+          ]
+        },
+        {
+          "source": "cr0s.javara.entity.building.EntityBuilding",
+          "specifiers": [
+            "EntityBuilding"
+          ]
+        },
+        {
+          "source": "cr0s.javara.entity.infantry.EntityGrenadeTrooper",
+          "specifiers": [
+            "EntityGrenadeTrooper"
+          ]
+        },
+        {
+          "source": "cr0s.javara.util.Pos",
+          "specifiers": [
+            "Pos"
+          ]
+        }
+      ],
+      "exports": [
+        "ArcherBalloonAttack",
+        "run",
+        "myNotify",
+        "distance",
+        "nearestPointOnCircle",
+        "ArcherBalloonAttack"
+      ],
+      "totalLines": 263,
+      "hasStructuralAnalysis": true
+    },
+    "src/controller/attack/DefBalloonAttack.java": {
+      "filePath": "src/controller/attack/DefBalloonAttack.java",
+      "contentHash": "0a06df560ee86b0485335561ff7da3de4036f26ec5fb83c18a5369aa296bc439",
+      "functions": [
+        {
+          "name": "DefBalloonAttack",
+          "params": [
+            "x",
+            "y",
+            "root",
+            "map"
+          ],
+          "exported": true,
+          "lineCount": 9
+        },
+        {
+          "name": "run",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 34
+        },
+        {
+          "name": "moveToward",
+          "params": [],
+          "returnType": "EntityBuilding",
+          "exported": false,
+          "lineCount": 69
+        },
+        {
+          "name": "attack",
+          "params": [
+            "building"
+          ],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 47
+        },
+        {
+          "name": "myNotify",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "classes": [
+        {
+          "name": "DefBalloonAttack",
+          "methods": [
+            "DefBalloonAttack",
+            "run",
+            "moveToward",
+            "attack",
+            "myNotify"
+          ],
+          "properties": [
+            "assets",
+            "root",
+            "viewBalloonAttack",
+            "viewBalloonMove",
+            "defBalloon",
+            "map"
+          ],
+          "exported": true,
+          "lineCount": 176
+        }
+      ],
+      "imports": [
+        {
+          "source": "javafx.animation.PathTransition",
+          "specifiers": [
+            "PathTransition"
+          ]
+        },
+        {
+          "source": "javafx.application.Platform",
+          "specifiers": [
+            "Platform"
+          ]
+        },
+        {
+          "source": "javafx.util.Duration",
+          "specifiers": [
+            "Duration"
+          ]
+        },
+        {
+          "source": "javafx.scene.image.ImageView",
+          "specifiers": [
+            "ImageView"
+          ]
+        },
+        {
+          "source": "javafx.scene.layout.AnchorPane",
+          "specifiers": [
+            "AnchorPane"
+          ]
+        },
+        {
+          "source": "javafx.scene.media.Media",
+          "specifiers": [
+            "Media"
+          ]
+        },
+        {
+          "source": "javafx.scene.media.MediaPlayer",
+          "specifiers": [
+            "MediaPlayer"
+          ]
+        },
+        {
+          "source": "javafx.scene.media.MediaView",
+          "specifiers": [
+            "MediaView"
+          ]
+        },
+        {
+          "source": "javafx.scene.shape.LineTo",
+          "specifiers": [
+            "LineTo"
+          ]
+        },
+        {
+          "source": "javafx.scene.shape.MoveTo",
+          "specifiers": [
+            "MoveTo"
+          ]
+        },
+        {
+          "source": "javafx.scene.shape.Path",
+          "specifiers": [
+            "Path"
+          ]
+        },
+        {
+          "source": "cr0s.javara.render.map.Map",
+          "specifiers": [
+            "Map"
+          ]
+        },
+        {
+          "source": "assets.Assets",
+          "specifiers": [
+            "Assets"
+          ]
+        },
+        {
+          "source": "cr0s.javara.entity.Entity",
+          "specifiers": [
+            "Entity"
+          ]
+        },
+        {
+          "source": "cr0s.javara.entity.aircraft.DefBalloon",
+          "specifiers": [
+            "DefBalloon"
+          ]
+        },
+        {
+          "source": "cr0s.javara.entity.building.EntityBuilding",
+          "specifiers": [
+            "EntityBuilding"
+          ]
+        }
+      ],
+      "exports": [
+        "DefBalloonAttack",
+        "run",
+        "myNotify",
+        "DefBalloonAttack"
+      ],
+      "totalLines": 198,
+      "hasStructuralAnalysis": true
+    },
+    "src/controller/attack/DragonAttack.java": {
+      "filePath": "src/controller/attack/DragonAttack.java",
+      "contentHash": "f88b54e7b9e8db1f0ad5996f681ac3b4c88c6380143e6e20375d2687d3620c03",
+      "functions": [
+        {
+          "name": "DragonAttack",
+          "params": [
+            "x",
+            "y",
+            "root",
+            "map"
+          ],
+          "exported": true,
+          "lineCount": 12
+        },
+        {
+          "name": "run",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 37
+        },
+        {
+          "name": "moveToward",
+          "params": [],
+          "returnType": "EntityBuilding",
+          "exported": false,
+          "lineCount": 65
+        },
+        {
+          "name": "attack",
+          "params": [
+            "building"
+          ],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 57
+        },
+        {
+          "name": "myNotify",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "classes": [
+        {
+          "name": "DragonAttack",
+          "methods": [
+            "DragonAttack",
+            "run",
+            "moveToward",
+            "attack",
+            "myNotify"
+          ],
+          "properties": [
+            "assets",
+            "root",
+            "viewDragonL",
+            "viewDragonR",
+            "viewDragonAttackL",
+            "viewDragonAttackR",
+            "dragon",
+            "map",
+            "audioFilePathAttack",
+            "mediaPlayerAttack"
+          ],
+          "exported": true,
+          "lineCount": 192
+        }
+      ],
+      "imports": [
+        {
+          "source": "javafx.animation.PathTransition",
+          "specifiers": [
+            "PathTransition"
+          ]
+        },
+        {
+          "source": "javafx.application.Platform",
+          "specifiers": [
+            "Platform"
+          ]
+        },
+        {
+          "source": "javafx.util.Duration",
+          "specifiers": [
+            "Duration"
+          ]
+        },
+        {
+          "source": "javafx.scene.image.ImageView",
+          "specifiers": [
+            "ImageView"
+          ]
+        },
+        {
+          "source": "javafx.scene.layout.AnchorPane",
+          "specifiers": [
+            "AnchorPane"
+          ]
+        },
+        {
+          "source": "javafx.scene.media.Media",
+          "specifiers": [
+            "Media"
+          ]
+        },
+        {
+          "source": "javafx.scene.media.MediaPlayer",
+          "specifiers": [
+            "MediaPlayer"
+          ]
+        },
+        {
+          "source": "javafx.scene.media.MediaView",
+          "specifiers": [
+            "MediaView"
+          ]
+        },
+        {
+          "source": "javafx.scene.shape.LineTo",
+          "specifiers": [
+            "LineTo"
+          ]
+        },
+        {
+          "source": "javafx.scene.shape.MoveTo",
+          "specifiers": [
+            "MoveTo"
+          ]
+        },
+        {
+          "source": "javafx.scene.shape.Path",
+          "specifiers": [
+            "Path"
+          ]
+        },
+        {
+          "source": "cr0s.javara.render.map.Map",
+          "specifiers": [
+            "Map"
+          ]
+        },
+        {
+          "source": "cr0s.javara.entity.Entity",
+          "specifiers": [
+            "Entity"
+          ]
+        },
+        {
+          "source": "cr0s.javara.entity.building.EntityBuilding",
+          "specifiers": [
+            "EntityBuilding"
+          ]
+        },
+        {
+          "source": "assets.Assets",
+          "specifiers": [
+            "Assets"
+          ]
+        },
+        {
+          "source": "cr0s.javara.entity.aircraft.Dragon",
+          "specifiers": [
+            "Dragon"
+          ]
+        },
+        {
+          "source": "cr0s.javara.util.Pos",
+          "specifiers": [
+            "Pos"
+          ]
+        }
+      ],
+      "exports": [
+        "DragonAttack",
+        "run",
+        "myNotify",
+        "DragonAttack"
+      ],
+      "totalLines": 215,
+      "hasStructuralAnalysis": true
+    },
+    "src/controller/attack/GoblinBalloonAttack.java": {
+      "filePath": "src/controller/attack/GoblinBalloonAttack.java",
+      "contentHash": "fb53d4bd1941485101b064e7328a4b3643fec2725634bf81c57947d2f8f94282",
+      "functions": [
+        {
+          "name": "GoblinBalloonAttack",
+          "params": [
+            "x",
+            "y",
+            "root",
+            "map"
+          ],
+          "exported": true,
+          "lineCount": 9
+        },
+        {
+          "name": "run",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 40
+        },
+        {
+          "name": "moveToward",
+          "params": [],
+          "returnType": "EntityBuilding",
+          "exported": false,
+          "lineCount": 68
+        },
+        {
+          "name": "attack",
+          "params": [
+            "building"
+          ],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 50
+        },
+        {
+          "name": "myNotify",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "classes": [
+        {
+          "name": "GoblinBalloonAttack",
+          "methods": [
+            "GoblinBalloonAttack",
+            "run",
+            "moveToward",
+            "attack",
+            "myNotify"
+          ],
+          "properties": [
+            "assets",
+            "root",
+            "viewBalloonAttack",
+            "viewBalloonMove",
+            "goblinBalloon",
+            "map"
+          ],
+          "exported": true,
+          "lineCount": 184
+        }
+      ],
+      "imports": [
+        {
+          "source": "javafx.animation.PathTransition",
+          "specifiers": [
+            "PathTransition"
+          ]
+        },
+        {
+          "source": "javafx.application.Platform",
+          "specifiers": [
+            "Platform"
+          ]
+        },
+        {
+          "source": "javafx.util.Duration",
+          "specifiers": [
+            "Duration"
+          ]
+        },
+        {
+          "source": "javafx.scene.image.ImageView",
+          "specifiers": [
+            "ImageView"
+          ]
+        },
+        {
+          "source": "javafx.scene.layout.AnchorPane",
+          "specifiers": [
+            "AnchorPane"
+          ]
+        },
+        {
+          "source": "javafx.scene.media.Media",
+          "specifiers": [
+            "Media"
+          ]
+        },
+        {
+          "source": "javafx.scene.media.MediaPlayer",
+          "specifiers": [
+            "MediaPlayer"
+          ]
+        },
+        {
+          "source": "javafx.scene.media.MediaView",
+          "specifiers": [
+            "MediaView"
+          ]
+        },
+        {
+          "source": "javafx.scene.shape.LineTo",
+          "specifiers": [
+            "LineTo"
+          ]
+        },
+        {
+          "source": "javafx.scene.shape.MoveTo",
+          "specifiers": [
+            "MoveTo"
+          ]
+        },
+        {
+          "source": "javafx.scene.shape.Path",
+          "specifiers": [
+            "Path"
+          ]
+        },
+        {
+          "source": "assets.Assets",
+          "specifiers": [
+            "Assets"
+          ]
+        },
+        {
+          "source": "cr0s.javara.entity.Entity",
+          "specifiers": [
+            "Entity"
+          ]
+        },
+        {
+          "source": "cr0s.javara.entity.aircraft.GoblinBalloon",
+          "specifiers": [
+            "GoblinBalloon"
+          ]
+        },
+        {
+          "source": "cr0s.javara.entity.building.EntityBuilding",
+          "specifiers": [
+            "EntityBuilding"
+          ]
+        },
+        {
+          "source": "cr0s.javara.render.map.Map",
+          "specifiers": [
+            "Map"
+          ]
+        }
+      ],
+      "exports": [
+        "GoblinBalloonAttack",
+        "run",
+        "myNotify",
+        "GoblinBalloonAttack"
+      ],
+      "totalLines": 206,
+      "hasStructuralAnalysis": true
+    },
+    "src/controller/attack/package.bluej": {
+      "filePath": "src/controller/attack/package.bluej",
+      "contentHash": "7acd5d244190371d9dc565f8c6cdf31c9b27689926f8258cb65560bdefc5d135",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 56,
+      "hasStructuralAnalysis": false
+    },
+    "src/controller/attack/PandaAttack.java": {
+      "filePath": "src/controller/attack/PandaAttack.java",
+      "contentHash": "dc49ea6c585e065ffaf152d555ee3823e3492ff577d3c981a77c8e85b43a0450",
+      "functions": [
+        {
+          "name": "PandaAttack",
+          "params": [
+            "x",
+            "y",
+            "root",
+            "map"
+          ],
+          "exported": true,
+          "lineCount": 13
+        },
+        {
+          "name": "run",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 35
+        },
+        {
+          "name": "moveToward",
+          "params": [],
+          "returnType": "EntityBuilding",
+          "exported": false,
+          "lineCount": 68
+        },
+        {
+          "name": "attack",
+          "params": [
+            "building"
+          ],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 57
+        },
+        {
+          "name": "myNotify",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "classes": [
+        {
+          "name": "PandaAttack",
+          "methods": [
+            "PandaAttack",
+            "run",
+            "moveToward",
+            "attack",
+            "myNotify"
+          ],
+          "properties": [
+            "assets",
+            "random",
+            "root",
+            "viewPandaL",
+            "viewPandaR",
+            "viewPandaAttackL",
+            "viewPandaAttackR",
+            "panda",
+            "map",
+            "audioFilePathMove",
+            "mediaPlayerMove",
+            "count"
+          ],
+          "exported": true,
+          "lineCount": 196
+        }
+      ],
+      "imports": [
+        {
+          "source": "javafx.animation.PathTransition",
+          "specifiers": [
+            "PathTransition"
+          ]
+        },
+        {
+          "source": "javafx.application.Platform",
+          "specifiers": [
+            "Platform"
+          ]
+        },
+        {
+          "source": "javafx.util.Duration",
+          "specifiers": [
+            "Duration"
+          ]
+        },
+        {
+          "source": "javafx.scene.image.ImageView",
+          "specifiers": [
+            "ImageView"
+          ]
+        },
+        {
+          "source": "javafx.scene.layout.AnchorPane",
+          "specifiers": [
+            "AnchorPane"
+          ]
+        },
+        {
+          "source": "javafx.scene.media.Media",
+          "specifiers": [
+            "Media"
+          ]
+        },
+        {
+          "source": "javafx.scene.media.MediaPlayer",
+          "specifiers": [
+            "MediaPlayer"
+          ]
+        },
+        {
+          "source": "javafx.scene.media.MediaView",
+          "specifiers": [
+            "MediaView"
+          ]
+        },
+        {
+          "source": "javafx.scene.shape.LineTo",
+          "specifiers": [
+            "LineTo"
+          ]
+        },
+        {
+          "source": "javafx.scene.shape.MoveTo",
+          "specifiers": [
+            "MoveTo"
+          ]
+        },
+        {
+          "source": "javafx.scene.shape.Path",
+          "specifiers": [
+            "Path"
+          ]
+        },
+        {
+          "source": "cr0s.javara.render.map.Map",
+          "specifiers": [
+            "Map"
+          ]
+        },
+        {
+          "source": "cr0s.javara.entity.building.EntityBuilding",
+          "specifiers": [
+            "EntityBuilding"
+          ]
+        },
+        {
+          "source": "cr0s.javara.entity.Entity",
+          "specifiers": [
+            "Entity"
+          ]
+        },
+        {
+          "source": "java.util.concurrent.atomic.AtomicInteger",
+          "specifiers": [
+            "AtomicInteger"
+          ]
+        },
+        {
+          "source": "java.util.Random",
+          "specifiers": [
+            "Random"
+          ]
+        },
+        {
+          "source": "assets.Assets",
+          "specifiers": [
+            "Assets"
+          ]
+        },
+        {
+          "source": "cr0s.javara.entity.infantry.Panda",
+          "specifiers": [
+            "Panda"
+          ]
+        },
+        {
+          "source": "cr0s.javara.util.Pos",
+          "specifiers": [
+            "Pos"
+          ]
+        }
+      ],
+      "exports": [
+        "PandaAttack",
+        "run",
+        "myNotify",
+        "PandaAttack"
+      ],
+      "totalLines": 222,
+      "hasStructuralAnalysis": true
+    },
+    "src/controller/CheckResultAttack.java": {
+      "filePath": "src/controller/CheckResultAttack.java",
+      "contentHash": "1c3d2809e0a07d4fabc980582e4ec207900419a6a9d35ba1a004408dae25352f",
+      "functions": [
+        {
+          "name": "CheckResultAttack",
+          "params": [
+            "stage",
+            "root",
+            "attackingPlayer",
+            "defensivePlayer",
+            "capacityInt",
+            "players",
+            "mediaPlayer"
+          ],
+          "exported": true,
+          "lineCount": 12
+        },
+        {
+          "name": "run",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 103
+        },
+        {
+          "name": "myNotify",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "newView",
+          "params": [],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 18
+        }
+      ],
+      "classes": [
+        {
+          "name": "CheckResultAttack",
+          "methods": [
+            "CheckResultAttack",
+            "run",
+            "myNotify",
+            "newView"
+          ],
+          "properties": [
+            "assets",
+            "map",
+            "firstSize",
+            "root",
+            "capacityInt",
+            "attackingPlayer",
+            "defensivePlayer",
+            "players",
+            "stage",
+            "starView",
+            "textPercent",
+            "viewBack",
+            "mediaPlayer",
+            "audioFilePath",
+            "mediaPlayerClick"
+          ],
+          "exported": true,
+          "lineCount": 158
+        }
+      ],
+      "imports": [
+        {
+          "source": "javafx.application.Platform",
+          "specifiers": [
+            "Platform"
+          ]
+        },
+        {
+          "source": "javafx.scene.image.Image",
+          "specifiers": [
+            "Image"
+          ]
+        },
+        {
+          "source": "javafx.scene.image.ImageView",
+          "specifiers": [
+            "ImageView"
+          ]
+        },
+        {
+          "source": "javafx.scene.layout.AnchorPane",
+          "specifiers": [
+            "AnchorPane"
+          ]
+        },
+        {
+          "source": "javafx.scene.media.Media",
+          "specifiers": [
+            "Media"
+          ]
+        },
+        {
+          "source": "javafx.scene.media.MediaPlayer",
+          "specifiers": [
+            "MediaPlayer"
+          ]
+        },
+        {
+          "source": "javafx.scene.media.MediaView",
+          "specifiers": [
+            "MediaView"
+          ]
+        },
+        {
+          "source": "javafx.scene.text.Text",
+          "specifiers": [
+            "Text"
+          ]
+        },
+        {
+          "source": "javafx.stage.Stage",
+          "specifiers": [
+            "Stage"
+          ]
+        },
+        {
+          "source": "model.Player",
+          "specifiers": [
+            "Player"
+          ]
+        },
+        {
+          "source": "model.data.UpdateData",
+          "specifiers": [
+            "UpdateData"
+          ]
+        },
+        {
+          "source": "view.PlayerPanel",
+          "specifiers": [
+            "PlayerPanel"
+          ]
+        },
+        {
+          "source": "cr0s.javara.render.map.Map",
+          "specifiers": [
+            "Map"
+          ]
+        },
+        {
+          "source": "assets.Assets",
+          "specifiers": [
+            "Assets"
+          ]
+        },
+        {
+          "source": "java.util.ArrayList",
+          "specifiers": [
+            "ArrayList"
+          ]
+        },
+        {
+          "source": "java.util.concurrent.atomic.AtomicInteger",
+          "specifiers": [
+            "AtomicInteger"
+          ]
+        }
+      ],
+      "exports": [
+        "CheckResultAttack",
+        "run",
+        "myNotify",
+        "CheckResultAttack"
+      ],
+      "totalLines": 180,
+      "hasStructuralAnalysis": true
+    },
+    "src/controller/defense/ArcherTowerDefense.java": {
+      "filePath": "src/controller/defense/ArcherTowerDefense.java",
+      "contentHash": "e4a0871ff83e98f62df7ef913f2a3800818660a372197a1161b17bf401c3310c",
+      "functions": [
+        {
+          "name": "ArcherTowerDefense",
+          "params": [
+            "root",
+            "map",
+            "archerTower",
+            "capacityInt"
+          ],
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "run",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 10
+        },
+        {
+          "name": "selectHero",
+          "params": [],
+          "returnType": "MobileEntity",
+          "exported": false,
+          "lineCount": 24
+        },
+        {
+          "name": "attack",
+          "params": [
+            "hero"
+          ],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 58
+        },
+        {
+          "name": "myNotify",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "classes": [
+        {
+          "name": "ArcherTowerDefense",
+          "methods": [
+            "ArcherTowerDefense",
+            "run",
+            "selectHero",
+            "attack",
+            "myNotify"
+          ],
+          "properties": [
+            "root",
+            "map",
+            "archerTower",
+            "capacityInt"
+          ],
+          "exported": true,
+          "lineCount": 112
+        }
+      ],
+      "imports": [
+        {
+          "source": "javafx.animation.PathTransition",
+          "specifiers": [
+            "PathTransition"
+          ]
+        },
+        {
+          "source": "javafx.application.Platform",
+          "specifiers": [
+            "Platform"
+          ]
+        },
+        {
+          "source": "javafx.util.Duration",
+          "specifiers": [
+            "Duration"
+          ]
+        },
+        {
+          "source": "javafx.scene.layout.AnchorPane",
+          "specifiers": [
+            "AnchorPane"
+          ]
+        },
+        {
+          "source": "javafx.scene.shape.Circle",
+          "specifiers": [
+            "Circle"
+          ]
+        },
+        {
+          "source": "javafx.scene.shape.LineTo",
+          "specifiers": [
+            "LineTo"
+          ]
+        },
+        {
+          "source": "javafx.scene.shape.MoveTo",
+          "specifiers": [
+            "MoveTo"
+          ]
+        },
+        {
+          "source": "javafx.scene.shape.Path",
+          "specifiers": [
+            "Path"
+          ]
+        },
+        {
+          "source": "cr0s.javara.render.map.Map",
+          "specifiers": [
+            "Map"
+          ]
+        },
+        {
+          "source": "cr0s.javara.entity.MobileEntity",
+          "specifiers": [
+            "MobileEntity"
+          ]
+        },
+        {
+          "source": "cr0s.javara.entity.building.china.ArcherTower",
+          "specifiers": [
+            "ArcherTower"
+          ]
+        },
+        {
+          "source": "java.util.ArrayList",
+          "specifiers": [
+            "ArrayList"
+          ]
+        },
+        {
+          "source": "java.util.concurrent.atomic.AtomicInteger",
+          "specifiers": [
+            "AtomicInteger"
+          ]
+        }
+      ],
+      "exports": [
+        "ArcherTowerDefense",
+        "run",
+        "myNotify",
+        "ArcherTowerDefense"
+      ],
+      "totalLines": 132,
+      "hasStructuralAnalysis": true
+    },
+    "src/controller/defense/InfernoTowerDefense.java": {
+      "filePath": "src/controller/defense/InfernoTowerDefense.java",
+      "contentHash": "e24307be5433eebc267af3fdb71515bf9f410bacc1b0afa39f9824b6a390ebd8",
+      "functions": [
+        {
+          "name": "InfernoTowerDefense",
+          "params": [
+            "root",
+            "map",
+            "infernoTower",
+            "capacityInt"
+          ],
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "run",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 10
+        },
+        {
+          "name": "selectHero",
+          "params": [],
+          "returnType": "MobileEntity",
+          "exported": false,
+          "lineCount": 24
+        },
+        {
+          "name": "attack",
+          "params": [
+            "hero"
+          ],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 54
+        },
+        {
+          "name": "myNotify",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "classes": [
+        {
+          "name": "InfernoTowerDefense",
+          "methods": [
+            "InfernoTowerDefense",
+            "run",
+            "selectHero",
+            "attack",
+            "myNotify"
+          ],
+          "properties": [
+            "root",
+            "map",
+            "infernoTower",
+            "capacityInt"
+          ],
+          "exported": true,
+          "lineCount": 106
+        }
+      ],
+      "imports": [
+        {
+          "source": "javafx.application.Platform",
+          "specifiers": [
+            "Platform"
+          ]
+        },
+        {
+          "source": "javafx.scene.layout.AnchorPane",
+          "specifiers": [
+            "AnchorPane"
+          ]
+        },
+        {
+          "source": "javafx.scene.paint.Color",
+          "specifiers": [
+            "Color"
+          ]
+        },
+        {
+          "source": "javafx.scene.shape.LineTo",
+          "specifiers": [
+            "LineTo"
+          ]
+        },
+        {
+          "source": "javafx.scene.shape.MoveTo",
+          "specifiers": [
+            "MoveTo"
+          ]
+        },
+        {
+          "source": "javafx.scene.shape.Path",
+          "specifiers": [
+            "Path"
+          ]
+        },
+        {
+          "source": "cr0s.javara.entity.MobileEntity",
+          "specifiers": [
+            "MobileEntity"
+          ]
+        },
+        {
+          "source": "cr0s.javara.entity.building.china.InfernoTower",
+          "specifiers": [
+            "InfernoTower"
+          ]
+        },
+        {
+          "source": "cr0s.javara.render.map.Map",
+          "specifiers": [
+            "Map"
+          ]
+        },
+        {
+          "source": "java.util.ArrayList",
+          "specifiers": [
+            "ArrayList"
+          ]
+        },
+        {
+          "source": "java.util.concurrent.atomic.AtomicInteger",
+          "specifiers": [
+            "AtomicInteger"
+          ]
+        }
+      ],
+      "exports": [
+        "InfernoTowerDefense",
+        "run",
+        "myNotify",
+        "InfernoTowerDefense"
+      ],
+      "totalLines": 123,
+      "hasStructuralAnalysis": true
+    },
+    "src/controller/defense/package.bluej": {
+      "filePath": "src/controller/defense/package.bluej",
+      "contentHash": "8da102274484753d6c58808b57892faa66361f1a76b37aeb0e36a214dda932eb",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 42,
+      "hasStructuralAnalysis": false
+    },
+    "src/controller/defense/TeslaDefense.java": {
+      "filePath": "src/controller/defense/TeslaDefense.java",
+      "contentHash": "54b0d345c6231c64d3e8df9f1115496e246ac87babe3d9ec80d136896de535bd",
+      "functions": [
+        {
+          "name": "TeslaDefense",
+          "params": [
+            "root",
+            "map",
+            "tesla",
+            "capacityInt"
+          ],
+          "exported": true,
+          "lineCount": 9
+        },
+        {
+          "name": "run",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 10
+        },
+        {
+          "name": "selectHero",
+          "params": [],
+          "returnType": "MobileEntity",
+          "exported": false,
+          "lineCount": 24
+        },
+        {
+          "name": "attack",
+          "params": [
+            "hero"
+          ],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 56
+        },
+        {
+          "name": "myNotify",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "classes": [
+        {
+          "name": "TeslaDefense",
+          "methods": [
+            "TeslaDefense",
+            "run",
+            "selectHero",
+            "attack",
+            "myNotify"
+          ],
+          "properties": [
+            "root",
+            "map",
+            "tesla",
+            "capacityInt",
+            "circleImpact"
+          ],
+          "exported": true,
+          "lineCount": 114
+        }
+      ],
+      "imports": [
+        {
+          "source": "javafx.animation.PathTransition",
+          "specifiers": [
+            "PathTransition"
+          ]
+        },
+        {
+          "source": "javafx.application.Platform",
+          "specifiers": [
+            "Platform"
+          ]
+        },
+        {
+          "source": "javafx.util.Duration",
+          "specifiers": [
+            "Duration"
+          ]
+        },
+        {
+          "source": "javafx.scene.image.ImageView",
+          "specifiers": [
+            "ImageView"
+          ]
+        },
+        {
+          "source": "javafx.scene.layout.AnchorPane",
+          "specifiers": [
+            "AnchorPane"
+          ]
+        },
+        {
+          "source": "javafx.scene.shape.LineTo",
+          "specifiers": [
+            "LineTo"
+          ]
+        },
+        {
+          "source": "javafx.scene.shape.MoveTo",
+          "specifiers": [
+            "MoveTo"
+          ]
+        },
+        {
+          "source": "javafx.scene.shape.Path",
+          "specifiers": [
+            "Path"
+          ]
+        },
+        {
+          "source": "cr0s.javara.render.map.Map",
+          "specifiers": [
+            "Map"
+          ]
+        },
+        {
+          "source": "cr0s.javara.entity.MobileEntity",
+          "specifiers": [
+            "MobileEntity"
+          ]
+        },
+        {
+          "source": "cr0s.javara.entity.building.china.Tesla",
+          "specifiers": [
+            "Tesla"
+          ]
+        },
+        {
+          "source": "java.util.ArrayList",
+          "specifiers": [
+            "ArrayList"
+          ]
+        },
+        {
+          "source": "java.util.concurrent.atomic.AtomicInteger",
+          "specifiers": [
+            "AtomicInteger"
+          ]
+        }
+      ],
+      "exports": [
+        "TeslaDefense",
+        "run",
+        "myNotify",
+        "TeslaDefense"
+      ],
+      "totalLines": 133,
+      "hasStructuralAnalysis": true
+    },
+    "src/controller/LogInController.java": {
+      "filePath": "src/controller/LogInController.java",
+      "contentHash": "241cd62c3a5d673ce35efdcdd9f2ed5de8d077291cbde8abd4bc6a1cd9e5c34d",
+      "functions": [
+        {
+          "name": "LogInController",
+          "params": [
+            "players"
+          ],
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "getPlayer",
+          "params": [
+            "idPlayer",
+            "password"
+          ],
+          "returnType": "Player",
+          "exported": true,
+          "lineCount": 9
+        }
+      ],
+      "classes": [
+        {
+          "name": "LogInController",
+          "methods": [
+            "LogInController",
+            "getPlayer"
+          ],
+          "properties": [
+            "players"
+          ],
+          "exported": true,
+          "lineCount": 17
+        }
+      ],
+      "imports": [
+        {
+          "source": "model.Player",
+          "specifiers": [
+            "Player"
+          ]
+        },
+        {
+          "source": "java.util.ArrayList",
+          "specifiers": [
+            "ArrayList"
+          ]
+        },
+        {
+          "source": "model.Map.MapLoader",
+          "specifiers": [
+            "MapLoader"
+          ]
+        }
+      ],
+      "exports": [
+        "LogInController",
+        "getPlayer",
+        "LogInController"
+      ],
+      "totalLines": 25,
+      "hasStructuralAnalysis": true
+    },
+    "src/controller/package.bluej": {
+      "filePath": "src/controller/package.bluej",
+      "contentHash": "5e765b7efee5d9716842da9947ea6fbddd9e8695495828760d8300e7db9c4554",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 54,
+      "hasStructuralAnalysis": false
+    },
+    "src/controller/SignUpController.java": {
+      "filePath": "src/controller/SignUpController.java",
+      "contentHash": "0736ee91cf79a51cb724b8b7e9b34a659a24f0f5647145e9e41d4dcb4bb05ac0",
+      "functions": [
+        {
+          "name": "SignUpController",
+          "params": [
+            "players"
+          ],
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "checkId",
+          "params": [
+            "idPlayer"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 7
+        }
+      ],
+      "classes": [
+        {
+          "name": "SignUpController",
+          "methods": [
+            "SignUpController",
+            "checkId"
+          ],
+          "properties": [
+            "players"
+          ],
+          "exported": true,
+          "lineCount": 15
+        }
+      ],
+      "imports": [
+        {
+          "source": "model.IdPlayerException",
+          "specifiers": [
+            "IdPlayerException"
+          ]
+        },
+        {
+          "source": "model.Player",
+          "specifiers": [
+            "Player"
+          ]
+        },
+        {
+          "source": "java.util.ArrayList",
+          "specifiers": [
+            "ArrayList"
+          ]
+        }
+      ],
+      "exports": [
+        "SignUpController",
+        "checkId",
+        "SignUpController"
+      ],
+      "totalLines": 23,
+      "hasStructuralAnalysis": true
+    },
+    "src/model/data/LoadData.java": {
+      "filePath": "src/model/data/LoadData.java",
+      "contentHash": "572fcd13a458631259cfc6e85ae4eff3a70f6d7fda34033f7ceb3a4e2589cbad",
+      "functions": [
+        {
+          "name": "getPlayers",
+          "params": [],
+          "returnType": "ArrayList<Player>",
+          "exported": true,
+          "lineCount": 37
+        }
+      ],
+      "classes": [
+        {
+          "name": "LoadData",
+          "methods": [
+            "getPlayers"
+          ],
+          "properties": [
+            "players"
+          ],
+          "exported": true,
+          "lineCount": 43
+        }
+      ],
+      "imports": [
+        {
+          "source": "model.Map",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "model.Player",
+          "specifiers": [
+            "Player"
+          ]
+        },
+        {
+          "source": "java.sql",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "java.util.ArrayList",
+          "specifiers": [
+            "ArrayList"
+          ]
+        }
+      ],
+      "exports": [
+        "getPlayers",
+        "LoadData"
+      ],
+      "totalLines": 52,
+      "hasStructuralAnalysis": true
+    },
+    "src/model/data/package.bluej": {
+      "filePath": "src/model/data/package.bluej",
+      "contentHash": "b583302acd441a94ab60b30959eae213028bb0e770bbce88a8751657634f2448",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 42,
+      "hasStructuralAnalysis": false
+    },
+    "src/model/data/SaveData.java": {
+      "filePath": "src/model/data/SaveData.java",
+      "contentHash": "ccffccc91a1403dc20ada507c5d445ad1f7cee90472057808624dfd9d38617a9",
+      "functions": [
+        {
+          "name": "SaveData",
+          "params": [
+            "player"
+          ],
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "run",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 16
+        }
+      ],
+      "classes": [
+        {
+          "name": "SaveData",
+          "methods": [
+            "SaveData",
+            "run"
+          ],
+          "properties": [
+            "player"
+          ],
+          "exported": true,
+          "lineCount": 25
+        }
+      ],
+      "imports": [
+        {
+          "source": "model.Player",
+          "specifiers": [
+            "Player"
+          ]
+        },
+        {
+          "source": "java.sql.Connection",
+          "specifiers": [
+            "Connection"
+          ]
+        },
+        {
+          "source": "java.sql.DriverManager",
+          "specifiers": [
+            "DriverManager"
+          ]
+        },
+        {
+          "source": "java.sql.SQLException",
+          "specifiers": [
+            "SQLException"
+          ]
+        }
+      ],
+      "exports": [
+        "SaveData",
+        "run",
+        "SaveData"
+      ],
+      "totalLines": 34,
+      "hasStructuralAnalysis": true
+    },
+    "src/model/data/UpdateData.java": {
+      "filePath": "src/model/data/UpdateData.java",
+      "contentHash": "4e9a6e36b2a230b9f350897ecbf9ab1bcbd121265b9e8c246df96f849a860689",
+      "functions": [
+        {
+          "name": "UpdateData",
+          "params": [
+            "player"
+          ],
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "run",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 17
+        }
+      ],
+      "classes": [
+        {
+          "name": "UpdateData",
+          "methods": [
+            "UpdateData",
+            "run"
+          ],
+          "properties": [
+            "player"
+          ],
+          "exported": true,
+          "lineCount": 25
+        }
+      ],
+      "imports": [
+        {
+          "source": "model.Player",
+          "specifiers": [
+            "Player"
+          ]
+        },
+        {
+          "source": "java.sql.Connection",
+          "specifiers": [
+            "Connection"
+          ]
+        },
+        {
+          "source": "java.sql.DriverManager",
+          "specifiers": [
+            "DriverManager"
+          ]
+        },
+        {
+          "source": "java.sql.SQLException",
+          "specifiers": [
+            "SQLException"
+          ]
+        }
+      ],
+      "exports": [
+        "UpdateData",
+        "run",
+        "UpdateData"
+      ],
+      "totalLines": 34,
+      "hasStructuralAnalysis": true
+    },
+    "src/model/IdPlayerException.java": {
+      "filePath": "src/model/IdPlayerException.java",
+      "contentHash": "0905743a8538987eaac50174644fb63022f97cb2d6447d705bcfccc8290f076e",
+      "functions": [
+        {
+          "name": "IdPlayerException",
+          "params": [],
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "classes": [
+        {
+          "name": "IdPlayerException",
+          "methods": [
+            "IdPlayerException"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 5
+        }
+      ],
+      "imports": [],
+      "exports": [
+        "IdPlayerException",
+        "IdPlayerException"
+      ],
+      "totalLines": 8,
+      "hasStructuralAnalysis": true
+    },
+    "src/model/Map/MapLoader.java": {
+      "filePath": "src/model/Map/MapLoader.java",
+      "contentHash": "0845d7fbd280d0a62bf305bdfb488daa473ae58f34e4f7304ce048d6a98cb6d3",
+      "functions": [
+        {
+          "name": "MapLoader",
+          "params": [
+            "id",
+            "map"
+          ],
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "getBuildingsMap",
+          "params": [],
+          "returnType": "ArrayList<Entity>",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "getMapView",
+          "params": [],
+          "returnType": "AnchorPane",
+          "exported": true,
+          "lineCount": 11
+        },
+        {
+          "name": "buildMap",
+          "params": [
+            "map"
+          ],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 45
+        }
+      ],
+      "classes": [
+        {
+          "name": "MapLoader",
+          "methods": [
+            "MapLoader",
+            "getBuildingsMap",
+            "getMapView",
+            "buildMap"
+          ],
+          "properties": [
+            "buildingsMap",
+            "assets"
+          ],
+          "exported": true,
+          "lineCount": 73
+        }
+      ],
+      "imports": [
+        {
+          "source": "javafx.scene.image.Image",
+          "specifiers": [
+            "Image"
+          ]
+        },
+        {
+          "source": "javafx.scene.layout",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "java.io.InputStream",
+          "specifiers": [
+            "InputStream"
+          ]
+        },
+        {
+          "source": "java.util.ArrayList",
+          "specifiers": [
+            "ArrayList"
+          ]
+        },
+        {
+          "source": "assets.Assets",
+          "specifiers": [
+            "Assets"
+          ]
+        },
+        {
+          "source": "org.yaml.snakeyaml.Yaml",
+          "specifiers": [
+            "Yaml"
+          ]
+        },
+        {
+          "source": "cr0s.javara.entity.building.EntityBuilding",
+          "specifiers": [
+            "EntityBuilding"
+          ]
+        },
+        {
+          "source": "cr0s.javara.entity.building.common.EntityConstructionYard",
+          "specifiers": [
+            "EntityConstructionYard"
+          ]
+        },
+        {
+          "source": "cr0s.javara.render.map.Map",
+          "specifiers": [
+            "Map"
+          ]
+        },
+        {
+          "source": "cr0s.javara.util.Pos",
+          "specifiers": [
+            "Pos"
+          ]
+        },
+        {
+          "source": "cr0s.javara.entity.Entity",
+          "specifiers": [
+            "Entity"
+          ]
+        },
+        {
+          "source": "cr0s.javara.entity.building.china",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "cr0s.javara.entity.building.soviet.EntityTeslaCoil",
+          "specifiers": [
+            "EntityTeslaCoil"
+          ]
+        }
+      ],
+      "exports": [
+        "MapLoader",
+        "getBuildingsMap",
+        "getMapView",
+        "MapLoader"
+      ],
+      "totalLines": 92,
+      "hasStructuralAnalysis": true
+    },
+    "src/model/Map/package.bluej": {
+      "filePath": "src/model/Map/package.bluej",
+      "contentHash": "128bbc36caa4cea5df2e8764bfe2188be38ef9b2810b60323ad4c083a12f1c82",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 56,
+      "hasStructuralAnalysis": false
+    },
+    "src/model/package.bluej": {
+      "filePath": "src/model/package.bluej",
+      "contentHash": "496691460e1bf4db3233b401d4a41567375ea14fe1d56b7dc96b69c609573157",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 66,
+      "hasStructuralAnalysis": false
+    },
+    "src/model/Player.java": {
+      "filePath": "src/model/Player.java",
+      "contentHash": "ce0b069dbecc6e2b29b0b91b5077485514184c50e4c3289642a2952500f6685e",
+      "functions": [
+        {
+          "name": "Player",
+          "params": [
+            "map",
+            "idPlayer",
+            "password"
+          ],
+          "exported": true,
+          "lineCount": 8
+        },
+        {
+          "name": "getMap",
+          "params": [],
+          "returnType": "Map",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "getIdPlayer",
+          "params": [],
+          "returnType": "String",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "getPassword",
+          "params": [],
+          "returnType": "String",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "getLevel",
+          "params": [],
+          "returnType": "int",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "getNumberWin",
+          "params": [],
+          "returnType": "int",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "Win",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "getNumberLose",
+          "params": [],
+          "returnType": "int",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "Lose",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 4
+        }
+      ],
+      "classes": [
+        {
+          "name": "Player",
+          "methods": [
+            "Player",
+            "getMap",
+            "getIdPlayer",
+            "getPassword",
+            "getLevel",
+            "getNumberWin",
+            "Win",
+            "getNumberLose",
+            "Lose"
+          ],
+          "properties": [
+            "idPlayer",
+            "password",
+            "map",
+            "level",
+            "numberWin",
+            "numberLose"
+          ],
+          "exported": true,
+          "lineCount": 52
+        }
+      ],
+      "imports": [
+        {
+          "source": "cr0s.javara.render.map.Map",
+          "specifiers": [
+            "Map"
+          ]
+        },
+        {
+          "source": "java.io.Serializable",
+          "specifiers": [
+            "Serializable"
+          ]
+        }
+      ],
+      "exports": [
+        "Player",
+        "getMap",
+        "getIdPlayer",
+        "getPassword",
+        "getLevel",
+        "getNumberWin",
+        "Win",
+        "getNumberLose",
+        "Lose",
+        "Player"
+      ],
+      "totalLines": 58,
+      "hasStructuralAnalysis": true
+    },
+    "src/module-info.java": {
+      "filePath": "src/module-info.java",
+      "contentHash": "ef768f187de7e3043d16932d86303ba0e5435480ba5acdae1f2088c1763c4ae2",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 18,
+      "hasStructuralAnalysis": true
+    },
+    "src/package.bluej": {
+      "filePath": "src/package.bluej",
+      "contentHash": "8d7140905edadbdfd40bc74ffdc76db76b6b3011fcf111712caa82402cd61144",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 56,
+      "hasStructuralAnalysis": false
+    },
+    "src/README.TXT": {
+      "filePath": "src/README.TXT",
+      "contentHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": false
+    },
+    "src/style.css": {
+      "filePath": "src/style.css",
+      "contentHash": "2ca915b1f5b0e4ac9fb0cf15cf3360e6ffb12fc518a650d42ff14a34547726a7",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 35,
+      "hasStructuralAnalysis": false
+    },
+    "src/view/Battle.java": {
+      "filePath": "src/view/Battle.java",
+      "contentHash": "86f66582bf71560dd2da1ae43ebddc2a85a099b7ff6998fad2dfed46bb5a0f0f",
+      "functions": [
+        {
+          "name": "Battle",
+          "params": [
+            "attackingPlayer",
+            "defensivePlayer",
+            "players"
+          ],
+          "exported": true,
+          "lineCount": 7
+        },
+        {
+          "name": "start",
+          "params": [
+            "stage"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 28
+        },
+        {
+          "name": "attack",
+          "params": [],
+          "returnType": "AnchorPane",
+          "exported": false,
+          "lineCount": 159
+        }
+      ],
+      "classes": [
+        {
+          "name": "Battle",
+          "methods": [
+            "Battle",
+            "start",
+            "attack"
+          ],
+          "properties": [
+            "assets",
+            "shadow",
+            "attackingPlayer",
+            "defensivePlayer",
+            "players",
+            "capacityInt"
+          ],
+          "exported": true,
+          "lineCount": 205
+        }
+      ],
+      "imports": [
+        {
+          "source": "controller.attack",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "controller.CheckResultAttack",
+          "specifiers": [
+            "CheckResultAttack"
+          ]
+        },
+        {
+          "source": "controller.defense.ArcherTowerDefense",
+          "specifiers": [
+            "ArcherTowerDefense"
+          ]
+        },
+        {
+          "source": "controller.defense.InfernoTowerDefense",
+          "specifiers": [
+            "InfernoTowerDefense"
+          ]
+        },
+        {
+          "source": "controller.defense.TeslaDefense",
+          "specifiers": [
+            "TeslaDefense"
+          ]
+        },
+        {
+          "source": "javafx.application.Application",
+          "specifiers": [
+            "Application"
+          ]
+        },
+        {
+          "source": "javafx.application.Platform",
+          "specifiers": [
+            "Platform"
+          ]
+        },
+        {
+          "source": "javafx.stage.Stage",
+          "specifiers": [
+            "Stage"
+          ]
+        },
+        {
+          "source": "javafx.scene.Scene",
+          "specifiers": [
+            "Scene"
+          ]
+        },
+        {
+          "source": "javafx.scene.effect.DropShadow",
+          "specifiers": [
+            "DropShadow"
+          ]
+        },
+        {
+          "source": "javafx.scene.image.Image",
+          "specifiers": [
+            "Image"
+          ]
+        },
+        {
+          "source": "javafx.scene.image.ImageView",
+          "specifiers": [
+            "ImageView"
+          ]
+        },
+        {
+          "source": "javafx.scene.media.Media",
+          "specifiers": [
+            "Media"
+          ]
+        },
+        {
+          "source": "javafx.scene.media.MediaPlayer",
+          "specifiers": [
+            "MediaPlayer"
+          ]
+        },
+        {
+          "source": "javafx.scene.media.MediaView",
+          "specifiers": [
+            "MediaView"
+          ]
+        },
+        {
+          "source": "javafx.scene.paint.Color",
+          "specifiers": [
+            "Color"
+          ]
+        },
+        {
+          "source": "javafx.scene.shape.Rectangle",
+          "specifiers": [
+            "Rectangle"
+          ]
+        },
+        {
+          "source": "javafx.scene.text.Text",
+          "specifiers": [
+            "Text"
+          ]
+        },
+        {
+          "source": "javafx.scene.layout.BorderPane",
+          "specifiers": [
+            "BorderPane"
+          ]
+        },
+        {
+          "source": "javafx.scene.layout.AnchorPane",
+          "specifiers": [
+            "AnchorPane"
+          ]
+        },
+        {
+          "source": "model.Player",
+          "specifiers": [
+            "Player"
+          ]
+        },
+        {
+          "source": "assets.Assets",
+          "specifiers": [
+            "Assets"
+          ]
+        },
+        {
+          "source": "cr0s.javara.entity.Entity",
+          "specifiers": [
+            "Entity"
+          ]
+        },
+        {
+          "source": "cr0s.javara.entity.building.china",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "cr0s.javara.render.map.TileMap",
+          "specifiers": [
+            "TileMap"
+          ]
+        },
+        {
+          "source": "java.util.ArrayList",
+          "specifiers": [
+            "ArrayList"
+          ]
+        },
+        {
+          "source": "java.util.concurrent.atomic.AtomicInteger",
+          "specifiers": [
+            "AtomicInteger"
+          ]
+        }
+      ],
+      "exports": [
+        "Battle",
+        "start",
+        "Battle"
+      ],
+      "totalLines": 238,
+      "hasStructuralAnalysis": true
+    },
+    "src/view/LogIn.java": {
+      "filePath": "src/view/LogIn.java",
+      "contentHash": "ba6e8ad1c88394bcbd1bdb827bf9e9a4a3c3c7075cfb15be1a3058fb338af6aa",
+      "functions": [
+        {
+          "name": "LogIn",
+          "params": [
+            "players"
+          ],
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "start",
+          "params": [
+            "stage"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 14
+        },
+        {
+          "name": "vBoxFields",
+          "params": [
+            "stage"
+          ],
+          "returnType": "VBox",
+          "exported": false,
+          "lineCount": 56
+        }
+      ],
+      "classes": [
+        {
+          "name": "LogIn",
+          "methods": [
+            "LogIn",
+            "start",
+            "vBoxFields"
+          ],
+          "properties": [
+            "players",
+            "controller",
+            "assets",
+            "audioFilePath",
+            "mediaPlayerClick",
+            "shadow"
+          ],
+          "exported": true,
+          "lineCount": 86
+        }
+      ],
+      "imports": [
+        {
+          "source": "javafx.application.Application",
+          "specifiers": [
+            "Application"
+          ]
+        },
+        {
+          "source": "javafx.geometry.Insets",
+          "specifiers": [
+            "Insets"
+          ]
+        },
+        {
+          "source": "javafx.geometry.Pos",
+          "specifiers": [
+            "Pos"
+          ]
+        },
+        {
+          "source": "javafx.stage.Stage",
+          "specifiers": [
+            "Stage"
+          ]
+        },
+        {
+          "source": "javafx.scene.Scene",
+          "specifiers": [
+            "Scene"
+          ]
+        },
+        {
+          "source": "javafx.scene.control.Alert",
+          "specifiers": [
+            "Alert"
+          ]
+        },
+        {
+          "source": "javafx.scene.control.Button",
+          "specifiers": [
+            "Button"
+          ]
+        },
+        {
+          "source": "javafx.scene.control.TextField",
+          "specifiers": [
+            "TextField"
+          ]
+        },
+        {
+          "source": "javafx.scene.effect.DropShadow",
+          "specifiers": [
+            "DropShadow"
+          ]
+        },
+        {
+          "source": "javafx.scene.image.Image",
+          "specifiers": [
+            "Image"
+          ]
+        },
+        {
+          "source": "javafx.scene.layout",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "javafx.scene.media.Media",
+          "specifiers": [
+            "Media"
+          ]
+        },
+        {
+          "source": "javafx.scene.media.MediaPlayer",
+          "specifiers": [
+            "MediaPlayer"
+          ]
+        },
+        {
+          "source": "javafx.scene.media.MediaView",
+          "specifiers": [
+            "MediaView"
+          ]
+        },
+        {
+          "source": "javafx.scene.paint.Color",
+          "specifiers": [
+            "Color"
+          ]
+        },
+        {
+          "source": "javafx.scene.text.Text",
+          "specifiers": [
+            "Text"
+          ]
+        },
+        {
+          "source": "model.Player",
+          "specifiers": [
+            "Player"
+          ]
+        },
+        {
+          "source": "controller.LogInController",
+          "specifiers": [
+            "LogInController"
+          ]
+        },
+        {
+          "source": "java.util.ArrayList",
+          "specifiers": [
+            "ArrayList"
+          ]
+        },
+        {
+          "source": "assets.Assets",
+          "specifiers": [
+            "Assets"
+          ]
+        }
+      ],
+      "exports": [
+        "LogIn",
+        "start",
+        "LogIn"
+      ],
+      "totalLines": 112,
+      "hasStructuralAnalysis": true
+    },
+    "src/view/package.bluej": {
+      "filePath": "src/view/package.bluej",
+      "contentHash": "2352621b77e80730cfc6ec5803fca7577180a58b5013f7c88d6020b5125ab817",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 77,
+      "hasStructuralAnalysis": false
+    },
+    "src/view/PlayerPanel.java": {
+      "filePath": "src/view/PlayerPanel.java",
+      "contentHash": "8cef1d913f1353e4335a0263c6548d8797844c050ba00c99086391d90683dbdb",
+      "functions": [
+        {
+          "name": "PlayerPanel",
+          "params": [
+            "player",
+            "players"
+          ],
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "start",
+          "params": [
+            "stage"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 15
+        },
+        {
+          "name": "root",
+          "params": [
+            "stage"
+          ],
+          "returnType": "AnchorPane",
+          "exported": false,
+          "lineCount": 182
+        }
+      ],
+      "classes": [
+        {
+          "name": "PlayerPanel",
+          "methods": [
+            "PlayerPanel",
+            "start",
+            "root"
+          ],
+          "properties": [
+            "assets",
+            "player",
+            "players",
+            "mediaPlayer",
+            "audioFilePath",
+            "mediaPlayerClick"
+          ],
+          "exported": true,
+          "lineCount": 215
+        }
+      ],
+      "imports": [
+        {
+          "source": "javafx.application.Application",
+          "specifiers": [
+            "Application"
+          ]
+        },
+        {
+          "source": "javafx.scene.Scene",
+          "specifiers": [
+            "Scene"
+          ]
+        },
+        {
+          "source": "javafx.scene.effect.DropShadow",
+          "specifiers": [
+            "DropShadow"
+          ]
+        },
+        {
+          "source": "javafx.scene.image.Image",
+          "specifiers": [
+            "Image"
+          ]
+        },
+        {
+          "source": "javafx.scene.image.ImageView",
+          "specifiers": [
+            "ImageView"
+          ]
+        },
+        {
+          "source": "javafx.scene.layout",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "javafx.scene.media.Media",
+          "specifiers": [
+            "Media"
+          ]
+        },
+        {
+          "source": "javafx.scene.media.MediaPlayer",
+          "specifiers": [
+            "MediaPlayer"
+          ]
+        },
+        {
+          "source": "javafx.scene.media.MediaView",
+          "specifiers": [
+            "MediaView"
+          ]
+        },
+        {
+          "source": "javafx.scene.text.Text",
+          "specifiers": [
+            "Text"
+          ]
+        },
+        {
+          "source": "javafx.stage.Stage",
+          "specifiers": [
+            "Stage"
+          ]
+        },
+        {
+          "source": "model.Player",
+          "specifiers": [
+            "Player"
+          ]
+        },
+        {
+          "source": "java.util.ArrayList",
+          "specifiers": [
+            "ArrayList"
+          ]
+        },
+        {
+          "source": "assets.Assets",
+          "specifiers": [
+            "Assets"
+          ]
+        },
+        {
+          "source": "cr0s.javara.entity.aircraft",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "cr0s.javara.util.Pos",
+          "specifiers": [
+            "Pos"
+          ]
+        }
+      ],
+      "exports": [
+        "PlayerPanel",
+        "start",
+        "PlayerPanel"
+      ],
+      "totalLines": 236,
+      "hasStructuralAnalysis": true
+    },
+    "src/view/SearchOpponents.java": {
+      "filePath": "src/view/SearchOpponents.java",
+      "contentHash": "ce00f7d5ff104ff954dcd276ee93752c02b017291e85545f0613d8713a030ab9",
+      "functions": [
+        {
+          "name": "SearchOpponents",
+          "params": [
+            "player",
+            "players",
+            "mediaPlayer"
+          ],
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "start",
+          "params": [
+            "stage"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 35
+        },
+        {
+          "name": "getMap",
+          "params": [
+            "stage",
+            "map"
+          ],
+          "returnType": "AnchorPane",
+          "exported": false,
+          "lineCount": 104
+        },
+        {
+          "name": "bottomHero",
+          "params": [
+            "map"
+          ],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 66
+        }
+      ],
+      "classes": [
+        {
+          "name": "SearchOpponents",
+          "methods": [
+            "SearchOpponents",
+            "start",
+            "getMap",
+            "bottomHero"
+          ],
+          "properties": [
+            "players",
+            "player",
+            "scene",
+            "assets",
+            "count",
+            "mediaPlayer",
+            "audioFilePath",
+            "mediaPlayerClick",
+            "thread"
+          ],
+          "exported": true,
+          "lineCount": 225
+        }
+      ],
+      "imports": [
+        {
+          "source": "javafx.application.Application",
+          "specifiers": [
+            "Application"
+          ]
+        },
+        {
+          "source": "javafx.application.Platform",
+          "specifiers": [
+            "Platform"
+          ]
+        },
+        {
+          "source": "javafx.stage.Stage",
+          "specifiers": [
+            "Stage"
+          ]
+        },
+        {
+          "source": "javafx.scene.Scene",
+          "specifiers": [
+            "Scene"
+          ]
+        },
+        {
+          "source": "javafx.scene.image.Image",
+          "specifiers": [
+            "Image"
+          ]
+        },
+        {
+          "source": "javafx.scene.image.ImageView",
+          "specifiers": [
+            "ImageView"
+          ]
+        },
+        {
+          "source": "javafx.scene.layout.AnchorPane",
+          "specifiers": [
+            "AnchorPane"
+          ]
+        },
+        {
+          "source": "javafx.scene.media.Media",
+          "specifiers": [
+            "Media"
+          ]
+        },
+        {
+          "source": "javafx.scene.media.MediaPlayer",
+          "specifiers": [
+            "MediaPlayer"
+          ]
+        },
+        {
+          "source": "javafx.scene.media.MediaView",
+          "specifiers": [
+            "MediaView"
+          ]
+        },
+        {
+          "source": "javafx.scene.paint.Color",
+          "specifiers": [
+            "Color"
+          ]
+        },
+        {
+          "source": "javafx.scene.shape.Rectangle",
+          "specifiers": [
+            "Rectangle"
+          ]
+        },
+        {
+          "source": "javafx.scene.text.Text",
+          "specifiers": [
+            "Text"
+          ]
+        },
+        {
+          "source": "java.util.ArrayList",
+          "specifiers": [
+            "ArrayList"
+          ]
+        },
+        {
+          "source": "java.util.concurrent.atomic.AtomicInteger",
+          "specifiers": [
+            "AtomicInteger"
+          ]
+        },
+        {
+          "source": "assets.Assets",
+          "specifiers": [
+            "Assets"
+          ]
+        },
+        {
+          "source": "model.Map.MapLoader",
+          "specifiers": [
+            "MapLoader"
+          ]
+        },
+        {
+          "source": "model.Player",
+          "specifiers": [
+            "Player"
+          ]
+        }
+      ],
+      "exports": [
+        "SearchOpponents",
+        "start",
+        "SearchOpponents"
+      ],
+      "totalLines": 250,
+      "hasStructuralAnalysis": true
+    },
+    "src/view/SignUp.java": {
+      "filePath": "src/view/SignUp.java",
+      "contentHash": "c66f9ddf6cfb15c3d8b08ceb4ac63b3d74d43e7b84114bafcc4a9f7cf3cbba68",
+      "functions": [
+        {
+          "name": "SignUp",
+          "params": [
+            "players"
+          ],
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "start",
+          "params": [
+            "stage"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 12
+        },
+        {
+          "name": "vBoxFields",
+          "params": [
+            "stage"
+          ],
+          "returnType": "VBox",
+          "exported": false,
+          "lineCount": 85
+        },
+        {
+          "name": "hBoxMaps",
+          "params": [],
+          "returnType": "HBox",
+          "exported": false,
+          "lineCount": 38
+        }
+      ],
+      "classes": [
+        {
+          "name": "SignUp",
+          "methods": [
+            "SignUp",
+            "start",
+            "vBoxFields",
+            "hBoxMaps"
+          ],
+          "properties": [
+            "controller",
+            "players",
+            "shadow",
+            "imageView1",
+            "imageView2",
+            "imageView3",
+            "imageView4",
+            "assets",
+            "audioFilePath",
+            "mediaPlayerClick"
+          ],
+          "exported": true,
+          "lineCount": 155
+        }
+      ],
+      "imports": [
+        {
+          "source": "javafx.application.Application",
+          "specifiers": [
+            "Application"
+          ]
+        },
+        {
+          "source": "javafx.geometry.Insets",
+          "specifiers": [
+            "Insets"
+          ]
+        },
+        {
+          "source": "javafx.geometry.Pos",
+          "specifiers": [
+            "Pos"
+          ]
+        },
+        {
+          "source": "javafx.stage.Stage",
+          "specifiers": [
+            "Stage"
+          ]
+        },
+        {
+          "source": "javafx.scene.Cursor",
+          "specifiers": [
+            "Cursor"
+          ]
+        },
+        {
+          "source": "javafx.scene.Scene",
+          "specifiers": [
+            "Scene"
+          ]
+        },
+        {
+          "source": "javafx.scene.control.Alert",
+          "specifiers": [
+            "Alert"
+          ]
+        },
+        {
+          "source": "javafx.scene.control.Button",
+          "specifiers": [
+            "Button"
+          ]
+        },
+        {
+          "source": "javafx.scene.control.TextField",
+          "specifiers": [
+            "TextField"
+          ]
+        },
+        {
+          "source": "javafx.scene.effect.DropShadow",
+          "specifiers": [
+            "DropShadow"
+          ]
+        },
+        {
+          "source": "javafx.scene.image.Image",
+          "specifiers": [
+            "Image"
+          ]
+        },
+        {
+          "source": "javafx.scene.image.ImageView",
+          "specifiers": [
+            "ImageView"
+          ]
+        },
+        {
+          "source": "javafx.scene.layout",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "javafx.scene.media.Media",
+          "specifiers": [
+            "Media"
+          ]
+        },
+        {
+          "source": "javafx.scene.media.MediaPlayer",
+          "specifiers": [
+            "MediaPlayer"
+          ]
+        },
+        {
+          "source": "javafx.scene.media.MediaView",
+          "specifiers": [
+            "MediaView"
+          ]
+        },
+        {
+          "source": "javafx.scene.paint.Color",
+          "specifiers": [
+            "Color"
+          ]
+        },
+        {
+          "source": "javafx.scene.text.Text",
+          "specifiers": [
+            "Text"
+          ]
+        },
+        {
+          "source": "model.Map",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "model.Player",
+          "specifiers": [
+            "Player"
+          ]
+        },
+        {
+          "source": "model.IdPlayerException",
+          "specifiers": [
+            "IdPlayerException"
+          ]
+        },
+        {
+          "source": "model.data.SaveData",
+          "specifiers": [
+            "SaveData"
+          ]
+        },
+        {
+          "source": "cr0s.javara.render.map.Map",
+          "specifiers": [
+            "Map"
+          ]
+        },
+        {
+          "source": "java.util.ArrayList",
+          "specifiers": [
+            "ArrayList"
+          ]
+        },
+        {
+          "source": "controller.SignUpController",
+          "specifiers": [
+            "SignUpController"
+          ]
+        },
+        {
+          "source": "assets.Assets",
+          "specifiers": [
+            "Assets"
+          ]
+        }
+      ],
+      "exports": [
+        "SignUp",
+        "start",
+        "SignUp"
+      ],
+      "totalLines": 188,
+      "hasStructuralAnalysis": true
+    },
+    "test/test/testClass.java": {
+      "filePath": "test/test/testClass.java",
+      "contentHash": "3b2b10d1249892022ed5fe8054e88cdb6fb16bd0e7c216e15cd46b87958ea22f",
+      "functions": [
+        {
+          "name": "test",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 8
+        }
+      ],
+      "classes": [
+        {
+          "name": "testClass",
+          "methods": [
+            "test"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 10
+        }
+      ],
+      "imports": [
+        {
+          "source": "javafx.scene.image.Image",
+          "specifiers": [
+            "Image"
+          ]
+        },
+        {
+          "source": "org.junit.Test",
+          "specifiers": [
+            "Test"
+          ]
+        },
+        {
+          "source": "org.junit.Assert.assertEquals",
+          "specifiers": [
+            "assertEquals"
+          ]
+        }
+      ],
+      "exports": [
+        "test",
+        "testClass"
+      ],
+      "totalLines": 21,
+      "hasStructuralAnalysis": true
+    }
+  }
+}

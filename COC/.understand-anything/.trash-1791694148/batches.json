@@ -1,0 +1,513 @@
+{
+  "schemaVersion": 1,
+  "algorithm": "louvain",
+  "totalFiles": 47,
+  "totalBatches": 3,
+  "exportsByPath": {
+    ".DS_Store": [],
+    ".understand-anything/.understandignore": [],
+    "src/.DS_Store": [],
+    "src/com/coc/GUI.java": [
+      "start",
+      "main",
+      "GUI"
+    ],
+    "src/com/coc/package.bluej": [],
+    "src/com/package.bluej": [],
+    "src/controller/attack/ArcherBalloonAttack.java": [
+      "ArcherBalloonAttack",
+      "run",
+      "myNotify",
+      "distance",
+      "nearestPointOnCircle",
+      "ArcherBalloonAttack"
+    ],
+    "src/controller/attack/DefBalloonAttack.java": [
+      "DefBalloonAttack",
+      "run",
+      "myNotify",
+      "DefBalloonAttack"
+    ],
+    "src/controller/attack/DragonAttack.java": [
+      "DragonAttack",
+      "run",
+      "myNotify",
+      "DragonAttack"
+    ],
+    "src/controller/attack/GoblinBalloonAttack.java": [
+      "GoblinBalloonAttack",
+      "run",
+      "myNotify",
+      "GoblinBalloonAttack"
+    ],
+    "src/controller/attack/package.bluej": [],
+    "src/controller/attack/PandaAttack.java": [
+      "PandaAttack",
+      "run",
+      "myNotify",
+      "PandaAttack"
+    ],
+    "src/controller/CheckResultAttack.java": [
+      "CheckResultAttack",
+      "run",
+      "myNotify",
+      "CheckResultAttack"
+    ],
+    "src/controller/defense/ArcherTowerDefense.java": [
+      "ArcherTowerDefense",
+      "run",
+      "myNotify",
+      "ArcherTowerDefense"
+    ],
+    "src/controller/defense/InfernoTowerDefense.java": [
+      "InfernoTowerDefense",
+      "run",
+      "myNotify",
+      "InfernoTowerDefense"
+    ],
+    "src/controller/defense/package.bluej": [],
+    "src/controller/defense/TeslaDefense.java": [
+      "TeslaDefense",
+      "run",
+      "myNotify",
+      "TeslaDefense"
+    ],
+    "src/controller/LogInController.java": [
+      "LogInController",
+      "getPlayer",
+      "LogInController"
+    ],
+    "src/controller/package.bluej": [],
+    "src/controller/SignUpController.java": [
+      "SignUpController",
+      "checkId",
+      "SignUpController"
+    ],
+    "src/model/data/LoadData.java": [
+      "getPlayers",
+      "LoadData"
+    ],
+    "src/model/data/package.bluej": [],
+    "src/model/data/SaveData.java": [
+      "SaveData",
+      "run",
+      "SaveData"
+    ],
+    "src/model/data/UpdateData.java": [
+      "UpdateData",
+      "run",
+      "UpdateData"
+    ],
+    "src/model/IdPlayerException.java": [
+      "IdPlayerException",
+      "IdPlayerException"
+    ],
+    "src/model/Map/MapLoader.java": [
+      "MapLoader",
+      "getBuildingsMap",
+      "getMapView",
+      "MapLoader"
+    ],
+    "src/model/Map/package.bluej": [],
+    "src/model/package.bluej": [],
+    "src/model/Player.java": [
+      "Player",
+      "getMap",
+      "getIdPlayer",
+      "getPassword",
+      "getLevel",
+      "getNumberWin",
+      "Win",
+      "getNumberLose",
+      "Lose",
+      "Player"
+    ],
+    "src/module-info.java": [],
+    "src/package.bluej": [],
+    "src/view/Battle.java": [
+      "Battle",
+      "start",
+      "Battle"
+    ],
+    "src/view/LogIn.java": [
+      "LogIn",
+      "start",
+      "LogIn"
+    ],
+    "src/view/package.bluej": [],
+    "src/view/PlayerPanel.java": [
+      "PlayerPanel",
+      "start",
+      "PlayerPanel"
+    ],
+    "src/view/SearchOpponents.java": [
+      "SearchOpponents",
+      "start",
+      "SearchOpponents"
+    ],
+    "src/view/SignUp.java": [
+      "SignUp",
+      "start",
+      "SignUp"
+    ],
+    "test/test/testClass.java": [
+      "test",
+      "testClass"
+    ]
+  },
+  "batches": [
+    {
+      "batchIndex": 1,
+      "files": [
+        {
+          "path": "nbproject/build-impl.xml",
+          "language": "xml",
+          "sizeLines": 1825,
+          "fileCategory": "config"
+        },
+        {
+          "path": "nbproject/genfiles.properties",
+          "language": "properties",
+          "sizeLines": 8,
+          "fileCategory": "config"
+        },
+        {
+          "path": "nbproject/project.properties",
+          "language": "properties",
+          "sizeLines": 107,
+          "fileCategory": "config"
+        },
+        {
+          "path": "nbproject/project.xml",
+          "language": "xml",
+          "sizeLines": 41,
+          "fileCategory": "config"
+        }
+      ],
+      "batchImportData": {
+        "nbproject/build-impl.xml": [],
+        "nbproject/genfiles.properties": [],
+        "nbproject/project.properties": [],
+        "nbproject/project.xml": []
+      },
+      "neighborMap": {}
+    },
+    {
+      "batchIndex": 2,
+      "files": [
+        {
+          "path": ".DS_Store",
+          "language": "unknown",
+          "sizeLines": 2,
+          "fileCategory": "code"
+        },
+        {
+          "path": ".understand-anything/.understandignore",
+          "language": "unknown",
+          "sizeLines": 34,
+          "fileCategory": "code"
+        },
+        {
+          "path": ".understand-anything/config.json",
+          "language": "json",
+          "sizeLines": 1,
+          "fileCategory": "config"
+        },
+        {
+          "path": "build.xml",
+          "language": "xml",
+          "sizeLines": 73,
+          "fileCategory": "config"
+        },
+        {
+          "path": "README.md",
+          "language": "markdown",
+          "sizeLines": 14,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "src/.DS_Store",
+          "language": "unknown",
+          "sizeLines": 6,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/com/coc/GUI.java",
+          "language": "java",
+          "sizeLines": 26,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/com/coc/package.bluej",
+          "language": "bluej",
+          "sizeLines": 27,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/com/package.bluej",
+          "language": "bluej",
+          "sizeLines": 26,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/controller/attack/ArcherBalloonAttack.java",
+          "language": "java",
+          "sizeLines": 262,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/controller/attack/DefBalloonAttack.java",
+          "language": "java",
+          "sizeLines": 197,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/controller/attack/DragonAttack.java",
+          "language": "java",
+          "sizeLines": 214,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/controller/attack/GoblinBalloonAttack.java",
+          "language": "java",
+          "sizeLines": 205,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/controller/attack/package.bluej",
+          "language": "bluej",
+          "sizeLines": 55,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/controller/attack/PandaAttack.java",
+          "language": "java",
+          "sizeLines": 221,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/controller/CheckResultAttack.java",
+          "language": "java",
+          "sizeLines": 179,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/controller/defense/ArcherTowerDefense.java",
+          "language": "java",
+          "sizeLines": 131,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/controller/defense/InfernoTowerDefense.java",
+          "language": "java",
+          "sizeLines": 122,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/controller/defense/package.bluej",
+          "language": "bluej",
+          "sizeLines": 41,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/controller/defense/TeslaDefense.java",
+          "language": "java",
+          "sizeLines": 132,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/controller/LogInController.java",
+          "language": "java",
+          "sizeLines": 24,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/controller/package.bluej",
+          "language": "bluej",
+          "sizeLines": 53,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/controller/SignUpController.java",
+          "language": "java",
+          "sizeLines": 22,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/model/data/LoadData.java",
+          "language": "java",
+          "sizeLines": 51,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/model/data/package.bluej",
+          "language": "bluej",
+          "sizeLines": 41,
+          "fileCategory": "code"
+        }
+      ],
+      "batchImportData": {
+        ".DS_Store": [],
+        ".understand-anything/.understandignore": [],
+        ".understand-anything/config.json": [],
+        "build.xml": [],
+        "README.md": [],
+        "src/.DS_Store": [],
+        "src/com/coc/GUI.java": [],
+        "src/com/coc/package.bluej": [],
+        "src/com/package.bluej": [],
+        "src/controller/attack/ArcherBalloonAttack.java": [],
+        "src/controller/attack/DefBalloonAttack.java": [],
+        "src/controller/attack/DragonAttack.java": [],
+        "src/controller/attack/GoblinBalloonAttack.java": [],
+        "src/controller/attack/package.bluej": [],
+        "src/controller/attack/PandaAttack.java": [],
+        "src/controller/CheckResultAttack.java": [],
+        "src/controller/defense/ArcherTowerDefense.java": [],
+        "src/controller/defense/InfernoTowerDefense.java": [],
+        "src/controller/defense/package.bluej": [],
+        "src/controller/defense/TeslaDefense.java": [],
+        "src/controller/LogInController.java": [],
+        "src/controller/package.bluej": [],
+        "src/controller/SignUpController.java": [],
+        "src/model/data/LoadData.java": [],
+        "src/model/data/package.bluej": []
+      },
+      "neighborMap": {}
+    },
+    {
+      "batchIndex": 3,
+      "files": [
+        {
+          "path": "src/model/data/SaveData.java",
+          "language": "java",
+          "sizeLines": 33,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/model/data/UpdateData.java",
+          "language": "java",
+          "sizeLines": 33,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/model/IdPlayerException.java",
+          "language": "java",
+          "sizeLines": 7,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/model/Map/MapLoader.java",
+          "language": "java",
+          "sizeLines": 91,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/model/Map/package.bluej",
+          "language": "bluej",
+          "sizeLines": 55,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/model/package.bluej",
+          "language": "bluej",
+          "sizeLines": 65,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/model/Player.java",
+          "language": "java",
+          "sizeLines": 57,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/module-info.java",
+          "language": "java",
+          "sizeLines": 17,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/package.bluej",
+          "language": "bluej",
+          "sizeLines": 55,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/README.TXT",
+          "language": "txt",
+          "sizeLines": 0,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "src/style.css",
+          "language": "css",
+          "sizeLines": 34,
+          "fileCategory": "markup"
+        },
+        {
+          "path": "src/view/Battle.java",
+          "language": "java",
+          "sizeLines": 237,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/view/LogIn.java",
+          "language": "java",
+          "sizeLines": 111,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/view/package.bluej",
+          "language": "bluej",
+          "sizeLines": 76,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/view/PlayerPanel.java",
+          "language": "java",
+          "sizeLines": 235,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/view/SearchOpponents.java",
+          "language": "java",
+          "sizeLines": 249,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/view/SignUp.java",
+          "language": "java",
+          "sizeLines": 187,
+          "fileCategory": "code"
+        },
+        {
+          "path": "test/test/testClass.java",
+          "language": "java",
+          "sizeLines": 20,
+          "fileCategory": "code"
+        }
+      ],
+      "batchImportData": {
+        "src/model/data/SaveData.java": [],
+        "src/model/data/UpdateData.java": [],
+        "src/model/IdPlayerException.java": [],
+        "src/model/Map/MapLoader.java": [],
+        "src/model/Map/package.bluej": [],
+        "src/model/package.bluej": [],
+        "src/model/Player.java": [],
+        "src/module-info.java": [],
+        "src/package.bluej": [],
+        "src/README.TXT": [],
+        "src/style.css": [],
+        "src/view/Battle.java": [],
+        "src/view/LogIn.java": [],
+        "src/view/package.bluej": [],
+        "src/view/PlayerPanel.java": [],
+        "src/view/SearchOpponents.java": [],
+        "src/view/SignUp.java": [],
+        "test/test/testClass.java": []
+      },
+      "neighborMap": {}
+    }
+  ]
+}

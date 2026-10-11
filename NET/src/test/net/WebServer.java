@@ -92,12 +92,12 @@ public class WebServer {
 	while (true) {
 	    if (debug) Debug.out.println("Network: accept() called");
             try{
-	    final Socket sock = ssock.accept();
-            if (debug) Debug.out.println("Network: got new connection");
-	    if (opt_threads)
-		startWorkerThread(sock);
-	    else
-		startWorkerDomain(sock);
+                final Socket sock = ssock.accept();
+                if (debug) Debug.out.println("Network: got new connection");
+                if (opt_threads)
+                    startWorkerThread(sock);
+                else
+                    startWorkerDomain(sock);
             } catch (IOException e){                
                 break;
             }

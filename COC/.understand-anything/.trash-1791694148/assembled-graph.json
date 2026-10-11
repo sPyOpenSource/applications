@@ -1,0 +1,674 @@
+{
+  "version": "1.0.0",
+  "project": {
+    "name": "COC",
+    "languages": [
+      "bluej",
+      "css",
+      "java",
+      "json",
+      "markdown",
+      "properties",
+      "txt",
+      "xml"
+    ],
+    "frameworks": [],
+    "description": "Java project: COC",
+    "analyzedAt": "2026-10-11T04:43:35.547788+00:00",
+    "gitCommitHash": "1a6b2208ba2ac44d4590033f5fa389b0912b8b61"
+  },
+  "nodes": [
+    {
+      "id": "config:nbproject/build-impl.xml",
+      "type": "config",
+      "name": "build-impl.xml",
+      "filePath": "nbproject/build-impl.xml",
+      "summary": "config: nbproject/build-impl.xml",
+      "tags": [
+        "config"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:nbproject/genfiles.properties",
+      "type": "config",
+      "name": "genfiles.properties",
+      "filePath": "nbproject/genfiles.properties",
+      "summary": "config: nbproject/genfiles.properties",
+      "tags": [
+        "config"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:nbproject/project.properties",
+      "type": "config",
+      "name": "project.properties",
+      "filePath": "nbproject/project.properties",
+      "summary": "config: nbproject/project.properties",
+      "tags": [
+        "config"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:nbproject/project.xml",
+      "type": "config",
+      "name": "project.xml",
+      "filePath": "nbproject/project.xml",
+      "summary": "config: nbproject/project.xml",
+      "tags": [
+        "config"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:.DS_Store",
+      "type": "file",
+      "name": ".DS_Store",
+      "filePath": ".DS_Store",
+      "summary": "unknown file: .DS_Store",
+      "tags": [
+        "unknown"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:.understand-anything/.understandignore",
+      "type": "file",
+      "name": ".understandignore",
+      "filePath": ".understand-anything/.understandignore",
+      "summary": "unknown file: .understand-anything/.understandignore",
+      "tags": [
+        "unknown"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:.understand-anything/config.json",
+      "type": "config",
+      "name": "config.json",
+      "filePath": ".understand-anything/config.json",
+      "summary": "config: .understand-anything/config.json",
+      "tags": [
+        "config"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:build.xml",
+      "type": "config",
+      "name": "build.xml",
+      "filePath": "build.xml",
+      "summary": "config: build.xml",
+      "tags": [
+        "config"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "README.md",
+      "summary": "document: README.md",
+      "tags": [
+        "document"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/.DS_Store",
+      "type": "file",
+      "name": ".DS_Store",
+      "filePath": "src/.DS_Store",
+      "summary": "unknown file: src/.DS_Store",
+      "tags": [
+        "unknown"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/com/coc/GUI.java",
+      "type": "file",
+      "name": "GUI.java",
+      "filePath": "src/com/coc/GUI.java",
+      "summary": "java file: src/com/coc/GUI.java",
+      "tags": [
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/com/coc/package.bluej",
+      "type": "file",
+      "name": "package.bluej",
+      "filePath": "src/com/coc/package.bluej",
+      "summary": "bluej file: src/com/coc/package.bluej",
+      "tags": [
+        "bluej"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/com/package.bluej",
+      "type": "file",
+      "name": "package.bluej",
+      "filePath": "src/com/package.bluej",
+      "summary": "bluej file: src/com/package.bluej",
+      "tags": [
+        "bluej"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/controller/attack/ArcherBalloonAttack.java",
+      "type": "file",
+      "name": "ArcherBalloonAttack.java",
+      "filePath": "src/controller/attack/ArcherBalloonAttack.java",
+      "summary": "java file: src/controller/attack/ArcherBalloonAttack.java",
+      "tags": [
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/controller/attack/DefBalloonAttack.java",
+      "type": "file",
+      "name": "DefBalloonAttack.java",
+      "filePath": "src/controller/attack/DefBalloonAttack.java",
+      "summary": "java file: src/controller/attack/DefBalloonAttack.java",
+      "tags": [
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/controller/attack/DragonAttack.java",
+      "type": "file",
+      "name": "DragonAttack.java",
+      "filePath": "src/controller/attack/DragonAttack.java",
+      "summary": "java file: src/controller/attack/DragonAttack.java",
+      "tags": [
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/controller/attack/GoblinBalloonAttack.java",
+      "type": "file",
+      "name": "GoblinBalloonAttack.java",
+      "filePath": "src/controller/attack/GoblinBalloonAttack.java",
+      "summary": "java file: src/controller/attack/GoblinBalloonAttack.java",
+      "tags": [
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/controller/attack/package.bluej",
+      "type": "file",
+      "name": "package.bluej",
+      "filePath": "src/controller/attack/package.bluej",
+      "summary": "bluej file: src/controller/attack/package.bluej",
+      "tags": [
+        "bluej"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/controller/attack/PandaAttack.java",
+      "type": "file",
+      "name": "PandaAttack.java",
+      "filePath": "src/controller/attack/PandaAttack.java",
+      "summary": "java file: src/controller/attack/PandaAttack.java",
+      "tags": [
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/controller/CheckResultAttack.java",
+      "type": "file",
+      "name": "CheckResultAttack.java",
+      "filePath": "src/controller/CheckResultAttack.java",
+      "summary": "java file: src/controller/CheckResultAttack.java",
+      "tags": [
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/controller/defense/ArcherTowerDefense.java",
+      "type": "file",
+      "name": "ArcherTowerDefense.java",
+      "filePath": "src/controller/defense/ArcherTowerDefense.java",
+      "summary": "java file: src/controller/defense/ArcherTowerDefense.java",
+      "tags": [
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/controller/defense/InfernoTowerDefense.java",
+      "type": "file",
+      "name": "InfernoTowerDefense.java",
+      "filePath": "src/controller/defense/InfernoTowerDefense.java",
+      "summary": "java file: src/controller/defense/InfernoTowerDefense.java",
+      "tags": [
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/controller/defense/package.bluej",
+      "type": "file",
+      "name": "package.bluej",
+      "filePath": "src/controller/defense/package.bluej",
+      "summary": "bluej file: src/controller/defense/package.bluej",
+      "tags": [
+        "bluej"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/controller/defense/TeslaDefense.java",
+      "type": "file",
+      "name": "TeslaDefense.java",
+      "filePath": "src/controller/defense/TeslaDefense.java",
+      "summary": "java file: src/controller/defense/TeslaDefense.java",
+      "tags": [
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/controller/LogInController.java",
+      "type": "file",
+      "name": "LogInController.java",
+      "filePath": "src/controller/LogInController.java",
+      "summary": "java file: src/controller/LogInController.java",
+      "tags": [
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/controller/package.bluej",
+      "type": "file",
+      "name": "package.bluej",
+      "filePath": "src/controller/package.bluej",
+      "summary": "bluej file: src/controller/package.bluej",
+      "tags": [
+        "bluej"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/controller/SignUpController.java",
+      "type": "file",
+      "name": "SignUpController.java",
+      "filePath": "src/controller/SignUpController.java",
+      "summary": "java file: src/controller/SignUpController.java",
+      "tags": [
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/model/data/LoadData.java",
+      "type": "file",
+      "name": "LoadData.java",
+      "filePath": "src/model/data/LoadData.java",
+      "summary": "java file: src/model/data/LoadData.java",
+      "tags": [
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/model/data/package.bluej",
+      "type": "file",
+      "name": "package.bluej",
+      "filePath": "src/model/data/package.bluej",
+      "summary": "bluej file: src/model/data/package.bluej",
+      "tags": [
+        "bluej"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/model/data/SaveData.java",
+      "type": "file",
+      "name": "SaveData.java",
+      "filePath": "src/model/data/SaveData.java",
+      "summary": "java file: src/model/data/SaveData.java",
+      "tags": [
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/model/data/UpdateData.java",
+      "type": "file",
+      "name": "UpdateData.java",
+      "filePath": "src/model/data/UpdateData.java",
+      "summary": "java file: src/model/data/UpdateData.java",
+      "tags": [
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/model/IdPlayerException.java",
+      "type": "file",
+      "name": "IdPlayerException.java",
+      "filePath": "src/model/IdPlayerException.java",
+      "summary": "java file: src/model/IdPlayerException.java",
+      "tags": [
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/model/Map/MapLoader.java",
+      "type": "file",
+      "name": "MapLoader.java",
+      "filePath": "src/model/Map/MapLoader.java",
+      "summary": "java file: src/model/Map/MapLoader.java",
+      "tags": [
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/model/Map/package.bluej",
+      "type": "file",
+      "name": "package.bluej",
+      "filePath": "src/model/Map/package.bluej",
+      "summary": "bluej file: src/model/Map/package.bluej",
+      "tags": [
+        "bluej"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/model/package.bluej",
+      "type": "file",
+      "name": "package.bluej",
+      "filePath": "src/model/package.bluej",
+      "summary": "bluej file: src/model/package.bluej",
+      "tags": [
+        "bluej"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/model/Player.java",
+      "type": "file",
+      "name": "Player.java",
+      "filePath": "src/model/Player.java",
+      "summary": "java file: src/model/Player.java",
+      "tags": [
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/module-info.java",
+      "type": "file",
+      "name": "module-info.java",
+      "filePath": "src/module-info.java",
+      "summary": "java file: src/module-info.java",
+      "tags": [
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/package.bluej",
+      "type": "file",
+      "name": "package.bluej",
+      "filePath": "src/package.bluej",
+      "summary": "bluej file: src/package.bluej",
+      "tags": [
+        "bluej"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:src/README.TXT",
+      "type": "document",
+      "name": "README.TXT",
+      "filePath": "src/README.TXT",
+      "summary": "document: src/README.TXT",
+      "tags": [
+        "document"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:src/style.css",
+      "type": "document",
+      "name": "style.css",
+      "filePath": "src/style.css",
+      "summary": "document: src/style.css",
+      "tags": [
+        "document"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/view/Battle.java",
+      "type": "file",
+      "name": "Battle.java",
+      "filePath": "src/view/Battle.java",
+      "summary": "java file: src/view/Battle.java",
+      "tags": [
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/view/LogIn.java",
+      "type": "file",
+      "name": "LogIn.java",
+      "filePath": "src/view/LogIn.java",
+      "summary": "java file: src/view/LogIn.java",
+      "tags": [
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/view/package.bluej",
+      "type": "file",
+      "name": "package.bluej",
+      "filePath": "src/view/package.bluej",
+      "summary": "bluej file: src/view/package.bluej",
+      "tags": [
+        "bluej"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/view/PlayerPanel.java",
+      "type": "file",
+      "name": "PlayerPanel.java",
+      "filePath": "src/view/PlayerPanel.java",
+      "summary": "java file: src/view/PlayerPanel.java",
+      "tags": [
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/view/SearchOpponents.java",
+      "type": "file",
+      "name": "SearchOpponents.java",
+      "filePath": "src/view/SearchOpponents.java",
+      "summary": "java file: src/view/SearchOpponents.java",
+      "tags": [
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/view/SignUp.java",
+      "type": "file",
+      "name": "SignUp.java",
+      "filePath": "src/view/SignUp.java",
+      "summary": "java file: src/view/SignUp.java",
+      "tags": [
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:test/test/testClass.java",
+      "type": "file",
+      "name": "testClass.java",
+      "filePath": "test/test/testClass.java",
+      "summary": "java file: test/test/testClass.java",
+      "tags": [
+        "java"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [],
+  "layers": [
+    {
+      "id": "layer:project-root",
+      "name": "Project Root",
+      "description": "Root level files",
+      "nodeIds": [
+        "config:build.xml",
+        "document:README.md"
+      ]
+    },
+    {
+      "id": "layer:source",
+      "name": "Source (src)",
+      "description": "Application source",
+      "nodeIds": [
+        "file:src/.DS_Store",
+        "file:src/com/coc/GUI.java",
+        "file:src/com/coc/package.bluej",
+        "file:src/com/package.bluej",
+        "file:src/controller/attack/ArcherBalloonAttack.java",
+        "file:src/controller/attack/DefBalloonAttack.java",
+        "file:src/controller/attack/DragonAttack.java",
+        "file:src/controller/attack/GoblinBalloonAttack.java",
+        "file:src/controller/attack/package.bluej",
+        "file:src/controller/attack/PandaAttack.java",
+        "file:src/controller/CheckResultAttack.java",
+        "file:src/controller/defense/ArcherTowerDefense.java",
+        "file:src/controller/defense/InfernoTowerDefense.java",
+        "file:src/controller/defense/package.bluej",
+        "file:src/controller/defense/TeslaDefense.java",
+        "file:src/controller/LogInController.java",
+        "file:src/controller/package.bluej",
+        "file:src/controller/SignUpController.java",
+        "file:src/model/data/LoadData.java",
+        "file:src/model/data/package.bluej",
+        "file:src/model/data/SaveData.java",
+        "file:src/model/data/UpdateData.java",
+        "file:src/model/IdPlayerException.java",
+        "file:src/model/Map/MapLoader.java",
+        "file:src/model/Map/package.bluej",
+        "file:src/model/package.bluej",
+        "file:src/model/Player.java",
+        "file:src/module-info.java",
+        "file:src/package.bluej",
+        "document:src/README.TXT",
+        "document:src/style.css",
+        "file:src/view/Battle.java",
+        "file:src/view/LogIn.java",
+        "file:src/view/package.bluej",
+        "file:src/view/PlayerPanel.java",
+        "file:src/view/SearchOpponents.java",
+        "file:src/view/SignUp.java"
+      ]
+    },
+    {
+      "id": "layer:nbproject",
+      "name": "NetBeans Config",
+      "description": "NetBeans project files",
+      "nodeIds": [
+        "config:nbproject/build-impl.xml",
+        "config:nbproject/genfiles.properties",
+        "config:nbproject/project.properties",
+        "config:nbproject/project.xml"
+      ]
+    },
+    {
+      "id": "layer:test",
+      "name": "Tests",
+      "description": "Test files",
+      "nodeIds": [
+        "file:test/test/testClass.java"
+      ]
+    },
+    {
+      "id": "layer:misc",
+      "name": "Misc",
+      "description": "Other files",
+      "nodeIds": [
+        "file:.DS_Store",
+        "file:.understand-anything/.understandignore",
+        "config:.understand-anything/config.json"
+      ]
+    }
+  ],
+  "tour": [
+    {
+      "order": 1,
+      "title": "Project Overview",
+      "description": "README",
+      "nodeIds": [
+        "document:README.md"
+      ]
+    },
+    {
+      "order": 2,
+      "title": "build-impl.xml",
+      "description": "Overview",
+      "nodeIds": [
+        "config:nbproject/build-impl.xml"
+      ]
+    },
+    {
+      "order": 3,
+      "title": "genfiles.properties",
+      "description": "Overview",
+      "nodeIds": [
+        "config:nbproject/genfiles.properties"
+      ]
+    },
+    {
+      "order": 4,
+      "title": "project.properties",
+      "description": "Overview",
+      "nodeIds": [
+        "config:nbproject/project.properties"
+      ]
+    },
+    {
+      "order": 5,
+      "title": "project.xml",
+      "description": "Overview",
+      "nodeIds": [
+        "config:nbproject/project.xml"
+      ]
+    },
+    {
+      "order": 6,
+      "title": ".DS_Store",
+      "description": "Overview",
+      "nodeIds": [
+        "file:.DS_Store"
+      ]
+    }
+  ]
+}

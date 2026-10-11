@@ -1,5 +1,10 @@
 package AI;
 
+import java.io.IOException;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import jx.devices.pci.PCIAccess;
 import jx.devices.pci.PCICodes;
 import jx.devices.pci.PCIDevice;
@@ -19,6 +24,8 @@ import org.jnode.driver.bus.usb.uhci.UHCIDriver;
 import test.fs.MediaChangeTest;
 import test.fs.LargeFileTest;
 import test.fs.USBMassStorageTest;
+import test.net.TCPWebWorker;
+import test.net.WebServer;
 
 /**
  * This is a class initialize an artificial intelligence service.
@@ -43,7 +50,41 @@ public final class AI
         Debug.out = new DebugPrintStream(new DebugOutputStream((DebugChannel) InitialNaming.getInitialNaming().lookup("DebugChannel0")));
         IO = new AIIO(naming);
         log = new AILogic(IO.getMemory());
-        //NetInit.init(IO.getMemory().getInitialNaming(), new String[]{"NET"});
+        NetInit.init(IO.getMemory().getInitialNaming(), new String[]{"NET"});
+        try {
+            int port = 80;
+            boolean opt_threads = false;
+            String fsname = null;
+            boolean opt_use_fs = false;
+            boolean opt_dummyfiles = false;
+            ServerSocket ssock = new ServerSocket(port);
+
+            if (opt_threads) Debug.out.println("Webserver: use one thread per connection");
+            else Debug.out.println("Webserver: use one domain per connection");
+
+            // accept conections
+            while (true) {
+                Debug.out.println("Network: accept() called");
+                try{
+                    final Socket sock = ssock.accept();
+                    Debug.out.println("Network: got new connection");
+                    new Thread ("WebWorker"){
+                        @Override
+                        public void run() {
+                            try {
+                                TCPWebWorker.processRequest(sock, null);
+                            } catch(Exception e) {
+                                //throw new Error();
+                            }
+                        }
+                    }.start();
+                } catch (IOException e){                
+                    break;
+                }
+            }
+        } catch (Exception ex) {
+            //Logger.getLogger(AI.class.getName()).log(Level.SEVERE, null, ex);
+        }
 int j = 0;
         PCIAccess pci = (PCIAccess)IO.getMemory().getInitialNaming().lookup("PCIAccess");
         for(int i = 0; i < pci.getNumberOfDevices(); i++){
@@ -105,7 +146,7 @@ int j = 0;
     public static void init(Naming naming) throws Exception {
         AI instance = new AI(naming);
         instance.start();
-        jx.init.Main.main(new String[] {"boot.rc"});
+        //jx.init.Main.main(new String[] {"boot.rc"});
     }
     
     public static void main(String[] args){

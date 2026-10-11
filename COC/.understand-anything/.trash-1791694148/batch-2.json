@@ -1,0 +1,410 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 25,
+  "filesSkipped": [],
+  "nodes": [
+    {
+      "id": "file:.DS_Store",
+      "type": "file",
+      "name": ".DS_Store",
+      "filePath": ".DS_Store",
+      "summary": "unknown file: .DS_Store",
+      "tags": [
+        "unknown"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:.understand-anything/.understandignore",
+      "type": "file",
+      "name": ".understandignore",
+      "filePath": ".understand-anything/.understandignore",
+      "summary": "unknown file: .understand-anything/.understandignore",
+      "tags": [
+        "unknown"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:.understand-anything/config.json",
+      "type": "config",
+      "name": "config.json",
+      "filePath": ".understand-anything/config.json",
+      "summary": "config: .understand-anything/config.json",
+      "tags": [
+        "config"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:build.xml",
+      "type": "config",
+      "name": "build.xml",
+      "filePath": "build.xml",
+      "summary": "config: build.xml",
+      "tags": [
+        "config"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "README.md",
+      "summary": "document: README.md",
+      "tags": [
+        "document"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/.DS_Store",
+      "type": "file",
+      "name": ".DS_Store",
+      "filePath": "src/.DS_Store",
+      "summary": "unknown file: src/.DS_Store",
+      "tags": [
+        "unknown"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/com/coc/GUI.java",
+      "type": "file",
+      "name": "GUI.java",
+      "filePath": "src/com/coc/GUI.java",
+      "summary": "java file: src/com/coc/GUI.java",
+      "tags": [
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/com/coc/package.bluej",
+      "type": "file",
+      "name": "package.bluej",
+      "filePath": "src/com/coc/package.bluej",
+      "summary": "bluej file: src/com/coc/package.bluej",
+      "tags": [
+        "bluej"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/com/package.bluej",
+      "type": "file",
+      "name": "package.bluej",
+      "filePath": "src/com/package.bluej",
+      "summary": "bluej file: src/com/package.bluej",
+      "tags": [
+        "bluej"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/controller/attack/ArcherBalloonAttack.java",
+      "type": "file",
+      "name": "ArcherBalloonAttack.java",
+      "filePath": "src/controller/attack/ArcherBalloonAttack.java",
+      "summary": "java file: src/controller/attack/ArcherBalloonAttack.java",
+      "tags": [
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/controller/attack/DefBalloonAttack.java",
+      "type": "file",
+      "name": "DefBalloonAttack.java",
+      "filePath": "src/controller/attack/DefBalloonAttack.java",
+      "summary": "java file: src/controller/attack/DefBalloonAttack.java",
+      "tags": [
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/controller/attack/DragonAttack.java",
+      "type": "file",
+      "name": "DragonAttack.java",
+      "filePath": "src/controller/attack/DragonAttack.java",
+      "summary": "java file: src/controller/attack/DragonAttack.java",
+      "tags": [
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/controller/attack/GoblinBalloonAttack.java",
+      "type": "file",
+      "name": "GoblinBalloonAttack.java",
+      "filePath": "src/controller/attack/GoblinBalloonAttack.java",
+      "summary": "java file: src/controller/attack/GoblinBalloonAttack.java",
+      "tags": [
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/controller/attack/package.bluej",
+      "type": "file",
+      "name": "package.bluej",
+      "filePath": "src/controller/attack/package.bluej",
+      "summary": "bluej file: src/controller/attack/package.bluej",
+      "tags": [
+        "bluej"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/controller/attack/PandaAttack.java",
+      "type": "file",
+      "name": "PandaAttack.java",
+      "filePath": "src/controller/attack/PandaAttack.java",
+      "summary": "java file: src/controller/attack/PandaAttack.java",
+      "tags": [
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/controller/CheckResultAttack.java",
+      "type": "file",
+      "name": "CheckResultAttack.java",
+      "filePath": "src/controller/CheckResultAttack.java",
+      "summary": "java file: src/controller/CheckResultAttack.java",
+      "tags": [
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/controller/defense/ArcherTowerDefense.java",
+      "type": "file",
+      "name": "ArcherTowerDefense.java",
+      "filePath": "src/controller/defense/ArcherTowerDefense.java",
+      "summary": "java file: src/controller/defense/ArcherTowerDefense.java",
+      "tags": [
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/controller/defense/InfernoTowerDefense.java",
+      "type": "file",
+      "name": "InfernoTowerDefense.java",
+      "filePath": "src/controller/defense/InfernoTowerDefense.java",
+      "summary": "java file: src/controller/defense/InfernoTowerDefense.java",
+      "tags": [
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/controller/defense/package.bluej",
+      "type": "file",
+      "name": "package.bluej",
+      "filePath": "src/controller/defense/package.bluej",
+      "summary": "bluej file: src/controller/defense/package.bluej",
+      "tags": [
+        "bluej"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/controller/defense/TeslaDefense.java",
+      "type": "file",
+      "name": "TeslaDefense.java",
+      "filePath": "src/controller/defense/TeslaDefense.java",
+      "summary": "java file: src/controller/defense/TeslaDefense.java",
+      "tags": [
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/controller/LogInController.java",
+      "type": "file",
+      "name": "LogInController.java",
+      "filePath": "src/controller/LogInController.java",
+      "summary": "java file: src/controller/LogInController.java",
+      "tags": [
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/controller/package.bluej",
+      "type": "file",
+      "name": "package.bluej",
+      "filePath": "src/controller/package.bluej",
+      "summary": "bluej file: src/controller/package.bluej",
+      "tags": [
+        "bluej"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/controller/SignUpController.java",
+      "type": "file",
+      "name": "SignUpController.java",
+      "filePath": "src/controller/SignUpController.java",
+      "summary": "java file: src/controller/SignUpController.java",
+      "tags": [
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/model/data/LoadData.java",
+      "type": "file",
+      "name": "LoadData.java",
+      "filePath": "src/model/data/LoadData.java",
+      "summary": "java file: src/model/data/LoadData.java",
+      "tags": [
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/model/data/package.bluej",
+      "type": "file",
+      "name": "package.bluej",
+      "filePath": "src/model/data/package.bluej",
+      "summary": "bluej file: src/model/data/package.bluej",
+      "tags": [
+        "bluej"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [],
+  "results": [
+    {
+      "path": ".DS_Store",
+      "totalLines": 3,
+      "nonEmptyLines": 3
+    },
+    {
+      "path": ".understand-anything/.understandignore",
+      "totalLines": 34,
+      "nonEmptyLines": 29
+    },
+    {
+      "path": ".understand-anything/config.json",
+      "totalLines": 1,
+      "nonEmptyLines": 1
+    },
+    {
+      "path": "build.xml",
+      "totalLines": 73,
+      "nonEmptyLines": 60
+    },
+    {
+      "path": "README.md",
+      "totalLines": 14,
+      "nonEmptyLines": 8
+    },
+    {
+      "path": "src/.DS_Store",
+      "totalLines": 7,
+      "nonEmptyLines": 7
+    },
+    {
+      "path": "src/com/coc/GUI.java",
+      "totalLines": 26,
+      "nonEmptyLines": 22
+    },
+    {
+      "path": "src/com/coc/package.bluej",
+      "totalLines": 27,
+      "nonEmptyLines": 27
+    },
+    {
+      "path": "src/com/package.bluej",
+      "totalLines": 26,
+      "nonEmptyLines": 26
+    },
+    {
+      "path": "src/controller/attack/ArcherBalloonAttack.java",
+      "totalLines": 262,
+      "nonEmptyLines": 243
+    },
+    {
+      "path": "src/controller/attack/DefBalloonAttack.java",
+      "totalLines": 197,
+      "nonEmptyLines": 184
+    },
+    {
+      "path": "src/controller/attack/DragonAttack.java",
+      "totalLines": 214,
+      "nonEmptyLines": 201
+    },
+    {
+      "path": "src/controller/attack/GoblinBalloonAttack.java",
+      "totalLines": 205,
+      "nonEmptyLines": 192
+    },
+    {
+      "path": "src/controller/attack/package.bluej",
+      "totalLines": 55,
+      "nonEmptyLines": 55
+    },
+    {
+      "path": "src/controller/attack/PandaAttack.java",
+      "totalLines": 221,
+      "nonEmptyLines": 208
+    },
+    {
+      "path": "src/controller/CheckResultAttack.java",
+      "totalLines": 179,
+      "nonEmptyLines": 168
+    },
+    {
+      "path": "src/controller/defense/ArcherTowerDefense.java",
+      "totalLines": 131,
+      "nonEmptyLines": 121
+    },
+    {
+      "path": "src/controller/defense/InfernoTowerDefense.java",
+      "totalLines": 122,
+      "nonEmptyLines": 115
+    },
+    {
+      "path": "src/controller/defense/package.bluej",
+      "totalLines": 41,
+      "nonEmptyLines": 41
+    },
+    {
+      "path": "src/controller/defense/TeslaDefense.java",
+      "totalLines": 132,
+      "nonEmptyLines": 123
+    },
+    {
+      "path": "src/controller/LogInController.java",
+      "totalLines": 24,
+      "nonEmptyLines": 19
+    },
+    {
+      "path": "src/controller/package.bluej",
+      "totalLines": 53,
+      "nonEmptyLines": 53
+    },
+    {
+      "path": "src/controller/SignUpController.java",
+      "totalLines": 22,
+      "nonEmptyLines": 17
+    },
+    {
+      "path": "src/model/data/LoadData.java",
+      "totalLines": 51,
+      "nonEmptyLines": 42
+    },
+    {
+      "path": "src/model/data/package.bluej",
+      "totalLines": 41,
+      "nonEmptyLines": 41
+    }
+  ]
+}

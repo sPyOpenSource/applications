@@ -11,7 +11,7 @@ import java.net.Socket;
 import jx.fs.*;
 import java.util.*;
 
-class TCPWebWorker {
+public class TCPWebWorker {
     private final static boolean debug = true; 
     final static int METHOD_UNDEF = 0;
     final static int METHOD_GET = 1;
@@ -26,7 +26,7 @@ class TCPWebWorker {
     public static void init(Naming naming, String[] argv, Object[] objs)  throws Exception {
 	Debug.out = new DebugPrintStream(new DebugOutputStream((DebugChannel) naming.lookup("DebugChannel0")));
 
-	Socket s= (Socket) objs[0];
+	Socket s = (Socket) objs[0];
 	processRequest(s, (FS) objs[1]);
 	
 	DomainManager domainManager = (DomainManager) naming.lookup("DomainManager");
@@ -78,7 +78,10 @@ class TCPWebWorker {
                 }
             default:
                 {
-                    byte[] data = readFile("/" + file);
+                    String index = "<html><head><title>JX index.html Testseite (FILEXX)</title><body bgcolor=ffffff>\n\n" +
+			   "<center><h2>Herzlich willkommen auf der JX-FILE-Testseite</h2></center><br><br>\n" +
+			   "Link zur <a href=page2.html>zweiten</a> Seite</body></html>\n";
+                    byte[] data = index.getBytes();//readFile("/" + file);
                     ostream.write(constructHeader(file, data.length).getBytes());
                     ostream.write(data);
                     if (debug) Debug.out.println("HTTPServer: reply sent.");
@@ -136,6 +139,7 @@ class TCPWebWorker {
                     case "Content-length:":
                         contentsLength = Integer.parseInt(tokenizer.nextToken());
                         break;
+                    case "Sec-WebSocket-Key:":
                     default:
                         break;
                 }

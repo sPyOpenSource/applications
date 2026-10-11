@@ -1,0 +1,50 @@
+[
+  {
+    "order": 1,
+    "title": "Project Overview",
+    "description": "README",
+    "nodeIds": [
+      "document:README.md"
+    ]
+  },
+  {
+    "order": 2,
+    "title": "build-impl.xml",
+    "description": "Overview",
+    "nodeIds": [
+      "config:nbproject/build-impl.xml"
+    ]
+  },
+  {
+    "order": 3,
+    "title": "genfiles.properties",
+    "description": "Overview",
+    "nodeIds": [
+      "config:nbproject/genfiles.properties"
+    ]
+  },
+  {
+    "order": 4,
+    "title": "project.properties",
+    "description": "Overview",
+    "nodeIds": [
+      "config:nbproject/project.properties"
+    ]
+  },
+  {
+    "order": 5,
+    "title": "project.xml",
+    "description": "Overview",
+    "nodeIds": [
+      "config:nbproject/project.xml"
+    ]
+  },
+  {
+    "order": 6,
+    "title": ".DS_Store",
+    "description": "Overview",
+    "nodeIds": [
+      "file:.DS_Store"
+    ]
+  }
+]

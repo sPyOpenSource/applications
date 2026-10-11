@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 1 — The Scene Graph: How a COC Screen Is Built</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <span><strong>Lesson 1</strong></span>
+  <span>·</span>
+  <a href="../reference/scene-graph-cheatsheet.html">Cheatsheet</a>
+  <span>·</span>
+  <a href="../reference/javafx-glossary.html">Glossary</a>
+</nav>
+
+<h1>The Scene Graph: How a COC Screen Is Built</h1>
+<p class="lead">🎯 Win of the day: read any screen file in <code>src/view/</code> and draw its scene graph from memory.</p>
+
+<p>Before you can <em>redesign</em> a screen, you must be able to <em>see</em> it — not as pixels, but as a tree. That tree is the <strong>scene graph</strong>. In this lesson we'll build the mental model and trace it through the real <code>LogIn.java</code>.</p>
+
+<h2>1. The three-layer window stack</h2>
+<p>Every JavaFX screen is three nested layers. Outer to inner:</p>
+
+<pre class="tree">Stage        the OS window (title bar, size, position)
+└── Scene    the canvas inside it (one root node + size + stylesheets)
+    └── root + descendants   ← this tree is the SCENE GRAPH</pre>
+
+<ul>
+  <li><strong>Stage</strong> — the window itself. <code>stage.setTitle("Log in")</code>, <code>stage.setScene(scene)</code>, <code>stage.show()</code>.</li>
+  <li><strong>Scene</strong> — holds <em>exactly one</em> root node, plus a size and the stylesheets.</li>
+  <li><strong>Scene graph</strong> — the tree of nodes hanging off that root.</li>
+</ul>
+
+<h2>2. Every item is a node — branch or leaf</h2>
+<p>Everything visible is a <code>Node</code>. Two flavours:</p>
+<table class="grid">
+  <tr><th>Branch (<code>Parent</code>)</th><th>Leaf</th></tr>
+  <tr>
+    <td>Has children. Layout panes (<code>VBox</code>, <code>BorderPane</code>, <code>AnchorPane</code>…), <code>Group</code>, controls.</td>
+    <td>No children. <code>ImageView</code>, <code>Text</code>, <code>Rectangle</code>, <code>MediaView</code>, shapes.</td>
+  </tr>
+</table>
+<p>A node has at most <em>one</em> parent, and the graph must have no cycles. <span class="sidenote">(<a href="https://openjfx.io/javadoc/21/javafx.graphics/javafx/scene/Node.html">OpenJFX — Node</a>)</span></p>
+
+<h2>3. Trace it in <em>your</em> code</h2>
+<p>Open <code>src/view/LogIn.java</code>. The <code>start</code> method builds the top layers, then delegates the centre to a helper:</p>
+
+<pre><code>// LogIn.start(Stage stage)
+BorderPane root = new BorderPane();              // the ROOT (a branch)
+root.setBackground(...);
+root.setCenter(vBoxFields(stage));               // attach a branch into "center"
+Scene scene = new Scene(root, 400, 300);         // Scene wraps the root
+scene.getStylesheets().add("style.css");         // CSS hook
+stage.setScene(scene);                           // Stage wraps the Scene
+stage.show();
+root.getChildren().add(new MediaView(...));      // leaf added after show</code></pre>
+
+<p>And <code>vBoxFields()</code> returns a <code>VBox</code> — a branch — holding a title, two fields, and an <code>HBox</code> of buttons. Putting it together, the scene graph is:</p>
+
+<pre class="tree">Stage "Log in"
+└── Scene (400×300, +style.css)
+    └── BorderPane                    ← root (branch)
+        ├── VBox   [set as center]    ← branch
+        │   ├── Text "Log In"         leaf
+        │   ├── TextField (username)  leaf
+        │   ├── TextField (password)  leaf
+        │   └── HBox                  ← branch
+        │       ├── Button "Sign Up"  leaf
+        │       └── Button "Log In"   leaf
+        └── MediaView                 leaf (added after show)</code></pre>
+
+<div class="callout">
+  <strong>Two layout styles coexist.</strong> <code>LogIn</code> uses a <code>VBox</code> with <code>spacing</code>/<code>alignment</code> (auto layout). <code>PlayerPanel</code> and <code>Battle</code> instead place nodes with <code>setX/setY</code> (absolute). For the redesign you'll favour auto layout — but you must first recognise which style each screen uses.
+</div>
+
+<div class="callout">
+  <strong>The quirk you'll fix later.</strong> Each screen here is its own <code>Application</code> subclass, opened with <code>new SignUp(players).start(new Stage())</code>. A normal app has <em>one</em> <code>Application</code> launched by <code>launch()</code>. This is the structural smell at the heart of the GUI. Lesson 1 only asks you to <em>see</em> it.
+</div>
+
+<div class="task">
+  <h3>🛠 Hands-on (5 min)</h3>
+  <ol>
+    <li>Open <code>src/view/LogIn.java</code> and match each line in <code>start()</code> + <code>vBoxFields()</code> to the tree above.</li>
+    <li>Make one reversible change in <code>vBoxFields</code> so you can <em>see</em> the VBox's bounds:
+      <pre><code>vBox.setStyle("-fx-background-color: rgba(21,101,192,0.35);" +
+              "-fx-border-color: #1565c0;");</code></pre>
+    </li>
+    <li>Rebuild and run. Notice the VBox now visibly fills the BorderPane's <em>centre</em> region only.</li>
+    <li>Remove the line. <span class="sidenote">Can't build/run yet? Do the trace on paper — we'll set up a run config in a later lesson.</span></li>
+  </ol>
+</div>
+
+<h2>4. Check yourself (from memory)</h2>
+
+<div class="quiz">
+  <p>Which of these is the top-level OS window in JavaFX?</p>
+  <button class="quiz-option" data-correct="false">Scene</button>
+  <button class="quiz-option" data-correct="true" data-feedback="✓ Correct — the Stage is the OS window; the Scene is its content.">Stage</button>
+  <button class="quiz-option" data-correct="false">Group</button>
+  <button class="quiz-option" data-correct="false">Label</button>
+  <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz">
+  <p>Which of these can contain child nodes?</p>
+  <button class="quiz-option" data-correct="false">ImageView</button>
+  <button class="quiz-option" data-correct="false">Rectangle</button>
+  <button class="quiz-option" data-correct="true" data-feedback="✓ Correct — StackPane is a Parent (branch); the rest are leaves.">StackPane</button>
+  <button class="quiz-option" data-correct="false">MediaView</button>
+  <div class="quiz-feedback"></div>
+</div>
+
+<details class="reveal">
+  <summary>Recall: name the three layers of the window stack, outer → inner, without scrolling up.</summary>
+  <p><strong>Stage</strong> (window) → <strong>Scene</strong> (canvas, one root + stylesheets) → the <strong>scene graph</strong> (root node and its descendants).</p>
+</details>
+
+<h2>Summary</h2>
+<ul>
+  <li>A screen = <strong>Stage → Scene → scene graph</strong>.</li>
+  <li>Every item is a <strong>Node</strong>: <em>branch</em> (Parent, has children) or <em>leaf</em> (no children).</li>
+  <li>You attach children via <code>getChildren()</code> or layout-specific setters like <code>setCenter()</code>.</li>
+  <li><code>LogIn</code> mixes auto layout (<code>VBox</code>) with the project's one-<code>Application</code>-per-screen pattern.</li>
+</ul>
+
+<div class="footer">
+  <p><strong>Primary source:</strong> <a href="https://docs.oracle.com/javase/8/javafx/scene-graph-tutorial/scenegraph.htm">Oracle — Working with the JavaFX Scene Graph</a> (read §"Overview" and the API examples).</p>
+  <p><strong>Reference:</strong> <a href="../reference/scene-graph-cheatsheet.html">Scene Graph Cheatsheet</a> · <a href="../reference/javafx-glossary.html">Glossary</a></p>
+  <p><strong>Next up:</strong> pick the right layout pane — and re-lay-out one screen without pixels.</p>
+  <p>Anything unclear? Ask me — I'm your teacher, and I can walk through any line of <code>LogIn.java</code> with you.</p>
+</div>
+
+<script src="../assets/quiz.js"></script>
+
+</body>
+</html>
