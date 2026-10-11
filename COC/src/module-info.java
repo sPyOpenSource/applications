@@ -10,7 +10,7 @@ module com.coc {
     requires javafx.swing;
     requires javafx.web;
     requires assets;
-    requires snakeyaml;
+    requires org.yaml.snakeyaml;
     requires cr0s.javara.main;
     
     opens com.coc to javafx.fxml;
