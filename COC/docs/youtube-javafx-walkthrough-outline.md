@@ -87,7 +87,7 @@ creating a `Stage` per screen.
 
 ## Episode 3 — The Model and the Missing Database (~16 min)
 
-**Hook:** There is a full database layer written here — and all of it is commented out.
+**Hook:** There is a full database layer written here — but all of it is commented out for now.
 
 **Outcome:** Explain the view/controller/model split and the persistence path.
 
