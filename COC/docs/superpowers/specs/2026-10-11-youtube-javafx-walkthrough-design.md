@@ -84,7 +84,7 @@ Woven through episodes as callbacks, not given their own episodes:
   why `module-info` requires `javafx.controls`.
 - **On-screen beats:** run the app → observe it lands on `PlayerPanel`, not
   `LogIn` → inspect `LogInController.getPlayer("","")` returning a fabricated
-  `Player` (`LogInController.java:19`) → walk `module-info.java` legibly.
+  `Player` (`LogInController.java:21`) → walk `module-info.java` legibly.
 - **Refactor beat:** redirect the entry point to the real `LogIn` screen so the
   journey starts correctly.
 - **Next time:** where the login screen actually lives.
@@ -93,7 +93,7 @@ Woven through episodes as callbacks, not given their own episodes:
 
 - **Outcome:** construct a scene graph by hand and explain why a new `Stage` per
   screen is a smell.
-- **Code path:** `src/view/LogIn.java` (whole file), `src/view/SignUp.java:44-60`.
+- **Code path:** `src/view/LogIn.java` (whole file), `src/view/SignUp.java:51-60`.
 - **JavaFX concepts:** `BorderPane`/`VBox`/`HBox`, `Insets`/`spacing`/`alignment`,
   stylesheets, `DropShadow`, `MediaPlayer`/`MediaView`, node parent rules.
 - **On-screen beats:** draw LogIn's scene-graph tree → highlight `vBoxFields()` →
