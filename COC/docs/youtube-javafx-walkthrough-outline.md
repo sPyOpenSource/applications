@@ -38,7 +38,7 @@ Woven through episodes as callbacks, never given their own episode:
 
 ## Episode 1 — This App Skips Its Own Login Screen (~12 min)
 
-**Hook:** The project has a login screen, but the app launches straight past it.
+**Hook:** The login screen is hidden, and the app launches straight past it right now.
 
 **Outcome:** Trace `main()` → `launch()` → `start()` and explain the JavaFX
 application lifecycle.
@@ -87,7 +87,7 @@ creating a `Stage` per screen.
 
 ## Episode 3 — The Model and the Missing Database (~16 min)
 
-**Hook:** There is a full database layer written here — and all of it is commented out.
+**Hook:** There is a full database layer written here — but all of it is commented out for now.
 
 **Outcome:** Explain the view/controller/model split and the persistence path.
 
