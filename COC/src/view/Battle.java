@@ -104,9 +104,11 @@ public class Battle extends Application {
                 (x, y) -> new GoblinBalloonAttack(x, y, root, defensivePlayer.getMap()));
         installIcon("assets/png/archer_drag.png", 380, 3, 4,
                 (x, y) -> new ArcherBalloonAttack(x, y, root, defensivePlayer.getMap()));
-        installIcon(new Barbarian(new Pos(0, 0)).getImages().get(0), 470, 5, 1,
+        installIcon("assets/png/archer_drag.png"//new Barbarian(new Pos(0, 0)).getImages().get(0)
+                , 470, 5, 1,
                 (x, y) -> new BarbarianAttack(x, y, root, defensivePlayer.getMap()));
-        installIcon(new Wizard(new Pos(0, 0)).getImages().get(0), 560, 20, 2,
+        installIcon("assets/png/archer_drag.png"//new Wizard(new Pos(0, 0)).getImages().get(0)
+                , 560, 20, 2,
                 (x, y) -> new WizardAttack(x, y, root, defensivePlayer.getMap()));
 
         for (UnitIcon icon : icons) {
@@ -114,7 +116,7 @@ public class Battle extends Application {
                 root.getChildren().add(icon.view);
             }
         }
-        icons.get(0).view.setEffect(shadow);
+        icons.get(5).view.setEffect(shadow);
 
         root.getChildren().addAll(rectangle, imageViewCapacity, capacity);
         root.setOnMouseClicked(mouseEvent -> deploy(mouseEvent.getX(), mouseEvent.getY(), root, capacity));

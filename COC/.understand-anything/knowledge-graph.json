@@ -661,14 +661,6 @@
       "nodeIds": [
         "config:nbproject/project.xml"
       ]
-    },
-    {
-      "order": 6,
-      "title": ".DS_Store",
-      "description": "Overview",
-      "nodeIds": [
-        "file:.DS_Store"
-      ]
     }
   ]
 }
